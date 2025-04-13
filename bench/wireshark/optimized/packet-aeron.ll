@@ -656,12 +656,12 @@ aeron_format_transport_uri.exit:                  ; preds = %31, %36, %aeron_is_
   %99 = getelementptr inbounds nuw i8, ptr %14, i64 50
   br label %100
 
-100:                                              ; preds = %.lr.ph, %dissect_aeron_rtt.exit.thread159
-  %.0102190 = phi i32 [ %47, %.lr.ph ], [ %845, %dissect_aeron_rtt.exit.thread159 ]
-  %.0103182 = phi i32 [ 0, %.lr.ph ], [ %844, %dissect_aeron_rtt.exit.thread159 ]
-  %.0108181 = phi i32 [ 0, %.lr.ph ], [ %843, %dissect_aeron_rtt.exit.thread159 ]
-  %101 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0103182)
-  %102 = call i32 @tvb_skip_uint8(ptr noundef %0, i32 noundef %.0103182, i32 noundef %101, i8 noundef zeroext 0)
+100:                                              ; preds = %.lr.ph, %dissect_aeron_rtt.exit.thread164
+  %.0102193 = phi i32 [ %47, %.lr.ph ], [ %841, %dissect_aeron_rtt.exit.thread164 ]
+  %.0103187 = phi i32 [ 0, %.lr.ph ], [ %840, %dissect_aeron_rtt.exit.thread164 ]
+  %.0108186 = phi i32 [ 0, %.lr.ph ], [ %839, %dissect_aeron_rtt.exit.thread164 ]
+  %101 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0103187)
+  %102 = call i32 @tvb_skip_uint8(ptr noundef %0, i32 noundef %.0103187, i32 noundef %101, i8 noundef zeroext 0)
   %103 = call i32 @tvb_captured_length(ptr noundef %0)
   %104 = icmp eq i32 %102, %103
   br i1 %104, label %.thread, label %105
@@ -674,12 +674,12 @@ aeron_format_transport_uri.exit:                  ; preds = %31, %36, %aeron_is_
 108:                                              ; preds = %105
   %109 = load i32, ptr %53, align 4
   %110 = call ptr @wmem_packet_scope()
-  %111 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %110, i64 noundef 32) #13
+  %111 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %110, i64 noundef 32) #12
   %112 = call ptr @wmem_packet_scope()
-  %113 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %112, i64 noundef 8) #13
+  %113 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %112, i64 noundef 8) #12
   store i32 %109, ptr %113, align 4
   %114 = getelementptr i8, ptr %113, i64 4
-  store i32 %.0103182, ptr %114, align 4
+  store i32 %.0103187, ptr %114, align 4
   store i32 2, ptr %111, align 8
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store ptr %113, ptr %115, align 8
@@ -694,1301 +694,1294 @@ aeron_format_transport_uri.exit:                  ; preds = %31, %36, %aeron_is_
 
 121:                                              ; preds = %108
   %122 = call ptr @wmem_file_scope()
-  %123 = call noalias dereferenceable_or_null(80) ptr @wmem_alloc0(ptr noundef %122, i64 noundef 80) #13
+  %123 = call noalias dereferenceable_or_null(80) ptr @wmem_alloc0(ptr noundef %122, i64 noundef 80) #12
   store i32 %109, ptr %123, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
-  store i32 %.0103182, ptr %124, align 4
+  store i32 %.0103187, ptr %124, align 4
   %125 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
   %126 = trunc nuw i8 %125 to i1
-  br i1 %126, label %127, label %134
+  %127 = load i8, ptr @aeron_stream_analysis, align 1, !range !6
+  %128 = trunc nuw i8 %127 to i1
+  %or.cond.i = select i1 %126, i1 %128, i1 false
+  br i1 %or.cond.i, label %129, label %133
 
-127:                                              ; preds = %121
-  %128 = load i8, ptr @aeron_stream_analysis, align 1, !range !6, !noundef !7
-  %129 = trunc nuw i8 %128 to i1
-  br i1 %129, label %130, label %134
+129:                                              ; preds = %121
+  %130 = call ptr @wmem_file_scope()
+  %131 = call noalias ptr @wmem_list_new(ptr noundef %130)
+  %132 = getelementptr inbounds nuw i8, ptr %123, i64 64
+  store ptr %131, ptr %132, align 8
+  br label %133
 
-130:                                              ; preds = %127
-  %131 = call ptr @wmem_file_scope()
-  %132 = call noalias ptr @wmem_list_new(ptr noundef %131)
-  %133 = getelementptr inbounds nuw i8, ptr %123, i64 64
-  store ptr %132, ptr %133, align 8
-  br label %134
-
-134:                                              ; preds = %130, %127, %121
-  %135 = load ptr, ptr @aeron_frame_info_tree, align 8
-  call void @wmem_tree_insert32_array(ptr noundef %135, ptr noundef %111, ptr noundef %123)
+133:                                              ; preds = %129, %121
+  %134 = load ptr, ptr @aeron_frame_info_tree, align 8
+  call void @wmem_tree_insert32_array(ptr noundef %134, ptr noundef %111, ptr noundef %123)
   br label %aeron_frame_info_add.exit
 
-aeron_frame_info_add.exit:                        ; preds = %134, %108, %105
-  %.0 = phi ptr [ null, %105 ], [ %123, %134 ], [ %119, %108 ]
-  %136 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103182)
-  %137 = add i32 %.0103182, 5
-  %138 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %137)
-  %139 = add i32 %.0103182, 6
-  %140 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %139)
-  %141 = call fastcc ptr @aeron_setup_conversation_info(ptr noundef %1, i16 noundef zeroext %140)
-  switch i16 %140, label %.thread [
-    i16 0, label %142
-    i16 1, label %217
-    i16 2, label %497
-    i16 3, label %555
-    i16 6, label %674
-    i16 4, label %725
-    i16 5, label %763
+aeron_frame_info_add.exit:                        ; preds = %133, %108, %105
+  %.0 = phi ptr [ null, %105 ], [ %123, %133 ], [ %119, %108 ]
+  %135 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103187)
+  %136 = add i32 %.0103187, 5
+  %137 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %136)
+  %138 = add i32 %.0103187, 6
+  %139 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %138)
+  %140 = call fastcc ptr @aeron_setup_conversation_info(ptr noundef %1, i16 noundef zeroext %139)
+  switch i16 %139, label %.thread [
+    i16 0, label %141
+    i16 1, label %215
+    i16 2, label %496
+    i16 3, label %554
+    i16 6, label %670
+    i16 4, label %721
+    i16 5, label %759
   ]
 
-142:                                              ; preds = %aeron_frame_info_add.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14) #14
-  %143 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103182)
-  %144 = add i32 %143, 31
-  %145 = and i32 %144, -32
-  %146 = icmp slt i32 %144, 0
-  br i1 %146, label %dissect_aeron_pad.exit, label %147
+141:                                              ; preds = %aeron_frame_info_add.exit
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14) #13
+  %142 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103187)
+  %143 = add i32 %142, 31
+  %144 = and i32 %143, -32
+  %145 = icmp slt i32 %143, 0
+  br i1 %145, label %dissect_aeron_pad.exit, label %146
 
-147:                                              ; preds = %142
-  %148 = add i32 %.0103182, 8
-  %149 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %148)
-  %150 = add i32 %.0103182, 12
-  %151 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %150)
-  %152 = load i32, ptr %53, align 4
-  %153 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %141, i32 noundef %151, i32 noundef %152)
-  %154 = add i32 %.0103182, 16
-  %155 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %154)
-  %156 = add i32 %.0103182, 20
-  %157 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %156)
-  %158 = add nsw i32 %143, -24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
-  store i32 %155, ptr %94, align 4
-  store i32 %157, ptr %95, align 8
-  store i32 %149, ptr %96, align 4
+146:                                              ; preds = %141
+  %147 = add i32 %.0103187, 8
+  %148 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %147)
+  %149 = add i32 %.0103187, 12
+  %150 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %149)
+  %151 = load i32, ptr %53, align 4
+  %152 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %140, i32 noundef %150, i32 noundef %151)
+  %153 = add i32 %.0103187, 16
+  %154 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %153)
+  %155 = add i32 %.0103187, 20
+  %156 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %155)
+  %157 = add nsw i32 %142, -24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 noundef 0, i64 noundef 32, i1 noundef false) #13
+  store i32 %154, ptr %94, align 4
+  store i32 %156, ptr %95, align 8
+  store i32 %148, ptr %96, align 4
   store i32 7, ptr %14, align 8
-  store i32 %143, ptr %97, align 8
-  store i32 %158, ptr %98, align 4
-  %159 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %137)
-  store i8 %159, ptr %99, align 2
-  %160 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %153, ptr noundef nonnull %14, ptr noundef %.0)
-  %161 = icmp slt i32 %160, 0
-  br i1 %161, label %dissect_aeron_pad.exit, label %162
+  store i32 %142, ptr %97, align 8
+  store i32 %157, ptr %98, align 4
+  %158 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %136)
+  store i8 %158, ptr %99, align 2
+  %159 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %152, ptr noundef nonnull %14, ptr noundef %.0)
+  %160 = icmp slt i32 %159, 0
+  br i1 %160, label %dissect_aeron_pad.exit, label %161
 
-162:                                              ; preds = %147
-  %163 = call ptr @val_to_str_const(i32 noundef 0, ptr noundef nonnull @aeron_frame_type, ptr noundef nonnull @.str.257)
-  %164 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
-  %165 = trunc nuw i8 %164 to i1
-  br i1 %165, label %166, label %179
+161:                                              ; preds = %146
+  %162 = call ptr @val_to_str_const(i32 noundef 0, ptr noundef nonnull @aeron_frame_type, ptr noundef nonnull @.str.257)
+  %163 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
+  %164 = trunc nuw i8 %163 to i1
+  %165 = load i8, ptr @aeron_stream_analysis, align 1, !range !6
+  %166 = trunc nuw i8 %165 to i1
+  %or.cond.i.i = select i1 %164, i1 %166, i1 false
+  %167 = icmp ne ptr %.0, null
+  %or.cond3.i.i = and i1 %167, %or.cond.i.i
+  br i1 %or.cond3.i.i, label %168, label %177
 
-166:                                              ; preds = %162
-  %167 = load i8, ptr @aeron_stream_analysis, align 1, !range !6, !noundef !7
-  %168 = trunc nuw i8 %167 to i1
-  %169 = icmp ne ptr %.0, null
-  %or.cond.i.i = and i1 %169, %168
-  br i1 %or.cond.i.i, label %170, label %179
+168:                                              ; preds = %161
+  %169 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %170 = load ptr, ptr %169, align 8
+  %.not.i.i114 = icmp eq ptr %170, null
+  br i1 %.not.i.i114, label %177, label %171
 
-170:                                              ; preds = %166
-  %171 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  %172 = load ptr, ptr %171, align 8
-  %.not.i.i114 = icmp eq ptr %172, null
-  br i1 %.not.i.i114, label %179, label %173
+171:                                              ; preds = %168
+  %172 = load i32, ptr %170, align 4
+  %173 = and i32 %172, 32
+  %.not41.i.i = icmp eq i32 %173, 0
+  %174 = load ptr, ptr %21, align 8
+  br i1 %.not41.i.i, label %176, label %175
 
-173:                                              ; preds = %170
-  %174 = load i32, ptr %172, align 4
-  %175 = and i32 %174, 32
-  %.not39.i.i = icmp eq i32 %175, 0
-  %176 = load ptr, ptr %21, align 8
-  br i1 %.not39.i.i, label %178, label %177
-
-177:                                              ; preds = %173
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %176, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.259, ptr noundef %163)
+175:                                              ; preds = %171
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %174, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.259, ptr noundef %162)
   br label %aeron_info_stream_progress_report.exit.i
 
-178:                                              ; preds = %173
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %176, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.260, ptr noundef %163, i32 noundef %157, i32 noundef %149)
+176:                                              ; preds = %171
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %174, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.260, ptr noundef %162, i32 noundef %156, i32 noundef %148)
   br label %aeron_info_stream_progress_report.exit.i
 
-179:                                              ; preds = %170, %166, %162
-  %180 = load ptr, ptr %21, align 8
-  call void @col_append_sep_str(ptr noundef %180, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef %163)
+177:                                              ; preds = %168, %161
+  %178 = load ptr, ptr %21, align 8
+  call void @col_append_sep_str(ptr noundef %178, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef %162)
   br label %aeron_info_stream_progress_report.exit.i
 
-aeron_info_stream_progress_report.exit.i:         ; preds = %179, %178, %177
-  %181 = load i32, ptr @hf_aeron_pad, align 4
-  %182 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %181, ptr noundef %0, i32 noundef %.0103182, i32 noundef -1, ptr noundef nonnull @.str.256, i32 noundef %157, i32 noundef %149, i32 noundef %143, i32 noundef %145)
-  %183 = load i32, ptr @ett_aeron_pad, align 4
-  %184 = call ptr @proto_item_add_subtree(ptr noundef %182, i32 noundef %183)
-  %185 = load i32, ptr @hf_aeron_channel_id, align 4
-  %186 = load i64, ptr %153, align 8
-  %187 = call ptr @proto_tree_add_uint64(ptr noundef %184, i32 noundef %185, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %186)
-  %.not.i91.i = icmp eq ptr %187, null
-  br i1 %.not.i91.i, label %proto_item_set_generated.exit.i, label %188
+aeron_info_stream_progress_report.exit.i:         ; preds = %177, %176, %175
+  %179 = load i32, ptr @hf_aeron_pad, align 4
+  %180 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %179, ptr noundef %0, i32 noundef %.0103187, i32 noundef -1, ptr noundef nonnull @.str.256, i32 noundef %156, i32 noundef %148, i32 noundef %142, i32 noundef %144)
+  %181 = load i32, ptr @ett_aeron_pad, align 4
+  %182 = call ptr @proto_item_add_subtree(ptr noundef %180, i32 noundef %181)
+  %183 = load i32, ptr @hf_aeron_channel_id, align 4
+  %184 = load i64, ptr %152, align 8
+  %185 = call ptr @proto_tree_add_uint64(ptr noundef %182, i32 noundef %183, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %184)
+  %.not.i91.i = icmp eq ptr %185, null
+  br i1 %.not.i91.i, label %proto_item_set_generated.exit.i, label %186
 
-188:                                              ; preds = %aeron_info_stream_progress_report.exit.i
-  %189 = getelementptr inbounds nuw i8, ptr %187, i64 40
-  %190 = load ptr, ptr %189, align 8
-  %.not5.i.i = icmp eq ptr %190, null
-  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %191
+186:                                              ; preds = %aeron_info_stream_progress_report.exit.i
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 40
+  %188 = load ptr, ptr %187, align 8
+  %.not5.i.i = icmp eq ptr %188, null
+  br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %189
 
-191:                                              ; preds = %188
-  %192 = getelementptr inbounds nuw i8, ptr %190, i64 28
-  %193 = load i32, ptr %192, align 4
-  %194 = or i32 %193, 2
-  store i32 %194, ptr %192, align 4
+189:                                              ; preds = %186
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 28
+  %191 = load i32, ptr %190, align 4
+  %192 = or i32 %191, 2
+  store i32 %192, ptr %190, align 4
   br label %proto_item_set_generated.exit.i
 
-proto_item_set_generated.exit.i:                  ; preds = %191, %188, %aeron_info_stream_progress_report.exit.i
-  %195 = load i32, ptr @hf_aeron_pad_frame_length, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %195, ptr noundef %0, i32 noundef %.0103182, i32 noundef 4, i32 noundef -2147483648)
-  %197 = load i32, ptr @hf_aeron_pad_version, align 4
-  %198 = add i32 %.0103182, 4
-  %199 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %197, ptr noundef %0, i32 noundef %198, i32 noundef 1, i32 noundef -2147483648)
-  %200 = load i32, ptr @hf_aeron_pad_flags, align 4
-  %201 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %200, ptr noundef %0, i32 noundef %137, i32 noundef 1, i32 noundef -2147483648)
-  %202 = load i32, ptr @hf_aeron_pad_type, align 4
-  %203 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %202, ptr noundef %0, i32 noundef %139, i32 noundef 2, i32 noundef -2147483648)
-  %204 = load i32, ptr @hf_aeron_pad_term_offset, align 4
-  %205 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %204, ptr noundef %0, i32 noundef %148, i32 noundef 4, i32 noundef -2147483648)
-  %206 = getelementptr i8, ptr %153, i64 8
-  %.val.i112 = load ptr, ptr %206, align 8
-  call fastcc void @aeron_next_offset_report(ptr noundef %0, ptr noundef %184, ptr %.val.i112, i32 noundef %155, i32 noundef %157, i32 noundef %149, i32 noundef %145)
-  %207 = load i32, ptr @hf_aeron_pad_session_id, align 4
-  %208 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %207, ptr noundef %0, i32 noundef %150, i32 noundef 4, i32 noundef -2147483648)
-  %209 = load i32, ptr @hf_aeron_pad_stream_id, align 4
-  %210 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %209, ptr noundef %0, i32 noundef %154, i32 noundef 4, i32 noundef -2147483648)
-  %211 = load i32, ptr @hf_aeron_pad_term_id, align 4
-  %212 = call ptr @proto_tree_add_item(ptr noundef %184, i32 noundef %211, ptr noundef %0, i32 noundef %156, i32 noundef 4, i32 noundef -2147483648)
-  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %184, ptr noundef %153, ptr noundef nonnull %14, ptr noundef %.0)
-  call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %184, ptr noundef %153, ptr noundef %.0)
-  call void @proto_item_set_len(ptr noundef %182, i32 noundef %145)
-  %213 = icmp ult i32 %143, 24
-  br i1 %213, label %214, label %dissect_aeron_pad.exit
+proto_item_set_generated.exit.i:                  ; preds = %189, %186, %aeron_info_stream_progress_report.exit.i
+  %193 = load i32, ptr @hf_aeron_pad_frame_length, align 4
+  %194 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %193, ptr noundef %0, i32 noundef %.0103187, i32 noundef 4, i32 noundef -2147483648)
+  %195 = load i32, ptr @hf_aeron_pad_version, align 4
+  %196 = add i32 %.0103187, 4
+  %197 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %195, ptr noundef %0, i32 noundef %196, i32 noundef 1, i32 noundef -2147483648)
+  %198 = load i32, ptr @hf_aeron_pad_flags, align 4
+  %199 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %198, ptr noundef %0, i32 noundef %136, i32 noundef 1, i32 noundef -2147483648)
+  %200 = load i32, ptr @hf_aeron_pad_type, align 4
+  %201 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %200, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648)
+  %202 = load i32, ptr @hf_aeron_pad_term_offset, align 4
+  %203 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %202, ptr noundef %0, i32 noundef %147, i32 noundef 4, i32 noundef -2147483648)
+  %204 = getelementptr i8, ptr %152, i64 8
+  %.val.i112 = load ptr, ptr %204, align 8
+  call fastcc void @aeron_next_offset_report(ptr noundef %0, ptr noundef %182, ptr %.val.i112, i32 noundef %154, i32 noundef %156, i32 noundef %148, i32 noundef %144)
+  %205 = load i32, ptr @hf_aeron_pad_session_id, align 4
+  %206 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %205, ptr noundef %0, i32 noundef %149, i32 noundef 4, i32 noundef -2147483648)
+  %207 = load i32, ptr @hf_aeron_pad_stream_id, align 4
+  %208 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %207, ptr noundef %0, i32 noundef %153, i32 noundef 4, i32 noundef -2147483648)
+  %209 = load i32, ptr @hf_aeron_pad_term_id, align 4
+  %210 = call ptr @proto_tree_add_item(ptr noundef %182, i32 noundef %209, ptr noundef %0, i32 noundef %155, i32 noundef 4, i32 noundef -2147483648)
+  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %182, ptr noundef %152, ptr noundef nonnull %14, ptr noundef %.0)
+  call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %182, ptr noundef %152, ptr noundef %.0)
+  call void @proto_item_set_len(ptr noundef %180, i32 noundef %144)
+  %211 = icmp ult i32 %142, 24
+  br i1 %211, label %212, label %dissect_aeron_pad.exit
 
-214:                                              ; preds = %proto_item_set_generated.exit.i
-  %215 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %196, ptr noundef nonnull @ei_aeron_analysis_invalid_pad_length)
-  %216 = sub nsw i32 0, %145
+212:                                              ; preds = %proto_item_set_generated.exit.i
+  %213 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %194, ptr noundef nonnull @ei_aeron_analysis_invalid_pad_length)
+  %214 = sub nsw i32 0, %144
   br label %dissect_aeron_pad.exit
 
-dissect_aeron_pad.exit:                           ; preds = %142, %147, %proto_item_set_generated.exit.i, %214
-  %.0.i113 = phi i32 [ %216, %214 ], [ 0, %142 ], [ 0, %147 ], [ %145, %proto_item_set_generated.exit.i ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #14
+dissect_aeron_pad.exit:                           ; preds = %141, %146, %proto_item_set_generated.exit.i, %212
+  %.0.i113 = phi i32 [ %214, %212 ], [ 0, %141 ], [ 0, %146 ], [ %144, %proto_item_set_generated.exit.i ]
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14) #13
   br label %dissect_aeron_rtt.exit
 
-217:                                              ; preds = %aeron_frame_info_add.exit
-  %218 = icmp eq i32 %136, 0
-  %219 = icmp eq i8 %138, -64
-  %or.cond = select i1 %218, i1 %219, i1 false
-  br i1 %or.cond, label %220, label %288
+215:                                              ; preds = %aeron_frame_info_add.exit
+  %216 = icmp eq i32 %135, 0
+  %217 = icmp eq i8 %137, -64
+  %or.cond = select i1 %216, i1 %217, i1 false
+  br i1 %or.cond, label %218, label %285
 
-220:                                              ; preds = %217
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13) #14
-  %221 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103182)
-  %222 = add i32 %.0103182, 8
+218:                                              ; preds = %215
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13) #13
+  %219 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103187)
+  %220 = add i32 %.0103187, 8
+  %221 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %220)
+  %222 = add i32 %.0103187, 12
   %223 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %222)
-  %224 = add i32 %.0103182, 12
-  %225 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %224)
-  %226 = load i32, ptr %53, align 4
-  %227 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %141, i32 noundef %225, i32 noundef %226)
-  %228 = add i32 %.0103182, 16
+  %224 = load i32, ptr %53, align 4
+  %225 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %140, i32 noundef %223, i32 noundef %224)
+  %226 = add i32 %.0103187, 16
+  %227 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %226)
+  %228 = add i32 %.0103187, 20
   %229 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %228)
-  %230 = add i32 %.0103182, 20
-  %231 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %230)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %85, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
-  store i32 %229, ptr %86, align 4
-  store i32 %231, ptr %87, align 8
-  store i32 %223, ptr %88, align 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %85, i8 noundef 0, i64 noundef 32, i1 noundef false) #13
+  store i32 %227, ptr %86, align 4
+  store i32 %229, ptr %87, align 8
+  store i32 %221, ptr %88, align 4
   store i32 7, ptr %13, align 8
-  store i32 %221, ptr %89, align 8
+  store i32 %219, ptr %89, align 8
   store i32 0, ptr %90, align 4
   store i16 1, ptr %91, align 8
-  %232 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %137)
-  store i8 %232, ptr %92, align 2
-  %233 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %227, ptr noundef nonnull %13, ptr noundef %.0)
-  %234 = icmp slt i32 %233, 0
-  br i1 %234, label %dissect_aeron_heartbeat.exit, label %235
+  %230 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %136)
+  store i8 %230, ptr %92, align 2
+  %231 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %225, ptr noundef nonnull %13, ptr noundef %.0)
+  %232 = icmp slt i32 %231, 0
+  br i1 %232, label %dissect_aeron_heartbeat.exit, label %233
 
-235:                                              ; preds = %220
-  %236 = call ptr @val_to_str_const(i32 noundef 1, ptr noundef nonnull @aeron_frame_type, ptr noundef nonnull @.str.257)
-  %237 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
+233:                                              ; preds = %218
+  %234 = call ptr @val_to_str_const(i32 noundef 1, ptr noundef nonnull @aeron_frame_type, ptr noundef nonnull @.str.257)
+  %235 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
+  %236 = trunc nuw i8 %235 to i1
+  %237 = load i8, ptr @aeron_stream_analysis, align 1, !range !6
   %238 = trunc nuw i8 %237 to i1
-  br i1 %238, label %239, label %252
+  %or.cond.i.i115 = select i1 %236, i1 %238, i1 false
+  %239 = icmp ne ptr %.0, null
+  %or.cond3.i.i116 = and i1 %239, %or.cond.i.i115
+  br i1 %or.cond3.i.i116, label %240, label %249
 
-239:                                              ; preds = %235
-  %240 = load i8, ptr @aeron_stream_analysis, align 1, !range !6, !noundef !7
-  %241 = trunc nuw i8 %240 to i1
-  %242 = icmp ne ptr %.0, null
-  %or.cond.i.i119 = and i1 %242, %241
-  br i1 %or.cond.i.i119, label %243, label %252
+240:                                              ; preds = %233
+  %241 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %242 = load ptr, ptr %241, align 8
+  %.not.i.i121 = icmp eq ptr %242, null
+  br i1 %.not.i.i121, label %249, label %243
 
-243:                                              ; preds = %239
-  %244 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  %245 = load ptr, ptr %244, align 8
-  %.not.i.i120 = icmp eq ptr %245, null
-  br i1 %.not.i.i120, label %252, label %246
+243:                                              ; preds = %240
+  %244 = load i32, ptr %242, align 4
+  %245 = and i32 %244, 32
+  %.not41.i.i122 = icmp eq i32 %245, 0
+  %246 = load ptr, ptr %21, align 8
+  br i1 %.not41.i.i122, label %248, label %247
 
-246:                                              ; preds = %243
-  %247 = load i32, ptr %245, align 4
-  %248 = and i32 %247, 32
-  %.not39.i.i121 = icmp eq i32 %248, 0
-  %249 = load ptr, ptr %21, align 8
-  br i1 %.not39.i.i121, label %251, label %250
+247:                                              ; preds = %243
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %246, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.259, ptr noundef %234)
+  br label %aeron_info_stream_progress_report.exit.i117
 
-250:                                              ; preds = %246
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %249, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.259, ptr noundef %236)
-  br label %aeron_info_stream_progress_report.exit.i115
+248:                                              ; preds = %243
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %246, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.260, ptr noundef %234, i32 noundef %229, i32 noundef %221)
+  br label %aeron_info_stream_progress_report.exit.i117
 
-251:                                              ; preds = %246
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %249, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.260, ptr noundef %236, i32 noundef %231, i32 noundef %223)
-  br label %aeron_info_stream_progress_report.exit.i115
+249:                                              ; preds = %240, %233
+  %250 = load ptr, ptr %21, align 8
+  call void @col_append_sep_str(ptr noundef %250, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef %234)
+  br label %aeron_info_stream_progress_report.exit.i117
 
-252:                                              ; preds = %243, %239, %235
-  %253 = load ptr, ptr %21, align 8
-  call void @col_append_sep_str(ptr noundef %253, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef %236)
-  br label %aeron_info_stream_progress_report.exit.i115
+aeron_info_stream_progress_report.exit.i117:      ; preds = %249, %248, %247
+  %251 = load i32, ptr @hf_aeron_heartbeat, align 4
+  %252 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %251, ptr noundef %0, i32 noundef %.0103187, i32 noundef -1, ptr noundef nonnull @.str.267, i32 noundef %229, i32 noundef %221, i32 noundef %219, i32 noundef 24)
+  %253 = load i32, ptr @ett_aeron_data, align 4
+  %254 = call ptr @proto_item_add_subtree(ptr noundef %252, i32 noundef %253)
+  %255 = load i32, ptr @hf_aeron_channel_id, align 4
+  %256 = load i64, ptr %225, align 8
+  %257 = call ptr @proto_tree_add_uint64(ptr noundef %254, i32 noundef %255, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %256)
+  %.not.i79.i = icmp eq ptr %257, null
+  br i1 %.not.i79.i, label %proto_item_set_generated.exit.i119, label %258
 
-aeron_info_stream_progress_report.exit.i115:      ; preds = %252, %251, %250
-  %254 = load i32, ptr @hf_aeron_heartbeat, align 4
-  %255 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %254, ptr noundef %0, i32 noundef %.0103182, i32 noundef -1, ptr noundef nonnull @.str.267, i32 noundef %231, i32 noundef %223, i32 noundef %221, i32 noundef 24)
-  %256 = load i32, ptr @ett_aeron_data, align 4
-  %257 = call ptr @proto_item_add_subtree(ptr noundef %255, i32 noundef %256)
-  %258 = load i32, ptr @hf_aeron_channel_id, align 4
-  %259 = load i64, ptr %227, align 8
-  %260 = call ptr @proto_tree_add_uint64(ptr noundef %257, i32 noundef %258, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %259)
-  %.not.i79.i = icmp eq ptr %260, null
-  br i1 %.not.i79.i, label %proto_item_set_generated.exit.i117, label %261
+258:                                              ; preds = %aeron_info_stream_progress_report.exit.i117
+  %259 = getelementptr inbounds nuw i8, ptr %257, i64 40
+  %260 = load ptr, ptr %259, align 8
+  %.not5.i.i118 = icmp eq ptr %260, null
+  br i1 %.not5.i.i118, label %proto_item_set_generated.exit.i119, label %261
 
-261:                                              ; preds = %aeron_info_stream_progress_report.exit.i115
-  %262 = getelementptr inbounds nuw i8, ptr %260, i64 40
-  %263 = load ptr, ptr %262, align 8
-  %.not5.i.i116 = icmp eq ptr %263, null
-  br i1 %.not5.i.i116, label %proto_item_set_generated.exit.i117, label %264
+261:                                              ; preds = %258
+  %262 = getelementptr inbounds nuw i8, ptr %260, i64 28
+  %263 = load i32, ptr %262, align 4
+  %264 = or i32 %263, 2
+  store i32 %264, ptr %262, align 4
+  br label %proto_item_set_generated.exit.i119
 
-264:                                              ; preds = %261
-  %265 = getelementptr inbounds nuw i8, ptr %263, i64 28
-  %266 = load i32, ptr %265, align 4
-  %267 = or i32 %266, 2
-  store i32 %267, ptr %265, align 4
-  br label %proto_item_set_generated.exit.i117
+proto_item_set_generated.exit.i119:               ; preds = %261, %258, %aeron_info_stream_progress_report.exit.i117
+  %265 = load i32, ptr @hf_aeron_heartbeat_frame_length, align 4
+  %266 = call ptr @proto_tree_add_item(ptr noundef %254, i32 noundef %265, ptr noundef %0, i32 noundef %.0103187, i32 noundef 4, i32 noundef -2147483648)
+  %267 = load i32, ptr @hf_aeron_heartbeat_version, align 4
+  %268 = add i32 %.0103187, 4
+  %269 = call ptr @proto_tree_add_item(ptr noundef %254, i32 noundef %267, ptr noundef %0, i32 noundef %268, i32 noundef 1, i32 noundef -2147483648)
+  %270 = load i32, ptr @hf_aeron_heartbeat_flags, align 4
+  %271 = load i32, ptr @ett_aeron_data_flags, align 4
+  %272 = call ptr @proto_tree_add_bitmask(ptr noundef %254, ptr noundef %0, i32 noundef %136, i32 noundef %270, i32 noundef %271, ptr noundef nonnull @dissect_aeron_heartbeat.flags, i32 noundef -2147483648)
+  %273 = load i32, ptr @hf_aeron_heartbeat_type, align 4
+  %274 = call ptr @proto_tree_add_item(ptr noundef %254, i32 noundef %273, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648)
+  %275 = load i32, ptr @hf_aeron_heartbeat_term_offset, align 4
+  %276 = call ptr @proto_tree_add_item(ptr noundef %254, i32 noundef %275, ptr noundef %0, i32 noundef %220, i32 noundef 4, i32 noundef -2147483648)
+  %277 = load i32, ptr @hf_aeron_heartbeat_session_id, align 4
+  %278 = call ptr @proto_tree_add_item(ptr noundef %254, i32 noundef %277, ptr noundef %0, i32 noundef %222, i32 noundef 4, i32 noundef -2147483648)
+  %279 = load i32, ptr @hf_aeron_heartbeat_stream_id, align 4
+  %280 = call ptr @proto_tree_add_item(ptr noundef %254, i32 noundef %279, ptr noundef %0, i32 noundef %226, i32 noundef 4, i32 noundef -2147483648)
+  %281 = load i32, ptr @hf_aeron_heartbeat_term_id, align 4
+  %282 = call ptr @proto_tree_add_item(ptr noundef %254, i32 noundef %281, ptr noundef %0, i32 noundef %228, i32 noundef 4, i32 noundef -2147483648)
+  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %254, ptr noundef %225, ptr noundef nonnull %13, ptr noundef %.0)
+  call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %254, ptr noundef %225, ptr noundef %.0)
+  call void @proto_item_set_len(ptr noundef %252, i32 noundef 24)
+  %.not.i = icmp eq i32 %219, 0
+  br i1 %.not.i, label %dissect_aeron_heartbeat.exit, label %283
 
-proto_item_set_generated.exit.i117:               ; preds = %264, %261, %aeron_info_stream_progress_report.exit.i115
-  %268 = load i32, ptr @hf_aeron_heartbeat_frame_length, align 4
-  %269 = call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %268, ptr noundef %0, i32 noundef %.0103182, i32 noundef 4, i32 noundef -2147483648)
-  %270 = load i32, ptr @hf_aeron_heartbeat_version, align 4
-  %271 = add i32 %.0103182, 4
-  %272 = call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %270, ptr noundef %0, i32 noundef %271, i32 noundef 1, i32 noundef -2147483648)
-  %273 = load i32, ptr @hf_aeron_heartbeat_flags, align 4
-  %274 = load i32, ptr @ett_aeron_data_flags, align 4
-  %275 = call ptr @proto_tree_add_bitmask(ptr noundef %257, ptr noundef %0, i32 noundef %137, i32 noundef %273, i32 noundef %274, ptr noundef nonnull @dissect_aeron_heartbeat.flags, i32 noundef -2147483648)
-  %276 = load i32, ptr @hf_aeron_heartbeat_type, align 4
-  %277 = call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %276, ptr noundef %0, i32 noundef %139, i32 noundef 2, i32 noundef -2147483648)
-  %278 = load i32, ptr @hf_aeron_heartbeat_term_offset, align 4
-  %279 = call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %278, ptr noundef %0, i32 noundef %222, i32 noundef 4, i32 noundef -2147483648)
-  %280 = load i32, ptr @hf_aeron_heartbeat_session_id, align 4
-  %281 = call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %280, ptr noundef %0, i32 noundef %224, i32 noundef 4, i32 noundef -2147483648)
-  %282 = load i32, ptr @hf_aeron_heartbeat_stream_id, align 4
-  %283 = call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %282, ptr noundef %0, i32 noundef %228, i32 noundef 4, i32 noundef -2147483648)
-  %284 = load i32, ptr @hf_aeron_heartbeat_term_id, align 4
-  %285 = call ptr @proto_tree_add_item(ptr noundef %257, i32 noundef %284, ptr noundef %0, i32 noundef %230, i32 noundef 4, i32 noundef -2147483648)
-  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %257, ptr noundef %227, ptr noundef nonnull %13, ptr noundef %.0)
-  call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %257, ptr noundef %227, ptr noundef %.0)
-  call void @proto_item_set_len(ptr noundef %255, i32 noundef 24)
-  %.not.i = icmp eq i32 %221, 0
-  br i1 %.not.i, label %dissect_aeron_heartbeat.exit, label %286
-
-286:                                              ; preds = %proto_item_set_generated.exit.i117
-  %287 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %269, ptr noundef nonnull @ei_aeron_analysis_invalid_data_length)
+283:                                              ; preds = %proto_item_set_generated.exit.i119
+  %284 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %266, ptr noundef nonnull @ei_aeron_analysis_invalid_data_length)
   br label %dissect_aeron_heartbeat.exit
 
-dissect_aeron_heartbeat.exit:                     ; preds = %220, %proto_item_set_generated.exit.i117, %286
-  %.0.i118 = phi i32 [ -24, %286 ], [ 0, %220 ], [ 24, %proto_item_set_generated.exit.i117 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #14
+dissect_aeron_heartbeat.exit:                     ; preds = %218, %proto_item_set_generated.exit.i119, %283
+  %.0.i120 = phi i32 [ -24, %283 ], [ 0, %218 ], [ 24, %proto_item_set_generated.exit.i119 ]
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #13
   br label %dissect_aeron_rtt.exit
 
-288:                                              ; preds = %217
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #14
-  %289 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103182)
-  %290 = icmp eq i32 %289, 0
-  br i1 %290, label %297, label %291
+285:                                              ; preds = %215
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11) #13
+  %286 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103187)
+  %287 = icmp eq i32 %286, 0
+  br i1 %287, label %294, label %288
+
+288:                                              ; preds = %285
+  %289 = add i32 %286, 31
+  %290 = icmp slt i32 %289, 0
+  br i1 %290, label %dissect_aeron_data.exit, label %291
 
 291:                                              ; preds = %288
-  %292 = add i32 %289, 31
-  %293 = icmp slt i32 %292, 0
-  br i1 %293, label %dissect_aeron_data.exit, label %294
+  %292 = and i32 %289, 2147483616
+  %293 = add nsw i32 %286, -32
+  br label %294
 
-294:                                              ; preds = %291
-  %295 = and i32 %292, 2147483616
-  %296 = add nsw i32 %289, -32
-  br label %297
-
-297:                                              ; preds = %294, %288
-  %298 = phi i32 [ %296, %294 ], [ 0, %288 ]
-  %.0126.i = phi i32 [ %295, %294 ], [ 32, %288 ]
-  %.0125.i = phi i32 [ %295, %294 ], [ 0, %288 ]
-  %299 = add i32 %.0103182, 8
-  %300 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %299)
-  %301 = add i32 %.0103182, 12
-  %302 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %301)
-  %303 = load i32, ptr %53, align 4
-  %304 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %141, i32 noundef %302, i32 noundef %303)
-  %305 = add i32 %.0103182, 16
-  %306 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %305)
-  %307 = add i32 %.0103182, 20
-  %308 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %307)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
-  store i32 %306, ptr %78, align 4
-  store i32 %308, ptr %79, align 8
-  store i32 %300, ptr %80, align 4
+294:                                              ; preds = %291, %285
+  %295 = phi i32 [ %293, %291 ], [ 0, %285 ]
+  %.0128.i = phi i32 [ %292, %291 ], [ 32, %285 ]
+  %.0127.i = phi i32 [ %292, %291 ], [ 0, %285 ]
+  %296 = add i32 %.0103187, 8
+  %297 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %296)
+  %298 = add i32 %.0103187, 12
+  %299 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %298)
+  %300 = load i32, ptr %53, align 4
+  %301 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %140, i32 noundef %299, i32 noundef %300)
+  %302 = add i32 %.0103187, 16
+  %303 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %302)
+  %304 = add i32 %.0103187, 20
+  %305 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %304)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %77, i8 noundef 0, i64 noundef 32, i1 noundef false) #13
+  store i32 %303, ptr %78, align 4
+  store i32 %305, ptr %79, align 8
+  store i32 %297, ptr %80, align 4
   store i32 7, ptr %11, align 8
-  store i32 %289, ptr %81, align 8
-  store i32 %298, ptr %82, align 4
+  store i32 %286, ptr %81, align 8
+  store i32 %295, ptr %82, align 4
   store i16 1, ptr %83, align 8
-  %309 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %137)
-  store i8 %309, ptr %84, align 2
-  %310 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %304, ptr noundef nonnull %11, ptr noundef %.0)
-  %311 = icmp slt i32 %310, 0
-  br i1 %311, label %dissect_aeron_data.exit, label %312
+  %306 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %136)
+  store i8 %306, ptr %84, align 2
+  %307 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %301, ptr noundef nonnull %11, ptr noundef %.0)
+  %308 = icmp slt i32 %307, 0
+  br i1 %308, label %dissect_aeron_data.exit, label %309
 
-312:                                              ; preds = %297
-  %313 = call ptr @val_to_str_const(i32 noundef 1, ptr noundef nonnull @aeron_frame_type, ptr noundef nonnull @.str.257)
-  %314 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
-  %315 = trunc nuw i8 %314 to i1
-  br i1 %315, label %316, label %329
+309:                                              ; preds = %294
+  %310 = call ptr @val_to_str_const(i32 noundef 1, ptr noundef nonnull @aeron_frame_type, ptr noundef nonnull @.str.257)
+  %311 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
+  %312 = trunc nuw i8 %311 to i1
+  %313 = load i8, ptr @aeron_stream_analysis, align 1, !range !6
+  %314 = trunc nuw i8 %313 to i1
+  %or.cond.i.i123 = select i1 %312, i1 %314, i1 false
+  %315 = icmp ne ptr %.0, null
+  %or.cond3.i.i124 = and i1 %315, %or.cond.i.i123
+  br i1 %or.cond3.i.i124, label %316, label %325
 
-316:                                              ; preds = %312
-  %317 = load i8, ptr @aeron_stream_analysis, align 1, !range !6, !noundef !7
-  %318 = trunc nuw i8 %317 to i1
-  %319 = icmp ne ptr %.0, null
-  %or.cond.i.i127 = and i1 %319, %318
-  br i1 %or.cond.i.i127, label %320, label %329
+316:                                              ; preds = %309
+  %317 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %318 = load ptr, ptr %317, align 8
+  %.not.i.i131 = icmp eq ptr %318, null
+  br i1 %.not.i.i131, label %325, label %319
 
-320:                                              ; preds = %316
-  %321 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  %322 = load ptr, ptr %321, align 8
-  %.not.i.i128 = icmp eq ptr %322, null
-  br i1 %.not.i.i128, label %329, label %323
+319:                                              ; preds = %316
+  %320 = load i32, ptr %318, align 4
+  %321 = and i32 %320, 32
+  %.not41.i.i132 = icmp eq i32 %321, 0
+  %322 = load ptr, ptr %21, align 8
+  br i1 %.not41.i.i132, label %324, label %323
 
-323:                                              ; preds = %320
-  %324 = load i32, ptr %322, align 4
-  %325 = and i32 %324, 32
-  %.not39.i.i129 = icmp eq i32 %325, 0
+323:                                              ; preds = %319
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %322, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.259, ptr noundef %310)
+  br label %aeron_info_stream_progress_report.exit.i125
+
+324:                                              ; preds = %319
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %322, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.260, ptr noundef %310, i32 noundef %305, i32 noundef %297)
+  br label %aeron_info_stream_progress_report.exit.i125
+
+325:                                              ; preds = %316, %309
   %326 = load ptr, ptr %21, align 8
-  br i1 %.not39.i.i129, label %328, label %327
+  call void @col_append_sep_str(ptr noundef %326, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef %310)
+  br label %aeron_info_stream_progress_report.exit.i125
 
-327:                                              ; preds = %323
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %326, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.259, ptr noundef %313)
-  br label %aeron_info_stream_progress_report.exit.i122
+aeron_info_stream_progress_report.exit.i125:      ; preds = %325, %324, %323
+  %327 = load i32, ptr @hf_aeron_data, align 4
+  %328 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %327, ptr noundef %0, i32 noundef %.0103187, i32 noundef -1, ptr noundef nonnull @.str.268, i32 noundef %305, i32 noundef %297, i32 noundef %286, i32 noundef %.0128.i)
+  %329 = load i32, ptr @ett_aeron_data, align 4
+  %330 = call ptr @proto_item_add_subtree(ptr noundef %328, i32 noundef %329)
+  %331 = load i32, ptr @hf_aeron_channel_id, align 4
+  %332 = load i64, ptr %301, align 8
+  %333 = call ptr @proto_tree_add_uint64(ptr noundef %330, i32 noundef %331, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %332)
+  %.not.i137.i = icmp eq ptr %333, null
+  br i1 %.not.i137.i, label %proto_item_set_generated.exit.i127, label %334
 
-328:                                              ; preds = %323
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %326, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.260, ptr noundef %313, i32 noundef %308, i32 noundef %300)
-  br label %aeron_info_stream_progress_report.exit.i122
+334:                                              ; preds = %aeron_info_stream_progress_report.exit.i125
+  %335 = getelementptr inbounds nuw i8, ptr %333, i64 40
+  %336 = load ptr, ptr %335, align 8
+  %.not5.i.i126 = icmp eq ptr %336, null
+  br i1 %.not5.i.i126, label %proto_item_set_generated.exit.i127, label %337
 
-329:                                              ; preds = %320, %316, %312
-  %330 = load ptr, ptr %21, align 8
-  call void @col_append_sep_str(ptr noundef %330, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef %313)
-  br label %aeron_info_stream_progress_report.exit.i122
+337:                                              ; preds = %334
+  %338 = getelementptr inbounds nuw i8, ptr %336, i64 28
+  %339 = load i32, ptr %338, align 4
+  %340 = or i32 %339, 2
+  store i32 %340, ptr %338, align 4
+  br label %proto_item_set_generated.exit.i127
 
-aeron_info_stream_progress_report.exit.i122:      ; preds = %329, %328, %327
-  %331 = load i32, ptr @hf_aeron_data, align 4
-  %332 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %331, ptr noundef %0, i32 noundef %.0103182, i32 noundef -1, ptr noundef nonnull @.str.268, i32 noundef %308, i32 noundef %300, i32 noundef %289, i32 noundef %.0126.i)
-  %333 = load i32, ptr @ett_aeron_data, align 4
-  %334 = call ptr @proto_item_add_subtree(ptr noundef %332, i32 noundef %333)
-  %335 = load i32, ptr @hf_aeron_channel_id, align 4
-  %336 = load i64, ptr %304, align 8
-  %337 = call ptr @proto_tree_add_uint64(ptr noundef %334, i32 noundef %335, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %336)
-  %.not.i135.i = icmp eq ptr %337, null
-  br i1 %.not.i135.i, label %proto_item_set_generated.exit.i124, label %338
+proto_item_set_generated.exit.i127:               ; preds = %337, %334, %aeron_info_stream_progress_report.exit.i125
+  %341 = load i32, ptr @hf_aeron_data_frame_length, align 4
+  %342 = call ptr @proto_tree_add_item(ptr noundef %330, i32 noundef %341, ptr noundef %0, i32 noundef %.0103187, i32 noundef 4, i32 noundef -2147483648)
+  %343 = load i32, ptr @hf_aeron_data_version, align 4
+  %344 = add i32 %.0103187, 4
+  %345 = call ptr @proto_tree_add_item(ptr noundef %330, i32 noundef %343, ptr noundef %0, i32 noundef %344, i32 noundef 1, i32 noundef -2147483648)
+  %346 = load i32, ptr @hf_aeron_data_flags, align 4
+  %347 = load i32, ptr @ett_aeron_data_flags, align 4
+  %348 = call ptr @proto_tree_add_bitmask(ptr noundef %330, ptr noundef %0, i32 noundef %136, i32 noundef %346, i32 noundef %347, ptr noundef nonnull @dissect_aeron_data.flags, i32 noundef -2147483648)
+  %349 = load i32, ptr @hf_aeron_data_type, align 4
+  %350 = call ptr @proto_tree_add_item(ptr noundef %330, i32 noundef %349, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648)
+  %351 = load i32, ptr @hf_aeron_data_term_offset, align 4
+  %352 = call ptr @proto_tree_add_item(ptr noundef %330, i32 noundef %351, ptr noundef %0, i32 noundef %296, i32 noundef 4, i32 noundef -2147483648)
+  %353 = getelementptr i8, ptr %301, i64 8
+  %.val.i128 = load ptr, ptr %353, align 8
+  call fastcc void @aeron_next_offset_report(ptr noundef %0, ptr noundef %330, ptr %.val.i128, i32 noundef %303, i32 noundef %305, i32 noundef %297, i32 noundef %.0127.i)
+  %354 = load i32, ptr @hf_aeron_data_session_id, align 4
+  %355 = call ptr @proto_tree_add_item(ptr noundef %330, i32 noundef %354, ptr noundef %0, i32 noundef %298, i32 noundef 4, i32 noundef -2147483648)
+  %356 = load i32, ptr @hf_aeron_data_stream_id, align 4
+  %357 = call ptr @proto_tree_add_item(ptr noundef %330, i32 noundef %356, ptr noundef %0, i32 noundef %302, i32 noundef 4, i32 noundef -2147483648)
+  %358 = load i32, ptr @hf_aeron_data_term_id, align 4
+  %359 = call ptr @proto_tree_add_item(ptr noundef %330, i32 noundef %358, ptr noundef %0, i32 noundef %304, i32 noundef 4, i32 noundef -2147483648)
+  %360 = load i32, ptr @hf_aeron_data_reserved_value, align 4
+  %361 = add i32 %.0103187, 24
+  %362 = call ptr @proto_tree_add_item(ptr noundef %330, i32 noundef %360, ptr noundef %0, i32 noundef %361, i32 noundef 8, i32 noundef -2147483648)
+  %.not.i129 = icmp eq i32 %295, 0
+  br i1 %.not.i129, label %491, label %363
 
-338:                                              ; preds = %aeron_info_stream_progress_report.exit.i122
-  %339 = getelementptr inbounds nuw i8, ptr %337, i64 40
-  %340 = load ptr, ptr %339, align 8
-  %.not5.i.i123 = icmp eq ptr %340, null
-  br i1 %.not5.i.i123, label %proto_item_set_generated.exit.i124, label %341
+363:                                              ; preds = %proto_item_set_generated.exit.i127
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #13
+  %364 = load i8, ptr @aeron_reassemble_fragments, align 1, !range !6, !noundef !7
+  %365 = trunc nuw i8 %364 to i1
+  br i1 %365, label %366, label %aeron_msg_process.exit.i
 
-341:                                              ; preds = %338
-  %342 = getelementptr inbounds nuw i8, ptr %340, i64 28
-  %343 = load i32, ptr %342, align 4
-  %344 = or i32 %343, 2
-  store i32 %344, ptr %342, align 4
-  br label %proto_item_set_generated.exit.i124
+366:                                              ; preds = %363
+  %367 = load ptr, ptr %61, align 8
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 57
+  %369 = load i16, ptr %368, align 1
+  %370 = and i16 %369, 8
+  %371 = icmp ne i16 %370, 0
+  %.not.i138.i = icmp ugt i8 %306, -65
+  %or.cond140.i = select i1 %371, i1 true, i1 %.not.i138.i
+  br i1 %or.cond140.i, label %aeron_msg_process.exit.i, label %372
 
-proto_item_set_generated.exit.i124:               ; preds = %341, %338, %aeron_info_stream_progress_report.exit.i122
-  %345 = load i32, ptr @hf_aeron_data_frame_length, align 4
-  %346 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %345, ptr noundef %0, i32 noundef %.0103182, i32 noundef 4, i32 noundef -2147483648)
-  %347 = load i32, ptr @hf_aeron_data_version, align 4
-  %348 = add i32 %.0103182, 4
-  %349 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %347, ptr noundef %0, i32 noundef %348, i32 noundef 1, i32 noundef -2147483648)
-  %350 = load i32, ptr @hf_aeron_data_flags, align 4
-  %351 = load i32, ptr @ett_aeron_data_flags, align 4
-  %352 = call ptr @proto_tree_add_bitmask(ptr noundef %334, ptr noundef %0, i32 noundef %137, i32 noundef %350, i32 noundef %351, ptr noundef nonnull @dissect_aeron_data.flags, i32 noundef -2147483648)
-  %353 = load i32, ptr @hf_aeron_data_type, align 4
-  %354 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %353, ptr noundef %0, i32 noundef %139, i32 noundef 2, i32 noundef -2147483648)
-  %355 = load i32, ptr @hf_aeron_data_term_offset, align 4
-  %356 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %355, ptr noundef %0, i32 noundef %299, i32 noundef 4, i32 noundef -2147483648)
-  %357 = getelementptr i8, ptr %304, i64 8
-  %.val.i125 = load ptr, ptr %357, align 8
-  call fastcc void @aeron_next_offset_report(ptr noundef %0, ptr noundef %334, ptr %.val.i125, i32 noundef %306, i32 noundef %308, i32 noundef %300, i32 noundef %.0125.i)
-  %358 = load i32, ptr @hf_aeron_data_session_id, align 4
-  %359 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %358, ptr noundef %0, i32 noundef %301, i32 noundef 4, i32 noundef -2147483648)
-  %360 = load i32, ptr @hf_aeron_data_stream_id, align 4
-  %361 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %360, ptr noundef %0, i32 noundef %305, i32 noundef 4, i32 noundef -2147483648)
-  %362 = load i32, ptr @hf_aeron_data_term_id, align 4
-  %363 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %362, ptr noundef %0, i32 noundef %307, i32 noundef 4, i32 noundef -2147483648)
-  %364 = load i32, ptr @hf_aeron_data_reserved_value, align 4
-  %365 = add i32 %.0103182, 24
-  %366 = call ptr @proto_tree_add_item(ptr noundef %334, i32 noundef %364, ptr noundef %0, i32 noundef %365, i32 noundef 8, i32 noundef -2147483648)
-  %.not.i126 = icmp eq i32 %298, 0
-  br i1 %.not.i126, label %492, label %367
-
-367:                                              ; preds = %proto_item_set_generated.exit.i124
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
-  %368 = load i8, ptr @aeron_reassemble_fragments, align 1, !range !6, !noundef !7
-  %369 = trunc nuw i8 %368 to i1
-  br i1 %369, label %370, label %aeron_msg_process.exit.i
-
-370:                                              ; preds = %367
-  %371 = load ptr, ptr %61, align 8
-  %372 = getelementptr inbounds nuw i8, ptr %371, i64 57
-  %373 = load i16, ptr %372, align 1
-  %374 = and i16 %373, 8
-  %375 = icmp ne i16 %374, 0
-  %.not.i136.i = icmp ugt i8 %309, -65
-  %or.cond142.i = select i1 %375, i1 true, i1 %.not.i136.i
-  br i1 %or.cond142.i, label %aeron_msg_process.exit.i, label %376
-
-376:                                              ; preds = %370
-  %.val.i.i = load ptr, ptr %357, align 8
+372:                                              ; preds = %366
+  %.val.i.i = load ptr, ptr %353, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  store i32 %306, ptr %10, align 4
-  %377 = call ptr @wmem_map_lookup(ptr noundef %.val.i.i, ptr noundef nonnull %10)
+  store i32 %303, ptr %10, align 4
+  %373 = call ptr @wmem_map_lookup(ptr noundef %.val.i.i, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
-  %.not46.i.i = icmp eq ptr %377, null
-  br i1 %.not46.i.i, label %aeron_msg_process.exit.i, label %378
+  %.not46.i.i = icmp eq ptr %373, null
+  br i1 %.not46.i.i, label %aeron_msg_process.exit.i, label %374
 
-378:                                              ; preds = %376
-  %379 = getelementptr i8, ptr %377, i64 8
-  %.val55.i.i = load ptr, ptr %379, align 8
+374:                                              ; preds = %372
+  %375 = getelementptr i8, ptr %373, i64 8
+  %.val55.i.i = load ptr, ptr %375, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  store i32 %308, ptr %9, align 4
-  %380 = call ptr @wmem_map_lookup(ptr noundef %.val55.i.i, ptr noundef nonnull %9)
+  store i32 %305, ptr %9, align 4
+  %376 = call ptr @wmem_map_lookup(ptr noundef %.val55.i.i, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %.not47.i.i = icmp eq ptr %380, null
-  br i1 %.not47.i.i, label %aeron_msg_process.exit.i, label %381
+  %.not47.i.i = icmp eq ptr %376, null
+  br i1 %.not47.i.i, label %aeron_msg_process.exit.i, label %377
 
-381:                                              ; preds = %378
-  %.not48.i.i = icmp sgt i8 %309, -1
-  %382 = getelementptr i8, ptr %380, i64 16
-  %.val57.i.i = load ptr, ptr %382, align 8
-  %383 = call ptr @wmem_tree_lookup32_le(ptr noundef %.val57.i.i, i32 noundef %300)
-  %.not49.i.i = icmp eq ptr %383, null
-  br i1 %.not48.i.i, label %390, label %384
+377:                                              ; preds = %374
+  %.not48.i.i = icmp sgt i8 %306, -1
+  %378 = getelementptr i8, ptr %376, i64 16
+  %.val57.i.i = load ptr, ptr %378, align 8
+  %379 = call ptr @wmem_tree_lookup32_le(ptr noundef %.val57.i.i, i32 noundef %297)
+  %.not49.i.i = icmp eq ptr %379, null
+  br i1 %.not48.i.i, label %386, label %380
 
-384:                                              ; preds = %381
-  br i1 %.not49.i.i, label %388, label %385
+380:                                              ; preds = %377
+  br i1 %.not49.i.i, label %384, label %381
 
-385:                                              ; preds = %384
-  %386 = getelementptr inbounds nuw i8, ptr %383, i64 24
-  %387 = load i32, ptr %386, align 8
-  %.not52.i.i = icmp eq i32 %387, %300
-  br i1 %.not52.i.i, label %397, label %388
+381:                                              ; preds = %380
+  %382 = getelementptr inbounds nuw i8, ptr %379, i64 24
+  %383 = load i32, ptr %382, align 8
+  %.not52.i.i = icmp eq i32 %383, %297
+  br i1 %.not52.i.i, label %393, label %384
 
-388:                                              ; preds = %385, %384
-  %389 = call fastcc ptr @aeron_term_msg_add(ptr noundef %380, ptr noundef readonly %1, ptr noundef nonnull readonly %11)
-  br label %397
+384:                                              ; preds = %381, %380
+  %385 = call fastcc ptr @aeron_term_msg_add(ptr noundef %376, ptr noundef readonly %1, ptr noundef nonnull readonly %11)
+  br label %393
 
-390:                                              ; preds = %381
-  br i1 %.not49.i.i, label %397, label %391
+386:                                              ; preds = %377
+  br i1 %.not49.i.i, label %393, label %387
 
-391:                                              ; preds = %390
-  %392 = getelementptr inbounds nuw i8, ptr %383, i64 28
-  %393 = load i32, ptr %392, align 4
-  %394 = icmp eq i32 %393, %300
-  br i1 %394, label %397, label %395
+387:                                              ; preds = %386
+  %388 = getelementptr inbounds nuw i8, ptr %379, i64 28
+  %389 = load i32, ptr %388, align 4
+  %390 = icmp eq i32 %389, %297
+  br i1 %390, label %393, label %391
 
-395:                                              ; preds = %391
-  %396 = call fastcc ptr @aeron_msg_fragment_find(ptr noundef %383, ptr noundef nonnull readonly %11)
-  %.not50.i.i = icmp eq ptr %396, null
-  br i1 %.not50.i.i, label %397, label %aeron_msg_process.exit.i
+391:                                              ; preds = %387
+  %392 = call fastcc ptr @aeron_msg_fragment_find(ptr noundef %379, ptr noundef nonnull readonly %11)
+  %.not50.i.i = icmp eq ptr %392, null
+  br i1 %.not50.i.i, label %393, label %aeron_msg_process.exit.i
 
-397:                                              ; preds = %395, %391, %390, %388, %385
-  %.139.i.i = phi ptr [ %389, %388 ], [ %383, %391 ], [ null, %390 ], [ null, %395 ], [ %383, %385 ]
-  %398 = call ptr @wmem_file_scope()
-  %399 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %398, i64 noundef 32) #13
-  %400 = getelementptr inbounds nuw i8, ptr %399, i64 8
-  store i32 %300, ptr %400, align 8
-  %401 = getelementptr inbounds nuw i8, ptr %399, i64 12
-  store i32 %289, ptr %401, align 4
-  %402 = getelementptr inbounds nuw i8, ptr %399, i64 16
-  store i32 %298, ptr %402, align 8
-  %403 = load i32, ptr %53, align 4
-  %404 = getelementptr inbounds nuw i8, ptr %399, i64 20
-  store i32 %403, ptr %404, align 4
-  %405 = getelementptr inbounds nuw i8, ptr %399, i64 24
-  store i32 %.0103182, ptr %405, align 8
-  %406 = call ptr @wmem_file_scope()
-  %407 = add i32 %.0103182, 32
-  %408 = zext i32 %298 to i64
-  %409 = call ptr @tvb_memdup(ptr noundef %406, ptr noundef %0, i32 noundef %407, i64 noundef %408)
-  store ptr %409, ptr %399, align 8
-  %410 = getelementptr inbounds nuw i8, ptr %399, i64 28
-  store i8 %309, ptr %410, align 4
-  %411 = icmp eq ptr %.139.i.i, null
-  br i1 %411, label %412, label %415
+393:                                              ; preds = %391, %387, %386, %384, %381
+  %.139.i.i = phi ptr [ %385, %384 ], [ %379, %387 ], [ null, %386 ], [ null, %391 ], [ %379, %381 ]
+  %394 = call ptr @wmem_file_scope()
+  %395 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %394, i64 noundef 32) #12
+  %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
+  store i32 %297, ptr %396, align 8
+  %397 = getelementptr inbounds nuw i8, ptr %395, i64 12
+  store i32 %286, ptr %397, align 4
+  %398 = getelementptr inbounds nuw i8, ptr %395, i64 16
+  store i32 %295, ptr %398, align 8
+  %399 = load i32, ptr %53, align 4
+  %400 = getelementptr inbounds nuw i8, ptr %395, i64 20
+  store i32 %399, ptr %400, align 4
+  %401 = getelementptr inbounds nuw i8, ptr %395, i64 24
+  store i32 %.0103187, ptr %401, align 8
+  %402 = call ptr @wmem_file_scope()
+  %403 = add i32 %.0103187, 32
+  %404 = zext i32 %295 to i64
+  %405 = call ptr @tvb_memdup(ptr noundef %402, ptr noundef %0, i32 noundef %403, i64 noundef %404)
+  store ptr %405, ptr %395, align 8
+  %406 = getelementptr inbounds nuw i8, ptr %395, i64 28
+  store i8 %306, ptr %406, align 4
+  %407 = icmp eq ptr %.139.i.i, null
+  br i1 %407, label %408, label %411
 
-412:                                              ; preds = %397
-  %413 = getelementptr inbounds nuw i8, ptr %380, i64 24
-  %414 = load ptr, ptr %413, align 8
-  call void @wmem_list_append(ptr noundef %414, ptr noundef %399)
+408:                                              ; preds = %393
+  %409 = getelementptr inbounds nuw i8, ptr %376, i64 24
+  %410 = load ptr, ptr %409, align 8
+  call void @wmem_list_append(ptr noundef %410, ptr noundef %395)
   br label %.critedge.i.i
 
-415:                                              ; preds = %397
-  call fastcc void @aeron_msg_fragment_add(ptr noundef nonnull %.139.i.i, ptr noundef %399)
+411:                                              ; preds = %393
+  call fastcc void @aeron_msg_fragment_add(ptr noundef nonnull %.139.i.i, ptr noundef %395)
   br label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %415, %412
-  %416 = getelementptr inbounds nuw i8, ptr %380, i64 24
-  %417 = load ptr, ptr %416, align 8
-  %418 = call i32 @wmem_list_count(ptr noundef %417)
-  %419 = icmp eq i32 %418, 0
-  br i1 %419, label %aeron_msg_process.exit.i, label %420
+.critedge.i.i:                                    ; preds = %411, %408
+  %412 = getelementptr inbounds nuw i8, ptr %376, i64 24
+  %413 = load ptr, ptr %412, align 8
+  %414 = call i32 @wmem_list_count(ptr noundef %413)
+  %415 = icmp eq i32 %414, 0
+  br i1 %415, label %aeron_msg_process.exit.i, label %416
 
-420:                                              ; preds = %.critedge.i.i
-  %421 = load ptr, ptr %382, align 8
-  %422 = call zeroext i1 @wmem_tree_foreach(ptr noundef %421, ptr noundef nonnull @aeron_msg_process_orphan_fragments_msg_cb, ptr noundef nonnull %380)
+416:                                              ; preds = %.critedge.i.i
+  %417 = load ptr, ptr %378, align 8
+  %418 = call zeroext i1 @wmem_tree_foreach(ptr noundef %417, ptr noundef nonnull @aeron_msg_process_orphan_fragments_msg_cb, ptr noundef nonnull %376)
   br label %aeron_msg_process.exit.i
 
-aeron_msg_process.exit.i:                         ; preds = %420, %.critedge.i.i, %395, %378, %376, %370, %367
-  %423 = load i8, ptr %84, align 2
-  %424 = icmp ugt i8 %423, -65
-  %.not132.i = icmp eq ptr %.0, null
-  br i1 %.not132.i, label %481, label %425
+aeron_msg_process.exit.i:                         ; preds = %416, %.critedge.i.i, %391, %374, %372, %366, %363
+  %419 = load i8, ptr %84, align 2
+  %420 = icmp ugt i8 %419, -65
+  %.not134.i = icmp eq ptr %.0, null
+  br i1 %.not134.i, label %480, label %421
 
-425:                                              ; preds = %aeron_msg_process.exit.i
-  %426 = getelementptr inbounds nuw i8, ptr %.0, i64 72
-  %427 = load i32, ptr %426, align 8
-  %428 = and i32 %427, 4
-  %.not133.i = icmp eq i32 %428, 0
-  br i1 %.not133.i, label %481, label %429
+421:                                              ; preds = %aeron_msg_process.exit.i
+  %422 = getelementptr inbounds nuw i8, ptr %.0, i64 72
+  %423 = load i32, ptr %422, align 8
+  %424 = and i32 %423, 4
+  %.not135.i = icmp eq i32 %424, 0
+  br i1 %.not135.i, label %477, label %425
 
-429:                                              ; preds = %425
-  %430 = getelementptr i8, ptr %.0, i64 56
-  %.val134.i = load ptr, ptr %430, align 8
-  %431 = icmp eq ptr %.val134.i, null
-  br i1 %431, label %.thread.i, label %432
+425:                                              ; preds = %421
+  %426 = getelementptr i8, ptr %.0, i64 56
+  %.val136.i = load ptr, ptr %426, align 8
+  %427 = icmp eq ptr %.val136.i, null
+  br i1 %427, label %dissect_aeron_reassembled_data.exit.i, label %428
 
-432:                                              ; preds = %429
-  %433 = getelementptr inbounds nuw i8, ptr %.val134.i, i64 16
-  %434 = load ptr, ptr %433, align 8
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %434, ptr noundef nonnull @.str.274)
-  %435 = load i32, ptr @hf_aeron_data_reassembly, align 4
-  %436 = load ptr, ptr %433, align 8
-  %437 = call i32 @tvb_reported_length_remaining(ptr noundef %436, i32 noundef 0)
-  %438 = getelementptr inbounds nuw i8, ptr %.val134.i, i64 40
-  %439 = load i32, ptr %438, align 8
-  %440 = getelementptr inbounds nuw i8, ptr %.val134.i, i64 32
-  %441 = load i32, ptr %440, align 8
-  %442 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %334, i32 noundef %435, ptr noundef %436, i32 noundef 0, i32 noundef %437, ptr noundef nonnull @.str.275, i32 noundef %439, i32 noundef %441)
-  %443 = load i32, ptr @ett_aeron_data_reassembly, align 4
-  %444 = call ptr @proto_item_add_subtree(ptr noundef %442, i32 noundef %443)
-  %445 = load ptr, ptr %.val134.i, align 8
-  %446 = call ptr @wmem_list_head(ptr noundef %445)
-  %.not1.i.i = icmp eq ptr %446, null
+428:                                              ; preds = %425
+  %429 = getelementptr inbounds nuw i8, ptr %.val136.i, i64 16
+  %430 = load ptr, ptr %429, align 8
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %430, ptr noundef nonnull @.str.274)
+  %431 = load i32, ptr @hf_aeron_data_reassembly, align 4
+  %432 = load ptr, ptr %429, align 8
+  %433 = call i32 @tvb_reported_length_remaining(ptr noundef %432, i32 noundef 0)
+  %434 = getelementptr inbounds nuw i8, ptr %.val136.i, i64 40
+  %435 = load i32, ptr %434, align 8
+  %436 = getelementptr inbounds nuw i8, ptr %.val136.i, i64 32
+  %437 = load i32, ptr %436, align 8
+  %438 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %330, i32 noundef %431, ptr noundef %432, i32 noundef 0, i32 noundef %433, ptr noundef nonnull @.str.275, i32 noundef %435, i32 noundef %437)
+  %439 = load i32, ptr @ett_aeron_data_reassembly, align 4
+  %440 = call ptr @proto_item_add_subtree(ptr noundef %438, i32 noundef %439)
+  %441 = load ptr, ptr %.val136.i, align 8
+  %442 = call ptr @wmem_list_head(ptr noundef %441)
+  %.not1.i.i = icmp eq ptr %442, null
   br i1 %.not1.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %432, %469
-  %.04.i.i = phi ptr [ %470, %469 ], [ %446, %432 ]
-  %.0353.i.i = phi i1 [ %.1.i.i, %469 ], [ true, %432 ]
-  %.0362.i.i = phi i32 [ %.137.i.i, %469 ], [ 0, %432 ]
-  %447 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.04.i.i)
-  %.not40.i.i = icmp eq ptr %447, null
-  br i1 %.not40.i.i, label %469, label %448
+.lr.ph.i.i:                                       ; preds = %428, %465
+  %.04.i.i = phi ptr [ %466, %465 ], [ %442, %428 ]
+  %.0353.i.i = phi i1 [ %.1.i.i, %465 ], [ true, %428 ]
+  %.0362.i.i = phi i32 [ %.137.i.i, %465 ], [ 0, %428 ]
+  %443 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.04.i.i)
+  %.not40.i.i = icmp eq ptr %443, null
+  br i1 %.not40.i.i, label %465, label %444
 
-448:                                              ; preds = %.lr.ph.i.i
-  %449 = load i32, ptr @hf_aeron_data_reassembly_fragment, align 4
-  %450 = load ptr, ptr %433, align 8
-  %451 = getelementptr inbounds nuw i8, ptr %447, i64 16
-  %452 = load i32, ptr %451, align 8
-  %453 = getelementptr inbounds nuw i8, ptr %447, i64 20
-  %454 = load i32, ptr %453, align 4
-  %455 = add i32 %.0362.i.i, -1
-  %456 = add i32 %455, %452
-  %457 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %444, i32 noundef %449, ptr noundef %450, i32 noundef %.0362.i.i, i32 noundef %452, i32 noundef %454, ptr noundef nonnull @.str.276, i32 noundef %454, i32 noundef %.0362.i.i, i32 noundef %456, i32 noundef %452)
-  %.not.i.i.i = icmp eq ptr %457, null
-  br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %458
+444:                                              ; preds = %.lr.ph.i.i
+  %445 = load i32, ptr @hf_aeron_data_reassembly_fragment, align 4
+  %446 = load ptr, ptr %429, align 8
+  %447 = getelementptr inbounds nuw i8, ptr %443, i64 16
+  %448 = load i32, ptr %447, align 8
+  %449 = getelementptr inbounds nuw i8, ptr %443, i64 20
+  %450 = load i32, ptr %449, align 4
+  %451 = add i32 %.0362.i.i, -1
+  %452 = add i32 %451, %448
+  %453 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %440, i32 noundef %445, ptr noundef %446, i32 noundef %.0362.i.i, i32 noundef %448, i32 noundef %450, ptr noundef nonnull @.str.276, i32 noundef %450, i32 noundef %.0362.i.i, i32 noundef %452, i32 noundef %448)
+  %.not.i.i.i = icmp eq ptr %453, null
+  br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %454
 
-458:                                              ; preds = %448
-  %459 = getelementptr inbounds nuw i8, ptr %457, i64 40
-  %460 = load ptr, ptr %459, align 8
-  %.not5.i.i.i = icmp eq ptr %460, null
-  br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %461
+454:                                              ; preds = %444
+  %455 = getelementptr inbounds nuw i8, ptr %453, i64 40
+  %456 = load ptr, ptr %455, align 8
+  %.not5.i.i.i = icmp eq ptr %456, null
+  br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %457
 
-461:                                              ; preds = %458
-  %462 = getelementptr inbounds nuw i8, ptr %460, i64 28
-  %463 = load i32, ptr %462, align 4
-  %464 = or i32 %463, 2
-  store i32 %464, ptr %462, align 4
+457:                                              ; preds = %454
+  %458 = getelementptr inbounds nuw i8, ptr %456, i64 28
+  %459 = load i32, ptr %458, align 4
+  %460 = or i32 %459, 2
+  store i32 %460, ptr %458, align 4
   br label %proto_item_set_generated.exit.i.i
 
-proto_item_set_generated.exit.i.i:                ; preds = %461, %458, %448
-  %465 = load i32, ptr %453, align 4
-  %466 = load i32, ptr %451, align 8
+proto_item_set_generated.exit.i.i:                ; preds = %457, %454, %444
+  %461 = load i32, ptr %449, align 4
+  %462 = load i32, ptr %447, align 8
   %.str.277..str.278.i.i = select i1 %.0353.i.i, ptr @.str.277, ptr @.str.278
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %442, ptr noundef nonnull %.str.277..str.278.i.i, i32 noundef %465, i32 noundef %466)
-  %467 = load i32, ptr %451, align 8
-  %468 = add i32 %467, %.0362.i.i
-  br label %469
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %438, ptr noundef nonnull %.str.277..str.278.i.i, i32 noundef %461, i32 noundef %462)
+  %463 = load i32, ptr %447, align 8
+  %464 = add i32 %463, %.0362.i.i
+  br label %465
 
-469:                                              ; preds = %proto_item_set_generated.exit.i.i, %.lr.ph.i.i
-  %.137.i.i = phi i32 [ %468, %proto_item_set_generated.exit.i.i ], [ %.0362.i.i, %.lr.ph.i.i ]
+465:                                              ; preds = %proto_item_set_generated.exit.i.i, %.lr.ph.i.i
+  %.137.i.i = phi i32 [ %464, %proto_item_set_generated.exit.i.i ], [ %.0362.i.i, %.lr.ph.i.i ]
   %.1.i.i = phi i1 [ false, %proto_item_set_generated.exit.i.i ], [ %.0353.i.i, %.lr.ph.i.i ]
-  %470 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.04.i.i)
-  %.not.i137.i = icmp eq ptr %470, null
-  br i1 %.not.i137.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
+  %466 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.04.i.i)
+  %.not.i139.i = icmp eq ptr %466, null
+  br i1 %.not.i139.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
-._crit_edge.i.i:                                  ; preds = %469, %432
-  %.not.i41.i.i = icmp eq ptr %442, null
-  br i1 %.not.i41.i.i, label %.thread.i, label %471
+._crit_edge.i.i:                                  ; preds = %465, %428
+  %.not.i41.i.i = icmp eq ptr %438, null
+  br i1 %.not.i41.i.i, label %dissect_aeron_reassembled_data.exit.i, label %467
 
-471:                                              ; preds = %._crit_edge.i.i
-  %472 = getelementptr inbounds nuw i8, ptr %442, i64 40
-  %473 = load ptr, ptr %472, align 8
-  %.not5.i42.i.i = icmp eq ptr %473, null
-  br i1 %.not5.i42.i.i, label %.thread.i, label %474
+467:                                              ; preds = %._crit_edge.i.i
+  %468 = getelementptr inbounds nuw i8, ptr %438, i64 40
+  %469 = load ptr, ptr %468, align 8
+  %.not5.i42.i.i = icmp eq ptr %469, null
+  br i1 %.not5.i42.i.i, label %dissect_aeron_reassembled_data.exit.i, label %470
 
-474:                                              ; preds = %471
-  %475 = getelementptr inbounds nuw i8, ptr %473, i64 28
-  %476 = load i32, ptr %475, align 4
-  %477 = or i32 %476, 2
-  store i32 %477, ptr %475, align 4
-  br label %.thread.i
+470:                                              ; preds = %467
+  %471 = getelementptr inbounds nuw i8, ptr %469, i64 28
+  %472 = load i32, ptr %471, align 4
+  %473 = or i32 %472, 2
+  store i32 %473, ptr %471, align 4
+  br label %dissect_aeron_reassembled_data.exit.i
 
-.thread.i:                                        ; preds = %474, %471, %._crit_edge.i.i, %429
-  %478 = load ptr, ptr %430, align 8
-  %479 = getelementptr inbounds nuw i8, ptr %478, i64 16
-  %480 = load ptr, ptr %479, align 8
-  br label %484
+dissect_aeron_reassembled_data.exit.i:            ; preds = %470, %467, %._crit_edge.i.i, %425
+  %474 = load ptr, ptr %426, align 8
+  %475 = getelementptr inbounds nuw i8, ptr %474, i64 16
+  %476 = load ptr, ptr %475, align 8
+  br label %483
 
-481:                                              ; preds = %425, %aeron_msg_process.exit.i
-  %482 = add i32 %.0103182, 32
-  %483 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %482, i32 noundef %298)
-  br i1 %424, label %484, label %.critedge.i
+477:                                              ; preds = %421
+  %478 = add i32 %.0103187, 32
+  %479 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %478, i32 noundef %295)
+  br label %483
 
-484:                                              ; preds = %481, %.thread.i
-  %.0124140.i = phi ptr [ %480, %.thread.i ], [ %483, %481 ]
-  %485 = load i8, ptr @aeron_use_heuristic_subdissectors, align 1, !range !6, !noundef !7
-  %486 = trunc nuw i8 %485 to i1
-  br i1 %486, label %487, label %.critedge.i
+480:                                              ; preds = %aeron_msg_process.exit.i
+  %481 = add i32 %.0103187, 32
+  %482 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %481, i32 noundef %295)
+  br label %483
 
-487:                                              ; preds = %484
-  %488 = load ptr, ptr @aeron_heuristic_subdissector_list, align 8
-  %489 = call zeroext i1 @dissector_try_heuristic(ptr noundef %488, ptr noundef %.0124140.i, ptr noundef %1, ptr noundef %334, ptr noundef nonnull %12, ptr noundef null)
-  br i1 %489, label %491, label %.critedge.i
+483:                                              ; preds = %480, %477, %dissect_aeron_reassembled_data.exit.i
+  %.0126.i = phi ptr [ %476, %dissect_aeron_reassembled_data.exit.i ], [ %479, %477 ], [ %482, %480 ]
+  %.1.shrunk.i = phi i1 [ true, %dissect_aeron_reassembled_data.exit.i ], [ %420, %477 ], [ %420, %480 ]
+  %484 = load i8, ptr @aeron_use_heuristic_subdissectors, align 1, !range !6
+  %485 = trunc nuw i8 %484 to i1
+  %or.cond.i130 = select i1 %.1.shrunk.i, i1 %485, i1 false
+  br i1 %or.cond.i130, label %486, label %.critedge.i
 
-.critedge.i:                                      ; preds = %487, %484, %481
-  %.0124141.i = phi ptr [ %.0124140.i, %484 ], [ %483, %481 ], [ %.0124140.i, %487 ]
-  %490 = call i32 @call_data_dissector(ptr noundef %.0124141.i, ptr noundef %1, ptr noundef %334)
+486:                                              ; preds = %483
+  %487 = load ptr, ptr @aeron_heuristic_subdissector_list, align 8
+  %488 = call zeroext i1 @dissector_try_heuristic(ptr noundef %487, ptr noundef %.0126.i, ptr noundef %1, ptr noundef %330, ptr noundef nonnull %12, ptr noundef null)
+  br i1 %488, label %490, label %.critedge.i
+
+.critedge.i:                                      ; preds = %486, %483
+  %489 = call i32 @call_data_dissector(ptr noundef %.0126.i, ptr noundef %1, ptr noundef %330)
+  br label %490
+
+490:                                              ; preds = %.critedge.i, %486
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #13
   br label %491
 
-491:                                              ; preds = %.critedge.i, %487
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  br label %492
+491:                                              ; preds = %490, %proto_item_set_generated.exit.i127
+  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %330, ptr noundef %301, ptr noundef nonnull %11, ptr noundef %.0)
+  call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %330, ptr noundef %301, ptr noundef %.0)
+  call void @proto_item_set_len(ptr noundef %328, i32 noundef %.0128.i)
+  %492 = add i32 %286, -1
+  %or.cond3.i = icmp ult i32 %492, 31
+  br i1 %or.cond3.i, label %493, label %dissect_aeron_data.exit
 
-492:                                              ; preds = %491, %proto_item_set_generated.exit.i124
-  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %334, ptr noundef %304, ptr noundef nonnull %11, ptr noundef %.0)
-  call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %334, ptr noundef %304, ptr noundef %.0)
-  call void @proto_item_set_len(ptr noundef %332, i32 noundef %.0126.i)
-  %493 = add i32 %289, -1
-  %or.cond.i = icmp ult i32 %493, 31
-  br i1 %or.cond.i, label %494, label %dissect_aeron_data.exit
-
-494:                                              ; preds = %492
-  %495 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %346, ptr noundef nonnull @ei_aeron_analysis_invalid_data_length)
-  %496 = sub nsw i32 0, %.0126.i
+493:                                              ; preds = %491
+  %494 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %342, ptr noundef nonnull @ei_aeron_analysis_invalid_data_length)
+  %495 = sub nsw i32 0, %.0128.i
   br label %dissect_aeron_data.exit
 
-dissect_aeron_data.exit:                          ; preds = %291, %297, %492, %494
-  %.0128.i = phi i32 [ %496, %494 ], [ 0, %291 ], [ 0, %297 ], [ %.0126.i, %492 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #14
+dissect_aeron_data.exit:                          ; preds = %288, %294, %491, %493
+  %.0130.i = phi i32 [ %495, %493 ], [ 0, %288 ], [ 0, %294 ], [ %.0128.i, %491 ]
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11) #13
   br label %dissect_aeron_rtt.exit
 
-497:                                              ; preds = %aeron_frame_info_add.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #14
-  %498 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103182)
-  %499 = icmp slt i32 %498, 0
-  br i1 %499, label %dissect_aeron_nak.exit, label %500
+496:                                              ; preds = %aeron_frame_info_add.exit
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #13
+  %497 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103187)
+  %498 = icmp slt i32 %497, 0
+  br i1 %498, label %dissect_aeron_nak.exit, label %499
 
-500:                                              ; preds = %497
-  %501 = add i32 %.0103182, 8
-  %502 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %501)
-  %503 = load i32, ptr %53, align 4
-  %504 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %141, i32 noundef %502, i32 noundef %503)
-  %505 = add i32 %.0103182, 12
-  %506 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %505)
-  %507 = add i32 %.0103182, 16
-  %508 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %507)
-  %509 = add i32 %.0103182, 20
-  %510 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %509)
-  %511 = add i32 %.0103182, 24
-  %512 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %511)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %71, i8 noundef 0, i64 noundef 48, i1 noundef false) #14
-  store i32 %506, ptr %72, align 4
-  store i32 %508, ptr %71, align 8
+499:                                              ; preds = %496
+  %500 = add i32 %.0103187, 8
+  %501 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %500)
+  %502 = load i32, ptr %53, align 4
+  %503 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %140, i32 noundef %501, i32 noundef %502)
+  %504 = add i32 %.0103187, 12
+  %505 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %504)
+  %506 = add i32 %.0103187, 16
+  %507 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %506)
+  %508 = add i32 %.0103187, 20
+  %509 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %508)
+  %510 = add i32 %.0103187, 24
+  %511 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %510)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %71, i8 noundef 0, i64 noundef 48, i1 noundef false) #13
+  store i32 %505, ptr %72, align 4
+  store i32 %507, ptr %71, align 8
   store i32 3, ptr %8, align 8
-  store i32 %510, ptr %73, align 8
-  store i32 %512, ptr %74, align 4
+  store i32 %509, ptr %73, align 8
+  store i32 %511, ptr %74, align 4
   store i16 2, ptr %75, align 8
-  %513 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %137)
-  store i8 %513, ptr %76, align 2
-  %514 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %504, ptr noundef nonnull %8, ptr noundef %.0)
-  %515 = icmp slt i32 %514, 0
-  br i1 %515, label %dissect_aeron_nak.exit, label %516
+  %512 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %136)
+  store i8 %512, ptr %76, align 2
+  %513 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %503, ptr noundef nonnull %8, ptr noundef %.0)
+  %514 = icmp slt i32 %513, 0
+  br i1 %514, label %dissect_aeron_nak.exit, label %515
 
-516:                                              ; preds = %500
-  %517 = load ptr, ptr %21, align 8
-  call void @col_append_sep_str(ptr noundef %517, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.185)
-  %518 = load i32, ptr @hf_aeron_nak, align 4
-  %519 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %518, ptr noundef %0, i32 noundef %.0103182, i32 noundef -1, ptr noundef nonnull @.str.279, i32 noundef %508, i32 noundef %510, i32 noundef %512)
-  %520 = load i32, ptr @ett_aeron_nak, align 4
-  %521 = call ptr @proto_item_add_subtree(ptr noundef %519, i32 noundef %520)
-  %522 = load i32, ptr @hf_aeron_channel_id, align 4
-  %523 = load i64, ptr %504, align 8
-  %524 = call ptr @proto_tree_add_uint64(ptr noundef %521, i32 noundef %522, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %523)
-  %.not.i.i130 = icmp eq ptr %524, null
-  br i1 %.not.i.i130, label %proto_item_set_generated.exit.i132, label %525
+515:                                              ; preds = %499
+  %516 = load ptr, ptr %21, align 8
+  call void @col_append_sep_str(ptr noundef %516, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.185)
+  %517 = load i32, ptr @hf_aeron_nak, align 4
+  %518 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %517, ptr noundef %0, i32 noundef %.0103187, i32 noundef -1, ptr noundef nonnull @.str.279, i32 noundef %507, i32 noundef %509, i32 noundef %511)
+  %519 = load i32, ptr @ett_aeron_nak, align 4
+  %520 = call ptr @proto_item_add_subtree(ptr noundef %518, i32 noundef %519)
+  %521 = load i32, ptr @hf_aeron_channel_id, align 4
+  %522 = load i64, ptr %503, align 8
+  %523 = call ptr @proto_tree_add_uint64(ptr noundef %520, i32 noundef %521, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %522)
+  %.not.i.i133 = icmp eq ptr %523, null
+  br i1 %.not.i.i133, label %proto_item_set_generated.exit.i135, label %524
 
-525:                                              ; preds = %516
-  %526 = getelementptr inbounds nuw i8, ptr %524, i64 40
-  %527 = load ptr, ptr %526, align 8
-  %.not5.i.i131 = icmp eq ptr %527, null
-  br i1 %.not5.i.i131, label %proto_item_set_generated.exit.i132, label %528
+524:                                              ; preds = %515
+  %525 = getelementptr inbounds nuw i8, ptr %523, i64 40
+  %526 = load ptr, ptr %525, align 8
+  %.not5.i.i134 = icmp eq ptr %526, null
+  br i1 %.not5.i.i134, label %proto_item_set_generated.exit.i135, label %527
 
-528:                                              ; preds = %525
-  %529 = getelementptr inbounds nuw i8, ptr %527, i64 28
-  %530 = load i32, ptr %529, align 4
-  %531 = or i32 %530, 2
-  store i32 %531, ptr %529, align 4
-  br label %proto_item_set_generated.exit.i132
+527:                                              ; preds = %524
+  %528 = getelementptr inbounds nuw i8, ptr %526, i64 28
+  %529 = load i32, ptr %528, align 4
+  %530 = or i32 %529, 2
+  store i32 %530, ptr %528, align 4
+  br label %proto_item_set_generated.exit.i135
 
-proto_item_set_generated.exit.i132:               ; preds = %528, %525, %516
-  %532 = load i32, ptr @hf_aeron_nak_frame_length, align 4
-  %533 = call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %532, ptr noundef %0, i32 noundef %.0103182, i32 noundef 4, i32 noundef -2147483648)
-  %534 = load i32, ptr @hf_aeron_nak_version, align 4
-  %535 = add i32 %.0103182, 4
-  %536 = call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %534, ptr noundef %0, i32 noundef %535, i32 noundef 1, i32 noundef -2147483648)
-  %537 = load i32, ptr @hf_aeron_nak_flags, align 4
-  %538 = call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %537, ptr noundef %0, i32 noundef %137, i32 noundef 1, i32 noundef -2147483648)
-  %539 = load i32, ptr @hf_aeron_nak_type, align 4
-  %540 = call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %539, ptr noundef %0, i32 noundef %139, i32 noundef 2, i32 noundef -2147483648)
-  %541 = load i32, ptr @hf_aeron_nak_session_id, align 4
-  %542 = call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %541, ptr noundef %0, i32 noundef %501, i32 noundef 4, i32 noundef -2147483648)
-  %543 = load i32, ptr @hf_aeron_nak_stream_id, align 4
-  %544 = call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %543, ptr noundef %0, i32 noundef %505, i32 noundef 4, i32 noundef -2147483648)
-  %545 = load i32, ptr @hf_aeron_nak_term_id, align 4
-  %546 = call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %545, ptr noundef %0, i32 noundef %507, i32 noundef 4, i32 noundef -2147483648)
-  %547 = load i32, ptr @hf_aeron_nak_term_offset, align 4
-  %548 = call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %547, ptr noundef %0, i32 noundef %509, i32 noundef 4, i32 noundef -2147483648)
-  %549 = load i32, ptr @hf_aeron_nak_length, align 4
-  %550 = call ptr @proto_tree_add_item(ptr noundef %521, i32 noundef %549, ptr noundef %0, i32 noundef %511, i32 noundef 4, i32 noundef -2147483648)
-  %551 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %548, ptr noundef nonnull @ei_aeron_analysis_nak, ptr noundef nonnull @.str.280, i32 noundef %510, i32 noundef %512)
-  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %521, ptr noundef %504, ptr noundef nonnull %8, ptr noundef %.0)
-  call void @proto_item_set_len(ptr noundef %519, i32 noundef %498)
-  %.not.i133 = icmp eq i32 %498, 28
-  br i1 %.not.i133, label %dissect_aeron_nak.exit, label %552
+proto_item_set_generated.exit.i135:               ; preds = %527, %524, %515
+  %531 = load i32, ptr @hf_aeron_nak_frame_length, align 4
+  %532 = call ptr @proto_tree_add_item(ptr noundef %520, i32 noundef %531, ptr noundef %0, i32 noundef %.0103187, i32 noundef 4, i32 noundef -2147483648)
+  %533 = load i32, ptr @hf_aeron_nak_version, align 4
+  %534 = add i32 %.0103187, 4
+  %535 = call ptr @proto_tree_add_item(ptr noundef %520, i32 noundef %533, ptr noundef %0, i32 noundef %534, i32 noundef 1, i32 noundef -2147483648)
+  %536 = load i32, ptr @hf_aeron_nak_flags, align 4
+  %537 = call ptr @proto_tree_add_item(ptr noundef %520, i32 noundef %536, ptr noundef %0, i32 noundef %136, i32 noundef 1, i32 noundef -2147483648)
+  %538 = load i32, ptr @hf_aeron_nak_type, align 4
+  %539 = call ptr @proto_tree_add_item(ptr noundef %520, i32 noundef %538, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648)
+  %540 = load i32, ptr @hf_aeron_nak_session_id, align 4
+  %541 = call ptr @proto_tree_add_item(ptr noundef %520, i32 noundef %540, ptr noundef %0, i32 noundef %500, i32 noundef 4, i32 noundef -2147483648)
+  %542 = load i32, ptr @hf_aeron_nak_stream_id, align 4
+  %543 = call ptr @proto_tree_add_item(ptr noundef %520, i32 noundef %542, ptr noundef %0, i32 noundef %504, i32 noundef 4, i32 noundef -2147483648)
+  %544 = load i32, ptr @hf_aeron_nak_term_id, align 4
+  %545 = call ptr @proto_tree_add_item(ptr noundef %520, i32 noundef %544, ptr noundef %0, i32 noundef %506, i32 noundef 4, i32 noundef -2147483648)
+  %546 = load i32, ptr @hf_aeron_nak_term_offset, align 4
+  %547 = call ptr @proto_tree_add_item(ptr noundef %520, i32 noundef %546, ptr noundef %0, i32 noundef %508, i32 noundef 4, i32 noundef -2147483648)
+  %548 = load i32, ptr @hf_aeron_nak_length, align 4
+  %549 = call ptr @proto_tree_add_item(ptr noundef %520, i32 noundef %548, ptr noundef %0, i32 noundef %510, i32 noundef 4, i32 noundef -2147483648)
+  %550 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %547, ptr noundef nonnull @ei_aeron_analysis_nak, ptr noundef nonnull @.str.280, i32 noundef %509, i32 noundef %511)
+  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %520, ptr noundef %503, ptr noundef nonnull %8, ptr noundef %.0)
+  call void @proto_item_set_len(ptr noundef %518, i32 noundef %497)
+  %.not.i136 = icmp eq i32 %497, 28
+  br i1 %.not.i136, label %dissect_aeron_nak.exit, label %551
 
-552:                                              ; preds = %proto_item_set_generated.exit.i132
-  %553 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %533, ptr noundef nonnull @ei_aeron_analysis_invalid_nak_length)
-  %554 = sub nsw i32 0, %498
+551:                                              ; preds = %proto_item_set_generated.exit.i135
+  %552 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %532, ptr noundef nonnull @ei_aeron_analysis_invalid_nak_length)
+  %553 = sub nsw i32 0, %497
   br label %dissect_aeron_nak.exit
 
-dissect_aeron_nak.exit:                           ; preds = %497, %500, %proto_item_set_generated.exit.i132, %552
-  %.0.i134 = phi i32 [ %554, %552 ], [ 0, %497 ], [ 0, %500 ], [ 28, %proto_item_set_generated.exit.i132 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #14
+dissect_aeron_nak.exit:                           ; preds = %496, %499, %proto_item_set_generated.exit.i135, %551
+  %.0.i137 = phi i32 [ %553, %551 ], [ 0, %496 ], [ 0, %499 ], [ 28, %proto_item_set_generated.exit.i135 ]
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #13
   br label %dissect_aeron_rtt.exit
 
-555:                                              ; preds = %aeron_frame_info_add.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #14
-  %556 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103182)
-  %557 = add i32 %556, -36
-  %558 = icmp slt i32 %556, 0
-  br i1 %558, label %dissect_aeron_sm.exit, label %559
+554:                                              ; preds = %aeron_frame_info_add.exit
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #13
+  %555 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103187)
+  %556 = add i32 %555, -36
+  %557 = icmp slt i32 %555, 0
+  br i1 %557, label %dissect_aeron_sm.exit, label %558
 
-559:                                              ; preds = %555
-  %560 = add i32 %.0103182, 8
-  %561 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %560)
-  %562 = load i32, ptr %53, align 4
-  %563 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %141, i32 noundef %561, i32 noundef %562)
-  %564 = add i32 %.0103182, 12
-  %565 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %564)
-  %566 = add i32 %.0103182, 16
-  %567 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %566)
-  %568 = add i32 %.0103182, 20
-  %569 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %568)
-  %570 = add i32 %.0103182, 24
-  %571 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %570)
-  %572 = add i32 %.0103182, 28
-  %573 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %572)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
-  store i32 %565, ptr %63, align 4
+558:                                              ; preds = %554
+  %559 = add i32 %.0103187, 8
+  %560 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %559)
+  %561 = load i32, ptr %53, align 4
+  %562 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %140, i32 noundef %560, i32 noundef %561)
+  %563 = add i32 %.0103187, 12
+  %564 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %563)
+  %565 = add i32 %.0103187, 16
+  %566 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %565)
+  %567 = add i32 %.0103187, 20
+  %568 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %567)
+  %569 = add i32 %.0103187, 24
+  %570 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %569)
+  %571 = add i32 %.0103187, 28
+  %572 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %571)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 noundef 0, i64 noundef 32, i1 noundef false) #13
+  store i32 %564, ptr %63, align 4
   store i32 1, ptr %7, align 8
-  %574 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %137)
-  store i8 %574, ptr %64, align 2
-  %575 = icmp sgt i8 %574, -1
-  br i1 %575, label %576, label %577
+  %573 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %136)
+  store i8 %573, ptr %64, align 2
+  %574 = icmp sgt i8 %573, -1
+  br i1 %574, label %575, label %576
 
-576:                                              ; preds = %559
+575:                                              ; preds = %558
   store i32 7, ptr %7, align 8
-  br label %577
+  br label %576
 
-577:                                              ; preds = %576, %559
-  %.sink108.i = phi i32 [ %567, %576 ], [ 0, %559 ]
-  %.sink107.i = phi i32 [ %569, %576 ], [ 0, %559 ]
-  %.sink106.i = phi i32 [ %571, %576 ], [ 0, %559 ]
-  %.sink.i = phi i64 [ %573, %576 ], [ 0, %559 ]
-  store i32 %.sink108.i, ptr %65, align 8
-  store i32 %.sink107.i, ptr %66, align 4
-  store i32 %.sink106.i, ptr %62, align 8
+576:                                              ; preds = %575, %558
+  %.sink109.i = phi i32 [ %566, %575 ], [ 0, %558 ]
+  %.sink108.i = phi i32 [ %568, %575 ], [ 0, %558 ]
+  %.sink107.i = phi i32 [ %570, %575 ], [ 0, %558 ]
+  %.sink.i = phi i64 [ %572, %575 ], [ 0, %558 ]
+  store i32 %.sink109.i, ptr %65, align 8
+  store i32 %.sink108.i, ptr %66, align 4
+  store i32 %.sink107.i, ptr %62, align 8
   store i64 %.sink.i, ptr %67, align 8
   store i32 0, ptr %68, align 8
   store i32 0, ptr %69, align 4
   store i16 3, ptr %70, align 8
-  %578 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %563, ptr noundef nonnull %7, ptr noundef %.0)
-  %579 = icmp slt i32 %578, 0
-  br i1 %579, label %dissect_aeron_sm.exit, label %580
+  %577 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %562, ptr noundef nonnull %7, ptr noundef %.0)
+  %578 = icmp slt i32 %577, 0
+  br i1 %578, label %dissect_aeron_sm.exit, label %579
 
-580:                                              ; preds = %577
-  %581 = call ptr @val_to_str_const(i32 noundef 3, ptr noundef nonnull @aeron_frame_type, ptr noundef nonnull @.str.257)
-  %582 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
-  %583 = trunc nuw i8 %582 to i1
-  br i1 %583, label %584, label %611
+579:                                              ; preds = %576
+  %580 = call ptr @val_to_str_const(i32 noundef 3, ptr noundef nonnull @aeron_frame_type, ptr noundef nonnull @.str.257)
+  %581 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
+  %582 = trunc nuw i8 %581 to i1
+  %583 = load i8, ptr @aeron_stream_analysis, align 1, !range !6
+  %584 = trunc nuw i8 %583 to i1
+  %or.cond.i.i138 = select i1 %582, i1 %584, i1 false
+  %585 = icmp ne ptr %.0, null
+  %or.cond3.i.i139 = and i1 %585, %or.cond.i.i138
+  br i1 %or.cond3.i.i139, label %586, label %609
 
-584:                                              ; preds = %580
-  %585 = load i8, ptr @aeron_stream_analysis, align 1, !range !6, !noundef !7
-  %586 = trunc nuw i8 %585 to i1
-  %587 = icmp ne ptr %.0, null
-  %or.cond.i.i140 = and i1 %587, %586
-  br i1 %or.cond.i.i140, label %588, label %611
+586:                                              ; preds = %579
+  %587 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %588 = load ptr, ptr %587, align 8
+  %.not.i.i145 = icmp eq ptr %588, null
+  br i1 %.not.i.i145, label %609, label %589
 
-588:                                              ; preds = %584
-  %589 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  %590 = load ptr, ptr %589, align 8
-  %.not.i.i141 = icmp eq ptr %590, null
-  br i1 %.not.i.i141, label %611, label %591
+589:                                              ; preds = %586
+  %590 = load i32, ptr %588, align 4
+  %591 = and i32 %590, 256
+  %.not40.i.i146 = icmp eq i32 %591, 0
+  br i1 %.not40.i.i146, label %594, label %592
 
-591:                                              ; preds = %588
-  %592 = load i32, ptr %590, align 4
-  %593 = and i32 %592, 256
-  %.not38.i.i = icmp eq i32 %593, 0
-  br i1 %.not38.i.i, label %596, label %594
+592:                                              ; preds = %589
+  %593 = load ptr, ptr %21, align 8
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %593, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.259, ptr noundef %580)
+  br label %aeron_info_stream_progress_report.exit.i140
 
-594:                                              ; preds = %591
-  %595 = load ptr, ptr %21, align 8
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %595, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.259, ptr noundef %581)
-  br label %aeron_info_stream_progress_report.exit.i135
-
-596:                                              ; preds = %591
-  %597 = getelementptr inbounds nuw i8, ptr %590, i64 8
+594:                                              ; preds = %589
+  %595 = getelementptr inbounds nuw i8, ptr %588, i64 8
+  %596 = load i32, ptr %595, align 4
+  %597 = getelementptr inbounds nuw i8, ptr %588, i64 16
   %598 = load i32, ptr %597, align 4
-  %599 = getelementptr inbounds nuw i8, ptr %590, i64 16
-  %600 = load i32, ptr %599, align 4
-  %601 = icmp eq i32 %598, %600
-  %602 = load ptr, ptr %21, align 8
-  %603 = getelementptr inbounds nuw i8, ptr %590, i64 12
+  %599 = icmp eq i32 %596, %598
+  %600 = load ptr, ptr %21, align 8
+  %601 = getelementptr inbounds nuw i8, ptr %588, i64 12
+  %602 = load i32, ptr %601, align 4
+  %603 = getelementptr inbounds nuw i8, ptr %588, i64 20
   %604 = load i32, ptr %603, align 4
-  %605 = getelementptr inbounds nuw i8, ptr %590, i64 20
+  %605 = getelementptr inbounds nuw i8, ptr %588, i64 28
   %606 = load i32, ptr %605, align 4
-  %607 = getelementptr inbounds nuw i8, ptr %590, i64 28
-  %608 = load i32, ptr %607, align 4
-  br i1 %601, label %609, label %610
+  br i1 %599, label %607, label %608
 
-609:                                              ; preds = %596
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %602, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.261, ptr noundef %581, i32 noundef %604, i32 noundef %606, i32 noundef %608)
-  br label %aeron_info_stream_progress_report.exit.i135
+607:                                              ; preds = %594
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %600, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.261, ptr noundef %580, i32 noundef %602, i32 noundef %604, i32 noundef %606)
+  br label %aeron_info_stream_progress_report.exit.i140
 
-610:                                              ; preds = %596
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %602, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.262, ptr noundef %581, i32 noundef %598, i32 noundef %604, i32 noundef %600, i32 noundef %606, i32 noundef %608)
-  br label %aeron_info_stream_progress_report.exit.i135
+608:                                              ; preds = %594
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %600, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.262, ptr noundef %580, i32 noundef %596, i32 noundef %602, i32 noundef %598, i32 noundef %604, i32 noundef %606)
+  br label %aeron_info_stream_progress_report.exit.i140
 
-611:                                              ; preds = %588, %584, %580
-  %612 = load ptr, ptr %21, align 8
-  br i1 %575, label %614, label %613
+609:                                              ; preds = %586, %579
+  %610 = load ptr, ptr %21, align 8
+  br i1 %574, label %612, label %611
 
-613:                                              ; preds = %611
-  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %612, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.263, ptr noundef %581)
-  br label %aeron_info_stream_progress_report.exit.i135
+611:                                              ; preds = %609
+  call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %610, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.263, ptr noundef %580)
+  br label %aeron_info_stream_progress_report.exit.i140
 
-614:                                              ; preds = %611
-  call void @col_append_sep_str(ptr noundef %612, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef %581)
-  br label %aeron_info_stream_progress_report.exit.i135
+612:                                              ; preds = %609
+  call void @col_append_sep_str(ptr noundef %610, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef %580)
+  br label %aeron_info_stream_progress_report.exit.i140
 
-aeron_info_stream_progress_report.exit.i135:      ; preds = %614, %613, %610, %609, %594
-  %615 = load i32, ptr @hf_aeron_sm, align 4
-  %616 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %615, ptr noundef %0, i32 noundef %.0103182, i32 noundef -1, ptr noundef nonnull @.str.281, i32 noundef %567, i32 noundef %569, i32 noundef %571, i64 noundef %573)
-  %617 = load i32, ptr @ett_aeron_sm, align 4
-  %618 = call ptr @proto_item_add_subtree(ptr noundef %616, i32 noundef %617)
-  %619 = load i32, ptr @hf_aeron_channel_id, align 4
-  %620 = load i64, ptr %563, align 8
-  %621 = call ptr @proto_tree_add_uint64(ptr noundef %618, i32 noundef %619, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %620)
-  %.not.i103.i = icmp eq ptr %621, null
-  br i1 %.not.i103.i, label %proto_item_set_generated.exit.i137, label %622
+aeron_info_stream_progress_report.exit.i140:      ; preds = %612, %611, %608, %607, %592
+  %613 = load i32, ptr @hf_aeron_sm, align 4
+  %614 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %613, ptr noundef %0, i32 noundef %.0103187, i32 noundef -1, ptr noundef nonnull @.str.281, i32 noundef %566, i32 noundef %568, i32 noundef %570, i64 noundef %572)
+  %615 = load i32, ptr @ett_aeron_sm, align 4
+  %616 = call ptr @proto_item_add_subtree(ptr noundef %614, i32 noundef %615)
+  %617 = load i32, ptr @hf_aeron_channel_id, align 4
+  %618 = load i64, ptr %562, align 8
+  %619 = call ptr @proto_tree_add_uint64(ptr noundef %616, i32 noundef %617, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %618)
+  %.not.i103.i = icmp eq ptr %619, null
+  br i1 %.not.i103.i, label %proto_item_set_generated.exit.i142, label %620
 
-622:                                              ; preds = %aeron_info_stream_progress_report.exit.i135
-  %623 = getelementptr inbounds nuw i8, ptr %621, i64 40
-  %624 = load ptr, ptr %623, align 8
-  %.not5.i.i136 = icmp eq ptr %624, null
-  br i1 %.not5.i.i136, label %proto_item_set_generated.exit.i137, label %625
+620:                                              ; preds = %aeron_info_stream_progress_report.exit.i140
+  %621 = getelementptr inbounds nuw i8, ptr %619, i64 40
+  %622 = load ptr, ptr %621, align 8
+  %.not5.i.i141 = icmp eq ptr %622, null
+  br i1 %.not5.i.i141, label %proto_item_set_generated.exit.i142, label %623
 
-625:                                              ; preds = %622
-  %626 = getelementptr inbounds nuw i8, ptr %624, i64 28
-  %627 = load i32, ptr %626, align 4
-  %628 = or i32 %627, 2
-  store i32 %628, ptr %626, align 4
-  br label %proto_item_set_generated.exit.i137
+623:                                              ; preds = %620
+  %624 = getelementptr inbounds nuw i8, ptr %622, i64 28
+  %625 = load i32, ptr %624, align 4
+  %626 = or i32 %625, 2
+  store i32 %626, ptr %624, align 4
+  br label %proto_item_set_generated.exit.i142
 
-proto_item_set_generated.exit.i137:               ; preds = %625, %622, %aeron_info_stream_progress_report.exit.i135
-  %629 = load i32, ptr @hf_aeron_sm_frame_length, align 4
-  %630 = call ptr @proto_tree_add_item(ptr noundef %618, i32 noundef %629, ptr noundef %0, i32 noundef %.0103182, i32 noundef 4, i32 noundef -2147483648)
-  %631 = load i32, ptr @hf_aeron_sm_version, align 4
-  %632 = add i32 %.0103182, 4
-  %633 = call ptr @proto_tree_add_item(ptr noundef %618, i32 noundef %631, ptr noundef %0, i32 noundef %632, i32 noundef 1, i32 noundef -2147483648)
-  %634 = load i32, ptr @hf_aeron_sm_flags, align 4
-  %635 = load i32, ptr @ett_aeron_sm_flags, align 4
-  %636 = call ptr @proto_tree_add_bitmask(ptr noundef %618, ptr noundef %0, i32 noundef %137, i32 noundef %634, i32 noundef %635, ptr noundef nonnull @dissect_aeron_sm.flags, i32 noundef -2147483648)
-  %637 = load i32, ptr @hf_aeron_sm_type, align 4
-  %638 = call ptr @proto_tree_add_item(ptr noundef %618, i32 noundef %637, ptr noundef %0, i32 noundef %139, i32 noundef 2, i32 noundef -2147483648)
-  %639 = load i32, ptr @hf_aeron_sm_session_id, align 4
-  %640 = call ptr @proto_tree_add_item(ptr noundef %618, i32 noundef %639, ptr noundef %0, i32 noundef %560, i32 noundef 4, i32 noundef -2147483648)
-  %641 = load i32, ptr @hf_aeron_sm_stream_id, align 4
-  %642 = call ptr @proto_tree_add_item(ptr noundef %618, i32 noundef %641, ptr noundef %0, i32 noundef %564, i32 noundef 4, i32 noundef -2147483648)
-  %643 = load i32, ptr @hf_aeron_sm_consumption_term_id, align 4
-  %644 = call ptr @proto_tree_add_item(ptr noundef %618, i32 noundef %643, ptr noundef %0, i32 noundef %566, i32 noundef 4, i32 noundef -2147483648)
-  %645 = load i32, ptr @hf_aeron_sm_consumption_term_offset, align 4
-  %646 = call ptr @proto_tree_add_item(ptr noundef %618, i32 noundef %645, ptr noundef %0, i32 noundef %568, i32 noundef 4, i32 noundef -2147483648)
-  %647 = load i32, ptr @hf_aeron_sm_receiver_window, align 4
-  %648 = call ptr @proto_tree_add_item(ptr noundef %618, i32 noundef %647, ptr noundef %0, i32 noundef %570, i32 noundef 4, i32 noundef -2147483648)
-  %649 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
+proto_item_set_generated.exit.i142:               ; preds = %623, %620, %aeron_info_stream_progress_report.exit.i140
+  %627 = load i32, ptr @hf_aeron_sm_frame_length, align 4
+  %628 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %627, ptr noundef %0, i32 noundef %.0103187, i32 noundef 4, i32 noundef -2147483648)
+  %629 = load i32, ptr @hf_aeron_sm_version, align 4
+  %630 = add i32 %.0103187, 4
+  %631 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %629, ptr noundef %0, i32 noundef %630, i32 noundef 1, i32 noundef -2147483648)
+  %632 = load i32, ptr @hf_aeron_sm_flags, align 4
+  %633 = load i32, ptr @ett_aeron_sm_flags, align 4
+  %634 = call ptr @proto_tree_add_bitmask(ptr noundef %616, ptr noundef %0, i32 noundef %136, i32 noundef %632, i32 noundef %633, ptr noundef nonnull @dissect_aeron_sm.flags, i32 noundef -2147483648)
+  %635 = load i32, ptr @hf_aeron_sm_type, align 4
+  %636 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %635, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648)
+  %637 = load i32, ptr @hf_aeron_sm_session_id, align 4
+  %638 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %637, ptr noundef %0, i32 noundef %559, i32 noundef 4, i32 noundef -2147483648)
+  %639 = load i32, ptr @hf_aeron_sm_stream_id, align 4
+  %640 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %639, ptr noundef %0, i32 noundef %563, i32 noundef 4, i32 noundef -2147483648)
+  %641 = load i32, ptr @hf_aeron_sm_consumption_term_id, align 4
+  %642 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %641, ptr noundef %0, i32 noundef %565, i32 noundef 4, i32 noundef -2147483648)
+  %643 = load i32, ptr @hf_aeron_sm_consumption_term_offset, align 4
+  %644 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %643, ptr noundef %0, i32 noundef %567, i32 noundef 4, i32 noundef -2147483648)
+  %645 = load i32, ptr @hf_aeron_sm_receiver_window, align 4
+  %646 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %645, ptr noundef %0, i32 noundef %569, i32 noundef 4, i32 noundef -2147483648)
+  %647 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
+  %648 = trunc nuw i8 %647 to i1
+  %649 = load i8, ptr @aeron_stream_analysis, align 1, !range !6
   %650 = trunc nuw i8 %649 to i1
-  br i1 %650, label %651, label %aeron_window_resize_report.exit.i
+  %or.cond.i104.i = select i1 %648, i1 %650, i1 false
+  %or.cond3.i105.i = and i1 %585, %or.cond.i104.i
+  br i1 %or.cond3.i105.i, label %651, label %aeron_window_resize_report.exit.i
 
-651:                                              ; preds = %proto_item_set_generated.exit.i137
-  %652 = load i8, ptr @aeron_stream_analysis, align 1, !range !6, !noundef !7
-  %653 = trunc nuw i8 %652 to i1
-  %654 = icmp ne ptr %.0, null
-  %or.cond.i104.i = and i1 %654, %653
-  br i1 %or.cond.i104.i, label %655, label %aeron_window_resize_report.exit.i
+651:                                              ; preds = %proto_item_set_generated.exit.i142
+  %652 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %653 = load ptr, ptr %652, align 8
+  %.not.i106.i = icmp eq ptr %653, null
+  br i1 %.not.i106.i, label %aeron_window_resize_report.exit.i, label %654
 
-655:                                              ; preds = %651
-  %656 = getelementptr inbounds nuw i8, ptr %.0, i64 40
-  %657 = load ptr, ptr %656, align 8
-  %.not.i105.i = icmp eq ptr %657, null
-  br i1 %.not.i105.i, label %aeron_window_resize_report.exit.i, label %658
+654:                                              ; preds = %651
+  %655 = load i32, ptr %653, align 4
+  %656 = and i32 %655, 64
+  %.not9.i.i = icmp eq i32 %656, 0
+  br i1 %.not9.i.i, label %aeron_window_resize_report.exit.i, label %657
 
-658:                                              ; preds = %655
-  %659 = load i32, ptr %657, align 4
-  %660 = and i32 %659, 64
-  %.not7.i.i = icmp eq i32 %660, 0
-  br i1 %.not7.i.i, label %aeron_window_resize_report.exit.i, label %661
-
-661:                                              ; preds = %658
-  %662 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %648, ptr noundef nonnull @ei_aeron_analysis_window_resize)
+657:                                              ; preds = %654
+  %658 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %646, ptr noundef nonnull @ei_aeron_analysis_window_resize)
   br label %aeron_window_resize_report.exit.i
 
-aeron_window_resize_report.exit.i:                ; preds = %661, %658, %655, %651, %proto_item_set_generated.exit.i137
-  %663 = load i32, ptr @hf_aeron_sm_receiver_id, align 4
-  %664 = call ptr @proto_tree_add_item(ptr noundef %618, i32 noundef %663, ptr noundef %0, i32 noundef %572, i32 noundef 8, i32 noundef -2147483648)
-  %.not.i138 = icmp eq i32 %557, 0
-  br i1 %.not.i138, label %669, label %665
+aeron_window_resize_report.exit.i:                ; preds = %657, %654, %651, %proto_item_set_generated.exit.i142
+  %659 = load i32, ptr @hf_aeron_sm_receiver_id, align 4
+  %660 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %659, ptr noundef %0, i32 noundef %571, i32 noundef 8, i32 noundef -2147483648)
+  %.not.i143 = icmp eq i32 %556, 0
+  br i1 %.not.i143, label %665, label %661
 
-665:                                              ; preds = %aeron_window_resize_report.exit.i
-  %666 = load i32, ptr @hf_aeron_sm_feedback, align 4
-  %667 = add i32 %.0103182, 36
-  %668 = call ptr @proto_tree_add_item(ptr noundef %618, i32 noundef %666, ptr noundef %0, i32 noundef %667, i32 noundef %557, i32 noundef 0)
-  br label %669
+661:                                              ; preds = %aeron_window_resize_report.exit.i
+  %662 = load i32, ptr @hf_aeron_sm_feedback, align 4
+  %663 = add i32 %.0103187, 36
+  %664 = call ptr @proto_tree_add_item(ptr noundef %616, i32 noundef %662, ptr noundef %0, i32 noundef %663, i32 noundef %556, i32 noundef 0)
+  br label %665
 
-669:                                              ; preds = %665, %aeron_window_resize_report.exit.i
-  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %618, ptr noundef %563, ptr noundef nonnull %7, ptr noundef %.0)
-  call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %618, ptr noundef %563, ptr noundef %.0)
-  call void @proto_item_set_len(ptr noundef %616, i32 noundef %556)
-  %670 = icmp samesign ult i32 %556, 36
-  br i1 %670, label %671, label %dissect_aeron_sm.exit
+665:                                              ; preds = %661, %aeron_window_resize_report.exit.i
+  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %616, ptr noundef %562, ptr noundef nonnull %7, ptr noundef %.0)
+  call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %616, ptr noundef %562, ptr noundef %.0)
+  call void @proto_item_set_len(ptr noundef %614, i32 noundef %555)
+  %666 = icmp samesign ult i32 %555, 36
+  br i1 %666, label %667, label %dissect_aeron_sm.exit
 
-671:                                              ; preds = %669
-  %672 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %630, ptr noundef nonnull @ei_aeron_analysis_invalid_sm_length)
-  %673 = sub nsw i32 0, %556
+667:                                              ; preds = %665
+  %668 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %628, ptr noundef nonnull @ei_aeron_analysis_invalid_sm_length)
+  %669 = sub nsw i32 0, %555
   br label %dissect_aeron_sm.exit
 
-dissect_aeron_sm.exit:                            ; preds = %555, %577, %669, %671
-  %.0.i139 = phi i32 [ %673, %671 ], [ 0, %555 ], [ 0, %577 ], [ %556, %669 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #14
+dissect_aeron_sm.exit:                            ; preds = %554, %576, %665, %667
+  %.0.i144 = phi i32 [ %669, %667 ], [ 0, %554 ], [ 0, %576 ], [ %555, %665 ]
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7) #13
   br label %dissect_aeron_rtt.exit
 
-674:                                              ; preds = %aeron_frame_info_add.exit
-  %675 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103182)
-  %676 = icmp slt i32 %675, 0
-  br i1 %676, label %dissect_aeron_rtt.exit.thread, label %677
+670:                                              ; preds = %aeron_frame_info_add.exit
+  %671 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103187)
+  %672 = icmp slt i32 %671, 0
+  br i1 %672, label %dissect_aeron_rtt.exit.thread, label %673
 
-677:                                              ; preds = %674
-  %678 = add i32 %.0103182, 8
+673:                                              ; preds = %670
+  %674 = add i32 %.0103187, 8
+  %675 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %674)
+  %676 = load i32, ptr %53, align 4
+  %677 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %140, i32 noundef %675, i32 noundef %676)
+  %678 = add i32 %.0103187, 12
   %679 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %678)
-  %680 = load i32, ptr %53, align 4
-  %681 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %141, i32 noundef %679, i32 noundef %680)
-  %682 = add i32 %.0103182, 12
-  %683 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %682)
-  %684 = add i32 %.0103182, 32
-  %685 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %684)
-  %686 = load i32, ptr @hf_aeron_rtt, align 4
-  %687 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %686, ptr noundef %0, i32 noundef %.0103182, i32 noundef -1, ptr noundef nonnull @.str.282, i32 noundef %683, i64 noundef %685)
-  %688 = load i32, ptr @ett_aeron_rtt, align 4
-  %689 = call ptr @proto_item_add_subtree(ptr noundef %687, i32 noundef %688)
-  %690 = load i32, ptr @hf_aeron_channel_id, align 4
-  %691 = load i64, ptr %681, align 8
-  %692 = call ptr @proto_tree_add_uint64(ptr noundef %689, i32 noundef %690, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %691)
-  %.not.i.i142 = icmp eq ptr %692, null
-  br i1 %.not.i.i142, label %proto_item_set_generated.exit.i144, label %693
+  %680 = add i32 %.0103187, 32
+  %681 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %680)
+  %682 = load i32, ptr @hf_aeron_rtt, align 4
+  %683 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %682, ptr noundef %0, i32 noundef %.0103187, i32 noundef -1, ptr noundef nonnull @.str.282, i32 noundef %679, i64 noundef %681)
+  %684 = load i32, ptr @ett_aeron_rtt, align 4
+  %685 = call ptr @proto_item_add_subtree(ptr noundef %683, i32 noundef %684)
+  %686 = load i32, ptr @hf_aeron_channel_id, align 4
+  %687 = load i64, ptr %677, align 8
+  %688 = call ptr @proto_tree_add_uint64(ptr noundef %685, i32 noundef %686, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %687)
+  %.not.i.i147 = icmp eq ptr %688, null
+  br i1 %.not.i.i147, label %proto_item_set_generated.exit.i149, label %689
 
-693:                                              ; preds = %677
-  %694 = getelementptr inbounds nuw i8, ptr %692, i64 40
-  %695 = load ptr, ptr %694, align 8
-  %.not5.i.i143 = icmp eq ptr %695, null
-  br i1 %.not5.i.i143, label %proto_item_set_generated.exit.i144, label %696
+689:                                              ; preds = %673
+  %690 = getelementptr inbounds nuw i8, ptr %688, i64 40
+  %691 = load ptr, ptr %690, align 8
+  %.not5.i.i148 = icmp eq ptr %691, null
+  br i1 %.not5.i.i148, label %proto_item_set_generated.exit.i149, label %692
 
-696:                                              ; preds = %693
-  %697 = getelementptr inbounds nuw i8, ptr %695, i64 28
-  %698 = load i32, ptr %697, align 4
-  %699 = or i32 %698, 2
-  store i32 %699, ptr %697, align 4
-  br label %proto_item_set_generated.exit.i144
+692:                                              ; preds = %689
+  %693 = getelementptr inbounds nuw i8, ptr %691, i64 28
+  %694 = load i32, ptr %693, align 4
+  %695 = or i32 %694, 2
+  store i32 %695, ptr %693, align 4
+  br label %proto_item_set_generated.exit.i149
 
-proto_item_set_generated.exit.i144:               ; preds = %696, %693, %677
-  %700 = load i32, ptr @hf_aeron_rtt_frame_length, align 4
-  %701 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %700, ptr noundef %0, i32 noundef %.0103182, i32 noundef 4, i32 noundef -2147483648)
-  %702 = load i32, ptr @hf_aeron_rtt_version, align 4
-  %703 = add i32 %.0103182, 4
-  %704 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %702, ptr noundef %0, i32 noundef %703, i32 noundef 1, i32 noundef -2147483648)
-  %705 = load i32, ptr @hf_aeron_rtt_flags, align 4
-  %706 = load i32, ptr @ett_aeron_rtt_flags, align 4
-  %707 = call ptr @proto_tree_add_bitmask(ptr noundef %689, ptr noundef %0, i32 noundef %137, i32 noundef %705, i32 noundef %706, ptr noundef nonnull @dissect_aeron_rtt.flags, i32 noundef -2147483648)
-  %708 = load i32, ptr @hf_aeron_rtt_type, align 4
-  %709 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %708, ptr noundef %0, i32 noundef %139, i32 noundef 2, i32 noundef -2147483648)
-  %710 = load i32, ptr @hf_aeron_rtt_session_id, align 4
-  %711 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %710, ptr noundef %0, i32 noundef %678, i32 noundef 4, i32 noundef -2147483648)
-  %712 = load i32, ptr @hf_aeron_rtt_stream_id, align 4
-  %713 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %712, ptr noundef %0, i32 noundef %682, i32 noundef 4, i32 noundef -2147483648)
-  %714 = load i32, ptr @hf_aeron_rtt_echo_timestamp, align 4
-  %715 = add i32 %.0103182, 16
-  %716 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %714, ptr noundef %0, i32 noundef %715, i32 noundef 8, i32 noundef -2147483648)
-  %717 = load i32, ptr @hf_aeron_rtt_reception_delta, align 4
-  %718 = add i32 %.0103182, 24
-  %719 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %717, ptr noundef %0, i32 noundef %718, i32 noundef 8, i32 noundef -2147483648)
-  %720 = load i32, ptr @hf_aeron_rtt_receiver_id, align 4
-  %721 = call ptr @proto_tree_add_item(ptr noundef %689, i32 noundef %720, ptr noundef %0, i32 noundef %684, i32 noundef 8, i32 noundef -2147483648)
-  call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %689, ptr noundef %681, ptr noundef %.0)
-  call void @proto_item_set_len(ptr noundef %687, i32 noundef %675)
-  %.not.i145 = icmp eq i32 %675, 40
-  br i1 %.not.i145, label %dissect_aeron_rtt.exit.thread159, label %722
+proto_item_set_generated.exit.i149:               ; preds = %692, %689, %673
+  %696 = load i32, ptr @hf_aeron_rtt_frame_length, align 4
+  %697 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %696, ptr noundef %0, i32 noundef %.0103187, i32 noundef 4, i32 noundef -2147483648)
+  %698 = load i32, ptr @hf_aeron_rtt_version, align 4
+  %699 = add i32 %.0103187, 4
+  %700 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %698, ptr noundef %0, i32 noundef %699, i32 noundef 1, i32 noundef -2147483648)
+  %701 = load i32, ptr @hf_aeron_rtt_flags, align 4
+  %702 = load i32, ptr @ett_aeron_rtt_flags, align 4
+  %703 = call ptr @proto_tree_add_bitmask(ptr noundef %685, ptr noundef %0, i32 noundef %136, i32 noundef %701, i32 noundef %702, ptr noundef nonnull @dissect_aeron_rtt.flags, i32 noundef -2147483648)
+  %704 = load i32, ptr @hf_aeron_rtt_type, align 4
+  %705 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %704, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648)
+  %706 = load i32, ptr @hf_aeron_rtt_session_id, align 4
+  %707 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %706, ptr noundef %0, i32 noundef %674, i32 noundef 4, i32 noundef -2147483648)
+  %708 = load i32, ptr @hf_aeron_rtt_stream_id, align 4
+  %709 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %708, ptr noundef %0, i32 noundef %678, i32 noundef 4, i32 noundef -2147483648)
+  %710 = load i32, ptr @hf_aeron_rtt_echo_timestamp, align 4
+  %711 = add i32 %.0103187, 16
+  %712 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %710, ptr noundef %0, i32 noundef %711, i32 noundef 8, i32 noundef -2147483648)
+  %713 = load i32, ptr @hf_aeron_rtt_reception_delta, align 4
+  %714 = add i32 %.0103187, 24
+  %715 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %713, ptr noundef %0, i32 noundef %714, i32 noundef 8, i32 noundef -2147483648)
+  %716 = load i32, ptr @hf_aeron_rtt_receiver_id, align 4
+  %717 = call ptr @proto_tree_add_item(ptr noundef %685, i32 noundef %716, ptr noundef %0, i32 noundef %680, i32 noundef 8, i32 noundef -2147483648)
+  call fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %685, ptr noundef %677, ptr noundef %.0)
+  call void @proto_item_set_len(ptr noundef %683, i32 noundef %671)
+  %.not.i150 = icmp eq i32 %671, 40
+  br i1 %.not.i150, label %dissect_aeron_rtt.exit.thread164, label %718
 
-722:                                              ; preds = %proto_item_set_generated.exit.i144
-  %723 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %701, ptr noundef nonnull @ei_aeron_analysis_invalid_rtt_length)
-  %724 = sub nsw i32 0, %675
+718:                                              ; preds = %proto_item_set_generated.exit.i149
+  %719 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %697, ptr noundef nonnull @ei_aeron_analysis_invalid_rtt_length)
+  %720 = sub nsw i32 0, %671
   br label %dissect_aeron_rtt.exit.thread
 
-725:                                              ; preds = %aeron_frame_info_add.exit
-  %726 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103182)
-  %727 = load ptr, ptr %21, align 8
-  call void @col_append_sep_str(ptr noundef %727, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.246)
-  %728 = load i32, ptr @hf_aeron_err, align 4
-  %729 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %728, ptr noundef %0, i32 noundef %.0103182, i32 noundef -1, i32 noundef 0)
-  %730 = load i32, ptr @ett_aeron_err, align 4
-  %731 = call ptr @proto_item_add_subtree(ptr noundef %729, i32 noundef %730)
-  %732 = load i32, ptr @hf_aeron_err_frame_length, align 4
-  %733 = call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %732, ptr noundef %0, i32 noundef %.0103182, i32 noundef 4, i32 noundef -2147483648)
-  %734 = load i32, ptr @hf_aeron_err_version, align 4
-  %735 = add i32 %.0103182, 4
-  %736 = call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %734, ptr noundef %0, i32 noundef %735, i32 noundef 1, i32 noundef -2147483648)
-  %737 = load i32, ptr @hf_aeron_err_code, align 4
-  %738 = call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %737, ptr noundef %0, i32 noundef %137, i32 noundef 1, i32 noundef -2147483648)
-  %739 = load i32, ptr @hf_aeron_err_type, align 4
-  %740 = call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %739, ptr noundef %0, i32 noundef %139, i32 noundef 2, i32 noundef -2147483648)
-  %741 = load i32, ptr @hf_aeron_err_off_frame_length, align 4
-  %742 = add i32 %.0103182, 8
-  %743 = call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %741, ptr noundef %0, i32 noundef %742, i32 noundef 4, i32 noundef -2147483648)
-  %744 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %742)
-  %745 = add i32 %.0103182, 12
-  %746 = load i32, ptr @hf_aeron_err_off_hdr, align 4
-  %747 = add i32 %745, %.0103182
-  %748 = call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %746, ptr noundef %0, i32 noundef %747, i32 noundef %744, i32 noundef 0)
-  %749 = add i32 %744, %745
-  %750 = sub i32 %726, %749
-  %751 = icmp sgt i32 %750, 0
-  br i1 %751, label %752, label %756
+721:                                              ; preds = %aeron_frame_info_add.exit
+  %722 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103187)
+  %723 = load ptr, ptr %21, align 8
+  call void @col_append_sep_str(ptr noundef %723, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.246)
+  %724 = load i32, ptr @hf_aeron_err, align 4
+  %725 = call ptr @proto_tree_add_item(ptr noundef %51, i32 noundef %724, ptr noundef %0, i32 noundef %.0103187, i32 noundef -1, i32 noundef 0)
+  %726 = load i32, ptr @ett_aeron_err, align 4
+  %727 = call ptr @proto_item_add_subtree(ptr noundef %725, i32 noundef %726)
+  %728 = load i32, ptr @hf_aeron_err_frame_length, align 4
+  %729 = call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %728, ptr noundef %0, i32 noundef %.0103187, i32 noundef 4, i32 noundef -2147483648)
+  %730 = load i32, ptr @hf_aeron_err_version, align 4
+  %731 = add i32 %.0103187, 4
+  %732 = call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %730, ptr noundef %0, i32 noundef %731, i32 noundef 1, i32 noundef -2147483648)
+  %733 = load i32, ptr @hf_aeron_err_code, align 4
+  %734 = call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %733, ptr noundef %0, i32 noundef %136, i32 noundef 1, i32 noundef -2147483648)
+  %735 = load i32, ptr @hf_aeron_err_type, align 4
+  %736 = call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %735, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648)
+  %737 = load i32, ptr @hf_aeron_err_off_frame_length, align 4
+  %738 = add i32 %.0103187, 8
+  %739 = call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %737, ptr noundef %0, i32 noundef %738, i32 noundef 4, i32 noundef -2147483648)
+  %740 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %738)
+  %741 = add i32 %.0103187, 12
+  %742 = load i32, ptr @hf_aeron_err_off_hdr, align 4
+  %743 = add i32 %741, %.0103187
+  %744 = call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %742, ptr noundef %0, i32 noundef %743, i32 noundef %740, i32 noundef 0)
+  %745 = add i32 %740, %741
+  %746 = sub i32 %722, %745
+  %747 = icmp sgt i32 %746, 0
+  br i1 %747, label %748, label %752
 
-752:                                              ; preds = %725
-  %753 = load i32, ptr @hf_aeron_err_string, align 4
-  %754 = add i32 %749, %.0103182
-  %755 = call ptr @proto_tree_add_item(ptr noundef %731, i32 noundef %753, ptr noundef %0, i32 noundef %754, i32 noundef %750, i32 noundef 0)
-  br label %756
+748:                                              ; preds = %721
+  %749 = load i32, ptr @hf_aeron_err_string, align 4
+  %750 = add i32 %745, %.0103187
+  %751 = call ptr @proto_tree_add_item(ptr noundef %727, i32 noundef %749, ptr noundef %0, i32 noundef %750, i32 noundef %746, i32 noundef 0)
+  br label %752
 
-756:                                              ; preds = %752, %725
-  %757 = icmp slt i32 %726, 0
-  br i1 %757, label %dissect_aeron_rtt.exit.thread, label %758
+752:                                              ; preds = %748, %721
+  %753 = icmp slt i32 %722, 0
+  br i1 %753, label %dissect_aeron_rtt.exit.thread, label %754
 
-758:                                              ; preds = %756
-  call void @proto_item_set_len(ptr noundef %729, i32 noundef %726)
-  %759 = icmp samesign ult i32 %726, 12
-  br i1 %759, label %760, label %dissect_aeron_rtt.exit.thread159
+754:                                              ; preds = %752
+  call void @proto_item_set_len(ptr noundef %725, i32 noundef %722)
+  %755 = icmp samesign ult i32 %722, 12
+  br i1 %755, label %756, label %dissect_aeron_rtt.exit.thread164
 
-760:                                              ; preds = %758
-  %761 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %733, ptr noundef nonnull @ei_aeron_analysis_invalid_err_length)
-  %762 = sub nsw i32 0, %726
+756:                                              ; preds = %754
+  %757 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %729, ptr noundef nonnull @ei_aeron_analysis_invalid_err_length)
+  %758 = sub nsw i32 0, %722
   br label %dissect_aeron_rtt.exit.thread
 
-763:                                              ; preds = %aeron_frame_info_add.exit
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #14
-  %764 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103182)
-  %765 = icmp slt i32 %764, 0
-  br i1 %765, label %dissect_aeron_setup.exit, label %766
+759:                                              ; preds = %aeron_frame_info_add.exit
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #13
+  %760 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0103187)
+  %761 = icmp slt i32 %760, 0
+  br i1 %761, label %dissect_aeron_setup.exit, label %762
 
-766:                                              ; preds = %763
-  %767 = add i32 %.0103182, 8
-  %768 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %767)
-  %769 = add i32 %.0103182, 12
+762:                                              ; preds = %759
+  %763 = add i32 %.0103187, 8
+  %764 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %763)
+  %765 = add i32 %.0103187, 12
+  %766 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %765)
+  %767 = load i32, ptr %53, align 4
+  %768 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %140, i32 noundef %766, i32 noundef %767)
+  %769 = add i32 %.0103187, 16
   %770 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %769)
-  %771 = load i32, ptr %53, align 4
-  %772 = call fastcc ptr @aeron_transport_add(ptr noundef readonly %141, i32 noundef %770, i32 noundef %771)
-  %773 = add i32 %.0103182, 16
+  %771 = add i32 %.0103187, 20
+  %772 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %771)
+  %773 = add i32 %.0103187, 24
   %774 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %773)
-  %775 = add i32 %.0103182, 20
-  %776 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %775)
-  %777 = add i32 %.0103182, 24
-  %778 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %777)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 noundef 0, i64 noundef 32, i1 noundef false) #14
-  store i32 %774, ptr %55, align 4
-  store i32 %778, ptr %56, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 noundef 0, i64 noundef 32, i1 noundef false) #13
+  store i32 %770, ptr %55, align 4
+  store i32 %774, ptr %56, align 8
   store i32 0, ptr %57, align 4
   store i32 3, ptr %6, align 8
   store i32 0, ptr %58, align 8
   store i32 0, ptr %59, align 4
   store i16 5, ptr %60, align 8
-  %779 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %772, ptr noundef nonnull %6, ptr noundef %.0)
-  %780 = icmp slt i32 %779, 0
-  br i1 %780, label %dissect_aeron_setup.exit, label %781
+  %775 = call fastcc i32 @aeron_frame_info_setup(ptr noundef %1, ptr noundef %768, ptr noundef nonnull %6, ptr noundef %.0)
+  %776 = icmp slt i32 %775, 0
+  br i1 %776, label %dissect_aeron_setup.exit, label %777
 
-781:                                              ; preds = %766
-  %782 = add i32 %.0103182, 28
+777:                                              ; preds = %762
+  %778 = add i32 %.0103187, 28
+  %779 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %778)
+  %780 = add i32 %.0103187, 32
+  %781 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %780)
+  %782 = add i32 %.0103187, 36
   %783 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %782)
-  %784 = add i32 %.0103182, 32
-  %785 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %784)
-  %786 = add i32 %.0103182, 36
-  %787 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %786)
-  %.val.i148 = load ptr, ptr %61, align 8
-  %788 = getelementptr i8, ptr %.val.i148, i64 57
-  %.val.val.i = load i16, ptr %788, align 1
-  %789 = and i16 %.val.val.i, 8
-  %790 = icmp eq i16 %789, 0
-  br i1 %790, label %791, label %aeron_set_stream_mtu_ttl_term_length.exit.i
+  %.val.i153 = load ptr, ptr %61, align 8
+  %784 = getelementptr i8, ptr %.val.i153, i64 57
+  %.val.val.i = load i16, ptr %784, align 1
+  %785 = and i16 %.val.val.i, 8
+  %786 = icmp eq i16 %785, 0
+  br i1 %786, label %787, label %aeron_set_stream_mtu_ttl_term_length.exit.i
 
-791:                                              ; preds = %781
-  %792 = getelementptr i8, ptr %772, i64 8
-  %.val.i.i153 = load ptr, ptr %792, align 8
+787:                                              ; preds = %777
+  %788 = getelementptr i8, ptr %768, i64 8
+  %.val.i.i158 = load ptr, ptr %788, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  store i32 %774, ptr %5, align 4
-  %793 = call ptr @wmem_map_lookup(ptr noundef %.val.i.i153, ptr noundef nonnull %5)
+  store i32 %770, ptr %5, align 4
+  %789 = call ptr @wmem_map_lookup(ptr noundef %.val.i.i158, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %.not.i.i154 = icmp eq ptr %793, null
-  br i1 %.not.i.i154, label %aeron_set_stream_mtu_ttl_term_length.exit.i, label %794
+  %.not.i.i159 = icmp eq ptr %789, null
+  br i1 %.not.i.i159, label %aeron_set_stream_mtu_ttl_term_length.exit.i, label %790
 
-794:                                              ; preds = %791
-  %795 = getelementptr inbounds nuw i8, ptr %793, i64 44
-  store i32 %783, ptr %795, align 4
-  %796 = getelementptr inbounds nuw i8, ptr %793, i64 48
-  store i32 %785, ptr %796, align 8
-  %797 = getelementptr inbounds nuw i8, ptr %793, i64 52
-  store i32 %787, ptr %797, align 4
+790:                                              ; preds = %787
+  %791 = getelementptr inbounds nuw i8, ptr %789, i64 44
+  store i32 %779, ptr %791, align 4
+  %792 = getelementptr inbounds nuw i8, ptr %789, i64 48
+  store i32 %781, ptr %792, align 8
+  %793 = getelementptr inbounds nuw i8, ptr %789, i64 52
+  store i32 %783, ptr %793, align 4
   br label %aeron_set_stream_mtu_ttl_term_length.exit.i
 
-aeron_set_stream_mtu_ttl_term_length.exit.i:      ; preds = %794, %791, %781
-  %798 = load ptr, ptr %21, align 8
-  call void @col_append_sep_str(ptr noundef %798, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.65)
-  %799 = load i32, ptr @hf_aeron_setup, align 4
-  %800 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %799, ptr noundef %0, i32 noundef %.0103182, i32 noundef -1, ptr noundef nonnull @.str.283, i32 noundef %776, i32 noundef %778, i32 noundef %783, i32 noundef %768, i32 noundef %785, i32 noundef %787)
-  %801 = load i32, ptr @ett_aeron_setup, align 4
-  %802 = call ptr @proto_item_add_subtree(ptr noundef %800, i32 noundef %801)
-  %803 = load i32, ptr @hf_aeron_channel_id, align 4
-  %804 = load i64, ptr %772, align 8
-  %805 = call ptr @proto_tree_add_uint64(ptr noundef %802, i32 noundef %803, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %804)
-  %.not.i98.i = icmp eq ptr %805, null
-  br i1 %.not.i98.i, label %proto_item_set_generated.exit.i150, label %806
+aeron_set_stream_mtu_ttl_term_length.exit.i:      ; preds = %790, %787, %777
+  %794 = load ptr, ptr %21, align 8
+  call void @col_append_sep_str(ptr noundef %794, i32 noundef 25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.65)
+  %795 = load i32, ptr @hf_aeron_setup, align 4
+  %796 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %51, i32 noundef %795, ptr noundef %0, i32 noundef %.0103187, i32 noundef -1, ptr noundef nonnull @.str.283, i32 noundef %772, i32 noundef %774, i32 noundef %779, i32 noundef %764, i32 noundef %781, i32 noundef %783)
+  %797 = load i32, ptr @ett_aeron_setup, align 4
+  %798 = call ptr @proto_item_add_subtree(ptr noundef %796, i32 noundef %797)
+  %799 = load i32, ptr @hf_aeron_channel_id, align 4
+  %800 = load i64, ptr %768, align 8
+  %801 = call ptr @proto_tree_add_uint64(ptr noundef %798, i32 noundef %799, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %800)
+  %.not.i98.i = icmp eq ptr %801, null
+  br i1 %.not.i98.i, label %proto_item_set_generated.exit.i155, label %802
 
-806:                                              ; preds = %aeron_set_stream_mtu_ttl_term_length.exit.i
-  %807 = getelementptr inbounds nuw i8, ptr %805, i64 40
-  %808 = load ptr, ptr %807, align 8
-  %.not5.i.i149 = icmp eq ptr %808, null
-  br i1 %.not5.i.i149, label %proto_item_set_generated.exit.i150, label %809
+802:                                              ; preds = %aeron_set_stream_mtu_ttl_term_length.exit.i
+  %803 = getelementptr inbounds nuw i8, ptr %801, i64 40
+  %804 = load ptr, ptr %803, align 8
+  %.not5.i.i154 = icmp eq ptr %804, null
+  br i1 %.not5.i.i154, label %proto_item_set_generated.exit.i155, label %805
 
-809:                                              ; preds = %806
-  %810 = getelementptr inbounds nuw i8, ptr %808, i64 28
-  %811 = load i32, ptr %810, align 4
-  %812 = or i32 %811, 2
-  store i32 %812, ptr %810, align 4
-  br label %proto_item_set_generated.exit.i150
+805:                                              ; preds = %802
+  %806 = getelementptr inbounds nuw i8, ptr %804, i64 28
+  %807 = load i32, ptr %806, align 4
+  %808 = or i32 %807, 2
+  store i32 %808, ptr %806, align 4
+  br label %proto_item_set_generated.exit.i155
 
-proto_item_set_generated.exit.i150:               ; preds = %809, %806, %aeron_set_stream_mtu_ttl_term_length.exit.i
-  %813 = load i32, ptr @hf_aeron_setup_frame_length, align 4
-  %814 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %813, ptr noundef %0, i32 noundef %.0103182, i32 noundef 4, i32 noundef -2147483648)
-  %815 = load i32, ptr @hf_aeron_setup_version, align 4
-  %816 = add i32 %.0103182, 4
-  %817 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %815, ptr noundef %0, i32 noundef %816, i32 noundef 1, i32 noundef -2147483648)
-  %818 = load i32, ptr @hf_aeron_setup_flags, align 4
-  %819 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %818, ptr noundef %0, i32 noundef %137, i32 noundef 1, i32 noundef -2147483648)
-  %820 = load i32, ptr @hf_aeron_setup_type, align 4
-  %821 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %820, ptr noundef %0, i32 noundef %139, i32 noundef 2, i32 noundef -2147483648)
-  %822 = load i32, ptr @hf_aeron_setup_term_offset, align 4
-  %823 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %822, ptr noundef %0, i32 noundef %767, i32 noundef 4, i32 noundef -2147483648)
-  %824 = load i32, ptr @hf_aeron_setup_session_id, align 4
-  %825 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %824, ptr noundef %0, i32 noundef %769, i32 noundef 4, i32 noundef -2147483648)
-  %826 = load i32, ptr @hf_aeron_setup_stream_id, align 4
-  %827 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %826, ptr noundef %0, i32 noundef %773, i32 noundef 4, i32 noundef -2147483648)
-  %828 = load i32, ptr @hf_aeron_setup_initial_term_id, align 4
-  %829 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %828, ptr noundef %0, i32 noundef %775, i32 noundef 4, i32 noundef -2147483648)
-  %830 = load i32, ptr @hf_aeron_setup_active_term_id, align 4
-  %831 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %830, ptr noundef %0, i32 noundef %777, i32 noundef 4, i32 noundef -2147483648)
-  %832 = load i32, ptr @hf_aeron_setup_term_length, align 4
-  %833 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %832, ptr noundef %0, i32 noundef %782, i32 noundef 4, i32 noundef -2147483648)
-  %834 = load i32, ptr @hf_aeron_setup_mtu, align 4
-  %835 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %834, ptr noundef %0, i32 noundef %784, i32 noundef 4, i32 noundef -2147483648)
-  %836 = load i32, ptr @hf_aeron_setup_ttl, align 4
-  %837 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %836, ptr noundef %0, i32 noundef %786, i32 noundef 4, i32 noundef -2147483648)
-  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %802, ptr noundef %772, ptr noundef nonnull %6, ptr noundef %.0)
-  call void @proto_item_set_len(ptr noundef %800, i32 noundef %764)
-  %.not.i151 = icmp eq i32 %764, 40
-  br i1 %.not.i151, label %dissect_aeron_setup.exit, label %838
+proto_item_set_generated.exit.i155:               ; preds = %805, %802, %aeron_set_stream_mtu_ttl_term_length.exit.i
+  %809 = load i32, ptr @hf_aeron_setup_frame_length, align 4
+  %810 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %809, ptr noundef %0, i32 noundef %.0103187, i32 noundef 4, i32 noundef -2147483648)
+  %811 = load i32, ptr @hf_aeron_setup_version, align 4
+  %812 = add i32 %.0103187, 4
+  %813 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %811, ptr noundef %0, i32 noundef %812, i32 noundef 1, i32 noundef -2147483648)
+  %814 = load i32, ptr @hf_aeron_setup_flags, align 4
+  %815 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %814, ptr noundef %0, i32 noundef %136, i32 noundef 1, i32 noundef -2147483648)
+  %816 = load i32, ptr @hf_aeron_setup_type, align 4
+  %817 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %816, ptr noundef %0, i32 noundef %138, i32 noundef 2, i32 noundef -2147483648)
+  %818 = load i32, ptr @hf_aeron_setup_term_offset, align 4
+  %819 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %818, ptr noundef %0, i32 noundef %763, i32 noundef 4, i32 noundef -2147483648)
+  %820 = load i32, ptr @hf_aeron_setup_session_id, align 4
+  %821 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %820, ptr noundef %0, i32 noundef %765, i32 noundef 4, i32 noundef -2147483648)
+  %822 = load i32, ptr @hf_aeron_setup_stream_id, align 4
+  %823 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %822, ptr noundef %0, i32 noundef %769, i32 noundef 4, i32 noundef -2147483648)
+  %824 = load i32, ptr @hf_aeron_setup_initial_term_id, align 4
+  %825 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %824, ptr noundef %0, i32 noundef %771, i32 noundef 4, i32 noundef -2147483648)
+  %826 = load i32, ptr @hf_aeron_setup_active_term_id, align 4
+  %827 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %826, ptr noundef %0, i32 noundef %773, i32 noundef 4, i32 noundef -2147483648)
+  %828 = load i32, ptr @hf_aeron_setup_term_length, align 4
+  %829 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %828, ptr noundef %0, i32 noundef %778, i32 noundef 4, i32 noundef -2147483648)
+  %830 = load i32, ptr @hf_aeron_setup_mtu, align 4
+  %831 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %830, ptr noundef %0, i32 noundef %780, i32 noundef 4, i32 noundef -2147483648)
+  %832 = load i32, ptr @hf_aeron_setup_ttl, align 4
+  %833 = call ptr @proto_tree_add_item(ptr noundef %798, i32 noundef %832, ptr noundef %0, i32 noundef %782, i32 noundef 4, i32 noundef -2147483648)
+  call fastcc void @aeron_sequence_report(ptr noundef %0, ptr noundef %1, ptr noundef %798, ptr noundef %768, ptr noundef nonnull %6, ptr noundef %.0)
+  call void @proto_item_set_len(ptr noundef %796, i32 noundef %760)
+  %.not.i156 = icmp eq i32 %760, 40
+  br i1 %.not.i156, label %dissect_aeron_setup.exit, label %834
 
-838:                                              ; preds = %proto_item_set_generated.exit.i150
-  %839 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %814, ptr noundef nonnull @ei_aeron_analysis_invalid_setup_length)
-  %840 = sub nsw i32 0, %764
+834:                                              ; preds = %proto_item_set_generated.exit.i155
+  %835 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %810, ptr noundef nonnull @ei_aeron_analysis_invalid_setup_length)
+  %836 = sub nsw i32 0, %760
   br label %dissect_aeron_setup.exit
 
-dissect_aeron_setup.exit:                         ; preds = %763, %766, %proto_item_set_generated.exit.i150, %838
-  %.0.i152 = phi i32 [ %840, %838 ], [ 0, %763 ], [ 0, %766 ], [ 40, %proto_item_set_generated.exit.i150 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #14
+dissect_aeron_setup.exit:                         ; preds = %759, %762, %proto_item_set_generated.exit.i155, %834
+  %.0.i157 = phi i32 [ %836, %834 ], [ 0, %759 ], [ 0, %762 ], [ 40, %proto_item_set_generated.exit.i155 ]
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #13
   br label %dissect_aeron_rtt.exit
 
 dissect_aeron_rtt.exit:                           ; preds = %dissect_aeron_heartbeat.exit, %dissect_aeron_data.exit, %dissect_aeron_setup.exit, %dissect_aeron_sm.exit, %dissect_aeron_nak.exit, %dissect_aeron_pad.exit
-  %.0105 = phi i32 [ %.0.i152, %dissect_aeron_setup.exit ], [ %.0.i139, %dissect_aeron_sm.exit ], [ %.0.i134, %dissect_aeron_nak.exit ], [ %.0.i118, %dissect_aeron_heartbeat.exit ], [ %.0128.i, %dissect_aeron_data.exit ], [ %.0.i113, %dissect_aeron_pad.exit ]
-  %841 = icmp slt i32 %.0105, 1
-  br i1 %841, label %dissect_aeron_rtt.exit.thread, label %dissect_aeron_rtt.exit.thread159
+  %.0105 = phi i32 [ %.0.i157, %dissect_aeron_setup.exit ], [ %.0.i144, %dissect_aeron_sm.exit ], [ %.0.i137, %dissect_aeron_nak.exit ], [ %.0.i120, %dissect_aeron_heartbeat.exit ], [ %.0130.i, %dissect_aeron_data.exit ], [ %.0.i113, %dissect_aeron_pad.exit ]
+  %837 = icmp slt i32 %.0105, 1
+  br i1 %837, label %dissect_aeron_rtt.exit.thread, label %dissect_aeron_rtt.exit.thread164
 
-dissect_aeron_rtt.exit.thread:                    ; preds = %756, %674, %dissect_aeron_rtt.exit, %760, %722
-  %.0105156 = phi i32 [ %762, %760 ], [ %724, %722 ], [ 0, %674 ], [ 0, %756 ], [ %.0105, %dissect_aeron_rtt.exit ]
-  %842 = sub i32 %.0108181, %.0105156
-  call void @proto_item_set_len(ptr noundef %49, i32 noundef %842)
+dissect_aeron_rtt.exit.thread:                    ; preds = %752, %670, %dissect_aeron_rtt.exit, %756, %718
+  %.0105161 = phi i32 [ %758, %756 ], [ %720, %718 ], [ 0, %670 ], [ 0, %752 ], [ %.0105, %dissect_aeron_rtt.exit ]
+  %838 = sub i32 %.0108186, %.0105161
+  call void @proto_item_set_len(ptr noundef %49, i32 noundef %838)
   br label %.thread
 
-dissect_aeron_rtt.exit.thread159:                 ; preds = %758, %proto_item_set_generated.exit.i144, %dissect_aeron_rtt.exit
-  %.0105161 = phi i32 [ %.0105, %dissect_aeron_rtt.exit ], [ %726, %758 ], [ 40, %proto_item_set_generated.exit.i144 ]
-  %843 = add i32 %.0105161, %.0108181
-  %844 = add i32 %.0105161, %.0103182
-  %845 = sub nsw i32 %.0102190, %.0105161
-  call void @proto_item_set_len(ptr noundef %49, i32 noundef %843)
-  %846 = icmp sgt i32 %845, 0
-  br i1 %846, label %100, label %.thread
+dissect_aeron_rtt.exit.thread164:                 ; preds = %754, %proto_item_set_generated.exit.i149, %dissect_aeron_rtt.exit
+  %.0105166 = phi i32 [ %.0105, %dissect_aeron_rtt.exit ], [ %722, %754 ], [ 40, %proto_item_set_generated.exit.i149 ]
+  %839 = add i32 %.0105166, %.0108186
+  %840 = add i32 %.0105166, %.0103187
+  %841 = sub nsw i32 %.0102193, %.0105166
+  call void @proto_item_set_len(ptr noundef %49, i32 noundef %839)
+  %842 = icmp sgt i32 %841, 0
+  br i1 %842, label %100, label %.thread
 
-.thread:                                          ; preds = %dissect_aeron_rtt.exit.thread159, %100, %aeron_frame_info_add.exit, %aeron_format_transport_uri.exit, %dissect_aeron_rtt.exit.thread, %17, %4
-  %.0106 = phi i32 [ 0, %4 ], [ 0, %17 ], [ %842, %dissect_aeron_rtt.exit.thread ], [ 0, %aeron_format_transport_uri.exit ], [ %843, %dissect_aeron_rtt.exit.thread159 ], [ %.0108181, %100 ], [ %.0108181, %aeron_frame_info_add.exit ]
+.thread:                                          ; preds = %dissect_aeron_rtt.exit.thread164, %100, %aeron_frame_info_add.exit, %aeron_format_transport_uri.exit, %dissect_aeron_rtt.exit.thread, %17, %4
+  %.0106 = phi i32 [ 0, %4 ], [ 0, %17 ], [ %838, %dissect_aeron_rtt.exit.thread ], [ 0, %aeron_format_transport_uri.exit ], [ %839, %dissect_aeron_rtt.exit.thread164 ], [ %.0108186, %100 ], [ %.0108186, %aeron_frame_info_add.exit ]
   ret i32 %.0106
 }
 
@@ -2102,7 +2095,7 @@ define internal fastcc noalias noundef ptr @aeron_setup_conversation_info(ptr no
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %7, i64 noundef 24) #13
+  %8 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %7, i64 noundef 24) #12
   %9 = load i32, ptr %3, align 8
   switch i32 %9, label %221 [
     i32 2, label %10
@@ -2113,10 +2106,10 @@ define internal fastcc noalias noundef ptr @aeron_setup_conversation_info(ptr no
   %11 = getelementptr i8, ptr %0, i64 240
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %6, align 8
-  %14 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 24) #13
+  %14 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %13, i64 noundef 24) #12
   store ptr %14, ptr %8, align 8
   %15 = load ptr, ptr %6, align 8
-  %16 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %15, i64 noundef 24) #13
+  %16 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %15, i64 noundef 24) #12
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %16, ptr %17, align 8
   %.val = load i32, ptr %3, align 8
@@ -2148,9 +2141,9 @@ define internal fastcc noalias noundef ptr @aeron_setup_conversation_info(ptr no
 27:                                               ; preds = %19, %24
   %28 = load ptr, ptr %6, align 8
   %29 = sext i32 %5 to i64
-  %30 = tail call ptr @wmem_memdup(ptr noundef %28, ptr noundef %12, i64 noundef %29) #15
+  %30 = tail call ptr @wmem_memdup(ptr noundef %28, ptr noundef %12, i64 noundef %29) #14
   %31 = load ptr, ptr %6, align 8
-  %32 = tail call ptr @wmem_memdup(ptr noundef %31, ptr noundef %12, i64 noundef %29) #15
+  %32 = tail call ptr @wmem_memdup(ptr noundef %31, ptr noundef %12, i64 noundef %29) #14
   %33 = add i32 %5, -1
   %34 = sext i32 %33 to i64
   %35 = getelementptr i8, ptr %12, i64 %34
@@ -2209,7 +2202,7 @@ aeron_is_address_multicast.exit:                  ; preds = %24, %23, %19, %18, 
 
 60:                                               ; preds = %51
   %61 = sext i32 %56 to i64
-  %62 = tail call ptr @wmem_memdup(ptr noundef %52, ptr noundef %58, i64 noundef %61) #15
+  %62 = tail call ptr @wmem_memdup(ptr noundef %52, ptr noundef %58, i64 noundef %61) #14
   %63 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %62, ptr %63, align 8
   %64 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2238,7 +2231,7 @@ copy_address_wmem.exit:                           ; preds = %51, %60
 
 75:                                               ; preds = %copy_address_wmem.exit
   %76 = sext i32 %73 to i64
-  %77 = tail call ptr @wmem_memdup(ptr noundef %68, ptr noundef %66, i64 noundef %76) #15
+  %77 = tail call ptr @wmem_memdup(ptr noundef %68, ptr noundef %66, i64 noundef %76) #14
   %78 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %77, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -2263,7 +2256,7 @@ copy_address_wmem.exit106:                        ; preds = %copy_address_wmem.e
 
 88:                                               ; preds = %84
   %89 = sext i32 %86 to i64
-  %90 = tail call ptr @wmem_memdup(ptr noundef %85, ptr noundef %.val103, i64 noundef %89) #15
+  %90 = tail call ptr @wmem_memdup(ptr noundef %85, ptr noundef %.val103, i64 noundef %89) #14
   %91 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %90, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2293,7 +2286,7 @@ copy_address_wmem.exit107:                        ; preds = %84, %88
 
 106:                                              ; preds = %copy_address_wmem.exit107
   %107 = sext i32 %102 to i64
-  %108 = tail call ptr @wmem_memdup(ptr noundef %94, ptr noundef %104, i64 noundef %107) #15
+  %108 = tail call ptr @wmem_memdup(ptr noundef %94, ptr noundef %104, i64 noundef %107) #14
   %109 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %108, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -2312,10 +2305,10 @@ copy_address_wmem.exit108:                        ; preds = %copy_address_wmem.e
   %116 = getelementptr i8, ptr %0, i64 240
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr %6, align 8
-  %119 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %118, i64 noundef 24) #13
+  %119 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %118, i64 noundef 24) #12
   store ptr %119, ptr %8, align 8
   %120 = load ptr, ptr %6, align 8
-  %121 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %120, i64 noundef 24) #13
+  %121 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %120, i64 noundef 24) #12
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %121, ptr %122, align 8
   %.val104 = load i32, ptr %3, align 8
@@ -2347,9 +2340,9 @@ copy_address_wmem.exit108:                        ; preds = %copy_address_wmem.e
 132:                                              ; preds = %124, %129
   %133 = load ptr, ptr %6, align 8
   %134 = sext i32 %5 to i64
-  %135 = tail call ptr @wmem_memdup(ptr noundef %133, ptr noundef %117, i64 noundef %134) #15
+  %135 = tail call ptr @wmem_memdup(ptr noundef %133, ptr noundef %117, i64 noundef %134) #14
   %136 = load ptr, ptr %6, align 8
-  %137 = tail call ptr @wmem_memdup(ptr noundef %136, ptr noundef %117, i64 noundef %134) #15
+  %137 = tail call ptr @wmem_memdup(ptr noundef %136, ptr noundef %117, i64 noundef %134) #14
   %138 = add i32 %5, -1
   %139 = sext i32 %138 to i64
   %140 = getelementptr i8, ptr %117, i64 %139
@@ -2408,7 +2401,7 @@ aeron_is_address_multicast.exit112:               ; preds = %129, %128, %124, %1
 
 165:                                              ; preds = %156
   %166 = sext i32 %161 to i64
-  %167 = tail call ptr @wmem_memdup(ptr noundef %157, ptr noundef %163, i64 noundef %166) #15
+  %167 = tail call ptr @wmem_memdup(ptr noundef %157, ptr noundef %163, i64 noundef %166) #14
   %168 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr %167, ptr %168, align 8
   %169 = getelementptr inbounds nuw i8, ptr %119, i64 8
@@ -2437,7 +2430,7 @@ copy_address_wmem.exit113:                        ; preds = %156, %165
 
 180:                                              ; preds = %copy_address_wmem.exit113
   %181 = sext i32 %178 to i64
-  %182 = tail call ptr @wmem_memdup(ptr noundef %173, ptr noundef %171, i64 noundef %181) #15
+  %182 = tail call ptr @wmem_memdup(ptr noundef %173, ptr noundef %171, i64 noundef %181) #14
   %183 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store ptr %182, ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %121, i64 8
@@ -2462,7 +2455,7 @@ copy_address_wmem.exit114:                        ; preds = %copy_address_wmem.e
 
 193:                                              ; preds = %189
   %194 = sext i32 %191 to i64
-  %195 = tail call ptr @wmem_memdup(ptr noundef %190, ptr noundef %.val105, i64 noundef %194) #15
+  %195 = tail call ptr @wmem_memdup(ptr noundef %190, ptr noundef %.val105, i64 noundef %194) #14
   %196 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr %195, ptr %196, align 8
   %197 = getelementptr inbounds nuw i8, ptr %119, i64 8
@@ -2492,7 +2485,7 @@ copy_address_wmem.exit115:                        ; preds = %189, %193
 
 211:                                              ; preds = %copy_address_wmem.exit115
   %212 = sext i32 %207 to i64
-  %213 = tail call ptr @wmem_memdup(ptr noundef %199, ptr noundef %209, i64 noundef %212) #15
+  %213 = tail call ptr @wmem_memdup(ptr noundef %199, ptr noundef %209, i64 noundef %212) #14
   %214 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store ptr %213, ptr %214, align 8
   %215 = getelementptr inbounds nuw i8, ptr %121, i64 8
@@ -2646,7 +2639,7 @@ define internal fastcc ptr @aeron_transport_add(ptr noundef readonly captures(no
 
 39:                                               ; preds = %37
   %40 = call ptr @wmem_file_scope()
-  %41 = call noalias dereferenceable_or_null(80) ptr @wmem_alloc0(ptr noundef %40, i64 noundef 80) #13
+  %41 = call noalias dereferenceable_or_null(80) ptr @wmem_alloc0(ptr noundef %40, i64 noundef 80) #12
   %42 = load i64, ptr @aeron_channel_id, align 8
   %43 = add i64 %42, 1
   store i64 %43, ptr @aeron_channel_id, align 8
@@ -2672,7 +2665,7 @@ define internal fastcc ptr @aeron_transport_add(ptr noundef readonly captures(no
 
 57:                                               ; preds = %39
   %58 = sext i32 %53 to i64
-  %59 = call ptr @wmem_memdup(ptr noundef %48, ptr noundef %55, i64 noundef %58) #15
+  %59 = call ptr @wmem_memdup(ptr noundef %48, ptr noundef %55, i64 noundef %58) #14
   %60 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store ptr %59, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %41, i64 32
@@ -2697,7 +2690,7 @@ copy_address_wmem.exit:                           ; preds = %39, %57
 
 72:                                               ; preds = %copy_address_wmem.exit
   %73 = sext i32 %68 to i64
-  %74 = call ptr @wmem_memdup(ptr noundef %63, ptr noundef %70, i64 noundef %73) #15
+  %74 = call ptr @wmem_memdup(ptr noundef %63, ptr noundef %70, i64 noundef %73) #14
   %75 = getelementptr inbounds nuw i8, ptr %41, i64 64
   store ptr %74, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %41, i64 56
@@ -2729,194 +2722,1235 @@ define internal fastcc range(i32 -1, 1) i32 @aeron_frame_info_setup(ptr noundef 
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %99, label %8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = icmp ne ptr %1, null
+  %12 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6
+  %13 = trunc nuw i8 %12 to i1
+  %or.cond = select i1 %11, i1 %13, i1 false
+  %14 = icmp ne ptr %3, null
+  %or.cond3 = and i1 %14, %or.cond
+  br i1 %or.cond3, label %15, label %.critedge
 
-8:                                                ; preds = %4
-  %9 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
-  %10 = trunc nuw i8 %9 to i1
-  %11 = icmp ne ptr %3, null
-  %or.cond = and i1 %11, %10
-  br i1 %or.cond, label %12, label %99
+15:                                               ; preds = %4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 57
+  %19 = load i16, ptr %18, align 1
+  %20 = and i16 %19, 8
+  %.not = icmp eq i16 %20, 0
+  br i1 %.not, label %21, label %.critedge
 
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 57
-  %16 = load i16, ptr %15, align 1
-  %17 = and i16 %16, 8
-  %.not44 = icmp eq i16 %17, 0
-  br i1 %.not44, label %18, label %99
+21:                                               ; preds = %15
+  %22 = load i32, ptr %2, align 8
+  %23 = and i32 %22, 1
+  %.not46 = icmp eq i32 %23, 0
+  br i1 %.not46, label %618, label %24
 
-18:                                               ; preds = %12
-  %19 = load i32, ptr %2, align 8
-  %20 = and i32 %19, 1
-  %.not45 = icmp eq i32 %20, 0
-  br i1 %.not45, label %89, label %21
+24:                                               ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %26 = load i32, ptr %25, align 4
+  %27 = getelementptr i8, ptr %1, i64 8
+  %.val = load ptr, ptr %27, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
+  store i32 %26, ptr %10, align 4
+  %28 = call ptr @wmem_map_lookup(ptr noundef %.val, ptr noundef nonnull %10)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %aeron_transport_stream_add.exit
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %23 = load i32, ptr %22, align 4
-  %24 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  store i32 %23, ptr %7, align 4
-  %25 = call ptr @wmem_map_lookup(ptr noundef %.val, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %aeron_transport_stream_add.exit
+30:                                               ; preds = %24
+  %31 = load i32, ptr %25, align 4
+  %.val.i = load ptr, ptr %27, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
+  store i32 %31, ptr %9, align 4
+  %32 = call ptr @wmem_map_lookup(ptr noundef %.val.i, ptr noundef nonnull %9)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %34, label %aeron_transport_stream_add.exit
 
-27:                                               ; preds = %21
-  %28 = load i32, ptr %22, align 4
-  %.val.i = load ptr, ptr %24, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  store i32 %28, ptr %6, align 4
-  %29 = call ptr @wmem_map_lookup(ptr noundef %.val.i, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %aeron_transport_stream_add.exit
-
-31:                                               ; preds = %27
-  %32 = call ptr @wmem_file_scope()
-  %33 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %32, i64 noundef 72) #13
-  store ptr %1, ptr %33, align 8
-  %34 = call ptr @wmem_file_scope()
-  %35 = call noalias ptr @wmem_map_new(ptr noundef %34, ptr noundef nonnull @aeron_uint32_hash_func, ptr noundef nonnull @aeron_uint32_compare_func)
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %35, ptr %36, align 8
+34:                                               ; preds = %30
+  %35 = call ptr @wmem_file_scope()
+  %36 = call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %35, i64 noundef 72) #12
+  store ptr %1, ptr %36, align 8
   %37 = call ptr @wmem_file_scope()
-  %38 = call noalias ptr @wmem_list_new(ptr noundef %37)
-  %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %38 = call noalias ptr @wmem_map_new(ptr noundef %37, ptr noundef nonnull @aeron_uint32_hash_func, ptr noundef nonnull @aeron_uint32_compare_func)
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  store ptr null, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  store i32 %28, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %33, i64 44
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %43, i8 0, i64 24, i1 false)
-  %44 = load ptr, ptr %24, align 8
-  %45 = call ptr @wmem_map_insert(ptr noundef %44, ptr noundef nonnull %42, ptr noundef %33)
+  %40 = call ptr @wmem_file_scope()
+  %41 = call noalias ptr @wmem_list_new(ptr noundef %40)
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  store ptr %41, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  store i32 0, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  store ptr null, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  store i32 %31, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 44
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %46, i8 0, i64 24, i1 false)
+  %47 = load ptr, ptr %27, align 8
+  %48 = call ptr @wmem_map_insert(ptr noundef %47, ptr noundef nonnull %45, ptr noundef %36)
   br label %aeron_transport_stream_add.exit
 
-aeron_transport_stream_add.exit:                  ; preds = %31, %27, %21
-  %.037 = phi ptr [ %25, %21 ], [ %33, %31 ], [ %29, %27 ]
-  %46 = load i32, ptr %2, align 8
-  %47 = and i32 %46, 2
-  %.not46 = icmp eq i32 %47, 0
-  br i1 %.not46, label %68, label %48
+aeron_transport_stream_add.exit:                  ; preds = %34, %30, %24
+  %.039 = phi ptr [ %28, %24 ], [ %36, %34 ], [ %32, %30 ]
+  %49 = load i32, ptr %2, align 8
+  %50 = and i32 %49, 2
+  %.not47 = icmp eq i32 %50, 0
+  br i1 %.not47, label %597, label %51
 
-48:                                               ; preds = %aeron_transport_stream_add.exit
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %50 = load i32, ptr %49, align 8
-  %51 = getelementptr i8, ptr %.037, i64 8
-  %.037.val = load ptr, ptr %51, align 8
+51:                                               ; preds = %aeron_transport_stream_add.exit
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %53 = load i32, ptr %52, align 8
+  %54 = getelementptr i8, ptr %.039, i64 8
+  %.039.val = load ptr, ptr %54, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
+  store i32 %53, ptr %8, align 4
+  %55 = call ptr @wmem_map_lookup(ptr noundef %.039.val, ptr noundef nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %aeron_stream_term_add.exit
+
+57:                                               ; preds = %51
+  %58 = load i32, ptr %52, align 8
+  %.val.i49 = load ptr, ptr %54, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
+  store i32 %58, ptr %7, align 4
+  %59 = call ptr @wmem_map_lookup(ptr noundef %.val.i49, ptr noundef nonnull %7)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
+  %60 = icmp eq ptr %59, null
+  br i1 %60, label %61, label %aeron_stream_term_add.exit
+
+61:                                               ; preds = %57
+  %62 = call ptr @wmem_file_scope()
+  %63 = call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %62, i64 noundef 56) #12
+  store ptr %.039, ptr %63, align 8
+  %64 = call ptr @wmem_file_scope()
+  %65 = call noalias ptr @wmem_map_new(ptr noundef %64, ptr noundef nonnull @aeron_uint32_hash_func, ptr noundef nonnull @aeron_uint32_compare_func)
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store ptr %65, ptr %66, align 8
+  %67 = call ptr @wmem_file_scope()
+  %68 = call noalias ptr @wmem_tree_new(ptr noundef %67)
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store ptr %68, ptr %69, align 8
+  %70 = call ptr @wmem_file_scope()
+  %71 = call noalias ptr @wmem_list_new(ptr noundef %70)
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  store ptr %71, ptr %72, align 8
+  %73 = call ptr @wmem_file_scope()
+  %74 = call noalias ptr @wmem_list_new(ptr noundef %73)
+  %75 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  store ptr %74, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %63, i64 48
+  store i32 %58, ptr %76, align 8
+  %77 = load ptr, ptr %54, align 8
+  %78 = call ptr @wmem_map_insert(ptr noundef %77, ptr noundef nonnull %76, ptr noundef %63)
+  br label %aeron_stream_term_add.exit
+
+aeron_stream_term_add.exit:                       ; preds = %61, %57, %51
+  %.038 = phi ptr [ %55, %51 ], [ %63, %61 ], [ %59, %57 ]
+  %79 = load i32, ptr %2, align 8
+  %80 = and i32 %79, 4
+  %.not48 = icmp eq i32 %80, 0
+  br i1 %.not48, label %561, label %81
+
+81:                                               ; preds = %aeron_stream_term_add.exit
+  %82 = getelementptr inbounds nuw i8, ptr %.039, i64 60
+  %83 = load i64, ptr %82, align 4
+  %.sroa.0175.0.extract.trunc.i = trunc i64 %83 to i32
+  %.sroa.5.0.extract.shift.i = lshr i64 %83, 32
+  %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i32
+  %84 = getelementptr inbounds nuw i8, ptr %.039, i64 56
+  %85 = load i32, ptr %84, align 8
+  %86 = and i32 %85, 1
+  %.not.i = icmp eq i32 %86, 0
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %88 = load i16, ptr %87, align 8
+  %89 = icmp eq i16 %88, 3
+  br i1 %89, label %90, label %aeron_stream_rcv_add.exit.i
+
+90:                                               ; preds = %81
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %93 = load i32, ptr %92, align 4
+  %94 = trunc i32 %93 to i16
+  %95 = getelementptr i8, ptr %.039, i64 16
+  %.val.i52 = load ptr, ptr %95, align 8
+  %96 = call ptr @wmem_list_head(ptr noundef %.val.i52)
+  %.not9.i.i = icmp eq ptr %96, null
+  br i1 %.not9.i.i, label %.loopexit.i, label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %90
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  br label %99
+
+99:                                               ; preds = %cmp_address.exit.thread.i.i, %.lr.ph.i.i
+  %.01110.i.i = phi ptr [ %96, %.lr.ph.i.i ], [ %118, %cmp_address.exit.thread.i.i ]
+  %100 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.01110.i.i)
+  %.not15.i.i = icmp eq ptr %100, null
+  br i1 %.not15.i.i, label %cmp_address.exit.thread.i.i, label %101
+
+101:                                              ; preds = %99
+  %102 = load i32, ptr %100, align 8
+  %103 = load i32, ptr %91, align 8
+  %or.cond.not.i.i = icmp eq i32 %102, %103
+  br i1 %or.cond.not.i.i, label %104, label %cmp_address.exit.thread.i.i
+
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 4
+  %106 = load i32, ptr %105, align 4
+  %107 = load i32, ptr %97, align 4
+  %or.cond8.not.i.i = icmp eq i32 %106, %107
+  br i1 %or.cond8.not.i.i, label %108, label %cmp_address.exit.thread.i.i
+
+108:                                              ; preds = %104
+  %109 = icmp eq i32 %106, 0
+  br i1 %109, label %cmp_address.exit.thread2.i.i, label %cmp_address.exit.i.i
+
+cmp_address.exit.i.i:                             ; preds = %108
+  %110 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr %98, align 8
+  %113 = sext i32 %106 to i64
+  %bcmp.i.i = call i32 @bcmp(ptr %111, ptr %112, i64 %113)
+  %114 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %114, label %cmp_address.exit.thread2.i.i, label %cmp_address.exit.thread.i.i
+
+cmp_address.exit.thread2.i.i:                     ; preds = %cmp_address.exit.i.i, %108
+  %115 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  %116 = load i16, ptr %115, align 8
+  %117 = icmp eq i16 %116, %94
+  br i1 %117, label %aeron_stream_rcv_find.exit.i, label %cmp_address.exit.thread.i.i
+
+cmp_address.exit.thread.i.i:                      ; preds = %cmp_address.exit.thread2.i.i, %cmp_address.exit.i.i, %104, %101, %99
+  %118 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.01110.i.i)
+  %.not.i.i = icmp eq ptr %118, null
+  br i1 %.not.i.i, label %.loopexit.i, label %99
+
+.loopexit.i:                                      ; preds = %cmp_address.exit.thread.i.i, %90
+  %119 = load i32, ptr %92, align 4
+  %120 = trunc i32 %119 to i16
+  %.val.i.i = load ptr, ptr %95, align 8
+  %121 = call ptr @wmem_list_head(ptr noundef %.val.i.i)
+  %.not9.i.i.i = icmp eq ptr %121, null
+  br i1 %.not9.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.loopexit.i
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  br label %124
+
+124:                                              ; preds = %cmp_address.exit.thread.i.i.i, %.lr.ph.i.i.i
+  %.01110.i.i.i = phi ptr [ %121, %.lr.ph.i.i.i ], [ %143, %cmp_address.exit.thread.i.i.i ]
+  %125 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.01110.i.i.i)
+  %.not15.i.i.i = icmp eq ptr %125, null
+  br i1 %.not15.i.i.i, label %cmp_address.exit.thread.i.i.i, label %126
+
+126:                                              ; preds = %124
+  %127 = load i32, ptr %125, align 8
+  %128 = load i32, ptr %91, align 8
+  %or.cond.not.i.i.i = icmp eq i32 %127, %128
+  br i1 %or.cond.not.i.i.i, label %129, label %cmp_address.exit.thread.i.i.i
+
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds nuw i8, ptr %125, i64 4
+  %131 = load i32, ptr %130, align 4
+  %132 = load i32, ptr %122, align 4
+  %or.cond8.not.i.i.i = icmp eq i32 %131, %132
+  br i1 %or.cond8.not.i.i.i, label %133, label %cmp_address.exit.thread.i.i.i
+
+133:                                              ; preds = %129
+  %134 = icmp eq i32 %131, 0
+  br i1 %134, label %cmp_address.exit.thread2.i.i.i, label %cmp_address.exit.i.i.i
+
+cmp_address.exit.i.i.i:                           ; preds = %133
+  %135 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %136 = load ptr, ptr %135, align 8
+  %137 = load ptr, ptr %123, align 8
+  %138 = sext i32 %131 to i64
+  %bcmp.i.i.i = call i32 @bcmp(ptr %136, ptr %137, i64 %138)
+  %139 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %139, label %cmp_address.exit.thread2.i.i.i, label %cmp_address.exit.thread.i.i.i
+
+cmp_address.exit.thread2.i.i.i:                   ; preds = %cmp_address.exit.i.i.i, %133
+  %140 = getelementptr inbounds nuw i8, ptr %125, i64 24
+  %141 = load i16, ptr %140, align 8
+  %142 = icmp eq i16 %141, %120
+  br i1 %142, label %aeron_stream_rcv_add.exitthread-pre-split.i, label %cmp_address.exit.thread.i.i.i
+
+cmp_address.exit.thread.i.i.i:                    ; preds = %cmp_address.exit.thread2.i.i.i, %cmp_address.exit.i.i.i, %129, %126, %124
+  %143 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.01110.i.i.i)
+  %.not.i.i.i = icmp eq ptr %143, null
+  br i1 %.not.i.i.i, label %.loopexit.i.i, label %124
+
+.loopexit.i.i:                                    ; preds = %cmp_address.exit.thread.i.i.i, %.loopexit.i
+  %144 = call ptr @wmem_file_scope()
+  %145 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %144, i64 noundef 40) #12
+  %146 = call ptr @wmem_file_scope()
+  %147 = load i32, ptr %91, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %149 = load i32, ptr %148, align 4
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %151 = load ptr, ptr %150, align 8
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %145, i8 0, i64 24, i1 false)
+  store i32 %147, ptr %145, align 8
+  %152 = icmp eq i32 %149, 0
+  br i1 %152, label %copy_address_wmem.exit.i.i, label %153
+
+153:                                              ; preds = %.loopexit.i.i
+  %154 = sext i32 %149 to i64
+  %155 = call ptr @wmem_memdup(ptr noundef %146, ptr noundef %151, i64 noundef %154) #14
+  %156 = getelementptr inbounds nuw i8, ptr %145, i64 16
+  store ptr %155, ptr %156, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  store ptr %155, ptr %157, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %145, i64 4
+  store i32 %149, ptr %158, align 4
+  br label %copy_address_wmem.exit.i.i
+
+copy_address_wmem.exit.i.i:                       ; preds = %153, %.loopexit.i.i
+  %159 = getelementptr inbounds nuw i8, ptr %145, i64 24
+  store i16 %120, ptr %159, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %145, i64 28
+  store i32 0, ptr %160, align 4
+  %161 = getelementptr inbounds nuw i8, ptr %145, i64 32
+  store i32 0, ptr %161, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %145, i64 36
+  store i32 0, ptr %162, align 4
+  %163 = load ptr, ptr %95, align 8
+  call void @wmem_list_append(ptr noundef %163, ptr noundef %145)
+  %164 = getelementptr inbounds nuw i8, ptr %.039, i64 24
+  %165 = load i32, ptr %164, align 8
+  %166 = add i32 %165, 1
+  store i32 %166, ptr %164, align 8
+  br label %aeron_stream_rcv_add.exitthread-pre-split.i
+
+aeron_stream_rcv_find.exit.i:                     ; preds = %cmp_address.exit.thread2.i.i
+  %167 = getelementptr inbounds nuw i8, ptr %100, i64 28
+  %168 = load i64, ptr %167, align 4
+  %.sroa.0166.0.extract.trunc.i = trunc i64 %168 to i32
+  %.sroa.6168.0.extract.shift.i = lshr i64 %168, 32
+  %.sroa.6168.0.extract.trunc.i = trunc nuw i64 %.sroa.6168.0.extract.shift.i to i32
+  %169 = getelementptr inbounds nuw i8, ptr %100, i64 36
+  %170 = load i32, ptr %169, align 4
+  br label %aeron_stream_rcv_add.exitthread-pre-split.i
+
+aeron_stream_rcv_add.exitthread-pre-split.i:      ; preds = %cmp_address.exit.thread2.i.i.i, %aeron_stream_rcv_find.exit.i, %copy_address_wmem.exit.i.i
+  %.sroa.6168.0.ph.i = phi i32 [ 0, %copy_address_wmem.exit.i.i ], [ %.sroa.6168.0.extract.trunc.i, %aeron_stream_rcv_find.exit.i ], [ 0, %cmp_address.exit.thread2.i.i.i ]
+  %.sroa.0166.0.ph.i = phi i32 [ 0, %copy_address_wmem.exit.i.i ], [ %.sroa.0166.0.extract.trunc.i, %aeron_stream_rcv_find.exit.i ], [ 0, %cmp_address.exit.thread2.i.i.i ]
+  %.0125.ph.i = phi i32 [ 0, %copy_address_wmem.exit.i.i ], [ %170, %aeron_stream_rcv_find.exit.i ], [ 0, %cmp_address.exit.thread2.i.i.i ]
+  %.0118.ph.i = phi i1 [ false, %copy_address_wmem.exit.i.i ], [ true, %aeron_stream_rcv_find.exit.i ], [ false, %cmp_address.exit.thread2.i.i.i ]
+  %.0117.ph.i = phi ptr [ %145, %copy_address_wmem.exit.i.i ], [ %100, %aeron_stream_rcv_find.exit.i ], [ %125, %cmp_address.exit.thread2.i.i.i ]
+  %.pr.i = load i16, ptr %87, align 8
+  br label %aeron_stream_rcv_add.exit.i
+
+aeron_stream_rcv_add.exit.i:                      ; preds = %aeron_stream_rcv_add.exitthread-pre-split.i, %81
+  %171 = phi i16 [ %.pr.i, %aeron_stream_rcv_add.exitthread-pre-split.i ], [ %88, %81 ]
+  %.sroa.6168.0.i = phi i32 [ %.sroa.6168.0.ph.i, %aeron_stream_rcv_add.exitthread-pre-split.i ], [ 0, %81 ]
+  %.sroa.0166.0.i = phi i32 [ %.sroa.0166.0.ph.i, %aeron_stream_rcv_add.exitthread-pre-split.i ], [ 0, %81 ]
+  %.0125.i = phi i32 [ %.0125.ph.i, %aeron_stream_rcv_add.exitthread-pre-split.i ], [ 0, %81 ]
+  %.0118.i = phi i1 [ %.0118.ph.i, %aeron_stream_rcv_add.exitthread-pre-split.i ], [ false, %81 ]
+  %.0117.i = phi ptr [ %.0117.ph.i, %aeron_stream_rcv_add.exitthread-pre-split.i ], [ null, %81 ]
+  switch i16 %171, label %223 [
+    i16 1, label %172
+    i16 0, label %172
+    i16 3, label %202
+  ]
+
+172:                                              ; preds = %aeron_stream_rcv_add.exit.i, %aeron_stream_rcv_add.exit.i
+  %173 = load i32, ptr %52, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %175 = load i32, ptr %174, align 4
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %177 = load i32, ptr %176, align 8
+  %178 = getelementptr inbounds nuw i8, ptr %.039, i64 44
+  %179 = load i32, ptr %178, align 4
+  %180 = add i32 %177, %175
+  %181 = icmp ult i32 %180, %175
+  br i1 %181, label %.critedge, label %182
+
+182:                                              ; preds = %172
+  %183 = add i32 %180, 31
+  %184 = and i32 %183, -32
+  %185 = icmp ult i32 %184, %180
+  br i1 %185, label %.critedge, label %186
+
+186:                                              ; preds = %182
+  %.not.i142.i = icmp uge i32 %184, %179
+  %187 = zext i1 %.not.i142.i to i32
+  %spec.select.i = add i32 %173, %187
+  %spec.select221.i = select i1 %.not.i142.i, i32 0, i32 %184
+  br i1 %.not.i, label %198, label %188
+
+188:                                              ; preds = %186
+  %189 = load i32, ptr %82, align 4
+  %190 = icmp ugt i32 %spec.select.i, %189
+  br i1 %190, label %191, label %193
+
+191:                                              ; preds = %188
+  store i32 %spec.select.i, ptr %82, align 4
+  %192 = getelementptr inbounds nuw i8, ptr %.039, i64 64
+  store i32 %spec.select221.i, ptr %192, align 4
+  br label %223
+
+193:                                              ; preds = %188
+  %194 = getelementptr inbounds nuw i8, ptr %.039, i64 64
+  %195 = load i32, ptr %194, align 4
+  %196 = icmp ugt i32 %spec.select221.i, %195
+  br i1 %196, label %197, label %223
+
+197:                                              ; preds = %193
+  store i32 %spec.select221.i, ptr %194, align 4
+  br label %223
+
+198:                                              ; preds = %186
+  %199 = load i32, ptr %84, align 8
+  %200 = or i32 %199, 1
+  store i32 %200, ptr %84, align 8
+  store i32 %spec.select.i, ptr %82, align 4
+  %201 = getelementptr inbounds nuw i8, ptr %.039, i64 64
+  store i32 %spec.select221.i, ptr %201, align 4
+  br label %223
+
+202:                                              ; preds = %aeron_stream_rcv_add.exit.i
+  %203 = load i32, ptr %52, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %205 = load i32, ptr %204, align 4
+  %206 = getelementptr inbounds nuw i8, ptr %.0117.i, i64 28
+  br i1 %.0118.i, label %207, label %217
+
+207:                                              ; preds = %202
+  %208 = load i32, ptr %206, align 4
+  %209 = icmp ugt i32 %203, %208
+  br i1 %209, label %210, label %212
+
+210:                                              ; preds = %207
+  store i32 %203, ptr %206, align 4
+  %211 = getelementptr inbounds nuw i8, ptr %.0117.i, i64 32
+  store i32 %205, ptr %211, align 4
+  br label %219
+
+212:                                              ; preds = %207
+  %213 = getelementptr inbounds nuw i8, ptr %.0117.i, i64 32
+  %214 = load i32, ptr %213, align 4
+  %215 = icmp ugt i32 %205, %214
+  br i1 %215, label %216, label %219
+
+216:                                              ; preds = %212
+  store i32 %205, ptr %213, align 4
+  br label %219
+
+217:                                              ; preds = %202
+  store i32 %203, ptr %206, align 4
+  %218 = getelementptr inbounds nuw i8, ptr %.0117.i, i64 32
+  store i32 %205, ptr %218, align 4
+  br label %219
+
+219:                                              ; preds = %217, %216, %212, %210
+  %220 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %221 = load i32, ptr %220, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %.0117.i, i64 36
+  store i32 %221, ptr %222, align 4
+  br label %223
+
+223:                                              ; preds = %219, %198, %197, %193, %191, %aeron_stream_rcv_add.exit.i
+  %.sroa.0178.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ 0, %219 ], [ %spec.select.i, %198 ], [ %spec.select.i, %191 ], [ %spec.select.i, %197 ], [ %spec.select.i, %193 ]
+  %.sroa.11.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ 0, %219 ], [ %spec.select221.i, %198 ], [ %spec.select221.i, %191 ], [ %184, %197 ], [ %spec.select221.i, %193 ]
+  %.sroa.7.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ %205, %219 ], [ 0, %198 ], [ 0, %191 ], [ 0, %197 ], [ 0, %193 ]
+  %.sroa.0170.0.i = phi i32 [ 0, %aeron_stream_rcv_add.exit.i ], [ %203, %219 ], [ 0, %198 ], [ 0, %191 ], [ 0, %197 ], [ 0, %193 ]
+  %224 = load i8, ptr @aeron_stream_analysis, align 1, !range !6, !noundef !7
+  %225 = trunc nuw i8 %224 to i1
+  br i1 %225, label %226, label %233
+
+226:                                              ; preds = %223
+  %227 = load i32, ptr %84, align 8
+  %228 = and i32 %227, 1
+  %.not135.i = icmp eq i32 %228, 0
+  br i1 %.not135.i, label %233, label %229
+
+229:                                              ; preds = %226
+  %230 = call ptr @wmem_file_scope()
+  %231 = call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %230, i64 noundef 32) #12
+  %232 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr %231, ptr %232, align 8
+  br label %233
+
+233:                                              ; preds = %229, %226, %223
+  %234 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %235 = load ptr, ptr %234, align 8
+  %.not136.i = icmp eq ptr %235, null
+  br i1 %.not136.i, label %434, label %236
+
+236:                                              ; preds = %233
+  %237 = load i16, ptr %87, align 8
+  switch i16 %237, label %308 [
+    i16 1, label %238
+    i16 3, label %238
+    i16 0, label %238
+  ]
+
+238:                                              ; preds = %236, %236, %236
+  %239 = load i32, ptr %82, align 4
+  %240 = getelementptr inbounds nuw i8, ptr %235, i64 8
+  store i32 %239, ptr %240, align 4
+  %241 = getelementptr inbounds nuw i8, ptr %.039, i64 64
+  %242 = load i32, ptr %241, align 4
+  %243 = load ptr, ptr %234, align 8
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 12
+  store i32 %242, ptr %244, align 4
+  %.not137.i = icmp eq ptr %.0117.i, null
+  %245 = load ptr, ptr %234, align 8
+  br i1 %.not137.i, label %300, label %246
+
+246:                                              ; preds = %238
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 4
+  %248 = load i32, ptr %247, align 4
+  %249 = or i32 %248, 1
+  store i32 %249, ptr %247, align 4
+  %250 = getelementptr inbounds nuw i8, ptr %.0117.i, i64 28
+  %251 = load i32, ptr %250, align 4
+  %252 = load ptr, ptr %234, align 8
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 16
+  store i32 %251, ptr %253, align 4
+  %254 = getelementptr inbounds nuw i8, ptr %.0117.i, i64 32
+  %255 = load i32, ptr %254, align 4
+  %256 = load ptr, ptr %234, align 8
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 20
+  store i32 %255, ptr %257, align 4
+  %258 = getelementptr inbounds nuw i8, ptr %.0117.i, i64 36
+  %259 = load i32, ptr %258, align 4
+  %260 = load ptr, ptr %234, align 8
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 24
+  store i32 %259, ptr %261, align 4
+  %262 = load ptr, ptr %234, align 8
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %262, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %.039, i64 44
+  %266 = load i32, ptr %265, align 4
+  %267 = load i32, ptr %263, align 4
+  %268 = load i32, ptr %264, align 4
+  %269 = icmp eq i32 %267, %268
+  br i1 %269, label %270, label %279
+
+270:                                              ; preds = %246
+  %271 = getelementptr inbounds nuw i8, ptr %262, i64 12
+  %272 = load i32, ptr %271, align 4
+  %273 = getelementptr inbounds nuw i8, ptr %262, i64 20
+  %274 = load i32, ptr %273, align 4
+  %275 = icmp eq i32 %272, %274
+  br i1 %275, label %aeron_pos_delta.exit.i, label %276
+
+276:                                              ; preds = %270
+  %277 = icmp ult i32 %272, %274
+  %278 = select i1 %277, i32 -1, i32 1
+  br label %aeron_pos_delta.exit.i
+
+279:                                              ; preds = %246
+  %280 = icmp ult i32 %267, %268
+  %281 = select i1 %280, i32 -1, i32 1
+  br label %aeron_pos_delta.exit.i
+
+aeron_pos_delta.exit.i:                           ; preds = %279, %276, %270
+  %.0.i.i.i = phi i32 [ %278, %276 ], [ %281, %279 ], [ 0, %270 ]
+  %282 = icmp sgt i32 %.0.i.i.i, -1
+  %..i.i = select i1 %282, ptr %264, ptr %263
+  %.16.i.i = select i1 %282, ptr %263, ptr %264
+  %283 = load i32, ptr %.16.i.i, align 4
+  %284 = getelementptr inbounds nuw i8, ptr %.16.i.i, i64 4
+  %285 = load i32, ptr %284, align 4
+  %286 = load i32, ptr %..i.i, align 4
+  %287 = getelementptr inbounds nuw i8, ptr %..i.i, i64 4
+  %288 = load i32, ptr %287, align 4
+  %reass.add.i.i = sub i32 %283, %286
+  %reass.mul.i.i = mul i32 %reass.add.i.i, %266
+  %289 = sub i32 %285, %288
+  %290 = add i32 %289, %reass.mul.i.i
+  %291 = getelementptr inbounds nuw i8, ptr %262, i64 28
+  store i32 %290, ptr %291, align 4
+  %292 = load ptr, ptr %234, align 8
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 28
+  %294 = load i32, ptr %293, align 4
+  %295 = getelementptr inbounds nuw i8, ptr %292, i64 24
+  %296 = load i32, ptr %295, align 4
+  %.not138.i = icmp ult i32 %294, %296
+  br i1 %.not138.i, label %thread-pre-split.i, label %297
+
+297:                                              ; preds = %aeron_pos_delta.exit.i
+  %298 = load i32, ptr %292, align 4
+  %299 = or i32 %298, 1
+  store i32 %299, ptr %292, align 4
+  br label %thread-pre-split.i
+
+300:                                              ; preds = %238
+  %301 = getelementptr inbounds nuw i8, ptr %245, i64 16
+  store i32 0, ptr %301, align 4
+  %302 = load ptr, ptr %234, align 8
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 20
+  store i32 0, ptr %303, align 4
+  %304 = load ptr, ptr %234, align 8
+  %305 = getelementptr inbounds nuw i8, ptr %304, i64 24
+  store i32 0, ptr %305, align 4
+  %306 = load ptr, ptr %234, align 8
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 28
+  store i32 0, ptr %307, align 4
+  br label %thread-pre-split.i
+
+thread-pre-split.i:                               ; preds = %300, %297, %aeron_pos_delta.exit.i
+  %.pr196.i = load i16, ptr %87, align 8
+  br label %308
+
+308:                                              ; preds = %thread-pre-split.i, %236
+  %309 = phi i16 [ %.pr196.i, %thread-pre-split.i ], [ %237, %236 ]
+  switch i16 %309, label %434 [
+    i16 1, label %310
+    i16 0, label %310
+    i16 3, label %416
+  ]
+
+310:                                              ; preds = %308, %308
+  br i1 %.not.i, label %aeron_pos_add_length.exit149.thread211.i, label %311
+
+311:                                              ; preds = %310
+  %312 = icmp eq i32 %.sroa.0178.0.i, %.sroa.0175.0.extract.trunc.i
+  %313 = icmp eq i32 %.sroa.11.0.i, %.sroa.5.0.extract.trunc.i
+  %or.cond.i = select i1 %312, i1 %313, i1 false
+  %314 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %315 = load i32, ptr %314, align 8
+  br i1 %or.cond.i, label %aeron_pos_compare.exit.i, label %334
+
+aeron_pos_compare.exit.i:                         ; preds = %311
+  %316 = icmp eq i32 %315, 0
+  br i1 %316, label %317, label %321
+
+317:                                              ; preds = %aeron_pos_compare.exit.i
+  %318 = load ptr, ptr %234, align 8
+  %319 = load i32, ptr %318, align 4
+  %320 = or i32 %319, 32
+  store i32 %320, ptr %318, align 4
+  br label %aeron_pos_add_length.exit149.thread211.i
+
+321:                                              ; preds = %aeron_pos_compare.exit.i
+  br i1 %.0118.i, label %322, label %330
+
+322:                                              ; preds = %321
+  %323 = icmp eq i32 %.sroa.0166.0.i, %.sroa.0175.0.extract.trunc.i
+  %324 = icmp eq i32 %.sroa.6168.0.i, %.sroa.5.0.extract.trunc.i
+  %or.cond222.i = select i1 %323, i1 %324, i1 false
+  %325 = load ptr, ptr %234, align 8
+  %326 = load i32, ptr %325, align 4
+  br i1 %or.cond222.i, label %aeron_pos_compare.exit146.i, label %328
+
+aeron_pos_compare.exit146.i:                      ; preds = %322
+  %327 = or i32 %326, 2
+  store i32 %327, ptr %325, align 4
+  br label %aeron_pos_add_length.exit149.thread211.i
+
+328:                                              ; preds = %322
+  %329 = or i32 %326, 4
+  store i32 %329, ptr %325, align 4
+  br label %aeron_pos_add_length.exit149.thread211.i
+
+330:                                              ; preds = %321
+  %331 = load ptr, ptr %234, align 8
+  %332 = load i32, ptr %331, align 4
+  %333 = or i32 %332, 2
+  store i32 %333, ptr %331, align 4
+  br label %aeron_pos_add_length.exit149.thread211.i
+
+334:                                              ; preds = %311
+  %335 = getelementptr inbounds nuw i8, ptr %.039, i64 44
+  %336 = load i32, ptr %335, align 4
+  %337 = add i32 %315, %.sroa.5.0.extract.trunc.i
+  %338 = icmp ult i32 %337, %.sroa.5.0.extract.trunc.i
+  br i1 %338, label %.critedge, label %339
+
+339:                                              ; preds = %334
+  %340 = add i32 %337, 31
+  %341 = and i32 %340, -32
+  %342 = icmp ult i32 %341, %337
+  br i1 %342, label %.critedge, label %343
+
+343:                                              ; preds = %339
+  %.not.i147.i = icmp uge i32 %341, %336
+  %spec.select223.i = select i1 %.not.i147.i, i32 0, i32 %341
+  %344 = zext i1 %.not.i147.i to i32
+  %spec.select224.i = add i32 %344, %.sroa.0175.0.extract.trunc.i
+  %345 = icmp eq i32 %spec.select224.i, %.sroa.0178.0.i
+  br i1 %345, label %346, label %350
+
+346:                                              ; preds = %343
+  %347 = icmp eq i32 %spec.select223.i, %.sroa.11.0.i
+  br i1 %347, label %aeron_pos_add_length.exit149.thread211.i, label %348
+
+348:                                              ; preds = %346
+  %349 = icmp ult i32 %spec.select223.i, %.sroa.11.0.i
+  br i1 %349, label %select.unfold.i, label %aeron_pos_compare.exit151.i
+
+350:                                              ; preds = %343
+  %351 = icmp ult i32 %spec.select224.i, %.sroa.0178.0.i
+  br i1 %351, label %select.unfold.i, label %aeron_pos_compare.exit151.i
+
+aeron_pos_compare.exit151.i:                      ; preds = %350, %348
+  %352 = load ptr, ptr %234, align 8
+  %353 = load i32, ptr %352, align 4
+  %354 = or i32 %353, 512
+  store i32 %354, ptr %352, align 4
+  %355 = getelementptr i8, ptr %.038, i64 40
+  %.val140.i = load ptr, ptr %355, align 8
+  %356 = call ptr @wmem_list_head(ptr noundef %.val140.i)
+  %.not1.i.i = icmp eq ptr %356, null
+  br i1 %.not1.i.i, label %aeron_pos_add_length.exit149.thread211.i, label %.lr.ph.i152.i
+
+.lr.ph.i152.i:                                    ; preds = %aeron_pos_compare.exit151.i
+  %357 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %358 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  br label %359
+
+359:                                              ; preds = %aeron_frame_nak_rx_add.exit.i.i, %.lr.ph.i152.i
+  %.02.i.i = phi ptr [ %356, %.lr.ph.i152.i ], [ %406, %aeron_frame_nak_rx_add.exit.i.i ]
+  %360 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.02.i.i)
+  %.not18.i.i = icmp eq ptr %360, null
+  br i1 %.not18.i.i, label %aeron_frame_nak_rx_add.exit.i.i, label %361
+
+361:                                              ; preds = %359
+  %362 = getelementptr inbounds nuw i8, ptr %360, i64 8
+  %363 = load ptr, ptr %362, align 8
+  %364 = load i32, ptr %363, align 8
+  %365 = load i32, ptr %3, align 8
+  %.not19.i.i = icmp ugt i32 %364, %365
+  br i1 %.not19.i.i, label %aeron_frame_nak_rx_add.exit.i.i, label %366
+
+366:                                              ; preds = %361
+  %367 = getelementptr inbounds nuw i8, ptr %360, i64 16
+  %368 = load i32, ptr %367, align 8
+  %369 = load i32, ptr %357, align 4
+  %.not20.i.i = icmp ugt i32 %368, %369
+  br i1 %.not20.i.i, label %aeron_frame_nak_rx_add.exit.i.i, label %370
+
+370:                                              ; preds = %366
+  %371 = getelementptr inbounds nuw i8, ptr %360, i64 20
+  %372 = load i32, ptr %371, align 4
+  %373 = load i32, ptr %314, align 8
+  %.not21.i.i = icmp ult i32 %372, %373
+  br i1 %.not21.i.i, label %aeron_frame_nak_rx_add.exit.i.i, label %374
+
+374:                                              ; preds = %370
+  %375 = getelementptr inbounds nuw i8, ptr %363, i64 48
+  %376 = load ptr, ptr %375, align 8
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 28
+  %378 = load i32, ptr %377, align 4
+  %.not.i.i153.i = icmp ult i32 %378, %373
+  br i1 %.not.i.i153.i, label %aeron_frame_nak_rx_add.exit.i.i, label %379
+
+379:                                              ; preds = %374
+  %380 = getelementptr inbounds nuw i8, ptr %376, i64 8
+  %381 = load ptr, ptr %380, align 8
+  %382 = call ptr @wmem_list_head(ptr noundef %381)
+  %.not2426.i.i.i = icmp eq ptr %382, null
+  br i1 %.not2426.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i154.i
+
+.lr.ph.i.i154.i:                                  ; preds = %379, %392
+  %.027.i.i.i = phi ptr [ %393, %392 ], [ %382, %379 ]
+  %383 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.027.i.i.i)
+  %.not25.i.i.i = icmp eq ptr %383, null
+  br i1 %.not25.i.i.i, label %392, label %384
+
+384:                                              ; preds = %.lr.ph.i.i154.i
+  %385 = getelementptr inbounds nuw i8, ptr %383, i64 8
+  %386 = load i32, ptr %385, align 8
+  %387 = icmp eq i32 %386, %369
+  br i1 %387, label %388, label %392
+
+388:                                              ; preds = %384
+  %389 = getelementptr inbounds nuw i8, ptr %383, i64 12
+  %390 = load i32, ptr %389, align 4
+  %391 = icmp eq i32 %390, %373
+  br i1 %391, label %aeron_frame_nak_rx_add.exit.i.i, label %392
+
+392:                                              ; preds = %388, %384, %.lr.ph.i.i154.i
+  %393 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.027.i.i.i)
+  %.not24.i.i.i = icmp eq ptr %393, null
+  br i1 %.not24.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i154.i, !llvm.loop !10
+
+._crit_edge.i.i.i:                                ; preds = %392, %379
+  %394 = call ptr @wmem_file_scope()
+  %395 = call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %394, i64 noundef 16) #12
+  store ptr %3, ptr %395, align 8
+  %396 = getelementptr inbounds nuw i8, ptr %395, i64 8
+  store i32 %369, ptr %396, align 8
+  %397 = getelementptr inbounds nuw i8, ptr %395, i64 12
+  store i32 %373, ptr %397, align 4
+  %398 = load ptr, ptr %375, align 8
+  %399 = getelementptr inbounds nuw i8, ptr %398, i64 8
+  %400 = load ptr, ptr %399, align 8
+  call void @wmem_list_append(ptr noundef %400, ptr noundef %395)
+  %401 = load ptr, ptr %375, align 8
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 28
+  %403 = load i32, ptr %402, align 4
+  %404 = sub i32 %403, %373
+  store i32 %404, ptr %402, align 4
+  %405 = load ptr, ptr %358, align 8
+  call void @wmem_list_append(ptr noundef %405, ptr noundef %363)
+  br label %aeron_frame_nak_rx_add.exit.i.i
+
+aeron_frame_nak_rx_add.exit.i.i:                  ; preds = %388, %._crit_edge.i.i.i, %374, %370, %366, %361, %359
+  %406 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.02.i.i)
+  %.not.i155.i = icmp eq ptr %406, null
+  br i1 %.not.i155.i, label %aeron_pos_add_length.exit149.thread211.i, label %359, !llvm.loop !11
+
+select.unfold.i:                                  ; preds = %350, %348
+  %407 = load ptr, ptr %234, align 8
+  %408 = load i32, ptr %407, align 4
+  %409 = or i32 %408, 16
+  store i32 %409, ptr %407, align 4
+  br label %aeron_pos_add_length.exit149.thread211.i
+
+aeron_pos_add_length.exit149.thread211.i:         ; preds = %aeron_frame_nak_rx_add.exit.i.i, %select.unfold.i, %aeron_pos_compare.exit151.i, %346, %330, %328, %aeron_pos_compare.exit146.i, %317, %310
+  %.1122.i = phi i32 [ 0, %310 ], [ 0, %346 ], [ 1, %aeron_pos_compare.exit151.i ], [ 0, %select.unfold.i ], [ 1, %330 ], [ 1, %328 ], [ 1, %aeron_pos_compare.exit146.i ], [ 2, %317 ], [ 1, %aeron_frame_nak_rx_add.exit.i.i ]
+  br i1 %56, label %410, label %434
+
+410:                                              ; preds = %aeron_pos_add_length.exit149.thread211.i
+  %411 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %412 = load i32, ptr %411, align 4
+  %413 = icmp eq i32 %412, 0
+  br i1 %413, label %414, label %434
+
+414:                                              ; preds = %410
+  %415 = load ptr, ptr %234, align 8
+  br label %.sink.split237.i
+
+416:                                              ; preds = %308
+  br i1 %.0118.i, label %417, label %434
+
+417:                                              ; preds = %416
+  %418 = icmp eq i32 %.sroa.0170.0.i, %.sroa.0166.0.i
+  br i1 %418, label %419, label %423
+
+419:                                              ; preds = %417
+  %420 = icmp eq i32 %.sroa.7.0.i, %.sroa.6168.0.i
+  br i1 %420, label %.sink.split.i, label %421
+
+421:                                              ; preds = %419
+  %422 = icmp ult i32 %.sroa.7.0.i, %.sroa.6168.0.i
+  br i1 %422, label %.sink.split.i, label %428
+
+423:                                              ; preds = %417
+  %424 = icmp ult i32 %.sroa.0170.0.i, %.sroa.0166.0.i
+  br i1 %424, label %.sink.split.i, label %428
+
+.sink.split.i:                                    ; preds = %423, %421, %419
+  %.sink236.i = phi i32 [ 256, %419 ], [ 128, %421 ], [ 128, %423 ]
+  %425 = load ptr, ptr %234, align 8
+  %426 = load i32, ptr %425, align 4
+  %427 = or i32 %426, %.sink236.i
+  store i32 %427, ptr %425, align 4
+  br label %428
+
+428:                                              ; preds = %.sink.split.i, %423, %421
+  %429 = load ptr, ptr %234, align 8
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 24
+  %431 = load i32, ptr %430, align 4
+  %.not139.i = icmp eq i32 %.0125.i, %431
+  br i1 %.not139.i, label %434, label %.sink.split237.i
+
+.sink.split237.i:                                 ; preds = %428, %414
+  %.sink.i = phi ptr [ %415, %414 ], [ %429, %428 ]
+  %.sink240.i = phi i32 [ 1024, %414 ], [ 64, %428 ]
+  %.0121.ph.i = phi i32 [ %.1122.i, %414 ], [ 0, %428 ]
+  %432 = load i32, ptr %.sink.i, align 4
+  %433 = or i32 %432, %.sink240.i
+  store i32 %433, ptr %.sink.i, align 4
+  br label %434
+
+434:                                              ; preds = %.sink.split237.i, %428, %416, %410, %aeron_pos_add_length.exit149.thread211.i, %308, %233
+  %.0121.i = phi i32 [ 0, %308 ], [ 0, %416 ], [ %.1122.i, %410 ], [ %.1122.i, %aeron_pos_add_length.exit149.thread211.i ], [ 0, %233 ], [ 0, %428 ], [ %.0121.ph.i, %.sink.split237.i ]
+  %435 = load i16, ptr %87, align 8
+  %switch.i = icmp ult i16 %435, 2
+  br i1 %switch.i, label %436, label %526
+
+436:                                              ; preds = %434
+  %437 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %438 = load i32, ptr %437, align 4
+  %439 = getelementptr i8, ptr %.038, i64 8
+  %.val141.i = load ptr, ptr %439, align 8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
+  store i32 %438, ptr %6, align 4
+  %440 = call ptr @wmem_map_lookup(ptr noundef %.val141.i, ptr noundef nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
+  %441 = icmp eq ptr %440, null
+  br i1 %441, label %442, label %aeron_term_fragment_add.exit.i
+
+442:                                              ; preds = %436
+  %443 = load i32, ptr %437, align 4
+  %444 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %445 = load i32, ptr %444, align 8
+  %446 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %447 = load i32, ptr %446, align 4
+  %.val.i158.i = load ptr, ptr %439, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  store i32 %50, ptr %5, align 4
-  %52 = call ptr @wmem_map_lookup(ptr noundef %.037.val, ptr noundef nonnull %5)
+  store i32 %443, ptr %5, align 4
+  %448 = call ptr @wmem_map_lookup(ptr noundef %.val.i158.i, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %57
+  %449 = icmp eq ptr %448, null
+  br i1 %449, label %450, label %aeron_term_fragment_add.exit.i
 
-54:                                               ; preds = %48
-  %55 = load i32, ptr %49, align 8
-  %56 = call fastcc ptr @aeron_stream_term_add(ptr noundef %.037, i32 noundef %55)
-  br label %57
+450:                                              ; preds = %442
+  %451 = call ptr @wmem_file_scope()
+  %452 = call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %451, i64 noundef 56) #12
+  store ptr %.038, ptr %452, align 8
+  %453 = call ptr @wmem_file_scope()
+  %454 = call noalias ptr @wmem_list_new(ptr noundef %453)
+  %455 = getelementptr inbounds nuw i8, ptr %452, i64 8
+  store ptr %454, ptr %455, align 8
+  %456 = getelementptr inbounds nuw i8, ptr %452, i64 16
+  %457 = getelementptr inbounds nuw i8, ptr %452, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %456, i8 0, i64 24, i1 false)
+  store i32 %443, ptr %457, align 8
+  %458 = getelementptr inbounds nuw i8, ptr %452, i64 44
+  store i32 %445, ptr %458, align 4
+  %459 = getelementptr inbounds nuw i8, ptr %452, i64 48
+  store i32 %447, ptr %459, align 8
+  %460 = getelementptr inbounds nuw i8, ptr %452, i64 52
+  store i32 0, ptr %460, align 4
+  %461 = load ptr, ptr %439, align 8
+  %462 = call ptr @wmem_map_insert(ptr noundef %461, ptr noundef nonnull %457, ptr noundef %452)
+  br label %aeron_term_fragment_add.exit.i
 
-57:                                               ; preds = %54, %48
-  %.036 = phi ptr [ %56, %54 ], [ %52, %48 ]
-  %58 = load i32, ptr %2, align 8
-  %59 = and i32 %58, 4
-  %.not47 = icmp eq i32 %59, 0
-  br i1 %.not47, label %63, label %60
+aeron_term_fragment_add.exit.i:                   ; preds = %450, %442, %436
+  %.0.i51 = phi ptr [ %440, %436 ], [ %452, %450 ], [ %448, %442 ]
+  %463 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %464 = load i32, ptr %463, align 8
+  %.not.i160.i = icmp eq i32 %.0121.i, 0
+  br i1 %.not.i160.i, label %467, label %465
 
-60:                                               ; preds = %57
-  %61 = call fastcc i32 @aeron_frame_stream_analysis_setup(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %.037, ptr noundef %.036, i1 noundef zeroext %53)
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %99, label %.thread
+465:                                              ; preds = %aeron_term_fragment_add.exit.i
+  %466 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store i32 %.0121.i, ptr %466, align 8
+  br label %467
 
-63:                                               ; preds = %57
-  call fastcc void @aeron_term_frame_add(ptr noundef %.036, ptr noundef %3, i32 noundef 0)
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %65 = load i16, ptr %64, align 8
-  %66 = icmp eq i16 %65, 2
-  br i1 %66, label %67, label %.thread
+467:                                              ; preds = %465, %aeron_term_fragment_add.exit.i
+  %468 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 8
+  %469 = load ptr, ptr %468, align 8
+  call void @wmem_list_append(ptr noundef %469, ptr noundef nonnull %3)
+  %470 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 52
+  %471 = load i32, ptr %470, align 4
+  %472 = add i32 %471, 1
+  store i32 %472, ptr %470, align 4
+  %473 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 24
+  %474 = load ptr, ptr %473, align 8
+  %.not23.i.i = icmp eq ptr %474, null
+  br i1 %.not23.i.i, label %481, label %475
 
-67:                                               ; preds = %63
-  call fastcc void @aeron_frame_nak_analysis_setup(ptr noundef %2, ptr noundef %3, ptr noundef %.036)
-  br label %.thread
+475:                                              ; preds = %467
+  %476 = load i32, ptr %474, align 8
+  %477 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 %476, ptr %477, align 8
+  %478 = load i32, ptr %3, align 8
+  %479 = load ptr, ptr %473, align 8
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 36
+  store i32 %478, ptr %480, align 4
+  br label %481
 
-68:                                               ; preds = %aeron_transport_stream_add.exit
-  %69 = getelementptr inbounds nuw i8, ptr %.037, i64 32
-  %70 = load ptr, ptr %69, align 8
-  %.not.i = icmp eq ptr %70, null
-  br i1 %.not.i, label %77, label %71
+481:                                              ; preds = %475, %467
+  %482 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 16
+  %483 = load ptr, ptr %482, align 8
+  %484 = icmp eq ptr %483, null
+  br i1 %484, label %485, label %486
 
-71:                                               ; preds = %68
-  %72 = load i32, ptr %70, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %72, ptr %73, align 8
-  %74 = load i32, ptr %3, align 8
-  %75 = load ptr, ptr %69, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 20
-  store i32 %74, ptr %76, align 4
-  br label %77
+485:                                              ; preds = %481
+  store ptr %3, ptr %482, align 8
+  br label %486
 
-77:                                               ; preds = %71, %68
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 0, ptr %78, align 4
-  store ptr %3, ptr %69, align 8
-  %79 = load ptr, ptr %.037, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %81 = load ptr, ptr %80, align 8
-  %.not.i.i = icmp eq ptr %81, null
-  br i1 %.not.i.i, label %aeron_stream_frame_add.exit, label %82
+486:                                              ; preds = %485, %481
+  %.not24.i.i = icmp eq i32 %464, 0
+  br i1 %.not24.i.i, label %492, label %487
 
-82:                                               ; preds = %77
-  %83 = load i32, ptr %81, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %83, ptr %84, align 8
-  %85 = load i32, ptr %3, align 8
-  %86 = load ptr, ptr %80, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 12
-  store i32 %85, ptr %87, align 4
+487:                                              ; preds = %486
+  %488 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 32
+  %489 = load ptr, ptr %488, align 8
+  %490 = icmp eq ptr %489, null
+  br i1 %490, label %491, label %492
+
+491:                                              ; preds = %487
+  store ptr %3, ptr %488, align 8
+  br label %492
+
+492:                                              ; preds = %491, %487, %486
+  %493 = getelementptr inbounds nuw i8, ptr %3, i64 36
+  store i32 0, ptr %493, align 4
+  store ptr %3, ptr %473, align 8
+  %494 = load ptr, ptr %.0.i51, align 8
+  %495 = getelementptr inbounds nuw i8, ptr %494, i64 32
+  %496 = load ptr, ptr %495, align 8
+  %.not13.i.i.i = icmp eq ptr %496, null
+  br i1 %.not13.i.i.i, label %503, label %497
+
+497:                                              ; preds = %492
+  %498 = load i32, ptr %496, align 8
+  %499 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 %498, ptr %499, align 8
+  %500 = load i32, ptr %3, align 8
+  %501 = load ptr, ptr %495, align 8
+  %502 = getelementptr inbounds nuw i8, ptr %501, i64 28
+  store i32 %500, ptr %502, align 4
+  br label %503
+
+503:                                              ; preds = %497, %492
+  %504 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  store i32 0, ptr %504, align 4
+  store ptr %3, ptr %495, align 8
+  %505 = load ptr, ptr %494, align 8
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 32
+  %507 = load ptr, ptr %506, align 8
+  %.not.i.i.i.i = icmp eq ptr %507, null
+  br i1 %.not.i.i.i.i, label %514, label %508
+
+508:                                              ; preds = %503
+  %509 = load i32, ptr %507, align 8
+  %510 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 %509, ptr %510, align 8
+  %511 = load i32, ptr %3, align 8
+  %512 = load ptr, ptr %506, align 8
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 20
+  store i32 %511, ptr %513, align 4
+  br label %514
+
+514:                                              ; preds = %508, %503
+  %515 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 0, ptr %515, align 4
+  store ptr %3, ptr %506, align 8
+  %516 = load ptr, ptr %505, align 8
+  %517 = getelementptr inbounds nuw i8, ptr %516, i64 16
+  %518 = load ptr, ptr %517, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %518, null
+  br i1 %.not.i.i.i.i.i, label %aeron_fragment_frame_add.exit.i, label %519
+
+519:                                              ; preds = %514
+  %520 = load i32, ptr %518, align 8
+  %521 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %520, ptr %521, align 8
+  %522 = load i32, ptr %3, align 8
+  %523 = load ptr, ptr %517, align 8
+  %524 = getelementptr inbounds nuw i8, ptr %523, i64 12
+  store i32 %522, ptr %524, align 4
+  br label %aeron_fragment_frame_add.exit.i
+
+aeron_fragment_frame_add.exit.i:                  ; preds = %519, %514
+  %525 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 0, ptr %525, align 4
+  store ptr %3, ptr %517, align 8
+  br label %.critedge
+
+526:                                              ; preds = %434
+  %.not.i161.i = icmp eq i32 %.0121.i, 0
+  br i1 %.not.i161.i, label %529, label %527
+
+527:                                              ; preds = %526
+  %528 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store i32 %.0121.i, ptr %528, align 8
+  br label %529
+
+529:                                              ; preds = %527, %526
+  %530 = getelementptr inbounds nuw i8, ptr %.038, i64 32
+  %531 = load ptr, ptr %530, align 8
+  %.not13.i.i = icmp eq ptr %531, null
+  br i1 %.not13.i.i, label %538, label %532
+
+532:                                              ; preds = %529
+  %533 = load i32, ptr %531, align 8
+  %534 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 %533, ptr %534, align 8
+  %535 = load i32, ptr %3, align 8
+  %536 = load ptr, ptr %530, align 8
+  %537 = getelementptr inbounds nuw i8, ptr %536, i64 28
+  store i32 %535, ptr %537, align 4
+  br label %538
+
+538:                                              ; preds = %532, %529
+  %539 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  store i32 0, ptr %539, align 4
+  store ptr %3, ptr %530, align 8
+  %540 = load ptr, ptr %.038, align 8
+  %541 = getelementptr inbounds nuw i8, ptr %540, i64 32
+  %542 = load ptr, ptr %541, align 8
+  %.not.i.i162.i = icmp eq ptr %542, null
+  br i1 %.not.i.i162.i, label %549, label %543
+
+543:                                              ; preds = %538
+  %544 = load i32, ptr %542, align 8
+  %545 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 %544, ptr %545, align 8
+  %546 = load i32, ptr %3, align 8
+  %547 = load ptr, ptr %541, align 8
+  %548 = getelementptr inbounds nuw i8, ptr %547, i64 20
+  store i32 %546, ptr %548, align 4
+  br label %549
+
+549:                                              ; preds = %543, %538
+  %550 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 0, ptr %550, align 4
+  store ptr %3, ptr %541, align 8
+  %551 = load ptr, ptr %540, align 8
+  %552 = getelementptr inbounds nuw i8, ptr %551, i64 16
+  %553 = load ptr, ptr %552, align 8
+  %.not.i.i.i163.i = icmp eq ptr %553, null
+  br i1 %.not.i.i.i163.i, label %aeron_term_frame_add.exit.i, label %554
+
+554:                                              ; preds = %549
+  %555 = load i32, ptr %553, align 8
+  %556 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %555, ptr %556, align 8
+  %557 = load i32, ptr %3, align 8
+  %558 = load ptr, ptr %552, align 8
+  %559 = getelementptr inbounds nuw i8, ptr %558, i64 12
+  store i32 %557, ptr %559, align 4
+  br label %aeron_term_frame_add.exit.i
+
+aeron_term_frame_add.exit.i:                      ; preds = %554, %549
+  %560 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 0, ptr %560, align 4
+  store ptr %3, ptr %552, align 8
+  br label %.critedge
+
+561:                                              ; preds = %aeron_stream_term_add.exit
+  %562 = getelementptr inbounds nuw i8, ptr %.038, i64 32
+  %563 = load ptr, ptr %562, align 8
+  %.not13.i = icmp eq ptr %563, null
+  br i1 %.not13.i, label %570, label %564
+
+564:                                              ; preds = %561
+  %565 = load i32, ptr %563, align 8
+  %566 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 %565, ptr %566, align 8
+  %567 = load i32, ptr %3, align 8
+  %568 = load ptr, ptr %562, align 8
+  %569 = getelementptr inbounds nuw i8, ptr %568, i64 28
+  store i32 %567, ptr %569, align 4
+  br label %570
+
+570:                                              ; preds = %564, %561
+  %571 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  store i32 0, ptr %571, align 4
+  store ptr %3, ptr %562, align 8
+  %572 = load ptr, ptr %.038, align 8
+  %573 = getelementptr inbounds nuw i8, ptr %572, i64 32
+  %574 = load ptr, ptr %573, align 8
+  %.not.i.i53 = icmp eq ptr %574, null
+  br i1 %.not.i.i53, label %581, label %575
+
+575:                                              ; preds = %570
+  %576 = load i32, ptr %574, align 8
+  %577 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 %576, ptr %577, align 8
+  %578 = load i32, ptr %3, align 8
+  %579 = load ptr, ptr %573, align 8
+  %580 = getelementptr inbounds nuw i8, ptr %579, i64 20
+  store i32 %578, ptr %580, align 4
+  br label %581
+
+581:                                              ; preds = %575, %570
+  %582 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 0, ptr %582, align 4
+  store ptr %3, ptr %573, align 8
+  %583 = load ptr, ptr %572, align 8
+  %584 = getelementptr inbounds nuw i8, ptr %583, i64 16
+  %585 = load ptr, ptr %584, align 8
+  %.not.i.i.i54 = icmp eq ptr %585, null
+  br i1 %.not.i.i.i54, label %aeron_term_frame_add.exit, label %586
+
+586:                                              ; preds = %581
+  %587 = load i32, ptr %585, align 8
+  %588 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %587, ptr %588, align 8
+  %589 = load i32, ptr %3, align 8
+  %590 = load ptr, ptr %584, align 8
+  %591 = getelementptr inbounds nuw i8, ptr %590, i64 12
+  store i32 %589, ptr %591, align 4
+  br label %aeron_term_frame_add.exit
+
+aeron_term_frame_add.exit:                        ; preds = %581, %586
+  %592 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 0, ptr %592, align 4
+  store ptr %3, ptr %584, align 8
+  %593 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %594 = load i16, ptr %593, align 8
+  %595 = icmp eq i16 %594, 2
+  br i1 %595, label %596, label %.critedge
+
+596:                                              ; preds = %aeron_term_frame_add.exit
+  call fastcc void @aeron_frame_nak_analysis_setup(ptr noundef %2, ptr noundef %3, ptr noundef %.038)
+  br label %.critedge
+
+597:                                              ; preds = %aeron_transport_stream_add.exit
+  %598 = getelementptr inbounds nuw i8, ptr %.039, i64 32
+  %599 = load ptr, ptr %598, align 8
+  %.not.i55 = icmp eq ptr %599, null
+  br i1 %.not.i55, label %606, label %600
+
+600:                                              ; preds = %597
+  %601 = load i32, ptr %599, align 8
+  %602 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 %601, ptr %602, align 8
+  %603 = load i32, ptr %3, align 8
+  %604 = load ptr, ptr %598, align 8
+  %605 = getelementptr inbounds nuw i8, ptr %604, i64 20
+  store i32 %603, ptr %605, align 4
+  br label %606
+
+606:                                              ; preds = %600, %597
+  %607 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  store i32 0, ptr %607, align 4
+  store ptr %3, ptr %598, align 8
+  %608 = load ptr, ptr %.039, align 8
+  %609 = getelementptr inbounds nuw i8, ptr %608, i64 16
+  %610 = load ptr, ptr %609, align 8
+  %.not.i.i56 = icmp eq ptr %610, null
+  br i1 %.not.i.i56, label %aeron_stream_frame_add.exit, label %611
+
+611:                                              ; preds = %606
+  %612 = load i32, ptr %610, align 8
+  %613 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %612, ptr %613, align 8
+  %614 = load i32, ptr %3, align 8
+  %615 = load ptr, ptr %609, align 8
+  %616 = getelementptr inbounds nuw i8, ptr %615, i64 12
+  store i32 %614, ptr %616, align 4
   br label %aeron_stream_frame_add.exit
 
-aeron_stream_frame_add.exit:                      ; preds = %77, %82
-  %88 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %88, align 4
-  store ptr %3, ptr %80, align 8
-  br label %.thread
+aeron_stream_frame_add.exit:                      ; preds = %606, %611
+  %617 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 0, ptr %617, align 4
+  store ptr %3, ptr %609, align 8
+  br label %.critedge
 
-.thread:                                          ; preds = %aeron_stream_frame_add.exit, %63, %67, %60
-  br label %99
+618:                                              ; preds = %21
+  %619 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %620 = load ptr, ptr %619, align 8
+  %.not.i57 = icmp eq ptr %620, null
+  br i1 %.not.i57, label %aeron_transport_frame_add.exit, label %621
 
-89:                                               ; preds = %18
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %91 = load ptr, ptr %90, align 8
-  %.not.i48 = icmp eq ptr %91, null
-  br i1 %.not.i48, label %aeron_transport_frame_add.exit, label %92
-
-92:                                               ; preds = %89
-  %93 = load i32, ptr %91, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %93, ptr %94, align 8
-  %95 = load i32, ptr %3, align 8
-  %96 = load ptr, ptr %90, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 12
-  store i32 %95, ptr %97, align 4
+621:                                              ; preds = %618
+  %622 = load i32, ptr %620, align 8
+  %623 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %622, ptr %623, align 8
+  %624 = load i32, ptr %3, align 8
+  %625 = load ptr, ptr %619, align 8
+  %626 = getelementptr inbounds nuw i8, ptr %625, i64 12
+  store i32 %624, ptr %626, align 4
   br label %aeron_transport_frame_add.exit
 
-aeron_transport_frame_add.exit:                   ; preds = %89, %92
-  %98 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %98, align 4
-  store ptr %3, ptr %90, align 8
-  br label %99
+aeron_transport_frame_add.exit:                   ; preds = %618, %621
+  %627 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 0, ptr %627, align 4
+  store ptr %3, ptr %619, align 8
+  br label %.critedge
 
-99:                                               ; preds = %aeron_transport_frame_add.exit, %.thread, %60, %4, %8, %12
-  %.038 = phi i32 [ 0, %12 ], [ 0, %8 ], [ 0, %4 ], [ -1, %60 ], [ 0, %.thread ], [ 0, %aeron_transport_frame_add.exit ]
-  ret i32 %.038
+.critedge:                                        ; preds = %596, %aeron_term_frame_add.exit, %aeron_fragment_frame_add.exit.i, %aeron_term_frame_add.exit.i, %aeron_stream_frame_add.exit, %aeron_transport_frame_add.exit, %339, %334, %182, %172, %4, %15
+  %.040 = phi i32 [ 0, %15 ], [ 0, %4 ], [ -1, %172 ], [ -1, %182 ], [ -1, %334 ], [ -1, %339 ], [ 0, %aeron_transport_frame_add.exit ], [ 0, %aeron_stream_frame_add.exit ], [ 0, %aeron_term_frame_add.exit.i ], [ 0, %aeron_fragment_frame_add.exit.i ], [ 0, %aeron_term_frame_add.exit ], [ 0, %596 ]
+  ret i32 %.040
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -3415,7 +4449,7 @@ proto_item_set_generated.exit177:                 ; preds = %131, %134, %137
 aeron_sequence_report_frame.exit:                 ; preds = %170, %167, %166, %149, %147
   %174 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0114202)
   %.not148 = icmp eq ptr %174, null
-  br i1 %.not148, label %.loopexit200, label %147, !llvm.loop !10
+  br i1 %.not148, label %.loopexit200, label %147, !llvm.loop !12
 
 .loopexit200:                                     ; preds = %aeron_sequence_report_frame.exit, %proto_item_set_generated.exit177, %124
   %175 = load i32, ptr @hf_aeron_sequence_analysis_retransmission, align 4
@@ -3503,7 +4537,7 @@ proto_item_set_generated.exit184:                 ; preds = %189, %192, %195
 proto_item_set_generated.exit187:                 ; preds = %211, %208, %204, %.lr.ph205
   %215 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0115204)
   %.not151 = icmp eq ptr %215, null
-  br i1 %.not151, label %.loopexit, label %.lr.ph205, !llvm.loop !11
+  br i1 %.not151, label %.loopexit, label %.lr.ph205, !llvm.loop !13
 
 .loopexit:                                        ; preds = %proto_item_set_generated.exit187, %proto_item_set_generated.exit184, %185, %proto_item_set_generated.exit181
   %216 = load i32, ptr @hf_aeron_sequence_analysis_keepalive, align 4
@@ -3629,7 +4663,7 @@ proto_item_set_generated.exit196:                 ; preds = %248, %251, %254
 proto_item_set_generated.exit199:                 ; preds = %277, %274, %265, %.lr.ph208
   %281 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0207)
   %.not145 = icmp eq ptr %281, null
-  br i1 %.not145, label %proto_item_set_generated.exit190, label %.lr.ph208, !llvm.loop !12
+  br i1 %.not145, label %proto_item_set_generated.exit190, label %.lr.ph208, !llvm.loop !14
 
 proto_item_set_generated.exit190:                 ; preds = %proto_item_set_generated.exit199, %proto_item_set_generated.exit196, %223, %220, %.loopexit, %118, %proto_item_set_generated.exit162, %84, %227, %229, %119, %proto_item_set_generated.exit193, %proto_item_set_generated.exit168, %52, %10, %6
   ret void
@@ -3638,289 +4672,287 @@ proto_item_set_generated.exit190:                 ; preds = %proto_item_set_gene
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @aeron_stream_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %151, label %6
+  br i1 %.not, label %150, label %6
 
 6:                                                ; preds = %5
   %7 = load i8, ptr @aeron_sequence_analysis, align 1, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %151
+  %9 = load i8, ptr @aeron_stream_analysis, align 1, !range !6
+  %10 = trunc nuw i8 %9 to i1
+  %or.cond = select i1 %8, i1 %10, i1 false
+  %11 = icmp ne ptr %4, null
+  %or.cond3 = and i1 %11, %or.cond
+  br i1 %or.cond3, label %12, label %150
 
-9:                                                ; preds = %6
-  %10 = load i8, ptr @aeron_stream_analysis, align 1, !range !6, !noundef !7
-  %11 = trunc nuw i8 %10 to i1
-  %12 = icmp ne ptr %4, null
-  %or.cond = and i1 %12, %11
-  br i1 %or.cond, label %13, label %151
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %.not61 = icmp eq ptr %14, null
+  br i1 %.not61, label %150, label %15
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %.not59 = icmp eq ptr %15, null
-  br i1 %.not59, label %151, label %16
+15:                                               ; preds = %12
+  %16 = load i32, ptr @hf_aeron_stream_analysis, align 4
+  %17 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %16, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %proto_item_set_generated.exit, label %18
 
-16:                                               ; preds = %13
-  %17 = load i32, ptr @hf_aeron_stream_analysis, align 4
-  %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
-  %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %proto_item_set_generated.exit, label %19
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %.not5.i = icmp eq ptr %20, null
+  br i1 %.not5.i, label %proto_item_set_generated.exit, label %21
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %21 = load ptr, ptr %20, align 8
-  %.not5.i = icmp eq ptr %21, null
-  br i1 %.not5.i, label %proto_item_set_generated.exit, label %22
-
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 28
-  %24 = load i32, ptr %23, align 4
-  %25 = or i32 %24, 2
-  store i32 %25, ptr %23, align 4
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 28
+  %23 = load i32, ptr %22, align 4
+  %24 = or i32 %23, 2
+  store i32 %24, ptr %22, align 4
   br label %proto_item_set_generated.exit
 
-proto_item_set_generated.exit:                    ; preds = %16, %19, %22
-  %26 = load i32, ptr @ett_aeron_stream_analysis, align 4
-  %27 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %26)
-  %28 = load i32, ptr @hf_aeron_stream_analysis_high_term_id, align 4
-  %29 = load ptr, ptr %14, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = load i32, ptr %30, align 4
-  %32 = tail call ptr @proto_tree_add_uint(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %31)
-  %33 = load ptr, ptr %14, align 8
-  %34 = load i32, ptr %33, align 4
-  %35 = and i32 %34, 1024
-  %.not60 = icmp eq i32 %35, 0
-  br i1 %.not60, label %38, label %36
+proto_item_set_generated.exit:                    ; preds = %15, %18, %21
+  %25 = load i32, ptr @ett_aeron_stream_analysis, align 4
+  %26 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %25)
+  %27 = load i32, ptr @hf_aeron_stream_analysis_high_term_id, align 4
+  %28 = load ptr, ptr %13, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load i32, ptr %29, align 4
+  %31 = tail call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %30)
+  %32 = load ptr, ptr %13, align 8
+  %33 = load i32, ptr %32, align 4
+  %34 = and i32 %33, 1024
+  %.not62 = icmp eq i32 %34, 0
+  br i1 %.not62, label %37, label %35
 
-36:                                               ; preds = %proto_item_set_generated.exit
-  %37 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %32, ptr noundef nonnull @ei_aeron_analysis_term_id_change)
-  br label %38
+35:                                               ; preds = %proto_item_set_generated.exit
+  %36 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %31, ptr noundef nonnull @ei_aeron_analysis_term_id_change)
+  br label %37
 
-38:                                               ; preds = %36, %proto_item_set_generated.exit
-  %.not.i71 = icmp eq ptr %32, null
-  br i1 %.not.i71, label %proto_item_set_generated.exit73, label %39
+37:                                               ; preds = %35, %proto_item_set_generated.exit
+  %.not.i73 = icmp eq ptr %31, null
+  br i1 %.not.i73, label %proto_item_set_generated.exit75, label %38
 
-39:                                               ; preds = %38
-  %40 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %41 = load ptr, ptr %40, align 8
-  %.not5.i72 = icmp eq ptr %41, null
-  br i1 %.not5.i72, label %proto_item_set_generated.exit73, label %42
+38:                                               ; preds = %37
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %40 = load ptr, ptr %39, align 8
+  %.not5.i74 = icmp eq ptr %40, null
+  br i1 %.not5.i74, label %proto_item_set_generated.exit75, label %41
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 28
-  %44 = load i32, ptr %43, align 4
-  %45 = or i32 %44, 2
-  store i32 %45, ptr %43, align 4
-  br label %proto_item_set_generated.exit73
+41:                                               ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 28
+  %43 = load i32, ptr %42, align 4
+  %44 = or i32 %43, 2
+  store i32 %44, ptr %42, align 4
+  br label %proto_item_set_generated.exit75
 
-proto_item_set_generated.exit73:                  ; preds = %38, %39, %42
-  %46 = load i32, ptr @hf_aeron_stream_analysis_high_term_offset, align 4
-  %47 = load ptr, ptr %14, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  %49 = load i32, ptr %48, align 4
-  %50 = tail call ptr @proto_tree_add_uint(ptr noundef %27, i32 noundef %46, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %49)
-  %.not.i74 = icmp eq ptr %50, null
-  br i1 %.not.i74, label %proto_item_set_generated.exit76, label %51
+proto_item_set_generated.exit75:                  ; preds = %37, %38, %41
+  %45 = load i32, ptr @hf_aeron_stream_analysis_high_term_offset, align 4
+  %46 = load ptr, ptr %13, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 12
+  %48 = load i32, ptr %47, align 4
+  %49 = tail call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %45, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %48)
+  %.not.i76 = icmp eq ptr %49, null
+  br i1 %.not.i76, label %proto_item_set_generated.exit78, label %50
 
-51:                                               ; preds = %proto_item_set_generated.exit73
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  %53 = load ptr, ptr %52, align 8
-  %.not5.i75 = icmp eq ptr %53, null
-  br i1 %.not5.i75, label %proto_item_set_generated.exit76, label %54
+50:                                               ; preds = %proto_item_set_generated.exit75
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  %52 = load ptr, ptr %51, align 8
+  %.not5.i77 = icmp eq ptr %52, null
+  br i1 %.not5.i77, label %proto_item_set_generated.exit78, label %53
 
-54:                                               ; preds = %51
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 28
-  %56 = load i32, ptr %55, align 4
-  %57 = or i32 %56, 2
-  store i32 %57, ptr %55, align 4
-  br label %proto_item_set_generated.exit76
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 28
+  %55 = load i32, ptr %54, align 4
+  %56 = or i32 %55, 2
+  store i32 %56, ptr %54, align 4
+  br label %proto_item_set_generated.exit78
 
-proto_item_set_generated.exit76:                  ; preds = %proto_item_set_generated.exit73, %51, %54
-  %58 = load ptr, ptr %14, align 8
-  %59 = load i32, ptr %58, align 4
-  %60 = and i32 %59, 2
-  %.not61 = icmp eq i32 %60, 0
-  br i1 %.not61, label %63, label %61
+proto_item_set_generated.exit78:                  ; preds = %proto_item_set_generated.exit75, %50, %53
+  %57 = load ptr, ptr %13, align 8
+  %58 = load i32, ptr %57, align 4
+  %59 = and i32 %58, 2
+  %.not63 = icmp eq i32 %59, 0
+  br i1 %.not63, label %62, label %60
 
-61:                                               ; preds = %proto_item_set_generated.exit76
-  %62 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_aeron_analysis_idle_rx)
-  %.pre = load ptr, ptr %14, align 8
-  %.pre86 = load i32, ptr %.pre, align 4
-  br label %63
+60:                                               ; preds = %proto_item_set_generated.exit78
+  %61 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %49, ptr noundef nonnull @ei_aeron_analysis_idle_rx)
+  %.pre = load ptr, ptr %13, align 8
+  %.pre88 = load i32, ptr %.pre, align 4
+  br label %62
 
-63:                                               ; preds = %61, %proto_item_set_generated.exit76
-  %64 = phi i32 [ %.pre86, %61 ], [ %59, %proto_item_set_generated.exit76 ]
-  %65 = phi ptr [ %.pre, %61 ], [ %58, %proto_item_set_generated.exit76 ]
-  %66 = and i32 %64, 4
-  %.not62 = icmp eq i32 %66, 0
-  br i1 %.not62, label %69, label %67
+62:                                               ; preds = %60, %proto_item_set_generated.exit78
+  %63 = phi i32 [ %.pre88, %60 ], [ %58, %proto_item_set_generated.exit78 ]
+  %64 = phi ptr [ %.pre, %60 ], [ %57, %proto_item_set_generated.exit78 ]
+  %65 = and i32 %63, 4
+  %.not64 = icmp eq i32 %65, 0
+  br i1 %.not64, label %68, label %66
 
-67:                                               ; preds = %63
-  %68 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_aeron_analysis_pacing_rx)
-  %.pre87 = load ptr, ptr %14, align 8
-  %.pre88 = load i32, ptr %.pre87, align 4
-  br label %69
-
-69:                                               ; preds = %67, %63
-  %70 = phi i32 [ %.pre88, %67 ], [ %64, %63 ]
-  %71 = phi ptr [ %.pre87, %67 ], [ %65, %63 ]
-  %72 = and i32 %70, 8
-  %.not63 = icmp eq i32 %72, 0
-  br i1 %.not63, label %75, label %73
-
-73:                                               ; preds = %69
-  %74 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_aeron_analysis_ooo)
-  %.pre89 = load ptr, ptr %14, align 8
+66:                                               ; preds = %62
+  %67 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %49, ptr noundef nonnull @ei_aeron_analysis_pacing_rx)
+  %.pre89 = load ptr, ptr %13, align 8
   %.pre90 = load i32, ptr %.pre89, align 4
-  br label %75
+  br label %68
 
-75:                                               ; preds = %73, %69
-  %76 = phi i32 [ %.pre90, %73 ], [ %70, %69 ]
-  %77 = phi ptr [ %.pre89, %73 ], [ %71, %69 ]
-  %78 = and i32 %76, 16
-  %.not64 = icmp eq i32 %78, 0
-  br i1 %.not64, label %81, label %79
+68:                                               ; preds = %66, %62
+  %69 = phi i32 [ %.pre90, %66 ], [ %63, %62 ]
+  %70 = phi ptr [ %.pre89, %66 ], [ %64, %62 ]
+  %71 = and i32 %69, 8
+  %.not65 = icmp eq i32 %71, 0
+  br i1 %.not65, label %74, label %72
 
-79:                                               ; preds = %75
-  %80 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_aeron_analysis_ooo_gap)
-  %.pre91 = load ptr, ptr %14, align 8
+72:                                               ; preds = %68
+  %73 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %49, ptr noundef nonnull @ei_aeron_analysis_ooo)
+  %.pre91 = load ptr, ptr %13, align 8
   %.pre92 = load i32, ptr %.pre91, align 4
-  br label %81
+  br label %74
 
-81:                                               ; preds = %79, %75
-  %82 = phi i32 [ %.pre92, %79 ], [ %76, %75 ]
-  %83 = phi ptr [ %.pre91, %79 ], [ %77, %75 ]
-  %84 = and i32 %82, 32
-  %.not65 = icmp eq i32 %84, 0
-  br i1 %.not65, label %87, label %85
+74:                                               ; preds = %72, %68
+  %75 = phi i32 [ %.pre92, %72 ], [ %69, %68 ]
+  %76 = phi ptr [ %.pre91, %72 ], [ %70, %68 ]
+  %77 = and i32 %75, 16
+  %.not66 = icmp eq i32 %77, 0
+  br i1 %.not66, label %80, label %78
 
-85:                                               ; preds = %81
-  %86 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_aeron_analysis_keepalive)
-  %.pre93 = load ptr, ptr %14, align 8
+78:                                               ; preds = %74
+  %79 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %49, ptr noundef nonnull @ei_aeron_analysis_ooo_gap)
+  %.pre93 = load ptr, ptr %13, align 8
   %.pre94 = load i32, ptr %.pre93, align 4
-  br label %87
+  br label %80
 
-87:                                               ; preds = %85, %81
-  %88 = phi i32 [ %.pre94, %85 ], [ %82, %81 ]
-  %89 = phi ptr [ %.pre93, %85 ], [ %83, %81 ]
-  %90 = and i32 %88, 512
-  %.not66 = icmp eq i32 %90, 0
-  br i1 %.not66, label %93, label %91
+80:                                               ; preds = %78, %74
+  %81 = phi i32 [ %.pre94, %78 ], [ %75, %74 ]
+  %82 = phi ptr [ %.pre93, %78 ], [ %76, %74 ]
+  %83 = and i32 %81, 32
+  %.not67 = icmp eq i32 %83, 0
+  br i1 %.not67, label %86, label %84
 
-91:                                               ; preds = %87
-  %92 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %50, ptr noundef nonnull @ei_aeron_analysis_rx)
-  %.pre95 = load ptr, ptr %14, align 8
-  br label %93
+84:                                               ; preds = %80
+  %85 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %49, ptr noundef nonnull @ei_aeron_analysis_keepalive)
+  %.pre95 = load ptr, ptr %13, align 8
+  %.pre96 = load i32, ptr %.pre95, align 4
+  br label %86
 
-93:                                               ; preds = %91, %87
-  %94 = phi ptr [ %.pre95, %91 ], [ %89, %87 ]
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %96 = load i32, ptr %95, align 4
-  %97 = and i32 %96, 1
-  %.not67 = icmp eq i32 %97, 0
-  br i1 %.not67, label %151, label %98
+86:                                               ; preds = %84, %80
+  %87 = phi i32 [ %.pre96, %84 ], [ %81, %80 ]
+  %88 = phi ptr [ %.pre95, %84 ], [ %82, %80 ]
+  %89 = and i32 %87, 512
+  %.not68 = icmp eq i32 %89, 0
+  br i1 %.not68, label %92, label %90
 
-98:                                               ; preds = %93
-  %99 = load i32, ptr @hf_aeron_stream_analysis_completed_term_id, align 4
-  %100 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %101 = load i32, ptr %100, align 4
-  %102 = tail call ptr @proto_tree_add_uint(ptr noundef %27, i32 noundef %99, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %101)
-  %.not.i77 = icmp eq ptr %102, null
-  br i1 %.not.i77, label %proto_item_set_generated.exit79, label %103
+90:                                               ; preds = %86
+  %91 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %49, ptr noundef nonnull @ei_aeron_analysis_rx)
+  %.pre97 = load ptr, ptr %13, align 8
+  br label %92
 
-103:                                              ; preds = %98
-  %104 = getelementptr inbounds nuw i8, ptr %102, i64 40
-  %105 = load ptr, ptr %104, align 8
-  %.not5.i78 = icmp eq ptr %105, null
-  br i1 %.not5.i78, label %proto_item_set_generated.exit79, label %106
+92:                                               ; preds = %90, %86
+  %93 = phi ptr [ %.pre97, %90 ], [ %88, %86 ]
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %95 = load i32, ptr %94, align 4
+  %96 = and i32 %95, 1
+  %.not69 = icmp eq i32 %96, 0
+  br i1 %.not69, label %150, label %97
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw i8, ptr %105, i64 28
-  %108 = load i32, ptr %107, align 4
-  %109 = or i32 %108, 2
-  store i32 %109, ptr %107, align 4
-  br label %proto_item_set_generated.exit79
+97:                                               ; preds = %92
+  %98 = load i32, ptr @hf_aeron_stream_analysis_completed_term_id, align 4
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %100 = load i32, ptr %99, align 4
+  %101 = tail call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %98, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %100)
+  %.not.i79 = icmp eq ptr %101, null
+  br i1 %.not.i79, label %proto_item_set_generated.exit81, label %102
 
-proto_item_set_generated.exit79:                  ; preds = %98, %103, %106
-  %110 = load i32, ptr @hf_aeron_stream_analysis_completed_term_offset, align 4
-  %111 = load ptr, ptr %14, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 20
-  %113 = load i32, ptr %112, align 4
-  %114 = tail call ptr @proto_tree_add_uint(ptr noundef %27, i32 noundef %110, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %113)
-  %.not.i80 = icmp eq ptr %114, null
-  br i1 %.not.i80, label %proto_item_set_generated.exit82, label %115
+102:                                              ; preds = %97
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 40
+  %104 = load ptr, ptr %103, align 8
+  %.not5.i80 = icmp eq ptr %104, null
+  br i1 %.not5.i80, label %proto_item_set_generated.exit81, label %105
 
-115:                                              ; preds = %proto_item_set_generated.exit79
-  %116 = getelementptr inbounds nuw i8, ptr %114, i64 40
-  %117 = load ptr, ptr %116, align 8
-  %.not5.i81 = icmp eq ptr %117, null
-  br i1 %.not5.i81, label %proto_item_set_generated.exit82, label %118
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 28
+  %107 = load i32, ptr %106, align 4
+  %108 = or i32 %107, 2
+  store i32 %108, ptr %106, align 4
+  br label %proto_item_set_generated.exit81
 
-118:                                              ; preds = %115
-  %119 = getelementptr inbounds nuw i8, ptr %117, i64 28
-  %120 = load i32, ptr %119, align 4
-  %121 = or i32 %120, 2
-  store i32 %121, ptr %119, align 4
-  br label %proto_item_set_generated.exit82
+proto_item_set_generated.exit81:                  ; preds = %97, %102, %105
+  %109 = load i32, ptr @hf_aeron_stream_analysis_completed_term_offset, align 4
+  %110 = load ptr, ptr %13, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 20
+  %112 = load i32, ptr %111, align 4
+  %113 = tail call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %109, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %112)
+  %.not.i82 = icmp eq ptr %113, null
+  br i1 %.not.i82, label %proto_item_set_generated.exit84, label %114
 
-proto_item_set_generated.exit82:                  ; preds = %proto_item_set_generated.exit79, %115, %118
-  %122 = load ptr, ptr %14, align 8
-  %123 = load i32, ptr %122, align 4
-  %124 = and i32 %123, 128
-  %.not68 = icmp eq i32 %124, 0
-  br i1 %.not68, label %127, label %125
+114:                                              ; preds = %proto_item_set_generated.exit81
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 40
+  %116 = load ptr, ptr %115, align 8
+  %.not5.i83 = icmp eq ptr %116, null
+  br i1 %.not5.i83, label %proto_item_set_generated.exit84, label %117
 
-125:                                              ; preds = %proto_item_set_generated.exit82
-  %126 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %114, ptr noundef nonnull @ei_aeron_analysis_ooo_sm)
-  %.pre96 = load ptr, ptr %14, align 8
-  %.pre97 = load i32, ptr %.pre96, align 4
-  br label %127
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 28
+  %119 = load i32, ptr %118, align 4
+  %120 = or i32 %119, 2
+  store i32 %120, ptr %118, align 4
+  br label %proto_item_set_generated.exit84
 
-127:                                              ; preds = %125, %proto_item_set_generated.exit82
-  %128 = phi i32 [ %.pre97, %125 ], [ %123, %proto_item_set_generated.exit82 ]
-  %129 = phi ptr [ %.pre96, %125 ], [ %122, %proto_item_set_generated.exit82 ]
-  %130 = and i32 %128, 256
-  %.not69 = icmp eq i32 %130, 0
-  br i1 %.not69, label %133, label %131
+proto_item_set_generated.exit84:                  ; preds = %proto_item_set_generated.exit81, %114, %117
+  %121 = load ptr, ptr %13, align 8
+  %122 = load i32, ptr %121, align 4
+  %123 = and i32 %122, 128
+  %.not70 = icmp eq i32 %123, 0
+  br i1 %.not70, label %126, label %124
 
-131:                                              ; preds = %127
-  %132 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %114, ptr noundef nonnull @ei_aeron_analysis_keepalive_sm)
-  %.pre98 = load ptr, ptr %14, align 8
-  br label %133
+124:                                              ; preds = %proto_item_set_generated.exit84
+  %125 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %113, ptr noundef nonnull @ei_aeron_analysis_ooo_sm)
+  %.pre98 = load ptr, ptr %13, align 8
+  %.pre99 = load i32, ptr %.pre98, align 4
+  br label %126
 
-133:                                              ; preds = %131, %127
-  %134 = phi ptr [ %.pre98, %131 ], [ %129, %127 ]
-  %135 = load i32, ptr @hf_aeron_stream_analysis_outstanding_bytes, align 4
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 28
-  %137 = load i32, ptr %136, align 4
-  %138 = tail call ptr @proto_tree_add_uint(ptr noundef %27, i32 noundef %135, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %137)
-  %.not.i83 = icmp eq ptr %138, null
-  br i1 %.not.i83, label %proto_item_set_generated.exit85, label %139
+126:                                              ; preds = %124, %proto_item_set_generated.exit84
+  %127 = phi i32 [ %.pre99, %124 ], [ %122, %proto_item_set_generated.exit84 ]
+  %128 = phi ptr [ %.pre98, %124 ], [ %121, %proto_item_set_generated.exit84 ]
+  %129 = and i32 %127, 256
+  %.not71 = icmp eq i32 %129, 0
+  br i1 %.not71, label %132, label %130
 
-139:                                              ; preds = %133
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 40
-  %141 = load ptr, ptr %140, align 8
-  %.not5.i84 = icmp eq ptr %141, null
-  br i1 %.not5.i84, label %proto_item_set_generated.exit85, label %142
+130:                                              ; preds = %126
+  %131 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %113, ptr noundef nonnull @ei_aeron_analysis_keepalive_sm)
+  %.pre100 = load ptr, ptr %13, align 8
+  br label %132
 
-142:                                              ; preds = %139
-  %143 = getelementptr inbounds nuw i8, ptr %141, i64 28
-  %144 = load i32, ptr %143, align 4
-  %145 = or i32 %144, 2
-  store i32 %145, ptr %143, align 4
-  br label %proto_item_set_generated.exit85
+132:                                              ; preds = %130, %126
+  %133 = phi ptr [ %.pre100, %130 ], [ %128, %126 ]
+  %134 = load i32, ptr @hf_aeron_stream_analysis_outstanding_bytes, align 4
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 28
+  %136 = load i32, ptr %135, align 4
+  %137 = tail call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %134, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %136)
+  %.not.i85 = icmp eq ptr %137, null
+  br i1 %.not.i85, label %proto_item_set_generated.exit87, label %138
 
-proto_item_set_generated.exit85:                  ; preds = %133, %139, %142
-  %146 = load ptr, ptr %14, align 8
-  %147 = load i32, ptr %146, align 4
-  %148 = and i32 %147, 1
-  %.not70 = icmp eq i32 %148, 0
-  br i1 %.not70, label %151, label %149
+138:                                              ; preds = %132
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 40
+  %140 = load ptr, ptr %139, align 8
+  %.not5.i86 = icmp eq ptr %140, null
+  br i1 %.not5.i86, label %proto_item_set_generated.exit87, label %141
 
-149:                                              ; preds = %proto_item_set_generated.exit85
-  %150 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %138, ptr noundef nonnull @ei_aeron_analysis_window_full)
-  br label %151
+141:                                              ; preds = %138
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 28
+  %143 = load i32, ptr %142, align 4
+  %144 = or i32 %143, 2
+  store i32 %144, ptr %142, align 4
+  br label %proto_item_set_generated.exit87
 
-151:                                              ; preds = %93, %149, %proto_item_set_generated.exit85, %6, %9, %13, %5
+proto_item_set_generated.exit87:                  ; preds = %132, %138, %141
+  %145 = load ptr, ptr %13, align 8
+  %146 = load i32, ptr %145, align 4
+  %147 = and i32 %146, 1
+  %.not72 = icmp eq i32 %147, 0
+  br i1 %.not72, label %150, label %148
+
+148:                                              ; preds = %proto_item_set_generated.exit87
+  %149 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %137, ptr noundef nonnull @ei_aeron_analysis_window_full)
+  br label %150
+
+150:                                              ; preds = %92, %148, %proto_item_set_generated.exit87, %6, %12, %5
   ret void
 }
 
@@ -3964,1094 +4996,9 @@ declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @aeron_stream_term_add(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = alloca i32, align 4
-  %4 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %4, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  store i32 %1, ptr %3, align 4
-  %5 = call ptr @wmem_map_lookup(ptr noundef %.val, ptr noundef nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %25
-
-7:                                                ; preds = %2
-  %8 = call ptr @wmem_file_scope()
-  %9 = call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %8, i64 noundef 56) #13
-  store ptr %0, ptr %9, align 8
-  %10 = call ptr @wmem_file_scope()
-  %11 = call noalias ptr @wmem_map_new(ptr noundef %10, ptr noundef nonnull @aeron_uint32_hash_func, ptr noundef nonnull @aeron_uint32_compare_func)
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %11, ptr %12, align 8
-  %13 = call ptr @wmem_file_scope()
-  %14 = call noalias ptr @wmem_tree_new(ptr noundef %13)
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %14, ptr %15, align 8
-  %16 = call ptr @wmem_file_scope()
-  %17 = call noalias ptr @wmem_list_new(ptr noundef %16)
-  %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %17, ptr %18, align 8
-  %19 = call ptr @wmem_file_scope()
-  %20 = call noalias ptr @wmem_list_new(ptr noundef %19)
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i32 %1, ptr %22, align 8
-  %23 = load ptr, ptr %4, align 8
-  %24 = call ptr @wmem_map_insert(ptr noundef %23, ptr noundef nonnull %22, ptr noundef %9)
-  br label %25
-
-25:                                               ; preds = %7, %2
-  %.0 = phi ptr [ %9, %7 ], [ %5, %2 ]
-  ret ptr %.0
-}
-
-; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @aeron_frame_stream_analysis_setup(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef captures(none) %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
-  %7 = alloca i32, align 4
-  %8 = alloca i32, align 4
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  %10 = load i64, ptr %9, align 4
-  %.sroa.0175.0.extract.trunc = trunc i64 %10 to i32
-  %.sroa.5.0.extract.shift = lshr i64 %10, 32
-  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %12 = load i32, ptr %11, align 8
-  %13 = and i32 %12, 1
-  %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %15 = load i16, ptr %14, align 8
-  %16 = icmp eq i16 %15, 3
-  br i1 %16, label %17, label %aeron_stream_rcv_add.exit
-
-17:                                               ; preds = %6
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  %20 = load i32, ptr %19, align 4
-  %21 = trunc i32 %20 to i16
-  %22 = getelementptr i8, ptr %3, i64 16
-  %.val = load ptr, ptr %22, align 8
-  %23 = tail call ptr @wmem_list_head(ptr noundef %.val)
-  %.not9.i = icmp eq ptr %23, null
-  br i1 %.not9.i, label %.loopexit, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %17
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  br label %26
-
-26:                                               ; preds = %cmp_address.exit.thread.i, %.lr.ph.i
-  %.01110.i = phi ptr [ %23, %.lr.ph.i ], [ %45, %cmp_address.exit.thread.i ]
-  %27 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.01110.i)
-  %.not15.i = icmp eq ptr %27, null
-  br i1 %.not15.i, label %cmp_address.exit.thread.i, label %28
-
-28:                                               ; preds = %26
-  %29 = load i32, ptr %27, align 8
-  %30 = load i32, ptr %18, align 8
-  %or.cond.not.i = icmp eq i32 %29, %30
-  br i1 %or.cond.not.i, label %31, label %cmp_address.exit.thread.i
-
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = load i32, ptr %24, align 4
-  %or.cond8.not.i = icmp eq i32 %33, %34
-  br i1 %or.cond8.not.i, label %35, label %cmp_address.exit.thread.i
-
-35:                                               ; preds = %31
-  %36 = icmp eq i32 %33, 0
-  br i1 %36, label %cmp_address.exit.thread2.i, label %cmp_address.exit.i
-
-cmp_address.exit.i:                               ; preds = %35
-  %37 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = load ptr, ptr %25, align 8
-  %40 = sext i32 %33 to i64
-  %bcmp.i = tail call i32 @bcmp(ptr %38, ptr %39, i64 %40)
-  %41 = icmp eq i32 %bcmp.i, 0
-  br i1 %41, label %cmp_address.exit.thread2.i, label %cmp_address.exit.thread.i
-
-cmp_address.exit.thread2.i:                       ; preds = %cmp_address.exit.i, %35
-  %42 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %43 = load i16, ptr %42, align 8
-  %44 = icmp eq i16 %43, %21
-  br i1 %44, label %aeron_stream_rcv_find.exit, label %cmp_address.exit.thread.i
-
-cmp_address.exit.thread.i:                        ; preds = %cmp_address.exit.thread2.i, %cmp_address.exit.i, %31, %28, %26
-  %45 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.01110.i)
-  %.not.i = icmp eq ptr %45, null
-  br i1 %.not.i, label %.loopexit, label %26
-
-.loopexit:                                        ; preds = %cmp_address.exit.thread.i, %17
-  %46 = load i32, ptr %19, align 4
-  %47 = trunc i32 %46 to i16
-  %.val.i = load ptr, ptr %22, align 8
-  %48 = tail call ptr @wmem_list_head(ptr noundef %.val.i)
-  %.not9.i.i = icmp eq ptr %48, null
-  br i1 %.not9.i.i, label %.loopexit.i, label %.lr.ph.i.i
-
-.lr.ph.i.i:                                       ; preds = %.loopexit
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  br label %51
-
-51:                                               ; preds = %cmp_address.exit.thread.i.i, %.lr.ph.i.i
-  %.01110.i.i = phi ptr [ %48, %.lr.ph.i.i ], [ %70, %cmp_address.exit.thread.i.i ]
-  %52 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.01110.i.i)
-  %.not15.i.i = icmp eq ptr %52, null
-  br i1 %.not15.i.i, label %cmp_address.exit.thread.i.i, label %53
-
-53:                                               ; preds = %51
-  %54 = load i32, ptr %52, align 8
-  %55 = load i32, ptr %18, align 8
-  %or.cond.not.i.i = icmp eq i32 %54, %55
-  br i1 %or.cond.not.i.i, label %56, label %cmp_address.exit.thread.i.i
-
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = load i32, ptr %49, align 4
-  %or.cond8.not.i.i = icmp eq i32 %58, %59
-  br i1 %or.cond8.not.i.i, label %60, label %cmp_address.exit.thread.i.i
-
-60:                                               ; preds = %56
-  %61 = icmp eq i32 %58, 0
-  br i1 %61, label %cmp_address.exit.thread2.i.i, label %cmp_address.exit.i.i
-
-cmp_address.exit.i.i:                             ; preds = %60
-  %62 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %50, align 8
-  %65 = sext i32 %58 to i64
-  %bcmp.i.i = tail call i32 @bcmp(ptr %63, ptr %64, i64 %65)
-  %66 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %66, label %cmp_address.exit.thread2.i.i, label %cmp_address.exit.thread.i.i
-
-cmp_address.exit.thread2.i.i:                     ; preds = %cmp_address.exit.i.i, %60
-  %67 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %68 = load i16, ptr %67, align 8
-  %69 = icmp eq i16 %68, %47
-  br i1 %69, label %aeron_stream_rcv_add.exitthread-pre-split, label %cmp_address.exit.thread.i.i
-
-cmp_address.exit.thread.i.i:                      ; preds = %cmp_address.exit.thread2.i.i, %cmp_address.exit.i.i, %56, %53, %51
-  %70 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.01110.i.i)
-  %.not.i.i = icmp eq ptr %70, null
-  br i1 %.not.i.i, label %.loopexit.i, label %51
-
-.loopexit.i:                                      ; preds = %cmp_address.exit.thread.i.i, %.loopexit
-  %71 = tail call ptr @wmem_file_scope()
-  %72 = tail call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %71, i64 noundef 40) #13
-  %73 = tail call ptr @wmem_file_scope()
-  %74 = load i32, ptr %18, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %78 = load ptr, ptr %77, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %72, i8 0, i64 24, i1 false)
-  store i32 %74, ptr %72, align 8
-  %79 = icmp eq i32 %76, 0
-  br i1 %79, label %copy_address_wmem.exit.i, label %80
-
-80:                                               ; preds = %.loopexit.i
-  %81 = sext i32 %76 to i64
-  %82 = tail call ptr @wmem_memdup(ptr noundef %73, ptr noundef %78, i64 noundef %81) #15
-  %83 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store ptr %82, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store ptr %82, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i32 %76, ptr %85, align 4
-  br label %copy_address_wmem.exit.i
-
-copy_address_wmem.exit.i:                         ; preds = %80, %.loopexit.i
-  %86 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  store i16 %47, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %72, i64 28
-  store i32 0, ptr %87, align 4
-  %88 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  store i32 0, ptr %88, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %72, i64 36
-  store i32 0, ptr %89, align 4
-  %90 = load ptr, ptr %22, align 8
-  tail call void @wmem_list_append(ptr noundef %90, ptr noundef %72)
-  %91 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %92 = load i32, ptr %91, align 8
-  %93 = add i32 %92, 1
-  store i32 %93, ptr %91, align 8
-  br label %aeron_stream_rcv_add.exitthread-pre-split
-
-aeron_stream_rcv_find.exit:                       ; preds = %cmp_address.exit.thread2.i
-  %94 = getelementptr inbounds nuw i8, ptr %27, i64 28
-  %95 = load i64, ptr %94, align 4
-  %.sroa.0166.0.extract.trunc = trunc i64 %95 to i32
-  %.sroa.6168.0.extract.shift = lshr i64 %95, 32
-  %.sroa.6168.0.extract.trunc = trunc nuw i64 %.sroa.6168.0.extract.shift to i32
-  %96 = getelementptr inbounds nuw i8, ptr %27, i64 36
-  %97 = load i32, ptr %96, align 4
-  br label %aeron_stream_rcv_add.exitthread-pre-split
-
-aeron_stream_rcv_add.exitthread-pre-split:        ; preds = %cmp_address.exit.thread2.i.i, %aeron_stream_rcv_find.exit, %copy_address_wmem.exit.i
-  %.sroa.6168.0.ph = phi i32 [ 0, %copy_address_wmem.exit.i ], [ %.sroa.6168.0.extract.trunc, %aeron_stream_rcv_find.exit ], [ 0, %cmp_address.exit.thread2.i.i ]
-  %.sroa.0166.0.ph = phi i32 [ 0, %copy_address_wmem.exit.i ], [ %.sroa.0166.0.extract.trunc, %aeron_stream_rcv_find.exit ], [ 0, %cmp_address.exit.thread2.i.i ]
-  %.0125.ph = phi i32 [ 0, %copy_address_wmem.exit.i ], [ %97, %aeron_stream_rcv_find.exit ], [ 0, %cmp_address.exit.thread2.i.i ]
-  %.0118.ph = phi i1 [ false, %copy_address_wmem.exit.i ], [ true, %aeron_stream_rcv_find.exit ], [ false, %cmp_address.exit.thread2.i.i ]
-  %.0117.ph = phi ptr [ %72, %copy_address_wmem.exit.i ], [ %27, %aeron_stream_rcv_find.exit ], [ %52, %cmp_address.exit.thread2.i.i ]
-  %.pr = load i16, ptr %14, align 8
-  br label %aeron_stream_rcv_add.exit
-
-aeron_stream_rcv_add.exit:                        ; preds = %aeron_stream_rcv_add.exitthread-pre-split, %6
-  %98 = phi i16 [ %.pr, %aeron_stream_rcv_add.exitthread-pre-split ], [ %15, %6 ]
-  %.sroa.6168.0 = phi i32 [ %.sroa.6168.0.ph, %aeron_stream_rcv_add.exitthread-pre-split ], [ 0, %6 ]
-  %.sroa.0166.0 = phi i32 [ %.sroa.0166.0.ph, %aeron_stream_rcv_add.exitthread-pre-split ], [ 0, %6 ]
-  %.0125 = phi i32 [ %.0125.ph, %aeron_stream_rcv_add.exitthread-pre-split ], [ 0, %6 ]
-  %.0118 = phi i1 [ %.0118.ph, %aeron_stream_rcv_add.exitthread-pre-split ], [ false, %6 ]
-  %.0117 = phi ptr [ %.0117.ph, %aeron_stream_rcv_add.exitthread-pre-split ], [ null, %6 ]
-  switch i16 %98, label %152 [
-    i16 1, label %99
-    i16 0, label %99
-    i16 3, label %130
-  ]
-
-99:                                               ; preds = %aeron_stream_rcv_add.exit, %aeron_stream_rcv_add.exit
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %101 = load i32, ptr %100, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %105 = load i32, ptr %104, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %107 = load i32, ptr %106, align 4
-  %108 = add i32 %105, %103
-  %109 = icmp ult i32 %108, %103
-  br i1 %109, label %aeron_pos_add_length.exit, label %110
-
-110:                                              ; preds = %99
-  %111 = add i32 %108, 31
-  %112 = and i32 %111, -32
-  %113 = icmp ult i32 %112, %108
-  br i1 %113, label %aeron_pos_add_length.exit, label %114
-
-114:                                              ; preds = %110
-  %.not.i142 = icmp uge i32 %112, %107
-  %115 = zext i1 %.not.i142 to i32
-  %spec.select = add i32 %101, %115
-  %spec.select221 = select i1 %.not.i142, i32 0, i32 %112
-  br i1 %.not, label %126, label %116
-
-116:                                              ; preds = %114
-  %117 = load i32, ptr %9, align 4
-  %118 = icmp ugt i32 %spec.select, %117
-  br i1 %118, label %119, label %121
-
-119:                                              ; preds = %116
-  store i32 %spec.select, ptr %9, align 4
-  %120 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i32 %spec.select221, ptr %120, align 4
-  br label %152
-
-121:                                              ; preds = %116
-  %122 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %123 = load i32, ptr %122, align 4
-  %124 = icmp ugt i32 %spec.select221, %123
-  br i1 %124, label %125, label %152
-
-125:                                              ; preds = %121
-  store i32 %spec.select221, ptr %122, align 4
-  br label %152
-
-126:                                              ; preds = %114
-  %127 = load i32, ptr %11, align 8
-  %128 = or i32 %127, 1
-  store i32 %128, ptr %11, align 8
-  store i32 %spec.select, ptr %9, align 4
-  %129 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store i32 %spec.select221, ptr %129, align 4
-  br label %152
-
-130:                                              ; preds = %aeron_stream_rcv_add.exit
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %132 = load i32, ptr %131, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %134 = load i32, ptr %133, align 4
-  %135 = getelementptr inbounds nuw i8, ptr %.0117, i64 28
-  br i1 %.0118, label %136, label %146
-
-136:                                              ; preds = %130
-  %137 = load i32, ptr %135, align 4
-  %138 = icmp ugt i32 %132, %137
-  br i1 %138, label %139, label %141
-
-139:                                              ; preds = %136
-  store i32 %132, ptr %135, align 4
-  %140 = getelementptr inbounds nuw i8, ptr %.0117, i64 32
-  store i32 %134, ptr %140, align 4
-  br label %148
-
-141:                                              ; preds = %136
-  %142 = getelementptr inbounds nuw i8, ptr %.0117, i64 32
-  %143 = load i32, ptr %142, align 4
-  %144 = icmp ugt i32 %134, %143
-  br i1 %144, label %145, label %148
-
-145:                                              ; preds = %141
-  store i32 %134, ptr %142, align 4
-  br label %148
-
-146:                                              ; preds = %130
-  store i32 %132, ptr %135, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %.0117, i64 32
-  store i32 %134, ptr %147, align 4
-  br label %148
-
-148:                                              ; preds = %139, %145, %141, %146
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %150 = load i32, ptr %149, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %.0117, i64 36
-  store i32 %150, ptr %151, align 4
-  br label %152
-
-152:                                              ; preds = %aeron_stream_rcv_add.exit, %126, %121, %125, %119, %148
-  %.sroa.0178.0 = phi i32 [ 0, %aeron_stream_rcv_add.exit ], [ 0, %148 ], [ %spec.select, %126 ], [ %spec.select, %119 ], [ %spec.select, %125 ], [ %spec.select, %121 ]
-  %.sroa.11.0 = phi i32 [ 0, %aeron_stream_rcv_add.exit ], [ 0, %148 ], [ %spec.select221, %126 ], [ %spec.select221, %119 ], [ %112, %125 ], [ %spec.select221, %121 ]
-  %.sroa.7.0 = phi i32 [ 0, %aeron_stream_rcv_add.exit ], [ %134, %148 ], [ 0, %126 ], [ 0, %119 ], [ 0, %125 ], [ 0, %121 ]
-  %.sroa.0170.0 = phi i32 [ 0, %aeron_stream_rcv_add.exit ], [ %132, %148 ], [ 0, %126 ], [ 0, %119 ], [ 0, %125 ], [ 0, %121 ]
-  %153 = load i8, ptr @aeron_stream_analysis, align 1, !range !6, !noundef !7
-  %154 = trunc nuw i8 %153 to i1
-  br i1 %154, label %155, label %162
-
-155:                                              ; preds = %152
-  %156 = load i32, ptr %11, align 8
-  %157 = and i32 %156, 1
-  %.not135 = icmp eq i32 %157, 0
-  br i1 %.not135, label %162, label %158
-
-158:                                              ; preds = %155
-  %159 = tail call ptr @wmem_file_scope()
-  %160 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %159, i64 noundef 32) #13
-  %161 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %160, ptr %161, align 8
-  br label %162
-
-162:                                              ; preds = %155, %158, %152
-  %163 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %164 = load ptr, ptr %163, align 8
-  %.not136 = icmp eq ptr %164, null
-  br i1 %.not136, label %363, label %165
-
-165:                                              ; preds = %162
-  %166 = load i16, ptr %14, align 8
-  switch i16 %166, label %237 [
-    i16 1, label %167
-    i16 3, label %167
-    i16 0, label %167
-  ]
-
-167:                                              ; preds = %165, %165, %165
-  %168 = load i32, ptr %9, align 4
-  %169 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  store i32 %168, ptr %169, align 4
-  %170 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %171 = load i32, ptr %170, align 4
-  %172 = load ptr, ptr %163, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 12
-  store i32 %171, ptr %173, align 4
-  %.not137 = icmp eq ptr %.0117, null
-  %174 = load ptr, ptr %163, align 8
-  br i1 %.not137, label %229, label %175
-
-175:                                              ; preds = %167
-  %176 = getelementptr inbounds nuw i8, ptr %174, i64 4
-  %177 = load i32, ptr %176, align 4
-  %178 = or i32 %177, 1
-  store i32 %178, ptr %176, align 4
-  %179 = getelementptr inbounds nuw i8, ptr %.0117, i64 28
-  %180 = load i32, ptr %179, align 4
-  %181 = load ptr, ptr %163, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  store i32 %180, ptr %182, align 4
-  %183 = getelementptr inbounds nuw i8, ptr %.0117, i64 32
-  %184 = load i32, ptr %183, align 4
-  %185 = load ptr, ptr %163, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 20
-  store i32 %184, ptr %186, align 4
-  %187 = getelementptr inbounds nuw i8, ptr %.0117, i64 36
-  %188 = load i32, ptr %187, align 4
-  %189 = load ptr, ptr %163, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 24
-  store i32 %188, ptr %190, align 4
-  %191 = load ptr, ptr %163, align 8
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
-  %193 = getelementptr inbounds nuw i8, ptr %191, i64 16
-  %194 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %195 = load i32, ptr %194, align 4
-  %196 = load i32, ptr %192, align 4
-  %197 = load i32, ptr %193, align 4
-  %198 = icmp eq i32 %196, %197
-  br i1 %198, label %199, label %208
-
-199:                                              ; preds = %175
-  %200 = getelementptr inbounds nuw i8, ptr %191, i64 12
-  %201 = load i32, ptr %200, align 4
-  %202 = getelementptr inbounds nuw i8, ptr %191, i64 20
-  %203 = load i32, ptr %202, align 4
-  %204 = icmp eq i32 %201, %203
-  br i1 %204, label %aeron_pos_delta.exit, label %205
-
-205:                                              ; preds = %199
-  %206 = icmp ult i32 %201, %203
-  %207 = select i1 %206, i32 -1, i32 1
-  br label %aeron_pos_delta.exit
-
-208:                                              ; preds = %175
-  %209 = icmp ult i32 %196, %197
-  %210 = select i1 %209, i32 -1, i32 1
-  br label %aeron_pos_delta.exit
-
-aeron_pos_delta.exit:                             ; preds = %199, %205, %208
-  %.0.i.i = phi i32 [ %207, %205 ], [ %210, %208 ], [ 0, %199 ]
-  %211 = icmp sgt i32 %.0.i.i, -1
-  %..i = select i1 %211, ptr %193, ptr %192
-  %.16.i = select i1 %211, ptr %192, ptr %193
-  %212 = load i32, ptr %.16.i, align 4
-  %213 = getelementptr inbounds nuw i8, ptr %.16.i, i64 4
-  %214 = load i32, ptr %213, align 4
-  %215 = load i32, ptr %..i, align 4
-  %216 = getelementptr inbounds nuw i8, ptr %..i, i64 4
-  %217 = load i32, ptr %216, align 4
-  %reass.add.i = sub i32 %212, %215
-  %reass.mul.i = mul i32 %reass.add.i, %195
-  %218 = sub i32 %214, %217
-  %219 = add i32 %218, %reass.mul.i
-  %220 = getelementptr inbounds nuw i8, ptr %191, i64 28
-  store i32 %219, ptr %220, align 4
-  %221 = load ptr, ptr %163, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 28
-  %223 = load i32, ptr %222, align 4
-  %224 = getelementptr inbounds nuw i8, ptr %221, i64 24
-  %225 = load i32, ptr %224, align 4
-  %.not138 = icmp ult i32 %223, %225
-  br i1 %.not138, label %thread-pre-split, label %226
-
-226:                                              ; preds = %aeron_pos_delta.exit
-  %227 = load i32, ptr %221, align 4
-  %228 = or i32 %227, 1
-  store i32 %228, ptr %221, align 4
-  br label %thread-pre-split
-
-229:                                              ; preds = %167
-  %230 = getelementptr inbounds nuw i8, ptr %174, i64 16
-  store i32 0, ptr %230, align 4
-  %231 = load ptr, ptr %163, align 8
-  %232 = getelementptr inbounds nuw i8, ptr %231, i64 20
-  store i32 0, ptr %232, align 4
-  %233 = load ptr, ptr %163, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 24
-  store i32 0, ptr %234, align 4
-  %235 = load ptr, ptr %163, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 28
-  store i32 0, ptr %236, align 4
-  br label %thread-pre-split
-
-thread-pre-split:                                 ; preds = %aeron_pos_delta.exit, %226, %229
-  %.pr196 = load i16, ptr %14, align 8
-  br label %237
-
-237:                                              ; preds = %thread-pre-split, %165
-  %238 = phi i16 [ %.pr196, %thread-pre-split ], [ %166, %165 ]
-  switch i16 %238, label %363 [
-    i16 1, label %239
-    i16 0, label %239
-    i16 3, label %345
-  ]
-
-239:                                              ; preds = %237, %237
-  br i1 %.not, label %aeron_pos_add_length.exit149.thread211, label %240
-
-240:                                              ; preds = %239
-  %241 = icmp eq i32 %.sroa.0178.0, %.sroa.0175.0.extract.trunc
-  %242 = icmp eq i32 %.sroa.11.0, %.sroa.5.0.extract.trunc
-  %or.cond = select i1 %241, i1 %242, i1 false
-  %243 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %244 = load i32, ptr %243, align 8
-  br i1 %or.cond, label %aeron_pos_compare.exit, label %263
-
-aeron_pos_compare.exit:                           ; preds = %240
-  %245 = icmp eq i32 %244, 0
-  br i1 %245, label %246, label %250
-
-246:                                              ; preds = %aeron_pos_compare.exit
-  %247 = load ptr, ptr %163, align 8
-  %248 = load i32, ptr %247, align 4
-  %249 = or i32 %248, 32
-  store i32 %249, ptr %247, align 4
-  br label %aeron_pos_add_length.exit149.thread211
-
-250:                                              ; preds = %aeron_pos_compare.exit
-  br i1 %.0118, label %251, label %259
-
-251:                                              ; preds = %250
-  %252 = icmp eq i32 %.sroa.0166.0, %.sroa.0175.0.extract.trunc
-  %253 = icmp eq i32 %.sroa.6168.0, %.sroa.5.0.extract.trunc
-  %or.cond222 = select i1 %252, i1 %253, i1 false
-  %254 = load ptr, ptr %163, align 8
-  %255 = load i32, ptr %254, align 4
-  br i1 %or.cond222, label %aeron_pos_compare.exit146, label %257
-
-aeron_pos_compare.exit146:                        ; preds = %251
-  %256 = or i32 %255, 2
-  store i32 %256, ptr %254, align 4
-  br label %aeron_pos_add_length.exit149.thread211
-
-257:                                              ; preds = %251
-  %258 = or i32 %255, 4
-  store i32 %258, ptr %254, align 4
-  br label %aeron_pos_add_length.exit149.thread211
-
-259:                                              ; preds = %250
-  %260 = load ptr, ptr %163, align 8
-  %261 = load i32, ptr %260, align 4
-  %262 = or i32 %261, 2
-  store i32 %262, ptr %260, align 4
-  br label %aeron_pos_add_length.exit149.thread211
-
-263:                                              ; preds = %240
-  %264 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %265 = load i32, ptr %264, align 4
-  %266 = add i32 %244, %.sroa.5.0.extract.trunc
-  %267 = icmp ult i32 %266, %.sroa.5.0.extract.trunc
-  br i1 %267, label %aeron_pos_add_length.exit, label %268
-
-268:                                              ; preds = %263
-  %269 = add i32 %266, 31
-  %270 = and i32 %269, -32
-  %271 = icmp ult i32 %270, %266
-  br i1 %271, label %aeron_pos_add_length.exit, label %272
-
-272:                                              ; preds = %268
-  %.not.i147 = icmp uge i32 %270, %265
-  %spec.select223 = select i1 %.not.i147, i32 0, i32 %270
-  %273 = zext i1 %.not.i147 to i32
-  %spec.select224 = add i32 %273, %.sroa.0175.0.extract.trunc
-  %274 = icmp eq i32 %spec.select224, %.sroa.0178.0
-  br i1 %274, label %275, label %279
-
-275:                                              ; preds = %272
-  %276 = icmp eq i32 %spec.select223, %.sroa.11.0
-  br i1 %276, label %aeron_pos_add_length.exit149.thread211, label %277
-
-277:                                              ; preds = %275
-  %278 = icmp ult i32 %spec.select223, %.sroa.11.0
-  br i1 %278, label %select.unfold, label %aeron_pos_compare.exit151
-
-279:                                              ; preds = %272
-  %280 = icmp ult i32 %spec.select224, %.sroa.0178.0
-  br i1 %280, label %select.unfold, label %aeron_pos_compare.exit151
-
-aeron_pos_compare.exit151:                        ; preds = %277, %279
-  %281 = load ptr, ptr %163, align 8
-  %282 = load i32, ptr %281, align 4
-  %283 = or i32 %282, 512
-  store i32 %283, ptr %281, align 4
-  %284 = getelementptr i8, ptr %4, i64 40
-  %.val140 = load ptr, ptr %284, align 8
-  %285 = tail call ptr @wmem_list_head(ptr noundef %.val140)
-  %.not1.i = icmp eq ptr %285, null
-  br i1 %.not1.i, label %aeron_pos_add_length.exit149.thread211, label %.lr.ph.i152
-
-.lr.ph.i152:                                      ; preds = %aeron_pos_compare.exit151
-  %286 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %287 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  br label %288
-
-288:                                              ; preds = %aeron_frame_nak_rx_add.exit.i, %.lr.ph.i152
-  %.02.i = phi ptr [ %285, %.lr.ph.i152 ], [ %335, %aeron_frame_nak_rx_add.exit.i ]
-  %289 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.02.i)
-  %.not18.i = icmp eq ptr %289, null
-  br i1 %.not18.i, label %aeron_frame_nak_rx_add.exit.i, label %290
-
-290:                                              ; preds = %288
-  %291 = getelementptr inbounds nuw i8, ptr %289, i64 8
-  %292 = load ptr, ptr %291, align 8
-  %293 = load i32, ptr %292, align 8
-  %294 = load i32, ptr %2, align 8
-  %.not19.i = icmp ugt i32 %293, %294
-  br i1 %.not19.i, label %aeron_frame_nak_rx_add.exit.i, label %295
-
-295:                                              ; preds = %290
-  %296 = getelementptr inbounds nuw i8, ptr %289, i64 16
-  %297 = load i32, ptr %296, align 8
-  %298 = load i32, ptr %286, align 4
-  %.not20.i = icmp ugt i32 %297, %298
-  br i1 %.not20.i, label %aeron_frame_nak_rx_add.exit.i, label %299
-
-299:                                              ; preds = %295
-  %300 = getelementptr inbounds nuw i8, ptr %289, i64 20
-  %301 = load i32, ptr %300, align 4
-  %302 = load i32, ptr %243, align 8
-  %.not21.i = icmp ult i32 %301, %302
-  br i1 %.not21.i, label %aeron_frame_nak_rx_add.exit.i, label %303
-
-303:                                              ; preds = %299
-  %304 = getelementptr inbounds nuw i8, ptr %292, i64 48
-  %305 = load ptr, ptr %304, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %305, i64 28
-  %307 = load i32, ptr %306, align 4
-  %.not.i.i153 = icmp ult i32 %307, %302
-  br i1 %.not.i.i153, label %aeron_frame_nak_rx_add.exit.i, label %308
-
-308:                                              ; preds = %303
-  %309 = getelementptr inbounds nuw i8, ptr %305, i64 8
-  %310 = load ptr, ptr %309, align 8
-  %311 = tail call ptr @wmem_list_head(ptr noundef %310)
-  %.not2426.i.i = icmp eq ptr %311, null
-  br i1 %.not2426.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i154
-
-.lr.ph.i.i154:                                    ; preds = %308, %321
-  %.027.i.i = phi ptr [ %322, %321 ], [ %311, %308 ]
-  %312 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.027.i.i)
-  %.not25.i.i = icmp eq ptr %312, null
-  br i1 %.not25.i.i, label %321, label %313
-
-313:                                              ; preds = %.lr.ph.i.i154
-  %314 = getelementptr inbounds nuw i8, ptr %312, i64 8
-  %315 = load i32, ptr %314, align 8
-  %316 = icmp eq i32 %315, %298
-  br i1 %316, label %317, label %321
-
-317:                                              ; preds = %313
-  %318 = getelementptr inbounds nuw i8, ptr %312, i64 12
-  %319 = load i32, ptr %318, align 4
-  %320 = icmp eq i32 %319, %302
-  br i1 %320, label %aeron_frame_nak_rx_add.exit.i, label %321
-
-321:                                              ; preds = %317, %313, %.lr.ph.i.i154
-  %322 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.027.i.i)
-  %.not24.i.i = icmp eq ptr %322, null
-  br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i154, !llvm.loop !13
-
-._crit_edge.i.i:                                  ; preds = %321, %308
-  %323 = tail call ptr @wmem_file_scope()
-  %324 = tail call noalias dereferenceable_or_null(16) ptr @wmem_alloc0(ptr noundef %323, i64 noundef 16) #13
-  store ptr %2, ptr %324, align 8
-  %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
-  store i32 %298, ptr %325, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %324, i64 12
-  store i32 %302, ptr %326, align 4
-  %327 = load ptr, ptr %304, align 8
-  %328 = getelementptr inbounds nuw i8, ptr %327, i64 8
-  %329 = load ptr, ptr %328, align 8
-  tail call void @wmem_list_append(ptr noundef %329, ptr noundef %324)
-  %330 = load ptr, ptr %304, align 8
-  %331 = getelementptr inbounds nuw i8, ptr %330, i64 28
-  %332 = load i32, ptr %331, align 4
-  %333 = sub i32 %332, %302
-  store i32 %333, ptr %331, align 4
-  %334 = load ptr, ptr %287, align 8
-  tail call void @wmem_list_append(ptr noundef %334, ptr noundef %292)
-  br label %aeron_frame_nak_rx_add.exit.i
-
-aeron_frame_nak_rx_add.exit.i:                    ; preds = %317, %._crit_edge.i.i, %303, %299, %295, %290, %288
-  %335 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.02.i)
-  %.not.i155 = icmp eq ptr %335, null
-  br i1 %.not.i155, label %aeron_pos_add_length.exit149.thread211, label %288, !llvm.loop !14
-
-select.unfold:                                    ; preds = %279, %277
-  %336 = load ptr, ptr %163, align 8
-  %337 = load i32, ptr %336, align 4
-  %338 = or i32 %337, 16
-  store i32 %338, ptr %336, align 4
-  br label %aeron_pos_add_length.exit149.thread211
-
-aeron_pos_add_length.exit149.thread211:           ; preds = %aeron_frame_nak_rx_add.exit.i, %275, %aeron_pos_compare.exit151, %select.unfold, %246, %aeron_pos_compare.exit146, %257, %259, %239
-  %.1122 = phi i32 [ 0, %239 ], [ 0, %275 ], [ 1, %aeron_pos_compare.exit151 ], [ 0, %select.unfold ], [ 1, %259 ], [ 1, %257 ], [ 1, %aeron_pos_compare.exit146 ], [ 2, %246 ], [ 1, %aeron_frame_nak_rx_add.exit.i ]
-  br i1 %5, label %339, label %363
-
-339:                                              ; preds = %aeron_pos_add_length.exit149.thread211
-  %340 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %341 = load i32, ptr %340, align 4
-  %342 = icmp eq i32 %341, 0
-  br i1 %342, label %343, label %363
-
-343:                                              ; preds = %339
-  %344 = load ptr, ptr %163, align 8
-  br label %.sink.split237
-
-345:                                              ; preds = %237
-  br i1 %.0118, label %346, label %363
-
-346:                                              ; preds = %345
-  %347 = icmp eq i32 %.sroa.0170.0, %.sroa.0166.0
-  br i1 %347, label %348, label %352
-
-348:                                              ; preds = %346
-  %349 = icmp eq i32 %.sroa.7.0, %.sroa.6168.0
-  br i1 %349, label %.sink.split, label %350
-
-350:                                              ; preds = %348
-  %351 = icmp ult i32 %.sroa.7.0, %.sroa.6168.0
-  br i1 %351, label %.sink.split, label %357
-
-352:                                              ; preds = %346
-  %353 = icmp ult i32 %.sroa.0170.0, %.sroa.0166.0
-  br i1 %353, label %.sink.split, label %357
-
-.sink.split:                                      ; preds = %352, %350, %348
-  %.sink236 = phi i32 [ 256, %348 ], [ 128, %350 ], [ 128, %352 ]
-  %354 = load ptr, ptr %163, align 8
-  %355 = load i32, ptr %354, align 4
-  %356 = or i32 %355, %.sink236
-  store i32 %356, ptr %354, align 4
-  br label %357
-
-357:                                              ; preds = %.sink.split, %352, %350
-  %358 = load ptr, ptr %163, align 8
-  %359 = getelementptr inbounds nuw i8, ptr %358, i64 24
-  %360 = load i32, ptr %359, align 4
-  %.not139 = icmp eq i32 %.0125, %360
-  br i1 %.not139, label %363, label %.sink.split237
-
-.sink.split237:                                   ; preds = %357, %343
-  %.sink = phi ptr [ %344, %343 ], [ %358, %357 ]
-  %.sink240 = phi i32 [ 1024, %343 ], [ 64, %357 ]
-  %.0121.ph = phi i32 [ %.1122, %343 ], [ 0, %357 ]
-  %361 = load i32, ptr %.sink, align 4
-  %362 = or i32 %361, %.sink240
-  store i32 %362, ptr %.sink, align 4
-  br label %363
-
-363:                                              ; preds = %.sink.split237, %357, %339, %aeron_pos_add_length.exit149.thread211, %345, %237, %162
-  %.0121 = phi i32 [ 0, %237 ], [ 0, %345 ], [ %.1122, %339 ], [ %.1122, %aeron_pos_add_length.exit149.thread211 ], [ 0, %162 ], [ 0, %357 ], [ %.0121.ph, %.sink.split237 ]
-  %364 = load i16, ptr %14, align 8
-  %switch = icmp ult i16 %364, 2
-  br i1 %switch, label %365, label %455
-
-365:                                              ; preds = %363
-  %366 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %367 = load i32, ptr %366, align 4
-  %368 = getelementptr i8, ptr %4, i64 8
-  %.val141 = load ptr, ptr %368, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  store i32 %367, ptr %8, align 4
-  %369 = call ptr @wmem_map_lookup(ptr noundef %.val141, ptr noundef nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  %370 = icmp eq ptr %369, null
-  br i1 %370, label %371, label %aeron_term_fragment_add.exit
-
-371:                                              ; preds = %365
-  %372 = load i32, ptr %366, align 4
-  %373 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %374 = load i32, ptr %373, align 8
-  %375 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %376 = load i32, ptr %375, align 4
-  %.val.i158 = load ptr, ptr %368, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  store i32 %372, ptr %7, align 4
-  %377 = call ptr @wmem_map_lookup(ptr noundef %.val.i158, ptr noundef nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %378 = icmp eq ptr %377, null
-  br i1 %378, label %379, label %aeron_term_fragment_add.exit
-
-379:                                              ; preds = %371
-  %380 = call ptr @wmem_file_scope()
-  %381 = call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %380, i64 noundef 56) #13
-  store ptr %4, ptr %381, align 8
-  %382 = call ptr @wmem_file_scope()
-  %383 = call noalias ptr @wmem_list_new(ptr noundef %382)
-  %384 = getelementptr inbounds nuw i8, ptr %381, i64 8
-  store ptr %383, ptr %384, align 8
-  %385 = getelementptr inbounds nuw i8, ptr %381, i64 16
-  %386 = getelementptr inbounds nuw i8, ptr %381, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %385, i8 0, i64 24, i1 false)
-  store i32 %372, ptr %386, align 8
-  %387 = getelementptr inbounds nuw i8, ptr %381, i64 44
-  store i32 %374, ptr %387, align 4
-  %388 = getelementptr inbounds nuw i8, ptr %381, i64 48
-  store i32 %376, ptr %388, align 8
-  %389 = getelementptr inbounds nuw i8, ptr %381, i64 52
-  store i32 0, ptr %389, align 4
-  %390 = load ptr, ptr %368, align 8
-  %391 = call ptr @wmem_map_insert(ptr noundef %390, ptr noundef nonnull %386, ptr noundef %381)
-  br label %aeron_term_fragment_add.exit
-
-aeron_term_fragment_add.exit:                     ; preds = %379, %371, %365
-  %.0 = phi ptr [ %369, %365 ], [ %381, %379 ], [ %377, %371 ]
-  %392 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %393 = load i32, ptr %392, align 8
-  %.not.i160 = icmp eq i32 %.0121, 0
-  br i1 %.not.i160, label %396, label %394
-
-394:                                              ; preds = %aeron_term_fragment_add.exit
-  %395 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store i32 %.0121, ptr %395, align 8
-  br label %396
-
-396:                                              ; preds = %394, %aeron_term_fragment_add.exit
-  %397 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %398 = load ptr, ptr %397, align 8
-  call void @wmem_list_append(ptr noundef %398, ptr noundef nonnull %2)
-  %399 = getelementptr inbounds nuw i8, ptr %.0, i64 52
-  %400 = load i32, ptr %399, align 4
-  %401 = add i32 %400, 1
-  store i32 %401, ptr %399, align 4
-  %402 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %403 = load ptr, ptr %402, align 8
-  %.not23.i = icmp eq ptr %403, null
-  br i1 %.not23.i, label %410, label %404
-
-404:                                              ; preds = %396
-  %405 = load i32, ptr %403, align 8
-  %406 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %405, ptr %406, align 8
-  %407 = load i32, ptr %2, align 8
-  %408 = load ptr, ptr %402, align 8
-  %409 = getelementptr inbounds nuw i8, ptr %408, i64 36
-  store i32 %407, ptr %409, align 4
-  br label %410
-
-410:                                              ; preds = %404, %396
-  %411 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %412 = load ptr, ptr %411, align 8
-  %413 = icmp eq ptr %412, null
-  br i1 %413, label %414, label %415
-
-414:                                              ; preds = %410
-  store ptr %2, ptr %411, align 8
-  br label %415
-
-415:                                              ; preds = %414, %410
-  %.not24.i = icmp eq i32 %393, 0
-  br i1 %.not24.i, label %421, label %416
-
-416:                                              ; preds = %415
-  %417 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %418 = load ptr, ptr %417, align 8
-  %419 = icmp eq ptr %418, null
-  br i1 %419, label %420, label %421
-
-420:                                              ; preds = %416
-  store ptr %2, ptr %417, align 8
-  br label %421
-
-421:                                              ; preds = %420, %416, %415
-  %422 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  store i32 0, ptr %422, align 4
-  store ptr %2, ptr %402, align 8
-  %423 = load ptr, ptr %.0, align 8
-  %424 = getelementptr inbounds nuw i8, ptr %423, i64 32
-  %425 = load ptr, ptr %424, align 8
-  %.not13.i.i = icmp eq ptr %425, null
-  br i1 %.not13.i.i, label %432, label %426
-
-426:                                              ; preds = %421
-  %427 = load i32, ptr %425, align 8
-  %428 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %427, ptr %428, align 8
-  %429 = load i32, ptr %2, align 8
-  %430 = load ptr, ptr %424, align 8
-  %431 = getelementptr inbounds nuw i8, ptr %430, i64 28
-  store i32 %429, ptr %431, align 4
-  br label %432
-
-432:                                              ; preds = %426, %421
-  %433 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 0, ptr %433, align 4
-  store ptr %2, ptr %424, align 8
-  %434 = load ptr, ptr %423, align 8
-  %435 = getelementptr inbounds nuw i8, ptr %434, i64 32
-  %436 = load ptr, ptr %435, align 8
-  %.not.i.i.i = icmp eq ptr %436, null
-  br i1 %.not.i.i.i, label %443, label %437
-
-437:                                              ; preds = %432
-  %438 = load i32, ptr %436, align 8
-  %439 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %438, ptr %439, align 8
-  %440 = load i32, ptr %2, align 8
-  %441 = load ptr, ptr %435, align 8
-  %442 = getelementptr inbounds nuw i8, ptr %441, i64 20
-  store i32 %440, ptr %442, align 4
-  br label %443
-
-443:                                              ; preds = %437, %432
-  %444 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 0, ptr %444, align 4
-  store ptr %2, ptr %435, align 8
-  %445 = load ptr, ptr %434, align 8
-  %446 = getelementptr inbounds nuw i8, ptr %445, i64 16
-  %447 = load ptr, ptr %446, align 8
-  %.not.i.i.i.i = icmp eq ptr %447, null
-  br i1 %.not.i.i.i.i, label %aeron_fragment_frame_add.exit, label %448
-
-448:                                              ; preds = %443
-  %449 = load i32, ptr %447, align 8
-  %450 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %449, ptr %450, align 8
-  %451 = load i32, ptr %2, align 8
-  %452 = load ptr, ptr %446, align 8
-  %453 = getelementptr inbounds nuw i8, ptr %452, i64 12
-  store i32 %451, ptr %453, align 4
-  br label %aeron_fragment_frame_add.exit
-
-aeron_fragment_frame_add.exit:                    ; preds = %443, %448
-  %454 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 0, ptr %454, align 4
-  store ptr %2, ptr %446, align 8
-  br label %aeron_pos_add_length.exit
-
-455:                                              ; preds = %363
-  %.not.i161 = icmp eq i32 %.0121, 0
-  br i1 %.not.i161, label %458, label %456
-
-456:                                              ; preds = %455
-  %457 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store i32 %.0121, ptr %457, align 8
-  br label %458
-
-458:                                              ; preds = %456, %455
-  %459 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %460 = load ptr, ptr %459, align 8
-  %.not13.i = icmp eq ptr %460, null
-  br i1 %.not13.i, label %467, label %461
-
-461:                                              ; preds = %458
-  %462 = load i32, ptr %460, align 8
-  %463 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %462, ptr %463, align 8
-  %464 = load i32, ptr %2, align 8
-  %465 = load ptr, ptr %459, align 8
-  %466 = getelementptr inbounds nuw i8, ptr %465, i64 28
-  store i32 %464, ptr %466, align 4
-  br label %467
-
-467:                                              ; preds = %461, %458
-  %468 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 0, ptr %468, align 4
-  store ptr %2, ptr %459, align 8
-  %469 = load ptr, ptr %4, align 8
-  %470 = getelementptr inbounds nuw i8, ptr %469, i64 32
-  %471 = load ptr, ptr %470, align 8
-  %.not.i.i162 = icmp eq ptr %471, null
-  br i1 %.not.i.i162, label %478, label %472
-
-472:                                              ; preds = %467
-  %473 = load i32, ptr %471, align 8
-  %474 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %473, ptr %474, align 8
-  %475 = load i32, ptr %2, align 8
-  %476 = load ptr, ptr %470, align 8
-  %477 = getelementptr inbounds nuw i8, ptr %476, i64 20
-  store i32 %475, ptr %477, align 4
-  br label %478
-
-478:                                              ; preds = %472, %467
-  %479 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 0, ptr %479, align 4
-  store ptr %2, ptr %470, align 8
-  %480 = load ptr, ptr %469, align 8
-  %481 = getelementptr inbounds nuw i8, ptr %480, i64 16
-  %482 = load ptr, ptr %481, align 8
-  %.not.i.i.i163 = icmp eq ptr %482, null
-  br i1 %.not.i.i.i163, label %aeron_term_frame_add.exit, label %483
-
-483:                                              ; preds = %478
-  %484 = load i32, ptr %482, align 8
-  %485 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %484, ptr %485, align 8
-  %486 = load i32, ptr %2, align 8
-  %487 = load ptr, ptr %481, align 8
-  %488 = getelementptr inbounds nuw i8, ptr %487, i64 12
-  store i32 %486, ptr %488, align 4
-  br label %aeron_term_frame_add.exit
-
-aeron_term_frame_add.exit:                        ; preds = %478, %483
-  %489 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 0, ptr %489, align 4
-  store ptr %2, ptr %481, align 8
-  br label %aeron_pos_add_length.exit
-
-aeron_pos_add_length.exit:                        ; preds = %268, %263, %110, %99, %aeron_fragment_frame_add.exit, %aeron_term_frame_add.exit
-  %.0116 = phi i32 [ 0, %aeron_term_frame_add.exit ], [ 0, %aeron_fragment_frame_add.exit ], [ -1, %99 ], [ -1, %110 ], [ -1, %263 ], [ -1, %268 ]
-  ret i32 %.0116
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @aeron_term_frame_add(ptr noundef captures(none) %0, ptr noundef nonnull initializes((28, 32)) %1, i32 noundef range(i32 0, 3) %2) unnamed_addr #7 {
-  %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %6, label %4
-
-4:                                                ; preds = %3
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i32 %2, ptr %5, align 8
-  br label %6
-
-6:                                                ; preds = %4, %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8
-  %.not13 = icmp eq ptr %8, null
-  br i1 %.not13, label %15, label %9
-
-9:                                                ; preds = %6
-  %10 = load i32, ptr %8, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %10, ptr %11, align 8
-  %12 = load i32, ptr %1, align 8
-  %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  store i32 %12, ptr %14, align 4
-  br label %15
-
-15:                                               ; preds = %9, %6
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 0, ptr %16, align 4
-  store ptr %1, ptr %7, align 8
-  %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %26, label %20
-
-20:                                               ; preds = %15
-  %21 = load i32, ptr %19, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %21, ptr %22, align 8
-  %23 = load i32, ptr %1, align 8
-  %24 = load ptr, ptr %18, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  store i32 %23, ptr %25, align 4
-  br label %26
-
-26:                                               ; preds = %20, %15
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 0, ptr %27, align 4
-  store ptr %1, ptr %18, align 8
-  %28 = load ptr, ptr %17, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %.not.i.i = icmp eq ptr %30, null
-  br i1 %.not.i.i, label %aeron_stream_frame_add.exit, label %31
-
-31:                                               ; preds = %26
-  %32 = load i32, ptr %30, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %32, ptr %33, align 8
-  %34 = load i32, ptr %1, align 8
-  %35 = load ptr, ptr %29, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  store i32 %34, ptr %36, align 4
-  br label %aeron_stream_frame_add.exit
-
-aeron_stream_frame_add.exit:                      ; preds = %26, %31
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 0, ptr %37, align 4
-  store ptr %1, ptr %29, align 8
-  ret void
-}
-
-; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @aeron_frame_nak_analysis_setup(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @wmem_file_scope()
-  %5 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %4, i64 noundef 24) #13
+  %5 = tail call noalias dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %4, i64 noundef 24) #12
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %6, align 8
@@ -5067,7 +5014,7 @@ define internal fastcc void @aeron_frame_nak_analysis_setup(ptr noundef readonly
   %14 = load ptr, ptr %13, align 8
   tail call void @wmem_list_append(ptr noundef %14, ptr noundef %5)
   %15 = tail call ptr @wmem_file_scope()
-  %16 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %15, i64 noundef 32) #13
+  %16 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %15, i64 noundef 32) #12
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %16, ptr %17, align 8
   store ptr %1, ptr %16, align 8
@@ -5094,7 +5041,7 @@ define internal fastcc void @aeron_frame_nak_analysis_setup(ptr noundef readonly
 declare noalias ptr @wmem_tree_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_list_head(ptr noundef) local_unnamed_addr #2
@@ -5160,7 +5107,7 @@ define internal fastcc ptr @aeron_term_msg_add(ptr noundef nonnull %0, ptr nound
 
 13:                                               ; preds = %8, %3
   %14 = tail call ptr @wmem_file_scope()
-  %15 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #13
+  %15 = tail call noalias dereferenceable_or_null(72) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 72) #12
   %16 = tail call ptr @wmem_file_scope()
   %17 = tail call noalias ptr @wmem_list_new(ptr noundef %16)
   store ptr %17, ptr %15, align 8
@@ -5294,7 +5241,7 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   %41 = tail call ptr @wmem_file_scope()
   %42 = load i32, ptr %6, align 8
   %43 = zext i32 %42 to i64
-  %44 = tail call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef %43) #13
+  %44 = tail call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef %43) #12
   %45 = load ptr, ptr %0, align 8
   %46 = tail call ptr @wmem_list_head(ptr noundef %45)
   %.not6467 = icmp eq ptr %46, null
@@ -5331,7 +5278,7 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
   %62 = tail call i64 @llvm.usub.sat.i64(i64 %43, i64 %.05968)
-  %63 = tail call ptr @__memcpy_chk(ptr noundef %57, ptr noundef %58, i64 noundef range(i64 0, 4294967296) %61, i64 noundef %62) #14, !alias.scope !16
+  %63 = tail call ptr @__memcpy_chk(ptr noundef %57, ptr noundef %58, i64 noundef range(i64 0, 4294967296) %61, i64 noundef %62) #13, !alias.scope !16
   %64 = load i32, ptr %59, align 8
   %65 = zext i32 %64 to i64
   %66 = add i64 %.05968, %65
@@ -5359,22 +5306,22 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   br i1 %74, label %.thread, label %75
 
 75:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, i32 noundef 1988, ptr noundef nonnull @.str.271) #16
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, i32 noundef 1988, ptr noundef nonnull @.str.271) #15
   unreachable
 
 76:                                               ; preds = %._crit_edge
   br i1 %.1, label %77, label %.thread
 
 .thread:                                          ; preds = %._crit_edge.thread, %76
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, i32 noundef 1989, ptr noundef nonnull @.str.272) #16
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, i32 noundef 1989, ptr noundef nonnull @.str.272) #15
   unreachable
 
 77:                                               ; preds = %76
   %78 = load i32, ptr %24, align 4
   %79 = tail call ptr @wmem_packet_scope()
-  %80 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %79, i64 noundef 32) #13
+  %80 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %79, i64 noundef 32) #12
   %81 = tail call ptr @wmem_packet_scope()
-  %82 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %81, i64 noundef 8) #13
+  %82 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %81, i64 noundef 8) #12
   store i32 %78, ptr %82, align 4
   %83 = getelementptr i8, ptr %82, i64 4
   store i32 %.155, ptr %83, align 4
@@ -5395,7 +5342,7 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   br i1 %.not65, label %92, label %93
 
 92:                                               ; preds = %77
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, i32 noundef 1995, ptr noundef nonnull @.str.273) #16
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, i32 noundef 1995, ptr noundef nonnull @.str.273) #15
   unreachable
 
 93:                                               ; preds = %77
@@ -5421,13 +5368,13 @@ declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @tvb_memdup(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #9
+declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @wmem_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -5504,10 +5451,10 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #12
+declare i64 @llvm.usub.sat.i64(i64, i64) #11
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -5516,16 +5463,15 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_
 attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { allocsize(1) }
-attributes #14 = { nounwind }
-attributes #15 = { allocsize(2) }
-attributes #16 = { noreturn }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nounwind null_pointer_is_valid memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { allocsize(1) }
+attributes #13 = { nounwind }
+attributes #14 = { allocsize(2) }
+attributes #15 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

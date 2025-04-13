@@ -2094,24 +2094,22 @@ cleanup187:                                       ; preds = %if.end.i228, %if.en
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #23
   %105 = load ptr, ptr %env_, align 8
   %call192 = call i64 @_ZN4node21SpinEventLoopInternalEPNS_11EnvironmentE(ptr noundef %105) #23
-  %exit_code.sroa.340.0.extract.shift = lshr i64 %call192, 32
-  %exit_code.sroa.340.0.extract.trunc = trunc nuw i64 %exit_code.sroa.340.0.extract.shift to i32
   call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_.i) #23
   %exit_code_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %106 = load i32, ptr %exit_code_, align 8
   %cmp195 = icmp eq i32 %106, 0
-  br i1 %cmp195, label %land.lhs.true, label %if.end200
-
-land.lhs.true:                                    ; preds = %cleanup187
   %tobool.i355 = trunc i64 %call192 to i1
-  br i1 %tobool.i355, label %_ZNKR2v85MaybeIN4node8ExitCodeEE8FromJustEv.exit, label %if.end200
+  %or.cond = select i1 %cmp195, i1 %tobool.i355, i1 false
+  br i1 %or.cond, label %_ZNKR2v85MaybeIN4node8ExitCodeEE8FromJustEv.exit, label %if.end200
 
-_ZNKR2v85MaybeIN4node8ExitCodeEE8FromJustEv.exit: ; preds = %land.lhs.true
+_ZNKR2v85MaybeIN4node8ExitCodeEE8FromJustEv.exit: ; preds = %cleanup187
+  %exit_code.sroa.340.0.extract.shift = lshr i64 %call192, 32
+  %exit_code.sroa.340.0.extract.trunc = trunc nuw i64 %exit_code.sroa.340.0.extract.shift to i32
   store i32 %exit_code.sroa.340.0.extract.trunc, ptr %exit_code_, align 8
   br label %if.end200
 
-if.end200:                                        ; preds = %_ZNKR2v85MaybeIN4node8ExitCodeEE8FromJustEv.exit, %land.lhs.true, %cleanup187
-  %107 = phi i32 [ %exit_code.sroa.340.0.extract.trunc, %_ZNKR2v85MaybeIN4node8ExitCodeEE8FromJustEv.exit ], [ 0, %land.lhs.true ], [ %106, %cleanup187 ]
+if.end200:                                        ; preds = %_ZNKR2v85MaybeIN4node8ExitCodeEE8FromJustEv.exit, %cleanup187
+  %107 = phi i32 [ %exit_code.sroa.340.0.extract.trunc, %_ZNKR2v85MaybeIN4node8ExitCodeEE8FromJustEv.exit ], [ %106, %cleanup187 ]
   store i32 %107, ptr %ref.tmp203, align 4
   %108 = load i32, ptr %provider_type_.i, align 8
   %109 = load ptr, ptr %realm_.i, align 8

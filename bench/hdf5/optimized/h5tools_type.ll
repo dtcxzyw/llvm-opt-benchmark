@@ -108,7 +108,11 @@ define i64 @h5tools_get_little_endian_type(i64 noundef %0) local_unnamed_addr #0
 22:                                               ; preds = %1
   %switch.tableidx = add i64 %3, -1
   %23 = icmp ult i64 %switch.tableidx, 8
-  br i1 %23, label %switch.hole_check, label %29
+  %switch.maskindex = trunc i64 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond47 = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond47, label %switch.lookup, label %29
 
 24:                                               ; preds = %1
   switch i64 %3, label %29 [
@@ -123,13 +127,7 @@ define i64 @h5tools_get_little_endian_type(i64 noundef %0) local_unnamed_addr #0
 26:                                               ; preds = %24
   br label %.sink.split
 
-switch.hole_check:                                ; preds = %22
-  %switch.maskindex = trunc nuw i64 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %29
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %22
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.h5tools_get_little_endian_type, i64 0, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
@@ -140,8 +138,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %28 = tail call i64 @H5Tcopy(i64 noundef %27) #2
   br label %29
 
-29:                                               ; preds = %switch.hole_check, %22, %.sink.split, %24, %19, %1, %18
-  %.0 = phi i64 [ -1, %1 ], [ -1, %18 ], [ -1, %19 ], [ -1, %22 ], [ -1, %24 ], [ %28, %.sink.split ], [ -1, %switch.hole_check ]
+29:                                               ; preds = %22, %.sink.split, %24, %19, %1, %18
+  %.0 = phi i64 [ -1, %1 ], [ -1, %18 ], [ -1, %19 ], [ -1, %22 ], [ -1, %24 ], [ %28, %.sink.split ]
   ret i64 %.0
 }
 
@@ -219,7 +217,11 @@ define i64 @h5tools_get_big_endian_type(i64 noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %1
   %switch.tableidx = add i64 %3, -1
   %23 = icmp ult i64 %switch.tableidx, 8
-  br i1 %23, label %switch.hole_check, label %29
+  %switch.maskindex = trunc i64 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -117, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond47 = select i1 %23, i1 %switch.lobit, i1 false
+  br i1 %or.cond47, label %switch.lookup, label %29
 
 24:                                               ; preds = %1
   switch i64 %3, label %29 [
@@ -234,13 +236,7 @@ define i64 @h5tools_get_big_endian_type(i64 noundef %0) local_unnamed_addr #0 {
 26:                                               ; preds = %24
   br label %.sink.split
 
-switch.hole_check:                                ; preds = %22
-  %switch.maskindex = trunc nuw i64 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -117, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %29
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %22
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.h5tools_get_big_endian_type, i64 0, i64 %switch.tableidx
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
@@ -251,8 +247,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %28 = tail call i64 @H5Tcopy(i64 noundef %27) #2
   br label %29
 
-29:                                               ; preds = %switch.hole_check, %22, %.sink.split, %24, %19, %1, %18
-  %.0 = phi i64 [ -1, %1 ], [ -1, %18 ], [ -1, %19 ], [ -1, %22 ], [ -1, %24 ], [ %28, %.sink.split ], [ -1, %switch.hole_check ]
+29:                                               ; preds = %22, %.sink.split, %24, %19, %1, %18
+  %.0 = phi i64 [ -1, %1 ], [ -1, %18 ], [ -1, %19 ], [ -1, %22 ], [ -1, %24 ], [ %28, %.sink.split ]
   ret i64 %.0
 }
 

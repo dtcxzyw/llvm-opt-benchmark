@@ -758,7 +758,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123MachineFunctionSplitter20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 880
   %11 = load i32, ptr %10, align 8, !tbaa !196
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %200, label %13
+  br i1 %12, label %198, label %13
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %1, align 8, !tbaa !302
@@ -768,441 +768,436 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123MachineFunctionSplitter20
   %16 = load i8, ptr %15, align 8, !tbaa !303, !range !54, !noundef !55
   %17 = trunc nuw i8 %16 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #20
-  br i1 %17, label %21, label %18
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14SplitAllEHCode, i64 120), align 8, !range !54
+  %19 = trunc nuw i8 %18 to i1
+  %or.cond = select i1 %17, i1 true, i1 %19
+  br i1 %or.cond, label %20, label %198
 
-18:                                               ; preds = %13
-  %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14SplitAllEHCode, i64 120), align 8, !tbaa !56, !range !54, !noundef !55
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %21, label %200
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !305
+  %23 = load ptr, ptr %22, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 128
+  %25 = load ptr, ptr %24, align 8
+  %26 = call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(304) %22) #20
+  %27 = load ptr, ptr %26, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1336
+  %29 = load ptr, ptr %28, align 8
+  %30 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef nonnull align 8 dereferenceable(1065) %1) #20
+  br i1 %30, label %31, label %198
 
-21:                                               ; preds = %18, %13
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !305
-  %24 = load ptr, ptr %23, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 128
-  %26 = load ptr, ptr %25, align 8
-  %27 = call noundef ptr %26(ptr noundef nonnull align 8 dereferenceable(304) %23) #20
-  %28 = load ptr, ptr %27, align 8, !tbaa !3
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1336
-  %30 = load ptr, ptr %29, align 8
-  %31 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull align 8 dereferenceable(1065) %1) #20
-  br i1 %31, label %32, label %200
-
-32:                                               ; preds = %21
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !77
-  %35 = call noundef ptr @_ZNK4llvm16AnalysisResolver22getAnalysisIfAvailableEPKv(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @_ZN4llvm42BasicBlockSectionsProfileReaderWrapperPass2IDE) #20
-  %.not.i = icmp eq ptr %35, null
+31:                                               ; preds = %20
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !77
+  %34 = call noundef ptr @_ZNK4llvm16AnalysisResolver22getAnalysisIfAvailableEPKv(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull @_ZN4llvm42BasicBlockSectionsProfileReaderWrapperPass2IDE) #20
+  %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread, label %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit
 
-_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit: ; preds = %32
-  %36 = load ptr, ptr %35, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
-  %38 = load ptr, ptr %37, align 8
-  %39 = call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(28) %35, ptr noundef nonnull @_ZN4llvm42BasicBlockSectionsProfileReaderWrapperPass2IDE) #20
-  %.not = icmp eq ptr %39, null
-  br i1 %.not, label %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread, label %40
+_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit: ; preds = %31
+  %35 = load ptr, ptr %34, align 8, !tbaa !3
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
+  %37 = load ptr, ptr %36, align 8
+  %38 = call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(28) %34, ptr noundef nonnull @_ZN4llvm42BasicBlockSectionsProfileReaderWrapperPass2IDE) #20
+  %.not = icmp eq ptr %38, null
+  br i1 %.not, label %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread, label %39
 
-40:                                               ; preds = %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit
-  %41 = call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm42BasicBlockSectionsProfileReaderWrapperPass8getBBSPREv(ptr noundef nonnull align 8 dereferenceable(176) %39) #20
-  %42 = call { ptr, i64 } @_ZNK4llvm15MachineFunction7getNameEv(ptr noundef nonnull align 8 dereferenceable(1065) %1) #20
-  %43 = extractvalue { ptr, i64 } %42, 0
-  %44 = extractvalue { ptr, i64 } %42, 1
-  %45 = call noundef zeroext i1 @_ZNK4llvm31BasicBlockSectionsProfileReader13isFunctionHotENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %41, ptr %43, i64 %44) #20
-  br i1 %45, label %200, label %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread
+39:                                               ; preds = %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit
+  %40 = call noundef nonnull align 8 dereferenceable(144) ptr @_ZN4llvm42BasicBlockSectionsProfileReaderWrapperPass8getBBSPREv(ptr noundef nonnull align 8 dereferenceable(176) %38) #20
+  %41 = call { ptr, i64 } @_ZNK4llvm15MachineFunction7getNameEv(ptr noundef nonnull align 8 dereferenceable(1065) %1) #20
+  %42 = extractvalue { ptr, i64 } %41, 0
+  %43 = extractvalue { ptr, i64 } %41, 1
+  %44 = call noundef zeroext i1 @_ZNK4llvm31BasicBlockSectionsProfileReader13isFunctionHotENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(144) %40, ptr %42, i64 %43) #20
+  br i1 %44, label %198, label %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread
 
-_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread: ; preds = %32, %40, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit
+_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread: ; preds = %31, %39, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit
   call void @_ZN4llvm15MachineFunction14RenumberBlocksEPNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr noundef null) #20
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 564
-  store i32 2, ptr %46, align 4, !tbaa !306
-  br i1 %17, label %47, label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 564
+  store i32 2, ptr %45, align 4, !tbaa !306
+  br i1 %17, label %46, label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread
 
-47:                                               ; preds = %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread
-  %48 = load ptr, ptr %33, align 8, !tbaa !77
-  %49 = load ptr, ptr %48, align 8, !tbaa !307
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !307
-  %.not1114.i.i.i = icmp ne ptr %49, %51
+46:                                               ; preds = %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread
+  %47 = load ptr, ptr %32, align 8, !tbaa !77
+  %48 = load ptr, ptr %47, align 8, !tbaa !307
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !307
+  %.not1114.i.i.i = icmp ne ptr %48, %50
   call void @llvm.assume(i1 %.not1114.i.i.i)
-  %52 = load ptr, ptr %49, align 8, !tbaa !309
-  %.not.i4.i.i = icmp eq ptr %52, @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE
+  %51 = load ptr, ptr %48, align 8, !tbaa !309
+  %.not.i4.i.i = icmp eq ptr %51, @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE
   br i1 %.not.i4.i.i, label %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %47, %.lr.ph.i.i.i
-  %.sroa.08.015.i5.i.i = phi ptr [ %53, %.lr.ph.i.i.i ], [ %49, %47 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i5.i.i, i64 16
-  %.not11.i.i.i = icmp ne ptr %53, %51
+.lr.ph.i.i.i:                                     ; preds = %46, %.lr.ph.i.i.i
+  %.sroa.08.015.i5.i.i = phi ptr [ %52, %.lr.ph.i.i.i ], [ %48, %46 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i5.i.i, i64 16
+  %.not11.i.i.i = icmp ne ptr %52, %50
   call void @llvm.assume(i1 %.not11.i.i.i)
-  %54 = load ptr, ptr %53, align 8, !tbaa !309
-  %.not.i.i.i = icmp eq ptr %54, @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE
+  %53 = load ptr, ptr %52, align 8, !tbaa !309
+  %.not.i.i.i = icmp eq ptr %53, @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE
   br i1 %.not.i.i.i, label %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i
 
-_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit: ; preds = %.lr.ph.i.i.i, %47
-  %.sroa.08.015.i.lcssa.i.i = phi ptr [ %49, %47 ], [ %53, %.lr.ph.i.i.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i.lcssa.i.i, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !3
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
-  %59 = load ptr, ptr %58, align 8
-  %60 = call noundef nonnull align 8 dereferenceable(64) ptr %59(ptr noundef nonnull align 8 dereferenceable(28) %56, ptr noundef nonnull @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE) #20
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 56
-  %62 = load ptr, ptr %33, align 8, !tbaa !77
-  %63 = load ptr, ptr %62, align 8, !tbaa !307
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !307
-  %.not1114.i.i.i64 = icmp ne ptr %63, %65
+_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit: ; preds = %.lr.ph.i.i.i, %46
+  %.sroa.08.015.i.lcssa.i.i = phi ptr [ %48, %46 ], [ %52, %.lr.ph.i.i.i ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i.lcssa.i.i, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %55, align 8, !tbaa !3
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 96
+  %58 = load ptr, ptr %57, align 8
+  %59 = call noundef nonnull align 8 dereferenceable(64) ptr %58(ptr noundef nonnull align 8 dereferenceable(28) %55, ptr noundef nonnull @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE) #20
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 56
+  %61 = load ptr, ptr %32, align 8, !tbaa !77
+  %62 = load ptr, ptr %61, align 8, !tbaa !307
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !307
+  %.not1114.i.i.i64 = icmp ne ptr %62, %64
   call void @llvm.assume(i1 %.not1114.i.i.i64)
-  %66 = load ptr, ptr %63, align 8, !tbaa !309
-  %.not.i4.i.i65 = icmp eq ptr %66, @_ZN4llvm29ProfileSummaryInfoWrapperPass2IDE
+  %65 = load ptr, ptr %62, align 8, !tbaa !309
+  %.not.i4.i.i65 = icmp eq ptr %65, @_ZN4llvm29ProfileSummaryInfoWrapperPass2IDE
   br i1 %.not.i4.i.i65, label %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i66
 
 .lr.ph.i.i.i66:                                   ; preds = %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit, %.lr.ph.i.i.i66
-  %.sroa.08.015.i5.i.i67 = phi ptr [ %67, %.lr.ph.i.i.i66 ], [ %63, %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit ]
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i5.i.i67, i64 16
-  %.not11.i.i.i68 = icmp ne ptr %67, %65
+  %.sroa.08.015.i5.i.i67 = phi ptr [ %66, %.lr.ph.i.i.i66 ], [ %62, %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit ]
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i5.i.i67, i64 16
+  %.not11.i.i.i68 = icmp ne ptr %66, %64
   call void @llvm.assume(i1 %.not11.i.i.i68)
-  %68 = load ptr, ptr %67, align 8, !tbaa !309
-  %.not.i.i.i69 = icmp eq ptr %68, @_ZN4llvm29ProfileSummaryInfoWrapperPass2IDE
+  %67 = load ptr, ptr %66, align 8, !tbaa !309
+  %.not.i.i.i69 = icmp eq ptr %67, @_ZN4llvm29ProfileSummaryInfoWrapperPass2IDE
   br i1 %.not.i.i.i69, label %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit, label %.lr.ph.i.i.i66
 
 _ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit: ; preds = %.lr.ph.i.i.i66, %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit
-  %.sroa.08.015.i.lcssa.i.i70 = phi ptr [ %63, %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit ], [ %67, %.lr.ph.i.i.i66 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i.lcssa.i.i70, i64 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !3
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 96
-  %73 = load ptr, ptr %72, align 8
-  %74 = call noundef nonnull align 8 dereferenceable(40) ptr %73(ptr noundef nonnull align 8 dereferenceable(28) %70, ptr noundef nonnull @_ZN4llvm29ProfileSummaryInfoWrapperPass2IDE) #20
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %76 = load ptr, ptr %75, align 8, !tbaa !312
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !314
-  %.not.i71 = icmp eq ptr %78, null
+  %.sroa.08.015.i.lcssa.i.i70 = phi ptr [ %62, %_ZNK4llvm4Pass11getAnalysisINS_36MachineBlockFrequencyInfoWrapperPassEEERT_v.exit ], [ %66, %.lr.ph.i.i.i66 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.08.015.i.lcssa.i.i70, i64 8
+  %69 = load ptr, ptr %68, align 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !3
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 96
+  %72 = load ptr, ptr %71, align 8
+  %73 = call noundef nonnull align 8 dereferenceable(40) ptr %72(ptr noundef nonnull align 8 dereferenceable(28) %69, ptr noundef nonnull @_ZN4llvm29ProfileSummaryInfoWrapperPass2IDE) #20
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
+  %75 = load ptr, ptr %74, align 8, !tbaa !312
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !314
+  %.not.i71 = icmp eq ptr %77, null
   br i1 %.not.i71, label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread, label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit
 
 _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit: ; preds = %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit
-  %79 = load i32, ptr %78, align 8, !tbaa !316
-  %80 = icmp eq i32 %79, 2
-  br i1 %80, label %81, label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread
+  %78 = load i32, ptr %77, align 8, !tbaa !316
+  %79 = icmp eq i32 %78, 2
+  br i1 %79, label %80, label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread
 
-81:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit
+80:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #20
-  call void @_ZNK4llvm18ProfileSummaryInfo13getEntryCountINS_15MachineFunctionEEESt8optionalINS_8Function12ProfileCountEEPKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.302") align 8 %5, ptr noundef nonnull align 8 dereferenceable(80) %76, ptr noundef nonnull %1) #20
-  %82 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %83 = load i8, ptr %82, align 8, !tbaa !303, !range !54, !noundef !55
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %85, label %89
+  call void @_ZNK4llvm18ProfileSummaryInfo13getEntryCountINS_15MachineFunctionEEESt8optionalINS_8Function12ProfileCountEEPKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.302") align 8 %5, ptr noundef nonnull align 8 dereferenceable(80) %75, ptr noundef nonnull %1) #20
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %82 = load i8, ptr %81, align 8, !tbaa !303, !range !54, !noundef !55
+  %83 = trunc nuw i8 %82 to i1
+  br i1 %83, label %84, label %88
 
-85:                                               ; preds = %81
-  %86 = load i64, ptr %5, align 8, !tbaa !325
-  %87 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo10isHotCountEm(ptr noundef nonnull align 8 dereferenceable(80) %76, i64 noundef %86) #20
-  br i1 %87, label %88, label %89
+84:                                               ; preds = %80
+  %85 = load i64, ptr %5, align 8, !tbaa !325
+  %86 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo10isHotCountEm(ptr noundef nonnull align 8 dereferenceable(80) %75, i64 noundef %85) #20
+  br i1 %86, label %87, label %88
 
-88:                                               ; preds = %85
+87:                                               ; preds = %84
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
   br label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread
 
-89:                                               ; preds = %85, %81
+88:                                               ; preds = %84, %80
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %.sroa.022.031.i = load ptr, ptr %90, align 8, !tbaa !328
-  %.not3032.not.i = icmp eq ptr %.sroa.022.031.i, %91
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %.sroa.022.031.i = load ptr, ptr %89, align 8, !tbaa !328
+  %.not3032.not.i = icmp eq ptr %.sroa.022.031.i, %90
   br i1 %.not3032.not.i, label %_ZNK4llvm18ProfileSummaryInfo24isFunctionHotInCallGraphINS_15MachineFunctionENS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %89, %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.thread.i
-  %.sroa.022.033.i = phi ptr [ %.sroa.022.0.i, %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.thread.i ], [ %.sroa.022.031.i, %89 ]
-  %92 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull %.sroa.022.033.i) #20
-  %93 = extractvalue { i64, i8 } %92, 1
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.i, label %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.thread.i
+.lr.ph.i:                                         ; preds = %88, %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.thread.i
+  %.sroa.022.033.i = phi ptr [ %.sroa.022.0.i, %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.thread.i ], [ %.sroa.022.031.i, %88 ]
+  %91 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef nonnull %.sroa.022.033.i) #20
+  %92 = extractvalue { i64, i8 } %91, 1
+  %93 = trunc nuw i8 %92 to i1
+  br i1 %93, label %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.i, label %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.thread.i
 
 _ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.i: ; preds = %.lr.ph.i
-  %95 = extractvalue { i64, i8 } %92, 0
-  %96 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo10isHotCountEm(ptr noundef nonnull align 8 dereferenceable(80) %76, i64 noundef %95) #20
-  br i1 %96, label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread, label %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.thread.i
+  %94 = extractvalue { i64, i8 } %91, 0
+  %95 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo10isHotCountEm(ptr noundef nonnull align 8 dereferenceable(80) %75, i64 noundef %94) #20
+  br i1 %95, label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread, label %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.thread.i
 
 _ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.thread.i: ; preds = %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.i, %.lr.ph.i
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.022.033.i, i64 8
-  %.sroa.022.0.i = load ptr, ptr %97, align 8, !tbaa !328
-  %.not30.not.i = icmp eq ptr %.sroa.022.0.i, %91
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.022.033.i, i64 8
+  %.sroa.022.0.i = load ptr, ptr %96, align 8, !tbaa !328
+  %.not30.not.i = icmp eq ptr %.sroa.022.0.i, %90
   br i1 %.not30.not.i, label %_ZNK4llvm18ProfileSummaryInfo24isFunctionHotInCallGraphINS_15MachineFunctionENS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit, label %.lr.ph.i
 
-_ZNK4llvm18ProfileSummaryInfo24isFunctionHotInCallGraphINS_15MachineFunctionENS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit: ; preds = %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.thread.i, %89
-  %98 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14SplitAllEHCode, i64 120), align 8, !tbaa !56, !range !54, !noundef !55
-  %99 = trunc nuw i8 %98 to i1
-  br i1 %99, label %100, label %101
+_ZNK4llvm18ProfileSummaryInfo24isFunctionHotInCallGraphINS_15MachineFunctionENS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit: ; preds = %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.thread.i, %88
+  %97 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14SplitAllEHCode, i64 120), align 8, !tbaa !56, !range !54, !noundef !55
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %99, label %100
 
-100:                                              ; preds = %_ZNK4llvm18ProfileSummaryInfo24isFunctionHotInCallGraphINS_15MachineFunctionENS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit
+99:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo24isFunctionHotInCallGraphINS_15MachineFunctionENS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit
   call fastcc void @_ZL25setDescendantEHBlocksColdRN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1065) %1)
-  br label %101
+  br label %100
 
-101:                                              ; preds = %100, %_ZNK4llvm18ProfileSummaryInfo24isFunctionHotInCallGraphINS_15MachineFunctionENS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit
+100:                                              ; preds = %99, %_ZNK4llvm18ProfileSummaryInfo24isFunctionHotInCallGraphINS_15MachineFunctionENS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #20
-  %102 = ptrtoint ptr %4 to i64
-  call void @_ZN4llvm32sortBasicBlocksAndUpdateBranchesERNS_15MachineFunctionENS_12function_refIFbRKNS_17MachineBasicBlockES5_EEE(ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr nonnull @"_ZN4llvm12function_refIFbRKNS_17MachineBasicBlockES3_EE11callback_fnIZL40finishAdjustingBasicBlocksAndLandingPadsRNS_15MachineFunctionEE3$_0EEblS3_S3_", i64 %102) #20
+  %101 = ptrtoint ptr %4 to i64
+  call void @_ZN4llvm32sortBasicBlocksAndUpdateBranchesERNS_15MachineFunctionENS_12function_refIFbRKNS_17MachineBasicBlockES5_EEE(ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr nonnull @"_ZN4llvm12function_refIFbRKNS_17MachineBasicBlockES3_EE11callback_fnIZL40finishAdjustingBasicBlocksAndLandingPadsRNS_15MachineFunctionEE3$_0EEblS3_S3_", i64 %101) #20
   call void @_ZN4llvm25avoidZeroOffsetLandingPadERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1065) %1) #20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #20
-  br label %200
+  br label %198
 
-_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread: ; preds = %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.i, %88, %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit, %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread
-  %.057 = phi ptr [ %76, %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit ], [ null, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread ], [ %76, %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit ], [ %76, %88 ], [ %76, %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.i ]
-  %.055 = phi ptr [ %61, %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit ], [ null, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread ], [ %61, %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit ], [ %61, %88 ], [ %61, %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.i ]
+_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread: ; preds = %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.i, %87, %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit, %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread
+  %.057 = phi ptr [ %75, %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit ], [ null, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread ], [ %75, %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit ], [ %75, %87 ], [ %75, %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.i ]
+  %.055 = phi ptr [ %60, %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit ], [ null, %_ZNK4llvm4Pass22getAnalysisIfAvailableINS_42BasicBlockSectionsProfileReaderWrapperPassEEEPT_v.exit.thread ], [ %60, %_ZNK4llvm4Pass11getAnalysisINS_29ProfileSummaryInfoWrapperPassEEERT_v.exit ], [ %60, %87 ], [ %60, %_ZNK4llvm18ProfileSummaryInfo10isHotBlockINS_17MachineBasicBlockENS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
-  %103 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %103, ptr %7, align 8, !tbaa !25
-  %104 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 0, ptr %104, align 8, !tbaa !26
-  %105 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 2, ptr %105, align 4, !tbaa !27
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %.sroa.082.0102 = load ptr, ptr %106, align 8, !tbaa !328
-  %.not100103 = icmp eq ptr %.sroa.082.0102, %107
-  br i1 %.not100103, label %._crit_edge, label %.lr.ph
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %102, ptr %7, align 8, !tbaa !25
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 0, ptr %103, align 8, !tbaa !26
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 2, ptr %104, align 4, !tbaa !27
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %.sroa.085.0111 = load ptr, ptr %105, align 8, !tbaa !328
+  %.not109112 = icmp eq ptr %.sroa.085.0111, %106
+  br i1 %.not109112, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread
-  %108 = getelementptr inbounds nuw i8, ptr %.057, i64 8
-  br label %111
+  %107 = getelementptr inbounds nuw i8, ptr %.057, i64 8
+  br label %110
 
-._crit_edge:                                      ; preds = %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread89, %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread
-  %109 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14SplitAllEHCode, i64 120), align 8, !tbaa !56, !range !54, !noundef !55
-  %110 = trunc nuw i8 %109 to i1
-  br i1 %110, label %158, label %159
+._crit_edge:                                      ; preds = %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread92, %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread
+  %108 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14SplitAllEHCode, i64 120), align 8, !tbaa !56, !range !54, !noundef !55
+  %109 = trunc nuw i8 %108 to i1
+  br i1 %109, label %156, label %157
 
-111:                                              ; preds = %.lr.ph, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread89
-  %.sroa.082.0104 = phi ptr [ %.sroa.082.0102, %.lr.ph ], [ %.sroa.082.0, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread89 ]
-  %112 = call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock12isEntryBlockEv(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.082.0104) #20
-  br i1 %112, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread89, label %113
+110:                                              ; preds = %.lr.ph, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread92
+  %.sroa.085.0113 = phi ptr [ %.sroa.085.0111, %.lr.ph ], [ %.sroa.085.0, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread92 ]
+  %111 = call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock12isEntryBlockEv(ptr noundef nonnull align 8 dereferenceable(288) %.sroa.085.0113) #20
+  br i1 %111, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread92, label %112
 
-113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.082.0104, i64 216
-  %115 = load i8, ptr %114, align 8, !tbaa !329, !range !54, !noundef !55
-  %116 = trunc nuw i8 %115 to i1
-  br i1 %116, label %117, label %130
+112:                                              ; preds = %110
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.085.0113, i64 216
+  %114 = load i8, ptr %113, align 8, !tbaa !329, !range !54, !noundef !55
+  %115 = trunc nuw i8 %114 to i1
+  br i1 %115, label %116, label %129
 
-117:                                              ; preds = %113
-  %118 = load i32, ptr %104, align 8, !tbaa !26
-  %119 = load i32, ptr %105, align 4, !tbaa !27
-  %.not.i.i.not.i = icmp ult i32 %118, %119
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.exit, label %120, !prof !33
+116:                                              ; preds = %112
+  %117 = load i32, ptr %103, align 8, !tbaa !26
+  %118 = load i32, ptr %104, align 4, !tbaa !27
+  %.not.i.i.not.i = icmp ult i32 %117, %118
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.exit, label %119, !prof !33
 
-120:                                              ; preds = %117
-  %121 = zext i32 %118 to i64
-  %122 = add nuw nsw i64 %121, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %103, i64 noundef %122, i64 noundef 8) #20
-  %.pre.i = load i32, ptr %104, align 8, !tbaa !26
+119:                                              ; preds = %116
+  %120 = zext i32 %117 to i64
+  %121 = add nuw nsw i64 %120, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %102, i64 noundef %121, i64 noundef 8) #20
+  %.pre.i = load i32, ptr %103, align 8, !tbaa !26
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.exit: ; preds = %117, %120
-  %123 = phi i32 [ %118, %117 ], [ %.pre.i, %120 ]
-  %124 = load ptr, ptr %7, align 8, !tbaa !25
-  %125 = zext i32 %123 to i64
-  %126 = getelementptr inbounds nuw ptr, ptr %124, i64 %125
-  %127 = ptrtoint ptr %.sroa.082.0104 to i64
-  store i64 %127, ptr %126, align 1
-  %128 = load i32, ptr %104, align 8, !tbaa !26
-  %129 = add i32 %128, 1
-  store i32 %129, ptr %104, align 8, !tbaa !26
-  br label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread89
+_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.exit: ; preds = %116, %119
+  %122 = phi i32 [ %117, %116 ], [ %.pre.i, %119 ]
+  %123 = load ptr, ptr %7, align 8, !tbaa !25
+  %124 = zext i32 %122 to i64
+  %125 = getelementptr inbounds nuw ptr, ptr %123, i64 %124
+  %126 = ptrtoint ptr %.sroa.085.0113 to i64
+  store i64 %126, ptr %125, align 1
+  %127 = load i32, ptr %103, align 8, !tbaa !26
+  %128 = add i32 %127, 1
+  store i32 %128, ptr %103, align 8, !tbaa !26
+  br label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread92
 
-130:                                              ; preds = %113
-  br i1 %17, label %131, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread89
+129:                                              ; preds = %112
+  br i1 %17, label %130, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread92
 
-131:                                              ; preds = %130
-  %132 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %.055, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.082.0104) #20
-  %133 = extractvalue { i64, i8 } %132, 0
-  %134 = extractvalue { i64, i8 } %132, 1
-  %135 = load ptr, ptr %108, align 8, !tbaa !314
-  %.not.i.i = icmp eq ptr %135, null
+130:                                              ; preds = %129
+  %131 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %.055, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.085.0113) #20
+  %132 = extractvalue { i64, i8 } %131, 0
+  %133 = extractvalue { i64, i8 } %131, 1
+  %134 = load ptr, ptr %107, align 8, !tbaa !314
+  %.not.i.i = icmp eq ptr %134, null
   br i1 %.not.i.i, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit, label %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i
 
-_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i: ; preds = %131
-  %136 = load i32, ptr %135, align 8, !tbaa !316
-  switch i32 %136, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit [
-    i32 0, label %137
-    i32 1, label %137
-    i32 2, label %143
-  ]
+_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i: ; preds = %130
+  %135 = load i32, ptr %134, align 8, !tbaa !316
+  %switch.i = icmp ult i32 %135, 2
+  br i1 %switch.i, label %136, label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i
 
-137:                                              ; preds = %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i, %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i
-  %138 = trunc nuw i8 %134 to i1
-  br i1 %138, label %139, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread
+136:                                              ; preds = %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i
+  %137 = trunc nuw i8 %133 to i1
+  br i1 %137, label %138, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread
 
-139:                                              ; preds = %137
-  %140 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16PercentileCutoff, i64 120), align 8, !tbaa !34
-  %.not.i75 = icmp eq i32 %140, 0
-  br i1 %.not.i75, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit, label %141
+138:                                              ; preds = %136
+  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16PercentileCutoff, i64 120), align 8, !tbaa !34
+  %.not.i75 = icmp eq i32 %139, 0
+  br i1 %.not.i75, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit, label %140
 
-141:                                              ; preds = %139
-  %142 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo24isColdCountNthPercentileEim(ptr noundef nonnull align 8 dereferenceable(80) %.057, i32 noundef %140, i64 noundef %133) #20
-  br i1 %142, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread89
+140:                                              ; preds = %138
+  %141 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo24isColdCountNthPercentileEim(ptr noundef nonnull align 8 dereferenceable(80) %.057, i32 noundef %139, i64 noundef %132) #20
+  br i1 %141, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread92
 
-143:                                              ; preds = %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i
-  %144 = trunc nuw i8 %134 to i1
-  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL18ColdCountThreshold, i64 120), align 8
-  %146 = zext i32 %145 to i64
-  %147 = icmp ult i64 %133, %146
-  %or.cond = select i1 %144, i1 %147, i1 false
-  br i1 %or.cond, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread89
+_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i: ; preds = %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i
+  %142 = icmp ne i32 %135, 2
+  %143 = trunc nuw i8 %133 to i1
+  %or.cond.i = select i1 %142, i1 true, i1 %143
+  %144 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL18ColdCountThreshold, i64 120), align 8
+  %145 = zext i32 %144 to i64
+  %146 = icmp ult i64 %132, %145
+  %or.cond100 = select i1 %or.cond.i, i1 %146, i1 false
+  br i1 %or.cond100, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread92
 
-_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit: ; preds = %131, %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i, %139
+_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit: ; preds = %130, %138
   %.old = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL18ColdCountThreshold, i64 120), align 8, !tbaa !34
-  %.old94 = zext i32 %.old to i64
-  %.old95 = icmp ult i64 %133, %.old94
-  br i1 %.old95, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread89
+  %.old98 = zext i32 %.old to i64
+  %.old99 = icmp ult i64 %132, %.old98
+  br i1 %.old99, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread92
 
-_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread: ; preds = %143, %137, %141, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit
-  %148 = load ptr, ptr %27, align 8, !tbaa !3
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 1344
-  %150 = load ptr, ptr %149, align 8
-  %151 = call noundef zeroext i1 %150(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.082.0104) #20
-  br i1 %151, label %152, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread89
+_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread: ; preds = %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i, %136, %140, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit
+  %147 = load ptr, ptr %26, align 8, !tbaa !3
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 1344
+  %149 = load ptr, ptr %148, align 8
+  %150 = call noundef zeroext i1 %149(ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.085.0113) #20
+  %.not101 = xor i1 %150, true
+  %151 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14SplitAllEHCode, i64 120), align 8, !range !54
+  %152 = trunc nuw i8 %151 to i1
+  %or.cond104 = select i1 %.not101, i1 true, i1 %152
+  br i1 %or.cond104, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread92, label %153
 
-152:                                              ; preds = %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread
-  %153 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14SplitAllEHCode, i64 120), align 8, !tbaa !56, !range !54, !noundef !55
-  %154 = trunc nuw i8 %153 to i1
-  br i1 %154, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread89, label %155
-
-155:                                              ; preds = %152
+153:                                              ; preds = %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread
   %.sroa.015.0.copyload = load i64, ptr @_ZN4llvm12MBBSectionID13ColdSectionIDE, align 4
-  %156 = getelementptr inbounds nuw i8, ptr %.sroa.082.0104, i64 252
-  store i64 %.sroa.015.0.copyload, ptr %156, align 4
-  br label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread89
+  %154 = getelementptr inbounds nuw i8, ptr %.sroa.085.0113, i64 252
+  store i64 %.sroa.015.0.copyload, ptr %154, align 4
+  br label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread92
 
-_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread89: ; preds = %143, %141, %_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.exit, %155, %152, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit, %130, %111
-  %157 = getelementptr inbounds nuw i8, ptr %.sroa.082.0104, i64 8
-  %.sroa.082.0 = load ptr, ptr %157, align 8, !tbaa !328
-  %.not100 = icmp eq ptr %.sroa.082.0, %107
-  br i1 %.not100, label %._crit_edge, label %111
+_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread92: ; preds = %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i, %140, %_ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.exit, %153, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit.thread, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit, %129, %110
+  %155 = getelementptr inbounds nuw i8, ptr %.sroa.085.0113, i64 8
+  %.sroa.085.0 = load ptr, ptr %155, align 8, !tbaa !328
+  %.not109 = icmp eq ptr %.sroa.085.0, %106
+  br i1 %.not109, label %._crit_edge, label %110
 
-158:                                              ; preds = %._crit_edge
+156:                                              ; preds = %._crit_edge
   call fastcc void @_ZL25setDescendantEHBlocksColdRN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1065) %1)
   br label %.loopexit
 
-159:                                              ; preds = %._crit_edge
-  %160 = load ptr, ptr %7, align 8, !tbaa !25
-  %161 = load i32, ptr %104, align 8, !tbaa !26
-  %162 = zext i32 %161 to i64
-  %163 = getelementptr inbounds nuw ptr, ptr %160, i64 %162
-  %.not62105 = icmp eq i32 %161, 0
-  br i1 %.not62105, label %.loopexit, label %.lr.ph109
+157:                                              ; preds = %._crit_edge
+  %158 = load ptr, ptr %7, align 8, !tbaa !25
+  %159 = load i32, ptr %103, align 8, !tbaa !26
+  %160 = zext i32 %159 to i64
+  %161 = getelementptr inbounds nuw ptr, ptr %158, i64 %160
+  %.not62114 = icmp eq i32 %159, 0
+  br i1 %.not62114, label %.loopexit, label %.lr.ph118
 
-.lr.ph109:                                        ; preds = %159
-  %164 = getelementptr inbounds nuw i8, ptr %.057, i64 8
+.lr.ph118:                                        ; preds = %157
+  %162 = getelementptr inbounds nuw i8, ptr %.057, i64 8
   br label %.outer
 
-.outer:                                           ; preds = %.thread, %.lr.ph109
-  %.058107.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph109 ]
-  %.060106.ph = phi ptr [ %189, %.thread ], [ %160, %.lr.ph109 ]
-  br label %165
+.outer:                                           ; preds = %.thread, %.lr.ph118
+  %.058116.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph118 ]
+  %.060115.ph = phi ptr [ %187, %.thread ], [ %158, %.lr.ph118 ]
+  br label %163
 
-._crit_edge110:                                   ; preds = %187
-  br i1 %.058107.ph, label %.loopexit, label %.critedge
+._crit_edge119:                                   ; preds = %185
+  br i1 %.058116.ph, label %.loopexit, label %.critedge
 
-165:                                              ; preds = %.outer, %187
-  %.060106 = phi ptr [ %188, %187 ], [ %.060106.ph, %.outer ]
-  %166 = load ptr, ptr %.060106, align 8, !tbaa !375
-  %167 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %.055, ptr noundef nonnull align 8 dereferenceable(288) %166) #20
-  %168 = extractvalue { i64, i8 } %167, 0
-  %169 = extractvalue { i64, i8 } %167, 1
-  %170 = load ptr, ptr %164, align 8, !tbaa !314
-  %.not.i.i76 = icmp eq ptr %170, null
-  br i1 %.not.i.i76, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit81, label %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i77
+163:                                              ; preds = %.outer, %185
+  %.060115 = phi ptr [ %186, %185 ], [ %.060115.ph, %.outer ]
+  %164 = load ptr, ptr %.060115, align 8, !tbaa !375
+  %165 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %.055, ptr noundef nonnull align 8 dereferenceable(288) %164) #20
+  %166 = extractvalue { i64, i8 } %165, 0
+  %167 = extractvalue { i64, i8 } %165, 1
+  %168 = load ptr, ptr %162, align 8, !tbaa !314
+  %.not.i.i76 = icmp eq ptr %168, null
+  br i1 %.not.i.i76, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit84, label %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i77
 
-_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i77: ; preds = %165
-  %171 = load i32, ptr %170, align 8, !tbaa !316
-  switch i32 %171, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit81 [
-    i32 0, label %172
-    i32 1, label %172
-    i32 2, label %178
-  ]
+_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i77: ; preds = %163
+  %169 = load i32, ptr %168, align 8, !tbaa !316
+  %switch.i78 = icmp ult i32 %169, 2
+  br i1 %switch.i78, label %170, label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i79
 
-172:                                              ; preds = %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i77, %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i77
-  %173 = trunc nuw i8 %169 to i1
-  br i1 %173, label %174, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit81.thread
+170:                                              ; preds = %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i77
+  %171 = trunc nuw i8 %167 to i1
+  br i1 %171, label %172, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit84.thread
+
+172:                                              ; preds = %170
+  %173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16PercentileCutoff, i64 120), align 8, !tbaa !34
+  %.not.i83 = icmp eq i32 %173, 0
+  br i1 %.not.i83, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit84, label %174
 
 174:                                              ; preds = %172
-  %175 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL16PercentileCutoff, i64 120), align 8, !tbaa !34
-  %.not.i80 = icmp eq i32 %175, 0
-  br i1 %.not.i80, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit81, label %176
+  %175 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo24isColdCountNthPercentileEim(ptr noundef nonnull align 8 dereferenceable(80) %.057, i32 noundef %173, i64 noundef %166) #20
+  br i1 %175, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit84.thread, label %.thread
 
-176:                                              ; preds = %174
-  %177 = call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo24isColdCountNthPercentileEim(ptr noundef nonnull align 8 dereferenceable(80) %.057, i32 noundef %175, i64 noundef %168) #20
-  br i1 %177, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit81.thread, label %.thread
+_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i79: ; preds = %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i77
+  %176 = icmp ne i32 %169, 2
+  %177 = trunc nuw i8 %167 to i1
+  %or.cond.i80 = select i1 %176, i1 true, i1 %177
+  %178 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL18ColdCountThreshold, i64 120), align 8
+  %179 = zext i32 %178 to i64
+  %180 = icmp ult i64 %166, %179
+  %or.cond108 = select i1 %or.cond.i80, i1 %180, i1 false
+  br i1 %or.cond108, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit84.thread, label %.thread
 
-178:                                              ; preds = %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i77
-  %179 = trunc nuw i8 %169 to i1
-  %180 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL18ColdCountThreshold, i64 120), align 8
-  %181 = zext i32 %180 to i64
-  %182 = icmp ult i64 %168, %181
-  %or.cond99 = select i1 %179, i1 %182, i1 false
-  br i1 %or.cond99, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit81.thread, label %.thread
+_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit84: ; preds = %163, %172
+  %.old105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL18ColdCountThreshold, i64 120), align 8, !tbaa !34
+  %.old106 = zext i32 %.old105 to i64
+  %.old107 = icmp ult i64 %166, %.old106
+  br i1 %.old107, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit84.thread, label %.thread
 
-_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit81: ; preds = %165, %_ZNK4llvm18ProfileSummaryInfo25hasInstrumentationProfileEv.exit.i77, %174
-  %.old96 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL18ColdCountThreshold, i64 120), align 8, !tbaa !34
-  %.old97 = zext i32 %.old96 to i64
-  %.old98 = icmp ult i64 %168, %.old97
-  br i1 %.old98, label %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit81.thread, label %.thread
+_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit84.thread: ; preds = %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i79, %170, %174, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit84
+  %181 = load ptr, ptr %26, align 8, !tbaa !3
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 1344
+  %183 = load ptr, ptr %182, align 8
+  %184 = call noundef zeroext i1 %183(ptr noundef nonnull align 8 dereferenceable(80) %26, ptr noundef nonnull align 8 dereferenceable(288) %164) #20
+  br i1 %184, label %185, label %.thread
 
-_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit81.thread: ; preds = %178, %172, %176, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit81
-  %183 = load ptr, ptr %27, align 8, !tbaa !3
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 1344
-  %185 = load ptr, ptr %184, align 8
-  %186 = call noundef zeroext i1 %185(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull align 8 dereferenceable(288) %166) #20
-  br i1 %186, label %187, label %.thread
+185:                                              ; preds = %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit84.thread
+  %186 = getelementptr inbounds nuw i8, ptr %.060115, i64 8
+  %.not62 = icmp eq ptr %186, %161
+  br i1 %.not62, label %._crit_edge119, label %163
 
-187:                                              ; preds = %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit81.thread
-  %188 = getelementptr inbounds nuw i8, ptr %.060106, i64 8
-  %.not62 = icmp eq ptr %188, %163
-  br i1 %.not62, label %._crit_edge110, label %165
+.thread:                                          ; preds = %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit84, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit84.thread, %174, %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i79
+  %187 = getelementptr inbounds nuw i8, ptr %.060115, i64 8
+  %.not62127 = icmp eq ptr %187, %161
+  br i1 %.not62127, label %.loopexit, label %.outer
 
-.thread:                                          ; preds = %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit81, %_ZL11isColdBlockRKN4llvm17MachineBasicBlockEPKNS_25MachineBlockFrequencyInfoEPNS_18ProfileSummaryInfoE.exit81.thread, %176, %178
-  %189 = getelementptr inbounds nuw i8, ptr %.060106, i64 8
-  %.not62118 = icmp eq ptr %189, %163
-  br i1 %.not62118, label %.loopexit, label %.outer
-
-.critedge:                                        ; preds = %._crit_edge110
+.critedge:                                        ; preds = %._crit_edge119
   %.pre = load ptr, ptr %7, align 8, !tbaa !25
-  %.pre116 = load i32, ptr %104, align 8, !tbaa !26
-  %190 = zext i32 %.pre116 to i64
-  %191 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %190
-  %.not63111 = icmp eq i32 %.pre116, 0
-  br i1 %.not63111, label %.loopexit, label %.lr.ph114
+  %.pre125 = load i32, ptr %103, align 8, !tbaa !26
+  %188 = zext i32 %.pre125 to i64
+  %189 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %188
+  %.not63120 = icmp eq i32 %.pre125, 0
+  br i1 %.not63120, label %.loopexit, label %.lr.ph123
 
-.lr.ph114:                                        ; preds = %.critedge
+.lr.ph123:                                        ; preds = %.critedge
   %.sroa.0.0.copyload = load i64, ptr @_ZN4llvm12MBBSectionID13ColdSectionIDE, align 4
-  br label %192
+  br label %190
 
-192:                                              ; preds = %.lr.ph114, %192
-  %.056112 = phi ptr [ %.pre, %.lr.ph114 ], [ %195, %192 ]
-  %193 = load ptr, ptr %.056112, align 8, !tbaa !375
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 252
-  store i64 %.sroa.0.0.copyload, ptr %194, align 4
-  %195 = getelementptr inbounds nuw i8, ptr %.056112, i64 8
-  %.not63 = icmp eq ptr %195, %191
-  br i1 %.not63, label %.loopexit, label %192
+190:                                              ; preds = %.lr.ph123, %190
+  %.056121 = phi ptr [ %.pre, %.lr.ph123 ], [ %193, %190 ]
+  %191 = load ptr, ptr %.056121, align 8, !tbaa !375
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 252
+  store i64 %.sroa.0.0.copyload, ptr %192, align 4
+  %193 = getelementptr inbounds nuw i8, ptr %.056121, i64 8
+  %.not63 = icmp eq ptr %193, %189
+  br i1 %.not63, label %.loopexit, label %190
 
-.loopexit:                                        ; preds = %.thread, %192, %159, %.critedge, %._crit_edge110, %158
+.loopexit:                                        ; preds = %.thread, %190, %157, %.critedge, %._crit_edge119, %156
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #20
-  %196 = ptrtoint ptr %3 to i64
-  call void @_ZN4llvm32sortBasicBlocksAndUpdateBranchesERNS_15MachineFunctionENS_12function_refIFbRKNS_17MachineBasicBlockES5_EEE(ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr nonnull @"_ZN4llvm12function_refIFbRKNS_17MachineBasicBlockES3_EE11callback_fnIZL40finishAdjustingBasicBlocksAndLandingPadsRNS_15MachineFunctionEE3$_0EEblS3_S3_", i64 %196) #20
+  %194 = ptrtoint ptr %3 to i64
+  call void @_ZN4llvm32sortBasicBlocksAndUpdateBranchesERNS_15MachineFunctionENS_12function_refIFbRKNS_17MachineBasicBlockES5_EEE(ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr nonnull @"_ZN4llvm12function_refIFbRKNS_17MachineBasicBlockES3_EE11callback_fnIZL40finishAdjustingBasicBlocksAndLandingPadsRNS_15MachineFunctionEE3$_0EEblS3_S3_", i64 %194) #20
   call void @_ZN4llvm25avoidZeroOffsetLandingPadERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1065) %1) #20
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #20
-  %197 = load ptr, ptr %7, align 8, !tbaa !25
-  %198 = icmp eq ptr %197, %103
-  br i1 %198, label %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EED2Ev.exit, label %199
+  %195 = load ptr, ptr %7, align 8, !tbaa !25
+  %196 = icmp eq ptr %195, %102
+  br i1 %196, label %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EED2Ev.exit, label %197
 
-199:                                              ; preds = %.loopexit
-  call void @free(ptr noundef %197) #20
+197:                                              ; preds = %.loopexit
+  call void @free(ptr noundef %195) #20
   br label %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EED2Ev.exit: ; preds = %.loopexit, %199
+_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EED2Ev.exit: ; preds = %.loopexit, %197
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #20
-  br label %200
+  br label %198
 
-200:                                              ; preds = %18, %40, %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EED2Ev.exit, %101, %21, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %18 ], [ false, %21 ], [ false, %40 ], [ true, %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EED2Ev.exit ], [ true, %101 ]
+198:                                              ; preds = %13, %39, %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EED2Ev.exit, %100, %20, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %39 ], [ true, %_ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EED2Ev.exit ], [ true, %100 ], [ false, %13 ]
   ret i1 %.0
 }
 

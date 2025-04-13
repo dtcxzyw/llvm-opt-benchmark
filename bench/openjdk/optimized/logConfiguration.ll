@@ -973,32 +973,32 @@ define hidden noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argu
 
 6:                                                ; preds = %1, %.critedge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %.critedge ]
-  %.04679 = phi ptr [ %5, %1 ], [ %22, %.critedge ]
+  %.04781 = phi ptr [ %5, %1 ], [ %22, %.critedge ]
   %7 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 0, i64 %indvars.iv
-  store ptr %.04679, ptr %7, align 8
-  %8 = tail call noundef ptr @strpbrk(ptr noundef %.04679, ptr noundef nonnull @.str.9) #12
-  %.not75 = icmp eq ptr %8, null
-  br i1 %.not75, label %.critedge58.thread, label %.lr.ph
+  store ptr %.04781, ptr %7, align 8
+  %8 = tail call noundef ptr @strpbrk(ptr noundef %.04781, ptr noundef nonnull @.str.9) #12
+  %.not77 = icmp eq ptr %8, null
+  br i1 %.not77, label %.critedge60.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %19
-  %.04976 = phi ptr [ %21, %19 ], [ %8, %6 ]
-  %9 = load i8, ptr %.04976, align 1
+  %.05078 = phi ptr [ %21, %19 ], [ %8, %6 ]
+  %9 = load i8, ptr %.05078, align 1
   %10 = icmp eq i8 %9, 34
   br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.04976, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.05078, i64 1
   %13 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 34) #12
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
   %16 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 80), align 8
-  %.not65 = icmp eq ptr %16, null
-  br i1 %.not65, label %18, label %17
+  %.not67 = icmp eq ptr %16, null
+  br i1 %.not67, label %18, label %17
 
 17:                                               ; preds = %15
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef %.04679)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE5EEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef %.04781)
   br label %18
 
 18:                                               ; preds = %15, %17
@@ -1009,25 +1009,25 @@ define hidden noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argu
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %21 = tail call noundef ptr @strpbrk(ptr noundef nonnull %20, ptr noundef nonnull @.str.9) #12
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.critedge58.thread, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %.critedge60.thread, label %.lr.ph, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph
-  store i8 0, ptr %.04976, align 1
-  %22 = getelementptr inbounds nuw i8, ptr %.04976, i64 1
+  store i8 0, ptr %.05078, align 1
+  %22 = getelementptr inbounds nuw i8, ptr %.05078, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.critedge58, label %6, !llvm.loop !21
+  br i1 %exitcond.not, label %.critedge60, label %6, !llvm.loop !21
 
-.critedge58:                                      ; preds = %.critedge
+.critedge60:                                      ; preds = %.critedge
   %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not64 = icmp eq ptr %23, null
-  br i1 %.not64, label %.critedge58.thread, label %24
+  %.not66 = icmp eq ptr %23, null
+  br i1 %.not66, label %.critedge60.thread, label %24
 
-24:                                               ; preds = %.critedge58
+24:                                               ; preds = %.critedge60
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull %22)
-  br label %.critedge58.thread
+  br label %.critedge60.thread
 
-.critedge58.thread:                               ; preds = %6, %19, %24, %.critedge58
+.critedge60.thread:                               ; preds = %6, %19, %24, %.critedge60
   %25 = load ptr, ptr %2, align 16
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -1039,7 +1039,7 @@ define hidden noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argu
   %32 = icmp eq ptr %27, null
   br i1 %32, label %50, label %33
 
-33:                                               ; preds = %.critedge58.thread
+33:                                               ; preds = %.critedge60.thread
   %char0 = load i8, ptr %27, align 1
   %34 = icmp eq i8 %char0, 0
   br i1 %34, label %50, label %35
@@ -1052,16 +1052,16 @@ define hidden noundef zeroext i1 @_ZN16LogConfiguration28parse_command_line_argu
 sub_0:                                            ; preds = %35
   %38 = zext i8 %char0 to i32
   %39 = sub nsw i32 35, %38
-  %.not80 = icmp eq i8 %char0, 35
-  br i1 %.not80, label %sub_1, label %.tail
+  %.not82 = icmp eq i8 %char0, 35
+  br i1 %.not82, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = sub nsw i32 48, %42
-  %.not81 = icmp eq i8 %41, 48
-  br i1 %.not81, label %sub_2, label %.tail
+  %.not83 = icmp eq i8 %41, 48
+  br i1 %.not83, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 2
@@ -1075,9 +1075,9 @@ sub_2:                                            ; preds = %sub_1
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %54
 
-50:                                               ; preds = %.tail, %35, %33, %.critedge58.thread
-  %.b55 = load i1, ptr @_ZZN16LogConfiguration28parse_command_line_argumentsEPKcE17stdout_configured, align 1
-  br i1 %.b55, label %.thread, label %51
+50:                                               ; preds = %.tail, %35, %33, %.critedge60.thread
+  %.b57 = load i1, ptr @_ZZN16LogConfiguration28parse_command_line_argumentsEPKcE17stdout_configured, align 1
+  br i1 %.b57, label %.thread, label %51
 
 51:                                               ; preds = %50
   %52 = load ptr, ptr @_ZN16LogConfiguration9StdoutLogE, align 8
@@ -1088,52 +1088,54 @@ sub_2:                                            ; preds = %sub_1
 54:                                               ; preds = %.tail
   %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.14, ptr noundef nonnull dereferenceable(1) %27) #12
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %67, label %sub_067
+  br i1 %56, label %67, label %sub_069
 
-sub_067:                                          ; preds = %54
-  br i1 %.not80, label %sub_168, label %.tail66
+sub_069:                                          ; preds = %54
+  br i1 %.not82, label %sub_170, label %.tail68
 
-sub_168:                                          ; preds = %sub_067
+sub_170:                                          ; preds = %sub_069
   %57 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = sub nsw i32 49, %59
-  %.not83 = icmp eq i8 %58, 49
-  br i1 %.not83, label %sub_269, label %.tail66
+  %.not85 = icmp eq i8 %58, 49
+  br i1 %.not85, label %sub_271, label %.tail68
 
-sub_269:                                          ; preds = %sub_168
+sub_271:                                          ; preds = %sub_170
   %61 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = sub nsw i32 0, %63
-  br label %.tail66
+  br label %.tail68
 
-.tail66:                                          ; preds = %sub_067, %sub_168, %sub_269
-  %65 = phi i32 [ %39, %sub_067 ], [ %60, %sub_168 ], [ %64, %sub_269 ]
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %.thread
+.tail68:                                          ; preds = %sub_069, %sub_170, %sub_271
+  %65 = phi i32 [ %39, %sub_069 ], [ %60, %sub_170 ], [ %64, %sub_271 ]
+  %66 = icmp ne i32 %65, 0
+  %.b5355 = load i1, ptr @_ZZN16LogConfiguration28parse_command_line_argumentsEPKcE17stderr_configured, align 1
+  %or.cond = select i1 %66, i1 true, i1 %.b5355
+  br i1 %or.cond, label %.thread, label %68
 
-67:                                               ; preds = %.tail66, %54
-  %.b5254 = load i1, ptr @_ZZN16LogConfiguration28parse_command_line_argumentsEPKcE17stderr_configured, align 1
-  br i1 %.b5254, label %.thread, label %68
+67:                                               ; preds = %54
+  %.old.b56 = load i1, ptr @_ZZN16LogConfiguration28parse_command_line_argumentsEPKcE17stderr_configured, align 1
+  br i1 %.old.b56, label %.thread, label %68
 
-68:                                               ; preds = %67
+68:                                               ; preds = %67, %.tail68
   %69 = load ptr, ptr @_ZN16LogConfiguration9StderrLogE, align 8
   %70 = call noundef zeroext i1 @_ZN9LogOutput13parse_optionsEPKcP12outputStream(ptr noundef nonnull align 8 dereferenceable(156) %69, ptr noundef %31, ptr noundef nonnull %4) #11
   store i1 true, ptr @_ZZN16LogConfiguration28parse_command_line_argumentsEPKcE17stderr_configured, align 1
   br i1 %70, label %.thread, label %72
 
-.thread:                                          ; preds = %.tail66, %67, %50, %51, %68
-  %.04563 = phi ptr [ null, %68 ], [ null, %51 ], [ %31, %50 ], [ %31, %67 ], [ %31, %.tail66 ]
-  %71 = call noundef zeroext i1 @_ZN16LogConfiguration19parse_log_argumentsEPKcS1_S1_S1_P12outputStream(ptr noundef %27, ptr noundef %25, ptr noundef %29, ptr noundef %.04563, ptr noundef nonnull %4)
+.thread:                                          ; preds = %.tail68, %67, %50, %51, %68
+  %.04665 = phi ptr [ null, %68 ], [ null, %51 ], [ %31, %50 ], [ %31, %67 ], [ %31, %.tail68 ]
+  %71 = call noundef zeroext i1 @_ZN16LogConfiguration19parse_log_argumentsEPKcS1_S1_S1_P12outputStream(ptr noundef %27, ptr noundef %25, ptr noundef %29, ptr noundef %.04665, ptr noundef nonnull %4)
   br label %72
 
 72:                                               ; preds = %51, %.thread, %68
   %.1.in = phi i1 [ %71, %.thread ], [ false, %68 ], [ false, %51 ]
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %74 = load i64, ptr %73, align 8
-  %.not56 = icmp eq i64 %74, 0
-  br i1 %.not56, label %.loopexit, label %75
+  %.not58 = icmp eq i64 %74, 0
+  br i1 %.not58, label %.loopexit, label %75
 
 75:                                               ; preds = %72
   %76 = select i1 %.1.in, i32 4, i32 5
@@ -1141,14 +1143,14 @@ sub_269:                                          ; preds = %sub_168
   br label %78
 
 78:                                               ; preds = %78, %75
-  %.042 = phi ptr [ %3, %75 ], [ %79, %78 ]
+  %.043 = phi ptr [ %3, %75 ], [ %79, %78 ]
   %.0 = phi ptr [ %77, %75 ], [ %80, %78 ]
   store i8 0, ptr %.0, align 1
-  call void (i32, ptr, ...) @_ZN7LogImplILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeEN8LogLevel4typeEPKcz(i32 noundef %76, ptr noundef nonnull @.str.16, ptr noundef nonnull %.042)
+  call void (i32, ptr, ...) @_ZN7LogImplILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeEN8LogLevel4typeEPKcz(i32 noundef %76, ptr noundef nonnull @.str.16, ptr noundef nonnull %.043)
   %79 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %80 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %79, i32 noundef 10) #12
-  %.not57 = icmp eq ptr %80, null
-  br i1 %.not57, label %.loopexit, label %78, !llvm.loop !22
+  %.not59 = icmp eq ptr %80, null
+  br i1 %.not59, label %.loopexit, label %78, !llvm.loop !22
 
 .loopexit:                                        ; preds = %78, %72
   call void @_ZN2os4freeEPv(ptr noundef %5) #11
@@ -1156,8 +1158,8 @@ sub_269:                                          ; preds = %sub_168
   br label %81
 
 81:                                               ; preds = %.loopexit, %18
-  %.043 = phi i1 [ false, %18 ], [ %.1.in, %.loopexit ]
-  ret i1 %.043
+  %.044 = phi i1 [ false, %18 ], [ %.1.in, %.loopexit ]
+  ret i1 %.044
 }
 
 declare noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2

@@ -1036,10 +1036,10 @@ define noundef ptr @_ZN9uu_csplit11SplitWriter17delete_all_splits17h0ede0576c99c
   ret ptr %.0.lcssa
 
 16:                                               ; preds = %.lr.ph, %39
-  %.sroa.01.024 = phi i64 [ 0, %.lr.ph ], [ %17, %39 ]
+  %.sroa.02.024 = phi i64 [ 0, %.lr.ph ], [ %17, %39 ]
   %.023 = phi ptr [ null, %.lr.ph ], [ %.3, %39 ]
-  %17 = add nuw i64 %.sroa.01.024, 1
-  invoke void @_ZN9uu_csplit10split_name9SplitName3get17h005983d60bc81ba9E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %8, i64 noundef %.sroa.01.024)
+  %17 = add nuw i64 %.sroa.02.024, 1
+  invoke void @_ZN9uu_csplit10split_name9SplitName3get17h005983d60bc81ba9E(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %8, i64 noundef %.sroa.02.024)
           to label %18 unwind label %14
 
 18:                                               ; preds = %16

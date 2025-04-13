@@ -3715,16 +3715,16 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br i1 %65, label %69, label %71
 
 66:                                               ; preds = %.noexc8.i
-  br i1 %36, label %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread18.i.i.i", label %.critedge.thread.i.i.i
+  br i1 %36, label %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread21.i.i.i", label %.critedge.thread.i.i.i
 
 67:                                               ; preds = %.noexc7.i
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9), !noalias !1233
-  br label %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread18.i.i.i"
+  br label %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread21.i.i.i"
 
 68:                                               ; preds = %80, %.noexc12.i
-  %.sroa.24.1.i.i = phi i32 [ %58, %.noexc12.i ], [ %.sroa.07.0.i.i.i, %80 ]
+  %.sroa.24.1.i.i = phi i32 [ %58, %.noexc12.i ], [ %.sroa.010.0.i.i.i, %80 ]
   %.sroa.36.1.i.i = phi i32 [ %59, %.noexc12.i ], [ %.sroa.5.0.i.i.i, %80 ]
-  br i1 %36, label %.noexc13.i, label %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread18.i.i.i"
+  br i1 %36, label %.noexc13.i, label %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread21.i.i.i"
 
 69:                                               ; preds = %62
   %70 = call { i32, i32 } @_ZN6editor8movement16saturating_right17h20d9202588151e7eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.pre, i32 noundef %58, i32 noundef %59), !noalias !1226
@@ -3735,10 +3735,10 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %.noexc9.i
 
 .noexc9.i:                                        ; preds = %71, %69
-  %.pn13.i.i.i = phi { i32, i32 } [ %70, %69 ], [ %72, %71 ]
-  %.sroa.07.0.i.i.i = extractvalue { i32, i32 } %.pn13.i.i.i, 0
-  %.sroa.5.0.i.i.i = extractvalue { i32, i32 } %.pn13.i.i.i, 1
-  %73 = call noundef i32 @_ZN6editor11display_map12DisplayPoint6column17hafee232eea691350E(i32 noundef %.sroa.07.0.i.i.i, i32 noundef %.sroa.5.0.i.i.i), !noalias !1226
+  %.pn16.i.i.i = phi { i32, i32 } [ %70, %69 ], [ %72, %71 ]
+  %.sroa.010.0.i.i.i = extractvalue { i32, i32 } %.pn16.i.i.i, 0
+  %.sroa.5.0.i.i.i = extractvalue { i32, i32 } %.pn16.i.i.i, 1
+  %73 = call noundef i32 @_ZN6editor11display_map12DisplayPoint6column17hafee232eea691350E(i32 noundef %.sroa.010.0.i.i.i, i32 noundef %.sroa.5.0.i.i.i), !noalias !1226
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %.noexc12.i, label %80
 
@@ -3746,7 +3746,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %75 = call { i32, i32 } @_ZN6editor11display_map15DisplaySnapshot9max_point17h07cf7582182e8e39E(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.pre), !noalias !1226
   %76 = extractvalue { i32, i32 } %75, 0
   %77 = extractvalue { i32, i32 } %75, 1
-  %78 = icmp eq i32 %.sroa.07.0.i.i.i, %76
+  %78 = icmp eq i32 %.sroa.010.0.i.i.i, %76
   %79 = icmp eq i32 %.sroa.5.0.i.i.i, %77
   %or.cond6.i.i.i = select i1 %78, i1 %79, i1 false
   br i1 %or.cond6.i.i.i, label %68, label %80
@@ -3758,15 +3758,15 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %81 = call { i32, i32 } @_ZN6editor8movement4left17ha6a470c51c80daebE(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.pre, i32 noundef %34, i32 noundef %35), !noalias !1226
   %82 = extractvalue { i32, i32 } %81, 0
   %83 = extractvalue { i32, i32 } %81, 1
-  br label %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread18.i.i.i"
+  br label %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread21.i.i.i"
 
 .critedge.thread.i.i.i:                           ; preds = %66
   %84 = call { i32, i32 } @_ZN6editor8movement5right17h2ffa1214a2227accE(ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.pre, i32 noundef %33, i32 noundef %32), !noalias !1226
   %85 = extractvalue { i32, i32 } %84, 0
   %86 = extractvalue { i32, i32 } %84, 1
-  br label %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread18.i.i.i"
+  br label %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread21.i.i.i"
 
-"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread18.i.i.i": ; preds = %.critedge.thread.i.i.i, %.noexc13.i, %68, %67, %66
+"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread21.i.i.i": ; preds = %.critedge.thread.i.i.i, %.noexc13.i, %68, %67, %66
   %.sroa.4.1.i.i = phi i32 [ %33, %67 ], [ %58, %.critedge.thread.i.i.i ], [ %82, %.noexc13.i ], [ %33, %68 ], [ %58, %66 ]
   %.sroa.14.1.i.i = phi i32 [ %32, %67 ], [ %59, %.critedge.thread.i.i.i ], [ %83, %.noexc13.i ], [ %32, %68 ], [ %59, %66 ]
   %.sroa.24.2.i.i = phi i32 [ %34, %67 ], [ %85, %.critedge.thread.i.i.i ], [ %.sroa.24.1.i.i, %.noexc13.i ], [ %.sroa.24.1.i.i, %68 ], [ %34, %66 ]
@@ -3786,7 +3786,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.sroa.0.0.i.i.i.i = select i1 %93, i1 %94, i1 false
   br i1 %.sroa.0.0.i.i.i.i, label %95, label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
 
-95:                                               ; preds = %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread18.i.i.i"
+95:                                               ; preds = %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread21.i.i.i"
   %96 = icmp eq i32 %.sroa.414.0.copyload, %91
   %97 = icmp eq i32 %.sroa.5.0.copyload, %92
   %.sroa.0.0.i8.i.i.i = select i1 %96, i1 %97, i1 false
@@ -3825,7 +3825,7 @@ default.unreachable.i.i.i:                        ; preds = %100
   %109 = fcmp oeq float %37, %108
   br i1 %109, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h05537f102e4b3c19E.exit", label %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i"
 
-"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i": ; preds = %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.i.i", %105, %101, %95, %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread18.i.i.i"
+"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.thread.i.i": ; preds = %"_ZN76_$LT$text..selection..Selection$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hf866edf3c57b3c28E.exit.i.i", %105, %101, %95, %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit.thread21.i.i.i"
   store i8 1, ptr %26, align 1, !noalias !1244
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h05537f102e4b3c19E.exit"
 
@@ -9225,7 +9225,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %.noexc12.i
 
 .noexc12.i:                                       ; preds = %"_ZN4core3ptr726drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$vim..normal..delete..$LT$impl$u20$vim..Vim$GT$..delete_object..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdeed48d94dad1708E.exit25.i.i.i", %"_ZN4core3ptr726drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$vim..normal..delete..$LT$impl$u20$vim..Vim$GT$..delete_object..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdeed48d94dad1708E.exit.i.i.i"
-  %.sroa.09.0.i.i.i = phi i1 [ %101, %"_ZN4core3ptr726drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$vim..normal..delete..$LT$impl$u20$vim..Vim$GT$..delete_object..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdeed48d94dad1708E.exit25.i.i.i" ], [ false, %"_ZN4core3ptr726drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$vim..normal..delete..$LT$impl$u20$vim..Vim$GT$..delete_object..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdeed48d94dad1708E.exit.i.i.i" ]
+  %.sroa.010.0.i.i.i = phi i1 [ %101, %"_ZN4core3ptr726drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$vim..normal..delete..$LT$impl$u20$vim..Vim$GT$..delete_object..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdeed48d94dad1708E.exit25.i.i.i" ], [ false, %"_ZN4core3ptr726drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$vim..normal..delete..$LT$impl$u20$vim..Vim$GT$..delete_object..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hdeed48d94dad1708E.exit.i.i.i" ]
   call void @llvm.lifetime.start.p0(i64 1216, ptr nonnull %11), !noalias !2412
   call void @_ZN6editor11display_map15DisplaySnapshot15buffer_chars_at17h0a240dfbe73b6917E(ptr noalias noundef nonnull sret([1216 x i8]) align 8 captures(none) dereferenceable(1216) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.pre, i64 noundef %80), !noalias !2398
   %102 = invoke fastcc noundef i32 @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc87bb74bbce9605E"(ptr noalias noundef align 8 dereferenceable(1208) %11)
@@ -9256,7 +9256,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br label %124
 
 114:                                              ; preds = %124, %105
-  %.sroa.012.0.i.i.i = phi i1 [ %126, %124 ], [ false, %105 ]
+  %.sroa.014.0.i.i.i = phi i1 [ %126, %124 ], [ false, %105 ]
   %115 = load i64, ptr %11, align 8, !range !2441, !alias.scope !2512, !noalias !2412, !noundef !9
   %116 = icmp eq i64 %115, 4
   br i1 %116, label %"_ZN4core3ptr466drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h432d2e003715639eE.exit.i.i.i", label %117
@@ -9294,11 +9294,11 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 127:                                              ; preds = %"_ZN4core3ptr466drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h432d2e003715639eE.exit.i.i.i"
   %128 = load i8, ptr %61, align 1, !range !1196, !noalias !2440, !noundef !9
   %129 = icmp eq i8 %128, 2
-  %brmerge.not.i.i.i = and i1 %.sroa.09.0.i.i.i, %129
-  br i1 %brmerge.not.i.i.i, label %133, label %.noexc14.i
+  %or.cond.i.i.i = and i1 %.sroa.010.0.i.i.i, %129
+  br i1 %or.cond.i.i.i, label %133, label %.noexc14.i
 
 130:                                              ; preds = %"_ZN4core3ptr466drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h432d2e003715639eE.exit.i.i.i"
-  br i1 %.sroa.09.0.i.i.i, label %133, label %.noexc14.i
+  br i1 %.sroa.010.0.i.i.i, label %133, label %.noexc14.i
 
 .noexc14.i:                                       ; preds = %.noexc15.i, %134, %130, %127
   %131 = load i8, ptr %63, align 1, !range !1147, !noalias !2440, !noundef !9
@@ -9306,7 +9306,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   br i1 %132, label %143, label %140
 
 133:                                              ; preds = %130, %127
-  br i1 %.sroa.012.0.i.i.i, label %.noexc15.i, label %134
+  br i1 %.sroa.014.0.i.i.i, label %.noexc15.i, label %134
 
 134:                                              ; preds = %133
   call fastcc void @"_ZN3vim6normal6delete26_$LT$impl$u20$vim..Vim$GT$13delete_object28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb818223118f188bbE"(ptr nonnull %78, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.pre, ptr noalias noundef nonnull align 8 dereferenceable(40) %17), !noalias !2398
@@ -9366,11 +9366,11 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %163 = icmp eq i32 %161, %162
   %164 = load i8, ptr %61, align 1, !range !1196, !noalias !2440, !noundef !9
   %165 = icmp ne i8 %164, 3
-  %brmerge20.i.i.i = or i1 %163, %165
-  br i1 %brmerge20.i.i.i, label %"_ZN3vim6normal6delete26_$LT$impl$u20$vim..Vim$GT$13delete_object28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf9649e534d8e9da1E.exit.i.i", label %.critedge.i.i.i
+  %brmerge.i.i.i = or i1 %163, %165
+  br i1 %brmerge.i.i.i, label %"_ZN3vim6normal6delete26_$LT$impl$u20$vim..Vim$GT$13delete_object28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf9649e534d8e9da1E.exit.i.i", label %.critedge.i.i.i
 
 .noexc19.i:                                       ; preds = %166, %.critedge.i.i.i
-  br i1 %.sroa.012.0.i.i.i, label %.noexc20.i, label %"_ZN3vim6normal6delete26_$LT$impl$u20$vim..Vim$GT$13delete_object28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf9649e534d8e9da1E.exit.i.i"
+  br i1 %.sroa.014.0.i.i.i, label %.noexc20.i, label %"_ZN3vim6normal6delete26_$LT$impl$u20$vim..Vim$GT$13delete_object28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf9649e534d8e9da1E.exit.i.i"
 
 166:                                              ; preds = %.critedge.i.i.i
   call fastcc void @"_ZN3vim6normal6delete26_$LT$impl$u20$vim..Vim$GT$13delete_object28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hb818223118f188bbE"(ptr nonnull %78, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %.pre, ptr noalias noundef nonnull align 8 dereferenceable(40) %17), !noalias !2398
@@ -19878,8 +19878,8 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h62b2565e2
   br i1 %brmerge.i, label %49, label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread"
 
 49:                                               ; preds = %.noexc11
-  %.not13.i = icmp eq i8 %44, %45
-  br i1 %.not13.i, label %61, label %50
+  %.not15.i = icmp eq i8 %44, %45
+  br i1 %.not15.i, label %61, label %50
 
 50:                                               ; preds = %49
   %51 = and i32 %24, 2097119
@@ -19913,7 +19913,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h62b2565e2
   br label %61
 
 61:                                               ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.i", %49
-  %.sroa.08.0.i = phi i1 [ %60, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.i" ], [ false, %49 ]
+  %.sroa.010.0.i = phi i1 [ %60, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.i" ], [ false, %49 ]
   %62 = icmp ne i32 %.sroa.05.0, 95
   %63 = icmp eq i32 %24, 95
   %or.cond.i = and i1 %62, %63
@@ -19925,7 +19925,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h62b2565e2
   br i1 %or.cond1.i, label %70, label %66
 
 .noexc15:                                         ; preds = %74, %72, %70, %.noexc14, %66, %61
-  %.sroa.010.0.i = phi i1 [ true, %61 ], [ false, %66 ], [ false, %.noexc14 ], [ true, %70 ], [ false, %72 ], [ %75, %74 ]
+  %.sroa.012.0.i = phi i1 [ true, %61 ], [ false, %66 ], [ false, %.noexc14 ], [ true, %70 ], [ false, %72 ], [ %75, %74 ]
   switch i32 %.sroa.05.0, label %76 [
     i32 32, label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20"
     i32 13, label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20"
@@ -19998,18 +19998,18 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17h62b2565e2
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ; preds = %91, %86, %83, %80, %78
-  %.sroa.0.0.i16.i = phi i8 [ %85, %83 ], [ %96, %91 ], [ %82, %80 ], [ %90, %86 ], [ 0, %78 ]
-  %97 = trunc i8 %.sroa.0.0.i16.i to i1
+  %.sroa.0.0.i17.i = phi i8 [ %85, %83 ], [ %96, %91 ], [ %82, %80 ], [ %90, %86 ], [ 0, %78 ]
+  %97 = trunc i8 %.sroa.0.0.i17.i to i1
   %brmerge4.i = or i1 %46, %97
   %brmerge4.not.i = xor i1 %brmerge4.i, true
-  %brmerge17.i = or i1 %.sroa.08.0.i, %.sroa.010.0.i
-  %or.cond18.i = select i1 %brmerge4.not.i, i1 %brmerge17.i, i1 false
-  br i1 %or.cond18.i, label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit", label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20"
+  %brmerge18.i = or i1 %.sroa.010.0.i, %.sroa.012.0.i
+  %or.cond19.i = select i1 %brmerge4.not.i, i1 %brmerge18.i, i1 false
+  br i1 %or.cond19.i, label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit", label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20"
 
 98:                                               ; preds = %76
-  %brmerge17.old.i = or i1 %.sroa.08.0.i, %.sroa.010.0.i
-  %or.cond20.i = select i1 %.not.i, i1 %brmerge17.old.i, i1 false
-  br i1 %or.cond20.i, label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit", label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20"
+  %brmerge18.old.i = or i1 %.sroa.010.0.i, %.sroa.012.0.i
+  %or.cond21.i = select i1 %.not.i, i1 %brmerge18.old.i, i1 false
+  br i1 %or.cond21.i, label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit", label %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20"
 
 99:                                               ; preds = %"_ZN3vim6motion16next_subword_end28_$u7b$$u7b$closure$u7d$$u7d$17h57c323072eb00594E.exit.thread20", %41
   store i64 %23, ptr %10, align 8
@@ -21029,7 +21029,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17hf644fb623
   br label %55
 
 55:                                               ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.i", %.noexc12
-  %.sroa.06.0.i = phi i1 [ %54, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.i" ], [ false, %.noexc12 ]
+  %.sroa.08.0.i = phi i1 [ %54, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.i" ], [ false, %.noexc12 ]
   %56 = icmp ne i32 %.sroa.05.0, 95
   %57 = icmp eq i32 %21, 95
   %or.cond.i = or i1 %56, %57
@@ -21041,7 +21041,7 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17hf644fb623
   br i1 %or.cond1.i, label %64, label %60
 
 .noexc16:                                         ; preds = %68, %66, %64, %.noexc15, %60, %55
-  %.sroa.07.0.i = phi i1 [ true, %55 ], [ false, %60 ], [ false, %.noexc15 ], [ true, %64 ], [ false, %66 ], [ %69, %68 ]
+  %.sroa.09.0.i = phi i1 [ true, %55 ], [ false, %60 ], [ false, %.noexc15 ], [ true, %64 ], [ false, %66 ], [ %69, %68 ]
   switch i32 %21, label %70 [
     i32 32, label %94
     i32 13, label %94
@@ -21114,24 +21114,24 @@ define hidden { i32, i32 } @_ZN6editor8movement19find_boundary_point17hf644fb623
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ; preds = %85, %80, %77, %74, %72
-  %.sroa.0.0.i17.i = phi i8 [ %79, %77 ], [ %90, %85 ], [ %76, %74 ], [ %84, %80 ], [ 0, %72 ]
-  %91 = trunc i8 %.sroa.0.0.i17.i to i1
-  %.not10.i = xor i1 %91, true
-  %brmerge.i = or i1 %.sroa.06.0.i, %.sroa.07.0.i
-  %or.cond11.i = and i1 %brmerge.i, %.not10.i
+  %.sroa.0.0.i18.i = phi i8 [ %79, %77 ], [ %90, %85 ], [ %76, %74 ], [ %84, %80 ], [ 0, %72 ]
+  %91 = trunc i8 %.sroa.0.0.i18.i to i1
+  %.not12.i = xor i1 %91, true
+  %or.cond5.i = or i1 %.sroa.08.0.i, %.sroa.09.0.i
+  %or.cond13.i = and i1 %or.cond5.i, %.not12.i
   %92 = and i8 %20, 1
   store i8 %92, ptr %5, align 1
-  br i1 %or.cond11.i, label %106, label %.thread24
+  br i1 %or.cond13.i, label %106, label %.thread24
 
 .thread24:                                        ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i
   store i64 %19, ptr %11, align 8
   br label %123
 
 93:                                               ; preds = %70
-  %brmerge.old.i = or i1 %.sroa.06.0.i, %.sroa.07.0.i
-  %.not12.i = xor i1 %43, true
-  %brmerge13.i = or i1 %brmerge.old.i, %.not12.i
-  br i1 %brmerge13.i, label %102, label %95
+  %or.cond5.old.i = or i1 %.sroa.08.0.i, %.sroa.09.0.i
+  %.not14.i = xor i1 %43, true
+  %brmerge.i = or i1 %or.cond5.old.i, %.not14.i
+  br i1 %brmerge.i, label %102, label %95
 
 94:                                               ; preds = %.noexc16, %.noexc16, %.noexc16, %.noexc16, %.noexc16, %.noexc16
   br i1 %43, label %95, label %.thread23
@@ -21163,13 +21163,13 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   %104 = or i1 %43, %103
   %105 = zext i1 %104 to i8
   store i8 %105, ptr %5, align 1
-  br i1 %brmerge.old.i, label %106, label %.thread
+  br i1 %or.cond5.old.i, label %106, label %.thread
 
 .thread:                                          ; preds = %102
   store i64 %19, ptr %11, align 8
   br label %128
 
-106:                                              ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i, %95, %102
+106:                                              ; preds = %95, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i, %102
   br i1 %6, label %107, label %.loopexit25
 
 107:                                              ; preds = %106
@@ -21682,7 +21682,7 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   %or.cond = and i1 %16, %or.cond.not
   br i1 %or.cond, label %19, label %"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38105daccbecdc8fE.exit12"
 
-"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38105daccbecdc8fE.exit12": ; preds = %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i, %73, %80, %12
+"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38105daccbecdc8fE.exit12": ; preds = %73, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i, %80, %12
   call void @llvm.lifetime.end.p0(i64 904, ptr nonnull %7)
   %18 = call { i32, i32 } @"_ZN47_$LT$usize$u20$as$u20$multi_buffer..ToPoint$GT$8to_point17h1d3a45c77a85c408E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
@@ -21728,7 +21728,7 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br label %34
 
 34:                                               ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.i", %.noexc
-  %.sroa.06.0.i = phi i1 [ %33, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.i" ], [ false, %.noexc ]
+  %.sroa.08.0.i = phi i1 [ %33, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.i" ], [ false, %.noexc ]
   %35 = icmp ne i32 %15, 95
   %36 = icmp eq i32 %.sroa.04.0, 95
   %or.cond.i = or i1 %36, %35
@@ -21740,7 +21740,7 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br i1 %or.cond1.i, label %42, label %39
 
 .noexc17:                                         ; preds = %46, %44, %42, %.noexc16, %39, %34
-  %.sroa.07.0.i = phi i1 [ true, %34 ], [ false, %39 ], [ false, %.noexc16 ], [ true, %42 ], [ false, %44 ], [ %47, %46 ]
+  %.sroa.09.0.i = phi i1 [ true, %34 ], [ false, %39 ], [ false, %.noexc16 ], [ true, %42 ], [ false, %44 ], [ %47, %46 ]
   switch i32 %.sroa.04.0, label %48 [
     i32 32, label %72
     i32 13, label %72
@@ -21810,20 +21810,20 @@ define hidden { i32, i32 } @_ZN6editor8movement29find_preceding_boundary_point17
   br label %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i
 
 _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ; preds = %63, %58, %55, %52, %50
-  %.sroa.0.0.i17.i = phi i8 [ %57, %55 ], [ %68, %63 ], [ %54, %52 ], [ %62, %58 ], [ 0, %50 ]
-  %69 = trunc i8 %.sroa.0.0.i17.i to i1
-  %.not10.i = xor i1 %69, true
-  %brmerge.i = or i1 %.sroa.06.0.i, %.sroa.07.0.i
-  %or.cond11.i = and i1 %brmerge.i, %.not10.i
+  %.sroa.0.0.i18.i = phi i8 [ %57, %55 ], [ %68, %63 ], [ %54, %52 ], [ %62, %58 ], [ 0, %50 ]
+  %69 = trunc i8 %.sroa.0.0.i18.i to i1
+  %.not12.i = xor i1 %69, true
+  %or.cond5.i = or i1 %.sroa.08.0.i, %.sroa.09.0.i
+  %or.cond13.i = and i1 %or.cond5.i, %.not12.i
   %70 = and i8 %14, 1
   store i8 %70, ptr %5, align 1
-  br i1 %or.cond11.i, label %"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38105daccbecdc8fE.exit12", label %.thread
+  br i1 %or.cond13.i, label %"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38105daccbecdc8fE.exit12", label %.thread
 
 71:                                               ; preds = %48
-  %brmerge.old.i = or i1 %.sroa.06.0.i, %.sroa.07.0.i
-  %.not12.i = xor i1 %23, true
-  %brmerge13.i = or i1 %brmerge.old.i, %.not12.i
-  br i1 %brmerge13.i, label %80, label %73
+  %or.cond5.old.i = or i1 %.sroa.08.0.i, %.sroa.09.0.i
+  %.not14.i = xor i1 %23, true
+  %brmerge.i = or i1 %or.cond5.old.i, %.not14.i
+  br i1 %brmerge.i, label %80, label %73
 
 72:                                               ; preds = %.noexc17, %.noexc17, %.noexc17, %.noexc17, %.noexc17, %.noexc17
   br i1 %23, label %73, label %.thread
@@ -21837,8 +21837,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   store i8 %77, ptr %5, align 1
   br i1 %spec.select.i, label %"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38105daccbecdc8fE.exit12", label %.thread
 
-.thread:                                          ; preds = %72, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i, %73, %80, %19
-  %78 = phi i8 [ %14, %72 ], [ %70, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i ], [ %77, %73 ], [ %83, %80 ], [ %14, %19 ]
+.thread:                                          ; preds = %72, %73, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i, %80, %19
+  %78 = phi i8 [ %14, %72 ], [ %77, %73 ], [ %70, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i ], [ %83, %80 ], [ %14, %19 ]
   %79 = icmp samesign ult i32 %15, 128
   br i1 %79, label %88, label %84
 
@@ -21847,7 +21847,7 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.i: ;
   %82 = or i1 %23, %81
   %83 = zext i1 %82 to i8
   store i8 %83, ptr %5, align 1
-  br i1 %brmerge.old.i, label %"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38105daccbecdc8fE.exit12", label %.thread
+  br i1 %or.cond5.old.i, label %"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..sources..from_fn..FromFn$LT$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..rev..Rev$LT$core..str..iter..Chars$GT$$C$multi_buffer..MultiBufferSnapshot..reversed_chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h38105daccbecdc8fE.exit12", label %.thread
 
 84:                                               ; preds = %.thread
   %85 = icmp samesign ult i32 %15, 2048

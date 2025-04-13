@@ -176,12 +176,12 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_smb_direct_infiniband(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
   %5 = icmp eq ptr %3, null
-  br i1 %5, label %22, label %6
+  br i1 %5, label %21, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i8, ptr %7, align 8
-  switch i8 %8, label %22 [
+  switch i8 %8, label %21 [
     i8 0, label %9
     i8 1, label %9
     i8 2, label %9
@@ -195,30 +195,29 @@ define internal i32 @dissect_smb_direct_infiniband(ptr noundef %0, ptr noundef %
 9:                                                ; preds = %6, %6, %6, %6, %6, %6, %6, %6
   %10 = tail call fastcc i32 @is_smb_direct(ptr noundef %0)
   %11 = icmp eq i32 %10, -1
-  br i1 %11, label %22, label %12
+  br i1 %11, label %21, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 33
   %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %20, label %16
+  %.not = xor i1 %15, true
+  %16 = load i8, ptr @smb_direct_infiniband_reassemble, align 1, !range !6
+  %17 = trunc nuw i8 %16 to i1
+  %or.cond = select i1 %.not, i1 %17, i1 false
+  br i1 %or.cond, label %18, label %19
 
-16:                                               ; preds = %12
-  %17 = load i8, ptr @smb_direct_infiniband_reassemble, align 1, !range !6, !noundef !7
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %16
+18:                                               ; preds = %12
   store i8 1, ptr %13, align 1
-  br label %22
+  br label %21
 
-20:                                               ; preds = %16, %12
+19:                                               ; preds = %12
   tail call fastcc void @dissect_smb_direct(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10)
-  %21 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %22
+  %20 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %21
 
-22:                                               ; preds = %9, %6, %4, %20, %19
-  %.0 = phi i32 [ %21, %20 ], [ 0, %19 ], [ 0, %4 ], [ 0, %6 ], [ 0, %9 ]
+21:                                               ; preds = %9, %6, %4, %19, %18
+  %.0 = phi i32 [ 0, %18 ], [ %20, %19 ], [ 0, %4 ], [ 0, %6 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -304,25 +303,24 @@ define internal zeroext i1 @dissect_smb_direct_infiniband_heur(ptr noundef %0, p
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 33
   %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %20, label %16
+  %.not.i = xor i1 %15, true
+  %16 = load i8, ptr @smb_direct_infiniband_reassemble, align 1, !range !6
+  %17 = trunc nuw i8 %16 to i1
+  %or.cond.i = select i1 %.not.i, i1 %17, i1 false
+  br i1 %or.cond.i, label %18, label %19
 
-16:                                               ; preds = %12
-  %17 = load i8, ptr @smb_direct_infiniband_reassemble, align 1, !range !6, !noundef !7
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %20
-
-19:                                               ; preds = %16
+18:                                               ; preds = %12
   store i8 1, ptr %13, align 1
   br label %dissect_smb_direct_infiniband.exit
 
-20:                                               ; preds = %16, %12
+19:                                               ; preds = %12
   tail call fastcc void @dissect_smb_direct(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %10)
-  %21 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  %22 = icmp sgt i32 %21, 0
+  %20 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %21 = icmp sgt i32 %20, 0
   br label %dissect_smb_direct_infiniband.exit
 
-dissect_smb_direct_infiniband.exit:               ; preds = %4, %6, %9, %19, %20
-  %.0.i = phi i1 [ %22, %20 ], [ false, %19 ], [ false, %4 ], [ false, %6 ], [ false, %9 ]
+dissect_smb_direct_infiniband.exit:               ; preds = %4, %6, %9, %18, %19
+  %.0.i = phi i1 [ false, %18 ], [ %21, %19 ], [ false, %4 ], [ false, %6 ], [ false, %9 ]
   ret i1 %.0.i
 }
 
@@ -371,11 +369,12 @@ define internal fastcc range(i32 -1, 4) i32 @is_smb_direct(ptr noundef %0) unnam
 
 24:                                               ; preds = %21
   %25 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4)
-  %26 = icmp eq i16 %25, 0
+  %.not3 = icmp eq i16 %25, 0
+  %26 = select i1 %.not3, i32 1, i32 -1
   br label %27
 
 27:                                               ; preds = %24, %21, %18
-  %.027 = phi i1 [ false, %21 ], [ false, %18 ], [ %26, %24 ]
+  %.not = phi i32 [ -1, %21 ], [ -1, %18 ], [ %26, %24 ]
   %28 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0)
   %29 = icmp ult i16 %28, 256
   br i1 %29, label %30, label %39
@@ -396,53 +395,46 @@ define internal fastcc range(i32 -1, 4) i32 @is_smb_direct(ptr noundef %0) unnam
   br label %39
 
 39:                                               ; preds = %36, %33, %30, %27
-  %.026 = phi i1 [ false, %33 ], [ false, %30 ], [ false, %27 ], [ %38, %36 ]
+  %.027 = phi i1 [ false, %33 ], [ false, %30 ], [ false, %27 ], [ %38, %36 ]
   %40 = icmp eq i32 %2, 20
-  br i1 %40, label %41, label %50
+  br i1 %40, label %41, label %48
 
 41:                                               ; preds = %39
   %42 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8)
-  %.not = icmp eq i32 %42, 0
+  %.not30 = icmp eq i32 %42, 0
   %43 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 12)
-  %.not29 = icmp eq i32 %43, 0
+  %.not31 = icmp eq i32 %43, 0
   %44 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16)
-  %.not30 = icmp eq i32 %44, 0
-  %45 = select i1 %.not30, i1 %.not29, i1 false
-  %46 = select i1 %45, i1 %.not, i1 false
-  %47 = select i1 %46, i1 %.026, i1 false
-  br i1 %.027, label %48, label %49
-
-48:                                               ; preds = %41
-  %spec.select = select i1 %47, i32 3, i32 1
+  %.not32 = icmp eq i32 %44, 0
+  %45 = select i1 %.not32, i1 %.not31, i1 false
+  %46 = select i1 %45, i1 %.not30, i1 false
+  %47 = select i1 %46, i1 %.027, i1 false
+  %spec.select2 = select i1 %47, i32 3, i32 %.not
   br label %.thread
 
-49:                                               ; preds = %41
-  %spec.select3 = select i1 %47, i32 3, i32 -1
-  br label %.thread
+48:                                               ; preds = %39
+  %49 = icmp ult i32 %2, 25
+  br i1 %49, label %.thread, label %50
 
-50:                                               ; preds = %39
-  %51 = icmp ult i32 %2, 25
-  br i1 %51, label %.thread, label %52
+50:                                               ; preds = %48
+  %51 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 12)
+  %.not33 = icmp eq i32 %51, 24
+  br i1 %.not33, label %52, label %.thread
 
 52:                                               ; preds = %50
-  %53 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 12)
-  %.not31 = icmp eq i32 %53, 24
-  br i1 %.not31, label %54, label %.thread
+  %53 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16)
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %.thread, label %55
 
-54:                                               ; preds = %52
-  %55 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16)
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %.thread, label %57
-
-57:                                               ; preds = %54
-  %58 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 20)
-  %.not32 = icmp eq i32 %58, 0
-  %59 = select i1 %.not32, i1 %.026, i1 false
-  %spec.select4 = select i1 %59, i32 3, i32 -1
+55:                                               ; preds = %52
+  %56 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 20)
+  %.not34 = icmp eq i32 %56, 0
+  %57 = select i1 %.not34, i1 %.027, i1 false
+  %spec.select = select i1 %57, i32 3, i32 -1
   br label %.thread
 
-.thread:                                          ; preds = %57, %49, %48, %54, %52, %50, %15, %1
-  %.0 = phi i32 [ -1, %1 ], [ 2, %15 ], [ -1, %50 ], [ -1, %52 ], [ -1, %54 ], [ %spec.select, %48 ], [ %spec.select3, %49 ], [ %spec.select4, %57 ]
+.thread:                                          ; preds = %55, %41, %52, %50, %48, %15, %1
+  %.0 = phi i32 [ -1, %1 ], [ 2, %15 ], [ -1, %48 ], [ -1, %50 ], [ -1, %52 ], [ %spec.select2, %41 ], [ %spec.select, %55 ]
   ret i32 %.0
 }
 

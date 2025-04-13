@@ -3717,11 +3717,11 @@ define hidden noundef ptr @_ZN7datalog22mk_subsumption_checkerclERKNS_8rule_setE
 17:                                               ; preds = %12
   %18 = load i8, ptr %13, align 8, !tbaa !54, !range !317, !noundef !318
   %19 = trunc nuw i8 %18 to i1
-  %brmerge = or i1 %16, %19
-  br i1 %brmerge, label %.preheader, label %38
+  %or.cond = or i1 %16, %19
+  br i1 %or.cond, label %.preheader, label %38
 
 .preheader:                                       ; preds = %17
-  br i1 %19, label %.lr.ph, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit13
+  br i1 %19, label %.lr.ph, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit14
 
 20:                                               ; preds = %12
   %21 = landingpad { ptr, i32 }
@@ -3768,7 +3768,7 @@ _ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %27, %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   %34 = load i8, ptr %13, align 8, !tbaa !54, !range !317, !noundef !318
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %.lr.ph, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit13, !llvm.loop !417
+  br i1 %35, label %.lr.ph, label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit14, !llvm.loop !417
 
 36:                                               ; preds = %_ZN10scoped_ptrIN7datalog8rule_setEEaSEPS1_.exit, %24, %.lr.ph
   %37 = landingpad { ptr, i32 }
@@ -3780,7 +3780,7 @@ _ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %27, %30
 38:                                               ; preds = %17
   tail call void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248) %14) #20
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %14)
-          to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit13 unwind label %39
+          to label %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit14 unwind label %39
 
 39:                                               ; preds = %38
   %40 = landingpad { ptr, i32 }
@@ -3789,8 +3789,8 @@ _ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit:    ; preds = %27, %30
   tail call void @__clang_call_terminate(ptr %41) #21
   unreachable
 
-_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit13:  ; preds = %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit, %.preheader, %38
-  %.115 = phi ptr [ null, %38 ], [ %14, %.preheader ], [ %23, %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit ]
+_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit14:  ; preds = %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit, %.preheader, %38
+  %.116 = phi ptr [ null, %38 ], [ %14, %.preheader ], [ %23, %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   br label %43
 
@@ -3800,9 +3800,9 @@ _ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit13:  ; preds = %_ZN10scoped_ptrIN7d
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   resume { ptr, i32 } %.pn
 
-43:                                               ; preds = %2, %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit13
-  %.09 = phi ptr [ %.115, %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit13 ], [ null, %2 ]
-  ret ptr %.09
+43:                                               ; preds = %2, %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit14
+  %.010 = phi ptr [ %.116, %_ZN10scoped_ptrIN7datalog8rule_setEED2Ev.exit14 ], [ null, %2 ]
+  ret ptr %.010
 }
 
 declare void @_ZN7datalog8rule_setC1ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(3028)) unnamed_addr #0

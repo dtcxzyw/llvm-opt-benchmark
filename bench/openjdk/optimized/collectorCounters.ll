@@ -233,27 +233,25 @@ define hidden void @_ZN19TraceCollectorStatsD2Ev(ptr noundef nonnull align 8 der
 12:                                               ; preds = %4, %1
   %13 = phi i8 [ %.pre, %4 ], [ %2, %1 ]
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %_ZN19PerfTraceTimedEventD2Ev.exit
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load i8, ptr %15, align 8
+  %17 = trunc i8 %16 to i1
+  %or.cond.i.i = select i1 %14, i1 %17, i1 false
+  br i1 %or.cond.i.i, label %18, label %_ZN19PerfTraceTimedEventD2Ev.exit
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load i8, ptr %16, align 8
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %_ZN19PerfTraceTimedEventD2Ev.exit
-
-19:                                               ; preds = %15
+18:                                               ; preds = %12
   tail call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #6
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load ptr, ptr %20, align 8
-  %22 = load i64, ptr %0, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i64, ptr %24, align 8
-  %26 = add nsw i64 %25, %22
-  store i64 %26, ptr %24, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i64, ptr %0, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i64, ptr %23, align 8
+  %25 = add nsw i64 %24, %21
+  store i64 %25, ptr %23, align 8
   br label %_ZN19PerfTraceTimedEventD2Ev.exit
 
-_ZN19PerfTraceTimedEventD2Ev.exit:                ; preds = %12, %15, %19
+_ZN19PerfTraceTimedEventD2Ev.exit:                ; preds = %12, %18
   ret void
 }
 

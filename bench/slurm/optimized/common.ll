@@ -738,19 +738,17 @@ define internal range(i32 0, 2) i32 @_menu_button_pressed(ptr readnone captures(
 define internal range(i32 0, 2) i32 @_menu_button_released(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4
-  %6 = icmp eq i32 %5, 3
-  br i1 %6, label %7, label %8
+  %6 = icmp ne i32 %5, 3
+  %.b2 = load i1, ptr @menu_right_pressed, align 1
+  %or.cond = select i1 %6, i1 true, i1 %.b2
+  br i1 %or.cond, label %7, label %8
 
 7:                                                ; preds = %3
-  %.b1 = load i1, ptr @menu_right_pressed, align 1
-  br i1 %.b1, label %8, label %9
-
-8:                                                ; preds = %7, %3
   store i1 false, ptr @menu_right_pressed, align 1
-  br label %9
+  br label %8
 
-9:                                                ; preds = %7, %8
-  %.0 = phi i32 [ 0, %8 ], [ 1, %7 ]
+8:                                                ; preds = %3, %7
+  %.0 = phi i32 [ 0, %7 ], [ 1, %3 ]
   ret i32 %.0
 }
 

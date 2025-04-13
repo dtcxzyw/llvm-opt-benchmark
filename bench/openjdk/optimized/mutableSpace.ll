@@ -324,199 +324,195 @@ declare void @_ZN2os16numa_make_globalEPcm(ptr noundef, i64 noundef) local_unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12MutableSpace10initializeE9MemRegionbbbP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(56) initializes((32, 40)) %0, ptr %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #1 align 2 {
   %8 = alloca %class.MemRegion, align 8
-  br i1 %5, label %9, label %110
+  br i1 %5, label %9, label %109
 
 9:                                                ; preds = %7
   %10 = load i8, ptr @UseNUMA, align 1
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %15, label %12
+  %12 = load i8, ptr @AlwaysPreTouch, align 1
+  %13 = trunc i8 %12 to i1
+  %or.cond = select i1 %11, i1 true, i1 %13
+  br i1 %or.cond, label %14, label %109
 
-12:                                               ; preds = %9
-  %13 = load i8, ptr @AlwaysPreTouch, align 1
-  %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %110
-
-15:                                               ; preds = %12, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %17 = icmp eq i64 %.sroa.2.0.copyload.i, 0
-  br i1 %17, label %18, label %20
+  %16 = icmp eq i64 %.sroa.2.0.copyload.i, 0
+  br i1 %16, label %17, label %19
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds ptr, ptr %1, i64 %2
-  br label %58
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds ptr, ptr %1, i64 %2
+  br label %57
 
-20:                                               ; preds = %15
-  %.sroa.0.0.copyload.i = load ptr, ptr %16, align 8
+19:                                               ; preds = %14
+  %.sroa.0.0.copyload.i = load ptr, ptr %15, align 8
   store ptr %.sroa.0.0.copyload.i, ptr %8, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %.sroa.2.0.copyload.i, ptr %21, align 8
-  %22 = call { ptr, i64 } @_ZNK9MemRegion12intersectionES_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr %1, i64 %2) #11
-  %23 = extractvalue { ptr, i64 } %22, 0
-  %24 = extractvalue { ptr, i64 } %22, 1
-  %25 = icmp eq i64 %24, 0
-  %26 = getelementptr inbounds ptr, ptr %1, i64 %2
-  %spec.select = select i1 %25, ptr %26, ptr %23
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %.sroa.2.0.copyload.i, ptr %20, align 8
+  %21 = call { ptr, i64 } @_ZNK9MemRegion12intersectionES_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr %1, i64 %2) #11
+  %22 = extractvalue { ptr, i64 } %21, 0
+  %23 = extractvalue { ptr, i64 } %21, 1
+  %24 = icmp eq i64 %23, 0
+  %25 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %spec.select = select i1 %24, ptr %25, ptr %22
   %.not = icmp ugt ptr %1, %spec.select
-  %27 = ptrtoint ptr %spec.select to i64
-  %28 = ptrtoint ptr %1 to i64
-  %29 = sub i64 %27, %28
-  %30 = lshr i64 %29, 3
-  %.0 = select i1 %.not, i64 0, i64 %30
-  %31 = getelementptr inbounds ptr, ptr %spec.select, i64 %24
-  %.not31 = icmp ugt ptr %31, %26
-  %32 = ptrtoint ptr %26 to i64
-  %33 = ptrtoint ptr %31 to i64
-  %34 = sub i64 %32, %33
-  %35 = lshr i64 %34, 3
-  %.028 = select i1 %.not31, i64 0, i64 %35
-  %36 = load i64, ptr @NUMASpaceResizeRate, align 8
-  %.not32 = icmp eq i64 %36, 0
-  br i1 %.not32, label %55, label %37
+  %26 = ptrtoint ptr %spec.select to i64
+  %27 = ptrtoint ptr %1 to i64
+  %28 = sub i64 %26, %27
+  %29 = lshr i64 %28, 3
+  %.0 = select i1 %.not, i64 0, i64 %29
+  %30 = getelementptr inbounds ptr, ptr %spec.select, i64 %23
+  %.not34 = icmp ugt ptr %30, %25
+  %31 = ptrtoint ptr %25 to i64
+  %32 = ptrtoint ptr %30 to i64
+  %33 = sub i64 %31, %32
+  %34 = lshr i64 %33, 3
+  %.031 = select i1 %.not34, i64 0, i64 %34
+  %35 = load i64, ptr @NUMASpaceResizeRate, align 8
+  %36 = icmp eq i64 %35, 0
+  %37 = load i8, ptr @AlwaysPreTouch, align 1
+  %38 = trunc i8 %37 to i1
+  %or.cond3 = select i1 %36, i1 true, i1 %38
+  br i1 %or.cond3, label %54, label %39
 
-37:                                               ; preds = %20
-  %38 = load i8, ptr @AlwaysPreTouch, align 1
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %55, label %40
+39:                                               ; preds = %19
+  %40 = add nuw nsw i64 %.031, %.0
+  %41 = lshr i64 %35, 3
+  %42 = uitofp nneg i64 %41 to float
+  %43 = uitofp nneg i64 %.0 to float
+  %44 = fmul float %42, %43
+  %45 = uitofp nneg i64 %40 to float
+  %46 = fdiv float %44, %45
+  %47 = fptoui float %46 to i64
+  %48 = call noundef i64 @llvm.umin.i64(i64 %47, i64 %.0)
+  %49 = uitofp nneg i64 %.031 to float
+  %50 = fmul float %42, %49
+  %51 = fdiv float %50, %45
+  %52 = fptoui float %51 to i64
+  %53 = call noundef i64 @llvm.umin.i64(i64 %52, i64 %.031)
+  br label %54
 
-40:                                               ; preds = %37
-  %41 = add nuw nsw i64 %.028, %.0
-  %42 = lshr i64 %36, 3
-  %43 = uitofp nneg i64 %42 to float
-  %44 = uitofp nneg i64 %.0 to float
-  %45 = fmul float %43, %44
-  %46 = uitofp nneg i64 %41 to float
-  %47 = fdiv float %45, %46
-  %48 = fptoui float %47 to i64
-  %49 = call noundef i64 @llvm.umin.i64(i64 %48, i64 %.0)
-  %50 = uitofp nneg i64 %.028 to float
-  %51 = fmul float %43, %50
-  %52 = fdiv float %51, %46
-  %53 = fptoui float %52 to i64
-  %54 = call noundef i64 @llvm.umin.i64(i64 %53, i64 %.028)
-  br label %55
-
-55:                                               ; preds = %40, %37, %20
-  %.129 = phi i64 [ %.028, %37 ], [ %54, %40 ], [ %.028, %20 ]
-  %.1 = phi i64 [ %.0, %37 ], [ %49, %40 ], [ %.0, %20 ]
-  %56 = sub nsw i64 0, %.1
-  %57 = getelementptr inbounds ptr, ptr %spec.select, i64 %56
+54:                                               ; preds = %39, %19
+  %.132 = phi i64 [ %.031, %19 ], [ %53, %39 ]
+  %.1 = phi i64 [ %.0, %19 ], [ %48, %39 ]
+  %55 = sub nsw i64 0, %.1
+  %56 = getelementptr inbounds ptr, ptr %spec.select, i64 %55
   %.pre = load i8, ptr @UseNUMA, align 1
-  br label %58
+  br label %57
 
-58:                                               ; preds = %55, %18
-  %59 = phi i8 [ %10, %18 ], [ %.pre, %55 ]
-  %.sroa.7.0 = phi i64 [ 0, %18 ], [ %.129, %55 ]
-  %.sroa.061.0 = phi ptr [ %19, %18 ], [ %31, %55 ]
-  %.sroa.769.0 = phi i64 [ %2, %18 ], [ %.1, %55 ]
-  %.sroa.066.0 = phi ptr [ %1, %18 ], [ %57, %55 ]
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %61 = load i64, ptr %60, align 8
-  %62 = trunc i8 %59 to i1
-  br i1 %62, label %63, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38
+57:                                               ; preds = %54, %17
+  %58 = phi i8 [ %10, %17 ], [ %.pre, %54 ]
+  %.sroa.7.0 = phi i64 [ 0, %17 ], [ %.132, %54 ]
+  %.sroa.063.0 = phi ptr [ %18, %17 ], [ %30, %54 ]
+  %.sroa.771.0 = phi i64 [ %2, %17 ], [ %.1, %54 ]
+  %.sroa.068.0 = phi ptr [ %1, %17 ], [ %56, %54 ]
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %60 = load i64, ptr %59, align 8
+  %61 = trunc i8 %58 to i1
+  br i1 %61, label %62, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit40
 
-63:                                               ; preds = %58
-  %64 = icmp eq i64 %.sroa.769.0, 0
-  br i1 %64, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit, label %65
+62:                                               ; preds = %57
+  %63 = icmp eq i64 %.sroa.771.0, 0
+  br i1 %63, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit, label %64
 
-65:                                               ; preds = %63
-  %66 = ptrtoint ptr %.sroa.066.0 to i64
-  %67 = add i64 %66, -1
-  %68 = add i64 %67, %61
-  %69 = sub i64 0, %61
-  %70 = and i64 %68, %69
-  %71 = inttoptr i64 %70 to ptr
-  %72 = getelementptr inbounds ptr, ptr %.sroa.066.0, i64 %.sroa.769.0
-  %73 = ptrtoint ptr %72 to i64
-  %74 = and i64 %73, %69
-  %75 = icmp ugt i64 %74, %70
-  br i1 %75, label %76, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit
+64:                                               ; preds = %62
+  %65 = ptrtoint ptr %.sroa.068.0 to i64
+  %66 = add i64 %65, -1
+  %67 = add i64 %66, %60
+  %68 = sub i64 0, %60
+  %69 = and i64 %67, %68
+  %70 = inttoptr i64 %69 to ptr
+  %71 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %.sroa.771.0
+  %72 = ptrtoint ptr %71 to i64
+  %73 = and i64 %72, %68
+  %74 = icmp ugt i64 %73, %69
+  br i1 %74, label %75, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit
 
-76:                                               ; preds = %65
-  %77 = sub nuw i64 %74, %70
-  br i1 %3, label %78, label %79
+75:                                               ; preds = %64
+  %76 = sub nuw i64 %73, %69
+  br i1 %3, label %77, label %78
 
-78:                                               ; preds = %76
-  call void @_ZN2os11free_memoryEPcmm(ptr noundef %71, i64 noundef %77, i64 noundef %61) #11
-  br label %79
+77:                                               ; preds = %75
+  call void @_ZN2os11free_memoryEPcmm(ptr noundef %70, i64 noundef %76, i64 noundef %60) #11
+  br label %78
 
-79:                                               ; preds = %78, %76
-  call void @_ZN2os16numa_make_globalEPcm(ptr noundef %71, i64 noundef %77) #11
+78:                                               ; preds = %77, %75
+  call void @_ZN2os16numa_make_globalEPcm(ptr noundef %70, i64 noundef %76) #11
   br label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit
 
-_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit: ; preds = %63, %65, %79
-  %80 = icmp eq i64 %.sroa.7.0, 0
-  br i1 %80, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38, label %81
+_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit: ; preds = %62, %64, %78
+  %79 = icmp eq i64 %.sroa.7.0, 0
+  br i1 %79, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit40, label %80
 
-81:                                               ; preds = %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit
-  %82 = ptrtoint ptr %.sroa.061.0 to i64
-  %83 = add i64 %82, -1
-  %84 = add i64 %83, %61
-  %85 = sub i64 0, %61
-  %86 = and i64 %84, %85
-  %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds nuw ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
-  %89 = ptrtoint ptr %88 to i64
-  %90 = and i64 %85, %89
-  %91 = icmp ugt i64 %90, %86
-  br i1 %91, label %92, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38
+80:                                               ; preds = %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit
+  %81 = ptrtoint ptr %.sroa.063.0 to i64
+  %82 = add i64 %81, -1
+  %83 = add i64 %82, %60
+  %84 = sub i64 0, %60
+  %85 = and i64 %83, %84
+  %86 = inttoptr i64 %85 to ptr
+  %87 = getelementptr inbounds nuw ptr, ptr %.sroa.063.0, i64 %.sroa.7.0
+  %88 = ptrtoint ptr %87 to i64
+  %89 = and i64 %84, %88
+  %90 = icmp ugt i64 %89, %85
+  br i1 %90, label %91, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit40
 
-92:                                               ; preds = %81
-  %93 = sub nuw i64 %90, %86
-  br i1 %3, label %94, label %95
+91:                                               ; preds = %80
+  %92 = sub nuw i64 %89, %85
+  br i1 %3, label %93, label %94
 
-94:                                               ; preds = %92
-  call void @_ZN2os11free_memoryEPcmm(ptr noundef %87, i64 noundef %93, i64 noundef %61) #11
-  br label %95
+93:                                               ; preds = %91
+  call void @_ZN2os11free_memoryEPcmm(ptr noundef %86, i64 noundef %92, i64 noundef %60) #11
+  br label %94
 
-95:                                               ; preds = %94, %92
-  call void @_ZN2os16numa_make_globalEPcm(ptr noundef %87, i64 noundef %93) #11
-  br label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38
+94:                                               ; preds = %93, %91
+  call void @_ZN2os16numa_make_globalEPcm(ptr noundef %86, i64 noundef %92) #11
+  br label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit40
 
-_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38: ; preds = %95, %81, %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit, %58
-  %96 = load i8, ptr @AlwaysPreTouch, align 1
-  %97 = trunc i8 %96 to i1
-  br i1 %97, label %98, label %104
+_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit40: ; preds = %94, %80, %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit, %57
+  %95 = load i8, ptr @AlwaysPreTouch, align 1
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %97, label %103
 
-98:                                               ; preds = %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38
-  %99 = load i8, ptr @UseLargePages, align 1
-  %100 = trunc i8 %99 to i1
-  %101 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %spec.select89 = select i1 %100, i64 %61, i64 %101
-  %102 = getelementptr inbounds ptr, ptr %.sroa.066.0, i64 %.sroa.769.0
-  call void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr noundef nonnull @.str, ptr noundef %.sroa.066.0, ptr noundef %102, i64 noundef %spec.select89, ptr noundef %6) #11
-  %103 = getelementptr inbounds nuw ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
-  call void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr noundef nonnull @.str.4, ptr noundef %.sroa.061.0, ptr noundef %103, i64 noundef %spec.select89, ptr noundef %6) #11
-  br label %104
+97:                                               ; preds = %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit40
+  %98 = load i8, ptr @UseLargePages, align 1
+  %99 = trunc i8 %98 to i1
+  %100 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %spec.select91 = select i1 %99, i64 %60, i64 %100
+  %101 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %.sroa.771.0
+  call void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr noundef nonnull @.str, ptr noundef %.sroa.068.0, ptr noundef %101, i64 noundef %spec.select91, ptr noundef %6) #11
+  %102 = getelementptr inbounds nuw ptr, ptr %.sroa.063.0, i64 %.sroa.7.0
+  call void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr noundef nonnull @.str.4, ptr noundef %.sroa.063.0, ptr noundef %102, i64 noundef %spec.select91, ptr noundef %6) #11
+  br label %103
 
-104:                                              ; preds = %98, %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38
-  %105 = getelementptr inbounds nuw ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
-  %106 = ptrtoint ptr %105 to i64
-  %107 = ptrtoint ptr %.sroa.066.0 to i64
-  %108 = sub i64 %106, %107
-  %109 = lshr i64 %108, 3
-  store ptr %.sroa.066.0, ptr %16, align 8
-  store i64 %109, ptr %.sroa.2.0..sroa_idx.i, align 8
-  br label %110
+103:                                              ; preds = %97, %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit40
+  %104 = getelementptr inbounds nuw ptr, ptr %.sroa.063.0, i64 %.sroa.7.0
+  %105 = ptrtoint ptr %104 to i64
+  %106 = ptrtoint ptr %.sroa.068.0 to i64
+  %107 = sub i64 %105, %106
+  %108 = lshr i64 %107, 3
+  store ptr %.sroa.068.0, ptr %15, align 8
+  store i64 %108, ptr %.sroa.2.0..sroa_idx.i, align 8
+  br label %109
 
-110:                                              ; preds = %104, %12, %7
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %111, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %113 = getelementptr inbounds ptr, ptr %1, i64 %2
+109:                                              ; preds = %9, %103, %7
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %1, ptr %110, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %112 = getelementptr inbounds ptr, ptr %1, i64 %2
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  store volatile ptr %113, ptr %112, align 8
-  br i1 %3, label %114, label %118
+  store volatile ptr %112, ptr %111, align 8
+  br i1 %3, label %113, label %117
 
-114:                                              ; preds = %110
-  %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
-  %117 = load ptr, ptr %116, align 8
-  call void %117(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %4) #11
-  br label %118
+113:                                              ; preds = %109
+  %114 = load ptr, ptr %0, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 32
+  %116 = load ptr, ptr %115, align 8
+  call void %116(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %4) #11
+  br label %117
 
-118:                                              ; preds = %114, %110
+117:                                              ; preds = %113, %109
   ret void
 }
 

@@ -1291,19 +1291,19 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
   br i1 %35, label %.preheader.i, label %44
 
 .preheader.i:                                     ; preds = %34, %12
-  %.05287.i = phi ptr [ %23, %34 ], [ %10, %12 ]
+  %.05286.i = phi ptr [ %23, %34 ], [ %10, %12 ]
   %36 = tail call ptr @__ctype_b_loc() #16
   %37 = load ptr, ptr %36, align 8
-  %.173.i = getelementptr inbounds nuw i8, ptr %.05287.i, i64 1
-  %38 = load i8, ptr %.173.i, align 1
+  %.172.i = getelementptr inbounds nuw i8, ptr %.05286.i, i64 1
+  %38 = load i8, ptr %.172.i, align 1
   %39 = zext i8 %38 to i64
   %40 = getelementptr inbounds nuw i16, ptr %37, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 1024
-  %.not6574.i = icmp ne i16 %42, 0
+  %.not6573.i = icmp ne i16 %42, 0
   %43 = icmp eq i8 %38, 42
-  %or.cond75.i = or i1 %43, %.not6574.i
-  br i1 %or.cond75.i, label %.critedge.i, label %._crit_edge.i
+  %or.cond74.i = or i1 %43, %.not6573.i
+  br i1 %or.cond74.i, label %.critedge.i, label %._crit_edge.i
 
 44:                                               ; preds = %34
   %45 = tail call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #14
@@ -1317,10 +1317,10 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
 
 .critedge.i:                                      ; preds = %.preheader.i, %71
   %49 = phi i8 [ %73, %71 ], [ %38, %.preheader.i ]
-  %.179.i = phi ptr [ %.1.i, %71 ], [ %.173.i, %.preheader.i ]
-  %.05378.i = phi i64 [ %72, %71 ], [ 0, %.preheader.i ]
-  %.05477.i = phi i64 [ %.155.i, %71 ], [ 0, %.preheader.i ]
-  %.05676.i = phi i64 [ %.157.i, %71 ], [ 0, %.preheader.i ]
+  %.178.i = phi ptr [ %.1.i, %71 ], [ %.172.i, %.preheader.i ]
+  %.05377.i = phi i64 [ %72, %71 ], [ 0, %.preheader.i ]
+  %.05476.i = phi i64 [ %.155.i, %71 ], [ 0, %.preheader.i ]
+  %.05675.i = phi i64 [ %.157.i, %71 ], [ 0, %.preheader.i ]
   switch i8 %49, label %66 [
     i8 42, label %50
     i8 97, label %71
@@ -1341,7 +1341,7 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
   ]
 
 50:                                               ; preds = %.critedge.i
-  %51 = or i64 %.05676.i, %.05477.i
+  %51 = or i64 %.05675.i, %.05476.i
   br label %71
 
 52:                                               ; preds = %.critedge.i
@@ -1397,10 +1397,10 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
   br label %125
 
 71:                                               ; preds = %65, %64, %63, %62, %61, %60, %59, %58, %57, %56, %55, %54, %53, %52, %50, %.critedge.i
-  %.157.i = phi i64 [ 16384, %65 ], [ 8192, %64 ], [ 4096, %63 ], [ 2048, %62 ], [ 1024, %61 ], [ 512, %60 ], [ 256, %59 ], [ 128, %58 ], [ 64, %57 ], [ 32, %56 ], [ 16, %55 ], [ 8, %54 ], [ 4, %53 ], [ 2, %52 ], [ %.05676.i, %50 ], [ 1, %.critedge.i ]
-  %.155.i = phi i64 [ %.05477.i, %65 ], [ %.05477.i, %64 ], [ %.05477.i, %63 ], [ %.05477.i, %62 ], [ %.05477.i, %61 ], [ %.05477.i, %60 ], [ %.05477.i, %59 ], [ %.05477.i, %58 ], [ %.05477.i, %57 ], [ %.05477.i, %56 ], [ %.05477.i, %55 ], [ %.05477.i, %54 ], [ %.05477.i, %53 ], [ %.05477.i, %52 ], [ %51, %50 ], [ %.05477.i, %.critedge.i ]
-  %72 = or i64 %.157.i, %.05378.i
-  %.1.i = getelementptr inbounds nuw i8, ptr %.179.i, i64 1
+  %.157.i = phi i64 [ 16384, %65 ], [ 8192, %64 ], [ 4096, %63 ], [ 2048, %62 ], [ 1024, %61 ], [ 512, %60 ], [ 256, %59 ], [ 128, %58 ], [ 64, %57 ], [ 32, %56 ], [ 16, %55 ], [ 8, %54 ], [ 4, %53 ], [ 2, %52 ], [ %.05675.i, %50 ], [ 1, %.critedge.i ]
+  %.155.i = phi i64 [ %.05476.i, %65 ], [ %.05476.i, %64 ], [ %.05476.i, %63 ], [ %.05476.i, %62 ], [ %.05476.i, %61 ], [ %.05476.i, %60 ], [ %.05476.i, %59 ], [ %.05476.i, %58 ], [ %.05476.i, %57 ], [ %.05476.i, %56 ], [ %.05476.i, %55 ], [ %.05476.i, %54 ], [ %.05476.i, %53 ], [ %.05476.i, %52 ], [ %51, %50 ], [ %.05476.i, %.critedge.i ]
+  %72 = or i64 %.157.i, %.05377.i
+  %.1.i = getelementptr inbounds nuw i8, ptr %.178.i, i64 1
   %73 = load i8, ptr %.1.i, align 1
   %74 = zext i8 %73 to i64
   %75 = getelementptr inbounds nuw i16, ptr %37, i64 %74
@@ -1419,8 +1419,8 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
   %.054.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %80, %._crit_edge.loopexit.i ]
   %.053.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %79, %._crit_edge.loopexit.i ]
-  %.052.pn.lcssa.i = phi ptr [ %.05287.i, %.preheader.i ], [ %.179.i, %._crit_edge.loopexit.i ]
-  %.1.lcssa.i = phi ptr [ %.173.i, %.preheader.i ], [ %.1.i, %._crit_edge.loopexit.i ]
+  %.052.pn.lcssa.i = phi ptr [ %.05286.i, %.preheader.i ], [ %.178.i, %._crit_edge.loopexit.i ]
+  %.1.lcssa.i = phi ptr [ %.172.i, %.preheader.i ], [ %.1.i, %._crit_edge.loopexit.i ]
   %81 = load i8, ptr %2, align 16
   %82 = icmp eq i8 %81, 0
   br i1 %82, label %83, label %84
@@ -3212,8 +3212,8 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_name_name(ptr noundef 
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -3244,8 +3244,8 @@ define dso_local i32 @get_role_oid_or_public(ptr noundef %0) local_unnamed_addr 
 4:                                                ; preds = %1
   %5 = ptrtoint ptr %0 to i64
   %6 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %5, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not = icmp eq i32 %6, 0
-  br i1 %.not.i.not, label %7, label %get_role_oid.exit
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %7, label %get_role_oid.exit
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -3306,8 +3306,8 @@ define dso_local range(i64 0, 2) i64 @has_table_privilege_name_id(ptr noundef ca
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -3457,8 +3457,8 @@ define dso_local range(i64 0, 2) i64 @has_sequence_privilege_name_name(ptr nound
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -3554,8 +3554,8 @@ define dso_local range(i64 0, 2) i64 @has_sequence_privilege_name_id(ptr noundef
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -3782,8 +3782,8 @@ define dso_local range(i64 0, 2) i64 @has_any_column_privilege_name_name(ptr nou
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -3867,8 +3867,8 @@ define dso_local range(i64 0, 2) i64 @has_any_column_privilege_name_id(ptr nound
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -4080,8 +4080,8 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_name_name_name(ptr no
 
 20:                                               ; preds = %1
   %21 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %21, 0
-  br i1 %.not.i.not.i, label %22, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %21, 0
+  br i1 %.not.i, label %22, label %get_role_oid_or_public.exit
 
 22:                                               ; preds = %20
   %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -4215,8 +4215,8 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_name_name_attnum(ptr 
 
 19:                                               ; preds = %1
   %20 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i.not.i, label %21, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %20, 0
+  br i1 %.not.i, label %21, label %get_role_oid_or_public.exit
 
 21:                                               ; preds = %19
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -4299,8 +4299,8 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_name_id_name(ptr noun
 
 19:                                               ; preds = %1
   %20 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %20, 0
-  br i1 %.not.i.not.i, label %21, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %20, 0
+  br i1 %.not.i, label %21, label %get_role_oid_or_public.exit
 
 21:                                               ; preds = %19
   %22 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -4380,8 +4380,8 @@ define dso_local range(i64 0, 2) i64 @has_column_privilege_name_id_attnum(ptr no
 
 18:                                               ; preds = %1
   %19 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i.not.i, label %20, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %19, 0
+  br i1 %.not.i, label %20, label %get_role_oid_or_public.exit
 
 20:                                               ; preds = %18
   %21 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -4961,8 +4961,8 @@ define dso_local range(i64 0, 2) i64 @has_database_privilege_name_name(ptr nound
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -5026,8 +5026,8 @@ define dso_local range(i64 0, 2) i64 @has_database_privilege_name_id(ptr noundef
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -5176,8 +5176,8 @@ define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_name_na
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -5239,8 +5239,8 @@ define dso_local range(i64 0, 2) i64 @has_foreign_data_wrapper_privilege_name_id
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -5387,8 +5387,8 @@ define dso_local range(i64 0, 2) i64 @has_function_privilege_name_name(ptr nound
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -5404,8 +5404,8 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
   %22 = ptrtoint ptr %21 to i64
   %23 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @regprocedurein, i32 noundef 0, i64 noundef %22) #14
   %24 = trunc i64 %23 to i32
-  %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %25, label %convert_function_name.exit
+  %.not.i9 = icmp eq i32 %24, 0
+  br i1 %.not.i9, label %25, label %convert_function_name.exit
 
 25:                                               ; preds = %get_role_oid_or_public.exit
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -5478,8 +5478,8 @@ define dso_local range(i64 0, 2) i64 @has_function_privilege_name_id(ptr noundef
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -5640,8 +5640,8 @@ define dso_local range(i64 0, 2) i64 @has_language_privilege_name_name(ptr nound
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -5703,8 +5703,8 @@ define dso_local range(i64 0, 2) i64 @has_language_privilege_name_id(ptr noundef
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -5851,8 +5851,8 @@ define dso_local range(i64 0, 2) i64 @has_schema_privilege_name_name(ptr noundef
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -5914,8 +5914,8 @@ define dso_local range(i64 0, 2) i64 @has_schema_privilege_name_id(ptr noundef c
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -6062,8 +6062,8 @@ define dso_local range(i64 0, 2) i64 @has_server_privilege_name_name(ptr noundef
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -6125,8 +6125,8 @@ define dso_local range(i64 0, 2) i64 @has_server_privilege_name_id(ptr noundef c
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -6273,8 +6273,8 @@ define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_name_name(ptr nou
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -6336,8 +6336,8 @@ define dso_local range(i64 0, 2) i64 @has_tablespace_privilege_name_id(ptr nound
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -6484,8 +6484,8 @@ define dso_local range(i64 0, 2) i64 @has_type_privilege_name_name(ptr noundef r
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -6501,8 +6501,8 @@ get_role_oid_or_public.exit:                      ; preds = %1, %15
   %22 = ptrtoint ptr %21 to i64
   %23 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @regtypein, i32 noundef 0, i64 noundef %22) #14
   %24 = trunc i64 %23 to i32
-  %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %25, label %convert_type_name.exit
+  %.not.i9 = icmp eq i32 %24, 0
+  br i1 %.not.i9, label %25, label %convert_type_name.exit
 
 25:                                               ; preds = %get_role_oid_or_public.exit
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -6575,8 +6575,8 @@ define dso_local range(i64 0, 2) i64 @has_type_privilege_name_id(ptr noundef cap
 
 15:                                               ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %4, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i.not.i, label %17, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %16, 0
+  br i1 %.not.i, label %17, label %get_role_oid_or_public.exit
 
 17:                                               ; preds = %15
   %18 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -6738,8 +6738,8 @@ define dso_local range(i64 0, 2) i64 @has_parameter_privilege_name_name(ptr noun
 
 16:                                               ; preds = %1
   %17 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i.not.i, label %18, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %17, 0
+  br i1 %.not.i, label %18, label %get_role_oid_or_public.exit
 
 18:                                               ; preds = %16
   %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -6809,8 +6809,8 @@ define dso_local range(i64 0, 2) i64 @has_largeobject_privilege_name_id(ptr noun
 
 7:                                                ; preds = %1
   %8 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i.not.i, label %9, label %get_role_oid_or_public.exit
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %9, label %get_role_oid_or_public.exit
 
 9:                                                ; preds = %7
   %10 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -6831,8 +6831,8 @@ get_role_oid_or_public.exit:                      ; preds = %1, %7
   %19 = tail call ptr @pg_detoast_datum_packed(ptr noundef %18) #14
   %20 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %19, ptr noundef nonnull @convert_largeobject_priv_string.largeobject_priv_map)
   %21 = and i64 %20, 4
-  %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %22, label %24
+  %.not.i10 = icmp eq i64 %21, 0
+  br i1 %.not.i10, label %22, label %24
 
 22:                                               ; preds = %get_role_oid_or_public.exit
   %23 = tail call ptr @GetActiveSnapshot() #14
@@ -6967,8 +6967,8 @@ define dso_local range(i64 0, 2) i64 @pg_has_role_name_name(ptr noundef readonly
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
   %10 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not = icmp eq i32 %10, 0
-  br i1 %.not.i.not, label %11, label %get_role_oid.exit
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %11, label %get_role_oid.exit
 
 11:                                               ; preds = %1
   %12 = inttoptr i64 %3 to ptr
@@ -6981,8 +6981,8 @@ define dso_local range(i64 0, 2) i64 @pg_has_role_name_name(ptr noundef readonly
 
 get_role_oid.exit:                                ; preds = %1
   %16 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %5, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i9.not = icmp eq i32 %16, 0
-  br i1 %.not.i9.not, label %17, label %get_role_oid.exit10
+  %.not10 = icmp eq i32 %16, 0
+  br i1 %.not10, label %17, label %get_role_oid.exit9
 
 17:                                               ; preds = %get_role_oid.exit
   %18 = inttoptr i64 %5 to ptr
@@ -6993,7 +6993,7 @@ get_role_oid.exit:                                ; preds = %1
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5563, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
-get_role_oid.exit10:                              ; preds = %get_role_oid.exit
+get_role_oid.exit9:                               ; preds = %get_role_oid.exit
   %22 = tail call fastcc i64 @convert_any_priv_string(ptr noundef %9, ptr noundef nonnull @convert_role_priv_string.role_priv_map)
   %23 = tail call fastcc i32 @pg_role_aclcheck(i32 noundef %16, i32 noundef %10, i64 noundef %22)
   %24 = xor i32 %23, 1
@@ -7005,19 +7005,19 @@ get_role_oid.exit10:                              ; preds = %get_role_oid.exit
 define dso_local i32 @get_role_oid(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
   %4 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not = icmp ne i32 %4, 0
-  %brmerge = or i1 %1, %.not
-  br i1 %brmerge, label %9, label %5
+  %5 = icmp ne i32 %4, 0
+  %or.cond = or i1 %1, %5
+  br i1 %or.cond, label %10, label %6
 
-5:                                                ; preds = %2
-  %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %6)
-  %7 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %0) #14
+6:                                                ; preds = %2
+  %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %7)
+  %8 = tail call i32 @errcode(i32 noundef 67137668) #14
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %0) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5563, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   ret i32 %4
 }
 
@@ -7124,8 +7124,8 @@ define dso_local range(i64 0, 2) i64 @pg_has_role_name(ptr noundef readonly capt
   %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #14
   %8 = tail call i32 @GetUserId() #14
   %9 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not = icmp eq i32 %9, 0
-  br i1 %.not.i.not, label %10, label %get_role_oid.exit
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %10, label %get_role_oid.exit
 
 10:                                               ; preds = %1
   %11 = inttoptr i64 %3 to ptr
@@ -7155,8 +7155,8 @@ define dso_local range(i64 0, 2) i64 @pg_has_role_name_id(ptr noundef readonly c
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
   %10 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %3, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not = icmp eq i32 %10, 0
-  br i1 %.not.i.not, label %11, label %get_role_oid.exit
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %11, label %get_role_oid.exit
 
 11:                                               ; preds = %1
   %12 = inttoptr i64 %3 to ptr
@@ -7204,8 +7204,8 @@ define dso_local range(i64 0, 2) i64 @pg_has_role_id_name(ptr noundef readonly c
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #14
   %10 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %5, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i.not = icmp eq i32 %10, 0
-  br i1 %.not.i.not, label %11, label %get_role_oid.exit
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %11, label %get_role_oid.exit
 
 11:                                               ; preds = %1
   %12 = inttoptr i64 %5 to ptr
@@ -7962,12 +7962,12 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 define dso_local i32 @get_rolespec_oid(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  switch i32 %4, label %22 [
+  switch i32 %4, label %23 [
     i32 0, label %5
-    i32 1, label %14
-    i32 2, label %14
-    i32 3, label %16
-    i32 4, label %18
+    i32 1, label %15
+    i32 2, label %15
+    i32 3, label %17
+    i32 4, label %19
   ]
 
 5:                                                ; preds = %2
@@ -7975,44 +7975,44 @@ define dso_local i32 @get_rolespec_oid(ptr noundef readonly captures(none) %0, i
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = tail call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %8, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
-  %.not.i = icmp ne i32 %9, 0
-  %brmerge.i = or i1 %1, %.not.i
-  br i1 %brmerge.i, label %get_role_oid.exit, label %10
+  %10 = icmp ne i32 %9, 0
+  %or.cond.i = or i1 %1, %10
+  br i1 %or.cond.i, label %get_role_oid.exit, label %11
 
-10:                                               ; preds = %5
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %13 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %7) #14
+11:                                               ; preds = %5
+  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %12)
+  %13 = tail call i32 @errcode(i32 noundef 67137668) #14
+  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %7) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5563, ptr noundef nonnull @__func__.get_role_oid) #14
   unreachable
 
-14:                                               ; preds = %2, %2
-  %15 = tail call i32 @GetUserId() #14
+15:                                               ; preds = %2, %2
+  %16 = tail call i32 @GetUserId() #14
   br label %get_role_oid.exit
 
-16:                                               ; preds = %2
-  %17 = tail call i32 @GetSessionUserId() #14
+17:                                               ; preds = %2
+  %18 = tail call i32 @GetSessionUserId() #14
   br label %get_role_oid.exit
 
-18:                                               ; preds = %2
-  %19 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call i32 @errcode(i32 noundef 67137668) #14
-  %21 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32) #14
+19:                                               ; preds = %2
+  %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %20)
+  %21 = tail call i32 @errcode(i32 noundef 67137668) #14
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5611, ptr noundef nonnull @__func__.get_rolespec_oid) #14
   unreachable
 
-22:                                               ; preds = %2
-  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %23)
-  %24 = load i32, ptr %3, align 4
-  %25 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, i32 noundef %24) #14
+23:                                               ; preds = %2
+  %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %24)
+  %25 = load i32, ptr %3, align 4
+  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, i32 noundef %25) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 5616, ptr noundef nonnull @__func__.get_rolespec_oid) #14
   unreachable
 
-get_role_oid.exit:                                ; preds = %5, %16, %14
-  %.0 = phi i32 [ %17, %16 ], [ %15, %14 ], [ %9, %5 ]
+get_role_oid.exit:                                ; preds = %5, %17, %15
+  %.0 = phi i32 [ %18, %17 ], [ %16, %15 ], [ %9, %5 ]
   ret i32 %.0
 }
 
@@ -8167,118 +8167,112 @@ define internal fastcc noundef ptr @getid(ptr noundef readonly captures(ret: add
   br label %6
 
 6:                                                ; preds = %6, %3
-  %.029 = phi ptr [ %0, %3 ], [ %12, %6 ]
-  %7 = load i8, ptr %.029, align 1
+  %.030 = phi ptr [ %0, %3 ], [ %12, %6 ]
+  %7 = load i8, ptr %.030, align 1
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i16, ptr %5, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 8192
   %.not = icmp eq i16 %11, 0
-  %12 = getelementptr inbounds nuw i8, ptr %.029, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.030, i64 1
   br i1 %.not, label %.preheader, label %6, !llvm.loop !32
 
 .preheader:                                       ; preds = %6
-  %.not3240 = icmp eq i8 %7, 0
-  br i1 %.not3240, label %.critedge, label %.lr.ph
+  %.not3342 = icmp eq i8 %7, 0
+  br i1 %.not3342, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %38
-  %13 = phi i8 [ %39, %38 ], [ %7, %.preheader ]
-  %.02645 = phi i1 [ %.1, %38 ], [ false, %.preheader ]
-  %.02742 = phi i32 [ %.128, %38 ], [ 0, %.preheader ]
-  %.13041 = phi ptr [ %40, %38 ], [ %.029, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %39
+  %13 = phi i8 [ %40, %39 ], [ %7, %.preheader ]
+  %.02745 = phi i1 [ %.1, %39 ], [ false, %.preheader ]
+  %.02844 = phi i32 [ %.129, %39 ], [ 0, %.preheader ]
+  %.13143 = phi ptr [ %41, %39 ], [ %.030, %.preheader ]
   %14 = load ptr, ptr %4, align 8
   %15 = zext i8 %13 to i64
   %16 = getelementptr inbounds nuw i16, ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2
-  %.fr37 = freeze i16 %17
-  %18 = and i16 %.fr37, 8
-  %.not33.not = icmp eq i16 %18, 0
-  br i1 %.not33.not, label %switch.early.test, label %.critedge2
-
-switch.early.test:                                ; preds = %.lr.ph
-  switch i8 %13, label %19 [
-    i8 34, label %21
-    i8 95, label %26
-  ]
-
-19:                                               ; preds = %switch.early.test
-  br i1 %.02645, label %.critedge2, label %.critedge.loopexit
-
-.critedge2:                                       ; preds = %.lr.ph, %19
+  %18 = and i16 %17, 8
+  %.not34 = icmp ne i16 %18, 0
+  %19 = icmp eq i8 %13, 95
+  %or.cond37 = or i1 %19, %.not34
   %20 = icmp eq i8 %13, 34
-  br i1 %20, label %21, label %26
+  %21 = or i1 %20, %or.cond37
+  %or.cond39 = select i1 %21, i1 true, i1 %.02745
+  br i1 %or.cond39, label %.critedge2, label %.critedge.loopexit
 
-21:                                               ; preds = %switch.early.test, %.critedge2
-  %22 = getelementptr inbounds nuw i8, ptr %.13041, i64 1
-  %23 = load i8, ptr %22, align 1
-  %.not35 = icmp eq i8 %23, 34
-  br i1 %.not35, label %26, label %24
+.critedge2:                                       ; preds = %.lr.ph
+  br i1 %20, label %22, label %27
 
-24:                                               ; preds = %21
-  %25 = xor i1 %.02645, true
-  br label %38
+22:                                               ; preds = %.critedge2
+  %23 = getelementptr inbounds nuw i8, ptr %.13143, i64 1
+  %24 = load i8, ptr %23, align 1
+  %.not36 = icmp eq i8 %24, 34
+  br i1 %.not36, label %27, label %25
 
-26:                                               ; preds = %switch.early.test, %21, %.critedge2
-  %.2 = phi ptr [ %.13041, %.critedge2 ], [ %22, %21 ], [ %.13041, %switch.early.test ]
-  %27 = icmp sgt i32 %.02742, 62
-  br i1 %27, label %28, label %34
+25:                                               ; preds = %22
+  %26 = xor i1 %.02745, true
+  br label %39
 
-28:                                               ; preds = %26
-  %29 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #14
-  br i1 %29, label %30, label %.loopexit
+27:                                               ; preds = %22, %.critedge2
+  %.2 = phi ptr [ %.13143, %.critedge2 ], [ %23, %22 ]
+  %28 = icmp sgt i32 %.02844, 62
+  br i1 %28, label %29, label %35
 
-30:                                               ; preds = %28
-  %31 = tail call i32 @errcode(i32 noundef 34103428) #14
-  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48) #14
-  %33 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.49, i32 noundef 64) #14
+29:                                               ; preds = %27
+  %30 = tail call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #14
+  br i1 %30, label %31, label %.loopexit
+
+31:                                               ; preds = %29
+  %32 = tail call i32 @errcode(i32 noundef 34103428) #14
+  %33 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.48) #14
+  %34 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.49, i32 noundef 64) #14
   tail call void @errsave_finish(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull @__func__.getid) #14
   br label %.loopexit
 
-34:                                               ; preds = %26
-  %35 = add nsw i32 %.02742, 1
-  %36 = sext i32 %.02742 to i64
-  %37 = getelementptr inbounds i8, ptr %1, i64 %36
-  store i8 %13, ptr %37, align 1
+35:                                               ; preds = %27
+  %36 = add nsw i32 %.02844, 1
+  %37 = sext i32 %.02844 to i64
+  %38 = getelementptr inbounds i8, ptr %1, i64 %37
+  store i8 %13, ptr %38, align 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  br label %38
+  br label %39
 
-38:                                               ; preds = %34, %24
-  %39 = phi i8 [ %23, %24 ], [ %.pre, %34 ]
-  %.3 = phi ptr [ %.13041, %24 ], [ %.2, %34 ]
-  %.128 = phi i32 [ %.02742, %24 ], [ %35, %34 ]
-  %.1 = phi i1 [ %25, %24 ], [ %.02645, %34 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  %.not32 = icmp eq i8 %39, 0
-  br i1 %.not32, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !33
+39:                                               ; preds = %35, %25
+  %40 = phi i8 [ %24, %25 ], [ %.pre, %35 ]
+  %.3 = phi ptr [ %.13143, %25 ], [ %.2, %35 ]
+  %.129 = phi i32 [ %.02844, %25 ], [ %36, %35 ]
+  %.1 = phi i1 [ %26, %25 ], [ %.02745, %35 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.3, i64 1
+  %.not33 = icmp eq i8 %40, 0
+  br i1 %.not33, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !33
 
-.critedge.loopexit:                               ; preds = %38, %19
-  %.130.lcssa.ph = phi ptr [ %.13041, %19 ], [ %40, %38 ]
-  %.027.lcssa.ph = phi i32 [ %.02742, %19 ], [ %.128, %38 ]
-  %41 = sext i32 %.027.lcssa.ph to i64
+.critedge.loopexit:                               ; preds = %.lr.ph, %39
+  %.131.lcssa.ph = phi ptr [ %41, %39 ], [ %.13143, %.lr.ph ]
+  %.028.lcssa.ph = phi i32 [ %.129, %39 ], [ %.02844, %.lr.ph ]
+  %42 = sext i32 %.028.lcssa.ph to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
-  %.130.lcssa = phi ptr [ %.029, %.preheader ], [ %.130.lcssa.ph, %.critedge.loopexit ]
-  %.027.lcssa = phi i64 [ 0, %.preheader ], [ %41, %.critedge.loopexit ]
-  %42 = getelementptr inbounds i8, ptr %1, i64 %.027.lcssa
-  store i8 0, ptr %42, align 1
-  %43 = load ptr, ptr %4, align 8
-  br label %44
+  %.131.lcssa = phi ptr [ %.030, %.preheader ], [ %.131.lcssa.ph, %.critedge.loopexit ]
+  %.028.lcssa = phi i64 [ 0, %.preheader ], [ %42, %.critedge.loopexit ]
+  %43 = getelementptr inbounds i8, ptr %1, i64 %.028.lcssa
+  store i8 0, ptr %43, align 1
+  %44 = load ptr, ptr %4, align 8
+  br label %45
 
-44:                                               ; preds = %44, %.critedge
-  %.4 = phi ptr [ %.130.lcssa, %.critedge ], [ %50, %44 ]
-  %45 = load i8, ptr %.4, align 1
-  %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw i16, ptr %43, i64 %46
-  %48 = load i16, ptr %47, align 2
-  %49 = and i16 %48, 8192
-  %.not34 = icmp eq i16 %49, 0
-  %50 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  br i1 %.not34, label %.loopexit, label %44, !llvm.loop !34
+45:                                               ; preds = %45, %.critedge
+  %.4 = phi ptr [ %.131.lcssa, %.critedge ], [ %51, %45 ]
+  %46 = load i8, ptr %.4, align 1
+  %47 = zext i8 %46 to i64
+  %48 = getelementptr inbounds nuw i16, ptr %44, i64 %47
+  %49 = load i16, ptr %48, align 2
+  %50 = and i16 %49, 8192
+  %.not35 = icmp eq i16 %50, 0
+  %51 = getelementptr inbounds nuw i8, ptr %.4, i64 1
+  br i1 %.not35, label %.loopexit, label %45, !llvm.loop !34
 
-.loopexit:                                        ; preds = %44, %28, %30
-  %.0 = phi ptr [ null, %30 ], [ null, %28 ], [ %.4, %44 ]
+.loopexit:                                        ; preds = %45, %29, %31
+  %.0 = phi ptr [ null, %31 ], [ null, %29 ], [ %.4, %45 ]
   ret ptr %.0
 }
 

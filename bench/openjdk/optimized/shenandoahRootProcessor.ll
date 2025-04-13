@@ -1561,26 +1561,26 @@ define linkonce_odr hidden void @_ZN28ShenandoahMarkNMethodClosure10do_nmethodEP
   %33 = load i16, ptr %32, align 4
   %34 = zext i16 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 %34
-  %.not18.i = icmp eq i16 %33, 0
-  br i1 %.not18.i, label %_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit, label %.lr.ph16.i
+  %.not20.i = icmp eq i16 %33, 0
+  br i1 %.not20.i, label %_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit, label %.lr.ph18.i
 
-.lr.ph16.i:                                       ; preds = %._crit_edge.i, %41
-  %.014.i = phi ptr [ %42, %41 ], [ %31, %._crit_edge.i ]
-  %36 = load ptr, ptr %.014.i, align 8
+.lr.ph18.i:                                       ; preds = %._crit_edge.i, %41
+  %.016.i = phi ptr [ %42, %41 ], [ %31, %._crit_edge.i ]
+  %36 = load ptr, ptr %.016.i, align 8
   %37 = tail call noundef ptr @_ZN8Universe12non_oop_wordEv() #12
   %.not.i = icmp eq ptr %36, %37
   br i1 %.not.i, label %41, label %38
 
-38:                                               ; preds = %.lr.ph16.i
+38:                                               ; preds = %.lr.ph18.i
   %39 = load ptr, ptr %13, align 8
   %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %.014.i) #12
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %.016.i) #12
   br label %41
 
-41:                                               ; preds = %38, %.lr.ph16.i
-  %42 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
+41:                                               ; preds = %38, %.lr.ph18.i
+  %42 = getelementptr inbounds nuw i8, ptr %.016.i, i64 8
   %43 = icmp ult ptr %42, %35
-  br i1 %43, label %.lr.ph16.i, label %_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit, !llvm.loop !20
+  br i1 %43, label %.lr.ph18.i, label %_ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit, !llvm.loop !20
 
 _ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit: ; preds = %41, %._crit_edge.i
   ret void

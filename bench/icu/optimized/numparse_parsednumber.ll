@@ -221,68 +221,68 @@ define void @_ZNK6icu_778numparse4impl12ParsedNumber19populateFormattableERNS_11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = load i32, ptr %4, align 4, !tbaa !19
   %6 = and i32 %5, 64
-  %.not = icmp eq i32 %6, 0
+  %.not14 = icmp eq i32 %6, 0
   %7 = and i32 %2, 16
-  %.not14 = icmp eq i32 %7, 0
-  br i1 %.not, label %10, label %8
+  %8 = icmp eq i32 %7, 0
+  br i1 %.not14, label %11, label %9
 
-8:                                                ; preds = %3
-  %9 = tail call double @uprv_getNaN_77()
-  tail call void @_ZN6icu_7711Formattable9setDoubleEd(ptr noundef nonnull align 8 dereferenceable(112) %1, double noundef %9)
-  br label %26
+9:                                                ; preds = %3
+  %10 = tail call double @uprv_getNaN_77()
+  tail call void @_ZN6icu_7711Formattable9setDoubleEd(ptr noundef nonnull align 8 dereferenceable(112) %1, double noundef %10)
+  br label %27
 
-10:                                               ; preds = %3
-  %11 = and i32 %5, 128
-  %.not13 = icmp eq i32 %11, 0
-  br i1 %.not13, label %16, label %12
+11:                                               ; preds = %3
+  %12 = and i32 %5, 128
+  %.not15 = icmp eq i32 %12, 0
+  br i1 %.not15, label %17, label %13
 
-12:                                               ; preds = %10
-  %13 = and i32 %5, 1
-  %.not15 = icmp eq i32 %13, 0
-  br i1 %.not15, label %15, label %14
+13:                                               ; preds = %11
+  %14 = and i32 %5, 1
+  %.not = icmp eq i32 %14, 0
+  br i1 %.not, label %16, label %15
 
-14:                                               ; preds = %12
+15:                                               ; preds = %13
   tail call void @_ZN6icu_7711Formattable9setDoubleEd(ptr noundef nonnull align 8 dereferenceable(112) %1, double noundef 0xFFF0000000000000)
-  br label %26
+  br label %27
 
-15:                                               ; preds = %12
+16:                                               ; preds = %13
   tail call void @_ZN6icu_7711Formattable9setDoubleEd(ptr noundef nonnull align 8 dereferenceable(112) %1, double noundef 0x7FF0000000000000)
-  br label %26
+  br label %27
 
-16:                                               ; preds = %10
-  %17 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %0)
-  br i1 %17, label %18, label %21
+17:                                               ; preds = %11
+  %18 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity9isZeroishEv(ptr noundef nonnull align 8 dereferenceable(66) %0)
+  br i1 %18, label %19, label %22
 
-18:                                               ; preds = %16
-  %19 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity10isNegativeEv(ptr noundef nonnull align 8 dereferenceable(66) %0)
-  %brmerge.not = and i1 %.not14, %19
-  br i1 %brmerge.not, label %20, label %21
+19:                                               ; preds = %17
+  %20 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity10isNegativeEv(ptr noundef nonnull align 8 dereferenceable(66) %0)
+  %or.cond.not = and i1 %8, %20
+  br i1 %or.cond.not, label %21, label %22
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   tail call void @_ZN6icu_7711Formattable9setDoubleEd(ptr noundef nonnull align 8 dereferenceable(112) %1, double noundef -0.000000e+00)
-  br label %26
+  br label %27
 
-21:                                               ; preds = %18, %16
-  %22 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 72) #4
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %25, label %24
+22:                                               ; preds = %19, %17
+  %23 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 72) #4
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %26, label %25
 
-24:                                               ; preds = %21
-  invoke void @_ZN6icu_776number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %22, ptr noundef nonnull align 8 dereferenceable(66) %0)
-          to label %25 unwind label %27
+25:                                               ; preds = %22
+  invoke void @_ZN6icu_776number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %23, ptr noundef nonnull align 8 dereferenceable(66) %0)
+          to label %26 unwind label %28
 
-25:                                               ; preds = %24, %21
-  tail call void @_ZN6icu_7711Formattable20adoptDecimalQuantityEPNS_6number4impl15DecimalQuantityE(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef %22)
-  br label %26
+26:                                               ; preds = %25, %22
+  tail call void @_ZN6icu_7711Formattable20adoptDecimalQuantityEPNS_6number4impl15DecimalQuantityE(ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef %23)
+  br label %27
 
-26:                                               ; preds = %25, %20, %15, %14, %8
+27:                                               ; preds = %26, %21, %16, %15, %9
   ret void
 
-27:                                               ; preds = %24
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %25
+  %29 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %22) #4
-  resume { ptr, i32 } %28
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %23) #4
+  resume { ptr, i32 } %29
 }
 
 declare void @_ZN6icu_7711Formattable9setDoubleEd(ptr noundef nonnull align 8 dereferenceable(112), double noundef) local_unnamed_addr #1

@@ -3561,15 +3561,13 @@ entry:
   %ex = alloca %"class.proxygen::HTTPException", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %cmp = icmp eq i64 %streamID, 0
-  br i1 %cmp, label %if.then, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %entry
   %hasValue.i.i = getelementptr inbounds nuw i8, ptr %error, i64 73
   %0 = load i8, ptr %hasValue.i.i, align 1
   %tobool.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i, label %if.then, label %if.else
+  %or.cond = select i1 %cmp, i1 true, i1 %tobool.i.i
+  br i1 %or.cond, label %if.then, label %if.else
 
-if.then:                                          ; preds = %lor.lhs.false, %entry
+if.then:                                          ; preds = %entry
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %callback_, align 8
   %vtable = load ptr, ptr %1, align 8
@@ -3578,7 +3576,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %streamID, ptr noundef nonnull align 8 dereferenceable(96) %error, i1 noundef zeroext %newTxn)
   br label %if.end16
 
-if.else:                                          ; preds = %lor.lhs.false
+if.else:                                          ; preds = %entry
   %vtable2 = load ptr, ptr %this, align 8
   %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 648
   %3 = load ptr, ptr %vfn3, align 8

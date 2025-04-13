@@ -271,99 +271,95 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define void @_ZN7rocksdb26CompactOnDeletionCollector10AddUserKeyERKNS_5SliceES3_NS_9EntryTypeEmm(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(none) initializes((0, 6), (8, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(1106) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3, i32 noundef %4, i64 %5, i64 %6) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %9 = load i64, ptr %8, align 8, !tbaa !7
-  %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %10, label %14
+  %.not = icmp ne i64 %9, 0
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1080
+  %11 = load i8, ptr %10, align 8, !range !17
+  %12 = trunc nuw i8 %11 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %12
+  br i1 %or.cond, label %13, label %61
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1080
-  %12 = load i8, ptr %11, align 8, !tbaa !16, !range !17, !noundef !18
-  %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %65
+13:                                               ; preds = %7
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1104
+  %15 = load i8, ptr %14, align 8, !tbaa !18, !range !17, !noundef !19
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %61, label %17
 
-14:                                               ; preds = %10, %7
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1104
-  %16 = load i8, ptr %15, align 8, !tbaa !19, !range !17, !noundef !18
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %65, label %18
+17:                                               ; preds = %13
+  br i1 %12, label %18, label %27
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1080
-  %20 = load i8, ptr %19, align 8, !tbaa !16, !range !17, !noundef !18
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %31
+18:                                               ; preds = %17
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1088
+  %20 = load i64, ptr %19, align 8, !tbaa !20
+  %21 = add i64 %20, 1
+  store i64 %21, ptr %19, align 8, !tbaa !20
+  %22 = icmp eq i32 %4, 1
+  br i1 %22, label %23, label %27
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1088
-  %24 = load i64, ptr %23, align 8, !tbaa !20
-  %25 = add i64 %24, 1
-  store i64 %25, ptr %23, align 8, !tbaa !20
-  %26 = icmp eq i32 %4, 1
-  br i1 %26, label %27, label %31
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1096
+  %25 = load i64, ptr %24, align 8, !tbaa !21
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %24, align 8, !tbaa !21
+  br label %27
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 1096
-  %29 = load i64, ptr %28, align 8, !tbaa !21
-  %30 = add i64 %29, 1
-  store i64 %30, ptr %28, align 8, !tbaa !21
-  br label %31
+27:                                               ; preds = %18, %23, %17
+  %.not2 = icmp eq i64 %9, 0
+  br i1 %.not2, label %61, label %28
 
-31:                                               ; preds = %22, %27, %18
-  br i1 %.not, label %65, label %32
+28:                                               ; preds = %27
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 1048
+  %30 = load i64, ptr %29, align 8, !tbaa !22
+  %31 = icmp eq i64 %30, %9
+  br i1 %31, label %32, label %43
 
-32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1048
-  %34 = load i64, ptr %33, align 8, !tbaa !22
-  %35 = icmp eq i64 %34, %9
-  br i1 %35, label %36, label %47
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 1040
+  %34 = load i64, ptr %33, align 8, !tbaa !23
+  %35 = add i64 %34, 1
+  %36 = and i64 %35, 127
+  store i64 %36, ptr %33, align 8, !tbaa !23
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw [128 x i64], ptr %37, i64 0, i64 %36
+  %39 = load i64, ptr %38, align 8, !tbaa !24
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 1056
+  %41 = load i64, ptr %40, align 8, !tbaa !25
+  %42 = sub i64 %41, %39
+  store i64 %42, ptr %40, align 8, !tbaa !25
+  store i64 0, ptr %38, align 8, !tbaa !24
+  br label %43
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 1040
-  %38 = load i64, ptr %37, align 8, !tbaa !23
-  %39 = add i64 %38, 1
-  %40 = and i64 %39, 127
-  store i64 %40, ptr %37, align 8, !tbaa !23
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = getelementptr inbounds nuw [128 x i64], ptr %41, i64 0, i64 %40
-  %43 = load i64, ptr %42, align 8, !tbaa !24
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 1056
-  %45 = load i64, ptr %44, align 8, !tbaa !25
-  %46 = sub i64 %45, %43
-  store i64 %46, ptr %44, align 8, !tbaa !25
-  store i64 0, ptr %42, align 8, !tbaa !24
-  br label %47
+43:                                               ; preds = %32, %28
+  %44 = phi i64 [ 0, %32 ], [ %30, %28 ]
+  %45 = add i64 %44, 1
+  store i64 %45, ptr %29, align 8, !tbaa !22
+  %46 = icmp eq i32 %4, 1
+  br i1 %46, label %47, label %61
 
-47:                                               ; preds = %36, %32
-  %48 = phi i64 [ 0, %36 ], [ %34, %32 ]
-  %49 = add i64 %48, 1
-  store i64 %49, ptr %33, align 8, !tbaa !22
-  %50 = icmp eq i32 %4, 1
-  br i1 %50, label %51, label %65
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 1056
+  %49 = load i64, ptr %48, align 8, !tbaa !25
+  %50 = add i64 %49, 1
+  store i64 %50, ptr %48, align 8, !tbaa !25
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 1040
+  %53 = load i64, ptr %52, align 8, !tbaa !23
+  %54 = getelementptr inbounds nuw [128 x i64], ptr %51, i64 0, i64 %53
+  %55 = load i64, ptr %54, align 8, !tbaa !24
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %54, align 8, !tbaa !24
+  %57 = load i64, ptr %48, align 8, !tbaa !25
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 1064
+  %59 = load i64, ptr %58, align 8, !tbaa !14
+  %.not3 = icmp ult i64 %57, %59
+  br i1 %.not3, label %61, label %60
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 1056
-  %53 = load i64, ptr %52, align 8, !tbaa !25
-  %54 = add i64 %53, 1
-  store i64 %54, ptr %52, align 8, !tbaa !25
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 1040
-  %57 = load i64, ptr %56, align 8, !tbaa !23
-  %58 = getelementptr inbounds nuw [128 x i64], ptr %55, i64 0, i64 %57
-  %59 = load i64, ptr %58, align 8, !tbaa !24
-  %60 = add i64 %59, 1
-  store i64 %60, ptr %58, align 8, !tbaa !24
-  %61 = load i64, ptr %52, align 8, !tbaa !25
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 1064
-  %63 = load i64, ptr %62, align 8, !tbaa !14
-  %.not3 = icmp ult i64 %61, %63
-  br i1 %.not3, label %65, label %64
+60:                                               ; preds = %47
+  store i8 1, ptr %14, align 8, !tbaa !18
+  br label %61
 
-64:                                               ; preds = %51
-  store i8 1, ptr %15, align 8, !tbaa !19
-  br label %65
-
-65:                                               ; preds = %31, %51, %64, %47, %14, %10
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %66, align 8, !tbaa !26
+61:                                               ; preds = %27, %47, %60, %43, %13, %7
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %62, align 8, !tbaa !26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false)
   ret void
 }
@@ -371,40 +367,39 @@ define void @_ZN7rocksdb26CompactOnDeletionCollector10AddUserKeyERKNS_5SliceES3_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN7rocksdb26CompactOnDeletionCollector6FinishEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.rocksdb::Status") align 8 captures(none) initializes((0, 6), (8, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(1106) initializes((1105, 1106)) %1, ptr readnone captures(none) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1104
-  %5 = load i8, ptr %4, align 8, !tbaa !19, !range !17, !noundef !18
+  %5 = load i8, ptr %4, align 8, !tbaa !18, !range !17, !noundef !19
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %24, label %7
+  %.not2 = xor i1 %6, true
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1080
+  %8 = load i8, ptr %7, align 8, !range !17
+  %9 = trunc nuw i8 %8 to i1
+  %or.cond = select i1 %.not2, i1 %9, i1 false
+  br i1 %or.cond, label %10, label %23
 
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1080
-  %9 = load i8, ptr %8, align 8, !tbaa !16, !range !17, !noundef !18
-  %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %11, label %24
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1088
+  %12 = load i64, ptr %11, align 8, !tbaa !20
+  %.not = icmp eq i64 %12, 0
+  br i1 %.not, label %23, label %13
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1088
-  %13 = load i64, ptr %12, align 8, !tbaa !20
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %24, label %14
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1096
+  %15 = load i64, ptr %14, align 8, !tbaa !21
+  %16 = uitofp i64 %15 to double
+  %17 = uitofp i64 %12 to double
+  %18 = fdiv double %16, %17
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1072
+  %20 = load double, ptr %19, align 8, !tbaa !15
+  %21 = fcmp oge double %18, %20
+  %22 = zext i1 %21 to i8
+  store i8 %22, ptr %4, align 8, !tbaa !18
+  br label %23
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1096
-  %16 = load i64, ptr %15, align 8, !tbaa !21
-  %17 = uitofp i64 %16 to double
-  %18 = uitofp i64 %13 to double
-  %19 = fdiv double %17, %18
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1072
-  %21 = load double, ptr %20, align 8, !tbaa !15
-  %22 = fcmp oge double %19, %21
-  %23 = zext i1 %22 to i8
-  store i8 %23, ptr %4, align 8, !tbaa !19
-  br label %24
-
-24:                                               ; preds = %14, %11, %7, %3
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 1105
-  store i8 1, ptr %25, align 1, !tbaa !30
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %26, align 8, !tbaa !26, !alias.scope !31
+23:                                               ; preds = %13, %10, %3
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1105
+  store i8 1, ptr %24, align 1, !tbaa !30
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %25, align 8, !tbaa !26, !alias.scope !31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !31
   ret void
 }
@@ -1222,12 +1217,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   store i8 %39, ptr %40, align 2, !tbaa !131, !alias.scope !108
   store i8 0, ptr %38, align 2, !tbaa !131, !noalias !108
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 3
-  %42 = load i8, ptr %41, align 1, !tbaa !132, !range !17, !noalias !108, !noundef !18
+  %42 = load i8, ptr %41, align 1, !tbaa !132, !range !17, !noalias !108, !noundef !19
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %42, ptr %43, align 1, !tbaa !133, !alias.scope !108
   store i8 0, ptr %41, align 1, !tbaa !133, !noalias !108
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %45 = load i8, ptr %44, align 4, !tbaa !132, !range !17, !noalias !108, !noundef !18
+  %45 = load i8, ptr %44, align 4, !tbaa !132, !range !17, !noalias !108, !noundef !19
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %45, ptr %46, align 4, !tbaa !134, !alias.scope !108
   store i8 0, ptr %44, align 4, !tbaa !134, !noalias !108
@@ -1312,12 +1307,12 @@ _ZN7rocksdb6StatusD2Ev.exit.i.i:                  ; preds = %65
   store i8 %71, ptr %72, align 2, !tbaa !131, !alias.scope !140
   store i8 0, ptr %70, align 2, !tbaa !131, !noalias !140
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %74 = load i8, ptr %73, align 1, !tbaa !132, !range !17, !noalias !140, !noundef !18
+  %74 = load i8, ptr %73, align 1, !tbaa !132, !range !17, !noalias !140, !noundef !19
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %74, ptr %75, align 1, !tbaa !133, !alias.scope !140
   store i8 0, ptr %73, align 1, !tbaa !133, !noalias !140
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %77 = load i8, ptr %76, align 4, !tbaa !132, !range !17, !noalias !140, !noundef !18
+  %77 = load i8, ptr %76, align 4, !tbaa !132, !range !17, !noalias !140, !noundef !19
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %77, ptr %78, align 4, !tbaa !134, !alias.scope !140
   store i8 0, ptr %76, align 4, !tbaa !134, !noalias !140
@@ -1330,7 +1325,7 @@ _ZN7rocksdb6StatusD2Ev.exit.i.i:                  ; preds = %65
   store ptr %83, ptr %62, align 8, !tbaa !136, !alias.scope !140
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #28, !noalias !140
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %85 = load i8, ptr %84, align 1, !tbaa !145, !range !17, !noalias !140, !noundef !18
+  %85 = load i8, ptr %84, align 1, !tbaa !145, !range !17, !noalias !140, !noundef !19
   %86 = trunc nuw i8 %85 to i1
   %87 = icmp eq i8 %66, 3
   %or.cond.i.i = select i1 %86, i1 %87, i1 false
@@ -1382,12 +1377,12 @@ thread-pre-split.i.i:                             ; preds = %_ZN7rocksdb6StatusD
   store i8 %101, ptr %102, align 2, !tbaa !131, !alias.scope !140
   store i8 0, ptr %100, align 2, !tbaa !131, !noalias !140
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %104 = load i8, ptr %103, align 1, !tbaa !132, !range !17, !noalias !140, !noundef !18
+  %104 = load i8, ptr %103, align 1, !tbaa !132, !range !17, !noalias !140, !noundef !19
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %104, ptr %105, align 1, !tbaa !133, !alias.scope !140
   store i8 0, ptr %103, align 1, !tbaa !133, !noalias !140
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %107 = load i8, ptr %106, align 4, !tbaa !132, !range !17, !noalias !140, !noundef !18
+  %107 = load i8, ptr %106, align 4, !tbaa !132, !range !17, !noalias !140, !noundef !19
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %107, ptr %108, align 4, !tbaa !134, !alias.scope !140
   store i8 0, ptr %106, align 4, !tbaa !134, !noalias !140
@@ -1981,7 +1976,7 @@ define linkonce_odr noundef ptr @_ZNK7rocksdb26CompactOnDeletionCollector4NameEv
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK7rocksdb26CompactOnDeletionCollector11NeedCompactEv(ptr noundef nonnull align 8 dereferenceable(1106) %0) unnamed_addr #10 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1104
-  %3 = load i8, ptr %2, align 8, !tbaa !19, !range !17, !noundef !18
+  %3 = load i8, ptr %2, align 8, !tbaa !18, !range !17, !noundef !19
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -5266,12 +5261,12 @@ define linkonce_odr void @_ZN7rocksdb14ObjectRegistry15NewSharedObjectINS_31Tabl
   store i8 %24, ptr %25, align 2, !tbaa !131
   store i8 0, ptr %23, align 2, !tbaa !131
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !132, !range !17, !noundef !18
+  %27 = load i8, ptr %26, align 1, !tbaa !132, !range !17, !noundef !19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %27, ptr %28, align 1, !tbaa !133
   store i8 0, ptr %26, align 1, !tbaa !133
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %30 = load i8, ptr %29, align 4, !tbaa !132, !range !17, !noundef !18
+  %30 = load i8, ptr %29, align 4, !tbaa !132, !range !17, !noundef !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %30, ptr %31, align 4, !tbaa !134
   store i8 0, ptr %29, align 4, !tbaa !134
@@ -7749,8 +7744,8 @@ attributes #31 = { noreturn }
 !15 = !{!8, !12, i64 1072}
 !16 = !{!8, !13, i64 1080}
 !17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = !{!8, !13, i64 1104}
+!18 = !{!8, !13, i64 1104}
+!19 = !{}
 !20 = !{!8, !11, i64 1088}
 !21 = !{!8, !11, i64 1096}
 !22 = !{!8, !11, i64 1048}

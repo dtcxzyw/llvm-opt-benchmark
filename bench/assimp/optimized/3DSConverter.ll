@@ -1466,47 +1466,45 @@ define hidden void @_ZN6Assimp19Discreet3DSImporter15ConvertMaterialERNS_4D3DS8M
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load i64, ptr %12, align 8
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %40, label %14
+  %.not = icmp ne i64 %13, 0
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %15 = load i8, ptr %14, align 8, !range !13
+  %16 = trunc nuw i8 %15 to i1
+  %or.cond = select i1 %.not, i1 %16, i1 false
+  br i1 %or.cond, label %17, label %39
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %16 = load i8, ptr %15, align 8, !range !13, !noundef !14
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %40
-
-18:                                               ; preds = %14
+17:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %4) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %4, i8 0, i64 1028, i1 false)
-  %19 = icmp ugt i64 %13, 1023
-  br i1 %19, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %20
+  %18 = icmp ugt i64 %13, 1023
+  br i1 %18, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %19
 
-20:                                               ; preds = %18
-  %21 = trunc nuw nsw i64 %13 to i32
-  store i32 %21, ptr %4, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %23 = load ptr, ptr %11, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %22, ptr align 1 %23, i64 %13, i1 false)
-  %24 = getelementptr inbounds nuw [1024 x i8], ptr %22, i64 0, i64 %13
-  store i8 0, ptr %24, align 1
+19:                                               ; preds = %17
+  %20 = trunc nuw nsw i64 %13 to i32
+  store i32 %20, ptr %4, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %22 = load ptr, ptr %11, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %21, ptr align 1 %22, i64 %13, i1 false)
+  %23 = getelementptr inbounds nuw [1024 x i8], ptr %21, i64 0, i64 %13
+  store i8 0, ptr %23, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %18, %20
-  %25 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %4, ptr noundef nonnull @.str.11, i32 noundef 0, i32 noundef 0)
+_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %17, %19
+  %24 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %4, ptr noundef nonnull @.str.11, i32 noundef 0, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #26
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %26, ptr %5, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 0, ptr %26, align 8
-  %28 = load ptr, ptr %11, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %30 = icmp eq ptr %28, %29
-  br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %25, ptr %5, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i8 0, ptr %25, align 8
+  %27 = load ptr, ptr %11, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %29 = icmp eq ptr %27, %28
+  br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %31 = load i64, ptr %12, align 8
-  %32 = icmp ult i64 %31, 16
-  call void @llvm.assume(i1 %32)
+  %30 = load i64, ptr %12, align 8
+  %31 = icmp ult i64 %30, 16
+  call void @llvm.assume(i1 %31)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
@@ -1515,263 +1513,263 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
   store i64 0, ptr %12, align 8
-  store i8 0, ptr %28, align 1
+  store i8 0, ptr %27, align 1
   %.pre.i = load ptr, ptr %5, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i
-  %33 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i ], [ %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ]
-  store i64 0, ptr %27, align 8
-  store i8 0, ptr %33, align 1
-  %34 = load ptr, ptr %5, align 8
-  %35 = icmp eq ptr %34, %26
-  br i1 %35, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %32 = phi ptr [ %.pre.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i ], [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ]
+  store i64 0, ptr %26, align 8
+  store i8 0, ptr %32, align 1
+  %33 = load ptr, ptr %5, align 8
+  %34 = icmp eq ptr %33, %25
+  br i1 %34, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
-  %36 = load i64, ptr %27, align 8
-  %37 = icmp ult i64 %36, 16
-  call void @llvm.assume(i1 %37)
+  %35 = load i64, ptr %26, align 8
+  %36 = icmp ult i64 %35, 16
+  call void @llvm.assume(i1 %36)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit
-  %38 = load i64, ptr %26, align 8
-  %39 = add i64 %38, 1
-  call void @_ZdlPvm(ptr noundef %34, i64 noundef %39) #28
+  %37 = load i64, ptr %25, align 8
+  %38 = add i64 %37, 1
+  call void @_ZdlPvm(ptr noundef %33, i64 noundef %38) #28
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %4) #26
-  br label %40
+  br label %39
 
-40:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %14, %3
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %42 = load float, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %44 = load float, ptr %43, align 8
-  %45 = fadd float %42, %44
-  store float %45, ptr %43, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %49 = load float, ptr %48, align 4
-  %50 = fadd float %47, %49
-  store float %50, ptr %48, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %52 = load float, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %54 = load float, ptr %53, align 8
-  %55 = fadd float %52, %54
-  store float %55, ptr %53, align 8
+39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %3
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %41 = load float, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %43 = load float, ptr %42, align 8
+  %44 = fadd float %41, %43
+  store float %44, ptr %42, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %46 = load float, ptr %45, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %48 = load float, ptr %47, align 4
+  %49 = fadd float %46, %48
+  store float %49, ptr %47, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %51 = load float, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %53 = load float, ptr %52, align 8
+  %54 = fadd float %51, %53
+  store float %54, ptr %52, align 8
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %6) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %6, i8 0, i64 1028, i1 false)
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %58 = load i64, ptr %57, align 8
-  %59 = icmp ugt i64 %58, 1023
-  br i1 %59, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66, label %60
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %57 = load i64, ptr %56, align 8
+  %58 = icmp ugt i64 %57, 1023
+  br i1 %58, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit68, label %59
 
-60:                                               ; preds = %40
-  %61 = trunc nuw nsw i64 %58 to i32
-  store i32 %61, ptr %6, align 4
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %63 = load ptr, ptr %56, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %62, ptr align 1 %63, i64 %58, i1 false)
-  %64 = getelementptr inbounds nuw [1024 x i8], ptr %62, i64 0, i64 %58
-  store i8 0, ptr %64, align 1
-  br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66
+59:                                               ; preds = %39
+  %60 = trunc nuw nsw i64 %57 to i32
+  store i32 %60, ptr %6, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %62 = load ptr, ptr %55, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %61, ptr align 1 %62, i64 %57, i1 false)
+  %63 = getelementptr inbounds nuw [1024 x i8], ptr %61, i64 0, i64 %57
+  store i8 0, ptr %63, align 1
+  br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit68
 
-_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66: ; preds = %40, %60
-  %65 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %6, ptr noundef nonnull @.str.12, i32 noundef 0, i32 noundef 0)
-  %66 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %43, i32 noundef 12, ptr noundef nonnull @.str.13, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %68 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %67, i32 noundef 12, ptr noundef nonnull @.str.14, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %70 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %69, i32 noundef 12, ptr noundef nonnull @.str.15, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 604
-  %72 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %71, i32 noundef 12, ptr noundef nonnull @.str.16, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %74 = load i32, ptr %73, align 4
-  %.off = add i32 %74, -3
+_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit68: ; preds = %39, %59
+  %64 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %6, ptr noundef nonnull @.str.12, i32 noundef 0, i32 noundef 0)
+  %65 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %42, i32 noundef 12, ptr noundef nonnull @.str.13, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %67 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %66, i32 noundef 12, ptr noundef nonnull @.str.14, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %69 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %68, i32 noundef 12, ptr noundef nonnull @.str.15, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 604
+  %71 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %70, i32 noundef 12, ptr noundef nonnull @.str.16, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %73 = load i32, ptr %72, align 4
+  %.off = add i32 %73, -3
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %75, label %87
+  br i1 %switch, label %74, label %86
 
-75:                                               ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %77 = load float, ptr %76, align 4
-  %78 = fcmp une float %77, 0.000000e+00
-  br i1 %78, label %79, label %83
+74:                                               ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit68
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %76 = load float, ptr %75, align 4
+  %77 = fcmp une float %76, 0.000000e+00
+  br i1 %77, label %78, label %82
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %81 = load float, ptr %80, align 8
-  %82 = fcmp une float %81, 0.000000e+00
-  br i1 %82, label %84, label %83
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %80 = load float, ptr %79, align 8
+  %81 = fcmp une float %80, 0.000000e+00
+  br i1 %81, label %83, label %82
 
-83:                                               ; preds = %79, %75
-  store i32 2, ptr %73, align 4
-  br label %87
+82:                                               ; preds = %78, %74
+  store i32 2, ptr %72, align 4
+  br label %86
 
-84:                                               ; preds = %79
-  %85 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %76, i32 noundef 4, ptr noundef nonnull @.str.17, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  %86 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %80, i32 noundef 4, ptr noundef nonnull @.str.18, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  br label %87
+83:                                               ; preds = %78
+  %84 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %75, i32 noundef 4, ptr noundef nonnull @.str.17, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %85 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %79, i32 noundef 4, ptr noundef nonnull @.str.18, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  br label %86
 
-87:                                               ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66, %83, %84
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %89 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %88, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 600
-  %91 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %90, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef 1)
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 688
-  %93 = load i8, ptr %92, align 8, !range !13, !noundef !14
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %95, label %97
+86:                                               ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit68, %82, %83
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %88 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %87, i32 noundef 4, ptr noundef nonnull @.str.19, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 600
+  %90 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %89, i32 noundef 4, ptr noundef nonnull @.str.20, i32 noundef 0, i32 noundef 0, i32 noundef 1)
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 688
+  %92 = load i8, ptr %91, align 8, !range !13, !noundef !14
+  %93 = trunc nuw i8 %92 to i1
+  br i1 %93, label %94, label %96
 
-95:                                               ; preds = %87
+94:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #26
   store i32 1, ptr %7, align 4
-  %96 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i32 noundef 4, ptr noundef nonnull @.str.21, i32 noundef 0, i32 noundef 0, i32 noundef 4)
+  %95 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %7, i32 noundef 4, ptr noundef nonnull @.str.21, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #26
-  br label %97
+  br label %96
 
-97:                                               ; preds = %95, %87
-  %98 = load i32, ptr %73, align 4
-  switch i32 %98, label %105 [
-    i32 1, label %99
-    i32 0, label %100
-    i32 2, label %102
-    i32 3, label %99
-    i32 4, label %103
-    i32 5, label %104
+96:                                               ; preds = %94, %86
+  %97 = load i32, ptr %72, align 4
+  switch i32 %97, label %104 [
+    i32 1, label %98
+    i32 0, label %99
+    i32 2, label %101
+    i32 3, label %98
+    i32 4, label %102
+    i32 5, label %103
   ]
 
-99:                                               ; preds = %97, %97
-  br label %105
+98:                                               ; preds = %96, %96
+  br label %104
 
-100:                                              ; preds = %97
+99:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #26
   store i32 1, ptr %8, align 4
-  %101 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %8, i32 noundef 4, ptr noundef nonnull @.str.22, i32 noundef 0, i32 noundef 0, i32 noundef 4)
+  %100 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %8, i32 noundef 4, ptr noundef nonnull @.str.22, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #26
-  br label %102
+  br label %101
 
-102:                                              ; preds = %100, %97
-  br label %105
+101:                                              ; preds = %99, %96
+  br label %104
 
-103:                                              ; preds = %97
-  br label %105
+102:                                              ; preds = %96
+  br label %104
 
-104:                                              ; preds = %97
-  br label %105
+103:                                              ; preds = %96
+  br label %104
 
-105:                                              ; preds = %104, %103, %102, %99, %97
-  %.0 = phi i32 [ 9, %97 ], [ 4, %104 ], [ 8, %103 ], [ 2, %102 ], [ %98, %99 ]
+104:                                              ; preds = %103, %102, %101, %98, %96
+  %.0 = phi i32 [ 9, %96 ], [ 4, %103 ], [ 8, %102 ], [ 2, %101 ], [ %97, %98 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #26
   store i32 %.0, ptr %9, align 4
-  %106 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %9, i32 noundef 4, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 0, i32 noundef 4)
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %108 = load i64, ptr %107, align 8
-  %.not58 = icmp eq i64 %108, 0
-  br i1 %.not58, label %111, label %109
+  %105 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %9, i32 noundef 4, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 0, i32 noundef 4)
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %107 = load i64, ptr %106, align 8
+  %.not58 = icmp eq i64 %107, 0
+  br i1 %.not58, label %110, label %108
 
-109:                                              ; preds = %105
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %110, i32 noundef 1)
-  br label %111
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %109, i32 noundef 1)
+  br label %110
 
-111:                                              ; preds = %109, %105
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %113 = load i64, ptr %112, align 8
-  %.not59 = icmp eq i64 %113, 0
-  br i1 %.not59, label %116, label %114
+110:                                              ; preds = %108, %104
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %112 = load i64, ptr %111, align 8
+  %.not59 = icmp eq i64 %112, 0
+  br i1 %.not59, label %115, label %113
 
-114:                                              ; preds = %111
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %115, i32 noundef 2)
-  br label %116
+113:                                              ; preds = %110
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %114, i32 noundef 2)
+  br label %115
 
-116:                                              ; preds = %114, %111
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %118 = load i64, ptr %117, align 8
-  %.not60 = icmp eq i64 %118, 0
-  br i1 %.not60, label %121, label %119
+115:                                              ; preds = %113, %110
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %117 = load i64, ptr %116, align 8
+  %.not60 = icmp eq i64 %117, 0
+  br i1 %.not60, label %120, label %118
 
-119:                                              ; preds = %116
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %120, i32 noundef 8)
-  br label %121
+118:                                              ; preds = %115
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %119, i32 noundef 8)
+  br label %120
 
-121:                                              ; preds = %119, %116
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 472
-  %123 = load i64, ptr %122, align 8
-  %.not61 = icmp eq i64 %123, 0
-  br i1 %.not61, label %126, label %124
+120:                                              ; preds = %118, %115
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 472
+  %122 = load i64, ptr %121, align 8
+  %.not61 = icmp eq i64 %122, 0
+  br i1 %.not61, label %125, label %123
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 456
-  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %125, i32 noundef 4)
-  br label %126
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 456
+  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %124, i32 noundef 4)
+  br label %125
 
-126:                                              ; preds = %124, %121
-  %127 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %128 = load i64, ptr %127, align 8
-  %.not62 = icmp eq i64 %128, 0
-  br i1 %.not62, label %131, label %129
+125:                                              ; preds = %123, %120
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 400
+  %127 = load i64, ptr %126, align 8
+  %.not62 = icmp eq i64 %127, 0
+  br i1 %.not62, label %130, label %128
 
-129:                                              ; preds = %126
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %130, i32 noundef 5)
-  br label %131
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %129, i32 noundef 5)
+  br label %130
 
-131:                                              ; preds = %129, %126
-  %132 = getelementptr inbounds nuw i8, ptr %1, i64 544
-  %133 = load i64, ptr %132, align 8
-  %.not63 = icmp eq i64 %133, 0
-  br i1 %.not63, label %136, label %134
+130:                                              ; preds = %128, %125
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 544
+  %132 = load i64, ptr %131, align 8
+  %.not63 = icmp eq i64 %132, 0
+  br i1 %.not63, label %135, label %133
 
-134:                                              ; preds = %131
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %135, i32 noundef 7)
-  br label %136
+133:                                              ; preds = %130
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 528
+  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %134, i32 noundef 7)
+  br label %135
 
-136:                                              ; preds = %134, %131
-  %137 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %138 = load i64, ptr %137, align 8
-  %.not64 = icmp eq i64 %138, 0
-  br i1 %.not64, label %141, label %139
+135:                                              ; preds = %133, %130
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %137 = load i64, ptr %136, align 8
+  %.not64 = icmp eq i64 %137, 0
+  br i1 %.not64, label %140, label %138
 
-139:                                              ; preds = %136
-  %140 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %140, i32 noundef 11)
-  br label %141
+138:                                              ; preds = %135
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  call void @_ZN6Assimp11CopyTextureER10aiMaterialRNS_4D3DS7TextureE13aiTextureType(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(72) %139, i32 noundef 11)
+  br label %140
 
-141:                                              ; preds = %139, %136
-  %142 = load i64, ptr %57, align 8
-  %.not65 = icmp eq i64 %142, 0
-  br i1 %.not65, label %151, label %143
+140:                                              ; preds = %138, %135
+  %141 = load i64, ptr %56, align 8
+  %.not65 = icmp eq i64 %141, 0
+  br i1 %.not65, label %150, label %142
 
-143:                                              ; preds = %141
+142:                                              ; preds = %140
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %10) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1028) %10, i8 0, i64 1028, i1 false)
-  %144 = icmp ugt i64 %142, 1023
-  br i1 %144, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit67, label %145
+  %143 = icmp ugt i64 %141, 1023
+  br i1 %143, label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit69, label %144
 
-145:                                              ; preds = %143
-  %146 = trunc nuw nsw i64 %142 to i32
-  store i32 %146, ptr %10, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %148 = load ptr, ptr %56, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %147, ptr align 1 %148, i64 %142, i1 false)
-  %149 = getelementptr inbounds nuw [1024 x i8], ptr %147, i64 0, i64 %142
-  store i8 0, ptr %149, align 1
-  br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit67
+144:                                              ; preds = %142
+  %145 = trunc nuw nsw i64 %141 to i32
+  store i32 %145, ptr %10, align 4
+  %146 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %147 = load ptr, ptr %55, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %146, ptr align 1 %147, i64 %141, i1 false)
+  %148 = getelementptr inbounds nuw [1024 x i8], ptr %146, i64 0, i64 %141
+  store i8 0, ptr %148, align 1
+  br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit69
 
-_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit67: ; preds = %143, %145
-  %150 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %10, ptr noundef nonnull @.str.12, i32 noundef 0, i32 noundef 0)
+_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit69: ; preds = %142, %144
+  %149 = call noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %10, ptr noundef nonnull @.str.12, i32 noundef 0, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %10) #26
-  br label %151
+  br label %150
 
-151:                                              ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit67, %141
+150:                                              ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit69, %140
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #26
   call void @llvm.lifetime.end.p0(i64 1028, ptr nonnull %6) #26
   ret void

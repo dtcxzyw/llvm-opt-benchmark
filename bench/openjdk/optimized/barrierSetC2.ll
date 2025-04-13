@@ -209,44 +209,44 @@ define hidden noundef zeroext i1 @_ZNK8C2Access16needs_cpu_membarEv(ptr noundef 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 2147483648
-  %.not = icmp eq i64 %4, 0
+  %.not11 = icmp eq i64 %4, 0
   %5 = and i64 %3, 64
-  %.not10 = icmp eq i64 %5, 0
-  %6 = and i64 %3, 786432
-  %7 = icmp eq i64 %6, 0
-  %8 = and i64 %3, 412316860416
-  %9 = icmp eq i64 %8, 412316860416
-  br i1 %9, label %23, label %10
+  %6 = icmp ne i64 %5, 0
+  %7 = and i64 %3, 786432
+  %8 = icmp ne i64 %7, 0
+  %9 = and i64 %3, 412316860416
+  %10 = icmp eq i64 %9, 412316860416
+  br i1 %10, label %24, label %11
 
-10:                                               ; preds = %1
-  %11 = and i64 %3, 68719476736
-  %.not11 = icmp eq i64 %11, 0
-  br i1 %.not11, label %22, label %12
+11:                                               ; preds = %1
+  %12 = and i64 %3, 68719476736
+  %.not12 = icmp eq i64 %12, 0
+  br i1 %.not12, label %23, label %13
 
-12:                                               ; preds = %10
-  %brmerge = or i1 %7, %.not10
-  br i1 %brmerge, label %23, label %13
-
-13:                                               ; preds = %12
-  br i1 %.not, label %22, label %14
+13:                                               ; preds = %11
+  %or.cond = and i1 %8, %6
+  br i1 %or.cond, label %14, label %24
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load i32, ptr %19, align 8
-  %21 = icmp ne i32 %20, 22
-  %.not1415 = icmp eq ptr %18, null
-  %.not14 = or i1 %.not1415, %21
-  br i1 %.not14, label %23, label %22
+  br i1 %.not11, label %23, label %15
 
-22:                                               ; preds = %10, %13, %14
-  br label %23
+15:                                               ; preds = %14
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load i32, ptr %20, align 8
+  %22 = icmp ne i32 %21, 22
+  %.not15 = icmp eq ptr %19, null
+  %.not = or i1 %.not15, %22
+  br i1 %.not, label %24, label %23
 
-23:                                               ; preds = %14, %12, %1, %22
-  %.0 = phi i1 [ false, %22 ], [ true, %1 ], [ true, %12 ], [ true, %14 ]
+23:                                               ; preds = %11, %14, %15
+  br label %24
+
+24:                                               ; preds = %13, %15, %1, %23
+  %.0 = phi i1 [ false, %23 ], [ true, %1 ], [ true, %15 ], [ true, %13 ]
   ret i1 %.0
 }
 
@@ -623,30 +623,30 @@ define hidden noundef ptr @_ZNK12BarrierSetC217store_at_resolvedER8C2AccessR13C2
   %12 = and i64 %5, 64
   %13 = icmp eq i64 %12, 0
   %14 = and i64 %5, 1024
-  %.not6.i = icmp eq i64 %14, 0
-  br i1 %.not6.i, label %18, label %15
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %18, label %15
 
 15:                                               ; preds = %3
   %16 = and i64 %5, 137438953472
-  %.not.i = icmp eq i64 %16, 0
+  %.not8.i = icmp eq i64 %16, 0
   %17 = and i64 %5, 412316860416
-  %brmerge.not.i = icmp eq i64 %17, 412316860416
-  %..i = select i1 %.not.i, i32 1, i32 2
-  %spec.select.i = select i1 %brmerge.not.i, i32 3, i32 %..i
+  %or.cond.i = icmp eq i64 %17, 412316860416
+  %..i = select i1 %.not8.i, i32 1, i32 2
+  %spec.select.i = select i1 %or.cond.i, i32 3, i32 %..i
   br label %_ZNK8C2Access11mem_node_moEv.exit
 
 18:                                               ; preds = %3
   %19 = and i64 %5, 512
-  %.not7.i = icmp eq i64 %19, 0
-  br i1 %.not7.i, label %20, label %_ZNK8C2Access11mem_node_moEv.exit
+  %.not6.i = icmp eq i64 %19, 0
+  br i1 %.not6.i, label %20, label %_ZNK8C2Access11mem_node_moEv.exit
 
 20:                                               ; preds = %18
   %21 = and i64 %5, 137438953728
-  %brmerge9.not.i = icmp eq i64 %21, 137438953472
+  %brmerge.not.i = icmp eq i64 %21, 137438953472
   %22 = trunc i64 %5 to i32
   %23 = lshr i32 %22, 8
   %.mux.i = and i32 %23, 1
-  br i1 %brmerge9.not.i, label %24, label %_ZNK8C2Access11mem_node_moEv.exit
+  br i1 %brmerge.not.i, label %24, label %_ZNK8C2Access11mem_node_moEv.exit
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -766,30 +766,30 @@ define hidden noundef range(i32 0, 4) i32 @_ZNK8C2Access11mem_node_moEv(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1024
-  %.not6 = icmp eq i64 %4, 0
-  br i1 %.not6, label %8, label %5
+  %.not = icmp eq i64 %4, 0
+  br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %1
   %6 = and i64 %3, 137438953472
-  %.not = icmp eq i64 %6, 0
+  %.not8 = icmp eq i64 %6, 0
   %7 = and i64 %3, 412316860416
-  %brmerge.not = icmp eq i64 %7, 412316860416
-  %. = select i1 %.not, i32 1, i32 2
-  %spec.select = select i1 %brmerge.not, i32 3, i32 %.
+  %or.cond = icmp eq i64 %7, 412316860416
+  %. = select i1 %.not8, i32 1, i32 2
+  %spec.select = select i1 %or.cond, i32 3, i32 %.
   br label %21
 
 8:                                                ; preds = %1
   %9 = and i64 %3, 512
-  %.not7 = icmp eq i64 %9, 0
-  br i1 %.not7, label %10, label %21
+  %.not6 = icmp eq i64 %9, 0
+  br i1 %.not6, label %10, label %21
 
 10:                                               ; preds = %8
   %11 = and i64 %3, 137438953728
-  %brmerge9.not = icmp eq i64 %11, 137438953472
+  %brmerge.not = icmp eq i64 %11, 137438953472
   %12 = trunc i64 %3 to i32
   %13 = lshr i32 %12, 8
   %.mux = and i32 %13, 1
-  br i1 %brmerge9.not, label %14, label %21
+  br i1 %brmerge.not, label %14, label %21
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -838,30 +838,30 @@ define hidden noundef ptr @_ZNK12BarrierSetC216load_at_resolvedER8C2AccessPK4Typ
   %21 = and i64 %5, 2199023255552
   %.not75 = icmp eq i64 %21, 0
   %22 = and i64 %5, 1024
-  %.not6.i = icmp eq i64 %22, 0
-  br i1 %.not6.i, label %26, label %23
+  %.not.i = icmp eq i64 %22, 0
+  br i1 %.not.i, label %26, label %23
 
 23:                                               ; preds = %3
   %24 = and i64 %5, 137438953472
-  %.not.i = icmp eq i64 %24, 0
+  %.not8.i = icmp eq i64 %24, 0
   %25 = and i64 %5, 412316860416
-  %brmerge.not.i = icmp eq i64 %25, 412316860416
-  %..i = select i1 %.not.i, i32 1, i32 2
-  %spec.select.i = select i1 %brmerge.not.i, i32 3, i32 %..i
+  %or.cond.i = icmp eq i64 %25, 412316860416
+  %..i = select i1 %.not8.i, i32 1, i32 2
+  %spec.select.i = select i1 %or.cond.i, i32 3, i32 %..i
   br label %_ZNK8C2Access11mem_node_moEv.exit
 
 26:                                               ; preds = %3
   %27 = and i64 %5, 512
-  %.not7.i = icmp eq i64 %27, 0
-  br i1 %.not7.i, label %28, label %_ZNK8C2Access11mem_node_moEv.exit
+  %.not6.i = icmp eq i64 %27, 0
+  br i1 %.not6.i, label %28, label %_ZNK8C2Access11mem_node_moEv.exit
 
 28:                                               ; preds = %26
   %29 = and i64 %5, 137438953728
-  %brmerge9.not.i = icmp eq i64 %29, 137438953472
+  %brmerge.not.i = icmp eq i64 %29, 137438953472
   %30 = trunc i64 %5 to i32
   %31 = lshr i32 %30, 8
   %.mux.i = and i32 %31, 1
-  br i1 %brmerge9.not.i, label %32, label %_ZNK8C2Access11mem_node_moEv.exit
+  br i1 %brmerge.not.i, label %32, label %_ZNK8C2Access11mem_node_moEv.exit
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1009,15 +1009,15 @@ define linkonce_odr hidden void @_ZN13C2AccessFenceC2ER8C2Access(ptr noundef non
 
 16:                                               ; preds = %11
   %17 = and i64 %13, 1536
-  %brmerge.not28 = icmp eq i64 %17, 0
-  br i1 %brmerge.not28, label %22, label %.sink.split
+  %brmerge.not = icmp eq i64 %17, 0
+  br i1 %brmerge.not, label %22, label %.sink.split
 
 18:                                               ; preds = %11
   %19 = and i64 %13, 137438953472
   %.not = icmp eq i64 %19, 0
   %20 = and i64 %13, 1536
-  %brmerge.not = icmp eq i64 %20, 0
-  %or.cond = or i1 %.not, %brmerge.not
+  %or.cond.not = icmp eq i64 %20, 0
+  %or.cond = or i1 %.not, %or.cond.not
   br i1 %or.cond, label %22, label %.sink.split
 
 .sink.split:                                      ; preds = %16, %18
@@ -1028,53 +1028,53 @@ define linkonce_odr hidden void @_ZN13C2AccessFenceC2ER8C2Access(ptr noundef non
 22:                                               ; preds = %16, %.sink.split, %18
   %23 = load i64, ptr %12, align 8
   %24 = and i64 %23, 2147483648
-  %.not.i = icmp eq i64 %24, 0
+  %.not11.i = icmp eq i64 %24, 0
   %25 = and i64 %23, 64
-  %.not10.i = icmp eq i64 %25, 0
-  %26 = and i64 %23, 786432
-  %27 = icmp eq i64 %26, 0
-  %28 = and i64 %23, 412316860416
-  %29 = icmp eq i64 %28, 412316860416
-  br i1 %29, label %42, label %30
+  %26 = icmp ne i64 %25, 0
+  %27 = and i64 %23, 786432
+  %28 = icmp ne i64 %27, 0
+  %29 = and i64 %23, 412316860416
+  %30 = icmp eq i64 %29, 412316860416
+  br i1 %30, label %43, label %31
 
-30:                                               ; preds = %22
-  %31 = and i64 %23, 68719476736
-  %.not11.i = icmp eq i64 %31, 0
-  br i1 %.not11.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit, label %32
+31:                                               ; preds = %22
+  %32 = and i64 %23, 68719476736
+  %.not12.i = icmp eq i64 %32, 0
+  br i1 %.not12.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit, label %33
 
-32:                                               ; preds = %30
-  %brmerge.i = or i1 %27, %.not10.i
-  br i1 %brmerge.i, label %42, label %33
-
-33:                                               ; preds = %32
-  br i1 %.not.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit, label %34
+33:                                               ; preds = %31
+  %or.cond.i = and i1 %28, %26
+  br i1 %or.cond.i, label %34, label %43
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp ne i32 %40, 22
-  %.not1415.i = icmp eq ptr %38, null
-  %.not14.i = or i1 %.not1415.i, %41
-  br i1 %.not14.i, label %42, label %_ZNK8C2Access16needs_cpu_membarEv.exit
+  br i1 %.not11.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit, label %35
 
-42:                                               ; preds = %22, %32, %34
-  %43 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %.0, i32 noundef 216, ptr noundef null) #14
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp ne i32 %41, 22
+  %.not15.i = icmp eq ptr %39, null
+  %.not.i = or i1 %.not15.i, %42
+  br i1 %.not.i, label %43, label %_ZNK8C2Access16needs_cpu_membarEv.exit
+
+43:                                               ; preds = %22, %35, %33
+  %44 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %.0, i32 noundef 216, ptr noundef null) #14
   br label %_ZNK8C2Access16needs_cpu_membarEv.exit
 
-_ZNK8C2Access16needs_cpu_membarEv.exit:           ; preds = %34, %33, %30, %42
-  br i1 %15, label %44, label %47
+_ZNK8C2Access16needs_cpu_membarEv.exit:           ; preds = %35, %34, %31, %43
+  br i1 %15, label %45, label %48
 
-44:                                               ; preds = %_ZNK8C2Access16needs_cpu_membarEv.exit
-  %45 = load ptr, ptr %1, align 8
-  %46 = load ptr, ptr %45, align 8
-  tail call void %46(ptr noundef nonnull align 8 dereferenceable(49) %1) #14
-  br label %47
+45:                                               ; preds = %_ZNK8C2Access16needs_cpu_membarEv.exit
+  %46 = load ptr, ptr %1, align 8
+  %47 = load ptr, ptr %46, align 8
+  tail call void %47(ptr noundef nonnull align 8 dereferenceable(49) %1) #14
+  br label %48
 
-47:                                               ; preds = %44, %_ZNK8C2Access16needs_cpu_membarEv.exit
+48:                                               ; preds = %45, %_ZNK8C2Access16needs_cpu_membarEv.exit
   ret void
 }
 
@@ -1102,98 +1102,98 @@ define linkonce_odr hidden void @_ZN13C2AccessFenceD2Ev(ptr noundef nonnull alig
   %14 = and i64 %12, 412316860416
   %15 = icmp eq i64 %14, 412316860416
   %16 = and i64 %12, 1024
-  %.not26.not = icmp eq i64 %16, 0
+  %.not30 = icmp eq i64 %16, 0
   %17 = and i64 %12, 2147483648
-  %.not.i = icmp eq i64 %17, 0
+  %.not11.i = icmp eq i64 %17, 0
   %18 = and i64 %12, 64
-  %.not10.i = icmp eq i64 %18, 0
-  %19 = and i64 %12, 786432
-  %20 = icmp eq i64 %19, 0
-  br i1 %15, label %34, label %21
+  %19 = icmp ne i64 %18, 0
+  %20 = and i64 %12, 786432
+  %21 = icmp ne i64 %20, 0
+  br i1 %15, label %35, label %22
 
-21:                                               ; preds = %10
-  %22 = and i64 %12, 68719476736
-  %.not11.i = icmp eq i64 %22, 0
-  br i1 %.not11.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread35, label %23
+22:                                               ; preds = %10
+  %23 = and i64 %12, 68719476736
+  %.not12.i = icmp eq i64 %23, 0
+  br i1 %.not12.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread34, label %24
 
-23:                                               ; preds = %21
-  %brmerge.i = or i1 %20, %.not10.i
-  br i1 %brmerge.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread37, label %24
-
-24:                                               ; preds = %23
-  br i1 %.not.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread35, label %25
+24:                                               ; preds = %22
+  %or.cond.i = and i1 %21, %19
+  br i1 %or.cond.i, label %25, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread36
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load i32, ptr %30, align 8
-  %32 = icmp ne i32 %31, 22
-  %.not1415.i = icmp eq ptr %29, null
-  %.not14.i = or i1 %.not1415.i, %32
-  br i1 %.not14.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread37, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread35
+  br i1 %.not11.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread34, label %26
 
-_ZNK8C2Access16needs_cpu_membarEv.exit.thread37:  ; preds = %25, %23
-  %33 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %.0, i32 noundef 216, ptr noundef null) #14
-  br label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread35
+26:                                               ; preds = %25
+  %27 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load i32, ptr %31, align 8
+  %33 = icmp ne i32 %32, 22
+  %.not15.i = icmp eq ptr %30, null
+  %.not.i = or i1 %.not15.i, %33
+  br i1 %.not.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread36, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread34
 
-34:                                               ; preds = %10
-  %35 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %.0, i32 noundef 216, ptr noundef null) #14
-  %36 = and i64 %12, 1280
-  %brmerge.not = icmp eq i64 %36, 0
-  br i1 %brmerge.not, label %62, label %37
+_ZNK8C2Access16needs_cpu_membarEv.exit.thread36:  ; preds = %24, %26
+  %34 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %.0, i32 noundef 216, ptr noundef null) #14
+  br label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread34
 
-37:                                               ; preds = %34
-  %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %.0, i32 noundef 213, ptr noundef %40) #14
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %.not29 = icmp eq ptr %43, null
-  br i1 %.not29, label %62, label %44
+35:                                               ; preds = %10
+  %36 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %.0, i32 noundef 216, ptr noundef null) #14
+  %37 = and i64 %12, 1280
+  %or.cond.not = icmp eq i64 %37, 0
+  br i1 %or.cond.not, label %63, label %38
 
-44:                                               ; preds = %37
-  tail call void @_ZN10MemBarNode19set_load_store_pairEPS_S0_(ptr noundef nonnull %43, ptr noundef %41) #14
-  br label %62
+38:                                               ; preds = %35
+  %39 = load ptr, ptr %0, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %.0, i32 noundef 213, ptr noundef %41) #14
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %.not31 = icmp eq ptr %44, null
+  br i1 %.not31, label %63, label %45
 
-_ZNK8C2Access16needs_cpu_membarEv.exit.thread35:  ; preds = %21, %24, %25, %_ZNK8C2Access16needs_cpu_membarEv.exit.thread37
-  br i1 %.not, label %54, label %45
+45:                                               ; preds = %38
+  tail call void @_ZN10MemBarNode19set_load_store_pairEPS_S0_(ptr noundef nonnull %44, ptr noundef %42) #14
+  br label %63
 
-45:                                               ; preds = %_ZNK8C2Access16needs_cpu_membarEv.exit.thread35
-  br i1 %.not26.not, label %62, label %46
+_ZNK8C2Access16needs_cpu_membarEv.exit.thread34:  ; preds = %22, %25, %26, %_ZNK8C2Access16needs_cpu_membarEv.exit.thread36
+  br i1 %.not, label %55, label %46
 
-46:                                               ; preds = %45
-  %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %.0, i32 noundef 221, ptr noundef %49) #14
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %.not28 = icmp eq ptr %52, null
-  br i1 %.not28, label %62, label %53
+46:                                               ; preds = %_ZNK8C2Access16needs_cpu_membarEv.exit.thread34
+  br i1 %.not30, label %63, label %47
 
-53:                                               ; preds = %46
-  tail call void @_ZN10MemBarNode14set_store_pairEPS_S0_(ptr noundef nonnull %52, ptr noundef %50) #14
-  br label %62
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %0, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %.0, i32 noundef 221, ptr noundef %50) #14
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %.not29 = icmp eq ptr %53, null
+  br i1 %.not29, label %63, label %54
 
-54:                                               ; preds = %_ZNK8C2Access16needs_cpu_membarEv.exit.thread35
-  %55 = and i64 %12, 1280
-  %brmerge32.not = icmp eq i64 %55, 0
-  br i1 %brmerge32.not, label %62, label %56
+54:                                               ; preds = %47
+  tail call void @_ZN10MemBarNode14set_store_pairEPS_S0_(ptr noundef nonnull %53, ptr noundef %51) #14
+  br label %63
 
-56:                                               ; preds = %54
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %.0, i32 noundef 213, ptr noundef %59) #14
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 64
-  store i32 1, ptr %61, align 8
-  br label %62
+55:                                               ; preds = %_ZNK8C2Access16needs_cpu_membarEv.exit.thread34
+  %56 = and i64 %12, 1280
+  %or.cond3.not = icmp eq i64 %56, 0
+  br i1 %or.cond3.not, label %63, label %57
 
-62:                                               ; preds = %54, %34, %46, %53, %45, %56, %44, %37
+57:                                               ; preds = %55
+  %58 = load ptr, ptr %0, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call noundef ptr @_ZN8GraphKit14insert_mem_barEiP4Node(ptr noundef nonnull align 8 dereferenceable(84) %.0, i32 noundef 213, ptr noundef %60) #14
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 64
+  store i32 1, ptr %62, align 8
+  br label %63
+
+63:                                               ; preds = %47, %54, %46, %55, %57, %35, %45, %38
   ret void
 }
 
@@ -1217,128 +1217,112 @@ define hidden void @_ZN8C2Access16fixup_decoratorsEv(ptr noundef nonnull align 8
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = load i8, ptr @AlwaysAtomicAccesses, align 1
-  %6 = trunc i8 %5 to i1
-  br i1 %6, label %7, label %16
-
-7:                                                ; preds = %1
-  %8 = and i64 %4, 64
-  %9 = icmp ne i64 %8, 0
-  %10 = and i64 %4, 1984
-  %11 = icmp eq i64 %10, 0
-  %12 = or i1 %9, %11
-  br i1 %12, label %13, label %16
-
-13:                                               ; preds = %7
-  %14 = and i64 %4, -1985
-  %15 = or disjoint i64 %14, 128
-  br label %16
-
-16:                                               ; preds = %13, %7, %1
-  %17 = phi i64 [ %15, %13 ], [ %4, %7 ], [ %4, %1 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i8, ptr %18, align 8
-  %20 = and i8 %19, -2
-  %or.cond.i.i = icmp eq i8 %20, 12
+  %5 = and i64 %4, 1984
+  %6 = icmp eq i64 %5, 0
+  %7 = and i64 %4, 64
+  %8 = icmp ne i64 %7, 0
+  %9 = or i1 %8, %6
+  %10 = load i8, ptr @AlwaysAtomicAccesses, align 1
+  %11 = trunc i8 %10 to i1
+  %or.cond = select i1 %11, i1 %9, i1 false
+  %12 = and i64 %4, -1985
+  %13 = or disjoint i64 %12, 128
+  %14 = select i1 %or.cond, i64 %13, i64 %4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load i8, ptr %15, align 8
+  %17 = and i8 %16, -2
+  %or.cond.i.i = icmp eq i8 %17, 12
   %spec.select.i = select i1 %or.cond.i.i, i64 4, i64 0
-  %21 = or i64 %spec.select.i, %17
-  %22 = and i64 %17, 245760
-  %23 = icmp eq i64 %22, 0
-  %24 = and i64 %21, 4
-  %25 = icmp ne i64 %24, 0
-  %26 = and i1 %23, %25
-  %27 = select i1 %26, i64 16384, i64 0
-  %28 = and i64 %17, 1984
+  %18 = or i64 %spec.select.i, %14
+  %19 = and i64 %14, 245760
+  %20 = icmp eq i64 %19, 0
+  %21 = and i64 %18, 4
+  %22 = icmp ne i64 %21, 0
+  %23 = and i1 %20, %22
+  %24 = select i1 %23, i64 16384, i64 0
+  %25 = icmp eq i64 %5, 0
+  %not.or.cond = xor i1 %or.cond, true
+  %26 = select i1 %not.or.cond, i1 %25, i1 false
+  %cond.fr = freeze i1 %26
+  %27 = select i1 %cond.fr, i64 64, i64 0
+  %28 = and i64 %14, 14336
   %29 = icmp eq i64 %28, 0
-  %30 = select i1 %29, i64 64, i64 0
-  %31 = and i64 %17, 14336
-  %32 = icmp eq i64 %31, 0
-  %33 = select i1 %32, i64 8192, i64 0
-  %34 = or disjoint i64 %33, %30
-  %35 = or disjoint i64 %34, %27
-  %36 = or i64 %35, %21
+  %30 = select i1 %29, i64 8192, i64 0
+  %31 = or disjoint i64 %30, %27
+  %32 = or disjoint i64 %31, %24
+  %33 = or i64 %32, %18
+  store i64 %33, ptr %3, align 8
+  %34 = and i64 %4, 481036337152
+  %or.cond5 = icmp eq i64 %34, 343597383680
+  br i1 %or.cond5, label %35, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
+
+35:                                               ; preds = %1
+  %36 = or i64 %33, 51539607552
   store i64 %36, ptr %3, align 8
-  %37 = and i64 %4, 481036337152
-  %brmerge12.not = icmp eq i64 %37, 343597383680
-  br i1 %brmerge12.not, label %38, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = load ptr, ptr %38, align 8
+  %42 = and i64 %33, 64
+  %43 = icmp ne i64 %42, 0
+  %44 = and i64 %14, 786432
+  %45 = icmp ne i64 %44, 0
+  %or.cond.i = and i1 %45, %43
+  br i1 %or.cond.i, label %46, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
 
-38:                                               ; preds = %16
-  %39 = or i64 %36, 51539607552
-  store i64 %39, ptr %3, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %41, align 8
-  %45 = and i64 %17, 2147483648
-  %.not.i = icmp eq i64 %45, 0
-  %46 = and i64 %36, 64
-  %.not10.i = icmp eq i64 %46, 0
-  %47 = and i64 %17, 786432
-  %48 = icmp eq i64 %47, 0
-  %49 = and i64 %17, 412316860416
-  %50 = icmp eq i64 %49, 412316860416
-  br i1 %50, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread, label %51
+46:                                               ; preds = %35
+  %47 = and i64 %14, 2147483648
+  %.not11.i = icmp eq i64 %47, 0
+  br i1 %.not11.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit, label %48
 
-51:                                               ; preds = %38
-  %52 = and i64 %17, 68719476736
-  %.not11.i = icmp eq i64 %52, 0
-  br i1 %.not11.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit, label %53
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %50 = load i32, ptr %49, align 8
+  %51 = icmp ne i32 %50, 22
+  %.not15.i = icmp eq ptr %40, null
+  %.not.i = or i1 %.not15.i, %51
+  br i1 %.not.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread, label %_ZNK8C2Access16needs_cpu_membarEv.exit
 
-53:                                               ; preds = %51
-  %brmerge.i = or i1 %48, %.not10.i
-  br i1 %brmerge.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread, label %54
+_ZNK8C2Access16needs_cpu_membarEv.exit:           ; preds = %48, %46
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp ne i32 %53, 21
+  %.not18 = icmp eq ptr %40, null
+  %.not = select i1 %54, i1 true, i1 %.not18
+  br i1 %.not, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread, label %55
 
-54:                                               ; preds = %53
-  br i1 %.not.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit, label %55
-
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp ne i32 %57, 22
-  %.not1415.i = icmp eq ptr %43, null
-  %.not14.i = or i1 %.not1415.i, %58
-  br i1 %.not14.i, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread, label %_ZNK8C2Access16needs_cpu_membarEv.exit
-
-_ZNK8C2Access16needs_cpu_membarEv.exit:           ; preds = %55, %54, %51
-  %59 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %60 = load i32, ptr %59, align 8
-  %61 = icmp ne i32 %60, 21
-  %.not1115 = icmp eq ptr %43, null
-  %.not11 = select i1 %61, i1 true, i1 %.not1115
-  br i1 %.not11, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread, label %62
-
-62:                                               ; preds = %_ZNK8C2Access16needs_cpu_membarEv.exit
+55:                                               ; preds = %_ZNK8C2Access16needs_cpu_membarEv.exit
   store i64 -2000000001, ptr %2, align 8
-  %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = tail call noundef nonnull align 8 dereferenceable(2400) ptr %65(ptr noundef nonnull align 8 dereferenceable(49) %0) #14
-  %67 = call noundef ptr @_ZN8AddPNode21Ideal_base_and_offsetEP4NodeP11PhaseValuesRl(ptr noundef %44, ptr noundef nonnull %66, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
-  %68 = load i64, ptr %2, align 8
-  %69 = icmp sgt i64 %68, -1
-  br i1 %69, label %70, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
+  %56 = load ptr, ptr %0, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = tail call noundef nonnull align 8 dereferenceable(2400) ptr %58(ptr noundef nonnull align 8 dereferenceable(49) %0) #14
+  %60 = call noundef ptr @_ZN8AddPNode21Ideal_base_and_offsetEP4NodeP11PhaseValuesRl(ptr noundef %41, ptr noundef nonnull %59, ptr noundef nonnull align 8 dereferenceable(8) %2) #14
+  %61 = load i64, ptr %2, align 8
+  %62 = icmp sgt i64 %61, -1
+  br i1 %62, label %63, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
 
-70:                                               ; preds = %62
-  %71 = load ptr, ptr %43, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 232
-  %73 = load ptr, ptr %72, align 8
-  %74 = call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(80) %43) #14
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
-  %76 = load i32, ptr %75, align 8
-  %77 = and i32 %76, -2
-  %78 = load i64, ptr %2, align 8
-  %79 = sext i32 %77 to i64
-  %80 = icmp slt i64 %78, %79
-  br i1 %80, label %81, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
+63:                                               ; preds = %55
+  %64 = load ptr, ptr %40, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 232
+  %66 = load ptr, ptr %65, align 8
+  %67 = call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(80) %40) #14
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
+  %69 = load i32, ptr %68, align 8
+  %70 = and i32 %69, -2
+  %71 = load i64, ptr %2, align 8
+  %72 = sext i32 %70 to i64
+  %73 = icmp slt i64 %71, %72
+  br i1 %73, label %74, label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
 
-81:                                               ; preds = %70
-  %82 = load i64, ptr %3, align 8
-  %83 = xor i64 %82, 51539607552
-  store i64 %83, ptr %3, align 8
+74:                                               ; preds = %63
+  %75 = load i64, ptr %3, align 8
+  %76 = xor i64 %75, 51539607552
+  store i64 %76, ptr %3, align 8
   br label %_ZNK8C2Access16needs_cpu_membarEv.exit.thread
 
-_ZNK8C2Access16needs_cpu_membarEv.exit.thread:    ; preds = %55, %53, %38, %16, %_ZNK8C2Access16needs_cpu_membarEv.exit, %70, %81, %62
+_ZNK8C2Access16needs_cpu_membarEv.exit.thread:    ; preds = %35, %48, %_ZNK8C2Access16needs_cpu_membarEv.exit, %63, %74, %55, %1
   ret void
 }
 
@@ -1436,30 +1420,30 @@ define hidden noundef ptr @_ZNK12BarrierSetC230atomic_cmpxchg_val_at_resolvedER1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 1024
-  %.not6.i = icmp eq i64 %10, 0
-  br i1 %.not6.i, label %14, label %11
+  %.not.i = icmp eq i64 %10, 0
+  br i1 %.not.i, label %14, label %11
 
 11:                                               ; preds = %5
   %12 = and i64 %9, 137438953472
-  %.not.i = icmp eq i64 %12, 0
+  %.not8.i = icmp eq i64 %12, 0
   %13 = and i64 %9, 412316860416
-  %brmerge.not.i = icmp eq i64 %13, 412316860416
-  %..i = select i1 %.not.i, i32 1, i32 2
-  %spec.select.i = select i1 %brmerge.not.i, i32 3, i32 %..i
+  %or.cond.i = icmp eq i64 %13, 412316860416
+  %..i = select i1 %.not8.i, i32 1, i32 2
+  %spec.select.i = select i1 %or.cond.i, i32 3, i32 %..i
   br label %_ZNK8C2Access11mem_node_moEv.exit
 
 14:                                               ; preds = %5
   %15 = and i64 %9, 512
-  %.not7.i = icmp eq i64 %15, 0
-  br i1 %.not7.i, label %16, label %_ZNK8C2Access11mem_node_moEv.exit
+  %.not6.i = icmp eq i64 %15, 0
+  br i1 %.not6.i, label %16, label %_ZNK8C2Access11mem_node_moEv.exit
 
 16:                                               ; preds = %14
   %17 = and i64 %9, 137438953728
-  %brmerge9.not.i = icmp eq i64 %17, 137438953472
+  %brmerge.not.i = icmp eq i64 %17, 137438953472
   %18 = trunc i64 %9 to i32
   %19 = lshr i32 %18, 8
   %.mux.i = and i32 %19, 1
-  br i1 %brmerge9.not.i, label %20, label %_ZNK8C2Access11mem_node_moEv.exit
+  br i1 %brmerge.not.i, label %20, label %_ZNK8C2Access11mem_node_moEv.exit
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2438,30 +2422,30 @@ define hidden noundef ptr @_ZNK12BarrierSetC231atomic_cmpxchg_bool_at_resolvedER
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 1024
-  %.not6.i = icmp eq i64 %10, 0
-  br i1 %.not6.i, label %14, label %11
+  %.not.i = icmp eq i64 %10, 0
+  br i1 %.not.i, label %14, label %11
 
 11:                                               ; preds = %5
   %12 = and i64 %9, 137438953472
-  %.not.i = icmp eq i64 %12, 0
+  %.not8.i = icmp eq i64 %12, 0
   %13 = and i64 %9, 412316860416
-  %brmerge.not.i = icmp eq i64 %13, 412316860416
-  %..i = select i1 %.not.i, i32 1, i32 2
-  %spec.select.i = select i1 %brmerge.not.i, i32 3, i32 %..i
+  %or.cond.i = icmp eq i64 %13, 412316860416
+  %..i = select i1 %.not8.i, i32 1, i32 2
+  %spec.select.i = select i1 %or.cond.i, i32 3, i32 %..i
   br label %_ZNK8C2Access11mem_node_moEv.exit
 
 14:                                               ; preds = %5
   %15 = and i64 %9, 512
-  %.not7.i = icmp eq i64 %15, 0
-  br i1 %.not7.i, label %16, label %_ZNK8C2Access11mem_node_moEv.exit
+  %.not6.i = icmp eq i64 %15, 0
+  br i1 %.not6.i, label %16, label %_ZNK8C2Access11mem_node_moEv.exit
 
 16:                                               ; preds = %14
   %17 = and i64 %9, 137438953728
-  %brmerge9.not.i = icmp eq i64 %17, 137438953472
+  %brmerge.not.i = icmp eq i64 %17, 137438953472
   %18 = trunc i64 %9 to i32
   %19 = lshr i32 %18, 8
   %.mux.i = and i32 %19, 1
-  br i1 %brmerge9.not.i, label %20, label %_ZNK8C2Access11mem_node_moEv.exit
+  br i1 %brmerge.not.i, label %20, label %_ZNK8C2Access11mem_node_moEv.exit
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16

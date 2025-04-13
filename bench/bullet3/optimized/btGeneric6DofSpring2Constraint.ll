@@ -2494,13 +2494,13 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 992
   br label %64
 
-63:                                               ; preds = %183
+63:                                               ; preds = %184
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %10) #24
   ret i32 %.1
 
-64:                                               ; preds = %9, %183
-  %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next.pre-phi, %183 ]
-  %.093 = phi i32 [ %2, %9 ], [ %.1, %183 ]
+64:                                               ; preds = %9, %184
+  %indvars.iv = phi i64 [ 0, %9 ], [ %indvars.iv.next.pre-phi, %184 ]
+  %.092 = phi i32 [ %2, %9 ], [ %.1, %184 ]
   %65 = getelementptr inbounds nuw [3 x i32], ptr %30, i64 0, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4, !tbaa !54
   %.not = icmp eq i32 %66, 0
@@ -2516,11 +2516,11 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   %72 = getelementptr inbounds nuw [3 x i8], ptr %32, i64 0, i64 %indvars.iv
   %73 = load i8, ptr %72, align 1, !tbaa !12, !range !100, !noundef !101
   %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %._crit_edge, label %._crit_edge96
+  br i1 %74, label %._crit_edge, label %._crit_edge95
 
-._crit_edge96:                                    ; preds = %71
-  %.pre97 = add nuw nsw i64 %indvars.iv, 1
-  br label %183
+._crit_edge95:                                    ; preds = %71
+  %.pre96 = add nuw nsw i64 %indvars.iv, 1
+  br label %184
 
 ._crit_edge:                                      ; preds = %64, %71, %69
   %75 = phi i8 [ 0, %71 ], [ 1, %69 ], [ %68, %64 ]
@@ -2591,8 +2591,8 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   %115 = shl i32 %indvars.iv.tr, 2
   %116 = ashr i32 %114, %115
   %117 = and i32 %116, 1
-  %.not74 = icmp eq i32 %117, 0
-  br i1 %.not74, label %120, label %118
+  %.not76 = icmp eq i32 %117, 0
+  br i1 %.not76, label %120, label %118
 
 118:                                              ; preds = %._crit_edge
   %119 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
@@ -2607,14 +2607,14 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   %123 = load float, ptr %.in, align 4, !tbaa !10
   store float %123, ptr %15, align 4, !tbaa !20
   %124 = and i32 %116, 2
-  %.not75 = icmp eq i32 %124, 0
+  %.not77 = icmp eq i32 %124, 0
   %125 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
-  %.in76 = select i1 %.not75, ptr %59, ptr %125
-  %126 = load float, ptr %.in76, align 4, !tbaa !10
+  %.in78 = select i1 %.not77, ptr %59, ptr %125
+  %126 = load float, ptr %.in78, align 4, !tbaa !10
   store float %126, ptr %14, align 4, !tbaa !19
   %127 = and i32 %116, 4
-  %.not77 = icmp eq i32 %127, 0
-  br i1 %.not77, label %130, label %128
+  %.not79 = icmp eq i32 %127, 0
+  br i1 %.not79, label %130, label %128
 
 128:                                              ; preds = %122
   %129 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv
@@ -2625,14 +2625,14 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   br label %132
 
 132:                                              ; preds = %130, %128
-  %.in78 = phi ptr [ %129, %128 ], [ %131, %130 ]
-  %133 = load float, ptr %.in78, align 4, !tbaa !10
+  %.in80 = phi ptr [ %129, %128 ], [ %131, %130 ]
+  %133 = load float, ptr %.in80, align 4, !tbaa !10
   store float %133, ptr %17, align 4, !tbaa !22
   %134 = and i32 %116, 8
-  %.not79 = icmp eq i32 %134, 0
+  %.not81 = icmp eq i32 %134, 0
   %135 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv
-  %.in80 = select i1 %.not79, ptr %59, ptr %135
-  %136 = load float, ptr %.in80, align 4, !tbaa !10
+  %.in82 = select i1 %.not81, ptr %59, ptr %135
+  %136 = load float, ptr %.in82, align 4, !tbaa !10
   store float %136, ptr %16, align 4, !tbaa !21
   %137 = add nuw nsw i64 %indvars.iv, 1
   %.cmp.not = icmp eq i64 %indvars.iv, 2
@@ -2655,7 +2655,7 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   %146 = load float, ptr %145, align 8, !tbaa !95
   %147 = tail call float @llvm.fabs.f32(float %146)
   %148 = fpext float %147 to double
-  %or.cond = fcmp ogt double %148, 1.000000e-03
+  %or.cond83 = fcmp ogt double %148, 1.000000e-03
   br label %.thread
 
 149:                                              ; preds = %132
@@ -2676,15 +2676,15 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   br label %.thread
 
 .thread:                                          ; preds = %144, %132, %132, %.thread.fold.split, %154, %149
-  %159 = phi i1 [ true, %132 ], [ true, %149 ], [ %158, %154 ], [ true, %132 ], [ %or.cond, %144 ], [ false, %.thread.fold.split ]
+  %159 = phi i1 [ true, %132 ], [ true, %149 ], [ %158, %154 ], [ true, %132 ], [ %or.cond83, %144 ], [ false, %.thread.fold.split ]
   %160 = and i64 %138, 4294967295
   %161 = select i1 %.cmp90, i64 2, i64 %160
   %162 = getelementptr inbounds nuw [3 x %class.btRotationalLimitMotor2], ptr %62, i64 0, i64 %161
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 84
   %164 = load i32, ptr %163, align 4, !tbaa !94
-  switch i32 %164, label %.thread86 [
-    i32 1, label %.thread83
-    i32 2, label %.thread83
+  switch i32 %164, label %.split71 [
+    i32 1, label %180
+    i32 2, label %180
     i32 3, label %165
     i32 4, label %170
   ]
@@ -2694,38 +2694,40 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   %167 = load float, ptr %166, align 8, !tbaa !95
   %168 = tail call float @llvm.fabs.f32(float %167)
   %169 = fpext float %168 to double
-  %or.cond81 = fcmp ogt double %169, 1.000000e-03
-  br i1 %or.cond81, label %.thread83, label %.thread86
+  %or.cond84 = fcmp ogt double %169, 1.000000e-03
+  br i1 %or.cond84, label %180, label %.split71
 
 170:                                              ; preds = %.thread
   %171 = getelementptr inbounds nuw i8, ptr %162, i64 72
   %172 = load float, ptr %171, align 8, !tbaa !95
   %173 = fpext float %172 to double
   %174 = fcmp olt double %173, -1.000000e-03
-  br i1 %174, label %.thread83, label %175
+  br i1 %174, label %180, label %175
 
 175:                                              ; preds = %170
   %176 = getelementptr inbounds nuw i8, ptr %162, i64 76
   %177 = load float, ptr %176, align 4, !tbaa !96
-  %.fr91 = freeze float %177
-  %178 = fpext float %.fr91 to double
+  %178 = fpext float %177 to double
   %179 = fcmp ogt double %178, 1.000000e-03
-  br i1 %179, label %.thread83, label %.thread86
+  br label %180
 
-.thread83:                                        ; preds = %.thread, %.thread, %170, %165, %175
-  br label %.thread86
+180:                                              ; preds = %.thread, %.thread, %175, %170, %165
+  %181 = phi i1 [ true, %165 ], [ true, %.thread ], [ true, %170 ], [ %179, %175 ], [ true, %.thread ]
+  %or.cond = select i1 %159, i1 %181, i1 false
+  %not.or.cond = xor i1 %or.cond, true
+  %spec.select = zext i1 %not.or.cond to i32
+  br label %.split71
 
-.thread86:                                        ; preds = %.thread, %165, %175, %.thread83
-  %180 = phi i32 [ 0, %.thread83 ], [ 1, %175 ], [ 1, %165 ], [ 1, %.thread ]
-  %.069 = select i1 %159, i32 %180, i32 1
-  %181 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef %1, i32 noundef %.093, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 0, i32 noundef %.069)
-  %182 = add nsw i32 %181, %.093
+.split71:                                         ; preds = %180, %165, %.thread
+  %.sink = phi i32 [ 1, %.thread ], [ 1, %165 ], [ %spec.select, %180 ]
+  %182 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef %1, i32 noundef %.092, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 0, i32 noundef %.sink)
+  %183 = add nsw i32 %182, %.092
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #24
-  br label %183
+  br label %184
 
-183:                                              ; preds = %._crit_edge96, %.thread86
-  %indvars.iv.next.pre-phi = phi i64 [ %.pre97, %._crit_edge96 ], [ %137, %.thread86 ]
-  %.1 = phi i32 [ %.093, %._crit_edge96 ], [ %182, %.thread86 ]
+184:                                              ; preds = %._crit_edge95, %.split71
+  %indvars.iv.next.pre-phi = phi i64 [ %.pre96, %._crit_edge95 ], [ %137, %.split71 ]
+  %.1 = phi i32 [ %.092, %._crit_edge95 ], [ %183, %.split71 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 3
   br i1 %exitcond.not, label %63, label %64, !llvm.loop !110
 }

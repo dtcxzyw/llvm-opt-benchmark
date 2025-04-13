@@ -3281,56 +3281,55 @@ define linkonce_odr dso_local noundef i32 @_ZN17InstrCountVisitor14startVisitBas
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 27
   %12 = load i8, ptr %11, align 1, !tbaa !21, !range !27, !noundef !28
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %39
+  %.not7 = xor i1 %13, true
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %15 = load i8, ptr %14, align 1, !range !27
+  %16 = trunc nuw i8 %15 to i1
+  %or.cond = select i1 %.not7, i1 true, i1 %16
+  br i1 %or.cond, label %38, label %17
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %16 = load i8, ptr %15, align 1, !tbaa !19, !range !27, !noundef !28
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %39, label %18
+17:                                               ; preds = %10
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %19 = load i32, ptr %18, align 8, !tbaa !87
+  %20 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !35
+  %21 = icmp ne i32 %19, %20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %23 = load i64, ptr %22, align 8
+  %.not12 = icmp eq i64 %23, 0
+  %.not = select i1 %21, i1 true, i1 %.not12
+  br i1 %.not, label %34, label %24, !prof !46
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %20 = load i32, ptr %19, align 8, !tbaa !87
-  %21 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !35
-  %22 = icmp ne i32 %20, %21
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %24 = load i64, ptr %23, align 8
-  %.not9 = icmp eq i64 %24, 0
-  %.not = select i1 %22, i1 true, i1 %.not9
-  br i1 %.not, label %35, label %25, !prof !46
-
-25:                                               ; preds = %18
-  %26 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.12, i32 noundef 102)
-  %27 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.14)
-  %29 = load i32, ptr %19, align 8, !tbaa !87
-  %30 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !35
-  %31 = icmp eq i32 %29, %30
-  %32 = load i64, ptr %23, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %.sroa.0.0.i.i7 = select i1 %31, ptr %33, ptr null
-  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoPK7AstNode(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %.sroa.0.0.i.i7)
-  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %34) #21
+24:                                               ; preds = %17
+  %25 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKci(i8 4, ptr noundef nonnull @.str.12, i32 noundef 102)
+  %26 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @.str.14)
+  %28 = load i32, ptr %18, align 8, !tbaa !87
+  %29 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !35
+  %30 = icmp eq i32 %28, %29
+  %31 = load i64, ptr %22, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %.sroa.0.0.i.i10 = select i1 %30, ptr %32, ptr null
+  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoPK7AstNode(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef %.sroa.0.0.i.i10)
+  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %33) #21
   unreachable
 
-35:                                               ; preds = %18
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !17
-  %38 = ptrtoint ptr %37 to i64
-  store i64 %38, ptr %23, align 8, !tbaa !34
-  store i32 %21, ptr %19, align 8, !tbaa !87
-  br label %39
+34:                                               ; preds = %17
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !17
+  %37 = ptrtoint ptr %36 to i64
+  store i64 %37, ptr %22, align 8, !tbaa !34
+  store i32 %20, ptr %18, align 8, !tbaa !87
+  br label %38
 
-39:                                               ; preds = %35, %14, %10
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %41 = load i32, ptr %40, align 4, !tbaa !7
-  %42 = load ptr, ptr %1, align 8, !tbaa !4
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 216
-  %44 = load ptr, ptr %43, align 8
-  %45 = tail call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(152) %1)
-  store i32 %45, ptr %40, align 4, !tbaa !7
-  ret i32 %41
+38:                                               ; preds = %34, %10
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %40 = load i32, ptr %39, align 4, !tbaa !7
+  %41 = load ptr, ptr %1, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 216
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef i32 %43(ptr noundef nonnull align 8 dereferenceable(152) %1)
+  store i32 %44, ptr %39, align 4, !tbaa !7
+  ret i32 %40
 }
 
 ; Function Attrs: noreturn

@@ -8618,24 +8618,23 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv3M
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN2cv3dnn19RequantizeLayerImpl14supportBackendEi(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = icmp eq i32 %1, 7
-  br i1 %3, label %4, label %10
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @_ZN2cv3dnn9haveTimVXEv()
-  br i1 %5, label %6, label %10
+  %.not = xor i1 %5, true
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %7 = load i8, ptr %6, align 4, !range !67
+  %8 = trunc nuw i8 %7 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %8
+  br i1 %or.cond, label %9, label %11
 
-6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %8 = load i8, ptr %7, align 4, !tbaa !107, !range !67, !noundef !68
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %12
+9:                                                ; preds = %4, %2
+  %10 = icmp eq i32 %1, 3
+  br label %11
 
-10:                                               ; preds = %6, %4, %2
-  %11 = icmp eq i32 %1, 3
-  br label %12
-
-12:                                               ; preds = %6, %10
-  %.0 = phi i1 [ %11, %10 ], [ true, %6 ]
+11:                                               ; preds = %4, %9
+  %.0 = phi i1 [ %10, %9 ], [ true, %4 ]
   ret i1 %.0
 }
 

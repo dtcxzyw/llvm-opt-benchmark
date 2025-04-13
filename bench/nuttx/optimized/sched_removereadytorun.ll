@@ -46,10 +46,10 @@ define zeroext i1 @nxsched_remove_readytorun(ptr noundef captures(none) %0, i1 n
 
 24:                                               ; preds = %18
   %25 = and i8 %8, 4
-  %.not28 = icmp ne i8 %25, 0
-  br i1 %.not28, label %27, label %.thread38
+  %.not29 = icmp ne i8 %25, 0
+  br i1 %.not29, label %27, label %.thread37
 
-.thread38:                                        ; preds = %24
+.thread37:                                        ; preds = %24
   %26 = load ptr, ptr %0, align 8
   br label %31
 
@@ -59,11 +59,11 @@ define zeroext i1 @nxsched_remove_readytorun(ptr noundef captures(none) %0, i1 n
   store i8 3, ptr %29, align 16
   %.pr.pre = load ptr, ptr %20, align 8
   %30 = load ptr, ptr %0, align 8
-  %.not29 = icmp eq ptr %.pr.pre, null
-  br i1 %.not29, label %31, label %33
+  %.not30 = icmp eq ptr %.pr.pre, null
+  br i1 %.not30, label %31, label %33
 
-31:                                               ; preds = %.thread38, %27
-  %32 = phi ptr [ %26, %.thread38 ], [ %30, %27 ]
+31:                                               ; preds = %.thread37, %27
+  %32 = phi ptr [ %26, %.thread37 ], [ %30, %27 ]
   store ptr %32, ptr %19, align 8
   br label %36
 
@@ -75,26 +75,26 @@ define zeroext i1 @nxsched_remove_readytorun(ptr noundef captures(none) %0, i1 n
 
 36:                                               ; preds = %33, %31
   %37 = phi ptr [ %34, %33 ], [ %32, %31 ]
-  %.035 = phi i1 [ %22, %33 ], [ %.not28, %31 ]
+  %.034 = phi i1 [ %22, %33 ], [ %.not29, %31 ]
   %38 = phi ptr [ %35, %33 ], [ null, %31 ]
-  %.not30 = icmp eq ptr %37, null
-  %. = select i1 %.not30, ptr %19, ptr %37
+  %.not31 = icmp eq ptr %37, null
+  %. = select i1 %.not31, ptr %19, ptr %37
   %39 = getelementptr inbounds nuw i8, ptr %., i64 8
   store ptr %38, ptr %39, align 8
   store i8 0, ptr %3, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %40 = load ptr, ptr @g_pendingtasks, align 8
-  %.not31 = icmp ne ptr %40, null
-  %brmerge.not = and i1 %1, %.not31
-  br i1 %brmerge.not, label %41, label %44
+  %41 = icmp ne ptr %40, null
+  %or.cond = and i1 %1, %41
+  br i1 %or.cond, label %42, label %45
 
-41:                                               ; preds = %36
-  %42 = tail call zeroext i1 @nxsched_merge_pending() #3
-  %43 = or i1 %.035, %42
-  br label %44
+42:                                               ; preds = %36
+  %43 = tail call zeroext i1 @nxsched_merge_pending() #3
+  %44 = or i1 %.034, %43
+  br label %45
 
-44:                                               ; preds = %36, %41
-  %.1 = phi i1 [ %43, %41 ], [ %.035, %36 ]
+45:                                               ; preds = %42, %36
+  %.1 = phi i1 [ %44, %42 ], [ %.034, %36 ]
   ret i1 %.1
 }
 

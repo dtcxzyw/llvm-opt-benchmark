@@ -6838,8 +6838,8 @@ define internal void @_ZN12_GLOBAL__N_123non_polling_poller_workEP12grpc_pollset
 17:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #36
   call void @gpr_cv_init(ptr noundef nonnull %6)
-  %.not23 = icmp eq ptr %2, null
-  br i1 %.not23, label %19, label %18
+  %.not25 = icmp eq ptr %2, null
+  br i1 %.not25, label %19, label %18
 
 18:                                               ; preds = %17
   store ptr %6, ptr %2, align 8, !tbaa !160
@@ -6883,20 +6883,18 @@ define internal void @_ZN12_GLOBAL__N_123non_polling_poller_workEP12grpc_pollset
 
 39:                                               ; preds = %44, %34
   %40 = load ptr, ptr %9, align 8, !tbaa !209
-  %.not24 = icmp eq ptr %40, null
-  br i1 %.not24, label %41, label %.critedge
-
-41:                                               ; preds = %39
-  %42 = load i8, ptr %35, align 8, !tbaa !203, !range !56, !noundef !57
+  %41 = icmp ne ptr %40, null
+  %42 = load i8, ptr %35, align 8, !range !56
   %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %.critedge, label %44
+  %or.cond = select i1 %41, i1 true, i1 %43
+  br i1 %or.cond, label %.critedge, label %44
 
-44:                                               ; preds = %41
+44:                                               ; preds = %39
   %45 = call i32 @gpr_cv_wait(ptr noundef nonnull %6, ptr noundef nonnull %1, i64 %37, i64 %38)
-  %.not25 = icmp eq i32 %45, 0
-  br i1 %.not25, label %39, label %.critedge, !llvm.loop !218
+  %.not26 = icmp eq i32 %45, 0
+  br i1 %.not26, label %39, label %.critedge, !llvm.loop !218
 
-.critedge:                                        ; preds = %41, %39, %44
+.critedge:                                        ; preds = %39, %44
   %.not.i.i = icmp eq ptr @_ZTHN9grpc_core7ExecCtx9exec_ctx_E, null
   br i1 %.not.i.i, label %_ZN9grpc_core7ExecCtx3GetEv.exit, label %46
 
@@ -6945,8 +6943,8 @@ _ZN9grpc_core7ExecCtx13InvalidateNowEv.exit:      ; preds = %_ZN9grpc_core7ExecC
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %9, align 8, !tbaa !209
-  %.not26 = icmp eq ptr %69, null
-  br i1 %.not26, label %74, label %70
+  %.not27 = icmp eq ptr %69, null
+  br i1 %.not27, label %74, label %70
 
 70:                                               ; preds = %68
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #36
@@ -6981,7 +6979,7 @@ _ZN9grpc_core7ExecCtx13InvalidateNowEv.exit:      ; preds = %_ZN9grpc_core7ExecC
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %79, ptr %81, align 8, !tbaa !217
   call void @gpr_cv_destroy(ptr noundef nonnull %6)
-  br i1 %.not23, label %83, label %82
+  br i1 %.not25, label %83, label %82
 
 82:                                               ; preds = %75
   store ptr null, ptr %2, align 8, !tbaa !160

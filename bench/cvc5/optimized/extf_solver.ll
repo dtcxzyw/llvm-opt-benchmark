@@ -1833,9 +1833,12 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit111: ; preds = %81, %79, %74, 
 154:                                              ; preds = %140
   %switch.tableidx = add nsw i32 %131, -316
   %155 = icmp ult i32 %switch.tableidx, 29
-  br i1 %155, label %switch.hole_check, label %156
+  %switch.shifted = lshr i32 271056897, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond196 = select i1 %155, i1 %switch.lobit, i1 false
+  br i1 %or.cond196, label %switch.lookup, label %156
 
-156:                                              ; preds = %switch.hole_check, %154
+156:                                              ; preds = %154
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #27
   invoke void @_ZNK4cvc58internal12NodeTemplateILb1EE7getTypeEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::TypeNode") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext false)
           to label %157 unwind label %173
@@ -1863,13 +1866,8 @@ _ZNK4cvc58internal8TypeNode9isBooleanEv.exit:     ; preds = %.noexc126, %157
   %169 = and i1 %168, %167
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %154
-  %switch.shifted = lshr i32 271056897, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %156
-
-switch.lookup:                                    ; preds = %switch.hole_check, %_ZNK4cvc58internal8TypeNode9isBooleanEv.exit
-  %170 = phi i1 [ %169, %_ZNK4cvc58internal8TypeNode9isBooleanEv.exit ], [ true, %switch.hole_check ]
+switch.lookup:                                    ; preds = %154, %_ZNK4cvc58internal8TypeNode9isBooleanEv.exit
+  %170 = phi i1 [ %169, %_ZNK4cvc58internal8TypeNode9isBooleanEv.exit ], [ true, %154 ]
   switch i32 %131, label %171 [
     i32 344, label %172
     i32 337, label %172

@@ -953,8 +953,8 @@ switch.early.test:                                ; preds = %43
   ]
 
 69:                                               ; preds = %68, %68
-  %.not62 = icmp eq i32 %5, 0
-  br i1 %.not62, label %72, label %70
+  %.not64 = icmp eq i32 %5, 0
+  br i1 %.not64, label %72, label %70
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr %1, align 8
@@ -1017,25 +1017,24 @@ switch.early.test:                                ; preds = %43
   %90 = phi ptr [ %.pre, %._crit_edge ], [ @.str.4, %88 ]
   %91 = tail call i64 @strtol(ptr noundef nonnull captures(none) %90, ptr noundef null, i32 noundef 10) #6
   %92 = and i64 %91, 2147483648
-  %.not65 = icmp eq i64 %92, 0
-  br i1 %.not65, label %112, label %93
+  %.not66 = icmp eq i64 %92, 0
+  br i1 %.not66, label %112, label %93
 
 93:                                               ; preds = %89
   %94 = load ptr, ptr %1, align 8
   %95 = tail call i64 @strtol(ptr noundef nonnull captures(none) %94, ptr noundef null, i32 noundef 10) #6
   %96 = and i64 %95, 2147483648
-  %.not66 = icmp eq i64 %96, 0
-  %brmerge = or i1 %6, %.not66
-  br i1 %brmerge, label %sub_0, label %102
+  %97 = icmp eq i64 %96, 0
+  %or.cond9 = or i1 %6, %97
+  br i1 %or.cond9, label %sub_0, label %102
 
 sub_0:                                            ; preds = %93
-  %97 = load ptr, ptr %1, align 8
-  %98 = load i8, ptr %97, align 1
+  %98 = load i8, ptr %94, align 1
   %.not68 = icmp eq i8 %98, 48
   br i1 %.not68, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 1
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, 0
   br i1 %101, label %102, label %.tail.thread
@@ -1044,14 +1043,14 @@ sub_0:                                            ; preds = %93
   br label %102
 
 102:                                              ; preds = %.tail, %93, %.tail.thread
-  %.str.12.sink = phi ptr [ %97, %.tail.thread ], [ @.str.13, %93 ], [ @.str.12, %.tail ]
+  %.str.12.sink = phi ptr [ %94, %.tail.thread ], [ @.str.13, %93 ], [ @.str.12, %.tail ]
   store ptr %.str.12.sink, ptr %2, align 8
   store ptr @.str.12, ptr %1, align 8
   br label %112
 
 103:                                              ; preds = %68
-  %.not63 = icmp eq i32 %5, 0
-  br i1 %.not63, label %106, label %104
+  %.not65 = icmp eq i32 %5, 0
+  br i1 %.not65, label %106, label %104
 
 104:                                              ; preds = %103
   %105 = load ptr, ptr %1, align 8

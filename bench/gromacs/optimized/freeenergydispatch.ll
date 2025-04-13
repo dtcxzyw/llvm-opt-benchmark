@@ -907,14 +907,14 @@ define void @_ZN3gmx18FreeEnergyDispatch25dispatchFreeEnergyKernelsERKNS_12Pairl
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %.sroa.231.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.sroa.233.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %.sroa.235.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %.sroa.237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %.sroa.239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %.sroa.241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %.sroa.243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %.sroa.245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %.sroa.232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sroa.234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.sroa.236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %.sroa.238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %.sroa.242.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %.sroa.244.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %.sroa.246.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %59 = zext i1 %4 to i8
   %60 = getelementptr inbounds nuw i8, ptr %15, i64 624
@@ -929,7 +929,7 @@ define void @_ZN3gmx18FreeEnergyDispatch25dispatchFreeEnergyKernelsERKNS_12Pairl
   %69 = getelementptr inbounds nuw i8, ptr %15, i64 664
   br label %89
 
-70:                                               ; preds = %229
+70:                                               ; preds = %228
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %40) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %40, i8 0, i64 28, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %15, i64 384
@@ -938,7 +938,7 @@ define void @_ZN3gmx18FreeEnergyDispatch25dispatchFreeEnergyKernelsERKNS_12Pairl
   %73 = load ptr, ptr %62, align 8, !tbaa !99
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 20
   %75 = load i32, ptr %74, align 4, !tbaa !101
-  switch i32 %75, label %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread47 [
+  switch i32 %75, label %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread48 [
     i32 0, label %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit
     i32 1, label %76
   ]
@@ -953,7 +953,7 @@ define void @_ZN3gmx18FreeEnergyDispatch25dispatchFreeEnergyKernelsERKNS_12Pairl
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %82 = load float, ptr %81, align 4, !tbaa !105
   %83 = fcmp une float %82, 0.000000e+00
-  br i1 %83, label %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread, label %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread47
+  br i1 %83, label %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread, label %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread48
 
 _ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit: ; preds = %70
   %84 = getelementptr inbounds nuw i8, ptr %73, i64 4
@@ -962,14 +962,14 @@ _ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParameters
   %87 = load float, ptr %73, align 4
   %88 = fcmp une float %87, 0.000000e+00
   %or.cond.i = select i1 %86, i1 true, i1 %88
-  br i1 %or.cond.i, label %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread, label %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread47
+  br i1 %or.cond.i, label %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread, label %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread48
 
-89:                                               ; preds = %19, %229
-  %.050 = phi i1 [ true, %19 ], [ false, %229 ]
+89:                                               ; preds = %19, %228
+  %.051 = phi i1 [ true, %19 ], [ false, %228 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #11
   %90 = load ptr, ptr %45, align 8
   %91 = load ptr, ptr %46, align 8
-  %.0.i = select i1 %.050, ptr %90, ptr %91
+  %.0.i = select i1 %.051, ptr %90, ptr %91
   %92 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
   %93 = load ptr, ptr %92, align 8, !tbaa !42
   %94 = getelementptr inbounds nuw i8, ptr %.0.i, i64 96
@@ -990,7 +990,7 @@ _ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParameters
   %.not.i.i = icmp eq ptr %102, null
   %107 = icmp eq i32 %106, 0
   %108 = select i1 %.not.i.i, i1 true, i1 %107
-  br i1 %108, label %225, label %109
+  br i1 %108, label %224, label %109
 
 109:                                              ; preds = %89
   %110 = load ptr, ptr %7, align 8, !tbaa !108
@@ -1057,26 +1057,26 @@ _ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParameters
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26)
   store ptr %152, ptr %31, align 8
-  store ptr %157, ptr %.sroa.231.0..sroa_idx, align 8
+  store ptr %157, ptr %.sroa.232.0..sroa_idx, align 8
   store ptr %146, ptr %32, align 8
-  store ptr %151, ptr %.sroa.233.0..sroa_idx, align 8
+  store ptr %151, ptr %.sroa.234.0..sroa_idx, align 8
   store ptr %140, ptr %33, align 8
-  store ptr %145, ptr %.sroa.235.0..sroa_idx, align 8
+  store ptr %145, ptr %.sroa.236.0..sroa_idx, align 8
   store ptr %134, ptr %34, align 8
-  store ptr %139, ptr %.sroa.237.0..sroa_idx, align 8
+  store ptr %139, ptr %.sroa.238.0..sroa_idx, align 8
   store ptr %128, ptr %35, align 8
-  store ptr %133, ptr %.sroa.239.0..sroa_idx, align 8
+  store ptr %133, ptr %.sroa.240.0..sroa_idx, align 8
   store ptr %122, ptr %36, align 8
-  store ptr %127, ptr %.sroa.241.0..sroa_idx, align 8
+  store ptr %127, ptr %.sroa.242.0..sroa_idx, align 8
   store ptr %116, ptr %37, align 8
-  store ptr %121, ptr %.sroa.243.0..sroa_idx, align 8
+  store ptr %121, ptr %.sroa.244.0..sroa_idx, align 8
   store ptr %110, ptr %38, align 8
-  store ptr %115, ptr %.sroa.245.0..sroa_idx, align 8
+  store ptr %115, ptr %.sroa.246.0..sroa_idx, align 8
   store ptr %93, ptr %20, align 8
   store ptr %99, ptr %58, align 8
   store i8 %59, ptr %21, align 1, !tbaa !114
   store i32 %5, ptr %22, align 4, !tbaa !41
-  %158 = zext i1 %.050 to i8
+  %158 = zext i1 %.051 to i8
   store i8 %158, ptr %23, align 1, !tbaa !114
   store ptr %56, ptr %24, align 8, !tbaa !115
   store ptr %57, ptr %25, align 8, !tbaa !115
@@ -1087,48 +1087,46 @@ _ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParameters
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 17, ptr nonnull @_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.omp_outlined, ptr nonnull %20, ptr nonnull %24, ptr nonnull %23, ptr nonnull align 8 dereferenceable(24) %2, ptr nonnull %21, ptr nonnull %22, ptr nonnull align 8 dereferenceable(152) %6, ptr nonnull align 8 %38, ptr nonnull align 8 %37, ptr nonnull align 8 %36, ptr nonnull align 8 %35, ptr nonnull align 8 %34, ptr nonnull align 8 %33, ptr nonnull align 8 %32, ptr nonnull align 1 dereferenceable(20) %16, ptr nonnull align 8 %31, ptr nonnull %26)
   %161 = load i32, ptr %60, align 8, !tbaa !119
   %162 = icmp sgt i32 %161, 0
-  br i1 %162, label %163, label %_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.exit
+  %163 = load i8, ptr %61, align 1, !range !87
+  %164 = trunc nuw i8 %163 to i1
+  %or.cond.i29 = select i1 %162, i1 %164, i1 false
+  br i1 %or.cond.i29, label %165, label %_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.exit
 
-163:                                              ; preds = %109
-  %164 = load i8, ptr %61, align 1, !tbaa !132, !range !87, !noundef !88
-  %165 = trunc nuw i8 %164 to i1
-  br i1 %165, label %166, label %_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.exit
-
-166:                                              ; preds = %163
-  %167 = load ptr, ptr %62, align 8, !tbaa !99
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 20
-  %169 = load i32, ptr %168, align 4, !tbaa !101
-  switch i32 %169, label %_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.exit [
+165:                                              ; preds = %109
+  %166 = load ptr, ptr %62, align 8, !tbaa !99
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 20
+  %168 = load i32, ptr %167, align 4, !tbaa !101
+  switch i32 %168, label %_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.exit [
     i32 0, label %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.i
-    i32 1, label %170
+    i32 1, label %169
   ]
 
-170:                                              ; preds = %166
-  %171 = getelementptr inbounds nuw i8, ptr %167, i64 28
-  %172 = load float, ptr %171, align 4, !tbaa !104
-  %173 = fcmp une float %172, 0.000000e+00
-  br i1 %173, label %.lr.ph.i, label %174
+169:                                              ; preds = %165
+  %170 = getelementptr inbounds nuw i8, ptr %166, i64 28
+  %171 = load float, ptr %170, align 4, !tbaa !104
+  %172 = fcmp une float %171, 0.000000e+00
+  br i1 %172, label %.lr.ph.i, label %173
 
-174:                                              ; preds = %170
-  %175 = getelementptr inbounds nuw i8, ptr %167, i64 24
-  %176 = load float, ptr %175, align 4, !tbaa !105
-  %177 = fcmp une float %176, 0.000000e+00
-  br i1 %177, label %.lr.ph.i, label %_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.exit
+173:                                              ; preds = %169
+  %174 = getelementptr inbounds nuw i8, ptr %166, i64 24
+  %175 = load float, ptr %174, align 4, !tbaa !105
+  %176 = fcmp une float %175, 0.000000e+00
+  br i1 %176, label %.lr.ph.i, label %_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.exit
 
-_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.i: ; preds = %166
-  %178 = getelementptr inbounds nuw i8, ptr %167, i64 4
-  %179 = load float, ptr %178, align 4, !tbaa !106
-  %180 = fcmp une float %179, 0.000000e+00
-  %181 = load float, ptr %167, align 4
-  %182 = fcmp une float %181, 0.000000e+00
-  %or.cond.i.i = select i1 %180, i1 true, i1 %182
+_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.i: ; preds = %165
+  %177 = getelementptr inbounds nuw i8, ptr %166, i64 4
+  %178 = load float, ptr %177, align 4, !tbaa !106
+  %179 = fcmp une float %178, 0.000000e+00
+  %180 = load float, ptr %166, align 4
+  %181 = fcmp une float %180, 0.000000e+00
+  %or.cond.i.i = select i1 %179, i1 true, i1 %181
   br i1 %or.cond.i.i, label %.lr.ph.i, label %_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.exit
 
-.lr.ph.i:                                         ; preds = %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.i, %174, %170
+.lr.ph.i:                                         ; preds = %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.i, %173, %169
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %27) #11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %27, ptr noundef nonnull align 1 dereferenceable(20) %16, i64 20, i1 false), !tbaa.struct !134
-  store i8 0, ptr %63, align 1, !tbaa !135
-  store i8 0, ptr %64, align 1, !tbaa !136
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %27, ptr noundef nonnull align 1 dereferenceable(20) %16, i64 20, i1 false), !tbaa.struct !132
+  store i8 0, ptr %63, align 1, !tbaa !133
+  store i8 0, ptr %64, align 1, !tbaa !135
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %28) #11
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %29) #11
   br label %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.i
@@ -1140,93 +1138,93 @@ _ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParameters
   br label %_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.exit
 
 _ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.i:       ; preds = %_ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS2_7EEE.exit.i, %.lr.ph.i
-  %.035.i = phi i64 [ 0, %.lr.ph.i ], [ %213, %_ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS2_7EEE.exit.i ]
+  %.037.i = phi i64 [ 0, %.lr.ph.i ], [ %212, %_ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS2_7EEE.exit.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %29, i8 0, i64 28, i1 false), !tbaa !33
-  %183 = icmp eq i64 %.035.i, 0
-  %184 = load i64, ptr %31, align 8
-  %185 = inttoptr i64 %184 to ptr
-  br i1 %183, label %_ZSt4fillIPfiEvT_S1_RKT0_.exit.us.i, label %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.split.i
+  %182 = icmp eq i64 %.037.i, 0
+  %183 = load i64, ptr %31, align 8
+  %184 = inttoptr i64 %183 to ptr
+  br i1 %182, label %_ZSt4fillIPfiEvT_S1_RKT0_.exit.us.i, label %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.split.i
 
 _ZSt4fillIPfiEvT_S1_RKT0_.exit.us.i:              ; preds = %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.i, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.us.i
-  %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.us.i ], [ 0, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.i ]
-  %186 = getelementptr inbounds nuw float, ptr %185, i64 %indvars.iv38.i
-  %187 = load float, ptr %186, align 4, !tbaa !33
-  %188 = getelementptr inbounds nuw [7 x float], ptr %28, i64 0, i64 %indvars.iv38.i
-  store float %187, ptr %188, align 4, !tbaa !33
-  %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %.not.us.i = icmp eq i64 %indvars.iv.next39.i, 7
+  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.us.i ], [ 0, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.i ]
+  %185 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv40.i
+  %186 = load float, ptr %185, align 4, !tbaa !33
+  %187 = getelementptr inbounds nuw [7 x float], ptr %28, i64 0, i64 %indvars.iv40.i
+  store float %186, ptr %187, align 4, !tbaa !33
+  %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
+  %.not.us.i = icmp eq i64 %indvars.iv.next41.i, 7
   br i1 %.not.us.i, label %.split.us.i, label %_ZSt4fillIPfiEvT_S1_RKT0_.exit.us.i
 
 _ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.split.i: ; preds = %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.i
-  %189 = load ptr, ptr %66, align 8, !tbaa !137
+  %188 = load ptr, ptr %66, align 8, !tbaa !136
   br label %_ZSt4fillIPfiEvT_S1_RKT0_.exit.i
 
 .split.us.i:                                      ; preds = %_ZSt4fillIPfiEvT_S1_RKT0_.exit.i, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.us.i
-  %.sroa.0.0.copyload.i.i27.i = load ptr, ptr %20, align 8
-  %190 = load ptr, ptr %58, align 8, !tbaa !138
-  %191 = ptrtoint ptr %190 to i64
-  %192 = ptrtoint ptr %.sroa.0.0.copyload.i.i27.i to i64
-  %193 = sub i64 %191, %192
-  %194 = lshr exact i64 %193, 3
-  %195 = trunc i64 %194 to i32
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %41, i32 %195)
+  %.sroa.0.0.copyload.i.i29.i = load ptr, ptr %20, align 8
+  %189 = load ptr, ptr %58, align 8, !tbaa !137
+  %190 = ptrtoint ptr %189 to i64
+  %191 = ptrtoint ptr %.sroa.0.0.copyload.i.i29.i to i64
+  %192 = sub i64 %190, %191
+  %193 = lshr exact i64 %192, 3
+  %194 = trunc i64 %193 to i32
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %41, i32 %194)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 15, ptr nonnull @_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.omp_outlined.4, ptr nonnull %20, ptr nonnull %25, ptr nonnull align 8 dereferenceable(24) %2, ptr nonnull %21, ptr nonnull %22, ptr nonnull align 8 dereferenceable(152) %6, ptr nonnull align 8 %38, ptr nonnull align 8 %37, ptr nonnull align 8 %36, ptr nonnull align 8 %35, ptr nonnull align 8 %34, ptr nonnull align 8 %33, ptr nonnull align 8 %32, ptr nonnull %28, ptr nonnull %26)
   call void @_ZN17gmx_grppairener_t5clearEv(ptr noundef nonnull align 8 dereferenceable(128) %0)
-  %196 = load ptr, ptr %25, align 8, !tbaa !115
-  call void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE21reduceEnergiesAndDvdlEPfP17gmx_grppairener_tNS_8ArrayRefIfEERKNS_12StepWorkloadEi(ptr noundef nonnull align 8 dereferenceable(80) %196, ptr noundef null, ptr noundef nonnull %0, ptr nonnull %29, ptr nonnull %65, ptr noundef nonnull align 1 dereferenceable(20) %27, i32 noundef 0)
+  %195 = load ptr, ptr %25, align 8, !tbaa !115
+  call void @_ZN3gmx19ThreadedForceBufferINS_11BasicVectorIfEEE21reduceEnergiesAndDvdlEPfP17gmx_grppairener_tNS_8ArrayRefIfEERKNS_12StepWorkloadEi(ptr noundef nonnull align 8 dereferenceable(80) %195, ptr noundef null, ptr noundef nonnull %0, ptr nonnull %29, ptr nonnull %65, ptr noundef nonnull align 1 dereferenceable(20) %27, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 380, ptr nonnull %30) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(380) %30, i8 0, i64 380, i1 false)
   call void @_Z8sum_epotRK17gmx_grppairener_tPf(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %30)
-  %197 = load float, ptr %67, align 4, !tbaa !33
-  %198 = fpext float %197 to double
-  %sext.i = shl i64 %.035.i, 32
-  %199 = ashr exact i64 %sext.i, 32
-  %200 = load ptr, ptr %68, align 8, !tbaa !140
-  %201 = getelementptr inbounds nuw double, ptr %200, i64 %199
-  %202 = load double, ptr %201, align 8, !tbaa !141
-  %203 = fadd double %202, %198
-  store double %203, ptr %201, align 8, !tbaa !141
-  %204 = load ptr, ptr %69, align 8, !tbaa !143
-  %205 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.141", ptr %204, i64 %199
-  br label %206
+  %196 = load float, ptr %67, align 4, !tbaa !33
+  %197 = fpext float %196 to double
+  %sext.i = shl i64 %.037.i, 32
+  %198 = ashr exact i64 %sext.i, 32
+  %199 = load ptr, ptr %68, align 8, !tbaa !139
+  %200 = getelementptr inbounds nuw double, ptr %199, i64 %198
+  %201 = load double, ptr %200, align 8, !tbaa !140
+  %202 = fadd double %201, %197
+  store double %202, ptr %200, align 8, !tbaa !140
+  %203 = load ptr, ptr %69, align 8, !tbaa !142
+  %204 = getelementptr inbounds nuw %"struct.gmx::EnumerationArray.141", ptr %203, i64 %198
+  br label %205
 
-206:                                              ; preds = %206, %.split.us.i
-  %indvars.iv.i.i = phi i64 [ 0, %.split.us.i ], [ %indvars.iv.next.i.i, %206 ]
-  %207 = getelementptr inbounds nuw [7 x float], ptr %29, i64 0, i64 %indvars.iv.i.i
-  %208 = load float, ptr %207, align 4, !tbaa !33
-  %209 = fpext float %208 to double
-  %210 = getelementptr inbounds nuw [7 x double], ptr %205, i64 0, i64 %indvars.iv.i.i
-  %211 = load double, ptr %210, align 8, !tbaa !141
-  %212 = fadd double %211, %209
-  store double %212, ptr %210, align 8, !tbaa !141
+205:                                              ; preds = %205, %.split.us.i
+  %indvars.iv.i.i = phi i64 [ 0, %.split.us.i ], [ %indvars.iv.next.i.i, %205 ]
+  %206 = getelementptr inbounds nuw [7 x float], ptr %29, i64 0, i64 %indvars.iv.i.i
+  %207 = load float, ptr %206, align 4, !tbaa !33
+  %208 = fpext float %207 to double
+  %209 = getelementptr inbounds nuw [7 x double], ptr %204, i64 0, i64 %indvars.iv.i.i
+  %210 = load double, ptr %209, align 8, !tbaa !140
+  %211 = fadd double %210, %208
+  store double %211, ptr %209, align 8, !tbaa !140
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.not.i.i29 = icmp eq i64 %indvars.iv.next.i.i, 7
-  br i1 %.not.i.i29, label %_ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS2_7EEE.exit.i, label %206
+  %.not.i.i30 = icmp eq i64 %indvars.iv.next.i.i, 7
+  br i1 %.not.i.i30, label %_ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS2_7EEE.exit.i, label %205
 
-_ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS2_7EEE.exit.i: ; preds = %206
+_ZN18ForeignLambdaTerms10accumulateEidRKN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypefLS2_7EEE.exit.i: ; preds = %205
   call void @llvm.lifetime.end.p0(i64 380, ptr nonnull %30) #11
-  %213 = add nuw nsw i64 %.035.i, 1
-  %214 = load i32, ptr %60, align 8, !tbaa !119
-  %215 = add nsw i32 %214, 1
-  %216 = sext i32 %215 to i64
-  %217 = icmp slt i64 %213, %216
-  br i1 %217, label %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.i, label %._crit_edge.i, !llvm.loop !144
+  %212 = add nuw nsw i64 %.037.i, 1
+  %213 = load i32, ptr %60, align 8, !tbaa !119
+  %214 = add nsw i32 %213, 1
+  %215 = sext i32 %214 to i64
+  %216 = icmp slt i64 %212, %215
+  br i1 %216, label %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.i, label %._crit_edge.i, !llvm.loop !143
 
 _ZSt4fillIPfiEvT_S1_RKT0_.exit.i:                 ; preds = %_ZSt4fillIPfiEvT_S1_RKT0_.exit.i, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.split.i
   %indvars.iv.i = phi i64 [ 0, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.preheader.split.i ], [ %indvars.iv.next.i, %_ZSt4fillIPfiEvT_S1_RKT0_.exit.i ]
-  %218 = getelementptr inbounds nuw [7 x %"class.std::vector.142"], ptr %189, i64 0, i64 %indvars.iv.i
-  %219 = load ptr, ptr %218, align 8, !tbaa !140
-  %220 = getelementptr double, ptr %219, i64 %.035.i
-  %221 = getelementptr i8, ptr %220, i64 -8
-  %222 = load double, ptr %221, align 8, !tbaa !141
-  %223 = fptrunc double %222 to float
-  %224 = getelementptr inbounds nuw [7 x float], ptr %28, i64 0, i64 %indvars.iv.i
-  store float %223, ptr %224, align 4, !tbaa !33
+  %217 = getelementptr inbounds nuw [7 x %"class.std::vector.142"], ptr %188, i64 0, i64 %indvars.iv.i
+  %218 = load ptr, ptr %217, align 8, !tbaa !139
+  %219 = getelementptr double, ptr %218, i64 %.037.i
+  %220 = getelementptr i8, ptr %219, i64 -8
+  %221 = load double, ptr %220, align 8, !tbaa !140
+  %222 = fptrunc double %221 to float
+  %223 = getelementptr inbounds nuw [7 x float], ptr %28, i64 0, i64 %indvars.iv.i
+  store float %222, ptr %223, align 4, !tbaa !33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 7
   br i1 %.not.i, label %.split.us.i, label %_ZSt4fillIPfiEvT_S1_RKT0_.exit.i
 
-_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.exit: ; preds = %109, %163, %166, %174, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.i, %._crit_edge.i
+_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.exit: ; preds = %109, %165, %173, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.i, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
@@ -1242,43 +1240,43 @@ _ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26)
-  br label %229
+  br label %228
 
-225:                                              ; preds = %89
-  br i1 %.050, label %226, label %229
+224:                                              ; preds = %89
+  br i1 %.051, label %225, label %228
 
-226:                                              ; preds = %225
-  %227 = lshr exact i64 %98, 3
-  %228 = trunc i64 %227 to i32
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %41, i32 %228)
+225:                                              ; preds = %224
+  %226 = lshr exact i64 %98, 3
+  %227 = trunc i64 %226 to i32
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %41, i32 %227)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 2, ptr nonnull @_ZN3gmx18FreeEnergyDispatch25dispatchFreeEnergyKernelsERKNS_12PairlistSetsERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEPNS_20ForceWithShiftForcesEbiRK19interaction_const_tNS_8ArrayRefIS7_EENSG_IKfEESJ_SJ_SJ_NSG_IKiEESL_SJ_P14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnbP13gmx_wallcycle.omp_outlined, ptr nonnull %39, ptr nonnull %0)
-  br label %229
+  br label %228
 
-229:                                              ; preds = %225, %226, %_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.exit
+228:                                              ; preds = %224, %225, %_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayRefIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS3_EEEERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS1_ISC_EENS1_IKfEESL_SL_SL_NS1_IKiEESN_SL_bPNS_19ThreadedForceBufferISB_EESQ_P17gmx_grppairener_tP14gmx_enerdata_tRKNS_12StepWorkloadEP6t_nrnb.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #11
-  %230 = and i1 %.050, %44
-  br i1 %230, label %89, label %70, !llvm.loop !145
+  %229 = and i1 %.051, %44
+  br i1 %229, label %89, label %70, !llvm.loop !144
 
-_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread47: ; preds = %70, %80, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit
+_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread48: ; preds = %70, %80, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit
   br label %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread
 
-_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread: ; preds = %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit, %80, %76, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread47
-  %.sink61 = phi i64 [ 536, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread47 ], [ 592, %76 ], [ 592, %80 ], [ 592, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit ]
-  %.sink56 = phi i64 [ 528, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread47 ], [ 584, %76 ], [ 584, %80 ], [ 584, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit ]
-  %231 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %232 = load float, ptr %231, align 4, !tbaa !33
-  %233 = fpext float %232 to double
-  %234 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink61
-  %235 = load double, ptr %234, align 8, !tbaa !141
-  %236 = fadd double %235, %233
-  store double %236, ptr %234, align 8, !tbaa !141
-  %237 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %238 = load float, ptr %237, align 4, !tbaa !33
-  %239 = fpext float %238 to double
-  %240 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink56
-  %241 = load double, ptr %240, align 8, !tbaa !141
-  %242 = fadd double %241, %239
-  store double %242, ptr %240, align 8, !tbaa !141
+_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread: ; preds = %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit, %80, %76, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread48
+  %.sink62 = phi i64 [ 536, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread48 ], [ 592, %76 ], [ 592, %80 ], [ 592, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit ]
+  %.sink57 = phi i64 [ 528, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit.thread48 ], [ 584, %76 ], [ 584, %80 ], [ 584, %_ZN3gmx12_GLOBAL__N_112haveSoftCoreERKN19interaction_const_t18SoftCoreParametersE.exit ]
+  %230 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  %231 = load float, ptr %230, align 4, !tbaa !33
+  %232 = fpext float %231 to double
+  %233 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink62
+  %234 = load double, ptr %233, align 8, !tbaa !140
+  %235 = fadd double %234, %232
+  store double %235, ptr %233, align 8, !tbaa !140
+  %236 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %237 = load float, ptr %236, align 4, !tbaa !33
+  %238 = fpext float %237 to double
+  %239 = getelementptr inbounds nuw i8, ptr %15, i64 %.sink57
+  %240 = load double, ptr %239, align 8, !tbaa !140
+  %241 = fadd double %240, %238
+  store double %241, ptr %239, align 8, !tbaa !140
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %40) #11
   ret void
 }
@@ -1291,7 +1289,7 @@ define internal void @_ZN3gmx18FreeEnergyDispatch25dispatchFreeEnergyKernelsERKN
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2, align 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !138
+  %10 = load ptr, ptr %9, align 8, !tbaa !137
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   %13 = sub i64 %11, %12
@@ -1415,7 +1413,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayR
   %35 = alloca %"class.gmx::ArrayRef.137", align 8
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2, align 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !138
+  %37 = load ptr, ptr %36, align 8, !tbaa !137
   %38 = ptrtoint ptr %37 to i64
   %39 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   %40 = sub i64 %38, %39
@@ -1490,13 +1488,13 @@ define internal void @_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayR
   br label %175
 
 82:                                               ; preds = %79, %70
-  %83 = load ptr, ptr %76, align 8, !tbaa !39, !noalias !146
+  %83 = load ptr, ptr %76, align 8, !tbaa !39, !noalias !145
   %84 = getelementptr inbounds nuw i8, ptr %76, i64 76
-  %85 = load i32, ptr %84, align 4, !tbaa !149, !noalias !146
+  %85 = load i32, ptr %84, align 4, !tbaa !148, !noalias !145
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds %"class.gmx::BasicVector", ptr %83, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !150, !noalias !146
+  %89 = load ptr, ptr %88, align 8, !tbaa !149, !noalias !145
   %90 = ptrtoint ptr %89 to i64
   %91 = ptrtoint ptr %83 to i64
   %92 = sub i64 %90, %91
@@ -1593,15 +1591,15 @@ define internal void @_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayR
   %168 = getelementptr inbounds nuw i8, ptr %163, i64 %167
   store ptr %168, ptr %63, align 8, !tbaa !110
   %169 = load ptr, ptr %18, align 8, !tbaa !117
-  store ptr %83, ptr %32, align 8, !tbaa !151
-  store ptr %87, ptr %65, align 8, !tbaa !153
-  store ptr %93, ptr %66, align 8, !tbaa !154
-  store ptr %97, ptr %33, align 8, !tbaa !155
-  store ptr %103, ptr %67, align 8, !tbaa !155
-  store ptr %105, ptr %34, align 8, !tbaa !155
-  store ptr %111, ptr %68, align 8, !tbaa !155
-  store ptr %112, ptr %35, align 8, !tbaa !155
-  store ptr %113, ptr %69, align 8, !tbaa !155
+  store ptr %83, ptr %32, align 8, !tbaa !150
+  store ptr %87, ptr %65, align 8, !tbaa !152
+  store ptr %93, ptr %66, align 8, !tbaa !153
+  store ptr %97, ptr %33, align 8, !tbaa !154
+  store ptr %103, ptr %67, align 8, !tbaa !154
+  store ptr %105, ptr %34, align 8, !tbaa !154
+  store ptr %111, ptr %68, align 8, !tbaa !154
+  store ptr %112, ptr %35, align 8, !tbaa !154
+  store ptr %113, ptr %69, align 8, !tbaa !154
   invoke void @_ZN3gmx25gmx_nb_free_energy_kernelERKNS_12AtomPairlistERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS_8ArrayRefIS6_EENSD_IKfEESG_SG_SG_NSD_IKiEESI_bPKNS_12StepWorkloadESG_P6t_nrnbNS3_IS5_EEPA3_fNSD_IfEESR_SR_(ptr noundef nonnull align 8 dereferenceable(76) %117, ptr noundef nonnull align 8 dereferenceable(24) %5, i1 noundef zeroext %119, i32 noundef %120, ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef nonnull byval(%"class.gmx::ArrayRef.112") align 8 %24, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %25, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %26, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %27, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %28, ptr noundef nonnull byval(%"class.gmx::ArrayRef.118") align 8 %29, ptr noundef nonnull byval(%"class.gmx::ArrayRef.118") align 8 %30, i1 noundef zeroext false, ptr noundef nonnull %16, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %31, ptr noundef %169, ptr noundef nonnull %32, ptr noundef %95, ptr noundef nonnull byval(%"class.gmx::ArrayRef.137") align 8 %33, ptr noundef nonnull byval(%"class.gmx::ArrayRef.137") align 8 %34, ptr noundef nonnull byval(%"class.gmx::ArrayRef.137") align 8 %35)
           to label %170 unwind label %173
 
@@ -1678,7 +1676,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayR
   %33 = alloca %"class.gmx::ArrayRef.137", align 8
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2, align 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !138
+  %35 = load ptr, ptr %34, align 8, !tbaa !137
   %36 = ptrtoint ptr %35 to i64
   %37 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   %38 = sub i64 %36, %37
@@ -1825,12 +1823,12 @@ define internal void @_ZN3gmx12_GLOBAL__N_124dispatchFreeEnergyKernelENS_8ArrayR
   store ptr %62, ptr %61, align 8, !tbaa !110
   %141 = load ptr, ptr %16, align 8, !tbaa !117
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  store ptr %75, ptr %31, align 8, !tbaa !155
-  store ptr %81, ptr %63, align 8, !tbaa !155
-  store ptr %83, ptr %32, align 8, !tbaa !155
-  store ptr %89, ptr %64, align 8, !tbaa !155
-  store ptr %90, ptr %33, align 8, !tbaa !155
-  store ptr %91, ptr %65, align 8, !tbaa !155
+  store ptr %75, ptr %31, align 8, !tbaa !154
+  store ptr %81, ptr %63, align 8, !tbaa !154
+  store ptr %83, ptr %32, align 8, !tbaa !154
+  store ptr %89, ptr %64, align 8, !tbaa !154
+  store ptr %90, ptr %33, align 8, !tbaa !154
+  store ptr %91, ptr %65, align 8, !tbaa !154
   invoke void @_ZN3gmx25gmx_nb_free_energy_kernelERKNS_12AtomPairlistERKNS_19ArrayRefWithPaddingIKNS_11BasicVectorIfEEEEbiRK19interaction_const_tNS_8ArrayRefIS6_EENSD_IKfEESG_SG_SG_NSD_IKiEESI_bPKNS_12StepWorkloadESG_P6t_nrnbNS3_IS5_EEPA3_fNSD_IfEESR_SR_(ptr noundef nonnull align 8 dereferenceable(76) %95, ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %97, i32 noundef %98, ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull byval(%"class.gmx::ArrayRef.112") align 8 %22, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %23, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %24, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %25, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %26, ptr noundef nonnull byval(%"class.gmx::ArrayRef.118") align 8 %27, ptr noundef nonnull byval(%"class.gmx::ArrayRef.118") align 8 %28, i1 noundef zeroext true, ptr noundef null, ptr noundef nonnull byval(%"class.gmx::ArrayRef.115") align 8 %29, ptr noundef %141, ptr noundef nonnull %30, ptr noundef null, ptr noundef nonnull byval(%"class.gmx::ArrayRef.137") align 8 %31, ptr noundef nonnull byval(%"class.gmx::ArrayRef.137") align 8 %32, ptr noundef nonnull byval(%"class.gmx::ArrayRef.137") align 8 %33)
           to label %142 unwind label %147
 
@@ -2185,28 +2183,27 @@ attributes #20 = { noreturn nounwind }
 !129 = !{!"_ZTSNSt12_Vector_baseIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EE12_Vector_implE", !130, i64 0}
 !130 = !{!"_ZTSNSt12_Vector_baseIN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS2_7EEESaIS3_EE17_Vector_impl_dataE", !131, i64 0, !131, i64 8, !131, i64 16}
 !131 = !{!"p1 _ZTSN3gmx16EnumerationArrayI34FreeEnergyPerturbationCouplingTypedLS1_7EEE", !13, i64 0}
-!132 = !{!133, !83, i64 10}
-!133 = !{!"_ZTSN3gmx12StepWorkloadE", !83, i64 0, !83, i64 1, !83, i64 2, !83, i64 3, !83, i64 4, !83, i64 5, !83, i64 6, !83, i64 7, !83, i64 8, !83, i64 9, !83, i64 10, !83, i64 11, !83, i64 12, !83, i64 13, !83, i64 14, !83, i64 15, !83, i64 16, !83, i64 17, !83, i64 18, !83, i64 19}
-!134 = !{i64 0, i64 1, !114, i64 1, i64 1, !114, i64 2, i64 1, !114, i64 3, i64 1, !114, i64 4, i64 1, !114, i64 5, i64 1, !114, i64 6, i64 1, !114, i64 7, i64 1, !114, i64 8, i64 1, !114, i64 9, i64 1, !114, i64 10, i64 1, !114, i64 11, i64 1, !114, i64 12, i64 1, !114, i64 13, i64 1, !114, i64 14, i64 1, !114, i64 15, i64 1, !114, i64 16, i64 1, !114, i64 17, i64 1, !114, i64 18, i64 1, !114, i64 19, i64 1, !114}
-!135 = !{!133, !83, i64 6}
-!136 = !{!133, !83, i64 4}
-!137 = !{!120, !121, i64 8}
-!138 = !{!139, !44, i64 0}
-!139 = !{!"_ZTSN3gmx12ArrayRefIterIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS2_EEEE", !44, i64 0}
-!140 = !{!125, !126, i64 0}
-!141 = !{!142, !142, i64 0}
-!142 = !{!"double", !7, i64 0}
-!143 = !{!130, !131, i64 0}
+!132 = !{i64 0, i64 1, !114, i64 1, i64 1, !114, i64 2, i64 1, !114, i64 3, i64 1, !114, i64 4, i64 1, !114, i64 5, i64 1, !114, i64 6, i64 1, !114, i64 7, i64 1, !114, i64 8, i64 1, !114, i64 9, i64 1, !114, i64 10, i64 1, !114, i64 11, i64 1, !114, i64 12, i64 1, !114, i64 13, i64 1, !114, i64 14, i64 1, !114, i64 15, i64 1, !114, i64 16, i64 1, !114, i64 17, i64 1, !114, i64 18, i64 1, !114, i64 19, i64 1, !114}
+!133 = !{!134, !83, i64 6}
+!134 = !{!"_ZTSN3gmx12StepWorkloadE", !83, i64 0, !83, i64 1, !83, i64 2, !83, i64 3, !83, i64 4, !83, i64 5, !83, i64 6, !83, i64 7, !83, i64 8, !83, i64 9, !83, i64 10, !83, i64 11, !83, i64 12, !83, i64 13, !83, i64 14, !83, i64 15, !83, i64 16, !83, i64 17, !83, i64 18, !83, i64 19}
+!135 = !{!134, !83, i64 4}
+!136 = !{!120, !121, i64 8}
+!137 = !{!138, !44, i64 0}
+!138 = !{!"_ZTSN3gmx12ArrayRefIterIKSt10unique_ptrINS_12AtomPairlistESt14default_deleteIS2_EEEE", !44, i64 0}
+!139 = !{!125, !126, i64 0}
+!140 = !{!141, !141, i64 0}
+!141 = !{!"double", !7, i64 0}
+!142 = !{!130, !131, i64 0}
+!143 = distinct !{!143, !31}
 !144 = distinct !{!144, !31}
-!145 = distinct !{!145, !31}
-!146 = !{!147}
-!147 = distinct !{!147, !148, !"_ZN3gmx17ThreadForceBufferINS_11BasicVectorIfEEE22forceBufferWithPaddingEv: argument 0"}
-!148 = distinct !{!148, !"_ZN3gmx17ThreadForceBufferINS_11BasicVectorIfEEE22forceBufferWithPaddingEv"}
-!149 = !{!59, !6, i64 76}
-!150 = !{!40, !12, i64 8}
-!151 = !{!152, !37, i64 0}
-!152 = !{!"_ZTSN3gmx19ArrayRefWithPaddingINS_11BasicVectorIfEEEE", !37, i64 0, !37, i64 8, !37, i64 16}
-!153 = !{!152, !37, i64 8}
-!154 = !{!152, !37, i64 16}
-!155 = !{!156, !12, i64 0}
-!156 = !{!"_ZTSN3gmx12ArrayRefIterIfEE", !12, i64 0}
+!145 = !{!146}
+!146 = distinct !{!146, !147, !"_ZN3gmx17ThreadForceBufferINS_11BasicVectorIfEEE22forceBufferWithPaddingEv: argument 0"}
+!147 = distinct !{!147, !"_ZN3gmx17ThreadForceBufferINS_11BasicVectorIfEEE22forceBufferWithPaddingEv"}
+!148 = !{!59, !6, i64 76}
+!149 = !{!40, !12, i64 8}
+!150 = !{!151, !37, i64 0}
+!151 = !{!"_ZTSN3gmx19ArrayRefWithPaddingINS_11BasicVectorIfEEEE", !37, i64 0, !37, i64 8, !37, i64 16}
+!152 = !{!151, !37, i64 8}
+!153 = !{!151, !37, i64 16}
+!154 = !{!155, !12, i64 0}
+!155 = !{!"_ZTSN3gmx12ArrayRefIterIfEE", !12, i64 0}

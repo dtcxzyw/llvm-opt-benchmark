@@ -3870,21 +3870,19 @@ define dso_local noundef zeroext i1 @_ZN4llvm7AArch6422isX18ReservedByDefaultERK
 9:                                                ; preds = %5
   %switch.tableidx = add i32 %7, -4
   %10 = icmp ult i32 %switch.tableidx, 27
-  br i1 %10, label %switch.hole_check, label %11
+  %switch.shifted = lshr i32 113247235, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %10, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread, label %11
 
-11:                                               ; preds = %switch.hole_check, %9
+11:                                               ; preds = %9
   %12 = icmp eq i32 %3, 49
   %13 = icmp eq i32 %7, 38
   %14 = or i1 %12, %13
   br label %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread
 
-switch.hole_check:                                ; preds = %9
-  %switch.shifted = lshr i32 113247235, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread, label %11
-
-_ZNK4llvm6Triple10isOSDarwinEv.exit.thread:       ; preds = %switch.hole_check, %5, %11, %1
-  %15 = phi i1 [ true, %1 ], [ %14, %11 ], [ true, %5 ], [ true, %switch.hole_check ]
+_ZNK4llvm6Triple10isOSDarwinEv.exit.thread:       ; preds = %9, %5, %11, %1
+  %15 = phi i1 [ true, %1 ], [ %14, %11 ], [ true, %5 ], [ true, %9 ]
   ret i1 %15
 }
 

@@ -129,13 +129,13 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   store i32 %4, ptr %9, align 4
-  %.sroa.0.0135 = trunc i64 %3 to i32
-  %.sroa.6.0.in136 = lshr i64 %3, 32
-  %.sroa.6.0137 = trunc i64 %.sroa.6.0.in136 to i16
-  %.sroa.8.0.in138 = lshr i64 %3, 48
-  %.sroa.8.0139 = trunc nuw i64 %.sroa.8.0.in138 to i16
-  %.not140 = icmp eq i32 %4, %1
-  br i1 %.not140, label %._crit_edge, label %.lr.ph
+  %.sroa.0.0134 = trunc i64 %3 to i32
+  %.sroa.6.0.in135 = lshr i64 %3, 32
+  %.sroa.6.0136 = trunc i64 %.sroa.6.0.in135 to i16
+  %.sroa.8.0.in137 = lshr i64 %3, 48
+  %.sroa.8.0138 = trunc nuw i64 %.sroa.8.0.in137 to i16
+  %.not139 = icmp eq i32 %4, %1
+  br i1 %.not139, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -148,10 +148,10 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
   br label %37
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit", %5
-  %.052.lcssa = phi i1 [ false, %5 ], [ %.199, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.sroa.0.0.lcssa = phi i32 [ %.sroa.0.0135, %5 ], [ %.sroa.0.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.sroa.6.0.lcssa = phi i16 [ %.sroa.6.0137, %5 ], [ %.sroa.6.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.sroa.8.0.lcssa = phi i16 [ %.sroa.8.0139, %5 ], [ %.sroa.8.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.053.lcssa = phi i1 [ false, %5 ], [ %.197, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.sroa.0.0.lcssa = phi i32 [ %.sroa.0.0134, %5 ], [ %.sroa.0.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.sroa.6.0.lcssa = phi i16 [ %.sroa.6.0136, %5 ], [ %.sroa.6.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.sroa.8.0.lcssa = phi i16 [ %.sroa.8.0138, %5 ], [ %.sroa.8.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -193,10 +193,10 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
 
 37:                                               ; preds = %.lr.ph, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit"
   %38 = phi i32 [ %4, %.lr.ph ], [ %106, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.sroa.8.0144 = phi i16 [ %.sroa.8.0139, %.lr.ph ], [ %.sroa.8.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.sroa.6.0143 = phi i16 [ %.sroa.6.0137, %.lr.ph ], [ %.sroa.6.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.sroa.0.0142 = phi i32 [ %.sroa.0.0135, %.lr.ph ], [ %.sroa.0.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
-  %.052141 = phi i1 [ false, %.lr.ph ], [ %.199, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.sroa.8.0143 = phi i16 [ %.sroa.8.0138, %.lr.ph ], [ %.sroa.8.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.sroa.6.0142 = phi i16 [ %.sroa.6.0136, %.lr.ph ], [ %.sroa.6.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.sroa.0.0141 = phi i32 [ %.sroa.0.0134, %.lr.ph ], [ %.sroa.0.0, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
+  %.053140 = phi i1 [ false, %.lr.ph ], [ %.197, %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %39 = load i64, ptr %10, align 8, !alias.scope !49, !noundef !5
   %40 = icmp eq i64 %39, 0
@@ -273,7 +273,7 @@ define hidden { i1, i1 } @_ZN5salsa7runtime16dependency_graph15DependencyGraph31
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h4dd7ba157f204768E.exit": ; preds = %67, %69
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %72 = insertvalue { i1, i1 } poison, i1 %.not8.not.not.i.not.not.not.not.not, 0
-  %73 = insertvalue { i1, i1 } %72, i1 %.052.lcssa, 1
+  %73 = insertvalue { i1, i1 } %72, i1 %.053.lcssa, 1
   ret { i1, i1 } %73
 
 74:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h07af414f35b8ec7bE.exit"
@@ -311,18 +311,18 @@ select.unfold:                                    ; preds = %37, %51
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 60
   %91 = load i16, ptr %90, align 4, !alias.scope !80, !noalias !83, !noundef !5
-  %92 = icmp eq i16 %91, %.sroa.6.0143
+  %92 = icmp eq i16 %91, %.sroa.6.0142
   br i1 %92, label %93, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h83b272e62f84dd27E.exit.i.i.i"
 
 93:                                               ; preds = %.lr.ph.i.i.i66
   %94 = getelementptr inbounds nuw i8, ptr %87, i64 62
   %95 = load i16, ptr %94, align 2, !alias.scope !80, !noalias !83, !noundef !5
-  %96 = icmp eq i16 %95, %.sroa.8.0144
+  %96 = icmp eq i16 %95, %.sroa.8.0143
   br i1 %96, label %"_ZN5salsa7runtime16dependency_graph15DependencyGraph31maybe_unblock_runtimes_in_cycle28_$u7b$$u7b$closure$u7d$$u7d$17h23b5326c091a96d3E.exit.i.i.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h83b272e62f84dd27E.exit.i.i.i"
 
 "_ZN5salsa7runtime16dependency_graph15DependencyGraph31maybe_unblock_runtimes_in_cycle28_$u7b$$u7b$closure$u7d$$u7d$17h23b5326c091a96d3E.exit.i.i.i.i": ; preds = %93
   %97 = load i32, ptr %89, align 8, !alias.scope !80, !noalias !83, !noundef !5
-  %.not.i.i.i.i71 = icmp eq i32 %97, %.sroa.0.0142
+  %.not.i.i.i.i71 = icmp eq i32 %97, %.sroa.0.0141
   br i1 %.not.i.i.i.i71, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64aaa459e1d97467E.exit", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h83b272e62f84dd27E.exit.i.i.i"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h83b272e62f84dd27E.exit.i.i.i": ; preds = %"_ZN5salsa7runtime16dependency_graph15DependencyGraph31maybe_unblock_runtimes_in_cycle28_$u7b$$u7b$closure$u7d$$u7d$17h23b5326c091a96d3E.exit.i.i.i.i", %93, %.lr.ph.i.i.i66
@@ -349,8 +349,8 @@ select.unfold:                                    ; preds = %37, %51
   store ptr %107, ptr %7, align 8
   store ptr %81, ptr %12, align 8
   %108 = call noundef ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hc65b4d9e87bb807fE.llvm.14225396269139012787(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
-  %.not61 = icmp eq ptr %108, null
-  br i1 %.not61, label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit", label %110
+  %.not62 = icmp eq ptr %108, null
+  br i1 %.not62, label %"_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit", label %110
 
 109:                                              ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h64aaa459e1d97467E.exit"
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %.1.i.i70, i64 noundef %80, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.25) #13
@@ -363,7 +363,7 @@ select.unfold:                                    ; preds = %37, %51
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %111 = load i64, ptr %13, align 8, !alias.scope !92, !noalias !95, !noundef !5
   %112 = icmp eq i64 %111, 0
-  br i1 %112, label %select.unfold105, label %113
+  br i1 %112, label %select.unfold103, label %113
 
 113:                                              ; preds = %110
   %114 = load i16, ptr %15, align 4, !alias.scope !97, !noalias !102, !noundef !5
@@ -384,9 +384,9 @@ select.unfold:                                    ; preds = %37, %51
 
 .noexc:                                           ; preds = %113
   %128 = icmp eq ptr %127, null
-  br i1 %128, label %select.unfold105, label %129
+  br i1 %128, label %select.unfold103, label %129
 
-select.unfold105:                                 ; preds = %.noexc, %110
+select.unfold103:                                 ; preds = %.noexc, %110
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f309c0c276216067398eff0f085bab25.24) #13
           to label %131 unwind label %.loopexit.split-lp
 
@@ -395,7 +395,7 @@ select.unfold105:                                 ; preds = %.noexc, %110
   invoke void @"_ZN8smallvec17SmallVec$LT$A$GT$6retain17ha11949bb72d90ff6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %130, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9)
           to label %.thread unwind label %.loopexit
 
-131:                                              ; preds = %select.unfold105
+131:                                              ; preds = %select.unfold103
   unreachable
 
 .thread:                                          ; preds = %129
@@ -412,7 +412,7 @@ select.unfold105:                                 ; preds = %.noexc, %110
           cleanup
   br label %134
 
-.loopexit.split-lp:                               ; preds = %select.unfold105
+.loopexit.split-lp:                               ; preds = %select.unfold103
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %134
@@ -429,7 +429,7 @@ select.unfold105:                                 ; preds = %.noexc, %110
   unreachable
 
 "_ZN4core3ptr33drop_in_place$LT$salsa..Cycle$GT$17h9ab053a44543c68fE.exit": ; preds = %105, %.thread
-  %.199 = phi i1 [ true, %.thread ], [ %.052141, %105 ]
+  %.197 = phi i1 [ true, %.thread ], [ %.053140, %105 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   store i32 %106, ptr %9, align 4
   %137 = load i64, ptr %8, align 8

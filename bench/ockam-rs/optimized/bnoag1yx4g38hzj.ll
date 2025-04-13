@@ -14396,7 +14396,7 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
           to label %31 unwind label %29
 
 28:                                               ; preds = %70
-  br i1 %.176, label %.thread63, label %.thread
+  br i1 %.174, label %.thread63, label %.thread
 
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
@@ -14471,19 +14471,19 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
 
 49:                                               ; preds = %"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_transport_tcp..transport..TcpTransport$GT$15find_connection28_$u7b$$u7b$closure$u7d$$u7d$17h9fefe7ab636a0043E.exit.i.i.i", %45
   invoke void @"_ZN4core3ptr75drop_in_place$LT$ockam_transport_tcp..registry..common..TcpReceiverInfo$GT$17hedaaa2ec72c03f28E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %8)
-          to label %.noexc unwind label %.loopexit78
+          to label %.noexc unwind label %.loopexit76
 
 .noexc:                                           ; preds = %49
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8), !noalias !1934
   %50 = icmp eq ptr %44, %32
   br i1 %50, label %.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb8bd6b510242a50E.exit.i.i"
 
-51:                                               ; preds = %.loopexit78, %.loopexit.split-lp, %52
-  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %lpad.loopexit, %.loopexit78 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+51:                                               ; preds = %.loopexit76, %.loopexit.split-lp, %52
+  %.pn = phi { ptr, i32 } [ %53, %52 ], [ %lpad.loopexit, %.loopexit76 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr114drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ockam_transport_tcp..registry..common..TcpReceiverInfo$GT$$GT$17h9d85086e8167e4b7E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13) #19
           to label %.thread63 unwind label %67
 
-.loopexit78:                                      ; preds = %49
+.loopexit76:                                      ; preds = %49
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %51
@@ -14504,8 +14504,8 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(126) %.sroa.5, ptr noundef nonnull align 2 dereferenceable(126) %.sroa.9.0..sroa_idx9.i.i, i64 126, i1 false), !noalias !1953
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11)
   store i16 %.sroa.0.0.copyload8.i.i, ptr %11, align 8
-  %.sroa.5.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(126) %.sroa.5.0..sroa_idx95, ptr noundef nonnull align 2 dereferenceable(126) %.sroa.5, i64 126, i1 false)
+  %.sroa.5.0..sroa_idx93 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(126) %.sroa.5.0..sroa_idx93, ptr noundef nonnull align 2 dereferenceable(126) %.sroa.5, i64 126, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %57 = load i8, ptr %56, align 8, !noundef !7
@@ -14547,7 +14547,7 @@ define void @"_ZN19ockam_transport_tcp9transport9lifecycle62_$LT$impl$u20$ockam_
   unreachable
 
 69:                                               ; preds = %.loopexit, %.thread70
-  %.176 = phi i1 [ true, %.thread70 ], [ false, %.loopexit ]
+  %.174 = phi i1 [ true, %.thread70 ], [ false, %.loopexit ]
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0dc1f32950d46f88E.llvm.12836552674783018658"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
           to label %72 unwind label %70
 
@@ -14682,7 +14682,7 @@ _ZN4core4iter6traits8iterator8Iterator4find17hf7e6ef9337b2370bE.exit: ; preds = 
 
 104:                                              ; preds = %105, %94
   %.pn18 = phi { ptr, i32 } [ %106, %105 ], [ %95, %94 ]
-  br i1 %.176, label %128, label %118
+  br i1 %.174, label %128, label %118
 
 105:                                              ; preds = %_ZN4core4iter6traits8iterator8Iterator4find17hf7e6ef9337b2370bE.exit
   %106 = landingpad { ptr, i32 }
@@ -14692,7 +14692,7 @@ _ZN4core4iter6traits8iterator8Iterator4find17hf7e6ef9337b2370bE.exit: ; preds = 
 107:                                              ; preds = %102, %98, %.noexc47
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !2009
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  br i1 %.176, label %109, label %108
+  br i1 %.174, label %109, label %108
 
 108:                                              ; preds = %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h031c37a5e1c30fdfE.exit51", %107
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16)

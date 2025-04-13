@@ -990,11 +990,11 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit: ; preds = %18, %25
   br label %36
 
 36:                                               ; preds = %14, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit
-  %.09 = phi i1 [ %switch.selectcmp, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit ], [ false, %14 ]
+  %.010 = phi i1 [ %switch.selectcmp, %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit ], [ false, %14 ]
   %37 = tail call noundef zeroext i1 @_ZN6parser6parser6Parser6nth_at17h20e46c565405313aE(ptr noundef nonnull align 8 %0, i64 noundef 0, i16 noundef 30)
   %.not = xor i1 %37, true
-  %brmerge = or i1 %.09, %.not
-  br i1 %brmerge, label %38, label %41
+  %or.cond = or i1 %.010, %.not
+  br i1 %or.cond, label %38, label %41
 
 38:                                               ; preds = %36
   %39 = insertvalue { i32, i16 } poison, i32 %.sroa.0.0, 0
@@ -1022,21 +1022,21 @@ _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit: ; preds = %18, %25
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %43
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h7ebc5c3e95675cf2E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %46)
-          to label %.noexc10 unwind label %.loopexit
+          to label %.noexc11 unwind label %.loopexit
 
-.noexc10:                                         ; preds = %._crit_edge.i.i.i.i.i
+.noexc11:                                         ; preds = %._crit_edge.i.i.i.i.i
   %.pre.i.i.i.i.i = load i64, ptr %12, align 8, !alias.scope !122, !noalias !127
   br label %49
 
 _ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i: ; preds = %.noexc
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.b524e8eb8974857e663438d42e829098.20.llvm.6580822817679657170, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b524e8eb8974857e663438d42e829098.21.llvm.6580822817679657170) #9
-          to label %.noexc11 unwind label %.loopexit.split-lp
+          to label %.noexc12 unwind label %.loopexit.split-lp
 
-.noexc11:                                         ; preds = %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i
+.noexc12:                                         ; preds = %_ZN6parser6parser6Parser3eat17hc905651d82279f5eE.exit.i
   unreachable
 
-49:                                               ; preds = %.noexc10, %43
-  %50 = phi i64 [ %.pre.i.i.i.i.i, %.noexc10 ], [ %46, %43 ]
+49:                                               ; preds = %.noexc11, %43
+  %50 = phi i64 [ %.pre.i.i.i.i.i, %.noexc11 ], [ %46, %43 ]
   %51 = load ptr, ptr %13, align 8, !alias.scope !122, !noalias !127, !nonnull !11, !noundef !11
   %52 = getelementptr inbounds { i64, [2 x i64] }, ptr %51, i64 %50
   store i64 -9223372036854775806, ptr %52, align 8

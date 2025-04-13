@@ -926,168 +926,178 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolverD2Ev(ptr noundef 
   store ptr getelementptr inbounds nuw inrange(-16, 120) (i8, ptr @_ZTV35btSequentialImpulseConstraintSolver, i64 16), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8, !tbaa !40
-  %.not.i.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIiED2Ev.exit, label %4
+  %.not.i.i.i = icmp ne ptr %3, null
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %5 = load i8, ptr %4, align 8, !range !71
+  %6 = trunc nuw i8 %5 to i1
+  %or.cond.i.i = select i1 %.not.i.i.i, i1 %6, i1 false
+  br i1 %or.cond.i.i, label %7, label %_ZN20btAlignedObjectArrayIiED2Ev.exit
 
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %6 = load i8, ptr %5, align 8, !tbaa !39, !range !71, !noundef !72
-  %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %_ZN20btAlignedObjectArrayIiED2Ev.exit
-
-8:                                                ; preds = %4
+7:                                                ; preds = %1
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %3)
-          to label %_ZN20btAlignedObjectArrayIiED2Ev.exit unwind label %9
+          to label %_ZN20btAlignedObjectArrayIiED2Ev.exit unwind label %8
 
-9:                                                ; preds = %8
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %7
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #22
+  %10 = extractvalue { ptr, i32 } %9, 0
+  tail call void @__clang_call_terminate(ptr %10) #22
   unreachable
 
-_ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %1, %4, %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  store i8 1, ptr %13, align 8, !tbaa !39
+_ZN20btAlignedObjectArrayIiED2Ev.exit:            ; preds = %1, %7
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  store i8 1, ptr %4, align 8, !tbaa !39
   store ptr null, ptr %2, align 8, !tbaa !40
-  store i32 0, ptr %12, align 4, !tbaa !41
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i32 0, ptr %14, align 8, !tbaa !42
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %16 = load ptr, ptr %15, align 8, !tbaa !44
-  %.not.i.i.i1 = icmp eq ptr %16, null
-  br i1 %.not.i.i.i1, label %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EED2Ev.exit, label %17
+  store i32 0, ptr %11, align 4, !tbaa !41
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store i32 0, ptr %12, align 8, !tbaa !42
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %14 = load ptr, ptr %13, align 8, !tbaa !44
+  %.not.i.i.i1 = icmp ne ptr %14, null
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %16 = load i8, ptr %15, align 8, !range !71
+  %17 = trunc nuw i8 %16 to i1
+  %or.cond.i.i2 = select i1 %.not.i.i.i1, i1 %17, i1 false
+  br i1 %or.cond.i.i2, label %18, label %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EED2Ev.exit
 
-17:                                               ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %19 = load i8, ptr %18, align 8, !tbaa !43, !range !71, !noundef !72
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %21, label %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EED2Ev.exit
+18:                                               ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %14)
+          to label %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EED2Ev.exit unwind label %19
 
-21:                                               ; preds = %17
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %16)
-          to label %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EED2Ev.exit unwind label %22
-
-22:                                               ; preds = %21
-  %23 = landingpad { ptr, i32 }
+19:                                               ; preds = %18
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  tail call void @__clang_call_terminate(ptr %24) #22
+  %21 = extractvalue { ptr, i32 } %20, 0
+  tail call void @__clang_call_terminate(ptr %21) #22
   unreachable
 
-_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit, %17, %21
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i8 1, ptr %26, align 8, !tbaa !43
-  store ptr null, ptr %15, align 8, !tbaa !44
-  store i32 0, ptr %25, align 4, !tbaa !45
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i32 0, ptr %27, align 8, !tbaa !46
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %29 = load ptr, ptr %28, align 8, !tbaa !40
-  %.not.i.i.i2 = icmp eq ptr %29, null
-  br i1 %.not.i.i.i2, label %_ZN20btAlignedObjectArrayIiED2Ev.exit3, label %30
+_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit, %18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  store i8 1, ptr %15, align 8, !tbaa !43
+  store ptr null, ptr %13, align 8, !tbaa !44
+  store i32 0, ptr %22, align 4, !tbaa !45
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  store i32 0, ptr %23, align 8, !tbaa !46
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %25 = load ptr, ptr %24, align 8, !tbaa !40
+  %.not.i.i.i3 = icmp ne ptr %25, null
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %27 = load i8, ptr %26, align 8, !range !71
+  %28 = trunc nuw i8 %27 to i1
+  %or.cond.i.i4 = select i1 %.not.i.i.i3, i1 %28, i1 false
+  br i1 %or.cond.i.i4, label %29, label %_ZN20btAlignedObjectArrayIiED2Ev.exit5
 
-30:                                               ; preds = %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EED2Ev.exit
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %32 = load i8, ptr %31, align 8, !tbaa !39, !range !71, !noundef !72
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN20btAlignedObjectArrayIiED2Ev.exit3
+29:                                               ; preds = %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EED2Ev.exit
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %25)
+          to label %_ZN20btAlignedObjectArrayIiED2Ev.exit5 unwind label %30
 
-34:                                               ; preds = %30
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %29)
-          to label %_ZN20btAlignedObjectArrayIiED2Ev.exit3 unwind label %35
-
-35:                                               ; preds = %34
-  %36 = landingpad { ptr, i32 }
+30:                                               ; preds = %29
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #22
+  %32 = extractvalue { ptr, i32 } %31, 0
+  tail call void @__clang_call_terminate(ptr %32) #22
   unreachable
 
-_ZN20btAlignedObjectArrayIiED2Ev.exit3:           ; preds = %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EED2Ev.exit, %30, %34
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i8 1, ptr %39, align 8, !tbaa !39
-  store ptr null, ptr %28, align 8, !tbaa !40
-  store i32 0, ptr %38, align 4, !tbaa !41
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i32 0, ptr %40, align 8, !tbaa !42
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %42 = load ptr, ptr %41, align 8, !tbaa !40
-  %.not.i.i.i4 = icmp eq ptr %42, null
-  br i1 %.not.i.i.i4, label %_ZN20btAlignedObjectArrayIiED2Ev.exit5, label %43
+_ZN20btAlignedObjectArrayIiED2Ev.exit5:           ; preds = %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EED2Ev.exit, %29
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  store i8 1, ptr %26, align 8, !tbaa !39
+  store ptr null, ptr %24, align 8, !tbaa !40
+  store i32 0, ptr %33, align 4, !tbaa !41
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i32 0, ptr %34, align 8, !tbaa !42
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %36 = load ptr, ptr %35, align 8, !tbaa !40
+  %.not.i.i.i6 = icmp ne ptr %36, null
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %38 = load i8, ptr %37, align 8, !range !71
+  %39 = trunc nuw i8 %38 to i1
+  %or.cond.i.i7 = select i1 %.not.i.i.i6, i1 %39, i1 false
+  br i1 %or.cond.i.i7, label %40, label %_ZN20btAlignedObjectArrayIiED2Ev.exit8
 
-43:                                               ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit3
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %45 = load i8, ptr %44, align 8, !tbaa !39, !range !71, !noundef !72
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %_ZN20btAlignedObjectArrayIiED2Ev.exit5
+40:                                               ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit5
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %36)
+          to label %_ZN20btAlignedObjectArrayIiED2Ev.exit8 unwind label %41
 
-47:                                               ; preds = %43
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %42)
-          to label %_ZN20btAlignedObjectArrayIiED2Ev.exit5 unwind label %48
-
-48:                                               ; preds = %47
-  %49 = landingpad { ptr, i32 }
+41:                                               ; preds = %40
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  tail call void @__clang_call_terminate(ptr %50) #22
+  %43 = extractvalue { ptr, i32 } %42, 0
+  tail call void @__clang_call_terminate(ptr %43) #22
   unreachable
 
-_ZN20btAlignedObjectArrayIiED2Ev.exit5:           ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit3, %43, %47
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 204
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i8 1, ptr %52, align 8, !tbaa !39
-  store ptr null, ptr %41, align 8, !tbaa !40
-  store i32 0, ptr %51, align 4, !tbaa !41
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i32 0, ptr %53, align 8, !tbaa !42
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %55 = load ptr, ptr %54, align 8, !tbaa !40
-  %.not.i.i.i6 = icmp eq ptr %55, null
-  br i1 %.not.i.i.i6, label %_ZN20btAlignedObjectArrayIiED2Ev.exit7, label %56
+_ZN20btAlignedObjectArrayIiED2Ev.exit8:           ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit5, %40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 204
+  store i8 1, ptr %37, align 8, !tbaa !39
+  store ptr null, ptr %35, align 8, !tbaa !40
+  store i32 0, ptr %44, align 4, !tbaa !41
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store i32 0, ptr %45, align 8, !tbaa !42
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %47 = load ptr, ptr %46, align 8, !tbaa !40
+  %.not.i.i.i9 = icmp ne ptr %47, null
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %49 = load i8, ptr %48, align 8, !range !71
+  %50 = trunc nuw i8 %49 to i1
+  %or.cond.i.i10 = select i1 %.not.i.i.i9, i1 %50, i1 false
+  br i1 %or.cond.i.i10, label %51, label %_ZN20btAlignedObjectArrayIiED2Ev.exit11
 
-56:                                               ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit5
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %58 = load i8, ptr %57, align 8, !tbaa !39, !range !71, !noundef !72
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %_ZN20btAlignedObjectArrayIiED2Ev.exit7
+51:                                               ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit8
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %47)
+          to label %_ZN20btAlignedObjectArrayIiED2Ev.exit11 unwind label %52
 
-60:                                               ; preds = %56
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %55)
-          to label %_ZN20btAlignedObjectArrayIiED2Ev.exit7 unwind label %61
-
-61:                                               ; preds = %60
-  %62 = landingpad { ptr, i32 }
+52:                                               ; preds = %51
+  %53 = landingpad { ptr, i32 }
           catch ptr null
-  %63 = extractvalue { ptr, i32 } %62, 0
-  tail call void @__clang_call_terminate(ptr %63) #22
+  %54 = extractvalue { ptr, i32 } %53, 0
+  tail call void @__clang_call_terminate(ptr %54) #22
   unreachable
 
-_ZN20btAlignedObjectArrayIiED2Ev.exit7:           ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit5, %56, %60
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i8 1, ptr %65, align 8, !tbaa !39
-  store ptr null, ptr %54, align 8, !tbaa !40
-  store i32 0, ptr %64, align 4, !tbaa !41
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 0, ptr %66, align 8, !tbaa !42
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %68 = load ptr, ptr %67, align 8, !tbaa !36
-  %.not.i.i.i8 = icmp eq ptr %68, null
-  br i1 %.not.i.i.i8, label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit, label %69
+_ZN20btAlignedObjectArrayIiED2Ev.exit11:          ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit8, %51
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  store i8 1, ptr %48, align 8, !tbaa !39
+  store ptr null, ptr %46, align 8, !tbaa !40
+  store i32 0, ptr %55, align 4, !tbaa !41
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 0, ptr %56, align 8, !tbaa !42
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %58 = load ptr, ptr %57, align 8, !tbaa !36
+  %.not.i.i.i12 = icmp ne ptr %58, null
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %60 = load i8, ptr %59, align 8, !range !71
+  %61 = trunc nuw i8 %60 to i1
+  %or.cond.i.i13 = select i1 %.not.i.i.i12, i1 %61, i1 false
+  br i1 %or.cond.i.i13, label %62, label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit
 
-69:                                               ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit7
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %71 = load i8, ptr %70, align 8, !tbaa !35, !range !71, !noundef !72
+62:                                               ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit11
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %58)
+          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit unwind label %63
+
+63:                                               ; preds = %62
+  %64 = landingpad { ptr, i32 }
+          catch ptr null
+  %65 = extractvalue { ptr, i32 } %64, 0
+  tail call void @__clang_call_terminate(ptr %65) #22
+  unreachable
+
+_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit11, %62
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  store i8 1, ptr %59, align 8, !tbaa !35
+  store ptr null, ptr %57, align 8, !tbaa !36
+  store i32 0, ptr %66, align 4, !tbaa !37
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 0, ptr %67, align 8, !tbaa !38
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %69 = load ptr, ptr %68, align 8, !tbaa !36
+  %.not.i.i.i14 = icmp ne ptr %69, null
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %71 = load i8, ptr %70, align 8, !range !71
   %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %73, label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit
+  %or.cond.i.i15 = select i1 %.not.i.i.i14, i1 %72, i1 false
+  br i1 %or.cond.i.i15, label %73, label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit16
 
-73:                                               ; preds = %69
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %68)
-          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit unwind label %74
+73:                                               ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %69)
+          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit16 unwind label %74
 
 74:                                               ; preds = %73
   %75 = landingpad { ptr, i32 }
@@ -1096,134 +1106,94 @@ _ZN20btAlignedObjectArrayIiED2Ev.exit7:           ; preds = %_ZN20btAlignedObjec
   tail call void @__clang_call_terminate(ptr %76) #22
   unreachable
 
-_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit7, %69, %73
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i8 1, ptr %78, align 8, !tbaa !35
-  store ptr null, ptr %67, align 8, !tbaa !36
+_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit16: ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit, %73
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i8 1, ptr %70, align 8, !tbaa !35
+  store ptr null, ptr %68, align 8, !tbaa !36
   store i32 0, ptr %77, align 4, !tbaa !37
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 0, ptr %79, align 8, !tbaa !38
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %81 = load ptr, ptr %80, align 8, !tbaa !36
-  %.not.i.i.i9 = icmp eq ptr %81, null
-  br i1 %.not.i.i.i9, label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit10, label %82
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i32 0, ptr %78, align 8, !tbaa !38
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %80 = load ptr, ptr %79, align 8, !tbaa !36
+  %.not.i.i.i17 = icmp ne ptr %80, null
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %82 = load i8, ptr %81, align 8, !range !71
+  %83 = trunc nuw i8 %82 to i1
+  %or.cond.i.i18 = select i1 %.not.i.i.i17, i1 %83, i1 false
+  br i1 %or.cond.i.i18, label %84, label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit19
 
-82:                                               ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %84 = load i8, ptr %83, align 8, !tbaa !35, !range !71, !noundef !72
-  %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit10
+84:                                               ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit16
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %80)
+          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit19 unwind label %85
 
-86:                                               ; preds = %82
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %81)
-          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit10 unwind label %87
-
-87:                                               ; preds = %86
-  %88 = landingpad { ptr, i32 }
+85:                                               ; preds = %84
+  %86 = landingpad { ptr, i32 }
           catch ptr null
-  %89 = extractvalue { ptr, i32 } %88, 0
-  tail call void @__clang_call_terminate(ptr %89) #22
+  %87 = extractvalue { ptr, i32 } %86, 0
+  tail call void @__clang_call_terminate(ptr %87) #22
   unreachable
 
-_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit10: ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit, %82, %86
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i8 1, ptr %91, align 8, !tbaa !35
-  store ptr null, ptr %80, align 8, !tbaa !36
-  store i32 0, ptr %90, align 4, !tbaa !37
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 0, ptr %92, align 8, !tbaa !38
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %94 = load ptr, ptr %93, align 8, !tbaa !36
-  %.not.i.i.i11 = icmp eq ptr %94, null
-  br i1 %.not.i.i.i11, label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit12, label %95
+_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit19: ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit16, %84
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i8 1, ptr %81, align 8, !tbaa !35
+  store ptr null, ptr %79, align 8, !tbaa !36
+  store i32 0, ptr %88, align 4, !tbaa !37
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 0, ptr %89, align 8, !tbaa !38
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %91 = load ptr, ptr %90, align 8, !tbaa !36
+  %.not.i.i.i20 = icmp ne ptr %91, null
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %93 = load i8, ptr %92, align 8, !range !71
+  %94 = trunc nuw i8 %93 to i1
+  %or.cond.i.i21 = select i1 %.not.i.i.i20, i1 %94, i1 false
+  br i1 %or.cond.i.i21, label %95, label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit22
 
-95:                                               ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit10
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %97 = load i8, ptr %96, align 8, !tbaa !35, !range !71, !noundef !72
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit12
+95:                                               ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit19
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %91)
+          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit22 unwind label %96
 
-99:                                               ; preds = %95
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %94)
-          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit12 unwind label %100
-
-100:                                              ; preds = %99
-  %101 = landingpad { ptr, i32 }
+96:                                               ; preds = %95
+  %97 = landingpad { ptr, i32 }
           catch ptr null
-  %102 = extractvalue { ptr, i32 } %101, 0
-  tail call void @__clang_call_terminate(ptr %102) #22
+  %98 = extractvalue { ptr, i32 } %97, 0
+  tail call void @__clang_call_terminate(ptr %98) #22
   unreachable
 
-_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit12: ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit10, %95, %99
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i8 1, ptr %104, align 8, !tbaa !35
-  store ptr null, ptr %93, align 8, !tbaa !36
-  store i32 0, ptr %103, align 4, !tbaa !37
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %105, align 8, !tbaa !38
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %107 = load ptr, ptr %106, align 8, !tbaa !36
-  %.not.i.i.i13 = icmp eq ptr %107, null
-  br i1 %.not.i.i.i13, label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit14, label %108
+_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit22: ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit19, %95
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i8 1, ptr %92, align 8, !tbaa !35
+  store ptr null, ptr %90, align 8, !tbaa !36
+  store i32 0, ptr %99, align 4, !tbaa !37
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 0, ptr %100, align 8, !tbaa !38
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %102 = load ptr, ptr %101, align 8, !tbaa !32
+  %.not.i.i.i23 = icmp ne ptr %102, null
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %104 = load i8, ptr %103, align 8, !range !71
+  %105 = trunc nuw i8 %104 to i1
+  %or.cond.i.i24 = select i1 %.not.i.i.i23, i1 %105, i1 false
+  br i1 %or.cond.i.i24, label %106, label %_ZN20btAlignedObjectArrayI12btSolverBodyED2Ev.exit
 
-108:                                              ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit12
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %110 = load i8, ptr %109, align 8, !tbaa !35, !range !71, !noundef !72
-  %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %112, label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit14
+106:                                              ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit22
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %102)
+          to label %_ZN20btAlignedObjectArrayI12btSolverBodyED2Ev.exit unwind label %107
 
-112:                                              ; preds = %108
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %107)
-          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit14 unwind label %113
-
-113:                                              ; preds = %112
-  %114 = landingpad { ptr, i32 }
+107:                                              ; preds = %106
+  %108 = landingpad { ptr, i32 }
           catch ptr null
-  %115 = extractvalue { ptr, i32 } %114, 0
-  tail call void @__clang_call_terminate(ptr %115) #22
+  %109 = extractvalue { ptr, i32 } %108, 0
+  tail call void @__clang_call_terminate(ptr %109) #22
   unreachable
 
-_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit14: ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit12, %108, %112
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 1, ptr %117, align 8, !tbaa !35
-  store ptr null, ptr %106, align 8, !tbaa !36
-  store i32 0, ptr %116, align 4, !tbaa !37
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %118, align 8, !tbaa !38
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %120 = load ptr, ptr %119, align 8, !tbaa !32
-  %.not.i.i.i15 = icmp eq ptr %120, null
-  br i1 %.not.i.i.i15, label %_ZN20btAlignedObjectArrayI12btSolverBodyED2Ev.exit, label %121
-
-121:                                              ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit14
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %123 = load i8, ptr %122, align 8, !tbaa !31, !range !71, !noundef !72
-  %124 = trunc nuw i8 %123 to i1
-  br i1 %124, label %125, label %_ZN20btAlignedObjectArrayI12btSolverBodyED2Ev.exit
-
-125:                                              ; preds = %121
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %120)
-          to label %_ZN20btAlignedObjectArrayI12btSolverBodyED2Ev.exit unwind label %126
-
-126:                                              ; preds = %125
-  %127 = landingpad { ptr, i32 }
-          catch ptr null
-  %128 = extractvalue { ptr, i32 } %127, 0
-  tail call void @__clang_call_terminate(ptr %128) #22
-  unreachable
-
-_ZN20btAlignedObjectArrayI12btSolverBodyED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit14, %121, %125
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %130, align 8, !tbaa !31
-  store ptr null, ptr %119, align 8, !tbaa !32
-  store i32 0, ptr %129, align 4, !tbaa !33
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %131, align 8, !tbaa !34
+_ZN20btAlignedObjectArrayI12btSolverBodyED2Ev.exit: ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintED2Ev.exit22, %106
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 1, ptr %103, align 8, !tbaa !31
+  store ptr null, ptr %101, align 8, !tbaa !32
+  store i32 0, ptr %110, align 4, !tbaa !33
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %111, align 8, !tbaa !34
   ret void
 }
 
@@ -1326,7 +1296,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver14initSolverBodyE
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  %7 = load i32, ptr %6, align 8, !tbaa !73
+  %7 = load i32, ptr %6, align 8, !tbaa !72
   %8 = and i32 %7, 2
   %.not.i = icmp eq i32 %8, 0
   %spec.select = select i1 %.not.i, ptr null, ptr %2
@@ -1343,18 +1313,18 @@ select.unfold:                                    ; preds = %5, %4
 
 12:                                               ; preds = %select.unfold
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(64) %13, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(64) %13, i64 16, i1 false), !tbaa.struct !79
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !79
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !79
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !79
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 452
-  %21 = load float, ptr %20, align 4, !tbaa !82
+  %21 = load float, ptr %20, align 4, !tbaa !81
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 456
   %23 = load float, ptr %22, align 4, !tbaa !59
   %24 = fmul float %21, %23
@@ -1370,22 +1340,22 @@ select.unfold:                                    ; preds = %5, %4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %31, align 8
   %.sroa.496.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.496.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.496.0..sroa_idx, align 8, !tbaa !80
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %9, ptr %32, align 8, !tbaa !63
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 672
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !79
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !79
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 420
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 4 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !79
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 436
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !79
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 520
-  %41 = load float, ptr %20, align 4, !tbaa !82
+  %41 = load float, ptr %20, align 4, !tbaa !81
   %42 = load float, ptr %40, align 4, !tbaa !59
   %43 = fmul float %41, %42
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 524
@@ -1403,7 +1373,7 @@ select.unfold:                                    ; preds = %5, %4
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store <2 x float> %.sroa.0.4.vec.insert.i49, ptr %53, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 216
-  store <2 x float> %.sroa.3.12.vec.insert.i50, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i50, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !80
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 536
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 372
   %56 = load float, ptr %55, align 4, !tbaa !59
@@ -1446,7 +1416,7 @@ select.unfold:                                    ; preds = %5, %4
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store <2 x float> %.sroa.0.4.vec.insert.i59, ptr %90, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 232
-  store <2 x float> %.sroa.3.12.vec.insert.i60, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i60, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !80
   br label %108
 
 91:                                               ; preds = %select.unfold
@@ -1509,7 +1479,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropi
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %6 = load i32, ptr %5, align 8, !tbaa !88
+  %6 = load i32, ptr %5, align 8, !tbaa !87
   %7 = and i32 %6, %2
   %.not22 = icmp eq i32 %7, 0
   br i1 %.not22, label %59, label %8
@@ -1569,7 +1539,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver24applyAnisotropi
   %.sroa.0.4.vec.insert.i9 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8, float %55, i64 1
   %.sroa.3.12.vec.insert.i10 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %58, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i9, ptr %1, align 4
-  store <2 x float> %.sroa.3.12.vec.insert.i10, ptr %20, align 4, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i10, ptr %20, align 4, !tbaa !80
   br label %59
 
 59:                                               ; preds = %8, %4, %3
@@ -1589,15 +1559,15 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 240
   %24 = load ptr, ptr %23, align 8, !tbaa !63
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  store i32 %3, ptr %25, align 8, !tbaa !89
+  store i32 %3, ptr %25, align 8, !tbaa !88
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 156
-  store i32 %4, ptr %26, align 4, !tbaa !90
+  store i32 %4, ptr %26, align 4, !tbaa !89
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %28 = load float, ptr %27, align 4, !tbaa !91
+  %28 = load float, ptr %27, align 4, !tbaa !90
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store float %28, ptr %29, align 8, !tbaa !93
+  store float %28, ptr %29, align 8, !tbaa !92
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr null, ptr %30, align 8, !tbaa !81
+  store ptr null, ptr %30, align 8, !tbaa !80
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store float 0.000000e+00, ptr %31, align 4, !tbaa !57
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -1607,7 +1577,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
 
 33:                                               ; preds = %14
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !79
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %36 = load float, ptr %35, align 4, !tbaa !59
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1632,7 +1602,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %53, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %1, align 8
   %.sroa.6208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.6208.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.6208.0..sroa_idx, align 8, !tbaa !80
   %54 = getelementptr inbounds nuw i8, ptr %22, i64 372
   %55 = load float, ptr %54, align 4, !tbaa !59
   %56 = getelementptr inbounds nuw i8, ptr %22, i64 376
@@ -1675,7 +1645,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store <2 x float> %.sroa.0.4.vec.insert.i112, ptr %90, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store <2 x float> %.sroa.3.12.vec.insert.i113, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i113, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !80
   br label %93
 
 91:                                               ; preds = %14
@@ -1706,7 +1676,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store <2 x float> %.sroa.0.4.vec.insert.i117, ptr %106, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store <2 x float> %.sroa.3.12.vec.insert.i118, ptr %.sroa.416.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i118, ptr %.sroa.416.0..sroa_idx, align 8, !tbaa !80
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %108 = load float, ptr %107, align 4, !tbaa !59
   %109 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1724,7 +1694,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store <2 x float> %.sroa.0.4.vec.insert.i122, ptr %118, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store <2 x float> %.sroa.3.12.vec.insert.i123, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i123, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !80
   %119 = getelementptr inbounds nuw i8, ptr %24, i64 372
   %120 = load float, ptr %119, align 4, !tbaa !59
   %121 = getelementptr inbounds nuw i8, ptr %24, i64 376
@@ -1767,7 +1737,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store <2 x float> %.sroa.0.4.vec.insert.i132, ptr %155, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store <2 x float> %.sroa.3.12.vec.insert.i133, ptr %.sroa.414.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i133, ptr %.sroa.414.0..sroa_idx, align 8, !tbaa !80
   br label %159
 
 156:                                              ; preds = %93
@@ -1805,7 +1775,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %182 = fmul float %96, %181
   %183 = tail call float @llvm.fmuladd.f32(float %94, float %173, float %182)
   %184 = getelementptr inbounds nuw i8, ptr %22, i64 452
-  %185 = load float, ptr %184, align 4, !tbaa !82
+  %185 = load float, ptr %184, align 4, !tbaa !81
   %186 = load float, ptr %2, align 4, !tbaa !59
   %187 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %188 = load float, ptr %187, align 4, !tbaa !59
@@ -1837,7 +1807,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %209 = fmul float %167, %206
   %210 = tail call float @llvm.fmuladd.f32(float %197, float %203, float %209)
   %211 = getelementptr inbounds nuw i8, ptr %24, i64 452
-  %212 = load float, ptr %211, align 4, !tbaa !82
+  %212 = load float, ptr %211, align 4, !tbaa !81
   %213 = load float, ptr %2, align 4, !tbaa !59
   %214 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %215 = load float, ptr %214, align 4, !tbaa !59
@@ -1937,7 +1907,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %.sroa.5169.0 = phi float [ %.sroa.5169.0.copyload, %252 ], [ 0.000000e+00, %.thread ]
   %.sroa.0168.0 = phi float [ %.sroa.0168.0.copyload, %252 ], [ 0.000000e+00, %.thread ]
   %269 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %270 = load i32, ptr %269, align 8, !tbaa !94
+  %270 = load i32, ptr %269, align 8, !tbaa !93
   %271 = and i32 %270, 16
   %.not105 = icmp eq i32 %271, 0
   br i1 %.not105, label %304, label %272
@@ -1968,10 +1938,10 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionCo
   %295 = tail call noundef float @llvm.fmuladd.f32(float %287, float %294, float %292)
   %296 = fneg float %295
   %297 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %298 = load float, ptr %297, align 4, !tbaa !95
+  %298 = load float, ptr %297, align 4, !tbaa !94
   %299 = fmul float %298, %296
   %300 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %301 = load float, ptr %300, align 4, !tbaa !97
+  %301 = load float, ptr %300, align 4, !tbaa !96
   %302 = fdiv float %299, %301
   %303 = fmul float %224, %302
   br label %304
@@ -2059,47 +2029,44 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i: ; preds = %
   %33 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %34 = load ptr, ptr %31, align 8, !tbaa !36
   %35 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %34, i64 %indvars.iv.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %33, ptr noundef nonnull align 8 dereferenceable(160) %35, i64 160, i1 false), !tbaa.struct !98
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %33, ptr noundef nonnull align 8 dereferenceable(160) %35, i64 160, i1 false), !tbaa.struct !97
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i, label %32, !llvm.loop !99
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i, label %32, !llvm.loop !98
 
 _ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i: ; preds = %32, %_ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %37 = load ptr, ptr %36, align 8, !tbaa !36
-  %.not.i5.i.i = icmp eq ptr %37, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i, label %38
+  %.not.i5.i.i = icmp ne ptr %37, null
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %39 = load i8, ptr %38, align 8, !range !71
+  %40 = trunc nuw i8 %39 to i1
+  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %40, i1 false
+  br i1 %or.cond.i.i, label %41, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
 
-38:                                               ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %40 = load i8, ptr %39, align 8, !tbaa !35, !range !71, !noundef !72
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %42, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
-
-42:                                               ; preds = %38
+41:                                               ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %37)
   br label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds = %42, %38, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i8 1, ptr %43, align 8, !tbaa !35
+_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds = %41, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
+  store i8 1, ptr %38, align 8, !tbaa !35
   store ptr %.0.i.i.i, ptr %36, align 8, !tbaa !36
   store i32 %22, ptr %17, align 8, !tbaa !38
   %.pre2.i = load i32, ptr %15, align 4, !tbaa !37
   br label %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit
 
 _ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit: ; preds = %14, %20, %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
-  %44 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i ], [ %16, %20 ], [ %16, %14 ]
-  %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %15, align 4, !tbaa !37
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %47 = load ptr, ptr %46, align 8, !tbaa !36
-  %48 = sext i32 %16 to i64
-  %49 = getelementptr inbounds %struct.btSolverConstraint, ptr %47, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 148
-  store i32 %4, ptr %50, align 4, !tbaa !101
-  tail call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %49, ptr noundef nonnull align 4 dereferenceable(16) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(204) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr poison, ptr poison, float noundef %10, ptr noundef nonnull align 4 dereferenceable(128) %11, float noundef %12, float noundef %13)
-  ret ptr %49
+  %42 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i ], [ %16, %20 ], [ %16, %14 ]
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %15, align 4, !tbaa !37
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %45 = load ptr, ptr %44, align 8, !tbaa !36
+  %46 = sext i32 %16 to i64
+  %47 = getelementptr inbounds %struct.btSolverConstraint, ptr %45, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 148
+  store i32 %4, ptr %48, align 4, !tbaa !100
+  tail call void @_ZN35btSequentialImpulseConstraintSolver23setupFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointS4_S4_P17btCollisionObjectS8_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %47, ptr noundef nonnull align 4 dereferenceable(16) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(204) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr poison, ptr poison, float noundef %10, ptr noundef nonnull align 4 dereferenceable(128) %11, float noundef %12, float noundef %13)
+  ret ptr %47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -2109,7 +2076,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalF
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store <2 x float> splat (float -0.000000e+00), ptr %16, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store <2 x float> <float -0.000000e+00, float 0.000000e+00>, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> <float -0.000000e+00, float 0.000000e+00>, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !80
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !32
   %19 = sext i32 %3 to i64
@@ -2121,13 +2088,13 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalF
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 240
   %26 = load ptr, ptr %25, align 8, !tbaa !63
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  store i32 %3, ptr %27, align 8, !tbaa !89
+  store i32 %3, ptr %27, align 8, !tbaa !88
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 156
-  store i32 %4, ptr %28, align 4, !tbaa !90
+  store i32 %4, ptr %28, align 4, !tbaa !89
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store float %6, ptr %29, align 8, !tbaa !93
+  store float %6, ptr %29, align 8, !tbaa !92
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr null, ptr %30, align 8, !tbaa !81
+  store ptr null, ptr %30, align 8, !tbaa !80
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store float 0.000000e+00, ptr %31, align 4, !tbaa !57
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2145,7 +2112,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalF
   %.sroa.3.12.vec.insert.i72 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %40, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i71, ptr %1, align 8
   %.sroa.6181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i72, ptr %.sroa.6181.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i72, ptr %.sroa.6181.0..sroa_idx, align 8, !tbaa !80
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %78, label %41
 
@@ -2197,12 +2164,12 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalF
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store <2 x float> %.sroa.0178.0, ptr %79, align 8
   %.sroa.6179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store <2 x float> %.sroa.6179.0, ptr %.sroa.6179.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.6179.0, ptr %.sroa.6179.0..sroa_idx, align 8, !tbaa !80
   %.sroa.0162.0.copyload = load float, ptr %2, align 4
   %.sroa.5164.0.copyload = load float, ptr %35, align 4
   %.sroa.6167.0.copyload = load float, ptr %38, align 4
   %.sroa.7170.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.sroa.7170.0.copyload = load float, ptr %.sroa.7170.0..sroa_idx, align 4, !tbaa !81
+  %.sroa.7170.0.copyload = load float, ptr %.sroa.7170.0..sroa_idx, align 4, !tbaa !80
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store float %.sroa.0162.0.copyload, ptr %80, align 8
   %.sroa.5164.0..sroa_idx165 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -2210,7 +2177,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalF
   %.sroa.6167.0..sroa_idx168 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store float %.sroa.6167.0.copyload, ptr %.sroa.6167.0..sroa_idx168, align 8
   %.sroa.7170.0..sroa_idx171 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  store float %.sroa.7170.0.copyload, ptr %.sroa.7170.0..sroa_idx171, align 4, !tbaa !81
+  store float %.sroa.7170.0.copyload, ptr %.sroa.7170.0..sroa_idx171, align 4, !tbaa !80
   %.not69 = icmp eq ptr %26, null
   br i1 %.not69, label %118, label %81
 
@@ -2262,7 +2229,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalF
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store <2 x float> %.sroa.0161.0, ptr %119, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store <2 x float> %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !80
   br i1 %.not, label %148, label %120
 
 120:                                              ; preds = %118
@@ -2497,47 +2464,44 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i: ; preds = %
   %33 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %34 = load ptr, ptr %31, align 8, !tbaa !36
   %35 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %34, i64 %indvars.iv.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %33, ptr noundef nonnull align 8 dereferenceable(160) %35, i64 160, i1 false), !tbaa.struct !98
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %33, ptr noundef nonnull align 8 dereferenceable(160) %35, i64 160, i1 false), !tbaa.struct !97
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i, label %32, !llvm.loop !99
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i, label %32, !llvm.loop !98
 
 _ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i: ; preds = %32, %_ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %37 = load ptr, ptr %36, align 8, !tbaa !36
-  %.not.i5.i.i = icmp eq ptr %37, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i, label %38
+  %.not.i5.i.i = icmp ne ptr %37, null
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %39 = load i8, ptr %38, align 8, !range !71
+  %40 = trunc nuw i8 %39 to i1
+  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %40, i1 false
+  br i1 %or.cond.i.i, label %41, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
 
-38:                                               ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %40 = load i8, ptr %39, align 8, !tbaa !35, !range !71, !noundef !72
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %42, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
-
-42:                                               ; preds = %38
+41:                                               ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %37)
   br label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds = %42, %38, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i8 1, ptr %43, align 8, !tbaa !35
+_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds = %41, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
+  store i8 1, ptr %38, align 8, !tbaa !35
   store ptr %.0.i.i.i, ptr %36, align 8, !tbaa !36
   store i32 %22, ptr %17, align 8, !tbaa !38
   %.pre2.i = load i32, ptr %15, align 4, !tbaa !37
   br label %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit
 
 _ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit: ; preds = %14, %20, %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
-  %44 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i ], [ %16, %20 ], [ %16, %14 ]
-  %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %15, align 4, !tbaa !37
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %47 = load ptr, ptr %46, align 8, !tbaa !36
-  %48 = sext i32 %16 to i64
-  %49 = getelementptr inbounds %struct.btSolverConstraint, ptr %47, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 148
-  store i32 %4, ptr %50, align 4, !tbaa !101
-  tail call void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointfS4_S4_P17btCollisionObjectS8_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %49, ptr noundef nonnull align 4 dereferenceable(16) %1, i32 noundef %2, i32 noundef %3, ptr nonnull align 8 poison, float noundef %6, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr poison, ptr poison, float poison, float noundef %12, float noundef %13)
-  ret ptr %49
+  %42 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i ], [ %16, %20 ], [ %16, %14 ]
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %15, align 4, !tbaa !37
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %45 = load ptr, ptr %44, align 8, !tbaa !36
+  %46 = sext i32 %16 to i64
+  %47 = getelementptr inbounds %struct.btSolverConstraint, ptr %45, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 148
+  store i32 %4, ptr %48, align 4, !tbaa !100
+  tail call void @_ZN35btSequentialImpulseConstraintSolver32setupTorsionalFrictionConstraintER18btSolverConstraintRK9btVector3iiR15btManifoldPointfS4_S4_P17btCollisionObjectS8_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %47, ptr noundef nonnull align 4 dereferenceable(16) %1, i32 noundef %2, i32 noundef %3, ptr nonnull align 8 poison, float noundef %6, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr poison, ptr poison, float poison, float noundef %12, float noundef %13)
+  ret ptr %47
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2545,29 +2509,29 @@ define dso_local noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrIni
   %4 = alloca %struct.btSolverBody, align 8
   %5 = alloca %struct.btSolverBody, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %7 = load i32, ptr %6, align 8, !tbaa !102
+  %7 = load i32, ptr %6, align 8, !tbaa !101
   %8 = icmp sgt i32 %7, -1
-  br i1 %8, label %152, label %9
+  br i1 %8, label %148, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %11 = load i32, ptr %10, align 8, !tbaa !73
+  %11 = load i32, ptr %10, align 8, !tbaa !72
   %12 = and i32 %11, 2
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %59, label %13
+  br i1 %.not.i, label %57, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 452
-  %15 = load float, ptr %14, align 4, !tbaa !82
+  %15 = load float, ptr %14, align 4, !tbaa !81
   %16 = fcmp une float %15, 0.000000e+00
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %19 = load i32, ptr %18, align 8, !tbaa !103
+  %19 = load i32, ptr %18, align 8, !tbaa !102
   %20 = and i32 %19, 2
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %59, label %21
+  br i1 %.not, label %57, label %21
 
 21:                                               ; preds = %17, %13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2577,14 +2541,14 @@ define dso_local noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrIni
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i32, ptr %24, align 8, !tbaa !34
   %26 = icmp eq i32 %23, %25
-  br i1 %26, label %27, label %135
+  br i1 %26, label %27, label %131
 
 27:                                               ; preds = %21
   %.not.i.i = icmp eq i32 %23, 0
   %28 = shl nsw i32 %23, 1
   %29 = select i1 %.not.i.i, i32 1, i32 %28
   %30 = icmp slt i32 %23, %29
-  br i1 %30, label %31, label %135
+  br i1 %30, label %31, label %131
 
 31:                                               ; preds = %27
   %.not.i.i.i = icmp eq i32 %29, 0
@@ -2613,233 +2577,227 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i.i: ; preds = %32, %3
   %40 = getelementptr inbounds nuw %struct.btSolverBody, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %41 = load ptr, ptr %38, align 8, !tbaa !32
   %42 = getelementptr inbounds nuw %struct.btSolverBody, ptr %41, i64 %indvars.iv.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %40, ptr noundef nonnull align 8 dereferenceable(248) %42, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %40, ptr noundef nonnull align 8 dereferenceable(248) %42, i64 16, i1 false), !tbaa.struct !79
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !79
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !79
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !79
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %50 = getelementptr inbounds nuw i8, ptr %42, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %49, ptr noundef nonnull align 8 dereferenceable(184) %50, i64 184, i1 false)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i, label %39, !llvm.loop !104
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i, label %39, !llvm.loop !103
 
 _ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i: ; preds = %39, %_ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i.i
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !32
-  %.not.i5.i.i = icmp eq ptr %52, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i, label %53
+  %.not.i5.i.i = icmp ne ptr %52, null
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %54 = load i8, ptr %53, align 8, !range !71
+  %55 = trunc nuw i8 %54 to i1
+  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %55, i1 false
+  br i1 %or.cond.i.i, label %56, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i
 
-53:                                               ; preds = %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %55 = load i8, ptr %54, align 8, !tbaa !31, !range !71, !noundef !72
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %57, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i
-
-57:                                               ; preds = %53
+56:                                               ; preds = %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %52)
   br label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %57, %53, %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %58, align 8, !tbaa !31
+_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %56, %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
+  store i8 1, ptr %53, align 8, !tbaa !31
   store ptr %.0.i.i.i, ptr %51, align 8, !tbaa !32
   store i32 %29, ptr %24, align 8, !tbaa !34
   %.pre6.i = load i32, ptr %22, align 4, !tbaa !33
-  br label %135
+  br label %131
 
-59:                                               ; preds = %17, %9
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %61 = load i32, ptr %60, align 4, !tbaa !105
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %63, label %152
+57:                                               ; preds = %17, %9
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 300
+  %59 = load i32, ptr %58, align 4, !tbaa !104
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %61, label %148
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %65 = load i32, ptr %64, align 4, !tbaa !33
-  store i32 %65, ptr %60, align 4, !tbaa !105
+61:                                               ; preds = %57
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %63 = load i32, ptr %62, align 4, !tbaa !33
+  store i32 %63, ptr %58, align 4, !tbaa !104
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %5, i8 0, i64 248, i1 false)
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %67 = load i32, ptr %66, align 8, !tbaa !34
-  %68 = icmp eq i32 %65, %67
-  br i1 %68, label %69, label %_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit34
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %65 = load i32, ptr %64, align 8, !tbaa !34
+  %66 = icmp eq i32 %63, %65
+  br i1 %66, label %67, label %_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit35
 
-69:                                               ; preds = %63
-  %.not.i.i20 = icmp eq i32 %65, 0
-  %70 = shl nsw i32 %65, 1
-  %71 = select i1 %.not.i.i20, i32 1, i32 %70
-  %72 = icmp slt i32 %65, %71
-  br i1 %72, label %73, label %_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit34
+67:                                               ; preds = %61
+  %.not.i.i20 = icmp eq i32 %63, 0
+  %68 = shl nsw i32 %63, 1
+  %69 = select i1 %.not.i.i20, i32 1, i32 %68
+  %70 = icmp slt i32 %63, %69
+  br i1 %70, label %71, label %_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit35
 
-73:                                               ; preds = %69
-  %.not.i.i.i21 = icmp eq i32 %71, 0
-  br i1 %.not.i.i.i21, label %_ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i.i23, label %74
+71:                                               ; preds = %67
+  %.not.i.i.i21 = icmp eq i32 %69, 0
+  br i1 %.not.i.i.i21, label %_ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i.i23, label %72
 
-74:                                               ; preds = %73
-  %75 = sext i32 %71 to i64
-  %76 = mul nsw i64 %75, 248
-  %77 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %76, i32 noundef 16)
-  %.pre.i22 = load i32, ptr %64, align 4, !tbaa !33
+72:                                               ; preds = %71
+  %73 = sext i32 %69 to i64
+  %74 = mul nsw i64 %73, 248
+  %75 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %74, i32 noundef 16)
+  %.pre.i22 = load i32, ptr %62, align 4, !tbaa !33
   br label %_ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i.i23
 
-_ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i.i23: ; preds = %74, %73
-  %78 = phi i32 [ %.pre.i22, %74 ], [ %65, %73 ]
-  %.0.i.i.i24 = phi ptr [ %77, %74 ], [ null, %73 ]
-  %79 = icmp sgt i32 %78, 0
-  br i1 %79, label %.lr.ph.i.i.i29, label %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i25
+_ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i.i23: ; preds = %72, %71
+  %76 = phi i32 [ %.pre.i22, %72 ], [ %63, %71 ]
+  %.0.i.i.i24 = phi ptr [ %75, %72 ], [ null, %71 ]
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %.lr.ph.i.i.i30, label %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i25
 
-.lr.ph.i.i.i29:                                   ; preds = %_ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i.i23
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count.i.i.i30 = zext nneg i32 %78 to i64
-  br label %81
+.lr.ph.i.i.i30:                                   ; preds = %_ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i.i23
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %wide.trip.count.i.i.i31 = zext nneg i32 %76 to i64
+  br label %79
 
-81:                                               ; preds = %81, %.lr.ph.i.i.i29
-  %indvars.iv.i.i.i31 = phi i64 [ 0, %.lr.ph.i.i.i29 ], [ %indvars.iv.next.i.i.i32, %81 ]
-  %82 = getelementptr inbounds nuw %struct.btSolverBody, ptr %.0.i.i.i24, i64 %indvars.iv.i.i.i31
-  %83 = load ptr, ptr %80, align 8, !tbaa !32
-  %84 = getelementptr inbounds nuw %struct.btSolverBody, ptr %83, i64 %indvars.iv.i.i.i31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %82, ptr noundef nonnull align 8 dereferenceable(248) %84, i64 16, i1 false), !tbaa.struct !80
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false), !tbaa.struct !80
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %88 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %87, i64 16, i1 false), !tbaa.struct !80
-  %89 = getelementptr inbounds nuw i8, ptr %82, i64 48
-  %90 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !80
-  %91 = getelementptr inbounds nuw i8, ptr %82, i64 64
-  %92 = getelementptr inbounds nuw i8, ptr %84, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %91, ptr noundef nonnull align 8 dereferenceable(184) %92, i64 184, i1 false)
-  %indvars.iv.next.i.i.i32 = add nuw nsw i64 %indvars.iv.i.i.i31, 1
-  %exitcond.not.i.i.i33 = icmp eq i64 %indvars.iv.next.i.i.i32, %wide.trip.count.i.i.i30
-  br i1 %exitcond.not.i.i.i33, label %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i25, label %81, !llvm.loop !104
+79:                                               ; preds = %79, %.lr.ph.i.i.i30
+  %indvars.iv.i.i.i32 = phi i64 [ 0, %.lr.ph.i.i.i30 ], [ %indvars.iv.next.i.i.i33, %79 ]
+  %80 = getelementptr inbounds nuw %struct.btSolverBody, ptr %.0.i.i.i24, i64 %indvars.iv.i.i.i32
+  %81 = load ptr, ptr %78, align 8, !tbaa !32
+  %82 = getelementptr inbounds nuw %struct.btSolverBody, ptr %81, i64 %indvars.iv.i.i.i32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %80, ptr noundef nonnull align 8 dereferenceable(248) %82, i64 16, i1 false), !tbaa.struct !79
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %83, i64 16, i1 false), !tbaa.struct !79
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false), !tbaa.struct !79
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false), !tbaa.struct !79
+  %89 = getelementptr inbounds nuw i8, ptr %80, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %82, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %89, ptr noundef nonnull align 8 dereferenceable(184) %90, i64 184, i1 false)
+  %indvars.iv.next.i.i.i33 = add nuw nsw i64 %indvars.iv.i.i.i32, 1
+  %exitcond.not.i.i.i34 = icmp eq i64 %indvars.iv.next.i.i.i33, %wide.trip.count.i.i.i31
+  br i1 %exitcond.not.i.i.i34, label %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i25, label %79, !llvm.loop !103
 
-_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i25: ; preds = %81, %_ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i.i23
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %94 = load ptr, ptr %93, align 8, !tbaa !32
-  %.not.i5.i.i26 = icmp eq ptr %94, null
-  br i1 %.not.i5.i.i26, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i27, label %95
+_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i25: ; preds = %79, %_ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i.i23
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %92 = load ptr, ptr %91, align 8, !tbaa !32
+  %.not.i5.i.i26 = icmp ne ptr %92, null
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %94 = load i8, ptr %93, align 8, !range !71
+  %95 = trunc nuw i8 %94 to i1
+  %or.cond.i.i27 = select i1 %.not.i5.i.i26, i1 %95, i1 false
+  br i1 %or.cond.i.i27, label %96, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i28
 
-95:                                               ; preds = %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i25
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %97 = load i8, ptr %96, align 8, !tbaa !31, !range !71, !noundef !72
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i27
+96:                                               ; preds = %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i25
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %92)
+  br label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i28
 
-99:                                               ; preds = %95
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %94)
-  br label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i27
+_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i28: ; preds = %96, %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i25
+  store i8 1, ptr %93, align 8, !tbaa !31
+  store ptr %.0.i.i.i24, ptr %91, align 8, !tbaa !32
+  store i32 %69, ptr %64, align 8, !tbaa !34
+  %.pre6.i29 = load i32, ptr %62, align 4, !tbaa !33
+  br label %_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit35
 
-_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i27: ; preds = %99, %95, %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i25
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %100, align 8, !tbaa !31
-  store ptr %.0.i.i.i24, ptr %93, align 8, !tbaa !32
-  store i32 %71, ptr %66, align 8, !tbaa !34
-  %.pre6.i28 = load i32, ptr %64, align 4, !tbaa !33
-  br label %_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit34
-
-_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit34: ; preds = %63, %69, %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i27
-  %101 = phi i32 [ %65, %63 ], [ %65, %69 ], [ %.pre6.i28, %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i27 ]
-  %102 = add nsw i32 %101, 1
-  store i32 %102, ptr %64, align 4, !tbaa !33
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %104 = load ptr, ptr %103, align 8, !tbaa !32
-  %105 = sext i32 %65 to i64
-  %106 = getelementptr inbounds %struct.btSolverBody, ptr %104, i64 %105
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, i8 0, i64 16, i1 false)
-  %107 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %108 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(16) %107, i64 16, i1 false), !tbaa.struct !80
-  %109 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %110 = getelementptr inbounds nuw i8, ptr %106, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %109, i64 16, i1 false), !tbaa.struct !80
-  %111 = getelementptr inbounds nuw i8, ptr %106, i64 48
-  %112 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %112, i64 16, i1 false), !tbaa.struct !80
-  %113 = getelementptr inbounds nuw i8, ptr %106, i64 64
-  %114 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %113, ptr noundef nonnull align 8 dereferenceable(184) %114, i64 184, i1 false)
-  %115 = load ptr, ptr %103, align 8, !tbaa !32
-  %116 = getelementptr inbounds %struct.btSolverBody, ptr %115, i64 %105
+_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit35: ; preds = %61, %67, %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i28
+  %97 = phi i32 [ %63, %61 ], [ %63, %67 ], [ %.pre6.i29, %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i28 ]
+  %98 = add nsw i32 %97, 1
+  store i32 %98, ptr %62, align 4, !tbaa !33
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %100 = load ptr, ptr %99, align 8, !tbaa !32
+  %101 = sext i32 %63 to i64
+  %102 = getelementptr inbounds %struct.btSolverBody, ptr %100, i64 %101
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false), !tbaa.struct !79
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %105, i64 16, i1 false), !tbaa.struct !79
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !79
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 64
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %109, ptr noundef nonnull align 8 dereferenceable(184) %110, i64 184, i1 false)
+  %111 = load ptr, ptr %99, align 8, !tbaa !32
+  %112 = getelementptr inbounds %struct.btSolverBody, ptr %111, i64 %101
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %5)
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 64
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %117, i8 0, i64 32, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %118, i8 0, i64 32, i1 false)
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %113, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %114, i8 0, i64 32, i1 false)
+  store float 1.000000e+00, ptr %112, align 4, !tbaa !59
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %115, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %116, align 4, !tbaa !59
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 4
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %119, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %120, align 4, !tbaa !59
-  %121 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %122 = getelementptr inbounds nuw i8, ptr %116, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %121, i8 0, i64 16, i1 false)
+  %117 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %117, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %118, align 4, !tbaa !59
+  %119 = getelementptr inbounds nuw i8, ptr %112, i64 44
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %119, i8 0, i64 20, i1 false)
+  %120 = getelementptr inbounds nuw i8, ptr %112, i64 128
+  %121 = getelementptr inbounds nuw i8, ptr %112, i64 240
+  store ptr null, ptr %121, align 8, !tbaa !63
+  %122 = getelementptr inbounds nuw i8, ptr %112, i64 96
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %120, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %122, align 4, !tbaa !59
-  %123 = getelementptr inbounds nuw i8, ptr %116, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %123, i8 0, i64 20, i1 false)
-  %124 = getelementptr inbounds nuw i8, ptr %116, i64 128
-  %125 = getelementptr inbounds nuw i8, ptr %116, i64 240
-  store ptr null, ptr %125, align 8, !tbaa !63
-  %126 = getelementptr inbounds nuw i8, ptr %116, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
+  %123 = getelementptr inbounds nuw i8, ptr %112, i64 100
+  store float 1.000000e+00, ptr %123, align 4, !tbaa !59
+  %124 = getelementptr inbounds nuw i8, ptr %112, i64 104
+  store float 1.000000e+00, ptr %124, align 4, !tbaa !59
+  %125 = getelementptr inbounds nuw i8, ptr %112, i64 108
+  store float 0.000000e+00, ptr %125, align 4, !tbaa !59
+  %126 = getelementptr inbounds nuw i8, ptr %112, i64 112
   store float 1.000000e+00, ptr %126, align 4, !tbaa !59
-  %127 = getelementptr inbounds nuw i8, ptr %116, i64 100
+  %127 = getelementptr inbounds nuw i8, ptr %112, i64 116
   store float 1.000000e+00, ptr %127, align 4, !tbaa !59
-  %128 = getelementptr inbounds nuw i8, ptr %116, i64 104
+  %128 = getelementptr inbounds nuw i8, ptr %112, i64 120
   store float 1.000000e+00, ptr %128, align 4, !tbaa !59
-  %129 = getelementptr inbounds nuw i8, ptr %116, i64 108
+  %129 = getelementptr inbounds nuw i8, ptr %112, i64 124
   store float 0.000000e+00, ptr %129, align 4, !tbaa !59
-  %130 = getelementptr inbounds nuw i8, ptr %116, i64 112
-  store float 1.000000e+00, ptr %130, align 4, !tbaa !59
-  %131 = getelementptr inbounds nuw i8, ptr %116, i64 116
-  store float 1.000000e+00, ptr %131, align 4, !tbaa !59
-  %132 = getelementptr inbounds nuw i8, ptr %116, i64 120
-  store float 1.000000e+00, ptr %132, align 4, !tbaa !59
-  %133 = getelementptr inbounds nuw i8, ptr %116, i64 124
-  store float 0.000000e+00, ptr %133, align 4, !tbaa !59
-  %134 = getelementptr inbounds nuw i8, ptr %116, i64 176
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %134, i8 0, i64 64, i1 false)
-  %.pre = load i32, ptr %60, align 4, !tbaa !105
-  br label %152
+  %130 = getelementptr inbounds nuw i8, ptr %112, i64 176
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %130, i8 0, i64 64, i1 false)
+  %.pre = load i32, ptr %58, align 4, !tbaa !104
+  br label %148
 
-135:                                              ; preds = %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i, %27, %21
-  %136 = phi i32 [ %23, %21 ], [ %23, %27 ], [ %.pre6.i, %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i ]
-  %137 = add nsw i32 %136, 1
-  store i32 %137, ptr %22, align 4, !tbaa !33
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %139 = load ptr, ptr %138, align 8, !tbaa !32
-  %140 = sext i32 %23 to i64
-  %141 = getelementptr inbounds %struct.btSolverBody, ptr %139, i64 %140
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, i8 0, i64 16, i1 false)
-  %142 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %143 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(16) %142, i64 16, i1 false), !tbaa.struct !80
-  %144 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %145 = getelementptr inbounds nuw i8, ptr %141, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull align 8 dereferenceable(16) %144, i64 16, i1 false), !tbaa.struct !80
-  %146 = getelementptr inbounds nuw i8, ptr %141, i64 48
-  %147 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef nonnull align 8 dereferenceable(16) %147, i64 16, i1 false), !tbaa.struct !80
-  %148 = getelementptr inbounds nuw i8, ptr %141, i64 64
-  %149 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %148, ptr noundef nonnull align 8 dereferenceable(184) %149, i64 184, i1 false)
-  %150 = load ptr, ptr %138, align 8, !tbaa !32
-  %151 = getelementptr inbounds %struct.btSolverBody, ptr %150, i64 %140
+131:                                              ; preds = %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i, %27, %21
+  %132 = phi i32 [ %23, %21 ], [ %23, %27 ], [ %.pre6.i, %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i ]
+  %133 = add nsw i32 %132, 1
+  store i32 %133, ptr %22, align 4, !tbaa !33
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %135 = load ptr, ptr %134, align 8, !tbaa !32
+  %136 = sext i32 %23 to i64
+  %137 = getelementptr inbounds %struct.btSolverBody, ptr %135, i64 %136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, i8 0, i64 16, i1 false)
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 8 dereferenceable(16) %138, i64 16, i1 false), !tbaa.struct !79
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %141, ptr noundef nonnull align 8 dereferenceable(16) %140, i64 16, i1 false), !tbaa.struct !79
+  %142 = getelementptr inbounds nuw i8, ptr %137, i64 48
+  %143 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, ptr noundef nonnull align 8 dereferenceable(16) %143, i64 16, i1 false), !tbaa.struct !79
+  %144 = getelementptr inbounds nuw i8, ptr %137, i64 64
+  %145 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %144, ptr noundef nonnull align 8 dereferenceable(184) %145, i64 184, i1 false)
+  %146 = load ptr, ptr %134, align 8, !tbaa !32
+  %147 = getelementptr inbounds %struct.btSolverBody, ptr %146, i64 %136
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %4)
-  tail call void @_ZN35btSequentialImpulseConstraintSolver14initSolverBodyEP12btSolverBodyP17btCollisionObjectf(ptr nonnull align 8 poison, ptr noundef nonnull %151, ptr noundef nonnull %1, float noundef %2)
-  store i32 %23, ptr %6, align 8, !tbaa !102
-  br label %152
+  tail call void @_ZN35btSequentialImpulseConstraintSolver14initSolverBodyEP12btSolverBodyP17btCollisionObjectf(ptr nonnull align 8 poison, ptr noundef nonnull %147, ptr noundef nonnull %1, float noundef %2)
+  store i32 %23, ptr %6, align 8, !tbaa !101
+  br label %148
 
-152:                                              ; preds = %_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit34, %59, %135, %3
-  %.1 = phi i32 [ %7, %3 ], [ %23, %135 ], [ %61, %59 ], [ %.pre, %_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit34 ]
+148:                                              ; preds = %_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit35, %57, %131, %3
+  %.1 = phi i32 [ %7, %3 ], [ %23, %131 ], [ %59, %57 ], [ %.pre, %_ZN20btAlignedObjectArrayI12btSolverBodyE6expandERKS0_.exit35 ]
   ret i32 %.1
 }
 
@@ -2859,17 +2817,17 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver22setupContactCon
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 240
   %19 = load ptr, ptr %18, align 8, !tbaa !63
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %21 = load float, ptr %20, align 4, !tbaa !106
+  %21 = load float, ptr %20, align 4, !tbaa !105
   store float %21, ptr %6, align 4, !tbaa !59
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %23 = load float, ptr %22, align 4, !tbaa !97
+  %23 = load float, ptr %22, align 4, !tbaa !96
   %24 = fdiv float 1.000000e+00, %23
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  %26 = load float, ptr %25, align 4, !tbaa !107
+  %26 = load float, ptr %25, align 4, !tbaa !106
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %28 = load float, ptr %27, align 4, !tbaa !108
+  %28 = load float, ptr %27, align 4, !tbaa !107
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %30 = load i32, ptr %29, align 8, !tbaa !94
+  %30 = load i32, ptr %29, align 8, !tbaa !93
   %31 = and i32 %30, 6
   %or.cond = icmp eq i32 %31, 0
   br i1 %or.cond, label %40, label %32
@@ -2886,7 +2844,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver22setupContactCon
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  %39 = load float, ptr %38, align 8, !tbaa !81
+  %39 = load float, ptr %38, align 8, !tbaa !80
   br label %52
 
 40:                                               ; preds = %9
@@ -2896,9 +2854,9 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver22setupContactCon
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 156
-  %44 = load float, ptr %43, align 4, !tbaa !81
+  %44 = load float, ptr %43, align 4, !tbaa !80
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 160
-  %46 = load float, ptr %45, align 8, !tbaa !81
+  %46 = load float, ptr %45, align 8, !tbaa !80
   %47 = tail call float @llvm.fmuladd.f32(float %23, float %44, float %46)
   %48 = fcmp olt float %47, 0x3E80000000000000
   %.0155 = select i1 %48, float 0x3E80000000000000, float %47
@@ -2985,7 +2943,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver22setupContactCon
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store <2 x float> %.sroa.0375.0, ptr %112, align 8
   %.sroa.6376.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store <2 x float> %.sroa.6376.0, ptr %.sroa.6376.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.6376.0, ptr %.sroa.6376.0..sroa_idx, align 8, !tbaa !80
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %114 = load float, ptr %113, align 4, !tbaa !59
   %115 = load float, ptr %57, align 8, !tbaa !59
@@ -3060,7 +3018,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver22setupContactCon
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store <2 x float> %.sroa.0360.0, ptr %174, align 8
   %.sroa.6361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store <2 x float> %.sroa.6361.0, ptr %.sroa.6361.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.6361.0, ptr %.sroa.6361.0..sroa_idx, align 8, !tbaa !80
   %175 = extractelement <2 x float> %.sroa.0360.0, i64 0
   %176 = extractelement <2 x float> %.sroa.0360.0, i64 1
   %177 = extractelement <2 x float> %.sroa.6361.0, i64 0
@@ -3080,7 +3038,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver22setupContactCon
   %189 = fmul float %130, %188
   %190 = tail call float @llvm.fmuladd.f32(float %132, float %180, float %189)
   %191 = getelementptr inbounds nuw i8, ptr %17, i64 452
-  %192 = load float, ptr %191, align 4, !tbaa !82
+  %192 = load float, ptr %191, align 4, !tbaa !81
   %193 = load float, ptr %54, align 8, !tbaa !59
   %194 = load float, ptr %61, align 4, !tbaa !59
   %195 = fmul float %187, %194
@@ -3108,7 +3066,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver22setupContactCon
   %212 = fmul float %176, %209
   %213 = tail call float @llvm.fmuladd.f32(float %202, float %206, float %212)
   %214 = getelementptr inbounds nuw i8, ptr %19, i64 452
-  %215 = load float, ptr %214, align 4, !tbaa !82
+  %215 = load float, ptr %214, align 4, !tbaa !81
   %216 = load float, ptr %54, align 8, !tbaa !59
   %217 = load float, ptr %61, align 4, !tbaa !59
   %218 = fmul float %211, %217
@@ -3130,10 +3088,10 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver22setupContactCon
 
 229:                                              ; preds = %223
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %230, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %230, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !79
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %1, align 8
   %.sroa.6378.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.6378.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.6378.0..sroa_idx, align 8, !tbaa !80
   br label %232
 
 231:                                              ; preds = %223
@@ -3156,7 +3114,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver22setupContactCon
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store <2 x float> %.sroa.0.4.vec.insert.i229, ptr %240, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store <2 x float> %.sroa.3.12.vec.insert.i230, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i230, ptr %.sroa.418.0..sroa_idx, align 8, !tbaa !80
   %241 = fneg float %121
   %242 = fneg float %126
   %243 = fneg float %129
@@ -3166,7 +3124,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver22setupContactCon
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store <2 x float> %.sroa.0.4.vec.insert.i234, ptr %244, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store <2 x float> %.sroa.3.12.vec.insert.i235, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i235, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !80
   br label %247
 
 245:                                              ; preds = %232
@@ -3176,9 +3134,9 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver22setupContactCon
 
 247:                                              ; preds = %245, %233
   %248 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %249 = load float, ptr %248, align 8, !tbaa !109
+  %249 = load float, ptr %248, align 8, !tbaa !108
   %250 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  %251 = load float, ptr %250, align 4, !tbaa !110
+  %251 = load float, ptr %250, align 4, !tbaa !109
   br i1 %.not172, label %280, label %252
 
 252:                                              ; preds = %247
@@ -3259,24 +3217,24 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver22setupContactCon
   %311 = load float, ptr %61, align 4, !tbaa !59
   %312 = load float, ptr %57, align 8, !tbaa !59
   %313 = getelementptr inbounds nuw i8, ptr %4, i64 84
-  %314 = load float, ptr %313, align 4, !tbaa !91
+  %314 = load float, ptr %313, align 4, !tbaa !90
   %315 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store float %314, ptr %315, align 8, !tbaa !93
+  store float %314, ptr %315, align 8, !tbaa !92
   %316 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %317 = load float, ptr %316, align 8, !tbaa !111
+  %317 = load float, ptr %316, align 8, !tbaa !110
   %318 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %319 = load float, ptr %318, align 4, !tbaa !112
+  %319 = load float, ptr %318, align 4, !tbaa !111
   %320 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %321 = load i32, ptr %320, align 4, !tbaa !113
+  %321 = load i32, ptr %320, align 4, !tbaa !112
   %322 = and i32 %321, 4
   %.not174 = icmp eq i32 %322, 0
   br i1 %.not174, label %463, label %323
 
 323:                                              ; preds = %309
   %324 = getelementptr inbounds nuw i8, ptr %4, i64 132
-  %325 = load float, ptr %324, align 4, !tbaa !114
+  %325 = load float, ptr %324, align 4, !tbaa !113
   %326 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %327 = load float, ptr %326, align 4, !tbaa !115
+  %327 = load float, ptr %326, align 4, !tbaa !114
   %328 = fmul float %325, %327
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 100
   store float %328, ptr %329, align 4, !tbaa !57
@@ -3603,7 +3561,7 @@ _ZN12btSolverBody20internalApplyImpulseERK9btVector3S2_f.exit269: ; preds = %396
   %571 = fmul float %.0154, %570
   %572 = fmul float %.0153, %570
   %573 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %574 = load i32, ptr %573, align 4, !tbaa !116
+  %574 = load i32, ptr %573, align 4, !tbaa !115
   %.not179 = icmp eq i32 %574, 0
   %575 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %576 = load float, ptr %575, align 4
@@ -3632,14 +3590,14 @@ declare float @llvm.fmuladd.f32(float, float, float) #12
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(204) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %5) local_unnamed_addr #13 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %8 = load i32, ptr %7, align 4, !tbaa !101
+  %8 = load i32, ptr %7, align 4, !tbaa !100
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load ptr, ptr %9, align 8, !tbaa !36
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds %struct.btSolverConstraint, ptr %10, i64 %11, i32 7
   store float 0.000000e+00, ptr %12, align 4, !tbaa !57
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %14 = load i32, ptr %13, align 4, !tbaa !113
+  %14 = load i32, ptr %13, align 4, !tbaa !112
   %15 = and i32 %14, 16
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %19, label %16
@@ -3662,13 +3620,13 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver14convertContactE
   %7 = alloca %class.btVector3, align 8
   %8 = alloca %class.btVector3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 840
-  %10 = load ptr, ptr %9, align 8, !tbaa !117
+  %10 = load ptr, ptr %9, align 8, !tbaa !116
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 848
-  %12 = load ptr, ptr %11, align 8, !tbaa !121
+  %12 = load ptr, ptr %11, align 8, !tbaa !120
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %14 = load float, ptr %13, align 4, !tbaa !97
+  %14 = load float, ptr %13, align 4, !tbaa !96
   %15 = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(372) %10, float noundef %14)
-  %16 = load float, ptr %13, align 4, !tbaa !97
+  %16 = load float, ptr %13, align 4, !tbaa !96
   %17 = tail call noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(372) %12, float noundef %16)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !32
@@ -3703,7 +3661,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver14convertContactE
 
 45:                                               ; preds = %34, %3
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 856
-  %47 = load i32, ptr %46, align 8, !tbaa !122
+  %47 = load i32, ptr %46, align 8, !tbaa !121
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.lr.ph, label %.loopexit
 
@@ -3783,15 +3741,15 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver14convertContactE
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %120
 
-120:                                              ; preds = %.lr.ph, %925
-  %121 = phi i32 [ %47, %.lr.ph ], [ %926, %925 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %925 ]
+120:                                              ; preds = %.lr.ph, %924
+  %121 = phi i32 [ %47, %.lr.ph ], [ %925, %924 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %924 ]
   %122 = getelementptr inbounds nuw [4 x %class.btManifoldPoint], ptr %49, i64 0, i64 %indvars.iv
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 80
-  %124 = load float, ptr %123, align 8, !tbaa !109
-  %125 = load float, ptr %50, align 8, !tbaa !123
+  %124 = load float, ptr %123, align 8, !tbaa !108
+  %125 = load float, ptr %50, align 8, !tbaa !122
   %126 = fcmp ugt float %124, %125
-  br i1 %126, label %925, label %127
+  br i1 %126, label %924, label %127
 
 127:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
@@ -3835,26 +3793,24 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i: ; preds = %
   %143 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %144 = load ptr, ptr %53, align 8, !tbaa !36
   %145 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %144, i64 %indvars.iv.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %143, ptr noundef nonnull align 8 dereferenceable(160) %145, i64 160, i1 false), !tbaa.struct !98
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %143, ptr noundef nonnull align 8 dereferenceable(160) %145, i64 160, i1 false), !tbaa.struct !97
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i, label %142, !llvm.loop !99
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i, label %142, !llvm.loop !98
 
 _ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i: ; preds = %142, %_ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i
   %146 = load ptr, ptr %53, align 8, !tbaa !36
-  %.not.i5.i.i = icmp eq ptr %146, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i, label %147
+  %.not.i5.i.i = icmp ne ptr %146, null
+  %147 = load i8, ptr %54, align 8, !range !71
+  %148 = trunc nuw i8 %147 to i1
+  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %148, i1 false
+  br i1 %or.cond.i.i, label %149, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
 
-147:                                              ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
-  %148 = load i8, ptr %54, align 8, !tbaa !35, !range !71, !noundef !72
-  %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %150, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
-
-150:                                              ; preds = %147
+149:                                              ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %146)
   br label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds = %150, %147, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
+_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds = %149, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
   store i8 1, ptr %54, align 8, !tbaa !35
   store ptr %.0.i.i.i, ptr %53, align 8, !tbaa !36
   store i32 %133, ptr %52, align 8, !tbaa !38
@@ -3862,1070 +3818,1070 @@ _ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds 
   br label %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit
 
 _ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit: ; preds = %127, %131, %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
-  %151 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i ], [ %128, %131 ], [ %128, %127 ]
-  %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %51, align 4, !tbaa !37
-  %153 = load ptr, ptr %53, align 8, !tbaa !36
-  %154 = sext i32 %128 to i64
-  %155 = getelementptr inbounds %struct.btSolverConstraint, ptr %153, i64 %154
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 152
-  store i32 %15, ptr %156, align 8, !tbaa !89
-  %157 = getelementptr inbounds nuw i8, ptr %155, i64 156
-  store i32 %17, ptr %157, align 4, !tbaa !90
-  %158 = getelementptr inbounds nuw i8, ptr %155, i64 136
-  store ptr %122, ptr %158, align 8, !tbaa !81
-  %159 = getelementptr inbounds nuw i8, ptr %122, i64 48
-  %160 = getelementptr inbounds nuw i8, ptr %122, i64 32
-  %161 = load float, ptr %159, align 4, !tbaa !59
-  %162 = load float, ptr %56, align 4, !tbaa !59
-  %163 = fsub float %161, %162
-  %164 = getelementptr inbounds nuw i8, ptr %122, i64 52
-  %165 = load float, ptr %164, align 4, !tbaa !59
-  %166 = load float, ptr %57, align 4, !tbaa !59
-  %167 = fsub float %165, %166
-  %168 = getelementptr inbounds nuw i8, ptr %122, i64 56
-  %169 = load float, ptr %168, align 4, !tbaa !59
-  %170 = load float, ptr %58, align 4, !tbaa !59
-  %171 = fsub float %169, %170
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %163, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %167, i64 1
-  %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %171, i64 0
+  %150 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i ], [ %128, %131 ], [ %128, %127 ]
+  %151 = add nsw i32 %150, 1
+  store i32 %151, ptr %51, align 4, !tbaa !37
+  %152 = load ptr, ptr %53, align 8, !tbaa !36
+  %153 = sext i32 %128 to i64
+  %154 = getelementptr inbounds %struct.btSolverConstraint, ptr %152, i64 %153
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 152
+  store i32 %15, ptr %155, align 8, !tbaa !88
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 156
+  store i32 %17, ptr %156, align 4, !tbaa !89
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 136
+  store ptr %122, ptr %157, align 8, !tbaa !80
+  %158 = getelementptr inbounds nuw i8, ptr %122, i64 48
+  %159 = getelementptr inbounds nuw i8, ptr %122, i64 32
+  %160 = load float, ptr %158, align 4, !tbaa !59
+  %161 = load float, ptr %56, align 4, !tbaa !59
+  %162 = fsub float %160, %161
+  %163 = getelementptr inbounds nuw i8, ptr %122, i64 52
+  %164 = load float, ptr %163, align 4, !tbaa !59
+  %165 = load float, ptr %57, align 4, !tbaa !59
+  %166 = fsub float %164, %165
+  %167 = getelementptr inbounds nuw i8, ptr %122, i64 56
+  %168 = load float, ptr %167, align 4, !tbaa !59
+  %169 = load float, ptr %58, align 4, !tbaa !59
+  %170 = fsub float %168, %169
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %162, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %166, i64 1
+  %.sroa.3.12.vec.insert.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %170, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %4, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.410.0..sroa_idx, align 8, !tbaa !81
-  %172 = load float, ptr %160, align 4, !tbaa !59
-  %173 = load float, ptr %60, align 4, !tbaa !59
-  %174 = fsub float %172, %173
-  %175 = getelementptr inbounds nuw i8, ptr %122, i64 36
-  %176 = load float, ptr %175, align 4, !tbaa !59
-  %177 = load float, ptr %61, align 4, !tbaa !59
-  %178 = fsub float %176, %177
-  %179 = getelementptr inbounds nuw i8, ptr %122, i64 40
-  %180 = load float, ptr %179, align 4, !tbaa !59
-  %181 = load float, ptr %62, align 4, !tbaa !59
-  %182 = fsub float %180, %181
-  %.sroa.0.0.vec.insert.i180 = insertelement <2 x float> poison, float %174, i64 0
-  %.sroa.0.4.vec.insert.i181 = insertelement <2 x float> %.sroa.0.0.vec.insert.i180, float %178, i64 1
-  %.sroa.3.12.vec.insert.i182 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %182, i64 0
+  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.410.0..sroa_idx, align 8, !tbaa !80
+  %171 = load float, ptr %159, align 4, !tbaa !59
+  %172 = load float, ptr %60, align 4, !tbaa !59
+  %173 = fsub float %171, %172
+  %174 = getelementptr inbounds nuw i8, ptr %122, i64 36
+  %175 = load float, ptr %174, align 4, !tbaa !59
+  %176 = load float, ptr %61, align 4, !tbaa !59
+  %177 = fsub float %175, %176
+  %178 = getelementptr inbounds nuw i8, ptr %122, i64 40
+  %179 = load float, ptr %178, align 4, !tbaa !59
+  %180 = load float, ptr %62, align 4, !tbaa !59
+  %181 = fsub float %179, %180
+  %.sroa.0.0.vec.insert.i180 = insertelement <2 x float> poison, float %173, i64 0
+  %.sroa.0.4.vec.insert.i181 = insertelement <2 x float> %.sroa.0.0.vec.insert.i180, float %177, i64 1
+  %.sroa.3.12.vec.insert.i182 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %181, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i181, ptr %5, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i182, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !81
-  %183 = load ptr, ptr %63, align 8, !tbaa !63
-  %.not.i = icmp eq ptr %183, null
-  br i1 %.not.i, label %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit, label %184
+  store <2 x float> %.sroa.3.12.vec.insert.i182, ptr %.sroa.48.0..sroa_idx, align 8, !tbaa !80
+  %182 = load ptr, ptr %63, align 8, !tbaa !63
+  %.not.i = icmp eq ptr %182, null
+  br i1 %.not.i, label %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit, label %183
 
-184:                                              ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit
-  %185 = load float, ptr %64, align 4, !tbaa !59
-  %186 = load float, ptr %65, align 4, !tbaa !59
-  %187 = fadd float %185, %186
-  %188 = load float, ptr %66, align 4, !tbaa !59
-  %189 = load float, ptr %67, align 4, !tbaa !59
-  %190 = fadd float %188, %189
-  %191 = load float, ptr %68, align 4, !tbaa !59
-  %192 = load float, ptr %69, align 4, !tbaa !59
-  %193 = fadd float %191, %192
-  %194 = load float, ptr %70, align 4, !tbaa !59
-  %195 = load float, ptr %71, align 4, !tbaa !59
-  %196 = fadd float %194, %195
-  %197 = load float, ptr %72, align 4, !tbaa !59
-  %198 = load float, ptr %73, align 4, !tbaa !59
-  %199 = fadd float %197, %198
-  %200 = load float, ptr %74, align 4, !tbaa !59
-  %201 = load float, ptr %75, align 4, !tbaa !59
-  %202 = fadd float %200, %201
-  %203 = fneg float %167
-  %204 = fmul float %202, %203
-  %205 = tail call float @llvm.fmuladd.f32(float %199, float %171, float %204)
-  %206 = fneg float %171
-  %207 = fmul float %196, %206
-  %208 = tail call float @llvm.fmuladd.f32(float %202, float %163, float %207)
-  %209 = fneg float %163
-  %210 = fmul float %199, %209
-  %211 = tail call float @llvm.fmuladd.f32(float %196, float %167, float %210)
-  %212 = fadd float %187, %205
-  %213 = fadd float %190, %208
-  %214 = fadd float %193, %211
-  %.sroa.0.0.vec.insert.i14.i = insertelement <2 x float> poison, float %212, i64 0
-  %.sroa.0.4.vec.insert.i15.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i14.i, float %213, i64 1
-  %.sroa.3.12.vec.insert.i16.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %214, i64 0
+183:                                              ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit
+  %184 = load float, ptr %64, align 4, !tbaa !59
+  %185 = load float, ptr %65, align 4, !tbaa !59
+  %186 = fadd float %184, %185
+  %187 = load float, ptr %66, align 4, !tbaa !59
+  %188 = load float, ptr %67, align 4, !tbaa !59
+  %189 = fadd float %187, %188
+  %190 = load float, ptr %68, align 4, !tbaa !59
+  %191 = load float, ptr %69, align 4, !tbaa !59
+  %192 = fadd float %190, %191
+  %193 = load float, ptr %70, align 4, !tbaa !59
+  %194 = load float, ptr %71, align 4, !tbaa !59
+  %195 = fadd float %193, %194
+  %196 = load float, ptr %72, align 4, !tbaa !59
+  %197 = load float, ptr %73, align 4, !tbaa !59
+  %198 = fadd float %196, %197
+  %199 = load float, ptr %74, align 4, !tbaa !59
+  %200 = load float, ptr %75, align 4, !tbaa !59
+  %201 = fadd float %199, %200
+  %202 = fneg float %166
+  %203 = fmul float %201, %202
+  %204 = tail call float @llvm.fmuladd.f32(float %198, float %170, float %203)
+  %205 = fneg float %170
+  %206 = fmul float %195, %205
+  %207 = tail call float @llvm.fmuladd.f32(float %201, float %162, float %206)
+  %208 = fneg float %162
+  %209 = fmul float %198, %208
+  %210 = tail call float @llvm.fmuladd.f32(float %195, float %166, float %209)
+  %211 = fadd float %186, %204
+  %212 = fadd float %189, %207
+  %213 = fadd float %192, %210
+  %.sroa.0.0.vec.insert.i14.i = insertelement <2 x float> poison, float %211, i64 0
+  %.sroa.0.4.vec.insert.i15.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i14.i, float %212, i64 1
+  %.sroa.3.12.vec.insert.i16.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %213, i64 0
   br label %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit
 
-_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit: ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit, %184
-  %.sroa.0298.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i15.i, %184 ], [ zeroinitializer, %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit ]
-  %.sroa.6299.2 = phi <2 x float> [ %.sroa.3.12.vec.insert.i16.i, %184 ], [ zeroinitializer, %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit ]
-  %215 = load ptr, ptr %76, align 8, !tbaa !63
-  %.not.i185 = icmp eq ptr %215, null
-  br i1 %.not.i185, label %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190, label %216
+_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit: ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit, %183
+  %.sroa.0298.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i15.i, %183 ], [ zeroinitializer, %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit ]
+  %.sroa.6299.2 = phi <2 x float> [ %.sroa.3.12.vec.insert.i16.i, %183 ], [ zeroinitializer, %_ZN20btAlignedObjectArrayI18btSolverConstraintE21expandNonInitializingEv.exit ]
+  %214 = load ptr, ptr %76, align 8, !tbaa !63
+  %.not.i185 = icmp eq ptr %214, null
+  br i1 %.not.i185, label %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190, label %215
 
-216:                                              ; preds = %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit
-  %217 = load float, ptr %77, align 4, !tbaa !59
-  %218 = load float, ptr %78, align 4, !tbaa !59
-  %219 = fadd float %217, %218
-  %220 = load float, ptr %79, align 4, !tbaa !59
-  %221 = load float, ptr %80, align 4, !tbaa !59
-  %222 = fadd float %220, %221
-  %223 = load float, ptr %81, align 4, !tbaa !59
-  %224 = load float, ptr %82, align 4, !tbaa !59
-  %225 = fadd float %223, %224
-  %226 = load float, ptr %83, align 4, !tbaa !59
-  %227 = load float, ptr %84, align 4, !tbaa !59
-  %228 = fadd float %226, %227
-  %229 = load float, ptr %85, align 4, !tbaa !59
-  %230 = load float, ptr %86, align 4, !tbaa !59
-  %231 = fadd float %229, %230
-  %232 = load float, ptr %87, align 4, !tbaa !59
-  %233 = load float, ptr %88, align 4, !tbaa !59
-  %234 = fadd float %232, %233
-  %235 = fneg float %178
-  %236 = fmul float %234, %235
-  %237 = tail call float @llvm.fmuladd.f32(float %231, float %182, float %236)
-  %238 = fneg float %182
-  %239 = fmul float %228, %238
-  %240 = tail call float @llvm.fmuladd.f32(float %234, float %174, float %239)
-  %241 = fneg float %174
-  %242 = fmul float %231, %241
-  %243 = tail call float @llvm.fmuladd.f32(float %228, float %178, float %242)
-  %244 = fadd float %219, %237
-  %245 = fadd float %222, %240
-  %246 = fadd float %225, %243
-  %.sroa.0.0.vec.insert.i14.i186 = insertelement <2 x float> poison, float %244, i64 0
-  %.sroa.0.4.vec.insert.i15.i187 = insertelement <2 x float> %.sroa.0.0.vec.insert.i14.i186, float %245, i64 1
-  %.sroa.3.12.vec.insert.i16.i188 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %246, i64 0
+215:                                              ; preds = %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit
+  %216 = load float, ptr %77, align 4, !tbaa !59
+  %217 = load float, ptr %78, align 4, !tbaa !59
+  %218 = fadd float %216, %217
+  %219 = load float, ptr %79, align 4, !tbaa !59
+  %220 = load float, ptr %80, align 4, !tbaa !59
+  %221 = fadd float %219, %220
+  %222 = load float, ptr %81, align 4, !tbaa !59
+  %223 = load float, ptr %82, align 4, !tbaa !59
+  %224 = fadd float %222, %223
+  %225 = load float, ptr %83, align 4, !tbaa !59
+  %226 = load float, ptr %84, align 4, !tbaa !59
+  %227 = fadd float %225, %226
+  %228 = load float, ptr %85, align 4, !tbaa !59
+  %229 = load float, ptr %86, align 4, !tbaa !59
+  %230 = fadd float %228, %229
+  %231 = load float, ptr %87, align 4, !tbaa !59
+  %232 = load float, ptr %88, align 4, !tbaa !59
+  %233 = fadd float %231, %232
+  %234 = fneg float %177
+  %235 = fmul float %233, %234
+  %236 = tail call float @llvm.fmuladd.f32(float %230, float %181, float %235)
+  %237 = fneg float %181
+  %238 = fmul float %227, %237
+  %239 = tail call float @llvm.fmuladd.f32(float %233, float %173, float %238)
+  %240 = fneg float %173
+  %241 = fmul float %230, %240
+  %242 = tail call float @llvm.fmuladd.f32(float %227, float %177, float %241)
+  %243 = fadd float %218, %236
+  %244 = fadd float %221, %239
+  %245 = fadd float %224, %242
+  %.sroa.0.0.vec.insert.i14.i186 = insertelement <2 x float> poison, float %243, i64 0
+  %.sroa.0.4.vec.insert.i15.i187 = insertelement <2 x float> %.sroa.0.0.vec.insert.i14.i186, float %244, i64 1
+  %.sroa.3.12.vec.insert.i16.i188 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %245, i64 0
   br label %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190
 
-_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190: ; preds = %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit, %216
-  %.sroa.0297.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i15.i187, %216 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
-  %.sroa.6.2 = phi <2 x float> [ %.sroa.3.12.vec.insert.i16.i188, %216 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
-  %247 = fsub <2 x float> %.sroa.0298.2, %.sroa.0297.2
-  %248 = extractelement <2 x float> %247, i64 0
-  %249 = fsub <2 x float> %.sroa.0298.2, %.sroa.0297.2
-  %250 = extractelement <2 x float> %249, i64 1
-  %251 = fsub <2 x float> %.sroa.6299.2, %.sroa.6.2
-  %252 = extractelement <2 x float> %251, i64 0
-  %253 = getelementptr inbounds nuw i8, ptr %122, i64 64
-  %254 = load float, ptr %253, align 4, !tbaa !59
-  %255 = getelementptr inbounds nuw i8, ptr %122, i64 68
-  %256 = load float, ptr %255, align 4, !tbaa !59
-  %257 = fmul float %250, %256
-  %258 = tail call float @llvm.fmuladd.f32(float %254, float %248, float %257)
-  %259 = getelementptr inbounds nuw i8, ptr %122, i64 72
-  %260 = load float, ptr %259, align 4, !tbaa !59
-  %261 = tail call noundef float @llvm.fmuladd.f32(float %260, float %252, float %258)
-  call void @_ZN35btSequentialImpulseConstraintSolver22setupContactConstraintER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfoRfRK9btVector3SA_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %155, i32 noundef %15, i32 noundef %17, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(128) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5)
-  %262 = load i32, ptr %89, align 4, !tbaa !37
-  %263 = getelementptr inbounds nuw i8, ptr %155, i64 148
-  store i32 %262, ptr %263, align 4, !tbaa !101
-  %264 = getelementptr inbounds nuw i8, ptr %122, i64 88
-  %265 = load float, ptr %264, align 8, !tbaa !124
-  %266 = fcmp ogt float %265, 0.000000e+00
-  br i1 %266, label %267, label %490
+_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190: ; preds = %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit, %215
+  %.sroa.0297.2 = phi <2 x float> [ %.sroa.0.4.vec.insert.i15.i187, %215 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
+  %.sroa.6.2 = phi <2 x float> [ %.sroa.3.12.vec.insert.i16.i188, %215 ], [ zeroinitializer, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit ]
+  %246 = fsub <2 x float> %.sroa.0298.2, %.sroa.0297.2
+  %247 = extractelement <2 x float> %246, i64 0
+  %248 = fsub <2 x float> %.sroa.0298.2, %.sroa.0297.2
+  %249 = extractelement <2 x float> %248, i64 1
+  %250 = fsub <2 x float> %.sroa.6299.2, %.sroa.6.2
+  %251 = extractelement <2 x float> %250, i64 0
+  %252 = getelementptr inbounds nuw i8, ptr %122, i64 64
+  %253 = load float, ptr %252, align 4, !tbaa !59
+  %254 = getelementptr inbounds nuw i8, ptr %122, i64 68
+  %255 = load float, ptr %254, align 4, !tbaa !59
+  %256 = fmul float %249, %255
+  %257 = tail call float @llvm.fmuladd.f32(float %253, float %247, float %256)
+  %258 = getelementptr inbounds nuw i8, ptr %122, i64 72
+  %259 = load float, ptr %258, align 4, !tbaa !59
+  %260 = tail call noundef float @llvm.fmuladd.f32(float %259, float %251, float %257)
+  call void @_ZN35btSequentialImpulseConstraintSolver22setupContactConstraintER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfoRfRK9btVector3SA_(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(160) %154, i32 noundef %15, i32 noundef %17, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(128) %2, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5)
+  %261 = load i32, ptr %89, align 4, !tbaa !37
+  %262 = getelementptr inbounds nuw i8, ptr %154, i64 148
+  store i32 %261, ptr %262, align 4, !tbaa !100
+  %263 = getelementptr inbounds nuw i8, ptr %122, i64 88
+  %264 = load float, ptr %263, align 8, !tbaa !123
+  %265 = fcmp ogt float %264, 0.000000e+00
+  br i1 %265, label %266, label %489
 
-267:                                              ; preds = %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190
-  %268 = getelementptr inbounds nuw i8, ptr %122, i64 92
-  %269 = load float, ptr %268, align 4, !tbaa !125
-  %270 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver30addTorsionalFrictionConstraintERK9btVector3iiiR15btManifoldPointfS2_S2_P17btCollisionObjectS6_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %253, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr nonnull align 8 poison, float noundef %269, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr nonnull poison, ptr nonnull poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
+266:                                              ; preds = %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190
+  %267 = getelementptr inbounds nuw i8, ptr %122, i64 92
+  %268 = load float, ptr %267, align 4, !tbaa !124
+  %269 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver30addTorsionalFrictionConstraintERK9btVector3iiiR15btManifoldPointfS2_S2_P17btCollisionObjectS6_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %252, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr nonnull align 8 poison, float noundef %268, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr nonnull poison, ptr nonnull poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #23
-  %271 = load float, ptr %259, align 4, !tbaa !59
-  %272 = tail call noundef float @llvm.fabs.f32(float %271)
-  %273 = fcmp ogt float %272, 0x3FE6A09E60000000
-  br i1 %273, label %274, label %287
+  %270 = load float, ptr %258, align 4, !tbaa !59
+  %271 = tail call noundef float @llvm.fabs.f32(float %270)
+  %272 = fcmp ogt float %271, 0x3FE6A09E60000000
+  br i1 %272, label %273, label %286
 
-274:                                              ; preds = %267
-  %275 = load float, ptr %255, align 4, !tbaa !59
-  %276 = fmul float %271, %271
-  %277 = tail call float @llvm.fmuladd.f32(float %275, float %275, float %276)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %277)
-  %278 = fdiv float 1.000000e+00, %sqrt.i
-  %279 = fneg float %271
-  %280 = fmul float %278, %279
-  %281 = fmul float %275, %278
-  %282 = fmul float %277, %278
-  %283 = load float, ptr %253, align 4, !tbaa !59
-  %284 = fneg float %283
-  %285 = fmul float %281, %284
-  %286 = fmul float %280, %283
-  br label %300
+273:                                              ; preds = %266
+  %274 = load float, ptr %254, align 4, !tbaa !59
+  %275 = fmul float %270, %270
+  %276 = tail call float @llvm.fmuladd.f32(float %274, float %274, float %275)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %276)
+  %277 = fdiv float 1.000000e+00, %sqrt.i
+  %278 = fneg float %270
+  %279 = fmul float %277, %278
+  %280 = fmul float %274, %277
+  %281 = fmul float %276, %277
+  %282 = load float, ptr %252, align 4, !tbaa !59
+  %283 = fneg float %282
+  %284 = fmul float %280, %283
+  %285 = fmul float %279, %282
+  br label %299
 
-287:                                              ; preds = %267
-  %288 = load float, ptr %253, align 4, !tbaa !59
-  %289 = load float, ptr %255, align 4, !tbaa !59
-  %290 = fmul float %289, %289
-  %291 = tail call float @llvm.fmuladd.f32(float %288, float %288, float %290)
-  %sqrt43.i = tail call float @llvm.sqrt.f32(float %291)
-  %292 = fdiv float 1.000000e+00, %sqrt43.i
-  %293 = fneg float %289
-  %294 = fmul float %292, %293
-  %295 = fmul float %288, %292
-  %296 = fneg float %271
-  %297 = fmul float %295, %296
-  %298 = fmul float %271, %294
-  %299 = fmul float %291, %292
-  br label %300
+286:                                              ; preds = %266
+  %287 = load float, ptr %252, align 4, !tbaa !59
+  %288 = load float, ptr %254, align 4, !tbaa !59
+  %289 = fmul float %288, %288
+  %290 = tail call float @llvm.fmuladd.f32(float %287, float %287, float %289)
+  %sqrt43.i = tail call float @llvm.sqrt.f32(float %290)
+  %291 = fdiv float 1.000000e+00, %sqrt43.i
+  %292 = fneg float %288
+  %293 = fmul float %291, %292
+  %294 = fmul float %287, %291
+  %295 = fneg float %270
+  %296 = fmul float %294, %295
+  %297 = fmul float %270, %293
+  %298 = fmul float %290, %291
+  br label %299
 
-300:                                              ; preds = %287, %274
-  %301 = phi float [ %285, %274 ], [ %298, %287 ]
-  %302 = phi float [ %282, %274 ], [ %297, %287 ]
-  %303 = phi float [ %281, %274 ], [ 0.000000e+00, %287 ]
-  %304 = phi float [ %280, %274 ], [ %295, %287 ]
-  %305 = phi float [ 0.000000e+00, %274 ], [ %294, %287 ]
-  %.sink.i = phi float [ %286, %274 ], [ %299, %287 ]
-  %306 = fmul float %304, %304
-  %307 = tail call float @llvm.fmuladd.f32(float %305, float %305, float %306)
-  %308 = tail call noundef float @llvm.fmuladd.f32(float %303, float %303, float %307)
-  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %308)
-  %309 = fdiv float 1.000000e+00, %sqrt.i.i
-  %310 = fmul float %305, %309
-  store float %310, ptr %7, align 8, !tbaa !59
-  %311 = fmul float %304, %309
-  store float %311, ptr %91, align 4, !tbaa !59
-  %312 = fmul float %303, %309
-  store float %312, ptr %90, align 8, !tbaa !59
-  %313 = fmul float %301, %301
-  %314 = tail call float @llvm.fmuladd.f32(float %302, float %302, float %313)
-  %315 = tail call noundef float @llvm.fmuladd.f32(float %.sink.i, float %.sink.i, float %314)
-  %sqrt.i.i196 = tail call noundef float @llvm.sqrt.f32(float %315)
-  %316 = fdiv float 1.000000e+00, %sqrt.i.i196
-  %317 = fmul float %302, %316
-  store float %317, ptr %8, align 8, !tbaa !59
-  %318 = fmul float %301, %316
-  store float %318, ptr %92, align 4, !tbaa !59
-  %319 = fmul float %.sink.i, %316
-  store float %319, ptr %93, align 8, !tbaa !59
-  %320 = load i32, ptr %94, align 8, !tbaa !88
-  %321 = and i32 %320, 2
-  %.not22.i = icmp eq i32 %321, 0
-  br i1 %.not22.i, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit, label %322
+299:                                              ; preds = %286, %273
+  %300 = phi float [ %284, %273 ], [ %297, %286 ]
+  %301 = phi float [ %281, %273 ], [ %296, %286 ]
+  %302 = phi float [ %280, %273 ], [ 0.000000e+00, %286 ]
+  %303 = phi float [ %279, %273 ], [ %294, %286 ]
+  %304 = phi float [ 0.000000e+00, %273 ], [ %293, %286 ]
+  %.sink.i = phi float [ %285, %273 ], [ %298, %286 ]
+  %305 = fmul float %303, %303
+  %306 = tail call float @llvm.fmuladd.f32(float %304, float %304, float %305)
+  %307 = tail call noundef float @llvm.fmuladd.f32(float %302, float %302, float %306)
+  %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %307)
+  %308 = fdiv float 1.000000e+00, %sqrt.i.i
+  %309 = fmul float %304, %308
+  store float %309, ptr %7, align 8, !tbaa !59
+  %310 = fmul float %303, %308
+  store float %310, ptr %91, align 4, !tbaa !59
+  %311 = fmul float %302, %308
+  store float %311, ptr %90, align 8, !tbaa !59
+  %312 = fmul float %300, %300
+  %313 = tail call float @llvm.fmuladd.f32(float %301, float %301, float %312)
+  %314 = tail call noundef float @llvm.fmuladd.f32(float %.sink.i, float %.sink.i, float %313)
+  %sqrt.i.i196 = tail call noundef float @llvm.sqrt.f32(float %314)
+  %315 = fdiv float 1.000000e+00, %sqrt.i.i196
+  %316 = fmul float %301, %315
+  store float %316, ptr %8, align 8, !tbaa !59
+  %317 = fmul float %300, %315
+  store float %317, ptr %92, align 4, !tbaa !59
+  %318 = fmul float %.sink.i, %315
+  store float %318, ptr %93, align 8, !tbaa !59
+  %319 = load i32, ptr %94, align 8, !tbaa !87
+  %320 = and i32 %319, 2
+  %.not22.i = icmp eq i32 %320, 0
+  br i1 %.not22.i, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit, label %321
 
-322:                                              ; preds = %300
-  %323 = load float, ptr %55, align 4, !tbaa !59
-  %324 = load float, ptr %95, align 4, !tbaa !59
-  %325 = fmul float %311, %324
-  %326 = tail call float @llvm.fmuladd.f32(float %323, float %310, float %325)
-  %327 = load float, ptr %96, align 4, !tbaa !59
-  %328 = tail call noundef float @llvm.fmuladd.f32(float %327, float %312, float %326)
-  %329 = load float, ptr %97, align 4, !tbaa !59
-  %330 = load float, ptr %98, align 4, !tbaa !59
-  %331 = fmul float %311, %330
-  %332 = tail call float @llvm.fmuladd.f32(float %329, float %310, float %331)
-  %333 = load float, ptr %99, align 4, !tbaa !59
-  %334 = tail call noundef float @llvm.fmuladd.f32(float %333, float %312, float %332)
-  %335 = load float, ptr %100, align 4, !tbaa !59
-  %336 = load float, ptr %101, align 4, !tbaa !59
-  %337 = fmul float %311, %336
-  %338 = tail call float @llvm.fmuladd.f32(float %335, float %310, float %337)
-  %339 = load float, ptr %102, align 4, !tbaa !59
-  %340 = tail call noundef float @llvm.fmuladd.f32(float %339, float %312, float %338)
-  %341 = load float, ptr %103, align 4, !tbaa !59
-  %342 = fmul float %328, %341
-  %343 = load float, ptr %104, align 4, !tbaa !59
-  %344 = fmul float %334, %343
-  %345 = load float, ptr %105, align 4, !tbaa !59
-  %346 = fmul float %340, %345
-  %347 = fmul float %329, %344
-  %348 = tail call float @llvm.fmuladd.f32(float %323, float %342, float %347)
-  %349 = tail call noundef float @llvm.fmuladd.f32(float %335, float %346, float %348)
-  %350 = fmul float %330, %344
-  %351 = tail call float @llvm.fmuladd.f32(float %324, float %342, float %350)
-  %352 = tail call noundef float @llvm.fmuladd.f32(float %336, float %346, float %351)
-  %353 = fmul float %333, %344
-  %354 = tail call float @llvm.fmuladd.f32(float %327, float %342, float %353)
-  %355 = tail call noundef float @llvm.fmuladd.f32(float %339, float %346, float %354)
-  %.sroa.0.0.vec.insert.i8.i = insertelement <2 x float> poison, float %349, i64 0
-  %.sroa.0.4.vec.insert.i9.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i, float %352, i64 1
-  %.sroa.3.12.vec.insert.i10.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %355, i64 0
+321:                                              ; preds = %299
+  %322 = load float, ptr %55, align 4, !tbaa !59
+  %323 = load float, ptr %95, align 4, !tbaa !59
+  %324 = fmul float %310, %323
+  %325 = tail call float @llvm.fmuladd.f32(float %322, float %309, float %324)
+  %326 = load float, ptr %96, align 4, !tbaa !59
+  %327 = tail call noundef float @llvm.fmuladd.f32(float %326, float %311, float %325)
+  %328 = load float, ptr %97, align 4, !tbaa !59
+  %329 = load float, ptr %98, align 4, !tbaa !59
+  %330 = fmul float %310, %329
+  %331 = tail call float @llvm.fmuladd.f32(float %328, float %309, float %330)
+  %332 = load float, ptr %99, align 4, !tbaa !59
+  %333 = tail call noundef float @llvm.fmuladd.f32(float %332, float %311, float %331)
+  %334 = load float, ptr %100, align 4, !tbaa !59
+  %335 = load float, ptr %101, align 4, !tbaa !59
+  %336 = fmul float %310, %335
+  %337 = tail call float @llvm.fmuladd.f32(float %334, float %309, float %336)
+  %338 = load float, ptr %102, align 4, !tbaa !59
+  %339 = tail call noundef float @llvm.fmuladd.f32(float %338, float %311, float %337)
+  %340 = load float, ptr %103, align 4, !tbaa !59
+  %341 = fmul float %327, %340
+  %342 = load float, ptr %104, align 4, !tbaa !59
+  %343 = fmul float %333, %342
+  %344 = load float, ptr %105, align 4, !tbaa !59
+  %345 = fmul float %339, %344
+  %346 = fmul float %328, %343
+  %347 = tail call float @llvm.fmuladd.f32(float %322, float %341, float %346)
+  %348 = tail call noundef float @llvm.fmuladd.f32(float %334, float %345, float %347)
+  %349 = fmul float %329, %343
+  %350 = tail call float @llvm.fmuladd.f32(float %323, float %341, float %349)
+  %351 = tail call noundef float @llvm.fmuladd.f32(float %335, float %345, float %350)
+  %352 = fmul float %332, %343
+  %353 = tail call float @llvm.fmuladd.f32(float %326, float %341, float %352)
+  %354 = tail call noundef float @llvm.fmuladd.f32(float %338, float %345, float %353)
+  %.sroa.0.0.vec.insert.i8.i = insertelement <2 x float> poison, float %348, i64 0
+  %.sroa.0.4.vec.insert.i9.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i, float %351, i64 1
+  %.sroa.3.12.vec.insert.i10.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %354, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i9.i, ptr %7, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i, ptr %90, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i, ptr %90, align 8, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit: ; preds = %322, %300
-  %356 = phi float [ %355, %322 ], [ %312, %300 ]
-  %357 = phi float [ %352, %322 ], [ %311, %300 ]
-  %358 = phi float [ %349, %322 ], [ %310, %300 ]
-  %359 = load i32, ptr %106, align 8, !tbaa !88
-  %360 = and i32 %359, 2
-  %.not22.i199 = icmp eq i32 %360, 0
-  br i1 %.not22.i199, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203, label %361
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit: ; preds = %321, %299
+  %355 = phi float [ %354, %321 ], [ %311, %299 ]
+  %356 = phi float [ %351, %321 ], [ %310, %299 ]
+  %357 = phi float [ %348, %321 ], [ %309, %299 ]
+  %358 = load i32, ptr %106, align 8, !tbaa !87
+  %359 = and i32 %358, 2
+  %.not22.i199 = icmp eq i32 %359, 0
+  br i1 %.not22.i199, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203, label %360
 
-361:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit
-  %362 = load float, ptr %59, align 4, !tbaa !59
-  %363 = load float, ptr %107, align 4, !tbaa !59
-  %364 = fmul float %363, %357
-  %365 = tail call float @llvm.fmuladd.f32(float %362, float %358, float %364)
-  %366 = load float, ptr %108, align 4, !tbaa !59
-  %367 = tail call noundef float @llvm.fmuladd.f32(float %366, float %356, float %365)
-  %368 = load float, ptr %109, align 4, !tbaa !59
-  %369 = load float, ptr %110, align 4, !tbaa !59
-  %370 = fmul float %357, %369
-  %371 = tail call float @llvm.fmuladd.f32(float %368, float %358, float %370)
-  %372 = load float, ptr %111, align 4, !tbaa !59
-  %373 = tail call noundef float @llvm.fmuladd.f32(float %372, float %356, float %371)
-  %374 = load float, ptr %112, align 4, !tbaa !59
-  %375 = load float, ptr %113, align 4, !tbaa !59
-  %376 = fmul float %357, %375
-  %377 = tail call float @llvm.fmuladd.f32(float %374, float %358, float %376)
-  %378 = load float, ptr %114, align 4, !tbaa !59
-  %379 = tail call noundef float @llvm.fmuladd.f32(float %378, float %356, float %377)
-  %380 = load float, ptr %115, align 4, !tbaa !59
-  %381 = fmul float %367, %380
-  %382 = load float, ptr %116, align 4, !tbaa !59
-  %383 = fmul float %373, %382
-  %384 = load float, ptr %117, align 4, !tbaa !59
-  %385 = fmul float %379, %384
-  %386 = fmul float %368, %383
-  %387 = tail call float @llvm.fmuladd.f32(float %362, float %381, float %386)
-  %388 = tail call noundef float @llvm.fmuladd.f32(float %374, float %385, float %387)
-  %389 = fmul float %369, %383
-  %390 = tail call float @llvm.fmuladd.f32(float %363, float %381, float %389)
-  %391 = tail call noundef float @llvm.fmuladd.f32(float %375, float %385, float %390)
-  %392 = fmul float %372, %383
-  %393 = tail call float @llvm.fmuladd.f32(float %366, float %381, float %392)
-  %394 = tail call noundef float @llvm.fmuladd.f32(float %378, float %385, float %393)
-  %.sroa.0.0.vec.insert.i8.i200 = insertelement <2 x float> poison, float %388, i64 0
-  %.sroa.0.4.vec.insert.i9.i201 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i200, float %391, i64 1
-  %.sroa.3.12.vec.insert.i10.i202 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %394, i64 0
+360:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit
+  %361 = load float, ptr %59, align 4, !tbaa !59
+  %362 = load float, ptr %107, align 4, !tbaa !59
+  %363 = fmul float %362, %356
+  %364 = tail call float @llvm.fmuladd.f32(float %361, float %357, float %363)
+  %365 = load float, ptr %108, align 4, !tbaa !59
+  %366 = tail call noundef float @llvm.fmuladd.f32(float %365, float %355, float %364)
+  %367 = load float, ptr %109, align 4, !tbaa !59
+  %368 = load float, ptr %110, align 4, !tbaa !59
+  %369 = fmul float %356, %368
+  %370 = tail call float @llvm.fmuladd.f32(float %367, float %357, float %369)
+  %371 = load float, ptr %111, align 4, !tbaa !59
+  %372 = tail call noundef float @llvm.fmuladd.f32(float %371, float %355, float %370)
+  %373 = load float, ptr %112, align 4, !tbaa !59
+  %374 = load float, ptr %113, align 4, !tbaa !59
+  %375 = fmul float %356, %374
+  %376 = tail call float @llvm.fmuladd.f32(float %373, float %357, float %375)
+  %377 = load float, ptr %114, align 4, !tbaa !59
+  %378 = tail call noundef float @llvm.fmuladd.f32(float %377, float %355, float %376)
+  %379 = load float, ptr %115, align 4, !tbaa !59
+  %380 = fmul float %366, %379
+  %381 = load float, ptr %116, align 4, !tbaa !59
+  %382 = fmul float %372, %381
+  %383 = load float, ptr %117, align 4, !tbaa !59
+  %384 = fmul float %378, %383
+  %385 = fmul float %367, %382
+  %386 = tail call float @llvm.fmuladd.f32(float %361, float %380, float %385)
+  %387 = tail call noundef float @llvm.fmuladd.f32(float %373, float %384, float %386)
+  %388 = fmul float %368, %382
+  %389 = tail call float @llvm.fmuladd.f32(float %362, float %380, float %388)
+  %390 = tail call noundef float @llvm.fmuladd.f32(float %374, float %384, float %389)
+  %391 = fmul float %371, %382
+  %392 = tail call float @llvm.fmuladd.f32(float %365, float %380, float %391)
+  %393 = tail call noundef float @llvm.fmuladd.f32(float %377, float %384, float %392)
+  %.sroa.0.0.vec.insert.i8.i200 = insertelement <2 x float> poison, float %387, i64 0
+  %.sroa.0.4.vec.insert.i9.i201 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i200, float %390, i64 1
+  %.sroa.3.12.vec.insert.i10.i202 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %393, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i9.i201, ptr %7, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i202, ptr %90, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i202, ptr %90, align 8, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203: ; preds = %361, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit
-  %395 = phi float [ %394, %361 ], [ %356, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit ]
-  %396 = phi float [ %391, %361 ], [ %357, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit ]
-  %397 = phi float [ %388, %361 ], [ %358, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit ]
-  br i1 %.not22.i, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209, label %398
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203: ; preds = %360, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit
+  %394 = phi float [ %393, %360 ], [ %355, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit ]
+  %395 = phi float [ %390, %360 ], [ %356, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit ]
+  %396 = phi float [ %387, %360 ], [ %357, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit ]
+  br i1 %.not22.i, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209, label %397
 
-398:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203
-  %399 = load float, ptr %55, align 4, !tbaa !59
-  %400 = load float, ptr %95, align 4, !tbaa !59
-  %401 = fmul float %318, %400
-  %402 = tail call float @llvm.fmuladd.f32(float %399, float %317, float %401)
-  %403 = load float, ptr %96, align 4, !tbaa !59
-  %404 = tail call noundef float @llvm.fmuladd.f32(float %403, float %319, float %402)
-  %405 = load float, ptr %97, align 4, !tbaa !59
-  %406 = load float, ptr %98, align 4, !tbaa !59
-  %407 = fmul float %318, %406
-  %408 = tail call float @llvm.fmuladd.f32(float %405, float %317, float %407)
-  %409 = load float, ptr %99, align 4, !tbaa !59
-  %410 = tail call noundef float @llvm.fmuladd.f32(float %409, float %319, float %408)
-  %411 = load float, ptr %100, align 4, !tbaa !59
-  %412 = load float, ptr %101, align 4, !tbaa !59
-  %413 = fmul float %318, %412
-  %414 = tail call float @llvm.fmuladd.f32(float %411, float %317, float %413)
-  %415 = load float, ptr %102, align 4, !tbaa !59
-  %416 = tail call noundef float @llvm.fmuladd.f32(float %415, float %319, float %414)
-  %417 = load float, ptr %103, align 4, !tbaa !59
-  %418 = fmul float %404, %417
-  %419 = load float, ptr %104, align 4, !tbaa !59
-  %420 = fmul float %410, %419
-  %421 = load float, ptr %105, align 4, !tbaa !59
-  %422 = fmul float %416, %421
-  %423 = fmul float %405, %420
-  %424 = tail call float @llvm.fmuladd.f32(float %399, float %418, float %423)
-  %425 = tail call noundef float @llvm.fmuladd.f32(float %411, float %422, float %424)
-  %426 = fmul float %406, %420
-  %427 = tail call float @llvm.fmuladd.f32(float %400, float %418, float %426)
-  %428 = tail call noundef float @llvm.fmuladd.f32(float %412, float %422, float %427)
-  %429 = fmul float %409, %420
-  %430 = tail call float @llvm.fmuladd.f32(float %403, float %418, float %429)
-  %431 = tail call noundef float @llvm.fmuladd.f32(float %415, float %422, float %430)
-  %.sroa.0.0.vec.insert.i8.i206 = insertelement <2 x float> poison, float %425, i64 0
-  %.sroa.0.4.vec.insert.i9.i207 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i206, float %428, i64 1
-  %.sroa.3.12.vec.insert.i10.i208 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %431, i64 0
+397:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203
+  %398 = load float, ptr %55, align 4, !tbaa !59
+  %399 = load float, ptr %95, align 4, !tbaa !59
+  %400 = fmul float %317, %399
+  %401 = tail call float @llvm.fmuladd.f32(float %398, float %316, float %400)
+  %402 = load float, ptr %96, align 4, !tbaa !59
+  %403 = tail call noundef float @llvm.fmuladd.f32(float %402, float %318, float %401)
+  %404 = load float, ptr %97, align 4, !tbaa !59
+  %405 = load float, ptr %98, align 4, !tbaa !59
+  %406 = fmul float %317, %405
+  %407 = tail call float @llvm.fmuladd.f32(float %404, float %316, float %406)
+  %408 = load float, ptr %99, align 4, !tbaa !59
+  %409 = tail call noundef float @llvm.fmuladd.f32(float %408, float %318, float %407)
+  %410 = load float, ptr %100, align 4, !tbaa !59
+  %411 = load float, ptr %101, align 4, !tbaa !59
+  %412 = fmul float %317, %411
+  %413 = tail call float @llvm.fmuladd.f32(float %410, float %316, float %412)
+  %414 = load float, ptr %102, align 4, !tbaa !59
+  %415 = tail call noundef float @llvm.fmuladd.f32(float %414, float %318, float %413)
+  %416 = load float, ptr %103, align 4, !tbaa !59
+  %417 = fmul float %403, %416
+  %418 = load float, ptr %104, align 4, !tbaa !59
+  %419 = fmul float %409, %418
+  %420 = load float, ptr %105, align 4, !tbaa !59
+  %421 = fmul float %415, %420
+  %422 = fmul float %404, %419
+  %423 = tail call float @llvm.fmuladd.f32(float %398, float %417, float %422)
+  %424 = tail call noundef float @llvm.fmuladd.f32(float %410, float %421, float %423)
+  %425 = fmul float %405, %419
+  %426 = tail call float @llvm.fmuladd.f32(float %399, float %417, float %425)
+  %427 = tail call noundef float @llvm.fmuladd.f32(float %411, float %421, float %426)
+  %428 = fmul float %408, %419
+  %429 = tail call float @llvm.fmuladd.f32(float %402, float %417, float %428)
+  %430 = tail call noundef float @llvm.fmuladd.f32(float %414, float %421, float %429)
+  %.sroa.0.0.vec.insert.i8.i206 = insertelement <2 x float> poison, float %424, i64 0
+  %.sroa.0.4.vec.insert.i9.i207 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i206, float %427, i64 1
+  %.sroa.3.12.vec.insert.i10.i208 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %430, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i9.i207, ptr %8, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i208, ptr %93, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i208, ptr %93, align 8, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209: ; preds = %398, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203
-  %432 = phi float [ %431, %398 ], [ %319, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203 ]
-  %433 = phi float [ %428, %398 ], [ %318, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203 ]
-  %434 = phi float [ %425, %398 ], [ %317, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203 ]
-  br i1 %.not22.i199, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215, label %435
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209: ; preds = %397, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203
+  %431 = phi float [ %430, %397 ], [ %318, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203 ]
+  %432 = phi float [ %427, %397 ], [ %317, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203 ]
+  %433 = phi float [ %424, %397 ], [ %316, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit203 ]
+  br i1 %.not22.i199, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215, label %434
 
-435:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209
-  %436 = load float, ptr %59, align 4, !tbaa !59
-  %437 = load float, ptr %107, align 4, !tbaa !59
-  %438 = fmul float %437, %433
-  %439 = tail call float @llvm.fmuladd.f32(float %436, float %434, float %438)
-  %440 = load float, ptr %108, align 4, !tbaa !59
-  %441 = tail call noundef float @llvm.fmuladd.f32(float %440, float %432, float %439)
-  %442 = load float, ptr %109, align 4, !tbaa !59
-  %443 = load float, ptr %110, align 4, !tbaa !59
-  %444 = fmul float %433, %443
-  %445 = tail call float @llvm.fmuladd.f32(float %442, float %434, float %444)
-  %446 = load float, ptr %111, align 4, !tbaa !59
-  %447 = tail call noundef float @llvm.fmuladd.f32(float %446, float %432, float %445)
-  %448 = load float, ptr %112, align 4, !tbaa !59
-  %449 = load float, ptr %113, align 4, !tbaa !59
-  %450 = fmul float %433, %449
-  %451 = tail call float @llvm.fmuladd.f32(float %448, float %434, float %450)
-  %452 = load float, ptr %114, align 4, !tbaa !59
-  %453 = tail call noundef float @llvm.fmuladd.f32(float %452, float %432, float %451)
-  %454 = load float, ptr %115, align 4, !tbaa !59
-  %455 = fmul float %441, %454
-  %456 = load float, ptr %116, align 4, !tbaa !59
-  %457 = fmul float %447, %456
-  %458 = load float, ptr %117, align 4, !tbaa !59
-  %459 = fmul float %453, %458
-  %460 = fmul float %442, %457
-  %461 = tail call float @llvm.fmuladd.f32(float %436, float %455, float %460)
-  %462 = tail call noundef float @llvm.fmuladd.f32(float %448, float %459, float %461)
-  %463 = fmul float %443, %457
-  %464 = tail call float @llvm.fmuladd.f32(float %437, float %455, float %463)
-  %465 = tail call noundef float @llvm.fmuladd.f32(float %449, float %459, float %464)
-  %466 = fmul float %446, %457
-  %467 = tail call float @llvm.fmuladd.f32(float %440, float %455, float %466)
-  %468 = tail call noundef float @llvm.fmuladd.f32(float %452, float %459, float %467)
-  %.sroa.0.0.vec.insert.i8.i212 = insertelement <2 x float> poison, float %462, i64 0
-  %.sroa.0.4.vec.insert.i9.i213 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i212, float %465, i64 1
-  %.sroa.3.12.vec.insert.i10.i214 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %468, i64 0
+434:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209
+  %435 = load float, ptr %59, align 4, !tbaa !59
+  %436 = load float, ptr %107, align 4, !tbaa !59
+  %437 = fmul float %436, %432
+  %438 = tail call float @llvm.fmuladd.f32(float %435, float %433, float %437)
+  %439 = load float, ptr %108, align 4, !tbaa !59
+  %440 = tail call noundef float @llvm.fmuladd.f32(float %439, float %431, float %438)
+  %441 = load float, ptr %109, align 4, !tbaa !59
+  %442 = load float, ptr %110, align 4, !tbaa !59
+  %443 = fmul float %432, %442
+  %444 = tail call float @llvm.fmuladd.f32(float %441, float %433, float %443)
+  %445 = load float, ptr %111, align 4, !tbaa !59
+  %446 = tail call noundef float @llvm.fmuladd.f32(float %445, float %431, float %444)
+  %447 = load float, ptr %112, align 4, !tbaa !59
+  %448 = load float, ptr %113, align 4, !tbaa !59
+  %449 = fmul float %432, %448
+  %450 = tail call float @llvm.fmuladd.f32(float %447, float %433, float %449)
+  %451 = load float, ptr %114, align 4, !tbaa !59
+  %452 = tail call noundef float @llvm.fmuladd.f32(float %451, float %431, float %450)
+  %453 = load float, ptr %115, align 4, !tbaa !59
+  %454 = fmul float %440, %453
+  %455 = load float, ptr %116, align 4, !tbaa !59
+  %456 = fmul float %446, %455
+  %457 = load float, ptr %117, align 4, !tbaa !59
+  %458 = fmul float %452, %457
+  %459 = fmul float %441, %456
+  %460 = tail call float @llvm.fmuladd.f32(float %435, float %454, float %459)
+  %461 = tail call noundef float @llvm.fmuladd.f32(float %447, float %458, float %460)
+  %462 = fmul float %442, %456
+  %463 = tail call float @llvm.fmuladd.f32(float %436, float %454, float %462)
+  %464 = tail call noundef float @llvm.fmuladd.f32(float %448, float %458, float %463)
+  %465 = fmul float %445, %456
+  %466 = tail call float @llvm.fmuladd.f32(float %439, float %454, float %465)
+  %467 = tail call noundef float @llvm.fmuladd.f32(float %451, float %458, float %466)
+  %.sroa.0.0.vec.insert.i8.i212 = insertelement <2 x float> poison, float %461, i64 0
+  %.sroa.0.4.vec.insert.i9.i213 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i212, float %464, i64 1
+  %.sroa.3.12.vec.insert.i10.i214 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %467, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i9.i213, ptr %8, align 8
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i214, ptr %93, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i214, ptr %93, align 8, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209, %435
-  %469 = phi float [ %432, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209 ], [ %468, %435 ]
-  %470 = phi float [ %433, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209 ], [ %465, %435 ]
-  %471 = phi float [ %434, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209 ], [ %462, %435 ]
-  %472 = fmul float %396, %396
-  %473 = tail call float @llvm.fmuladd.f32(float %397, float %397, float %472)
-  %474 = tail call noundef float @llvm.fmuladd.f32(float %395, float %395, float %473)
-  %sqrt.i216 = tail call noundef float @llvm.sqrt.f32(float %474)
-  %475 = fpext float %sqrt.i216 to double
-  %476 = fcmp ogt double %475, 1.000000e-03
-  br i1 %476, label %477, label %480
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209, %434
+  %468 = phi float [ %431, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209 ], [ %467, %434 ]
+  %469 = phi float [ %432, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209 ], [ %464, %434 ]
+  %470 = phi float [ %433, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit209 ], [ %461, %434 ]
+  %471 = fmul float %395, %395
+  %472 = tail call float @llvm.fmuladd.f32(float %396, float %396, float %471)
+  %473 = tail call noundef float @llvm.fmuladd.f32(float %394, float %394, float %472)
+  %sqrt.i216 = tail call noundef float @llvm.sqrt.f32(float %473)
+  %474 = fpext float %sqrt.i216 to double
+  %475 = fcmp ogt double %474, 1.000000e-03
+  br i1 %475, label %476, label %479
 
-477:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215
-  %478 = load float, ptr %264, align 8, !tbaa !124
-  %479 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver30addTorsionalFrictionConstraintERK9btVector3iiiR15btManifoldPointfS2_S2_P17btCollisionObjectS6_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %7, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr nonnull align 8 poison, float noundef %478, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr nonnull poison, ptr nonnull poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  br label %480
+476:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215
+  %477 = load float, ptr %263, align 8, !tbaa !123
+  %478 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver30addTorsionalFrictionConstraintERK9btVector3iiiR15btManifoldPointfS2_S2_P17btCollisionObjectS6_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %7, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr nonnull align 8 poison, float noundef %477, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr nonnull poison, ptr nonnull poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  br label %479
 
-480:                                              ; preds = %477, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215
-  %481 = fmul float %470, %470
-  %482 = tail call float @llvm.fmuladd.f32(float %471, float %471, float %481)
-  %483 = tail call noundef float @llvm.fmuladd.f32(float %469, float %469, float %482)
-  %sqrt.i217 = tail call noundef float @llvm.sqrt.f32(float %483)
-  %484 = fpext float %sqrt.i217 to double
-  %485 = fcmp ogt double %484, 1.000000e-03
-  br i1 %485, label %486, label %489
+479:                                              ; preds = %476, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit215
+  %480 = fmul float %469, %469
+  %481 = tail call float @llvm.fmuladd.f32(float %470, float %470, float %480)
+  %482 = tail call noundef float @llvm.fmuladd.f32(float %468, float %468, float %481)
+  %sqrt.i217 = tail call noundef float @llvm.sqrt.f32(float %482)
+  %483 = fpext float %sqrt.i217 to double
+  %484 = fcmp ogt double %483, 1.000000e-03
+  br i1 %484, label %485, label %488
 
-486:                                              ; preds = %480
-  %487 = load float, ptr %264, align 8, !tbaa !124
-  %488 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver30addTorsionalFrictionConstraintERK9btVector3iiiR15btManifoldPointfS2_S2_P17btCollisionObjectS6_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %8, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr nonnull align 8 poison, float noundef %487, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr nonnull poison, ptr nonnull poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  br label %489
+485:                                              ; preds = %479
+  %486 = load float, ptr %263, align 8, !tbaa !123
+  %487 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver30addTorsionalFrictionConstraintERK9btVector3iiiR15btManifoldPointfS2_S2_P17btCollisionObjectS6_fff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %8, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr nonnull align 8 poison, float noundef %486, ptr nonnull align 4 poison, ptr nonnull align 4 poison, ptr nonnull poison, ptr nonnull poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  br label %488
 
-489:                                              ; preds = %486, %480
+488:                                              ; preds = %485, %479
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #23
-  br label %490
+  br label %489
 
-490:                                              ; preds = %489, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190
-  %491 = load i32, ptr %118, align 4, !tbaa !113
-  %492 = and i32 %491, 32
-  %.not = icmp eq i32 %492, 0
-  br i1 %.not, label %497, label %493
+489:                                              ; preds = %488, %_ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190
+  %490 = load i32, ptr %118, align 4, !tbaa !112
+  %491 = and i32 %490, 32
+  %.not = icmp eq i32 %491, 0
+  br i1 %.not, label %496, label %492
 
-493:                                              ; preds = %490
-  %494 = getelementptr inbounds nuw i8, ptr %122, i64 128
-  %495 = load i32, ptr %494, align 8, !tbaa !94
-  %496 = and i32 %495, 1
-  %.not174 = icmp eq i32 %496, 0
-  br i1 %.not174, label %497, label %899
+492:                                              ; preds = %489
+  %493 = getelementptr inbounds nuw i8, ptr %122, i64 128
+  %494 = load i32, ptr %493, align 8, !tbaa !93
+  %495 = and i32 %494, 1
+  %.not174 = icmp eq i32 %495, 0
+  br i1 %.not174, label %496, label %898
 
-497:                                              ; preds = %493, %490
-  %498 = load float, ptr %253, align 4, !tbaa !59
-  %499 = fmul float %261, %498
-  %500 = load float, ptr %255, align 4, !tbaa !59
-  %501 = fmul float %261, %500
-  %502 = load float, ptr %259, align 4, !tbaa !59
-  %503 = fmul float %261, %502
-  %504 = fsub float %248, %499
-  %505 = fsub float %250, %501
-  %506 = fsub float %252, %503
-  %.sroa.0.0.vec.insert.i223 = insertelement <2 x float> poison, float %504, i64 0
-  %.sroa.0.4.vec.insert.i224 = insertelement <2 x float> %.sroa.0.0.vec.insert.i223, float %505, i64 1
-  %.sroa.3.12.vec.insert.i225 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %506, i64 0
-  %507 = getelementptr inbounds nuw i8, ptr %122, i64 172
-  store <2 x float> %.sroa.0.4.vec.insert.i224, ptr %507, align 4
+496:                                              ; preds = %492, %489
+  %497 = load float, ptr %252, align 4, !tbaa !59
+  %498 = fmul float %260, %497
+  %499 = load float, ptr %254, align 4, !tbaa !59
+  %500 = fmul float %260, %499
+  %501 = load float, ptr %258, align 4, !tbaa !59
+  %502 = fmul float %260, %501
+  %503 = fsub float %247, %498
+  %504 = fsub float %249, %500
+  %505 = fsub float %251, %502
+  %.sroa.0.0.vec.insert.i223 = insertelement <2 x float> poison, float %503, i64 0
+  %.sroa.0.4.vec.insert.i224 = insertelement <2 x float> %.sroa.0.0.vec.insert.i223, float %504, i64 1
+  %.sroa.3.12.vec.insert.i225 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %505, i64 0
+  %506 = getelementptr inbounds nuw i8, ptr %122, i64 172
+  store <2 x float> %.sroa.0.4.vec.insert.i224, ptr %506, align 4
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 180
-  store <2 x float> %.sroa.3.12.vec.insert.i225, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !81
-  %508 = getelementptr inbounds nuw i8, ptr %122, i64 176
-  %509 = fmul float %505, %505
-  %510 = tail call float @llvm.fmuladd.f32(float %504, float %504, float %509)
-  %511 = tail call noundef float @llvm.fmuladd.f32(float %506, float %506, float %510)
-  %512 = load i32, ptr %118, align 4, !tbaa !113
-  %513 = and i32 %512, 64
-  %514 = icmp eq i32 %513, 0
-  %515 = fcmp ogt float %511, 0x3E80000000000000
-  %or.cond3 = and i1 %514, %515
-  br i1 %or.cond3, label %516, label %701
+  store <2 x float> %.sroa.3.12.vec.insert.i225, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !80
+  %507 = getelementptr inbounds nuw i8, ptr %122, i64 176
+  %508 = fmul float %504, %504
+  %509 = tail call float @llvm.fmuladd.f32(float %503, float %503, float %508)
+  %510 = tail call noundef float @llvm.fmuladd.f32(float %505, float %505, float %509)
+  %511 = load i32, ptr %118, align 4, !tbaa !112
+  %512 = and i32 %511, 64
+  %513 = icmp eq i32 %512, 0
+  %514 = fcmp ogt float %510, 0x3E80000000000000
+  %or.cond3 = and i1 %513, %514
+  br i1 %or.cond3, label %515, label %700
 
-516:                                              ; preds = %497
-  %sqrt = tail call float @llvm.sqrt.f32(float %511)
-  %517 = fdiv float 1.000000e+00, %sqrt
-  %518 = fmul float %504, %517
+515:                                              ; preds = %496
+  %sqrt = tail call float @llvm.sqrt.f32(float %510)
+  %516 = fdiv float 1.000000e+00, %sqrt
+  %517 = fmul float %503, %516
+  store float %517, ptr %506, align 4, !tbaa !59
+  %518 = fmul float %504, %516
   store float %518, ptr %507, align 4, !tbaa !59
-  %519 = fmul float %505, %517
-  store float %519, ptr %508, align 4, !tbaa !59
-  %520 = fmul float %506, %517
-  store float %520, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !59
-  %521 = load i32, ptr %94, align 8, !tbaa !88
-  %522 = and i32 %521, 1
-  %.not22.i229 = icmp eq i32 %522, 0
-  br i1 %.not22.i229, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233, label %523
+  %519 = fmul float %505, %516
+  store float %519, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !59
+  %520 = load i32, ptr %94, align 8, !tbaa !87
+  %521 = and i32 %520, 1
+  %.not22.i229 = icmp eq i32 %521, 0
+  br i1 %.not22.i229, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233, label %522
 
-523:                                              ; preds = %516
-  %524 = load float, ptr %55, align 4, !tbaa !59
-  %525 = load float, ptr %95, align 4, !tbaa !59
-  %526 = fmul float %519, %525
-  %527 = tail call float @llvm.fmuladd.f32(float %524, float %518, float %526)
-  %528 = load float, ptr %96, align 4, !tbaa !59
-  %529 = tail call noundef float @llvm.fmuladd.f32(float %528, float %520, float %527)
-  %530 = load float, ptr %97, align 4, !tbaa !59
-  %531 = load float, ptr %98, align 4, !tbaa !59
-  %532 = fmul float %519, %531
-  %533 = tail call float @llvm.fmuladd.f32(float %530, float %518, float %532)
-  %534 = load float, ptr %99, align 4, !tbaa !59
-  %535 = tail call noundef float @llvm.fmuladd.f32(float %534, float %520, float %533)
-  %536 = load float, ptr %100, align 4, !tbaa !59
-  %537 = load float, ptr %101, align 4, !tbaa !59
-  %538 = fmul float %519, %537
-  %539 = tail call float @llvm.fmuladd.f32(float %536, float %518, float %538)
-  %540 = load float, ptr %102, align 4, !tbaa !59
-  %541 = tail call noundef float @llvm.fmuladd.f32(float %540, float %520, float %539)
-  %542 = load float, ptr %103, align 4, !tbaa !59
-  %543 = fmul float %529, %542
-  %544 = load float, ptr %104, align 4, !tbaa !59
-  %545 = fmul float %535, %544
-  %546 = load float, ptr %105, align 4, !tbaa !59
-  %547 = fmul float %541, %546
-  %548 = fmul float %530, %545
-  %549 = tail call float @llvm.fmuladd.f32(float %524, float %543, float %548)
-  %550 = tail call noundef float @llvm.fmuladd.f32(float %536, float %547, float %549)
-  %551 = fmul float %531, %545
-  %552 = tail call float @llvm.fmuladd.f32(float %525, float %543, float %551)
-  %553 = tail call noundef float @llvm.fmuladd.f32(float %537, float %547, float %552)
-  %554 = fmul float %534, %545
-  %555 = tail call float @llvm.fmuladd.f32(float %528, float %543, float %554)
-  %556 = tail call noundef float @llvm.fmuladd.f32(float %540, float %547, float %555)
-  %.sroa.0.0.vec.insert.i8.i230 = insertelement <2 x float> poison, float %550, i64 0
-  %.sroa.0.4.vec.insert.i9.i231 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i230, float %553, i64 1
-  %.sroa.3.12.vec.insert.i10.i232 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %556, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i231, ptr %507, align 4
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i232, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !81
+522:                                              ; preds = %515
+  %523 = load float, ptr %55, align 4, !tbaa !59
+  %524 = load float, ptr %95, align 4, !tbaa !59
+  %525 = fmul float %518, %524
+  %526 = tail call float @llvm.fmuladd.f32(float %523, float %517, float %525)
+  %527 = load float, ptr %96, align 4, !tbaa !59
+  %528 = tail call noundef float @llvm.fmuladd.f32(float %527, float %519, float %526)
+  %529 = load float, ptr %97, align 4, !tbaa !59
+  %530 = load float, ptr %98, align 4, !tbaa !59
+  %531 = fmul float %518, %530
+  %532 = tail call float @llvm.fmuladd.f32(float %529, float %517, float %531)
+  %533 = load float, ptr %99, align 4, !tbaa !59
+  %534 = tail call noundef float @llvm.fmuladd.f32(float %533, float %519, float %532)
+  %535 = load float, ptr %100, align 4, !tbaa !59
+  %536 = load float, ptr %101, align 4, !tbaa !59
+  %537 = fmul float %518, %536
+  %538 = tail call float @llvm.fmuladd.f32(float %535, float %517, float %537)
+  %539 = load float, ptr %102, align 4, !tbaa !59
+  %540 = tail call noundef float @llvm.fmuladd.f32(float %539, float %519, float %538)
+  %541 = load float, ptr %103, align 4, !tbaa !59
+  %542 = fmul float %528, %541
+  %543 = load float, ptr %104, align 4, !tbaa !59
+  %544 = fmul float %534, %543
+  %545 = load float, ptr %105, align 4, !tbaa !59
+  %546 = fmul float %540, %545
+  %547 = fmul float %529, %544
+  %548 = tail call float @llvm.fmuladd.f32(float %523, float %542, float %547)
+  %549 = tail call noundef float @llvm.fmuladd.f32(float %535, float %546, float %548)
+  %550 = fmul float %530, %544
+  %551 = tail call float @llvm.fmuladd.f32(float %524, float %542, float %550)
+  %552 = tail call noundef float @llvm.fmuladd.f32(float %536, float %546, float %551)
+  %553 = fmul float %533, %544
+  %554 = tail call float @llvm.fmuladd.f32(float %527, float %542, float %553)
+  %555 = tail call noundef float @llvm.fmuladd.f32(float %539, float %546, float %554)
+  %.sroa.0.0.vec.insert.i8.i230 = insertelement <2 x float> poison, float %549, i64 0
+  %.sroa.0.4.vec.insert.i9.i231 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i230, float %552, i64 1
+  %.sroa.3.12.vec.insert.i10.i232 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %555, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i231, ptr %506, align 4
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i232, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233: ; preds = %523, %516
-  %557 = phi float [ %520, %516 ], [ %556, %523 ]
-  %558 = phi float [ %519, %516 ], [ %553, %523 ]
-  %559 = phi float [ %518, %516 ], [ %550, %523 ]
-  %560 = load i32, ptr %106, align 8, !tbaa !88
-  %561 = and i32 %560, 1
-  %.not22.i235 = icmp eq i32 %561, 0
-  br i1 %.not22.i235, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239, label %562
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233: ; preds = %522, %515
+  %556 = phi float [ %519, %515 ], [ %555, %522 ]
+  %557 = phi float [ %518, %515 ], [ %552, %522 ]
+  %558 = phi float [ %517, %515 ], [ %549, %522 ]
+  %559 = load i32, ptr %106, align 8, !tbaa !87
+  %560 = and i32 %559, 1
+  %.not22.i235 = icmp eq i32 %560, 0
+  br i1 %.not22.i235, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239, label %561
 
-562:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233
-  %563 = load float, ptr %59, align 4, !tbaa !59
-  %564 = load float, ptr %107, align 4, !tbaa !59
-  %565 = fmul float %564, %558
-  %566 = tail call float @llvm.fmuladd.f32(float %563, float %559, float %565)
-  %567 = load float, ptr %108, align 4, !tbaa !59
-  %568 = tail call noundef float @llvm.fmuladd.f32(float %567, float %557, float %566)
-  %569 = load float, ptr %109, align 4, !tbaa !59
-  %570 = load float, ptr %110, align 4, !tbaa !59
-  %571 = fmul float %558, %570
-  %572 = tail call float @llvm.fmuladd.f32(float %569, float %559, float %571)
-  %573 = load float, ptr %111, align 4, !tbaa !59
-  %574 = tail call noundef float @llvm.fmuladd.f32(float %573, float %557, float %572)
-  %575 = load float, ptr %112, align 4, !tbaa !59
-  %576 = load float, ptr %113, align 4, !tbaa !59
-  %577 = fmul float %558, %576
-  %578 = tail call float @llvm.fmuladd.f32(float %575, float %559, float %577)
-  %579 = load float, ptr %114, align 4, !tbaa !59
-  %580 = tail call noundef float @llvm.fmuladd.f32(float %579, float %557, float %578)
-  %581 = load float, ptr %115, align 4, !tbaa !59
-  %582 = fmul float %568, %581
-  %583 = load float, ptr %116, align 4, !tbaa !59
-  %584 = fmul float %574, %583
-  %585 = load float, ptr %117, align 4, !tbaa !59
-  %586 = fmul float %580, %585
-  %587 = fmul float %569, %584
-  %588 = tail call float @llvm.fmuladd.f32(float %563, float %582, float %587)
-  %589 = tail call noundef float @llvm.fmuladd.f32(float %575, float %586, float %588)
-  %590 = fmul float %570, %584
-  %591 = tail call float @llvm.fmuladd.f32(float %564, float %582, float %590)
-  %592 = tail call noundef float @llvm.fmuladd.f32(float %576, float %586, float %591)
-  %593 = fmul float %573, %584
-  %594 = tail call float @llvm.fmuladd.f32(float %567, float %582, float %593)
-  %595 = tail call noundef float @llvm.fmuladd.f32(float %579, float %586, float %594)
-  %.sroa.0.0.vec.insert.i8.i236 = insertelement <2 x float> poison, float %589, i64 0
-  %.sroa.0.4.vec.insert.i9.i237 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i236, float %592, i64 1
-  %.sroa.3.12.vec.insert.i10.i238 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %595, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i237, ptr %507, align 4
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i238, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !81
+561:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233
+  %562 = load float, ptr %59, align 4, !tbaa !59
+  %563 = load float, ptr %107, align 4, !tbaa !59
+  %564 = fmul float %563, %557
+  %565 = tail call float @llvm.fmuladd.f32(float %562, float %558, float %564)
+  %566 = load float, ptr %108, align 4, !tbaa !59
+  %567 = tail call noundef float @llvm.fmuladd.f32(float %566, float %556, float %565)
+  %568 = load float, ptr %109, align 4, !tbaa !59
+  %569 = load float, ptr %110, align 4, !tbaa !59
+  %570 = fmul float %557, %569
+  %571 = tail call float @llvm.fmuladd.f32(float %568, float %558, float %570)
+  %572 = load float, ptr %111, align 4, !tbaa !59
+  %573 = tail call noundef float @llvm.fmuladd.f32(float %572, float %556, float %571)
+  %574 = load float, ptr %112, align 4, !tbaa !59
+  %575 = load float, ptr %113, align 4, !tbaa !59
+  %576 = fmul float %557, %575
+  %577 = tail call float @llvm.fmuladd.f32(float %574, float %558, float %576)
+  %578 = load float, ptr %114, align 4, !tbaa !59
+  %579 = tail call noundef float @llvm.fmuladd.f32(float %578, float %556, float %577)
+  %580 = load float, ptr %115, align 4, !tbaa !59
+  %581 = fmul float %567, %580
+  %582 = load float, ptr %116, align 4, !tbaa !59
+  %583 = fmul float %573, %582
+  %584 = load float, ptr %117, align 4, !tbaa !59
+  %585 = fmul float %579, %584
+  %586 = fmul float %568, %583
+  %587 = tail call float @llvm.fmuladd.f32(float %562, float %581, float %586)
+  %588 = tail call noundef float @llvm.fmuladd.f32(float %574, float %585, float %587)
+  %589 = fmul float %569, %583
+  %590 = tail call float @llvm.fmuladd.f32(float %563, float %581, float %589)
+  %591 = tail call noundef float @llvm.fmuladd.f32(float %575, float %585, float %590)
+  %592 = fmul float %572, %583
+  %593 = tail call float @llvm.fmuladd.f32(float %566, float %581, float %592)
+  %594 = tail call noundef float @llvm.fmuladd.f32(float %578, float %585, float %593)
+  %.sroa.0.0.vec.insert.i8.i236 = insertelement <2 x float> poison, float %588, i64 0
+  %.sroa.0.4.vec.insert.i9.i237 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i236, float %591, i64 1
+  %.sroa.3.12.vec.insert.i10.i238 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %594, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i237, ptr %506, align 4
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i238, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233, %562
-  %596 = load float, ptr %6, align 4, !tbaa !59
-  %597 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %507, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %596, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  %598 = load i32, ptr %118, align 4, !tbaa !113
-  %599 = and i32 %598, 16
-  %.not178 = icmp eq i32 %599, 0
-  br i1 %.not178, label %915, label %600
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit233, %561
+  %595 = load float, ptr %6, align 4, !tbaa !59
+  %596 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %506, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %595, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %597 = load i32, ptr %118, align 4, !tbaa !112
+  %598 = and i32 %597, 16
+  %.not178 = icmp eq i32 %598, 0
+  br i1 %.not178, label %914, label %599
 
-600:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239
-  %601 = load float, ptr %508, align 4, !tbaa !59
-  %602 = load float, ptr %259, align 4, !tbaa !59
-  %603 = load float, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !59
-  %604 = load float, ptr %255, align 4, !tbaa !59
-  %605 = fneg float %604
-  %606 = fmul float %603, %605
-  %607 = tail call float @llvm.fmuladd.f32(float %601, float %602, float %606)
-  %608 = load float, ptr %253, align 4, !tbaa !59
-  %609 = load float, ptr %507, align 4, !tbaa !59
-  %610 = fneg float %602
-  %611 = fmul float %609, %610
-  %612 = tail call float @llvm.fmuladd.f32(float %603, float %608, float %611)
-  %613 = fneg float %608
-  %614 = fmul float %601, %613
-  %615 = tail call float @llvm.fmuladd.f32(float %609, float %604, float %614)
-  %.sroa.3.12.vec.insert.i242 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %615, i64 0
-  %616 = getelementptr inbounds nuw i8, ptr %122, i64 188
+599:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239
+  %600 = load float, ptr %507, align 4, !tbaa !59
+  %601 = load float, ptr %258, align 4, !tbaa !59
+  %602 = load float, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !59
+  %603 = load float, ptr %254, align 4, !tbaa !59
+  %604 = fneg float %603
+  %605 = fmul float %602, %604
+  %606 = tail call float @llvm.fmuladd.f32(float %600, float %601, float %605)
+  %607 = load float, ptr %252, align 4, !tbaa !59
+  %608 = load float, ptr %506, align 4, !tbaa !59
+  %609 = fneg float %601
+  %610 = fmul float %608, %609
+  %611 = tail call float @llvm.fmuladd.f32(float %602, float %607, float %610)
+  %612 = fneg float %607
+  %613 = fmul float %600, %612
+  %614 = tail call float @llvm.fmuladd.f32(float %608, float %603, float %613)
+  %.sroa.3.12.vec.insert.i242 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %614, i64 0
+  %615 = getelementptr inbounds nuw i8, ptr %122, i64 188
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 196
-  store <2 x float> %.sroa.3.12.vec.insert.i242, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !81
-  %617 = getelementptr inbounds nuw i8, ptr %122, i64 192
-  %618 = fmul float %612, %612
-  %619 = tail call float @llvm.fmuladd.f32(float %607, float %607, float %618)
-  %620 = tail call noundef float @llvm.fmuladd.f32(float %615, float %615, float %619)
-  %sqrt.i.i245 = tail call noundef float @llvm.sqrt.f32(float %620)
-  %621 = fdiv float 1.000000e+00, %sqrt.i.i245
-  %622 = fmul float %607, %621
+  store <2 x float> %.sroa.3.12.vec.insert.i242, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !80
+  %616 = getelementptr inbounds nuw i8, ptr %122, i64 192
+  %617 = fmul float %611, %611
+  %618 = tail call float @llvm.fmuladd.f32(float %606, float %606, float %617)
+  %619 = tail call noundef float @llvm.fmuladd.f32(float %614, float %614, float %618)
+  %sqrt.i.i245 = tail call noundef float @llvm.sqrt.f32(float %619)
+  %620 = fdiv float 1.000000e+00, %sqrt.i.i245
+  %621 = fmul float %606, %620
+  store float %621, ptr %615, align 4, !tbaa !59
+  %622 = fmul float %611, %620
   store float %622, ptr %616, align 4, !tbaa !59
-  %623 = fmul float %612, %621
-  store float %623, ptr %617, align 4, !tbaa !59
-  %624 = fmul float %615, %621
-  store float %624, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !59
-  %625 = load i32, ptr %94, align 8, !tbaa !88
-  %626 = and i32 %625, 1
-  %.not22.i247 = icmp eq i32 %626, 0
-  br i1 %.not22.i247, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251, label %627
+  %623 = fmul float %614, %620
+  store float %623, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !59
+  %624 = load i32, ptr %94, align 8, !tbaa !87
+  %625 = and i32 %624, 1
+  %.not22.i247 = icmp eq i32 %625, 0
+  br i1 %.not22.i247, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251, label %626
 
-627:                                              ; preds = %600
-  %628 = load float, ptr %55, align 4, !tbaa !59
-  %629 = load float, ptr %95, align 4, !tbaa !59
-  %630 = fmul float %623, %629
-  %631 = tail call float @llvm.fmuladd.f32(float %628, float %622, float %630)
-  %632 = load float, ptr %96, align 4, !tbaa !59
-  %633 = tail call noundef float @llvm.fmuladd.f32(float %632, float %624, float %631)
-  %634 = load float, ptr %97, align 4, !tbaa !59
-  %635 = load float, ptr %98, align 4, !tbaa !59
-  %636 = fmul float %623, %635
-  %637 = tail call float @llvm.fmuladd.f32(float %634, float %622, float %636)
-  %638 = load float, ptr %99, align 4, !tbaa !59
-  %639 = tail call noundef float @llvm.fmuladd.f32(float %638, float %624, float %637)
-  %640 = load float, ptr %100, align 4, !tbaa !59
-  %641 = load float, ptr %101, align 4, !tbaa !59
-  %642 = fmul float %623, %641
-  %643 = tail call float @llvm.fmuladd.f32(float %640, float %622, float %642)
-  %644 = load float, ptr %102, align 4, !tbaa !59
-  %645 = tail call noundef float @llvm.fmuladd.f32(float %644, float %624, float %643)
-  %646 = load float, ptr %103, align 4, !tbaa !59
-  %647 = fmul float %633, %646
-  %648 = load float, ptr %104, align 4, !tbaa !59
-  %649 = fmul float %639, %648
-  %650 = load float, ptr %105, align 4, !tbaa !59
-  %651 = fmul float %645, %650
-  %652 = fmul float %634, %649
-  %653 = tail call float @llvm.fmuladd.f32(float %628, float %647, float %652)
-  %654 = tail call noundef float @llvm.fmuladd.f32(float %640, float %651, float %653)
-  %655 = fmul float %635, %649
-  %656 = tail call float @llvm.fmuladd.f32(float %629, float %647, float %655)
-  %657 = tail call noundef float @llvm.fmuladd.f32(float %641, float %651, float %656)
-  %658 = fmul float %638, %649
-  %659 = tail call float @llvm.fmuladd.f32(float %632, float %647, float %658)
-  %660 = tail call noundef float @llvm.fmuladd.f32(float %644, float %651, float %659)
-  %.sroa.0.0.vec.insert.i8.i248 = insertelement <2 x float> poison, float %654, i64 0
-  %.sroa.0.4.vec.insert.i9.i249 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i248, float %657, i64 1
-  %.sroa.3.12.vec.insert.i10.i250 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %660, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i249, ptr %616, align 4
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i250, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !81
+626:                                              ; preds = %599
+  %627 = load float, ptr %55, align 4, !tbaa !59
+  %628 = load float, ptr %95, align 4, !tbaa !59
+  %629 = fmul float %622, %628
+  %630 = tail call float @llvm.fmuladd.f32(float %627, float %621, float %629)
+  %631 = load float, ptr %96, align 4, !tbaa !59
+  %632 = tail call noundef float @llvm.fmuladd.f32(float %631, float %623, float %630)
+  %633 = load float, ptr %97, align 4, !tbaa !59
+  %634 = load float, ptr %98, align 4, !tbaa !59
+  %635 = fmul float %622, %634
+  %636 = tail call float @llvm.fmuladd.f32(float %633, float %621, float %635)
+  %637 = load float, ptr %99, align 4, !tbaa !59
+  %638 = tail call noundef float @llvm.fmuladd.f32(float %637, float %623, float %636)
+  %639 = load float, ptr %100, align 4, !tbaa !59
+  %640 = load float, ptr %101, align 4, !tbaa !59
+  %641 = fmul float %622, %640
+  %642 = tail call float @llvm.fmuladd.f32(float %639, float %621, float %641)
+  %643 = load float, ptr %102, align 4, !tbaa !59
+  %644 = tail call noundef float @llvm.fmuladd.f32(float %643, float %623, float %642)
+  %645 = load float, ptr %103, align 4, !tbaa !59
+  %646 = fmul float %632, %645
+  %647 = load float, ptr %104, align 4, !tbaa !59
+  %648 = fmul float %638, %647
+  %649 = load float, ptr %105, align 4, !tbaa !59
+  %650 = fmul float %644, %649
+  %651 = fmul float %633, %648
+  %652 = tail call float @llvm.fmuladd.f32(float %627, float %646, float %651)
+  %653 = tail call noundef float @llvm.fmuladd.f32(float %639, float %650, float %652)
+  %654 = fmul float %634, %648
+  %655 = tail call float @llvm.fmuladd.f32(float %628, float %646, float %654)
+  %656 = tail call noundef float @llvm.fmuladd.f32(float %640, float %650, float %655)
+  %657 = fmul float %637, %648
+  %658 = tail call float @llvm.fmuladd.f32(float %631, float %646, float %657)
+  %659 = tail call noundef float @llvm.fmuladd.f32(float %643, float %650, float %658)
+  %.sroa.0.0.vec.insert.i8.i248 = insertelement <2 x float> poison, float %653, i64 0
+  %.sroa.0.4.vec.insert.i9.i249 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i248, float %656, i64 1
+  %.sroa.3.12.vec.insert.i10.i250 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %659, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i249, ptr %615, align 4
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i250, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251: ; preds = %627, %600
-  %661 = phi float [ %660, %627 ], [ %624, %600 ]
-  %662 = phi float [ %657, %627 ], [ %623, %600 ]
-  %663 = phi float [ %654, %627 ], [ %622, %600 ]
-  %664 = load i32, ptr %106, align 8, !tbaa !88
-  %665 = and i32 %664, 1
-  %.not22.i253 = icmp eq i32 %665, 0
-  br i1 %.not22.i253, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257, label %666
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251: ; preds = %626, %599
+  %660 = phi float [ %659, %626 ], [ %623, %599 ]
+  %661 = phi float [ %656, %626 ], [ %622, %599 ]
+  %662 = phi float [ %653, %626 ], [ %621, %599 ]
+  %663 = load i32, ptr %106, align 8, !tbaa !87
+  %664 = and i32 %663, 1
+  %.not22.i253 = icmp eq i32 %664, 0
+  br i1 %.not22.i253, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257, label %665
 
-666:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251
-  %667 = load float, ptr %59, align 4, !tbaa !59
-  %668 = load float, ptr %107, align 4, !tbaa !59
-  %669 = fmul float %668, %662
-  %670 = tail call float @llvm.fmuladd.f32(float %667, float %663, float %669)
-  %671 = load float, ptr %108, align 4, !tbaa !59
-  %672 = tail call noundef float @llvm.fmuladd.f32(float %671, float %661, float %670)
-  %673 = load float, ptr %109, align 4, !tbaa !59
-  %674 = load float, ptr %110, align 4, !tbaa !59
-  %675 = fmul float %662, %674
-  %676 = tail call float @llvm.fmuladd.f32(float %673, float %663, float %675)
-  %677 = load float, ptr %111, align 4, !tbaa !59
-  %678 = tail call noundef float @llvm.fmuladd.f32(float %677, float %661, float %676)
-  %679 = load float, ptr %112, align 4, !tbaa !59
-  %680 = load float, ptr %113, align 4, !tbaa !59
-  %681 = fmul float %662, %680
-  %682 = tail call float @llvm.fmuladd.f32(float %679, float %663, float %681)
-  %683 = load float, ptr %114, align 4, !tbaa !59
-  %684 = tail call noundef float @llvm.fmuladd.f32(float %683, float %661, float %682)
-  %685 = load float, ptr %115, align 4, !tbaa !59
-  %686 = fmul float %672, %685
-  %687 = load float, ptr %116, align 4, !tbaa !59
-  %688 = fmul float %678, %687
-  %689 = load float, ptr %117, align 4, !tbaa !59
-  %690 = fmul float %684, %689
-  %691 = fmul float %673, %688
-  %692 = tail call float @llvm.fmuladd.f32(float %667, float %686, float %691)
-  %693 = tail call noundef float @llvm.fmuladd.f32(float %679, float %690, float %692)
-  %694 = fmul float %674, %688
-  %695 = tail call float @llvm.fmuladd.f32(float %668, float %686, float %694)
-  %696 = tail call noundef float @llvm.fmuladd.f32(float %680, float %690, float %695)
-  %697 = fmul float %677, %688
-  %698 = tail call float @llvm.fmuladd.f32(float %671, float %686, float %697)
-  %699 = tail call noundef float @llvm.fmuladd.f32(float %683, float %690, float %698)
-  %.sroa.0.0.vec.insert.i8.i254 = insertelement <2 x float> poison, float %693, i64 0
-  %.sroa.0.4.vec.insert.i9.i255 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i254, float %696, i64 1
-  %.sroa.3.12.vec.insert.i10.i256 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %699, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i255, ptr %616, align 4
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i256, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !81
+665:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251
+  %666 = load float, ptr %59, align 4, !tbaa !59
+  %667 = load float, ptr %107, align 4, !tbaa !59
+  %668 = fmul float %667, %661
+  %669 = tail call float @llvm.fmuladd.f32(float %666, float %662, float %668)
+  %670 = load float, ptr %108, align 4, !tbaa !59
+  %671 = tail call noundef float @llvm.fmuladd.f32(float %670, float %660, float %669)
+  %672 = load float, ptr %109, align 4, !tbaa !59
+  %673 = load float, ptr %110, align 4, !tbaa !59
+  %674 = fmul float %661, %673
+  %675 = tail call float @llvm.fmuladd.f32(float %672, float %662, float %674)
+  %676 = load float, ptr %111, align 4, !tbaa !59
+  %677 = tail call noundef float @llvm.fmuladd.f32(float %676, float %660, float %675)
+  %678 = load float, ptr %112, align 4, !tbaa !59
+  %679 = load float, ptr %113, align 4, !tbaa !59
+  %680 = fmul float %661, %679
+  %681 = tail call float @llvm.fmuladd.f32(float %678, float %662, float %680)
+  %682 = load float, ptr %114, align 4, !tbaa !59
+  %683 = tail call noundef float @llvm.fmuladd.f32(float %682, float %660, float %681)
+  %684 = load float, ptr %115, align 4, !tbaa !59
+  %685 = fmul float %671, %684
+  %686 = load float, ptr %116, align 4, !tbaa !59
+  %687 = fmul float %677, %686
+  %688 = load float, ptr %117, align 4, !tbaa !59
+  %689 = fmul float %683, %688
+  %690 = fmul float %672, %687
+  %691 = tail call float @llvm.fmuladd.f32(float %666, float %685, float %690)
+  %692 = tail call noundef float @llvm.fmuladd.f32(float %678, float %689, float %691)
+  %693 = fmul float %673, %687
+  %694 = tail call float @llvm.fmuladd.f32(float %667, float %685, float %693)
+  %695 = tail call noundef float @llvm.fmuladd.f32(float %679, float %689, float %694)
+  %696 = fmul float %676, %687
+  %697 = tail call float @llvm.fmuladd.f32(float %670, float %685, float %696)
+  %698 = tail call noundef float @llvm.fmuladd.f32(float %682, float %689, float %697)
+  %.sroa.0.0.vec.insert.i8.i254 = insertelement <2 x float> poison, float %692, i64 0
+  %.sroa.0.4.vec.insert.i9.i255 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i254, float %695, i64 1
+  %.sroa.3.12.vec.insert.i10.i256 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %698, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i255, ptr %615, align 4
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i256, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251, %666
-  %700 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %616, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %596, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  br label %915
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit251, %665
+  %699 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %615, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %595, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  br label %914
 
-701:                                              ; preds = %497
-  %702 = getelementptr inbounds nuw i8, ptr %122, i64 188
-  %703 = tail call noundef float @llvm.fabs.f32(float %502)
-  %704 = fcmp ogt float %703, 0x3FE6A09E60000000
-  br i1 %704, label %705, label %716
+700:                                              ; preds = %496
+  %701 = getelementptr inbounds nuw i8, ptr %122, i64 188
+  %702 = tail call noundef float @llvm.fabs.f32(float %501)
+  %703 = fcmp ogt float %702, 0x3FE6A09E60000000
+  br i1 %703, label %704, label %715
 
-705:                                              ; preds = %701
-  %706 = fmul float %502, %502
-  %707 = tail call float @llvm.fmuladd.f32(float %500, float %500, float %706)
-  %sqrt.i260 = tail call float @llvm.sqrt.f32(float %707)
-  %708 = fdiv float 1.000000e+00, %sqrt.i260
-  %709 = fneg float %502
-  %710 = fmul float %708, %709
-  %711 = fmul float %500, %708
-  %712 = fmul float %707, %708
-  %713 = fneg float %498
-  %714 = fmul float %711, %713
-  %715 = fmul float %498, %710
-  br label %727
+704:                                              ; preds = %700
+  %705 = fmul float %501, %501
+  %706 = tail call float @llvm.fmuladd.f32(float %499, float %499, float %705)
+  %sqrt.i260 = tail call float @llvm.sqrt.f32(float %706)
+  %707 = fdiv float 1.000000e+00, %sqrt.i260
+  %708 = fneg float %501
+  %709 = fmul float %707, %708
+  %710 = fmul float %499, %707
+  %711 = fmul float %706, %707
+  %712 = fneg float %497
+  %713 = fmul float %710, %712
+  %714 = fmul float %497, %709
+  br label %726
 
-716:                                              ; preds = %701
-  %717 = fmul float %500, %500
-  %718 = tail call float @llvm.fmuladd.f32(float %498, float %498, float %717)
-  %sqrt43.i258 = tail call float @llvm.sqrt.f32(float %718)
-  %719 = fdiv float 1.000000e+00, %sqrt43.i258
-  %720 = fneg float %500
-  %721 = fmul float %719, %720
-  %722 = fmul float %498, %719
-  %723 = fneg float %502
-  %724 = fmul float %722, %723
-  %725 = fmul float %502, %721
-  %726 = fmul float %718, %719
-  br label %727
+715:                                              ; preds = %700
+  %716 = fmul float %499, %499
+  %717 = tail call float @llvm.fmuladd.f32(float %497, float %497, float %716)
+  %sqrt43.i258 = tail call float @llvm.sqrt.f32(float %717)
+  %718 = fdiv float 1.000000e+00, %sqrt43.i258
+  %719 = fneg float %499
+  %720 = fmul float %718, %719
+  %721 = fmul float %497, %718
+  %722 = fneg float %501
+  %723 = fmul float %721, %722
+  %724 = fmul float %501, %720
+  %725 = fmul float %717, %718
+  br label %726
 
-727:                                              ; preds = %716, %705
-  %728 = phi float [ 0.000000e+00, %705 ], [ %721, %716 ]
-  %729 = phi float [ %710, %705 ], [ %722, %716 ]
-  %730 = phi float [ %711, %705 ], [ 0.000000e+00, %716 ]
-  %.sink302 = phi float [ %712, %705 ], [ %724, %716 ]
-  %.sink = phi float [ %714, %705 ], [ %725, %716 ]
-  %.sink.i259 = phi float [ %715, %705 ], [ %726, %716 ]
+726:                                              ; preds = %715, %704
+  %727 = phi float [ 0.000000e+00, %704 ], [ %720, %715 ]
+  %728 = phi float [ %709, %704 ], [ %721, %715 ]
+  %729 = phi float [ %710, %704 ], [ 0.000000e+00, %715 ]
+  %.sink302 = phi float [ %711, %704 ], [ %723, %715 ]
+  %.sink = phi float [ %713, %704 ], [ %724, %715 ]
+  %.sink.i259 = phi float [ %714, %704 ], [ %725, %715 ]
+  store float %727, ptr %506, align 4, !tbaa !59
   store float %728, ptr %507, align 4, !tbaa !59
-  store float %729, ptr %508, align 4, !tbaa !59
-  store float %730, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !59
-  store float %.sink302, ptr %702, align 4, !tbaa !59
-  %731 = getelementptr inbounds nuw i8, ptr %122, i64 192
-  store float %.sink, ptr %731, align 4, !tbaa !59
-  %732 = getelementptr inbounds nuw i8, ptr %122, i64 196
-  store float %.sink.i259, ptr %732, align 4, !tbaa !59
-  %733 = load i32, ptr %94, align 8, !tbaa !88
-  %734 = and i32 %733, 1
-  %.not22.i263 = icmp eq i32 %734, 0
-  br i1 %.not22.i263, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267, label %735
+  store float %729, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !59
+  store float %.sink302, ptr %701, align 4, !tbaa !59
+  %730 = getelementptr inbounds nuw i8, ptr %122, i64 192
+  store float %.sink, ptr %730, align 4, !tbaa !59
+  %731 = getelementptr inbounds nuw i8, ptr %122, i64 196
+  store float %.sink.i259, ptr %731, align 4, !tbaa !59
+  %732 = load i32, ptr %94, align 8, !tbaa !87
+  %733 = and i32 %732, 1
+  %.not22.i263 = icmp eq i32 %733, 0
+  br i1 %.not22.i263, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267, label %734
 
-735:                                              ; preds = %727
-  %736 = load float, ptr %55, align 4, !tbaa !59
-  %737 = load float, ptr %95, align 4, !tbaa !59
-  %738 = fmul float %737, %729
-  %739 = tail call float @llvm.fmuladd.f32(float %736, float %728, float %738)
-  %740 = load float, ptr %96, align 4, !tbaa !59
-  %741 = tail call noundef float @llvm.fmuladd.f32(float %740, float %730, float %739)
-  %742 = load float, ptr %97, align 4, !tbaa !59
-  %743 = load float, ptr %98, align 4, !tbaa !59
-  %744 = fmul float %729, %743
-  %745 = tail call float @llvm.fmuladd.f32(float %742, float %728, float %744)
-  %746 = load float, ptr %99, align 4, !tbaa !59
-  %747 = tail call noundef float @llvm.fmuladd.f32(float %746, float %730, float %745)
-  %748 = load float, ptr %100, align 4, !tbaa !59
-  %749 = load float, ptr %101, align 4, !tbaa !59
-  %750 = fmul float %729, %749
-  %751 = tail call float @llvm.fmuladd.f32(float %748, float %728, float %750)
-  %752 = load float, ptr %102, align 4, !tbaa !59
-  %753 = tail call noundef float @llvm.fmuladd.f32(float %752, float %730, float %751)
-  %754 = load float, ptr %103, align 4, !tbaa !59
-  %755 = fmul float %741, %754
-  %756 = load float, ptr %104, align 4, !tbaa !59
-  %757 = fmul float %747, %756
-  %758 = load float, ptr %105, align 4, !tbaa !59
-  %759 = fmul float %753, %758
-  %760 = fmul float %742, %757
-  %761 = tail call float @llvm.fmuladd.f32(float %736, float %755, float %760)
-  %762 = tail call noundef float @llvm.fmuladd.f32(float %748, float %759, float %761)
-  %763 = fmul float %743, %757
-  %764 = tail call float @llvm.fmuladd.f32(float %737, float %755, float %763)
-  %765 = tail call noundef float @llvm.fmuladd.f32(float %749, float %759, float %764)
-  %766 = fmul float %746, %757
-  %767 = tail call float @llvm.fmuladd.f32(float %740, float %755, float %766)
-  %768 = tail call noundef float @llvm.fmuladd.f32(float %752, float %759, float %767)
-  %.sroa.0.0.vec.insert.i8.i264 = insertelement <2 x float> poison, float %762, i64 0
-  %.sroa.0.4.vec.insert.i9.i265 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i264, float %765, i64 1
-  %.sroa.3.12.vec.insert.i10.i266 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %768, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i265, ptr %507, align 4
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i266, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !81
+734:                                              ; preds = %726
+  %735 = load float, ptr %55, align 4, !tbaa !59
+  %736 = load float, ptr %95, align 4, !tbaa !59
+  %737 = fmul float %736, %728
+  %738 = tail call float @llvm.fmuladd.f32(float %735, float %727, float %737)
+  %739 = load float, ptr %96, align 4, !tbaa !59
+  %740 = tail call noundef float @llvm.fmuladd.f32(float %739, float %729, float %738)
+  %741 = load float, ptr %97, align 4, !tbaa !59
+  %742 = load float, ptr %98, align 4, !tbaa !59
+  %743 = fmul float %728, %742
+  %744 = tail call float @llvm.fmuladd.f32(float %741, float %727, float %743)
+  %745 = load float, ptr %99, align 4, !tbaa !59
+  %746 = tail call noundef float @llvm.fmuladd.f32(float %745, float %729, float %744)
+  %747 = load float, ptr %100, align 4, !tbaa !59
+  %748 = load float, ptr %101, align 4, !tbaa !59
+  %749 = fmul float %728, %748
+  %750 = tail call float @llvm.fmuladd.f32(float %747, float %727, float %749)
+  %751 = load float, ptr %102, align 4, !tbaa !59
+  %752 = tail call noundef float @llvm.fmuladd.f32(float %751, float %729, float %750)
+  %753 = load float, ptr %103, align 4, !tbaa !59
+  %754 = fmul float %740, %753
+  %755 = load float, ptr %104, align 4, !tbaa !59
+  %756 = fmul float %746, %755
+  %757 = load float, ptr %105, align 4, !tbaa !59
+  %758 = fmul float %752, %757
+  %759 = fmul float %741, %756
+  %760 = tail call float @llvm.fmuladd.f32(float %735, float %754, float %759)
+  %761 = tail call noundef float @llvm.fmuladd.f32(float %747, float %758, float %760)
+  %762 = fmul float %742, %756
+  %763 = tail call float @llvm.fmuladd.f32(float %736, float %754, float %762)
+  %764 = tail call noundef float @llvm.fmuladd.f32(float %748, float %758, float %763)
+  %765 = fmul float %745, %756
+  %766 = tail call float @llvm.fmuladd.f32(float %739, float %754, float %765)
+  %767 = tail call noundef float @llvm.fmuladd.f32(float %751, float %758, float %766)
+  %.sroa.0.0.vec.insert.i8.i264 = insertelement <2 x float> poison, float %761, i64 0
+  %.sroa.0.4.vec.insert.i9.i265 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i264, float %764, i64 1
+  %.sroa.3.12.vec.insert.i10.i266 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %767, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i265, ptr %506, align 4
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i266, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267: ; preds = %735, %727
-  %769 = phi float [ %730, %727 ], [ %768, %735 ]
-  %770 = phi float [ %729, %727 ], [ %765, %735 ]
-  %771 = phi float [ %728, %727 ], [ %762, %735 ]
-  %772 = load i32, ptr %106, align 8, !tbaa !88
-  %773 = and i32 %772, 1
-  %.not22.i269 = icmp eq i32 %773, 0
-  br i1 %.not22.i269, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273, label %774
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267: ; preds = %734, %726
+  %768 = phi float [ %729, %726 ], [ %767, %734 ]
+  %769 = phi float [ %728, %726 ], [ %764, %734 ]
+  %770 = phi float [ %727, %726 ], [ %761, %734 ]
+  %771 = load i32, ptr %106, align 8, !tbaa !87
+  %772 = and i32 %771, 1
+  %.not22.i269 = icmp eq i32 %772, 0
+  br i1 %.not22.i269, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273, label %773
 
-774:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267
-  %775 = load float, ptr %59, align 4, !tbaa !59
-  %776 = load float, ptr %107, align 4, !tbaa !59
-  %777 = fmul float %776, %770
-  %778 = tail call float @llvm.fmuladd.f32(float %775, float %771, float %777)
-  %779 = load float, ptr %108, align 4, !tbaa !59
-  %780 = tail call noundef float @llvm.fmuladd.f32(float %779, float %769, float %778)
-  %781 = load float, ptr %109, align 4, !tbaa !59
-  %782 = load float, ptr %110, align 4, !tbaa !59
-  %783 = fmul float %770, %782
-  %784 = tail call float @llvm.fmuladd.f32(float %781, float %771, float %783)
-  %785 = load float, ptr %111, align 4, !tbaa !59
-  %786 = tail call noundef float @llvm.fmuladd.f32(float %785, float %769, float %784)
-  %787 = load float, ptr %112, align 4, !tbaa !59
-  %788 = load float, ptr %113, align 4, !tbaa !59
-  %789 = fmul float %770, %788
-  %790 = tail call float @llvm.fmuladd.f32(float %787, float %771, float %789)
-  %791 = load float, ptr %114, align 4, !tbaa !59
-  %792 = tail call noundef float @llvm.fmuladd.f32(float %791, float %769, float %790)
-  %793 = load float, ptr %115, align 4, !tbaa !59
-  %794 = fmul float %780, %793
-  %795 = load float, ptr %116, align 4, !tbaa !59
-  %796 = fmul float %786, %795
-  %797 = load float, ptr %117, align 4, !tbaa !59
-  %798 = fmul float %792, %797
-  %799 = fmul float %781, %796
-  %800 = tail call float @llvm.fmuladd.f32(float %775, float %794, float %799)
-  %801 = tail call noundef float @llvm.fmuladd.f32(float %787, float %798, float %800)
-  %802 = fmul float %782, %796
-  %803 = tail call float @llvm.fmuladd.f32(float %776, float %794, float %802)
-  %804 = tail call noundef float @llvm.fmuladd.f32(float %788, float %798, float %803)
-  %805 = fmul float %785, %796
-  %806 = tail call float @llvm.fmuladd.f32(float %779, float %794, float %805)
-  %807 = tail call noundef float @llvm.fmuladd.f32(float %791, float %798, float %806)
-  %.sroa.0.0.vec.insert.i8.i270 = insertelement <2 x float> poison, float %801, i64 0
-  %.sroa.0.4.vec.insert.i9.i271 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i270, float %804, i64 1
-  %.sroa.3.12.vec.insert.i10.i272 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %807, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i271, ptr %507, align 4
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i272, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !81
+773:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267
+  %774 = load float, ptr %59, align 4, !tbaa !59
+  %775 = load float, ptr %107, align 4, !tbaa !59
+  %776 = fmul float %775, %769
+  %777 = tail call float @llvm.fmuladd.f32(float %774, float %770, float %776)
+  %778 = load float, ptr %108, align 4, !tbaa !59
+  %779 = tail call noundef float @llvm.fmuladd.f32(float %778, float %768, float %777)
+  %780 = load float, ptr %109, align 4, !tbaa !59
+  %781 = load float, ptr %110, align 4, !tbaa !59
+  %782 = fmul float %769, %781
+  %783 = tail call float @llvm.fmuladd.f32(float %780, float %770, float %782)
+  %784 = load float, ptr %111, align 4, !tbaa !59
+  %785 = tail call noundef float @llvm.fmuladd.f32(float %784, float %768, float %783)
+  %786 = load float, ptr %112, align 4, !tbaa !59
+  %787 = load float, ptr %113, align 4, !tbaa !59
+  %788 = fmul float %769, %787
+  %789 = tail call float @llvm.fmuladd.f32(float %786, float %770, float %788)
+  %790 = load float, ptr %114, align 4, !tbaa !59
+  %791 = tail call noundef float @llvm.fmuladd.f32(float %790, float %768, float %789)
+  %792 = load float, ptr %115, align 4, !tbaa !59
+  %793 = fmul float %779, %792
+  %794 = load float, ptr %116, align 4, !tbaa !59
+  %795 = fmul float %785, %794
+  %796 = load float, ptr %117, align 4, !tbaa !59
+  %797 = fmul float %791, %796
+  %798 = fmul float %780, %795
+  %799 = tail call float @llvm.fmuladd.f32(float %774, float %793, float %798)
+  %800 = tail call noundef float @llvm.fmuladd.f32(float %786, float %797, float %799)
+  %801 = fmul float %781, %795
+  %802 = tail call float @llvm.fmuladd.f32(float %775, float %793, float %801)
+  %803 = tail call noundef float @llvm.fmuladd.f32(float %787, float %797, float %802)
+  %804 = fmul float %784, %795
+  %805 = tail call float @llvm.fmuladd.f32(float %778, float %793, float %804)
+  %806 = tail call noundef float @llvm.fmuladd.f32(float %790, float %797, float %805)
+  %.sroa.0.0.vec.insert.i8.i270 = insertelement <2 x float> poison, float %800, i64 0
+  %.sroa.0.4.vec.insert.i9.i271 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i270, float %803, i64 1
+  %.sroa.3.12.vec.insert.i10.i272 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %806, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i271, ptr %506, align 4
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i272, ptr %.sroa.46.0..sroa_idx, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267, %774
-  %808 = load float, ptr %6, align 4, !tbaa !59
-  %809 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %507, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %808, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  %810 = load i32, ptr %118, align 4, !tbaa !113
-  %811 = and i32 %810, 16
-  %.not175 = icmp eq i32 %811, 0
-  br i1 %.not175, label %892, label %812
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit267, %773
+  %807 = load float, ptr %6, align 4, !tbaa !59
+  %808 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %506, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %807, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %809 = load i32, ptr %118, align 4, !tbaa !112
+  %810 = and i32 %809, 16
+  %.not175 = icmp eq i32 %810, 0
+  br i1 %.not175, label %891, label %811
 
-812:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273
-  %813 = load i32, ptr %94, align 8, !tbaa !88
-  %814 = and i32 %813, 1
-  %.not22.i275 = icmp eq i32 %814, 0
-  br i1 %.not22.i275, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279, label %815
+811:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273
+  %812 = load i32, ptr %94, align 8, !tbaa !87
+  %813 = and i32 %812, 1
+  %.not22.i275 = icmp eq i32 %813, 0
+  br i1 %.not22.i275, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279, label %814
 
-815:                                              ; preds = %812
-  %816 = load float, ptr %55, align 4, !tbaa !59
-  %817 = load float, ptr %702, align 4, !tbaa !59
-  %818 = load float, ptr %95, align 4, !tbaa !59
-  %819 = load float, ptr %731, align 4, !tbaa !59
-  %820 = fmul float %818, %819
-  %821 = tail call float @llvm.fmuladd.f32(float %816, float %817, float %820)
-  %822 = load float, ptr %96, align 4, !tbaa !59
-  %823 = load float, ptr %732, align 4, !tbaa !59
-  %824 = tail call noundef float @llvm.fmuladd.f32(float %822, float %823, float %821)
-  %825 = load float, ptr %97, align 4, !tbaa !59
-  %826 = load float, ptr %98, align 4, !tbaa !59
-  %827 = fmul float %819, %826
-  %828 = tail call float @llvm.fmuladd.f32(float %825, float %817, float %827)
-  %829 = load float, ptr %99, align 4, !tbaa !59
-  %830 = tail call noundef float @llvm.fmuladd.f32(float %829, float %823, float %828)
-  %831 = load float, ptr %100, align 4, !tbaa !59
-  %832 = load float, ptr %101, align 4, !tbaa !59
-  %833 = fmul float %819, %832
-  %834 = tail call float @llvm.fmuladd.f32(float %831, float %817, float %833)
-  %835 = load float, ptr %102, align 4, !tbaa !59
-  %836 = tail call noundef float @llvm.fmuladd.f32(float %835, float %823, float %834)
-  %837 = load float, ptr %103, align 4, !tbaa !59
-  %838 = fmul float %824, %837
-  %839 = load float, ptr %104, align 4, !tbaa !59
-  %840 = fmul float %830, %839
-  %841 = load float, ptr %105, align 4, !tbaa !59
-  %842 = fmul float %836, %841
-  %843 = fmul float %825, %840
-  %844 = tail call float @llvm.fmuladd.f32(float %816, float %838, float %843)
-  %845 = tail call noundef float @llvm.fmuladd.f32(float %831, float %842, float %844)
-  %846 = fmul float %826, %840
-  %847 = tail call float @llvm.fmuladd.f32(float %818, float %838, float %846)
-  %848 = tail call noundef float @llvm.fmuladd.f32(float %832, float %842, float %847)
-  %849 = fmul float %829, %840
-  %850 = tail call float @llvm.fmuladd.f32(float %822, float %838, float %849)
-  %851 = tail call noundef float @llvm.fmuladd.f32(float %835, float %842, float %850)
-  %.sroa.0.0.vec.insert.i8.i276 = insertelement <2 x float> poison, float %845, i64 0
-  %.sroa.0.4.vec.insert.i9.i277 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i276, float %848, i64 1
-  %.sroa.3.12.vec.insert.i10.i278 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %851, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i277, ptr %702, align 4
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i278, ptr %732, align 4, !tbaa !81
+814:                                              ; preds = %811
+  %815 = load float, ptr %55, align 4, !tbaa !59
+  %816 = load float, ptr %701, align 4, !tbaa !59
+  %817 = load float, ptr %95, align 4, !tbaa !59
+  %818 = load float, ptr %730, align 4, !tbaa !59
+  %819 = fmul float %817, %818
+  %820 = tail call float @llvm.fmuladd.f32(float %815, float %816, float %819)
+  %821 = load float, ptr %96, align 4, !tbaa !59
+  %822 = load float, ptr %731, align 4, !tbaa !59
+  %823 = tail call noundef float @llvm.fmuladd.f32(float %821, float %822, float %820)
+  %824 = load float, ptr %97, align 4, !tbaa !59
+  %825 = load float, ptr %98, align 4, !tbaa !59
+  %826 = fmul float %818, %825
+  %827 = tail call float @llvm.fmuladd.f32(float %824, float %816, float %826)
+  %828 = load float, ptr %99, align 4, !tbaa !59
+  %829 = tail call noundef float @llvm.fmuladd.f32(float %828, float %822, float %827)
+  %830 = load float, ptr %100, align 4, !tbaa !59
+  %831 = load float, ptr %101, align 4, !tbaa !59
+  %832 = fmul float %818, %831
+  %833 = tail call float @llvm.fmuladd.f32(float %830, float %816, float %832)
+  %834 = load float, ptr %102, align 4, !tbaa !59
+  %835 = tail call noundef float @llvm.fmuladd.f32(float %834, float %822, float %833)
+  %836 = load float, ptr %103, align 4, !tbaa !59
+  %837 = fmul float %823, %836
+  %838 = load float, ptr %104, align 4, !tbaa !59
+  %839 = fmul float %829, %838
+  %840 = load float, ptr %105, align 4, !tbaa !59
+  %841 = fmul float %835, %840
+  %842 = fmul float %824, %839
+  %843 = tail call float @llvm.fmuladd.f32(float %815, float %837, float %842)
+  %844 = tail call noundef float @llvm.fmuladd.f32(float %830, float %841, float %843)
+  %845 = fmul float %825, %839
+  %846 = tail call float @llvm.fmuladd.f32(float %817, float %837, float %845)
+  %847 = tail call noundef float @llvm.fmuladd.f32(float %831, float %841, float %846)
+  %848 = fmul float %828, %839
+  %849 = tail call float @llvm.fmuladd.f32(float %821, float %837, float %848)
+  %850 = tail call noundef float @llvm.fmuladd.f32(float %834, float %841, float %849)
+  %.sroa.0.0.vec.insert.i8.i276 = insertelement <2 x float> poison, float %844, i64 0
+  %.sroa.0.4.vec.insert.i9.i277 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i276, float %847, i64 1
+  %.sroa.3.12.vec.insert.i10.i278 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %850, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i277, ptr %701, align 4
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i278, ptr %731, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279: ; preds = %815, %812
-  %852 = load i32, ptr %106, align 8, !tbaa !88
-  %853 = and i32 %852, 1
-  %.not22.i281 = icmp eq i32 %853, 0
-  br i1 %.not22.i281, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285, label %854
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279: ; preds = %814, %811
+  %851 = load i32, ptr %106, align 8, !tbaa !87
+  %852 = and i32 %851, 1
+  %.not22.i281 = icmp eq i32 %852, 0
+  br i1 %.not22.i281, label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285, label %853
 
-854:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279
-  %855 = load float, ptr %59, align 4, !tbaa !59
-  %856 = load float, ptr %702, align 4, !tbaa !59
-  %857 = load float, ptr %107, align 4, !tbaa !59
-  %858 = load float, ptr %731, align 4, !tbaa !59
-  %859 = fmul float %857, %858
-  %860 = tail call float @llvm.fmuladd.f32(float %855, float %856, float %859)
-  %861 = load float, ptr %108, align 4, !tbaa !59
-  %862 = load float, ptr %732, align 4, !tbaa !59
-  %863 = tail call noundef float @llvm.fmuladd.f32(float %861, float %862, float %860)
-  %864 = load float, ptr %109, align 4, !tbaa !59
-  %865 = load float, ptr %110, align 4, !tbaa !59
-  %866 = fmul float %858, %865
-  %867 = tail call float @llvm.fmuladd.f32(float %864, float %856, float %866)
-  %868 = load float, ptr %111, align 4, !tbaa !59
-  %869 = tail call noundef float @llvm.fmuladd.f32(float %868, float %862, float %867)
-  %870 = load float, ptr %112, align 4, !tbaa !59
-  %871 = load float, ptr %113, align 4, !tbaa !59
-  %872 = fmul float %858, %871
-  %873 = tail call float @llvm.fmuladd.f32(float %870, float %856, float %872)
-  %874 = load float, ptr %114, align 4, !tbaa !59
-  %875 = tail call noundef float @llvm.fmuladd.f32(float %874, float %862, float %873)
-  %876 = load float, ptr %115, align 4, !tbaa !59
-  %877 = fmul float %863, %876
-  %878 = load float, ptr %116, align 4, !tbaa !59
-  %879 = fmul float %869, %878
-  %880 = load float, ptr %117, align 4, !tbaa !59
-  %881 = fmul float %875, %880
-  %882 = fmul float %864, %879
-  %883 = tail call float @llvm.fmuladd.f32(float %855, float %877, float %882)
-  %884 = tail call noundef float @llvm.fmuladd.f32(float %870, float %881, float %883)
-  %885 = fmul float %865, %879
-  %886 = tail call float @llvm.fmuladd.f32(float %857, float %877, float %885)
-  %887 = tail call noundef float @llvm.fmuladd.f32(float %871, float %881, float %886)
-  %888 = fmul float %868, %879
-  %889 = tail call float @llvm.fmuladd.f32(float %861, float %877, float %888)
-  %890 = tail call noundef float @llvm.fmuladd.f32(float %874, float %881, float %889)
-  %.sroa.0.0.vec.insert.i8.i282 = insertelement <2 x float> poison, float %884, i64 0
-  %.sroa.0.4.vec.insert.i9.i283 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i282, float %887, i64 1
-  %.sroa.3.12.vec.insert.i10.i284 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %890, i64 0
-  store <2 x float> %.sroa.0.4.vec.insert.i9.i283, ptr %702, align 4
-  store <2 x float> %.sroa.3.12.vec.insert.i10.i284, ptr %732, align 4, !tbaa !81
+853:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279
+  %854 = load float, ptr %59, align 4, !tbaa !59
+  %855 = load float, ptr %701, align 4, !tbaa !59
+  %856 = load float, ptr %107, align 4, !tbaa !59
+  %857 = load float, ptr %730, align 4, !tbaa !59
+  %858 = fmul float %856, %857
+  %859 = tail call float @llvm.fmuladd.f32(float %854, float %855, float %858)
+  %860 = load float, ptr %108, align 4, !tbaa !59
+  %861 = load float, ptr %731, align 4, !tbaa !59
+  %862 = tail call noundef float @llvm.fmuladd.f32(float %860, float %861, float %859)
+  %863 = load float, ptr %109, align 4, !tbaa !59
+  %864 = load float, ptr %110, align 4, !tbaa !59
+  %865 = fmul float %857, %864
+  %866 = tail call float @llvm.fmuladd.f32(float %863, float %855, float %865)
+  %867 = load float, ptr %111, align 4, !tbaa !59
+  %868 = tail call noundef float @llvm.fmuladd.f32(float %867, float %861, float %866)
+  %869 = load float, ptr %112, align 4, !tbaa !59
+  %870 = load float, ptr %113, align 4, !tbaa !59
+  %871 = fmul float %857, %870
+  %872 = tail call float @llvm.fmuladd.f32(float %869, float %855, float %871)
+  %873 = load float, ptr %114, align 4, !tbaa !59
+  %874 = tail call noundef float @llvm.fmuladd.f32(float %873, float %861, float %872)
+  %875 = load float, ptr %115, align 4, !tbaa !59
+  %876 = fmul float %862, %875
+  %877 = load float, ptr %116, align 4, !tbaa !59
+  %878 = fmul float %868, %877
+  %879 = load float, ptr %117, align 4, !tbaa !59
+  %880 = fmul float %874, %879
+  %881 = fmul float %863, %878
+  %882 = tail call float @llvm.fmuladd.f32(float %854, float %876, float %881)
+  %883 = tail call noundef float @llvm.fmuladd.f32(float %869, float %880, float %882)
+  %884 = fmul float %864, %878
+  %885 = tail call float @llvm.fmuladd.f32(float %856, float %876, float %884)
+  %886 = tail call noundef float @llvm.fmuladd.f32(float %870, float %880, float %885)
+  %887 = fmul float %867, %878
+  %888 = tail call float @llvm.fmuladd.f32(float %860, float %876, float %887)
+  %889 = tail call noundef float @llvm.fmuladd.f32(float %873, float %880, float %888)
+  %.sroa.0.0.vec.insert.i8.i282 = insertelement <2 x float> poison, float %883, i64 0
+  %.sroa.0.4.vec.insert.i9.i283 = insertelement <2 x float> %.sroa.0.0.vec.insert.i8.i282, float %886, i64 1
+  %.sroa.3.12.vec.insert.i10.i284 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %889, i64 0
+  store <2 x float> %.sroa.0.4.vec.insert.i9.i283, ptr %701, align 4
+  store <2 x float> %.sroa.3.12.vec.insert.i10.i284, ptr %731, align 4, !tbaa !80
   br label %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285
 
-_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279, %854
-  %891 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %702, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %808, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  %.pre = load i32, ptr %118, align 4, !tbaa !113
-  br label %892
+_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285: ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit279, %853
+  %890 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %701, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %807, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef 0.000000e+00, float noundef 0.000000e+00)
+  %.pre = load i32, ptr %118, align 4, !tbaa !112
+  br label %891
 
-892:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273
-  %893 = phi i32 [ %.pre, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285 ], [ %810, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273 ]
-  %894 = and i32 %893, 80
-  %or.cond.not = icmp eq i32 %894, 80
-  br i1 %or.cond.not, label %895, label %915
+891:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273
+  %892 = phi i32 [ %.pre, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit285 ], [ %809, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit273 ]
+  %893 = and i32 %892, 80
+  %or.cond.not = icmp eq i32 %893, 80
+  br i1 %or.cond.not, label %894, label %914
 
-895:                                              ; preds = %892
-  %896 = getelementptr inbounds nuw i8, ptr %122, i64 128
-  %897 = load i32, ptr %896, align 8, !tbaa !94
-  %898 = or i32 %897, 1
-  store i32 %898, ptr %896, align 8, !tbaa !94
-  br label %915
+894:                                              ; preds = %891
+  %895 = getelementptr inbounds nuw i8, ptr %122, i64 128
+  %896 = load i32, ptr %895, align 8, !tbaa !93
+  %897 = or i32 %896, 1
+  store i32 %897, ptr %895, align 8, !tbaa !93
+  br label %914
 
-899:                                              ; preds = %493
-  %900 = getelementptr inbounds nuw i8, ptr %122, i64 172
-  %901 = load float, ptr %6, align 4, !tbaa !59
-  %902 = getelementptr inbounds nuw i8, ptr %122, i64 148
-  %903 = load float, ptr %902, align 4, !tbaa !126
-  %904 = getelementptr inbounds nuw i8, ptr %122, i64 164
-  %905 = load float, ptr %904, align 4, !tbaa !127
-  %906 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %900, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %901, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %903, float noundef %905)
-  %907 = load i32, ptr %118, align 4, !tbaa !113
-  %908 = and i32 %907, 16
-  %.not179 = icmp eq i32 %908, 0
-  br i1 %.not179, label %915, label %909
+898:                                              ; preds = %492
+  %899 = getelementptr inbounds nuw i8, ptr %122, i64 172
+  %900 = load float, ptr %6, align 4, !tbaa !59
+  %901 = getelementptr inbounds nuw i8, ptr %122, i64 148
+  %902 = load float, ptr %901, align 4, !tbaa !125
+  %903 = getelementptr inbounds nuw i8, ptr %122, i64 164
+  %904 = load float, ptr %903, align 4, !tbaa !126
+  %905 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %899, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %900, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %902, float noundef %904)
+  %906 = load i32, ptr %118, align 4, !tbaa !112
+  %907 = and i32 %906, 16
+  %.not179 = icmp eq i32 %907, 0
+  br i1 %.not179, label %914, label %908
 
-909:                                              ; preds = %899
-  %910 = getelementptr inbounds nuw i8, ptr %122, i64 188
-  %911 = getelementptr inbounds nuw i8, ptr %122, i64 152
-  %912 = load float, ptr %911, align 8, !tbaa !128
-  %913 = load float, ptr %904, align 4, !tbaa !127
-  %914 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %910, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %901, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %912, float noundef %913)
-  br label %915
+908:                                              ; preds = %898
+  %909 = getelementptr inbounds nuw i8, ptr %122, i64 188
+  %910 = getelementptr inbounds nuw i8, ptr %122, i64 152
+  %911 = load float, ptr %910, align 8, !tbaa !127
+  %912 = load float, ptr %903, align 4, !tbaa !126
+  %913 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN35btSequentialImpulseConstraintSolver21addFrictionConstraintERK9btVector3iiiR15btManifoldPointS2_S2_P17btCollisionObjectS6_fRK19btContactSolverInfoff(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 4 dereferenceable(16) %909, i32 noundef %15, i32 noundef %17, i32 noundef %128, ptr noundef nonnull align 8 dereferenceable(204) %122, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr nonnull poison, ptr nonnull poison, float noundef %900, ptr noundef nonnull align 4 dereferenceable(128) %2, float noundef %911, float noundef %912)
+  br label %914
 
-915:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239, %895, %892, %899, %909
-  %916 = load i32, ptr %263, align 4, !tbaa !101
-  %917 = load ptr, ptr %119, align 8, !tbaa !36
-  %918 = sext i32 %916 to i64
-  %919 = getelementptr inbounds %struct.btSolverConstraint, ptr %917, i64 %918, i32 7
-  store float 0.000000e+00, ptr %919, align 4, !tbaa !57
-  %920 = load i32, ptr %118, align 4, !tbaa !113
-  %921 = and i32 %920, 16
-  %.not.i286 = icmp eq i32 %921, 0
-  br i1 %.not.i286, label %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit, label %922
+914:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit257, %_ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisionObjectR9btVector3i.exit239, %894, %891, %898, %908
+  %915 = load i32, ptr %262, align 4, !tbaa !100
+  %916 = load ptr, ptr %119, align 8, !tbaa !36
+  %917 = sext i32 %915 to i64
+  %918 = getelementptr inbounds %struct.btSolverConstraint, ptr %916, i64 %917, i32 7
+  store float 0.000000e+00, ptr %918, align 4, !tbaa !57
+  %919 = load i32, ptr %118, align 4, !tbaa !112
+  %920 = and i32 %919, 16
+  %.not.i286 = icmp eq i32 %920, 0
+  br i1 %.not.i286, label %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit, label %921
 
-922:                                              ; preds = %915
-  %923 = getelementptr %struct.btSolverConstraint, ptr %917, i64 %918
-  %924 = getelementptr i8, ptr %923, i64 260
-  store float 0.000000e+00, ptr %924, align 4, !tbaa !57
+921:                                              ; preds = %914
+  %922 = getelementptr %struct.btSolverConstraint, ptr %916, i64 %917
+  %923 = getelementptr i8, ptr %922, i64 260
+  store float 0.000000e+00, ptr %923, align 4, !tbaa !57
   br label %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit
 
-_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit: ; preds = %915, %922
+_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit: ; preds = %914, %921
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
-  %.pre306 = load i32, ptr %46, align 8, !tbaa !122
-  br label %925
+  %.pre306 = load i32, ptr %46, align 8, !tbaa !121
+  br label %924
 
-925:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit, %120
-  %926 = phi i32 [ %.pre306, %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit ], [ %121, %120 ]
+924:                                              ; preds = %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit, %120
+  %925 = phi i32 [ %.pre306, %_ZN35btSequentialImpulseConstraintSolver28setFrictionConstraintImpulseER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfo.exit ], [ %121, %120 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %927 = sext i32 %926 to i64
-  %928 = icmp slt i64 %indvars.iv.next, %927
-  br i1 %928, label %120, label %.loopexit, !llvm.loop !129
+  %926 = sext i32 %925 to i64
+  %927 = icmp slt i64 %indvars.iv.next, %926
+  br i1 %927, label %120, label %.loopexit, !llvm.loop !128
 
-.loopexit:                                        ; preds = %925, %45, %34
+.loopexit:                                        ; preds = %924, %45, %34
   ret void
 }
 
@@ -4941,11 +4897,11 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver15convertContacts
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8, !tbaa !130
+  %7 = load ptr, ptr %6, align 8, !tbaa !129
   tail call void @_ZN35btSequentialImpulseConstraintSolver14convertContactEP20btPersistentManifoldRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(128) %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !132
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -4955,9 +4911,9 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver15convertContacts
 define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP18btSolverConstraintP17btTypedConstraintRKNS2_17btConstraintInfo1EiiRK19btContactSolverInfo(ptr noundef nonnull align 8 captures(none) dereferenceable(408) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %6) local_unnamed_addr #10 align 2 {
   %8 = alloca %"struct.btTypedConstraint::btConstraintInfo2", align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !133
+  %10 = load ptr, ptr %9, align 8, !tbaa !132
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !136
+  %12 = load ptr, ptr %11, align 8, !tbaa !135
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !32
   %15 = sext i32 %4 to i64
@@ -4965,79 +4921,79 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   %17 = sext i32 %5 to i64
   %18 = getelementptr inbounds %struct.btSolverBody, ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %20 = load i32, ptr %19, align 8, !tbaa !137
+  %20 = load i32, ptr %19, align 8, !tbaa !136
   %21 = icmp sgt i32 %20, 0
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = select i1 %21, i32 %20, i32 %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %26 = load i32, ptr %25, align 8, !tbaa !138
+  %26 = load i32, ptr %25, align 8, !tbaa !137
   %27 = icmp sgt i32 %24, %26
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %7
-  store i32 %24, ptr %25, align 8, !tbaa !138
+  store i32 %24, ptr %25, align 8, !tbaa !137
   br label %29
 
 29:                                               ; preds = %28, %7
-  %30 = load i32, ptr %3, align 4, !tbaa !139
+  %30 = load i32, ptr %3, align 4, !tbaa !138
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load i32, ptr %22, align 4, !tbaa !141
+  %.pre = load i32, ptr %22, align 4, !tbaa !140
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %29
   %32 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %23, %29 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8) #23
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %34 = load float, ptr %33, align 4, !tbaa !97
+  %34 = load float, ptr %33, align 4, !tbaa !96
   %35 = fdiv float 1.000000e+00, %34
-  store float %35, ptr %8, align 8, !tbaa !142
+  store float %35, ptr %8, align 8, !tbaa !141
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %37 = load float, ptr %36, align 4, !tbaa !145
+  %37 = load float, ptr %36, align 4, !tbaa !144
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float %37, ptr %38, align 4, !tbaa !146
+  store float %37, ptr %38, align 4, !tbaa !145
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %39, ptr %40, align 8, !tbaa !147
+  store ptr %39, ptr %40, align 8, !tbaa !146
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %1, ptr %41, align 8, !tbaa !148
+  store ptr %1, ptr %41, align 8, !tbaa !147
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %42, ptr %43, align 8, !tbaa !149
+  store ptr %42, ptr %43, align 8, !tbaa !148
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %44, ptr %45, align 8, !tbaa !150
+  store ptr %44, ptr %45, align 8, !tbaa !149
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i32 40, ptr %46, align 8, !tbaa !151
+  store i32 40, ptr %46, align 8, !tbaa !150
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %48 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %47, ptr %48, align 8, !tbaa !152
+  store ptr %47, ptr %48, align 8, !tbaa !151
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %50 = load float, ptr %49, align 4, !tbaa !107
+  %50 = load float, ptr %49, align 4, !tbaa !106
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 116
   store float %50, ptr %51, align 4, !tbaa !58
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %53 = load float, ptr %52, align 4, !tbaa !153
+  %53 = load float, ptr %52, align 4, !tbaa !152
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 84
-  store float %53, ptr %54, align 4, !tbaa !154
+  store float %53, ptr %54, align 4, !tbaa !153
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store ptr %51, ptr %55, align 8, !tbaa !155
+  store ptr %51, ptr %55, align 8, !tbaa !154
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store ptr %56, ptr %57, align 8, !tbaa !156
+  store ptr %56, ptr %57, align 8, !tbaa !155
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  store ptr %58, ptr %59, align 8, !tbaa !157
+  store ptr %58, ptr %59, align 8, !tbaa !156
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store i32 %32, ptr %60, align 8, !tbaa !158
+  store i32 %32, ptr %60, align 8, !tbaa !157
   %61 = load ptr, ptr %2, align 8, !tbaa !29
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %63 = load ptr, ptr %62, align 8
   call void %63(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull %8)
-  %64 = load i32, ptr %3, align 4, !tbaa !139
+  %64 = load i32, ptr %3, align 4, !tbaa !138
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %.lr.ph249, label %._crit_edge250
 
@@ -5089,7 +5045,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   %102 = getelementptr inbounds nuw i8, ptr %12, i64 436
   %103 = getelementptr inbounds nuw i8, ptr %12, i64 440
   %104 = getelementptr inbounds nuw i8, ptr %12, i64 444
-  %105 = load float, ptr %54, align 4, !tbaa !154
+  %105 = load float, ptr %54, align 4, !tbaa !153
   br label %116
 
 .lr.ph:                                           ; preds = %29, %.lr.ph
@@ -5103,16 +5059,16 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 96
   store float 0.000000e+00, ptr %109, align 8, !tbaa !70
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 152
-  store i32 %4, ptr %110, align 8, !tbaa !89
+  store i32 %4, ptr %110, align 8, !tbaa !88
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 156
-  store i32 %5, ptr %111, align 4, !tbaa !90
+  store i32 %5, ptr %111, align 4, !tbaa !89
   %112 = getelementptr inbounds nuw i8, ptr %106, i64 144
-  store i32 %24, ptr %112, align 8, !tbaa !159
+  store i32 %24, ptr %112, align 8, !tbaa !158
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %113 = load i32, ptr %3, align 4, !tbaa !139
+  %113 = load i32, ptr %3, align 4, !tbaa !138
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !160
+  br i1 %115, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !159
 
 ._crit_edge250:                                   ; preds = %299, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8) #23
@@ -5123,7 +5079,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   %117 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %1, i64 %indvars.iv252
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 124
   %119 = load float, ptr %118, align 4, !tbaa !62
-  %120 = load float, ptr %66, align 8, !tbaa !161
+  %120 = load float, ptr %66, align 8, !tbaa !160
   %121 = fcmp ult float %119, %120
   br i1 %121, label %123, label %122
 
@@ -5144,8 +5100,8 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
 
 129:                                              ; preds = %128, %123
   %130 = getelementptr inbounds nuw i8, ptr %117, i64 136
-  store ptr %2, ptr %130, align 8, !tbaa !81
-  %131 = load ptr, ptr %9, align 8, !tbaa !133
+  store ptr %2, ptr %130, align 8, !tbaa !80
+  %131 = load ptr, ptr %9, align 8, !tbaa !132
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 372
   %133 = load float, ptr %132, align 4, !tbaa !59
   %134 = load float, ptr %117, align 4, !tbaa !59
@@ -5193,9 +5149,9 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   %173 = getelementptr inbounds nuw i8, ptr %117, i64 64
   store <2 x float> %.sroa.0.4.vec.insert.i128, ptr %173, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 72
-  store <2 x float> %.sroa.3.12.vec.insert.i129, ptr %.sroa.417.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i129, ptr %.sroa.417.0..sroa_idx, align 8, !tbaa !80
   %174 = getelementptr inbounds nuw i8, ptr %117, i64 32
-  %175 = load ptr, ptr %11, align 8, !tbaa !136
+  %175 = load ptr, ptr %11, align 8, !tbaa !135
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 372
   %177 = load float, ptr %176, align 4, !tbaa !59
   %178 = load float, ptr %174, align 4, !tbaa !59
@@ -5243,9 +5199,9 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   %217 = getelementptr inbounds nuw i8, ptr %117, i64 80
   store <2 x float> %.sroa.0.4.vec.insert.i138, ptr %217, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %117, i64 88
-  store <2 x float> %.sroa.3.12.vec.insert.i139, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i139, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !80
   %218 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  %219 = load float, ptr %67, align 4, !tbaa !82
+  %219 = load float, ptr %67, align 4, !tbaa !81
   %220 = load float, ptr %218, align 4, !tbaa !59
   %221 = fmul float %219, %220
   %222 = getelementptr inbounds nuw i8, ptr %117, i64 20
@@ -5273,7 +5229,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   %244 = load float, ptr %76, align 4, !tbaa !59
   %245 = call noundef float @llvm.fmuladd.f32(float %244, float %144, float %243)
   %246 = getelementptr inbounds nuw i8, ptr %117, i64 48
-  %247 = load float, ptr %77, align 4, !tbaa !82
+  %247 = load float, ptr %77, align 4, !tbaa !81
   %248 = load float, ptr %246, align 4, !tbaa !59
   %249 = fmul float %247, %248
   %250 = getelementptr inbounds nuw i8, ptr %117, i64 52
@@ -5411,10 +5367,10 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP1
   %346 = getelementptr inbounds nuw i8, ptr %117, i64 100
   store float 0.000000e+00, ptr %346, align 4, !tbaa !57
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
-  %347 = load i32, ptr %3, align 4, !tbaa !139
+  %347 = load i32, ptr %3, align 4, !tbaa !138
   %348 = sext i32 %347 to i64
   %349 = icmp slt i64 %indvars.iv.next253, %348
-  br i1 %349, label %116, label %._crit_edge250, !llvm.loop !162
+  br i1 %349, label %116, label %._crit_edge250, !llvm.loop !161
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5429,7 +5385,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver13convertJointsEP
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %41, %4
+._crit_edge:                                      ; preds = %39, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %8 = load i32, ptr %7, align 4, !tbaa !45
   %9 = icmp sgt i32 %2, %8
@@ -5449,7 +5405,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver13convertJointsEP
   %16 = sext i32 %2 to i64
   %17 = shl nsw i64 %16, 3
   %18 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %17, i32 noundef 16)
-          to label %.noexc unwind label %75
+          to label %.noexc unwind label %71
 
 .noexc:                                           ; preds = %15
   %.pre.i = load i32, ptr %7, align 4, !tbaa !45
@@ -5475,262 +5431,256 @@ _ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE8allocateEi.e
   store i64 %26, ptr %23, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE4copyEiiPS1_.exit.i.i, label %22, !llvm.loop !163
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE4copyEiiPS1_.exit.i.i, label %22, !llvm.loop !162
 
 _ZNK20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE4copyEiiPS1_.exit.i.i: ; preds = %22, %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE8allocateEi.exit.i.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %28 = load ptr, ptr %27, align 8, !tbaa !44
-  %.not.i5.i.i = icmp eq ptr %28, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE10deallocateEv.exit.i.i, label %29
+  %.not.i5.i.i = icmp ne ptr %28, null
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %30 = load i8, ptr %29, align 8, !range !71
+  %31 = trunc nuw i8 %30 to i1
+  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %31, i1 false
+  br i1 %or.cond.i.i, label %32, label %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE10deallocateEv.exit.i.i
 
-29:                                               ; preds = %_ZNK20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE4copyEiiPS1_.exit.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %31 = load i8, ptr %30, align 8, !tbaa !43, !range !71, !noundef !72
-  %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %33, label %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE10deallocateEv.exit.i.i
-
-33:                                               ; preds = %29
+32:                                               ; preds = %_ZNK20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE4copyEiiPS1_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %28)
-          to label %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE10deallocateEv.exit.i.i unwind label %75
+          to label %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE10deallocateEv.exit.i.i unwind label %71
 
-_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE10deallocateEv.exit.i.i: ; preds = %33, %29, %_ZNK20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE4copyEiiPS1_.exit.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i8 1, ptr %34, align 8, !tbaa !43
+_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE10deallocateEv.exit.i.i: ; preds = %32, %_ZNK20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE4copyEiiPS1_.exit.i.i
+  store i8 1, ptr %29, align 8, !tbaa !43
   store ptr %.0.i.i.i, ptr %27, align 8, !tbaa !44
   store i32 %2, ptr %11, align 8, !tbaa !46
   br label %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE18resizeNoInitializeEi.exit
 
 _ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE18resizeNoInitializeEi.exit: ; preds = %._crit_edge, %10, %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE10deallocateEv.exit.i.i
   store i32 %2, ptr %7, align 4, !tbaa !45
-  br i1 %6, label %.lr.ph85, label %._crit_edge86
+  br i1 %6, label %.lr.ph86, label %._crit_edge87
 
-.lr.ph85:                                         ; preds = %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE18resizeNoInitializeEi.exit
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %wide.trip.count95 = zext nneg i32 %2 to i64
-  br label %77
+.lr.ph86:                                         ; preds = %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE18resizeNoInitializeEi.exit
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %wide.trip.count96 = zext nneg i32 %2 to i64
+  br label %73
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %37 = load ptr, ptr %36, align 8, !tbaa !164
-  %38 = load ptr, ptr %37, align 8, !tbaa !29
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load ptr, ptr %39, align 8
-  invoke void %40(ptr noundef nonnull align 8 dereferenceable(72) %37)
-          to label %41 unwind label %43
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %39
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
+  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %35 = load ptr, ptr %34, align 8, !tbaa !163
+  %36 = load ptr, ptr %35, align 8, !tbaa !29
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(72) %35)
+          to label %39 unwind label %41
 
-41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 56
-  store float 0.000000e+00, ptr %42, align 8, !tbaa !166
+39:                                               ; preds = %.lr.ph
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 56
+  store float 0.000000e+00, ptr %40, align 8, !tbaa !165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !167
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !166
 
-43:                                               ; preds = %.lr.ph
-  %44 = landingpad { ptr, i32 }
+41:                                               ; preds = %.lr.ph
+  %42 = landingpad { ptr, i32 }
           cleanup
-  br label %128
+  br label %124
 
-._crit_edge86:                                    ; preds = %98, %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE18resizeNoInitializeEi.exit
-  %.057.lcssa = phi i32 [ 0, %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE18resizeNoInitializeEi.exit ], [ %100, %98 ]
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %46 = load i32, ptr %45, align 4, !tbaa !37
-  %47 = icmp sgt i32 %.057.lcssa, %46
-  br i1 %47, label %48, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE18resizeNoInitializeEi.exit
+._crit_edge87:                                    ; preds = %94, %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE18resizeNoInitializeEi.exit
+  %.057.lcssa = phi i32 [ 0, %_ZN20btAlignedObjectArrayIN17btTypedConstraint17btConstraintInfo1EE18resizeNoInitializeEi.exit ], [ %96, %94 ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %44 = load i32, ptr %43, align 4, !tbaa !37
+  %45 = icmp sgt i32 %.057.lcssa, %44
+  br i1 %45, label %46, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE18resizeNoInitializeEi.exit
 
-48:                                               ; preds = %._crit_edge86
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %50 = load i32, ptr %49, align 8, !tbaa !38
-  %51 = icmp slt i32 %50, %.057.lcssa
-  br i1 %51, label %52, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE18resizeNoInitializeEi.exit
+46:                                               ; preds = %._crit_edge87
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %48 = load i32, ptr %47, align 8, !tbaa !38
+  %49 = icmp slt i32 %48, %.057.lcssa
+  br i1 %49, label %50, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE18resizeNoInitializeEi.exit
 
-52:                                               ; preds = %48
+50:                                               ; preds = %46
   %.not.i.i.i70 = icmp eq i32 %.057.lcssa, 0
-  br i1 %.not.i.i.i70, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i, label %53
+  br i1 %.not.i.i.i70, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i, label %51
 
-53:                                               ; preds = %52
-  %54 = sext i32 %.057.lcssa to i64
-  %55 = mul nsw i64 %54, 160
-  %56 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %55, i32 noundef 16)
-          to label %.noexc79 unwind label %75
+51:                                               ; preds = %50
+  %52 = sext i32 %.057.lcssa to i64
+  %53 = mul nsw i64 %52, 160
+  %54 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %53, i32 noundef 16)
+          to label %.noexc80 unwind label %71
 
-.noexc79:                                         ; preds = %53
-  %.pre.i71 = load i32, ptr %45, align 4, !tbaa !37
+.noexc80:                                         ; preds = %51
+  %.pre.i71 = load i32, ptr %43, align 4, !tbaa !37
   br label %_ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i
 
-_ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i: ; preds = %.noexc79, %52
-  %57 = phi i32 [ %.pre.i71, %.noexc79 ], [ %46, %52 ]
-  %.0.i.i.i72 = phi ptr [ %56, %.noexc79 ], [ null, %52 ]
-  %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %.lr.ph.i.i.i74, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
+_ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i: ; preds = %.noexc80, %50
+  %55 = phi i32 [ %.pre.i71, %.noexc80 ], [ %44, %50 ]
+  %.0.i.i.i72 = phi ptr [ %54, %.noexc80 ], [ null, %50 ]
+  %56 = icmp sgt i32 %55, 0
+  br i1 %56, label %.lr.ph.i.i.i75, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
 
-.lr.ph.i.i.i74:                                   ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %wide.trip.count.i.i.i75 = zext nneg i32 %57 to i64
-  br label %60
+.lr.ph.i.i.i75:                                   ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %wide.trip.count.i.i.i76 = zext nneg i32 %55 to i64
+  br label %58
 
-60:                                               ; preds = %60, %.lr.ph.i.i.i74
-  %indvars.iv.i.i.i76 = phi i64 [ 0, %.lr.ph.i.i.i74 ], [ %indvars.iv.next.i.i.i77, %60 ]
-  %61 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %.0.i.i.i72, i64 %indvars.iv.i.i.i76
-  %62 = load ptr, ptr %59, align 8, !tbaa !36
-  %63 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %62, i64 %indvars.iv.i.i.i76
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %61, ptr noundef nonnull align 8 dereferenceable(160) %63, i64 160, i1 false), !tbaa.struct !98
-  %indvars.iv.next.i.i.i77 = add nuw nsw i64 %indvars.iv.i.i.i76, 1
-  %exitcond.not.i.i.i78 = icmp eq i64 %indvars.iv.next.i.i.i77, %wide.trip.count.i.i.i75
-  br i1 %exitcond.not.i.i.i78, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i, label %60, !llvm.loop !99
+58:                                               ; preds = %58, %.lr.ph.i.i.i75
+  %indvars.iv.i.i.i77 = phi i64 [ 0, %.lr.ph.i.i.i75 ], [ %indvars.iv.next.i.i.i78, %58 ]
+  %59 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %.0.i.i.i72, i64 %indvars.iv.i.i.i77
+  %60 = load ptr, ptr %57, align 8, !tbaa !36
+  %61 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %60, i64 %indvars.iv.i.i.i77
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %59, ptr noundef nonnull align 8 dereferenceable(160) %61, i64 160, i1 false), !tbaa.struct !97
+  %indvars.iv.next.i.i.i78 = add nuw nsw i64 %indvars.iv.i.i.i77, 1
+  %exitcond.not.i.i.i79 = icmp eq i64 %indvars.iv.next.i.i.i78, %wide.trip.count.i.i.i76
+  br i1 %exitcond.not.i.i.i79, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i, label %58, !llvm.loop !98
 
-_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i: ; preds = %60, %_ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %65 = load ptr, ptr %64, align 8, !tbaa !36
-  %.not.i5.i.i73 = icmp eq ptr %65, null
-  br i1 %.not.i5.i.i73, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i, label %66
+_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i: ; preds = %58, %_ZN20btAlignedObjectArrayI18btSolverConstraintE8allocateEi.exit.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %63 = load ptr, ptr %62, align 8, !tbaa !36
+  %.not.i5.i.i73 = icmp ne ptr %63, null
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %65 = load i8, ptr %64, align 8, !range !71
+  %66 = trunc nuw i8 %65 to i1
+  %or.cond.i.i74 = select i1 %.not.i5.i.i73, i1 %66, i1 false
+  br i1 %or.cond.i.i74, label %67, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
 
-66:                                               ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %68 = load i8, ptr %67, align 8, !tbaa !35, !range !71, !noundef !72
-  %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
+67:                                               ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %63)
+          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i unwind label %71
 
-70:                                               ; preds = %66
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %65)
-          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i unwind label %75
-
-_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds = %70, %66, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i8 1, ptr %71, align 8, !tbaa !35
-  store ptr %.0.i.i.i72, ptr %64, align 8, !tbaa !36
-  store i32 %.057.lcssa, ptr %49, align 8, !tbaa !38
+_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds = %67, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
+  store i8 1, ptr %64, align 8, !tbaa !35
+  store ptr %.0.i.i.i72, ptr %62, align 8, !tbaa !36
+  store i32 %.057.lcssa, ptr %47, align 8, !tbaa !38
   br label %_ZN20btAlignedObjectArrayI18btSolverConstraintE18resizeNoInitializeEi.exit
 
-_ZN20btAlignedObjectArrayI18btSolverConstraintE18resizeNoInitializeEi.exit: ; preds = %._crit_edge86, %48, %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
-  store i32 %.057.lcssa, ptr %45, align 4, !tbaa !37
-  br i1 %6, label %.lr.ph89, label %._crit_edge90
+_ZN20btAlignedObjectArrayI18btSolverConstraintE18resizeNoInitializeEi.exit: ; preds = %._crit_edge87, %46, %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
+  store i32 %.057.lcssa, ptr %43, align 4, !tbaa !37
+  br i1 %6, label %.lr.ph90, label %._crit_edge91
 
-.lr.ph89:                                         ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE18resizeNoInitializeEi.exit
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %wide.trip.count100 = zext nneg i32 %2 to i64
-  br label %101
+.lr.ph90:                                         ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE18resizeNoInitializeEi.exit
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %wide.trip.count101 = zext nneg i32 %2 to i64
+  br label %97
 
-75:                                               ; preds = %70, %53, %33, %15
-  %76 = landingpad { ptr, i32 }
+71:                                               ; preds = %67, %51, %32, %15
+  %72 = landingpad { ptr, i32 }
           cleanup
-  br label %128
+  br label %124
 
-77:                                               ; preds = %.lr.ph85, %98
-  %indvars.iv92 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next93, %98 ]
-  %.05784 = phi i32 [ 0, %.lr.ph85 ], [ %100, %98 ]
-  %78 = load ptr, ptr %35, align 8, !tbaa !44
-  %79 = getelementptr inbounds nuw %"struct.btTypedConstraint::btConstraintInfo1", ptr %78, i64 %indvars.iv92
-  %80 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv92
-  %81 = load ptr, ptr %80, align 8, !tbaa !164
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 64
-  %83 = load ptr, ptr %82, align 8, !tbaa !168
-  %.not64 = icmp eq ptr %83, null
-  br i1 %.not64, label %87, label %84
+73:                                               ; preds = %.lr.ph86, %94
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next94, %94 ]
+  %.05785 = phi i32 [ 0, %.lr.ph86 ], [ %96, %94 ]
+  %74 = load ptr, ptr %33, align 8, !tbaa !44
+  %75 = getelementptr inbounds nuw %"struct.btTypedConstraint::btConstraintInfo1", ptr %74, i64 %indvars.iv93
+  %76 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv93
+  %77 = load ptr, ptr %76, align 8, !tbaa !163
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
+  %79 = load ptr, ptr %78, align 8, !tbaa !167
+  %.not64 = icmp eq ptr %79, null
+  br i1 %.not64, label %83, label %80
 
-84:                                               ; preds = %77
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %83, i8 0, i64 64, i1 false)
-  %.pre = load ptr, ptr %80, align 8, !tbaa !164
-  br label %87
+80:                                               ; preds = %73
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %79, i8 0, i64 64, i1 false)
+  %.pre = load ptr, ptr %76, align 8, !tbaa !163
+  br label %83
 
-85:                                               ; preds = %92
-  %86 = landingpad { ptr, i32 }
+81:                                               ; preds = %88
+  %82 = landingpad { ptr, i32 }
           cleanup
-  br label %128
+  br label %124
 
-87:                                               ; preds = %84, %77
-  %88 = phi ptr [ %.pre, %84 ], [ %81, %77 ]
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 28
-  %90 = load i8, ptr %89, align 4, !tbaa !169, !range !71, !noundef !72
-  %91 = trunc nuw i8 %90 to i1
-  br i1 %91, label %92, label %96
+83:                                               ; preds = %80, %73
+  %84 = phi ptr [ %.pre, %80 ], [ %77, %73 ]
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 28
+  %86 = load i8, ptr %85, align 4, !tbaa !168, !range !71, !noundef !169
+  %87 = trunc nuw i8 %86 to i1
+  br i1 %87, label %88, label %92
 
-92:                                               ; preds = %87
-  %93 = load ptr, ptr %88, align 8, !tbaa !29
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  %95 = load ptr, ptr %94, align 8
-  invoke void %95(ptr noundef nonnull align 8 dereferenceable(72) %88, ptr noundef nonnull %79)
-          to label %._crit_edge102 unwind label %85
+88:                                               ; preds = %83
+  %89 = load ptr, ptr %84, align 8, !tbaa !29
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
+  %91 = load ptr, ptr %90, align 8
+  invoke void %91(ptr noundef nonnull align 8 dereferenceable(72) %84, ptr noundef nonnull %75)
+          to label %._crit_edge103 unwind label %81
 
-._crit_edge102:                                   ; preds = %92
-  %.pre103 = load i32, ptr %79, align 4, !tbaa !139
-  br label %98
+._crit_edge103:                                   ; preds = %88
+  %.pre104 = load i32, ptr %75, align 4, !tbaa !138
+  br label %94
 
-96:                                               ; preds = %87
-  store i32 0, ptr %79, align 4, !tbaa !139
-  %97 = getelementptr inbounds nuw i8, ptr %79, i64 4
-  store i32 0, ptr %97, align 4, !tbaa !170
-  br label %98
+92:                                               ; preds = %83
+  store i32 0, ptr %75, align 4, !tbaa !138
+  %93 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  store i32 0, ptr %93, align 4, !tbaa !170
+  br label %94
 
-98:                                               ; preds = %._crit_edge102, %96
-  %99 = phi i32 [ %.pre103, %._crit_edge102 ], [ 0, %96 ]
-  %100 = add nsw i32 %99, %.05784
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %._crit_edge86, label %77, !llvm.loop !171
+94:                                               ; preds = %._crit_edge103, %92
+  %95 = phi i32 [ %.pre104, %._crit_edge103 ], [ 0, %92 ]
+  %96 = add nsw i32 %95, %.05785
+  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
+  br i1 %exitcond97.not, label %._crit_edge87, label %73, !llvm.loop !171
 
-._crit_edge90:                                    ; preds = %125, %_ZN20btAlignedObjectArrayI18btSolverConstraintE18resizeNoInitializeEi.exit
+._crit_edge91:                                    ; preds = %121, %_ZN20btAlignedObjectArrayI18btSolverConstraintE18resizeNoInitializeEi.exit
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
   ret void
 
-101:                                              ; preds = %.lr.ph89, %125
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next98, %125 ]
-  %.05988 = phi i32 [ 0, %.lr.ph89 ], [ %127, %125 ]
-  %102 = load ptr, ptr %72, align 8, !tbaa !44
-  %103 = getelementptr inbounds nuw %"struct.btTypedConstraint::btConstraintInfo1", ptr %102, i64 %indvars.iv97
-  %104 = load i32, ptr %103, align 4, !tbaa !139
-  %.not = icmp eq i32 %104, 0
-  br i1 %.not, label %125, label %105
+97:                                               ; preds = %.lr.ph90, %121
+  %indvars.iv98 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next99, %121 ]
+  %.05989 = phi i32 [ 0, %.lr.ph90 ], [ %123, %121 ]
+  %98 = load ptr, ptr %68, align 8, !tbaa !44
+  %99 = getelementptr inbounds nuw %"struct.btTypedConstraint::btConstraintInfo1", ptr %98, i64 %indvars.iv98
+  %100 = load i32, ptr %99, align 4, !tbaa !138
+  %.not = icmp eq i32 %100, 0
+  br i1 %.not, label %121, label %101
 
-105:                                              ; preds = %101
-  %106 = load ptr, ptr %73, align 8, !tbaa !36
-  %107 = sext i32 %.05988 to i64
-  %108 = getelementptr inbounds %struct.btSolverConstraint, ptr %106, i64 %107
-  %109 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv97
-  %110 = load ptr, ptr %109, align 8, !tbaa !164
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
-  %112 = load ptr, ptr %111, align 8, !tbaa !133
-  %113 = getelementptr inbounds nuw i8, ptr %110, i64 48
-  %114 = load ptr, ptr %113, align 8, !tbaa !136
-  %115 = load float, ptr %74, align 4, !tbaa !97
-  %116 = invoke noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(372) %112, float noundef %115)
-          to label %117 unwind label %121
+101:                                              ; preds = %97
+  %102 = load ptr, ptr %69, align 8, !tbaa !36
+  %103 = sext i32 %.05989 to i64
+  %104 = getelementptr inbounds %struct.btSolverConstraint, ptr %102, i64 %103
+  %105 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv98
+  %106 = load ptr, ptr %105, align 8, !tbaa !163
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 40
+  %108 = load ptr, ptr %107, align 8, !tbaa !132
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 48
+  %110 = load ptr, ptr %109, align 8, !tbaa !135
+  %111 = load float, ptr %70, align 4, !tbaa !96
+  %112 = invoke noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(372) %108, float noundef %111)
+          to label %113 unwind label %117
 
-117:                                              ; preds = %105
-  %118 = load float, ptr %74, align 4, !tbaa !97
-  %119 = invoke noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(372) %114, float noundef %118)
-          to label %120 unwind label %123
+113:                                              ; preds = %101
+  %114 = load float, ptr %70, align 4, !tbaa !96
+  %115 = invoke noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(372) %110, float noundef %114)
+          to label %116 unwind label %119
 
-120:                                              ; preds = %117
-  invoke void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP18btSolverConstraintP17btTypedConstraintRKNS2_17btConstraintInfo1EiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %108, ptr noundef nonnull %110, ptr noundef nonnull align 4 dereferenceable(8) %103, i32 noundef %116, i32 noundef %119, ptr noundef nonnull align 4 dereferenceable(128) %3)
-          to label %._crit_edge104 unwind label %123
+116:                                              ; preds = %113
+  invoke void @_ZN35btSequentialImpulseConstraintSolver12convertJointEP18btSolverConstraintP17btTypedConstraintRKNS2_17btConstraintInfo1EiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %104, ptr noundef nonnull %106, ptr noundef nonnull align 4 dereferenceable(8) %99, i32 noundef %112, i32 noundef %115, ptr noundef nonnull align 4 dereferenceable(128) %3)
+          to label %._crit_edge105 unwind label %119
 
-._crit_edge104:                                   ; preds = %120
-  %.pre105 = load i32, ptr %103, align 4, !tbaa !139
-  br label %125
+._crit_edge105:                                   ; preds = %116
+  %.pre106 = load i32, ptr %99, align 4, !tbaa !138
+  br label %121
 
-121:                                              ; preds = %105
-  %122 = landingpad { ptr, i32 }
+117:                                              ; preds = %101
+  %118 = landingpad { ptr, i32 }
           cleanup
-  br label %128
+  br label %124
 
-123:                                              ; preds = %120, %117
-  %124 = landingpad { ptr, i32 }
+119:                                              ; preds = %116, %113
+  %120 = landingpad { ptr, i32 }
           cleanup
-  br label %128
+  br label %124
 
-125:                                              ; preds = %._crit_edge104, %101
-  %126 = phi i32 [ %.pre105, %._crit_edge104 ], [ 0, %101 ]
-  %127 = add nsw i32 %126, %.05988
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %._crit_edge90, label %101, !llvm.loop !172
+121:                                              ; preds = %._crit_edge105, %97
+  %122 = phi i32 [ %.pre106, %._crit_edge105 ], [ 0, %97 ]
+  %123 = add nsw i32 %122, %.05989
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
+  br i1 %exitcond102.not, label %._crit_edge91, label %97, !llvm.loop !172
 
-128:                                              ; preds = %75, %85, %123, %121, %43
-  %.pn67 = phi { ptr, i32 } [ %44, %43 ], [ %86, %85 ], [ %76, %75 ], [ %124, %123 ], [ %122, %121 ]
+124:                                              ; preds = %71, %81, %119, %117, %41
+  %.pn67 = phi { ptr, i32 } [ %42, %41 ], [ %82, %81 ], [ %72, %71 ], [ %120, %119 ], [ %118, %117 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
   resume { ptr, i32 } %.pn67
@@ -5759,7 +5709,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver13convertBodiesEP
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !34
   %.not79 = icmp sgt i32 %10, %2
-  br i1 %.not79, label %43, label %11
+  br i1 %.not79, label %41, label %11
 
 11:                                               ; preds = %._crit_edge
   %.not.i.i = icmp eq i32 %8, 0
@@ -5769,7 +5719,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver13convertBodiesEP
   %13 = sext i32 %8 to i64
   %14 = mul nsw i64 %13, 248
   %15 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %14, i32 noundef 16)
-          to label %_ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i unwind label %74
+          to label %_ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i unwind label %70
 
 _ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i: ; preds = %12, %11
   %.0.i.i = phi ptr [ null, %11 ], [ %15, %12 ]
@@ -5788,327 +5738,321 @@ _ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i: ; preds = %12, %11
   %21 = getelementptr inbounds nuw %struct.btSolverBody, ptr %.0.i.i, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %19, align 8, !tbaa !32
   %23 = getelementptr inbounds nuw %struct.btSolverBody, ptr %22, i64 %indvars.iv.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %21, ptr noundef nonnull align 8 dereferenceable(248) %23, i64 16, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %21, ptr noundef nonnull align 8 dereferenceable(248) %23, i64 16, i1 false), !tbaa.struct !79
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !79
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false), !tbaa.struct !79
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !79
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %30, ptr noundef nonnull align 8 dereferenceable(184) %31, i64 184, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i, label %20, !llvm.loop !104
+  br i1 %exitcond.not.i.i, label %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i, label %20, !llvm.loop !103
 
 _ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i: ; preds = %20, %_ZN20btAlignedObjectArrayI12btSolverBodyE8allocateEi.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !32
-  %.not.i5.i = icmp eq ptr %33, null
-  br i1 %.not.i5.i, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i, label %34
+  %.not.i5.i = icmp ne ptr %33, null
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %35 = load i8, ptr %34, align 8, !range !71
+  %36 = trunc nuw i8 %35 to i1
+  %or.cond.i = select i1 %.not.i5.i, i1 %36, i1 false
+  br i1 %or.cond.i, label %37, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i
 
-34:                                               ; preds = %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load i8, ptr %35, align 8, !tbaa !31, !range !71, !noundef !72
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i
-
-38:                                               ; preds = %34
+37:                                               ; preds = %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %33)
-          to label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i unwind label %74
+          to label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i unwind label %70
 
-_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i: ; preds = %38, %34, %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %39, align 8, !tbaa !31
+_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i: ; preds = %37, %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i
+  store i8 1, ptr %34, align 8, !tbaa !31
   store ptr %.0.i.i, ptr %32, align 8, !tbaa !32
   store i32 %8, ptr %9, align 8, !tbaa !34
-  br label %43
+  br label %41
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %41 = load ptr, ptr %40, align 8, !tbaa !173
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 232
-  store i32 -1, ptr %42, align 8, !tbaa !102
+  %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %39 = load ptr, ptr %38, align 8, !tbaa !173
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 232
+  store i32 -1, ptr %40, align 8, !tbaa !101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !174
 
-43:                                               ; preds = %._crit_edge, %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i
-  %44 = phi i32 [ %10, %._crit_edge ], [ %8, %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i ]
+41:                                               ; preds = %._crit_edge, %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i
+  %42 = phi i32 [ %10, %._crit_edge ], [ %8, %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i ]
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %6, i8 0, i64 248, i1 false)
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %46 = load i32, ptr %45, align 4, !tbaa !33
-  %47 = icmp slt i32 %46, 0
-  br i1 %47, label %48, label %.loopexit
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %44 = load i32, ptr %43, align 4, !tbaa !33
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %46, label %.loopexit
 
-48:                                               ; preds = %43
-  %49 = icmp slt i32 %44, 0
-  br i1 %49, label %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i, label %.lr.ph.i
+46:                                               ; preds = %41
+  %47 = icmp slt i32 %42, 0
+  br i1 %47, label %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i, label %.lr.ph.i
 
-_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i: ; preds = %48
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !32
-  %.not.i5.i.i = icmp eq ptr %51, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i, label %52
+_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i: ; preds = %46
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %49 = load ptr, ptr %48, align 8, !tbaa !32
+  %.not.i5.i.i = icmp ne ptr %49, null
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %51 = load i8, ptr %50, align 8, !range !71
+  %52 = trunc nuw i8 %51 to i1
+  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %52, i1 false
+  br i1 %or.cond.i.i, label %53, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i
 
-52:                                               ; preds = %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %54 = load i8, ptr %53, align 8, !tbaa !31, !range !71, !noundef !72
-  %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %56, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i
+53:                                               ; preds = %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %49)
+          to label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i unwind label %72
 
-56:                                               ; preds = %52
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %51)
-          to label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i unwind label %76
-
-_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %56, %52, %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %57, align 8, !tbaa !31
-  store ptr null, ptr %50, align 8, !tbaa !32
+_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %53, %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
+  store i8 1, ptr %50, align 8, !tbaa !31
+  store ptr null, ptr %48, align 8, !tbaa !32
   store i32 0, ptr %9, align 8, !tbaa !34
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i, %48
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %63 = sext i32 %46 to i64
-  br label %64
+.lr.ph.i:                                         ; preds = %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i, %46
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %59 = sext i32 %44 to i64
+  br label %60
 
-64:                                               ; preds = %64, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %63, %.lr.ph.i ], [ %indvars.iv.next.i, %64 ]
-  %65 = load ptr, ptr %58, align 8, !tbaa !32
-  %66 = getelementptr inbounds %struct.btSolverBody, ptr %65, i64 %indvars.iv.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %59, i64 16, i1 false), !tbaa.struct !80
-  %68 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %60, i64 16, i1 false), !tbaa.struct !80
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !80
-  %70 = getelementptr inbounds nuw i8, ptr %66, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %70, ptr noundef nonnull align 8 dereferenceable(184) %62, i64 184, i1 false)
+60:                                               ; preds = %60, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %59, %.lr.ph.i ], [ %indvars.iv.next.i, %60 ]
+  %61 = load ptr, ptr %54, align 8, !tbaa !32
+  %62 = getelementptr inbounds %struct.btSolverBody, ptr %61, i64 %indvars.iv.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !79
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !79
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !79
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %66, ptr noundef nonnull align 8 dereferenceable(184) %58, i64 184, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %exitcond.not.i, label %.loopexit, label %64, !llvm.loop !175
+  br i1 %exitcond.not.i, label %.loopexit, label %60, !llvm.loop !175
 
-.loopexit:                                        ; preds = %64, %43
-  store i32 0, ptr %45, align 4, !tbaa !33
+.loopexit:                                        ; preds = %60, %41
+  store i32 0, ptr %43, align 4, !tbaa !33
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %6)
   br i1 %7, label %.lr.ph84, label %._crit_edge85
 
 .lr.ph84:                                         ; preds = %.loopexit
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 100
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 100
   %wide.trip.count90 = zext nneg i32 %2 to i64
-  br label %78
+  br label %74
 
-._crit_edge85:                                    ; preds = %189, %.loopexit
+._crit_edge85:                                    ; preds = %185, %.loopexit
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
   ret void
 
-74:                                               ; preds = %38, %12
-  %75 = landingpad { ptr, i32 }
+70:                                               ; preds = %37, %12
+  %71 = landingpad { ptr, i32 }
           cleanup
-  br label %190
+  br label %186
 
-76:                                               ; preds = %56
-  %77 = landingpad { ptr, i32 }
+72:                                               ; preds = %53
+  %73 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %6)
-  br label %190
+  br label %186
 
-78:                                               ; preds = %.lr.ph84, %189
-  %indvars.iv87 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next88, %189 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv87
-  %80 = load ptr, ptr %79, align 8, !tbaa !173
-  %81 = load float, ptr %71, align 4, !tbaa !97
-  %82 = invoke noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(372) %80, float noundef %81)
-          to label %83 unwind label %145
+74:                                               ; preds = %.lr.ph84, %185
+  %indvars.iv87 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next88, %185 ]
+  %75 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv87
+  %76 = load ptr, ptr %75, align 8, !tbaa !173
+  %77 = load float, ptr %67, align 4, !tbaa !96
+  %78 = invoke noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(372) %76, float noundef %77)
+          to label %79 unwind label %141
 
-83:                                               ; preds = %78
-  %84 = load ptr, ptr %79, align 8, !tbaa !173
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 272
-  %86 = load i32, ptr %85, align 8, !tbaa !73
-  %87 = and i32 %86, 2
-  %.not.i = icmp eq i32 %87, 0
-  %.not80 = icmp eq ptr %84, null
+79:                                               ; preds = %74
+  %80 = load ptr, ptr %75, align 8, !tbaa !173
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 272
+  %82 = load i32, ptr %81, align 8, !tbaa !72
+  %83 = and i32 %82, 2
+  %.not.i = icmp eq i32 %83, 0
+  %.not80 = icmp eq ptr %80, null
   %.not = or i1 %.not80, %.not.i
-  br i1 %.not, label %189, label %88
+  br i1 %.not, label %185, label %84
 
-88:                                               ; preds = %83
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 452
-  %90 = load float, ptr %89, align 4, !tbaa !82
-  %91 = fcmp une float %90, 0.000000e+00
-  br i1 %91, label %92, label %189
+84:                                               ; preds = %79
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 452
+  %86 = load float, ptr %85, align 4, !tbaa !81
+  %87 = fcmp une float %86, 0.000000e+00
+  br i1 %87, label %88, label %185
 
-92:                                               ; preds = %88
-  %93 = load ptr, ptr %72, align 8, !tbaa !32
-  %94 = sext i32 %82 to i64
-  %95 = getelementptr inbounds %struct.btSolverBody, ptr %93, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %84, i64 632
-  %97 = load i32, ptr %96, align 8, !tbaa !176
-  %98 = and i32 %97, 2
-  %.not45 = icmp eq i32 %98, 0
-  br i1 %.not45, label %149, label %99
+88:                                               ; preds = %84
+  %89 = load ptr, ptr %68, align 8, !tbaa !32
+  %90 = sext i32 %78 to i64
+  %91 = getelementptr inbounds %struct.btSolverBody, ptr %89, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %80, i64 632
+  %93 = load i32, ptr %92, align 8, !tbaa !176
+  %94 = and i32 %93, 2
+  %.not45 = icmp eq i32 %94, 0
+  br i1 %.not45, label %145, label %95
 
-99:                                               ; preds = %92
-  %100 = load float, ptr %73, align 4, !tbaa !177
-  %101 = invoke { <2 x float>, <2 x float> } @_ZNK11btRigidBody30computeGyroscopicForceExplicitEf(ptr noundef nonnull align 8 dereferenceable(744) %84, float noundef %100)
-          to label %102 unwind label %147
+95:                                               ; preds = %88
+  %96 = load float, ptr %69, align 4, !tbaa !177
+  %97 = invoke { <2 x float>, <2 x float> } @_ZNK11btRigidBody30computeGyroscopicForceExplicitEf(ptr noundef nonnull align 8 dereferenceable(744) %80, float noundef %96)
+          to label %98 unwind label %143
 
-102:                                              ; preds = %99
-  %103 = extractvalue { <2 x float>, <2 x float> } %101, 0
-  %104 = extractvalue { <2 x float>, <2 x float> } %101, 1
-  %105 = getelementptr inbounds nuw i8, ptr %84, i64 372
-  %106 = load float, ptr %105, align 4, !tbaa !59
-  %.sroa.063.0.vec.extract = extractelement <2 x float> %103, i64 0
-  %107 = getelementptr inbounds nuw i8, ptr %84, i64 388
+98:                                               ; preds = %95
+  %99 = extractvalue { <2 x float>, <2 x float> } %97, 0
+  %100 = extractvalue { <2 x float>, <2 x float> } %97, 1
+  %101 = getelementptr inbounds nuw i8, ptr %80, i64 372
+  %102 = load float, ptr %101, align 4, !tbaa !59
+  %.sroa.063.0.vec.extract = extractelement <2 x float> %99, i64 0
+  %103 = getelementptr inbounds nuw i8, ptr %80, i64 388
+  %104 = load float, ptr %103, align 4, !tbaa !59
+  %.sroa.063.4.vec.extract = extractelement <2 x float> %99, i64 1
+  %105 = fmul float %.sroa.063.4.vec.extract, %104
+  %106 = call float @llvm.fmuladd.f32(float %102, float %.sroa.063.0.vec.extract, float %105)
+  %107 = getelementptr inbounds nuw i8, ptr %80, i64 404
   %108 = load float, ptr %107, align 4, !tbaa !59
-  %.sroa.063.4.vec.extract = extractelement <2 x float> %103, i64 1
-  %109 = fmul float %.sroa.063.4.vec.extract, %108
-  %110 = call float @llvm.fmuladd.f32(float %106, float %.sroa.063.0.vec.extract, float %109)
-  %111 = getelementptr inbounds nuw i8, ptr %84, i64 404
-  %112 = load float, ptr %111, align 4, !tbaa !59
-  %.sroa.14.8.vec.extract = extractelement <2 x float> %104, i64 0
-  %113 = call noundef float @llvm.fmuladd.f32(float %112, float %.sroa.14.8.vec.extract, float %110)
-  %114 = getelementptr inbounds nuw i8, ptr %84, i64 376
-  %115 = load float, ptr %114, align 4, !tbaa !59
-  %116 = getelementptr inbounds nuw i8, ptr %84, i64 392
+  %.sroa.14.8.vec.extract = extractelement <2 x float> %100, i64 0
+  %109 = call noundef float @llvm.fmuladd.f32(float %108, float %.sroa.14.8.vec.extract, float %106)
+  %110 = getelementptr inbounds nuw i8, ptr %80, i64 376
+  %111 = load float, ptr %110, align 4, !tbaa !59
+  %112 = getelementptr inbounds nuw i8, ptr %80, i64 392
+  %113 = load float, ptr %112, align 4, !tbaa !59
+  %114 = fmul float %.sroa.063.4.vec.extract, %113
+  %115 = call float @llvm.fmuladd.f32(float %111, float %.sroa.063.0.vec.extract, float %114)
+  %116 = getelementptr inbounds nuw i8, ptr %80, i64 408
   %117 = load float, ptr %116, align 4, !tbaa !59
-  %118 = fmul float %.sroa.063.4.vec.extract, %117
-  %119 = call float @llvm.fmuladd.f32(float %115, float %.sroa.063.0.vec.extract, float %118)
-  %120 = getelementptr inbounds nuw i8, ptr %84, i64 408
-  %121 = load float, ptr %120, align 4, !tbaa !59
-  %122 = call noundef float @llvm.fmuladd.f32(float %121, float %.sroa.14.8.vec.extract, float %119)
-  %123 = getelementptr inbounds nuw i8, ptr %84, i64 380
-  %124 = load float, ptr %123, align 4, !tbaa !59
-  %125 = getelementptr inbounds nuw i8, ptr %84, i64 396
+  %118 = call noundef float @llvm.fmuladd.f32(float %117, float %.sroa.14.8.vec.extract, float %115)
+  %119 = getelementptr inbounds nuw i8, ptr %80, i64 380
+  %120 = load float, ptr %119, align 4, !tbaa !59
+  %121 = getelementptr inbounds nuw i8, ptr %80, i64 396
+  %122 = load float, ptr %121, align 4, !tbaa !59
+  %123 = fmul float %.sroa.063.4.vec.extract, %122
+  %124 = call float @llvm.fmuladd.f32(float %120, float %.sroa.063.0.vec.extract, float %123)
+  %125 = getelementptr inbounds nuw i8, ptr %80, i64 412
   %126 = load float, ptr %125, align 4, !tbaa !59
-  %127 = fmul float %.sroa.063.4.vec.extract, %126
-  %128 = call float @llvm.fmuladd.f32(float %124, float %.sroa.063.0.vec.extract, float %127)
-  %129 = getelementptr inbounds nuw i8, ptr %84, i64 412
-  %130 = load float, ptr %129, align 4, !tbaa !59
-  %131 = call noundef float @llvm.fmuladd.f32(float %130, float %.sroa.14.8.vec.extract, float %128)
-  %132 = load float, ptr %71, align 4, !tbaa !59
-  %133 = fmul float %113, %132
-  %134 = fmul float %122, %132
-  %135 = fmul float %132, %131
-  %136 = getelementptr inbounds nuw i8, ptr %95, i64 224
-  %137 = load float, ptr %136, align 4, !tbaa !59
-  %138 = fsub float %137, %133
-  store float %138, ptr %136, align 4, !tbaa !59
-  %139 = getelementptr inbounds nuw i8, ptr %95, i64 228
-  %140 = load float, ptr %139, align 4, !tbaa !59
-  %141 = fsub float %140, %134
-  store float %141, ptr %139, align 4, !tbaa !59
-  %142 = getelementptr inbounds nuw i8, ptr %95, i64 232
-  %143 = load float, ptr %142, align 4, !tbaa !59
-  %144 = fsub float %143, %135
-  store float %144, ptr %142, align 4, !tbaa !59
-  %.pre = load i32, ptr %96, align 8, !tbaa !176
-  br label %149
+  %127 = call noundef float @llvm.fmuladd.f32(float %126, float %.sroa.14.8.vec.extract, float %124)
+  %128 = load float, ptr %67, align 4, !tbaa !59
+  %129 = fmul float %109, %128
+  %130 = fmul float %118, %128
+  %131 = fmul float %128, %127
+  %132 = getelementptr inbounds nuw i8, ptr %91, i64 224
+  %133 = load float, ptr %132, align 4, !tbaa !59
+  %134 = fsub float %133, %129
+  store float %134, ptr %132, align 4, !tbaa !59
+  %135 = getelementptr inbounds nuw i8, ptr %91, i64 228
+  %136 = load float, ptr %135, align 4, !tbaa !59
+  %137 = fsub float %136, %130
+  store float %137, ptr %135, align 4, !tbaa !59
+  %138 = getelementptr inbounds nuw i8, ptr %91, i64 232
+  %139 = load float, ptr %138, align 4, !tbaa !59
+  %140 = fsub float %139, %131
+  store float %140, ptr %138, align 4, !tbaa !59
+  %.pre = load i32, ptr %92, align 8, !tbaa !176
+  br label %145
 
-145:                                              ; preds = %78
-  %146 = landingpad { ptr, i32 }
+141:                                              ; preds = %74
+  %142 = landingpad { ptr, i32 }
           cleanup
-  br label %190
+  br label %186
 
-147:                                              ; preds = %99
-  %148 = landingpad { ptr, i32 }
+143:                                              ; preds = %95
+  %144 = landingpad { ptr, i32 }
           cleanup
-  br label %190
+  br label %186
 
-149:                                              ; preds = %102, %92
-  %150 = phi i32 [ %.pre, %102 ], [ %97, %92 ]
-  %151 = and i32 %150, 4
-  %.not46 = icmp eq i32 %151, 0
-  br i1 %.not46, label %169, label %152
+145:                                              ; preds = %98, %88
+  %146 = phi i32 [ %.pre, %98 ], [ %93, %88 ]
+  %147 = and i32 %146, 4
+  %.not46 = icmp eq i32 %147, 0
+  br i1 %.not46, label %165, label %148
 
-152:                                              ; preds = %149
-  %153 = load float, ptr %71, align 4, !tbaa !97
-  %154 = invoke { <2 x float>, <2 x float> } @_ZNK11btRigidBody38computeGyroscopicImpulseImplicit_WorldEf(ptr noundef nonnull align 8 dereferenceable(744) %84, float noundef %153)
-          to label %155 unwind label %167
+148:                                              ; preds = %145
+  %149 = load float, ptr %67, align 4, !tbaa !96
+  %150 = invoke { <2 x float>, <2 x float> } @_ZNK11btRigidBody38computeGyroscopicImpulseImplicit_WorldEf(ptr noundef nonnull align 8 dereferenceable(744) %80, float noundef %149)
+          to label %151 unwind label %163
 
-155:                                              ; preds = %152
-  %156 = extractvalue { <2 x float>, <2 x float> } %154, 0
-  %157 = extractvalue { <2 x float>, <2 x float> } %154, 1
-  %158 = getelementptr inbounds nuw i8, ptr %95, i64 224
-  %.sroa.063.0.vec.extract66 = extractelement <2 x float> %156, i64 0
-  %159 = load float, ptr %158, align 4, !tbaa !59
-  %160 = fadd float %.sroa.063.0.vec.extract66, %159
-  store float %160, ptr %158, align 4, !tbaa !59
-  %.sroa.063.4.vec.extract71 = extractelement <2 x float> %156, i64 1
-  %161 = getelementptr inbounds nuw i8, ptr %95, i64 228
-  %162 = load float, ptr %161, align 4, !tbaa !59
-  %163 = fadd float %.sroa.063.4.vec.extract71, %162
-  store float %163, ptr %161, align 4, !tbaa !59
-  %.sroa.14.8.vec.extract76 = extractelement <2 x float> %157, i64 0
-  %164 = getelementptr inbounds nuw i8, ptr %95, i64 232
-  %165 = load float, ptr %164, align 4, !tbaa !59
-  %166 = fadd float %.sroa.14.8.vec.extract76, %165
-  store float %166, ptr %164, align 4, !tbaa !59
-  %.pre92 = load i32, ptr %96, align 8, !tbaa !176
-  br label %169
+151:                                              ; preds = %148
+  %152 = extractvalue { <2 x float>, <2 x float> } %150, 0
+  %153 = extractvalue { <2 x float>, <2 x float> } %150, 1
+  %154 = getelementptr inbounds nuw i8, ptr %91, i64 224
+  %.sroa.063.0.vec.extract66 = extractelement <2 x float> %152, i64 0
+  %155 = load float, ptr %154, align 4, !tbaa !59
+  %156 = fadd float %.sroa.063.0.vec.extract66, %155
+  store float %156, ptr %154, align 4, !tbaa !59
+  %.sroa.063.4.vec.extract71 = extractelement <2 x float> %152, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %91, i64 228
+  %158 = load float, ptr %157, align 4, !tbaa !59
+  %159 = fadd float %.sroa.063.4.vec.extract71, %158
+  store float %159, ptr %157, align 4, !tbaa !59
+  %.sroa.14.8.vec.extract76 = extractelement <2 x float> %153, i64 0
+  %160 = getelementptr inbounds nuw i8, ptr %91, i64 232
+  %161 = load float, ptr %160, align 4, !tbaa !59
+  %162 = fadd float %.sroa.14.8.vec.extract76, %161
+  store float %162, ptr %160, align 4, !tbaa !59
+  %.pre92 = load i32, ptr %92, align 8, !tbaa !176
+  br label %165
 
-167:                                              ; preds = %152
-  %168 = landingpad { ptr, i32 }
+163:                                              ; preds = %148
+  %164 = landingpad { ptr, i32 }
           cleanup
-  br label %190
+  br label %186
 
-169:                                              ; preds = %155, %149
-  %170 = phi i32 [ %.pre92, %155 ], [ %150, %149 ]
-  %171 = and i32 %170, 8
-  %.not47 = icmp eq i32 %171, 0
-  br i1 %.not47, label %189, label %172
+165:                                              ; preds = %151, %145
+  %166 = phi i32 [ %.pre92, %151 ], [ %146, %145 ]
+  %167 = and i32 %166, 8
+  %.not47 = icmp eq i32 %167, 0
+  br i1 %.not47, label %185, label %168
 
-172:                                              ; preds = %169
-  %173 = load float, ptr %71, align 4, !tbaa !97
-  %174 = invoke { <2 x float>, <2 x float> } @_ZNK11btRigidBody37computeGyroscopicImpulseImplicit_BodyEf(ptr noundef nonnull align 8 dereferenceable(744) %84, float noundef %173)
-          to label %175 unwind label %187
+168:                                              ; preds = %165
+  %169 = load float, ptr %67, align 4, !tbaa !96
+  %170 = invoke { <2 x float>, <2 x float> } @_ZNK11btRigidBody37computeGyroscopicImpulseImplicit_BodyEf(ptr noundef nonnull align 8 dereferenceable(744) %80, float noundef %169)
+          to label %171 unwind label %183
 
-175:                                              ; preds = %172
-  %176 = extractvalue { <2 x float>, <2 x float> } %174, 0
-  %177 = extractvalue { <2 x float>, <2 x float> } %174, 1
-  %178 = getelementptr inbounds nuw i8, ptr %95, i64 224
-  %.sroa.063.0.vec.extract68 = extractelement <2 x float> %176, i64 0
-  %179 = load float, ptr %178, align 4, !tbaa !59
-  %180 = fadd float %.sroa.063.0.vec.extract68, %179
-  store float %180, ptr %178, align 4, !tbaa !59
-  %.sroa.063.4.vec.extract73 = extractelement <2 x float> %176, i64 1
-  %181 = getelementptr inbounds nuw i8, ptr %95, i64 228
-  %182 = load float, ptr %181, align 4, !tbaa !59
-  %183 = fadd float %.sroa.063.4.vec.extract73, %182
-  store float %183, ptr %181, align 4, !tbaa !59
-  %.sroa.14.8.vec.extract78 = extractelement <2 x float> %177, i64 0
-  %184 = getelementptr inbounds nuw i8, ptr %95, i64 232
-  %185 = load float, ptr %184, align 4, !tbaa !59
-  %186 = fadd float %.sroa.14.8.vec.extract78, %185
-  store float %186, ptr %184, align 4, !tbaa !59
-  br label %189
+171:                                              ; preds = %168
+  %172 = extractvalue { <2 x float>, <2 x float> } %170, 0
+  %173 = extractvalue { <2 x float>, <2 x float> } %170, 1
+  %174 = getelementptr inbounds nuw i8, ptr %91, i64 224
+  %.sroa.063.0.vec.extract68 = extractelement <2 x float> %172, i64 0
+  %175 = load float, ptr %174, align 4, !tbaa !59
+  %176 = fadd float %.sroa.063.0.vec.extract68, %175
+  store float %176, ptr %174, align 4, !tbaa !59
+  %.sroa.063.4.vec.extract73 = extractelement <2 x float> %172, i64 1
+  %177 = getelementptr inbounds nuw i8, ptr %91, i64 228
+  %178 = load float, ptr %177, align 4, !tbaa !59
+  %179 = fadd float %.sroa.063.4.vec.extract73, %178
+  store float %179, ptr %177, align 4, !tbaa !59
+  %.sroa.14.8.vec.extract78 = extractelement <2 x float> %173, i64 0
+  %180 = getelementptr inbounds nuw i8, ptr %91, i64 232
+  %181 = load float, ptr %180, align 4, !tbaa !59
+  %182 = fadd float %.sroa.14.8.vec.extract78, %181
+  store float %182, ptr %180, align 4, !tbaa !59
+  br label %185
 
-187:                                              ; preds = %172
-  %188 = landingpad { ptr, i32 }
+183:                                              ; preds = %168
+  %184 = landingpad { ptr, i32 }
           cleanup
-  br label %190
+  br label %186
 
-189:                                              ; preds = %169, %175, %88, %83
+185:                                              ; preds = %165, %171, %84, %79
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count90
-  br i1 %exitcond91.not, label %._crit_edge85, label %78, !llvm.loop !178
+  br i1 %exitcond91.not, label %._crit_edge85, label %74, !llvm.loop !178
 
-190:                                              ; preds = %147, %167, %187, %145, %76, %74
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %77, %76 ], [ %75, %74 ], [ %146, %145 ], [ %188, %187 ], [ %168, %167 ], [ %148, %147 ]
+186:                                              ; preds = %143, %163, %183, %141, %72, %70
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %72 ], [ %71, %70 ], [ %142, %141 ], [ %184, %183 ], [ %164, %163 ], [ %144, %143 ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
   resume { ptr, i32 } %.pn.pn.pn.pn
@@ -6124,11 +6068,11 @@ declare { <2 x float>, <2 x float> } @_ZNK11btRigidBody37computeGyroscopicImpuls
 define dso_local noundef float @_ZN35btSequentialImpulseConstraintSolver28solveGroupCacheFriendlySetupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408) initializes((296, 304)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(128) %7, ptr readnone captures(none) %8) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %class.CProfileSample, align 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  store i32 -1, ptr %11, align 4, !tbaa !105
+  store i32 -1, ptr %11, align 4, !tbaa !104
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #23
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull @.str.2)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %13 = load i32, ptr %12, align 4, !tbaa !113
+  %13 = load i32, ptr %12, align 4, !tbaa !112
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %15 = load i32, ptr %14, align 8, !tbaa !52
   %.not = icmp eq i32 %13, %15
@@ -6146,7 +6090,7 @@ define dso_local noundef float @_ZN35btSequentialImpulseConstraintSolver28solveG
 
 20:                                               ; preds = %16, %9
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 0, ptr %21, align 8, !tbaa !138
+  store i32 0, ptr %21, align 8, !tbaa !137
   %22 = load ptr, ptr %0, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %24 = load ptr, ptr %23, align 8
@@ -6222,16 +6166,20 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %.noexc, %47
   br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i, label %56, !llvm.loop !179
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i
-  %.not.i5.i.i = icmp eq ptr %55, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i
-
-_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i: ; preds = %56, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
+  %.not.i5.i.i = icmp ne ptr %55, null
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %61 = load i8, ptr %60, align 8, !tbaa !39, !range !71, !noundef !72
+  %61 = load i8, ptr %60, align 8, !range !71
   %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %63, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
+  %or.cond.i = select i1 %.not.i5.i.i, i1 %62, i1 false
+  br i1 %or.cond.i, label %63, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
 
-63:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i
+_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i: ; preds = %56
+  %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %.old3.i = load i8, ptr %.old.i, align 8, !tbaa !39, !range !71, !noundef !169
+  %.old4.i = trunc nuw i8 %.old3.i to i1
+  br i1 %.old4.i, label %63, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i
+
+63:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %55)
           to label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i unwind label %97
 
@@ -6244,7 +6192,7 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %63, %_ZNK20btAli
 
 65:                                               ; preds = %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i, %43, %33
   store i32 %35, ptr %40, align 4, !tbaa !41
-  %66 = load i32, ptr %12, align 4, !tbaa !113
+  %66 = load i32, ptr %12, align 4, !tbaa !112
   %67 = and i32 %66, 16
   %.not38 = icmp eq i32 %67, 0
   br i1 %.not38, label %99, label %68
@@ -6254,13 +6202,13 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %63, %_ZNK20btAli
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %71 = load i32, ptr %70, align 4, !tbaa !41
   %72 = icmp sgt i32 %69, %71
-  br i1 %72, label %73, label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit56
+  br i1 %72, label %73, label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit60
 
 73:                                               ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %75 = load i32, ptr %74, align 8, !tbaa !42
   %76 = icmp slt i32 %75, %69
-  br i1 %76, label %77, label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit56
+  br i1 %76, label %77, label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit60
 
 77:                                               ; preds = %73
   %.not.i.i.i41 = icmp eq i32 %37, 0
@@ -6270,15 +6218,15 @@ _ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %63, %_ZNK20btAli
   %79 = sext i32 %69 to i64
   %80 = shl nsw i64 %79, 2
   %81 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %80, i32 noundef 16)
-          to label %.noexc54 unwind label %97
+          to label %.noexc58 unwind label %97
 
-.noexc54:                                         ; preds = %78
+.noexc58:                                         ; preds = %78
   %.pre.i42 = load i32, ptr %70, align 4, !tbaa !41
   br label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i43
 
-_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i43: ; preds = %.noexc54, %77
-  %82 = phi i32 [ %.pre.i42, %.noexc54 ], [ %71, %77 ]
-  %.0.i.i.i44 = phi ptr [ %81, %.noexc54 ], [ null, %77 ]
+_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i43: ; preds = %.noexc58, %77
+  %82 = phi i32 [ %.pre.i42, %.noexc58 ], [ %71, %77 ]
+  %.0.i.i.i44 = phi ptr [ %81, %.noexc58 ], [ null, %77 ]
   %83 = icmp sgt i32 %82, 0
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %85 = load ptr, ptr %84, align 8, !tbaa !40
@@ -6296,30 +6244,34 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i43: ; preds = %.noexc54, %77
   store i32 %89, ptr %87, align 4, !tbaa !69
   %indvars.iv.next.i.i.i52 = add nuw nsw i64 %indvars.iv.i.i.i51, 1
   %exitcond.not.i.i.i53 = icmp eq i64 %indvars.iv.next.i.i.i52, %wide.trip.count.i.i.i50
-  br i1 %exitcond.not.i.i.i53, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i47, label %86, !llvm.loop !179
+  br i1 %exitcond.not.i.i.i53, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i54, label %86, !llvm.loop !179
 
 _ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i45: ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i43
-  %.not.i5.i.i46 = icmp eq ptr %85, null
-  br i1 %.not.i5.i.i46, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i48, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i47
-
-_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i47: ; preds = %86, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i45
+  %.not.i5.i.i46 = icmp ne ptr %85, null
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %91 = load i8, ptr %90, align 8, !tbaa !39, !range !71, !noundef !72
+  %91 = load i8, ptr %90, align 8, !range !71
   %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %93, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i48
+  %or.cond.i47 = select i1 %.not.i5.i.i46, i1 %92, i1 false
+  br i1 %or.cond.i47, label %93, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i48
 
-93:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i47
+_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i54: ; preds = %86
+  %.old.i55 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %.old3.i56 = load i8, ptr %.old.i55, align 8, !tbaa !39, !range !71, !noundef !169
+  %.old4.i57 = trunc nuw i8 %.old3.i56 to i1
+  br i1 %.old4.i57, label %93, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i48
+
+93:                                               ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i54, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i45
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %85)
           to label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i48 unwind label %97
 
-_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i48: ; preds = %93, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i47, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i45
+_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i48: ; preds = %93, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i54, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i45
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i8 1, ptr %94, align 8, !tbaa !39
   store ptr %.0.i.i.i44, ptr %84, align 8, !tbaa !40
   store i32 %69, ptr %74, align 8, !tbaa !42
-  br label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit56
+  br label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit60
 
-_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit56: ; preds = %68, %73, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i48
+_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit60: ; preds = %68, %73, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i48
   store i32 %69, ptr %70, align 4, !tbaa !41
   br label %125
 
@@ -6337,163 +6289,171 @@ _ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit56: ; preds = %68, %73, %
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %101 = load i32, ptr %100, align 4, !tbaa !41
   %102 = icmp sgt i32 %37, %101
-  br i1 %102, label %103, label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit72
+  br i1 %102, label %103, label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit80
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %105 = load i32, ptr %104, align 8, !tbaa !42
   %106 = icmp slt i32 %105, %37
-  br i1 %106, label %107, label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit72
+  br i1 %106, label %107, label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit80
 
 107:                                              ; preds = %103
-  %.not.i.i.i57 = icmp eq i32 %37, 0
-  br i1 %.not.i.i.i57, label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i59, label %108
+  %.not.i.i.i61 = icmp eq i32 %37, 0
+  br i1 %.not.i.i.i61, label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i63, label %108
 
 108:                                              ; preds = %107
   %109 = sext i32 %37 to i64
   %110 = shl nsw i64 %109, 2
   %111 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %110, i32 noundef 16)
-          to label %.noexc70 unwind label %97
+          to label %.noexc78 unwind label %97
 
-.noexc70:                                         ; preds = %108
-  %.pre.i58 = load i32, ptr %100, align 4, !tbaa !41
-  br label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i59
+.noexc78:                                         ; preds = %108
+  %.pre.i62 = load i32, ptr %100, align 4, !tbaa !41
+  br label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i63
 
-_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i59: ; preds = %.noexc70, %107
-  %112 = phi i32 [ %.pre.i58, %.noexc70 ], [ %101, %107 ]
-  %.0.i.i.i60 = phi ptr [ %111, %.noexc70 ], [ null, %107 ]
+_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i63: ; preds = %.noexc78, %107
+  %112 = phi i32 [ %.pre.i62, %.noexc78 ], [ %101, %107 ]
+  %.0.i.i.i64 = phi ptr [ %111, %.noexc78 ], [ null, %107 ]
   %113 = icmp sgt i32 %112, 0
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %115 = load ptr, ptr %114, align 8, !tbaa !40
-  br i1 %113, label %.lr.ph.i.i.i65, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i61
+  br i1 %113, label %.lr.ph.i.i.i69, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i65
 
-.lr.ph.i.i.i65:                                   ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i59
-  %wide.trip.count.i.i.i66 = zext nneg i32 %112 to i64
+.lr.ph.i.i.i69:                                   ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i63
+  %wide.trip.count.i.i.i70 = zext nneg i32 %112 to i64
   br label %116
 
-116:                                              ; preds = %116, %.lr.ph.i.i.i65
-  %indvars.iv.i.i.i67 = phi i64 [ 0, %.lr.ph.i.i.i65 ], [ %indvars.iv.next.i.i.i68, %116 ]
-  %117 = getelementptr inbounds nuw i32, ptr %.0.i.i.i60, i64 %indvars.iv.i.i.i67
-  %118 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.i.i.i67
+116:                                              ; preds = %116, %.lr.ph.i.i.i69
+  %indvars.iv.i.i.i71 = phi i64 [ 0, %.lr.ph.i.i.i69 ], [ %indvars.iv.next.i.i.i72, %116 ]
+  %117 = getelementptr inbounds nuw i32, ptr %.0.i.i.i64, i64 %indvars.iv.i.i.i71
+  %118 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv.i.i.i71
   %119 = load i32, ptr %118, align 4, !tbaa !69
   store i32 %119, ptr %117, align 4, !tbaa !69
-  %indvars.iv.next.i.i.i68 = add nuw nsw i64 %indvars.iv.i.i.i67, 1
-  %exitcond.not.i.i.i69 = icmp eq i64 %indvars.iv.next.i.i.i68, %wide.trip.count.i.i.i66
-  br i1 %exitcond.not.i.i.i69, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i63, label %116, !llvm.loop !179
+  %indvars.iv.next.i.i.i72 = add nuw nsw i64 %indvars.iv.i.i.i71, 1
+  %exitcond.not.i.i.i73 = icmp eq i64 %indvars.iv.next.i.i.i72, %wide.trip.count.i.i.i70
+  br i1 %exitcond.not.i.i.i73, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i74, label %116, !llvm.loop !179
 
-_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i61: ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i59
-  %.not.i5.i.i62 = icmp eq ptr %115, null
-  br i1 %.not.i5.i.i62, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i64, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i63
-
-_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i63: ; preds = %116, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i61
+_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i65: ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i63
+  %.not.i5.i.i66 = icmp ne ptr %115, null
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %121 = load i8, ptr %120, align 8, !tbaa !39, !range !71, !noundef !72
+  %121 = load i8, ptr %120, align 8, !range !71
   %122 = trunc nuw i8 %121 to i1
-  br i1 %122, label %123, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i64
+  %or.cond.i67 = select i1 %.not.i5.i.i66, i1 %122, i1 false
+  br i1 %or.cond.i67, label %123, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i68
 
-123:                                              ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i63
+_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i74: ; preds = %116
+  %.old.i75 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %.old3.i76 = load i8, ptr %.old.i75, align 8, !tbaa !39, !range !71, !noundef !169
+  %.old4.i77 = trunc nuw i8 %.old3.i76 to i1
+  br i1 %.old4.i77, label %123, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i68
+
+123:                                              ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i74, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i65
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %115)
-          to label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i64 unwind label %97
+          to label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i68 unwind label %97
 
-_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i64: ; preds = %123, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i63, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i61
+_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i68: ; preds = %123, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i74, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i65
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i8 1, ptr %124, align 8, !tbaa !39
-  store ptr %.0.i.i.i60, ptr %114, align 8, !tbaa !40
+  store ptr %.0.i.i.i64, ptr %114, align 8, !tbaa !40
   store i32 %37, ptr %104, align 8, !tbaa !42
-  br label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit72
+  br label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit80
 
-_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit72: ; preds = %99, %103, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i64
+_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit80: ; preds = %99, %103, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i68
   store i32 %37, ptr %100, align 4, !tbaa !41
   br label %125
 
-125:                                              ; preds = %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit72, %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit56
+125:                                              ; preds = %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit80, %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit60
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %127 = load i32, ptr %126, align 4, !tbaa !41
   %128 = icmp sgt i32 %39, %127
-  br i1 %128, label %129, label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit88
+  br i1 %128, label %129, label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit100
 
 129:                                              ; preds = %125
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %131 = load i32, ptr %130, align 8, !tbaa !42
   %132 = icmp slt i32 %131, %39
-  br i1 %132, label %133, label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit88
+  br i1 %132, label %133, label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit100
 
 133:                                              ; preds = %129
-  %.not.i.i.i73 = icmp eq i32 %39, 0
-  br i1 %.not.i.i.i73, label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i75, label %134
+  %.not.i.i.i81 = icmp eq i32 %39, 0
+  br i1 %.not.i.i.i81, label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i83, label %134
 
 134:                                              ; preds = %133
   %135 = sext i32 %39 to i64
   %136 = shl nsw i64 %135, 2
   %137 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %136, i32 noundef 16)
-          to label %.noexc86 unwind label %97
+          to label %.noexc98 unwind label %97
 
-.noexc86:                                         ; preds = %134
-  %.pre.i74 = load i32, ptr %126, align 4, !tbaa !41
-  br label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i75
+.noexc98:                                         ; preds = %134
+  %.pre.i82 = load i32, ptr %126, align 4, !tbaa !41
+  br label %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i83
 
-_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i75: ; preds = %.noexc86, %133
-  %138 = phi i32 [ %.pre.i74, %.noexc86 ], [ %127, %133 ]
-  %.0.i.i.i76 = phi ptr [ %137, %.noexc86 ], [ null, %133 ]
+_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i83: ; preds = %.noexc98, %133
+  %138 = phi i32 [ %.pre.i82, %.noexc98 ], [ %127, %133 ]
+  %.0.i.i.i84 = phi ptr [ %137, %.noexc98 ], [ null, %133 ]
   %139 = icmp sgt i32 %138, 0
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %141 = load ptr, ptr %140, align 8, !tbaa !40
-  br i1 %139, label %.lr.ph.i.i.i81, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i77
+  br i1 %139, label %.lr.ph.i.i.i89, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i85
 
-.lr.ph.i.i.i81:                                   ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i75
-  %wide.trip.count.i.i.i82 = zext nneg i32 %138 to i64
+.lr.ph.i.i.i89:                                   ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i83
+  %wide.trip.count.i.i.i90 = zext nneg i32 %138 to i64
   br label %142
 
-142:                                              ; preds = %142, %.lr.ph.i.i.i81
-  %indvars.iv.i.i.i83 = phi i64 [ 0, %.lr.ph.i.i.i81 ], [ %indvars.iv.next.i.i.i84, %142 ]
-  %143 = getelementptr inbounds nuw i32, ptr %.0.i.i.i76, i64 %indvars.iv.i.i.i83
-  %144 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv.i.i.i83
+142:                                              ; preds = %142, %.lr.ph.i.i.i89
+  %indvars.iv.i.i.i91 = phi i64 [ 0, %.lr.ph.i.i.i89 ], [ %indvars.iv.next.i.i.i92, %142 ]
+  %143 = getelementptr inbounds nuw i32, ptr %.0.i.i.i84, i64 %indvars.iv.i.i.i91
+  %144 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv.i.i.i91
   %145 = load i32, ptr %144, align 4, !tbaa !69
   store i32 %145, ptr %143, align 4, !tbaa !69
-  %indvars.iv.next.i.i.i84 = add nuw nsw i64 %indvars.iv.i.i.i83, 1
-  %exitcond.not.i.i.i85 = icmp eq i64 %indvars.iv.next.i.i.i84, %wide.trip.count.i.i.i82
-  br i1 %exitcond.not.i.i.i85, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i79, label %142, !llvm.loop !179
+  %indvars.iv.next.i.i.i92 = add nuw nsw i64 %indvars.iv.i.i.i91, 1
+  %exitcond.not.i.i.i93 = icmp eq i64 %indvars.iv.next.i.i.i92, %wide.trip.count.i.i.i90
+  br i1 %exitcond.not.i.i.i93, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i94, label %142, !llvm.loop !179
 
-_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i77: ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i75
-  %.not.i5.i.i78 = icmp eq ptr %141, null
-  br i1 %.not.i5.i.i78, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i80, label %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i79
-
-_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i79: ; preds = %142, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i77
+_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i85: ; preds = %_ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i83
+  %.not.i5.i.i86 = icmp ne ptr %141, null
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %147 = load i8, ptr %146, align 8, !tbaa !39, !range !71, !noundef !72
+  %147 = load i8, ptr %146, align 8, !range !71
   %148 = trunc nuw i8 %147 to i1
-  br i1 %148, label %149, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i80
+  %or.cond.i87 = select i1 %.not.i5.i.i86, i1 %148, i1 false
+  br i1 %or.cond.i87, label %149, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i88
 
-149:                                              ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i79
+_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i94: ; preds = %142
+  %.old.i95 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %.old3.i96 = load i8, ptr %.old.i95, align 8, !tbaa !39, !range !71, !noundef !169
+  %.old4.i97 = trunc nuw i8 %.old3.i96 to i1
+  br i1 %.old4.i97, label %149, label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i88
+
+149:                                              ; preds = %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i94, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i85
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %141)
-          to label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i80 unwind label %97
+          to label %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i88 unwind label %97
 
-_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i80: ; preds = %149, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i79, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i77
+_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i88: ; preds = %149, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.thread.i.i94, %_ZNK20btAlignedObjectArrayIiE4copyEiiPi.exit.i.i85
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i8 1, ptr %150, align 8, !tbaa !39
-  store ptr %.0.i.i.i76, ptr %140, align 8, !tbaa !40
+  store ptr %.0.i.i.i84, ptr %140, align 8, !tbaa !40
   store i32 %39, ptr %130, align 8, !tbaa !42
-  br label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit88
+  br label %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit100
 
-_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit88: ; preds = %125, %129, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i80
+_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit100: ; preds = %125, %129, %_ZN20btAlignedObjectArrayIiE10deallocateEv.exit.i.i88
   store i32 %39, ptr %126, align 4, !tbaa !41
   %151 = icmp sgt i32 %35, 0
-  br i1 %151, label %.lr.ph, label %.preheader89
+  br i1 %151, label %.lr.ph, label %.preheader101
 
-.lr.ph:                                           ; preds = %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit88
+.lr.ph:                                           ; preds = %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit100
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %153 = load ptr, ptr %152, align 8, !tbaa !40
   %wide.trip.count = zext nneg i32 %35 to i64
   br label %157
 
-.preheader89:                                     ; preds = %157, %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit88
+.preheader101:                                    ; preds = %157, %_ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit100
   %154 = icmp sgt i32 %37, 0
-  br i1 %154, label %.lr.ph92, label %.preheader
+  br i1 %154, label %.lr.ph104, label %.preheader
 
-.lr.ph92:                                         ; preds = %.preheader89
+.lr.ph104:                                        ; preds = %.preheader101
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %156 = load ptr, ptr %155, align 8, !tbaa !40
-  %wide.trip.count99 = zext nneg i32 %37 to i64
+  %wide.trip.count111 = zext nneg i32 %37 to i64
   br label %163
 
 157:                                              ; preds = %.lr.ph, %157
@@ -6503,35 +6463,35 @@ _ZN20btAlignedObjectArrayIiE18resizeNoInitializeEi.exit88: ; preds = %125, %129,
   store i32 %159, ptr %158, align 4, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader89, label %157, !llvm.loop !180
+  br i1 %exitcond.not, label %.preheader101, label %157, !llvm.loop !180
 
-.preheader:                                       ; preds = %163, %.preheader89
+.preheader:                                       ; preds = %163, %.preheader101
   %160 = icmp sgt i32 %39, 0
-  br i1 %160, label %.lr.ph94, label %._crit_edge
+  br i1 %160, label %.lr.ph106, label %._crit_edge
 
-.lr.ph94:                                         ; preds = %.preheader
+.lr.ph106:                                        ; preds = %.preheader
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %162 = load ptr, ptr %161, align 8, !tbaa !40
-  %wide.trip.count104 = zext nneg i32 %39 to i64
+  %wide.trip.count116 = zext nneg i32 %39 to i64
   br label %166
 
-163:                                              ; preds = %.lr.ph92, %163
-  %indvars.iv96 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next97, %163 ]
-  %164 = getelementptr inbounds nuw i32, ptr %156, i64 %indvars.iv96
-  %165 = trunc nuw nsw i64 %indvars.iv96 to i32
+163:                                              ; preds = %.lr.ph104, %163
+  %indvars.iv108 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next109, %163 ]
+  %164 = getelementptr inbounds nuw i32, ptr %156, i64 %indvars.iv108
+  %165 = trunc nuw nsw i64 %indvars.iv108 to i32
   store i32 %165, ptr %164, align 4, !tbaa !69
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %.preheader, label %163, !llvm.loop !181
+  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
+  br i1 %exitcond112.not, label %.preheader, label %163, !llvm.loop !181
 
-166:                                              ; preds = %.lr.ph94, %166
-  %indvars.iv101 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next102, %166 ]
-  %167 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv101
-  %168 = trunc nuw nsw i64 %indvars.iv101 to i32
+166:                                              ; preds = %.lr.ph106, %166
+  %indvars.iv113 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next114, %166 ]
+  %167 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv113
+  %168 = trunc nuw nsw i64 %indvars.iv113 to i32
   store i32 %168, ptr %167, align 4, !tbaa !69
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
-  br i1 %exitcond105.not, label %._crit_edge, label %166, !llvm.loop !182
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count116
+  br i1 %exitcond117.not, label %._crit_edge, label %166, !llvm.loop !182
 
 ._crit_edge:                                      ; preds = %166, %.preheader
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #23
@@ -6557,7 +6517,7 @@ define dso_local noundef float @_ZN35btSequentialImpulseConstraintSolver20solveS
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %17 = load i32, ptr %16, align 4, !tbaa !37
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %19 = load i32, ptr %18, align 4, !tbaa !113
+  %19 = load i32, ptr %18, align 4, !tbaa !112
   %20 = and i32 %19, 1
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %.loopexit228, label %.preheader230
@@ -6580,7 +6540,7 @@ define dso_local noundef float @_ZN35btSequentialImpulseConstraintSolver20solveS
 
 25:                                               ; preds = %._crit_edge, %.preheader230
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %27 = load i32, ptr %26, align 4, !tbaa !141
+  %27 = load i32, ptr %26, align 4, !tbaa !140
   %28 = icmp slt i32 %1, %27
   br i1 %28, label %.preheader229, label %.loopexit228
 
@@ -6784,7 +6744,7 @@ _ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit187: ; preds = %97, %
 ._crit_edge251:                                   ; preds = %166, %.loopexit228
   %.0.lcssa = phi float [ 0.000000e+00, %.loopexit228 ], [ %.1, %166 ]
   %133 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %134 = load i32, ptr %133, align 4, !tbaa !141
+  %134 = load i32, ptr %133, align 4, !tbaa !140
   %135 = icmp slt i32 %1, %134
   br i1 %135, label %.preheader, label %.loopexit
 
@@ -6809,18 +6769,18 @@ _ZN35btSequentialImpulseConstraintSolver10btRandInt2Ei.exit187: ; preds = %97, %
   %145 = sext i32 %143 to i64
   %146 = getelementptr inbounds %struct.btSolverConstraint, ptr %144, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 144
-  %148 = load i32, ptr %147, align 8, !tbaa !159
+  %148 = load i32, ptr %147, align 8, !tbaa !158
   %149 = icmp slt i32 %1, %148
   br i1 %149, label %150, label %166
 
 150:                                              ; preds = %139
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 152
-  %152 = load i32, ptr %151, align 8, !tbaa !89
+  %152 = load i32, ptr %151, align 8, !tbaa !88
   %153 = load ptr, ptr %131, align 8, !tbaa !32
   %154 = sext i32 %152 to i64
   %155 = getelementptr inbounds %struct.btSolverBody, ptr %153, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %146, i64 156
-  %157 = load i32, ptr %156, align 4, !tbaa !90
+  %157 = load i32, ptr %156, align 4, !tbaa !89
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds %struct.btSolverBody, ptr %153, i64 %158
   %160 = load ptr, ptr %132, align 8, !tbaa !4
@@ -6848,7 +6808,7 @@ _ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12b
   br i1 %169, label %139, label %._crit_edge251, !llvm.loop !186
 
 ._crit_edge254:                                   ; preds = %208, %.preheader
-  %170 = load i32, ptr %18, align 4, !tbaa !113
+  %170 = load i32, ptr %18, align 4, !tbaa !112
   %171 = and i32 %170, 512
   %.not172 = icmp eq i32 %171, 0
   %172 = load i32, ptr %14, align 4, !tbaa !37
@@ -6858,24 +6818,24 @@ _ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12b
 174:                                              ; preds = %.lr.ph253, %208
   %indvars.iv293 = phi i64 [ 0, %.lr.ph253 ], [ %indvars.iv.next294, %208 ]
   %175 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv293
-  %176 = load ptr, ptr %175, align 8, !tbaa !164
+  %176 = load ptr, ptr %175, align 8, !tbaa !163
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 28
-  %178 = load i8, ptr %177, align 4, !tbaa !169, !range !71, !noundef !72
+  %178 = load i8, ptr %177, align 4, !tbaa !168, !range !71, !noundef !169
   %179 = trunc nuw i8 %178 to i1
   br i1 %179, label %180, label %208
 
 180:                                              ; preds = %174
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 40
-  %182 = load ptr, ptr %181, align 8, !tbaa !133
-  %183 = load float, ptr %137, align 4, !tbaa !97
+  %182 = load ptr, ptr %181, align 8, !tbaa !132
+  %183 = load float, ptr %137, align 4, !tbaa !96
   %184 = invoke noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(372) %182, float noundef %183)
           to label %185 unwind label %202
 
 185:                                              ; preds = %180
-  %186 = load ptr, ptr %175, align 8, !tbaa !164
+  %186 = load ptr, ptr %175, align 8, !tbaa !163
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 48
-  %188 = load ptr, ptr %187, align 8, !tbaa !136
-  %189 = load float, ptr %137, align 4, !tbaa !97
+  %188 = load ptr, ptr %187, align 8, !tbaa !135
+  %189 = load float, ptr %137, align 4, !tbaa !96
   %190 = invoke noundef i32 @_ZN35btSequentialImpulseConstraintSolver19getOrInitSolverBodyER17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(372) %188, float noundef %189)
           to label %191 unwind label %204
 
@@ -6885,8 +6845,8 @@ _ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12b
   %194 = getelementptr inbounds %struct.btSolverBody, ptr %192, i64 %193
   %195 = sext i32 %190 to i64
   %196 = getelementptr inbounds %struct.btSolverBody, ptr %192, i64 %195
-  %197 = load ptr, ptr %175, align 8, !tbaa !164
-  %198 = load float, ptr %137, align 4, !tbaa !97
+  %197 = load ptr, ptr %175, align 8, !tbaa !163
+  %198 = load float, ptr %137, align 4, !tbaa !96
   %199 = load ptr, ptr %197, align 8, !tbaa !29
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 48
   %201 = load ptr, ptr %200, align 8
@@ -6939,12 +6899,12 @@ _ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12b
   %223 = sext i32 %221 to i64
   %224 = getelementptr inbounds %struct.btSolverConstraint, ptr %222, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 152
-  %226 = load i32, ptr %225, align 8, !tbaa !89
+  %226 = load i32, ptr %225, align 8, !tbaa !88
   %227 = load ptr, ptr %212, align 8, !tbaa !32
   %228 = sext i32 %226 to i64
   %229 = getelementptr inbounds %struct.btSolverBody, ptr %227, i64 %228
   %230 = getelementptr inbounds nuw i8, ptr %224, i64 156
-  %231 = load i32, ptr %230, align 4, !tbaa !90
+  %231 = load i32, ptr %230, align 4, !tbaa !89
   %232 = sext i32 %231 to i64
   %233 = getelementptr inbounds %struct.btSolverBody, ptr %227, i64 %232
   %234 = load ptr, ptr %213, align 8, !tbaa !28
@@ -6971,7 +6931,7 @@ _ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER
   %249 = sext i32 %248 to i64
   %250 = getelementptr inbounds %struct.btSolverConstraint, ptr %244, i64 %249
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 104
-  %252 = load float, ptr %251, align 8, !tbaa !93
+  %252 = load float, ptr %251, align 8, !tbaa !92
   %253 = fneg float %239
   %254 = fmul float %252, %253
   %255 = getelementptr inbounds nuw i8, ptr %250, i64 120
@@ -6980,12 +6940,12 @@ _ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER
   %257 = getelementptr inbounds nuw i8, ptr %250, i64 124
   store float %256, ptr %257, align 4, !tbaa !62
   %258 = getelementptr inbounds nuw i8, ptr %250, i64 152
-  %259 = load i32, ptr %258, align 8, !tbaa !89
+  %259 = load i32, ptr %258, align 8, !tbaa !88
   %260 = load ptr, ptr %212, align 8, !tbaa !32
   %261 = sext i32 %259 to i64
   %262 = getelementptr inbounds %struct.btSolverBody, ptr %260, i64 %261
   %263 = getelementptr inbounds nuw i8, ptr %250, i64 156
-  %264 = load i32, ptr %263, align 4, !tbaa !90
+  %264 = load i32, ptr %263, align 4, !tbaa !89
   %265 = sext i32 %264 to i64
   %266 = getelementptr inbounds %struct.btSolverBody, ptr %260, i64 %265
   %267 = load ptr, ptr %217, align 8, !tbaa !4
@@ -7006,7 +6966,7 @@ _ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER
   %274 = fmul float %268, %268
   %275 = fcmp ogt float %.sroa.speculated210, %274
   %.sroa.speculated206 = select i1 %275, float %.sroa.speculated210, float %274
-  %276 = load i32, ptr %18, align 4, !tbaa !113
+  %276 = load i32, ptr %18, align 4, !tbaa !112
   %277 = and i32 %276, 16
   %.not175 = icmp eq i32 %277, 0
   br i1 %.not175, label %.thread, label %278
@@ -7021,7 +6981,7 @@ _ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER
   %285 = sext i32 %284 to i64
   %286 = getelementptr inbounds %struct.btSolverConstraint, ptr %279, i64 %285
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 104
-  %288 = load float, ptr %287, align 8, !tbaa !93
+  %288 = load float, ptr %287, align 8, !tbaa !92
   %289 = fneg float %239
   %290 = fmul float %288, %289
   %291 = getelementptr inbounds nuw i8, ptr %286, i64 120
@@ -7030,12 +6990,12 @@ _ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER
   %293 = getelementptr inbounds nuw i8, ptr %286, i64 124
   store float %292, ptr %293, align 4, !tbaa !62
   %294 = getelementptr inbounds nuw i8, ptr %286, i64 152
-  %295 = load i32, ptr %294, align 8, !tbaa !89
+  %295 = load i32, ptr %294, align 8, !tbaa !88
   %296 = load ptr, ptr %212, align 8, !tbaa !32
   %297 = sext i32 %295 to i64
   %298 = getelementptr inbounds %struct.btSolverBody, ptr %296, i64 %297
   %299 = getelementptr inbounds nuw i8, ptr %286, i64 156
-  %300 = load i32, ptr %299, align 4, !tbaa !90
+  %300 = load i32, ptr %299, align 4, !tbaa !89
   %301 = sext i32 %300 to i64
   %302 = getelementptr inbounds %struct.btSolverBody, ptr %296, i64 %301
   %303 = load ptr, ptr %217, align 8, !tbaa !4
@@ -7080,12 +7040,12 @@ _ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12b
   %319 = sext i32 %317 to i64
   %320 = getelementptr inbounds %struct.btSolverConstraint, ptr %318, i64 %319
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 152
-  %322 = load i32, ptr %321, align 8, !tbaa !89
+  %322 = load i32, ptr %321, align 8, !tbaa !88
   %323 = load ptr, ptr %312, align 8, !tbaa !32
   %324 = sext i32 %322 to i64
   %325 = getelementptr inbounds %struct.btSolverBody, ptr %323, i64 %324
   %326 = getelementptr inbounds nuw i8, ptr %320, i64 156
-  %327 = load i32, ptr %326, align 4, !tbaa !90
+  %327 = load i32, ptr %326, align 4, !tbaa !89
   %328 = sext i32 %327 to i64
   %329 = getelementptr inbounds %struct.btSolverBody, ptr %323, i64 %328
   %330 = load ptr, ptr %313, align 8, !tbaa !28
@@ -7130,7 +7090,7 @@ _ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER
   %348 = sext i32 %346 to i64
   %349 = getelementptr inbounds %struct.btSolverConstraint, ptr %347, i64 %348
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 148
-  %351 = load i32, ptr %350, align 4, !tbaa !101
+  %351 = load i32, ptr %350, align 4, !tbaa !100
   %352 = load ptr, ptr %340, align 8, !tbaa !36
   %353 = sext i32 %351 to i64
   %354 = getelementptr inbounds %struct.btSolverConstraint, ptr %352, i64 %353, i32 7
@@ -7140,7 +7100,7 @@ _ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER
 
 357:                                              ; preds = %343
   %358 = getelementptr inbounds nuw i8, ptr %349, i64 104
-  %359 = load float, ptr %358, align 8, !tbaa !93
+  %359 = load float, ptr %358, align 8, !tbaa !92
   %360 = fneg float %355
   %361 = fmul float %359, %360
   %362 = getelementptr inbounds nuw i8, ptr %349, i64 120
@@ -7149,12 +7109,12 @@ _ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER
   %364 = getelementptr inbounds nuw i8, ptr %349, i64 124
   store float %363, ptr %364, align 4, !tbaa !62
   %365 = getelementptr inbounds nuw i8, ptr %349, i64 152
-  %366 = load i32, ptr %365, align 8, !tbaa !89
+  %366 = load i32, ptr %365, align 8, !tbaa !88
   %367 = load ptr, ptr %341, align 8, !tbaa !32
   %368 = sext i32 %366 to i64
   %369 = getelementptr inbounds %struct.btSolverBody, ptr %367, i64 %368
   %370 = getelementptr inbounds nuw i8, ptr %349, i64 156
-  %371 = load i32, ptr %370, align 4, !tbaa !90
+  %371 = load i32, ptr %370, align 4, !tbaa !89
   %372 = sext i32 %371 to i64
   %373 = getelementptr inbounds %struct.btSolverBody, ptr %367, i64 %372
   %374 = load ptr, ptr %342, align 8, !tbaa !4
@@ -7199,7 +7159,7 @@ _ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12b
   %389 = load ptr, ptr %384, align 8, !tbaa !36
   %390 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %389, i64 %indvars.iv313
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 148
-  %392 = load i32, ptr %391, align 4, !tbaa !101
+  %392 = load i32, ptr %391, align 4, !tbaa !100
   %393 = load ptr, ptr %385, align 8, !tbaa !36
   %394 = sext i32 %392 to i64
   %395 = getelementptr inbounds %struct.btSolverConstraint, ptr %393, i64 %394, i32 7
@@ -7209,7 +7169,7 @@ _ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12b
 
 398:                                              ; preds = %388
   %399 = getelementptr inbounds nuw i8, ptr %390, i64 104
-  %400 = load float, ptr %399, align 8, !tbaa !93
+  %400 = load float, ptr %399, align 8, !tbaa !92
   %401 = fmul float %396, %400
   %402 = fcmp ogt float %401, %400
   %.0150 = select i1 %402, float %400, float %401
@@ -7219,12 +7179,12 @@ _ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12b
   %405 = getelementptr inbounds nuw i8, ptr %390, i64 124
   store float %.0150, ptr %405, align 4, !tbaa !62
   %406 = getelementptr inbounds nuw i8, ptr %390, i64 152
-  %407 = load i32, ptr %406, align 8, !tbaa !89
+  %407 = load i32, ptr %406, align 8, !tbaa !88
   %408 = load ptr, ptr %386, align 8, !tbaa !32
   %409 = sext i32 %407 to i64
   %410 = getelementptr inbounds %struct.btSolverBody, ptr %408, i64 %409
   %411 = getelementptr inbounds nuw i8, ptr %390, i64 156
-  %412 = load i32, ptr %411, align 4, !tbaa !90
+  %412 = load i32, ptr %411, align 4, !tbaa !89
   %413 = sext i32 %412 to i64
   %414 = getelementptr inbounds %struct.btSolverBody, ptr %408, i64 %413
   %415 = load ptr, ptr %387, align 8, !tbaa !4
@@ -7267,13 +7227,13 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver45solveGroupCache
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #23
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull @.str.4)
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %12 = load i32, ptr %11, align 4, !tbaa !116
+  %12 = load i32, ptr %11, align 4, !tbaa !115
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %14 = load i32, ptr %13, align 4, !tbaa !141
+  %14 = load i32, ptr %13, align 4, !tbaa !140
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph28, label %.loopexit
 
@@ -7318,12 +7278,12 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver45solveGroupCache
   %34 = sext i32 %32 to i64
   %35 = getelementptr inbounds %struct.btSolverConstraint, ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 152
-  %37 = load i32, ptr %36, align 8, !tbaa !89
+  %37 = load i32, ptr %36, align 8, !tbaa !88
   %38 = load ptr, ptr %19, align 8, !tbaa !32
   %39 = sext i32 %37 to i64
   %40 = getelementptr inbounds %struct.btSolverBody, ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 156
-  %42 = load i32, ptr %41, align 4, !tbaa !90
+  %42 = load i32, ptr %41, align 4, !tbaa !89
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds %struct.btSolverBody, ptr %38, i64 %43
   %45 = load ptr, ptr %20, align 8, !tbaa !53
@@ -7378,9 +7338,9 @@ define dso_local noundef float @_ZN35btSequentialImpulseConstraintSolver33solveG
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %16 = load i32, ptr %15, align 8, !tbaa !138
+  %16 = load i32, ptr %15, align 8, !tbaa !137
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %18 = load i32, ptr %17, align 4, !tbaa !141
+  %18 = load i32, ptr %17, align 4, !tbaa !140
   %. = call i32 @llvm.smax.i32(i32 %16, i32 %18)
   %19 = icmp sgt i32 %., 0
   br i1 %19, label %.lr.ph, label %.loopexit
@@ -7428,7 +7388,7 @@ define dso_local noundef float @_ZN35btSequentialImpulseConstraintSolver33solveG
 41:                                               ; preds = %33
   %42 = load ptr, ptr %1, align 8, !tbaa !173
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 232
-  %44 = load i32, ptr %43, align 8, !tbaa !102
+  %44 = load i32, ptr %43, align 8, !tbaa !101
   store i32 %44, ptr %34, align 8, !tbaa !199
   br label %47
 
@@ -7474,7 +7434,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver17writeBackContac
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load ptr, ptr %8, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %11 = load i32, ptr %10, align 4, !tbaa !113
+  %11 = load i32, ptr %10, align 4, !tbaa !112
   %12 = and i32 %11, 16
   %.not = icmp eq i32 %12, 0
   %invariant.gep = getelementptr i8, ptr %9, i64 260
@@ -7486,13 +7446,13 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver17writeBackContac
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %.lr.ph.split.us ], [ %13, %.lr.ph ]
   %14 = getelementptr inbounds %struct.btSolverConstraint, ptr %7, i64 %indvars.iv16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 136
-  %16 = load ptr, ptr %15, align 8, !tbaa !81
+  %16 = load ptr, ptr %15, align 8, !tbaa !80
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 100
   %18 = load float, ptr %17, align 4, !tbaa !57
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 132
-  store float %18, ptr %19, align 4, !tbaa !114
+  store float %18, ptr %19, align 4, !tbaa !113
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 148
-  %21 = load i32, ptr %20, align 4, !tbaa !101
+  %21 = load i32, ptr %20, align 4, !tbaa !100
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds %struct.btSolverConstraint, ptr %9, i64 %22, i32 7
   %24 = load float, ptr %23, align 4, !tbaa !57
@@ -7509,13 +7469,13 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver17writeBackContac
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %13, %.lr.ph ]
   %26 = getelementptr inbounds %struct.btSolverConstraint, ptr %7, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 136
-  %28 = load ptr, ptr %27, align 8, !tbaa !81
+  %28 = load ptr, ptr %27, align 8, !tbaa !80
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 100
   %30 = load float, ptr %29, align 4, !tbaa !57
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 132
-  store float %30, ptr %31, align 4, !tbaa !114
+  store float %30, ptr %31, align 4, !tbaa !113
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 148
-  %33 = load i32, ptr %32, align 4, !tbaa !101
+  %33 = load i32, ptr %32, align 4, !tbaa !100
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds %struct.btSolverConstraint, ptr %9, i64 %34, i32 7
   %36 = load float, ptr %35, align 4, !tbaa !57
@@ -7550,9 +7510,9 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver15writeBackJoints
   %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %162 ]
   %11 = getelementptr inbounds %struct.btSolverConstraint, ptr %7, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
-  %13 = load ptr, ptr %12, align 8, !tbaa !81
+  %13 = load ptr, ptr %12, align 8, !tbaa !80
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %15 = load ptr, ptr %14, align 8, !tbaa !168
+  %15 = load ptr, ptr %14, align 8, !tbaa !167
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %152, label %16
 
@@ -7569,7 +7529,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver15writeBackJoints
   %26 = load float, ptr %25, align 4, !tbaa !59
   %27 = fmul float %20, %26
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !133
+  %29 = load ptr, ptr %28, align 8, !tbaa !132
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 456
   %31 = load float, ptr %30, align 4, !tbaa !59
   %32 = fmul float %21, %31
@@ -7606,7 +7566,7 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver15writeBackJoints
   %60 = load float, ptr %59, align 4, !tbaa !59
   %61 = fmul float %54, %60
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %63 = load ptr, ptr %62, align 8, !tbaa !136
+  %63 = load ptr, ptr %62, align 8, !tbaa !135
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 456
   %65 = load float, ptr %64, align 4, !tbaa !59
   %66 = fmul float %55, %65
@@ -7710,16 +7670,16 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver15writeBackJoints
   %153 = getelementptr inbounds nuw i8, ptr %11, i64 100
   %154 = load float, ptr %153, align 4, !tbaa !57
   %155 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store float %154, ptr %155, align 8, !tbaa !166
+  store float %154, ptr %155, align 8, !tbaa !165
   %156 = tail call noundef float @llvm.fabs.f32(float %154)
   %157 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %158 = load float, ptr %157, align 8, !tbaa !161
+  %158 = load float, ptr %157, align 8, !tbaa !160
   %159 = fcmp ult float %156, %158
   br i1 %159, label %162, label %160
 
 160:                                              ; preds = %152
   %161 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  store i8 0, ptr %161, align 4, !tbaa !169
+  store i8 0, ptr %161, align 4, !tbaa !168
   br label %162
 
 162:                                              ; preds = %160, %152
@@ -7755,12 +7715,12 @@ define dso_local void @_ZN35btSequentialImpulseConstraintSolver15writeBackBodies
   br i1 %.not, label %115, label %16
 
 16:                                               ; preds = %11
-  %17 = load i32, ptr %7, align 4, !tbaa !116
+  %17 = load i32, ptr %7, align 4, !tbaa !115
   %.not21 = icmp eq i32 %17, 0
   br i1 %.not21, label %_ZN12btSolverBody17writebackVelocityEv.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = load float, ptr %8, align 4, !tbaa !97
+  %19 = load float, ptr %8, align 4, !tbaa !96
   %20 = load float, ptr %9, align 4, !tbaa !207
   tail call void @_ZN12btSolverBody29writebackVelocityAndTransformEff(ptr noundef nonnull align 8 dereferenceable(248) %13, float noundef %19, float noundef %20)
   %.pre32 = load ptr, ptr %6, align 8, !tbaa !32
@@ -7840,7 +7800,7 @@ _ZN12btSolverBody17writebackVelocityEv.exit:      ; preds = %16
   %70 = getelementptr inbounds nuw i8, ptr %55, i64 420
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %70, align 4
   %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 428
-  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.429.0..sroa_idx, align 4, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i, ptr %.sroa.429.0..sroa_idx, align 4, !tbaa !80
   %71 = load ptr, ptr %6, align 8, !tbaa !32
   %72 = getelementptr inbounds %struct.btSolverBody, ptr %71, i64 %indvars.iv
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 240
@@ -7870,8 +7830,8 @@ _ZN12btSolverBody17writebackVelocityEv.exit:      ; preds = %16
   %93 = getelementptr inbounds nuw i8, ptr %74, i64 436
   store <2 x float> %.sroa.0.4.vec.insert.i24, ptr %93, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 444
-  store <2 x float> %.sroa.3.12.vec.insert.i25, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !81
-  %94 = load i32, ptr %7, align 4, !tbaa !116
+  store <2 x float> %.sroa.3.12.vec.insert.i25, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !80
+  %94 = load i32, ptr %7, align 4, !tbaa !115
   %.not22 = icmp eq i32 %94, 0
   br i1 %.not22, label %110, label %95
 
@@ -7885,16 +7845,16 @@ _ZN12btSolverBody17writebackVelocityEv.exit:      ; preds = %16
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr %100, align 8, !tbaa !208
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %103, ptr noundef nonnull align 4 dereferenceable(64) %97, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %103, ptr noundef nonnull align 4 dereferenceable(64) %97, i64 16, i1 false), !tbaa.struct !79
   %104 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 4 dereferenceable(16) %104, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 4 dereferenceable(16) %104, i64 16, i1 false), !tbaa.struct !79
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %107 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 4 dereferenceable(16) %106, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 4 dereferenceable(16) %106, i64 16, i1 false), !tbaa.struct !79
   %108 = getelementptr inbounds nuw i8, ptr %97, i64 48
   %109 = getelementptr inbounds nuw i8, ptr %99, i64 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 4 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 4 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !79
   br label %110
 
 110:                                              ; preds = %95, %51
@@ -7902,7 +7862,7 @@ _ZN12btSolverBody17writebackVelocityEv.exit:      ; preds = %16
   %112 = getelementptr inbounds %struct.btSolverBody, ptr %111, i64 %indvars.iv, i32 12
   %113 = load ptr, ptr %112, align 8, !tbaa !63
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 232
-  store i32 -1, ptr %114, align 8, !tbaa !102
+  store i32 -1, ptr %114, align 8, !tbaa !101
   br label %115
 
 115:                                              ; preds = %110, %11
@@ -8009,16 +7969,16 @@ define linkonce_odr dso_local void @_ZN12btSolverBody29writebackVelocityAndTrans
   store <2 x float> %.sroa.3.12.vec.insert.i, ptr %62, align 8
   call void @_ZN15btTransformUtil18integrateTransformERK11btTransformRK9btVector3S5_fRS0_(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %5, float noundef %1, ptr noundef nonnull align 4 dereferenceable(64) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 16, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 4 dereferenceable(64) %4, i64 16, i1 false), !tbaa.struct !79
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 4 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 4 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !79
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(16) %65, i64 16, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 4 dereferenceable(16) %65, i64 16, i1 false), !tbaa.struct !79
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 4 dereferenceable(16) %67, i64 16, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 4 dereferenceable(16) %67, i64 16, i1 false), !tbaa.struct !79
   br label %69
 
 69:                                               ; preds = %48, %56
@@ -8035,7 +7995,7 @@ define dso_local noundef float @_ZN35btSequentialImpulseConstraintSolver29solveG
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #23
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull @.str.6)
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %7 = load i32, ptr %6, align 4, !tbaa !113
+  %7 = load i32, ptr %6, align 4, !tbaa !112
   %8 = and i32 %7, 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %_ZN35btSequentialImpulseConstraintSolver17writeBackContactsEiiRK19btContactSolverInfo.exit, label %9
@@ -8061,13 +8021,13 @@ define dso_local noundef float @_ZN35btSequentialImpulseConstraintSolver29solveG
   %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %18 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %14, i64 %indvars.iv16.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 136
-  %20 = load ptr, ptr %19, align 8, !tbaa !81
+  %20 = load ptr, ptr %19, align 8, !tbaa !80
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 100
   %22 = load float, ptr %21, align 4, !tbaa !57
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 132
-  store float %22, ptr %23, align 4, !tbaa !114
+  store float %22, ptr %23, align 4, !tbaa !113
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 148
-  %25 = load i32, ptr %24, align 4, !tbaa !101
+  %25 = load i32, ptr %24, align 4, !tbaa !100
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds %struct.btSolverConstraint, ptr %16, i64 %26, i32 7
   %28 = load float, ptr %27, align 4, !tbaa !57
@@ -8081,13 +8041,13 @@ define dso_local noundef float @_ZN35btSequentialImpulseConstraintSolver29solveG
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
   %30 = getelementptr inbounds nuw %struct.btSolverConstraint, ptr %14, i64 %indvars.iv.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 136
-  %32 = load ptr, ptr %31, align 8, !tbaa !81
+  %32 = load ptr, ptr %31, align 8, !tbaa !80
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 100
   %34 = load float, ptr %33, align 4, !tbaa !57
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 132
-  store float %34, ptr %35, align 4, !tbaa !114
+  store float %34, ptr %35, align 4, !tbaa !113
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 148
-  %37 = load i32, ptr %36, align 4, !tbaa !101
+  %37 = load i32, ptr %36, align 4, !tbaa !100
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds %struct.btSolverConstraint, ptr %16, i64 %38, i32 7
   %40 = load float, ptr %39, align 4, !tbaa !57
@@ -8101,7 +8061,7 @@ define dso_local noundef float @_ZN35btSequentialImpulseConstraintSolver29solveG
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count19.i
   br i1 %exitcond.not.i, label %_ZN35btSequentialImpulseConstraintSolver17writeBackContactsEiiRK19btContactSolverInfo.exit, label %.lr.ph.split.i, !llvm.loop !204
 
-44:                                               ; preds = %126, %111, %95, %79, %64, %_ZN35btSequentialImpulseConstraintSolver17writeBackContactsEiiRK19btContactSolverInfo.exit
+44:                                               ; preds = %117, %104, %90, %76, %63, %_ZN35btSequentialImpulseConstraintSolver17writeBackContactsEiiRK19btContactSolverInfo.exit
   %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
@@ -8121,180 +8081,165 @@ _ZN35btSequentialImpulseConstraintSolver17writeBackContactsEiiRK19btContactSolve
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %52 = load i32, ptr %51, align 4, !tbaa !37
   %53 = icmp slt i32 %52, 0
-  br i1 %53, label %54, label %66
+  br i1 %53, label %54, label %64
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %56 = load i32, ptr %55, align 8, !tbaa !38
   %57 = icmp slt i32 %56, 0
-  br i1 %57, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i, label %66
+  br i1 %57, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i, label %64
 
 _ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i: ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %59 = load ptr, ptr %58, align 8, !tbaa !36
-  %.not.i5.i.i = icmp eq ptr %59, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i, label %60
+  %.not.i5.i.i = icmp ne ptr %59, null
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %61 = load i8, ptr %60, align 8, !range !71
+  %62 = trunc nuw i8 %61 to i1
+  %or.cond.i.i = select i1 %.not.i5.i.i, i1 %62, i1 false
+  br i1 %or.cond.i.i, label %63, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
 
-60:                                               ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %62 = load i8, ptr %61, align 8, !tbaa !35, !range !71, !noundef !72
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i
-
-64:                                               ; preds = %60
+63:                                               ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %59)
           to label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i unwind label %44
 
-_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds = %64, %60, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 1, ptr %65, align 8, !tbaa !35
+_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i: ; preds = %63, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i
+  store i8 1, ptr %60, align 8, !tbaa !35
   store ptr null, ptr %58, align 8, !tbaa !36
   store i32 0, ptr %55, align 8, !tbaa !38
-  br label %66
+  br label %64
 
-66:                                               ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i, %54, %50
+64:                                               ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i, %54, %50
   store i32 0, ptr %51, align 4, !tbaa !37
-  %67 = load i32, ptr %46, align 4, !tbaa !37
-  %68 = icmp slt i32 %67, 0
-  br i1 %68, label %69, label %81
+  %65 = load i32, ptr %46, align 4, !tbaa !37
+  %66 = icmp slt i32 %65, 0
+  br i1 %66, label %67, label %77
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %71 = load i32, ptr %70, align 8, !tbaa !38
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i6, label %81
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %69 = load i32, ptr %68, align 8, !tbaa !38
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i6, label %77
 
-_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i6: ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %74 = load ptr, ptr %73, align 8, !tbaa !36
-  %.not.i5.i.i7 = icmp eq ptr %74, null
-  br i1 %.not.i5.i.i7, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i8, label %75
+_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i6: ; preds = %67
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %72 = load ptr, ptr %71, align 8, !tbaa !36
+  %.not.i5.i.i7 = icmp ne ptr %72, null
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %74 = load i8, ptr %73, align 8, !range !71
+  %75 = trunc nuw i8 %74 to i1
+  %or.cond.i.i8 = select i1 %.not.i5.i.i7, i1 %75, i1 false
+  br i1 %or.cond.i.i8, label %76, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i9
 
-75:                                               ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i6
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %77 = load i8, ptr %76, align 8, !tbaa !35, !range !71, !noundef !72
-  %78 = trunc nuw i8 %77 to i1
-  br i1 %78, label %79, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i8
+76:                                               ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i6
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %72)
+          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i9 unwind label %44
 
-79:                                               ; preds = %75
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %74)
-          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i8 unwind label %44
+_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i9: ; preds = %76, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i6
+  store i8 1, ptr %73, align 8, !tbaa !35
+  store ptr null, ptr %71, align 8, !tbaa !36
+  store i32 0, ptr %68, align 8, !tbaa !38
+  br label %77
 
-_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i8: ; preds = %79, %75, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i6
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i8 1, ptr %80, align 8, !tbaa !35
-  store ptr null, ptr %73, align 8, !tbaa !36
-  store i32 0, ptr %70, align 8, !tbaa !38
-  br label %81
-
-81:                                               ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i8, %69, %66
+77:                                               ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i9, %67, %64
   store i32 0, ptr %46, align 4, !tbaa !37
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %83 = load i32, ptr %82, align 4, !tbaa !37
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %79 = load i32, ptr %78, align 4, !tbaa !37
+  %80 = icmp slt i32 %79, 0
+  br i1 %80, label %81, label %91
+
+81:                                               ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %83 = load i32, ptr %82, align 8, !tbaa !38
   %84 = icmp slt i32 %83, 0
-  br i1 %84, label %85, label %97
+  br i1 %84, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i17, label %91
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %87 = load i32, ptr %86, align 8, !tbaa !38
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i16, label %97
+_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i17: ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %86 = load ptr, ptr %85, align 8, !tbaa !36
+  %.not.i5.i.i18 = icmp ne ptr %86, null
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %88 = load i8, ptr %87, align 8, !range !71
+  %89 = trunc nuw i8 %88 to i1
+  %or.cond.i.i19 = select i1 %.not.i5.i.i18, i1 %89, i1 false
+  br i1 %or.cond.i.i19, label %90, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i20
 
-_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i16: ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %90 = load ptr, ptr %89, align 8, !tbaa !36
-  %.not.i5.i.i17 = icmp eq ptr %90, null
-  br i1 %.not.i5.i.i17, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i18, label %91
+90:                                               ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i17
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %86)
+          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i20 unwind label %44
 
-91:                                               ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i16
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %93 = load i8, ptr %92, align 8, !tbaa !35, !range !71, !noundef !72
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %95, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i18
+_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i20: ; preds = %90, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i17
+  store i8 1, ptr %87, align 8, !tbaa !35
+  store ptr null, ptr %85, align 8, !tbaa !36
+  store i32 0, ptr %82, align 8, !tbaa !38
+  br label %91
+
+91:                                               ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i20, %81, %77
+  store i32 0, ptr %78, align 4, !tbaa !37
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %93 = load i32, ptr %92, align 4, !tbaa !37
+  %94 = icmp slt i32 %93, 0
+  br i1 %94, label %95, label %105
 
 95:                                               ; preds = %91
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %90)
-          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i18 unwind label %44
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %97 = load i32, ptr %96, align 8, !tbaa !38
+  %98 = icmp slt i32 %97, 0
+  br i1 %98, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i28, label %105
 
-_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i18: ; preds = %95, %91, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i16
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i8 1, ptr %96, align 8, !tbaa !35
-  store ptr null, ptr %89, align 8, !tbaa !36
-  store i32 0, ptr %86, align 8, !tbaa !38
-  br label %97
+_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i28: ; preds = %95
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %100 = load ptr, ptr %99, align 8, !tbaa !36
+  %.not.i5.i.i29 = icmp ne ptr %100, null
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %102 = load i8, ptr %101, align 8, !range !71
+  %103 = trunc nuw i8 %102 to i1
+  %or.cond.i.i30 = select i1 %.not.i5.i.i29, i1 %103, i1 false
+  br i1 %or.cond.i.i30, label %104, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i31
 
-97:                                               ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i18, %85, %81
-  store i32 0, ptr %82, align 4, !tbaa !37
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %99 = load i32, ptr %98, align 4, !tbaa !37
-  %100 = icmp slt i32 %99, 0
-  br i1 %100, label %101, label %113
+104:                                              ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i28
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %100)
+          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i31 unwind label %44
 
-101:                                              ; preds = %97
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %103 = load i32, ptr %102, align 8, !tbaa !38
-  %104 = icmp slt i32 %103, 0
-  br i1 %104, label %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i26, label %113
+_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i31: ; preds = %104, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i28
+  store i8 1, ptr %101, align 8, !tbaa !35
+  store ptr null, ptr %99, align 8, !tbaa !36
+  store i32 0, ptr %96, align 8, !tbaa !38
+  br label %105
 
-_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i26: ; preds = %101
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %106 = load ptr, ptr %105, align 8, !tbaa !36
-  %.not.i5.i.i27 = icmp eq ptr %106, null
-  br i1 %.not.i5.i.i27, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i28, label %107
+105:                                              ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i31, %95, %91
+  store i32 0, ptr %92, align 4, !tbaa !37
+  %106 = load i32, ptr %48, align 4, !tbaa !33
+  %107 = icmp slt i32 %106, 0
+  br i1 %107, label %108, label %118
 
-107:                                              ; preds = %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i26
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %109 = load i8, ptr %108, align 8, !tbaa !35, !range !71, !noundef !72
-  %110 = trunc nuw i8 %109 to i1
-  br i1 %110, label %111, label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i28
+108:                                              ; preds = %105
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %110 = load i32, ptr %109, align 8, !tbaa !34
+  %111 = icmp slt i32 %110, 0
+  br i1 %111, label %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i, label %118
 
-111:                                              ; preds = %107
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %106)
-          to label %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i28 unwind label %44
+_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i: ; preds = %108
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %113 = load ptr, ptr %112, align 8, !tbaa !32
+  %.not.i5.i.i39 = icmp ne ptr %113, null
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %115 = load i8, ptr %114, align 8, !range !71
+  %116 = trunc nuw i8 %115 to i1
+  %or.cond.i.i40 = select i1 %.not.i5.i.i39, i1 %116, i1 false
+  br i1 %or.cond.i.i40, label %117, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i28: ; preds = %111, %107, %_ZNK20btAlignedObjectArrayI18btSolverConstraintE4copyEiiPS0_.exit.i.i26
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i8 1, ptr %112, align 8, !tbaa !35
-  store ptr null, ptr %105, align 8, !tbaa !36
-  store i32 0, ptr %102, align 8, !tbaa !38
-  br label %113
-
-113:                                              ; preds = %_ZN20btAlignedObjectArrayI18btSolverConstraintE10deallocateEv.exit.i.i28, %101, %97
-  store i32 0, ptr %98, align 4, !tbaa !37
-  %114 = load i32, ptr %48, align 4, !tbaa !33
-  %115 = icmp slt i32 %114, 0
-  br i1 %115, label %116, label %128
-
-116:                                              ; preds = %113
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %118 = load i32, ptr %117, align 8, !tbaa !34
-  %119 = icmp slt i32 %118, 0
-  br i1 %119, label %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i, label %128
-
-_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i: ; preds = %116
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %121 = load ptr, ptr %120, align 8, !tbaa !32
-  %.not.i5.i.i36 = icmp eq ptr %121, null
-  br i1 %.not.i5.i.i36, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i, label %122
-
-122:                                              ; preds = %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %124 = load i8, ptr %123, align 8, !tbaa !31, !range !71, !noundef !72
-  %125 = trunc nuw i8 %124 to i1
-  br i1 %125, label %126, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i
-
-126:                                              ; preds = %122
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %121)
+117:                                              ; preds = %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %113)
           to label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i unwind label %44
 
-_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %126, %122, %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %127, align 8, !tbaa !31
-  store ptr null, ptr %120, align 8, !tbaa !32
-  store i32 0, ptr %117, align 8, !tbaa !34
-  br label %128
+_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %117, %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
+  store i8 1, ptr %114, align 8, !tbaa !31
+  store ptr null, ptr %112, align 8, !tbaa !32
+  store i32 0, ptr %109, align 8, !tbaa !34
+  br label %118
 
-128:                                              ; preds = %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i, %116, %113
+118:                                              ; preds = %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i, %108, %105
   store i32 0, ptr %48, align 4, !tbaa !33
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #23
@@ -8407,7 +8352,7 @@ define linkonce_odr dso_local void @_ZN15btTransformUtil18integrateTransformERK1
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store <2 x float> %.sroa.0.4.vec.insert.i23, ptr %24, align 4
   %.sroa.473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store <2 x float> %.sroa.3.12.vec.insert.i24, ptr %.sroa.473.0..sroa_idx, align 4, !tbaa !81
+  store <2 x float> %.sroa.3.12.vec.insert.i24, ptr %.sroa.473.0..sroa_idx, align 4, !tbaa !80
   %25 = load float, ptr %2, align 4, !tbaa !59
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %27 = load float, ptr %26, align 4, !tbaa !59
@@ -8571,13 +8516,13 @@ _ZN12btQuaternion13safeNormalizeEv.exit:          ; preds = %51, %83
   br label %136
 
 131:                                              ; preds = %_ZN12btQuaternion13safeNormalizeEv.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(48) %0, i64 16, i1 false), !tbaa.struct !79
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %133 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %133, ptr noundef nonnull align 4 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %133, ptr noundef nonnull align 4 dereferenceable(16) %132, i64 16, i1 false), !tbaa.struct !79
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %135, ptr noundef nonnull align 4 dereferenceable(16) %134, i64 16, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %135, ptr noundef nonnull align 4 dereferenceable(16) %134, i64 16, i1 false), !tbaa.struct !79
   br label %136
 
 136:                                              ; preds = %131, %94
@@ -8817,130 +8762,130 @@ attributes #23 = { nounwind }
 !69 = !{!9, !9, i64 0}
 !70 = !{!55, !24, i64 96}
 !71 = !{i8 0, i8 2}
-!72 = !{}
-!73 = !{!74, !9, i64 272}
-!74 = !{!"_ZTS17btCollisionObject", !65, i64 8, !65, i64 72, !56, i64 136, !56, i64 152, !56, i64 168, !9, i64 184, !24, i64 188, !75, i64 192, !76, i64 200, !13, i64 208, !76, i64 216, !9, i64 224, !9, i64 228, !9, i64 232, !9, i64 236, !9, i64 240, !24, i64 244, !24, i64 248, !24, i64 252, !24, i64 256, !24, i64 260, !24, i64 264, !24, i64 268, !9, i64 272, !13, i64 280, !9, i64 288, !9, i64 292, !9, i64 296, !24, i64 300, !24, i64 304, !24, i64 308, !9, i64 312, !77, i64 320, !9, i64 352, !56, i64 356}
-!75 = !{!"p1 _ZTS17btBroadphaseProxy", !13, i64 0}
-!76 = !{!"p1 _ZTS16btCollisionShape", !13, i64 0}
-!77 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !78, i64 0, !9, i64 4, !9, i64 8, !79, i64 16, !14, i64 24}
-!78 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
-!79 = !{!"p2 _ZTS17btCollisionObject", !13, i64 0}
-!80 = !{i64 0, i64 16, !81}
-!81 = !{!10, !10, i64 0}
-!82 = !{!83, !24, i64 452}
-!83 = !{!"_ZTS11btRigidBody", !74, i64 0, !66, i64 372, !56, i64 420, !56, i64 436, !24, i64 452, !56, i64 456, !56, i64 472, !56, i64 488, !56, i64 504, !56, i64 520, !56, i64 536, !24, i64 552, !24, i64 556, !14, i64 560, !24, i64 564, !24, i64 568, !24, i64 572, !24, i64 576, !24, i64 580, !24, i64 584, !84, i64 592, !85, i64 600, !9, i64 632, !9, i64 636, !56, i64 640, !56, i64 656, !56, i64 672, !56, i64 688, !56, i64 704, !56, i64 720, !9, i64 736, !9, i64 740}
-!84 = !{!"p1 _ZTS13btMotionState", !13, i64 0}
-!85 = !{!"_ZTS20btAlignedObjectArrayIP17btTypedConstraintE", !86, i64 0, !9, i64 4, !9, i64 8, !87, i64 16, !14, i64 24}
-!86 = !{!"_ZTS18btAlignedAllocatorIP17btTypedConstraintLj16EE"}
-!87 = !{!"p2 _ZTS17btTypedConstraint", !13, i64 0}
-!88 = !{!74, !9, i64 184}
-!89 = !{!55, !9, i64 152}
-!90 = !{!55, !9, i64 156}
-!91 = !{!92, !24, i64 84}
-!92 = !{!"_ZTS15btManifoldPoint", !56, i64 0, !56, i64 16, !56, i64 32, !56, i64 48, !56, i64 64, !24, i64 80, !24, i64 84, !24, i64 88, !24, i64 92, !24, i64 96, !9, i64 100, !9, i64 104, !9, i64 108, !9, i64 112, !13, i64 120, !9, i64 128, !24, i64 132, !24, i64 136, !24, i64 140, !24, i64 144, !24, i64 148, !24, i64 152, !10, i64 156, !10, i64 160, !24, i64 164, !9, i64 168, !56, i64 172, !56, i64 188}
-!93 = !{!55, !24, i64 104}
-!94 = !{!92, !9, i64 128}
-!95 = !{!96, !24, i64 56}
-!96 = !{!"_ZTS23btContactSolverInfoData", !24, i64 0, !24, i64 4, !24, i64 8, !24, i64 12, !24, i64 16, !9, i64 20, !24, i64 24, !24, i64 28, !24, i64 32, !24, i64 36, !24, i64 40, !24, i64 44, !24, i64 48, !24, i64 52, !24, i64 56, !24, i64 60, !9, i64 64, !24, i64 68, !24, i64 72, !24, i64 76, !24, i64 80, !24, i64 84, !9, i64 88, !9, i64 92, !9, i64 96, !24, i64 100, !24, i64 104, !24, i64 108, !24, i64 112, !14, i64 116, !14, i64 117, !9, i64 120, !9, i64 124}
-!97 = !{!96, !24, i64 12}
-!98 = !{i64 0, i64 16, !81, i64 16, i64 16, !81, i64 32, i64 16, !81, i64 48, i64 16, !81, i64 64, i64 16, !81, i64 80, i64 16, !81, i64 96, i64 4, !59, i64 100, i64 4, !59, i64 104, i64 4, !59, i64 108, i64 4, !59, i64 112, i64 4, !59, i64 116, i64 4, !59, i64 120, i64 4, !59, i64 124, i64 4, !59, i64 128, i64 4, !59, i64 136, i64 8, !81, i64 144, i64 4, !69, i64 148, i64 4, !69, i64 152, i64 4, !69, i64 156, i64 4, !69}
-!99 = distinct !{!99, !100}
-!100 = !{!"llvm.loop.mustprogress"}
-!101 = !{!55, !9, i64 148}
-!102 = !{!74, !9, i64 232}
-!103 = !{!74, !9, i64 224}
-!104 = distinct !{!104, !100}
-!105 = !{!5, !9, i64 300}
-!106 = !{!96, !24, i64 28}
-!107 = !{!96, !24, i64 52}
-!108 = !{!96, !24, i64 36}
-!109 = !{!92, !24, i64 80}
-!110 = !{!96, !24, i64 76}
-!111 = !{!92, !24, i64 96}
-!112 = !{!96, !24, i64 112}
-!113 = !{!96, !9, i64 88}
-!114 = !{!92, !24, i64 132}
-!115 = !{!96, !24, i64 80}
-!116 = !{!96, !9, i64 64}
-!117 = !{!118, !120, i64 840}
-!118 = !{!"_ZTS20btPersistentManifold", !119, i64 0, !10, i64 8, !120, i64 840, !120, i64 848, !9, i64 856, !24, i64 860, !24, i64 864, !9, i64 868, !9, i64 872, !9, i64 876}
-!119 = !{!"_ZTS13btTypedObject", !9, i64 0}
-!120 = !{!"p1 _ZTS17btCollisionObject", !13, i64 0}
-!121 = !{!118, !120, i64 848}
-!122 = !{!118, !9, i64 856}
-!123 = !{!118, !24, i64 864}
-!124 = !{!92, !24, i64 88}
-!125 = !{!92, !24, i64 92}
-!126 = !{!92, !24, i64 148}
-!127 = !{!92, !24, i64 164}
-!128 = !{!92, !24, i64 152}
-!129 = distinct !{!129, !100}
-!130 = !{!131, !131, i64 0}
-!131 = !{!"p1 _ZTS20btPersistentManifold", !13, i64 0}
-!132 = distinct !{!132, !100}
-!133 = !{!134, !67, i64 40}
-!134 = !{!"_ZTS17btTypedConstraint", !119, i64 8, !9, i64 12, !10, i64 16, !24, i64 24, !14, i64 28, !14, i64 29, !9, i64 32, !67, i64 40, !67, i64 48, !24, i64 56, !24, i64 60, !135, i64 64}
-!135 = !{!"p1 _ZTS15btJointFeedback", !13, i64 0}
-!136 = !{!134, !67, i64 48}
-!137 = !{!134, !9, i64 32}
-!138 = !{!5, !9, i64 296}
-!139 = !{!140, !9, i64 0}
-!140 = !{!"_ZTSN17btTypedConstraint17btConstraintInfo1E", !9, i64 0, !9, i64 4}
-!141 = !{!96, !9, i64 20}
-!142 = !{!143, !24, i64 0}
-!143 = !{!"_ZTSN17btTypedConstraint17btConstraintInfo2E", !24, i64 0, !24, i64 4, !144, i64 8, !144, i64 16, !144, i64 24, !144, i64 32, !9, i64 40, !144, i64 48, !144, i64 56, !144, i64 64, !144, i64 72, !9, i64 80, !24, i64 84}
-!144 = !{!"p1 float", !13, i64 0}
-!145 = !{!96, !24, i64 32}
-!146 = !{!143, !24, i64 4}
-!147 = !{!143, !144, i64 8}
-!148 = !{!143, !144, i64 16}
-!149 = !{!143, !144, i64 24}
-!150 = !{!143, !144, i64 32}
-!151 = !{!143, !9, i64 40}
-!152 = !{!143, !144, i64 48}
-!153 = !{!96, !24, i64 4}
-!154 = !{!143, !24, i64 84}
-!155 = !{!143, !144, i64 56}
-!156 = !{!143, !144, i64 64}
-!157 = !{!143, !144, i64 72}
-!158 = !{!143, !9, i64 80}
-!159 = !{!55, !9, i64 144}
-!160 = distinct !{!160, !100}
-!161 = !{!134, !24, i64 24}
-!162 = distinct !{!162, !100}
-!163 = distinct !{!163, !100}
-!164 = !{!165, !165, i64 0}
-!165 = !{!"p1 _ZTS17btTypedConstraint", !13, i64 0}
-!166 = !{!134, !24, i64 56}
-!167 = distinct !{!167, !100}
-!168 = !{!134, !135, i64 64}
-!169 = !{!134, !14, i64 28}
-!170 = !{!140, !9, i64 4}
-!171 = distinct !{!171, !100}
-!172 = distinct !{!172, !100}
-!173 = !{!120, !120, i64 0}
-!174 = distinct !{!174, !100}
-!175 = distinct !{!175, !100}
-!176 = !{!83, !9, i64 632}
-!177 = !{!96, !24, i64 100}
-!178 = distinct !{!178, !100}
-!179 = distinct !{!179, !100}
-!180 = distinct !{!180, !100}
-!181 = distinct !{!181, !100}
-!182 = distinct !{!182, !100}
-!183 = distinct !{!183, !100}
-!184 = distinct !{!184, !100}
-!185 = distinct !{!185, !100}
-!186 = distinct !{!186, !100}
-!187 = distinct !{!187, !100}
-!188 = distinct !{!188, !100}
-!189 = distinct !{!189, !100}
-!190 = distinct !{!190, !100}
-!191 = distinct !{!191, !100}
-!192 = distinct !{!192, !100, !193}
+!72 = !{!73, !9, i64 272}
+!73 = !{!"_ZTS17btCollisionObject", !65, i64 8, !65, i64 72, !56, i64 136, !56, i64 152, !56, i64 168, !9, i64 184, !24, i64 188, !74, i64 192, !75, i64 200, !13, i64 208, !75, i64 216, !9, i64 224, !9, i64 228, !9, i64 232, !9, i64 236, !9, i64 240, !24, i64 244, !24, i64 248, !24, i64 252, !24, i64 256, !24, i64 260, !24, i64 264, !24, i64 268, !9, i64 272, !13, i64 280, !9, i64 288, !9, i64 292, !9, i64 296, !24, i64 300, !24, i64 304, !24, i64 308, !9, i64 312, !76, i64 320, !9, i64 352, !56, i64 356}
+!74 = !{!"p1 _ZTS17btBroadphaseProxy", !13, i64 0}
+!75 = !{!"p1 _ZTS16btCollisionShape", !13, i64 0}
+!76 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !77, i64 0, !9, i64 4, !9, i64 8, !78, i64 16, !14, i64 24}
+!77 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
+!78 = !{!"p2 _ZTS17btCollisionObject", !13, i64 0}
+!79 = !{i64 0, i64 16, !80}
+!80 = !{!10, !10, i64 0}
+!81 = !{!82, !24, i64 452}
+!82 = !{!"_ZTS11btRigidBody", !73, i64 0, !66, i64 372, !56, i64 420, !56, i64 436, !24, i64 452, !56, i64 456, !56, i64 472, !56, i64 488, !56, i64 504, !56, i64 520, !56, i64 536, !24, i64 552, !24, i64 556, !14, i64 560, !24, i64 564, !24, i64 568, !24, i64 572, !24, i64 576, !24, i64 580, !24, i64 584, !83, i64 592, !84, i64 600, !9, i64 632, !9, i64 636, !56, i64 640, !56, i64 656, !56, i64 672, !56, i64 688, !56, i64 704, !56, i64 720, !9, i64 736, !9, i64 740}
+!83 = !{!"p1 _ZTS13btMotionState", !13, i64 0}
+!84 = !{!"_ZTS20btAlignedObjectArrayIP17btTypedConstraintE", !85, i64 0, !9, i64 4, !9, i64 8, !86, i64 16, !14, i64 24}
+!85 = !{!"_ZTS18btAlignedAllocatorIP17btTypedConstraintLj16EE"}
+!86 = !{!"p2 _ZTS17btTypedConstraint", !13, i64 0}
+!87 = !{!73, !9, i64 184}
+!88 = !{!55, !9, i64 152}
+!89 = !{!55, !9, i64 156}
+!90 = !{!91, !24, i64 84}
+!91 = !{!"_ZTS15btManifoldPoint", !56, i64 0, !56, i64 16, !56, i64 32, !56, i64 48, !56, i64 64, !24, i64 80, !24, i64 84, !24, i64 88, !24, i64 92, !24, i64 96, !9, i64 100, !9, i64 104, !9, i64 108, !9, i64 112, !13, i64 120, !9, i64 128, !24, i64 132, !24, i64 136, !24, i64 140, !24, i64 144, !24, i64 148, !24, i64 152, !10, i64 156, !10, i64 160, !24, i64 164, !9, i64 168, !56, i64 172, !56, i64 188}
+!92 = !{!55, !24, i64 104}
+!93 = !{!91, !9, i64 128}
+!94 = !{!95, !24, i64 56}
+!95 = !{!"_ZTS23btContactSolverInfoData", !24, i64 0, !24, i64 4, !24, i64 8, !24, i64 12, !24, i64 16, !9, i64 20, !24, i64 24, !24, i64 28, !24, i64 32, !24, i64 36, !24, i64 40, !24, i64 44, !24, i64 48, !24, i64 52, !24, i64 56, !24, i64 60, !9, i64 64, !24, i64 68, !24, i64 72, !24, i64 76, !24, i64 80, !24, i64 84, !9, i64 88, !9, i64 92, !9, i64 96, !24, i64 100, !24, i64 104, !24, i64 108, !24, i64 112, !14, i64 116, !14, i64 117, !9, i64 120, !9, i64 124}
+!96 = !{!95, !24, i64 12}
+!97 = !{i64 0, i64 16, !80, i64 16, i64 16, !80, i64 32, i64 16, !80, i64 48, i64 16, !80, i64 64, i64 16, !80, i64 80, i64 16, !80, i64 96, i64 4, !59, i64 100, i64 4, !59, i64 104, i64 4, !59, i64 108, i64 4, !59, i64 112, i64 4, !59, i64 116, i64 4, !59, i64 120, i64 4, !59, i64 124, i64 4, !59, i64 128, i64 4, !59, i64 136, i64 8, !80, i64 144, i64 4, !69, i64 148, i64 4, !69, i64 152, i64 4, !69, i64 156, i64 4, !69}
+!98 = distinct !{!98, !99}
+!99 = !{!"llvm.loop.mustprogress"}
+!100 = !{!55, !9, i64 148}
+!101 = !{!73, !9, i64 232}
+!102 = !{!73, !9, i64 224}
+!103 = distinct !{!103, !99}
+!104 = !{!5, !9, i64 300}
+!105 = !{!95, !24, i64 28}
+!106 = !{!95, !24, i64 52}
+!107 = !{!95, !24, i64 36}
+!108 = !{!91, !24, i64 80}
+!109 = !{!95, !24, i64 76}
+!110 = !{!91, !24, i64 96}
+!111 = !{!95, !24, i64 112}
+!112 = !{!95, !9, i64 88}
+!113 = !{!91, !24, i64 132}
+!114 = !{!95, !24, i64 80}
+!115 = !{!95, !9, i64 64}
+!116 = !{!117, !119, i64 840}
+!117 = !{!"_ZTS20btPersistentManifold", !118, i64 0, !10, i64 8, !119, i64 840, !119, i64 848, !9, i64 856, !24, i64 860, !24, i64 864, !9, i64 868, !9, i64 872, !9, i64 876}
+!118 = !{!"_ZTS13btTypedObject", !9, i64 0}
+!119 = !{!"p1 _ZTS17btCollisionObject", !13, i64 0}
+!120 = !{!117, !119, i64 848}
+!121 = !{!117, !9, i64 856}
+!122 = !{!117, !24, i64 864}
+!123 = !{!91, !24, i64 88}
+!124 = !{!91, !24, i64 92}
+!125 = !{!91, !24, i64 148}
+!126 = !{!91, !24, i64 164}
+!127 = !{!91, !24, i64 152}
+!128 = distinct !{!128, !99}
+!129 = !{!130, !130, i64 0}
+!130 = !{!"p1 _ZTS20btPersistentManifold", !13, i64 0}
+!131 = distinct !{!131, !99}
+!132 = !{!133, !67, i64 40}
+!133 = !{!"_ZTS17btTypedConstraint", !118, i64 8, !9, i64 12, !10, i64 16, !24, i64 24, !14, i64 28, !14, i64 29, !9, i64 32, !67, i64 40, !67, i64 48, !24, i64 56, !24, i64 60, !134, i64 64}
+!134 = !{!"p1 _ZTS15btJointFeedback", !13, i64 0}
+!135 = !{!133, !67, i64 48}
+!136 = !{!133, !9, i64 32}
+!137 = !{!5, !9, i64 296}
+!138 = !{!139, !9, i64 0}
+!139 = !{!"_ZTSN17btTypedConstraint17btConstraintInfo1E", !9, i64 0, !9, i64 4}
+!140 = !{!95, !9, i64 20}
+!141 = !{!142, !24, i64 0}
+!142 = !{!"_ZTSN17btTypedConstraint17btConstraintInfo2E", !24, i64 0, !24, i64 4, !143, i64 8, !143, i64 16, !143, i64 24, !143, i64 32, !9, i64 40, !143, i64 48, !143, i64 56, !143, i64 64, !143, i64 72, !9, i64 80, !24, i64 84}
+!143 = !{!"p1 float", !13, i64 0}
+!144 = !{!95, !24, i64 32}
+!145 = !{!142, !24, i64 4}
+!146 = !{!142, !143, i64 8}
+!147 = !{!142, !143, i64 16}
+!148 = !{!142, !143, i64 24}
+!149 = !{!142, !143, i64 32}
+!150 = !{!142, !9, i64 40}
+!151 = !{!142, !143, i64 48}
+!152 = !{!95, !24, i64 4}
+!153 = !{!142, !24, i64 84}
+!154 = !{!142, !143, i64 56}
+!155 = !{!142, !143, i64 64}
+!156 = !{!142, !143, i64 72}
+!157 = !{!142, !9, i64 80}
+!158 = !{!55, !9, i64 144}
+!159 = distinct !{!159, !99}
+!160 = !{!133, !24, i64 24}
+!161 = distinct !{!161, !99}
+!162 = distinct !{!162, !99}
+!163 = !{!164, !164, i64 0}
+!164 = !{!"p1 _ZTS17btTypedConstraint", !13, i64 0}
+!165 = !{!133, !24, i64 56}
+!166 = distinct !{!166, !99}
+!167 = !{!133, !134, i64 64}
+!168 = !{!133, !14, i64 28}
+!169 = !{}
+!170 = !{!139, !9, i64 4}
+!171 = distinct !{!171, !99}
+!172 = distinct !{!172, !99}
+!173 = !{!119, !119, i64 0}
+!174 = distinct !{!174, !99}
+!175 = distinct !{!175, !99}
+!176 = !{!82, !9, i64 632}
+!177 = !{!95, !24, i64 100}
+!178 = distinct !{!178, !99}
+!179 = distinct !{!179, !99}
+!180 = distinct !{!180, !99}
+!181 = distinct !{!181, !99}
+!182 = distinct !{!182, !99}
+!183 = distinct !{!183, !99}
+!184 = distinct !{!184, !99}
+!185 = distinct !{!185, !99}
+!186 = distinct !{!186, !99}
+!187 = distinct !{!187, !99}
+!188 = distinct !{!188, !99}
+!189 = distinct !{!189, !99}
+!190 = distinct !{!190, !99}
+!191 = distinct !{!191, !99}
+!192 = distinct !{!192, !99, !193}
 !193 = !{!"llvm.loop.unswitch.partial.disable"}
-!194 = distinct !{!194, !100}
-!195 = !{!96, !24, i64 108}
+!194 = distinct !{!194, !99}
+!195 = !{!95, !24, i64 108}
 !196 = !{!5, !24, i64 364}
 !197 = !{!5, !9, i64 388}
 !198 = !{!5, !9, i64 392}
@@ -8948,10 +8893,10 @@ attributes #23 = { nounwind }
 !200 = !{!5, !9, i64 380}
 !201 = !{!5, !9, i64 384}
 !202 = !{!5, !27, i64 400}
-!203 = !{!92, !24, i64 140}
-!204 = distinct !{!204, !100}
-!205 = !{!92, !24, i64 144}
-!206 = distinct !{!206, !100}
-!207 = !{!96, !24, i64 72}
-!208 = !{!74, !9, i64 352}
-!209 = distinct !{!209, !100}
+!203 = !{!91, !24, i64 140}
+!204 = distinct !{!204, !99}
+!205 = !{!91, !24, i64 144}
+!206 = distinct !{!206, !99}
+!207 = !{!95, !24, i64 72}
+!208 = !{!73, !9, i64 352}
+!209 = distinct !{!209, !99}

@@ -494,7 +494,7 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
 
 14:                                               ; preds = %7, %10, %0
   store i8 1, ptr @announce_next_takeover, align 1
-  br label %175
+  br label %173
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr @MainLWLockArray, align 8
@@ -503,13 +503,17 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #10
   %19 = load ptr, ptr @SyncRepConfig, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %SyncRepGetSyncRecPtr.exit, label %21
+  br i1 %20, label %.thread, label %21
+
+.thread:                                          ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #10
+  br label %95
 
 21:                                               ; preds = %15
   %22 = call i32 @SyncRepGetCandidateStandbys(ptr noundef nonnull %1)
   %23 = icmp sgt i32 %22, 0
   %.pre = load ptr, ptr %1, align 8
-  br i1 %23, label %.lr.ph.i, label %.sink.split.i
+  br i1 %23, label %.lr.ph.i, label %SyncRepGetSyncRecPtr.exit
 
 .lr.ph.i:                                         ; preds = %21
   %wide.trip.count.i = zext nneg i32 %22 to i64
@@ -518,7 +522,7 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
 24:                                               ; preds = %25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.sink.split.i, label %25, !llvm.loop !12
+  br i1 %exitcond.not.i, label %SyncRepGetSyncRecPtr.exit, label %25, !llvm.loop !12
 
 25:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
@@ -532,7 +536,7 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %22, %31
-  br i1 %32, label %.sink.split.i, label %33
+  br i1 %32, label %SyncRepGetSyncRecPtr.exit, label %33
 
 33:                                               ; preds = %.loopexit.i
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -541,9 +545,9 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
   br i1 %36, label %.lr.ph.i.i, label %.lr.ph.preheader.i22.i
 
 .lr.ph.i.i:                                       ; preds = %33, %.lr.ph.i.i
-  %.167 = phi i64 [ %spec.select, %.lr.ph.i.i ], [ 0, %33 ]
-  %.163 = phi i64 [ %.264, %.lr.ph.i.i ], [ 0, %33 ]
-  %.161 = phi i64 [ %.2, %.lr.ph.i.i ], [ 0, %33 ]
+  %.170 = phi i64 [ %spec.select, %.lr.ph.i.i ], [ 0, %33 ]
+  %.166 = phi i64 [ %.267, %.lr.ph.i.i ], [ 0, %33 ]
+  %.164 = phi i64 [ %.2, %.lr.ph.i.i ], [ 0, %33 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %33 ]
   %37 = getelementptr inbounds nuw %struct.SyncRepStandbyData, ptr %.pre, i64 %indvars.iv.i.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -555,18 +559,18 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %45 = load i64, ptr %44, align 8
   %46 = freeze i64 %45
-  %47 = add i64 %.167, -1
+  %47 = add i64 %.170, -1
   %or.cond.not.i.i = icmp ult i64 %47, %40
-  %spec.select = select i1 %or.cond.not.i.i, i64 %.167, i64 %40
-  %48 = add i64 %.163, -1
+  %spec.select = select i1 %or.cond.not.i.i, i64 %.170, i64 %40
+  %48 = add i64 %.166, -1
   %or.cond26.not.i.i = icmp ult i64 %48, %43
-  %.264 = select i1 %or.cond26.not.i.i, i64 %.163, i64 %43
-  %49 = add i64 %.161, -1
+  %.267 = select i1 %or.cond26.not.i.i, i64 %.166, i64 %43
+  %49 = add i64 %.164, -1
   %or.cond27.not.i.i = icmp ult i64 %49, %46
-  %.2 = select i1 %or.cond27.not.i.i, i64 %.161, i64 %46
+  %.2 = select i1 %or.cond27.not.i.i, i64 %.164, i64 %46
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i.i, label %.sink.split.i, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %SyncRepGetSyncRecPtr.exit, label %.lr.ph.i.i, !llvm.loop !13
 
 .lr.ph.preheader.i22.i:                           ; preds = %33
   %50 = shl nuw nsw i64 %wide.trip.count.i, 3
@@ -610,239 +614,229 @@ SyncRepGetNthLatestSyncRecPtr.exit.i:             ; preds = %.lr.ph.i24.i
   tail call void @pfree(ptr noundef nonnull %51) #10
   tail call void @pfree(ptr noundef nonnull %52) #10
   tail call void @pfree(ptr noundef nonnull %53) #10
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %24, %.lr.ph.i.i, %.loopexit.i, %21, %SyncRepGetNthLatestSyncRecPtr.exit.i
-  %.05971 = phi i8 [ 1, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 1, %.loopexit.i ], [ 0, %21 ], [ 1, %.lr.ph.i.i ], [ 0, %24 ]
-  %.066 = phi i64 [ %68, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %spec.select, %.lr.ph.i.i ], [ 0, %24 ]
-  %.062 = phi i64 [ %70, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %.264, %.lr.ph.i.i ], [ 0, %24 ]
-  %.060 = phi i64 [ %72, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %.2, %.lr.ph.i.i ], [ 0, %24 ]
-  %.019.ph.i = phi i1 [ true, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ false, %.loopexit.i ], [ false, %21 ], [ true, %.lr.ph.i.i ], [ false, %24 ]
-  tail call void @pfree(ptr noundef %.pre) #10
   br label %SyncRepGetSyncRecPtr.exit
 
-SyncRepGetSyncRecPtr.exit:                        ; preds = %15, %.sink.split.i
-  %.369 = phi i64 [ 0, %15 ], [ %.066, %.sink.split.i ]
-  %.365 = phi i64 [ 0, %15 ], [ %.062, %.sink.split.i ]
-  %.3 = phi i64 [ 0, %15 ], [ %.060, %.sink.split.i ]
-  %.1 = phi i8 [ 0, %15 ], [ %.05971, %.sink.split.i ]
-  %.019.i = phi i1 [ false, %15 ], [ %.019.ph.i, %.sink.split.i ]
+SyncRepGetSyncRecPtr.exit:                        ; preds = %24, %.lr.ph.i.i, %.loopexit.i, %21, %SyncRepGetNthLatestSyncRecPtr.exit.i
+  %.06274 = phi i8 [ 1, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 1, %.loopexit.i ], [ 0, %21 ], [ 1, %.lr.ph.i.i ], [ 0, %24 ]
+  %.069 = phi i64 [ %68, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %spec.select, %.lr.ph.i.i ], [ 0, %24 ]
+  %.065 = phi i64 [ %70, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %.267, %.lr.ph.i.i ], [ 0, %24 ]
+  %.063 = phi i64 [ %72, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ 0, %.loopexit.i ], [ 0, %21 ], [ %.2, %.lr.ph.i.i ], [ 0, %24 ]
+  %.019.ph.i = phi i1 [ true, %SyncRepGetNthLatestSyncRecPtr.exit.i ], [ false, %.loopexit.i ], [ false, %21 ], [ true, %.lr.ph.i.i ], [ false, %24 ]
+  tail call void @pfree(ptr noundef %.pre) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #10
   %73 = load i8, ptr @announce_next_takeover, align 1, !range !4, !noundef !5
-  %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %75, label %94
+  %74 = trunc nuw i8 %.06274 to i1
+  %75 = and i8 %73, %.06274
+  %or.cond.not = icmp eq i8 %75, 0
+  br i1 %or.cond.not, label %93, label %76
 
-75:                                               ; preds = %SyncRepGetSyncRecPtr.exit
-  %76 = trunc nuw i8 %.1 to i1
-  br i1 %76, label %77, label %94
-
-77:                                               ; preds = %75
+76:                                               ; preds = %SyncRepGetSyncRecPtr.exit
   store i8 0, ptr @announce_next_takeover, align 1
-  %78 = load ptr, ptr @SyncRepConfig, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load i8, ptr %79, align 4
-  %81 = icmp eq i8 %80, 0
-  %82 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
-  br i1 %81, label %83, label %90
+  %77 = load ptr, ptr @SyncRepConfig, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load i8, ptr %78, align 4
+  %80 = icmp eq i8 %79, 0
+  %81 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
+  br i1 %80, label %82, label %89
 
-83:                                               ; preds = %77
-  br i1 %82, label %84, label %94
+82:                                               ; preds = %76
+  br i1 %81, label %83, label %93
 
-84:                                               ; preds = %83
-  %85 = load ptr, ptr @application_name, align 8
-  %86 = load ptr, ptr @MyWalSnd, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 72
-  %88 = load i32, ptr %87, align 8
-  %89 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %85, i32 noundef %88) #10
+83:                                               ; preds = %82
+  %84 = load ptr, ptr @application_name, align 8
+  %85 = load ptr, ptr @MyWalSnd, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 72
+  %87 = load i32, ptr %86, align 8
+  %88 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %84, i32 noundef %87) #10
   br label %.sink.split
 
-90:                                               ; preds = %77
-  br i1 %82, label %91, label %94
+89:                                               ; preds = %76
+  br i1 %81, label %90, label %93
 
-91:                                               ; preds = %90
-  %92 = load ptr, ptr @application_name, align 8
-  %93 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %92) #10
+90:                                               ; preds = %89
+  %91 = load ptr, ptr @application_name, align 8
+  %92 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %91) #10
   br label %.sink.split
 
-.sink.split:                                      ; preds = %91, %84
-  %.sink = phi i32 [ 486, %84 ], [ 490, %91 ]
+.sink.split:                                      ; preds = %90, %83
+  %.sink = phi i32 [ 486, %83 ], [ 490, %90 ]
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.SyncRepReleaseWaiters) #10
-  br label %94
+  br label %93
 
-94:                                               ; preds = %.sink.split, %83, %90, %75, %SyncRepGetSyncRecPtr.exit
-  br i1 %.019.i, label %95, label %97
+93:                                               ; preds = %.sink.split, %82, %89, %SyncRepGetSyncRecPtr.exit
+  %94 = phi i1 [ true, %82 ], [ true, %89 ], [ %74, %SyncRepGetSyncRecPtr.exit ], [ true, %.sink.split ]
+  %.185 = phi i8 [ 1, %82 ], [ 1, %89 ], [ %.06274, %SyncRepGetSyncRecPtr.exit ], [ 1, %.sink.split ]
+  %or.cond3 = select i1 %.019.ph.i, i1 %94, i1 false
+  br i1 %or.cond3, label %99, label %95
 
-95:                                               ; preds = %94
-  %96 = trunc nuw i8 %.1 to i1
-  br i1 %96, label %101, label %97
+95:                                               ; preds = %.thread, %93
+  %.18593 = phi i8 [ 0, %.thread ], [ %.185, %93 ]
+  %96 = load ptr, ptr @MainLWLockArray, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4096
+  tail call void @LWLockRelease(ptr noundef nonnull %97) #10
+  %98 = xor i8 %.18593, 1
+  store i8 %98, ptr @announce_next_takeover, align 1
+  br label %173
 
-97:                                               ; preds = %95, %94
-  %98 = load ptr, ptr @MainLWLockArray, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4096
-  tail call void @LWLockRelease(ptr noundef nonnull %99) #10
-  %100 = xor i8 %.1, 1
-  store i8 %100, ptr @announce_next_takeover, align 1
-  br label %175
+99:                                               ; preds = %93
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %101 = load volatile i64, ptr %100, align 8
+  %102 = icmp ult i64 %101, %.069
+  br i1 %102, label %103, label %SyncRepWakeQueue.exit
 
-101:                                              ; preds = %95
-  %102 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %103 = load volatile i64, ptr %102, align 8
-  %104 = icmp ult i64 %103, %.369
-  br i1 %104, label %105, label %SyncRepWakeQueue.exit
-
-105:                                              ; preds = %101
-  store volatile i64 %.369, ptr %102, align 8
-  %106 = load ptr, ptr @WalSndCtl, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %108 = load ptr, ptr %107, align 8
-  %.not.i = icmp eq ptr %108, null
-  %109 = getelementptr inbounds nuw i8, ptr %106, i64 48
-  %.not222834.i = icmp eq ptr %108, %106
+103:                                              ; preds = %99
+  store volatile i64 %.069, ptr %100, align 8
+  %104 = load ptr, ptr @WalSndCtl, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %106 = load ptr, ptr %105, align 8
+  %.not.i = icmp eq ptr %106, null
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %.not222834.i = icmp eq ptr %106, %104
   %.not2228.i = or i1 %.not.i, %.not222834.i
   br i1 %.not2228.i, label %SyncRepWakeQueue.exit, label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %105, %114
-  %.01930.i = phi i32 [ %120, %114 ], [ 0, %105 ]
-  %.sroa.0.029.i = phi ptr [ %.sroa.8.031.i, %114 ], [ %108, %105 ]
+.lr.ph.split.i:                                   ; preds = %103, %112
+  %.01930.i = phi i32 [ %118, %112 ], [ 0, %103 ]
+  %.sroa.0.029.i = phi ptr [ %.sroa.8.031.i, %112 ], [ %106, %103 ]
   %.sroa.8.031.i.in = getelementptr inbounds nuw i8, ptr %.sroa.0.029.i, i64 8
   %.sroa.8.031.i = load ptr, ptr %.sroa.8.031.i.in, align 8
-  %110 = load volatile i64, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 -16
-  %112 = load i64, ptr %111, align 8
-  %113 = icmp ult i64 %110, %112
-  br i1 %113, label %SyncRepWakeQueue.exit, label %114
+  %108 = load volatile i64, ptr %107, align 8
+  %109 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 -16
+  %110 = load i64, ptr %109, align 8
+  %111 = icmp ult i64 %108, %110
+  br i1 %111, label %SyncRepWakeQueue.exit, label %112
 
-114:                                              ; preds = %.lr.ph.split.i
+112:                                              ; preds = %.lr.ph.split.i
+  %113 = load ptr, ptr %.sroa.0.029.i, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  store ptr %.sroa.8.031.i, ptr %114, align 8
   %115 = load ptr, ptr %.sroa.0.029.i, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  store ptr %.sroa.8.031.i, ptr %116, align 8
-  %117 = load ptr, ptr %.sroa.0.029.i, align 8
-  store ptr %117, ptr %.sroa.8.031.i, align 8
+  store ptr %115, ptr %.sroa.8.031.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.029.i, i8 0, i64 16, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
-  %118 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 -8
-  store i32 2, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 -132
-  tail call void @SetLatch(ptr noundef nonnull %119) #10
-  %120 = add i32 %.01930.i, 1
-  %.not22.i = icmp eq ptr %.sroa.8.031.i, %106
+  %116 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 -8
+  store i32 2, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 -132
+  tail call void @SetLatch(ptr noundef nonnull %117) #10
+  %118 = add i32 %.01930.i, 1
+  %.not22.i = icmp eq ptr %.sroa.8.031.i, %104
   br i1 %.not22.i, label %SyncRepWakeQueue.exit, label %.lr.ph.split.i, !llvm.loop !16
 
-SyncRepWakeQueue.exit:                            ; preds = %114, %.lr.ph.split.i, %105, %101
-  %.0 = phi i32 [ 0, %101 ], [ 0, %105 ], [ %120, %114 ], [ %.01930.i, %.lr.ph.split.i ]
-  %121 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %122 = load volatile i64, ptr %121, align 8
-  %123 = icmp ult i64 %122, %.365
-  br i1 %123, label %124, label %SyncRepWakeQueue.exit31
+SyncRepWakeQueue.exit:                            ; preds = %112, %.lr.ph.split.i, %103, %99
+  %.0 = phi i32 [ 0, %99 ], [ 0, %103 ], [ %118, %112 ], [ %.01930.i, %.lr.ph.split.i ]
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %120 = load volatile i64, ptr %119, align 8
+  %121 = icmp ult i64 %120, %.065
+  br i1 %121, label %122, label %SyncRepWakeQueue.exit34
 
-124:                                              ; preds = %SyncRepWakeQueue.exit
-  store volatile i64 %.365, ptr %121, align 8
-  %125 = load ptr, ptr @WalSndCtl, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  %128 = load ptr, ptr %127, align 8
-  %.not.i17 = icmp eq ptr %128, null
-  %129 = getelementptr inbounds nuw i8, ptr %125, i64 56
-  %.not222834.i18 = icmp eq ptr %128, %126
-  %.not2228.i19 = or i1 %.not.i17, %.not222834.i18
-  br i1 %.not2228.i19, label %SyncRepWakeQueue.exit31, label %.lr.ph.split.i23
+122:                                              ; preds = %SyncRepWakeQueue.exit
+  store volatile i64 %.065, ptr %119, align 8
+  %123 = load ptr, ptr @WalSndCtl, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 24
+  %126 = load ptr, ptr %125, align 8
+  %.not.i20 = icmp eq ptr %126, null
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 56
+  %.not222834.i21 = icmp eq ptr %126, %124
+  %.not2228.i22 = or i1 %.not.i20, %.not222834.i21
+  br i1 %.not2228.i22, label %SyncRepWakeQueue.exit34, label %.lr.ph.split.i26
 
-.lr.ph.split.i23:                                 ; preds = %124, %134
-  %.01930.i25 = phi i32 [ %140, %134 ], [ 0, %124 ]
-  %.sroa.0.029.i26 = phi ptr [ %.sroa.8.031.i24, %134 ], [ %128, %124 ]
-  %.sroa.8.031.i24.in = getelementptr inbounds nuw i8, ptr %.sroa.0.029.i26, i64 8
-  %.sroa.8.031.i24 = load ptr, ptr %.sroa.8.031.i24.in, align 8
-  %130 = load volatile i64, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %.sroa.0.029.i26, i64 -16
-  %132 = load i64, ptr %131, align 8
-  %133 = icmp ult i64 %130, %132
-  br i1 %133, label %SyncRepWakeQueue.exit31, label %134
+.lr.ph.split.i26:                                 ; preds = %122, %132
+  %.01930.i28 = phi i32 [ %138, %132 ], [ 0, %122 ]
+  %.sroa.0.029.i29 = phi ptr [ %.sroa.8.031.i27, %132 ], [ %126, %122 ]
+  %.sroa.8.031.i27.in = getelementptr inbounds nuw i8, ptr %.sroa.0.029.i29, i64 8
+  %.sroa.8.031.i27 = load ptr, ptr %.sroa.8.031.i27.in, align 8
+  %128 = load volatile i64, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %.sroa.0.029.i29, i64 -16
+  %130 = load i64, ptr %129, align 8
+  %131 = icmp ult i64 %128, %130
+  br i1 %131, label %SyncRepWakeQueue.exit34, label %132
 
-134:                                              ; preds = %.lr.ph.split.i23
-  %135 = load ptr, ptr %.sroa.0.029.i26, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  store ptr %.sroa.8.031.i24, ptr %136, align 8
-  %137 = load ptr, ptr %.sroa.0.029.i26, align 8
-  store ptr %137, ptr %.sroa.8.031.i24, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.029.i26, i8 0, i64 16, i1 false)
+132:                                              ; preds = %.lr.ph.split.i26
+  %133 = load ptr, ptr %.sroa.0.029.i29, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
+  store ptr %.sroa.8.031.i27, ptr %134, align 8
+  %135 = load ptr, ptr %.sroa.0.029.i29, align 8
+  store ptr %135, ptr %.sroa.8.031.i27, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.029.i29, i8 0, i64 16, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
-  %138 = getelementptr inbounds i8, ptr %.sroa.0.029.i26, i64 -8
-  store i32 2, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %.sroa.0.029.i26, i64 -132
-  tail call void @SetLatch(ptr noundef nonnull %139) #10
-  %140 = add i32 %.01930.i25, 1
-  %.not22.i29 = icmp eq ptr %.sroa.8.031.i24, %126
-  br i1 %.not22.i29, label %SyncRepWakeQueue.exit31, label %.lr.ph.split.i23, !llvm.loop !16
+  %136 = getelementptr inbounds i8, ptr %.sroa.0.029.i29, i64 -8
+  store i32 2, ptr %136, align 8
+  %137 = getelementptr inbounds i8, ptr %.sroa.0.029.i29, i64 -132
+  tail call void @SetLatch(ptr noundef nonnull %137) #10
+  %138 = add i32 %.01930.i28, 1
+  %.not22.i32 = icmp eq ptr %.sroa.8.031.i27, %124
+  br i1 %.not22.i32, label %SyncRepWakeQueue.exit34, label %.lr.ph.split.i26, !llvm.loop !16
 
-SyncRepWakeQueue.exit31:                          ; preds = %134, %.lr.ph.split.i23, %124, %SyncRepWakeQueue.exit
-  %.09 = phi i32 [ 0, %SyncRepWakeQueue.exit ], [ 0, %124 ], [ %140, %134 ], [ %.01930.i25, %.lr.ph.split.i23 ]
-  %141 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %142 = load volatile i64, ptr %141, align 8
-  %143 = icmp ult i64 %142, %.3
-  br i1 %143, label %144, label %SyncRepWakeQueue.exit46
+SyncRepWakeQueue.exit34:                          ; preds = %132, %.lr.ph.split.i26, %122, %SyncRepWakeQueue.exit
+  %.012 = phi i32 [ 0, %SyncRepWakeQueue.exit ], [ 0, %122 ], [ %138, %132 ], [ %.01930.i28, %.lr.ph.split.i26 ]
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %140 = load volatile i64, ptr %139, align 8
+  %141 = icmp ult i64 %140, %.063
+  br i1 %141, label %142, label %SyncRepWakeQueue.exit49
 
-144:                                              ; preds = %SyncRepWakeQueue.exit31
-  store volatile i64 %.3, ptr %141, align 8
-  %145 = load ptr, ptr @WalSndCtl, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 32
-  %147 = getelementptr inbounds nuw i8, ptr %145, i64 40
-  %148 = load ptr, ptr %147, align 8
-  %.not.i32 = icmp eq ptr %148, null
-  %149 = getelementptr inbounds nuw i8, ptr %145, i64 64
-  %.not222834.i33 = icmp eq ptr %148, %146
-  %.not2228.i34 = or i1 %.not.i32, %.not222834.i33
-  br i1 %.not2228.i34, label %SyncRepWakeQueue.exit46, label %.lr.ph.split.i38
+142:                                              ; preds = %SyncRepWakeQueue.exit34
+  store volatile i64 %.063, ptr %139, align 8
+  %143 = load ptr, ptr @WalSndCtl, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %143, i64 40
+  %146 = load ptr, ptr %145, align 8
+  %.not.i35 = icmp eq ptr %146, null
+  %147 = getelementptr inbounds nuw i8, ptr %143, i64 64
+  %.not222834.i36 = icmp eq ptr %146, %144
+  %.not2228.i37 = or i1 %.not.i35, %.not222834.i36
+  br i1 %.not2228.i37, label %SyncRepWakeQueue.exit49, label %.lr.ph.split.i41
 
-.lr.ph.split.i38:                                 ; preds = %144, %154
-  %.01930.i40 = phi i32 [ %160, %154 ], [ 0, %144 ]
-  %.sroa.0.029.i41 = phi ptr [ %.sroa.8.031.i39, %154 ], [ %148, %144 ]
-  %.sroa.8.031.i39.in = getelementptr inbounds nuw i8, ptr %.sroa.0.029.i41, i64 8
-  %.sroa.8.031.i39 = load ptr, ptr %.sroa.8.031.i39.in, align 8
-  %150 = load volatile i64, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %.sroa.0.029.i41, i64 -16
-  %152 = load i64, ptr %151, align 8
-  %153 = icmp ult i64 %150, %152
-  br i1 %153, label %SyncRepWakeQueue.exit46, label %154
+.lr.ph.split.i41:                                 ; preds = %142, %152
+  %.01930.i43 = phi i32 [ %158, %152 ], [ 0, %142 ]
+  %.sroa.0.029.i44 = phi ptr [ %.sroa.8.031.i42, %152 ], [ %146, %142 ]
+  %.sroa.8.031.i42.in = getelementptr inbounds nuw i8, ptr %.sroa.0.029.i44, i64 8
+  %.sroa.8.031.i42 = load ptr, ptr %.sroa.8.031.i42.in, align 8
+  %148 = load volatile i64, ptr %147, align 8
+  %149 = getelementptr inbounds i8, ptr %.sroa.0.029.i44, i64 -16
+  %150 = load i64, ptr %149, align 8
+  %151 = icmp ult i64 %148, %150
+  br i1 %151, label %SyncRepWakeQueue.exit49, label %152
 
-154:                                              ; preds = %.lr.ph.split.i38
-  %155 = load ptr, ptr %.sroa.0.029.i41, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  store ptr %.sroa.8.031.i39, ptr %156, align 8
-  %157 = load ptr, ptr %.sroa.0.029.i41, align 8
-  store ptr %157, ptr %.sroa.8.031.i39, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.029.i41, i8 0, i64 16, i1 false)
+152:                                              ; preds = %.lr.ph.split.i41
+  %153 = load ptr, ptr %.sroa.0.029.i44, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  store ptr %.sroa.8.031.i42, ptr %154, align 8
+  %155 = load ptr, ptr %.sroa.0.029.i44, align 8
+  store ptr %155, ptr %.sroa.8.031.i42, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.029.i44, i8 0, i64 16, i1 false)
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !15
-  %158 = getelementptr inbounds i8, ptr %.sroa.0.029.i41, i64 -8
-  store i32 2, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %.sroa.0.029.i41, i64 -132
-  tail call void @SetLatch(ptr noundef nonnull %159) #10
-  %160 = add i32 %.01930.i40, 1
-  %.not22.i44 = icmp eq ptr %.sroa.8.031.i39, %146
-  br i1 %.not22.i44, label %SyncRepWakeQueue.exit46, label %.lr.ph.split.i38, !llvm.loop !16
+  %156 = getelementptr inbounds i8, ptr %.sroa.0.029.i44, i64 -8
+  store i32 2, ptr %156, align 8
+  %157 = getelementptr inbounds i8, ptr %.sroa.0.029.i44, i64 -132
+  tail call void @SetLatch(ptr noundef nonnull %157) #10
+  %158 = add i32 %.01930.i43, 1
+  %.not22.i47 = icmp eq ptr %.sroa.8.031.i42, %144
+  br i1 %.not22.i47, label %SyncRepWakeQueue.exit49, label %.lr.ph.split.i41, !llvm.loop !16
 
-SyncRepWakeQueue.exit46:                          ; preds = %154, %.lr.ph.split.i38, %144, %SyncRepWakeQueue.exit31
-  %.010 = phi i32 [ 0, %SyncRepWakeQueue.exit31 ], [ 0, %144 ], [ %160, %154 ], [ %.01930.i40, %.lr.ph.split.i38 ]
-  %161 = load ptr, ptr @MainLWLockArray, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 4096
-  tail call void @LWLockRelease(ptr noundef nonnull %162) #10
-  %163 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #10
-  br i1 %163, label %164, label %175
+SyncRepWakeQueue.exit49:                          ; preds = %152, %.lr.ph.split.i41, %142, %SyncRepWakeQueue.exit34
+  %.013 = phi i32 [ 0, %SyncRepWakeQueue.exit34 ], [ 0, %142 ], [ %158, %152 ], [ %.01930.i43, %.lr.ph.split.i41 ]
+  %159 = load ptr, ptr @MainLWLockArray, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 4096
+  tail call void @LWLockRelease(ptr noundef nonnull %160) #10
+  %161 = tail call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #10
+  br i1 %161, label %162, label %173
 
-164:                                              ; preds = %SyncRepWakeQueue.exit46
-  %165 = lshr i64 %.369, 32
-  %166 = trunc nuw i64 %165 to i32
-  %167 = trunc i64 %.369 to i32
-  %168 = lshr i64 %.365, 32
-  %169 = trunc nuw i64 %168 to i32
-  %170 = trunc i64 %.365 to i32
-  %171 = lshr i64 %.3, 32
-  %172 = trunc nuw i64 %171 to i32
-  %173 = trunc i64 %.3 to i32
-  %174 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %.0, i32 noundef %166, i32 noundef %167, i32 noundef %.09, i32 noundef %169, i32 noundef %170, i32 noundef %.010, i32 noundef %172, i32 noundef %173) #10
+162:                                              ; preds = %SyncRepWakeQueue.exit49
+  %163 = lshr i64 %.069, 32
+  %164 = trunc nuw i64 %163 to i32
+  %165 = trunc i64 %.069 to i32
+  %166 = lshr i64 %.065, 32
+  %167 = trunc nuw i64 %166 to i32
+  %168 = trunc i64 %.065 to i32
+  %169 = lshr i64 %.063, 32
+  %170 = trunc nuw i64 %169 to i32
+  %171 = trunc i64 %.063 to i32
+  %172 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %.0, i32 noundef %164, i32 noundef %165, i32 noundef %.012, i32 noundef %167, i32 noundef %168, i32 noundef %.013, i32 noundef %170, i32 noundef %171) #10
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 529, ptr noundef nonnull @__func__.SyncRepReleaseWaiters) #10
-  br label %175
+  br label %173
 
-175:                                              ; preds = %SyncRepWakeQueue.exit46, %164, %97, %14
+173:                                              ; preds = %SyncRepWakeQueue.exit49, %162, %95, %14
   ret void
 }
 

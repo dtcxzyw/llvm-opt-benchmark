@@ -5857,21 +5857,19 @@ define void @_ZN22LayoutPreferencesFrame42on_packetListCachedRowsLineEdit_textEd
   %7 = load i64, ptr %6, align 8
   %8 = call noundef i64 @_ZN7QString17toIntegral_helperE11QStringViewPbj(i64 %7, ptr %5, ptr noundef nonnull %3, i32 noundef 0)
   %.not.i.i = icmp ult i64 %8, 4294967296
-  br i1 %.not.i.i, label %_ZNK7QString6toUIntEPbi.exit, label %_ZNK7QString6toUIntEPbi.exit.thread
-
-_ZNK7QString6toUIntEPbi.exit:                     ; preds = %2
   %.pre = load i8, ptr %3, align 1, !range !6
   %9 = trunc nuw i8 %.pre to i1
-  br i1 %9, label %10, label %_ZNK7QString6toUIntEPbi.exit.thread
+  %or.cond = select i1 %.not.i.i, i1 %9, i1 false
+  br i1 %or.cond, label %10, label %_ZNK7QString6toUIntEPbi.exit.thread
 
-10:                                               ; preds = %_ZNK7QString6toUIntEPbi.exit
+10:                                               ; preds = %2
   %11 = trunc nuw i64 %8 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = call i32 @prefs_set_uint_value(ptr noundef %13, i32 noundef %11, i32 noundef 1)
   br label %_ZNK7QString6toUIntEPbi.exit.thread
 
-_ZNK7QString6toUIntEPbi.exit.thread:              ; preds = %2, %10, %_ZNK7QString6toUIntEPbi.exit
+_ZNK7QString6toUIntEPbi.exit.thread:              ; preds = %2, %10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
   ret void
 }

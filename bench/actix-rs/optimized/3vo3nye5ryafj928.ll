@@ -49,10 +49,10 @@ define { i1, i8 } @"_ZN4core6option15Option$LT$T$GT$6filter17h052c315d049a3117E"
   br label %8
 
 8:                                                ; preds = %5, %3
-  %.sroa.33.0 = phi i8 [ undef, %3 ], [ %spec.select, %5 ]
-  %.sroa.02.0 = phi i1 [ false, %3 ], [ %6, %5 ]
-  %9 = insertvalue { i1, i8 } poison, i1 %.sroa.02.0, 0
-  %10 = insertvalue { i1, i8 } %9, i8 %.sroa.33.0, 1
+  %.sroa.3.0 = phi i8 [ undef, %3 ], [ %spec.select, %5 ]
+  %.sroa.04.0 = phi i1 [ false, %3 ], [ %6, %5 ]
+  %9 = insertvalue { i1, i8 } poison, i1 %.sroa.04.0, 0
+  %10 = insertvalue { i1, i8 } %9, i8 %.sroa.3.0, 1
   ret { i1, i8 } %10
 }
 

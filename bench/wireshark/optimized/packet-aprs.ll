@@ -1320,11 +1320,11 @@ define internal fastcc i32 @aprs_position(ptr noundef readonly captures(none) %0
 34:                                               ; preds = %29
   br i1 %4, label %.thread, label %dissect_aprs_msg.exit
 
-.thread:                                          ; preds = %12, %29, %29, %29, %29, %34
-  %.not102 = icmp eq i8 %23, 95
+.thread:                                          ; preds = %29, %29, %29, %29, %12, %34
+  %.not104 = icmp eq i8 %23, 95
   %35 = icmp ne i8 %16, 47
   %36 = icmp ne i8 %23, 92
-  %.not105 = select i1 %35, i1 true, i1 %36
+  %.not107 = select i1 %35, i1 true, i1 %36
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %42, label %37
 
@@ -1348,7 +1348,7 @@ define internal fastcc i32 @aprs_position(ptr noundef readonly captures(none) %0
 48:                                               ; preds = %42
   %hf_aprs_msg_cse.val.i = load i32, ptr @hf_aprs_msg_cse, align 4
   %hf_aprs_msg_dir.val.i = load i32, ptr @hf_aprs_msg_dir, align 4
-  %49 = select i1 %.not102, i32 %hf_aprs_msg_dir.val.i, i32 %hf_aprs_msg_cse.val.i
+  %49 = select i1 %.not104, i32 %hf_aprs_msg_dir.val.i, i32 %hf_aprs_msg_cse.val.i
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %49, ptr noundef %2, i32 noundef %26, i32 noundef 3, i32 noundef 0)
   %51 = add i32 %3, 23
   %52 = load i32, ptr @hf_aprs_msg_spd, align 4
@@ -1413,24 +1413,24 @@ define internal fastcc i32 @aprs_position(ptr noundef readonly captures(none) %0
 
 95:                                               ; preds = %88, %85, %72, %59, %55, %48
   %.0.i = phi i32 [ %54, %48 ], [ %26, %55 ], [ %92, %88 ], [ %26, %85 ], [ %82, %72 ], [ %69, %59 ]
-  br i1 %.not105, label %dissect_aprs_msg.exit, label %dissect_aprs_msg.exit.thread107
+  br i1 %.not107, label %dissect_aprs_msg.exit, label %dissect_aprs_msg.exit.thread109
 
-dissect_aprs_msg.exit.thread107:                  ; preds = %95
+dissect_aprs_msg.exit.thread109:                  ; preds = %95
   %96 = load i32, ptr @hf_aprs_msg_brg, align 4
   %97 = tail call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %96, ptr noundef %2, i32 noundef %.0.i, i32 noundef 3, i32 noundef 0)
   %98 = add i32 %.0.i, 4
   %99 = load i32, ptr @hf_aprs_msg_nrq, align 4
   %100 = tail call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %99, ptr noundef %2, i32 noundef %98, i32 noundef 3, i32 noundef 0)
   %101 = add i32 %.0.i, 7
-  br label %.thread111
+  br label %.thread113
 
 102:                                              ; preds = %5
   %103 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %3)
   %104 = load i32, ptr @hf_aprs_sym_id, align 4
   %105 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %104, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %.not.i86 = icmp eq ptr %1, null
-  br i1 %.not.i86, label %aprs_latitude_compressed.exit.thread, label %108
+  %.not.i89 = icmp eq ptr %1, null
+  br i1 %.not.i89, label %aprs_latitude_compressed.exit.thread, label %108
 
 aprs_latitude_compressed.exit.thread:             ; preds = %102
   %107 = add i32 %3, 5
@@ -1501,7 +1501,7 @@ aprs_longitude_compressed.exit:                   ; preds = %aprs_latitude_compr
   %167 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %166, ptr noundef %2, i32 noundef %164, i32 noundef 1, i32 noundef 0)
   %168 = add i32 %163, 5
   %169 = load ptr, ptr %106, align 8
-  br i1 %.not.i86, label %dissect_aprs_compressed_msg.exit, label %170
+  br i1 %.not.i89, label %dissect_aprs_compressed_msg.exit, label %170
 
 170:                                              ; preds = %aprs_longitude_compressed.exit
   %171 = load i32, ptr @hf_aprs_msg, align 4
@@ -1568,70 +1568,70 @@ dissect_aprs_compression_type.exit:               ; preds = %dissect_aprs_compre
   %212 = add i32 %211, 1
   %213 = icmp eq i8 %103, 47
   %214 = icmp eq i8 %165, 92
-  %or.cond = select i1 %213, i1 %214, i1 false
-  br i1 %or.cond, label %dissect_aprs_msg.exit.thread, label %dissect_aprs_msg.exit
+  %or.cond6 = select i1 %213, i1 %214, i1 false
+  br i1 %or.cond6, label %dissect_aprs_msg.exit.thread, label %dissect_aprs_msg.exit
 
 dissect_aprs_msg.exit.thread:                     ; preds = %dissect_aprs_compression_type.exit
   %215 = load i32, ptr @hf_aprs_msg_brg, align 4
   %216 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %215, ptr noundef %2, i32 noundef %212, i32 noundef 8, i32 noundef 0)
   %217 = add i32 %211, 9
-  br label %.thread111
+  br label %.thread113
 
-dissect_aprs_msg.exit:                            ; preds = %95, %34, %dissect_aprs_compression_type.exit
-  %.082 = phi i32 [ %212, %dissect_aprs_compression_type.exit ], [ %26, %34 ], [ %.0.i, %95 ]
-  %.081 = phi i8 [ %103, %dissect_aprs_compression_type.exit ], [ %16, %34 ], [ %16, %95 ]
-  %.080 = phi i8 [ %165, %dissect_aprs_compression_type.exit ], [ %23, %34 ], [ %23, %95 ]
-  %218 = icmp eq i8 %.080, 95
+dissect_aprs_msg.exit:                            ; preds = %95, %dissect_aprs_compression_type.exit, %34
+  %.086 = phi i32 [ %26, %34 ], [ %212, %dissect_aprs_compression_type.exit ], [ %.0.i, %95 ]
+  %.085 = phi i8 [ %16, %34 ], [ %103, %dissect_aprs_compression_type.exit ], [ %16, %95 ]
+  %.084 = phi i8 [ %23, %34 ], [ %165, %dissect_aprs_compression_type.exit ], [ %23, %95 ]
+  %218 = icmp eq i8 %.084, 95
   br i1 %218, label %219, label %221
 
 219:                                              ; preds = %dissect_aprs_msg.exit
-  %220 = tail call fastcc i32 @dissect_aprs_weather(ptr noundef %2, i32 noundef %.082, ptr noundef %1)
-  br label %.thread111
+  %220 = tail call fastcc i32 @dissect_aprs_weather(ptr noundef %2, i32 noundef %.086, ptr noundef %1)
+  br label %.thread113
 
 221:                                              ; preds = %dissect_aprs_msg.exit
-  %222 = icmp eq i8 %.081, 47
-  %223 = icmp eq i8 %.080, 64
-  %224 = icmp eq i8 %.081, 92
-  %or.cond5106 = or i1 %222, %224
-  %or.cond84 = and i1 %223, %or.cond5106
-  br i1 %or.cond84, label %225, label %.thread111
+  %222 = icmp eq i8 %.085, 47
+  %223 = icmp eq i8 %.084, 64
+  %224 = icmp eq i8 %.085, 92
+  %or.cond9108 = or i1 %222, %224
+  %or.cond87 = and i1 %223, %or.cond9108
+  br i1 %or.cond87, label %225, label %.thread113
 
 225:                                              ; preds = %221
   %226 = load i32, ptr @hf_aprs_storm, align 4
-  %227 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %226, ptr noundef %2, i32 noundef %.082, i32 noundef -1, i32 noundef 0)
+  %227 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %226, ptr noundef %2, i32 noundef %.086, i32 noundef -1, i32 noundef 0)
   %228 = load i32, ptr @ett_aprs_storm, align 4
   %229 = tail call ptr @proto_item_add_subtree(ptr noundef %227, i32 noundef %228)
   %230 = load i32, ptr @hf_aprs_storm_dir, align 4
-  %231 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %230, ptr noundef %2, i32 noundef %.082, i32 noundef 3, i32 noundef 0)
-  %232 = add i32 %.082, 4
+  %231 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %230, ptr noundef %2, i32 noundef %.086, i32 noundef 3, i32 noundef 0)
+  %232 = add i32 %.086, 4
   %233 = load i32, ptr @hf_aprs_storm_spd, align 4
   %234 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %233, ptr noundef %2, i32 noundef %232, i32 noundef 3, i32 noundef 0)
-  %235 = add i32 %.082, 7
+  %235 = add i32 %.086, 7
   %236 = load i32, ptr @hf_aprs_storm_type, align 4
   %237 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %236, ptr noundef %2, i32 noundef %235, i32 noundef 3, i32 noundef 0)
-  %238 = add i32 %.082, 10
+  %238 = add i32 %.086, 10
   %239 = load i32, ptr @hf_aprs_storm_sws, align 4
   %240 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %239, ptr noundef %2, i32 noundef %238, i32 noundef 4, i32 noundef 0)
-  %241 = add i32 %.082, 14
+  %241 = add i32 %.086, 14
   %242 = load i32, ptr @hf_aprs_storm_pwg, align 4
   %243 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %242, ptr noundef %2, i32 noundef %241, i32 noundef 4, i32 noundef 0)
-  %244 = add i32 %.082, 18
+  %244 = add i32 %.086, 18
   %245 = load i32, ptr @hf_aprs_storm_cp, align 4
   %246 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %245, ptr noundef %2, i32 noundef %244, i32 noundef 5, i32 noundef 0)
-  %247 = add i32 %.082, 23
+  %247 = add i32 %.086, 23
   %248 = load i32, ptr @hf_aprs_storm_rhw, align 4
   %249 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %248, ptr noundef %2, i32 noundef %247, i32 noundef 4, i32 noundef 0)
-  %250 = add i32 %.082, 27
+  %250 = add i32 %.086, 27
   %251 = load i32, ptr @hf_aprs_storm_rtsw, align 4
   %252 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %251, ptr noundef %2, i32 noundef %250, i32 noundef 4, i32 noundef 0)
-  %253 = add i32 %.082, 31
+  %253 = add i32 %.086, 31
   %254 = load i32, ptr @hf_aprs_storm_rwg, align 4
   %255 = tail call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %254, ptr noundef %2, i32 noundef %253, i32 noundef 4, i32 noundef 0)
-  %256 = add i32 %.082, 35
-  br label %.thread111
+  %256 = add i32 %.086, 35
+  br label %.thread113
 
-.thread111:                                       ; preds = %dissect_aprs_msg.exit.thread107, %dissect_aprs_msg.exit.thread, %219, %221, %225
-  %.2 = phi i32 [ %256, %225 ], [ %.082, %221 ], [ %101, %dissect_aprs_msg.exit.thread107 ], [ %217, %dissect_aprs_msg.exit.thread ], [ %220, %219 ]
+.thread113:                                       ; preds = %dissect_aprs_msg.exit.thread109, %dissect_aprs_msg.exit.thread, %219, %221, %225
+  %.2 = phi i32 [ %256, %225 ], [ %.086, %221 ], [ %101, %dissect_aprs_msg.exit.thread109 ], [ %217, %dissect_aprs_msg.exit.thread ], [ %220, %219 ]
   ret i32 %.2
 }
 

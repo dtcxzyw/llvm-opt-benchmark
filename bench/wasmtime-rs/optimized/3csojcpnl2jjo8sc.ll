@@ -721,13 +721,13 @@ define hidden void @_ZN4core4iter8adapters11try_process17h4a5fec24f7d06aafE(ptr 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !221
   %11 = load ptr, ptr %6, align 8, !noundef !9
   %.not.not = icmp eq ptr %11, null
-  br i1 %.not.not, label %.thread, label %13
+  br i1 %.not.not, label %.thread12, label %13
 
-.thread:                                          ; preds = %10
+.thread12:                                        ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   br label %12
 
-12:                                               ; preds = %13, %.thread
+12:                                               ; preds = %13, %.thread12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
@@ -745,7 +745,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17h4a5fec24f7d06aafE(ptr 
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22
   unreachable
 
-"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$anyhow..Error$GT$$GT$17h5bd488999bec979cE.llvm.2711790923827917968.exit": ; preds = %7, %17
+"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$anyhow..Error$GT$$GT$17h5bd488999bec979cE.llvm.2711790923827917968.exit": ; preds = %17, %7
   resume { ptr, i32 } %8
 
 17:                                               ; preds = %7
@@ -781,13 +781,13 @@ define hidden void @_ZN4core4iter8adapters11try_process17hbcde6a699859d34bE(ptr 
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !236
   %11 = load ptr, ptr %6, align 8, !noundef !9
   %.not.not = icmp eq ptr %11, null
-  br i1 %.not.not, label %.thread, label %13
+  br i1 %.not.not, label %.thread12, label %13
 
-.thread:                                          ; preds = %10
+.thread12:                                        ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   br label %12
 
-12:                                               ; preds = %13, %.thread
+12:                                               ; preds = %13, %.thread12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   ret void
@@ -805,7 +805,7 @@ define hidden void @_ZN4core4iter8adapters11try_process17hbcde6a699859d34bE(ptr 
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22
   unreachable
 
-"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$anyhow..Error$GT$$GT$17h5bd488999bec979cE.llvm.2711790923827917968.exit": ; preds = %7, %17
+"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$anyhow..Error$GT$$GT$17h5bd488999bec979cE.llvm.2711790923827917968.exit": ; preds = %17, %7
   resume { ptr, i32 } %8
 
 17:                                               ; preds = %7

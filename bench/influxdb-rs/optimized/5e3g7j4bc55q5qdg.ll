@@ -263,8 +263,8 @@ _ZN3std4sync6poison4Flag5guard17h178120b98dbef79dE.llvm.5441949568091396765.exit
           to label %82 unwind label %71
 
 82:                                               ; preds = %_ZN3std4sync6poison4Flag5guard17h178120b98dbef79dE.llvm.5441949568091396765.exit.i.i
-  %.not10.i = icmp eq i8 %81, 0
-  br i1 %.not10.i, label %90, label %83
+  %.not8.i = icmp eq i8 %81, 0
+  br i1 %.not8.i, label %90, label %83
 
 83:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !38

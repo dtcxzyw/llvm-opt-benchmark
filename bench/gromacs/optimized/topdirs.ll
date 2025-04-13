@@ -231,9 +231,13 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
 21:                                               ; preds = %2, %2
   %switch.tableidx36 = add i32 %1, -1
   %22 = icmp ult i32 %switch.tableidx36, 10
-  br i1 %22, label %switch.hole_check, label %23
+  %switch.maskindex = trunc i32 %switch.tableidx36 to i16
+  %switch.shifted = lshr i16 959, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond49 = select i1 %22, i1 %switch.lobit, i1 false
+  br i1 %or.cond49, label %switch.lookup37, label %23
 
-23:                                               ; preds = %switch.hole_check, %21
+23:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
   call void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 1 dereferenceable(131) @.str.42, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 140, ptr noundef nonnull @.str.44, i32 noundef %1) #21
@@ -279,9 +283,13 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
 36:                                               ; preds = %2, %2
   %switch.tableidx39 = add i32 %1, -1
   %37 = icmp ult i32 %switch.tableidx39, 11
-  br i1 %37, label %switch.hole_check40, label %38
+  %switch.maskindex42 = trunc i32 %switch.tableidx39 to i16
+  %switch.shifted43 = lshr i16 1951, %switch.maskindex42
+  %switch.lobit44 = trunc i16 %switch.shifted43 to i1
+  %or.cond50 = select i1 %37, i1 %switch.lobit44, i1 false
+  br i1 %or.cond50, label %switch.lookup41, label %38
 
-38:                                               ; preds = %switch.hole_check40, %36
+38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #20
   call void @_ZNSt10filesystem7__cxx114pathC2IA131_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(131) @.str.42, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 171, ptr noundef nonnull @.str.46, i32 noundef %1) #21
@@ -517,25 +525,13 @@ define noundef range(i32 0, 75) i32 @_Z11ifunc_index9Directivei(i32 noundef %0, 
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #20
   br label %105
 
-switch.hole_check:                                ; preds = %21
-  %switch.maskindex = trunc nuw i32 %switch.tableidx36 to i16
-  %switch.shifted = lshr i16 959, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup37, label %23
-
-switch.lookup37:                                  ; preds = %switch.hole_check
+switch.lookup37:                                  ; preds = %21
   %103 = zext nneg i32 %switch.tableidx36 to i64
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._Z11ifunc_index9Directivei, i64 0, i64 %103
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.lookup
 
-switch.hole_check40:                              ; preds = %36
-  %switch.maskindex42 = trunc nuw i32 %switch.tableidx39 to i16
-  %switch.shifted43 = lshr i16 1951, %switch.maskindex42
-  %switch.lobit44 = trunc i16 %switch.shifted43 to i1
-  br i1 %switch.lobit44, label %switch.lookup41, label %38
-
-switch.lookup41:                                  ; preds = %switch.hole_check40
+switch.lookup41:                                  ; preds = %36
   %104 = zext nneg i32 %switch.tableidx39 to i64
   %switch.gep45 = getelementptr inbounds nuw [11 x i32], ptr @switch.table._Z11ifunc_index9Directivei.7, i64 0, i64 %104
   %switch.load46 = load i32, ptr %switch.gep45, align 4

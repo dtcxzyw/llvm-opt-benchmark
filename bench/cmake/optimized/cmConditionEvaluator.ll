@@ -646,10 +646,10 @@ _ZNSt16allocator_traitsISaI25cmExpandedCommandArgumentEE8allocateERS1_m.exit.i.i
   br label %_ZNSt12_Vector_baseI25cmExpandedCommandArgumentSaIS0_EE11_M_allocateEm.exit.i.i
 
 _ZNSt12_Vector_baseI25cmExpandedCommandArgumentSaIS0_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaI25cmExpandedCommandArgumentEE8allocateERS1_m.exit.i.i.i, %.preheader.i.i.i52.preheader
-  %.05.i.i.i811.i.i = phi i64 [ 0, %.preheader.i.i.i52.preheader ], [ %63, %_ZNSt16allocator_traitsISaI25cmExpandedCommandArgumentEE8allocateERS1_m.exit.i.i.i ]
+  %.06.i.i.i811.i.i = phi i64 [ 0, %.preheader.i.i.i52.preheader ], [ %63, %_ZNSt16allocator_traitsISaI25cmExpandedCommandArgumentEE8allocateERS1_m.exit.i.i.i ]
   %67 = phi ptr [ null, %.preheader.i.i.i52.preheader ], [ %66, %_ZNSt16allocator_traitsISaI25cmExpandedCommandArgumentEE8allocateERS1_m.exit.i.i.i ]
   store ptr %67, ptr %5, align 8, !tbaa !56
-  %68 = getelementptr inbounds nuw %class.cmExpandedCommandArgument, ptr %67, i64 %.05.i.i.i811.i.i
+  %68 = getelementptr inbounds nuw %class.cmExpandedCommandArgument, ptr %67, i64 %.06.i.i.i811.i.i
   store ptr %68, ptr %8, align 8, !tbaa !58
   %69 = invoke noundef ptr @_ZSt16__do_uninit_copyISt14_List_iteratorI25cmExpandedCommandArgumentEPS1_ET0_T_S5_S4_(ptr %56, ptr nonnull %58, ptr noundef %67)
           to label %72 unwind label %70
@@ -661,7 +661,7 @@ _ZNSt12_Vector_baseI25cmExpandedCommandArgumentSaIS0_EE11_M_allocateEm.exit.i.i:
   br i1 %.not.i.i7.i, label %.body, label %71
 
 71:                                               ; preds = %70
-  %.idx = mul nuw nsw i64 %.05.i.i.i811.i.i, 40
+  %.idx = mul nuw nsw i64 %.06.i.i.i811.i.i, 40
   call void @_ZdlPvm(ptr noundef nonnull %67, i64 noundef %.idx) #25
   br label %.body
 

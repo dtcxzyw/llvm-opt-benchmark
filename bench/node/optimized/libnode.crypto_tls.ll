@@ -4845,23 +4845,21 @@ _ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit: ; preds = %entry, %if.end.i
   %stream_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %4 = load ptr, ptr %stream_.i.i, align 8
   %cmp.not = icmp eq ptr %4, null
-  br i1 %cmp.not, label %return, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
   %eof_ = getelementptr inbounds nuw i8, ptr %this, i64 390
   %5 = load i8, ptr %eof_, align 2
   %tobool = trunc i8 %5 to i1
-  br i1 %tobool, label %return, label %if.then
+  %or.cond = select i1 %cmp.not, i1 true, i1 %tobool
+  br i1 %or.cond, label %return, label %if.then
 
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
   %vtable = load ptr, ptr %4, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %6 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(32) %4) #24
   br label %return
 
-return:                                           ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit, %land.lhs.true, %if.then
-  %retval.0 = phi i32 [ %call3, %if.then ], [ 0, %land.lhs.true ], [ 0, %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit ]
+return:                                           ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit, %if.then
+  %retval.0 = phi i32 [ %call3, %if.then ], [ 0, %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit ]
   ret i32 %retval.0
 }
 
@@ -4890,23 +4888,21 @@ _ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit.i: ; preds = %if.end.i.i, %entr
   %stream_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %5 = load ptr, ptr %stream_.i.i.i, align 8
   %cmp.not.i = icmp eq ptr %5, null
-  br i1 %cmp.not.i, label %_ZN4node6crypto7TLSWrap9ReadStartEv.exit, label %land.lhs.true.i
-
-land.lhs.true.i:                                  ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit.i
   %eof_.i = getelementptr inbounds nuw i8, ptr %this, i64 334
   %6 = load i8, ptr %eof_.i, align 2
   %tobool.i = trunc i8 %6 to i1
-  br i1 %tobool.i, label %_ZN4node6crypto7TLSWrap9ReadStartEv.exit, label %if.then.i
+  %or.cond.i = select i1 %cmp.not.i, i1 true, i1 %tobool.i
+  br i1 %or.cond.i, label %_ZN4node6crypto7TLSWrap9ReadStartEv.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit.i
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %7 = load ptr, ptr %vfn.i, align 8
   %call3.i = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   br label %_ZN4node6crypto7TLSWrap9ReadStartEv.exit
 
-_ZN4node6crypto7TLSWrap9ReadStartEv.exit:         ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit.i, %land.lhs.true.i, %if.then.i
-  %retval.0.i = phi i32 [ %call3.i, %if.then.i ], [ 0, %land.lhs.true.i ], [ 0, %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit.i ]
+_ZN4node6crypto7TLSWrap9ReadStartEv.exit:         ; preds = %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit.i, %if.then.i
+  %retval.0.i = phi i32 [ %call3.i, %if.then.i ], [ 0, %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit.i ]
   ret i32 %retval.0.i
 }
 

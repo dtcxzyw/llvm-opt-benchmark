@@ -1582,24 +1582,22 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction16onDelayedDestroyEb(ptr noundef nonnull align 8 dereferenceable(13) %this, i1 noundef zeroext %delayed) unnamed_addr #2 comdat align 2 {
 entry:
-  br i1 %delayed, label %land.lhs.true, label %if.end
-
-land.lhs.true:                                    ; preds = %entry
+  %delayed.not = xor i1 %delayed, true
   %destroyPending_ = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %destroyPending_, align 4
   %tobool2 = trunc i8 %0 to i1
-  br i1 %tobool2, label %if.end, label %delete.end
+  %or.cond = select i1 %delayed.not, i1 true, i1 %tobool2
+  br i1 %or.cond, label %if.end, label %delete.end
 
-if.end:                                           ; preds = %land.lhs.true, %entry
-  %destroyPending_3 = getelementptr inbounds nuw i8, ptr %this, i64 12
-  store i8 0, ptr %destroyPending_3, align 4
+if.end:                                           ; preds = %entry
+  store i8 0, ptr %destroyPending_, align 4
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(13) %this) #15
   br label %delete.end
 
-delete.end:                                       ; preds = %land.lhs.true, %if.end
+delete.end:                                       ; preds = %entry, %if.end
   ret void
 }
 

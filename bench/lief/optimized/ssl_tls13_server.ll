@@ -3232,20 +3232,18 @@ define internal fastcc i32 @ssl_tls13_offered_psks_check_binder_match(ptr nounde
 12:                                               ; preds = %5
   %switch.tableidx = add nsw i32 %4, -33554436
   %13 = icmp ult i32 %switch.tableidx, 15
-  br i1 %13, label %switch.hole_check, label %14
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 29683, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %13, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %14
 
-14:                                               ; preds = %switch.hole_check, %12
+14:                                               ; preds = %12
   %15 = icmp eq i32 %4, 33554451
   %16 = select i1 %15, i64 64, i64 0
   br label %18
 
-switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 29683, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %14
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %12
   %17 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table.ssl_tls13_offered_psks_check_binder_match.33, i64 0, i64 %17
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -3287,27 +3285,25 @@ switch.lookup:                                    ; preds = %switch.hole_check
 32:                                               ; preds = %30
   %switch.tableidx69 = add nsw i32 %4, -33554436
   %33 = icmp ult i32 %switch.tableidx69, 15
-  br i1 %33, label %switch.hole_check70, label %34
+  %switch.maskindex71 = trunc i32 %switch.tableidx69 to i16
+  %switch.shifted72 = lshr i16 29683, %switch.maskindex71
+  %switch.lobit73 = trunc i16 %switch.shifted72 to i1
+  %or.cond76 = select i1 %33, i1 %switch.lobit73, i1 false
+  br i1 %or.cond76, label %switch.lookup70, label %34
 
-34:                                               ; preds = %switch.hole_check70, %32
+34:                                               ; preds = %32
   %35 = icmp eq i32 %4, 33554451
   %36 = select i1 %35, i64 64, i64 0
   br label %38
 
-switch.hole_check70:                              ; preds = %32
-  %switch.maskindex72 = trunc nuw i32 %switch.tableidx69 to i16
-  %switch.shifted73 = lshr i16 29683, %switch.maskindex72
-  %switch.lobit74 = trunc i16 %switch.shifted73 to i1
-  br i1 %switch.lobit74, label %switch.lookup71, label %34
-
-switch.lookup71:                                  ; preds = %switch.hole_check70
+switch.lookup70:                                  ; preds = %32
   %37 = zext nneg i32 %switch.tableidx69 to i64
-  %switch.gep75 = getelementptr inbounds nuw [15 x i64], ptr @switch.table.ssl_tls13_offered_psks_check_binder_match.33, i64 0, i64 %37
-  %switch.load76 = load i64, ptr %switch.gep75, align 8
+  %switch.gep74 = getelementptr inbounds nuw [15 x i64], ptr @switch.table.ssl_tls13_offered_psks_check_binder_match.33, i64 0, i64 %37
+  %switch.load75 = load i64, ptr %switch.gep74, align 8
   br label %38
 
-38:                                               ; preds = %switch.lookup71, %34, %30
-  %39 = phi i64 [ 16, %30 ], [ %36, %34 ], [ %switch.load76, %switch.lookup71 ]
+38:                                               ; preds = %switch.lookup70, %34, %30
+  %39 = phi i64 [ 16, %30 ], [ %36, %34 ], [ %switch.load75, %switch.lookup70 ]
   %40 = call i32 @mbedtls_ct_memcmp(ptr noundef nonnull %10, ptr noundef %1, i64 noundef %39) #9
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %43, label %42

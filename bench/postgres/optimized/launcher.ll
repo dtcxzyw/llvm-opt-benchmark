@@ -1365,36 +1365,34 @@ define dso_local void @ApplyLauncherRegister() local_unnamed_addr #2 {
   call void @llvm.lifetime.start.p0(i64 1472, ptr nonnull %1) #13
   %2 = load i32, ptr @max_logical_replication_workers, align 4
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %20, label %4
+  %4 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4
+  %5 = trunc nuw i8 %4 to i1
+  %or.cond = select i1 %3, i1 true, i1 %5
+  br i1 %or.cond, label %19, label %6
 
-4:                                                ; preds = %0
-  %5 = load i8, ptr @IsBinaryUpgrade, align 1, !range !4, !noundef !5
-  %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %20, label %7
-
-7:                                                ; preds = %4
+6:                                                ; preds = %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1472) %1, i8 0, i64 1472, i1 false)
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  store i32 3, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 196
-  store i32 2, ptr %9, align 4
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 204
-  %11 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 1024, ptr noundef nonnull @.str.7) #13
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1228
-  %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %12, i64 noundef 96, ptr noundef nonnull @.str.22) #13
-  %14 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 96, ptr noundef nonnull @.str.23) #13
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %16 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %15, i64 noundef 96, ptr noundef nonnull @.str.23) #13
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  store i32 5, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1464
-  store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1328
-  store i64 0, ptr %19, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  store i32 3, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 196
+  store i32 2, ptr %8, align 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 204
+  %10 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef 1024, ptr noundef nonnull @.str.7) #13
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1228
+  %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %11, i64 noundef 96, ptr noundef nonnull @.str.22) #13
+  %13 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 96, ptr noundef nonnull @.str.23) #13
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %15 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %14, i64 noundef 96, ptr noundef nonnull @.str.23) #13
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  store i32 5, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1464
+  store i32 0, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1328
+  store i64 0, ptr %18, align 8
   call void @RegisterBackgroundWorker(ptr noundef nonnull %1) #13
-  br label %20
+  br label %19
 
-20:                                               ; preds = %0, %4, %7
+19:                                               ; preds = %0, %6
   call void @llvm.lifetime.end.p0(i64 1472, ptr nonnull %1) #13
   ret void
 }
@@ -1541,23 +1539,21 @@ declare zeroext i1 @dshash_delete_key(ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @AtEOXact_ApplyLauncher(i1 noundef zeroext %0) local_unnamed_addr #2 {
-  br i1 %0, label %2, label %ApplyLauncherWakeup.exit
+  %.b2 = load i1, ptr @on_commit_launcher_wakeup, align 1
+  %or.cond = select i1 %0, i1 %.b2, i1 false
+  br i1 %or.cond, label %2, label %ApplyLauncherWakeup.exit
 
 2:                                                ; preds = %1
-  %.b1 = load i1, ptr @on_commit_launcher_wakeup, align 1
-  br i1 %.b1, label %3, label %ApplyLauncherWakeup.exit
+  %3 = load ptr, ptr @LogicalRepCtx, align 8
+  %4 = load i32, ptr %3, align 8
+  %.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i, label %ApplyLauncherWakeup.exit, label %5
 
-3:                                                ; preds = %2
-  %4 = load ptr, ptr @LogicalRepCtx, align 8
-  %5 = load i32, ptr %4, align 8
-  %.not.i = icmp eq i32 %5, 0
-  br i1 %.not.i, label %ApplyLauncherWakeup.exit, label %6
-
-6:                                                ; preds = %3
-  %7 = tail call i32 @kill(i32 noundef %5, i32 noundef 10) #13
+5:                                                ; preds = %2
+  %6 = tail call i32 @kill(i32 noundef %4, i32 noundef 10) #13
   br label %ApplyLauncherWakeup.exit
 
-ApplyLauncherWakeup.exit:                         ; preds = %6, %3, %2, %1
+ApplyLauncherWakeup.exit:                         ; preds = %5, %2, %1
   store i1 false, ptr @on_commit_launcher_wakeup, align 1
   ret void
 }

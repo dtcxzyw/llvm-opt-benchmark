@@ -317,19 +317,22 @@ define internal noundef i32 @dissect_dvmrp(ptr noundef %0, ptr noundef %1, ptr n
 14:                                               ; preds = %4
   %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 6)
   %16 = icmp eq i8 %15, -1
-  br i1 %16, label %17, label %20
+  br i1 %16, label %17, label %22
 
 17:                                               ; preds = %14
   %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 7)
-  %19 = icmp eq i8 %18, 3
-  br i1 %19, label %23, label %20
+  %19 = icmp ne i8 %18, 3
+  %20 = load i8, ptr @strict_v3, align 1, !range !6
+  %21 = trunc nuw i8 %20 to i1
+  %or.cond = select i1 %19, i1 %21, i1 false
+  br i1 %or.cond, label %193, label %23
 
-20:                                               ; preds = %17, %14
-  %21 = load i8, ptr @strict_v3, align 1, !range !6, !noundef !7
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %193, label %23
+22:                                               ; preds = %14
+  %.old = load i8, ptr @strict_v3, align 1, !range !6, !noundef !7
+  %.old1 = trunc nuw i8 %.old to i1
+  br i1 %.old1, label %193, label %23
 
-23:                                               ; preds = %20, %17
+23:                                               ; preds = %22, %17
   %24 = load i32, ptr @hf_version, align 4
   %25 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 3)
   %26 = load i32, ptr @hf_type, align 4
@@ -588,7 +591,7 @@ dissect_v3_report.exit.sink.split.i:              ; preds = %140, %133, %124
   %192 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %191, ptr noundef %0, i32 noundef %.sink169.i, i32 noundef 4, i32 noundef 0)
   br label %dissect_dvmrp_v3.exit
 
-193:                                              ; preds = %20, %4
+193:                                              ; preds = %17, %22, %4
   %194 = load i32, ptr @hf_version, align 4
   %195 = tail call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %194, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 1)
   %196 = load i32, ptr @hf_type, align 4
@@ -805,7 +808,7 @@ dissect_v3_report.exit.sink.split.i:              ; preds = %140, %133, %124
   br i1 %.not175.i, label %._crit_edge195.i, label %.lr.ph194.i, !llvm.loop !15
 
 ._crit_edge195.i:                                 ; preds = %.lr.ph194.i, %298
-  %.3.lcssa.i21 = phi i32 [ %303, %298 ], [ %310, %.lr.ph194.i ]
+  %.3.lcssa.i22 = phi i32 [ %303, %298 ], [ %310, %.lr.ph194.i ]
   %.not176.i = icmp eq ptr %209, null
   br i1 %.not176.i, label %325, label %311
 
@@ -821,20 +824,20 @@ dissect_v3_report.exit.sink.split.i:              ; preds = %140, %133, %124
   %317 = tail call ptr @proto_tree_add_uint(ptr noundef %211, i32 noundef %315, ptr noundef %0, i32 noundef %216, i32 noundef 1, i32 noundef %316)
   %318 = add i32 %.0204.i, 2
   %.not187.i = icmp eq i8 %314, 0
-  br i1 %.not187.i, label %._crit_edge.i, label %.lr.ph.i20
+  br i1 %.not187.i, label %._crit_edge.i, label %.lr.ph.i21
 
-.lr.ph.i20:                                       ; preds = %313, %.lr.ph.i20
-  %.4189.i = phi i32 [ %322, %.lr.ph.i20 ], [ %318, %313 ]
-  %.2161188.i = phi i8 [ %319, %.lr.ph.i20 ], [ %314, %313 ]
+.lr.ph.i21:                                       ; preds = %313, %.lr.ph.i21
+  %.4189.i = phi i32 [ %322, %.lr.ph.i21 ], [ %318, %313 ]
+  %.2161188.i = phi i8 [ %319, %.lr.ph.i21 ], [ %314, %313 ]
   %319 = add i8 %.2161188.i, -1
   %320 = load i32, ptr @hf_maddr, align 4
   %321 = tail call ptr @proto_tree_add_item(ptr noundef %211, i32 noundef %320, ptr noundef %0, i32 noundef %.4189.i, i32 noundef 4, i32 noundef 0)
   %322 = add i32 %.4189.i, 4
   %.not.i = icmp eq i8 %319, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i20, !llvm.loop !16
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i21, !llvm.loop !16
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i20, %313
-  %.4.lcssa.i = phi i32 [ %318, %313 ], [ %322, %.lr.ph.i20 ]
+._crit_edge.i:                                    ; preds = %.lr.ph.i21, %313
+  %.4.lcssa.i = phi i32 [ %318, %313 ], [ %322, %.lr.ph.i21 ]
   %.not174.i = icmp eq ptr %209, null
   br i1 %.not174.i, label %325, label %323
 
@@ -844,15 +847,15 @@ dissect_v3_report.exit.sink.split.i:              ; preds = %140, %133, %124
   br label %325
 
 325:                                              ; preds = %323, %._crit_edge.i, %311, %._crit_edge195.i, %296, %._crit_edge202.i, %284, %275, %263, %254, %253, %251, %226, %220, %219, %217, %.lr.ph206.i
-  %.1.i = phi i32 [ %216, %.lr.ph206.i ], [ %.4.lcssa.i, %323 ], [ %.4.lcssa.i, %._crit_edge.i ], [ %.3.lcssa.i21, %311 ], [ %.3.lcssa.i21, %._crit_edge195.i ], [ %.2.lcssa.i, %296 ], [ %.2.lcssa.i, %._crit_edge202.i ], [ %285, %284 ], [ %276, %275 ], [ %264, %263 ], [ %252, %251 ], [ %234, %254 ], [ %234, %253 ], [ %225, %226 ], [ %225, %220 ], [ %218, %219 ], [ %218, %217 ]
+  %.1.i = phi i32 [ %216, %.lr.ph206.i ], [ %.4.lcssa.i, %323 ], [ %.4.lcssa.i, %._crit_edge.i ], [ %.3.lcssa.i22, %311 ], [ %.3.lcssa.i22, %._crit_edge195.i ], [ %.2.lcssa.i, %296 ], [ %.2.lcssa.i, %._crit_edge202.i ], [ %285, %284 ], [ %276, %275 ], [ %264, %263 ], [ %252, %251 ], [ %234, %254 ], [ %234, %253 ], [ %225, %226 ], [ %225, %220 ], [ %218, %219 ], [ %218, %217 ]
   %326 = sub i32 %.1.i, %.0204.i
   tail call void @proto_item_set_len(ptr noundef %209, i32 noundef %326)
   %327 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i)
   %328 = icmp sgt i32 %327, 0
   br i1 %328, label %.lr.ph206.i, label %dissect_dvmrp_v3.exit, !llvm.loop !17
 
-dissect_dvmrp_v3.exit:                            ; preds = %325, %.loopexit.i, %120, %.lr.ph159.i, %193, %dissect_v3_report.exit.sink.split.i, %140, %133, %124, %59, %49, %.preheader.i, %42
-  %.0 = phi i32 [ 8, %42 ], [ 16, %140 ], [ 16, %133 ], [ 20, %124 ], [ 8, %59 ], [ 12, %49 ], [ 8, %.preheader.i ], [ %.0.ph.i, %dissect_v3_report.exit.sink.split.i ], [ 4, %193 ], [ %56, %.lr.ph159.i ], [ %119, %120 ], [ %.3.lcssa.i, %.loopexit.i ], [ %.1.i, %325 ]
+dissect_dvmrp_v3.exit:                            ; preds = %.loopexit.i, %120, %.lr.ph159.i, %325, %193, %dissect_v3_report.exit.sink.split.i, %140, %133, %124, %59, %49, %.preheader.i, %42
+  %.0 = phi i32 [ 8, %42 ], [ 16, %140 ], [ 16, %133 ], [ 20, %124 ], [ 8, %59 ], [ 12, %49 ], [ 8, %.preheader.i ], [ %.0.ph.i, %dissect_v3_report.exit.sink.split.i ], [ 4, %193 ], [ %.1.i, %325 ], [ %56, %.lr.ph159.i ], [ %119, %120 ], [ %.3.lcssa.i, %.loopexit.i ]
   tail call void @proto_item_set_len(ptr noundef %9, i32 noundef %.0)
   ret i32 %.0
 }

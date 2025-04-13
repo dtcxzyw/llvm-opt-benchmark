@@ -829,30 +829,30 @@ proto_item_set_generated.exit:                    ; preds = %14, %24, %27
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %45, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648)
   %47 = load i32, ptr @hf_usb_com_control_length, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %47, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648)
-  br label %proto_item_set_generated.exit118
+  br label %proto_item_set_generated.exit117
 
 49:                                               ; preds = %proto_item_set_generated.exit
   %50 = load i32, ptr @hf_usb_com_control_response_code, align 4
   %51 = load i8, ptr %35, align 1
   %52 = zext i8 %51 to i32
   %53 = tail call ptr @proto_tree_add_uint(ptr noundef %13, i32 noundef %50, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %52)
-  %.not.i116 = icmp eq ptr %53, null
-  br i1 %.not.i116, label %proto_item_set_generated.exit118, label %54
+  %.not.i115 = icmp eq ptr %53, null
+  br i1 %.not.i115, label %proto_item_set_generated.exit117, label %54
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %56 = load ptr, ptr %55, align 8
-  %.not5.i117 = icmp eq ptr %56, null
-  br i1 %.not5.i117, label %proto_item_set_generated.exit118, label %57
+  %.not5.i116 = icmp eq ptr %56, null
+  br i1 %.not5.i116, label %proto_item_set_generated.exit117, label %57
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %59 = load i32, ptr %58, align 4
   %60 = or i32 %59, 2
   store i32 %60, ptr %58, align 4
-  br label %proto_item_set_generated.exit118
+  br label %proto_item_set_generated.exit117
 
-proto_item_set_generated.exit118:                 ; preds = %57, %54, %49, %40
+proto_item_set_generated.exit117:                 ; preds = %57, %54, %49, %40
   %.1 = phi i32 [ 7, %40 ], [ 0, %49 ], [ 0, %54 ], [ 0, %57 ]
   %61 = load i8, ptr %35, align 1
   switch i8 %61, label %130 [
@@ -871,13 +871,13 @@ proto_item_set_generated.exit118:                 ; preds = %57, %54, %49, %40
     i8 -118, label %125
   ]
 
-62:                                               ; preds = %proto_item_set_generated.exit118
+62:                                               ; preds = %proto_item_set_generated.exit117
   %63 = load ptr, ptr %18, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 6
   %65 = load i16, ptr %64, align 2
   %66 = icmp eq i16 %65, 14
-  %brmerge.not = select i1 %66, i1 %33, i1 false
-  br i1 %brmerge.not, label %67, label %130
+  %or.cond = select i1 %66, i1 %33, i1 false
+  br i1 %or.cond, label %67, label %130
 
 67:                                               ; preds = %62
   %68 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1)
@@ -886,13 +886,13 @@ proto_item_set_generated.exit118:                 ; preds = %57, %54, %49, %40
   %71 = add i32 %70, %.1
   br label %130
 
-72:                                               ; preds = %proto_item_set_generated.exit118
+72:                                               ; preds = %proto_item_set_generated.exit117
   %73 = load ptr, ptr %18, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 6
   %75 = load i16, ptr %74, align 2
   %76 = icmp ne i16 %75, 14
-  %brmerge115 = select i1 %76, i1 true, i1 %33
-  br i1 %brmerge115, label %130, label %77
+  %or.cond3 = select i1 %76, i1 true, i1 %33
+  br i1 %or.cond3, label %130, label %77
 
 77:                                               ; preds = %72
   %78 = load ptr, ptr @mbim_control_handle, align 8
@@ -900,14 +900,14 @@ proto_item_set_generated.exit118:                 ; preds = %57, %54, %49, %40
   %80 = add i32 %79, %.1
   br label %130
 
-81:                                               ; preds = %proto_item_set_generated.exit118
+81:                                               ; preds = %proto_item_set_generated.exit117
   br i1 %33, label %130, label %82
 
 82:                                               ; preds = %81
   %83 = tail call fastcc i32 @dissect_usb_com_get_ntb_params(ptr noundef %0, ptr noundef %13, i32 noundef %.1)
   br label %130
 
-84:                                               ; preds = %proto_item_set_generated.exit118
+84:                                               ; preds = %proto_item_set_generated.exit117
   br i1 %33, label %130, label %85
 
 85:                                               ; preds = %84
@@ -916,7 +916,7 @@ proto_item_set_generated.exit118:                 ; preds = %57, %54, %49, %40
   %88 = add nuw nsw i32 %.1, 6
   br label %130
 
-89:                                               ; preds = %proto_item_set_generated.exit118
+89:                                               ; preds = %proto_item_set_generated.exit117
   br i1 %33, label %90, label %130
 
 90:                                               ; preds = %89
@@ -925,7 +925,7 @@ proto_item_set_generated.exit118:                 ; preds = %57, %54, %49, %40
   %93 = add nuw nsw i32 %.1, 6
   br label %130
 
-94:                                               ; preds = %proto_item_set_generated.exit118
+94:                                               ; preds = %proto_item_set_generated.exit117
   br i1 %33, label %130, label %95
 
 95:                                               ; preds = %94
@@ -934,7 +934,7 @@ proto_item_set_generated.exit118:                 ; preds = %57, %54, %49, %40
   %98 = add nuw nsw i32 %.1, 2
   br label %130
 
-99:                                               ; preds = %proto_item_set_generated.exit118
+99:                                               ; preds = %proto_item_set_generated.exit117
   br i1 %33, label %100, label %130
 
 100:                                              ; preds = %99
@@ -943,21 +943,21 @@ proto_item_set_generated.exit118:                 ; preds = %57, %54, %49, %40
   %103 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %101, ptr noundef %0, i32 noundef %102, i32 noundef 2, i32 noundef -2147483648)
   br label %130
 
-104:                                              ; preds = %proto_item_set_generated.exit118
+104:                                              ; preds = %proto_item_set_generated.exit117
   br i1 %33, label %130, label %105
 
 105:                                              ; preds = %104
   %106 = tail call fastcc i32 @dissect_usb_com_ntb_input_size(ptr noundef %0, ptr noundef %13, i32 noundef %.1, i1 noundef zeroext false)
   br label %130
 
-107:                                              ; preds = %proto_item_set_generated.exit118
+107:                                              ; preds = %proto_item_set_generated.exit117
   br i1 %33, label %130, label %108
 
 108:                                              ; preds = %107
   %109 = tail call fastcc i32 @dissect_usb_com_ntb_input_size(ptr noundef %0, ptr noundef %13, i32 noundef %.1, i1 noundef zeroext true)
   br label %130
 
-110:                                              ; preds = %proto_item_set_generated.exit118
+110:                                              ; preds = %proto_item_set_generated.exit117
   br i1 %33, label %130, label %111
 
 111:                                              ; preds = %110
@@ -966,7 +966,7 @@ proto_item_set_generated.exit118:                 ; preds = %57, %54, %49, %40
   %114 = add nuw nsw i32 %.1, 2
   br label %130
 
-115:                                              ; preds = %proto_item_set_generated.exit118
+115:                                              ; preds = %proto_item_set_generated.exit117
   br i1 %33, label %116, label %130
 
 116:                                              ; preds = %115
@@ -975,7 +975,7 @@ proto_item_set_generated.exit118:                 ; preds = %57, %54, %49, %40
   %119 = add nuw nsw i32 %.1, 2
   br label %130
 
-120:                                              ; preds = %proto_item_set_generated.exit118
+120:                                              ; preds = %proto_item_set_generated.exit117
   br i1 %33, label %130, label %121
 
 121:                                              ; preds = %120
@@ -984,7 +984,7 @@ proto_item_set_generated.exit118:                 ; preds = %57, %54, %49, %40
   %124 = add nuw nsw i32 %.1, 2
   br label %130
 
-125:                                              ; preds = %proto_item_set_generated.exit118
+125:                                              ; preds = %proto_item_set_generated.exit117
   br i1 %33, label %126, label %130
 
 126:                                              ; preds = %125
@@ -993,15 +993,15 @@ proto_item_set_generated.exit118:                 ; preds = %57, %54, %49, %40
   %129 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %127, ptr noundef %0, i32 noundef %128, i32 noundef 2, i32 noundef -2147483648)
   br label %130
 
-130:                                              ; preds = %72, %62, %67, %77, %82, %81, %85, %84, %90, %89, %95, %94, %100, %99, %105, %104, %108, %107, %111, %110, %116, %115, %121, %120, %126, %125, %proto_item_set_generated.exit118, %7
-  %.0110 = phi i32 [ %.1, %proto_item_set_generated.exit118 ], [ %.1, %126 ], [ %.1, %125 ], [ %.1, %120 ], [ %124, %121 ], [ %119, %116 ], [ %.1, %115 ], [ %.1, %110 ], [ %114, %111 ], [ %.1, %107 ], [ %109, %108 ], [ %.1, %104 ], [ %106, %105 ], [ %.1, %100 ], [ %.1, %99 ], [ %.1, %94 ], [ %98, %95 ], [ %93, %90 ], [ %.1, %89 ], [ %.1, %84 ], [ %88, %85 ], [ %.1, %81 ], [ %83, %82 ], [ %80, %77 ], [ %.1, %72 ], [ %71, %67 ], [ %.1, %62 ], [ 0, %7 ]
-  %131 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0110)
+130:                                              ; preds = %67, %62, %77, %72, %82, %81, %85, %84, %90, %89, %95, %94, %100, %99, %105, %104, %108, %107, %111, %110, %116, %115, %121, %120, %126, %125, %proto_item_set_generated.exit117, %7
+  %.0113 = phi i32 [ %.1, %proto_item_set_generated.exit117 ], [ %.1, %126 ], [ %.1, %125 ], [ %.1, %120 ], [ %124, %121 ], [ %119, %116 ], [ %.1, %115 ], [ %.1, %110 ], [ %114, %111 ], [ %.1, %107 ], [ %109, %108 ], [ %.1, %104 ], [ %106, %105 ], [ %.1, %100 ], [ %.1, %99 ], [ %.1, %94 ], [ %98, %95 ], [ %93, %90 ], [ %.1, %89 ], [ %.1, %84 ], [ %88, %85 ], [ %.1, %81 ], [ %83, %82 ], [ %.1, %72 ], [ %80, %77 ], [ %71, %67 ], [ %.1, %62 ], [ 0, %7 ]
+  %131 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0113)
   %132 = icmp sgt i32 %131, 0
   br i1 %132, label %133, label %136
 
 133:                                              ; preds = %130
   %134 = load i32, ptr @hf_usb_com_control_payload, align 4
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %134, ptr noundef %0, i32 noundef %.0110, i32 noundef -1, i32 noundef 0)
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %134, ptr noundef %0, i32 noundef %.0113, i32 noundef -1, i32 noundef 0)
   br label %136
 
 136:                                              ; preds = %133, %130

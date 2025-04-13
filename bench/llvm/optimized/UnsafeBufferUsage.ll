@@ -6852,7 +6852,7 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit59: ; preds = %50, %_ZNK4l
   %.val = load ptr, ptr %103, align 8, !tbaa !111
   %104 = call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val) #28
   %105 = call i32 @_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE(i32 %104, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(696) %89, ptr noundef nonnull align 8 dereferenceable(849) %91) #27
-  %.not.not.i67.not = icmp eq i32 %105, 0
+  %.not.not.i67 = icmp ne i32 %105, 0
   %106 = load ptr, ptr %92, align 8, !tbaa !778
   %107 = load i32, ptr %106, align 8
   %108 = and i32 %107, 15728640
@@ -6873,9 +6873,9 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit59: ; preds = %50, %_ZNK4l
 _ZL10getPastLocIN5clang13UnaryOperatorEESt8optionalINS0_14SourceLocationEEPKT_RKNS0_13SourceManagerERKNS0_11LangOptionsE.exit: ; preds = %110, %112
   %.sroa.0.0.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i, %110 ], [ %115, %112 ]
   %116 = call i32 @_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE(i32 %.sroa.0.0.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(696) %89, ptr noundef nonnull align 8 dereferenceable(849) %91) #27
-  %.not.not.i69.not = icmp eq i32 %116, 0
-  %or.cond = select i1 %.not.not.i67.not, i1 true, i1 %.not.not.i69.not
-  br i1 %or.cond, label %117, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE7reserveEm.exit.i
+  %.not.not.i69 = icmp ne i32 %116, 0
+  %or.cond = select i1 %.not.not.i67, i1 %.not.not.i69, i1 false
+  br i1 %or.cond, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE7reserveEm.exit.i, label %117
 
 117:                                              ; preds = %_ZL10getPastLocIN5clang13UnaryOperatorEESt8optionalINS0_14SourceLocationEEPKT_RKNS0_13SourceManagerERKNS0_11LangOptionsE.exit
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 272

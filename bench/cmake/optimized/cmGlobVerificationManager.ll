@@ -1342,47 +1342,45 @@ define dso_local void @_ZN25cmGlobVerificationManager13CacheEntryKey16PrintGlobC
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.24, i64 noundef 1)
   %15 = load i8, ptr %0, align 8, !tbaa !75, !range !62, !noundef !63
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %23
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %18 = load i8, ptr %17, align 2, !range !62
+  %19 = trunc nuw i8 %18 to i1
+  %or.cond = select i1 %16, i1 %19, i1 false
+  br i1 %or.cond, label %20, label %22
 
-17:                                               ; preds = %3
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %19 = load i8, ptr %18, align 2, !tbaa !77, !range !62, !noundef !63
-  %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %21, label %23
+20:                                               ; preds = %3
+  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.25, i64 noundef 16)
+  br label %22
 
-21:                                               ; preds = %17
-  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.25, i64 noundef 16)
-  br label %23
+22:                                               ; preds = %20, %3
+  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.26, i64 noundef 17)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %25 = load i8, ptr %24, align 1, !tbaa !77, !range !62, !noundef !63
+  %26 = trunc nuw i8 %25 to i1
+  %27 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %26)
+  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull @.str.24, i64 noundef 1)
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = load i64, ptr %29, align 8, !tbaa !20
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %39, label %32
 
-23:                                               ; preds = %21, %17, %3
-  %24 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.26, i64 noundef 17)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !78, !range !62, !noundef !63
-  %27 = trunc nuw i8 %26 to i1
-  %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIbEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %27)
-  %29 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull @.str.24, i64 noundef 1)
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load i64, ptr %30, align 8, !tbaa !20
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %40, label %33
+32:                                               ; preds = %22
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.27, i64 noundef 10)
+  %35 = load ptr, ptr %33, align 8, !tbaa !16
+  %36 = load i64, ptr %29, align 8, !tbaa !20
+  %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %35, i64 noundef %36)
+  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @.str.28, i64 noundef 2)
+  br label %39
 
-33:                                               ; preds = %23
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.27, i64 noundef 10)
-  %36 = load ptr, ptr %34, align 8, !tbaa !16
-  %37 = load i64, ptr %30, align 8, !tbaa !20
-  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %36, i64 noundef %37)
-  %39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.28, i64 noundef 2)
-  br label %40
-
-40:                                               ; preds = %33, %23
-  %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.29, i64 noundef 1)
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %43 = load ptr, ptr %42, align 8, !tbaa !16
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %45 = load i64, ptr %44, align 8, !tbaa !20
-  %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %43, i64 noundef %45)
-  %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull @.str.30, i64 noundef 2)
+39:                                               ; preds = %32, %22
+  %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.29, i64 noundef 1)
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %42 = load ptr, ptr %41, align 8, !tbaa !16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %44 = load i64, ptr %43, align 8, !tbaa !20
+  %45 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %42, i64 noundef %44)
+  %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull @.str.30, i64 noundef 2)
   ret void
 }
 
@@ -1525,9 +1523,9 @@ define dso_local noundef zeroext i1 @_ZNK25cmGlobVerificationManager13CacheEntry
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %10 = load i8, ptr %9, align 1, !tbaa !78, !range !62, !noundef !63
+  %10 = load i8, ptr %9, align 1, !tbaa !77, !range !62, !noundef !63
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %12 = load i8, ptr %11, align 1, !tbaa !78, !range !62, !noundef !63
+  %12 = load i8, ptr %11, align 1, !tbaa !77, !range !62, !noundef !63
   %13 = icmp samesign ult i8 %10, %12
   br i1 %13, label %36, label %14
 
@@ -1537,9 +1535,9 @@ define dso_local noundef zeroext i1 @_ZNK25cmGlobVerificationManager13CacheEntry
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %18 = load i8, ptr %17, align 2, !tbaa !77, !range !62, !noundef !63
+  %18 = load i8, ptr %17, align 2, !tbaa !78, !range !62, !noundef !63
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %20 = load i8, ptr %19, align 2, !tbaa !77, !range !62, !noundef !63
+  %20 = load i8, ptr %19, align 2, !tbaa !78, !range !62, !noundef !63
   %21 = icmp samesign ult i8 %18, %20
   br i1 %21, label %36, label %22
 
@@ -1736,9 +1734,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
   store i8 %13, ptr %8, align 8, !tbaa !75
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store i8 %15, ptr %51, align 1, !tbaa !78
+  store i8 %15, ptr %51, align 1, !tbaa !77
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store i8 %17, ptr %52, align 2, !tbaa !77
+  store i8 %17, ptr %52, align 2, !tbaa !78
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %54, ptr %53, align 8, !tbaa !33
@@ -2187,9 +2185,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(56) ptr @_
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %19 = load i8, ptr %18, align 1, !tbaa !78, !range !62, !noundef !63
+  %19 = load i8, ptr %18, align 1, !tbaa !77, !range !62, !noundef !63
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  %21 = load i8, ptr %20, align 1, !tbaa !78, !range !62, !noundef !63
+  %21 = load i8, ptr %20, align 1, !tbaa !77, !range !62, !noundef !63
   %22 = icmp samesign ult i8 %19, %21
   br i1 %22, label %.critedge, label %23
 
@@ -2199,9 +2197,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(56) ptr @_
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %27 = load i8, ptr %26, align 2, !tbaa !77, !range !62, !noundef !63
+  %27 = load i8, ptr %26, align 2, !tbaa !78, !range !62, !noundef !63
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 34
-  %29 = load i8, ptr %28, align 2, !tbaa !77, !range !62, !noundef !63
+  %29 = load i8, ptr %28, align 2, !tbaa !78, !range !62, !noundef !63
   %30 = icmp samesign ult i8 %27, %29
   br i1 %30, label %.critedge, label %31
 
@@ -3501,7 +3499,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN25cmGlobVerificationManager13
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %.053, i64 33
-  %26 = load i8, ptr %25, align 1, !tbaa !78, !range !62, !noundef !63
+  %26 = load i8, ptr %25, align 1, !tbaa !77, !range !62, !noundef !63
   %27 = icmp samesign ult i8 %26, %7
   br i1 %27, label %61, label %28
 
@@ -3511,7 +3509,7 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN25cmGlobVerificationManager13
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %.053, i64 34
-  %32 = load i8, ptr %31, align 2, !tbaa !77, !range !62, !noundef !63
+  %32 = load i8, ptr %31, align 2, !tbaa !78, !range !62, !noundef !63
   %33 = icmp samesign ult i8 %32, %9
   br i1 %33, label %61, label %34
 
@@ -3627,9 +3625,9 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN25cmGlobVerification
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 33
-  %20 = load i8, ptr %19, align 1, !tbaa !78, !range !62, !noundef !63
+  %20 = load i8, ptr %19, align 1, !tbaa !77, !range !62, !noundef !63
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %22 = load i8, ptr %21, align 1, !tbaa !78, !range !62, !noundef !63
+  %22 = load i8, ptr %21, align 1, !tbaa !77, !range !62, !noundef !63
   %23 = icmp samesign ult i8 %20, %22
   br i1 %23, label %46, label %24
 
@@ -3639,9 +3637,9 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN25cmGlobVerification
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 34
-  %28 = load i8, ptr %27, align 2, !tbaa !77, !range !62, !noundef !63
+  %28 = load i8, ptr %27, align 2, !tbaa !78, !range !62, !noundef !63
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %30 = load i8, ptr %29, align 2, !tbaa !77, !range !62, !noundef !63
+  %30 = load i8, ptr %29, align 2, !tbaa !78, !range !62, !noundef !63
   %31 = icmp samesign ult i8 %28, %30
   br i1 %31, label %46, label %32
 
@@ -3692,9 +3690,9 @@ _ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit: ; pre
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %60 = load i8, ptr %59, align 1, !tbaa !78, !range !62, !noundef !63
+  %60 = load i8, ptr %59, align 1, !tbaa !77, !range !62, !noundef !63
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %62 = load i8, ptr %61, align 1, !tbaa !78, !range !62, !noundef !63
+  %62 = load i8, ptr %61, align 1, !tbaa !77, !range !62, !noundef !63
   %63 = icmp samesign ult i8 %60, %62
   br i1 %63, label %86, label %64
 
@@ -3704,9 +3702,9 @@ _ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit: ; pre
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %68 = load i8, ptr %67, align 2, !tbaa !77, !range !62, !noundef !63
+  %68 = load i8, ptr %67, align 2, !tbaa !78, !range !62, !noundef !63
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %70 = load i8, ptr %69, align 2, !tbaa !77, !range !62, !noundef !63
+  %70 = load i8, ptr %69, align 2, !tbaa !78, !range !62, !noundef !63
   %71 = icmp samesign ult i8 %68, %70
   br i1 %71, label %86, label %72
 
@@ -3754,9 +3752,9 @@ _ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit: ; pre
 
 98:                                               ; preds = %96
   %99 = getelementptr inbounds nuw i8, ptr %91, i64 33
-  %100 = load i8, ptr %99, align 1, !tbaa !78, !range !62, !noundef !63
+  %100 = load i8, ptr %99, align 1, !tbaa !77, !range !62, !noundef !63
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %102 = load i8, ptr %101, align 1, !tbaa !78, !range !62, !noundef !63
+  %102 = load i8, ptr %101, align 1, !tbaa !77, !range !62, !noundef !63
   %103 = icmp samesign ult i8 %100, %102
   br i1 %103, label %126, label %104
 
@@ -3766,9 +3764,9 @@ _ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit: ; pre
 
 106:                                              ; preds = %104
   %107 = getelementptr inbounds nuw i8, ptr %91, i64 34
-  %108 = load i8, ptr %107, align 2, !tbaa !77, !range !62, !noundef !63
+  %108 = load i8, ptr %107, align 2, !tbaa !78, !range !62, !noundef !63
   %109 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %110 = load i8, ptr %109, align 2, !tbaa !77, !range !62, !noundef !63
+  %110 = load i8, ptr %109, align 2, !tbaa !78, !range !62, !noundef !63
   %111 = icmp samesign ult i8 %108, %110
   br i1 %111, label %126, label %112
 
@@ -3822,9 +3820,9 @@ _ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit11: ; p
 
 138:                                              ; preds = %136
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %140 = load i8, ptr %139, align 1, !tbaa !78, !range !62, !noundef !63
+  %140 = load i8, ptr %139, align 1, !tbaa !77, !range !62, !noundef !63
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %142 = load i8, ptr %141, align 1, !tbaa !78, !range !62, !noundef !63
+  %142 = load i8, ptr %141, align 1, !tbaa !77, !range !62, !noundef !63
   %143 = icmp samesign ult i8 %140, %142
   br i1 %143, label %166, label %144
 
@@ -3834,9 +3832,9 @@ _ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit11: ; p
 
 146:                                              ; preds = %144
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %148 = load i8, ptr %147, align 2, !tbaa !77, !range !62, !noundef !63
+  %148 = load i8, ptr %147, align 2, !tbaa !78, !range !62, !noundef !63
   %149 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %150 = load i8, ptr %149, align 2, !tbaa !77, !range !62, !noundef !63
+  %150 = load i8, ptr %149, align 2, !tbaa !78, !range !62, !noundef !63
   %151 = icmp samesign ult i8 %148, %150
   br i1 %151, label %166, label %152
 
@@ -3884,9 +3882,9 @@ _ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit11: ; p
 
 178:                                              ; preds = %176
   %179 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %180 = load i8, ptr %179, align 1, !tbaa !78, !range !62, !noundef !63
+  %180 = load i8, ptr %179, align 1, !tbaa !77, !range !62, !noundef !63
   %181 = getelementptr inbounds nuw i8, ptr %171, i64 33
-  %182 = load i8, ptr %181, align 1, !tbaa !78, !range !62, !noundef !63
+  %182 = load i8, ptr %181, align 1, !tbaa !77, !range !62, !noundef !63
   %183 = icmp samesign ult i8 %180, %182
   br i1 %183, label %206, label %184
 
@@ -3896,9 +3894,9 @@ _ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit11: ; p
 
 186:                                              ; preds = %184
   %187 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %188 = load i8, ptr %187, align 2, !tbaa !77, !range !62, !noundef !63
+  %188 = load i8, ptr %187, align 2, !tbaa !78, !range !62, !noundef !63
   %189 = getelementptr inbounds nuw i8, ptr %171, i64 34
-  %190 = load i8, ptr %189, align 2, !tbaa !77, !range !62, !noundef !63
+  %190 = load i8, ptr %189, align 2, !tbaa !78, !range !62, !noundef !63
   %191 = icmp samesign ult i8 %188, %190
   br i1 %191, label %206, label %192
 
@@ -4006,7 +4004,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN25cmGlobVerification
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %.04969, i64 33
-  %26 = load i8, ptr %25, align 1, !tbaa !78, !range !62, !noundef !63
+  %26 = load i8, ptr %25, align 1, !tbaa !77, !range !62, !noundef !63
   %27 = icmp samesign ult i8 %7, %26
   br i1 %27, label %61, label %28
 
@@ -4016,7 +4014,7 @@ define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN25cmGlobVerification
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %.04969, i64 34
-  %32 = load i8, ptr %31, align 2, !tbaa !77, !range !62, !noundef !63
+  %32 = load i8, ptr %31, align 2, !tbaa !78, !range !62, !noundef !63
   %33 = icmp samesign ult i8 %9, %32
   br i1 %33, label %61, label %34
 
@@ -4129,9 +4127,9 @@ _ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit: ; pre
 
 75:                                               ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.034.0, i64 33
-  %77 = load i8, ptr %76, align 1, !tbaa !78, !range !62, !noundef !63
+  %77 = load i8, ptr %76, align 1, !tbaa !77, !range !62, !noundef !63
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %79 = load i8, ptr %78, align 1, !tbaa !78, !range !62, !noundef !63
+  %79 = load i8, ptr %78, align 1, !tbaa !77, !range !62, !noundef !63
   %80 = icmp samesign ult i8 %77, %79
   br i1 %80, label %_ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit6, label %81
 
@@ -4141,9 +4139,9 @@ _ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit: ; pre
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.034.0, i64 34
-  %85 = load i8, ptr %84, align 2, !tbaa !77, !range !62, !noundef !63
+  %85 = load i8, ptr %84, align 2, !tbaa !78, !range !62, !noundef !63
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %87 = load i8, ptr %86, align 2, !tbaa !77, !range !62, !noundef !63
+  %87 = load i8, ptr %86, align 2, !tbaa !78, !range !62, !noundef !63
   %88 = icmp samesign ult i8 %85, %87
   br i1 %88, label %_ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit6, label %89
 
@@ -4204,9 +4202,9 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN25cmGlobVerificationManager13
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  %17 = load i8, ptr %16, align 1, !tbaa !78, !range !62, !noundef !63
+  %17 = load i8, ptr %16, align 1, !tbaa !77, !range !62, !noundef !63
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 33
-  %19 = load i8, ptr %18, align 1, !tbaa !78, !range !62, !noundef !63
+  %19 = load i8, ptr %18, align 1, !tbaa !77, !range !62, !noundef !63
   %20 = icmp samesign ult i8 %17, %19
   br i1 %20, label %_ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit, label %21
 
@@ -4216,9 +4214,9 @@ define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN25cmGlobVerificationManager13
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 34
-  %25 = load i8, ptr %24, align 2, !tbaa !77, !range !62, !noundef !63
+  %25 = load i8, ptr %24, align 2, !tbaa !78, !range !62, !noundef !63
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 34
-  %27 = load i8, ptr %26, align 2, !tbaa !77, !range !62, !noundef !63
+  %27 = load i8, ptr %26, align 2, !tbaa !78, !range !62, !noundef !63
   %28 = icmp samesign ult i8 %25, %27
   br i1 %28, label %_ZNKSt4lessIN25cmGlobVerificationManager13CacheEntryKeyEEclERKS1_S4_.exit, label %29
 
@@ -5821,8 +5819,8 @@ attributes #29 = { noreturn nounwind }
 !74 = !{!60, !61, i64 16}
 !75 = !{!76, !52, i64 0}
 !76 = !{!"_ZTSN25cmGlobVerificationManager13CacheEntryKeyE", !52, i64 0, !52, i64 1, !52, i64 2, !17, i64 8, !17, i64 40}
-!77 = !{!76, !52, i64 2}
-!78 = !{!76, !52, i64 1}
+!77 = !{!76, !52, i64 1}
+!78 = !{!76, !52, i64 2}
 !79 = !{!80, !52, i64 0}
 !80 = !{!"_ZTS16cmGlobCacheEntry", !52, i64 0, !52, i64 1, !52, i64 2, !17, i64 8, !17, i64 40, !53, i64 72}
 !81 = !{!80, !52, i64 1}

@@ -372,9 +372,9 @@ define internal i32 @dissect_peekremote_legacy(ptr noundef %0, ptr noundef %1, p
   br label %48
 
 48:                                               ; preds = %13, %9
-  %.0109 = phi ptr [ %15, %13 ], [ null, %9 ]
+  %.0111 = phi ptr [ %15, %13 ], [ null, %9 ]
   %49 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 18)
-  tail call void @proto_item_set_end(ptr noundef %.0109, ptr noundef %0, i32 noundef 20)
+  tail call void @proto_item_set_end(ptr noundef %.0111, ptr noundef %0, i32 noundef 20)
   %50 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 20)
   %51 = ptrtoint ptr %3 to i64
   %52 = and i64 %51, 4294967295
@@ -415,8 +415,8 @@ define internal i32 @dissect_peekremote_legacy(ptr noundef %0, ptr noundef %1, p
   %74 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 6)
   %75 = zext i8 %74 to i32
   %76 = and i32 %75, 8
-  %.not112 = icmp eq i32 %76, 0
-  br i1 %.not112, label %84, label %77
+  %.not114 = icmp eq i32 %76, 0
+  br i1 %.not114, label %84, label %77
 
 77:                                               ; preds = %48
   %78 = and i32 %75, 16
@@ -432,7 +432,7 @@ define internal i32 @dissect_peekremote_legacy(ptr noundef %0, ptr noundef %1, p
   br label %84
 
 84:                                               ; preds = %77, %48
-  %.0108 = phi i1 [ %79, %77 ], [ false, %48 ]
+  %.0110 = phi i1 [ %79, %77 ], [ false, %48 ]
   switch i8 %61, label %92 [
     i8 66, label %85
     i8 44, label %85
@@ -458,9 +458,9 @@ define internal i32 @dissect_peekremote_legacy(ptr noundef %0, ptr noundef %1, p
 
 87:                                               ; preds = %84, %84, %84, %84, %84, %84, %84, %84
   %88 = icmp ugt i8 %58, 14
-  %brmerge = or i1 %.0108, %88
+  %or.cond52 = or i1 %.0110, %88
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  br i1 %brmerge, label %91, label %90
+  br i1 %or.cond52, label %91, label %90
 
 90:                                               ; preds = %87
   store i32 6, ptr %56, align 8

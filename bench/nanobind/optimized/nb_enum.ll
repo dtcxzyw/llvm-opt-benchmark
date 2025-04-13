@@ -221,9 +221,9 @@ define noundef ptr @_ZN8nanobind6detail11enum_createEPNS0_14enum_init_dataE(ptr 
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 2
-  %.not = icmp eq i32 %41, 0
+  %.not53 = icmp eq i32 %41, 0
   %42 = and i32 %40, 8
-  %.not52.not = icmp eq i32 %42, 0
+  %.not54.not = icmp eq i32 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = invoke noundef ptr @_ZN8nanobind6detail13str_from_cstrEPKc(ptr noundef %44)
@@ -261,8 +261,8 @@ _ZN8nanobind6objectD2Ev.exit:                     ; preds = %_ZN8nanobind3strC2E
 54:                                               ; preds = %_ZL19_PyObject_TypeCheckP7_objectP11_typeobject.exit
   %55 = call noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef %38, ptr noundef nonnull @.str.2, ptr noundef null) #21, !noalias !12
   %56 = call noundef ptr @_ZN8nanobind6detail7getattrEP7_objectPKcS2_(ptr noundef %38, ptr noundef nonnull @.str.3, ptr noundef null) #21, !noalias !15
-  %.not287 = icmp eq ptr %56, null
-  br i1 %.not287, label %_ZN8nanobind6objectD2Ev.exit77, label %57
+  %.not = icmp eq ptr %56, null
+  br i1 %.not, label %_ZN8nanobind6objectD2Ev.exit77, label %57
 
 57:                                               ; preds = %54
   %58 = invoke ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.4, ptr noundef nonnull %56, ptr noundef %45)
@@ -311,21 +311,21 @@ _ZN8nanobind6objectD2Ev.exit77:                   ; preds = %70, %67, %54, %_ZN8
   %.sroa.0254.0 = phi ptr [ %53, %_ZN8nanobind6objectD2Ev.exit ], [ %55, %54 ], [ %55, %67 ], [ %55, %70 ]
   %.sroa.0258.0 = phi ptr [ %45, %_ZN8nanobind6objectD2Ev.exit ], [ %45, %54 ], [ %58, %67 ], [ %58, %70 ]
   %74 = and i32 %40, 10
-  %brmerge.not288 = icmp eq i32 %74, 10
-  %.str.6.mux = select i1 %brmerge.not288, ptr @.str.6, ptr @.str.7
+  %or.cond = icmp eq i32 %74, 10
+  %.str.6.mux = select i1 %or.cond, ptr @.str.6, ptr @.str.7
   %75 = invoke noundef ptr @_ZN8nanobind6detail13module_importEPKc(ptr noundef nonnull @.str.9)
           to label %76 unwind label %299
 
 76:                                               ; preds = %_ZN8nanobind6objectD2Ev.exit77
-  %spec.select = select i1 %.not, ptr @.str.5, ptr @.str.8
-  %.051 = select i1 %.not52.not, ptr %spec.select, ptr %.str.6.mux
+  %spec.select = select i1 %.not53, ptr @.str.5, ptr @.str.8
+  %.052 = select i1 %.not54.not, ptr %spec.select, ptr %.str.6.mux
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #21
   store ptr %75, ptr %13, align 8, !alias.scope !18
   %77 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr null, ptr %77, align 8, !alias.scope !18
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %.051, ptr %78, align 8, !alias.scope !18
-  invoke void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %75, ptr noundef nonnull %.051, ptr noundef nonnull %77)
+  store ptr %.052, ptr %78, align 8, !alias.scope !18
+  invoke void @_ZN8nanobind6detail16getattr_or_raiseEP7_objectPKcPS2_(ptr noundef %75, ptr noundef nonnull %.052, ptr noundef nonnull %77)
           to label %.noexc82 unwind label %299
 
 .noexc82:                                         ; preds = %76
@@ -489,8 +489,8 @@ _ZN8nanobind6detail8accessorINS0_8obj_attrEED2Ev.exit: ; preds = %_ZN8nanobind6d
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %129 = load ptr, ptr %128, align 8
-  %.not54.not = icmp eq ptr %129, null
-  br i1 %.not54.not, label %.thread282, label %130
+  %.not55.not = icmp eq ptr %129, null
+  br i1 %.not55.not, label %.thread282, label %130
 
 130:                                              ; preds = %_ZN8nanobind6detail8accessorINS0_8obj_attrEED2Ev.exit
   %131 = invoke noundef ptr @_ZN8nanobind6detail13str_from_cstrEPKc(ptr noundef nonnull %129)
@@ -543,7 +543,7 @@ _ZN8nanobind6objectD2Ev.exit135:                  ; preds = %137, %_ZN8nanobind6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #21
-  %143 = select i1 %.not52.not, ptr @.str.5, ptr %.str.6.mux
+  %143 = select i1 %.not54.not, ptr @.str.5, ptr %.str.6.mux
   store ptr %75, ptr %15, align 8, !alias.scope !45
   %144 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr null, ptr %144, align 8, !alias.scope !45

@@ -285,10 +285,10 @@ define noundef zeroext i1 @_ZNK16ColumnProxyModel16filterAcceptsRowEiRK11QModelI
   %5 = alloca %class.QModelIndex, align 8
   %6 = alloca %class.QModelIndex, align 8
   %7 = tail call noundef ptr @_ZNK19QAbstractProxyModel11sourceModelEv(ptr noundef align 8 dereferenceable_or_null(16) %0)
-  %.not.not = icmp eq ptr %7, null
+  %.not13.not = icmp eq ptr %7, null
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #25
-  br i1 %.not.not, label %.critedge, label %8
+  br i1 %.not13.not, label %.critedge, label %8
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #25
@@ -343,8 +343,8 @@ _ZNK11QModelIndex4dataEi.exit:                    ; preds = %17, %21
   %28 = load i8, ptr %27, align 8, !range !11, !noundef !12
   %29 = trunc nuw i8 %28 to i1
   %.not = xor i1 %29, true
-  %brmerge = or i1 %26, %.not
-  ret i1 %brmerge
+  %or.cond = or i1 %26, %.not
+  ret i1 %or.cond
 
 30:                                               ; preds = %_ZNK11QModelIndex4dataEi.exit
   %31 = landingpad { ptr, i32 }

@@ -3864,20 +3864,20 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h2c9133a26
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i: ; preds = %.critedge.i.i.i, %22, %22
   %.sroa.4.0.i = phi i64 [ %23, %22 ], [ %27, %.critedge.i.i.i ], [ %23, %22 ]
-  switch i64 %.val4, label %.critedge.i11.i.i [
+  switch i64 %.val4, label %.critedge.i18.i.i [
     i64 2, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h2fd1c6808e9402a0E.exit
     i64 0, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h2fd1c6808e9402a0E.exit
   ]
 
-.critedge.i11.i.i:                                ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i
+.critedge.i18.i.i:                                ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i
   %28 = getelementptr inbounds i64, ptr %25, i64 %.sroa.4.0.i
   store i64 %.sroa.66.0.copyload, ptr %28, align 8, !noalias !1273
   %29 = add i64 %.sroa.4.0.i, 1
   br label %_ZN4core4iter6traits8iterator8Iterator8for_each17h2fd1c6808e9402a0E.exit
 
-_ZN4core4iter6traits8iterator8Iterator8for_each17h2fd1c6808e9402a0E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i, %.critedge.i11.i.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i
-  %.val7.sink.i.i = phi i64 [ %.sroa.4.0.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i ], [ %29, %.critedge.i11.i.i ], [ %.sroa.4.0.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i ]
-  store i64 %.val7.sink.i.i, ptr %12, align 8, !noalias !1280
+_ZN4core4iter6traits8iterator8Iterator8for_each17h2fd1c6808e9402a0E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i, %.critedge.i18.i.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i
+  %.val14.sink.i.i = phi i64 [ %.sroa.4.0.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i ], [ %29, %.critedge.i18.i.i ], [ %.sroa.4.0.i, %_ZN4core4iter6traits8iterator8Iterator4fold17h23ca4f568192faa8E.exit.i.i ]
+  store i64 %.val14.sink.i.i, ptr %12, align 8, !noalias !1280
   ret void
 
 30:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb93f621d4f1eac98E.exit.thread"
@@ -11204,8 +11204,8 @@ define hidden void @"_ZN93_$LT$ui..components..popover_menu..PopoverMenu$LT$M$GT
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   store ptr %.sroa.0.0.copyload, ptr %8, align 8
-  %.sroa.5.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
+  %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
   invoke void @_ZN4gpui7element10AnyElement5paint17hae99cd28a71b672eE(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
           to label %14 unwind label %12
 

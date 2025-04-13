@@ -1444,21 +1444,21 @@ define dso_local ptr @GetAllTablesPublicationRelations(i1 noundef zeroext %0) lo
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 17, i16 noundef zeroext 3, i32 noundef 61, i64 noundef 114) #6
   %4 = call ptr @table_beginscan_catalog(ptr noundef %3, i32 noundef 1, ptr noundef nonnull %2) #6
   %5 = call ptr @heap_getnext(ptr noundef %4, i32 noundef 1) #6
-  %.not31 = icmp eq ptr %5, null
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.not30 = icmp eq ptr %5, null
+  br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   br i1 %0, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %is_publishable_class.exit.thread.us
   %6 = phi ptr [ %23, %is_publishable_class.exit.thread.us ], [ %5, %.lr.ph ]
-  %.032.us = phi ptr [ %.1.us, %is_publishable_class.exit.thread.us ], [ null, %.lr.ph ]
+  %.031.us = phi ptr [ %.1.us, %is_publishable_class.exit.thread.us ], [ null, %.lr.ph ]
   %7 = getelementptr i8, ptr %6, i64 16
-  %.val28.us = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %.val28.us, i64 22
+  %.val27.us = load ptr, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %.val27.us, i64 22
   %9 = load i8, ptr %8, align 2
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %.val28.us, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %.val27.us, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 115
   %14 = load i8, ptr %13, align 1
@@ -1480,24 +1480,24 @@ is_publishable_class.exit.us:                     ; preds = %15
   br i1 %spec.select.i.us, label %21, label %is_publishable_class.exit.thread.us
 
 21:                                               ; preds = %is_publishable_class.exit.us
-  %22 = call ptr @lappend_oid(ptr noundef %.032.us, i32 noundef %12) #6
+  %22 = call ptr @lappend_oid(ptr noundef %.031.us, i32 noundef %12) #6
   br label %is_publishable_class.exit.thread.us
 
 is_publishable_class.exit.thread.us:              ; preds = %21, %is_publishable_class.exit.us, %15, %.lr.ph.split.us
-  %.1.us = phi ptr [ %22, %21 ], [ %.032.us, %is_publishable_class.exit.us ], [ %.032.us, %15 ], [ %.032.us, %.lr.ph.split.us ]
+  %.1.us = phi ptr [ %22, %21 ], [ %.031.us, %is_publishable_class.exit.us ], [ %.031.us, %15 ], [ %.031.us, %.lr.ph.split.us ]
   %23 = call ptr @heap_getnext(ptr noundef %4, i32 noundef 1) #6
   %.not.us = icmp eq ptr %23, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %is_publishable_class.exit.thread
   %24 = phi ptr [ %45, %is_publishable_class.exit.thread ], [ %5, %.lr.ph ]
-  %.032 = phi ptr [ %.1, %is_publishable_class.exit.thread ], [ null, %.lr.ph ]
+  %.031 = phi ptr [ %.1, %is_publishable_class.exit.thread ], [ null, %.lr.ph ]
   %25 = getelementptr i8, ptr %24, i64 16
-  %.val28 = load ptr, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %.val28, i64 22
+  %.val27 = load ptr, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %.val27, i64 22
   %27 = load i8, ptr %26, align 2
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %.val28, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %.val27, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 115
   %32 = load i8, ptr %31, align 1
@@ -1525,11 +1525,11 @@ is_publishable_class.exit:                        ; preds = %33
   br i1 %42, label %is_publishable_class.exit.thread, label %43
 
 43:                                               ; preds = %39
-  %44 = call ptr @lappend_oid(ptr noundef %.032, i32 noundef %30) #6
+  %44 = call ptr @lappend_oid(ptr noundef %.031, i32 noundef %30) #6
   br label %is_publishable_class.exit.thread
 
 is_publishable_class.exit.thread:                 ; preds = %.lr.ph.split, %33, %39, %43, %is_publishable_class.exit
-  %.1 = phi ptr [ %44, %43 ], [ %.032, %is_publishable_class.exit ], [ %.032, %39 ], [ %.032, %33 ], [ %.032, %.lr.ph.split ]
+  %.1 = phi ptr [ %.031, %39 ], [ %44, %43 ], [ %.031, %is_publishable_class.exit ], [ %.031, %33 ], [ %.031, %.lr.ph.split ]
   %45 = call ptr @heap_getnext(ptr noundef %4, i32 noundef 1) #6
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !16
@@ -1548,12 +1548,12 @@ is_publishable_class.exit.thread:                 ; preds = %.lr.ph.split, %33, 
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 17, i16 noundef zeroext 3, i32 noundef 61, i64 noundef 112) #6
   %52 = call ptr @table_beginscan_catalog(ptr noundef %3, i32 noundef 1, ptr noundef nonnull %2) #6
   %53 = call ptr @heap_getnext(ptr noundef %52, i32 noundef 1) #6
-  %.not2533 = icmp eq ptr %53, null
-  br i1 %.not2533, label %._crit_edge37, label %.lr.ph36
+  %.not2632 = icmp eq ptr %53, null
+  br i1 %.not2632, label %._crit_edge36, label %.lr.ph35
 
-.lr.ph36:                                         ; preds = %51, %is_publishable_class.exit30.thread
-  %54 = phi ptr [ %75, %is_publishable_class.exit30.thread ], [ %53, %51 ]
-  %.334 = phi ptr [ %.4, %is_publishable_class.exit30.thread ], [ %.0.lcssa, %51 ]
+.lr.ph35:                                         ; preds = %51, %is_publishable_class.exit29.thread
+  %54 = phi ptr [ %75, %is_publishable_class.exit29.thread ], [ %53, %51 ]
+  %.333 = phi ptr [ %.4, %is_publishable_class.exit29.thread ], [ %.0.lcssa, %51 ]
   %55 = getelementptr i8, ptr %54, i64 16
   %.val = load ptr, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -1563,41 +1563,41 @@ is_publishable_class.exit.thread:                 ; preds = %.lr.ph.split, %33, 
   %60 = load i32, ptr %59, align 4
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 115
   %62 = load i8, ptr %61, align 1
-  switch i8 %62, label %is_publishable_class.exit30.thread [
+  switch i8 %62, label %is_publishable_class.exit29.thread [
     i8 114, label %63
     i8 112, label %63
   ]
 
-63:                                               ; preds = %.lr.ph36, %.lr.ph36
+63:                                               ; preds = %.lr.ph35, %.lr.ph35
   %64 = call zeroext i1 @IsCatalogRelationOid(i32 noundef %60) #6
-  br i1 %64, label %is_publishable_class.exit30.thread, label %is_publishable_class.exit30
+  br i1 %64, label %is_publishable_class.exit29.thread, label %is_publishable_class.exit29
 
-is_publishable_class.exit30:                      ; preds = %63
+is_publishable_class.exit29:                      ; preds = %63
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 114
   %66 = load i8, ptr %65, align 2
   %67 = icmp eq i8 %66, 112
   %68 = icmp ugt i32 %60, 16383
-  %spec.select.i29 = and i1 %68, %67
-  br i1 %spec.select.i29, label %69, label %is_publishable_class.exit30.thread
+  %spec.select.i28 = and i1 %68, %67
+  br i1 %spec.select.i28, label %69, label %is_publishable_class.exit29.thread
 
-69:                                               ; preds = %is_publishable_class.exit30
+69:                                               ; preds = %is_publishable_class.exit29
   %70 = getelementptr inbounds nuw i8, ptr %59, i64 127
   %71 = load i8, ptr %70, align 1, !range !4, !noundef !5
   %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %is_publishable_class.exit30.thread, label %73
+  br i1 %72, label %is_publishable_class.exit29.thread, label %73
 
 73:                                               ; preds = %69
-  %74 = call ptr @lappend_oid(ptr noundef %.334, i32 noundef %60) #6
-  br label %is_publishable_class.exit30.thread
+  %74 = call ptr @lappend_oid(ptr noundef %.333, i32 noundef %60) #6
+  br label %is_publishable_class.exit29.thread
 
-is_publishable_class.exit30.thread:               ; preds = %.lr.ph36, %63, %73, %69, %is_publishable_class.exit30
-  %.4 = phi ptr [ %.334, %69 ], [ %74, %73 ], [ %.334, %is_publishable_class.exit30 ], [ %.334, %63 ], [ %.334, %.lr.ph36 ]
+is_publishable_class.exit29.thread:               ; preds = %.lr.ph35, %63, %73, %69, %is_publishable_class.exit29
+  %.4 = phi ptr [ %.333, %69 ], [ %74, %73 ], [ %.333, %is_publishable_class.exit29 ], [ %.333, %63 ], [ %.333, %.lr.ph35 ]
   %75 = call ptr @heap_getnext(ptr noundef %52, i32 noundef 1) #6
-  %.not25 = icmp eq ptr %75, null
-  br i1 %.not25, label %._crit_edge37, label %.lr.ph36, !llvm.loop !17
+  %.not26 = icmp eq ptr %75, null
+  br i1 %.not26, label %._crit_edge36, label %.lr.ph35, !llvm.loop !17
 
-._crit_edge37:                                    ; preds = %is_publishable_class.exit30.thread, %51
-  %.3.lcssa = phi ptr [ %.0.lcssa, %51 ], [ %.4, %is_publishable_class.exit30.thread ]
+._crit_edge36:                                    ; preds = %is_publishable_class.exit29.thread, %51
+  %.3.lcssa = phi ptr [ %.0.lcssa, %51 ], [ %.4, %is_publishable_class.exit29.thread ]
   %76 = load ptr, ptr %52, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 320
   %78 = load ptr, ptr %77, align 8
@@ -1606,8 +1606,8 @@ is_publishable_class.exit30.thread:               ; preds = %.lr.ph36, %63, %73,
   call void %80(ptr noundef nonnull %52) #6
   br label %81
 
-81:                                               ; preds = %._crit_edge37, %._crit_edge
-  %.2 = phi ptr [ %.3.lcssa, %._crit_edge37 ], [ %.0.lcssa, %._crit_edge ]
+81:                                               ; preds = %._crit_edge36, %._crit_edge
+  %.2 = phi ptr [ %.3.lcssa, %._crit_edge36 ], [ %.0.lcssa, %._crit_edge ]
   call void @table_close(ptr noundef %3, i32 noundef 1) #6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #6
   ret ptr %.2

@@ -14434,8 +14434,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.ex
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
-  %brmerge.i = or i1 %75, %78
-  br i1 %brmerge.i, label %79, label %82
+  %or.cond.i = or i1 %75, %78
+  br i1 %or.cond.i, label %79, label %82
 
 79:                                               ; preds = %72
   %80 = xor i1 %75, %78

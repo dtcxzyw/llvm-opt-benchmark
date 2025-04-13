@@ -1081,8 +1081,8 @@ define dso_local ptr @b3OpenCLUtils_compileCLProgramFromString(ptr noundef %0, p
   %22 = alloca i64, align 8
   %23 = alloca ptr, align 8
   store ptr %1, ptr %8, align 8, !tbaa !21
-  %.not100 = icmp eq ptr %4, null
-  %24 = select i1 %.not100, ptr @.str.58, ptr %4
+  %.not109 = icmp eq ptr %4, null
+  %24 = select i1 %.not109, ptr @.str.58, ptr %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #12
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #12
@@ -1103,317 +1103,300 @@ define dso_local ptr @b3OpenCLUtils_compileCLProgramFromString(ptr noundef %0, p
   br i1 %.not9.i, label %_ZL6strip2PKcS0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.i
-  %32 = phi ptr [ %strchr137, %.lr.ph.i ], [ %strchr, %26 ]
+  %32 = phi ptr [ %strchr142, %.lr.ph.i ], [ %strchr, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  %strchr137 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %33, i32 92)
-  %.not.i = icmp eq ptr %strchr137, null
+  %strchr142 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %33, i32 92)
+  %.not.i = icmp eq ptr %strchr142, null
   br i1 %.not.i, label %_ZL6strip2PKcS0_.exit, label %.lr.ph.i, !llvm.loop !51
 
 _ZL6strip2PKcS0_.exit:                            ; preds = %.lr.ph.i, %26
   %.07.lcssa.i = phi ptr [ %5, %26 ], [ %33, %.lr.ph.i ]
-  %strchr138 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.07.lcssa.i, i32 47)
-  %.not9.i120 = icmp eq ptr %strchr138, null
-  br i1 %.not9.i120, label %_ZL6strip2PKcS0_.exit124, label %.lr.ph.i121
+  %strchr143 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.07.lcssa.i, i32 47)
+  %.not9.i127 = icmp eq ptr %strchr143, null
+  br i1 %.not9.i127, label %_ZL6strip2PKcS0_.exit131, label %.lr.ph.i128
 
-.lr.ph.i121:                                      ; preds = %_ZL6strip2PKcS0_.exit, %.lr.ph.i121
-  %34 = phi ptr [ %strchr139, %.lr.ph.i121 ], [ %strchr138, %_ZL6strip2PKcS0_.exit ]
+.lr.ph.i128:                                      ; preds = %_ZL6strip2PKcS0_.exit, %.lr.ph.i128
+  %34 = phi ptr [ %strchr144, %.lr.ph.i128 ], [ %strchr143, %_ZL6strip2PKcS0_.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  %strchr139 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %35, i32 47)
-  %.not.i122 = icmp eq ptr %strchr139, null
-  br i1 %.not.i122, label %_ZL6strip2PKcS0_.exit124, label %.lr.ph.i121, !llvm.loop !51
+  %strchr144 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %35, i32 47)
+  %.not.i129 = icmp eq ptr %strchr144, null
+  br i1 %.not.i129, label %_ZL6strip2PKcS0_.exit131, label %.lr.ph.i128, !llvm.loop !51
 
-_ZL6strip2PKcS0_.exit124:                         ; preds = %.lr.ph.i121, %_ZL6strip2PKcS0_.exit
-  %.07.lcssa.i123 = phi ptr [ %.07.lcssa.i, %_ZL6strip2PKcS0_.exit ], [ %35, %.lr.ph.i121 ]
+_ZL6strip2PKcS0_.exit131:                         ; preds = %.lr.ph.i128, %_ZL6strip2PKcS0_.exit
+  %.07.lcssa.i130 = phi ptr [ %.07.lcssa.i, %_ZL6strip2PKcS0_.exit ], [ %35, %.lr.ph.i128 ]
   %36 = load ptr, ptr @_ZL17sCachedBinaryPath, align 8, !tbaa !10
-  %37 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef %36, ptr noundef nonnull %.07.lcssa.i123, ptr noundef nonnull %11, ptr noundef nonnull %12) #12
+  %37 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef %36, ptr noundef nonnull %.07.lcssa.i130, ptr noundef nonnull %11, ptr noundef nonnull %12) #12
   br label %38
 
-38:                                               ; preds = %_ZL6strip2PKcS0_.exit124, %7
-  %.not117 = xor i1 %25, true
-  %brmerge = or i1 %6, %.not117
-  br i1 %brmerge, label %.critedge.thread, label %39
-
-39:                                               ; preds = %38
-  %40 = load i8, ptr @gDebugSkipLoadingBinary, align 1, !tbaa !52, !range !54, !noundef !55
+38:                                               ; preds = %_ZL6strip2PKcS0_.exit131, %7
+  %39 = icmp eq ptr %5, null
+  %or.cond3 = or i1 %39, %6
+  %40 = load i8, ptr @gDebugSkipLoadingBinary, align 1, !range !52
   %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %.critedge.thread, label %42
+  %or.cond5 = select i1 %or.cond3, i1 true, i1 %41
+  %42 = load i8, ptr @gDebugForceLoadingFromSource, align 1, !range !52
+  %43 = trunc nuw i8 %42 to i1
+  %or.cond7 = select i1 %or.cond5, i1 true, i1 %43
+  br i1 %or.cond7, label %.critedge.thread, label %44
 
-42:                                               ; preds = %39
-  %43 = load i8, ptr @gDebugForceLoadingFromSource, align 1, !tbaa !52, !range !54, !noundef !55
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %.critedge.thread, label %45
+44:                                               ; preds = %38
+  %45 = load ptr, ptr @_ZL17sCachedBinaryPath, align 8, !tbaa !10
+  %46 = call i32 @mkdir(ptr noundef %45, i32 noundef 511) #12
+  %47 = icmp eq i32 %46, -1
+  br i1 %47, label %50, label %48
 
-45:                                               ; preds = %42
-  %46 = load ptr, ptr @_ZL17sCachedBinaryPath, align 8, !tbaa !10
-  %47 = call i32 @mkdir(ptr noundef %46, i32 noundef 511) #12
-  %48 = icmp eq i32 %47, -1
-  br i1 %48, label %51, label %49
+48:                                               ; preds = %44
+  %49 = load ptr, ptr @_ZL17sCachedBinaryPath, align 8, !tbaa !10
+  call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.62, ptr noundef %49)
+  br label %50
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr @_ZL17sCachedBinaryPath, align 8, !tbaa !10
-  call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.62, ptr noundef %50)
-  br label %51
+50:                                               ; preds = %44, %48
+  %51 = call noalias ptr @fopen(ptr noundef nonnull %10, ptr noundef nonnull @.str.63)
+  %.not111 = icmp eq ptr %51, null
+  br i1 %.not111, label %74, label %52
 
-51:                                               ; preds = %45, %49
-  %52 = call noalias ptr @fopen(ptr noundef nonnull %10, ptr noundef nonnull @.str.63)
-  %.not102 = icmp eq ptr %52, null
-  br i1 %.not102, label %75, label %53
-
-53:                                               ; preds = %51
+52:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #12
-  %54 = call i32 @fseek(ptr noundef nonnull %52, i64 noundef 0, i32 noundef 2)
-  %55 = call i64 @ftell(ptr noundef nonnull %52)
-  store i64 %55, ptr %13, align 8, !tbaa !15
-  call void @rewind(ptr noundef nonnull %52)
-  %56 = call noalias ptr @malloc(i64 noundef %55) #13
-  store ptr %56, ptr %14, align 8, !tbaa !10
-  %57 = call i64 @fread(ptr noundef %56, i64 noundef 1, i64 noundef %55, ptr noundef nonnull %52)
-  %58 = call i32 @fclose(ptr noundef nonnull %52)
-  %59 = load ptr, ptr @__clewCreateProgramWithBinary, align 8, !tbaa !8
-  %60 = call ptr %59(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %9)
-  %61 = load ptr, ptr @__clewBuildProgram, align 8, !tbaa !8
-  %62 = call i32 %61(ptr noundef %60, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %24, ptr noundef null, ptr noundef null)
-  store i32 %62, ptr %9, align 4, !tbaa !4
-  %.not103 = icmp eq i32 %62, 0
-  br i1 %.not103, label %.critedge, label %.critedge.thread127
+  %53 = call i32 @fseek(ptr noundef nonnull %51, i64 noundef 0, i32 noundef 2)
+  %54 = call i64 @ftell(ptr noundef nonnull %51)
+  store i64 %54, ptr %13, align 8, !tbaa !15
+  call void @rewind(ptr noundef nonnull %51)
+  %55 = call noalias ptr @malloc(i64 noundef %54) #13
+  store ptr %55, ptr %14, align 8, !tbaa !10
+  %56 = call i64 @fread(ptr noundef %55, i64 noundef 1, i64 noundef %54, ptr noundef nonnull %51)
+  %57 = call i32 @fclose(ptr noundef nonnull %51)
+  %58 = load ptr, ptr @__clewCreateProgramWithBinary, align 8, !tbaa !8
+  %59 = call ptr %58(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %9)
+  %60 = load ptr, ptr @__clewBuildProgram, align 8, !tbaa !8
+  %61 = call i32 %60(ptr noundef %59, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %24, ptr noundef null, ptr noundef null)
+  store i32 %61, ptr %9, align 4, !tbaa !4
+  %.not112 = icmp eq i32 %61, 0
+  br i1 %.not112, label %.critedge, label %.critedge.thread134
 
-.critedge.thread127:                              ; preds = %53
+.critedge.thread134:                              ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #12
-  %63 = load ptr, ptr @__clewGetProgramBuildInfo, align 8, !tbaa !8
-  %64 = load ptr, ptr %8, align 8, !tbaa !21
-  %65 = call i32 %63(ptr noundef %60, ptr noundef %64, i32 noundef 4483, i64 noundef 0, ptr noundef null, ptr noundef nonnull %15)
-  %66 = load i64, ptr %15, align 8, !tbaa !15
-  %67 = add i64 %66, 1
-  %68 = call noalias ptr @malloc(i64 noundef %67) #13
-  %69 = load ptr, ptr @__clewGetProgramBuildInfo, align 8, !tbaa !8
-  %70 = load ptr, ptr %8, align 8, !tbaa !21
-  %71 = call i32 %69(ptr noundef %60, ptr noundef %70, i32 noundef 4483, i64 noundef %66, ptr noundef %68, ptr noundef null)
-  %72 = load i64, ptr %15, align 8, !tbaa !15
-  %73 = getelementptr inbounds nuw i8, ptr %68, i64 %72
-  store i8 0, ptr %73, align 1, !tbaa !14
+  %62 = load ptr, ptr @__clewGetProgramBuildInfo, align 8, !tbaa !8
+  %63 = load ptr, ptr %8, align 8, !tbaa !21
+  %64 = call i32 %62(ptr noundef %59, ptr noundef %63, i32 noundef 4483, i64 noundef 0, ptr noundef null, ptr noundef nonnull %15)
+  %65 = load i64, ptr %15, align 8, !tbaa !15
+  %66 = add i64 %65, 1
+  %67 = call noalias ptr @malloc(i64 noundef %66) #13
+  %68 = load ptr, ptr @__clewGetProgramBuildInfo, align 8, !tbaa !8
+  %69 = load ptr, ptr %8, align 8, !tbaa !21
+  %70 = call i32 %68(ptr noundef %59, ptr noundef %69, i32 noundef 4483, i64 noundef %65, ptr noundef %67, ptr noundef null)
+  %71 = load i64, ptr %15, align 8, !tbaa !15
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 %71
+  store i8 0, ptr %72, align 1, !tbaa !14
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 778)
-  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.64, ptr noundef %68)
-  call void @free(ptr noundef %68) #12
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.64, ptr noundef %67)
+  call void @free(ptr noundef %67) #12
   call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 783)
   call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.65, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #12
-  %74 = load ptr, ptr %14, align 8, !tbaa !10
-  call void @free(ptr noundef %74) #12
+  %73 = load ptr, ptr %14, align 8, !tbaa !10
+  call void @free(ptr noundef %73) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #12
   br label %.critedge.thread
 
-75:                                               ; preds = %51
+74:                                               ; preds = %50
   call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 793)
   call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.67, ptr noundef nonnull %10)
   br label %.critedge.thread
 
-.critedge:                                        ; preds = %53
+.critedge:                                        ; preds = %52
   call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.66, ptr noundef nonnull %10)
-  %76 = load ptr, ptr %14, align 8, !tbaa !10
-  call void @free(ptr noundef %76) #12
+  %75 = load ptr, ptr %14, align 8, !tbaa !10
+  call void @free(ptr noundef %75) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #12
-  %.not104 = icmp eq ptr %60, null
-  br i1 %.not104, label %.critedge.thread, label %157
+  %.not113 = icmp eq ptr %59, null
+  br i1 %.not113, label %.critedge.thread, label %155
 
-.critedge.thread:                                 ; preds = %39, %42, %38, %75, %.critedge.thread127, %.critedge
+.critedge.thread:                                 ; preds = %38, %74, %.critedge.thread134, %.critedge
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #12
   store ptr %2, ptr %17, align 8, !tbaa !10
-  %.not105 = icmp eq ptr %2, null
-  br i1 %.not105, label %80, label %77
+  %76 = icmp eq ptr %2, null
+  %77 = load i8, ptr @gDebugForceLoadingFromSource, align 1, !range !52
+  %78 = trunc nuw i8 %77 to i1
+  %or.cond9 = select i1 %76, i1 true, i1 %78
+  %or.cond14 = and i1 %25, %or.cond9
+  br i1 %or.cond14, label %79, label %97
 
-77:                                               ; preds = %.critedge.thread
-  %78 = load i8, ptr @gDebugForceLoadingFromSource, align 1, !tbaa !52, !range !54, !noundef !55
-  %79 = trunc nuw i8 %78 to i1
-  %or.cond6 = and i1 %25, %79
-  br i1 %or.cond6, label %81, label %.sink.split
+79:                                               ; preds = %.critedge.thread
+  %80 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.63)
+  %.not114 = icmp eq ptr %80, null
+  br i1 %.not114, label %.preheader, label %.thread140
 
-80:                                               ; preds = %.critedge.thread
-  br i1 %25, label %81, label %.thread133
-
-.thread133:                                       ; preds = %80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #12
-  br label %103
-
-81:                                               ; preds = %77, %80
-  %82 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.63)
-  %.not106 = icmp eq ptr %82, null
-  br i1 %.not106, label %.preheader, label %.thread135
-
-.preheader:                                       ; preds = %81, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %81 ]
+.preheader:                                       ; preds = %79, %.preheader
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %79 ]
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %18) #12
-  %83 = getelementptr inbounds nuw [4 x ptr], ptr @__const.b3OpenCLUtils_compileCLProgramFromString.prefix, i64 0, i64 %indvars.iv
-  %84 = load ptr, ptr %83, align 8, !tbaa !10
-  %85 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.72, ptr noundef %84, ptr noundef nonnull %5) #12
-  %86 = call noalias ptr @fopen(ptr noundef nonnull %18, ptr noundef nonnull @.str.63)
+  %81 = getelementptr inbounds nuw [4 x ptr], ptr @__const.b3OpenCLUtils_compileCLProgramFromString.prefix, i64 0, i64 %indvars.iv
+  %82 = load ptr, ptr %81, align 8, !tbaa !10
+  %83 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) @.str.72, ptr noundef %82, ptr noundef nonnull %5) #12
+  %84 = call noalias ptr @fopen(ptr noundef nonnull %18, ptr noundef nonnull @.str.63)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %18) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not107 = icmp eq ptr %86, null
-  %87 = icmp samesign ult i64 %indvars.iv, 2
-  %88 = select i1 %.not107, i1 %87, i1 false
-  br i1 %88, label %.preheader, label %89, !llvm.loop !56
+  %.not115 = icmp eq ptr %84, null
+  %85 = icmp samesign ult i64 %indvars.iv, 2
+  %86 = select i1 %.not115, i1 %85, i1 false
+  br i1 %86, label %.preheader, label %87, !llvm.loop !53
 
-89:                                               ; preds = %.preheader
-  br i1 %.not107, label %99, label %.thread135
+87:                                               ; preds = %.preheader
+  br i1 %.not115, label %97, label %.thread140
 
-.thread135:                                       ; preds = %89, %81
-  %.089132 = phi ptr [ %86, %89 ], [ %82, %81 ]
-  %90 = call i32 @fseek(ptr noundef nonnull %.089132, i64 noundef 0, i32 noundef 2)
-  %91 = call i64 @ftell(ptr noundef nonnull %.089132)
-  call void @rewind(ptr noundef nonnull %.089132)
-  %92 = shl i64 %91, 32
-  %sext = add i64 %92, 4294967296
-  %93 = ashr exact i64 %sext, 32
-  %94 = call noalias ptr @malloc(i64 noundef %93) #13
-  %95 = ashr exact i64 %92, 32
-  %96 = call i64 @fread(ptr noundef %94, i64 noundef 1, i64 noundef %95, ptr noundef nonnull %.089132)
-  %97 = getelementptr inbounds i8, ptr %94, i64 %95
-  store i8 0, ptr %97, align 1, !tbaa !14
-  %98 = call i32 @fclose(ptr noundef nonnull %.089132)
-  store ptr %94, ptr %17, align 8, !tbaa !10
+.thread140:                                       ; preds = %87, %79
+  %.097139 = phi ptr [ %84, %87 ], [ %80, %79 ]
+  %88 = call i32 @fseek(ptr noundef nonnull %.097139, i64 noundef 0, i32 noundef 2)
+  %89 = call i64 @ftell(ptr noundef nonnull %.097139)
+  call void @rewind(ptr noundef nonnull %.097139)
+  %90 = shl i64 %89, 32
+  %sext = add i64 %90, 4294967296
+  %91 = ashr exact i64 %sext, 32
+  %92 = call noalias ptr @malloc(i64 noundef %91) #13
+  %93 = ashr exact i64 %90, 32
+  %94 = call i64 @fread(ptr noundef %92, i64 noundef 1, i64 noundef %93, ptr noundef nonnull %.097139)
+  %95 = getelementptr inbounds i8, ptr %92, i64 %93
+  store i8 0, ptr %95, align 1, !tbaa !14
+  %96 = call i32 @fclose(ptr noundef nonnull %.097139)
+  store ptr %92, ptr %17, align 8, !tbaa !10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #12
+  br label %98
+
+97:                                               ; preds = %87, %.critedge.thread
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #12
+  br i1 %76, label %101, label %98
+
+98:                                               ; preds = %.thread140, %97
+  %99 = phi ptr [ %92, %.thread140 ], [ %2, %97 ]
+  %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #11
+  br label %101
+
+101:                                              ; preds = %97, %98
+  %102 = phi i64 [ %100, %98 ], [ 0, %97 ]
+  store i64 %102, ptr %19, align 8, !tbaa !15
+  %103 = load ptr, ptr @__clewCreateProgramWithSource, align 8, !tbaa !8
+  %104 = call ptr %103(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %16)
+  %105 = load i32, ptr %16, align 4, !tbaa !4
+  %.not119 = icmp eq i32 %105, 0
+  br i1 %.not119, label %108, label %106
+
+106:                                              ; preds = %101
+  %.not124 = icmp eq ptr %3, null
+  br i1 %.not124, label %.sink.split, label %107
+
+107:                                              ; preds = %106
+  store i32 %105, ptr %3, align 4, !tbaa !4
   br label %.sink.split
 
-99:                                               ; preds = %89
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #12
-  br i1 %.not105, label %103, label %100
+108:                                              ; preds = %101
+  %109 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #11
+  %110 = shl i64 %109, 32
+  %sext120 = add i64 %110, 21474836480
+  %111 = ashr exact i64 %sext120, 32
+  %112 = call noalias ptr @malloc(i64 noundef %111) #13
+  %113 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %112, ptr noundef nonnull dereferenceable(1) @.str.73, ptr noundef nonnull @.str.58, ptr noundef nonnull %24) #12
+  %114 = load ptr, ptr @__clewBuildProgram, align 8, !tbaa !8
+  %115 = call i32 %114(ptr noundef %104, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %112, ptr noundef null, ptr noundef null)
+  store i32 %115, ptr %16, align 4, !tbaa !4
+  %.not121 = icmp eq i32 %115, 0
+  br i1 %.not121, label %131, label %116
 
-.sink.split:                                      ; preds = %77, %.thread135
-  %.ph = phi ptr [ %94, %.thread135 ], [ %2, %77 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #12
-  br label %100
-
-100:                                              ; preds = %.sink.split, %99
-  %101 = phi ptr [ %2, %99 ], [ %.ph, %.sink.split ]
-  %102 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %101) #11
-  br label %103
-
-103:                                              ; preds = %.thread133, %99, %100
-  %104 = phi i64 [ %102, %100 ], [ 0, %99 ], [ 0, %.thread133 ]
-  store i64 %104, ptr %19, align 8, !tbaa !15
-  %105 = load ptr, ptr @__clewCreateProgramWithSource, align 8, !tbaa !8
-  %106 = call ptr %105(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %17, ptr noundef nonnull %19, ptr noundef nonnull %16)
-  %107 = load i32, ptr %16, align 4, !tbaa !4
-  %.not111 = icmp eq i32 %107, 0
-  br i1 %.not111, label %110, label %108
-
-108:                                              ; preds = %103
-  %.not116 = icmp eq ptr %3, null
-  br i1 %.not116, label %.sink.split147, label %109
-
-109:                                              ; preds = %108
-  store i32 %107, ptr %3, align 4, !tbaa !4
-  br label %.sink.split147
-
-110:                                              ; preds = %103
-  %111 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #11
-  %112 = shl i64 %111, 32
-  %sext112 = add i64 %112, 21474836480
-  %113 = ashr exact i64 %sext112, 32
-  %114 = call noalias ptr @malloc(i64 noundef %113) #13
-  %115 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %114, ptr noundef nonnull dereferenceable(1) @.str.73, ptr noundef nonnull @.str.58, ptr noundef nonnull %24) #12
-  %116 = load ptr, ptr @__clewBuildProgram, align 8, !tbaa !8
-  %117 = call i32 %116(ptr noundef %106, i32 noundef 1, ptr noundef nonnull %8, ptr noundef nonnull %114, ptr noundef null, ptr noundef null)
-  store i32 %117, ptr %16, align 4, !tbaa !4
-  %.not113 = icmp eq i32 %117, 0
-  br i1 %.not113, label %133, label %118
-
-118:                                              ; preds = %110
+116:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #12
-  %119 = load ptr, ptr @__clewGetProgramBuildInfo, align 8, !tbaa !8
-  %120 = load ptr, ptr %8, align 8, !tbaa !21
-  %121 = call i32 %119(ptr noundef %106, ptr noundef %120, i32 noundef 4483, i64 noundef 0, ptr noundef null, ptr noundef nonnull %20)
-  %122 = load i64, ptr %20, align 8, !tbaa !15
-  %123 = add i64 %122, 1
-  %124 = call noalias ptr @malloc(i64 noundef %123) #13
-  %125 = load ptr, ptr @__clewGetProgramBuildInfo, align 8, !tbaa !8
-  %126 = load ptr, ptr %8, align 8, !tbaa !21
-  %127 = call i32 %125(ptr noundef %106, ptr noundef %126, i32 noundef 4483, i64 noundef %122, ptr noundef %124, ptr noundef null)
-  %128 = load i64, ptr %20, align 8, !tbaa !15
-  %129 = getelementptr inbounds nuw i8, ptr %124, i64 %128
-  store i8 0, ptr %129, align 1, !tbaa !14
+  %117 = load ptr, ptr @__clewGetProgramBuildInfo, align 8, !tbaa !8
+  %118 = load ptr, ptr %8, align 8, !tbaa !21
+  %119 = call i32 %117(ptr noundef %104, ptr noundef %118, i32 noundef 4483, i64 noundef 0, ptr noundef null, ptr noundef nonnull %20)
+  %120 = load i64, ptr %20, align 8, !tbaa !15
+  %121 = add i64 %120, 1
+  %122 = call noalias ptr @malloc(i64 noundef %121) #13
+  %123 = load ptr, ptr @__clewGetProgramBuildInfo, align 8, !tbaa !8
+  %124 = load ptr, ptr %8, align 8, !tbaa !21
+  %125 = call i32 %123(ptr noundef %104, ptr noundef %124, i32 noundef 4483, i64 noundef %120, ptr noundef %122, ptr noundef null)
+  %126 = load i64, ptr %20, align 8, !tbaa !15
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 %126
+  store i8 0, ptr %127, align 1, !tbaa !14
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 875)
-  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.74, i32 noundef 875, ptr noundef nonnull @.str.2, ptr noundef %124)
-  call void @free(ptr noundef %124) #12
-  %.not115 = icmp eq ptr %3, null
-  br i1 %.not115, label %132, label %130
+  call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.74, i32 noundef 875, ptr noundef nonnull @.str.2, ptr noundef %122)
+  call void @free(ptr noundef %122) #12
+  %.not123 = icmp eq ptr %3, null
+  br i1 %.not123, label %130, label %128
 
-130:                                              ; preds = %118
-  %131 = load i32, ptr %16, align 4, !tbaa !4
-  store i32 %131, ptr %3, align 4, !tbaa !4
-  br label %132
+128:                                              ; preds = %116
+  %129 = load i32, ptr %16, align 4, !tbaa !4
+  store i32 %129, ptr %3, align 4, !tbaa !4
+  br label %130
 
-132:                                              ; preds = %130, %118
+130:                                              ; preds = %128, %116
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #12
-  br label %.sink.split147
+  br label %.sink.split
 
-133:                                              ; preds = %110
-  br i1 %or.cond, label %134, label %156
+131:                                              ; preds = %108
+  br i1 %or.cond, label %132, label %154
 
-134:                                              ; preds = %133
+132:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #12
-  %135 = load ptr, ptr @__clewGetProgramInfo, align 8, !tbaa !8
-  %136 = call i32 %135(ptr noundef %106, i32 noundef 4450, i64 noundef 4, ptr noundef nonnull %21, ptr noundef null)
-  store i32 %136, ptr %9, align 4, !tbaa !4
-  %137 = load i32, ptr %21, align 4, !tbaa !4
-  %138 = icmp eq i32 %137, 1
-  br i1 %138, label %139, label %155
+  %133 = load ptr, ptr @__clewGetProgramInfo, align 8, !tbaa !8
+  %134 = call i32 %133(ptr noundef %104, i32 noundef 4450, i64 noundef 4, ptr noundef nonnull %21, ptr noundef null)
+  store i32 %134, ptr %9, align 4, !tbaa !4
+  %135 = load i32, ptr %21, align 4, !tbaa !4
+  %136 = icmp eq i32 %135, 1
+  br i1 %136, label %137, label %153
 
-139:                                              ; preds = %134
+137:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #12
-  %140 = load ptr, ptr @__clewGetProgramInfo, align 8, !tbaa !8
-  %141 = call i32 %140(ptr noundef %106, i32 noundef 4453, i64 noundef 8, ptr noundef nonnull %22, ptr noundef null)
-  store i32 %141, ptr %9, align 4, !tbaa !4
-  %142 = load i64, ptr %22, align 8, !tbaa !15
-  %143 = call noalias ptr @malloc(i64 noundef %142) #13
-  store ptr %143, ptr %23, align 8, !tbaa !10
-  %144 = load ptr, ptr @__clewGetProgramInfo, align 8, !tbaa !8
-  %145 = call i32 %144(ptr noundef %106, i32 noundef 4454, i64 noundef 8, ptr noundef nonnull %23, ptr noundef null)
-  store i32 %145, ptr %9, align 4, !tbaa !4
-  %146 = call noalias ptr @fopen(ptr noundef nonnull %10, ptr noundef nonnull @.str.75)
-  %.not114 = icmp eq ptr %146, null
-  br i1 %.not114, label %152, label %147
+  %138 = load ptr, ptr @__clewGetProgramInfo, align 8, !tbaa !8
+  %139 = call i32 %138(ptr noundef %104, i32 noundef 4453, i64 noundef 8, ptr noundef nonnull %22, ptr noundef null)
+  store i32 %139, ptr %9, align 4, !tbaa !4
+  %140 = load i64, ptr %22, align 8, !tbaa !15
+  %141 = call noalias ptr @malloc(i64 noundef %140) #13
+  store ptr %141, ptr %23, align 8, !tbaa !10
+  %142 = load ptr, ptr @__clewGetProgramInfo, align 8, !tbaa !8
+  %143 = call i32 %142(ptr noundef %104, i32 noundef 4454, i64 noundef 8, ptr noundef nonnull %23, ptr noundef null)
+  store i32 %143, ptr %9, align 4, !tbaa !4
+  %144 = call noalias ptr @fopen(ptr noundef nonnull %10, ptr noundef nonnull @.str.75)
+  %.not122 = icmp eq ptr %144, null
+  br i1 %.not122, label %150, label %145
 
-147:                                              ; preds = %139
-  %148 = load ptr, ptr %23, align 8, !tbaa !10
-  %149 = load i64, ptr %22, align 8, !tbaa !15
-  %150 = call i64 @fwrite(ptr noundef %148, i64 noundef 1, i64 noundef %149, ptr noundef nonnull %146)
-  %151 = call i32 @fclose(ptr noundef nonnull %146)
-  br label %153
+145:                                              ; preds = %137
+  %146 = load ptr, ptr %23, align 8, !tbaa !10
+  %147 = load i64, ptr %22, align 8, !tbaa !15
+  %148 = call i64 @fwrite(ptr noundef %146, i64 noundef 1, i64 noundef %147, ptr noundef nonnull %144)
+  %149 = call i32 @fclose(ptr noundef nonnull %144)
+  br label %151
 
-152:                                              ; preds = %139
+150:                                              ; preds = %137
   call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 916)
   call void (ptr, ...) @b3OutputWarningMessageVarArgsInternal(ptr noundef nonnull @.str.76, ptr noundef nonnull %10)
-  br label %153
+  br label %151
 
-153:                                              ; preds = %152, %147
-  %154 = load ptr, ptr %23, align 8, !tbaa !10
-  call void @free(ptr noundef %154) #12
+151:                                              ; preds = %150, %145
+  %152 = load ptr, ptr %23, align 8, !tbaa !10
+  call void @free(ptr noundef %152) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #12
-  br label %155
+  br label %153
 
-155:                                              ; preds = %153, %134
+153:                                              ; preds = %151, %132
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %21) #12
-  br label %156
+  br label %154
 
-156:                                              ; preds = %155, %133
-  call void @free(ptr noundef nonnull %114) #12
-  br label %.sink.split147
+154:                                              ; preds = %153, %131
+  call void @free(ptr noundef nonnull %112) #12
+  br label %.sink.split
 
-.sink.split147:                                   ; preds = %132, %109, %108, %156
-  %.1.ph = phi ptr [ %106, %156 ], [ null, %108 ], [ null, %109 ], [ null, %132 ]
+.sink.split:                                      ; preds = %130, %107, %106, %154
+  %.1.ph = phi ptr [ %104, %154 ], [ null, %106 ], [ null, %107 ], [ null, %130 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #12
-  br label %157
+  br label %155
 
-157:                                              ; preds = %.sink.split147, %.critedge
-  %.1 = phi ptr [ %60, %.critedge ], [ %.1.ph, %.sink.split147 ]
+155:                                              ; preds = %.sink.split, %.critedge
+  %.1 = phi ptr [ %59, %.critedge ], [ %.1.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #12
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #12
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #12
@@ -1583,8 +1566,5 @@ attributes #13 = { nounwind allocsize(0) }
 !49 = !{!24, !5, i64 4284}
 !50 = !{!24, !5, i64 4288}
 !51 = distinct !{!51, !18}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"bool", !6, i64 0}
-!54 = !{i8 0, i8 2}
-!55 = !{}
-!56 = distinct !{!56, !18}
+!52 = !{i8 0, i8 2}
+!53 = distinct !{!53, !18}

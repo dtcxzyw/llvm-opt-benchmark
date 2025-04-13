@@ -2283,9 +2283,13 @@ define void @dt_collection_set_tag_id(ptr noundef writeonly captures(none) initi
 ; Function Attrs: nounwind uwtable
 define ptr @dt_collection_name_untranslated(i32 noundef %0) local_unnamed_addr #0 {
   %2 = icmp ult i32 %0, 43
-  br i1 %2, label %switch.hole_check, label %3
+  %switch.maskindex = zext nneg i32 %0 to i64
+  %switch.shifted = lshr i64 8795556675583, %switch.maskindex
+  %switch.lobit = trunc i64 %switch.shifted to i1
+  %or.cond17 = select i1 %2, i1 %switch.lobit, i1 false
+  br i1 %or.cond17, label %switch.lookup, label %3
 
-3:                                                ; preds = %switch.hole_check, %1
+3:                                                ; preds = %1
   %4 = add i32 %0, -19
   %or.cond = icmp ult i32 %4, 9
   br i1 %or.cond, label %5, label %13
@@ -2305,13 +2309,7 @@ define ptr @dt_collection_name_untranslated(i32 noundef %0) local_unnamed_addr #
   %spec.select = select i1 %.not16, ptr %8, ptr null
   br label %13
 
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = zext nneg i32 %0 to i64
-  %switch.shifted = lshr i64 8795556675583, %switch.maskindex
-  %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %3
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %12 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw [43 x ptr], ptr @switch.table.dt_collection_name_untranslated, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8

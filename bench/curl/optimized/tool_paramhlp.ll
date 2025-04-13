@@ -1258,18 +1258,18 @@ define internal fastcc range(i32 0, 28) i32 @checkpasswd(ptr noundef %0, i64 nou
   %7 = alloca %struct.dynbuf, align 8
   %8 = load ptr, ptr %3, align 8, !tbaa !30
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %32, label %9
+  br i1 %.not, label %33, label %9
 
 9:                                                ; preds = %4
   %10 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 58) #20
   %11 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 59) #20
-  %.not23 = icmp eq ptr %10, null
-  br i1 %.not23, label %12, label %32
+  %.not24 = icmp eq ptr %10, null
+  br i1 %.not24, label %12, label %33
 
 12:                                               ; preds = %9
   %13 = load i8, ptr %8, align 1, !tbaa !31
-  %.not24 = icmp eq i8 %13, 59
-  br i1 %.not24, label %32, label %14
+  %.not25 = icmp eq i8 %13, 59
+  br i1 %.not25, label %33, label %14
 
 14:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5) #18
@@ -1277,59 +1277,59 @@ define internal fastcc range(i32 0, 28) i32 @checkpasswd(ptr noundef %0, i64 nou
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #18
   call void @curlx_dyn_init(ptr noundef nonnull %7, i64 noundef 102400) #18
-  %.not25 = icmp eq ptr %11, null
-  br i1 %.not25, label %16, label %15
+  %.not26 = icmp eq ptr %11, null
+  br i1 %.not26, label %16, label %15
 
 15:                                               ; preds = %14
   store i8 0, ptr %11, align 1, !tbaa !31
   br label %16
 
 16:                                               ; preds = %15, %14
-  %.not26 = icmp eq i64 %1, 0
-  %brmerge.not = and i1 %.not26, %2
-  %17 = load ptr, ptr %3, align 8, !tbaa !30
-  br i1 %brmerge.not, label %18, label %20
+  %17 = icmp eq i64 %1, 0
+  %or.cond = and i1 %17, %2
+  %18 = load ptr, ptr %3, align 8, !tbaa !30
+  br i1 %or.cond, label %19, label %21
 
-18:                                               ; preds = %16
-  %19 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 256, ptr noundef nonnull @.str.28, ptr noundef %0, ptr noundef %17) #18
-  br label %23
+19:                                               ; preds = %16
+  %20 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 256, ptr noundef nonnull @.str.28, ptr noundef %0, ptr noundef %18) #18
+  br label %24
 
-20:                                               ; preds = %16
-  %21 = add i64 %1, 1
-  %22 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 256, ptr noundef nonnull @.str.29, ptr noundef %0, ptr noundef %17, i64 noundef %21) #18
-  br label %23
+21:                                               ; preds = %16
+  %22 = add i64 %1, 1
+  %23 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %6, i64 noundef 256, ptr noundef nonnull @.str.29, ptr noundef %0, ptr noundef %18, i64 noundef %22) #18
+  br label %24
 
-23:                                               ; preds = %20, %18
-  %24 = call ptr @getpass_r(ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef 2048) #18
-  br i1 %.not25, label %26, label %25
+24:                                               ; preds = %21, %19
+  %25 = call ptr @getpass_r(ptr noundef nonnull %6, ptr noundef nonnull %5, i64 noundef 2048) #18
+  br i1 %.not26, label %27, label %26
 
-25:                                               ; preds = %23
+26:                                               ; preds = %24
   store i8 59, ptr %11, align 1, !tbaa !31
-  br label %26
+  br label %27
 
-26:                                               ; preds = %25, %23
-  %27 = load ptr, ptr %3, align 8, !tbaa !30
-  %28 = call i32 (ptr, ptr, ...) @curlx_dyn_addf(ptr noundef nonnull %7, ptr noundef nonnull @.str.30, ptr noundef %27, ptr noundef nonnull %5) #18
-  %.not27 = icmp eq i32 %28, 0
-  br i1 %.not27, label %29, label %.sink.split
+27:                                               ; preds = %26, %24
+  %28 = load ptr, ptr %3, align 8, !tbaa !30
+  %29 = call i32 (ptr, ptr, ...) @curlx_dyn_addf(ptr noundef nonnull %7, ptr noundef nonnull @.str.30, ptr noundef %28, ptr noundef nonnull %5) #18
+  %.not27 = icmp eq i32 %29, 0
+  br i1 %.not27, label %30, label %.sink.split
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %3, align 8, !tbaa !30
-  call void @free(ptr noundef %30) #18
-  %31 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %7) #18
-  store ptr %31, ptr %3, align 8, !tbaa !30
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %3, align 8, !tbaa !30
+  call void @free(ptr noundef %31) #18
+  %32 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %7) #18
+  store ptr %32, ptr %3, align 8, !tbaa !30
   br label %.sink.split
 
-.sink.split:                                      ; preds = %26, %29
-  %.020.ph = phi i32 [ 0, %29 ], [ 27, %26 ]
+.sink.split:                                      ; preds = %27, %30
+  %.021.ph = phi i32 [ 0, %30 ], [ 27, %27 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %5) #18
-  br label %32
+  br label %33
 
-32:                                               ; preds = %.sink.split, %9, %12, %4
-  %.020 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %9 ], [ %.020.ph, %.sink.split ]
-  ret i32 %.020
+33:                                               ; preds = %.sink.split, %9, %12, %4
+  %.021 = phi i32 [ 0, %4 ], [ 0, %12 ], [ 0, %9 ], [ %.021.ph, %.sink.split ]
+  ret i32 %.021
 }
 
 declare void @errorf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4

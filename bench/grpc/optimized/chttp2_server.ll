@@ -7893,7 +7893,7 @@ define void @_ZN9grpc_core20Chttp2ServerListener6OrphanEv(ptr noundef nonnull al
   store i64 0, ptr %23, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   invoke void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %_ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit unwind label %52
+          to label %_ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit unwind label %51
 
 _ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit: ; preds = %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 217
@@ -7948,99 +7948,98 @@ _ZNSt3mapIPN9grpc_core20Chttp2ServerListener16ActiveConnectionESt10unique_ptrIS2
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 208
   br label %_ZN4absl12lts_202407227CondVar4WaitEPNS0_5MutexE.exit
 
-_ZN4absl12lts_202407227CondVar4WaitEPNS0_5MutexE.exit: ; preds = %50, %_ZNSt3mapIPN9grpc_core20Chttp2ServerListener16ActiveConnectionESt10unique_ptrIS2_NS0_16OrphanableDeleteEESt4lessIS3_ESaISt4pairIKS3_S6_EEEaSEOSD_.exit
+_ZN4absl12lts_202407227CondVar4WaitEPNS0_5MutexE.exit: ; preds = %49, %_ZNSt3mapIPN9grpc_core20Chttp2ServerListener16ActiveConnectionESt10unique_ptrIS2_NS0_16OrphanableDeleteEESt4lessIS3_ESaISt4pairIKS3_S6_EEEaSEOSD_.exit
   %45 = load i8, ptr %26, align 8, !tbaa !71, !range !69, !noundef !70
   %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %.critedge
+  %.not15 = xor i1 %46, true
+  %47 = load i8, ptr %43, align 8, !range !69
+  %48 = trunc nuw i8 %47 to i1
+  %or.cond = select i1 %.not15, i1 true, i1 %48
+  br i1 %or.cond, label %.critedge, label %49
 
-47:                                               ; preds = %_ZN4absl12lts_202407227CondVar4WaitEPNS0_5MutexE.exit
-  %48 = load i8, ptr %43, align 8, !tbaa !72, !range !69, !noundef !70
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %.critedge, label %50
+49:                                               ; preds = %_ZN4absl12lts_202407227CondVar4WaitEPNS0_5MutexE.exit
+  %50 = invoke noundef zeroext i1 @_ZN4absl12lts_202407227CondVar10WaitCommonEPNS0_5MutexENS0_24synchronization_internal13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %24, i64 -1)
+          to label %_ZN4absl12lts_202407227CondVar4WaitEPNS0_5MutexE.exit unwind label %53
 
-50:                                               ; preds = %47
-  %51 = invoke noundef zeroext i1 @_ZN4absl12lts_202407227CondVar10WaitCommonEPNS0_5MutexENS0_24synchronization_internal13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %24, i64 -1)
-          to label %_ZN4absl12lts_202407227CondVar4WaitEPNS0_5MutexE.exit unwind label %54
-
-52:                                               ; preds = %18
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %18
+  %52 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4absl12lts_202407229MutexLockD2Ev.exit
 
-54:                                               ; preds = %50
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %49
+  %54 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %56
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %55
 
-56:                                               ; preds = %54
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %53
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #35
+  %57 = extractvalue { ptr, i32 } %56, 0
+  call void @__clang_call_terminate(ptr %57) #35
   unreachable
 
-.critedge:                                        ; preds = %_ZN4absl12lts_202407227CondVar4WaitEPNS0_5MutexE.exit, %47
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %60 = load ptr, ptr %59, align 8, !tbaa !73
+.critedge:                                        ; preds = %_ZN4absl12lts_202407227CondVar4WaitEPNS0_5MutexE.exit
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %59 = load ptr, ptr %58, align 8, !tbaa !73
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit15 unwind label %61
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit18 unwind label %60
 
-61:                                               ; preds = %.critedge
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %.critedge
+  %61 = landingpad { ptr, i32 }
           catch ptr null
-  %63 = extractvalue { ptr, i32 } %62, 0
-  call void @__clang_call_terminate(ptr %63) #35
+  %62 = extractvalue { ptr, i32 } %61, 0
+  call void @__clang_call_terminate(ptr %62) #35
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit15:      ; preds = %.critedge
-  %.not12 = icmp eq ptr %60, null
-  br i1 %.not12, label %68, label %64
+_ZN4absl12lts_202407229MutexLockD2Ev.exit18:      ; preds = %.critedge
+  %.not12 = icmp eq ptr %59, null
+  br i1 %.not12, label %67, label %63
 
-64:                                               ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit15
-  invoke void @_Z34grpc_tcp_server_shutdown_listenersP15grpc_tcp_server(ptr noundef nonnull %60)
-          to label %65 unwind label %66
+63:                                               ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit18
+  invoke void @_Z34grpc_tcp_server_shutdown_listenersP15grpc_tcp_server(ptr noundef nonnull %59)
+          to label %64 unwind label %65
 
-65:                                               ; preds = %64
-  invoke void @_Z21grpc_tcp_server_unrefP15grpc_tcp_server(ptr noundef nonnull %60)
-          to label %_ZN9grpc_core20InternallyRefCountedINS_6Server17ListenerInterfaceENS_11UnrefDeleteEE5UnrefEv.exit unwind label %66
+64:                                               ; preds = %63
+  invoke void @_Z21grpc_tcp_server_unrefP15grpc_tcp_server(ptr noundef nonnull %59)
+          to label %_ZN9grpc_core20InternallyRefCountedINS_6Server17ListenerInterfaceENS_11UnrefDeleteEE5UnrefEv.exit unwind label %65
 
-66:                                               ; preds = %65, %64
-  %67 = landingpad { ptr, i32 }
+65:                                               ; preds = %64, %63
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN4absl12lts_202407229MutexLockD2Ev.exit
 
-68:                                               ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit15
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %70 = atomicrmw sub ptr %69, i64 1 acq_rel, align 8
-  %71 = icmp eq i64 %70, 1
-  br i1 %71, label %72, label %_ZN9grpc_core20InternallyRefCountedINS_6Server17ListenerInterfaceENS_11UnrefDeleteEE5UnrefEv.exit, !prof !23
+67:                                               ; preds = %_ZN4absl12lts_202407229MutexLockD2Ev.exit18
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %69 = atomicrmw sub ptr %68, i64 1 acq_rel, align 8
+  %70 = icmp eq i64 %69, 1
+  br i1 %70, label %71, label %_ZN9grpc_core20InternallyRefCountedINS_6Server17ListenerInterfaceENS_11UnrefDeleteEE5UnrefEv.exit, !prof !23
 
-72:                                               ; preds = %68
-  %73 = load ptr, ptr %0, align 8, !tbaa !24
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %75 = load ptr, ptr %74, align 8
-  call void %75(ptr noundef nonnull align 8 dereferenceable(16) %0) #34
+71:                                               ; preds = %67
+  %72 = load ptr, ptr %0, align 8, !tbaa !24
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %74 = load ptr, ptr %73, align 8
+  call void %74(ptr noundef nonnull align 8 dereferenceable(16) %0) #34
   br label %_ZN9grpc_core20InternallyRefCountedINS_6Server17ListenerInterfaceENS_11UnrefDeleteEE5UnrefEv.exit
 
-_ZN9grpc_core20InternallyRefCountedINS_6Server17ListenerInterfaceENS_11UnrefDeleteEE5UnrefEv.exit: ; preds = %72, %68, %65
-  %76 = load ptr, ptr %20, align 8, !tbaa !15
-  invoke void @_ZNSt8_Rb_treeIPN9grpc_core20Chttp2ServerListener16ActiveConnectionESt4pairIKS3_St10unique_ptrIS2_NS0_16OrphanableDeleteEEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %76)
-          to label %_ZNSt3mapIPN9grpc_core20Chttp2ServerListener16ActiveConnectionESt10unique_ptrIS2_NS0_16OrphanableDeleteEESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev.exit unwind label %77
+_ZN9grpc_core20InternallyRefCountedINS_6Server17ListenerInterfaceENS_11UnrefDeleteEE5UnrefEv.exit: ; preds = %71, %67, %64
+  %75 = load ptr, ptr %20, align 8, !tbaa !15
+  invoke void @_ZNSt8_Rb_treeIPN9grpc_core20Chttp2ServerListener16ActiveConnectionESt4pairIKS3_St10unique_ptrIS2_NS0_16OrphanableDeleteEEESt10_Select1stIS9_ESt4lessIS3_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %75)
+          to label %_ZNSt3mapIPN9grpc_core20Chttp2ServerListener16ActiveConnectionESt10unique_ptrIS2_NS0_16OrphanableDeleteEESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev.exit unwind label %76
 
-77:                                               ; preds = %_ZN9grpc_core20InternallyRefCountedINS_6Server17ListenerInterfaceENS_11UnrefDeleteEE5UnrefEv.exit
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %_ZN9grpc_core20InternallyRefCountedINS_6Server17ListenerInterfaceENS_11UnrefDeleteEE5UnrefEv.exit
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %79 = extractvalue { ptr, i32 } %78, 0
-  call void @__clang_call_terminate(ptr %79) #35
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #35
   unreachable
 
 _ZNSt3mapIPN9grpc_core20Chttp2ServerListener16ActiveConnectionESt10unique_ptrIS2_NS0_16OrphanableDeleteEESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev.exit: ; preds = %_ZN9grpc_core20InternallyRefCountedINS_6Server17ListenerInterfaceENS_11UnrefDeleteEE5UnrefEv.exit
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #34
   ret void
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %52, %54, %66
-  %.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %53, %52 ], [ %55, %54 ]
+_ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %51, %53, %65
+  %.pn.pn = phi { ptr, i32 } [ %66, %65 ], [ %52, %51 ], [ %54, %53 ]
   call void @_ZNSt3mapIPN9grpc_core20Chttp2ServerListener16ActiveConnectionESt10unique_ptrIS2_NS0_16OrphanableDeleteEESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #34
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #34
   resume { ptr, i32 } %.pn.pn

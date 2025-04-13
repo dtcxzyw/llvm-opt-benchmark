@@ -166,73 +166,71 @@ define noundef range(i32 0, 64) i32 @_ZN32pxrInternal_v0_24__pxrReserved__25PcpC
   br i1 %.not3.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit.thread: ; preds = %11, %9, %7, %5
-  %.016 = phi i32 [ 0, %5 ], [ 16, %7 ], [ 16, %9 ], [ 16, %11 ]
+  %.017 = phi i32 [ 0, %5 ], [ 16, %7 ], [ 16, %9 ], [ 16, %11 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %20 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %21 = extractvalue { ptr, i64 } %20, 0
   %22 = extractvalue { ptr, i64 } %20, 1
-  %.not.i33 = icmp eq ptr %21, null
-  %.not1.i34 = icmp eq i64 %22, -1
-  %23 = select i1 %.not.i33, i1 true, i1 %.not1.i34
+  %.not.i34 = icmp eq ptr %21, null
+  %.not1.i35 = icmp eq i64 %22, -1
+  %23 = select i1 %.not.i34, i1 true, i1 %.not1.i35
   br i1 %23, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit.thread
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %24
 
-24:                                               ; preds = %.lr.ph, %29
-  %.01736 = phi i8 [ 0, %.lr.ph ], [ %..017, %29 ]
-  %.02035 = phi i8 [ 0, %.lr.ph ], [ %.020., %29 ]
+24:                                               ; preds = %.lr.ph, %28
+  %.01837 = phi i8 [ 0, %.lr.ph ], [ %..018, %28 ]
+  %.02136 = phi i8 [ 0, %.lr.ph ], [ %.021., %28 ]
   %25 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef15IsDueToAncestorEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
-  %.020. = select i1 %25, i8 %.02035, i8 1
-  %..017 = select i1 %25, i8 1, i8 %.01736
-  %26 = trunc nuw i8 %..017 to i1
-  br i1 %26, label %27, label %29
+  %.021. = select i1 %25, i8 %.02136, i8 1
+  %..018 = select i1 %25, i8 1, i8 %.01837
+  %26 = trunc nuw i8 %..018 to i1
+  %27 = trunc nuw i8 %.021. to i1
+  %or.cond = select i1 %26, i1 %27, i1 false
+  br i1 %or.cond, label %.thread30, label %28
 
-27:                                               ; preds = %24
-  %28 = trunc nuw i8 %.020. to i1
-  br i1 %28, label %.thread29, label %29
+28:                                               ; preds = %24
+  %29 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %30 = extractvalue { ptr, i64 } %29, 0
+  %31 = extractvalue { ptr, i64 } %29, 1
+  store ptr %30, ptr %2, align 8
+  store i64 %31, ptr %.sroa.2.0..sroa_idx, align 8
+  %32 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
+  %33 = extractvalue { ptr, i64 } %32, 0
+  %34 = extractvalue { ptr, i64 } %32, 1
+  %.not.i = icmp eq ptr %33, null
+  %.not1.i = icmp eq i64 %34, -1
+  %35 = select i1 %.not.i, i1 true, i1 %.not1.i
+  br i1 %35, label %._crit_edge, label %24, !llvm.loop !4
 
-29:                                               ; preds = %24, %27
-  %30 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
-  %31 = extractvalue { ptr, i64 } %30, 0
-  %32 = extractvalue { ptr, i64 } %30, 1
-  store ptr %31, ptr %2, align 8
-  store i64 %32, ptr %.sroa.2.0..sroa_idx, align 8
-  %33 = call { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef13GetParentNodeEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
-  %34 = extractvalue { ptr, i64 } %33, 0
-  %35 = extractvalue { ptr, i64 } %33, 1
-  %.not.i = icmp eq ptr %34, null
-  %.not1.i = icmp eq i64 %35, -1
-  %36 = select i1 %.not.i, i1 true, i1 %.not1.i
-  br i1 %36, label %._crit_edge, label %24, !llvm.loop !4
+._crit_edge:                                      ; preds = %28
+  %36 = trunc nuw i8 %.021. to i1
+  br i1 %36, label %37, label %._crit_edge.thread
 
-._crit_edge:                                      ; preds = %29
-  %37 = trunc nuw i8 %.020. to i1
-  br i1 %37, label %38, label %._crit_edge.thread
-
-38:                                               ; preds = %._crit_edge
-  %39 = trunc nuw i8 %..017 to i1
-  %spec.select45 = select i1 %39, i32 4, i32 2
-  br label %.thread29
+37:                                               ; preds = %._crit_edge
+  %38 = trunc nuw i8 %..018 to i1
+  %spec.select46 = select i1 %38, i32 4, i32 2
+  br label %.thread30
 
 ._crit_edge.thread:                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit.thread, %._crit_edge
-  %.017.lcssa42 = phi i8 [ %..017, %._crit_edge ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit.thread ]
-  %40 = shl nuw nsw i8 %.017.lcssa42, 3
-  %41 = zext nneg i8 %40 to i32
-  br label %.thread29
+  %.018.lcssa43 = phi i8 [ %..018, %._crit_edge ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit.thread ]
+  %39 = shl nuw nsw i8 %.018.lcssa43, 3
+  %40 = zext nneg i8 %39 to i32
+  br label %.thread30
 
-.thread29:                                        ; preds = %27, %38, %._crit_edge.thread
-  %.sink = phi i32 [ %41, %._crit_edge.thread ], [ %spec.select45, %38 ], [ 4, %27 ]
-  %spec.select = or disjoint i32 %.016, %.sink
-  %42 = shl nuw nsw i32 %spec.select, 1
-  %43 = and i32 %42, 32
-  %44 = xor i32 %43, 32
-  %spec.select24 = or i32 %44, %spec.select
+.thread30:                                        ; preds = %24, %37, %._crit_edge.thread
+  %.sink = phi i32 [ %40, %._crit_edge.thread ], [ %spec.select46, %37 ], [ 4, %24 ]
+  %spec.select = or disjoint i32 %.017, %.sink
+  %41 = shl nuw nsw i32 %spec.select, 1
+  %42 = and i32 %41, 32
+  %43 = xor i32 %42, 32
+  %spec.select25 = or i32 %43, %spec.select
   br label %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit: ; preds = %11, %1, %.thread29
-  %.0 = phi i32 [ %spec.select24, %.thread29 ], [ 1, %1 ], [ 0, %11 ]
+_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit: ; preds = %11, %1, %.thread30
+  %.0 = phi i32 [ %spec.select25, %.thread30 ], [ 1, %1 ], [ 0, %11 ]
   ret i32 %.0
 }
 

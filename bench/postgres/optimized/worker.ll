@@ -3747,7 +3747,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %7) #17
   %10 = call i32 @__sigsetjmp(ptr noundef nonnull %7, i32 noundef 0) #21
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %136
+  br i1 %11, label %12, label %135
 
 12:                                               ; preds = %1
   store ptr %7, ptr @PG_exception_stack, align 8
@@ -3772,10 +3772,10 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %23
 
-23:                                               ; preds = %130, %12
-  %.044.i = phi i1 [ false, %12 ], [ %.347.i, %130 ]
-  %.041.i = phi i64 [ %13, %12 ], [ %.142.i, %130 ]
-  %.0.i = phi i64 [ %0, %12 ], [ %.1.i, %130 ]
+23:                                               ; preds = %129, %12
+  %.045.i = phi i1 [ false, %12 ], [ %.348.i, %129 ]
+  %.042.i = phi i64 [ %13, %12 ], [ %.143.i, %129 ]
+  %.0.i = phi i64 [ %0, %12 ], [ %.1.i, %129 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
   store i32 -1, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
@@ -3796,28 +3796,28 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
   %32 = call i32 %30(ptr noundef %31, ptr noundef nonnull %5, ptr noundef nonnull %4) #17
-  %.not60.i = icmp eq i32 %32, 0
-  br i1 %.not60.i, label %.loopexit.i, label %.preheader.i
+  %.not61.i = icmp eq i32 %32, 0
+  br i1 %.not61.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %26, %74
-  %.051.i = phi i32 [ %80, %74 ], [ %32, %26 ]
-  %.246.i = phi i1 [ false, %74 ], [ %.044.i, %26 ]
-  %.243.i = phi i64 [ %47, %74 ], [ %.041.i, %26 ]
+  %.052.i = phi i32 [ %80, %74 ], [ %32, %26 ]
+  %.247.i = phi i1 [ false, %74 ], [ %.045.i, %26 ]
+  %.244.i = phi i64 [ %47, %74 ], [ %.042.i, %26 ]
   %.2.i = phi i64 [ %.5.i, %74 ], [ %.0.i, %26 ]
   %33 = load volatile i32, ptr @InterruptPending, align 4
-  %.not61.i = icmp eq i32 %33, 0
-  br i1 %.not61.i, label %35, label %34, !prof !6
+  %.not62.i = icmp eq i32 %33, 0
+  br i1 %.not62.i, label %35, label %34, !prof !6
 
 34:                                               ; preds = %.preheader.i
   call void @ProcessInterrupts() #17
   br label %35
 
 35:                                               ; preds = %34, %.preheader.i
-  %36 = icmp eq i32 %.051.i, 0
+  %36 = icmp eq i32 %.052.i, 0
   br i1 %36, label %.loopexit.i, label %37
 
 37:                                               ; preds = %35
-  %38 = icmp slt i32 %.051.i, 0
+  %38 = icmp slt i32 %.052.i, 0
   br i1 %38, label %39, label %43
 
 39:                                               ; preds = %37
@@ -3832,8 +3832,8 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
 43:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
   %44 = load volatile i32, ptr @ConfigReloadPending, align 4
-  %.not62.i = icmp eq i32 %44, 0
-  br i1 %.not62.i, label %46, label %45
+  %.not63.i = icmp eq i32 %44, 0
+  br i1 %.not63.i, label %46, label %45
 
 45:                                               ; preds = %43
   store volatile i32 0, ptr @ConfigReloadPending, align 4
@@ -3846,7 +3846,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   store ptr %48, ptr @CurrentMemoryContext, align 8
   %49 = load ptr, ptr %5, align 8
   store ptr %49, ptr %6, align 8
-  store i32 %.051.i, ptr %20, align 8
+  store i32 %.052.i, ptr %20, align 8
   store i32 0, ptr %21, align 4
   store i32 0, ptr %22, align 8
   %50 = call i32 @pq_getmsgbyte(ptr noundef nonnull %6) #17
@@ -3878,11 +3878,11 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %63 = call i64 @pq_getmsgint64(ptr noundef nonnull %6) #17
   %64 = call i32 @pq_getmsgbyte(ptr noundef nonnull %6) #17
   %65 = icmp ne i32 %64, 0
-  %spec.select70.i = call i64 @llvm.umax.i64(i64 %.2.i, i64 %62)
-  call fastcc void @send_feedback(i64 noundef %spec.select70.i, i1 noundef zeroext %65, i1 noundef zeroext false)
+  %spec.select71.i = call i64 @llvm.umax.i64(i64 %.2.i, i64 %62)
+  call fastcc void @send_feedback(i64 noundef %spec.select71.i, i1 noundef zeroext %65, i1 noundef zeroext false)
   %66 = load ptr, ptr @MyLogicalRepWorker, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 88
-  store i64 %spec.select70.i, ptr %67, align 8
+  store i64 %spec.select71.i, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 96
   store i64 %63, ptr %68, align 8
   %69 = call i64 @GetCurrentTimestamp() #17
@@ -3890,13 +3890,13 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 104
   store i64 %69, ptr %71, align 8
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 112
-  store i64 %spec.select70.i, ptr %72, align 8
+  store i64 %spec.select71.i, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 120
   store i64 %63, ptr %73, align 8
   br label %74
 
 74:                                               ; preds = %61, %51, %46
-  %.5.i = phi i64 [ %.4.i, %51 ], [ %spec.select70.i, %61 ], [ %.2.i, %46 ]
+  %.5.i = phi i64 [ %.4.i, %51 ], [ %spec.select71.i, %61 ], [ %.2.i, %46 ]
   %75 = load ptr, ptr @ApplyMessageContext, align 8
   call void @MemoryContextReset(ptr noundef %75) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
@@ -3908,134 +3908,132 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   br label %.preheader.i
 
 .loopexit.i:                                      ; preds = %35, %41, %39, %26
-  %.052.i = phi i1 [ false, %26 ], [ true, %41 ], [ true, %39 ], [ false, %35 ]
-  %.145.i = phi i1 [ %.044.i, %26 ], [ %.246.i, %41 ], [ %.246.i, %39 ], [ %.246.i, %35 ]
-  %.142.i = phi i64 [ %.041.i, %26 ], [ %.243.i, %41 ], [ %.243.i, %39 ], [ %.243.i, %35 ]
+  %.053.i = phi i1 [ false, %26 ], [ true, %41 ], [ true, %39 ], [ false, %35 ]
+  %.146.i = phi i1 [ %.045.i, %26 ], [ %.247.i, %41 ], [ %.247.i, %39 ], [ %.247.i, %35 ]
+  %.143.i = phi i64 [ %.042.i, %26 ], [ %.244.i, %41 ], [ %.244.i, %39 ], [ %.244.i, %35 ]
   %.1.i = phi i64 [ %.0.i, %26 ], [ %.2.i, %41 ], [ %.2.i, %39 ], [ %.2.i, %35 ]
   call fastcc void @send_feedback(i64 noundef %.1.i, i1 noundef zeroext false, i1 noundef zeroext false)
   %81 = load i8, ptr @in_remote_transaction, align 1, !range !4, !noundef !5
   %82 = trunc nuw i8 %81 to i1
-  br i1 %82, label %85, label %83
+  %.b64.i = load i1, ptr @in_streamed_transaction, align 1
+  %or.cond.i = select i1 %82, i1 true, i1 %.b64.i
+  br i1 %or.cond.i, label %84, label %83
 
 83:                                               ; preds = %.loopexit.i
-  %.b63.i = load i1, ptr @in_streamed_transaction, align 1
-  br i1 %.b63.i, label %85, label %84
-
-84:                                               ; preds = %83
   call void @AcceptInvalidationMessages() #17
   call void @maybe_reread_subscription()
   call void @process_syncing_tables(i64 noundef %.1.i) #17
-  br label %85
+  br label %84
 
-85:                                               ; preds = %84, %83, %.loopexit.i
-  %86 = load ptr, ptr @ApplyMessageContext, align 8
-  call void @MemoryContextReset(ptr noundef %86) #17
-  %87 = load ptr, ptr @TopMemoryContext, align 8
-  store ptr %87, ptr @CurrentMemoryContext, align 8
-  br i1 %.052.i, label %LogicalRepApplyLoop.exit, label %88
+84:                                               ; preds = %83, %.loopexit.i
+  %85 = load ptr, ptr @ApplyMessageContext, align 8
+  call void @MemoryContextReset(ptr noundef %85) #17
+  %86 = load ptr, ptr @TopMemoryContext, align 8
+  store ptr %86, ptr @CurrentMemoryContext, align 8
+  br i1 %.053.i, label %LogicalRepApplyLoop.exit, label %87
 
-88:                                               ; preds = %85
-  %89 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lsn_mapping, i64 8), align 8
-  %90 = icmp eq ptr %89, null
-  %91 = icmp eq ptr %89, @lsn_mapping
-  %spec.select.i.i = or i1 %90, %91
-  %92 = load i32, ptr @WalWriterDelay, align 4
-  %93 = sext i32 %92 to i64
-  %.053.i = select i1 %spec.select.i.i, i64 1000, i64 %93
-  %94 = load ptr, ptr @MyLatch, align 8
-  %95 = load i32, ptr %4, align 4
-  %96 = call i32 @WaitLatchOrSocket(ptr noundef %94, i32 noundef 43, i32 noundef %95, i64 noundef %.053.i, i32 noundef 83886086) #17
-  %97 = and i32 %96, 1
-  %.not64.i = icmp eq i32 %97, 0
-  br i1 %.not64.i, label %102, label %98
+87:                                               ; preds = %84
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lsn_mapping, i64 8), align 8
+  %89 = icmp eq ptr %88, null
+  %90 = icmp eq ptr %88, @lsn_mapping
+  %spec.select.i.i = or i1 %89, %90
+  %91 = load i32, ptr @WalWriterDelay, align 4
+  %92 = sext i32 %91 to i64
+  %.054.i = select i1 %spec.select.i.i, i64 1000, i64 %92
+  %93 = load ptr, ptr @MyLatch, align 8
+  %94 = load i32, ptr %4, align 4
+  %95 = call i32 @WaitLatchOrSocket(ptr noundef %93, i32 noundef 43, i32 noundef %94, i64 noundef %.054.i, i32 noundef 83886086) #17
+  %96 = and i32 %95, 1
+  %.not65.i = icmp eq i32 %96, 0
+  br i1 %.not65.i, label %101, label %97
 
-98:                                               ; preds = %88
-  %99 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %99) #17
-  %100 = load volatile i32, ptr @InterruptPending, align 4
-  %.not65.i = icmp eq i32 %100, 0
-  br i1 %.not65.i, label %102, label %101, !prof !6
+97:                                               ; preds = %87
+  %98 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %98) #17
+  %99 = load volatile i32, ptr @InterruptPending, align 4
+  %.not66.i = icmp eq i32 %99, 0
+  br i1 %.not66.i, label %101, label %100, !prof !6
 
-101:                                              ; preds = %98
+100:                                              ; preds = %97
   call void @ProcessInterrupts() #17
-  br label %102
+  br label %101
 
-102:                                              ; preds = %101, %98, %88
-  %103 = load volatile i32, ptr @ConfigReloadPending, align 4
-  %.not66.i = icmp eq i32 %103, 0
-  br i1 %.not66.i, label %105, label %104
+101:                                              ; preds = %100, %97, %87
+  %102 = load volatile i32, ptr @ConfigReloadPending, align 4
+  %.not67.i = icmp eq i32 %102, 0
+  br i1 %.not67.i, label %104, label %103
 
-104:                                              ; preds = %102
+103:                                              ; preds = %101
   store volatile i32 0, ptr @ConfigReloadPending, align 4
   call void @ProcessConfigFile(i32 noundef 2) #17
-  br label %105
+  br label %104
 
-105:                                              ; preds = %104, %102
-  %106 = and i32 %96, 8
-  %.not67.i = icmp eq i32 %106, 0
-  br i1 %.not67.i, label %130, label %107
+104:                                              ; preds = %103, %101
+  %105 = and i32 %95, 8
+  %.not68.i = icmp eq i32 %105, 0
+  br i1 %.not68.i, label %129, label %106
 
-107:                                              ; preds = %105
-  %108 = load i32, ptr @wal_receiver_timeout, align 4
-  %109 = icmp sgt i32 %108, 0
-  br i1 %109, label %110, label %126
+106:                                              ; preds = %104
+  %107 = load i32, ptr @wal_receiver_timeout, align 4
+  %108 = icmp sgt i32 %107, 0
+  br i1 %108, label %109, label %125
 
-110:                                              ; preds = %107
-  %111 = call i64 @GetCurrentTimestamp() #17
-  %112 = load i32, ptr @wal_receiver_timeout, align 4
-  %113 = sext i32 %112 to i64
-  %114 = mul nsw i64 %113, 1000
-  %115 = add i64 %114, %.142.i
-  %.not68.i = icmp slt i64 %111, %115
-  br i1 %.not68.i, label %120, label %116
+109:                                              ; preds = %106
+  %110 = call i64 @GetCurrentTimestamp() #17
+  %111 = load i32, ptr @wal_receiver_timeout, align 4
+  %112 = sext i32 %111 to i64
+  %113 = mul nsw i64 %112, 1000
+  %114 = add i64 %113, %.143.i
+  %.not69.i = icmp slt i64 %110, %114
+  br i1 %.not69.i, label %119, label %115
 
-116:                                              ; preds = %110
-  %117 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
-  call void @llvm.assume(i1 %117)
-  %118 = call i32 @errcode(i32 noundef 100663808) #17
-  %119 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.74) #17
+115:                                              ; preds = %109
+  %116 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #18
+  call void @llvm.assume(i1 %116)
+  %117 = call i32 @errcode(i32 noundef 100663808) #17
+  %118 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.74) #17
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3790, ptr noundef nonnull @__func__.LogicalRepApplyLoop) #17
   unreachable
 
-120:                                              ; preds = %110
-  br i1 %.145.i, label %126, label %121
+119:                                              ; preds = %109
+  br i1 %.146.i, label %125, label %120
 
-121:                                              ; preds = %120
-  %122 = sdiv i32 %112, 2
-  %123 = sext i32 %122 to i64
-  %124 = mul nsw i64 %123, 1000
-  %125 = add i64 %124, %.142.i
-  %.not69.i = icmp sge i64 %111, %125
-  br label %126
+120:                                              ; preds = %119
+  %121 = sdiv i32 %111, 2
+  %122 = sext i32 %121 to i64
+  %123 = mul nsw i64 %122, 1000
+  %124 = add i64 %123, %.143.i
+  %.not70.i = icmp sge i64 %110, %124
+  br label %125
 
-126:                                              ; preds = %121, %120, %107
-  %.549.i = phi i1 [ %.145.i, %107 ], [ true, %120 ], [ %.not69.i, %121 ]
-  %.038.i = phi i1 [ false, %107 ], [ false, %120 ], [ %.not69.i, %121 ]
-  call fastcc void @send_feedback(i64 noundef %.1.i, i1 noundef zeroext %.038.i, i1 noundef zeroext %.038.i)
-  %127 = call zeroext i1 @IsTransactionState() #17
-  br i1 %127, label %130, label %128
+125:                                              ; preds = %120, %119, %106
+  %.550.i = phi i1 [ %.146.i, %106 ], [ true, %119 ], [ %.not70.i, %120 ]
+  %.039.i = phi i1 [ false, %106 ], [ false, %119 ], [ %.not70.i, %120 ]
+  call fastcc void @send_feedback(i64 noundef %.1.i, i1 noundef zeroext %.039.i, i1 noundef zeroext %.039.i)
+  %126 = call zeroext i1 @IsTransactionState() #17
+  br i1 %126, label %129, label %127
 
-128:                                              ; preds = %126
-  %129 = call i64 @pgstat_report_stat(i1 noundef zeroext true) #17
-  br label %130
+127:                                              ; preds = %125
+  %128 = call i64 @pgstat_report_stat(i1 noundef zeroext true) #17
+  br label %129
 
-130:                                              ; preds = %128, %126, %105
-  %.347.i = phi i1 [ %.145.i, %105 ], [ %.549.i, %128 ], [ %.549.i, %126 ]
+129:                                              ; preds = %127, %125, %104
+  %.348.i = phi i1 [ %.146.i, %104 ], [ %.550.i, %127 ], [ %.550.i, %125 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
   br label %23
 
-LogicalRepApplyLoop.exit:                         ; preds = %85
+LogicalRepApplyLoop.exit:                         ; preds = %84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  %131 = load ptr, ptr %3, align 8
-  store ptr %131, ptr @error_context_stack, align 8
-  store ptr %131, ptr @apply_error_context_stack, align 8
-  %132 = load ptr, ptr @WalReceiverFunctions, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 72
-  %134 = load ptr, ptr %133, align 8
-  %135 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
-  call void %134(ptr noundef %135, ptr noundef nonnull %2) #17
+  %130 = load ptr, ptr %3, align 8
+  store ptr %130, ptr @error_context_stack, align 8
+  store ptr %130, ptr @apply_error_context_stack, align 8
+  %131 = load ptr, ptr @WalReceiverFunctions, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 72
+  %133 = load ptr, ptr %132, align 8
+  %134 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
+  call void %133(ptr noundef %134, ptr noundef nonnull %2) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
   store ptr %8, ptr @PG_exception_stack, align 8
@@ -4043,37 +4041,37 @@ LogicalRepApplyLoop.exit:                         ; preds = %85
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %7) #17
   ret void
 
-136:                                              ; preds = %1
+135:                                              ; preds = %1
   store ptr %8, ptr @PG_exception_stack, align 8
   store ptr %9, ptr @error_context_stack, align 8
-  %137 = load ptr, ptr @MySubscription, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 33
-  %139 = load i8, ptr %138, align 1, !range !4, !noundef !5
-  %140 = trunc nuw i8 %139 to i1
-  br i1 %140, label %141, label %142
+  %136 = load ptr, ptr @MySubscription, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 33
+  %138 = load i8, ptr %137, align 1, !range !4, !noundef !5
+  %139 = trunc nuw i8 %138 to i1
+  br i1 %139, label %140, label %141
 
-141:                                              ; preds = %136
+140:                                              ; preds = %135
   call void @DisableSubscriptionAndExit()
   unreachable
 
-142:                                              ; preds = %136
+141:                                              ; preds = %135
   call void @AbortOutOfAnyTransaction() #17
-  %143 = load ptr, ptr @MySubscription, align 8
-  %144 = load i32, ptr %143, align 8
-  %145 = load ptr, ptr @MyLogicalRepWorker, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  %147 = load i8, ptr %146, align 8, !range !4, !noundef !5
-  %148 = trunc nuw i8 %147 to i1
-  br i1 %148, label %149, label %am_tablesync_worker.exit
+  %142 = load ptr, ptr @MySubscription, align 8
+  %143 = load i32, ptr %142, align 8
+  %144 = load ptr, ptr @MyLogicalRepWorker, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
+  %146 = load i8, ptr %145, align 8, !range !4, !noundef !5
+  %147 = trunc nuw i8 %146 to i1
+  br i1 %147, label %148, label %am_tablesync_worker.exit
 
-149:                                              ; preds = %142
-  %150 = load i32, ptr %145, align 8
-  %151 = icmp ne i32 %150, 1
+148:                                              ; preds = %141
+  %149 = load i32, ptr %144, align 8
+  %150 = icmp ne i32 %149, 1
   br label %am_tablesync_worker.exit
 
-am_tablesync_worker.exit:                         ; preds = %142, %149
-  %152 = phi i1 [ true, %142 ], [ %151, %149 ]
-  call void @pgstat_report_subscription_error(i32 noundef %144, i1 noundef zeroext %152) #17
+am_tablesync_worker.exit:                         ; preds = %141, %148
+  %151 = phi i1 [ true, %141 ], [ %150, %148 ]
+  call void @pgstat_report_subscription_error(i32 noundef %143, i1 noundef zeroext %151) #17
   call void @pg_re_throw() #19
   unreachable
 }

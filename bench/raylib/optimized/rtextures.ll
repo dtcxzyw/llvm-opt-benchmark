@@ -17647,15 +17647,13 @@ define void @ImageResize(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_u
   %17 = mul nsw i32 %2, %1
   %switch.tableidx = add i32 %16, -1
   %18 = icmp ult i32 %switch.tableidx, 7
-  br i1 %18, label %switch.hole_check, label %25
-
-switch.hole_check:                                ; preds = %14
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 75, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %25
+  %or.cond = select i1 %18, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %25
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %14
   %19 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.ImageResize, i64 0, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -17670,7 +17668,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %2, ptr %11, align 4
   br label %35
 
-25:                                               ; preds = %switch.hole_check, %14
+25:                                               ; preds = %14
   %26 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %0)
   %27 = sext i32 %17 to i64
   %28 = shl nsw i64 %27, 2

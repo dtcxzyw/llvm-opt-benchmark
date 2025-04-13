@@ -763,8 +763,8 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread.i:   ; preds = %_ZNK5clang4Type13is
 
 38:                                               ; preds = %34
   %39 = and i16 %35, 510
-  %spec.select.i.i.i.i.i.i.i.i88.not.i = icmp eq i16 %39, 120
-  br i1 %spec.select.i.i.i.i.i.i.i.i88.not.i, label %40, label %97
+  %spec.select.i.i.i.i.i.i.i.i90.not.i = icmp eq i16 %39, 120
+  br i1 %spec.select.i.i.i.i.i.i.i.i90.not.i, label %40, label %97
 
 40:                                               ; preds = %38
   %41 = load i32, ptr %33, align 8
@@ -787,8 +787,8 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread.i:   ; preds = %_ZNK5clang4Type13is
 
 55:                                               ; preds = %45
   %56 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(81) %2)
-  %.sroa.0.0.copyload.i89.i = load i64, ptr %9, align 8, !tbaa !16
-  %57 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker17isLossOfPrecisionEPKN5clang16ImplicitCastExprENS1_8QualTypeERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i89.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  %.sroa.0.0.copyload.i91.i = load i64, ptr %9, align 8, !tbaa !16
+  %57 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker17isLossOfPrecisionEPKN5clang16ImplicitCastExprENS1_8QualTypeERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i91.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
   br label %142
 
 58:                                               ; preds = %40
@@ -800,8 +800,8 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread.i:   ; preds = %_ZNK5clang4Type13is
   %61 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !211
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %.sroa.0.0.copyload.i90.i = load i64, ptr %63, align 8, !tbaa !16
-  %64 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker17isLossOfPrecisionEPKN5clang16ImplicitCastExprENS1_8QualTypeERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i90.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  %.sroa.0.0.copyload.i92.i = load i64, ptr %63, align 8, !tbaa !16
+  %64 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker17isLossOfPrecisionEPKN5clang16ImplicitCastExprENS1_8QualTypeERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i92.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
   br label %142
 
 65:                                               ; preds = %58
@@ -813,8 +813,8 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread.i:   ; preds = %_ZNK5clang4Type13is
   %69 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !211
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %.sroa.0.0.copyload.i91.i = load i64, ptr %71, align 8, !tbaa !16
-  %72 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker17isLossOfPrecisionEPKN5clang16ImplicitCastExprENS1_8QualTypeERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i91.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  %.sroa.0.0.copyload.i93.i = load i64, ptr %71, align 8, !tbaa !16
+  %72 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker17isLossOfPrecisionEPKN5clang16ImplicitCastExprENS1_8QualTypeERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i93.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
   br label %142
 
 73:                                               ; preds = %65
@@ -844,8 +844,8 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread.i:   ; preds = %_ZNK5clang4Type13is
   %85 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !211
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %.sroa.0.0.copyload.i92.i = load i64, ptr %87, align 8, !tbaa !16
-  %88 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker17isLossOfPrecisionEPKN5clang16ImplicitCastExprENS1_8QualTypeERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i92.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  %.sroa.0.0.copyload.i94.i = load i64, ptr %87, align 8, !tbaa !16
+  %88 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker17isLossOfPrecisionEPKN5clang16ImplicitCastExprENS1_8QualTypeERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i94.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
   br label %142
 
 89:                                               ; preds = %81
@@ -854,8 +854,8 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread.i:   ; preds = %_ZNK5clang4Type13is
   %92 = icmp ult i32 %91, 4
   %93 = add nsw i32 %43, -2
   %94 = icmp ult i32 %93, 3
-  %or.cond105.i = select i1 %92, i1 true, i1 %94
-  br i1 %or.cond105.i, label %95, label %142
+  %or.cond107.i = select i1 %92, i1 true, i1 %94
+  br i1 %or.cond107.i, label %95, label %142
 
 95:                                               ; preds = %89
   %96 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(81) %2)
@@ -905,8 +905,8 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread.i:   ; preds = %_ZNK5clang4Type13is
 
 _ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit10: ; preds = %108, %115, %120
   %.0.i9 = phi i1 [ %123, %120 ], [ false, %115 ], [ false, %108 ]
-  %.sroa.0.0.copyload.i94.i = load i64, ptr %9, align 8, !tbaa !16
-  %124 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker17isLossOfPrecisionEPKN5clang16ImplicitCastExprENS1_8QualTypeERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i94.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  %.sroa.0.0.copyload.i96.i = load i64, ptr %9, align 8, !tbaa !16
+  %124 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker17isLossOfPrecisionEPKN5clang16ImplicitCastExprENS1_8QualTypeERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i96.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
   br label %142
 
 125:                                              ; preds = %97
@@ -935,15 +935,15 @@ _ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprE
 
 _ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit: ; preds = %125, %132, %137
   %.0.i = phi i1 [ %140, %137 ], [ false, %132 ], [ false, %125 ]
-  %.sroa.0.0.copyload.i95.i = load i64, ptr %9, align 8, !tbaa !16
-  %141 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker17isLossOfPrecisionEPKN5clang16ImplicitCastExprENS1_8QualTypeERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i95.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
+  %.sroa.0.0.copyload.i97.i = load i64, ptr %9, align 8, !tbaa !16
+  %141 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker17isLossOfPrecisionEPKN5clang16ImplicitCastExprENS1_8QualTypeERNS1_4ento14CheckerContextE(ptr noundef nonnull %1, i64 %.sroa.0.0.copyload.i97.i, ptr noundef nonnull align 8 dereferenceable(81) %2)
   br label %142
 
 142:                                              ; preds = %_ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit, %_ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit10, %98, %95, %89, %83, %79, %75, %67, %60, %55, %45
-  %.182.shrunk.i = phi i1 [ false, %98 ], [ %124, %_ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit10 ], [ %141, %_ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit ], [ false, %45 ], [ %57, %55 ], [ %64, %60 ], [ %72, %67 ], [ false, %75 ], [ false, %79 ], [ %88, %83 ], [ false, %95 ], [ false, %89 ]
+  %.184.shrunk.i = phi i1 [ false, %98 ], [ %124, %_ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit10 ], [ %141, %_ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit ], [ false, %45 ], [ %57, %55 ], [ %64, %60 ], [ %72, %67 ], [ false, %75 ], [ false, %79 ], [ %88, %83 ], [ false, %95 ], [ false, %89 ]
   %.1.shrunk.i = phi i1 [ false, %98 ], [ %.0.i9, %_ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit10 ], [ %.0.i, %_ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit ], [ false, %45 ], [ %56, %55 ], [ false, %60 ], [ %68, %67 ], [ %76, %75 ], [ %80, %79 ], [ %84, %83 ], [ %96, %95 ], [ false, %89 ]
-  %brmerge.i = or i1 %.182.shrunk.i, %.1.shrunk.i
-  br i1 %brmerge.i, label %143, label %_ZNK12_GLOBAL__N_117ConversionChecker12checkPreStmtEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit
+  %or.cond7.i = or i1 %.184.shrunk.i, %.1.shrunk.i
+  br i1 %or.cond7.i, label %143, label %_ZNK12_GLOBAL__N_117ConversionChecker12checkPreStmtEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit
 
 143:                                              ; preds = %142
   %144 = load ptr, ptr %26, align 8, !tbaa !60
@@ -962,13 +962,13 @@ _ZNK12_GLOBAL__N_117ConversionChecker12isLossOfSignEPKN5clang16ImplicitCastExprE
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %146) #16
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %146) #16
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i.i96.i = load i64, ptr %150, align 8
+  %.0.copyload.i.i.i.i.i98.i = load i64, ptr %150, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %146) #16
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i: ; preds = %149, %147
-  %.in.in.i = phi i64 [ %.0.copyload.i.i.i.i6.i.i, %147 ], [ %.0.copyload.i.i.i.i.i96.i, %149 ]
+  %.in.in.i = phi i64 [ %.0.copyload.i.i.i.i6.i.i, %147 ], [ %.0.copyload.i.i.i.i.i98.i, %149 ]
   store ptr %146, ptr %8, align 8, !tbaa !218
   %.in.i = and i64 %.in.in.i, -8
   %151 = inttoptr i64 %.in.i to ptr
@@ -991,8 +991,8 @@ _ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %155, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i.i
-  %.not87.not.i = icmp eq ptr %152, null
-  br i1 %.not87.not.i, label %_ZNK12_GLOBAL__N_117ConversionChecker12checkPreStmtEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit, label %156
+  %.not89.not.i = icmp eq ptr %152, null
+  br i1 %.not89.not.i, label %_ZNK12_GLOBAL__N_117ConversionChecker12checkPreStmtEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit, label %156
 
 156:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
   br i1 %.1.shrunk.i, label %157, label %174
@@ -1037,7 +1037,7 @@ _ZNK12_GLOBAL__N_117ConversionChecker9reportBugEPN5clang4ento12ExplodedNodeEPKNS
   br label %174
 
 174:                                              ; preds = %_ZNK12_GLOBAL__N_117ConversionChecker9reportBugEPN5clang4ento12ExplodedNodeEPKNS1_4ExprERNS2_14CheckerContextEPKc.exit5, %156
-  br i1 %.182.shrunk.i, label %175, label %_ZNK12_GLOBAL__N_117ConversionChecker12checkPreStmtEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit
+  br i1 %.184.shrunk.i, label %175, label %_ZNK12_GLOBAL__N_117ConversionChecker12checkPreStmtEPKN5clang16ImplicitCastExprERNS1_4ento14CheckerContextE.exit
 
 175:                                              ; preds = %174
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1291,19 +1291,19 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento14CheckerContext17addTrans
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %8 = alloca %"class.clang::ProgramPoint", align 8
   %9 = load ptr, ptr %1, align 8, !tbaa !218
-  %.not28 = icmp eq ptr %9, null
+  %.not30 = icmp eq ptr %9, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !60
-  br i1 %.not28, label %._crit_edge, label %10
+  br i1 %.not30, label %._crit_edge, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
   %12 = load ptr, ptr %11, align 8, !tbaa !218
   %13 = icmp ne ptr %9, %12
   %14 = icmp ne ptr %4, null
-  %or.cond.not.not31 = or i1 %14, %13
-  %brmerge = or i1 %2, %or.cond.not.not31
-  br i1 %brmerge, label %15, label %._crit_edge
+  %or.cond = or i1 %14, %13
+  %or.cond3 = or i1 %2, %or.cond
+  br i1 %or.cond3, label %15, label %._crit_edge
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1342,12 +1342,12 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento14CheckerContext17addTrans
   br label %33
 
 33:                                               ; preds = %32, %18
-  %.not = icmp eq ptr %3, null
-  %spec.select = select i1 %.not, ptr %.pre, ptr %3
+  %.not19 = icmp eq ptr %3, null
+  %spec.select = select i1 %.not19, ptr %.pre, ptr %3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = load ptr, ptr %34, align 8, !tbaa !244
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %9) #16
-  br i1 %2, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20
+  br i1 %2, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit22
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -1366,7 +1366,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %45
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20: ; preds = %33
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit22: ; preds = %33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %9, ptr %6, align 8, !tbaa !218
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %9) #16
@@ -1375,26 +1375,26 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20: ; pre
   %41 = trunc nuw i8 %40 to i1
   %42 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %6, ptr noundef nonnull %spec.select, i1 noundef zeroext %41) #16
   %43 = load ptr, ptr %6, align 8, !tbaa !218
-  %.not.i.i3.i22 = icmp eq ptr %43, null
-  br i1 %.not.i.i3.i22, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24, label %44
+  %.not.i.i3.i24 = icmp eq ptr %43, null
+  br i1 %.not.i.i3.i24, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26, label %44
 
-44:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20
+44:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit22
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %43) #16
-  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20, %44
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit22, %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %45
 
-45:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
-  %.0 = phi ptr [ %36, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ %42, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24 ]
+45:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
+  %.0 = phi ptr [ %36, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit ], [ %42, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit26 ]
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #16
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %5, %10, %45
-  %.013 = phi ptr [ %.0, %45 ], [ %.pre, %10 ], [ %.pre, %5 ]
-  ret ptr %.013
+  %.015 = phi ptr [ %.0, %45 ], [ %.pre, %10 ], [ %.pre, %5 ]
+  ret ptr %.015
 }
 
 declare noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #6

@@ -2495,11 +2495,11 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr noundef readonly
   %narrow = select i1 %11, i16 10, i16 %spec.store.select
   %13 = udiv i16 %narrow, 20
   %14 = urem i16 %narrow, 20
-  switch i16 %13, label %167 [
+  switch i16 %13, label %169 [
     i16 0, label %15
     i16 1, label %101
     i16 2, label %128
-    i16 3, label %149
+    i16 3, label %150
   ]
 
 15:                                               ; preds = %1
@@ -2559,8 +2559,8 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr noundef readonly
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %54 = load i16, ptr %53, align 4
   %55 = and i16 %54, 1
-  %.not58 = icmp eq i16 %55, 0
-  br i1 %.not58, label %75, label %56
+  %.not = icmp eq i16 %55, 0
+  br i1 %.not, label %75, label %56
 
 56:                                               ; preds = %46
   %57 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -2675,57 +2675,57 @@ define dso_local range(i64 0, 2) i64 @gist_point_consistent(ptr noundef readonly
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 12
   %143 = load i16, ptr %142, align 4
   %144 = and i16 %143, 1
-  %.not52 = icmp ne i16 %144, 0
-  %brmerge.not = select i1 %.not52, i1 %135, i1 false
-  br i1 %brmerge.not, label %145, label %170
+  %145 = icmp ne i16 %144, 0
+  %or.cond = select i1 %145, i1 %135, i1 false
+  br i1 %or.cond, label %146, label %172
 
-145:                                              ; preds = %128
-  %146 = load i64, ptr %4, align 8
-  %147 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @poly_contain_pt, i32 noundef 0, i64 noundef %133, i64 noundef %146) #16
-  %148 = icmp ne i64 %147, 0
+146:                                              ; preds = %128
+  %147 = load i64, ptr %4, align 8
+  %148 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @poly_contain_pt, i32 noundef 0, i64 noundef %133, i64 noundef %147) #16
+  %149 = icmp ne i64 %148, 0
   br label %.sink.split
 
-149:                                              ; preds = %1
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %151 = load i64, ptr %150, align 8
-  %152 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @gist_circle_consistent, i32 noundef 0, i64 noundef %3, i64 noundef %151, i64 noundef 3, i64 noundef 0, i64 noundef %9) #16
-  %153 = icmp ne i64 %152, 0
-  %154 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %157 = load i16, ptr %156, align 4
-  %158 = zext i16 %157 to i64
-  %159 = getelementptr inbounds nuw i8, ptr %155, i64 %158
-  %160 = getelementptr inbounds nuw i8, ptr %159, i64 12
-  %161 = load i16, ptr %160, align 4
-  %162 = and i16 %161, 1
-  %.not = icmp ne i16 %162, 0
-  %brmerge55.not = select i1 %.not, i1 %153, i1 false
-  br i1 %brmerge55.not, label %163, label %170
+150:                                              ; preds = %1
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %152 = load i64, ptr %151, align 8
+  %153 = tail call i64 @DirectFunctionCall5Coll(ptr noundef nonnull @gist_circle_consistent, i32 noundef 0, i64 noundef %3, i64 noundef %152, i64 noundef 3, i64 noundef 0, i64 noundef %9) #16
+  %154 = icmp ne i64 %153, 0
+  %155 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
+  %158 = load i16, ptr %157, align 4
+  %159 = zext i16 %158 to i64
+  %160 = getelementptr inbounds nuw i8, ptr %156, i64 %159
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 12
+  %162 = load i16, ptr %161, align 4
+  %163 = and i16 %162, 1
+  %164 = icmp ne i16 %163, 0
+  %or.cond3 = select i1 %164, i1 %154, i1 false
+  br i1 %or.cond3, label %165, label %172
 
-163:                                              ; preds = %149
-  %164 = load i64, ptr %4, align 8
-  %165 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @circle_contain_pt, i32 noundef 0, i64 noundef %151, i64 noundef %164) #16
-  %166 = icmp ne i64 %165, 0
+165:                                              ; preds = %150
+  %166 = load i64, ptr %4, align 8
+  %167 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @circle_contain_pt, i32 noundef 0, i64 noundef %152, i64 noundef %166) #16
+  %168 = icmp ne i64 %167, 0
   br label %.sink.split
 
-167:                                              ; preds = %1
+169:                                              ; preds = %1
   %.0 = zext i16 %narrow to i32
-  %168 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %168)
-  %169 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.0) #16
+  %170 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %170)
+  %171 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %.0) #16
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1446, ptr noundef nonnull @__func__.gist_point_consistent) #16
   unreachable
 
-.sink.split:                                      ; preds = %101, %111, %116, %122, %92, %85, %80, %75, %65, %56, %39, %32, %27, %21, %145, %163
-  %.050.ph = phi i1 [ %166, %163 ], [ %148, %145 ], [ %45, %39 ], [ %38, %32 ], [ %31, %27 ], [ %26, %21 ], [ false, %56 ], [ %74, %65 ], [ false, %85 ], [ false, %80 ], [ false, %75 ], [ %96, %92 ], [ false, %116 ], [ false, %111 ], [ false, %101 ], [ %127, %122 ]
+.sink.split:                                      ; preds = %101, %111, %116, %122, %92, %85, %80, %75, %65, %56, %39, %32, %27, %21, %146, %165
+  %.053.ph = phi i1 [ %168, %165 ], [ %149, %146 ], [ %45, %39 ], [ %38, %32 ], [ %31, %27 ], [ %26, %21 ], [ false, %56 ], [ %74, %65 ], [ false, %85 ], [ false, %80 ], [ false, %75 ], [ %96, %92 ], [ false, %116 ], [ false, %111 ], [ false, %101 ], [ %127, %122 ]
   store i8 0, ptr %10, align 1
-  br label %170
+  br label %172
 
-170:                                              ; preds = %.sink.split, %149, %128
-  %.050 = phi i1 [ %135, %128 ], [ %153, %149 ], [ %.050.ph, %.sink.split ]
-  %171 = zext i1 %.050 to i64
-  ret i64 %171
+172:                                              ; preds = %.sink.split, %150, %128
+  %.053 = phi i1 [ %135, %128 ], [ %154, %150 ], [ %.053.ph, %.sink.split ]
+  %173 = zext i1 %.053 to i64
+  ret i64 %173
 }
 
 declare i64 @DirectFunctionCall5Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2

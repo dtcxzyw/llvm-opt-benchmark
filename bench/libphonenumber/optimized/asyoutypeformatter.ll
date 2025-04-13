@@ -903,10 +903,10 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
-  %or.cond = select i1 %5, i1 %8, i1 false
+  %or.cond19 = select i1 %5, i1 %8, i1 false
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %10 = load ptr, ptr %9, align 8, !tbaa !61
-  br i1 %or.cond, label %11, label %.critedge
+  br i1 %or.cond19, label %11, label %.critedge
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -924,8 +924,8 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !81
-  %.not21 = icmp eq i32 %21, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not2024 = icmp eq i32 %21, 0
+  br i1 %.not2024, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %22 = load ptr, ptr %19, align 8, !tbaa !82
@@ -937,93 +937,91 @@ define dso_local void @_ZN4i18n12phonenumbers18AsYouTypeFormatter19GetAvailableF
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 728
   br label %27
 
-._crit_edge:                                      ; preds = %67, %17
+._crit_edge:                                      ; preds = %69, %17
   tail call void @_ZN4i18n12phonenumbers18AsYouTypeFormatter25NarrowDownPossibleFormatsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 
-27:                                               ; preds = %.lr.ph, %67
-  %.sroa.06.022 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %68, %67 ]
+27:                                               ; preds = %.lr.ph, %69
+  %.sroa.07.025 = phi ptr [ %spec.select.i.i, %.lr.ph ], [ %70, %69 ]
   %28 = load i64, ptr %6, align 8, !tbaa !15
   %29 = icmp eq i64 %28, 0
-  %.pre28.pre = load ptr, ptr %.sroa.06.022, align 8, !tbaa !83
-  br i1 %29, label %.thread, label %30
+  %.pre27.pre29 = load ptr, ptr %.sroa.07.025, align 8, !tbaa !83
+  br i1 %29, label %43, label %30
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr %24, align 8, !tbaa !69
-  %32 = getelementptr inbounds nuw i8, ptr %.pre28.pre, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %.pre27.pre29, i64 64
   %33 = load ptr, ptr %32, align 8, !tbaa !72
   %34 = tail call noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31FormattingRuleHasFirstGroupOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(32) %33)
-  %.pre28.pre30.pre = load ptr, ptr %.sroa.06.022, align 8, !tbaa !83
+  %.pre27.pre = load ptr, ptr %.sroa.07.025, align 8, !tbaa !83
   br i1 %34, label %35, label %43
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw i8, ptr %.pre28.pre30.pre, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %.pre27.pre, i64 80
   %37 = load i8, ptr %36, align 8, !tbaa !84, !range !79, !noundef !80
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %.pre28.pre30.pre, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.pre27.pre, i64 16
   %41 = load i32, ptr %40, align 4, !tbaa !87
   %42 = and i32 %41, 8
-  %.not18 = icmp eq i32 %42, 0
-  br i1 %.not18, label %67, label %43
+  %.not21 = icmp eq i32 %42, 0
+  br i1 %.not21, label %69, label %43
 
-43:                                               ; preds = %39, %35, %30
-  %.pr = load i64, ptr %6, align 8, !tbaa !15
-  %44 = icmp eq i64 %.pr, 0
-  br i1 %44, label %.thread, label %._crit_edge26
+43:                                               ; preds = %39, %35, %30, %27
+  %.pre27 = phi ptr [ %.pre27.pre, %39 ], [ %.pre27.pre, %35 ], [ %.pre27.pre, %30 ], [ %.pre27.pre29, %27 ]
+  %44 = load i64, ptr %6, align 8, !tbaa !15
+  %45 = icmp ne i64 %44, 0
+  %46 = load i8, ptr %3, align 2, !range !79
+  %47 = trunc nuw i8 %46 to i1
+  %or.cond = select i1 %45, i1 true, i1 %47
+  br i1 %or.cond, label %57, label %48
 
-.thread:                                          ; preds = %27, %43
-  %.pre28 = phi ptr [ %.pre28.pre, %27 ], [ %.pre28.pre30.pre, %43 ]
-  %45 = load i8, ptr %3, align 2, !tbaa !55, !range !79, !noundef !80
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %._crit_edge26, label %47
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %24, align 8, !tbaa !69
+  %50 = getelementptr inbounds nuw i8, ptr %.pre27, i64 64
+  %51 = load ptr, ptr %50, align 8, !tbaa !72
+  %52 = tail call noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31FormattingRuleHasFirstGroupOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(32) %51)
+  %.pre28 = load ptr, ptr %.sroa.07.025, align 8, !tbaa !83
+  br i1 %52, label %57, label %53
 
-47:                                               ; preds = %.thread
-  %48 = load ptr, ptr %24, align 8, !tbaa !69
-  %49 = getelementptr inbounds nuw i8, ptr %.pre28, i64 64
-  %50 = load ptr, ptr %49, align 8, !tbaa !72
-  %51 = tail call noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31FormattingRuleHasFirstGroupOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %48, ptr noundef nonnull align 8 dereferenceable(32) %50)
-  %.pre29 = load ptr, ptr %.sroa.06.022, align 8, !tbaa !83
-  br i1 %51, label %._crit_edge26, label %52
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds nuw i8, ptr %.pre28, i64 80
+  %55 = load i8, ptr %54, align 8, !tbaa !84, !range !79, !noundef !80
+  %56 = trunc nuw i8 %55 to i1
+  br i1 %56, label %57, label %69
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds nuw i8, ptr %.pre29, i64 80
-  %54 = load i8, ptr %53, align 8, !tbaa !84, !range !79, !noundef !80
-  %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %._crit_edge26, label %67
+57:                                               ; preds = %43, %48, %53
+  %58 = phi ptr [ %.pre27, %43 ], [ %.pre28, %48 ], [ %.pre28, %53 ]
+  %59 = load ptr, ptr %24, align 8, !tbaa !69
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 56
+  %61 = load ptr, ptr %60, align 8, !tbaa !72
+  %62 = tail call noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil37IsFormatEligibleForAsYouTypeFormatterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(32) %61)
+  br i1 %62, label %63, label %69
 
-._crit_edge26:                                    ; preds = %43, %.thread, %47, %52
-  %56 = phi ptr [ %.pre28, %.thread ], [ %.pre29, %47 ], [ %.pre29, %52 ], [ %.pre28.pre30.pre, %43 ]
-  %57 = load ptr, ptr %24, align 8, !tbaa !69
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 56
-  %59 = load ptr, ptr %58, align 8, !tbaa !72
-  %60 = tail call noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil37IsFormatEligibleForAsYouTypeFormatterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull align 8 dereferenceable(32) %59)
-  br i1 %60, label %61, label %67
+63:                                               ; preds = %57
+  %64 = load ptr, ptr %.sroa.07.025, align 8, !tbaa !83
+  %65 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store ptr %64, ptr %66, align 8, !tbaa !70
+  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(24) %25) #21
+  %67 = load i64, ptr %26, align 8, !tbaa !88
+  %68 = add i64 %67, 1
+  store i64 %68, ptr %26, align 8, !tbaa !88
+  br label %69
 
-61:                                               ; preds = %._crit_edge26
-  %62 = load ptr, ptr %.sroa.06.022, align 8, !tbaa !83
-  %63 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store ptr %62, ptr %64, align 8, !tbaa !70
-  tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(24) %25) #21
-  %65 = load i64, ptr %26, align 8, !tbaa !88
-  %66 = add i64 %65, 1
-  store i64 %66, ptr %26, align 8, !tbaa !88
-  br label %67
-
-67:                                               ; preds = %._crit_edge26, %61, %52, %39
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.06.022, i64 8
-  %69 = load ptr, ptr %19, align 8, !tbaa !82
-  %.not.i.i4 = icmp eq ptr %69, null
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %spec.select.i.i5 = select i1 %.not.i.i4, ptr null, ptr %70
-  %71 = load i32, ptr %20, align 8, !tbaa !81
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds ptr, ptr %spec.select.i.i5, i64 %72
-  %.not = icmp eq ptr %68, %73
-  br i1 %.not, label %._crit_edge, label %27, !llvm.loop !89
+69:                                               ; preds = %57, %63, %53, %39
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.07.025, i64 8
+  %71 = load ptr, ptr %19, align 8, !tbaa !82
+  %.not.i.i5 = icmp eq ptr %71, null
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %spec.select.i.i6 = select i1 %.not.i.i5, ptr null, ptr %72
+  %73 = load i32, ptr %20, align 8, !tbaa !81
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds ptr, ptr %spec.select.i.i6, i64 %74
+  %.not20 = icmp eq ptr %70, %75
+  br i1 %.not20, label %._crit_edge, label %27, !llvm.loop !89
 }
 
 declare noundef zeroext i1 @_ZNK4i18n12phonenumbers15PhoneNumberUtil31FormattingRuleHasFirstGroupOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1

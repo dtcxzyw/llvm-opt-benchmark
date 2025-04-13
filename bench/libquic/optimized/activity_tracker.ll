@@ -481,15 +481,13 @@ define noundef zeroext i1 @_ZNK4base5debug21ThreadActivityTracker8SnapshotEPNS0_
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 83
   %32 = load i8, ptr %31, align 1, !tbaa !12
   %.not3.i = icmp eq i8 %32, 0
-  br i1 %.not3.i, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit.thread
-
-_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit: ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %34 = load i8, ptr %33, align 4, !tbaa !34, !range !43, !noundef !44
+  %34 = load i8, ptr %33, align 4, !range !43
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit.thread
+  %or.cond = select i1 %.not3.i, i1 %35, i1 false
+  br i1 %or.cond, label %36, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit.thread
 
-36:                                               ; preds = %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit
+36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %38 = zext i32 %27 to i64
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -546,7 +544,7 @@ _ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit: ; preds = %36, %_ZNS
   br label %67
 
 67:                                               ; preds = %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit, %186
-  %.03260 = phi i32 [ 0, %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit ], [ %187, %186 ]
+  %.03265 = phi i32 [ 0, %_ZNSt6vectorIN4base5debug8ActivityESaIS2_EE7reserveEm.exit ], [ %187, %186 ]
   %68 = load ptr, ptr %5, align 8, !tbaa !26
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load atomic i64, ptr %69 acquire, align 8
@@ -780,42 +778,40 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %175 = getelementptr inbounds nuw i8, ptr %154, i64 83
   %176 = load i8, ptr %175, align 1, !tbaa !12
   %.not3.i40 = icmp eq i8 %176, 0
-  br i1 %.not3.i40, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread
-
-_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41: ; preds = %174
-  %177 = load i8, ptr %33, align 4, !tbaa !34, !range !43, !noundef !44
+  %177 = load i8, ptr %33, align 4, !range !43
   %178 = trunc nuw i8 %177 to i1
-  br i1 %178, label %179, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread
+  %or.cond60 = select i1 %.not3.i40, i1 %178, i1 false
+  br i1 %or.cond60, label %179, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread
 
-179:                                              ; preds = %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41
+179:                                              ; preds = %174
   %180 = load ptr, ptr %37, align 8, !tbaa !56
   %181 = load ptr, ptr %58, align 8, !tbaa !56
-  %.not5661 = icmp eq ptr %180, %181
-  br i1 %.not5661, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %.lr.ph
+  %.not6166 = icmp eq ptr %180, %181
+  br i1 %.not6166, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %179, %.lr.ph
-  %.sroa.043.062 = phi ptr [ %185, %.lr.ph ], [ %180, %179 ]
-  %182 = load i64, ptr %.sroa.043.062, align 8, !tbaa !8
+  %.sroa.043.067 = phi ptr [ %185, %.lr.ph ], [ %180, %179 ]
+  %182 = load i64, ptr %.sroa.043.067, align 8, !tbaa !8
   %183 = sub nsw i64 %182, %168
   %184 = call noundef i64 @_ZN4base13time_internal12SaturatedAddENS_9TimeDeltaEl(i64 %183, i64 noundef %164)
-  store i64 %184, ptr %.sroa.043.062, align 8, !tbaa !8
-  %185 = getelementptr inbounds nuw i8, ptr %.sroa.043.062, i64 112
-  %.not56 = icmp eq ptr %185, %181
-  br i1 %.not56, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %.lr.ph
+  store i64 %184, ptr %.sroa.043.067, align 8, !tbaa !8
+  %185 = getelementptr inbounds nuw i8, ptr %.sroa.043.067, i64 112
+  %.not61 = icmp eq ptr %185, %181
+  br i1 %.not61, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %.lr.ph
 
 186:                                              ; preds = %98, %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %187 = add nuw nsw i32 %.03260, 1
+  %187 = add nuw nsw i32 %.03265, 1
   %exitcond.not = icmp eq i32 %187, 10
   br i1 %exitcond.not, label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, label %67, !llvm.loop !57
 
-_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread: ; preds = %186, %.lr.ph, %179, %150, %153, %158, %162, %166, %170, %174, %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41
-  %188 = phi i1 [ true, %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41 ], [ true, %174 ], [ true, %170 ], [ true, %166 ], [ true, %162 ], [ true, %158 ], [ true, %153 ], [ true, %150 ], [ true, %179 ], [ true, %.lr.ph ], [ false, %186 ]
-  %.2 = phi i1 [ false, %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41 ], [ false, %174 ], [ false, %170 ], [ false, %166 ], [ false, %162 ], [ false, %158 ], [ false, %153 ], [ false, %150 ], [ true, %179 ], [ true, %.lr.ph ], [ undef, %186 ]
+_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread: ; preds = %186, %.lr.ph, %179, %150, %153, %158, %162, %166, %170, %174
+  %188 = phi i1 [ true, %174 ], [ true, %170 ], [ true, %166 ], [ true, %162 ], [ true, %158 ], [ true, %153 ], [ true, %150 ], [ true, %179 ], [ true, %.lr.ph ], [ false, %186 ]
+  %.2 = phi i1 [ false, %174 ], [ false, %170 ], [ false, %166 ], [ false, %162 ], [ false, %158 ], [ false, %153 ], [ false, %150 ], [ true, %179 ], [ true, %.lr.ph ], [ undef, %186 ]
   %spec.select = and i1 %188, %.2
   br label %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit.thread
 
-_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit.thread: ; preds = %2, %8, %13, %17, %21, %25, %30, %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread, %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit
-  %.0 = phi i1 [ false, %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit ], [ %spec.select, %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread ], [ false, %30 ], [ false, %25 ], [ false, %21 ], [ false, %17 ], [ false, %13 ], [ false, %8 ], [ false, %2 ]
+_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit.thread: ; preds = %2, %8, %13, %17, %21, %25, %30, %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread
+  %.0 = phi i1 [ %spec.select, %_ZNK4base5debug21ThreadActivityTracker7IsValidEv.exit41.thread ], [ false, %30 ], [ false, %25 ], [ false, %21 ], [ false, %17 ], [ false, %13 ], [ false, %8 ], [ false, %2 ]
   ret i1 %.0
 }
 

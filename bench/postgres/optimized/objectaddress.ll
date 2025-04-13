@@ -311,15 +311,15 @@ define dso_local { i64, i32 } @get_object_address(i32 noundef %0, ptr noundef %1
   %.sroa.421.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %12 = getelementptr i8, ptr %1, i64 8
-  %.not.i.i280 = icmp eq ptr %1, null
+  %.not.i.i282 = icmp eq ptr %1, null
   %.pre = load i64, ptr @SharedInvalidMessageCounter, align 8
   br label %13
 
-13:                                               ; preds = %571, %5
-  %14 = phi i64 [ %.pre, %5 ], [ %572, %571 ]
-  %.sroa.54.0 = phi i32 [ 0, %5 ], [ %.sroa.54.1330, %571 ]
-  %.sroa.0181.sroa.34.0 = phi i32 [ 0, %5 ], [ %.sroa.0181.sroa.34.1331, %571 ]
-  %.sroa.0181.sroa.0.0 = phi i32 [ 0, %5 ], [ %.sroa.0181.sroa.0.1332, %571 ]
+13:                                               ; preds = %572, %5
+  %14 = phi i64 [ %.pre, %5 ], [ %573, %572 ]
+  %.sroa.54.0 = phi i32 [ 0, %5 ], [ %.sroa.54.1332, %572 ]
+  %.sroa.0183.sroa.34.0 = phi i32 [ 0, %5 ], [ %.sroa.0183.sroa.34.1333, %572 ]
+  %.sroa.0183.sroa.0.0 = phi i32 [ 0, %5 ], [ %.sroa.0183.sroa.0.1334, %572 ]
   switch i32 %0, label %get_object_address_unqualified.exit [
     i32 20, label %15
     i32 37, label %15
@@ -370,9 +370,9 @@ define dso_local { i64, i32 } @get_object_address(i32 noundef %0, ptr noundef %1
     i32 45, label %387
     i32 50, label %389
     i32 31, label %437
-    i32 32, label %457
-    i32 11, label %488
-    i32 39, label %551
+    i32 32, label %458
+    i32 11, label %489
+    i32 39, label %552
   ]
 
 15:                                               ; preds = %13, %13, %13, %13, %13, %13
@@ -526,13 +526,13 @@ define dso_local { i64, i32 } @get_object_address(i32 noundef %0, ptr noundef %1
 
 get_relation_by_qualified_name.exit:              ; preds = %15, %94
   %.sroa.223.0.i = phi i64 [ %99, %94 ], [ 1259, %15 ]
-  %.sroa.0181.sroa.0.0.extract.trunc223 = trunc i64 %.sroa.223.0.i to i32
-  %.sroa.0181.sroa.34.0.extract.shift244 = lshr i64 %.sroa.223.0.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc245 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift244 to i32
+  %.sroa.0183.sroa.0.0.extract.trunc225 = trunc i64 %.sroa.223.0.i to i32
+  %.sroa.0183.sroa.34.0.extract.shift246 = lshr i64 %.sroa.223.0.i, 32
+  %.sroa.0183.sroa.34.0.extract.trunc247 = trunc nuw i64 %.sroa.0183.sroa.34.0.extract.shift246 to i32
   br label %.thread
 
 100:                                              ; preds = %13, %13
-  br i1 %.not.i.i280, label %list_length.exit.thread.i, label %list_length.exit.i
+  br i1 %.not.i.i282, label %list_length.exit.thread.i, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %100
   %101 = load i32, ptr %10, align 4
@@ -591,20 +591,20 @@ get_object_address_attribute.exit:                ; preds = %125, %126
   %.3 = phi ptr [ null, %125 ], [ %114, %126 ]
   %.sroa.3.0.i = phi i64 [ 1259, %125 ], [ %130, %126 ]
   %.sroa.5.0.i = phi i32 [ 0, %125 ], [ %127, %126 ]
-  %.sroa.0181.sroa.0.0.extract.trunc222 = trunc i64 %.sroa.3.0.i to i32
-  %.sroa.0181.sroa.34.0.extract.shift242 = lshr i64 %.sroa.3.0.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc243 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift242 to i32
+  %.sroa.0183.sroa.0.0.extract.trunc224 = trunc i64 %.sroa.3.0.i to i32
+  %.sroa.0183.sroa.34.0.extract.shift244 = lshr i64 %.sroa.3.0.i, 32
+  %.sroa.0183.sroa.34.0.extract.trunc245 = trunc nuw i64 %.sroa.0183.sroa.34.0.extract.shift244 to i32
   br label %.thread
 
 131:                                              ; preds = %13
-  br i1 %.not.i.i280, label %list_length.exit.thread.i286, label %list_length.exit.i281
+  br i1 %.not.i.i282, label %list_length.exit.thread.i288, label %list_length.exit.i283
 
-list_length.exit.i281:                            ; preds = %131
+list_length.exit.i283:                            ; preds = %131
   %132 = load i32, ptr %10, align 4
   %133 = icmp slt i32 %132, 2
-  br i1 %133, label %list_length.exit.thread.i286, label %list_length.exit27.i
+  br i1 %133, label %list_length.exit.thread.i288, label %list_length.exit27.i
 
-list_length.exit.thread.i286:                     ; preds = %list_length.exit.i281, %131
+list_length.exit.thread.i288:                     ; preds = %list_length.exit.i283, %131
   %134 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %134)
   %135 = tail call i32 @errcode(i32 noundef 16801924) #11
@@ -612,7 +612,7 @@ list_length.exit.thread.i286:                     ; preds = %list_length.exit.i2
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1567, ptr noundef nonnull @__func__.get_object_address_attrdef) #11
   unreachable
 
-list_length.exit27.i:                             ; preds = %list_length.exit.i281
+list_length.exit27.i:                             ; preds = %list_length.exit.i283
   %.val25.i = load ptr, ptr %9, align 8
   %137 = add nsw i32 %132, -1
   %138 = zext nneg i32 %137 to i64
@@ -628,8 +628,8 @@ list_length.exit27.i:                             ; preds = %list_length.exit.i2
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 64
   %149 = load ptr, ptr %148, align 8
   %150 = tail call signext i16 @get_attnum(i32 noundef %147, ptr noundef %142) #11
-  %.not.i282 = icmp eq i16 %150, 0
-  br i1 %.not.i282, label %.thread.i, label %151
+  %.not.i284 = icmp eq i16 %150, 0
+  br i1 %.not.i284, label %.thread.i, label %151
 
 151:                                              ; preds = %list_length.exit27.i
   %152 = getelementptr inbounds nuw i8, ptr %149, i64 16
@@ -666,10 +666,10 @@ list_length.exit27.i:                             ; preds = %list_length.exit.i2
 
 get_object_address_attrdef.exit:                  ; preds = %161, %162
   %.4 = phi ptr [ null, %161 ], [ %145, %162 ]
-  %.sroa.3.0.i283 = phi i64 [ 2604, %161 ], [ %165, %162 ]
-  %.sroa.0181.sroa.0.0.extract.trunc221 = trunc i64 %.sroa.3.0.i283 to i32
-  %.sroa.0181.sroa.34.0.extract.shift240 = lshr i64 %.sroa.3.0.i283, 32
-  %.sroa.0181.sroa.34.0.extract.trunc241 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift240 to i32
+  %.sroa.3.0.i285 = phi i64 [ 2604, %161 ], [ %165, %162 ]
+  %.sroa.0183.sroa.0.0.extract.trunc223 = trunc i64 %.sroa.3.0.i285 to i32
+  %.sroa.0183.sroa.34.0.extract.shift242 = lshr i64 %.sroa.3.0.i285, 32
+  %.sroa.0183.sroa.34.0.extract.trunc243 = trunc nuw i64 %.sroa.0183.sroa.34.0.extract.shift242 to i32
   br label %.thread
 
 166:                                              ; preds = %13, %13, %13, %13
@@ -696,8 +696,8 @@ get_object_address_attrdef.exit:                  ; preds = %161, %162
   %179 = tail call ptr @list_copy_head(ptr noundef nonnull %1, i32 noundef %167) #11
   %180 = tail call ptr @makeRangeVarFromNameList(ptr noundef %179) #11
   %181 = tail call ptr @table_openrv_extended(ptr noundef %180, i32 noundef 1, i1 noundef zeroext %4) #11
-  %.not.i288 = icmp eq ptr %181, null
-  br i1 %.not.i288, label %185, label %182
+  %.not.i290 = icmp eq ptr %181, null
+  br i1 %.not.i290, label %185, label %182
 
 182:                                              ; preds = %178
   %183 = getelementptr inbounds nuw i8, ptr %181, i64 72
@@ -714,28 +714,28 @@ get_object_address_attrdef.exit:                  ; preds = %161, %162
   ]
 
 187:                                              ; preds = %185
-  br i1 %.not.i288, label %get_object_address_relobject.exit, label %188
+  br i1 %.not.i290, label %get_object_address_relobject.exit, label %188
 
 188:                                              ; preds = %187
   %189 = tail call i32 @get_rewrite_oid(i32 noundef %186, ptr noundef %172, i1 noundef zeroext %4) #11
   br label %202
 
 190:                                              ; preds = %185
-  br i1 %.not.i288, label %get_object_address_relobject.exit, label %191
+  br i1 %.not.i290, label %get_object_address_relobject.exit, label %191
 
 191:                                              ; preds = %190
   %192 = tail call i32 @get_trigger_oid(i32 noundef %186, ptr noundef %172, i1 noundef zeroext %4) #11
   br label %202
 
 193:                                              ; preds = %185
-  br i1 %.not.i288, label %get_object_address_relobject.exit, label %194
+  br i1 %.not.i290, label %get_object_address_relobject.exit, label %194
 
 194:                                              ; preds = %193
   %195 = tail call i32 @get_relation_constraint_oid(i32 noundef %186, ptr noundef %172, i1 noundef zeroext %4) #11
   br label %202
 
 196:                                              ; preds = %185
-  br i1 %.not.i288, label %get_object_address_relobject.exit, label %197
+  br i1 %.not.i290, label %get_object_address_relobject.exit, label %197
 
 197:                                              ; preds = %196
   %198 = tail call i32 @get_relation_policy_oid(i32 noundef %186, ptr noundef %172, i1 noundef zeroext %4) #11
@@ -750,8 +750,8 @@ get_object_address_attrdef.exit:                  ; preds = %161, %162
 
 202:                                              ; preds = %197, %194, %191, %188
   %.sroa.030.0.i = phi i64 [ 2618, %188 ], [ 2620, %191 ], [ 2606, %194 ], [ 3256, %197 ]
-  %.sroa.5.0.i289 = phi i32 [ %189, %188 ], [ %192, %191 ], [ %195, %194 ], [ %198, %197 ]
-  %.not32.i = icmp eq i32 %.sroa.5.0.i289, 0
+  %.sroa.5.0.i291 = phi i32 [ %189, %188 ], [ %192, %191 ], [ %195, %194 ], [ %198, %197 ]
+  %.not32.i = icmp eq i32 %.sroa.5.0.i291, 0
   br i1 %.not32.i, label %203, label %204
 
 203:                                              ; preds = %202
@@ -759,7 +759,7 @@ get_object_address_attrdef.exit:                  ; preds = %161, %162
   br label %get_object_address_relobject.exit
 
 204:                                              ; preds = %202
-  %205 = zext i32 %.sroa.5.0.i289 to i64
+  %205 = zext i32 %.sroa.5.0.i291 to i64
   %206 = shl nuw i64 %205, 32
   br label %get_object_address_relobject.exit
 
@@ -768,27 +768,27 @@ get_object_address_relobject.exit:                ; preds = %187, %190, %193, %1
   %.sroa.5.039.i = phi i64 [ 0, %196 ], [ 0, %203 ], [ %206, %204 ], [ 0, %193 ], [ 0, %190 ], [ 0, %187 ]
   %.sroa.030.037.i = phi i64 [ 3256, %196 ], [ %.sroa.030.0.i, %203 ], [ %.sroa.030.0.i, %204 ], [ 2606, %193 ], [ 2620, %190 ], [ 2618, %187 ]
   %.sroa.030.0.insert.insert.i = or disjoint i64 %.sroa.030.037.i, %.sroa.5.039.i
-  %.sroa.0181.sroa.0.0.extract.trunc220 = trunc nuw nsw i64 %.sroa.030.037.i to i32
-  %.sroa.0181.sroa.34.0.extract.shift238 = lshr i64 %.sroa.030.0.insert.insert.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc239 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift238 to i32
+  %.sroa.0183.sroa.0.0.extract.trunc222 = trunc nuw nsw i64 %.sroa.030.037.i to i32
+  %.sroa.0183.sroa.34.0.extract.shift240 = lshr i64 %.sroa.030.0.insert.insert.i, 32
+  %.sroa.0183.sroa.34.0.extract.trunc241 = trunc nuw i64 %.sroa.0183.sroa.34.0.extract.shift240 to i32
   br label %.thread
 
 207:                                              ; preds = %13
   %.val = load ptr, ptr %9, align 8
   %208 = load ptr, ptr %.val, align 8
   %209 = tail call fastcc i64 @get_object_address_type(i32 noundef 12, ptr noundef %208, i1 noundef zeroext %4)
-  %.val268 = load ptr, ptr %9, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %.val268, i64 8
+  %.val270 = load ptr, ptr %9, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %.val270, i64 8
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load ptr, ptr %212, align 8
-  %.sroa.060.4.extract.shift = lshr i64 %209, 32
-  %.sroa.060.4.extract.trunc = trunc nuw i64 %.sroa.060.4.extract.shift to i32
-  %214 = tail call i32 @get_domain_constraint_oid(i32 noundef %.sroa.060.4.extract.trunc, ptr noundef %213, i1 noundef zeroext %4) #11
+  %.sroa.062.4.extract.shift = lshr i64 %209, 32
+  %.sroa.062.4.extract.trunc = trunc nuw i64 %.sroa.062.4.extract.shift to i32
+  %214 = tail call i32 @get_domain_constraint_oid(i32 noundef %.sroa.062.4.extract.trunc, ptr noundef %213, i1 noundef zeroext %4) #11
   br label %.thread
 
 215:                                              ; preds = %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13, %13
-  %.val273 = load ptr, ptr %12, align 8
+  %.val275 = load ptr, ptr %12, align 8
   switch i32 %0, label %242 [
     i32 0, label %216
     i32 9, label %218
@@ -806,55 +806,55 @@ get_object_address_relobject.exit:                ; preds = %187, %190, %193, %1
   ]
 
 216:                                              ; preds = %215
-  %217 = tail call i32 @get_am_oid(ptr noundef %.val273, i1 noundef zeroext %4) #11
+  %217 = tail call i32 @get_am_oid(ptr noundef %.val275, i1 noundef zeroext %4) #11
   br label %.thread
 
 218:                                              ; preds = %215
-  %219 = tail call i32 @get_database_oid(ptr noundef %.val273, i1 noundef zeroext %4) #11
+  %219 = tail call i32 @get_database_oid(ptr noundef %.val275, i1 noundef zeroext %4) #11
   br label %.thread
 
 220:                                              ; preds = %215
-  %221 = tail call i32 @get_extension_oid(ptr noundef %.val273, i1 noundef zeroext %4) #11
+  %221 = tail call i32 @get_extension_oid(ptr noundef %.val275, i1 noundef zeroext %4) #11
   br label %.thread
 
 222:                                              ; preds = %215
-  %223 = tail call i32 @get_tablespace_oid(ptr noundef %.val273, i1 noundef zeroext %4) #11
+  %223 = tail call i32 @get_tablespace_oid(ptr noundef %.val275, i1 noundef zeroext %4) #11
   br label %.thread
 
 224:                                              ; preds = %215
-  %225 = tail call i32 @get_role_oid(ptr noundef %.val273, i1 noundef zeroext %4) #11
+  %225 = tail call i32 @get_role_oid(ptr noundef %.val275, i1 noundef zeroext %4) #11
   br label %.thread
 
 226:                                              ; preds = %215
-  %227 = tail call i32 @get_namespace_oid(ptr noundef %.val273, i1 noundef zeroext %4) #11
+  %227 = tail call i32 @get_namespace_oid(ptr noundef %.val275, i1 noundef zeroext %4) #11
   br label %.thread
 
 228:                                              ; preds = %215
-  %229 = tail call i32 @get_language_oid(ptr noundef %.val273, i1 noundef zeroext %4) #11
+  %229 = tail call i32 @get_language_oid(ptr noundef %.val275, i1 noundef zeroext %4) #11
   br label %.thread
 
 230:                                              ; preds = %215
-  %231 = tail call i32 @get_foreign_data_wrapper_oid(ptr noundef %.val273, i1 noundef zeroext %4) #11
+  %231 = tail call i32 @get_foreign_data_wrapper_oid(ptr noundef %.val275, i1 noundef zeroext %4) #11
   br label %.thread
 
 232:                                              ; preds = %215
-  %233 = tail call i32 @get_foreign_server_oid(ptr noundef %.val273, i1 noundef zeroext %4) #11
+  %233 = tail call i32 @get_foreign_server_oid(ptr noundef %.val275, i1 noundef zeroext %4) #11
   br label %.thread
 
 234:                                              ; preds = %215
-  %235 = tail call i32 @get_event_trigger_oid(ptr noundef %.val273, i1 noundef zeroext %4) #11
+  %235 = tail call i32 @get_event_trigger_oid(ptr noundef %.val275, i1 noundef zeroext %4) #11
   br label %.thread
 
 236:                                              ; preds = %215
-  %237 = tail call i32 @ParameterAclLookup(ptr noundef %.val273, i1 noundef zeroext %4) #11
+  %237 = tail call i32 @ParameterAclLookup(ptr noundef %.val275, i1 noundef zeroext %4) #11
   br label %.thread
 
 238:                                              ; preds = %215
-  %239 = tail call i32 @get_publication_oid(ptr noundef %.val273, i1 noundef zeroext %4) #11
+  %239 = tail call i32 @get_publication_oid(ptr noundef %.val275, i1 noundef zeroext %4) #11
   br label %.thread
 
 240:                                              ; preds = %215
-  %241 = tail call i32 @get_subscription_oid(ptr noundef %.val273, i1 noundef zeroext %4) #11
+  %241 = tail call i32 @get_subscription_oid(ptr noundef %.val275, i1 noundef zeroext %4) #11
   br label %.thread
 
 242:                                              ; preds = %215
@@ -866,9 +866,9 @@ get_object_address_relobject.exit:                ; preds = %187, %190, %193, %1
 
 245:                                              ; preds = %13, %13
   %246 = tail call fastcc i64 @get_object_address_type(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %4)
-  %.sroa.0181.sroa.0.0.extract.trunc218 = trunc i64 %246 to i32
-  %.sroa.0181.sroa.34.0.extract.shift234 = lshr i64 %246, 32
-  %.sroa.0181.sroa.34.0.extract.trunc235 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift234 to i32
+  %.sroa.0183.sroa.0.0.extract.trunc220 = trunc i64 %246 to i32
+  %.sroa.0183.sroa.34.0.extract.shift236 = lshr i64 %246, 32
+  %.sroa.0183.sroa.34.0.extract.trunc237 = trunc nuw i64 %.sroa.0183.sroa.34.0.extract.shift236 to i32
   br label %get_object_address_unqualified.exit
 
 247:                                              ; preds = %13, %13, %13, %13
@@ -888,8 +888,8 @@ get_object_address_relobject.exit:                ; preds = %187, %190, %193, %1
   br label %.thread
 
 255:                                              ; preds = %13, %13
-  %.val.i294 = load ptr, ptr %9, align 8
-  %256 = load ptr, ptr %.val.i294, align 8
+  %.val.i296 = load ptr, ptr %9, align 8
+  %256 = load ptr, ptr %.val.i296, align 8
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = load ptr, ptr %257, align 8
   %259 = tail call i32 @get_index_am_oid(ptr noundef %258, i1 noundef zeroext false) #11
@@ -921,10 +921,10 @@ get_object_address_relobject.exit:                ; preds = %187, %190, %193, %1
   %.val54.i = load ptr, ptr %9, align 8
   %269 = load ptr, ptr %.val54.i, align 8
   %270 = getelementptr i8, ptr %269, i64 4
-  %.val.i298 = load i32, ptr %270, align 4
+  %.val.i300 = load i32, ptr %270, align 4
   %271 = getelementptr i8, ptr %269, i64 16
   %.val50.i = load ptr, ptr %271, align 8
-  %272 = add i32 %.val.i298, -1
+  %272 = add i32 %.val.i300, -1
   %273 = sext i32 %272 to i64
   %274 = getelementptr inbounds %union.ListCell, ptr %.val50.i, i64 %273
   %275 = load ptr, ptr %274, align 8
@@ -933,16 +933,16 @@ get_object_address_relobject.exit:                ; preds = %187, %190, %193, %1
   %278 = tail call i64 @strtol(ptr noundef nonnull captures(none) %277, ptr noundef null, i32 noundef 10) #11
   %.val53.i = load ptr, ptr %9, align 8
   %279 = load ptr, ptr %.val53.i, align 8
-  %.not.i.i299 = icmp eq ptr %279, null
-  br i1 %.not.i.i299, label %list_length.exit.i300, label %280
+  %.not.i.i301 = icmp eq ptr %279, null
+  br i1 %.not.i.i301, label %list_length.exit.i302, label %280
 
 280:                                              ; preds = %268
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 4
   %282 = load i32, ptr %281, align 4
   %283 = add i32 %282, -1
-  br label %list_length.exit.i300
+  br label %list_length.exit.i302
 
-list_length.exit.i300:                            ; preds = %280, %268
+list_length.exit.i302:                            ; preds = %280, %268
   %284 = phi i32 [ %283, %280 ], [ -1, %268 ]
   %285 = tail call ptr @list_copy_head(ptr noundef %279, i32 noundef %284) #11
   %286 = getelementptr i8, ptr %285, i64 16
@@ -966,20 +966,20 @@ list_length.exit.i300:                            ; preds = %280, %268
   %294 = load ptr, ptr %293, align 8
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 4
   %296 = getelementptr inbounds nuw i8, ptr %294, i64 16
-  %.not.i301 = icmp eq ptr %294, null
-  br i1 %.not.i301, label %.thread.i302, label %.lr.ph.split.i
+  %.not.i303 = icmp eq ptr %294, null
+  br i1 %.not.i303, label %.thread.i304, label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %list_length.exit.i300
+.lr.ph.split.i:                                   ; preds = %list_length.exit.i302
   %297 = load i32, ptr %295, align 4
   %298 = icmp sgt i32 %297, 0
-  br i1 %298, label %.lr.ph66.i, label %.thread.i302
+  br i1 %298, label %.lr.ph66.i, label %.thread.i304
 
 299:                                              ; preds = %.lr.ph66.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %300 = load i32, ptr %295, align 4
   %301 = sext i32 %300 to i64
   %302 = icmp slt i64 %indvars.iv.next.i, %301
-  br i1 %302, label %.lr.ph66.i, label %.thread.i302
+  br i1 %302, label %.lr.ph66.i, label %.thread.i304
 
 .lr.ph66.i:                                       ; preds = %.lr.ph.split.i, %299
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %299 ], [ 0, %.lr.ph.split.i ]
@@ -994,15 +994,15 @@ list_length.exit.i300:                            ; preds = %280, %268
   %308 = getelementptr inbounds nuw [2 x i32], ptr %8, i64 0, i64 %indvars.iv.i
   store i32 %.sroa.09.4.extract.trunc.i, ptr %308, align 4
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, 1
-  br i1 %exitcond.not.i, label %.thread.i302, label %299
+  br i1 %exitcond.not.i, label %.thread.i304, label %299
 
-.thread.i302:                                     ; preds = %.lr.ph66.i, %299, %.lr.ph.split.i, %list_length.exit.i300
+.thread.i304:                                     ; preds = %.lr.ph66.i, %299, %.lr.ph.split.i, %list_length.exit.i302
   switch i32 %0, label %347 [
     i32 2, label %309
     i32 3, label %328
   ]
 
-309:                                              ; preds = %.thread.i302
+309:                                              ; preds = %.thread.i304
   %310 = load i32, ptr %8, align 4
   %311 = zext i32 %310 to i64
   %312 = load i32, ptr %11, align 4
@@ -1031,7 +1031,7 @@ list_length.exit.i300:                            ; preds = %280, %268
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1746, ptr noundef nonnull @__func__.get_object_address_opf_member) #11
   unreachable
 
-328:                                              ; preds = %.thread.i302
+328:                                              ; preds = %.thread.i304
   %329 = load i32, ptr %8, align 4
   %330 = zext i32 %329 to i64
   %331 = load i32, ptr %11, align 4
@@ -1060,7 +1060,7 @@ list_length.exit.i300:                            ; preds = %280, %268
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1777, ptr noundef nonnull @__func__.get_object_address_opf_member) #11
   unreachable
 
-347:                                              ; preds = %.thread.i302
+347:                                              ; preds = %.thread.i304
   %348 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %348)
   %349 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #11
@@ -1089,16 +1089,16 @@ get_object_address_opf_member.exit:               ; preds = %316, %335, %.sink.s
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #11
   %.sroa.041.0.insert.insert.i = or disjoint i64 %.sroa.3.1.i, %.sroa.041.0.i
-  %.sroa.0181.sroa.0.0.extract.trunc216 = trunc nuw nsw i64 %.sroa.041.0.i to i32
-  %.sroa.0181.sroa.34.0.extract.shift230 = lshr i64 %.sroa.041.0.insert.insert.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc231 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift230 to i32
+  %.sroa.0183.sroa.0.0.extract.trunc218 = trunc nuw nsw i64 %.sroa.041.0.i to i32
+  %.sroa.0183.sroa.34.0.extract.shift232 = lshr i64 %.sroa.041.0.insert.insert.i, 32
+  %.sroa.0183.sroa.34.0.extract.trunc233 = trunc nuw i64 %.sroa.0183.sroa.34.0.extract.shift232 to i32
   br label %.thread
 
 358:                                              ; preds = %13
   %359 = tail call i32 @oidparse(ptr noundef %1) #11
   %360 = tail call zeroext i1 @LargeObjectExists(i32 noundef %359) #11
-  %brmerge = or i1 %4, %360
-  br i1 %brmerge, label %.thread, label %361
+  %or.cond3 = or i1 %4, %360
+  br i1 %or.cond3, label %.thread, label %361
 
 361:                                              ; preds = %358
   %362 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
@@ -1109,9 +1109,9 @@ get_object_address_opf_member.exit:               ; preds = %316, %335, %.sink.s
   unreachable
 
 365:                                              ; preds = %13
-  %.val269 = load ptr, ptr %9, align 8
-  %366 = load ptr, ptr %.val269, align 8
-  %367 = getelementptr inbounds nuw i8, ptr %.val269, i64 8
+  %.val271 = load ptr, ptr %9, align 8
+  %366 = load ptr, ptr %.val271, align 8
+  %367 = getelementptr inbounds nuw i8, ptr %.val271, i64 8
   %368 = load ptr, ptr %367, align 8
   %369 = tail call i32 @LookupTypeNameOid(ptr noundef null, ptr noundef %366, i1 noundef zeroext %4) #11
   %370 = tail call i32 @LookupTypeNameOid(ptr noundef null, ptr noundef %368, i1 noundef zeroext %4) #11
@@ -1119,9 +1119,9 @@ get_object_address_opf_member.exit:               ; preds = %316, %335, %.sink.s
   br label %.thread
 
 372:                                              ; preds = %13
-  %.val271 = load ptr, ptr %9, align 8
-  %373 = load ptr, ptr %.val271, align 8
-  %374 = getelementptr inbounds nuw i8, ptr %.val271, i64 8
+  %.val273 = load ptr, ptr %9, align 8
+  %373 = load ptr, ptr %.val273, align 8
+  %374 = getelementptr inbounds nuw i8, ptr %.val273, i64 8
   %375 = load ptr, ptr %374, align 8
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 8
   %377 = load ptr, ptr %376, align 8
@@ -1147,23 +1147,23 @@ get_object_address_opf_member.exit:               ; preds = %316, %335, %.sink.s
   br label %.thread
 
 389:                                              ; preds = %13
-  %.val274 = load ptr, ptr %9, align 8
-  %.val274.val = load ptr, ptr %.val274, align 8
-  %390 = getelementptr i8, ptr %.val274, i64 8
-  %.val274.val275 = load ptr, ptr %390, align 8
-  %391 = getelementptr i8, ptr %.val274.val, i64 8
-  %.val274.val.val = load ptr, ptr %391, align 8
-  %392 = getelementptr i8, ptr %.val274.val275, i64 8
-  %.val274.val275.val = load ptr, ptr %392, align 8
-  %393 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val274.val.val, ptr noundef nonnull dereferenceable(7) @.str.74) #13
+  %.val276 = load ptr, ptr %9, align 8
+  %.val276.val = load ptr, ptr %.val276, align 8
+  %390 = getelementptr i8, ptr %.val276, i64 8
+  %.val276.val277 = load ptr, ptr %390, align 8
+  %391 = getelementptr i8, ptr %.val276.val, i64 8
+  %.val276.val.val = load ptr, ptr %391, align 8
+  %392 = getelementptr i8, ptr %.val276.val277, i64 8
+  %.val276.val277.val = load ptr, ptr %392, align 8
+  %393 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val276.val.val, ptr noundef nonnull dereferenceable(7) @.str.74) #13
   %394 = icmp eq i32 %393, 0
   br i1 %394, label %411, label %395
 
 395:                                              ; preds = %389
-  %396 = ptrtoint ptr %.val274.val.val to i64
+  %396 = ptrtoint ptr %.val276.val.val to i64
   %397 = tail call ptr @SearchSysCache1(i32 noundef 10, i64 noundef %396) #11
-  %.not.i305 = icmp eq ptr %397, null
-  br i1 %.not.i305, label %398, label %403
+  %.not.i307 = icmp eq ptr %397, null
+  br i1 %.not.i307, label %398, label %403
 
 398:                                              ; preds = %395
   br i1 %4, label %get_object_address_usermapping.exit, label %399
@@ -1172,7 +1172,7 @@ get_object_address_opf_member.exit:               ; preds = %316, %335, %.sink.s
   %400 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %400)
   %401 = tail call i32 @errcode(i32 noundef 67137668) #11
-  %402 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.185, ptr noundef nonnull %.val274.val.val, ptr noundef %.val274.val275.val) #11
+  %402 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.185, ptr noundef nonnull %.val276.val.val, ptr noundef %.val276.val277.val) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1825, ptr noundef nonnull @__func__.get_object_address_usermapping) #11
   unreachable
 
@@ -1190,9 +1190,9 @@ get_object_address_opf_member.exit:               ; preds = %316, %335, %.sink.s
 
 411:                                              ; preds = %403, %389
   %.0.i = phi i64 [ %410, %403 ], [ 0, %389 ]
-  %412 = tail call ptr @GetForeignServerByName(ptr noundef %.val274.val275.val, i1 noundef zeroext true) #11
-  %.not26.i306 = icmp eq ptr %412, null
-  br i1 %.not26.i306, label %413, label %418
+  %412 = tail call ptr @GetForeignServerByName(ptr noundef %.val276.val277.val, i1 noundef zeroext true) #11
+  %.not26.i308 = icmp eq ptr %412, null
+  br i1 %.not26.i308, label %413, label %418
 
 413:                                              ; preds = %411
   br i1 %4, label %get_object_address_usermapping.exit, label %414
@@ -1201,7 +1201,7 @@ get_object_address_opf_member.exit:               ; preds = %316, %335, %.sink.s
   %415 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %415)
   %416 = tail call i32 @errcode(i32 noundef 67137668) #11
-  %417 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.186, ptr noundef %.val274.val275.val) #11
+  %417 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.186, ptr noundef %.val276.val277.val) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1839, ptr noundef nonnull @__func__.get_object_address_usermapping) #11
   unreachable
 
@@ -1209,8 +1209,8 @@ get_object_address_opf_member.exit:               ; preds = %316, %335, %.sink.s
   %419 = load i32, ptr %412, align 8
   %420 = zext i32 %419 to i64
   %421 = tail call ptr @SearchSysCache2(i32 noundef 84, i64 noundef %.0.i, i64 noundef %420) #11
-  %.not27.i307 = icmp eq ptr %421, null
-  br i1 %.not27.i307, label %422, label %427
+  %.not27.i309 = icmp eq ptr %421, null
+  br i1 %.not27.i309, label %422, label %427
 
 422:                                              ; preds = %418
   br i1 %4, label %get_object_address_usermapping.exit, label %423
@@ -1219,7 +1219,7 @@ get_object_address_opf_member.exit:               ; preds = %316, %335, %.sink.s
   %424 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %424)
   %425 = tail call i32 @errcode(i32 noundef 67137668) #11
-  %426 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.185, ptr noundef nonnull %.val274.val.val, ptr noundef %.val274.val275.val) #11
+  %426 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.185, ptr noundef nonnull %.val276.val.val, ptr noundef %.val276.val277.val) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1851, ptr noundef nonnull @__func__.get_object_address_usermapping) #11
   unreachable
 
@@ -1239,348 +1239,348 @@ get_object_address_opf_member.exit:               ; preds = %316, %335, %.sink.s
 
 get_object_address_usermapping.exit:              ; preds = %398, %413, %422, %427
   %.sroa.222.0.i = phi i64 [ %436, %427 ], [ 1418, %398 ], [ 1418, %413 ], [ 1418, %422 ]
-  %.sroa.0181.sroa.0.0.extract.trunc215 = trunc i64 %.sroa.222.0.i to i32
-  %.sroa.0181.sroa.34.0.extract.shift228 = lshr i64 %.sroa.222.0.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc229 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift228 to i32
+  %.sroa.0183.sroa.0.0.extract.trunc217 = trunc i64 %.sroa.222.0.i to i32
+  %.sroa.0183.sroa.34.0.extract.shift230 = lshr i64 %.sroa.222.0.i, 32
+  %.sroa.0183.sroa.34.0.extract.trunc231 = trunc nuw i64 %.sroa.0183.sroa.34.0.extract.shift230 to i32
   br label %.thread
 
 437:                                              ; preds = %13
-  %.val276 = load ptr, ptr %9, align 8
-  %.val276.val = load ptr, ptr %.val276, align 8
-  %438 = getelementptr i8, ptr %.val276, i64 8
-  %.val276.val277 = load ptr, ptr %438, align 8
-  %439 = getelementptr i8, ptr %.val276.val, i64 8
-  %.val276.val.val = load ptr, ptr %439, align 8
-  %440 = getelementptr i8, ptr %.val276.val277, i64 8
-  %.val276.val277.val = load ptr, ptr %440, align 8
-  %441 = tail call i32 @get_namespace_oid(ptr noundef %.val276.val.val, i1 noundef zeroext %4) #11
-  %.not.i310 = icmp eq i32 %441, 0
-  br i1 %.not.i310, label %get_object_address_publication_schema.exit, label %442
+  %.val278 = load ptr, ptr %9, align 8
+  %.val278.val = load ptr, ptr %.val278, align 8
+  %438 = getelementptr i8, ptr %.val278, i64 8
+  %.val278.val279 = load ptr, ptr %438, align 8
+  %439 = getelementptr i8, ptr %.val278.val, i64 8
+  %.val278.val.val = load ptr, ptr %439, align 8
+  %440 = getelementptr i8, ptr %.val278.val279, i64 8
+  %.val278.val279.val = load ptr, ptr %440, align 8
+  %441 = tail call i32 @get_namespace_oid(ptr noundef %.val278.val.val, i1 noundef zeroext %4) #11
+  %.not.i312 = icmp eq i32 %441, 0
+  br i1 %.not.i312, label %get_object_address_publication_schema.exit, label %442
 
 442:                                              ; preds = %437
-  %443 = tail call ptr @GetPublicationByName(ptr noundef %.val276.val277.val, i1 noundef zeroext %4) #11
-  %.not15.i = icmp eq ptr %443, null
-  br i1 %.not15.i, label %get_object_address_publication_schema.exit, label %444
+  %443 = tail call ptr @GetPublicationByName(ptr noundef %.val278.val279.val, i1 noundef zeroext %4) #11
+  %.not16.i = icmp eq ptr %443, null
+  br i1 %.not16.i, label %get_object_address_publication_schema.exit, label %444
 
 444:                                              ; preds = %442
   %445 = zext i32 %441 to i64
   %446 = load i32, ptr %443, align 8
   %447 = zext i32 %446 to i64
   %448 = tail call i32 @GetSysCacheOid(i32 noundef 50, i16 noundef signext 1, i64 noundef %445, i64 noundef %447, i64 noundef 0, i64 noundef 0) #11
-  %.not16.i = icmp ne i32 %448, 0
-  %brmerge.i = or i1 %4, %.not16.i
-  br i1 %brmerge.i, label %453, label %449
+  %449 = icmp ne i32 %448, 0
+  %or.cond.i = or i1 %4, %449
+  br i1 %or.cond.i, label %454, label %450
 
-449:                                              ; preds = %444
-  %450 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %450)
-  %451 = tail call i32 @errcode(i32 noundef 67137668) #11
-  %452 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.188, ptr noundef %.val276.val.val, ptr noundef %.val276.val277.val) #11
+450:                                              ; preds = %444
+  %451 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %451)
+  %452 = tail call i32 @errcode(i32 noundef 67137668) #11
+  %453 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.188, ptr noundef %.val278.val.val, ptr noundef %.val278.val279.val) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1954, ptr noundef nonnull @__func__.get_object_address_publication_schema) #11
   unreachable
 
-453:                                              ; preds = %444
-  %454 = zext i32 %448 to i64
-  %455 = shl nuw i64 %454, 32
-  %456 = or disjoint i64 %455, 6237
+454:                                              ; preds = %444
+  %455 = zext i32 %448 to i64
+  %456 = shl nuw i64 %455, 32
+  %457 = or disjoint i64 %456, 6237
   br label %get_object_address_publication_schema.exit
 
-get_object_address_publication_schema.exit:       ; preds = %437, %442, %453
-  %.sroa.213.0.i = phi i64 [ %456, %453 ], [ 6237, %437 ], [ 6237, %442 ]
-  %.sroa.0181.sroa.0.0.extract.trunc214 = trunc i64 %.sroa.213.0.i to i32
-  %.sroa.0181.sroa.34.0.extract.shift226 = lshr i64 %.sroa.213.0.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc227 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift226 to i32
+get_object_address_publication_schema.exit:       ; preds = %437, %442, %454
+  %.sroa.214.0.i = phi i64 [ %457, %454 ], [ 6237, %437 ], [ 6237, %442 ]
+  %.sroa.0183.sroa.0.0.extract.trunc216 = trunc i64 %.sroa.214.0.i to i32
+  %.sroa.0183.sroa.34.0.extract.shift228 = lshr i64 %.sroa.214.0.i, 32
+  %.sroa.0183.sroa.34.0.extract.trunc229 = trunc nuw i64 %.sroa.0183.sroa.34.0.extract.shift228 to i32
   br label %.thread
 
-457:                                              ; preds = %13
+458:                                              ; preds = %13
   %.val22.i = load ptr, ptr %9, align 8
-  %458 = load ptr, ptr %.val22.i, align 8
-  %459 = tail call ptr @makeRangeVarFromNameList(ptr noundef %458) #11
-  %460 = tail call ptr @relation_openrv_extended(ptr noundef %459, i32 noundef 1, i1 noundef zeroext %4) #11
-  %.not.i313 = icmp eq ptr %460, null
-  br i1 %.not.i313, label %get_object_address_publication_rel.exit, label %461
+  %459 = load ptr, ptr %.val22.i, align 8
+  %460 = tail call ptr @makeRangeVarFromNameList(ptr noundef %459) #11
+  %461 = tail call ptr @relation_openrv_extended(ptr noundef %460, i32 noundef 1, i1 noundef zeroext %4) #11
+  %.not.i315 = icmp eq ptr %461, null
+  br i1 %.not.i315, label %get_object_address_publication_rel.exit, label %462
 
-461:                                              ; preds = %457
-  %.val.i314 = load ptr, ptr %9, align 8
-  %462 = getelementptr inbounds nuw i8, ptr %.val.i314, i64 8
-  %463 = load ptr, ptr %462, align 8
-  %464 = getelementptr inbounds nuw i8, ptr %463, i64 8
-  %465 = load ptr, ptr %464, align 8
-  %466 = tail call ptr @GetPublicationByName(ptr noundef %465, i1 noundef zeroext %4) #11
-  %.not20.i = icmp eq ptr %466, null
-  br i1 %.not20.i, label %467, label %468
+462:                                              ; preds = %458
+  %.val.i316 = load ptr, ptr %9, align 8
+  %463 = getelementptr inbounds nuw i8, ptr %.val.i316, i64 8
+  %464 = load ptr, ptr %463, align 8
+  %465 = getelementptr inbounds nuw i8, ptr %464, i64 8
+  %466 = load ptr, ptr %465, align 8
+  %467 = tail call ptr @GetPublicationByName(ptr noundef %466, i1 noundef zeroext %4) #11
+  %.not20.i = icmp eq ptr %467, null
+  br i1 %.not20.i, label %468, label %469
 
-467:                                              ; preds = %461
-  tail call void @relation_close(ptr noundef nonnull %460, i32 noundef 1) #11
+468:                                              ; preds = %462
+  tail call void @relation_close(ptr noundef nonnull %461, i32 noundef 1) #11
   br label %get_object_address_publication_rel.exit
 
-468:                                              ; preds = %461
-  %469 = getelementptr inbounds nuw i8, ptr %460, i64 72
-  %470 = load i32, ptr %469, align 8
-  %471 = zext i32 %470 to i64
-  %472 = load i32, ptr %466, align 8
-  %473 = zext i32 %472 to i64
-  %474 = tail call i32 @GetSysCacheOid(i32 noundef 53, i16 noundef signext 1, i64 noundef %471, i64 noundef %473, i64 noundef 0, i64 noundef 0) #11
-  %.not21.i = icmp eq i32 %474, 0
-  br i1 %.not21.i, label %475, label %484
+469:                                              ; preds = %462
+  %470 = getelementptr inbounds nuw i8, ptr %461, i64 72
+  %471 = load i32, ptr %470, align 8
+  %472 = zext i32 %471 to i64
+  %473 = load i32, ptr %467, align 8
+  %474 = zext i32 %473 to i64
+  %475 = tail call i32 @GetSysCacheOid(i32 noundef 53, i16 noundef signext 1, i64 noundef %472, i64 noundef %474, i64 noundef 0, i64 noundef 0) #11
+  %.not21.i = icmp eq i32 %475, 0
+  br i1 %.not21.i, label %476, label %485
 
-475:                                              ; preds = %468
-  br i1 %4, label %483, label %476
+476:                                              ; preds = %469
+  br i1 %4, label %484, label %477
 
-476:                                              ; preds = %475
-  %477 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %477)
-  %478 = tail call i32 @errcode(i32 noundef 67137668) #11
-  %479 = getelementptr inbounds nuw i8, ptr %460, i64 56
-  %480 = load ptr, ptr %479, align 8
-  %481 = getelementptr inbounds nuw i8, ptr %480, i64 4
-  %482 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.187, ptr noundef nonnull %481, ptr noundef %465) #11
+477:                                              ; preds = %476
+  %478 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %478)
+  %479 = tail call i32 @errcode(i32 noundef 67137668) #11
+  %480 = getelementptr inbounds nuw i8, ptr %461, i64 56
+  %481 = load ptr, ptr %480, align 8
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 4
+  %483 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.187, ptr noundef nonnull %482, ptr noundef %466) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1907, ptr noundef nonnull @__func__.get_object_address_publication_rel) #11
   unreachable
 
-483:                                              ; preds = %475
-  tail call void @relation_close(ptr noundef nonnull %460, i32 noundef 1) #11
+484:                                              ; preds = %476
+  tail call void @relation_close(ptr noundef nonnull %461, i32 noundef 1) #11
   br label %get_object_address_publication_rel.exit
 
-484:                                              ; preds = %468
-  %485 = zext i32 %474 to i64
-  %486 = shl nuw i64 %485, 32
-  %487 = or disjoint i64 %486, 6106
+485:                                              ; preds = %469
+  %486 = zext i32 %475 to i64
+  %487 = shl nuw i64 %486, 32
+  %488 = or disjoint i64 %487, 6106
   br label %get_object_address_publication_rel.exit
 
-get_object_address_publication_rel.exit:          ; preds = %457, %467, %483, %484
-  %.6 = phi ptr [ null, %457 ], [ null, %467 ], [ null, %483 ], [ %460, %484 ]
-  %.sroa.217.0.i = phi i64 [ 6106, %457 ], [ 6106, %467 ], [ 6106, %483 ], [ %487, %484 ]
-  %.sroa.0181.sroa.0.0.extract.trunc213 = trunc i64 %.sroa.217.0.i to i32
-  %.sroa.0181.sroa.34.0.extract.shift224 = lshr i64 %.sroa.217.0.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc225 = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift224 to i32
+get_object_address_publication_rel.exit:          ; preds = %458, %468, %484, %485
+  %.6 = phi ptr [ null, %458 ], [ null, %468 ], [ null, %484 ], [ %461, %485 ]
+  %.sroa.217.0.i = phi i64 [ 6106, %458 ], [ 6106, %468 ], [ 6106, %484 ], [ %488, %485 ]
+  %.sroa.0183.sroa.0.0.extract.trunc215 = trunc i64 %.sroa.217.0.i to i32
+  %.sroa.0183.sroa.34.0.extract.shift226 = lshr i64 %.sroa.217.0.i, 32
+  %.sroa.0183.sroa.34.0.extract.trunc227 = trunc nuw i64 %.sroa.0183.sroa.34.0.extract.shift226 to i32
   br label %.thread
 
-488:                                              ; preds = %13
+489:                                              ; preds = %13
   %.val36.i = load ptr, ptr %9, align 8
-  %489 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 8
-  %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds nuw i8, ptr %490, i64 8
-  %492 = load ptr, ptr %491, align 8
-  %493 = load i32, ptr %10, align 4
-  %494 = icmp sgt i32 %493, 2
-  br i1 %494, label %495, label %500
+  %490 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 8
+  %491 = load ptr, ptr %490, align 8
+  %492 = getelementptr inbounds nuw i8, ptr %491, i64 8
+  %493 = load ptr, ptr %492, align 8
+  %494 = load i32, ptr %10, align 4
+  %495 = icmp sgt i32 %494, 2
+  br i1 %495, label %496, label %501
 
-495:                                              ; preds = %488
-  %496 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 16
-  %497 = load ptr, ptr %496, align 8
-  %498 = getelementptr inbounds nuw i8, ptr %497, i64 8
-  %499 = load ptr, ptr %498, align 8
-  br label %500
+496:                                              ; preds = %489
+  %497 = getelementptr inbounds nuw i8, ptr %.val36.i, i64 16
+  %498 = load ptr, ptr %497, align 8
+  %499 = getelementptr inbounds nuw i8, ptr %498, i64 8
+  %500 = load ptr, ptr %499, align 8
+  br label %501
 
-500:                                              ; preds = %495, %488
-  %.028.i = phi ptr [ %499, %495 ], [ null, %488 ]
-  %501 = load ptr, ptr %.val36.i, align 8
-  %502 = getelementptr inbounds nuw i8, ptr %501, i64 8
-  %503 = load ptr, ptr %502, align 8
-  %504 = load i8, ptr %503, align 1
-  switch i8 %504, label %509 [
-    i8 114, label %515
-    i8 83, label %505
-    i8 102, label %506
-    i8 84, label %507
-    i8 110, label %508
+501:                                              ; preds = %496, %489
+  %.028.i = phi ptr [ %500, %496 ], [ null, %489 ]
+  %502 = load ptr, ptr %.val36.i, align 8
+  %503 = getelementptr inbounds nuw i8, ptr %502, i64 8
+  %504 = load ptr, ptr %503, align 8
+  %505 = load i8, ptr %504, align 1
+  switch i8 %505, label %510 [
+    i8 114, label %516
+    i8 83, label %506
+    i8 102, label %507
+    i8 84, label %508
+    i8 110, label %509
   ]
 
-505:                                              ; preds = %500
-  br label %515
+506:                                              ; preds = %501
+  br label %516
 
-506:                                              ; preds = %500
-  br label %515
+507:                                              ; preds = %501
+  br label %516
 
-507:                                              ; preds = %500
-  br label %515
+508:                                              ; preds = %501
+  br label %516
 
-508:                                              ; preds = %500
-  br label %515
+509:                                              ; preds = %501
+  br label %516
 
-509:                                              ; preds = %500
-  %510 = sext i8 %504 to i32
-  %511 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %511)
-  %512 = tail call i32 @errcode(i32 noundef 50856066) #11
-  %513 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.194, i32 noundef %510) #11
-  %514 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.195, i32 noundef 114, i32 noundef 83, i32 noundef 102, i32 noundef 84, i32 noundef 110) #11
+510:                                              ; preds = %501
+  %511 = sext i8 %505 to i32
+  %512 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %512)
+  %513 = tail call i32 @errcode(i32 noundef 50856066) #11
+  %514 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.194, i32 noundef %511) #11
+  %515 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.195, i32 noundef 114, i32 noundef 83, i32 noundef 102, i32 noundef 84, i32 noundef 110) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2017, ptr noundef nonnull @__func__.get_object_address_defacl) #11
   unreachable
 
-515:                                              ; preds = %508, %507, %506, %505, %500
-  %.0.i318 = phi ptr [ @.str.193, %508 ], [ @.str.192, %507 ], [ @.str.191, %506 ], [ @.str.190, %505 ], [ @.str.189, %500 ]
-  %516 = ptrtoint ptr %492 to i64
-  %517 = tail call ptr @SearchSysCache1(i32 noundef 10, i64 noundef %516) #11
-  %.not.i319 = icmp eq ptr %517, null
-  br i1 %.not.i319, label %543, label %518
+516:                                              ; preds = %509, %508, %507, %506, %501
+  %.0.i320 = phi ptr [ @.str.193, %509 ], [ @.str.192, %508 ], [ @.str.191, %507 ], [ @.str.190, %506 ], [ @.str.189, %501 ]
+  %517 = ptrtoint ptr %493 to i64
+  %518 = tail call ptr @SearchSysCache1(i32 noundef 10, i64 noundef %517) #11
+  %.not.i321 = icmp eq ptr %518, null
+  br i1 %.not.i321, label %544, label %519
 
-518:                                              ; preds = %515
-  %519 = getelementptr i8, ptr %517, i64 16
-  %.val37.i = load ptr, ptr %519, align 8
-  %520 = getelementptr inbounds nuw i8, ptr %.val37.i, i64 22
-  %521 = load i8, ptr %520, align 2
-  %522 = zext i8 %521 to i64
-  %523 = getelementptr inbounds nuw i8, ptr %.val37.i, i64 %522
-  %524 = load i32, ptr %523, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %517) #11
-  %.not32.i320 = icmp eq ptr %.028.i, null
-  br i1 %.not32.i320, label %528, label %525
+519:                                              ; preds = %516
+  %520 = getelementptr i8, ptr %518, i64 16
+  %.val37.i = load ptr, ptr %520, align 8
+  %521 = getelementptr inbounds nuw i8, ptr %.val37.i, i64 22
+  %522 = load i8, ptr %521, align 2
+  %523 = zext i8 %522 to i64
+  %524 = getelementptr inbounds nuw i8, ptr %.val37.i, i64 %523
+  %525 = load i32, ptr %524, align 4
+  tail call void @ReleaseSysCache(ptr noundef nonnull %518) #11
+  %.not32.i322 = icmp eq ptr %.028.i, null
+  br i1 %.not32.i322, label %529, label %526
 
-525:                                              ; preds = %518
-  %526 = tail call i32 @get_namespace_oid(ptr noundef nonnull %.028.i, i1 noundef zeroext true) #11
-  %527 = icmp eq i32 %526, 0
-  br i1 %527, label %543, label %528
+526:                                              ; preds = %519
+  %527 = tail call i32 @get_namespace_oid(ptr noundef nonnull %.028.i, i1 noundef zeroext true) #11
+  %528 = icmp eq i32 %527, 0
+  br i1 %528, label %544, label %529
 
-528:                                              ; preds = %525, %518
-  %.027.i = phi i32 [ %526, %525 ], [ 0, %518 ]
-  %529 = zext i32 %524 to i64
-  %530 = zext i32 %.027.i to i64
-  %531 = zext nneg i8 %504 to i64
-  %532 = tail call ptr @SearchSysCache3(i32 noundef 22, i64 noundef %529, i64 noundef %530, i64 noundef %531) #11
-  %.not33.i = icmp eq ptr %532, null
-  br i1 %.not33.i, label %543, label %533
+529:                                              ; preds = %526, %519
+  %.027.i = phi i32 [ %527, %526 ], [ 0, %519 ]
+  %530 = zext i32 %525 to i64
+  %531 = zext i32 %.027.i to i64
+  %532 = zext nneg i8 %505 to i64
+  %533 = tail call ptr @SearchSysCache3(i32 noundef 22, i64 noundef %530, i64 noundef %531, i64 noundef %532) #11
+  %.not33.i = icmp eq ptr %533, null
+  br i1 %.not33.i, label %544, label %534
 
-533:                                              ; preds = %528
-  %534 = getelementptr i8, ptr %532, i64 16
-  %.val38.i = load ptr, ptr %534, align 8
-  %535 = getelementptr inbounds nuw i8, ptr %.val38.i, i64 22
-  %536 = load i8, ptr %535, align 2
-  %537 = zext i8 %536 to i64
-  %538 = getelementptr inbounds nuw i8, ptr %.val38.i, i64 %537
-  %539 = load i32, ptr %538, align 4
-  tail call void @ReleaseSysCache(ptr noundef nonnull %532) #11
-  %540 = zext i32 %539 to i64
-  %541 = shl nuw i64 %540, 32
-  %542 = or disjoint i64 %541, 826
+534:                                              ; preds = %529
+  %535 = getelementptr i8, ptr %533, i64 16
+  %.val38.i = load ptr, ptr %535, align 8
+  %536 = getelementptr inbounds nuw i8, ptr %.val38.i, i64 22
+  %537 = load i8, ptr %536, align 2
+  %538 = zext i8 %537 to i64
+  %539 = getelementptr inbounds nuw i8, ptr %.val38.i, i64 %538
+  %540 = load i32, ptr %539, align 4
+  tail call void @ReleaseSysCache(ptr noundef nonnull %533) #11
+  %541 = zext i32 %540 to i64
+  %542 = shl nuw i64 %541, 32
+  %543 = or disjoint i64 %542, 826
   br label %get_object_address_defacl.exit
 
-543:                                              ; preds = %528, %525, %515
-  br i1 %4, label %get_object_address_defacl.exit, label %544
+544:                                              ; preds = %529, %526, %516
+  br i1 %4, label %get_object_address_defacl.exit, label %545
 
-544:                                              ; preds = %543
+545:                                              ; preds = %544
   %.not34.i = icmp eq ptr %.028.i, null
-  %545 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %545)
-  %546 = tail call i32 @errcode(i32 noundef 67137668) #11
-  br i1 %.not34.i, label %549, label %547
+  %546 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %546)
+  %547 = tail call i32 @errcode(i32 noundef 67137668) #11
+  br i1 %.not34.i, label %550, label %548
 
-547:                                              ; preds = %544
-  %548 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.196, ptr noundef %492, ptr noundef nonnull %.028.i, ptr noundef nonnull %.0.i318) #11
+548:                                              ; preds = %545
+  %549 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.196, ptr noundef %493, ptr noundef nonnull %.028.i, ptr noundef nonnull %.0.i320) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2064, ptr noundef nonnull @__func__.get_object_address_defacl) #11
   unreachable
 
-549:                                              ; preds = %544
-  %550 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.197, ptr noundef %492, ptr noundef nonnull %.0.i318) #11
+550:                                              ; preds = %545
+  %551 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.197, ptr noundef %493, ptr noundef nonnull %.0.i320) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2069, ptr noundef nonnull @__func__.get_object_address_defacl) #11
   unreachable
 
-get_object_address_defacl.exit:                   ; preds = %533, %543
-  %.sroa.226.0.i = phi i64 [ %542, %533 ], [ 826, %543 ]
-  %.sroa.0181.sroa.0.0.extract.trunc = trunc i64 %.sroa.226.0.i to i32
-  %.sroa.0181.sroa.34.0.extract.shift = lshr i64 %.sroa.226.0.i, 32
-  %.sroa.0181.sroa.34.0.extract.trunc = trunc nuw i64 %.sroa.0181.sroa.34.0.extract.shift to i32
+get_object_address_defacl.exit:                   ; preds = %534, %544
+  %.sroa.226.0.i = phi i64 [ %543, %534 ], [ 826, %544 ]
+  %.sroa.0183.sroa.0.0.extract.trunc = trunc i64 %.sroa.226.0.i to i32
+  %.sroa.0183.sroa.34.0.extract.shift = lshr i64 %.sroa.226.0.i, 32
+  %.sroa.0183.sroa.34.0.extract.trunc = trunc nuw i64 %.sroa.0183.sroa.34.0.extract.shift to i32
   br label %.thread
 
-551:                                              ; preds = %13
-  %552 = tail call i32 @get_statistics_object_oid(ptr noundef %1, i1 noundef zeroext %4) #11
+552:                                              ; preds = %13
+  %553 = tail call i32 @get_statistics_object_oid(ptr noundef %1, i1 noundef zeroext %4) #11
   br label %.thread
 
 get_object_address_unqualified.exit:              ; preds = %245, %13
   %.sroa.54.1 = phi i32 [ %.sroa.54.0, %13 ], [ 0, %245 ]
-  %.sroa.0181.sroa.34.1 = phi i32 [ %.sroa.0181.sroa.34.0, %13 ], [ %.sroa.0181.sroa.34.0.extract.trunc235, %245 ]
-  %.sroa.0181.sroa.0.1 = phi i32 [ %.sroa.0181.sroa.0.0, %13 ], [ %.sroa.0181.sroa.0.0.extract.trunc218, %245 ]
-  %.not = icmp eq i32 %.sroa.0181.sroa.0.1, 0
-  br i1 %.not, label %553, label %.thread
+  %.sroa.0183.sroa.34.1 = phi i32 [ %.sroa.0183.sroa.34.0, %13 ], [ %.sroa.0183.sroa.34.0.extract.trunc237, %245 ]
+  %.sroa.0183.sroa.0.1 = phi i32 [ %.sroa.0183.sroa.0.0, %13 ], [ %.sroa.0183.sroa.0.0.extract.trunc220, %245 ]
+  %.not = icmp eq i32 %.sroa.0183.sroa.0.1, 0
+  br i1 %.not, label %554, label %.thread
 
-553:                                              ; preds = %get_object_address_unqualified.exit
-  %554 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  tail call void @llvm.assume(i1 %554)
-  %555 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #11
+554:                                              ; preds = %get_object_address_unqualified.exit
+  %555 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  tail call void @llvm.assume(i1 %555)
+  %556 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %0) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1134, ptr noundef nonnull @__func__.get_object_address) #11
   unreachable
 
-.thread:                                          ; preds = %240, %238, %236, %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %get_object_address_relobject.exit, %get_object_address_opf_member.exit, %263, %261, %get_relation_by_qualified_name.exit, %get_object_address_attribute.exit, %get_object_address_attrdef.exit, %207, %247, %249, %251, %253, %358, %365, %372, %381, %383, %385, %387, %get_object_address_usermapping.exit, %get_object_address_publication_schema.exit, %get_object_address_publication_rel.exit, %get_object_address_defacl.exit, %551, %get_object_address_unqualified.exit
-  %.sroa.0181.sroa.0.1332 = phi i32 [ %.sroa.0181.sroa.0.1, %get_object_address_unqualified.exit ], [ %.sroa.0181.sroa.0.0.extract.trunc223, %get_relation_by_qualified_name.exit ], [ %.sroa.0181.sroa.0.0.extract.trunc222, %get_object_address_attribute.exit ], [ %.sroa.0181.sroa.0.0.extract.trunc221, %get_object_address_attrdef.exit ], [ 2606, %207 ], [ 1255, %247 ], [ 2617, %249 ], [ 3456, %251 ], [ 2607, %253 ], [ 2613, %358 ], [ 2605, %365 ], [ 3576, %372 ], [ 3601, %381 ], [ 3600, %383 ], [ 3764, %385 ], [ 3602, %387 ], [ %.sroa.0181.sroa.0.0.extract.trunc215, %get_object_address_usermapping.exit ], [ %.sroa.0181.sroa.0.0.extract.trunc214, %get_object_address_publication_schema.exit ], [ %.sroa.0181.sroa.0.0.extract.trunc213, %get_object_address_publication_rel.exit ], [ %.sroa.0181.sroa.0.0.extract.trunc, %get_object_address_defacl.exit ], [ 3381, %551 ], [ 2753, %263 ], [ 2616, %261 ], [ 6100, %240 ], [ 6104, %238 ], [ 6243, %236 ], [ 3466, %234 ], [ 1417, %232 ], [ 2328, %230 ], [ 2612, %228 ], [ 2615, %226 ], [ 1260, %224 ], [ 1213, %222 ], [ 3079, %220 ], [ 1262, %218 ], [ 2601, %216 ], [ %.sroa.0181.sroa.0.0.extract.trunc220, %get_object_address_relobject.exit ], [ %.sroa.0181.sroa.0.0.extract.trunc216, %get_object_address_opf_member.exit ]
-  %.sroa.0181.sroa.34.1331 = phi i32 [ %.sroa.0181.sroa.34.1, %get_object_address_unqualified.exit ], [ %.sroa.0181.sroa.34.0.extract.trunc245, %get_relation_by_qualified_name.exit ], [ %.sroa.0181.sroa.34.0.extract.trunc243, %get_object_address_attribute.exit ], [ %.sroa.0181.sroa.34.0.extract.trunc241, %get_object_address_attrdef.exit ], [ %214, %207 ], [ %248, %247 ], [ %250, %249 ], [ %252, %251 ], [ %254, %253 ], [ %359, %358 ], [ %371, %365 ], [ %380, %372 ], [ %382, %381 ], [ %384, %383 ], [ %386, %385 ], [ %388, %387 ], [ %.sroa.0181.sroa.34.0.extract.trunc229, %get_object_address_usermapping.exit ], [ %.sroa.0181.sroa.34.0.extract.trunc227, %get_object_address_publication_schema.exit ], [ %.sroa.0181.sroa.34.0.extract.trunc225, %get_object_address_publication_rel.exit ], [ %.sroa.0181.sroa.34.0.extract.trunc, %get_object_address_defacl.exit ], [ %552, %551 ], [ %264, %263 ], [ %262, %261 ], [ %241, %240 ], [ %239, %238 ], [ %237, %236 ], [ %235, %234 ], [ %233, %232 ], [ %231, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %224 ], [ %223, %222 ], [ %221, %220 ], [ %219, %218 ], [ %217, %216 ], [ %.sroa.0181.sroa.34.0.extract.trunc239, %get_object_address_relobject.exit ], [ %.sroa.0181.sroa.34.0.extract.trunc231, %get_object_address_opf_member.exit ]
-  %.sroa.54.1330 = phi i32 [ %.sroa.54.1, %get_object_address_unqualified.exit ], [ 0, %get_relation_by_qualified_name.exit ], [ %.sroa.5.0.i, %get_object_address_attribute.exit ], [ 0, %get_object_address_attrdef.exit ], [ 0, %207 ], [ 0, %247 ], [ 0, %249 ], [ 0, %251 ], [ 0, %253 ], [ 0, %358 ], [ 0, %365 ], [ 0, %372 ], [ 0, %381 ], [ 0, %383 ], [ 0, %385 ], [ 0, %387 ], [ 0, %get_object_address_usermapping.exit ], [ 0, %get_object_address_publication_schema.exit ], [ 0, %get_object_address_publication_rel.exit ], [ 0, %get_object_address_defacl.exit ], [ 0, %551 ], [ 0, %263 ], [ 0, %261 ], [ 0, %240 ], [ 0, %238 ], [ 0, %236 ], [ 0, %234 ], [ 0, %232 ], [ 0, %230 ], [ 0, %228 ], [ 0, %226 ], [ 0, %224 ], [ 0, %222 ], [ 0, %220 ], [ 0, %218 ], [ 0, %216 ], [ 0, %get_object_address_relobject.exit ], [ 0, %get_object_address_opf_member.exit ]
-  %.1329 = phi ptr [ null, %get_object_address_unqualified.exit ], [ %17, %get_relation_by_qualified_name.exit ], [ %.3, %get_object_address_attribute.exit ], [ %.4, %get_object_address_attrdef.exit ], [ null, %207 ], [ null, %247 ], [ null, %249 ], [ null, %251 ], [ null, %253 ], [ null, %358 ], [ null, %365 ], [ null, %372 ], [ null, %381 ], [ null, %383 ], [ null, %385 ], [ null, %387 ], [ null, %get_object_address_usermapping.exit ], [ null, %get_object_address_publication_schema.exit ], [ %.6, %get_object_address_publication_rel.exit ], [ null, %get_object_address_defacl.exit ], [ null, %551 ], [ null, %263 ], [ null, %261 ], [ null, %240 ], [ null, %238 ], [ null, %236 ], [ null, %234 ], [ null, %232 ], [ null, %230 ], [ null, %228 ], [ null, %226 ], [ null, %224 ], [ null, %222 ], [ null, %220 ], [ null, %218 ], [ null, %216 ], [ %.5, %get_object_address_relobject.exit ], [ null, %get_object_address_opf_member.exit ]
-  %.not261 = icmp eq i32 %.sroa.0181.sroa.34.1331, 0
-  br i1 %.not261, label %.loopexit, label %556
+.thread:                                          ; preds = %240, %238, %236, %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %get_object_address_relobject.exit, %get_object_address_opf_member.exit, %263, %261, %get_relation_by_qualified_name.exit, %get_object_address_attribute.exit, %get_object_address_attrdef.exit, %207, %247, %249, %251, %253, %358, %365, %372, %381, %383, %385, %387, %get_object_address_usermapping.exit, %get_object_address_publication_schema.exit, %get_object_address_publication_rel.exit, %get_object_address_defacl.exit, %552, %get_object_address_unqualified.exit
+  %.sroa.0183.sroa.0.1334 = phi i32 [ %.sroa.0183.sroa.0.1, %get_object_address_unqualified.exit ], [ %.sroa.0183.sroa.0.0.extract.trunc225, %get_relation_by_qualified_name.exit ], [ %.sroa.0183.sroa.0.0.extract.trunc224, %get_object_address_attribute.exit ], [ %.sroa.0183.sroa.0.0.extract.trunc223, %get_object_address_attrdef.exit ], [ 2606, %207 ], [ 1255, %247 ], [ 2617, %249 ], [ 3456, %251 ], [ 2607, %253 ], [ 2613, %358 ], [ 2605, %365 ], [ 3576, %372 ], [ 3601, %381 ], [ 3600, %383 ], [ 3764, %385 ], [ 3602, %387 ], [ %.sroa.0183.sroa.0.0.extract.trunc217, %get_object_address_usermapping.exit ], [ %.sroa.0183.sroa.0.0.extract.trunc216, %get_object_address_publication_schema.exit ], [ %.sroa.0183.sroa.0.0.extract.trunc215, %get_object_address_publication_rel.exit ], [ %.sroa.0183.sroa.0.0.extract.trunc, %get_object_address_defacl.exit ], [ 3381, %552 ], [ 2753, %263 ], [ 2616, %261 ], [ 6100, %240 ], [ 6104, %238 ], [ 6243, %236 ], [ 3466, %234 ], [ 1417, %232 ], [ 2328, %230 ], [ 2612, %228 ], [ 2615, %226 ], [ 1260, %224 ], [ 1213, %222 ], [ 3079, %220 ], [ 1262, %218 ], [ 2601, %216 ], [ %.sroa.0183.sroa.0.0.extract.trunc222, %get_object_address_relobject.exit ], [ %.sroa.0183.sroa.0.0.extract.trunc218, %get_object_address_opf_member.exit ]
+  %.sroa.0183.sroa.34.1333 = phi i32 [ %.sroa.0183.sroa.34.1, %get_object_address_unqualified.exit ], [ %.sroa.0183.sroa.34.0.extract.trunc247, %get_relation_by_qualified_name.exit ], [ %.sroa.0183.sroa.34.0.extract.trunc245, %get_object_address_attribute.exit ], [ %.sroa.0183.sroa.34.0.extract.trunc243, %get_object_address_attrdef.exit ], [ %214, %207 ], [ %248, %247 ], [ %250, %249 ], [ %252, %251 ], [ %254, %253 ], [ %359, %358 ], [ %371, %365 ], [ %380, %372 ], [ %382, %381 ], [ %384, %383 ], [ %386, %385 ], [ %388, %387 ], [ %.sroa.0183.sroa.34.0.extract.trunc231, %get_object_address_usermapping.exit ], [ %.sroa.0183.sroa.34.0.extract.trunc229, %get_object_address_publication_schema.exit ], [ %.sroa.0183.sroa.34.0.extract.trunc227, %get_object_address_publication_rel.exit ], [ %.sroa.0183.sroa.34.0.extract.trunc, %get_object_address_defacl.exit ], [ %553, %552 ], [ %264, %263 ], [ %262, %261 ], [ %241, %240 ], [ %239, %238 ], [ %237, %236 ], [ %235, %234 ], [ %233, %232 ], [ %231, %230 ], [ %229, %228 ], [ %227, %226 ], [ %225, %224 ], [ %223, %222 ], [ %221, %220 ], [ %219, %218 ], [ %217, %216 ], [ %.sroa.0183.sroa.34.0.extract.trunc241, %get_object_address_relobject.exit ], [ %.sroa.0183.sroa.34.0.extract.trunc233, %get_object_address_opf_member.exit ]
+  %.sroa.54.1332 = phi i32 [ %.sroa.54.1, %get_object_address_unqualified.exit ], [ 0, %get_relation_by_qualified_name.exit ], [ %.sroa.5.0.i, %get_object_address_attribute.exit ], [ 0, %get_object_address_attrdef.exit ], [ 0, %207 ], [ 0, %247 ], [ 0, %249 ], [ 0, %251 ], [ 0, %253 ], [ 0, %358 ], [ 0, %365 ], [ 0, %372 ], [ 0, %381 ], [ 0, %383 ], [ 0, %385 ], [ 0, %387 ], [ 0, %get_object_address_usermapping.exit ], [ 0, %get_object_address_publication_schema.exit ], [ 0, %get_object_address_publication_rel.exit ], [ 0, %get_object_address_defacl.exit ], [ 0, %552 ], [ 0, %263 ], [ 0, %261 ], [ 0, %240 ], [ 0, %238 ], [ 0, %236 ], [ 0, %234 ], [ 0, %232 ], [ 0, %230 ], [ 0, %228 ], [ 0, %226 ], [ 0, %224 ], [ 0, %222 ], [ 0, %220 ], [ 0, %218 ], [ 0, %216 ], [ 0, %get_object_address_relobject.exit ], [ 0, %get_object_address_opf_member.exit ]
+  %.1331 = phi ptr [ null, %get_object_address_unqualified.exit ], [ %17, %get_relation_by_qualified_name.exit ], [ %.3, %get_object_address_attribute.exit ], [ %.4, %get_object_address_attrdef.exit ], [ null, %207 ], [ null, %247 ], [ null, %249 ], [ null, %251 ], [ null, %253 ], [ null, %358 ], [ null, %365 ], [ null, %372 ], [ null, %381 ], [ null, %383 ], [ null, %385 ], [ null, %387 ], [ null, %get_object_address_usermapping.exit ], [ null, %get_object_address_publication_schema.exit ], [ %.6, %get_object_address_publication_rel.exit ], [ null, %get_object_address_defacl.exit ], [ null, %552 ], [ null, %263 ], [ null, %261 ], [ null, %240 ], [ null, %238 ], [ null, %236 ], [ null, %234 ], [ null, %232 ], [ null, %230 ], [ null, %228 ], [ null, %226 ], [ null, %224 ], [ null, %222 ], [ null, %220 ], [ null, %218 ], [ null, %216 ], [ %.5, %get_object_address_relobject.exit ], [ null, %get_object_address_opf_member.exit ]
+  %.not263 = icmp eq i32 %.sroa.0183.sroa.34.1333, 0
+  br i1 %.not263, label %.loopexit, label %557
 
-556:                                              ; preds = %.thread
-  %.not262 = icmp eq i32 %.sroa.0181.sroa.0.0, 0
-  br i1 %.not262, label %566, label %557
+557:                                              ; preds = %.thread
+  %.not264 = icmp eq i32 %.sroa.0183.sroa.0.0, 0
+  br i1 %.not264, label %567, label %558
 
-557:                                              ; preds = %556
-  %558 = icmp eq i32 %.sroa.0181.sroa.0.0, %.sroa.0181.sroa.0.1332
-  %559 = icmp eq i32 %.sroa.0181.sroa.34.0, %.sroa.0181.sroa.34.1331
-  %or.cond266 = and i1 %558, %559
-  %560 = icmp eq i32 %.sroa.54.0, %.sroa.54.1330
-  %or.cond267 = select i1 %or.cond266, i1 %560, i1 false
-  br i1 %or.cond267, label %575, label %561
+558:                                              ; preds = %557
+  %559 = icmp eq i32 %.sroa.0183.sroa.0.0, %.sroa.0183.sroa.0.1334
+  %560 = icmp eq i32 %.sroa.0183.sroa.34.0, %.sroa.0183.sroa.34.1333
+  %or.cond268 = and i1 %559, %560
+  %561 = icmp eq i32 %.sroa.54.0, %.sroa.54.1332
+  %or.cond269 = select i1 %or.cond268, i1 %561, i1 false
+  br i1 %or.cond269, label %576, label %562
 
-561:                                              ; preds = %557
-  %.not263 = icmp eq i32 %.sroa.0181.sroa.0.0, 1259
-  br i1 %.not263, label %566, label %562
+562:                                              ; preds = %558
+  %.not265 = icmp eq i32 %.sroa.0183.sroa.0.0, 1259
+  br i1 %.not265, label %567, label %563
 
-562:                                              ; preds = %561
-  %563 = tail call zeroext i1 @IsSharedRelation(i32 noundef %.sroa.0181.sroa.0.0) #11
-  br i1 %563, label %564, label %565
+563:                                              ; preds = %562
+  %564 = tail call zeroext i1 @IsSharedRelation(i32 noundef %.sroa.0183.sroa.0.0) #11
+  br i1 %564, label %565, label %566
 
-564:                                              ; preds = %562
-  tail call void @UnlockSharedObject(i32 noundef %.sroa.0181.sroa.0.0, i32 noundef %.sroa.0181.sroa.34.0, i16 noundef zeroext 0, i32 noundef %3) #11
-  br label %566
+565:                                              ; preds = %563
+  tail call void @UnlockSharedObject(i32 noundef %.sroa.0183.sroa.0.0, i32 noundef %.sroa.0183.sroa.34.0, i16 noundef zeroext 0, i32 noundef %3) #11
+  br label %567
 
-565:                                              ; preds = %562
-  tail call void @UnlockDatabaseObject(i32 noundef %.sroa.0181.sroa.0.0, i32 noundef %.sroa.0181.sroa.34.0, i16 noundef zeroext 0, i32 noundef %3) #11
-  br label %566
+566:                                              ; preds = %563
+  tail call void @UnlockDatabaseObject(i32 noundef %.sroa.0183.sroa.0.0, i32 noundef %.sroa.0183.sroa.34.0, i16 noundef zeroext 0, i32 noundef %3) #11
+  br label %567
 
-566:                                              ; preds = %561, %565, %564, %556
-  %.not264 = icmp eq i32 %.sroa.0181.sroa.0.1332, 1259
-  br i1 %.not264, label %571, label %567
+567:                                              ; preds = %562, %566, %565, %557
+  %.not266 = icmp eq i32 %.sroa.0183.sroa.0.1334, 1259
+  br i1 %.not266, label %572, label %568
 
-567:                                              ; preds = %566
-  %568 = tail call zeroext i1 @IsSharedRelation(i32 noundef %.sroa.0181.sroa.0.1332) #11
-  br i1 %568, label %569, label %570
+568:                                              ; preds = %567
+  %569 = tail call zeroext i1 @IsSharedRelation(i32 noundef %.sroa.0183.sroa.0.1334) #11
+  br i1 %569, label %570, label %571
 
-569:                                              ; preds = %567
-  tail call void @LockSharedObject(i32 noundef %.sroa.0181.sroa.0.1332, i32 noundef %.sroa.0181.sroa.34.1331, i16 noundef zeroext 0, i32 noundef %3) #11
-  br label %571
+570:                                              ; preds = %568
+  tail call void @LockSharedObject(i32 noundef %.sroa.0183.sroa.0.1334, i32 noundef %.sroa.0183.sroa.34.1333, i16 noundef zeroext 0, i32 noundef %3) #11
+  br label %572
 
-570:                                              ; preds = %567
-  tail call void @LockDatabaseObject(i32 noundef %.sroa.0181.sroa.0.1332, i32 noundef %.sroa.0181.sroa.34.1331, i16 noundef zeroext 0, i32 noundef %3) #11
-  br label %571
+571:                                              ; preds = %568
+  tail call void @LockDatabaseObject(i32 noundef %.sroa.0183.sroa.0.1334, i32 noundef %.sroa.0183.sroa.34.1333, i16 noundef zeroext 0, i32 noundef %3) #11
+  br label %572
 
-571:                                              ; preds = %569, %570, %566
-  %572 = load i64, ptr @SharedInvalidMessageCounter, align 8
-  %573 = icmp eq i64 %14, %572
-  %574 = icmp ne ptr %.1329, null
-  %or.cond = or i1 %574, %573
-  br i1 %or.cond, label %575, label %13
+572:                                              ; preds = %570, %571, %567
+  %573 = load i64, ptr @SharedInvalidMessageCounter, align 8
+  %574 = icmp eq i64 %14, %573
+  %575 = icmp ne ptr %.1331, null
+  %or.cond = or i1 %575, %574
+  br i1 %or.cond, label %576, label %13
 
-575:                                              ; preds = %557, %571
-  %.sroa.0181.sroa.0.1332.lcssa404 = phi i32 [ %.sroa.0181.sroa.0.0, %557 ], [ %.sroa.0181.sroa.0.1332, %571 ]
-  %.sroa.0181.sroa.34.1331.lcssa402 = phi i32 [ %.sroa.0181.sroa.34.0, %557 ], [ %.sroa.0181.sroa.34.1331, %571 ]
-  %.sroa.54.1330.lcssa400 = phi i32 [ %.sroa.54.0, %557 ], [ %.sroa.54.1330, %571 ]
-  %.not265 = icmp eq ptr %2, null
-  br i1 %.not265, label %.loopexit, label %576
+576:                                              ; preds = %558, %572
+  %.sroa.0183.sroa.0.1334.lcssa406 = phi i32 [ %.sroa.0183.sroa.0.0, %558 ], [ %.sroa.0183.sroa.0.1334, %572 ]
+  %.sroa.0183.sroa.34.1333.lcssa404 = phi i32 [ %.sroa.0183.sroa.34.0, %558 ], [ %.sroa.0183.sroa.34.1333, %572 ]
+  %.sroa.54.1332.lcssa402 = phi i32 [ %.sroa.54.0, %558 ], [ %.sroa.54.1332, %572 ]
+  %.not267 = icmp eq ptr %2, null
+  br i1 %.not267, label %.loopexit, label %577
 
-576:                                              ; preds = %575
-  store ptr %.1329, ptr %2, align 8
+577:                                              ; preds = %576
+  store ptr %.1331, ptr %2, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %575, %576
-  %.sroa.0181.sroa.0.1332405 = phi i32 [ %.sroa.0181.sroa.0.1332.lcssa404, %575 ], [ %.sroa.0181.sroa.0.1332.lcssa404, %576 ], [ %.sroa.0181.sroa.0.1332, %.thread ]
-  %.sroa.0181.sroa.34.1331403 = phi i32 [ %.sroa.0181.sroa.34.1331.lcssa402, %575 ], [ %.sroa.0181.sroa.34.1331.lcssa402, %576 ], [ 0, %.thread ]
-  %.sroa.54.1330401 = phi i32 [ %.sroa.54.1330.lcssa400, %575 ], [ %.sroa.54.1330.lcssa400, %576 ], [ %.sroa.54.1330, %.thread ]
-  %.sroa.0181.sroa.34.0.insert.ext = zext i32 %.sroa.0181.sroa.34.1331403 to i64
-  %.sroa.0181.sroa.34.0.insert.shift = shl nuw i64 %.sroa.0181.sroa.34.0.insert.ext, 32
-  %.sroa.0181.sroa.0.0.insert.ext = zext i32 %.sroa.0181.sroa.0.1332405 to i64
-  %.sroa.0181.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0181.sroa.34.0.insert.shift, %.sroa.0181.sroa.0.0.insert.ext
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0181.sroa.0.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.54.1330401, 1
+.loopexit:                                        ; preds = %.thread, %576, %577
+  %.sroa.0183.sroa.0.1334407 = phi i32 [ %.sroa.0183.sroa.0.1334.lcssa406, %576 ], [ %.sroa.0183.sroa.0.1334.lcssa406, %577 ], [ %.sroa.0183.sroa.0.1334, %.thread ]
+  %.sroa.0183.sroa.34.1333405 = phi i32 [ %.sroa.0183.sroa.34.1333.lcssa404, %576 ], [ %.sroa.0183.sroa.34.1333.lcssa404, %577 ], [ 0, %.thread ]
+  %.sroa.54.1332403 = phi i32 [ %.sroa.54.1332.lcssa402, %576 ], [ %.sroa.54.1332.lcssa402, %577 ], [ %.sroa.54.1332, %.thread ]
+  %.sroa.0183.sroa.34.0.insert.ext = zext i32 %.sroa.0183.sroa.34.1333405 to i64
+  %.sroa.0183.sroa.34.0.insert.shift = shl nuw i64 %.sroa.0183.sroa.34.0.insert.ext, 32
+  %.sroa.0183.sroa.0.0.insert.ext = zext i32 %.sroa.0183.sroa.0.1334407 to i64
+  %.sroa.0183.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0183.sroa.34.0.insert.shift, %.sroa.0183.sroa.0.0.insert.ext
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0183.sroa.0.0.insert.insert, 0
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.54.1332403, 1
   ret { i64, i32 } %.fca.1.insert
 }
 

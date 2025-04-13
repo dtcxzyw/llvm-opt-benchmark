@@ -191,9 +191,13 @@ thread-pre-split:                                 ; preds = %1
   store i32 %16, ptr %18, align 4, !tbaa !72
   %switch.tableidx = add i32 %16, -100
   %19 = icmp ult i32 %switch.tableidx, 14
-  br i1 %19, label %switch.hole_check, label %20
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 11283, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %19, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %.critedge, label %20
 
-20:                                               ; preds = %switch.hole_check, %17
+20:                                               ; preds = %17
   %21 = call ptr @strerror(i32 noundef %16) #11
   %22 = load ptr, ptr @stderr, align 8, !tbaa !68
   %23 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.4, ptr noundef %21, ptr noundef nonnull @.str.2, i32 noundef 149) #12
@@ -207,14 +211,8 @@ thread-pre-split:                                 ; preds = %1
   store i32 -1, ptr %4, align 8, !tbaa !73
   br label %.critedge
 
-switch.hole_check:                                ; preds = %17
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 11283, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %.critedge, label %20
-
-.critedge:                                        ; preds = %switch.hole_check, %20, %26
-  %.0 = phi i32 [ %27, %26 ], [ -1, %20 ], [ -1, %switch.hole_check ]
+.critedge:                                        ; preds = %17, %20, %26
+  %.0 = phi i32 [ %27, %26 ], [ -1, %20 ], [ -1, %17 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
   ret i32 %.0

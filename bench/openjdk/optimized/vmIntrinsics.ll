@@ -205,7 +205,7 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics21disabled_by_jvm_flagsE13vmI
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  switch i32 %0, label %181 [
+  switch i32 %0, label %170 [
     i32 139, label %5
     i32 140, label %5
     i32 141, label %5
@@ -242,7 +242,7 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics21disabled_by_jvm_flagsE13vmI
   ]
 
 5:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %1
-  switch i32 %0, label %181 [
+  switch i32 %0, label %170 [
     i32 106, label %6
     i32 105, label %6
     i32 107, label %6
@@ -297,501 +297,479 @@ define hidden noundef zeroext i1 @_ZN12vmIntrinsics21disabled_by_jvm_flagsE13vmI
     i32 54, label %12
     i32 38, label %15
     i32 39, label %15
-    i32 68, label %180
-    i32 67, label %180
-    i32 98, label %21
-    i32 190, label %24
-    i32 191, label %24
-    i32 192, label %24
-    i32 221, label %27
-    i32 222, label %27
-    i32 223, label %27
-    i32 224, label %27
-    i32 225, label %27
-    i32 226, label %27
-    i32 227, label %27
-    i32 228, label %27
-    i32 229, label %27
-    i32 230, label %27
-    i32 231, label %27
-    i32 232, label %27
-    i32 233, label %27
-    i32 234, label %27
-    i32 235, label %27
-    i32 236, label %27
-    i32 237, label %27
-    i32 238, label %27
-    i32 239, label %27
-    i32 240, label %27
-    i32 241, label %27
-    i32 242, label %27
-    i32 243, label %27
-    i32 244, label %27
-    i32 245, label %27
-    i32 246, label %27
-    i32 247, label %27
-    i32 248, label %27
-    i32 249, label %27
-    i32 250, label %27
-    i32 251, label %27
-    i32 252, label %27
-    i32 253, label %27
-    i32 254, label %27
-    i32 255, label %27
-    i32 256, label %27
-    i32 275, label %27
-    i32 276, label %27
-    i32 277, label %27
-    i32 278, label %27
-    i32 279, label %27
-    i32 280, label %27
-    i32 281, label %27
-    i32 282, label %27
-    i32 283, label %27
-    i32 284, label %27
-    i32 285, label %27
-    i32 286, label %27
-    i32 287, label %27
-    i32 288, label %27
-    i32 289, label %27
-    i32 290, label %27
-    i32 291, label %27
-    i32 292, label %27
-    i32 257, label %27
-    i32 258, label %27
-    i32 259, label %27
-    i32 260, label %27
-    i32 261, label %27
-    i32 262, label %27
-    i32 263, label %27
-    i32 264, label %27
-    i32 265, label %27
-    i32 266, label %27
-    i32 267, label %27
-    i32 268, label %27
-    i32 269, label %27
-    i32 270, label %27
-    i32 271, label %27
-    i32 272, label %27
-    i32 273, label %27
-    i32 274, label %27
-    i32 341, label %27
-    i32 342, label %27
-    i32 345, label %27
-    i32 346, label %27
-    i32 349, label %27
-    i32 213, label %27
-    i32 214, label %27
-    i32 216, label %27
-    i32 305, label %27
-    i32 328, label %27
-    i32 325, label %27
-    i32 326, label %27
-    i32 327, label %27
-    i32 309, label %27
-    i32 332, label %27
-    i32 329, label %27
-    i32 330, label %27
-    i32 331, label %27
-    i32 301, label %27
-    i32 324, label %27
-    i32 321, label %27
-    i32 322, label %27
-    i32 323, label %27
-    i32 310, label %27
-    i32 311, label %27
-    i32 312, label %27
-    i32 306, label %27
-    i32 307, label %27
-    i32 308, label %27
-    i32 302, label %27
-    i32 303, label %27
-    i32 304, label %27
-    i32 209, label %27
-    i32 293, label %30
-    i32 294, label %30
-    i32 295, label %30
-    i32 296, label %30
-    i32 297, label %30
-    i32 298, label %30
-    i32 299, label %30
-    i32 300, label %30
-    i32 1, label %36
-    i32 169, label %39
-    i32 170, label %39
-    i32 171, label %42
-    i32 172, label %42
-    i32 173, label %45
-    i32 174, label %45
-    i32 175, label %48
-    i32 176, label %51
-    i32 177, label %54
-    i32 178, label %57
-    i32 179, label %60
-    i32 180, label %63
-    i32 181, label %66
-    i32 182, label %69
-    i32 187, label %84
-    i32 189, label %87
-    i32 185, label %90
-    i32 186, label %90
-    i32 188, label %93
-    i32 183, label %96
-    i32 184, label %96
-    i32 193, label %99
-    i32 194, label %99
-    i32 165, label %102
-    i32 195, label %105
-    i32 196, label %105
-    i32 211, label %108
-    i32 212, label %114
-    i32 3, label %117
-    i32 120, label %117
-    i32 123, label %117
-    i32 135, label %123
-    i32 136, label %123
-    i32 137, label %123
-    i32 138, label %123
-    i32 139, label %126
-    i32 140, label %126
-    i32 141, label %126
-    i32 142, label %126
-    i32 143, label %126
-    i32 144, label %126
-    i32 145, label %126
-    i32 146, label %126
-    i32 147, label %129
-    i32 126, label %132
-    i32 125, label %135
-    i32 124, label %135
-    i32 155, label %138
-    i32 157, label %138
-    i32 156, label %138
-    i32 116, label %141
-    i32 158, label %144
-    i32 159, label %147
-    i32 160, label %150
-    i32 161, label %153
-    i32 162, label %156
-    i32 163, label %180
-    i32 164, label %180
-    i32 24, label %159
-    i32 25, label %159
-    i32 26, label %159
-    i32 27, label %159
-    i32 28, label %159
-    i32 29, label %159
-    i32 30, label %159
-    i32 31, label %159
-    i32 34, label %159
-    i32 35, label %159
-    i32 36, label %159
-    i32 37, label %159
-    i32 148, label %165
-    i32 149, label %165
-    i32 150, label %165
-    i32 151, label %165
-    i32 46, label %168
-    i32 47, label %168
-    i32 48, label %174
-    i32 49, label %174
+    i32 68, label %169
+    i32 67, label %169
+    i32 98, label %20
+    i32 190, label %23
+    i32 191, label %23
+    i32 192, label %23
+    i32 221, label %26
+    i32 222, label %26
+    i32 223, label %26
+    i32 224, label %26
+    i32 225, label %26
+    i32 226, label %26
+    i32 227, label %26
+    i32 228, label %26
+    i32 229, label %26
+    i32 230, label %26
+    i32 231, label %26
+    i32 232, label %26
+    i32 233, label %26
+    i32 234, label %26
+    i32 235, label %26
+    i32 236, label %26
+    i32 237, label %26
+    i32 238, label %26
+    i32 239, label %26
+    i32 240, label %26
+    i32 241, label %26
+    i32 242, label %26
+    i32 243, label %26
+    i32 244, label %26
+    i32 245, label %26
+    i32 246, label %26
+    i32 247, label %26
+    i32 248, label %26
+    i32 249, label %26
+    i32 250, label %26
+    i32 251, label %26
+    i32 252, label %26
+    i32 253, label %26
+    i32 254, label %26
+    i32 255, label %26
+    i32 256, label %26
+    i32 275, label %26
+    i32 276, label %26
+    i32 277, label %26
+    i32 278, label %26
+    i32 279, label %26
+    i32 280, label %26
+    i32 281, label %26
+    i32 282, label %26
+    i32 283, label %26
+    i32 284, label %26
+    i32 285, label %26
+    i32 286, label %26
+    i32 287, label %26
+    i32 288, label %26
+    i32 289, label %26
+    i32 290, label %26
+    i32 291, label %26
+    i32 292, label %26
+    i32 257, label %26
+    i32 258, label %26
+    i32 259, label %26
+    i32 260, label %26
+    i32 261, label %26
+    i32 262, label %26
+    i32 263, label %26
+    i32 264, label %26
+    i32 265, label %26
+    i32 266, label %26
+    i32 267, label %26
+    i32 268, label %26
+    i32 269, label %26
+    i32 270, label %26
+    i32 271, label %26
+    i32 272, label %26
+    i32 273, label %26
+    i32 274, label %26
+    i32 341, label %26
+    i32 342, label %26
+    i32 345, label %26
+    i32 346, label %26
+    i32 349, label %26
+    i32 213, label %26
+    i32 214, label %26
+    i32 216, label %26
+    i32 305, label %26
+    i32 328, label %26
+    i32 325, label %26
+    i32 326, label %26
+    i32 327, label %26
+    i32 309, label %26
+    i32 332, label %26
+    i32 329, label %26
+    i32 330, label %26
+    i32 331, label %26
+    i32 301, label %26
+    i32 324, label %26
+    i32 321, label %26
+    i32 322, label %26
+    i32 323, label %26
+    i32 310, label %26
+    i32 311, label %26
+    i32 312, label %26
+    i32 306, label %26
+    i32 307, label %26
+    i32 308, label %26
+    i32 302, label %26
+    i32 303, label %26
+    i32 304, label %26
+    i32 209, label %26
+    i32 293, label %29
+    i32 294, label %29
+    i32 295, label %29
+    i32 296, label %29
+    i32 297, label %29
+    i32 298, label %29
+    i32 299, label %29
+    i32 300, label %29
+    i32 1, label %34
+    i32 169, label %37
+    i32 170, label %37
+    i32 171, label %40
+    i32 172, label %40
+    i32 173, label %43
+    i32 174, label %43
+    i32 175, label %46
+    i32 176, label %49
+    i32 177, label %52
+    i32 178, label %55
+    i32 179, label %58
+    i32 180, label %61
+    i32 181, label %64
+    i32 182, label %67
+    i32 187, label %78
+    i32 189, label %81
+    i32 185, label %84
+    i32 186, label %84
+    i32 188, label %87
+    i32 183, label %90
+    i32 184, label %90
+    i32 193, label %93
+    i32 194, label %93
+    i32 165, label %96
+    i32 195, label %99
+    i32 196, label %99
+    i32 211, label %102
+    i32 212, label %107
+    i32 3, label %110
+    i32 120, label %110
+    i32 123, label %110
+    i32 135, label %115
+    i32 136, label %115
+    i32 137, label %115
+    i32 138, label %115
+    i32 139, label %118
+    i32 140, label %118
+    i32 141, label %118
+    i32 142, label %118
+    i32 143, label %118
+    i32 144, label %118
+    i32 145, label %118
+    i32 146, label %118
+    i32 147, label %121
+    i32 126, label %124
+    i32 125, label %127
+    i32 124, label %127
+    i32 155, label %130
+    i32 157, label %130
+    i32 156, label %130
+    i32 116, label %133
+    i32 158, label %136
+    i32 159, label %139
+    i32 160, label %142
+    i32 161, label %145
+    i32 162, label %148
+    i32 163, label %169
+    i32 164, label %169
+    i32 24, label %151
+    i32 25, label %151
+    i32 26, label %151
+    i32 27, label %151
+    i32 28, label %151
+    i32 29, label %151
+    i32 30, label %151
+    i32 31, label %151
+    i32 34, label %151
+    i32 35, label %151
+    i32 36, label %151
+    i32 37, label %151
+    i32 148, label %156
+    i32 149, label %156
+    i32 150, label %156
+    i32 151, label %156
+    i32 46, label %159
+    i32 47, label %159
+    i32 48, label %164
+    i32 49, label %164
   ]
 
 6:                                                ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
   %7 = load i8, ptr @InlineClassNatives, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %180, label %181
+  br i1 %8, label %169, label %170
 
 9:                                                ; preds = %5, %5
   %10 = load i8, ptr @InlineThreadNatives, align 1
   %11 = trunc i8 %10 to i1
-  br i1 %11, label %180, label %181
+  br i1 %11, label %169, label %170
 
 12:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
   %13 = load i8, ptr @InlineMathNatives, align 1
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %180, label %181
+  br i1 %14, label %169, label %170
 
 15:                                               ; preds = %5, %5
   %16 = load i8, ptr @InlineMathNatives, align 1
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %181
+  %18 = load i8, ptr @UseFMA, align 1
+  %19 = trunc i8 %18 to i1
+  %or.cond = select i1 %17, i1 %19, i1 false
+  br i1 %or.cond, label %169, label %170
 
-18:                                               ; preds = %15
-  %19 = load i8, ptr @UseFMA, align 1
-  %20 = trunc i8 %19 to i1
-  br i1 %20, label %180, label %181
+20:                                               ; preds = %5
+  %21 = load i8, ptr @InlineArrayCopy, align 1
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %169, label %170
 
-21:                                               ; preds = %5
-  %22 = load i8, ptr @InlineArrayCopy, align 1
-  %23 = trunc i8 %22 to i1
-  br i1 %23, label %180, label %181
+23:                                               ; preds = %5, %5, %5
+  %24 = load i8, ptr @UseCRC32Intrinsics, align 1
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %169, label %170
 
-24:                                               ; preds = %5, %5, %5
-  %25 = load i8, ptr @UseCRC32Intrinsics, align 1
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %180, label %181
+26:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
+  %27 = load i8, ptr @InlineUnsafeOps, align 1
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %169, label %170
 
-27:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
-  %28 = load i8, ptr @InlineUnsafeOps, align 1
-  %29 = trunc i8 %28 to i1
-  br i1 %29, label %180, label %181
+29:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5
+  %30 = load i8, ptr @InlineUnsafeOps, align 1
+  %31 = trunc i8 %30 to i1
+  %32 = load i8, ptr @UseUnalignedAccesses, align 1
+  %33 = trunc i8 %32 to i1
+  %or.cond3 = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond3, label %169, label %170
 
-30:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5
-  %31 = load i8, ptr @InlineUnsafeOps, align 1
-  %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %181
+34:                                               ; preds = %5
+  %35 = load i8, ptr @InlineObjectHash, align 1
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %169, label %170
 
-33:                                               ; preds = %30
-  %34 = load i8, ptr @UseUnalignedAccesses, align 1
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %180, label %181
+37:                                               ; preds = %5, %5
+  %38 = load i8, ptr @UseAESIntrinsics, align 1
+  %39 = trunc i8 %38 to i1
+  br i1 %39, label %169, label %170
 
-36:                                               ; preds = %5
-  %37 = load i8, ptr @InlineObjectHash, align 1
-  %38 = trunc i8 %37 to i1
-  br i1 %38, label %180, label %181
+40:                                               ; preds = %5, %5
+  %41 = load i8, ptr @UseAESIntrinsics, align 1
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %169, label %170
 
-39:                                               ; preds = %5, %5
-  %40 = load i8, ptr @UseAESIntrinsics, align 1
-  %41 = trunc i8 %40 to i1
-  br i1 %41, label %180, label %181
+43:                                               ; preds = %5, %5
+  %44 = load i8, ptr @UseAESIntrinsics, align 1
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %169, label %170
 
-42:                                               ; preds = %5, %5
-  %43 = load i8, ptr @UseAESIntrinsics, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %180, label %181
+46:                                               ; preds = %5
+  %47 = load i8, ptr @UseAESCTRIntrinsics, align 1
+  %48 = trunc i8 %47 to i1
+  br i1 %48, label %169, label %170
 
-45:                                               ; preds = %5, %5
-  %46 = load i8, ptr @UseAESIntrinsics, align 1
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %180, label %181
+49:                                               ; preds = %5
+  %50 = load i8, ptr @UseAESIntrinsics, align 1
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %169, label %170
 
-48:                                               ; preds = %5
-  %49 = load i8, ptr @UseAESCTRIntrinsics, align 1
-  %50 = trunc i8 %49 to i1
-  br i1 %50, label %180, label %181
+52:                                               ; preds = %5
+  %53 = load i8, ptr @UseMD5Intrinsics, align 1
+  %54 = trunc i8 %53 to i1
+  br i1 %54, label %169, label %170
 
-51:                                               ; preds = %5
-  %52 = load i8, ptr @UseAESIntrinsics, align 1
-  %53 = trunc i8 %52 to i1
-  br i1 %53, label %180, label %181
+55:                                               ; preds = %5
+  %56 = load i8, ptr @UseSHA1Intrinsics, align 1
+  %57 = trunc i8 %56 to i1
+  br i1 %57, label %169, label %170
 
-54:                                               ; preds = %5
-  %55 = load i8, ptr @UseMD5Intrinsics, align 1
-  %56 = trunc i8 %55 to i1
-  br i1 %56, label %180, label %181
+58:                                               ; preds = %5
+  %59 = load i8, ptr @UseSHA256Intrinsics, align 1
+  %60 = trunc i8 %59 to i1
+  br i1 %60, label %169, label %170
 
-57:                                               ; preds = %5
-  %58 = load i8, ptr @UseSHA1Intrinsics, align 1
-  %59 = trunc i8 %58 to i1
-  br i1 %59, label %180, label %181
+61:                                               ; preds = %5
+  %62 = load i8, ptr @UseSHA512Intrinsics, align 1
+  %63 = trunc i8 %62 to i1
+  br i1 %63, label %169, label %170
 
-60:                                               ; preds = %5
-  %61 = load i8, ptr @UseSHA256Intrinsics, align 1
-  %62 = trunc i8 %61 to i1
-  br i1 %62, label %180, label %181
+64:                                               ; preds = %5
+  %65 = load i8, ptr @UseSHA3Intrinsics, align 1
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %169, label %170
 
-63:                                               ; preds = %5
-  %64 = load i8, ptr @UseSHA512Intrinsics, align 1
-  %65 = trunc i8 %64 to i1
-  br i1 %65, label %180, label %181
-
-66:                                               ; preds = %5
-  %67 = load i8, ptr @UseSHA3Intrinsics, align 1
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %180, label %181
-
-69:                                               ; preds = %5
-  %70 = load i8, ptr @UseMD5Intrinsics, align 1
+67:                                               ; preds = %5
+  %68 = load i8, ptr @UseMD5Intrinsics, align 1
+  %69 = trunc i8 %68 to i1
+  %70 = load i8, ptr @UseSHA1Intrinsics, align 1
   %71 = trunc i8 %70 to i1
-  br i1 %71, label %180, label %72
-
-72:                                               ; preds = %69
-  %73 = load i8, ptr @UseSHA1Intrinsics, align 1
-  %74 = trunc i8 %73 to i1
-  br i1 %74, label %180, label %75
-
-75:                                               ; preds = %72
-  %76 = load i8, ptr @UseSHA256Intrinsics, align 1
+  %or.cond5 = select i1 %69, i1 true, i1 %71
+  %72 = load i8, ptr @UseSHA256Intrinsics, align 1
+  %73 = trunc i8 %72 to i1
+  %or.cond7 = select i1 %or.cond5, i1 true, i1 %73
+  %74 = load i8, ptr @UseSHA512Intrinsics, align 1
+  %75 = trunc i8 %74 to i1
+  %or.cond9 = select i1 %or.cond7, i1 true, i1 %75
+  %76 = load i8, ptr @UseSHA3Intrinsics, align 1
   %77 = trunc i8 %76 to i1
-  br i1 %77, label %180, label %78
+  %or.cond11 = select i1 %or.cond9, i1 true, i1 %77
+  br i1 %or.cond11, label %169, label %170
 
-78:                                               ; preds = %75
-  %79 = load i8, ptr @UseSHA512Intrinsics, align 1
+78:                                               ; preds = %5
+  %79 = load i8, ptr @UseGHASHIntrinsics, align 1
   %80 = trunc i8 %79 to i1
-  br i1 %80, label %180, label %81
+  br i1 %80, label %169, label %170
 
-81:                                               ; preds = %78
-  %82 = load i8, ptr @UseSHA3Intrinsics, align 1
+81:                                               ; preds = %5
+  %82 = load i8, ptr @UseChaCha20Intrinsics, align 1
   %83 = trunc i8 %82 to i1
-  br i1 %83, label %180, label %181
+  br i1 %83, label %169, label %170
 
-84:                                               ; preds = %5
-  %85 = load i8, ptr @UseGHASHIntrinsics, align 1
+84:                                               ; preds = %5, %5
+  %85 = load i8, ptr @UseBASE64Intrinsics, align 1
   %86 = trunc i8 %85 to i1
-  br i1 %86, label %180, label %181
+  br i1 %86, label %169, label %170
 
 87:                                               ; preds = %5
-  %88 = load i8, ptr @UseChaCha20Intrinsics, align 1
+  %88 = load i8, ptr @UsePoly1305Intrinsics, align 1
   %89 = trunc i8 %88 to i1
-  br i1 %89, label %180, label %181
+  br i1 %89, label %169, label %170
 
 90:                                               ; preds = %5, %5
-  %91 = load i8, ptr @UseBASE64Intrinsics, align 1
+  %91 = load i8, ptr @UseIntPolyIntrinsics, align 1
   %92 = trunc i8 %91 to i1
-  br i1 %92, label %180, label %181
+  br i1 %92, label %169, label %170
 
-93:                                               ; preds = %5
-  %94 = load i8, ptr @UsePoly1305Intrinsics, align 1
+93:                                               ; preds = %5, %5
+  %94 = load i8, ptr @UseCRC32CIntrinsics, align 1
   %95 = trunc i8 %94 to i1
-  br i1 %95, label %180, label %181
+  br i1 %95, label %169, label %170
 
-96:                                               ; preds = %5, %5
-  %97 = load i8, ptr @UseIntPolyIntrinsics, align 1
+96:                                               ; preds = %5
+  %97 = load i8, ptr @UseVectorizedMismatchIntrinsic, align 1
   %98 = trunc i8 %97 to i1
-  br i1 %98, label %180, label %181
+  br i1 %98, label %169, label %170
 
 99:                                               ; preds = %5, %5
-  %100 = load i8, ptr @UseCRC32CIntrinsics, align 1
+  %100 = load i8, ptr @UseAdler32Intrinsics, align 1
   %101 = trunc i8 %100 to i1
-  br i1 %101, label %180, label %181
+  br i1 %101, label %169, label %170
 
 102:                                              ; preds = %5
-  %103 = load i8, ptr @UseVectorizedMismatchIntrinsic, align 1
+  %103 = load i8, ptr @InlineArrayCopy, align 1
   %104 = trunc i8 %103 to i1
-  br i1 %104, label %180, label %181
+  %105 = load i8, ptr @InlineUnsafeOps, align 1
+  %106 = trunc i8 %105 to i1
+  %or.cond13 = select i1 %104, i1 %106, i1 false
+  br i1 %or.cond13, label %169, label %170
 
-105:                                              ; preds = %5, %5
-  %106 = load i8, ptr @UseAdler32Intrinsics, align 1
-  %107 = trunc i8 %106 to i1
-  br i1 %107, label %180, label %181
+107:                                              ; preds = %5
+  %108 = load i8, ptr @InlineUnsafeOps, align 1
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %169, label %170
 
-108:                                              ; preds = %5
-  %109 = load i8, ptr @InlineArrayCopy, align 1
-  %110 = trunc i8 %109 to i1
-  br i1 %110, label %111, label %181
+110:                                              ; preds = %5, %5, %5
+  %111 = load i8, ptr @InlineObjectCopy, align 1
+  %112 = trunc i8 %111 to i1
+  %113 = load i8, ptr @InlineArrayCopy, align 1
+  %114 = trunc i8 %113 to i1
+  %or.cond15 = select i1 %112, i1 %114, i1 false
+  br i1 %or.cond15, label %169, label %170
 
-111:                                              ; preds = %108
-  %112 = load i8, ptr @InlineUnsafeOps, align 1
-  %113 = trunc i8 %112 to i1
-  br i1 %113, label %180, label %181
+115:                                              ; preds = %5, %5, %5, %5
+  %116 = load i8, ptr @SpecialStringCompareTo, align 1
+  %117 = trunc i8 %116 to i1
+  br i1 %117, label %169, label %170
 
-114:                                              ; preds = %5
-  %115 = load i8, ptr @InlineUnsafeOps, align 1
-  %116 = trunc i8 %115 to i1
-  br i1 %116, label %180, label %181
+118:                                              ; preds = %5, %5, %5, %5, %5, %5, %5, %5
+  %119 = load i8, ptr @SpecialStringIndexOf, align 1
+  %120 = trunc i8 %119 to i1
+  br i1 %120, label %169, label %170
 
-117:                                              ; preds = %5, %5, %5
-  %118 = load i8, ptr @InlineObjectCopy, align 1
-  %119 = trunc i8 %118 to i1
-  br i1 %119, label %120, label %181
+121:                                              ; preds = %5
+  %122 = load i8, ptr @SpecialStringEquals, align 1
+  %123 = trunc i8 %122 to i1
+  br i1 %123, label %169, label %170
 
-120:                                              ; preds = %117
-  %121 = load i8, ptr @InlineArrayCopy, align 1
-  %122 = trunc i8 %121 to i1
-  br i1 %122, label %180, label %181
+124:                                              ; preds = %5
+  %125 = load i8, ptr @UseVectorizedHashCodeIntrinsic, align 1
+  %126 = trunc i8 %125 to i1
+  br i1 %126, label %169, label %170
 
-123:                                              ; preds = %5, %5, %5, %5
-  %124 = load i8, ptr @SpecialStringCompareTo, align 1
-  %125 = trunc i8 %124 to i1
-  br i1 %125, label %180, label %181
+127:                                              ; preds = %5, %5
+  %128 = load i8, ptr @SpecialArraysEquals, align 1
+  %129 = trunc i8 %128 to i1
+  br i1 %129, label %169, label %170
 
-126:                                              ; preds = %5, %5, %5, %5, %5, %5, %5, %5
-  %127 = load i8, ptr @SpecialStringIndexOf, align 1
-  %128 = trunc i8 %127 to i1
-  br i1 %128, label %180, label %181
+130:                                              ; preds = %5, %5, %5
+  %131 = load i8, ptr @SpecialEncodeISOArray, align 1
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %169, label %170
 
-129:                                              ; preds = %5
-  %130 = load i8, ptr @SpecialStringEquals, align 1
-  %131 = trunc i8 %130 to i1
-  br i1 %131, label %180, label %181
+133:                                              ; preds = %5
+  %134 = load i8, ptr @InlineReflectionGetCallerClass, align 1
+  %135 = trunc i8 %134 to i1
+  br i1 %135, label %169, label %170
 
-132:                                              ; preds = %5
-  %133 = load i8, ptr @UseVectorizedHashCodeIntrinsic, align 1
-  %134 = trunc i8 %133 to i1
-  br i1 %134, label %180, label %181
+136:                                              ; preds = %5
+  %137 = load i8, ptr @UseMultiplyToLenIntrinsic, align 1
+  %138 = trunc i8 %137 to i1
+  br i1 %138, label %169, label %170
 
-135:                                              ; preds = %5, %5
-  %136 = load i8, ptr @SpecialArraysEquals, align 1
-  %137 = trunc i8 %136 to i1
-  br i1 %137, label %180, label %181
+139:                                              ; preds = %5
+  %140 = load i8, ptr @UseSquareToLenIntrinsic, align 1
+  %141 = trunc i8 %140 to i1
+  br i1 %141, label %169, label %170
 
-138:                                              ; preds = %5, %5, %5
-  %139 = load i8, ptr @SpecialEncodeISOArray, align 1
-  %140 = trunc i8 %139 to i1
-  br i1 %140, label %180, label %181
+142:                                              ; preds = %5
+  %143 = load i8, ptr @UseMulAddIntrinsic, align 1
+  %144 = trunc i8 %143 to i1
+  br i1 %144, label %169, label %170
 
-141:                                              ; preds = %5
-  %142 = load i8, ptr @InlineReflectionGetCallerClass, align 1
-  %143 = trunc i8 %142 to i1
-  br i1 %143, label %180, label %181
+145:                                              ; preds = %5
+  %146 = load i8, ptr @UseMontgomeryMultiplyIntrinsic, align 1
+  %147 = trunc i8 %146 to i1
+  br i1 %147, label %169, label %170
 
-144:                                              ; preds = %5
-  %145 = load i8, ptr @UseMultiplyToLenIntrinsic, align 1
-  %146 = trunc i8 %145 to i1
-  br i1 %146, label %180, label %181
+148:                                              ; preds = %5
+  %149 = load i8, ptr @UseMontgomerySquareIntrinsic, align 1
+  %150 = trunc i8 %149 to i1
+  br i1 %150, label %169, label %170
 
-147:                                              ; preds = %5
-  %148 = load i8, ptr @UseSquareToLenIntrinsic, align 1
-  %149 = trunc i8 %148 to i1
-  br i1 %149, label %180, label %181
-
-150:                                              ; preds = %5
-  %151 = load i8, ptr @UseMulAddIntrinsic, align 1
-  %152 = trunc i8 %151 to i1
-  br i1 %152, label %180, label %181
-
-153:                                              ; preds = %5
-  %154 = load i8, ptr @UseMontgomeryMultiplyIntrinsic, align 1
+151:                                              ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
+  %152 = load i8, ptr @UseMathExactIntrinsics, align 1
+  %153 = trunc i8 %152 to i1
+  %154 = load i8, ptr @InlineMathNatives, align 1
   %155 = trunc i8 %154 to i1
-  br i1 %155, label %180, label %181
+  %or.cond17 = select i1 %153, i1 %155, i1 false
+  br i1 %or.cond17, label %169, label %170
 
-156:                                              ; preds = %5
-  %157 = load i8, ptr @UseMontgomerySquareIntrinsic, align 1
+156:                                              ; preds = %5, %5, %5, %5
+  %157 = load i8, ptr @UseCharacterCompareIntrinsics, align 1
   %158 = trunc i8 %157 to i1
-  br i1 %158, label %180, label %181
+  br i1 %158, label %169, label %170
 
-159:                                              ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
-  %160 = load i8, ptr @UseMathExactIntrinsics, align 1
+159:                                              ; preds = %5, %5
+  %160 = load i8, ptr @InlineMathNatives, align 1
   %161 = trunc i8 %160 to i1
-  br i1 %161, label %162, label %181
+  %162 = load i8, ptr @UseCopySignIntrinsic, align 1
+  %163 = trunc i8 %162 to i1
+  %or.cond19 = select i1 %161, i1 %163, i1 false
+  br i1 %or.cond19, label %169, label %170
 
-162:                                              ; preds = %159
-  %163 = load i8, ptr @InlineMathNatives, align 1
-  %164 = trunc i8 %163 to i1
-  br i1 %164, label %180, label %181
+164:                                              ; preds = %5, %5
+  %165 = load i8, ptr @InlineMathNatives, align 1
+  %166 = trunc i8 %165 to i1
+  %167 = load i8, ptr @UseSignumIntrinsic, align 1
+  %168 = trunc i8 %167 to i1
+  %or.cond21 = select i1 %166, i1 %168, i1 false
+  br i1 %or.cond21, label %169, label %170
 
-165:                                              ; preds = %5, %5, %5, %5
-  %166 = load i8, ptr @UseCharacterCompareIntrinsics, align 1
-  %167 = trunc i8 %166 to i1
-  br i1 %167, label %180, label %181
+169:                                              ; preds = %164, %159, %156, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %110, %107, %102, %99, %96, %93, %90, %87, %84, %81, %78, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %29, %26, %23, %20, %5, %5, %5, %5, %15, %12, %9, %6
+  br label %170
 
-168:                                              ; preds = %5, %5
-  %169 = load i8, ptr @InlineMathNatives, align 1
-  %170 = trunc i8 %169 to i1
-  br i1 %170, label %171, label %181
-
-171:                                              ; preds = %168
-  %172 = load i8, ptr @UseCopySignIntrinsic, align 1
-  %173 = trunc i8 %172 to i1
-  br i1 %173, label %180, label %181
-
-174:                                              ; preds = %5, %5
-  %175 = load i8, ptr @InlineMathNatives, align 1
-  %176 = trunc i8 %175 to i1
-  br i1 %176, label %177, label %181
-
-177:                                              ; preds = %174
-  %178 = load i8, ptr @UseSignumIntrinsic, align 1
-  %179 = trunc i8 %178 to i1
-  br i1 %179, label %180, label %181
-
-180:                                              ; preds = %177, %171, %165, %162, %156, %153, %150, %147, %144, %141, %138, %135, %132, %129, %126, %123, %120, %114, %111, %105, %102, %99, %96, %93, %90, %87, %84, %69, %72, %75, %78, %81, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %33, %27, %24, %21, %5, %5, %5, %5, %18, %12, %9, %6
-  br label %181
-
-181:                                              ; preds = %5, %174, %177, %168, %171, %165, %159, %162, %156, %153, %150, %147, %144, %141, %138, %135, %132, %129, %126, %123, %117, %120, %114, %108, %111, %105, %102, %99, %96, %93, %90, %87, %84, %81, %66, %63, %60, %57, %54, %51, %48, %45, %42, %39, %36, %30, %33, %27, %24, %21, %15, %18, %12, %9, %6, %4, %180
-  %.0 = phi i1 [ false, %180 ], [ true, %4 ], [ true, %6 ], [ true, %9 ], [ true, %12 ], [ true, %18 ], [ true, %15 ], [ true, %21 ], [ true, %24 ], [ true, %27 ], [ true, %33 ], [ true, %30 ], [ true, %36 ], [ true, %39 ], [ true, %42 ], [ true, %45 ], [ true, %48 ], [ true, %51 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %63 ], [ true, %66 ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %93 ], [ true, %96 ], [ true, %99 ], [ true, %102 ], [ true, %105 ], [ true, %111 ], [ true, %108 ], [ true, %114 ], [ true, %120 ], [ true, %117 ], [ true, %123 ], [ true, %126 ], [ true, %129 ], [ true, %132 ], [ true, %135 ], [ true, %138 ], [ true, %141 ], [ true, %144 ], [ true, %147 ], [ true, %150 ], [ true, %153 ], [ true, %156 ], [ true, %162 ], [ true, %159 ], [ true, %165 ], [ true, %171 ], [ true, %168 ], [ true, %177 ], [ true, %174 ], [ false, %5 ]
+170:                                              ; preds = %5, %164, %159, %156, %151, %148, %145, %142, %139, %136, %133, %130, %127, %124, %121, %118, %115, %110, %107, %102, %99, %96, %93, %90, %87, %84, %81, %78, %67, %64, %61, %58, %55, %52, %49, %46, %43, %40, %37, %34, %29, %26, %23, %20, %15, %12, %9, %6, %4, %169
+  %.0 = phi i1 [ false, %169 ], [ true, %4 ], [ true, %6 ], [ true, %9 ], [ true, %12 ], [ true, %15 ], [ true, %20 ], [ true, %23 ], [ true, %26 ], [ true, %29 ], [ true, %34 ], [ true, %37 ], [ true, %40 ], [ true, %43 ], [ true, %46 ], [ true, %49 ], [ true, %52 ], [ true, %55 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %78 ], [ true, %81 ], [ true, %84 ], [ true, %87 ], [ true, %90 ], [ true, %93 ], [ true, %96 ], [ true, %99 ], [ true, %102 ], [ true, %107 ], [ true, %110 ], [ true, %115 ], [ true, %118 ], [ true, %121 ], [ true, %124 ], [ true, %127 ], [ true, %130 ], [ true, %133 ], [ true, %136 ], [ true, %139 ], [ true, %142 ], [ true, %145 ], [ true, %148 ], [ true, %151 ], [ true, %156 ], [ true, %159 ], [ true, %164 ], [ false, %5 ]
   ret i1 %.0
 }
 

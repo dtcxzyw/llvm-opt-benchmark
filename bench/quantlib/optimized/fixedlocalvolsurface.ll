@@ -6316,11 +6316,11 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit, !llvm.loop !127
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit: ; preds = %while.body.i.i
-  %.pre159 = ptrtoint ptr %__first.sroa.0.1.i.i to i64
+  %.pre187 = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   br label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit
 
 _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit: ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit, %entry
-  %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre159, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %entry ]
+  %sub.ptr.lhs.cast.i.i.i.pre-phi = phi i64 [ %.pre187, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %entry ]
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.pre-phi, %sub.ptr.rhs.cast.i.i.i.i.i
   %sub.ptr.div.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i, 3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %sub.ptr.sub.i.i.i
@@ -6366,23 +6366,23 @@ _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit.thread: ; preds = %if.then
 _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit: ; preds = %if.then
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
   %.pre.i = load ptr, ptr %add.ptr.i33, align 8, !tbaa !54
-  %.pre153 = load ptr, ptr %strikes_, align 8, !tbaa !50
-  %add.ptr.i34.phi.trans.insert = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %.pre153, i64 %sub.ptr.div.i.i.i
-  %.pre154 = load ptr, ptr %add.ptr.i34.phi.trans.insert, align 8, !tbaa !54
+  %.pre181 = load ptr, ptr %strikes_, align 8, !tbaa !50
+  %add.ptr.i34.phi.trans.insert = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %.pre181, i64 %sub.ptr.div.i.i.i
+  %.pre182 = load ptr, ptr %add.ptr.i34.phi.trans.insert, align 8, !tbaa !54
   %17 = load ptr, ptr %.pre.i, align 8, !tbaa !3
   %18 = load double, ptr %17, align 8, !tbaa !86
-  %cmp.not.i35 = icmp eq ptr %.pre154, null
+  %cmp.not.i35 = icmp eq ptr %.pre182, null
   br i1 %cmp.not.i35, label %cond.false.i36, label %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit38, !prof !112
 
 cond.false.i36:                                   ; preds = %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit
-  %add.ptr.i34 = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %.pre153, i64 %sub.ptr.div.i.i.i
+  %add.ptr.i34 = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %.pre181, i64 %sub.ptr.div.i.i.i
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
   %.pre.i37 = load ptr, ptr %add.ptr.i34, align 8, !tbaa !54
   br label %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit38
 
 _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit38: ; preds = %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit.thread, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit, %cond.false.i36
   %19 = phi double [ %18, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit ], [ %18, %cond.false.i36 ], [ %16, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit.thread ]
-  %20 = phi ptr [ %.pre154, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit ], [ %.pre.i37, %cond.false.i36 ], [ %14, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit.thread ]
+  %20 = phi ptr [ %.pre182, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit ], [ %.pre.i37, %cond.false.i36 ], [ %14, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit.thread ]
   %_M_finish.i.i39 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = load ptr, ptr %_M_finish.i.i39, align 8, !tbaa !3
   %add.ptr.i.i40 = getelementptr inbounds i8, ptr %21, i64 -8
@@ -6459,11 +6459,11 @@ if.then44:                                        ; preds = %if.else42
 cond.false.i51:                                   ; preds = %if.then44
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
   %.pre.i52 = load ptr, ptr %add.ptr.i49, align 8, !tbaa !54
-  %.pre148.pre = load ptr, ptr %strikes_45, align 8, !tbaa !50
+  %.pre176.pre = load ptr, ptr %strikes_45, align 8, !tbaa !50
   br label %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit53
 
 _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit53: ; preds = %if.then44, %cond.false.i51
-  %.pre148 = phi ptr [ %34, %if.then44 ], [ %.pre148.pre, %cond.false.i51 ]
+  %.pre176 = phi ptr [ %34, %if.then44 ], [ %.pre176.pre, %cond.false.i51 ]
   %36 = phi ptr [ %35, %if.then44 ], [ %.pre.i52, %cond.false.i51 ]
   %37 = load ptr, ptr %36, align 8, !tbaa !3
   %38 = load double, ptr %37, align 8, !tbaa !86
@@ -6471,7 +6471,7 @@ _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit53: ; preds = %if.then44, %con
   br i1 %cmp49, label %if.then50, label %if.end
 
 if.then50:                                        ; preds = %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit53
-  %add.ptr.i54 = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %.pre148, i64 %sub
+  %add.ptr.i54 = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %.pre176, i64 %sub
   %39 = load ptr, ptr %add.ptr.i54, align 8, !tbaa !54
   %cmp.not.i55 = icmp eq ptr %39, null
   br i1 %cmp.not.i55, label %cond.false.i56, label %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit58, !prof !102
@@ -6483,14 +6483,14 @@ cond.false.i56:                                   ; preds = %if.then50
   br label %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit58
 
 _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit58: ; preds = %if.then50, %cond.false.i56
-  %.pre = phi ptr [ %.pre148, %if.then50 ], [ %.pre.pre, %cond.false.i56 ]
+  %.pre = phi ptr [ %.pre176, %if.then50 ], [ %.pre.pre, %cond.false.i56 ]
   %40 = phi ptr [ %39, %if.then50 ], [ %.pre.i57, %cond.false.i56 ]
   %41 = load ptr, ptr %40, align 8, !tbaa !3
   %42 = load double, ptr %41, align 8, !tbaa !86
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit58, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit53
-  %43 = phi ptr [ %.pre, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit58 ], [ %.pre148, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit53 ]
+  %43 = phi ptr [ %.pre, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit58 ], [ %.pre176, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit53 ]
   %earlierStrike.1 = phi double [ %42, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit58 ], [ %strike, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit53 ]
   %add.ptr.i59 = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %43, i64 %sub.ptr.div.i.i.i
   %44 = load ptr, ptr %add.ptr.i59, align 8, !tbaa !54
@@ -6536,7 +6536,7 @@ if.end67:                                         ; preds = %_ZNK5boost10shared_
   br i1 %cmp68, label %if.then69, label %if.end67.if.end94_crit_edge
 
 if.end67.if.end94_crit_edge:                      ; preds = %if.end67
-  %.pre160 = add nsw i64 %sub.ptr.div.i.i.i, -1
+  %.pre188 = add nsw i64 %sub.ptr.div.i.i.i, -1
   br label %if.end94
 
 if.then69:                                        ; preds = %if.end67
@@ -6551,11 +6551,11 @@ if.then69:                                        ; preds = %if.end67
 cond.false.i71:                                   ; preds = %if.then69
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
   %.pre.i72 = load ptr, ptr %add.ptr.i69, align 8, !tbaa !54
-  %.pre150.pre = load ptr, ptr %strikes_70, align 8, !tbaa !50
+  %.pre178.pre = load ptr, ptr %strikes_70, align 8, !tbaa !50
   br label %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit73
 
 _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit73: ; preds = %if.then69, %cond.false.i71
-  %.pre150 = phi ptr [ %54, %if.then69 ], [ %.pre150.pre, %cond.false.i71 ]
+  %.pre178 = phi ptr [ %54, %if.then69 ], [ %.pre178.pre, %cond.false.i71 ]
   %56 = phi ptr [ %55, %if.then69 ], [ %.pre.i72, %cond.false.i71 ]
   %_M_finish.i.i74 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %57 = load ptr, ptr %_M_finish.i.i74, align 8, !tbaa !3
@@ -6565,7 +6565,7 @@ _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit73: ; preds = %if.then69, %con
   br i1 %cmp75, label %if.then76, label %if.end82
 
 if.then76:                                        ; preds = %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit73
-  %add.ptr.i76 = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %.pre150, i64 %sub71
+  %add.ptr.i76 = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %.pre178, i64 %sub71
   %59 = load ptr, ptr %add.ptr.i76, align 8, !tbaa !54
   %cmp.not.i77 = icmp eq ptr %59, null
   br i1 %cmp.not.i77, label %cond.false.i78, label %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit80, !prof !102
@@ -6573,11 +6573,11 @@ if.then76:                                        ; preds = %_ZNK5boost10shared_
 cond.false.i78:                                   ; preds = %if.then76
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
   %.pre.i79 = load ptr, ptr %add.ptr.i76, align 8, !tbaa !54
-  %.pre149.pre = load ptr, ptr %strikes_70, align 8, !tbaa !50
+  %.pre177.pre = load ptr, ptr %strikes_70, align 8, !tbaa !50
   br label %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit80
 
 _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit80: ; preds = %if.then76, %cond.false.i78
-  %.pre149 = phi ptr [ %.pre150, %if.then76 ], [ %.pre149.pre, %cond.false.i78 ]
+  %.pre177 = phi ptr [ %.pre178, %if.then76 ], [ %.pre177.pre, %cond.false.i78 ]
   %60 = phi ptr [ %59, %if.then76 ], [ %.pre.i79, %cond.false.i78 ]
   %_M_finish.i.i81 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %61 = load ptr, ptr %_M_finish.i.i81, align 8, !tbaa !3
@@ -6586,7 +6586,7 @@ _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit80: ; preds = %if.then76, %con
   br label %if.end82
 
 if.end82:                                         ; preds = %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit80, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit73
-  %63 = phi ptr [ %.pre149, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit80 ], [ %.pre150, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit73 ]
+  %63 = phi ptr [ %.pre177, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit80 ], [ %.pre178, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit73 ]
   %earlierStrike.3 = phi double [ %62, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit80 ], [ %earlierStrike.0, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit73 ]
   %add.ptr.i83 = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %63, i64 %sub.ptr.div.i.i.i
   %64 = load ptr, ptr %add.ptr.i83, align 8, !tbaa !54
@@ -6628,7 +6628,7 @@ _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit94: ; preds = %if.then88, %con
   br label %if.end94
 
 if.end94:                                         ; preds = %if.end67.if.end94_crit_edge, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit87, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit94
-  %sub96.pre-phi = phi i64 [ %.pre160, %if.end67.if.end94_crit_edge ], [ %sub71, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit87 ], [ %sub71, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit94 ]
+  %sub96.pre-phi = phi i64 [ %.pre188, %if.end67.if.end94_crit_edge ], [ %sub71, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit87 ], [ %sub71, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit94 ]
   %earlierStrike.2 = phi double [ %earlierStrike.0, %if.end67.if.end94_crit_edge ], [ %earlierStrike.3, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit87 ], [ %earlierStrike.3, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit94 ]
   %laterStrike.1 = phi double [ %laterStrike.0, %if.end67.if.end94_crit_edge ], [ %laterStrike.0, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit87 ], [ %72, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit94 ]
   %strikes_95 = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -6646,23 +6646,23 @@ _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit101.thread: ; preds = %if.end9
 _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit101: ; preds = %if.end94
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
   %.pre.i100 = load ptr, ptr %add.ptr.i97, align 8, !tbaa !54
-  %.pre151 = load ptr, ptr %strikes_95, align 8, !tbaa !50
-  %add.ptr.i102.phi.trans.insert = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %.pre151, i64 %sub96.pre-phi
-  %.pre152 = load ptr, ptr %add.ptr.i102.phi.trans.insert, align 8, !tbaa !54
+  %.pre179 = load ptr, ptr %strikes_95, align 8, !tbaa !50
+  %add.ptr.i102.phi.trans.insert = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %.pre179, i64 %sub96.pre-phi
+  %.pre180 = load ptr, ptr %add.ptr.i102.phi.trans.insert, align 8, !tbaa !54
   %77 = load ptr, ptr %.pre.i100, align 8, !tbaa !3
   %78 = load double, ptr %77, align 8, !tbaa !86
-  %cmp.not.i103 = icmp eq ptr %.pre152, null
+  %cmp.not.i103 = icmp eq ptr %.pre180, null
   br i1 %cmp.not.i103, label %cond.false.i104, label %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit106, !prof !112
 
 cond.false.i104:                                  ; preds = %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit101
-  %add.ptr.i102 = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %.pre151, i64 %sub96.pre-phi
+  %add.ptr.i102 = getelementptr inbounds nuw %"class.boost::shared_ptr.27", ptr %.pre179, i64 %sub96.pre-phi
   tail call void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.12, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv, ptr noundef nonnull @.str.13, i64 noundef 784)
   %.pre.i105 = load ptr, ptr %add.ptr.i102, align 8, !tbaa !54
   br label %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit106
 
 _ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit106: ; preds = %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit101.thread, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit101, %cond.false.i104
   %79 = phi double [ %78, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit101 ], [ %78, %cond.false.i104 ], [ %76, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit101.thread ]
-  %80 = phi ptr [ %.pre152, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit101 ], [ %.pre.i105, %cond.false.i104 ], [ %74, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit101.thread ]
+  %80 = phi ptr [ %.pre180, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit101 ], [ %.pre.i105, %cond.false.i104 ], [ %74, %_ZNK5boost10shared_ptrISt6vectorIdSaIdEEEptEv.exit101.thread ]
   %_M_finish.i.i107 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %81 = load ptr, ptr %_M_finish.i.i107, align 8, !tbaa !3
   %add.ptr.i.i108 = getelementptr inbounds i8, ptr %81, i64 -8

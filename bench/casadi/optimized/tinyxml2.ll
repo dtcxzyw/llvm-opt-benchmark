@@ -12967,8 +12967,8 @@ define void @_ZN8tinyxml210XMLPrinter12CloseElementEb(ptr noundef nonnull align 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %23 = load i32, ptr %22, align 4, !tbaa !165
   %24 = icmp sgt i32 %23, -1
-  %brmerge = or i1 %1, %24
-  br i1 %brmerge, label %33, label %25
+  %or.cond = or i1 %1, %24
+  br i1 %or.cond, label %33, label %25
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %0, align 8, !tbaa !63
@@ -12982,7 +12982,7 @@ define void @_ZN8tinyxml210XMLPrinter12CloseElementEb(ptr noundef nonnull align 
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %29)
   br label %33
 
-33:                                               ; preds = %21, %25
+33:                                               ; preds = %25, %21
   %34 = load ptr, ptr %0, align 8, !tbaa !63
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %36 = load ptr, ptr %35, align 8
@@ -13011,8 +13011,8 @@ define void @_ZN8tinyxml210XMLPrinter12CloseElementEb(ptr noundef nonnull align 
 
 50:                                               ; preds = %49, %44
   %51 = icmp ne i32 %47, 0
-  %brmerge4 = or i1 %1, %51
-  br i1 %brmerge4, label %56, label %52
+  %or.cond3 = or i1 %1, %51
+  br i1 %or.cond3, label %56, label %52
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %0, align 8, !tbaa !63
@@ -13021,7 +13021,7 @@ define void @_ZN8tinyxml210XMLPrinter12CloseElementEb(ptr noundef nonnull align 
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(312) %0, i8 noundef signext 10)
   br label %56
 
-56:                                               ; preds = %50, %52
+56:                                               ; preds = %52, %50
   store i8 0, ptr %14, align 8, !tbaa !157
   ret void
 }

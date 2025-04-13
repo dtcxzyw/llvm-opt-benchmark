@@ -677,11 +677,11 @@ HeapTupleHeaderGetXmin.exit.i:                    ; preds = %118, %112
 
 123:                                              ; preds = %HeapTupleHeaderGetXmin.exit.i
   %124 = getelementptr i8, ptr %114, i64 4
-  %.val.i27.i = load i32, ptr %124, align 4
+  %.val.i29.i = load i32, ptr %124, align 4
   br label %HeapTupleHeaderGetUpdateXid.exit.i
 
 HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %123, %121
-  %.0.i.i = phi i32 [ %.val.i27.i, %123 ], [ %122, %121 ]
+  %.0.i.i = phi i32 [ %.val.i29.i, %123 ], [ %122, %121 ]
   %125 = icmp ugt i32 %119, 2
   br i1 %125, label %126, label %128
 
@@ -691,7 +691,7 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %123, %121
   br label %128
 
 128:                                              ; preds = %126, %HeapTupleHeaderGetUpdateXid.exit.i
-  %.023.i = phi i1 [ false, %HeapTupleHeaderGetUpdateXid.exit.i ], [ %not..i, %126 ]
+  %.024.i = phi i1 [ false, %HeapTupleHeaderGetUpdateXid.exit.i ], [ %not..i, %126 ]
   %129 = icmp ugt i32 %.0.i.i, 2
   br i1 %129, label %130, label %142
 
@@ -709,13 +709,13 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %123, %121
 
 140:                                              ; preds = %130
   %141 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.0.i.i, i32 noundef %109) #13
-  %not.28.i = xor i1 %141, true
+  %not.30.i = xor i1 %141, true
   br label %142
 
 142:                                              ; preds = %140, %130, %128
-  %.0.i74 = phi i1 [ false, %130 ], [ false, %128 ], [ %not.28.i, %140 ]
-  %brmerge.i = or i1 %.023.i, %.0.i74
-  br i1 %brmerge.i, label %143, label %logical_rewrite_heap_tuple.exit
+  %.0.i74 = phi i1 [ false, %130 ], [ false, %128 ], [ %not.30.i, %140 ]
+  %or.cond.i = or i1 %.024.i, %.0.i74
+  br i1 %or.cond.i, label %143, label %logical_rewrite_heap_tuple.exit
 
 143:                                              ; preds = %142
   %144 = load ptr, ptr %0, align 8
@@ -724,7 +724,7 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %123, %121
   %145 = load ptr, ptr %102, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %101, ptr noundef nonnull align 8 dereferenceable(12) %145, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %103, ptr noundef nonnull align 2 dereferenceable(6) %4, i64 6, i1 false)
-  br i1 %.023.i, label %146, label %147
+  br i1 %.024.i, label %146, label %147
 
 146:                                              ; preds = %143
   call fastcc void @logical_rewrite_log_mapping(ptr noundef nonnull %0, i32 noundef %119, ptr noundef %5)
@@ -732,8 +732,8 @@ HeapTupleHeaderGetUpdateXid.exit.i:               ; preds = %123, %121
 
 147:                                              ; preds = %146, %143
   %148 = icmp ne i32 %119, %.0.i.i
-  %or.cond.not.i = select i1 %.0.i74, i1 %148, i1 false
-  br i1 %or.cond.not.i, label %149, label %logical_rewrite_heap_tuple.exit
+  %or.cond28.not.i = select i1 %.0.i74, i1 %148, i1 false
+  br i1 %or.cond28.not.i, label %149, label %logical_rewrite_heap_tuple.exit
 
 149:                                              ; preds = %147
   call fastcc void @logical_rewrite_log_mapping(ptr noundef nonnull %0, i32 noundef %.0.i.i, ptr noundef %5)

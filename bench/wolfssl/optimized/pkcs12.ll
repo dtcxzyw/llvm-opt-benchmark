@@ -2263,15 +2263,13 @@ wc_PKCS12_create_key_bag.exit77.i:                ; preds = %71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #9
   %switch.tableidx = add i32 %9, 1
   %112 = icmp ult i32 %switch.tableidx, 5
-  br i1 %112, label %switch.hole_check, label %158
-
-switch.hole_check:                                ; preds = %111
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %158
+  %or.cond = select i1 %112, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %158
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %111
   %113 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.wc_PKCS12_create, i64 0, i64 %113
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -2370,7 +2368,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   call void @wolfSSL_Free(ptr noundef nonnull %.sink) #9
   br label %158
 
-158:                                              ; preds = %switch.hole_check, %111, %.sink.split, %.critedge.i
+158:                                              ; preds = %111, %.sink.split, %.critedge.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #9
   call void @wolfSSL_Free(ptr noundef nonnull %102) #9
   call void @wc_PKCS12_free(ptr noundef nonnull %30)

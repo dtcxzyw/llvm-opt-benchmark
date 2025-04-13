@@ -48,8 +48,8 @@ get_partition_parent_worker.exit:                 ; preds = %2
   %17 = load i32, ptr %16, align 4
   call void @systable_endscan(ptr noundef %7) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #5
-  %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %21
+  %.not8 = icmp eq i32 %17, 0
+  br i1 %.not8, label %18, label %21
 
 18:                                               ; preds = %get_partition_parent_worker.exit.thread, %get_partition_parent_worker.exit
   %19 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -60,9 +60,9 @@ get_partition_parent_worker.exit:                 ; preds = %2
 
 21:                                               ; preds = %get_partition_parent_worker.exit
   %22 = trunc nuw i8 %15 to i1
-  %.not7 = xor i1 %22, true
-  %brmerge = or i1 %1, %.not7
-  br i1 %brmerge, label %26, label %23
+  %.not = xor i1 %22, true
+  %or.cond = or i1 %1, %.not
+  br i1 %or.cond, label %26, label %23
 
 23:                                               ; preds = %21
   %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -122,7 +122,7 @@ define internal fastcc void @get_partition_ancestors_worker(ptr noundef %0, i32 
 get_partition_parent_worker.exit.thread:          ; preds = %3
   call void @systable_endscan(ptr noundef %7) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #5
-  br label %24
+  br label %23
 
 get_partition_parent_worker.exit:                 ; preds = %3
   %9 = getelementptr i8, ptr %8, i64 16
@@ -133,25 +133,23 @@ get_partition_parent_worker.exit:                 ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %15 = load i8, ptr %14, align 4, !range !4, !noundef !5
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %17 = load i32, ptr %16, align 4
+  %16 = trunc nuw i8 %15 to i1
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %18 = load i32, ptr %17, align 4
   call void @systable_endscan(ptr noundef %7) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #5
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %24, label %19
+  %19 = icmp eq i32 %18, 0
+  %or.cond = select i1 %19, i1 true, i1 %16
+  br i1 %or.cond, label %23, label %20
 
-19:                                               ; preds = %get_partition_parent_worker.exit
-  %20 = trunc nuw i8 %15 to i1
-  br i1 %20, label %24, label %21
+20:                                               ; preds = %get_partition_parent_worker.exit
+  %21 = load ptr, ptr %2, align 8
+  %22 = call ptr @lappend_oid(ptr noundef %21, i32 noundef %18) #5
+  store ptr %22, ptr %2, align 8
+  call fastcc void @get_partition_ancestors_worker(ptr noundef %0, i32 noundef %18, ptr noundef %2)
+  br label %23
 
-21:                                               ; preds = %19
-  %22 = load ptr, ptr %2, align 8
-  %23 = call ptr @lappend_oid(ptr noundef %22, i32 noundef %17) #5
-  store ptr %23, ptr %2, align 8
-  call fastcc void @get_partition_ancestors_worker(ptr noundef %0, i32 noundef %17, ptr noundef %2)
-  br label %24
-
-24:                                               ; preds = %get_partition_parent_worker.exit.thread, %get_partition_parent_worker.exit, %19, %21
+23:                                               ; preds = %get_partition_parent_worker.exit.thread, %get_partition_parent_worker.exit, %20
   ret void
 }
 

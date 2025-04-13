@@ -5218,7 +5218,7 @@ default.unreachable:                              ; preds = %.noexc116.i, %.noex
   unreachable
 
 .body.i:                                          ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i.i.i", %489, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c33c04601680f17E.exit119.i", %.body.i.i.i
-  %.pn67.i = phi { ptr, i32 } [ %.pn31.pn.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c33c04601680f17E.exit119.i" ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %490, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i.i.i" ], [ %490, %489 ]
+  %.pn68.i = phi { ptr, i32 } [ %.pn32.pn.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c33c04601680f17E.exit119.i" ], [ %eh.lpad-body.i.i.i, %.body.i.i.i ], [ %490, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i.i.i" ], [ %490, %489 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   invoke void @"_ZN4core3ptr62drop_in_place$LT$gpui..app..async_context..AsyncAppContext$GT$17hfa9a3b35f577831bE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %68) #34
           to label %502 unwind label %309
@@ -5629,7 +5629,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
           to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17he53fc225946adbffE.exit.i" unwind label %201
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17he53fc225946adbffE.exit.i": ; preds = %205, %203
-  %.sroa.026.0.i = phi ptr [ null, %203 ], [ %206, %205 ]
+  %.sroa.027.0.i = phi ptr [ null, %203 ], [ %206, %205 ]
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.experimental.noalias.scope.decl(metadata !1498)
   call void @llvm.experimental.noalias.scope.decl(metadata !1501)
@@ -5723,7 +5723,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
   br label %235
 
 "_ZN4core3ptr122drop_in_place$LT$futures_lite..io..ReadLineFuture$LT$futures_lite..io..BufReader$LT$async_process..ChildStdout$GT$$GT$$GT$17hcc1a6fc968e7678cE.exit183.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i182.i", %.body110.i, %.thread256.i, %.loopexit.split-lp.i, %.loopexit.i, %201, %81
-  %.pn31.pn.i = phi { ptr, i32 } [ %.pn60.i, %.thread256.i ], [ %82, %81 ], [ %202, %201 ], [ %.pn29.i, %.body110.i ], [ %.pn29.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i182.i" ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+  %.pn32.pn.i = phi { ptr, i32 } [ %.pn61.i, %.thread256.i ], [ %82, %81 ], [ %202, %201 ], [ %.pn30.i, %.body110.i ], [ %.pn30.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i182.i" ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.experimental.noalias.scope.decl(metadata !1540)
   call void @llvm.experimental.noalias.scope.decl(metadata !1543)
@@ -5775,7 +5775,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
           to label %245 unwind label %243
 
 .thread256.i:                                     ; preds = %486, %485, %.thread251.i, %243
-  %.pn60.i = phi { ptr, i32 } [ %244, %243 ], [ %.pn56.i, %486 ], [ %.pn56.pn255.i, %485 ], [ %.pn38.i, %.thread251.i ]
+  %.pn61.i = phi { ptr, i32 } [ %244, %243 ], [ %.pn57.i, %486 ], [ %.pn57.pn255.i, %485 ], [ %.pn39.i, %.thread251.i ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %21), !noalias !1348
   br label %"_ZN4core3ptr122drop_in_place$LT$futures_lite..io..ReadLineFuture$LT$futures_lite..io..BufReader$LT$async_process..ChildStdout$GT$$GT$$GT$17hcc1a6fc968e7678cE.exit183.i"
 
@@ -5825,7 +5825,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
   br label %"_ZN4core3ptr479drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$context_servers..client..RequestId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$core..result..Result$LT$alloc..string..String$C$context_servers..client..Error$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h609d2cd0ee408b45E.exit.i"
 
 .body138.i:                                       ; preds = %306, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17150838474276201228.exit.i.i.i", %290, %273
-  %.pn35.pn.i = phi { ptr, i32 } [ %274, %273 ], [ %307, %306 ], [ %291, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17150838474276201228.exit.i.i.i" ], [ %291, %290 ]
+  %.pn36.pn.i = phi { ptr, i32 } [ %274, %273 ], [ %307, %306 ], [ %291, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17150838474276201228.exit.i.i.i" ], [ %291, %290 ]
   %260 = cmpxchg ptr %253, i8 1, i8 0 release monotonic, align 1
   %261 = extractvalue { i8, i1 } %260, 1
   br i1 %261, label %"_ZN4core3ptr479drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$context_servers..client..RequestId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$core..result..Result$LT$alloc..string..String$C$context_servers..client..Error$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h609d2cd0ee408b45E.exit.i", label %262
@@ -5954,7 +5954,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
   unreachable
 
 "_ZN4core3ptr479drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$context_servers..client..RequestId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$core..result..Result$LT$alloc..string..String$C$context_servers..client..Error$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h609d2cd0ee408b45E.exit.i": ; preds = %311, %262, %.body138.i, %258
-  %.pn38.i = phi { ptr, i32 } [ %312, %311 ], [ %259, %258 ], [ %.pn35.pn.i, %262 ], [ %.pn35.pn.i, %.body138.i ]
+  %.pn39.i = phi { ptr, i32 } [ %312, %311 ], [ %259, %258 ], [ %.pn36.pn.i, %262 ], [ %.pn36.pn.i, %.body138.i ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$context_servers..client..AnyResponse$GT$17h1c2d56fbd85ea859E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %20) #34
           to label %.thread251.i unwind label %309
 
@@ -6019,17 +6019,17 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
   br i1 %330, label %471, label %"_ZN4core3ptr57drop_in_place$LT$context_servers..client..AnyResponse$GT$17h1c2d56fbd85ea859E.exit173.i"
 
 331:                                              ; preds = %470, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hf2735c215f1dfab1E.exit166.i", %334
-  %.pn56.i = phi { ptr, i32 } [ %335, %334 ], [ %.pn54.i, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hf2735c215f1dfab1E.exit166.i" ], [ %.pn54.i, %470 ]
+  %.pn57.i = phi { ptr, i32 } [ %335, %334 ], [ %.pn55.i, %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hf2735c215f1dfab1E.exit166.i" ], [ %.pn55.i, %470 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %19), !noalias !1348
   %332 = load i64, ptr %21, align 8, !range !88, !noalias !1348, !noundef !4
-  %.not59.i = icmp eq i64 %332, -9223372036854775807
-  br i1 %.not59.i, label %485, label %486
+  %.not60.i = icmp eq i64 %332, -9223372036854775807
+  br i1 %.not60.i, label %485, label %486
 
 .thread251.i:                                     ; preds = %"_ZN4core3ptr479drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$context_servers..client..RequestId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$core..result..Result$LT$alloc..string..String$C$context_servers..client..Error$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h609d2cd0ee408b45E.exit.i"
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %20), !noalias !1348
   %333 = load i64, ptr %21, align 8, !range !88, !noalias !1348, !noundef !4
-  %.not59253.i = icmp eq i64 %333, -9223372036854775807
-  br i1 %.not59253.i, label %485, label %.thread256.i
+  %.not60253.i = icmp eq i64 %333, -9223372036854775807
+  br i1 %.not60253.i, label %485, label %.thread256.i
 
 334:                                              ; preds = %.thread226.i, %248
   %335 = landingpad { ptr, i32 }
@@ -6152,8 +6152,8 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
   br label %366
 
 "_ZN4core3ptr55drop_in_place$LT$context_servers..client..RequestId$GT$17h9d4a11911ed82a85E.exit.i": ; preds = %402, %402, %437, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i.i.i", %391
-  %.sroa.015.1.i = phi i8 [ 1, %391 ], [ 0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i.i.i" ], [ 0, %437 ], [ 0, %402 ], [ 0, %402 ]
-  %.pn44.pn.pn.i = phi { ptr, i32 } [ %392, %391 ], [ %403, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i.i.i" ], [ %438, %437 ], [ %403, %402 ], [ %403, %402 ]
+  %.sroa.016.1.i = phi i8 [ 1, %391 ], [ 0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i.i.i" ], [ 0, %437 ], [ 0, %402 ], [ 0, %402 ]
+  %.pn45.pn.pn.i = phi { ptr, i32 } [ %392, %391 ], [ %403, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i.i.i" ], [ %438, %437 ], [ %403, %402 ], [ %403, %402 ]
   %388 = cmpxchg ptr %342, i8 1, i8 0 release monotonic, align 1
   %389 = extractvalue { i8, i1 } %388, 1
   br i1 %389, label %457, label %390
@@ -6190,7 +6190,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
           to label %"_ZN4core6option15Option$LT$T$GT$9unwrap_or17h856288bfdab36f42E.exit.i" unwind label %402
 
 .thread227.i:                                     ; preds = %._crit_edge.i.i.i.i, %436, %349
-  %.sroa.015.3.i = phi i8 [ 0, %436 ], [ 1, %349 ], [ 1, %._crit_edge.i.i.i.i ]
+  %.sroa.016.3.i = phi i8 [ 0, %436 ], [ 1, %349 ], [ 1, %._crit_edge.i.i.i.i ]
   %399 = cmpxchg ptr %342, i8 1, i8 0 release monotonic, align 1
   %400 = extractvalue { i8, i1 } %399, 1
   br i1 %400, label %"_ZN4core3ptr443drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$context_servers..client..RequestId$C$serde_json..value..Value$C$gpui..app..async_context..AsyncAppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h64f3b86f53787becE.exit150.i", label %401
@@ -6312,7 +6312,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
   br label %457
 
 "_ZN4core3ptr443drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$context_servers..client..RequestId$C$serde_json..value..Value$C$gpui..app..async_context..AsyncAppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h64f3b86f53787becE.exit150.i": ; preds = %401, %.thread227.i
-  %442 = trunc nuw i8 %.sroa.015.3.i to i1
+  %442 = trunc nuw i8 %.sroa.016.3.i to i1
   br i1 %442, label %446, label %"_ZN4core3ptr55drop_in_place$LT$context_servers..client..RequestId$GT$17h9d4a11911ed82a85E.exit155.i"
 
 "_ZN4core3ptr55drop_in_place$LT$context_servers..client..RequestId$GT$17h9d4a11911ed82a85E.exit155.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i.i154.i", %446, %446, %"_ZN4core3ptr443drop_in_place$LT$lock_api..mutex..MutexGuard$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$context_servers..client..RequestId$C$serde_json..value..Value$C$gpui..app..async_context..AsyncAppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$17h64f3b86f53787becE.exit150.i"
@@ -6357,7 +6357,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
           to label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hf2735c215f1dfab1E.exit.i" unwind label %455
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hf2735c215f1dfab1E.exit166.i": ; preds = %469, %465, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c33c04601680f17E.exit162.i", %455
-  %.pn54.i = phi { ptr, i32 } [ %456, %455 ], [ %.pn48.pn.pn247.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c33c04601680f17E.exit162.i" ], [ %.pn48.pn.pn247.i, %469 ], [ %.pn48.pn.pn247.i, %465 ]
+  %.pn55.i = phi { ptr, i32 } [ %456, %455 ], [ %.pn49.pn.pn247.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c33c04601680f17E.exit162.i" ], [ %.pn49.pn.pn247.i, %469 ], [ %.pn49.pn.pn247.i, %465 ]
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %18), !noalias !1348
   %454 = load i64, ptr %19, align 8, !range !74, !noalias !1348, !noundef !4
   %.not.i = icmp eq i64 %454, -9223372036854775808
@@ -6369,14 +6369,14 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
   br label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hf2735c215f1dfab1E.exit166.i"
 
 457:                                              ; preds = %440, %390, %"_ZN4core3ptr55drop_in_place$LT$context_servers..client..RequestId$GT$17h9d4a11911ed82a85E.exit.i"
-  %.sroa.015.2.i = phi i8 [ %.sroa.015.3.i, %440 ], [ %.sroa.015.1.i, %390 ], [ %.sroa.015.1.i, %"_ZN4core3ptr55drop_in_place$LT$context_servers..client..RequestId$GT$17h9d4a11911ed82a85E.exit.i" ]
-  %.pn48.i = phi { ptr, i32 } [ %441, %440 ], [ %.pn44.pn.pn.i, %390 ], [ %.pn44.pn.pn.i, %"_ZN4core3ptr55drop_in_place$LT$context_servers..client..RequestId$GT$17h9d4a11911ed82a85E.exit.i" ]
-  %458 = trunc nuw i8 %.sroa.015.2.i to i1
+  %.sroa.016.2.i = phi i8 [ %.sroa.016.3.i, %440 ], [ %.sroa.016.1.i, %390 ], [ %.sroa.016.1.i, %"_ZN4core3ptr55drop_in_place$LT$context_servers..client..RequestId$GT$17h9d4a11911ed82a85E.exit.i" ]
+  %.pn49.i = phi { ptr, i32 } [ %441, %440 ], [ %.pn45.pn.pn.i, %390 ], [ %.pn45.pn.pn.i, %"_ZN4core3ptr55drop_in_place$LT$context_servers..client..RequestId$GT$17h9d4a11911ed82a85E.exit.i" ]
+  %458 = trunc nuw i8 %.sroa.016.2.i to i1
   br i1 %458, label %.thread242.i, label %"_ZN4core3ptr55drop_in_place$LT$context_servers..client..RequestId$GT$17h9d4a11911ed82a85E.exit164.i"
 
 "_ZN4core3ptr55drop_in_place$LT$context_servers..client..RequestId$GT$17h9d4a11911ed82a85E.exit164.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i.i163.i", %.thread242.i, %.thread242.i, %457
-  %.pn48.pn.pn247.i = phi { ptr, i32 } [ %.pn48.i, %457 ], [ %.pn48.pn.pn248.i, %.thread242.i ], [ %.pn48.pn.pn248.i, %.thread242.i ], [ %.pn48.pn.pn248.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i.i163.i" ]
-  %.sroa.015.0245.i = phi i1 [ false, %457 ], [ true, %.thread242.i ], [ true, %.thread242.i ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i.i163.i" ]
+  %.pn49.pn.pn247.i = phi { ptr, i32 } [ %.pn49.i, %457 ], [ %.pn49.pn.pn248.i, %.thread242.i ], [ %.pn49.pn.pn248.i, %.thread242.i ], [ %.pn49.pn.pn248.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i.i163.i" ]
+  %.sroa.016.0245.i = phi i1 [ false, %457 ], [ true, %.thread242.i ], [ true, %.thread242.i ], [ true, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i.i163.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1762)
   call void @llvm.experimental.noalias.scope.decl(metadata !1765)
   call void @llvm.experimental.noalias.scope.decl(metadata !1768)
@@ -6392,7 +6392,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c33c04601680f17E.exit162.i"
 
 .thread242.i:                                     ; preds = %457, %347
-  %.pn48.pn.pn248.i = phi { ptr, i32 } [ %.pn48.i, %457 ], [ %348, %347 ]
+  %.pn49.pn.pn248.i = phi { ptr, i32 } [ %.pn49.i, %457 ], [ %348, %347 ]
   %463 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %.val94.i = load i64, ptr %463, align 8, !range !74, !noalias !1348, !noundef !4
   switch i64 %.val94.i, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i.i163.i" [
@@ -6407,7 +6407,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
   br label %"_ZN4core3ptr55drop_in_place$LT$context_servers..client..RequestId$GT$17h9d4a11911ed82a85E.exit164.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c33c04601680f17E.exit162.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15652623448996909339.exit.i.i1.i.i161.i", %"_ZN4core3ptr55drop_in_place$LT$context_servers..client..RequestId$GT$17h9d4a11911ed82a85E.exit164.i"
-  br i1 %.sroa.015.0245.i, label %465, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hf2735c215f1dfab1E.exit166.i"
+  br i1 %.sroa.016.0245.i, label %465, label %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17hf2735c215f1dfab1E.exit166.i"
 
 465:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h2c33c04601680f17E.exit162.i"
   %466 = getelementptr inbounds nuw i8, ptr %18, i64 48
@@ -6478,7 +6478,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
   br label %"_ZN4core3ptr57drop_in_place$LT$context_servers..client..AnyResponse$GT$17h1c2d56fbd85ea859E.exit173.i"
 
 485:                                              ; preds = %.thread251.i, %331
-  %.pn56.pn255.i = phi { ptr, i32 } [ %.pn38.i, %.thread251.i ], [ %.pn56.i, %331 ]
+  %.pn57.pn255.i = phi { ptr, i32 } [ %.pn39.i, %.thread251.i ], [ %.pn57.i, %331 ]
   invoke fastcc void @"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$context_servers..client..AnyResponse$C$serde_json..error..Error$GT$$GT$17h22b7c225afe72fefE"(ptr noalias noundef align 8 dereferenceable(80) %21) #34
           to label %.thread256.i unwind label %309
 
@@ -6531,7 +6531,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
           to label %510 unwind label %508
 
 502:                                              ; preds = %508, %.body.i
-  %.pn69.i = phi { ptr, i32 } [ %509, %508 ], [ %.pn67.i, %.body.i ]
+  %.pn70.i = phi { ptr, i32 } [ %509, %508 ], [ %.pn68.i, %.body.i ]
   %503 = getelementptr inbounds nuw i8, ptr %0, i64 88
   call void @llvm.experimental.noalias.scope.decl(metadata !1859)
   call void @llvm.experimental.noalias.scope.decl(metadata !1862)
@@ -6565,7 +6565,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
           to label %"_ZN4core3ptr498drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$context_servers..client..RequestId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$core..result..Result$LT$alloc..string..String$C$context_servers..client..Error$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$$GT$17hc2fa729b72c1b4d2E.llvm.3860437296372668795.exit178.i" unwind label %521
 
 "_ZN4core3ptr498drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$context_servers..client..RequestId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$core..result..Result$LT$alloc..string..String$C$context_servers..client..Error$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$$GT$17hc2fa729b72c1b4d2E.llvm.3860437296372668795.exit.i": ; preds = %521, %507, %502
-  %.pn71.i = phi { ptr, i32 } [ %522, %521 ], [ %.pn69.i, %507 ], [ %.pn69.i, %502 ]
+  %.pn72.i = phi { ptr, i32 } [ %522, %521 ], [ %.pn70.i, %507 ], [ %.pn70.i, %502 ]
   %516 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !1873)
   call void @llvm.experimental.noalias.scope.decl(metadata !1876)
@@ -6599,9 +6599,9 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
           to label %"_ZN4core3ptr462drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$context_servers..client..RequestId$C$serde_json..value..Value$C$gpui..app..async_context..AsyncAppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h1e531bc0378ba022E.llvm.3860437296372668795.exit181.i" unwind label %528
 
 "_ZN4core3ptr462drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$context_servers..client..RequestId$C$serde_json..value..Value$C$gpui..app..async_context..AsyncAppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h1e531bc0378ba022E.llvm.3860437296372668795.exit.i": ; preds = %528, %520, %"_ZN4core3ptr498drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$context_servers..client..RequestId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$core..result..Result$LT$alloc..string..String$C$context_servers..client..Error$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$$GT$17hc2fa729b72c1b4d2E.llvm.3860437296372668795.exit.i"
-  %.pn73.i = phi { ptr, i32 } [ %529, %528 ], [ %.pn71.i, %520 ], [ %.pn71.i, %"_ZN4core3ptr498drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$context_servers..client..RequestId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$core..result..Result$LT$alloc..string..String$C$context_servers..client..Error$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$$GT$17hc2fa729b72c1b4d2E.llvm.3860437296372668795.exit.i" ]
+  %.pn74.i = phi { ptr, i32 } [ %529, %528 ], [ %.pn72.i, %520 ], [ %.pn72.i, %"_ZN4core3ptr498drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$context_servers..client..RequestId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$core..result..Result$LT$alloc..string..String$C$context_servers..client..Error$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$$GT$17hc2fa729b72c1b4d2E.llvm.3860437296372668795.exit.i" ]
   store i8 2, ptr %25, align 8, !noalias !1348
-  resume { ptr, i32 } %.pn73.i
+  resume { ptr, i32 } %.pn74.i
 
 528:                                              ; preds = %527
   %529 = landingpad { ptr, i32 }
@@ -6610,11 +6610,11 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf4f4778f72e11bc9E.exit.t
 
 "_ZN4core3ptr462drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$std..collections..hash..map..HashMap$LT$$RF$str$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$context_servers..client..RequestId$C$serde_json..value..Value$C$gpui..app..async_context..AsyncAppContext$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$17h1e531bc0378ba022E.llvm.3860437296372668795.exit181.i": ; preds = %527, %"_ZN4core3ptr498drop_in_place$LT$alloc..sync..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$std..collections..hash..map..HashMap$LT$context_servers..client..RequestId$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$core..result..Result$LT$alloc..string..String$C$context_servers..client..Error$GT$$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$GT$$GT$$GT$17hc2fa729b72c1b4d2E.llvm.3860437296372668795.exit178.i"
   store i8 1, ptr %25, align 8, !noalias !1348
-  %530 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.026.0.i, 1
+  %530 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.027.0.i, 1
   br label %"_ZN15context_servers6client6Client12handle_input28_$u7b$$u7b$closure$u7d$$u7d$17hdc8bfd1301b9403aE.exit"
 
 .body110.i:                                       ; preds = %.loopexit.split-lp259.i, %.loopexit258.i, %190, %.body.i.i103.i
-  %.pn29.i = phi { ptr, i32 } [ %191, %190 ], [ %172, %.body.i.i103.i ], [ %lpad.loopexit260.i, %.loopexit258.i ], [ %lpad.loopexit.split-lp261.i, %.loopexit.split-lp259.i ]
+  %.pn30.i = phi { ptr, i32 } [ %191, %190 ], [ %172, %.body.i.i103.i ], [ %lpad.loopexit260.i, %.loopexit258.i ], [ %lpad.loopexit.split-lp261.i, %.loopexit.split-lp259.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1887)
   call void @llvm.experimental.noalias.scope.decl(metadata !1890)
   call void @llvm.experimental.noalias.scope.decl(metadata !1893)

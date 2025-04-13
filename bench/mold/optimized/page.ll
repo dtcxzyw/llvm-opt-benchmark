@@ -1936,19 +1936,19 @@ _mi_page_free_collect.exit.i:                     ; preds = %_mi_page_thread_fre
   br label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %_mi_heap_collect_retired.exit.i.i, %78
-  %.tr82.i.i = phi i1 [ true, %78 ], [ false, %_mi_heap_collect_retired.exit.i.i ]
+  %.tr79.i.i = phi i1 [ true, %78 ], [ false, %_mi_heap_collect_retired.exit.i.i ]
   %82 = load ptr, ptr %33, align 8, !tbaa !10
-  %.not88.i.i = icmp eq ptr %82, null
-  br i1 %.not88.i.i, label %mi_page_to_full.exit.thread.i.i, label %.lr.ph.i.i
+  %.not85.i.i = icmp eq ptr %82, null
+  br i1 %.not85.i.i, label %mi_page_to_full.exit.thread.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %tailrecurse.i.i, %mi_page_to_full.exit.i.i
-  %.04191.i.i = phi i64 [ %.3.i.i, %mi_page_to_full.exit.i.i ], [ 0, %tailrecurse.i.i ]
-  %.04290.i.i = phi ptr [ %.4.i.i, %mi_page_to_full.exit.i.i ], [ null, %tailrecurse.i.i ]
-  %.04689.i.i = phi ptr [ %84, %mi_page_to_full.exit.i.i ], [ %82, %tailrecurse.i.i ]
-  %83 = getelementptr inbounds nuw i8, ptr %.04689.i.i, i64 72
+  %.04388.i.i = phi i64 [ %.3.i.i, %mi_page_to_full.exit.i.i ], [ 0, %tailrecurse.i.i ]
+  %.04487.i.i = phi ptr [ %.4.i.i, %mi_page_to_full.exit.i.i ], [ null, %tailrecurse.i.i ]
+  %.04886.i.i = phi ptr [ %84, %mi_page_to_full.exit.i.i ], [ %82, %tailrecurse.i.i ]
+  %83 = getelementptr inbounds nuw i8, ptr %.04886.i.i, i64 72
   %84 = load ptr, ptr %83, align 8, !tbaa !16
-  %85 = add i64 %.04191.i.i, 1
-  %86 = getelementptr inbounds nuw i8, ptr %.04689.i.i, i64 56
+  %85 = add i64 %.04388.i.i, 1
+  %86 = getelementptr inbounds nuw i8, ptr %.04886.i.i, i64 56
   %87 = load atomic i64, ptr %86 monotonic, align 8
   %.not.i.i.i = icmp ult i64 %87, 4
   br i1 %.not.i.i.i, label %_mi_page_thread_free_collect.exit.i.i.i, label %88
@@ -1972,7 +1972,7 @@ tailrecurse.i.i:                                  ; preds = %_mi_heap_collect_re
   br i1 %98, label %_mi_page_thread_free_collect.exit.i.i.i, label %99
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds nuw i8, ptr %.04689.i.i, i64 10
+  %100 = getelementptr inbounds nuw i8, ptr %.04886.i.i, i64 10
   %101 = load i16, ptr %100, align 2, !tbaa !30
   %102 = zext i16 %101 to i64
   %.026.val32.i.i.i.i = load i64, ptr %97, align 8, !tbaa !31
@@ -2003,63 +2003,63 @@ tailrecurse.i.i:                                  ; preds = %_mi_heap_collect_re
   br label %_mi_page_thread_free_collect.exit.i.i.i
 
 113:                                              ; preds = %._crit_edge.i.i.i.i
-  %114 = getelementptr inbounds nuw i8, ptr %.04689.i.i, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %.04886.i.i, i64 24
   %115 = load ptr, ptr %114, align 8, !tbaa !34
   %116 = ptrtoint ptr %115 to i64
   store i64 %116, ptr %.026.lcssa.i.i.i.i, align 8, !tbaa !31
   store ptr %97, ptr %114, align 8, !tbaa !34
   %117 = trunc nuw i64 %.027.lcssa.i.i.i.i to i16
-  %118 = getelementptr inbounds nuw i8, ptr %.04689.i.i, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %.04886.i.i, i64 32
   %119 = load i16, ptr %118, align 8, !tbaa !35
   %120 = sub i16 %119, %117
   store i16 %120, ptr %118, align 8, !tbaa !35
   br label %_mi_page_thread_free_collect.exit.i.i.i
 
 _mi_page_thread_free_collect.exit.i.i.i:          ; preds = %113, %112, %95, %.lr.ph.i.i
-  %121 = getelementptr inbounds nuw i8, ptr %.04689.i.i, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %.04886.i.i, i64 24
   %122 = load ptr, ptr %121, align 8, !tbaa !34
   %.not22.i.i.i = icmp eq ptr %122, null
-  %.phi.trans.insert.i.i = getelementptr i8, ptr %.04689.i.i, i64 16
-  %.046.val.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !36
-  %.not109.i.i = icmp eq ptr %.046.val.pre.i.i, null
+  %.phi.trans.insert.i.i = getelementptr i8, ptr %.04886.i.i, i64 16
+  %.048.val.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !36
+  %.not106.i.i = icmp eq ptr %.048.val.pre.i.i, null
   br i1 %.not22.i.i.i, label %_mi_page_free_collect.exit.i.i, label %123
 
 123:                                              ; preds = %_mi_page_thread_free_collect.exit.i.i.i
-  br i1 %.not109.i.i, label %.sink.split.i.i.i, label %_mi_page_free_collect.exit.thread.i.i, !prof !28
+  br i1 %.not106.i.i, label %.sink.split.i.i.i, label %_mi_page_free_collect.exit.thread.i.i, !prof !28
 
 .sink.split.i.i.i:                                ; preds = %123
   store ptr %122, ptr %.phi.trans.insert.i.i, align 8, !tbaa !36
   store ptr null, ptr %121, align 8, !tbaa !34
-  %124 = getelementptr inbounds nuw i8, ptr %.04689.i.i, i64 15
+  %124 = getelementptr inbounds nuw i8, ptr %.04886.i.i, i64 15
   %125 = load i8, ptr %124, align 1
   %126 = and i8 %125, -2
   store i8 %126, ptr %124, align 1
   br label %_mi_page_free_collect.exit.thread.i.i
 
 _mi_page_free_collect.exit.i.i:                   ; preds = %_mi_page_thread_free_collect.exit.i.i.i
-  br i1 %.not109.i.i, label %127, label %_mi_page_free_collect.exit.thread.i.i
+  br i1 %.not106.i.i, label %127, label %_mi_page_free_collect.exit.thread.i.i
 
 127:                                              ; preds = %_mi_page_free_collect.exit.i.i
-  %128 = getelementptr i8, ptr %.04689.i.i, i64 10
-  %.046.val61.i.i = load i16, ptr %128, align 2, !tbaa !30
-  %129 = getelementptr i8, ptr %.04689.i.i, i64 12
-  %.046.val62.i.i = load i16, ptr %129, align 4, !tbaa !68
-  %130 = icmp ult i16 %.046.val61.i.i, %.046.val62.i.i
+  %128 = getelementptr i8, ptr %.04886.i.i, i64 10
+  %.048.val59.i.i = load i16, ptr %128, align 2, !tbaa !30
+  %129 = getelementptr i8, ptr %.04886.i.i, i64 12
+  %.048.val60.i.i = load i16, ptr %129, align 4, !tbaa !68
+  %130 = icmp ult i16 %.048.val59.i.i, %.048.val60.i.i
   br i1 %130, label %_mi_page_free_collect.exit.thread.i.i, label %131
 
 131:                                              ; preds = %127
-  %132 = getelementptr i8, ptr %.04689.i.i, i64 14
+  %132 = getelementptr i8, ptr %.04886.i.i, i64 14
   %.val.i.i.i = load i8, ptr %132, align 2
   %133 = and i8 %.val.i.i.i, 1
-  %.not.i67.i.i = icmp eq i8 %133, 0
-  br i1 %.not.i67.i.i, label %134, label %mi_page_to_full.exit.i.i
+  %.not.i65.i.i = icmp eq i8 %133, 0
+  br i1 %.not.i65.i.i, label %134, label %mi_page_to_full.exit.i.i
 
 134:                                              ; preds = %131
-  %135 = getelementptr inbounds nuw i8, ptr %.04689.i.i, i64 64
+  %135 = getelementptr inbounds nuw i8, ptr %.04886.i.i, i64 64
   %136 = load atomic i64, ptr %135 monotonic, align 8
   %137 = inttoptr i64 %136 to ptr
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 3040
-  tail call fastcc void @mi_page_queue_enqueue_from_ex(ptr noundef nonnull %138, ptr noundef nonnull %33, ptr noundef nonnull %.04689.i.i) #14
+  tail call fastcc void @mi_page_queue_enqueue_from_ex(ptr noundef nonnull %138, ptr noundef nonnull %33, ptr noundef nonnull %.04886.i.i) #14
   %139 = load atomic i64, ptr %86 monotonic, align 8
   %.not.i.i.i.i = icmp ult i64 %139, 4
   br i1 %.not.i.i.i.i, label %_mi_page_thread_free_collect.exit.i.i.i.i, label %140
@@ -2118,7 +2118,7 @@ _mi_page_free_collect.exit.i.i:                   ; preds = %_mi_page_thread_fre
   store i64 %166, ptr %.026.lcssa.i.i.i.i.i, align 8, !tbaa !31
   store ptr %149, ptr %121, align 8, !tbaa !34
   %167 = trunc nuw i64 %.027.lcssa.i.i.i.i.i to i16
-  %168 = getelementptr inbounds nuw i8, ptr %.04689.i.i, i64 32
+  %168 = getelementptr inbounds nuw i8, ptr %.04886.i.i, i64 32
   %169 = load i16, ptr %168, align 8, !tbaa !35
   %170 = sub i16 %169, %167
   store i16 %170, ptr %168, align 8, !tbaa !35
@@ -2137,69 +2137,69 @@ _mi_page_thread_free_collect.exit.i.i.i.i:        ; preds = %164, %163, %147, %1
 .sink.split.i.i.i.i:                              ; preds = %172
   store ptr %171, ptr %.phi.trans.insert.i.i, align 8, !tbaa !36
   store ptr null, ptr %121, align 8, !tbaa !34
-  %175 = getelementptr inbounds nuw i8, ptr %.04689.i.i, i64 15
+  %175 = getelementptr inbounds nuw i8, ptr %.04886.i.i, i64 15
   %176 = load i8, ptr %175, align 1
   %177 = and i8 %176, -2
   store i8 %177, ptr %175, align 1
   br label %mi_page_to_full.exit.i.i
 
 _mi_page_free_collect.exit.thread.i.i:            ; preds = %127, %_mi_page_free_collect.exit.i.i, %.sink.split.i.i.i, %123
-  %.046.val103.i.i = phi i1 [ false, %127 ], [ true, %_mi_page_free_collect.exit.i.i ], [ true, %123 ], [ true, %.sink.split.i.i.i ]
-  %178 = icmp eq ptr %.04290.i.i, null
+  %.048.val100.i.i = phi i1 [ false, %127 ], [ true, %_mi_page_free_collect.exit.i.i ], [ true, %123 ], [ true, %.sink.split.i.i.i ]
+  %178 = icmp eq ptr %.04487.i.i, null
   br i1 %178, label %194, label %179
 
 179:                                              ; preds = %_mi_page_free_collect.exit.thread.i.i
-  %180 = getelementptr inbounds nuw i8, ptr %.04689.i.i, i64 32
+  %180 = getelementptr inbounds nuw i8, ptr %.04886.i.i, i64 32
   %181 = load i16, ptr %180, align 8, !tbaa !35
-  %182 = getelementptr inbounds nuw i8, ptr %.04290.i.i, i64 32
+  %182 = getelementptr inbounds nuw i8, ptr %.04487.i.i, i64 32
   %183 = load i16, ptr %182, align 8, !tbaa !35
   %.not53.i.i = icmp ult i16 %181, %183
   br i1 %.not53.i.i, label %194, label %184
 
 184:                                              ; preds = %179
-  %185 = getelementptr i8, ptr %.04689.i.i, i64 12
-  %.046.val65.i.i = load i16, ptr %185, align 4, !tbaa !68
-  %186 = zext i16 %.046.val65.i.i to i32
+  %185 = getelementptr i8, ptr %.04886.i.i, i64 12
+  %.048.val63.i.i = load i16, ptr %185, align 4, !tbaa !68
+  %186 = zext i16 %.048.val63.i.i to i32
   %187 = zext i16 %181 to i32
   %188 = sub nsw i32 %186, %187
-  %189 = lshr i16 %.046.val65.i.i, 3
+  %189 = lshr i16 %.048.val63.i.i, 3
   %190 = zext nneg i16 %189 to i32
-  %.not78.i.i = icmp sgt i32 %188, %190
-  br i1 %.not78.i.i, label %191, label %194
+  %.not76.i.i = icmp sgt i32 %188, %190
+  br i1 %.not76.i.i, label %191, label %194
 
 191:                                              ; preds = %184
-  %192 = getelementptr i8, ptr %.04689.i.i, i64 10
-  %.046.val63.i.i = load i16, ptr %192, align 2, !tbaa !30
-  %193 = icmp ult i16 %.046.val63.i.i, %.046.val65.i.i
-  %spec.select.i.i = select i1 %193, ptr %.04290.i.i, ptr %.04689.i.i
+  %192 = getelementptr i8, ptr %.04886.i.i, i64 10
+  %.048.val61.i.i = load i16, ptr %192, align 2, !tbaa !30
+  %193 = icmp ult i16 %.048.val61.i.i, %.048.val63.i.i
+  %spec.select.i.i = select i1 %193, ptr %.04487.i.i, ptr %.04886.i.i
   br label %194
 
 194:                                              ; preds = %191, %184, %179, %_mi_page_free_collect.exit.thread.i.i
-  %.345.i.i = phi ptr [ %.04290.i.i, %184 ], [ %.04290.i.i, %179 ], [ %.04689.i.i, %_mi_page_free_collect.exit.thread.i.i ], [ %spec.select.i.i, %191 ]
+  %.347.i.i = phi ptr [ %.04487.i.i, %184 ], [ %.04487.i.i, %179 ], [ %.04886.i.i, %_mi_page_free_collect.exit.thread.i.i ], [ %spec.select.i.i, %191 ]
   %.2.i.i = phi i64 [ %85, %184 ], [ %85, %179 ], [ 0, %_mi_page_free_collect.exit.thread.i.i ], [ %85, %191 ]
   %195 = icmp ugt i64 %.2.i.i, 4
-  %or.cond.i.i = select i1 %.046.val103.i.i, i1 true, i1 %195
+  %or.cond.i.i = select i1 %.048.val100.i.i, i1 true, i1 %195
   br i1 %or.cond.i.i, label %mi_page_to_full.exit.thread.i.i, label %mi_page_to_full.exit.i.i
 
 mi_page_to_full.exit.i.i:                         ; preds = %194, %.sink.split.i.i.i.i, %172, %_mi_page_thread_free_collect.exit.i.i.i.i, %131
-  %.4.i.i = phi ptr [ %.345.i.i, %194 ], [ %.04290.i.i, %131 ], [ %.04290.i.i, %_mi_page_thread_free_collect.exit.i.i.i.i ], [ %.04290.i.i, %172 ], [ %.04290.i.i, %.sink.split.i.i.i.i ]
+  %.4.i.i = phi ptr [ %.347.i.i, %194 ], [ %.04487.i.i, %131 ], [ %.04487.i.i, %_mi_page_thread_free_collect.exit.i.i.i.i ], [ %.04487.i.i, %172 ], [ %.04487.i.i, %.sink.split.i.i.i.i ]
   %.3.i.i = phi i64 [ %.2.i.i, %194 ], [ %85, %131 ], [ %85, %_mi_page_thread_free_collect.exit.i.i.i.i ], [ %85, %172 ], [ %85, %.sink.split.i.i.i.i ]
   %.not.i12.i = icmp eq ptr %84, null
   br i1 %.not.i12.i, label %mi_page_to_full.exit.thread.i.i, label %.lr.ph.i.i
 
 mi_page_to_full.exit.thread.i.i:                  ; preds = %mi_page_to_full.exit.i.i, %194, %tailrecurse.i.i
-  %.147.i.i = phi ptr [ null, %tailrecurse.i.i ], [ %.04689.i.i, %194 ], [ null, %mi_page_to_full.exit.i.i ]
-  %.143.i.i = phi ptr [ null, %tailrecurse.i.i ], [ %.345.i.i, %194 ], [ %.4.i.i, %mi_page_to_full.exit.i.i ]
-  %.not54.i.i = icmp eq ptr %.143.i.i, null
-  %spec.select56.i.i = select i1 %.not54.i.i, ptr %.147.i.i, ptr %.143.i.i
+  %.149.i.i = phi ptr [ null, %tailrecurse.i.i ], [ %.04886.i.i, %194 ], [ null, %mi_page_to_full.exit.i.i ]
+  %.145.i.i = phi ptr [ null, %tailrecurse.i.i ], [ %.347.i.i, %194 ], [ %.4.i.i, %mi_page_to_full.exit.i.i ]
+  %.not54.i.i = icmp eq ptr %.145.i.i, null
+  %spec.select56.i.i = select i1 %.not54.i.i, ptr %.149.i.i, ptr %.145.i.i
   %cond.i.i = icmp eq ptr %spec.select56.i.i, null
   br i1 %cond.i.i, label %214, label %196
 
 196:                                              ; preds = %mi_page_to_full.exit.thread.i.i
   %197 = getelementptr i8, ptr %spec.select56.i.i, i64 16
   %spec.select56.val.i.i = load ptr, ptr %197, align 8, !tbaa !36
-  %.not79.i.i = icmp eq ptr %spec.select56.val.i.i, null
-  br i1 %.not79.i.i, label %198, label %mi_page_extend_free.exit.i.i
+  %.not77.i.i = icmp eq ptr %spec.select56.val.i.i, null
+  br i1 %.not77.i.i, label %198, label %mi_page_extend_free.exit.i.i
 
 198:                                              ; preds = %196
   %199 = getelementptr inbounds nuw i8, ptr %spec.select56.i.i, i64 10
@@ -2211,14 +2211,14 @@ mi_page_to_full.exit.thread.i.i:                  ; preds = %mi_page_to_full.exi
 
 203:                                              ; preds = %198
   %204 = getelementptr i8, ptr %spec.select56.i.i, i64 40
-  %.val.i69.i.i = load i64, ptr %204, align 8, !tbaa !38
+  %.val.i67.i.i = load i64, ptr %204, align 8, !tbaa !38
   %narrow.i.i.i = sub nuw i16 %202, %200
   %205 = zext i16 %narrow.i.i.i to i64
-  %206 = icmp ugt i64 %.val.i69.i.i, 4095
+  %206 = icmp ugt i64 %.val.i67.i.i, 4095
   br i1 %206, label %209, label %207
 
 207:                                              ; preds = %203
-  %.rhs.trunc.i.i.i = trunc nuw nsw i64 %.val.i69.i.i to i16
+  %.rhs.trunc.i.i.i = trunc nuw nsw i64 %.val.i67.i.i to i16
   %208 = udiv i16 4096, %.rhs.trunc.i.i.i
   %.zext.i.i.i = zext nneg i16 %208 to i64
   br label %209
@@ -2227,7 +2227,7 @@ mi_page_to_full.exit.thread.i.i:                  ; preds = %mi_page_to_full.exi
   %210 = phi i64 [ %.zext.i.i.i, %207 ], [ 4, %203 ]
   %spec.store.select.i.i.i = tail call i64 @llvm.umax.i64(i64 %210, i64 4)
   %spec.select.i.i.i = tail call i64 @llvm.umin.i64(i64 %spec.store.select.i.i.i, i64 %205)
-  tail call fastcc void @mi_page_free_list_extend(ptr noundef nonnull %spec.select56.i.i, i64 noundef %.val.i69.i.i, i64 noundef %spec.select.i.i.i) #14
+  tail call fastcc void @mi_page_free_list_extend(ptr noundef nonnull %spec.select56.i.i, i64 noundef %.val.i67.i.i, i64 noundef %spec.select.i.i.i) #14
   %211 = trunc nuw nsw i64 %spec.select.i.i.i to i16
   %212 = load i16, ptr %199, align 2, !tbaa !30
   %213 = add i16 %212, %211
@@ -2257,8 +2257,8 @@ mi_page_to_full.exit.thread.i.i:                  ; preds = %mi_page_to_full.exi
 
 222:                                              ; preds = %219
   %223 = getelementptr i8, ptr %218, i64 32
-  %.val.i70.i.i = load i16, ptr %223, align 8, !tbaa !35
-  %224 = icmp eq i16 %.val.i70.i.i, 0
+  %.val.i68.i.i = load i16, ptr %223, align 8, !tbaa !35
+  %224 = icmp eq i16 %.val.i68.i.i, 0
   br i1 %224, label %225, label %242
 
 225:                                              ; preds = %222
@@ -2287,7 +2287,7 @@ mi_page_to_full.exit.thread.i.i:                  ; preds = %mi_page_to_full.exi
   br label %244
 
 241:                                              ; preds = %225
-  %spec.select.i72.i.i = tail call i64 @llvm.umin.i64(i64 %.02834.i.i.i, i64 %.036.i.i.i)
+  %spec.select.i70.i.i = tail call i64 @llvm.umin.i64(i64 %.02834.i.i.i, i64 %.036.i.i.i)
   %spec.select32.i.i.i = tail call i64 @llvm.umax.i64(i64 %.02834.i.i.i, i64 %.02635.i.i.i)
   br label %244
 
@@ -2298,11 +2298,11 @@ mi_page_to_full.exit.thread.i.i:                  ; preds = %mi_page_to_full.exi
 
 244:                                              ; preds = %242, %241, %231, %219, %.lr.ph.split.i.i.i
   %.127.i.i.i = phi i64 [ %.02635.i.i.i, %231 ], [ %.02635.i.i.i, %242 ], [ %.02635.i.i.i, %219 ], [ %.02635.i.i.i, %.lr.ph.split.i.i.i ], [ %spec.select32.i.i.i, %241 ]
-  %.1.i.i.i = phi i64 [ %.036.i.i.i, %231 ], [ %.036.i.i.i, %242 ], [ %.036.i.i.i, %219 ], [ %.036.i.i.i, %.lr.ph.split.i.i.i ], [ %spec.select.i72.i.i, %241 ]
+  %.1.i.i.i = phi i64 [ %.036.i.i.i, %231 ], [ %.036.i.i.i, %242 ], [ %.036.i.i.i, %219 ], [ %.036.i.i.i, %.lr.ph.split.i.i.i ], [ %spec.select.i70.i.i, %241 ]
   %245 = add i64 %.02834.i.i.i, 1
   %246 = load i64, ptr %80, align 8, !tbaa !52
-  %.not.i71.i.i = icmp ugt i64 %245, %246
-  br i1 %.not.i71.i.i, label %_mi_heap_collect_retired.exit.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !53
+  %.not.i69.i.i = icmp ugt i64 %245, %246
+  br i1 %.not.i69.i.i, label %_mi_heap_collect_retired.exit.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !53
 
 _mi_heap_collect_retired.exit.i.i:                ; preds = %244, %214
   %.026.lcssa.i.i13.i = phi i64 [ 0, %214 ], [ %.127.i.i.i, %244 ]
@@ -2312,8 +2312,8 @@ _mi_heap_collect_retired.exit.i.i:                ; preds = %244, %214
   %247 = load i64, ptr %81, align 8, !tbaa !3
   %248 = tail call fastcc ptr @mi_page_fresh_alloc(ptr noundef nonnull %0, ptr noundef nonnull %33, i64 noundef %247, i64 noundef 0) #14
   %249 = icmp eq ptr %248, null
-  %brmerge.not.i.i = and i1 %.tr82.i.i, %249
-  br i1 %brmerge.not.i.i, label %tailrecurse.i.i, label %mi_find_free_page.exit
+  %or.cond3.i.i = and i1 %.tr79.i.i, %249
+  br i1 %or.cond3.i.i, label %tailrecurse.i.i, label %mi_find_free_page.exit
 
 mi_page_extend_free.exit.i.i:                     ; preds = %209, %198, %196
   %250 = load ptr, ptr %33, align 8, !tbaa !10

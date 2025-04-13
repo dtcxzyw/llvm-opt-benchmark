@@ -62,13 +62,13 @@ define void @_Z23gmx_pme_send_parametersPK9t_commrecRK19interaction_const_tbbN3g
 
 _ZL8usingPmeRK22CoulombInteractionType.exit:      ; preds = %13, %15
   %16 = phi i32 [ 1, %15 ], [ 0, %13 ]
-  %.val11 = load i32, ptr %1, align 8, !tbaa !8
-  %17 = icmp eq i32 %.val11, 5
+  %.val12 = load i32, ptr %1, align 8, !tbaa !8
+  %17 = icmp eq i32 %.val12, 5
   %18 = or disjoint i32 %16, 20
   %.1 = select i1 %17, i32 %18, i32 %16
-  %brmerge = or i1 %2, %3
+  %or.cond = or i1 %2, %3
   %19 = shl nuw nsw i32 %.1, 1
-  %20 = select i1 %brmerge, i32 %19, i32 0
+  %20 = select i1 %or.cond, i32 %19, i32 0
   %.2 = or disjoint i32 %20, %.1
   %21 = load ptr, ptr %6, align 8, !tbaa !10
   %22 = load ptr, ptr %7, align 8, !tbaa !10

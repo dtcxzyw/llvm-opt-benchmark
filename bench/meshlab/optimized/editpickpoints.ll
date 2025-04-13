@@ -1215,10 +1215,10 @@ define void @_ZN20EditPickPointsPlugin16drawPickedPointsERSt6vectorIP25PickedPoi
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %.sroa.229.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %brmerge.demorgan = and i1 %33, %35
-  br i1 %brmerge.demorgan, label %.lr.ph.split.us, label %.lr.ph.split
+  %or.cond = and i1 %33, %35
+  br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN7QStringD2Ev.exit.us
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %_ZN7QStringD2Ev.exit.us ], [ 0, %.lr.ph ]
@@ -1230,10 +1230,10 @@ define void @_ZN20EditPickPointsPlugin16drawPickedPointsERSt6vectorIP25PickedPoi
 
 44:                                               ; preds = %.lr.ph.split.us
   %45 = call { <2 x float>, float } @_ZN25PickedPointTreeWidgetItem8getPointEv(ptr noundef nonnull align 8 dereferenceable(85) %42)
-  %.fca.0.extract26.us = extractvalue { <2 x float>, float } %45, 0
-  %.fca.1.extract27.us = extractvalue { <2 x float>, float } %45, 1
-  store <2 x float> %.fca.0.extract26.us, ptr %6, align 8
-  store float %.fca.1.extract27.us, ptr %.sroa.229.0..sroa_idx, align 8
+  %.fca.0.extract27.us = extractvalue { <2 x float>, float } %45, 0
+  %.fca.1.extract28.us = extractvalue { <2 x float>, float } %45, 1
+  store <2 x float> %.fca.0.extract27.us, ptr %6, align 8
+  store float %.fca.1.extract28.us, ptr %.sroa.230.0..sroa_idx, align 8
   store i32 -65536, ptr %7, align 4
   call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %7)
   call void @_ZN25PickedPointTreeWidgetItem7getNameEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(85) %42)
@@ -1309,10 +1309,10 @@ _ZN7QStringD2Ev.exit.us:                          ; preds = %46, %_ZN9QtPrivate8
 
 65:                                               ; preds = %.lr.ph.split
   %66 = call { <2 x float>, float } @_ZN25PickedPointTreeWidgetItem8getPointEv(ptr noundef nonnull align 8 dereferenceable(85) %63)
-  %.fca.0.extract26 = extractvalue { <2 x float>, float } %66, 0
-  %.fca.1.extract27 = extractvalue { <2 x float>, float } %66, 1
-  store <2 x float> %.fca.0.extract26, ptr %6, align 8
-  store float %.fca.1.extract27, ptr %.sroa.229.0..sroa_idx, align 8
+  %.fca.0.extract27 = extractvalue { <2 x float>, float } %66, 0
+  %.fca.1.extract28 = extractvalue { <2 x float>, float } %66, 1
+  store <2 x float> %.fca.0.extract27, ptr %6, align 8
+  store float %.fca.1.extract28, ptr %.sroa.230.0..sroa_idx, align 8
   store i32 -65536, ptr %7, align 4
   call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %7)
   call void @_ZN25PickedPointTreeWidgetItem7getNameEv(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %8, ptr noundef nonnull align 8 dereferenceable(85) %63)
@@ -1416,7 +1416,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %69, %_ZN9QtPrivate8
   br i1 %.not107, label %._crit_edge106, label %.lr.ph105
 
 .lr.ph105:                                        ; preds = %._crit_edge
-  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   %89 = fpext float %30 to double
@@ -1438,27 +1438,27 @@ _ZN7QStringD2Ev.exit:                             ; preds = %69, %_ZN9QtPrivate8
 
 97:                                               ; preds = %.lr.ph105.split.us.split.us
   %98 = call { <2 x float>, float } @_ZN25PickedPointTreeWidgetItem8getPointEv(ptr noundef nonnull align 8 dereferenceable(85) %95)
-  %.fca.0.extract13.us.us = extractvalue { <2 x float>, float } %98, 0
-  %.fca.1.extract14.us.us = extractvalue { <2 x float>, float } %98, 1
-  store <2 x float> %.fca.0.extract13.us.us, ptr %10, align 8
-  store float %.fca.1.extract14.us.us, ptr %.sroa.216.0..sroa_idx, align 8
+  %.fca.0.extract14.us.us = extractvalue { <2 x float>, float } %98, 0
+  %.fca.1.extract15.us.us = extractvalue { <2 x float>, float } %98, 1
+  store <2 x float> %.fca.0.extract14.us.us, ptr %10, align 8
+  store float %.fca.1.extract15.us.us, ptr %.sroa.217.0..sroa_idx, align 8
   %99 = call { <2 x float>, float } @_ZN25PickedPointTreeWidgetItem9getNormalEv(ptr noundef nonnull align 8 dereferenceable(85) %95)
-  %.fca.0.extract9.us.us = extractvalue { <2 x float>, float } %99, 0
-  %.fca.1.extract10.us.us = extractvalue { <2 x float>, float } %99, 1
-  %.sroa.070.0.vec.extract.us.us = extractelement <2 x float> %.fca.0.extract9.us.us, i64 0
-  %.sroa.070.4.vec.extract.us.us = extractelement <2 x float> %.fca.0.extract9.us.us, i64 1
+  %.fca.0.extract10.us.us = extractvalue { <2 x float>, float } %99, 0
+  %.fca.1.extract11.us.us = extractvalue { <2 x float>, float } %99, 1
+  %.sroa.070.0.vec.extract.us.us = extractelement <2 x float> %.fca.0.extract10.us.us, i64 0
+  %.sroa.070.4.vec.extract.us.us = extractelement <2 x float> %.fca.0.extract10.us.us, i64 1
   %100 = fmul float %.sroa.070.4.vec.extract.us.us, %.sroa.070.4.vec.extract.us.us
   %101 = call float @llvm.fmuladd.f32(float %.sroa.070.0.vec.extract.us.us, float %.sroa.070.0.vec.extract.us.us, float %100)
-  %102 = call float @llvm.fmuladd.f32(float %.fca.1.extract10.us.us, float %.fca.1.extract10.us.us, float %101)
+  %102 = call float @llvm.fmuladd.f32(float %.fca.1.extract11.us.us, float %.fca.1.extract11.us.us, float %101)
   %103 = fcmp oeq float %102, 0.000000e+00
-  %104 = extractelement <2 x float> %.fca.0.extract13.us.us, i64 0
-  %105 = extractelement <2 x float> %.fca.0.extract13.us.us, i64 1
+  %104 = extractelement <2 x float> %.fca.0.extract14.us.us, i64 0
+  %105 = extractelement <2 x float> %.fca.0.extract14.us.us, i64 1
   br i1 %103, label %_ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit.us.us, label %106
 
 106:                                              ; preds = %97
   %sqrt.i.i.us.us = call noundef float @llvm.sqrt.f32(float %102)
   %107 = call float @llvm.fmuladd.f32(float %.sroa.070.0.vec.extract.us.us, float 0.000000e+00, float %.sroa.070.4.vec.extract.us.us)
-  %108 = call noundef float @llvm.fmuladd.f32(float %.fca.1.extract10.us.us, float 0.000000e+00, float %107)
+  %108 = call noundef float @llvm.fmuladd.f32(float %.fca.1.extract11.us.us, float 0.000000e+00, float %107)
   %109 = fdiv float %108, %sqrt.i.i.us.us
   %110 = fcmp ogt float %109, 1.000000e+00
   br i1 %110, label %114, label %111
@@ -1482,14 +1482,14 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit.us.us: ; preds = %114, %97
   %118 = fdiv double %.010.i.us.us, 0x400921FB53C8D4F1
   %119 = fptrunc double %118 to float
   %120 = fmul float %.sroa.070.4.vec.extract.us.us, 0.000000e+00
-  %121 = fsub float %.fca.1.extract10.us.us, %120
-  %122 = fmul float %.fca.1.extract10.us.us, -0.000000e+00
+  %121 = fsub float %.fca.1.extract11.us.us, %120
+  %122 = fmul float %.fca.1.extract11.us.us, -0.000000e+00
   %123 = call float @llvm.fmuladd.f32(float %.sroa.070.0.vec.extract.us.us, float 0.000000e+00, float %122)
   %124 = fneg float %.sroa.070.0.vec.extract.us.us
   %125 = call float @llvm.fmuladd.f32(float %.sroa.070.4.vec.extract.us.us, float 0.000000e+00, float %124)
   call void @glColor4f(float noundef 0.000000e+00, float noundef 1.000000e+00, float noundef 0.000000e+00, float noundef 0x3FE6666660000000)
   call void @glPushMatrix()
-  call void @glTranslatef(float noundef %104, float noundef %105, float noundef %.fca.1.extract14.us.us)
+  call void @glTranslatef(float noundef %104, float noundef %105, float noundef %.fca.1.extract15.us.us)
   call void @glRotatef(float noundef %119, float noundef %121, float noundef %123, float noundef %125)
   call void @glScalef(float noundef %91, float noundef %92, float noundef %91)
   call void @glBegin(i32 noundef 4)
@@ -1560,27 +1560,27 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit.us.us: ; preds = %114, %97
 
 144:                                              ; preds = %.lr.ph105.split.us.split
   %145 = call { <2 x float>, float } @_ZN25PickedPointTreeWidgetItem8getPointEv(ptr noundef nonnull align 8 dereferenceable(85) %142)
-  %.fca.0.extract13.us = extractvalue { <2 x float>, float } %145, 0
-  %.fca.1.extract14.us = extractvalue { <2 x float>, float } %145, 1
-  store <2 x float> %.fca.0.extract13.us, ptr %10, align 8
-  store float %.fca.1.extract14.us, ptr %.sroa.216.0..sroa_idx, align 8
+  %.fca.0.extract14.us = extractvalue { <2 x float>, float } %145, 0
+  %.fca.1.extract15.us = extractvalue { <2 x float>, float } %145, 1
+  store <2 x float> %.fca.0.extract14.us, ptr %10, align 8
+  store float %.fca.1.extract15.us, ptr %.sroa.217.0..sroa_idx, align 8
   %146 = call { <2 x float>, float } @_ZN25PickedPointTreeWidgetItem9getNormalEv(ptr noundef nonnull align 8 dereferenceable(85) %142)
-  %.fca.0.extract9.us = extractvalue { <2 x float>, float } %146, 0
-  %.fca.1.extract10.us = extractvalue { <2 x float>, float } %146, 1
+  %.fca.0.extract10.us = extractvalue { <2 x float>, float } %146, 0
+  %.fca.1.extract11.us = extractvalue { <2 x float>, float } %146, 1
   store i32 -16711936, ptr %11, align 4
   call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %11)
   call void @glBegin(i32 noundef 1)
   call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %10)
-  %.sroa.070.0.vec.extract74.us = extractelement <2 x float> %.fca.0.extract9.us, i64 0
+  %.sroa.070.0.vec.extract74.us = extractelement <2 x float> %.fca.0.extract10.us, i64 0
   %147 = fmul float %30, %.sroa.070.0.vec.extract74.us
-  %.sroa.070.4.vec.extract78.us = extractelement <2 x float> %.fca.0.extract9.us, i64 1
+  %.sroa.070.4.vec.extract78.us = extractelement <2 x float> %.fca.0.extract10.us, i64 1
   %148 = fmul float %30, %.sroa.070.4.vec.extract78.us
-  %149 = fmul float %30, %.fca.1.extract10.us
+  %149 = fmul float %30, %.fca.1.extract11.us
   %150 = load float, ptr %10, align 8
   %151 = fadd float %147, %150
   %152 = load float, ptr %88, align 4
   %153 = fadd float %148, %152
-  %154 = load float, ptr %.sroa.216.0..sroa_idx, align 8
+  %154 = load float, ptr %.sroa.217.0..sroa_idx, align 8
   %155 = fadd float %149, %154
   %.sroa.0.0.vec.insert.i64.us = insertelement <2 x float> poison, float %151, i64 0
   %.sroa.0.4.vec.insert.i65.us = insertelement <2 x float> %.sroa.0.0.vec.insert.i64.us, float %153, i64 1
@@ -1613,10 +1613,10 @@ _ZN3vcg5AngleIfEET_RKNS_6Point3IS1_EES5_.exit.us.us: ; preds = %114, %97
 
 168:                                              ; preds = %.lr.ph105.split
   %169 = call { <2 x float>, float } @_ZN25PickedPointTreeWidgetItem8getPointEv(ptr noundef nonnull align 8 dereferenceable(85) %166)
-  %.fca.0.extract13 = extractvalue { <2 x float>, float } %169, 0
-  %.fca.1.extract14 = extractvalue { <2 x float>, float } %169, 1
-  store <2 x float> %.fca.0.extract13, ptr %10, align 8
-  store float %.fca.1.extract14, ptr %.sroa.216.0..sroa_idx, align 8
+  %.fca.0.extract14 = extractvalue { <2 x float>, float } %169, 0
+  %.fca.1.extract15 = extractvalue { <2 x float>, float } %169, 1
+  store <2 x float> %.fca.0.extract14, ptr %10, align 8
+  store float %.fca.1.extract15, ptr %.sroa.217.0..sroa_idx, align 8
   store i32 -16776961, ptr %13, align 4
   call void @glColor4ubv(ptr noundef nonnull align 1 dereferenceable(4) %13)
   br label %170

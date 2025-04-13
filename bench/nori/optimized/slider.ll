@@ -215,8 +215,8 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Slider18mouse_button_eventERKNS_5A
   %45 = load ptr, ptr %44, align 8
   %.not.i.i = icmp ne ptr %45, null
   %46 = fcmp une float %43, %33
-  %or.cond = select i1 %.not.i.i, i1 %46, i1 false
-  br i1 %or.cond, label %_ZNKSt8functionIFvfEEclEf.exit, label %50
+  %or.cond15 = select i1 %.not.i.i, i1 %46, i1 false
+  br i1 %or.cond15, label %_ZNKSt8functionIFvfEEclEf.exit, label %50
 
 _ZNKSt8functionIFvfEEclEf.exit:                   ; preds = %11
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -231,11 +231,11 @@ _ZNKSt8functionIFvfEEclEf.exit:                   ; preds = %11
 50:                                               ; preds = %_ZNKSt8functionIFvfEEclEf.exit, %11
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %52 = load ptr, ptr %51, align 8
-  %.not.i.i11.not = icmp eq ptr %52, null
-  %brmerge = or i1 %3, %.not.i.i11.not
-  br i1 %brmerge, label %57, label %_ZNKSt8functionIFvfEEclEf.exit13
+  %.not.i.i12.not = icmp eq ptr %52, null
+  %or.cond = or i1 %3, %.not.i.i12.not
+  br i1 %or.cond, label %57, label %_ZNKSt8functionIFvfEEclEf.exit14
 
-_ZNKSt8functionIFvfEEclEf.exit13:                 ; preds = %50
+_ZNKSt8functionIFvfEEclEf.exit14:                 ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %54 = load float, ptr %32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -246,7 +246,7 @@ _ZNKSt8functionIFvfEEclEf.exit13:                 ; preds = %50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %57
 
-57:                                               ; preds = %_ZNKSt8functionIFvfEEclEf.exit13, %50, %5
+57:                                               ; preds = %50, %_ZNKSt8functionIFvfEEclEf.exit14, %5
   ret i1 %10
 }
 

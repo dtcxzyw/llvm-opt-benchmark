@@ -39154,26 +39154,26 @@ define hidden void @_ZN4core4iter8adapters11try_process17h12341bbdf7868940E(ptr 
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %5, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !16692, !noalias !16696
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hfa0bdeaa007cb443E.llvm.17313098904469548336"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %3)
-          to label %8 unwind label %.body
+          to label %8 unwind label %"_ZN4core3ptr177drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$hir_expand..builtin_derive_macro..VariantShape$RP$$GT$$GT$17h24b1d0a63be7f01eE.llvm.10606712881621943088.exit.i"
 
-.body:                                            ; preds = %2
+"_ZN4core3ptr177drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$hir_expand..builtin_derive_macro..VariantShape$RP$$GT$$GT$17h24b1d0a63be7f01eE.llvm.10606712881621943088.exit.i": ; preds = %2
   %6 = landingpad { ptr, i32 }
           cleanup
   %7 = load i8, ptr %5, align 8, !range !91, !noundef !25
   %.not = icmp eq i8 %7, 15
-  br i1 %.not, label %.body.thread, label %26
+  br i1 %.not, label %.thread, label %26
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !16685
   %9 = load i8, ptr %5, align 8, !range !91, !noundef !25
   %.not.not = icmp eq i8 %9, 15
-  br i1 %.not.not, label %.thread, label %10
+  br i1 %.not.not, label %.thread14, label %10
 
-.thread:                                          ; preds = %8
+.thread14:                                        ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   br label %"_ZN4core3ptr170drop_in_place$LT$alloc..vec..Vec$LT$$LP$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$hir_expand..builtin_derive_macro..VariantShape$RP$$GT$$GT$17hf5fbbfa6c661f853E.exit"
 
-"_ZN4core3ptr170drop_in_place$LT$alloc..vec..Vec$LT$$LP$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$hir_expand..builtin_derive_macro..VariantShape$RP$$GT$$GT$17hf5fbbfa6c661f853E.exit": ; preds = %24, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haffa5519b7c55d38E.llvm.10606712881621943088.exit.i", %.thread
+"_ZN4core3ptr170drop_in_place$LT$alloc..vec..Vec$LT$$LP$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$hir_expand..builtin_derive_macro..VariantShape$RP$$GT$$GT$17hf5fbbfa6c661f853E.exit": ; preds = %24, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haffa5519b7c55d38E.llvm.10606712881621943088.exit.i", %.thread14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 
@@ -39193,12 +39193,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17h12341bbdf7868940E(ptr 
           cleanup
   %18 = load i64, ptr %4, align 8, !noundef !25
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %.body.thread, label %20
+  br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %16
   %21 = mul nuw i64 %18, 72
   call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %21, i64 noundef 8) #29, !noalias !16705
-  br label %.body.thread
+  br label %.thread
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haffa5519b7c55d38E.llvm.10606712881621943088.exit.i": ; preds = %10
   %22 = load i64, ptr %4, align 8, !noundef !25
@@ -39210,13 +39210,13 @@ define hidden void @_ZN4core4iter8adapters11try_process17h12341bbdf7868940E(ptr 
   call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %25, i64 noundef 8) #29, !noalias !16710
   br label %"_ZN4core3ptr170drop_in_place$LT$alloc..vec..Vec$LT$$LP$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$hir_expand..builtin_derive_macro..VariantShape$RP$$GT$$GT$17hf5fbbfa6c661f853E.exit"
 
-.body.thread:                                     ; preds = %16, %20, %.body, %26
-  %.pn14 = phi { ptr, i32 } [ %6, %.body ], [ %6, %26 ], [ %17, %20 ], [ %17, %16 ]
-  resume { ptr, i32 } %.pn14
+.thread:                                          ; preds = %26, %16, %20, %"_ZN4core3ptr177drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$hir_expand..builtin_derive_macro..VariantShape$RP$$GT$$GT$17h24b1d0a63be7f01eE.llvm.10606712881621943088.exit.i"
+  %.pn13 = phi { ptr, i32 } [ %6, %26 ], [ %6, %"_ZN4core3ptr177drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$hir_expand..builtin_derive_macro..VariantShape$RP$$GT$$GT$17h24b1d0a63be7f01eE.llvm.10606712881621943088.exit.i" ], [ %17, %20 ], [ %17, %16 ]
+  resume { ptr, i32 } %.pn13
 
-26:                                               ; preds = %.body
+26:                                               ; preds = %"_ZN4core3ptr177drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$C$hir_expand..builtin_derive_macro..VariantShape$RP$$GT$$GT$17h24b1d0a63be7f01eE.llvm.10606712881621943088.exit.i"
   call void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$hir_expand..ExpandError$GT$$GT$17h0ac09524eef74b5eE.llvm.10606712881621943088"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #31
-  br label %.body.thread
+  br label %.thread
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -39240,19 +39240,19 @@ define hidden void @_ZN4core4iter8adapters11try_process17h8075fc5a12fa3172E(ptr 
           cleanup
   %9 = load i8, ptr %6, align 8, !range !91, !noundef !25
   %.not = icmp eq i8 %9, 15
-  br i1 %.not, label %15, label %16
+  br i1 %.not, label %.thread, label %15
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !16715
   %11 = load i8, ptr %6, align 8, !range !91, !noundef !25
   %.not.not = icmp eq i8 %11, 15
-  br i1 %.not.not, label %.thread, label %13
+  br i1 %.not.not, label %.thread13, label %13
 
-.thread:                                          ; preds = %10
+.thread13:                                        ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   br label %12
 
-12:                                               ; preds = %13, %.thread
+12:                                               ; preds = %13, %.thread13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
 
@@ -39263,12 +39263,12 @@ define hidden void @_ZN4core4iter8adapters11try_process17h8075fc5a12fa3172E(ptr 
   call void @"_ZN4core3ptr113drop_in_place$LT$alloc..vec..Vec$LT$tt..Ident$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$GT$17h982786f0703d2a21E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %12
 
-15:                                               ; preds = %7, %16
+.thread:                                          ; preds = %15, %7
   resume { ptr, i32 } %8
 
-16:                                               ; preds = %7
+15:                                               ; preds = %7
   call void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$core..convert..Infallible$C$hir_expand..ExpandError$GT$$GT$17h0ac09524eef74b5eE.llvm.10606712881621943088"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #31
-  br label %15
+  br label %.thread
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -926,9 +926,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   br i1 %cmp.i.not357, label %for.end, label %for.body10
 
 for.body10:                                       ; preds = %for.body, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit
-  %agg.tmp20.sroa.0.1366 = phi ptr [ %agg.tmp20.sroa.0.2437, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %agg.tmp20.sroa.0.0383, %for.body ]
-  %agg.tmp20.sroa.3.1365 = phi ptr [ %agg.tmp20.sroa.3.2436, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %agg.tmp20.sroa.3.0382, %for.body ]
-  %agg.tmp20.sroa.5.1364 = phi ptr [ %agg.tmp20.sroa.5.2435, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %agg.tmp20.sroa.5.0381, %for.body ]
+  %agg.tmp20.sroa.0.1366 = phi ptr [ %agg.tmp20.sroa.0.2452, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %agg.tmp20.sroa.0.0383, %for.body ]
+  %agg.tmp20.sroa.3.1365 = phi ptr [ %agg.tmp20.sroa.3.2450, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %agg.tmp20.sroa.3.0382, %for.body ]
+  %agg.tmp20.sroa.5.1364 = phi ptr [ %agg.tmp20.sroa.5.2448, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ %agg.tmp20.sroa.5.0381, %for.body ]
   %newLine.sroa.0.1361 = phi ptr [ %newLine.sroa.0.2, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ null, %for.body ]
   %newLine.sroa.7.1360 = phi ptr [ %newLine.sroa.7.2, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ null, %for.body ]
   %newLine.sroa.12.1359 = phi ptr [ %newLine.sroa.12.2, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ], [ null, %for.body ]
@@ -977,13 +977,11 @@ _ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7Segme
   %newSeg.sroa.0.0.copyload = load i32, ptr %__begin2.sroa.0.0358, align 4
   %newSeg.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.0358, i64 25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %newSeg.sroa.13, ptr noundef nonnull align 1 dereferenceable(3) %newSeg.sroa.13.0..sroa_idx, i64 3, i1 false)
-  br i1 %15, label %land.lhs.true, label %if.end50
-
-land.lhs.true:                                    ; preds = %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit
   %tobool.i18 = trunc i8 %inputSeg.sroa.0.i.sroa.8.0.copyload to i1
-  br i1 %tobool.i18, label %if.then, label %if.end50
+  %or.cond = select i1 %15, i1 %tobool.i18, i1 false
+  br i1 %or.cond, label %if.then, label %if.end50
 
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit
   %sources_.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   %conv.i19 = zext i32 %inputSeg.sroa.0.i.sroa.4.0.copyload to i64
   %16 = load ptr, ptr %sources_.i, align 8, !noalias !31
@@ -1874,21 +1872,21 @@ _ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129: ; preds = %if.end8.sink.sp
   store i8 0, ptr %hasVal.i.i.i72, align 8
   br label %if.end50
 
-if.end50:                                         ; preds = %if.end, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit, %land.lhs.true, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113, %land.lhs.true30
-  %agg.tmp20.sroa.0.2437 = phi ptr [ %agg.tmp20.sroa.0.1366, %land.lhs.true30 ], [ %agg.tmp20.sroa.0.1366, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %agg.tmp20.sroa.0.1366, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %agg.tmp20.sroa.0.1366, %land.lhs.true ], [ %agg.tmp20.sroa.0.1366, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %agg.tmp20.sroa.0.3, %if.end ]
-  %agg.tmp20.sroa.3.2436 = phi ptr [ %agg.tmp20.sroa.3.1365, %land.lhs.true30 ], [ %agg.tmp20.sroa.3.1365, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %agg.tmp20.sroa.3.1365, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %agg.tmp20.sroa.3.1365, %land.lhs.true ], [ %agg.tmp20.sroa.3.1365, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %agg.tmp20.sroa.3.3, %if.end ]
-  %agg.tmp20.sroa.5.2435 = phi ptr [ %agg.tmp20.sroa.5.1364, %land.lhs.true30 ], [ %agg.tmp20.sroa.5.1364, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %agg.tmp20.sroa.5.1364, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %agg.tmp20.sroa.5.1364, %land.lhs.true ], [ %agg.tmp20.sroa.5.1364, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %agg.tmp20.sroa.5.3, %if.end ]
-  %newSeg.sroa.0.0.copyload411430 = phi i32 [ %newSeg.sroa.0.0.copyload403, %land.lhs.true30 ], [ %newSeg.sroa.0.0.copyload403, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %newSeg.sroa.0.0.copyload403, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %newSeg.sroa.0.0.copyload, %land.lhs.true ], [ %newSeg.sroa.0.0.copyload, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %newSeg.sroa.0.0.copyload, %if.end ]
-  %newSeg.sroa.10.1 = phi i8 [ 0, %land.lhs.true30 ], [ %101, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %101, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ 0, %land.lhs.true ], [ 0, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ 1, %if.end ]
-  %newSeg.sroa.9.1 = phi i64 [ 0, %land.lhs.true30 ], [ %newSeg.sroa.9.4.copyload, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %newSeg.sroa.9.4.copyload, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ 0, %land.lhs.true ], [ 0, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ 0, %if.end ]
-  %newSeg.sroa.8.1 = phi i32 [ undef, %land.lhs.true30 ], [ %newSeg.sroa.8.4.copyload, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %newSeg.sroa.8.4.copyload, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ undef, %land.lhs.true ], [ undef, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %inputSeg.sroa.0.i.sroa.6.0.copyload, %if.end ]
-  %newSeg.sroa.7.1 = phi i32 [ undef, %land.lhs.true30 ], [ %newSeg.sroa.7.4.copyload, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %newSeg.sroa.7.4.copyload, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ undef, %land.lhs.true ], [ undef, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %inputSeg.sroa.0.i.sroa.5.0.copyload, %if.end ]
-  %newSeg.sroa.3.1 = phi i32 [ undef, %land.lhs.true30 ], [ %conv.i107, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %conv.i107, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ undef, %land.lhs.true ], [ undef, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %conv.i42345, %if.end ]
+if.end50:                                         ; preds = %if.end, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113, %land.lhs.true30
+  %agg.tmp20.sroa.0.2452 = phi ptr [ %agg.tmp20.sroa.0.1366, %land.lhs.true30 ], [ %agg.tmp20.sroa.0.1366, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %agg.tmp20.sroa.0.1366, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %agg.tmp20.sroa.0.1366, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %agg.tmp20.sroa.0.3, %if.end ]
+  %agg.tmp20.sroa.3.2450 = phi ptr [ %agg.tmp20.sroa.3.1365, %land.lhs.true30 ], [ %agg.tmp20.sroa.3.1365, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %agg.tmp20.sroa.3.1365, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %agg.tmp20.sroa.3.1365, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %agg.tmp20.sroa.3.3, %if.end ]
+  %agg.tmp20.sroa.5.2448 = phi ptr [ %agg.tmp20.sroa.5.1364, %land.lhs.true30 ], [ %agg.tmp20.sroa.5.1364, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %agg.tmp20.sroa.5.1364, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %agg.tmp20.sroa.5.1364, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %agg.tmp20.sroa.5.3, %if.end ]
+  %newSeg.sroa.0.0.copyload413434 = phi i32 [ %newSeg.sroa.0.0.copyload403, %land.lhs.true30 ], [ %newSeg.sroa.0.0.copyload403, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %newSeg.sroa.0.0.copyload403, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ %newSeg.sroa.0.0.copyload, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %newSeg.sroa.0.0.copyload, %if.end ]
+  %newSeg.sroa.10.1 = phi i8 [ 0, %land.lhs.true30 ], [ %101, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %101, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ 0, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ 1, %if.end ]
+  %newSeg.sroa.9.1 = phi i64 [ 0, %land.lhs.true30 ], [ %newSeg.sroa.9.4.copyload, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %newSeg.sroa.9.4.copyload, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ 0, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ 0, %if.end ]
+  %newSeg.sroa.8.1 = phi i32 [ undef, %land.lhs.true30 ], [ %newSeg.sroa.8.4.copyload, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %newSeg.sroa.8.4.copyload, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ undef, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %inputSeg.sroa.0.i.sroa.6.0.copyload, %if.end ]
+  %newSeg.sroa.7.1 = phi i32 [ undef, %land.lhs.true30 ], [ %newSeg.sroa.7.4.copyload, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %newSeg.sroa.7.4.copyload, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ undef, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %inputSeg.sroa.0.i.sroa.5.0.copyload, %if.end ]
+  %newSeg.sroa.3.1 = phi i32 [ undef, %land.lhs.true30 ], [ %conv.i107, %_ZN6hermes18SourceMapGenerator9addSourceEN4llvh9StringRefENS1_8OptionalINS_6parser15JSONSharedValueEEE.exit113 ], [ %conv.i107, %_ZN6hermes6parser15JSONSharedValueD2Ev.exit.i.i.i129 ], [ undef, %_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE.exit ], [ %conv.i42345, %if.end ]
   %cmp.not.i.i = icmp eq ptr %newLine.sroa.7.1360, %newLine.sroa.12.1359
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end50
-  store i32 %newSeg.sroa.0.0.copyload411430, ptr %newLine.sroa.7.1360, align 4
+  store i32 %newSeg.sroa.0.0.copyload413434, ptr %newLine.sroa.7.1360, align 4
   %newSeg.sroa.3.0..sroa_idx309 = getelementptr inbounds nuw i8, ptr %newLine.sroa.7.1360, i64 4
   store i32 %newSeg.sroa.3.1, ptr %newSeg.sroa.3.0..sroa_idx309, align 4
   %newSeg.sroa.7.0..sroa_idx313 = getelementptr inbounds nuw i8, ptr %newLine.sroa.7.1360, i64 8
@@ -1926,7 +1924,7 @@ _ZNKSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i:
   %mul.i.i.i.i.i.i = mul nuw nsw i64 %cond.i.i.i.i, 28
   %call5.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #19
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i.i
-  store i32 %newSeg.sroa.0.0.copyload411430, ptr %add.ptr.i.i.i, align 4
+  store i32 %newSeg.sroa.0.0.copyload413434, ptr %add.ptr.i.i.i, align 4
   %newSeg.sroa.3.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
   store i32 %newSeg.sroa.3.1, ptr %newSeg.sroa.3.0.add.ptr.i.i.i.sroa_idx, align 4
   %newSeg.sroa.7.0.add.ptr.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
@@ -1977,9 +1975,9 @@ for.end:                                          ; preds = %_ZNSt6vectorIN6herm
   %newLine.sroa.12.1.lcssa = phi ptr [ null, %for.body ], [ %newLine.sroa.12.2, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
   %newLine.sroa.7.1.lcssa = phi ptr [ null, %for.body ], [ %newLine.sroa.7.2, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
   %newLine.sroa.0.1.lcssa = phi ptr [ null, %for.body ], [ %newLine.sroa.0.2, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
-  %agg.tmp20.sroa.5.1.lcssa = phi ptr [ %agg.tmp20.sroa.5.0381, %for.body ], [ %agg.tmp20.sroa.5.2435, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
-  %agg.tmp20.sroa.3.1.lcssa = phi ptr [ %agg.tmp20.sroa.3.0382, %for.body ], [ %agg.tmp20.sroa.3.2436, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
-  %agg.tmp20.sroa.0.1.lcssa = phi ptr [ %agg.tmp20.sroa.0.0383, %for.body ], [ %agg.tmp20.sroa.0.2437, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
+  %agg.tmp20.sroa.5.1.lcssa = phi ptr [ %agg.tmp20.sroa.5.0381, %for.body ], [ %agg.tmp20.sroa.5.2448, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
+  %agg.tmp20.sroa.3.1.lcssa = phi ptr [ %agg.tmp20.sroa.3.0382, %for.body ], [ %agg.tmp20.sroa.3.2450, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
+  %agg.tmp20.sroa.0.1.lcssa = phi ptr [ %agg.tmp20.sroa.0.0383, %for.body ], [ %agg.tmp20.sroa.0.2452, %_ZNSt6vectorIN6hermes9SourceMap7SegmentESaIS2_EE9push_backEOS2_.exit ]
   %151 = load ptr, ptr %_M_finish.i.i151, align 8
   %152 = load ptr, ptr %lines_.i, align 8
   %sub.ptr.lhs.cast.i.i152 = ptrtoint ptr %151 to i64

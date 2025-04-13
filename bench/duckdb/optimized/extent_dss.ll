@@ -118,7 +118,7 @@ atomic_load_b.exit:                               ; preds = %atomic_compare_exch
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 32
   br label %37
 
-37:                                               ; preds = %.preheader, %101
+37:                                               ; preds = %.preheader, %102
   %38 = tail call ptr @sbrk(i64 noundef 0) #6
   %39 = icmp eq ptr %38, inttoptr (i64 -1 to ptr)
   br i1 %39, label %.thread, label %atomic_store_p.exit.i
@@ -179,7 +179,7 @@ atomic_store_p.exit.i:                            ; preds = %37
   %71 = add i64 %70, %52
   %72 = tail call ptr @sbrk(i64 noundef %71) #6
   %73 = icmp eq ptr %72, %38
-  br i1 %73, label %atomic_store_p.exit, label %101
+  br i1 %73, label %atomic_store_p.exit, label %102
 
 atomic_store_p.exit:                              ; preds = %69
   %74 = ptrtoint ptr %66 to i64
@@ -208,49 +208,49 @@ atomic_store_p.exit:                              ; preds = %69
   br label %84
 
 84:                                               ; preds = %81, %78
-  %.not124.not = phi i1 [ %82, %81 ], [ true, %78 ]
-  %85 = load i8, ptr %5, align 1, !tbaa !8, !range !10, !noundef !11
-  %86 = trunc nuw i8 %85 to i1
-  %brmerge.not = select i1 %86, i1 %.not124.not, i1 false
-  br i1 %brmerge.not, label %87, label %.thread93
+  %85 = phi i1 [ %82, %81 ], [ true, %78 ]
+  %86 = load i8, ptr %5, align 1, !tbaa !8, !range !10, !noundef !11
+  %87 = trunc nuw i8 %86 to i1
+  %or.cond117 = select i1 %87, i1 %85, i1 false
+  br i1 %or.cond117, label %88, label %.thread93
 
-87:                                               ; preds = %84
+88:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #6
-  %88 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %88, i8 0, i64 104, i1 false)
-  %89 = tail call ptr @duckdb_je_arena_get_ehooks(ptr noundef nonnull %1) #6
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %89, i8 0, i64 104, i1 false)
+  %90 = tail call ptr @duckdb_je_arena_get_ehooks(ptr noundef nonnull %1) #6
   %.val84 = load i32, ptr %32, align 8, !tbaa !12
   %.not98 = icmp eq i64 %3, 0
-  %90 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %51, ptr %90, align 8, !tbaa !68
-  %91 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %3, ptr %91, align 8, !tbaa !69
-  %92 = and i32 %.val84, -268431361
-  %.masked.i87 = zext i32 %92 to i64
-  %93 = select i1 %.not98, i64 0, i64 4096
-  %94 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i64 232, ptr %94, align 8, !tbaa !70
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr %51, ptr %91, align 8, !tbaa !68
+  %92 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 %3, ptr %92, align 8, !tbaa !69
+  %93 = and i32 %.val84, -268431361
+  %.masked.i87 = zext i32 %93 to i64
+  %94 = select i1 %.not98, i64 0, i64 4096
+  %95 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i64 232, ptr %95, align 8, !tbaa !70
   %.not.i88 = icmp eq i8 %43, 0
-  %95 = select i1 %.not.i88, i64 8192, i64 17592186052608
-  %96 = or disjoint i64 %95, %93
-  %97 = or disjoint i64 %96, %.masked.i87
-  store i64 %97, ptr %9, align 8, !tbaa !66
-  %98 = call zeroext i1 @duckdb_je_extent_purge_forced_wrapper(ptr noundef %0, ptr noundef %89, ptr noundef nonnull %9, i64 noundef 0, i64 noundef %3) #6
-  br i1 %98, label %99, label %100
+  %96 = select i1 %.not.i88, i64 8192, i64 17592186052608
+  %97 = or disjoint i64 %96, %94
+  %98 = or disjoint i64 %97, %.masked.i87
+  store i64 %98, ptr %9, align 8, !tbaa !66
+  %99 = call zeroext i1 @duckdb_je_extent_purge_forced_wrapper(ptr noundef %0, ptr noundef %90, ptr noundef nonnull %9, i64 noundef 0, i64 noundef %3) #6
+  br i1 %99, label %100, label %101
 
-99:                                               ; preds = %87
+100:                                              ; preds = %88
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %51, i8 0, i64 %3, i1 false)
-  br label %100
+  br label %101
 
-100:                                              ; preds = %99, %87
+101:                                              ; preds = %100, %88
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #6
   br label %.thread93
 
-101:                                              ; preds = %69
-  %102 = icmp eq ptr %72, inttoptr (i64 -1 to ptr)
-  br i1 %102, label %atomic_store_b.exit, label %37
+102:                                              ; preds = %69
+  %103 = icmp eq ptr %72, inttoptr (i64 -1 to ptr)
+  br i1 %103, label %atomic_store_b.exit, label %37
 
-atomic_store_b.exit:                              ; preds = %101
+atomic_store_b.exit:                              ; preds = %102
   store atomic i8 1, ptr @dss_exhausted.0 release, align 1
   br label %.thread
 
@@ -259,8 +259,8 @@ atomic_store_b.exit:                              ; preds = %101
   tail call void @duckdb_je_edata_cache_put(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %13) #6
   br label %.thread93
 
-.thread93:                                        ; preds = %84, %100, %11, %7, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ null, %7 ], [ null, %11 ], [ %51, %100 ], [ %51, %84 ]
+.thread93:                                        ; preds = %84, %101, %11, %7, %.thread
+  %.0 = phi ptr [ null, %.thread ], [ null, %7 ], [ null, %11 ], [ %51, %101 ], [ %51, %84 ]
   ret ptr %.0
 }
 

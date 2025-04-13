@@ -16877,14 +16877,14 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
 "_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6568a55dcd73b769E.exit": ; preds = %29, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h471a39b8472f904cE.exit", %.lr.ph.split.us.i.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8, !noundef !11
-  %.not5 = icmp eq ptr %35, null
-  br i1 %.not5, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h471a39b8472f904cE.exit9", label %36
+  %.not12 = icmp eq ptr %35, null
+  br i1 %.not12, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h471a39b8472f904cE.exit16", label %36
 
 36:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6568a55dcd73b769E.exit"
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load ptr, ptr %37, align 8, !nonnull !11, !noundef !11
   %39 = icmp eq ptr %35, %38
-  br i1 %39, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h471a39b8472f904cE.exit9", label %40
+  br i1 %39, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h471a39b8472f904cE.exit16", label %40
 
 40:                                               ; preds = %36
   %41 = ptrtoint ptr %38 to i64
@@ -16894,17 +16894,17 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
   br label %45
 
 45:                                               ; preds = %45, %40
-  %.0.i.i8 = phi i64 [ 0, %40 ], [ %48, %45 ]
-  %46 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %35, i64 %.0.i.i8
+  %.0.i.i15 = phi i64 [ 0, %40 ], [ %48, %45 ]
+  %46 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %35, i64 %.0.i.i15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !5799
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %46), !noalias !5814
   %47 = call noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h5d4a719b1a639f89E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !5815
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !5799
-  %48 = add nuw i64 %.0.i.i8, 1
+  %48 = add nuw i64 %.0.i.i15, 1
   %49 = icmp eq i64 %48, %44
-  br i1 %49, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h471a39b8472f904cE.exit9", label %45
+  br i1 %49, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h471a39b8472f904cE.exit16", label %45
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h471a39b8472f904cE.exit9": ; preds = %45, %36, %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6568a55dcd73b769E.exit"
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h471a39b8472f904cE.exit16": ; preds = %45, %36, %"_ZN100_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6568a55dcd73b769E.exit"
   ret void
 }
 

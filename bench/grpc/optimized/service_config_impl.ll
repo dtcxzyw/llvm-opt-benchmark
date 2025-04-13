@@ -4314,20 +4314,19 @@ define internal void @_ZNK9grpc_core11json_detail24FinishedJsonObjectLoaderINS_1
 8:                                                ; preds = %5
   %9 = getelementptr i8, ptr %3, i64 32
   %.val = load i8, ptr %9, align 8, !tbaa !116, !range !82, !noundef !83
-  %10 = trunc nuw i8 %.val to i1
-  br i1 %10, label %_ZN9grpc_core12_GLOBAL__N_112MethodConfig4Name12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit, label %11
+  %10 = getelementptr i8, ptr %3, i64 72
+  %.val9 = load i8, ptr %10, align 8
+  %11 = trunc nuw i8 %.val to i1
+  %.not.i = xor i1 %11, true
+  %12 = trunc nuw i8 %.val9 to i1
+  %or.cond.i = select i1 %.not.i, i1 %12, i1 false
+  br i1 %or.cond.i, label %13, label %_ZN9grpc_core12_GLOBAL__N_112MethodConfig4Name12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit
 
-11:                                               ; preds = %8
-  %12 = getelementptr i8, ptr %3, i64 72
-  %.val9 = load i8, ptr %12, align 8
-  %13 = trunc nuw i8 %.val9 to i1
-  br i1 %13, label %14, label %_ZN9grpc_core12_GLOBAL__N_112MethodConfig4Name12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit
-
-14:                                               ; preds = %11
+13:                                               ; preds = %8
   tail call void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(80) %4, i64 42, ptr nonnull @.str.26)
   br label %_ZN9grpc_core12_GLOBAL__N_112MethodConfig4Name12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit
 
-_ZN9grpc_core12_GLOBAL__N_112MethodConfig4Name12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit: ; preds = %14, %11, %8, %5
+_ZN9grpc_core12_GLOBAL__N_112MethodConfig4Name12JsonPostLoadERKNS_12experimental4JsonERKNS_8JsonArgsEPNS_16ValidationErrorsE.exit: ; preds = %13, %8, %5
   ret void
 }
 

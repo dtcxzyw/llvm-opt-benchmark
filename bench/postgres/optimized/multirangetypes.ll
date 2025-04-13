@@ -3704,7 +3704,7 @@ define dso_local noundef zeroext i1 @multirange_contains_elem_internal(ptr nound
   call void @multirange_get_bounds(ptr noundef %0, ptr noundef %1, i32 noundef %16, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %17 = load i8, ptr %9, align 8, !range !22, !noundef !23
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %30, label %19
+  br i1 %18, label %29, label %19
 
 19:                                               ; preds = %.lr.ph.i
   %20 = load i32, ptr %11, align 4
@@ -3715,52 +3715,48 @@ define dso_local noundef zeroext i1 @multirange_contains_elem_internal(ptr nound
   br i1 %24, label %multirange_elem_bsearch_comparison.exit, label %25
 
 25:                                               ; preds = %19
-  %26 = icmp eq i32 %23, 0
-  br i1 %26, label %27, label %30
+  %26 = icmp ne i32 %23, 0
+  %27 = load i8, ptr %12, align 1, !range !22
+  %28 = trunc nuw i8 %27 to i1
+  %or.cond = select i1 %26, i1 true, i1 %28
+  br i1 %or.cond, label %29, label %multirange_elem_bsearch_comparison.exit
 
-27:                                               ; preds = %25
-  %28 = load i8, ptr %12, align 1, !range !22, !noundef !23
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %multirange_elem_bsearch_comparison.exit
+29:                                               ; preds = %25, %.lr.ph.i
+  %30 = load i8, ptr %13, align 8, !range !22, !noundef !23
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %.thread.i, label %32
 
-30:                                               ; preds = %27, %25, %.lr.ph.i
-  %31 = load i8, ptr %13, align 8, !range !22, !noundef !23
-  %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %.thread.i, label %33
+32:                                               ; preds = %29
+  %33 = load i32, ptr %11, align 4
+  %34 = load i64, ptr %5, align 8
+  %35 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %10, i32 noundef %33, i64 noundef %34, i64 noundef %2) #11
+  %36 = trunc i64 %35 to i32
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %42, label %38
 
-33:                                               ; preds = %30
-  %34 = load i32, ptr %11, align 4
-  %35 = load i64, ptr %5, align 8
-  %36 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %10, i32 noundef %34, i64 noundef %35, i64 noundef %2) #11
-  %37 = trunc i64 %36 to i32
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %44, label %39
+38:                                               ; preds = %32
+  %39 = icmp ne i32 %36, 0
+  %40 = load i8, ptr %14, align 1, !range !22
+  %41 = trunc nuw i8 %40 to i1
+  %or.cond19 = select i1 %39, i1 true, i1 %41
+  br i1 %or.cond19, label %.thread.i, label %42
 
-39:                                               ; preds = %33
-  %40 = icmp eq i32 %37, 0
-  br i1 %40, label %41, label %.thread.i
-
-41:                                               ; preds = %39
-  %42 = load i8, ptr %14, align 1, !range !22, !noundef !23
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %.thread.i, label %44
-
-44:                                               ; preds = %33, %41
-  %45 = add nuw i32 %16, 1
+42:                                               ; preds = %38, %32
+  %43 = add nuw i32 %16, 1
   br label %multirange_elem_bsearch_comparison.exit
 
-.thread.i:                                        ; preds = %41, %39, %30
+.thread.i:                                        ; preds = %38, %29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   br label %multirange_bsearch_match.exit
 
-multirange_elem_bsearch_comparison.exit:          ; preds = %27, %19, %44
-  %.222.i = phi i32 [ %.02028.i, %44 ], [ %16, %19 ], [ %16, %27 ]
-  %.219.i = phi i32 [ %45, %44 ], [ %.01729.i, %19 ], [ %.01729.i, %27 ]
+multirange_elem_bsearch_comparison.exit:          ; preds = %25, %19, %42
+  %.222.i = phi i32 [ %.02028.i, %42 ], [ %16, %19 ], [ %16, %25 ]
+  %.219.i = phi i32 [ %43, %42 ], [ %.01729.i, %19 ], [ %.01729.i, %25 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  %46 = icmp ult i32 %.219.i, %.222.i
-  br i1 %46, label %.lr.ph.i, label %multirange_bsearch_match.exit, !llvm.loop !33
+  %44 = icmp ult i32 %.219.i, %.222.i
+  br i1 %44, label %.lr.ph.i, label %multirange_bsearch_match.exit, !llvm.loop !33
 
 multirange_bsearch_match.exit:                    ; preds = %multirange_elem_bsearch_comparison.exit, %.thread.i, %3
   %.0 = phi i1 [ false, %3 ], [ true, %.thread.i ], [ false, %multirange_elem_bsearch_comparison.exit ]

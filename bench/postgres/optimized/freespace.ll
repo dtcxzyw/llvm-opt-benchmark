@@ -722,20 +722,20 @@ define dso_local i32 @FreeSpaceMapPrepareTruncateRel(ptr noundef %0, i32 noundef
 RelationGetSmgr.exit:                             ; preds = %2, %6
   %10 = phi ptr [ %.pre.i, %6 ], [ %4, %2 ]
   %11 = tail call zeroext i1 @smgrexists(ptr noundef %10, i32 noundef 1) #8
-  br i1 %11, label %12, label %81
+  br i1 %11, label %12, label %80
 
 12:                                               ; preds = %RelationGetSmgr.exit
   %13 = udiv i32 %1, 4069
   %14 = urem i32 %1, 4069
   %.sroa.2.0.insert.ext.i = zext nneg i32 %13 to i64
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %.preheader.i22, label %15
+  br i1 %.not, label %.preheader.i23, label %15
 
 15:                                               ; preds = %12
   %.sroa.2.0.insert.shift.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i, 32
   %16 = tail call fastcc i32 @fsm_readbuf(ptr noundef nonnull %0, i64 %.sroa.2.0.insert.shift.i, i1 noundef zeroext false)
-  %.not42 = icmp eq i32 %16, 0
-  br i1 %.not42, label %81, label %17
+  %.not43 = icmp eq i32 %16, 0
+  br i1 %.not43, label %80, label %17
 
 17:                                               ; preds = %15
   tail call void @LockBuffer(i32 noundef %16, i32 noundef 2) #8
@@ -796,79 +796,77 @@ BufferGetPage.exit:                               ; preds = %21, %27
 
 53:                                               ; preds = %49, %42
   %54 = tail call zeroext i1 @DataChecksumsEnabled() #8
-  br i1 %54, label %58, label %55
+  %55 = load i8, ptr @wal_log_hints, align 1, !range !8
+  %56 = trunc nuw i8 %55 to i1
+  %or.cond = select i1 %54, i1 true, i1 %56
+  br i1 %or.cond, label %57, label %.preheader.i
 
-55:                                               ; preds = %53
-  %56 = load i8, ptr @wal_log_hints, align 1, !range !8, !noundef !9
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %58, label %.preheader.i
-
-58:                                               ; preds = %55, %53
-  %59 = tail call i64 @log_newpage_buffer(i32 noundef %16, i1 noundef zeroext false) #8
+57:                                               ; preds = %53
+  %58 = tail call i64 @log_newpage_buffer(i32 noundef %16, i1 noundef zeroext false) #8
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %BufferGetPage.exit, %36, %45, %49, %55, %58
-  %60 = load volatile i32, ptr @CritSectionCount, align 4
-  %61 = add i32 %60, -1
-  store volatile i32 %61, ptr @CritSectionCount, align 4
+.preheader.i:                                     ; preds = %BufferGetPage.exit, %36, %45, %49, %57, %53
+  %59 = load volatile i32, ptr @CritSectionCount, align 4
+  %60 = add i32 %59, -1
+  store volatile i32 %60, ptr @CritSectionCount, align 4
   tail call void @UnlockReleaseBuffer(i32 noundef %16) #8
-  br label %62
+  br label %61
 
-62:                                               ; preds = %62, %.preheader.i
-  %.119.i = phi i32 [ 0, %.preheader.i ], [ %66, %62 ]
-  %.112.in18.i = phi i64 [ %.sroa.2.0.insert.ext.i, %.preheader.i ], [ %65, %62 ]
-  %.01317.i = phi i32 [ 0, %.preheader.i ], [ %64, %62 ]
+61:                                               ; preds = %61, %.preheader.i
+  %.119.i = phi i32 [ 0, %.preheader.i ], [ %65, %61 ]
+  %.112.in18.i = phi i64 [ %.sroa.2.0.insert.ext.i, %.preheader.i ], [ %64, %61 ]
+  %.01317.i = phi i32 [ 0, %.preheader.i ], [ %63, %61 ]
   %.112.i = trunc nuw nsw i64 %.112.in18.i to i32
-  %63 = add i32 %.01317.i, 1
-  %64 = add i32 %63, %.112.i
-  %65 = udiv i64 %.112.in18.i, 4069
-  %66 = add nuw nsw i32 %.119.i, 1
-  %exitcond21.not.i = icmp eq i32 %66, 3
-  br i1 %exitcond21.not.i, label %fsm_logical_to_physical.exit, label %62, !llvm.loop !5
+  %62 = add i32 %.01317.i, 1
+  %63 = add i32 %62, %.112.i
+  %64 = udiv i64 %.112.in18.i, 4069
+  %65 = add nuw nsw i32 %.119.i, 1
+  %exitcond21.not.i = icmp eq i32 %65, 3
+  br i1 %exitcond21.not.i, label %fsm_logical_to_physical.exit, label %61, !llvm.loop !5
 
-fsm_logical_to_physical.exit:                     ; preds = %62
-  %67 = add nuw nsw i32 %.112.i, 1
-  %68 = add i32 %67, %.01317.i
-  br label %81
+fsm_logical_to_physical.exit:                     ; preds = %61
+  %66 = add nuw nsw i32 %.112.i, 1
+  %67 = add i32 %66, %.01317.i
+  br label %80
 
-.preheader.i22:                                   ; preds = %12, %.preheader.i22
-  %.119.i24 = phi i32 [ %72, %.preheader.i22 ], [ 0, %12 ]
-  %.112.in18.i25 = phi i64 [ %71, %.preheader.i22 ], [ %.sroa.2.0.insert.ext.i, %12 ]
-  %.01317.i26 = phi i32 [ %70, %.preheader.i22 ], [ 0, %12 ]
-  %.112.i27 = trunc nuw nsw i64 %.112.in18.i25 to i32
-  %69 = add i32 %.01317.i26, %.112.i27
-  %70 = add i32 %69, 1
-  %71 = udiv i64 %.112.in18.i25, 4069
-  %72 = add nuw nsw i32 %.119.i24, 1
-  %exitcond21.not.i29 = icmp eq i32 %72, 3
-  br i1 %exitcond21.not.i29, label %fsm_logical_to_physical.exit35, label %.preheader.i22, !llvm.loop !5
+.preheader.i23:                                   ; preds = %12, %.preheader.i23
+  %.119.i25 = phi i32 [ %71, %.preheader.i23 ], [ 0, %12 ]
+  %.112.in18.i26 = phi i64 [ %70, %.preheader.i23 ], [ %.sroa.2.0.insert.ext.i, %12 ]
+  %.01317.i27 = phi i32 [ %69, %.preheader.i23 ], [ 0, %12 ]
+  %.112.i28 = trunc nuw nsw i64 %.112.in18.i26 to i32
+  %68 = add i32 %.01317.i27, %.112.i28
+  %69 = add i32 %68, 1
+  %70 = udiv i64 %.112.in18.i26, 4069
+  %71 = add nuw nsw i32 %.119.i25, 1
+  %exitcond21.not.i30 = icmp eq i32 %71, 3
+  br i1 %exitcond21.not.i30, label %fsm_logical_to_physical.exit36, label %.preheader.i23, !llvm.loop !5
 
-fsm_logical_to_physical.exit35:                   ; preds = %.preheader.i22
-  %73 = load ptr, ptr %3, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %RelationGetSmgr.exit40, !prof !4
+fsm_logical_to_physical.exit36:                   ; preds = %.preheader.i23
+  %72 = load ptr, ptr %3, align 8
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %74, label %RelationGetSmgr.exit41, !prof !4
 
-75:                                               ; preds = %fsm_logical_to_physical.exit35
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %77 = load i32, ptr %76, align 4
-  %.sroa.0.0.copyload.i36 = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.2.0.copyload.i38 = load i32, ptr %.sroa.2.0..sroa_idx.i37, align 8
-  %78 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i36, i32 %.sroa.2.0.copyload.i38, i32 noundef %77) #8
-  store ptr %78, ptr %3, align 8
-  tail call void @smgrpin(ptr noundef %78) #8
-  %.pre.i39 = load ptr, ptr %3, align 8
-  br label %RelationGetSmgr.exit40
+74:                                               ; preds = %fsm_logical_to_physical.exit36
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %76 = load i32, ptr %75, align 4
+  %.sroa.0.0.copyload.i37 = load i64, ptr %0, align 8
+  %.sroa.2.0..sroa_idx.i38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.2.0.copyload.i39 = load i32, ptr %.sroa.2.0..sroa_idx.i38, align 8
+  %77 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i37, i32 %.sroa.2.0.copyload.i39, i32 noundef %76) #8
+  store ptr %77, ptr %3, align 8
+  tail call void @smgrpin(ptr noundef %77) #8
+  %.pre.i40 = load ptr, ptr %3, align 8
+  br label %RelationGetSmgr.exit41
 
-RelationGetSmgr.exit40:                           ; preds = %fsm_logical_to_physical.exit35, %75
-  %79 = phi ptr [ %.pre.i39, %75 ], [ %73, %fsm_logical_to_physical.exit35 ]
-  %80 = tail call i32 @smgrnblocks(ptr noundef %79, i32 noundef 1) #8
-  %.not20 = icmp ugt i32 %80, %69
-  %spec.select = select i1 %.not20, i32 %69, i32 -1
-  br label %81
+RelationGetSmgr.exit41:                           ; preds = %fsm_logical_to_physical.exit36, %74
+  %78 = phi ptr [ %.pre.i40, %74 ], [ %72, %fsm_logical_to_physical.exit36 ]
+  %79 = tail call i32 @smgrnblocks(ptr noundef %78, i32 noundef 1) #8
+  %.not21 = icmp ugt i32 %79, %68
+  %spec.select = select i1 %.not21, i32 %68, i32 -1
+  br label %80
 
-81:                                               ; preds = %RelationGetSmgr.exit40, %fsm_logical_to_physical.exit, %15, %RelationGetSmgr.exit
-  %.0 = phi i32 [ -1, %RelationGetSmgr.exit ], [ -1, %15 ], [ %68, %fsm_logical_to_physical.exit ], [ %spec.select, %RelationGetSmgr.exit40 ]
+80:                                               ; preds = %RelationGetSmgr.exit41, %fsm_logical_to_physical.exit, %15, %RelationGetSmgr.exit
+  %.0 = phi i32 [ -1, %RelationGetSmgr.exit ], [ -1, %15 ], [ %67, %fsm_logical_to_physical.exit ], [ %spec.select, %RelationGetSmgr.exit41 ]
   ret i32 %.0
 }
 

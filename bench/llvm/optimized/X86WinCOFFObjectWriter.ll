@@ -75,141 +75,142 @@ define internal noundef range(i32 1, 21) i32 @_ZNK12_GLOBAL__N_122X86WinCOFFObje
   %12 = icmp eq i32 %11, 34404
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %14 = load i32, ptr %13, align 4, !tbaa !18
-  br i1 %4, label %15, label %21
+  br i1 %4, label %15, label %22
 
 15:                                               ; preds = %6
-  switch i32 %14, label %17 [
-    i32 135, label %21
-    i32 3, label %21
-    i32 4, label %16
+  switch i32 %14, label %16 [
+    i32 135, label %22
+    i32 3, label %22
   ]
 
 16:                                               ; preds = %15
-  br i1 %12, label %21, label %17
+  %17 = icmp eq i32 %14, 4
+  %or.cond3 = and i1 %12, %17
+  br i1 %or.cond3, label %22, label %18
 
-17:                                               ; preds = %15, %16
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i = load ptr, ptr %18, align 8, !tbaa !24
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.0.0.copyload.i = load ptr, ptr %19, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #7
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %20 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %20, align 1, !tbaa !25
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %21, align 1, !tbaa !25
   store ptr @.str, ptr %7, align 8, !tbaa !28
-  store i8 3, ptr %19, align 8, !tbaa !29
+  store i8 3, ptr %20, align 8, !tbaa !29
   call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %7) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #7
-  br label %50
+  br label %51
 
-21:                                               ; preds = %16, %15, %15, %6
-  %.025 = phi i32 [ %14, %6 ], [ 8, %15 ], [ 8, %15 ], [ 8, %16 ]
-  %22 = load ptr, ptr %2, align 8, !tbaa !30
-  %.not.i = icmp eq ptr %22, null
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %24 = load ptr, ptr %23, align 8
-  %.not1.i = icmp eq ptr %24, null
-  %25 = select i1 %.not.i, i1 %.not1.i, i1 false
-  br i1 %25, label %30, label %26
+22:                                               ; preds = %16, %15, %15, %6
+  %.027 = phi i32 [ %14, %6 ], [ 8, %15 ], [ 8, %15 ], [ 8, %16 ]
+  %23 = load ptr, ptr %2, align 8, !tbaa !30
+  %.not.i = icmp eq ptr %23, null
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %.not1.i = icmp eq ptr %25, null
+  %26 = select i1 %.not.i, i1 %.not1.i, i1 false
+  br i1 %26, label %31, label %27
 
-26:                                               ; preds = %21
-  %27 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  %28 = load i32, ptr %27, align 1
-  %29 = and i32 %28, 65535
-  br label %30
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  %29 = load i32, ptr %28, align 1
+  %30 = and i32 %29, 65535
+  br label %31
 
-30:                                               ; preds = %21, %26
-  %31 = phi i32 [ %29, %26 ], [ 0, %21 ]
-  br i1 %12, label %32, label %41
+31:                                               ; preds = %22, %27
+  %32 = phi i32 [ %30, %27 ], [ 0, %22 ]
+  br i1 %12, label %33, label %42
 
-32:                                               ; preds = %30
-  switch i32 %.025, label %37 [
-    i32 8, label %50
-    i32 128, label %50
-    i32 129, label %50
-    i32 130, label %50
-    i32 131, label %50
-    i32 132, label %50
-    i32 133, label %50
-    i32 134, label %50
-    i32 139, label %50
-    i32 3, label %33
-    i32 135, label %33
-    i32 136, label %33
-    i32 4, label %34
-    i32 19, label %35
-    i32 20, label %36
+33:                                               ; preds = %31
+  switch i32 %.027, label %38 [
+    i32 8, label %51
+    i32 128, label %51
+    i32 129, label %51
+    i32 130, label %51
+    i32 131, label %51
+    i32 132, label %51
+    i32 133, label %51
+    i32 134, label %51
+    i32 139, label %51
+    i32 3, label %34
+    i32 135, label %34
+    i32 136, label %34
+    i32 4, label %35
+    i32 19, label %36
+    i32 20, label %37
   ]
 
-33:                                               ; preds = %32, %32, %32
-  %switch.selectcmp = icmp eq i32 %31, 28
+34:                                               ; preds = %33, %33, %33
+  %switch.selectcmp = icmp eq i32 %32, 28
   %switch.select = select i1 %switch.selectcmp, i32 11, i32 2
-  %switch.selectcmp29 = icmp eq i32 %31, 126
-  %switch.select30 = select i1 %switch.selectcmp29, i32 3, i32 %switch.select
-  br label %50
+  %switch.selectcmp31 = icmp eq i32 %32, 126
+  %switch.select32 = select i1 %switch.selectcmp31, i32 3, i32 %switch.select
+  br label %51
 
-34:                                               ; preds = %32
-  br label %50
+35:                                               ; preds = %33
+  br label %51
 
-35:                                               ; preds = %32
-  br label %50
+36:                                               ; preds = %33
+  br label %51
 
-36:                                               ; preds = %32
-  br label %50
+37:                                               ; preds = %33
+  br label %51
 
-37:                                               ; preds = %32
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i35 = load ptr, ptr %38, align 8, !tbaa !24
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.0.0.copyload.i37 = load ptr, ptr %39, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #7
-  %39 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %40 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 1, ptr %40, align 1, !tbaa !25
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 1, ptr %41, align 1, !tbaa !25
   store ptr @.str.1, ptr %8, align 8, !tbaa !28
-  store i8 3, ptr %39, align 8, !tbaa !29
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i35, ptr noundef nonnull align 8 dereferenceable(34) %8) #7
+  store i8 3, ptr %40, align 8, !tbaa !29
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i37, ptr noundef nonnull align 8 dereferenceable(34) %8) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #7
-  br label %50
+  br label %51
 
-41:                                               ; preds = %30
-  %42 = icmp eq i32 %11, 332
-  tail call void @llvm.assume(i1 %42)
-  switch i32 %.025, label %46 [
-    i32 8, label %50
-    i32 128, label %50
-    i32 129, label %50
-    i32 3, label %43
-    i32 135, label %43
-    i32 136, label %43
-    i32 19, label %44
-    i32 20, label %45
+42:                                               ; preds = %31
+  %43 = icmp eq i32 %11, 332
+  tail call void @llvm.assume(i1 %43)
+  switch i32 %.027, label %47 [
+    i32 8, label %51
+    i32 128, label %51
+    i32 129, label %51
+    i32 3, label %44
+    i32 135, label %44
+    i32 136, label %44
+    i32 19, label %45
+    i32 20, label %46
   ]
 
-43:                                               ; preds = %41, %41, %41
-  %switch.selectcmp31 = icmp eq i32 %31, 28
-  %switch.select32 = select i1 %switch.selectcmp31, i32 11, i32 6
-  %switch.selectcmp33 = icmp eq i32 %31, 126
-  %switch.select34 = select i1 %switch.selectcmp33, i32 7, i32 %switch.select32
-  br label %50
+44:                                               ; preds = %42, %42, %42
+  %switch.selectcmp33 = icmp eq i32 %32, 28
+  %switch.select34 = select i1 %switch.selectcmp33, i32 11, i32 6
+  %switch.selectcmp35 = icmp eq i32 %32, 126
+  %switch.select36 = select i1 %switch.selectcmp35, i32 7, i32 %switch.select34
+  br label %51
 
-44:                                               ; preds = %41
-  br label %50
+45:                                               ; preds = %42
+  br label %51
 
-45:                                               ; preds = %41
-  br label %50
+46:                                               ; preds = %42
+  br label %51
 
-46:                                               ; preds = %41
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i36 = load ptr, ptr %47, align 8, !tbaa !24
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.0.0.copyload.i38 = load ptr, ptr %48, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #7
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %49 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 1, ptr %49, align 1, !tbaa !25
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  store i8 1, ptr %50, align 1, !tbaa !25
   store ptr @.str.1, ptr %9, align 8, !tbaa !28
-  store i8 3, ptr %48, align 8, !tbaa !29
-  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i36, ptr noundef nonnull align 8 dereferenceable(34) %9) #7
+  store i8 3, ptr %49, align 8, !tbaa !29
+  call void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %1, ptr %.sroa.0.0.copyload.i38, ptr noundef nonnull align 8 dereferenceable(34) %9) #7
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #7
-  br label %50
+  br label %51
 
-50:                                               ; preds = %43, %33, %34, %35, %36, %37, %44, %45, %46, %32, %32, %32, %32, %32, %32, %32, %32, %32, %41, %41, %41, %17
-  %.0 = phi i32 [ 2, %17 ], [ 2, %37 ], [ 11, %36 ], [ 10, %35 ], [ 1, %34 ], [ 6, %46 ], [ 11, %45 ], [ 10, %44 ], [ 4, %32 ], [ 4, %32 ], [ 4, %32 ], [ 4, %32 ], [ 4, %32 ], [ 4, %32 ], [ 4, %32 ], [ 4, %32 ], [ 4, %32 ], [ 20, %41 ], [ 20, %41 ], [ 20, %41 ], [ %switch.select30, %33 ], [ %switch.select34, %43 ]
+51:                                               ; preds = %44, %34, %35, %36, %37, %38, %45, %46, %47, %33, %33, %33, %33, %33, %33, %33, %33, %33, %42, %42, %42, %18
+  %.0 = phi i32 [ 2, %18 ], [ 2, %38 ], [ 11, %37 ], [ 10, %36 ], [ 1, %35 ], [ 6, %47 ], [ 11, %46 ], [ 10, %45 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 4, %33 ], [ 20, %42 ], [ 20, %42 ], [ 20, %42 ], [ %switch.select32, %34 ], [ %switch.select36, %44 ]
   ret i32 %.0
 }
 

@@ -5170,8 +5170,8 @@ define void @_ZN5boost9unit_test18traverse_test_treeERKNS0_9test_caseERNS0_17tes
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %5 = load i32, ptr %4, align 4, !tbaa !101
   %6 = icmp eq i32 %5, 1
-  %brmerge = or i1 %2, %6
-  br i1 %brmerge, label %7, label %11
+  %or.cond = or i1 %2, %6
+  br i1 %or.cond, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !90
@@ -5318,8 +5318,8 @@ define void @_ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 220
   %8 = load i32, ptr %7, align 4, !tbaa !101
   %9 = icmp eq i32 %8, 1
-  %brmerge.i = or i1 %2, %9
-  br i1 %brmerge.i, label %10, label %_ZN5boost9unit_test18traverse_test_treeERKNS0_9test_caseERNS0_17test_tree_visitorEb.exit
+  %or.cond.i = or i1 %2, %9
+  br i1 %or.cond.i, label %10, label %_ZN5boost9unit_test18traverse_test_treeERKNS0_9test_caseERNS0_17test_tree_visitorEb.exit
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %1, align 8, !tbaa !90

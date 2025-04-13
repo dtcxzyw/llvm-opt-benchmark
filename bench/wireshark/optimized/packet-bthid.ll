@@ -180,9 +180,9 @@ define internal i32 @dissect_bthid(ptr noundef %0, ptr noundef %1, ptr noundef %
   %14 = load ptr, ptr %9, align 8
   %switch.selectcmp = icmp eq i32 %13, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.92, ptr @.str.93
-  %switch.selectcmp142 = icmp eq i32 %13, 0
-  %switch.select143 = select i1 %switch.selectcmp142, ptr @.str.91, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %14, i32 noundef 25, ptr noundef nonnull %switch.select143)
+  %switch.selectcmp143 = icmp eq i32 %13, 0
+  %switch.select144 = select i1 %switch.selectcmp143, ptr @.str.91, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %14, i32 noundef 25, ptr noundef nonnull %switch.select144)
   %15 = load i32, ptr @hf_bthid_transaction_type, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %15, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %17 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
@@ -195,14 +195,14 @@ define internal i32 @dissect_bthid(ptr noundef %0, ptr noundef %1, ptr noundef %
   switch i32 %20, label %dissect_hid_data.exit [
     i32 0, label %23
     i32 1, label %28
-    i32 4, label %40
-    i32 5, label %64
-    i32 6, label %76
-    i32 7, label %86
-    i32 8, label %94
-    i32 9, label %94
-    i32 11, label %110
-    i32 10, label %115
+    i32 4, label %39
+    i32 5, label %63
+    i32 6, label %75
+    i32 7, label %85
+    i32 8, label %93
+    i32 9, label %93
+    i32 11, label %109
+    i32 10, label %114
   ]
 
 23:                                               ; preds = %4
@@ -221,175 +221,173 @@ define internal i32 @dissect_bthid(ptr noundef %0, ptr noundef %1, ptr noundef %
   %33 = tail call ptr @val_to_str_const(i32 noundef %19, ptr noundef nonnull @control_operation_vals, ptr noundef nonnull @.str.50)
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.96, ptr noundef %33)
   %34 = icmp ult i8 %31, 3
-  br i1 %34, label %35, label %dissect_hid_data.exit
+  %35 = load i8, ptr @show_deprecated, align 1, !range !6
+  %36 = trunc nuw i8 %35 to i1
+  %or.cond = select i1 %34, i1 %36, i1 false
+  br i1 %or.cond, label %37, label %dissect_hid_data.exit
 
-35:                                               ; preds = %28
-  %36 = load i8, ptr @show_deprecated, align 1, !range !6, !noundef !7
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %dissect_hid_data.exit
-
-38:                                               ; preds = %35
-  %39 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %30, ptr noundef nonnull @ei_bthid_parameter_control_operation_deprecated)
+37:                                               ; preds = %28
+  %38 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %30, ptr noundef nonnull @ei_bthid_parameter_control_operation_deprecated)
   br label %dissect_hid_data.exit
 
-40:                                               ; preds = %4
-  %41 = load i32, ptr @hf_bthid_parameter_size, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %43 = load i32, ptr @hf_bthid_parameter_reserved_2, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %45 = load i32, ptr @hf_bthid_parameter_report_type, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %45, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %47 = load ptr, ptr %9, align 8
-  %48 = lshr i32 %19, 3
-  %49 = tail call ptr @val_to_str_const(i32 noundef %48, ptr noundef nonnull @size_vals, ptr noundef nonnull @.str.50)
-  %50 = and i32 %18, 3
-  %51 = tail call ptr @val_to_str_const(i32 noundef %50, ptr noundef nonnull @report_type_vals, ptr noundef nonnull @.str.50)
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %47, i32 noundef 25, ptr noundef nonnull @.str.97, ptr noundef %49, ptr noundef %51)
+39:                                               ; preds = %4
+  %40 = load i32, ptr @hf_bthid_parameter_size, align 4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %40, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %42 = load i32, ptr @hf_bthid_parameter_reserved_2, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %42, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %44 = load i32, ptr @hf_bthid_parameter_report_type, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %44, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %46 = load ptr, ptr %9, align 8
+  %47 = lshr i32 %19, 3
+  %48 = tail call ptr @val_to_str_const(i32 noundef %47, ptr noundef nonnull @size_vals, ptr noundef nonnull @.str.50)
+  %49 = and i32 %18, 3
+  %50 = tail call ptr @val_to_str_const(i32 noundef %49, ptr noundef nonnull @report_type_vals, ptr noundef nonnull @.str.50)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.97, ptr noundef %48, ptr noundef %50)
   %.not = icmp samesign ult i32 %19, 8
-  %52 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1)
-  br i1 %.not, label %.critedge, label %53
+  %51 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 1)
+  br i1 %.not, label %.critedge, label %52
 
-53:                                               ; preds = %40
-  %54 = icmp sgt i32 %52, 2
-  br i1 %54, label %58, label %.thread136
+52:                                               ; preds = %39
+  %53 = icmp sgt i32 %51, 2
+  br i1 %53, label %57, label %.thread137
 
-.critedge:                                        ; preds = %40
-  %55 = icmp sgt i32 %52, 0
-  br i1 %55, label %.thread139, label %dissect_hid_data.exit
+.critedge:                                        ; preds = %39
+  %54 = icmp sgt i32 %51, 0
+  br i1 %54, label %.thread140, label %dissect_hid_data.exit
 
-.thread139:                                       ; preds = %.critedge
-  %56 = load i32, ptr @hf_bthid_report_id, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %56, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+.thread140:                                       ; preds = %.critedge
+  %55 = load i32, ptr @hf_bthid_report_id, align 4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %55, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   br label %dissect_hid_data.exit
 
-58:                                               ; preds = %53
-  %59 = load i32, ptr @hf_bthid_report_id, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %59, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  br label %.thread136
+57:                                               ; preds = %52
+  %58 = load i32, ptr @hf_bthid_report_id, align 4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %58, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  br label %.thread137
 
-.thread136:                                       ; preds = %53, %58
-  %.1138 = phi i32 [ 2, %58 ], [ 1, %53 ]
-  %61 = load i32, ptr @hf_bthid_buffer_size, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %61, ptr noundef %0, i32 noundef %.1138, i32 noundef 2, i32 noundef -2147483648)
-  %63 = add nuw nsw i32 %.1138, 2
+.thread137:                                       ; preds = %52, %57
+  %.1139 = phi i32 [ 2, %57 ], [ 1, %52 ]
+  %60 = load i32, ptr @hf_bthid_buffer_size, align 4
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %60, ptr noundef %0, i32 noundef %.1139, i32 noundef 2, i32 noundef -2147483648)
+  %62 = add nuw nsw i32 %.1139, 2
   br label %dissect_hid_data.exit
 
-64:                                               ; preds = %4
-  %65 = load i32, ptr @hf_bthid_parameter_reserved_32, align 4
-  %66 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %65, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %67 = load i32, ptr @hf_bthid_parameter_report_type, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %67, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %69 = load ptr, ptr %9, align 8
-  %70 = and i32 %18, 3
-  %71 = tail call ptr @val_to_str_const(i32 noundef %70, ptr noundef nonnull @report_type_vals, ptr noundef nonnull @.str.50)
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.98, ptr noundef %71)
-  %72 = load i32, ptr @hf_bthid_data, align 4
-  %73 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %72, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0)
-  %74 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
-  %75 = add i32 %74, 1
+63:                                               ; preds = %4
+  %64 = load i32, ptr @hf_bthid_parameter_reserved_32, align 4
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %64, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %66 = load i32, ptr @hf_bthid_parameter_report_type, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %66, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %68 = load ptr, ptr %9, align 8
+  %69 = and i32 %18, 3
+  %70 = tail call ptr @val_to_str_const(i32 noundef %69, ptr noundef nonnull @report_type_vals, ptr noundef nonnull @.str.50)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %68, i32 noundef 25, ptr noundef nonnull @.str.98, ptr noundef %70)
+  %71 = load i32, ptr @hf_bthid_data, align 4
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %71, ptr noundef %0, i32 noundef 1, i32 noundef -1, i32 noundef 0)
+  %73 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
+  %74 = add i32 %73, 1
   br label %dissect_hid_data.exit
 
-76:                                               ; preds = %4
-  %77 = load i32, ptr @hf_bthid_parameter_reserved, align 4
-  %78 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %77, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %79 = load i32, ptr @hf_bthid_protocol, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %79, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %81 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %82 = and i8 %81, 1
-  %83 = zext nneg i8 %82 to i32
-  %84 = load ptr, ptr %9, align 8
-  %85 = tail call ptr @val_to_str_const(i32 noundef %83, ptr noundef nonnull @protocol_vals, ptr noundef nonnull @.str.50)
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %84, i32 noundef 25, ptr noundef nonnull @.str.99, ptr noundef %85)
+75:                                               ; preds = %4
+  %76 = load i32, ptr @hf_bthid_parameter_reserved, align 4
+  %77 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %76, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %78 = load i32, ptr @hf_bthid_protocol, align 4
+  %79 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %78, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %80 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %81 = and i8 %80, 1
+  %82 = zext nneg i8 %81 to i32
+  %83 = load ptr, ptr %9, align 8
+  %84 = tail call ptr @val_to_str_const(i32 noundef %82, ptr noundef nonnull @protocol_vals, ptr noundef nonnull @.str.50)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %83, i32 noundef 25, ptr noundef nonnull @.str.99, ptr noundef %84)
   br label %dissect_hid_data.exit
 
-86:                                               ; preds = %4
-  %87 = load i32, ptr @hf_bthid_parameter_reserved_31, align 4
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %87, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %89 = load i32, ptr @hf_bthid_protocol, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %89, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %91 = load ptr, ptr %9, align 8
-  %92 = and i32 %18, 1
-  %93 = tail call ptr @val_to_str_const(i32 noundef %92, ptr noundef nonnull @protocol_vals, ptr noundef nonnull @.str.50)
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %91, i32 noundef 25, ptr noundef nonnull @.str.99, ptr noundef %93)
+85:                                               ; preds = %4
+  %86 = load i32, ptr @hf_bthid_parameter_reserved_31, align 4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %86, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %88 = load i32, ptr @hf_bthid_protocol, align 4
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %88, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %90 = load ptr, ptr %9, align 8
+  %91 = and i32 %18, 1
+  %92 = tail call ptr @val_to_str_const(i32 noundef %91, ptr noundef nonnull @protocol_vals, ptr noundef nonnull @.str.50)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %90, i32 noundef 25, ptr noundef nonnull @.str.99, ptr noundef %92)
   br label %dissect_hid_data.exit
 
-94:                                               ; preds = %4, %4
-  %95 = load i8, ptr @show_deprecated, align 1, !range !6, !noundef !7
-  %96 = trunc nuw i8 %95 to i1
-  br i1 %96, label %97, label %99
+93:                                               ; preds = %4, %4
+  %94 = load i8, ptr @show_deprecated, align 1, !range !6, !noundef !7
+  %95 = trunc nuw i8 %94 to i1
+  br i1 %95, label %96, label %98
 
-97:                                               ; preds = %94
-  %98 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_bthid_transaction_type_deprecated)
-  br label %99
+96:                                               ; preds = %93
+  %97 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_bthid_transaction_type_deprecated)
+  br label %98
 
-99:                                               ; preds = %97, %94
-  %100 = load i32, ptr @hf_bthid_parameter_reserved, align 4
-  %101 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %100, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %102 = load i32, ptr @hf_bthid_idle_rate, align 4
-  %103 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %102, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %104 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %.fr141 = freeze i8 %104
-  %105 = zext i8 %.fr141 to i32
-  %106 = shl nuw nsw i32 %105, 2
-  %.cmp = icmp ugt i8 %.fr141, -7
-  %107 = zext i1 %.cmp to i32
-  %.urem = add nsw i32 %106, -1000
-  %.cmp140 = icmp ult i8 %.fr141, -6
-  %108 = select i1 %.cmp140, i32 %106, i32 %.urem
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %103, ptr noundef nonnull @.str.100, i32 noundef %107, i32 noundef %108)
-  %109 = load ptr, ptr %9, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %109, i32 noundef 25, ptr noundef nonnull @.str.101, i32 noundef %107, i32 noundef %108)
+98:                                               ; preds = %96, %93
+  %99 = load i32, ptr @hf_bthid_parameter_reserved, align 4
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %99, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %101 = load i32, ptr @hf_bthid_idle_rate, align 4
+  %102 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %101, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %103 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %.fr142 = freeze i8 %103
+  %104 = zext i8 %.fr142 to i32
+  %105 = shl nuw nsw i32 %104, 2
+  %.cmp = icmp ugt i8 %.fr142, -7
+  %106 = zext i1 %.cmp to i32
+  %.urem = add nsw i32 %105, -1000
+  %.cmp141 = icmp ult i8 %.fr142, -6
+  %107 = select i1 %.cmp141, i32 %105, i32 %.urem
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %102, ptr noundef nonnull @.str.100, i32 noundef %106, i32 noundef %107)
+  %108 = load ptr, ptr %9, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %108, i32 noundef 25, ptr noundef nonnull @.str.101, i32 noundef %106, i32 noundef %107)
   br label %dissect_hid_data.exit
 
-110:                                              ; preds = %4
-  %111 = load i8, ptr @show_deprecated, align 1, !range !6, !noundef !7
-  %112 = trunc nuw i8 %111 to i1
-  br i1 %112, label %113, label %115
+109:                                              ; preds = %4
+  %110 = load i8, ptr @show_deprecated, align 1, !range !6, !noundef !7
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %111, label %112, label %114
 
-113:                                              ; preds = %110
-  %114 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_bthid_transaction_type_deprecated)
-  br label %115
+112:                                              ; preds = %109
+  %113 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %16, ptr noundef nonnull @ei_bthid_transaction_type_deprecated)
+  br label %114
 
-115:                                              ; preds = %110, %113, %4
-  %116 = load i32, ptr @hf_bthid_parameter_reserved_32, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %116, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %118 = load i32, ptr @hf_bthid_parameter_report_type, align 4
-  %119 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %118, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %120 = load ptr, ptr %9, align 8
-  %121 = tail call ptr @val_to_str_const(i32 noundef %19, ptr noundef nonnull @report_type_vals, ptr noundef nonnull @.str.50)
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %120, i32 noundef 25, ptr noundef nonnull @.str.102, ptr noundef %121)
-  %122 = load i32, ptr @hf_bthid_protocol_code, align 4
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %122, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
-  %124 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %125 = zext i8 %124 to i32
-  %126 = load ptr, ptr %9, align 8
-  %127 = tail call ptr @val_to_str_const(i32 noundef %125, ptr noundef nonnull @protocol_code_vals, ptr noundef nonnull @.str.103)
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.102, ptr noundef %127)
-  switch i8 %124, label %dissect_hid_data.exit [
-    i8 1, label %128
+114:                                              ; preds = %109, %112, %4
+  %115 = load i32, ptr @hf_bthid_parameter_reserved_32, align 4
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %115, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %117 = load i32, ptr @hf_bthid_parameter_report_type, align 4
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %117, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %119 = load ptr, ptr %9, align 8
+  %120 = tail call ptr @val_to_str_const(i32 noundef %19, ptr noundef nonnull @report_type_vals, ptr noundef nonnull @.str.50)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %119, i32 noundef 25, ptr noundef nonnull @.str.102, ptr noundef %120)
+  %121 = load i32, ptr @hf_bthid_protocol_code, align 4
+  %122 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %121, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0)
+  %123 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %124 = zext i8 %123 to i32
+  %125 = load ptr, ptr %9, align 8
+  %126 = tail call ptr @val_to_str_const(i32 noundef %124, ptr noundef nonnull @protocol_code_vals, ptr noundef nonnull @.str.103)
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %125, i32 noundef 25, ptr noundef nonnull @.str.102, ptr noundef %126)
+  switch i8 %123, label %dissect_hid_data.exit [
+    i8 1, label %127
     i8 2, label %.sink.split.i
   ]
 
-128:                                              ; preds = %115
-  %129 = and i32 %18, 3
-  switch i32 %129, label %dissect_hid_data.exit [
+127:                                              ; preds = %114
+  %128 = and i32 %18, 3
+  switch i32 %128, label %dissect_hid_data.exit [
     i32 2, label %.sink.split.i
-    i32 1, label %130
+    i32 1, label %129
   ]
 
-130:                                              ; preds = %128
+129:                                              ; preds = %127
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %130, %128, %115
-  %usb_hid_boot_mouse_input_report_handle.sink.i = phi ptr [ @usb_hid_boot_keyboard_input_report_handle, %130 ], [ @usb_hid_boot_keyboard_output_report_handle, %128 ], [ @usb_hid_boot_mouse_input_report_handle, %115 ]
-  %131 = load ptr, ptr %usb_hid_boot_mouse_input_report_handle.sink.i, align 8
-  %132 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
-  %133 = tail call i32 @call_dissector_with_data(ptr noundef %131, ptr noundef %132, ptr noundef %1, ptr noundef %8, ptr noundef null)
-  %134 = add i32 %133, 2
+.sink.split.i:                                    ; preds = %129, %127, %114
+  %usb_hid_boot_mouse_input_report_handle.sink.i = phi ptr [ @usb_hid_boot_keyboard_input_report_handle, %129 ], [ @usb_hid_boot_keyboard_output_report_handle, %127 ], [ @usb_hid_boot_mouse_input_report_handle, %114 ]
+  %130 = load ptr, ptr %usb_hid_boot_mouse_input_report_handle.sink.i, align 8
+  %131 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 2)
+  %132 = tail call i32 @call_dissector_with_data(ptr noundef %130, ptr noundef %131, ptr noundef %1, ptr noundef %8, ptr noundef null)
+  %133 = add i32 %132, 2
   br label %dissect_hid_data.exit
 
-dissect_hid_data.exit:                            ; preds = %.critedge, %.sink.split.i, %128, %115, %.thread139, %28, %35, %38, %.thread136, %99, %86, %76, %64, %23, %4
-  %.0 = phi i32 [ 0, %4 ], [ 2, %99 ], [ 1, %86 ], [ 2, %76 ], [ %75, %64 ], [ %63, %.thread136 ], [ 1, %23 ], [ 1, %38 ], [ 1, %35 ], [ 1, %28 ], [ 2, %.thread139 ], [ 2, %115 ], [ 2, %128 ], [ %134, %.sink.split.i ], [ 1, %.critedge ]
+dissect_hid_data.exit:                            ; preds = %.critedge, %.sink.split.i, %127, %114, %.thread140, %28, %37, %.thread137, %98, %85, %75, %63, %23, %4
+  %.0 = phi i32 [ 0, %4 ], [ 2, %98 ], [ 1, %85 ], [ 2, %75 ], [ %74, %63 ], [ %62, %.thread137 ], [ 1, %23 ], [ 1, %37 ], [ 1, %28 ], [ 2, %.thread140 ], [ 2, %114 ], [ 2, %127 ], [ %133, %.sink.split.i ], [ 1, %.critedge ]
   ret i32 %.0
 }
 

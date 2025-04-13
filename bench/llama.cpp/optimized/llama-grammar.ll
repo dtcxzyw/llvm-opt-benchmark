@@ -10760,8 +10760,8 @@ define internal fastcc noundef zeroext i1 @_ZL35llama_grammar_detect_left_recurs
   %12 = shl nuw i64 1, %11
   %13 = load i64, ptr %storemerge.i.i.i.i.i, align 8, !tbaa !17
   %14 = and i64 %13, %12
-  %.not76 = icmp eq i64 %14, 0
-  br i1 %.not76, label %15, label %.loopexit
+  %.not77 = icmp eq i64 %14, 0
+  br i1 %.not77, label %15, label %.loopexit
 
 15:                                               ; preds = %5
   %16 = or i64 %13, %12
@@ -10783,26 +10783,26 @@ define internal fastcc noundef zeroext i1 @_ZL35llama_grammar_detect_left_recurs
   br label %.lr.ph
 
 26:                                               ; preds = %.lr.ph
-  %27 = add nuw i64 %.03882, 1
+  %27 = add nuw i64 %.03982, 1
   %exitcond.not = icmp eq i64 %27, %umax
   br i1 %exitcond.not, label %.lr.ph86.preheader, label %.lr.ph, !llvm.loop !158
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
-  %.03882 = phi i64 [ %27, %26 ], [ 0, %.lr.ph.preheader ]
-  %.03981 = phi i1 [ %switch.selectcmp.i, %26 ], [ true, %.lr.ph.preheader ]
-  %28 = getelementptr inbounds nuw %struct.llama_grammar_element, ptr %21, i64 %.03882
-  %.val44 = load i32, ptr %28, align 4, !tbaa !83
-  %switch.selectcmp.i = icmp ult i32 %.val44, 2
-  %brmerge.demorgan = and i1 %.03981, %switch.selectcmp.i
+  %.03982 = phi i64 [ %27, %26 ], [ 0, %.lr.ph.preheader ]
+  %.04081 = phi i1 [ %switch.selectcmp.i, %26 ], [ true, %.lr.ph.preheader ]
+  %28 = getelementptr inbounds nuw %struct.llama_grammar_element, ptr %21, i64 %.03982
+  %.val45 = load i32, ptr %28, align 4, !tbaa !83
+  %switch.selectcmp.i = icmp ult i32 %.val45, 2
+  %brmerge.demorgan = and i1 %.04081, %switch.selectcmp.i
   br i1 %brmerge.demorgan, label %29, label %26
 
 29:                                               ; preds = %.lr.ph
   %30 = load ptr, ptr %4, align 8, !tbaa !130
   %31 = getelementptr inbounds i64, ptr %30, i64 %7
-  %storemerge.i.i.i.i.i50 = getelementptr inbounds i8, ptr %31, i64 %storemerge.idx.i.i.i.i.i
-  %32 = load i64, ptr %storemerge.i.i.i.i.i50, align 8, !tbaa !17
+  %storemerge.i.i.i.i.i51 = getelementptr inbounds i8, ptr %31, i64 %storemerge.idx.i.i.i.i.i
+  %32 = load i64, ptr %storemerge.i.i.i.i.i51, align 8, !tbaa !17
   %33 = or i64 %32, %12
-  store i64 %33, ptr %storemerge.i.i.i.i.i50, align 8, !tbaa !17
+  store i64 %33, ptr %storemerge.i.i.i.i.i51, align 8, !tbaa !17
   br label %.lr.ph86.preheader
 
 .lr.ph86.preheader:                               ; preds = %26, %29
@@ -10812,12 +10812,12 @@ define internal fastcc noundef zeroext i1 @_ZL35llama_grammar_detect_left_recurs
   %34 = phi ptr [ %58, %57 ], [ %21, %.lr.ph86.preheader ]
   %35 = phi ptr [ %59, %57 ], [ %20, %.lr.ph86.preheader ]
   %.085 = phi i64 [ %60, %57 ], [ 0, %.lr.ph86.preheader ]
-  %.03684 = phi i1 [ %.1, %57 ], [ true, %.lr.ph86.preheader ]
+  %.03784 = phi i1 [ %.1, %57 ], [ true, %.lr.ph86.preheader ]
   %36 = getelementptr inbounds nuw %struct.llama_grammar_element, ptr %34, i64 %.085
   %37 = load i32, ptr %36, align 4, !tbaa !83
   %38 = icmp eq i32 %37, 2
-  %brmerge.not = select i1 %38, i1 %.03684, i1 false
-  br i1 %brmerge.not, label %39, label %56
+  %or.cond = select i1 %38, i1 %.03784, i1 false
+  br i1 %or.cond, label %39, label %56
 
 39:                                               ; preds = %.lr.ph86
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 4
@@ -10839,18 +10839,18 @@ define internal fastcc noundef zeroext i1 @_ZL35llama_grammar_detect_left_recurs
   %53 = shl nuw i64 1, %52
   %54 = load i64, ptr %50, align 8, !tbaa !17
   %55 = and i64 %53, %54
-  %.not77 = icmp ne i64 %55, 0
+  %.not78 = icmp ne i64 %55, 0
   %.pre = load ptr, ptr %19, align 8, !tbaa !53
   br label %57
 
 56:                                               ; preds = %.lr.ph86
-  %switch.selectcmp.i57 = icmp ult i32 %37, 2
+  %switch.selectcmp.i58 = icmp ult i32 %37, 2
   br label %57
 
 57:                                               ; preds = %44, %56
   %58 = phi ptr [ %45, %44 ], [ %34, %56 ]
   %59 = phi ptr [ %.pre, %44 ], [ %35, %56 ]
-  %.1 = phi i1 [ %.not77, %44 ], [ %switch.selectcmp.i57, %56 ]
+  %.1 = phi i1 [ %.not78, %44 ], [ %switch.selectcmp.i58, %56 ]
   %60 = add nuw i64 %.085, 1
   %61 = ptrtoint ptr %59 to i64
   %62 = ptrtoint ptr %58 to i64
@@ -10860,28 +10860,28 @@ define internal fastcc noundef zeroext i1 @_ZL35llama_grammar_detect_left_recurs
   br i1 %.not, label %.lr.ph86, label %.critedge.loopexit, !llvm.loop !159
 
 .critedge.loopexit:                               ; preds = %57
-  %.pre89 = load ptr, ptr %3, align 8, !tbaa !130
+  %.pre88 = load ptr, ptr %3, align 8, !tbaa !130
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %.critedge.loopexit
-  %65 = phi ptr [ %.pre89, %.critedge.loopexit ], [ %6, %15 ]
+  %65 = phi ptr [ %.pre88, %.critedge.loopexit ], [ %6, %15 ]
   %66 = getelementptr inbounds i64, ptr %65, i64 %7
-  %storemerge.i.i.i.i.i59 = getelementptr inbounds i8, ptr %66, i64 %storemerge.idx.i.i.i.i.i
+  %storemerge.i.i.i.i.i60 = getelementptr inbounds i8, ptr %66, i64 %storemerge.idx.i.i.i.i.i
   %67 = xor i64 %12, -1
-  %68 = load i64, ptr %storemerge.i.i.i.i.i59, align 8, !tbaa !17
+  %68 = load i64, ptr %storemerge.i.i.i.i.i60, align 8, !tbaa !17
   %69 = and i64 %68, %67
-  store i64 %69, ptr %storemerge.i.i.i.i.i59, align 8, !tbaa !17
+  store i64 %69, ptr %storemerge.i.i.i.i.i60, align 8, !tbaa !17
   %70 = load ptr, ptr %2, align 8, !tbaa !130
   %71 = getelementptr inbounds i64, ptr %70, i64 %7
-  %storemerge.i.i.i.i.i63 = getelementptr inbounds i8, ptr %71, i64 %storemerge.idx.i.i.i.i.i
-  %72 = load i64, ptr %storemerge.i.i.i.i.i63, align 8, !tbaa !17
+  %storemerge.i.i.i.i.i64 = getelementptr inbounds i8, ptr %71, i64 %storemerge.idx.i.i.i.i.i
+  %72 = load i64, ptr %storemerge.i.i.i.i.i64, align 8, !tbaa !17
   %73 = or i64 %72, %12
-  store i64 %73, ptr %storemerge.i.i.i.i.i63, align 8, !tbaa !17
+  store i64 %73, ptr %storemerge.i.i.i.i.i64, align 8, !tbaa !17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %.critedge, %5
-  %.041 = phi i1 [ true, %5 ], [ false, %.critedge ], [ true, %39 ]
-  ret i1 %.041
+  %.042 = phi i1 [ true, %5 ], [ false, %.critedge ], [ true, %39 ]
+  ret i1 %.042
 }
 
 declare void @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef, ptr noundef, ...) local_unnamed_addr #5

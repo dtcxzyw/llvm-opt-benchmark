@@ -1231,21 +1231,19 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %30 = load ptr, ptr %vfn.i20, align 8
   %call2.i21 = tail call ptr %30(ptr noundef nonnull align 8 dereferenceable(872) %29) #15
   %call41 = tail call i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %retval.i56.sroa.0.0, ptr %call2.i21) #15
-  %arg1.sroa.315.0.extract.shift = lshr i64 %call41, 32
   %tobool.i82 = trunc i64 %call25 to i1
-  br i1 %tobool.i82, label %lor.lhs.false, label %return
-
-lor.lhs.false:                                    ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %tobool.i = trunc i64 %call41 to i1
-  br i1 %tobool.i, label %_ZNKR2v85MaybeIjE8FromJustEv.exit, label %return
+  %or.cond = select i1 %tobool.i82, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %_ZNKR2v85MaybeIjE8FromJustEv.exit, label %return
 
-_ZNKR2v85MaybeIjE8FromJustEv.exit:                ; preds = %lor.lhs.false
+_ZNKR2v85MaybeIjE8FromJustEv.exit:                ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
+  %arg1.sroa.315.0.extract.shift = lshr i64 %call41, 32
   %serializer_ = getelementptr inbounds nuw i8, ptr %retval.i13.0.i, i64 40
   %or = or disjoint i64 %arg1.sroa.315.0.extract.shift, %arg0.sroa.313.0.extract.shift
   tail call void @_ZN2v815ValueSerializer11WriteUint64Em(ptr noundef nonnull align 8 dereferenceable(8) %serializer_, i64 noundef %or) #15
   br label %return
 
-return:                                           ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %lor.lhs.false, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZNKR2v85MaybeIjE8FromJustEv.exit
+return:                                           ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit, %_ZNKR2v85MaybeIjE8FromJustEv.exit
   ret void
 }
 
