@@ -1436,7 +1436,7 @@ _Z13dtNormalize2DPf.exit:                         ; preds = %25, %55
   %66 = fmul float %59, %65
   %67 = tail call float @llvm.fmuladd.f32(float %60, float %63, float %66)
   store float %67, ptr %61, align 4
-  %68 = fmul float %63, %59
+  %68 = fmul float %59, %63
   %69 = tail call float @llvm.fmuladd.f32(float %60, float %64, float %68)
   %70 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store float %69, ptr %70, align 4
