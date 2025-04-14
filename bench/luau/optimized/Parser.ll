@@ -10195,8 +10195,7 @@ _ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit: ; preds = %6
 69:                                               ; preds = %_ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit
   %70 = load ptr, ptr %20, align 8, !tbaa !297
   %71 = call noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %70, i64 noundef 20)
-  %.sroa.01.0.copyload.i = load i64, ptr %22, align 4
-  call void @_ZN4Luau16CstExprIndexExprC1ENS_8PositionES1_(ptr noundef nonnull align 4 dereferenceable(20) %71, i64 %.sroa.01.0.copyload.i, i64 %57)
+  call void @_ZN4Luau16CstExprIndexExprC1ENS_8PositionES1_(ptr noundef nonnull align 4 dereferenceable(20) %71, i64 %55, i64 %57)
   %72 = load i64, ptr %27, align 8, !tbaa !65
   %73 = load i64, ptr %28, align 8, !tbaa !64
   %74 = mul i64 %73, 3

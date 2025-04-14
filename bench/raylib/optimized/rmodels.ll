@@ -38867,7 +38867,7 @@ define void @DrawMesh(ptr noundef readonly byval(%struct.Mesh) align 8 captures(
   %283 = call float @llvm.fmuladd.f32(float %85, float %246, float %282)
   %284 = call float @llvm.fmuladd.f32(float %97, float %236, float %283)
   %285 = fmul float %284, %255
-  %286 = fmul float %141, %223
+  %286 = fmul float %223, %141
   %287 = call float @llvm.fmuladd.f32(float %232, float %231, float %286)
   %288 = fneg float %145
   %289 = call float @llvm.fmuladd.f32(float %288, float %221, float %287)
@@ -38904,7 +38904,7 @@ define void @DrawMesh(ptr noundef readonly byval(%struct.Mesh) align 8 captures(
   %320 = call float @llvm.fmuladd.f32(float %85, float %241, float %319)
   %321 = call float @llvm.fmuladd.f32(float %93, float %234, float %320)
   %322 = fmul float %321, %255
-  %323 = fmul float %137, %221
+  %323 = fmul float %221, %137
   %324 = call float @llvm.fmuladd.f32(float %232, float %226, float %323)
   %325 = call float @llvm.fmuladd.f32(float %244, float %219, float %324)
   %326 = fmul float %325, %255

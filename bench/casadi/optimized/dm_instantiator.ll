@@ -25078,7 +25078,7 @@ define weak_odr void @_ZN6casadi6MatrixIdE4callERKNS_8FunctionERKSt6vectorIS1_Sa
 
 ._crit_edge:                                      ; preds = %20, %3
   invoke void @_ZN6casadi6MatrixIdE4callERKNS_8FunctionERKSt6vectorIdSaIdEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 poison, ptr nonnull align 8 poison, ptr nonnull align 8 poison)
-          to label %.unreachable unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit26
+          to label %.unreachable unwind label %24
 
 9:                                                ; preds = %.lr.ph, %20
   %.sroa.035.039 = phi ptr [ %5, %.lr.ph ], [ %21, %20 ]
@@ -25103,32 +25103,32 @@ define weak_odr void @_ZN6casadi6MatrixIdE4callERKNS_8FunctionERKSt6vectorIS1_Sa
 22:                                               ; preds = %9
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %25
+  br label %26
 
 .unreachable:                                     ; preds = %._crit_edge
   unreachable
 
-_ZNSt6vectorIdSaIdEED2Ev.exit26:                  ; preds = %._crit_edge
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %._crit_edge
+  %25 = landingpad { ptr, i32 }
           cleanup
-  br label %25
+  br label %26
 
-25:                                               ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit26, %22
-  %.pn20 = phi { ptr, i32 } [ %23, %22 ], [ %24, %_ZNSt6vectorIdSaIdEED2Ev.exit26 ]
-  %26 = load ptr, ptr %4, align 8, !tbaa !14
-  %.not.i.i.i27 = icmp eq ptr %26, null
-  br i1 %.not.i.i.i27, label %_ZNSt6vectorIdSaIdEED2Ev.exit28, label %27
+26:                                               ; preds = %24, %22
+  %.pn20 = phi { ptr, i32 } [ %23, %22 ], [ %25, %24 ]
+  %27 = load ptr, ptr %4, align 8, !tbaa !14
+  %.not.i.i.i27 = icmp eq ptr %27, null
+  br i1 %.not.i.i.i27, label %_ZNSt6vectorIdSaIdEED2Ev.exit28, label %28
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !16
-  %30 = ptrtoint ptr %29 to i64
-  %31 = ptrtoint ptr %26 to i64
-  %32 = sub i64 %30, %31
-  call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef %32) #30
+28:                                               ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !16
+  %31 = ptrtoint ptr %30 to i64
+  %32 = ptrtoint ptr %27 to i64
+  %33 = sub i64 %31, %32
+  call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef %33) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit28
 
-_ZNSt6vectorIdSaIdEED2Ev.exit28:                  ; preds = %25, %27
+_ZNSt6vectorIdSaIdEED2Ev.exit28:                  ; preds = %26, %28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #31
   resume { ptr, i32 } %.pn20
 }

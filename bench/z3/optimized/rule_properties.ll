@@ -5366,7 +5366,7 @@ _ZN7obj_mapI4expr10ptr_vectorIS0_EEC2Ev.exit:     ; preds = %.critedge150
   %.0.i162 = phi i32 [ %100, %98 ], [ 0, %._crit_edge ]
   %102 = load ptr, ptr %10, align 8, !tbaa !91
   invoke void @_ZN6vectorISt5tupleIJP4exprjbEELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-          to label %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit.lr.ph unwind label %313
+          to label %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit.preheader unwind label %313
 
 103:                                              ; preds = %.critedge150
   %104 = landingpad { ptr, i32 }
@@ -5893,7 +5893,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit181:              ; preds = %_ZN6vectorIP4exprLb
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #19
   br label %702
 
-_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit.lr.ph: ; preds = %101
+_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit.preheader: ; preds = %101
   %.pre.i = load ptr, ptr %22, align 8, !tbaa !271
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre2.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !78
@@ -5909,9 +5909,9 @@ _ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit.lr.ph: ; preds = %101
   store i32 %298, ptr %.phi.trans.insert.i, align 4, !tbaa !78
   br label %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit
 
-_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit: ; preds = %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit.lr.ph, %.backedge
-  %299 = phi ptr [ %.pre.i, %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit.lr.ph ], [ %678, %.backedge ]
-  %.5406 = phi i1 [ true, %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit.lr.ph ], [ %.6447, %.backedge ]
+_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit: ; preds = %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit.preheader, %.backedge
+  %299 = phi ptr [ %678, %.backedge ], [ %.pre.i, %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit.preheader ]
+  %.5406 = phi i1 [ %.6447, %.backedge ], [ true, %_ZNK6vectorISt5tupleIJP4exprjbEELb1EjE5emptyEv.exit.preheader ]
   %300 = getelementptr inbounds i8, ptr %299, i64 -4
   %301 = load i32, ptr %300, align 4, !tbaa !78
   %302 = icmp eq i32 %301, 0

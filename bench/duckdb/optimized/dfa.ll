@@ -3696,10 +3696,10 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
 .critedge:                                        ; preds = %34, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit, %25, %19, %2
   %.0144 = phi i8 [ 1, %19 ], [ 0, %2 ], [ 1, %25 ], [ 1, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit ], [ 1, %34 ]
   %.0127 = phi ptr [ %13, %19 ], [ null, %2 ], [ %13, %25 ], [ %13, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit ], [ %13, %34 ]
-  %.not167302 = icmp samesign eq i64 %12, 0
-  br i1 %.not167302, label %._crit_edge, label %.lr.ph310
+  %.not167315 = icmp samesign eq i64 %12, 0
+  br i1 %.not167315, label %._crit_edge, label %.lr.ph323
 
-.lr.ph310:                                        ; preds = %.critedge
+.lr.ph323:                                        ; preds = %.critedge
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3727,17 +3727,17 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %81
 
-81:                                               ; preds = %.lr.ph310, %.critedge191
-  %.0106308 = phi ptr [ %9, %.lr.ph310 ], [ %.1107, %.critedge191 ]
-  %.0124307 = phi ptr [ null, %.lr.ph310 ], [ %.1125, %.critedge191 ]
-  %.1128306 = phi ptr [ %.0127, %.lr.ph310 ], [ %.2129, %.critedge191 ]
-  %.0139305 = phi ptr [ %9, %.lr.ph310 ], [ %.0122, %.critedge191 ]
-  %.1145304 = phi i8 [ %.0144, %.lr.ph310 ], [ %.2146, %.critedge191 ]
-  %.0246303 = phi ptr [ %13, %.lr.ph310 ], [ %82, %.critedge191 ]
-  %82 = getelementptr inbounds i8, ptr %.0246303, i64 -1
+81:                                               ; preds = %.lr.ph323, %.critedge191
+  %.0106321 = phi ptr [ %9, %.lr.ph323 ], [ %.1107, %.critedge191 ]
+  %.0124320 = phi ptr [ null, %.lr.ph323 ], [ %.1125, %.critedge191 ]
+  %.1128319 = phi ptr [ %.0127, %.lr.ph323 ], [ %.2129, %.critedge191 ]
+  %.0139318 = phi ptr [ %9, %.lr.ph323 ], [ %.0122, %.critedge191 ]
+  %.1145317 = phi i8 [ %.0144, %.lr.ph323 ], [ %.2146, %.critedge191 ]
+  %.0246316 = phi ptr [ %13, %.lr.ph323 ], [ %82, %.critedge191 ]
+  %82 = getelementptr inbounds i8, ptr %.0246316, i64 -1
   %83 = load i8, ptr %82, align 1, !tbaa !104
   %84 = zext i8 %83 to i32
-  %85 = getelementptr inbounds nuw i8, ptr %.0139305, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.0139318, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !126
   %87 = zext i8 %83 to i64
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 %87
@@ -3750,20 +3750,20 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
   br i1 %93, label %94, label %177
 
 94:                                               ; preds = %81
-  %95 = call noundef ptr @_ZN10duckdb_re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %.0139305, i32 noundef %84)
+  %95 = call noundef ptr @_ZN10duckdb_re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %.0139318, i32 noundef %84)
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %177
 
 97:                                               ; preds = %94
   %98 = load i8, ptr @_ZN10duckdb_re2L25dfa_should_bail_when_slowE, align 1, !tbaa !3, !range !117, !noundef !118
   %99 = trunc nuw i8 %98 to i1
-  %100 = icmp ne ptr %.0124307, null
+  %100 = icmp ne ptr %.0124320, null
   %or.cond = select i1 %99, i1 %100, i1 false
   br i1 %or.cond, label %101, label %110
 
 101:                                              ; preds = %97
   %102 = ptrtoint ptr %82 to i64
-  %103 = ptrtoint ptr %.0124307 to i64
+  %103 = ptrtoint ptr %.0124320 to i64
   %104 = sub i64 %102, %103
   %105 = load i64, ptr %56, align 8, !tbaa !159
   %106 = mul i64 %105, 10
@@ -3780,22 +3780,22 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
 110:                                              ; preds = %101, %97
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
   store ptr %0, ptr %3, align 8, !tbaa !162
-  %.not.i.not = icmp ule ptr %.0106308, inttoptr (i64 2 to ptr)
+  %.not.i.not = icmp ule ptr %.0106321, inttoptr (i64 2 to ptr)
   br i1 %.not.i.not, label %111, label %112
 
 111:                                              ; preds = %110
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
   store i8 1, ptr %59, align 8, !tbaa !164
-  store ptr %.0106308, ptr %60, align 8, !tbaa !165
+  store ptr %.0106321, ptr %60, align 8, !tbaa !165
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
 
 112:                                              ; preds = %110
   store i8 0, ptr %59, align 8, !tbaa !164
   store ptr null, ptr %60, align 8, !tbaa !165
-  %113 = getelementptr inbounds nuw i8, ptr %.0106308, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %.0106321, i64 12
   %114 = load i32, ptr %113, align 4, !tbaa !110
   store i32 %114, ptr %61, align 4, !tbaa !166
-  %115 = getelementptr inbounds nuw i8, ptr %.0106308, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.0106321, i64 8
   %116 = load i32, ptr %115, align 8, !tbaa !107
   store i32 %116, ptr %62, align 8, !tbaa !167
   %117 = sext i32 %116 to i64
@@ -3804,7 +3804,7 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
   %120 = select i1 %118, i64 -1, i64 %119
   %121 = call noalias noundef nonnull ptr @_Znam(i64 noundef %120) #22
   store ptr %121, ptr %58, align 8, !tbaa !168
-  %122 = load ptr, ptr %.0106308, align 8, !tbaa !111
+  %122 = load ptr, ptr %.0106321, align 8, !tbaa !111
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %121, ptr align 4 %122, i64 %119, i1 false)
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
 
@@ -3812,22 +3812,22 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit: ; preds = %111, %112
   %123 = phi ptr [ null, %111 ], [ %121, %112 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
   store ptr %0, ptr %4, align 8, !tbaa !162
-  %.not.i200.not = icmp ule ptr %.0139305, inttoptr (i64 2 to ptr)
+  %.not.i200.not = icmp ule ptr %.0139318, inttoptr (i64 2 to ptr)
   br i1 %.not.i200.not, label %124, label %125
 
 124:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   store i8 1, ptr %64, align 8, !tbaa !164
-  store ptr %.0139305, ptr %65, align 8, !tbaa !165
+  store ptr %.0139318, ptr %65, align 8, !tbaa !165
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit201
 
 125:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
   store i8 0, ptr %64, align 8, !tbaa !164
   store ptr null, ptr %65, align 8, !tbaa !165
-  %126 = getelementptr inbounds nuw i8, ptr %.0139305, i64 12
+  %126 = getelementptr inbounds nuw i8, ptr %.0139318, i64 12
   %127 = load i32, ptr %126, align 4, !tbaa !110
   store i32 %127, ptr %66, align 4, !tbaa !166
-  %128 = getelementptr inbounds nuw i8, ptr %.0139305, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.0139318, i64 8
   %129 = load i32, ptr %128, align 8, !tbaa !107
   store i32 %129, ptr %67, align 8, !tbaa !167
   %130 = sext i32 %129 to i64
@@ -3839,7 +3839,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit: ; preds = %111, %112
 
 .noexc:                                           ; preds = %125
   store ptr %134, ptr %63, align 8, !tbaa !168
-  %135 = load ptr, ptr %.0139305, align 8, !tbaa !111
+  %135 = load ptr, ptr %.0139318, align 8, !tbaa !111
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %134, ptr align 4 %135, i64 %132, i1 false)
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit201
 
@@ -3944,8 +3944,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %152 ], [ false, %.sink.split ]
   %.1123 = phi ptr [ %151, %152 ], [ null, %.sink.split ]
   %168 = icmp eq ptr %136, null
-  %or.cond387 = or i1 %.not.i200.not, %168
-  br i1 %or.cond387, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %169
+  %or.cond413 = or i1 %.not.i200.not, %168
+  br i1 %or.cond413, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %169
 
 169:                                              ; preds = %167
   call void @_ZdaPv(ptr noundef nonnull %136) #23
@@ -3954,8 +3954,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %167, %169
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %170 = icmp eq ptr %123, null
-  %or.cond388 = or i1 %.not.i.not, %170
-  br i1 %or.cond388, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204, label %171
+  %or.cond414 = or i1 %.not.i.not, %170
+  br i1 %or.cond414, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204, label %171
 
 171:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %123) #23
@@ -3968,8 +3968,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit204:      ; preds = %_ZN10duckdb_re23DFA
 172:                                              ; preds = %166, %148
   %.pn174.pn = phi { ptr, i32 } [ %.pn174, %166 ], [ %149, %148 ]
   %173 = icmp eq ptr %136, null
-  %or.cond389 = or i1 %.not.i200.not, %173
-  br i1 %or.cond389, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit205, label %174
+  %or.cond415 = or i1 %.not.i200.not, %173
+  br i1 %or.cond415, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit205, label %174
 
 174:                                              ; preds = %172
   call void @_ZdaPv(ptr noundef nonnull %136) #23
@@ -3979,8 +3979,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit205:      ; preds = %174, %172, %146
   %.pn174.pn.pn = phi { ptr, i32 } [ %147, %146 ], [ %.pn174.pn, %172 ], [ %.pn174.pn, %174 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %175 = icmp eq ptr %123, null
-  %or.cond390 = or i1 %.not.i.not, %175
-  br i1 %or.cond390, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit206, label %176
+  %or.cond416 = or i1 %.not.i.not, %175
+  br i1 %or.cond416, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit206, label %176
 
 176:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit205
   call void @_ZdaPv(ptr noundef nonnull %123) #23
@@ -3991,9 +3991,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit206:      ; preds = %_ZN10duckdb_re23DFA
   br label %345
 
 177:                                              ; preds = %94, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204, %81
-  %.1125 = phi ptr [ %82, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204 ], [ %.0124307, %94 ], [ %.0124307, %81 ]
+  %.1125 = phi ptr [ %82, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204 ], [ %.0124320, %94 ], [ %.0124320, %81 ]
   %.0122 = phi ptr [ %.1123, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204 ], [ %95, %94 ], [ %.0.i.i199, %81 ]
-  %.1107 = phi ptr [ %139, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204 ], [ %.0106308, %94 ], [ %.0106308, %81 ]
+  %.1107 = phi ptr [ %139, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204 ], [ %.0106321, %94 ], [ %.0106321, %81 ]
   %.not179 = icmp ugt ptr %.0122, inttoptr (i64 2 to ptr)
   br i1 %.not179, label %184, label %178
 
@@ -4003,8 +4003,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit206:      ; preds = %_ZN10duckdb_re23DFA
   br i1 %179, label %181, label %183
 
 181:                                              ; preds = %178
-  store ptr %.1128306, ptr %180, align 8, !tbaa !180
-  %182 = trunc nuw i8 %.1145304 to i1
+  store ptr %.1128319, ptr %180, align 8, !tbaa !180
+  %182 = trunc nuw i8 %.1145317 to i1
   br label %.critedge191.thread
 
 183:                                              ; preds = %178
@@ -4030,9 +4030,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit206:      ; preds = %_ZN10duckdb_re23DFA
   %193 = getelementptr inbounds nuw i8, ptr %.0122, i64 8
   %194 = load i32, ptr %193, align 8, !tbaa !107
   %195 = icmp sgt i32 %194, 0
-  br i1 %195, label %.lr.ph300, label %.critedge191
+  br i1 %195, label %.lr.ph313, label %.critedge191
 
-.lr.ph300:                                        ; preds = %192
+.lr.ph313:                                        ; preds = %192
   %196 = load ptr, ptr %.0122, align 8, !tbaa !111
   %197 = getelementptr inbounds nuw i8, ptr %189, i64 24
   %198 = getelementptr inbounds nuw i8, ptr %189, i64 32
@@ -4040,10 +4040,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit206:      ; preds = %_ZN10duckdb_re23DFA
   %200 = zext nneg i32 %194 to i64
   br label %201
 
-201:                                              ; preds = %.lr.ph300, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216
-  %indvars.iv344 = phi i64 [ %200, %.lr.ph300 ], [ %indvars.iv.next345, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216 ]
-  %indvars.iv.next345 = add nsw i64 %indvars.iv344, -1
-  %202 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv.next345
+201:                                              ; preds = %.lr.ph313, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216
+  %indvars.iv370 = phi i64 [ %200, %.lr.ph313 ], [ %indvars.iv.next371, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216 ]
+  %indvars.iv.next371 = add nsw i64 %indvars.iv370, -1
+  %202 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv.next371
   %203 = load i32, ptr %202, align 4, !tbaa !77
   %.not181 = icmp eq i32 %203, -2
   br i1 %.not181, label %.critedge191, label %204
@@ -4083,12 +4083,12 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i211: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit216:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i215, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i211, %204
-  %222 = icmp samesign ugt i64 %indvars.iv344, 1
+  %222 = icmp samesign ugt i64 %indvars.iv370, 1
   br i1 %222, label %201, label %.critedge191, !llvm.loop !181
 
 .critedge191:                                     ; preds = %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216, %201, %192, %184, %188
-  %.2146 = phi i8 [ 1, %188 ], [ %.1145304, %184 ], [ 1, %192 ], [ 1, %201 ], [ 1, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216 ]
-  %.2129 = phi ptr [ %.0246303, %188 ], [ %.1128306, %184 ], [ %.0246303, %192 ], [ %.0246303, %201 ], [ %.0246303, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216 ]
+  %.2146 = phi i8 [ 1, %188 ], [ %.1145317, %184 ], [ 1, %192 ], [ 1, %201 ], [ 1, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216 ]
+  %.2129 = phi ptr [ %.0246316, %188 ], [ %.1128319, %184 ], [ %.0246316, %192 ], [ %.0246316, %201 ], [ %.0246316, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216 ]
   %.not167 = icmp eq ptr %82, %10
   br i1 %.not167, label %._crit_edge.loopexit, label %81, !llvm.loop !182
 
@@ -4194,7 +4194,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit219: ; preds = %247, %251
 
 272:                                              ; preds = %270
   %273 = icmp eq ptr %271, null
-  br i1 %273, label %.sink.split391, label %276
+  br i1 %273, label %.sink.split417, label %276
 
 274:                                              ; preds = %276, %270, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit219
   %275 = landingpad { ptr, i32 }
@@ -4223,7 +4223,7 @@ _ZN10LogMessageC2EPKci.exit221:                   ; preds = %280
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223: ; preds = %_ZN10LogMessageC2EPKci.exit221
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
-  br label %.sink.split391
+  br label %.sink.split417
 
 283:                                              ; preds = %280
   %284 = landingpad { ptr, i32 }
@@ -4241,17 +4241,17 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
   br label %292
 
-.sink.split391:                                   ; preds = %272, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223
+.sink.split417:                                   ; preds = %272, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223
   %288 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 1, ptr %288, align 8, !tbaa !178
   br label %289
 
-289:                                              ; preds = %.sink.split391, %278
-  %cond1 = phi i1 [ true, %278 ], [ false, %.sink.split391 ]
-  %.1104 = phi ptr [ %277, %278 ], [ null, %.sink.split391 ]
+289:                                              ; preds = %.sink.split417, %278
+  %cond1 = phi i1 [ true, %278 ], [ false, %.sink.split417 ]
+  %.1104 = phi ptr [ %277, %278 ], [ null, %.sink.split417 ]
   %290 = icmp eq ptr %267, null
-  %or.cond392 = or i1 %.not.i218.not, %290
-  br i1 %or.cond392, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224, label %291
+  %or.cond418 = or i1 %.not.i218.not, %290
+  br i1 %or.cond418, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224, label %291
 
 291:                                              ; preds = %289
   call void @_ZdaPv(ptr noundef nonnull %267) #23
@@ -4264,8 +4264,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit224:      ; preds = %289, %291
 292:                                              ; preds = %287, %274
   %.pn.pn = phi { ptr, i32 } [ %.pn, %287 ], [ %275, %274 ]
   %293 = icmp eq ptr %267, null
-  %or.cond394 = or i1 %.not.i218.not, %293
-  br i1 %or.cond394, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit225, label %294
+  %or.cond420 = or i1 %.not.i218.not, %293
+  br i1 %or.cond420, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit225, label %294
 
 294:                                              ; preds = %292
   call void @_ZdaPv(ptr noundef nonnull %267) #23
@@ -4315,9 +4315,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit225:      ; preds = %292, %294
   %313 = getelementptr inbounds nuw i8, ptr %.0103, i64 8
   %314 = load i32, ptr %313, align 8, !tbaa !107
   %315 = icmp sgt i32 %314, 0
-  br i1 %315, label %.lr.ph318, label %.critedge196
+  br i1 %315, label %.lr.ph331, label %.critedge196
 
-.lr.ph318:                                        ; preds = %312
+.lr.ph331:                                        ; preds = %312
   %316 = load ptr, ptr %.0103, align 8, !tbaa !111
   %317 = getelementptr inbounds nuw i8, ptr %308, i64 24
   %318 = getelementptr inbounds nuw i8, ptr %308, i64 32
@@ -4325,10 +4325,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit225:      ; preds = %292, %294
   %320 = zext nneg i32 %314 to i64
   br label %321
 
-321:                                              ; preds = %.lr.ph318, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235
-  %indvars.iv347 = phi i64 [ %320, %.lr.ph318 ], [ %indvars.iv.next348, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235 ]
-  %indvars.iv.next348 = add nsw i64 %indvars.iv347, -1
-  %322 = getelementptr inbounds nuw i32, ptr %316, i64 %indvars.iv.next348
+321:                                              ; preds = %.lr.ph331, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235
+  %indvars.iv373 = phi i64 [ %320, %.lr.ph331 ], [ %indvars.iv.next374, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235 ]
+  %indvars.iv.next374 = add nsw i64 %indvars.iv373, -1
+  %322 = getelementptr inbounds nuw i32, ptr %316, i64 %indvars.iv.next374
   %323 = load i32, ptr %322, align 4, !tbaa !77
   %.not172 = icmp eq i32 %323, -2
   br i1 %.not172, label %.critedge196, label %324
@@ -4368,7 +4368,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i230: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit235:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i234, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i230, %324
-  %342 = icmp samesign ugt i64 %indvars.iv347, 1
+  %342 = icmp samesign ugt i64 %indvars.iv373, 1
   br i1 %342, label %321, label %.critedge196, !llvm.loop !183
 
 .critedge196:                                     ; preds = %321, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235, %312, %306, %302
@@ -4488,10 +4488,10 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
 .critedge:                                        ; preds = %34, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit, %25, %19, %2
   %.0155 = phi ptr [ %10, %19 ], [ null, %2 ], [ %10, %25 ], [ %10, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit ], [ %10, %34 ]
   %.0150 = phi i8 [ 1, %19 ], [ 0, %2 ], [ 1, %25 ], [ 1, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit ], [ 1, %34 ]
-  %.not179306 = icmp samesign eq i64 %12, 0
-  br i1 %.not179306, label %._crit_edge, label %.lr.ph314
+  %.not179319 = icmp samesign eq i64 %12, 0
+  br i1 %.not179319, label %._crit_edge, label %.lr.ph327
 
-.lr.ph314:                                        ; preds = %.critedge
+.lr.ph327:                                        ; preds = %.critedge
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4519,17 +4519,17 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %81
 
-81:                                               ; preds = %.lr.ph314, %.critedge203
-  %.0116312 = phi ptr [ %9, %.lr.ph314 ], [ %.1117, %.critedge203 ]
-  %.0134311 = phi ptr [ %10, %.lr.ph314 ], [ %82, %.critedge203 ]
-  %.0135310 = phi ptr [ null, %.lr.ph314 ], [ %.1136, %.critedge203 ]
-  %.0145309 = phi ptr [ %9, %.lr.ph314 ], [ %.0132, %.critedge203 ]
-  %.1151308 = phi i8 [ %.0150, %.lr.ph314 ], [ %.2152, %.critedge203 ]
-  %.1156307 = phi ptr [ %.0155, %.lr.ph314 ], [ %.2157, %.critedge203 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.0134311, i64 1
-  %83 = load i8, ptr %.0134311, align 1, !tbaa !104
+81:                                               ; preds = %.lr.ph327, %.critedge203
+  %.0116325 = phi ptr [ %9, %.lr.ph327 ], [ %.1117, %.critedge203 ]
+  %.0134324 = phi ptr [ %10, %.lr.ph327 ], [ %82, %.critedge203 ]
+  %.0135323 = phi ptr [ null, %.lr.ph327 ], [ %.1136, %.critedge203 ]
+  %.0145322 = phi ptr [ %9, %.lr.ph327 ], [ %.0132, %.critedge203 ]
+  %.1151321 = phi i8 [ %.0150, %.lr.ph327 ], [ %.2152, %.critedge203 ]
+  %.1156320 = phi ptr [ %.0155, %.lr.ph327 ], [ %.2157, %.critedge203 ]
+  %82 = getelementptr inbounds nuw i8, ptr %.0134324, i64 1
+  %83 = load i8, ptr %.0134324, align 1, !tbaa !104
   %84 = zext i8 %83 to i32
-  %85 = getelementptr inbounds nuw i8, ptr %.0145309, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.0145322, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !126
   %87 = zext i8 %83 to i64
   %88 = getelementptr inbounds nuw i8, ptr %15, i64 %87
@@ -4542,20 +4542,20 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
   br i1 %93, label %94, label %177
 
 94:                                               ; preds = %81
-  %95 = call noundef ptr @_ZN10duckdb_re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %.0145309, i32 noundef %84)
+  %95 = call noundef ptr @_ZN10duckdb_re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %.0145322, i32 noundef %84)
   %96 = icmp eq ptr %95, null
   br i1 %96, label %97, label %177
 
 97:                                               ; preds = %94
   %98 = load i8, ptr @_ZN10duckdb_re2L25dfa_should_bail_when_slowE, align 1, !tbaa !3, !range !117, !noundef !118
   %99 = trunc nuw i8 %98 to i1
-  %100 = icmp ne ptr %.0135310, null
+  %100 = icmp ne ptr %.0135323, null
   %or.cond = select i1 %99, i1 %100, i1 false
   br i1 %or.cond, label %101, label %110
 
 101:                                              ; preds = %97
   %102 = ptrtoint ptr %82 to i64
-  %103 = ptrtoint ptr %.0135310 to i64
+  %103 = ptrtoint ptr %.0135323 to i64
   %104 = sub i64 %102, %103
   %105 = load i64, ptr %56, align 8, !tbaa !159
   %106 = mul i64 %105, 10
@@ -4572,22 +4572,22 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
 110:                                              ; preds = %101, %97
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
   store ptr %0, ptr %3, align 8, !tbaa !162
-  %.not.i.not = icmp ule ptr %.0116312, inttoptr (i64 2 to ptr)
+  %.not.i.not = icmp ule ptr %.0116325, inttoptr (i64 2 to ptr)
   br i1 %.not.i.not, label %111, label %112
 
 111:                                              ; preds = %110
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
   store i8 1, ptr %59, align 8, !tbaa !164
-  store ptr %.0116312, ptr %60, align 8, !tbaa !165
+  store ptr %.0116325, ptr %60, align 8, !tbaa !165
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
 
 112:                                              ; preds = %110
   store i8 0, ptr %59, align 8, !tbaa !164
   store ptr null, ptr %60, align 8, !tbaa !165
-  %113 = getelementptr inbounds nuw i8, ptr %.0116312, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %.0116325, i64 12
   %114 = load i32, ptr %113, align 4, !tbaa !110
   store i32 %114, ptr %61, align 4, !tbaa !166
-  %115 = getelementptr inbounds nuw i8, ptr %.0116312, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.0116325, i64 8
   %116 = load i32, ptr %115, align 8, !tbaa !107
   store i32 %116, ptr %62, align 8, !tbaa !167
   %117 = sext i32 %116 to i64
@@ -4596,7 +4596,7 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
   %120 = select i1 %118, i64 -1, i64 %119
   %121 = call noalias noundef nonnull ptr @_Znam(i64 noundef %120) #22
   store ptr %121, ptr %58, align 8, !tbaa !168
-  %122 = load ptr, ptr %.0116312, align 8, !tbaa !111
+  %122 = load ptr, ptr %.0116325, align 8, !tbaa !111
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %121, ptr align 4 %122, i64 %119, i1 false)
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
 
@@ -4604,22 +4604,22 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit: ; preds = %111, %112
   %123 = phi ptr [ null, %111 ], [ %121, %112 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
   store ptr %0, ptr %4, align 8, !tbaa !162
-  %.not.i215.not = icmp ule ptr %.0145309, inttoptr (i64 2 to ptr)
+  %.not.i215.not = icmp ule ptr %.0145322, inttoptr (i64 2 to ptr)
   br i1 %.not.i215.not, label %124, label %125
 
 124:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   store i8 1, ptr %64, align 8, !tbaa !164
-  store ptr %.0145309, ptr %65, align 8, !tbaa !165
+  store ptr %.0145322, ptr %65, align 8, !tbaa !165
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit216
 
 125:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
   store i8 0, ptr %64, align 8, !tbaa !164
   store ptr null, ptr %65, align 8, !tbaa !165
-  %126 = getelementptr inbounds nuw i8, ptr %.0145309, i64 12
+  %126 = getelementptr inbounds nuw i8, ptr %.0145322, i64 12
   %127 = load i32, ptr %126, align 4, !tbaa !110
   store i32 %127, ptr %66, align 4, !tbaa !166
-  %128 = getelementptr inbounds nuw i8, ptr %.0145309, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %.0145322, i64 8
   %129 = load i32, ptr %128, align 8, !tbaa !107
   store i32 %129, ptr %67, align 8, !tbaa !167
   %130 = sext i32 %129 to i64
@@ -4631,7 +4631,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit: ; preds = %111, %112
 
 .noexc:                                           ; preds = %125
   store ptr %134, ptr %63, align 8, !tbaa !168
-  %135 = load ptr, ptr %.0145309, align 8, !tbaa !111
+  %135 = load ptr, ptr %.0145322, align 8, !tbaa !111
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %134, ptr align 4 %135, i64 %132, i1 false)
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit216
 
@@ -4736,8 +4736,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %152 ], [ false, %.sink.split ]
   %.1133 = phi ptr [ %151, %152 ], [ null, %.sink.split ]
   %168 = icmp eq ptr %136, null
-  %or.cond392 = or i1 %.not.i215.not, %168
-  br i1 %or.cond392, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %169
+  %or.cond418 = or i1 %.not.i215.not, %168
+  br i1 %or.cond418, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %169
 
 169:                                              ; preds = %167
   call void @_ZdaPv(ptr noundef nonnull %136) #23
@@ -4746,8 +4746,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %167, %169
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %170 = icmp eq ptr %123, null
-  %or.cond393 = or i1 %.not.i.not, %170
-  br i1 %or.cond393, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219, label %171
+  %or.cond419 = or i1 %.not.i.not, %170
+  br i1 %or.cond419, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219, label %171
 
 171:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %123) #23
@@ -4760,8 +4760,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit219:      ; preds = %_ZN10duckdb_re23DFA
 172:                                              ; preds = %166, %148
   %.pn186.pn = phi { ptr, i32 } [ %.pn186, %166 ], [ %149, %148 ]
   %173 = icmp eq ptr %136, null
-  %or.cond394 = or i1 %.not.i215.not, %173
-  br i1 %or.cond394, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit220, label %174
+  %or.cond420 = or i1 %.not.i215.not, %173
+  br i1 %or.cond420, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit220, label %174
 
 174:                                              ; preds = %172
   call void @_ZdaPv(ptr noundef nonnull %136) #23
@@ -4771,8 +4771,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit220:      ; preds = %174, %172, %146
   %.pn186.pn.pn = phi { ptr, i32 } [ %147, %146 ], [ %.pn186.pn, %172 ], [ %.pn186.pn, %174 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %175 = icmp eq ptr %123, null
-  %or.cond395 = or i1 %.not.i.not, %175
-  br i1 %or.cond395, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit221, label %176
+  %or.cond421 = or i1 %.not.i.not, %175
+  br i1 %or.cond421, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit221, label %176
 
 176:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit220
   call void @_ZdaPv(ptr noundef nonnull %123) #23
@@ -4783,9 +4783,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit221:      ; preds = %_ZN10duckdb_re23DFA
   br label %347
 
 177:                                              ; preds = %94, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219, %81
-  %.1136 = phi ptr [ %82, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219 ], [ %.0135310, %94 ], [ %.0135310, %81 ]
+  %.1136 = phi ptr [ %82, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219 ], [ %.0135323, %94 ], [ %.0135323, %81 ]
   %.0132 = phi ptr [ %.1133, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219 ], [ %95, %94 ], [ %.0.i.i214, %81 ]
-  %.1117 = phi ptr [ %139, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219 ], [ %.0116312, %94 ], [ %.0116312, %81 ]
+  %.1117 = phi ptr [ %139, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219 ], [ %.0116325, %94 ], [ %.0116325, %81 ]
   %.not191 = icmp ugt ptr %.0132, inttoptr (i64 2 to ptr)
   br i1 %.not191, label %184, label %178
 
@@ -4795,8 +4795,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit221:      ; preds = %_ZN10duckdb_re23DFA
   br i1 %179, label %181, label %183
 
 181:                                              ; preds = %178
-  store ptr %.1156307, ptr %180, align 8, !tbaa !180
-  %182 = trunc nuw i8 %.1151308 to i1
+  store ptr %.1156320, ptr %180, align 8, !tbaa !180
+  %182 = trunc nuw i8 %.1151321 to i1
   br label %.critedge203.thread
 
 183:                                              ; preds = %178
@@ -4822,9 +4822,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit221:      ; preds = %_ZN10duckdb_re23DFA
   %193 = getelementptr inbounds nuw i8, ptr %.0132, i64 8
   %194 = load i32, ptr %193, align 8, !tbaa !107
   %195 = icmp sgt i32 %194, 0
-  br i1 %195, label %.lr.ph304, label %.critedge203
+  br i1 %195, label %.lr.ph317, label %.critedge203
 
-.lr.ph304:                                        ; preds = %192
+.lr.ph317:                                        ; preds = %192
   %196 = load ptr, ptr %.0132, align 8, !tbaa !111
   %197 = getelementptr inbounds nuw i8, ptr %189, i64 24
   %198 = getelementptr inbounds nuw i8, ptr %189, i64 32
@@ -4832,10 +4832,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit221:      ; preds = %_ZN10duckdb_re23DFA
   %200 = zext nneg i32 %194 to i64
   br label %201
 
-201:                                              ; preds = %.lr.ph304, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231
-  %indvars.iv348 = phi i64 [ %200, %.lr.ph304 ], [ %indvars.iv.next349, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231 ]
-  %indvars.iv.next349 = add nsw i64 %indvars.iv348, -1
-  %202 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv.next349
+201:                                              ; preds = %.lr.ph317, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231
+  %indvars.iv374 = phi i64 [ %200, %.lr.ph317 ], [ %indvars.iv.next375, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231 ]
+  %indvars.iv.next375 = add nsw i64 %indvars.iv374, -1
+  %202 = getelementptr inbounds nuw i32, ptr %196, i64 %indvars.iv.next375
   %203 = load i32, ptr %202, align 4, !tbaa !77
   %.not193 = icmp eq i32 %203, -2
   br i1 %.not193, label %.critedge203, label %204
@@ -4875,12 +4875,12 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i226: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit231:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i230, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i226, %204
-  %222 = icmp samesign ugt i64 %indvars.iv348, 1
+  %222 = icmp samesign ugt i64 %indvars.iv374, 1
   br i1 %222, label %201, label %.critedge203, !llvm.loop !185
 
 .critedge203:                                     ; preds = %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231, %201, %192, %184, %188
-  %.2157 = phi ptr [ %.0134311, %188 ], [ %.1156307, %184 ], [ %.0134311, %192 ], [ %.0134311, %201 ], [ %.0134311, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231 ]
-  %.2152 = phi i8 [ 1, %188 ], [ %.1151308, %184 ], [ 1, %192 ], [ 1, %201 ], [ 1, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231 ]
+  %.2157 = phi ptr [ %.0134324, %188 ], [ %.1156320, %184 ], [ %.0134324, %192 ], [ %.0134324, %201 ], [ %.0134324, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231 ]
+  %.2152 = phi i8 [ 1, %188 ], [ %.1151321, %184 ], [ 1, %192 ], [ 1, %201 ], [ 1, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231 ]
   %.not179 = icmp eq ptr %82, %13
   br i1 %.not179, label %._crit_edge.loopexit, label %81, !llvm.loop !186
 
@@ -4991,7 +4991,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit234: ; preds = %249, %253
 
 274:                                              ; preds = %272
   %275 = icmp eq ptr %273, null
-  br i1 %275, label %.sink.split396, label %278
+  br i1 %275, label %.sink.split422, label %278
 
 276:                                              ; preds = %278, %272, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit234
   %277 = landingpad { ptr, i32 }
@@ -5020,7 +5020,7 @@ _ZN10LogMessageC2EPKci.exit236:                   ; preds = %282
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238: ; preds = %_ZN10LogMessageC2EPKci.exit236
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
-  br label %.sink.split396
+  br label %.sink.split422
 
 285:                                              ; preds = %282
   %286 = landingpad { ptr, i32 }
@@ -5038,17 +5038,17 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
   br label %294
 
-.sink.split396:                                   ; preds = %274, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238
+.sink.split422:                                   ; preds = %274, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 1, ptr %290, align 8, !tbaa !178
   br label %291
 
-291:                                              ; preds = %.sink.split396, %280
-  %cond1 = phi i1 [ true, %280 ], [ false, %.sink.split396 ]
-  %.1114 = phi ptr [ %279, %280 ], [ null, %.sink.split396 ]
+291:                                              ; preds = %.sink.split422, %280
+  %cond1 = phi i1 [ true, %280 ], [ false, %.sink.split422 ]
+  %.1114 = phi ptr [ %279, %280 ], [ null, %.sink.split422 ]
   %292 = icmp eq ptr %269, null
-  %or.cond397 = or i1 %.not.i233.not, %292
-  br i1 %or.cond397, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239, label %293
+  %or.cond423 = or i1 %.not.i233.not, %292
+  br i1 %or.cond423, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239, label %293
 
 293:                                              ; preds = %291
   call void @_ZdaPv(ptr noundef nonnull %269) #23
@@ -5061,8 +5061,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit239:      ; preds = %291, %293
 294:                                              ; preds = %289, %276
   %.pn.pn = phi { ptr, i32 } [ %.pn, %289 ], [ %277, %276 ]
   %295 = icmp eq ptr %269, null
-  %or.cond399 = or i1 %.not.i233.not, %295
-  br i1 %or.cond399, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit240, label %296
+  %or.cond425 = or i1 %.not.i233.not, %295
+  br i1 %or.cond425, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit240, label %296
 
 296:                                              ; preds = %294
   call void @_ZdaPv(ptr noundef nonnull %269) #23
@@ -5112,9 +5112,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit240:      ; preds = %294, %296
   %315 = getelementptr inbounds nuw i8, ptr %.0113, i64 8
   %316 = load i32, ptr %315, align 8, !tbaa !107
   %317 = icmp sgt i32 %316, 0
-  br i1 %317, label %.lr.ph322, label %.critedge208
+  br i1 %317, label %.lr.ph335, label %.critedge208
 
-.lr.ph322:                                        ; preds = %314
+.lr.ph335:                                        ; preds = %314
   %318 = load ptr, ptr %.0113, align 8, !tbaa !111
   %319 = getelementptr inbounds nuw i8, ptr %310, i64 24
   %320 = getelementptr inbounds nuw i8, ptr %310, i64 32
@@ -5122,10 +5122,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit240:      ; preds = %294, %296
   %322 = zext nneg i32 %316 to i64
   br label %323
 
-323:                                              ; preds = %.lr.ph322, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250
-  %indvars.iv351 = phi i64 [ %322, %.lr.ph322 ], [ %indvars.iv.next352, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250 ]
-  %indvars.iv.next352 = add nsw i64 %indvars.iv351, -1
-  %324 = getelementptr inbounds nuw i32, ptr %318, i64 %indvars.iv.next352
+323:                                              ; preds = %.lr.ph335, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250
+  %indvars.iv377 = phi i64 [ %322, %.lr.ph335 ], [ %indvars.iv.next378, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250 ]
+  %indvars.iv.next378 = add nsw i64 %indvars.iv377, -1
+  %324 = getelementptr inbounds nuw i32, ptr %318, i64 %indvars.iv.next378
   %325 = load i32, ptr %324, align 4, !tbaa !77
   %.not184 = icmp eq i32 %325, -2
   br i1 %.not184, label %.critedge208, label %326
@@ -5165,7 +5165,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i245: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit250:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i249, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i245, %326
-  %344 = icmp samesign ugt i64 %indvars.iv351, 1
+  %344 = icmp samesign ugt i64 %indvars.iv377, 1
   br i1 %344, label %323, label %.critedge208, !llvm.loop !187
 
 .critedge208:                                     ; preds = %323, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250, %314, %308, %304
@@ -5533,8 +5533,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %153 ], [ false, %.sink.split ]
   %.1127 = phi ptr [ %152, %153 ], [ null, %.sink.split ]
   %169 = icmp eq ptr %137, null
-  %or.cond367 = or i1 %.not.i200.not, %169
-  br i1 %or.cond367, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %170
+  %or.cond393 = or i1 %.not.i200.not, %169
+  br i1 %or.cond393, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %170
 
 170:                                              ; preds = %168
   call void @_ZdaPv(ptr noundef nonnull %137) #23
@@ -5543,8 +5543,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %168, %170
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %171 = icmp eq ptr %124, null
-  %or.cond368 = or i1 %.not.i.not, %171
-  br i1 %or.cond368, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204, label %172
+  %or.cond394 = or i1 %.not.i.not, %171
+  br i1 %or.cond394, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit204, label %172
 
 172:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %124) #23
@@ -5557,8 +5557,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit204:      ; preds = %_ZN10duckdb_re23DFA
 173:                                              ; preds = %167, %149
   %.pn172.pn = phi { ptr, i32 } [ %.pn172, %167 ], [ %150, %149 ]
   %174 = icmp eq ptr %137, null
-  %or.cond369 = or i1 %.not.i200.not, %174
-  br i1 %or.cond369, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit205, label %175
+  %or.cond395 = or i1 %.not.i200.not, %174
+  br i1 %or.cond395, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit205, label %175
 
 175:                                              ; preds = %173
   call void @_ZdaPv(ptr noundef nonnull %137) #23
@@ -5568,8 +5568,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit205:      ; preds = %175, %173, %147
   %.pn172.pn.pn = phi { ptr, i32 } [ %148, %147 ], [ %.pn172.pn, %173 ], [ %.pn172.pn, %175 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %176 = icmp eq ptr %124, null
-  %or.cond370 = or i1 %.not.i.not, %176
-  br i1 %or.cond370, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit206, label %177
+  %or.cond396 = or i1 %.not.i.not, %176
+  br i1 %or.cond396, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit206, label %177
 
 177:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit205
   call void @_ZdaPv(ptr noundef nonnull %124) #23
@@ -5619,9 +5619,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit206:      ; preds = %_ZN10duckdb_re23DFA
   %194 = getelementptr inbounds nuw i8, ptr %.0126, i64 8
   %195 = load i32, ptr %194, align 8, !tbaa !107
   %196 = icmp sgt i32 %195, 0
-  br i1 %196, label %.lr.ph291, label %.critedge191
+  br i1 %196, label %.lr.ph304, label %.critedge191
 
-.lr.ph291:                                        ; preds = %193
+.lr.ph304:                                        ; preds = %193
   %197 = load ptr, ptr %.0126, align 8, !tbaa !111
   %198 = getelementptr inbounds nuw i8, ptr %190, i64 24
   %199 = getelementptr inbounds nuw i8, ptr %190, i64 32
@@ -5629,10 +5629,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit206:      ; preds = %_ZN10duckdb_re23DFA
   %201 = zext nneg i32 %195 to i64
   br label %202
 
-202:                                              ; preds = %.lr.ph291, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216
-  %indvars.iv323 = phi i64 [ %201, %.lr.ph291 ], [ %indvars.iv.next324, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216 ]
-  %indvars.iv.next324 = add nsw i64 %indvars.iv323, -1
-  %203 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv.next324
+202:                                              ; preds = %.lr.ph304, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216
+  %indvars.iv349 = phi i64 [ %201, %.lr.ph304 ], [ %indvars.iv.next350, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216 ]
+  %indvars.iv.next350 = add nsw i64 %indvars.iv349, -1
+  %203 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv.next350
   %204 = load i32, ptr %203, align 4, !tbaa !77
   %.not179 = icmp eq i32 %204, -2
   br i1 %.not179, label %.critedge191, label %205
@@ -5672,7 +5672,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i211: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit216:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i215, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i211, %205
-  %223 = icmp samesign ugt i64 %indvars.iv323, 1
+  %223 = icmp samesign ugt i64 %indvars.iv349, 1
   br i1 %223, label %202, label %.critedge191, !llvm.loop !190
 
 .critedge191:                                     ; preds = %202, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit216, %193, %188
@@ -5773,7 +5773,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit219: ; preds = %250, %254
 
 274:                                              ; preds = %272
   %275 = icmp eq ptr %273, null
-  br i1 %275, label %.sink.split371, label %278
+  br i1 %275, label %.sink.split397, label %278
 
 276:                                              ; preds = %278, %272, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit219
   %277 = landingpad { ptr, i32 }
@@ -5802,7 +5802,7 @@ _ZN10LogMessageC2EPKci.exit221:                   ; preds = %282
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223: ; preds = %_ZN10LogMessageC2EPKci.exit221
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
-  br label %.sink.split371
+  br label %.sink.split397
 
 285:                                              ; preds = %282
   %286 = landingpad { ptr, i32 }
@@ -5820,16 +5820,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
   br label %293
 
-.sink.split371:                                   ; preds = %274, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223
+.sink.split397:                                   ; preds = %274, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit223
   store i8 1, ptr %42, align 8, !tbaa !178
   br label %290
 
-290:                                              ; preds = %.sink.split371, %280
-  %cond1 = phi i1 [ true, %280 ], [ false, %.sink.split371 ]
-  %.1108 = phi ptr [ %279, %280 ], [ null, %.sink.split371 ]
+290:                                              ; preds = %.sink.split397, %280
+  %cond1 = phi i1 [ true, %280 ], [ false, %.sink.split397 ]
+  %.1108 = phi ptr [ %279, %280 ], [ null, %.sink.split397 ]
   %291 = icmp eq ptr %270, null
-  %or.cond372 = or i1 %.not.i218.not, %291
-  br i1 %or.cond372, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224, label %292
+  %or.cond398 = or i1 %.not.i218.not, %291
+  br i1 %or.cond398, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit224, label %292
 
 292:                                              ; preds = %290
   call void @_ZdaPv(ptr noundef nonnull %270) #23
@@ -5842,8 +5842,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit224:      ; preds = %290, %292
 293:                                              ; preds = %289, %276
   %.pn.pn = phi { ptr, i32 } [ %.pn, %289 ], [ %277, %276 ]
   %294 = icmp eq ptr %270, null
-  %or.cond374 = or i1 %.not.i218.not, %294
-  br i1 %or.cond374, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit225, label %295
+  %or.cond400 = or i1 %.not.i218.not, %294
+  br i1 %or.cond400, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit225, label %295
 
 295:                                              ; preds = %293
   call void @_ZdaPv(ptr noundef nonnull %270) #23
@@ -5891,9 +5891,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit225:      ; preds = %293, %295
   %312 = getelementptr inbounds nuw i8, ptr %.0107, i64 8
   %313 = load i32, ptr %312, align 8, !tbaa !107
   %314 = icmp sgt i32 %313, 0
-  br i1 %314, label %.lr.ph295, label %.critedge196
+  br i1 %314, label %.lr.ph308, label %.critedge196
 
-.lr.ph295:                                        ; preds = %311
+.lr.ph308:                                        ; preds = %311
   %315 = load ptr, ptr %.0107, align 8, !tbaa !111
   %316 = getelementptr inbounds nuw i8, ptr %308, i64 24
   %317 = getelementptr inbounds nuw i8, ptr %308, i64 32
@@ -5901,10 +5901,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit225:      ; preds = %293, %295
   %319 = zext nneg i32 %313 to i64
   br label %320
 
-320:                                              ; preds = %.lr.ph295, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235
-  %indvars.iv326 = phi i64 [ %319, %.lr.ph295 ], [ %indvars.iv.next327, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235 ]
-  %indvars.iv.next327 = add nsw i64 %indvars.iv326, -1
-  %321 = getelementptr inbounds nuw i32, ptr %315, i64 %indvars.iv.next327
+320:                                              ; preds = %.lr.ph308, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235
+  %indvars.iv352 = phi i64 [ %319, %.lr.ph308 ], [ %indvars.iv.next353, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235 ]
+  %indvars.iv.next353 = add nsw i64 %indvars.iv352, -1
+  %321 = getelementptr inbounds nuw i32, ptr %315, i64 %indvars.iv.next353
   %322 = load i32, ptr %321, align 4, !tbaa !77
   %.not170 = icmp eq i32 %322, -2
   br i1 %.not170, label %.critedge196, label %323
@@ -5944,7 +5944,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i230: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit235:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i234, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i230, %323
-  %341 = icmp samesign ugt i64 %indvars.iv326, 1
+  %341 = icmp samesign ugt i64 %indvars.iv352, 1
   br i1 %341, label %320, label %.critedge196, !llvm.loop !191
 
 .critedge196:                                     ; preds = %320, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit235, %311, %306, %302
@@ -6310,8 +6310,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %153 ], [ false, %.sink.split ]
   %.1137 = phi ptr [ %152, %153 ], [ null, %.sink.split ]
   %169 = icmp eq ptr %137, null
-  %or.cond371 = or i1 %.not.i215.not, %169
-  br i1 %or.cond371, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %170
+  %or.cond397 = or i1 %.not.i215.not, %169
+  br i1 %or.cond397, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %170
 
 170:                                              ; preds = %168
   call void @_ZdaPv(ptr noundef nonnull %137) #23
@@ -6320,8 +6320,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %168, %170
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %171 = icmp eq ptr %124, null
-  %or.cond372 = or i1 %.not.i.not, %171
-  br i1 %or.cond372, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219, label %172
+  %or.cond398 = or i1 %.not.i.not, %171
+  br i1 %or.cond398, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit219, label %172
 
 172:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %124) #23
@@ -6334,8 +6334,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit219:      ; preds = %_ZN10duckdb_re23DFA
 173:                                              ; preds = %167, %149
   %.pn184.pn = phi { ptr, i32 } [ %.pn184, %167 ], [ %150, %149 ]
   %174 = icmp eq ptr %137, null
-  %or.cond373 = or i1 %.not.i215.not, %174
-  br i1 %or.cond373, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit220, label %175
+  %or.cond399 = or i1 %.not.i215.not, %174
+  br i1 %or.cond399, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit220, label %175
 
 175:                                              ; preds = %173
   call void @_ZdaPv(ptr noundef nonnull %137) #23
@@ -6345,8 +6345,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit220:      ; preds = %175, %173, %147
   %.pn184.pn.pn = phi { ptr, i32 } [ %148, %147 ], [ %.pn184.pn, %173 ], [ %.pn184.pn, %175 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %176 = icmp eq ptr %124, null
-  %or.cond374 = or i1 %.not.i.not, %176
-  br i1 %or.cond374, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit221, label %177
+  %or.cond400 = or i1 %.not.i.not, %176
+  br i1 %or.cond400, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit221, label %177
 
 177:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit220
   call void @_ZdaPv(ptr noundef nonnull %124) #23
@@ -6396,9 +6396,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit221:      ; preds = %_ZN10duckdb_re23DFA
   %194 = getelementptr inbounds nuw i8, ptr %.0136, i64 8
   %195 = load i32, ptr %194, align 8, !tbaa !107
   %196 = icmp sgt i32 %195, 0
-  br i1 %196, label %.lr.ph295, label %.critedge203
+  br i1 %196, label %.lr.ph308, label %.critedge203
 
-.lr.ph295:                                        ; preds = %193
+.lr.ph308:                                        ; preds = %193
   %197 = load ptr, ptr %.0136, align 8, !tbaa !111
   %198 = getelementptr inbounds nuw i8, ptr %190, i64 24
   %199 = getelementptr inbounds nuw i8, ptr %190, i64 32
@@ -6406,10 +6406,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit221:      ; preds = %_ZN10duckdb_re23DFA
   %201 = zext nneg i32 %195 to i64
   br label %202
 
-202:                                              ; preds = %.lr.ph295, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231
-  %indvars.iv327 = phi i64 [ %201, %.lr.ph295 ], [ %indvars.iv.next328, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231 ]
-  %indvars.iv.next328 = add nsw i64 %indvars.iv327, -1
-  %203 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv.next328
+202:                                              ; preds = %.lr.ph308, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231
+  %indvars.iv353 = phi i64 [ %201, %.lr.ph308 ], [ %indvars.iv.next354, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231 ]
+  %indvars.iv.next354 = add nsw i64 %indvars.iv353, -1
+  %203 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv.next354
   %204 = load i32, ptr %203, align 4, !tbaa !77
   %.not191 = icmp eq i32 %204, -2
   br i1 %.not191, label %.critedge203, label %205
@@ -6449,7 +6449,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i226: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit231:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i230, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i226, %205
-  %223 = icmp samesign ugt i64 %indvars.iv327, 1
+  %223 = icmp samesign ugt i64 %indvars.iv353, 1
   br i1 %223, label %202, label %.critedge203, !llvm.loop !194
 
 .critedge203:                                     ; preds = %202, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit231, %193, %188
@@ -6554,7 +6554,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit234: ; preds = %252, %256
 
 276:                                              ; preds = %274
   %277 = icmp eq ptr %275, null
-  br i1 %277, label %.sink.split375, label %280
+  br i1 %277, label %.sink.split401, label %280
 
 278:                                              ; preds = %280, %274, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit234
   %279 = landingpad { ptr, i32 }
@@ -6583,7 +6583,7 @@ _ZN10LogMessageC2EPKci.exit236:                   ; preds = %284
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238: ; preds = %_ZN10LogMessageC2EPKci.exit236
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
-  br label %.sink.split375
+  br label %.sink.split401
 
 287:                                              ; preds = %284
   %288 = landingpad { ptr, i32 }
@@ -6601,16 +6601,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
   br label %295
 
-.sink.split375:                                   ; preds = %276, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238
+.sink.split401:                                   ; preds = %276, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit238
   store i8 1, ptr %42, align 8, !tbaa !178
   br label %292
 
-292:                                              ; preds = %.sink.split375, %282
-  %cond1 = phi i1 [ true, %282 ], [ false, %.sink.split375 ]
-  %.1118 = phi ptr [ %281, %282 ], [ null, %.sink.split375 ]
+292:                                              ; preds = %.sink.split401, %282
+  %cond1 = phi i1 [ true, %282 ], [ false, %.sink.split401 ]
+  %.1118 = phi ptr [ %281, %282 ], [ null, %.sink.split401 ]
   %293 = icmp eq ptr %272, null
-  %or.cond376 = or i1 %.not.i233.not, %293
-  br i1 %or.cond376, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239, label %294
+  %or.cond402 = or i1 %.not.i233.not, %293
+  br i1 %or.cond402, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit239, label %294
 
 294:                                              ; preds = %292
   call void @_ZdaPv(ptr noundef nonnull %272) #23
@@ -6623,8 +6623,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit239:      ; preds = %292, %294
 295:                                              ; preds = %291, %278
   %.pn.pn = phi { ptr, i32 } [ %.pn, %291 ], [ %279, %278 ]
   %296 = icmp eq ptr %272, null
-  %or.cond378 = or i1 %.not.i233.not, %296
-  br i1 %or.cond378, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit240, label %297
+  %or.cond404 = or i1 %.not.i233.not, %296
+  br i1 %or.cond404, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit240, label %297
 
 297:                                              ; preds = %295
   call void @_ZdaPv(ptr noundef nonnull %272) #23
@@ -6672,9 +6672,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit240:      ; preds = %295, %297
   %314 = getelementptr inbounds nuw i8, ptr %.0117, i64 8
   %315 = load i32, ptr %314, align 8, !tbaa !107
   %316 = icmp sgt i32 %315, 0
-  br i1 %316, label %.lr.ph299, label %.critedge208
+  br i1 %316, label %.lr.ph312, label %.critedge208
 
-.lr.ph299:                                        ; preds = %313
+.lr.ph312:                                        ; preds = %313
   %317 = load ptr, ptr %.0117, align 8, !tbaa !111
   %318 = getelementptr inbounds nuw i8, ptr %310, i64 24
   %319 = getelementptr inbounds nuw i8, ptr %310, i64 32
@@ -6682,10 +6682,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit240:      ; preds = %295, %297
   %321 = zext nneg i32 %315 to i64
   br label %322
 
-322:                                              ; preds = %.lr.ph299, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250
-  %indvars.iv330 = phi i64 [ %321, %.lr.ph299 ], [ %indvars.iv.next331, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250 ]
-  %indvars.iv.next331 = add nsw i64 %indvars.iv330, -1
-  %323 = getelementptr inbounds nuw i32, ptr %317, i64 %indvars.iv.next331
+322:                                              ; preds = %.lr.ph312, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250
+  %indvars.iv356 = phi i64 [ %321, %.lr.ph312 ], [ %indvars.iv.next357, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250 ]
+  %indvars.iv.next357 = add nsw i64 %indvars.iv356, -1
+  %323 = getelementptr inbounds nuw i32, ptr %317, i64 %indvars.iv.next357
   %324 = load i32, ptr %323, align 4, !tbaa !77
   %.not182 = icmp eq i32 %324, -2
   br i1 %.not182, label %.critedge208, label %325
@@ -6725,7 +6725,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i245: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit250:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i249, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i245, %325
-  %343 = icmp samesign ugt i64 %indvars.iv330, 1
+  %343 = icmp samesign ugt i64 %indvars.iv356, 1
   br i1 %343, label %322, label %.critedge208, !llvm.loop !195
 
 .critedge208:                                     ; preds = %322, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit250, %313, %308, %304
@@ -6843,10 +6843,10 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
 .critedge:                                        ; preds = %34, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit, %25, %19, %2
   %.0146 = phi i8 [ 1, %19 ], [ 0, %2 ], [ 1, %25 ], [ 1, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit ], [ 1, %34 ]
   %.0129 = phi ptr [ %13, %19 ], [ null, %2 ], [ %13, %25 ], [ %13, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit ], [ %13, %34 ]
-  %.not170304 = icmp samesign eq i64 %12, 0
-  br i1 %.not170304, label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit._crit_edge, label %.lr.ph312
+  %.not170317 = icmp samesign eq i64 %12, 0
+  br i1 %.not170317, label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit._crit_edge, label %.lr.ph325
 
-.lr.ph312:                                        ; preds = %.critedge
+.lr.ph325:                                        ; preds = %.critedge
   %56 = ptrtoint ptr %10 to i64
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6875,19 +6875,19 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %82
 
-82:                                               ; preds = %.lr.ph312, %.critedge194
-  %.0108310 = phi ptr [ %9, %.lr.ph312 ], [ %.1109, %.critedge194 ]
-  %.0126309 = phi ptr [ null, %.lr.ph312 ], [ %.1127, %.critedge194 ]
-  %.1130308 = phi ptr [ %.0129, %.lr.ph312 ], [ %.2131, %.critedge194 ]
-  %.0141307 = phi ptr [ %9, %.lr.ph312 ], [ %.0124, %.critedge194 ]
-  %.1147306 = phi i8 [ %.0146, %.lr.ph312 ], [ %.2148, %.critedge194 ]
-  %.0253305 = phi ptr [ %13, %.lr.ph312 ], [ %104, %.critedge194 ]
-  %83 = icmp eq ptr %.0141307, %.0108310
+82:                                               ; preds = %.lr.ph325, %.critedge194
+  %.0108323 = phi ptr [ %9, %.lr.ph325 ], [ %.1109, %.critedge194 ]
+  %.0126322 = phi ptr [ null, %.lr.ph325 ], [ %.1127, %.critedge194 ]
+  %.1130321 = phi ptr [ %.0129, %.lr.ph325 ], [ %.2131, %.critedge194 ]
+  %.0141320 = phi ptr [ %9, %.lr.ph325 ], [ %.0124, %.critedge194 ]
+  %.1147319 = phi i8 [ %.0146, %.lr.ph325 ], [ %.2148, %.critedge194 ]
+  %.0253318 = phi ptr [ %13, %.lr.ph325 ], [ %104, %.critedge194 ]
+  %83 = icmp eq ptr %.0141320, %.0108323
   br i1 %83, label %84, label %103
 
 84:                                               ; preds = %82
   %85 = load ptr, ptr %0, align 8, !tbaa !7
-  %86 = ptrtoint ptr %.0253305 to i64
+  %86 = ptrtoint ptr %.0253318 to i64
   %87 = sub i64 %56, %86
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %89 = load i8, ptr %88, align 8, !tbaa !197, !range !117, !noundef !118
@@ -6895,7 +6895,7 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %84
-  %92 = call noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr noundef nonnull align 8 dereferenceable(432) %85, ptr noundef %.0253305, i64 noundef %87)
+  %92 = call noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr noundef nonnull align 8 dereferenceable(432) %85, ptr noundef %.0253318, i64 noundef %87)
   br label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit
 
 93:                                               ; preds = %84
@@ -6905,13 +6905,13 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
   br i1 %.not.i, label %98, label %96
 
 96:                                               ; preds = %93
-  %97 = call noundef ptr @_ZN10duckdb_re24Prog24PrefixAccel_FrontAndBackEPKvm(ptr noundef nonnull align 8 dereferenceable(432) %85, ptr noundef %.0253305, i64 noundef %87)
+  %97 = call noundef ptr @_ZN10duckdb_re24Prog24PrefixAccel_FrontAndBackEPKvm(ptr noundef nonnull align 8 dereferenceable(432) %85, ptr noundef %.0253318, i64 noundef %87)
   br label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit
 
 98:                                               ; preds = %93
   %99 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %100 = load i32, ptr %99, align 8, !tbaa !104
-  %101 = call noundef ptr @memchr(ptr noundef %.0253305, i32 noundef %100, i64 noundef %87) #25
+  %101 = call noundef ptr @memchr(ptr noundef %.0253318, i32 noundef %100, i64 noundef %87) #25
   br label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit
 
 _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit:      ; preds = %91, %96, %98
@@ -6920,11 +6920,11 @@ _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit:      ; preds = %91, %96, %98
   br i1 %102, label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit._crit_edge.loopexit, label %103
 
 103:                                              ; preds = %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit, %82
-  %.2255 = phi ptr [ %.0.i, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ], [ %.0253305, %82 ]
+  %.2255 = phi ptr [ %.0.i, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ], [ %.0253318, %82 ]
   %104 = getelementptr inbounds i8, ptr %.2255, i64 -1
   %105 = load i8, ptr %104, align 1, !tbaa !104
   %106 = zext i8 %105 to i32
-  %107 = getelementptr inbounds nuw i8, ptr %.0141307, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.0141320, i64 16
   %108 = load ptr, ptr %107, align 8, !tbaa !126
   %109 = zext i8 %105 to i64
   %110 = getelementptr inbounds nuw i8, ptr %15, i64 %109
@@ -6937,20 +6937,20 @@ _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit:      ; preds = %91, %96, %98
   br i1 %115, label %116, label %199
 
 116:                                              ; preds = %103
-  %117 = call noundef ptr @_ZN10duckdb_re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %.0141307, i32 noundef %106)
+  %117 = call noundef ptr @_ZN10duckdb_re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %.0141320, i32 noundef %106)
   %118 = icmp eq ptr %117, null
   br i1 %118, label %119, label %199
 
 119:                                              ; preds = %116
   %120 = load i8, ptr @_ZN10duckdb_re2L25dfa_should_bail_when_slowE, align 1, !tbaa !3, !range !117, !noundef !118
   %121 = trunc nuw i8 %120 to i1
-  %122 = icmp ne ptr %.0126309, null
+  %122 = icmp ne ptr %.0126322, null
   %or.cond = select i1 %121, i1 %122, i1 false
   br i1 %or.cond, label %123, label %132
 
 123:                                              ; preds = %119
   %124 = ptrtoint ptr %104 to i64
-  %125 = ptrtoint ptr %.0126309 to i64
+  %125 = ptrtoint ptr %.0126322 to i64
   %126 = sub i64 %124, %125
   %127 = load i64, ptr %57, align 8, !tbaa !159
   %128 = mul i64 %127, 10
@@ -6967,22 +6967,22 @@ _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit:      ; preds = %91, %96, %98
 132:                                              ; preds = %123, %119
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
   store ptr %0, ptr %3, align 8, !tbaa !162
-  %.not.i203.not = icmp ule ptr %.0108310, inttoptr (i64 2 to ptr)
+  %.not.i203.not = icmp ule ptr %.0108323, inttoptr (i64 2 to ptr)
   br i1 %.not.i203.not, label %133, label %134
 
 133:                                              ; preds = %132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   store i8 1, ptr %60, align 8, !tbaa !164
-  store ptr %.0108310, ptr %61, align 8, !tbaa !165
+  store ptr %.0108323, ptr %61, align 8, !tbaa !165
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
 
 134:                                              ; preds = %132
   store i8 0, ptr %60, align 8, !tbaa !164
   store ptr null, ptr %61, align 8, !tbaa !165
-  %135 = getelementptr inbounds nuw i8, ptr %.0108310, i64 12
+  %135 = getelementptr inbounds nuw i8, ptr %.0108323, i64 12
   %136 = load i32, ptr %135, align 4, !tbaa !110
   store i32 %136, ptr %62, align 4, !tbaa !166
-  %137 = getelementptr inbounds nuw i8, ptr %.0108310, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %.0108323, i64 8
   %138 = load i32, ptr %137, align 8, !tbaa !107
   store i32 %138, ptr %63, align 8, !tbaa !167
   %139 = sext i32 %138 to i64
@@ -6991,7 +6991,7 @@ _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit:      ; preds = %91, %96, %98
   %142 = select i1 %140, i64 -1, i64 %141
   %143 = call noalias noundef nonnull ptr @_Znam(i64 noundef %142) #22
   store ptr %143, ptr %59, align 8, !tbaa !168
-  %144 = load ptr, ptr %.0108310, align 8, !tbaa !111
+  %144 = load ptr, ptr %.0108323, align 8, !tbaa !111
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %143, ptr align 4 %144, i64 %141, i1 false)
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
 
@@ -6999,22 +6999,22 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit: ; preds = %133, %134
   %145 = phi ptr [ null, %133 ], [ %143, %134 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
   store ptr %0, ptr %4, align 8, !tbaa !162
-  %.not.i204.not = icmp ule ptr %.0141307, inttoptr (i64 2 to ptr)
+  %.not.i204.not = icmp ule ptr %.0141320, inttoptr (i64 2 to ptr)
   br i1 %.not.i204.not, label %146, label %147
 
 146:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   store i8 1, ptr %65, align 8, !tbaa !164
-  store ptr %.0141307, ptr %66, align 8, !tbaa !165
+  store ptr %.0141320, ptr %66, align 8, !tbaa !165
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit205
 
 147:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
   store i8 0, ptr %65, align 8, !tbaa !164
   store ptr null, ptr %66, align 8, !tbaa !165
-  %148 = getelementptr inbounds nuw i8, ptr %.0141307, i64 12
+  %148 = getelementptr inbounds nuw i8, ptr %.0141320, i64 12
   %149 = load i32, ptr %148, align 4, !tbaa !110
   store i32 %149, ptr %67, align 4, !tbaa !166
-  %150 = getelementptr inbounds nuw i8, ptr %.0141307, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %.0141320, i64 8
   %151 = load i32, ptr %150, align 8, !tbaa !107
   store i32 %151, ptr %68, align 8, !tbaa !167
   %152 = sext i32 %151 to i64
@@ -7026,7 +7026,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit: ; preds = %133, %134
 
 .noexc:                                           ; preds = %147
   store ptr %156, ptr %64, align 8, !tbaa !168
-  %157 = load ptr, ptr %.0141307, align 8, !tbaa !111
+  %157 = load ptr, ptr %.0141320, align 8, !tbaa !111
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %156, ptr align 4 %157, i64 %154, i1 false)
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit205
 
@@ -7131,8 +7131,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %174 ], [ false, %.sink.split ]
   %.1125 = phi ptr [ %173, %174 ], [ null, %.sink.split ]
   %190 = icmp eq ptr %158, null
-  %or.cond384 = or i1 %.not.i204.not, %190
-  br i1 %or.cond384, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %191
+  %or.cond410 = or i1 %.not.i204.not, %190
+  br i1 %or.cond410, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %191
 
 191:                                              ; preds = %189
   call void @_ZdaPv(ptr noundef nonnull %158) #23
@@ -7141,8 +7141,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %189, %191
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %192 = icmp eq ptr %145, null
-  %or.cond385 = or i1 %.not.i203.not, %192
-  br i1 %or.cond385, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208, label %193
+  %or.cond411 = or i1 %.not.i203.not, %192
+  br i1 %or.cond411, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208, label %193
 
 193:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %145) #23
@@ -7155,8 +7155,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit208:      ; preds = %_ZN10duckdb_re23DFA
 194:                                              ; preds = %188, %170
   %.pn.pn = phi { ptr, i32 } [ %.pn, %188 ], [ %171, %170 ]
   %195 = icmp eq ptr %158, null
-  %or.cond386 = or i1 %.not.i204.not, %195
-  br i1 %or.cond386, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit209, label %196
+  %or.cond412 = or i1 %.not.i204.not, %195
+  br i1 %or.cond412, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit209, label %196
 
 196:                                              ; preds = %194
   call void @_ZdaPv(ptr noundef nonnull %158) #23
@@ -7166,8 +7166,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit209:      ; preds = %196, %194, %168
   %.pn.pn.pn = phi { ptr, i32 } [ %169, %168 ], [ %.pn.pn, %194 ], [ %.pn.pn, %196 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %197 = icmp eq ptr %145, null
-  %or.cond387 = or i1 %.not.i203.not, %197
-  br i1 %or.cond387, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit210, label %198
+  %or.cond413 = or i1 %.not.i203.not, %197
+  br i1 %or.cond413, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit210, label %198
 
 198:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit209
   call void @_ZdaPv(ptr noundef nonnull %145) #23
@@ -7178,9 +7178,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit210:      ; preds = %_ZN10duckdb_re23DFA
   br label %367
 
 199:                                              ; preds = %116, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208, %103
-  %.1127 = phi ptr [ %104, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208 ], [ %.0126309, %116 ], [ %.0126309, %103 ]
+  %.1127 = phi ptr [ %104, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208 ], [ %.0126322, %116 ], [ %.0126322, %103 ]
   %.0124 = phi ptr [ %.1125, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208 ], [ %117, %116 ], [ %.0.i.i202, %103 ]
-  %.1109 = phi ptr [ %161, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208 ], [ %.0108310, %116 ], [ %.0108310, %103 ]
+  %.1109 = phi ptr [ %161, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208 ], [ %.0108323, %116 ], [ %.0108323, %103 ]
   %.not175 = icmp ugt ptr %.0124, inttoptr (i64 2 to ptr)
   br i1 %.not175, label %206, label %200
 
@@ -7190,8 +7190,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit210:      ; preds = %_ZN10duckdb_re23DFA
   br i1 %201, label %203, label %205
 
 203:                                              ; preds = %200
-  store ptr %.1130308, ptr %202, align 8, !tbaa !180
-  %204 = trunc nuw i8 %.1147306 to i1
+  store ptr %.1130321, ptr %202, align 8, !tbaa !180
+  %204 = trunc nuw i8 %.1147319 to i1
   br label %.critedge194.thread
 
 205:                                              ; preds = %200
@@ -7217,9 +7217,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit210:      ; preds = %_ZN10duckdb_re23DFA
   %215 = getelementptr inbounds nuw i8, ptr %.0124, i64 8
   %216 = load i32, ptr %215, align 8, !tbaa !107
   %217 = icmp sgt i32 %216, 0
-  br i1 %217, label %.lr.ph302, label %.critedge194
+  br i1 %217, label %.lr.ph315, label %.critedge194
 
-.lr.ph302:                                        ; preds = %214
+.lr.ph315:                                        ; preds = %214
   %218 = load ptr, ptr %.0124, align 8, !tbaa !111
   %219 = getelementptr inbounds nuw i8, ptr %211, i64 24
   %220 = getelementptr inbounds nuw i8, ptr %211, i64 32
@@ -7227,10 +7227,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit210:      ; preds = %_ZN10duckdb_re23DFA
   %222 = zext nneg i32 %216 to i64
   br label %223
 
-223:                                              ; preds = %.lr.ph302, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220
-  %indvars.iv342 = phi i64 [ %222, %.lr.ph302 ], [ %indvars.iv.next343, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220 ]
-  %indvars.iv.next343 = add nsw i64 %indvars.iv342, -1
-  %224 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.next343
+223:                                              ; preds = %.lr.ph315, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220
+  %indvars.iv368 = phi i64 [ %222, %.lr.ph315 ], [ %indvars.iv.next369, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220 ]
+  %indvars.iv.next369 = add nsw i64 %indvars.iv368, -1
+  %224 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.next369
   %225 = load i32, ptr %224, align 4, !tbaa !77
   %.not177 = icmp eq i32 %225, -2
   br i1 %.not177, label %.critedge194, label %226
@@ -7270,19 +7270,19 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i215: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit220:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i219, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i215, %226
-  %244 = icmp samesign ugt i64 %indvars.iv342, 1
+  %244 = icmp samesign ugt i64 %indvars.iv368, 1
   br i1 %244, label %223, label %.critedge194, !llvm.loop !199
 
 .critedge194:                                     ; preds = %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220, %223, %214, %206, %210
-  %.2148 = phi i8 [ 1, %210 ], [ %.1147306, %206 ], [ 1, %214 ], [ 1, %223 ], [ 1, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220 ]
-  %.2131 = phi ptr [ %.2255, %210 ], [ %.1130308, %206 ], [ %.2255, %214 ], [ %.2255, %223 ], [ %.2255, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220 ]
+  %.2148 = phi i8 [ 1, %210 ], [ %.1147319, %206 ], [ 1, %214 ], [ 1, %223 ], [ 1, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220 ]
+  %.2131 = phi ptr [ %.2255, %210 ], [ %.1130321, %206 ], [ %.2255, %214 ], [ %.2255, %223 ], [ %.2255, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220 ]
   %.not170 = icmp eq ptr %104, %10
   br i1 %.not170, label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit._crit_edge.loopexit, label %82, !llvm.loop !200
 
 _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit._crit_edge.loopexit: ; preds = %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit, %.critedge194
-  %.1147.lcssa.ph = phi i8 [ %.2148, %.critedge194 ], [ %.1147306, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
-  %.0141.lcssa.ph = phi ptr [ %.0124, %.critedge194 ], [ %.0141307, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
-  %.1130.lcssa.ph = phi ptr [ %.2131, %.critedge194 ], [ %.1130308, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
+  %.1147.lcssa.ph = phi i8 [ %.2148, %.critedge194 ], [ %.1147319, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
+  %.0141.lcssa.ph = phi ptr [ %.0124, %.critedge194 ], [ %.0141320, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
+  %.1130.lcssa.ph = phi ptr [ %.2131, %.critedge194 ], [ %.1130321, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
   %.1254.ph = phi ptr [ %104, %.critedge194 ], [ %10, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
   %.val.pre = load ptr, ptr %1, align 8, !tbaa !174
   br label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit._crit_edge
@@ -7385,7 +7385,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit224: ; preds = %269, %273
 
 294:                                              ; preds = %292
   %295 = icmp eq ptr %293, null
-  br i1 %295, label %.sink.split388, label %298
+  br i1 %295, label %.sink.split414, label %298
 
 296:                                              ; preds = %298, %292, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit224
   %297 = landingpad { ptr, i32 }
@@ -7414,7 +7414,7 @@ _ZN10LogMessageC2EPKci.exit226:                   ; preds = %302
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228: ; preds = %_ZN10LogMessageC2EPKci.exit226
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
-  br label %.sink.split388
+  br label %.sink.split414
 
 305:                                              ; preds = %302
   %306 = landingpad { ptr, i32 }
@@ -7432,17 +7432,17 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
   br label %314
 
-.sink.split388:                                   ; preds = %294, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228
+.sink.split414:                                   ; preds = %294, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 1, ptr %310, align 8, !tbaa !178
   br label %311
 
-311:                                              ; preds = %.sink.split388, %300
-  %cond1 = phi i1 [ true, %300 ], [ false, %.sink.split388 ]
-  %.1106 = phi ptr [ %299, %300 ], [ null, %.sink.split388 ]
+311:                                              ; preds = %.sink.split414, %300
+  %cond1 = phi i1 [ true, %300 ], [ false, %.sink.split414 ]
+  %.1106 = phi ptr [ %299, %300 ], [ null, %.sink.split414 ]
   %312 = icmp eq ptr %289, null
-  %or.cond389 = or i1 %.not.i223.not, %312
-  br i1 %or.cond389, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %313
+  %or.cond415 = or i1 %.not.i223.not, %312
+  br i1 %or.cond415, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %313
 
 313:                                              ; preds = %311
   call void @_ZdaPv(ptr noundef nonnull %289) #23
@@ -7455,8 +7455,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit229:      ; preds = %311, %313
 314:                                              ; preds = %309, %296
   %.pn178.pn = phi { ptr, i32 } [ %.pn178, %309 ], [ %297, %296 ]
   %315 = icmp eq ptr %289, null
-  %or.cond391 = or i1 %.not.i223.not, %315
-  br i1 %or.cond391, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %316
+  %or.cond417 = or i1 %.not.i223.not, %315
+  br i1 %or.cond417, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %316
 
 316:                                              ; preds = %314
   call void @_ZdaPv(ptr noundef nonnull %289) #23
@@ -7506,9 +7506,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit230:      ; preds = %314, %316
   %335 = getelementptr inbounds nuw i8, ptr %.0105, i64 8
   %336 = load i32, ptr %335, align 8, !tbaa !107
   %337 = icmp sgt i32 %336, 0
-  br i1 %337, label %.lr.ph325, label %.critedge199
+  br i1 %337, label %.lr.ph338, label %.critedge199
 
-.lr.ph325:                                        ; preds = %334
+.lr.ph338:                                        ; preds = %334
   %338 = load ptr, ptr %.0105, align 8, !tbaa !111
   %339 = getelementptr inbounds nuw i8, ptr %330, i64 24
   %340 = getelementptr inbounds nuw i8, ptr %330, i64 32
@@ -7516,10 +7516,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit230:      ; preds = %314, %316
   %342 = zext nneg i32 %336 to i64
   br label %343
 
-343:                                              ; preds = %.lr.ph325, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240
-  %indvars.iv345 = phi i64 [ %342, %.lr.ph325 ], [ %indvars.iv.next346, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240 ]
-  %indvars.iv.next346 = add nsw i64 %indvars.iv345, -1
-  %344 = getelementptr inbounds nuw i32, ptr %338, i64 %indvars.iv.next346
+343:                                              ; preds = %.lr.ph338, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240
+  %indvars.iv371 = phi i64 [ %342, %.lr.ph338 ], [ %indvars.iv.next372, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240 ]
+  %indvars.iv.next372 = add nsw i64 %indvars.iv371, -1
+  %344 = getelementptr inbounds nuw i32, ptr %338, i64 %indvars.iv.next372
   %345 = load i32, ptr %344, align 4, !tbaa !77
   %.not184 = icmp eq i32 %345, -2
   br i1 %.not184, label %.critedge199, label %346
@@ -7559,7 +7559,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i235: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit240:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i239, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i235, %346
-  %364 = icmp samesign ugt i64 %indvars.iv345, 1
+  %364 = icmp samesign ugt i64 %indvars.iv371, 1
   br i1 %364, label %343, label %.critedge199, !llvm.loop !201
 
 .critedge199:                                     ; preds = %343, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240, %334, %328, %324
@@ -7679,10 +7679,10 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
 .critedge:                                        ; preds = %34, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit, %25, %19, %2
   %.0164 = phi ptr [ %10, %19 ], [ null, %2 ], [ %10, %25 ], [ %10, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit ], [ %10, %34 ]
   %.0159 = phi i8 [ 1, %19 ], [ 0, %2 ], [ 1, %25 ], [ 1, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit ], [ 1, %34 ]
-  %.not188310 = icmp samesign eq i64 %12, 0
-  br i1 %.not188310, label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit._crit_edge, label %.lr.ph318
+  %.not188323 = icmp samesign eq i64 %12, 0
+  br i1 %.not188323, label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit._crit_edge, label %.lr.ph331
 
-.lr.ph318:                                        ; preds = %.critedge
+.lr.ph331:                                        ; preds = %.critedge
   %56 = ptrtoint ptr %13 to i64
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7711,19 +7711,19 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %82
 
-82:                                               ; preds = %.lr.ph318, %.critedge212
-  %.0123316 = phi ptr [ %9, %.lr.ph318 ], [ %.1124, %.critedge212 ]
-  %.0141315 = phi ptr [ %10, %.lr.ph318 ], [ %104, %.critedge212 ]
-  %.0144314 = phi ptr [ null, %.lr.ph318 ], [ %.1145, %.critedge212 ]
-  %.0154313 = phi ptr [ %9, %.lr.ph318 ], [ %.0139, %.critedge212 ]
-  %.1160312 = phi i8 [ %.0159, %.lr.ph318 ], [ %.2161, %.critedge212 ]
-  %.1165311 = phi ptr [ %.0164, %.lr.ph318 ], [ %.2166, %.critedge212 ]
-  %83 = icmp eq ptr %.0154313, %.0123316
+82:                                               ; preds = %.lr.ph331, %.critedge212
+  %.0123329 = phi ptr [ %9, %.lr.ph331 ], [ %.1124, %.critedge212 ]
+  %.0141328 = phi ptr [ %10, %.lr.ph331 ], [ %104, %.critedge212 ]
+  %.0144327 = phi ptr [ null, %.lr.ph331 ], [ %.1145, %.critedge212 ]
+  %.0154326 = phi ptr [ %9, %.lr.ph331 ], [ %.0139, %.critedge212 ]
+  %.1160325 = phi i8 [ %.0159, %.lr.ph331 ], [ %.2161, %.critedge212 ]
+  %.1165324 = phi ptr [ %.0164, %.lr.ph331 ], [ %.2166, %.critedge212 ]
+  %83 = icmp eq ptr %.0154326, %.0123329
   br i1 %83, label %84, label %103
 
 84:                                               ; preds = %82
   %85 = load ptr, ptr %0, align 8, !tbaa !7
-  %86 = ptrtoint ptr %.0141315 to i64
+  %86 = ptrtoint ptr %.0141328 to i64
   %87 = sub i64 %56, %86
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %89 = load i8, ptr %88, align 8, !tbaa !197, !range !117, !noundef !118
@@ -7731,7 +7731,7 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %84
-  %92 = call noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr noundef nonnull align 8 dereferenceable(432) %85, ptr noundef %.0141315, i64 noundef %87)
+  %92 = call noundef ptr @_ZN10duckdb_re24Prog20PrefixAccel_ShiftDFAEPKvm(ptr noundef nonnull align 8 dereferenceable(432) %85, ptr noundef %.0141328, i64 noundef %87)
   br label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit
 
 93:                                               ; preds = %84
@@ -7741,13 +7741,13 @@ _ZN10duckdb_re210SparseSetTIvE6insertEi.exit:     ; preds = %_ZNK10duckdb_re210S
   br i1 %.not.i, label %98, label %96
 
 96:                                               ; preds = %93
-  %97 = call noundef ptr @_ZN10duckdb_re24Prog24PrefixAccel_FrontAndBackEPKvm(ptr noundef nonnull align 8 dereferenceable(432) %85, ptr noundef %.0141315, i64 noundef %87)
+  %97 = call noundef ptr @_ZN10duckdb_re24Prog24PrefixAccel_FrontAndBackEPKvm(ptr noundef nonnull align 8 dereferenceable(432) %85, ptr noundef %.0141328, i64 noundef %87)
   br label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit
 
 98:                                               ; preds = %93
   %99 = getelementptr inbounds nuw i8, ptr %85, i64 40
   %100 = load i32, ptr %99, align 8, !tbaa !104
-  %101 = call noundef ptr @memchr(ptr noundef %.0141315, i32 noundef %100, i64 noundef %87) #25
+  %101 = call noundef ptr @memchr(ptr noundef %.0141328, i32 noundef %100, i64 noundef %87) #25
   br label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit
 
 _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit:      ; preds = %91, %96, %98
@@ -7756,11 +7756,11 @@ _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit:      ; preds = %91, %96, %98
   br i1 %102, label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit._crit_edge.loopexit, label %103
 
 103:                                              ; preds = %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit, %82
-  %.2143 = phi ptr [ %.0.i, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ], [ %.0141315, %82 ]
+  %.2143 = phi ptr [ %.0.i, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ], [ %.0141328, %82 ]
   %104 = getelementptr inbounds nuw i8, ptr %.2143, i64 1
   %105 = load i8, ptr %.2143, align 1, !tbaa !104
   %106 = zext i8 %105 to i32
-  %107 = getelementptr inbounds nuw i8, ptr %.0154313, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.0154326, i64 16
   %108 = load ptr, ptr %107, align 8, !tbaa !126
   %109 = zext i8 %105 to i64
   %110 = getelementptr inbounds nuw i8, ptr %15, i64 %109
@@ -7773,20 +7773,20 @@ _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit:      ; preds = %91, %96, %98
   br i1 %115, label %116, label %199
 
 116:                                              ; preds = %103
-  %117 = call noundef ptr @_ZN10duckdb_re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %.0154313, i32 noundef %106)
+  %117 = call noundef ptr @_ZN10duckdb_re23DFA22RunStateOnByteUnlockedEPNS0_5StateEi(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %.0154326, i32 noundef %106)
   %118 = icmp eq ptr %117, null
   br i1 %118, label %119, label %199
 
 119:                                              ; preds = %116
   %120 = load i8, ptr @_ZN10duckdb_re2L25dfa_should_bail_when_slowE, align 1, !tbaa !3, !range !117, !noundef !118
   %121 = trunc nuw i8 %120 to i1
-  %122 = icmp ne ptr %.0144314, null
+  %122 = icmp ne ptr %.0144327, null
   %or.cond = select i1 %121, i1 %122, i1 false
   br i1 %or.cond, label %123, label %132
 
 123:                                              ; preds = %119
   %124 = ptrtoint ptr %104 to i64
-  %125 = ptrtoint ptr %.0144314 to i64
+  %125 = ptrtoint ptr %.0144327 to i64
   %126 = sub i64 %124, %125
   %127 = load i64, ptr %57, align 8, !tbaa !159
   %128 = mul i64 %127, 10
@@ -7803,22 +7803,22 @@ _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit:      ; preds = %91, %96, %98
 132:                                              ; preds = %123, %119
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #20
   store ptr %0, ptr %3, align 8, !tbaa !162
-  %.not.i224.not = icmp ule ptr %.0123316, inttoptr (i64 2 to ptr)
+  %.not.i224.not = icmp ule ptr %.0123329, inttoptr (i64 2 to ptr)
   br i1 %.not.i224.not, label %133, label %134
 
 133:                                              ; preds = %132
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   store i8 1, ptr %60, align 8, !tbaa !164
-  store ptr %.0123316, ptr %61, align 8, !tbaa !165
+  store ptr %.0123329, ptr %61, align 8, !tbaa !165
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
 
 134:                                              ; preds = %132
   store i8 0, ptr %60, align 8, !tbaa !164
   store ptr null, ptr %61, align 8, !tbaa !165
-  %135 = getelementptr inbounds nuw i8, ptr %.0123316, i64 12
+  %135 = getelementptr inbounds nuw i8, ptr %.0123329, i64 12
   %136 = load i32, ptr %135, align 4, !tbaa !110
   store i32 %136, ptr %62, align 4, !tbaa !166
-  %137 = getelementptr inbounds nuw i8, ptr %.0123316, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %.0123329, i64 8
   %138 = load i32, ptr %137, align 8, !tbaa !107
   store i32 %138, ptr %63, align 8, !tbaa !167
   %139 = sext i32 %138 to i64
@@ -7827,7 +7827,7 @@ _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit:      ; preds = %91, %96, %98
   %142 = select i1 %140, i64 -1, i64 %141
   %143 = call noalias noundef nonnull ptr @_Znam(i64 noundef %142) #22
   store ptr %143, ptr %59, align 8, !tbaa !168
-  %144 = load ptr, ptr %.0123316, align 8, !tbaa !111
+  %144 = load ptr, ptr %.0123329, align 8, !tbaa !111
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %143, ptr align 4 %144, i64 %141, i1 false)
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
 
@@ -7835,22 +7835,22 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit: ; preds = %133, %134
   %145 = phi ptr [ null, %133 ], [ %143, %134 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
   store ptr %0, ptr %4, align 8, !tbaa !162
-  %.not.i225.not = icmp ule ptr %.0154313, inttoptr (i64 2 to ptr)
+  %.not.i225.not = icmp ule ptr %.0154326, inttoptr (i64 2 to ptr)
   br i1 %.not.i225.not, label %146, label %147
 
 146:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   store i8 1, ptr %65, align 8, !tbaa !164
-  store ptr %.0154313, ptr %66, align 8, !tbaa !165
+  store ptr %.0154326, ptr %66, align 8, !tbaa !165
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit226
 
 147:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit
   store i8 0, ptr %65, align 8, !tbaa !164
   store ptr null, ptr %66, align 8, !tbaa !165
-  %148 = getelementptr inbounds nuw i8, ptr %.0154313, i64 12
+  %148 = getelementptr inbounds nuw i8, ptr %.0154326, i64 12
   %149 = load i32, ptr %148, align 4, !tbaa !110
   store i32 %149, ptr %67, align 4, !tbaa !166
-  %150 = getelementptr inbounds nuw i8, ptr %.0154313, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %.0154326, i64 8
   %151 = load i32, ptr %150, align 8, !tbaa !107
   store i32 %151, ptr %68, align 8, !tbaa !167
   %152 = sext i32 %151 to i64
@@ -7862,7 +7862,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit: ; preds = %133, %134
 
 .noexc:                                           ; preds = %147
   store ptr %156, ptr %64, align 8, !tbaa !168
-  %157 = load ptr, ptr %.0154313, align 8, !tbaa !111
+  %157 = load ptr, ptr %.0154326, align 8, !tbaa !111
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %156, ptr align 4 %157, i64 %154, i1 false)
   br label %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit226
 
@@ -7967,8 +7967,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %174 ], [ false, %.sink.split ]
   %.1140 = phi ptr [ %173, %174 ], [ null, %.sink.split ]
   %190 = icmp eq ptr %158, null
-  %or.cond391 = or i1 %.not.i225.not, %190
-  br i1 %or.cond391, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %191
+  %or.cond417 = or i1 %.not.i225.not, %190
+  br i1 %or.cond417, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %191
 
 191:                                              ; preds = %189
   call void @_ZdaPv(ptr noundef nonnull %158) #23
@@ -7977,8 +7977,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %189, %191
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %192 = icmp eq ptr %145, null
-  %or.cond392 = or i1 %.not.i224.not, %192
-  br i1 %or.cond392, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %193
+  %or.cond418 = or i1 %.not.i224.not, %192
+  br i1 %or.cond418, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %193
 
 193:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %145) #23
@@ -7991,8 +7991,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit229:      ; preds = %_ZN10duckdb_re23DFA
 194:                                              ; preds = %188, %170
   %.pn.pn = phi { ptr, i32 } [ %.pn, %188 ], [ %171, %170 ]
   %195 = icmp eq ptr %158, null
-  %or.cond393 = or i1 %.not.i225.not, %195
-  br i1 %or.cond393, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %196
+  %or.cond419 = or i1 %.not.i225.not, %195
+  br i1 %or.cond419, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %196
 
 196:                                              ; preds = %194
   call void @_ZdaPv(ptr noundef nonnull %158) #23
@@ -8002,8 +8002,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit230:      ; preds = %196, %194, %168
   %.pn.pn.pn = phi { ptr, i32 } [ %169, %168 ], [ %.pn.pn, %194 ], [ %.pn.pn, %196 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %197 = icmp eq ptr %145, null
-  %or.cond394 = or i1 %.not.i224.not, %197
-  br i1 %or.cond394, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit231, label %198
+  %or.cond420 = or i1 %.not.i224.not, %197
+  br i1 %or.cond420, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit231, label %198
 
 198:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230
   call void @_ZdaPv(ptr noundef nonnull %145) #23
@@ -8014,9 +8014,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit231:      ; preds = %_ZN10duckdb_re23DFA
   br label %369
 
 199:                                              ; preds = %116, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, %103
-  %.1145 = phi ptr [ %104, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229 ], [ %.0144314, %116 ], [ %.0144314, %103 ]
+  %.1145 = phi ptr [ %104, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229 ], [ %.0144327, %116 ], [ %.0144327, %103 ]
   %.0139 = phi ptr [ %.1140, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229 ], [ %117, %116 ], [ %.0.i.i223, %103 ]
-  %.1124 = phi ptr [ %161, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229 ], [ %.0123316, %116 ], [ %.0123316, %103 ]
+  %.1124 = phi ptr [ %161, %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229 ], [ %.0123329, %116 ], [ %.0123329, %103 ]
   %.not193 = icmp ugt ptr %.0139, inttoptr (i64 2 to ptr)
   br i1 %.not193, label %206, label %200
 
@@ -8026,8 +8026,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit231:      ; preds = %_ZN10duckdb_re23DFA
   br i1 %201, label %203, label %205
 
 203:                                              ; preds = %200
-  store ptr %.1165311, ptr %202, align 8, !tbaa !180
-  %204 = trunc nuw i8 %.1160312 to i1
+  store ptr %.1165324, ptr %202, align 8, !tbaa !180
+  %204 = trunc nuw i8 %.1160325 to i1
   br label %.critedge212.thread
 
 205:                                              ; preds = %200
@@ -8053,9 +8053,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit231:      ; preds = %_ZN10duckdb_re23DFA
   %215 = getelementptr inbounds nuw i8, ptr %.0139, i64 8
   %216 = load i32, ptr %215, align 8, !tbaa !107
   %217 = icmp sgt i32 %216, 0
-  br i1 %217, label %.lr.ph308, label %.critedge212
+  br i1 %217, label %.lr.ph321, label %.critedge212
 
-.lr.ph308:                                        ; preds = %214
+.lr.ph321:                                        ; preds = %214
   %218 = load ptr, ptr %.0139, align 8, !tbaa !111
   %219 = getelementptr inbounds nuw i8, ptr %211, i64 24
   %220 = getelementptr inbounds nuw i8, ptr %211, i64 32
@@ -8063,10 +8063,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit231:      ; preds = %_ZN10duckdb_re23DFA
   %222 = zext nneg i32 %216 to i64
   br label %223
 
-223:                                              ; preds = %.lr.ph308, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241
-  %indvars.iv348 = phi i64 [ %222, %.lr.ph308 ], [ %indvars.iv.next349, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241 ]
-  %indvars.iv.next349 = add nsw i64 %indvars.iv348, -1
-  %224 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.next349
+223:                                              ; preds = %.lr.ph321, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241
+  %indvars.iv374 = phi i64 [ %222, %.lr.ph321 ], [ %indvars.iv.next375, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241 ]
+  %indvars.iv.next375 = add nsw i64 %indvars.iv374, -1
+  %224 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.next375
   %225 = load i32, ptr %224, align 4, !tbaa !77
   %.not195 = icmp eq i32 %225, -2
   br i1 %.not195, label %.critedge212, label %226
@@ -8106,19 +8106,19 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i236: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit241:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i240, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i236, %226
-  %244 = icmp samesign ugt i64 %indvars.iv348, 1
+  %244 = icmp samesign ugt i64 %indvars.iv374, 1
   br i1 %244, label %223, label %.critedge212, !llvm.loop !203
 
 .critedge212:                                     ; preds = %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241, %223, %214, %206, %210
-  %.2166 = phi ptr [ %.2143, %210 ], [ %.1165311, %206 ], [ %.2143, %214 ], [ %.2143, %223 ], [ %.2143, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241 ]
-  %.2161 = phi i8 [ 1, %210 ], [ %.1160312, %206 ], [ 1, %214 ], [ 1, %223 ], [ 1, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241 ]
+  %.2166 = phi ptr [ %.2143, %210 ], [ %.1165324, %206 ], [ %.2143, %214 ], [ %.2143, %223 ], [ %.2143, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241 ]
+  %.2161 = phi i8 [ 1, %210 ], [ %.1160325, %206 ], [ 1, %214 ], [ 1, %223 ], [ 1, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241 ]
   %.not188 = icmp eq ptr %104, %13
   br i1 %.not188, label %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit._crit_edge.loopexit, label %82, !llvm.loop !204
 
 _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit._crit_edge.loopexit: ; preds = %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit, %.critedge212
-  %.1165.lcssa.ph = phi ptr [ %.2166, %.critedge212 ], [ %.1165311, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
-  %.1160.lcssa.ph = phi i8 [ %.2161, %.critedge212 ], [ %.1160312, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
-  %.0154.lcssa.ph = phi ptr [ %.0139, %.critedge212 ], [ %.0154313, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
+  %.1165.lcssa.ph = phi ptr [ %.2166, %.critedge212 ], [ %.1165324, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
+  %.1160.lcssa.ph = phi i8 [ %.2161, %.critedge212 ], [ %.1160325, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
+  %.0154.lcssa.ph = phi ptr [ %.0139, %.critedge212 ], [ %.0154326, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
   %.1142.ph = phi ptr [ %104, %.critedge212 ], [ %13, %_ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit ]
   %.val.pre = load ptr, ptr %1, align 8, !tbaa !174
   %.val218.pre = load i64, ptr %11, align 8, !tbaa !175
@@ -8226,7 +8226,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit245: ; preds = %271, %275
 
 296:                                              ; preds = %294
   %297 = icmp eq ptr %295, null
-  br i1 %297, label %.sink.split395, label %300
+  br i1 %297, label %.sink.split421, label %300
 
 298:                                              ; preds = %300, %294, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit245
   %299 = landingpad { ptr, i32 }
@@ -8255,7 +8255,7 @@ _ZN10LogMessageC2EPKci.exit247:                   ; preds = %304
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249: ; preds = %_ZN10LogMessageC2EPKci.exit247
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
-  br label %.sink.split395
+  br label %.sink.split421
 
 307:                                              ; preds = %304
   %308 = landingpad { ptr, i32 }
@@ -8273,17 +8273,17 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
   br label %316
 
-.sink.split395:                                   ; preds = %296, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249
+.sink.split421:                                   ; preds = %296, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249
   %312 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i8 1, ptr %312, align 8, !tbaa !178
   br label %313
 
-313:                                              ; preds = %.sink.split395, %302
-  %cond1 = phi i1 [ true, %302 ], [ false, %.sink.split395 ]
-  %.1121 = phi ptr [ %301, %302 ], [ null, %.sink.split395 ]
+313:                                              ; preds = %.sink.split421, %302
+  %cond1 = phi i1 [ true, %302 ], [ false, %.sink.split421 ]
+  %.1121 = phi ptr [ %301, %302 ], [ null, %.sink.split421 ]
   %314 = icmp eq ptr %291, null
-  %or.cond396 = or i1 %.not.i244.not, %314
-  br i1 %or.cond396, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250, label %315
+  %or.cond422 = or i1 %.not.i244.not, %314
+  br i1 %or.cond422, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250, label %315
 
 315:                                              ; preds = %313
   call void @_ZdaPv(ptr noundef nonnull %291) #23
@@ -8296,8 +8296,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit250:      ; preds = %313, %315
 316:                                              ; preds = %311, %298
   %.pn196.pn = phi { ptr, i32 } [ %.pn196, %311 ], [ %299, %298 ]
   %317 = icmp eq ptr %291, null
-  %or.cond398 = or i1 %.not.i244.not, %317
-  br i1 %or.cond398, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit251, label %318
+  %or.cond424 = or i1 %.not.i244.not, %317
+  br i1 %or.cond424, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit251, label %318
 
 318:                                              ; preds = %316
   call void @_ZdaPv(ptr noundef nonnull %291) #23
@@ -8347,9 +8347,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit251:      ; preds = %316, %318
   %337 = getelementptr inbounds nuw i8, ptr %.0120, i64 8
   %338 = load i32, ptr %337, align 8, !tbaa !107
   %339 = icmp sgt i32 %338, 0
-  br i1 %339, label %.lr.ph331, label %.critedge217
+  br i1 %339, label %.lr.ph344, label %.critedge217
 
-.lr.ph331:                                        ; preds = %336
+.lr.ph344:                                        ; preds = %336
   %340 = load ptr, ptr %.0120, align 8, !tbaa !111
   %341 = getelementptr inbounds nuw i8, ptr %332, i64 24
   %342 = getelementptr inbounds nuw i8, ptr %332, i64 32
@@ -8357,10 +8357,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit251:      ; preds = %316, %318
   %344 = zext nneg i32 %338 to i64
   br label %345
 
-345:                                              ; preds = %.lr.ph331, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261
-  %indvars.iv351 = phi i64 [ %344, %.lr.ph331 ], [ %indvars.iv.next352, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261 ]
-  %indvars.iv.next352 = add nsw i64 %indvars.iv351, -1
-  %346 = getelementptr inbounds nuw i32, ptr %340, i64 %indvars.iv.next352
+345:                                              ; preds = %.lr.ph344, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261
+  %indvars.iv377 = phi i64 [ %344, %.lr.ph344 ], [ %indvars.iv.next378, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261 ]
+  %indvars.iv.next378 = add nsw i64 %indvars.iv377, -1
+  %346 = getelementptr inbounds nuw i32, ptr %340, i64 %indvars.iv.next378
   %347 = load i32, ptr %346, align 4, !tbaa !77
   %.not202 = icmp eq i32 %347, -2
   br i1 %.not202, label %.critedge217, label %348
@@ -8400,7 +8400,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i256: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit261:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i260, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i256, %348
-  %366 = icmp samesign ugt i64 %indvars.iv351, 1
+  %366 = icmp samesign ugt i64 %indvars.iv377, 1
   br i1 %366, label %345, label %.critedge217, !llvm.loop !205
 
 .critedge217:                                     ; preds = %345, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261, %336, %330, %326
@@ -8808,8 +8808,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %175 ], [ false, %.sink.split ]
   %.1129 = phi ptr [ %174, %175 ], [ null, %.sink.split ]
   %191 = icmp eq ptr %159, null
-  %or.cond373 = or i1 %.not.i204.not, %191
-  br i1 %or.cond373, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %192
+  %or.cond399 = or i1 %.not.i204.not, %191
+  br i1 %or.cond399, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %192
 
 192:                                              ; preds = %190
   call void @_ZdaPv(ptr noundef nonnull %159) #23
@@ -8818,8 +8818,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %190, %192
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %193 = icmp eq ptr %146, null
-  %or.cond374 = or i1 %.not.i203.not, %193
-  br i1 %or.cond374, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208, label %194
+  %or.cond400 = or i1 %.not.i203.not, %193
+  br i1 %or.cond400, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit208, label %194
 
 194:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %146) #23
@@ -8832,8 +8832,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit208:      ; preds = %_ZN10duckdb_re23DFA
 195:                                              ; preds = %189, %171
   %.pn.pn = phi { ptr, i32 } [ %.pn, %189 ], [ %172, %171 ]
   %196 = icmp eq ptr %159, null
-  %or.cond375 = or i1 %.not.i204.not, %196
-  br i1 %or.cond375, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit209, label %197
+  %or.cond401 = or i1 %.not.i204.not, %196
+  br i1 %or.cond401, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit209, label %197
 
 197:                                              ; preds = %195
   call void @_ZdaPv(ptr noundef nonnull %159) #23
@@ -8843,8 +8843,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit209:      ; preds = %197, %195, %169
   %.pn.pn.pn = phi { ptr, i32 } [ %170, %169 ], [ %.pn.pn, %195 ], [ %.pn.pn, %197 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %198 = icmp eq ptr %146, null
-  %or.cond376 = or i1 %.not.i203.not, %198
-  br i1 %or.cond376, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit210, label %199
+  %or.cond402 = or i1 %.not.i203.not, %198
+  br i1 %or.cond402, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit210, label %199
 
 199:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit209
   call void @_ZdaPv(ptr noundef nonnull %146) #23
@@ -8894,9 +8894,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit210:      ; preds = %_ZN10duckdb_re23DFA
   %216 = getelementptr inbounds nuw i8, ptr %.0128, i64 8
   %217 = load i32, ptr %216, align 8, !tbaa !107
   %218 = icmp sgt i32 %217, 0
-  br i1 %218, label %.lr.ph299, label %.critedge194
+  br i1 %218, label %.lr.ph312, label %.critedge194
 
-.lr.ph299:                                        ; preds = %215
+.lr.ph312:                                        ; preds = %215
   %219 = load ptr, ptr %.0128, align 8, !tbaa !111
   %220 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %221 = getelementptr inbounds nuw i8, ptr %212, i64 32
@@ -8904,10 +8904,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit210:      ; preds = %_ZN10duckdb_re23DFA
   %223 = zext nneg i32 %217 to i64
   br label %224
 
-224:                                              ; preds = %.lr.ph299, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220
-  %indvars.iv330 = phi i64 [ %223, %.lr.ph299 ], [ %indvars.iv.next331, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220 ]
-  %indvars.iv.next331 = add nsw i64 %indvars.iv330, -1
-  %225 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv.next331
+224:                                              ; preds = %.lr.ph312, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220
+  %indvars.iv356 = phi i64 [ %223, %.lr.ph312 ], [ %indvars.iv.next357, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220 ]
+  %indvars.iv.next357 = add nsw i64 %indvars.iv356, -1
+  %225 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv.next357
   %226 = load i32, ptr %225, align 4, !tbaa !77
   %.not175 = icmp eq i32 %226, -2
   br i1 %.not175, label %.critedge194, label %227
@@ -8947,7 +8947,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i215: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit220:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i219, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i215, %227
-  %245 = icmp samesign ugt i64 %indvars.iv330, 1
+  %245 = icmp samesign ugt i64 %indvars.iv356, 1
   br i1 %245, label %224, label %.critedge194, !llvm.loop !208
 
 .critedge194:                                     ; preds = %224, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit220, %215, %210
@@ -9049,7 +9049,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit224: ; preds = %272, %276
 
 296:                                              ; preds = %294
   %297 = icmp eq ptr %295, null
-  br i1 %297, label %.sink.split377, label %300
+  br i1 %297, label %.sink.split403, label %300
 
 298:                                              ; preds = %300, %294, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit224
   %299 = landingpad { ptr, i32 }
@@ -9078,7 +9078,7 @@ _ZN10LogMessageC2EPKci.exit226:                   ; preds = %304
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228: ; preds = %_ZN10LogMessageC2EPKci.exit226
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
-  br label %.sink.split377
+  br label %.sink.split403
 
 307:                                              ; preds = %304
   %308 = landingpad { ptr, i32 }
@@ -9096,16 +9096,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
   br label %315
 
-.sink.split377:                                   ; preds = %296, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228
+.sink.split403:                                   ; preds = %296, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit228
   store i8 1, ptr %43, align 8, !tbaa !178
   br label %312
 
-312:                                              ; preds = %.sink.split377, %302
-  %cond1 = phi i1 [ true, %302 ], [ false, %.sink.split377 ]
-  %.1110 = phi ptr [ %301, %302 ], [ null, %.sink.split377 ]
+312:                                              ; preds = %.sink.split403, %302
+  %cond1 = phi i1 [ true, %302 ], [ false, %.sink.split403 ]
+  %.1110 = phi ptr [ %301, %302 ], [ null, %.sink.split403 ]
   %313 = icmp eq ptr %292, null
-  %or.cond378 = or i1 %.not.i223.not, %313
-  br i1 %or.cond378, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %314
+  %or.cond404 = or i1 %.not.i223.not, %313
+  br i1 %or.cond404, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %314
 
 314:                                              ; preds = %312
   call void @_ZdaPv(ptr noundef nonnull %292) #23
@@ -9118,8 +9118,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit229:      ; preds = %312, %314
 315:                                              ; preds = %311, %298
   %.pn176.pn = phi { ptr, i32 } [ %.pn176, %311 ], [ %299, %298 ]
   %316 = icmp eq ptr %292, null
-  %or.cond380 = or i1 %.not.i223.not, %316
-  br i1 %or.cond380, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %317
+  %or.cond406 = or i1 %.not.i223.not, %316
+  br i1 %or.cond406, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %317
 
 317:                                              ; preds = %315
   call void @_ZdaPv(ptr noundef nonnull %292) #23
@@ -9167,9 +9167,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit230:      ; preds = %315, %317
   %334 = getelementptr inbounds nuw i8, ptr %.0109, i64 8
   %335 = load i32, ptr %334, align 8, !tbaa !107
   %336 = icmp sgt i32 %335, 0
-  br i1 %336, label %.lr.ph303, label %.critedge199
+  br i1 %336, label %.lr.ph316, label %.critedge199
 
-.lr.ph303:                                        ; preds = %333
+.lr.ph316:                                        ; preds = %333
   %337 = load ptr, ptr %.0109, align 8, !tbaa !111
   %338 = getelementptr inbounds nuw i8, ptr %330, i64 24
   %339 = getelementptr inbounds nuw i8, ptr %330, i64 32
@@ -9177,10 +9177,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit230:      ; preds = %315, %317
   %341 = zext nneg i32 %335 to i64
   br label %342
 
-342:                                              ; preds = %.lr.ph303, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240
-  %indvars.iv333 = phi i64 [ %341, %.lr.ph303 ], [ %indvars.iv.next334, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240 ]
-  %indvars.iv.next334 = add nsw i64 %indvars.iv333, -1
-  %343 = getelementptr inbounds nuw i32, ptr %337, i64 %indvars.iv.next334
+342:                                              ; preds = %.lr.ph316, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240
+  %indvars.iv359 = phi i64 [ %341, %.lr.ph316 ], [ %indvars.iv.next360, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240 ]
+  %indvars.iv.next360 = add nsw i64 %indvars.iv359, -1
+  %343 = getelementptr inbounds nuw i32, ptr %337, i64 %indvars.iv.next360
   %344 = load i32, ptr %343, align 4, !tbaa !77
   %.not182 = icmp eq i32 %344, -2
   br i1 %.not182, label %.critedge199, label %345
@@ -9220,7 +9220,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i235: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit240:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i239, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i235, %345
-  %363 = icmp samesign ugt i64 %indvars.iv333, 1
+  %363 = icmp samesign ugt i64 %indvars.iv359, 1
   br i1 %363, label %342, label %.critedge199, !llvm.loop !209
 
 .critedge199:                                     ; preds = %342, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit240, %333, %328, %324
@@ -9626,8 +9626,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   %cond4 = phi i1 [ true, %175 ], [ false, %.sink.split ]
   %.1144 = phi ptr [ %174, %175 ], [ null, %.sink.split ]
   %191 = icmp eq ptr %159, null
-  %or.cond379 = or i1 %.not.i225.not, %191
-  br i1 %or.cond379, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %192
+  %or.cond405 = or i1 %.not.i225.not, %191
+  br i1 %or.cond405, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit, label %192
 
 192:                                              ; preds = %190
   call void @_ZdaPv(ptr noundef nonnull %159) #23
@@ -9636,8 +9636,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
 _ZN10duckdb_re23DFA10StateSaverD2Ev.exit:         ; preds = %190, %192
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %193 = icmp eq ptr %146, null
-  %or.cond380 = or i1 %.not.i224.not, %193
-  br i1 %or.cond380, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %194
+  %or.cond406 = or i1 %.not.i224.not, %193
+  br i1 %or.cond406, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit229, label %194
 
 194:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %146) #23
@@ -9650,8 +9650,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit229:      ; preds = %_ZN10duckdb_re23DFA
 195:                                              ; preds = %189, %171
   %.pn.pn = phi { ptr, i32 } [ %.pn, %189 ], [ %172, %171 ]
   %196 = icmp eq ptr %159, null
-  %or.cond381 = or i1 %.not.i225.not, %196
-  br i1 %or.cond381, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %197
+  %or.cond407 = or i1 %.not.i225.not, %196
+  br i1 %or.cond407, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230, label %197
 
 197:                                              ; preds = %195
   call void @_ZdaPv(ptr noundef nonnull %159) #23
@@ -9661,8 +9661,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit230:      ; preds = %197, %195, %169
   %.pn.pn.pn = phi { ptr, i32 } [ %170, %169 ], [ %.pn.pn, %195 ], [ %.pn.pn, %197 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   %198 = icmp eq ptr %146, null
-  %or.cond382 = or i1 %.not.i224.not, %198
-  br i1 %or.cond382, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit231, label %199
+  %or.cond408 = or i1 %.not.i224.not, %198
+  br i1 %or.cond408, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit231, label %199
 
 199:                                              ; preds = %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit230
   call void @_ZdaPv(ptr noundef nonnull %146) #23
@@ -9712,9 +9712,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit231:      ; preds = %_ZN10duckdb_re23DFA
   %216 = getelementptr inbounds nuw i8, ptr %.0143, i64 8
   %217 = load i32, ptr %216, align 8, !tbaa !107
   %218 = icmp sgt i32 %217, 0
-  br i1 %218, label %.lr.ph305, label %.critedge212
+  br i1 %218, label %.lr.ph318, label %.critedge212
 
-.lr.ph305:                                        ; preds = %215
+.lr.ph318:                                        ; preds = %215
   %219 = load ptr, ptr %.0143, align 8, !tbaa !111
   %220 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %221 = getelementptr inbounds nuw i8, ptr %212, i64 32
@@ -9722,10 +9722,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit231:      ; preds = %_ZN10duckdb_re23DFA
   %223 = zext nneg i32 %217 to i64
   br label %224
 
-224:                                              ; preds = %.lr.ph305, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241
-  %indvars.iv336 = phi i64 [ %223, %.lr.ph305 ], [ %indvars.iv.next337, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241 ]
-  %indvars.iv.next337 = add nsw i64 %indvars.iv336, -1
-  %225 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv.next337
+224:                                              ; preds = %.lr.ph318, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241
+  %indvars.iv362 = phi i64 [ %223, %.lr.ph318 ], [ %indvars.iv.next363, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241 ]
+  %indvars.iv.next363 = add nsw i64 %indvars.iv362, -1
+  %225 = getelementptr inbounds nuw i32, ptr %219, i64 %indvars.iv.next363
   %226 = load i32, ptr %225, align 4, !tbaa !77
   %.not193 = icmp eq i32 %226, -2
   br i1 %.not193, label %.critedge212, label %227
@@ -9765,7 +9765,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i236: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit241:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i240, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i236, %227
-  %245 = icmp samesign ugt i64 %indvars.iv336, 1
+  %245 = icmp samesign ugt i64 %indvars.iv362, 1
   br i1 %245, label %224, label %.critedge212, !llvm.loop !212
 
 .critedge212:                                     ; preds = %224, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit241, %215, %210
@@ -9871,7 +9871,7 @@ _ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit245: ; preds = %274, %278
 
 298:                                              ; preds = %296
   %299 = icmp eq ptr %297, null
-  br i1 %299, label %.sink.split383, label %302
+  br i1 %299, label %.sink.split409, label %302
 
 300:                                              ; preds = %302, %296, %_ZN10duckdb_re23DFA10StateSaverC2EPS0_PNS0_5StateE.exit245
   %301 = landingpad { ptr, i32 }
@@ -9900,7 +9900,7 @@ _ZN10LogMessageC2EPKci.exit247:                   ; preds = %306
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249: ; preds = %_ZN10LogMessageC2EPKci.exit247
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %7) #20
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
-  br label %.sink.split383
+  br label %.sink.split409
 
 309:                                              ; preds = %306
   %310 = landingpad { ptr, i32 }
@@ -9918,16 +9918,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249: ; preds = %_ZN1
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #20
   br label %317
 
-.sink.split383:                                   ; preds = %298, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249
+.sink.split409:                                   ; preds = %298, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit249
   store i8 1, ptr %43, align 8, !tbaa !178
   br label %314
 
-314:                                              ; preds = %.sink.split383, %304
-  %cond1 = phi i1 [ true, %304 ], [ false, %.sink.split383 ]
-  %.1125 = phi ptr [ %303, %304 ], [ null, %.sink.split383 ]
+314:                                              ; preds = %.sink.split409, %304
+  %cond1 = phi i1 [ true, %304 ], [ false, %.sink.split409 ]
+  %.1125 = phi ptr [ %303, %304 ], [ null, %.sink.split409 ]
   %315 = icmp eq ptr %294, null
-  %or.cond384 = or i1 %.not.i244.not, %315
-  br i1 %or.cond384, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250, label %316
+  %or.cond410 = or i1 %.not.i244.not, %315
+  br i1 %or.cond410, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit250, label %316
 
 316:                                              ; preds = %314
   call void @_ZdaPv(ptr noundef nonnull %294) #23
@@ -9940,8 +9940,8 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit250:      ; preds = %314, %316
 317:                                              ; preds = %313, %300
   %.pn194.pn = phi { ptr, i32 } [ %.pn194, %313 ], [ %301, %300 ]
   %318 = icmp eq ptr %294, null
-  %or.cond386 = or i1 %.not.i244.not, %318
-  br i1 %or.cond386, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit251, label %319
+  %or.cond412 = or i1 %.not.i244.not, %318
+  br i1 %or.cond412, label %_ZN10duckdb_re23DFA10StateSaverD2Ev.exit251, label %319
 
 319:                                              ; preds = %317
   call void @_ZdaPv(ptr noundef nonnull %294) #23
@@ -9989,9 +9989,9 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit251:      ; preds = %317, %319
   %336 = getelementptr inbounds nuw i8, ptr %.0124, i64 8
   %337 = load i32, ptr %336, align 8, !tbaa !107
   %338 = icmp sgt i32 %337, 0
-  br i1 %338, label %.lr.ph309, label %.critedge217
+  br i1 %338, label %.lr.ph322, label %.critedge217
 
-.lr.ph309:                                        ; preds = %335
+.lr.ph322:                                        ; preds = %335
   %339 = load ptr, ptr %.0124, align 8, !tbaa !111
   %340 = getelementptr inbounds nuw i8, ptr %332, i64 24
   %341 = getelementptr inbounds nuw i8, ptr %332, i64 32
@@ -9999,10 +9999,10 @@ _ZN10duckdb_re23DFA10StateSaverD2Ev.exit251:      ; preds = %317, %319
   %343 = zext nneg i32 %337 to i64
   br label %344
 
-344:                                              ; preds = %.lr.ph309, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261
-  %indvars.iv339 = phi i64 [ %343, %.lr.ph309 ], [ %indvars.iv.next340, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261 ]
-  %indvars.iv.next340 = add nsw i64 %indvars.iv339, -1
-  %345 = getelementptr inbounds nuw i32, ptr %339, i64 %indvars.iv.next340
+344:                                              ; preds = %.lr.ph322, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261
+  %indvars.iv365 = phi i64 [ %343, %.lr.ph322 ], [ %indvars.iv.next366, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261 ]
+  %indvars.iv.next366 = add nsw i64 %indvars.iv365, -1
+  %345 = getelementptr inbounds nuw i32, ptr %339, i64 %indvars.iv.next366
   %346 = load i32, ptr %345, align 4, !tbaa !77
   %.not200 = icmp eq i32 %346, -2
   br i1 %.not200, label %.critedge217, label %347
@@ -10042,7 +10042,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i256: ; preds = %_ZNK10
   br label %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261
 
 _ZN10duckdb_re210SparseSetTIvE6insertEi.exit261:  ; preds = %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.i.i260, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i256, %347
-  %365 = icmp samesign ugt i64 %indvars.iv339, 1
+  %365 = icmp samesign ugt i64 %indvars.iv365, 1
   br i1 %365, label %344, label %.critedge217, !llvm.loop !213
 
 .critedge217:                                     ; preds = %344, %_ZN10duckdb_re210SparseSetTIvE6insertEi.exit261, %335, %330, %326

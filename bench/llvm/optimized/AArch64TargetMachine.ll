@@ -4922,9 +4922,7 @@ _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14
 
 175:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
   %176 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %.sroa.068.0, i64 noundef %.sroa.6.0) #23
-  %.sroa.0.0.copyload.i28.pre = load ptr, ptr %6, align 8, !tbaa !44
-  %.sroa.2.0.copyload.i30.pre = load i64, ptr %42, align 8, !tbaa !45
-  %.pre90 = load ptr, ptr %105, align 8, !tbaa !303
+  %.pre88 = load ptr, ptr %105, align 8, !tbaa !303
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
 
 177:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
@@ -4939,34 +4937,32 @@ _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
 
 _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27: ; preds = %175, %177, %178
-  %181 = phi ptr [ %.pre90, %175 ], [ %169, %177 ], [ %180, %178 ]
-  %.sroa.2.0.copyload.i30 = phi i64 [ %.sroa.2.0.copyload.i30.pre, %175 ], [ %.sink, %177 ], [ %.sink, %178 ]
-  %.sroa.0.0.copyload.i28 = phi ptr [ %.sroa.0.0.copyload.i28.pre, %175 ], [ %.sink86, %177 ], [ %.sink86, %178 ]
+  %181 = phi ptr [ %.pre88, %175 ], [ %169, %177 ], [ %180, %178 ]
   %182 = load ptr, ptr %103, align 8, !tbaa !302
   %183 = ptrtoint ptr %182 to i64
   %184 = ptrtoint ptr %181 to i64
   %185 = sub i64 %183, %184
-  %186 = icmp ugt i64 %.sroa.2.0.copyload.i30, %185
+  %186 = icmp ugt i64 %.sink, %185
   br i1 %186, label %187, label %189
 
 187:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
-  %188 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %.sroa.0.0.copyload.i28, i64 noundef %.sroa.2.0.copyload.i30) #23
-  %.pre91 = load ptr, ptr %105, align 8, !tbaa !303
+  %188 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %.sink86, i64 noundef %.sink) #23
+  %.pre89 = load ptr, ptr %105, align 8, !tbaa !303
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit32
 
 189:                                              ; preds = %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit27
-  %.not.i.i31 = icmp eq i64 %.sroa.2.0.copyload.i30, 0
+  %.not.i.i31 = icmp eq i64 %.sink, 0
   br i1 %.not.i.i31, label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit32, label %190
 
 190:                                              ; preds = %189
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %181, ptr align 1 %.sroa.0.0.copyload.i28, i64 %.sroa.2.0.copyload.i30, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %181, ptr align 1 %.sink86, i64 %.sink, i1 false)
   %191 = load ptr, ptr %105, align 8, !tbaa !303
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 %.sroa.2.0.copyload.i30
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 %.sink
   store ptr %192, ptr %105, align 8, !tbaa !303
   br label %_ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit32
 
 _ZN4llvmlsINS_19raw_svector_ostreamENS_9StringRefEEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit32: ; preds = %187, %189, %190
-  %193 = phi ptr [ %.pre91, %187 ], [ %181, %189 ], [ %192, %190 ]
+  %193 = phi ptr [ %.pre89, %187 ], [ %181, %189 ], [ %192, %190 ]
   %194 = load ptr, ptr %103, align 8, !tbaa !302
   %195 = ptrtoint ptr %194 to i64
   %196 = ptrtoint ptr %193 to i64
@@ -5020,11 +5016,11 @@ _ZN4llvmlsINS_19raw_svector_ostreamEA12_cEENSt9enable_ifIXaantsr3stdE14is_refere
 _ZNKSt14default_deleteIN4llvm16AArch64SubtargetEEclEPS1_.exit.i.i.i.i: ; preds = %214
   call void @_ZN4llvm16AArch64SubtargetD2Ev(ptr noundef nonnull align 8 dereferenceable(413888) %222) #23
   call void @_ZdlPvm(ptr noundef nonnull %222, i64 noundef 413888) #24
-  %.pre92 = load ptr, ptr %212, align 8, !tbaa !98
+  %.pre90 = load ptr, ptr %212, align 8, !tbaa !98
   br label %_ZNSt10unique_ptrIN4llvm16AArch64SubtargetESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm16AArch64SubtargetESt14default_deleteIS1_EED2Ev.exit: ; preds = %214, %_ZNKSt14default_deleteIN4llvm16AArch64SubtargetEEclEPS1_.exit.i.i.i.i, %_ZN4llvmlsINS_19raw_svector_ostreamEA12_cEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit
-  %223 = phi ptr [ %217, %214 ], [ %.pre92, %_ZNKSt14default_deleteIN4llvm16AArch64SubtargetEEclEPS1_.exit.i.i.i.i ], [ %213, %_ZN4llvmlsINS_19raw_svector_ostreamEA12_cEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit ]
+  %223 = phi ptr [ %217, %214 ], [ %.pre90, %_ZNKSt14default_deleteIN4llvm16AArch64SubtargetEEclEPS1_.exit.i.i.i.i ], [ %213, %_ZN4llvmlsINS_19raw_svector_ostreamEA12_cEENSt9enable_ifIXaantsr3stdE14is_reference_vIT_Esr3stdE12is_base_of_vINS_11raw_ostreamES4_EEOS4_E4typeES6_RKT0_.exit ]
   %224 = load ptr, ptr %10, align 8, !tbaa !291
   %225 = icmp eq ptr %224, %95
   br i1 %225, label %_ZN4llvm11SmallVectorIcLj512EED2Ev.exit, label %226

@@ -58469,7 +58469,7 @@ cond.false.i:                                     ; preds = %_ZN5eastl10vector_m
 
 invoke.cont359:                                   ; preds = %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_5dequeINS_4pairIS1_S1_EES4_Lj4EEEE11equal_rangeERKS1_.exit.i, %cond.false.i
   %.sink10.i = phi ptr [ %469, %cond.false.i ], [ %486, %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_5dequeINS_4pairIS1_S1_EES4_Lj4EEEE11equal_rangeERKS1_.exit.i ]
-  %ref.tmp.sroa.4.0.copyload.i.i = phi ptr [ %470, %cond.false.i ], [ %485, %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_5dequeINS_4pairIS1_S1_EES4_Lj4EEEE11equal_rangeERKS1_.exit.i ]
+  %.sink9.i = phi ptr [ %470, %cond.false.i ], [ %485, %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_5dequeINS_4pairIS1_S1_EES4_Lj4EEEE11equal_rangeERKS1_.exit.i ]
   %.sink8.i = phi ptr [ %489, %cond.false.i ], [ %484, %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_5dequeINS_4pairIS1_S1_EES4_Lj4EEEE11equal_rangeERKS1_.exit.i ]
   %.sink.i = phi ptr [ %471, %cond.false.i ], [ %483, %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_5dequeINS_4pairIS1_S1_EES4_Lj4EEEE11equal_rangeERKS1_.exit.i ]
   %inc4.i1333 = add nsw i64 %464, 3
@@ -58502,7 +58502,7 @@ invoke.cont359:                                   ; preds = %_ZN5eastl10vector_m
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %result.i)
   store ptr %.sink10.i, ptr %agg.tmp3451354, align 8
   %agg.tmp345.sroa.2.0.agg.tmp3451354.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3451354, i64 8
-  store ptr %ref.tmp.sroa.4.0.copyload.i.i, ptr %agg.tmp345.sroa.2.0.agg.tmp3451354.sroa_idx, align 8
+  store ptr %.sink9.i, ptr %agg.tmp345.sroa.2.0.agg.tmp3451354.sroa_idx, align 8
   %agg.tmp345.sroa.3.0.agg.tmp3451354.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3451354, i64 16
   store ptr %.sink8.i, ptr %agg.tmp345.sroa.3.0.agg.tmp3451354.sroa_idx, align 8
   %agg.tmp345.sroa.4.0.agg.tmp3451354.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3451354, i64 24
@@ -58521,7 +58521,7 @@ if.then.i1361:                                    ; preds = %lor.rhs.i, %invoke.
 
 lor.rhs6.i:                                       ; preds = %if.then.i1361
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %.sink10.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %ref.tmp.sroa.4.0.copyload.i.i to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %.sink9.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 48
   %add.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
@@ -59410,7 +59410,7 @@ cond.false.i1946:                                 ; preds = %_ZN5eastl10vector_m
 
 invoke.cont522:                                   ; preds = %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_5dequeINS_4pairIS1_S1_EES4_Lj4EEEE11equal_rangeERKS1_.exit.i1939, %cond.false.i1946
   %.sink10.i1942 = phi ptr [ %632, %cond.false.i1946 ], [ %649, %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_5dequeINS_4pairIS1_S1_EES4_Lj4EEEE11equal_rangeERKS1_.exit.i1939 ]
-  %ref.tmp.sroa.4.0.copyload.i.i2049 = phi ptr [ %633, %cond.false.i1946 ], [ %648, %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_5dequeINS_4pairIS1_S1_EES4_Lj4EEEE11equal_rangeERKS1_.exit.i1939 ]
+  %.sink9.i1943 = phi ptr [ %633, %cond.false.i1946 ], [ %648, %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_5dequeINS_4pairIS1_S1_EES4_Lj4EEEE11equal_rangeERKS1_.exit.i1939 ]
   %.sink8.i1944 = phi ptr [ %652, %cond.false.i1946 ], [ %647, %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_5dequeINS_4pairIS1_S1_EES4_Lj4EEEE11equal_rangeERKS1_.exit.i1939 ]
   %.sink.i1945 = phi ptr [ %634, %cond.false.i1946 ], [ %646, %_ZN5eastl10vector_mapI10TestObjectS1_NS_4lessIS1_EENS_9allocatorENS_5dequeINS_4pairIS1_S1_EES4_Lj4EEEE11equal_rangeERKS1_.exit.i1939 ]
   %inc4.i2010 = add nsw i64 %627, 3
@@ -59443,7 +59443,7 @@ invoke.cont522:                                   ; preds = %_ZN5eastl10vector_m
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %result.i2032)
   store ptr %.sink10.i1942, ptr %agg.tmp5082031, align 8
   %agg.tmp508.sroa.2.0.agg.tmp5082031.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp5082031, i64 8
-  store ptr %ref.tmp.sroa.4.0.copyload.i.i2049, ptr %agg.tmp508.sroa.2.0.agg.tmp5082031.sroa_idx, align 8
+  store ptr %.sink9.i1943, ptr %agg.tmp508.sroa.2.0.agg.tmp5082031.sroa_idx, align 8
   %agg.tmp508.sroa.3.0.agg.tmp5082031.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp5082031, i64 16
   store ptr %.sink8.i1944, ptr %agg.tmp508.sroa.3.0.agg.tmp5082031.sroa_idx, align 8
   %agg.tmp508.sroa.4.0.agg.tmp5082031.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp5082031, i64 24
@@ -59462,7 +59462,7 @@ if.then.i2044:                                    ; preds = %lor.rhs.i2035, %inv
 
 lor.rhs6.i2047:                                   ; preds = %if.then.i2044
   %sub.ptr.lhs.cast.i.i.i2050 = ptrtoint ptr %.sink10.i1942 to i64
-  %sub.ptr.rhs.cast.i.i.i2051 = ptrtoint ptr %ref.tmp.sroa.4.0.copyload.i.i2049 to i64
+  %sub.ptr.rhs.cast.i.i.i2051 = ptrtoint ptr %.sink9.i1943 to i64
   %sub.ptr.sub.i.i.i2052 = sub i64 %sub.ptr.lhs.cast.i.i.i2050, %sub.ptr.rhs.cast.i.i.i2051
   %sub.ptr.div.i.i.i2053 = sdiv exact i64 %sub.ptr.sub.i.i.i2052, 48
   %add.i.i.i2054 = add nsw i64 %sub.ptr.div.i.i.i2053, -1
@@ -80601,7 +80601,7 @@ if.end.i:                                         ; preds = %.noexc1445
 invoke.cont361:                                   ; preds = %if.then.i1441, %if.end.i
   %556 = phi ptr [ %552, %if.end.i ], [ %.pre4791, %if.then.i1441 ]
   %.sink3.i = phi ptr [ %552, %if.end.i ], [ %547, %if.then.i1441 ]
-  %ref.tmp.sroa.4.0.copyload.i.i = phi ptr [ %553, %if.end.i ], [ %549, %if.then.i1441 ]
+  %.sink2.i = phi ptr [ %553, %if.end.i ], [ %549, %if.then.i1441 ]
   %.sink1.i = phi ptr [ %554, %if.end.i ], [ %550, %if.then.i1441 ]
   %.sink.i = phi ptr [ %555, %if.end.i ], [ %551, %if.then.i1441 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %pairIts.i1424)
@@ -80636,7 +80636,7 @@ invoke.cont361:                                   ; preds = %if.then.i1441, %if.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp3471478)
   store ptr %.sink3.i, ptr %agg.tmp3471478, align 8
   %agg.tmp347.sroa.2.0.agg.tmp3471478.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3471478, i64 8
-  store ptr %ref.tmp.sroa.4.0.copyload.i.i, ptr %agg.tmp347.sroa.2.0.agg.tmp3471478.sroa_idx, align 8
+  store ptr %.sink2.i, ptr %agg.tmp347.sroa.2.0.agg.tmp3471478.sroa_idx, align 8
   %agg.tmp347.sroa.3.0.agg.tmp3471478.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3471478, i64 16
   store ptr %.sink1.i, ptr %agg.tmp347.sroa.3.0.agg.tmp3471478.sroa_idx, align 8
   %agg.tmp347.sroa.4.0.agg.tmp3471478.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp3471478, i64 24
@@ -80656,7 +80656,7 @@ if.then.i1482:                                    ; preds = %lor.rhs.i, %invoke.
 
 lor.rhs6.i:                                       ; preds = %if.then.i1482
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %.sink3.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %ref.tmp.sroa.4.0.copyload.i.i to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %.sink2.i to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 48
   %add.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
@@ -81409,7 +81409,7 @@ if.end.i2012:                                     ; preds = %.noexc2013
 invoke.cont522:                                   ; preds = %if.then.i2004, %if.end.i2012
   %704 = phi ptr [ %700, %if.end.i2012 ], [ %.pre4792, %if.then.i2004 ]
   %.sink3.i2008 = phi ptr [ %700, %if.end.i2012 ], [ %695, %if.then.i2004 ]
-  %ref.tmp.sroa.4.0.copyload.i.i2062 = phi ptr [ %701, %if.end.i2012 ], [ %697, %if.then.i2004 ]
+  %.sink2.i2009 = phi ptr [ %701, %if.end.i2012 ], [ %697, %if.then.i2004 ]
   %.sink1.i2010 = phi ptr [ %702, %if.end.i2012 ], [ %698, %if.then.i2004 ]
   %.sink.i2011 = phi ptr [ %703, %if.end.i2012 ], [ %699, %if.then.i2004 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %pairIts.i1987)
@@ -81444,7 +81444,7 @@ invoke.cont522:                                   ; preds = %if.then.i2004, %if.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp5082052)
   store ptr %.sink3.i2008, ptr %agg.tmp5082052, align 8
   %agg.tmp508.sroa.2.0.agg.tmp5082052.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp5082052, i64 8
-  store ptr %ref.tmp.sroa.4.0.copyload.i.i2062, ptr %agg.tmp508.sroa.2.0.agg.tmp5082052.sroa_idx, align 8
+  store ptr %.sink2.i2009, ptr %agg.tmp508.sroa.2.0.agg.tmp5082052.sroa_idx, align 8
   %agg.tmp508.sroa.3.0.agg.tmp5082052.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp5082052, i64 16
   store ptr %.sink1.i2010, ptr %agg.tmp508.sroa.3.0.agg.tmp5082052.sroa_idx, align 8
   %agg.tmp508.sroa.4.0.agg.tmp5082052.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp5082052, i64 24
@@ -81464,7 +81464,7 @@ if.then.i2057:                                    ; preds = %lor.rhs.i2055, %inv
 
 lor.rhs6.i2060:                                   ; preds = %if.then.i2057
   %sub.ptr.lhs.cast.i.i.i2063 = ptrtoint ptr %.sink3.i2008 to i64
-  %sub.ptr.rhs.cast.i.i.i2064 = ptrtoint ptr %ref.tmp.sroa.4.0.copyload.i.i2062 to i64
+  %sub.ptr.rhs.cast.i.i.i2064 = ptrtoint ptr %.sink2.i2009 to i64
   %sub.ptr.sub.i.i.i2065 = sub i64 %sub.ptr.lhs.cast.i.i.i2063, %sub.ptr.rhs.cast.i.i.i2064
   %sub.ptr.div.i.i.i2066 = sdiv exact i64 %sub.ptr.sub.i.i.i2065, 48
   %add.i.i.i2067 = add nsw i64 %sub.ptr.div.i.i.i2066, -1

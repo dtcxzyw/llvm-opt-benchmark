@@ -31143,12 +31143,12 @@ common.resume:                                    ; preds = %493, %.body, %462, 
   br label %"_ZN155_$LT$auto_update.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$auto_update..JsonRelease$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h10e1b2a7edbafa09E.exit"
 
 "_ZN155_$LT$auto_update.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$auto_update..JsonRelease$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h10e1b2a7edbafa09E.exit": ; preds = %104, %91, %92, %109, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i40.i"
-  %.sroa.12.0.copyload1001 = phi i64 [ undef, %109 ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i40.i" ], [ undef, %92 ], [ undef, %91 ], [ %.sroa.634.0.copyload.i, %104 ]
-  %.sroa.11.0.copyload = phi ptr [ undef, %109 ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i40.i" ], [ undef, %92 ], [ undef, %91 ], [ %103, %104 ]
-  %.sroa.10.0.copyload = phi i64 [ undef, %109 ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i40.i" ], [ undef, %92 ], [ undef, %91 ], [ %100, %104 ]
-  %.sroa.9.0.copyload992 = phi i64 [ undef, %109 ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i40.i" ], [ undef, %92 ], [ undef, %91 ], [ %.sroa.630.0.copyload.i, %104 ]
-  %.sroa.6.0.copyload = phi ptr [ %.sink46.i, %109 ], [ %.sink46.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i40.i" ], [ %93, %92 ], [ %88, %91 ], [ %88, %104 ]
-  %.sroa.0.0.copyload = phi i64 [ -9223372036854775808, %109 ], [ -9223372036854775808, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i40.i" ], [ -9223372036854775808, %92 ], [ -9223372036854775808, %91 ], [ %85, %104 ]
+  %.sroa.14.0 = phi i64 [ undef, %109 ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i40.i" ], [ undef, %92 ], [ undef, %91 ], [ %.sroa.634.0.copyload.i, %104 ]
+  %.sroa.13.0 = phi ptr [ undef, %109 ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i40.i" ], [ undef, %92 ], [ undef, %91 ], [ %103, %104 ]
+  %.sroa.12.097 = phi i64 [ undef, %109 ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i40.i" ], [ undef, %92 ], [ undef, %91 ], [ %100, %104 ]
+  %.sroa.11.0 = phi i64 [ undef, %109 ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i40.i" ], [ undef, %92 ], [ undef, %91 ], [ %.sroa.630.0.copyload.i, %104 ]
+  %.sroa.8.0 = phi ptr [ %.sink46.i, %109 ], [ %.sink46.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i40.i" ], [ %93, %92 ], [ %88, %91 ], [ %88, %104 ]
+  %.sroa.094.0 = phi i64 [ -9223372036854775808, %109 ], [ -9223372036854775808, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i40.i" ], [ -9223372036854775808, %92 ], [ -9223372036854775808, %91 ], [ %85, %104 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47)
   %112 = load i8, ptr %70, align 8, !range !1024, !noundef !11
   %113 = trunc nuw i8 %112 to i1
@@ -31177,17 +31177,17 @@ common.resume:                                    ; preds = %493, %.body, %462, 
 
 122:                                              ; preds = %118, %"_ZN155_$LT$auto_update.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$auto_update..JsonRelease$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h10e1b2a7edbafa09E.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %50)
-  store i64 %.sroa.0.0.copyload, ptr %50, align 8
+  store i64 %.sroa.094.0, ptr %50, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %.sroa.6.0.copyload, ptr %.sroa.8.0..sroa_idx, align 8
+  store ptr %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store i64 %.sroa.9.0.copyload992, ptr %.sroa.11.0..sroa_idx, align 8
+  store i64 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store i64 %.sroa.10.0.copyload, ptr %.sroa.12.0..sroa_idx, align 8
+  store i64 %.sroa.12.097, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 32
-  store ptr %.sroa.11.0.copyload, ptr %.sroa.13.0..sroa_idx, align 8
+  store ptr %.sroa.13.0, ptr %.sroa.13.0..sroa_idx, align 8
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 40
-  store i64 %.sroa.12.0.copyload1001, ptr %.sroa.14.0..sroa_idx, align 8
+  store i64 %.sroa.14.0, ptr %.sroa.14.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6808)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6811)
   %123 = load i64, ptr %54, align 8, !alias.scope !6814, !noalias !6817, !noundef !11
@@ -31302,7 +31302,7 @@ common.resume:                                    ; preds = %493, %.body, %462, 
 "_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit": ; preds = %147, %146, %.noexc60, %.noexc
   %.sroa.0.1.i = phi ptr [ %134, %.noexc60 ], [ %132, %.noexc ], [ %143, %147 ], [ %145, %146 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %50)
-  switch i64 %.sroa.0.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i.i63" [
+  switch i64 %.sroa.094.0, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i.i63" [
     i64 -9223372036854775808, label %160
     i64 0, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i"
   ]
@@ -31311,28 +31311,28 @@ common.resume:                                    ; preds = %493, %.body, %462, 
   %152 = add i64 %127, 1
   store i64 %152, ptr %53, align 8, !alias.scope !6842
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %50)
-  %153 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
+  %153 = icmp eq i64 %.sroa.094.0, -9223372036854775808
   br i1 %153, label %.thread1037, label %.thread104.thread1046
 
 .thread1037:                                      ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread"
-  %154 = icmp ne ptr %.sroa.6.0.copyload, null
+  %154 = icmp ne ptr %.sroa.8.0, null
   tail call void @llvm.assume(i1 %154)
   br label %.thread104.thread
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i.i63": ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit"
-  %155 = icmp ne ptr %.sroa.6.0.copyload, null
+  %155 = icmp ne ptr %.sroa.8.0, null
   tail call void @llvm.assume(i1 %155)
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.0.copyload, i64 noundef %.sroa.0.0.copyload, i64 noundef 1) #36, !noalias !6845
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.8.0, i64 noundef %.sroa.094.0, i64 noundef 1) #36, !noalias !6845
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i": ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i.i63"
-  %156 = icmp eq i64 %.sroa.10.0.copyload, 0
+  %156 = icmp eq i64 %.sroa.12.097, 0
   br i1 %156, label %.thread104.thread, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i3.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i3.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i"
-  %157 = icmp ne ptr %.sroa.11.0.copyload, null
+  %157 = icmp ne ptr %.sroa.13.0, null
   tail call void @llvm.assume(i1 %157)
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.11.0.copyload, i64 noundef %.sroa.10.0.copyload, i64 noundef 1) #36, !noalias !6856
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.13.0, i64 noundef %.sroa.12.097, i64 noundef 1) #36, !noalias !6856
   br label %.thread104.thread
 
 158:                                              ; preds = %493, %.body
@@ -31342,7 +31342,7 @@ common.resume:                                    ; preds = %493, %.body, %462, 
   unreachable
 
 160:                                              ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit"
-  %161 = icmp ne ptr %.sroa.6.0.copyload, null
+  %161 = icmp ne ptr %.sroa.8.0, null
   tail call void @llvm.assume(i1 %161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6865)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6868)
@@ -32513,12 +32513,12 @@ _ZN5serde2de9MapAccess10next_value17hda1fe675442b1940E.exit161.i: ; preds = %450
   br label %common.resume
 
 "_ZN155_$LT$auto_update.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$auto_update..JsonRelease$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h5105beb186df7f17E.exit": ; preds = %458, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0269f291d56e5b8cE.exit166.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i167.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i171.i"
-  %.sroa.01008.0.copyload = phi i64 [ -9223372036854775808, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i171.i" ], [ -9223372036854775808, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ -9223372036854775808, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ -9223372036854775808, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0269f291d56e5b8cE.exit166.i" ], [ -9223372036854775808, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i167.i" ], [ %.sroa.0178.0738.i, %458 ]
-  %.sroa.61011.0.copyload = phi ptr [ %.sroa.10.0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i171.i" ], [ %.sroa.10.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ %.sroa.10.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ %461, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0269f291d56e5b8cE.exit166.i" ], [ %461, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i167.i" ], [ %.sroa.14.0737.i, %458 ]
-  %.sroa.91015.0.copyload1017 = phi i64 [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i171.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0269f291d56e5b8cE.exit166.i" ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i167.i" ], [ %.sroa.19.0736.i, %458 ]
-  %.sroa.101018.0.copyload = phi i64 [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i171.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0269f291d56e5b8cE.exit166.i" ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i167.i" ], [ %.sroa.0185.0735.i, %458 ]
-  %.sroa.111021.0.copyload = phi ptr [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i171.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0269f291d56e5b8cE.exit166.i" ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i167.i" ], [ %.sroa.13.0734.i, %458 ]
-  %.sroa.121024.0.copyload1026 = phi i64 [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i171.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0269f291d56e5b8cE.exit166.i" ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i167.i" ], [ %.sroa.19193.0733.i, %458 ]
+  %.sroa.095.2 = phi i64 [ -9223372036854775808, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i171.i" ], [ -9223372036854775808, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ -9223372036854775808, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ -9223372036854775808, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0269f291d56e5b8cE.exit166.i" ], [ -9223372036854775808, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i167.i" ], [ %.sroa.0178.0738.i, %458 ]
+  %.sroa.10.2 = phi ptr [ %.sroa.10.0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i171.i" ], [ %.sroa.10.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ %.sroa.10.0, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ %461, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0269f291d56e5b8cE.exit166.i" ], [ %461, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i167.i" ], [ %.sroa.14.0737.i, %458 ]
+  %.sroa.15.0 = phi i64 [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i171.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0269f291d56e5b8cE.exit166.i" ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i167.i" ], [ %.sroa.19.0736.i, %458 ]
+  %.sroa.16.0 = phi i64 [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i171.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0269f291d56e5b8cE.exit166.i" ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i167.i" ], [ %.sroa.0185.0735.i, %458 ]
+  %.sroa.17.0 = phi ptr [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i171.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0269f291d56e5b8cE.exit166.i" ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i167.i" ], [ %.sroa.13.0734.i, %458 ]
+  %.sroa.1896.0 = phi i64 [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i171.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit170.i" ], [ undef, %"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h0269f291d56e5b8cE.exit166.i" ], [ undef, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i167.i" ], [ %.sroa.19193.0733.i, %458 ]
   %470 = load i8, ptr %74, align 8, !range !1024, !noundef !11
   %471 = trunc nuw i8 %470 to i1
   br i1 %471, label %478, label %474
@@ -32539,17 +32539,17 @@ _ZN5serde2de9MapAccess10next_value17hda1fe675442b1940E.exit161.i: ; preds = %450
 
 478:                                              ; preds = %474, %"_ZN155_$LT$auto_update.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$auto_update..JsonRelease$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_map17h5105beb186df7f17E.exit"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %48)
-  store i64 %.sroa.01008.0.copyload, ptr %48, align 8
+  store i64 %.sroa.095.2, ptr %48, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store ptr %.sroa.61011.0.copyload, ptr %.sroa.10.0..sroa_idx, align 8
+  store ptr %.sroa.10.2, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i64 %.sroa.91015.0.copyload1017, ptr %.sroa.15.0..sroa_idx, align 8
+  store i64 %.sroa.15.0, ptr %.sroa.15.0..sroa_idx, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store i64 %.sroa.101018.0.copyload, ptr %.sroa.16.0..sroa_idx, align 8
+  store i64 %.sroa.16.0, ptr %.sroa.16.0..sroa_idx, align 8
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 32
-  store ptr %.sroa.111021.0.copyload, ptr %.sroa.17.0..sroa_idx, align 8
+  store ptr %.sroa.17.0, ptr %.sroa.17.0..sroa_idx, align 8
   %.sroa.1896.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 40
-  store i64 %.sroa.121024.0.copyload1026, ptr %.sroa.1896.0..sroa_idx, align 8
+  store i64 %.sroa.1896.0, ptr %.sroa.1896.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7284)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7287)
   %479 = load i64, ptr %54, align 8, !alias.scope !7290, !noalias !7293, !noundef !11
@@ -32620,7 +32620,7 @@ _ZN5serde2de9MapAccess10next_value17hda1fe675442b1940E.exit161.i: ; preds = %450
 "_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit": ; preds = %.noexc78, %.noexc77, %.noexc76
   %.sroa.0.1.i73 = phi ptr [ %490, %.noexc77 ], [ %492, %.noexc78 ], [ %488, %.noexc76 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %48)
-  switch i64 %.sroa.01008.0.copyload, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i.i85" [
+  switch i64 %.sroa.095.2, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i.i85" [
     i64 -9223372036854775808, label %501
     i64 0, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i86"
   ]
@@ -32629,32 +32629,32 @@ _ZN5serde2de9MapAccess10next_value17hda1fe675442b1940E.exit161.i: ; preds = %450
   %495 = add i64 %483, 1
   store i64 %495, ptr %53, align 8, !alias.scope !7303
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %48)
-  %496 = icmp eq i64 %.sroa.01008.0.copyload, -9223372036854775808
+  %496 = icmp eq i64 %.sroa.095.2, -9223372036854775808
   br i1 %496, label %.thread1076, label %.thread104.thread1046
 
 .thread1076:                                      ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread"
-  %497 = icmp ne ptr %.sroa.61011.0.copyload, null
+  %497 = icmp ne ptr %.sroa.10.2, null
   tail call void @llvm.assume(i1 %497)
   br label %.thread104.thread
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i.i85": ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit"
-  %498 = icmp ne ptr %.sroa.61011.0.copyload, null
+  %498 = icmp ne ptr %.sroa.10.2, null
   tail call void @llvm.assume(i1 %498)
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.61011.0.copyload, i64 noundef %.sroa.01008.0.copyload, i64 noundef 1) #36, !noalias !7306
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.10.2, i64 noundef %.sroa.095.2, i64 noundef 1) #36, !noalias !7306
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i86"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i86": ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i.i85"
-  %499 = icmp eq i64 %.sroa.101018.0.copyload, 0
+  %499 = icmp eq i64 %.sroa.16.0, 0
   br i1 %499, label %.thread104.thread, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i3.i87"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i3.i87": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i86"
-  %500 = icmp ne ptr %.sroa.111021.0.copyload, null
+  %500 = icmp ne ptr %.sroa.17.0, null
   tail call void @llvm.assume(i1 %500)
-  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.111021.0.copyload, i64 noundef %.sroa.101018.0.copyload, i64 noundef 1) #36, !noalias !7317
+  tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.17.0, i64 noundef %.sroa.16.0, i64 noundef 1) #36, !noalias !7317
   br label %.thread104.thread
 
 501:                                              ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit"
-  %502 = icmp ne ptr %.sroa.61011.0.copyload, null
+  %502 = icmp ne ptr %.sroa.10.2, null
   tail call void @llvm.assume(i1 %502)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7326)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7329)
@@ -32704,12 +32704,12 @@ _ZN5serde2de9MapAccess10next_value17hda1fe675442b1940E.exit161.i: ; preds = %450
   br label %.thread104.thread
 
 .thread104.thread1046:                            ; preds = %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread", %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread"
-  %.sroa.08.31058 = phi i64 [ %.sroa.0.0.copyload, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread" ], [ %.sroa.01008.0.copyload, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread" ]
-  %.sroa.12.31057 = phi ptr [ %.sroa.6.0.copyload, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread" ], [ %.sroa.61011.0.copyload, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread" ]
-  %.sroa.18.sroa.0.21056 = phi i64 [ %.sroa.9.0.copyload992, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread" ], [ %.sroa.91015.0.copyload1017, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread" ]
-  %.sroa.18.sroa.6.21055 = phi i64 [ %.sroa.10.0.copyload, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread" ], [ %.sroa.101018.0.copyload, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread" ]
-  %.sroa.18.sroa.7.21054 = phi ptr [ %.sroa.11.0.copyload, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread" ], [ %.sroa.111021.0.copyload, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread" ]
-  %.sroa.18.sroa.8.21053 = phi i64 [ %.sroa.12.0.copyload1001, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread" ], [ %.sroa.121024.0.copyload1026, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread" ]
+  %.sroa.08.31058 = phi i64 [ %.sroa.094.0, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread" ], [ %.sroa.095.2, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread" ]
+  %.sroa.12.31057 = phi ptr [ %.sroa.8.0, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread" ], [ %.sroa.10.2, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread" ]
+  %.sroa.18.sroa.0.21056 = phi i64 [ %.sroa.11.0, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread" ], [ %.sroa.15.0, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread" ]
+  %.sroa.18.sroa.6.21055 = phi i64 [ %.sroa.12.097, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread" ], [ %.sroa.16.0, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread" ]
+  %.sroa.18.sroa.7.21054 = phi ptr [ %.sroa.13.0, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread" ], [ %.sroa.17.0, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread" ]
+  %.sroa.18.sroa.8.21053 = phi i64 [ %.sroa.14.0, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_seq17h5c95dd20a65af2a3E.exit.thread" ], [ %.sroa.1896.0, %"_ZN10serde_json2de21Deserializer$LT$R$GT$7end_map17h60612f5373250120E.exit.thread" ]
   store i64 %.sroa.08.31058, ptr %0, align 8
   %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.12.31057, ptr %.sroa.227.0..sroa_idx, align 8
@@ -32724,7 +32724,7 @@ _ZN5serde2de9MapAccess10next_value17hda1fe675442b1940E.exit161.i: ; preds = %450
   br label %516
 
 .thread104.thread:                                ; preds = %.thread1076, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h7836a5ebb95c8742E.exit92", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i3.i87", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i86", %.thread1037, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i3.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i", %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h7836a5ebb95c8742E.exit67", %67
-  %.sroa.12.4 = phi ptr [ %68, %67 ], [ %.sroa.6.0.copyload, %.thread1037 ], [ %.sroa.0.1.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i3.i" ], [ %.sroa.0.1.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i" ], [ %.sroa.6.0.copyload, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h7836a5ebb95c8742E.exit67" ], [ %.sroa.0.1.i73, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i86" ], [ %.sroa.0.1.i73, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i3.i87" ], [ %.sroa.61011.0.copyload, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h7836a5ebb95c8742E.exit92" ], [ %.sroa.61011.0.copyload, %.thread1076 ]
+  %.sroa.12.4 = phi ptr [ %68, %67 ], [ %.sroa.8.0, %.thread1037 ], [ %.sroa.0.1.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i3.i" ], [ %.sroa.0.1.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i" ], [ %.sroa.8.0, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h7836a5ebb95c8742E.exit67" ], [ %.sroa.0.1.i73, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h456eb04633331537E.exit.i86" ], [ %.sroa.0.1.i73, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.6844594870300039520.exit.i.i1.i.i3.i87" ], [ %.sroa.10.2, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17h7836a5ebb95c8742E.exit92" ], [ %.sroa.10.2, %.thread1076 ]
   %514 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17hcbf6095f6a565c5fE(ptr noalias noundef nonnull align 8 %.sroa.12.4, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
   %515 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %514, ptr %515, align 8

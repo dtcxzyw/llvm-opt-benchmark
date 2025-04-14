@@ -6775,17 +6775,17 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17he
   br i1 %exitcond.not.i62, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split", label %95
 
 "_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split": ; preds = %105, %91, %92
-  %.sroa.6.0.ph = phi i64 [ %54, %92 ], [ %79, %91 ], [ %54, %105 ]
-  %.sroa.0.0.ph = phi ptr [ %52, %92 ], [ %77, %91 ], [ %52, %105 ]
+  %.ph = phi i64 [ %54, %92 ], [ %79, %91 ], [ %54, %105 ]
+  %.ph79 = phi ptr [ %52, %92 ], [ %77, %91 ], [ %52, %105 ]
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.019.0, i64 noundef 752, i64 noundef 8) #16
   br label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit"
 
 "_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit": ; preds = %101, %87, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split", %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit"
-  %.sroa.6.0 = phi i64 [ %54, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit" ], [ %.sroa.6.0.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split" ], [ %79, %87 ], [ %54, %101 ]
-  %.sroa.0.0 = phi ptr [ %52, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit" ], [ %.sroa.0.0.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split" ], [ %77, %87 ], [ %52, %101 ]
-  store ptr %.sroa.0.0, ptr %0, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.6.0, ptr %106, align 8
+  %106 = phi i64 [ %54, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit" ], [ %.ph, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split" ], [ %79, %87 ], [ %54, %101 ]
+  %107 = phi ptr [ %52, %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17h11f6538ec6e7d19fE.exit" ], [ %.ph79, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17hc9262369b5bc7168E.exit.sink.split" ], [ %77, %87 ], [ %52, %101 ]
+  store ptr %107, ptr %0, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %106, ptr %108, align 8
   br label %33
 }
 

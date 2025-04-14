@@ -8927,6 +8927,8 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Fdflags$u20$as$u20$wiggl
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.8.0..sroa_idx, i64 58, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   store i32 0, ptr %0, align 8
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 %23, ptr %.sroa.230.0..sroa_idx, align 4
   %.sroa.331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, i64 58, i1 false)
   br label %31
@@ -9687,6 +9689,8 @@ define void @"_ZN90_$LT$wasmtime_wasi..preview1..types..Fstflags$u20$as$u20$wigg
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.8.0..sroa_idx, i64 58, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   store i32 0, ptr %0, align 8
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 %23, ptr %.sroa.230.0..sroa_idx, align 4
   %.sroa.331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, i64 58, i1 false)
   br label %31
@@ -9927,6 +9931,8 @@ define void @"_ZN93_$LT$wasmtime_wasi..preview1..types..Lookupflags$u20$as$u20$w
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.331, ptr noundef nonnull align 8 dereferenceable(56) %25, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   store i32 0, ptr %0, align 8
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %23, ptr %.sroa.230.0..sroa_idx, align 4
   %.sroa.331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.331.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.331, i64 56, i1 false)
   br label %31
@@ -10173,6 +10179,8 @@ define void @"_ZN88_$LT$wasmtime_wasi..preview1..types..Oflags$u20$as$u20$wiggle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.8.0..sroa_idx, i64 58, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   store i32 0, ptr %0, align 8
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 %23, ptr %.sroa.230.0..sroa_idx, align 4
   %.sroa.331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, i64 58, i1 false)
   br label %31
@@ -11876,6 +11884,8 @@ define void @"_ZN94_$LT$wasmtime_wasi..preview1..types..Eventrwflags$u20$as$u20$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.8.0..sroa_idx, i64 58, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   store i32 0, ptr %0, align 8
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 %23, ptr %.sroa.230.0..sroa_idx, align 4
   %.sroa.331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, i64 58, i1 false)
   br label %31
@@ -13040,6 +13050,8 @@ define void @"_ZN95_$LT$wasmtime_wasi..preview1..types..Subclockflags$u20$as$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.8.0..sroa_idx, i64 58, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   store i32 0, ptr %0, align 8
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 %23, ptr %.sroa.230.0..sroa_idx, align 4
   %.sroa.331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, i64 58, i1 false)
   br label %31
@@ -18094,6 +18106,8 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Riflags$u20$as$u20$wiggl
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.8.0..sroa_idx, i64 58, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   store i32 0, ptr %0, align 8
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 %23, ptr %.sroa.230.0..sroa_idx, align 4
   %.sroa.331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, i64 58, i1 false)
   br label %31
@@ -18340,6 +18354,8 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Roflags$u20$as$u20$wiggl
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.8.0..sroa_idx, i64 58, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   store i32 0, ptr %0, align 8
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i16 %23, ptr %.sroa.230.0..sroa_idx, align 4
   %.sroa.331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(58) %.sroa.331, i64 58, i1 false)
   br label %31
@@ -18586,6 +18602,8 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview1..types..Sdflags$u20$as$u20$wiggl
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %.sroa.331, ptr noundef nonnull align 1 dereferenceable(59) %.sroa.8.0..sroa_idx, i64 59, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   store i32 0, ptr %0, align 8
+  %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %23, ptr %.sroa.230.0..sroa_idx, align 4
   %.sroa.331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %.sroa.331.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(59) %.sroa.331, i64 59, i1 false)
   br label %31

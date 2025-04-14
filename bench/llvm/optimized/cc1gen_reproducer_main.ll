@@ -1229,8 +1229,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26.i: ; preds = %_
 
 469:                                              ; preds = %465, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26.i
   %470 = call noundef ptr @_ZN5clang6driver6Driver16BuildCompilationEN4llvm8ArrayRefIPKcEE(ptr noundef nonnull align 8 dereferenceable(1224) %13, ptr nonnull %.sroa.051.0.lcssa, i64 %380) #17, !noalias !67
-  %.not89.i = icmp eq ptr %470, null
-  br i1 %.not89.i, label %.critedge15.i, label %471
+  %.not88.i = icmp eq ptr %470, null
+  br i1 %.not88.i, label %.critedge15.i, label %471
 
 471:                                              ; preds = %469
   %472 = getelementptr inbounds nuw i8, ptr %470, i64 521
@@ -1245,17 +1245,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26.i: ; preds = %_
   %479 = load i32, ptr %478, align 8, !tbaa !186, !noalias !67
   %480 = zext i32 %479 to i64
   %481 = getelementptr inbounds nuw %"class.std::unique_ptr.185", ptr %477, i64 %480
-  %.not9091.i = icmp eq i32 %479, 0
-  br i1 %.not9091.i, label %.critedge15.i, label %.critedge.i
+  %.not8990.i = icmp eq i32 %479, 0
+  br i1 %.not8990.i, label %.critedge15.i, label %.critedge.i
 
 482:                                              ; preds = %.critedge.i
-  %483 = getelementptr inbounds nuw i8, ptr %.sroa.057.092.i, i64 8
-  %.not90.i = icmp eq ptr %483, %481
-  br i1 %.not90.i, label %.critedge15.i, label %.critedge.i
+  %483 = getelementptr inbounds nuw i8, ptr %.sroa.057.091.i, i64 8
+  %.not89.i = icmp eq ptr %483, %481
+  br i1 %.not89.i, label %.critedge15.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %475, %482
-  %.sroa.057.092.i = phi ptr [ %483, %482 ], [ %477, %475 ]
-  %484 = load ptr, ptr %.sroa.057.092.i, align 8, !tbaa !187, !noalias !67
+  %.sroa.057.091.i = phi ptr [ %483, %482 ], [ %477, %475 ]
+  %484 = load ptr, ptr %.sroa.057.091.i, align 8, !tbaa !187, !noalias !67
   %.not.i26 = icmp eq ptr %484, null
   br i1 %.not.i26, label %482, label %485
 
@@ -1443,13 +1443,13 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i: ; preds = %555, %553
 
 569:                                              ; preds = %"_ZZL26generateReproducerMetaInfoB5cxx11RKN12_GLOBAL__N_119ClangInvocationInfoEENK3$_1clEN4llvm9StringRefES5_.exit.i.i"
   %570 = trunc nuw i8 %.0.i27 to i1
-  %.pre94.i = load ptr, ptr %496, align 8, !tbaa !12, !noalias !67
+  %.pre93.i = load ptr, ptr %496, align 8, !tbaa !12, !noalias !67
   br i1 %570, label %571, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i43.i
 
 571:                                              ; preds = %569
   %572 = load ptr, ptr %498, align 8, !tbaa !3, !noalias !67
   %573 = ptrtoint ptr %572 to i64
-  %574 = ptrtoint ptr %.pre94.i to i64
+  %574 = ptrtoint ptr %.pre93.i to i64
   %575 = sub i64 %573, %574
   %576 = icmp ult i64 %575, 2
   br i1 %576, label %577, label %579
@@ -1460,14 +1460,14 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i.i.i: ; preds = %555, %553
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i43.i
 
 579:                                              ; preds = %571
-  store i16 8236, ptr %.pre94.i, align 1, !noalias !67
+  store i16 8236, ptr %.pre93.i, align 1, !noalias !67
   %580 = load ptr, ptr %496, align 8, !tbaa !12, !noalias !67
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 2
   store ptr %581, ptr %496, align 8, !tbaa !12, !noalias !67
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i43.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i43.i:           ; preds = %579, %577, %569
-  %582 = phi ptr [ %581, %579 ], [ %.pre.i, %577 ], [ %.pre94.i, %569 ]
+  %582 = phi ptr [ %581, %579 ], [ %.pre.i, %577 ], [ %.pre93.i, %569 ]
   %583 = load ptr, ptr %498, align 8, !tbaa !3, !noalias !67
   %.not.i.i44.i = icmp ult ptr %582, %583
   br i1 %.not.i.i44.i, label %586, label %584
@@ -1600,32 +1600,32 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i16.i.i: ; preds = %630, %628
 
 645:                                              ; preds = %"_ZZL26generateReproducerMetaInfoB5cxx11RKN12_GLOBAL__N_119ClangInvocationInfoEENK3$_1clEN4llvm9StringRefES5_.exit21.i.i"
   %646 = trunc nuw i8 %.1.i to i1
-  %.pre96.i = load ptr, ptr %496, align 8, !tbaa !12, !noalias !67
+  %.pre74.i.i = load ptr, ptr %496, align 8, !tbaa !12, !noalias !193
   br i1 %646, label %647, label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
 
 647:                                              ; preds = %645
-  %648 = load ptr, ptr %498, align 8, !tbaa !3, !noalias !67
+  %648 = load ptr, ptr %498, align 8, !tbaa !3, !noalias !193
   %649 = ptrtoint ptr %648 to i64
-  %650 = ptrtoint ptr %.pre96.i to i64
+  %650 = ptrtoint ptr %.pre74.i.i to i64
   %651 = sub i64 %649, %650
   %652 = icmp ult i64 %651, 2
   br i1 %652, label %653, label %655
 
 653:                                              ; preds = %647
   %654 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull @.str.11, i64 noundef 2) #17, !noalias !67
-  %.pre95.i = load ptr, ptr %496, align 8, !tbaa !12, !noalias !67
+  %.pre.i.i = load ptr, ptr %496, align 8, !tbaa !12, !noalias !193
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
 
 655:                                              ; preds = %647
-  store i16 8236, ptr %.pre96.i, align 1, !noalias !67
-  %656 = load ptr, ptr %496, align 8, !tbaa !12, !noalias !67
+  store i16 8236, ptr %.pre74.i.i, align 1, !noalias !67
+  %656 = load ptr, ptr %496, align 8, !tbaa !12, !noalias !193
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 2
-  store ptr %657, ptr %496, align 8, !tbaa !12, !noalias !67
+  store ptr %657, ptr %496, align 8, !tbaa !12, !noalias !193
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %655, %653, %645
-  %658 = phi ptr [ %657, %655 ], [ %.pre95.i, %653 ], [ %.pre96.i, %645 ]
-  %659 = load ptr, ptr %498, align 8, !tbaa !3, !noalias !67
+  %658 = phi ptr [ %657, %655 ], [ %.pre.i.i, %653 ], [ %.pre74.i.i, %645 ]
+  %659 = load ptr, ptr %498, align 8, !tbaa !3, !noalias !193
   %.not.i.i22.i.i = icmp ult ptr %658, %659
   br i1 %.not.i.i22.i.i, label %662, label %660
 
@@ -1635,7 +1635,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %655, %653, %645
 
 662:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i
   %663 = getelementptr inbounds nuw i8, ptr %658, i64 1
-  store ptr %663, ptr %496, align 8, !tbaa !12, !noalias !67
+  store ptr %663, ptr %496, align 8, !tbaa !12, !noalias !193
   store i8 34, ptr %658, align 1, !tbaa !18, !noalias !67
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i23.i.i
 
@@ -1962,7 +1962,7 @@ _ZN5clang6driver6Driver27CompilationDiagnosticReportD2Ev.exit.i: ; preds = %798,
   br label %800
 
 800:                                              ; preds = %.critedge15.i, %_ZN5clang6driver6Driver27CompilationDiagnosticReportD2Ev.exit.i
-  br i1 %.not89.i, label %_ZNSt10unique_ptrIN5clang6driver11CompilationESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5clang6driver11CompilationEEclEPS2_.exit.i.i
+  br i1 %.not88.i, label %_ZNSt10unique_ptrIN5clang6driver11CompilationESt14default_deleteIS2_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN5clang6driver11CompilationEEclEPS2_.exit.i.i
 
 _ZNKSt14default_deleteIN5clang6driver11CompilationEEclEPS2_.exit.i.i: ; preds = %800
   call void @_ZN5clang6driver11CompilationD1Ev(ptr noundef nonnull align 8 dereferenceable(523) %470) #17

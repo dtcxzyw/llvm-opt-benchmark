@@ -3578,7 +3578,7 @@ mbedtls_mpi_free.exit149:                         ; preds = %mbedtls_mpi_free.ex
   br i1 %.not.i150, label %mbedtls_mpi_free.exit151, label %245
 
 245:                                              ; preds = %mbedtls_mpi_free.exit149
-  %246 = shl i64 %233, 3
+  %246 = shl nuw nsw i64 %233, 3
   %247 = and i64 %246, 524280
   call void @mbedtls_zeroize_and_free(ptr noundef nonnull %234, i64 noundef %247) #16
   br label %mbedtls_mpi_free.exit151

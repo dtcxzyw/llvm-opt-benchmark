@@ -51488,7 +51488,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit659.threa
   br i1 %.not608, label %.thread894, label %.thread896
 
 .thread896:                                       ; preds = %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit653, %_ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit659.thread
-  %.sroa.0346.0.copyload = phi ptr [ %.fca.0.extract467, %_ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit659.thread ], [ %205, %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit653 ]
+  %.sroa.0287.0.copyload = phi ptr [ %.fca.0.extract467, %_ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit659.thread ], [ %205, %_ZNK4llvm3EVT19getScalarSizeInBitsEv.exit653 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62) #31
   %219 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i32 %164, ptr %219, align 8, !tbaa !409, !alias.scope !925
@@ -51564,7 +51564,7 @@ _ZN4llvm5APInt14getHighBitsSetEjj.exit:           ; preds = %_ZN4llvm5APIntC2Ejm
 244:                                              ; preds = %241
   %.sroa.019.0.copyload.i = load ptr, ptr %58, align 8, !tbaa !379
   %.sroa.220.0.copyload.i = load i32, ptr %194, align 8, !tbaa !240
-  store ptr %.sroa.0346.0.copyload, ptr %45, align 8, !tbaa !241
+  store ptr %.sroa.0287.0.copyload, ptr %45, align 8, !tbaa !241
   %.sroa.450.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %.sroa.2449.0.copyload, ptr %.sroa.450.0..sroa_idx.i, align 8, !tbaa !240
   store ptr %.sroa.0445.0.copyload, ptr %46, align 8, !tbaa !241
@@ -51582,7 +51582,7 @@ _ZN4llvm5APInt14getHighBitsSetEjj.exit:           ; preds = %_ZN4llvm5APIntC2Ejm
 248:                                              ; preds = %.critedge64.i
   %.sroa.09.0.copyload.i = load i16, ptr %8, align 8, !tbaa !287
   %.sroa.211.0.copyload.i = load ptr, ptr %.sroa.2485.0..sroa_idx, align 8, !tbaa !289
-  store ptr %.sroa.0346.0.copyload, ptr %47, align 8, !tbaa !241
+  store ptr %.sroa.0287.0.copyload, ptr %47, align 8, !tbaa !241
   %.sroa.450.0..sroa_idx51.i = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i32 %.sroa.2449.0.copyload, ptr %.sroa.450.0..sroa_idx51.i, align 8, !tbaa !240
   store ptr %.sroa.0445.0.copyload, ptr %48, align 8, !tbaa !241
@@ -51592,7 +51592,7 @@ _ZN4llvm5APInt14getHighBitsSetEjj.exit:           ; preds = %_ZN4llvm5APIntC2Ejm
   %.fca.0.extract5.i = extractvalue { ptr, i32 } %249, 0
   %.sroa.01.0.copyload.i = load i16, ptr %8, align 8, !tbaa !287
   %.sroa.23.0.copyload.i = load ptr, ptr %.sroa.2485.0..sroa_idx, align 8, !tbaa !289
-  store ptr %.sroa.0346.0.copyload, ptr %49, align 8, !tbaa !241
+  store ptr %.sroa.0287.0.copyload, ptr %49, align 8, !tbaa !241
   %.sroa.450.0..sroa_idx53.i = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 %.sroa.2449.0.copyload, ptr %.sroa.450.0..sroa_idx53.i, align 8, !tbaa !240
   store ptr %.sroa.0445.0.copyload, ptr %50, align 8, !tbaa !241
@@ -51738,7 +51738,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %281, %283
 294:                                              ; preds = %291
   %.sroa.019.0.copyload.i687 = load ptr, ptr %58, align 8, !tbaa !379
   %.sroa.220.0.copyload.i689 = load i32, ptr %194, align 8, !tbaa !240
-  store ptr %.sroa.0346.0.copyload, ptr %39, align 8, !tbaa !241
+  store ptr %.sroa.0287.0.copyload, ptr %39, align 8, !tbaa !241
   %.sroa.450.0..sroa_idx.i690 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 %.sroa.2413.0.copyload, ptr %.sroa.450.0..sroa_idx.i690, align 8, !tbaa !240
   store ptr %.sroa.0409.0.copyload, ptr %40, align 8, !tbaa !241
@@ -51756,7 +51756,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %281, %283
 298:                                              ; preds = %.critedge62.i
   %.sroa.09.0.copyload.i668 = load i16, ptr %8, align 8, !tbaa !287
   %.sroa.211.0.copyload.i670 = load ptr, ptr %.sroa.2485.0..sroa_idx, align 8, !tbaa !289
-  store ptr %.sroa.0346.0.copyload, ptr %41, align 8, !tbaa !241
+  store ptr %.sroa.0287.0.copyload, ptr %41, align 8, !tbaa !241
   %.sroa.450.0..sroa_idx51.i671 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 %.sroa.2413.0.copyload, ptr %.sroa.450.0..sroa_idx51.i671, align 8, !tbaa !240
   store ptr %.sroa.0409.0.copyload, ptr %42, align 8, !tbaa !241
@@ -51766,7 +51766,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %281, %283
   %.fca.0.extract5.i673 = extractvalue { ptr, i32 } %299, 0
   %.sroa.01.0.copyload.i676 = load i16, ptr %8, align 8, !tbaa !287
   %.sroa.23.0.copyload.i678 = load ptr, ptr %.sroa.2485.0..sroa_idx, align 8, !tbaa !289
-  store ptr %.sroa.0346.0.copyload, ptr %43, align 8, !tbaa !241
+  store ptr %.sroa.0287.0.copyload, ptr %43, align 8, !tbaa !241
   %.sroa.450.0..sroa_idx53.i679 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 %.sroa.2413.0.copyload, ptr %.sroa.450.0..sroa_idx53.i679, align 8, !tbaa !240
   store ptr %.sroa.0409.0.copyload, ptr %44, align 8, !tbaa !241
@@ -51926,7 +51926,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit701.threa
 333:                                              ; preds = %.thread906
   %.sroa.019.0.copyload.i729 = load ptr, ptr %58, align 8, !tbaa !379
   %.sroa.220.0.copyload.i731 = load i32, ptr %194, align 8, !tbaa !240
-  store ptr %.sroa.0346.0.copyload, ptr %33, align 8, !tbaa !241
+  store ptr %.sroa.0287.0.copyload, ptr %33, align 8, !tbaa !241
   %.sroa.450.0..sroa_idx.i732 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %.sroa.2347.0.copyload, ptr %.sroa.450.0..sroa_idx.i732, align 8, !tbaa !240
   store ptr %.sroa.0343.0.copyload, ptr %34, align 8, !tbaa !241
@@ -51947,7 +51947,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit701.threa
 337:                                              ; preds = %.critedge64.i708
   %.sroa.09.0.copyload.i710 = load i16, ptr %8, align 8, !tbaa !287
   %.sroa.211.0.copyload.i712 = load ptr, ptr %.sroa.2485.0..sroa_idx, align 8, !tbaa !289
-  store ptr %.sroa.0346.0.copyload, ptr %35, align 8, !tbaa !241
+  store ptr %.sroa.0287.0.copyload, ptr %35, align 8, !tbaa !241
   %.sroa.450.0..sroa_idx51.i713 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 %.sroa.2347.0.copyload, ptr %.sroa.450.0..sroa_idx51.i713, align 8, !tbaa !240
   store ptr %.sroa.0343.0.copyload, ptr %36, align 8, !tbaa !241
@@ -51960,7 +51960,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit701.threa
   store i32 %.fca.1.extract6.i716, ptr %203, align 8, !tbaa !240
   %.sroa.01.0.copyload.i718 = load i16, ptr %8, align 8, !tbaa !287
   %.sroa.23.0.copyload.i720 = load ptr, ptr %.sroa.2485.0..sroa_idx, align 8, !tbaa !289
-  store ptr %.sroa.0346.0.copyload, ptr %37, align 8, !tbaa !241
+  store ptr %.sroa.0287.0.copyload, ptr %37, align 8, !tbaa !241
   %.sroa.450.0..sroa_idx53.i721 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i32 %.sroa.2347.0.copyload, ptr %.sroa.450.0..sroa_idx53.i721, align 8, !tbaa !240
   store ptr %.sroa.0343.0.copyload, ptr %38, align 8, !tbaa !241
@@ -52106,7 +52106,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit745: ; pre
 379:                                              ; preds = %372
   %.sroa.019.0.copyload.i767 = load ptr, ptr %58, align 8, !tbaa !379
   %.sroa.220.0.copyload.i769 = load i32, ptr %194, align 8, !tbaa !240
-  store ptr %.sroa.0346.0.copyload, ptr %27, align 8, !tbaa !241
+  store ptr %.sroa.0287.0.copyload, ptr %27, align 8, !tbaa !241
   %.sroa.450.0..sroa_idx.i770 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %.sroa.2347.0.copyload, ptr %.sroa.450.0..sroa_idx.i770, align 8, !tbaa !240
   store ptr %.sroa.0284.0.copyload, ptr %28, align 8, !tbaa !241
@@ -52127,7 +52127,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit745: ; pre
 383:                                              ; preds = %.critedge64.i746
   %.sroa.09.0.copyload.i748 = load i16, ptr %8, align 8, !tbaa !287
   %.sroa.211.0.copyload.i750 = load ptr, ptr %.sroa.2485.0..sroa_idx, align 8, !tbaa !289
-  store ptr %.sroa.0346.0.copyload, ptr %29, align 8, !tbaa !241
+  store ptr %.sroa.0287.0.copyload, ptr %29, align 8, !tbaa !241
   %.sroa.450.0..sroa_idx51.i751 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i32 %.sroa.2347.0.copyload, ptr %.sroa.450.0..sroa_idx51.i751, align 8, !tbaa !240
   store ptr %.sroa.0284.0.copyload, ptr %30, align 8, !tbaa !241
@@ -52140,7 +52140,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit745: ; pre
   store i32 %.fca.1.extract6.i754, ptr %203, align 8, !tbaa !240
   %.sroa.01.0.copyload.i756 = load i16, ptr %8, align 8, !tbaa !287
   %.sroa.23.0.copyload.i758 = load ptr, ptr %.sroa.2485.0..sroa_idx, align 8, !tbaa !289
-  store ptr %.sroa.0346.0.copyload, ptr %31, align 8, !tbaa !241
+  store ptr %.sroa.0287.0.copyload, ptr %31, align 8, !tbaa !241
   %.sroa.450.0..sroa_idx53.i759 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %.sroa.2347.0.copyload, ptr %.sroa.450.0..sroa_idx53.i759, align 8, !tbaa !240
   store ptr %.sroa.0284.0.copyload, ptr %32, align 8, !tbaa !241

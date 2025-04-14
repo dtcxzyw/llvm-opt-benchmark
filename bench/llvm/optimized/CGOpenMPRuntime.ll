@@ -95424,9 +95424,9 @@ define internal fastcc void @_ZSt16__insertion_sortIPSt5tupleIJN4llvm8ArrayRefIN
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %16
 
-16:                                               ; preds = %.lr.ph, %169
-  %.040 = phi ptr [ %.037, %.lr.ph ], [ %.0, %169 ]
-  %.pn39 = phi ptr [ %0, %.lr.ph ], [ %.040, %169 ]
+16:                                               ; preds = %.lr.ph, %167
+  %.040 = phi ptr [ %.037, %.lr.ph ], [ %.0, %167 ]
+  %.pn39 = phi ptr [ %0, %.lr.ph ], [ %.040, %167 ]
   %17 = tail call fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlRKSt5tupleIJNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEENS1_19OpenMPMapClauseKindENSE_INS1_21OpenMPMapModifierKindEEEbPKNS1_9ValueDeclEPKNS1_4ExprEEEST_E_clEST_ST_(ptr noundef nonnull readonly align 8 dereferenceable(64) %.040, ptr noundef nonnull readonly align 8 dereferenceable(64) %0)
   %18 = getelementptr inbounds nuw i8, ptr %.pn39, i64 88
   %19 = getelementptr inbounds nuw i8, ptr %.pn39, i64 104
@@ -95495,7 +95495,7 @@ _ZSt13move_backwardIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCom
   store ptr %22, ptr %0, align 8, !tbaa !709
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.8)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %.sroa.12)
-  br label %169
+  br label %167
 
 53:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #29
@@ -95524,135 +95524,135 @@ _ZSt13move_backwardIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCom
   %64 = lshr i64 %.sroa.6.0.copyload.i, 2
   %65 = and i64 %.idx4.i.i, 9223372036854775792
   %66 = and i64 %.sroa.6.0.copyload.i, 3
+  %67 = icmp ne i32 %59, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.040, i64 -24
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !4252
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.i.preheader
-  %67 = phi i32 [ %.pre, %.lr.ph.i.preheader ], [ %81, %.lr.ph.i.backedge ]
-  %.012.i = phi ptr [ %.pn39, %.lr.ph.i.preheader ], [ %.0.i, %.lr.ph.i.backedge ]
-  %.0911.i = phi ptr [ %.040, %.lr.ph.i.preheader ], [ %.012.i, %.lr.ph.i.backedge ]
-  %68 = getelementptr inbounds i8, ptr %.0911.i, i64 -16
-  %69 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false), !tbaa.struct !4259
-  %70 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 40
-  store i32 %67, ptr %70, align 4, !tbaa !4252
-  %71 = getelementptr inbounds i8, ptr %.0911.i, i64 -40
-  %72 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false), !tbaa.struct !2788
-  %73 = getelementptr inbounds i8, ptr %.0911.i, i64 -48
-  %74 = load i8, ptr %73, align 1, !tbaa !785, !range !292, !noundef !293
-  %75 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 16
-  store i8 %74, ptr %75, align 1, !tbaa !785
-  %76 = getelementptr inbounds i8, ptr %.0911.i, i64 -56
-  %77 = load ptr, ptr %76, align 8, !tbaa !2241
-  %78 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 8
-  store ptr %77, ptr %78, align 8, !tbaa !2241
-  %79 = load ptr, ptr %.012.i, align 8, !tbaa !709
-  store ptr %79, ptr %.0911.i, align 8, !tbaa !709
+.lr.ph.i:                                         ; preds = %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i, %.lr.ph.i.preheader
+  %68 = phi i32 [ %.pre, %.lr.ph.i.preheader ], [ %82, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i ]
+  %.012.i = phi ptr [ %.pn39, %.lr.ph.i.preheader ], [ %.0.i, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i ]
+  %.0911.i = phi ptr [ %.040, %.lr.ph.i.preheader ], [ %.012.i, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i ]
+  %69 = getelementptr inbounds i8, ptr %.0911.i, i64 -16
+  %70 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false), !tbaa.struct !4259
+  %71 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 40
+  store i32 %68, ptr %71, align 4, !tbaa !4252
+  %72 = getelementptr inbounds i8, ptr %.0911.i, i64 -40
+  %73 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false), !tbaa.struct !2788
+  %74 = getelementptr inbounds i8, ptr %.0911.i, i64 -48
+  %75 = load i8, ptr %74, align 1, !tbaa !785, !range !292, !noundef !293
+  %76 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 16
+  store i8 %75, ptr %76, align 1, !tbaa !785
+  %77 = getelementptr inbounds i8, ptr %.0911.i, i64 -56
+  %78 = load ptr, ptr %77, align 8, !tbaa !2241
+  %79 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 8
+  store ptr %78, ptr %79, align 8, !tbaa !2241
+  %80 = load ptr, ptr %.012.i, align 8, !tbaa !709
+  store ptr %80, ptr %.0911.i, align 8, !tbaa !709
   %.0.i = getelementptr inbounds i8, ptr %.012.i, i64 -64
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8, !tbaa !1207
-  %80 = getelementptr inbounds i8, ptr %.012.i, i64 -24
-  %81 = load i32, ptr %80, align 4, !tbaa !4252
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx4.i.i
+  %81 = getelementptr inbounds i8, ptr %.012.i, i64 -24
+  %82 = load i32, ptr %81, align 4, !tbaa !4252
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %.idx4.i.i
   br i1 %.not.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i16
 
 .lr.ph.i.i.i.i.i16:                               ; preds = %.lr.ph.i
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %.sroa.0.0.copyload.i, i64 %65
-  br label %83
+  br label %84
 
-83:                                               ; preds = %98, %.lr.ph.i.i.i.i.i16
-  %.047.i.i.i.i.i = phi i64 [ %64, %.lr.ph.i.i.i.i.i16 ], [ %100, %98 ]
-  %.02946.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i, %.lr.ph.i.i.i.i.i16 ], [ %99, %98 ]
-  %84 = load i32, ptr %.02946.i.i.i.i.i, align 4, !tbaa !3751
-  %85 = icmp eq i32 %84, 11
-  br i1 %85, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i, label %86
+84:                                               ; preds = %99, %.lr.ph.i.i.i.i.i16
+  %.047.i.i.i.i.i = phi i64 [ %64, %.lr.ph.i.i.i.i.i16 ], [ %101, %99 ]
+  %.02946.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i, %.lr.ph.i.i.i.i.i16 ], [ %100, %99 ]
+  %85 = load i32, ptr %.02946.i.i.i.i.i, align 4, !tbaa !3751
+  %86 = icmp eq i32 %85, 11
+  br i1 %86, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i, label %87
 
-86:                                               ; preds = %83
-  %87 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
-  %88 = load i32, ptr %87, align 4, !tbaa !3751
-  %89 = icmp eq i32 %88, 11
-  br i1 %89, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit, label %90
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
+  %89 = load i32, ptr %88, align 4, !tbaa !3751
+  %90 = icmp eq i32 %89, 11
+  br i1 %90, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit, label %91
 
-90:                                               ; preds = %86
-  %91 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
-  %92 = load i32, ptr %91, align 4, !tbaa !3751
-  %93 = icmp eq i32 %92, 11
-  br i1 %93, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit54, label %94
+91:                                               ; preds = %87
+  %92 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
+  %93 = load i32, ptr %92, align 4, !tbaa !3751
+  %94 = icmp eq i32 %93, 11
+  br i1 %94, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit57, label %95
 
-94:                                               ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 12
-  %96 = load i32, ptr %95, align 4, !tbaa !3751
-  %97 = icmp eq i32 %96, 11
-  br i1 %97, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit56, label %98
+95:                                               ; preds = %91
+  %96 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 12
+  %97 = load i32, ptr %96, align 4, !tbaa !3751
+  %98 = icmp eq i32 %97, 11
+  br i1 %98, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit59, label %99
 
-98:                                               ; preds = %94
-  %99 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
-  %100 = add nsw i64 %.047.i.i.i.i.i, -1
-  %101 = icmp sgt i64 %.047.i.i.i.i.i, 1
-  br i1 %101, label %83, label %._crit_edge.i.i.i.i.i, !llvm.loop !4056
+99:                                               ; preds = %95
+  %100 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
+  %101 = add nsw i64 %.047.i.i.i.i.i, -1
+  %102 = icmp sgt i64 %.047.i.i.i.i.i, 1
+  br i1 %102, label %84, label %._crit_edge.i.i.i.i.i, !llvm.loop !4056
 
-._crit_edge.i.i.i.i.i:                            ; preds = %98, %.lr.ph.i
-  %.pre-phi56.i.i.i.i.i = phi i64 [ %.sroa.6.0.copyload.i, %.lr.ph.i ], [ %66, %98 ]
-  %.029.lcssa.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i, %.lr.ph.i ], [ %scevgep.i.i.i.i.i, %98 ]
+._crit_edge.i.i.i.i.i:                            ; preds = %99, %.lr.ph.i
+  %.pre-phi56.i.i.i.i.i = phi i64 [ %.sroa.6.0.copyload.i, %.lr.ph.i ], [ %66, %99 ]
+  %.029.lcssa.i.i.i.i.i = phi ptr [ %.sroa.0.0.copyload.i, %.lr.ph.i ], [ %scevgep.i.i.i.i.i, %99 ]
   switch i64 %.pre-phi56.i.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i.i [
-    i64 3, label %102
+    i64 3, label %103
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i64 1, label %._crit_edge._crit_edge52.i.i.i.i.i
-    i64 0, label %113
+    i64 0, label %114
   ]
 
-102:                                              ; preds = %._crit_edge.i.i.i.i.i
-  %103 = load i32, ptr %.029.lcssa.i.i.i.i.i, align 4, !tbaa !3751
-  %104 = icmp eq i32 %103, 11
-  br i1 %104, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i, label %105
+103:                                              ; preds = %._crit_edge.i.i.i.i.i
+  %104 = load i32, ptr %.029.lcssa.i.i.i.i.i, align 4, !tbaa !3751
+  %105 = icmp eq i32 %104, 11
+  br i1 %105, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i, label %106
 
-105:                                              ; preds = %102
-  %106 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 4
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 4
   br label %._crit_edge._crit_edge.i.i.i.i.i
 
-._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %105, %._crit_edge.i.i.i.i.i
-  %.1.i.i.i.i.i = phi ptr [ %106, %105 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
-  %107 = load i32, ptr %.1.i.i.i.i.i, align 4, !tbaa !3751
-  %108 = icmp eq i32 %107, 11
-  br i1 %108, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i, label %109
+._crit_edge._crit_edge.i.i.i.i.i:                 ; preds = %106, %._crit_edge.i.i.i.i.i
+  %.1.i.i.i.i.i = phi ptr [ %107, %106 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %108 = load i32, ptr %.1.i.i.i.i.i, align 4, !tbaa !3751
+  %109 = icmp eq i32 %108, 11
+  br i1 %109, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i, label %110
 
-109:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 4
+110:                                              ; preds = %._crit_edge._crit_edge.i.i.i.i.i
+  %111 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 4
   br label %._crit_edge._crit_edge52.i.i.i.i.i
 
-._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %109, %._crit_edge.i.i.i.i.i
-  %.2.i.i.i.i.i = phi ptr [ %110, %109 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
-  %111 = load i32, ptr %.2.i.i.i.i.i, align 4, !tbaa !3751
-  %112 = icmp eq i32 %111, 11
-  br i1 %112, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i, label %113
+._crit_edge._crit_edge52.i.i.i.i.i:               ; preds = %110, %._crit_edge.i.i.i.i.i
+  %.2.i.i.i.i.i = phi ptr [ %111, %110 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+  %112 = load i32, ptr %.2.i.i.i.i.i, align 4, !tbaa !3751
+  %113 = icmp eq i32 %112, 11
+  br i1 %113, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i, label %114
 
 ._crit_edge.i.i.i.unreachabledefault.i.i:         ; preds = %._crit_edge.i.i.i.i.i
   unreachable
 
-113:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
+114:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i
 
-_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit: ; preds = %86
-  %114 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
+_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit: ; preds = %87
+  %115 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i
 
-_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit54: ; preds = %90
-  %115 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
+_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit57: ; preds = %91
+  %116 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i
 
-_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit56: ; preds = %94
-  %116 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 12
+_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit59: ; preds = %95
+  %117 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 12
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i
 
-_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i: ; preds = %83, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit54, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit56, %113, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %102
-  %.028.i.i.i.i.i = phi ptr [ %82, %113 ], [ %.029.lcssa.i.i.i.i.i, %102 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %114, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit ], [ %115, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit54 ], [ %116, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit56 ], [ %.02946.i.i.i.i.i, %83 ]
-  %.not13.i = icmp eq ptr %.028.i.i.i.i.i, %82
-  %117 = getelementptr inbounds i8, ptr %.012.i, i64 -40
-  %.sroa.0.0.copyload9.i = load ptr, ptr %117, align 8, !tbaa !1207
+_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i: ; preds = %84, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit57, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit59, %114, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %103
+  %.028.i.i.i.i.i = phi ptr [ %83, %114 ], [ %.029.lcssa.i.i.i.i.i, %103 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %115, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit ], [ %116, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit57 ], [ %117, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit.i.loopexit.split.loop.exit59 ], [ %.02946.i.i.i.i.i, %84 ]
+  %.not13.i = icmp ne ptr %.028.i.i.i.i.i, %83
+  %118 = getelementptr inbounds i8, ptr %.012.i, i64 -40
+  %.sroa.0.0.copyload9.i = load ptr, ptr %118, align 8, !tbaa !1207
   %.sroa.6.0..sroa_idx10.i = getelementptr inbounds i8, ptr %.012.i, i64 -32
   %.sroa.6.0.copyload11.i = load i64, ptr %.sroa.6.0..sroa_idx10.i, align 8, !tbaa !28
-  %118 = load i32, ptr %8, align 8, !tbaa !4252
   %.idx4.i10.i = shl nuw nsw i64 %.sroa.6.0.copyload11.i, 2
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload9.i, i64 %.idx4.i10.i
   %.not.i11.i = icmp ult i64 %.sroa.6.0.copyload11.i, 4
@@ -95681,13 +95681,13 @@ _ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_R
   %130 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i15.i, i64 8
   %131 = load i32, ptr %130, align 4, !tbaa !3751
   %132 = icmp eq i32 %131, 11
-  br i1 %132, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit62, label %133
+  br i1 %132, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit65, label %133
 
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i15.i, i64 12
   %135 = load i32, ptr %134, align 4, !tbaa !3751
   %136 = icmp eq i32 %135, 11
-  br i1 %136, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit64, label %137
+  br i1 %136, label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit67, label %137
 
 137:                                              ; preds = %133
   %138 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i15.i, i64 16
@@ -95744,58 +95744,52 @@ _ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_R
   %154 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i15.i, i64 4
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i
 
-_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit62: ; preds = %129
+_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit65: ; preds = %129
   %155 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i15.i, i64 8
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i
 
-_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit64: ; preds = %133
+_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit67: ; preds = %133
   %156 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i15.i, i64 12
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i
 
-_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i: ; preds = %122, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit62, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit64, %153, %._crit_edge._crit_edge52.i.i.i.i21.i, %._crit_edge._crit_edge.i.i.i.i24.i, %142
-  %.028.i.i.i.i20.i = phi ptr [ %119, %153 ], [ %.029.lcssa.i.i.i.i19.i, %142 ], [ %.1.i.i.i.i26.i, %._crit_edge._crit_edge.i.i.i.i24.i ], [ %.2.i.i.i.i23.i, %._crit_edge._crit_edge52.i.i.i.i21.i ], [ %154, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit ], [ %155, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit62 ], [ %156, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit64 ], [ %.02946.i.i.i.i15.i, %122 ]
-  %157 = icmp ne ptr %.028.i.i.i.i20.i, %119
-  %or.cond.i = or i1 %.not13.i, %157
-  br i1 %or.cond.i, label %158, label %.lr.ph.i.backedge
+_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i: ; preds = %122, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit65, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit67, %153, %._crit_edge._crit_edge52.i.i.i.i21.i, %._crit_edge._crit_edge.i.i.i.i24.i, %142
+  %.028.i.i.i.i20.i = phi ptr [ %119, %153 ], [ %.029.lcssa.i.i.i.i19.i, %142 ], [ %.1.i.i.i.i26.i, %._crit_edge._crit_edge.i.i.i.i24.i ], [ %.2.i.i.i.i23.i, %._crit_edge._crit_edge52.i.i.i.i21.i ], [ %154, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit ], [ %155, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit65 ], [ %156, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i.loopexit.split.loop.exit67 ], [ %.02946.i.i.i.i15.i, %122 ]
+  %157 = icmp eq ptr %.028.i.i.i.i20.i, %119
+  %or.cond.i.not44 = and i1 %.not13.i, %157
+  %158 = icmp eq i32 %82, 0
+  %159 = select i1 %158, i1 %67, i1 false
+  %or.cond = select i1 %or.cond.i.not44, i1 true, i1 %159
+  br i1 %or.cond, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !4351
 
-158:                                              ; preds = %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i
-  %159 = icmp ne i32 %118, 0
-  %160 = icmp eq i32 %81, 0
-  %161 = select i1 %160, i1 %159, i1 false
-  br i1 %161, label %.lr.ph.i.backedge, label %._crit_edge.loopexit.i
-
-.lr.ph.i.backedge:                                ; preds = %158, %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i
-  br label %.lr.ph.i, !llvm.loop !4351
-
-._crit_edge.loopexit.i:                           ; preds = %158
+._crit_edge.loopexit.i:                           ; preds = %_ZN4llvm12is_containedIRNS_8ArrayRefIN5clang21OpenMPMapModifierKindEEES3_EEbOT_RKT0_.exit31.i
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !2241
   %.pre13.i = load ptr, ptr %3, align 8, !tbaa !709
   br label %_ZSt25__unguarded_linear_insertIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEENS3_19OpenMPMapClauseKindENS2_INS3_21OpenMPMapModifierKindEEEbPKNS3_9ValueDeclEPKNS3_4ExprEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS3_12CapturedStmt7CaptureEPNS1_5ValueERNSM_17MapCombinedInfoTyERNSM_17StructRangeInfoTyEEUlRKSG_SY_E_EEEvT_T0_.exit
 
 _ZSt25__unguarded_linear_insertIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEENS3_19OpenMPMapClauseKindENS2_INS3_21OpenMPMapModifierKindEEEbPKNS3_9ValueDeclEPKNS3_4ExprEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS3_12CapturedStmt7CaptureEPNS1_5ValueERNSM_17MapCombinedInfoTyERNSM_17StructRangeInfoTyEEUlRKSG_SY_E_EEEvT_T0_.exit: ; preds = %53, %._crit_edge.loopexit.i
-  %162 = phi ptr [ %63, %53 ], [ %.pre13.i, %._crit_edge.loopexit.i ]
-  %163 = phi ptr [ %62, %53 ], [ %.pre.i, %._crit_edge.loopexit.i ]
+  %160 = phi ptr [ %63, %53 ], [ %.pre13.i, %._crit_edge.loopexit.i ]
+  %161 = phi ptr [ %62, %53 ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.09.lcssa.i = phi ptr [ %.040, %53 ], [ %.012.i, %._crit_edge.loopexit.i ]
-  %164 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !4259
-  %165 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 40
-  store i32 %59, ptr %165, align 4, !tbaa !4252
-  %166 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %166, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !2788
-  %167 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 16
-  store i8 %58, ptr %167, align 1, !tbaa !785
-  %168 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 8
-  store ptr %163, ptr %168, align 8, !tbaa !2241
-  store ptr %162, ptr %.09.lcssa.i, align 8, !tbaa !709
+  %162 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !4259
+  %163 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 40
+  store i32 %59, ptr %163, align 4, !tbaa !4252
+  %164 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !2788
+  %165 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 16
+  store i8 %58, ptr %165, align 1, !tbaa !785
+  %166 = getelementptr inbounds nuw i8, ptr %.09.lcssa.i, i64 8
+  store ptr %161, ptr %166, align 8, !tbaa !2241
+  store ptr %160, ptr %.09.lcssa.i, align 8, !tbaa !709
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #29
-  br label %169
+  br label %167
 
-169:                                              ; preds = %_ZSt13move_backwardIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEENS3_19OpenMPMapClauseKindENS2_INS3_21OpenMPMapModifierKindEEEbPKNS3_9ValueDeclEPKNS3_4ExprEEESH_ET0_T_SJ_SI_.exit, %_ZSt25__unguarded_linear_insertIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEENS3_19OpenMPMapClauseKindENS2_INS3_21OpenMPMapModifierKindEEEbPKNS3_9ValueDeclEPKNS3_4ExprEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS3_12CapturedStmt7CaptureEPNS1_5ValueERNSM_17MapCombinedInfoTyERNSM_17StructRangeInfoTyEEUlRKSG_SY_E_EEEvT_T0_.exit
+167:                                              ; preds = %_ZSt13move_backwardIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEENS3_19OpenMPMapClauseKindENS2_INS3_21OpenMPMapModifierKindEEEbPKNS3_9ValueDeclEPKNS3_4ExprEEESH_ET0_T_SJ_SI_.exit, %_ZSt25__unguarded_linear_insertIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEENS3_19OpenMPMapClauseKindENS2_INS3_21OpenMPMapModifierKindEEEbPKNS3_9ValueDeclEPKNS3_4ExprEEEN9__gnu_cxx5__ops14_Val_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS3_12CapturedStmt7CaptureEPNS1_5ValueERNSM_17MapCombinedInfoTyERNSM_17StructRangeInfoTyEEUlRKSG_SY_E_EEEvT_T0_.exit
   %.0 = getelementptr inbounds nuw i8, ptr %.040, i64 64
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %16, !llvm.loop !4352
 
-.loopexit:                                        ; preds = %169, %.preheader, %2
+.loopexit:                                        ; preds = %167, %.preheader, %2
   ret void
 }
 

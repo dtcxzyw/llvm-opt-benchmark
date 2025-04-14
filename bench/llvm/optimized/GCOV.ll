@@ -5445,7 +5445,6 @@ _ZN12_GLOBAL__N_17Context15collectFunctionERN4llvm12GCOVFunctionERNS_7SummaryE.e
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %549, %551
   %554 = phi ptr [ %.pre371, %549 ], [ %553, %551 ]
   %.0.i.i = phi ptr [ %550, %549 ], [ %58, %551 ]
-  %.sroa.024.0.copyload = load ptr, ptr %38, align 8, !tbaa !82
   %555 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %556 = load ptr, ptr %555, align 8, !tbaa !113
   %557 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
@@ -5456,7 +5455,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %549, %551
   br i1 %561, label %562, label %564
 
 562:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %563 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %.sroa.024.0.copyload, i64 noundef %329) #21
+  %563 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %328, i64 noundef %329) #21
   %.phi.trans.insert372 = getelementptr inbounds nuw i8, ptr %563, i64 32
   %.pre373 = load ptr, ptr %.phi.trans.insert372, align 8, !tbaa !117
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
@@ -5466,7 +5465,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %549, %551
   br i1 %.not.i98, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %565
 
 565:                                              ; preds = %564
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %554, ptr align 1 %.sroa.024.0.copyload, i64 %329, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %554, ptr align 1 %328, i64 %329, i1 false)
   %566 = load ptr, ptr %557, align 8, !tbaa !117
   %567 = getelementptr inbounds nuw i8, ptr %566, i64 %329
   store ptr %567, ptr %557, align 8, !tbaa !117

@@ -149,19 +149,19 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   br i1 %15, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha690f13395f5749cE.llvm.13608732564321174593.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  %.promoted14.i = load ptr, ptr %11, align 8, !alias.scope !35
+  %.promoted13.i = load ptr, ptr %11, align 8, !alias.scope !35
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
-  %16 = phi ptr [ %19, %29 ], [ %.promoted.i, %.lr.ph.preheader ]
-  %17 = phi ptr [ %30, %29 ], [ %2, %.lr.ph.preheader ]
-  %18 = phi ptr [ %22, %29 ], [ %.promoted14.i, %.lr.ph.preheader ]
+  %16 = phi ptr [ %30, %29 ], [ %2, %.lr.ph.preheader ]
+  %17 = phi ptr [ %19, %29 ], [ %.promoted.i, %.lr.ph.preheader ]
+  %18 = phi ptr [ %22, %29 ], [ %.promoted13.i, %.lr.ph.preheader ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %19, ptr %8, align 8, !alias.scope !38, !noalias !45
-  %20 = load i8, ptr %16, align 1, !range !16, !noalias !51, !noundef !13
+  %20 = load i8, ptr %17, align 1, !range !16, !noalias !51, !noundef !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %21 = icmp eq ptr %18, %13
   br i1 %21, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17ha690f13395f5749cE.llvm.13608732564321174593.exit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e1bf2cb5b8719b3E.exit.i.i.i"
@@ -180,7 +180,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6), !noalias !35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !59
   store ptr %1, ptr %7, align 8, !noalias !59
-  store ptr %17, ptr %14, align 8, !noalias !59
+  store ptr %16, ptr %14, align 8, !noalias !59
   store i8 %20, ptr %5, align 8, !noalias !62
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %.sroa.4.sroa.5.0..sroa_idx.i, align 8, !noalias !62
   invoke void @_ZN6diesel5mysql10connection4bind8BindData9for_input17h016ae3bed376417bE(ptr noalias noundef nonnull sret({ ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5)
@@ -200,8 +200,8 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 
 29:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !noalias !59
-  %30 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !noalias !59
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !59
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !35
   %31 = icmp eq ptr %19, %10
@@ -211,7 +211,7 @@ define hidden { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   resume { ptr, i32 } %26
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17ha690f13395f5749cE.llvm.13608732564321174593.exit: ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e1bf2cb5b8719b3E.exit.i.i.i", %.lr.ph, %29, %4
-  %.lcssa = phi ptr [ %2, %4 ], [ %30, %29 ], [ %17, %.lr.ph ], [ %17, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e1bf2cb5b8719b3E.exit.i.i.i" ]
+  %.lcssa = phi ptr [ %2, %4 ], [ %30, %29 ], [ %16, %.lr.ph ], [ %16, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e1bf2cb5b8719b3E.exit.i.i.i" ]
   %32 = insertvalue { ptr, ptr } poison, ptr %1, 0
   %33 = insertvalue { ptr, ptr } %32, ptr %.lcssa, 1
   ret { ptr, ptr } %33
@@ -906,19 +906,19 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17ha6
   br i1 %16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %.promoted14 = load ptr, ptr %12, align 8
+  %.promoted13 = load ptr, ptr %12, align 8
   br label %17
 
 17:                                               ; preds = %.lr.ph, %31
-  %18 = phi ptr [ %.promoted, %.lr.ph ], [ %21, %31 ]
-  %19 = phi ptr [ %2, %.lr.ph ], [ %32, %31 ]
-  %20 = phi ptr [ %.promoted14, %.lr.ph ], [ %24, %31 ]
+  %18 = phi ptr [ %2, %.lr.ph ], [ %32, %31 ]
+  %19 = phi ptr [ %.promoted, %.lr.ph ], [ %21, %31 ]
+  %20 = phi ptr [ %.promoted13, %.lr.ph ], [ %24, %31 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !189)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 1
   store ptr %21, ptr %9, align 8, !alias.scope !179, !noalias !186
-  %22 = load i8, ptr %18, align 1, !range !16, !noalias !192, !noundef !13
+  %22 = load i8, ptr %19, align 1, !range !16, !noalias !192, !noundef !13
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
   %23 = icmp eq ptr %20, %14
   br i1 %23, label %._crit_edge, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e1bf2cb5b8719b3E.exit.i.i"
@@ -937,7 +937,7 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17ha6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !200
   store ptr %1, ptr %8, align 8, !noalias !200
-  store ptr %19, ptr %15, align 8, !noalias !200
+  store ptr %18, ptr %15, align 8, !noalias !200
   store i8 %22, ptr %6, align 8, !noalias !203
   store i64 %.sroa.0.0.copyload.i.i, ptr %.sroa.4.sroa.5.0..sroa_idx, align 8, !noalias !203
   invoke void @_ZN6diesel5mysql10connection4bind8BindData9for_input17h016ae3bed376417bE(ptr noalias noundef nonnull sret({ ptr, i64, i64, i32, i32, { i8, i8 }, i8, [5 x i8] }) align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6)
@@ -957,15 +957,15 @@ define hidden { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17ha6
 
 31:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !200
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !noalias !200
-  %32 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !noalias !200
+  %32 = getelementptr inbounds nuw i8, ptr %18, i64 40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !200
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   %33 = icmp eq ptr %21, %11
   br i1 %33, label %._crit_edge, label %17
 
 ._crit_edge:                                      ; preds = %17, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e1bf2cb5b8719b3E.exit.i.i", %31, %5
-  %.lcssa = phi ptr [ %2, %5 ], [ %19, %17 ], [ %19, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e1bf2cb5b8719b3E.exit.i.i" ], [ %32, %31 ]
+  %.lcssa = phi ptr [ %2, %5 ], [ %18, %17 ], [ %18, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3e1bf2cb5b8719b3E.exit.i.i" ], [ %32, %31 ]
   %34 = insertvalue { ptr, ptr } poison, ptr %1, 0
   %35 = insertvalue { ptr, ptr } %34, ptr %.lcssa, 1
   ret { ptr, ptr } %35

@@ -475,7 +475,7 @@ _ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14Creat
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %25 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
-          to label %26 unwind label %174
+          to label %26 unwind label %128
 
 26:                                               ; preds = %_ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateEC2ERKSP_.exit
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -500,367 +500,265 @@ _ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14Creat
   store ptr %25, ptr %27, align 8, !tbaa !49, !alias.scope !52
   store ptr %30, ptr %24, align 8, !tbaa !58, !alias.scope !52
   %38 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-          to label %39 unwind label %176
+          to label %39 unwind label %130
 
 39:                                               ; preds = %26
-  %40 = load ptr, ptr %8, align 8, !tbaa !39
-  store ptr %40, ptr %38, align 8, !tbaa !39
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %42 = load ptr, ptr %18, align 8, !tbaa !48
-  store ptr %42, ptr %41, align 8, !tbaa !48
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %44 = load ptr, ptr %19, align 8, !tbaa !49
+  store ptr %1, ptr %38, align 8, !tbaa !39
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr %15, ptr %40, align 8, !tbaa !48
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr null, ptr %19, align 8, !tbaa !49
-  store ptr %44, ptr %43, align 8, !tbaa !49
+  store ptr %12, ptr %41, align 8, !tbaa !49
   store ptr null, ptr %18, align 8, !tbaa !48
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  store ptr %30, ptr %45, align 8, !tbaa !59
-  %46 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  store ptr %30, ptr %42, align 8, !tbaa !59
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr null, ptr %27, align 8, !tbaa !49
-  store ptr %25, ptr %46, align 8, !tbaa !49
+  store ptr %25, ptr %43, align 8, !tbaa !49
   store ptr null, ptr %24, align 8, !tbaa !59
   store ptr %38, ptr %7, align 16, !tbaa !50
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable23RemoteManagerNontrivialIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerENS0_12AnyInvocableIFvSt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteIS9_EENS4_15MemoryAllocatorEEEENS6_IFvNS0_6StatusEEEERKNS4_14EndpointConfigES7_INS4_22MemoryAllocatorFactoryESA_ISM_EEE3$_0EEvNS1_14FunctionToCallEPNS1_15TypeErasedStateESS_", ptr %47, align 16, !tbaa !55
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable13RemoteInvokerILb0EvRZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerENS0_12AnyInvocableIFvSt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteIS9_EENS4_15MemoryAllocatorEEEENS6_IFvNS0_6StatusEEEERKNS4_14EndpointConfigES7_INS4_22MemoryAllocatorFactoryESA_ISM_EEE3$_0JSC_SD_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %48, align 8, !tbaa !57
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable23RemoteManagerNontrivialIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerENS0_12AnyInvocableIFvSt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteIS9_EENS4_15MemoryAllocatorEEEENS6_IFvNS0_6StatusEEEERKNS4_14EndpointConfigES7_INS4_22MemoryAllocatorFactoryESA_ISM_EEE3$_0EEvNS1_14FunctionToCallEPNS1_15TypeErasedStateESS_", ptr %44, align 16, !tbaa !55
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable13RemoteInvokerILb0EvRZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerENS0_12AnyInvocableIFvSt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteIS9_EENS4_15MemoryAllocatorEEEENS6_IFvNS0_6StatusEEEERKNS4_14EndpointConfigES7_INS4_22MemoryAllocatorFactoryESA_ISM_EEE3$_0JSC_SD_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %45, align 8, !tbaa !57
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #26
   store ptr %1, ptr %10, align 16, !tbaa !60
-  %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %15, ptr %49, align 8, !tbaa !48
-  %50 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %12, ptr %50, align 16, !tbaa !49
-  %51 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !50
-  %.not.i.i.i.i16 = icmp eq i8 %51, 0
-  br i1 %.not.i.i.i.i16, label %55, label %52
+  %46 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %15, ptr %46, align 8, !tbaa !48
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %12, ptr %47, align 16, !tbaa !49
+  %48 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !50
+  %.not.i.i.i.i16 = icmp eq i8 %48, 0
+  br i1 %.not.i.i.i.i16, label %52, label %49
+
+49:                                               ; preds = %39
+  %50 = load i32, ptr %13, align 4, !tbaa !51
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %13, align 4, !tbaa !51
+  br label %_ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateEC2ERKSP_.exit17
 
 52:                                               ; preds = %39
-  %53 = load i32, ptr %13, align 4, !tbaa !51
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %13, align 4, !tbaa !51
+  %53 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateEC2ERKSP_.exit17
 
-55:                                               ; preds = %39
-  %56 = atomicrmw volatile add ptr %13, i32 1 acq_rel, align 4
-  br label %_ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateEC2ERKSP_.exit17
+_ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateEC2ERKSP_.exit17: ; preds = %49, %52
+  %54 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %56 = load ptr, ptr %55, align 16, !tbaa !65
+  call void %56(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %54) #26
+  %57 = load ptr, ptr %55, align 16, !tbaa !65
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store ptr %57, ptr %58, align 16, !tbaa !65
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %60 = load ptr, ptr %59, align 8, !tbaa !66
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  store ptr %60, ptr %61, align 8, !tbaa !66
+  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %55, align 16, !tbaa !65
+  store ptr null, ptr %59, align 8, !tbaa !66
+  %62 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
+          to label %63 unwind label %132
 
-_ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateEC2ERKSP_.exit17: ; preds = %52, %55
-  %57 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %59 = load ptr, ptr %58, align 16, !tbaa !65
-  call void %59(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %3, ptr noundef nonnull align 16 dereferenceable(32) %57) #26
-  %60 = load ptr, ptr %58, align 16, !tbaa !65
-  %61 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr %60, ptr %61, align 16, !tbaa !65
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %63 = load ptr, ptr %62, align 8, !tbaa !66
-  %64 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  store ptr %63, ptr %64, align 8, !tbaa !66
+63:                                               ; preds = %_ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateEC2ERKSP_.exit17
+  %64 = load ptr, ptr %10, align 16, !tbaa !60
+  store ptr %64, ptr %62, align 16, !tbaa !60
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %66 = load ptr, ptr %46, align 8, !tbaa !48
+  store ptr %66, ptr %65, align 8, !tbaa !48
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %68 = load ptr, ptr %47, align 16, !tbaa !49
+  store ptr null, ptr %47, align 16, !tbaa !49
+  store ptr %68, ptr %67, align 8, !tbaa !49
+  store ptr null, ptr %46, align 8, !tbaa !48
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 32
+  call void %57(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %54, ptr noundef nonnull align 16 dereferenceable(32) %69) #26
+  %70 = load ptr, ptr %58, align 16, !tbaa !65
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 48
+  store ptr %70, ptr %71, align 16, !tbaa !65
+  %72 = load ptr, ptr %61, align 8, !tbaa !66
+  %73 = getelementptr inbounds nuw i8, ptr %62, i64 56
+  store ptr %72, ptr %73, align 8, !tbaa !66
   store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %58, align 16, !tbaa !65
-  store ptr null, ptr %62, align 8, !tbaa !66
-  %65 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
-          to label %66 unwind label %178
-
-66:                                               ; preds = %_ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateEC2ERKSP_.exit17
-  %67 = load ptr, ptr %10, align 16, !tbaa !60
-  store ptr %67, ptr %65, align 16, !tbaa !60
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %69 = load ptr, ptr %49, align 8, !tbaa !48
-  store ptr %69, ptr %68, align 8, !tbaa !48
-  %70 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %71 = load ptr, ptr %50, align 16, !tbaa !49
-  store ptr null, ptr %50, align 16, !tbaa !49
-  store ptr %71, ptr %70, align 8, !tbaa !49
-  store ptr null, ptr %49, align 8, !tbaa !48
-  %72 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  call void %60(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %57, ptr noundef nonnull align 16 dereferenceable(32) %72) #26
-  %73 = load ptr, ptr %61, align 16, !tbaa !65
-  %74 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  store ptr %73, ptr %74, align 16, !tbaa !65
-  %75 = load ptr, ptr %64, align 8, !tbaa !66
-  %76 = getelementptr inbounds nuw i8, ptr %65, i64 56
-  store ptr %75, ptr %76, align 8, !tbaa !66
-  store ptr @_ZN4absl12lts_2024072222internal_any_invocable12EmptyManagerENS1_14FunctionToCallEPNS1_15TypeErasedStateES4_, ptr %61, align 16, !tbaa !65
-  store ptr null, ptr %64, align 8, !tbaa !66
-  store ptr %65, ptr %9, align 16, !tbaa !50
-  %77 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable23RemoteManagerNontrivialIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerENS0_12AnyInvocableIFvSt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteIS9_EENS4_15MemoryAllocatorEEEENS6_IFvNS0_6StatusEEEERKNS4_14EndpointConfigES7_INS4_22MemoryAllocatorFactoryESA_ISM_EEE3$_1EEvNS1_14FunctionToCallEPNS1_15TypeErasedStateESS_", ptr %77, align 16, !tbaa !65
-  %78 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable13RemoteInvokerILb0EvRZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerENS0_12AnyInvocableIFvSt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteIS9_EENS4_15MemoryAllocatorEEEENS6_IFvNS0_6StatusEEEERKNS4_14EndpointConfigES7_INS4_22MemoryAllocatorFactoryESA_ISM_EEE3$_1JSG_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %78, align 8, !tbaa !66
-  %79 = load i64, ptr %5, align 8, !tbaa !67
-  store i64 %79, ptr %11, align 8, !tbaa !67
+  store ptr null, ptr %61, align 8, !tbaa !66
+  store ptr %62, ptr %9, align 16, !tbaa !50
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable23RemoteManagerNontrivialIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerENS0_12AnyInvocableIFvSt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteIS9_EENS4_15MemoryAllocatorEEEENS6_IFvNS0_6StatusEEEERKNS4_14EndpointConfigES7_INS4_22MemoryAllocatorFactoryESA_ISM_EEE3$_1EEvNS1_14FunctionToCallEPNS1_15TypeErasedStateESS_", ptr %74, align 16, !tbaa !65
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr @"_ZN4absl12lts_2024072222internal_any_invocable13RemoteInvokerILb0EvRZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerENS0_12AnyInvocableIFvSt10unique_ptrINS4_11EventEngine8EndpointESt14default_deleteIS9_EENS4_15MemoryAllocatorEEEENS6_IFvNS0_6StatusEEEERKNS4_14EndpointConfigES7_INS4_22MemoryAllocatorFactoryESA_ISM_EEE3$_1JSG_EEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE", ptr %75, align 8, !tbaa !66
+  %76 = load i64, ptr %5, align 8, !tbaa !67
+  store i64 %76, ptr %11, align 8, !tbaa !67
   store ptr null, ptr %5, align 8, !tbaa !67
-  %80 = load ptr, ptr %17, align 8, !tbaa !21
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8
-  invoke void %82(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::StatusOr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %11)
-          to label %83 unwind label %180
+  %77 = load ptr, ptr %17, align 8, !tbaa !21
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = load ptr, ptr %78, align 8
+  invoke void %79(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::StatusOr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %11)
+          to label %80 unwind label %134
 
-83:                                               ; preds = %66
-  %84 = load ptr, ptr %11, align 8, !tbaa !67
-  %.not.i = icmp eq ptr %84, null
+80:                                               ; preds = %63
+  %81 = load ptr, ptr %11, align 8, !tbaa !67
+  %.not.i = icmp eq ptr %81, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental22MemoryAllocatorFactoryEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN17grpc_event_engine12experimental22MemoryAllocatorFactoryEEclEPS2_.exit.i: ; preds = %83
-  %85 = load ptr, ptr %84, align 8, !tbaa !21
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %87 = load ptr, ptr %86, align 8
-  call void %87(ptr noundef nonnull align 8 dereferenceable(8) %84) #26
+_ZNKSt14default_deleteIN17grpc_event_engine12experimental22MemoryAllocatorFactoryEEclEPS2_.exit.i: ; preds = %80
+  %82 = load ptr, ptr %81, align 8, !tbaa !21
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %84 = load ptr, ptr %83, align 8
+  call void %84(ptr noundef nonnull align 8 dereferenceable(8) %81) #26
   br label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit: ; preds = %83, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental22MemoryAllocatorFactoryEEclEPS2_.exit.i
+_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit: ; preds = %80, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental22MemoryAllocatorFactoryEEclEPS2_.exit.i
   store ptr null, ptr %11, align 8, !tbaa !67
-  %88 = load ptr, ptr %77, align 16, !tbaa !65
-  call void %88(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #26
-  %89 = load ptr, ptr %61, align 16, !tbaa !65
-  call void %89(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %57, ptr noundef nonnull align 16 dereferenceable(32) %57) #26
-  %.val.i = load ptr, ptr %50, align 16, !tbaa !49
+  %85 = load ptr, ptr %74, align 16, !tbaa !65
+  call void %85(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #26
+  %86 = load ptr, ptr %58, align 16, !tbaa !65
+  call void %86(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %54, ptr noundef nonnull align 16 dereferenceable(32) %54) #26
+  %.val.i = load ptr, ptr %47, align 16, !tbaa !49
   %.not.i.i.i18 = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i.i18, label %"_ZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS7_EENS0_15MemoryAllocatorEEEENS4_IFvNS3_6StatusEEEERKNS0_14EndpointConfigES5_INS0_22MemoryAllocatorFactoryES8_ISK_EEEN3$_1D2Ev.exit", label %90
+  br i1 %.not.i.i.i18, label %108, label %87
 
-90:                                               ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit
-  %91 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %92 = load atomic i64, ptr %91 acquire, align 8
-  %93 = icmp eq i64 %92, 4294967297
-  %94 = trunc i64 %92 to i32
-  br i1 %93, label %95, label %103
+87:                                               ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit
+  %88 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %89 = load atomic i64, ptr %88 acquire, align 8
+  %90 = icmp eq i64 %89, 4294967297
+  %91 = trunc i64 %89 to i32
+  br i1 %90, label %92, label %100
 
-95:                                               ; preds = %90
-  store i32 0, ptr %91, align 8, !tbaa !30
-  %96 = getelementptr inbounds nuw i8, ptr %.val.i, i64 12
-  store i32 0, ptr %96, align 4, !tbaa !33
+92:                                               ; preds = %87
+  store i32 0, ptr %88, align 8, !tbaa !30
+  %93 = getelementptr inbounds nuw i8, ptr %.val.i, i64 12
+  store i32 0, ptr %93, align 4, !tbaa !33
+  %94 = load ptr, ptr %.val.i, align 8, !tbaa !21
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %96 = load ptr, ptr %95, align 8
+  call void %96(ptr noundef nonnull align 8 dereferenceable(16) %.val.i) #26
   %97 = load ptr, ptr %.val.i, align 8, !tbaa !21
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %99 = load ptr, ptr %98, align 8
   call void %99(ptr noundef nonnull align 8 dereferenceable(16) %.val.i) #26
-  %100 = load ptr, ptr %.val.i, align 8, !tbaa !21
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %102 = load ptr, ptr %101, align 8
-  call void %102(ptr noundef nonnull align 8 dereferenceable(16) %.val.i) #26
-  br label %"_ZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS7_EENS0_15MemoryAllocatorEEEENS4_IFvNS3_6StatusEEEERKNS0_14EndpointConfigES5_INS0_22MemoryAllocatorFactoryES8_ISK_EEEN3$_1D2Ev.exit"
+  br label %108
 
-103:                                              ; preds = %90
-  %104 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !50
-  %.not.i.i.i.i19 = icmp eq i8 %104, 0
-  br i1 %.not.i.i.i.i19, label %107, label %105
+100:                                              ; preds = %87
+  %101 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !50
+  %.not.i.i.i.i19 = icmp eq i8 %101, 0
+  br i1 %.not.i.i.i.i19, label %104, label %102
 
-105:                                              ; preds = %103
-  %106 = add nsw i32 %94, -1
-  store i32 %106, ptr %91, align 4, !tbaa !51
+102:                                              ; preds = %100
+  %103 = add nsw i32 %91, -1
+  store i32 %103, ptr %88, align 4, !tbaa !51
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-107:                                              ; preds = %103
-  %108 = atomicrmw volatile add ptr %91, i32 -1 acq_rel, align 4
+104:                                              ; preds = %100
+  %105 = atomicrmw volatile add ptr %88, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %107, %105
-  %.0.i.i.i.i.i = phi i32 [ %94, %105 ], [ %108, %107 ]
-  %109 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %109, label %110, label %"_ZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS7_EENS0_15MemoryAllocatorEEEENS4_IFvNS3_6StatusEEEERKNS0_14EndpointConfigES5_INS0_22MemoryAllocatorFactoryES8_ISK_EEEN3$_1D2Ev.exit", !prof !26
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %104, %102
+  %.0.i.i.i.i.i = phi i32 [ %91, %102 ], [ %105, %104 ]
+  %106 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %106, label %107, label %108, !prof !26
 
-110:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
+107:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val.i) #26
-  br label %"_ZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS7_EENS0_15MemoryAllocatorEEEENS4_IFvNS3_6StatusEEEERKNS0_14EndpointConfigES5_INS0_22MemoryAllocatorFactoryES8_ISK_EEEN3$_1D2Ev.exit"
+  br label %108
 
-"_ZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS7_EENS0_15MemoryAllocatorEEEENS4_IFvNS3_6StatusEEEERKNS0_14EndpointConfigES5_INS0_22MemoryAllocatorFactoryES8_ISK_EEEN3$_1D2Ev.exit": ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit, %95, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %110
+108:                                              ; preds = %107, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %92, %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #26
-  %111 = load ptr, ptr %47, align 16, !tbaa !55
-  call void %111(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %7) #26
-  %112 = load ptr, ptr %27, align 8, !tbaa !49
-  %.not.i.i.i20 = icmp eq ptr %112, null
-  br i1 %.not.i.i.i20, label %_ZNSt12__shared_ptrIN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS7_EENS5_15MemoryAllocatorEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %113
-
-113:                                              ; preds = %"_ZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS7_EENS0_15MemoryAllocatorEEEENS4_IFvNS3_6StatusEEEERKNS0_14EndpointConfigES5_INS0_22MemoryAllocatorFactoryES8_ISK_EEEN3$_1D2Ev.exit"
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %115 = load atomic i64, ptr %114 acquire, align 8
-  %116 = icmp eq i64 %115, 4294967297
-  %117 = trunc i64 %115 to i32
-  br i1 %116, label %118, label %126
-
-118:                                              ; preds = %113
-  store i32 0, ptr %114, align 8, !tbaa !30
-  %119 = getelementptr inbounds nuw i8, ptr %112, i64 12
-  store i32 0, ptr %119, align 4, !tbaa !33
-  %120 = load ptr, ptr %112, align 8, !tbaa !21
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %122 = load ptr, ptr %121, align 8
-  call void %122(ptr noundef nonnull align 8 dereferenceable(16) %112) #26
-  %123 = load ptr, ptr %112, align 8, !tbaa !21
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  %125 = load ptr, ptr %124, align 8
-  call void %125(ptr noundef nonnull align 8 dereferenceable(16) %112) #26
-  br label %_ZNSt12__shared_ptrIN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS7_EENS5_15MemoryAllocatorEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-
-126:                                              ; preds = %113
-  %127 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !50
-  %.not.i.i.i.i21 = icmp eq i8 %127, 0
-  br i1 %.not.i.i.i.i21, label %130, label %128
-
-128:                                              ; preds = %126
-  %129 = add nsw i32 %117, -1
-  store i32 %129, ptr %114, align 4, !tbaa !51
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i22
-
-130:                                              ; preds = %126
-  %131 = atomicrmw volatile add ptr %114, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i22
-
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i22: ; preds = %130, %128
-  %.0.i.i.i.i.i23 = phi i32 [ %117, %128 ], [ %131, %130 ]
-  %132 = icmp eq i32 %.0.i.i.i.i.i23, 1
-  br i1 %132, label %133, label %_ZNSt12__shared_ptrIN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS7_EENS5_15MemoryAllocatorEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, !prof !26
-
-133:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i22
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %112) #26
-  br label %_ZNSt12__shared_ptrIN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS7_EENS5_15MemoryAllocatorEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-
-_ZNSt12__shared_ptrIN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS7_EENS5_15MemoryAllocatorEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %133, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i22, %118, %"_ZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS7_EENS0_15MemoryAllocatorEEEENS4_IFvNS3_6StatusEEEERKNS0_14EndpointConfigES5_INS0_22MemoryAllocatorFactoryES8_ISK_EEEN3$_1D2Ev.exit"
-  %.val.i24 = load ptr, ptr %19, align 8, !tbaa !49
-  %.not.i.i1.i = icmp eq ptr %.val.i24, null
-  br i1 %.not.i.i1.i, label %155, label %134
-
-134:                                              ; preds = %_ZNSt12__shared_ptrIN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS7_EENS5_15MemoryAllocatorEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-  %135 = getelementptr inbounds nuw i8, ptr %.val.i24, i64 8
-  %136 = load atomic i64, ptr %135 acquire, align 8
-  %137 = icmp eq i64 %136, 4294967297
-  %138 = trunc i64 %136 to i32
-  br i1 %137, label %139, label %147
-
-139:                                              ; preds = %134
-  store i32 0, ptr %135, align 8, !tbaa !30
-  %140 = getelementptr inbounds nuw i8, ptr %.val.i24, i64 12
-  store i32 0, ptr %140, align 4, !tbaa !33
-  %141 = load ptr, ptr %.val.i24, align 8, !tbaa !21
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  %143 = load ptr, ptr %142, align 8
-  call void %143(ptr noundef nonnull align 8 dereferenceable(16) %.val.i24) #26
-  %144 = load ptr, ptr %.val.i24, align 8, !tbaa !21
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
-  %146 = load ptr, ptr %145, align 8
-  call void %146(ptr noundef nonnull align 8 dereferenceable(16) %.val.i24) #26
-  br label %155
-
-147:                                              ; preds = %134
-  %148 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !50
-  %.not.i.i.i2.i = icmp eq i8 %148, 0
-  br i1 %.not.i.i.i2.i, label %151, label %149
-
-149:                                              ; preds = %147
-  %150 = add nsw i32 %138, -1
-  store i32 %150, ptr %135, align 4, !tbaa !51
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i
-
-151:                                              ; preds = %147
-  %152 = atomicrmw volatile add ptr %135, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i
-
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i: ; preds = %151, %149
-  %.0.i.i.i.i4.i = phi i32 [ %138, %149 ], [ %152, %151 ]
-  %153 = icmp eq i32 %.0.i.i.i.i4.i, 1
-  br i1 %153, label %154, label %155, !prof !26
-
-154:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.val.i24) #26
-  br label %155
-
-155:                                              ; preds = %154, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i3.i, %139, %_ZNSt12__shared_ptrIN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrIN17grpc_event_engine12experimental11EventEngine8EndpointESt14default_deleteIS7_EENS5_15MemoryAllocatorEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
+  %109 = load ptr, ptr %44, align 16, !tbaa !55
+  call void %109(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %7) #26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #26
-  %156 = load atomic i64, ptr %13 acquire, align 8
-  %157 = icmp eq i64 %156, 4294967297
-  %158 = trunc i64 %156 to i32
-  br i1 %157, label %159, label %166
+  %110 = load atomic i64, ptr %13 acquire, align 8
+  %111 = icmp eq i64 %110, 4294967297
+  %112 = trunc i64 %110 to i32
+  br i1 %111, label %113, label %120
 
-159:                                              ; preds = %155
+113:                                              ; preds = %108
   store i32 0, ptr %13, align 8, !tbaa !30
   store i32 0, ptr %14, align 4, !tbaa !33
-  %160 = load ptr, ptr %12, align 8, !tbaa !21
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
-  %162 = load ptr, ptr %161, align 8
-  call void %162(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
-  %163 = load ptr, ptr %12, align 8, !tbaa !21
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
-  %165 = load ptr, ptr %164, align 8
-  call void %165(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
+  %114 = load ptr, ptr %12, align 8, !tbaa !21
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  %116 = load ptr, ptr %115, align 8
+  call void %116(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
+  %117 = load ptr, ptr %12, align 8, !tbaa !21
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  %119 = load ptr, ptr %118, align 8
+  call void %119(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
   br label %_ZNSt12__shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-166:                                              ; preds = %155
-  %167 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !50
-  %.not.i.i.i25 = icmp eq i8 %167, 0
-  br i1 %.not.i.i.i25, label %170, label %168
+120:                                              ; preds = %108
+  %121 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !50
+  %.not.i.i.i25 = icmp eq i8 %121, 0
+  br i1 %.not.i.i.i25, label %124, label %122
 
-168:                                              ; preds = %166
-  %169 = add nsw i32 %158, -1
-  store i32 %169, ptr %13, align 4, !tbaa !51
+122:                                              ; preds = %120
+  %123 = add nsw i32 %112, -1
+  store i32 %123, ptr %13, align 4, !tbaa !51
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-170:                                              ; preds = %166
-  %171 = atomicrmw volatile add ptr %13, i32 -1 acq_rel, align 4
+124:                                              ; preds = %120
+  %125 = atomicrmw volatile add ptr %13, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %170, %168
-  %.0.i.i.i.i = phi i32 [ %158, %168 ], [ %171, %170 ]
-  %172 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %172, label %173, label %_ZNSt12__shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !26
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %124, %122
+  %.0.i.i.i.i = phi i32 [ %112, %122 ], [ %125, %124 ]
+  %126 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %126, label %127, label %_ZNSt12__shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !26
 
-173:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
+127:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #26
   br label %_ZNSt12__shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %159, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %173
+_ZNSt12__shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %113, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %127
   ret void
 
-174:                                              ; preds = %_ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateEC2ERKSP_.exit
-  %175 = landingpad { ptr, i32 }
+128:                                              ; preds = %_ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateEC2ERKSP_.exit
+  %129 = landingpad { ptr, i32 }
           cleanup
-  %.val13 = load ptr, ptr %19, align 8, !tbaa !49
-  tail call fastcc void @_ZNSt12__shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr %.val13) #26
-  br label %190
+  tail call fastcc void @_ZNSt12__shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull %12) #26
+  br label %144
 
-176:                                              ; preds = %26
-  %177 = landingpad { ptr, i32 }
+130:                                              ; preds = %26
+  %131 = landingpad { ptr, i32 }
           cleanup
-  br label %189
+  br label %143
 
-178:                                              ; preds = %_ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateEC2ERKSP_.exit17
-  %179 = landingpad { ptr, i32 }
+132:                                              ; preds = %_ZNSt10shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateEC2ERKSP_.exit17
+  %133 = landingpad { ptr, i32 }
           cleanup
-  br label %187
+  br label %141
 
-180:                                              ; preds = %66
-  %181 = landingpad { ptr, i32 }
+134:                                              ; preds = %63
+  %135 = landingpad { ptr, i32 }
           cleanup
-  %182 = load ptr, ptr %11, align 8, !tbaa !67
-  %.not.i26 = icmp eq ptr %182, null
+  %136 = load ptr, ptr %11, align 8, !tbaa !67
+  %.not.i26 = icmp eq ptr %136, null
   br i1 %.not.i26, label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit28, label %_ZNKSt14default_deleteIN17grpc_event_engine12experimental22MemoryAllocatorFactoryEEclEPS2_.exit.i27
 
-_ZNKSt14default_deleteIN17grpc_event_engine12experimental22MemoryAllocatorFactoryEEclEPS2_.exit.i27: ; preds = %180
-  %183 = load ptr, ptr %182, align 8, !tbaa !21
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %185 = load ptr, ptr %184, align 8
-  call void %185(ptr noundef nonnull align 8 dereferenceable(8) %182) #26
+_ZNKSt14default_deleteIN17grpc_event_engine12experimental22MemoryAllocatorFactoryEEclEPS2_.exit.i27: ; preds = %134
+  %137 = load ptr, ptr %136, align 8, !tbaa !21
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %139 = load ptr, ptr %138, align 8
+  call void %139(ptr noundef nonnull align 8 dereferenceable(8) %136) #26
   br label %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit28
 
-_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit28: ; preds = %180, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental22MemoryAllocatorFactoryEEclEPS2_.exit.i27
+_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit28: ; preds = %134, %_ZNKSt14default_deleteIN17grpc_event_engine12experimental22MemoryAllocatorFactoryEEclEPS2_.exit.i27
   store ptr null, ptr %11, align 8, !tbaa !67
-  %186 = load ptr, ptr %77, align 16, !tbaa !65
-  call void %186(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #26
-  br label %187
+  %140 = load ptr, ptr %74, align 16, !tbaa !65
+  call void %140(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #26
+  br label %141
 
-187:                                              ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit28, %178
-  %.pn = phi { ptr, i32 } [ %181, %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit28 ], [ %179, %178 ]
+141:                                              ; preds = %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit28, %132
+  %.pn = phi { ptr, i32 } [ %135, %_ZNSt10unique_ptrIN17grpc_event_engine12experimental22MemoryAllocatorFactoryESt14default_deleteIS2_EED2Ev.exit28 ], [ %133, %132 ]
   call fastcc void @"_ZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS7_EENS0_15MemoryAllocatorEEEENS4_IFvNS3_6StatusEEEERKNS0_14EndpointConfigES5_INS0_22MemoryAllocatorFactoryES8_ISK_EEEN3$_1D2Ev"(ptr noundef nonnull align 16 dereferenceable(64) %10) #26
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #26
-  %188 = load ptr, ptr %47, align 16, !tbaa !55
-  call void %188(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %7) #26
-  br label %189
+  %142 = load ptr, ptr %44, align 16, !tbaa !55
+  call void %142(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %7) #26
+  br label %143
 
-189:                                              ; preds = %187, %176
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %187 ], [ %177, %176 ]
+143:                                              ; preds = %141, %130
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %141 ], [ %131, %130 ]
   call fastcc void @"_ZZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS0_11EventEngine8EndpointESt14default_deleteIS7_EENS0_15MemoryAllocatorEEEENS4_IFvNS3_6StatusEEEERKNS0_14EndpointConfigES5_INS0_22MemoryAllocatorFactoryES8_ISK_EEEN3$_0D2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %8) #26
-  br label %190
+  br label %144
 
-190:                                              ; preds = %189, %174
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %189 ], [ %175, %174 ]
+144:                                              ; preds = %143, %128
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %143 ], [ %129, %128 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #26
   call fastcc void @_ZNSt12__shared_ptrIZN17grpc_event_engine12experimental18ThreadyEventEngine14CreateListenerEN4absl12lts_2024072212AnyInvocableIFvSt10unique_ptrINS1_11EventEngine8EndpointESt14default_deleteIS8_EENS1_15MemoryAllocatorEEEENS5_IFvNS4_6StatusEEEERKNS1_14EndpointConfigES6_INS1_22MemoryAllocatorFactoryES9_ISL_EEE11AcceptStateLN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull %12) #26
   resume { ptr, i32 } %.pn.pn.pn

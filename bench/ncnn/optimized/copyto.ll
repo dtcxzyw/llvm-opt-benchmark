@@ -1221,332 +1221,292 @@ _ZN4ncnn3MatD2Ev.exit54:                          ; preds = %175, %172, %182, %1
 
 _ZNK4ncnn3Mat5shapeEv.exit:                       ; preds = %193, %208, %226, %247, %271
   call void @_ZNK4ncnn6CopyTo21resolve_copyto_offsetERKNS_3MatERiS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(368) %0, ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
-  %274 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %275 = load ptr, ptr %274, align 8, !tbaa !7
-  %.not.i57 = icmp eq ptr %275, null
-  br i1 %.not.i57, label %_ZN4ncnn3MatD2Ev.exit55, label %276
-
-276:                                              ; preds = %_ZNK4ncnn3Mat5shapeEv.exit
-  %277 = atomicrmw add ptr %275, i32 -1 acq_rel, align 4
-  %278 = icmp eq i32 %277, 1
-  br i1 %278, label %279, label %_ZN4ncnn3MatD2Ev.exit55
-
-279:                                              ; preds = %276
-  %280 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %281 = load ptr, ptr %280, align 8, !tbaa !15
-  %.not3.i58 = icmp eq ptr %281, null
-  %282 = load ptr, ptr %11, align 8, !tbaa !16
-  br i1 %.not3.i58, label %287, label %283
-
-283:                                              ; preds = %279
-  %284 = load ptr, ptr %281, align 8, !tbaa !4
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 24
-  %286 = load ptr, ptr %285, align 8
-  invoke void %286(ptr noundef nonnull align 8 dereferenceable(8) %281, ptr noundef %282)
-          to label %_ZN4ncnn3MatD2Ev.exit55 unwind label %289
-
-287:                                              ; preds = %279
-  %.not.i72 = icmp eq ptr %282, null
-  br i1 %.not.i72, label %_ZN4ncnn3MatD2Ev.exit55, label %288
-
-288:                                              ; preds = %287
-  call void @free(ptr noundef nonnull %282) #10
-  br label %_ZN4ncnn3MatD2Ev.exit55
-
-289:                                              ; preds = %283
-  %290 = landingpad { ptr, i32 }
-          catch ptr null
-  %291 = extractvalue { ptr, i32 } %290, 0
-  call void @__clang_call_terminate(ptr %291) #16
-  unreachable
-
-_ZN4ncnn3MatD2Ev.exit55:                          ; preds = %276, %_ZNK4ncnn3Mat5shapeEv.exit, %283, %287, %288
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #10
   switch i32 %25, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit [
-    i32 1, label %292
-    i32 2, label %358
-    i32 3, label %451
-    i32 4, label %454
+    i32 1, label %274
+    i32 2, label %340
+    i32 3, label %433
+    i32 4, label %436
   ]
 
-292:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit55
-  %293 = load i64, ptr %5, align 8, !tbaa !45
-  %294 = icmp eq i64 %293, 1
-  br i1 %294, label %295, label %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit
+274:                                              ; preds = %_ZNK4ncnn3Mat5shapeEv.exit
+  %275 = load i64, ptr %5, align 8, !tbaa !45
+  %276 = icmp eq i64 %275, 1
+  br i1 %276, label %277, label %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit
 
-295:                                              ; preds = %292
-  %296 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  %297 = load i32, ptr %296, align 8, !tbaa !41
-  %298 = getelementptr inbounds nuw i8, ptr %15, i64 44
-  %299 = icmp sgt i32 %297, 0
-  br i1 %299, label %.lr.ph.i, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
+277:                                              ; preds = %274
+  %278 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  %279 = load i32, ptr %278, align 8, !tbaa !41
+  %280 = getelementptr inbounds nuw i8, ptr %15, i64 44
+  %281 = icmp sgt i32 %279, 0
+  br i1 %281, label %.lr.ph.i, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
 
-.lr.ph.i:                                         ; preds = %295
-  %300 = load i32, ptr %7, align 4, !tbaa !51
-  %301 = load ptr, ptr %15, align 8, !tbaa !16
-  %302 = sext i32 %300 to i64
-  %303 = getelementptr inbounds i8, ptr %301, i64 %302
-  %304 = load ptr, ptr %14, align 8, !tbaa !16
-  %305 = getelementptr inbounds nuw i8, ptr %13, i64 116
-  %306 = load i32, ptr %305, align 4, !tbaa !40
-  %307 = sext i32 %306 to i64
-  br label %308
+.lr.ph.i:                                         ; preds = %277
+  %282 = load i32, ptr %7, align 4, !tbaa !51
+  %283 = load ptr, ptr %15, align 8, !tbaa !16
+  %284 = sext i32 %282 to i64
+  %285 = getelementptr inbounds i8, ptr %283, i64 %284
+  %286 = load ptr, ptr %14, align 8, !tbaa !16
+  %287 = getelementptr inbounds nuw i8, ptr %13, i64 116
+  %288 = load i32, ptr %287, align 4, !tbaa !40
+  %289 = sext i32 %288 to i64
+  br label %290
 
-308:                                              ; preds = %308, %.lr.ph.i
-  %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %313, %308 ]
-  %.01518.i = phi ptr [ %303, %.lr.ph.i ], [ %312, %308 ]
-  %.01617.i = phi ptr [ %304, %.lr.ph.i ], [ %309, %308 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01518.i, ptr align 1 %.01617.i, i64 %307, i1 false)
-  %309 = getelementptr inbounds i8, ptr %.01617.i, i64 %307
-  %310 = load i32, ptr %298, align 4, !tbaa !40
-  %311 = sext i32 %310 to i64
-  %312 = getelementptr inbounds i8, ptr %.01518.i, i64 %311
-  %313 = add nuw nsw i32 %.019.i, 1
-  %exitcond.not.i = icmp eq i32 %313, %297
-  br i1 %exitcond.not.i, label %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exitthread-pre-split.loopexit, label %308, !llvm.loop !52
+290:                                              ; preds = %290, %.lr.ph.i
+  %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %295, %290 ]
+  %.01518.i = phi ptr [ %285, %.lr.ph.i ], [ %294, %290 ]
+  %.01617.i = phi ptr [ %286, %.lr.ph.i ], [ %291, %290 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01518.i, ptr align 1 %.01617.i, i64 %289, i1 false)
+  %291 = getelementptr inbounds i8, ptr %.01617.i, i64 %289
+  %292 = load i32, ptr %280, align 4, !tbaa !40
+  %293 = sext i32 %292 to i64
+  %294 = getelementptr inbounds i8, ptr %.01518.i, i64 %293
+  %295 = add nuw nsw i32 %.019.i, 1
+  %exitcond.not.i = icmp eq i32 %295, %279
+  br i1 %exitcond.not.i, label %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exitthread-pre-split.loopexit, label %290, !llvm.loop !52
 
-_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exitthread-pre-split.loopexit: ; preds = %308
+_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exitthread-pre-split.loopexit: ; preds = %290
   %.pr.pre = load i64, ptr %5, align 8, !tbaa !45
   br label %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit
 
-_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exitthread-pre-split.loopexit, %292
-  %314 = phi i64 [ %293, %292 ], [ %.pr.pre, %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exitthread-pre-split.loopexit ]
-  %315 = icmp eq i64 %314, 2
-  br i1 %315, label %316, label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit
+_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exitthread-pre-split.loopexit, %274
+  %296 = phi i64 [ %275, %274 ], [ %.pr.pre, %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exitthread-pre-split.loopexit ]
+  %297 = icmp eq i64 %296, 2
+  br i1 %297, label %298, label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit
 
-316:                                              ; preds = %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit
-  %317 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  %318 = load i32, ptr %317, align 8, !tbaa !41
-  %319 = getelementptr inbounds nuw i8, ptr %15, i64 44
-  %320 = icmp sgt i32 %318, 0
-  br i1 %320, label %.lr.ph.i85, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
+298:                                              ; preds = %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit
+  %299 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  %300 = load i32, ptr %299, align 8, !tbaa !41
+  %301 = getelementptr inbounds nuw i8, ptr %15, i64 44
+  %302 = icmp sgt i32 %300, 0
+  br i1 %302, label %.lr.ph.i85, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
 
-.lr.ph.i85:                                       ; preds = %316
-  %321 = load i32, ptr %7, align 4, !tbaa !51
-  %322 = load ptr, ptr %15, align 8, !tbaa !16
-  %323 = sext i32 %321 to i64
-  %324 = getelementptr inbounds i16, ptr %322, i64 %323
-  %325 = load ptr, ptr %14, align 8, !tbaa !16
-  %326 = getelementptr inbounds nuw i8, ptr %13, i64 116
-  %327 = load i32, ptr %326, align 4, !tbaa !40
-  %328 = sext i32 %327 to i64
-  %329 = shl nsw i64 %328, 1
-  br label %330
+.lr.ph.i85:                                       ; preds = %298
+  %303 = load i32, ptr %7, align 4, !tbaa !51
+  %304 = load ptr, ptr %15, align 8, !tbaa !16
+  %305 = sext i32 %303 to i64
+  %306 = getelementptr inbounds i16, ptr %304, i64 %305
+  %307 = load ptr, ptr %14, align 8, !tbaa !16
+  %308 = getelementptr inbounds nuw i8, ptr %13, i64 116
+  %309 = load i32, ptr %308, align 4, !tbaa !40
+  %310 = sext i32 %309 to i64
+  %311 = shl nsw i64 %310, 1
+  br label %312
 
-330:                                              ; preds = %330, %.lr.ph.i85
-  %.019.i86 = phi i32 [ 0, %.lr.ph.i85 ], [ %335, %330 ]
-  %.01518.i87 = phi ptr [ %324, %.lr.ph.i85 ], [ %334, %330 ]
-  %.01617.i88 = phi ptr [ %325, %.lr.ph.i85 ], [ %331, %330 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.01518.i87, ptr align 2 %.01617.i88, i64 %329, i1 false)
-  %331 = getelementptr inbounds i16, ptr %.01617.i88, i64 %328
-  %332 = load i32, ptr %319, align 4, !tbaa !40
-  %333 = sext i32 %332 to i64
-  %334 = getelementptr inbounds i16, ptr %.01518.i87, i64 %333
-  %335 = add nuw nsw i32 %.019.i86, 1
-  %exitcond.not.i89 = icmp eq i32 %335, %318
-  br i1 %exitcond.not.i89, label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit.loopexit, label %330, !llvm.loop !54
+312:                                              ; preds = %312, %.lr.ph.i85
+  %.019.i86 = phi i32 [ 0, %.lr.ph.i85 ], [ %317, %312 ]
+  %.01518.i87 = phi ptr [ %306, %.lr.ph.i85 ], [ %316, %312 ]
+  %.01617.i88 = phi ptr [ %307, %.lr.ph.i85 ], [ %313, %312 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.01518.i87, ptr align 2 %.01617.i88, i64 %311, i1 false)
+  %313 = getelementptr inbounds i16, ptr %.01617.i88, i64 %310
+  %314 = load i32, ptr %301, align 4, !tbaa !40
+  %315 = sext i32 %314 to i64
+  %316 = getelementptr inbounds i16, ptr %.01518.i87, i64 %315
+  %317 = add nuw nsw i32 %.019.i86, 1
+  %exitcond.not.i89 = icmp eq i32 %317, %300
+  br i1 %exitcond.not.i89, label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit.loopexit, label %312, !llvm.loop !54
 
-_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit.loopexit: ; preds = %330
+_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit.loopexit: ; preds = %312
   %.pre119 = load i64, ptr %5, align 8, !tbaa !45
   br label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit
 
 _ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit.loopexit, %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit
-  %336 = phi i64 [ %.pre119, %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit.loopexit ], [ %314, %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit ]
-  %337 = icmp eq i64 %336, 4
-  br i1 %337, label %338, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
+  %318 = phi i64 [ %.pre119, %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit.loopexit ], [ %296, %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit ]
+  %319 = icmp eq i64 %318, 4
+  br i1 %319, label %320, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
 
-338:                                              ; preds = %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit
-  %339 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  %340 = load i32, ptr %339, align 8, !tbaa !41
-  %341 = getelementptr inbounds nuw i8, ptr %15, i64 44
-  %342 = icmp sgt i32 %340, 0
-  br i1 %342, label %.lr.ph.i90, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
+320:                                              ; preds = %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit
+  %321 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  %322 = load i32, ptr %321, align 8, !tbaa !41
+  %323 = getelementptr inbounds nuw i8, ptr %15, i64 44
+  %324 = icmp sgt i32 %322, 0
+  br i1 %324, label %.lr.ph.i90, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
 
-.lr.ph.i90:                                       ; preds = %338
-  %343 = load i32, ptr %7, align 4, !tbaa !51
-  %344 = load ptr, ptr %15, align 8, !tbaa !16
-  %345 = sext i32 %343 to i64
-  %346 = getelementptr inbounds float, ptr %344, i64 %345
-  %347 = load ptr, ptr %14, align 8, !tbaa !16
-  %348 = getelementptr inbounds nuw i8, ptr %13, i64 116
-  %349 = load i32, ptr %348, align 4, !tbaa !40
-  %350 = sext i32 %349 to i64
-  %351 = shl nsw i64 %350, 2
-  br label %352
+.lr.ph.i90:                                       ; preds = %320
+  %325 = load i32, ptr %7, align 4, !tbaa !51
+  %326 = load ptr, ptr %15, align 8, !tbaa !16
+  %327 = sext i32 %325 to i64
+  %328 = getelementptr inbounds float, ptr %326, i64 %327
+  %329 = load ptr, ptr %14, align 8, !tbaa !16
+  %330 = getelementptr inbounds nuw i8, ptr %13, i64 116
+  %331 = load i32, ptr %330, align 4, !tbaa !40
+  %332 = sext i32 %331 to i64
+  %333 = shl nsw i64 %332, 2
+  br label %334
 
-352:                                              ; preds = %352, %.lr.ph.i90
-  %.019.i91 = phi i32 [ 0, %.lr.ph.i90 ], [ %357, %352 ]
-  %.01518.i92 = phi ptr [ %346, %.lr.ph.i90 ], [ %356, %352 ]
-  %.01617.i93 = phi ptr [ %347, %.lr.ph.i90 ], [ %353, %352 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.01518.i92, ptr align 4 %.01617.i93, i64 %351, i1 false)
-  %353 = getelementptr inbounds float, ptr %.01617.i93, i64 %350
-  %354 = load i32, ptr %341, align 4, !tbaa !40
-  %355 = sext i32 %354 to i64
-  %356 = getelementptr inbounds float, ptr %.01518.i92, i64 %355
-  %357 = add nuw nsw i32 %.019.i91, 1
-  %exitcond.not.i94 = icmp eq i32 %357, %340
-  br i1 %exitcond.not.i94, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit, label %352, !llvm.loop !55
+334:                                              ; preds = %334, %.lr.ph.i90
+  %.019.i91 = phi i32 [ 0, %.lr.ph.i90 ], [ %339, %334 ]
+  %.01518.i92 = phi ptr [ %328, %.lr.ph.i90 ], [ %338, %334 ]
+  %.01617.i93 = phi ptr [ %329, %.lr.ph.i90 ], [ %335, %334 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.01518.i92, ptr align 4 %.01617.i93, i64 %333, i1 false)
+  %335 = getelementptr inbounds float, ptr %.01617.i93, i64 %332
+  %336 = load i32, ptr %323, align 4, !tbaa !40
+  %337 = sext i32 %336 to i64
+  %338 = getelementptr inbounds float, ptr %.01518.i92, i64 %337
+  %339 = add nuw nsw i32 %.019.i91, 1
+  %exitcond.not.i94 = icmp eq i32 %339, %322
+  br i1 %exitcond.not.i94, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit, label %334, !llvm.loop !55
 
-358:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit55
-  %359 = load i64, ptr %5, align 8, !tbaa !45
-  %360 = icmp eq i64 %359, 1
-  br i1 %360, label %361, label %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100
+340:                                              ; preds = %_ZNK4ncnn3Mat5shapeEv.exit
+  %341 = load i64, ptr %5, align 8, !tbaa !45
+  %342 = icmp eq i64 %341, 1
+  br i1 %342, label %343, label %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100
 
-361:                                              ; preds = %358
-  %362 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  %363 = load i32, ptr %362, align 8, !tbaa !41
-  %364 = getelementptr inbounds nuw i8, ptr %15, i64 44
-  %365 = icmp sgt i32 %363, 0
-  br i1 %365, label %.lr.ph.i95, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
+343:                                              ; preds = %340
+  %344 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  %345 = load i32, ptr %344, align 8, !tbaa !41
+  %346 = getelementptr inbounds nuw i8, ptr %15, i64 44
+  %347 = icmp sgt i32 %345, 0
+  br i1 %347, label %.lr.ph.i95, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
 
-.lr.ph.i95:                                       ; preds = %361
-  %366 = load i32, ptr %7, align 4, !tbaa !51
-  %367 = load i32, ptr %8, align 4, !tbaa !51
-  %368 = load ptr, ptr %15, align 8, !tbaa !16
-  %369 = load i32, ptr %364, align 4, !tbaa !40
-  %370 = sext i32 %369 to i64
-  %371 = sext i32 %367 to i64
-  %372 = mul nsw i64 %370, %371
-  %373 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %374 = load i64, ptr %373, align 8, !tbaa !37
-  %375 = mul i64 %372, %374
-  %376 = getelementptr inbounds nuw i8, ptr %368, i64 %375
-  %377 = sext i32 %366 to i64
-  %378 = getelementptr inbounds i8, ptr %376, i64 %377
-  %379 = load ptr, ptr %14, align 8, !tbaa !16
-  %380 = getelementptr inbounds nuw i8, ptr %13, i64 116
-  %381 = load i32, ptr %380, align 4, !tbaa !40
-  %382 = sext i32 %381 to i64
-  br label %383
+.lr.ph.i95:                                       ; preds = %343
+  %348 = load i32, ptr %7, align 4, !tbaa !51
+  %349 = load i32, ptr %8, align 4, !tbaa !51
+  %350 = load ptr, ptr %15, align 8, !tbaa !16
+  %351 = load i32, ptr %346, align 4, !tbaa !40
+  %352 = sext i32 %351 to i64
+  %353 = sext i32 %349 to i64
+  %354 = mul nsw i64 %352, %353
+  %355 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %356 = load i64, ptr %355, align 8, !tbaa !37
+  %357 = mul i64 %354, %356
+  %358 = getelementptr inbounds nuw i8, ptr %350, i64 %357
+  %359 = sext i32 %348 to i64
+  %360 = getelementptr inbounds i8, ptr %358, i64 %359
+  %361 = load ptr, ptr %14, align 8, !tbaa !16
+  %362 = getelementptr inbounds nuw i8, ptr %13, i64 116
+  %363 = load i32, ptr %362, align 4, !tbaa !40
+  %364 = sext i32 %363 to i64
+  br label %365
 
-383:                                              ; preds = %383, %.lr.ph.i95
-  %.019.i96 = phi i32 [ 0, %.lr.ph.i95 ], [ %388, %383 ]
-  %.01518.i97 = phi ptr [ %378, %.lr.ph.i95 ], [ %387, %383 ]
-  %.01617.i98 = phi ptr [ %379, %.lr.ph.i95 ], [ %384, %383 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01518.i97, ptr align 1 %.01617.i98, i64 %382, i1 false)
-  %384 = getelementptr inbounds i8, ptr %.01617.i98, i64 %382
-  %385 = load i32, ptr %364, align 4, !tbaa !40
-  %386 = sext i32 %385 to i64
-  %387 = getelementptr inbounds i8, ptr %.01518.i97, i64 %386
-  %388 = add nuw nsw i32 %.019.i96, 1
-  %exitcond.not.i99 = icmp eq i32 %388, %363
-  br i1 %exitcond.not.i99, label %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100thread-pre-split.loopexit, label %383, !llvm.loop !52
+365:                                              ; preds = %365, %.lr.ph.i95
+  %.019.i96 = phi i32 [ 0, %.lr.ph.i95 ], [ %370, %365 ]
+  %.01518.i97 = phi ptr [ %360, %.lr.ph.i95 ], [ %369, %365 ]
+  %.01617.i98 = phi ptr [ %361, %.lr.ph.i95 ], [ %366, %365 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01518.i97, ptr align 1 %.01617.i98, i64 %364, i1 false)
+  %366 = getelementptr inbounds i8, ptr %.01617.i98, i64 %364
+  %367 = load i32, ptr %346, align 4, !tbaa !40
+  %368 = sext i32 %367 to i64
+  %369 = getelementptr inbounds i8, ptr %.01518.i97, i64 %368
+  %370 = add nuw nsw i32 %.019.i96, 1
+  %exitcond.not.i99 = icmp eq i32 %370, %345
+  br i1 %exitcond.not.i99, label %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100thread-pre-split.loopexit, label %365, !llvm.loop !52
 
-_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100thread-pre-split.loopexit: ; preds = %383
+_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100thread-pre-split.loopexit: ; preds = %365
   %.pr113.pre = load i64, ptr %5, align 8, !tbaa !45
   br label %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100
 
-_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100: ; preds = %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100thread-pre-split.loopexit, %358
-  %389 = phi i64 [ %359, %358 ], [ %.pr113.pre, %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100thread-pre-split.loopexit ]
-  %390 = icmp eq i64 %389, 2
-  br i1 %390, label %391, label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106
+_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100: ; preds = %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100thread-pre-split.loopexit, %340
+  %371 = phi i64 [ %341, %340 ], [ %.pr113.pre, %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100thread-pre-split.loopexit ]
+  %372 = icmp eq i64 %371, 2
+  br i1 %372, label %373, label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106
 
-391:                                              ; preds = %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100
-  %392 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  %393 = load i32, ptr %392, align 8, !tbaa !41
-  %394 = getelementptr inbounds nuw i8, ptr %15, i64 44
-  %395 = icmp sgt i32 %393, 0
-  br i1 %395, label %.lr.ph.i101, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
+373:                                              ; preds = %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100
+  %374 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  %375 = load i32, ptr %374, align 8, !tbaa !41
+  %376 = getelementptr inbounds nuw i8, ptr %15, i64 44
+  %377 = icmp sgt i32 %375, 0
+  br i1 %377, label %.lr.ph.i101, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
 
-.lr.ph.i101:                                      ; preds = %391
-  %396 = load i32, ptr %7, align 4, !tbaa !51
-  %397 = load i32, ptr %8, align 4, !tbaa !51
-  %398 = load ptr, ptr %15, align 8, !tbaa !16
-  %399 = load i32, ptr %394, align 4, !tbaa !40
-  %400 = sext i32 %399 to i64
-  %401 = sext i32 %397 to i64
-  %402 = mul nsw i64 %400, %401
-  %403 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %404 = load i64, ptr %403, align 8, !tbaa !37
-  %405 = mul i64 %402, %404
-  %406 = getelementptr inbounds nuw i8, ptr %398, i64 %405
-  %407 = sext i32 %396 to i64
-  %408 = getelementptr inbounds i16, ptr %406, i64 %407
-  %409 = load ptr, ptr %14, align 8, !tbaa !16
-  %410 = getelementptr inbounds nuw i8, ptr %13, i64 116
-  %411 = load i32, ptr %410, align 4, !tbaa !40
-  %412 = sext i32 %411 to i64
-  %413 = shl nsw i64 %412, 1
-  br label %414
+.lr.ph.i101:                                      ; preds = %373
+  %378 = load i32, ptr %7, align 4, !tbaa !51
+  %379 = load i32, ptr %8, align 4, !tbaa !51
+  %380 = load ptr, ptr %15, align 8, !tbaa !16
+  %381 = load i32, ptr %376, align 4, !tbaa !40
+  %382 = sext i32 %381 to i64
+  %383 = sext i32 %379 to i64
+  %384 = mul nsw i64 %382, %383
+  %385 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %386 = load i64, ptr %385, align 8, !tbaa !37
+  %387 = mul i64 %384, %386
+  %388 = getelementptr inbounds nuw i8, ptr %380, i64 %387
+  %389 = sext i32 %378 to i64
+  %390 = getelementptr inbounds i16, ptr %388, i64 %389
+  %391 = load ptr, ptr %14, align 8, !tbaa !16
+  %392 = getelementptr inbounds nuw i8, ptr %13, i64 116
+  %393 = load i32, ptr %392, align 4, !tbaa !40
+  %394 = sext i32 %393 to i64
+  %395 = shl nsw i64 %394, 1
+  br label %396
 
-414:                                              ; preds = %414, %.lr.ph.i101
-  %.019.i102 = phi i32 [ 0, %.lr.ph.i101 ], [ %419, %414 ]
-  %.01518.i103 = phi ptr [ %408, %.lr.ph.i101 ], [ %418, %414 ]
-  %.01617.i104 = phi ptr [ %409, %.lr.ph.i101 ], [ %415, %414 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.01518.i103, ptr align 2 %.01617.i104, i64 %413, i1 false)
-  %415 = getelementptr inbounds i16, ptr %.01617.i104, i64 %412
-  %416 = load i32, ptr %394, align 4, !tbaa !40
-  %417 = sext i32 %416 to i64
-  %418 = getelementptr inbounds i16, ptr %.01518.i103, i64 %417
-  %419 = add nuw nsw i32 %.019.i102, 1
-  %exitcond.not.i105 = icmp eq i32 %419, %393
-  br i1 %exitcond.not.i105, label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106.loopexit, label %414, !llvm.loop !54
+396:                                              ; preds = %396, %.lr.ph.i101
+  %.019.i102 = phi i32 [ 0, %.lr.ph.i101 ], [ %401, %396 ]
+  %.01518.i103 = phi ptr [ %390, %.lr.ph.i101 ], [ %400, %396 ]
+  %.01617.i104 = phi ptr [ %391, %.lr.ph.i101 ], [ %397, %396 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.01518.i103, ptr align 2 %.01617.i104, i64 %395, i1 false)
+  %397 = getelementptr inbounds i16, ptr %.01617.i104, i64 %394
+  %398 = load i32, ptr %376, align 4, !tbaa !40
+  %399 = sext i32 %398 to i64
+  %400 = getelementptr inbounds i16, ptr %.01518.i103, i64 %399
+  %401 = add nuw nsw i32 %.019.i102, 1
+  %exitcond.not.i105 = icmp eq i32 %401, %375
+  br i1 %exitcond.not.i105, label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106.loopexit, label %396, !llvm.loop !54
 
-_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106.loopexit: ; preds = %414
+_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106.loopexit: ; preds = %396
   %.pre117 = load i64, ptr %5, align 8, !tbaa !45
   br label %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106
 
 _ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106: ; preds = %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106.loopexit, %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100
-  %420 = phi i64 [ %.pre117, %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106.loopexit ], [ %389, %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100 ]
-  %421 = icmp eq i64 %420, 4
-  br i1 %421, label %422, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
+  %402 = phi i64 [ %.pre117, %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106.loopexit ], [ %371, %_ZN4ncnnL13copy_to_imageIaEEvRKNS_3MatERS1_ii.exit100 ]
+  %403 = icmp eq i64 %402, 4
+  br i1 %403, label %404, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
 
-422:                                              ; preds = %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106
-  %423 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  %424 = load i32, ptr %423, align 8, !tbaa !41
-  %425 = getelementptr inbounds nuw i8, ptr %15, i64 44
-  %426 = icmp sgt i32 %424, 0
-  br i1 %426, label %.lr.ph.i107, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
+404:                                              ; preds = %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106
+  %405 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  %406 = load i32, ptr %405, align 8, !tbaa !41
+  %407 = getelementptr inbounds nuw i8, ptr %15, i64 44
+  %408 = icmp sgt i32 %406, 0
+  br i1 %408, label %.lr.ph.i107, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
 
-.lr.ph.i107:                                      ; preds = %422
-  %427 = load i32, ptr %7, align 4, !tbaa !51
-  %428 = load i32, ptr %8, align 4, !tbaa !51
-  %429 = load ptr, ptr %15, align 8, !tbaa !16
-  %430 = load i32, ptr %425, align 4, !tbaa !40
-  %431 = sext i32 %430 to i64
-  %432 = sext i32 %428 to i64
-  %433 = mul nsw i64 %431, %432
-  %434 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %435 = load i64, ptr %434, align 8, !tbaa !37
-  %436 = mul i64 %433, %435
-  %437 = getelementptr inbounds nuw i8, ptr %429, i64 %436
-  %438 = sext i32 %427 to i64
-  %439 = getelementptr inbounds float, ptr %437, i64 %438
-  %440 = load ptr, ptr %14, align 8, !tbaa !16
-  %441 = getelementptr inbounds nuw i8, ptr %13, i64 116
-  %442 = load i32, ptr %441, align 4, !tbaa !40
-  %443 = sext i32 %442 to i64
-  %444 = shl nsw i64 %443, 2
-  br label %445
+.lr.ph.i107:                                      ; preds = %404
+  %409 = load i32, ptr %7, align 4, !tbaa !51
+  %410 = load i32, ptr %8, align 4, !tbaa !51
+  %411 = load ptr, ptr %15, align 8, !tbaa !16
+  %412 = load i32, ptr %407, align 4, !tbaa !40
+  %413 = sext i32 %412 to i64
+  %414 = sext i32 %410 to i64
+  %415 = mul nsw i64 %413, %414
+  %416 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %417 = load i64, ptr %416, align 8, !tbaa !37
+  %418 = mul i64 %415, %417
+  %419 = getelementptr inbounds nuw i8, ptr %411, i64 %418
+  %420 = sext i32 %409 to i64
+  %421 = getelementptr inbounds float, ptr %419, i64 %420
+  %422 = load ptr, ptr %14, align 8, !tbaa !16
+  %423 = getelementptr inbounds nuw i8, ptr %13, i64 116
+  %424 = load i32, ptr %423, align 4, !tbaa !40
+  %425 = sext i32 %424 to i64
+  %426 = shl nsw i64 %425, 2
+  br label %427
 
-445:                                              ; preds = %445, %.lr.ph.i107
-  %.019.i108 = phi i32 [ 0, %.lr.ph.i107 ], [ %450, %445 ]
-  %.01518.i109 = phi ptr [ %439, %.lr.ph.i107 ], [ %449, %445 ]
-  %.01617.i110 = phi ptr [ %440, %.lr.ph.i107 ], [ %446, %445 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.01518.i109, ptr align 4 %.01617.i110, i64 %444, i1 false)
-  %446 = getelementptr inbounds float, ptr %.01617.i110, i64 %443
-  %447 = load i32, ptr %425, align 4, !tbaa !40
-  %448 = sext i32 %447 to i64
-  %449 = getelementptr inbounds float, ptr %.01518.i109, i64 %448
-  %450 = add nuw nsw i32 %.019.i108, 1
-  %exitcond.not.i111 = icmp eq i32 %450, %424
-  br i1 %exitcond.not.i111, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit, label %445, !llvm.loop !55
+427:                                              ; preds = %427, %.lr.ph.i107
+  %.019.i108 = phi i32 [ 0, %.lr.ph.i107 ], [ %432, %427 ]
+  %.01518.i109 = phi ptr [ %421, %.lr.ph.i107 ], [ %431, %427 ]
+  %.01617.i110 = phi ptr [ %422, %.lr.ph.i107 ], [ %428, %427 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.01518.i109, ptr align 4 %.01617.i110, i64 %426, i1 false)
+  %428 = getelementptr inbounds float, ptr %.01617.i110, i64 %425
+  %429 = load i32, ptr %407, align 4, !tbaa !40
+  %430 = sext i32 %429 to i64
+  %431 = getelementptr inbounds float, ptr %.01518.i109, i64 %430
+  %432 = add nuw nsw i32 %.019.i108, 1
+  %exitcond.not.i111 = icmp eq i32 %432, %406
+  br i1 %exitcond.not.i111, label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit, label %427, !llvm.loop !55
 
-451:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit55
-  %452 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %453 = load i32, ptr %452, align 4, !tbaa !56
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %12, i32 %453)
+433:                                              ; preds = %_ZNK4ncnn3Mat5shapeEv.exit
+  %434 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %435 = load i32, ptr %434, align 4, !tbaa !56
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %12, i32 %435)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 6, ptr nonnull @_ZNK4ncnn6CopyTo7forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined, ptr nonnull %14, ptr nonnull %15, ptr nonnull %10, ptr nonnull %5, ptr nonnull %8, ptr nonnull %7)
   br label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
 
-454:                                              ; preds = %_ZN4ncnn3MatD2Ev.exit55
-  %455 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %456 = load i32, ptr %455, align 4, !tbaa !56
-  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %12, i32 %456)
+436:                                              ; preds = %_ZNK4ncnn3Mat5shapeEv.exit
+  %437 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %438 = load i32, ptr %437, align 4, !tbaa !56
+  call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %12, i32 %438)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 7, ptr nonnull @_ZNK4ncnn6CopyTo7forwardERKSt6vectorINS_3MatESaIS2_EERS4_RKNS_6OptionE.omp_outlined.1, ptr nonnull %14, ptr nonnull %15, ptr nonnull %10, ptr nonnull %9, ptr nonnull %5, ptr nonnull %8, ptr nonnull %7)
   br label %_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit
 
-_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %445, %352, %361, %391, %295, %316, %451, %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106, %422, %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit, %338, %_ZN4ncnn3MatD2Ev.exit55, %454
+_ZN4ncnnL13copy_to_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %427, %334, %343, %373, %277, %298, %433, %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit106, %404, %_ZN4ncnnL13copy_to_imageItEEvRKNS_3MatERS1_ii.exit, %320, %_ZNK4ncnn3Mat5shapeEv.exit, %436
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #10

@@ -45765,7 +45765,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yo
 
 ._ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit_crit_edge.i: ; preds = %141
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !126
-  %.pre35.i = load ptr, ptr %38, align 8, !tbaa !126
+  %.pre36.i = load ptr, ptr %38, align 8, !tbaa !126
   br label %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i
 
 142:                                              ; preds = %141
@@ -45776,7 +45776,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yo
   unreachable
 
 _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i: ; preds = %._ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit_crit_edge.i, %139, %125, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit
-  %145 = phi ptr [ %.val11.i, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit ], [ %.val11.i, %125 ], [ %.val11.i, %139 ], [ %.pre35.i, %._ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit_crit_edge.i ]
+  %145 = phi ptr [ %.val11.i, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit ], [ %.val11.i, %125 ], [ %.val11.i, %139 ], [ %.pre36.i, %._ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit_crit_edge.i ]
   %146 = phi ptr [ %.val.i, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit ], [ %.val.i, %125 ], [ %.val.i, %139 ], [ %.pre.i, %._ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit_crit_edge.i ]
   %.0.i.i = phi i32 [ 0, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit ], [ %136, %125 ], [ %136, %139 ], [ %136, %._ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit_crit_edge.i ]
   %147 = icmp eq ptr %146, %145
@@ -45858,7 +45858,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWor
   %183 = getelementptr inbounds nuw i32, ptr %181, i64 %182
   %184 = load i32, ptr %183, align 4, !tbaa !89
   %185 = icmp sgt i32 %184, -1
-  %.val14.pre36.i = load i32, ptr %51, align 4, !tbaa !78
+  %.val14.pre37.i = load i32, ptr %51, align 4, !tbaa !78
   br i1 %185, label %.lr.ph.i.i, label %.loopexit.i
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i
@@ -45870,7 +45870,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWor
   %187 = zext nneg i32 %.021.i.i to i64
   %188 = getelementptr inbounds nuw %"struct.Yosys::hashlib::dict<Yosys::RTLIL::IdString, std::vector<(anonymous namespace)::TechmapWorker::TechmapWireData>>::entry_t", ptr %.val19.i.i, i64 %187
   %189 = load i32, ptr %188, align 4, !tbaa !78
-  %190 = icmp eq i32 %189, %.val14.pre36.i
+  %190 = icmp eq i32 %189, %.val14.pre37.i
   br i1 %190, label %.loopexit32, label %191
 
 191:                                              ; preds = %186
@@ -45880,7 +45880,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWor
   br i1 %194, label %186, label %.loopexit.i, !llvm.loop !798
 
 .loopexit.i:                                      ; preds = %191, %._crit_edge.i.i, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit..loopexit_crit_edge.i
-  %.val14.i = phi i32 [ %.val14.pre36.i, %._crit_edge.i.i ], [ %.val14.pre.i, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit..loopexit_crit_edge.i ], [ %.val14.pre36.i, %191 ]
+  %.val14.i = phi i32 [ %.val14.pre37.i, %._crit_edge.i.i ], [ %.val14.pre.i, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit..loopexit_crit_edge.i ], [ %.val14.pre37.i, %191 ]
   %.1.ph.i = phi i32 [ %.0.i69, %._crit_edge.i.i ], [ %.0.i.i, %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit..loopexit_crit_edge.i ], [ %.0.i69, %191 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #29

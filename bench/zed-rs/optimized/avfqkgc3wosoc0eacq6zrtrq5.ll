@@ -78120,8 +78120,8 @@ common.ret:                                       ; preds = %229, %201, %33
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11), !noalias !20866
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !20870, !noalias !20875
-  %.phi.trans.insert199.i = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %.pre200.i = load ptr, ptr %.phi.trans.insert199.i, align 8, !alias.scope !20870, !noalias !20875
+  %.phi.trans.insert211.i = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %.pre212.i = load ptr, ptr %.phi.trans.insert211.i, align 8, !alias.scope !20870, !noalias !20875
   br label %58
 
 49:                                               ; preds = %44
@@ -78151,7 +78151,7 @@ common.ret:                                       ; preds = %229, %201, %33
   unreachable
 
 58:                                               ; preds = %49, %48
-  %59 = phi ptr [ %.pre200.i, %48 ], [ %53, %49 ]
+  %59 = phi ptr [ %.pre212.i, %48 ], [ %53, %49 ]
   %60 = phi ptr [ %.pre.i, %48 ], [ %51, %49 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10), !noalias !20866
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -78296,8 +78296,8 @@ common.ret:                                       ; preds = %229, %201, %33
   br i1 %107, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he411f73a1dc735fbE.exit.thread.i", label %108
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he411f73a1dc735fbE.exit.thread.i": ; preds = %"_ZN4core3ptr47drop_in_place$LT$ollama..OllamaFunctionCall$GT$17hdfc68316118fee2eE.exit.i", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he411f73a1dc735fbE.exit.i"
-  %storemerge203.i = phi ptr [ %102, %"_ZN4core3ptr47drop_in_place$LT$ollama..OllamaFunctionCall$GT$17hdfc68316118fee2eE.exit.i" ], [ %106, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he411f73a1dc735fbE.exit.i" ]
-  store ptr %storemerge203.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !20907, !noalias !20911
+  %storemerge215.i = phi ptr [ %102, %"_ZN4core3ptr47drop_in_place$LT$ollama..OllamaFunctionCall$GT$17hdfc68316118fee2eE.exit.i" ], [ %106, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he411f73a1dc735fbE.exit.i" ]
+  store ptr %storemerge215.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !20907, !noalias !20911
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h14be9436afc06cfaE.llvm.10229727489265554012"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
           to label %114 unwind label %110, !noalias !20880
 
@@ -78311,7 +78311,7 @@ common.ret:                                       ; preds = %229, %201, %33
 "_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ollama..OllamaToolCall$GT$$GT$17h04810f88c7f98c8aE.exit55.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h24b0e6e6914a9feeE.exit54.thread.i", %110
   %.pn18.i = phi { ptr, i32 } [ %111, %110 ], [ %135, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h24b0e6e6914a9feeE.exit54.thread.i" ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !20866
-  br label %.thread183.i
+  br label %.thread195.i
 
 110:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h24b0e6e6914a9feeE.exit51.i", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he411f73a1dc735fbE.exit.thread.i"
   %111 = landingpad { ptr, i32 }
@@ -78322,7 +78322,7 @@ common.ret:                                       ; preds = %229, %201, %33
   %113 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !20866
-  br label %.thread183.i
+  br label %.thread195.i
 
 114:                                              ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he411f73a1dc735fbE.exit.thread.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !20866
@@ -78353,12 +78353,12 @@ common.ret:                                       ; preds = %229, %201, %33
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.3.0.copyload.i, i64 noundef %67, i64 noundef 1) #45, !noalias !20918
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h24b0e6e6914a9feeE.exit.i"
 
-.thread183.i:                                     ; preds = %153, %145, %112, %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ollama..OllamaToolCall$GT$$GT$17h04810f88c7f98c8aE.exit55.i"
+.thread195.i:                                     ; preds = %153, %145, %112, %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ollama..OllamaToolCall$GT$$GT$17h04810f88c7f98c8aE.exit55.i"
   %.pn23.pn.i = phi { ptr, i32 } [ %113, %112 ], [ %154, %153 ], [ %146, %145 ], [ %.pn18.i, %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$ollama..OllamaToolCall$GT$$GT$17h04810f88c7f98c8aE.exit55.i" ]
   %122 = icmp eq i64 %67, 0
   br i1 %122, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h24b0e6e6914a9feeE.exit47.i", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i46.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i46.i": ; preds = %.thread183.i
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i46.i": ; preds = %.thread195.i
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.3.0.copyload.i, i64 noundef %67, i64 noundef 1) #45, !noalias !20927
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h24b0e6e6914a9feeE.exit47.i"
 
@@ -78472,7 +78472,7 @@ common.ret:                                       ; preds = %229, %201, %33
   %146 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !20866
-  br label %.thread183.i
+  br label %.thread195.i
 
 147:                                              ; preds = %98, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h929d860a526b6da6E.llvm.10229727489265554012.exit.i.i.i", %93
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !20866
@@ -78492,7 +78492,7 @@ common.ret:                                       ; preds = %229, %201, %33
   %154 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9), !noalias !20866
-  br label %.thread183.i
+  br label %.thread195.i
 
 155:                                              ; preds = %89
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9), !noalias !20866
@@ -78599,7 +78599,7 @@ common.ret:                                       ; preds = %229, %201, %33
   call void @__rust_dealloc(ptr noundef nonnull %182, i64 noundef %179, i64 noundef 1) #45, !noalias !21071
   br label %200
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h24b0e6e6914a9feeE.exit47.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i46.i", %.thread183.i
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h24b0e6e6914a9feeE.exit47.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.10229727489265554012.exit.i.i1.i.i46.i", %.thread195.i
   %183 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !21072)
   call void @llvm.experimental.noalias.scope.decl(metadata !21075)

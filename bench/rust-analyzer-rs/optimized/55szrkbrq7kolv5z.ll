@@ -52797,8 +52797,8 @@ define hidden { i64, ptr } @"_ZN7hir_def9item_tree5lower3Ctx17lower_macro_stmts2
           to label %73 unwind label %20
 
 73:                                               ; preds = %69, %72
-  %.sroa.0.240 = phi i64 [ 17, %72 ], [ %71, %69 ]
-  %.sroa.7.238 = phi ptr [ undef, %72 ], [ %70, %69 ]
+  %.sroa.0.241 = phi i64 [ 17, %72 ], [ %71, %69 ]
+  %.sroa.7.239 = phi ptr [ undef, %72 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !15992)
   call void @llvm.experimental.noalias.scope.decl(metadata !15995)
@@ -52821,8 +52821,8 @@ define hidden { i64, ptr } @"_ZN7hir_def9item_tree5lower3Ctx17lower_macro_stmts2
   br label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Stmt$GT$17h76b04f053c3394edE.exit34"
 
 "_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Stmt$GT$17h76b04f053c3394edE.exit34": ; preds = %92, %91, %90, %83, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ExprStmt$GT$17h9eeebf4e4e16f993E.exit29"
-  %.sroa.7.3 = phi ptr [ %94, %92 ], [ %.sroa.7.238, %91 ], [ undef, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ExprStmt$GT$17h9eeebf4e4e16f993E.exit29" ], [ undef, %83 ], [ undef, %90 ]
-  %.sroa.0.3 = phi i64 [ %6, %92 ], [ %.sroa.0.240, %91 ], [ 17, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ExprStmt$GT$17h9eeebf4e4e16f993E.exit29" ], [ 17, %83 ], [ 17, %90 ]
+  %.sroa.7.3 = phi ptr [ %94, %92 ], [ %.sroa.7.239, %91 ], [ undef, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ExprStmt$GT$17h9eeebf4e4e16f993E.exit29" ], [ undef, %83 ], [ undef, %90 ]
+  %.sroa.0.3 = phi i64 [ %6, %92 ], [ %.sroa.0.241, %91 ], [ 17, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ExprStmt$GT$17h9eeebf4e4e16f993E.exit29" ], [ 17, %83 ], [ 17, %90 ]
   %80 = insertvalue { i64, ptr } poison, i64 %.sroa.0.3, 0
   %81 = insertvalue { i64, ptr } %80, ptr %.sroa.7.3, 1
   ret { i64, ptr } %81
@@ -53094,8 +53094,8 @@ define hidden { i32, i32 } @"_ZN7hir_def9item_tree5lower3Ctx11lower_block28_$u7b
           to label %87 unwind label %27
 
 87:                                               ; preds = %85, %86
-  %.sroa.0.241 = phi i32 [ 17, %86 ], [ %65, %85 ]
-  %.sroa.7.239 = phi i32 [ undef, %86 ], [ %66, %85 ]
+  %.sroa.0.242 = phi i32 [ 17, %86 ], [ %65, %85 ]
+  %.sroa.7.240 = phi i32 [ undef, %86 ], [ %66, %85 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !16082)
   call void @llvm.experimental.noalias.scope.decl(metadata !16085)
@@ -53118,8 +53118,8 @@ define hidden { i32, i32 } @"_ZN7hir_def9item_tree5lower3Ctx11lower_block28_$u7b
   br label %"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Stmt$GT$17h76b04f053c3394edE.exit35"
 
 "_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Stmt$GT$17h76b04f053c3394edE.exit35": ; preds = %98, %109, %108, %102, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ExprStmt$GT$17h9eeebf4e4e16f993E.exit30"
-  %.sroa.7.3 = phi i32 [ %99, %98 ], [ %.sroa.7.239, %109 ], [ undef, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ExprStmt$GT$17h9eeebf4e4e16f993E.exit30" ], [ undef, %102 ], [ undef, %108 ]
-  %.sroa.0.3 = phi i32 [ %100, %98 ], [ %.sroa.0.241, %109 ], [ 17, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ExprStmt$GT$17h9eeebf4e4e16f993E.exit30" ], [ 17, %102 ], [ 17, %108 ]
+  %.sroa.7.3 = phi i32 [ %99, %98 ], [ %.sroa.7.240, %109 ], [ undef, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ExprStmt$GT$17h9eeebf4e4e16f993E.exit30" ], [ undef, %102 ], [ undef, %108 ]
+  %.sroa.0.3 = phi i32 [ %100, %98 ], [ %.sroa.0.242, %109 ], [ 17, %"_ZN4core3ptr60drop_in_place$LT$syntax..ast..generated..nodes..ExprStmt$GT$17h9eeebf4e4e16f993E.exit30" ], [ 17, %102 ], [ 17, %108 ]
   %94 = insertvalue { i32, i32 } poison, i32 %.sroa.0.3, 0
   %95 = insertvalue { i32, i32 } %94, i32 %.sroa.7.3, 1
   ret { i32, i32 } %95

@@ -8995,8 +8995,8 @@ define internal fastcc void @_ZN3hir15source_analyzer14SourceAnalyzer11expand_ex
   %15 = icmp eq i32 %14, 5
   br i1 %15, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit125.sink.split", label %24
 
-"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit132": ; preds = %42, %.thread157, %159, %22
-  %.pn98 = phi { ptr, i32 } [ %23, %22 ], [ %43, %42 ], [ %.pn96160, %159 ], [ %.pn96160, %.thread157 ]
+"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit132": ; preds = %42, %.thread159, %159, %22
+  %.pn98 = phi { ptr, i32 } [ %23, %22 ], [ %43, %42 ], [ %.pn96162, %159 ], [ %.pn96162, %.thread159 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1655)
   call void @llvm.experimental.noalias.scope.decl(metadata !1658)
   call void @llvm.experimental.noalias.scope.decl(metadata !1661)
@@ -9060,7 +9060,7 @@ define internal fastcc void @_ZN3hir15source_analyzer14SourceAnalyzer11expand_ex
 44:                                               ; preds = %41, %46
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread157
+  br label %.thread159
 
 46:                                               ; preds = %36
   %47 = extractvalue { i32, i1 } %39, 0
@@ -9103,11 +9103,11 @@ define internal fastcc void @_ZN3hir15source_analyzer14SourceAnalyzer11expand_ex
   %60 = add i32 %59, -1
   store i32 %60, ptr %58, align 4, !noalias !1683
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %.thread157
+  br i1 %61, label %62, label %.thread159
 
 62:                                               ; preds = %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroExpr$GT$17h96b54c4c6a242d3fE.exit"
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %57)
-          to label %.thread157 unwind label %110
+          to label %.thread159 unwind label %110
 
 63:                                               ; preds = %50
   %64 = landingpad { ptr, i32 }
@@ -9240,11 +9240,11 @@ define internal fastcc void @_ZN3hir15source_analyzer14SourceAnalyzer11expand_ex
   %107 = add i32 %106, -1
   store i32 %107, ptr %105, align 4, !noalias !1735
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %109, label %.thread171
+  br i1 %108, label %109, label %.thread173
 
 109:                                              ; preds = %103
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %104)
-          to label %.thread171 unwind label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..MacroStmts$GT$17hbc7373a9abaca71cE.exit"
+          to label %.thread173 unwind label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..MacroStmts$GT$17hbc7373a9abaca71cE.exit"
 
 110:                                              ; preds = %159, %78, %62, %21
   %111 = landingpad { ptr, i32 }
@@ -9267,22 +9267,22 @@ define internal fastcc void @_ZN3hir15source_analyzer14SourceAnalyzer11expand_ex
   %116 = add i32 %115, -1
   store i32 %116, ptr %114, align 4, !noalias !1748
   %117 = icmp eq i32 %116, 0
-  br i1 %117, label %118, label %.thread167
+  br i1 %117, label %118, label %.thread169
 
 118:                                              ; preds = %112
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %113)
-          to label %.thread167 unwind label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..MacroStmts$GT$17hbc7373a9abaca71cE.exit"
+          to label %.thread169 unwind label %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..MacroStmts$GT$17hbc7373a9abaca71cE.exit"
 
 "_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..MacroStmts$GT$17hbc7373a9abaca71cE.exit": ; preds = %120, %56, %109, %118
   %119 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread157
+  br label %.thread159
 
-.thread167:                                       ; preds = %118, %112
+.thread169:                                       ; preds = %118, %112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %141
 
-.thread171:                                       ; preds = %109, %103
+.thread173:                                       ; preds = %109, %103
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   br label %146
 
@@ -9299,12 +9299,12 @@ define internal fastcc void @_ZN3hir15source_analyzer14SourceAnalyzer11expand_ex
 124:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   invoke fastcc void @_ZN3hir15source_analyzer14SourceAnalyzer11expand_expr17h782374b5c1030555E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef readonly align 8 dereferenceable(80) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, ptr noundef nonnull %122, i32 noundef %31)
-          to label %128 unwind label %.thread165
+          to label %128 unwind label %.thread167
 
-.thread165:                                       ; preds = %124
+.thread167:                                       ; preds = %124
   %125 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread157
+  br label %.thread159
 
 126:                                              ; preds = %123
   %127 = invoke { i64, ptr } @"_ZN76_$LT$syntax..ast..generated..nodes..Expr$u20$as$u20$syntax..ast..AstNode$GT$4cast17ha4c36d51cf8452bbE"(ptr noundef nonnull %35)
@@ -9313,9 +9313,9 @@ define internal fastcc void @_ZN3hir15source_analyzer14SourceAnalyzer11expand_ex
 128:                                              ; preds = %124
   %129 = load i64, ptr %7, align 8, !range !1648, !noundef !4
   %130 = icmp eq i64 %129, 36
-  br i1 %130, label %.thread173, label %.thread169
+  br i1 %130, label %.thread175, label %.thread171
 
-.thread169:                                       ; preds = %128
+.thread171:                                       ; preds = %128
   %.sroa.473.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.473.sroa.0.0.copyload = load ptr, ptr %.sroa.473.0..sroa_idx, align 8
   %.sroa.473.sroa.5.0..sroa.473.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -9325,7 +9325,7 @@ define internal fastcc void @_ZN3hir15source_analyzer14SourceAnalyzer11expand_ex
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %141
 
-.thread173:                                       ; preds = %128
+.thread175:                                       ; preds = %128
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   store i64 36, ptr %0, align 8
   br label %146
@@ -9358,18 +9358,18 @@ define internal fastcc void @_ZN3hir15source_analyzer14SourceAnalyzer11expand_ex
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..MacroCall$GT$$GT$17hb854338f674a456aE.exit118.sink.split", label %"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..MacroCall$GT$$GT$17hb854338f674a456aE.exit118"
 
-141:                                              ; preds = %.thread169, %.thread167
-  %.sink = phi i64 [ %129, %.thread169 ], [ %.sroa.0.0, %.thread167 ]
-  %.sroa.473.sroa.0.0.copyload.sink = phi ptr [ %.sroa.473.sroa.0.0.copyload, %.thread169 ], [ %.sroa.14.0, %.thread167 ]
-  %.sroa.473.sroa.5.0.copyload.sink = phi i32 [ %.sroa.473.sroa.5.0.copyload, %.thread169 ], [ %.sroa.18.0, %.thread167 ]
-  %.sroa.473.sroa.6.0.copyload.sink = phi i32 [ %.sroa.473.sroa.6.0.copyload, %.thread169 ], [ %.sroa.20.0, %.thread167 ]
+141:                                              ; preds = %.thread171, %.thread169
+  %.sink = phi i64 [ %129, %.thread171 ], [ %.sroa.0.0, %.thread169 ]
+  %.sroa.473.sroa.0.0.copyload.sink = phi ptr [ %.sroa.473.sroa.0.0.copyload, %.thread171 ], [ %.sroa.14.0, %.thread169 ]
+  %.sroa.473.sroa.5.0.copyload.sink = phi i32 [ %.sroa.473.sroa.5.0.copyload, %.thread171 ], [ %.sroa.18.0, %.thread169 ]
+  %.sroa.473.sroa.6.0.copyload.sink = phi i32 [ %.sroa.473.sroa.6.0.copyload, %.thread171 ], [ %.sroa.20.0, %.thread169 ]
   store i64 %.sink, ptr %0, align 8
-  %.sroa.12.0..sroa_idx198 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.473.sroa.0.0.copyload.sink, ptr %.sroa.12.0..sroa_idx198, align 8
-  %.sroa.15.0..sroa_idx202 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.473.sroa.5.0.copyload.sink, ptr %.sroa.15.0..sroa_idx202, align 8
-  %.sroa.18204.0..sroa_idx207 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.473.sroa.6.0.copyload.sink, ptr %.sroa.18204.0..sroa_idx207, align 4
+  %.sroa.12.0..sroa_idx200 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.473.sroa.0.0.copyload.sink, ptr %.sroa.12.0..sroa_idx200, align 8
+  %.sroa.15.0..sroa_idx204 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sroa.473.sroa.5.0.copyload.sink, ptr %.sroa.15.0..sroa_idx204, align 8
+  %.sroa.18206.0..sroa_idx209 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.sroa.473.sroa.6.0.copyload.sink, ptr %.sroa.18206.0..sroa_idx209, align 4
   %142 = load i32, ptr %37, align 4, !noalias !1765, !noundef !4
   %143 = add i32 %142, -1
   store i32 %143, ptr %37, align 4, !noalias !1765
@@ -9381,14 +9381,14 @@ define internal fastcc void @_ZN3hir15source_analyzer14SourceAnalyzer11expand_ex
           to label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit" unwind label %22
 
 "_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..MacroCall$GT$$GT$17hb854338f674a456aE.exit118.sink.split": ; preds = %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit", %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit125"
-  %.sink209 = phi ptr [ %151, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit125" ], [ %136, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit" ]
-  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sink209), !noalias !4
+  %.sink211 = phi ptr [ %151, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit125" ], [ %136, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit" ]
+  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sink211), !noalias !4
   br label %"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..MacroCall$GT$$GT$17hb854338f674a456aE.exit118"
 
 "_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..MacroCall$GT$$GT$17hb854338f674a456aE.exit118": ; preds = %"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..MacroCall$GT$$GT$17hb854338f674a456aE.exit118.sink.split", %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit125", %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit"
   ret void
 
-146:                                              ; preds = %.thread173, %.thread171
+146:                                              ; preds = %.thread175, %.thread173
   %147 = load i32, ptr %37, align 4, !noalias !1772, !noundef !4
   %148 = add i32 %147, -1
   store i32 %148, ptr %37, align 4, !noalias !1772
@@ -9417,15 +9417,15 @@ define internal fastcc void @_ZN3hir15source_analyzer14SourceAnalyzer11expand_ex
   %155 = icmp eq i32 %154, 0
   br i1 %155, label %"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..MacroCall$GT$$GT$17hb854338f674a456aE.exit118.sink.split", label %"_ZN4core3ptr119drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$syntax..ast..generated..nodes..MacroCall$GT$$GT$17hb854338f674a456aE.exit118"
 
-.thread157:                                       ; preds = %62, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroExpr$GT$17h96b54c4c6a242d3fE.exit", %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..MacroStmts$GT$17hbc7373a9abaca71cE.exit", %44, %.thread165
-  %.pn96160 = phi { ptr, i32 } [ %125, %.thread165 ], [ %119, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..MacroStmts$GT$17hbc7373a9abaca71cE.exit" ], [ %45, %44 ], [ %.pn92, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroExpr$GT$17h96b54c4c6a242d3fE.exit" ], [ %.pn92, %62 ]
+.thread159:                                       ; preds = %62, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroExpr$GT$17h96b54c4c6a242d3fE.exit", %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..MacroStmts$GT$17hbc7373a9abaca71cE.exit", %44, %.thread167
+  %.pn96162 = phi { ptr, i32 } [ %125, %.thread167 ], [ %119, %"_ZN4core3ptr62drop_in_place$LT$syntax..ast..generated..nodes..MacroStmts$GT$17hbc7373a9abaca71cE.exit" ], [ %45, %44 ], [ %.pn92, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..MacroExpr$GT$17h96b54c4c6a242d3fE.exit" ], [ %.pn92, %62 ]
   %156 = load i32, ptr %37, align 4, !noalias !1795, !noundef !4
   %157 = add i32 %156, -1
   store i32 %157, ptr %37, align 4, !noalias !1795
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit132"
 
-159:                                              ; preds = %.thread157
+159:                                              ; preds = %.thread159
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %35)
           to label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit132" unwind label %110
 

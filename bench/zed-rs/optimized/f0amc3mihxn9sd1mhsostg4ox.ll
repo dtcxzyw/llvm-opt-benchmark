@@ -47326,7 +47326,7 @@ default.unreachable163:                           ; preds = %3
   unreachable
 
 19:                                               ; preds = %20, %"_ZN4core3ptr31drop_in_place$LT$rope..Rope$GT$17h93cdffed07cfc2aaE.exit"
-  %.sroa.03.0 = phi i64 [ %.sroa.03.0.copyload5, %"_ZN4core3ptr31drop_in_place$LT$rope..Rope$GT$17h93cdffed07cfc2aaE.exit" ], [ -9223372036854775808, %20 ]
+  %.sroa.03.0 = phi i64 [ %76, %"_ZN4core3ptr31drop_in_place$LT$rope..Rope$GT$17h93cdffed07cfc2aaE.exit" ], [ -9223372036854775808, %20 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
   store i64 %.sroa.03.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -47619,7 +47619,6 @@ default.unreachable163:                           ; preds = %3
 
 "_ZN4core3ptr31drop_in_place$LT$rope..Rope$GT$17h93cdffed07cfc2aaE.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h277225ce81fea57bE.exit77", %95
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %.sroa.03.0.copyload5 = load i64, ptr %16, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.01.sroa.7.0..sroa_idx, i64 56, i1 false)
   br label %19
 

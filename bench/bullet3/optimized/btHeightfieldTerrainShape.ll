@@ -3499,7 +3499,7 @@ define linkonce_odr dso_local void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_R
   store float %sqrt.i.i, ptr %22, align 4, !tbaa !83
   %23 = fpext float %sqrt.i.i to double
   %24 = fcmp olt double %23, 1.000000e-04
-  br i1 %24, label %120, label %25
+  br i1 %24, label %121, label %25
 
 25:                                               ; preds = %4
   %26 = load i32, ptr %3, align 4, !tbaa !54
@@ -3602,73 +3602,73 @@ define linkonce_odr dso_local void @_Z11gridRaycastI20ProcessVBoundsActionEvRT_R
   br label %92
 
 92:                                               ; preds = %88, %90, %81
-  %.promoted = phi i32 [ %91, %90 ], [ %83, %88 ], [ %83, %81 ]
+  %93 = phi i32 [ %91, %90 ], [ %83, %88 ], [ %83, %81 ]
   %.172 = phi float [ %89, %90 ], [ %89, %88 ], [ %.071, %81 ]
-  %93 = fcmp oeq float %.0, 0.000000e+00
-  br i1 %93, label %94, label %98
+  %94 = fcmp oeq float %.0, 0.000000e+00
+  br i1 %94, label %95, label %99
 
-94:                                               ; preds = %92
-  %95 = fadd float %61, %.0
-  br i1 %53, label %96, label %98
+95:                                               ; preds = %92
+  %96 = fadd float %61, %.0
+  br i1 %53, label %97, label %99
 
-96:                                               ; preds = %94
-  %97 = add nsw i32 %85, -1
-  store i32 %97, ptr %86, align 4, !tbaa !87
-  br label %98
+97:                                               ; preds = %95
+  %98 = add nsw i32 %85, -1
+  store i32 %98, ptr %86, align 4, !tbaa !87
+  br label %99
 
-98:                                               ; preds = %94, %96, %92
-  %.promoted79 = phi i32 [ %97, %96 ], [ %85, %94 ], [ %85, %92 ]
-  %.1 = phi float [ %95, %96 ], [ %95, %94 ], [ %.0, %92 ]
-  %99 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %100 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %101 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %102 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  br label %103
+99:                                               ; preds = %95, %97, %92
+  %100 = phi i32 [ %98, %97 ], [ %85, %95 ], [ %85, %92 ]
+  %.1 = phi float [ %96, %97 ], [ %96, %95 ], [ %.0, %92 ]
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  br label %105
 
-103:                                              ; preds = %119, %98
-  %104 = phi float [ 0.000000e+00, %98 ], [ %.2.sink, %119 ]
-  %105 = phi i32 [ %.promoted79, %98 ], [ %115, %119 ]
-  %106 = phi i32 [ %.promoted, %98 ], [ %116, %119 ]
-  %.273 = phi float [ %.172, %98 ], [ %.374, %119 ]
-  %.2 = phi float [ %.1, %98 ], [ %.3, %119 ]
-  store i32 %106, ptr %99, align 4, !tbaa !88
-  store i32 %105, ptr %100, align 4, !tbaa !89
-  store float %104, ptr %102, align 4, !tbaa !90
-  %107 = fcmp olt float %.273, %.2
-  br i1 %107, label %108, label %111
+105:                                              ; preds = %120, %99
+  %.280 = phi float [ 0.000000e+00, %99 ], [ %.2.sink, %120 ]
+  %106 = phi i32 [ %100, %99 ], [ %116, %120 ]
+  %107 = phi i32 [ %93, %99 ], [ %117, %120 ]
+  %.273 = phi float [ %.172, %99 ], [ %.374, %120 ]
+  %.2 = phi float [ %.1, %99 ], [ %.3, %120 ]
+  store i32 %107, ptr %101, align 4, !tbaa !88
+  store i32 %106, ptr %102, align 4, !tbaa !89
+  store float %.280, ptr %104, align 4, !tbaa !90
+  %108 = fcmp olt float %.273, %.2
+  br i1 %108, label %109, label %112
 
-108:                                              ; preds = %103
-  %109 = add nsw i32 %106, %51
-  store i32 %109, ptr %5, align 4, !tbaa !86
-  %110 = fadd float %58, %.273
-  br label %114
+109:                                              ; preds = %105
+  %110 = add nsw i32 %107, %51
+  store i32 %110, ptr %5, align 4, !tbaa !86
+  %111 = fadd float %58, %.273
+  br label %115
 
-111:                                              ; preds = %103
-  %112 = add nsw i32 %105, %55
-  store i32 %112, ptr %86, align 4, !tbaa !87
-  %113 = fadd float %61, %.2
-  br label %114
+112:                                              ; preds = %105
+  %113 = add nsw i32 %106, %55
+  store i32 %113, ptr %86, align 4, !tbaa !87
+  %114 = fadd float %61, %.2
+  br label %115
 
-114:                                              ; preds = %111, %108
-  %.2.sink = phi float [ %.273, %108 ], [ %.2, %111 ]
-  %115 = phi i32 [ %105, %108 ], [ %112, %111 ]
-  %116 = phi i32 [ %109, %108 ], [ %106, %111 ]
-  %.374 = phi float [ %110, %108 ], [ %.273, %111 ]
-  %.3 = phi float [ %.2, %108 ], [ %113, %111 ]
-  store float %.2.sink, ptr %101, align 4, !tbaa !91
-  %117 = fcmp ogt float %.2.sink, %sqrt
-  br i1 %117, label %118, label %119
+115:                                              ; preds = %112, %109
+  %.2.sink = phi float [ %.273, %109 ], [ %.2, %112 ]
+  %116 = phi i32 [ %106, %109 ], [ %113, %112 ]
+  %117 = phi i32 [ %110, %109 ], [ %107, %112 ]
+  %.374 = phi float [ %111, %109 ], [ %.273, %112 ]
+  %.3 = phi float [ %.2, %109 ], [ %114, %112 ]
+  store float %.2.sink, ptr %103, align 4, !tbaa !91
+  %118 = fcmp ogt float %.2.sink, %sqrt
+  br i1 %118, label %119, label %120
 
-118:                                              ; preds = %114
-  store float %sqrt, ptr %101, align 4, !tbaa !91
+119:                                              ; preds = %115
+  store float %sqrt, ptr %103, align 4, !tbaa !91
   call fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116GridRaycastStateE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 4 dereferenceable(32) %5)
-  br label %120
+  br label %121
 
-119:                                              ; preds = %114
+120:                                              ; preds = %115
   call fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116GridRaycastStateE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 4 dereferenceable(32) %5)
-  br label %103, !llvm.loop !92
+  br label %105, !llvm.loop !92
 
-120:                                              ; preds = %4, %118
+121:                                              ; preds = %4, %119
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #18
   ret void
 }

@@ -10692,7 +10692,7 @@ define internal void @_ZN4ncnnL25conv3x3s1_winograd23_int8ERKNS_3MatERS0_S2_iRKN
   %indvars.iv641.i.sroa.gep = getelementptr inbounds nuw i8, ptr %16, i64 32
   %indvars.iv626.i.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 64
   %indvars.iv612.i.sroa.gep = getelementptr inbounds nuw i8, ptr %14, i64 128
-  br i1 %25, label %26, label %617
+  br i1 %25, label %26, label %619
 
 26:                                               ; preds = %13
   %27 = add nsw i32 %24, -1
@@ -10760,7 +10760,7 @@ define internal void @_ZN4ncnnL25conv3x3s1_winograd23_int8ERKNS_3MatERS0_S2_iRKN
   %72 = load i32, ptr %3, align 4, !tbaa !4
   %73 = mul nsw i32 %72, %.0148
   %74 = invoke noundef i32 @_ZN4ncnn18get_omp_thread_numEv()
-          to label %.noexc46 unwind label %618
+          to label %.noexc46 unwind label %620
 
 .noexc46:                                         ; preds = %71
   %75 = load ptr, ptr %4, align 8, !tbaa !25, !noalias !375
@@ -10795,9 +10795,9 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
   br i1 %.not.not, label %71, label %._crit_edge151
 
 95:                                               ; preds = %.lr.ph, %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit
-  %96 = phi i32 [ %.pre, %.lr.ph ], [ %613, %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
-  %97 = phi i32 [ %85, %.lr.ph ], [ %615, %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
-  %.044146 = phi i32 [ 0, %.lr.ph ], [ %614, %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
+  %96 = phi i32 [ %.pre, %.lr.ph ], [ %615, %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
+  %97 = phi i32 [ %85, %.lr.ph ], [ %617, %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
+  %.044146 = phi i32 [ 0, %.lr.ph ], [ %616, %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
   %98 = sub nsw i32 %97, %.044146
   %.sroa.speculated112 = call i32 @llvm.smin.i32(i32 %96, i32 %98)
   %99 = load i32, ptr %8, align 4, !tbaa !4
@@ -10806,9 +10806,9 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
 
 .noexc52.preheader:                               ; preds = %95
   %.pre154 = load i32, ptr %9, align 4, !tbaa !4
-  br label %_ZN4ncnn3MatD2Ev.exit48
+  br label %.noexc52
 
-._crit_edge:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit48, %95
+._crit_edge:                                      ; preds = %.noexc52, %95
   %101 = load i32, ptr %66, align 4, !tbaa !8
   %102 = load i32, ptr %67, align 8, !tbaa !17
   %103 = load i32, ptr %68, align 8, !tbaa !14
@@ -11642,10 +11642,10 @@ _ZN4ncnn3MatD2Ev.exit.split.us.us.i:              ; preds = %_ZN4ncnn3MatD2Ev.ex
   %exitcond671.not.i = icmp eq i64 %indvars.iv.next668.i, %91
   br i1 %exitcond671.not.i, label %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit, label %.lr.ph.us598.i, !llvm.loop !405
 
-_ZN4ncnn3MatD2Ev.exit48:                          ; preds = %_ZN4ncnn3MatD2Ev.exit48, %.noexc52.preheader
-  %566 = phi i32 [ %.pre159, %_ZN4ncnn3MatD2Ev.exit48 ], [ %.pre154, %.noexc52.preheader ]
-  %567 = phi i32 [ %.pre160, %_ZN4ncnn3MatD2Ev.exit48 ], [ %99, %.noexc52.preheader ]
-  %.045145 = phi i32 [ %611, %_ZN4ncnn3MatD2Ev.exit48 ], [ 0, %.noexc52.preheader ]
+.noexc52:                                         ; preds = %.noexc52.preheader, %.noexc52
+  %566 = phi i32 [ %611, %.noexc52 ], [ %.pre154, %.noexc52.preheader ]
+  %567 = phi i32 [ %613, %.noexc52 ], [ %99, %.noexc52.preheader ]
+  %.045145 = phi i32 [ %612, %.noexc52 ], [ 0, %.noexc52.preheader ]
   %568 = sub nsw i32 %567, %.045145
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %566, i32 %568)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %22) #3
@@ -11716,19 +11716,19 @@ _ZN4ncnn3MatD2Ev.exit48:                          ; preds = %_ZN4ncnn3MatD2Ev.ex
   %610 = icmp sge i32 %609, %567
   call fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_iiiiib(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull align 8 dereferenceable(72) %23, ptr %81, i32 noundef 16, i32 noundef %.sroa.speculated116, i32 noundef %.sroa.speculated112, i32 noundef %.045145, i32 noundef %.sroa.speculated, i1 noundef zeroext %610)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %23) #3
-  %.pre160 = load i32, ptr %8, align 4, !tbaa !4
-  %.pre159 = load i32, ptr %9, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %22) #3
-  %611 = add nsw i32 %.pre159, %.045145
-  %612 = icmp slt i32 %611, %.pre160
-  br i1 %612, label %_ZN4ncnn3MatD2Ev.exit48, label %._crit_edge, !llvm.loop !412
+  %611 = load i32, ptr %9, align 4, !tbaa !4
+  %612 = add nsw i32 %611, %.045145
+  %613 = load i32, ptr %8, align 4, !tbaa !4
+  %614 = icmp slt i32 %612, %613
+  br i1 %614, label %.noexc52, label %._crit_edge, !llvm.loop !412
 
 _ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit: ; preds = %._crit_edge.us600.i, %.lr.ph589.i, %.preheader.i
-  %613 = load i32, ptr %7, align 4, !tbaa !4
-  %614 = add nsw i32 %613, %.044146
-  %615 = load i32, ptr %6, align 4, !tbaa !4
-  %616 = icmp slt i32 %614, %615
-  br i1 %616, label %95, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !413
+  %615 = load i32, ptr %7, align 4, !tbaa !4
+  %616 = add nsw i32 %615, %.044146
+  %617 = load i32, ptr %6, align 4, !tbaa !4
+  %618 = icmp slt i32 %616, %617
+  br i1 %618, label %95, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !413
 
 ._crit_edge151:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit, %26
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %28)
@@ -11736,16 +11736,16 @@ _ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.ex
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #3
-  br label %617
+  br label %619
 
-617:                                              ; preds = %._crit_edge151, %13
+619:                                              ; preds = %._crit_edge151, %13
   ret void
 
-618:                                              ; preds = %71
-  %619 = landingpad { ptr, i32 }
+620:                                              ; preds = %71
+  %621 = landingpad { ptr, i32 }
           catch ptr null
-  %620 = extractvalue { ptr, i32 } %619, 0
-  call void @__clang_call_terminate(ptr %620) #24
+  %622 = extractvalue { ptr, i32 } %621, 0
+  call void @__clang_call_terminate(ptr %622) #24
   unreachable
 }
 
@@ -16767,7 +16767,7 @@ define internal void @_ZN4ncnnL25conv3x3s1_winograd43_int8ERKNS_3MatERS0_S2_iRKN
   %23 = alloca %"class.ncnn::Mat", align 8
   %24 = load i32, ptr %2, align 4, !tbaa !4
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %26, label %1031
+  br i1 %25, label %26, label %1033
 
 26:                                               ; preds = %13
   %27 = add nsw i32 %24, -1
@@ -16867,7 +16867,7 @@ define internal void @_ZN4ncnnL25conv3x3s1_winograd43_int8ERKNS_3MatERS0_S2_iRKN
   %104 = load i32, ptr %3, align 4, !tbaa !4
   %105 = mul nsw i32 %104, %.0154
   %106 = invoke noundef i32 @_ZN4ncnn18get_omp_thread_numEv()
-          to label %.noexc46 unwind label %1032
+          to label %.noexc46 unwind label %1034
 
 .noexc46:                                         ; preds = %103
   %107 = load ptr, ptr %4, align 8, !tbaa !25, !noalias !511
@@ -16902,9 +16902,9 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
   br i1 %.not.not, label %103, label %._crit_edge157
 
 127:                                              ; preds = %.lr.ph, %_ZN4ncnnL47conv3x3s1_winograd43_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit
-  %128 = phi i32 [ %.pre, %.lr.ph ], [ %1027, %_ZN4ncnnL47conv3x3s1_winograd43_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
-  %129 = phi i32 [ %117, %.lr.ph ], [ %1029, %_ZN4ncnnL47conv3x3s1_winograd43_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
-  %.044152 = phi i32 [ 0, %.lr.ph ], [ %1028, %_ZN4ncnnL47conv3x3s1_winograd43_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
+  %128 = phi i32 [ %.pre, %.lr.ph ], [ %1029, %_ZN4ncnnL47conv3x3s1_winograd43_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
+  %129 = phi i32 [ %117, %.lr.ph ], [ %1031, %_ZN4ncnnL47conv3x3s1_winograd43_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
+  %.044152 = phi i32 [ 0, %.lr.ph ], [ %1030, %_ZN4ncnnL47conv3x3s1_winograd43_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
   %130 = sub nsw i32 %129, %.044152
   %.sroa.speculated113 = call i32 @llvm.smin.i32(i32 %128, i32 %130)
   %131 = load i32, ptr %8, align 4, !tbaa !4
@@ -16913,9 +16913,9 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
 
 .noexc52.preheader:                               ; preds = %127
   %.pre181 = load i32, ptr %9, align 4, !tbaa !4
-  br label %_ZN4ncnn3MatD2Ev.exit48
+  br label %.noexc52
 
-._crit_edge:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit48, %127
+._crit_edge:                                      ; preds = %.noexc52, %127
   %133 = load i32, ptr %66, align 4, !tbaa !8
   %134 = load i32, ptr %67, align 8, !tbaa !17
   %135 = load i32, ptr %68, align 8, !tbaa !14
@@ -18266,10 +18266,10 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
   %exitcond354.not.i = icmp eq i64 %indvars.iv.next351.i, %123
   br i1 %exitcond354.not.i, label %_ZN4ncnnL47conv3x3s1_winograd43_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit, label %.lr.ph.us233.i, !llvm.loop !541
 
-_ZN4ncnn3MatD2Ev.exit48:                          ; preds = %_ZN4ncnn3MatD2Ev.exit48, %.noexc52.preheader
-  %980 = phi i32 [ %.pre186, %_ZN4ncnn3MatD2Ev.exit48 ], [ %.pre181, %.noexc52.preheader ]
-  %981 = phi i32 [ %.pre187, %_ZN4ncnn3MatD2Ev.exit48 ], [ %131, %.noexc52.preheader ]
-  %.045151 = phi i32 [ %1025, %_ZN4ncnn3MatD2Ev.exit48 ], [ 0, %.noexc52.preheader ]
+.noexc52:                                         ; preds = %.noexc52.preheader, %.noexc52
+  %980 = phi i32 [ %1025, %.noexc52 ], [ %.pre181, %.noexc52.preheader ]
+  %981 = phi i32 [ %1027, %.noexc52 ], [ %131, %.noexc52.preheader ]
+  %.045151 = phi i32 [ %1026, %.noexc52 ], [ 0, %.noexc52.preheader ]
   %982 = sub nsw i32 %981, %.045151
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %980, i32 %982)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %22) #3
@@ -18340,19 +18340,19 @@ _ZN4ncnn3MatD2Ev.exit48:                          ; preds = %_ZN4ncnn3MatD2Ev.ex
   %1024 = icmp sge i32 %1023, %981
   call fastcc void @_ZN4ncnnL28gemm_transB_packed_tile_int8ERKNS_3MatES2_RS0_iiiiib(ptr noundef nonnull align 8 dereferenceable(72) %22, ptr noundef nonnull align 8 dereferenceable(72) %23, ptr %113, i32 noundef 36, i32 noundef %.sroa.speculated117, i32 noundef %.sroa.speculated113, i32 noundef %.045151, i32 noundef %.sroa.speculated, i1 noundef zeroext %1024)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %23) #3
-  %.pre187 = load i32, ptr %8, align 4, !tbaa !4
-  %.pre186 = load i32, ptr %9, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %22) #3
-  %1025 = add nsw i32 %.pre186, %.045151
-  %1026 = icmp slt i32 %1025, %.pre187
-  br i1 %1026, label %_ZN4ncnn3MatD2Ev.exit48, label %._crit_edge, !llvm.loop !548
+  %1025 = load i32, ptr %9, align 4, !tbaa !4
+  %1026 = add nsw i32 %1025, %.045151
+  %1027 = load i32, ptr %8, align 4, !tbaa !4
+  %1028 = icmp slt i32 %1026, %1027
+  br i1 %1028, label %.noexc52, label %._crit_edge, !llvm.loop !548
 
 _ZN4ncnnL47conv3x3s1_winograd43_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit: ; preds = %._crit_edge.us235.i, %.lr.ph230.i, %.preheader78.i
-  %1027 = load i32, ptr %7, align 4, !tbaa !4
-  %1028 = add nsw i32 %1027, %.044152
-  %1029 = load i32, ptr %6, align 4, !tbaa !4
-  %1030 = icmp slt i32 %1028, %1029
-  br i1 %1030, label %127, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !549
+  %1029 = load i32, ptr %7, align 4, !tbaa !4
+  %1030 = add nsw i32 %1029, %.044152
+  %1031 = load i32, ptr %6, align 4, !tbaa !4
+  %1032 = icmp slt i32 %1030, %1031
+  br i1 %1032, label %127, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !549
 
 ._crit_edge157:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit, %26
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %28)
@@ -18360,16 +18360,16 @@ _ZN4ncnnL47conv3x3s1_winograd43_transform_output_tile_int8ERKNS_3MatERS0_iiii.ex
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #3
-  br label %1031
+  br label %1033
 
-1031:                                             ; preds = %._crit_edge157, %13
+1033:                                             ; preds = %._crit_edge157, %13
   ret void
 
-1032:                                             ; preds = %103
-  %1033 = landingpad { ptr, i32 }
+1034:                                             ; preds = %103
+  %1035 = landingpad { ptr, i32 }
           catch ptr null
-  %1034 = extractvalue { ptr, i32 } %1033, 0
-  call void @__clang_call_terminate(ptr %1034) #24
+  %1036 = extractvalue { ptr, i32 } %1035, 0
+  call void @__clang_call_terminate(ptr %1036) #24
   unreachable
 }
 

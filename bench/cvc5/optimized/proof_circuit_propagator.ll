@@ -2518,8 +2518,8 @@ define hidden void @_ZN4cvc58internal6theory8booleans22ProofCircuitPropagator13m
   br label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
 
 _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %14, %5
-  %31 = phi ptr [ %24, %14 ], [ null, %5 ]
-  %32 = phi ptr [ %22, %14 ], [ null, %5 ]
+  %31 = phi ptr [ null, %5 ], [ %24, %14 ]
+  %32 = phi ptr [ null, %5 ], [ %22, %14 ]
   invoke void @_ZN4cvc58internal6theory8booleans22ProofCircuitPropagator13mkCResolutionERKSt10shared_ptrINS0_9ProofNodeEERKSt6vectorINS0_12NodeTemplateILb1EEESaISB_EERKS9_IbSaIbEE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %33 unwind label %41
 

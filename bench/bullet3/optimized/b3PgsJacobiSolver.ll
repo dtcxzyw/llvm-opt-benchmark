@@ -4206,16 +4206,16 @@ _ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit141: ; preds = %_ZNK12b3S
   br label %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit
 
 _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit:   ; preds = %186, %199
-  %212 = phi float [ %197, %186 ], [ %210, %199 ]
-  %213 = phi float [ %194, %186 ], [ %209, %199 ]
-  %214 = phi float [ %193, %186 ], [ 0.000000e+00, %199 ]
-  %215 = phi float [ %192, %186 ], [ %207, %199 ]
-  %216 = phi float [ 0.000000e+00, %186 ], [ %206, %199 ]
+  %212 = phi float [ %193, %186 ], [ 0.000000e+00, %199 ]
+  %213 = phi float [ %192, %186 ], [ %207, %199 ]
+  %214 = phi float [ 0.000000e+00, %186 ], [ %206, %199 ]
+  %215 = phi float [ %197, %186 ], [ %210, %199 ]
+  %216 = phi float [ %194, %186 ], [ %209, %199 ]
   %.sink.i = phi float [ %198, %186 ], [ %211, %199 ]
   store float %.sink.i, ptr %82, align 8, !tbaa !112
-  %217 = fmul float %215, %215
-  %218 = call float @llvm.fmuladd.f32(float %216, float %216, float %217)
-  %219 = call noundef float @llvm.fmuladd.f32(float %214, float %214, float %218)
+  %217 = fmul float %213, %213
+  %218 = call float @llvm.fmuladd.f32(float %214, float %214, float %217)
+  %219 = call noundef float @llvm.fmuladd.f32(float %212, float %212, float %218)
   %sqrt.i144 = call noundef float @llvm.sqrt.f32(float %219)
   %220 = fpext float %sqrt.i144 to double
   %221 = fcmp ogt double %220, 1.000000e-03
@@ -4226,8 +4226,8 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit:   ; preds = %186, %199
   br label %224
 
 224:                                              ; preds = %222, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit
-  %225 = fmul float %212, %212
-  %226 = call float @llvm.fmuladd.f32(float %213, float %213, float %225)
+  %225 = fmul float %215, %215
+  %226 = call float @llvm.fmuladd.f32(float %216, float %216, float %225)
   %227 = call noundef float @llvm.fmuladd.f32(float %.sink.i, float %.sink.i, float %226)
   %sqrt.i145 = call noundef float @llvm.sqrt.f32(float %227)
   %228 = fpext float %sqrt.i145 to double

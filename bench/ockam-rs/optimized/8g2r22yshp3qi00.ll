@@ -101453,8 +101453,8 @@ define void @_ZN9ockam_api4util24local_multiaddr_to_route17h298feb4b0ef08379E(pt
 
 .noexc181:                                        ; preds = %.noexc180
   %100 = load i8, ptr %13, align 8, !range !20364, !noalias !20363, !noundef !4
-  %101 = icmp eq i8 %100, 8
-  br i1 %101, label %.thread.i, label %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Worker$C$ockam_multiaddr..error..Error$GT$$GT$17h53c1562aac442075E.llvm.14504113750506346165.exit.i"
+  %101 = icmp ne i8 %100, 8
+  br i1 %101, label %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Worker$C$ockam_multiaddr..error..Error$GT$$GT$17h53c1562aac442075E.llvm.14504113750506346165.exit.i", label %.thread.i
 
 102:                                              ; preds = %94
   store i64 0, ptr %55, align 8, !alias.scope !20358, !noalias !20361
@@ -101497,8 +101497,8 @@ define void @_ZN9ockam_api4util24local_multiaddr_to_route17h298feb4b0ef08379E(pt
 
 .noexc186:                                        ; preds = %.noexc185
   %109 = load i8, ptr %12, align 8, !range !20364, !noalias !20370, !noundef !4
-  %110 = icmp eq i8 %109, 8
-  br i1 %110, label %.thread.i184, label %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Service$C$ockam_multiaddr..error..Error$GT$$GT$17h9191d04b6273e65fE.llvm.14504113750506346165.exit.i"
+  %110 = icmp ne i8 %109, 8
+  br i1 %110, label %"_ZN4core3ptr112drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Service$C$ockam_multiaddr..error..Error$GT$$GT$17h9191d04b6273e65fE.llvm.14504113750506346165.exit.i", label %.thread.i184
 
 111:                                              ; preds = %103
   store i64 0, ptr %48, align 8, !alias.scope !20365, !noalias !20368
@@ -101541,8 +101541,8 @@ define void @_ZN9ockam_api4util24local_multiaddr_to_route17h298feb4b0ef08379E(pt
 
 .noexc191:                                        ; preds = %.noexc190
   %118 = load i8, ptr %11, align 8, !range !20364, !noalias !20376, !noundef !4
-  %119 = icmp eq i8 %118, 8
-  br i1 %119, label %.thread.i189, label %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Secure$C$ockam_multiaddr..error..Error$GT$$GT$17h551140515f858841E.llvm.14504113750506346165.exit.i"
+  %119 = icmp ne i8 %118, 8
+  br i1 %119, label %"_ZN4core3ptr111drop_in_place$LT$core..result..Result$LT$ockam_multiaddr..proto..Secure$C$ockam_multiaddr..error..Error$GT$$GT$17h551140515f858841E.llvm.14504113750506346165.exit.i", label %.thread.i189
 
 120:                                              ; preds = %112
   store i64 0, ptr %41, align 8, !alias.scope !20371, !noalias !20374
@@ -101567,7 +101567,7 @@ define void @_ZN9ockam_api4util24local_multiaddr_to_route17h298feb4b0ef08379E(pt
           to label %233 unwind label %.loopexit.split-lp
 
 123:                                              ; preds = %.noexc182, %102
-  %trunc153 = phi i1 [ %101, %.noexc182 ], [ false, %102 ]
+  %trunc153 = phi i1 [ true, %102 ], [ %101, %.noexc182 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52)
   store ptr %62, ptr %52, align 8
@@ -101589,7 +101589,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.6961039930124626028.exit: ; preds 
 
 125:                                              ; preds = %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.6961039930124626028.exit
   store ptr %124, ptr %54, align 8
-  br i1 %trunc153, label %126, label %133
+  br i1 %trunc153, label %133, label %126
 
 126:                                              ; preds = %125
   %.sroa.083.0.copyload = load ptr, ptr %73, align 8
@@ -101760,7 +101760,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.6961039930124626028.exit: ; preds 
   br label %.body
 
 173:                                              ; preds = %.noexc187, %111
-  %trunc150 = phi i1 [ %110, %.noexc187 ], [ false, %111 ]
+  %trunc150 = phi i1 [ true, %111 ], [ %110, %.noexc187 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45)
   store ptr %62, ptr %45, align 8
@@ -101782,7 +101782,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.6961039930124626028.exit209: ; pre
 
 175:                                              ; preds = %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.6961039930124626028.exit209
   store ptr %174, ptr %47, align 8
-  br i1 %trunc150, label %176, label %183
+  br i1 %trunc150, label %183, label %176
 
 176:                                              ; preds = %175
   %.sroa.089.0.copyload = load ptr, ptr %70, align 8
@@ -101895,7 +101895,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.6961039930124626028.exit209: ; pre
   br label %.body
 
 203:                                              ; preds = %.noexc192, %120
-  %trunc = phi i1 [ %119, %.noexc192 ], [ false, %120 ]
+  %trunc = phi i1 [ true, %120 ], [ %119, %.noexc192 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38)
   store ptr %62, ptr %38, align 8
@@ -101917,7 +101917,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.6961039930124626028.exit226: ; pre
 
 205:                                              ; preds = %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.6961039930124626028.exit226
   store ptr %204, ptr %40, align 8
-  br i1 %trunc, label %206, label %213
+  br i1 %trunc, label %213, label %206
 
 206:                                              ; preds = %205
   %.sroa.095.0.copyload = load ptr, ptr %67, align 8

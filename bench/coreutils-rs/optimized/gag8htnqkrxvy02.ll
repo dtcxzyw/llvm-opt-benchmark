@@ -4676,14 +4676,14 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9150cc3af4de309aE(ptr noalia
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   invoke void @_ZN3std9panicking3try7do_call17hc36ec0c7da28f67dE.llvm.12150801376095413471(ptr nonnull %2)
-          to label %__rust_try.llvm.12150801376095413471.exit unwind label %3
+          to label %13 unwind label %3
 
 3:                                                ; preds = %1
   %4 = landingpad { ptr, i32 }
           catch ptr null
   %5 = extractvalue { ptr, i32 } %4, 0
   %6 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %5)
-          to label %_ZN3std9panicking3try8do_catch17h65e8777fe59096afE.llvm.12150801376095413471.exit unwind label %7
+          to label %__rust_try.llvm.12150801376095413471.exit unwind label %7
 
 7:                                                ; preds = %3
   %8 = landingpad { ptr, i32 }
@@ -4691,22 +4691,22 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h9150cc3af4de309aE(ptr noalia
   tail call void @_ZN4core9panicking19panic_cannot_unwind17hb9fd422cdcdfc93eE() #21
   unreachable
 
-_ZN3std9panicking3try8do_catch17h65e8777fe59096afE.llvm.12150801376095413471.exit: ; preds = %3
+__rust_try.llvm.12150801376095413471.exit:        ; preds = %3
   %9 = extractvalue { ptr, ptr } %6, 0
   %10 = extractvalue { ptr, ptr } %6, 1
   %11 = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %11)
   %12 = icmp ne ptr %10, null
   tail call void @llvm.assume(i1 %12)
-  br label %__rust_try.llvm.12150801376095413471.exit
+  br label %13
 
-__rust_try.llvm.12150801376095413471.exit:        ; preds = %1, %_ZN3std9panicking3try8do_catch17h65e8777fe59096afE.llvm.12150801376095413471.exit
-  %13 = phi ptr [ %10, %_ZN3std9panicking3try8do_catch17h65e8777fe59096afE.llvm.12150801376095413471.exit ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %9, %_ZN3std9panicking3try8do_catch17h65e8777fe59096afE.llvm.12150801376095413471.exit ], [ null, %1 ]
+13:                                               ; preds = %1, %__rust_try.llvm.12150801376095413471.exit
+  %14 = phi ptr [ %10, %__rust_try.llvm.12150801376095413471.exit ], [ undef, %1 ]
+  %15 = phi ptr [ %9, %__rust_try.llvm.12150801376095413471.exit ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %15 = insertvalue { ptr, ptr } %14, ptr %13, 1
-  ret { ptr, ptr } %15
+  %16 = insertvalue { ptr, ptr } poison, ptr %15, 0
+  %17 = insertvalue { ptr, ptr } %16, ptr %14, 1
+  ret { ptr, ptr } %17
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

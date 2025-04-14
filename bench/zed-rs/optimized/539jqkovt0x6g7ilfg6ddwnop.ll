@@ -4609,10 +4609,7 @@ define void @_ZN8settings11json_schema24SettingsJsonSchemaParams18font_family_sc
   %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$17haf419ef8b2f3f8a6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #28
-          to label %common.resume unwind label %15
-
-common.resume:                                    ; preds = %13
-  resume { ptr, i32 } %14
+          to label %17 unwind label %15
 
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17h21d0b12368424f52E.llvm.12934424205961532001.exit": ; preds = %2
   store i8 5, ptr %10, align 1
@@ -4639,6 +4636,9 @@ common.resume:                                    ; preds = %13
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #27
   unreachable
+
+17:                                               ; preds = %13
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: nonlazybind uwtable

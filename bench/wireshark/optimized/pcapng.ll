@@ -6272,7 +6272,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #20
   %10 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %1)
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %236, label %11
+  br i1 %.not, label %234, label %11
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #20
@@ -6287,7 +6287,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #20
   %16 = add i32 %spec.select.i, -983021
   %17 = icmp ult i32 %16, -1048577
-  br i1 %17, label %236, label %18
+  br i1 %17, label %234, label %18
 
 18:                                               ; preds = %11
   %19 = call noalias dereferenceable_or_null(1048576) ptr @g_malloc(i64 noundef 1048576) #18
@@ -6302,349 +6302,349 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
 23:                                               ; preds = %18
   %24 = call ptr @g_list_nth_data(ptr noundef nonnull %22, i32 noundef 0)
   %invariant.op = add nsw i32 %spec.select.i, 4
-  %.not144158164 = icmp eq ptr %24, null
-  br i1 %.not144158164, label %.loopexit147, label %.lr.ph.lr.ph
+  %.not144161169 = icmp eq ptr %24, null
+  br i1 %.not144161169, label %.loopexit147, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %26 = getelementptr i8, ptr %19, i64 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %76
-  %27 = phi i32 [ 12, %.lr.ph.lr.ph ], [ %78, %76 ]
-  %.0.ph167 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %112, %76 ]
-  %.0134.ph166 = phi ptr [ %24, %.lr.ph.lr.ph ], [ %114, %76 ]
-  %.1136.ph165 = phi i32 [ 8, %.lr.ph.lr.ph ], [ %111, %76 ]
-  %.1136.ph165.fr = freeze i32 %.1136.ph165
-  br label %28
+.lr.ph:                                           ; preds = %.lr.ph.lr.ph, %75
+  %.0.ph173 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %111, %75 ]
+  %.0134.ph172 = phi ptr [ %24, %.lr.ph.lr.ph ], [ %113, %75 ]
+  %.1136.ph171 = phi i32 [ 8, %.lr.ph.lr.ph ], [ %110, %75 ]
+  %.ph149170 = phi i32 [ 12, %.lr.ph.lr.ph ], [ %77, %75 ]
+  %.1136.ph171.fr = freeze i32 %.1136.ph171
+  br label %27
 
-28:                                               ; preds = %.lr.ph, %32
-  %.0160 = phi i32 [ %.0.ph167, %.lr.ph ], [ %33, %32 ]
-  %.0134159 = phi ptr [ %.0134.ph166, %.lr.ph ], [ %35, %32 ]
+27:                                               ; preds = %.lr.ph, %31
+  %.0163 = phi i32 [ %.0.ph173, %.lr.ph ], [ %32, %31 ]
+  %.0134162 = phi ptr [ %.0134.ph172, %.lr.ph ], [ %34, %31 ]
   store i16 1, ptr %9, align 2
-  %29 = getelementptr inbounds nuw i8, ptr %.0134159, i64 21
-  %30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #21
-  %31 = icmp ugt i64 %30, 65530
-  br i1 %31, label %32, label %36
+  %28 = getelementptr inbounds nuw i8, ptr %.0134162, i64 21
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #21
+  %30 = icmp ugt i64 %29, 65530
+  br i1 %30, label %31, label %35
 
-32:                                               ; preds = %28
-  %33 = add i32 %.0160, 1
-  %34 = load ptr, ptr %10, align 8
-  %35 = call ptr @g_list_nth_data(ptr noundef %34, i32 noundef %33)
-  %.not144 = icmp eq ptr %35, null
-  br i1 %.not144, label %.loopexit147, label %28, !llvm.loop !68
+31:                                               ; preds = %27
+  %32 = add i32 %.0163, 1
+  %33 = load ptr, ptr %10, align 8
+  %34 = call ptr @g_list_nth_data(ptr noundef %33, i32 noundef %32)
+  %.not144 = icmp eq ptr %34, null
+  br i1 %.not144, label %.loopexit147, label %27, !llvm.loop !68
 
-36:                                               ; preds = %28
-  %37 = trunc nuw i64 %30 to i16
-  %38 = add nuw i16 %37, 1
-  %39 = zext i16 %38 to i32
-  %40 = add nuw i16 %37, 5
-  store i16 %40, ptr %25, align 2
-  %41 = trunc nuw nsw i64 %30 to i32
-  %42 = add nuw nsw i32 %41, 8
-  %43 = and i32 %42, 131068
-  %44 = add nuw nsw i32 %43, 4
-  %45 = add i32 %44, %.1136.ph165.fr
-  %46 = icmp ugt i32 %45, %20
-  br i1 %46, label %47, label %.outer148
+35:                                               ; preds = %27
+  %36 = trunc nuw i64 %29 to i16
+  %37 = add nuw i16 %36, 1
+  %38 = zext i16 %37 to i32
+  %39 = add nuw i16 %36, 5
+  store i16 %39, ptr %25, align 2
+  %40 = trunc nuw nsw i64 %29 to i32
+  %41 = add nuw nsw i32 %40, 8
+  %42 = and i32 %41, 131068
+  %43 = add nuw nsw i32 %42, 4
+  %44 = add i32 %43, %.1136.ph171.fr
+  %45 = icmp ugt i32 %44, %20
+  br i1 %45, label %46, label %.outer148
 
-47:                                               ; preds = %36
-  %48 = zext i32 %.1136.ph165.fr to i64
-  %49 = getelementptr i8, ptr %19, i64 %48
-  %50 = sub nsw i64 1048576, %48
-  %51 = icmp ugt i32 %.1136.ph165.fr, 1048576
-  %52 = select i1 %51, i64 0, i64 %50
-  %53 = icmp ne i64 %52, -1
-  call void @llvm.assume(i1 %53)
-  %54 = call ptr @__memset_chk(ptr noundef %49, i32 noundef 0, i64 noundef 4, i64 noundef %52) #20
-  %55 = add i32 %.1136.ph165.fr, 4
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr i8, ptr %19, i64 %56
+46:                                               ; preds = %35
+  %47 = zext i32 %.1136.ph171.fr to i64
+  %48 = getelementptr i8, ptr %19, i64 %47
+  %49 = sub nsw i64 1048576, %47
+  %50 = icmp ugt i32 %.1136.ph171.fr, 1048576
+  %51 = select i1 %50, i64 0, i64 %49
+  %52 = icmp ne i64 %51, -1
+  call void @llvm.assume(i1 %52)
+  %53 = call ptr @__memset_chk(ptr noundef %48, i32 noundef 0, i64 noundef 4, i64 noundef %51) #20
+  %54 = add i32 %.1136.ph171.fr, 4
+  %55 = zext i32 %54 to i64
+  %56 = getelementptr i8, ptr %19, i64 %55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr %57, ptr %6, align 8
-  %58 = call zeroext i1 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %6)
-  %59 = load ptr, ptr %6, align 8
-  store i32 0, ptr %59, align 1
+  store ptr %56, ptr %6, align 8
+  %57 = call zeroext i1 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %6)
+  %58 = load ptr, ptr %6, align 8
+  store i32 0, ptr %58, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %.reass = add i32 %.1136.ph165.fr, %invariant.op
-  %.reass163 = add i32 %27, %invariant.op
-  store i32 %.reass163, ptr %21, align 4
-  %60 = load i64, ptr %8, align 8
-  store i64 %60, ptr %19, align 1
-  %61 = zext i32 %.reass to i64
-  %62 = getelementptr i8, ptr %19, i64 %61
-  %63 = sub nsw i64 1048576, %61
-  %64 = icmp ugt i32 %.reass, 1048576
-  %65 = select i1 %64, i64 0, i64 %63
-  %66 = icmp ne i64 %65, -1
-  call void @llvm.assume(i1 %66)
-  %67 = call ptr @__memcpy_chk(ptr noundef %62, ptr noundef nonnull %21, i64 noundef 4, i64 noundef %65) #20, !alias.scope !69
-  %68 = zext i32 %.reass163 to i64
-  %69 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %19, i64 noundef %68, ptr noundef %2)
-  br i1 %69, label %.outer148.thread, label %.sink.split
+  %.reass = add i32 %.1136.ph171.fr, %invariant.op
+  %.reass168 = add i32 %.ph149170, %invariant.op
+  store i32 %.reass168, ptr %21, align 4
+  %59 = load i64, ptr %8, align 8
+  store i64 %59, ptr %19, align 1
+  %60 = zext i32 %.reass to i64
+  %61 = getelementptr i8, ptr %19, i64 %60
+  %62 = sub nsw i64 1048576, %60
+  %63 = icmp ugt i32 %.reass, 1048576
+  %64 = select i1 %63, i64 0, i64 %62
+  %65 = icmp ne i64 %64, -1
+  call void @llvm.assume(i1 %65)
+  %66 = call ptr @__memcpy_chk(ptr noundef %61, ptr noundef nonnull %21, i64 noundef 4, i64 noundef %64) #20, !alias.scope !69
+  %67 = zext i32 %.reass168 to i64
+  %68 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %19, i64 noundef %67, ptr noundef %2)
+  br i1 %68, label %.outer148.thread, label %.sink.split
 
-.outer148.thread:                                 ; preds = %47
+.outer148.thread:                                 ; preds = %46
   store i32 4, ptr %8, align 8
-  %70 = add nuw nsw i32 %43, 16
+  %69 = add nuw nsw i32 %42, 16
+  store i32 %69, ptr %21, align 4
+  br label %75
+
+.outer148:                                        ; preds = %35
+  %70 = add i32 %.ph149170, %43
   store i32 %70, ptr %21, align 4
-  br label %76
+  %71 = zext i32 %.1136.ph171.fr to i64
+  %72 = getelementptr i8, ptr %19, i64 %71
+  %73 = sub nsw i64 1048576, %71
+  %74 = icmp ugt i32 %.1136.ph171.fr, 1048576
+  %spec.select = select i1 %74, i64 0, i64 %73
+  br label %75
 
-.outer148:                                        ; preds = %36
-  %71 = add i32 %27, %44
-  store i32 %71, ptr %21, align 4
-  %72 = zext i32 %.1136.ph165.fr to i64
-  %73 = getelementptr i8, ptr %19, i64 %72
-  %74 = sub nsw i64 1048576, %72
-  %75 = icmp ugt i32 %.1136.ph165.fr, 1048576
-  %spec.select = select i1 %75, i64 0, i64 %74
-  br label %76
+75:                                               ; preds = %.outer148, %.outer148.thread
+  %76 = phi ptr [ %26, %.outer148.thread ], [ %72, %.outer148 ]
+  %77 = phi i32 [ %69, %.outer148.thread ], [ %70, %.outer148 ]
+  %.2222 = phi i32 [ 8, %.outer148.thread ], [ %.1136.ph171.fr, %.outer148 ]
+  %78 = phi i64 [ 1048568, %.outer148.thread ], [ %spec.select, %.outer148 ]
+  %79 = icmp ne i64 %78, -1
+  call void @llvm.assume(i1 %79)
+  %80 = call ptr @__memcpy_chk(ptr noundef %76, ptr noundef nonnull %9, i64 noundef 4, i64 noundef %78) #20, !alias.scope !73
+  %81 = add i32 %.2222, 4
+  %82 = zext i32 %81 to i64
+  %83 = getelementptr i8, ptr %19, i64 %82
+  %84 = sub nsw i64 1048576, %82
+  %85 = icmp ugt i32 %81, 1048576
+  %86 = select i1 %85, i64 0, i64 %84
+  %87 = icmp ne i64 %86, -1
+  call void @llvm.assume(i1 %87)
+  %88 = call ptr @__memcpy_chk(ptr noundef %83, ptr noundef nonnull %.0134162, i64 noundef 4, i64 noundef %86) #20, !alias.scope !77
+  %89 = add i32 %.2222, 8
+  %90 = zext i32 %89 to i64
+  %91 = getelementptr i8, ptr %19, i64 %90
+  %92 = zext i16 %37 to i64
+  %93 = sub nsw i64 1048576, %90
+  %94 = icmp ugt i32 %89, 1048576
+  %95 = select i1 %94, i64 0, i64 %93
+  %96 = icmp ne i64 %95, -1
+  call void @llvm.assume(i1 %96)
+  %97 = call ptr @__memcpy_chk(ptr noundef %91, ptr noundef nonnull %28, i64 noundef %92, i64 noundef %95) #20, !alias.scope !81
+  %98 = add i32 %89, %38
+  %99 = zext i32 %98 to i64
+  %100 = getelementptr i8, ptr %19, i64 %99
+  %101 = add nuw nsw i32 %38, 3
+  %102 = and i32 %101, 131068
+  %103 = sub nsw i32 %102, %38
+  %104 = sext i32 %103 to i64
+  %105 = sub nsw i64 1048576, %99
+  %106 = icmp ugt i32 %98, 1048576
+  %107 = select i1 %106, i64 0, i64 %105
+  %108 = icmp ne i64 %107, -1
+  call void @llvm.assume(i1 %108)
+  %109 = call ptr @__memset_chk(ptr noundef %100, i32 noundef 0, i64 noundef range(i64 -65527, 65532) %104, i64 noundef %107) #20
+  %110 = add i32 %89, %102
+  %111 = add i32 %.0163, 1
+  %112 = load ptr, ptr %10, align 8
+  %113 = call ptr @g_list_nth_data(ptr noundef %112, i32 noundef %111)
+  %.not144161 = icmp eq ptr %113, null
+  br i1 %.not144161, label %.loopexit147, label %.lr.ph, !llvm.loop !68
 
-76:                                               ; preds = %.outer148, %.outer148.thread
-  %77 = phi ptr [ %26, %.outer148.thread ], [ %73, %.outer148 ]
-  %78 = phi i32 [ %70, %.outer148.thread ], [ %71, %.outer148 ]
-  %.2205 = phi i32 [ 8, %.outer148.thread ], [ %.1136.ph165.fr, %.outer148 ]
-  %79 = phi i64 [ 1048568, %.outer148.thread ], [ %spec.select, %.outer148 ]
-  %80 = icmp ne i64 %79, -1
-  call void @llvm.assume(i1 %80)
-  %81 = call ptr @__memcpy_chk(ptr noundef %77, ptr noundef nonnull %9, i64 noundef 4, i64 noundef %79) #20, !alias.scope !73
-  %82 = add i32 %.2205, 4
-  %83 = zext i32 %82 to i64
-  %84 = getelementptr i8, ptr %19, i64 %83
-  %85 = sub nsw i64 1048576, %83
-  %86 = icmp ugt i32 %82, 1048576
-  %87 = select i1 %86, i64 0, i64 %85
-  %88 = icmp ne i64 %87, -1
-  call void @llvm.assume(i1 %88)
-  %89 = call ptr @__memcpy_chk(ptr noundef %84, ptr noundef nonnull %.0134159, i64 noundef 4, i64 noundef %87) #20, !alias.scope !77
-  %90 = add i32 %.2205, 8
-  %91 = zext i32 %90 to i64
-  %92 = getelementptr i8, ptr %19, i64 %91
-  %93 = zext i16 %38 to i64
-  %94 = sub nsw i64 1048576, %91
-  %95 = icmp ugt i32 %90, 1048576
-  %96 = select i1 %95, i64 0, i64 %94
-  %97 = icmp ne i64 %96, -1
-  call void @llvm.assume(i1 %97)
-  %98 = call ptr @__memcpy_chk(ptr noundef %92, ptr noundef nonnull %29, i64 noundef %93, i64 noundef %96) #20, !alias.scope !81
-  %99 = add i32 %90, %39
-  %100 = zext i32 %99 to i64
-  %101 = getelementptr i8, ptr %19, i64 %100
-  %102 = add nuw nsw i32 %39, 3
-  %103 = and i32 %102, 131068
-  %104 = sub nsw i32 %103, %39
-  %105 = sext i32 %104 to i64
-  %106 = sub nsw i64 1048576, %100
-  %107 = icmp ugt i32 %99, 1048576
-  %108 = select i1 %107, i64 0, i64 %106
-  %109 = icmp ne i64 %108, -1
-  call void @llvm.assume(i1 %109)
-  %110 = call ptr @__memset_chk(ptr noundef %101, i32 noundef 0, i64 noundef range(i64 -65527, 65532) %105, i64 noundef %108) #20
-  %111 = add i32 %90, %103
-  %112 = add i32 %.0160, 1
-  %113 = load ptr, ptr %10, align 8
-  %114 = call ptr @g_list_nth_data(ptr noundef %113, i32 noundef %112)
-  %.not144158 = icmp eq ptr %114, null
-  br i1 %.not144158, label %.loopexit147, label %.lr.ph, !llvm.loop !68
+.loopexit147:                                     ; preds = %75, %31, %23, %18
+  %114 = phi i32 [ 12, %18 ], [ 12, %23 ], [ %.ph149170, %31 ], [ %77, %75 ]
+  %.0135 = phi i32 [ 8, %18 ], [ 8, %23 ], [ %.1136.ph171.fr, %31 ], [ %110, %75 ]
+  %115 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %116 = load ptr, ptr %115, align 8
+  %.not145 = icmp eq ptr %116, null
+  br i1 %.not145, label %.loopexit, label %117
 
-.loopexit147:                                     ; preds = %76, %32, %23, %18
-  %115 = phi i32 [ 12, %18 ], [ 12, %23 ], [ %27, %32 ], [ %78, %76 ]
-  %.0135 = phi i32 [ 8, %18 ], [ 8, %23 ], [ %.1136.ph165.fr, %32 ], [ %111, %76 ]
-  %116 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %117 = load ptr, ptr %116, align 8
-  %.not145 = icmp eq ptr %117, null
-  br i1 %.not145, label %.loopexit, label %118
+117:                                              ; preds = %.loopexit147
+  %118 = call ptr @g_list_nth_data(ptr noundef nonnull %116, i32 noundef 0)
+  %invariant.op184 = add i32 %spec.select.i, 4
+  %.not146176188 = icmp eq ptr %118, null
+  br i1 %.not146176188, label %.loopexit, label %.lr.ph179.lr.ph
 
-118:                                              ; preds = %.loopexit147
-  %119 = call ptr @g_list_nth_data(ptr noundef nonnull %117, i32 noundef 0)
-  %invariant.op175 = add i32 %spec.select.i, 4
-  %.not146169179 = icmp eq ptr %119, null
-  br i1 %.not146169179, label %.loopexit, label %.lr.ph172.lr.ph
+.lr.ph179.lr.ph:                                  ; preds = %117
+  %119 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %120 = getelementptr i8, ptr %19, i64 8
+  br label %.lr.ph179
 
-.lr.ph172.lr.ph:                                  ; preds = %118
-  %120 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %121 = getelementptr i8, ptr %19, i64 8
-  br label %.lr.ph172
+.lr.ph179:                                        ; preds = %.lr.ph179.lr.ph, %169
+  %.1.ph192 = phi i32 [ 0, %.lr.ph179.lr.ph ], [ %205, %169 ]
+  %.0133.ph191 = phi ptr [ %118, %.lr.ph179.lr.ph ], [ %207, %169 ]
+  %.4.ph190 = phi i32 [ %.0135, %.lr.ph179.lr.ph ], [ %204, %169 ]
+  %.ph189 = phi i32 [ %114, %.lr.ph179.lr.ph ], [ %171, %169 ]
+  %.4.ph190.fr = freeze i32 %.4.ph190
+  br label %121
 
-.lr.ph172:                                        ; preds = %.lr.ph172.lr.ph, %171
-  %122 = phi i32 [ %115, %.lr.ph172.lr.ph ], [ %173, %171 ]
-  %.1.ph182 = phi i32 [ 0, %.lr.ph172.lr.ph ], [ %207, %171 ]
-  %.0133.ph181 = phi ptr [ %119, %.lr.ph172.lr.ph ], [ %209, %171 ]
-  %.4.ph180 = phi i32 [ %.0135, %.lr.ph172.lr.ph ], [ %206, %171 ]
-  %.4.ph180.fr = freeze i32 %.4.ph180
-  br label %123
-
-123:                                              ; preds = %.lr.ph172, %127
-  %.1171 = phi i32 [ %.1.ph182, %.lr.ph172 ], [ %128, %127 ]
-  %.0133170 = phi ptr [ %.0133.ph181, %.lr.ph172 ], [ %130, %127 ]
+121:                                              ; preds = %.lr.ph179, %125
+  %.1178 = phi i32 [ %.1.ph192, %.lr.ph179 ], [ %126, %125 ]
+  %.0133177 = phi ptr [ %.0133.ph191, %.lr.ph179 ], [ %128, %125 ]
   store i16 2, ptr %9, align 2
-  %124 = getelementptr inbounds nuw i8, ptr %.0133170, i64 63
-  %125 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %124) #21
-  %126 = icmp ugt i64 %125, 65518
-  br i1 %126, label %127, label %131
+  %122 = getelementptr inbounds nuw i8, ptr %.0133177, i64 63
+  %123 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %122) #21
+  %124 = icmp ugt i64 %123, 65518
+  br i1 %124, label %125, label %129
 
-127:                                              ; preds = %123
-  %128 = add i32 %.1171, 1
-  %129 = load ptr, ptr %116, align 8
-  %130 = call ptr @g_list_nth_data(ptr noundef %129, i32 noundef %128)
-  %.not146 = icmp eq ptr %130, null
-  br i1 %.not146, label %.loopexit, label %123, !llvm.loop !85
+125:                                              ; preds = %121
+  %126 = add i32 %.1178, 1
+  %127 = load ptr, ptr %115, align 8
+  %128 = call ptr @g_list_nth_data(ptr noundef %127, i32 noundef %126)
+  %.not146 = icmp eq ptr %128, null
+  br i1 %.not146, label %.loopexit, label %121, !llvm.loop !85
 
-131:                                              ; preds = %123
-  %132 = trunc nuw i64 %125 to i16
-  %133 = add nuw i16 %132, 1
-  %134 = zext i16 %133 to i32
-  %135 = add nuw i16 %132, 17
-  store i16 %135, ptr %120, align 2
-  %136 = trunc nuw nsw i64 %125 to i32
-  %137 = add nuw nsw i32 %136, 20
-  %138 = and i32 %137, 131068
-  %139 = add nuw nsw i32 %138, 4
-  %140 = add i32 %139, %.4.ph180.fr
-  %141 = icmp ugt i32 %140, %20
-  br i1 %141, label %142, label %.outer
+129:                                              ; preds = %121
+  %130 = trunc nuw i64 %123 to i16
+  %131 = add nuw i16 %130, 1
+  %132 = zext i16 %131 to i32
+  %133 = add nuw i16 %130, 17
+  store i16 %133, ptr %119, align 2
+  %134 = trunc nuw nsw i64 %123 to i32
+  %135 = add nuw nsw i32 %134, 20
+  %136 = and i32 %135, 131068
+  %137 = add nuw nsw i32 %136, 4
+  %138 = add i32 %137, %.4.ph190.fr
+  %139 = icmp ugt i32 %138, %20
+  br i1 %139, label %140, label %.outer
 
-142:                                              ; preds = %131
-  %143 = zext i32 %.4.ph180.fr to i64
-  %144 = getelementptr i8, ptr %19, i64 %143
-  %145 = sub nsw i64 1048576, %143
-  %146 = icmp ugt i32 %.4.ph180.fr, 1048576
-  %147 = select i1 %146, i64 0, i64 %145
-  %148 = icmp ne i64 %147, -1
-  call void @llvm.assume(i1 %148)
-  %149 = call ptr @__memset_chk(ptr noundef %144, i32 noundef 0, i64 noundef 4, i64 noundef %147) #20
-  %150 = add i32 %.4.ph180.fr, 4
-  %151 = zext i32 %150 to i64
-  %152 = getelementptr i8, ptr %19, i64 %151
+140:                                              ; preds = %129
+  %141 = zext i32 %.4.ph190.fr to i64
+  %142 = getelementptr i8, ptr %19, i64 %141
+  %143 = sub nsw i64 1048576, %141
+  %144 = icmp ugt i32 %.4.ph190.fr, 1048576
+  %145 = select i1 %144, i64 0, i64 %143
+  %146 = icmp ne i64 %145, -1
+  call void @llvm.assume(i1 %146)
+  %147 = call ptr @__memset_chk(ptr noundef %142, i32 noundef 0, i64 noundef 4, i64 noundef %145) #20
+  %148 = add i32 %.4.ph190.fr, 4
+  %149 = zext i32 %148 to i64
+  %150 = getelementptr i8, ptr %19, i64 %149
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr %152, ptr %5, align 8
-  %153 = call zeroext i1 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %5)
-  %154 = load ptr, ptr %5, align 8
-  store i32 0, ptr %154, align 1
+  store ptr %150, ptr %5, align 8
+  %151 = call zeroext i1 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %5)
+  %152 = load ptr, ptr %5, align 8
+  store i32 0, ptr %152, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %.reass176 = add i32 %.4.ph180.fr, %invariant.op175
-  %.reass178 = add i32 %122, %invariant.op175
-  store i32 %.reass178, ptr %21, align 4
-  %155 = load i64, ptr %8, align 8
-  store i64 %155, ptr %19, align 1
-  %156 = zext i32 %.reass176 to i64
-  %157 = getelementptr i8, ptr %19, i64 %156
-  %158 = sub nsw i64 1048576, %156
-  %159 = icmp ugt i32 %.reass176, 1048576
-  %160 = select i1 %159, i64 0, i64 %158
-  %161 = icmp ne i64 %160, -1
-  call void @llvm.assume(i1 %161)
-  %162 = call ptr @__memcpy_chk(ptr noundef %157, ptr noundef nonnull %21, i64 noundef 4, i64 noundef %160) #20, !alias.scope !86
-  %163 = zext i32 %.reass178 to i64
-  %164 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %19, i64 noundef %163, ptr noundef %2)
-  br i1 %164, label %.outer.thread, label %.sink.split
+  %.reass185 = add i32 %.4.ph190.fr, %invariant.op184
+  %.reass187 = add i32 %.ph189, %invariant.op184
+  store i32 %.reass187, ptr %21, align 4
+  %153 = load i64, ptr %8, align 8
+  store i64 %153, ptr %19, align 1
+  %154 = zext i32 %.reass185 to i64
+  %155 = getelementptr i8, ptr %19, i64 %154
+  %156 = sub nsw i64 1048576, %154
+  %157 = icmp ugt i32 %.reass185, 1048576
+  %158 = select i1 %157, i64 0, i64 %156
+  %159 = icmp ne i64 %158, -1
+  call void @llvm.assume(i1 %159)
+  %160 = call ptr @__memcpy_chk(ptr noundef %155, ptr noundef nonnull %21, i64 noundef 4, i64 noundef %158) #20, !alias.scope !86
+  %161 = zext i32 %.reass187 to i64
+  %162 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %19, i64 noundef %161, ptr noundef %2)
+  br i1 %162, label %.outer.thread, label %.sink.split
 
-.outer.thread:                                    ; preds = %142
+.outer.thread:                                    ; preds = %140
   store i32 4, ptr %8, align 8
-  %165 = add nuw nsw i32 %138, 16
-  store i32 %165, ptr %21, align 4
-  br label %171
+  %163 = add nuw nsw i32 %136, 16
+  store i32 %163, ptr %21, align 4
+  br label %169
 
-.outer:                                           ; preds = %131
-  %166 = add i32 %122, %139
-  store i32 %166, ptr %21, align 4
-  %167 = zext i32 %.4.ph180.fr to i64
-  %168 = getelementptr i8, ptr %19, i64 %167
-  %169 = sub nsw i64 1048576, %167
-  %170 = icmp ugt i32 %.4.ph180.fr, 1048576
-  %spec.select237 = select i1 %170, i64 0, i64 %169
-  br label %171
+.outer:                                           ; preds = %129
+  %164 = add i32 %.ph189, %137
+  store i32 %164, ptr %21, align 4
+  %165 = zext i32 %.4.ph190.fr to i64
+  %166 = getelementptr i8, ptr %19, i64 %165
+  %167 = sub nsw i64 1048576, %165
+  %168 = icmp ugt i32 %.4.ph190.fr, 1048576
+  %spec.select252 = select i1 %168, i64 0, i64 %167
+  br label %169
 
-171:                                              ; preds = %.outer, %.outer.thread
-  %172 = phi ptr [ %121, %.outer.thread ], [ %168, %.outer ]
-  %173 = phi i32 [ %165, %.outer.thread ], [ %166, %.outer ]
-  %.5209 = phi i32 [ 8, %.outer.thread ], [ %.4.ph180.fr, %.outer ]
-  %174 = phi i64 [ 1048568, %.outer.thread ], [ %spec.select237, %.outer ]
-  %175 = icmp ne i64 %174, -1
-  call void @llvm.assume(i1 %175)
-  %176 = call ptr @__memcpy_chk(ptr noundef %172, ptr noundef nonnull %9, i64 noundef 4, i64 noundef %174) #20, !alias.scope !90
-  %177 = add i32 %.5209, 4
-  %178 = zext i32 %177 to i64
-  %179 = getelementptr i8, ptr %19, i64 %178
-  %180 = sub nsw i64 1048576, %178
-  %181 = icmp ugt i32 %177, 1048576
-  %182 = select i1 %181, i64 0, i64 %180
-  %183 = icmp ne i64 %182, -1
-  call void @llvm.assume(i1 %183)
-  %184 = call ptr @__memcpy_chk(ptr noundef %179, ptr noundef nonnull %.0133170, i64 noundef 16, i64 noundef %182) #20, !alias.scope !94
-  %185 = add i32 %.5209, 20
-  %186 = zext i32 %185 to i64
-  %187 = getelementptr i8, ptr %19, i64 %186
-  %188 = zext i16 %133 to i64
-  %189 = sub nsw i64 1048576, %186
-  %190 = icmp ugt i32 %185, 1048576
-  %191 = select i1 %190, i64 0, i64 %189
-  %192 = icmp ne i64 %191, -1
-  call void @llvm.assume(i1 %192)
-  %193 = call ptr @__memcpy_chk(ptr noundef %187, ptr noundef nonnull %124, i64 noundef %188, i64 noundef %191) #20, !alias.scope !98
-  %194 = add i32 %185, %134
-  %195 = zext i32 %194 to i64
-  %196 = getelementptr i8, ptr %19, i64 %195
-  %197 = add nuw nsw i32 %134, 3
-  %198 = and i32 %197, 131068
-  %199 = sub nsw i32 %198, %134
-  %200 = sext i32 %199 to i64
-  %201 = sub nsw i64 1048576, %195
-  %202 = icmp ugt i32 %194, 1048576
-  %203 = select i1 %202, i64 0, i64 %201
-  %204 = icmp ne i64 %203, -1
-  call void @llvm.assume(i1 %204)
-  %205 = call ptr @__memset_chk(ptr noundef %196, i32 noundef 0, i64 noundef range(i64 -65527, 65532) %200, i64 noundef %203) #20
-  %206 = add i32 %185, %198
-  %207 = add i32 %.1171, 1
-  %208 = load ptr, ptr %116, align 8
-  %209 = call ptr @g_list_nth_data(ptr noundef %208, i32 noundef %207)
-  %.not146169 = icmp eq ptr %209, null
-  br i1 %.not146169, label %.loopexit, label %.lr.ph172, !llvm.loop !85
+169:                                              ; preds = %.outer, %.outer.thread
+  %170 = phi ptr [ %120, %.outer.thread ], [ %166, %.outer ]
+  %171 = phi i32 [ %163, %.outer.thread ], [ %164, %.outer ]
+  %.5226 = phi i32 [ 8, %.outer.thread ], [ %.4.ph190.fr, %.outer ]
+  %172 = phi i64 [ 1048568, %.outer.thread ], [ %spec.select252, %.outer ]
+  %173 = icmp ne i64 %172, -1
+  call void @llvm.assume(i1 %173)
+  %174 = call ptr @__memcpy_chk(ptr noundef %170, ptr noundef nonnull %9, i64 noundef 4, i64 noundef %172) #20, !alias.scope !90
+  %175 = add i32 %.5226, 4
+  %176 = zext i32 %175 to i64
+  %177 = getelementptr i8, ptr %19, i64 %176
+  %178 = sub nsw i64 1048576, %176
+  %179 = icmp ugt i32 %175, 1048576
+  %180 = select i1 %179, i64 0, i64 %178
+  %181 = icmp ne i64 %180, -1
+  call void @llvm.assume(i1 %181)
+  %182 = call ptr @__memcpy_chk(ptr noundef %177, ptr noundef nonnull %.0133177, i64 noundef 16, i64 noundef %180) #20, !alias.scope !94
+  %183 = add i32 %.5226, 20
+  %184 = zext i32 %183 to i64
+  %185 = getelementptr i8, ptr %19, i64 %184
+  %186 = zext i16 %131 to i64
+  %187 = sub nsw i64 1048576, %184
+  %188 = icmp ugt i32 %183, 1048576
+  %189 = select i1 %188, i64 0, i64 %187
+  %190 = icmp ne i64 %189, -1
+  call void @llvm.assume(i1 %190)
+  %191 = call ptr @__memcpy_chk(ptr noundef %185, ptr noundef nonnull %122, i64 noundef %186, i64 noundef %189) #20, !alias.scope !98
+  %192 = add i32 %183, %132
+  %193 = zext i32 %192 to i64
+  %194 = getelementptr i8, ptr %19, i64 %193
+  %195 = add nuw nsw i32 %132, 3
+  %196 = and i32 %195, 131068
+  %197 = sub nsw i32 %196, %132
+  %198 = sext i32 %197 to i64
+  %199 = sub nsw i64 1048576, %193
+  %200 = icmp ugt i32 %192, 1048576
+  %201 = select i1 %200, i64 0, i64 %199
+  %202 = icmp ne i64 %201, -1
+  call void @llvm.assume(i1 %202)
+  %203 = call ptr @__memset_chk(ptr noundef %194, i32 noundef 0, i64 noundef range(i64 -65527, 65532) %198, i64 noundef %201) #20
+  %204 = add i32 %183, %196
+  %205 = add i32 %.1178, 1
+  %206 = load ptr, ptr %115, align 8
+  %207 = call ptr @g_list_nth_data(ptr noundef %206, i32 noundef %205)
+  %.not146176 = icmp eq ptr %207, null
+  br i1 %.not146176, label %.loopexit, label %.lr.ph179, !llvm.loop !85
 
-.loopexit:                                        ; preds = %171, %127, %118, %.loopexit147
-  %210 = phi i32 [ %115, %.loopexit147 ], [ %115, %118 ], [ %122, %127 ], [ %173, %171 ]
-  %.3 = phi i32 [ %.0135, %.loopexit147 ], [ %.0135, %118 ], [ %.4.ph180.fr, %127 ], [ %206, %171 ]
-  %211 = zext i32 %.3 to i64
-  %212 = getelementptr i8, ptr %19, i64 %211
-  %213 = sub nsw i64 1048576, %211
-  %214 = icmp ugt i32 %.3, 1048576
-  %215 = select i1 %214, i64 0, i64 %213
-  %216 = icmp ne i64 %215, -1
-  call void @llvm.assume(i1 %216)
-  %217 = call ptr @__memset_chk(ptr noundef %212, i32 noundef 0, i64 noundef 4, i64 noundef %215) #20
-  %218 = add i32 %.3, 4
-  %219 = add i32 %210, 4
-  %220 = zext i32 %218 to i64
-  %221 = getelementptr i8, ptr %19, i64 %220
+.loopexit:                                        ; preds = %169, %125, %117, %.loopexit147
+  %208 = phi i32 [ %114, %.loopexit147 ], [ %114, %117 ], [ %.ph189, %125 ], [ %171, %169 ]
+  %.3 = phi i32 [ %.0135, %.loopexit147 ], [ %.0135, %117 ], [ %.4.ph190.fr, %125 ], [ %204, %169 ]
+  %209 = zext i32 %.3 to i64
+  %210 = getelementptr i8, ptr %19, i64 %209
+  %211 = sub nsw i64 1048576, %209
+  %212 = icmp ugt i32 %.3, 1048576
+  %213 = select i1 %212, i64 0, i64 %211
+  %214 = icmp ne i64 %213, -1
+  call void @llvm.assume(i1 %214)
+  %215 = call ptr @__memset_chk(ptr noundef %210, i32 noundef 0, i64 noundef 4, i64 noundef %213) #20
+  %216 = add i32 %.3, 4
+  %217 = add i32 %208, 4
+  %218 = zext i32 %216 to i64
+  %219 = getelementptr i8, ptr %19, i64 %218
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %221, ptr %4, align 8
-  %222 = call zeroext i1 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %4)
-  %223 = load ptr, ptr %4, align 8
-  store i32 0, ptr %223, align 1
+  store ptr %219, ptr %4, align 8
+  %220 = call zeroext i1 @wtap_block_foreach_option(ptr noundef %1, ptr noundef nonnull @put_nrb_option, ptr noundef nonnull %4)
+  %221 = load ptr, ptr %4, align 8
+  store i32 0, ptr %221, align 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %224 = add i32 %218, %spec.select.i
-  %225 = add i32 %219, %spec.select.i
-  store i32 %225, ptr %21, align 4
-  %226 = load i64, ptr %8, align 8
-  store i64 %226, ptr %19, align 1
-  %227 = zext i32 %224 to i64
-  %228 = getelementptr i8, ptr %19, i64 %227
-  %229 = sub nsw i64 1048576, %227
-  %230 = icmp ugt i32 %224, 1048576
-  %231 = select i1 %230, i64 0, i64 %229
-  %232 = icmp ne i64 %231, -1
-  call void @llvm.assume(i1 %232)
-  %233 = call ptr @__memcpy_chk(ptr noundef %228, ptr noundef nonnull %21, i64 noundef 4, i64 noundef %231) #20, !alias.scope !102
-  %234 = zext i32 %225 to i64
-  %235 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %19, i64 noundef %234, ptr noundef %2)
+  %222 = add i32 %216, %spec.select.i
+  %223 = add i32 %217, %spec.select.i
+  store i32 %223, ptr %21, align 4
+  %224 = load i64, ptr %8, align 8
+  store i64 %224, ptr %19, align 1
+  %225 = zext i32 %222 to i64
+  %226 = getelementptr i8, ptr %19, i64 %225
+  %227 = sub nsw i64 1048576, %225
+  %228 = icmp ugt i32 %222, 1048576
+  %229 = select i1 %228, i64 0, i64 %227
+  %230 = icmp ne i64 %229, -1
+  call void @llvm.assume(i1 %230)
+  %231 = call ptr @__memcpy_chk(ptr noundef %226, ptr noundef nonnull %21, i64 noundef 4, i64 noundef %229) #20, !alias.scope !102
+  %232 = zext i32 %223 to i64
+  %233 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef %19, i64 noundef %232, ptr noundef %2)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %47, %142, %.loopexit
-  %.0137.ph = phi i1 [ %235, %.loopexit ], [ false, %142 ], [ false, %47 ]
+.sink.split:                                      ; preds = %46, %140, %.loopexit
+  %.0137.ph = phi i1 [ %233, %.loopexit ], [ false, %140 ], [ false, %46 ]
   call void @g_free(ptr noundef %19)
-  br label %236
+  br label %234
 
-236:                                              ; preds = %.sink.split, %11, %3
+234:                                              ; preds = %.sink.split, %11, %3
   %.0137 = phi i1 [ true, %3 ], [ true, %11 ], [ %.0137.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #20

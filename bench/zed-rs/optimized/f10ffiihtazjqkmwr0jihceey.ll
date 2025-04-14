@@ -878,14 +878,14 @@ define hidden void @"_ZN3rpc5proto22MessageStream$LT$S$GT$4read28_$u7b$$u7b$clos
   %15 = load i8, ptr %14, align 8, !range !70, !noundef !5
   %.sink7.i.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sink7.i.sroa.gep69 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  switch i8 %15, label %default.unreachable152 [
+  switch i8 %15, label %default.unreachable160 [
     i8 0, label %16
     i8 1, label %20
     i8 2, label %21
     i8 3, label %19
   ]
 
-default.unreachable152:                           ; preds = %3
+default.unreachable160:                           ; preds = %3
   unreachable
 
 16:                                               ; preds = %3
@@ -896,8 +896,8 @@ default.unreachable152:                           ; preds = %3
 
 19:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.10)
-  %.phi.trans.insert141 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre142 = load ptr, ptr %.phi.trans.insert141, align 8, !alias.scope !206, !noalias !209
+  %.phi.trans.insert149 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre150 = load ptr, ptr %.phi.trans.insert149, align 8, !alias.scope !206, !noalias !209
   br label %22
 
 20:                                               ; preds = %3
@@ -909,7 +909,7 @@ default.unreachable152:                           ; preds = %3
   unreachable
 
 22:                                               ; preds = %19, %133
-  %23 = phi ptr [ %.pre142, %19 ], [ %135, %133 ]
+  %23 = phi ptr [ %.pre150, %19 ], [ %135, %133 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
@@ -934,11 +934,11 @@ default.unreachable152:                           ; preds = %3
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %"_ZN99_$LT$futures_util..stream..stream..next..Next$LT$St$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hfbfa1383515f56eaE.exit"
-  %.sroa.0.0.copyload153 = load i64, ptr %13, align 8
-  %.sroa.10.0..sroa_idx154 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.0..sroa_idx154, i64 32, i1 false)
+  %.sroa.0.0.copyload161 = load i64, ptr %13, align 8
+  %.sroa.10.0..sroa_idx162 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.0..sroa_idx162, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
-  %34 = icmp eq i64 %.sroa.0.0.copyload153, -9223372036854775802
+  %34 = icmp eq i64 %.sroa.0.0.copyload161, -9223372036854775802
   br i1 %34, label %144, label %36
 
 common.ret:                                       ; preds = %138, %35
@@ -954,7 +954,7 @@ common.ret:                                       ; preds = %138, %35
 
 36:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12)
-  store i64 %.sroa.0.0.copyload153, ptr %12, align 8
+  store i64 %.sroa.0.0.copyload161, ptr %12, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.10, i64 32, i1 false)
   %37 = invoke { i64, i32 } @_ZN3std4time7Instant3now17hdcdd74e15ba88872E()
@@ -1086,11 +1086,11 @@ common.ret:                                       ; preds = %138, %35
 75:                                               ; preds = %73
   %76 = load i64, ptr %5, align 8, !range !235, !alias.scope !236, !noalias !230, !noundef !5
   %77 = icmp eq i64 %76, 229
-  br i1 %77, label %.thread130, label %78
+  br i1 %77, label %.thread137, label %78
 
 78:                                               ; preds = %75
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proto..envelope..Payload$GT$17hb3e3d794af50a0ffE.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(408) %5)
-          to label %.thread130 unwind label %86
+          to label %.thread137 unwind label %86
 
 79:                                               ; preds = %.noexc
   %80 = landingpad { ptr, i32 }
@@ -1114,7 +1114,7 @@ common.ret:                                       ; preds = %138, %35
           cleanup
   br label %.body40
 
-.thread130:                                       ; preds = %75, %78
+.thread137:                                       ; preds = %75, %78
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %5), !noalias !230
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %6), !noalias !230
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -1132,11 +1132,11 @@ common.ret:                                       ; preds = %138, %35
   %89 = icmp eq i64 %.sroa.0106.0.copyload, 230
   br i1 %89, label %90, label %97
 
-90:                                               ; preds = %.thread130, %88
-  %.sroa.7107.0133 = phi ptr [ %72, %.thread130 ], [ %.sroa.7107.0.copyload, %88 ]
-  %91 = icmp ne ptr %.sroa.7107.0133, null
+90:                                               ; preds = %.thread137, %88
+  %.sroa.7107.0140 = phi ptr [ %72, %.thread137 ], [ %.sroa.7107.0.copyload, %88 ]
+  %91 = icmp ne ptr %.sroa.7107.0140, null
   call void @llvm.assume(i1 %91)
-  %92 = invoke noundef nonnull ptr @"_ZN5prost5error104_$LT$impl$u20$core..convert..From$LT$prost..error..DecodeError$GT$$u20$for$u20$std..io..error..Error$GT$4from17hcbdc27e92e58a1baE"(ptr noalias noundef nonnull align 8 %.sroa.7107.0133)
+  %92 = invoke noundef nonnull ptr @"_ZN5prost5error104_$LT$impl$u20$core..convert..From$LT$prost..error..DecodeError$GT$$u20$for$u20$std..io..error..Error$GT$4from17hcbdc27e92e58a1baE"(ptr noalias noundef nonnull align 8 %.sroa.7107.0140)
           to label %95 unwind label %93
 
 .body40:                                          ; preds = %86, %83, %79, %93

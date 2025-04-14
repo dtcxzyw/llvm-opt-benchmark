@@ -9465,9 +9465,7 @@ proto_item_set_generated.exit151:                 ; preds = %proto_item_set_gene
   %.val = load i32, ptr %6, align 4
   %209 = add i32 %.val140, %.val
   %..i = tail call i32 @llvm.smax.i32(i32 %208, i32 %209)
-  %.val141 = load i32, ptr %7, align 4
-  %.val142 = load i32, ptr %162, align 4
-  %210 = add i32 %.val142, %.val141
+  %210 = add i32 %161, %158
   %..i155 = tail call i32 @llvm.smax.i32(i32 %..i, i32 %210)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13

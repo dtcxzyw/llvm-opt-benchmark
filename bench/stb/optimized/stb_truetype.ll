@@ -13972,8 +13972,8 @@ stbtt_Rasterize.exit:                             ; preds = %86, %92
   br label %95
 
 95:                                               ; preds = %stbtt_Rasterize.exit, %82, %._crit_edge, %41
-  %.sink = phi ptr [ %42, %41 ], [ %.pre, %._crit_edge ], [ %.pre57, %82 ], [ %.pre57, %stbtt_Rasterize.exit ]
-  %.0 = phi ptr [ null, %41 ], [ null, %._crit_edge ], [ null, %82 ], [ %85, %stbtt_Rasterize.exit ]
+  %.sink = phi ptr [ %42, %41 ], [ %.pre57, %82 ], [ %.pre57, %stbtt_Rasterize.exit ], [ %.pre, %._crit_edge ]
+  %.0 = phi ptr [ null, %41 ], [ null, %82 ], [ %85, %stbtt_Rasterize.exit ], [ null, %._crit_edge ]
   call void @free(ptr noundef %.sink) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19) #33

@@ -13548,11 +13548,11 @@ define void @"_ZN113_$LT$wasmtime_runtime..instance..allocator..pooling..memory_
 11:                                               ; preds = %25
   %12 = landingpad { ptr, i32 }
           cleanup
-  store ptr %21, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4712, !noalias !4716
+  store ptr %21, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4712, !noalias !4715
   br label %"_ZN4core3ptr118drop_in_place$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h61123cf7d018ed17E.llvm.14031171042790067460.exit"
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr118drop_in_place$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h61123cf7d018ed17E.llvm.14031171042790067460.exit5"
-  store ptr %6, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4712, !noalias !4716
+  store ptr %6, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4712, !noalias !4715
   br label %13
 
 13:                                               ; preds = %._crit_edge, %1
@@ -13563,7 +13563,7 @@ define void @"_ZN113_$LT$wasmtime_runtime..instance..allocator..pooling..memory_
 14:                                               ; preds = %23
   %15 = landingpad { ptr, i32 }
           cleanup
-  %16 = load i8, ptr %10, align 1, !range !439, !alias.scope !4718, !noundef !4
+  %16 = load i8, ptr %10, align 1, !range !439, !alias.scope !4717, !noundef !4
   %17 = icmp eq i8 %16, 2
   br i1 %17, label %"_ZN4core3ptr118drop_in_place$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h61123cf7d018ed17E.llvm.14031171042790067460.exit", label %18
 
@@ -13576,12 +13576,12 @@ define void @"_ZN113_$LT$wasmtime_runtime..instance..allocator..pooling..memory_
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %20, i64 48, i1 false)
-  %22 = load atomic i8, ptr %8 monotonic, align 4, !alias.scope !4725
+  %22 = load atomic i8, ptr %8 monotonic, align 4, !alias.scope !4724
   %.not14 = icmp eq i8 %22, 0
   br i1 %.not14, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd731fe397ae1a047E.exit", label %23
 
 23:                                               ; preds = %19
-  store ptr %21, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4712, !noalias !4716
+  store ptr %21, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4712, !noalias !4715
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %9, ptr %2, align 8
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.c4ab741e6e3418b061ae07b74cc8b567.31.llvm.14031171042790067460, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c4ab741e6e3418b061ae07b74cc8b567.33, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c4ab741e6e3418b061ae07b74cc8b567.37) #24
@@ -13596,7 +13596,7 @@ define void @"_ZN113_$LT$wasmtime_runtime..instance..allocator..pooling..memory_
   br i1 %.not, label %"_ZN4core3ptr118drop_in_place$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h61123cf7d018ed17E.llvm.14031171042790067460.exit5", label %25
 
 25:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd731fe397ae1a047E.exit"
-  store i8 0, ptr %10, align 1, !alias.scope !4728
+  store i8 0, ptr %10, align 1, !alias.scope !4727
   invoke void @"_ZN4core3ptr59drop_in_place$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$17h0a38a78a02add2bcE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %9)
           to label %"_ZN4core3ptr118drop_in_place$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h61123cf7d018ed17E.llvm.14031171042790067460.exit5" unwind label %11
 
@@ -13673,8 +13673,8 @@ define void @"_ZN80_$LT$wasmtime_runtime..cow..MemoryImageSlot$u20$as$u20$core..
   br i1 %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb73abd3c72e97b03E.llvm.14031171042790067460.exit", label %9
 
 9:                                                ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !4731
-  store ptr %7, ptr %2, align 8, !noalias !4731
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2), !noalias !4730
+  store ptr %7, ptr %2, align 8, !noalias !4730
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.c4ab741e6e3418b061ae07b74cc8b567.31.llvm.14031171042790067460, i64 noundef 43, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c4ab741e6e3418b061ae07b74cc8b567.32.llvm.14031171042790067460, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c4ab741e6e3418b061ae07b74cc8b567.43.llvm.14031171042790067460) #24
           to label %12 unwind label %10
 
@@ -13716,8 +13716,8 @@ define void @"_ZN81_$LT$wasmtime_runtime..sys..unix..mmap..Mmap$u20$as$u20$core.
 11:                                               ; preds = %6
   %12 = ptrtoint ptr %10 to i64
   %13 = trunc i64 %12 to i16
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2), !noalias !4734
-  store i16 %13, ptr %2, align 2, !noalias !4734
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2), !noalias !4733
+  store i16 %13, ptr %2, align 2, !noalias !4733
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.c4ab741e6e3418b061ae07b74cc8b567.44.llvm.14031171042790067460, i64 noundef 13, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c4ab741e6e3418b061ae07b74cc8b567.30.llvm.14031171042790067460, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c4ab741e6e3418b061ae07b74cc8b567.46.llvm.14031171042790067460) #24
   unreachable
 
@@ -18612,29 +18612,28 @@ attributes #27 = { cold }
 !4709 = distinct !{!4709, !4710, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h187ad05d5f1637fcE: argument 0"}
 !4710 = distinct !{!4710, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h187ad05d5f1637fcE"}
 !4711 = !{!4709, !4706}
-!4712 = !{!4713, !4715}
+!4712 = !{!4713}
 !4713 = distinct !{!4713, !4714, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d0617274ad4f023E: argument 1"}
 !4714 = distinct !{!4714, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d0617274ad4f023E"}
-!4715 = distinct !{!4715, !4714, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d0617274ad4f023E: argument 1:h.rot"}
-!4716 = !{!4717}
-!4717 = distinct !{!4717, !4714, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d0617274ad4f023E: argument 0"}
-!4718 = !{!4719, !4721, !4723}
-!4719 = distinct !{!4719, !4720, !"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$17ha60d6fbf0103a3a9E.llvm.14031171042790067460: argument 0"}
-!4720 = distinct !{!4720, !"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$17ha60d6fbf0103a3a9E.llvm.14031171042790067460"}
-!4721 = distinct !{!4721, !4722, !"_ZN4core3ptr117drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h69adad1e1110fcf3E.llvm.14031171042790067460: argument 0"}
-!4722 = distinct !{!4722, !"_ZN4core3ptr117drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h69adad1e1110fcf3E.llvm.14031171042790067460"}
-!4723 = distinct !{!4723, !4724, !"_ZN4core3ptr118drop_in_place$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h61123cf7d018ed17E.llvm.14031171042790067460: argument 0"}
-!4724 = distinct !{!4724, !"_ZN4core3ptr118drop_in_place$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h61123cf7d018ed17E.llvm.14031171042790067460"}
-!4725 = !{!4726}
-!4726 = distinct !{!4726, !4727, !"_ZN3std4sync5mutex14Mutex$LT$T$GT$7get_mut17h5e374419a685589aE: argument 0"}
-!4727 = distinct !{!4727, !"_ZN3std4sync5mutex14Mutex$LT$T$GT$7get_mut17h5e374419a685589aE"}
-!4728 = !{!4729}
-!4729 = distinct !{!4729, !4730, !"_ZN16wasmtime_runtime3cow15MemoryImageSlot16no_clear_on_drop17hc5fc895a232d2894E: argument 0"}
-!4730 = distinct !{!4730, !"_ZN16wasmtime_runtime3cow15MemoryImageSlot16no_clear_on_drop17hc5fc895a232d2894E"}
-!4731 = !{!4732}
-!4732 = distinct !{!4732, !4733, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb73abd3c72e97b03E.llvm.14031171042790067460: argument 0"}
-!4733 = distinct !{!4733, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb73abd3c72e97b03E.llvm.14031171042790067460"}
-!4734 = !{!4735, !4737}
-!4735 = distinct !{!4735, !4736, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0b0da5ab891b0a3dE.llvm.14031171042790067460: argument 0"}
-!4736 = distinct !{!4736, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0b0da5ab891b0a3dE.llvm.14031171042790067460"}
-!4737 = distinct !{!4737, !4736, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0b0da5ab891b0a3dE.llvm.14031171042790067460: argument 1"}
+!4715 = !{!4716}
+!4716 = distinct !{!4716, !4714, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d0617274ad4f023E: argument 0"}
+!4717 = !{!4718, !4720, !4722}
+!4718 = distinct !{!4718, !4719, !"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$17ha60d6fbf0103a3a9E.llvm.14031171042790067460: argument 0"}
+!4719 = distinct !{!4719, !"_ZN4core3ptr87drop_in_place$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$17ha60d6fbf0103a3a9E.llvm.14031171042790067460"}
+!4720 = distinct !{!4720, !4721, !"_ZN4core3ptr117drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h69adad1e1110fcf3E.llvm.14031171042790067460: argument 0"}
+!4721 = distinct !{!4721, !"_ZN4core3ptr117drop_in_place$LT$core..cell..UnsafeCell$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h69adad1e1110fcf3E.llvm.14031171042790067460"}
+!4722 = distinct !{!4722, !4723, !"_ZN4core3ptr118drop_in_place$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h61123cf7d018ed17E.llvm.14031171042790067460: argument 0"}
+!4723 = distinct !{!4723, !"_ZN4core3ptr118drop_in_place$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$$GT$$GT$17h61123cf7d018ed17E.llvm.14031171042790067460"}
+!4724 = !{!4725}
+!4725 = distinct !{!4725, !4726, !"_ZN3std4sync5mutex14Mutex$LT$T$GT$7get_mut17h5e374419a685589aE: argument 0"}
+!4726 = distinct !{!4726, !"_ZN3std4sync5mutex14Mutex$LT$T$GT$7get_mut17h5e374419a685589aE"}
+!4727 = !{!4728}
+!4728 = distinct !{!4728, !4729, !"_ZN16wasmtime_runtime3cow15MemoryImageSlot16no_clear_on_drop17hc5fc895a232d2894E: argument 0"}
+!4729 = distinct !{!4729, !"_ZN16wasmtime_runtime3cow15MemoryImageSlot16no_clear_on_drop17hc5fc895a232d2894E"}
+!4730 = !{!4731}
+!4731 = distinct !{!4731, !4732, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb73abd3c72e97b03E.llvm.14031171042790067460: argument 0"}
+!4732 = distinct !{!4732, !"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb73abd3c72e97b03E.llvm.14031171042790067460"}
+!4733 = !{!4734, !4736}
+!4734 = distinct !{!4734, !4735, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0b0da5ab891b0a3dE.llvm.14031171042790067460: argument 0"}
+!4735 = distinct !{!4735, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0b0da5ab891b0a3dE.llvm.14031171042790067460"}
+!4736 = distinct !{!4736, !4735, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h0b0da5ab891b0a3dE.llvm.14031171042790067460: argument 1"}

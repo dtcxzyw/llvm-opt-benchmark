@@ -879,7 +879,6 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19I
   %587 = load i64, ptr %586, align 8, !tbaa !66
   %588 = getelementptr inbounds nuw i8, ptr %583, i64 120
   %.not.i.i136 = icmp ugt i64 %587, 255
-  %.val66.i145 = load ptr, ptr %4, align 8
   br label %589
 
 589:                                              ; preds = %._crit_edge.i170, %.lr.ph29.i135
@@ -949,31 +948,31 @@ _ZN3ozz9animation12_GLOBAL__N_110DecompressINS0_8internal13QuaternionKeyENS3_19I
   br i1 %.not.i.i136, label %647, label %634
 
 634:                                              ; preds = %596
-  %635 = getelementptr inbounds nuw i8, ptr %.val66.i145, i64 %626
+  %635 = getelementptr inbounds nuw i8, ptr %550, i64 %626
   %636 = load i8, ptr %635, align 1, !tbaa !68
   %637 = zext i8 %636 to i64
-  %638 = getelementptr inbounds nuw i8, ptr %.val66.i145, i64 %628
+  %638 = getelementptr inbounds nuw i8, ptr %550, i64 %628
   %639 = load i8, ptr %638, align 1, !tbaa !68
   %640 = zext i8 %639 to i64
-  %641 = getelementptr inbounds nuw i8, ptr %.val66.i145, i64 %630
+  %641 = getelementptr inbounds nuw i8, ptr %550, i64 %630
   %642 = load i8, ptr %641, align 1, !tbaa !68
   %643 = zext i8 %642 to i64
-  %644 = getelementptr inbounds nuw i8, ptr %.val66.i145, i64 %632
+  %644 = getelementptr inbounds nuw i8, ptr %550, i64 %632
   %645 = load i8, ptr %644, align 1, !tbaa !68
   %646 = zext i8 %645 to i64
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i146
 
 647:                                              ; preds = %596
-  %648 = getelementptr inbounds nuw i16, ptr %.val66.i145, i64 %626
+  %648 = getelementptr inbounds nuw i16, ptr %550, i64 %626
   %649 = load i16, ptr %648, align 2, !tbaa !72
   %650 = zext i16 %649 to i64
-  %651 = getelementptr inbounds nuw i16, ptr %.val66.i145, i64 %628
+  %651 = getelementptr inbounds nuw i16, ptr %550, i64 %628
   %652 = load i16, ptr %651, align 2, !tbaa !72
   %653 = zext i16 %652 to i64
-  %654 = getelementptr inbounds nuw i16, ptr %.val66.i145, i64 %630
+  %654 = getelementptr inbounds nuw i16, ptr %550, i64 %630
   %655 = load i16, ptr %654, align 2, !tbaa !72
   %656 = zext i16 %655 to i64
-  %657 = getelementptr inbounds nuw i16, ptr %.val66.i145, i64 %632
+  %657 = getelementptr inbounds nuw i16, ptr %550, i64 %632
   %658 = load i16, ptr %657, align 2, !tbaa !72
   %659 = zext i16 %658 to i64
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i146
@@ -1097,31 +1096,31 @@ _ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.
   br i1 %.not.i.i136, label %774, label %761
 
 761:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i146
-  %762 = getelementptr inbounds nuw i8, ptr %.val66.i145, i64 %750
+  %762 = getelementptr inbounds nuw i8, ptr %550, i64 %750
   %763 = load i8, ptr %762, align 1, !tbaa !68
   %764 = zext i8 %763 to i64
-  %765 = getelementptr inbounds nuw i8, ptr %.val66.i145, i64 %753
+  %765 = getelementptr inbounds nuw i8, ptr %550, i64 %753
   %766 = load i8, ptr %765, align 1, !tbaa !68
   %767 = zext i8 %766 to i64
-  %768 = getelementptr inbounds nuw i8, ptr %.val66.i145, i64 %756
+  %768 = getelementptr inbounds nuw i8, ptr %550, i64 %756
   %769 = load i8, ptr %768, align 1, !tbaa !68
   %770 = zext i8 %769 to i64
-  %771 = getelementptr inbounds nuw i8, ptr %.val66.i145, i64 %759
+  %771 = getelementptr inbounds nuw i8, ptr %550, i64 %759
   %772 = load i8, ptr %771, align 1, !tbaa !68
   %773 = zext i8 %772 to i64
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i158
 
 774:                                              ; preds = %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit.i146
-  %775 = getelementptr inbounds nuw i16, ptr %.val66.i145, i64 %750
+  %775 = getelementptr inbounds nuw i16, ptr %550, i64 %750
   %776 = load i16, ptr %775, align 2, !tbaa !72
   %777 = zext i16 %776 to i64
-  %778 = getelementptr inbounds nuw i16, ptr %.val66.i145, i64 %753
+  %778 = getelementptr inbounds nuw i16, ptr %550, i64 %753
   %779 = load i16, ptr %778, align 2, !tbaa !72
   %780 = zext i16 %779 to i64
-  %781 = getelementptr inbounds nuw i16, ptr %.val66.i145, i64 %756
+  %781 = getelementptr inbounds nuw i16, ptr %550, i64 %756
   %782 = load i16, ptr %781, align 2, !tbaa !72
   %783 = zext i16 %782 to i64
-  %784 = getelementptr inbounds nuw i16, ptr %.val66.i145, i64 %759
+  %784 = getelementptr inbounds nuw i16, ptr %550, i64 %759
   %785 = load i16, ptr %784, align 2, !tbaa !72
   %786 = zext i16 %785 to i64
   br label %_ZN3ozz9animation12_GLOBAL__N_19KeysRatioERKNS_4spanIKfEERKNS2_IKhEERKNS2_IKjEE.exit87.i158

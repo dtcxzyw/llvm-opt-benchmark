@@ -74312,9 +74312,9 @@ common.ret:                                       ; preds = %2370, %"_ZN9extensi
 
 317:                                              ; preds = %297
   %318 = icmp eq ptr %314, null
-  br i1 %318, label %.thread996.i, label %"_ZN9extension17extension_builder16ExtensionBuilder22compile_rust_extension28_$u7b$$u7b$closure$u7d$$u7d$17hc4c43289701de075E.exit.thread"
+  br i1 %318, label %.thread1055.i, label %"_ZN9extension17extension_builder16ExtensionBuilder22compile_rust_extension28_$u7b$$u7b$closure$u7d$$u7d$17hc4c43289701de075E.exit.thread"
 
-.thread996.i:                                     ; preds = %317
+.thread1055.i:                                    ; preds = %317
   %319 = load ptr, ptr %300, align 8, !noalias !16435, !nonnull !4, !align !89, !noundef !4
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %319, ptr %.sroa.8.0..sroa_idx.i, align 8, !noalias !16435
@@ -74376,12 +74376,12 @@ common.ret:                                       ; preds = %2370, %"_ZN9extensi
   %.pre135.i.i = load ptr, ptr %.phi.trans.insert134.i.i, align 8, !alias.scope !16447, !noalias !16452
   br label %438
 
-327:                                              ; preds = %._crit_edge, %.thread996.i
-  %328 = phi ptr [ %298, %.thread996.i ], [ %296, %._crit_edge ]
-  %329 = phi ptr [ %299, %.thread996.i ], [ %295, %._crit_edge ]
-  %330 = phi ptr [ %319, %.thread996.i ], [ %.pre285, %._crit_edge ]
-  %331 = phi ptr [ %.sroa.10311.0..sroa_idx.i, %.thread996.i ], [ %.phi.trans.insert.i, %._crit_edge ]
-  %332 = phi ptr [ %320, %.thread996.i ], [ %325, %._crit_edge ]
+327:                                              ; preds = %._crit_edge, %.thread1055.i
+  %328 = phi ptr [ %298, %.thread1055.i ], [ %296, %._crit_edge ]
+  %329 = phi ptr [ %299, %.thread1055.i ], [ %295, %._crit_edge ]
+  %330 = phi ptr [ %319, %.thread1055.i ], [ %.pre285, %._crit_edge ]
+  %331 = phi ptr [ %.sroa.10311.0..sroa_idx.i, %.thread1055.i ], [ %.phi.trans.insert.i, %._crit_edge ]
+  %332 = phi ptr [ %320, %.thread1055.i ], [ %325, %._crit_edge ]
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 0, ptr %333, align 8, !noalias !16438
   %334 = getelementptr i8, ptr %330, i64 8

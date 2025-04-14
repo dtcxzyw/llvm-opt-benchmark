@@ -1537,8 +1537,8 @@ _ZNK4llvm20PGOContextualProfile15getNumCallsitesERKNS_8FunctionE.exit: ; preds =
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #20, !noalias !158
   store i64 -1, ptr %10, align 8, !tbaa !55, !noalias !158
   %78 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.not178.i = icmp eq i32 %61, 0
-  br i1 %.not178.i, label %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit.i, label %79
+  %.not177.i = icmp eq i32 %61, 0
+  br i1 %.not177.i, label %_ZNSt6vectorIlSaIlEE6resizeEmRKl.exit.i, label %79
 
 79:                                               ; preds = %76
   %80 = zext i32 %61 to i64
@@ -1932,7 +1932,7 @@ _ZN4llvm20PGOContextualProfile24allocateNextCounterIndexERKNS_8FunctionE.exit.i.
   %269 = getelementptr inbounds %"class.llvm::Use", ptr %197, i64 %268
   %270 = load ptr, ptr %269, align 8, !tbaa !91, !noalias !158
   %.not.i.i.i.i.i.i.i = icmp eq ptr %270, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i.i, label %271
+  br i1 %.not.i.i.i.i.i.i.i, label %278, label %271
 
 271:                                              ; preds = %262
   %272 = getelementptr inbounds nuw i8, ptr %269, i64 8
@@ -1941,36 +1941,30 @@ _ZN4llvm20PGOContextualProfile24allocateNextCounterIndexERKNS_8FunctionE.exit.i.
   %275 = load ptr, ptr %274, align 8, !tbaa !183, !noalias !158
   store ptr %273, ptr %275, align 8, !tbaa !184, !noalias !158
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %273, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i.i, label %276
+  br i1 %.not.i.i.i.i.i.i.i.i, label %278, label %276
 
 276:                                              ; preds = %271
   %277 = getelementptr inbounds nuw i8, ptr %273, i64 16
   store ptr %275, ptr %277, align 8, !tbaa !183, !noalias !158
-  br label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i.i
+  br label %278
 
-_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i.i: ; preds = %276, %271, %262
+278:                                              ; preds = %276, %271, %262
   store ptr %25, ptr %269, align 8, !tbaa !91, !noalias !158
-  br i1 %.not4.i.i.i.i.i.i, label %_ZN4llvm17InstrProfInstBase12setNameValueEPNS_5ValueE.exit.i.i, label %278
-
-278:                                              ; preds = %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i.i
   %279 = load ptr, ptr %110, align 8, !tbaa !184, !noalias !158
   %280 = getelementptr inbounds nuw i8, ptr %269, i64 8
   store ptr %279, ptr %280, align 8, !tbaa !182, !noalias !158
   %.not.i.i.i.i.i.i.i.i55.i = icmp eq ptr %279, null
-  br i1 %.not.i.i.i.i.i.i.i.i55.i, label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i.i.i, label %281
+  br i1 %.not.i.i.i.i.i.i.i.i55.i, label %_ZN4llvm17InstrProfInstBase12setNameValueEPNS_5ValueE.exit.i.i, label %281
 
 281:                                              ; preds = %278
   %282 = getelementptr inbounds nuw i8, ptr %279, i64 16
   store ptr %280, ptr %282, align 8, !tbaa !183, !noalias !158
-  br label %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i.i.i
+  br label %_ZN4llvm17InstrProfInstBase12setNameValueEPNS_5ValueE.exit.i.i
 
-_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i.i.i: ; preds = %281, %278
+_ZN4llvm17InstrProfInstBase12setNameValueEPNS_5ValueE.exit.i.i: ; preds = %281, %278
   %283 = getelementptr inbounds nuw i8, ptr %269, i64 16
   store ptr %110, ptr %283, align 8, !tbaa !183, !noalias !158
   store ptr %269, ptr %110, align 8, !tbaa !184, !noalias !158
-  br label %_ZN4llvm17InstrProfInstBase12setNameValueEPNS_5ValueE.exit.i.i
-
-_ZN4llvm17InstrProfInstBase12setNameValueEPNS_5ValueE.exit.i.i: ; preds = %_ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i.i.i, %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i.i.i
   call void @_ZN4llvm21InstrProfCntrInstBase8setIndexEj(ptr noundef nonnull align 8 dereferenceable(88) %197, i32 noundef %264) #20, !noalias !158
   br label %"_ZZL12remapIndicesRN4llvm8FunctionEPNS_10BasicBlockERNS_20PGOContextualProfileEjjENK3$_0clERNS_22InstrProfIncrementInstE.exit.i"
 
@@ -2361,8 +2355,8 @@ _ZNSt5dequeIPN4llvm10BasicBlockESaIS2_EE9push_backERKS2_.exit94.i: ; preds = %38
   br i1 %484, label %._crit_edge166.i, label %114, !llvm.loop !208
 
 ._crit_edge166.i:                                 ; preds = %.loopexit.i
-  %.pre177.i = load i32, ptr %111, align 8, !tbaa !201, !noalias !158
-  %.pre175.i = load ptr, ptr %13, align 8, !tbaa !193, !noalias !158
+  %.pre176.i = load i32, ptr %111, align 8, !tbaa !201, !noalias !158
+  %.pre174.i = load ptr, ptr %13, align 8, !tbaa !193, !noalias !158
   %485 = load ptr, ptr %8, align 8, !tbaa !164, !noalias !158
   store ptr %485, ptr %16, align 8, !tbaa !164, !alias.scope !158
   %486 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -2384,9 +2378,9 @@ _ZNSt5dequeIPN4llvm10BasicBlockESaIS2_EE9push_backERKS2_.exit94.i: ; preds = %38
   %497 = load ptr, ptr %496, align 8, !tbaa !209, !noalias !158
   store ptr %497, ptr %495, align 8, !tbaa !209, !alias.scope !158
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !noalias !158
-  %498 = zext i32 %.pre177.i to i64
+  %498 = zext i32 %.pre176.i to i64
   %499 = shl nuw nsw i64 %498, 3
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.pre175.i, i64 noundef %499, i64 noundef 8) #20, !noalias !158
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.pre174.i, i64 noundef %499, i64 noundef 8) #20, !noalias !158
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #20, !noalias !158
   %500 = load ptr, ptr %12, align 8, !tbaa !170, !noalias !158
   %.not.i.i95.i = icmp eq ptr %500, null

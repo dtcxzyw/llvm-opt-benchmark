@@ -1903,8 +1903,8 @@ define dso_local noundef zeroext i1 @_ZN5draco10ObjEncoder20EncodePolygonalFaces
   br label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
 
 _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %21, %1
-  %32 = phi ptr [ %28, %21 ], [ null, %1 ]
-  %33 = phi ptr [ %26, %21 ], [ null, %1 ]
+  %32 = phi ptr [ null, %1 ], [ %28, %21 ]
+  %33 = phi ptr [ null, %1 ], [ %26, %21 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #24
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %34, align 8, !tbaa !146

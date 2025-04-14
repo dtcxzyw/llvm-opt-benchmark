@@ -1467,8 +1467,8 @@ _ZN4core3ops8function6FnOnce9call_once17h1a23b59d460568ebE.llvm.1697341519981382
   br label %"_ZN93_$LT$heed_types..serde_bincode..SerdeBincode$LT$T$GT$$u20$as$u20$heed_traits..BytesDecode$GT$12bytes_decode17ha1285859f7f0f6d8E.exit"
 
 "_ZN93_$LT$heed_types..serde_bincode..SerdeBincode$LT$T$GT$$u20$as$u20$heed_traits..BytesDecode$GT$12bytes_decode17ha1285859f7f0f6d8E.exit": ; preds = %31, %_ZN4core3ops8function6FnOnce9call_once17h1a23b59d460568ebE.llvm.16973415199813822637.exit.i
-  %.sroa.0.0.copyload = phi i8 [ 1, %_ZN4core3ops8function6FnOnce9call_once17h1a23b59d460568ebE.llvm.16973415199813822637.exit.i ], [ 0, %31 ]
-  store i8 %.sroa.0.0.copyload, ptr %7, align 8, !alias.scope !307, !noalias !312
+  %storemerge.i = phi i8 [ 1, %_ZN4core3ops8function6FnOnce9call_once17h1a23b59d460568ebE.llvm.16973415199813822637.exit.i ], [ 0, %31 ]
+  store i8 %storemerge.i, ptr %7, align 8, !alias.scope !307, !noalias !312
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !310
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !323
   invoke void @_ZN7bincode8internal16deserialize_seed17h1c448e93bd870745E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %27, i64 noundef %29)
@@ -1524,7 +1524,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1a23b59d460568ebE.llvm.1697341519981382
   %.sroa.6.0..sroa_idx82 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx82, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %trunc = trunc nuw i8 %.sroa.0.0.copyload to i1
+  %trunc = trunc nuw i8 %storemerge.i to i1
   br i1 %trunc, label %58, label %.thread76
 
 .thread:                                          ; preds = %.noexc
@@ -1538,7 +1538,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1a23b59d460568ebE.llvm.1697341519981382
   %.sroa.6.0..sroa_idx8299 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.6.0.copyload100 = load ptr, ptr %.sroa.6.0..sroa_idx8299, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  %trunc101 = trunc nuw i8 %.sroa.0.0.copyload to i1
+  %trunc101 = trunc nuw i8 %storemerge.i to i1
   br i1 %trunc101, label %58, label %.thread110
 
 .thread76:                                        ; preds = %57

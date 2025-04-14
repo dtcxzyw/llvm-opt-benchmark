@@ -14585,7 +14585,6 @@ define hidden void @_ZN14regex_automata4util5empty15skip_splits_fwd17hd1ec6641b9
   store i64 %20, ptr %29, align 8, !noalias !3574
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i64 %24, ptr %31, align 8, !noalias !3574
   store i32 %14, ptr %13, align 8, !noalias !3574
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %25, ptr %32, align 4, !noalias !3574
@@ -14726,6 +14725,7 @@ _ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i: ; preds =
 
 _ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i: ; preds = %63
   store i64 %62, ptr %30, align 8, !alias.scope !3578, !noalias !3574
+  store i64 %24, ptr %31, align 8, !alias.scope !3578, !noalias !3574
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !3581
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !3594
   call void @_ZN14regex_automata6hybrid6search8find_fwd17ha7005c95db0ecae0E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %5, ptr noalias noundef nonnull align 8 dereferenceable(352) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %13), !noalias !3598
@@ -14795,7 +14795,6 @@ define hidden void @_ZN14regex_automata4util5empty15skip_splits_rev17h13a357aa21
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %20, ptr %29, align 8, !noalias !3607
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 %22, ptr %30, align 8, !noalias !3607
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i32 %14, ptr %13, align 8, !noalias !3607
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -14929,6 +14928,7 @@ _ZN14regex_automata4util4utf811is_boundary17hf4d6af245184b3aeE.exit.i: ; preds =
   unreachable
 
 _ZN14regex_automata4util6search5Input8set_span17hbc7c06c83212958dE.exit.i: ; preds = %58
+  store i64 %22, ptr %30, align 8, !alias.scope !3612, !noalias !3607
   store i64 %57, ptr %31, align 8, !alias.scope !3612, !noalias !3607
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12), !noalias !3615
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !3627

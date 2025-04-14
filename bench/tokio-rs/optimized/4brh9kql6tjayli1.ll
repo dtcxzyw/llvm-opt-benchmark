@@ -3451,15 +3451,15 @@ define void @"_ZN76_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_write.
 28:                                               ; preds = %137, %132, %88, %23
   ret void
 
-._crit_edge:                                      ; preds = %.thread98, %.preheader
-  %.lcssa = phi i64 [ %17, %.preheader ], [ %133, %.thread98 ]
+._crit_edge:                                      ; preds = %.thread99, %.preheader
+  %.lcssa = phi i64 [ %17, %.preheader ], [ %133, %.thread99 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 -9223372036854775808, ptr %14, align 8
   %29 = icmp eq i64 %.lcssa, -9223372036854775808
   br i1 %29, label %33, label %34
 
-30:                                               ; preds = %.lr.ph, %.thread98
+30:                                               ; preds = %.lr.ph, %.thread99
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h97bc0a41f92f7563E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %10, ptr noalias noundef nonnull align 8 dereferenceable(8) %19, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
@@ -3770,12 +3770,12 @@ common.resume:                                    ; preds = %118, %120, %89, %13
 
 128:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit85"
   call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef align 8 dereferenceable(24) %11)
-  br label %.thread98
+  br label %.thread99
 
 129:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit85"
   %130 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !noundef !4
   %131 = icmp eq ptr %130, null
-  br i1 %131, label %.thread98, label %132
+  br i1 %131, label %.thread99, label %132
 
 132:                                              ; preds = %129
   store i64 1, ptr %0, align 8
@@ -3784,7 +3784,7 @@ common.resume:                                    ; preds = %118, %120, %89, %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %28
 
-.thread98:                                        ; preds = %129, %128
+.thread99:                                        ; preds = %129, %128
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %133 = load i64, ptr %14, align 8, !range !302, !noundef !4
   %134 = icmp eq i64 %133, -9223372036854775807
@@ -3854,15 +3854,15 @@ define void @"_ZN76_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_write.
 28:                                               ; preds = %128, %123, %79, %23
   ret void
 
-._crit_edge:                                      ; preds = %.thread96, %.preheader
-  %.lcssa = phi i64 [ %17, %.preheader ], [ %124, %.thread96 ]
+._crit_edge:                                      ; preds = %.thread97, %.preheader
+  %.lcssa = phi i64 [ %17, %.preheader ], [ %124, %.thread97 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13)
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 -9223372036854775808, ptr %14, align 8
   %29 = icmp eq i64 %.lcssa, -9223372036854775808
   br i1 %29, label %33, label %34
 
-30:                                               ; preds = %.lr.ph, %.thread96
+30:                                               ; preds = %.lr.ph, %.thread97
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h97bc0a41f92f7563E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %10, ptr noalias noundef nonnull align 8 dereferenceable(8) %19, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
@@ -4154,12 +4154,12 @@ common.resume:                                    ; preds = %109, %111, %80, %12
 
 119:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit83"
   call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..file..Operation$GT$17h4b384b51685478efE"(ptr noalias noundef align 8 dereferenceable(24) %11)
-  br label %.thread96
+  br label %.thread97
 
 120:                                              ; preds = %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit83"
   %121 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !noundef !4
   %122 = icmp eq ptr %121, null
-  br i1 %122, label %.thread96, label %123
+  br i1 %122, label %.thread97, label %123
 
 123:                                              ; preds = %120
   store i64 1, ptr %0, align 8
@@ -4168,7 +4168,7 @@ common.resume:                                    ; preds = %109, %111, %80, %12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %28
 
-.thread96:                                        ; preds = %120, %119
+.thread97:                                        ; preds = %120, %119
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %124 = load i64, ptr %14, align 8, !range !302, !noundef !4
   %125 = icmp eq i64 %124, -9223372036854775807

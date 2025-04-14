@@ -7231,20 +7231,20 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
           to label %1652 unwind label %.loopexit311.i.i
 
 1652:                                             ; preds = %1650
-  %.sroa.0265.0.copyload266.i.i = load ptr, ptr %1651, align 8
+  %.sroa.0266.0.copyload267.i.i = load ptr, ptr %1651, align 8
   %.sroa.24.0..sroa_idx270.i.i = getelementptr inbounds nuw i8, ptr %1651, i64 8
   %.sroa.24.0.copyload271.i.i = load i64, ptr %.sroa.24.0..sroa_idx270.i.i, align 8
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit.i.i
 
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit.i.i: ; preds = %1652, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i, %1627
   %.sroa.24.1.i.i = phi i64 [ %.sroa.24.0.copyload271.i.i, %1652 ], [ %.fca.1.load.i.i.i, %1627 ], [ %.fca.1.load.i.i.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i ]
-  %.sroa.0265.1.i.i = phi ptr [ %.sroa.0265.0.copyload266.i.i, %1652 ], [ %.fca.0.load.i.i.i, %1627 ], [ %.fca.0.load.i.i.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i ]
-  %.sroa.0263.0.copyload.i.i = load ptr, ptr %.sroa.0291.0319.i.i, align 8
+  %.sroa.0266.1.i.i = phi ptr [ %.sroa.0266.0.copyload267.i.i, %1652 ], [ %.fca.0.load.i.i.i, %1627 ], [ %.fca.0.load.i.i.i, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i ]
+  %.sroa.0264.0.copyload.i.i = load ptr, ptr %.sroa.0291.0319.i.i, align 8
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0291.0319.i.i, i64 8
   %.sroa.7.0.copyload.i.i = load i64, ptr %.sroa.7.0..sroa_idx.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #25
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28) #25
-  invoke void @_ZN3ue29ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %28, ptr noundef nonnull align 8 dereferenceable(56) %296, ptr %.sroa.0263.0.copyload.i.i, i64 %.sroa.7.0.copyload.i.i, ptr %.sroa.0265.1.i.i, i64 %.sroa.24.1.i.i)
+  invoke void @_ZN3ue29ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %28, ptr noundef nonnull align 8 dereferenceable(56) %296, ptr %.sroa.0264.0.copyload.i.i, i64 %.sroa.7.0.copyload.i.i, ptr %.sroa.0266.1.i.i, i64 %.sroa.24.1.i.i)
           to label %_ZN3ue28add_edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_.exit.i.i unwind label %1686
 
 _ZN3ue28add_edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_.exit.i.i: ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit.i.i
@@ -7257,18 +7257,18 @@ _ZN3ue28add_edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4p
   %1656 = getelementptr inbounds nuw i8, ptr %1653, i64 64
   store i32 %1655, ptr %1656, align 8
   %.sroa.0.0.copyload.i.i.i212 = load ptr, ptr %293, align 8
-  %.not304.i.i = icmp eq ptr %.sroa.0263.0.copyload.i.i, %.sroa.0.0.copyload.i.i.i212
+  %.not304.i.i = icmp eq ptr %.sroa.0264.0.copyload.i.i, %.sroa.0.0.copyload.i.i.i212
   br i1 %.not304.i.i, label %1695, label %1657
 
 1657:                                             ; preds = %_ZN3ue28add_edgeINS_9RoseGraphEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RS3_.exit.i.i
-  %1658 = getelementptr inbounds nuw i8, ptr %.sroa.0265.1.i.i, i64 120
+  %1658 = getelementptr inbounds nuw i8, ptr %.sroa.0266.1.i.i, i64 120
   %1659 = load ptr, ptr %1658, align 8
   %.not305.i.i = icmp eq ptr %1659, null
   br i1 %.not305.i.i, label %1695, label %1660
 
 1660:                                             ; preds = %1657
   %.sroa.0.0.copyload.i209.i.i = load ptr, ptr %292, align 8
-  %1661 = icmp eq ptr %.sroa.0263.0.copyload.i.i, %.sroa.0.0.copyload.i209.i.i
+  %1661 = icmp eq ptr %.sroa.0264.0.copyload.i.i, %.sroa.0.0.copyload.i209.i.i
   br i1 %1661, label %1662, label %1682
 
 1662:                                             ; preds = %1660

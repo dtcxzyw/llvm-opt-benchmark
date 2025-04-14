@@ -905,7 +905,7 @@ define void @"_ZN9google_ai1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$go
 25:                                               ; preds = %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17h610a2608e0de2029E.exit", %26
   %.pn76.pn = phi { ptr, i32 } [ %.pn76, %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17h610a2608e0de2029E.exit" ], [ %27, %26 ]
   call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef 480, i64 noundef 8) #17
-  br label %common.resume
+  br label %101
 
 26:                                               ; preds = %23
   %27 = landingpad { ptr, i32 }
@@ -936,7 +936,7 @@ define void @"_ZN9google_ai1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$go
 
 35:                                               ; preds = %30
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 144) #19
-          to label %101 unwind label %28
+          to label %102 unwind label %28
 
 36:                                               ; preds = %40, %37
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %38, %37 ]
@@ -1163,10 +1163,6 @@ define void @"_ZN9google_ai1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$go
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars..schema..Schema$GT$$GT$17h6880ecc027b36f82E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %83)
           to label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17h610a2608e0de2029E.exit102" unwind label %99
 
-common.resume:                                    ; preds = %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17h610a2608e0de2029E.exit102", %25
-  %common.resume.op = phi { ptr, i32 } [ %.pn76.pn, %25 ], [ %.pn74, %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17h610a2608e0de2029E.exit102" ]
-  resume { ptr, i32 } %common.resume.op
-
 "_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17hc4a749a81397213bE.exit": ; preds = %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %89, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %15)
@@ -1201,16 +1197,20 @@ common.resume:                                    ; preds = %"_ZN4core3ptr116dro
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #21
   unreachable
 
+101:                                              ; preds = %25, %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17h610a2608e0de2029E.exit102"
+  %.pn76.pn.pn = phi { ptr, i32 } [ %.pn76.pn, %25 ], [ %.pn74, %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17h610a2608e0de2029E.exit102" ]
+  resume { ptr, i32 } %.pn76.pn.pn
+
 "_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h91287cc02d2d2582E.exit": ; preds = %55, %58
   call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef 480, i64 noundef 8) #17
   br label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17h610a2608e0de2029E.exit102"
 
-"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17h610a2608e0de2029E.exit102": ; preds = %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h91287cc02d2d2582E.exit", %98, %.body
+"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$schemars..schema..SingleOrVec$LT$schemars..schema..InstanceType$GT$$GT$$GT$17h610a2608e0de2029E.exit102": ; preds = %.body, %98, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h91287cc02d2d2582E.exit"
   %.pn74 = phi { ptr, i32 } [ %.pn72, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h91287cc02d2d2582E.exit" ], [ %93, %98 ], [ %93, %.body ]
   invoke fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$serde_json..value..Value$GT$$GT$$GT$17hc4a749a81397213bE"(ptr noalias noundef align 8 dereferenceable(24) %46) #20
-          to label %common.resume unwind label %99
+          to label %101 unwind label %99
 
-101:                                              ; preds = %35
+102:                                              ; preds = %35
   unreachable
 }
 

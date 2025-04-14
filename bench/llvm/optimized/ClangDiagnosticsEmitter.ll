@@ -21702,58 +21702,57 @@ _ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextC2
   tail call fastcc void @_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE5VisitEPNS_5PieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %192)
   %251 = load i8, ptr %195, align 8, !tbaa !51, !range !56, !noundef !57
   %252 = trunc nuw i8 %251 to i1
-  %253 = load i8, ptr %172, align 8, !range !56
-  %254 = trunc nuw i8 %253 to i1
-  %or.cond.i.i.i.i.i.i = select i1 %252, i1 %254, i1 false
-  br i1 %or.cond.i.i.i.i.i.i, label %255, label %263
+  %253 = and i8 %251, %196
+  %or.cond.i.i.i.i.i.i.not = icmp eq i8 %253, 0
+  br i1 %or.cond.i.i.i.i.i.i.not, label %262, label %254
 
-255:                                              ; preds = %_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextC2ERS2_PNS_17SubstitutionPieceE.exit
-  %256 = load ptr, ptr %194, align 8, !tbaa !58
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %258 = load ptr, ptr %257, align 8, !tbaa !61
+254:                                              ; preds = %_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextC2ERS2_PNS_17SubstitutionPieceE.exit
+  %255 = load ptr, ptr %194, align 8, !tbaa !58
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %257 = load ptr, ptr %256, align 8, !tbaa !61
   store ptr %208, ptr %194, align 8, !tbaa !58
   store ptr %207, ptr %240, align 8, !tbaa !462
-  store ptr %206, ptr %257, align 8, !tbaa !61
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %256, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextD2Ev.exit, label %259
+  store ptr %206, ptr %256, align 8, !tbaa !61
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %255, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextD2Ev.exit, label %258
 
-259:                                              ; preds = %255
-  %260 = ptrtoint ptr %258 to i64
-  %261 = ptrtoint ptr %256 to i64
-  %262 = sub i64 %260, %261
-  tail call void @_ZdlPvm(ptr noundef nonnull %256, i64 noundef %262) #25
+258:                                              ; preds = %254
+  %259 = ptrtoint ptr %257 to i64
+  %260 = ptrtoint ptr %255 to i64
+  %261 = sub i64 %259, %260
+  tail call void @_ZdlPvm(ptr noundef nonnull %255, i64 noundef %261) #25
   br label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextD2Ev.exit
 
-263:                                              ; preds = %_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextC2ERS2_PNS_17SubstitutionPieceE.exit
-  br i1 %254, label %264, label %266
+262:                                              ; preds = %_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextC2ERS2_PNS_17SubstitutionPieceE.exit
+  br i1 %197, label %263, label %265
 
-264:                                              ; preds = %263
+263:                                              ; preds = %262
   store ptr %208, ptr %194, align 8, !tbaa !58
   store ptr %207, ptr %240, align 8, !tbaa !462
-  %265 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %206, ptr %265, align 8, !tbaa !61
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %206, ptr %264, align 8, !tbaa !61
   store i8 1, ptr %195, align 8, !tbaa !51
   br label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextD2Ev.exit
 
-266:                                              ; preds = %263
-  br i1 %252, label %267, label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextD2Ev.exit
+265:                                              ; preds = %262
+  br i1 %252, label %266, label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextD2Ev.exit
 
-267:                                              ; preds = %266
+266:                                              ; preds = %265
   store i8 0, ptr %195, align 8, !tbaa !51
-  %268 = load ptr, ptr %194, align 8, !tbaa !58
-  %.not.i.i.i.i.i7.i.i.i.i.i.i = icmp eq ptr %268, null
-  br i1 %.not.i.i.i.i.i7.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextD2Ev.exit, label %269
+  %267 = load ptr, ptr %194, align 8, !tbaa !58
+  %.not.i.i.i.i.i7.i.i.i.i.i.i = icmp eq ptr %267, null
+  br i1 %.not.i.i.i.i.i7.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextD2Ev.exit, label %268
 
-269:                                              ; preds = %267
-  %270 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %271 = load ptr, ptr %270, align 8, !tbaa !61
-  %272 = ptrtoint ptr %271 to i64
-  %273 = ptrtoint ptr %268 to i64
-  %274 = sub i64 %272, %273
-  tail call void @_ZdlPvm(ptr noundef nonnull %268, i64 noundef %274) #25
+268:                                              ; preds = %266
+  %269 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %270 = load ptr, ptr %269, align 8, !tbaa !61
+  %271 = ptrtoint ptr %270 to i64
+  %272 = ptrtoint ptr %267 to i64
+  %273 = sub i64 %271, %272
+  tail call void @_ZdlPvm(ptr noundef nonnull %267, i64 noundef %273) #25
   br label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextD2Ev.exit
 
-_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextD2Ev.exit: ; preds = %255, %259, %264, %266, %267, %269
+_ZN12_GLOBAL__N_115DiagTextVisitorINS_15DiagTextPrinterEE19SubstitutionContextD2Ev.exit: ; preds = %254, %258, %263, %265, %266, %268
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #24
   br label %_ZN12_GLOBAL__N_115DiagTextPrinter10VisitMultiEPNS_10MultiPieceE.exit
 
@@ -25816,58 +25815,57 @@ _ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContex
   tail call fastcc void @_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE5VisitEPNS_5PieceE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %616)
   %675 = load i8, ptr %619, align 8, !tbaa !51, !range !56, !noundef !57
   %676 = trunc nuw i8 %675 to i1
-  %677 = load i8, ptr %596, align 8, !range !56
-  %678 = trunc nuw i8 %677 to i1
-  %or.cond.i.i.i.i.i.i = select i1 %676, i1 %678, i1 false
-  br i1 %or.cond.i.i.i.i.i.i, label %679, label %687
+  %677 = and i8 %675, %620
+  %or.cond.i.i.i.i.i.i.not = icmp eq i8 %677, 0
+  br i1 %or.cond.i.i.i.i.i.i.not, label %686, label %678
 
-679:                                              ; preds = %_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextC2ERS2_PNS_17SubstitutionPieceE.exit
-  %680 = load ptr, ptr %618, align 8, !tbaa !58
-  %681 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %682 = load ptr, ptr %681, align 8, !tbaa !61
+678:                                              ; preds = %_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextC2ERS2_PNS_17SubstitutionPieceE.exit
+  %679 = load ptr, ptr %618, align 8, !tbaa !58
+  %680 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %681 = load ptr, ptr %680, align 8, !tbaa !61
   store ptr %632, ptr %618, align 8, !tbaa !58
   store ptr %631, ptr %664, align 8, !tbaa !462
-  store ptr %630, ptr %681, align 8, !tbaa !61
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %680, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextD2Ev.exit, label %683
+  store ptr %630, ptr %680, align 8, !tbaa !61
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %679, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextD2Ev.exit, label %682
 
-683:                                              ; preds = %679
-  %684 = ptrtoint ptr %682 to i64
-  %685 = ptrtoint ptr %680 to i64
-  %686 = sub i64 %684, %685
-  tail call void @_ZdlPvm(ptr noundef nonnull %680, i64 noundef %686) #25
+682:                                              ; preds = %678
+  %683 = ptrtoint ptr %681 to i64
+  %684 = ptrtoint ptr %679 to i64
+  %685 = sub i64 %683, %684
+  tail call void @_ZdlPvm(ptr noundef nonnull %679, i64 noundef %685) #25
   br label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextD2Ev.exit
 
-687:                                              ; preds = %_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextC2ERS2_PNS_17SubstitutionPieceE.exit
-  br i1 %678, label %688, label %690
+686:                                              ; preds = %_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextC2ERS2_PNS_17SubstitutionPieceE.exit
+  br i1 %621, label %687, label %689
 
-688:                                              ; preds = %687
+687:                                              ; preds = %686
   store ptr %632, ptr %618, align 8, !tbaa !58
   store ptr %631, ptr %664, align 8, !tbaa !462
-  %689 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %630, ptr %689, align 8, !tbaa !61
+  %688 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %630, ptr %688, align 8, !tbaa !61
   store i8 1, ptr %619, align 8, !tbaa !51
   br label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextD2Ev.exit
 
-690:                                              ; preds = %687
-  br i1 %676, label %691, label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextD2Ev.exit
+689:                                              ; preds = %686
+  br i1 %676, label %690, label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextD2Ev.exit
 
-691:                                              ; preds = %690
+690:                                              ; preds = %689
   store i8 0, ptr %619, align 8, !tbaa !51
-  %692 = load ptr, ptr %618, align 8, !tbaa !58
-  %.not.i.i.i.i.i7.i.i.i.i.i.i = icmp eq ptr %692, null
-  br i1 %.not.i.i.i.i.i7.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextD2Ev.exit, label %693
+  %691 = load ptr, ptr %618, align 8, !tbaa !58
+  %.not.i.i.i.i.i7.i.i.i.i.i.i = icmp eq ptr %691, null
+  br i1 %.not.i.i.i.i.i7.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextD2Ev.exit, label %692
 
-693:                                              ; preds = %691
-  %694 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %695 = load ptr, ptr %694, align 8, !tbaa !61
-  %696 = ptrtoint ptr %695 to i64
-  %697 = ptrtoint ptr %692 to i64
-  %698 = sub i64 %696, %697
-  tail call void @_ZdlPvm(ptr noundef nonnull %692, i64 noundef %698) #25
+692:                                              ; preds = %690
+  %693 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %694 = load ptr, ptr %693, align 8, !tbaa !61
+  %695 = ptrtoint ptr %694 to i64
+  %696 = ptrtoint ptr %691 to i64
+  %697 = sub i64 %695, %696
+  tail call void @_ZdlPvm(ptr noundef nonnull %691, i64 noundef %697) #25
   br label %_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextD2Ev.exit
 
-_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextD2Ev.exit: ; preds = %679, %683, %688, %690, %691, %693
+_ZN12_GLOBAL__N_115DiagTextVisitorINS_18DiagTextDocPrinterEE19SubstitutionContextD2Ev.exit: ; preds = %678, %682, %687, %689, %690, %692
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #24
   br label %_ZN12_GLOBAL__N_118DiagTextDocPrinter10VisitMultiEPNS_10MultiPieceE.exit
 

@@ -2427,7 +2427,7 @@ define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nounde
   unreachable
 
 120:                                              ; preds = %112
-  %121 = or i64 %95, %113
+  %121 = or i64 %113, %95
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %122 = load i32, ptr %90, align 4
   %123 = sext i32 %122 to i64

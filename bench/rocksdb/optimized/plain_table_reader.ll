@@ -6920,8 +6920,8 @@ _ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit: ; preds = %7
   br label %291
 
 89:                                               ; preds = %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit, %70
-  %90 = phi ptr [ @.str, %70 ], [ %80, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ]
-  %91 = phi i64 [ 0, %70 ], [ %81, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ]
+  %90 = phi i64 [ 0, %70 ], [ %81, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ]
+  %91 = phi ptr [ @.str, %70 ], [ %80, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ]
   %.0 = phi i32 [ 0, %70 ], [ %82, %_ZNK7rocksdb16PlainTableReader9GetPrefixERKNS_5SliceE.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14) #32
@@ -7295,11 +7295,11 @@ _ZN7rocksdb6StatusaSEOS0_.exit38.thread:          ; preds = %209, %_ZNKSt14defau
 249:                                              ; preds = %.noexc, %239
   %.sroa.3.0.i.i46 = phi i64 [ %248, %.noexc ], [ 0, %239 ]
   %.sroa.0.0.i.i47 = phi ptr [ %247, %.noexc ], [ @.str, %239 ]
-  %250 = icmp eq i64 %.sroa.3.0.i.i46, %91
+  %250 = icmp eq i64 %.sroa.3.0.i.i46, %90
   br i1 %250, label %_ZN7rocksdbneERKNS_5SliceES2_.exit, label %_ZN7rocksdbneERKNS_5SliceES2_.exit.thread
 
 _ZN7rocksdbneERKNS_5SliceES2_.exit:               ; preds = %249
-  %bcmp.i.i = call i32 @bcmp(ptr %.sroa.0.0.i.i47, ptr %90, i64 %91)
+  %bcmp.i.i = call i32 @bcmp(ptr %.sroa.0.0.i.i47, ptr %91, i64 %90)
   %.not = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not, label %254, label %_ZN7rocksdbneERKNS_5SliceES2_.exit.thread
 

@@ -21761,7 +21761,7 @@ define hidden void @_ZN6search13buffer_search15BufferSearchBar13clear_matches17h
           to label %86 unwind label %84
 
 78:                                               ; preds = %71, %86
-  %79 = phi ptr [ %72, %71 ], [ %.pre96, %86 ]
+  %79 = phi ptr [ %72, %71 ], [ %.pre118, %86 ]
   %80 = phi ptr [ %69, %71 ], [ %.pre, %86 ]
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 384
   %82 = load ptr, ptr %81, align 8, !invariant.load !4, !nonnull !4
@@ -21783,12 +21783,12 @@ define hidden void @_ZN6search13buffer_search15BufferSearchBar13clear_matches17h
 
 86:                                               ; preds = %76
   %.pre = load ptr, ptr %6, align 8
-  %.pre96 = load ptr, ptr %27, align 8
+  %.pre118 = load ptr, ptr %27, align 8
   br i1 %77, label %87, label %78
 
 87:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.6)
-  %88 = getelementptr inbounds nuw i8, ptr %.pre96, i64 352
+  %88 = getelementptr inbounds nuw i8, ptr %.pre118, i64 352
   %89 = load ptr, ptr %88, align 8, !invariant.load !4, !nonnull !4
   %90 = invoke { ptr, ptr } %89(ptr noundef align 1 %.pre)
           to label %110 unwind label %84

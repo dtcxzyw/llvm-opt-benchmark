@@ -19940,14 +19940,14 @@ _ZL21denormalizeSimpleEnumIjEvN4llvm12function_refIFvRKNS0_5TwineEEEEjNS0_3opt6O
   store ptr %4342, ptr %4340, align 8, !tbaa !651, !alias.scope !1164
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %503, i8 0, i64 24, i1 false), !noalias !1164
   %4343 = icmp eq ptr %4339, %4336
-  br i1 %4343, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i3319, label %.lr.ph.i.i.i.i3312.preheader
+  br i1 %4343, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i3319, label %"_ZZN5clang22CompilerInvocationBase19GenerateCodeGenArgsERKNS_14CodeGenOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_11LangOptionsEENK5$_353clISt6vectorISJ_SaISJ_EEEEDaRKT_.exit"
 
-.lr.ph.i.i.i.i3312.preheader:                     ; preds = %"_ZZN5clang22CompilerInvocationBase19GenerateCodeGenArgsERKNS_14CodeGenOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_11LangOptionsEENK5$_352clIjEEDaRKT_.exit"
+"_ZZN5clang22CompilerInvocationBase19GenerateCodeGenArgsERKNS_14CodeGenOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_11LangOptionsEENK5$_353clISt6vectorISJ_SaISJ_EEEEDaRKT_.exit": ; preds = %"_ZZN5clang22CompilerInvocationBase19GenerateCodeGenArgsERKNS_14CodeGenOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_11LangOptionsEENK5$_352clIjEEDaRKT_.exit"
   call fastcc void @_ZL23denormalizeStringVectorN4llvm12function_refIFvRKNS_5TwineEEEEjNS_3opt6Option11OptionClassEjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EE(ptr %1, i64 %2, i32 noundef 4661, i32 noundef 4, ptr noundef nonnull readonly align 8 dereferenceable(24) %502)
   br label %.lr.ph.i.i.i.i3312
 
-.lr.ph.i.i.i.i3312:                               ; preds = %.lr.ph.i.i.i.i3312.preheader, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i3315
-  %.05.i.i.i.i3313 = phi ptr [ %4352, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i3315 ], [ %4336, %.lr.ph.i.i.i.i3312.preheader ]
+.lr.ph.i.i.i.i3312:                               ; preds = %"_ZZN5clang22CompilerInvocationBase19GenerateCodeGenArgsERKNS_14CodeGenOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_11LangOptionsEENK5$_353clISt6vectorISJ_SaISJ_EEEEDaRKT_.exit", %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i3315
+  %.05.i.i.i.i3313 = phi ptr [ %4352, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i3315 ], [ %4336, %"_ZZN5clang22CompilerInvocationBase19GenerateCodeGenArgsERKNS_14CodeGenOptionsEN4llvm12function_refIFvRKNS4_5TwineEEEERKNS4_6TripleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_11LangOptionsEENK5$_353clISt6vectorISJ_SaISJ_EEEEDaRKT_.exit" ]
   %4344 = load ptr, ptr %.05.i.i.i.i3313, align 8, !tbaa !380
   %4345 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i3313, i64 16
   %4346 = icmp eq ptr %4344, %4345

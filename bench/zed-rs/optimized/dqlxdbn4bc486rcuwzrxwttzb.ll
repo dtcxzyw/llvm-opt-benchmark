@@ -95806,9 +95806,9 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   store ptr %.sroa.8.0.copyload.i, ptr %56, align 8, !noalias !21078
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !21078
   %68 = invoke noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
-          to label %69 unwind label %.body.thread137.i, !noalias !21083
+          to label %69 unwind label %.body.thread162.i, !noalias !21083
 
-.body.thread137.i:                                ; preds = %69, %65
+.body.thread162.i:                                ; preds = %69, %65
   %lpad.thr_comm.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.i
@@ -95822,7 +95822,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.8.0.copyload.i, i64 272
   %71 = load ptr, ptr %70, align 8, !invariant.load !7, !noalias !21083, !nonnull !7
   %72 = invoke { ptr, ptr } %71(ptr noundef nonnull align 1 %.sroa.732.0.copyload.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %68)
-          to label %73 unwind label %.body.thread137.i, !noalias !21083
+          to label %73 unwind label %.body.thread162.i, !noalias !21083
 
 73:                                               ; preds = %69
   %74 = extractvalue { ptr, ptr } %72, 0
@@ -95942,7 +95942,7 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   %121 = add i64 %116, 1
   store i64 %121, ptr %51, align 8, !alias.scope !21106, !noalias !21109
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !21078
-  br label %.thread64.i
+  br label %.thread65.i
 
 122:                                              ; preds = %115
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hfa923fed35925f8eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11)
@@ -95974,9 +95974,9 @@ define hidden void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..Visu
   store i64 %131, ptr %51, align 8, !alias.scope !21106, !noalias !21109
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !21078
   switch i64 %.pre.i, label %default.unreachable [
-    i64 3, label %.thread64.i
+    i64 3, label %.thread65.i
     i64 2, label %136
-    i64 0, label %.thread64.i
+    i64 0, label %.thread65.i
     i64 1, label %132
   ]
 
@@ -95986,17 +95986,17 @@ default.unreachable:                              ; preds = %128
 132:                                              ; preds = %128
   %133 = load ptr, ptr %59, align 8, !alias.scope !21112, !noalias !21078, !noundef !7
   %134 = icmp eq ptr %133, null
-  br i1 %134, label %.thread64.i, label %135
+  br i1 %134, label %.thread65.i, label %135
 
 135:                                              ; preds = %132
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %59)
-          to label %.thread64.i unwind label %.body.i, !noalias !21083
+          to label %.thread65.i unwind label %.body.i, !noalias !21083
 
 136:                                              ; preds = %128
   invoke void @"_ZN77_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h52440ea10ec35c0fE.llvm.8822578354236523850"(ptr noalias noundef nonnull align 8 dereferenceable(8) %59)
-          to label %.thread64.i unwind label %.body.i, !noalias !21083
+          to label %.thread65.i unwind label %.body.i, !noalias !21083
 
-.thread64.i:                                      ; preds = %136, %135, %132, %128, %128, %.thread.i
+.thread65.i:                                      ; preds = %136, %135, %132, %128, %128, %.thread.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !21078
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8), !noalias !21078
   br label %"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit.i"
@@ -96046,7 +96046,7 @@ default.unreachable:                              ; preds = %128
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.732.0.copyload.i, i64 noundef range(i64 1, -9223372036854775808) %154, i64 noundef range(i64 1, -9223372036854775807) %156) #32, !noalias !21125
   br label %174
 
-"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit.i": ; preds = %170, %166, %163, %.thread64.i
+"_ZN4core3ptr70drop_in_place$LT$gpui..view..WeakView$LT$workspace..pane..Pane$GT$$GT$17hf12d3d2225375ec8E.exit.i": ; preds = %170, %166, %163, %.thread65.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9.i)
   %160 = load ptr, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !21128, !noalias !21087, !nonnull !7, !noundef !7
   %161 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !21128, !noalias !21087, !nonnull !7, !noundef !7
@@ -96081,13 +96081,13 @@ default.unreachable:                              ; preds = %128
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #39, !noalias !21083
   unreachable
 
-.body.thread.i:                                   ; preds = %111, %102, %94, %81, %.body.thread137.i
-  %.pn84.i = phi { ptr, i32 } [ %82, %81 ], [ %95, %94 ], [ %95, %102 ], [ %112, %111 ], [ %lpad.thr_comm.i, %.body.thread137.i ]
+.body.thread.i:                                   ; preds = %111, %102, %94, %81, %.body.thread162.i
+  %.pn85.i = phi { ptr, i32 } [ %82, %81 ], [ %95, %94 ], [ %95, %102 ], [ %112, %111 ], [ %lpad.thr_comm.i, %.body.thread162.i ]
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$workspace..item..ItemHandle$GT$$GT$17he70db7ea20a6f4e4E.llvm.11294416462294145432"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #38
           to label %174 unwind label %172, !noalias !21083
 
 174:                                              ; preds = %.body.thread.i, %159, %151
-  %.pn11.ph.i = phi { ptr, i32 } [ %.pn84.i, %.body.thread.i ], [ %152, %159 ], [ %152, %151 ]
+  %.pn11.ph.i = phi { ptr, i32 } [ %.pn85.i, %.body.thread.i ], [ %152, %159 ], [ %152, %151 ]
   %175 = icmp ne ptr %.sroa.7.sroa.5.0.copyload.i, null
   call void @llvm.assume(i1 %175)
   %176 = icmp eq ptr %.sroa.7.sroa.5.0.copyload.i, inttoptr (i64 -1 to ptr)
