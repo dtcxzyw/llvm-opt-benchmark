@@ -944,7 +944,7 @@ _ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4bsdf
   %314 = fdiv contract float -1.000000e+00, %313
   %315 = extractelement <4 x float> %269, i64 0
   %shift520 = shufflevector <4 x float> %269, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %316 = fmul contract <4 x float> %269, %shift520
+  %316 = fmul contract <4 x float> %269, %shift522
   %317 = extractelement <4 x float> %316, i64 0
   %318 = fmul contract float %317, %314
   %319 = fmul contract <4 x float> %269, %269
@@ -974,7 +974,7 @@ _ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4bsdf
   %340 = fdiv contract float -1.000000e+00, %339
   %341 = extractelement <4 x float> %270, i64 0
   %shift521 = shufflevector <4 x float> %270, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %342 = fmul contract <4 x float> %270, %shift521
+  %342 = fmul contract <4 x float> %270, %shift523
   %343 = extractelement <4 x float> %342, i64 0
   %344 = fmul contract float %343, %340
   %345 = fmul contract <4 x float> %270, %270
@@ -1384,7 +1384,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %571 = fdiv contract float -1.000000e+00, %570
   %572 = extractelement <4 x float> %549, i64 0
   %shift522 = shufflevector <4 x float> %549, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %573 = fmul contract <4 x float> %shift522, %549
+  %573 = fmul contract <4 x float> %shift524, %549
   %574 = extractelement <4 x float> %573, i64 0
   %575 = fmul contract float %574, %571
   %576 = fmul contract <4 x float> %549, %549
@@ -1420,7 +1420,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %603 = fdiv contract float -1.000000e+00, %602
   %604 = extractelement <4 x float> %558, i64 0
   %shift523 = shufflevector <4 x float> %558, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %605 = fmul contract <4 x float> %558, %shift523
+  %605 = fmul contract <4 x float> %558, %shift525
   %606 = extractelement <4 x float> %605, i64 0
   %607 = fmul contract float %606, %603
   %608 = fmul contract <4 x float> %558, %558
@@ -1450,7 +1450,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %629 = fdiv contract float -1.000000e+00, %628
   %630 = extractelement <4 x float> %559, i64 0
   %shift524 = shufflevector <4 x float> %559, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %631 = fmul contract <4 x float> %559, %shift524
+  %631 = fmul contract <4 x float> %559, %shift526
   %632 = extractelement <4 x float> %631, i64 0
   %633 = fmul contract float %632, %629
   %634 = fmul contract <4 x float> %559, %559
@@ -1477,7 +1477,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %655 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %557, <4 x float> %654, <4 x float> %652)
   store <4 x float> %655, ptr %28, align 16, !noalias !76
   %bc516 = bitcast <4 x float> %565 to <4 x i32>
-  %656 = extractelement <4 x i32> %bc516, i64 2
+  %656 = extractelement <4 x i32> %bc518, i64 2
   %657 = and i32 %656, -2147483648
   %658 = or disjoint i32 %657, 1065353216
   %659 = bitcast i32 %658 to float
@@ -1598,9 +1598,9 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %737 = fsub contract <4 x float> %735, %736
   %738 = fmul contract <4 x float> %737, %737
   %shift525 = shufflevector <4 x float> %738, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %739 = fadd contract <4 x float> %738, %shift525
+  %739 = fadd contract <4 x float> %738, %shift527
   %shift526 = shufflevector <4 x float> %738, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %740 = fadd contract <4 x float> %shift526, %739
+  %740 = fadd contract <4 x float> %shift528, %739
   %741 = extractelement <4 x float> %740, i64 0
   %742 = call contract noundef float @llvm.sqrt.f32(float %741)
   store float %742, ptr %527, align 16

@@ -79379,9 +79379,9 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit173:     ; preds = %24, %26, %33
   %146 = add nsw i32 %36, -1
   %147 = add nsw i32 %64, 1
   %.not296 = icmp sgt i32 %146, %147
-  br i1 %.not296, label %._crit_edge305, label %.lr.ph304
+  br i1 %.not299, label %._crit_edge308, label %.lr.ph307
 
-.lr.ph304:                                        ; preds = %135
+.lr.ph307:                                        ; preds = %135
   %148 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %150 = add nsw i32 %38, -1
@@ -79402,22 +79402,22 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit173:     ; preds = %24, %26, %33
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  br i1 %.not170291, label %._crit_edge305, label %.lr.ph
+  br i1 %.not170293, label %._crit_edge308, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph304, %._crit_edge
-  %.0302 = phi float [ %421, %._crit_edge ], [ %67, %.lr.ph304 ]
-  %.0158301 = phi float [ %422, %._crit_edge ], [ %57, %.lr.ph304 ]
-  %.0164300 = phi i32 [ %424, %._crit_edge ], [ %146, %.lr.ph304 ]
-  %.0165299 = phi float [ %423, %._crit_edge ], [ %69, %.lr.ph304 ]
-  %.sroa.0196.0298 = phi float [ %.sroa.0196.2, %._crit_edge ], [ undef, %.lr.ph304 ]
-  %.sroa.2.0297 = phi float [ %.sroa.2.2, %._crit_edge ], [ undef, %.lr.ph304 ]
-  %166 = fsub float %.0302, %42
+.lr.ph:                                           ; preds = %.lr.ph307, %._crit_edge
+  %.0302 = phi float [ %421, %._crit_edge ], [ %67, %.lr.ph307 ]
+  %.0158301 = phi float [ %422, %._crit_edge ], [ %57, %.lr.ph307 ]
+  %.0164300 = phi i32 [ %424, %._crit_edge ], [ %146, %.lr.ph307 ]
+  %.0165299 = phi float [ %423, %._crit_edge ], [ %69, %.lr.ph307 ]
+  %.sroa.0196.0298 = phi float [ %.sroa.0196.2, %._crit_edge ], [ undef, %.lr.ph307 ]
+  %.sroa.2.0297 = phi float [ %.sroa.2.2, %._crit_edge ], [ undef, %.lr.ph307 ]
+  %166 = fsub float %.0305, %42
   %167 = fadd float %41, %166
   store float %167, ptr %8, align 4
-  %168 = fsub float %.0158301, %45
+  %168 = fsub float %.0158304, %45
   %169 = fadd float %43, %168
   store float %169, ptr %148, align 4
-  %170 = fsub float %.0165299, %47
+  %170 = fsub float %.0165302, %47
   %171 = fadd float %46, %170
   store float %171, ptr %149, align 4
   %172 = sitofp i32 %.0164300 to float
@@ -79549,7 +79549,7 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit173:     ; preds = %24, %26, %33
   %282 = shl nuw nsw i32 %278, 8
   %283 = or disjoint i32 %282, %281
   %284 = or disjoint i32 %283, %279
-  call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %273, i32 noundef %.0164300, i32 noundef %276, i32 noundef %284)
+  call void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %273, i32 noundef %.0164303, i32 noundef %276, i32 noundef %284)
   %285 = load ptr, ptr %160, align 8
   %.not.i = icmp eq ptr %285, null
   br i1 %.not.i, label %_ZN13RasterSampler16AddTextureSampleERK6CFaceORKN3vcg6Point3IfEERKNS3_6Point2IiEEf.exit, label %286
@@ -79765,7 +79765,7 @@ _ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit: ; preds 
   br label %416
 
 416:                                              ; preds = %386, %363
-  store i32 %.0164300, ptr %10, align 4
+  store i32 %.0164303, ptr %10, align 4
   store i32 %.0163294, ptr %156, align 4
   call void @_ZN13RasterSampler16AddTextureSampleERK6CFaceORKN3vcg6Point3IfEERKNS3_6Point2IiEEf(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(8) %10, float noundef %.1)
   br label %_ZN13RasterSampler16AddTextureSampleERK6CFaceORKN3vcg6Point3IfEERKNS3_6Point2IiEEf.exit
@@ -79784,14 +79784,14 @@ _ZN13RasterSampler16AddTextureSampleERK6CFaceORKN3vcg6Point3IfEERKNS3_6Point2IiE
   br i1 %.not170, label %._crit_edge, label %176, !llvm.loop !953
 
 ._crit_edge:                                      ; preds = %_ZN13RasterSampler16AddTextureSampleERK6CFaceORKN3vcg6Point3IfEERKNS3_6Point2IiEEf.exit
-  %421 = fadd float %42, %.0302
-  %422 = fadd float %45, %.0158301
-  %423 = fadd float %47, %.0165299
-  %424 = add nsw i32 %.0164300, 1
-  %.not = icmp sgt i32 %.0164300, %64
-  br i1 %.not, label %._crit_edge305, label %.lr.ph, !llvm.loop !954
+  %421 = fadd float %42, %.0305
+  %422 = fadd float %45, %.0158304
+  %423 = fadd float %47, %.0165302
+  %424 = add nsw i32 %.0164303, 1
+  %.not = icmp sgt i32 %.0164303, %64
+  br i1 %.not, label %._crit_edge308, label %.lr.ph, !llvm.loop !954
 
-._crit_edge305:                                   ; preds = %._crit_edge, %.lr.ph304, %135
+._crit_edge308:                                   ; preds = %._crit_edge, %.lr.ph307, %135
   ret void
 }
 
@@ -86091,9 +86091,9 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit173:     ; preds = %26, %28, %35
   %148 = add nsw i32 %38, -1
   %149 = add nsw i32 %66, 1
   %.not290 = icmp sgt i32 %148, %149
-  br i1 %.not290, label %._crit_edge299, label %.lr.ph298
+  br i1 %.not293, label %._crit_edge302, label %.lr.ph301
 
-.lr.ph298:                                        ; preds = %137
+.lr.ph301:                                        ; preds = %137
   %150 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %151 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %152 = add nsw i32 %40, -1
@@ -86107,22 +86107,22 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit173:     ; preds = %26, %28, %35
   %159 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %160 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %161 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  br i1 %.not170285, label %._crit_edge299, label %.lr.ph
+  br i1 %.not170287, label %._crit_edge302, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph298, %._crit_edge
-  %.0296 = phi float [ %337, %._crit_edge ], [ %69, %.lr.ph298 ]
-  %.0158295 = phi float [ %338, %._crit_edge ], [ %59, %.lr.ph298 ]
-  %.0164294 = phi i32 [ %340, %._crit_edge ], [ %148, %.lr.ph298 ]
-  %.0165293 = phi float [ %339, %._crit_edge ], [ %71, %.lr.ph298 ]
-  %.sroa.0196.0292 = phi float [ %.sroa.0196.2, %._crit_edge ], [ undef, %.lr.ph298 ]
-  %.sroa.2.0291 = phi float [ %.sroa.2.2, %._crit_edge ], [ undef, %.lr.ph298 ]
-  %162 = fsub float %.0296, %44
+.lr.ph:                                           ; preds = %.lr.ph301, %._crit_edge
+  %.0296 = phi float [ %337, %._crit_edge ], [ %69, %.lr.ph301 ]
+  %.0158295 = phi float [ %338, %._crit_edge ], [ %59, %.lr.ph301 ]
+  %.0164294 = phi i32 [ %340, %._crit_edge ], [ %148, %.lr.ph301 ]
+  %.0165293 = phi float [ %339, %._crit_edge ], [ %71, %.lr.ph301 ]
+  %.sroa.0196.0292 = phi float [ %.sroa.0196.2, %._crit_edge ], [ undef, %.lr.ph301 ]
+  %.sroa.2.0291 = phi float [ %.sroa.2.2, %._crit_edge ], [ undef, %.lr.ph301 ]
+  %162 = fsub float %.0299, %44
   %163 = fadd float %43, %162
   store float %163, ptr %8, align 4
-  %164 = fsub float %.0158295, %47
+  %164 = fsub float %.0158298, %47
   %165 = fadd float %45, %164
   store float %165, ptr %150, align 4
-  %166 = fsub float %.0165293, %49
+  %166 = fsub float %.0165296, %49
   %167 = fadd float %48, %166
   store float %167, ptr %151, align 4
   %168 = sitofp i32 %.0164294 to float
@@ -86191,7 +86191,7 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit173:     ; preds = %26, %28, %35
   %213 = fsub float 1.000000e+00, %199
   %214 = fsub float %213, %212
   store float %214, ptr %160, align 4
-  store i32 %.0164294, ptr %10, align 4
+  store i32 %.0164297, ptr %10, align 4
   store i32 %.0163288, ptr %161, align 4
   call void @_ZN20TransferColorSampler16AddTextureSampleERK6CFaceORKN3vcg6Point3IfEERKNS3_6Point2IiEEf(ptr noundef nonnull align 8 dereferenceable(320) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(8) %10, float noundef 0.000000e+00)
   br label %332
@@ -86380,7 +86380,7 @@ _ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit: ; preds 
   br label %331
 
 331:                                              ; preds = %301, %278
-  store i32 %.0164294, ptr %12, align 4
+  store i32 %.0164297, ptr %12, align 4
   store i32 %.0163288, ptr %158, align 4
   call void @_ZN20TransferColorSampler16AddTextureSampleERK6CFaceORKN3vcg6Point3IfEERKNS3_6Point2IiEEf(ptr noundef nonnull align 8 dereferenceable(320) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(8) %12, float noundef %.1)
   br label %332
@@ -86399,14 +86399,14 @@ _ZN3vcg12ClosestPointIfEENS_6Point2IT_EERKNS_8Segment2IS2_EERKS3_.exit: ; preds 
   br i1 %.not170, label %._crit_edge, label %172, !llvm.loop !1032
 
 ._crit_edge:                                      ; preds = %332
-  %337 = fadd float %44, %.0296
-  %338 = fadd float %47, %.0158295
-  %339 = fadd float %49, %.0165293
-  %340 = add nsw i32 %.0164294, 1
-  %.not = icmp sgt i32 %.0164294, %66
-  br i1 %.not, label %._crit_edge299, label %.lr.ph, !llvm.loop !1033
+  %337 = fadd float %44, %.0299
+  %338 = fadd float %47, %.0158298
+  %339 = fadd float %49, %.0165296
+  %340 = add nsw i32 %.0164297, 1
+  %.not = icmp sgt i32 %.0164297, %66
+  br i1 %.not, label %._crit_edge302, label %.lr.ph, !llvm.loop !1033
 
-._crit_edge299:                                   ; preds = %._crit_edge, %.lr.ph298, %137
+._crit_edge302:                                   ; preds = %._crit_edge, %.lr.ph301, %137
   ret void
 }
 

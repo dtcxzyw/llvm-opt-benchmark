@@ -380,7 +380,7 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly cap
   %54 = getelementptr inbounds nuw [3 x i32], ptr %6, i64 0, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   %.not75 = icmp eq i32 %55, -1
-  br i1 %.not75, label %63, label %56
+  br i1 %.not74, label %63, label %56
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw [3 x i32], ptr %7, i64 0, i64 %indvars.iv
@@ -390,11 +390,11 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly cap
   store i32 %58, ptr %60, align 4
   %61 = getelementptr inbounds [3 x i32], ptr %8, i64 0, i64 %59
   store i32 %55, ptr %61, align 4
-  %62 = add nsw i32 %.082, 1
+  %62 = add nsw i32 %.081, 1
   br label %63
 
 63:                                               ; preds = %53, %56
-  %.1 = phi i32 [ %62, %56 ], [ %.082, %53 ]
+  %.1 = phi i32 [ %62, %56 ], [ %.081, %53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %64, label %53, !llvm.loop !11
@@ -424,7 +424,7 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly cap
   br i1 %75, label %76, label %80
 
 76:                                               ; preds = %._crit_edge, %71
-  %77 = phi i32 [ %.pre96, %._crit_edge ], [ %74, %71 ]
+  %77 = phi i32 [ %.pre95, %._crit_edge ], [ %74, %71 ]
   %78 = phi i32 [ %.pre, %._crit_edge ], [ %72, %71 ]
   store i32 %67, ptr %9, align 4
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -483,9 +483,9 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly cap
 
 106:                                              ; preds = %99, %116
   %107 = phi i32 [ %105, %99 ], [ %117, %116 ]
-  %indvars.iv88 = phi i64 [ 0, %99 ], [ %indvars.iv.next89, %116 ]
+  %indvars.iv88 = phi i64 [ 0, %99 ], [ %indvars.iv.next88, %116 ]
   %.05683 = phi i32 [ -1, %99 ], [ %.157, %116 ]
-  %108 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv88
+  %108 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv87
   %109 = load i32, ptr %108, align 4
   %110 = icmp sgt i32 %109, %105
   br i1 %110, label %111, label %113
@@ -498,19 +498,19 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly cap
 113:                                              ; preds = %106
   %114 = icmp eq i32 %109, %105
   %115 = trunc nuw nsw i64 %indvars.iv88 to i32
-  %spec.select = select i1 %114, i32 %115, i32 %.05683
+  %spec.select = select i1 %114, i32 %115, i32 %.05682
   br label %116
 
 116:                                              ; preds = %113, %111
   %117 = phi i32 [ %112, %111 ], [ %107, %113 ]
-  %.157 = phi i32 [ %.05683, %111 ], [ %spec.select, %113 ]
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond91.not = icmp eq i64 %indvars.iv.next89, 3
-  br i1 %exitcond91.not, label %118, label %106, !llvm.loop !12
+  %.157 = phi i32 [ %.05682, %111 ], [ %spec.select, %113 ]
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv87, 1
+  %exitcond91.not = icmp eq i64 %indvars.iv.next88, 3
+  br i1 %exitcond90.not, label %118, label %106, !llvm.loop !12
 
 118:                                              ; preds = %116
   %.not74 = icmp eq i32 %.157, -1
-  br i1 %.not74, label %.preheader, label %119
+  br i1 %.not73, label %.preheader, label %119
 
 119:                                              ; preds = %118
   store i32 %.157, ptr %4, align 4
@@ -520,17 +520,17 @@ define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly cap
   br label %120
 
 120:                                              ; preds = %.preheader, %120
-  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %120 ], [ 0, %.preheader ]
+  %indvars.iv92 = phi i64 [ %indvars.iv.next92, %120 ], [ 0, %.preheader ]
   %.05485 = phi i32 [ %126, %120 ], [ 0, %.preheader ]
-  %121 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv92
+  %121 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv91
   %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds nuw [3 x i32], ptr @av1_fast_palette_color_index_context.hash_multipliers, i64 0, i64 %indvars.iv92
+  %123 = getelementptr inbounds nuw [3 x i32], ptr @av1_fast_palette_color_index_context.hash_multipliers, i64 0, i64 %indvars.iv91
   %124 = load i32, ptr %123, align 4
   %125 = mul nsw i32 %124, %122
-  %126 = add nsw i32 %125, %.05485
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %exitcond95.not = icmp eq i64 %indvars.iv.next93, 3
-  br i1 %exitcond95.not, label %127, label %120, !llvm.loop !13
+  %126 = add nsw i32 %125, %.05484
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv91, 1
+  %exitcond95.not = icmp eq i64 %indvars.iv.next92, 3
+  br i1 %exitcond94.not, label %127, label %120, !llvm.loop !13
 
 127:                                              ; preds = %120
   %128 = sext i32 %126 to i64

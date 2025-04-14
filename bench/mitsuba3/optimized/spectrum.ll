@@ -2461,7 +2461,7 @@ _ZN5drjit13binary_searchIjZN7mitsuba21spectrum_list_to_srgbIfEENS1_5ColorIT_Lm3E
 
 76:                                               ; preds = %12, %21, %70
   %77 = phi <4 x float> [ %13, %12 ], [ %13, %21 ], [ %75, %70 ]
-  %78 = add nuw nsw i32 %.0212, 1
+  %78 = add nuw nsw i32 %.0211, 1
   %exitcond.not = icmp eq i32 %78, 1000
   br i1 %exitcond.not, label %79, label %12, !llvm.loop !11
 
@@ -2582,7 +2582,7 @@ common.resume:                                    ; preds = %147, %129
   br label %common.resume
 
 131:                                              ; preds = %119, %123, %128
-  %132 = phi <4 x float> [ %110, %119 ], [ %110, %123 ], [ %.pre214, %128 ]
+  %132 = phi <4 x float> [ %110, %119 ], [ %110, %123 ], [ %.pre213, %128 ]
   %133 = call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> splat (float 1.000000e+00), <4 x float> %132)
   br label %.critedge2.sink.split
 
@@ -2623,7 +2623,7 @@ common.resume:                                    ; preds = %147, %129
 
 .critedge2.sink.split:                            ; preds = %146, %141, %137, %131
   %.sink216 = phi <4 x float> [ %133, %131 ], [ %110, %137 ], [ %110, %141 ], [ %.pre, %146 ]
-  %149 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %.sink216)
+  %149 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %.sink215)
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.sink.split, %113, %.critedge192
@@ -3002,7 +3002,7 @@ _ZN5drjit13binary_searchIjZN7mitsuba21spectrum_list_to_srgbIdEENS1_5ColorIT_Lm3E
 
 76:                                               ; preds = %12, %21, %70
   %77 = phi <4 x double> [ %13, %12 ], [ %13, %21 ], [ %75, %70 ]
-  %78 = add nuw nsw i32 %.0212, 1
+  %78 = add nuw nsw i32 %.0211, 1
   %exitcond.not = icmp eq i32 %78, 1000
   br i1 %exitcond.not, label %79, label %12, !llvm.loop !16
 
@@ -3123,7 +3123,7 @@ common.resume:                                    ; preds = %147, %129
   br label %common.resume
 
 131:                                              ; preds = %119, %123, %128
-  %132 = phi <4 x double> [ %110, %119 ], [ %110, %123 ], [ %.pre214, %128 ]
+  %132 = phi <4 x double> [ %110, %119 ], [ %110, %123 ], [ %.pre213, %128 ]
   %133 = call contract noundef <4 x double> @llvm.x86.avx.min.pd.256(<4 x double> splat (double 1.000000e+00), <4 x double> %132)
   br label %.critedge2.sink.split
 
@@ -3164,7 +3164,7 @@ common.resume:                                    ; preds = %147, %129
 
 .critedge2.sink.split:                            ; preds = %146, %141, %137, %131
   %.sink216 = phi <4 x double> [ %133, %131 ], [ %110, %137 ], [ %110, %141 ], [ %.pre, %146 ]
-  %149 = call contract noundef <4 x double> @llvm.x86.avx.max.pd.256(<4 x double> zeroinitializer, <4 x double> %.sink216)
+  %149 = call contract noundef <4 x double> @llvm.x86.avx.max.pd.256(<4 x double> zeroinitializer, <4 x double> %.sink215)
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.sink.split, %113, %.critedge192
