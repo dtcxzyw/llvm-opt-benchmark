@@ -11476,8 +11476,8 @@ _ZN4llvm13IRBuilderBase9CreateSubEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %
   store i16 257, ptr %142, align 8
   %280 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %16, i32 noundef 33, ptr noundef %273, ptr noundef %279, ptr noundef nonnull align 8 dereferenceable(34) %29)
   %281 = load ptr, ptr %19, align 8, !tbaa !25
-  %282 = getelementptr ptr, ptr %281, i64 %.051139
-  %283 = getelementptr i8, ptr %282, i64 8
+  %282 = getelementptr inbounds nuw ptr, ptr %281, i64 %.051139
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %284 = load ptr, ptr %283, align 8, !tbaa !167
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %285 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 3) #18
@@ -11727,9 +11727,9 @@ _ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_10BasicBlockEEELj8EED2Ev.exit: ; preds 
   br i1 %396, label %397, label %413
 
 397:                                              ; preds = %394
-  %398 = getelementptr ptr, ptr %.pre154, i64 %.0140
+  %398 = getelementptr inbounds nuw ptr, ptr %.pre154, i64 %.0140
   %399 = load ptr, ptr %398, align 8, !tbaa !167
-  %400 = getelementptr i8, ptr %398, i64 8
+  %400 = getelementptr inbounds nuw i8, ptr %398, i64 8
   %401 = load ptr, ptr %400, align 8, !tbaa !167
   %402 = ptrtoint ptr %401 to i64
   %403 = and i64 %402, -5

@@ -2768,7 +2768,7 @@ default.unreachable.i:                            ; preds = %637
   %707 = add nuw nsw i64 %.sroa.083.0101.us.i, 1
   %708 = getelementptr inbounds nuw [9 x i8], ptr %.sroa.77.0..sroa_idx, i64 0, i64 %707
   %709 = load i8, ptr %708, align 1, !alias.scope !336, !noalias !341, !noundef !16
-  %.idx193.i = shl nsw i64 %.sroa.083.0101.us.i, 8
+  %.idx193.i = shl nuw nsw i64 %.sroa.083.0101.us.i, 8
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %10, i64 %.idx193.i
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h37fd6f097b2b7015E.exit127.us.us.i"
 
@@ -2776,7 +2776,7 @@ default.unreachable.i:                            ; preds = %637
   %.sroa.085.080.us.us.i = phi i64 [ 0, %.split.us.i ], [ %710, %733 ]
   %.sroa.034.079.us.us.i = phi i8 [ %709, %.split.us.i ], [ %.sroa.033.0.us.us.i, %733 ]
   %710 = add nuw nsw i64 %.sroa.085.080.us.us.i, 1
-  %.idx.i = shl nsw i64 %.sroa.085.080.us.us.i, 6
+  %.idx.i = shl nuw nsw i64 %.sroa.085.080.us.us.i, 6
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
   %711 = load i64, ptr %320, align 8, !alias.scope !336, !noalias !341, !noundef !16
   %712 = icmp ult i64 %.sroa.044.01144, %711

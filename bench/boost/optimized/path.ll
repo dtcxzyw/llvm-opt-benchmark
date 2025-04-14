@@ -3445,8 +3445,8 @@ define void @_ZN5boost10filesystem6detail15path_algorithms25erase_redundant_sepa
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8, !tbaa !3
-  %8 = getelementptr i8, ptr %7, i64 %1
-  %9 = getelementptr i8, ptr %8, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 %1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %10 = load i8, ptr %9, align 1, !tbaa !11
   %11 = icmp eq i8 %10, 47
   br i1 %11, label %12, label %13

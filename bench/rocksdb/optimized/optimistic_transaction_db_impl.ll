@@ -7314,9 +7314,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN7rocksdb
   %23 = mul nuw i64 %17, %14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !42
-  %26 = getelementptr %"struct.rocksdb::CacheAlignedWrapper", ptr %25, i64 %22
-  %27 = getelementptr %"struct.rocksdb::CacheAlignedWrapper", ptr %26, i64 %23
-  %28 = getelementptr %"struct.rocksdb::CacheAlignedWrapper", ptr %27, i64 %21
+  %26 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %25, i64 %22
+  %27 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %26, i64 %23
+  %28 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %27, i64 %21
   ret ptr %28
 }
 
@@ -7578,9 +7578,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZN7rocksdb
   %23 = mul nuw i64 %17, %14
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !269
-  %26 = getelementptr %"class.rocksdb::port::Mutex", ptr %25, i64 %22
-  %27 = getelementptr %"class.rocksdb::port::Mutex", ptr %26, i64 %23
-  %28 = getelementptr %"class.rocksdb::port::Mutex", ptr %27, i64 %21
+  %26 = getelementptr inbounds nuw %"class.rocksdb::port::Mutex", ptr %25, i64 %22
+  %27 = getelementptr inbounds nuw %"class.rocksdb::port::Mutex", ptr %26, i64 %23
+  %28 = getelementptr inbounds nuw %"class.rocksdb::port::Mutex", ptr %27, i64 %21
   ret ptr %28
 }
 

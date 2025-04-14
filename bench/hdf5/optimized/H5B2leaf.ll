@@ -765,8 +765,8 @@ define range(i32 -1, 1) i32 @H5B2__insert_leaf(ptr noundef %0, ptr noundef captu
   %53 = load ptr, ptr %28, align 8, !tbaa !35
   %54 = load ptr, ptr %26, align 8, !tbaa !56
   %55 = zext nneg i32 %48 to i64
-  %56 = getelementptr i64, ptr %54, i64 %55
-  %57 = getelementptr i8, ptr %56, i64 8
+  %56 = getelementptr inbounds nuw i64, ptr %54, i64 %55
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !10
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 %58
   %60 = load i64, ptr %56, align 8, !tbaa !10
@@ -1054,8 +1054,8 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %62 = load ptr, ptr %32, align 8, !tbaa !35
   %63 = load ptr, ptr %30, align 8, !tbaa !56
   %64 = zext nneg i32 %57 to i64
-  %65 = getelementptr i64, ptr %63, i64 %64
-  %66 = getelementptr i8, ptr %65, i64 8
+  %65 = getelementptr inbounds nuw i64, ptr %63, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i64, ptr %66, align 8, !tbaa !10
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 %67
   %69 = load i64, ptr %65, align 8, !tbaa !10
@@ -1548,10 +1548,10 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf(ptr noundef %0, ptr noundef captu
   %100 = load ptr, ptr %28, align 8, !tbaa !35
   %101 = load ptr, ptr %26, align 8, !tbaa !56
   %102 = zext nneg i32 %96 to i64
-  %103 = getelementptr i64, ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw i64, ptr %101, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !10
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 %104
-  %106 = getelementptr i8, ptr %103, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %107 = load i64, ptr %106, align 8, !tbaa !10
   %108 = getelementptr inbounds nuw i8, ptr %100, i64 %107
   %109 = load ptr, ptr %21, align 8, !tbaa !36
@@ -1732,10 +1732,10 @@ define range(i32 -1, 1) i32 @H5B2__remove_leaf_by_idx(ptr noundef %0, ptr nounde
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %79 = load ptr, ptr %78, align 8, !tbaa !56
   %80 = zext nneg i32 %4 to i64
-  %81 = getelementptr i64, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw i64, ptr %79, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !10
   %83 = getelementptr inbounds nuw i8, ptr %77, i64 %82
-  %84 = getelementptr i8, ptr %81, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %85 = load i64, ptr %84, align 8, !tbaa !10
   %86 = getelementptr inbounds nuw i8, ptr %77, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 424

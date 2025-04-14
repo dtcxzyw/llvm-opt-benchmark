@@ -495,7 +495,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev13IsM44Identi
 
 .preheader:                                       ; preds = %1, %.critedge
   %indvars.iv30 = phi i64 [ 0, %1 ], [ %indvars.iv.next31, %.critedge ]
-  %.idx = shl nsw i64 %indvars.iv30, 4
+  %.idx = shl nuw nsw i64 %indvars.iv30, 4
   %invariant.gep = getelementptr inbounds i8, ptr %0, i64 %.idx
   br label %2
 
@@ -566,7 +566,7 @@ define weak_odr hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev13IsM44Identi
 
 .preheader:                                       ; preds = %1, %.critedge
   %indvars.iv30 = phi i64 [ 0, %1 ], [ %indvars.iv.next31, %.critedge ]
-  %.idx = shl nsw i64 %indvars.iv30, 5
+  %.idx = shl nuw nsw i64 %indvars.iv30, 5
   %invariant.gep = getelementptr inbounds i8, ptr %0, i64 %.idx
   br label %2
 

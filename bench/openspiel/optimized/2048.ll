@@ -2169,7 +2169,7 @@ define noundef i32 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState1
 .preheader:                                       ; preds = %1, %8
   %indvars.iv15 = phi i64 [ 0, %1 ], [ %indvars.iv.next16, %8 ]
   %.013 = phi i32 [ 0, %1 ], [ %spec.select, %8 ]
-  %.idx = shl nsw i64 %indvars.iv15, 5
+  %.idx = shl nuw nsw i64 %indvars.iv15, 5
   %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   br label %4
 
@@ -2208,7 +2208,7 @@ define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState14Chance
 .preheader.i:                                     ; preds = %13, %2
   %indvars.iv15.i = phi i64 [ 0, %2 ], [ %indvars.iv.next16.i, %13 ]
   %.013.i = phi i32 [ 0, %2 ], [ %spec.select.i, %13 ]
-  %.idx.i = shl nsw i64 %indvars.iv15.i, 5
+  %.idx.i = shl nuw nsw i64 %indvars.iv15.i, 5
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
   br label %9
 
@@ -2292,7 +2292,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE7reserveEm.exit:  ; preds = %_ZNSt12_Vector_base
   %.promoted110 = phi ptr [ %27, %_ZNSt6vectorISt4pairIldESaIS1_EE7reserveEm.exit ], [ %185, %187 ]
   %.promoted = phi ptr [ %29, %_ZNSt6vectorISt4pairIldESaIS1_EE7reserveEm.exit ], [ %186, %187 ]
   %indvars.iv146 = phi i64 [ 0, %_ZNSt6vectorISt4pairIldESaIS1_EE7reserveEm.exit ], [ %indvars.iv.next147, %187 ]
-  %.idx = shl nsw i64 %indvars.iv146, 5
+  %.idx = shl nuw nsw i64 %indvars.iv146, 5
   %43 = trunc nuw nsw i64 %indvars.iv146 to i32
   br label %44
 
@@ -3002,7 +3002,7 @@ define void @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEightState8ToStrin
 
 .preheader:                                       ; preds = %2, %104
   %indvars.iv31 = phi i64 [ 0, %2 ], [ %indvars.iv.next32, %104 ]
-  %.idx = shl nsw i64 %indvars.iv31, 5
+  %.idx = shl nuw nsw i64 %indvars.iv31, 5
   br label %14
 
 14:                                               ; preds = %.preheader, %93
@@ -3306,7 +3306,7 @@ define noundef zeroext i1 @_ZNK10open_spiel18twenty_forty_eight21TwentyFortyEigh
   %indvars.iv37 = phi i64 [ 0, %.preheader25 ], [ %indvars.iv.next38, %27 ]
   %.01835 = phi i32 [ 0, %.preheader25 ], [ %spec.select, %27 ]
   %.01934 = phi i32 [ 0, %.preheader25 ], [ %.221, %27 ]
-  %.idx = shl nsw i64 %indvars.iv37, 5
+  %.idx = shl nuw nsw i64 %indvars.iv37, 5
   %11 = trunc nuw nsw i64 %indvars.iv37 to i32
   br label %12
 
@@ -3856,7 +3856,7 @@ _ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.ex
 
 .preheader:                                       ; preds = %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit, %60
   %indvars.iv29 = phi i64 [ 0, %_ZN10open_spiel10TensorViewILi2EEC2EN4absl7debian24SpanIfEERKSt5arrayIiLm2EEb.exit ], [ %indvars.iv.next30, %60 ]
-  %.idx = shl nsw i64 %indvars.iv29, 5
+  %.idx = shl nuw nsw i64 %indvars.iv29, 5
   br label %45
 
 45:                                               ; preds = %.preheader, %_ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit

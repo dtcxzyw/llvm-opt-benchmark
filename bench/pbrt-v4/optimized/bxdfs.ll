@@ -21251,9 +21251,9 @@ _ZN4pstd5arrayIfLi2EEC2ESt16initializer_listIfE.exit:
 _ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE6InvertIJffEEENS_8PLSampleENS_6Point2IfEEDpT_EUljE_EEmmRKT_.exit: ; preds = %260, %._crit_edge.i
   %279 = phi i64 [ %spec.select.i, %._crit_edge.i ], [ 0, %260 ]
   %280 = trunc nuw i64 %279 to i32
-  %281 = getelementptr float, ptr %265, i64 %279
+  %281 = getelementptr inbounds nuw float, ptr %265, i64 %279
   %282 = load float, ptr %281, align 4, !tbaa !4
-  %283 = getelementptr i8, ptr %281, i64 4
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 4
   %284 = load float, ptr %283, align 4, !tbaa !4
   %285 = fsub float %266, %282
   %286 = fsub float %284, %282
@@ -21562,9 +21562,9 @@ _ZN4pstd5arrayIfLi3EEC2ESt16initializer_listIfE.exit:
 _ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm3EE8EvaluateIJfffEEEfNS_6Point2IfEEDpT_EUljE_EEmmRKT_.exit: ; preds = %215, %._crit_edge.i
   %235 = phi i64 [ %spec.select.i, %._crit_edge.i ], [ 0, %215 ]
   %236 = trunc nuw i64 %235 to i32
-  %237 = getelementptr float, ptr %220, i64 %235
+  %237 = getelementptr inbounds nuw float, ptr %220, i64 %235
   %238 = load float, ptr %237, align 4, !tbaa !4
-  %239 = getelementptr i8, ptr %237, i64 4
+  %239 = getelementptr inbounds nuw i8, ptr %237, i64 4
   %240 = load float, ptr %239, align 4, !tbaa !4
   %241 = fsub float %222, %238
   %242 = fsub float %240, %238
@@ -22132,9 +22132,9 @@ _ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE6SampleIJffEEENS_8PLSampleE
 _ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE6SampleIJffEEENS_8PLSampleENS_6Point2IfEEDpT_EUljE_EEmmRKT_.exit: ; preds = %166, %._crit_edge.i70
   %185 = phi i64 [ %spec.select.i73, %._crit_edge.i70 ], [ 0, %166 ]
   %186 = trunc nuw i64 %185 to i32
-  %187 = getelementptr float, ptr %171, i64 %185
+  %187 = getelementptr inbounds nuw float, ptr %171, i64 %185
   %188 = load float, ptr %187, align 4, !tbaa !4
-  %189 = getelementptr i8, ptr %187, i64 4
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 4
   %190 = load float, ptr %189, align 4, !tbaa !4
   %191 = fsub float %172, %188
   %192 = fsub float %190, %188
@@ -22735,9 +22735,9 @@ _ZN4pstd5arrayIfLi2EEC2ESt16initializer_listIfE.exit:
 _ZN4pbrt12FindIntervalIZNKS_17PiecewiseLinear2DILm2EE8EvaluateIJffEEEfNS_6Point2IfEEDpT_EUljE_EEmmRKT_.exit: ; preds = %134, %._crit_edge.i
   %153 = phi i64 [ %spec.select.i, %._crit_edge.i ], [ 0, %134 ]
   %154 = trunc nuw i64 %153 to i32
-  %155 = getelementptr float, ptr %139, i64 %153
+  %155 = getelementptr inbounds nuw float, ptr %139, i64 %153
   %156 = load float, ptr %155, align 4, !tbaa !4
-  %157 = getelementptr i8, ptr %155, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %158 = load float, ptr %157, align 4, !tbaa !4
   %159 = fsub float %140, %156
   %160 = fsub float %158, %156

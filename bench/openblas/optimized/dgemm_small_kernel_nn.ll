@@ -1254,8 +1254,8 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %614 = shufflevector <8 x i1> %613, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %.idx = mul nuw nsw i64 %2, 24
   %invariant.gep3276 = getelementptr inbounds nuw i8, ptr %606, i64 %.idx
-  %.idx2970 = shl nsw i64 %2, 4
-  %invariant.gep3278 = getelementptr i8, ptr %606, i64 %.idx2970
+  %.idx2970 = shl nuw nsw i64 %2, 4
+  %invariant.gep3278 = getelementptr inbounds nuw i8, ptr %606, i64 %.idx2970
   br label %627
 
 .preheader3018:                                   ; preds = %656
@@ -1332,7 +1332,7 @@ define noundef i32 @dgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br label %652
 
 652:                                              ; preds = %650, %627
-  %gep3279 = getelementptr double, ptr %invariant.gep3278, i64 %.1227673272
+  %gep3279 = getelementptr inbounds nuw double, ptr %invariant.gep3278, i64 %.1227673272
   store <4 x double> %649, ptr %gep3279, align 1, !tbaa !3
   br label %653
 

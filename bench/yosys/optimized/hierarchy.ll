@@ -2064,8 +2064,8 @@ _ZN12_GLOBAL__N_120generate_port_decl_tD2Ev.exit1251: ; preds = %_ZNKSt7__cxx111
   br i1 %589, label %590, label %._crit_edge.loopexit
 
 590:                                              ; preds = %583
-  %591 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre12511.pre, i64 %.058710123
-  %592 = getelementptr i8, ptr %591, i64 32
+  %591 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre12511.pre, i64 %.058710123
+  %592 = getelementptr inbounds nuw i8, ptr %591, i64 32
   %593 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre12511.pre, i64 %584
   %594 = invoke { ptr, i8 } @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEE7emplaceIJRS9_SE_EEES8_ISt17_Rb_tree_iteratorISA_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %55, ptr noundef nonnull align 8 dereferenceable(32) %592, ptr noundef nonnull align 8 dereferenceable(32) %593)
           to label %595 unwind label %601

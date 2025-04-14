@@ -4610,7 +4610,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %.noexc452, %_ZSt6fi
 .preheader527.us:                                 ; preds = %.preheader527.lr.ph, %._crit_edge.us
   %.0222738.us = phi i64 [ %603, %._crit_edge.us ], [ 0, %.preheader527.lr.ph ]
   %592 = mul nuw i64 %.0222738.us, %591
-  %593 = getelementptr i16, ptr %.sroa.0462.3920, i64 %592
+  %593 = getelementptr inbounds nuw i16, ptr %.sroa.0462.3920, i64 %592
   br label %594
 
 594:                                              ; preds = %.preheader527.us, %594
@@ -4621,7 +4621,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %.noexc452, %_ZSt6fi
   %598 = getelementptr inbounds nuw i32, ptr %597, i64 %.0223736.us
   %599 = load i32, ptr %598, align 4
   %600 = trunc i32 %599 to i16
-  %601 = getelementptr i16, ptr %593, i64 %.0223736.us
+  %601 = getelementptr inbounds nuw i16, ptr %593, i64 %.0223736.us
   store i16 %600, ptr %601, align 2
   %602 = add nuw nsw i64 %.0223736.us, 1
   %exitcond900.not = icmp eq i64 %602, %591
@@ -19052,8 +19052,8 @@ define linkonce_odr hidden noundef ptr @_ZN9rapidjson8internal8PrettifyEPciii(pt
 
 .thread:                                          ; preds = %.lr.ph125
   %35 = sext i32 %.098123 to i64
-  %36 = getelementptr i8, ptr %0, i64 %35
-  %37 = getelementptr i8, ptr %36, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   br label %_ZN9rapidjson8internal13WriteExponentEiPc.exit
 
 38:                                               ; preds = %.lr.ph125

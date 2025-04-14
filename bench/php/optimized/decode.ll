@@ -875,8 +875,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   %129 = getelementptr inbounds nuw i32, ptr %128, i64 %105
   store i32 202, ptr %129, align 4, !tbaa !26
   store i64 %121, ptr %126, align 8, !tbaa !20
-  %130 = getelementptr i32, ptr %128, i64 %105
-  %131 = getelementptr i8, ptr %130, i64 4
+  %130 = getelementptr inbounds nuw i32, ptr %128, i64 %105
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
   store i32 772, ptr %131, align 4, !tbaa !26
   br label %.preheader
 
@@ -898,8 +898,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   %141 = getelementptr inbounds nuw i32, ptr %140, i64 %105
   store i32 202, ptr %141, align 4, !tbaa !26
   store i64 %133, ptr %138, align 8, !tbaa !20
-  %142 = getelementptr i32, ptr %140, i64 %105
-  %143 = getelementptr i8, ptr %142, i64 4
+  %142 = getelementptr inbounds nuw i32, ptr %140, i64 %105
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   store i32 780, ptr %143, align 4, !tbaa !26
   br label %.preheader
 
@@ -921,8 +921,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   %153 = getelementptr inbounds nuw i32, ptr %152, i64 %105
   store i32 234, ptr %153, align 4, !tbaa !26
   store i64 %145, ptr %150, align 8, !tbaa !20
-  %154 = getelementptr i32, ptr %152, i64 %105
-  %155 = getelementptr i8, ptr %154, i64 4
+  %154 = getelementptr inbounds nuw i32, ptr %152, i64 %105
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
   store i32 772, ptr %155, align 4, !tbaa !26
   br label %.preheader
 
@@ -944,8 +944,8 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_big5(ptr noundef initial
   %165 = getelementptr inbounds nuw i32, ptr %164, i64 %105
   store i32 234, ptr %165, align 4, !tbaa !26
   store i64 %157, ptr %162, align 8, !tbaa !20
-  %166 = getelementptr i32, ptr %164, i64 %105
-  %167 = getelementptr i8, ptr %166, i64 4
+  %166 = getelementptr inbounds nuw i32, ptr %164, i64 %105
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 4
   store i32 780, ptr %167, align 4, !tbaa !26
   br label %.preheader
 

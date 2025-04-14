@@ -1133,7 +1133,7 @@ _ZN10open_spiel13GameParameterD2Ev.exit61.i:      ; preds = %_ZN10open_spiel13Ga
 
 .preheader.i16:                                   ; preds = %557, %_ZN10open_spiel13GameParameterD2Ev.exit61.i
   %indvars.iv92.i = phi i64 [ 0, %_ZN10open_spiel13GameParameterD2Ev.exit61.i ], [ %indvars.iv.next93.i, %557 ]
-  %.idx.i17 = shl nsw i64 %indvars.iv92.i, 5
+  %.idx.i17 = shl nuw nsw i64 %indvars.iv92.i, 5
   %invariant.gep.i18 = getelementptr inbounds nuw i8, ptr %322, i64 %.idx.i17
   br label %380
 

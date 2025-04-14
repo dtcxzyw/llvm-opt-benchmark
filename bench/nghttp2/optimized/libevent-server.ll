@@ -881,7 +881,7 @@ define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef read
 36:                                               ; preds = %.lr.ph.i
   %37 = tail call ptr @__ctype_b_loc() #28
   %38 = load ptr, ptr %37, align 8, !tbaa !52
-  %39 = getelementptr i8, ptr %34, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %40 = load i8, ptr %39, align 1, !tbaa !9
   %41 = zext i8 %40 to i64
   %42 = getelementptr inbounds nuw i16, ptr %38, i64 %41
@@ -891,7 +891,7 @@ define internal noundef i32 @on_header_callback(ptr noundef %0, ptr noundef read
   br i1 %.not34.i, label %52, label %45
 
 45:                                               ; preds = %36
-  %46 = getelementptr i8, ptr %34, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 2
   %47 = load i8, ptr %46, align 1, !tbaa !9
   %48 = zext i8 %47 to i64
   %49 = getelementptr inbounds nuw i16, ptr %38, i64 %48

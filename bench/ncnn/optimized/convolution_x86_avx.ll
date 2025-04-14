@@ -54430,8 +54430,8 @@ _ZN4ncnnL47conv3x3s1_winograd43_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.e
   %199 = load i16, ptr %198, align 2, !tbaa !1097
   %200 = getelementptr inbounds nuw i8, ptr %.11244.i, i64 12
   store i16 %199, ptr %200, align 2, !tbaa !1097
-  %201 = getelementptr inbounds nuw i16, ptr %.01195.i, i64 %172
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 72
+  %201 = getelementptr i16, ptr %.01195.i, i64 %172
+  %202 = getelementptr i8, ptr %201, i64 72
   %203 = load i16, ptr %202, align 2, !tbaa !1097
   %204 = getelementptr inbounds nuw i8, ptr %.11244.i, i64 14
   store i16 %203, ptr %204, align 2, !tbaa !1097
@@ -54901,8 +54901,8 @@ _ZN4ncnnL47conv3x3s1_winograd23_transform_kernel_tile_int8ERKNS_3MatERS0_iiiii.e
   %170 = load i16, ptr %169, align 2, !tbaa !1097
   %171 = getelementptr inbounds nuw i8, ptr %.11244.i, i64 12
   store i16 %170, ptr %171, align 2, !tbaa !1097
-  %172 = getelementptr inbounds nuw i16, ptr %.01195.i, i64 %143
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
+  %172 = getelementptr i16, ptr %.01195.i, i64 %143
+  %173 = getelementptr i8, ptr %172, i64 32
   %174 = load i16, ptr %173, align 2, !tbaa !1097
   %175 = getelementptr inbounds nuw i8, ptr %.11244.i, i64 14
   store i16 %174, ptr %175, align 2, !tbaa !1097

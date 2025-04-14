@@ -4918,8 +4918,8 @@ strbuf_addch.exit55:                              ; preds = %strbuf_avail.exit.i
   %161 = phi ptr [ %.pre, %strbuf_avail.exit.i48 ], [ %152, %.thread8.i52 ], [ %159, %155 ], [ %159, %160 ]
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 %40
   store i8 32, ptr %162, align 1, !tbaa !4
-  %163 = getelementptr i8, ptr %161, i64 %40
-  %164 = getelementptr i8, ptr %163, i64 1
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 %40
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 1
   store i8 0, ptr %164, align 1, !tbaa !4
   br label %165
 

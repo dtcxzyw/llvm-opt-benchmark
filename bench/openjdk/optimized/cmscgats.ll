@@ -5745,8 +5745,8 @@ GetTable.exit.i.us.i:                             ; preds = %89, %GetTable.exit.
 
 GetData.exit.us.i:                                ; preds = %82
   %84 = mul nsw i64 %indvars.iv.i38, %79
-  %85 = getelementptr ptr, ptr %83, i64 %84
-  %86 = getelementptr ptr, ptr %85, i64 %80
+  %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %84
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %80
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %LocateEmptyPatch.exit, label %89

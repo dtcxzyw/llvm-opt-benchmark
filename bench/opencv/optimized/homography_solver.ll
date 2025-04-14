@@ -1087,7 +1087,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 .lr.ph:                                           ; preds = %94, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
   %indvars.iv231 = phi i64 [ 7, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ %indvars.iv.next232, %94 ]
-  %.idx = mul i64 %indvars.iv231, 72
+  %.idx = mul nuw nsw i64 %indvars.iv231, 72
   %invariant.gep239 = getelementptr i8, ptr %93, i64 %.idx
   br label %104
 
@@ -2119,7 +2119,7 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %209
 
 .lr.ph463:                                        ; preds = %216, %211
   %indvars.iv535 = phi i64 [ 7, %211 ], [ %indvars.iv.next536, %216 ]
-  %.idx545 = mul i64 %indvars.iv535, 72
+  %.idx545 = mul nuw nsw i64 %indvars.iv535, 72
   %invariant.gep559 = getelementptr i8, ptr %215, i64 %.idx545
   br label %228
 

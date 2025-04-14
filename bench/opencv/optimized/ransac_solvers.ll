@@ -1068,12 +1068,12 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit: ; pr
   %58 = and i64 %56, 4
   %.not = icmp eq i64 %58, 0
   %59 = lshr i64 %57, 1
-  %60 = getelementptr i32, ptr %53, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %53, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !46
   br i1 %.not, label %68, label %62
 
 62:                                               ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit
-  %63 = getelementptr i8, ptr %60, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !46
   %65 = add nsw i32 %64, %61
   %66 = sitofp i32 %65 to double

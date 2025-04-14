@@ -25140,8 +25140,8 @@ _ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %77 = sext i32 %54 to i64
   %78 = mul i64 %.0.i10, %77
   %79 = urem i64 %78, %52
-  %80 = getelementptr %"struct.folly::detail::SingleElementQueue", ptr %51, i64 %79
-  %81 = getelementptr i8, ptr %80, i64 144
+  %80 = getelementptr inbounds nuw %"struct.folly::detail::SingleElementQueue", ptr %51, i64 %79
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 144
   %82 = udiv i64 %.0.i10, %52
   %83 = trunc i64 %82 to i32
   %84 = getelementptr inbounds nuw i8, ptr %47, i64 192
@@ -25236,8 +25236,8 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E4waitE
   %31 = sext i32 %17 to i64
   %32 = mul i64 %.0.i.i, %31
   %33 = urem i64 %32, %15
-  %34 = getelementptr %"struct.folly::detail::SingleElementQueue", ptr %14, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 144
+  %34 = getelementptr inbounds nuw %"struct.folly::detail::SingleElementQueue", ptr %14, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 144
   %36 = udiv i64 %.0.i.i, %15
   %37 = trunc i64 %36 to i32
   %38 = getelementptr inbounds i8, ptr %.sroa.05.016.i, i64 -64
@@ -25302,8 +25302,8 @@ define linkonce_odr void @_ZN5folly24PriorityLifoSemMPMCQueueINS_21CPUThreadPool
   %31 = sext i32 %20 to i64
   %32 = mul i64 %.0.i.i, %31
   %33 = urem i64 %32, %18
-  %34 = getelementptr %"struct.folly::detail::SingleElementQueue", ptr %17, i64 %33
-  %35 = getelementptr i8, ptr %34, i64 144
+  %34 = getelementptr inbounds nuw %"struct.folly::detail::SingleElementQueue", ptr %17, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 144
   %36 = udiv i64 %.0.i.i, %18
   %37 = trunc i64 %36 to i32
   %38 = getelementptr inbounds i8, ptr %.sroa.05.016.i, i64 -64

@@ -3059,8 +3059,8 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit:             ; preds = %196
   br i1 %204, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit262, label %205
 
 205:                                              ; preds = %202
-  %206 = getelementptr i8, ptr %1, i64 %.0.i256
-  %207 = getelementptr i8, ptr %206, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i256
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %208 = load i8, ptr %207, align 1, !tbaa !18
   %209 = zext i8 %208 to i32
   %210 = shl nuw i32 %209, 24
@@ -3172,8 +3172,8 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit268:          ; preds = %277
   br i1 %285, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit270, label %286
 
 286:                                              ; preds = %283
-  %287 = getelementptr i8, ptr %1, i64 %.0.i256
-  %288 = getelementptr i8, ptr %287, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i256
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %289 = load i8, ptr %288, align 1, !tbaa !18
   %290 = zext i8 %289 to i32
   %291 = shl nuw i32 %290, 24
@@ -3285,8 +3285,8 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit276:          ; preds = %358
   br i1 %366, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit278, label %367
 
 367:                                              ; preds = %364
-  %368 = getelementptr i8, ptr %1, i64 %.0.i256
-  %369 = getelementptr i8, ptr %368, i64 8
+  %368 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i256
+  %369 = getelementptr inbounds nuw i8, ptr %368, i64 8
   %370 = load i8, ptr %369, align 1, !tbaa !18
   %371 = zext i8 %370 to i32
   %372 = shl nuw i32 %371, 24
@@ -3398,8 +3398,8 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit284:          ; preds = %439
   br i1 %447, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit286, label %448
 
 448:                                              ; preds = %445
-  %449 = getelementptr i8, ptr %1, i64 %.0.i256
-  %450 = getelementptr i8, ptr %449, i64 8
+  %449 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i256
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 8
   %451 = load i8, ptr %450, align 1, !tbaa !18
   %452 = zext i8 %451 to i32
   %453 = shl nuw i32 %452, 24
@@ -3578,8 +3578,8 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit292:  ; preds = %519, %522
   br i1 %566, label %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit294.thread, label %_ZN7lodepngL15decodeICCUint32EPKhmPm.exit294
 
 _ZN7lodepngL15decodeICCUint32EPKhmPm.exit294:     ; preds = %562
-  %567 = getelementptr i8, ptr %1, i64 %.0.i256
-  %568 = getelementptr i8, ptr %567, i64 8
+  %567 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i256
+  %568 = getelementptr inbounds nuw i8, ptr %567, i64 8
   %569 = load i8, ptr %568, align 1, !tbaa !18
   %570 = zext i8 %569 to i32
   %571 = shl nuw i32 %570, 24

@@ -9230,8 +9230,8 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit2252: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i2249, %3134
   %3135 = load ptr, ptr %4, align 8, !tbaa !118
-  %3136 = getelementptr %"class.cvc5::internal::NodeTemplate", ptr %3135, i64 %.06174085
-  %3137 = getelementptr i8, ptr %3136, i64 8
+  %3136 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %3135, i64 %.06174085
+  %3137 = getelementptr inbounds nuw i8, ptr %3136, i64 8
   %3138 = load ptr, ptr %3108, align 8, !tbaa !119
   %3139 = load ptr, ptr %3109, align 8, !tbaa !121
   %.not.i2253 = icmp eq ptr %3138, %3139

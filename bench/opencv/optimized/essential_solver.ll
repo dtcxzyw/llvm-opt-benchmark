@@ -657,7 +657,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30EssentialMinimalSolver5pts
 
 .lr.ph.preheader:                                 ; preds = %172, %170
   %indvars.iv698 = phi i64 [ 4, %170 ], [ %indvars.iv.next699, %172 ]
-  %.idx = mul i64 %indvars.iv698, 72
+  %.idx = mul nuw nsw i64 %indvars.iv698, 72
   %invariant.gep = getelementptr i8, ptr %163, i64 %.idx
   br label %.lr.ph
 

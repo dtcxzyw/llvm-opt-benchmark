@@ -747,8 +747,8 @@ _ZN21Bytecode_lookupswitchC2EP6MethodPh.exit:     ; preds = %54, %56
 
 .thread91:                                        ; preds = %69
   %70 = zext nneg i32 %.06684 to i64
-  %71 = getelementptr i8, ptr %25, i64 %70
-  %72 = getelementptr i8, ptr %71, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %25, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %.0.i.i.i7492 = load i16, ptr %72, align 1
   br label %185
 
@@ -897,15 +897,15 @@ _ZN15fieldDescriptor32set_has_initialized_final_updateEb.exit: ; preds = %.prehe
 .thread94:                                        ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %_ZN15fieldDescriptor32set_has_initialized_final_updateEb.exit
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #10
   %165 = zext nneg i32 %.06684 to i64
-  %166 = getelementptr i8, ptr %25, i64 %165
-  %167 = getelementptr i8, ptr %166, i64 1
+  %166 = getelementptr inbounds nuw i8, ptr %25, i64 %165
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 1
   %.0.i.i.i7495 = load i16, ptr %167, align 1
   br label %172
 
 168:                                              ; preds = %.thread, %.thread
   %169 = zext nneg i32 %.06684 to i64
-  %170 = getelementptr i8, ptr %25, i64 %169
-  %171 = getelementptr i8, ptr %170, i64 1
+  %170 = getelementptr inbounds nuw i8, ptr %25, i64 %169
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 1
   %.0.i.i.i74 = load i16, ptr %171, align 1
   br i1 %3, label %185, label %172
 
@@ -954,8 +954,8 @@ _ZN15fieldDescriptor32set_has_initialized_final_updateEb.exit: ; preds = %.prehe
 
 197:                                              ; preds = %.thread, %.thread, %.thread, %.thread
   %198 = zext nneg i32 %.06684 to i64
-  %199 = getelementptr i8, ptr %25, i64 %198
-  %200 = getelementptr i8, ptr %199, i64 1
+  %199 = getelementptr inbounds nuw i8, ptr %25, i64 %198
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 1
   %.0.i.i.i75 = load i16, ptr %200, align 1
   br i1 %3, label %217, label %201
 

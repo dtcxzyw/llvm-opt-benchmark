@@ -441,8 +441,8 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %26, %30
 
 230:                                              ; preds = %224
   %231 = load ptr, ptr %192, align 8
-  %232 = getelementptr %struct.rcCompactCell, ptr %231, i64 %indvars.iv354
-  %233 = getelementptr %struct.rcCompactCell, ptr %232, i64 %197
+  %232 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %231, i64 %indvars.iv354
+  %233 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %232, i64 %197
   %234 = load i32, ptr %233, align 4
   %235 = and i32 %234, 16777215
   %236 = add nuw nsw i32 %235, %229

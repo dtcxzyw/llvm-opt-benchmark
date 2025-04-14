@@ -436,7 +436,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorItSaItE
   %185 = mul nuw nsw i64 %175, %184
   %.idx = shl nuw nsw i64 %indvars.iv471, 2
   %gep527 = getelementptr i8, ptr %invariant.gep526, i64 %.idx
-  %186 = getelementptr i16, ptr %gep527, i64 %185
+  %186 = getelementptr inbounds nuw i16, ptr %gep527, i64 %185
   store i16 %182, ptr %186, align 2, !tbaa !75
   %indvars.iv.next472 = add nuw nsw i64 %indvars.iv471, 1
   %187 = load i16, ptr %6, align 2, !tbaa !6

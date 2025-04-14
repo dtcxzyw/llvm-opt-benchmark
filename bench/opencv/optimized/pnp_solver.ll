@@ -777,7 +777,7 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %83
 
 .lr.ph:                                           ; preds = %88, %_ZN2cv4Mat_IdEC2Eii.exit
   %indvars.iv229 = phi i64 [ 6, %_ZN2cv4Mat_IdEC2Eii.exit ], [ %indvars.iv.next230, %88 ]
-  %.idx = shl i64 %indvars.iv229, 6
+  %.idx = shl nuw nsw i64 %indvars.iv229, 6
   %invariant.gep248 = getelementptr i8, ptr %87, i64 %.idx
   br label %97
 
@@ -821,7 +821,7 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %83
 
 .lr.ph207:                                        ; preds = %.critedge, %.critedge.preheader
   %indvars.iv236 = phi i64 [ 3, %.critedge.preheader ], [ %indvars.iv.next237, %.critedge ]
-  %.idx244 = mul i64 %indvars.iv236, 96
+  %.idx244 = mul nuw nsw i64 %indvars.iv236, 96
   %invariant.gep250 = getelementptr i8, ptr %90, i64 %.idx244
   br label %108
 

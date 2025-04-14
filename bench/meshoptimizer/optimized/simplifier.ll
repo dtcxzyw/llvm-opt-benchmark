@@ -286,9 +286,9 @@ _ZN7meshoptL16buildSparseRemapEPjmmPmR17meshopt_Allocator.exit: ; preds = %._cri
   %.idx.i = mul nuw i64 %.07485.i, 12
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   %137 = load i32, ptr %136, align 4, !tbaa !13
-  %138 = getelementptr i8, ptr %136, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %139 = load i32, ptr %138, align 4, !tbaa !13
-  %140 = getelementptr i8, ptr %136, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %141 = load i32, ptr %140, align 4, !tbaa !13
   %142 = zext i32 %137 to i64
   %143 = getelementptr inbounds nuw i32, ptr %123, i64 %142
@@ -2544,9 +2544,9 @@ _ZN7meshoptL18boundEdgeCollapsesERKNS_13EdgeAdjacencyEmmPh.exit: ; preds = %.loo
   %.idx.i470 = mul nuw i64 %.07485.i469, 12
   %1524 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i470
   %1525 = load i32, ptr %1524, align 4, !tbaa !13
-  %1526 = getelementptr i8, ptr %1524, i64 4
+  %1526 = getelementptr inbounds nuw i8, ptr %1524, i64 4
   %1527 = load i32, ptr %1526, align 4, !tbaa !13
-  %1528 = getelementptr i8, ptr %1524, i64 8
+  %1528 = getelementptr inbounds nuw i8, ptr %1524, i64 8
   %1529 = load i32, ptr %1528, align 4, !tbaa !13
   br i1 %.not79.i, label %1540, label %1530
 

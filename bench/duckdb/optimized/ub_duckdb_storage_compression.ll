@@ -71798,15 +71798,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIaEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %82
   %94 = load i8, ptr %93, align 1, !tbaa !214
   %95 = add i8 %94, %.032.i
   store i8 %95, ptr %93, align 1, !tbaa !214
-  %96 = getelementptr i8, ptr %93, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 1
   %97 = load i8, ptr %96, align 1, !tbaa !214
   %98 = add i8 %97, %95
   store i8 %98, ptr %96, align 1, !tbaa !214
-  %99 = getelementptr i8, ptr %93, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %100 = load i8, ptr %99, align 1, !tbaa !214
   %101 = add i8 %100, %98
   store i8 %101, ptr %99, align 1, !tbaa !214
-  %102 = getelementptr i8, ptr %93, i64 3
+  %102 = getelementptr inbounds nuw i8, ptr %93, i64 3
   %103 = load i8, ptr %102, align 1, !tbaa !214
   %104 = add i8 %103, %101
   store i8 %104, ptr %102, align 1, !tbaa !214
@@ -74859,15 +74859,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIaEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %_ZN6d
   %65 = load i8, ptr %64, align 1, !tbaa !214
   %66 = add i8 %65, %.032.i
   store i8 %66, ptr %64, align 1, !tbaa !214
-  %67 = getelementptr i8, ptr %64, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 1
   %68 = load i8, ptr %67, align 1, !tbaa !214
   %69 = add i8 %68, %66
   store i8 %69, ptr %67, align 1, !tbaa !214
-  %70 = getelementptr i8, ptr %64, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 2
   %71 = load i8, ptr %70, align 1, !tbaa !214
   %72 = add i8 %71, %69
   store i8 %72, ptr %70, align 1, !tbaa !214
-  %73 = getelementptr i8, ptr %64, i64 3
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 3
   %74 = load i8, ptr %73, align 1, !tbaa !214
   %75 = add i8 %74, %72
   store i8 %75, ptr %73, align 1, !tbaa !214
@@ -77263,15 +77263,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIsEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %79
   %91 = load i16, ptr %90, align 2, !tbaa !623
   %92 = add i16 %91, %.032.i
   store i16 %92, ptr %90, align 2, !tbaa !623
-  %93 = getelementptr i8, ptr %90, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 2
   %94 = load i16, ptr %93, align 2, !tbaa !623
   %95 = add i16 %94, %92
   store i16 %95, ptr %93, align 2, !tbaa !623
-  %96 = getelementptr i8, ptr %90, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %97 = load i16, ptr %96, align 2, !tbaa !623
   %98 = add i16 %97, %95
   store i16 %98, ptr %96, align 2, !tbaa !623
-  %99 = getelementptr i8, ptr %90, i64 6
+  %99 = getelementptr inbounds nuw i8, ptr %90, i64 6
   %100 = load i16, ptr %99, align 2, !tbaa !623
   %101 = add i16 %100, %98
   store i16 %101, ptr %99, align 2, !tbaa !623
@@ -80349,15 +80349,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIsEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %29
   %60 = load i16, ptr %59, align 2, !tbaa !623
   %61 = add i16 %60, %.032.i
   store i16 %61, ptr %59, align 2, !tbaa !623
-  %62 = getelementptr i8, ptr %59, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %63 = load i16, ptr %62, align 2, !tbaa !623
   %64 = add i16 %63, %61
   store i16 %64, ptr %62, align 2, !tbaa !623
-  %65 = getelementptr i8, ptr %59, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %66 = load i16, ptr %65, align 2, !tbaa !623
   %67 = add i16 %66, %64
   store i16 %67, ptr %65, align 2, !tbaa !623
-  %68 = getelementptr i8, ptr %59, i64 6
+  %68 = getelementptr inbounds nuw i8, ptr %59, i64 6
   %69 = load i16, ptr %68, align 2, !tbaa !623
   %70 = add i16 %69, %67
   store i16 %70, ptr %68, align 2, !tbaa !623
@@ -81109,15 +81109,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIiEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %76
   %88 = load i32, ptr %87, align 4, !tbaa !215
   %89 = add nsw i32 %88, %.032.i
   store i32 %89, ptr %87, align 4, !tbaa !215
-  %90 = getelementptr i8, ptr %87, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %91 = load i32, ptr %90, align 4, !tbaa !215
   %92 = add nsw i32 %91, %89
   store i32 %92, ptr %90, align 4, !tbaa !215
-  %93 = getelementptr i8, ptr %87, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %94 = load i32, ptr %93, align 4, !tbaa !215
   %95 = add nsw i32 %94, %92
   store i32 %95, ptr %93, align 4, !tbaa !215
-  %96 = getelementptr i8, ptr %87, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %87, i64 12
   %97 = load i32, ptr %96, align 4, !tbaa !215
   %98 = add nsw i32 %97, %95
   store i32 %98, ptr %96, align 4, !tbaa !215
@@ -84133,15 +84133,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIiEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %28
   %58 = load i32, ptr %57, align 4, !tbaa !215
   %59 = add nsw i32 %58, %.032.i
   store i32 %59, ptr %57, align 4, !tbaa !215
-  %60 = getelementptr i8, ptr %57, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !215
   %62 = add nsw i32 %61, %59
   store i32 %62, ptr %60, align 4, !tbaa !215
-  %63 = getelementptr i8, ptr %57, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %64 = load i32, ptr %63, align 4, !tbaa !215
   %65 = add nsw i32 %64, %62
   store i32 %65, ptr %63, align 4, !tbaa !215
-  %66 = getelementptr i8, ptr %57, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 12
   %67 = load i32, ptr %66, align 4, !tbaa !215
   %68 = add nsw i32 %67, %65
   store i32 %68, ptr %66, align 4, !tbaa !215
@@ -84901,15 +84901,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIlEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %78
   %90 = load i64, ptr %89, align 8, !tbaa !19
   %91 = add nsw i64 %90, %.032.i
   store i64 %91, ptr %89, align 8, !tbaa !19
-  %92 = getelementptr i8, ptr %89, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %93 = load i64, ptr %92, align 8, !tbaa !19
   %94 = add nsw i64 %93, %91
   store i64 %94, ptr %92, align 8, !tbaa !19
-  %95 = getelementptr i8, ptr %89, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %96 = load i64, ptr %95, align 8, !tbaa !19
   %97 = add nsw i64 %96, %94
   store i64 %97, ptr %95, align 8, !tbaa !19
-  %98 = getelementptr i8, ptr %89, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %99 = load i64, ptr %98, align 8, !tbaa !19
   %100 = add nsw i64 %99, %97
   store i64 %100, ptr %98, align 8, !tbaa !19
@@ -88640,15 +88640,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIlEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %28
   %58 = load i64, ptr %57, align 8, !tbaa !19
   %59 = add nsw i64 %58, %.032.i
   store i64 %59, ptr %57, align 8, !tbaa !19
-  %60 = getelementptr i8, ptr %57, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !19
   %62 = add nsw i64 %61, %59
   store i64 %62, ptr %60, align 8, !tbaa !19
-  %63 = getelementptr i8, ptr %57, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %64 = load i64, ptr %63, align 8, !tbaa !19
   %65 = add nsw i64 %64, %62
   store i64 %65, ptr %63, align 8, !tbaa !19
-  %66 = getelementptr i8, ptr %57, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %67 = load i64, ptr %66, align 8, !tbaa !19
   %68 = add nsw i64 %67, %65
   store i64 %68, ptr %66, align 8, !tbaa !19
@@ -89416,15 +89416,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIaEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %82
   %94 = load i8, ptr %93, align 1, !tbaa !214
   %95 = add i8 %94, %.032.i
   store i8 %95, ptr %93, align 1, !tbaa !214
-  %96 = getelementptr i8, ptr %93, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 1
   %97 = load i8, ptr %96, align 1, !tbaa !214
   %98 = add i8 %97, %95
   store i8 %98, ptr %96, align 1, !tbaa !214
-  %99 = getelementptr i8, ptr %93, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %100 = load i8, ptr %99, align 1, !tbaa !214
   %101 = add i8 %100, %98
   store i8 %101, ptr %99, align 1, !tbaa !214
-  %102 = getelementptr i8, ptr %93, i64 3
+  %102 = getelementptr inbounds nuw i8, ptr %93, i64 3
   %103 = load i8, ptr %102, align 1, !tbaa !214
   %104 = add i8 %103, %101
   store i8 %104, ptr %102, align 1, !tbaa !214
@@ -92157,15 +92157,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIaEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %_ZN6d
   %65 = load i8, ptr %64, align 1, !tbaa !214
   %66 = add i8 %65, %.032.i
   store i8 %66, ptr %64, align 1, !tbaa !214
-  %67 = getelementptr i8, ptr %64, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 1
   %68 = load i8, ptr %67, align 1, !tbaa !214
   %69 = add i8 %68, %66
   store i8 %69, ptr %67, align 1, !tbaa !214
-  %70 = getelementptr i8, ptr %64, i64 2
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 2
   %71 = load i8, ptr %70, align 1, !tbaa !214
   %72 = add i8 %71, %69
   store i8 %72, ptr %70, align 1, !tbaa !214
-  %73 = getelementptr i8, ptr %64, i64 3
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 3
   %74 = load i8, ptr %73, align 1, !tbaa !214
   %75 = add i8 %74, %72
   store i8 %75, ptr %73, align 1, !tbaa !214
@@ -92921,15 +92921,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIsEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %79
   %91 = load i16, ptr %90, align 2, !tbaa !623
   %92 = add i16 %91, %.032.i
   store i16 %92, ptr %90, align 2, !tbaa !623
-  %93 = getelementptr i8, ptr %90, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 2
   %94 = load i16, ptr %93, align 2, !tbaa !623
   %95 = add i16 %94, %92
   store i16 %95, ptr %93, align 2, !tbaa !623
-  %96 = getelementptr i8, ptr %90, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %97 = load i16, ptr %96, align 2, !tbaa !623
   %98 = add i16 %97, %95
   store i16 %98, ptr %96, align 2, !tbaa !623
-  %99 = getelementptr i8, ptr %90, i64 6
+  %99 = getelementptr inbounds nuw i8, ptr %90, i64 6
   %100 = load i16, ptr %99, align 2, !tbaa !623
   %101 = add i16 %100, %98
   store i16 %101, ptr %99, align 2, !tbaa !623
@@ -95615,15 +95615,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIsEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %29
   %60 = load i16, ptr %59, align 2, !tbaa !623
   %61 = add i16 %60, %.032.i
   store i16 %61, ptr %59, align 2, !tbaa !623
-  %62 = getelementptr i8, ptr %59, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %63 = load i16, ptr %62, align 2, !tbaa !623
   %64 = add i16 %63, %61
   store i16 %64, ptr %62, align 2, !tbaa !623
-  %65 = getelementptr i8, ptr %59, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %66 = load i16, ptr %65, align 2, !tbaa !623
   %67 = add i16 %66, %64
   store i16 %67, ptr %65, align 2, !tbaa !623
-  %68 = getelementptr i8, ptr %59, i64 6
+  %68 = getelementptr inbounds nuw i8, ptr %59, i64 6
   %69 = load i16, ptr %68, align 2, !tbaa !623
   %70 = add i16 %69, %67
   store i16 %70, ptr %68, align 2, !tbaa !623
@@ -96375,15 +96375,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIiEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %76
   %88 = load i32, ptr %87, align 4, !tbaa !215
   %89 = add nsw i32 %88, %.032.i
   store i32 %89, ptr %87, align 4, !tbaa !215
-  %90 = getelementptr i8, ptr %87, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %91 = load i32, ptr %90, align 4, !tbaa !215
   %92 = add nsw i32 %91, %89
   store i32 %92, ptr %90, align 4, !tbaa !215
-  %93 = getelementptr i8, ptr %87, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %94 = load i32, ptr %93, align 4, !tbaa !215
   %95 = add nsw i32 %94, %92
   store i32 %95, ptr %93, align 4, !tbaa !215
-  %96 = getelementptr i8, ptr %87, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %87, i64 12
   %97 = load i32, ptr %96, align 4, !tbaa !215
   %98 = add nsw i32 %97, %95
   store i32 %98, ptr %96, align 4, !tbaa !215
@@ -99038,15 +99038,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIiEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %28
   %58 = load i32, ptr %57, align 4, !tbaa !215
   %59 = add nsw i32 %58, %.032.i
   store i32 %59, ptr %57, align 4, !tbaa !215
-  %60 = getelementptr i8, ptr %57, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !215
   %62 = add nsw i32 %61, %59
   store i32 %62, ptr %60, align 4, !tbaa !215
-  %63 = getelementptr i8, ptr %57, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %64 = load i32, ptr %63, align 4, !tbaa !215
   %65 = add nsw i32 %64, %62
   store i32 %65, ptr %63, align 4, !tbaa !215
-  %66 = getelementptr i8, ptr %57, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 12
   %67 = load i32, ptr %66, align 4, !tbaa !215
   %68 = add nsw i32 %67, %65
   store i32 %68, ptr %66, align 4, !tbaa !215
@@ -99806,15 +99806,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIlEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %78
   %90 = load i64, ptr %89, align 8, !tbaa !19
   %91 = add nsw i64 %90, %.032.i
   store i64 %91, ptr %89, align 8, !tbaa !19
-  %92 = getelementptr i8, ptr %89, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %93 = load i64, ptr %92, align 8, !tbaa !19
   %94 = add nsw i64 %93, %91
   store i64 %94, ptr %92, align 8, !tbaa !19
-  %95 = getelementptr i8, ptr %89, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %96 = load i64, ptr %95, align 8, !tbaa !19
   %97 = add nsw i64 %96, %94
   store i64 %97, ptr %95, align 8, !tbaa !19
-  %98 = getelementptr i8, ptr %89, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %99 = load i64, ptr %98, align 8, !tbaa !19
   %100 = add nsw i64 %99, %97
   store i64 %100, ptr %98, align 8, !tbaa !19
@@ -102501,15 +102501,15 @@ _ZN6duckdbL21ApplyFrameOfReferenceIlEEvPT_S1_m.exit: ; preds = %.lr.ph.i, %28
   %58 = load i64, ptr %57, align 8, !tbaa !19
   %59 = add nsw i64 %58, %.032.i
   store i64 %59, ptr %57, align 8, !tbaa !19
-  %60 = getelementptr i8, ptr %57, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !19
   %62 = add nsw i64 %61, %59
   store i64 %62, ptr %60, align 8, !tbaa !19
-  %63 = getelementptr i8, ptr %57, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %64 = load i64, ptr %63, align 8, !tbaa !19
   %65 = add nsw i64 %64, %62
   store i64 %65, ptr %63, align 8, !tbaa !19
-  %66 = getelementptr i8, ptr %57, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %67 = load i64, ptr %66, align 8, !tbaa !19
   %68 = add nsw i64 %67, %65
   store i64 %68, ptr %66, align 8, !tbaa !19
@@ -106512,13 +106512,13 @@ define internal fastcc void @_ZN6duckdbL11DeltaDecodeINS_9hugeint_tEEET_PS2_S2_m
   %13 = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %0, i64 %.125
   %14 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tpLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !571
-  %15 = getelementptr i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tpLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !571
-  %17 = getelementptr i8, ptr %13, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %18 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tpLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !571
-  %19 = getelementptr i8, ptr %13, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %20 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb9hugeint_tpLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !571
   %21 = add nuw i64 %.125, 4

@@ -3352,7 +3352,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %253, %243
   br i1 %327, label %.lr.ph288.i, label %.loopexit222.i
 
 .preheader223.i.loopexit:                         ; preds = %.lr.ph288.i
-  %invariant.gep308.i = getelementptr i8, ptr %345, i64 16
+  %invariant.gep308.i = getelementptr inbounds nuw i8, ptr %345, i64 16
   br i1 %308, label %.lr.ph311.i, label %.lr.ph313.i.preheader
 
 .lr.ph311.i:                                      ; preds = %.preheader223.i.loopexit
@@ -3388,7 +3388,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %253, %243
 598:                                              ; preds = %594
   %599 = shl nsw i64 %indvars.iv.next420.i, 3
   %600 = mul nsw i64 %599, %220
-  %gep.i = getelementptr i16, ptr %invariant.gep308.i, i64 %599
+  %gep.i = getelementptr inbounds nuw i16, ptr %invariant.gep308.i, i64 %599
   %601 = load i16, ptr %gep.i, align 2, !tbaa !105
   %602 = sext i16 %601 to i32
   %603 = add nsw i32 %.sroa.speculated173.i, %602

@@ -564,11 +564,11 @@ define internal void @_ZN12_GLOBAL__N_113ClockgatePass7executeESt6vectorINSt7__c
 
 178:                                              ; preds = %170
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67) #25
-  %179 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.01051505
-  %180 = getelementptr i8, ptr %179, i64 32
+  %179 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.01051505
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 32
   store ptr %149, ptr %67, align 8, !tbaa !16
   %181 = load ptr, ptr %180, align 8, !tbaa !19
-  %182 = getelementptr i8, ptr %179, i64 40
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 40
   %183 = load i64, ptr %182, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #25
   store i64 %183, ptr %61, align 8, !tbaa !23
@@ -823,11 +823,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274: ; preds = %_Z
 
 268:                                              ; preds = %260
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70) #25
-  %269 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre1611, i64 %.01051505
-  %270 = getelementptr i8, ptr %269, i64 32
+  %269 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre1611, i64 %.01051505
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 32
   store ptr %133, ptr %70, align 8, !tbaa !16
   %271 = load ptr, ptr %270, align 8, !tbaa !19
-  %272 = getelementptr i8, ptr %269, i64 40
+  %272 = getelementptr inbounds nuw i8, ptr %269, i64 40
   %273 = load i64, ptr %272, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #25
   store i64 %273, ptr %59, align 8, !tbaa !23

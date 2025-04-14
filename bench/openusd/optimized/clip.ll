@@ -20703,9 +20703,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__L25_GetBracketingTimeSamplesIN9__gnu_cxx17_
   %.1 = select i1 %.not, i64 %spec.select, i64 %39
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %41 = load double, ptr %40, align 8
-  %42 = getelementptr [5 x double], ptr %6, i64 0, i64 %.1
+  %42 = getelementptr inbounds nuw [5 x double], ptr %6, i64 0, i64 %.1
   store double %41, ptr %42, align 8
-  %43 = getelementptr i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = ptrtoint ptr %43 to i64
   %45 = ptrtoint ptr %6 to i64
   %46 = sub i64 %44, %45

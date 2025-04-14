@@ -2373,7 +2373,7 @@ define dso_local noundef ptr @_ZN5clang8comments5Lexer13skipTextTokenEv(ptr noun
   br i1 %25, label %26, label %.loopexit
 
 26:                                               ; preds = %21
-  %27 = getelementptr i8, ptr %23, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
   %28 = load ptr, ptr %11, align 8, !tbaa !61
   %29 = ptrtoint ptr %28 to i64
@@ -2390,7 +2390,7 @@ define dso_local noundef ptr @_ZN5clang8comments5Lexer13skipTextTokenEv(ptr noun
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 %32
   %35 = load i8, ptr %34, align 1, !tbaa !23
   %36 = icmp eq i8 %35, 34
-  %37 = getelementptr i8, ptr %34, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 1
   %spec.select = select i1 %36, ptr %37, ptr %27
   %.pre = ptrtoint ptr %spec.select to i64
   br label %38

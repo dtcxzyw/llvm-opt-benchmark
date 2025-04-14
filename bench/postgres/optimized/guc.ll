@@ -10503,8 +10503,8 @@ can_skip_gucvar.exit.thread:                      ; preds = %.lr.ph, %can_skip_g
 
 select.unfold._crit_edge:                         ; preds = %can_skip_gucvar.exit.thread, %1
   %.0.copyload = load i64, ptr %0, align 1
-  %76 = getelementptr i8, ptr %0, i64 %.0.copyload
-  %.ptr158 = getelementptr i8, ptr %76, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.copyload
+  %.ptr158 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @guc_restore_error_context_callback, ptr %77, align 8
   %78 = load ptr, ptr @error_context_stack, align 8
@@ -10639,7 +10639,7 @@ read_gucstate_binary.exit:                        ; preds = %105
 read_gucstate_binary.exit119:                     ; preds = %112
   %118 = load i32, ptr %.1, align 1
   %119 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %120 = icmp ugt ptr %119, %.ptr158
+  %120 = icmp ugt ptr %.1, %76
   br i1 %120, label %121, label %read_gucstate_binary.exit120
 
 121:                                              ; preds = %read_gucstate_binary.exit119

@@ -1368,10 +1368,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit291: ; preds = %40
   %423 = getelementptr inbounds nuw float, ptr %422, i64 %421
   store float %.2, ptr %423, align 4, !tbaa !93
   %424 = zext nneg i32 %376 to i64
-  %425 = getelementptr float, ptr %422, i64 %424
-  %426 = getelementptr i8, ptr %425, i64 4
+  %425 = getelementptr inbounds nuw float, ptr %422, i64 %424
+  %426 = getelementptr inbounds nuw i8, ptr %425, i64 4
   store float %.2369, ptr %426, align 4, !tbaa !93
-  %427 = getelementptr i8, ptr %425, i64 8
+  %427 = getelementptr inbounds nuw i8, ptr %425, i64 8
   store float %309, ptr %427, align 4, !tbaa !93
   %428 = lshr i32 %376, 6
   %.zext = zext nneg i32 %428 to i64

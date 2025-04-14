@@ -767,7 +767,7 @@ define internal noundef i32 @PSolve(double %0, ptr readnone captures(none) %1, p
 
 .preheader:                                       ; preds = %9, %22
   %indvars.iv22 = phi i64 [ 0, %9 ], [ %indvars.iv.next23, %22 ]
-  %.idx26 = shl nsw i64 %indvars.iv22, 4
+  %.idx26 = shl nuw nsw i64 %indvars.iv22, 4
   br label %12
 
 12:                                               ; preds = %.preheader, %12

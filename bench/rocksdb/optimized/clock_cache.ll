@@ -3716,8 +3716,8 @@ define weak_odr noundef i64 @_ZNK7rocksdb11clock_cache15ClockCacheShardINS0_19Au
   %8 = and i64 %6, 255
   %9 = shl nuw i64 1, %8
   %10 = load ptr, ptr %3, align 32, !tbaa !137
-  %11 = getelementptr %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %10, i64 %9
-  %12 = getelementptr %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %11, i64 %7
+  %11 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %10, i64 %9
+  %12 = getelementptr inbounds nuw %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %11, i64 %7
   %13 = icmp ult ptr %4, %12
   br i1 %13, label %.lr.ph.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_124ConstApplyToEntriesRangeINS0_19AutoHyperClockTable10HandleImplEZNKS0_15ClockCacheShardIS3_E14GetPinnedUsageEvEUlRKS4_E_EEvRKT0_PKT_SF_b.exit
 

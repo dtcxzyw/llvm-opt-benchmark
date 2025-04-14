@@ -905,7 +905,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac32FundamentalMinimalSolver7p
 
 .lr.ph.preheader:                                 ; preds = %90, %73
   %indvars.iv191 = phi i64 [ 5, %73 ], [ %indvars.iv.next192, %90 ]
-  %.idx = mul i64 %indvars.iv191, 72
+  %.idx = mul nuw nsw i64 %indvars.iv191, 72
   %invariant.gep = getelementptr i8, ptr %.pre210, i64 %.idx
   br label %.lr.ph
 
@@ -1635,7 +1635,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 .lr.ph:                                           ; preds = %97, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
   %indvars.iv109 = phi i64 [ 7, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ %indvars.iv.next110, %97 ]
-  %.idx = mul i64 %indvars.iv109, 72
+  %.idx = mul nuw nsw i64 %indvars.iv109, 72
   %invariant.gep = getelementptr i8, ptr %82, i64 %.idx
   br label %91
 
@@ -2593,7 +2593,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 .lr.ph484:                                        ; preds = %207, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
   %indvars.iv558 = phi i64 [ 7, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ], [ %indvars.iv.next559, %207 ]
-  %.idx567 = mul i64 %indvars.iv558, 72
+  %.idx567 = mul nuw nsw i64 %indvars.iv558, 72
   %invariant.gep579 = getelementptr i8, ptr %206, i64 %.idx567
   br label %219
 

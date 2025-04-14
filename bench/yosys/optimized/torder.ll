@@ -459,10 +459,10 @@ define internal void @_ZN12_GLOBAL__N_110TorderPass7executeESt6vectorINSt7__cxx1
 61:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #24
-  %62 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.01252970
-  %63 = getelementptr i8, ptr %62, i64 32
+  %62 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.01252970
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %64 = getelementptr i8, ptr %62, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %65 = load i64, ptr %64, align 8, !tbaa !16, !noalias !13
   %.not.i = icmp eq i64 %65, 0
   br i1 %.not.i, label %._crit_edge.i.i.thread.i, label %66

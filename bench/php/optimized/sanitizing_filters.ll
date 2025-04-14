@@ -370,8 +370,8 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8, !tbaa !7
   %.ptr = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %8 = getelementptr i8, ptr %5, i64 %7
-  %.ptr36 = getelementptr i8, ptr %8, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 %7
+  %.ptr36 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %9 = icmp eq i64 %7, 0
   br i1 %9, label %130, label %.preheader
 
@@ -670,8 +670,8 @@ define hidden void @php_filter_encoded(ptr noundef %0, i64 noundef %1, ptr nound
   %18 = load ptr, ptr %0, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i64, ptr %19, align 8, !tbaa !7
-  %21 = getelementptr i8, ptr %18, i64 %20
-  %.ptr4.i = getelementptr i8, ptr %21, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %20
+  %.ptr4.i = getelementptr inbounds nuw i8, ptr %21, i64 24
   %22 = icmp sgt i64 %20, 0
   br i1 %22, label %.lr.ph.preheader.i, label %php_filter_encode_url.exit
 

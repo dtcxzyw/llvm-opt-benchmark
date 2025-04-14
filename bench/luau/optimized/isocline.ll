@@ -1908,7 +1908,7 @@ mem_strndup.exit.thread168:                       ; preds = %.lr.ph.i, %89, %.pr
   br i1 %99, label %100, label %107
 
 100:                                              ; preds = %96
-  %101 = getelementptr i8, ptr %97, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 1
   %102 = load i8, ptr %101, align 1, !tbaa !4
   %.not152 = icmp eq i8 %102, 0
   br i1 %.not152, label %107, label %103
@@ -9034,8 +9034,8 @@ ic_istarts_with.exit103.thread123:                ; preds = %71, %26, %ic_istart
 
 91:                                               ; preds = %95, %89
   %.1 = phi i64 [ 0, %89 ], [ %96, %95 ]
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 %.1
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %90
+  %92 = getelementptr i8, ptr %2, i64 %.1
+  %93 = getelementptr i8, ptr %92, i64 %90
   %94 = load i8, ptr %93, align 1, !tbaa !4
   switch i8 %94, label %95 [
     i8 59, label %.critedge4
@@ -9047,7 +9047,7 @@ ic_istarts_with.exit103.thread123:                ; preds = %71, %26, %ic_istart
   br label %91, !llvm.loop !219
 
 .critedge4:                                       ; preds = %91, %91
-  %97 = getelementptr inbounds nuw i8, ptr %92, i64 %90
+  %97 = getelementptr i8, ptr %92, i64 %90
   %98 = icmp eq i64 %.1, 1
   br i1 %98, label %99, label %102
 
@@ -9062,12 +9062,12 @@ ic_istarts_with.exit103.thread123:                ; preds = %71, %26, %ic_istart
   br i1 %103, label %.preheader, label %ic_istarts_with.exit115.thread126
 
 .preheader:                                       ; preds = %102
-  %104 = getelementptr inbounds nuw i8, ptr %97, i64 1
+  %104 = getelementptr i8, ptr %97, i64 1
   br label %105
 
 105:                                              ; preds = %.preheader, %108
   %.2 = phi i64 [ %109, %108 ], [ 0, %.preheader ]
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 %.2
+  %106 = getelementptr i8, ptr %104, i64 %.2
   %107 = load i8, ptr %106, align 1, !tbaa !4
   switch i8 %107, label %108 [
     i8 59, label %.critedge6

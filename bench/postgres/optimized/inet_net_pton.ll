@@ -609,7 +609,7 @@ define internal fastcc range(i32 -2147483648, 129) i32 @inet_cidr_pton_ipv6(ptr 
 31:                                               ; preds = %27
   %32 = lshr i32 %.068212, 8
   %33 = trunc i32 %32 to i8
-  %.ptr96 = getelementptr i8, ptr %.081.ptr.ptr.ptr214, i64 1
+  %.ptr96 = getelementptr inbounds nuw i8, ptr %.081.ptr.ptr.ptr214, i64 1
   store i8 %33, ptr %.081.ptr.ptr.ptr214, align 1
   %34 = trunc i32 %.068212 to i8
   %.add = add nuw nsw i64 %.081.idx208, 2
@@ -767,7 +767,7 @@ getv4.exit:                                       ; preds = %26, %.thread, %31
   %.272 = phi i32 [ 0, %31 ], [ 1, %.thread ], [ 0, %26 ]
   %.2 = phi i32 [ 0, %31 ], [ %21, %.thread ], [ %.068212, %26 ]
   %.167 = phi i32 [ 0, %31 ], [ %22, %.thread ], [ %.066213, %26 ]
-  %.081.ptr.ptr.ptr = getelementptr i8, ptr %4, i64 %.283.idx
+  %.081.ptr.ptr.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.283.idx
   %103 = load i8, ptr %12, align 1
   %.not91 = icmp eq i8 %103, 0
   br i1 %.not91, label %getv4.exit.thread135, label %.lr.ph

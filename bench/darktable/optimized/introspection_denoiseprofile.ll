@@ -7148,7 +7148,7 @@ define internal fastcc void @sum_rec(i64 noundef %0, ptr noundef %1, ptr noundef
 
 .preheader:                                       ; preds = %.preheader37.preheader, %5
   %.03342 = phi i64 [ %6, %5 ], [ 0, %.preheader37.preheader ]
-  %.idx = shl nsw i64 %.03342, 4
+  %.idx = shl nuw nsw i64 %.03342, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %7
 
@@ -7208,7 +7208,7 @@ define internal fastcc void @variance_rec(i64 noundef %0, ptr noundef %1, ptr no
 
 .preheader:                                       ; preds = %.preheader43.preheader, %6
   %.03948 = phi i64 [ %7, %6 ], [ 0, %.preheader43.preheader ]
-  %.idx = shl nsw i64 %.03948, 4
+  %.idx = shl nuw nsw i64 %.03948, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   br label %8
 

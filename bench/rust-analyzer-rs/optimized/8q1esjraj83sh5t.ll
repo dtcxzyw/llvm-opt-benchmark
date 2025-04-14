@@ -9923,8 +9923,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store i32 %.sroa.8.1, ptr %285, align 4, !alias.scope !2099, !noalias !2095
   %288 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 320
   %289 = getelementptr inbounds ptr, ptr %288, i64 %275
-  %290 = getelementptr ptr, ptr %288, i64 %.sroa.7.0.i
-  %291 = getelementptr i8, ptr %290, i64 16
+  %290 = getelementptr inbounds nuw ptr, ptr %288, i64 %.sroa.7.0.i
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 16
   %292 = shl nuw nsw i64 %282, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %291, ptr nonnull align 8 %289, i64 %292, i1 false), !alias.scope !2107, !noalias !2095
   br label %293

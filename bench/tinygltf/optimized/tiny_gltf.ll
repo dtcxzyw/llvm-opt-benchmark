@@ -16713,7 +16713,7 @@ define noundef zeroext i1 @_ZN8tinygltf9URIDecodeERKNSt7__cxx1112basic_stringIcS
   %9 = phi i64 [ %85, %81 ], [ %8, %3 ]
   %.039.i = phi i64 [ %84, %81 ], [ 0, %3 ]
   %10 = load ptr, ptr %0, align 8, !tbaa !153, !noalias !497
-  %11 = getelementptr i8, ptr %10, i64 %.039.i
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.039.i
   %12 = load i8, ptr %11, align 1, !tbaa !21
   switch i8 %12, label %68 [
     i8 43, label %13
@@ -16763,7 +16763,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i: ; preds = %.no
   br i1 %30, label %31, label %68
 
 31:                                               ; preds = %28
-  %32 = getelementptr i8, ptr %11, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %33 = load i8, ptr %32, align 1, !tbaa !21
   %34 = add i8 %33, -48
   %or.cond.i.i = icmp ult i8 %34, 10

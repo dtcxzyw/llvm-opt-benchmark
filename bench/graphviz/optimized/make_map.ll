@@ -2583,7 +2583,7 @@ gv_calloc.exit509:                                ; preds = %gv_calloc.exit509.s
   %indvars.iv775 = phi i64 [ 0, %.preheader552.preheader ], [ %indvars.iv.next776, %.preheader552 ]
   %389 = mul nsw i64 %indvars.iv775, %388
   %invariant.gep889 = getelementptr double, ptr %.0417, i64 %389
-  %.idx = shl nsw i64 %indvars.iv775, 4
+  %.idx = shl nuw nsw i64 %indvars.iv775, 4
   %invariant.gep891 = getelementptr inbounds nuw i8, ptr %.0406, i64 %.idx
   %390 = load double, ptr %invariant.gep889, align 8, !tbaa !20
   store double %390, ptr %invariant.gep891, align 8, !tbaa !20

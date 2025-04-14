@@ -2915,8 +2915,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
   br i1 %201, label %202, label %._crit_edge.loopexit
 
 202:                                              ; preds = %195
-  %203 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre1204.pre, i64 %.01701018
-  %204 = getelementptr i8, ptr %203, i64 32
+  %203 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre1204.pre, i64 %.01701018
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 32
   %205 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre1204.pre, i64 %196
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45) #30
   invoke void @_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEE7emplaceERKS7_SC_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %45, ptr noundef nonnull align 8 dereferenceable(49) %42, ptr noundef nonnull align 8 dereferenceable(32) %204, ptr noundef nonnull align 8 dereferenceable(32) %205)

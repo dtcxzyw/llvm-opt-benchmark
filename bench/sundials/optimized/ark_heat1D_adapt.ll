@@ -911,7 +911,7 @@ check_flag.exit50.preheader:                      ; preds = %9
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load double, ptr %21, align 8, !tbaa !17
   %23 = fcmp ugt double %16, %22
   br i1 %23, label %24, label %check_flag.exit50

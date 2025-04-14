@@ -1259,8 +1259,8 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %invariant.gep3421 = getelementptr i8, ptr %606, i64 %.idx3107
   %.idx3108 = mul nuw nsw i64 %2, 12
   %invariant.gep3423 = getelementptr inbounds nuw i8, ptr %606, i64 %.idx3108
-  %.idx3109 = shl nsw i64 %2, 3
-  %invariant.gep3425 = getelementptr i8, ptr %606, i64 %.idx3109
+  %.idx3109 = shl nuw nsw i64 %2, 3
+  %invariant.gep3425 = getelementptr inbounds nuw i8, ptr %606, i64 %.idx3109
   br label %626
 
 .preheader3157:                                   ; preds = %691
@@ -1393,7 +1393,7 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   br label %687
 
 687:                                              ; preds = %686, %626
-  %gep3426 = getelementptr float, ptr %invariant.gep3425, i64 %.1229023411
+  %gep3426 = getelementptr inbounds nuw float, ptr %invariant.gep3425, i64 %.1229023411
   store <8 x float> %676, ptr %gep3426, align 1, !tbaa !3
   br label %688
 

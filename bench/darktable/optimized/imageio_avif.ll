@@ -309,14 +309,14 @@ dt_image_transformation_to_flip_bits.exit:        ; preds = %53, %54, %55, %56
 .preheader159.us:                                 ; preds = %.preheader159.lr.ph, %._crit_edge.us
   %.0130167.us = phi i64 [ %151, %._crit_edge.us ], [ 0, %.preheader159.lr.ph ]
   %128 = mul nuw i64 %.0130167.us, %93
-  %129 = getelementptr i8, ptr %95, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %95, i64 %128
   %130 = mul nuw i64 %.0130167.us, %67
   br label %131
 
 131:                                              ; preds = %.preheader159.us, %131
   %.0129165.us = phi i64 [ 0, %.preheader159.us ], [ %150, %131 ]
   %132 = mul nuw nsw i64 %.0129165.us, 3
-  %133 = getelementptr i8, ptr %129, i64 %132
+  %133 = getelementptr inbounds nuw i8, ptr %129, i64 %132
   %134 = add nuw i64 %.0129165.us, %130
   %.idx.us = shl i64 %134, 4
   %135 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx.us

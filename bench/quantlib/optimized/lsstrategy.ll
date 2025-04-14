@@ -1840,9 +1840,9 @@ if.end18:                                         ; preds = %if.then14, %if.end1
   br i1 %cmp, label %if.then21, label %if.end32
 
 if.then21:                                        ; preds = %if.end18
-  %add.ptr.i = getelementptr i64, ptr %18, i64 %16
+  %add.ptr.i = getelementptr inbounds nuw i64, ptr %18, i64 %16
   %19 = load i64, ptr %add.ptr.i, align 8, !tbaa !31
-  %add.ptr.i8 = getelementptr i8, ptr %add.ptr.i, i64 8
+  %add.ptr.i8 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %20 = load i64, ptr %add.ptr.i8, align 8, !tbaa !31
   %vtable28 = load ptr, ptr %currentState, align 8, !tbaa !3
   %vfn29 = getelementptr inbounds nuw i8, ptr %vtable28, i64 16

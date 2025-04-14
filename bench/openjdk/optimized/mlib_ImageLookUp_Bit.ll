@@ -57,7 +57,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   %41 = and i32 %30, %40
   %42 = and i32 %39, %32
   %43 = or i32 %41, %42
-  %.idx182 = shl nsw i64 %indvars.iv173, 7
+  %.idx182 = shl nuw nsw i64 %indvars.iv173, 7
   %invariant.gep = getelementptr inbounds nuw i8, ptr %10, i64 %.idx182
   br label %46
 
@@ -69,7 +69,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
 
 46:                                               ; preds = %37, %46
   %indvars.iv = phi i64 [ 0, %37 ], [ %indvars.iv.next, %46 ]
-  %.idx = shl nsw i64 %indvars.iv, 3
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   store i32 %43, ptr %gep, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -78,7 +78,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
 
 47:                                               ; preds = %.preheader138, %47
   %indvars.iv168 = phi i64 [ 0, %.preheader138 ], [ %indvars.iv.next169, %47 ]
-  %.idx183 = shl nsw i64 %indvars.iv168, 7
+  %.idx183 = shl nuw nsw i64 %indvars.iv168, 7
   %gep188 = getelementptr inbounds nuw i8, ptr %invariant.gep187, i64 %.idx183
   store i32 %43, ptr %gep188, align 4
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
@@ -551,17 +551,17 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   %149 = or i32 %147, %148
   %150 = shl nuw nsw i64 %indvars.iv149, 1
   %151 = or disjoint i64 %150, 1
-  %.idx159 = shl nsw i64 %indvars.iv149, 5
+  %.idx159 = shl nuw nsw i64 %indvars.iv149, 5
   %invariant.gep = getelementptr inbounds nuw i8, ptr %10, i64 %.idx159
   %invariant.gep170 = getelementptr inbounds nuw i32, ptr %10, i64 %151
   br label %152
 
 152:                                              ; preds = %143, %152
   %indvars.iv = phi i64 [ 0, %143 ], [ %indvars.iv.next, %152 ]
-  %.idx = shl nsw i64 %indvars.iv, 3
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   store i32 %149, ptr %gep, align 8
-  %.idx160 = shl nsw i64 %indvars.iv, 5
+  %.idx160 = shl nuw nsw i64 %indvars.iv, 5
   %gep171 = getelementptr inbounds nuw i8, ptr %invariant.gep170, i64 %.idx160
   store i32 %149, ptr %gep171, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

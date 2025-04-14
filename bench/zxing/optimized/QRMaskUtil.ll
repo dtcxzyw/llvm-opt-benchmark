@@ -44,8 +44,8 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   %14 = mul nuw nsw i64 %indvars.iv30.i, %13
   %15 = add nuw nsw i64 %indvars.iv30.i, 1
   %16 = mul nuw nsw i64 %15, %13
-  %17 = getelementptr %"class.ZXing::Trit", ptr %12, i64 %14
-  %18 = getelementptr %"class.ZXing::Trit", ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %12, i64 %14
+  %18 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %12, i64 %16
   %.pre = load i8, ptr %17, align 1, !tbaa !15
   br label %20
 
@@ -65,21 +65,21 @@ define noundef i32 @_ZN5ZXing6QRCode8MaskUtil20CalculateMaskPenaltyERKNS_6Matrix
   %.123.i = phi i32 [ %.02025.i, %.lr.ph.i ], [ %.2.i, %37 ]
   %22 = icmp eq i8 %21, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %23 = getelementptr %"class.ZXing::Trit", ptr %17, i64 %indvars.iv.next.i
+  %23 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %17, i64 %indvars.iv.next.i
   %24 = load i8, ptr %23, align 1, !tbaa !19
   %25 = icmp eq i8 %24, 1
   %26 = xor i1 %22, %25
   br i1 %26, label %37, label %27
 
 27:                                               ; preds = %20
-  %28 = getelementptr %"class.ZXing::Trit", ptr %18, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %indvars.iv.i
   %29 = load i8, ptr %28, align 1, !tbaa !19
   %30 = icmp eq i8 %29, 1
   %31 = xor i1 %22, %30
   br i1 %31, label %37, label %32
 
 32:                                               ; preds = %27
-  %33 = getelementptr %"class.ZXing::Trit", ptr %18, i64 %indvars.iv.next.i
+  %33 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %indvars.iv.next.i
   %34 = load i8, ptr %33, align 1, !tbaa !19
   %35 = icmp ne i8 %34, 1
   %not..i = xor i1 %22, %35

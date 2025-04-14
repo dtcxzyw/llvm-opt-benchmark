@@ -1080,8 +1080,8 @@ define internal void @_ZN12_GLOBAL__N_112IopadmapPass7executeESt6vectorINSt7__cx
   br i1 %369, label %370, label %379
 
 370:                                              ; preds = %361
-  %371 = getelementptr %"class.std::__cxx11::basic_string", ptr %364, i64 %.05186455
-  %372 = getelementptr i8, ptr %371, i64 32
+  %371 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %364, i64 %.05186455
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef nonnull align 8 dereferenceable(32) %372)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %377
 
@@ -1122,8 +1122,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit819: ; preds =
   br i1 %390, label %391, label %396
 
 391:                                              ; preds = %382
-  %392 = getelementptr %"class.std::__cxx11::basic_string", ptr %385, i64 %.05186455
-  %393 = getelementptr i8, ptr %392, i64 32
+  %392 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %385, i64 %.05186455
+  %393 = getelementptr inbounds nuw i8, ptr %392, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef nonnull align 8 dereferenceable(32) %393)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit821 unwind label %377
 
@@ -1154,8 +1154,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit823: ; preds =
   br i1 %407, label %408, label %413
 
 408:                                              ; preds = %399
-  %409 = getelementptr %"class.std::__cxx11::basic_string", ptr %402, i64 %.05186455
-  %410 = getelementptr i8, ptr %409, i64 32
+  %409 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %402, i64 %.05186455
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(32) %410)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit825 unwind label %377
 
@@ -1186,8 +1186,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit827: ; preds =
   br i1 %424, label %425, label %485
 
 425:                                              ; preds = %416
-  %426 = getelementptr %"class.std::__cxx11::basic_string", ptr %419, i64 %.05186455
-  %427 = getelementptr i8, ptr %426, i64 32
+  %426 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %419, i64 %.05186455
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %427)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit829 unwind label %377
 
@@ -1395,8 +1395,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %496, label %497, label %558
 
 497:                                              ; preds = %488
-  %498 = getelementptr %"class.std::__cxx11::basic_string", ptr %491, i64 %.05186455
-  %499 = getelementptr i8, ptr %498, i64 32
+  %498 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %491, i64 %.05186455
+  %499 = getelementptr inbounds nuw i8, ptr %498, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %499)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit835 unwind label %377
 
@@ -1609,11 +1609,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit854: ; preds = %_Z
 
 570:                                              ; preds = %561
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %97) #25
-  %571 = getelementptr %"class.std::__cxx11::basic_string", ptr %564, i64 %.05186455
-  %572 = getelementptr i8, ptr %571, i64 32
+  %571 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %564, i64 %.05186455
+  %572 = getelementptr inbounds nuw i8, ptr %571, i64 32
   store ptr %322, ptr %97, align 8, !tbaa !6
   %573 = load ptr, ptr %572, align 8, !tbaa !20
-  %574 = getelementptr i8, ptr %571, i64 40
+  %574 = getelementptr inbounds nuw i8, ptr %571, i64 40
   %575 = load i64, ptr %574, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #25
   store i64 %575, ptr %69, align 8, !tbaa !21

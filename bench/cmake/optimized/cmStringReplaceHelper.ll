@@ -595,8 +595,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
 
 128:                                              ; preds = %119
   %129 = load ptr, ptr %10, align 8, !tbaa !14
-  %130 = getelementptr i8, ptr %129, i64 %21
-  %131 = getelementptr i8, ptr %130, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 %21
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 1
   %132 = load i8, ptr %131, align 1, !tbaa !13
   %133 = icmp sgt i8 %132, 47
   br i1 %133, label %134, label %.thread93

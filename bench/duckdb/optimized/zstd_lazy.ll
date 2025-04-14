@@ -48793,7 +48793,7 @@ _ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
 
 154:                                              ; preds = %_ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZSTD_dictMode_eE.exit, %154
   %indvars.iv97 = phi i64 [ 0, %_ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZSTD_dictMode_eE.exit ], [ %indvars.iv.next98, %154 ]
-  %155 = getelementptr i32, ptr %48, i64 %indvars.iv97
+  %155 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv97
   %156 = load i32, ptr %155, align 4, !tbaa !26
   %157 = zext i32 %156 to i64
   %158 = getelementptr inbounds nuw i8, ptr %150, i64 %157
@@ -49208,7 +49208,7 @@ _ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
 
 151:                                              ; preds = %_ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZSTD_dictMode_eE.exit, %151
   %indvars.iv97 = phi i64 [ 0, %_ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZSTD_dictMode_eE.exit ], [ %indvars.iv.next98, %151 ]
-  %152 = getelementptr i32, ptr %48, i64 %indvars.iv97
+  %152 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv97
   %153 = load i32, ptr %152, align 4, !tbaa !26
   %154 = zext i32 %153 to i64
   %155 = getelementptr inbounds nuw i8, ptr %147, i64 %154
@@ -49625,7 +49625,7 @@ _ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZS
 
 151:                                              ; preds = %_ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZSTD_dictMode_eE.exit, %151
   %indvars.iv97 = phi i64 [ 0, %_ZN11duckdb_zstdL20ZSTD_HcFindBestMatchEPNS_17ZSTD_matchState_tEPKhS3_PmjNS_15ZSTD_dictMode_eE.exit ], [ %indvars.iv.next98, %151 ]
-  %152 = getelementptr i32, ptr %48, i64 %indvars.iv97
+  %152 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv97
   %153 = load i32, ptr %152, align 4, !tbaa !26
   %154 = zext i32 %153 to i64
   %155 = getelementptr inbounds nuw i8, ptr %147, i64 %154
@@ -50282,7 +50282,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.thread: ; preds = %256, %_ZN11duckd
 
 314:                                              ; preds = %._crit_edge88, %314
   %indvars.iv129 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next130, %314 ]
-  %315 = getelementptr i32, ptr %313, i64 %indvars.iv129
+  %315 = getelementptr inbounds nuw i32, ptr %313, i64 %indvars.iv129
   %316 = load i32, ptr %315, align 4, !tbaa !26
   %317 = zext i32 %316 to i64
   %318 = getelementptr inbounds nuw i8, ptr %308, i64 %317
@@ -50955,7 +50955,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.thread: ; preds = %267, %_ZN11duckd
 
 325:                                              ; preds = %._crit_edge88, %325
   %indvars.iv132 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next133, %325 ]
-  %326 = getelementptr i32, ptr %324, i64 %indvars.iv132
+  %326 = getelementptr inbounds nuw i32, ptr %324, i64 %indvars.iv132
   %327 = load i32, ptr %326, align 4, !tbaa !26
   %328 = zext i32 %327 to i64
   %329 = getelementptr inbounds nuw i8, ptr %319, i64 %328
@@ -51663,7 +51663,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.thread: ; preds = %287, %_ZN11duckd
 
 345:                                              ; preds = %._crit_edge88, %345
   %indvars.iv133 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next134, %345 ]
-  %346 = getelementptr i32, ptr %344, i64 %indvars.iv133
+  %346 = getelementptr inbounds nuw i32, ptr %344, i64 %indvars.iv133
   %347 = load i32, ptr %346, align 4, !tbaa !26
   %348 = zext i32 %347 to i64
   %349 = getelementptr inbounds nuw i8, ptr %339, i64 %348
@@ -52322,7 +52322,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.thread: ; preds = %257, %_ZN11duckd
 
 315:                                              ; preds = %._crit_edge88, %315
   %indvars.iv129 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next130, %315 ]
-  %316 = getelementptr i32, ptr %314, i64 %indvars.iv129
+  %316 = getelementptr inbounds nuw i32, ptr %314, i64 %indvars.iv129
   %317 = load i32, ptr %316, align 4, !tbaa !26
   %318 = zext i32 %317 to i64
   %319 = getelementptr inbounds nuw i8, ptr %309, i64 %318
@@ -52996,7 +52996,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.thread: ; preds = %268, %_ZN11duckd
 
 326:                                              ; preds = %._crit_edge88, %326
   %indvars.iv132 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next133, %326 ]
-  %327 = getelementptr i32, ptr %325, i64 %indvars.iv132
+  %327 = getelementptr inbounds nuw i32, ptr %325, i64 %indvars.iv132
   %328 = load i32, ptr %327, align 4, !tbaa !26
   %329 = zext i32 %328 to i64
   %330 = getelementptr inbounds nuw i8, ptr %320, i64 %329
@@ -53705,7 +53705,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.thread: ; preds = %288, %_ZN11duckd
 
 346:                                              ; preds = %._crit_edge88, %346
   %indvars.iv133 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next134, %346 ]
-  %347 = getelementptr i32, ptr %345, i64 %indvars.iv133
+  %347 = getelementptr inbounds nuw i32, ptr %345, i64 %indvars.iv133
   %348 = load i32, ptr %347, align 4, !tbaa !26
   %349 = zext i32 %348 to i64
   %350 = getelementptr inbounds nuw i8, ptr %340, i64 %349
@@ -54364,7 +54364,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.thread: ; preds = %257, %_ZN11duckd
 
 315:                                              ; preds = %._crit_edge88, %315
   %indvars.iv129 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next130, %315 ]
-  %316 = getelementptr i32, ptr %314, i64 %indvars.iv129
+  %316 = getelementptr inbounds nuw i32, ptr %314, i64 %indvars.iv129
   %317 = load i32, ptr %316, align 4, !tbaa !26
   %318 = zext i32 %317 to i64
   %319 = getelementptr inbounds nuw i8, ptr %309, i64 %318
@@ -55038,7 +55038,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.thread: ; preds = %268, %_ZN11duckd
 
 326:                                              ; preds = %._crit_edge88, %326
   %indvars.iv132 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next133, %326 ]
-  %327 = getelementptr i32, ptr %325, i64 %indvars.iv132
+  %327 = getelementptr inbounds nuw i32, ptr %325, i64 %indvars.iv132
   %328 = load i32, ptr %327, align 4, !tbaa !26
   %329 = zext i32 %328 to i64
   %330 = getelementptr inbounds nuw i8, ptr %320, i64 %329
@@ -55747,7 +55747,7 @@ _ZN11duckdb_zstdL10ZSTD_countEPKhS1_S1_.exit.thread: ; preds = %288, %_ZN11duckd
 
 346:                                              ; preds = %._crit_edge88, %346
   %indvars.iv133 = phi i64 [ 0, %._crit_edge88 ], [ %indvars.iv.next134, %346 ]
-  %347 = getelementptr i32, ptr %345, i64 %indvars.iv133
+  %347 = getelementptr inbounds nuw i32, ptr %345, i64 %indvars.iv133
   %348 = load i32, ptr %347, align 4, !tbaa !26
   %349 = zext i32 %348 to i64
   %350 = getelementptr inbounds nuw i8, ptr %340, i64 %349

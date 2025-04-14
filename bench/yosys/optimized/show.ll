@@ -2091,8 +2091,8 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   store i8 1, ptr %70, align 8, !tbaa !26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %71, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %72, i8 0, i64 48, i1 false)
-  %176 = getelementptr %"class.std::__cxx11::basic_string", ptr %169, i64 %.0142591
-  %177 = getelementptr i8, ptr %176, i64 32
+  %176 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %169, i64 %.0142591
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %177)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit222 unwind label %196
 
@@ -2184,8 +2184,8 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Yosys5RTLIL9Sel
   store i8 1, ptr %62, align 8, !tbaa !26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %63, i8 0, i64 48, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %64, i8 0, i64 48, i1 false)
-  %211 = getelementptr %"class.std::__cxx11::basic_string", ptr %204, i64 %.0142591
-  %212 = getelementptr i8, ptr %211, i64 32
+  %211 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %204, i64 %.0142591
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %212)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit228 unwind label %231
 

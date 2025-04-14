@@ -3709,8 +3709,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 74:                                               ; preds = %69
   %75 = load ptr, ptr %0, align 8, !tbaa !21
-  %76 = getelementptr i8, ptr %75, i64 %27
-  %77 = getelementptr i8, ptr %76, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %27
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
   store i8 46, ptr %77, align 1, !tbaa !20
   br label %99
 
@@ -18958,8 +18958,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 33:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %5) #39
   %34 = load ptr, ptr %1, align 8, !tbaa !21
-  %35 = getelementptr i8, ptr %34, i64 %.01639
-  %36 = getelementptr i8, ptr %35, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.01639
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !20
   store i8 %37, ptr %5, align 1, !tbaa !20
   %38 = add i64 %.01639, 2

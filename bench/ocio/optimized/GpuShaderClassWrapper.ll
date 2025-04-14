@@ -5494,7 +5494,7 @@ _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112
 
 87:                                               ; preds = %87, %.preheader
   %.063 = phi i64 [ %92, %87 ], [ 0, %.preheader ]
-  %88 = getelementptr i8, ptr %84, i64 %.063
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 %.063
   %89 = load i8, ptr %88, align 1, !tbaa !17
   %90 = sext i8 %89 to i32
   %91 = call i32 @isspace(i32 noundef %90) #24
@@ -5508,7 +5508,7 @@ _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112
   br label %521
 
 95:                                               ; preds = %87
-  %96 = getelementptr i8, ptr %84, i64 %.063
+  %96 = getelementptr inbounds nuw i8, ptr %84, i64 %.063
   %.not70 = icmp ult i64 %.063, %82
   br i1 %.not70, label %97, label %.backedge, !llvm.loop !83
 
@@ -5517,7 +5517,7 @@ _ZSt7getlineIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112
   br i1 %98, label %99, label %103
 
 99:                                               ; preds = %97
-  %100 = getelementptr i8, ptr %96, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 1
   %101 = load i8, ptr %100, align 1, !tbaa !17
   %102 = icmp eq i8 %101, 47
   br i1 %102, label %.backedge, label %103, !llvm.loop !83

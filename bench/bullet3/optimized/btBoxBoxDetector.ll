@@ -1095,7 +1095,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
 
 523:                                              ; preds = %508, %523
   %indvars.iv1063 = phi i64 [ 0, %508 ], [ %indvars.iv.next1064, %523 ]
-  %.idx = shl nsw i64 %indvars.iv1063, 4
+  %.idx = shl nuw nsw i64 %indvars.iv1063, 4
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %524 = load float, ptr %gep, align 4, !tbaa !14
   %525 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv1063
@@ -1137,7 +1137,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
 
 544:                                              ; preds = %529, %544
   %indvars.iv1074 = phi i64 [ 0, %529 ], [ %indvars.iv.next1075, %544 ]
-  %.idx1098 = shl nsw i64 %indvars.iv1074, 4
+  %.idx1098 = shl nuw nsw i64 %indvars.iv1074, 4
   %gep1103 = getelementptr inbounds nuw i8, ptr %invariant.gep1102, i64 %.idx1098
   %545 = load float, ptr %gep1103, align 4, !tbaa !14
   %546 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv1074
@@ -1171,7 +1171,7 @@ define dso_local noundef i32 @_Z8dBoxBox2RK9btVector3PKfS1_S1_S3_S1_RS_PfPiiP12d
 
 556:                                              ; preds = %550, %556
   %indvars.iv1082 = phi i64 [ 0, %550 ], [ %indvars.iv.next1083, %556 ]
-  %.idx1099 = shl nsw i64 %indvars.iv1082, 4
+  %.idx1099 = shl nuw nsw i64 %indvars.iv1082, 4
   %gep1105 = getelementptr inbounds nuw i8, ptr %invariant.gep1104, i64 %.idx1099
   %557 = load float, ptr %gep1105, align 4, !tbaa !14
   %558 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv1082

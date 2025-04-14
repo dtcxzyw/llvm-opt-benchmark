@@ -911,8 +911,8 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
   %53 = getelementptr inbounds nuw float, ptr %0, i64 %52
   %54 = load float, ptr %53, align 4, !tbaa !11
   %55 = fmul reassoc nsz arcp contract afn float %54, %.1
-  %56 = getelementptr float, ptr %1, i64 %.0112138
-  %57 = getelementptr float, ptr %56, i64 %49
+  %56 = getelementptr inbounds nuw float, ptr %1, i64 %.0112138
+  %57 = getelementptr inbounds nuw float, ptr %56, i64 %49
   %58 = load float, ptr %57, align 4, !tbaa !11
   %59 = getelementptr float, ptr %56, i64 %25
   %60 = getelementptr float, ptr %59, i64 %13
@@ -964,15 +964,15 @@ define internal fastcc float @_heal_laplace_iteration(ptr noalias noundef nonnul
 
 85:                                               ; preds = %.lr.ph, %85
   %.0134 = phi i64 [ 0, %.lr.ph ], [ %110, %85 ]
-  %86 = getelementptr float, ptr %1, i64 %.0134
+  %86 = getelementptr inbounds nuw float, ptr %1, i64 %.0134
   %87 = getelementptr float, ptr %86, i64 %81
-  %88 = getelementptr float, ptr %87, i64 %33
+  %88 = getelementptr inbounds nuw float, ptr %87, i64 %33
   %89 = load float, ptr %88, align 4, !tbaa !11
   %90 = or disjoint i64 %.0134, %81
   %91 = getelementptr inbounds nuw float, ptr %0, i64 %90
   %92 = load float, ptr %91, align 4, !tbaa !11
   %93 = fmul reassoc nsz arcp contract afn float %92, %.1117
-  %94 = getelementptr float, ptr %86, i64 %82
+  %94 = getelementptr inbounds nuw float, ptr %86, i64 %82
   %95 = load float, ptr %94, align 4, !tbaa !11
   %96 = getelementptr float, ptr %87, i64 %13
   %97 = load float, ptr %96, align 4, !tbaa !11

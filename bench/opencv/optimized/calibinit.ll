@@ -5904,8 +5904,8 @@ _ZNSt6vectorIN2cv12QuadCountourESaIS1_EED2Ev.exit: ; preds = %294, %._crit_edge3
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %314, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %317, i64 1
   %318 = load ptr, ptr %26, align 8, !tbaa !164
-  %319 = getelementptr %"struct.cv::ChessBoardCorner", ptr %318, i64 %indvars.iv360
-  %320 = getelementptr %"struct.cv::ChessBoardCorner", ptr %319, i64 %308
+  %319 = getelementptr inbounds nuw %"struct.cv::ChessBoardCorner", ptr %318, i64 %indvars.iv360
+  %320 = getelementptr inbounds nuw %"struct.cv::ChessBoardCorner", ptr %319, i64 %308
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %320, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %320, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.4.0..sroa_idx, i8 0, i64 40, i1 false)
@@ -7968,8 +7968,8 @@ _ZNSt6vectorIPN2cv14ChessBoardQuadESaIS2_EE9push_backEOS2_.exit: ; preds = %33, 
 80:                                               ; preds = %_ZNSt6vectorIPN2cv14ChessBoardQuadESaIS2_EE9push_backEOS2_.exit, %80
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIPN2cv14ChessBoardQuadESaIS2_EE9push_backEOS2_.exit ], [ %indvars.iv.next, %80 ]
   %81 = load ptr, ptr %15, align 8, !tbaa !164
-  %82 = getelementptr %"struct.cv::ChessBoardCorner", ptr %81, i64 %indvars.iv
-  %83 = getelementptr %"struct.cv::ChessBoardCorner", ptr %82, i64 %75
+  %82 = getelementptr inbounds nuw %"struct.cv::ChessBoardCorner", ptr %81, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw %"struct.cv::ChessBoardCorner", ptr %82, i64 %75
   %84 = getelementptr inbounds nuw [4 x ptr], ptr %14, i64 0, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !53
   %86 = load i64, ptr %85, align 4
@@ -10503,8 +10503,8 @@ _ZN2cv18ChessBoardDetector15NeighborsFinderD2Ev.exit: ; preds = %_ZNSt6vectorIfS
 51:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #40
   %52 = load ptr, ptr %15, align 8, !tbaa !48
-  %53 = getelementptr %"class.cv::Point_", ptr %52, i64 %indvars.iv
-  %54 = getelementptr %"class.cv::Point_", ptr %53, i64 %43
+  %53 = getelementptr inbounds nuw %"class.cv::Point_", ptr %52, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw %"class.cv::Point_", ptr %53, i64 %43
   %55 = load i64, ptr %54, align 4
   store i64 %55, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #40

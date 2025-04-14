@@ -6064,8 +6064,8 @@ invoke.cont87:                                    ; preds = %.noexc103, %if.then
   %legs_.i105 = getelementptr inbounds nuw i8, ptr %72, i64 104
   %73 = load ptr, ptr %legs_.i105, align 8, !tbaa !72
   %74 = load ptr, ptr %73, align 8, !tbaa !76
-  %75 = getelementptr %"class.boost::shared_ptr.64", ptr %74, i64 %r65.0210
-  %add.ptr.i106 = getelementptr i8, ptr %75, i64 16
+  %75 = getelementptr inbounds nuw %"class.boost::shared_ptr.64", ptr %74, i64 %r65.0210
+  %add.ptr.i106 = getelementptr inbounds nuw i8, ptr %75, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
   %76 = load ptr, ptr %add.ptr.i106, align 8, !tbaa !83, !noalias !203
   %77 = icmp eq ptr %76, null
@@ -6078,7 +6078,7 @@ dynamic_cast.end3.i107:                           ; preds = %invoke.cont87
 
 cond.true.i109:                                   ; preds = %dynamic_cast.end3.i107
   store ptr %78, ptr %cpn_rp1, align 8, !tbaa !85, !alias.scope !203
-  %pn2.i.i111 = getelementptr i8, ptr %75, i64 24
+  %pn2.i.i111 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %79 = load ptr, ptr %pn2.i.i111, align 8, !tbaa !37, !noalias !203
   store ptr %79, ptr %pn.i.i110, align 8, !tbaa !37, !alias.scope !203
   %cmp.not.i.i.i112 = icmp eq ptr %79, null

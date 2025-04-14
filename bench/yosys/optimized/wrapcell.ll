@@ -1953,10 +1953,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit331: ; preds = %_Z
 272:                                              ; preds = %264
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %29) #29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #29
-  %273 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre8082, i64 %.05700
-  %274 = getelementptr i8, ptr %273, i64 32
+  %273 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre8082, i64 %.05700
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %275 = getelementptr i8, ptr %273, i64 40
+  %275 = getelementptr inbounds nuw i8, ptr %273, i64 40
   %276 = load i64, ptr %275, align 8, !tbaa !12, !noalias !38
   %.not.i332 = icmp eq i64 %276, 0
   br i1 %.not.i332, label %._crit_edge.i.i.thread.i337, label %277

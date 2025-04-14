@@ -61767,7 +61767,7 @@ define internal fastcc noundef i32 @_ZL20stbiw__jpg_processDUP19stbi__write_cont
   %.0127258 = phi i64 [ %indvars.iv.next291, %162 ], [ 0, %.preheader237 ]
   %sext = shl i64 %.0127258, 32
   %149 = ashr exact i64 %sext, 32
-  %.idx = shl nsw i64 %indvars.iv296, 5
+  %.idx = shl nuw nsw i64 %indvars.iv296, 5
   %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   br label %150
 

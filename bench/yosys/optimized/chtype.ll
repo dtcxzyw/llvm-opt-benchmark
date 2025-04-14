@@ -473,10 +473,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit52:              ; preds = %31, %35, %_ZN5Yosys
 123:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23
-  %124 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre335.pre, i64 %.031301
-  %125 = getelementptr i8, ptr %124, i64 32
+  %124 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre335.pre, i64 %.031301
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !36)
-  %126 = getelementptr i8, ptr %124, i64 40
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 40
   %127 = load i64, ptr %126, align 8, !tbaa !19, !noalias !36
   %.not.i53 = icmp eq i64 %127, 0
   br i1 %.not.i53, label %._crit_edge.i.i.thread.i58, label %128

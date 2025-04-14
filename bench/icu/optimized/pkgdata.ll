@@ -1332,10 +1332,10 @@ thread-pre-split.i.i:                             ; preds = %346
 .lr.ph.i.i:                                       ; preds = %.split.us
   %304 = load ptr, ptr @_ZL12pkgDataFlags, align 8, !tbaa !45
   %305 = shl nuw nsw i64 %.us-phi, 3
-  %306 = getelementptr i8, ptr %304, i64 %305
-  %scevgep.i.i = getelementptr i8, ptr %306, i64 8
+  %306 = getelementptr nuw i8, ptr %304, i64 %305
+  %scevgep.i.i = getelementptr nuw i8, ptr %306, i64 8
   %307 = sub nuw nsw i64 128, %305
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %307, i1 false), !tbaa !16
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %scevgep.i.i, i8 0, i64 %307, i1 false), !tbaa !16
   br label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
 
 ._crit_edge.i.i:                                  ; preds = %thread-pre-split.i.i, %.loopexit210

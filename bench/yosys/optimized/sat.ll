@@ -2647,8 +2647,8 @@ define internal void @_ZN12_GLOBAL__N_17SatPass7executeESt6vectorINSt7__cxx1112b
 
 300:                                              ; preds = %292
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44) #29
-  %301 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre3237, i64 %.05202751
-  %302 = getelementptr i8, ptr %301, i64 32
+  %301 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre3237, i64 %.05202751
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %302)
           to label %303 unwind label %321
 
@@ -2917,8 +2917,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit661: ; preds = %_Z
 
 438:                                              ; preds = %430
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #29
-  %439 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre3242, i64 %.05202751
-  %440 = getelementptr i8, ptr %439, i64 32
+  %439 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre3242, i64 %.05202751
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %440)
           to label %441 unwind label %459
 
@@ -3062,8 +3062,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit673: ; preds = %_Z
 
 492:                                              ; preds = %484
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50) #29
-  %493 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre3243, i64 %.05202751
-  %494 = getelementptr i8, ptr %493, i64 32
+  %493 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre3243, i64 %.05202751
+  %494 = getelementptr inbounds nuw i8, ptr %493, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull align 8 dereferenceable(32) %494)
           to label %495 unwind label %513
 
@@ -3262,8 +3262,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit685: ; preds = %_Z
 
 585:                                              ; preds = %577
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %53) #29
-  %586 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre3246, i64 %.05202751
-  %587 = getelementptr i8, ptr %586, i64 32
+  %586 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre3246, i64 %.05202751
+  %587 = getelementptr inbounds nuw i8, ptr %586, i64 32
   %588 = load ptr, ptr %587, align 8, !tbaa !29
   %589 = call i64 @strtol(ptr noundef nonnull captures(none) %588, ptr noundef null, i32 noundef 10) #29
   %590 = trunc i64 %589 to i32
@@ -3430,8 +3430,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit697: ; preds = %_Z
 
 650:                                              ; preds = %642
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %57) #29
-  %651 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre3247, i64 %.05202751
-  %652 = getelementptr i8, ptr %651, i64 32
+  %651 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre3247, i64 %.05202751
+  %652 = getelementptr inbounds nuw i8, ptr %651, i64 32
   %653 = load ptr, ptr %652, align 8, !tbaa !29
   %654 = call i64 @strtol(ptr noundef nonnull captures(none) %653, ptr noundef null, i32 noundef 10) #29
   %655 = trunc i64 %654 to i32
@@ -3474,8 +3474,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit697: ; preds = %_Z
 
 675:                                              ; preds = %667
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58) #29
-  %676 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre3248, i64 %.05202751
-  %677 = getelementptr i8, ptr %676, i64 32
+  %676 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre3248, i64 %.05202751
+  %677 = getelementptr inbounds nuw i8, ptr %676, i64 32
   %678 = load ptr, ptr %677, align 8, !tbaa !29
   %679 = call i64 @strtol(ptr noundef nonnull captures(none) %678, ptr noundef null, i32 noundef 10) #29
   %680 = trunc i64 %679 to i32
@@ -3518,8 +3518,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit697: ; preds = %_Z
 
 700:                                              ; preds = %692
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %59) #29
-  %701 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre3249, i64 %.05202751
-  %702 = getelementptr i8, ptr %701, i64 32
+  %701 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre3249, i64 %.05202751
+  %702 = getelementptr inbounds nuw i8, ptr %701, i64 32
   %703 = load ptr, ptr %702, align 8, !tbaa !29
   %704 = call i64 @strtol(ptr noundef nonnull captures(none) %703, ptr noundef null, i32 noundef 10) #29
   %705 = trunc i64 %704 to i32
@@ -3562,8 +3562,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit697: ; preds = %_Z
 
 725:                                              ; preds = %717
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %60) #29
-  %726 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre3250, i64 %.05202751
-  %727 = getelementptr i8, ptr %726, i64 32
+  %726 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre3250, i64 %.05202751
+  %727 = getelementptr inbounds nuw i8, ptr %726, i64 32
   %728 = load ptr, ptr %727, align 8, !tbaa !29
   %729 = call i64 @strtol(ptr noundef nonnull captures(none) %728, ptr noundef null, i32 noundef 10) #29
   %730 = trunc i64 %729 to i32
@@ -3606,8 +3606,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit697: ; preds = %_Z
 
 750:                                              ; preds = %742
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61) #29
-  %751 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre3251, i64 %.05202751
-  %752 = getelementptr i8, ptr %751, i64 32
+  %751 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre3251, i64 %.05202751
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %752)
           to label %753 unwind label %771
 

@@ -26586,7 +26586,7 @@ default.unreachable1400:                          ; preds = %7
   %141 = getelementptr inbounds nuw float, ptr %41, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %143 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %144 = getelementptr i8, ptr %137, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %137, i64 8
   br label %145
 
 145:                                              ; preds = %.lr.ph1327, %145
@@ -26671,7 +26671,7 @@ default.unreachable1400:                          ; preds = %7
   %205 = getelementptr inbounds nuw float, ptr %39, i64 %204
   %206 = or disjoint i64 %204, 1
   %207 = getelementptr inbounds nuw float, ptr %39, i64 %206
-  %208 = getelementptr i8, ptr %205, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %.idx1026 = shl nuw nsw i64 %spec.select1067, 3
   %.idx1027 = shl nuw nsw i64 %46, 3
   br label %209
@@ -26755,15 +26755,15 @@ default.unreachable1400:                          ; preds = %7
   %267 = getelementptr inbounds nuw i8, ptr %262, i64 4
   %268 = or disjoint i64 %263, 1
   %269 = getelementptr inbounds nuw float, ptr %41, i64 %268
-  %270 = getelementptr i8, ptr %265, i64 4
+  %270 = getelementptr inbounds nuw i8, ptr %265, i64 4
   %271 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %272 = getelementptr inbounds nuw i8, ptr %262, i64 8
-  %273 = getelementptr i8, ptr %264, i64 8
-  %274 = getelementptr i8, ptr %265, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %264, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %275 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %276 = getelementptr inbounds nuw i8, ptr %262, i64 12
-  %277 = getelementptr i8, ptr %264, i64 12
-  %278 = getelementptr i8, ptr %265, i64 12
+  %277 = getelementptr inbounds nuw i8, ptr %264, i64 12
+  %278 = getelementptr inbounds nuw i8, ptr %265, i64 12
   br label %279
 
 279:                                              ; preds = %.lr.ph1317, %279
@@ -26876,13 +26876,13 @@ default.unreachable1400:                          ; preds = %7
   %365 = getelementptr inbounds nuw float, ptr %39, i64 %364
   %366 = or disjoint i64 %364, 1
   %367 = getelementptr inbounds nuw float, ptr %39, i64 %366
-  %368 = getelementptr i8, ptr %365, i64 8
-  %369 = getelementptr i8, ptr %365, i64 12
+  %368 = getelementptr inbounds nuw i8, ptr %365, i64 8
+  %369 = getelementptr inbounds nuw i8, ptr %365, i64 12
   %.idx1256 = mul nuw i64 %49, 12
   %370 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx1256
-  %371 = getelementptr i8, ptr %370, i64 4
-  %372 = getelementptr i8, ptr %370, i64 8
-  %373 = getelementptr i8, ptr %370, i64 12
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 4
+  %372 = getelementptr inbounds nuw i8, ptr %370, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %370, i64 12
   %.idx1019 = shl nuw nsw i64 %spec.select1071, 3
   %.idx1020 = shl nuw nsw i64 %46, 3
   %.idx1021 = mul nuw i64 %spec.select1071, 12

@@ -29141,7 +29141,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj2EE3setEi.exit: ; preds = %.noexc
   %76 = zext nneg i32 %75 to i64
   %77 = icmp sgt i64 %70, %56
   %78 = select i1 %72, i1 true, i1 %77
-  %.idx84 = shl nsw i64 %indvars.iv80, 7
+  %.idx84 = shl nuw nsw i64 %indvars.iv80, 7
   %invariant.gep87 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx84
   %79 = select i1 %78, i1 true, i1 %50
   %80 = select i1 %79, i1 true, i1 %58
@@ -29161,7 +29161,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj2EE3setEi.exit: ; preds = %.noexc
   %88 = zext nneg i32 %87 to i64
   %89 = icmp sgt i64 %82, %56
   %90 = select i1 %84, i1 true, i1 %89
-  %.idx = shl nsw i64 %indvars.iv76, 5
+  %.idx = shl nuw nsw i64 %indvars.iv76, 5
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep87, i64 %.idx
   %91 = select i1 %90, i1 true, i1 %50
   %92 = select i1 %91, i1 true, i1 %62
@@ -38903,12 +38903,12 @@ _ZNK6OctreeIfE15_isValidFEMNodeEPK7OctNodeI12TreeNodeDataE.exit: ; preds = %_Z12
 
 .preheader104:                                    ; preds = %121, %176
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %176 ], [ 0, %121 ]
-  %.idx153 = shl nsw i64 %indvars.iv149, 7
+  %.idx153 = shl nuw nsw i64 %indvars.iv149, 7
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader104, %175
   %indvars.iv145 = phi i64 [ 0, %.preheader104 ], [ %indvars.iv.next146, %175 ]
-  %.idx = shl nsw i64 %indvars.iv145, 5
+  %.idx = shl nuw nsw i64 %indvars.iv145, 5
   br label %147
 
 147:                                              ; preds = %.preheader, %_Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread

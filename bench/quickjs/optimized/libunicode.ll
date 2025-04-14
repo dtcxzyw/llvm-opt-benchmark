@@ -2163,7 +2163,7 @@ unicode_find_name.exit:                           ; preds = %15
 
 43:                                               ; preds = %35
   %44 = shl nuw nsw i32 %33, 16
-  %.ptr121 = getelementptr i8, ptr %.095.ptr, i64 2
+  %.ptr121 = getelementptr inbounds nuw i8, ptr %.095.ptr, i64 2
   %45 = shl nuw nsw i32 %38, 8
   %.add118 = add nuw nsw i64 %.095.idx271, 3
   %46 = load i8, ptr %.ptr121, align 1, !tbaa !13
@@ -2278,7 +2278,7 @@ cr_add_interval.exit.thread:                      ; preds = %._crit_edge.i, %cr_
 
 99:                                               ; preds = %91
   %100 = shl nuw nsw i32 %89, 16
-  %.ptr131 = getelementptr i8, ptr %.3.ptr, i64 2
+  %.ptr131 = getelementptr inbounds nuw i8, ptr %.3.ptr, i64 2
   %101 = shl nuw nsw i32 %94, 8
   %.add126 = add nuw nsw i64 %.3.idx277, 3
   %102 = load i8, ptr %.ptr131, align 1, !tbaa !13
@@ -3493,7 +3493,7 @@ define internal fastcc range(i32 -1, 1) i32 @unicode_general_category1(ptr nound
 
 28:                                               ; preds = %20
   %29 = shl nuw nsw i32 %16, 16
-  %.ptr53 = getelementptr i8, ptr %.043.ptr, i64 3
+  %.ptr53 = getelementptr inbounds nuw i8, ptr %.043.ptr, i64 3
   %30 = shl nuw nsw i32 %23, 8
   %.add50 = add nuw nsw i64 %.043.idx74, 4
   %31 = load i8, ptr %.ptr53, align 1, !tbaa !13

@@ -502,7 +502,7 @@ _ZN5ZXing6QRCodeL14AppendModeInfoENS0_9CodecModeERNS_8BitArrayE.exit99: ; preds 
 .lr.ph.i.i105:                                    ; preds = %135, %_ZN5ZXing8BitArray10appendBitsEii.exit34.i.i
   %.040.i.i = phi i64 [ %.1.i.i, %_ZN5ZXing8BitArray10appendBitsEii.exit34.i.i ], [ 0, %135 ]
   %138 = load ptr, ptr %1, align 8, !tbaa !15
-  %139 = getelementptr i32, ptr %138, i64 %.040.i.i
+  %139 = getelementptr inbounds nuw i32, ptr %138, i64 %.040.i.i
   %140 = load i32, ptr %139, align 4, !tbaa !20
   %141 = add nsw i32 %140, -48
   %142 = add i64 %.040.i.i, 2
@@ -510,7 +510,7 @@ _ZN5ZXing6QRCodeL14AppendModeInfoENS0_9CodecModeERNS_8BitArrayE.exit99: ; preds 
   br i1 %143, label %144, label %160
 
 144:                                              ; preds = %.lr.ph.i.i105
-  %145 = getelementptr i8, ptr %139, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %146 = load i32, ptr %145, align 4, !tbaa !20
   %147 = getelementptr inbounds nuw i32, ptr %138, i64 %142
   %148 = load i32, ptr %147, align 4, !tbaa !20

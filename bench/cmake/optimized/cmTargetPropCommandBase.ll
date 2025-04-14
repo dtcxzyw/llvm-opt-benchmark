@@ -999,8 +999,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %_Z
 367:                                              ; preds = %365
   %368 = load ptr, ptr %1, align 8, !tbaa !37
   %369 = sext i32 %326 to i64
-  %370 = getelementptr %"class.std::__cxx11::basic_string", ptr %368, i64 %369
-  %371 = getelementptr i8, ptr %370, i64 32
+  %370 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %368, i64 %369
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 32
   invoke void @_ZN8cmTarget11SetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE7cmValue(ptr noundef nonnull align 8 dereferenceable(8) %366, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr nonnull align 8 dereferenceable(32) %371)
           to label %_ZN8cmTarget11SetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_.exit unwind label %383
 

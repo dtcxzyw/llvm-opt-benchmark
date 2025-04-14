@@ -7527,12 +7527,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit515: ; preds = %_Z
 
 1065:                                             ; preds = %1063
   %1066 = load ptr, ptr %1033, align 8, !tbaa !45
-  %1067 = getelementptr %"class.colvarmodule::atom", ptr %1066, i64 %.084887
+  %1067 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %1066, i64 %.084887
   %1068 = load ptr, ptr %1034, align 8, !tbaa !45
   %1069 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %1068, i64 %.084887
   %1070 = load ptr, ptr %1035, align 8, !tbaa !45
   %1071 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %1070, i64 %.084887
-  %1072 = getelementptr i8, ptr %1067, i64 120
+  %1072 = getelementptr inbounds nuw i8, ptr %1067, i64 120
   invoke void @_ZN6colvar8dihedralC1ERKN12colvarmodule4atomES4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(1713) %1064, ptr noundef nonnull align 8 dereferenceable(120) %1067, ptr noundef nonnull align 8 dereferenceable(120) %1069, ptr noundef nonnull align 8 dereferenceable(120) %1071, ptr noundef nonnull align 8 dereferenceable(120) %1072)
           to label %1073 unwind label %1098
 

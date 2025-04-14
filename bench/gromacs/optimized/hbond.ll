@@ -11613,7 +11613,7 @@ define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_15Hbond12searc
   br label %_ZNSt6vectorISt4pairIiiESaIS1_EE12emplace_backIJRiS5_EEERS1_DpOT_.exit152.us
 
 71:                                               ; preds = %57
-  %72 = getelementptr i8, ptr %61, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %73 = load i32, ptr %72, align 4, !tbaa !97
   %74 = getelementptr i8, ptr %61, i64 8
   %75 = load i32, ptr %74, align 4, !tbaa !97

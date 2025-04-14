@@ -139,7 +139,7 @@ mqtt_encode_len.exit.i:                           ; preds = %._crit_edge.loopexi
   store i8 2, ptr %41, align 1, !tbaa !7
   %42 = getelementptr i8, ptr %33, i64 9
   store i8 0, ptr %42, align 1, !tbaa !7
-  %43 = getelementptr i8, ptr %33, i64 10
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 10
   store i8 60, ptr %43, align 1, !tbaa !7
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %45 = call i32 @Curl_rand_alnum(ptr noundef nonnull %0, ptr noundef nonnull %44, i64 noundef 9) #8
@@ -152,7 +152,7 @@ add_client_id.exit.i:                             ; preds = %31
   br label %mqtt_connect.exit
 
 47:                                               ; preds = %31
-  %48 = getelementptr i8, ptr %33, i64 11
+  %48 = getelementptr inbounds nuw i8, ptr %33, i64 11
   store i8 0, ptr %48, align 1, !tbaa !7
   %49 = getelementptr i8, ptr %33, i64 12
   store i8 12, ptr %49, align 1, !tbaa !7

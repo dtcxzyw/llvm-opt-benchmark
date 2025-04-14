@@ -18017,10 +18017,10 @@ _ZN5arrow6ResultISt10shared_ptrINS_15ResizableBufferEEED2Ev.exit: ; preds = %_ZN
   %153 = load ptr, ptr %4, align 8, !tbaa !69
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 40
   %155 = load ptr, ptr %154, align 8, !tbaa !302
-  %156 = getelementptr %"class.std::shared_ptr.132", ptr %155, i64 %.02676
-  %157 = getelementptr i8, ptr %156, i64 16
+  %156 = getelementptr inbounds nuw %"class.std::shared_ptr.132", ptr %155, i64 %.02676
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store ptr %151, ptr %157, align 8, !tbaa !340
-  %158 = getelementptr i8, ptr %156, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 24
   %159 = load ptr, ptr %158, align 8, !tbaa !72
   store ptr %152, ptr %158, align 8, !tbaa !72
   %.not.i.i.i.i48 = icmp eq ptr %159, null
@@ -23405,10 +23405,10 @@ _ZN5arrow6ResultISt10shared_ptrINS_15ResizableBufferEEED2Ev.exit: ; preds = %_ZN
   %153 = load ptr, ptr %4, align 8, !tbaa !69
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 40
   %155 = load ptr, ptr %154, align 8, !tbaa !302
-  %156 = getelementptr %"class.std::shared_ptr.132", ptr %155, i64 %.02676
-  %157 = getelementptr i8, ptr %156, i64 16
+  %156 = getelementptr inbounds nuw %"class.std::shared_ptr.132", ptr %155, i64 %.02676
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store ptr %151, ptr %157, align 8, !tbaa !340
-  %158 = getelementptr i8, ptr %156, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 24
   %159 = load ptr, ptr %158, align 8, !tbaa !72
   store ptr %152, ptr %158, align 8, !tbaa !72
   %.not.i.i.i.i48 = icmp eq ptr %159, null

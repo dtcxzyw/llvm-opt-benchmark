@@ -130936,9 +130936,9 @@ _ZN4pbrt18ImageChannelValuesC2Emf.exit.i.i.i:     ; preds = %.lr.ph.i.i.i.i.i, %
 
 _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i.i.i.i.i: ; preds = %._crit_edge.i.i.i88.i.i.i, %87
   %139 = phi i64 [ %spec.select.i.i.i.i.i.i, %._crit_edge.i.i.i88.i.i.i ], [ 0, %87 ]
-  %140 = getelementptr float, ptr %126, i64 %139
+  %140 = getelementptr inbounds nuw float, ptr %126, i64 %139
   %141 = load float, ptr %140, align 4, !tbaa !35
-  %142 = getelementptr i8, ptr %140, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 4
   %143 = load float, ptr %142, align 4, !tbaa !35
   %144 = getelementptr inbounds nuw i8, ptr %119, i64 192
   %145 = load float, ptr %144, align 8, !tbaa !2345
@@ -131002,9 +131002,9 @@ _ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit.i.i.i.i: ; preds = %147, %_ZN4p
 
 _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10.i.i.i.i: ; preds = %._crit_edge.i.i18.i.i.i.i, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit.i.i.i.i
   %182 = phi i64 [ %spec.select.i.i21.i.i.i.i, %._crit_edge.i.i18.i.i.i.i ], [ 0, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit.i.i.i.i ]
-  %183 = getelementptr float, ptr %169, i64 %182
+  %183 = getelementptr inbounds nuw float, ptr %169, i64 %182
   %184 = load float, ptr %183, align 4, !tbaa !35
-  %185 = getelementptr i8, ptr %183, i64 4
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 4
   %186 = load float, ptr %185, align 4, !tbaa !35
   %187 = getelementptr inbounds nuw i8, ptr %162, i64 72
   %188 = load float, ptr %187, align 8, !tbaa !2345

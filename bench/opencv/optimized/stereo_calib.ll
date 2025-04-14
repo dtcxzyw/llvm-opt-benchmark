@@ -4119,7 +4119,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit646.i: ; preds = %13
 
 .preheader824.i:                                  ; preds = %1555, %.preheader824.lr.ph.i
   %indvars.iv1113.i = phi i64 [ 0, %.preheader824.lr.ph.i ], [ %indvars.iv.next1114.i, %1555 ]
-  %.idx.i = shl nsw i64 %indvars.iv1113.i, 6
+  %.idx.i = shl nuw nsw i64 %indvars.iv1113.i, 6
   br label %1466
 
 1466:                                             ; preds = %1510, %.preheader824.i

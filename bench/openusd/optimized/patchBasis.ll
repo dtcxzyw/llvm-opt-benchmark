@@ -438,7 +438,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIfEEvT_PS5_S6
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %79 ], [ 0, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIfEEvT_PS5_S6_S6_.exit73 ]
   %73 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv121
   %74 = load float, ptr %73, align 4
-  %.idx = shl nsw i64 %indvars.iv121, 4
+  %.idx = shl nuw nsw i64 %indvars.iv121, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   br label %75
 
@@ -3607,7 +3607,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIdEEvT_PS5_S6
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %79 ], [ 0, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_116evalBSplineCurveIdEEvT_PS5_S6_S6_.exit73 ]
   %73 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv121
   %74 = load double, ptr %73, align 8
-  %.idx = shl nsw i64 %indvars.iv121, 5
+  %.idx = shl nuw nsw i64 %indvars.iv121, 5
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   br label %75
 
@@ -6547,7 +6547,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %71 ], [ 0, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_S6_.exit73 ]
   %65 = getelementptr inbounds nuw [4 x float], ptr %10, i64 0, i64 %indvars.iv121
   %66 = load float, ptr %65, align 4
-  %.idx = shl nsw i64 %indvars.iv121, 4
+  %.idx = shl nuw nsw i64 %indvars.iv121, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   br label %67
 
@@ -7116,7 +7116,7 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %71 ], [ 0, %_ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_S6_.exit73 ]
   %65 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv121
   %66 = load double, ptr %65, align 8
-  %.idx = shl nsw i64 %indvars.iv121, 5
+  %.idx = shl nuw nsw i64 %indvars.iv121, 5
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   br label %67
 

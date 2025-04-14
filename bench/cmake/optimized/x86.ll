@@ -97,7 +97,7 @@ define internal i64 @x86_code(ptr noundef captures(none) %0, i32 noundef %1, i1 
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %21
   %.2 = phi i32 [ 0, %21 ], [ %.092121, %.preheader ], [ %27, %.lr.ph ]
-  %29 = getelementptr i8, ptr %16, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %30 = load i8, ptr %29, align 1, !tbaa !15
   %31 = zext i8 %30 to i32
   %32 = add i8 %30, 1
@@ -113,17 +113,17 @@ define internal i64 @x86_code(ptr noundef captures(none) %0, i32 noundef %1, i1 
 
 36:                                               ; preds = %33
   %37 = shl nuw i32 %31, 24
-  %38 = getelementptr i8, ptr %16, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 3
   %39 = load i8, ptr %38, align 1, !tbaa !15
   %40 = zext i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 16
   %42 = or disjoint i32 %41, %37
-  %43 = getelementptr i8, ptr %16, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %44 = load i8, ptr %43, align 1, !tbaa !15
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 8
   %47 = or disjoint i32 %42, %46
-  %48 = getelementptr i8, ptr %16, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %49 = load i8, ptr %48, align 1, !tbaa !15
   %50 = zext i8 %49 to i32
   %51 = or disjoint i32 %47, %50

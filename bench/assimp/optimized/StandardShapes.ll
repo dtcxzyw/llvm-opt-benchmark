@@ -26710,8 +26710,8 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE12emplace_backIJRKffS6_EEERS1_DpOT_.exit: ; 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %405 = phi ptr [ %410, %.lr.ph ], [ %59, %.preheader ]
   %.0333 = phi i64 [ %408, %.lr.ph ], [ %.057, %.preheader ]
-  %406 = getelementptr %class.aiVector3t, ptr %405, i64 %.0333
-  %407 = getelementptr i8, ptr %406, i64 12
+  %406 = getelementptr inbounds nuw %class.aiVector3t, ptr %405, i64 %.0333
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 12
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %406, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %406, ptr noundef nonnull align 4 dereferenceable(12) %407, i64 12, i1 false)

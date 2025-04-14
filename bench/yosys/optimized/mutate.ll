@@ -1032,10 +1032,10 @@ define internal void @_ZN12_GLOBAL__N_110MutatePass7executeESt6vectorINSt7__cxx1
 
 270:                                              ; preds = %262
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %118) #30
-  %271 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre502, i64 %.0112482
-  %272 = getelementptr i8, ptr %271, i64 32
+  %271 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre502, i64 %.0112482
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !55)
-  %273 = getelementptr i8, ptr %271, i64 40
+  %273 = getelementptr inbounds nuw i8, ptr %271, i64 40
   %274 = load i64, ptr %273, align 8, !tbaa !31, !noalias !55
   %.not.i = icmp eq i64 %274, 0
   br i1 %.not.i, label %._crit_edge.i.i.thread.i, label %275

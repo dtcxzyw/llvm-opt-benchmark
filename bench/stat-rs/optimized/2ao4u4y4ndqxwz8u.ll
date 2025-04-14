@@ -697,8 +697,8 @@ _ZN5alloc11collections5btree4node12slice_insert17h2c8e14c6b2752b22E.exit.i70.i: 
   store i64 %.sroa.13.0134, ptr %174, align 8, !alias.scope !95, !noalias !89
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 192
   %177 = getelementptr inbounds ptr, ptr %176, i64 %165
-  %178 = getelementptr ptr, ptr %176, i64 %.sroa.14.0.i
-  %179 = getelementptr i8, ptr %178, i64 16
+  %178 = getelementptr inbounds nuw ptr, ptr %176, i64 %.sroa.14.0.i
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %179, ptr nonnull align 8 %177, i64 %172, i1 false), !alias.scope !98, !noalias !89
   br label %_ZN5alloc11collections5btree4node12slice_insert17hae2af9abdc4c303aE.exit.i71.i
 

@@ -922,7 +922,7 @@ define range(i32 -1, 49) i32 @ossl_rsa_padding_check_PKCS1_type_2_TLS(ptr nounde
 
 63:                                               ; preds = %56, %63
   %indvars.iv = phi i64 [ 0, %56 ], [ %indvars.iv.next, %63 ]
-  %64 = getelementptr i8, ptr %37, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv
   %65 = load i8, ptr %64, align 1, !tbaa !3
   %66 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 0, i64 %indvars.iv
   %67 = load i8, ptr %66, align 1, !tbaa !3

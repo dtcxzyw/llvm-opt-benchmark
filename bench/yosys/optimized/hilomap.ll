@@ -405,8 +405,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
   br i1 %76, label %77, label %82
 
 77:                                               ; preds = %69
-  %78 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.069
-  %79 = getelementptr i8, ptr %78, i64 32
+  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.069
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_115hicell_celltypeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %79)
   %80 = load ptr, ptr %1, align 8, !tbaa !20
   %81 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %80, i64 %70
@@ -431,8 +431,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %_ZN
   br i1 %93, label %94, label %99
 
 94:                                               ; preds = %86
-  %95 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre78, i64 %.069
-  %96 = getelementptr i8, ptr %95, i64 32
+  %95 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre78, i64 %.069
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_115locell_celltypeB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %96)
   %97 = load ptr, ptr %1, align 8, !tbaa !20
   %98 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %97, i64 %87

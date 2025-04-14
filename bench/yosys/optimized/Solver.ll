@@ -7843,7 +7843,7 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
 
 .preheader70:                                     ; preds = %.preheader70.lr.ph, %70
   %indvars.iv106 = phi i64 [ 0, %.preheader70.lr.ph ], [ %indvars.iv.next107, %70 ]
-  %.idx = shl nsw i64 %indvars.iv106, 5
+  %.idx = shl nuw nsw i64 %indvars.iv106, 5
   br label %74
 
 .preheader69:                                     ; preds = %70, %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE8cleanAllEv.exit

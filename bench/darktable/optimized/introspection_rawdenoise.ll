@@ -671,7 +671,7 @@ FCxtrans.exit.i:                                  ; preds = %246
   store float %281, ptr %282, align 4, !tbaa !17, !noalias !70
   %283 = getelementptr float, ptr %282, i64 %150
   store float %281, ptr %283, align 4, !tbaa !17, !noalias !70
-  %284 = getelementptr i8, ptr %282, i64 4
+  %284 = getelementptr inbounds nuw i8, ptr %282, i64 4
   store float %281, ptr %284, align 4, !tbaa !17, !noalias !70
   br label %285
 
@@ -717,7 +717,7 @@ FCxtrans.exit.i:                                  ; preds = %246
   store float %305, ptr %308, align 4, !tbaa !17, !noalias !70
   %310 = getelementptr i8, ptr %308, i64 -4
   store float %305, ptr %310, align 4, !tbaa !17, !noalias !70
-  %311 = getelementptr i8, ptr %306, i64 4
+  %311 = getelementptr inbounds nuw i8, ptr %306, i64 4
   store float %305, ptr %311, align 4, !tbaa !17, !noalias !70
   %312 = getelementptr i8, ptr %306, i64 -4
   store float %305, ptr %312, align 4, !tbaa !17, !noalias !70

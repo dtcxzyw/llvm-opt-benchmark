@@ -1303,8 +1303,8 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %.0110131.us.us.i = phi i64 [ 0, %.split.us.us.i ], [ %202, %201 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #17
   %199 = add nsw i64 %.0110131.us.us.i, %195
-  %.idx169.i = shl i64 %199, 4
-  %200 = getelementptr i8, ptr %197, i64 %.idx169.i
+  %.idx169.i = shl nsw i64 %199, 4
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 %.idx169.i
   br label %213
 
 201:                                              ; preds = %.preheader128.us.us.i
@@ -1331,7 +1331,7 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
 
 213:                                              ; preds = %213, %198
   %.0113129.us.us.i = phi i64 [ 0, %198 ], [ %225, %213 ]
-  %214 = getelementptr float, ptr %200, i64 %.0113129.us.us.i
+  %214 = getelementptr inbounds nuw float, ptr %200, i64 %.0113129.us.us.i
   %215 = load float, ptr %214, align 4, !tbaa !196
   %216 = fmul reassoc nsz arcp contract afn float %215, 0x3FEC71C720000000
   %217 = fcmp reassoc nsz arcp contract afn ogt float %216, 0.000000e+00
@@ -1499,13 +1499,13 @@ dt_get_perf_times.exit:                           ; preds = %6, %32
   %.0110131.i = phi i64 [ 0, %.split.i ], [ %311, %310 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #17
   %295 = add nsw i64 %.0110131.i, %195
-  %.idx168.i = shl i64 %295, 4
-  %296 = getelementptr i8, ptr %291, i64 %.idx168.i
+  %.idx168.i = shl nsw i64 %295, 4
+  %296 = getelementptr inbounds nuw i8, ptr %291, i64 %.idx168.i
   br label %297
 
 297:                                              ; preds = %297, %294
   %.0113129.i = phi i64 [ 0, %294 ], [ %309, %297 ]
-  %298 = getelementptr float, ptr %296, i64 %.0113129.i
+  %298 = getelementptr inbounds nuw float, ptr %296, i64 %.0113129.i
   %299 = load float, ptr %298, align 4, !tbaa !196
   %300 = fmul reassoc nsz arcp contract afn float %299, 0x3FEC71C720000000
   %301 = fcmp reassoc nsz arcp contract afn ogt float %300, 0.000000e+00

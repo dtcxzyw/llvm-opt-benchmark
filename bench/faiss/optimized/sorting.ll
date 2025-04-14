@@ -3589,9 +3589,9 @@ _ZN5faiss12_GLOBAL__N_17ToWriteIiE3addEii.exit:   ; preds = %_ZNSt6vectorIiSaIiE
   %320 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %.0142372)
   %321 = getelementptr inbounds nuw i8, ptr %.sroa.0242.0371, i64 56
   %322 = load ptr, ptr %321, align 8, !tbaa !73
-  %323 = getelementptr i64, ptr %322, i64 %.0143376
+  %323 = getelementptr inbounds nuw i64, ptr %322, i64 %.0143376
   %324 = load i64, ptr %323, align 8, !tbaa !4
-  %325 = getelementptr i8, ptr %323, i64 8
+  %325 = getelementptr inbounds nuw i8, ptr %323, i64 8
   %326 = load i64, ptr %325, align 8, !tbaa !4
   %327 = icmp ult i64 %324, %326
   br i1 %327, label %.lr.ph368, label %._crit_edge369

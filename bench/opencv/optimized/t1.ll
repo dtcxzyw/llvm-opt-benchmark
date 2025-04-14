@@ -4197,7 +4197,7 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %181, 
   %1942 = trunc nuw i64 %indvars.iv505 to i32
   %1943 = mul i32 %1855, %1942
   %1944 = mul nuw i64 %indvars.iv505, %1931
-  %1945 = getelementptr i32, ptr %1939, i64 %1944
+  %1945 = getelementptr inbounds nuw i32, ptr %1939, i64 %1944
   br label %1953
 
 .preheader.loopexit:                              ; preds = %1953
@@ -4213,7 +4213,7 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %181, 
   %1948 = trunc nuw i64 %indvars.iv505 to i32
   %1949 = mul i32 %1855, %1948
   %1950 = mul nuw i64 %indvars.iv505, %1931
-  %1951 = getelementptr i32, ptr %1939, i64 %1950
+  %1951 = getelementptr inbounds nuw i32, ptr %1939, i64 %1950
   %1952 = zext i32 %.5.lcssa to i64
   br label %1980
 
@@ -4237,16 +4237,16 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %181, 
   %1969 = getelementptr inbounds nuw i32, ptr %1853, i64 %1968
   %1970 = load i32, ptr %1969, align 4, !tbaa !59
   %1971 = sdiv i32 %1958, 2
-  %1972 = getelementptr i32, ptr %1945, i64 %indvars.iv497
+  %1972 = getelementptr inbounds nuw i32, ptr %1945, i64 %indvars.iv497
   store i32 %1971, ptr %1972, align 4, !tbaa !59
   %1973 = sdiv i32 %1962, 2
-  %1974 = getelementptr i8, ptr %1972, i64 4
+  %1974 = getelementptr inbounds nuw i8, ptr %1972, i64 4
   store i32 %1973, ptr %1974, align 4, !tbaa !59
   %1975 = sdiv i32 %1966, 2
-  %1976 = getelementptr i8, ptr %1972, i64 8
+  %1976 = getelementptr inbounds nuw i8, ptr %1972, i64 8
   store i32 %1975, ptr %1976, align 4, !tbaa !59
   %1977 = sdiv i32 %1970, 2
-  %1978 = getelementptr i8, ptr %1972, i64 12
+  %1978 = getelementptr inbounds nuw i8, ptr %1972, i64 12
   store i32 %1977, ptr %1978, align 4, !tbaa !59
   %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 4
   %1979 = icmp samesign ult i64 %indvars.iv.next498, %1941
@@ -4260,7 +4260,7 @@ opj_t1_decode_cblk.exit:                          ; preds = %1809, %1807, %181, 
   %1984 = getelementptr inbounds nuw i32, ptr %1853, i64 %1983
   %1985 = load i32, ptr %1984, align 4, !tbaa !59
   %1986 = sdiv i32 %1985, 2
-  %1987 = getelementptr i32, ptr %1951, i64 %indvars.iv500
+  %1987 = getelementptr inbounds nuw i32, ptr %1951, i64 %indvars.iv500
   store i32 %1986, ptr %1987, align 4, !tbaa !59
   %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
   %exitcond504.not = icmp eq i64 %indvars.iv.next501, %wide.trip.count503

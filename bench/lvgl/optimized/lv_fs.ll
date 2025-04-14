@@ -1131,7 +1131,7 @@ define ptr @lv_fs_get_last(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %.lr.ph, %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.032
-  %12 = getelementptr i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %8, %.preheader, %10, %1

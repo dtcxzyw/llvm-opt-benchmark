@@ -9414,7 +9414,7 @@ define void @quantize_row_tq1_0_ref(ptr noalias noundef readonly captures(none) 
 44:                                               ; preds = %.preheader89, %44
   %.08399 = phi i64 [ 0, %.preheader89 ], [ %52, %44 ]
   %.08498 = phi i8 [ 0, %.preheader89 ], [ %51, %44 ]
-  %.idx = shl nsw i64 %.08399, 7
+  %.idx = shl nuw nsw i64 %.08399, 7
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %45 = load float, ptr %gep, align 4, !tbaa !8
   %46 = fmul float %8, %45
@@ -9452,7 +9452,7 @@ define void @quantize_row_tq1_0_ref(ptr noalias noundef readonly captures(none) 
 63:                                               ; preds = %.preheader, %63
   %.079103 = phi i64 [ 0, %.preheader ], [ %71, %63 ]
   %.080102 = phi i8 [ 0, %.preheader ], [ %70, %63 ]
-  %.idx112 = shl nsw i64 %.079103, 6
+  %.idx112 = shl nuw nsw i64 %.079103, 6
   %gep130 = getelementptr inbounds nuw i8, ptr %invariant.gep129, i64 %.idx112
   %64 = load float, ptr %gep130, align 4, !tbaa !8
   %65 = fmul float %8, %64
@@ -9492,7 +9492,7 @@ define void @quantize_row_tq1_0_ref(ptr noalias noundef readonly captures(none) 
 84:                                               ; preds = %.preheader90, %84
   %.075108 = phi i64 [ 0, %.preheader90 ], [ %92, %84 ]
   %.076107 = phi i8 [ 0, %.preheader90 ], [ %91, %84 ]
-  %.idx113 = shl nsw i64 %.075108, 4
+  %.idx113 = shl nuw nsw i64 %.075108, 4
   %gep132 = getelementptr inbounds nuw i8, ptr %invariant.gep131, i64 %.idx113
   %85 = load float, ptr %gep132, align 4, !tbaa !8
   %86 = fmul float %8, %85
@@ -9593,7 +9593,7 @@ define void @quantize_row_tq2_0_ref(ptr noalias noundef readonly captures(none) 
 44:                                               ; preds = %.preheader, %44
   %.03648 = phi i64 [ 0, %.preheader ], [ %55, %44 ]
   %.03747 = phi i8 [ 0, %.preheader ], [ %54, %44 ]
-  %.idx = shl nsw i64 %.03648, 7
+  %.idx = shl nuw nsw i64 %.03648, 7
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %45 = load float, ptr %gep, align 4, !tbaa !8
   %46 = fmul float %9, %45
@@ -9705,7 +9705,7 @@ define i64 @quantize_tq2_0(ptr noalias noundef readonly captures(none) %0, ptr n
 48:                                               ; preds = %48, %.preheader.i
   %.03648.i = phi i64 [ 0, %.preheader.i ], [ %59, %48 ]
   %.03747.i = phi i8 [ 0, %.preheader.i ], [ %58, %48 ]
-  %.idx.i = shl nsw i64 %.03648.i, 7
+  %.idx.i = shl nuw nsw i64 %.03648.i, 7
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
   %49 = load float, ptr %gep.i, align 4, !tbaa !8, !alias.scope !610, !noalias !613
   %50 = fmul float %13, %49

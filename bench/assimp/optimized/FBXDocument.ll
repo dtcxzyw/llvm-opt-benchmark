@@ -448,13 +448,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %_Z
   %91 = phi i64 [ %80, %.lr.ph ], [ %265, %264 ]
   %.059266 = phi i64 [ 0, %.lr.ph ], [ %266, %264 ]
   %92 = load ptr, ptr %8, align 8
-  %93 = getelementptr i8, ptr %92, i64 %.059266
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %.059266
   %94 = load i8, ptr %93, align 1
   %95 = icmp eq i8 %94, 0
   br i1 %95, label %96, label %264
 
 96:                                               ; preds = %90
-  %97 = getelementptr i8, ptr %93, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 1
   %98 = load i8, ptr %97, align 1
   %99 = icmp eq i8 %98, 1
   br i1 %99, label %100, label %264

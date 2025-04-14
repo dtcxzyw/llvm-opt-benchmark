@@ -2185,8 +2185,8 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %295, ptr noundef nonnull align 8 dereferenceable(104) %11, i64 104, i1 false), !noalias !336
   %298 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 1248
   %299 = getelementptr inbounds ptr, ptr %298, i64 %285
-  %300 = getelementptr ptr, ptr %298, i64 %.sroa.7.0.i.i
-  %301 = getelementptr i8, ptr %300, i64 16
+  %300 = getelementptr inbounds nuw ptr, ptr %298, i64 %.sroa.7.0.i.i
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %301, ptr nonnull align 8 %299, i64 %293, i1 false), !alias.scope !342, !noalias !329
   br label %302
 
@@ -3071,8 +3071,8 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %286, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !488
   %289 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 392
   %290 = getelementptr inbounds ptr, ptr %289, i64 %278
-  %291 = getelementptr ptr, ptr %289, i64 %.sroa.7.0.i.i
-  %292 = getelementptr i8, ptr %291, i64 16
+  %291 = getelementptr inbounds nuw ptr, ptr %289, i64 %.sroa.7.0.i.i
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 16
   %293 = shl nuw nsw i64 %284, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %292, ptr nonnull align 8 %290, i64 %293, i1 false), !alias.scope !494, !noalias !481
   br label %294
@@ -20631,7 +20631,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit156.thre
   %1630 = add nuw nsw i64 %.sroa.015.077.us.i, 1
   %1631 = getelementptr inbounds nuw [9 x i8], ptr %.sroa.712.0..sroa_idx, i64 0, i64 %1630
   %1632 = load i8, ptr %1631, align 1, !alias.scope !2364, !noalias !2369, !noundef !7
-  %.idx167.i = shl nsw i64 %.sroa.015.077.us.i, 8
+  %.idx167.i = shl nuw nsw i64 %.sroa.015.077.us.i, 8
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %7, i64 %.idx167.i
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h368a42eb9caf4534E.exit101.us.us.i"
 
@@ -20640,7 +20640,7 @@ _ZN5image6codecs4webp3vp810BoolReader9read_bool17h67a46a793aff9148E.exit156.thre
   %.sroa.020.061.us.us.i = phi i64 [ 0, %.split.us.i ], [ %1633, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h704befbb33f4aabcE.exit103.us.us.i" ]
   %.05660.us.us.i = phi i8 [ %1632, %.split.us.i ], [ %.157.us.us.i, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h704befbb33f4aabcE.exit103.us.us.i" ]
   %1633 = add nuw nsw i64 %.sroa.020.061.us.us.i, 1
-  %.idx.i = shl nsw i64 %.sroa.020.061.us.us.i, 6
+  %.idx.i = shl nuw nsw i64 %.sroa.020.061.us.us.i, 6
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
   %1634 = icmp ult i64 %.sroa.015.0876, %.val88.us.us.i
   br i1 %1634, label %1635, label %.split63.us.i, !prof !835

@@ -903,10 +903,10 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %._crit_edge382, %._
   store ptr %366, ptr %369, align 8
   store i32 3, ptr %.2199379, align 8
   %370 = load ptr, ptr %5, align 8
-  %371 = getelementptr i32, ptr %370, i64 %.0184380
+  %371 = getelementptr inbounds nuw i32, ptr %370, i64 %.0184380
   %372 = load i32, ptr %371, align 4
   store i32 %372, ptr %366, align 4
-  %373 = getelementptr i8, ptr %371, i64 4
+  %373 = getelementptr inbounds nuw i8, ptr %371, i64 4
   %374 = load i32, ptr %373, align 4
   %375 = load ptr, ptr %369, align 8
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 4

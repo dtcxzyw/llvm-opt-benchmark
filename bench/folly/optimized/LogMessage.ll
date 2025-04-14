@@ -642,8 +642,8 @@ _ZNK5folly5RangeIPKcE5rfindERS1_.exit:            ; preds = %4
   unreachable
 
 _ZNK5folly5RangeIPKcE8subpieceEmm.exit:           ; preds = %13
-  %18 = getelementptr i8, ptr %.sroa.0.0.copyload.pre4, i64 %11
-  %19 = getelementptr i8, ptr %18, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre4, i64 %11
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.pre4, i64 %16
   br label %_ZNK5folly5RangeIPKcE5rfindERS1_.exit.thread
 

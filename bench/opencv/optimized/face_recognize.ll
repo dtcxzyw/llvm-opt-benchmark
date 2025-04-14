@@ -589,7 +589,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %12, %15
 
 .preheader:                                       ; preds = %_ZNK2cv11_InputArray6getMatEi.exit, %.preheader
   %indvars.iv23 = phi i64 [ 0, %_ZNK2cv11_InputArray6getMatEi.exit ], [ %indvars.iv.next24, %.preheader ]
-  %gep.idx = shl nsw i64 %indvars.iv23, 3
+  %gep.idx = shl nuw nsw i64 %indvars.iv23, 3
   %invariant.gep26 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
   %18 = load float, ptr %invariant.gep26, align 4, !tbaa !57
   %19 = getelementptr inbounds nuw [5 x [2 x float]], ptr %6, i64 0, i64 %indvars.iv23, i64 0

@@ -27671,13 +27671,13 @@ define hidden range(i32 -2, 1) i32 @ma_gainer_process_pcm_frames(ptr noundef cap
   %.8277.i = phi i64 [ 0, %.preheader272.lr.ph.i ], [ %203, %201 ]
   %.0250276.i = phi float [ %22, %.preheader272.lr.ph.i ], [ %202, %201 ]
   %185 = mul nuw i64 %.8277.i, %26
-  %186 = getelementptr float, ptr %2, i64 %185
-  %187 = getelementptr float, ptr %1, i64 %185
+  %186 = getelementptr inbounds nuw float, ptr %2, i64 %185
+  %187 = getelementptr inbounds nuw float, ptr %1, i64 %185
   br label %188
 
 188:                                              ; preds = %188, %.preheader272.i
   %indvars.iv.i = phi i64 [ 0, %.preheader272.i ], [ %indvars.iv.next.i, %188 ]
-  %189 = getelementptr float, ptr %186, i64 %indvars.iv.i
+  %189 = getelementptr inbounds nuw float, ptr %186, i64 %indvars.iv.i
   %190 = load float, ptr %189, align 4, !alias.scope !143, !noalias !140
   %191 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv.i
   %192 = load float, ptr %191, align 4
@@ -27688,7 +27688,7 @@ define hidden range(i32 -2, 1) i32 @ma_gainer_process_pcm_frames(ptr noundef cap
   %197 = fadd float %192, %196
   %198 = fmul float %190, %197
   %199 = fmul float %32, %198
-  %200 = getelementptr float, ptr %187, i64 %indvars.iv.i
+  %200 = getelementptr inbounds nuw float, ptr %187, i64 %indvars.iv.i
   store float %199, ptr %200, align 4, !alias.scope !140, !noalias !143
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %26

@@ -6114,8 +6114,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit316: ; preds = %_Z
 
 518:                                              ; preds = %514
   %519 = load ptr, ptr %17, align 8
-  %520 = getelementptr i8, ptr %519, i64 %511
-  %521 = getelementptr i8, ptr %520, i64 1
+  %520 = getelementptr inbounds nuw i8, ptr %519, i64 %511
+  %521 = getelementptr inbounds nuw i8, ptr %520, i64 1
   %522 = load i8, ptr %521, align 1
   %.not171 = icmp eq i8 %522, 59
   br i1 %.not171, label %.thread439, label %523
@@ -6279,8 +6279,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit338: ; pr
 
 579:                                              ; preds = %575
   %580 = load ptr, ptr %17, align 8
-  %581 = getelementptr i8, ptr %580, i64 %572
-  %582 = getelementptr i8, ptr %581, i64 1
+  %581 = getelementptr inbounds nuw i8, ptr %580, i64 %572
+  %582 = getelementptr inbounds nuw i8, ptr %581, i64 1
   %583 = load i8, ptr %582, align 1
   %584 = icmp eq i8 %583, 59
   br label %_ZN12_GLOBAL__N_111IsEntityDefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit334

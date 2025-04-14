@@ -7987,8 +7987,8 @@ define range(i32 -394, 1) i32 @TLSX_ParseVersion(ptr noundef %0, ptr noundef rea
 
 12:                                               ; preds = %9
   %13 = sext i32 %.023 to i64
-  %14 = getelementptr i8, ptr %1, i64 %13
-  %15 = getelementptr i8, ptr %14, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %.val = load i8, ptr %15, align 1, !tbaa !51
   %16 = getelementptr i8, ptr %14, i64 3
   %.val28 = load i8, ptr %16, align 1, !tbaa !51

@@ -2505,8 +2505,8 @@ define internal void @t42_parse_sfnts(ptr noundef captures(none) initializes((80
   br label %.thread250
 
 .thread220:                                       ; preds = %69
-  %75 = getelementptr i8, ptr %70, i64 %63
-  %76 = getelementptr i8, ptr %75, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 %63
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1
   store ptr %76, ptr %1, align 8, !tbaa !85
   br label %79
 

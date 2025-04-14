@@ -903,7 +903,7 @@ define internal noundef i32 @PSolve(double %0, ptr readnone captures(none) %1, p
 
 .preheader:                                       ; preds = %9, %17
   %indvars.iv23 = phi i64 [ 0, %9 ], [ %indvars.iv.next24, %17 ]
-  %.idx27 = shl nsw i64 %indvars.iv23, 4
+  %.idx27 = shl nuw nsw i64 %indvars.iv23, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %11, i64 %.idx27
   br label %12
 

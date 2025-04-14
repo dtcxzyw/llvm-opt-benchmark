@@ -7883,8 +7883,8 @@ declare void @_ZN4llvm18TargetLoweringBase23setMaximumJumpTableSizeEj(ptr nounde
 define dso_local void @_ZN4llvm21AArch64TargetLowering24addTypeForFixedLengthSVEENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 %1) local_unnamed_addr #1 align 2 {
   %3 = zext i16 %1 to i64
   %4 = mul nuw nsw i64 %3, 496
-  %5 = getelementptr i8, ptr %0, i64 %4
-  %scevgep = getelementptr i8, ptr %5, i64 5486
+  %5 = getelementptr nuw i8, ptr %0, i64 %4
+  %scevgep = getelementptr nuw i8, ptr %5, i64 5486
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(496) %scevgep, i8 2, i64 496, i1 false), !tbaa !228
   %6 = add i16 %1, -10
   %or.cond.i = icmp ult i16 %6, 7

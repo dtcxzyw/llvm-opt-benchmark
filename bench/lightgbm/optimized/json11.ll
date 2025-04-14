@@ -3081,7 +3081,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit43: ; preds = %_ZN
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit, %128
   %.056 = phi i64 [ %129, %128 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
   %36 = load ptr, ptr %0, align 8, !tbaa !44
-  %37 = getelementptr i8, ptr %36, i64 %.056
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %.056
   %38 = load i8, ptr %37, align 1, !tbaa !32
   %39 = sext i8 %38 to i32
   switch i8 %38, label %82 [
@@ -3219,7 +3219,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit50: ; preds = %8
   br i1 %93, label %94, label %.critedge
 
 94:                                               ; preds = %92
-  %95 = getelementptr i8, ptr %37, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %96 = load i8, ptr %95, align 1, !tbaa !32
   %97 = icmp eq i8 %96, -128
   br i1 %97, label %98, label %.critedge

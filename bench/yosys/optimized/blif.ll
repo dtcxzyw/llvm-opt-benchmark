@@ -1812,8 +1812,8 @@ define internal void @_ZN12_GLOBAL__N_111BlifBackend7executeERPSoNSt7__cxx1112ba
   br i1 %134, label %135, label %143
 
 135:                                              ; preds = %127
-  %136 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre542, i64 %.084459
-  %137 = getelementptr i8, ptr %136, i64 32
+  %136 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre542, i64 %.084459
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %137)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit120 unwind label %.loopexit367
 
@@ -1850,10 +1850,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit121: ; preds =
 155:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #26
-  %156 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre543, i64 %.084459
-  %157 = getelementptr i8, ptr %156, i64 32
+  %156 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre543, i64 %.084459
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  %158 = getelementptr i8, ptr %156, i64 40
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 40
   %159 = load i64, ptr %158, align 8, !tbaa !12, !noalias !29
   %.not.i = icmp eq i64 %159, 0
   br i1 %.not.i, label %._crit_edge.i.i.thread.i, label %160
@@ -2570,8 +2570,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %_Z
   br i1 %419, label %420, label %425
 
 420:                                              ; preds = %412
-  %421 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre544, i64 %.084459
-  %422 = getelementptr i8, ptr %421, i64 32
+  %421 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre544, i64 %.084459
+  %422 = getelementptr inbounds nuw i8, ptr %421, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %63, ptr noundef nonnull align 8 dereferenceable(32) %422)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit172 unwind label %.loopexit367
 
@@ -2599,8 +2599,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit172: ; preds =
   br i1 %436, label %437, label %442
 
 437:                                              ; preds = %429
-  %438 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre545, i64 %.084459
-  %439 = getelementptr i8, ptr %438, i64 32
+  %438 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre545, i64 %.084459
+  %439 = getelementptr inbounds nuw i8, ptr %438, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %439)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit176 unwind label %.loopexit367
 
@@ -2628,8 +2628,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit176: ; preds =
   br i1 %453, label %454, label %459
 
 454:                                              ; preds = %446
-  %455 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre546, i64 %.084459
-  %456 = getelementptr i8, ptr %455, i64 32
+  %455 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre546, i64 %.084459
+  %456 = getelementptr inbounds nuw i8, ptr %455, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(32) %456)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit180 unwind label %.loopexit367
 

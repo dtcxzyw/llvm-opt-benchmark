@@ -6612,7 +6612,7 @@ define dso_local void @zaddGenericCommand(ptr noundef %0, i32 noundef %1) local_
 .lr.ph218:                                        ; preds = %.lr.ph218.preheader, %67
   %indvars.iv232 = phi i64 [ 0, %.lr.ph218.preheader ], [ %indvars.iv.next233, %67 ]
   %68 = load ptr, ptr %5, align 8, !tbaa !136
-  %.idx = shl nsw i64 %indvars.iv232, 4
+  %.idx = shl nuw nsw i64 %indvars.iv232, 4
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
   %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %66
   %71 = load ptr, ptr %70, align 8, !tbaa !146
@@ -6684,7 +6684,7 @@ zsetTypeMaybeConvert.exit:                        ; preds = %99, %93, %81
   %105 = load double, ptr %104, align 8, !tbaa !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
   %106 = load ptr, ptr %5, align 8, !tbaa !136
-  %.idx242 = shl nsw i64 %indvars.iv237, 4
+  %.idx242 = shl nuw nsw i64 %indvars.iv237, 4
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx242
   %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %102
   %109 = load ptr, ptr %108, align 8, !tbaa !146

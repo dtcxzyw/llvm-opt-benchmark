@@ -3706,8 +3706,8 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   store ptr %.sroa.48.1.i, ptr %328, align 8, !alias.scope !970, !noalias !973
   %329 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 368
   %330 = getelementptr inbounds ptr, ptr %329, i64 %315
-  %331 = getelementptr ptr, ptr %329, i64 %.sroa.7.0.i.i
-  %332 = getelementptr i8, ptr %331, i64 16
+  %331 = getelementptr inbounds nuw ptr, ptr %329, i64 %.sroa.7.0.i.i
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 16
   %333 = shl nuw nsw i64 %323, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %332, ptr nonnull align 8 %330, i64 %333, i1 false), !alias.scope !975, !noalias !978
   br label %334

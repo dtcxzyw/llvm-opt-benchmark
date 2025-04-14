@@ -27979,13 +27979,13 @@ define range(i32 -2, 1) i32 @ma_gainer_process_pcm_frames(ptr noundef captures(a
   %.8277.i = phi i64 [ 0, %.preheader272.lr.ph.i ], [ %203, %201 ]
   %.0250276.i = phi float [ %22, %.preheader272.lr.ph.i ], [ %202, %201 ]
   %185 = mul nuw i64 %.8277.i, %26
-  %186 = getelementptr float, ptr %2, i64 %185
-  %187 = getelementptr float, ptr %1, i64 %185
+  %186 = getelementptr inbounds nuw float, ptr %2, i64 %185
+  %187 = getelementptr inbounds nuw float, ptr %1, i64 %185
   br label %188
 
 188:                                              ; preds = %188, %.preheader272.i
   %indvars.iv.i = phi i64 [ 0, %.preheader272.i ], [ %indvars.iv.next.i, %188 ]
-  %189 = getelementptr float, ptr %186, i64 %indvars.iv.i
+  %189 = getelementptr inbounds nuw float, ptr %186, i64 %indvars.iv.i
   %190 = load float, ptr %189, align 4, !tbaa !339, !alias.scope !704, !noalias !701
   %191 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv.i
   %192 = load float, ptr %191, align 4, !tbaa !339
@@ -27996,7 +27996,7 @@ define range(i32 -2, 1) i32 @ma_gainer_process_pcm_frames(ptr noundef captures(a
   %197 = fadd float %192, %196
   %198 = fmul float %190, %197
   %199 = fmul float %32, %198
-  %200 = getelementptr float, ptr %187, i64 %indvars.iv.i
+  %200 = getelementptr inbounds nuw float, ptr %187, i64 %indvars.iv.i
   store float %199, ptr %200, align 4, !tbaa !339, !alias.scope !701, !noalias !704
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %26
@@ -55677,7 +55677,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
 .lr.ph199:                                        ; preds = %._crit_edge200, %.preheader119
   %.078201 = phi i64 [ 0, %.preheader119 ], [ %830, %._crit_edge200 ]
   %812 = mul nuw nsw i64 %.078201, %68
-  %813 = getelementptr float, ptr %.080204, i64 %812
+  %813 = getelementptr inbounds nuw float, ptr %.080204, i64 %812
   br label %814
 
 814:                                              ; preds = %.lr.ph199, %814
@@ -55696,7 +55696,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %826 = sitofp i32 %825 to double
   %827 = fmul double %826, 0x3E00000000000000
   %828 = fptrunc double %827 to float
-  %829 = getelementptr float, ptr %813, i64 %indvars.iv
+  %829 = getelementptr inbounds nuw float, ptr %813, i64 %indvars.iv
   store float %828, ptr %829, align 4, !tbaa !339
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

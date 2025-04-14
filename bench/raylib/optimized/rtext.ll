@@ -10174,8 +10174,8 @@ define float @TextToFloat(ptr noundef readonly captures(none) %0) local_unnamed_
 
 .preheader:                                       ; preds = %.critedge
   %17 = sext i32 %.027.lcssa to i64
-  %18 = getelementptr i8, ptr %.032, i64 %17
-  %19 = getelementptr i8, ptr %18, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.032, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = add i8 %20, -48
   %or.cond3744 = icmp ult i8 %21, 10

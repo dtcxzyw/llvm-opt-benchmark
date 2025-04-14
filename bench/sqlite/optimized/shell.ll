@@ -50203,7 +50203,7 @@ define internal fastcc i32 @recoverVfsDetectPagesize(ptr noundef captures(none) 
   %83 = shl nuw nsw i32 %82, 8
   %84 = zext i8 %.val153.i to i32
   %85 = or disjoint i32 %83, %84
-  %86 = getelementptr i8, ptr %80, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 2
   %.val150.i = load i8, ptr %86, align 1, !tbaa !25
   %87 = getelementptr i8, ptr %80, i64 3
   %.val151.i = load i8, ptr %87, align 1, !tbaa !25

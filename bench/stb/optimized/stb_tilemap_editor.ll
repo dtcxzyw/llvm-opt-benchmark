@@ -6591,7 +6591,7 @@ stbte__should_copy_properties.exit:               ; preds = %18, %.lr.ph.i, %22,
   %indvar = phi i64 [ 0, %.preheader85.us.preheader ], [ %indvar.next, %.preheader85.us ]
   %43 = shl nuw nsw i64 %indvar, 4
   %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @stbte__ui, i64 5588), i64 %43
-  tail call void @llvm.memset.p0.i64(ptr align 4 %gep, i8 -1, i64 %42, i1 false), !tbaa !21
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %gep, i8 -1, i64 %42, i1 false), !tbaa !21
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond.not = icmp eq i64 %indvar.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge89, label %.preheader85.us, !llvm.loop !153

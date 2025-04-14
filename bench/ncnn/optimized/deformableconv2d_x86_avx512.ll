@@ -1488,7 +1488,7 @@ _ZN4ncnn3MataSERKS0_.exit165:                     ; preds = %562, %563, %548, %5
 .preheader.us.us.us.us.us.us.i:                   ; preds = %._crit_edge.us.us.us.us.us.us.i, %.preheader1.us.us.us.us.us.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %._crit_edge.us.us.us.us.us.us.i ], [ 0, %.preheader1.us.us.us.us.us.i ]
   %619 = add i64 %indvars.iv28.i, %618
-  %invariant.gep.i = getelementptr inbounds nuw float, ptr %.val, i64 %indvars.iv28.i
+  %invariant.gep.i = getelementptr float, ptr %.val, i64 %indvars.iv28.i
   %620 = trunc i64 %619 to i32
   %621 = mul i32 %605, %620
   br label %622
@@ -1499,7 +1499,7 @@ _ZN4ncnn3MataSERKS0_.exit165:                     ; preds = %562, %563, %548, %5
   %624 = mul nuw nsw i64 %623, %606
   %625 = add nuw nsw i64 %624, %indvars.iv33.i
   %626 = mul nuw nsw i64 %625, %607
-  %gep.i = getelementptr inbounds nuw float, ptr %invariant.gep.i, i64 %626
+  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %626
   %627 = load float, ptr %gep.i, align 4, !tbaa !34
   %628 = trunc nuw nsw i64 %indvars.iv.i to i32
   %629 = udiv i32 %628, %.0

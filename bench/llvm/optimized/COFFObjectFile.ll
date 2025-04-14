@@ -6261,8 +6261,8 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i140..critedge9
   call void @llvm.assume(i1 true) [ "align"(ptr %123, i64 1) ]
   %.0.copyload.i.i.i144 = load i16, ptr %123, align 1
   %124 = zext i16 %.0.copyload.i.i.i144 to i64
-  %125 = getelementptr i8, ptr %.sroa.0222.0.copyload250.pre290, i64 %.477
-  %126 = getelementptr i8, ptr %125, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0222.0.copyload250.pre290, i64 %.477
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %124
   %127 = getelementptr inbounds nuw i8, ptr %.pr241, i64 2
   call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 1) ]
   %.0.copyload.i.i.i.i.i = load i16, ptr %127, align 1

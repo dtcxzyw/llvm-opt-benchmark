@@ -1655,8 +1655,8 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_set_range(ptr noundef captures(none) %
   %81 = lshr i32 %1, 3
   %82 = and i32 %81, 536870904
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr i8, ptr %.sink66, i64 %83
-  %scevgep = getelementptr i8, ptr %84, i64 8
+  %84 = getelementptr nuw i8, ptr %.sink66, i64 %83
+  %scevgep = getelementptr nuw i8, ptr %84, i64 8
   %85 = add nsw i32 %43, -2
   %86 = sub nsw i32 %85, %48
   %87 = zext i32 %86 to i64
@@ -3081,8 +3081,8 @@ define range(i32 -1, 1) i32 @hwloc_bitmap_clr_range(ptr noundef captures(none) %
   %82 = lshr i32 %1, 3
   %83 = and i32 %82, 536870904
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr i8, ptr %.sink66, i64 %84
-  %scevgep = getelementptr i8, ptr %85, i64 8
+  %85 = getelementptr nuw i8, ptr %.sink66, i64 %84
+  %scevgep = getelementptr nuw i8, ptr %85, i64 8
   %86 = add nsw i32 %43, -2
   %87 = sub nsw i32 %86, %48
   %88 = zext i32 %87 to i64

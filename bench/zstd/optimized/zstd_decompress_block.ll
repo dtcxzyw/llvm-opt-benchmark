@@ -5548,8 +5548,8 @@ ZSTD_safecopyDstBeforeSrc.exit.i:                 ; preds = %.lr.ph.i.i, %.lr.ph
   store i64 %.sink.i, ptr %.sroa.10.0..sroa_idx61.i, align 8
   %623 = getelementptr inbounds nuw i8, ptr %.6138.i.i, i64 %.sroa.055.2.i
   %624 = add i64 %.sroa.055.2.i, %342
-  %625 = getelementptr i8, ptr %0, i64 %.sroa.055.2.i
-  %.ptr217.i = getelementptr i8, ptr %625, i64 30388
+  %625 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.055.2.i
+  %.ptr217.i = getelementptr inbounds nuw i8, ptr %625, i64 30388
   %626 = sub i64 0, %.sink.i
   %627 = getelementptr inbounds i8, ptr %623, i64 %626
   %628 = icmp sgt i64 %.sroa.055.2.i, 65536
@@ -11920,8 +11920,8 @@ ZSTD_safecopyDstBeforeSrc.exit:                   ; preds = %.lr.ph.i, %.lr.ph40
   store i64 %.sink, ptr %.sroa.10.0..sroa_idx61, align 8
   %619 = getelementptr inbounds nuw i8, ptr %.6138.i, i64 %.sroa.055.2
   %620 = add i64 %.sroa.055.2, %338
-  %621 = getelementptr i8, ptr %0, i64 %.sroa.055.2
-  %.ptr217 = getelementptr i8, ptr %621, i64 30388
+  %621 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.055.2
+  %.ptr217 = getelementptr inbounds nuw i8, ptr %621, i64 30388
   %622 = sub i64 0, %.sink
   %623 = getelementptr inbounds i8, ptr %619, i64 %622
   %624 = icmp sgt i64 %.sroa.055.2, 65536

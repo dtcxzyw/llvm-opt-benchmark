@@ -5820,7 +5820,7 @@ define internal void @dctInverse8x8_sse2_6(ptr noundef captures(none) %0) #6 {
 
 145:                                              ; preds = %145, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %145 ]
-  %.idx.i = shl nsw i64 %indvars.iv.i, 5
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 5
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
   %146 = load <4 x float>, ptr %gep.i, align 16, !tbaa !86
   %147 = getelementptr inbounds nuw [8 x <4 x float>], ptr %2, i64 0, i64 %indvars.iv.i
@@ -5970,7 +5970,7 @@ define internal void @dctInverse8x8_sse2_7(ptr noundef captures(none) %0) #6 {
 
 114:                                              ; preds = %114, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %114 ]
-  %.idx.i = shl nsw i64 %indvars.iv.i, 5
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 5
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
   %115 = load <4 x float>, ptr %gep.i, align 16, !tbaa !86
   %116 = getelementptr inbounds nuw [8 x <4 x float>], ptr %2, i64 0, i64 %indvars.iv.i
@@ -6594,7 +6594,7 @@ default.unreachable:                              ; preds = %2
 
 336:                                              ; preds = %.preheader, %336
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %336 ]
-  %.idx = shl nsw i64 %indvars.iv, 5
+  %.idx = shl nuw nsw i64 %indvars.iv, 5
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %337 = load <4 x float>, ptr %gep, align 16, !tbaa !86
   %338 = getelementptr inbounds nuw [8 x <4 x float>], ptr %3, i64 0, i64 %indvars.iv

@@ -387,13 +387,13 @@ _ZN5zxing3RefINS_6qrcode17FormatInformationEEC2ERKS3_.exit: ; preds = %3
   br label %.split65
 
 .split65.us:                                      ; preds = %.split.us
-  %54 = getelementptr i8, ptr %18, i64 %.pre-phi121
+  %54 = getelementptr inbounds nuw i8, ptr %18, i64 %.pre-phi121
   br label %55
 
 55:                                               ; preds = %55, %.split65.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %55 ], [ 5, %.split65.us ]
   %.164.us = phi i32 [ %60, %55 ], [ %52, %.split65.us ]
-  %56 = getelementptr i8, ptr %54, i64 %indvars.iv103
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv103
   %57 = load i8, ptr %56, align 1, !tbaa !41
   %.not.i46.us = icmp ne i8 %57, 0
   %58 = shl i32 %.164.us, 1

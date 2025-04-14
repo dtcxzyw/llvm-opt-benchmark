@@ -491,7 +491,7 @@ Abc_ReadPla.exit._crit_edge:                      ; preds = %179, %177, %._crit_
   %196 = add nsw i64 %indvars.iv117, -1
   %197 = mul nsw i64 %196, %195
   %198 = getelementptr inbounds i64, ptr %.val, i64 %197
-  %.idx = shl nsw i64 %indvars.iv117, 4
+  %.idx = shl nuw nsw i64 %indvars.iv117, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %192, i64 %.idx
   %199 = load ptr, ptr %invariant.gep, align 8, !tbaa !41
   br label %.lr.ph18.i.us.us

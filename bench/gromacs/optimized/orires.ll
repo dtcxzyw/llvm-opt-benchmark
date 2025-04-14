@@ -3488,7 +3488,7 @@ define noundef float @_Z15calc_orires_devPK14gmx_multisim_tiPKiPK9t_iparamsN3gmx
 238:                                              ; preds = %.preheader432, %238
   %indvar502 = phi i64 [ 0, %.preheader432 ], [ %indvar.next503, %238 ]
   %239 = mul nuw nsw i64 %indvar502, 20
-  %scevgep = getelementptr i8, ptr %gep, i64 %239
+  %scevgep = getelementptr nuw i8, ptr %gep, i64 %239
   %240 = shl nuw nsw i64 %indvar502, 2
   %241 = add nuw nsw i64 %240, 4
   %242 = getelementptr inbounds nuw [5 x float], ptr %229, i64 0, i64 %indvar502

@@ -586,7 +586,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %2
   %42 = phi ptr [ %30, %.lr.ph81 ], [ %66, %63 ]
   %.01280 = phi i64 [ 0, %.lr.ph81 ], [ %64, %63 ]
   %43 = getelementptr i32, ptr %42, i64 %.01280
-  %44 = getelementptr i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = getelementptr i8, ptr %43, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #33
   store ptr %31, ptr %6, align 8, !tbaa !9, !alias.scope !26

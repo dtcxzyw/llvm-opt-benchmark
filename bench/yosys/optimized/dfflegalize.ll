@@ -858,11 +858,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212: ; preds = %_Z
 
 125:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #26
-  %126 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.0139796
-  %127 = getelementptr i8, ptr %126, i64 32
+  %126 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.0139796
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 32
   store ptr %74, ptr %13, align 8, !tbaa !27
   %128 = load ptr, ptr %127, align 8, !tbaa !32
-  %129 = getelementptr i8, ptr %126, i64 40
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 40
   %130 = load i64, ptr %129, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #26
   store i64 %130, ptr %8, align 8, !tbaa !30

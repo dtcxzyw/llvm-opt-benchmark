@@ -5127,8 +5127,8 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds =
   call void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull @.str.48, i64 5, i64 28, ptr nonnull %5, ptr null)
   %102 = load i64, ptr %99, align 8, !tbaa !41
   store i64 0, ptr %99, align 8, !tbaa !41
-  %103 = getelementptr i8, ptr %3, i64 %102
-  %.ptr2.i.i.i = getelementptr i8, ptr %103, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 %102
+  %.ptr2.i.i.i = getelementptr inbounds nuw i8, ptr %103, i64 40
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %101, align 8
   %.not4.i.i.i.i = icmp eq i64 %102, 0
   br i1 %.not4.i.i.i.i, label %_ZN3fmt3v1010vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEES4_S4_NS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextIS2_cEEEE.exit, label %.lr.ph.i.i.i.i
@@ -5171,8 +5171,8 @@ _ZN3fmt3v106detail15iterator_bufferINS0_8appenderEcNS1_13buffer_traitsEE3outEv.e
   %.pr.i = load i64, ptr %99, align 8, !tbaa !41
   store ptr %.sroa.0.0.copyload.i.i.i, ptr %101, align 8
   store i64 0, ptr %99, align 8, !tbaa !41
-  %120 = getelementptr i8, ptr %3, i64 %.pr.i
-  %.ptr2.i.i12.i = getelementptr i8, ptr %120, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 %.pr.i
+  %.ptr2.i.i12.i = getelementptr inbounds nuw i8, ptr %120, i64 40
   %.not4.i.i.i14.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i.i.i14.i, label %_ZN3fmt3v1010vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEES4_S4_NS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextIS2_cEEEE.exit, label %.lr.ph.i.i.i15.i
 
@@ -34128,8 +34128,8 @@ define linkonce_odr hidden ptr @_ZN3fmt3v1010vformat_toINS0_8appenderETnNSt9enab
   call void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr %1, i64 %2, i64 %3, ptr %4, ptr null)
   %12 = load i64, ptr %9, align 8, !tbaa !41
   store i64 0, ptr %9, align 8, !tbaa !41
-  %13 = getelementptr i8, ptr %6, i64 %12
-  %.ptr2.i.i = getelementptr i8, ptr %13, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
+  %.ptr2.i.i = getelementptr inbounds nuw i8, ptr %13, i64 40
   %.sroa.0.0.copyload.i.i = load ptr, ptr %11, align 8
   %.not4.i.i.i = icmp eq i64 %12, 0
   br i1 %.not4.i.i.i, label %_ZN3fmt3v106detail15iterator_bufferINS0_8appenderEcNS1_13buffer_traitsEED2Ev.exit, label %.lr.ph.i.i.i
@@ -34172,8 +34172,8 @@ _ZN3fmt3v106detail15iterator_bufferINS0_8appenderEcNS1_13buffer_traitsEE3outEv.e
   %.pr = load i64, ptr %9, align 8, !tbaa !41
   store ptr %.sroa.0.0.copyload.i.i, ptr %11, align 8
   store i64 0, ptr %9, align 8, !tbaa !41
-  %30 = getelementptr i8, ptr %6, i64 %.pr
-  %.ptr2.i.i12 = getelementptr i8, ptr %30, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 %.pr
+  %.ptr2.i.i12 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %.not4.i.i.i14 = icmp eq i64 %.pr, 0
   br i1 %.not4.i.i.i14, label %_ZN3fmt3v106detail15iterator_bufferINS0_8appenderEcNS1_13buffer_traitsEED2Ev.exit, label %.lr.ph.i.i.i15
 

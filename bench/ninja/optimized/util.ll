@@ -2515,7 +2515,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EEC2IPS0_vEET_S5_RKS1_.exit: ; preds = %_ZNSt6ve
 _ZNSt6vectorI11StringPieceSaIS0_EED2Ev.exit40:    ; preds = %136, %_ZNSt6vectorI11StringPieceSaIS0_EEC2IPS0_vEET_S5_RKS1_.exit
   %140 = phi ptr [ %.pre73, %136 ], [ %125, %_ZNSt6vectorI11StringPieceSaIS0_EEC2IPS0_vEET_S5_RKS1_.exit ]
   %141 = getelementptr %struct.StringPiece, ptr %140, i64 %.01766
-  %142 = getelementptr i8, ptr %141, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(16) %142, i64 16, i1 false), !tbaa.struct !101
   %144 = getelementptr i8, ptr %141, i64 32

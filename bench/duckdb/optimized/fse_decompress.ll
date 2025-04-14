@@ -910,8 +910,8 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit50.i: ; preds = %3
   %381 = zext i16 %.sroa.0.0.copyload.i115.i to i64
   %382 = getelementptr inbounds nuw i8, ptr %.038.i.i63, i64 1
   store i8 %.sroa.4.0.copyload.i117.i, ptr %382, align 1, !tbaa !15
-  %383 = getelementptr %"struct.duckdb_zstd::FSE_decode_t", ptr %328, i64 %369
-  %384 = getelementptr %"struct.duckdb_zstd::FSE_decode_t", ptr %383, i64 %370
+  %383 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_decode_t", ptr %328, i64 %369
+  %384 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_decode_t", ptr %383, i64 %370
   %.sroa.0.0.copyload.i121.i = load i16, ptr %384, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i122.i = getelementptr inbounds nuw i8, ptr %384, i64 2
   %.sroa.4.0.copyload.i123.i = load i8, ptr %.sroa.4.0..sroa_idx.i122.i, align 2, !tbaa !15
@@ -931,8 +931,8 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit50.i: ; preds = %3
   %395 = add nuw i64 %393, %394
   %396 = getelementptr inbounds nuw i8, ptr %.038.i.i63, i64 2
   store i8 %.sroa.4.0.copyload.i123.i, ptr %396, align 1, !tbaa !15
-  %397 = getelementptr %"struct.duckdb_zstd::FSE_decode_t", ptr %330, i64 %380
-  %398 = getelementptr %"struct.duckdb_zstd::FSE_decode_t", ptr %397, i64 %381
+  %397 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_decode_t", ptr %330, i64 %380
+  %398 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_decode_t", ptr %397, i64 %381
   %.sroa.0.0.copyload.i127.i = load i16, ptr %398, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i128.i = getelementptr inbounds nuw i8, ptr %398, i64 2
   %.sroa.4.0.copyload.i129.i = load i8, ptr %.sroa.4.0..sroa_idx.i128.i, align 2, !tbaa !15
@@ -1784,8 +1784,8 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit50: ; preds = %335
   %379 = zext i16 %.sroa.0.0.copyload.i115 to i64
   %380 = getelementptr inbounds nuw i8, ptr %.038.i468, i64 1
   store i8 %.sroa.4.0.copyload.i117, ptr %380, align 1, !tbaa !15
-  %381 = getelementptr %"struct.duckdb_zstd::FSE_decode_t", ptr %325, i64 %367
-  %382 = getelementptr %"struct.duckdb_zstd::FSE_decode_t", ptr %381, i64 %368
+  %381 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_decode_t", ptr %325, i64 %367
+  %382 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_decode_t", ptr %381, i64 %368
   %.sroa.0.0.copyload.i121 = load i16, ptr %382, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i122 = getelementptr inbounds nuw i8, ptr %382, i64 2
   %.sroa.4.0.copyload.i123 = load i8, ptr %.sroa.4.0..sroa_idx.i122, align 2, !tbaa !15
@@ -1805,8 +1805,8 @@ _ZN11duckdb_zstdL17BIT_reloadDStreamEPNS_13BIT_DStream_tE.exit50: ; preds = %335
   %393 = add nuw i64 %391, %392
   %394 = getelementptr inbounds nuw i8, ptr %.038.i468, i64 2
   store i8 %.sroa.4.0.copyload.i123, ptr %394, align 1, !tbaa !15
-  %395 = getelementptr %"struct.duckdb_zstd::FSE_decode_t", ptr %327, i64 %378
-  %396 = getelementptr %"struct.duckdb_zstd::FSE_decode_t", ptr %395, i64 %379
+  %395 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_decode_t", ptr %327, i64 %378
+  %396 = getelementptr inbounds nuw %"struct.duckdb_zstd::FSE_decode_t", ptr %395, i64 %379
   %.sroa.0.0.copyload.i127 = load i16, ptr %396, align 2, !tbaa !3
   %.sroa.4.0..sroa_idx.i128 = getelementptr inbounds nuw i8, ptr %396, i64 2
   %.sroa.4.0.copyload.i129 = load i8, ptr %.sroa.4.0..sroa_idx.i128, align 2, !tbaa !15

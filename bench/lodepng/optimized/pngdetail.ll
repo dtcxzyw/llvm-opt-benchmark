@@ -10605,7 +10605,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit509: ; preds = %_ZSt
   br i1 %1392, label %_ZL15getICC15Fixed16PKhmm.exit511, label %1393
 
 1393:                                             ; preds = %1390
-  %1394 = getelementptr i8, ptr %1354, i64 8
+  %1394 = getelementptr inbounds nuw i8, ptr %1354, i64 8
   %1395 = load i8, ptr %1394, align 1, !tbaa !32
   %1396 = zext i8 %1395 to i32
   %1397 = shl nuw i32 %1396, 24
@@ -10635,7 +10635,7 @@ _ZL15getICC15Fixed16PKhmm.exit511:                ; preds = %1393, %1390
   br i1 %1416, label %_ZL15getICC15Fixed16PKhmm.exit513, label %1417
 
 1417:                                             ; preds = %_ZL15getICC15Fixed16PKhmm.exit511
-  %1418 = getelementptr i8, ptr %1354, i64 12
+  %1418 = getelementptr inbounds nuw i8, ptr %1354, i64 12
   %1419 = load i8, ptr %1418, align 1, !tbaa !32
   %1420 = zext i8 %1419 to i32
   %1421 = shl nuw i32 %1420, 24
@@ -10665,7 +10665,7 @@ _ZL15getICC15Fixed16PKhmm.exit513:                ; preds = %1417, %_ZL15getICC1
   br i1 %1440, label %_ZL15getICC15Fixed16PKhmm.exit515, label %1441
 
 1441:                                             ; preds = %_ZL15getICC15Fixed16PKhmm.exit513
-  %1442 = getelementptr i8, ptr %1354, i64 16
+  %1442 = getelementptr inbounds nuw i8, ptr %1354, i64 16
   %1443 = load i8, ptr %1442, align 1, !tbaa !32
   %1444 = zext i8 %1443 to i32
   %1445 = shl nuw i32 %1444, 24
@@ -10768,7 +10768,7 @@ _ZNSolsEf.exit524:                                ; preds = %_ZStlsISt11char_tra
   br i1 %1490, label %_ZL12getICCUint32PKhmm.exit526, label %1491
 
 1491:                                             ; preds = %1488
-  %1492 = getelementptr i8, ptr %1354, i64 8
+  %1492 = getelementptr inbounds nuw i8, ptr %1354, i64 8
   %1493 = load i8, ptr %1492, align 1, !tbaa !32
   %1494 = zext i8 %1493 to i32
   %1495 = shl nuw i32 %1494, 24
@@ -10810,11 +10810,11 @@ _ZNSolsEm.exit:                                   ; preds = %_ZStlsISt11char_tra
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit528 unwind label %1528
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit528: ; preds = %1515
-  %1517 = getelementptr i8, ptr %1354, i64 12
+  %1517 = getelementptr inbounds nuw i8, ptr %1354, i64 12
   %1518 = load i8, ptr %1517, align 1, !tbaa !32
   %1519 = zext i8 %1518 to i32
   %1520 = shl nuw nsw i32 %1519, 8
-  %1521 = getelementptr i8, ptr %1354, i64 13
+  %1521 = getelementptr inbounds nuw i8, ptr %1354, i64 13
   %1522 = load i8, ptr %1521, align 1, !tbaa !32
   %1523 = zext i8 %1522 to i32
   %1524 = or disjoint i32 %1520, %1523
@@ -10850,11 +10850,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit532: ; preds = %.inv
   br i1 %1539, label %_ZL12getICCUint16PKhmm.exit534, label %1540
 
 1540:                                             ; preds = %1537
-  %1541 = getelementptr i8, ptr %1354, i64 8
+  %1541 = getelementptr inbounds nuw i8, ptr %1354, i64 8
   %1542 = load i8, ptr %1541, align 1, !tbaa !32
   %1543 = zext i8 %1542 to i32
   %1544 = shl nuw nsw i32 %1543, 8
-  %1545 = getelementptr i8, ptr %1354, i64 9
+  %1545 = getelementptr inbounds nuw i8, ptr %1354, i64 9
   %1546 = load i8, ptr %1545, align 1, !tbaa !32
   %1547 = zext i8 %1546 to i32
   %1548 = or disjoint i32 %1544, %1547
@@ -10867,7 +10867,7 @@ _ZL12getICCUint16PKhmm.exit534:                   ; preds = %1537, %1540
   br i1 %1550, label %_ZL15getICC15Fixed16PKhmm.exit536, label %1551
 
 1551:                                             ; preds = %_ZL12getICCUint16PKhmm.exit534
-  %1552 = getelementptr i8, ptr %1354, i64 12
+  %1552 = getelementptr inbounds nuw i8, ptr %1354, i64 12
   %1553 = load i8, ptr %1552, align 1, !tbaa !32
   %1554 = zext i8 %1553 to i32
   %1555 = shl nuw i32 %1554, 24
@@ -11068,11 +11068,11 @@ _ZNSolsEf.exit549:                                ; preds = %_ZStlsISt11char_tra
   br i1 %1658, label %_ZL12getICCUint16PKhmm.exit551, label %1659
 
 1659:                                             ; preds = %1656
-  %1660 = getelementptr i8, ptr %1354, i64 8
+  %1660 = getelementptr inbounds nuw i8, ptr %1354, i64 8
   %1661 = load i8, ptr %1660, align 1, !tbaa !32
   %1662 = zext i8 %1661 to i64
   %1663 = shl nuw nsw i64 %1662, 8
-  %1664 = getelementptr i8, ptr %1354, i64 9
+  %1664 = getelementptr inbounds nuw i8, ptr %1354, i64 9
   %1665 = load i8, ptr %1664, align 1, !tbaa !32
   %1666 = zext i8 %1665 to i64
   %1667 = or disjoint i64 %1663, %1666
@@ -11097,11 +11097,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit554: ; preds = %_ZNS
   br i1 %1672, label %_ZL12getICCUint16PKhmm.exit556, label %1673
 
 1673:                                             ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit554
-  %1674 = getelementptr i8, ptr %1354, i64 10
+  %1674 = getelementptr inbounds nuw i8, ptr %1354, i64 10
   %1675 = load i8, ptr %1674, align 1, !tbaa !32
   %1676 = zext i8 %1675 to i64
   %1677 = shl nuw nsw i64 %1676, 8
-  %1678 = getelementptr i8, ptr %1354, i64 11
+  %1678 = getelementptr inbounds nuw i8, ptr %1354, i64 11
   %1679 = load i8, ptr %1678, align 1, !tbaa !32
   %1680 = zext i8 %1679 to i64
   %1681 = or disjoint i64 %1677, %1680

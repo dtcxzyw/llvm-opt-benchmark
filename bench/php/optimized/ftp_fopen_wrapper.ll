@@ -1017,8 +1017,8 @@ get_ftp_result.exit215:                           ; preds = %201, %.backedge.i21
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
   store i64 %220, ptr %222, align 8, !tbaa !45
   %.ptr = getelementptr inbounds nuw i8, ptr %221, i64 24
-  %223 = getelementptr i8, ptr %221, i64 %220
-  %.ptr31 = getelementptr i8, ptr %223, i64 24
+  %223 = getelementptr inbounds nuw i8, ptr %221, i64 %220
+  %.ptr31 = getelementptr inbounds nuw i8, ptr %223, i64 24
   %224 = icmp sgt i64 %220, 0
   br i1 %224, label %.lr.ph, label %._crit_edge
 
@@ -1136,8 +1136,8 @@ get_ftp_result.exit224:                           ; preds = %258, %.backedge.i22
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 16
   store i64 %280, ptr %282, align 8, !tbaa !45
   %.ptr32 = getelementptr inbounds nuw i8, ptr %281, i64 24
-  %283 = getelementptr i8, ptr %281, i64 %280
-  %.ptr33 = getelementptr i8, ptr %283, i64 24
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 %280
+  %.ptr33 = getelementptr inbounds nuw i8, ptr %283, i64 24
   %284 = icmp sgt i64 %280, 0
   br i1 %284, label %.lr.ph29, label %._crit_edge30
 

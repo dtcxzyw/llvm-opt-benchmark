@@ -27176,7 +27176,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   store ptr %3, ptr %.0.i.i.i, align 8, !tbaa !323
   %.sroa.258.0..0.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %4, ptr %.sroa.258.0..0.i.i.i.sroa_idx, align 8, !tbaa !306
-  %60 = getelementptr %"class.clang::Token", ptr %37, i64 %.0
+  %60 = getelementptr inbounds nuw %"class.clang::Token", ptr %37, i64 %.0
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i32 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
@@ -27199,7 +27199,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   %70 = zext i32 %68 to i64
   %.idx.i33 = mul nuw nsw i64 %70, 24
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  %72 = getelementptr i8, ptr %60, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %73 = load ptr, ptr %71, align 8, !tbaa !301
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %72, ptr align 8 %73, i64 %.idx.i33, i1 false)
   br label %_ZNSt10unique_ptrIA_N5clang5TokenESt14default_deleteIS2_EED2Ev.exit41

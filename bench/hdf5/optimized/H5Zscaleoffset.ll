@@ -642,13 +642,13 @@ define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr
 
 .preheader.us.i244:                               ; preds = %._crit_edge.us.i248, %.preheader.us.preheader.i243
   %.028.us.i245 = phi i64 [ %139, %._crit_edge.us.i248 ], [ 0, %.preheader.us.preheader.i243 ]
-  %130 = getelementptr i8, ptr %107, i64 %.028.us.i245
+  %130 = getelementptr inbounds nuw i8, ptr %107, i64 %.028.us.i245
   %131 = getelementptr i8, ptr %130, i64 %.sroa.029.0.insert.ext
   br label %132
 
 132:                                              ; preds = %132, %.preheader.us.i244
   %.02427.us.i246 = phi i64 [ 0, %.preheader.us.i244 ], [ %138, %132 ]
-  %133 = getelementptr i8, ptr %130, i64 %.02427.us.i246
+  %133 = getelementptr inbounds nuw i8, ptr %130, i64 %.02427.us.i246
   %134 = load i8, ptr %133, align 1, !tbaa !18
   %135 = xor i64 %.02427.us.i246, -1
   %136 = getelementptr i8, ptr %131, i64 %135
@@ -685,13 +685,13 @@ define internal i64 @H5Z__filter_scaleoffset(i32 noundef %0, i64 noundef %1, ptr
 
 .preheader.us.i253:                               ; preds = %._crit_edge.us.i257, %.preheader.us.preheader.i252
   %.028.us.i254 = phi i64 [ %158, %._crit_edge.us.i257 ], [ 0, %.preheader.us.preheader.i252 ]
-  %149 = getelementptr i8, ptr %143, i64 %.028.us.i254
+  %149 = getelementptr inbounds nuw i8, ptr %143, i64 %.028.us.i254
   %150 = getelementptr i8, ptr %149, i64 %.sroa.029.0.insert.ext
   br label %151
 
 151:                                              ; preds = %151, %.preheader.us.i253
   %.02427.us.i255 = phi i64 [ 0, %.preheader.us.i253 ], [ %157, %151 ]
-  %152 = getelementptr i8, ptr %149, i64 %.02427.us.i255
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 %.02427.us.i255
   %153 = load i8, ptr %152, align 1, !tbaa !18
   %154 = xor i64 %.02427.us.i255, -1
   %155 = getelementptr i8, ptr %150, i64 %154
@@ -1084,7 +1084,7 @@ H5Z__scaleoffset_convert.exit:                    ; preds = %H5Z__scaleoffset_co
 
 71:                                               ; preds = %71, %69
   %.02427.us.i534 = phi i64 [ 0, %69 ], [ %77, %71 ]
-  %72 = getelementptr i8, ptr %8, i64 %.02427.us.i534
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 %.02427.us.i534
   %73 = load i8, ptr %72, align 1, !tbaa !18
   %74 = xor i64 %.02427.us.i534, -1
   %75 = getelementptr i8, ptr %70, i64 %74
@@ -1128,7 +1128,7 @@ H5Z__scaleoffset_convert.exit:                    ; preds = %H5Z__scaleoffset_co
 
 90:                                               ; preds = %90, %88
   %.02427.us.i537 = phi i64 [ 0, %88 ], [ %96, %90 ]
-  %91 = getelementptr i8, ptr %9, i64 %.02427.us.i537
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 %.02427.us.i537
   %92 = load i8, ptr %91, align 1, !tbaa !18
   %93 = xor i64 %.02427.us.i537, -1
   %94 = getelementptr i8, ptr %89, i64 %93
@@ -1219,7 +1219,7 @@ H5Z__scaleoffset_convert.exit539:                 ; preds = %90, %87
 
 124:                                              ; preds = %124, %122
   %.02427.us.i540 = phi i64 [ 0, %122 ], [ %130, %124 ]
-  %125 = getelementptr i8, ptr %11, i64 %.02427.us.i540
+  %125 = getelementptr inbounds nuw i8, ptr %11, i64 %.02427.us.i540
   %126 = load i8, ptr %125, align 1, !tbaa !18
   %127 = xor i64 %.02427.us.i540, -1
   %128 = getelementptr i8, ptr %123, i64 %127
@@ -1381,7 +1381,7 @@ H5Z__scaleoffset_convert.exit545:                 ; preds = %H5Z__scaleoffset_co
 
 189:                                              ; preds = %189, %187
   %.02427.us.i546 = phi i64 [ 0, %187 ], [ %195, %189 ]
-  %190 = getelementptr i8, ptr %15, i64 %.02427.us.i546
+  %190 = getelementptr inbounds nuw i8, ptr %15, i64 %.02427.us.i546
   %191 = load i8, ptr %190, align 1, !tbaa !18
   %192 = xor i64 %.02427.us.i546, -1
   %193 = getelementptr i8, ptr %188, i64 %192
@@ -1425,7 +1425,7 @@ H5Z__scaleoffset_convert.exit545:                 ; preds = %H5Z__scaleoffset_co
 
 208:                                              ; preds = %208, %206
   %.02427.us.i549 = phi i64 [ 0, %206 ], [ %214, %208 ]
-  %209 = getelementptr i8, ptr %16, i64 %.02427.us.i549
+  %209 = getelementptr inbounds nuw i8, ptr %16, i64 %.02427.us.i549
   %210 = load i8, ptr %209, align 1, !tbaa !18
   %211 = xor i64 %.02427.us.i549, -1
   %212 = getelementptr i8, ptr %207, i64 %211
@@ -1516,7 +1516,7 @@ H5Z__scaleoffset_convert.exit551:                 ; preds = %208, %205
 
 242:                                              ; preds = %242, %240
   %.02427.us.i552 = phi i64 [ 0, %240 ], [ %248, %242 ]
-  %243 = getelementptr i8, ptr %18, i64 %.02427.us.i552
+  %243 = getelementptr inbounds nuw i8, ptr %18, i64 %.02427.us.i552
   %244 = load i8, ptr %243, align 1, !tbaa !18
   %245 = xor i64 %.02427.us.i552, -1
   %246 = getelementptr i8, ptr %241, i64 %245
@@ -1607,7 +1607,7 @@ H5Z__scaleoffset_convert.exit554:                 ; preds = %242, %239
 
 276:                                              ; preds = %276, %274
   %.02427.us.i555 = phi i64 [ 0, %274 ], [ %282, %276 ]
-  %277 = getelementptr i8, ptr %20, i64 %.02427.us.i555
+  %277 = getelementptr inbounds nuw i8, ptr %20, i64 %.02427.us.i555
   %278 = load i8, ptr %277, align 1, !tbaa !18
   %279 = xor i64 %.02427.us.i555, -1
   %280 = getelementptr i8, ptr %275, i64 %279
@@ -1651,7 +1651,7 @@ H5Z__scaleoffset_convert.exit554:                 ; preds = %242, %239
 
 295:                                              ; preds = %295, %293
   %.02427.us.i558 = phi i64 [ 0, %293 ], [ %301, %295 ]
-  %296 = getelementptr i8, ptr %21, i64 %.02427.us.i558
+  %296 = getelementptr inbounds nuw i8, ptr %21, i64 %.02427.us.i558
   %297 = load i8, ptr %296, align 1, !tbaa !18
   %298 = xor i64 %.02427.us.i558, -1
   %299 = getelementptr i8, ptr %294, i64 %298
@@ -1778,7 +1778,7 @@ define internal fastcc void @H5Z__scaleoffset_decompress(ptr noundef nonnull wri
   %.02035.us.us = phi i32 [ %.6.us.us, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us ], [ 8, %.lr.ph37.split.us ]
   %.02234.us.us = phi i64 [ %.628.us.us, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us ], [ 0, %.lr.ph37.split.us ]
   %20 = mul nuw i64 %.136.us.us, %7
-  %21 = getelementptr i8, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %20
   br label %22
 
 22:                                               ; preds = %H5Z__scaleoffset_decompress_one_byte.exit.i.us.us, %.lr.ph32.i.us.us
@@ -1791,7 +1791,7 @@ define internal fastcc void @H5Z__scaleoffset_decompress(ptr noundef nonnull wri
   %.0.i.i.us.us = select i1 %25, i32 %14, i32 8
   %26 = icmp ugt i32 %.4.us.us, %.0.i.i.us.us
   %27 = zext i8 %24 to i32
-  %28 = getelementptr i8, ptr %21, i64 %indvars.iv34.i.us.us
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv34.i.us.us
   br i1 %26, label %48, label %29
 
 29:                                               ; preds = %22
@@ -1856,7 +1856,7 @@ H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scal
   %.02035 = phi i32 [ %.3, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit30 ], [ 8, %.lr.ph37.split ]
   %.02234 = phi i64 [ %.325, %H5Z__scaleoffset_decompress_one_atomic.exit.loopexit30 ], [ 0, %.lr.ph37.split ]
   %58 = mul nuw i64 %.136, %7
-  %59 = getelementptr i8, ptr %0, i64 %58
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %58
   br label %60
 
 60:                                               ; preds = %H5Z__scaleoffset_decompress_one_byte.exit27.i, %.lr.ph.i
@@ -1869,7 +1869,7 @@ H5Z__scaleoffset_decompress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scal
   %.0.i24.i = select i1 %63, i32 %14, i32 8
   %64 = icmp ugt i32 %.121, %.0.i24.i
   %65 = zext i8 %62 to i32
-  %66 = getelementptr i8, ptr %59, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv.i
   br i1 %64, label %67, label %73
 
 67:                                               ; preds = %60
@@ -6516,14 +6516,14 @@ define internal fastcc void @H5Z__scaleoffset_compress(ptr noundef readonly capt
   %.01830.us.us = phi i32 [ %.6.us.us, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us ], [ 8, %.lr.ph32.split.us ]
   %.01929.us.us = phi i64 [ %.625.us.us, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us ], [ 0, %.lr.ph32.split.us ]
   %20 = mul nuw i64 %.031.us.us, %8
-  %21 = getelementptr i8, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %20
   br label %22
 
 22:                                               ; preds = %H5Z__scaleoffset_compress_one_byte.exit.i.us.us, %.lr.ph31.i.us.us
   %.423.us.us = phi i64 [ %.01929.us.us, %.lr.ph31.i.us.us ], [ %.625.us.us, %H5Z__scaleoffset_compress_one_byte.exit.i.us.us ]
   %.4.us.us = phi i32 [ %.01830.us.us, %.lr.ph31.i.us.us ], [ %.6.us.us, %H5Z__scaleoffset_compress_one_byte.exit.i.us.us ]
   %indvars.iv33.i.us.us = phi i64 [ %18, %.lr.ph31.i.us.us ], [ %indvars.iv.next34.i.us.us, %H5Z__scaleoffset_compress_one_byte.exit.i.us.us ]
-  %23 = getelementptr i8, ptr %21, i64 %indvars.iv33.i.us.us
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv33.i.us.us
   %24 = load i8, ptr %23, align 1, !tbaa !18
   %25 = icmp eq i64 %indvars.iv33.i.us.us, %18
   %.0.i.i.us.us = select i1 %25, i32 %14, i32 8
@@ -6587,14 +6587,14 @@ H5Z__scaleoffset_compress_one_atomic.exit.loopexit.us.us: ; preds = %H5Z__scaleo
   %.01830 = phi i32 [ %.3, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit27 ], [ 8, %.lr.ph32.split ]
   %.01929 = phi i64 [ %.322, %H5Z__scaleoffset_compress_one_atomic.exit.loopexit27 ], [ 0, %.lr.ph32.split ]
   %56 = mul nuw i64 %.031, %8
-  %57 = getelementptr i8, ptr %0, i64 %56
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 %56
   br label %58
 
 58:                                               ; preds = %H5Z__scaleoffset_compress_one_byte.exit26.i, %.lr.ph.i
   %.120 = phi i64 [ %.01929, %.lr.ph.i ], [ %.322, %H5Z__scaleoffset_compress_one_byte.exit26.i ]
   %.1 = phi i32 [ %.01830, %.lr.ph.i ], [ %.3, %H5Z__scaleoffset_compress_one_byte.exit26.i ]
   %indvars.iv.i = phi i64 [ %15, %.lr.ph.i ], [ %indvars.iv.next.i, %H5Z__scaleoffset_compress_one_byte.exit26.i ]
-  %59 = getelementptr i8, ptr %57, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv.i
   %60 = load i8, ptr %59, align 1, !tbaa !18
   %61 = icmp eq i64 %indvars.iv.i, %15
   %.0.i24.i = select i1 %61, i32 %14, i32 8

@@ -297,12 +297,12 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNKSt7__cxx1112bas
   br label %54
 
 41:                                               ; preds = %3
-  %42 = getelementptr i64, ptr %11, i64 %2
+  %42 = getelementptr inbounds nuw i64, ptr %11, i64 %2
   %43 = load i64, ptr %42, align 8, !tbaa !9
   %44 = add nsw i64 %15, -1
   %45 = icmp eq i64 %2, %44
   %.pn = select i1 %45, ptr %1, ptr %42
-  %.in = getelementptr i8, ptr %.pn, i64 8
+  %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %46 = load i64, ptr %.in, align 8, !tbaa !9
   %47 = load ptr, ptr %1, align 8, !tbaa !20
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 %43

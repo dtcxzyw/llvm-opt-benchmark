@@ -418,7 +418,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .preheader.us.i:                                  ; preds = %.preheader.us.preheader.i, %140
   %indvars.iv176.i = phi i64 [ 1, %.preheader.us.preheader.i ], [ %indvars.iv.next177.i, %140 ]
   %.pre202.i = load float, ptr %.0109129.us142.i, align 4, !tbaa !47
-  %.idx203.i = shl nsw i64 %indvars.iv176.i, 4
+  %.idx203.i = shl nuw nsw i64 %indvars.iv176.i, 4
   %invariant.gep205.i = getelementptr inbounds nuw i8, ptr %.0108130.us141.i, i64 %.idx203.i
   br label %141
 

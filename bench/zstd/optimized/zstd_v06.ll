@@ -1343,8 +1343,8 @@ BITv06_reloadDStream.exit128:                     ; preds = %392, %397
   %434 = zext i16 %.sroa.0.0.copyload.i136 to i64
   %435 = getelementptr inbounds nuw i8, ptr %.038.i16543, i64 1
   store i8 %.sroa.4.0.copyload.i138, ptr %435, align 1, !tbaa !27
-  %436 = getelementptr %struct.FSEv06_decode_t, ptr %368, i64 %420
-  %437 = getelementptr %struct.FSEv06_decode_t, ptr %436, i64 %422
+  %436 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %368, i64 %420
+  %437 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %436, i64 %422
   %.sroa.0.0.copyload.i143 = load i16, ptr %437, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i144 = getelementptr inbounds nuw i8, ptr %437, i64 2
   %.sroa.4.0.copyload.i145 = load i8, ptr %.sroa.4.0..sroa_idx.i144, align 2, !tbaa !27
@@ -1364,8 +1364,8 @@ BITv06_reloadDStream.exit128:                     ; preds = %392, %397
   %449 = add nuw i64 %446, %448
   %450 = getelementptr inbounds nuw i8, ptr %.038.i16543, i64 2
   store i8 %.sroa.4.0.copyload.i145, ptr %450, align 1, !tbaa !27
-  %451 = getelementptr %struct.FSEv06_decode_t, ptr %368, i64 %432
-  %452 = getelementptr %struct.FSEv06_decode_t, ptr %451, i64 %434
+  %451 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %368, i64 %432
+  %452 = getelementptr inbounds nuw %struct.FSEv06_decode_t, ptr %451, i64 %434
   %.sroa.0.0.copyload.i150 = load i16, ptr %452, align 2, !tbaa !10
   %.sroa.4.0..sroa_idx.i151 = getelementptr inbounds nuw i8, ptr %452, i64 2
   %.sroa.4.0.copyload.i152 = load i8, ptr %.sroa.4.0..sroa_idx.i151, align 2, !tbaa !27

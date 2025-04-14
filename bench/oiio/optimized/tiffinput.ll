@@ -10645,14 +10645,14 @@ _ZN11OpenImageIO6v3_1_09TIFFInput18invert_photometricEiPv.exit._ZN11OpenImageIO6
   %indvars.iv45.i = phi i64 [ 0, %.preheader26.us.us.preheader.i ], [ %indvars.iv.next46.i, %._crit_edge29.split.us.us.us.i ]
   %526 = mul i64 %519, %indvars.iv45.i
   %527 = mul nuw i64 %indvars.iv45.i, %518
-  %528 = getelementptr i8, ptr %.290299, i64 %526
+  %528 = getelementptr nuw i8, ptr %.290299, i64 %526
   %529 = getelementptr i8, ptr %525, i64 %527
   br label %.preheader.us.us.us.i
 
 .preheader.us.us.us.i:                            ; preds = %.preheader.us.us.us.i, %.preheader26.us.us.i
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %.preheader.us.us.us.i ], [ 0, %.preheader26.us.us.i ]
   %530 = mul nuw nsw i64 %indvars.iv40.i, %518
-  %scevgep = getelementptr i8, ptr %528, i64 %530
+  %scevgep = getelementptr nuw i8, ptr %528, i64 %530
   %531 = mul i64 %524, %indvars.iv40.i
   %scevgep345 = getelementptr i8, ptr %529, i64 %531
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %scevgep, ptr align 1 %scevgep345, i64 %518, i1 false), !tbaa !13

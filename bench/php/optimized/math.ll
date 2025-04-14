@@ -2313,8 +2313,8 @@ define dso_local void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr 
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !71
-  %6 = getelementptr i8, ptr %0, i64 %5
-  %.ptr132 = getelementptr i8, ptr %6, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
+  %.ptr132 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %7 = icmp sgt i64 %5, 0
   br i1 %7, label %.lr.ph, label %.critedge
 

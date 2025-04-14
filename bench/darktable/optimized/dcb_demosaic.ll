@@ -3396,8 +3396,8 @@ define void @_ZN6LibRaw15dcb_correction2Ev(ptr noundef nonnull readonly align 8 
   %47 = load i16, ptr %46, align 2, !tbaa !73
   %48 = zext i16 %47 to i32
   %49 = add nuw nsw i32 %48, %43
-  %50 = getelementptr [4 x i16], ptr %13, i64 %indvars.iv
-  %51 = getelementptr i8, ptr %50, i64 14
+  %50 = getelementptr inbounds nuw [4 x i16], ptr %13, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 14
   %52 = load i16, ptr %51, align 2, !tbaa !73
   %53 = zext i16 %52 to i32
   %54 = add nuw nsw i32 %49, %53
@@ -3433,7 +3433,7 @@ define void @_ZN6LibRaw15dcb_correction2Ev(ptr noundef nonnull readonly align 8 
   %83 = getelementptr i8, ptr %55, i64 -6
   %84 = load i16, ptr %83, align 2, !tbaa !73
   %85 = zext i16 %84 to i32
-  %86 = getelementptr i8, ptr %50, i64 10
+  %86 = getelementptr inbounds nuw i8, ptr %50, i64 10
   %87 = load i16, ptr %86, align 2, !tbaa !73
   %88 = zext i16 %87 to i32
   %89 = add nuw nsw i32 %88, %85

@@ -993,7 +993,7 @@ demosaic_qual_flags.exit:                         ; preds = %54, %63, %66
 
 177:                                              ; preds = %.preheader.us.i, %177
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %177 ]
-  %178 = getelementptr float, ptr %181, i64 %indvars.iv.i
+  %178 = getelementptr inbounds nuw float, ptr %181, i64 %indvars.iv.i
   store float %.pre.i, ptr %178, align 4, !tbaa !24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -1005,7 +1005,7 @@ demosaic_qual_flags.exit:                         ; preds = %54, %63, %66
   %180 = getelementptr inbounds nuw float, ptr %.0228, i64 %179
   %.pre.i = load float, ptr %180, align 4, !tbaa !24
   %.idx.i = shl i64 %179, 4
-  %181 = getelementptr i8, ptr %.0229, i64 %.idx.i
+  %181 = getelementptr inbounds nuw i8, ptr %.0229, i64 %.idx.i
   br label %177
 
 ._crit_edge.us.i:                                 ; preds = %176
@@ -11296,9 +11296,9 @@ define internal fastcc void @demosaic_ppg(ptr noundef captures(none) %0, ptr nou
   %.sink402 = phi float [ %88, %87 ], [ %86, %83 ]
   %.idx370.pn.in = phi i64 [ %71, %87 ], [ %70, %83 ]
   %.idx370.pn = shl i64 %.idx370.pn.in, 4
-  %.sink401 = getelementptr i8, ptr %0, i64 %.idx370.pn
+  %.sink401 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx370.pn
   %90 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %.sink402, float 0.000000e+00)
-  %91 = getelementptr float, ptr %.sink401, i64 %indvars.iv378
+  %91 = getelementptr inbounds nuw float, ptr %.sink401, i64 %indvars.iv378
   store float %90, ptr %91, align 4, !tbaa !24
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %exitcond381.not = icmp eq i64 %indvars.iv.next379, 3
@@ -13289,8 +13289,8 @@ define internal fastcc void @rcd_ppg_border(ptr noundef captures(none) %0, ptr n
   %.idx404.pn.in = phi i64 [ %69, %85 ], [ %68, %81 ]
   %.sink = phi float [ %87, %85 ], [ %84, %81 ]
   %.idx404.pn = shl i64 %.idx404.pn.in, 4
-  %.sink435 = getelementptr i8, ptr %0, i64 %.idx404.pn
-  %89 = getelementptr float, ptr %.sink435, i64 %indvars.iv412
+  %.sink435 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx404.pn
+  %89 = getelementptr inbounds nuw float, ptr %.sink435, i64 %indvars.iv412
   store float %.sink, ptr %89, align 4, !tbaa !24
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %exitcond415.not = icmp eq i64 %indvars.iv.next413, 3

@@ -502,7 +502,7 @@ define dso_local range(i32 -97, 1) i32 @uv_inet_pton(i32 noundef %0, ptr noundef
 46:                                               ; preds = %42
   %47 = lshr i32 %.070.i43, 8
   %48 = trunc i32 %47 to i8
-  %.ptr101.i = getelementptr i8, ptr %.078.ptr.ptr.ptr.i44, i64 1
+  %.ptr101.i = getelementptr inbounds nuw i8, ptr %.078.ptr.ptr.ptr.i44, i64 1
   store i8 %48, ptr %.078.ptr.ptr.ptr.i44, align 1, !tbaa !4
   %49 = trunc i32 %.070.i43 to i8
   %.add.i = add nuw nsw i64 %.078.idx.i41, 2
@@ -525,7 +525,7 @@ select.unfold118.i:                               ; preds = %46, %41, %.thread.i
   %.280.idx.i = phi i64 [ %.add.i, %46 ], [ %.078.idx.i41, %.thread.i ], [ %.078.idx.i41, %41 ]
   %.275.i = phi i32 [ 0, %46 ], [ %37, %.thread.i ], [ 0, %41 ]
   %.272.i = phi i32 [ 0, %46 ], [ %36, %.thread.i ], [ %.070.i43, %41 ]
-  %.078.ptr.ptr.ptr.i = getelementptr i8, ptr %4, i64 %.280.idx.i
+  %.078.ptr.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 %.280.idx.i
   %53 = load i8, ptr %27, align 1, !tbaa !4
   %.not96.i = icmp eq i8 %53, 0
   br i1 %.not96.i, label %._crit_edge, label %.lr.ph

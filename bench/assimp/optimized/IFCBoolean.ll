@@ -4609,19 +4609,19 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
   %.sroa.40.8 = phi ptr [ %.sroa.40.7973, %861 ], [ %884, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA81_KcEEEvDpOT_.exit.thread ]
   %.0152 = phi i64 [ 0, %861 ], [ %.1, %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE8LogErrorIJRA81_KcEEEvDpOT_.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0546)
-  %864 = getelementptr %"class.std::tuple", ptr %.sroa.0610.2.lcssa, i64 %.0152
+  %864 = getelementptr inbounds nuw %"class.std::tuple", ptr %.sroa.0610.2.lcssa, i64 %.0152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0546, ptr noundef nonnull align 8 dereferenceable(32) %864, i64 32, i1 false)
   %.sroa.6548.0..sroa_idx = getelementptr inbounds nuw i8, ptr %864, i64 32
   %.sroa.6548.0.copyload = load i64, ptr %.sroa.6548.0..sroa_idx, align 8
-  %865 = getelementptr i8, ptr %864, i64 40
+  %865 = getelementptr inbounds nuw i8, ptr %864, i64 40
   %.sroa.0535.0.copyload = load i64, ptr %865, align 8
-  %.sroa.5536.0..sroa_idx = getelementptr i8, ptr %864, i64 48
+  %.sroa.5536.0..sroa_idx = getelementptr inbounds nuw i8, ptr %864, i64 48
   %.sroa.5536.0.copyload = load double, ptr %.sroa.5536.0..sroa_idx, align 8
-  %.sroa.8538.0..sroa_idx = getelementptr i8, ptr %864, i64 56
+  %.sroa.8538.0..sroa_idx = getelementptr inbounds nuw i8, ptr %864, i64 56
   %.sroa.8538.0.copyload = load double, ptr %.sroa.8538.0..sroa_idx, align 8
-  %.sroa.9541.0..sroa_idx = getelementptr i8, ptr %864, i64 64
+  %.sroa.9541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %864, i64 64
   %.sroa.9541.0.copyload = load double, ptr %.sroa.9541.0..sroa_idx, align 8
-  %.sroa.10544.0..sroa_idx = getelementptr i8, ptr %864, i64 72
+  %.sroa.10544.0..sroa_idx = getelementptr inbounds nuw i8, ptr %864, i64 72
   %.sroa.10544.0.copyload = load i64, ptr %.sroa.10544.0..sroa_idx, align 8
   %866 = getelementptr inbounds nuw i8, ptr %864, i64 80
   %.not11.i.i313 = icmp eq ptr %866, %.sroa.40.8

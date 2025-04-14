@@ -3595,8 +3595,8 @@ zend_string_release_ex.exit1074:                  ; preds = %1476, %1480, %1485
   %1550 = load ptr, ptr %1543, align 8, !tbaa !68
   %1551 = getelementptr inbounds nuw i8, ptr %1550, i64 16
   store i64 %1549, ptr %1551, align 8, !tbaa !17
-  %1552 = getelementptr i8, ptr %1550, i64 %1549
-  %.ptr186 = getelementptr i8, ptr %1552, i64 24
+  %1552 = getelementptr inbounds nuw i8, ptr %1550, i64 %1549
+  %.ptr186 = getelementptr inbounds nuw i8, ptr %1552, i64 24
   %.not1022171 = icmp sgt i64 %1549, 0
   br i1 %.not1022171, label %.lr.ph174, label %.loopexit104
 
@@ -3639,8 +3639,8 @@ zend_string_release_ex.exit1074:                  ; preds = %1476, %1480, %1485
   %1570 = load ptr, ptr %1563, align 8, !tbaa !69
   %1571 = getelementptr inbounds nuw i8, ptr %1570, i64 16
   store i64 %1569, ptr %1571, align 8, !tbaa !17
-  %1572 = getelementptr i8, ptr %1570, i64 %1569
-  %.ptr188 = getelementptr i8, ptr %1572, i64 24
+  %1572 = getelementptr inbounds nuw i8, ptr %1570, i64 %1569
+  %.ptr188 = getelementptr inbounds nuw i8, ptr %1572, i64 24
   %.not1025175 = icmp sgt i64 %1569, 0
   br i1 %.not1025175, label %.lr.ph178, label %.loopexit103
 
@@ -3683,8 +3683,8 @@ zend_string_release_ex.exit1074:                  ; preds = %1476, %1480, %1485
   %1590 = load ptr, ptr %1583, align 8, !tbaa !63
   %1591 = getelementptr inbounds nuw i8, ptr %1590, i64 16
   store i64 %1589, ptr %1591, align 8, !tbaa !17
-  %1592 = getelementptr i8, ptr %1590, i64 %1589
-  %.ptr190 = getelementptr i8, ptr %1592, i64 24
+  %1592 = getelementptr inbounds nuw i8, ptr %1590, i64 %1589
+  %.ptr190 = getelementptr inbounds nuw i8, ptr %1592, i64 24
   %.not1028179 = icmp sgt i64 %1589, 0
   br i1 %.not1028179, label %.lr.ph182, label %.loopexit
 

@@ -469,11 +469,11 @@ if.end16.i:                                       ; preds = %for.body.i
   br i1 %cmp19.not.i, label %if.end21.i, label %_ZN4node6crypto17ClientHelloParser14ParseExtensionEtPKhm.exit
 
 if.end21.i:                                       ; preds = %if.end16.i
-  %arrayidx23.i = getelementptr i8, ptr %arrayidx17.i, i64 1
+  %arrayidx23.i = getelementptr inbounds nuw i8, ptr %arrayidx17.i, i64 1
   %14 = load i8, ptr %arrayidx23.i, align 1
   %conv24.i = zext i8 %14 to i16
   %shl25.i = shl nuw i16 %conv24.i, 8
-  %arrayidx27.i = getelementptr i8, ptr %arrayidx17.i, i64 2
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %arrayidx17.i, i64 2
   %15 = load i8, ptr %arrayidx27.i, align 1
   %conv28.i = zext i8 %15 to i16
   %add29.i = or disjoint i16 %shl25.i, %conv28.i
@@ -554,11 +554,11 @@ if.end16:                                         ; preds = %for.body
   br i1 %cmp19.not, label %if.end21, label %sw.epilog
 
 if.end21:                                         ; preds = %if.end16
-  %arrayidx23 = getelementptr i8, ptr %arrayidx17, i64 1
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %arrayidx17, i64 1
   %3 = load i8, ptr %arrayidx23, align 1
   %conv24 = zext i8 %3 to i16
   %shl25 = shl nuw i16 %conv24, 8
-  %arrayidx27 = getelementptr i8, ptr %arrayidx17, i64 2
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %arrayidx17, i64 2
   %4 = load i8, ptr %arrayidx27, align 1
   %conv28 = zext i8 %4 to i16
   %add29 = or disjoint i16 %shl25, %conv28

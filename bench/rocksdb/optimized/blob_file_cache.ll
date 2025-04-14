@@ -215,9 +215,9 @@ _ZN7rocksdb16CacheHandleGuardINS_14BlobFileReaderEED2Ev.exit: ; preds = %_ZN7roc
   %54 = mul nuw i64 %48, %45
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !25
-  %57 = getelementptr %"struct.rocksdb::CacheAlignedWrapper", ptr %56, i64 %53
-  %58 = getelementptr %"struct.rocksdb::CacheAlignedWrapper", ptr %57, i64 %54
-  %59 = getelementptr %"struct.rocksdb::CacheAlignedWrapper", ptr %58, i64 %52
+  %57 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %56, i64 %53
+  %58 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %57, i64 %54
+  %59 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %58, i64 %52
   call void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %59)
   %60 = load ptr, ptr %1, align 8, !tbaa !4
   %61 = load ptr, ptr %60, align 8, !tbaa !46

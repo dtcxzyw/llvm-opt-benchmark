@@ -1921,9 +1921,9 @@ _ZN7rocksdb6Status10IncompleteERKNS_5SliceES3_.exit: ; preds = %72
   %101 = mul nuw i64 %95, %92
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %103 = load ptr, ptr %102, align 8, !tbaa !284
-  %104 = getelementptr %"struct.rocksdb::CacheAlignedWrapper", ptr %103, i64 %100
-  %105 = getelementptr %"struct.rocksdb::CacheAlignedWrapper", ptr %104, i64 %101
-  %106 = getelementptr %"struct.rocksdb::CacheAlignedWrapper", ptr %105, i64 %99
+  %104 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %103, i64 %100
+  %105 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %104, i64 %101
+  %106 = getelementptr inbounds nuw %"struct.rocksdb::CacheAlignedWrapper", ptr %105, i64 %99
   invoke void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %106)
           to label %_ZN7rocksdb9MutexLockC2EPNS_4port5MutexE.exit unwind label %114
 

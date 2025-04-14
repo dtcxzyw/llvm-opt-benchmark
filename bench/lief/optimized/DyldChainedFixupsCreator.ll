@@ -3908,8 +3908,8 @@ _ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017
   br i1 %792, label %793, label %977
 
 793:                                              ; preds = %_ZN6spdlog6logger4log_IJRKmEEEvNS_10source_locENS_5level10level_enumEN3fmt3v1017basic_string_viewIcEEDpOT_.exit142
-  %794 = getelementptr %"struct.LIEF::MachO::DyldChainedFixupsCreator::binding_rebase_t", ptr %786, i64 %.067465
-  %795 = getelementptr i8, ptr %794, i64 16
+  %794 = getelementptr inbounds nuw %"struct.LIEF::MachO::DyldChainedFixupsCreator::binding_rebase_t", ptr %786, i64 %.067465
+  %795 = getelementptr inbounds nuw i8, ptr %794, i64 16
   %796 = load ptr, ptr %795, align 8, !tbaa !3
   %797 = load ptr, ptr %796, align 8, !tbaa !6
   %798 = getelementptr inbounds nuw i8, ptr %797, i64 40
@@ -33452,8 +33452,8 @@ define linkonce_odr hidden ptr @_ZN3fmt3v1010vformat_toINS0_8appenderETnNSt9enab
   call void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr %1, i64 %2, i64 %3, ptr %4, ptr null)
   %12 = load i64, ptr %9, align 8, !tbaa !283
   store i64 0, ptr %9, align 8, !tbaa !283
-  %13 = getelementptr i8, ptr %6, i64 %12
-  %.ptr2.i.i = getelementptr i8, ptr %13, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
+  %.ptr2.i.i = getelementptr inbounds nuw i8, ptr %13, i64 40
   %.sroa.0.0.copyload.i.i = load ptr, ptr %11, align 8
   %.not4.i.i.i = icmp eq i64 %12, 0
   br i1 %.not4.i.i.i, label %_ZN3fmt3v106detail15iterator_bufferINS0_8appenderEcNS1_13buffer_traitsEED2Ev.exit, label %.lr.ph.i.i.i
@@ -33496,8 +33496,8 @@ _ZN3fmt3v106detail15iterator_bufferINS0_8appenderEcNS1_13buffer_traitsEE3outEv.e
   %.pr = load i64, ptr %9, align 8, !tbaa !283
   store ptr %.sroa.0.0.copyload.i.i, ptr %11, align 8
   store i64 0, ptr %9, align 8, !tbaa !283
-  %30 = getelementptr i8, ptr %6, i64 %.pr
-  %.ptr2.i.i12 = getelementptr i8, ptr %30, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 %.pr
+  %.ptr2.i.i12 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %.not4.i.i.i14 = icmp eq i64 %.pr, 0
   br i1 %.not4.i.i.i14, label %_ZN3fmt3v106detail15iterator_bufferINS0_8appenderEcNS1_13buffer_traitsEED2Ev.exit, label %.lr.ph.i.i.i15
 

@@ -18392,7 +18392,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 
 31:                                               ; preds = %23
   %32 = load ptr, ptr %1, align 8, !tbaa !25
-  %33 = getelementptr i8, ptr %32, i64 %.018
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.018
   %34 = load i8, ptr %33, align 1, !tbaa !13
   %35 = sext i8 %34 to i32
   %36 = tail call i32 @islower(i32 noundef %35) #27
@@ -18400,7 +18400,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   br i1 %.not, label %65, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr i8, ptr %33, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %39 = load i8, ptr %38, align 1, !tbaa !13
   %40 = sext i8 %39 to i32
   %41 = tail call i32 @isupper(i32 noundef %40) #27

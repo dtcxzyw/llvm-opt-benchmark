@@ -8083,9 +8083,9 @@ define linkonce_odr dso_local <2 x float> @_ZNK4pbrt19PiecewiseConstant2D6Sample
 
 _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i: ; preds = %4, %._crit_edge.i.i
   %24 = phi i64 [ %spec.select.i.i, %._crit_edge.i.i ], [ 0, %4 ]
-  %25 = getelementptr float, ptr %11, i64 %24
+  %25 = getelementptr inbounds nuw float, ptr %11, i64 %24
   %26 = load float, ptr %25, align 4, !tbaa !77
-  %27 = getelementptr i8, ptr %25, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %28 = load float, ptr %27, align 4, !tbaa !77
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load float, ptr %29, align 8, !tbaa !184
@@ -8150,9 +8150,9 @@ _ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit: ; preds = %_ZN4pbrt12FindInter
 
 _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i10: ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %._crit_edge.i.i18
   %67 = phi i64 [ %spec.select.i.i21, %._crit_edge.i.i18 ], [ 0, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
-  %68 = getelementptr float, ptr %54, i64 %67
+  %68 = getelementptr inbounds nuw float, ptr %54, i64 %67
   %69 = load float, ptr %68, align 4, !tbaa !77
-  %70 = getelementptr i8, ptr %68, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load float, ptr %70, align 4, !tbaa !77
   %72 = getelementptr inbounds nuw i8, ptr %47, i64 72
   %73 = load float, ptr %72, align 8, !tbaa !184

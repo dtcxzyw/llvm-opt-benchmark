@@ -5596,7 +5596,7 @@ define void @_Z22string_process_escapesRNSt7__cxx1112basic_stringIcSt11char_trai
   %.057 = phi i64 [ 0, %.lr.ph ], [ %.3, %65 ]
   %.04556 = phi i64 [ 0, %.lr.ph ], [ %66, %65 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !25
-  %10 = getelementptr i8, ptr %9, i64 %.04556
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.04556
   %11 = load i8, ptr %10, align 1, !tbaa !28
   %12 = icmp eq i8 %11, 92
   br i1 %12, label %13, label %62
@@ -5662,7 +5662,7 @@ define void @_Z22string_process_escapesRNSt7__cxx1112basic_stringIcSt11char_trai
 
 40:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %2) #38
-  %41 = getelementptr i8, ptr %10, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %42 = load i8, ptr %41, align 1, !tbaa !28
   store i8 %42, ptr %2, align 1, !tbaa !28
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 %38

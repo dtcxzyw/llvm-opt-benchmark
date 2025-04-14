@@ -120,8 +120,8 @@ define i64 @ARMT_Convert(ptr noundef captures(none) %0, i64 noundef %1, i32 noun
 
 .split.us:                                        ; preds = %6, %50
   %.04145.us = phi i64 [ %51, %50 ], [ 0, %6 ]
-  %9 = getelementptr i8, ptr %0, i64 %.04145.us
-  %10 = getelementptr i8, ptr %9, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.04145.us
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !3
   %12 = zext i8 %11 to i32
   %13 = and i32 %12, 248
@@ -129,7 +129,7 @@ define i64 @ARMT_Convert(ptr noundef captures(none) %0, i64 noundef %1, i32 noun
   br i1 %14, label %15, label %50
 
 15:                                               ; preds = %.split.us
-  %16 = getelementptr i8, ptr %9, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 3
   %17 = load i8, ptr %16, align 1, !tbaa !3
   %18 = zext i8 %17 to i32
   %19 = and i32 %18, 248
@@ -180,8 +180,8 @@ define i64 @ARMT_Convert(ptr noundef captures(none) %0, i64 noundef %1, i32 noun
 
 .split:                                           ; preds = %6, %93
   %.04145 = phi i64 [ %94, %93 ], [ 0, %6 ]
-  %52 = getelementptr i8, ptr %0, i64 %.04145
-  %53 = getelementptr i8, ptr %52, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 %.04145
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %54 = load i8, ptr %53, align 1, !tbaa !3
   %55 = zext i8 %54 to i32
   %56 = and i32 %55, 248
@@ -189,7 +189,7 @@ define i64 @ARMT_Convert(ptr noundef captures(none) %0, i64 noundef %1, i32 noun
   br i1 %57, label %58, label %93
 
 58:                                               ; preds = %.split
-  %59 = getelementptr i8, ptr %52, i64 3
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 3
   %60 = load i8, ptr %59, align 1, !tbaa !3
   %61 = zext i8 %60 to i32
   %62 = and i32 %61, 248

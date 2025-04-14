@@ -4673,8 +4673,8 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail5floffINS1_15m
   %197 = zext nneg i32 %196 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %195, i8 48, i64 %197, i1 false)
   %198 = sext i32 %1 to i64
-  %199 = getelementptr i8, ptr %.0829, i64 %198
-  %200 = getelementptr i8, ptr %199, i64 1
+  %199 = getelementptr inbounds nuw i8, ptr %.0829, i64 %198
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 1
   store i8 49, ptr %200, align 1, !tbaa !23
   %201 = getelementptr inbounds nuw i8, ptr %195, i64 %189
   br label %.thread2004

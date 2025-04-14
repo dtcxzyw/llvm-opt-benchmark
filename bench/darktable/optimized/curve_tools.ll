@@ -246,8 +246,8 @@ define noalias noundef ptr @spline_cubic_set(i32 noundef %0, ptr noundef readonl
   store float 0.000000e+00, ptr %52, align 4, !tbaa !6
   %53 = mul nsw i32 %5, 3
   %54 = sext i32 %53 to i64
-  %55 = getelementptr float, ptr %16, i64 %54
-  %56 = getelementptr i8, ptr %55, i64 4
+  %55 = getelementptr inbounds nuw float, ptr %16, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store float 1.000000e+00, ptr %56, align 4, !tbaa !6
   %57 = tail call ptr @d3_np_fs(i32 noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %18)
   tail call void @free(ptr noundef nonnull %16) #13

@@ -5858,8 +5858,8 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
 41:                                               ; preds = %.preheader.split.us.i
   %42 = add i32 %36, %.03444.us.i
   %43 = sext i32 %.03444.us.i to i64
-  %44 = getelementptr i8, ptr %34, i64 %43
-  %45 = getelementptr i8, ptr %44, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %46 = load i32, ptr %45, align 1
   %47 = icmp sgt i32 %46, -1
   %48 = sub i32 0, %46
@@ -5886,15 +5886,15 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
   store i8 %55, ptr %45, align 1, !tbaa !31
   %56 = lshr i32 %.sink58.i, 8
   %57 = trunc i32 %56 to i8
-  %58 = getelementptr i8, ptr %44, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %44, i64 2
   store i8 %57, ptr %58, align 1, !tbaa !31
   %59 = lshr i32 %.sink58.i, 16
   %60 = trunc i32 %59 to i8
-  %61 = getelementptr i8, ptr %44, i64 3
+  %61 = getelementptr inbounds nuw i8, ptr %44, i64 3
   store i8 %60, ptr %61, align 1, !tbaa !31
   %62 = lshr i32 %.sink.i, 24
   %63 = trunc nuw i32 %62 to i8
-  %64 = getelementptr i8, ptr %44, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i8 %63, ptr %64, align 1, !tbaa !31
   br label %65
 
@@ -5941,8 +5941,8 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
 83:                                               ; preds = %.preheader.split.i
   %84 = add i32 %78, %.03444.i
   %85 = sext i32 %.03444.i to i64
-  %86 = getelementptr i8, ptr %76, i64 %85
-  %87 = getelementptr i8, ptr %86, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %76, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1
   %88 = load i32, ptr %87, align 1
   %89 = icmp sgt i32 %88, -1
   %90 = sub i32 0, %88
@@ -5969,15 +5969,15 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
   store i8 %97, ptr %87, align 1, !tbaa !31
   %98 = lshr i32 %.sink73.i, 8
   %99 = trunc i32 %98 to i8
-  %100 = getelementptr i8, ptr %86, i64 2
+  %100 = getelementptr inbounds nuw i8, ptr %86, i64 2
   store i8 %99, ptr %100, align 1, !tbaa !31
   %101 = lshr i32 %.sink73.i, 16
   %102 = trunc i32 %101 to i8
-  %103 = getelementptr i8, ptr %86, i64 3
+  %103 = getelementptr inbounds nuw i8, ptr %86, i64 3
   store i8 %102, ptr %103, align 1, !tbaa !31
   %104 = lshr i32 %.sink63.i, 24
   %105 = trunc nuw i32 %104 to i8
-  %106 = getelementptr i8, ptr %86, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store i8 %105, ptr %106, align 1, !tbaa !31
   br label %107
 

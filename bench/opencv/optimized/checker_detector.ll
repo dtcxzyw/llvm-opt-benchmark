@@ -6276,8 +6276,8 @@ _ZN2cv3mcc6CChartC2ERKS1_.exit:                   ; preds = %.lr.ph.i.i.i.i.i.i,
   %310 = load ptr, ptr %23, align 8, !tbaa !180
   %311 = getelementptr inbounds nuw %"class.cv::Point_", ptr %310, i64 %.0149555
   %312 = load ptr, ptr %21, align 8, !tbaa !180
-  %313 = getelementptr %"class.cv::Point_", ptr %312, i64 %.0149555
-  %314 = getelementptr i8, ptr %313, i64 %.idx
+  %313 = getelementptr inbounds nuw %"class.cv::Point_", ptr %312, i64 %.0149555
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 %.idx
   %315 = load i64, ptr %311, align 4
   store i64 %315, ptr %314, align 4
   %316 = add nuw nsw i64 %.0149555, 1

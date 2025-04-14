@@ -5328,8 +5328,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %284, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !1029
   %287 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 984
   %288 = getelementptr inbounds ptr, ptr %287, i64 %276
-  %289 = getelementptr ptr, ptr %287, i64 %.sroa.7.0.i
-  %290 = getelementptr i8, ptr %289, i64 16
+  %289 = getelementptr inbounds nuw ptr, ptr %287, i64 %.sroa.7.0.i
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 16
   %291 = shl nuw nsw i64 %282, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %290, ptr nonnull align 8 %288, i64 %291, i1 false), !alias.scope !1040, !noalias !1024
   br label %292

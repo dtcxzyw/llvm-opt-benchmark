@@ -962,8 +962,8 @@ _ZNK4llvm9StringRef7find_ifENS_12function_refIFbcEEEm.exit.thread: ; preds = %40
 
 416:                                              ; preds = %_ZNK4llvm9StringRef7find_ifENS_12function_refIFbcEEEm.exit
   %417 = load ptr, ptr %11, align 8, !tbaa !3
-  %418 = getelementptr i8, ptr %417, i64 %404
-  %419 = getelementptr i8, ptr %418, i64 1
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 %404
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 1
   store ptr %419, ptr %11, align 8, !tbaa !3
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 

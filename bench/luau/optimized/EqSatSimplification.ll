@@ -41025,7 +41025,7 @@ _ZNK4Luau19EqSatSimplification13QueryIteratorINS0_6TTableEEneERKS3_.exit.thread:
   %331 = ptrtoint ptr %329 to i64
   %332 = ptrtoint ptr %330 to i64
   %333 = sub i64 %331, %332
-  %334 = getelementptr i8, ptr %327, i64 %333
+  %334 = getelementptr inbounds nuw i8, ptr %327, i64 %333
   %.not82279 = icmp eq ptr %329, %330
   br i1 %.not82279, label %.critedge92, label %.lr.ph281
 

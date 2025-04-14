@@ -477,7 +477,7 @@ define void @_ZN13duckdb_brotli33BrotliOptimizeHuffmanCountsForRleEmPjPh(i64 nou
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %28
-  %32 = getelementptr i8, ptr %25, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !3
   %.not154 = icmp eq i32 %33, 0
   br i1 %.not154, label %35, label %34
@@ -638,7 +638,7 @@ define void @_ZN13duckdb_brotli33BrotliOptimizeHuffmanCountsForRleEmPjPh(i64 nou
 108:                                              ; preds = %.loopexit
   %109 = getelementptr inbounds nuw i32, ptr %1, i64 %.4207
   %110 = load i32, ptr %109, align 4, !tbaa !3
-  %111 = getelementptr i8, ptr %109, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %112 = load i32, ptr %111, align 4, !tbaa !3
   %113 = add i32 %112, %110
   %114 = getelementptr i8, ptr %109, i64 8

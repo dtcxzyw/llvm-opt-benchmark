@@ -2653,8 +2653,7 @@ ptr_token_eq.exit.thread:                         ; preds = %55, %61, %44, %ptr_
   br i1 %81, label %ptr_token_to_idx.exit.thread, label %82, !prof !4
 
 82:                                               ; preds = %78
-  %83 = getelementptr i8, ptr %.050, i64 %.149
-  %.ptr122 = getelementptr i8, ptr %83, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.050, i64 %.149
   %84 = add i64 %.149, -20
   %85 = icmp ult i64 %84, -19
   br i1 %85, label %ptr_token_to_idx.exit.thread, label %86, !prof !4
@@ -2683,7 +2682,7 @@ ptr_token_eq.exit.thread:                         ; preds = %55, %61, %44, %ptr_
   %95 = mul i64 %.021.i100, 10
   %96 = add i64 %92, %95
   %97 = getelementptr inbounds nuw i8, ptr %.022.i99, i64 1
-  %98 = icmp ult ptr %97, %.ptr122
+  %98 = icmp ult ptr %.022.i99, %83
   br i1 %98, label %.lr.ph101, label %.critedge.i37, !llvm.loop !104
 
 .critedge.i37:                                    ; preds = %94
@@ -2966,8 +2965,7 @@ ptr_token_eq.exit.thread:                         ; preds = %63, %69, %48, %ptr_
   br label %ptr_mut_obj_get.exit
 
 91:                                               ; preds = %81
-  %92 = getelementptr i8, ptr %.075, i64 %.174
-  %.ptr176 = getelementptr i8, ptr %92, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.075, i64 %.174
   %93 = add i64 %.174, -20
   %94 = icmp ult i64 %93, -19
   br i1 %94, label %ptr_token_to_idx.exit.thread, label %95, !prof !4
@@ -3000,7 +2998,7 @@ ptr_token_eq.exit.thread:                         ; preds = %63, %69, %48, %ptr_
   %106 = mul i64 %.021.i154, 10
   %107 = add i64 %103, %106
   %108 = getelementptr inbounds nuw i8, ptr %.022.i153, i64 1
-  %109 = icmp ult ptr %108, %.ptr176
+  %109 = icmp ult ptr %.022.i153, %92
   br i1 %109, label %.lr.ph155, label %.critedge.i54, !llvm.loop !104
 
 .critedge.i54:                                    ; preds = %105
@@ -3311,8 +3309,7 @@ ptr_token_eq.exit.thread:                         ; preds = %70, %76, %55, %ptr_
   br label %ptr_mut_obj_get.exit.thread
 
 94:                                               ; preds = %84
-  %95 = getelementptr i8, ptr %.0438, i64 %.6437
-  %.ptr848 = getelementptr i8, ptr %95, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.0438, i64 %.6437
   %96 = add i64 %.6437, -20
   %97 = icmp ult i64 %96, -19
   br i1 %97, label %ptr_mut_obj_get.exit.thread, label %98, !prof !4
@@ -3345,7 +3342,7 @@ ptr_token_eq.exit.thread:                         ; preds = %70, %76, %55, %ptr_
   %109 = mul i64 %.021.i747, 10
   %110 = add i64 %106, %109
   %111 = getelementptr inbounds nuw i8, ptr %.022.i338746, i64 1
-  %112 = icmp ult ptr %111, %.ptr848
+  %112 = icmp ult ptr %.022.i338746, %95
   br i1 %112, label %.lr.ph748, label %.critedge.i339, !llvm.loop !104
 
 .critedge.i339:                                   ; preds = %108

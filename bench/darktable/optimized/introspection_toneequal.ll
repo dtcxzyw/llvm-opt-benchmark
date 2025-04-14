@@ -1234,7 +1234,7 @@ get_channels_factors.exit:                        ; preds = %88
   %indvars.iv14.i = phi i64 [ 0, %get_channels_factors.exit ], [ %indvars.iv.next15.i, %96 ]
   %94 = getelementptr inbounds nuw [9 x float], ptr @centers_params, i64 0, i64 %indvars.iv14.i
   %95 = load float, ptr %94, align 4, !tbaa !6
-  %.idx.i = shl nsw i64 %indvars.iv14.i, 5
+  %.idx.i = shl nuw nsw i64 %indvars.iv14.i, 5
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   br label %97
 
@@ -1344,7 +1344,7 @@ define internal fastcc range(i32 0, 2) i32 @update_curve_lut(ptr noundef %0) unn
   %indvars.iv14.i = phi i64 [ 0, %14 ], [ %indvars.iv.next15.i, %22 ]
   %20 = getelementptr inbounds nuw [9 x float], ptr @centers_params, i64 0, i64 %indvars.iv14.i
   %21 = load float, ptr %20, align 4, !tbaa !6
-  %.idx.i = shl nsw i64 %indvars.iv14.i, 5
+  %.idx.i = shl nuw nsw i64 %indvars.iv14.i, 5
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
   br label %23
 
@@ -1618,7 +1618,7 @@ _transpose_dot_matrix.exit:                       ; preds = %12
 29:                                               ; preds = %29, %.preheader.i42
   %.019.i = phi i64 [ 0, %.preheader.i42 ], [ %35, %29 ]
   %.01518.i = phi float [ 0.000000e+00, %.preheader.i42 ], [ %34, %29 ]
-  %.idx.i44 = shl nsw i64 %.019.i, 5
+  %.idx.i44 = shl nuw nsw i64 %.019.i, 5
   %gep.i45 = getelementptr inbounds nuw i8, ptr %invariant.gep.i43, i64 %.idx.i44
   %30 = load float, ptr %gep.i45, align 4, !tbaa !6, !alias.scope !237, !noalias !245
   %31 = getelementptr inbounds nuw float, ptr %1, i64 %.019.i
@@ -1684,7 +1684,7 @@ _solve_hermitian.exit.thread:                     ; preds = %_transpose_dot_vect
   br i1 %.not83.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %.idx74.i.i = shl nsw i64 %.06479.i.i, 5
+  %.idx74.i.i = shl nuw nsw i64 %.06479.i.i, 5
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx74.i.i
   br label %55
 
@@ -1778,7 +1778,7 @@ _solve_hermitian.exit.thread:                     ; preds = %_transpose_dot_vect
   br i1 %.not56.i.i, label %._crit_edge.i50.i, label %.lr.ph.i48.i
 
 .lr.ph.i48.i:                                     ; preds = %.preheader.i47.i
-  %.idx49.i.i = shl nsw i64 %.04054.i.i, 5
+  %.idx49.i.i = shl nuw nsw i64 %.04054.i.i, 5
   %91 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx49.i.i
   br label %95
 

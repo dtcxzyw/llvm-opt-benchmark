@@ -733,7 +733,7 @@ define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERK12aiMatrix4x4tIfE(ptr 
 
 .preheader:                                       ; preds = %2, %12
   %indvars.iv16 = phi i64 [ 0, %2 ], [ %indvars.iv.next17, %12 ]
-  %.idx = shl nsw i64 %indvars.iv16, 5
+  %.idx = shl nuw nsw i64 %indvars.iv16, 5
   %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   br label %13
 

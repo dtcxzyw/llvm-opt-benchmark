@@ -308,9 +308,9 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
   %.idx.i180 = mul nuw i64 %.05764.i, 12
   %138 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i180
   %139 = load i32, ptr %138, align 4, !tbaa !16
-  %140 = getelementptr i8, ptr %138, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %141 = load i32, ptr %140, align 4, !tbaa !16
-  %142 = getelementptr i8, ptr %138, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %143 = load i32, ptr %142, align 4, !tbaa !16
   %144 = trunc i64 %.05764.i to i32
   %145 = zext i32 %139 to i64
@@ -393,9 +393,9 @@ _ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17mesh
   %.idx.i189 = mul nuw i64 %.07879.i, 12
   %186 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i189
   %187 = load i32, ptr %186, align 4, !tbaa !16
-  %188 = getelementptr i8, ptr %186, i64 4
+  %188 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %189 = load i32, ptr %188, align 4, !tbaa !16
-  %190 = getelementptr i8, ptr %186, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %191 = load i32, ptr %190, align 4, !tbaa !16
   %192 = zext i32 %187 to i64
   %193 = mul i64 %185, %192

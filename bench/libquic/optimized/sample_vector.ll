@@ -461,14 +461,14 @@ define noundef zeroext i1 @_ZN4base12SampleVector15AddSubtractImplEPNS_19SampleC
   %20 = load i32, ptr %4, align 4, !tbaa !13
   %21 = load ptr, ptr %9, align 8, !tbaa !26
   %22 = load ptr, ptr %21, align 8, !tbaa !11
-  %23 = getelementptr i32, ptr %22, i64 %.013.us
+  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %.013.us
   %24 = load i32, ptr %23, align 4, !tbaa !13
   %25 = icmp eq i32 %20, %24
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %16
   %27 = load i32, ptr %5, align 4, !tbaa !13
-  %28 = getelementptr i8, ptr %23, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !13
   %30 = icmp eq i32 %27, %29
   br i1 %30, label %35, label %31
@@ -514,14 +514,14 @@ define noundef zeroext i1 @_ZN4base12SampleVector15AddSubtractImplEPNS_19SampleC
   %54 = load i32, ptr %4, align 4, !tbaa !13
   %55 = load ptr, ptr %9, align 8, !tbaa !26
   %56 = load ptr, ptr %55, align 8, !tbaa !11
-  %57 = getelementptr i32, ptr %56, i64 %.013
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %.013
   %58 = load i32, ptr %57, align 4, !tbaa !13
   %59 = icmp eq i32 %54, %58
   br i1 %59, label %60, label %74
 
 60:                                               ; preds = %50
   %61 = load i32, ptr %5, align 4, !tbaa !13
-  %62 = getelementptr i8, ptr %57, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !13
   %64 = icmp eq i32 %61, %63
   br i1 %64, label %65, label %74

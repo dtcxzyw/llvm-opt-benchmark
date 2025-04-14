@@ -2389,7 +2389,7 @@ kernel.exit:                                      ; preds = %534
   %597 = zext nneg i32 %narrow to i64
   %598 = sub nuw i32 %28, %spec.select
   %wide.trip.count591 = zext nneg i32 %598 to i64
-  %599 = getelementptr i8, ptr %520, i64 %595
+  %599 = getelementptr nuw i8, ptr %520, i64 %595
   br label %.preheader516
 
 600:                                              ; preds = %.lr.ph539, %600
@@ -2411,7 +2411,7 @@ kernel.exit:                                      ; preds = %534
 .preheader516:                                    ; preds = %.preheader516.preheader, %.preheader516
   %indvar = phi i64 [ 0, %.preheader516.preheader ], [ %indvar.next, %.preheader516 ]
   %607 = mul nuw nsw i64 %indvar, %597
-  %scevgep = getelementptr i8, ptr %599, i64 %607
+  %scevgep = getelementptr nuw i8, ptr %599, i64 %607
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false), !tbaa !53
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond592.not = icmp eq i64 %indvar.next, %wide.trip.count591

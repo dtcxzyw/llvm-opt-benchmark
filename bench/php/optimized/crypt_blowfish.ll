@@ -3148,7 +3148,7 @@ define internal fastcc void @BF_encode(ptr noundef writeonly captures(none) %0, 
   %9 = shl nuw nsw i32 %4, 4
   %10 = and i32 %9, 48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.ptr2 = getelementptr i8, ptr %1, i64 1
+  %.ptr2 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %.ptr2, align 1, !tbaa !4
   %13 = zext i8 %12 to i32
   %14 = lshr i32 %13, 4
@@ -3196,7 +3196,7 @@ define internal fastcc void @BF_encode(ptr noundef writeonly captures(none) %0, 
   %44 = shl nuw nsw i32 %39, 4
   %45 = and i32 %44, 48
   %46 = getelementptr inbounds nuw i8, ptr %.04, i64 5
-  %.ptr = getelementptr i8, ptr %.030.ptr, i64 1
+  %.ptr = getelementptr inbounds nuw i8, ptr %.030.ptr, i64 1
   %47 = load i8, ptr %.ptr, align 1, !tbaa !4
   %48 = zext i8 %47 to i32
   %49 = lshr i32 %48, 4

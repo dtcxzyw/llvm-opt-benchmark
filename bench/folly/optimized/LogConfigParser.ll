@@ -873,8 +873,8 @@ _ZN5folly14trimWhitespaceENS_5RangeIPKcEE.exit102.i: ; preds = %.noexc100.i
   unreachable
 
 157:                                              ; preds = %149
-  %158 = getelementptr i8, ptr %152, i64 %137
-  %159 = getelementptr i8, ptr %158, i64 1
+  %158 = getelementptr inbounds nuw i8, ptr %152, i64 %137
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 1
   %160 = getelementptr inbounds nuw i8, ptr %152, i64 %155
   %161 = icmp eq ptr %134, %.sroa.0.0.copyload.i.i.i
   br i1 %161, label %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit.thread.i, label %_ZNK5folly5RangeIPKcE8endsWithERS1_.exit.i

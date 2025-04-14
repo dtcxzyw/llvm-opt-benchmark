@@ -9619,7 +9619,7 @@ _ZN3gmxL12set_icell_bbILNS_12PairlistTypeE3EEEvRKNS_4GridEiRKNS_11BasicVectorIfE
   %2357 = getelementptr inbounds nuw [3 x float], ptr %28, i64 0, i64 %indvars.iv.i.i139
   %2358 = load float, ptr %2357, align 4, !tbaa !51
   %2359 = fadd float %2356, %2358
-  %.idx.i.i = shl nsw i64 %indvars.iv.i.i139, 5
+  %.idx.i.i = shl nuw nsw i64 %indvars.iv.i.i139, 5
   %gep19.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep18.i.i, i64 %.idx.i.i
   store float %2359, ptr %gep19.i.i, align 4, !tbaa !51
   %indvars.iv.next.i.i140 = add nuw nsw i64 %indvars.iv.i.i139, 1

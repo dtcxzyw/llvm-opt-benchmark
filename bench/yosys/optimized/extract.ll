@@ -1293,8 +1293,8 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   br i1 %385, label %386, label %397
 
 386:                                              ; preds = %378
-  %387 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre4867, i64 %.02634392
-  %388 = getelementptr i8, ptr %387, i64 32
+  %387 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre4867, i64 %.02634392
+  %388 = getelementptr inbounds nuw i8, ptr %387, i64 32
   %389 = load ptr, ptr %388, align 8, !tbaa !47
   %390 = call i64 @strtol(ptr noundef nonnull captures(none) %389, ptr noundef null, i32 noundef 10) #29
   %391 = trunc i64 %390 to i32
@@ -1373,10 +1373,10 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 443:                                              ; preds = %435
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %57) #29
-  %444 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre4870, i64 %.02634392
-  %445 = getelementptr i8, ptr %444, i64 32
+  %444 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre4870, i64 %.02634392
+  %445 = getelementptr inbounds nuw i8, ptr %444, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  %446 = getelementptr i8, ptr %444, i64 40
+  %446 = getelementptr inbounds nuw i8, ptr %444, i64 40
   %447 = load i64, ptr %446, align 8, !tbaa !39, !noalias !50
   %.not.i620 = icmp eq i64 %447, 0
   br i1 %.not.i620, label %._crit_edge.i.i.thread.i, label %448
@@ -1765,10 +1765,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit642: ; preds = %_Z
 
 597:                                              ; preds = %589
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59) #29
-  %598 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre4872, i64 %.02634392
-  %599 = getelementptr i8, ptr %598, i64 32
+  %598 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre4872, i64 %.02634392
+  %599 = getelementptr inbounds nuw i8, ptr %598, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %600 = getelementptr i8, ptr %598, i64 40
+  %600 = getelementptr inbounds nuw i8, ptr %598, i64 40
   %601 = load i64, ptr %600, align 8, !tbaa !39, !noalias !66
   %.not.i643 = icmp eq i64 %601, 0
   br i1 %.not.i643, label %._crit_edge.i.i.thread.i648, label %602
@@ -2178,10 +2178,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit689: ; preds = %_Z
 
 733:                                              ; preds = %725
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %63) #29
-  %734 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre4873, i64 %.02634392
-  %735 = getelementptr i8, ptr %734, i64 32
+  %734 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre4873, i64 %.02634392
+  %735 = getelementptr inbounds nuw i8, ptr %734, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %736 = getelementptr i8, ptr %734, i64 40
+  %736 = getelementptr inbounds nuw i8, ptr %734, i64 40
   %737 = load i64, ptr %736, align 8, !tbaa !39, !noalias !72
   %.not.i690 = icmp eq i64 %737, 0
   br i1 %.not.i690, label %._crit_edge.i.i.thread.i695, label %738
@@ -2925,10 +2925,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit755: ; preds = %_Z
 
 977:                                              ; preds = %969
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71) #29
-  %978 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre4874, i64 %.02634392
-  %979 = getelementptr i8, ptr %978, i64 32
+  %978 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre4874, i64 %.02634392
+  %979 = getelementptr inbounds nuw i8, ptr %978, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !87)
-  %980 = getelementptr i8, ptr %978, i64 40
+  %980 = getelementptr inbounds nuw i8, ptr %978, i64 40
   %981 = load i64, ptr %980, align 8, !tbaa !39, !noalias !87
   %.not.i756 = icmp eq i64 %981, 0
   br i1 %.not.i756, label %._crit_edge.i.i.thread.i761, label %982
@@ -4816,10 +4816,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit972: ; preds = %_Z
 1613:                                             ; preds = %1606
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %88) #29
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %89) #29
-  %1614 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre4910.pre, i64 %.02634392
-  %1615 = getelementptr i8, ptr %1614, i64 32
+  %1614 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre4910.pre, i64 %.02634392
+  %1615 = getelementptr inbounds nuw i8, ptr %1614, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  %1616 = getelementptr i8, ptr %1614, i64 40
+  %1616 = getelementptr inbounds nuw i8, ptr %1614, i64 40
   %1617 = load i64, ptr %1616, align 8, !tbaa !39, !noalias !111
   %.not.i973 = icmp eq i64 %1617, 0
   br i1 %.not.i973, label %._crit_edge.i.i.thread.i978, label %1618

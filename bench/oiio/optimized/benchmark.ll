@@ -942,12 +942,12 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
   %.not45 = icmp eq i64 %107, 0
   %108 = lshr i64 %106, 1
   %109 = load ptr, ptr %1, align 8, !tbaa !9
-  %110 = getelementptr double, ptr %109, i64 %108
+  %110 = getelementptr inbounds nuw double, ptr %109, i64 %108
   %111 = load double, ptr %110, align 8, !tbaa !26
   br i1 %.not45, label %112, label %117
 
 112:                                              ; preds = %101
-  %113 = getelementptr i8, ptr %110, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %114 = load double, ptr %113, align 8, !tbaa !26
   %115 = fadd double %111, %114
   %116 = fmul double %115, 5.000000e-01

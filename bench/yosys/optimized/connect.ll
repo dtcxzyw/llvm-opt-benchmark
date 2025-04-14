@@ -1509,8 +1509,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br i1 %124, label %125, label %130
 
 125:                                              ; preds = %116
-  %126 = getelementptr %"class.std::__cxx11::basic_string", ptr %119, i64 %.066550
-  %127 = getelementptr i8, ptr %126, i64 32
+  %126 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %119, i64 %.066550
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %127)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %99
 
@@ -1558,8 +1558,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
   br i1 %155, label %156, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit161
 
 156:                                              ; preds = %147
-  %157 = getelementptr %"class.std::__cxx11::basic_string", ptr %150, i64 %.066550
-  %158 = getelementptr i8, ptr %157, i64 32
+  %157 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %150, i64 %.066550
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 32
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %158)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit165 unwind label %99
 

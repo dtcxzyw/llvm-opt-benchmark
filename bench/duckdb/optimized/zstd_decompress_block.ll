@@ -5607,8 +5607,8 @@ _ZN11duckdb_zstdL25ZSTD_safecopyDstBeforeSrcEPhPKhl.exit.i: ; preds = %.lr.ph.i.
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %619 = getelementptr i8, ptr %.6148.i.i, i64 %.sroa.0.2.i.i
   %620 = add i64 %.sroa.0.2.i.i, %.sroa.659.0.i
-  %621 = getelementptr i8, ptr %0, i64 %.sroa.0.2.i.i
-  %.ptr240.i = getelementptr i8, ptr %621, i64 30372
+  %621 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.2.i.i
+  %.ptr240.i = getelementptr inbounds nuw i8, ptr %621, i64 30372
   %622 = sub i64 0, %.sink.i
   %623 = getelementptr inbounds i8, ptr %619, i64 %622
   %624 = icmp sgt i64 %.sroa.0.2.i.i, 65536
@@ -12011,8 +12011,8 @@ _ZN11duckdb_zstdL25ZSTD_safecopyDstBeforeSrcEPhPKhl.exit: ; preds = %.lr.ph.i, %
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   %615 = getelementptr i8, ptr %.6148.i, i64 %.sroa.0.2.i
   %616 = add i64 %.sroa.0.2.i, %.sroa.659.0
-  %617 = getelementptr i8, ptr %0, i64 %.sroa.0.2.i
-  %.ptr240 = getelementptr i8, ptr %617, i64 30372
+  %617 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.2.i
+  %.ptr240 = getelementptr inbounds nuw i8, ptr %617, i64 30372
   %618 = sub i64 0, %.sink
   %619 = getelementptr inbounds i8, ptr %615, i64 %618
   %620 = icmp sgt i64 %.sroa.0.2.i, 65536

@@ -22432,8 +22432,8 @@ define internal void @"_ZNSt17_Function_handlerIFvRN2tf7RuntimeEEZNS0_12DataPipe
 
 64:                                               ; preds = %63
   %65 = load ptr, ptr %11, align 8, !tbaa !42
-  %66 = getelementptr %"class.tf::Task", ptr %65, i64 %45
-  %67 = getelementptr i8, ptr %66, i64 8
+  %66 = getelementptr inbounds nuw %"class.tf::Task", ptr %65, i64 %45
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !45
   %69 = load ptr, ptr %12, align 8, !tbaa !327
   %70 = icmp eq ptr %69, null

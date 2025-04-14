@@ -2238,8 +2238,8 @@ _ZNK5folly5RangeIPKcE4findERS1_.exit.i.i.i.i.i.i.i.i: ; preds = %319
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5folly3gen6detail11splitPrefixERNS_5RangeIPKcEES6_c.exit.thread.i.i.i.i.i.i.i, label %334
 
 334:                                              ; preds = %_ZNK5folly5RangeIPKcE4findERS1_.exit.i.i.i.i.i.i.i.i
-  %335 = getelementptr i8, ptr %324, i64 %333
-  %336 = getelementptr i8, ptr %335, i64 1
+  %335 = getelementptr inbounds nuw i8, ptr %324, i64 %333
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 1
   store ptr %324, ptr %13, align 8, !tbaa !139
   store ptr %336, ptr %296, align 8, !tbaa !141
   %.not13.i.i.i.i.i.i.i.i = icmp ult i64 %333, %309
@@ -2323,7 +2323,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i.i.i.i.i.i.i: ; pr
   %359 = load i8, ptr %291, align 8, !tbaa !120
   %360 = sext i8 %359 to i32
   %361 = sub i64 %328, %340
-  %362 = call noundef ptr @memchr(ptr noundef %336, i32 noundef %360, i64 noundef %361) #36
+  %362 = call noundef ptr @memchr(ptr noundef nonnull %336, i32 noundef %360, i64 noundef %361) #36
   %363 = icmp eq ptr %362, null
   br i1 %363, label %_ZNK5folly5RangeIPKcE4findERS1_.exit.thread.i41.i.i.i.i.i.i.i, label %_ZNK5folly5RangeIPKcE4findERS1_.exit.i36.i.i.i.i.i.i.i
 
@@ -2334,8 +2334,8 @@ _ZNK5folly5RangeIPKcE4findERS1_.exit.i36.i.i.i.i.i.i.i: ; preds = %358
   br i1 %.not.i37.i.i.i.i.i.i.i, label %_ZNK5folly5RangeIPKcE4findERS1_.exit.thread.i41.i.i.i.i.i.i.i, label %366
 
 366:                                              ; preds = %_ZNK5folly5RangeIPKcE4findERS1_.exit.i36.i.i.i.i.i.i.i
-  %367 = getelementptr i8, ptr %336, i64 %365
-  %368 = getelementptr i8, ptr %367, i64 1
+  %367 = getelementptr inbounds nuw i8, ptr %336, i64 %365
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 1
   store ptr %336, ptr %13, align 8, !tbaa !139
   store ptr %368, ptr %296, align 8, !tbaa !141
   %.not13.i38.i.i.i.i.i.i.i = icmp ult i64 %365, %361
@@ -2383,7 +2383,7 @@ _ZN5folly3gen6detail11splitPrefixERNS_5RangeIPKcEES6_c.exit52.i.i.i.i.i.i.i: ; p
   %383 = sext i8 %382 to i32
   %384 = ptrtoint ptr %376 to i64
   %385 = sub i64 %328, %384
-  %386 = call noundef ptr @memchr(ptr noundef %376, i32 noundef %383, i64 noundef %385) #36
+  %386 = call noundef ptr @memchr(ptr noundef nonnull %376, i32 noundef %383, i64 noundef %385) #36
   %387 = icmp eq ptr %386, null
   br i1 %387, label %._crit_edge.loopexit.i.i.i.i.i.i.i, label %_ZNK5folly5RangeIPKcE4findERS1_.exit.i46.i.i.i.i.i.i.i
 
@@ -2394,8 +2394,8 @@ _ZNK5folly5RangeIPKcE4findERS1_.exit.i46.i.i.i.i.i.i.i: ; preds = %381
   br i1 %.not.i47.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i, label %390
 
 390:                                              ; preds = %_ZNK5folly5RangeIPKcE4findERS1_.exit.i46.i.i.i.i.i.i.i
-  %391 = getelementptr i8, ptr %376, i64 %389
-  %392 = getelementptr i8, ptr %391, i64 1
+  %391 = getelementptr inbounds nuw i8, ptr %376, i64 %389
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 1
   store ptr %376, ptr %13, align 8, !tbaa !139
   store ptr %392, ptr %296, align 8, !tbaa !141
   %.not13.i48.i.i.i.i.i.i.i = icmp ult i64 %389, %385
@@ -2950,8 +2950,8 @@ _ZNK5folly5RangeIPKcE4findERS1_.exit.i.i.i.i.i.i.i.i.i: ; preds = %562
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5folly3gen6detail11splitPrefixERNS_5RangeIPKcEES6_c.exit.thread.i.i.i.i.i.i.i.i, label %577
 
 577:                                              ; preds = %_ZNK5folly5RangeIPKcE4findERS1_.exit.i.i.i.i.i.i.i.i.i
-  %578 = getelementptr i8, ptr %567, i64 %576
-  %579 = getelementptr i8, ptr %578, i64 1
+  %578 = getelementptr inbounds nuw i8, ptr %567, i64 %576
+  %579 = getelementptr inbounds nuw i8, ptr %578, i64 1
   store ptr %567, ptr %3, align 8, !tbaa !139
   store ptr %579, ptr %539, align 8, !tbaa !141
   %.not13.i.i.i.i.i.i.i.i.i = icmp ult i64 %576, %552
@@ -3029,7 +3029,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i.i.i.i.i.i.i.i: ; 
   %598 = load i8, ptr %534, align 8, !tbaa !164
   %599 = sext i8 %598 to i32
   %600 = sub i64 %571, %583
-  %601 = call noundef ptr @memchr(ptr noundef %579, i32 noundef %599, i64 noundef %600) #36
+  %601 = call noundef ptr @memchr(ptr noundef nonnull %579, i32 noundef %599, i64 noundef %600) #36
   %602 = icmp eq ptr %601, null
   br i1 %602, label %_ZNK5folly5RangeIPKcE4findERS1_.exit.thread.i41.i.i.i.i.i.i.i.i, label %_ZNK5folly5RangeIPKcE4findERS1_.exit.i36.i.i.i.i.i.i.i.i
 
@@ -3040,8 +3040,8 @@ _ZNK5folly5RangeIPKcE4findERS1_.exit.i36.i.i.i.i.i.i.i.i: ; preds = %597
   br i1 %.not.i37.i.i.i.i.i.i.i.i, label %_ZNK5folly5RangeIPKcE4findERS1_.exit.thread.i41.i.i.i.i.i.i.i.i, label %605
 
 605:                                              ; preds = %_ZNK5folly5RangeIPKcE4findERS1_.exit.i36.i.i.i.i.i.i.i.i
-  %606 = getelementptr i8, ptr %579, i64 %604
-  %607 = getelementptr i8, ptr %606, i64 1
+  %606 = getelementptr inbounds nuw i8, ptr %579, i64 %604
+  %607 = getelementptr inbounds nuw i8, ptr %606, i64 1
   store ptr %579, ptr %3, align 8, !tbaa !139
   store ptr %607, ptr %539, align 8, !tbaa !141
   %.not13.i38.i.i.i.i.i.i.i.i = icmp ult i64 %604, %600
@@ -3083,7 +3083,7 @@ _ZN5folly3gen6detail11splitPrefixERNS_5RangeIPKcEES6_c.exit52.i.i.i.i.i.i.i.i: ;
   %619 = sext i8 %618 to i32
   %620 = ptrtoint ptr %614 to i64
   %621 = sub i64 %571, %620
-  %622 = call noundef ptr @memchr(ptr noundef %614, i32 noundef %619, i64 noundef %621) #36
+  %622 = call noundef ptr @memchr(ptr noundef nonnull %614, i32 noundef %619, i64 noundef %621) #36
   %623 = icmp eq ptr %622, null
   br i1 %623, label %._crit_edge.loopexit.i.i.i.i.i.i.i.i, label %_ZNK5folly5RangeIPKcE4findERS1_.exit.i46.i.i.i.i.i.i.i.i
 
@@ -3094,8 +3094,8 @@ _ZNK5folly5RangeIPKcE4findERS1_.exit.i46.i.i.i.i.i.i.i.i: ; preds = %617
   br i1 %.not.i47.i.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i.i, label %626
 
 626:                                              ; preds = %_ZNK5folly5RangeIPKcE4findERS1_.exit.i46.i.i.i.i.i.i.i.i
-  %627 = getelementptr i8, ptr %614, i64 %625
-  %628 = getelementptr i8, ptr %627, i64 1
+  %627 = getelementptr inbounds nuw i8, ptr %614, i64 %625
+  %628 = getelementptr inbounds nuw i8, ptr %627, i64 1
   store ptr %614, ptr %3, align 8, !tbaa !139
   store ptr %628, ptr %539, align 8, !tbaa !141
   %.not13.i48.i.i.i.i.i.i.i.i = icmp ult i64 %625, %621

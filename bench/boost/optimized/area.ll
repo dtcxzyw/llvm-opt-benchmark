@@ -161307,8 +161307,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14multiprecision8backend
 62:                                               ; preds = %60, %57
   %.0106 = phi i64 [ %59, %57 ], [ %61, %60 ]
   %63 = load ptr, ptr %10, align 8, !tbaa !4
-  %64 = getelementptr i8, ptr %63, i64 %.0106
-  %65 = getelementptr i8, ptr %64, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.0106
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #59
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -161336,7 +161336,7 @@ _ZN5boost10conversion6detail19try_lexical_convertIiPKcEEbRKT0_RT_.exit.thread.i:
   ]
 
 75:                                               ; preds = %72, %72
-  %76 = getelementptr i8, ptr %64, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %64, i64 2
   br label %77
 
 77:                                               ; preds = %75, %72

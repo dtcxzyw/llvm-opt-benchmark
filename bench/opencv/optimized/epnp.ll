@@ -394,7 +394,7 @@ define linkonce_odr hidden void @_ZN2cv4epnp11init_pointsINS_7Point3_IfEENS_6Poi
   %wide.trip.count = zext nneg i32 %5 to i64
   %invariant.gep = getelementptr i8, ptr %19, i64 8
   %invariant.gep36 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %invariant.gep38 = getelementptr i8, ptr %19, i64 8
+  %invariant.gep38 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %invariant.gep40 = getelementptr i8, ptr %19, i64 16
   br label %36
 
@@ -512,7 +512,7 @@ _ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit19:     ; preds = %36
   %103 = load float, ptr %102, align 4, !tbaa !41
   %104 = fpext float %103 to double
   %105 = zext nneg i32 %67 to i64
-  %gep39 = getelementptr double, ptr %invariant.gep38, i64 %105
+  %gep39 = getelementptr inbounds nuw double, ptr %invariant.gep38, i64 %105
   store double %104, ptr %gep39, align 8, !tbaa !32
   %.pre32 = load i32, ptr %10, align 4, !tbaa !38
   %106 = icmp eq i32 %.pre32, 1
@@ -973,7 +973,7 @@ define linkonce_odr hidden void @_ZN2cv4epnp11init_pointsINS_7Point3_IfEENS_6Poi
   %wide.trip.count = zext nneg i32 %5 to i64
   %invariant.gep = getelementptr i8, ptr %19, i64 8
   %invariant.gep36 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %invariant.gep38 = getelementptr i8, ptr %19, i64 8
+  %invariant.gep38 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %invariant.gep40 = getelementptr i8, ptr %19, i64 16
   br label %36
 
@@ -1091,7 +1091,7 @@ _ZNK2cv3Mat2atINS_7Point3_IfEEEERKT_i.exit19:     ; preds = %36
   %103 = load float, ptr %102, align 4, !tbaa !41
   %104 = fpext float %103 to double
   %105 = zext nneg i32 %67 to i64
-  %gep39 = getelementptr double, ptr %invariant.gep38, i64 %105
+  %gep39 = getelementptr inbounds nuw double, ptr %invariant.gep38, i64 %105
   store double %104, ptr %gep39, align 8, !tbaa !32
   %.pre32 = load i32, ptr %10, align 4, !tbaa !38
   %106 = icmp eq i32 %.pre32, 1

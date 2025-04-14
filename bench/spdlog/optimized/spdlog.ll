@@ -2737,8 +2737,8 @@ _ZN3fmt3v1119basic_memory_bufferIcLm250ENS0_6detail9allocatorIcEEE10deallocateEv
 22:                                               ; preds = %_ZN3fmt3v1119basic_memory_bufferIcLm250ENS0_6detail9allocatorIcEEE10deallocateEv.exit.i.i
   store ptr %13, ptr %11, align 8, !tbaa !20
   store i64 %19, ptr %21, align 8, !tbaa !21
-  %23 = getelementptr i8, ptr %10, i64 %17
-  %.ptr16.i.i.i = getelementptr i8, ptr %23, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 %17
+  %.ptr16.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 32
   %.not6.i.i.i.i = icmp eq i64 %17, 0
   br i1 %.not6.i.i.i.i, label %_ZN3fmt3v116detail4copyIcPcS3_TnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_EE5valueEiE4typeELi0EEES5_T0_S8_S5_.exit.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -3448,8 +3448,8 @@ define dso_local void @_ZN6spdlog7details14log_msg_bufferC2EOS1_(ptr noundef non
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %14, ptr %3, align 8, !tbaa !20
   store i64 %11, ptr %5, align 8, !tbaa !21
-  %15 = getelementptr i8, ptr %4, i64 %9
-  %.ptr16.i.i = getelementptr i8, ptr %15, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 %9
+  %.ptr16.i.i = getelementptr inbounds nuw i8, ptr %15, i64 32
   %.not6.i.i.i = icmp eq i64 %9, 0
   br i1 %.not6.i.i.i, label %_ZN3fmt3v116detail4copyIcPcS3_TnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_EE5valueEiE4typeELi0EEES5_T0_S8_S5_.exit.i.i, label %.lr.ph.i.i.i
 
@@ -3614,8 +3614,8 @@ _ZN3fmt3v1119basic_memory_bufferIcLm250ENS0_6detail9allocatorIcEEE10deallocateEv
 15:                                               ; preds = %_ZN3fmt3v1119basic_memory_bufferIcLm250ENS0_6detail9allocatorIcEEE10deallocateEv.exit.i
   store ptr %6, ptr %4, align 8, !tbaa !20
   store i64 %12, ptr %14, align 8, !tbaa !21
-  %16 = getelementptr i8, ptr %3, i64 %10
-  %.ptr16.i.i = getelementptr i8, ptr %16, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %10
+  %.ptr16.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
   %.not6.i.i.i = icmp eq i64 %10, 0
   br i1 %.not6.i.i.i, label %_ZN3fmt3v116detail4copyIcPcS3_TnNSt9enable_ifIXntsr23is_back_insert_iteratorIT1_EE5valueEiE4typeELi0EEES5_T0_S8_S5_.exit.i.i, label %.lr.ph.i.i.i
 

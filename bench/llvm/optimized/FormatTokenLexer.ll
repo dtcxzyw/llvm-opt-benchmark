@@ -7557,14 +7557,14 @@ _ZNK4llvm9StringRef7find_ifENS_12function_refIFbcEEEm.exit: ; preds = %.lr.ph.i
   br i1 %25, label %_ZNK4llvm9StringRef7find_ifENS_12function_refIFbcEEEm.exit.thread, label %26
 
 26:                                               ; preds = %_ZNK4llvm9StringRef7find_ifENS_12function_refIFbcEEEm.exit
-  %27 = getelementptr i8, ptr %.sroa.023.0.copyload, i64 %24
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.023.0.copyload, i64 %24
   %28 = load i8, ptr %27, align 1, !tbaa !721
   %29 = add i64 %.sroa.8.0.copyload, -1
   %30 = icmp ult i64 %24, %29
   br i1 %30, label %31, label %.critedge
 
 31:                                               ; preds = %26
-  %32 = getelementptr i8, ptr %27, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %33 = load i8, ptr %32, align 1, !tbaa !721
   %34 = icmp eq i8 %28, 98
   %35 = and i8 %33, -2

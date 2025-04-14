@@ -2672,7 +2672,7 @@ define void @Wlc_NtkAbsCreateFlopInputs(ptr noundef %0, ptr noundef readonly cap
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %.not85 = icmp eq i32 %21, 0
-  %.idx = shl nsw i64 %indvars.iv163, 3
+  %.idx = shl nuw nsw i64 %indvars.iv163, 3
   br label %29
 
 29:                                               ; preds = %18, %185

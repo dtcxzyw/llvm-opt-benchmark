@@ -4734,7 +4734,7 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E6resizeEiRKS0_.exit: ; preds = %_ZN20btA
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %146 = load ptr, ptr %145, align 8
   %147 = load ptr, ptr %24, align 8
-  %148 = getelementptr float, ptr %147, i64 %130
+  %148 = getelementptr inbounds nuw float, ptr %147, i64 %130
   %149 = select i1 %144, ptr %146, ptr null
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #27
@@ -4747,7 +4747,7 @@ _ZN20btAlignedObjectArrayI11btMatrix3x3E6resizeEiRKS0_.exit: ; preds = %_ZN20btA
   %151 = getelementptr inbounds %class.btVector3, ptr %136, i64 %135
   %152 = getelementptr inbounds %class.btVector3, ptr %151, i64 %137
   %153 = getelementptr i8, ptr %141, i64 48
-  %154 = getelementptr i8, ptr %148, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %155 = select i1 %144, ptr %154, ptr null
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %14) #27
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %15) #27

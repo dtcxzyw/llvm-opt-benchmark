@@ -1732,8 +1732,8 @@ define internal void @_ZN12_GLOBAL__N_17SccPass7executeESt6vectorINSt7__cxx1112b
   br i1 %96, label %97, label %103
 
 97:                                               ; preds = %89
-  %98 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre1556, i64 %.01061413
-  %99 = getelementptr i8, ptr %98, i64 32
+  %98 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre1556, i64 %.01061413
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %100 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_8hash_opsIS7_EEEixERKS7_(ptr noundef nonnull align 8 dereferenceable(49) %19, ptr noundef nonnull align 8 dereferenceable(32) %99)
           to label %101 unwind label %56
 

@@ -7852,8 +7852,8 @@ gv_alloc.exit.i413.i:                             ; preds = %.lr.ph.i
   %.03750.i.i = phi i64 [ %779, %777 ], [ 0, %.preheader47.preheader.i.i ]
   %.03949.i.i = phi ptr [ %778, %777 ], [ %765, %.preheader47.preheader.i.i ]
   %775 = load ptr, ptr %764, align 8, !tbaa !365
-  %.idx.i.i = mul i64 %.03750.i.i, 48
-  %776 = getelementptr i8, ptr %775, i64 %.idx.i.i
+  %.idx.i.i = mul nuw i64 %.03750.i.i, 48
+  %776 = getelementptr inbounds nuw i8, ptr %775, i64 %.idx.i.i
   br label %780
 
 777:                                              ; preds = %780
@@ -7865,7 +7865,7 @@ gv_alloc.exit.i413.i:                             ; preds = %.lr.ph.i
 780:                                              ; preds = %780, %.preheader47.i.i
   %.03648.i.i = phi i64 [ 0, %.preheader47.i.i ], [ %783, %780 ]
   %781 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %10, i64 0, i64 %.03648.i.i
-  %782 = getelementptr %struct.pointf_s, ptr %776, i64 %.03648.i.i
+  %782 = getelementptr inbounds nuw %struct.pointf_s, ptr %776, i64 %.03648.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %781, ptr noundef nonnull align 8 dereferenceable(16) %782, i64 16, i1 false), !tbaa.struct !126
   %783 = add nuw nsw i64 %.03648.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %783, 4

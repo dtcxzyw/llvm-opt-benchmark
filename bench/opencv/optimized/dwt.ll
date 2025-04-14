@@ -2756,8 +2756,8 @@ opj_dwt_decode_partial_1.exit.i:                  ; preds = %584, %529, %.prehea
 
 .preheader356.split.us.split.i.i:                 ; preds = %.preheader356.split.us.split.i.i, %.preheader356.split.us.split.preheader.i.i
   %indvars.iv432.i.i = phi i64 [ 0, %.preheader356.split.us.split.preheader.i.i ], [ %indvars.iv.next433.i.i, %.preheader356.split.us.split.i.i ]
-  %810 = getelementptr i32, ptr %203, i64 %indvars.iv432.i.i
-  %811 = getelementptr i32, ptr %810, i64 %invariant.op311.i
+  %810 = getelementptr inbounds nuw i32, ptr %203, i64 %indvars.iv432.i.i
+  %811 = getelementptr inbounds nuw i32, ptr %810, i64 %invariant.op311.i
   %812 = load i32, ptr %811, align 4, !tbaa !53
   %813 = load i32, ptr %810, align 4, !tbaa !53
   %reass.add.i.i = shl i32 %813, 1
@@ -2777,7 +2777,7 @@ opj_dwt_decode_partial_1.exit.i:                  ; preds = %584, %529, %.prehea
 .thread331.preheader.i.i:                         ; preds = %.preheader356.split.i.i
   %818 = or disjoint i32 %795, 4
   %invariant.op.i = zext i32 %818 to i64
-  %invariant.gep.i = getelementptr i32, ptr %203, i64 %invariant.op.i
+  %invariant.gep.i = getelementptr inbounds nuw i32, ptr %203, i64 %invariant.op.i
   br label %.thread331.i.i
 
 .thread331.us.preheader.i.i:                      ; preds = %.preheader356.split.i.i
@@ -2813,7 +2813,7 @@ opj_dwt_decode_partial_1.exit.i:                  ; preds = %584, %529, %.prehea
   %indvars.iv.i212.i = phi i64 [ 0, %.thread331.preheader.i.i ], [ %indvars.iv.next.i213.i, %.thread331.i.i ]
   %indvars427.i.i = trunc i64 %indvars.iv.i212.i to i32
   %832 = add nuw nsw i32 %795, %indvars427.i.i
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i212.i
+  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv.i212.i
   %833 = load i32, ptr %gep.i, align 4, !tbaa !53
   %834 = add nuw nsw i64 %indvars.iv.i212.i, %398
   %835 = trunc nuw i64 %834 to i32

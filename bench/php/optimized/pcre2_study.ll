@@ -3136,8 +3136,8 @@ define internal fastcc i32 @find_minlength(ptr noundef %0, ptr noundef %1, ptr n
   %.3433 = phi i32 [ %.0430, %475 ], [ %.0430, %488 ], [ %496, %498 ], [ %.0430, %.lr.ph ]
   %.18426 = phi i32 [ %.0408, %475 ], [ 1, %488 ], [ %.0408, %498 ], [ 1, %.lr.ph ]
   %500 = zext nneg i32 %.0427 to i64
-  %501 = getelementptr i8, ptr %spec.select502, i64 %500
-  %502 = getelementptr i8, ptr %501, i64 3
+  %501 = getelementptr inbounds nuw i8, ptr %spec.select502, i64 %500
+  %502 = getelementptr inbounds nuw i8, ptr %501, i64 3
   br label %.backedge
 
 503:                                              ; preds = %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31, %31

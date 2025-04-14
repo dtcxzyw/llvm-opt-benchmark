@@ -1400,14 +1400,14 @@ define hidden void @_ZN8rawspeed12RawImageData9clearAreaENS_12iRectangle2DE(ptr 
   %70 = zext i32 %69 to i64
   %71 = shl nuw nsw i64 %70, 1
   %72 = add nuw nsw i64 %71, 2
-  %73 = getelementptr i8, ptr %18, i64 %65
+  %73 = getelementptr nuw i8, ptr %18, i64 %65
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us, %.preheader.lr.ph.split.us
   %indvar = phi i64 [ %indvar.next, %.preheader.us ], [ 0, %.preheader.lr.ph.split.us ]
   %.0629.us = phi i32 [ %81, %.preheader.us ], [ %9, %.preheader.lr.ph.split.us ]
   %74 = mul nuw nsw i64 %indvar, %67
-  %scevgep = getelementptr i8, ptr %73, i64 %74
+  %scevgep = getelementptr nuw i8, ptr %73, i64 %74
   %75 = icmp samesign ult i32 %.0629.us, %.sroa.5.12.extract.trunc
   tail call void @llvm.assume(i1 %75)
   %76 = add nuw nsw i32 %.0629.us, %42

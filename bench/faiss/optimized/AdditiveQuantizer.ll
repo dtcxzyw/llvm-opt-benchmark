@@ -1169,7 +1169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.03197 = phi i64 [ 0, %100 ], [ %109, %108 ]
   %102 = or disjoint i64 %.03197, 16
   %103 = getelementptr inbounds nuw float, ptr %101, i64 %102
-  %.idx = shl nsw i64 %.03197, 6
+  %.idx = shl nuw nsw i64 %.03197, 6
   %invariant.gep = getelementptr inbounds nuw i8, ptr %63, i64 %.idx
   br label %110
 

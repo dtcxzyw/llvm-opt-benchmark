@@ -663,13 +663,13 @@ _ZN4llvm8SwitchCG20getJumpTableNumCasesERKNS_15SmallVectorImplIjEEjj.exit: ; pre
   br i1 %241, label %.thread172, label %242
 
 242:                                              ; preds = %240
-  %243 = getelementptr i32, ptr %.pre187, i64 %.0123174
-  %244 = getelementptr i8, ptr %243, i64 4
+  %243 = getelementptr inbounds nuw i32, ptr %.pre187, i64 %.0123174
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
   %245 = load i32, ptr %244, align 4, !tbaa !24
   %246 = add i32 %245, 1
   %247 = load ptr, ptr %14, align 8, !tbaa !22
-  %248 = getelementptr i32, ptr %247, i64 %.0123174
-  %249 = getelementptr i8, ptr %248, i64 4
+  %248 = getelementptr inbounds nuw i32, ptr %247, i64 %.0123174
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
   %250 = load i32, ptr %249, align 4, !tbaa !24
   br label %.thread172
 
@@ -2356,8 +2356,8 @@ _ZNK4llvm9BitVector5countEv.exit.thread:          ; preds = %.critedge, %_ZNK4ll
   br i1 %192, label %198, label %193
 
 193:                                              ; preds = %_ZNK4llvm9BitVector5countEv.exit.thread
-  %194 = getelementptr i32, ptr %.pre118, i64 %.070105
-  %195 = getelementptr i8, ptr %194, i64 4
+  %194 = getelementptr inbounds nuw i32, ptr %.pre118, i64 %.070105
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %196 = load i32, ptr %195, align 4, !tbaa !24
   %197 = add i32 %196, 1
   br label %198

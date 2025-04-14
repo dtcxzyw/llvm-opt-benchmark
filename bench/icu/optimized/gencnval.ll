@@ -1376,8 +1376,8 @@ createOneAliasList.exit.us.i:                     ; preds = %580, %..loopexit_cr
 588:                                              ; preds = %.lr.ph.split.i
   %589 = zext i16 %.in.i to i64
   %590 = mul nuw i64 %indvars.iv106.i, %589
-  %591 = getelementptr i16, ptr %397, i64 %590
-  %592 = getelementptr i16, ptr %591, i64 %indvars.iv.i
+  %591 = getelementptr inbounds nuw i16, ptr %397, i64 %590
+  %592 = getelementptr inbounds nuw i16, ptr %591, i64 %indvars.iv.i
   store i16 0, ptr %592, align 2, !tbaa !19
   br label %createOneAliasList.exit.i
 
@@ -1389,8 +1389,8 @@ createOneAliasList.exit.us.i:                     ; preds = %580, %..loopexit_cr
   store i16 %586, ptr %595, align 2, !tbaa !19
   %596 = zext i16 %.in.i to i64
   %597 = mul nuw i64 %indvars.iv106.i, %596
-  %598 = getelementptr i16, ptr %397, i64 %597
-  %599 = getelementptr i16, ptr %598, i64 %indvars.iv.i
+  %598 = getelementptr inbounds nuw i16, ptr %397, i64 %597
+  %599 = getelementptr inbounds nuw i16, ptr %598, i64 %indvars.iv.i
   store i16 %593, ptr %599, align 2, !tbaa !19
   %600 = getelementptr inbounds nuw i8, ptr %585, i64 8
   %601 = getelementptr inbounds nuw [4095 x %struct.Converter], ptr @converters, i64 0, i64 %indvars.iv.i

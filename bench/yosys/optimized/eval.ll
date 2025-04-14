@@ -2351,8 +2351,8 @@ define internal void @_ZN12_GLOBAL__N_18EvalPass7executeESt6vectorINSt7__cxx1112
 
 168:                                              ; preds = %160
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70) #27
-  %169 = getelementptr %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.02172129
-  %170 = getelementptr i8, ptr %169, i64 32
+  %169 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %.02172129
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %171 = load ptr, ptr %170, align 8, !tbaa !13
   store ptr %144, ptr %70, align 8, !tbaa !18
   %172 = icmp eq ptr %171, null

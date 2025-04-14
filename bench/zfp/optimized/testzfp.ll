@@ -10428,7 +10428,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_Z12gen_array_2dIfEbPT_m(ptr n
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZSt4fillIPiiEvT_S1_RKT0_.exit
   %indvars.iv44 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next45, %_ZSt4fillIPiiEvT_S1_RKT0_.exit ]
-  %.idx = shl nsw i64 %indvars.iv44, 4
+  %.idx = shl nuw nsw i64 %indvars.iv44, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   br label %13
 
@@ -10511,7 +10511,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_Z12gen_array_3dIfEbPT_m(ptr n
 
 .preheader45:                                     ; preds = %.preheader45.preheader, %_ZSt4fillIPiiEvT_S1_RKT0_.exit
   %indvars.iv58 = phi i64 [ 1, %.preheader45.preheader ], [ %indvars.iv.next59, %_ZSt4fillIPiiEvT_S1_RKT0_.exit ]
-  %.idx62 = shl nsw i64 %indvars.iv58, 6
+  %.idx62 = shl nuw nsw i64 %indvars.iv58, 6
   %invariant.gep65 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx62
   br label %.preheader
 
@@ -10523,7 +10523,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_Z12gen_array_3dIfEbPT_m(ptr n
 .preheader:                                       ; preds = %.preheader45, %15
   %indvars.iv54 = phi i64 [ 1, %.preheader45 ], [ %indvars.iv.next55, %15 ]
   %14 = xor i64 %indvars.iv54, %indvars.iv58
-  %.idx = shl nsw i64 %indvars.iv54, 4
+  %.idx = shl nuw nsw i64 %indvars.iv54, 4
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep65, i64 %.idx
   br label %16
 
@@ -10630,7 +10630,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %20
   %indvars.iv64 = phi i64 [ 1, %.preheader53 ], [ %indvars.iv.next65, %21 ]
   %18 = xor i64 %15, %indvars.iv64
   %19 = add nuw nsw i64 %indvars.iv64, %17
-  %.idx = shl nsw i64 %19, 4
+  %.idx = shl nuw nsw i64 %19, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %22
 
@@ -30162,7 +30162,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_Z12gen_array_2dIdEbPT_m(ptr n
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZSt4fillIPiiEvT_S1_RKT0_.exit
   %indvars.iv44 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next45, %_ZSt4fillIPiiEvT_S1_RKT0_.exit ]
-  %.idx = shl nsw i64 %indvars.iv44, 4
+  %.idx = shl nuw nsw i64 %indvars.iv44, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   br label %13
 
@@ -30245,7 +30245,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_Z12gen_array_3dIdEbPT_m(ptr n
 
 .preheader45:                                     ; preds = %.preheader45.preheader, %_ZSt4fillIPiiEvT_S1_RKT0_.exit
   %indvars.iv58 = phi i64 [ 1, %.preheader45.preheader ], [ %indvars.iv.next59, %_ZSt4fillIPiiEvT_S1_RKT0_.exit ]
-  %.idx62 = shl nsw i64 %indvars.iv58, 6
+  %.idx62 = shl nuw nsw i64 %indvars.iv58, 6
   %invariant.gep65 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx62
   br label %.preheader
 
@@ -30257,7 +30257,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_Z12gen_array_3dIdEbPT_m(ptr n
 .preheader:                                       ; preds = %.preheader45, %15
   %indvars.iv54 = phi i64 [ 1, %.preheader45 ], [ %indvars.iv.next55, %15 ]
   %14 = xor i64 %indvars.iv54, %indvars.iv58
-  %.idx = shl nsw i64 %indvars.iv54, 4
+  %.idx = shl nuw nsw i64 %indvars.iv54, 4
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep65, i64 %.idx
   br label %16
 
@@ -30364,7 +30364,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %20
   %indvars.iv64 = phi i64 [ 1, %.preheader53 ], [ %indvars.iv.next65, %21 ]
   %18 = xor i64 %15, %indvars.iv64
   %19 = add nuw nsw i64 %indvars.iv64, %17
-  %.idx = shl nsw i64 %19, 4
+  %.idx = shl nuw nsw i64 %19, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %22
 

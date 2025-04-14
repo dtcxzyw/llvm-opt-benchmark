@@ -1314,13 +1314,13 @@ define noundef ptr @Sbd_SolverTopo(i32 noundef %0, i32 noundef %1, i32 noundef %
 .preheader459.us.us:                              ; preds = %.preheader459.us.us.preheader, %._crit_edge464.split.us.us.us
   %indvar = phi i64 [ 0, %.preheader459.us.us.preheader ], [ %indvar.next, %._crit_edge464.split.us.us.us ]
   %19 = mul nuw nsw i64 %indvar, 912
-  %20 = getelementptr i8, ptr %3, i64 %19
+  %20 = getelementptr nuw i8, ptr %3, i64 %19
   br label %.preheader458.us.us.us
 
 .preheader458.us.us.us:                           ; preds = %.preheader458.us.us.us, %.preheader459.us.us
   %indvar620 = phi i64 [ %indvar.next621, %.preheader458.us.us.us ], [ 0, %.preheader459.us.us ]
   %21 = mul nuw nsw i64 %indvar620, 24
-  %scevgep = getelementptr i8, ptr %20, i64 %21
+  %scevgep = getelementptr nuw i8, ptr %20, i64 %21
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 -1, i64 %18, i1 false), !tbaa !18
   %indvar.next621 = add nuw nsw i64 %indvar620, 1
   %exitcond.not = icmp eq i64 %indvar.next621, %wide.trip.count

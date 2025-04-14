@@ -5636,8 +5636,8 @@ define linkonce_odr void @_ZN5Annoy7Angular12create_splitIifNS_12Kiss64RandomEEE
   %63 = sext i32 %1 to i64
   %64 = shl nsw i64 %63, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 %61, ptr noundef nonnull align 1 %62, i64 noundef %64, i1 noundef false) #33
-  %65 = getelementptr ptr, ptr %10, i64 %56
-  %66 = getelementptr ptr, ptr %65, i64 %58
+  %65 = getelementptr inbounds nuw ptr, ptr %10, i64 %56
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %58
   %67 = load ptr, ptr %66, align 8, !tbaa !157
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 12
@@ -12050,8 +12050,8 @@ define linkonce_odr void @_ZN5Annoy9Euclidean12create_splitIifNS_12Kiss64RandomE
   %63 = sext i32 %1 to i64
   %64 = shl nsw i64 %63, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 %61, ptr noundef nonnull align 1 %62, i64 noundef %64, i1 noundef false) #33
-  %65 = getelementptr ptr, ptr %10, i64 %56
-  %66 = getelementptr ptr, ptr %65, i64 %58
+  %65 = getelementptr inbounds nuw ptr, ptr %10, i64 %56
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %58
   %67 = load ptr, ptr %66, align 8, !tbaa !238
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
@@ -16231,8 +16231,8 @@ define linkonce_odr void @_ZN5Annoy9Manhattan12create_splitIifNS_12Kiss64RandomE
   %63 = sext i32 %1 to i64
   %64 = shl nsw i64 %63, 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 %61, ptr noundef nonnull align 1 %62, i64 noundef %64, i1 noundef false) #33
-  %65 = getelementptr ptr, ptr %10, i64 %56
-  %66 = getelementptr ptr, ptr %65, i64 %58
+  %65 = getelementptr inbounds nuw ptr, ptr %10, i64 %56
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %58
   %67 = load ptr, ptr %66, align 8, !tbaa !238
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
@@ -25723,8 +25723,8 @@ define linkonce_odr void @_ZN5Annoy10DotProduct12create_splitIifNS_12Kiss64Rando
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %68 = load float, ptr %67, align 4, !tbaa !380
   store float %68, ptr %8, align 4, !tbaa !380
-  %69 = getelementptr ptr, ptr %12, i64 %58
-  %70 = getelementptr ptr, ptr %69, i64 %60
+  %69 = getelementptr inbounds nuw ptr, ptr %12, i64 %58
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %60
   %71 = load ptr, ptr %70, align 8, !tbaa !401
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 24

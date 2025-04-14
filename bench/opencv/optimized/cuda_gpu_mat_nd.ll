@@ -505,8 +505,8 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %45, %_ZNSt6vectorIm
   %62 = load ptr, ptr %20, align 8, !tbaa !21
   %63 = zext i32 %60 to i64
   %64 = shl nuw nsw i64 %63, 3
-  %65 = getelementptr i8, ptr %61, i64 %64
-  %scevgep = getelementptr i8, ptr %65, i64 8
+  %65 = getelementptr nuw i8, ptr %61, i64 %64
+  %scevgep = getelementptr nuw i8, ptr %65, i64 8
   %load_initial = load i64, ptr %scevgep, align 8
   %invariant.gep = getelementptr i8, ptr %62, i64 4
   br label %67

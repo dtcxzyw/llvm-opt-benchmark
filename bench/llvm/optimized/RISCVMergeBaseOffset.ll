@@ -1378,14 +1378,14 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb0ELb0ELb1ELb
   br i1 %.not229.i, label %563, label %.loopexit232.i
 
 563:                                              ; preds = %560
-  %564 = getelementptr i8, ptr %525, i64 64
+  %564 = getelementptr inbounds nuw i8, ptr %525, i64 64
   %565 = load i32, ptr %564, align 8
   %566 = and i32 %565, 255
   %567 = icmp eq i32 %566, 1
   br i1 %567, label %568, label %.loopexit232.i
 
 568:                                              ; preds = %563
-  %569 = getelementptr i8, ptr %525, i64 80
+  %569 = getelementptr inbounds nuw i8, ptr %525, i64 80
   %570 = load i64, ptr %569, align 8, !tbaa !175
   %571 = trunc nuw i8 %.sroa.7.4255.i to i1
   %572 = icmp ne i64 %570, %.sroa.0184.5254.i

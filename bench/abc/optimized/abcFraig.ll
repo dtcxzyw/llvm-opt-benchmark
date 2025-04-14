@@ -2068,8 +2068,8 @@ define void @Abc_NtkFraigStoreCheck(ptr noundef readonly captures(none) %0) loca
   %.val23.us = load ptr, ptr %2, align 8, !tbaa !78
   %21 = getelementptr i8, ptr %.val23.us, i64 8
   %.val23.val.us = load ptr, ptr %21, align 8, !tbaa !36
-  %22 = getelementptr ptr, ptr %.val23.val.us, i64 %20
-  %23 = getelementptr ptr, ptr %22, i64 %indvars.iv33
+  %22 = getelementptr inbounds nuw ptr, ptr %.val23.val.us, i64 %20
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv33
   %24 = load ptr, ptr %23, align 8, !tbaa !37
   %.val.us = load ptr, ptr %24, align 8, !tbaa !54
   %25 = getelementptr i8, ptr %24, i64 32

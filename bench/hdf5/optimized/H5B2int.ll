@@ -186,15 +186,15 @@ define range(i32 -1, 1) i32 @H5B2__split1(ptr noundef %0, i16 noundef zeroext %1
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %28, ptr align 1 %32, i64 %39, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 264
   %41 = load ptr, ptr %40, align 8, !tbaa !40
-  %42 = getelementptr %struct.H5B2_node_ptr_t, ptr %41, i64 %29
-  %43 = getelementptr i8, ptr %42, i64 48
+  %42 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %41, i64 %29
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %44 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %41, i64 %25
   %45 = load i16, ptr %15, align 8, !tbaa !20
   %46 = zext i16 %45 to i32
   %47 = sub nsw i32 %46, %6
   %48 = zext i32 %47 to i64
   %49 = mul nuw nsw i64 %48, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %43, ptr nonnull align 8 %44, i64 %49, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %43, ptr nonnull align 8 %44, i64 %49, i1 false)
   br label %50
 
 50:                                               ; preds = %19, %14

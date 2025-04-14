@@ -426,8 +426,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 
 118:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28
   %119 = ptrtoint ptr %49 to i64
-  %120 = getelementptr i8, ptr %47, i64 %56
-  %121 = getelementptr i8, ptr %120, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %47, i64 %56
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 1
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %122 = ptrtoint ptr %121 to i64

@@ -28285,8 +28285,8 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %2112, %_
   %.021.i = phi i32 [ 1, %2127 ], [ 2, %2124 ], [ 1, %2126 ], [ 1, %.fold.split.i ]
   %.0.i = phi i32 [ 5, %2127 ], [ %spec.select.i325, %2124 ], [ 6, %2126 ], [ 4, %.fold.split.i ]
   %2129 = load i64, ptr %2087, align 8, !tbaa !756
-  %2130 = getelementptr i8, ptr %2087, i64 %2129
-  %.ptr39.i = getelementptr i8, ptr %2130, i64 16
+  %2130 = getelementptr inbounds nuw i8, ptr %2087, i64 %2129
+  %.ptr39.i = getelementptr inbounds nuw i8, ptr %2130, i64 16
   %.not34.i = icmp eq i64 %2129, 0
   br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i322
 

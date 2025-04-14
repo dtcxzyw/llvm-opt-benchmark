@@ -713,8 +713,8 @@ define noundef ptr @_ZNK4LIEF5MachO4Stub8Iterator19find_section_offsetEmRm(ptr n
   br i1 %92, label %93, label %107
 
 93:                                               ; preds = %90
-  %94 = getelementptr ptr, ptr %64, i64 %.047
-  %95 = getelementptr i8, ptr %94, i64 8
+  %94 = getelementptr inbounds nuw ptr, ptr %64, i64 %.047
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !11
   %97 = load ptr, ptr %96, align 8, !tbaa !32
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 72
@@ -1253,8 +1253,8 @@ define linkonce_odr hidden ptr @_ZN3fmt3v1010vformat_toINS0_8appenderETnNSt9enab
   call void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr %1, i64 %2, i64 %3, ptr %4, ptr null)
   %12 = load i64, ptr %9, align 8, !tbaa !73
   store i64 0, ptr %9, align 8, !tbaa !73
-  %13 = getelementptr i8, ptr %6, i64 %12
-  %.ptr2.i.i = getelementptr i8, ptr %13, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
+  %.ptr2.i.i = getelementptr inbounds nuw i8, ptr %13, i64 40
   %.sroa.0.0.copyload.i.i = load ptr, ptr %11, align 8
   %.not4.i.i.i = icmp eq i64 %12, 0
   br i1 %.not4.i.i.i, label %_ZN3fmt3v106detail15iterator_bufferINS0_8appenderEcNS1_13buffer_traitsEED2Ev.exit, label %.lr.ph.i.i.i
@@ -1297,8 +1297,8 @@ _ZN3fmt3v106detail15iterator_bufferINS0_8appenderEcNS1_13buffer_traitsEE3outEv.e
   %.pr = load i64, ptr %9, align 8, !tbaa !73
   store ptr %.sroa.0.0.copyload.i.i, ptr %11, align 8
   store i64 0, ptr %9, align 8, !tbaa !73
-  %30 = getelementptr i8, ptr %6, i64 %.pr
-  %.ptr2.i.i12 = getelementptr i8, ptr %30, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 %.pr
+  %.ptr2.i.i12 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %.not4.i.i.i14 = icmp eq i64 %.pr, 0
   br i1 %.not4.i.i.i14, label %_ZN3fmt3v106detail15iterator_bufferINS0_8appenderEcNS1_13buffer_traitsEED2Ev.exit, label %.lr.ph.i.i.i15
 

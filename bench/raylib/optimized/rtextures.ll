@@ -22389,11 +22389,11 @@ define i32 @GetImageColor(ptr noundef readonly byval(%struct.Image) align 8 capt
   %108 = add nuw nsw i32 %107, %1
   %109 = mul nsw i32 %108, 3
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr i8, ptr %106, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %106, i64 %110
   %112 = load i8, ptr %111, align 1
-  %113 = getelementptr i8, ptr %111, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 1
   %114 = load i8, ptr %113, align 1
-  %115 = getelementptr i8, ptr %111, i64 2
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 2
   %116 = load i8, ptr %115, align 1
   br label %318
 
@@ -22414,15 +22414,15 @@ define i32 @GetImageColor(ptr noundef readonly byval(%struct.Image) align 8 capt
   %129 = add nuw nsw i32 %128, %1
   %130 = mul nsw i32 %129, 3
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr float, ptr %127, i64 %131
+  %132 = getelementptr inbounds nuw float, ptr %127, i64 %131
   %133 = load float, ptr %132, align 4
   %134 = fmul float %133, 2.550000e+02
   %135 = fptoui float %134 to i8
-  %136 = getelementptr i8, ptr %132, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %137 = load float, ptr %136, align 4
   %138 = fmul float %137, 2.550000e+02
   %139 = fptoui float %138 to i8
-  %140 = getelementptr i8, ptr %132, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %141 = load float, ptr %140, align 4
   %142 = fmul float %141, 2.550000e+02
   %143 = fptoui float %142 to i8

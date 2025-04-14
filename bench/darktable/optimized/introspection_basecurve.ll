@@ -4709,7 +4709,7 @@ define internal fastcc void @gauss_blur(ptr noundef readonly captures(none) %0, 
   %indvars.iv286 = phi i64 [ 0, %.preheader207 ], [ 1, %75 ]
   %65 = mul nuw nsw i64 %2, %indvars.iv286
   %66 = add nsw i64 %65, %indvars.iv306
-  %.idx250 = shl i64 %66, 4
+  %.idx250 = shl nsw i64 %66, 4
   %invariant.gep322 = getelementptr i8, ptr %1, i64 %.idx250
   br label %.preheader202
 

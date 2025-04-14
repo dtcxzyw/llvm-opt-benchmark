@@ -51031,14 +51031,14 @@ cgltf_json_strcmp.exit:                           ; preds = %115
 
 125:                                              ; preds = %cgltf_json_strcmp.exit
   %126 = sext i32 %.02671232 to i64
-  %127 = getelementptr %struct.jsmntok_t, ptr %1, i64 %126
-  %128 = getelementptr i8, ptr %127, i64 32
+  %127 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %126
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %129 = load i32, ptr %128, align 8
   %.not.i297 = icmp eq i32 %129, 1
   br i1 %.not.i297, label %130, label %cgltf_parse_json_asset.exit.thread
 
 130:                                              ; preds = %125
-  %131 = getelementptr i8, ptr %127, i64 56
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 56
   %132 = load i32, ptr %131, align 8
   %133 = add nuw nsw i32 %.02671232, 2
   %.not76147.i = icmp sgt i32 %132, 0
@@ -51080,8 +51080,8 @@ cgltf_json_strcmp.exit.i:                         ; preds = %141
 
 150:                                              ; preds = %cgltf_json_strcmp.exit.i
   %151 = sext i32 %.071148.i to i64
-  %152 = getelementptr %struct.jsmntok_t, ptr %1, i64 %151
-  %153 = getelementptr i8, ptr %152, i64 32
+  %152 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %151
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 32
   %154 = load i32, ptr %153, align 8
   %.not.i78.i = icmp eq i32 %154, 3
   br i1 %.not.i78.i, label %155, label %cgltf_parse_json_asset.exit.thread
@@ -51092,9 +51092,9 @@ cgltf_json_strcmp.exit.i:                         ; preds = %141
   br i1 %.not22.i.i, label %157, label %cgltf_parse_json_asset.exit.thread
 
 157:                                              ; preds = %155
-  %158 = getelementptr i8, ptr %152, i64 48
+  %158 = getelementptr inbounds nuw i8, ptr %152, i64 48
   %159 = load i64, ptr %158, align 8
-  %160 = getelementptr i8, ptr %152, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %161 = load i64, ptr %160, align 8
   %162 = sub nsw i64 %159, %161
   %163 = load ptr, ptr %76, align 8
@@ -51124,8 +51124,8 @@ cgltf_json_strcmp.exit82.i:                       ; preds = %cgltf_json_strcmp.e
 
 177:                                              ; preds = %cgltf_json_strcmp.exit82.i
   %178 = sext i32 %.071148.i to i64
-  %179 = getelementptr %struct.jsmntok_t, ptr %1, i64 %178
-  %180 = getelementptr i8, ptr %179, i64 32
+  %179 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %178
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 32
   %181 = load i32, ptr %180, align 8
   %.not.i83.i = icmp eq i32 %181, 3
   br i1 %.not.i83.i, label %182, label %cgltf_parse_json_asset.exit.thread
@@ -51136,9 +51136,9 @@ cgltf_json_strcmp.exit82.i:                       ; preds = %cgltf_json_strcmp.e
   br i1 %.not22.i85.i, label %184, label %cgltf_parse_json_asset.exit.thread
 
 184:                                              ; preds = %182
-  %185 = getelementptr i8, ptr %179, i64 48
+  %185 = getelementptr inbounds nuw i8, ptr %179, i64 48
   %186 = load i64, ptr %185, align 8
-  %187 = getelementptr i8, ptr %179, i64 40
+  %187 = getelementptr inbounds nuw i8, ptr %179, i64 40
   %188 = load i64, ptr %187, align 8
   %189 = sub nsw i64 %186, %188
   %190 = load ptr, ptr %76, align 8
@@ -51169,8 +51169,8 @@ cgltf_json_strcmp.exit91.i:                       ; preds = %141
 
 205:                                              ; preds = %cgltf_json_strcmp.exit91.i
   %206 = sext i32 %.071148.i to i64
-  %207 = getelementptr %struct.jsmntok_t, ptr %1, i64 %206
-  %208 = getelementptr i8, ptr %207, i64 32
+  %207 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %206
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 32
   %209 = load i32, ptr %208, align 8
   %.not.i92.i = icmp eq i32 %209, 3
   br i1 %.not.i92.i, label %210, label %cgltf_parse_json_asset.exit.thread
@@ -51181,9 +51181,9 @@ cgltf_json_strcmp.exit91.i:                       ; preds = %141
   br i1 %.not22.i94.i, label %212, label %cgltf_parse_json_asset.exit.thread
 
 212:                                              ; preds = %210
-  %213 = getelementptr i8, ptr %207, i64 48
+  %213 = getelementptr inbounds nuw i8, ptr %207, i64 48
   %214 = load i64, ptr %213, align 8
-  %215 = getelementptr i8, ptr %207, i64 40
+  %215 = getelementptr inbounds nuw i8, ptr %207, i64 40
   %216 = load i64, ptr %215, align 8
   %217 = sub nsw i64 %214, %216
   %218 = load ptr, ptr %76, align 8
@@ -51214,8 +51214,8 @@ cgltf_json_strcmp.exit100.i:                      ; preds = %141
 
 233:                                              ; preds = %cgltf_json_strcmp.exit100.i
   %234 = sext i32 %.071148.i to i64
-  %235 = getelementptr %struct.jsmntok_t, ptr %1, i64 %234
-  %236 = getelementptr i8, ptr %235, i64 32
+  %235 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %234
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 32
   %237 = load i32, ptr %236, align 8
   %.not.i101.i = icmp eq i32 %237, 3
   br i1 %.not.i101.i, label %238, label %cgltf_parse_json_asset.exit.thread
@@ -51226,9 +51226,9 @@ cgltf_json_strcmp.exit100.i:                      ; preds = %141
   br i1 %.not22.i103.i, label %240, label %cgltf_parse_json_asset.exit.thread
 
 240:                                              ; preds = %238
-  %241 = getelementptr i8, ptr %235, i64 48
+  %241 = getelementptr inbounds nuw i8, ptr %235, i64 48
   %242 = load i64, ptr %241, align 8
-  %243 = getelementptr i8, ptr %235, i64 40
+  %243 = getelementptr inbounds nuw i8, ptr %235, i64 40
   %244 = load i64, ptr %243, align 8
   %245 = sub nsw i64 %242, %244
   %246 = load ptr, ptr %76, align 8
@@ -51479,8 +51479,8 @@ cgltf_json_strcmp.exit300:                        ; preds = %cgltf_json_strcmp.e
 
 360:                                              ; preds = %cgltf_json_strcmp.exit300
   %361 = sext i32 %.02671232 to i64
-  %362 = getelementptr %struct.jsmntok_t, ptr %1, i64 %361
-  %363 = getelementptr i8, ptr %362, i64 32
+  %362 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %361
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 32
   %364 = load i32, ptr %363, align 8
   %.not.i.i = icmp eq i32 %364, 2
   br i1 %.not.i.i, label %368, label %365
@@ -51496,7 +51496,7 @@ cgltf_json_strcmp.exit300:                        ; preds = %cgltf_json_strcmp.e
   br i1 %.not18.i.i, label %370, label %cgltf_parse_json_asset.exit.thread
 
 370:                                              ; preds = %368
-  %371 = getelementptr i8, ptr %362, i64 56
+  %371 = getelementptr inbounds nuw i8, ptr %362, i64 56
   %372 = load i32, ptr %371, align 8
   %373 = sext i32 %372 to i64
   %mul.ov.i.i.i301 = icmp slt i32 %372, 0
@@ -51586,8 +51586,8 @@ cgltf_json_strcmp.exit.i.i:                       ; preds = %408
 
 417:                                              ; preds = %cgltf_json_strcmp.exit.i.i
   %418 = sext i32 %.0124313.i.i to i64
-  %419 = getelementptr %struct.jsmntok_t, ptr %1, i64 %418
-  %420 = getelementptr i8, ptr %419, i64 32
+  %419 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %418
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 32
   %421 = load i32, ptr %420, align 8
   %.not.i142.i.i = icmp eq i32 %421, 3
   br i1 %.not.i142.i.i, label %422, label %cgltf_parse_json_asset.exit.thread
@@ -51598,9 +51598,9 @@ cgltf_json_strcmp.exit.i.i:                       ; preds = %408
   br i1 %.not22.i.i.i, label %424, label %cgltf_parse_json_asset.exit.thread
 
 424:                                              ; preds = %422
-  %425 = getelementptr i8, ptr %419, i64 48
+  %425 = getelementptr inbounds nuw i8, ptr %419, i64 48
   %426 = load i64, ptr %425, align 8
-  %427 = getelementptr i8, ptr %419, i64 40
+  %427 = getelementptr inbounds nuw i8, ptr %419, i64 40
   %428 = load i64, ptr %427, align 8
   %429 = sub nsw i64 %426, %428
   %430 = load ptr, ptr %76, align 8
@@ -51631,8 +51631,8 @@ cgltf_json_strcmp.exit146.i.i:                    ; preds = %408
 
 445:                                              ; preds = %cgltf_json_strcmp.exit146.i.i
   %446 = sext i32 %.0124313.i.i to i64
-  %447 = getelementptr %struct.jsmntok_t, ptr %1, i64 %446
-  %448 = getelementptr i8, ptr %447, i64 32
+  %447 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %446
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 32
   %449 = load i32, ptr %448, align 8
   %.not.i147.i.i = icmp eq i32 %449, 2
   br i1 %.not.i147.i.i, label %453, label %450
@@ -51648,7 +51648,7 @@ cgltf_json_strcmp.exit146.i.i:                    ; preds = %408
   br i1 %.not18.i.i.i, label %455, label %cgltf_parse_json_asset.exit.thread
 
 455:                                              ; preds = %453
-  %456 = getelementptr i8, ptr %447, i64 56
+  %456 = getelementptr inbounds nuw i8, ptr %447, i64 56
   %457 = load i32, ptr %456, align 8
   %458 = sext i32 %457 to i64
   %mul.ov.i.i.i.i = icmp slt i32 %457, 0
@@ -51752,17 +51752,17 @@ cgltf_json_strcmp.exit.i.i.i:                     ; preds = %502
 
 511:                                              ; preds = %cgltf_json_strcmp.exit.i.i.i
   %512 = sext i32 %.0147296.i.i.i to i64
-  %513 = getelementptr %struct.jsmntok_t, ptr %1, i64 %512
-  %514 = getelementptr i8, ptr %513, i64 32
+  %513 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %512
+  %514 = getelementptr inbounds nuw i8, ptr %513, i64 32
   %515 = load i32, ptr %514, align 8
   %.not.i.i.i.i.i = icmp eq i32 %515, 4
   br i1 %.not.i.i.i.i.i, label %cgltf_json_to_int.exit.i.i.i.i, label %cgltf_json_to_primitive_type.exit.i.i.i
 
 cgltf_json_to_int.exit.i.i.i.i:                   ; preds = %511
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %65) #58
-  %516 = getelementptr i8, ptr %513, i64 48
+  %516 = getelementptr inbounds nuw i8, ptr %513, i64 48
   %517 = load i64, ptr %516, align 8
-  %518 = getelementptr i8, ptr %513, i64 40
+  %518 = getelementptr inbounds nuw i8, ptr %513, i64 40
   %519 = load i64, ptr %518, align 8
   %520 = sub nsw i64 %517, %519
   %spec.select.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %520, i64 127)
@@ -51792,17 +51792,17 @@ cgltf_json_strcmp.exit170.i.i.i:                  ; preds = %502
 
 531:                                              ; preds = %cgltf_json_strcmp.exit170.i.i.i
   %532 = sext i32 %.0147296.i.i.i to i64
-  %533 = getelementptr %struct.jsmntok_t, ptr %1, i64 %532
-  %534 = getelementptr i8, ptr %533, i64 32
+  %533 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %532
+  %534 = getelementptr inbounds nuw i8, ptr %533, i64 32
   %535 = load i32, ptr %534, align 8
   %.not.i171.i.i.i = icmp eq i32 %535, 4
   br i1 %.not.i171.i.i.i, label %536, label %cgltf_json_to_int.exit.i.i.i
 
 536:                                              ; preds = %531
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %64) #58
-  %537 = getelementptr i8, ptr %533, i64 48
+  %537 = getelementptr inbounds nuw i8, ptr %533, i64 48
   %538 = load i64, ptr %537, align 8
-  %539 = getelementptr i8, ptr %533, i64 40
+  %539 = getelementptr inbounds nuw i8, ptr %533, i64 40
   %540 = load i64, ptr %539, align 8
   %541 = sub nsw i64 %538, %540
   %spec.select.i.i.i.i = call i64 @llvm.umin.i64(i64 %541, i64 127)
@@ -51832,17 +51832,17 @@ cgltf_json_strcmp.exit175.i.i.i:                  ; preds = %502
 
 553:                                              ; preds = %cgltf_json_strcmp.exit175.i.i.i
   %554 = sext i32 %.0147296.i.i.i to i64
-  %555 = getelementptr %struct.jsmntok_t, ptr %1, i64 %554
-  %556 = getelementptr i8, ptr %555, i64 32
+  %555 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %554
+  %556 = getelementptr inbounds nuw i8, ptr %555, i64 32
   %557 = load i32, ptr %556, align 8
   %.not.i176.i.i.i = icmp eq i32 %557, 4
   br i1 %.not.i176.i.i.i, label %558, label %cgltf_json_to_int.exit179.i.i.i
 
 558:                                              ; preds = %553
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %63) #58
-  %559 = getelementptr i8, ptr %555, i64 48
+  %559 = getelementptr inbounds nuw i8, ptr %555, i64 48
   %560 = load i64, ptr %559, align 8
-  %561 = getelementptr i8, ptr %555, i64 40
+  %561 = getelementptr inbounds nuw i8, ptr %555, i64 40
   %562 = load i64, ptr %561, align 8
   %563 = sub nsw i64 %560, %562
   %spec.select.i178.i.i.i = call i64 @llvm.umin.i64(i64 %563, i64 127)
@@ -51882,8 +51882,8 @@ cgltf_json_strcmp.exit185.i.i.i:                  ; preds = %cgltf_json_strcmp.e
 
 580:                                              ; preds = %cgltf_json_strcmp.exit185.i.i.i
   %581 = sext i32 %.0147296.i.i.i to i64
-  %582 = getelementptr %struct.jsmntok_t, ptr %1, i64 %581
-  %583 = getelementptr i8, ptr %582, i64 32
+  %582 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %581
+  %583 = getelementptr inbounds nuw i8, ptr %582, i64 32
   %584 = load i32, ptr %583, align 8
   %.not.i186.i.i.i = icmp eq i32 %584, 2
   br i1 %.not.i186.i.i.i, label %588, label %585
@@ -51899,7 +51899,7 @@ cgltf_json_strcmp.exit185.i.i.i:                  ; preds = %cgltf_json_strcmp.e
   br i1 %.not18.i.i.i.i, label %590, label %cgltf_parse_json_asset.exit.thread
 
 590:                                              ; preds = %588
-  %591 = getelementptr i8, ptr %582, i64 56
+  %591 = getelementptr inbounds nuw i8, ptr %582, i64 56
   %592 = load i32, ptr %591, align 8
   %593 = sext i32 %592 to i64
   %mul.ov.i.i.i.i.i = icmp slt i32 %592, 0
@@ -52020,8 +52020,8 @@ cgltf_json_strcmp.exit196.i.i.i:                  ; preds = %cgltf_json_strcmp.e
 
 651:                                              ; preds = %cgltf_json_strcmp.exit196.i.i.i
   %652 = sext i32 %.0147296.i.i.i to i64
-  %653 = getelementptr %struct.jsmntok_t, ptr %1, i64 %652
-  %654 = getelementptr i8, ptr %653, i64 32
+  %653 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %652
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 32
   %655 = load i32, ptr %654, align 8
   %.not160.i.i.i = icmp eq i32 %655, 1
   br i1 %.not160.i.i.i, label %656, label %cgltf_parse_json_asset.exit.thread
@@ -52032,7 +52032,7 @@ cgltf_json_strcmp.exit196.i.i.i:                  ; preds = %cgltf_json_strcmp.e
   br i1 %.not161.i.i.i, label %658, label %cgltf_parse_json_asset.exit.thread
 
 658:                                              ; preds = %656
-  %659 = getelementptr i8, ptr %653, i64 56
+  %659 = getelementptr inbounds nuw i8, ptr %653, i64 56
   %660 = load i32, ptr %659, align 8
   store i64 0, ptr %478, align 8
   %mul.ov.i.i150.i.i = icmp slt i32 %660, 0
@@ -52093,14 +52093,14 @@ cgltf_json_strcmp.exit201.i.i.i:                  ; preds = %676
 685:                                              ; preds = %cgltf_json_strcmp.exit201.i.i.i
   store i32 1, ptr %481, align 8
   %686 = sext i32 %.6153288.i.i.i to i64
-  %687 = getelementptr %struct.jsmntok_t, ptr %1, i64 %686
-  %688 = getelementptr i8, ptr %687, i64 32
+  %687 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %686
+  %688 = getelementptr inbounds nuw i8, ptr %687, i64 32
   %689 = load i32, ptr %688, align 8
   %.not.i202.i.i.i = icmp eq i32 %689, 1
   br i1 %.not.i202.i.i.i, label %690, label %cgltf_parse_json_asset.exit.thread
 
 690:                                              ; preds = %685
-  %691 = getelementptr i8, ptr %687, i64 56
+  %691 = getelementptr inbounds nuw i8, ptr %687, i64 56
   %692 = load i32, ptr %691, align 8
   %693 = add nuw nsw i32 %.6153288.i.i.i, 2
   %.not4255.i.i.i.i = icmp sgt i32 %692, 0
@@ -52148,17 +52148,17 @@ cgltf_json_strcmp.exit45.i.i.i.i:                 ; preds = %cgltf_json_strcmp.e
 
 716:                                              ; preds = %cgltf_json_strcmp.exit45.i.i.i.i
   %717 = sext i32 %.03856.i.i.i.i to i64
-  %718 = getelementptr %struct.jsmntok_t, ptr %1, i64 %717
-  %719 = getelementptr i8, ptr %718, i64 32
+  %718 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %717
+  %719 = getelementptr inbounds nuw i8, ptr %718, i64 32
   %720 = load i32, ptr %719, align 8
   %.not.i46.i.i.i.i = icmp eq i32 %720, 4
   br i1 %.not.i46.i.i.i.i, label %721, label %cgltf_skip_json.exit.thread51.i.i.i.i
 
 721:                                              ; preds = %716
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %62) #58
-  %722 = getelementptr i8, ptr %718, i64 48
+  %722 = getelementptr inbounds nuw i8, ptr %718, i64 48
   %723 = load i64, ptr %722, align 8
-  %724 = getelementptr i8, ptr %718, i64 40
+  %724 = getelementptr inbounds nuw i8, ptr %718, i64 40
   %725 = load i64, ptr %724, align 8
   %726 = sub nsw i64 %723, %725
   %spec.select.i.i208.i.i.i = call i64 @llvm.umin.i64(i64 %726, i64 127)
@@ -52241,14 +52241,14 @@ cgltf_json_strcmp.exit211.i.i.i:                  ; preds = %676
 
 760:                                              ; preds = %cgltf_json_strcmp.exit211.i.i.i
   %761 = sext i32 %.6153288.i.i.i to i64
-  %762 = getelementptr %struct.jsmntok_t, ptr %1, i64 %761
-  %763 = getelementptr i8, ptr %762, i64 32
+  %762 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %761
+  %763 = getelementptr inbounds nuw i8, ptr %762, i64 32
   %764 = load i32, ptr %763, align 8
   %.not.i212.i.i.i = icmp eq i32 %764, 1
   br i1 %.not.i212.i.i.i, label %765, label %cgltf_parse_json_asset.exit.thread
 
 765:                                              ; preds = %760
-  %766 = getelementptr i8, ptr %762, i64 56
+  %766 = getelementptr inbounds nuw i8, ptr %762, i64 56
   %767 = load i32, ptr %766, align 8
   %768 = add nuw nsw i32 %.6153288.i.i.i, 2
   %.not4957.i.i.i.i = icmp sgt i32 %767, 0
@@ -52859,8 +52859,8 @@ cgltf_json_strcmp.exit316:                        ; preds = %cgltf_json_strcmp.e
 
 1035:                                             ; preds = %cgltf_json_strcmp.exit316
   %1036 = sext i32 %.02671232 to i64
-  %1037 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1036
-  %1038 = getelementptr i8, ptr %1037, i64 32
+  %1037 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1036
+  %1038 = getelementptr inbounds nuw i8, ptr %1037, i64 32
   %1039 = load i32, ptr %1038, align 8
   %.not.i.i317 = icmp eq i32 %1039, 2
   br i1 %.not.i.i317, label %1043, label %1040
@@ -52876,7 +52876,7 @@ cgltf_json_strcmp.exit316:                        ; preds = %cgltf_json_strcmp.e
   br i1 %.not18.i.i319, label %1045, label %cgltf_parse_json_asset.exit.thread
 
 1045:                                             ; preds = %1043
-  %1046 = getelementptr i8, ptr %1037, i64 56
+  %1046 = getelementptr inbounds nuw i8, ptr %1037, i64 56
   %1047 = load i32, ptr %1046, align 8
   %1048 = sext i32 %1047 to i64
   %mul.ov.i.i.i320 = icmp slt i32 %1047, 0
@@ -52980,8 +52980,8 @@ cgltf_json_strcmp.exit.i.i370:                    ; preds = %1095
 
 1104:                                             ; preds = %cgltf_json_strcmp.exit.i.i370
   %1105 = sext i32 %.0157298.i.i to i64
-  %1106 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1105
-  %1107 = getelementptr i8, ptr %1106, i64 32
+  %1106 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1105
+  %1107 = getelementptr inbounds nuw i8, ptr %1106, i64 32
   %1108 = load i32, ptr %1107, align 8
   %.not.i169.i.i = icmp eq i32 %1108, 3
   br i1 %.not.i169.i.i, label %1109, label %cgltf_parse_json_asset.exit.thread
@@ -52992,9 +52992,9 @@ cgltf_json_strcmp.exit.i.i370:                    ; preds = %1095
   br i1 %.not22.i.i.i372, label %1111, label %cgltf_parse_json_asset.exit.thread
 
 1111:                                             ; preds = %1109
-  %1112 = getelementptr i8, ptr %1106, i64 48
+  %1112 = getelementptr inbounds nuw i8, ptr %1106, i64 48
   %1113 = load i64, ptr %1112, align 8
-  %1114 = getelementptr i8, ptr %1106, i64 40
+  %1114 = getelementptr inbounds nuw i8, ptr %1106, i64 40
   %1115 = load i64, ptr %1114, align 8
   %1116 = sub nsw i64 %1113, %1115
   %1117 = load ptr, ptr %76, align 8
@@ -53025,17 +53025,17 @@ cgltf_json_strcmp.exit173.i.i362:                 ; preds = %1095
 
 1132:                                             ; preds = %cgltf_json_strcmp.exit173.i.i362
   %1133 = sext i32 %.0157298.i.i to i64
-  %1134 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1133
-  %1135 = getelementptr i8, ptr %1134, i64 32
+  %1134 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1133
+  %1135 = getelementptr inbounds nuw i8, ptr %1134, i64 32
   %1136 = load i32, ptr %1135, align 8
   %.not.i174.i.i = icmp eq i32 %1136, 4
   br i1 %.not.i174.i.i, label %1137, label %cgltf_json_to_int.exit.i.i
 
 1137:                                             ; preds = %1132
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %59) #58
-  %1138 = getelementptr i8, ptr %1134, i64 48
+  %1138 = getelementptr inbounds nuw i8, ptr %1134, i64 48
   %1139 = load i64, ptr %1138, align 8
-  %1140 = getelementptr i8, ptr %1134, i64 40
+  %1140 = getelementptr inbounds nuw i8, ptr %1134, i64 40
   %1141 = load i64, ptr %1140, align 8
   %1142 = sub nsw i64 %1139, %1141
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %1142, i64 127)
@@ -53064,17 +53064,17 @@ cgltf_json_strcmp.exit178.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 1153:                                             ; preds = %cgltf_json_strcmp.exit178.i.i
   %1154 = sext i32 %.0157298.i.i to i64
-  %1155 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1154
-  %1156 = getelementptr i8, ptr %1155, i64 32
+  %1155 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1154
+  %1156 = getelementptr inbounds nuw i8, ptr %1155, i64 32
   %1157 = load i32, ptr %1156, align 8
   %.not.i179.i.i = icmp eq i32 %1157, 4
   br i1 %.not.i179.i.i, label %1158, label %cgltf_json_to_size.exit.i.i
 
 1158:                                             ; preds = %1153
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %58) #58
-  %1159 = getelementptr i8, ptr %1155, i64 48
+  %1159 = getelementptr inbounds nuw i8, ptr %1155, i64 48
   %1160 = load i64, ptr %1159, align 8
-  %1161 = getelementptr i8, ptr %1155, i64 40
+  %1161 = getelementptr inbounds nuw i8, ptr %1155, i64 40
   %1162 = load i64, ptr %1161, align 8
   %1163 = sub nsw i64 %1160, %1162
   %spec.select.i181.i.i = call i64 @llvm.umin.i64(i64 %1163, i64 127)
@@ -53101,17 +53101,17 @@ cgltf_json_strcmp.exit184.i.i:                    ; preds = %1095
 
 1173:                                             ; preds = %cgltf_json_strcmp.exit184.i.i
   %1174 = sext i32 %.0157298.i.i to i64
-  %1175 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1174
-  %1176 = getelementptr i8, ptr %1175, i64 32
+  %1175 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1174
+  %1176 = getelementptr inbounds nuw i8, ptr %1175, i64 32
   %1177 = load i32, ptr %1176, align 8
   %.not.i.i.i.i359 = icmp eq i32 %1177, 4
   br i1 %.not.i.i.i.i359, label %cgltf_json_to_int.exit.i.i.i360, label %cgltf_json_to_component_type.exit.i.i
 
 cgltf_json_to_int.exit.i.i.i360:                  ; preds = %1173
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %57) #58
-  %1178 = getelementptr i8, ptr %1175, i64 48
+  %1178 = getelementptr inbounds nuw i8, ptr %1175, i64 48
   %1179 = load i64, ptr %1178, align 8
-  %1180 = getelementptr i8, ptr %1175, i64 40
+  %1180 = getelementptr inbounds nuw i8, ptr %1175, i64 40
   %1181 = load i64, ptr %1180, align 8
   %1182 = sub nsw i64 %1179, %1181
   %spec.select.i.i.i.i361 = call i64 @llvm.umin.i64(i64 %1182, i64 127)
@@ -53145,7 +53145,7 @@ cgltf_json_strcmp.exit188.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 1193:                                             ; preds = %cgltf_json_strcmp.exit188.i.i
   %1194 = sext i32 %.0157298.i.i to i64
-  %1195 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1194
+  %1195 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1194
   %1196 = getelementptr i8, ptr %1195, i64 40
   %.val.i.i = load i64, ptr %1196, align 8
   %1197 = getelementptr i8, ptr %1195, i64 48
@@ -53176,17 +53176,17 @@ cgltf_json_strcmp.exit191.i.i:                    ; preds = %1095
 
 1210:                                             ; preds = %cgltf_json_strcmp.exit191.i.i
   %1211 = sext i32 %.0157298.i.i to i64
-  %1212 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1211
-  %1213 = getelementptr i8, ptr %1212, i64 32
+  %1212 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1211
+  %1213 = getelementptr inbounds nuw i8, ptr %1212, i64 32
   %1214 = load i32, ptr %1213, align 8
   %.not.i192.i.i = icmp eq i32 %1214, 4
   br i1 %.not.i192.i.i, label %1215, label %cgltf_json_to_size.exit195.i.i
 
 1215:                                             ; preds = %1210
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %56) #58
-  %1216 = getelementptr i8, ptr %1212, i64 48
+  %1216 = getelementptr inbounds nuw i8, ptr %1212, i64 48
   %1217 = load i64, ptr %1216, align 8
-  %1218 = getelementptr i8, ptr %1212, i64 40
+  %1218 = getelementptr inbounds nuw i8, ptr %1212, i64 40
   %1219 = load i64, ptr %1218, align 8
   %1220 = sub nsw i64 %1217, %1219
   %spec.select.i194.i.i = call i64 @llvm.umin.i64(i64 %1220, i64 127)
@@ -53212,16 +53212,16 @@ cgltf_json_strcmp.exit198.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 1229:                                             ; preds = %cgltf_json_strcmp.exit198.i.i
   %1230 = sext i32 %.0157298.i.i to i64
-  %1231 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1230
-  %1232 = getelementptr i8, ptr %1231, i64 32
+  %1231 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1230
+  %1232 = getelementptr inbounds nuw i8, ptr %1231, i64 32
   %1233 = load i32, ptr %1232, align 8
   %.not.i199.i.i = icmp eq i32 %1233, 3
   br i1 %.not.i199.i.i, label %1234, label %cgltf_json_strcmp.exit.thread.i
 
 1234:                                             ; preds = %1229
-  %1235 = getelementptr i8, ptr %1231, i64 48
+  %1235 = getelementptr inbounds nuw i8, ptr %1231, i64 48
   %1236 = load i64, ptr %1235, align 8
-  %1237 = getelementptr i8, ptr %1231, i64 40
+  %1237 = getelementptr inbounds nuw i8, ptr %1231, i64 40
   %1238 = load i64, ptr %1237, align 8
   %1239 = sub nsw i64 %1236, %1238
   switch i64 %1239, label %cgltf_json_strcmp.exit.thread.i [
@@ -53416,14 +53416,14 @@ cgltf_json_strcmp.exit240.i.i:                    ; preds = %1095
 1312:                                             ; preds = %cgltf_json_strcmp.exit240.i.i
   store i32 1, ptr %1068, align 8
   %1313 = sext i32 %.0157298.i.i to i64
-  %1314 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1313
-  %1315 = getelementptr i8, ptr %1314, i64 32
+  %1314 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1313
+  %1315 = getelementptr inbounds nuw i8, ptr %1314, i64 32
   %1316 = load i32, ptr %1315, align 8
   %.not.i241.i.i = icmp eq i32 %1316, 1
   br i1 %.not.i241.i.i, label %1317, label %cgltf_parse_json_asset.exit.thread
 
 1317:                                             ; preds = %1312
-  %1318 = getelementptr i8, ptr %1314, i64 56
+  %1318 = getelementptr inbounds nuw i8, ptr %1314, i64 56
   %1319 = load i32, ptr %1318, align 8
   %1320 = add nuw nsw i32 %.0157298.i.i, 2
   %.not141251.i.i.i = icmp sgt i32 %1319, 0
@@ -53464,17 +53464,17 @@ cgltf_json_strcmp.exit.i.i.i345:                  ; preds = %1328
 
 1337:                                             ; preds = %cgltf_json_strcmp.exit.i.i.i345
   %1338 = sext i32 %.0123253.i.i.i to i64
-  %1339 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1338
-  %1340 = getelementptr i8, ptr %1339, i64 32
+  %1339 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1338
+  %1340 = getelementptr inbounds nuw i8, ptr %1339, i64 32
   %1341 = load i32, ptr %1340, align 8
   %.not.i142.i.i.i = icmp eq i32 %1341, 4
   br i1 %.not.i142.i.i.i, label %1342, label %cgltf_json_to_size.exit.i.i.i
 
 1342:                                             ; preds = %1337
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %53) #58
-  %1343 = getelementptr i8, ptr %1339, i64 48
+  %1343 = getelementptr inbounds nuw i8, ptr %1339, i64 48
   %1344 = load i64, ptr %1343, align 8
-  %1345 = getelementptr i8, ptr %1339, i64 40
+  %1345 = getelementptr inbounds nuw i8, ptr %1339, i64 40
   %1346 = load i64, ptr %1345, align 8
   %1347 = sub nsw i64 %1344, %1346
   %spec.select.i.i246.i.i = call i64 @llvm.umin.i64(i64 %1347, i64 127)
@@ -53501,14 +53501,14 @@ cgltf_json_strcmp.exit146.i.i.i:                  ; preds = %1328
 
 1357:                                             ; preds = %cgltf_json_strcmp.exit146.i.i.i
   %1358 = sext i32 %.0123253.i.i.i to i64
-  %1359 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1358
-  %1360 = getelementptr i8, ptr %1359, i64 32
+  %1359 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1358
+  %1360 = getelementptr inbounds nuw i8, ptr %1359, i64 32
   %1361 = load i32, ptr %1360, align 8
   %.not138.i.i.i = icmp eq i32 %1361, 1
   br i1 %.not138.i.i.i, label %1362, label %cgltf_parse_json_asset.exit.thread
 
 1362:                                             ; preds = %1357
-  %1363 = getelementptr i8, ptr %1359, i64 56
+  %1363 = getelementptr inbounds nuw i8, ptr %1359, i64 56
   %1364 = load i32, ptr %1363, align 8
   %1365 = add nuw nsw i32 %.0123253.i.i.i, 2
   %.not140246.i.i.i = icmp sgt i32 %1364, 0
@@ -53548,17 +53548,17 @@ cgltf_json_strcmp.exit149.i.i.i:                  ; preds = %1373
 
 1382:                                             ; preds = %cgltf_json_strcmp.exit149.i.i.i
   %1383 = sext i32 %.3126247.i.i.i to i64
-  %1384 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1383
-  %1385 = getelementptr i8, ptr %1384, i64 32
+  %1384 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1383
+  %1385 = getelementptr inbounds nuw i8, ptr %1384, i64 32
   %1386 = load i32, ptr %1385, align 8
   %.not.i150.i.i.i = icmp eq i32 %1386, 4
   br i1 %.not.i150.i.i.i, label %1387, label %cgltf_json_to_int.exit.i245.i.i
 
 1387:                                             ; preds = %1382
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %52) #58
-  %1388 = getelementptr i8, ptr %1384, i64 48
+  %1388 = getelementptr inbounds nuw i8, ptr %1384, i64 48
   %1389 = load i64, ptr %1388, align 8
-  %1390 = getelementptr i8, ptr %1384, i64 40
+  %1390 = getelementptr inbounds nuw i8, ptr %1384, i64 40
   %1391 = load i64, ptr %1390, align 8
   %1392 = sub nsw i64 %1389, %1391
   %spec.select.i152.i.i.i = call i64 @llvm.umin.i64(i64 %1392, i64 127)
@@ -53587,17 +53587,17 @@ cgltf_json_strcmp.exit155.i.i.i:                  ; preds = %cgltf_json_strcmp.e
 
 1403:                                             ; preds = %cgltf_json_strcmp.exit155.i.i.i
   %1404 = sext i32 %.3126247.i.i.i to i64
-  %1405 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1404
-  %1406 = getelementptr i8, ptr %1405, i64 32
+  %1405 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1404
+  %1406 = getelementptr inbounds nuw i8, ptr %1405, i64 32
   %1407 = load i32, ptr %1406, align 8
   %.not.i156.i.i.i = icmp eq i32 %1407, 4
   br i1 %.not.i156.i.i.i, label %1408, label %cgltf_json_to_size.exit159.i.i.i
 
 1408:                                             ; preds = %1403
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %51) #58
-  %1409 = getelementptr i8, ptr %1405, i64 48
+  %1409 = getelementptr inbounds nuw i8, ptr %1405, i64 48
   %1410 = load i64, ptr %1409, align 8
-  %1411 = getelementptr i8, ptr %1405, i64 40
+  %1411 = getelementptr inbounds nuw i8, ptr %1405, i64 40
   %1412 = load i64, ptr %1411, align 8
   %1413 = sub nsw i64 %1410, %1412
   %spec.select.i158.i.i.i = call i64 @llvm.umin.i64(i64 %1413, i64 127)
@@ -53624,17 +53624,17 @@ cgltf_json_strcmp.exit162.i.i.i:                  ; preds = %1373
 
 1423:                                             ; preds = %cgltf_json_strcmp.exit162.i.i.i
   %1424 = sext i32 %.3126247.i.i.i to i64
-  %1425 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1424
-  %1426 = getelementptr i8, ptr %1425, i64 32
+  %1425 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1424
+  %1426 = getelementptr inbounds nuw i8, ptr %1425, i64 32
   %1427 = load i32, ptr %1426, align 8
   %.not.i.i.i.i.i341 = icmp eq i32 %1427, 4
   br i1 %.not.i.i.i.i.i341, label %cgltf_json_to_int.exit.i.i.i.i343, label %cgltf_json_to_component_type.exit.i.i.i
 
 cgltf_json_to_int.exit.i.i.i.i343:                ; preds = %1423
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %50) #58
-  %1428 = getelementptr i8, ptr %1425, i64 48
+  %1428 = getelementptr inbounds nuw i8, ptr %1425, i64 48
   %1429 = load i64, ptr %1428, align 8
-  %1430 = getelementptr i8, ptr %1425, i64 40
+  %1430 = getelementptr inbounds nuw i8, ptr %1425, i64 40
   %1431 = load i64, ptr %1430, align 8
   %1432 = sub nsw i64 %1429, %1431
   %spec.select.i.i.i.i.i344 = call i64 @llvm.umin.i64(i64 %1432, i64 127)
@@ -53717,14 +53717,14 @@ cgltf_json_strcmp.exit166.i.i.i:                  ; preds = %1328
 
 1464:                                             ; preds = %cgltf_json_strcmp.exit166.i.i.i
   %1465 = sext i32 %.0123253.i.i.i to i64
-  %1466 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1465
-  %1467 = getelementptr i8, ptr %1466, i64 32
+  %1466 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1465
+  %1467 = getelementptr inbounds nuw i8, ptr %1466, i64 32
   %1468 = load i32, ptr %1467, align 8
   %.not135.i.i.i = icmp eq i32 %1468, 1
   br i1 %.not135.i.i.i, label %1469, label %cgltf_parse_json_asset.exit.thread
 
 1469:                                             ; preds = %1464
-  %1470 = getelementptr i8, ptr %1466, i64 56
+  %1470 = getelementptr inbounds nuw i8, ptr %1466, i64 56
   %1471 = load i32, ptr %1470, align 8
   %1472 = add nuw nsw i32 %.0123253.i.i.i, 2
   %.not137243.i.i.i = icmp sgt i32 %1471, 0
@@ -53762,17 +53762,17 @@ cgltf_json_strcmp.exit169.i.i.i:                  ; preds = %1480
 
 1490:                                             ; preds = %cgltf_json_strcmp.exit169.i.i.i
   %1491 = sext i32 %.6129244.i.i.i to i64
-  %1492 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1491
-  %1493 = getelementptr i8, ptr %1492, i64 32
+  %1492 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1491
+  %1493 = getelementptr inbounds nuw i8, ptr %1492, i64 32
   %1494 = load i32, ptr %1493, align 8
   %.not.i170.i.i.i = icmp eq i32 %1494, 4
   br i1 %.not.i170.i.i.i, label %1495, label %cgltf_json_to_int.exit173.i.i.i
 
 1495:                                             ; preds = %1490
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %49) #58
-  %1496 = getelementptr i8, ptr %1492, i64 48
+  %1496 = getelementptr inbounds nuw i8, ptr %1492, i64 48
   %1497 = load i64, ptr %1496, align 8
-  %1498 = getelementptr i8, ptr %1492, i64 40
+  %1498 = getelementptr inbounds nuw i8, ptr %1492, i64 40
   %1499 = load i64, ptr %1498, align 8
   %1500 = sub nsw i64 %1497, %1499
   %spec.select.i172.i.i.i = call i64 @llvm.umin.i64(i64 %1500, i64 127)
@@ -53801,17 +53801,17 @@ cgltf_json_strcmp.exit176.i.i.i:                  ; preds = %cgltf_json_strcmp.e
 
 1511:                                             ; preds = %cgltf_json_strcmp.exit176.i.i.i
   %1512 = sext i32 %.6129244.i.i.i to i64
-  %1513 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1512
-  %1514 = getelementptr i8, ptr %1513, i64 32
+  %1513 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1512
+  %1514 = getelementptr inbounds nuw i8, ptr %1513, i64 32
   %1515 = load i32, ptr %1514, align 8
   %.not.i177.i.i.i = icmp eq i32 %1515, 4
   br i1 %.not.i177.i.i.i, label %1516, label %cgltf_json_to_size.exit180.i.i.i
 
 1516:                                             ; preds = %1511
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %48) #58
-  %1517 = getelementptr i8, ptr %1513, i64 48
+  %1517 = getelementptr inbounds nuw i8, ptr %1513, i64 48
   %1518 = load i64, ptr %1517, align 8
-  %1519 = getelementptr i8, ptr %1513, i64 40
+  %1519 = getelementptr inbounds nuw i8, ptr %1513, i64 40
   %1520 = load i64, ptr %1519, align 8
   %1521 = sub nsw i64 %1518, %1520
   %spec.select.i179.i.i.i = call i64 @llvm.umin.i64(i64 %1521, i64 127)
@@ -54161,8 +54161,8 @@ cgltf_json_strcmp.exit377:                        ; preds = %cgltf_json_strcmp.e
 
 1671:                                             ; preds = %cgltf_json_strcmp.exit377
   %1672 = sext i32 %.02671232 to i64
-  %1673 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1672
-  %1674 = getelementptr i8, ptr %1673, i64 32
+  %1673 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1672
+  %1674 = getelementptr inbounds nuw i8, ptr %1673, i64 32
   %1675 = load i32, ptr %1674, align 8
   %.not.i.i378 = icmp eq i32 %1675, 2
   br i1 %.not.i.i378, label %1679, label %1676
@@ -54178,7 +54178,7 @@ cgltf_json_strcmp.exit377:                        ; preds = %cgltf_json_strcmp.e
   br i1 %.not18.i.i380, label %1681, label %cgltf_parse_json_asset.exit.thread
 
 1681:                                             ; preds = %1679
-  %1682 = getelementptr i8, ptr %1673, i64 56
+  %1682 = getelementptr inbounds nuw i8, ptr %1673, i64 56
   %1683 = load i32, ptr %1682, align 8
   %1684 = sext i32 %1683 to i64
   %mul.ov.i.i.i381 = icmp slt i32 %1683, 0
@@ -54275,8 +54275,8 @@ cgltf_json_strcmp.exit.i.i417:                    ; preds = %1727
 
 1736:                                             ; preds = %cgltf_json_strcmp.exit.i.i417
   %1737 = sext i32 %.0130254.i.i to i64
-  %1738 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1737
-  %1739 = getelementptr i8, ptr %1738, i64 32
+  %1738 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1737
+  %1739 = getelementptr inbounds nuw i8, ptr %1738, i64 32
   %1740 = load i32, ptr %1739, align 8
   %.not.i146.i.i = icmp eq i32 %1740, 3
   br i1 %.not.i146.i.i, label %1741, label %cgltf_parse_json_asset.exit.thread
@@ -54287,9 +54287,9 @@ cgltf_json_strcmp.exit.i.i417:                    ; preds = %1727
   br i1 %.not22.i.i.i418, label %1743, label %cgltf_parse_json_asset.exit.thread
 
 1743:                                             ; preds = %1741
-  %1744 = getelementptr i8, ptr %1738, i64 48
+  %1744 = getelementptr inbounds nuw i8, ptr %1738, i64 48
   %1745 = load i64, ptr %1744, align 8
-  %1746 = getelementptr i8, ptr %1738, i64 40
+  %1746 = getelementptr inbounds nuw i8, ptr %1738, i64 40
   %1747 = load i64, ptr %1746, align 8
   %1748 = sub nsw i64 %1745, %1747
   %1749 = load ptr, ptr %76, align 8
@@ -54320,17 +54320,17 @@ cgltf_json_strcmp.exit150.i.i:                    ; preds = %1727
 
 1764:                                             ; preds = %cgltf_json_strcmp.exit150.i.i
   %1765 = sext i32 %.0130254.i.i to i64
-  %1766 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1765
-  %1767 = getelementptr i8, ptr %1766, i64 32
+  %1766 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1765
+  %1767 = getelementptr inbounds nuw i8, ptr %1766, i64 32
   %1768 = load i32, ptr %1767, align 8
   %.not.i151.i.i = icmp eq i32 %1768, 4
   br i1 %.not.i151.i.i, label %1769, label %cgltf_json_to_int.exit.i.i414
 
 1769:                                             ; preds = %1764
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %47) #58
-  %1770 = getelementptr i8, ptr %1766, i64 48
+  %1770 = getelementptr inbounds nuw i8, ptr %1766, i64 48
   %1771 = load i64, ptr %1770, align 8
-  %1772 = getelementptr i8, ptr %1766, i64 40
+  %1772 = getelementptr inbounds nuw i8, ptr %1766, i64 40
   %1773 = load i64, ptr %1772, align 8
   %1774 = sub nsw i64 %1771, %1773
   %spec.select.i.i.i415 = call i64 @llvm.umin.i64(i64 %1774, i64 127)
@@ -54360,17 +54360,17 @@ cgltf_json_strcmp.exit155.i.i:                    ; preds = %1727
 
 1786:                                             ; preds = %cgltf_json_strcmp.exit155.i.i
   %1787 = sext i32 %.0130254.i.i to i64
-  %1788 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1787
-  %1789 = getelementptr i8, ptr %1788, i64 32
+  %1788 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1787
+  %1789 = getelementptr inbounds nuw i8, ptr %1788, i64 32
   %1790 = load i32, ptr %1789, align 8
   %.not.i156.i.i = icmp eq i32 %1790, 4
   br i1 %.not.i156.i.i, label %1791, label %cgltf_json_to_size.exit.i.i408
 
 1791:                                             ; preds = %1786
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %46) #58
-  %1792 = getelementptr i8, ptr %1788, i64 48
+  %1792 = getelementptr inbounds nuw i8, ptr %1788, i64 48
   %1793 = load i64, ptr %1792, align 8
-  %1794 = getelementptr i8, ptr %1788, i64 40
+  %1794 = getelementptr inbounds nuw i8, ptr %1788, i64 40
   %1795 = load i64, ptr %1794, align 8
   %1796 = sub nsw i64 %1793, %1795
   %spec.select.i158.i.i = call i64 @llvm.umin.i64(i64 %1796, i64 127)
@@ -54396,17 +54396,17 @@ cgltf_json_strcmp.exit161.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 1805:                                             ; preds = %cgltf_json_strcmp.exit161.i.i
   %1806 = sext i32 %.0130254.i.i to i64
-  %1807 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1806
-  %1808 = getelementptr i8, ptr %1807, i64 32
+  %1807 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1806
+  %1808 = getelementptr inbounds nuw i8, ptr %1807, i64 32
   %1809 = load i32, ptr %1808, align 8
   %.not.i162.i.i = icmp eq i32 %1809, 4
   br i1 %.not.i162.i.i, label %1810, label %cgltf_json_to_size.exit165.i.i
 
 1810:                                             ; preds = %1805
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %45) #58
-  %1811 = getelementptr i8, ptr %1807, i64 48
+  %1811 = getelementptr inbounds nuw i8, ptr %1807, i64 48
   %1812 = load i64, ptr %1811, align 8
-  %1813 = getelementptr i8, ptr %1807, i64 40
+  %1813 = getelementptr inbounds nuw i8, ptr %1807, i64 40
   %1814 = load i64, ptr %1813, align 8
   %1815 = sub nsw i64 %1812, %1814
   %spec.select.i164.i.i = call i64 @llvm.umin.i64(i64 %1815, i64 127)
@@ -54432,17 +54432,17 @@ cgltf_json_strcmp.exit168.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 1824:                                             ; preds = %cgltf_json_strcmp.exit168.i.i
   %1825 = sext i32 %.0130254.i.i to i64
-  %1826 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1825
-  %1827 = getelementptr i8, ptr %1826, i64 32
+  %1826 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1825
+  %1827 = getelementptr inbounds nuw i8, ptr %1826, i64 32
   %1828 = load i32, ptr %1827, align 8
   %.not.i169.i.i407 = icmp eq i32 %1828, 4
   br i1 %.not.i169.i.i407, label %1829, label %cgltf_json_to_size.exit172.i.i
 
 1829:                                             ; preds = %1824
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %44) #58
-  %1830 = getelementptr i8, ptr %1826, i64 48
+  %1830 = getelementptr inbounds nuw i8, ptr %1826, i64 48
   %1831 = load i64, ptr %1830, align 8
-  %1832 = getelementptr i8, ptr %1826, i64 40
+  %1832 = getelementptr inbounds nuw i8, ptr %1826, i64 40
   %1833 = load i64, ptr %1832, align 8
   %1834 = sub nsw i64 %1831, %1833
   %spec.select.i171.i.i = call i64 @llvm.umin.i64(i64 %1834, i64 127)
@@ -54468,17 +54468,17 @@ cgltf_json_strcmp.exit175.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 1843:                                             ; preds = %cgltf_json_strcmp.exit175.i.i
   %1844 = sext i32 %.0130254.i.i to i64
-  %1845 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1844
-  %1846 = getelementptr i8, ptr %1845, i64 32
+  %1845 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1844
+  %1846 = getelementptr inbounds nuw i8, ptr %1845, i64 32
   %1847 = load i32, ptr %1846, align 8
   %.not.i176.i.i = icmp eq i32 %1847, 4
   br i1 %.not.i176.i.i, label %cgltf_json_to_int.exit179.i.i, label %.thread.i.i
 
 cgltf_json_to_int.exit179.i.i:                    ; preds = %1843
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %43) #58
-  %1848 = getelementptr i8, ptr %1845, i64 48
+  %1848 = getelementptr inbounds nuw i8, ptr %1845, i64 48
   %1849 = load i64, ptr %1848, align 8
-  %1850 = getelementptr i8, ptr %1845, i64 40
+  %1850 = getelementptr inbounds nuw i8, ptr %1845, i64 40
   %1851 = load i64, ptr %1850, align 8
   %1852 = sub nsw i64 %1849, %1851
   %spec.select.i178.i.i = call i64 @llvm.umin.i64(i64 %1852, i64 127)
@@ -54584,8 +54584,8 @@ cgltf_json_strcmp.exit187.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 1902:                                             ; preds = %cgltf_json_strcmp.exit187.i.i
   %1903 = sext i32 %.0130254.i.i to i64
-  %1904 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1903
-  %1905 = getelementptr i8, ptr %1904, i64 32
+  %1904 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1903
+  %1905 = getelementptr inbounds nuw i8, ptr %1904, i64 32
   %1906 = load i32, ptr %1905, align 8
   %.not138.i.i395 = icmp eq i32 %1906, 1
   br i1 %.not138.i.i395, label %1907, label %cgltf_parse_json_asset.exit.thread
@@ -54596,7 +54596,7 @@ cgltf_json_strcmp.exit187.i.i:                    ; preds = %cgltf_json_strcmp.e
   br i1 %.not139.i.i, label %1909, label %cgltf_parse_json_asset.exit.thread
 
 1909:                                             ; preds = %1907
-  %1910 = getelementptr i8, ptr %1904, i64 56
+  %1910 = getelementptr inbounds nuw i8, ptr %1904, i64 56
   %1911 = load i32, ptr %1910, align 8
   store i64 0, ptr %1702, align 8
   %mul.ov.i.i30.i = icmp slt i32 %1911, 0
@@ -54655,14 +54655,14 @@ cgltf_json_strcmp.exit192.i.i:                    ; preds = %1927
 1937:                                             ; preds = %cgltf_json_strcmp.exit192.i.i
   store i32 1, ptr %1703, align 8
   %1938 = sext i32 %.4134251.i.i to i64
-  %1939 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1938
-  %1940 = getelementptr i8, ptr %1939, i64 32
+  %1939 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1938
+  %1940 = getelementptr inbounds nuw i8, ptr %1939, i64 32
   %1941 = load i32, ptr %1940, align 8
   %.not.i193.i.i = icmp eq i32 %1941, 1
   br i1 %.not.i193.i.i, label %1942, label %cgltf_parse_json_asset.exit.thread
 
 1942:                                             ; preds = %1937
-  %1943 = getelementptr i8, ptr %1939, i64 56
+  %1943 = getelementptr inbounds nuw i8, ptr %1939, i64 56
   %1944 = load i32, ptr %1943, align 8
   %1945 = add nuw nsw i32 %.4134251.i.i, 2
   %.not10729.i.i.i = icmp sgt i32 %1944, 0
@@ -54704,17 +54704,17 @@ cgltf_json_strcmp.exit.i.i.i403:                  ; preds = %1953
 
 1962:                                             ; preds = %cgltf_json_strcmp.exit.i.i.i403
   %1963 = sext i32 %.010330.i.i.i to i64
-  %1964 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1963
-  %1965 = getelementptr i8, ptr %1964, i64 32
+  %1964 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1963
+  %1965 = getelementptr inbounds nuw i8, ptr %1964, i64 32
   %1966 = load i32, ptr %1965, align 8
   %.not.i108.i.i.i = icmp eq i32 %1966, 4
   br i1 %.not.i108.i.i.i, label %1967, label %cgltf_json_to_int.exit.i.i.i404
 
 1967:                                             ; preds = %1962
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %42) #58
-  %1968 = getelementptr i8, ptr %1964, i64 48
+  %1968 = getelementptr inbounds nuw i8, ptr %1964, i64 48
   %1969 = load i64, ptr %1968, align 8
-  %1970 = getelementptr i8, ptr %1964, i64 40
+  %1970 = getelementptr inbounds nuw i8, ptr %1964, i64 40
   %1971 = load i64, ptr %1970, align 8
   %1972 = sub nsw i64 %1969, %1971
   %spec.select.i.i.i.i405 = call i64 @llvm.umin.i64(i64 %1972, i64 127)
@@ -54744,17 +54744,17 @@ cgltf_json_strcmp.exit112.i.i.i:                  ; preds = %1953
 
 1984:                                             ; preds = %cgltf_json_strcmp.exit112.i.i.i
   %1985 = sext i32 %.010330.i.i.i to i64
-  %1986 = getelementptr %struct.jsmntok_t, ptr %1, i64 %1985
-  %1987 = getelementptr i8, ptr %1986, i64 32
+  %1986 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %1985
+  %1987 = getelementptr inbounds nuw i8, ptr %1986, i64 32
   %1988 = load i32, ptr %1987, align 8
   %.not.i113.i.i.i = icmp eq i32 %1988, 4
   br i1 %.not.i113.i.i.i, label %1989, label %cgltf_json_to_size.exit.i.i.i402
 
 1989:                                             ; preds = %1984
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %41) #58
-  %1990 = getelementptr i8, ptr %1986, i64 48
+  %1990 = getelementptr inbounds nuw i8, ptr %1986, i64 48
   %1991 = load i64, ptr %1990, align 8
-  %1992 = getelementptr i8, ptr %1986, i64 40
+  %1992 = getelementptr inbounds nuw i8, ptr %1986, i64 40
   %1993 = load i64, ptr %1992, align 8
   %1994 = sub nsw i64 %1991, %1993
   %spec.select.i115.i.i.i = call i64 @llvm.umin.i64(i64 %1994, i64 127)
@@ -54780,17 +54780,17 @@ cgltf_json_strcmp.exit118.i.i.i:                  ; preds = %cgltf_json_strcmp.e
 
 2003:                                             ; preds = %cgltf_json_strcmp.exit118.i.i.i
   %2004 = sext i32 %.010330.i.i.i to i64
-  %2005 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2004
-  %2006 = getelementptr i8, ptr %2005, i64 32
+  %2005 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2004
+  %2006 = getelementptr inbounds nuw i8, ptr %2005, i64 32
   %2007 = load i32, ptr %2006, align 8
   %.not.i119.i.i.i = icmp eq i32 %2007, 4
   br i1 %.not.i119.i.i.i, label %2008, label %cgltf_json_to_size.exit122.i.i.i
 
 2008:                                             ; preds = %2003
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %40) #58
-  %2009 = getelementptr i8, ptr %2005, i64 48
+  %2009 = getelementptr inbounds nuw i8, ptr %2005, i64 48
   %2010 = load i64, ptr %2009, align 8
-  %2011 = getelementptr i8, ptr %2005, i64 40
+  %2011 = getelementptr inbounds nuw i8, ptr %2005, i64 40
   %2012 = load i64, ptr %2011, align 8
   %2013 = sub nsw i64 %2010, %2012
   %spec.select.i121.i.i.i = call i64 @llvm.umin.i64(i64 %2013, i64 127)
@@ -54816,17 +54816,17 @@ cgltf_json_strcmp.exit125.i.i.i:                  ; preds = %cgltf_json_strcmp.e
 
 2022:                                             ; preds = %cgltf_json_strcmp.exit125.i.i.i
   %2023 = sext i32 %.010330.i.i.i to i64
-  %2024 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2023
-  %2025 = getelementptr i8, ptr %2024, i64 32
+  %2024 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2023
+  %2025 = getelementptr inbounds nuw i8, ptr %2024, i64 32
   %2026 = load i32, ptr %2025, align 8
   %.not.i126.i.i.i = icmp eq i32 %2026, 4
   br i1 %.not.i126.i.i.i, label %2027, label %cgltf_json_to_size.exit129.i.i.i
 
 2027:                                             ; preds = %2022
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %39) #58
-  %2028 = getelementptr i8, ptr %2024, i64 48
+  %2028 = getelementptr inbounds nuw i8, ptr %2024, i64 48
   %2029 = load i64, ptr %2028, align 8
-  %2030 = getelementptr i8, ptr %2024, i64 40
+  %2030 = getelementptr inbounds nuw i8, ptr %2024, i64 40
   %2031 = load i64, ptr %2030, align 8
   %2032 = sub nsw i64 %2029, %2031
   %spec.select.i128.i.i.i = call i64 @llvm.umin.i64(i64 %2032, i64 127)
@@ -54853,17 +54853,17 @@ cgltf_json_strcmp.exit132.i.i.i:                  ; preds = %1953
 
 2042:                                             ; preds = %cgltf_json_strcmp.exit132.i.i.i
   %2043 = sext i32 %.010330.i.i.i to i64
-  %2044 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2043
-  %2045 = getelementptr i8, ptr %2044, i64 32
+  %2044 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2043
+  %2045 = getelementptr inbounds nuw i8, ptr %2044, i64 32
   %2046 = load i32, ptr %2045, align 8
   %.not.i133.i.i.i = icmp eq i32 %2046, 4
   br i1 %.not.i133.i.i.i, label %2047, label %cgltf_json_to_size.exit136.i.i.i
 
 2047:                                             ; preds = %2042
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %38) #58
-  %2048 = getelementptr i8, ptr %2044, i64 48
+  %2048 = getelementptr inbounds nuw i8, ptr %2044, i64 48
   %2049 = load i64, ptr %2048, align 8
-  %2050 = getelementptr i8, ptr %2044, i64 40
+  %2050 = getelementptr inbounds nuw i8, ptr %2044, i64 40
   %2051 = load i64, ptr %2050, align 8
   %2052 = sub nsw i64 %2049, %2051
   %spec.select.i135.i.i.i = call i64 @llvm.umin.i64(i64 %2052, i64 127)
@@ -54890,16 +54890,16 @@ cgltf_json_strcmp.exit139.i.i.i:                  ; preds = %1953
 
 2062:                                             ; preds = %cgltf_json_strcmp.exit139.i.i.i
   %2063 = sext i32 %.010330.i.i.i to i64
-  %2064 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2063
-  %2065 = getelementptr i8, ptr %2064, i64 32
+  %2064 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2063
+  %2065 = getelementptr inbounds nuw i8, ptr %2064, i64 32
   %2066 = load i32, ptr %2065, align 8
   %.not.i140.i.i.i = icmp eq i32 %2066, 3
   br i1 %.not.i140.i.i.i, label %2067, label %cgltf_json_strcmp.exit148.thread.i.i.i
 
 2067:                                             ; preds = %2062
-  %2068 = getelementptr i8, ptr %2064, i64 48
+  %2068 = getelementptr inbounds nuw i8, ptr %2064, i64 48
   %2069 = load i64, ptr %2068, align 8
-  %2070 = getelementptr i8, ptr %2064, i64 40
+  %2070 = getelementptr inbounds nuw i8, ptr %2064, i64 40
   %2071 = load i64, ptr %2070, align 8
   %2072 = sub nsw i64 %2069, %2071
   switch i64 %2072, label %cgltf_json_strcmp.exit148.thread.i.i.i [
@@ -54942,16 +54942,16 @@ cgltf_json_strcmp.exit151.i.i.i:                  ; preds = %cgltf_json_strcmp.e
 
 2085:                                             ; preds = %cgltf_json_strcmp.exit151.i.i.i
   %2086 = sext i32 %.010330.i.i.i to i64
-  %2087 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2086
-  %2088 = getelementptr i8, ptr %2087, i64 32
+  %2087 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2086
+  %2088 = getelementptr inbounds nuw i8, ptr %2087, i64 32
   %2089 = load i32, ptr %2088, align 8
   %.not.i152.i.i.i = icmp eq i32 %2089, 3
   br i1 %.not.i152.i.i.i, label %2090, label %cgltf_json_strcmp.exit163.thread.i.i.i
 
 2090:                                             ; preds = %2085
-  %2091 = getelementptr i8, ptr %2087, i64 48
+  %2091 = getelementptr inbounds nuw i8, ptr %2087, i64 48
   %2092 = load i64, ptr %2091, align 8
-  %2093 = getelementptr i8, ptr %2087, i64 40
+  %2093 = getelementptr inbounds nuw i8, ptr %2087, i64 40
   %2094 = load i64, ptr %2093, align 8
   %2095 = sub nsw i64 %2092, %2094
   switch i64 %2095, label %cgltf_json_strcmp.exit163.thread.i.i.i [
@@ -55136,8 +55136,8 @@ cgltf_json_strcmp.exit423:                        ; preds = %cgltf_json_strcmp.e
 
 2162:                                             ; preds = %cgltf_json_strcmp.exit423
   %2163 = sext i32 %.02671232 to i64
-  %2164 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2163
-  %2165 = getelementptr i8, ptr %2164, i64 32
+  %2164 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2163
+  %2165 = getelementptr inbounds nuw i8, ptr %2164, i64 32
   %2166 = load i32, ptr %2165, align 8
   %.not.i.i424 = icmp eq i32 %2166, 2
   br i1 %.not.i.i424, label %2170, label %2167
@@ -55153,7 +55153,7 @@ cgltf_json_strcmp.exit423:                        ; preds = %cgltf_json_strcmp.e
   br i1 %.not18.i.i426, label %2172, label %cgltf_parse_json_asset.exit.thread
 
 2172:                                             ; preds = %2170
-  %2173 = getelementptr i8, ptr %2164, i64 56
+  %2173 = getelementptr inbounds nuw i8, ptr %2164, i64 56
   %2174 = load i32, ptr %2173, align 8
   %2175 = sext i32 %2174 to i64
   %mul.ov.i.i.i427 = icmp slt i32 %2174, 0
@@ -55240,8 +55240,8 @@ cgltf_json_strcmp.exit.i.i464:                    ; preds = %2207
 
 2216:                                             ; preds = %cgltf_json_strcmp.exit.i.i464
   %2217 = sext i32 %.062110.i.i to i64
-  %2218 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2217
-  %2219 = getelementptr i8, ptr %2218, i64 32
+  %2218 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2217
+  %2219 = getelementptr inbounds nuw i8, ptr %2218, i64 32
   %2220 = load i32, ptr %2219, align 8
   %.not.i67.i.i = icmp eq i32 %2220, 3
   br i1 %.not.i67.i.i, label %2221, label %cgltf_parse_json_asset.exit.thread
@@ -55252,9 +55252,9 @@ cgltf_json_strcmp.exit.i.i464:                    ; preds = %2207
   br i1 %.not22.i.i.i465, label %2223, label %cgltf_parse_json_asset.exit.thread
 
 2223:                                             ; preds = %2221
-  %2224 = getelementptr i8, ptr %2218, i64 48
+  %2224 = getelementptr inbounds nuw i8, ptr %2218, i64 48
   %2225 = load i64, ptr %2224, align 8
-  %2226 = getelementptr i8, ptr %2218, i64 40
+  %2226 = getelementptr inbounds nuw i8, ptr %2218, i64 40
   %2227 = load i64, ptr %2226, align 8
   %2228 = sub nsw i64 %2225, %2227
   %2229 = load ptr, ptr %76, align 8
@@ -55285,17 +55285,17 @@ cgltf_json_strcmp.exit71.i.i:                     ; preds = %2207
 
 2244:                                             ; preds = %cgltf_json_strcmp.exit71.i.i
   %2245 = sext i32 %.062110.i.i to i64
-  %2246 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2245
-  %2247 = getelementptr i8, ptr %2246, i64 32
+  %2246 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2245
+  %2247 = getelementptr inbounds nuw i8, ptr %2246, i64 32
   %2248 = load i32, ptr %2247, align 8
   %.not.i72.i.i = icmp eq i32 %2248, 4
   br i1 %.not.i72.i.i, label %2249, label %cgltf_json_to_size.exit.i.i462
 
 2249:                                             ; preds = %2244
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %37) #58
-  %2250 = getelementptr i8, ptr %2246, i64 48
+  %2250 = getelementptr inbounds nuw i8, ptr %2246, i64 48
   %2251 = load i64, ptr %2250, align 8
-  %2252 = getelementptr i8, ptr %2246, i64 40
+  %2252 = getelementptr inbounds nuw i8, ptr %2246, i64 40
   %2253 = load i64, ptr %2252, align 8
   %2254 = sub nsw i64 %2251, %2253
   %spec.select.i.i.i463 = call i64 @llvm.umin.i64(i64 %2254, i64 127)
@@ -55334,8 +55334,8 @@ cgltf_json_strcmp.exit76.tail.i.i:                ; preds = %sub_1.i.i449
 
 2268:                                             ; preds = %cgltf_json_strcmp.exit76.tail.i.i
   %2269 = sext i32 %.062110.i.i to i64
-  %2270 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2269
-  %2271 = getelementptr i8, ptr %2270, i64 32
+  %2270 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2269
+  %2271 = getelementptr inbounds nuw i8, ptr %2270, i64 32
   %2272 = load i32, ptr %2271, align 8
   %.not.i77.i.i = icmp eq i32 %2272, 3
   br i1 %.not.i77.i.i, label %2273, label %cgltf_parse_json_asset.exit.thread
@@ -55346,9 +55346,9 @@ cgltf_json_strcmp.exit76.tail.i.i:                ; preds = %sub_1.i.i449
   br i1 %.not22.i79.i.i, label %2275, label %cgltf_parse_json_asset.exit.thread
 
 2275:                                             ; preds = %2273
-  %2276 = getelementptr i8, ptr %2270, i64 48
+  %2276 = getelementptr inbounds nuw i8, ptr %2270, i64 48
   %2277 = load i64, ptr %2276, align 8
-  %2278 = getelementptr i8, ptr %2270, i64 40
+  %2278 = getelementptr inbounds nuw i8, ptr %2270, i64 40
   %2279 = load i64, ptr %2278, align 8
   %2280 = sub nsw i64 %2277, %2279
   %2281 = load ptr, ptr %76, align 8
@@ -55594,8 +55594,8 @@ cgltf_json_strcmp.exit470:                        ; preds = %cgltf_json_strcmp.e
 
 2394:                                             ; preds = %cgltf_json_strcmp.exit470
   %2395 = sext i32 %.02671232 to i64
-  %2396 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2395
-  %2397 = getelementptr i8, ptr %2396, i64 32
+  %2396 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2395
+  %2397 = getelementptr inbounds nuw i8, ptr %2396, i64 32
   %2398 = load i32, ptr %2397, align 8
   %.not.i.i471 = icmp eq i32 %2398, 2
   br i1 %.not.i.i471, label %2402, label %2399
@@ -55611,7 +55611,7 @@ cgltf_json_strcmp.exit470:                        ; preds = %cgltf_json_strcmp.e
   br i1 %.not18.i.i473, label %2404, label %cgltf_parse_json_asset.exit.thread
 
 2404:                                             ; preds = %2402
-  %2405 = getelementptr i8, ptr %2396, i64 56
+  %2405 = getelementptr inbounds nuw i8, ptr %2396, i64 56
   %2406 = load i32, ptr %2405, align 8
   %2407 = sext i32 %2406 to i64
   %mul.ov.i.i.i474 = icmp slt i32 %2406, 0
@@ -55804,8 +55804,8 @@ cgltf_json_strcmp.exit.i.i528:                    ; preds = %2498
 
 2507:                                             ; preds = %cgltf_json_strcmp.exit.i.i528
   %2508 = sext i32 %.0259452.i.i to i64
-  %2509 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2508
-  %2510 = getelementptr i8, ptr %2509, i64 32
+  %2509 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2508
+  %2510 = getelementptr inbounds nuw i8, ptr %2509, i64 32
   %2511 = load i32, ptr %2510, align 8
   %.not.i286.i.i = icmp eq i32 %2511, 3
   br i1 %.not.i286.i.i, label %2512, label %cgltf_parse_json_asset.exit.thread
@@ -55816,9 +55816,9 @@ cgltf_json_strcmp.exit.i.i528:                    ; preds = %2498
   br i1 %.not22.i.i.i529, label %2514, label %cgltf_parse_json_asset.exit.thread
 
 2514:                                             ; preds = %2512
-  %2515 = getelementptr i8, ptr %2509, i64 48
+  %2515 = getelementptr inbounds nuw i8, ptr %2509, i64 48
   %2516 = load i64, ptr %2515, align 8
-  %2517 = getelementptr i8, ptr %2509, i64 40
+  %2517 = getelementptr inbounds nuw i8, ptr %2509, i64 40
   %2518 = load i64, ptr %2517, align 8
   %2519 = sub nsw i64 %2516, %2518
   %2520 = load ptr, ptr %76, align 8
@@ -55850,14 +55850,14 @@ cgltf_json_strcmp.exit290.i.i:                    ; preds = %2498
 2535:                                             ; preds = %cgltf_json_strcmp.exit290.i.i
   store i32 1, ptr %2476, align 8
   %2536 = sext i32 %.0259452.i.i to i64
-  %2537 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2536
-  %2538 = getelementptr i8, ptr %2537, i64 32
+  %2537 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2536
+  %2538 = getelementptr inbounds nuw i8, ptr %2537, i64 32
   %2539 = load i32, ptr %2538, align 8
   %.not.i291.i.i = icmp eq i32 %2539, 1
   br i1 %.not.i291.i.i, label %2540, label %cgltf_parse_json_asset.exit.thread
 
 2540:                                             ; preds = %2535
-  %2541 = getelementptr i8, ptr %2537, i64 56
+  %2541 = getelementptr inbounds nuw i8, ptr %2537, i64 56
   %2542 = load i32, ptr %2541, align 8
   %2543 = add nuw nsw i32 %.0259452.i.i, 2
   %.not6513.i.i.i = icmp sgt i32 %2542, 0
@@ -55899,17 +55899,17 @@ cgltf_json_strcmp.exit.i.i.i525:                  ; preds = %2551
 
 2560:                                             ; preds = %cgltf_json_strcmp.exit.i.i.i525
   %2561 = sext i32 %.06114.i.i.i to i64
-  %2562 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2561
-  %2563 = getelementptr i8, ptr %2562, i64 32
+  %2562 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2561
+  %2563 = getelementptr inbounds nuw i8, ptr %2562, i64 32
   %2564 = load i32, ptr %2563, align 8
   %.not.i66.i.i.i = icmp eq i32 %2564, 4
   br i1 %.not.i66.i.i.i, label %2565, label %cgltf_json_to_float.exit.i.i.i526
 
 2565:                                             ; preds = %2560
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %36) #58
-  %2566 = getelementptr i8, ptr %2562, i64 48
+  %2566 = getelementptr inbounds nuw i8, ptr %2562, i64 48
   %2567 = load i64, ptr %2566, align 8
-  %2568 = getelementptr i8, ptr %2562, i64 40
+  %2568 = getelementptr inbounds nuw i8, ptr %2562, i64 40
   %2569 = load i64, ptr %2568, align 8
   %2570 = sub nsw i64 %2567, %2569
   %spec.select.i.i.i.i527 = call i64 @llvm.umin.i64(i64 %2570, i64 127)
@@ -55936,17 +55936,17 @@ cgltf_json_strcmp.exit70.i.i.i:                   ; preds = %2551
 
 2580:                                             ; preds = %cgltf_json_strcmp.exit70.i.i.i
   %2581 = sext i32 %.06114.i.i.i to i64
-  %2582 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2581
-  %2583 = getelementptr i8, ptr %2582, i64 32
+  %2582 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2581
+  %2583 = getelementptr inbounds nuw i8, ptr %2582, i64 32
   %2584 = load i32, ptr %2583, align 8
   %.not.i71.i.i.i = icmp eq i32 %2584, 4
   br i1 %.not.i71.i.i.i, label %2585, label %cgltf_json_to_float.exit74.i.i.i
 
 2585:                                             ; preds = %2580
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %35) #58
-  %2586 = getelementptr i8, ptr %2582, i64 48
+  %2586 = getelementptr inbounds nuw i8, ptr %2582, i64 48
   %2587 = load i64, ptr %2586, align 8
-  %2588 = getelementptr i8, ptr %2582, i64 40
+  %2588 = getelementptr inbounds nuw i8, ptr %2582, i64 40
   %2589 = load i64, ptr %2588, align 8
   %2590 = sub nsw i64 %2587, %2589
   %spec.select.i73.i.i.i = call i64 @llvm.umin.i64(i64 %2590, i64 127)
@@ -55972,14 +55972,14 @@ cgltf_json_strcmp.exit77.i.i.i:                   ; preds = %cgltf_json_strcmp.e
 
 2599:                                             ; preds = %cgltf_json_strcmp.exit77.i.i.i
   %2600 = sext i32 %.06114.i.i.i to i64
-  %2601 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2600
-  %2602 = getelementptr i8, ptr %2601, i64 32
+  %2601 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2600
+  %2602 = getelementptr inbounds nuw i8, ptr %2601, i64 32
   %2603 = load i32, ptr %2602, align 8
   %.not.i78.i.i.i = icmp eq i32 %2603, 2
   br i1 %.not.i78.i.i.i, label %2604, label %cgltf_parse_json_asset.exit.thread
 
 2604:                                             ; preds = %2599
-  %2605 = getelementptr i8, ptr %2601, i64 56
+  %2605 = getelementptr inbounds nuw i8, ptr %2601, i64 56
   %2606 = load i32, ptr %2605, align 8
   %.not23.i.i.i.i = icmp eq i32 %2606, 4
   br i1 %.not23.i.i.i.i, label %.preheader.i.i.i.i, label %cgltf_parse_json_asset.exit.thread
@@ -56106,14 +56106,14 @@ cgltf_json_strcmp.exit297.i.i:                    ; preds = %2498
 
 2658:                                             ; preds = %cgltf_json_strcmp.exit297.i.i
   %2659 = sext i32 %.0259452.i.i to i64
-  %2660 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2659
-  %2661 = getelementptr i8, ptr %2660, i64 32
+  %2660 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2659
+  %2661 = getelementptr inbounds nuw i8, ptr %2660, i64 32
   %2662 = load i32, ptr %2661, align 8
   %.not.i298.i.i = icmp eq i32 %2662, 2
   br i1 %.not.i298.i.i, label %2663, label %cgltf_parse_json_asset.exit.thread
 
 2663:                                             ; preds = %2658
-  %2664 = getelementptr i8, ptr %2660, i64 56
+  %2664 = getelementptr inbounds nuw i8, ptr %2660, i64 56
   %2665 = load i32, ptr %2664, align 8
   %.not23.i299.i.i = icmp eq i32 %2665, 3
   br i1 %.not23.i299.i.i, label %.preheader.i.i.i511, label %cgltf_parse_json_asset.exit.thread
@@ -56194,16 +56194,16 @@ cgltf_json_strcmp.exit317.i.i:                    ; preds = %2498
 
 2701:                                             ; preds = %cgltf_json_strcmp.exit317.i.i
   %2702 = sext i32 %.0259452.i.i to i64
-  %2703 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2702
-  %2704 = getelementptr i8, ptr %2703, i64 32
+  %2703 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2702
+  %2704 = getelementptr inbounds nuw i8, ptr %2703, i64 32
   %2705 = load i32, ptr %2704, align 8
   %.not.i318.i.i = icmp eq i32 %2705, 3
   br i1 %.not.i318.i.i, label %2706, label %cgltf_json_strcmp.exit326.thread.i.i
 
 2706:                                             ; preds = %2701
-  %2707 = getelementptr i8, ptr %2703, i64 48
+  %2707 = getelementptr inbounds nuw i8, ptr %2703, i64 48
   %2708 = load i64, ptr %2707, align 8
-  %2709 = getelementptr i8, ptr %2703, i64 40
+  %2709 = getelementptr inbounds nuw i8, ptr %2703, i64 40
   %2710 = load i64, ptr %2709, align 8
   %2711 = sub nsw i64 %2708, %2710
   switch i64 %2711, label %cgltf_json_strcmp.exit326.thread.i.i [
@@ -56247,17 +56247,17 @@ cgltf_json_strcmp.exit329.i.i:                    ; preds = %2498
 
 2725:                                             ; preds = %cgltf_json_strcmp.exit329.i.i
   %2726 = sext i32 %.0259452.i.i to i64
-  %2727 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2726
-  %2728 = getelementptr i8, ptr %2727, i64 32
+  %2727 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2726
+  %2728 = getelementptr inbounds nuw i8, ptr %2727, i64 32
   %2729 = load i32, ptr %2728, align 8
   %.not.i330.i.i = icmp eq i32 %2729, 4
   br i1 %.not.i330.i.i, label %2730, label %cgltf_json_to_float.exit.i.i
 
 2730:                                             ; preds = %2725
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %32) #58
-  %2731 = getelementptr i8, ptr %2727, i64 48
+  %2731 = getelementptr inbounds nuw i8, ptr %2727, i64 48
   %2732 = load i64, ptr %2731, align 8
-  %2733 = getelementptr i8, ptr %2727, i64 40
+  %2733 = getelementptr inbounds nuw i8, ptr %2727, i64 40
   %2734 = load i64, ptr %2733, align 8
   %2735 = sub nsw i64 %2732, %2734
   %spec.select.i.i.i509 = call i64 @llvm.umin.i64(i64 %2735, i64 127)
@@ -56283,7 +56283,7 @@ cgltf_json_strcmp.exit334.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 2744:                                             ; preds = %cgltf_json_strcmp.exit334.i.i
   %2745 = sext i32 %.0259452.i.i to i64
-  %2746 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2745
+  %2746 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2745
   %2747 = getelementptr i8, ptr %2746, i64 40
   %.val.i.i506 = load i64, ptr %2747, align 8
   %2748 = getelementptr i8, ptr %2746, i64 48
@@ -56390,8 +56390,8 @@ cgltf_json_strcmp.exit347.i.i:                    ; preds = %2498
 
 2802:                                             ; preds = %cgltf_json_strcmp.exit347.i.i
   %2803 = sext i32 %.0259452.i.i to i64
-  %2804 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2803
-  %2805 = getelementptr i8, ptr %2804, i64 32
+  %2804 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2803
+  %2805 = getelementptr inbounds nuw i8, ptr %2804, i64 32
   %2806 = load i32, ptr %2805, align 8
   %.not267.i.i = icmp eq i32 %2806, 1
   br i1 %.not267.i.i, label %2807, label %cgltf_parse_json_asset.exit.thread
@@ -56402,7 +56402,7 @@ cgltf_json_strcmp.exit347.i.i:                    ; preds = %2498
   br i1 %.not268.i.i, label %2809, label %cgltf_parse_json_asset.exit.thread
 
 2809:                                             ; preds = %2807
-  %2810 = getelementptr i8, ptr %2804, i64 56
+  %2810 = getelementptr inbounds nuw i8, ptr %2804, i64 56
   %2811 = load i32, ptr %2810, align 8
   %2812 = add nuw nsw i32 %.0259452.i.i, 2
   %mul.ov.i.i30.i487 = icmp slt i32 %2811, 0
@@ -56471,14 +56471,14 @@ cgltf_json_strcmp.exit352.i.i:                    ; preds = %2826
 2835:                                             ; preds = %cgltf_json_strcmp.exit352.i.i
   store i32 1, ptr %2465, align 4
   %2836 = sext i32 %.4263449.i.i to i64
-  %2837 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2836
-  %2838 = getelementptr i8, ptr %2837, i64 32
+  %2837 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2836
+  %2838 = getelementptr inbounds nuw i8, ptr %2837, i64 32
   %2839 = load i32, ptr %2838, align 8
   %.not.i353.i.i = icmp eq i32 %2839, 1
   br i1 %.not.i353.i.i, label %2840, label %cgltf_parse_json_asset.exit.thread
 
 2840:                                             ; preds = %2835
-  %2841 = getelementptr i8, ptr %2837, i64 56
+  %2841 = getelementptr inbounds nuw i8, ptr %2837, i64 56
   %2842 = load i32, ptr %2841, align 8
   %2843 = add nuw nsw i32 %.4263449.i.i, 2
   %.not6314.i.i.i = icmp sgt i32 %2842, 0
@@ -56520,14 +56520,14 @@ cgltf_json_strcmp.exit.i364.i.i:                  ; preds = %2851
 
 2860:                                             ; preds = %cgltf_json_strcmp.exit.i364.i.i
   %2861 = sext i32 %.05915.i355.i.i to i64
-  %2862 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2861
-  %2863 = getelementptr i8, ptr %2862, i64 32
+  %2862 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2861
+  %2863 = getelementptr inbounds nuw i8, ptr %2862, i64 32
   %2864 = load i32, ptr %2863, align 8
   %.not.i64.i.i.i = icmp eq i32 %2864, 2
   br i1 %.not.i64.i.i.i, label %2865, label %cgltf_parse_json_asset.exit.thread
 
 2865:                                             ; preds = %2860
-  %2866 = getelementptr i8, ptr %2862, i64 56
+  %2866 = getelementptr inbounds nuw i8, ptr %2862, i64 56
   %2867 = load i32, ptr %2866, align 8
   %.not23.i.i365.i.i = icmp eq i32 %2867, 4
   br i1 %.not23.i.i365.i.i, label %.preheader.i.i366.i.i, label %cgltf_parse_json_asset.exit.thread
@@ -56575,14 +56575,14 @@ cgltf_json_strcmp.exit67.i.i.i:                   ; preds = %2851
 
 2885:                                             ; preds = %cgltf_json_strcmp.exit67.i.i.i
   %2886 = sext i32 %.05915.i355.i.i to i64
-  %2887 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2886
-  %2888 = getelementptr i8, ptr %2887, i64 32
+  %2887 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2886
+  %2888 = getelementptr inbounds nuw i8, ptr %2887, i64 32
   %2889 = load i32, ptr %2888, align 8
   %.not.i68.i.i.i = icmp eq i32 %2889, 2
   br i1 %.not.i68.i.i.i, label %2890, label %cgltf_parse_json_asset.exit.thread
 
 2890:                                             ; preds = %2885
-  %2891 = getelementptr i8, ptr %2887, i64 56
+  %2891 = getelementptr inbounds nuw i8, ptr %2887, i64 56
   %2892 = load i32, ptr %2891, align 8
   %.not23.i70.i.i.i = icmp eq i32 %2892, 3
   br i1 %.not23.i70.i.i.i, label %.preheader.i71.i.i.i, label %cgltf_parse_json_asset.exit.thread
@@ -56630,17 +56630,17 @@ cgltf_json_strcmp.exit85.i.i.i:                   ; preds = %2851
 
 2910:                                             ; preds = %cgltf_json_strcmp.exit85.i.i.i
   %2911 = sext i32 %.05915.i355.i.i to i64
-  %2912 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2911
-  %2913 = getelementptr i8, ptr %2912, i64 32
+  %2912 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2911
+  %2913 = getelementptr inbounds nuw i8, ptr %2912, i64 32
   %2914 = load i32, ptr %2913, align 8
   %.not.i86.i.i.i = icmp eq i32 %2914, 4
   br i1 %.not.i86.i.i.i, label %2915, label %cgltf_parse_json_float_array.exit.thread7.i.i.i
 
 2915:                                             ; preds = %2910
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %29) #58
-  %2916 = getelementptr i8, ptr %2912, i64 48
+  %2916 = getelementptr inbounds nuw i8, ptr %2912, i64 48
   %2917 = load i64, ptr %2916, align 8
-  %2918 = getelementptr i8, ptr %2912, i64 40
+  %2918 = getelementptr inbounds nuw i8, ptr %2912, i64 40
   %2919 = load i64, ptr %2918, align 8
   %2920 = sub nsw i64 %2917, %2919
   %spec.select.i.i361.i.i = call i64 @llvm.umin.i64(i64 %2920, i64 127)
@@ -56799,14 +56799,14 @@ cgltf_json_strcmp.exit381.i.i:                    ; preds = %2826
 2988:                                             ; preds = %cgltf_json_strcmp.exit381.i.i
   store i32 1, ptr %2462, align 8
   %2989 = sext i32 %.4263449.i.i to i64
-  %2990 = getelementptr %struct.jsmntok_t, ptr %1, i64 %2989
-  %2991 = getelementptr i8, ptr %2990, i64 32
+  %2990 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %2989
+  %2991 = getelementptr inbounds nuw i8, ptr %2990, i64 32
   %2992 = load i32, ptr %2991, align 8
   %.not.i165.i = icmp eq i32 %2992, 1
   br i1 %.not.i165.i, label %2993, label %cgltf_parse_json_asset.exit.thread
 
 2993:                                             ; preds = %2988
-  %2994 = getelementptr i8, ptr %2990, i64 56
+  %2994 = getelementptr inbounds nuw i8, ptr %2990, i64 56
   %2995 = load i32, ptr %2994, align 8
   %2996 = add nuw nsw i32 %.4263449.i.i, 2
   %.not6611.i.i = icmp sgt i32 %2995, 0
@@ -56849,17 +56849,17 @@ cgltf_json_strcmp.exit.i174.i:                    ; preds = %3004
 
 3013:                                             ; preds = %cgltf_json_strcmp.exit.i174.i
   %3014 = sext i32 %.06212.i.i to i64
-  %3015 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3014
-  %3016 = getelementptr i8, ptr %3015, i64 32
+  %3015 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3014
+  %3016 = getelementptr inbounds nuw i8, ptr %3015, i64 32
   %3017 = load i32, ptr %3016, align 8
   %.not.i67.i.i500 = icmp eq i32 %3017, 4
   br i1 %.not.i67.i.i500, label %3018, label %cgltf_json_to_float.exit.i175.i
 
 3018:                                             ; preds = %3013
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %18) #58
-  %3019 = getelementptr i8, ptr %3015, i64 48
+  %3019 = getelementptr inbounds nuw i8, ptr %3015, i64 48
   %3020 = load i64, ptr %3019, align 8
-  %3021 = getelementptr i8, ptr %3015, i64 40
+  %3021 = getelementptr inbounds nuw i8, ptr %3015, i64 40
   %3022 = load i64, ptr %3021, align 8
   %3023 = sub nsw i64 %3020, %3022
   %spec.select.i.i176.i = call i64 @llvm.umin.i64(i64 %3023, i64 127)
@@ -56886,17 +56886,17 @@ cgltf_json_strcmp.exit71.i.i497:                  ; preds = %3004
 
 3033:                                             ; preds = %cgltf_json_strcmp.exit71.i.i497
   %3034 = sext i32 %.06212.i.i to i64
-  %3035 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3034
-  %3036 = getelementptr i8, ptr %3035, i64 32
+  %3035 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3034
+  %3036 = getelementptr inbounds nuw i8, ptr %3035, i64 32
   %3037 = load i32, ptr %3036, align 8
   %.not.i72.i.i498 = icmp eq i32 %3037, 4
   br i1 %.not.i72.i.i498, label %3038, label %cgltf_json_to_float.exit75.i.i
 
 3038:                                             ; preds = %3033
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %17) #58
-  %3039 = getelementptr i8, ptr %3035, i64 48
+  %3039 = getelementptr inbounds nuw i8, ptr %3035, i64 48
   %3040 = load i64, ptr %3039, align 8
-  %3041 = getelementptr i8, ptr %3035, i64 40
+  %3041 = getelementptr inbounds nuw i8, ptr %3035, i64 40
   %3042 = load i64, ptr %3041, align 8
   %3043 = sub nsw i64 %3040, %3042
   %spec.select.i74.i.i = call i64 @llvm.umin.i64(i64 %3043, i64 127)
@@ -57010,14 +57010,14 @@ cgltf_json_strcmp.exit164.i:                      ; preds = %2826
 3092:                                             ; preds = %cgltf_json_strcmp.exit164.i
   store i32 1, ptr %2460, align 4
   %3093 = sext i32 %.4263449.i.i to i64
-  %3094 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3093
-  %3095 = getelementptr i8, ptr %3094, i64 32
+  %3094 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3093
+  %3095 = getelementptr inbounds nuw i8, ptr %3094, i64 32
   %3096 = load i32, ptr %3095, align 8
   %.not.i142.i = icmp eq i32 %3096, 1
   br i1 %.not.i142.i, label %3097, label %cgltf_parse_json_asset.exit.thread
 
 3097:                                             ; preds = %3092
-  %3098 = getelementptr i8, ptr %3094, i64 56
+  %3098 = getelementptr inbounds nuw i8, ptr %3094, i64 56
   %3099 = load i32, ptr %3098, align 8
   %3100 = add nuw nsw i32 %.4263449.i.i, 2
   store float 1.500000e+00, ptr %2461, align 4
@@ -57068,17 +57068,17 @@ cgltf_json_strcmp.exit.tail.i.i:                  ; preds = %sub_1.i.i494
 
 3122:                                             ; preds = %cgltf_json_strcmp.exit.tail.i.i
   %3123 = sext i32 %.03044.i147.i to i64
-  %3124 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3123
-  %3125 = getelementptr i8, ptr %3124, i64 32
+  %3124 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3123
+  %3125 = getelementptr inbounds nuw i8, ptr %3124, i64 32
   %3126 = load i32, ptr %3125, align 8
   %.not.i35.i158.i = icmp eq i32 %3126, 4
   br i1 %.not.i35.i158.i, label %3127, label %cgltf_skip_json.exit.thread39.i159.i
 
 3127:                                             ; preds = %3122
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %19) #58
-  %3128 = getelementptr i8, ptr %3124, i64 48
+  %3128 = getelementptr inbounds nuw i8, ptr %3124, i64 48
   %3129 = load i64, ptr %3128, align 8
-  %3130 = getelementptr i8, ptr %3124, i64 40
+  %3130 = getelementptr inbounds nuw i8, ptr %3124, i64 40
   %3131 = load i64, ptr %3130, align 8
   %3132 = sub nsw i64 %3129, %3131
   %spec.select.i.i161.i = call i64 @llvm.umin.i64(i64 %3132, i64 127)
@@ -57154,14 +57154,14 @@ cgltf_json_strcmp.exit141.i:                      ; preds = %2826
 3163:                                             ; preds = %cgltf_json_strcmp.exit141.i
   store i32 1, ptr %2458, align 8
   %3164 = sext i32 %.4263449.i.i to i64
-  %3165 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3164
-  %3166 = getelementptr i8, ptr %3165, i64 32
+  %3165 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3164
+  %3166 = getelementptr inbounds nuw i8, ptr %3165, i64 32
   %3167 = load i32, ptr %3166, align 8
   %.not.i111.i = icmp eq i32 %3167, 1
   br i1 %.not.i111.i, label %3168, label %cgltf_parse_json_asset.exit.thread
 
 3168:                                             ; preds = %3163
-  %3169 = getelementptr i8, ptr %3165, i64 56
+  %3169 = getelementptr inbounds nuw i8, ptr %3165, i64 56
   %3170 = load i32, ptr %3169, align 8
   store float 1.000000e+00, ptr %2487, align 4
   br label %3171
@@ -57215,17 +57215,17 @@ cgltf_json_strcmp.exit.i136.i:                    ; preds = %3181
 
 3190:                                             ; preds = %cgltf_json_strcmp.exit.i136.i
   %3191 = sext i32 %.05412.i.i to i64
-  %3192 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3191
-  %3193 = getelementptr i8, ptr %3192, i64 32
+  %3192 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3191
+  %3193 = getelementptr inbounds nuw i8, ptr %3192, i64 32
   %3194 = load i32, ptr %3193, align 8
   %.not.i59.i.i = icmp eq i32 %3194, 4
   br i1 %.not.i59.i.i, label %3195, label %cgltf_parse_json_float_array.exit.thread6.i137.i
 
 3195:                                             ; preds = %3190
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %21) #58
-  %3196 = getelementptr i8, ptr %3192, i64 48
+  %3196 = getelementptr inbounds nuw i8, ptr %3192, i64 48
   %3197 = load i64, ptr %3196, align 8
-  %3198 = getelementptr i8, ptr %3192, i64 40
+  %3198 = getelementptr inbounds nuw i8, ptr %3192, i64 40
   %3199 = load i64, ptr %3198, align 8
   %3200 = sub nsw i64 %3197, %3199
   %spec.select.i.i138.i = call i64 @llvm.umin.i64(i64 %3200, i64 127)
@@ -57252,14 +57252,14 @@ cgltf_json_strcmp.exit63.i124.i:                  ; preds = %3181
 
 3210:                                             ; preds = %cgltf_json_strcmp.exit63.i124.i
   %3211 = sext i32 %.05412.i.i to i64
-  %3212 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3211
-  %3213 = getelementptr i8, ptr %3212, i64 32
+  %3212 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3211
+  %3213 = getelementptr inbounds nuw i8, ptr %3212, i64 32
   %3214 = load i32, ptr %3213, align 8
   %.not.i64.i125.i = icmp eq i32 %3214, 2
   br i1 %.not.i64.i125.i, label %3215, label %cgltf_parse_json_asset.exit.thread
 
 3215:                                             ; preds = %3210
-  %3216 = getelementptr i8, ptr %3212, i64 56
+  %3216 = getelementptr inbounds nuw i8, ptr %3212, i64 56
   %3217 = load i32, ptr %3216, align 8
   %.not23.i.i126.i = icmp eq i32 %3217, 3
   br i1 %.not23.i.i126.i, label %.preheader.i.i127.i, label %cgltf_parse_json_asset.exit.thread
@@ -57387,14 +57387,14 @@ cgltf_json_strcmp.exit110.i:                      ; preds = %2826
 3269:                                             ; preds = %cgltf_json_strcmp.exit110.i
   store i32 1, ptr %2456, align 4
   %3270 = sext i32 %.4263449.i.i to i64
-  %3271 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3270
-  %3272 = getelementptr i8, ptr %3271, i64 32
+  %3271 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3270
+  %3272 = getelementptr inbounds nuw i8, ptr %3271, i64 32
   %3273 = load i32, ptr %3272, align 8
   %.not.i97.i = icmp eq i32 %3273, 1
   br i1 %.not.i97.i, label %3274, label %cgltf_parse_json_asset.exit.thread
 
 3274:                                             ; preds = %3269
-  %3275 = getelementptr i8, ptr %3271, i64 56
+  %3275 = getelementptr inbounds nuw i8, ptr %3271, i64 56
   %3276 = load i32, ptr %3275, align 8
   %3277 = add nuw nsw i32 %.4263449.i.i, 2
   %.not418.i.i = icmp sgt i32 %3276, 0
@@ -57434,17 +57434,17 @@ cgltf_json_strcmp.exit.i106.i:                    ; preds = %3285
 
 3294:                                             ; preds = %cgltf_json_strcmp.exit.i106.i
   %3295 = sext i32 %.0379.i.i to i64
-  %3296 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3295
-  %3297 = getelementptr i8, ptr %3296, i64 32
+  %3296 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3295
+  %3297 = getelementptr inbounds nuw i8, ptr %3296, i64 32
   %3298 = load i32, ptr %3297, align 8
   %.not.i42.i.i = icmp eq i32 %3298, 4
   br i1 %.not.i42.i.i, label %3299, label %cgltf_skip_json.exit.thread4.i.i
 
 3299:                                             ; preds = %3294
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %22) #58
-  %3300 = getelementptr i8, ptr %3296, i64 48
+  %3300 = getelementptr inbounds nuw i8, ptr %3296, i64 48
   %3301 = load i64, ptr %3300, align 8
-  %3302 = getelementptr i8, ptr %3296, i64 40
+  %3302 = getelementptr inbounds nuw i8, ptr %3296, i64 40
   %3303 = load i64, ptr %3302, align 8
   %3304 = sub nsw i64 %3301, %3303
   %spec.select.i.i107.i = call i64 @llvm.umin.i64(i64 %3304, i64 127)
@@ -57536,14 +57536,14 @@ cgltf_json_strcmp.exit96.i:                       ; preds = %2826
 3342:                                             ; preds = %cgltf_json_strcmp.exit96.i
   store i32 1, ptr %2455, align 8
   %3343 = sext i32 %.4263449.i.i to i64
-  %3344 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3343
-  %3345 = getelementptr i8, ptr %3344, i64 32
+  %3344 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3343
+  %3345 = getelementptr inbounds nuw i8, ptr %3344, i64 32
   %3346 = load i32, ptr %3345, align 8
   %.not.i71.i = icmp eq i32 %3346, 1
   br i1 %.not.i71.i, label %3347, label %cgltf_parse_json_asset.exit.thread
 
 3347:                                             ; preds = %3342
-  %3348 = getelementptr i8, ptr %3344, i64 56
+  %3348 = getelementptr inbounds nuw i8, ptr %3344, i64 56
   %3349 = load i32, ptr %3348, align 8
   %3350 = add nuw nsw i32 %.4263449.i.i, 2
   %.not5712.i.i = icmp sgt i32 %3349, 0
@@ -57584,17 +57584,17 @@ cgltf_json_strcmp.exit.i91.i:                     ; preds = %3358
 
 3367:                                             ; preds = %cgltf_json_strcmp.exit.i91.i
   %3368 = sext i32 %.05313.i.i to i64
-  %3369 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3368
-  %3370 = getelementptr i8, ptr %3369, i64 32
+  %3369 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3368
+  %3370 = getelementptr inbounds nuw i8, ptr %3369, i64 32
   %3371 = load i32, ptr %3370, align 8
   %.not.i58.i.i = icmp eq i32 %3371, 4
   br i1 %.not.i58.i.i, label %3372, label %cgltf_json_to_float.exit.i92.i
 
 3372:                                             ; preds = %3367
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %25) #58
-  %3373 = getelementptr i8, ptr %3369, i64 48
+  %3373 = getelementptr inbounds nuw i8, ptr %3369, i64 48
   %3374 = load i64, ptr %3373, align 8
-  %3375 = getelementptr i8, ptr %3369, i64 40
+  %3375 = getelementptr inbounds nuw i8, ptr %3369, i64 40
   %3376 = load i64, ptr %3375, align 8
   %3377 = sub nsw i64 %3374, %3376
   %spec.select.i.i93.i = call i64 @llvm.umin.i64(i64 %3377, i64 127)
@@ -57631,14 +57631,14 @@ cgltf_json_strcmp.exit65.i.i:                     ; preds = %cgltf_json_strcmp.e
 
 3392:                                             ; preds = %cgltf_json_strcmp.exit65.i.i
   %3393 = sext i32 %.05313.i.i to i64
-  %3394 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3393
-  %3395 = getelementptr i8, ptr %3394, i64 32
+  %3394 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3393
+  %3395 = getelementptr inbounds nuw i8, ptr %3394, i64 32
   %3396 = load i32, ptr %3395, align 8
   %.not.i66.i.i = icmp eq i32 %3396, 2
   br i1 %.not.i66.i.i, label %3397, label %cgltf_parse_json_asset.exit.thread
 
 3397:                                             ; preds = %3392
-  %3398 = getelementptr i8, ptr %3394, i64 56
+  %3398 = getelementptr inbounds nuw i8, ptr %3394, i64 56
   %3399 = load i32, ptr %3398, align 8
   %.not23.i.i78.i = icmp eq i32 %3399, 3
   br i1 %.not23.i.i78.i, label %.preheader.i.i79.i, label %cgltf_parse_json_asset.exit.thread
@@ -57686,17 +57686,17 @@ cgltf_json_strcmp.exit69.i.i:                     ; preds = %3358
 
 3417:                                             ; preds = %cgltf_json_strcmp.exit69.i.i
   %3418 = sext i32 %.05313.i.i to i64
-  %3419 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3418
-  %3420 = getelementptr i8, ptr %3419, i64 32
+  %3419 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3418
+  %3420 = getelementptr inbounds nuw i8, ptr %3419, i64 32
   %3421 = load i32, ptr %3420, align 8
   %.not.i70.i.i = icmp eq i32 %3421, 4
   br i1 %.not.i70.i.i, label %3422, label %cgltf_json_to_float.exit73.i.i
 
 3422:                                             ; preds = %3417
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %23) #58
-  %3423 = getelementptr i8, ptr %3419, i64 48
+  %3423 = getelementptr inbounds nuw i8, ptr %3419, i64 48
   %3424 = load i64, ptr %3423, align 8
-  %3425 = getelementptr i8, ptr %3419, i64 40
+  %3425 = getelementptr inbounds nuw i8, ptr %3419, i64 40
   %3426 = load i64, ptr %3425, align 8
   %3427 = sub nsw i64 %3424, %3426
   %spec.select.i72.i.i = call i64 @llvm.umin.i64(i64 %3427, i64 127)
@@ -57780,14 +57780,14 @@ cgltf_json_strcmp.exit70.i:                       ; preds = %cgltf_json_strcmp.e
 3458:                                             ; preds = %cgltf_json_strcmp.exit70.i
   store i32 1, ptr %2453, align 4
   %3459 = sext i32 %.4263449.i.i to i64
-  %3460 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3459
-  %3461 = getelementptr i8, ptr %3460, i64 32
+  %3460 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3459
+  %3461 = getelementptr inbounds nuw i8, ptr %3460, i64 32
   %3462 = load i32, ptr %3461, align 8
   %.not.i48.i = icmp eq i32 %3462, 1
   br i1 %.not.i48.i, label %3463, label %cgltf_parse_json_asset.exit.thread
 
 3463:                                             ; preds = %3458
-  %3464 = getelementptr i8, ptr %3460, i64 56
+  %3464 = getelementptr inbounds nuw i8, ptr %3460, i64 56
   %3465 = load i32, ptr %3464, align 8
   %3466 = add nuw nsw i32 %.4263449.i.i, 2
   %.not5611.i.i = icmp sgt i32 %3465, 0
@@ -57829,14 +57829,14 @@ cgltf_json_strcmp.exit.i55.i:                     ; preds = %3474
 
 3483:                                             ; preds = %cgltf_json_strcmp.exit.i55.i
   %3484 = sext i32 %.05212.i.i to i64
-  %3485 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3484
-  %3486 = getelementptr i8, ptr %3485, i64 32
+  %3485 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3484
+  %3486 = getelementptr inbounds nuw i8, ptr %3485, i64 32
   %3487 = load i32, ptr %3486, align 8
   %.not.i57.i.i = icmp eq i32 %3487, 2
   br i1 %.not.i57.i.i, label %3488, label %cgltf_parse_json_asset.exit.thread
 
 3488:                                             ; preds = %3483
-  %3489 = getelementptr i8, ptr %3485, i64 56
+  %3489 = getelementptr inbounds nuw i8, ptr %3485, i64 56
   %3490 = load i32, ptr %3489, align 8
   %.not23.i.i56.i = icmp eq i32 %3490, 3
   br i1 %.not23.i.i56.i, label %.preheader.i.i57.i, label %cgltf_parse_json_asset.exit.thread
@@ -57895,17 +57895,17 @@ cgltf_json_strcmp.exit63.i.i:                     ; preds = %3474
 
 3514:                                             ; preds = %cgltf_json_strcmp.exit63.i.i
   %3515 = sext i32 %.05212.i.i to i64
-  %3516 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3515
-  %3517 = getelementptr i8, ptr %3516, i64 32
+  %3516 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3515
+  %3517 = getelementptr inbounds nuw i8, ptr %3516, i64 32
   %3518 = load i32, ptr %3517, align 8
   %.not.i64.i.i = icmp eq i32 %3518, 4
   br i1 %.not.i64.i.i, label %3519, label %cgltf_parse_json_float_array.exit.thread6.i.i
 
 3519:                                             ; preds = %3514
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %26) #58
-  %3520 = getelementptr i8, ptr %3516, i64 48
+  %3520 = getelementptr inbounds nuw i8, ptr %3516, i64 48
   %3521 = load i64, ptr %3520, align 8
-  %3522 = getelementptr i8, ptr %3516, i64 40
+  %3522 = getelementptr inbounds nuw i8, ptr %3516, i64 40
   %3523 = load i64, ptr %3522, align 8
   %3524 = sub nsw i64 %3521, %3523
   %spec.select.i.i54.i = call i64 @llvm.umin.i64(i64 %3524, i64 127)
@@ -58001,14 +58001,14 @@ cgltf_json_strcmp.exit47.i:                       ; preds = %2826
 3563:                                             ; preds = %cgltf_json_strcmp.exit47.i
   store i32 1, ptr %2451, align 8
   %3564 = sext i32 %.4263449.i.i to i64
-  %3565 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3564
-  %3566 = getelementptr i8, ptr %3565, i64 32
+  %3565 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3564
+  %3566 = getelementptr inbounds nuw i8, ptr %3565, i64 32
   %3567 = load i32, ptr %3566, align 8
   %.not.i36.i = icmp eq i32 %3567, 1
   br i1 %.not.i36.i, label %3568, label %cgltf_parse_json_asset.exit.thread
 
 3568:                                             ; preds = %3563
-  %3569 = getelementptr i8, ptr %3565, i64 56
+  %3569 = getelementptr inbounds nuw i8, ptr %3565, i64 56
   %3570 = load i32, ptr %3569, align 8
   %3571 = add nuw nsw i32 %.4263449.i.i, 2
   store float 1.000000e+00, ptr %2452, align 4
@@ -58047,17 +58047,17 @@ cgltf_json_strcmp.exit.i43.i:                     ; preds = %3579
 
 3589:                                             ; preds = %cgltf_json_strcmp.exit.i43.i
   %3590 = sext i32 %.03044.i.i to i64
-  %3591 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3590
-  %3592 = getelementptr i8, ptr %3591, i64 32
+  %3591 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3590
+  %3592 = getelementptr inbounds nuw i8, ptr %3591, i64 32
   %3593 = load i32, ptr %3592, align 8
   %.not.i35.i.i = icmp eq i32 %3593, 4
   br i1 %.not.i35.i.i, label %3594, label %cgltf_skip_json.exit.thread39.i.i
 
 3594:                                             ; preds = %3589
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %28) #58
-  %3595 = getelementptr i8, ptr %3591, i64 48
+  %3595 = getelementptr inbounds nuw i8, ptr %3591, i64 48
   %3596 = load i64, ptr %3595, align 8
-  %3597 = getelementptr i8, ptr %3591, i64 40
+  %3597 = getelementptr inbounds nuw i8, ptr %3591, i64 40
   %3598 = load i64, ptr %3597, align 8
   %3599 = sub nsw i64 %3596, %3598
   %spec.select.i.i44.i = call i64 @llvm.umin.i64(i64 %3599, i64 127)
@@ -58255,8 +58255,8 @@ cgltf_json_strcmp.exit534:                        ; preds = %cgltf_json_strcmp.e
 
 3680:                                             ; preds = %cgltf_json_strcmp.exit534
   %3681 = sext i32 %.02671232 to i64
-  %3682 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3681
-  %3683 = getelementptr i8, ptr %3682, i64 32
+  %3682 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3681
+  %3683 = getelementptr inbounds nuw i8, ptr %3682, i64 32
   %3684 = load i32, ptr %3683, align 8
   %.not.i.i535 = icmp eq i32 %3684, 2
   br i1 %.not.i.i535, label %3688, label %3685
@@ -58272,7 +58272,7 @@ cgltf_json_strcmp.exit534:                        ; preds = %cgltf_json_strcmp.e
   br i1 %.not18.i.i537, label %3690, label %cgltf_parse_json_asset.exit.thread
 
 3690:                                             ; preds = %3688
-  %3691 = getelementptr i8, ptr %3682, i64 56
+  %3691 = getelementptr inbounds nuw i8, ptr %3682, i64 56
   %3692 = load i32, ptr %3691, align 8
   %3693 = sext i32 %3692 to i64
   %mul.ov.i.i.i538 = icmp slt i32 %3692, 0
@@ -58373,8 +58373,8 @@ cgltf_json_strcmp.exit.tail.i.i579:               ; preds = %sub_1.i.i578
 
 3739:                                             ; preds = %cgltf_json_strcmp.exit.tail.i.i579
   %3740 = sext i32 %.070128.i.i to i64
-  %3741 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3740
-  %3742 = getelementptr i8, ptr %3741, i64 32
+  %3741 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3740
+  %3742 = getelementptr inbounds nuw i8, ptr %3741, i64 32
   %3743 = load i32, ptr %3742, align 8
   %.not.i75.i.i = icmp eq i32 %3743, 3
   br i1 %.not.i75.i.i, label %3744, label %cgltf_parse_json_asset.exit.thread
@@ -58385,9 +58385,9 @@ cgltf_json_strcmp.exit.tail.i.i579:               ; preds = %sub_1.i.i578
   br i1 %.not22.i.i.i580, label %3746, label %cgltf_parse_json_asset.exit.thread
 
 3746:                                             ; preds = %3744
-  %3747 = getelementptr i8, ptr %3741, i64 48
+  %3747 = getelementptr inbounds nuw i8, ptr %3741, i64 48
   %3748 = load i64, ptr %3747, align 8
-  %3749 = getelementptr i8, ptr %3741, i64 40
+  %3749 = getelementptr inbounds nuw i8, ptr %3741, i64 40
   %3750 = load i64, ptr %3749, align 8
   %3751 = sub nsw i64 %3748, %3750
   %3752 = load ptr, ptr %76, align 8
@@ -58418,17 +58418,17 @@ cgltf_json_strcmp.exit79.i.i:                     ; preds = %3726
 
 3767:                                             ; preds = %cgltf_json_strcmp.exit79.i.i
   %3768 = sext i32 %.070128.i.i to i64
-  %3769 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3768
-  %3770 = getelementptr i8, ptr %3769, i64 32
+  %3769 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3768
+  %3770 = getelementptr inbounds nuw i8, ptr %3769, i64 32
   %3771 = load i32, ptr %3770, align 8
   %.not.i80.i.i = icmp eq i32 %3771, 4
   br i1 %.not.i80.i.i, label %3772, label %cgltf_json_to_int.exit.i.i574
 
 3772:                                             ; preds = %3767
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %16) #58
-  %3773 = getelementptr i8, ptr %3769, i64 48
+  %3773 = getelementptr inbounds nuw i8, ptr %3769, i64 48
   %3774 = load i64, ptr %3773, align 8
-  %3775 = getelementptr i8, ptr %3769, i64 40
+  %3775 = getelementptr inbounds nuw i8, ptr %3769, i64 40
   %3776 = load i64, ptr %3775, align 8
   %3777 = sub nsw i64 %3774, %3776
   %spec.select.i.i.i575 = call i64 @llvm.umin.i64(i64 %3777, i64 127)
@@ -58458,8 +58458,8 @@ cgltf_json_strcmp.exit84.i.i562:                  ; preds = %3726
 
 3789:                                             ; preds = %cgltf_json_strcmp.exit84.i.i562
   %3790 = sext i32 %.070128.i.i to i64
-  %3791 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3790
-  %3792 = getelementptr i8, ptr %3791, i64 32
+  %3791 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3790
+  %3792 = getelementptr inbounds nuw i8, ptr %3791, i64 32
   %3793 = load i32, ptr %3792, align 8
   %.not.i85.i.i = icmp eq i32 %3793, 3
   br i1 %.not.i85.i.i, label %3794, label %cgltf_parse_json_asset.exit.thread
@@ -58470,9 +58470,9 @@ cgltf_json_strcmp.exit84.i.i562:                  ; preds = %3726
   br i1 %.not22.i87.i.i, label %3796, label %cgltf_parse_json_asset.exit.thread
 
 3796:                                             ; preds = %3794
-  %3797 = getelementptr i8, ptr %3791, i64 48
+  %3797 = getelementptr inbounds nuw i8, ptr %3791, i64 48
   %3798 = load i64, ptr %3797, align 8
-  %3799 = getelementptr i8, ptr %3791, i64 40
+  %3799 = getelementptr inbounds nuw i8, ptr %3791, i64 40
   %3800 = load i64, ptr %3799, align 8
   %3801 = sub nsw i64 %3798, %3800
   %3802 = load ptr, ptr %76, align 8
@@ -58503,8 +58503,8 @@ cgltf_json_strcmp.exit93.i.i:                     ; preds = %3726
 
 3817:                                             ; preds = %cgltf_json_strcmp.exit93.i.i
   %3818 = sext i32 %.070128.i.i to i64
-  %3819 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3818
-  %3820 = getelementptr i8, ptr %3819, i64 32
+  %3819 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3818
+  %3820 = getelementptr inbounds nuw i8, ptr %3819, i64 32
   %3821 = load i32, ptr %3820, align 8
   %.not.i94.i.i = icmp eq i32 %3821, 3
   br i1 %.not.i94.i.i, label %3822, label %cgltf_parse_json_asset.exit.thread
@@ -58515,9 +58515,9 @@ cgltf_json_strcmp.exit93.i.i:                     ; preds = %3726
   br i1 %.not22.i96.i.i, label %3824, label %cgltf_parse_json_asset.exit.thread
 
 3824:                                             ; preds = %3822
-  %3825 = getelementptr i8, ptr %3819, i64 48
+  %3825 = getelementptr inbounds nuw i8, ptr %3819, i64 48
   %3826 = load i64, ptr %3825, align 8
-  %3827 = getelementptr i8, ptr %3819, i64 40
+  %3827 = getelementptr inbounds nuw i8, ptr %3819, i64 40
   %3828 = load i64, ptr %3827, align 8
   %3829 = sub nsw i64 %3826, %3828
   %3830 = load ptr, ptr %76, align 8
@@ -58763,8 +58763,8 @@ cgltf_json_strcmp.exit585:                        ; preds = %cgltf_json_strcmp.e
 
 3943:                                             ; preds = %cgltf_json_strcmp.exit585
   %3944 = sext i32 %.02671232 to i64
-  %3945 = getelementptr %struct.jsmntok_t, ptr %1, i64 %3944
-  %3946 = getelementptr i8, ptr %3945, i64 32
+  %3945 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %3944
+  %3946 = getelementptr inbounds nuw i8, ptr %3945, i64 32
   %3947 = load i32, ptr %3946, align 8
   %.not.i.i586 = icmp eq i32 %3947, 2
   br i1 %.not.i.i586, label %3951, label %3948
@@ -58780,7 +58780,7 @@ cgltf_json_strcmp.exit585:                        ; preds = %cgltf_json_strcmp.e
   br i1 %.not18.i.i588, label %3953, label %cgltf_parse_json_asset.exit.thread
 
 3953:                                             ; preds = %3951
-  %3954 = getelementptr i8, ptr %3945, i64 56
+  %3954 = getelementptr inbounds nuw i8, ptr %3945, i64 56
   %3955 = load i32, ptr %3954, align 8
   %3956 = sext i32 %3955 to i64
   %mul.ov.i.i.i589 = icmp slt i32 %3955, 0
@@ -58871,8 +58871,8 @@ cgltf_json_strcmp.exit.i.i618:                    ; preds = %3992
 
 4001:                                             ; preds = %cgltf_json_strcmp.exit.i.i618
   %4002 = sext i32 %.0158350.i.i to i64
-  %4003 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4002
-  %4004 = getelementptr i8, ptr %4003, i64 32
+  %4003 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4002
+  %4004 = getelementptr inbounds nuw i8, ptr %4003, i64 32
   %4005 = load i32, ptr %4004, align 8
   %.not.i188.i.i619 = icmp eq i32 %4005, 3
   br i1 %.not.i188.i.i619, label %4006, label %cgltf_parse_json_asset.exit.thread
@@ -58883,9 +58883,9 @@ cgltf_json_strcmp.exit.i.i618:                    ; preds = %3992
   br i1 %.not22.i.i.i620, label %4008, label %cgltf_parse_json_asset.exit.thread
 
 4008:                                             ; preds = %4006
-  %4009 = getelementptr i8, ptr %4003, i64 48
+  %4009 = getelementptr inbounds nuw i8, ptr %4003, i64 48
   %4010 = load i64, ptr %4009, align 8
-  %4011 = getelementptr i8, ptr %4003, i64 40
+  %4011 = getelementptr inbounds nuw i8, ptr %4003, i64 40
   %4012 = load i64, ptr %4011, align 8
   %4013 = sub nsw i64 %4010, %4012
   %4014 = load ptr, ptr %76, align 8
@@ -58916,17 +58916,17 @@ cgltf_json_strcmp.exit192.i.i614:                 ; preds = %3992
 
 4029:                                             ; preds = %cgltf_json_strcmp.exit192.i.i614
   %4030 = sext i32 %.0158350.i.i to i64
-  %4031 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4030
-  %4032 = getelementptr i8, ptr %4031, i64 32
+  %4031 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4030
+  %4032 = getelementptr inbounds nuw i8, ptr %4031, i64 32
   %4033 = load i32, ptr %4032, align 8
   %.not.i193.i.i615 = icmp eq i32 %4033, 4
   br i1 %.not.i193.i.i615, label %4034, label %cgltf_json_to_int.exit.i.i616
 
 4034:                                             ; preds = %4029
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %15) #58
-  %4035 = getelementptr i8, ptr %4031, i64 48
+  %4035 = getelementptr inbounds nuw i8, ptr %4031, i64 48
   %4036 = load i64, ptr %4035, align 8
-  %4037 = getelementptr i8, ptr %4031, i64 40
+  %4037 = getelementptr inbounds nuw i8, ptr %4031, i64 40
   %4038 = load i64, ptr %4037, align 8
   %4039 = sub nsw i64 %4036, %4038
   %spec.select.i.i.i617 = call i64 @llvm.umin.i64(i64 %4039, i64 127)
@@ -58956,17 +58956,17 @@ cgltf_json_strcmp.exit197.i.i:                    ; preds = %3992
 
 4051:                                             ; preds = %cgltf_json_strcmp.exit197.i.i
   %4052 = sext i32 %.0158350.i.i to i64
-  %4053 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4052
-  %4054 = getelementptr i8, ptr %4053, i64 32
+  %4053 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4052
+  %4054 = getelementptr inbounds nuw i8, ptr %4053, i64 32
   %4055 = load i32, ptr %4054, align 8
   %.not.i198.i.i = icmp eq i32 %4055, 4
   br i1 %.not.i198.i.i, label %4056, label %cgltf_json_to_int.exit201.i.i
 
 4056:                                             ; preds = %4051
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14) #58
-  %4057 = getelementptr i8, ptr %4053, i64 48
+  %4057 = getelementptr inbounds nuw i8, ptr %4053, i64 48
   %4058 = load i64, ptr %4057, align 8
-  %4059 = getelementptr i8, ptr %4053, i64 40
+  %4059 = getelementptr inbounds nuw i8, ptr %4053, i64 40
   %4060 = load i64, ptr %4059, align 8
   %4061 = sub nsw i64 %4058, %4060
   %spec.select.i200.i.i = call i64 @llvm.umin.i64(i64 %4061, i64 127)
@@ -59071,8 +59071,8 @@ cgltf_json_strcmp.exit209.i.i:                    ; preds = %3992
 
 4113:                                             ; preds = %cgltf_json_strcmp.exit209.i.i
   %4114 = sext i32 %.0158350.i.i to i64
-  %4115 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4114
-  %4116 = getelementptr i8, ptr %4115, i64 32
+  %4115 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4114
+  %4116 = getelementptr inbounds nuw i8, ptr %4115, i64 32
   %4117 = load i32, ptr %4116, align 8
   %.not177.i.i = icmp eq i32 %4117, 1
   br i1 %.not177.i.i, label %4118, label %cgltf_parse_json_asset.exit.thread
@@ -59083,7 +59083,7 @@ cgltf_json_strcmp.exit209.i.i:                    ; preds = %3992
   br i1 %.not178.i.i, label %4120, label %cgltf_parse_json_asset.exit.thread
 
 4120:                                             ; preds = %4118
-  %4121 = getelementptr i8, ptr %4115, i64 56
+  %4121 = getelementptr inbounds nuw i8, ptr %4115, i64 56
   %4122 = load i32, ptr %4121, align 8
   %4123 = add nuw nsw i32 %.0158350.i.i, 2
   %mul.ov.i.i30.i597 = icmp slt i32 %4122, 0
@@ -59144,14 +59144,14 @@ cgltf_json_strcmp.exit214.i.i:                    ; preds = %4137
 4146:                                             ; preds = %cgltf_json_strcmp.exit214.i.i
   store i32 1, ptr %3977, align 8
   %4147 = sext i32 %.4162345.i.i to i64
-  %4148 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4147
-  %4149 = getelementptr i8, ptr %4148, i64 32
+  %4148 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4147
+  %4149 = getelementptr inbounds nuw i8, ptr %4148, i64 32
   %4150 = load i32, ptr %4149, align 8
   %.not184.i.i = icmp eq i32 %4150, 1
   br i1 %.not184.i.i, label %4151, label %cgltf_parse_json_asset.exit.thread
 
 4151:                                             ; preds = %4146
-  %4152 = getelementptr i8, ptr %4148, i64 56
+  %4152 = getelementptr inbounds nuw i8, ptr %4148, i64 56
   %4153 = load i32, ptr %4152, align 8
   %4154 = add nuw nsw i32 %.4162345.i.i, 2
   %.not186339.i.i = icmp sgt i32 %4153, 0
@@ -59189,17 +59189,17 @@ cgltf_json_strcmp.exit217.i.i:                    ; preds = %4162
 
 4172:                                             ; preds = %cgltf_json_strcmp.exit217.i.i
   %4173 = sext i32 %.6164340.i.i to i64
-  %4174 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4173
-  %4175 = getelementptr i8, ptr %4174, i64 32
+  %4174 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4173
+  %4175 = getelementptr inbounds nuw i8, ptr %4174, i64 32
   %4176 = load i32, ptr %4175, align 8
   %.not.i218.i.i = icmp eq i32 %4176, 4
   br i1 %.not.i218.i.i, label %4177, label %cgltf_skip_json.exit.thread256.i.i
 
 4177:                                             ; preds = %4172
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #58
-  %4178 = getelementptr i8, ptr %4174, i64 48
+  %4178 = getelementptr inbounds nuw i8, ptr %4174, i64 48
   %4179 = load i64, ptr %4178, align 8
-  %4180 = getelementptr i8, ptr %4174, i64 40
+  %4180 = getelementptr inbounds nuw i8, ptr %4174, i64 40
   %4181 = load i64, ptr %4180, align 8
   %4182 = sub nsw i64 %4179, %4181
   %spec.select.i220.i.i = call i64 @llvm.umin.i64(i64 %4182, i64 127)
@@ -59278,14 +59278,14 @@ cgltf_json_strcmp.exit224.i.i:                    ; preds = %4137
 4215:                                             ; preds = %cgltf_json_strcmp.exit224.i.i
   store i32 1, ptr %3975, align 8
   %4216 = sext i32 %.4162345.i.i to i64
-  %4217 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4216
-  %4218 = getelementptr i8, ptr %4217, i64 32
+  %4217 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4216
+  %4218 = getelementptr inbounds nuw i8, ptr %4217, i64 32
   %4219 = load i32, ptr %4218, align 8
   %.not181.i.i = icmp eq i32 %4219, 1
   br i1 %.not181.i.i, label %4220, label %cgltf_parse_json_asset.exit.thread
 
 4220:                                             ; preds = %4215
-  %4221 = getelementptr i8, ptr %4217, i64 56
+  %4221 = getelementptr inbounds nuw i8, ptr %4217, i64 56
   %4222 = load i32, ptr %4221, align 8
   %4223 = add nuw nsw i32 %.4162345.i.i, 2
   %.not183336.i.i = icmp sgt i32 %4222, 0
@@ -59323,17 +59323,17 @@ cgltf_json_strcmp.exit227.i.i:                    ; preds = %4231
 
 4241:                                             ; preds = %cgltf_json_strcmp.exit227.i.i
   %4242 = sext i32 %.10168337.i.i to i64
-  %4243 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4242
-  %4244 = getelementptr i8, ptr %4243, i64 32
+  %4243 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4242
+  %4244 = getelementptr inbounds nuw i8, ptr %4243, i64 32
   %4245 = load i32, ptr %4244, align 8
   %.not.i228.i.i = icmp eq i32 %4245, 4
   br i1 %.not.i228.i.i, label %4246, label %cgltf_skip_json.exit238.thread269.i.i
 
 4246:                                             ; preds = %4241
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #58
-  %4247 = getelementptr i8, ptr %4243, i64 48
+  %4247 = getelementptr inbounds nuw i8, ptr %4243, i64 48
   %4248 = load i64, ptr %4247, align 8
-  %4249 = getelementptr i8, ptr %4243, i64 40
+  %4249 = getelementptr inbounds nuw i8, ptr %4243, i64 40
   %4250 = load i64, ptr %4249, align 8
   %4251 = sub nsw i64 %4248, %4250
   %spec.select.i230.i.i = call i64 @llvm.umin.i64(i64 %4251, i64 127)
@@ -59495,8 +59495,8 @@ cgltf_json_strcmp.exit625:                        ; preds = %cgltf_json_strcmp.e
 
 4315:                                             ; preds = %cgltf_json_strcmp.exit625
   %4316 = sext i32 %.02671232 to i64
-  %4317 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4316
-  %4318 = getelementptr i8, ptr %4317, i64 32
+  %4317 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4316
+  %4318 = getelementptr inbounds nuw i8, ptr %4317, i64 32
   %4319 = load i32, ptr %4318, align 8
   %.not.i.i626 = icmp eq i32 %4319, 2
   br i1 %.not.i.i626, label %4323, label %4320
@@ -59512,7 +59512,7 @@ cgltf_json_strcmp.exit625:                        ; preds = %cgltf_json_strcmp.e
   br i1 %.not18.i.i628, label %4325, label %cgltf_parse_json_asset.exit.thread
 
 4325:                                             ; preds = %4323
-  %4326 = getelementptr i8, ptr %4317, i64 56
+  %4326 = getelementptr inbounds nuw i8, ptr %4317, i64 56
   %4327 = load i32, ptr %4326, align 8
   %4328 = sext i32 %4327 to i64
   %mul.ov.i.i.i629 = icmp slt i32 %4327, 0
@@ -59603,8 +59603,8 @@ cgltf_json_strcmp.exit.i.i665:                    ; preds = %4361
 
 4370:                                             ; preds = %cgltf_json_strcmp.exit.i.i665
   %4371 = sext i32 %.083145.i.i to i64
-  %4372 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4371
-  %4373 = getelementptr i8, ptr %4372, i64 32
+  %4372 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4371
+  %4373 = getelementptr inbounds nuw i8, ptr %4372, i64 32
   %4374 = load i32, ptr %4373, align 8
   %.not.i88.i.i = icmp eq i32 %4374, 3
   br i1 %.not.i88.i.i, label %4375, label %cgltf_parse_json_asset.exit.thread
@@ -59615,9 +59615,9 @@ cgltf_json_strcmp.exit.i.i665:                    ; preds = %4361
   br i1 %.not22.i.i.i666, label %4377, label %cgltf_parse_json_asset.exit.thread
 
 4377:                                             ; preds = %4375
-  %4378 = getelementptr i8, ptr %4372, i64 48
+  %4378 = getelementptr inbounds nuw i8, ptr %4372, i64 48
   %4379 = load i64, ptr %4378, align 8
-  %4380 = getelementptr i8, ptr %4372, i64 40
+  %4380 = getelementptr inbounds nuw i8, ptr %4372, i64 40
   %4381 = load i64, ptr %4380, align 8
   %4382 = sub nsw i64 %4379, %4381
   %4383 = load ptr, ptr %76, align 8
@@ -59648,17 +59648,17 @@ cgltf_json_strcmp.exit92.i.i:                     ; preds = %4361
 
 4398:                                             ; preds = %cgltf_json_strcmp.exit92.i.i
   %4399 = sext i32 %.083145.i.i to i64
-  %4400 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4399
-  %4401 = getelementptr i8, ptr %4400, i64 32
+  %4400 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4399
+  %4401 = getelementptr inbounds nuw i8, ptr %4400, i64 32
   %4402 = load i32, ptr %4401, align 8
   %.not.i93.i.i = icmp eq i32 %4402, 4
   br i1 %.not.i93.i.i, label %4403, label %cgltf_json_to_int.exit.i.i663
 
 4403:                                             ; preds = %4398
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #58
-  %4404 = getelementptr i8, ptr %4400, i64 48
+  %4404 = getelementptr inbounds nuw i8, ptr %4400, i64 48
   %4405 = load i64, ptr %4404, align 8
-  %4406 = getelementptr i8, ptr %4400, i64 40
+  %4406 = getelementptr inbounds nuw i8, ptr %4400, i64 40
   %4407 = load i64, ptr %4406, align 8
   %4408 = sub nsw i64 %4405, %4407
   %spec.select.i.i.i664 = call i64 @llvm.umin.i64(i64 %4408, i64 127)
@@ -59684,17 +59684,17 @@ cgltf_json_strcmp.exit97.i.i:                     ; preds = %cgltf_json_strcmp.e
 
 4417:                                             ; preds = %cgltf_json_strcmp.exit97.i.i
   %4418 = sext i32 %.083145.i.i to i64
-  %4419 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4418
-  %4420 = getelementptr i8, ptr %4419, i64 32
+  %4419 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4418
+  %4420 = getelementptr inbounds nuw i8, ptr %4419, i64 32
   %4421 = load i32, ptr %4420, align 8
   %.not.i98.i.i = icmp eq i32 %4421, 4
   br i1 %.not.i98.i.i, label %4422, label %cgltf_json_to_int.exit101.i.i
 
 4422:                                             ; preds = %4417
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #58
-  %4423 = getelementptr i8, ptr %4419, i64 48
+  %4423 = getelementptr inbounds nuw i8, ptr %4419, i64 48
   %4424 = load i64, ptr %4423, align 8
-  %4425 = getelementptr i8, ptr %4419, i64 40
+  %4425 = getelementptr inbounds nuw i8, ptr %4419, i64 40
   %4426 = load i64, ptr %4425, align 8
   %4427 = sub nsw i64 %4424, %4426
   %spec.select.i100.i.i = call i64 @llvm.umin.i64(i64 %4427, i64 127)
@@ -59721,17 +59721,17 @@ cgltf_json_strcmp.exit104.i.i:                    ; preds = %4361
 
 4437:                                             ; preds = %cgltf_json_strcmp.exit104.i.i
   %4438 = sext i32 %.083145.i.i to i64
-  %4439 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4438
-  %4440 = getelementptr i8, ptr %4439, i64 32
+  %4439 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4438
+  %4440 = getelementptr inbounds nuw i8, ptr %4439, i64 32
   %4441 = load i32, ptr %4440, align 8
   %.not.i105.i.i = icmp eq i32 %4441, 4
   br i1 %.not.i105.i.i, label %4442, label %cgltf_json_to_int.exit108.i.i
 
 4442:                                             ; preds = %4437
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #58
-  %4443 = getelementptr i8, ptr %4439, i64 48
+  %4443 = getelementptr inbounds nuw i8, ptr %4439, i64 48
   %4444 = load i64, ptr %4443, align 8
-  %4445 = getelementptr i8, ptr %4439, i64 40
+  %4445 = getelementptr inbounds nuw i8, ptr %4439, i64 40
   %4446 = load i64, ptr %4445, align 8
   %4447 = sub nsw i64 %4444, %4446
   %spec.select.i107.i.i = call i64 @llvm.umin.i64(i64 %4447, i64 127)
@@ -59757,17 +59757,17 @@ cgltf_json_strcmp.exit111.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 4456:                                             ; preds = %cgltf_json_strcmp.exit111.i.i
   %4457 = sext i32 %.083145.i.i to i64
-  %4458 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4457
-  %4459 = getelementptr i8, ptr %4458, i64 32
+  %4458 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4457
+  %4459 = getelementptr inbounds nuw i8, ptr %4458, i64 32
   %4460 = load i32, ptr %4459, align 8
   %.not.i112.i.i = icmp eq i32 %4460, 4
   br i1 %.not.i112.i.i, label %4461, label %cgltf_json_to_int.exit115.i.i
 
 4461:                                             ; preds = %4456
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #58
-  %4462 = getelementptr i8, ptr %4458, i64 48
+  %4462 = getelementptr inbounds nuw i8, ptr %4458, i64 48
   %4463 = load i64, ptr %4462, align 8
-  %4464 = getelementptr i8, ptr %4458, i64 40
+  %4464 = getelementptr inbounds nuw i8, ptr %4458, i64 40
   %4465 = load i64, ptr %4464, align 8
   %4466 = sub nsw i64 %4463, %4465
   %spec.select.i114.i.i = call i64 @llvm.umin.i64(i64 %4466, i64 127)
@@ -60006,8 +60006,8 @@ cgltf_json_strcmp.exit671:                        ; preds = %cgltf_json_strcmp.e
 
 4575:                                             ; preds = %cgltf_json_strcmp.exit671
   %4576 = sext i32 %.02671232 to i64
-  %4577 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4576
-  %4578 = getelementptr i8, ptr %4577, i64 32
+  %4577 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4576
+  %4578 = getelementptr inbounds nuw i8, ptr %4577, i64 32
   %4579 = load i32, ptr %4578, align 8
   %.not.i.i672 = icmp eq i32 %4579, 2
   br i1 %.not.i.i672, label %4583, label %4580
@@ -60023,7 +60023,7 @@ cgltf_json_strcmp.exit671:                        ; preds = %cgltf_json_strcmp.e
   br i1 %.not18.i.i674, label %4585, label %cgltf_parse_json_asset.exit.thread
 
 4585:                                             ; preds = %4583
-  %4586 = getelementptr i8, ptr %4577, i64 56
+  %4586 = getelementptr inbounds nuw i8, ptr %4577, i64 56
   %4587 = load i32, ptr %4586, align 8
   %4588 = sext i32 %4587 to i64
   %mul.ov.i.i.i675 = icmp slt i32 %4587, 0
@@ -60113,8 +60113,8 @@ cgltf_json_strcmp.exit.i.i715:                    ; preds = %4622
 
 4631:                                             ; preds = %cgltf_json_strcmp.exit.i.i715
   %4632 = sext i32 %.088155.i.i to i64
-  %4633 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4632
-  %4634 = getelementptr i8, ptr %4633, i64 32
+  %4633 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4632
+  %4634 = getelementptr inbounds nuw i8, ptr %4633, i64 32
   %4635 = load i32, ptr %4634, align 8
   %.not.i97.i.i = icmp eq i32 %4635, 3
   br i1 %.not.i97.i.i, label %4636, label %cgltf_parse_json_asset.exit.thread
@@ -60125,9 +60125,9 @@ cgltf_json_strcmp.exit.i.i715:                    ; preds = %4622
   br i1 %.not22.i.i.i716, label %4638, label %cgltf_parse_json_asset.exit.thread
 
 4638:                                             ; preds = %4636
-  %4639 = getelementptr i8, ptr %4633, i64 48
+  %4639 = getelementptr inbounds nuw i8, ptr %4633, i64 48
   %4640 = load i64, ptr %4639, align 8
-  %4641 = getelementptr i8, ptr %4633, i64 40
+  %4641 = getelementptr inbounds nuw i8, ptr %4633, i64 40
   %4642 = load i64, ptr %4641, align 8
   %4643 = sub nsw i64 %4640, %4642
   %4644 = load ptr, ptr %76, align 8
@@ -60158,8 +60158,8 @@ cgltf_json_strcmp.exit101.i.i:                    ; preds = %4622
 
 4658:                                             ; preds = %cgltf_json_strcmp.exit101.i.i
   %4659 = sext i32 %.088155.i.i to i64
-  %4660 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4659
-  %4661 = getelementptr i8, ptr %4660, i64 32
+  %4660 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4659
+  %4661 = getelementptr inbounds nuw i8, ptr %4660, i64 32
   %4662 = load i32, ptr %4661, align 8
   %.not.i102.i.i = icmp eq i32 %4662, 2
   br i1 %.not.i102.i.i, label %4666, label %4663
@@ -60175,7 +60175,7 @@ cgltf_json_strcmp.exit101.i.i:                    ; preds = %4622
   br i1 %.not18.i.i.i705, label %4668, label %cgltf_parse_json_asset.exit.thread
 
 4668:                                             ; preds = %4666
-  %4669 = getelementptr i8, ptr %4660, i64 56
+  %4669 = getelementptr inbounds nuw i8, ptr %4660, i64 56
   %4670 = load i32, ptr %4669, align 8
   %4671 = sext i32 %4670 to i64
   %mul.ov.i.i.i.i706 = icmp slt i32 %4670, 0
@@ -60248,17 +60248,17 @@ cgltf_json_strcmp.exit108.i.i:                    ; preds = %4622
 
 4702:                                             ; preds = %cgltf_json_strcmp.exit108.i.i
   %4703 = sext i32 %.088155.i.i to i64
-  %4704 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4703
-  %4705 = getelementptr i8, ptr %4704, i64 32
+  %4704 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4703
+  %4705 = getelementptr inbounds nuw i8, ptr %4704, i64 32
   %4706 = load i32, ptr %4705, align 8
   %.not95.i.i = icmp eq i32 %4706, 4
   br i1 %.not95.i.i, label %cgltf_json_to_int.exit112.i.i, label %cgltf_parse_json_asset.exit.thread
 
 cgltf_json_to_int.exit112.i.i:                    ; preds = %4702
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #58
-  %4707 = getelementptr i8, ptr %4704, i64 48
+  %4707 = getelementptr inbounds nuw i8, ptr %4704, i64 48
   %4708 = load i64, ptr %4707, align 8
-  %4709 = getelementptr i8, ptr %4704, i64 40
+  %4709 = getelementptr inbounds nuw i8, ptr %4704, i64 40
   %4710 = load i64, ptr %4709, align 8
   %4711 = sub nsw i64 %4708, %4710
   %spec.select.i111.i.i = call i64 @llvm.umin.i64(i64 %4711, i64 127)
@@ -60284,17 +60284,17 @@ cgltf_json_strcmp.exit115.i.i:                    ; preds = %4622
 
 4723:                                             ; preds = %cgltf_json_strcmp.exit115.i.i
   %4724 = sext i32 %.088155.i.i to i64
-  %4725 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4724
-  %4726 = getelementptr i8, ptr %4725, i64 32
+  %4725 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4724
+  %4726 = getelementptr inbounds nuw i8, ptr %4725, i64 32
   %4727 = load i32, ptr %4726, align 8
   %.not94.i.i = icmp eq i32 %4727, 4
   br i1 %.not94.i.i, label %cgltf_json_to_int.exit119.i.i, label %cgltf_parse_json_asset.exit.thread
 
 cgltf_json_to_int.exit119.i.i:                    ; preds = %4723
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #58
-  %4728 = getelementptr i8, ptr %4725, i64 48
+  %4728 = getelementptr inbounds nuw i8, ptr %4725, i64 48
   %4729 = load i64, ptr %4728, align 8
-  %4730 = getelementptr i8, ptr %4725, i64 40
+  %4730 = getelementptr inbounds nuw i8, ptr %4725, i64 40
   %4731 = load i64, ptr %4730, align 8
   %4732 = sub nsw i64 %4729, %4731
   %spec.select.i118.i.i = call i64 @llvm.umin.i64(i64 %4732, i64 127)
@@ -60609,8 +60609,8 @@ cgltf_json_strcmp.exit724.thread:                 ; preds = %cgltf_json_strcmp.e
 
 4883:                                             ; preds = %4880
   %4884 = sext i32 %.02671232 to i64
-  %4885 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4884
-  %4886 = getelementptr i8, ptr %4885, i64 32
+  %4885 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4884
+  %4886 = getelementptr inbounds nuw i8, ptr %4885, i64 32
   %4887 = load i32, ptr %4886, align 8
   %.not286 = icmp eq i32 %4887, 1
   br i1 %.not286, label %4888, label %cgltf_parse_json_asset.exit.thread
@@ -60621,7 +60621,7 @@ cgltf_json_strcmp.exit724.thread:                 ; preds = %cgltf_json_strcmp.e
   br i1 %.not287, label %4890, label %cgltf_parse_json_asset.exit.thread
 
 4890:                                             ; preds = %4888
-  %4891 = getelementptr i8, ptr %4885, i64 56
+  %4891 = getelementptr inbounds nuw i8, ptr %4885, i64 56
   %4892 = load i32, ptr %4891, align 8
   store i64 0, ptr %75, align 8
   %mul.ov.i = icmp slt i32 %4892, 0
@@ -60669,14 +60669,14 @@ cgltf_json_strcmp.exit724.thread:                 ; preds = %cgltf_json_strcmp.e
 
 4911:                                             ; preds = %4908
   %4912 = sext i32 %.42711227 to i64
-  %4913 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4912
-  %4914 = getelementptr i8, ptr %4913, i64 32
+  %4913 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4912
+  %4914 = getelementptr inbounds nuw i8, ptr %4913, i64 32
   %4915 = load i32, ptr %4914, align 8
   %.not293 = icmp eq i32 %4915, 1
   br i1 %.not293, label %4916, label %cgltf_parse_json_asset.exit.thread
 
 4916:                                             ; preds = %4911
-  %4917 = getelementptr i8, ptr %4913, i64 56
+  %4917 = getelementptr inbounds nuw i8, ptr %4913, i64 56
   %4918 = load i32, ptr %4917, align 8
   %4919 = add nuw nsw i32 %.42711227, 2
   %.not2951221 = icmp sgt i32 %4918, 0
@@ -60728,14 +60728,14 @@ cgltf_json_strcmp.exit724.thread:                 ; preds = %cgltf_json_strcmp.e
 
 4942:                                             ; preds = %4939
   %4943 = sext i32 %.42711227 to i64
-  %4944 = getelementptr %struct.jsmntok_t, ptr %1, i64 %4943
-  %4945 = getelementptr i8, ptr %4944, i64 32
+  %4944 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %4943
+  %4945 = getelementptr inbounds nuw i8, ptr %4944, i64 32
   %4946 = load i32, ptr %4945, align 8
   %.not290 = icmp eq i32 %4946, 1
   br i1 %.not290, label %4947, label %cgltf_parse_json_asset.exit.thread
 
 4947:                                             ; preds = %4942
-  %4948 = getelementptr i8, ptr %4944, i64 56
+  %4948 = getelementptr inbounds nuw i8, ptr %4944, i64 56
   %4949 = load i32, ptr %4948, align 8
   %4950 = add nuw nsw i32 %.42711227, 2
   %.not2921218 = icmp sgt i32 %4949, 0
@@ -60989,8 +60989,8 @@ cgltf_json_strcmp.exit.i:                         ; preds = %69
 
 78:                                               ; preds = %cgltf_json_strcmp.exit.i
   %79 = sext i32 %.0188399.i to i64
-  %80 = getelementptr %struct.jsmntok_t, ptr %1, i64 %79
-  %81 = getelementptr i8, ptr %80, i64 32
+  %80 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %79
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load i32, ptr %81, align 8
   %.not.i213.i = icmp eq i32 %82, 3
   br i1 %.not.i213.i, label %83, label %cgltf_parse_json_array.exit.thread
@@ -61001,9 +61001,9 @@ cgltf_json_strcmp.exit.i:                         ; preds = %69
   br i1 %.not22.i.i, label %85, label %cgltf_parse_json_array.exit.thread
 
 85:                                               ; preds = %83
-  %86 = getelementptr i8, ptr %80, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %87 = load i64, ptr %86, align 8
-  %88 = getelementptr i8, ptr %80, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %89 = load i64, ptr %88, align 8
   %90 = sub nsw i64 %87, %89
   %91 = load ptr, ptr %29, align 8
@@ -61034,14 +61034,14 @@ cgltf_json_strcmp.exit217.i:                      ; preds = %69
 
 106:                                              ; preds = %cgltf_json_strcmp.exit217.i
   %107 = sext i32 %.0188399.i to i64
-  %108 = getelementptr %struct.jsmntok_t, ptr %1, i64 %107
-  %109 = getelementptr i8, ptr %108, i64 32
+  %108 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %107
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %110 = load i32, ptr %109, align 8
   %.not208.i = icmp eq i32 %110, 1
   br i1 %.not208.i, label %111, label %cgltf_parse_json_array.exit.thread
 
 111:                                              ; preds = %106
-  %112 = getelementptr i8, ptr %108, i64 56
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 56
   %113 = load i32, ptr %112, align 8
   %114 = load i32, ptr %51, align 8
   %.not209.i = icmp eq i32 %114, 0
@@ -61090,17 +61090,17 @@ cgltf_json_strcmp.exit220.i:                      ; preds = %124
 133:                                              ; preds = %cgltf_json_strcmp.exit220.i
   store i32 1, ptr %58, align 8
   %134 = sext i32 %.4192393.i to i64
-  %135 = getelementptr %struct.jsmntok_t, ptr %1, i64 %134
-  %136 = getelementptr i8, ptr %135, i64 32
+  %135 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %134
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %137 = load i32, ptr %136, align 8
   %.not.i221.i = icmp eq i32 %137, 4
   br i1 %.not.i221.i, label %138, label %cgltf_json_to_float.exit.i
 
 138:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #58
-  %139 = getelementptr i8, ptr %135, i64 48
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 48
   %140 = load i64, ptr %139, align 8
-  %141 = getelementptr i8, ptr %135, i64 40
+  %141 = getelementptr inbounds nuw i8, ptr %135, i64 40
   %142 = load i64, ptr %141, align 8
   %143 = sub nsw i64 %140, %142
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %143, i64 127)
@@ -61127,17 +61127,17 @@ cgltf_json_strcmp.exit225.i:                      ; preds = %124
 
 153:                                              ; preds = %cgltf_json_strcmp.exit225.i
   %154 = sext i32 %.4192393.i to i64
-  %155 = getelementptr %struct.jsmntok_t, ptr %1, i64 %154
-  %156 = getelementptr i8, ptr %155, i64 32
+  %155 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %154
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %157 = load i32, ptr %156, align 8
   %.not.i226.i = icmp eq i32 %157, 4
   br i1 %.not.i226.i, label %158, label %cgltf_json_to_float.exit229.i
 
 158:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #58
-  %159 = getelementptr i8, ptr %155, i64 48
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 48
   %160 = load i64, ptr %159, align 8
-  %161 = getelementptr i8, ptr %155, i64 40
+  %161 = getelementptr inbounds nuw i8, ptr %155, i64 40
   %162 = load i64, ptr %161, align 8
   %163 = sub nsw i64 %160, %162
   %spec.select.i228.i = call i64 @llvm.umin.i64(i64 %163, i64 127)
@@ -61164,17 +61164,17 @@ cgltf_json_strcmp.exit232.i:                      ; preds = %cgltf_json_strcmp.e
 172:                                              ; preds = %cgltf_json_strcmp.exit232.i
   store i32 1, ptr %55, align 4
   %173 = sext i32 %.4192393.i to i64
-  %174 = getelementptr %struct.jsmntok_t, ptr %1, i64 %173
-  %175 = getelementptr i8, ptr %174, i64 32
+  %174 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %173
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 32
   %176 = load i32, ptr %175, align 8
   %.not.i233.i = icmp eq i32 %176, 4
   br i1 %.not.i233.i, label %177, label %cgltf_json_to_float.exit236.i
 
 177:                                              ; preds = %172
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #58
-  %178 = getelementptr i8, ptr %174, i64 48
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 48
   %179 = load i64, ptr %178, align 8
-  %180 = getelementptr i8, ptr %174, i64 40
+  %180 = getelementptr inbounds nuw i8, ptr %174, i64 40
   %181 = load i64, ptr %180, align 8
   %182 = sub nsw i64 %179, %181
   %spec.select.i235.i = call i64 @llvm.umin.i64(i64 %182, i64 127)
@@ -61201,17 +61201,17 @@ cgltf_json_strcmp.exit239.i:                      ; preds = %124
 
 192:                                              ; preds = %cgltf_json_strcmp.exit239.i
   %193 = sext i32 %.4192393.i to i64
-  %194 = getelementptr %struct.jsmntok_t, ptr %1, i64 %193
-  %195 = getelementptr i8, ptr %194, i64 32
+  %194 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %193
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %196 = load i32, ptr %195, align 8
   %.not.i240.i = icmp eq i32 %196, 4
   br i1 %.not.i240.i, label %197, label %cgltf_json_to_float.exit243.i
 
 197:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #58
-  %198 = getelementptr i8, ptr %194, i64 48
+  %198 = getelementptr inbounds nuw i8, ptr %194, i64 48
   %199 = load i64, ptr %198, align 8
-  %200 = getelementptr i8, ptr %194, i64 40
+  %200 = getelementptr inbounds nuw i8, ptr %194, i64 40
   %201 = load i64, ptr %200, align 8
   %202 = sub nsw i64 %199, %201
   %spec.select.i242.i = call i64 @llvm.umin.i64(i64 %202, i64 127)
@@ -61360,14 +61360,14 @@ cgltf_json_strcmp.exit251.i:                      ; preds = %69
 
 272:                                              ; preds = %cgltf_json_strcmp.exit251.i
   %273 = sext i32 %.0188399.i to i64
-  %274 = getelementptr %struct.jsmntok_t, ptr %1, i64 %273
-  %275 = getelementptr i8, ptr %274, i64 32
+  %274 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %273
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 32
   %276 = load i32, ptr %275, align 8
   %.not204.i = icmp eq i32 %276, 1
   br i1 %.not204.i, label %277, label %cgltf_parse_json_array.exit.thread
 
 277:                                              ; preds = %272
-  %278 = getelementptr i8, ptr %274, i64 56
+  %278 = getelementptr inbounds nuw i8, ptr %274, i64 56
   %279 = load i32, ptr %278, align 8
   %280 = load i32, ptr %51, align 8
   %.not205.i = icmp eq i32 %280, 0
@@ -61414,17 +61414,17 @@ cgltf_json_strcmp.exit254.i:                      ; preds = %290
 
 299:                                              ; preds = %cgltf_json_strcmp.exit254.i
   %300 = sext i32 %.8196390.i to i64
-  %301 = getelementptr %struct.jsmntok_t, ptr %1, i64 %300
-  %302 = getelementptr i8, ptr %301, i64 32
+  %301 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %300
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 32
   %303 = load i32, ptr %302, align 8
   %.not.i255.i = icmp eq i32 %303, 4
   br i1 %.not.i255.i, label %304, label %cgltf_json_to_float.exit258.i
 
 304:                                              ; preds = %299
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #58
-  %305 = getelementptr i8, ptr %301, i64 48
+  %305 = getelementptr inbounds nuw i8, ptr %301, i64 48
   %306 = load i64, ptr %305, align 8
-  %307 = getelementptr i8, ptr %301, i64 40
+  %307 = getelementptr inbounds nuw i8, ptr %301, i64 40
   %308 = load i64, ptr %307, align 8
   %309 = sub nsw i64 %306, %308
   %spec.select.i257.i = call i64 @llvm.umin.i64(i64 %309, i64 127)
@@ -61450,17 +61450,17 @@ cgltf_json_strcmp.exit261.i:                      ; preds = %cgltf_json_strcmp.e
 
 318:                                              ; preds = %cgltf_json_strcmp.exit261.i
   %319 = sext i32 %.8196390.i to i64
-  %320 = getelementptr %struct.jsmntok_t, ptr %1, i64 %319
-  %321 = getelementptr i8, ptr %320, i64 32
+  %320 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %319
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 32
   %322 = load i32, ptr %321, align 8
   %.not.i262.i = icmp eq i32 %322, 4
   br i1 %.not.i262.i, label %323, label %cgltf_json_to_float.exit265.i
 
 323:                                              ; preds = %318
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #58
-  %324 = getelementptr i8, ptr %320, i64 48
+  %324 = getelementptr inbounds nuw i8, ptr %320, i64 48
   %325 = load i64, ptr %324, align 8
-  %326 = getelementptr i8, ptr %320, i64 40
+  %326 = getelementptr inbounds nuw i8, ptr %320, i64 40
   %327 = load i64, ptr %326, align 8
   %328 = sub nsw i64 %325, %327
   %spec.select.i264.i = call i64 @llvm.umin.i64(i64 %328, i64 127)
@@ -61486,17 +61486,17 @@ cgltf_json_strcmp.exit268.i:                      ; preds = %cgltf_json_strcmp.e
 
 337:                                              ; preds = %cgltf_json_strcmp.exit268.i
   %338 = sext i32 %.8196390.i to i64
-  %339 = getelementptr %struct.jsmntok_t, ptr %1, i64 %338
-  %340 = getelementptr i8, ptr %339, i64 32
+  %339 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %338
+  %340 = getelementptr inbounds nuw i8, ptr %339, i64 32
   %341 = load i32, ptr %340, align 8
   %.not.i269.i = icmp eq i32 %341, 4
   br i1 %.not.i269.i, label %342, label %cgltf_json_to_float.exit272.i
 
 342:                                              ; preds = %337
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #58
-  %343 = getelementptr i8, ptr %339, i64 48
+  %343 = getelementptr inbounds nuw i8, ptr %339, i64 48
   %344 = load i64, ptr %343, align 8
-  %345 = getelementptr i8, ptr %339, i64 40
+  %345 = getelementptr inbounds nuw i8, ptr %339, i64 40
   %346 = load i64, ptr %345, align 8
   %347 = sub nsw i64 %344, %346
   %spec.select.i271.i = call i64 @llvm.umin.i64(i64 %347, i64 127)
@@ -61523,17 +61523,17 @@ cgltf_json_strcmp.exit275.i:                      ; preds = %290
 
 357:                                              ; preds = %cgltf_json_strcmp.exit275.i
   %358 = sext i32 %.8196390.i to i64
-  %359 = getelementptr %struct.jsmntok_t, ptr %1, i64 %358
-  %360 = getelementptr i8, ptr %359, i64 32
+  %359 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %358
+  %360 = getelementptr inbounds nuw i8, ptr %359, i64 32
   %361 = load i32, ptr %360, align 8
   %.not.i276.i = icmp eq i32 %361, 4
   br i1 %.not.i276.i, label %362, label %cgltf_json_to_float.exit279.i
 
 362:                                              ; preds = %357
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #58
-  %363 = getelementptr i8, ptr %359, i64 48
+  %363 = getelementptr inbounds nuw i8, ptr %359, i64 48
   %364 = load i64, ptr %363, align 8
-  %365 = getelementptr i8, ptr %359, i64 40
+  %365 = getelementptr inbounds nuw i8, ptr %359, i64 40
   %366 = load i64, ptr %365, align 8
   %367 = sub nsw i64 %364, %366
   %spec.select.i278.i = call i64 @llvm.umin.i64(i64 %367, i64 127)
@@ -62048,8 +62048,8 @@ cgltf_json_strcmp.exit.i:                         ; preds = %85
 
 94:                                               ; preds = %cgltf_json_strcmp.exit.i
   %95 = sext i32 %.0224449.i to i64
-  %96 = getelementptr %struct.jsmntok_t, ptr %1, i64 %95
-  %97 = getelementptr i8, ptr %96, i64 32
+  %96 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load i32, ptr %97, align 8
   %.not.i257.i = icmp eq i32 %98, 3
   br i1 %.not.i257.i, label %99, label %cgltf_parse_json_array.exit.thread
@@ -62060,9 +62060,9 @@ cgltf_json_strcmp.exit.i:                         ; preds = %85
   br i1 %.not22.i.i, label %101, label %cgltf_parse_json_array.exit.thread
 
 101:                                              ; preds = %99
-  %102 = getelementptr i8, ptr %96, i64 48
+  %102 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %103 = load i64, ptr %102, align 8
-  %104 = getelementptr i8, ptr %96, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %96, i64 40
   %105 = load i64, ptr %104, align 8
   %106 = sub nsw i64 %103, %105
   %107 = load ptr, ptr %31, align 8
@@ -62093,8 +62093,8 @@ cgltf_json_strcmp.exit261.i:                      ; preds = %85
 
 121:                                              ; preds = %cgltf_json_strcmp.exit261.i
   %122 = sext i32 %.0224449.i to i64
-  %123 = getelementptr %struct.jsmntok_t, ptr %1, i64 %122
-  %124 = getelementptr i8, ptr %123, i64 32
+  %123 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %122
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %125 = load i32, ptr %124, align 8
   %.not.i262.i = icmp eq i32 %125, 2
   br i1 %.not.i262.i, label %129, label %126
@@ -62110,7 +62110,7 @@ cgltf_json_strcmp.exit261.i:                      ; preds = %85
   br i1 %.not18.i.i, label %131, label %cgltf_parse_json_array.exit.thread
 
 131:                                              ; preds = %129
-  %132 = getelementptr i8, ptr %123, i64 56
+  %132 = getelementptr inbounds nuw i8, ptr %123, i64 56
   %133 = load i32, ptr %132, align 8
   %134 = sext i32 %133 to i64
   %mul.ov.i.i.i = icmp slt i32 %133, 0
@@ -62182,17 +62182,17 @@ cgltf_json_strcmp.exit268.i:                      ; preds = %cgltf_json_strcmp.e
 
 164:                                              ; preds = %cgltf_json_strcmp.exit268.i
   %165 = sext i32 %.0224449.i to i64
-  %166 = getelementptr %struct.jsmntok_t, ptr %1, i64 %165
-  %167 = getelementptr i8, ptr %166, i64 32
+  %166 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %165
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 32
   %168 = load i32, ptr %167, align 8
   %.not255.i = icmp eq i32 %168, 4
   br i1 %.not255.i, label %cgltf_json_to_int.exit272.i, label %cgltf_parse_json_array.exit.thread
 
 cgltf_json_to_int.exit272.i:                      ; preds = %164
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %14) #58
-  %169 = getelementptr i8, ptr %166, i64 48
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 48
   %170 = load i64, ptr %169, align 8
-  %171 = getelementptr i8, ptr %166, i64 40
+  %171 = getelementptr inbounds nuw i8, ptr %166, i64 40
   %172 = load i64, ptr %171, align 8
   %173 = sub nsw i64 %170, %172
   %spec.select.i271.i = call i64 @llvm.umin.i64(i64 %173, i64 127)
@@ -62217,17 +62217,17 @@ cgltf_json_strcmp.exit275.i:                      ; preds = %cgltf_json_strcmp.e
 
 184:                                              ; preds = %cgltf_json_strcmp.exit275.i
   %185 = sext i32 %.0224449.i to i64
-  %186 = getelementptr %struct.jsmntok_t, ptr %1, i64 %185
-  %187 = getelementptr i8, ptr %186, i64 32
+  %186 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %185
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 32
   %188 = load i32, ptr %187, align 8
   %.not254.i = icmp eq i32 %188, 4
   br i1 %.not254.i, label %cgltf_json_to_int.exit279.i, label %cgltf_parse_json_array.exit.thread
 
 cgltf_json_to_int.exit279.i:                      ; preds = %184
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %13) #58
-  %189 = getelementptr i8, ptr %186, i64 48
+  %189 = getelementptr inbounds nuw i8, ptr %186, i64 48
   %190 = load i64, ptr %189, align 8
-  %191 = getelementptr i8, ptr %186, i64 40
+  %191 = getelementptr inbounds nuw i8, ptr %186, i64 40
   %192 = load i64, ptr %191, align 8
   %193 = sub nsw i64 %190, %192
   %spec.select.i278.i = call i64 @llvm.umin.i64(i64 %193, i64 127)
@@ -62253,17 +62253,17 @@ cgltf_json_strcmp.exit282.i:                      ; preds = %85
 
 205:                                              ; preds = %cgltf_json_strcmp.exit282.i
   %206 = sext i32 %.0224449.i to i64
-  %207 = getelementptr %struct.jsmntok_t, ptr %1, i64 %206
-  %208 = getelementptr i8, ptr %207, i64 32
+  %207 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %206
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 32
   %209 = load i32, ptr %208, align 8
   %.not253.i = icmp eq i32 %209, 4
   br i1 %.not253.i, label %cgltf_json_to_int.exit286.i, label %cgltf_parse_json_array.exit.thread
 
 cgltf_json_to_int.exit286.i:                      ; preds = %205
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #58
-  %210 = getelementptr i8, ptr %207, i64 48
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 48
   %211 = load i64, ptr %210, align 8
-  %212 = getelementptr i8, ptr %207, i64 40
+  %212 = getelementptr inbounds nuw i8, ptr %207, i64 40
   %213 = load i64, ptr %212, align 8
   %214 = sub nsw i64 %211, %213
   %spec.select.i285.i = call i64 @llvm.umin.i64(i64 %214, i64 127)
@@ -62681,8 +62681,8 @@ cgltf_json_strcmp.exit47:                         ; preds = %85
 
 406:                                              ; preds = %cgltf_json_strcmp.exit47
   %407 = sext i32 %.0224449.i to i64
-  %408 = getelementptr %struct.jsmntok_t, ptr %1, i64 %407
-  %409 = getelementptr i8, ptr %408, i64 32
+  %408 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %407
+  %409 = getelementptr inbounds nuw i8, ptr %408, i64 32
   %410 = load i32, ptr %409, align 8
   %.not245.i = icmp eq i32 %410, 1
   br i1 %.not245.i, label %411, label %cgltf_parse_json_array.exit.thread
@@ -62693,7 +62693,7 @@ cgltf_json_strcmp.exit47:                         ; preds = %85
   br i1 %.not246.i, label %413, label %cgltf_parse_json_array.exit.thread
 
 413:                                              ; preds = %411
-  %414 = getelementptr i8, ptr %408, i64 56
+  %414 = getelementptr inbounds nuw i8, ptr %408, i64 56
   %415 = load i32, ptr %414, align 8
   store i64 0, ptr %57, align 8
   %mul.ov.i.i30 = icmp slt i32 %415, 0
@@ -62759,14 +62759,14 @@ cgltf_json_strcmp.exit356.i:                      ; preds = %432
 
 441:                                              ; preds = %cgltf_json_strcmp.exit356.i
   %442 = sext i32 %.5229439.i to i64
-  %443 = getelementptr %struct.jsmntok_t, ptr %1, i64 %442
-  %444 = getelementptr i8, ptr %443, i64 32
+  %443 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %442
+  %444 = getelementptr inbounds nuw i8, ptr %443, i64 32
   %445 = load i32, ptr %444, align 8
   %.not249.i = icmp eq i32 %445, 1
   br i1 %.not249.i, label %446, label %cgltf_parse_json_array.exit.thread
 
 446:                                              ; preds = %441
-  %447 = getelementptr i8, ptr %443, i64 56
+  %447 = getelementptr inbounds nuw i8, ptr %443, i64 56
   %448 = load i32, ptr %447, align 8
   %449 = add nuw nsw i32 %.5229439.i, 2
   %.not252436.i = icmp sgt i32 %448, 0
@@ -62809,17 +62809,17 @@ cgltf_json_strcmp.exit359.i:                      ; preds = %459
 
 469:                                              ; preds = %cgltf_json_strcmp.exit359.i
   %470 = sext i32 %.7231437.i to i64
-  %471 = getelementptr %struct.jsmntok_t, ptr %1, i64 %470
-  %472 = getelementptr i8, ptr %471, i64 32
+  %471 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %470
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 32
   %473 = load i32, ptr %472, align 8
   %.not251.i = icmp eq i32 %473, 4
   br i1 %.not251.i, label %cgltf_json_to_int.exit363.i, label %cgltf_parse_json_array.exit.thread
 
 cgltf_json_to_int.exit363.i:                      ; preds = %469
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #58
-  %474 = getelementptr i8, ptr %471, i64 48
+  %474 = getelementptr inbounds nuw i8, ptr %471, i64 48
   %475 = load i64, ptr %474, align 8
-  %476 = getelementptr i8, ptr %471, i64 40
+  %476 = getelementptr inbounds nuw i8, ptr %471, i64 40
   %477 = load i64, ptr %476, align 8
   %478 = sub nsw i64 %475, %477
   %spec.select.i362.i = call i64 @llvm.umin.i64(i64 %478, i64 127)
@@ -62893,14 +62893,14 @@ cgltf_json_strcmp.exit:                           ; preds = %432
 510:                                              ; preds = %cgltf_json_strcmp.exit
   store i32 1, ptr %58, align 8
   %511 = sext i32 %.5229439.i to i64
-  %512 = getelementptr %struct.jsmntok_t, ptr %1, i64 %511
-  %513 = getelementptr i8, ptr %512, i64 32
+  %512 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %511
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 32
   %514 = load i32, ptr %513, align 8
   %.not.i33 = icmp eq i32 %514, 1
   br i1 %.not.i33, label %515, label %cgltf_parse_json_array.exit.thread
 
 515:                                              ; preds = %510
-  %516 = getelementptr i8, ptr %512, i64 56
+  %516 = getelementptr inbounds nuw i8, ptr %512, i64 56
   %517 = load i32, ptr %516, align 8
   %518 = add nuw nsw i32 %.5229439.i, 2
   %.not3337.i = icmp sgt i32 %517, 0
@@ -63209,8 +63209,8 @@ cgltf_json_strcmp.exit.i:                         ; preds = %54
 
 63:                                               ; preds = %cgltf_json_strcmp.exit.i
   %64 = sext i32 %.066113.i to i64
-  %65 = getelementptr %struct.jsmntok_t, ptr %1, i64 %64
-  %66 = getelementptr i8, ptr %65, i64 32
+  %65 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load i32, ptr %66, align 8
   %.not.i73.i = icmp eq i32 %67, 3
   br i1 %.not.i73.i, label %68, label %cgltf_parse_json_array.exit.thread
@@ -63221,9 +63221,9 @@ cgltf_json_strcmp.exit.i:                         ; preds = %54
   br i1 %.not22.i.i, label %70, label %cgltf_parse_json_array.exit.thread
 
 70:                                               ; preds = %68
-  %71 = getelementptr i8, ptr %65, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %72 = load i64, ptr %71, align 8
-  %73 = getelementptr i8, ptr %65, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %74 = load i64, ptr %73, align 8
   %75 = sub nsw i64 %72, %74
   %76 = load ptr, ptr %22, align 8
@@ -63254,8 +63254,8 @@ cgltf_json_strcmp.exit77.i:                       ; preds = %54
 
 90:                                               ; preds = %cgltf_json_strcmp.exit77.i
   %91 = sext i32 %.066113.i to i64
-  %92 = getelementptr %struct.jsmntok_t, ptr %1, i64 %91
-  %93 = getelementptr i8, ptr %92, i64 32
+  %92 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load i32, ptr %93, align 8
   %.not.i78.i = icmp eq i32 %94, 2
   br i1 %.not.i78.i, label %98, label %95
@@ -63271,7 +63271,7 @@ cgltf_json_strcmp.exit77.i:                       ; preds = %54
   br i1 %.not18.i.i, label %100, label %cgltf_parse_json_array.exit.thread
 
 100:                                              ; preds = %98
-  %101 = getelementptr i8, ptr %92, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %92, i64 56
   %102 = load i32, ptr %101, align 8
   %103 = sext i32 %102 to i64
   %mul.ov.i.i.i = icmp slt i32 %102, 0
@@ -63706,8 +63706,8 @@ cgltf_json_strcmp.exit.i:                         ; preds = %59
 
 68:                                               ; preds = %cgltf_json_strcmp.exit.i
   %69 = sext i32 %.097291.i to i64
-  %70 = getelementptr %struct.jsmntok_t, ptr %1, i64 %69
-  %71 = getelementptr i8, ptr %70, i64 32
+  %70 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load i32, ptr %71, align 8
   %.not.i116.i = icmp eq i32 %72, 3
   br i1 %.not.i116.i, label %73, label %cgltf_parse_json_array.exit.thread
@@ -63718,9 +63718,9 @@ cgltf_json_strcmp.exit.i:                         ; preds = %59
   br i1 %.not22.i.i, label %75, label %cgltf_parse_json_array.exit.thread
 
 75:                                               ; preds = %73
-  %76 = getelementptr i8, ptr %70, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr i8, ptr %70, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %79 = load i64, ptr %78, align 8
   %80 = sub nsw i64 %77, %79
   %81 = load ptr, ptr %25, align 8
@@ -63751,8 +63751,8 @@ cgltf_json_strcmp.exit120.i:                      ; preds = %59
 
 96:                                               ; preds = %cgltf_json_strcmp.exit120.i
   %97 = sext i32 %.097291.i to i64
-  %98 = getelementptr %struct.jsmntok_t, ptr %1, i64 %97
-  %99 = getelementptr i8, ptr %98, i64 32
+  %98 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %97
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %100 = load i32, ptr %99, align 8
   %.not.i121.i = icmp eq i32 %100, 2
   br i1 %.not.i121.i, label %104, label %101
@@ -63768,7 +63768,7 @@ cgltf_json_strcmp.exit120.i:                      ; preds = %59
   br i1 %.not18.i.i, label %106, label %cgltf_parse_json_array.exit.thread
 
 106:                                              ; preds = %104
-  %107 = getelementptr i8, ptr %98, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %98, i64 56
   %108 = load i32, ptr %107, align 8
   %109 = sext i32 %108 to i64
   %mul.ov.i.i.i = icmp slt i32 %108, 0
@@ -63860,17 +63860,17 @@ cgltf_json_strcmp.exit.i.i:                       ; preds = %143
 
 152:                                              ; preds = %cgltf_json_strcmp.exit.i.i
   %153 = sext i32 %.072132.i.i to i64
-  %154 = getelementptr %struct.jsmntok_t, ptr %1, i64 %153
-  %155 = getelementptr i8, ptr %154, i64 32
+  %154 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %153
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %156 = load i32, ptr %155, align 8
   %.not.i77.i.i = icmp eq i32 %156, 4
   br i1 %.not.i77.i.i, label %157, label %cgltf_json_to_int.exit.i.i
 
 157:                                              ; preds = %152
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #58
-  %158 = getelementptr i8, ptr %154, i64 48
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 48
   %159 = load i64, ptr %158, align 8
-  %160 = getelementptr i8, ptr %154, i64 40
+  %160 = getelementptr inbounds nuw i8, ptr %154, i64 40
   %161 = load i64, ptr %160, align 8
   %162 = sub nsw i64 %159, %161
   %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %162, i64 127)
@@ -63900,17 +63900,17 @@ cgltf_json_strcmp.exit81.i.i:                     ; preds = %143
 
 174:                                              ; preds = %cgltf_json_strcmp.exit81.i.i
   %175 = sext i32 %.072132.i.i to i64
-  %176 = getelementptr %struct.jsmntok_t, ptr %1, i64 %175
-  %177 = getelementptr i8, ptr %176, i64 32
+  %176 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %175
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 32
   %178 = load i32, ptr %177, align 8
   %.not.i82.i.i = icmp eq i32 %178, 4
   br i1 %.not.i82.i.i, label %179, label %cgltf_json_to_int.exit85.i.i
 
 179:                                              ; preds = %174
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #58
-  %180 = getelementptr i8, ptr %176, i64 48
+  %180 = getelementptr inbounds nuw i8, ptr %176, i64 48
   %181 = load i64, ptr %180, align 8
-  %182 = getelementptr i8, ptr %176, i64 40
+  %182 = getelementptr inbounds nuw i8, ptr %176, i64 40
   %183 = load i64, ptr %182, align 8
   %184 = sub nsw i64 %181, %183
   %spec.select.i84.i.i = call i64 @llvm.umin.i64(i64 %184, i64 127)
@@ -63940,16 +63940,16 @@ cgltf_json_strcmp.exit88.i.i:                     ; preds = %143
 
 196:                                              ; preds = %cgltf_json_strcmp.exit88.i.i
   %197 = sext i32 %.072132.i.i to i64
-  %198 = getelementptr %struct.jsmntok_t, ptr %1, i64 %197
-  %199 = getelementptr i8, ptr %198, i64 32
+  %198 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %197
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 32
   %200 = load i32, ptr %199, align 8
   %.not.i89.i.i = icmp eq i32 %200, 3
   br i1 %.not.i89.i.i, label %201, label %cgltf_json_strcmp.exit97.thread.i.i
 
 201:                                              ; preds = %196
-  %202 = getelementptr i8, ptr %198, i64 48
+  %202 = getelementptr inbounds nuw i8, ptr %198, i64 48
   %203 = load i64, ptr %202, align 8
-  %204 = getelementptr i8, ptr %198, i64 40
+  %204 = getelementptr inbounds nuw i8, ptr %198, i64 40
   %205 = load i64, ptr %204, align 8
   %206 = sub nsw i64 %203, %205
   switch i64 %206, label %cgltf_json_strcmp.exit97.thread.i.i [
@@ -64197,8 +64197,8 @@ cgltf_json_strcmp.exit127.i:                      ; preds = %cgltf_json_strcmp.e
 
 315:                                              ; preds = %cgltf_json_strcmp.exit127.i
   %316 = sext i32 %.097291.i to i64
-  %317 = getelementptr %struct.jsmntok_t, ptr %1, i64 %316
-  %318 = getelementptr i8, ptr %317, i64 32
+  %317 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %316
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 32
   %319 = load i32, ptr %318, align 8
   %.not.i128.i = icmp eq i32 %319, 2
   br i1 %.not.i128.i, label %323, label %320
@@ -64214,7 +64214,7 @@ cgltf_json_strcmp.exit127.i:                      ; preds = %cgltf_json_strcmp.e
   br i1 %.not18.i130.i, label %325, label %cgltf_parse_json_array.exit.thread
 
 325:                                              ; preds = %323
-  %326 = getelementptr i8, ptr %317, i64 56
+  %326 = getelementptr inbounds nuw i8, ptr %317, i64 56
   %327 = load i32, ptr %326, align 8
   %328 = sext i32 %327 to i64
   %mul.ov.i.i132.i = icmp slt i32 %327, 0
@@ -64299,17 +64299,17 @@ cgltf_json_strcmp.exit.i163.i:                    ; preds = %360
 
 369:                                              ; preds = %cgltf_json_strcmp.exit.i163.i
   %370 = sext i32 %.0102211.i.i to i64
-  %371 = getelementptr %struct.jsmntok_t, ptr %1, i64 %370
-  %372 = getelementptr i8, ptr %371, i64 32
+  %371 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %370
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 32
   %373 = load i32, ptr %372, align 8
   %.not.i113.i.i = icmp eq i32 %373, 4
   br i1 %.not.i113.i.i, label %374, label %cgltf_json_to_int.exit.i164.i
 
 374:                                              ; preds = %369
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #58
-  %375 = getelementptr i8, ptr %371, i64 48
+  %375 = getelementptr inbounds nuw i8, ptr %371, i64 48
   %376 = load i64, ptr %375, align 8
-  %377 = getelementptr i8, ptr %371, i64 40
+  %377 = getelementptr inbounds nuw i8, ptr %371, i64 40
   %378 = load i64, ptr %377, align 8
   %379 = sub nsw i64 %376, %378
   %spec.select.i.i165.i = call i64 @llvm.umin.i64(i64 %379, i64 127)
@@ -64339,14 +64339,14 @@ cgltf_json_strcmp.exit117.i.i:                    ; preds = %360
 
 391:                                              ; preds = %cgltf_json_strcmp.exit117.i.i
   %392 = sext i32 %.0102211.i.i to i64
-  %393 = getelementptr %struct.jsmntok_t, ptr %1, i64 %392
-  %394 = getelementptr i8, ptr %393, i64 32
+  %393 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %392
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 32
   %395 = load i32, ptr %394, align 8
   %.not109.i.i = icmp eq i32 %395, 1
   br i1 %.not109.i.i, label %396, label %cgltf_parse_json_array.exit.thread
 
 396:                                              ; preds = %391
-  %397 = getelementptr i8, ptr %393, i64 56
+  %397 = getelementptr inbounds nuw i8, ptr %393, i64 56
   %398 = load i32, ptr %397, align 8
   %399 = add nuw nsw i32 %.0102211.i.i, 2
   %.not111207.i.i = icmp sgt i32 %398, 0
@@ -64387,17 +64387,17 @@ cgltf_json_strcmp.exit120.i.i:                    ; preds = %407
 
 416:                                              ; preds = %cgltf_json_strcmp.exit120.i.i
   %417 = sext i32 %.3105208.i.i to i64
-  %418 = getelementptr %struct.jsmntok_t, ptr %1, i64 %417
-  %419 = getelementptr i8, ptr %418, i64 32
+  %418 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %417
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 32
   %420 = load i32, ptr %419, align 8
   %.not.i121.i.i = icmp eq i32 %420, 4
   br i1 %.not.i121.i.i, label %421, label %cgltf_json_to_int.exit124.i.i
 
 421:                                              ; preds = %416
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #58
-  %422 = getelementptr i8, ptr %418, i64 48
+  %422 = getelementptr inbounds nuw i8, ptr %418, i64 48
   %423 = load i64, ptr %422, align 8
-  %424 = getelementptr i8, ptr %418, i64 40
+  %424 = getelementptr inbounds nuw i8, ptr %418, i64 40
   %425 = load i64, ptr %424, align 8
   %426 = sub nsw i64 %423, %425
   %spec.select.i123.i.i = call i64 @llvm.umin.i64(i64 %426, i64 127)
@@ -64426,16 +64426,16 @@ cgltf_json_strcmp.exit127.i.i:                    ; preds = %cgltf_json_strcmp.e
 
 437:                                              ; preds = %cgltf_json_strcmp.exit127.i.i
   %438 = sext i32 %.3105208.i.i to i64
-  %439 = getelementptr %struct.jsmntok_t, ptr %1, i64 %438
-  %440 = getelementptr i8, ptr %439, i64 32
+  %439 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %438
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 32
   %441 = load i32, ptr %440, align 8
   %.not.i128.i.i = icmp eq i32 %441, 3
   br i1 %.not.i128.i.i, label %442, label %cgltf_json_strcmp.exit139.thread.i.i
 
 442:                                              ; preds = %437
-  %443 = getelementptr i8, ptr %439, i64 48
+  %443 = getelementptr inbounds nuw i8, ptr %439, i64 48
   %444 = load i64, ptr %443, align 8
-  %445 = getelementptr i8, ptr %439, i64 40
+  %445 = getelementptr inbounds nuw i8, ptr %439, i64 40
   %446 = load i64, ptr %445, align 8
   %447 = sub nsw i64 %444, %446
   switch i64 %447, label %cgltf_json_strcmp.exit139.thread.i.i [
@@ -65171,8 +65171,8 @@ cgltf_json_strcmp.exit.i:                         ; preds = %61
 
 70:                                               ; preds = %cgltf_json_strcmp.exit.i
   %71 = sext i32 %.0128246.i to i64
-  %72 = getelementptr %struct.jsmntok_t, ptr %1, i64 %71
-  %73 = getelementptr i8, ptr %72, i64 32
+  %72 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %71
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load i32, ptr %73, align 8
   %.not.i139.i = icmp eq i32 %74, 3
   br i1 %.not.i139.i, label %75, label %cgltf_parse_json_array.exit.thread
@@ -65183,9 +65183,9 @@ cgltf_json_strcmp.exit.i:                         ; preds = %61
   br i1 %.not22.i.i, label %77, label %cgltf_parse_json_array.exit.thread
 
 77:                                               ; preds = %75
-  %78 = getelementptr i8, ptr %72, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr i8, ptr %72, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %81 = load i64, ptr %80, align 8
   %82 = sub nsw i64 %79, %81
   %83 = load ptr, ptr %26, align 8
@@ -65216,14 +65216,14 @@ cgltf_json_strcmp.exit143.i:                      ; preds = %61
 
 98:                                               ; preds = %cgltf_json_strcmp.exit143.i
   %99 = sext i32 %.0128246.i to i64
-  %100 = getelementptr %struct.jsmntok_t, ptr %1, i64 %99
-  %101 = getelementptr i8, ptr %100, i64 32
+  %100 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %99
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %102 = load i32, ptr %101, align 8
   %.not.i144.i = icmp eq i32 %102, 2
   br i1 %.not.i144.i, label %103, label %cgltf_parse_json_array.exit.thread
 
 103:                                              ; preds = %98
-  %104 = getelementptr i8, ptr %100, i64 56
+  %104 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %105 = load i32, ptr %104, align 8
   %.not23.i145.i = icmp eq i32 %105, 3
   br i1 %.not23.i145.i, label %.preheader.i.i, label %cgltf_parse_json_array.exit.thread
@@ -65271,17 +65271,17 @@ cgltf_json_strcmp.exit148.i:                      ; preds = %61
 
 123:                                              ; preds = %cgltf_json_strcmp.exit148.i
   %124 = sext i32 %.0128246.i to i64
-  %125 = getelementptr %struct.jsmntok_t, ptr %1, i64 %124
-  %126 = getelementptr i8, ptr %125, i64 32
+  %125 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %124
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %127 = load i32, ptr %126, align 8
   %.not.i149.i = icmp eq i32 %127, 4
   br i1 %.not.i149.i, label %128, label %cgltf_json_to_float.exit.i
 
 128:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #58
-  %129 = getelementptr i8, ptr %125, i64 48
+  %129 = getelementptr inbounds nuw i8, ptr %125, i64 48
   %130 = load i64, ptr %129, align 8
-  %131 = getelementptr i8, ptr %125, i64 40
+  %131 = getelementptr inbounds nuw i8, ptr %125, i64 40
   %132 = load i64, ptr %131, align 8
   %133 = sub nsw i64 %130, %132
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %133, i64 127)
@@ -65307,16 +65307,16 @@ cgltf_json_strcmp.exit153.i:                      ; preds = %cgltf_json_strcmp.e
 
 142:                                              ; preds = %cgltf_json_strcmp.exit153.i
   %143 = sext i32 %.0128246.i to i64
-  %144 = getelementptr %struct.jsmntok_t, ptr %1, i64 %143
-  %145 = getelementptr i8, ptr %144, i64 32
+  %144 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %143
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 32
   %146 = load i32, ptr %145, align 8
   %.not.i154.i = icmp eq i32 %146, 3
   br i1 %.not.i154.i, label %147, label %cgltf_json_strcmp.exit162.thread.i
 
 147:                                              ; preds = %142
-  %148 = getelementptr i8, ptr %144, i64 48
+  %148 = getelementptr inbounds nuw i8, ptr %144, i64 48
   %149 = load i64, ptr %148, align 8
-  %150 = getelementptr i8, ptr %144, i64 40
+  %150 = getelementptr inbounds nuw i8, ptr %144, i64 40
   %151 = load i64, ptr %150, align 8
   %152 = sub nsw i64 %149, %151
   switch i64 %152, label %cgltf_json_strcmp.exit162.thread.i [
@@ -65359,17 +65359,17 @@ cgltf_json_strcmp.exit165.thread283.i:            ; preds = %cgltf_json_strcmp.e
 
 165:                                              ; preds = %cgltf_json_strcmp.exit165.thread283.i
   %166 = sext i32 %.0128246.i to i64
-  %167 = getelementptr %struct.jsmntok_t, ptr %1, i64 %166
-  %168 = getelementptr i8, ptr %167, i64 32
+  %167 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %166
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %169 = load i32, ptr %168, align 8
   %.not.i166.i = icmp eq i32 %169, 4
   br i1 %.not.i166.i, label %170, label %cgltf_json_to_float.exit169.i
 
 170:                                              ; preds = %165
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #58
-  %171 = getelementptr i8, ptr %167, i64 48
+  %171 = getelementptr inbounds nuw i8, ptr %167, i64 48
   %172 = load i64, ptr %171, align 8
-  %173 = getelementptr i8, ptr %167, i64 40
+  %173 = getelementptr inbounds nuw i8, ptr %167, i64 40
   %174 = load i64, ptr %173, align 8
   %175 = sub nsw i64 %172, %174
   %spec.select.i168.i = call i64 @llvm.umin.i64(i64 %175, i64 127)
@@ -65395,14 +65395,14 @@ cgltf_json_strcmp.exit172.i:                      ; preds = %cgltf_json_strcmp.e
 
 184:                                              ; preds = %cgltf_json_strcmp.exit172.i
   %185 = sext i32 %.0128246.i to i64
-  %186 = getelementptr %struct.jsmntok_t, ptr %1, i64 %185
-  %187 = getelementptr i8, ptr %186, i64 32
+  %186 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %185
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 32
   %188 = load i32, ptr %187, align 8
   %.not135.i = icmp eq i32 %188, 1
   br i1 %.not135.i, label %189, label %cgltf_parse_json_array.exit.thread
 
 189:                                              ; preds = %184
-  %190 = getelementptr i8, ptr %186, i64 56
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 56
   %191 = load i32, ptr %190, align 8
   %192 = add nuw nsw i32 %.0128246.i, 2
   %.not137242.i = icmp sgt i32 %191, 0
@@ -65440,17 +65440,17 @@ cgltf_json_strcmp.exit175.i:                      ; preds = %200
 
 210:                                              ; preds = %cgltf_json_strcmp.exit175.i
   %211 = sext i32 %.3131243.i to i64
-  %212 = getelementptr %struct.jsmntok_t, ptr %1, i64 %211
-  %213 = getelementptr i8, ptr %212, i64 32
+  %212 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %211
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 32
   %214 = load i32, ptr %213, align 8
   %.not.i176.i = icmp eq i32 %214, 4
   br i1 %.not.i176.i, label %215, label %cgltf_json_to_float.exit179.i
 
 215:                                              ; preds = %210
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #58
-  %216 = getelementptr i8, ptr %212, i64 48
+  %216 = getelementptr inbounds nuw i8, ptr %212, i64 48
   %217 = load i64, ptr %216, align 8
-  %218 = getelementptr i8, ptr %212, i64 40
+  %218 = getelementptr inbounds nuw i8, ptr %212, i64 40
   %219 = load i64, ptr %218, align 8
   %220 = sub nsw i64 %217, %219
   %spec.select.i178.i = call i64 @llvm.umin.i64(i64 %220, i64 127)
@@ -65476,17 +65476,17 @@ cgltf_json_strcmp.exit182.i:                      ; preds = %cgltf_json_strcmp.e
 
 229:                                              ; preds = %cgltf_json_strcmp.exit182.i
   %230 = sext i32 %.3131243.i to i64
-  %231 = getelementptr %struct.jsmntok_t, ptr %1, i64 %230
-  %232 = getelementptr i8, ptr %231, i64 32
+  %231 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %230
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 32
   %233 = load i32, ptr %232, align 8
   %.not.i183.i = icmp eq i32 %233, 4
   br i1 %.not.i183.i, label %234, label %cgltf_json_to_float.exit186.i
 
 234:                                              ; preds = %229
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #58
-  %235 = getelementptr i8, ptr %231, i64 48
+  %235 = getelementptr inbounds nuw i8, ptr %231, i64 48
   %236 = load i64, ptr %235, align 8
-  %237 = getelementptr i8, ptr %231, i64 40
+  %237 = getelementptr inbounds nuw i8, ptr %231, i64 40
   %238 = load i64, ptr %237, align 8
   %239 = sub nsw i64 %236, %238
   %spec.select.i185.i = call i64 @llvm.umin.i64(i64 %239, i64 127)
@@ -65853,8 +65853,8 @@ cgltf_json_strcmp.exit.i:                         ; preds = %49
 
 58:                                               ; preds = %cgltf_json_strcmp.exit.i
   %59 = sext i32 %.03658.i to i64
-  %60 = getelementptr %struct.jsmntok_t, ptr %1, i64 %59
-  %61 = getelementptr i8, ptr %60, i64 32
+  %60 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %1, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load i32, ptr %61, align 8
   %.not.i41.i = icmp eq i32 %62, 3
   br i1 %.not.i41.i, label %63, label %cgltf_parse_json_array.exit.thread
@@ -65865,9 +65865,9 @@ cgltf_json_strcmp.exit.i:                         ; preds = %49
   br i1 %.not22.i.i, label %65, label %cgltf_parse_json_array.exit.thread
 
 65:                                               ; preds = %63
-  %66 = getelementptr i8, ptr %60, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 48
   %67 = load i64, ptr %66, align 8
-  %68 = getelementptr i8, ptr %60, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %69 = load i64, ptr %68, align 8
   %70 = sub nsw i64 %67, %69
   %71 = load ptr, ptr %21, align 8
@@ -66966,17 +66966,17 @@ cgltf_json_strcmp.exit:                           ; preds = %38
 
 47:                                               ; preds = %cgltf_json_strcmp.exit
   %48 = sext i32 %.09246 to i64
-  %49 = getelementptr %struct.jsmntok_t, ptr %0, i64 %48
-  %50 = getelementptr i8, ptr %49, i64 32
+  %49 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load i32, ptr %50, align 8
   %.not.i103 = icmp eq i32 %51, 4
   br i1 %.not.i103, label %52, label %cgltf_json_to_int.exit
 
 52:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #58
-  %53 = getelementptr i8, ptr %49, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr i8, ptr %49, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %49, i64 40
   %56 = load i64, ptr %55, align 8
   %57 = sub nsw i64 %54, %56
   %spec.select.i = call i64 @llvm.umin.i64(i64 %57, i64 127)
@@ -67006,17 +67006,17 @@ cgltf_json_strcmp.exit107:                        ; preds = %38
 
 69:                                               ; preds = %cgltf_json_strcmp.exit107
   %70 = sext i32 %.09246 to i64
-  %71 = getelementptr %struct.jsmntok_t, ptr %0, i64 %70
-  %72 = getelementptr i8, ptr %71, i64 32
+  %71 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %70
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load i32, ptr %72, align 8
   %.not.i108 = icmp eq i32 %73, 4
   br i1 %.not.i108, label %74, label %cgltf_json_to_int.exit111
 
 74:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #58
-  %75 = getelementptr i8, ptr %71, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr i8, ptr %71, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %78 = load i64, ptr %77, align 8
   %79 = sub nsw i64 %76, %78
   %spec.select.i110 = call i64 @llvm.umin.i64(i64 %79, i64 127)
@@ -67043,17 +67043,17 @@ cgltf_json_strcmp.exit114:                        ; preds = %cgltf_json_strcmp.e
 
 89:                                               ; preds = %cgltf_json_strcmp.exit114
   %90 = sext i32 %.09246 to i64
-  %91 = getelementptr %struct.jsmntok_t, ptr %0, i64 %90
-  %92 = getelementptr i8, ptr %91, i64 32
+  %91 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %90
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = load i32, ptr %92, align 8
   %.not.i115 = icmp eq i32 %93, 4
   br i1 %.not.i115, label %94, label %cgltf_json_to_float.exit
 
 94:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #58
-  %95 = getelementptr i8, ptr %91, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %91, i64 48
   %96 = load i64, ptr %95, align 8
-  %97 = getelementptr i8, ptr %91, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %91, i64 40
   %98 = load i64, ptr %97, align 8
   %99 = sub nsw i64 %96, %98
   %spec.select.i117 = call i64 @llvm.umin.i64(i64 %99, i64 127)
@@ -67080,17 +67080,17 @@ cgltf_json_strcmp.exit120:                        ; preds = %cgltf_json_strcmp.e
 
 109:                                              ; preds = %cgltf_json_strcmp.exit120
   %110 = sext i32 %.09246 to i64
-  %111 = getelementptr %struct.jsmntok_t, ptr %0, i64 %110
-  %112 = getelementptr i8, ptr %111, i64 32
+  %111 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %110
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %113 = load i32, ptr %112, align 8
   %.not.i121 = icmp eq i32 %113, 4
   br i1 %.not.i121, label %114, label %cgltf_json_to_float.exit124
 
 114:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #58
-  %115 = getelementptr i8, ptr %111, i64 48
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 48
   %116 = load i64, ptr %115, align 8
-  %117 = getelementptr i8, ptr %111, i64 40
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 40
   %118 = load i64, ptr %117, align 8
   %119 = sub nsw i64 %116, %118
   %spec.select.i123 = call i64 @llvm.umin.i64(i64 %119, i64 127)
@@ -67117,14 +67117,14 @@ cgltf_json_strcmp.exit127:                        ; preds = %38
 
 129:                                              ; preds = %cgltf_json_strcmp.exit127
   %130 = sext i32 %.09246 to i64
-  %131 = getelementptr %struct.jsmntok_t, ptr %0, i64 %130
-  %132 = getelementptr i8, ptr %131, i64 32
+  %131 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %130
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load i32, ptr %132, align 8
   %.not99 = icmp eq i32 %133, 1
   br i1 %.not99, label %134, label %.thread
 
 134:                                              ; preds = %129
-  %135 = getelementptr i8, ptr %131, i64 56
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 56
   %136 = load i32, ptr %135, align 8
   %137 = add nuw nsw i32 %.09246, 2
   %.not10142 = icmp sgt i32 %136, 0
@@ -67163,14 +67163,14 @@ cgltf_json_strcmp.exit130:                        ; preds = %145
 155:                                              ; preds = %cgltf_json_strcmp.exit130
   store i32 1, ptr %25, align 8
   %156 = sext i32 %.39543 to i64
-  %157 = getelementptr %struct.jsmntok_t, ptr %0, i64 %156
-  %158 = getelementptr i8, ptr %157, i64 32
+  %157 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %156
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 32
   %159 = load i32, ptr %158, align 8
   %.not.i131 = icmp eq i32 %159, 1
   br i1 %.not.i131, label %160, label %.thread
 
 160:                                              ; preds = %155
-  %161 = getelementptr i8, ptr %157, i64 56
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 56
   %162 = load i32, ptr %161, align 8
   %163 = add nuw nsw i32 %.39543, 2
   %.not57103.i = icmp sgt i32 %162, 0
@@ -67211,14 +67211,14 @@ cgltf_json_strcmp.exit.i:                         ; preds = %171
 
 180:                                              ; preds = %cgltf_json_strcmp.exit.i
   %181 = sext i32 %.053104.i to i64
-  %182 = getelementptr %struct.jsmntok_t, ptr %0, i64 %181
-  %183 = getelementptr i8, ptr %182, i64 32
+  %182 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %181
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 32
   %184 = load i32, ptr %183, align 8
   %.not.i58.i = icmp eq i32 %184, 2
   br i1 %.not.i58.i, label %185, label %.thread
 
 185:                                              ; preds = %180
-  %186 = getelementptr i8, ptr %182, i64 56
+  %186 = getelementptr inbounds nuw i8, ptr %182, i64 56
   %187 = load i32, ptr %186, align 8
   %.not23.i.i = icmp eq i32 %187, 2
   br i1 %.not23.i.i, label %.preheader.i.i, label %.thread
@@ -67266,17 +67266,17 @@ cgltf_json_strcmp.exit61.i:                       ; preds = %171
 
 205:                                              ; preds = %cgltf_json_strcmp.exit61.i
   %206 = sext i32 %.053104.i to i64
-  %207 = getelementptr %struct.jsmntok_t, ptr %0, i64 %206
-  %208 = getelementptr i8, ptr %207, i64 32
+  %207 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %206
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 32
   %209 = load i32, ptr %208, align 8
   %.not.i62.i = icmp eq i32 %209, 4
   br i1 %.not.i62.i, label %210, label %cgltf_json_to_float.exit.i
 
 210:                                              ; preds = %205
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #58
-  %211 = getelementptr i8, ptr %207, i64 48
+  %211 = getelementptr inbounds nuw i8, ptr %207, i64 48
   %212 = load i64, ptr %211, align 8
-  %213 = getelementptr i8, ptr %207, i64 40
+  %213 = getelementptr inbounds nuw i8, ptr %207, i64 40
   %214 = load i64, ptr %213, align 8
   %215 = sub nsw i64 %212, %214
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %215, i64 127)
@@ -67303,14 +67303,14 @@ cgltf_json_strcmp.exit66.i:                       ; preds = %171
 
 225:                                              ; preds = %cgltf_json_strcmp.exit66.i
   %226 = sext i32 %.053104.i to i64
-  %227 = getelementptr %struct.jsmntok_t, ptr %0, i64 %226
-  %228 = getelementptr i8, ptr %227, i64 32
+  %227 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %226
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 32
   %229 = load i32, ptr %228, align 8
   %.not.i67.i = icmp eq i32 %229, 2
   br i1 %.not.i67.i, label %230, label %.thread
 
 230:                                              ; preds = %225
-  %231 = getelementptr i8, ptr %227, i64 56
+  %231 = getelementptr inbounds nuw i8, ptr %227, i64 56
   %232 = load i32, ptr %231, align 8
   %.not23.i69.i = icmp eq i32 %232, 2
   br i1 %.not23.i69.i, label %.preheader.i70.i, label %.thread
@@ -67358,17 +67358,17 @@ cgltf_json_strcmp.exit84.i:                       ; preds = %cgltf_json_strcmp.e
 249:                                              ; preds = %cgltf_json_strcmp.exit84.i
   store i32 1, ptr %26, align 4
   %250 = sext i32 %.053104.i to i64
-  %251 = getelementptr %struct.jsmntok_t, ptr %0, i64 %250
-  %252 = getelementptr i8, ptr %251, i64 32
+  %251 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %250
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 32
   %253 = load i32, ptr %252, align 8
   %.not.i85.i = icmp eq i32 %253, 4
   br i1 %.not.i85.i, label %254, label %cgltf_json_to_int.exit.i
 
 254:                                              ; preds = %249
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #58
-  %255 = getelementptr i8, ptr %251, i64 48
+  %255 = getelementptr inbounds nuw i8, ptr %251, i64 48
   %256 = load i64, ptr %255, align 8
-  %257 = getelementptr i8, ptr %251, i64 40
+  %257 = getelementptr inbounds nuw i8, ptr %251, i64 40
   %258 = load i64, ptr %257, align 8
   %259 = sub nsw i64 %256, %258
   %spec.select.i87.i = call i64 @llvm.umin.i64(i64 %259, i64 127)
@@ -67614,17 +67614,17 @@ cgltf_json_strcmp.exit:                           ; preds = %29
 
 38:                                               ; preds = %cgltf_json_strcmp.exit
   %39 = sext i32 %.07513 to i64
-  %40 = getelementptr %struct.jsmntok_t, ptr %0, i64 %39
-  %41 = getelementptr i8, ptr %40, i64 32
+  %40 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load i32, ptr %41, align 8
   %.not.i80 = icmp eq i32 %42, 4
   br i1 %.not.i80, label %43, label %cgltf_json_to_float.exit
 
 43:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #58
-  %44 = getelementptr i8, ptr %40, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr i8, ptr %40, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %47 = load i64, ptr %46, align 8
   %48 = sub nsw i64 %45, %47
   %spec.select.i = call i64 @llvm.umin.i64(i64 %48, i64 127)
@@ -67662,17 +67662,17 @@ cgltf_json_strcmp.exit87:                         ; preds = %29
 
 64:                                               ; preds = %cgltf_json_strcmp.exit87
   %65 = sext i32 %.07513 to i64
-  %66 = getelementptr %struct.jsmntok_t, ptr %0, i64 %65
-  %67 = getelementptr i8, ptr %66, i64 32
+  %66 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load i32, ptr %67, align 8
   %.not.i88 = icmp eq i32 %68, 4
   br i1 %.not.i88, label %69, label %cgltf_json_to_float.exit91
 
 69:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %7) #58
-  %70 = getelementptr i8, ptr %66, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr i8, ptr %66, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %73 = load i64, ptr %72, align 8
   %74 = sub nsw i64 %71, %73
   %spec.select.i90 = call i64 @llvm.umin.i64(i64 %74, i64 127)
@@ -67699,17 +67699,17 @@ cgltf_json_strcmp.exit94:                         ; preds = %29
 
 84:                                               ; preds = %cgltf_json_strcmp.exit94
   %85 = sext i32 %.07513 to i64
-  %86 = getelementptr %struct.jsmntok_t, ptr %0, i64 %85
-  %87 = getelementptr i8, ptr %86, i64 32
+  %86 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %85
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %88 = load i32, ptr %87, align 8
   %.not.i95 = icmp eq i32 %88, 4
   br i1 %.not.i95, label %89, label %cgltf_json_to_float.exit98
 
 89:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #58
-  %90 = getelementptr i8, ptr %86, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %91 = load i64, ptr %90, align 8
-  %92 = getelementptr i8, ptr %86, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 40
   %93 = load i64, ptr %92, align 8
   %94 = sub nsw i64 %91, %93
   %spec.select.i97 = call i64 @llvm.umin.i64(i64 %94, i64 127)
@@ -67736,17 +67736,17 @@ cgltf_json_strcmp.exit101:                        ; preds = %cgltf_json_strcmp.e
 
 104:                                              ; preds = %cgltf_json_strcmp.exit101
   %105 = sext i32 %.07513 to i64
-  %106 = getelementptr %struct.jsmntok_t, ptr %0, i64 %105
-  %107 = getelementptr i8, ptr %106, i64 32
+  %106 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %105
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %108 = load i32, ptr %107, align 8
   %.not.i102 = icmp eq i32 %108, 4
   br i1 %.not.i102, label %109, label %cgltf_json_to_float.exit105
 
 109:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #58
-  %110 = getelementptr i8, ptr %106, i64 48
+  %110 = getelementptr inbounds nuw i8, ptr %106, i64 48
   %111 = load i64, ptr %110, align 8
-  %112 = getelementptr i8, ptr %106, i64 40
+  %112 = getelementptr inbounds nuw i8, ptr %106, i64 40
   %113 = load i64, ptr %112, align 8
   %114 = sub nsw i64 %111, %113
   %spec.select.i104 = call i64 @llvm.umin.i64(i64 %114, i64 127)
@@ -67890,17 +67890,17 @@ cgltf_json_strcmp.exit:                           ; preds = %24
 
 33:                                               ; preds = %cgltf_json_strcmp.exit
   %34 = sext i32 %.04610 to i64
-  %35 = getelementptr %struct.jsmntok_t, ptr %0, i64 %34
-  %36 = getelementptr i8, ptr %35, i64 32
+  %35 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %34
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i32, ptr %36, align 8
   %.not.i51 = icmp eq i32 %37, 4
   br i1 %.not.i51, label %38, label %cgltf_json_to_float.exit
 
 38:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #58
-  %39 = getelementptr i8, ptr %35, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr i8, ptr %35, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %42 = load i64, ptr %41, align 8
   %43 = sub nsw i64 %40, %42
   %spec.select.i = call i64 @llvm.umin.i64(i64 %43, i64 127)
@@ -67927,17 +67927,17 @@ cgltf_json_strcmp.exit55:                         ; preds = %cgltf_json_strcmp.e
 
 53:                                               ; preds = %cgltf_json_strcmp.exit55
   %54 = sext i32 %.04610 to i64
-  %55 = getelementptr %struct.jsmntok_t, ptr %0, i64 %54
-  %56 = getelementptr i8, ptr %55, i64 32
+  %55 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load i32, ptr %56, align 8
   %.not.i56 = icmp eq i32 %57, 4
   br i1 %.not.i56, label %58, label %cgltf_json_to_float.exit59
 
 58:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #58
-  %59 = getelementptr i8, ptr %55, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %60 = load i64, ptr %59, align 8
-  %61 = getelementptr i8, ptr %55, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %62 = load i64, ptr %61, align 8
   %63 = sub nsw i64 %60, %62
   %spec.select.i58 = call i64 @llvm.umin.i64(i64 %63, i64 127)
@@ -68073,17 +68073,17 @@ cgltf_json_strcmp.exit:                           ; preds = %20
 
 30:                                               ; preds = %cgltf_json_strcmp.exit
   %31 = sext i32 %.02943 to i64
-  %32 = getelementptr %struct.jsmntok_t, ptr %0, i64 %31
-  %33 = getelementptr i8, ptr %32, i64 32
+  %32 = getelementptr inbounds nuw %struct.jsmntok_t, ptr %0, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load i32, ptr %33, align 8
   %.not.i34 = icmp eq i32 %34, 4
   br i1 %.not.i34, label %35, label %cgltf_skip_json.exit.thread38
 
 35:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #58
-  %36 = getelementptr i8, ptr %32, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr i8, ptr %32, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %39 = load i64, ptr %38, align 8
   %40 = sub nsw i64 %37, %39
   %spec.select.i = call i64 @llvm.umin.i64(i64 %40, i64 127)

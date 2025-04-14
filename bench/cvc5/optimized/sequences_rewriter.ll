@@ -57385,8 +57385,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit446: ; preds = %1394, %1397, %1403
 1470:                                             ; preds = %._crit_edge630, %1461, %1466
   %1471 = phi i64 [ %.pre631, %._crit_edge630 ], [ %1465, %1461 ], [ %1456, %1466 ]
   %1472 = load ptr, ptr %27, align 8, !tbaa !63
-  %1473 = getelementptr %"class.cvc5::internal::NodeTemplate", ptr %1472, i64 %.062620
-  %1474 = getelementptr i8, ptr %1473, i64 8
+  %1473 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %1472, i64 %.062620
+  %1474 = getelementptr inbounds nuw i8, ptr %1473, i64 8
   %1475 = load ptr, ptr %1474, align 8, !tbaa !37
   %1476 = icmp eq ptr %1455, %1475
   %1477 = and i64 %1471, 1152920405095219200
@@ -57418,8 +57418,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit446: ; preds = %1394, %1397, %1403
 
 1488:                                             ; preds = %.critedge198
   %1489 = load ptr, ptr %27, align 8, !tbaa !63
-  %1490 = getelementptr %"class.cvc5::internal::NodeTemplate", ptr %1489, i64 %.062620
-  %1491 = getelementptr i8, ptr %1490, i64 8
+  %1490 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %1489, i64 %.062620
+  %1491 = getelementptr inbounds nuw i8, ptr %1490, i64 8
   invoke void @_ZSt4swapIN4cvc58internal12NodeTemplateILb1EEEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS7_ESt18is_move_assignableIS7_EEE5valueEvE4typeERS7_SG_(ptr noundef nonnull align 8 dereferenceable(8) %1490, ptr noundef nonnull align 8 dereferenceable(8) %1491)
           to label %.critedge198.thread.thread unwind label %1492
 

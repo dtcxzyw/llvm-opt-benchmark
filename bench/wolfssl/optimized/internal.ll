@@ -1034,22 +1034,22 @@ AddSuiteHashSigAlgo.exit70.thread:                ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
   store i8 1, ptr %47, align 1, !tbaa !45
   %48 = sext i16 %.2 to i64
-  %49 = getelementptr i8, ptr %0, i64 %48
-  %50 = getelementptr i8, ptr %49, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 2
   store i8 5, ptr %50, align 1, !tbaa !45
-  %51 = getelementptr i8, ptr %49, i64 3
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 3
   store i8 1, ptr %51, align 1, !tbaa !45
   %52 = sext i16 %.2 to i64
-  %53 = getelementptr i8, ptr %0, i64 %52
-  %54 = getelementptr i8, ptr %53, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i8 4, ptr %54, align 1, !tbaa !45
-  %55 = getelementptr i8, ptr %53, i64 5
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 5
   store i8 1, ptr %55, align 1, !tbaa !45
   %56 = sext i16 %.2 to i64
-  %57 = getelementptr i8, ptr %0, i64 %56
-  %58 = getelementptr i8, ptr %57, i64 6
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 6
   store i8 3, ptr %58, align 1, !tbaa !45
-  %59 = getelementptr i8, ptr %57, i64 7
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 7
   store i8 1, ptr %59, align 1, !tbaa !45
   %storemerge.i69 = add nuw nsw i16 %.2, 8
   %60 = zext nneg i16 %storemerge.i69 to i64
@@ -22289,8 +22289,8 @@ IsEncryptionOn.exit.thread:                       ; preds = %45, %IsEncryptionOn
   %119 = and i64 %118, 4194304
   %.not155 = icmp eq i64 %119, 0
   %120 = sext i32 %115 to i64
-  %121 = getelementptr i8, ptr %64, i64 %120
-  %122 = getelementptr i8, ptr %121, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %64, i64 %120
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 1
   %. = select i1 %.not155, i8 0, i8 -35
   store i8 %., ptr %122, align 1, !tbaa !45
   %.2 = add nuw nsw i32 %115, 2
@@ -25084,12 +25084,12 @@ IsAtLeastTLSv1_2.exit177:                         ; preds = %IsAtLeastTLSv1_2.ex
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 1037
   %177 = load i8, ptr %176, align 1, !tbaa !303
   %178 = zext nneg i32 %spec.select.i to i64
-  %179 = getelementptr i8, ptr %91, i64 %178
-  %180 = getelementptr i8, ptr %179, i64 44
+  %179 = getelementptr inbounds nuw i8, ptr %91, i64 %178
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 44
   store i8 %177, ptr %180, align 1, !tbaa !45
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 1038
   %182 = load i8, ptr %181, align 2, !tbaa !304
-  %183 = getelementptr i8, ptr %179, i64 45
+  %183 = getelementptr inbounds nuw i8, ptr %179, i64 45
   store i8 %182, ptr %183, align 1, !tbaa !45
   %184 = load i64, ptr %4, align 8
   %185 = and i64 %184, 4194304

@@ -24956,8 +24956,8 @@ _ZN2tf16ScalablePipelineIN9__gnu_cxx17__normal_iteratorIPNS_4PipeISt8functionIFv
 
 176:                                              ; preds = %175
   %177 = load ptr, ptr %25, align 8, !tbaa !242
-  %178 = getelementptr %"class.tf::Task", ptr %177, i64 %146
-  %179 = getelementptr i8, ptr %178, i64 8
+  %178 = getelementptr inbounds nuw %"class.tf::Task", ptr %177, i64 %146
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %180 = load ptr, ptr %179, align 8, !tbaa !245
   %181 = load ptr, ptr %26, align 8, !tbaa !303
   %182 = icmp eq ptr %181, null

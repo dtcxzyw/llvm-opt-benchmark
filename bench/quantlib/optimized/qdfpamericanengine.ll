@@ -13176,8 +13176,8 @@ land.lhs.true460:                                 ; preds = %if.then458
   br i1 %cmp463, label %land.lhs.true464, label %if.end494
 
 land.lhs.true464:                                 ; preds = %land.lhs.true460
-  %173 = getelementptr double, ptr %172, i64 %max_left_index.2
-  %add.ptr.i683 = getelementptr i8, ptr %173, i64 8
+  %173 = getelementptr inbounds nuw double, ptr %172, i64 %max_left_index.2
+  %add.ptr.i683 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %174 = load double, ptr %add.ptr.i683, align 8, !tbaa !55
   %175 = call noundef double @llvm.fabs.f64(double %174)
   %cmp468 = fcmp ogt double %175, %left_min_complement
@@ -13319,8 +13319,8 @@ land.lhs.true496:                                 ; preds = %if.end494
   br i1 %cmp499, label %land.lhs.true500, label %if.end534
 
 land.lhs.true500:                                 ; preds = %land.lhs.true496
-  %193 = getelementptr double, ptr %192, i64 %max_right_index.2
-  %add.ptr.i751 = getelementptr i8, ptr %193, i64 8
+  %193 = getelementptr inbounds nuw double, ptr %192, i64 %max_right_index.2
+  %add.ptr.i751 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %194 = load double, ptr %add.ptr.i751, align 8, !tbaa !55
   %195 = call noundef double @llvm.fabs.f64(double %194)
   %cmp504 = fcmp ogt double %195, %right_min_complement
@@ -14742,8 +14742,8 @@ land.lhs.true460:                                 ; preds = %if.then458
   br i1 %cmp463, label %land.lhs.true464, label %if.end494
 
 land.lhs.true464:                                 ; preds = %land.lhs.true460
-  %205 = getelementptr double, ptr %204, i64 %max_left_index.2
-  %add.ptr.i622 = getelementptr i8, ptr %205, i64 8
+  %205 = getelementptr inbounds nuw double, ptr %204, i64 %max_left_index.2
+  %add.ptr.i622 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %206 = load double, ptr %add.ptr.i622, align 8, !tbaa !55
   %207 = call noundef double @llvm.fabs.f64(double %206)
   %cmp468 = fcmp ogt double %207, %left_min_complement
@@ -14871,8 +14871,8 @@ land.lhs.true496:                                 ; preds = %if.end494
   br i1 %cmp499, label %land.lhs.true500, label %if.end534
 
 land.lhs.true500:                                 ; preds = %land.lhs.true496
-  %229 = getelementptr double, ptr %228, i64 %max_right_index.2
-  %add.ptr.i680 = getelementptr i8, ptr %229, i64 8
+  %229 = getelementptr inbounds nuw double, ptr %228, i64 %max_right_index.2
+  %add.ptr.i680 = getelementptr inbounds nuw i8, ptr %229, i64 8
   %230 = load double, ptr %add.ptr.i680, align 8, !tbaa !55
   %231 = call noundef double @llvm.fabs.f64(double %230)
   %cmp504 = fcmp ogt double %231, %right_min_complement
@@ -16163,8 +16163,8 @@ land.lhs.true460:                                 ; preds = %if.then458
   br i1 %cmp463, label %land.lhs.true464, label %if.end494
 
 land.lhs.true464:                                 ; preds = %land.lhs.true460
-  %198 = getelementptr double, ptr %197, i64 %max_left_index.2
-  %add.ptr.i574 = getelementptr i8, ptr %198, i64 8
+  %198 = getelementptr inbounds nuw double, ptr %197, i64 %max_left_index.2
+  %add.ptr.i574 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %199 = load double, ptr %add.ptr.i574, align 8, !tbaa !55
   %200 = call noundef double @llvm.fabs.f64(double %199)
   %cmp468 = fcmp ogt double %200, %left_min_complement
@@ -16272,8 +16272,8 @@ land.lhs.true496:                                 ; preds = %if.end494
   br i1 %cmp499, label %land.lhs.true500, label %if.end534
 
 land.lhs.true500:                                 ; preds = %land.lhs.true496
-  %222 = getelementptr double, ptr %221, i64 %max_right_index.2
-  %add.ptr.i624 = getelementptr i8, ptr %222, i64 8
+  %222 = getelementptr inbounds nuw double, ptr %221, i64 %max_right_index.2
+  %add.ptr.i624 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %223 = load double, ptr %add.ptr.i624, align 8, !tbaa !55
   %224 = call noundef double @llvm.fabs.f64(double %223)
   %cmp504 = fcmp ogt double %224, %right_min_complement
@@ -17269,8 +17269,8 @@ land.lhs.true442:                                 ; preds = %if.then440
   br i1 %cmp445, label %land.lhs.true446, label %if.end474
 
 land.lhs.true446:                                 ; preds = %land.lhs.true442
-  %152 = getelementptr double, ptr %151, i64 %max_left_index.2
-  %add.ptr.i362 = getelementptr i8, ptr %152, i64 8
+  %152 = getelementptr inbounds nuw double, ptr %151, i64 %max_left_index.2
+  %add.ptr.i362 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %153 = load double, ptr %add.ptr.i362, align 8, !tbaa !55
   %154 = call noundef double @llvm.fabs.f64(double %153)
   %cmp450 = fcmp ogt double %154, %left_min_complement
@@ -17320,8 +17320,8 @@ land.lhs.true476:                                 ; preds = %if.end474
   br i1 %cmp479, label %land.lhs.true480, label %if.end510
 
 land.lhs.true480:                                 ; preds = %land.lhs.true476
-  %166 = getelementptr double, ptr %165, i64 %max_right_index.2
-  %add.ptr.i374 = getelementptr i8, ptr %166, i64 8
+  %166 = getelementptr inbounds nuw double, ptr %165, i64 %max_right_index.2
+  %add.ptr.i374 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %167 = load double, ptr %add.ptr.i374, align 8, !tbaa !55
   %168 = call noundef double @llvm.fabs.f64(double %167)
   %cmp484 = fcmp ogt double %168, %right_min_complement

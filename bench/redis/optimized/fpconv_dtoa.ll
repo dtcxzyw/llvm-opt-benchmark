@@ -454,8 +454,8 @@ grisu2.exit:                                      ; preds = %159, %.critedge2.i.
   %255 = select i1 %254, i8 45, i8 43
   %256 = add nuw nsw i32 %.094.i, 2
   %257 = sext i32 %.094.i to i64
-  %258 = getelementptr i8, ptr %8, i64 %257
-  %259 = getelementptr i8, ptr %258, i64 1
+  %258 = getelementptr inbounds nuw i8, ptr %8, i64 %257
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 1
   store i8 %255, ptr %259, align 1, !tbaa !4
   %260 = icmp slt i32 %207, 100
   br i1 %260, label %261, label %.thread.i

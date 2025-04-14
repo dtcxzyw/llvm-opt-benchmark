@@ -5403,8 +5403,8 @@ ZSTD_safecopyDstBeforeSrc.exit.i:                 ; preds = %.lr.ph.i.i, %.lr.ph
   store i64 %.sroa.15.0.lcssa.i, ptr %.sroa.15.0..sroa_idx120.i, align 8
   %741 = getelementptr inbounds nuw i8, ptr %.7138.i.i, i64 %.sroa.0114.4.i
   %742 = add i64 %.sroa.0114.4.i, %.sroa.11.1.lcssa.i
-  %743 = getelementptr i8, ptr %0, i64 %.sroa.0114.4.i
-  %.ptr306.i = getelementptr i8, ptr %743, i64 30364
+  %743 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0114.4.i
+  %.ptr306.i = getelementptr inbounds nuw i8, ptr %743, i64 30364
   %744 = sub i64 0, %.sroa.15.0.lcssa.i
   %745 = getelementptr inbounds i8, ptr %741, i64 %744
   %746 = icmp sgt i64 %.sroa.0114.4.i, 65536

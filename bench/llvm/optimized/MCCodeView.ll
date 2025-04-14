@@ -169,8 +169,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15CodeViewContext7addFileERNS_10MCS
   br i1 %20, label %21, label %_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit
 
 21:                                               ; preds = %7
-  %22 = getelementptr i8, ptr %18, i64 %19
-  %.ptr11.i = getelementptr i8, ptr %22, i64 17
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %19
+  %.ptr11.i = getelementptr inbounds nuw i8, ptr %22, i64 17
   %23 = ptrtoint ptr %.ptr11.i to i64
   %24 = ptrtoint ptr %.ptr.i to i64
   %25 = sub i64 %23, %24
@@ -278,8 +278,8 @@ _ZN4llvm15SmallVectorImplINS_15CodeViewContext8FileInfoEE6resizeEm.exit: ; preds
 
 70:                                               ; preds = %60
   %71 = load i64, ptr %66, align 8, !tbaa !63, !noalias !66
-  %72 = getelementptr i8, ptr %66, i64 %71
-  %.ptr11.i23 = getelementptr i8, ptr %72, i64 17
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 %71
+  %.ptr11.i23 = getelementptr inbounds nuw i8, ptr %72, i64 17
   %73 = ptrtoint ptr %.ptr11.i23 to i64
   %74 = ptrtoint ptr %.ptr.i21 to i64
   %75 = sub i64 %73, %74
@@ -369,8 +369,8 @@ define dso_local void @_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRef
   br i1 %18, label %19, label %34
 
 19:                                               ; preds = %4
-  %20 = getelementptr i8, ptr %13, i64 %14
-  %.ptr11 = getelementptr i8, ptr %20, i64 17
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 %14
+  %.ptr11 = getelementptr inbounds nuw i8, ptr %20, i64 17
   %21 = ptrtoint ptr %.ptr11 to i64
   %22 = ptrtoint ptr %.ptr to i64
   %23 = sub i64 %21, %22

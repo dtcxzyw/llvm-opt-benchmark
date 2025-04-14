@@ -1079,8 +1079,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store i64 %storemerge238, ptr %288, align 8, !alias.scope !163, !noalias !157
   %290 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 192
   %291 = getelementptr inbounds ptr, ptr %290, i64 %278
-  %292 = getelementptr ptr, ptr %290, i64 %.sroa.7.0.i
-  %293 = getelementptr i8, ptr %292, i64 16
+  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %.sroa.7.0.i
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 16
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %293, ptr nonnull align 8 %291, i64 %286, i1 false), !alias.scope !166, !noalias !157
   br label %294
 

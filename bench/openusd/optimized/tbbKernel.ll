@@ -4142,7 +4142,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_evalBSplineCurveEfPfS2_S2_.exit.i.i: ; preds = 
   %indvars.iv105.i.i = phi i64 [ %indvars.iv.next106.i.i, %147 ], [ 0, %.preheader97.i.i.preheader ]
   %141 = getelementptr inbounds nuw [4 x float], ptr %19, i64 0, i64 %indvars.iv105.i.i
   %142 = load float, ptr %141, align 4
-  %.idx.i.i = shl nsw i64 %indvars.iv105.i.i, 4
+  %.idx.i.i = shl nuw nsw i64 %indvars.iv105.i.i, 4
   %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   br label %143
 

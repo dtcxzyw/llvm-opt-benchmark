@@ -6237,9 +6237,9 @@ define noundef nonnull ptr @_ZN7rocksdb8MemTable7GetLockERKNS_5SliceE(ptr nounde
   %27 = lshr i64 %23, 32
   %28 = mul nuw i64 %19, %22
   %29 = load ptr, ptr %3, align 16, !tbaa !384
-  %30 = getelementptr %"class.rocksdb::port::RWMutex", ptr %29, i64 %27
-  %31 = getelementptr %"class.rocksdb::port::RWMutex", ptr %30, i64 %28
-  %32 = getelementptr %"class.rocksdb::port::RWMutex", ptr %31, i64 %26
+  %30 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %29, i64 %27
+  %31 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %30, i64 %28
+  %32 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %31, i64 %26
   ret ptr %32
 }
 
@@ -8829,10 +8829,10 @@ _ZNSt19_Optional_base_implIN7rocksdb8ReadLockESt14_Optional_baseIS1_Lb0ELb0EEE8_
   %114 = and i64 %107, 4294967295
   %115 = mul nuw i64 %113, %114
   %116 = lshr i64 %115, 32
-  %117 = getelementptr %"class.rocksdb::port::RWMutex", ptr %108, i64 %116
+  %117 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %108, i64 %116
   %118 = lshr i64 %107, 32
   %119 = mul nuw i64 %113, %118
-  %120 = getelementptr %"class.rocksdb::port::RWMutex", ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %117, i64 %119
   %121 = and i64 %112, 4294967295
   %122 = mul nuw i64 %121, %114
   %123 = lshr i64 %122, 32
@@ -8841,7 +8841,7 @@ _ZNSt19_Optional_base_implIN7rocksdb8ReadLockESt14_Optional_baseIS1_Lb0ELb0EEE8_
   %126 = and i64 %115, 4294967295
   %127 = add nuw i64 %125, %126
   %128 = lshr i64 %127, 32
-  %129 = getelementptr %"class.rocksdb::port::RWMutex", ptr %120, i64 %128
+  %129 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %120, i64 %128
   store ptr %129, ptr %7, align 8, !tbaa !646
   invoke void @_ZN7rocksdb4port7RWMutex8ReadLockEv(ptr noundef nonnull align 8 dereferenceable(56) %129)
           to label %130 unwind label %131
@@ -11804,9 +11804,9 @@ define void @_ZN7rocksdb8MemTable6UpdateEmNS_9ValueTypeERKNS_5SliceES4_PKNS_18Pr
   %121 = lshr i64 %117, 32
   %122 = mul nuw i64 %116, %113
   %123 = load ptr, ptr %99, align 16, !tbaa !384
-  %124 = getelementptr %"class.rocksdb::port::RWMutex", ptr %123, i64 %121
-  %125 = getelementptr %"class.rocksdb::port::RWMutex", ptr %124, i64 %122
-  %126 = getelementptr %"class.rocksdb::port::RWMutex", ptr %125, i64 %120
+  %124 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %123, i64 %121
+  %125 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %124, i64 %122
+  %126 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %125, i64 %120
   invoke void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %126)
           to label %_ZN7rocksdb9WriteLockC2EPNS_4port7RWMutexE.exit unwind label %181
 
@@ -12280,9 +12280,9 @@ define void @_ZN7rocksdb8MemTable14UpdateCallbackEmRKNS_5SliceES3_PKNS_18Protect
   %127 = lshr i64 %123, 32
   %128 = mul nuw i64 %122, %119
   %129 = load ptr, ptr %105, align 16, !tbaa !384
-  %130 = getelementptr %"class.rocksdb::port::RWMutex", ptr %129, i64 %127
-  %131 = getelementptr %"class.rocksdb::port::RWMutex", ptr %130, i64 %128
-  %132 = getelementptr %"class.rocksdb::port::RWMutex", ptr %131, i64 %126
+  %130 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %129, i64 %127
+  %131 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %130, i64 %128
+  %132 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %131, i64 %126
   invoke void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %132)
           to label %_ZN7rocksdb9WriteLockC2EPNS_4port7RWMutexE.exit unwind label %172
 

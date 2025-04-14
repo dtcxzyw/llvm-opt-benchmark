@@ -1073,8 +1073,8 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   store ptr %.sroa.52.1, ptr %318, align 8, !alias.scope !214, !noalias !217
   %319 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 368
   %320 = getelementptr inbounds ptr, ptr %319, i64 %305
-  %321 = getelementptr ptr, ptr %319, i64 %.sroa.7.0.i
-  %322 = getelementptr i8, ptr %321, i64 16
+  %321 = getelementptr inbounds nuw ptr, ptr %319, i64 %.sroa.7.0.i
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 16
   %323 = shl nuw nsw i64 %313, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %322, ptr nonnull align 8 %320, i64 %323, i1 false), !alias.scope !219, !noalias !222
   br label %324

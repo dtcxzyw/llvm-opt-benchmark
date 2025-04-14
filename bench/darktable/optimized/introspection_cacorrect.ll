@@ -1380,7 +1380,7 @@ dt_calloc_align_float.exit1813:                   ; preds = %116, %142
   %801 = sub i32 16, %800
   %802 = mul i32 %801, %43
   %803 = add i32 %802, 16
-  %.idx2681 = shl nsw i64 %indvars.iv2356, 9
+  %.idx2681 = shl nuw nsw i64 %indvars.iv2356, 9
   br label %286
 
 .preheader1913.us:                                ; preds = %.preheader1913.lr.ph.us, %._crit_edge2003.us

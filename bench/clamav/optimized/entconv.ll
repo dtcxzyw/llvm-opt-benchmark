@@ -2059,7 +2059,7 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   %45 = trunc i16 %spec.select to i8
   %46 = and i8 %45, 63
   %47 = or disjoint i8 %46, -128
-  %48 = getelementptr i8, ptr %44, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store i8 %47, ptr %48, align 1, !tbaa !3
   %49 = add nuw i64 %.090106, 2
   br label %102
@@ -2079,12 +2079,12 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   %58 = trunc i16 %57 to i8
   %59 = and i8 %58, 63
   %60 = or disjoint i8 %59, -128
-  %61 = getelementptr i8, ptr %56, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store i8 %60, ptr %61, align 1, !tbaa !3
   %62 = trunc i16 %spec.select to i8
   %63 = and i8 %62, 63
   %64 = or disjoint i8 %63, -128
-  %65 = getelementptr i8, ptr %56, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %56, i64 2
   store i8 %64, ptr %65, align 1, !tbaa !3
   %66 = add nuw i64 %.090106, 3
   br label %102
@@ -2109,7 +2109,7 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   %80 = trunc i16 %72 to i8
   %81 = lshr i8 %80, 2
   %82 = or disjoint i8 %81, -128
-  %83 = getelementptr i8, ptr %79, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 1
   store i8 %82, ptr %83, align 1, !tbaa !3
   %84 = shl i16 %spec.select, 4
   %85 = and i16 %84, 48
@@ -2117,12 +2117,12 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   %87 = or i16 %85, %86
   %88 = trunc i16 %87 to i8
   %89 = or i8 %88, -128
-  %90 = getelementptr i8, ptr %79, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %79, i64 2
   store i8 %89, ptr %90, align 1, !tbaa !3
   %91 = trunc i16 %74 to i8
   %92 = and i8 %91, 63
   %93 = or disjoint i8 %92, -128
-  %94 = getelementptr i8, ptr %79, i64 3
+  %94 = getelementptr inbounds nuw i8, ptr %79, i64 3
   store i8 %93, ptr %94, align 1, !tbaa !3
   %95 = add nuw i64 %.090106, 4
   %96 = add i64 %.192105, 2
@@ -2132,10 +2132,10 @@ define ptr @cli_utf16_to_utf8(ptr noundef readonly captures(none) %0, i64 nounde
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19) #16
   %98 = getelementptr inbounds nuw i8, ptr %15, i64 %.090106
   store i8 -17, ptr %98, align 1, !tbaa !3
-  %99 = getelementptr i8, ptr %98, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1
   store i8 -65, ptr %99, align 1, !tbaa !3
   %100 = add nuw i64 %.090106, 3
-  %101 = getelementptr i8, ptr %98, i64 2
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 2
   store i8 -67, ptr %101, align 1, !tbaa !3
   br label %102
 

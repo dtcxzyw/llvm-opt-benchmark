@@ -1750,7 +1750,7 @@ _ZL23ComputeDistanceShortcutmmmmPKN13duckdb_brotli10ZopfliNodeE.exit.i: ; preds 
   %693 = shl nuw nsw i64 %.021.lcssa35.i.i, 2
   %gep525 = getelementptr i8, ptr %invariant.gep524, i64 %693
   %694 = sub nuw nsw i64 16, %693
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %gep525, ptr readonly align 4 %7, i64 %694, i1 false), !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %gep525, ptr readonly align 4 %7, i64 %694, i1 false), !tbaa !3
   br label %_ZL20ComputeDistanceCachemPKiPKN13duckdb_brotli10ZopfliNodeEPi.exit.i
 
 .lr.ph.i.i:                                       ; preds = %691, %.lr.ph.i.i
@@ -2801,10 +2801,10 @@ _ZL23ComputeDistanceShortcutmmmmPKN13duckdb_brotli10ZopfliNodeE.exit: ; preds = 
 .lr.ph29.preheader.i:                             ; preds = %.preheader.i, %48
   %.021.lcssa35.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %48 ]
   %53 = shl nuw nsw i64 %.021.lcssa35.i, 2
-  %54 = getelementptr i8, ptr %10, i64 %53
-  %scevgep = getelementptr i8, ptr %54, i64 8
+  %54 = getelementptr nuw i8, ptr %10, i64 %53
+  %scevgep = getelementptr nuw i8, ptr %54, i64 8
   %55 = sub nuw nsw i64 16, %53
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 4 %4, i64 %55, i1 false), !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %scevgep, ptr align 4 %4, i64 %55, i1 false), !tbaa !3
   br label %_ZL20ComputeDistanceCachemPKiPKN13duckdb_brotli10ZopfliNodeEPi.exit
 
 .lr.ph.i:                                         ; preds = %48, %.lr.ph.i
@@ -4701,7 +4701,7 @@ _ZL23ComputeDistanceShortcutmmmmPKN13duckdb_brotli10ZopfliNodeE.exit.i.i: ; pred
   %879 = shl nuw nsw i64 %.021.lcssa35.i.i.i, 2
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %879
   %880 = sub nuw nsw i64 16, %879
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %gep.i, ptr nonnull readonly align 4 %8, i64 %880, i1 false), !tbaa !3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %gep.i, ptr nonnull readonly align 4 %8, i64 %880, i1 false), !tbaa !3
   br label %_ZL20ComputeDistanceCachemPKiPKN13duckdb_brotli10ZopfliNodeEPi.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %877, %.lr.ph.i.i.i

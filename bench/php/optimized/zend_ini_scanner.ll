@@ -6395,8 +6395,8 @@ zend_string_alloc.exit.i:                         ; preds = %2677, %2675
   store ptr %2680, ptr %0, align 8, !tbaa !14
   %2685 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 262, ptr %2685, align 8, !tbaa !14
-  %2686 = getelementptr i8, ptr %2680, i64 %2670
-  %.ptr44.i = getelementptr i8, ptr %2686, i64 24
+  %2686 = getelementptr inbounds nuw i8, ptr %2680, i64 %2670
+  %.ptr44.i = getelementptr inbounds nuw i8, ptr %2686, i64 24
   %2687 = icmp sgt i32 %2669, 0
   br i1 %2687, label %.lr.ph.i, label %zend_ini_escape_string.exit
 

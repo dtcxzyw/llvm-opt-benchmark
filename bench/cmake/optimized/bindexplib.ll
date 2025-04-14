@@ -317,8 +317,8 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i.i: ; preds = %.noexc51.i.
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %8, align 8, !tbaa !23
-  %90 = getelementptr i8, ptr %89, i64 %85
-  %91 = getelementptr i8, ptr %90, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %85
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 1
   %92 = load i8, ptr %91, align 1, !tbaa !14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %85, i8 noundef signext 0)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit.i.i unwind label %93

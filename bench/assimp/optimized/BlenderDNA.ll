@@ -1627,8 +1627,8 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit.i:              ; preds = %_ZN6Assimp9strtoul1
   br i1 %545, label %_ZN6Assimp7Blender3DNA16ExtractArraySizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPm.exit, label %546
 
 546:                                              ; preds = %_ZN6Assimp9strtoul10EPKcPS1_.exit.i
-  %547 = getelementptr i8, ptr %.pre402, i64 %544
-  %548 = getelementptr i8, ptr %547, i64 1
+  %547 = getelementptr inbounds nuw i8, ptr %.pre402, i64 %544
+  %548 = getelementptr inbounds nuw i8, ptr %547, i64 1
   %549 = load i8, ptr %548, align 1
   %550 = add i8 %549, -58
   %or.cond11.i12.i = icmp ult i8 %550, -10
@@ -3129,8 +3129,8 @@ _ZN6Assimp9strtoul10EPKcPS1_.exit:                ; preds = %_ZN6Assimp9strtoul1
 
 22:                                               ; preds = %_ZN6Assimp9strtoul10EPKcPS1_.exit
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr i8, ptr %23, i64 %20
-  %25 = getelementptr i8, ptr %24, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %20
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = add i8 %26, -58
   %or.cond11.i12 = icmp ult i8 %27, -10

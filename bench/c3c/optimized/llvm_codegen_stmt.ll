@@ -3648,7 +3648,7 @@ codegen_append_constraints.exit203:               ; preds = %._crit_edge.loopexi
   br i1 %.not146, label %.loopexit307, label %.preheader306
 
 .preheader306:                                    ; preds = %176
-  %.idx = shl nsw i64 %indvars.iv367, 9
+  %.idx = shl nuw nsw i64 %indvars.iv367, 9
   %invariant.gep = getelementptr inbounds nuw i8, ptr %109, i64 %.idx
   br label %180
 

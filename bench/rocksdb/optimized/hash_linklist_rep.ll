@@ -1682,9 +1682,9 @@ _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %15, %.thread.i.i
   %47 = lshr i64 %46, 32
   %48 = lshr i64 %44, 32
   %49 = mul nuw i64 %40, %43
-  %50 = getelementptr %"struct.std::atomic", ptr %33, i64 %48
-  %51 = getelementptr %"struct.std::atomic", ptr %50, i64 %49
-  %52 = getelementptr %"struct.std::atomic", ptr %51, i64 %47
+  %50 = getelementptr inbounds nuw %"struct.std::atomic", ptr %33, i64 %48
+  %51 = getelementptr inbounds nuw %"struct.std::atomic", ptr %50, i64 %49
+  %52 = getelementptr inbounds nuw %"struct.std::atomic", ptr %51, i64 %47
   %53 = load atomic i64, ptr %52 monotonic, align 8
   %.0.i.i = inttoptr i64 %53 to ptr
   %54 = icmp eq i64 %53, 0
@@ -2144,9 +2144,9 @@ _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %8, %.thread.i.i
   %40 = mul nuw i64 %31, %34
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val4.i = load ptr, ptr %41, align 8, !tbaa !93
-  %42 = getelementptr %"struct.std::atomic", ptr %.val4.i, i64 %39
-  %43 = getelementptr %"struct.std::atomic", ptr %42, i64 %40
-  %44 = getelementptr %"struct.std::atomic", ptr %43, i64 %38
+  %42 = getelementptr inbounds nuw %"struct.std::atomic", ptr %.val4.i, i64 %39
+  %43 = getelementptr inbounds nuw %"struct.std::atomic", ptr %42, i64 %40
+  %44 = getelementptr inbounds nuw %"struct.std::atomic", ptr %43, i64 %38
   %45 = load atomic i64, ptr %44 acquire, align 8
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %_ZNK7rocksdb12_GLOBAL__N_115HashLinkListRep16LinkListContainsEPNS0_4NodeERKNS_5SliceE.exit, label %47
@@ -2332,9 +2332,9 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep3GetERKNS_9Looku
   %38 = mul nuw i64 %29, %32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val4.i = load ptr, ptr %39, align 8, !tbaa !93
-  %40 = getelementptr %"struct.std::atomic", ptr %.val4.i, i64 %37
-  %41 = getelementptr %"struct.std::atomic", ptr %40, i64 %38
-  %42 = getelementptr %"struct.std::atomic", ptr %41, i64 %36
+  %40 = getelementptr inbounds nuw %"struct.std::atomic", ptr %.val4.i, i64 %37
+  %41 = getelementptr inbounds nuw %"struct.std::atomic", ptr %40, i64 %38
+  %42 = getelementptr inbounds nuw %"struct.std::atomic", ptr %41, i64 %36
   %43 = load atomic i64, ptr %42 acquire, align 8
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %.critedge, label %45
@@ -4028,9 +4028,9 @@ define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep15DynamicIterato
   %34 = mul nuw i64 %25, %28
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %.val4.i = load ptr, ptr %35, align 8, !tbaa !93
-  %36 = getelementptr %"struct.std::atomic", ptr %.val4.i, i64 %33
-  %37 = getelementptr %"struct.std::atomic", ptr %36, i64 %34
-  %38 = getelementptr %"struct.std::atomic", ptr %37, i64 %32
+  %36 = getelementptr inbounds nuw %"struct.std::atomic", ptr %.val4.i, i64 %33
+  %37 = getelementptr inbounds nuw %"struct.std::atomic", ptr %36, i64 %34
+  %38 = getelementptr inbounds nuw %"struct.std::atomic", ptr %37, i64 %32
   %39 = load atomic i64, ptr %38 acquire, align 8
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %41, label %45

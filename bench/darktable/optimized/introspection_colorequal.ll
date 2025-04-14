@@ -4105,7 +4105,7 @@ _transpose_dot_matrix.exit.i:                     ; preds = %42
 59:                                               ; preds = %59, %.preheader.i42.i
   %.019.i.i = phi i64 [ 0, %.preheader.i42.i ], [ %65, %59 ]
   %.01518.i.i = phi float [ 0.000000e+00, %.preheader.i42.i ], [ %64, %59 ]
-  %.idx.i44.i = shl nsw i64 %.019.i.i, 5
+  %.idx.i44.i = shl nuw nsw i64 %.019.i.i, 5
   %gep.i45.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i43.i, i64 %.idx.i44.i
   %60 = load float, ptr %gep.i45.i, align 4, !tbaa !6, !alias.scope !291, !noalias !292
   %61 = getelementptr inbounds nuw float, ptr %0, i64 %.019.i.i
@@ -4159,7 +4159,7 @@ _solve_hermitian.exit.thread.i:                   ; preds = %_transpose_dot_vect
   br i1 %.not56.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i
-  %.idx49.i.i.i = shl nsw i64 %.04054.i.i.i, 5
+  %.idx49.i.i.i = shl nuw nsw i64 %.04054.i.i.i, 5
   %77 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx49.i.i.i
   br label %81
 

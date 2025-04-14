@@ -5264,12 +5264,12 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit.us:        ; preds = %_ZNSt6vectorIjSaIjE
 
 335:                                              ; preds = %334
   %336 = load ptr, ptr %9, align 8
-  %337 = getelementptr %class.aiVector3t, ptr %336, i64 %.0128481
-  %338 = getelementptr i8, ptr %337, i64 24
+  %337 = getelementptr inbounds nuw %class.aiVector3t, ptr %336, i64 %.0128481
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 24
   %.sroa.0329.0.copyload = load double, ptr %338, align 8
-  %.sroa.7331.0..sroa_idx = getelementptr i8, ptr %337, i64 32
+  %.sroa.7331.0..sroa_idx = getelementptr inbounds nuw i8, ptr %337, i64 32
   %.sroa.7331.0.copyload = load double, ptr %.sroa.7331.0..sroa_idx, align 8
-  %.sroa.8334.0..sroa_idx = getelementptr i8, ptr %337, i64 40
+  %.sroa.8334.0..sroa_idx = getelementptr inbounds nuw i8, ptr %337, i64 40
   %.sroa.8334.0.copyload = load double, ptr %.sroa.8334.0..sroa_idx, align 8
   br label %339
 

@@ -3893,8 +3893,8 @@ _ZNKSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.i.i: ; preds = %1567, %_
   br i1 %1578, label %1579, label %.thread.i.i106
 
 1579:                                             ; preds = %_ZNKSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.i.i
-  %1580 = getelementptr %"struct.rocksdb::(anonymous namespace)::UniversalCompactionBuilder::SortedRun", ptr %.val.i.i130, i64 %1572
-  %1581 = getelementptr i8, ptr %1580, i64 73
+  %1580 = getelementptr inbounds nuw %"struct.rocksdb::(anonymous namespace)::UniversalCompactionBuilder::SortedRun", ptr %.val.i.i130, i64 %1572
+  %1581 = getelementptr inbounds nuw i8, ptr %1580, i64 73
   %1582 = load i8, ptr %1581, align 1, !tbaa !260, !range !161, !noundef !162
   %1583 = trunc nuw i8 %1582 to i1
   br i1 %1583, label %1609, label %.thread.i.i106
@@ -8150,8 +8150,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %_Z
   br label %385
 
 250:                                              ; preds = %._crit_edge188
-  %251 = getelementptr %"struct.rocksdb::(anonymous namespace)::UniversalCompactionBuilder::SortedRun", ptr %.val, i64 %2
-  %252 = getelementptr i8, ptr %251, i64 40
+  %251 = getelementptr inbounds nuw %"struct.rocksdb::(anonymous namespace)::UniversalCompactionBuilder::SortedRun", ptr %.val, i64 %2
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 40
   %253 = load i32, ptr %252, align 8, !tbaa !254
   %254 = add nsw i32 %253, -1
   br label %255
@@ -9243,8 +9243,8 @@ _ZNKSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.i.i.i.i: ; preds = %32, 
   br i1 %45, label %46, label %.thread.i.i.i.i
 
 46:                                               ; preds = %_ZNKSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.i.i.i.i
-  %47 = getelementptr %"struct.rocksdb::(anonymous namespace)::UniversalCompactionBuilder::SortedRun", ptr %.val.i.i.i.i, i64 %37
-  %48 = getelementptr i8, ptr %47, i64 73
+  %47 = getelementptr inbounds nuw %"struct.rocksdb::(anonymous namespace)::UniversalCompactionBuilder::SortedRun", ptr %.val.i.i.i.i, i64 %37
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 73
   %49 = load i8, ptr %48, align 1, !tbaa !260, !range !161, !noundef !162
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %"_ZSt10__invoke_rIbRZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder29PickDeleteTriggeredCompactionEvE3$_0JPKNS0_12FileMetaDataEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES9_E4typeEOSA_DpOSB_.exit", label %.thread.i.i.i.i

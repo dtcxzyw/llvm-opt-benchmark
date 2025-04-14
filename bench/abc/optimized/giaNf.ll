@@ -9356,7 +9356,7 @@ define void @Nf_ManResetMatches(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %or.cond.not.i, label %Nf_ObjMatchBest.exit, label %.preheader124
 
 .preheader124:                                    ; preds = %26
-  %.idx = shl nsw i64 %indvars.iv139, 3
+  %.idx = shl nuw nsw i64 %indvars.iv139, 3
   br label %54
 
 Nf_ObjMatchBest.exit:                             ; preds = %26

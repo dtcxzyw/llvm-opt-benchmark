@@ -769,7 +769,7 @@ define void @_ZN6LibRaw18crop_masked_pixelsEv(ptr noundef nonnull align 8 derefe
   %107 = lshr i32 %106, 1
   %108 = zext nneg i32 %spec.select65 to i64
   %109 = zext nneg i32 %107 to i64
-  %invariant.gep = getelementptr i16, ptr %88, i64 %109
+  %invariant.gep = getelementptr inbounds nuw i16, ptr %88, i64 %109
   br label %110
 
 110:                                              ; preds = %.lr.ph, %110
@@ -781,7 +781,7 @@ define void @_ZN6LibRaw18crop_masked_pixelsEv(ptr noundef nonnull align 8 derefe
   %114 = shl nuw nsw i32 %113, 1
   %115 = lshr i32 %86, %114
   %116 = and i32 %115, 3
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
   %117 = load i16, ptr %gep, align 2, !tbaa !78
   %118 = zext i16 %117 to i32
   %119 = zext nneg i32 %116 to i64

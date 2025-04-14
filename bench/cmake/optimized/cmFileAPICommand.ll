@@ -1759,8 +1759,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFi
   br i1 %.not, label %21, label %16
 
 16:                                               ; preds = %.preheader
-  %17 = getelementptr i8, ptr %12, i64 %15
-  %18 = getelementptr i8, ptr %17, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 %15
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %19 = tail call i64 @strtol(ptr noundef nonnull captures(none) %18, ptr noundef null, i32 noundef 10) #21
   %20 = trunc i64 %19 to i32
   br label %21

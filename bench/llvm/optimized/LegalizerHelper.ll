@@ -56464,8 +56464,8 @@ _ZN4llvm11SmallVectorINS0_INS_8RegisterELj8EEELj3EEC2Em.exit: ; preds = %_ZNK4ll
   %indvars.iv93 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next94, %.lr.ph ]
   %indvars.iv = phi i64 [ %89, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %106 = load ptr, ptr %12, align 8, !tbaa !189
-  %107 = getelementptr %"class.llvm::MachineOperand", ptr %106, i64 %indvars.iv
-  %108 = getelementptr i8, ptr %107, i64 48
+  %107 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %106, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 48
   %109 = load ptr, ptr %108, align 8, !tbaa !173
   %110 = load ptr, ptr %0, align 8, !tbaa !139
   %111 = call ptr @_ZN4llvm17MachineBasicBlock25getFirstTerminatorForwardEv(ptr noundef nonnull align 8 dereferenceable(288) %109) #19
@@ -56608,9 +56608,9 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %136, ptr noundef nonnull align 8 dereferenceable(1065) %135, ptr noundef nonnull align 8 dereferenceable(32) %4) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
   %182 = load ptr, ptr %12, align 8, !tbaa !189
-  %.idx = shl i64 %indvars.iv98, 6
-  %183 = getelementptr i8, ptr %182, i64 %.idx
-  %184 = getelementptr i8, ptr %183, i64 64
+  %.idx = shl nuw i64 %indvars.iv98, 6
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 %.idx
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 64
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %136, ptr noundef nonnull align 8 dereferenceable(1065) %135, ptr noundef nonnull align 8 dereferenceable(32) %184) #19
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count

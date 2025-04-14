@@ -96893,7 +96893,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllo
 
 _ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE2atEm.exit39.i.i: ; preds = %285
   %294 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::TranslationKey", ptr %288, i64 %286
-  %295 = getelementptr i8, ptr %278, i64 4
+  %295 = getelementptr inbounds nuw i8, ptr %278, i64 4
   %296 = load float, ptr %295, align 4, !tbaa !2189
   %297 = tail call float @nexttowardf(float noundef %296, x86_fp80 noundef 0xK00000000000000000000) #36, !tbaa !282
   store float %297, ptr %294, align 4, !tbaa !2186
@@ -97812,7 +97812,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocat
 
 _ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocatorIS4_EEE2atEm.exit39.i.i: ; preds = %708
   %717 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::RotationKey", ptr %711, i64 %709
-  %718 = getelementptr i8, ptr %701, i64 4
+  %718 = getelementptr inbounds nuw i8, ptr %701, i64 4
   %719 = load float, ptr %718, align 4, !tbaa !2189
   %720 = tail call float @nexttowardf(float noundef %719, x86_fp80 noundef 0xK00000000000000000000) #36, !tbaa !282
   store float %720, ptr %717, align 4, !tbaa !2199
@@ -98791,7 +98791,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS
 
 _ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorIS4_EEE2atEm.exit39.i.i: ; preds = %1169
   %1178 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawAnimation::ScaleKey", ptr %1172, i64 %1170
-  %1179 = getelementptr i8, ptr %1162, i64 4
+  %1179 = getelementptr inbounds nuw i8, ptr %1162, i64 4
   %1180 = load float, ptr %1179, align 4, !tbaa !2189
   %1181 = tail call float @nexttowardf(float noundef %1180, x86_fp80 noundef 0xK00000000000000000000) #36, !tbaa !282
   store float %1181, ptr %1178, align 4, !tbaa !2208

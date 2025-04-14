@@ -110,7 +110,7 @@ define void @_ZN7xgboost6common8EscapeU8ERKNSt7__cxx1112basic_stringIcSt11char_t
 8:                                                ; preds = %.lr.ph, %88
   %.038 = phi i64 [ 0, %.lr.ph ], [ %89, %88 ]
   %9 = load ptr, ptr %0, align 8, !tbaa !17
-  %10 = getelementptr i8, ptr %9, i64 %.038
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.038
   %11 = load i8, ptr %10, align 1, !tbaa !18
   %12 = sext i8 %11 to i32
   switch i8 %11, label %63 [
@@ -124,7 +124,7 @@ define void @_ZN7xgboost6common8EscapeU8ERKNSt7__cxx1112basic_stringIcSt11char_t
   ]
 
 13:                                               ; preds = %8
-  %14 = getelementptr i8, ptr %10, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !18
   %16 = icmp eq i8 %15, 117
   %17 = load i64, ptr %6, align 8, !tbaa !12

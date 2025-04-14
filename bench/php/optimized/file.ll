@@ -6017,8 +6017,8 @@ zval_get_tmp_string.exit:                         ; preds = %29, %31
   br i1 %.not71, label %127, label %49
 
 49:                                               ; preds = %47, %45, %43, %41, %39, %36, %zval_get_tmp_string.exit
-  %50 = getelementptr i8, ptr %.0.i, i64 %34
-  %.ptr129 = getelementptr i8, ptr %50, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %34
+  %.ptr129 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %51 = load ptr, ptr %7, align 8, !tbaa !137
   %.not.i77 = icmp eq ptr %51, null
   br i1 %.not.i77, label %57, label %52, !prof !56

@@ -645,8 +645,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
 58:                                               ; preds = %0
   %.ptr = getelementptr inbounds nuw i8, ptr %16, i64 130
   %59 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.ptr) #25
-  %60 = getelementptr i8, ptr %16, i64 %59
-  %.ptr88 = getelementptr i8, ptr %60, i64 130
+  %60 = getelementptr inbounds nuw i8, ptr %16, i64 %59
+  %.ptr88 = getelementptr inbounds nuw i8, ptr %60, i64 130
   %61 = icmp eq i64 %59, 0
   br i1 %61, label %_ZNK5folly5RangeIPKcE4findERS1_.exit.thread.i, label %62
 

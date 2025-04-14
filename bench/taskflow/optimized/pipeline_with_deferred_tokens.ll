@@ -24679,8 +24679,8 @@ _ZNSt13unordered_mapImN2tf16DeferredPipeflowESt4hashImESt8equal_toImESaISt4pairI
 
 524:                                              ; preds = %523
   %525 = load ptr, ptr %36, align 8, !tbaa !43
-  %526 = getelementptr %"class.tf::Task", ptr %525, i64 %505
-  %527 = getelementptr i8, ptr %526, i64 8
+  %526 = getelementptr inbounds nuw %"class.tf::Task", ptr %525, i64 %505
+  %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
   %528 = load ptr, ptr %527, align 8, !tbaa !46
   %529 = load ptr, ptr %37, align 8, !tbaa !378
   %530 = icmp eq ptr %529, null

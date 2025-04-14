@@ -1485,8 +1485,8 @@ common.resume.i:                                  ; preds = %209, %172, %57
   br i1 %.not.i28.not.i.i, label %67, label %75
 
 67:                                               ; preds = %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hde13a6df1cb0d3a3E.exit.i.i"
-  %68 = getelementptr i16, ptr %66, i64 %.sroa.724.0.i.i
-  %69 = getelementptr i8, ptr %68, i64 2
+  %68 = getelementptr inbounds i16, ptr %66, i64 %.sroa.724.0.i.i
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %70 = sub nuw nsw i64 %65, %.sroa.724.0.i.i
   %71 = shl nuw nsw i64 %70, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %69, ptr nonnull align 2 %68, i64 %71, i1 false), !alias.scope !299, !noalias !295
@@ -1741,8 +1741,8 @@ _ZN5alloc11collections5btree4node12slice_insert17h95f8a337c8ddb0bdE.exit.i17.i.i
   store i16 %.sroa.10.0106.i, ptr %179, align 2, !alias.scope !344, !noalias !341
   %184 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 40
   %185 = getelementptr inbounds ptr, ptr %184, i64 %178
-  %186 = getelementptr ptr, ptr %184, i64 %.sroa.7.0.i.i
-  %187 = getelementptr i8, ptr %186, i64 16
+  %186 = getelementptr inbounds nuw ptr, ptr %184, i64 %.sroa.7.0.i.i
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %188 = shl nuw nsw i64 %182, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %187, ptr nonnull align 8 %185, i64 %188, i1 false), !alias.scope !347, !noalias !341
   br label %_ZN5alloc11collections5btree4node12slice_insert17he04a6bfe9be25271E.exit.i18.i.i
@@ -2030,8 +2030,8 @@ common.resume.i:                                  ; preds = %203, %167, %56
   br i1 %.not.i28.not.i.i, label %65, label %72
 
 65:                                               ; preds = %"_ZN5alloc11collections5btree4node208Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17h15dc1643d703280dE.exit.i.i"
-  %66 = getelementptr i8, ptr %64, i64 %.sroa.724.0.i.i
-  %67 = getelementptr i8, ptr %66, i64 1
+  %66 = getelementptr inbounds i8, ptr %64, i64 %.sroa.724.0.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %68 = sub nuw nsw i64 %63, %.sroa.724.0.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull align 1 %66, i64 %68, i1 false), !alias.scope !393, !noalias !389
   br label %72
@@ -2282,8 +2282,8 @@ _ZN5alloc11collections5btree4node12slice_insert17hda67d109c4eae166E.exit.i17.i.i
   store i8 %.sroa.10.0106.i, ptr %174, align 1, !alias.scope !438, !noalias !435
   %178 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
   %179 = getelementptr inbounds ptr, ptr %178, i64 %173
-  %180 = getelementptr ptr, ptr %178, i64 %.sroa.7.0.i.i
-  %181 = getelementptr i8, ptr %180, i64 16
+  %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %.sroa.7.0.i.i
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %182 = shl nuw nsw i64 %177, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %181, ptr nonnull align 8 %179, i64 %182, i1 false), !alias.scope !441, !noalias !435
   br label %_ZN5alloc11collections5btree4node12slice_insert17h66dd253e5f3b216eE.exit.i18.i.i

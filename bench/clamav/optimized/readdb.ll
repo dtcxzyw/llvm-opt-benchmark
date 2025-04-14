@@ -3711,7 +3711,7 @@ define internal fastcc i32 @cli_loadyara(ptr noundef %0, ptr noundef captures(no
   br i1 %153, label %154, label %162
 
 154:                                              ; preds = %151
-  %155 = getelementptr i8, ptr %149, i64 1
+  %155 = getelementptr inbounds nuw i8, ptr %149, i64 1
   %156 = load i8, ptr %155, align 1, !tbaa !3
   %157 = icmp eq i8 %156, 45
   br i1 %157, label %158, label %162

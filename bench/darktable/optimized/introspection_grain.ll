@@ -707,7 +707,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %44 = fdiv reassoc nsz arcp contract afn float %22, %43
   %45 = fsub reassoc nsz arcp contract afn float %44, %33
   %46 = fmul reassoc nsz arcp contract afn float %45, 1.000000e+02
-  %.idx.i = shl nsw i64 %indvars.iv.i, 9
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 9
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx.i
   store float %46, ptr %gep.i, align 4, !tbaa !68
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

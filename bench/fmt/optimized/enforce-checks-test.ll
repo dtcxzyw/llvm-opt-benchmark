@@ -25188,8 +25188,8 @@ define linkonce_odr hidden void @_ZN3fmt3v116detail15iterator_bufferISt20back_in
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !42
   store i64 0, ptr %2, align 8, !tbaa !42
-  %4 = getelementptr i8, ptr %0, i64 %3
-  %.ptr7 = getelementptr i8, ptr %4, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %3
+  %.ptr7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.not5 = icmp eq i64 %3, 0
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 

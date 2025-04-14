@@ -3210,16 +3210,16 @@ RestartHandshakeHash.exit:                        ; preds = %7, %16, %21, %23
   %.074 = phi i64 [ %95, %87 ], [ 44, %75 ]
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 1037
   %98 = load i8, ptr %97, align 1, !tbaa !111
-  %99 = getelementptr i8, ptr %41, i64 %.074
+  %99 = getelementptr inbounds nuw i8, ptr %41, i64 %.074
   store i8 %98, ptr %99, align 1, !tbaa !57
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 1038
   %101 = load i8, ptr %100, align 2, !tbaa !112
-  %102 = getelementptr i8, ptr %99, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 1
   store i8 %101, ptr %102, align 1, !tbaa !57
-  %103 = getelementptr i8, ptr %99, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 2
   store i8 0, ptr %103, align 1, !tbaa !57
-  %104 = getelementptr i8, ptr %99, i64 3
-  %105 = call i32 @TLSX_WriteResponse(ptr noundef nonnull %0, ptr noundef %104, i8 noundef zeroext %1, ptr noundef null) #11
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 3
+  %105 = call i32 @TLSX_WriteResponse(ptr noundef nonnull %0, ptr noundef nonnull %104, i8 noundef zeroext %1, ptr noundef null) #11
   %.not86 = icmp eq i32 %105, 0
   br i1 %.not86, label %106, label %121
 

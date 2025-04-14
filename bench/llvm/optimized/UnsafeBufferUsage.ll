@@ -4634,8 +4634,8 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %80, %_ZNSt7__cxx111
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 %.076
   store i8 115, ptr %97, align 1, !tbaa !37
   %98 = load ptr, ptr %10, align 8, !tbaa !611
-  %99 = getelementptr i8, ptr %98, i64 %.076
-  %100 = getelementptr i8, ptr %99, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %.076
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
   store i8 116, ptr %100, align 1, !tbaa !37
   %101 = add i64 %.076, 3
   %102 = load ptr, ptr %10, align 8, !tbaa !611

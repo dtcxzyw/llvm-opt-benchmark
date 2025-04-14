@@ -518,8 +518,8 @@ _ZN13rcScopedTimerC2EP9rcContext12rcTimerLabel.exit30: ; preds = %40, %43
 
 258:                                              ; preds = %252
   %259 = load ptr, ptr %55, align 8
-  %260 = getelementptr %struct.rcCompactCell, ptr %259, i64 %indvars.iv339.i
-  %261 = getelementptr %struct.rcCompactCell, ptr %260, i64 %221
+  %260 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %259, i64 %indvars.iv339.i
+  %261 = getelementptr inbounds nuw %struct.rcCompactCell, ptr %260, i64 %221
   %262 = load i32, ptr %261, align 4
   %263 = and i32 %262, 16777215
   %264 = add nuw nsw i32 %263, %257

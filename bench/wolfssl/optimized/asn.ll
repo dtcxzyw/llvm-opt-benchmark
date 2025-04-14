@@ -11445,7 +11445,7 @@ GetASNTag.exit.i.i.i.i.i.i:                       ; preds = %970
   br i1 %1020, label %DecodeExtensionType.exit.i, label %1021
 
 1021:                                             ; preds = %1017
-  %1022 = getelementptr i8, ptr %1014, i64 1
+  %1022 = getelementptr inbounds nuw i8, ptr %1014, i64 1
   %1023 = load i8, ptr %1022, align 1, !tbaa !3
   %1024 = zext i8 %1023 to i32
   %1025 = icmp slt i8 %1023, 0

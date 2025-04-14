@@ -15079,7 +15079,7 @@ define hidden void @_ZNK17CirclesGridFinder9drawHolesERKN2cv3MatERS1_(ptr nounde
   store i32 50397184, ptr %8, align 8, !tbaa !56
   store ptr %2, ptr %32, align 8, !tbaa !58
   %63 = load ptr, ptr %60, align 8, !tbaa !290
-  %64 = getelementptr i64, ptr %63, i64 %.03864
+  %64 = getelementptr inbounds nuw i64, ptr %63, i64 %.03864
   %65 = load i64, ptr %64, align 8, !tbaa !40
   %66 = load ptr, ptr %0, align 8, !tbaa !9
   %67 = getelementptr inbounds nuw %"class.cv::Point_", ptr %66, i64 %65
@@ -15094,7 +15094,7 @@ define hidden void @_ZNK17CirclesGridFinder9drawHolesERKN2cv3MatERS1_(ptr nounde
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %70 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %75 = getelementptr i8, ptr %64, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %76 = load i64, ptr %75, align 8, !tbaa !40
   %77 = getelementptr inbounds nuw %"class.cv::Point_", ptr %66, i64 %76
   %78 = load float, ptr %77, align 4, !tbaa !41

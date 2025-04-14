@@ -28221,8 +28221,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4603: ; preds = %.lr.ph
 
 4182:                                             ; preds = %4179
   %4183 = sext i32 %.663233 to i64
-  %4184 = getelementptr i8, ptr %403, i64 %4183
-  %4185 = getelementptr i8, ptr %4184, i64 1
+  %4184 = getelementptr inbounds nuw i8, ptr %403, i64 %4183
+  %4185 = getelementptr inbounds nuw i8, ptr %4184, i64 1
   %4186 = load i8, ptr %4185, align 1, !tbaa !55
   %.not3647 = icmp eq i8 %4186, 0
   br i1 %.not3647, label %3478, label %4187
@@ -39956,8 +39956,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4603: ; preds = %.lr.ph
 
 4187:                                             ; preds = %4184
   %4188 = sext i32 %.663233 to i64
-  %4189 = getelementptr i8, ptr %408, i64 %4188
-  %4190 = getelementptr i8, ptr %4189, i64 1
+  %4189 = getelementptr inbounds nuw i8, ptr %408, i64 %4188
+  %4190 = getelementptr inbounds nuw i8, ptr %4189, i64 1
   %4191 = load i8, ptr %4190, align 1, !tbaa !55
   %.not3651 = icmp eq i8 %4191, 0
   br i1 %.not3651, label %3483, label %4192
@@ -63925,8 +63925,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4169: ; preds = %.lr.
 
 4302:                                             ; preds = %4299
   %4303 = sext i32 %.662824 to i64
-  %4304 = getelementptr i8, ptr %399, i64 %4303
-  %4305 = getelementptr i8, ptr %4304, i64 1
+  %4304 = getelementptr inbounds nuw i8, ptr %399, i64 %4303
+  %4305 = getelementptr inbounds nuw i8, ptr %4304, i64 1
   %4306 = load i8, ptr %4305, align 1, !tbaa !55
   %.not3231 = icmp eq i8 %4306, 0
   br i1 %.not3231, label %3576, label %4307
@@ -98769,8 +98769,8 @@ _ZN2cv19connectedcomponentsL7setRootItEEvPT_S2_S2_.exit.i4606: ; preds = %.lr.ph
 
 4182:                                             ; preds = %4179
   %4183 = sext i32 %.663235 to i64
-  %4184 = getelementptr i8, ptr %403, i64 %4183
-  %4185 = getelementptr i8, ptr %4184, i64 1
+  %4184 = getelementptr inbounds nuw i8, ptr %403, i64 %4183
+  %4185 = getelementptr inbounds nuw i8, ptr %4184, i64 1
   %4186 = load i8, ptr %4185, align 1, !tbaa !55
   %.not3649 = icmp eq i8 %4186, 0
   br i1 %.not3649, label %3478, label %4187
@@ -111328,8 +111328,8 @@ _ZN2cv19connectedcomponentsL7setRootIiEEvPT_S2_S2_.exit.i4606: ; preds = %.lr.ph
 
 4187:                                             ; preds = %4184
   %4188 = sext i32 %.663235 to i64
-  %4189 = getelementptr i8, ptr %408, i64 %4188
-  %4190 = getelementptr i8, ptr %4189, i64 1
+  %4189 = getelementptr inbounds nuw i8, ptr %408, i64 %4188
+  %4190 = getelementptr inbounds nuw i8, ptr %4189, i64 1
   %4191 = load i8, ptr %4190, align 1, !tbaa !55
   %.not3653 = icmp eq i8 %4191, 0
   br i1 %.not3653, label %3483, label %4192
@@ -140581,8 +140581,8 @@ _ZN2cv19connectedcomponentsL9set_unionIiEET_PS2_S2_S2_.exit4169: ; preds = %.lr.
 
 4302:                                             ; preds = %4299
   %4303 = sext i32 %.662824 to i64
-  %4304 = getelementptr i8, ptr %399, i64 %4303
-  %4305 = getelementptr i8, ptr %4304, i64 1
+  %4304 = getelementptr inbounds nuw i8, ptr %399, i64 %4303
+  %4305 = getelementptr inbounds nuw i8, ptr %4304, i64 1
   %4306 = load i8, ptr %4305, align 1, !tbaa !55
   %.not3231 = icmp eq i8 %4306, 0
   br i1 %.not3231, label %3576, label %4307

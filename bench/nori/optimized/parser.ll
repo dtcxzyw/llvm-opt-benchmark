@@ -6401,7 +6401,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit530: ;
 .preheader731:                                    ; preds = %941, %976
   %indvars.iv825 = phi i64 [ %indvars.iv.next826, %976 ], [ 0, %941 ]
   %967 = getelementptr float, ptr %153, i64 %indvars.iv825
-  %.idx = shl nsw i64 %indvars.iv825, 7
+  %.idx = shl nuw nsw i64 %indvars.iv825, 7
   br label %968
 
 968:                                              ; preds = %.preheader731, %973

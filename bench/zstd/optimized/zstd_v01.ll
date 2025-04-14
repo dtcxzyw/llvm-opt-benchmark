@@ -1179,8 +1179,8 @@ FSE_reloadDStream.exit134.i.i.i.i.i.i:            ; preds = %497, %492
   %533 = zext i16 %.sroa.0.0.copyload.i142.i.i.i.i.i.i to i64
   %534 = getelementptr inbounds nuw i8, ptr %.036.ptr.ptr.i14.i81.i.i.i.i.i, i64 1
   store i8 %.sroa.4.0.copyload.i144.i.i.i.i.i.i, ptr %534, align 1, !tbaa !3
-  %535 = getelementptr %struct.FSE_decode_t, ptr %468, i64 %519
-  %536 = getelementptr %struct.FSE_decode_t, ptr %535, i64 %521
+  %535 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %468, i64 %519
+  %536 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %535, i64 %521
   %.sroa.0.0.copyload.i149.i.i.i.i.i.i = load i16, ptr %536, align 4, !tbaa !13
   %.sroa.4.0..sroa_idx.i150.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %536, i64 2
   %.sroa.4.0.copyload.i151.i.i.i.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i150.i.i.i.i.i.i, align 2, !tbaa !3
@@ -1200,8 +1200,8 @@ FSE_reloadDStream.exit134.i.i.i.i.i.i:            ; preds = %497, %492
   %548 = add nuw i64 %545, %547
   %549 = getelementptr inbounds nuw i8, ptr %.036.ptr.ptr.i14.i81.i.i.i.i.i, i64 2
   store i8 %.sroa.4.0.copyload.i151.i.i.i.i.i.i, ptr %549, align 2, !tbaa !3
-  %550 = getelementptr %struct.FSE_decode_t, ptr %468, i64 %531
-  %551 = getelementptr %struct.FSE_decode_t, ptr %550, i64 %533
+  %550 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %468, i64 %531
+  %551 = getelementptr inbounds nuw %struct.FSE_decode_t, ptr %550, i64 %533
   %.sroa.0.0.copyload.i156.i.i.i.i.i.i = load i16, ptr %551, align 4, !tbaa !13
   %.sroa.4.0..sroa_idx.i157.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %551, i64 2
   %.sroa.4.0.copyload.i158.i.i.i.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i157.i.i.i.i.i.i, align 2, !tbaa !3

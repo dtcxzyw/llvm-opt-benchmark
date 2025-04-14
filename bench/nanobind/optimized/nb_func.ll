@@ -1671,7 +1671,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %65, %68, %_ZN8nanob
 .loopexit347:                                     ; preds = %_ZL10_Py_DECREFP7_object.exit, %._crit_edge, %51
   %.0229 = phi ptr [ %52, %51 ], [ %5, %._crit_edge ], [ %54, %_ZL10_Py_DECREFP7_object.exit ]
   %.not411 = icmp eq i64 %8, 0
-  %79 = getelementptr ptr, ptr %1, i64 %9
+  %79 = getelementptr inbounds nuw ptr, ptr %1, i64 %9
   br i1 %.not411, label %.thread326, label %.preheader342.us.preheader
 
 .preheader342.us.preheader:                       ; preds = %.loopexit347
@@ -1766,7 +1766,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %65, %68, %_ZN8nanob
   br i1 %exitcond423.not, label %.thread282.us, label %.lr.ph368.us, !llvm.loop !28
 
 122:                                              ; preds = %.lr.ph368.us
-  %123 = getelementptr ptr, ptr %79, i64 %.0239367.us
+  %123 = getelementptr inbounds nuw ptr, ptr %79, i64 %.0239367.us
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %40, i64 %.0239367.us
   store i8 1, ptr %125, align 1
@@ -1893,7 +1893,7 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us: ; preds = %162, %
 171:                                              ; preds = %.lr.ph383.us
   %172 = getelementptr inbounds nuw ptr, ptr %.0229, i64 %.0234382.us
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr ptr, ptr %79, i64 %.0234382.us
+  %174 = getelementptr inbounds nuw ptr, ptr %79, i64 %.0234382.us
   %175 = load ptr, ptr %174, align 8
   %176 = invoke i32 @PyDict_SetItem(ptr noundef %157, ptr noundef %173, ptr noundef %175)
           to label %177 unwind label %.loopexit.split.us

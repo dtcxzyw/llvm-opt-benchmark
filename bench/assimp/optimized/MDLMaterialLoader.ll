@@ -1457,7 +1457,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit142: ; preds
   %90 = and i8 %89, 1
   %91 = sub nsw i8 0, %90
   %92 = load ptr, ptr %76, align 8
-  %.idx = shl nsw i64 %indvars.iv, 5
+  %.idx = shl nuw nsw i64 %indvars.iv, 5
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 %.idx
   %94 = getelementptr inbounds nuw %struct.aiTexel, ptr %93, i64 %indvars.iv168
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 1

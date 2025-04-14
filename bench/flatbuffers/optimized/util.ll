@@ -3840,13 +3840,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; pred
 .lr.ph.i85:                                       ; preds = %.preheader.i, %515
   %.036.i = phi i64 [ %516, %515 ], [ 0, %.preheader.i ]
   %463 = load ptr, ptr %1, align 8, !tbaa !8, !noalias !113
-  %464 = getelementptr i8, ptr %463, i64 %.036.i
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 %.036.i
   %465 = load i8, ptr %464, align 1, !tbaa !22
   %466 = icmp eq i8 %465, 95
   br i1 %466, label %467, label %471
 
 467:                                              ; preds = %.lr.ph.i85
-  %468 = getelementptr i8, ptr %464, i64 1
+  %468 = getelementptr inbounds nuw i8, ptr %464, i64 1
   %469 = load i8, ptr %468, align 1, !tbaa !22
   %470 = sext i8 %469 to i32
   %isdigittmp.i90 = add nsw i32 %470, -48
@@ -3888,7 +3888,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i27.i: ; 
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 %473
   store i8 0, ptr %486, align 1, !tbaa !22
   %487 = load ptr, ptr %1, align 8, !tbaa !8, !noalias !113
-  %488 = getelementptr i8, ptr %487, i64 %.036.i
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 %.036.i
   %489 = load i8, ptr %488, align 1, !tbaa !22
   %490 = sext i8 %489 to i32
   %isdigittmp23.i86 = add nsw i32 %490, -48
@@ -3896,7 +3896,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i27.i: ; 
   br i1 %isdigit24.i87, label %491, label %515
 
 491:                                              ; preds = %482
-  %492 = getelementptr i8, ptr %488, i64 1
+  %492 = getelementptr inbounds nuw i8, ptr %488, i64 1
   %493 = load i8, ptr %492, align 1, !tbaa !22
   %494 = sext i8 %493 to i32
   %495 = tail call i32 @isalpha(i32 noundef %494) #24

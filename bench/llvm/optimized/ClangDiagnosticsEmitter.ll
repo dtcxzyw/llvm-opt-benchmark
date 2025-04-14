@@ -12475,7 +12475,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_15PieceESaIS2_EE9push_backEOS2_.exit349.thread.threa
 
 .lr.ph.preheader:                                 ; preds = %.preheader1254
   %104 = load ptr, ptr %1, align 8, !tbaa !139
-  %105 = getelementptr i8, ptr %104, i64 %100
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %100
   %106 = load i8, ptr %105, align 1, !tbaa !17
   %107 = icmp eq i8 %106, 37
   br i1 %107, label %.lr.ph1839, label %.critedge
@@ -12490,7 +12490,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_15PieceESaIS2_EE9push_backEOS2_.exit349.thread.threa
 
 .lr.ph:                                           ; preds = %.backedge
   %113 = load ptr, ptr %1, align 8, !tbaa !139
-  %114 = getelementptr i8, ptr %113, i64 %109
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 %109
   %115 = load i8, ptr %114, align 1, !tbaa !17
   %116 = icmp eq i8 %115, 37
   br i1 %116, label %.lr.ph1839, label %.critedge
@@ -12499,7 +12499,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_15PieceESaIS2_EE9push_backEOS2_.exit349.thread.threa
   %117 = phi ptr [ %114, %.lr.ph ], [ %105, %.lr.ph.preheader ]
   %118 = phi i64 [ %109, %.lr.ph ], [ %100, %.lr.ph.preheader ]
   %119 = phi i64 [ %110, %.lr.ph ], [ %101, %.lr.ph.preheader ]
-  %120 = getelementptr i8, ptr %117, i64 1
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 1
   %121 = load i8, ptr %120, align 1, !tbaa !17
   switch i8 %121, label %.critedge [
     i8 37, label %.backedge

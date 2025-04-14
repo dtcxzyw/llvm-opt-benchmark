@@ -525,7 +525,7 @@ dwt_decompose_vert.exit.i.i:                      ; preds = %78
   %198 = sub i64 %188, %197
   %199 = shl nsw i64 %indvars.iv128.i.i.i, 2
   %.idx107.i.i.i = shl nuw nsw i64 %196, 4
-  %.idx108.i.i.i = shl i64 %198, 4
+  %.idx108.i.i.i = shl nsw i64 %198, 4
   br label %201
 
 200:                                              ; preds = %201
@@ -535,10 +535,10 @@ dwt_decompose_vert.exit.i.i:                      ; preds = %78
 
 201:                                              ; preds = %201, %._crit_edge.us.us.i15.i.i
   %.07886.us.us.i.i.i = phi i64 [ 0, %._crit_edge.us.us.i15.i.i ], [ %218, %201 ]
-  %202 = getelementptr float, ptr %192, i64 %.07886.us.us.i.i.i
+  %202 = getelementptr inbounds nuw float, ptr %192, i64 %.07886.us.us.i.i.i
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 %.idx107.i.i.i
   %204 = load float, ptr %203, align 4, !tbaa !39, !alias.scope !47, !noalias !48
-  %205 = getelementptr i8, ptr %202, i64 %.idx108.i.i.i
+  %205 = getelementptr inbounds nuw i8, ptr %202, i64 %.idx108.i.i.i
   %206 = load float, ptr %205, align 4, !tbaa !39, !alias.scope !47, !noalias !48
   %207 = add nuw nsw i64 %.07886.us.us.i.i.i, %199
   %208 = getelementptr inbounds nuw float, ptr %192, i64 %207
@@ -576,10 +576,10 @@ dwt_decompose_vert.exit.i.i:                      ; preds = %78
 
 227:                                              ; preds = %227, %219
   %.07984.us.us.i.i.i = phi i64 [ 0, %219 ], [ %244, %227 ]
-  %228 = getelementptr float, ptr %192, i64 %.07984.us.us.i.i.i
+  %228 = getelementptr inbounds nuw float, ptr %192, i64 %.07984.us.us.i.i.i
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 %.idx105.i.i.i
   %230 = load float, ptr %229, align 4, !tbaa !39, !alias.scope !47, !noalias !48
-  %231 = getelementptr i8, ptr %228, i64 %.idx106.i.i.i
+  %231 = getelementptr inbounds nuw i8, ptr %228, i64 %.idx106.i.i.i
   %232 = load float, ptr %231, align 4, !tbaa !39, !alias.scope !47, !noalias !48
   %233 = add nuw nsw i64 %.07984.us.us.i.i.i, %225
   %234 = getelementptr inbounds nuw float, ptr %192, i64 %233
@@ -621,7 +621,7 @@ dwt_decompose_vert.exit.i.i:                      ; preds = %78
   %254 = sub i64 %188, %253
   %255 = shl nsw i64 %indvars.iv136.i.i.i, 2
   %.idx103.i.i.i = shl nuw nsw i64 %252, 4
-  %.idx104.i.i.i = shl i64 %254, 4
+  %.idx104.i.i.i = shl nsw i64 %254, 4
   br label %257
 
 256:                                              ; preds = %257
@@ -631,10 +631,10 @@ dwt_decompose_vert.exit.i.i:                      ; preds = %78
 
 257:                                              ; preds = %257, %248
   %.07886.us.i.i.i = phi i64 [ 0, %248 ], [ %274, %257 ]
-  %258 = getelementptr float, ptr %247, i64 %.07886.us.i.i.i
+  %258 = getelementptr inbounds nuw float, ptr %247, i64 %.07886.us.i.i.i
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 %.idx103.i.i.i
   %260 = load float, ptr %259, align 4, !tbaa !39, !alias.scope !47, !noalias !48
-  %261 = getelementptr i8, ptr %258, i64 %.idx104.i.i.i
+  %261 = getelementptr inbounds nuw i8, ptr %258, i64 %.idx104.i.i.i
   %262 = load float, ptr %261, align 4, !tbaa !39, !alias.scope !47, !noalias !48
   %263 = add nuw nsw i64 %.07886.us.i.i.i, %255
   %264 = getelementptr inbounds nuw float, ptr %247, i64 %263
@@ -688,10 +688,10 @@ dwt_decompose_vert.exit.i.i:                      ; preds = %78
 
 286:                                              ; preds = %286, %278
   %.07984.us97.i.i.i = phi i64 [ 0, %278 ], [ %303, %286 ]
-  %287 = getelementptr float, ptr %277, i64 %.07984.us97.i.i.i
+  %287 = getelementptr inbounds nuw float, ptr %277, i64 %.07984.us97.i.i.i
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 %.idx.i.i.i
   %289 = load float, ptr %288, align 4, !tbaa !39, !alias.scope !47, !noalias !48
-  %290 = getelementptr i8, ptr %287, i64 %.idx102.i.i.i
+  %290 = getelementptr inbounds nuw i8, ptr %287, i64 %.idx102.i.i.i
   %291 = load float, ptr %290, align 4, !tbaa !39, !alias.scope !47, !noalias !48
   %292 = add nuw nsw i64 %.07984.us97.i.i.i, %284
   %293 = getelementptr inbounds nuw float, ptr %277, i64 %292
