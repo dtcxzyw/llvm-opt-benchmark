@@ -68,6 +68,7 @@ if.then:                                          ; preds = %entry
 
 for.body.preheader.i:                             ; preds = %if.then
   %wide.trip.count.i = zext i32 %mul.i to i64
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %data, i64 3
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
@@ -83,9 +84,8 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %mul1.i = shl i64 %indvars.iv.i, 2
   %add.i = and i64 %mul1.i, 4294967292
-  %idxprom.i = or disjoint i64 %add.i, 3
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %data, i64 %idxprom.i
-  %1 = load i8, ptr %arrayidx.i, align 1, !tbaa !12
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %add.i
+  %1 = load i8, ptr %gep, align 1, !tbaa !12
   %cmp2.not.i = icmp eq i8 %1, -1
   br i1 %cmp2.not.i, label %for.cond.i, label %if.end9
 

@@ -417,7 +417,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %13 = and i32 %10, 1088
   %14 = icmp eq i32 %13, 64
   %15 = or i1 %12, %14
-  br i1 %15, label %.thread86, label %16
+  br i1 %15, label %.thread84, label %16
 
 16:                                               ; preds = %4
   %17 = and i32 %10, 1024
@@ -453,12 +453,12 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   store i32 0, ptr %28, align 8
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i32 0, ptr %34, align 4
-  %.pre81 = load i8, ptr %30, align 1
-  %.pre85 = zext i8 %.pre81 to i32
+  %.pre79 = load i8, ptr %30, align 1
+  %.pre83 = zext i8 %.pre79 to i32
   br label %35
 
 35:                                               ; preds = %33, %26
-  %.pre-phi = phi i32 [ %.pre85, %33 ], [ %27, %26 ]
+  %.pre-phi = phi i32 [ %.pre83, %33 ], [ %27, %26 ]
   %36 = phi i32 [ 0, %33 ], [ %29, %26 ]
   %37 = add i32 %36, %.pre-phi
   store i32 %37, ptr %28, align 8
@@ -502,13 +502,13 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %64 = getelementptr inbounds nuw i8, ptr %57, i64 14
   %65 = load i8, ptr %64, align 2
   %66 = icmp eq i8 %65, 0
-  br i1 %66, label %.loopexit41, label %67
+  br i1 %66, label %.loopexit39, label %67
 
 67:                                               ; preds = %63
   %68 = load i16, ptr %57, align 2
   %69 = and i16 %68, 3
   %70 = icmp eq i16 %69, 0
-  br i1 %70, label %71, label %.loopexit47
+  br i1 %70, label %71, label %.loopexit45
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw i8, ptr %57, i64 2
@@ -538,7 +538,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %90 = load i16, ptr %89, align 2
   %91 = sext i16 %90 to i32
   %92 = icmp eq i32 %74, %91
-  br i1 %92, label %.loopexit47, label %76
+  br i1 %92, label %.loopexit45, label %76
 
 93:                                               ; preds = %93, %79
   %94 = phi i64 [ 0, %79 ], [ %102, %93 ]
@@ -555,9 +555,9 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   br i1 %104, label %105, label %93, !llvm.loop !15
 
 105:                                              ; preds = %93
-  br i1 %101, label %.loopexit47, label %.loopexit41
+  br i1 %101, label %.loopexit45, label %.loopexit39
 
-.loopexit47:                                      ; preds = %84, %105, %67
+.loopexit45:                                      ; preds = %84, %105, %67
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 69
@@ -567,33 +567,33 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %112 = getelementptr i8, ptr %2, i64 252
   br label %113
 
-113:                                              ; preds = %270, %.loopexit47
-  %114 = phi i32 [ 0, %.loopexit47 ], [ %280, %270 ]
+113:                                              ; preds = %270, %.loopexit45
+  %114 = phi i32 [ 0, %.loopexit45 ], [ %280, %270 ]
   %115 = load i8, ptr %60, align 8
   %116 = zext i8 %115 to i32
   %117 = add nsw i32 %116, -1
   %118 = icmp eq i32 %114, %117
-  %.pre82 = load ptr, ptr %56, align 8
-  br i1 %118, label %.loopexit44, label %119
+  %.pre80 = load ptr, ptr %56, align 8
+  br i1 %118, label %.loopexit42, label %119
 
 119:                                              ; preds = %113
   %120 = add i32 %114, 1
   %121 = sext i32 %120 to i64
-  %122 = getelementptr %struct.ieee80211_rate_status, ptr %.pre82, i64 %121
+  %122 = getelementptr %struct.ieee80211_rate_status, ptr %.pre80, i64 %121
   %123 = icmp eq ptr %122, null
-  br i1 %123, label %.loopexit44, label %124
+  br i1 %123, label %.loopexit42, label %124
 
 124:                                              ; preds = %119
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 14
   %126 = load i8, ptr %125, align 2
   %127 = icmp eq i8 %126, 0
-  br i1 %127, label %.loopexit44, label %128
+  br i1 %127, label %.loopexit42, label %128
 
 128:                                              ; preds = %124
   %129 = load i16, ptr %122, align 2
   %130 = and i16 %129, 3
   %131 = icmp eq i16 %130, 0
-  br i1 %131, label %132, label %.loopexit44
+  br i1 %131, label %132, label %.loopexit42
 
 132:                                              ; preds = %128
   %133 = getelementptr inbounds nuw i8, ptr %122, i64 2
@@ -620,7 +620,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %148 = load i16, ptr %147, align 2
   %149 = sext i16 %148 to i32
   %150 = icmp eq i32 %135, %149
-  br i1 %150, label %.loopexit44, label %136
+  br i1 %150, label %.loopexit42, label %136
 
 151:                                              ; preds = %151, %139
   %152 = phi i64 [ 0, %139 ], [ %160, %151 ]
@@ -634,23 +634,23 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %160 = add nuw nsw i64 %152, 1
   %161 = icmp eq i64 %160, 6
   %162 = select i1 %159, i1 true, i1 %161
-  br i1 %162, label %.loopexit44.loopexit, label %151, !llvm.loop !15
+  br i1 %162, label %.loopexit42.loopexit, label %151, !llvm.loop !15
 
-.loopexit44.loopexit:                             ; preds = %151
+.loopexit42.loopexit:                             ; preds = %151
   %163 = xor i1 %159, true
-  br label %.loopexit44
+  br label %.loopexit42
 
-.loopexit44:                                      ; preds = %142, %119, %124, %128, %.loopexit44.loopexit, %113
-  %164 = phi i1 [ true, %113 ], [ true, %119 ], [ true, %124 ], [ false, %128 ], [ %163, %.loopexit44.loopexit ], [ false, %142 ]
+.loopexit42:                                      ; preds = %142, %119, %124, %128, %.loopexit42.loopexit, %113
+  %164 = phi i1 [ true, %113 ], [ true, %119 ], [ true, %124 ], [ false, %128 ], [ %163, %.loopexit42.loopexit ], [ false, %142 ]
   %165 = sext i32 %114 to i64
-  %166 = getelementptr %struct.ieee80211_rate_status, ptr %.pre82, i64 %165
+  %166 = getelementptr %struct.ieee80211_rate_status, ptr %.pre80, i64 %165
   %167 = load i16, ptr %166, align 2
   %168 = zext i16 %167 to i32
   %169 = and i32 %168, 1
   %170 = icmp eq i32 %169, 0
   br i1 %170, label %187, label %171
 
-171:                                              ; preds = %.loopexit44
+171:                                              ; preds = %.loopexit42
   %172 = getelementptr inbounds nuw i8, ptr %166, i64 6
   %173 = load i8, ptr %172, align 2
   %174 = and i8 %173, 3
@@ -666,9 +666,9 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %184 = add nuw nsw i32 %179, %183
   %185 = and i8 %181, 7
   %186 = zext nneg i8 %185 to i32
-  br label %.loopexit43
+  br label %.loopexit41
 
-187:                                              ; preds = %.loopexit44
+187:                                              ; preds = %.loopexit42
   %188 = and i32 %168, 2
   %189 = icmp eq i32 %188, 0
   br i1 %189, label %190, label %194
@@ -701,7 +701,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %213 = getelementptr inbounds nuw i8, ptr %166, i64 4
   %214 = load i8, ptr %213, align 2
   %215 = zext i8 %214 to i32
-  br label %.loopexit43
+  br label %.loopexit41
 
 216:                                              ; preds = %241
   %217 = load i8, ptr %108, align 1
@@ -728,13 +728,13 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %234 = shl nuw nsw i64 1, %233
   %235 = and i64 %234, %231
   %236 = icmp eq i64 %235, 0
-  br i1 %236, label %.loopexit43, label %237
+  br i1 %236, label %.loopexit41, label %237
 
 237:                                              ; preds = %228
   %238 = load i8, ptr %110, align 4, !range !16, !noundef !17
   %239 = icmp eq i8 %238, 0
   %240 = select i1 %239, i32 %229, i32 %232
-  br label %.loopexit43
+  br label %.loopexit41
 
 241:                                              ; preds = %219
   %242 = add nuw nsw i64 %220, 1
@@ -755,13 +755,13 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 253:                                              ; preds = %244
   %254 = add nuw nsw i64 %245, 1
   %255 = icmp eq i64 %254, 8
-  br i1 %255, label %.loopexit43, label %244, !llvm.loop !19
+  br i1 %255, label %.loopexit41, label %244, !llvm.loop !19
 
 256:                                              ; preds = %244
   %257 = trunc i64 %245 to i32
-  br label %.loopexit43
+  br label %.loopexit41
 
-.loopexit43:                                      ; preds = %253, %256, %237, %228, %194, %171
+.loopexit41:                                      ; preds = %253, %256, %237, %228, %194, %171
   %258 = phi i32 [ %184, %171 ], [ %212, %194 ], [ 16, %228 ], [ 16, %237 ], [ 17, %256 ], [ 17, %253 ]
   %259 = phi i32 [ %186, %171 ], [ %215, %194 ], [ %229, %228 ], [ %240, %237 ], [ %257, %256 ], [ 0, %253 ]
   %260 = zext nneg i32 %258 to i64
@@ -772,18 +772,18 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %263 = getelementptr i8, ptr %262, i64 %.idx21
   br i1 %164, label %264, label %270
 
-264:                                              ; preds = %.loopexit43
+264:                                              ; preds = %.loopexit41
   %265 = load i8, ptr %111, align 8
   %266 = zext i8 %265 to i16
   %267 = getelementptr inbounds nuw i8, ptr %263, i64 4
   %268 = load i16, ptr %267, align 4
   %269 = add i16 %268, %266
   store i16 %269, ptr %267, align 4
-  %.pre83 = load ptr, ptr %56, align 8
+  %.pre81 = load ptr, ptr %56, align 8
   br label %270
 
-270:                                              ; preds = %264, %.loopexit43
-  %271 = phi ptr [ %.pre83, %264 ], [ %.pre82, %.loopexit43 ]
+270:                                              ; preds = %264, %.loopexit41
+  %271 = phi ptr [ %.pre81, %264 ], [ %.pre80, %.loopexit41 ]
   %272 = getelementptr %struct.ieee80211_rate_status, ptr %271, i64 %165, i32 1
   %273 = load i8, ptr %272, align 2
   %274 = zext i8 %273 to i16
@@ -794,24 +794,24 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %279 = add i16 %277, %278
   store i16 %279, ptr %263, align 4
   %280 = add i32 %114, 1
-  br i1 %164, label %.loopexit41, label %113, !llvm.loop !20
+  br i1 %164, label %.loopexit39, label %113, !llvm.loop !20
 
 281:                                              ; preds = %59, %47
   %282 = load i8, ptr %7, align 1
   %283 = icmp slt i8 %282, 0
-  br i1 %283, label %.loopexit41, label %284
+  br i1 %283, label %.loopexit39, label %284
 
 284:                                              ; preds = %281
   %285 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %286 = load i16, ptr %285, align 1
   %287 = and i16 %286, 31
   %288 = icmp eq i16 %287, 0
-  br i1 %288, label %.loopexit41, label %289
+  br i1 %288, label %.loopexit39, label %289
 
 289:                                              ; preds = %284
   %290 = and i16 %286, 8448
   %291 = icmp eq i16 %290, 0
-  br i1 %291, label %292, label %.loopexit42
+  br i1 %291, label %292, label %.loopexit40
 
 292:                                              ; preds = %289
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -834,7 +834,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %304 = getelementptr [4 x i8], ptr %293, i64 0, i64 %303
   %305 = load i8, ptr %304, align 1
   %306 = icmp eq i8 %282, %305
-  br i1 %306, label %.loopexit42, label %294
+  br i1 %306, label %.loopexit40, label %294
 
 307:                                              ; preds = %307, %297
   %308 = phi i64 [ 0, %297 ], [ %312, %307 ]
@@ -847,9 +847,9 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   br i1 %314, label %315, label %307, !llvm.loop !22
 
 315:                                              ; preds = %307
-  br i1 %311, label %.loopexit42, label %.loopexit41
+  br i1 %311, label %.loopexit40, label %.loopexit39
 
-.loopexit42:                                      ; preds = %302, %315, %289
+.loopexit40:                                      ; preds = %302, %315, %289
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %318 = getelementptr inbounds nuw i8, ptr %2, i64 69
@@ -858,10 +858,10 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %321 = getelementptr i8, ptr %2, i64 252
   br label %322
 
-322:                                              ; preds = %455, %.loopexit42
-  %323 = phi i32 [ 0, %.loopexit42 ], [ %463, %455 ]
+322:                                              ; preds = %455, %.loopexit40
+  %323 = phi i32 [ 0, %.loopexit40 ], [ %463, %455 ]
   %324 = icmp eq i32 %323, 3
-  br i1 %324, label %.loopexit39, label %325
+  br i1 %324, label %.loopexit37, label %325
 
 325:                                              ; preds = %322
   %326 = add i32 %323, 1
@@ -869,19 +869,19 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %328 = getelementptr %struct.ieee80211_tx_rate, ptr %7, i64 %327
   %329 = load i8, ptr %328, align 1
   %330 = icmp slt i8 %329, 0
-  br i1 %330, label %.loopexit39, label %331
+  br i1 %330, label %.loopexit37, label %331
 
 331:                                              ; preds = %325
   %332 = getelementptr inbounds nuw i8, ptr %328, i64 1
   %333 = load i16, ptr %332, align 1
   %334 = and i16 %333, 31
   %335 = icmp eq i16 %334, 0
-  br i1 %335, label %.loopexit39, label %336
+  br i1 %335, label %.loopexit37, label %336
 
 336:                                              ; preds = %331
   %337 = and i16 %333, 8448
   %338 = icmp eq i16 %337, 0
-  br i1 %338, label %.preheader, label %.loopexit39
+  br i1 %338, label %.preheader, label %.loopexit37
 
 339:                                              ; preds = %.preheader
   %340 = add nuw nsw i64 %345, 1
@@ -898,7 +898,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %346 = getelementptr [4 x i8], ptr %316, i64 0, i64 %345
   %347 = load i8, ptr %346, align 1
   %348 = icmp eq i8 %329, %347
-  br i1 %348, label %.loopexit39, label %339
+  br i1 %348, label %.loopexit37, label %339
 
 349:                                              ; preds = %349, %342
   %350 = phi i64 [ 0, %342 ], [ %354, %349 ]
@@ -908,14 +908,14 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %354 = add nuw nsw i64 %350, 1
   %355 = icmp eq i64 %354, 8
   %356 = select i1 %353, i1 true, i1 %355
-  br i1 %356, label %.loopexit39.loopexit, label %349, !llvm.loop !22
+  br i1 %356, label %.loopexit37.loopexit, label %349, !llvm.loop !22
 
-.loopexit39.loopexit:                             ; preds = %349
+.loopexit37.loopexit:                             ; preds = %349
   %357 = xor i1 %353, true
-  br label %.loopexit39
+  br label %.loopexit37
 
-.loopexit39:                                      ; preds = %.preheader, %325, %331, %336, %.loopexit39.loopexit, %322
-  %358 = phi i1 [ true, %322 ], [ true, %325 ], [ true, %331 ], [ false, %336 ], [ %357, %.loopexit39.loopexit ], [ false, %.preheader ]
+.loopexit37:                                      ; preds = %.preheader, %325, %331, %336, %.loopexit37.loopexit, %322
+  %358 = phi i1 [ true, %322 ], [ true, %325 ], [ true, %331 ], [ false, %336 ], [ %357, %.loopexit37.loopexit ], [ false, %.preheader ]
   %359 = sext i32 %323 to i64
   %360 = getelementptr %struct.ieee80211_tx_rate, ptr %7, i64 %359
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 1
@@ -926,7 +926,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %366 = icmp eq i32 %365, 0
   br i1 %366, label %378, label %367
 
-367:                                              ; preds = %.loopexit39
+367:                                              ; preds = %.loopexit37
   %368 = lshr i32 %364, 2
   %369 = and i32 %368, 8
   %370 = lshr i32 %364, 5
@@ -938,9 +938,9 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %376 = add nsw i32 %375, %374
   %377 = srem i8 %372, 8
   %.sext = sext i8 %377 to i32
-  br label %.loopexit38
+  br label %.loopexit36
 
-378:                                              ; preds = %.loopexit39
+378:                                              ; preds = %.loopexit37
   %379 = and i32 %364, 256
   %380 = icmp eq i32 %379, 0
   br i1 %380, label %381, label %384
@@ -967,7 +967,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %398 = add nuw nsw i32 %397, %395
   %399 = and i8 %392, 15
   %400 = zext nneg i8 %399 to i32
-  br label %.loopexit38
+  br label %.loopexit36
 
 401:                                              ; preds = %429
   %402 = load i8, ptr %360, align 1
@@ -999,13 +999,13 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %422 = shl nuw nsw i64 1, %421
   %423 = and i64 %422, %383
   %424 = icmp eq i64 %423, 0
-  br i1 %424, label %.loopexit38, label %425
+  br i1 %424, label %.loopexit36, label %425
 
 425:                                              ; preds = %418
   %426 = and i16 %362, 128
   %427 = icmp eq i16 %426, 0
   %428 = select i1 %427, i32 %419, i32 %420
-  br label %.loopexit38
+  br label %.loopexit36
 
 429:                                              ; preds = %411, %406
   %430 = add nuw nsw i64 %407, 1
@@ -1023,13 +1023,13 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 438:                                              ; preds = %432
   %439 = add nuw nsw i64 %433, 1
   %440 = icmp eq i64 %439, 8
-  br i1 %440, label %.loopexit38, label %432, !llvm.loop !24
+  br i1 %440, label %.loopexit36, label %432, !llvm.loop !24
 
 441:                                              ; preds = %432
   %442 = trunc i64 %433 to i32
-  br label %.loopexit38
+  br label %.loopexit36
 
-.loopexit38:                                      ; preds = %438, %441, %425, %418, %384, %367
+.loopexit36:                                      ; preds = %438, %441, %425, %418, %384, %367
   %443 = phi i32 [ %376, %367 ], [ %398, %384 ], [ 16, %418 ], [ 16, %425 ], [ 17, %441 ], [ 17, %438 ]
   %444 = phi i32 [ %.sext, %367 ], [ %400, %384 ], [ %419, %418 ], [ %428, %425 ], [ %442, %441 ], [ 0, %438 ]
   %445 = sext i32 %443 to i64
@@ -1040,18 +1040,18 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %448 = getelementptr i8, ptr %447, i64 %.idx24
   br i1 %358, label %449, label %455
 
-449:                                              ; preds = %.loopexit38
+449:                                              ; preds = %.loopexit36
   %450 = load i8, ptr %320, align 8
   %451 = zext i8 %450 to i16
   %452 = getelementptr inbounds nuw i8, ptr %448, i64 4
   %453 = load i16, ptr %452, align 4
   %454 = add i16 %453, %451
   store i16 %454, ptr %452, align 4
-  %.pre84 = load i16, ptr %361, align 1
+  %.pre82 = load i16, ptr %361, align 1
   br label %455
 
-455:                                              ; preds = %449, %.loopexit38
-  %456 = phi i16 [ %.pre84, %449 ], [ %362, %.loopexit38 ]
+455:                                              ; preds = %449, %.loopexit36
+  %456 = phi i16 [ %.pre82, %449 ], [ %362, %.loopexit36 ]
   %457 = and i16 %456, 31
   %458 = load i8, ptr %30, align 1
   %459 = zext i8 %458 to i16
@@ -1060,16 +1060,16 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %462 = add i16 %460, %461
   store i16 %462, ptr %448, align 4
   %463 = add i32 %323, 1
-  br i1 %358, label %.loopexit41, label %322, !llvm.loop !25
+  br i1 %358, label %.loopexit39, label %322, !llvm.loop !25
 
-.loopexit41:                                      ; preds = %270, %455, %315, %284, %281, %105, %63
+.loopexit39:                                      ; preds = %270, %455, %315, %284, %281, %105, %63
   %464 = load ptr, ptr %0, align 8
   %465 = getelementptr inbounds nuw i8, ptr %464, i64 125
   %466 = load i8, ptr %465, align 1
   %467 = icmp ugt i8 %466, 1
   br i1 %467, label %468, label %.loopexit.thread
 
-468:                                              ; preds = %.loopexit41
+468:                                              ; preds = %.loopexit39
   %469 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %470 = load i16, ptr %469, align 4
   %471 = getelementptr inbounds nuw i8, ptr %2, i64 240
@@ -1083,18 +1083,18 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
   %477 = getelementptr i8, ptr %476, i64 %.idx27
   %478 = load i16, ptr %477, align 4
   %479 = icmp ugt i16 %478, 30
-  br i1 %479, label %480, label %.loopexit37
+  br i1 %479, label %480, label %.loopexit35
 
 480:                                              ; preds = %468
   %481 = getelementptr inbounds nuw i8, ptr %477, i64 4
   %482 = load i16, ptr %481, align 4
   %483 = lshr i16 %478, 2
   %484 = icmp ult i16 %482, %483
-  br i1 %484, label %485, label %.loopexit37
+  br i1 %484, label %485, label %.loopexit35
 
 485:                                              ; preds = %480
   %486 = icmp ult i16 %470, 16
-  br i1 %486, label %.loopexit37, label %487
+  br i1 %486, label %.loopexit35, label %487
 
 487:                                              ; preds = %485
   %488 = lshr i16 %470, 4
@@ -1113,7 +1113,7 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 
 498:                                              ; preds = %500, %492
   %499 = icmp samesign ugt i64 %493, 1
-  br i1 %499, label %492, label %.loopexit37, !llvm.loop !26
+  br i1 %499, label %492, label %.loopexit35, !llvm.loop !26
 
 500:                                              ; preds = %492
   %501 = getelementptr [42 x %struct.mcs_group], ptr @minstrel_mcs_groups, i64 0, i64 %494, i32 1
@@ -1124,107 +1124,107 @@ define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) 
 
 505:                                              ; preds = %500
   %.idx29 = mul i64 %494, 252
-  %.offs = or disjoint i64 %.idx29, 2
-  %506 = getelementptr i8, ptr %471, i64 %.offs
-  %507 = load i16, ptr %506, align 2
-  store i16 %507, ptr %469, align 2
-  br label %.loopexit37
+  %506 = getelementptr i8, ptr %471, i64 %.idx29
+  %507 = getelementptr i8, ptr %506, i64 2
+  %508 = load i16, ptr %507, align 2
+  store i16 %508, ptr %469, align 2
+  br label %.loopexit35
 
-.loopexit37:                                      ; preds = %498, %505, %485, %480, %468
-  %508 = phi i8 [ 0, %480 ], [ 0, %468 ], [ 1, %485 ], [ 1, %505 ], [ 1, %498 ]
-  %509 = getelementptr i8, ptr %2, i64 22
-  %510 = load i16, ptr %509, align 2
-  %511 = zext i16 %510 to i64
-  %512 = lshr i64 %511, 4
-  %513 = and i64 %511, 15
-  %.idx30 = mul nuw nsw i64 %512, 252
-  %.idx32 = mul nuw nsw i64 %513, 24
-  %514 = getelementptr i8, ptr %471, i64 %.idx30
-  %515 = getelementptr i8, ptr %514, i64 12
-  %516 = getelementptr i8, ptr %515, i64 %.idx32
-  %517 = load i16, ptr %516, align 4
-  %518 = icmp ugt i16 %517, 30
-  br i1 %518, label %519, label %.loopexit
+.loopexit35:                                      ; preds = %498, %505, %485, %480, %468
+  %509 = phi i8 [ 0, %480 ], [ 0, %468 ], [ 1, %485 ], [ 1, %505 ], [ 1, %498 ]
+  %510 = getelementptr i8, ptr %2, i64 22
+  %511 = load i16, ptr %510, align 2
+  %512 = zext i16 %511 to i64
+  %513 = lshr i64 %512, 4
+  %514 = and i64 %512, 15
+  %.idx30 = mul nuw nsw i64 %513, 252
+  %.idx31 = mul nuw nsw i64 %514, 24
+  %515 = getelementptr i8, ptr %471, i64 %.idx30
+  %516 = getelementptr i8, ptr %515, i64 12
+  %517 = getelementptr i8, ptr %516, i64 %.idx31
+  %518 = load i16, ptr %517, align 4
+  %519 = icmp ugt i16 %518, 30
+  br i1 %519, label %520, label %.loopexit
 
-519:                                              ; preds = %.loopexit37
-  %520 = getelementptr inbounds nuw i8, ptr %516, i64 4
-  %521 = load i16, ptr %520, align 4
-  %522 = lshr i16 %517, 2
-  %523 = icmp ult i16 %521, %522
-  br i1 %523, label %524, label %.loopexit
+520:                                              ; preds = %.loopexit35
+  %521 = getelementptr inbounds nuw i8, ptr %517, i64 4
+  %522 = load i16, ptr %521, align 4
+  %523 = lshr i16 %518, 2
+  %524 = icmp ult i16 %522, %523
+  br i1 %524, label %525, label %.loopexit
 
-524:                                              ; preds = %519
-  %525 = icmp ult i16 %510, 16
-  br i1 %525, label %.loopexit, label %526
+525:                                              ; preds = %520
+  %526 = icmp ult i16 %511, 16
+  br i1 %526, label %.loopexit, label %527
 
-526:                                              ; preds = %524
-  %527 = lshr i16 %510, 4
-  %528 = getelementptr inbounds nuw i8, ptr %2, i64 154
-  %529 = zext nneg i16 %527 to i64
-  %530 = getelementptr [42 x %struct.mcs_group], ptr @minstrel_mcs_groups, i64 0, i64 %529, i32 1
-  br label %531
+527:                                              ; preds = %525
+  %528 = lshr i16 %511, 4
+  %529 = getelementptr inbounds nuw i8, ptr %2, i64 154
+  %530 = zext nneg i16 %528 to i64
+  %531 = getelementptr [42 x %struct.mcs_group], ptr @minstrel_mcs_groups, i64 0, i64 %530, i32 1
+  br label %532
 
-531:                                              ; preds = %537, %526
-  %532 = phi i64 [ %529, %526 ], [ %533, %537 ]
-  %533 = add nsw i64 %532, -1
-  %534 = getelementptr [42 x i16], ptr %528, i64 0, i64 %533
-  %535 = load i16, ptr %534, align 2
-  %536 = icmp eq i16 %535, 0
-  br i1 %536, label %537, label %539
+532:                                              ; preds = %538, %527
+  %533 = phi i64 [ %530, %527 ], [ %534, %538 ]
+  %534 = add nsw i64 %533, -1
+  %535 = getelementptr [42 x i16], ptr %529, i64 0, i64 %534
+  %536 = load i16, ptr %535, align 2
+  %537 = icmp eq i16 %536, 0
+  br i1 %537, label %538, label %540
 
-537:                                              ; preds = %539, %531
-  %538 = icmp samesign ugt i64 %532, 1
-  br i1 %538, label %531, label %.loopexit, !llvm.loop !26
+538:                                              ; preds = %540, %532
+  %539 = icmp samesign ugt i64 %533, 1
+  br i1 %539, label %532, label %.loopexit, !llvm.loop !26
 
-539:                                              ; preds = %531
-  %540 = getelementptr [42 x %struct.mcs_group], ptr @minstrel_mcs_groups, i64 0, i64 %533, i32 1
-  %541 = load i8, ptr %540, align 2
-  %542 = load i8, ptr %530, align 2
-  %543 = icmp ugt i8 %541, %542
-  br i1 %543, label %537, label %544
+540:                                              ; preds = %532
+  %541 = getelementptr [42 x %struct.mcs_group], ptr @minstrel_mcs_groups, i64 0, i64 %534, i32 1
+  %542 = load i8, ptr %541, align 2
+  %543 = load i8, ptr %531, align 2
+  %544 = icmp ugt i8 %542, %543
+  br i1 %544, label %538, label %545
 
-544:                                              ; preds = %539
-  %.idx34 = mul i64 %533, 252
-  %545 = getelementptr i8, ptr %471, i64 %.idx34
-  %546 = getelementptr i8, ptr %545, i64 4
-  %547 = load i16, ptr %546, align 2
-  store i16 %547, ptr %509, align 2
+545:                                              ; preds = %540
+  %.idx33 = mul i64 %534, 252
+  %546 = getelementptr i8, ptr %471, i64 %.idx33
+  %547 = getelementptr i8, ptr %546, i64 4
+  %548 = load i16, ptr %547, align 2
+  store i16 %548, ptr %510, align 2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %537, %544, %524, %519, %.loopexit37
-  %548 = phi i8 [ %508, %519 ], [ %508, %.loopexit37 ], [ 1, %524 ], [ 1, %544 ], [ 1, %537 ]
-  %549 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %550 = load i64, ptr %549, align 8
-  %551 = zext i32 %9 to i64
-  %552 = add i64 %550, %551
-  %553 = load volatile i64, ptr @jiffies, align 64
-  %554 = sub i64 %552, %553
-  %555 = icmp slt i64 %554, 0
-  br i1 %555, label %.thread, label %563
+.loopexit:                                        ; preds = %538, %545, %525, %520, %.loopexit35
+  %549 = phi i8 [ %509, %520 ], [ %509, %.loopexit35 ], [ 1, %525 ], [ 1, %545 ], [ 1, %538 ]
+  %550 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %551 = load i64, ptr %550, align 8
+  %552 = zext i32 %9 to i64
+  %553 = add i64 %551, %552
+  %554 = load volatile i64, ptr @jiffies, align 64
+  %555 = sub i64 %553, %554
+  %556 = icmp slt i64 %555, 0
+  br i1 %556, label %.thread, label %564
 
-.loopexit.thread:                                 ; preds = %.loopexit41
-  %556 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %557 = load i64, ptr %556, align 8
-  %558 = zext i32 %9 to i64
-  %559 = add i64 %557, %558
-  %560 = load volatile i64, ptr @jiffies, align 64
-  %561 = sub i64 %559, %560
-  %562 = icmp slt i64 %561, 0
-  br i1 %562, label %.thread, label %.thread86
+.loopexit.thread:                                 ; preds = %.loopexit39
+  %557 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %558 = load i64, ptr %557, align 8
+  %559 = zext i32 %9 to i64
+  %560 = add i64 %558, %559
+  %561 = load volatile i64, ptr @jiffies, align 64
+  %562 = sub i64 %560, %561
+  %563 = icmp slt i64 %562, 0
+  br i1 %563, label %.thread, label %.thread84
 
 .thread:                                          ; preds = %.loopexit.thread, %.loopexit
   tail call fastcc void @minstrel_ht_update_stats(ptr noundef %0, ptr noundef %2)
-  br label %565
+  br label %566
 
-563:                                              ; preds = %.loopexit
-  %564 = icmp eq i8 %548, 0
-  br i1 %564, label %.thread86, label %565
+564:                                              ; preds = %.loopexit
+  %565 = icmp eq i8 %549, 0
+  br i1 %565, label %.thread84, label %566
 
-565:                                              ; preds = %.thread, %563
+566:                                              ; preds = %.thread, %564
   tail call fastcc void @minstrel_ht_update_rates(ptr noundef %0, ptr noundef %2)
-  br label %.thread86
+  br label %.thread84
 
-.thread86:                                        ; preds = %.loopexit.thread, %565, %563, %4
+.thread84:                                        ; preds = %.loopexit.thread, %566, %564, %4
   ret void
 }
 

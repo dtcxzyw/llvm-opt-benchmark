@@ -47,7 +47,7 @@ define internal range(i64 -15, -16) i64 @ia64_code(ptr readnone captures(none) %
 
 18:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 5, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %.06069 = phi i64 [ 0, %.lr.ph ], [ %67, %.loopexit ]
+  %.06069 = phi i64 [ 0, %.lr.ph ], [ %65, %.loopexit ]
   %19 = trunc nuw nsw i64 %.06069 to i32
   %20 = shl nuw nsw i32 1, %19
   %21 = and i32 %20, %13
@@ -57,72 +57,70 @@ define internal range(i64 -15, -16) i64 @ia64_code(ptr readnone captures(none) %
 23:                                               ; preds = %18
   %24 = lshr i64 %indvars.iv, 3
   %25 = and i64 %24, 536870911
-  %invariant.gep = getelementptr i8, ptr %3, i64 %25
+  %invariant.gep = getelementptr i8, ptr %8, i64 %25
   br label %30
 
 26:                                               ; preds = %30
   %27 = and i64 %indvars.iv, 7
-  %28 = lshr i64 %36, %27
+  %28 = lshr i64 %35, %27
   %29 = and i64 %28, 2061584305664
   %or.cond = icmp eq i64 %29, 687194767360
-  br i1 %or.cond, label %38, label %.loopexit
+  br i1 %or.cond, label %37, label %.loopexit
 
 30:                                               ; preds = %23, %30
-  %.05665 = phi i64 [ 0, %23 ], [ %37, %30 ]
-  %.05764 = phi i64 [ 0, %23 ], [ %36, %30 ]
-  %31 = or disjoint i64 %.05665, %.05872
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %31
-  %32 = load i8, ptr %gep, align 1, !tbaa !6
-  %33 = zext i8 %32 to i64
-  %34 = shl nuw nsw i64 %.05665, 3
-  %35 = shl nuw nsw i64 %33, %34
-  %36 = add i64 %35, %.05764
-  %37 = add nuw nsw i64 %.05665, 1
-  %exitcond.not = icmp eq i64 %37, 6
+  %.05665 = phi i64 [ 0, %23 ], [ %36, %30 ]
+  %.05764 = phi i64 [ 0, %23 ], [ %35, %30 ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.05665
+  %31 = load i8, ptr %gep, align 1, !tbaa !6
+  %32 = zext i8 %31 to i64
+  %33 = shl nuw nsw i64 %.05665, 3
+  %34 = shl nuw nsw i64 %32, %33
+  %35 = add i64 %34, %.05764
+  %36 = add nuw nsw i64 %.05665, 1
+  %exitcond.not = icmp eq i64 %36, 6
   br i1 %exitcond.not, label %26, label %30, !llvm.loop !11
 
-38:                                               ; preds = %26
-  %39 = lshr i64 %28, 13
-  %40 = and i64 %39, 1048575
-  %41 = lshr i64 %28, 16
-  %42 = and i64 %41, 1048576
-  %43 = or disjoint i64 %40, %42
-  %44 = trunc nuw nsw i64 %43 to i32
-  %45 = add nuw nsw i32 %17, %44
-  %46 = and i64 %28, -1451698941441
-  %47 = and i32 %45, 1048575
-  %48 = zext nneg i32 %47 to i64
-  %49 = shl nuw nsw i64 %48, 13
-  %50 = or disjoint i64 %49, %46
-  %51 = and i32 %45, 1048576
-  %52 = zext nneg i32 %51 to i64
-  %53 = shl nuw nsw i64 %52, 16
-  %54 = or disjoint i64 %50, %53
-  %55 = trunc nuw nsw i64 %27 to i32
-  %notmask = shl nsw i32 -1, %55
-  %56 = xor i32 %notmask, -1
-  %57 = zext nneg i32 %56 to i64
-  %58 = and i64 %36, %57
-  %59 = shl i64 %54, %27
-  %60 = or i64 %59, %58
-  br label %61
+37:                                               ; preds = %26
+  %38 = lshr i64 %28, 13
+  %39 = and i64 %38, 1048575
+  %40 = lshr i64 %28, 16
+  %41 = and i64 %40, 1048576
+  %42 = or disjoint i64 %39, %41
+  %43 = trunc nuw nsw i64 %42 to i32
+  %44 = add nuw nsw i32 %17, %43
+  %45 = and i64 %28, -1451698941441
+  %46 = and i32 %44, 1048575
+  %47 = zext nneg i32 %46 to i64
+  %48 = shl nuw nsw i64 %47, 13
+  %49 = or disjoint i64 %48, %45
+  %50 = and i32 %44, 1048576
+  %51 = zext nneg i32 %50 to i64
+  %52 = shl nuw nsw i64 %51, 16
+  %53 = or disjoint i64 %49, %52
+  %54 = trunc nuw nsw i64 %27 to i32
+  %notmask = shl nsw i32 -1, %54
+  %55 = xor i32 %notmask, -1
+  %56 = zext nneg i32 %55 to i64
+  %57 = and i64 %35, %56
+  %58 = shl i64 %53, %27
+  %59 = or i64 %58, %57
+  br label %60
 
-61:                                               ; preds = %38, %61
-  %.068 = phi i64 [ 0, %38 ], [ %66, %61 ]
-  %62 = shl nuw nsw i64 %.068, 3
-  %63 = lshr i64 %60, %62
-  %64 = trunc i64 %63 to i8
-  %65 = or disjoint i64 %.068, %.05872
-  %gep67 = getelementptr i8, ptr %invariant.gep, i64 %65
-  store i8 %64, ptr %gep67, align 1, !tbaa !6
-  %66 = add nuw nsw i64 %.068, 1
-  %exitcond74.not = icmp eq i64 %66, 6
-  br i1 %exitcond74.not, label %.loopexit, label %61, !llvm.loop !12
+60:                                               ; preds = %37, %60
+  %.068 = phi i64 [ 0, %37 ], [ %64, %60 ]
+  %61 = shl nuw nsw i64 %.068, 3
+  %62 = lshr i64 %59, %61
+  %63 = trunc i64 %62 to i8
+  %gep67 = getelementptr i8, ptr %invariant.gep, i64 %.068
+  store i8 %63, ptr %gep67, align 1, !tbaa !6
+  %64 = add nuw nsw i64 %.068, 1
+  %exitcond74.not = icmp eq i64 %64, 6
+  br i1 %exitcond74.not, label %.loopexit, label %60, !llvm.loop !12
 
-.loopexit:                                        ; preds = %61, %26, %18
-  %67 = add nuw nsw i64 %.06069, 1
+.loopexit:                                        ; preds = %60, %26, %18
+  %65 = add nuw nsw i64 %.06069, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 41
-  %exitcond76.not = icmp eq i64 %67, 3
+  %exitcond76.not = icmp eq i64 %65, 3
   br i1 %exitcond76.not, label %.loopexit63, label %18, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.loopexit63, %5

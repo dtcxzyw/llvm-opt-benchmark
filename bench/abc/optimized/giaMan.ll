@@ -11228,11 +11228,10 @@ define void @Gia_ManDumpIoList(ptr noundef readonly captures(none) %0, ptr nound
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %Gia_ManPrintOneName.exit.us
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %Gia_ManPrintOneName.exit.us ], [ 0, %.lr.ph ]
-  %17 = or disjoint i64 %indvars.iv44, 1
-  %.027.in.us = getelementptr inbounds nuw i32, ptr %.val39, i64 %17
+  %17 = getelementptr inbounds nuw i32, ptr %.val39, i64 %indvars.iv44
+  %.027.in.us = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.027.us = load i32, ptr %.027.in.us, align 4, !tbaa !98
-  %.028.in.us = getelementptr inbounds nuw i32, ptr %.val39, i64 %indvars.iv44
-  %.028.us = load i32, ptr %.028.in.us, align 4, !tbaa !98
+  %.028.us = load i32, ptr %17, align 4, !tbaa !98
   %.not32.us = icmp eq i64 %indvars.iv44, 0
   br i1 %.not32.us, label %20, label %18
 
@@ -11356,7 +11355,7 @@ define void @Gia_ManDumpIoRanges(ptr noundef readonly captures(none) %0, ptr nou
   %14 = xor i32 %.val52, -1
   %15 = add i32 %.val53.val, %14
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.137, ptr noundef nonnull %10, i32 noundef %15, i32 noundef %.66) #30
-  br label %69
+  br label %68
 
 17:                                               ; preds = %3
   %18 = tail call ptr @Gia_ManCountSymbsAll(ptr noundef %6)
@@ -11376,84 +11375,83 @@ define void @Gia_ManDumpIoRanges(ptr noundef readonly captures(none) %0, ptr nou
 
 26:                                               ; preds = %.lr.ph, %Gia_ManPrintOneName.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ManPrintOneName.exit ]
-  %27 = or disjoint i64 %indvars.iv, 1
-  %28 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv
-  %29 = load i32, ptr %28, align 4, !tbaa !98
-  %30 = getelementptr inbounds nuw i32, ptr %.val56, i64 %27
-  %31 = load i32, ptr %30, align 4, !tbaa !98
+  %27 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv
+  %28 = load i32, ptr %27, align 4, !tbaa !98
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %30 = load i32, ptr %29, align 4, !tbaa !98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %32 = icmp samesign ult i64 %indvars.iv.next, %25
-  %33 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv.next
-  %.in61 = select i1 %32, ptr %33, ptr %22
-  %34 = load i32, ptr %.in61, align 4, !tbaa !98
+  %31 = icmp samesign ult i64 %indvars.iv.next, %25
+  %32 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv.next
+  %.in61 = select i1 %31, ptr %32, ptr %22
+  %33 = load i32, ptr %.in61, align 4, !tbaa !98
   %.val49 = load ptr, ptr %23, align 8, !tbaa !38
-  %35 = sext i32 %29 to i64
-  %36 = getelementptr inbounds ptr, ptr %.val49, i64 %35
-  %37 = load ptr, ptr %36, align 8, !tbaa !39
-  %38 = add nsw i32 %34, -1
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %.val49, i64 %39
-  %41 = load ptr, ptr %40, align 8, !tbaa !39
-  %42 = sext i32 %31 to i64
-  %43 = getelementptr inbounds i8, ptr %37, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !181
-  %45 = icmp eq i8 %44, 0
-  br i1 %45, label %Gia_ManReadRangeNum.exit, label %46
+  %34 = sext i32 %28 to i64
+  %35 = getelementptr inbounds ptr, ptr %.val49, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !39
+  %37 = add nsw i32 %33, -1
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds ptr, ptr %.val49, i64 %38
+  %40 = load ptr, ptr %39, align 8, !tbaa !39
+  %41 = sext i32 %30 to i64
+  %42 = getelementptr inbounds i8, ptr %36, i64 %41
+  %43 = load i8, ptr %42, align 1, !tbaa !181
+  %44 = icmp eq i8 %43, 0
+  br i1 %44, label %Gia_ManReadRangeNum.exit, label %45
 
-46:                                               ; preds = %26
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  %48 = tail call i64 @strtol(ptr noundef nonnull readonly captures(none) %47, ptr noundef null, i32 noundef 10) #30
-  %49 = trunc i64 %48 to i32
+45:                                               ; preds = %26
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  %47 = tail call i64 @strtol(ptr noundef nonnull readonly captures(none) %46, ptr noundef null, i32 noundef 10) #30
+  %48 = trunc i64 %47 to i32
   br label %Gia_ManReadRangeNum.exit
 
-Gia_ManReadRangeNum.exit:                         ; preds = %26, %46
-  %.0.i = phi i32 [ %49, %46 ], [ -1, %26 ]
-  %50 = getelementptr inbounds i8, ptr %41, i64 %42
-  %51 = load i8, ptr %50, align 1, !tbaa !181
-  %52 = icmp eq i8 %51, 0
-  br i1 %52, label %Gia_ManReadRangeNum.exit60, label %53
+Gia_ManReadRangeNum.exit:                         ; preds = %26, %45
+  %.0.i = phi i32 [ %48, %45 ], [ -1, %26 ]
+  %49 = getelementptr inbounds i8, ptr %40, i64 %41
+  %50 = load i8, ptr %49, align 1, !tbaa !181
+  %51 = icmp eq i8 %50, 0
+  br i1 %51, label %Gia_ManReadRangeNum.exit60, label %52
 
-53:                                               ; preds = %Gia_ManReadRangeNum.exit
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  %55 = tail call i64 @strtol(ptr noundef nonnull readonly captures(none) %54, ptr noundef null, i32 noundef 10) #30
-  %56 = trunc i64 %55 to i32
+52:                                               ; preds = %Gia_ManReadRangeNum.exit
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 1
+  %54 = tail call i64 @strtol(ptr noundef nonnull readonly captures(none) %53, ptr noundef null, i32 noundef 10) #30
+  %55 = trunc i64 %54 to i32
   br label %Gia_ManReadRangeNum.exit60
 
-Gia_ManReadRangeNum.exit60:                       ; preds = %Gia_ManReadRangeNum.exit, %53
-  %.0.i59 = phi i32 [ %56, %53 ], [ -1, %Gia_ManReadRangeNum.exit ]
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.140, ptr noundef nonnull %24) #30
+Gia_ManReadRangeNum.exit60:                       ; preds = %Gia_ManReadRangeNum.exit, %52
+  %.0.i59 = phi i32 [ %55, %52 ], [ -1, %Gia_ManReadRangeNum.exit ]
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.140, ptr noundef nonnull %24) #30
   %.not46 = icmp ne i32 %.0.i, -1
-  %58 = icmp slt i32 %29, %38
-  %or.cond = and i1 %.not46, %58
-  br i1 %or.cond, label %59, label %61
+  %57 = icmp slt i32 %28, %37
+  %or.cond = and i1 %.not46, %57
+  br i1 %or.cond, label %58, label %60
 
-59:                                               ; preds = %Gia_ManReadRangeNum.exit60
-  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.141, i32 noundef %.0.i59, i32 noundef %.0.i) #30
-  br label %61
+58:                                               ; preds = %Gia_ManReadRangeNum.exit60
+  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.141, i32 noundef %.0.i59, i32 noundef %.0.i) #30
+  br label %60
 
-61:                                               ; preds = %59, %Gia_ManReadRangeNum.exit60
-  %62 = icmp sgt i32 %31, 0
-  br i1 %62, label %.lr.ph.preheader.i, label %Gia_ManPrintOneName.exit
+60:                                               ; preds = %58, %Gia_ManReadRangeNum.exit60
+  %61 = icmp sgt i32 %30, 0
+  br i1 %61, label %.lr.ph.preheader.i, label %Gia_ManPrintOneName.exit
 
-.lr.ph.preheader.i:                               ; preds = %61
-  %wide.trip.count.i = zext nneg i32 %31 to i64
+.lr.ph.preheader.i:                               ; preds = %60
+  %wide.trip.count.i = zext nneg i32 %30 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %63 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.i
-  %64 = load i8, ptr %63, align 1, !tbaa !181
-  %65 = sext i8 %64 to i32
-  %fputc.i = tail call i32 @fputc(i32 %65, ptr %1)
+  %62 = getelementptr inbounds nuw i8, ptr %36, i64 %indvars.iv.i
+  %63 = load i8, ptr %62, align 1, !tbaa !181
+  %64 = sext i8 %63 to i32
+  %fputc.i = tail call i32 @fputc(i32 %64, ptr %1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Gia_ManPrintOneName.exit, label %.lr.ph.i, !llvm.loop !216
 
-Gia_ManPrintOneName.exit:                         ; preds = %.lr.ph.i, %61
-  %66 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 2, i64 1, ptr %1)
-  %67 = or disjoint i64 %indvars.iv.next, 1
-  %68 = icmp samesign ult i64 %67, %25
-  br i1 %68, label %26, label %.critedge.thread, !llvm.loop !220
+Gia_ManPrintOneName.exit:                         ; preds = %.lr.ph.i, %60
+  %65 = tail call i64 @fwrite(ptr nonnull @.str.142, i64 2, i64 1, ptr %1)
+  %66 = or disjoint i64 %indvars.iv.next, 1
+  %67 = icmp samesign ult i64 %66, %25
+  br i1 %67, label %26, label %.critedge.thread, !llvm.loop !220
 
 .critedge:                                        ; preds = %17
   %.not.i = icmp eq ptr %.val56, null
@@ -11465,9 +11463,9 @@ Gia_ManPrintOneName.exit:                         ; preds = %.lr.ph.i, %61
 
 Vec_IntFree.exit:                                 ; preds = %.critedge, %.critedge.thread
   tail call void @free(ptr noundef nonnull %18) #30
-  br label %69
+  br label %68
 
-69:                                               ; preds = %Vec_IntFree.exit, %9
+68:                                               ; preds = %Vec_IntFree.exit, %9
   ret void
 }
 

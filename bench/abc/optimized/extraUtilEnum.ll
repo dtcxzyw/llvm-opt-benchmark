@@ -375,45 +375,43 @@ define void @Abc_EnumPrint_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   %5 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %5, align 8, !tbaa !24
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds i32, ptr %.val, i64 %6
+  %7 = getelementptr i32, ptr %.val, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !3
-  %9 = or disjoint i32 %4, 1
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i32, ptr %.val, i64 %10
-  %12 = load i32, ptr %11, align 4, !tbaa !3
-  %13 = icmp slt i32 %8, %12
-  %14 = select i1 %13, ptr @.str.86, ptr @.str.87
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %8, i32 %12)
-  %spec.select34 = tail call i32 @llvm.smin.i32(i32 %8, i32 %12)
-  %15 = icmp slt i32 %spec.select34, %2
-  br i1 %15, label %16, label %18
+  %9 = getelementptr i8, ptr %7, i64 4
+  %10 = load i32, ptr %9, align 4, !tbaa !3
+  %11 = icmp slt i32 %8, %10
+  %12 = select i1 %11, ptr @.str.86, ptr @.str.87
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %8, i32 %10)
+  %spec.select34 = tail call i32 @llvm.smin.i32(i32 %8, i32 %10)
+  %13 = icmp slt i32 %spec.select34, %2
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %3
+  %15 = add nsw i32 %spec.select34, 97
+  br label %17
 
 16:                                               ; preds = %3
-  %17 = add nsw i32 %spec.select34, 97
-  br label %19
-
-18:                                               ; preds = %3
   %putchar = tail call i32 @putchar(i32 40)
   tail call void @Abc_EnumPrint_rec(ptr noundef nonnull %0, i32 noundef %spec.select34, i32 noundef %2)
-  br label %19
+  br label %17
 
-19:                                               ; preds = %18, %16
-  %.sink = phi i32 [ 41, %18 ], [ %17, %16 ]
+17:                                               ; preds = %16, %14
+  %.sink = phi i32 [ 41, %16 ], [ %15, %14 ]
   %putchar29 = tail call i32 @putchar(i32 %.sink)
-  %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.91, ptr noundef nonnull %14)
-  %21 = icmp slt i32 %spec.select, %2
-  br i1 %21, label %22, label %24
+  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.91, ptr noundef nonnull %12)
+  %19 = icmp slt i32 %spec.select, %2
+  br i1 %19, label %20, label %22
 
-22:                                               ; preds = %19
-  %23 = add nsw i32 %spec.select, 97
+20:                                               ; preds = %17
+  %21 = add nsw i32 %spec.select, 97
   br label %common.ret
 
-common.ret:                                       ; preds = %22, %24
-  %.sink36 = phi i32 [ %23, %22 ], [ 41, %24 ]
+common.ret:                                       ; preds = %20, %22
+  %.sink36 = phi i32 [ %21, %20 ], [ 41, %22 ]
   %putchar33 = tail call i32 @putchar(i32 %.sink36)
   ret void
 
-24:                                               ; preds = %19
+22:                                               ; preds = %17
   %putchar31 = tail call i32 @putchar(i32 40)
   tail call void @Abc_EnumPrint_rec(ptr noundef nonnull %0, i32 noundef %spec.select, i32 noundef %2)
   br label %common.ret

@@ -5950,7 +5950,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %318 = add nuw nsw i32 %.012526, 1
   %319 = load ptr, ptr %290, align 8, !tbaa !199
   %320 = ptrtoint ptr %319 to i64
-  %321 = ptrtoint ptr %339 to i64
+  %321 = ptrtoint ptr %338 to i64
   %322 = sub i64 %320, %321
   %323 = lshr i64 %322, 5
   %324 = trunc i64 %323 to i32
@@ -6017,9 +6017,9 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30) #33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29) #33
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28) #33
-  %338 = or disjoint i64 %indvars.iv38, %indvars.iv41
-  %339 = load ptr, ptr %2, align 8, !tbaa !194
-  %340 = getelementptr inbounds nuw %"class.cv::Point_", ptr %339, i64 %338
+  %338 = load ptr, ptr %2, align 8, !tbaa !194
+  %339 = getelementptr inbounds nuw %"class.cv::Point_", ptr %338, i64 %indvars.iv38
+  %340 = getelementptr inbounds nuw %"class.cv::Point_", ptr %339, i64 %indvars.iv41
   %341 = load i32, ptr %340, align 4, !tbaa !201
   %342 = sub nsw i32 %341, %331
   %343 = call i32 @llvm.abs.i32(i32 %342, i1 true)

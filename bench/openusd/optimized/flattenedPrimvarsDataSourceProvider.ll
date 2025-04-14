@@ -278,24 +278,24 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDa
   %46 = getelementptr inbounds nuw i8, ptr %25, i64 48
   store i64 1, ptr %46, align 8, !noalias !9
   %47 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %.ptr12.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %invariant.gep.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, i8 0, i64 40, i1 false), !noalias !9
-  br label %.preheader14.i.i.i.i.i
+  br label %50
 
-.preheader.i.i.i.i.i:                             ; preds = %.preheader14.i.i.i.i.i
+.preheader.i.i.i.i.i:                             ; preds = %50
+  %.ptr12.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %49 = ptrtoint ptr %.ptr12.i.i.i.i.i to i64
   br label %52
 
-.preheader14.i.i.i.i.i:                           ; preds = %.preheader14.i.i.i.i.i, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEEC2ERKS3_.exit.i.i
-  %.015.i.i.i.i.i = phi i64 [ %51, %.preheader14.i.i.i.i.i ], [ 0, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEEC2ERKS3_.exit.i.i ]
+50:                                               ; preds = %50, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEEC2ERKS3_.exit.i.i
+  %.015.i.i.i.i.i = phi i64 [ 0, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_PrimvarsDataSourceEEC2ERKS3_.exit.i.i ], [ %51, %50 ]
   %.idx13.i.i.i.i.i = shl nuw nsw i64 %.015.i.i.i.i.i, 4
-  %.offs.i.i.i.i.i = or disjoint i64 %.idx13.i.i.i.i.i, 8
-  %50 = getelementptr inbounds nuw i8, ptr %.ptr12.i.i.i.i.i, i64 %.offs.i.i.i.i.i
-  store atomic i64 0, ptr %50 monotonic, align 8, !noalias !9
+  %gep.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i.i, i64 %.idx13.i.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i.i monotonic, align 8, !noalias !9
   %51 = add nuw nsw i64 %.015.i.i.i.i.i, 1
   %.not.i.i.i6.i.i = icmp eq i64 %51, 2
-  br i1 %.not.i.i.i6.i.i, label %.preheader.i.i.i.i.i, label %.preheader14.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i6.i.i, label %.preheader.i.i.i.i.i, label %50, !llvm.loop !12
 
 52:                                               ; preds = %52, %.preheader.i.i.i.i.i
   %.01016.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i ], [ %56, %52 ]

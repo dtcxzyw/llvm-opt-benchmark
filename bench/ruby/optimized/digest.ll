@@ -234,7 +234,7 @@ RSTRING_PTR.exit22.i:                             ; preds = %24, %17
   br i1 %.not.i, label %hexencode_str_new.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit22.i, %.lr.ph.i
-  %.023.i = phi i64 [ %40, %.lr.ph.i ], [ 0, %RSTRING_PTR.exit22.i ]
+  %.023.i = phi i64 [ %39, %.lr.ph.i ], [ 0, %RSTRING_PTR.exit22.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i.i, i64 %.023.i
   %26 = load i8, ptr %25, align 1, !tbaa !21
   %27 = zext i8 %26 to i32
@@ -249,20 +249,19 @@ RSTRING_PTR.exit22.i:                             ; preds = %24, %17
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !21
-  %38 = or disjoint i64 %32, 1
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %38
-  store i8 %37, ptr %39, align 1, !tbaa !21
-  %40 = add nuw nsw i64 %.023.i, 1
-  %exitcond.not.i = icmp eq i64 %40, %13
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  store i8 %37, ptr %38, align 1, !tbaa !21
+  %39 = add nuw nsw i64 %.023.i, 1
+  %exitcond.not.i = icmp eq i64 %39, %13
   br i1 %exitcond.not.i, label %hexencode_str_new.exit, label %.lr.ph.i, !llvm.loop !22
 
 hexencode_str_new.exit:                           ; preds = %.lr.ph.i, %RSTRING_PTR.exit22.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   store ptr %3, ptr %4, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %4) #9, !srcloc !27
-  %41 = load ptr, ptr %4, align 8, !tbaa !24
+  %40 = load ptr, ptr %4, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  %42 = load volatile i64, ptr %41, align 8, !tbaa !6
+  %41 = load volatile i64, ptr %40, align 8, !tbaa !6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret i64 %19
 }
@@ -450,7 +449,7 @@ RSTRING_PTR.exit22.i.i:                           ; preds = %33, %26
   br i1 %.not.i7.i, label %rb_digest_instance_hexdigest.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %RSTRING_PTR.exit22.i.i, %.lr.ph.i.i
-  %.023.i.i = phi i64 [ %49, %.lr.ph.i.i ], [ 0, %RSTRING_PTR.exit22.i.i ]
+  %.023.i.i = phi i64 [ %48, %.lr.ph.i.i ], [ 0, %RSTRING_PTR.exit22.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i.i.i, i64 %.023.i.i
   %35 = load i8, ptr %34, align 1, !tbaa !21
   %36 = zext i8 %35 to i32
@@ -465,23 +464,22 @@ RSTRING_PTR.exit22.i.i:                           ; preds = %33, %26
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !21
-  %47 = or disjoint i64 %41, 1
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i.i, i64 %47
-  store i8 %46, ptr %48, align 1, !tbaa !21
-  %49 = add nuw nsw i64 %.023.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %49, %22
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  store i8 %46, ptr %47, align 1, !tbaa !21
+  %48 = add nuw nsw i64 %.023.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %48, %22
   br i1 %exitcond.not.i.i, label %rb_digest_instance_hexdigest.exit, label %.lr.ph.i.i, !llvm.loop !22
 
 rb_digest_instance_hexdigest.exit:                ; preds = %.lr.ph.i.i, %RSTRING_PTR.exit22.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store ptr %2, ptr %3, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %3) #9, !srcloc !27
-  %50 = load ptr, ptr %3, align 8, !tbaa !24
+  %49 = load ptr, ptr %3, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  %51 = load volatile i64, ptr %50, align 8, !tbaa !6
+  %50 = load volatile i64, ptr %49, align 8, !tbaa !6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %52 = call i64 @rb_str_buf_append(i64 noundef %7, i64 noundef %28) #9
-  %53 = call i64 @rb_str_cat(i64 noundef %7, ptr noundef nonnull @.str.29, i64 noundef 1) #9
+  %51 = call i64 @rb_str_buf_append(i64 noundef %7, i64 noundef %28) #9
+  %52 = call i64 @rb_str_cat(i64 noundef %7, ptr noundef nonnull @.str.29, i64 noundef 1) #9
   ret i64 %7
 }
 
@@ -624,7 +622,7 @@ RSTRING_PTR.exit22.i:                             ; preds = %40, %33
   br i1 %.not.i7, label %hexencode_str_new.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit22.i, %.lr.ph.i
-  %.023.i = phi i64 [ %56, %.lr.ph.i ], [ 0, %RSTRING_PTR.exit22.i ]
+  %.023.i = phi i64 [ %55, %.lr.ph.i ], [ 0, %RSTRING_PTR.exit22.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i.i, i64 %.023.i
   %42 = load i8, ptr %41, align 1, !tbaa !21
   %43 = zext i8 %42 to i32
@@ -639,20 +637,19 @@ RSTRING_PTR.exit22.i:                             ; preds = %40, %33
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !21
-  %54 = or disjoint i64 %48, 1
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %54
-  store i8 %53, ptr %55, align 1, !tbaa !21
-  %56 = add nuw nsw i64 %.023.i, 1
-  %exitcond.not.i = icmp eq i64 %56, %29
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 1
+  store i8 %53, ptr %54, align 1, !tbaa !21
+  %55 = add nuw nsw i64 %.023.i, 1
+  %exitcond.not.i = icmp eq i64 %55, %29
   br i1 %exitcond.not.i, label %hexencode_str_new.exit, label %.lr.ph.i, !llvm.loop !22
 
 hexencode_str_new.exit:                           ; preds = %.lr.ph.i, %RSTRING_PTR.exit22.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store ptr %4, ptr %5, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #9, !srcloc !27
-  %57 = load ptr, ptr %5, align 8, !tbaa !24
+  %56 = load ptr, ptr %5, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  %58 = load volatile i64, ptr %57, align 8, !tbaa !6
+  %57 = load volatile i64, ptr %56, align 8, !tbaa !6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i64 %35
 }
@@ -712,7 +709,7 @@ RSTRING_PTR.exit22.i:                             ; preds = %27, %20
   br i1 %.not.i, label %hexencode_str_new.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit22.i, %.lr.ph.i
-  %.023.i = phi i64 [ %43, %.lr.ph.i ], [ 0, %RSTRING_PTR.exit22.i ]
+  %.023.i = phi i64 [ %42, %.lr.ph.i ], [ 0, %RSTRING_PTR.exit22.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i.i, i64 %.023.i
   %29 = load i8, ptr %28, align 1, !tbaa !21
   %30 = zext i8 %29 to i32
@@ -727,20 +724,19 @@ RSTRING_PTR.exit22.i:                             ; preds = %27, %20
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !21
-  %41 = or disjoint i64 %35, 1
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %41
-  store i8 %40, ptr %42, align 1, !tbaa !21
-  %43 = add nuw nsw i64 %.023.i, 1
-  %exitcond.not.i = icmp eq i64 %43, %16
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 1
+  store i8 %40, ptr %41, align 1, !tbaa !21
+  %42 = add nuw nsw i64 %.023.i, 1
+  %exitcond.not.i = icmp eq i64 %42, %16
   br i1 %exitcond.not.i, label %hexencode_str_new.exit, label %.lr.ph.i, !llvm.loop !22
 
 hexencode_str_new.exit:                           ; preds = %.lr.ph.i, %RSTRING_PTR.exit22.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store ptr %2, ptr %3, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %3) #9, !srcloc !27
-  %44 = load ptr, ptr %3, align 8, !tbaa !24
+  %43 = load ptr, ptr %3, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  %45 = load volatile i64, ptr %44, align 8, !tbaa !6
+  %44 = load volatile i64, ptr %43, align 8, !tbaa !6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   ret i64 %22
 }
@@ -856,7 +852,7 @@ RSTRING_PTR.exit22.i:                             ; preds = %27, %20
   br i1 %.not.i, label %hexencode_str_new.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %RSTRING_PTR.exit22.i, %.lr.ph.i
-  %.023.i = phi i64 [ %43, %.lr.ph.i ], [ 0, %RSTRING_PTR.exit22.i ]
+  %.023.i = phi i64 [ %42, %.lr.ph.i ], [ 0, %RSTRING_PTR.exit22.i ]
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i.i, i64 %.023.i
   %29 = load i8, ptr %28, align 1, !tbaa !21
   %30 = zext i8 %29 to i32
@@ -871,20 +867,19 @@ RSTRING_PTR.exit22.i:                             ; preds = %27, %20
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw [16 x i8], ptr @hexencode_str_new.hex, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !21
-  %41 = or disjoint i64 %35, 1
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i21.i, i64 %41
-  store i8 %40, ptr %42, align 1, !tbaa !21
-  %43 = add nuw nsw i64 %.023.i, 1
-  %exitcond.not.i = icmp eq i64 %43, %16
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 1
+  store i8 %40, ptr %41, align 1, !tbaa !21
+  %42 = add nuw nsw i64 %.023.i, 1
+  %exitcond.not.i = icmp eq i64 %42, %16
   br i1 %exitcond.not.i, label %hexencode_str_new.exit, label %.lr.ph.i, !llvm.loop !22
 
 hexencode_str_new.exit:                           ; preds = %.lr.ph.i, %RSTRING_PTR.exit22.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   store ptr %4, ptr %5, align 8, !tbaa !24
   call void asm sideeffect "", "*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) %5) #9, !srcloc !27
-  %44 = load ptr, ptr %5, align 8, !tbaa !24
+  %43 = load ptr, ptr %5, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  %45 = load volatile i64, ptr %44, align 8, !tbaa !6
+  %44 = load volatile i64, ptr %43, align 8, !tbaa !6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i64 %22
 }

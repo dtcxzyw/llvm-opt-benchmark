@@ -235,8 +235,8 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %200 = xor i32 %199, %186
   %201 = and i32 %185, %200
   %202 = xor i32 %201, %186
-  %203 = xor i32 %48, %26
-  %204 = xor i32 %203, %114
+  %203 = xor i32 %26, %114
+  %204 = xor i32 %203, %48
   %205 = xor i32 %204, %169
   %206 = tail call noundef i32 @llvm.fshl.i32(i32 %205, i32 %205, i32 1)
   %207 = tail call noundef i32 @llvm.fshl.i32(i32 %198, i32 %198, i32 5)
@@ -248,8 +248,8 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %213 = xor i32 %212, %199
   %214 = and i32 %198, %213
   %215 = xor i32 %214, %199
-  %216 = xor i32 %59, %37
-  %217 = xor i32 %216, %125
+  %216 = xor i32 %37, %125
+  %217 = xor i32 %216, %59
   %218 = xor i32 %217, %180
   %219 = tail call noundef i32 @llvm.fshl.i32(i32 %218, i32 %218, i32 1)
   %220 = tail call noundef i32 @llvm.fshl.i32(i32 %211, i32 %211, i32 5)
@@ -261,8 +261,8 @@ define dso_local void @_ZN4llvm4SHA19hashBlockEv(ptr noundef nonnull align 4 cap
   %226 = xor i32 %225, %212
   %227 = and i32 %211, %226
   %228 = xor i32 %227, %212
-  %229 = xor i32 %70, %48
-  %230 = xor i32 %229, %136
+  %229 = xor i32 %48, %136
+  %230 = xor i32 %229, %70
   %231 = xor i32 %230, %193
   %232 = tail call noundef i32 @llvm.fshl.i32(i32 %231, i32 %231, i32 1)
   %233 = tail call noundef i32 @llvm.fshl.i32(i32 %224, i32 %224, i32 5)

@@ -6177,124 +6177,123 @@ hashTypeLookupWriteOrCreate.exit.thread39:        ; preds = %16, %hashTypeLookup
 
 .lr.ph:                                           ; preds = %hashTypeLookupWriteOrCreate.exit.thread39, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 2, %hashTypeLookupWriteOrCreate.exit.thread39 ]
-  %.03542 = phi i32 [ %41, %.lr.ph ], [ 0, %hashTypeLookupWriteOrCreate.exit.thread39 ]
+  %.03542 = phi i32 [ %40, %.lr.ph ], [ 0, %hashTypeLookupWriteOrCreate.exit.thread39 ]
   %28 = load ptr, ptr %12, align 8, !tbaa !109
   %29 = load ptr, ptr %8, align 8, !tbaa !131
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !10
-  %34 = or disjoint i64 %indvars.iv, 1
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %34
-  %36 = load ptr, ptr %35, align 8, !tbaa !64
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !10
-  %39 = tail call i32 @hashTypeSet(ptr noundef %28, ptr noundef nonnull %.010.i41, ptr noundef %33, ptr noundef %38, i32 noundef 0)
-  %40 = xor i32 %39, 1
-  %41 = add nuw nsw i32 %40, %.03542
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !64
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !10
+  %38 = tail call i32 @hashTypeSet(ptr noundef %28, ptr noundef nonnull %.010.i41, ptr noundef %33, ptr noundef %37, i32 noundef 0)
+  %39 = xor i32 %38, 1
+  %40 = add nuw nsw i32 %39, %.03542
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %42 = load i32, ptr %2, align 8, !tbaa !135
-  %43 = trunc nuw i64 %indvars.iv.next to i32
-  %44 = icmp sgt i32 %42, %43
-  br i1 %44, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !136
+  %41 = load i32, ptr %2, align 8, !tbaa !135
+  %42 = trunc nuw i64 %indvars.iv.next to i32
+  %43 = icmp sgt i32 %41, %42
+  br i1 %43, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !136
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %45 = zext nneg i32 %41 to i64
+  %44 = zext nneg i32 %40 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %hashTypeLookupWriteOrCreate.exit.thread39
-  %.035.lcssa = phi i64 [ 0, %hashTypeLookupWriteOrCreate.exit.thread39 ], [ %45, %._crit_edge.loopexit ]
-  %46 = load ptr, ptr %8, align 8, !tbaa !131
-  %47 = load ptr, ptr %46, align 8, !tbaa !64
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !10
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %51 = load i8, ptr %50, align 1, !tbaa !5
-  switch i8 %51, label %53 [
-    i8 115, label %52
-    i8 83, label %52
+  %.035.lcssa = phi i64 [ 0, %hashTypeLookupWriteOrCreate.exit.thread39 ], [ %44, %._crit_edge.loopexit ]
+  %45 = load ptr, ptr %8, align 8, !tbaa !131
+  %46 = load ptr, ptr %45, align 8, !tbaa !64
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !10
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
+  %50 = load i8, ptr %49, align 1, !tbaa !5
+  switch i8 %50, label %52 [
+    i8 115, label %51
+    i8 83, label %51
   ]
 
-52:                                               ; preds = %._crit_edge, %._crit_edge
+51:                                               ; preds = %._crit_edge, %._crit_edge
   tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.035.lcssa) #16
-  br label %55
+  br label %54
 
-53:                                               ; preds = %._crit_edge
-  %54 = load ptr, ptr @shared, align 8, !tbaa !137
-  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %54) #16
-  br label %55
+52:                                               ; preds = %._crit_edge
+  %53 = load ptr, ptr @shared, align 8, !tbaa !137
+  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %53) #16
+  br label %54
 
-55:                                               ; preds = %53, %52
-  %56 = load ptr, ptr %12, align 8, !tbaa !109
-  %57 = load ptr, ptr %8, align 8, !tbaa !131
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !64
-  tail call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %56, ptr noundef %59) #16
-  %60 = load i32, ptr %.010.i41, align 8
-  %61 = lshr i32 %60, 4
-  %62 = and i32 %61, 15
-  switch i32 %62, label %83 [
-    i32 11, label %63
-    i32 12, label %68
-    i32 2, label %75
+54:                                               ; preds = %52, %51
+  %55 = load ptr, ptr %12, align 8, !tbaa !109
+  %56 = load ptr, ptr %8, align 8, !tbaa !131
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !64
+  tail call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %55, ptr noundef %58) #16
+  %59 = load i32, ptr %.010.i41, align 8
+  %60 = lshr i32 %59, 4
+  %61 = and i32 %60, 15
+  switch i32 %61, label %82 [
+    i32 11, label %62
+    i32 12, label %67
+    i32 2, label %74
   ]
 
-63:                                               ; preds = %55
-  %64 = getelementptr inbounds nuw i8, ptr %.010.i41, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !10
-  %66 = tail call i64 @lpLength(ptr noundef %65) #16
-  %67 = lshr i64 %66, 1
+62:                                               ; preds = %54
+  %63 = getelementptr inbounds nuw i8, ptr %.010.i41, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !10
+  %65 = tail call i64 @lpLength(ptr noundef %64) #16
+  %66 = lshr i64 %65, 1
   br label %hashTypeLength.exit
 
-68:                                               ; preds = %55
-  %69 = getelementptr inbounds nuw i8, ptr %.010.i41, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !10
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %72 = load ptr, ptr %71, align 8, !tbaa !15
-  %73 = tail call i64 @lpLength(ptr noundef %72) #16
-  %74 = udiv i64 %73, 3
+67:                                               ; preds = %54
+  %68 = getelementptr inbounds nuw i8, ptr %.010.i41, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !10
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %71 = load ptr, ptr %70, align 8, !tbaa !15
+  %72 = tail call i64 @lpLength(ptr noundef %71) #16
+  %73 = udiv i64 %72, 3
   br label %hashTypeLength.exit
 
-75:                                               ; preds = %55
-  %76 = getelementptr inbounds nuw i8, ptr %.010.i41, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !10
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  %79 = load i64, ptr %78, align 8, !tbaa !28
-  %80 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  %81 = load i64, ptr %80, align 8, !tbaa !28
-  %82 = add i64 %81, %79
+74:                                               ; preds = %54
+  %75 = getelementptr inbounds nuw i8, ptr %.010.i41, i64 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !10
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
+  %78 = load i64, ptr %77, align 8, !tbaa !28
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 32
+  %80 = load i64, ptr %79, align 8, !tbaa !28
+  %81 = add i64 %80, %78
   br label %hashTypeLength.exit
 
-83:                                               ; preds = %55
+82:                                               ; preds = %54
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1325, ptr noundef nonnull @.str.11) #16
   tail call void @abort() #17
   unreachable
 
-hashTypeLength.exit:                              ; preds = %63, %68, %75
-  %.0.i = phi i64 [ %67, %63 ], [ %82, %75 ], [ %74, %68 ]
-  %84 = load ptr, ptr %12, align 8, !tbaa !109
-  %85 = load ptr, ptr %8, align 8, !tbaa !131
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %87 = load ptr, ptr %86, align 8, !tbaa !64
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !10
-  %90 = tail call i32 @getKeySlot(ptr noundef %89) #16
-  %91 = sub i64 %.0.i, %.035.lcssa
-  tail call void @updateKeysizesHist(ptr noundef %84, i32 noundef %90, i32 noundef 4, i64 noundef %91, i64 noundef %.0.i) #16
-  %92 = load ptr, ptr %8, align 8, !tbaa !131
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !64
-  %95 = load ptr, ptr %12, align 8, !tbaa !109
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 56
-  %97 = load i32, ptr %96, align 8, !tbaa !67
-  tail call void @notifyKeyspaceEvent(i32 noundef 64, ptr noundef nonnull @.str.33, ptr noundef %94, i32 noundef %97) #16
-  %98 = load i32, ptr %2, align 8, !tbaa !135
-  %99 = add nsw i32 %98, -2
-  %100 = sdiv i32 %99, 2
-  %101 = sext i32 %100 to i64
-  %102 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !134
-  %103 = add nsw i64 %102, %101
-  store i64 %103, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !134
+hashTypeLength.exit:                              ; preds = %62, %67, %74
+  %.0.i = phi i64 [ %66, %62 ], [ %81, %74 ], [ %73, %67 ]
+  %83 = load ptr, ptr %12, align 8, !tbaa !109
+  %84 = load ptr, ptr %8, align 8, !tbaa !131
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = load ptr, ptr %85, align 8, !tbaa !64
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8, !tbaa !10
+  %89 = tail call i32 @getKeySlot(ptr noundef %88) #16
+  %90 = sub i64 %.0.i, %.035.lcssa
+  tail call void @updateKeysizesHist(ptr noundef %83, i32 noundef %89, i32 noundef 4, i64 noundef %90, i64 noundef %.0.i) #16
+  %91 = load ptr, ptr %8, align 8, !tbaa !131
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !64
+  %94 = load ptr, ptr %12, align 8, !tbaa !109
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
+  %96 = load i32, ptr %95, align 8, !tbaa !67
+  tail call void @notifyKeyspaceEvent(i32 noundef 64, ptr noundef nonnull @.str.33, ptr noundef %93, i32 noundef %96) #16
+  %97 = load i32, ptr %2, align 8, !tbaa !135
+  %98 = add nsw i32 %97, -2
+  %99 = sdiv i32 %98, 2
+  %100 = sext i32 %99 to i64
+  %101 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !134
+  %102 = add nsw i64 %101, %100
+  store i64 %102, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !134
   br label %hashTypeLookupWriteOrCreate.exit.thread
 
 hashTypeLookupWriteOrCreate.exit.thread:          ; preds = %7, %hashTypeLookupWriteOrCreate.exit, %hashTypeLength.exit, %6

@@ -2237,206 +2237,200 @@ pxr_nc_1_0_GetXYZtoRGBMatrix.exit:                ; preds = %4
   br label %81
 
 81:                                               ; preds = %.lr.ph, %nc_ToLinear.exit88
-  %.0126 = phi i64 [ 0, %.lr.ph ], [ %127, %nc_ToLinear.exit88 ]
-  %82 = shl i64 %.0126, 2
-  %83 = getelementptr inbounds float, ptr %2, i64 %82
-  %84 = load float, ptr %83, align 4
-  %85 = or disjoint i64 %82, 1
-  %86 = getelementptr inbounds float, ptr %2, i64 %85
+  %.0128 = phi i64 [ 0, %.lr.ph ], [ %124, %nc_ToLinear.exit88 ]
+  %.idx126 = shl i64 %.0128, 4
+  %82 = getelementptr inbounds i8, ptr %2, i64 %.idx126
+  %83 = load float, ptr %82, align 4
+  %84 = getelementptr i8, ptr %82, i64 4
+  %85 = load float, ptr %84, align 4
+  %86 = getelementptr i8, ptr %82, i64 8
   %87 = load float, ptr %86, align 4
-  %88 = or disjoint i64 %82, 2
-  %89 = getelementptr inbounds float, ptr %2, i64 %88
-  %90 = load float, ptr %89, align 4
-  %91 = load float, ptr %77, align 8
-  %92 = fcmp olt float %84, %91
-  br i1 %92, label %93, label %96
+  %88 = load float, ptr %77, align 8
+  %89 = fcmp olt float %83, %88
+  br i1 %89, label %90, label %93
 
-93:                                               ; preds = %81
-  %94 = load float, ptr %80, align 4
-  %95 = fdiv float %84, %94
+90:                                               ; preds = %81
+  %91 = load float, ptr %80, align 4
+  %92 = fdiv float %83, %91
   br label %nc_ToLinear.exit
 
-96:                                               ; preds = %81
-  %97 = load float, ptr %78, align 8
-  %98 = load float, ptr %79, align 4
-  %99 = fadd float %84, %98
-  %100 = fadd float %98, 1.000000e+00
-  %101 = fdiv float %99, %100
-  %102 = tail call float @powf(float noundef %101, float noundef %97) #24
+93:                                               ; preds = %81
+  %94 = load float, ptr %78, align 8
+  %95 = load float, ptr %79, align 4
+  %96 = fadd float %83, %95
+  %97 = fadd float %95, 1.000000e+00
+  %98 = fdiv float %96, %97
+  %99 = tail call float @powf(float noundef %98, float noundef %94) #24
   %.pre = load float, ptr %77, align 8
   br label %nc_ToLinear.exit
 
-nc_ToLinear.exit:                                 ; preds = %93, %96
-  %103 = phi float [ %91, %93 ], [ %.pre, %96 ]
-  %.0.i = phi float [ %95, %93 ], [ %102, %96 ]
-  %104 = fcmp olt float %87, %103
-  br i1 %104, label %105, label %108
+nc_ToLinear.exit:                                 ; preds = %90, %93
+  %100 = phi float [ %88, %90 ], [ %.pre, %93 ]
+  %.0.i = phi float [ %92, %90 ], [ %99, %93 ]
+  %101 = fcmp olt float %85, %100
+  br i1 %101, label %102, label %105
+
+102:                                              ; preds = %nc_ToLinear.exit
+  %103 = load float, ptr %80, align 4
+  %104 = fdiv float %85, %103
+  br label %nc_ToLinear.exit86
 
 105:                                              ; preds = %nc_ToLinear.exit
-  %106 = load float, ptr %80, align 4
-  %107 = fdiv float %87, %106
+  %106 = load float, ptr %78, align 8
+  %107 = load float, ptr %79, align 4
+  %108 = fadd float %85, %107
+  %109 = fadd float %107, 1.000000e+00
+  %110 = fdiv float %108, %109
+  %111 = tail call float @powf(float noundef %110, float noundef %106) #24
+  %.pre137 = load float, ptr %77, align 8
   br label %nc_ToLinear.exit86
 
-108:                                              ; preds = %nc_ToLinear.exit
-  %109 = load float, ptr %78, align 8
-  %110 = load float, ptr %79, align 4
-  %111 = fadd float %87, %110
-  %112 = fadd float %110, 1.000000e+00
-  %113 = fdiv float %111, %112
-  %114 = tail call float @powf(float noundef %113, float noundef %109) #24
-  %.pre135 = load float, ptr %77, align 8
-  br label %nc_ToLinear.exit86
+nc_ToLinear.exit86:                               ; preds = %102, %105
+  %112 = phi float [ %100, %102 ], [ %.pre137, %105 ]
+  %.0.i85 = phi float [ %104, %102 ], [ %111, %105 ]
+  %113 = fcmp olt float %87, %112
+  br i1 %113, label %114, label %117
 
-nc_ToLinear.exit86:                               ; preds = %105, %108
-  %115 = phi float [ %103, %105 ], [ %.pre135, %108 ]
-  %.0.i85 = phi float [ %107, %105 ], [ %114, %108 ]
-  %116 = fcmp olt float %90, %115
-  br i1 %116, label %117, label %120
+114:                                              ; preds = %nc_ToLinear.exit86
+  %115 = load float, ptr %80, align 4
+  %116 = fdiv float %87, %115
+  br label %nc_ToLinear.exit88
 
 117:                                              ; preds = %nc_ToLinear.exit86
-  %118 = load float, ptr %80, align 4
-  %119 = fdiv float %90, %118
+  %118 = load float, ptr %78, align 8
+  %119 = load float, ptr %79, align 4
+  %120 = fadd float %87, %119
+  %121 = fadd float %119, 1.000000e+00
+  %122 = fdiv float %120, %121
+  %123 = tail call float @powf(float noundef %122, float noundef %118) #24
   br label %nc_ToLinear.exit88
 
-120:                                              ; preds = %nc_ToLinear.exit86
-  %121 = load float, ptr %78, align 8
-  %122 = load float, ptr %79, align 4
-  %123 = fadd float %90, %122
-  %124 = fadd float %122, 1.000000e+00
-  %125 = fdiv float %123, %124
-  %126 = tail call float @powf(float noundef %125, float noundef %121) #24
-  br label %nc_ToLinear.exit88
+nc_ToLinear.exit88:                               ; preds = %114, %117
+  %.0.i87 = phi float [ %116, %114 ], [ %123, %117 ]
+  store float %.0.i, ptr %82, align 4
+  store float %.0.i85, ptr %84, align 4
+  store float %.0.i87, ptr %86, align 4
+  %124 = add nuw i64 %.0128, 1
+  %exitcond.not = icmp eq i64 %124, %3
+  br i1 %exitcond.not, label %.lr.ph130, label %81, !llvm.loop !35
 
-nc_ToLinear.exit88:                               ; preds = %117, %120
-  %.0.i87 = phi float [ %119, %117 ], [ %126, %120 ]
-  store float %.0.i, ptr %83, align 4
-  store float %.0.i85, ptr %86, align 4
-  store float %.0.i87, ptr %89, align 4
-  %127 = add nuw i64 %.0126, 1
-  %exitcond.not = icmp eq i64 %127, %3
-  br i1 %exitcond.not, label %.lr.ph128, label %81, !llvm.loop !35
+.lr.ph132:                                        ; preds = %.lr.ph130
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  br label %145
 
-.lr.ph130:                                        ; preds = %.lr.ph128
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  br label %151
-
-.lr.ph128:                                        ; preds = %nc_ToLinear.exit88, %.lr.ph128
-  %.078127 = phi i64 [ %150, %.lr.ph128 ], [ 0, %nc_ToLinear.exit88 ]
-  %132 = shl i64 %.078127, 2
-  %133 = getelementptr inbounds float, ptr %2, i64 %132
+.lr.ph130:                                        ; preds = %nc_ToLinear.exit88, %.lr.ph130
+  %.078129 = phi i64 [ %144, %.lr.ph130 ], [ 0, %nc_ToLinear.exit88 ]
+  %.idx125 = shl i64 %.078129, 4
+  %129 = getelementptr inbounds i8, ptr %2, i64 %.idx125
+  %130 = load float, ptr %129, align 4
+  %131 = getelementptr i8, ptr %129, i64 4
+  %132 = load float, ptr %131, align 4
+  %133 = getelementptr i8, ptr %129, i64 8
   %134 = load float, ptr %133, align 4
-  %135 = or disjoint i64 %132, 1
-  %136 = getelementptr inbounds float, ptr %2, i64 %135
-  %137 = load float, ptr %136, align 4
-  %138 = or disjoint i64 %132, 2
-  %139 = getelementptr inbounds float, ptr %2, i64 %138
-  %140 = load float, ptr %139, align 4
-  %141 = fmul float %55, %137
-  %142 = tail call float @llvm.fmuladd.f32(float %52, float %134, float %141)
-  %143 = tail call float @llvm.fmuladd.f32(float %58, float %140, float %142)
-  %144 = fmul float %64, %137
-  %145 = tail call float @llvm.fmuladd.f32(float %61, float %134, float %144)
-  %146 = tail call float @llvm.fmuladd.f32(float %67, float %140, float %145)
-  %147 = fmul float %73, %137
-  %148 = tail call float @llvm.fmuladd.f32(float %70, float %134, float %147)
-  %149 = tail call float @llvm.fmuladd.f32(float %76, float %140, float %148)
+  %135 = fmul float %55, %132
+  %136 = tail call float @llvm.fmuladd.f32(float %52, float %130, float %135)
+  %137 = tail call float @llvm.fmuladd.f32(float %58, float %134, float %136)
+  %138 = fmul float %64, %132
+  %139 = tail call float @llvm.fmuladd.f32(float %61, float %130, float %138)
+  %140 = tail call float @llvm.fmuladd.f32(float %67, float %134, float %139)
+  %141 = fmul float %73, %132
+  %142 = tail call float @llvm.fmuladd.f32(float %70, float %130, float %141)
+  %143 = tail call float @llvm.fmuladd.f32(float %76, float %134, float %142)
+  store float %137, ptr %129, align 4
+  store float %140, ptr %131, align 4
   store float %143, ptr %133, align 4
-  store float %146, ptr %136, align 4
-  store float %149, ptr %139, align 4
-  %150 = add nuw i64 %.078127, 1
-  %exitcond133.not = icmp eq i64 %150, %3
-  br i1 %exitcond133.not, label %.lr.ph130, label %.lr.ph128, !llvm.loop !36
+  %144 = add nuw i64 %.078129, 1
+  %exitcond135.not = icmp eq i64 %144, %3
+  br i1 %exitcond135.not, label %.lr.ph132, label %.lr.ph130, !llvm.loop !36
 
-151:                                              ; preds = %.lr.ph130, %nc_FromLinear.exit93
-  %.079129 = phi i64 [ 0, %.lr.ph130 ], [ %199, %nc_FromLinear.exit93 ]
-  %152 = shl i64 %.079129, 2
-  %153 = getelementptr inbounds float, ptr %2, i64 %152
-  %154 = load float, ptr %153, align 4
-  %155 = or disjoint i64 %152, 1
-  %156 = getelementptr inbounds float, ptr %2, i64 %155
-  %157 = load float, ptr %156, align 4
-  %158 = or disjoint i64 %152, 2
-  %159 = getelementptr inbounds float, ptr %2, i64 %158
-  %160 = load float, ptr %159, align 4
-  %161 = load float, ptr %128, align 8
-  %162 = load float, ptr %129, align 4
-  %163 = fdiv float %161, %162
-  %164 = fcmp olt float %154, %163
-  br i1 %164, label %165, label %167
+145:                                              ; preds = %.lr.ph132, %nc_FromLinear.exit93
+  %.079131 = phi i64 [ 0, %.lr.ph132 ], [ %190, %nc_FromLinear.exit93 ]
+  %.idx = shl i64 %.079131, 4
+  %146 = getelementptr inbounds i8, ptr %2, i64 %.idx
+  %147 = load float, ptr %146, align 4
+  %148 = getelementptr i8, ptr %146, i64 4
+  %149 = load float, ptr %148, align 4
+  %150 = getelementptr i8, ptr %146, i64 8
+  %151 = load float, ptr %150, align 4
+  %152 = load float, ptr %125, align 8
+  %153 = load float, ptr %126, align 4
+  %154 = fdiv float %152, %153
+  %155 = fcmp olt float %147, %154
+  br i1 %155, label %156, label %158
 
-165:                                              ; preds = %151
-  %166 = fmul float %154, %162
+156:                                              ; preds = %145
+  %157 = fmul float %147, %153
   br label %nc_FromLinear.exit
 
-167:                                              ; preds = %151
-  %168 = load float, ptr %130, align 8
-  %169 = load float, ptr %131, align 4
-  %170 = fadd float %169, 1.000000e+00
-  %171 = fdiv float 1.000000e+00, %168
-  %172 = tail call float @powf(float noundef %154, float noundef %171) #24
-  %173 = fneg float %169
-  %174 = tail call float @llvm.fmuladd.f32(float %170, float %172, float %173)
-  %.pre136 = load float, ptr %128, align 8
-  %.pre137 = load float, ptr %129, align 4
-  %.pre140 = fdiv float %.pre136, %.pre137
+158:                                              ; preds = %145
+  %159 = load float, ptr %127, align 8
+  %160 = load float, ptr %128, align 4
+  %161 = fadd float %160, 1.000000e+00
+  %162 = fdiv float 1.000000e+00, %159
+  %163 = tail call float @powf(float noundef %147, float noundef %162) #24
+  %164 = fneg float %160
+  %165 = tail call float @llvm.fmuladd.f32(float %161, float %163, float %164)
+  %.pre138 = load float, ptr %125, align 8
+  %.pre139 = load float, ptr %126, align 4
+  %.pre142 = fdiv float %.pre138, %.pre139
   br label %nc_FromLinear.exit
 
-nc_FromLinear.exit:                               ; preds = %165, %167
-  %.pre-phi = phi float [ %163, %165 ], [ %.pre140, %167 ]
-  %175 = phi float [ %162, %165 ], [ %.pre137, %167 ]
-  %.0.i89 = phi float [ %166, %165 ], [ %174, %167 ]
-  %176 = fcmp olt float %157, %.pre-phi
-  br i1 %176, label %177, label %179
+nc_FromLinear.exit:                               ; preds = %156, %158
+  %.pre-phi = phi float [ %154, %156 ], [ %.pre142, %158 ]
+  %166 = phi float [ %153, %156 ], [ %.pre139, %158 ]
+  %.0.i89 = phi float [ %157, %156 ], [ %165, %158 ]
+  %167 = fcmp olt float %149, %.pre-phi
+  br i1 %167, label %168, label %170
 
-177:                                              ; preds = %nc_FromLinear.exit
-  %178 = fmul float %157, %175
+168:                                              ; preds = %nc_FromLinear.exit
+  %169 = fmul float %149, %166
   br label %nc_FromLinear.exit91
 
-179:                                              ; preds = %nc_FromLinear.exit
-  %180 = load float, ptr %130, align 8
-  %181 = load float, ptr %131, align 4
-  %182 = fadd float %181, 1.000000e+00
-  %183 = fdiv float 1.000000e+00, %180
-  %184 = tail call float @powf(float noundef %157, float noundef %183) #24
-  %185 = fneg float %181
-  %186 = tail call float @llvm.fmuladd.f32(float %182, float %184, float %185)
-  %.pre138 = load float, ptr %128, align 8
-  %.pre139 = load float, ptr %129, align 4
-  %.pre141 = fdiv float %.pre138, %.pre139
+170:                                              ; preds = %nc_FromLinear.exit
+  %171 = load float, ptr %127, align 8
+  %172 = load float, ptr %128, align 4
+  %173 = fadd float %172, 1.000000e+00
+  %174 = fdiv float 1.000000e+00, %171
+  %175 = tail call float @powf(float noundef %149, float noundef %174) #24
+  %176 = fneg float %172
+  %177 = tail call float @llvm.fmuladd.f32(float %173, float %175, float %176)
+  %.pre140 = load float, ptr %125, align 8
+  %.pre141 = load float, ptr %126, align 4
+  %.pre143 = fdiv float %.pre140, %.pre141
   br label %nc_FromLinear.exit91
 
-nc_FromLinear.exit91:                             ; preds = %177, %179
-  %.pre-phi142 = phi float [ %.pre-phi, %177 ], [ %.pre141, %179 ]
-  %187 = phi float [ %175, %177 ], [ %.pre139, %179 ]
-  %.0.i90 = phi float [ %178, %177 ], [ %186, %179 ]
-  %188 = fcmp olt float %160, %.pre-phi142
-  br i1 %188, label %189, label %191
+nc_FromLinear.exit91:                             ; preds = %168, %170
+  %.pre-phi144 = phi float [ %.pre-phi, %168 ], [ %.pre143, %170 ]
+  %178 = phi float [ %166, %168 ], [ %.pre141, %170 ]
+  %.0.i90 = phi float [ %169, %168 ], [ %177, %170 ]
+  %179 = fcmp olt float %151, %.pre-phi144
+  br i1 %179, label %180, label %182
 
-189:                                              ; preds = %nc_FromLinear.exit91
-  %190 = fmul float %160, %187
+180:                                              ; preds = %nc_FromLinear.exit91
+  %181 = fmul float %151, %178
   br label %nc_FromLinear.exit93
 
-191:                                              ; preds = %nc_FromLinear.exit91
-  %192 = load float, ptr %130, align 8
-  %193 = load float, ptr %131, align 4
-  %194 = fadd float %193, 1.000000e+00
-  %195 = fdiv float 1.000000e+00, %192
-  %196 = tail call float @powf(float noundef %160, float noundef %195) #24
-  %197 = fneg float %193
-  %198 = tail call float @llvm.fmuladd.f32(float %194, float %196, float %197)
+182:                                              ; preds = %nc_FromLinear.exit91
+  %183 = load float, ptr %127, align 8
+  %184 = load float, ptr %128, align 4
+  %185 = fadd float %184, 1.000000e+00
+  %186 = fdiv float 1.000000e+00, %183
+  %187 = tail call float @powf(float noundef %151, float noundef %186) #24
+  %188 = fneg float %184
+  %189 = tail call float @llvm.fmuladd.f32(float %185, float %187, float %188)
   br label %nc_FromLinear.exit93
 
-nc_FromLinear.exit93:                             ; preds = %189, %191
-  %.0.i92 = phi float [ %190, %189 ], [ %198, %191 ]
-  store float %.0.i89, ptr %153, align 4
-  store float %.0.i90, ptr %156, align 4
-  store float %.0.i92, ptr %159, align 4
-  %199 = add nuw i64 %.079129, 1
-  %exitcond134.not = icmp eq i64 %199, %3
-  br i1 %exitcond134.not, label %.loopexit, label %151, !llvm.loop !37
+nc_FromLinear.exit93:                             ; preds = %180, %182
+  %.0.i92 = phi float [ %181, %180 ], [ %189, %182 ]
+  store float %.0.i89, ptr %146, align 4
+  store float %.0.i90, ptr %148, align 4
+  store float %.0.i92, ptr %150, align 4
+  %190 = add nuw i64 %.079131, 1
+  %exitcond136.not = icmp eq i64 %190, %3
+  br i1 %exitcond136.not, label %.loopexit, label %145, !llvm.loop !37
 
 .loopexit:                                        ; preds = %nc_FromLinear.exit93, %pxr_nc_1_0_GetXYZtoRGBMatrix.exit, %4
   ret void

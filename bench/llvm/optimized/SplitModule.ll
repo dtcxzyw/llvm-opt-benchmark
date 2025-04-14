@@ -3594,8 +3594,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIjSt23_Rb_tree_const_i
   %9 = shl i64 %.032, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.std::pair.148", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds nuw %"struct.std::pair.148", ptr %0, i64 %12
+  %12 = getelementptr inbounds nuw %"struct.std::pair.148", ptr %0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.val = load i32, ptr %11, align 8, !tbaa !52
   %14 = load i32, ptr %13, align 8, !tbaa !52
   %15 = icmp eq i32 %.val, %14
@@ -3608,7 +3608,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIjSt23_Rb_tree_const_i
   %19 = load ptr, ptr %18, align 8, !tbaa !55
   %20 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #18
   %21 = extractvalue { ptr, i64 } %20, 1
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !57
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !55
@@ -3637,112 +3637,113 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %16
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESS_EEbT_T0_.exit": ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i, %.thread.i.i.i.i, %32
   %.0.i.i = phi i1 [ %33, %32 ], [ %.inv.i.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i ], [ %spec.select.i.i.i, %.thread.i.i.i.i ]
-  %spec.select = select i1 %.0.i.i, i64 %12, i64 %10
-  %34 = getelementptr inbounds nuw %"struct.std::pair.148", ptr %0, i64 %spec.select
-  %35 = getelementptr inbounds nuw %"struct.std::pair.148", ptr %0, i64 %.032
-  %36 = load i32, ptr %34, align 4, !tbaa !3
-  store i32 %36, ptr %35, align 8, !tbaa !52
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %34 = or disjoint i64 %9, 1
+  %spec.select = select i1 %.0.i.i, i64 %34, i64 %10
+  %35 = getelementptr inbounds nuw %"struct.std::pair.148", ptr %0, i64 %spec.select
+  %36 = getelementptr inbounds nuw %"struct.std::pair.148", ptr %0, i64 %.032
+  %37 = load i32, ptr %35, align 4, !tbaa !3
+  store i32 %37, ptr %36, align 8, !tbaa !52
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %39 = load i64, ptr %37, align 8, !tbaa !58
-  store i64 %39, ptr %38, align 8, !tbaa !58
-  %40 = icmp slt i64 %spec.select, %7
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !221
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %40 = load i64, ptr %38, align 8, !tbaa !58
+  store i64 %40, ptr %39, align 8, !tbaa !58
+  %41 = icmp slt i64 %spec.select, %7
+  br i1 %41, label %.lr.ph, label %._crit_edge, !llvm.loop !221
 
 ._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESS_EEbT_T0_.exit", %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESS_EEbT_T0_.exit" ]
-  %41 = and i64 %2, 1
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %56
+  %42 = and i64 %2, 1
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %44, label %57
 
-43:                                               ; preds = %._crit_edge
-  %44 = add nsw i64 %2, -2
-  %45 = ashr exact i64 %44, 1
-  %46 = icmp eq i64 %.0.lcssa, %45
-  br i1 %46, label %47, label %56
+44:                                               ; preds = %._crit_edge
+  %45 = add nsw i64 %2, -2
+  %46 = ashr exact i64 %45, 1
+  %47 = icmp eq i64 %.0.lcssa, %46
+  br i1 %47, label %48, label %57
 
-47:                                               ; preds = %43
-  %48 = shl nsw i64 %.0.lcssa, 1
-  %49 = or disjoint i64 %48, 1
-  %50 = getelementptr inbounds nuw %"struct.std::pair.148", ptr %0, i64 %49
-  %51 = getelementptr inbounds nuw %"struct.std::pair.148", ptr %0, i64 %.0.lcssa
-  %52 = load i32, ptr %50, align 4, !tbaa !3
-  store i32 %52, ptr %51, align 8, !tbaa !52
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
+48:                                               ; preds = %44
+  %49 = shl nsw i64 %.0.lcssa, 1
+  %50 = or disjoint i64 %49, 1
+  %51 = getelementptr inbounds nuw %"struct.std::pair.148", ptr %0, i64 %50
+  %52 = getelementptr inbounds nuw %"struct.std::pair.148", ptr %0, i64 %.0.lcssa
+  %53 = load i32, ptr %51, align 4, !tbaa !3
+  store i32 %53, ptr %52, align 8, !tbaa !52
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %55 = load i64, ptr %53, align 8, !tbaa !58
-  store i64 %55, ptr %54, align 8, !tbaa !58
-  br label %56
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %56 = load i64, ptr %54, align 8, !tbaa !58
+  store i64 %56, ptr %55, align 8, !tbaa !58
+  br label %57
 
-56:                                               ; preds = %47, %43, %._crit_edge
-  %.1 = phi i64 [ %49, %47 ], [ %.0.lcssa, %43 ], [ %.0.lcssa, %._crit_edge ]
-  %57 = icmp sgt i64 %.1, %1
-  br i1 %57, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_RT2_.exit"
+57:                                               ; preds = %48, %44, %._crit_edge
+  %.1 = phi i64 [ %50, %48 ], [ %.0.lcssa, %44 ], [ %.0.lcssa, %._crit_edge ]
+  %58 = icmp sgt i64 %.1, %1
+  br i1 %58, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  br label %59
+.lr.ph.i:                                         ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  br label %60
 
-59:                                               ; preds = %77, %.lr.ph.i
-  %.0134.i = phi i64 [ %.1, %.lr.ph.i ], [ %.05.i, %77 ]
+60:                                               ; preds = %78, %.lr.ph.i
+  %.0134.i = phi i64 [ %.1, %.lr.ph.i ], [ %.05.i, %78 ]
   %.05.in.i = add nsw i64 %.0134.i, -1
   %.05.i = sdiv i64 %.05.in.i, 2
-  %60 = getelementptr inbounds %"struct.std::pair.148", ptr %0, i64 %.05.i
-  %.val.i = load i32, ptr %60, align 8, !tbaa !52
-  %61 = getelementptr i8, ptr %60, i64 8
-  %62 = icmp eq i32 %.val.i, %3
-  br i1 %62, label %63, label %75
+  %61 = getelementptr inbounds %"struct.std::pair.148", ptr %0, i64 %.05.i
+  %.val.i = load i32, ptr %61, align 8, !tbaa !52
+  %62 = getelementptr i8, ptr %61, i64 8
+  %63 = icmp eq i32 %.val.i, %3
+  br i1 %63, label %64, label %76
 
-63:                                               ; preds = %59
-  %.val14.i = load ptr, ptr %61, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 48
-  %65 = load ptr, ptr %64, align 8, !tbaa !55
-  %66 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %65) #18
-  %67 = extractvalue { ptr, i64 } %66, 1
-  %68 = load ptr, ptr %58, align 8, !tbaa !55
-  %69 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %68) #18
-  %70 = extractvalue { ptr, i64 } %69, 1
-  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %70, i64 %67)
-  %71 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
-  br i1 %71, label %.thread.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
+64:                                               ; preds = %60
+  %.val14.i = load ptr, ptr %62, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %.val14.i, i64 48
+  %66 = load ptr, ptr %65, align 8, !tbaa !55
+  %67 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %66) #18
+  %68 = extractvalue { ptr, i64 } %67, 1
+  %69 = load ptr, ptr %59, align 8, !tbaa !55
+  %70 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %69) #18
+  %71 = extractvalue { ptr, i64 } %70, 1
+  %.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %71, i64 %68)
+  %72 = icmp eq i64 %.sroa.speculated.i.i.i.i.i, 0
+  br i1 %72, label %.thread.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %63
-  %72 = extractvalue { ptr, i64 } %69, 0
-  %73 = extractvalue { ptr, i64 } %66, 0
-  %74 = tail call i32 @memcmp(ptr noundef %73, ptr noundef %72, i64 noundef %.sroa.speculated.i.i.i.i.i) #19
-  %.fr.i.i.i.i.i = freeze i32 %74
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %64
+  %73 = extractvalue { ptr, i64 } %70, 0
+  %74 = extractvalue { ptr, i64 } %67, 0
+  %75 = tail call i32 @memcmp(ptr noundef %74, ptr noundef %73, i64 noundef %.sroa.speculated.i.i.i.i.i) #19
+  %.fr.i.i.i.i.i = freeze i32 %75
   %.not.not.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i, 0
   br i1 %.not.not.i.i.i.i.i, label %.thread.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESR_EEbT_RT0_.exit.i"
 
-.thread.i.i.i.i.i:                                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i, %63
-  %spec.select.i.i.i.i = icmp ugt i64 %67, %70
-  br i1 %spec.select.i.i.i.i, label %77, label %"_ZSt11__push_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_RT2_.exit"
+.thread.i.i.i.i.i:                                ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i, %64
+  %spec.select.i.i.i.i = icmp ugt i64 %68, %71
+  br i1 %spec.select.i.i.i.i, label %78, label %"_ZSt11__push_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_RT2_.exit"
 
-75:                                               ; preds = %59
-  %76 = icmp ugt i32 %.val.i, %3
-  br i1 %76, label %77, label %"_ZSt11__push_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_RT2_.exit"
+76:                                               ; preds = %60
+  %77 = icmp ugt i32 %.val.i, %3
+  br i1 %77, label %78, label %"_ZSt11__push_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_RT2_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESR_EEbT_RT0_.exit.i": ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i
   %.inv.i.i.i.i.i = icmp sgt i32 %.fr.i.i.i.i.i, -1
-  br i1 %.inv.i.i.i.i.i, label %77, label %"_ZSt11__push_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_RT2_.exit"
+  br i1 %.inv.i.i.i.i.i, label %78, label %"_ZSt11__push_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_RT2_.exit"
 
-77:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESR_EEbT_RT0_.exit.i", %75, %.thread.i.i.i.i.i
-  %78 = getelementptr inbounds nuw %"struct.std::pair.148", ptr %0, i64 %.0134.i
-  %79 = load i32, ptr %60, align 4, !tbaa !3
-  store i32 %79, ptr %78, align 8, !tbaa !52
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %81 = load i64, ptr %61, align 8, !tbaa !58
-  store i64 %81, ptr %80, align 8, !tbaa !58
-  %82 = icmp sgt i64 %.05.i, %1
-  br i1 %82, label %59, label %"_ZSt11__push_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_RT2_.exit", !llvm.loop !222
+78:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESR_EEbT_RT0_.exit.i", %76, %.thread.i.i.i.i.i
+  %79 = getelementptr inbounds nuw %"struct.std::pair.148", ptr %0, i64 %.0134.i
+  %80 = load i32, ptr %61, align 4, !tbaa !3
+  store i32 %80, ptr %79, align 8, !tbaa !52
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %82 = load i64, ptr %62, align 8, !tbaa !58
+  store i64 %82, ptr %81, align 8, !tbaa !58
+  %83 = icmp sgt i64 %.05.i, %1
+  br i1 %83, label %60, label %"_ZSt11__push_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_RT2_.exit", !llvm.loop !222
 
-"_ZSt11__push_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_RT2_.exit": ; preds = %.thread.i.i.i.i.i, %75, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESR_EEbT_RT0_.exit.i", %77, %56
-  %.013.lcssa.i = phi i64 [ %.1, %56 ], [ %.0134.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESR_EEbT_RT0_.exit.i" ], [ %.05.i, %77 ], [ %.0134.i, %75 ], [ %.0134.i, %.thread.i.i.i.i.i ]
-  %83 = getelementptr inbounds %"struct.std::pair.148", ptr %0, i64 %.013.lcssa.i
-  store i32 %3, ptr %83, align 8, !tbaa !52
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %85 = ptrtoint ptr %4 to i64
-  store i64 %85, ptr %84, align 8, !tbaa !58
+"_ZSt11__push_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_RT2_.exit": ; preds = %.thread.i.i.i.i.i, %76, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESR_EEbT_RT0_.exit.i", %78, %57
+  %.013.lcssa.i = phi i64 [ %.1, %57 ], [ %.0134.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESR_EEbT_RT0_.exit.i" ], [ %.05.i, %78 ], [ %.0134.i, %76 ], [ %.0134.i, %.thread.i.i.i.i.i ]
+  %84 = getelementptr inbounds %"struct.std::pair.148", ptr %0, i64 %.013.lcssa.i
+  store i32 %3, ptr %84, align 8, !tbaa !52
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = ptrtoint ptr %4 to i64
+  store i64 %86, ptr %85, align 8, !tbaa !58
   ret void
 }
 

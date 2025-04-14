@@ -878,7 +878,7 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %4 = tail call ptr @JNU_GetEnv(ptr noundef %3, i32 noundef 65538) #16
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.storeRestoreToken, i32 noundef 742, ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %108, label %5
+  br i1 %.not, label %104, label %5
 
 5:                                                ; preds = %2
   %.not75 = icmp eq ptr %0, null
@@ -905,7 +905,7 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
 
 19:                                               ; preds = %15, %6
   %.not77 = icmp eq ptr %10, null
-  br i1 %.not77, label %109, label %20
+  br i1 %.not77, label %105, label %20
 
 20:                                               ; preds = %19, %5
   %.0 = phi ptr [ %10, %19 ], [ null, %5 ]
@@ -936,12 +936,12 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 184
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull %4, ptr noundef %.0) #16
-  br label %109
+  br label %105
 
 38:                                               ; preds = %33
   %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %41, label %101
+  br i1 %40, label %41, label %97
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %4, align 8
@@ -965,7 +965,7 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
 
 55:                                               ; preds = %51, %41
   %.not81 = icmp eq ptr %46, null
-  br i1 %.not81, label %109, label %56
+  br i1 %.not81, label %105, label %56
 
 56:                                               ; preds = %55
   %57 = load ptr, ptr %4, align 8
@@ -988,7 +988,7 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
 
 69:                                               ; preds = %65, %56
   %.not83 = icmp eq ptr %60, null
-  br i1 %.not83, label %109, label %.preheader
+  br i1 %.not83, label %105, label %.preheader
 
 .preheader:                                       ; preds = %69
   %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
@@ -1006,65 +1006,62 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 12
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  %74 = shl nsw i64 %indvars.iv, 2
-  %75 = getelementptr inbounds nuw i32, ptr %60, i64 %74
-  store i32 %.sroa.0.0.copyload, ptr %75, align 4
-  %76 = or disjoint i64 %74, 1
-  %77 = getelementptr inbounds nuw i32, ptr %60, i64 %76
-  store i32 %.sroa.2.0.copyload, ptr %77, align 4
-  %78 = or disjoint i64 %74, 2
-  %79 = getelementptr inbounds nuw i32, ptr %60, i64 %78
-  store i32 %.sroa.3.0.copyload, ptr %79, align 4
-  %80 = or disjoint i64 %74, 3
-  %81 = getelementptr inbounds nuw i32, ptr %60, i64 %80
-  store i32 %.sroa.4.0.copyload, ptr %81, align 4
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %74 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx
+  store i32 %.sroa.0.0.copyload, ptr %74, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  store i32 %.sroa.2.0.copyload, ptr %75, align 4
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store i32 %.sroa.3.0.copyload, ptr %76, align 4
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 12
+  store i32 %.sroa.4.0.copyload, ptr %77, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
-  %83 = sext i32 %82 to i64
-  %84 = icmp slt i64 %indvars.iv.next, %83
-  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
+  %79 = sext i32 %78 to i64
+  %80 = icmp slt i64 %indvars.iv.next, %79
+  br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %85 = load ptr, ptr %4, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1560
-  %87 = load ptr, ptr %86, align 8
-  tail call void %87(ptr noundef nonnull %4, ptr noundef nonnull %46, ptr noundef nonnull %60, i32 noundef 0) #16
-  %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1128
-  %90 = load ptr, ptr %89, align 8
-  %91 = load ptr, ptr @tokenStorageClass, align 8
-  %92 = load ptr, ptr @storeTokenMethodID, align 8
-  tail call void (ptr, ptr, ptr, ...) %90(ptr noundef nonnull %4, ptr noundef %91, ptr noundef %92, ptr noundef %.0, ptr noundef nonnull %24, ptr noundef nonnull %46) #16
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 1824
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call zeroext i8 %95(ptr noundef nonnull %4) #16
-  %.not84 = icmp eq i8 %96, 0
-  br i1 %.not84, label %101, label %97
+  %81 = load ptr, ptr %4, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1560
+  %83 = load ptr, ptr %82, align 8
+  tail call void %83(ptr noundef nonnull %4, ptr noundef nonnull %46, ptr noundef nonnull %60, i32 noundef 0) #16
+  %84 = load ptr, ptr %4, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1128
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr @tokenStorageClass, align 8
+  %88 = load ptr, ptr @storeTokenMethodID, align 8
+  tail call void (ptr, ptr, ptr, ...) %86(ptr noundef nonnull %4, ptr noundef %87, ptr noundef %88, ptr noundef %.0, ptr noundef nonnull %24, ptr noundef nonnull %46) #16
+  %89 = load ptr, ptr %4, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1824
+  %91 = load ptr, ptr %90, align 8
+  %92 = tail call zeroext i8 %91(ptr noundef nonnull %4) #16
+  %.not84 = icmp eq i8 %92, 0
+  br i1 %.not84, label %97, label %93
 
-97:                                               ; preds = %._crit_edge
+93:                                               ; preds = %._crit_edge
+  %94 = load ptr, ptr %4, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 128
+  %96 = load ptr, ptr %95, align 8
+  tail call void %96(ptr noundef nonnull %4) #16
+  br label %97
+
+97:                                               ; preds = %._crit_edge, %93, %38
   %98 = load ptr, ptr %4, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 128
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 184
   %100 = load ptr, ptr %99, align 8
-  tail call void %100(ptr noundef nonnull %4) #16
-  br label %101
+  tail call void %100(ptr noundef nonnull %4, ptr noundef %.0) #16
+  %101 = load ptr, ptr %4, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 184
+  %103 = load ptr, ptr %102, align 8
+  tail call void %103(ptr noundef nonnull %4, ptr noundef nonnull %24) #16
+  br label %105
 
-101:                                              ; preds = %._crit_edge, %97, %38
-  %102 = load ptr, ptr %4, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 184
-  %104 = load ptr, ptr %103, align 8
-  tail call void %104(ptr noundef nonnull %4, ptr noundef %.0) #16
-  %105 = load ptr, ptr %4, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 184
-  %107 = load ptr, ptr %106, align 8
-  tail call void %107(ptr noundef nonnull %4, ptr noundef nonnull %24) #16
-  br label %109
-
-108:                                              ; preds = %2
+104:                                              ; preds = %2
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.storeRestoreToken, i32 noundef 791, ptr noundef null)
-  br label %109
+  br label %105
 
-109:                                              ; preds = %69, %55, %19, %108, %101, %34
+105:                                              ; preds = %69, %55, %19, %104, %97, %34
   ret void
 }
 
@@ -1469,7 +1466,7 @@ define i32 @Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl(ptr nounde
 
 27:                                               ; preds = %25
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl, i32 noundef 931, ptr noundef null)
-  br label %139
+  br label %136
 
 28:                                               ; preds = %25
   %29 = ashr exact i32 %16, 2
@@ -1510,52 +1507,49 @@ define i32 @Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl(ptr nounde
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %48 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4
-  %50 = or disjoint i64 %indvars.iv.i, 1
-  %51 = getelementptr inbounds nuw i32, ptr %36, i64 %50
-  %52 = load i32, ptr %51, align 4
-  %53 = or disjoint i64 %indvars.iv.i, 2
-  %54 = getelementptr inbounds nuw i32, ptr %36, i64 %53
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %51 = load i32, ptr %50, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %53 = load i32, ptr %52, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 12
   %55 = load i32, ptr %54, align 4
-  %56 = or disjoint i64 %indvars.iv.i, 3
-  %57 = getelementptr inbounds nuw i32, ptr %36, i64 %56
-  %58 = load i32, ptr %57, align 4
-  %59 = lshr exact i64 %indvars.iv.i, 2
-  %60 = getelementptr inbounds nuw %struct.GdkRectangle, ptr %32, i64 %59
-  store i32 %49, ptr %60, align 16
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store i32 %52, ptr %.sroa.2.0..sroa_idx.i, align 4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i32 %55, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 12
-  store i32 %58, ptr %.sroa.4.0..sroa_idx.i, align 4
+  %56 = lshr exact i64 %indvars.iv.i, 2
+  %57 = getelementptr inbounds nuw %struct.GdkRectangle, ptr %32, i64 %56
+  store i32 %49, ptr %57, align 16
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 4
+  store i32 %51, ptr %.sroa.2.0..sroa_idx.i, align 4
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store i32 %53, ptr %.sroa.3.0..sroa_idx.i, align 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 12
+  store i32 %55, ptr %.sroa.4.0..sroa_idx.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %61 = icmp samesign ult i64 %indvars.iv.next.i, %47
-  br i1 %61, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+  %58 = icmp samesign ult i64 %indvars.iv.next.i, %47
+  br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1560
-  %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %36, i32 noundef 0) #16
+  %59 = load ptr, ptr %0, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1560
+  %61 = load ptr, ptr %60, align 8
+  tail call void %61(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %36, i32 noundef 0) #16
   br label %arrayToRectangles.exit
 
 arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45, %.split
-  %65 = phi ptr [ %11, %.split ], [ %31, %45 ], [ %31, %._crit_edge.i ]
-  %66 = phi ptr [ %10, %.split ], [ %32, %45 ], [ %32, %._crit_edge.i ]
+  %62 = phi ptr [ %11, %.split ], [ %31, %45 ], [ %31, %._crit_edge.i ]
+  %63 = phi ptr [ %10, %.split ], [ %32, %45 ], [ %32, %._crit_edge.i ]
   %.091 = phi i32 [ 0, %.split ], [ %29, %45 ], [ %29, %._crit_edge.i ]
   %.not107 = icmp eq ptr %8, null
-  br i1 %.not107, label %72, label %67
+  br i1 %.not107, label %69, label %64
 
-67:                                               ; preds = %arrayToRectangles.exit
-  %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1352
-  %70 = load ptr, ptr %69, align 8
-  %71 = tail call ptr %70(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef null) #16
-  br label %72
+64:                                               ; preds = %arrayToRectangles.exit
+  %65 = load ptr, ptr %0, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1352
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call ptr %67(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef null) #16
+  br label %69
 
-72:                                               ; preds = %arrayToRectangles.exit, %67
-  %73 = phi ptr [ %71, %67 ], [ null, %arrayToRectangles.exit ]
-  tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl, i32 noundef 952, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %73)
+69:                                               ; preds = %arrayToRectangles.exit, %64
+  %70 = phi ptr [ %68, %64 ], [ null, %arrayToRectangles.exit ]
+  tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl, i32 noundef 952, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %70)
   %.sroa.5.0.insert.ext = zext i32 %3 to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %2 to i64
@@ -1564,169 +1558,169 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45,
   %.sroa.12.8.insert.shift = shl nuw i64 %.sroa.12.8.insert.ext, 32
   %.sroa.8.8.insert.ext = zext i32 %4 to i64
   %.sroa.8.8.insert.insert = or disjoint i64 %.sroa.12.8.insert.shift, %.sroa.8.8.insert.ext
-  %74 = call fastcc i32 @makeScreencast(ptr noundef %73, i64 %.sroa.0.0.insert.insert, i64 %.sroa.8.8.insert.insert, ptr noundef %66, i32 noundef %.091)
-  switch i32 %74, label %76 [
-    i32 0, label %79
-    i32 -11, label %75
+  %71 = call fastcc i32 @makeScreencast(ptr noundef %70, i64 %.sroa.0.0.insert.insert, i64 %.sroa.8.8.insert.insert, ptr noundef %63, i32 noundef %.091)
+  switch i32 %71, label %73 [
+    i32 0, label %76
+    i32 -11, label %72
   ]
 
-75:                                               ; preds = %72
-  %.not.i116 = icmp eq ptr %73, null
+72:                                               ; preds = %69
+  %.not.i116 = icmp eq ptr %70, null
   br i1 %.not.i116, label %releaseToken.exit, label %releaseToken.exit.sink.split
 
-76:                                               ; preds = %72
-  call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl, i32 noundef 963, i32 noundef %74)
-  %77 = call fastcc i32 @makeScreencast(ptr noundef %73, i64 %.sroa.0.0.insert.insert, i64 %.sroa.8.8.insert.insert, ptr noundef %66, i32 noundef %.091)
-  %.not109 = icmp eq i32 %77, 0
-  br i1 %.not109, label %79, label %78
+73:                                               ; preds = %69
+  call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.10, ptr noundef nonnull @__func__.Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl, i32 noundef 963, i32 noundef %71)
+  %74 = call fastcc i32 @makeScreencast(ptr noundef %70, i64 %.sroa.0.0.insert.insert, i64 %.sroa.8.8.insert.insert, ptr noundef %63, i32 noundef %.091)
+  %.not109 = icmp eq i32 %74, 0
+  br i1 %.not109, label %76, label %75
 
-78:                                               ; preds = %76
-  %.not.i117 = icmp eq ptr %73, null
+75:                                               ; preds = %73
+  %.not.i117 = icmp eq ptr %70, null
   br i1 %.not.i117, label %releaseToken.exit, label %releaseToken.exit.sink.split
 
-79:                                               ; preds = %72, %76
+76:                                               ; preds = %69, %73
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl, i32 noundef 972, ptr noundef null)
-  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
-  %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %.lr.ph141.preheader, label %._crit_edge142
+  %77 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
+  %78 = icmp sgt i32 %77, 0
+  br i1 %78, label %.lr.ph141.preheader, label %._crit_edge142
 
-.lr.ph141.preheader:                              ; preds = %79
+.lr.ph141.preheader:                              ; preds = %76
   %.pre147 = load ptr, ptr @screenSpace, align 8
   br label %.lr.ph141
 
-.lr.ph141:                                        ; preds = %.lr.ph141.preheader, %131
-  %82 = phi i32 [ %80, %.lr.ph141.preheader ], [ %132, %131 ]
-  %83 = phi ptr [ %.pre147, %.lr.ph141.preheader ], [ %133, %131 ]
-  %indvars.iv144 = phi i64 [ 0, %.lr.ph141.preheader ], [ %indvars.iv.next145, %131 ]
-  %84 = getelementptr inbounds nuw %struct.ScreenProps, ptr %83, i64 %indvars.iv144
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 56
-  %86 = load volatile i32, ptr %85, align 8
-  %.not110 = icmp eq i32 %86, 0
-  br i1 %.not110, label %131, label %87
+.lr.ph141:                                        ; preds = %.lr.ph141.preheader, %128
+  %79 = phi i32 [ %77, %.lr.ph141.preheader ], [ %129, %128 ]
+  %80 = phi ptr [ %.pre147, %.lr.ph141.preheader ], [ %130, %128 ]
+  %indvars.iv144 = phi i64 [ 0, %.lr.ph141.preheader ], [ %indvars.iv.next145, %128 ]
+  %81 = getelementptr inbounds nuw %struct.ScreenProps, ptr %80, i64 %indvars.iv144
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 56
+  %83 = load volatile i32, ptr %82, align 8
+  %.not110 = icmp eq i32 %83, 0
+  br i1 %.not110, label %128, label %84
 
-87:                                               ; preds = %.lr.ph141
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  %.sroa.011.0.copyload = load i32, ptr %88, align 4
-  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 8
+84:                                               ; preds = %.lr.ph141
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 4
+  %.sroa.011.0.copyload = load i32, ptr %85, align 4
+  %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 8
   %.sroa.212.0.copyload = load i32, ptr %.sroa.212.0..sroa_idx, align 4
-  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 12
+  %.sroa.313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 12
   %.sroa.313.0.copyload = load i32, ptr %.sroa.313.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 16
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 20
-  %.sroa.0.0.copyload = load i32, ptr %89, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 20
+  %.sroa.0.0.copyload = load i32, ptr %86, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 24
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 28
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 28
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 32
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %81, i64 32
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
-  %90 = load i32, ptr %84, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  %92 = load ptr, ptr %91, align 8
-  %93 = trunc nuw nsw i64 %indvars.iv144 to i32
-  call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl, i32 noundef 997, i32 noundef %90, i32 noundef %.sroa.011.0.copyload, i32 noundef %.sroa.212.0.copyload, i32 noundef %.sroa.313.0.copyload, i32 noundef %.sroa.4.0.copyload, i32 noundef %93, ptr noundef %92, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.13, i32 noundef %.sroa.011.0.copyload, i32 noundef %.sroa.212.0.copyload, i32 noundef %.sroa.313.0.copyload, i32 noundef %.sroa.4.0.copyload, ptr noundef nonnull @.str.14, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.6.0.copyload, ptr noundef nonnull @.str.15)
-  %94 = load ptr, ptr %91, align 8
-  %.not111 = icmp eq ptr %94, null
+  %87 = load i32, ptr %81, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 48
+  %89 = load ptr, ptr %88, align 8
+  %90 = trunc nuw nsw i64 %indvars.iv144 to i32
+  call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.12, ptr noundef nonnull @__func__.Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl, i32 noundef 997, i32 noundef %87, i32 noundef %.sroa.011.0.copyload, i32 noundef %.sroa.212.0.copyload, i32 noundef %.sroa.313.0.copyload, i32 noundef %.sroa.4.0.copyload, i32 noundef %90, ptr noundef %89, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull @.str.13, i32 noundef %.sroa.011.0.copyload, i32 noundef %.sroa.212.0.copyload, i32 noundef %.sroa.313.0.copyload, i32 noundef %.sroa.4.0.copyload, ptr noundef nonnull @.str.14, i32 noundef %.sroa.0.0.copyload, i32 noundef %.sroa.2.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.6.0.copyload, ptr noundef nonnull @.str.15)
+  %91 = load ptr, ptr %88, align 8
+  %.not111 = icmp eq ptr %91, null
   br i1 %.not111, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %87
-  %95 = icmp sgt i32 %.sroa.6.0.copyload, 0
-  br i1 %95, label %.lr.ph.preheader, label %._crit_edge.thread
+.preheader:                                       ; preds = %84
+  %92 = icmp sgt i32 %.sroa.6.0.copyload, 0
+  br i1 %92, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %96 = sext i32 %.sroa.3.0.copyload to i64
+  %93 = sext i32 %.sroa.3.0.copyload to i64
   %wide.trip.count = zext nneg i32 %.sroa.6.0.copyload to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %97 = load i32, ptr %.sroa.212.0..sroa_idx, align 4
-  %98 = icmp sgt i32 %3, %97
-  %99 = sub nsw i32 %97, %3
-  %spec.select = select i1 %98, i32 0, i32 %99
-  %100 = load i32, ptr %88, align 4
-  %101 = icmp sgt i32 %2, %100
-  %102 = sub nsw i32 %100, %2
-  %103 = select i1 %101, i32 0, i32 %102
-  %104 = trunc nuw nsw i64 %indvars.iv to i32
-  %105 = add nsw i32 %spec.select, %104
-  %106 = mul nsw i32 %105, %4
-  %107 = add nsw i32 %106, %103
-  %108 = load ptr, ptr %0, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 1688
+  %94 = load i32, ptr %.sroa.212.0..sroa_idx, align 4
+  %95 = icmp sgt i32 %3, %94
+  %96 = sub nsw i32 %94, %3
+  %spec.select = select i1 %95, i32 0, i32 %96
+  %97 = load i32, ptr %85, align 4
+  %98 = icmp sgt i32 %2, %97
+  %99 = sub nsw i32 %97, %2
+  %100 = select i1 %98, i32 0, i32 %99
+  %101 = trunc nuw nsw i64 %indvars.iv to i32
+  %102 = add nsw i32 %spec.select, %101
+  %103 = mul nsw i32 %102, %4
+  %104 = add nsw i32 %103, %100
+  %105 = load ptr, ptr %0, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1688
+  %107 = load ptr, ptr %106, align 8
+  %108 = load ptr, ptr @gtk, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 824
   %110 = load ptr, ptr %109, align 8
-  %111 = load ptr, ptr @gtk, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 824
-  %113 = load ptr, ptr %112, align 8
-  %114 = load ptr, ptr %91, align 8
-  %115 = call ptr %113(ptr noundef %114) #16
-  %116 = mul nsw i64 %indvars.iv, %96
-  %117 = getelementptr inbounds i32, ptr %115, i64 %116
-  call void %110(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %107, i32 noundef %.sroa.3.0.copyload, ptr noundef %117) #16
+  %111 = load ptr, ptr %88, align 8
+  %112 = call ptr %110(ptr noundef %111) #16
+  %113 = mul nsw i64 %indvars.iv, %93
+  %114 = getelementptr inbounds i32, ptr %112, i64 %113
+  call void %107(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %104, i32 noundef %.sroa.3.0.copyload, ptr noundef %114) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.pr.pre = load ptr, ptr %91, align 8
+  %.pr.pre = load ptr, ptr %88, align 8
   %.not112 = icmp eq ptr %.pr.pre, null
   br i1 %.not112, label %.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.pr152 = phi ptr [ %.pr.pre, %._crit_edge ], [ %94, %.preheader ]
-  %118 = load ptr, ptr @gtk, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 504
-  %120 = load ptr, ptr %119, align 8
-  call void %120(ptr noundef nonnull %.pr152) #16
-  store ptr null, ptr %91, align 8
+  %.pr152 = phi ptr [ %.pr.pre, %._crit_edge ], [ %91, %.preheader ]
+  %115 = load ptr, ptr @gtk, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 504
+  %117 = load ptr, ptr %116, align 8
+  call void %117(ptr noundef nonnull %.pr152) #16
+  store ptr null, ptr %88, align 8
   br label %.thread
 
-.thread:                                          ; preds = %87, %._crit_edge.thread, %._crit_edge
-  store volatile i32 0, ptr %85, align 8
-  %121 = load ptr, ptr @fp_pw_thread_loop_lock, align 8
-  %122 = load ptr, ptr @pw, align 8
-  call void %121(ptr noundef %122) #16
-  %123 = load ptr, ptr @fp_pw_stream_set_active, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %84, i64 40
-  %125 = load ptr, ptr %124, align 8
-  %126 = load ptr, ptr %125, align 8
-  %127 = call i32 %123(ptr noundef %126, i1 noundef zeroext false) #16
-  %128 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
-  %129 = load ptr, ptr @pw, align 8
-  call void %128(ptr noundef %129) #16
-  %130 = getelementptr inbounds nuw i8, ptr %84, i64 60
-  store volatile i32 0, ptr %130, align 4
+.thread:                                          ; preds = %84, %._crit_edge.thread, %._crit_edge
+  store volatile i32 0, ptr %82, align 8
+  %118 = load ptr, ptr @fp_pw_thread_loop_lock, align 8
+  %119 = load ptr, ptr @pw, align 8
+  call void %118(ptr noundef %119) #16
+  %120 = load ptr, ptr @fp_pw_stream_set_active, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %81, i64 40
+  %122 = load ptr, ptr %121, align 8
+  %123 = load ptr, ptr %122, align 8
+  %124 = call i32 %120(ptr noundef %123, i1 noundef zeroext false) #16
+  %125 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
+  %126 = load ptr, ptr @pw, align 8
+  call void %125(ptr noundef %126) #16
+  %127 = getelementptr inbounds nuw i8, ptr %81, i64 60
+  store volatile i32 0, ptr %127, align 4
   %.pre = load ptr, ptr @screenSpace, align 8
   %.pre149 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
-  br label %131
+  br label %128
 
-131:                                              ; preds = %.lr.ph141, %.thread
-  %132 = phi i32 [ %82, %.lr.ph141 ], [ %.pre149, %.thread ]
-  %133 = phi ptr [ %83, %.lr.ph141 ], [ %.pre, %.thread ]
+128:                                              ; preds = %.lr.ph141, %.thread
+  %129 = phi i32 [ %79, %.lr.ph141 ], [ %.pre149, %.thread ]
+  %130 = phi ptr [ %80, %.lr.ph141 ], [ %.pre, %.thread ]
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %134 = sext i32 %132 to i64
-  %135 = icmp slt i64 %indvars.iv.next145, %134
-  br i1 %135, label %.lr.ph141, label %._crit_edge142, !llvm.loop !10
+  %131 = sext i32 %129 to i64
+  %132 = icmp slt i64 %indvars.iv.next145, %131
+  br i1 %132, label %.lr.ph141, label %._crit_edge142, !llvm.loop !10
 
-._crit_edge142:                                   ; preds = %131, %79
-  %.not.i119 = icmp eq ptr %73, null
+._crit_edge142:                                   ; preds = %128, %76
+  %.not.i119 = icmp eq ptr %70, null
   br i1 %.not.i119, label %releaseToken.exit, label %releaseToken.exit.sink.split
 
-releaseToken.exit.sink.split:                     ; preds = %._crit_edge142, %78, %75
-  %.1.ph = phi i32 [ -11, %75 ], [ %77, %78 ], [ 0, %._crit_edge142 ]
-  %136 = load ptr, ptr %0, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 1360
-  %138 = load ptr, ptr %137, align 8
-  call void %138(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %73) #16
+releaseToken.exit.sink.split:                     ; preds = %._crit_edge142, %75, %72
+  %.1.ph = phi i32 [ -11, %72 ], [ %74, %75 ], [ 0, %._crit_edge142 ]
+  %133 = load ptr, ptr %0, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 1360
+  %135 = load ptr, ptr %134, align 8
+  call void %135(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %70) #16
   br label %releaseToken.exit
 
-releaseToken.exit:                                ; preds = %releaseToken.exit.sink.split, %._crit_edge142, %78, %75
-  %.1 = phi i32 [ -11, %75 ], [ %77, %78 ], [ 0, %._crit_edge142 ], [ %.1.ph, %releaseToken.exit.sink.split ]
-  call void @llvm.stackrestore.p0(ptr %65)
-  br label %139
+releaseToken.exit:                                ; preds = %releaseToken.exit.sink.split, %._crit_edge142, %75, %72
+  %.1 = phi i32 [ -11, %72 ], [ %74, %75 ], [ 0, %._crit_edge142 ], [ %.1.ph, %releaseToken.exit.sink.split ]
+  call void @llvm.stackrestore.p0(ptr %62)
+  br label %136
 
-139:                                              ; preds = %releaseToken.exit, %27
+136:                                              ; preds = %releaseToken.exit, %27
   %.0 = phi i32 [ -1, %27 ], [ %.1, %releaseToken.exit ]
   ret i32 %.0
 }

@@ -1455,20 +1455,19 @@ lpad:                                             ; preds = %invoke.cont19, %inv
   br label %ehcleanup
 
 if.else:                                          ; preds = %for.body
-  %3 = or disjoint i64 %indvars.iv, 1
-  %arrayidx4 = getelementptr inbounds nuw ptr, ptr %capture, i64 %3
-  %4 = load ptr, ptr %arrayidx4, align 8
-  %cmp5 = icmp eq ptr %4, null
-  %5 = load ptr, ptr %btext_23, align 8
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
+  %3 = load ptr, ptr %arrayidx4, align 8
+  %cmp5 = icmp eq ptr %3, null
+  %4 = load ptr, ptr %btext_23, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %4 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   br i1 %cmp5, label %invoke.cont8, label %invoke.cont19
 
 invoke.cont8:                                     ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %6 = inttoptr i64 %sub.ptr.sub to ptr
-  store ptr %6, ptr %ref.tmp.i, align 8, !noalias !22
+  %5 = inttoptr i64 %sub.ptr.sub to ptr
+  store ptr %5, ptr %ref.tmp.i, align 8, !noalias !22
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i, align 8, !noalias !22
   invoke void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull @.str.6, i64 6, ptr nonnull %ref.tmp.i, i64 1)
           to label %invoke.cont12 unwind label %lpad
@@ -1479,20 +1478,20 @@ invoke.cont12:                                    ; preds = %invoke.cont8
           to label %for.inc.sink.split unwind label %lpad13
 
 lpad13:                                           ; preds = %invoke.cont12
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   br label %ehcleanup
 
 invoke.cont19:                                    ; preds = %if.else
-  %sub.ptr.lhs.cast32 = ptrtoint ptr %4 to i64
+  %sub.ptr.lhs.cast32 = ptrtoint ptr %3 to i64
   %sub.ptr.sub34 = sub i64 %sub.ptr.lhs.cast32, %sub.ptr.rhs.cast
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i16)
-  %8 = inttoptr i64 %sub.ptr.sub to ptr
-  store ptr %8, ptr %ref.tmp.i16, align 8, !noalias !25
+  %7 = inttoptr i64 %sub.ptr.sub to ptr
+  store ptr %7, ptr %ref.tmp.i16, align 8, !noalias !25
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i21, align 8, !noalias !25
-  %9 = inttoptr i64 %sub.ptr.sub34 to ptr
-  store ptr %9, ptr %arrayinit.element.i, align 8, !noalias !25
+  %8 = inttoptr i64 %sub.ptr.sub34 to ptr
+  store ptr %8, ptr %arrayinit.element.i, align 8, !noalias !25
   store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIlEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i, align 8, !noalias !25
   invoke void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp17, ptr nonnull @.str.7, i64 7, ptr nonnull %ref.tmp.i16, i64 2)
           to label %invoke.cont35 unwind label %lpad
@@ -1503,7 +1502,7 @@ invoke.cont35:                                    ; preds = %invoke.cont19
           to label %for.inc.sink.split unwind label %lpad36
 
 lpad36:                                           ; preds = %invoke.cont35
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #19
   br label %ehcleanup
@@ -1515,16 +1514,16 @@ for.inc.sink.split:                               ; preds = %invoke.cont35, %inv
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.then
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %11 = load i32, ptr %ncapture_, align 4
-  %12 = trunc nuw i64 %indvars.iv.next to i32
-  %cmp = icmp sgt i32 %11, %12
+  %10 = load i32, ptr %ncapture_, align 4
+  %11 = trunc nuw i64 %indvars.iv.next to i32
+  %cmp = icmp sgt i32 %10, %11
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !28
 
 nrvo.skipdtor:                                    ; preds = %for.inc, %entry
   ret void
 
 ehcleanup:                                        ; preds = %lpad36, %lpad13, %lpad
-  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %7, %lpad13 ], [ %10, %lpad36 ]
+  %.pn = phi { ptr, i32 } [ %2, %lpad ], [ %6, %lpad13 ], [ %9, %lpad36 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #19
   resume { ptr, i32 } %.pn
 }
@@ -2029,14 +2028,13 @@ for.body188.preheader:                            ; preds = %for.end181
 for.body188:                                      ; preds = %for.body188.preheader, %_ZN4absl7debian211string_viewC2EPKcm.exit
   %indvars.iv = phi i64 [ 0, %for.body188.preheader ], [ %indvars.iv.next, %_ZN4absl7debian211string_viewC2EPKcm.exit ]
   %63 = load ptr, ptr %match_, align 8
-  %64 = shl nuw nsw i64 %indvars.iv, 1
-  %arrayidx193 = getelementptr inbounds nuw ptr, ptr %63, i64 %64
-  %65 = load ptr, ptr %arrayidx193, align 8
-  %66 = or disjoint i64 %64, 1
-  %arrayidx197 = getelementptr inbounds nuw ptr, ptr %63, i64 %66
-  %67 = load ptr, ptr %arrayidx197, align 8
-  %sub.ptr.lhs.cast202 = ptrtoint ptr %67 to i64
-  %sub.ptr.rhs.cast203 = ptrtoint ptr %65 to i64
+  %arrayidx193.idx = shl nuw nsw i64 %indvars.iv, 4
+  %arrayidx193 = getelementptr inbounds nuw i8, ptr %63, i64 %arrayidx193.idx
+  %64 = load ptr, ptr %arrayidx193, align 8
+  %arrayidx197 = getelementptr inbounds nuw i8, ptr %arrayidx193, i64 8
+  %65 = load ptr, ptr %arrayidx197, align 8
+  %sub.ptr.lhs.cast202 = ptrtoint ptr %65 to i64
+  %sub.ptr.rhs.cast203 = ptrtoint ptr %64 to i64
   %sub.ptr.sub204 = sub i64 %sub.ptr.lhs.cast202, %sub.ptr.rhs.cast203
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub204, -1
   br i1 %cmp.i.i, label %_ZN4absl7debian211string_viewC2EPKcm.exit, label %cond.false.i.i
@@ -2047,7 +2045,7 @@ cond.false.i.i:                                   ; preds = %for.body188
 
 _ZN4absl7debian211string_viewC2EPKcm.exit:        ; preds = %for.body188
   %arrayidx206 = getelementptr inbounds nuw %"class.absl::debian2::string_view", ptr %submatch, i64 %indvars.iv
-  store ptr %65, ptr %arrayidx206, align 8
+  store ptr %64, ptr %arrayidx206, align 8
   %ref.tmp189.sroa.2.0.arrayidx206.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx206, i64 8
   store i64 %sub.ptr.sub204, ptr %ref.tmp189.sroa.2.0.arrayidx206.sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

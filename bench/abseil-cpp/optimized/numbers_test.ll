@@ -123508,36 +123508,33 @@ define internal void @_ZN12_GLOBAL__N_135FastHexToBufferZeroPad16_Smoke_Test8Tes
   %7 = ptrtoint ptr %4 to i64
   %8 = and i64 %7, 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 %8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !tbaa !118, !alias.scope !1851
-  %10 = or disjoint i64 %8, 16
-  %scevgep.i.i.i.i = getelementptr nuw i8, ptr %4, i64 %10
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i, i8 0, i64 240, i1 false), !tbaa !118, !alias.scope !1851
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %9, i8 0, i64 256, i1 false), !alias.scope !1851
   call void @_ZN4absl15random_internal13randen_engineImE6reseedINS0_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #33, !noalias !1851
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  br label %16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  br label %15
 
-15:                                               ; preds = %16
+14:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %4) #33
   ret void
 
-16:                                               ; preds = %1, %16
-  %.02 = phi i32 [ 0, %1 ], [ %18, %16 ]
+15:                                               ; preds = %1, %15
+  %.02 = phi i32 [ 0, %1 ], [ %17, %15 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #33
   store i64 0, ptr %2, align 8, !tbaa !1857
-  store i64 -1, ptr %11, align 8, !tbaa !1859
-  store i64 2, ptr %12, align 8, !tbaa !1860
-  store i64 -1, ptr %13, align 8, !tbaa !1861
-  store i32 64, ptr %14, align 8, !tbaa !1862
-  %17 = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(288) %4, ptr noundef nonnull align 8 dereferenceable(40) %2)
+  store i64 -1, ptr %10, align 8, !tbaa !1859
+  store i64 2, ptr %11, align 8, !tbaa !1860
+  store i64 -1, ptr %12, align 8, !tbaa !1861
+  store i32 64, ptr %13, align 8, !tbaa !1862
+  %16 = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(288) %4, ptr noundef nonnull align 8 dereferenceable(40) %2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #33
-  call fastcc void @_ZN12_GLOBAL__N_128TestFastHexToBufferZeroPad16Em(i64 noundef %17)
-  %18 = add nuw nsw i32 %.02, 1
-  %exitcond.not = icmp eq i32 %18, 100000
-  br i1 %exitcond.not, label %15, label %16, !llvm.loop !1863
+  call fastcc void @_ZN12_GLOBAL__N_128TestFastHexToBufferZeroPad16Em(i64 noundef %16)
+  %17 = add nuw nsw i32 %.02, 1
+  %exitcond.not = icmp eq i32 %17, 100000
+  br i1 %exitcond.not, label %14, label %15, !llvm.loop !1863
 }
 
 ; Function Attrs: mustprogress uwtable

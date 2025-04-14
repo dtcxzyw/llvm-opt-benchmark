@@ -65665,7 +65665,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader4
   %9 = load ptr, ptr %8, align 8, !tbaa !853
   %10 = load i64, ptr %1, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = getelementptr i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !55
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 248
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #31
@@ -65688,92 +65688,91 @@ define internal fastcc void @_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader4
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader31parseTypeIdCompatibleVtableInfoEN4llvm8ArrayRefImEERmRSt6vectorINS1_22TypeIdOffsetVtableInfoESaIS6_EE.exit
-  %.09 = phi i64 [ 2, %.lr.ph ], [ %29, %_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader31parseTypeIdCompatibleVtableInfoEN4llvm8ArrayRefImEERmRSt6vectorINS1_22TypeIdOffsetVtableInfoESaIS6_EE.exit ]
-  %26 = or disjoint i64 %.09, 1
-  %27 = getelementptr inbounds nuw i64, ptr %1, i64 %.09
-  %28 = load i64, ptr %27, align 8, !tbaa !55
-  %29 = add i64 %.09, 2
-  %30 = getelementptr inbounds nuw i64, ptr %1, i64 %26
-  %31 = load i64, ptr %30, align 8, !tbaa !55
-  %32 = trunc i64 %31 to i32
+  %.09 = phi i64 [ 2, %.lr.ph ], [ %28, %_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader31parseTypeIdCompatibleVtableInfoEN4llvm8ArrayRefImEERmRSt6vectorINS1_22TypeIdOffsetVtableInfoESaIS6_EE.exit ]
+  %26 = getelementptr inbounds nuw i64, ptr %1, i64 %.09
+  %27 = load i64, ptr %26, align 8, !tbaa !55
+  %28 = add i64 %.09, 2
+  %gep = getelementptr i64, ptr %12, i64 %.09
+  %29 = load i64, ptr %gep, align 8, !tbaa !55
+  %30 = trunc i64 %29 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 %32, ptr %4, align 4, !tbaa !129
-  %33 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairINS_9ValueInfoEmENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_EixERKj(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  %.sroa.0.0.copyload.i.i = load i64, ptr %33, align 8
+  store i32 %30, ptr %4, align 4, !tbaa !129
+  %31 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairINS_9ValueInfoEmENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_EixERKj(ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %.sroa.0.0.copyload.i.i = load i64, ptr %31, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %34 = load ptr, ptr %23, align 8, !tbaa !2746
-  %35 = load ptr, ptr %24, align 8, !tbaa !2749
-  %.not.i.i.i = icmp eq ptr %34, %35
-  br i1 %.not.i.i.i, label %39, label %36
+  %32 = load ptr, ptr %23, align 8, !tbaa !2746
+  %33 = load ptr, ptr %24, align 8, !tbaa !2749
+  %.not.i.i.i = icmp eq ptr %32, %33
+  br i1 %.not.i.i.i, label %37, label %34
 
-36:                                               ; preds = %25
-  store i64 %28, ptr %34, align 8, !tbaa !55
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 8
+34:                                               ; preds = %25
+  store i64 %27, ptr %32, align 8, !tbaa !55
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %.sroa.0.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !84
-  %37 = load ptr, ptr %23, align 8, !tbaa !2746
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store ptr %38, ptr %23, align 8, !tbaa !2746
+  %35 = load ptr, ptr %23, align 8, !tbaa !2746
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store ptr %36, ptr %23, align 8, !tbaa !2746
   br label %_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader31parseTypeIdCompatibleVtableInfoEN4llvm8ArrayRefImEERmRSt6vectorINS1_22TypeIdOffsetVtableInfoESaIS6_EE.exit
 
-39:                                               ; preds = %25
-  %40 = load ptr, ptr %20, align 8, !tbaa !2750
-  %41 = ptrtoint ptr %34 to i64
-  %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %41, %42
-  %44 = icmp eq i64 %43, 9223372036854775792
-  br i1 %44, label %45, label %_ZNKSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i
+37:                                               ; preds = %25
+  %38 = load ptr, ptr %20, align 8, !tbaa !2750
+  %39 = ptrtoint ptr %32 to i64
+  %40 = ptrtoint ptr %38 to i64
+  %41 = sub i64 %39, %40
+  %42 = icmp eq i64 %41, 9223372036854775792
+  br i1 %42, label %43, label %_ZNKSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i
 
-45:                                               ; preds = %39
+43:                                               ; preds = %37
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.103) #35
   unreachable
 
-_ZNKSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %39
-  %46 = ashr exact i64 %43, 4
-  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %46, i64 1)
-  %47 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %46
-  %48 = icmp ult i64 %47, %46
-  %49 = call i64 @llvm.umin.i64(i64 %47, i64 576460752303423487)
-  %50 = select i1 %48, i64 576460752303423487, i64 %49
-  %.not.i.i.i.i.i = icmp ne i64 %50, 0
+_ZNKSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i: ; preds = %37
+  %44 = ashr exact i64 %41, 4
+  %.sroa.speculated.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %44, i64 1)
+  %45 = add nsw i64 %.sroa.speculated.i.i.i.i.i, %44
+  %46 = icmp ult i64 %45, %44
+  %47 = call i64 @llvm.umin.i64(i64 %45, i64 576460752303423487)
+  %48 = select i1 %46, i64 576460752303423487, i64 %47
+  %.not.i.i.i.i.i = icmp ne i64 %48, 0
   call void @llvm.assume(i1 %.not.i.i.i.i.i)
-  %51 = shl nuw nsw i64 %50, 4
-  %52 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %51) #34
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %43
-  store i64 %28, ptr %53, align 8, !tbaa !55
-  %.sroa.5.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %49 = shl nuw nsw i64 %48, 4
+  %50 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #34
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %41
+  store i64 %27, ptr %51, align 8, !tbaa !55
+  %.sroa.5.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %.sroa.0.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx6.i, align 8, !tbaa !84
-  %.not10.i.i.i.i.i.i.i = icmp eq ptr %40, %34
+  %.not10.i.i.i.i.i.i.i = icmp eq ptr %38, %32
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i.i.i.i ], [ %52, %_ZNKSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
-  %.0911.i.i.i.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i.i.i ], [ %40, %_ZNKSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.012.i.i.i.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i.i.i ], [ %50, %_ZNKSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
+  %.0911.i.i.i.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i.i.i.i ], [ %38, %_ZNKSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.012.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.0911.i.i.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !2751, !alias.scope !2752
-  %54 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 16
-  %55 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 16
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %54, %34
+  %52 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 16
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %52, %32
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !2756
 
 _ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNKSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %52, %_ZNKSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %55, %.lr.ph.i.i.i.i.i.i.i ]
-  %56 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
-  %.not.i23.i.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, label %57
+  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %50, %_ZNKSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %53, %.lr.ph.i.i.i.i.i.i.i ]
+  %54 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 16
+  %.not.i23.i.i.i.i = icmp eq ptr %38, null
+  br i1 %.not.i23.i.i.i.i, label %_ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i, label %55
 
-57:                                               ; preds = %_ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %43) #33
+55:                                               ; preds = %_ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %41) #33
   br label %_ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
 
-_ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %57, %_ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i
-  store ptr %52, ptr %20, align 8, !tbaa !2750
-  store ptr %56, ptr %23, align 8, !tbaa !2746
-  %58 = getelementptr inbounds nuw %"struct.llvm::TypeIdOffsetVtableInfo", ptr %52, i64 %50
-  store ptr %58, ptr %24, align 8, !tbaa !2749
+_ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %55, %_ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i
+  store ptr %50, ptr %20, align 8, !tbaa !2750
+  store ptr %54, ptr %23, align 8, !tbaa !2746
+  %56 = getelementptr inbounds nuw %"struct.llvm::TypeIdOffsetVtableInfo", ptr %50, i64 %48
+  store ptr %56, ptr %24, align 8, !tbaa !2749
   br label %_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader31parseTypeIdCompatibleVtableInfoEN4llvm8ArrayRefImEERmRSt6vectorINS1_22TypeIdOffsetVtableInfoESaIS6_EE.exit
 
-_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader31parseTypeIdCompatibleVtableInfoEN4llvm8ArrayRefImEERmRSt6vectorINS1_22TypeIdOffsetVtableInfoESaIS6_EE.exit: ; preds = %36, %_ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
-  %59 = icmp ult i64 %29, %2
-  br i1 %59, label %25, label %._crit_edge, !llvm.loop !2757
+_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader31parseTypeIdCompatibleVtableInfoEN4llvm8ArrayRefImEERmRSt6vectorINS1_22TypeIdOffsetVtableInfoESaIS6_EE.exit: ; preds = %34, %_ZNSt6vectorIN4llvm22TypeIdOffsetVtableInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
+  %57 = icmp ult i64 %28, %2
+  br i1 %57, label %25, label %._crit_edge, !llvm.loop !2757
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_131ModuleSummaryIndexBitcodeReader31parseTypeIdCompatibleVtableInfoEN4llvm8ArrayRefImEERmRSt6vectorINS1_22TypeIdOffsetVtableInfoESaIS6_EE.exit, %3
   ret void

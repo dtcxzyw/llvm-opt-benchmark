@@ -271,7 +271,7 @@ define noundef range(i64 -2, 4611686018427387904) i64 @_ZN6Assimp6Base646DecodeE
 
 16:                                               ; preds = %3
   store ptr null, ptr %2, align 8
-  br label %182
+  br label %176
 
 17:                                               ; preds = %3
   %18 = and i64 %1, 3
@@ -292,7 +292,7 @@ define noundef range(i64 -2, 4611686018427387904) i64 @_ZN6Assimp6Base646DecodeE
 
 22:                                               ; preds = %21
   invoke void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
-          to label %183 unwind label %24
+          to label %177 unwind label %24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds = %19
   %23 = landingpad { ptr, i32 }
@@ -333,7 +333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %24
 
 36:                                               ; preds = %34
   store ptr null, ptr %2, align 8
-  br label %182
+  br label %176
 
 37:                                               ; preds = %34
   %38 = getelementptr i8, ptr %0, i64 %1
@@ -356,9 +356,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %24
   br i1 %.not133, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %_ZN6Assimp6Base6410DecodeCharEc.exit78
-  %49 = phi i64 [ %114, %_ZN6Assimp6Base6410DecodeCharEc.exit78 ], [ 4, %37 ]
+  %49 = phi i64 [ %111, %_ZN6Assimp6Base6410DecodeCharEc.exit78 ], [ 4, %37 ]
   %.062112 = phi i64 [ %49, %_ZN6Assimp6Base6410DecodeCharEc.exit78 ], [ 0, %37 ]
-  %.063111 = phi i64 [ %111, %_ZN6Assimp6Base6410DecodeCharEc.exit78 ], [ 0, %37 ]
+  %.063111 = phi i64 [ %108, %_ZN6Assimp6Base6410DecodeCharEc.exit78 ], [ 0, %37 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 %.062112
   %51 = load i8, ptr %50, align 1
   %.not.i = icmp sgt i8 %51, -1
@@ -376,9 +376,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %24
   call void @__cxa_throw(ptr nonnull %53, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
   unreachable
 
-common.resume.sink.split:                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %56, %68, %80, %89, %122, %134, %146, %158
-  %.sink = phi ptr [ %155, %158 ], [ %143, %146 ], [ %131, %134 ], [ %119, %122 ], [ %86, %89 ], [ %77, %80 ], [ %65, %68 ], [ %53, %56 ], [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %159, %158 ], [ %147, %146 ], [ %135, %134 ], [ %123, %122 ], [ %90, %89 ], [ %81, %80 ], [ %69, %68 ], [ %57, %56 ], [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+common.resume.sink.split:                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %56, %67, %78, %86, %119, %130, %141, %152
+  %.sink = phi ptr [ %149, %152 ], [ %138, %141 ], [ %127, %130 ], [ %116, %119 ], [ %83, %86 ], [ %75, %78 ], [ %64, %67 ], [ %53, %56 ], [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %153, %152 ], [ %142, %141 ], [ %131, %130 ], [ %120, %119 ], [ %87, %86 ], [ %79, %78 ], [ %68, %67 ], [ %57, %56 ], [ %25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread ], [ %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @__cxa_free_exception(ptr %.sink) #17
   br label %common.resume
 
@@ -396,266 +396,260 @@ _ZN6Assimp6Base6410DecodeCharEc.exit:             ; preds = %.lr.ph
   %58 = zext nneg i8 %51 to i64
   %59 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %58
   %60 = load i8, ptr %59, align 1
-  %61 = or disjoint i64 %.062112, 1
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %61
-  %63 = load i8, ptr %62, align 1
-  %.not.i73 = icmp sgt i8 %63, -1
-  br i1 %.not.i73, label %_ZN6Assimp6Base6410DecodeCharEc.exit74, label %64
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 1
+  %62 = load i8, ptr %61, align 1
+  %.not.i73 = icmp sgt i8 %62, -1
+  br i1 %.not.i73, label %_ZN6Assimp6Base6410DecodeCharEc.exit74, label %63
 
-64:                                               ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit
-  %65 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+63:                                               ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit
+  %64 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
-  %66 = sext i8 %63 to i64
-  store i64 %66, ptr %10, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %67 unwind label %68
+  %65 = sext i8 %62 to i64
+  store i64 %65, ptr %10, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %66 unwind label %67
 
-67:                                               ; preds = %64
-  call void @__cxa_throw(ptr nonnull %65, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
+66:                                               ; preds = %63
+  call void @__cxa_throw(ptr nonnull %64, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
   unreachable
 
-68:                                               ; preds = %64
-  %69 = landingpad { ptr, i32 }
+67:                                               ; preds = %63
+  %68 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
   br label %common.resume.sink.split
 
 _ZN6Assimp6Base6410DecodeCharEc.exit74:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit
-  %70 = zext nneg i8 %63 to i64
-  %71 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %70
-  %72 = load i8, ptr %71, align 1
-  %73 = or disjoint i64 %.062112, 2
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 %73
-  %75 = load i8, ptr %74, align 1
-  %.not.i75 = icmp sgt i8 %75, -1
-  br i1 %.not.i75, label %_ZN6Assimp6Base6410DecodeCharEc.exit76, label %76
+  %69 = zext nneg i8 %62 to i64
+  %70 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %69
+  %71 = load i8, ptr %70, align 1
+  %72 = getelementptr inbounds nuw i8, ptr %50, i64 2
+  %73 = load i8, ptr %72, align 1
+  %.not.i75 = icmp sgt i8 %73, -1
+  br i1 %.not.i75, label %_ZN6Assimp6Base6410DecodeCharEc.exit76, label %74
 
-76:                                               ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit74
-  %77 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+74:                                               ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit74
+  %75 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
-  %78 = sext i8 %75 to i64
-  store i64 %78, ptr %9, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %79 unwind label %80
+  %76 = sext i8 %73 to i64
+  store i64 %76, ptr %9, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %77 unwind label %78
 
-79:                                               ; preds = %76
-  call void @__cxa_throw(ptr nonnull %77, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
+77:                                               ; preds = %74
+  call void @__cxa_throw(ptr nonnull %75, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
   unreachable
 
-80:                                               ; preds = %76
-  %81 = landingpad { ptr, i32 }
+78:                                               ; preds = %74
+  %79 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
   br label %common.resume.sink.split
 
 _ZN6Assimp6Base6410DecodeCharEc.exit76:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit74
-  %82 = or disjoint i64 %.062112, 3
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 %82
-  %84 = load i8, ptr %83, align 1
-  %.not.i77 = icmp sgt i8 %84, -1
-  br i1 %.not.i77, label %_ZN6Assimp6Base6410DecodeCharEc.exit78, label %85
+  %80 = getelementptr inbounds nuw i8, ptr %50, i64 3
+  %81 = load i8, ptr %80, align 1
+  %.not.i77 = icmp sgt i8 %81, -1
+  br i1 %.not.i77, label %_ZN6Assimp6Base6410DecodeCharEc.exit78, label %82
 
-85:                                               ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit76
-  %86 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+82:                                               ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit76
+  %83 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
-  %87 = sext i8 %84 to i64
-  store i64 %87, ptr %8, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %86, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %88 unwind label %89
+  %84 = sext i8 %81 to i64
+  store i64 %84, ptr %8, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %83, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %8)
+          to label %85 unwind label %86
 
-88:                                               ; preds = %85
-  call void @__cxa_throw(ptr nonnull %86, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
+85:                                               ; preds = %82
+  call void @__cxa_throw(ptr nonnull %83, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
   unreachable
 
-89:                                               ; preds = %85
-  %90 = landingpad { ptr, i32 }
+86:                                               ; preds = %82
+  %87 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   br label %common.resume.sink.split
 
 _ZN6Assimp6Base6410DecodeCharEc.exit78:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit76
-  %91 = zext nneg i8 %75 to i64
+  %88 = zext nneg i8 %73 to i64
+  %89 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %88
+  %90 = load i8, ptr %89, align 1
+  %91 = zext nneg i8 %81 to i64
   %92 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %91
   %93 = load i8, ptr %92, align 1
-  %94 = zext nneg i8 %84 to i64
-  %95 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %94
-  %96 = load i8, ptr %95, align 1
-  %97 = shl i8 %60, 2
-  %98 = lshr i8 %72, 4
-  %99 = or i8 %98, %97
-  %100 = load ptr, ptr %2, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %.063111
-  store i8 %99, ptr %101, align 1
-  %102 = shl i8 %72, 4
-  %103 = lshr i8 %93, 2
-  %104 = or i8 %103, %102
-  %105 = load ptr, ptr %2, align 8
-  %106 = getelementptr i8, ptr %105, i64 %.063111
-  %107 = getelementptr i8, ptr %106, i64 1
-  store i8 %104, ptr %107, align 1
-  %108 = shl i8 %93, 6
-  %109 = or i8 %108, %96
-  %110 = load ptr, ptr %2, align 8
-  %111 = add i64 %.063111, 3
-  %112 = getelementptr i8, ptr %110, i64 %.063111
-  %113 = getelementptr i8, ptr %112, i64 2
-  store i8 %109, ptr %113, align 1
-  %114 = add i64 %49, 4
-  %115 = icmp ult i64 %114, %1
-  br i1 %115, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  %94 = shl i8 %60, 2
+  %95 = lshr i8 %71, 4
+  %96 = or i8 %95, %94
+  %97 = load ptr, ptr %2, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 %.063111
+  store i8 %96, ptr %98, align 1
+  %99 = shl i8 %71, 4
+  %100 = lshr i8 %90, 2
+  %101 = or i8 %100, %99
+  %102 = load ptr, ptr %2, align 8
+  %103 = getelementptr i8, ptr %102, i64 %.063111
+  %104 = getelementptr i8, ptr %103, i64 1
+  store i8 %101, ptr %104, align 1
+  %105 = shl i8 %90, 6
+  %106 = or i8 %105, %93
+  %107 = load ptr, ptr %2, align 8
+  %108 = add i64 %.063111, 3
+  %109 = getelementptr i8, ptr %107, i64 %.063111
+  %110 = getelementptr i8, ptr %109, i64 2
+  store i8 %106, ptr %110, align 1
+  %111 = add i64 %49, 4
+  %112 = icmp ult i64 %111, %1
+  br i1 %112, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit78, %37
-  %.063.lcssa = phi i64 [ 0, %37 ], [ %111, %_ZN6Assimp6Base6410DecodeCharEc.exit78 ]
+  %.063.lcssa = phi i64 [ 0, %37 ], [ %108, %_ZN6Assimp6Base6410DecodeCharEc.exit78 ]
   %.062.lcssa = phi i64 [ 0, %37 ], [ %49, %_ZN6Assimp6Base6410DecodeCharEc.exit78 ]
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 %.062.lcssa
-  %117 = load i8, ptr %116, align 1
-  %.not.i79 = icmp sgt i8 %117, -1
-  br i1 %.not.i79, label %_ZN6Assimp6Base6410DecodeCharEc.exit80, label %118
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 %.062.lcssa
+  %114 = load i8, ptr %113, align 1
+  %.not.i79 = icmp sgt i8 %114, -1
+  br i1 %.not.i79, label %_ZN6Assimp6Base6410DecodeCharEc.exit80, label %115
 
-118:                                              ; preds = %._crit_edge
-  %119 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+115:                                              ; preds = %._crit_edge
+  %116 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
-  %120 = sext i8 %117 to i64
-  store i64 %120, ptr %7, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %119, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %121 unwind label %122
+  %117 = sext i8 %114 to i64
+  store i64 %117, ptr %7, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %116, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %118 unwind label %119
 
-121:                                              ; preds = %118
-  call void @__cxa_throw(ptr nonnull %119, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
+118:                                              ; preds = %115
+  call void @__cxa_throw(ptr nonnull %116, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
   unreachable
 
-122:                                              ; preds = %118
-  %123 = landingpad { ptr, i32 }
+119:                                              ; preds = %115
+  %120 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
   br label %common.resume.sink.split
 
 _ZN6Assimp6Base6410DecodeCharEc.exit80:           ; preds = %._crit_edge
-  %124 = zext nneg i8 %117 to i64
-  %125 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %124
-  %126 = load i8, ptr %125, align 1
-  %127 = or disjoint i64 %.062.lcssa, 1
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 %127
-  %129 = load i8, ptr %128, align 1
-  %.not.i81 = icmp sgt i8 %129, -1
-  br i1 %.not.i81, label %_ZN6Assimp6Base6410DecodeCharEc.exit82, label %130
+  %121 = zext nneg i8 %114 to i64
+  %122 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %121
+  %123 = load i8, ptr %122, align 1
+  %124 = getelementptr inbounds nuw i8, ptr %113, i64 1
+  %125 = load i8, ptr %124, align 1
+  %.not.i81 = icmp sgt i8 %125, -1
+  br i1 %.not.i81, label %_ZN6Assimp6Base6410DecodeCharEc.exit82, label %126
 
-130:                                              ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit80
-  %131 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+126:                                              ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit80
+  %127 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
-  %132 = sext i8 %129 to i64
-  store i64 %132, ptr %6, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %131, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %133 unwind label %134
+  %128 = sext i8 %125 to i64
+  store i64 %128, ptr %6, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %129 unwind label %130
 
-133:                                              ; preds = %130
-  call void @__cxa_throw(ptr nonnull %131, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
+129:                                              ; preds = %126
+  call void @__cxa_throw(ptr nonnull %127, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
   unreachable
 
-134:                                              ; preds = %130
-  %135 = landingpad { ptr, i32 }
+130:                                              ; preds = %126
+  %131 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   br label %common.resume.sink.split
 
 _ZN6Assimp6Base6410DecodeCharEc.exit82:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit80
-  %136 = zext nneg i8 %129 to i64
-  %137 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %136
-  %138 = load i8, ptr %137, align 1
-  %139 = or disjoint i64 %.062.lcssa, 2
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 %139
-  %141 = load i8, ptr %140, align 1
-  %.not.i83 = icmp sgt i8 %141, -1
-  br i1 %.not.i83, label %_ZN6Assimp6Base6410DecodeCharEc.exit84, label %142
+  %132 = zext nneg i8 %125 to i64
+  %133 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %132
+  %134 = load i8, ptr %133, align 1
+  %135 = getelementptr inbounds nuw i8, ptr %113, i64 2
+  %136 = load i8, ptr %135, align 1
+  %.not.i83 = icmp sgt i8 %136, -1
+  br i1 %.not.i83, label %_ZN6Assimp6Base6410DecodeCharEc.exit84, label %137
 
-142:                                              ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit82
-  %143 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+137:                                              ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit82
+  %138 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  %144 = sext i8 %141 to i64
-  store i64 %144, ptr %5, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %145 unwind label %146
+  %139 = sext i8 %136 to i64
+  store i64 %139, ptr %5, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %5)
+          to label %140 unwind label %141
 
-145:                                              ; preds = %142
-  call void @__cxa_throw(ptr nonnull %143, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
+140:                                              ; preds = %137
+  call void @__cxa_throw(ptr nonnull %138, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
   unreachable
 
-146:                                              ; preds = %142
-  %147 = landingpad { ptr, i32 }
+141:                                              ; preds = %137
+  %142 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   br label %common.resume.sink.split
 
 _ZN6Assimp6Base6410DecodeCharEc.exit84:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit82
-  %148 = zext nneg i8 %141 to i64
-  %149 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %148
-  %150 = load i8, ptr %149, align 1
-  %151 = or disjoint i64 %.062.lcssa, 3
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 %151
-  %153 = load i8, ptr %152, align 1
-  %.not.i85 = icmp sgt i8 %153, -1
-  br i1 %.not.i85, label %_ZN6Assimp6Base6410DecodeCharEc.exit86, label %154
+  %143 = zext nneg i8 %136 to i64
+  %144 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %143
+  %145 = load i8, ptr %144, align 1
+  %146 = getelementptr inbounds nuw i8, ptr %113, i64 3
+  %147 = load i8, ptr %146, align 1
+  %.not.i85 = icmp sgt i8 %147, -1
+  br i1 %.not.i85, label %_ZN6Assimp6Base6410DecodeCharEc.exit86, label %148
 
-154:                                              ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit84
-  %155 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+148:                                              ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit84
+  %149 = tail call ptr @__cxa_allocate_exception(i64 16) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  %156 = sext i8 %153 to i64
-  store i64 %156, ptr %4, align 8
-  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %155, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %157 unwind label %158
+  %150 = sext i8 %147 to i64
+  store i64 %150, ptr %4, align 8
+  invoke void @_ZN17DeadlyImportErrorC2IJRA28_KcmEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef nonnull align 1 dereferenceable(28) @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %151 unwind label %152
 
-157:                                              ; preds = %154
-  call void @__cxa_throw(ptr nonnull %155, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
+151:                                              ; preds = %148
+  call void @__cxa_throw(ptr nonnull %149, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #18
   unreachable
 
-158:                                              ; preds = %154
-  %159 = landingpad { ptr, i32 }
+152:                                              ; preds = %148
+  %153 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   br label %common.resume.sink.split
 
 _ZN6Assimp6Base6410DecodeCharEc.exit86:           ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit84
-  %160 = zext nneg i8 %153 to i64
-  %161 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %160
-  %162 = load i8, ptr %161, align 1
-  %163 = shl i8 %126, 2
-  %164 = lshr i8 %138, 4
-  %165 = or i8 %164, %163
-  %166 = load ptr, ptr %2, align 8
-  %167 = add i64 %.063.lcssa, 1
-  %168 = getelementptr inbounds nuw i8, ptr %166, i64 %.063.lcssa
-  store i8 %165, ptr %168, align 1
-  %.not92 = icmp eq i8 %141, 61
-  br i1 %.not92, label %176, label %169
+  %154 = zext nneg i8 %147 to i64
+  %155 = getelementptr inbounds nuw [128 x i8], ptr @_ZN6Assimp6Base64L17tableDecodeBase64E, i64 0, i64 %154
+  %156 = load i8, ptr %155, align 1
+  %157 = shl i8 %123, 2
+  %158 = lshr i8 %134, 4
+  %159 = or i8 %158, %157
+  %160 = load ptr, ptr %2, align 8
+  %161 = add i64 %.063.lcssa, 1
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 %.063.lcssa
+  store i8 %159, ptr %162, align 1
+  %.not92 = icmp eq i8 %136, 61
+  br i1 %.not92, label %170, label %163
 
-169:                                              ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit86
-  %170 = shl i8 %138, 4
-  %171 = lshr i8 %150, 2
-  %172 = add nuw nsw i8 %171, %170
-  %173 = load ptr, ptr %2, align 8
-  %174 = add i64 %.063.lcssa, 2
-  %175 = getelementptr inbounds nuw i8, ptr %173, i64 %167
-  store i8 %172, ptr %175, align 1
+163:                                              ; preds = %_ZN6Assimp6Base6410DecodeCharEc.exit86
+  %164 = shl i8 %134, 4
+  %165 = lshr i8 %145, 2
+  %166 = add nuw nsw i8 %165, %164
+  %167 = load ptr, ptr %2, align 8
+  %168 = add i64 %.063.lcssa, 2
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 %161
+  store i8 %166, ptr %169, align 1
+  br label %170
+
+170:                                              ; preds = %163, %_ZN6Assimp6Base6410DecodeCharEc.exit86
+  %.164 = phi i64 [ %168, %163 ], [ %161, %_ZN6Assimp6Base6410DecodeCharEc.exit86 ]
+  %.not93 = icmp eq i8 %147, 61
+  br i1 %.not93, label %176, label %171
+
+171:                                              ; preds = %170
+  %172 = shl i8 %145, 6
+  %173 = or disjoint i8 %156, %172
+  %174 = load ptr, ptr %2, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 %.164
+  store i8 %173, ptr %175, align 1
   br label %176
 
-176:                                              ; preds = %169, %_ZN6Assimp6Base6410DecodeCharEc.exit86
-  %.164 = phi i64 [ %174, %169 ], [ %167, %_ZN6Assimp6Base6410DecodeCharEc.exit86 ]
-  %.not93 = icmp eq i8 %153, 61
-  br i1 %.not93, label %182, label %177
-
-177:                                              ; preds = %176
-  %178 = shl i8 %150, 6
-  %179 = or disjoint i8 %162, %178
-  %180 = load ptr, ptr %2, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %.164
-  store i8 %179, ptr %181, align 1
-  br label %182
-
-182:                                              ; preds = %176, %177, %36, %16
-  %.0 = phi i64 [ 0, %16 ], [ 0, %36 ], [ %47, %177 ], [ %47, %176 ]
+176:                                              ; preds = %170, %171, %36, %16
+  %.0 = phi i64 [ 0, %16 ], [ 0, %36 ], [ %47, %171 ], [ %47, %170 ]
   ret i64 %.0
 
-183:                                              ; preds = %22
+177:                                              ; preds = %22
   unreachable
 }
 

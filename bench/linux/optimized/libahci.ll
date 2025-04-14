@@ -4911,8 +4911,8 @@ define internal range(i64 -2147483648, 2147483648) i64 @ahci_read_em_buffer(ptr 
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %58 = phi i64 [ %80, %.preheader ], [ 0, %.preheader.preheader ]
-  %59 = phi i32 [ %79, %.preheader ], [ 0, %.preheader.preheader ]
+  %58 = phi i64 [ %76, %.preheader ], [ 0, %.preheader.preheader ]
+  %59 = phi i32 [ %75, %.preheader ], [ 0, %.preheader.preheader ]
   %60 = getelementptr i8, ptr %44, i64 %58
   %61 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %60) #12, !srcloc !11
   %62 = trunc i32 %61 to i8
@@ -4920,34 +4920,30 @@ define internal range(i64 -2147483648, 2147483648) i64 @ahci_read_em_buffer(ptr 
   store i8 %62, ptr %63, align 1
   %64 = lshr i32 %61, 8
   %65 = trunc i32 %64 to i8
-  %66 = or disjoint i32 %59, 1
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr i8, ptr %2, i64 %67
+  %66 = sext i32 %59 to i64
+  %67 = getelementptr i8, ptr %2, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 1
   store i8 %65, ptr %68, align 1
   %69 = lshr i32 %61, 16
   %70 = trunc i32 %69 to i8
-  %71 = or disjoint i32 %59, 2
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr i8, ptr %2, i64 %72
-  store i8 %70, ptr %73, align 1
-  %74 = lshr i32 %61, 24
-  %75 = trunc nuw i32 %74 to i8
-  %76 = or disjoint i32 %59, 3
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr i8, ptr %2, i64 %77
-  store i8 %75, ptr %78, align 1
-  %79 = add nuw i32 %59, 4
-  %80 = sext i32 %79 to i64
-  %81 = icmp ugt i64 %57, %80
-  br i1 %81, label %.preheader, label %.loopexit, !llvm.loop !33
+  %71 = getelementptr i8, ptr %67, i64 2
+  store i8 %70, ptr %71, align 1
+  %72 = lshr i32 %61, 24
+  %73 = trunc nuw i32 %72 to i8
+  %74 = getelementptr i8, ptr %67, i64 3
+  store i8 %73, ptr %74, align 1
+  %75 = add nuw i32 %59, 4
+  %76 = sext i32 %75 to i64
+  %77 = icmp ugt i64 %57, %76
+  br i1 %77, label %.preheader, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.preheader, %55, %36, %31, %3
-  %82 = phi i64 [ -22, %31 ], [ -22, %3 ], [ -11, %36 ], [ 0, %55 ], [ %80, %.preheader ]
-  %83 = load ptr, ptr %19, align 16
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %83, i64 noundef %21) #12
-  %84 = load ptr, ptr %16, align 64
-  %85 = tail call i32 @__pm_runtime_idle(ptr noundef %84, i32 noundef 5) #12
-  ret i64 %82
+  %78 = phi i64 [ -22, %31 ], [ -22, %3 ], [ -11, %36 ], [ 0, %55 ], [ %76, %.preheader ]
+  %79 = load ptr, ptr %19, align 16
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %79, i64 noundef %21) #12
+  %80 = load ptr, ptr %16, align 64
+  %81 = tail call i32 @__pm_runtime_idle(ptr noundef %80, i32 noundef 5) #12
+  ret i64 %78
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -4968,7 +4964,7 @@ define internal noundef range(i64 -22, 4294967296) i64 @ahci_store_em_buffer(ptr
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, 2097152
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %83, label %21
+  br i1 %20, label %79, label %21
 
 21:                                               ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 180
@@ -4978,14 +4974,14 @@ define internal noundef range(i64 -22, 4294967296) i64 @ahci_store_em_buffer(ptr
   %26 = and i64 %3, 3
   %27 = icmp eq i64 %26, 0
   %28 = and i1 %27, %25
-  br i1 %28, label %29, label %83
+  br i1 %28, label %29, label %79
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
   %33 = icmp ugt i64 %3, %32
-  br i1 %33, label %83, label %34
+  br i1 %33, label %79, label %34
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 14784
@@ -4998,62 +4994,58 @@ define internal noundef range(i64 -22, 4294967296) i64 @ahci_store_em_buffer(ptr
   %42 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %41) #12, !srcloc !11
   %43 = and i32 %42, 256
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %78
+  br i1 %44, label %45, label %74
 
 45:                                               ; preds = %34
   %46 = icmp eq i64 %3, 0
   br i1 %46, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %45, %.preheader
-  %47 = phi i64 [ %75, %.preheader ], [ 0, %45 ]
-  %48 = phi i32 [ %74, %.preheader ], [ 0, %45 ]
+  %47 = phi i64 [ %71, %.preheader ], [ 0, %45 ]
+  %48 = phi i32 [ %70, %.preheader ], [ 0, %45 ]
   %49 = getelementptr i8, ptr %2, i64 %47
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
-  %52 = or disjoint i32 %48, 1
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr i8, ptr %2, i64 %53
+  %52 = sext i32 %48 to i64
+  %53 = getelementptr i8, ptr %2, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 1
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = shl nuw nsw i32 %56, 8
   %58 = or disjoint i32 %57, %51
-  %59 = or disjoint i32 %48, 2
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr i8, ptr %2, i64 %60
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = shl nuw nsw i32 %63, 16
-  %65 = or disjoint i32 %58, %64
-  %66 = or disjoint i32 %48, 3
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr i8, ptr %2, i64 %67
-  %69 = load i8, ptr %68, align 1
-  %70 = zext i8 %69 to i32
-  %71 = shl nuw i32 %70, 24
-  %72 = or disjoint i32 %65, %71
-  %73 = getelementptr i8, ptr %16, i64 %47
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %72, ptr elementtype(i32) %73) #12, !srcloc !10
-  %74 = add i32 %48, 4
-  %75 = sext i32 %74 to i64
-  %76 = icmp ugt i64 %3, %75
-  br i1 %76, label %.preheader, label %.loopexit, !llvm.loop !34
+  %59 = getelementptr i8, ptr %53, i64 2
+  %60 = load i8, ptr %59, align 1
+  %61 = zext i8 %60 to i32
+  %62 = shl nuw nsw i32 %61, 16
+  %63 = or disjoint i32 %58, %62
+  %64 = getelementptr i8, ptr %53, i64 3
+  %65 = load i8, ptr %64, align 1
+  %66 = zext i8 %65 to i32
+  %67 = shl nuw i32 %66, 24
+  %68 = or disjoint i32 %63, %67
+  %69 = getelementptr i8, ptr %16, i64 %47
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %68, ptr elementtype(i32) %69) #12, !srcloc !10
+  %70 = add i32 %48, 4
+  %71 = sext i32 %70 to i64
+  %72 = icmp ugt i64 %3, %71
+  br i1 %72, label %.preheader, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.preheader, %45
-  %77 = or disjoint i32 %42, 256
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %77, ptr elementtype(i32) %41) #12, !srcloc !10
-  br label %78
+  %73 = or disjoint i32 %42, 256
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %73, ptr elementtype(i32) %41) #12, !srcloc !10
+  br label %74
 
-78:                                               ; preds = %.loopexit, %34
-  %79 = phi i64 [ %3, %.loopexit ], [ -16, %34 ]
-  %80 = load ptr, ptr %38, align 16
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %80, i64 noundef %40) #12
-  %81 = load ptr, ptr %35, align 64
-  %82 = tail call i32 @__pm_runtime_idle(ptr noundef %81, i32 noundef 5) #12
-  br label %83
+74:                                               ; preds = %.loopexit, %34
+  %75 = phi i64 [ %3, %.loopexit ], [ -16, %34 ]
+  %76 = load ptr, ptr %38, align 16
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %76, i64 noundef %40) #12
+  %77 = load ptr, ptr %35, align 64
+  %78 = tail call i32 @__pm_runtime_idle(ptr noundef %77, i32 noundef 5) #12
+  br label %79
 
-83:                                               ; preds = %78, %29, %21, %4
-  %84 = phi i64 [ -22, %29 ], [ -22, %21 ], [ -22, %4 ], [ %79, %78 ]
-  ret i64 %84
+79:                                               ; preds = %74, %29, %21, %4
+  %80 = phi i64 [ -22, %29 ], [ -22, %21 ], [ -22, %4 ], [ %75, %74 ]
+  ret i64 %80
 }
 
 ; Function Attrs: null_pointer_is_valid

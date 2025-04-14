@@ -372,7 +372,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr noundef nonnull write
 7:                                                ; preds = %5
   store ptr null, ptr %0, align 8, !tbaa !6
   store i64 0, ptr %1, align 8, !tbaa !18
-  br label %56
+  br label %55
 
 8:                                                ; preds = %5
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #13
@@ -383,7 +383,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr noundef nonnull write
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8, !tbaa !20
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.16, i32 noundef %3, ptr noundef %4) #11
-  br label %55
+  br label %54
 
 14:                                               ; preds = %8
   %15 = lshr exact i64 %9, 1
@@ -398,10 +398,10 @@ define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr noundef nonnull write
 18:                                               ; preds = %14
   %19 = load ptr, ptr @stderr, align 8, !tbaa !20
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.17, i32 noundef %3) #11
-  br label %55
+  br label %54
 
-.lr.ph:                                           ; preds = %.preheader, %48
-  %.02965 = phi i64 [ %53, %48 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %47
+  %.02965 = phi i64 [ %52, %47 ], [ 0, %.preheader ]
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 %.02965
   %22 = load i8, ptr %21, align 1, !tbaa !24
   %23 = add i8 %22, -48
@@ -420,7 +420,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr noundef nonnull write
 28:                                               ; preds = %24
   %29 = add i8 %22, -65
   %or.cond8.i = icmp ult i8 %29, 6
-  br i1 %or.cond8.i, label %30, label %45
+  br i1 %or.cond8.i, label %30, label %44
 
 30:                                               ; preds = %28
   %31 = add nsw i8 %22, -55
@@ -428,59 +428,58 @@ define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr noundef nonnull write
 
 32:                                               ; preds = %30, %26, %.lr.ph
   %.147.ph = phi i8 [ %23, %.lr.ph ], [ %27, %26 ], [ %31, %30 ]
-  %33 = or disjoint i64 %.02965, 1
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !24
-  %36 = add i8 %35, -48
-  %or.cond.i37 = icmp ult i8 %36, 10
-  br i1 %or.cond.i37, label %48, label %37
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  %34 = load i8, ptr %33, align 1, !tbaa !24
+  %35 = add i8 %34, -48
+  %or.cond.i37 = icmp ult i8 %35, 10
+  br i1 %or.cond.i37, label %47, label %36
 
-37:                                               ; preds = %32
-  %38 = add i8 %35, -97
-  %or.cond5.i38 = icmp ult i8 %38, 6
-  br i1 %or.cond5.i38, label %39, label %41
+36:                                               ; preds = %32
+  %37 = add i8 %34, -97
+  %or.cond5.i38 = icmp ult i8 %37, 6
+  br i1 %or.cond5.i38, label %38, label %40
 
-39:                                               ; preds = %37
-  %40 = add nsw i8 %35, -87
-  br label %48
+38:                                               ; preds = %36
+  %39 = add nsw i8 %34, -87
+  br label %47
 
-41:                                               ; preds = %37
-  %42 = add i8 %35, -65
-  %or.cond8.i39 = icmp ult i8 %42, 6
-  br i1 %or.cond8.i39, label %43, label %45
+40:                                               ; preds = %36
+  %41 = add i8 %34, -65
+  %or.cond8.i39 = icmp ult i8 %41, 6
+  br i1 %or.cond8.i39, label %42, label %44
 
-43:                                               ; preds = %41
-  %44 = add nsw i8 %35, -55
-  br label %48
+42:                                               ; preds = %40
+  %43 = add nsw i8 %34, -55
+  br label %47
 
-45:                                               ; preds = %28, %41
-  %46 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.18, i32 noundef %3, ptr noundef %4, i64 noundef %.02965) #11
-  br label %55
+44:                                               ; preds = %28, %40
+  %45 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.18, i32 noundef %3, ptr noundef %4, i64 noundef %.02965) #11
+  br label %54
 
-48:                                               ; preds = %32, %39, %43
-  %.3.ph = phi i8 [ %36, %32 ], [ %40, %39 ], [ %44, %43 ]
-  %49 = shl nuw i8 %.147.ph, 4
-  %50 = or i8 %.3.ph, %49
-  %51 = lshr exact i64 %.02965, 1
-  %52 = getelementptr inbounds nuw i8, ptr %16, i64 %51
-  store i8 %50, ptr %52, align 1, !tbaa !24
-  %53 = add i64 %.02965, 2
-  %54 = icmp ult i64 %53, %9
-  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+47:                                               ; preds = %32, %38, %42
+  %.3.ph = phi i8 [ %35, %32 ], [ %39, %38 ], [ %43, %42 ]
+  %48 = shl nuw i8 %.147.ph, 4
+  %49 = or i8 %.3.ph, %48
+  %50 = lshr exact i64 %.02965, 1
+  %51 = getelementptr inbounds nuw i8, ptr %16, i64 %50
+  store i8 %49, ptr %51, align 1, !tbaa !24
+  %52 = add i64 %.02965, 2
+  %53 = icmp ult i64 %52, %9
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %48, %.preheader
+._crit_edge:                                      ; preds = %47, %.preheader
   store ptr %16, ptr %0, align 8, !tbaa !6
   store i64 %15, ptr %1, align 8, !tbaa !18
-  br label %56
+  br label %55
 
-55:                                               ; preds = %45, %18, %11
-  %.030 = phi ptr [ null, %11 ], [ null, %18 ], [ %16, %45 ]
+54:                                               ; preds = %44, %18, %11
+  %.030 = phi ptr [ null, %11 ], [ null, %18 ], [ %16, %44 ]
   tail call void @free(ptr noundef %.030) #10
-  br label %56
+  br label %55
 
-56:                                               ; preds = %._crit_edge, %55, %7
-  %.0 = phi i32 [ 1, %7 ], [ 0, %55 ], [ 1, %._crit_edge ]
+55:                                               ; preds = %._crit_edge, %54, %7
+  %.0 = phi i32 [ 1, %7 ], [ 0, %54 ], [ 1, %._crit_edge ]
   ret i32 %.0
 }
 

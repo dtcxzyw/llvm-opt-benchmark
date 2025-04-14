@@ -21710,7 +21710,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK2OT4cff119accelerator_templ_tIN3C
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !523
   %.not = icmp eq ptr %5, @_hb_NullPool
-  br i1 %.not, label %45, label %6
+  br i1 %.not, label %43, label %6
 
 6:                                                ; preds = %3
   %7 = load i8, ptr %5, align 1, !tbaa !153
@@ -21748,118 +21748,118 @@ _ZNK2OT7ArrayOfINS_7IntTypeIhLj1EEES2_EixEi.exit.i.i: ; preds = %9
 _ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit.lr.ph.i.i: ; preds = %19
   %21 = add i32 %1, -1
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %5, i64 3
   br label %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit.i.i
 
 _ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit.i.i: ; preds = %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit21.i.i, %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit21.i.i ]
-  %.01527.i.i = phi i32 [ %21, %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit.lr.ph.i.i ], [ %44, %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit21.i.i ]
+  %.01527.i.i = phi i32 [ %21, %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit.lr.ph.i.i ], [ %42, %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit21.i.i ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !205
   %23 = shl nuw i64 %indvars.iv.i.i, 1
-  %24 = or disjoint i64 %23, 1
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !153
-  %27 = zext i8 %26 to i32
-  %.not.i.i = icmp ugt i32 %.01527.i.i, %27
-  %28 = load i8, ptr %20, align 1, !tbaa !153
-  %29 = zext i8 %28 to i64
-  %.not.i19.i.i = icmp samesign ult i64 %indvars.iv.i.i, %29
-  br i1 %.not.i.i, label %38, label %30
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %23
+  %24 = load i8, ptr %gep.i.i, align 1, !tbaa !153
+  %25 = zext i8 %24 to i32
+  %.not.i.i = icmp ugt i32 %.01527.i.i, %25
+  %26 = load i8, ptr %20, align 1, !tbaa !153
+  %27 = zext i8 %26 to i64
+  %.not.i19.i.i = icmp samesign ult i64 %indvars.iv.i.i, %27
+  br i1 %.not.i.i, label %36, label %28
 
-30:                                               ; preds = %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit.i.i
-  br i1 %.not.i19.i.i, label %31, label %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit18.i.i, !prof !63
+28:                                               ; preds = %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit.i.i
+  br i1 %.not.i19.i.i, label %29, label %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit18.i.i, !prof !63
 
-31:                                               ; preds = %30
+29:                                               ; preds = %28
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !205
-  %32 = getelementptr inbounds nuw [1 x %"struct.CFF::Encoding1_Range"], ptr %22, i64 0, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw [1 x %"struct.CFF::Encoding1_Range"], ptr %22, i64 0, i64 %indvars.iv.i.i
   br label %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit18.i.i
 
-_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit18.i.i: ; preds = %31, %30
-  %.0.i17.i.i = phi ptr [ %32, %31 ], [ @_hb_NullPool, %30 ]
-  %33 = load i8, ptr %.0.i17.i.i, align 1, !tbaa !153
-  %34 = zext i8 %33 to i32
-  %35 = add nuw nsw i32 %.01527.i.i, %34
-  %36 = icmp samesign ult i32 %35, 256
-  %37 = select i1 %36, i32 %35, i32 -1, !prof !63
+_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit18.i.i: ; preds = %29, %28
+  %.0.i17.i.i = phi ptr [ %30, %29 ], [ @_hb_NullPool, %28 ]
+  %31 = load i8, ptr %.0.i17.i.i, align 1, !tbaa !153
+  %32 = zext i8 %31 to i32
+  %33 = add nuw nsw i32 %.01527.i.i, %32
+  %34 = icmp samesign ult i32 %33, 256
+  %35 = select i1 %34, i32 %33, i32 -1, !prof !63
   br label %_ZNK3CFF8Encoding8get_codeEj.exit
 
-38:                                               ; preds = %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit.i.i
-  br i1 %.not.i19.i.i, label %39, label %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit21.i.i, !prof !63
+36:                                               ; preds = %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit.i.i
+  br i1 %.not.i19.i.i, label %37, label %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit21.i.i, !prof !63
 
-39:                                               ; preds = %38
+37:                                               ; preds = %36
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !205
-  %40 = getelementptr inbounds nuw [1 x %"struct.CFF::Encoding1_Range"], ptr %22, i64 0, i64 %indvars.iv.i.i
+  %38 = getelementptr inbounds nuw [1 x %"struct.CFF::Encoding1_Range"], ptr %22, i64 0, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.pre.i.i = load i8, ptr %20, align 1, !tbaa !74
   %.pre33.i.i = zext i8 %.sroa.0.0.copyload.i.pre.i.i to i64
   br label %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit21.i.i
 
-_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit21.i.i: ; preds = %39, %38
-  %.pre-phi34.i.i = phi i64 [ %29, %38 ], [ %.pre33.i.i, %39 ]
-  %.0.i20.i.i = phi ptr [ @_hb_NullPool, %38 ], [ %40, %39 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.0.i20.i.i, i64 1
-  %42 = load i8, ptr %41, align 1, !tbaa !153
-  %43 = zext i8 %42 to i32
-  %.neg.i.i = xor i32 %43, -1
-  %44 = add i32 %.01527.i.i, %.neg.i.i
+_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit21.i.i: ; preds = %37, %36
+  %.pre-phi34.i.i = phi i64 [ %27, %36 ], [ %.pre33.i.i, %37 ]
+  %.0.i20.i.i = phi ptr [ @_hb_NullPool, %36 ], [ %38, %37 ]
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i20.i.i, i64 1
+  %40 = load i8, ptr %39, align 1, !tbaa !153
+  %41 = zext i8 %40 to i32
+  %.neg.i.i = xor i32 %41, -1
+  %42 = add i32 %.01527.i.i, %.neg.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not22.i.i = icmp samesign ult i64 %indvars.iv.next.i.i, %.pre-phi34.i.i
   br i1 %.not22.i.i, label %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit.i.i, label %_ZNK3CFF8Encoding8get_codeEj.exit, !llvm.loop !651
 
-45:                                               ; preds = %3
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %47 = load ptr, ptr %46, align 8, !tbaa !415
-  %.not.i = icmp eq ptr %47, @_hb_NullPool
-  br i1 %.not.i, label %52, label %48
+43:                                               ; preds = %3
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %45 = load ptr, ptr %44, align 8, !tbaa !415
+  %.not.i = icmp eq ptr %45, @_hb_NullPool
+  br i1 %.not.i, label %50, label %46
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %50 = load i32, ptr %49, align 8, !tbaa !416
-  %51 = tail call noundef i32 @_ZNK3CFF7Charset7get_sidEjjPNS_11code_pair_tE(ptr noundef nonnull align 1 dereferenceable(5) %47, i32 noundef %1, i32 noundef %50, ptr noundef %2)
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %48 = load i32, ptr %47, align 8, !tbaa !416
+  %49 = tail call noundef i32 @_ZNK3CFF7Charset7get_sidEjjPNS_11code_pair_tE(ptr noundef nonnull align 1 dereferenceable(5) %45, i32 noundef %1, i32 noundef %48, ptr noundef %2)
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit
 
-52:                                               ; preds = %45
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 244
-  %54 = load i32, ptr %53, align 4, !tbaa !287
-  switch i32 %54, label %_ZNK3CFF8Encoding8get_codeEj.exit [
-    i32 0, label %55
-    i32 1, label %57
-    i32 2, label %59
+50:                                               ; preds = %43
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 244
+  %52 = load i32, ptr %51, align 4, !tbaa !287
+  switch i32 %52, label %_ZNK3CFF8Encoding8get_codeEj.exit [
+    i32 0, label %53
+    i32 1, label %55
+    i32 2, label %57
   ]
 
-55:                                               ; preds = %52
-  %56 = icmp ult i32 %1, 229
-  br i1 %56, label %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit, label %_ZNK3CFF8Encoding8get_codeEj.exit
+53:                                               ; preds = %50
+  %54 = icmp ult i32 %1, 229
+  br i1 %54, label %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit, label %_ZNK3CFF8Encoding8get_codeEj.exit
 
-57:                                               ; preds = %52
-  %58 = tail call noundef i32 @_ZN2OT4cff129lookup_expert_charset_for_sidEj(i32 noundef %1) #14
+55:                                               ; preds = %50
+  %56 = tail call noundef i32 @_ZN2OT4cff129lookup_expert_charset_for_sidEj(i32 noundef %1) #14
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit
 
-59:                                               ; preds = %52
-  %60 = tail call noundef i32 @_ZN2OT4cff136lookup_expert_subset_charset_for_sidEj(i32 noundef %1) #14
+57:                                               ; preds = %50
+  %58 = tail call noundef i32 @_ZN2OT4cff136lookup_expert_subset_charset_for_sidEj(i32 noundef %1) #14
   br label %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit
 
-_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit: ; preds = %55, %48, %57, %59
-  %.08.i = phi i32 [ %51, %48 ], [ %60, %59 ], [ %58, %57 ], [ %1, %55 ]
-  %61 = icmp eq i32 %.08.i, 0
-  br i1 %61, label %_ZNK3CFF8Encoding8get_codeEj.exit, label %62
+_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit: ; preds = %53, %46, %55, %57
+  %.08.i = phi i32 [ %49, %46 ], [ %58, %57 ], [ %56, %55 ], [ %1, %53 ]
+  %59 = icmp eq i32 %.08.i, 0
+  br i1 %59, label %_ZNK3CFF8Encoding8get_codeEj.exit, label %60
 
-62:                                               ; preds = %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %64 = load i32, ptr %63, align 8, !tbaa !652
-  switch i32 %64, label %_ZNK3CFF8Encoding8get_codeEj.exit [
-    i32 0, label %65
-    i32 1, label %67
+60:                                               ; preds = %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %62 = load i32, ptr %61, align 8, !tbaa !652
+  switch i32 %62, label %_ZNK3CFF8Encoding8get_codeEj.exit [
+    i32 0, label %63
+    i32 1, label %65
   ]
 
-65:                                               ; preds = %62
-  %66 = tail call noundef i32 @_ZN2OT4cff133lookup_standard_encoding_for_codeEj(i32 noundef %.08.i) #14
+63:                                               ; preds = %60
+  %64 = tail call noundef i32 @_ZN2OT4cff133lookup_standard_encoding_for_codeEj(i32 noundef %.08.i) #14
   br label %_ZNK3CFF8Encoding8get_codeEj.exit
 
-67:                                               ; preds = %62
-  %68 = tail call noundef i32 @_ZN2OT4cff131lookup_expert_encoding_for_codeEj(i32 noundef %.08.i) #14
+65:                                               ; preds = %60
+  %66 = tail call noundef i32 @_ZN2OT4cff131lookup_expert_encoding_for_codeEj(i32 noundef %.08.i) #14
   br label %_ZNK3CFF8Encoding8get_codeEj.exit
 
-_ZNK3CFF8Encoding8get_codeEj.exit:                ; preds = %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit21.i.i, %55, %52, %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit18.i.i, %19, %_ZNK2OT7ArrayOfINS_7IntTypeIhLj1EEES2_EixEi.exit.i.i, %9, %6, %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit, %62, %67, %65
-  %.08 = phi i32 [ 0, %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit ], [ 0, %62 ], [ %68, %67 ], [ %66, %65 ], [ 0, %6 ], [ %18, %_ZNK2OT7ArrayOfINS_7IntTypeIhLj1EEES2_EixEi.exit.i.i ], [ -1, %9 ], [ %37, %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit18.i.i ], [ -1, %19 ], [ 0, %52 ], [ 0, %55 ], [ -1, %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit21.i.i ]
+_ZNK3CFF8Encoding8get_codeEj.exit:                ; preds = %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit21.i.i, %53, %50, %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit18.i.i, %19, %_ZNK2OT7ArrayOfINS_7IntTypeIhLj1EEES2_EixEi.exit.i.i, %9, %6, %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit, %60, %65, %63
+  %.08 = phi i32 [ 0, %_ZNK2OT4cff119accelerator_templ_tIN3CFF32cff1_private_dict_opset_subset_tENS2_31cff1_private_dict_values_base_tINS2_8op_str_tEEEE12glyph_to_sidEjPNS2_11code_pair_tE.exit ], [ 0, %60 ], [ %66, %65 ], [ %64, %63 ], [ 0, %6 ], [ %18, %_ZNK2OT7ArrayOfINS_7IntTypeIhLj1EEES2_EixEi.exit.i.i ], [ -1, %9 ], [ %35, %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit18.i.i ], [ -1, %19 ], [ 0, %50 ], [ 0, %53 ], [ -1, %_ZNK2OT7ArrayOfIN3CFF15Encoding1_RangeENS_7IntTypeIhLj1EEEEixEi.exit21.i.i ]
   ret i32 %.08
 }
 

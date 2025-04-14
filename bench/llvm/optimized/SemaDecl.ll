@@ -188799,6 +188799,7 @@ _ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagD2Ev
 define internal fastcc void @"_ZSt13__adjust_heapIPZN5clang4Sema13ActOnPopScopeENS0_14SourceLocationEPNS0_5ScopeEE10LocAndDiaglS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13ActOnPopScopeES2_S4_E3$_2EEEvT_T0_SD_T1_T2_"(ptr noundef captures(none) %0, i64 noundef range(i64 0, 115292150460684697) %1, i64 noundef range(i64 -230584300921369395, 230584300921369396) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
+  %invariant.gep = getelementptr i8, ptr %0, i64 40
   %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
@@ -188813,181 +188814,181 @@ define internal fastcc void @"_ZSt13__adjust_heapIPZN5clang4Sema13ActOnPopScopeE
   %9 = shl i64 %.041, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %12
+  %gep = getelementptr %struct.LocAndDiag, ptr %invariant.gep, i64 %9
   %.val = load i32, ptr %11, align 4, !tbaa !682
-  %.val28 = load i32, ptr %13, align 4, !tbaa !682
-  %14 = icmp ult i32 %.val, %.val28
-  %spec.select = select i1 %14, i64 %12, i64 %10
-  %15 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %.041
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 12, i1 false)
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %.val28 = load i32, ptr %gep, align 4, !tbaa !682
+  %12 = icmp ult i32 %.val, %.val28
+  %13 = or disjoint i64 %9, 1
+  %spec.select = select i1 %12, i64 %13, i64 %10
+  %14 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %spec.select
+  %15 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %.041
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 12, i1 false)
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.not.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit, label %18
+  br i1 %.not.i.i.i, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit, label %17
 
-18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !760
-  %.not.i.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i.i, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit, label %21
+17:                                               ; preds = %.lr.ph
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !760
+  %.not.i.i.i.i = icmp eq ptr %19, null
+  br i1 %.not.i.i.i.i, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit, label %20
 
-21:                                               ; preds = %18
-  tail call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %20, ptr noundef nonnull %8)
-  store ptr null, ptr %17, align 8, !tbaa !756
+20:                                               ; preds = %17
+  tail call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %19, ptr noundef nonnull %8)
+  store ptr null, ptr %16, align 8, !tbaa !756
   br label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit
 
-_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit: ; preds = %.lr.ph, %18, %21
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %24 = load i32, ptr %23, align 8, !tbaa !1555
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i32 %24, ptr %25, align 8, !tbaa !1555
-  %26 = load ptr, ptr %22, align 8, !tbaa !756
-  store ptr %26, ptr %17, align 8, !tbaa !756
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !760
-  %29 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr %28, ptr %29, align 8, !tbaa !760
-  store ptr null, ptr %22, align 8, !tbaa !756
-  %30 = icmp slt i64 %spec.select, %6
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !3917
+_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit: ; preds = %.lr.ph, %17, %20
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %23 = load i32, ptr %22, align 8, !tbaa !1555
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store i32 %23, ptr %24, align 8, !tbaa !1555
+  %25 = load ptr, ptr %21, align 8, !tbaa !756
+  store ptr %25, ptr %16, align 8, !tbaa !756
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !760
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store ptr %27, ptr %28, align 8, !tbaa !760
+  store ptr null, ptr %21, align 8, !tbaa !756
+  %29 = icmp slt i64 %spec.select, %6
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !3917
 
 ._crit_edge:                                      ; preds = %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit ]
-  %31 = and i64 %2, 1
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %56
+  %30 = and i64 %2, 1
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %55
 
-33:                                               ; preds = %._crit_edge
-  %34 = add nsw i64 %2, -2
-  %35 = ashr exact i64 %34, 1
-  %36 = icmp eq i64 %.0.lcssa, %35
-  br i1 %36, label %37, label %56
+32:                                               ; preds = %._crit_edge
+  %33 = add nsw i64 %2, -2
+  %34 = ashr exact i64 %33, 1
+  %35 = icmp eq i64 %.0.lcssa, %34
+  br i1 %35, label %36, label %55
 
-37:                                               ; preds = %33
-  %38 = shl nsw i64 %.0.lcssa, 1
-  %39 = or disjoint i64 %38, 1
-  %40 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %39
-  %41 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %.0.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %40, i64 12, i1 false)
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !756
-  %.not.i.i.i29 = icmp eq ptr %43, null
-  br i1 %.not.i.i.i29, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit31, label %44
+36:                                               ; preds = %32
+  %37 = shl nsw i64 %.0.lcssa, 1
+  %38 = or disjoint i64 %37, 1
+  %39 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %38
+  %40 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %.0.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 12, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !756
+  %.not.i.i.i29 = icmp eq ptr %42, null
+  br i1 %.not.i.i.i29, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit31, label %43
 
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %46 = load ptr, ptr %45, align 8, !tbaa !760
-  %.not.i.i.i.i30 = icmp eq ptr %46, null
-  br i1 %.not.i.i.i.i30, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit31, label %47
+43:                                               ; preds = %36
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  %45 = load ptr, ptr %44, align 8, !tbaa !760
+  %.not.i.i.i.i30 = icmp eq ptr %45, null
+  br i1 %.not.i.i.i.i30, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit31, label %46
 
-47:                                               ; preds = %44
-  tail call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %46, ptr noundef nonnull %43)
-  store ptr null, ptr %42, align 8, !tbaa !756
+46:                                               ; preds = %43
+  tail call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %45, ptr noundef nonnull %42)
+  store ptr null, ptr %41, align 8, !tbaa !756
   br label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit31
 
-_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit31: ; preds = %37, %44, %47
-  %48 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %49 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %50 = load i32, ptr %49, align 8, !tbaa !1555
-  %51 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  store i32 %50, ptr %51, align 8, !tbaa !1555
-  %52 = load ptr, ptr %48, align 8, !tbaa !756
-  store ptr %52, ptr %42, align 8, !tbaa !756
-  %53 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %54 = load ptr, ptr %53, align 8, !tbaa !760
-  %55 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr %54, ptr %55, align 8, !tbaa !760
-  store ptr null, ptr %48, align 8, !tbaa !756
-  br label %56
+_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit31: ; preds = %36, %43, %46
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %49 = load i32, ptr %48, align 8, !tbaa !1555
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  store i32 %49, ptr %50, align 8, !tbaa !1555
+  %51 = load ptr, ptr %47, align 8, !tbaa !756
+  store ptr %51, ptr %41, align 8, !tbaa !756
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %53 = load ptr, ptr %52, align 8, !tbaa !760
+  %54 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  store ptr %53, ptr %54, align 8, !tbaa !760
+  store ptr null, ptr %47, align 8, !tbaa !756
+  br label %55
 
-56:                                               ; preds = %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit31, %33, %._crit_edge
-  %.127 = phi i64 [ %39, %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit31 ], [ %.0.lcssa, %33 ], [ %.0.lcssa, %._crit_edge ]
+55:                                               ; preds = %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit31, %32, %._crit_edge
+  %.127 = phi i64 [ %38, %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit31 ], [ %.0.lcssa, %32 ], [ %.0.lcssa, %._crit_edge ]
   %.sroa.0.0.copyload = load i32, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %57 = load i64, ptr %.sroa.3.0..sroa_idx, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %60 = load i32, ptr %59, align 8, !tbaa !1555
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %62 = load ptr, ptr %61, align 8, !tbaa !760
-  %63 = load ptr, ptr %58, align 8, !tbaa !756
-  store ptr null, ptr %58, align 8, !tbaa !756
-  %64 = icmp sgt i64 %.127, %1
-  br i1 %64, label %.lr.ph.i, label %.critedge.i
+  %56 = load i64, ptr %.sroa.3.0..sroa_idx, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %59 = load i32, ptr %58, align 8, !tbaa !1555
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %61 = load ptr, ptr %60, align 8, !tbaa !760
+  %62 = load ptr, ptr %57, align 8, !tbaa !756
+  store ptr null, ptr %57, align 8, !tbaa !756
+  %63 = icmp sgt i64 %.127, %1
+  br i1 %63, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %56, %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i
-  %.0133.i = phi i64 [ %.04.i, %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i ], [ %.127, %56 ]
+.lr.ph.i:                                         ; preds = %55, %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i
+  %.0133.i = phi i64 [ %.04.i, %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i ], [ %.127, %55 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %65 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %.04.i
-  %.val.i = load i32, ptr %65, align 4, !tbaa !682
-  %66 = icmp ult i32 %.val.i, %.sroa.0.0.copyload
-  br i1 %66, label %67, label %.critedge.i
+  %64 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %.04.i
+  %.val.i = load i32, ptr %64, align 4, !tbaa !682
+  %65 = icmp ult i32 %.val.i, %.sroa.0.0.copyload
+  br i1 %65, label %66, label %.critedge.i
 
-67:                                               ; preds = %.lr.ph.i
-  %68 = getelementptr inbounds nuw %struct.LocAndDiag, ptr %0, i64 %.0133.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef nonnull align 8 dereferenceable(40) %65, i64 12, i1 false)
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %70 = load ptr, ptr %69, align 8, !tbaa !756
-  %.not.i.i.i.i32 = icmp eq ptr %70, null
-  br i1 %.not.i.i.i.i32, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i, label %71
+66:                                               ; preds = %.lr.ph.i
+  %67 = getelementptr inbounds nuw %struct.LocAndDiag, ptr %0, i64 %.0133.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %67, ptr noundef nonnull align 8 dereferenceable(40) %64, i64 12, i1 false)
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %69 = load ptr, ptr %68, align 8, !tbaa !756
+  %.not.i.i.i.i32 = icmp eq ptr %69, null
+  br i1 %.not.i.i.i.i32, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i, label %70
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !760
-  %.not.i.i.i.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i.i.i.i, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i, label %74
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %72 = load ptr, ptr %71, align 8, !tbaa !760
+  %.not.i.i.i.i.i = icmp eq ptr %72, null
+  br i1 %.not.i.i.i.i.i, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i, label %73
 
-74:                                               ; preds = %71
-  tail call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %73, ptr noundef nonnull %70)
-  store ptr null, ptr %69, align 8, !tbaa !756
+73:                                               ; preds = %70
+  tail call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %72, ptr noundef nonnull %69)
+  store ptr null, ptr %68, align 8, !tbaa !756
   br label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i
 
-_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i: ; preds = %74, %71, %67
-  %75 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %76 = getelementptr inbounds nuw i8, ptr %65, i64 32
-  %77 = load i32, ptr %76, align 8, !tbaa !1555
-  %78 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  store i32 %77, ptr %78, align 8, !tbaa !1555
-  %79 = load ptr, ptr %75, align 8, !tbaa !756
-  store ptr %79, ptr %69, align 8, !tbaa !756
-  %80 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %81 = load ptr, ptr %80, align 8, !tbaa !760
-  %82 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  store ptr %81, ptr %82, align 8, !tbaa !760
-  store ptr null, ptr %75, align 8, !tbaa !756
-  %83 = icmp sgt i64 %.04.i, %1
-  br i1 %83, label %.lr.ph.i, label %.critedge.i, !llvm.loop !3918
+_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i: ; preds = %73, %70, %66
+  %74 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  %76 = load i32, ptr %75, align 8, !tbaa !1555
+  %77 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  store i32 %76, ptr %77, align 8, !tbaa !1555
+  %78 = load ptr, ptr %74, align 8, !tbaa !756
+  store ptr %78, ptr %68, align 8, !tbaa !756
+  %79 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %80 = load ptr, ptr %79, align 8, !tbaa !760
+  %81 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  store ptr %80, ptr %81, align 8, !tbaa !760
+  store ptr null, ptr %74, align 8, !tbaa !756
+  %82 = icmp sgt i64 %.04.i, %1
+  br i1 %82, label %.lr.ph.i, label %.critedge.i, !llvm.loop !3918
 
-.critedge.i:                                      ; preds = %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i, %.lr.ph.i, %56
-  %.013.lcssa.i = phi i64 [ %.127, %56 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i ]
-  %84 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %.013.lcssa.i
-  store i32 %.sroa.0.0.copyload, ptr %84, align 8
-  %.sroa.3.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  store i64 %57, ptr %.sroa.3.0..sroa_idx36, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !756
-  %.not.i.i.i15.i = icmp eq ptr %86, null
-  br i1 %.not.i.i.i15.i, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagD2Ev.exit, label %87
+.critedge.i:                                      ; preds = %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i, %.lr.ph.i, %55
+  %.013.lcssa.i = phi i64 [ %.127, %55 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEOS4_.exit.i ]
+  %83 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %.013.lcssa.i
+  store i32 %.sroa.0.0.copyload, ptr %83, align 8
+  %.sroa.3.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  store i64 %56, ptr %.sroa.3.0..sroa_idx36, align 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %85 = load ptr, ptr %84, align 8, !tbaa !756
+  %.not.i.i.i15.i = icmp eq ptr %85, null
+  br i1 %.not.i.i.i15.i, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagD2Ev.exit, label %86
 
-87:                                               ; preds = %.critedge.i
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  %89 = load ptr, ptr %88, align 8, !tbaa !760
-  %.not.i.i.i.i16.i = icmp eq ptr %89, null
-  br i1 %.not.i.i.i.i16.i, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagD2Ev.exit, label %90
+86:                                               ; preds = %.critedge.i
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %88 = load ptr, ptr %87, align 8, !tbaa !760
+  %.not.i.i.i.i16.i = icmp eq ptr %88, null
+  br i1 %.not.i.i.i.i16.i, label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagD2Ev.exit, label %89
 
-90:                                               ; preds = %87
-  tail call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %89, ptr noundef nonnull %86)
+89:                                               ; preds = %86
+  tail call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %88, ptr noundef nonnull %85)
   br label %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagD2Ev.exit
 
-_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagD2Ev.exit: ; preds = %90, %87, %.critedge.i
-  %91 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  store i32 %60, ptr %91, align 8, !tbaa !1555
-  store ptr %63, ptr %85, align 8, !tbaa !756
-  %92 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  store ptr %62, ptr %92, align 8, !tbaa !760
+_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagD2Ev.exit: ; preds = %89, %86, %.critedge.i
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  store i32 %59, ptr %90, align 8, !tbaa !1555
+  store ptr %62, ptr %84, align 8, !tbaa !756
+  %91 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  store ptr %61, ptr %91, align 8, !tbaa !760
   ret void
 }
 

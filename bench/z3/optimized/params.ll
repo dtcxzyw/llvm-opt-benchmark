@@ -10406,44 +10406,48 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIP6symbolN9__gnu_cxx5__ops15_I
   %8 = icmp sgt i64 %7, 8
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %_ZSt10__pop_heapIP6symbolN9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_S9_S9_RT0_.exit
-  %.07 = phi ptr [ %9, %_ZSt10__pop_heapIP6symbolN9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_S9_S9_RT0_.exit ], [ %1, %3 ]
-  %9 = getelementptr inbounds i8, ptr %.07, i64 -8
-  %.sroa.02.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !45
-  %10 = load i64, ptr %0, align 8, !tbaa !45
-  store i64 %10, ptr %9, align 8, !tbaa !45
-  %11 = ptrtoint ptr %9 to i64
-  %12 = sub i64 %11, %5
-  %13 = ashr exact i64 %12, 3
-  %14 = add nsw i64 %13, -1
-  %15 = sdiv i64 %14, 2
-  %16 = icmp sgt i64 %13, 2
-  br i1 %16, label %.lr.ph.i.i, label %._crit_edge.i.i
+.lr.ph:                                           ; preds = %3
+  %invariant.gep.i.i = getelementptr i8, ptr %0, i64 8
+  br label %9
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph, %.lr.ph.i.i
-  %.029.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph ]
-  %17 = shl i64 %.029.i.i, 1
-  %18 = add i64 %17, 2
-  %19 = getelementptr inbounds %class.symbol, ptr %0, i64 %18
-  %20 = or disjoint i64 %17, 1
-  %21 = getelementptr inbounds %class.symbol, ptr %0, i64 %20
-  %22 = call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %21)
-  %spec.select.i.i = select i1 %22, i64 %20, i64 %18
+9:                                                ; preds = %.lr.ph, %_ZSt10__pop_heapIP6symbolN9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_S9_S9_RT0_.exit
+  %.07 = phi ptr [ %1, %.lr.ph ], [ %10, %_ZSt10__pop_heapIP6symbolN9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_S9_S9_RT0_.exit ]
+  %10 = getelementptr inbounds i8, ptr %.07, i64 -8
+  %.sroa.02.0.copyload.i = load ptr, ptr %10, align 8, !tbaa !45
+  %11 = load i64, ptr %0, align 8, !tbaa !45
+  store i64 %11, ptr %10, align 8, !tbaa !45
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %12, %5
+  %14 = ashr exact i64 %13, 3
+  %15 = add nsw i64 %14, -1
+  %16 = sdiv i64 %15, 2
+  %17 = icmp sgt i64 %14, 2
+  br i1 %17, label %.lr.ph.i.i, label %._crit_edge.i.i
+
+.lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
+  %.029.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %9 ]
+  %18 = shl i64 %.029.i.i, 1
+  %19 = add i64 %18, 2
+  %20 = getelementptr inbounds %class.symbol, ptr %0, i64 %19
+  %gep.i.i = getelementptr %class.symbol, ptr %invariant.gep.i.i, i64 %18
+  %21 = call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %gep.i.i)
+  %22 = or disjoint i64 %18, 1
+  %spec.select.i.i = select i1 %21, i64 %22, i64 %19
   %23 = getelementptr inbounds %class.symbol, ptr %0, i64 %spec.select.i.i
   %24 = getelementptr inbounds %class.symbol, ptr %0, i64 %.029.i.i
   %25 = load i64, ptr %23, align 8, !tbaa !45
   store i64 %25, ptr %24, align 8, !tbaa !45
-  %26 = icmp slt i64 %spec.select.i.i, %15
+  %26 = icmp slt i64 %spec.select.i.i, %16
   br i1 %26, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !135
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph
-  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %27 = and i64 %12, 8
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %9
+  %.0.lcssa.i.i = phi i64 [ 0, %9 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+  %27 = and i64 %13, 8
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %38
 
 29:                                               ; preds = %._crit_edge.i.i
-  %30 = add nsw i64 %13, -2
+  %30 = add nsw i64 %14, -2
   %31 = ashr exact i64 %30, 1
   %32 = icmp eq i64 %.0.lcssa.i.i, %31
   br i1 %32, label %.thread.i, label %38
@@ -10496,8 +10500,8 @@ _ZSt10__pop_heapIP6symbolN9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5
   %46 = getelementptr inbounds %class.symbol, ptr %0, i64 %.013.lcssa.i.i.i
   store i64 %45, ptr %46, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %47 = icmp sgt i64 %12, 8
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !137
+  %47 = icmp sgt i64 %13, 8
+  br i1 %47, label %9, label %._crit_edge, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIP6symbolN9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_S9_S9_RT0_.exit, %3
   ret void
@@ -10518,6 +10522,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIP6symbolN9__gnu_cxx5__ops15_I
   %12 = lshr i64 %11, 1
   %13 = add nsw i64 %8, -1
   %14 = lshr i64 %13, 1
+  %invariant.gep.i = getelementptr i8, ptr %0, i64 8
   %15 = and i64 %7, 8
   %16 = icmp eq i64 %15, 0
   %17 = lshr exact i64 %11, 1
@@ -10530,7 +10535,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIP6symbolN9__gnu_cxx5__ops15_I
   br label %.split
 
 .split.us:                                        ; preds = %10, %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit.us
-  %.015.us = phi i64 [ %44, %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit.us ], [ %12, %10 ]
+  %.015.us = phi i64 [ %43, %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit.us ], [ %12, %10 ]
   %21 = getelementptr inbounds nuw %class.symbol, ptr %0, i64 %.015.us
   %.sroa.02.0.copyload.us = load ptr, ptr %21, align 8, !tbaa !45
   %22 = icmp slt i64 %.015.us, %14
@@ -10546,123 +10551,123 @@ define linkonce_odr hidden void @_ZSt11__make_heapIP6symbolN9__gnu_cxx5__ops15_I
   %24 = shl i64 %.029.i.us, 1
   %25 = add i64 %24, 2
   %26 = getelementptr inbounds %class.symbol, ptr %0, i64 %25
-  %27 = or disjoint i64 %24, 1
-  %28 = getelementptr inbounds %class.symbol, ptr %0, i64 %27
-  %29 = call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %28)
-  %spec.select.i.us = select i1 %29, i64 %27, i64 %25
-  %30 = getelementptr inbounds %class.symbol, ptr %0, i64 %spec.select.i.us
-  %31 = getelementptr inbounds %class.symbol, ptr %0, i64 %.029.i.us
-  %32 = load i64, ptr %30, align 8, !tbaa !45
-  store i64 %32, ptr %31, align 8, !tbaa !45
-  %33 = icmp slt i64 %spec.select.i.us, %14
-  br i1 %33, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !135
+  %gep.i.us = getelementptr %class.symbol, ptr %invariant.gep.i, i64 %24
+  %27 = call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %gep.i.us)
+  %28 = or disjoint i64 %24, 1
+  %spec.select.i.us = select i1 %27, i64 %28, i64 %25
+  %29 = getelementptr inbounds %class.symbol, ptr %0, i64 %spec.select.i.us
+  %30 = getelementptr inbounds %class.symbol, ptr %0, i64 %.029.i.us
+  %31 = load i64, ptr %29, align 8, !tbaa !45
+  store i64 %31, ptr %30, align 8, !tbaa !45
+  %32 = icmp slt i64 %spec.select.i.us, %14
+  br i1 %32, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !135
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %.sroa.02.0.copyload.us, ptr %4, align 8
-  %34 = icmp sgt i64 %spec.select.i.us, %.015.us
-  %35 = ptrtoint ptr %.sroa.02.0.copyload.us to i64
-  br i1 %34, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit.us
+  %33 = icmp sgt i64 %spec.select.i.us, %.015.us
+  %34 = ptrtoint ptr %.sroa.02.0.copyload.us to i64
+  br i1 %33, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit.us
 
-.lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us, %38
-  %.01316.i.i.us = phi i64 [ %.017.i.i.us, %38 ], [ %spec.select.i.us, %._crit_edge.i.us ]
+.lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us, %37
+  %.01316.i.i.us = phi i64 [ %.017.i.i.us, %37 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.017.in.i.i.us = add nsw i64 %.01316.i.i.us, -1
   %.017.i.i.us = sdiv i64 %.017.in.i.i.us, 2
-  %36 = getelementptr inbounds %class.symbol, ptr %0, i64 %.017.i.i.us
-  %37 = call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br i1 %37, label %38, label %.critedge.loopexit.i.i.us
+  %35 = getelementptr inbounds %class.symbol, ptr %0, i64 %.017.i.i.us
+  %36 = call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  br i1 %36, label %37, label %.critedge.loopexit.i.i.us
 
-38:                                               ; preds = %.lr.ph.i.i.us
-  %39 = getelementptr inbounds %class.symbol, ptr %0, i64 %.01316.i.i.us
-  %40 = load i64, ptr %36, align 8, !tbaa !45
-  store i64 %40, ptr %39, align 8, !tbaa !45
-  %41 = icmp sgt i64 %.017.i.i.us, %.015.us
-  br i1 %41, label %.lr.ph.i.i.us, label %.critedge.loopexit.i.i.us, !llvm.loop !136
+37:                                               ; preds = %.lr.ph.i.i.us
+  %38 = getelementptr inbounds %class.symbol, ptr %0, i64 %.01316.i.i.us
+  %39 = load i64, ptr %35, align 8, !tbaa !45
+  store i64 %39, ptr %38, align 8, !tbaa !45
+  %40 = icmp sgt i64 %.017.i.i.us, %.015.us
+  br i1 %40, label %.lr.ph.i.i.us, label %.critedge.loopexit.i.i.us, !llvm.loop !136
 
-.critedge.loopexit.i.i.us:                        ; preds = %38, %.lr.ph.i.i.us
-  %.013.lcssa.ph.i.i.us = phi i64 [ %.01316.i.i.us, %.lr.ph.i.i.us ], [ %.017.i.i.us, %38 ]
+.critedge.loopexit.i.i.us:                        ; preds = %37, %.lr.ph.i.i.us
+  %.013.lcssa.ph.i.i.us = phi i64 [ %.01316.i.i.us, %.lr.ph.i.i.us ], [ %.017.i.i.us, %37 ]
   %.pre.i.i.us = load i64, ptr %4, align 8, !tbaa !45
   br label %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit.us
 
 _ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit.us: ; preds = %._crit_edge.i.us.thread, %.critedge.loopexit.i.i.us, %._crit_edge.i.us
-  %42 = phi i64 [ %35, %._crit_edge.i.us ], [ %.pre.i.i.us, %.critedge.loopexit.i.i.us ], [ %23, %._crit_edge.i.us.thread ]
+  %41 = phi i64 [ %34, %._crit_edge.i.us ], [ %.pre.i.i.us, %.critedge.loopexit.i.i.us ], [ %23, %._crit_edge.i.us.thread ]
   %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.lcssa.ph.i.i.us, %.critedge.loopexit.i.i.us ], [ %.015.us, %._crit_edge.i.us.thread ]
-  %43 = getelementptr inbounds %class.symbol, ptr %0, i64 %.013.lcssa.i.i.us
-  store i64 %42, ptr %43, align 8, !tbaa !45
+  %42 = getelementptr inbounds %class.symbol, ptr %0, i64 %.013.lcssa.i.i.us
+  store i64 %41, ptr %42, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not.us = icmp eq i64 %.015.us, 0
-  %44 = add nsw i64 %.015.us, -1
+  %43 = add nsw i64 %.015.us, -1
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !138
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit
-  %.015 = phi i64 [ %71, %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit ], [ %12, %.split.preheader ]
-  %45 = getelementptr inbounds nuw %class.symbol, ptr %0, i64 %.015
-  %.sroa.02.0.copyload = load ptr, ptr %45, align 8, !tbaa !45
-  %46 = icmp slt i64 %.015, %14
-  br i1 %46, label %.lr.ph.i, label %._crit_edge.i
+  %.015 = phi i64 [ %69, %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit ], [ %12, %.split.preheader ]
+  %44 = getelementptr inbounds nuw %class.symbol, ptr %0, i64 %.015
+  %.sroa.02.0.copyload = load ptr, ptr %44, align 8, !tbaa !45
+  %45 = icmp slt i64 %.015, %14
+  br i1 %45, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
   %.029.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.015, %.split ]
-  %47 = shl i64 %.029.i, 1
-  %48 = add i64 %47, 2
-  %49 = getelementptr inbounds %class.symbol, ptr %0, i64 %48
-  %50 = or disjoint i64 %47, 1
-  %51 = getelementptr inbounds %class.symbol, ptr %0, i64 %50
-  %52 = call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %51)
-  %spec.select.i = select i1 %52, i64 %50, i64 %48
-  %53 = getelementptr inbounds %class.symbol, ptr %0, i64 %spec.select.i
-  %54 = getelementptr inbounds %class.symbol, ptr %0, i64 %.029.i
-  %55 = load i64, ptr %53, align 8, !tbaa !45
-  store i64 %55, ptr %54, align 8, !tbaa !45
-  %56 = icmp slt i64 %spec.select.i, %14
-  br i1 %56, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !135
+  %46 = shl i64 %.029.i, 1
+  %47 = add i64 %46, 2
+  %48 = getelementptr inbounds %class.symbol, ptr %0, i64 %47
+  %gep.i = getelementptr %class.symbol, ptr %invariant.gep.i, i64 %46
+  %49 = call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(8) %gep.i)
+  %50 = or disjoint i64 %46, 1
+  %spec.select.i = select i1 %49, i64 %50, i64 %47
+  %51 = getelementptr inbounds %class.symbol, ptr %0, i64 %spec.select.i
+  %52 = getelementptr inbounds %class.symbol, ptr %0, i64 %.029.i
+  %53 = load i64, ptr %51, align 8, !tbaa !45
+  store i64 %53, ptr %52, align 8, !tbaa !45
+  %54 = icmp slt i64 %spec.select.i, %14
+  br i1 %54, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !135
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.015, %.split ], [ %spec.select.i, %.lr.ph.i ]
-  %57 = icmp eq i64 %.0.lcssa.i, %17
-  br i1 %57, label %58, label %60
+  %55 = icmp eq i64 %.0.lcssa.i, %17
+  br i1 %55, label %56, label %58
 
-58:                                               ; preds = %._crit_edge.i
-  %59 = load i64, ptr %19, align 8, !tbaa !45
-  store i64 %59, ptr %20, align 8, !tbaa !45
-  br label %60
+56:                                               ; preds = %._crit_edge.i
+  %57 = load i64, ptr %19, align 8, !tbaa !45
+  store i64 %57, ptr %20, align 8, !tbaa !45
+  br label %58
 
-60:                                               ; preds = %58, %._crit_edge.i
-  %.1.i = phi i64 [ %18, %58 ], [ %.0.lcssa.i, %._crit_edge.i ]
+58:                                               ; preds = %56, %._crit_edge.i
+  %.1.i = phi i64 [ %18, %56 ], [ %.0.lcssa.i, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %.sroa.02.0.copyload, ptr %4, align 8
-  %61 = icmp sgt i64 %.1.i, %.015
-  %62 = ptrtoint ptr %.sroa.02.0.copyload to i64
-  br i1 %61, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit
+  %59 = icmp sgt i64 %.1.i, %.015
+  %60 = ptrtoint ptr %.sroa.02.0.copyload to i64
+  br i1 %59, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %60, %65
-  %.01316.i.i = phi i64 [ %.017.i.i, %65 ], [ %.1.i, %60 ]
+.lr.ph.i.i:                                       ; preds = %58, %63
+  %.01316.i.i = phi i64 [ %.017.i.i, %63 ], [ %.1.i, %58 ]
   %.017.in.i.i = add nsw i64 %.01316.i.i, -1
   %.017.i.i = sdiv i64 %.017.in.i.i, 2
-  %63 = getelementptr inbounds %class.symbol, ptr %0, i64 %.017.i.i
-  %64 = call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  br i1 %64, label %65, label %.critedge.loopexit.i.i
+  %61 = getelementptr inbounds %class.symbol, ptr %0, i64 %.017.i.i
+  %62 = call noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  br i1 %62, label %63, label %.critedge.loopexit.i.i
 
-65:                                               ; preds = %.lr.ph.i.i
-  %66 = getelementptr inbounds %class.symbol, ptr %0, i64 %.01316.i.i
-  %67 = load i64, ptr %63, align 8, !tbaa !45
-  store i64 %67, ptr %66, align 8, !tbaa !45
-  %68 = icmp sgt i64 %.017.i.i, %.015
-  br i1 %68, label %.lr.ph.i.i, label %.critedge.loopexit.i.i, !llvm.loop !136
+63:                                               ; preds = %.lr.ph.i.i
+  %64 = getelementptr inbounds %class.symbol, ptr %0, i64 %.01316.i.i
+  %65 = load i64, ptr %61, align 8, !tbaa !45
+  store i64 %65, ptr %64, align 8, !tbaa !45
+  %66 = icmp sgt i64 %.017.i.i, %.015
+  br i1 %66, label %.lr.ph.i.i, label %.critedge.loopexit.i.i, !llvm.loop !136
 
-.critedge.loopexit.i.i:                           ; preds = %65, %.lr.ph.i.i
-  %.013.lcssa.ph.i.i = phi i64 [ %.01316.i.i, %.lr.ph.i.i ], [ %.017.i.i, %65 ]
+.critedge.loopexit.i.i:                           ; preds = %63, %.lr.ph.i.i
+  %.013.lcssa.ph.i.i = phi i64 [ %.01316.i.i, %.lr.ph.i.i ], [ %.017.i.i, %63 ]
   %.pre.i.i = load i64, ptr %4, align 8, !tbaa !45
   br label %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit
 
-_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit: ; preds = %60, %.critedge.loopexit.i.i
-  %69 = phi i64 [ %62, %60 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %60 ], [ %.013.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
-  %70 = getelementptr inbounds %class.symbol, ptr %0, i64 %.013.lcssa.i.i
-  store i64 %69, ptr %70, align 8, !tbaa !45
+_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit: ; preds = %58, %.critedge.loopexit.i.i
+  %67 = phi i64 [ %60, %58 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %58 ], [ %.013.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
+  %68 = getelementptr inbounds %class.symbol, ptr %0, i64 %.013.lcssa.i.i
+  store i64 %67, ptr %68, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not = icmp eq i64 %.015, 0
-  %71 = add nsw i64 %.015, -1
+  %69 = add nsw i64 %.015, -1
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !138
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIP6symbollS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN12param_descrs3imp5symltEEEEvT_T0_SA_T1_T2_.exit, %3

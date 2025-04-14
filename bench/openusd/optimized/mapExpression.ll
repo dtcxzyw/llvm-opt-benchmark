@@ -651,24 +651,24 @@ _ZSt10_ConstructISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_EJRKS3_E
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 1, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %.ptr12.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %95, i64 24
+  %invariant.gep.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %95, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %97, i8 0, i64 40, i1 false)
-  br label %.preheader14.i.i.i.i.i.i.i.i
+  br label %100
 
-.preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader14.i.i.i.i.i.i.i.i
+.preheader.i.i.i.i.i.i.i.i:                       ; preds = %100
+  %.ptr12.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %95, i64 24
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 56
   %99 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i to i64
   br label %102
 
-.preheader14.i.i.i.i.i.i.i.i:                     ; preds = %.preheader14.i.i.i.i.i.i.i.i, %.noexc
-  %.015.i.i.i.i.i.i.i.i = phi i64 [ %101, %.preheader14.i.i.i.i.i.i.i.i ], [ 0, %.noexc ]
+100:                                              ; preds = %100, %.noexc
+  %.015.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc ], [ %101, %100 ]
   %.idx13.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.015.i.i.i.i.i.i.i.i, 4
-  %.offs.i.i.i.i.i.i.i.i = or disjoint i64 %.idx13.i.i.i.i.i.i.i.i, 8
-  %100 = getelementptr inbounds nuw i8, ptr %.ptr12.i.i.i.i.i.i.i.i, i64 %.offs.i.i.i.i.i.i.i.i
-  store atomic i64 0, ptr %100 monotonic, align 8
+  %gep.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i.i.i.i.i, i64 %.idx13.i.i.i.i.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i.i.i.i.i monotonic, align 8
   %101 = add nuw nsw i64 %.015.i.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %101, 2
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, label %.preheader14.i.i.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, label %100, !llvm.loop !11
 
 102:                                              ; preds = %102, %.preheader.i.i.i.i.i.i.i.i
   %.01016.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i ], [ %106, %102 ]
@@ -3148,24 +3148,24 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit11: ; preds = %
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 1, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %.ptr12.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %invariant.gep.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %55, i8 0, i64 40, i1 false)
-  br label %.preheader14.i.i.i.i.i.i.i.i
+  br label %58
 
-.preheader.i.i.i.i.i.i.i.i:                       ; preds = %.preheader14.i.i.i.i.i.i.i.i
+.preheader.i.i.i.i.i.i.i.i:                       ; preds = %58
+  %.ptr12.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 24
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %57 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i to i64
   br label %60
 
-.preheader14.i.i.i.i.i.i.i.i:                     ; preds = %.preheader14.i.i.i.i.i.i.i.i, %.noexc
-  %.015.i.i.i.i.i.i.i.i = phi i64 [ %59, %.preheader14.i.i.i.i.i.i.i.i ], [ 0, %.noexc ]
+58:                                               ; preds = %58, %.noexc
+  %.015.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc ], [ %59, %58 ]
   %.idx13.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.015.i.i.i.i.i.i.i.i, 4
-  %.offs.i.i.i.i.i.i.i.i = or disjoint i64 %.idx13.i.i.i.i.i.i.i.i, 8
-  %58 = getelementptr inbounds nuw i8, ptr %.ptr12.i.i.i.i.i.i.i.i, i64 %.offs.i.i.i.i.i.i.i.i
-  store atomic i64 0, ptr %58 monotonic, align 8
+  %gep.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i.i.i.i.i, i64 %.idx13.i.i.i.i.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i.i.i.i.i monotonic, align 8
   %59 = add nuw nsw i64 %.015.i.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i64 %59, 2
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, label %.preheader14.i.i.i.i.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, label %58, !llvm.loop !11
 
 60:                                               ; preds = %60, %.preheader.i.i.i.i.i.i.i.i
   %.01016.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i ], [ %64, %60 ]
@@ -3464,27 +3464,27 @@ default.unreachable:                              ; preds = %_ZN3tbb6detail2d219
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i64 1, ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 16
-  %.ptr12.i.i.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %182, i64 24
+  %invariant.gep.i.i.i.i.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %182, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %184, i8 0, i64 40, i1 false)
-  br label %.preheader14.i.i.i.i.i.i.i.i18
+  br label %187
 
-.preheader.i.i.i.i.i.i.i.i23:                     ; preds = %.preheader14.i.i.i.i.i.i.i.i18
+.preheader.i.i.i.i.i.i.i.i22:                     ; preds = %187
+  %.ptr12.i.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %182, i64 24
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 56
-  %186 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i17 to i64
+  %186 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i23 to i64
   br label %189
 
-.preheader14.i.i.i.i.i.i.i.i18:                   ; preds = %.preheader14.i.i.i.i.i.i.i.i18, %.noexc27
-  %.015.i.i.i.i.i.i.i.i19 = phi i64 [ %188, %.preheader14.i.i.i.i.i.i.i.i18 ], [ 0, %.noexc27 ]
-  %.idx13.i.i.i.i.i.i.i.i20 = shl nuw nsw i64 %.015.i.i.i.i.i.i.i.i19, 4
-  %.offs.i.i.i.i.i.i.i.i21 = or disjoint i64 %.idx13.i.i.i.i.i.i.i.i20, 8
-  %187 = getelementptr inbounds nuw i8, ptr %.ptr12.i.i.i.i.i.i.i.i17, i64 %.offs.i.i.i.i.i.i.i.i21
-  store atomic i64 0, ptr %187 monotonic, align 8
-  %188 = add nuw nsw i64 %.015.i.i.i.i.i.i.i.i19, 1
-  %.not.i.i.i.i.i.i.i.i22 = icmp eq i64 %188, 2
-  br i1 %.not.i.i.i.i.i.i.i.i22, label %.preheader.i.i.i.i.i.i.i.i23, label %.preheader14.i.i.i.i.i.i.i.i18, !llvm.loop !11
+187:                                              ; preds = %187, %.noexc27
+  %.015.i.i.i.i.i.i.i.i18 = phi i64 [ 0, %.noexc27 ], [ %188, %187 ]
+  %.idx13.i.i.i.i.i.i.i.i19 = shl nuw nsw i64 %.015.i.i.i.i.i.i.i.i18, 4
+  %gep.i.i.i.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i.i.i.i.i17, i64 %.idx13.i.i.i.i.i.i.i.i19
+  store atomic i64 0, ptr %gep.i.i.i.i.i.i.i.i20 monotonic, align 8
+  %188 = add nuw nsw i64 %.015.i.i.i.i.i.i.i.i18, 1
+  %.not.i.i.i.i.i.i.i.i21 = icmp eq i64 %188, 2
+  br i1 %.not.i.i.i.i.i.i.i.i21, label %.preheader.i.i.i.i.i.i.i.i22, label %187, !llvm.loop !11
 
-189:                                              ; preds = %189, %.preheader.i.i.i.i.i.i.i.i23
-  %.01016.i.i.i.i.i.i.i.i24 = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i23 ], [ %193, %189 ]
+189:                                              ; preds = %189, %.preheader.i.i.i.i.i.i.i.i22
+  %.01016.i.i.i.i.i.i.i.i24 = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i22 ], [ %193, %189 ]
   %190 = icmp eq i64 %.01016.i.i.i.i.i.i.i.i24, 0
   %191 = getelementptr inbounds nuw [64 x %"struct.std::atomic.13"], ptr %185, i64 0, i64 %.01016.i.i.i.i.i.i.i.i24
   %192 = select i1 %190, i64 %186, i64 0

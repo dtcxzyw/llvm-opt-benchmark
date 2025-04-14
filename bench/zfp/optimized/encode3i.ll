@@ -1077,21 +1077,12 @@ pad_block_int32.exit60.us.i:                      ; preds = %57, %..preheader69_
   br i1 %exitcond117.not.i, label %47, label %..preheader69_crit_edge.split.us89.i
 
 .preheader70.i:                                   ; preds = %.preheader70.lr.ph.i, %.preheader70.i
-  %.078.i = phi i64 [ %65, %.preheader70.i ], [ 0, %.preheader70.lr.ph.i ]
+  %.078.i = phi i64 [ %62, %.preheader70.i ], [ 0, %.preheader70.lr.ph.i ]
   %61 = shl i64 %.078.i, 6
-  %62 = or disjoint i64 %61, 48
-  %scevgep40 = getelementptr i8, ptr %9, i64 %62
-  %63 = or disjoint i64 %61, 32
-  %scevgep39 = getelementptr i8, ptr %9, i64 %63
-  %64 = or disjoint i64 %61, 16
-  %scevgep38 = getelementptr i8, ptr %9, i64 %64
   %scevgep37 = getelementptr i8, ptr %9, i64 %61
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %scevgep37, i8 0, i64 16, i1 false), !tbaa !4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %scevgep38, i8 0, i64 16, i1 false), !tbaa !4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %scevgep39, i8 0, i64 16, i1 false), !tbaa !4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %scevgep40, i8 0, i64 16, i1 false), !tbaa !4
-  %65 = add nuw i64 %.078.i, 1
-  %exitcond120.not.i = icmp eq i64 %65, %4
+  %62 = add nuw i64 %.078.i, 1
+  %exitcond120.not.i = icmp eq i64 %62, %4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %scevgep37, i8 0, i64 64, i1 false)
   br i1 %exitcond120.not.i, label %.preheader67.i, label %.preheader70.i
 
 .preheader67.i:                                   ; preds = %16, %47, %.preheader70.i
@@ -1106,80 +1097,80 @@ pad_block_int32.exit60.us.i:                      ; preds = %57, %..preheader69_
   br label %gather_partial_int32_3.exit
 
 .preheader.i.us13:                                ; preds = %.preheader67.i, %.split.us.i.loopexit.us
-  %.1102.i.us14 = phi i64 [ %72, %.split.us.i.loopexit.us ], [ 0, %.preheader67.i ]
-  %66 = shl nuw nsw i64 %.1102.i.us14, 4
-  %scevgep.i.us15 = getelementptr i8, ptr %9, i64 %66
+  %.1102.i.us14 = phi i64 [ %69, %.split.us.i.loopexit.us ], [ 0, %.preheader67.i ]
+  %63 = shl nuw nsw i64 %.1102.i.us14, 4
+  %scevgep.i.us15 = getelementptr i8, ptr %9, i64 %63
   br label %._crit_edge.i64.us.i.us
 
 ._crit_edge.i64.us.i.us:                          ; preds = %.preheader.i.us13, %._crit_edge.i64.us.i.us
-  %.292.us94.i.us = phi i64 [ %71, %._crit_edge.i64.us.i.us ], [ 0, %.preheader.i.us13 ]
-  %67 = getelementptr inbounds nuw i32, ptr %scevgep.i.us15, i64 %.292.us94.i.us
-  %.pre.i65.us.i.us = load i32, ptr %67, align 4, !tbaa !4
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 64
-  store i32 %.pre.i65.us.i.us, ptr %68, align 4, !tbaa !4
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 128
-  store i32 %.pre.i65.us.i.us, ptr %69, align 4, !tbaa !4
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 192
-  store i32 %.pre.i65.us.i.us, ptr %70, align 4, !tbaa !4
-  %71 = add nuw nsw i64 %.292.us94.i.us, 1
-  %exitcond124.not.i.us = icmp eq i64 %71, 4
+  %.292.us94.i.us = phi i64 [ %68, %._crit_edge.i64.us.i.us ], [ 0, %.preheader.i.us13 ]
+  %64 = getelementptr inbounds nuw i32, ptr %scevgep.i.us15, i64 %.292.us94.i.us
+  %.pre.i65.us.i.us = load i32, ptr %64, align 4, !tbaa !4
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
+  store i32 %.pre.i65.us.i.us, ptr %65, align 4, !tbaa !4
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 128
+  store i32 %.pre.i65.us.i.us, ptr %66, align 4, !tbaa !4
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 192
+  store i32 %.pre.i65.us.i.us, ptr %67, align 4, !tbaa !4
+  %68 = add nuw nsw i64 %.292.us94.i.us, 1
+  %exitcond124.not.i.us = icmp eq i64 %68, 4
   br i1 %exitcond124.not.i.us, label %.split.us.i.loopexit.us, label %._crit_edge.i64.us.i.us
 
 .split.us.i.loopexit.us:                          ; preds = %._crit_edge.i64.us.i.us
-  %72 = add nuw nsw i64 %.1102.i.us14, 1
-  %exitcond128.not.i.us17 = icmp eq i64 %72, 4
+  %69 = add nuw nsw i64 %.1102.i.us14, 1
+  %exitcond128.not.i.us17 = icmp eq i64 %69, 4
   br i1 %exitcond128.not.i.us17, label %gather_partial_int32_3.exit, label %.preheader.i.us13
 
 .preheader.i.us19:                                ; preds = %.preheader67.i, %.split.us.i.loopexit7.us
-  %.1102.i.us20 = phi i64 [ %79, %.split.us.i.loopexit7.us ], [ 0, %.preheader67.i ]
-  %73 = shl nuw nsw i64 %.1102.i.us20, 4
-  %scevgep.i.us21 = getelementptr i8, ptr %9, i64 %73
+  %.1102.i.us20 = phi i64 [ %76, %.split.us.i.loopexit7.us ], [ 0, %.preheader67.i ]
+  %70 = shl nuw nsw i64 %.1102.i.us20, 4
+  %scevgep.i.us21 = getelementptr i8, ptr %9, i64 %70
   br label %._crit_edge15.i61.us.i.us
 
 ._crit_edge15.i61.us.i.us:                        ; preds = %.preheader.i.us19, %._crit_edge15.i61.us.i.us
-  %.292.us97.i.us = phi i64 [ %78, %._crit_edge15.i61.us.i.us ], [ 0, %.preheader.i.us19 ]
-  %74 = getelementptr inbounds nuw i32, ptr %scevgep.i.us21, i64 %.292.us97.i.us
-  %.phi.trans.insert.i62.us.i.us = getelementptr inbounds nuw i8, ptr %74, i64 64
+  %.292.us97.i.us = phi i64 [ %75, %._crit_edge15.i61.us.i.us ], [ 0, %.preheader.i.us19 ]
+  %71 = getelementptr inbounds nuw i32, ptr %scevgep.i.us21, i64 %.292.us97.i.us
+  %.phi.trans.insert.i62.us.i.us = getelementptr inbounds nuw i8, ptr %71, i64 64
   %.pre16.i63.us.i.us = load i32, ptr %.phi.trans.insert.i62.us.i.us, align 4, !tbaa !4
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 128
-  store i32 %.pre16.i63.us.i.us, ptr %75, align 4, !tbaa !4
-  %76 = load i32, ptr %74, align 4, !tbaa !4
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 192
-  store i32 %76, ptr %77, align 4, !tbaa !4
-  %78 = add nuw nsw i64 %.292.us97.i.us, 1
-  %exitcond123.not.i.us = icmp eq i64 %78, 4
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 128
+  store i32 %.pre16.i63.us.i.us, ptr %72, align 4, !tbaa !4
+  %73 = load i32, ptr %71, align 4, !tbaa !4
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 192
+  store i32 %73, ptr %74, align 4, !tbaa !4
+  %75 = add nuw nsw i64 %.292.us97.i.us, 1
+  %exitcond123.not.i.us = icmp eq i64 %75, 4
   br i1 %exitcond123.not.i.us, label %.split.us.i.loopexit7.us, label %._crit_edge15.i61.us.i.us
 
 .split.us.i.loopexit7.us:                         ; preds = %._crit_edge15.i61.us.i.us
-  %79 = add nuw nsw i64 %.1102.i.us20, 1
-  %exitcond128.not.i.us23 = icmp eq i64 %79, 4
+  %76 = add nuw nsw i64 %.1102.i.us20, 1
+  %exitcond128.not.i.us23 = icmp eq i64 %76, 4
   br i1 %exitcond128.not.i.us23, label %gather_partial_int32_3.exit, label %.preheader.i.us19
 
 .preheader.i.us25:                                ; preds = %.preheader67.i, %.split.us.i.loopexit8.us
-  %.1102.i.us26 = phi i64 [ %85, %.split.us.i.loopexit8.us ], [ 0, %.preheader67.i ]
-  %80 = shl nuw nsw i64 %.1102.i.us26, 4
-  %scevgep.i.us27 = getelementptr i8, ptr %9, i64 %80
+  %.1102.i.us26 = phi i64 [ %82, %.split.us.i.loopexit8.us ], [ 0, %.preheader67.i ]
+  %77 = shl nuw nsw i64 %.1102.i.us26, 4
+  %scevgep.i.us27 = getelementptr i8, ptr %9, i64 %77
   br label %pad_block_int32.exit66.us101.i.us
 
 pad_block_int32.exit66.us101.i.us:                ; preds = %.preheader.i.us25, %pad_block_int32.exit66.us101.i.us
-  %.292.us100.i.us = phi i64 [ %84, %pad_block_int32.exit66.us101.i.us ], [ 0, %.preheader.i.us25 ]
-  %81 = getelementptr inbounds nuw i32, ptr %scevgep.i.us27, i64 %.292.us100.i.us
-  %82 = load i32, ptr %81, align 4, !tbaa !4
-  %83 = getelementptr inbounds nuw i8, ptr %81, i64 192
-  store i32 %82, ptr %83, align 4, !tbaa !4
-  %84 = add nuw nsw i64 %.292.us100.i.us, 1
-  %exitcond122.not.i.us = icmp eq i64 %84, 4
+  %.292.us100.i.us = phi i64 [ %81, %pad_block_int32.exit66.us101.i.us ], [ 0, %.preheader.i.us25 ]
+  %78 = getelementptr inbounds nuw i32, ptr %scevgep.i.us27, i64 %.292.us100.i.us
+  %79 = load i32, ptr %78, align 4, !tbaa !4
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 192
+  store i32 %79, ptr %80, align 4, !tbaa !4
+  %81 = add nuw nsw i64 %.292.us100.i.us, 1
+  %exitcond122.not.i.us = icmp eq i64 %81, 4
   br i1 %exitcond122.not.i.us, label %.split.us.i.loopexit8.us, label %pad_block_int32.exit66.us101.i.us
 
 .split.us.i.loopexit8.us:                         ; preds = %pad_block_int32.exit66.us101.i.us
-  %85 = add nuw nsw i64 %.1102.i.us26, 1
-  %exitcond128.not.i.us29 = icmp eq i64 %85, 4
+  %82 = add nuw nsw i64 %.1102.i.us26, 1
+  %exitcond128.not.i.us29 = icmp eq i64 %82, 4
   br i1 %exitcond128.not.i.us29, label %gather_partial_int32_3.exit, label %.preheader.i.us25
 
 gather_partial_int32_3.exit:                      ; preds = %.split.us.i.loopexit7.us, %.split.us.i.loopexit.us, %.split.us.i.loopexit8.us, %.preheader67.i, %.preheader.i.us.preheader
-  %86 = call i64 @zfp_encode_block_int32_3(ptr noundef %0, ptr noundef nonnull %9)
+  %83 = call i64 @zfp_encode_block_int32_3(ptr noundef %0, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #7
-  ret i64 %86
+  ret i64 %83
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)

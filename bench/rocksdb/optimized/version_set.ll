@@ -74345,6 +74345,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7rocksdb18FilePickerMultiGet26GetNext
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = getelementptr inbounds nuw [32 x %"struct.rocksdb::FilePickerMultiGet::FilePickerContext"], ptr %17, i64 0, i64 %16
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !1299
@@ -74356,7 +74357,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7rocksdb18FilePickerMultiGet26GetNext
   %31 = load i64, ptr %30, align 8, !tbaa !221, !noalias !2682
   %32 = load i64, ptr %12, align 8, !tbaa !1267
   %.not112 = icmp eq i64 %32, %31
-  br i1 %.not112, label %257, label %33
+  br i1 %.not112, label %256, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 656
@@ -74709,23 +74710,22 @@ _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit82: ; preds = %230, %234
 
 246:                                              ; preds = %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit82
   %.not115 = icmp eq i64 %244, %.pre
-  br i1 %.not115, label %251, label %247
+  br i1 %.not115, label %250, label %247
 
 247:                                              ; preds = %246
   %.idx = shl nuw nsw i64 %244, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %248 = getelementptr inbounds nuw i8, ptr %17, i64 %.offs
-  %249 = load i32, ptr %248, align 8, !tbaa !1299
-  %250 = zext i32 %249 to i64
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
+  %248 = load i32, ptr %gep, align 8, !tbaa !1299
+  %249 = zext i32 %248 to i64
   br label %.critedge3
 
-251:                                              ; preds = %246
-  %252 = load ptr, ptr %9, align 8, !tbaa !1279
-  %253 = load i64, ptr %252, align 8, !tbaa !591
+250:                                              ; preds = %246
+  %251 = load ptr, ptr %9, align 8, !tbaa !1279
+  %252 = load i64, ptr %251, align 8, !tbaa !591
   br label %.critedge3
 
-.critedge3:                                       ; preds = %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit82, %251, %247
-  %.2 = phi i64 [ %.041137162, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit82 ], [ %250, %247 ], [ %253, %251 ]
+.critedge3:                                       ; preds = %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit82, %250, %247
+  %.2 = phi i64 [ %.041137162, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit82 ], [ %249, %247 ], [ %252, %250 ]
   %.not114 = icmp eq i64 %244, %.pre
   br i1 %.not114, label %.loopexit159, label %74
 
@@ -74733,7 +74733,7 @@ _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit82: ; preds = %230, %234
   store ptr %89, ptr %3, align 8, !tbaa !594
   store i64 %.041137162, ptr %2, align 8, !tbaa !285
   store i8 1, ptr %4, align 1, !tbaa !200
-  br label %255
+  br label %254
 
 .loopexit159:                                     ; preds = %.critedge3, %74, %.preheader
   %.041125 = phi i64 [ %8, %.preheader ], [ %.2, %74 ], [ %.2, %.critedge3 ]
@@ -74742,21 +74742,21 @@ _ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit82: ; preds = %230, %234
   store ptr %.143, ptr %3, align 8, !tbaa !594
   store i64 %.041125, ptr %2, align 8, !tbaa !285
   store i8 0, ptr %4, align 1, !tbaa !200
-  %254 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %254, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !tbaa.struct !1296
-  br label %255
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %253, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !tbaa.struct !1296
+  br label %254
 
-255:                                              ; preds = %.critedge.thread, %.loopexit159
+254:                                              ; preds = %.critedge.thread, %.loopexit159
   %.146158 = phi i8 [ %.247, %.critedge.thread ], [ %.146, %.loopexit159 ]
-  %256 = trunc nuw i8 %.146158 to i1
-  br label %257
+  %255 = trunc nuw i8 %.146158 to i1
+  br label %256
 
 .loopexit:                                        ; preds = %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit65, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
   store i64 %31, ptr %12, align 8, !tbaa !1267
-  br label %257
+  br label %256
 
-257:                                              ; preds = %.loopexit, %29, %255
-  %.0 = phi i1 [ %256, %255 ], [ false, %29 ], [ false, %.loopexit ]
+256:                                              ; preds = %.loopexit, %29, %254
+  %.0 = phi i1 [ %255, %254 ], [ false, %29 ], [ false, %.loopexit ]
   ret i1 %.0
 }
 

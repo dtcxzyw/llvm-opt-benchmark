@@ -1403,9 +1403,9 @@ define linkonce_odr hidden void @_ZNK2OT4avar10map_coordsEPij(ptr noundef nonnul
   %18 = zext i8 %17 to i64
   %19 = shl nuw nsw i64 %15, 10
   %20 = shl nuw nsw i64 %18, 2
-  %21 = or disjoint i64 %19, %20
-  %22 = or disjoint i64 %21, 2
-  %23 = getelementptr inbounds nuw i8, ptr %.03699, i64 %22
+  %21 = getelementptr inbounds nuw i8, ptr %.03699, i64 %19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %20
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -1442,9 +1442,9 @@ define linkonce_odr hidden void @_ZNK2OT4avar10map_coordsEPij(ptr noundef nonnul
   %43 = zext i8 %42 to i64
   %44 = shl nuw nsw i64 %40, 10
   %45 = shl nuw nsw i64 %43, 2
-  %46 = or disjoint i64 %44, %45
-  %47 = or disjoint i64 %46, 2
-  %48 = getelementptr inbounds nuw i8, ptr %.1100, i64 %47
+  %46 = getelementptr inbounds nuw i8, ptr %.1100, i64 %44
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %45
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 2
   %49 = add nuw nsw i32 %.035101, 1
   %exitcond125.not = icmp eq i32 %49, %37
   br i1 %exitcond125.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !13
@@ -2196,8 +2196,8 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %34 = zext i8 %20 to i64
   %35 = shl nuw nsw i64 %33, 9
   %36 = shl nuw nsw i64 %34, 1
-  %37 = or disjoint i64 %36, %35
-  %38 = getelementptr inbounds nuw i8, ptr %15, i64 %37
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %35
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %40 = add nuw nsw i32 %31, %22
   %.lobit.i = lshr i8 %.fr74, 7
@@ -3224,9 +3224,9 @@ _ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_s
   %59 = zext i8 %58 to i64
   %60 = shl nuw nsw i64 %57, 10
   %61 = shl nuw nsw i64 %59, 2
-  %62 = or disjoint i64 %60, %61
-  %63 = or disjoint i64 %62, 2
-  %64 = getelementptr inbounds nuw i8, ptr %.02636, i64 %63
+  %62 = getelementptr inbounds nuw i8, ptr %.02636, i64 %60
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %61
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %65 = add nuw nsw i32 %.02437, 1
   %exitcond.not = icmp eq i32 %65, %33
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %35, !llvm.loop !27
@@ -3766,10 +3766,10 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
 87:                                               ; preds = %73
   %88 = zext i8 %70 to i64
   %89 = shl nuw nsw i64 %88, 1
-  %90 = zext i8 %67 to i64
-  %91 = shl nuw nsw i64 %90, 9
-  %92 = or disjoint i64 %89, %91
-  %93 = getelementptr inbounds nuw i8, ptr %41, i64 %92
+  %90 = getelementptr inbounds nuw i8, ptr %41, i64 %89
+  %91 = zext i8 %67 to i64
+  %92 = shl nuw nsw i64 %91, 9
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %95 = ptrtoint ptr %94 to i64
   %96 = sub i64 %95, %9

@@ -3922,8 +3922,8 @@ define hidden void @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$3new17h
   %18 = sub nuw nsw i64 64, %17
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 7)
   %19 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %20 = or disjoint i64 %19, 1
-  %21 = getelementptr i8, ptr null, i64 %20
+  %20 = getelementptr i8, ptr null, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0.sroa.0.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(112) %3, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -4010,8 +4010,8 @@ define hidden void @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$3new17h
   %21 = sub nuw nsw i64 64, %20
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %21, i64 7)
   %22 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %23 = or disjoint i64 %22, 1
-  %24 = getelementptr i8, ptr null, i64 %23
+  %23 = getelementptr i8, ptr null, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 1
   %25 = or disjoint i64 %., 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %.sroa.0.sroa.0.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(112) %4, i64 112, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4)

@@ -656,19 +656,18 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   ret void
 
 36:                                               ; preds = %3, %36
-  %indvars.iv22 = phi i64 [ 1, %3 ], [ %indvars.iv.next23, %36 ]
+  %indvars.iv20 = phi i64 [ 1, %3 ], [ %indvars.iv.next21, %36 ]
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %36 ]
   %37 = getelementptr inbounds nuw [6 x float], ptr %18, i64 0, i64 %indvars.iv
   %38 = load float, ptr %37, align 4, !tbaa !30
   %39 = getelementptr inbounds nuw [6 x float], ptr %22, i64 0, i64 %indvars.iv
   %40 = load float, ptr %39, align 4, !tbaa !30
-  %41 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %25, i64 0, i64 %indvars.iv22
+  %41 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %25, i64 0, i64 %indvars.iv20
   store float %38, ptr %41, align 8, !tbaa !47
-  %.idx.i18 = shl nuw nsw i64 %indvars.iv22, 3
-  %.offs.i19 = or disjoint i64 %.idx.i18, 4
-  %42 = getelementptr inbounds nuw i8, ptr %25, i64 %.offs.i19
-  store float %40, ptr %42, align 4, !tbaa !49
-  %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
+  %.idx.i17 = shl nuw nsw i64 %indvars.iv20, 3
+  %gep = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i17
+  store float %40, ptr %gep, align 4, !tbaa !49
+  %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %27, label %36
@@ -1041,19 +1040,18 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   ret void
 
 78:                                               ; preds = %_iop_gui_alloc.exit, %78
-  %indvars.iv51 = phi i64 [ 1, %_iop_gui_alloc.exit ], [ %indvars.iv.next52, %78 ]
+  %indvars.iv49 = phi i64 [ 1, %_iop_gui_alloc.exit ], [ %indvars.iv.next50, %78 ]
   %indvars.iv = phi i64 [ 0, %_iop_gui_alloc.exit ], [ %indvars.iv.next, %78 ]
   %79 = getelementptr inbounds nuw [6 x float], ptr %16, i64 0, i64 %indvars.iv
   %80 = load float, ptr %79, align 4, !tbaa !30
   %81 = getelementptr inbounds nuw [6 x float], ptr %20, i64 0, i64 %indvars.iv
   %82 = load float, ptr %81, align 4, !tbaa !30
-  %83 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %23, i64 0, i64 %indvars.iv51
+  %83 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %23, i64 0, i64 %indvars.iv49
   store float %80, ptr %83, align 8, !tbaa !47
-  %.idx.i47 = shl nuw nsw i64 %indvars.iv51, 3
-  %.offs.i48 = or disjoint i64 %.idx.i47, 4
-  %84 = getelementptr inbounds nuw i8, ptr %23, i64 %.offs.i48
-  store float %82, ptr %84, align 4, !tbaa !49
-  %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
+  %.idx.i46 = shl nuw nsw i64 %indvars.iv49, 3
+  %gep = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i46
+  store float %82, ptr %gep, align 4, !tbaa !49
+  %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %25, label %78

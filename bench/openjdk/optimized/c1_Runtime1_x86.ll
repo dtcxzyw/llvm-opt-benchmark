@@ -1300,11 +1300,11 @@ define internal fastcc noundef ptr @_ZL16generate_oop_mapP13StubAssemblerib(ptr 
   %..i.i = select i1 %9, i64 16, i64 32
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %24
-  %indvars.iv79 = phi i64 [ 2, %.preheader.preheader ], [ %indvars.iv.next80, %24 ]
-  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %24 ]
+.preheader:                                       ; preds = %.preheader.preheader, %22
+  %indvars.iv79 = phi i64 [ 2, %.preheader.preheader ], [ %indvars.iv.next80, %22 ]
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %22 ]
   %10 = icmp samesign ult i64 %indvars.iv, %..i.i
-  br i1 %10, label %11, label %24
+  br i1 %10, label %11, label %22
 
 11:                                               ; preds = %.preheader
   %12 = getelementptr inbounds nuw %"class.XMMRegister::XMMRegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_XMMRegisterImpls, i64 1), i64 %indvars.iv
@@ -1317,19 +1317,18 @@ define internal fastcc noundef ptr @_ZL16generate_oop_mapP13StubAssemblerib(ptr 
   %19 = getelementptr i8, ptr %18, i64 80
   %20 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %indvars.iv79
   tail call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %20, ptr noundef %19) #7
-  %21 = or disjoint i64 %indvars.iv79, 1
-  %22 = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617), i64 %21
-  %23 = getelementptr i8, ptr %18, i64 81
-  tail call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %22, ptr noundef nonnull %23) #7
-  br label %24
+  %gep = getelementptr inbounds nuw %class.VMRegImpl, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 618), i64 %indvars.iv79
+  %21 = getelementptr i8, ptr %18, i64 81
+  tail call void @_ZN6OopMap16set_callee_savedEP9VMRegImplS1_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %gep, ptr noundef nonnull %21) #7
+  br label %22
 
-24:                                               ; preds = %11, %.preheader
+22:                                               ; preds = %11, %.preheader
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
-.loopexit:                                        ; preds = %24, %2
+.loopexit:                                        ; preds = %22, %2
   ret ptr %5
 }
 

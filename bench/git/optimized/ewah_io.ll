@@ -237,7 +237,7 @@ define dso_local i64 @ewah_read_mmap(ptr noundef captures(none) %0, ptr noundef 
 
 5:                                                ; preds = %3
   %6 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str) #5
-  br label %101
+  br label %98
 
 7:                                                ; preds = %3
   %8 = load i8, ptr %1, align 1, !tbaa !23
@@ -265,7 +265,7 @@ define dso_local i64 @ewah_read_mmap(ptr noundef captures(none) %0, ptr noundef 
 
 28:                                               ; preds = %7
   %29 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #5
-  br label %101
+  br label %98
 
 st_mult.exit:                                     ; preds = %7
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -311,7 +311,7 @@ st_mult.exit50:                                   ; preds = %st_mult.exit
 58:                                               ; preds = %st_mult.exit50
   %59 = sub nuw i64 %56, %50
   %60 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, i64 noundef %59) #5
-  br label %101
+  br label %98
 
 61:                                               ; preds = %st_mult.exit50
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -327,12 +327,12 @@ st_mult.exit50:                                   ; preds = %st_mult.exit
   br label %git_bswap64.exit
 
 git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap64.exit
-  %.052 = phi i64 [ 0, %.lr.ph ], [ %70, %git_bswap64.exit ]
-  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %.052
+  %.054 = phi i64 [ 0, %.lr.ph ], [ %70, %git_bswap64.exit ]
+  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %.054
   %68 = load i64, ptr %67, align 8, !tbaa !16
   %69 = tail call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %68) #6, !srcloc !17
   store i64 %69, ptr %67, align 8, !tbaa !16
-  %70 = add nuw i64 %.052, 1
+  %70 = add nuw i64 %.054, 1
   %71 = load i64, ptr %49, align 8, !tbaa !14
   %72 = icmp ult i64 %70, %71
   br i1 %72, label %git_bswap64.exit, label %._crit_edge, !llvm.loop !25
@@ -343,38 +343,38 @@ git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap6
 
 74:                                               ; preds = %._crit_edge
   %75 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #5
-  br label %101
+  br label %98
 
 76:                                               ; preds = %._crit_edge
   %77 = load ptr, ptr %0, align 8, !tbaa !15
   %78 = load i8, ptr %63, align 1, !tbaa !23
   %79 = zext i8 %78 to i64
-  %80 = shl nuw nsw i64 %79, 24
-  %81 = getelementptr inbounds nuw i8, ptr %63, i64 1
-  %82 = load i8, ptr %81, align 1, !tbaa !23
-  %83 = zext i8 %82 to i64
-  %84 = shl nuw nsw i64 %83, 16
-  %85 = or disjoint i64 %84, %80
-  %86 = getelementptr inbounds nuw i8, ptr %63, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %63, i64 1
+  %81 = load i8, ptr %80, align 1, !tbaa !23
+  %82 = zext i8 %81 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %63, i64 2
+  %84 = load i8, ptr %83, align 1, !tbaa !23
+  %85 = zext i8 %84 to i64
+  %86 = getelementptr inbounds nuw i8, ptr %63, i64 3
   %87 = load i8, ptr %86, align 1, !tbaa !23
   %88 = zext i8 %87 to i64
-  %89 = shl nuw nsw i64 %88, 8
-  %90 = or disjoint i64 %85, %89
-  %91 = getelementptr inbounds nuw i8, ptr %63, i64 3
-  %92 = load i8, ptr %91, align 1, !tbaa !23
-  %93 = zext i8 %92 to i64
-  %94 = or disjoint i64 %90, %93
-  %95 = getelementptr inbounds nuw i64, ptr %77, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %95, ptr %96, align 8, !tbaa !22
-  %97 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %98 = ptrtoint ptr %97 to i64
-  %99 = ptrtoint ptr %1 to i64
-  %100 = sub i64 %98, %99
-  br label %101
+  %.idx = shl nuw nsw i64 %82, 19
+  %89 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx
+  %.idx52 = shl nuw nsw i64 %79, 27
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx52
+  %.idx53 = shl nuw nsw i64 %85, 11
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx53
+  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %88
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %92, ptr %93, align 8, !tbaa !22
+  %94 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %95 = ptrtoint ptr %94 to i64
+  %96 = ptrtoint ptr %1 to i64
+  %97 = sub i64 %95, %96
+  br label %98
 
-101:                                              ; preds = %76, %74, %58, %28, %5
-  %.042 = phi i64 [ -1, %5 ], [ -1, %28 ], [ -1, %58 ], [ -1, %74 ], [ %100, %76 ]
+98:                                               ; preds = %76, %74, %58, %28, %5
+  %.042 = phi i64 [ -1, %5 ], [ -1, %28 ], [ -1, %58 ], [ -1, %74 ], [ %97, %76 ]
   ret i64 %.042
 }
 

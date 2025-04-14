@@ -386,7 +386,7 @@ define void @ossl_bin2hex(ptr noundef readonly captures(none) %0, ptr noundef wr
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.012 = phi i64 [ %19, %.lr.ph ], [ 0, %3 ]
+  %.012 = phi i64 [ %18, %.lr.ph ], [ 0, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.012
   %5 = load i8, ptr %4, align 1, !tbaa !14
   %6 = zext i8 %5 to i32
@@ -401,11 +401,10 @@ define void @ossl_bin2hex(ptr noundef readonly captures(none) %0, ptr noundef wr
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !14
-  %17 = or disjoint i64 %11, 1
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17
-  store i8 %16, ptr %18, align 1, !tbaa !14
-  %19 = add nuw i64 %.012, 1
-  %exitcond.not = icmp eq i64 %19, %2
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  store i8 %16, ptr %17, align 1, !tbaa !14
+  %18 = add nuw i64 %.012, 1
+  %exitcond.not = icmp eq i64 %18, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

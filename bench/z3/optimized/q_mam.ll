@@ -10827,8 +10827,8 @@ define linkonce_odr hidden void @_ZN1q8mam_impl9update_ppEhhPNS_4pathES2_P10quan
   %11 = zext i8 %1 to i64
   %12 = getelementptr inbounds nuw [64 x [64 x %"struct.std::pair"]], ptr %10, i64 0, i64 %11, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !682
-  %.not33 = icmp eq ptr %13, null
-  br i1 %.not33, label %.noexc, label %14
+  %.not31 = icmp eq ptr %13, null
+  br i1 %.not31, label %.noexc, label %14
 
 14:                                               ; preds = %9
   tail call void @_ZN1q8mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef nonnull %13, ptr noundef %3, ptr noundef %5, ptr noundef %6)
@@ -10888,7 +10888,7 @@ define linkonce_odr hidden void @_ZN1q8mam_impl9update_ppEhhPNS_4pathES2_P10quan
   store ptr %12, ptr %44, align 8, !tbaa !675
   %45 = load ptr, ptr %41, align 8, !tbaa !649
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.noexc35, label %47
+  br i1 %46, label %.noexc33, label %47
 
 47:                                               ; preds = %.noexc
   %48 = getelementptr inbounds i8, ptr %45, i64 -4
@@ -10896,18 +10896,18 @@ define linkonce_odr hidden void @_ZN1q8mam_impl9update_ppEhhPNS_4pathES2_P10quan
   %50 = getelementptr inbounds i8, ptr %45, i64 -8
   %51 = load i32, ptr %50, align 4, !tbaa !43
   %52 = icmp eq i32 %49, %51
-  br i1 %52, label %.noexc35, label %53
+  br i1 %52, label %.noexc33, label %53
 
-.noexc35:                                         ; preds = %47, %.noexc
+.noexc33:                                         ; preds = %47, %.noexc
   tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %41)
   %.pre.i.i.i = load ptr, ptr %41, align 8, !tbaa !649
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre2.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !43
   br label %53
 
-53:                                               ; preds = %.noexc35, %47
-  %54 = phi i32 [ %.pre2.i.i.i, %.noexc35 ], [ %49, %47 ]
-  %55 = phi ptr [ %.pre.i.i.i, %.noexc35 ], [ %45, %47 ]
+53:                                               ; preds = %.noexc33, %47
+  %54 = phi i32 [ %.pre2.i.i.i, %.noexc33 ], [ %49, %47 ]
+  %55 = phi ptr [ %.pre.i.i.i, %.noexc33 ], [ %45, %47 ]
   %56 = getelementptr inbounds i8, ptr %55, i64 -4
   %57 = zext i32 %54 to i64
   %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
@@ -10927,113 +10927,113 @@ define linkonce_odr hidden void @_ZN1q8mam_impl9update_ppEhhPNS_4pathES2_P10quan
   br label %64
 
 64:                                               ; preds = %63, %61
-  %.084 = phi ptr [ %3, %63 ], [ %4, %61 ]
-  %.083 = phi ptr [ %4, %63 ], [ %3, %61 ]
-  %.082 = phi i8 [ %1, %63 ], [ %2, %61 ]
+  %.082 = phi ptr [ %3, %63 ], [ %4, %61 ]
+  %.081 = phi ptr [ %4, %63 ], [ %3, %61 ]
+  %.080 = phi i8 [ %1, %63 ], [ %2, %61 ]
   %.0 = phi i8 [ %2, %63 ], [ %1, %61 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %66 = zext i8 %.0 to i64
-  %67 = zext i8 %.082 to i64
+  %67 = zext i8 %.080 to i64
   %68 = getelementptr inbounds nuw [64 x [64 x %"struct.std::pair"]], ptr %65, i64 0, i64 %66, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !682
   %.not = icmp eq ptr %69, null
-  br i1 %.not, label %.noexc39, label %70
+  br i1 %.not, label %.noexc37, label %70
 
 70:                                               ; preds = %64
-  tail call void @_ZN1q8mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef nonnull %69, ptr noundef %.083, ptr noundef %5, ptr noundef %6)
-  %.idx29 = shl nuw nsw i64 %66, 10
-  %.idx30 = shl nuw nsw i64 %67, 4
-  %.offs31 = add nuw nsw i64 %.idx29, %.idx30
-  %.offs32 = or disjoint i64 %.offs31, 8
-  %71 = getelementptr inbounds nuw i8, ptr %65, i64 %.offs32
-  %72 = load ptr, ptr %71, align 8, !tbaa !684
-  tail call void @_ZN1q8mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef %72, ptr noundef %.084, ptr noundef %5, ptr noundef %6)
+  tail call void @_ZN1q8mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef nonnull %69, ptr noundef %.081, ptr noundef %5, ptr noundef %6)
+  %.idx28 = shl nuw nsw i64 %66, 10
+  %.idx29 = shl nuw nsw i64 %67, 4
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx28
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx29
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !684
+  tail call void @_ZN1q8mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef %74, ptr noundef %.082, ptr noundef %5, ptr noundef %6)
   br label %_ZN1q8is_equalEPKNS_4pathES2_.exit
 
-.noexc39:                                         ; preds = %64
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !646
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 2168
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 2184
-  %77 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %76, i64 noundef 16)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %77, align 8, !tbaa !68
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store ptr %68, ptr %78, align 8, !tbaa !675
-  %79 = load ptr, ptr %75, align 8, !tbaa !649
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %.noexc40, label %81
+.noexc37:                                         ; preds = %64
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !646
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 2168
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 2184
+  %79 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %78, i64 noundef 16)
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %79, align 8, !tbaa !68
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store ptr %68, ptr %80, align 8, !tbaa !675
+  %81 = load ptr, ptr %77, align 8, !tbaa !649
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %.noexc38, label %83
 
-81:                                               ; preds = %.noexc39
-  %82 = getelementptr inbounds i8, ptr %79, i64 -4
-  %83 = load i32, ptr %82, align 4, !tbaa !43
-  %84 = getelementptr inbounds i8, ptr %79, i64 -8
+83:                                               ; preds = %.noexc37
+  %84 = getelementptr inbounds i8, ptr %81, i64 -4
   %85 = load i32, ptr %84, align 4, !tbaa !43
-  %86 = icmp eq i32 %83, %85
-  br i1 %86, label %.noexc40, label %.noexc45
+  %86 = getelementptr inbounds i8, ptr %81, i64 -8
+  %87 = load i32, ptr %86, align 4, !tbaa !43
+  %88 = icmp eq i32 %85, %87
+  br i1 %88, label %.noexc38, label %.noexc43
 
-.noexc40:                                         ; preds = %81, %.noexc39
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %75)
-  %.pre.i.i.i36 = load ptr, ptr %75, align 8, !tbaa !649
-  %.phi.trans.insert.i.i.i37 = getelementptr inbounds i8, ptr %.pre.i.i.i36, i64 -4
-  %.pre2.i.i.i38 = load i32, ptr %.phi.trans.insert.i.i.i37, align 4, !tbaa !43
-  br label %.noexc45
+.noexc38:                                         ; preds = %83, %.noexc37
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %77)
+  %.pre.i.i.i34 = load ptr, ptr %77, align 8, !tbaa !649
+  %.phi.trans.insert.i.i.i35 = getelementptr inbounds i8, ptr %.pre.i.i.i34, i64 -4
+  %.pre2.i.i.i36 = load i32, ptr %.phi.trans.insert.i.i.i35, align 4, !tbaa !43
+  br label %.noexc43
 
-.noexc45:                                         ; preds = %.noexc40, %81
-  %87 = phi i32 [ %.pre2.i.i.i38, %.noexc40 ], [ %83, %81 ]
-  %88 = phi ptr [ %.pre.i.i.i36, %.noexc40 ], [ %79, %81 ]
-  %89 = getelementptr inbounds i8, ptr %88, i64 -4
-  %90 = zext i32 %87 to i64
-  %91 = getelementptr inbounds nuw ptr, ptr %88, i64 %90
-  store ptr %77, ptr %91, align 8, !tbaa !650
-  %92 = add i32 %87, 1
-  store i32 %92, ptr %89, align 4, !tbaa !43
-  %93 = load ptr, ptr %73, align 8, !tbaa !646
+.noexc43:                                         ; preds = %.noexc38, %83
+  %89 = phi i32 [ %.pre2.i.i.i36, %.noexc38 ], [ %85, %83 ]
+  %90 = phi ptr [ %.pre.i.i.i34, %.noexc38 ], [ %81, %83 ]
+  %91 = getelementptr inbounds i8, ptr %90, i64 -4
+  %92 = zext i32 %89 to i64
+  %93 = getelementptr inbounds nuw ptr, ptr %90, i64 %92
+  store ptr %79, ptr %93, align 8, !tbaa !650
+  %94 = add i32 %89, 1
+  store i32 %94, ptr %91, align 4, !tbaa !43
+  %95 = load ptr, ptr %75, align 8, !tbaa !646
   %.idx = shl nuw nsw i64 %66, 10
   %.idx23 = shl nuw nsw i64 %67, 4
-  %.offs = add nuw nsw i64 %.idx, %.idx23
-  %.offs24 = or disjoint i64 %.offs, 8
-  %94 = getelementptr inbounds nuw i8, ptr %65, i64 %.offs24
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 2168
-  %96 = getelementptr inbounds nuw i8, ptr %93, i64 2184
-  %97 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %96, i64 noundef 16)
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %97, align 8, !tbaa !68
+  %96 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx23
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store ptr %94, ptr %98, align 8, !tbaa !675
-  %99 = load ptr, ptr %95, align 8, !tbaa !649
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %.noexc46, label %101
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 2168
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 2184
+  %101 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %100, i64 noundef 16)
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV13set_ptr_trailIN1q9path_treeEE, i64 16), ptr %101, align 8, !tbaa !68
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  store ptr %98, ptr %102, align 8, !tbaa !675
+  %103 = load ptr, ptr %99, align 8, !tbaa !649
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %.noexc44, label %105
 
-101:                                              ; preds = %.noexc45
-  %102 = getelementptr inbounds i8, ptr %99, i64 -4
-  %103 = load i32, ptr %102, align 4, !tbaa !43
-  %104 = getelementptr inbounds i8, ptr %99, i64 -8
-  %105 = load i32, ptr %104, align 4, !tbaa !43
-  %106 = icmp eq i32 %103, %105
-  br i1 %106, label %.noexc46, label %107
+105:                                              ; preds = %.noexc43
+  %106 = getelementptr inbounds i8, ptr %103, i64 -4
+  %107 = load i32, ptr %106, align 4, !tbaa !43
+  %108 = getelementptr inbounds i8, ptr %103, i64 -8
+  %109 = load i32, ptr %108, align 4, !tbaa !43
+  %110 = icmp eq i32 %107, %109
+  br i1 %110, label %.noexc44, label %111
 
-.noexc46:                                         ; preds = %101, %.noexc45
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %95)
-  %.pre.i.i.i42 = load ptr, ptr %95, align 8, !tbaa !649
-  %.phi.trans.insert.i.i.i43 = getelementptr inbounds i8, ptr %.pre.i.i.i42, i64 -4
-  %.pre2.i.i.i44 = load i32, ptr %.phi.trans.insert.i.i.i43, align 4, !tbaa !43
-  br label %107
+.noexc44:                                         ; preds = %105, %.noexc43
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(56) %99)
+  %.pre.i.i.i40 = load ptr, ptr %99, align 8, !tbaa !649
+  %.phi.trans.insert.i.i.i41 = getelementptr inbounds i8, ptr %.pre.i.i.i40, i64 -4
+  %.pre2.i.i.i42 = load i32, ptr %.phi.trans.insert.i.i.i41, align 4, !tbaa !43
+  br label %111
 
-107:                                              ; preds = %.noexc46, %101
-  %108 = phi i32 [ %.pre2.i.i.i44, %.noexc46 ], [ %103, %101 ]
-  %109 = phi ptr [ %.pre.i.i.i42, %.noexc46 ], [ %99, %101 ]
-  %110 = getelementptr inbounds i8, ptr %109, i64 -4
-  %111 = zext i32 %108 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr %109, i64 %111
-  store ptr %97, ptr %112, align 8, !tbaa !650
-  %113 = add i32 %108, 1
-  store i32 %113, ptr %110, align 4, !tbaa !43
-  %114 = tail call noundef ptr @_ZN1q8mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef %.083, ptr noundef %5, ptr noundef %6)
-  store ptr %114, ptr %68, align 8, !tbaa !682
-  %115 = tail call noundef ptr @_ZN1q8mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef %.084, ptr noundef %5, ptr noundef %6)
-  store ptr %115, ptr %94, align 8, !tbaa !684
+111:                                              ; preds = %.noexc44, %105
+  %112 = phi i32 [ %.pre2.i.i.i42, %.noexc44 ], [ %107, %105 ]
+  %113 = phi ptr [ %.pre.i.i.i40, %.noexc44 ], [ %103, %105 ]
+  %114 = getelementptr inbounds i8, ptr %113, i64 -4
+  %115 = zext i32 %112 to i64
+  %116 = getelementptr inbounds nuw ptr, ptr %113, i64 %115
+  store ptr %101, ptr %116, align 8, !tbaa !650
+  %117 = add i32 %112, 1
+  store i32 %117, ptr %114, align 4, !tbaa !43
+  %118 = tail call noundef ptr @_ZN1q8mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef %.081, ptr noundef %5, ptr noundef %6)
+  store ptr %118, ptr %68, align 8, !tbaa !682
+  %119 = tail call noundef ptr @_ZN1q8mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98912) %0, ptr noundef %.082, ptr noundef %5, ptr noundef %6)
+  store ptr %119, ptr %98, align 8, !tbaa !684
   br label %_ZN1q8is_equalEPKNS_4pathES2_.exit
 
-_ZN1q8is_equalEPKNS_4pathES2_.exit:               ; preds = %36, %70, %107, %53, %37
+_ZN1q8is_equalEPKNS_4pathES2_.exit:               ; preds = %36, %70, %111, %53, %37
   ret void
 }
 

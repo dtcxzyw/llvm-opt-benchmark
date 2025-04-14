@@ -14417,22 +14417,22 @@ define linkonce_odr void @_ZSt13__adjust_heapIPN5clang4ento11PackageInfoElS2_N9_
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN5clang4ento11PackageInfoaSEOS1_.exit
-  %.038 = phi i64 [ %19, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ], [ %1, %4 ]
-  %10 = shl i64 %.038, 1
+  %.039 = phi i64 [ %spec.select38, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ], [ %1, %4 ]
+  %10 = shl i64 %.039, 1
   %11 = add i64 %10, 2
   %12 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %11
-  %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %13
+  %13 = getelementptr %"struct.clang::ento::PackageInfo", ptr %0, i64 %10
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !62
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %13, i64 40
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !62
   %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i, i64 %.sroa.22.0.copyload.i.i)
-  %15 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
-  br i1 %15, label %.thread.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
+  %14 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
+  br i1 %14, label %.thread.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %14, align 8, !tbaa !69
+  %15 = getelementptr i8, ptr %13, i64 32
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %15, align 8, !tbaa !69
   %.sroa.01.0.copyload.i.i = load ptr, ptr %12, align 8, !tbaa !69
   %16 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i, ptr noundef %.sroa.0.0.copyload.i.i, i64 noundef %.sroa.speculated.i.i.i.i) #17
   %.fr.i.i.i.i = freeze i32 %16
@@ -14441,23 +14441,22 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph
 
 .thread.i.i.i.i:                                  ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i, %.lr.ph
   %17 = icmp ult i64 %.sroa.22.0.copyload.i.i, %.sroa.2.0.copyload.i.i
-  br i1 %17, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit.thread35, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit.thread
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit.thread
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i
   %18 = icmp slt i32 %.fr.i.i.i.i, 0
-  br i1 %18, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit.thread35, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit.thread
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit.thread35: ; preds = %.thread.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit.thread
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit.thread: ; preds = %.thread.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit.thread35
-  %19 = phi i64 [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit.thread35 ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit ], [ %11, %.thread.i.i.i.i ]
-  %20 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %19
-  %21 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.038
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit.thread: ; preds = %.thread.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit
+  %.sink = phi i1 [ %17, %.thread.i.i.i.i ], [ %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit ]
+  %19 = or disjoint i64 %10, 1
+  %spec.select38 = select i1 %.sink, i64 %19, i64 %11
+  %20 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %spec.select38
+  %21 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.039
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 16, i1 false), !tbaa.struct !73
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %24 = icmp eq i64 %.038, %19
+  %24 = icmp eq i64 %.039, %spec.select38
   br i1 %24, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit, label %25
 
 25:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit.thread
@@ -14499,11 +14498,11 @@ _ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.
   br label %_ZN5clang4ento11PackageInfoaSEOS1_.exit
 
 _ZN5clang4ento11PackageInfoaSEOS1_.exit:          ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang4ento16checker_registry10FullNameLTINS3_11PackageInfoEEEEclIPS6_SA_EEbT_T0_.exit.thread, %28, %_ZN4llvm15SmallVectorImplIN5clang4ento13CmdLineOptionEE12assignRemoteEOS4_.exit.i.i
-  %42 = icmp slt i64 %19, %8
+  %42 = icmp slt i64 %spec.select38, %8
   br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %_ZN5clang4ento11PackageInfoaSEOS1_.exit, %4
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %19, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ]
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select38, %_ZN5clang4ento11PackageInfoaSEOS1_.exit ]
   %43 = and i64 %2, 1
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %45, label %_ZN5clang4ento11PackageInfoaSEOS1_.exit31

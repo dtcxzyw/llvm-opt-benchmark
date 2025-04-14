@@ -64,82 +64,80 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %23 = shl nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw double, ptr %1, i64 %23
-  %25 = load double, ptr %24, align 8, !tbaa !3
-  %26 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
-  store double %25, ptr %26, align 8, !tbaa !3
-  %27 = or disjoint i64 %23, 1
-  %28 = getelementptr inbounds nuw double, ptr %1, i64 %27
-  %29 = load double, ptr %28, align 8, !tbaa !3
-  %30 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
-  store double %29, ptr %30, align 8, !tbaa !3
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  %24 = load double, ptr %23, align 8, !tbaa !3
+  %25 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  store double %24, ptr %25, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %27 = load double, ptr %26, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
+  store double %27, ptr %28, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %31 = icmp samesign ugt i32 %0, 2
-  br i1 %31, label %32, label %._crit_edge.thread
+  %29 = icmp samesign ugt i32 %0, 2
+  br i1 %29, label %30, label %._crit_edge.thread
 
-32:                                               ; preds = %._crit_edge
-  %33 = call ptr @delaunay_tri(ptr noundef nonnull %11, ptr noundef nonnull %17, i32 noundef %0, ptr noundef nonnull %4) #9
+30:                                               ; preds = %._crit_edge
+  %31 = call ptr @delaunay_tri(ptr noundef nonnull %11, ptr noundef nonnull %17, i32 noundef %0, ptr noundef nonnull %4) #9
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %gv_calloc.exit50, %32, %._crit_edge
-  %.046 = phi ptr [ %33, %32 ], [ null, %._crit_edge ], [ null, %gv_calloc.exit50 ]
-  %34 = call ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #9
-  %35 = load i32, ptr %4, align 4, !tbaa !10
-  %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph54, label %._crit_edge55
+._crit_edge.thread:                               ; preds = %gv_calloc.exit50, %30, %._crit_edge
+  %.046 = phi ptr [ %31, %30 ], [ null, %._crit_edge ], [ null, %gv_calloc.exit50 ]
+  %32 = call ptr @SparseMatrix_new(i32 noundef %0, i32 noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #9
+  %33 = load i32, ptr %4, align 4, !tbaa !10
+  %34 = icmp sgt i32 %33, 0
+  br i1 %34, label %.lr.ph54, label %._crit_edge55
 
 .lr.ph54:                                         ; preds = %._crit_edge.thread, %.lr.ph54
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph54 ], [ 0, %._crit_edge.thread ]
-  %37 = shl nuw nsw i64 %indvars.iv62, 1
-  %38 = getelementptr inbounds nuw i32, ptr %.046, i64 %37
-  %39 = load i32, ptr %38, align 4, !tbaa !10
-  %40 = or disjoint i64 %37, 1
-  %41 = getelementptr inbounds nuw i32, ptr %.046, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !10
-  %43 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %34, i32 noundef %39, i32 noundef %42, ptr noundef nonnull %3) #9
+  %.idx66 = shl nuw nsw i64 %indvars.iv62, 3
+  %35 = getelementptr inbounds nuw i8, ptr %.046, i64 %.idx66
+  %36 = load i32, ptr %35, align 4, !tbaa !10
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %38 = load i32, ptr %37, align 4, !tbaa !10
+  %39 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %36, i32 noundef %38, ptr noundef nonnull %3) #9
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %44 = load i32, ptr %4, align 4, !tbaa !10
-  %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next63, %45
-  br i1 %46, label %.lr.ph54, label %._crit_edge55, !llvm.loop !14
+  %40 = load i32, ptr %4, align 4, !tbaa !10
+  %41 = sext i32 %40 to i64
+  %42 = icmp slt i64 %indvars.iv.next63, %41
+  br i1 %42, label %.lr.ph54, label %._crit_edge55, !llvm.loop !14
 
 ._crit_edge55:                                    ; preds = %.lr.ph54, %._crit_edge.thread
-  %47 = icmp eq i32 %0, 2
-  br i1 %47, label %.thread, label %49
+  %43 = icmp eq i32 %0, 2
+  br i1 %43, label %.thread, label %45
 
 .thread:                                          ; preds = %._crit_edge55
-  %48 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %34, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #9
+  %44 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #9
   br label %.lr.ph58.preheader
 
-49:                                               ; preds = %._crit_edge55
+45:                                               ; preds = %._crit_edge55
   br i1 %.not, label %._crit_edge59, label %.lr.ph58.preheader
 
-.lr.ph58.preheader:                               ; preds = %.thread, %49
+.lr.ph58.preheader:                               ; preds = %.thread, %45
   br label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
-  %.256 = phi i32 [ %51, %.lr.ph58 ], [ 0, %.lr.ph58.preheader ]
-  %50 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %34, i32 noundef %.256, i32 noundef %.256, ptr noundef nonnull %3) #9
-  %51 = add nuw nsw i32 %.256, 1
-  %exitcond65.not = icmp eq i32 %51, %0
+  %.256 = phi i32 [ %47, %.lr.ph58 ], [ 0, %.lr.ph58.preheader ]
+  %46 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %32, i32 noundef %.256, i32 noundef %.256, ptr noundef nonnull %3) #9
+  %47 = add nuw nsw i32 %.256, 1
+  %exitcond65.not = icmp eq i32 %47, %0
   br i1 %exitcond65.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !15
 
-._crit_edge59:                                    ; preds = %.lr.ph58, %49
-  %52 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %34) #9
-  call void @SparseMatrix_delete(ptr noundef %34) #9
-  %53 = call ptr @SparseMatrix_symmetrize(ptr noundef %52, i1 noundef zeroext false) #9
-  call void @SparseMatrix_delete(ptr noundef %52) #9
+._crit_edge59:                                    ; preds = %.lr.ph58, %45
+  %48 = call ptr @SparseMatrix_from_coordinate_format(ptr noundef %32) #9
+  call void @SparseMatrix_delete(ptr noundef %32) #9
+  %49 = call ptr @SparseMatrix_symmetrize(ptr noundef %48, i1 noundef zeroext false) #9
+  call void @SparseMatrix_delete(ptr noundef %48) #9
   call void @free(ptr noundef %.046) #9
   call void @free(ptr noundef %11) #9
   call void @free(ptr noundef %17) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  ret ptr %53
+  ret ptr %49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

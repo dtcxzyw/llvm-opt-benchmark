@@ -21130,7 +21130,7 @@ define noundef i32 @_Z18crxProcessSubbandsP17crx_data_header_tP8CrxImageP7CrxTil
 
 .split.us:                                        ; preds = %19, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us
   %indvars.iv215 = phi i64 [ %indvars.iv.next216, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us ], [ 0, %19 ]
-  %.1106144.us = phi ptr [ %107, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us ], [ %20, %19 ]
+  %.1106144.us = phi ptr [ %103, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us ], [ %20, %19 ]
   %.1108143.us = phi i32 [ %54, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us ], [ %22, %19 ]
   %.1111141.us = phi i32 [ %52, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us ], [ %21, %19 ]
   %49 = and i32 %.1111141.us, 1
@@ -21139,96 +21139,94 @@ define noundef i32 @_Z18crxProcessSubbandsP17crx_data_header_tP8CrxImageP7CrxTil
   %52 = lshr i32 %51, 1
   %53 = add nuw nsw i32 %50, %.1108143.us
   %54 = lshr i32 %53, 1
-  br i1 %.not122, label %62, label %55
+  br i1 %.not122, label %60, label %55
 
 55:                                               ; preds = %.split.us
-  %56 = shl nuw nsw i64 %indvars.iv215, 1
-  %57 = getelementptr inbounds nuw i32, ptr %31, i64 %56
-  %58 = load i32, ptr %57, align 8, !tbaa !19
-  %59 = or disjoint i64 %56, 1
-  %60 = getelementptr inbounds nuw i32, ptr %31, i64 %59
-  %61 = load i32, ptr %60, align 4, !tbaa !19
-  br label %62
+  %.idx222 = shl nuw nsw i64 %indvars.iv215, 3
+  %56 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx222
+  %57 = load i32, ptr %56, align 8, !tbaa !19
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %59 = load i32, ptr %58, align 4, !tbaa !19
+  br label %60
 
-62:                                               ; preds = %55, %.split.us
-  %.0103.us = phi i32 [ %58, %55 ], [ 0, %.split.us ]
-  %.0102.us = phi i32 [ %61, %55 ], [ 0, %.split.us ]
+60:                                               ; preds = %55, %.split.us
+  %.0103.us = phi i32 [ %57, %55 ], [ 0, %.split.us ]
+  %.0102.us = phi i32 [ %59, %55 ], [ 0, %.split.us ]
   %spec.select.us = add nsw i32 %.0103.us, %41
-  br i1 %.not124, label %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us, label %63
+  br i1 %.not124, label %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us, label %61
 
-63:                                               ; preds = %62
-  %64 = shl nuw nsw i64 %indvars.iv215, 1
-  %65 = getelementptr inbounds nuw i32, ptr %35, i64 %64
-  %66 = load i32, ptr %65, align 8, !tbaa !19
-  %67 = or disjoint i64 %64, 1
-  %68 = getelementptr inbounds nuw i32, ptr %35, i64 %67
-  %69 = load i32, ptr %68, align 4, !tbaa !19
+61:                                               ; preds = %60
+  %.idx223 = shl nuw nsw i64 %indvars.iv215, 3
+  %62 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx223
+  %63 = load i32, ptr %62, align 8, !tbaa !19
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %65 = load i32, ptr %64, align 4, !tbaa !19
   br label %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us
 
-_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us: ; preds = %63, %62
-  %.0101.us = phi i32 [ %66, %63 ], [ 0, %62 ]
-  %.0100.us = phi i32 [ %69, %63 ], [ 0, %62 ]
+_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us: ; preds = %61, %60
+  %.0101.us = phi i32 [ %63, %61 ], [ 0, %60 ]
+  %.0100.us = phi i32 [ %65, %61 ], [ 0, %60 ]
   %spec.select127.us = add nsw i32 %.0101.us, %44
-  %70 = sub nsw i32 %52, %49
-  %71 = add i32 %70, %spec.select.us
+  %66 = sub nsw i32 %52, %49
+  %67 = add i32 %66, %spec.select.us
+  %68 = trunc i32 %67 to i16
+  %69 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 24
+  store i16 %68, ptr %69, align 8, !tbaa !76
+  %70 = sub nsw i32 %54, %50
+  %71 = add i32 %70, %spec.select127.us
   %72 = trunc i32 %71 to i16
-  %73 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 24
-  store i16 %72, ptr %73, align 8, !tbaa !76
-  %74 = sub nsw i32 %54, %50
-  %75 = add i32 %74, %spec.select127.us
-  %76 = trunc i32 %75 to i16
-  %77 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 26
-  store i16 %76, ptr %77, align 2, !tbaa !81
+  %73 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 26
+  store i16 %72, ptr %73, align 2, !tbaa !81
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %78 = trunc i32 %.0101.us to i16
-  %79 = trunc i32 %.0103.us to i16
-  %80 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 72
-  store i16 %47, ptr %80, align 8, !tbaa !80
-  %81 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 74
-  store i16 %78, ptr %81, align 2, !tbaa !82
-  %82 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 76
-  store i16 %48, ptr %82, align 4, !tbaa !83
-  %83 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 78
-  store i16 %79, ptr %83, align 2, !tbaa !84
-  %84 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 80
-  %85 = trunc i64 %indvars.iv215 to i16
-  %86 = sub i16 2, %85
-  store i16 %86, ptr %84, align 8, !tbaa !85
-  %87 = add i32 %.0102.us, %52
-  %88 = trunc i32 %87 to i16
-  %89 = getelementptr inbounds i8, ptr %.1106144.us, i64 -64
-  store i16 %88, ptr %89, align 8, !tbaa !76
-  %90 = getelementptr inbounds i8, ptr %.1106144.us, i64 -62
-  store i16 %76, ptr %90, align 2, !tbaa !81
-  %91 = trunc i32 %.0102.us to i16
-  %92 = getelementptr inbounds i8, ptr %.1106144.us, i64 -16
-  store i16 %47, ptr %92, align 8, !tbaa !80
-  %93 = getelementptr inbounds i8, ptr %.1106144.us, i64 -14
-  store i16 %78, ptr %93, align 2, !tbaa !82
-  %94 = getelementptr inbounds i8, ptr %.1106144.us, i64 -12
-  store i16 0, ptr %94, align 4, !tbaa !83
-  %95 = getelementptr inbounds i8, ptr %.1106144.us, i64 -10
-  store i16 %91, ptr %95, align 2, !tbaa !84
-  %96 = getelementptr inbounds i8, ptr %.1106144.us, i64 -8
-  store i16 %86, ptr %96, align 8, !tbaa !85
-  %97 = getelementptr inbounds i8, ptr %.1106144.us, i64 -152
-  store i16 %72, ptr %97, align 8, !tbaa !76
-  %98 = add i32 %.0100.us, %54
-  %99 = trunc i32 %98 to i16
-  %100 = getelementptr inbounds i8, ptr %.1106144.us, i64 -150
-  store i16 %99, ptr %100, align 2, !tbaa !81
-  %101 = trunc i32 %.0100.us to i16
-  %102 = getelementptr inbounds i8, ptr %.1106144.us, i64 -104
-  store i16 0, ptr %102, align 8, !tbaa !80
-  %103 = getelementptr inbounds i8, ptr %.1106144.us, i64 -102
-  store i16 %101, ptr %103, align 2, !tbaa !82
-  %104 = getelementptr inbounds i8, ptr %.1106144.us, i64 -100
-  store i16 %48, ptr %104, align 4, !tbaa !83
-  %105 = getelementptr inbounds i8, ptr %.1106144.us, i64 -98
-  store i16 %79, ptr %105, align 2, !tbaa !84
-  %106 = getelementptr inbounds i8, ptr %.1106144.us, i64 -96
-  store i16 %86, ptr %106, align 8, !tbaa !85
-  %107 = getelementptr inbounds i8, ptr %.1106144.us, i64 -264
+  %74 = trunc i32 %.0101.us to i16
+  %75 = trunc i32 %.0103.us to i16
+  %76 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 72
+  store i16 %47, ptr %76, align 8, !tbaa !80
+  %77 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 74
+  store i16 %74, ptr %77, align 2, !tbaa !82
+  %78 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 76
+  store i16 %48, ptr %78, align 4, !tbaa !83
+  %79 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 78
+  store i16 %75, ptr %79, align 2, !tbaa !84
+  %80 = getelementptr inbounds nuw i8, ptr %.1106144.us, i64 80
+  %81 = trunc i64 %indvars.iv215 to i16
+  %82 = sub i16 2, %81
+  store i16 %82, ptr %80, align 8, !tbaa !85
+  %83 = add i32 %.0102.us, %52
+  %84 = trunc i32 %83 to i16
+  %85 = getelementptr inbounds i8, ptr %.1106144.us, i64 -64
+  store i16 %84, ptr %85, align 8, !tbaa !76
+  %86 = getelementptr inbounds i8, ptr %.1106144.us, i64 -62
+  store i16 %72, ptr %86, align 2, !tbaa !81
+  %87 = trunc i32 %.0102.us to i16
+  %88 = getelementptr inbounds i8, ptr %.1106144.us, i64 -16
+  store i16 %47, ptr %88, align 8, !tbaa !80
+  %89 = getelementptr inbounds i8, ptr %.1106144.us, i64 -14
+  store i16 %74, ptr %89, align 2, !tbaa !82
+  %90 = getelementptr inbounds i8, ptr %.1106144.us, i64 -12
+  store i16 0, ptr %90, align 4, !tbaa !83
+  %91 = getelementptr inbounds i8, ptr %.1106144.us, i64 -10
+  store i16 %87, ptr %91, align 2, !tbaa !84
+  %92 = getelementptr inbounds i8, ptr %.1106144.us, i64 -8
+  store i16 %82, ptr %92, align 8, !tbaa !85
+  %93 = getelementptr inbounds i8, ptr %.1106144.us, i64 -152
+  store i16 %68, ptr %93, align 8, !tbaa !76
+  %94 = add i32 %.0100.us, %54
+  %95 = trunc i32 %94 to i16
+  %96 = getelementptr inbounds i8, ptr %.1106144.us, i64 -150
+  store i16 %95, ptr %96, align 2, !tbaa !81
+  %97 = trunc i32 %.0100.us to i16
+  %98 = getelementptr inbounds i8, ptr %.1106144.us, i64 -104
+  store i16 0, ptr %98, align 8, !tbaa !80
+  %99 = getelementptr inbounds i8, ptr %.1106144.us, i64 -102
+  store i16 %97, ptr %99, align 2, !tbaa !82
+  %100 = getelementptr inbounds i8, ptr %.1106144.us, i64 -100
+  store i16 %48, ptr %100, align 4, !tbaa !83
+  %101 = getelementptr inbounds i8, ptr %.1106144.us, i64 -98
+  store i16 %75, ptr %101, align 2, !tbaa !84
+  %102 = getelementptr inbounds i8, ptr %.1106144.us, i64 -96
+  store i16 %82, ptr %102, align 8, !tbaa !85
+  %103 = getelementptr inbounds i8, ptr %.1106144.us, i64 -264
   %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218
   br i1 %exitcond219.not, label %.split146.us, label %.split.us, !llvm.loop !193
 
@@ -21237,60 +21235,59 @@ _Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.u
 
 .split.split.us:                                  ; preds = %.split, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157 ], [ 0, %.split ]
-  %.1106144.us150 = phi ptr [ %139, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157 ], [ %20, %.split ]
-  %.1108143.us151 = phi i32 [ %113, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157 ], [ %22, %.split ]
-  %.1111141.us153 = phi i32 [ %111, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157 ], [ %21, %.split ]
-  %108 = and i32 %.1111141.us153, 1
-  %109 = and i32 %.1108143.us151, 1
-  %110 = add nuw nsw i32 %108, %.1111141.us153
-  %111 = lshr i32 %110, 1
-  %112 = add nuw nsw i32 %109, %.1108143.us151
-  %113 = lshr i32 %112, 1
-  br i1 %.not124, label %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157, label %114
+  %.1106144.us150 = phi ptr [ %133, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157 ], [ %20, %.split ]
+  %.1108143.us151 = phi i32 [ %109, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157 ], [ %22, %.split ]
+  %.1111141.us153 = phi i32 [ %107, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157 ], [ %21, %.split ]
+  %104 = and i32 %.1111141.us153, 1
+  %105 = and i32 %.1108143.us151, 1
+  %106 = add nuw nsw i32 %104, %.1111141.us153
+  %107 = lshr i32 %106, 1
+  %108 = add nuw nsw i32 %105, %.1108143.us151
+  %109 = lshr i32 %108, 1
+  br i1 %.not124, label %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157, label %110
 
-114:                                              ; preds = %.split.split.us
-  %115 = shl nuw nsw i64 %indvars.iv210, 1
-  %116 = getelementptr inbounds nuw i32, ptr %35, i64 %115
-  %117 = load i32, ptr %116, align 8, !tbaa !19
-  %118 = or disjoint i64 %115, 1
-  %119 = getelementptr inbounds nuw i32, ptr %35, i64 %118
-  %120 = load i32, ptr %119, align 4, !tbaa !19
+110:                                              ; preds = %.split.split.us
+  %.idx221 = shl nuw nsw i64 %indvars.iv210, 3
+  %111 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx221
+  %112 = load i32, ptr %111, align 8, !tbaa !19
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  %114 = load i32, ptr %113, align 4, !tbaa !19
   br label %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157
 
-_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157: ; preds = %114, %.split.split.us
-  %.0101.us158 = phi i32 [ %117, %114 ], [ 0, %.split.split.us ]
-  %.0100.us159 = phi i32 [ %120, %114 ], [ 0, %.split.split.us ]
+_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157: ; preds = %110, %.split.split.us
+  %.0101.us158 = phi i32 [ %112, %110 ], [ 0, %.split.split.us ]
+  %.0100.us159 = phi i32 [ %114, %110 ], [ 0, %.split.split.us ]
   %spec.select127.us160 = add nsw i32 %.0101.us158, %44
-  %121 = sub nsw i32 %111, %108
-  %122 = add nsw i32 %121, %41
-  %123 = trunc i32 %122 to i16
-  %124 = getelementptr inbounds nuw i8, ptr %.1106144.us150, i64 24
-  store i16 %123, ptr %124, align 8, !tbaa !76
-  %125 = sub nsw i32 %113, %109
-  %126 = add i32 %125, %spec.select127.us160
-  %127 = trunc i32 %126 to i16
-  %128 = getelementptr inbounds nuw i8, ptr %.1106144.us150, i64 26
-  store i16 %127, ptr %128, align 2, !tbaa !81
+  %115 = sub nsw i32 %107, %104
+  %116 = add nsw i32 %115, %41
+  %117 = trunc i32 %116 to i16
+  %118 = getelementptr inbounds nuw i8, ptr %.1106144.us150, i64 24
+  store i16 %117, ptr %118, align 8, !tbaa !76
+  %119 = sub nsw i32 %109, %105
+  %120 = add i32 %119, %spec.select127.us160
+  %121 = trunc i32 %120 to i16
+  %122 = getelementptr inbounds nuw i8, ptr %.1106144.us150, i64 26
+  store i16 %121, ptr %122, align 2, !tbaa !81
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %129 = getelementptr inbounds nuw i8, ptr %.1106144.us150, i64 72
-  %130 = trunc nuw i32 %111 to i16
-  %131 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %129, i8 0, i64 10, i1 false)
-  store i16 %130, ptr %131, align 8, !tbaa !76
-  %132 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -62
-  store i16 %127, ptr %132, align 2, !tbaa !81
-  %133 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -16
-  %134 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %133, i8 0, i64 10, i1 false)
-  store i16 %123, ptr %134, align 8, !tbaa !76
-  %135 = add i32 %.0100.us159, %113
-  %136 = trunc i32 %135 to i16
-  %137 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -150
-  store i16 %136, ptr %137, align 2, !tbaa !81
-  %138 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -104
-  %139 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -264
+  %123 = getelementptr inbounds nuw i8, ptr %.1106144.us150, i64 72
+  %124 = trunc nuw i32 %107 to i16
+  %125 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %123, i8 0, i64 10, i1 false)
+  store i16 %124, ptr %125, align 8, !tbaa !76
+  %126 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -62
+  store i16 %121, ptr %126, align 2, !tbaa !81
+  %127 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -16
+  %128 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -152
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %127, i8 0, i64 10, i1 false)
+  store i16 %117, ptr %128, align 8, !tbaa !76
+  %129 = add i32 %.0100.us159, %109
+  %130 = trunc i32 %129 to i16
+  %131 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -150
+  store i16 %130, ptr %131, align 2, !tbaa !81
+  %132 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -104
+  %133 = getelementptr inbounds i8, ptr %.1106144.us150, i64 -264
   %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count218
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %138, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %132, i8 0, i64 10, i1 false)
   br i1 %exitcond214.not, label %.split146.us, label %.split.split.us, !llvm.loop !193
 
 .split.split:                                     ; preds = %.split
@@ -21298,175 +21295,173 @@ _Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.u
 
 _Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176: ; preds = %.split.split, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176
   %indvars.iv205 = phi i64 [ %indvars.iv.next206, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176 ], [ 0, %.split.split ]
-  %.1106144.us171 = phi ptr [ %170, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176 ], [ %20, %.split.split ]
-  %.1108143.us172 = phi i32 [ %145, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176 ], [ %22, %.split.split ]
-  %.1111141.us174 = phi i32 [ %143, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176 ], [ %21, %.split.split ]
-  %140 = and i32 %.1111141.us174, 1
-  %141 = and i32 %.1108143.us172, 1
-  %142 = add nuw nsw i32 %140, %.1111141.us174
-  %143 = lshr i32 %142, 1
-  %144 = add nuw nsw i32 %141, %.1108143.us172
-  %145 = lshr i32 %144, 1
-  %146 = shl nuw nsw i64 %indvars.iv205, 1
-  %147 = getelementptr inbounds nuw i32, ptr %31, i64 %146
-  %148 = load i32, ptr %147, align 8, !tbaa !19
-  %149 = or disjoint i64 %146, 1
-  %150 = getelementptr inbounds nuw i32, ptr %31, i64 %149
-  %151 = load i32, ptr %150, align 4, !tbaa !19
-  %spec.select.us175 = add nsw i32 %148, %41
-  %152 = sub nsw i32 %143, %140
-  %153 = add i32 %152, %spec.select.us175
-  %154 = trunc i32 %153 to i16
-  %155 = getelementptr inbounds nuw i8, ptr %.1106144.us171, i64 24
-  store i16 %154, ptr %155, align 8, !tbaa !76
-  %156 = sub nsw i32 %145, %141
-  %157 = add nsw i32 %156, %44
-  %158 = trunc i32 %157 to i16
-  %159 = getelementptr inbounds nuw i8, ptr %.1106144.us171, i64 26
-  store i16 %158, ptr %159, align 2, !tbaa !81
+  %.1106144.us171 = phi ptr [ %162, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176 ], [ %20, %.split.split ]
+  %.1108143.us172 = phi i32 [ %139, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176 ], [ %22, %.split.split ]
+  %.1111141.us174 = phi i32 [ %137, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176 ], [ %21, %.split.split ]
+  %134 = and i32 %.1111141.us174, 1
+  %135 = and i32 %.1108143.us172, 1
+  %136 = add nuw nsw i32 %134, %.1111141.us174
+  %137 = lshr i32 %136, 1
+  %138 = add nuw nsw i32 %135, %.1108143.us172
+  %139 = lshr i32 %138, 1
+  %.idx220 = shl nuw nsw i64 %indvars.iv205, 3
+  %140 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx220
+  %141 = load i32, ptr %140, align 8, !tbaa !19
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 4
+  %143 = load i32, ptr %142, align 4, !tbaa !19
+  %spec.select.us175 = add nsw i32 %141, %41
+  %144 = sub nsw i32 %137, %134
+  %145 = add i32 %144, %spec.select.us175
+  %146 = trunc i32 %145 to i16
+  %147 = getelementptr inbounds nuw i8, ptr %.1106144.us171, i64 24
+  store i16 %146, ptr %147, align 8, !tbaa !76
+  %148 = sub nsw i32 %139, %135
+  %149 = add nsw i32 %148, %44
+  %150 = trunc i32 %149 to i16
+  %151 = getelementptr inbounds nuw i8, ptr %.1106144.us171, i64 26
+  store i16 %150, ptr %151, align 2, !tbaa !81
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %160 = getelementptr inbounds nuw i8, ptr %.1106144.us171, i64 72
-  %161 = add i32 %151, %143
-  %162 = trunc i32 %161 to i16
-  %163 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %160, i8 0, i64 10, i1 false)
-  store i16 %162, ptr %163, align 8, !tbaa !76
-  %164 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -62
-  store i16 %158, ptr %164, align 2, !tbaa !81
-  %165 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -16
-  %166 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %165, i8 0, i64 10, i1 false)
-  store i16 %154, ptr %166, align 8, !tbaa !76
-  %167 = trunc nuw i32 %145 to i16
-  %168 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -150
-  store i16 %167, ptr %168, align 2, !tbaa !81
-  %169 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -104
-  %170 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -264
+  %152 = getelementptr inbounds nuw i8, ptr %.1106144.us171, i64 72
+  %153 = add i32 %143, %137
+  %154 = trunc i32 %153 to i16
+  %155 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %152, i8 0, i64 10, i1 false)
+  store i16 %154, ptr %155, align 8, !tbaa !76
+  %156 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -62
+  store i16 %150, ptr %156, align 2, !tbaa !81
+  %157 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -16
+  %158 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -152
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %157, i8 0, i64 10, i1 false)
+  store i16 %146, ptr %158, align 8, !tbaa !76
+  %159 = trunc nuw i32 %139 to i16
+  %160 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -150
+  store i16 %159, ptr %160, align 2, !tbaa !81
+  %161 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -104
+  %162 = getelementptr inbounds i8, ptr %.1106144.us171, i64 -264
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count218
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %169, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %161, i8 0, i64 10, i1 false)
   br i1 %exitcond209.not, label %.split146.us.thread, label %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176, !llvm.loop !193
 
 .split146.us:                                     ; preds = %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us
-  %.us-phi = phi i32 [ %52, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us ], [ %111, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157 ]
-  %.us-phi147 = phi i32 [ %54, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us ], [ %113, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157 ]
-  %.us-phi148 = phi ptr [ %107, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us ], [ %139, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157 ]
-  br i1 %.not122, label %210, label %.split146.us.thread
+  %.us-phi = phi i32 [ %52, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us ], [ %107, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157 ]
+  %.us-phi147 = phi i32 [ %54, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us ], [ %109, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157 ]
+  %.us-phi148 = phi ptr [ %103, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us ], [ %133, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us157 ]
+  br i1 %.not122, label %201, label %.split146.us.thread
 
 _Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130: ; preds = %.split.split, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130
   %indvars.iv = phi i64 [ %indvars.iv.next, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130 ], [ 0, %.split.split ]
-  %.1106144 = phi ptr [ %206, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130 ], [ %20, %.split.split ]
-  %.1108143 = phi i32 [ %176, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130 ], [ %22, %.split.split ]
-  %.1111141 = phi i32 [ %174, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130 ], [ %21, %.split.split ]
-  %171 = and i32 %.1111141, 1
-  %172 = and i32 %.1108143, 1
-  %173 = add nuw nsw i32 %171, %.1111141
-  %174 = lshr i32 %173, 1
-  %175 = add nuw nsw i32 %172, %.1108143
-  %176 = lshr i32 %175, 1
-  %177 = shl nuw nsw i64 %indvars.iv, 1
-  %178 = getelementptr inbounds nuw i32, ptr %31, i64 %177
-  %179 = load i32, ptr %178, align 8, !tbaa !19
-  %180 = or disjoint i64 %177, 1
-  %181 = getelementptr inbounds nuw i32, ptr %31, i64 %180
-  %182 = load i32, ptr %181, align 4, !tbaa !19
-  %spec.select = add nsw i32 %179, %41
-  %183 = getelementptr inbounds nuw i32, ptr %35, i64 %177
-  %184 = load i32, ptr %183, align 8, !tbaa !19
-  %185 = getelementptr inbounds nuw i32, ptr %35, i64 %180
-  %186 = load i32, ptr %185, align 4, !tbaa !19
-  %spec.select127 = add nsw i32 %184, %44
-  %187 = sub nsw i32 %174, %171
-  %188 = add i32 %187, %spec.select
-  %189 = trunc i32 %188 to i16
-  %190 = getelementptr inbounds nuw i8, ptr %.1106144, i64 24
-  store i16 %189, ptr %190, align 8, !tbaa !76
-  %191 = sub nsw i32 %176, %172
-  %192 = add i32 %191, %spec.select127
-  %193 = trunc i32 %192 to i16
-  %194 = getelementptr inbounds nuw i8, ptr %.1106144, i64 26
-  store i16 %193, ptr %194, align 2, !tbaa !81
+  %.1106144 = phi ptr [ %197, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130 ], [ %20, %.split.split ]
+  %.1108143 = phi i32 [ %168, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130 ], [ %22, %.split.split ]
+  %.1111141 = phi i32 [ %166, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130 ], [ %21, %.split.split ]
+  %163 = and i32 %.1111141, 1
+  %164 = and i32 %.1108143, 1
+  %165 = add nuw nsw i32 %163, %.1111141
+  %166 = lshr i32 %165, 1
+  %167 = add nuw nsw i32 %164, %.1108143
+  %168 = lshr i32 %167, 1
+  %169 = shl nuw nsw i64 %indvars.iv, 1
+  %170 = getelementptr inbounds nuw i32, ptr %31, i64 %169
+  %171 = load i32, ptr %170, align 8, !tbaa !19
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 4
+  %173 = load i32, ptr %172, align 4, !tbaa !19
+  %spec.select = add nsw i32 %171, %41
+  %174 = getelementptr inbounds nuw i32, ptr %35, i64 %169
+  %175 = load i32, ptr %174, align 8, !tbaa !19
+  %176 = getelementptr inbounds nuw i8, ptr %174, i64 4
+  %177 = load i32, ptr %176, align 4, !tbaa !19
+  %spec.select127 = add nsw i32 %175, %44
+  %178 = sub nsw i32 %166, %163
+  %179 = add i32 %178, %spec.select
+  %180 = trunc i32 %179 to i16
+  %181 = getelementptr inbounds nuw i8, ptr %.1106144, i64 24
+  store i16 %180, ptr %181, align 8, !tbaa !76
+  %182 = sub nsw i32 %168, %164
+  %183 = add i32 %182, %spec.select127
+  %184 = trunc i32 %183 to i16
+  %185 = getelementptr inbounds nuw i8, ptr %.1106144, i64 26
+  store i16 %184, ptr %185, align 2, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %195 = getelementptr inbounds nuw i8, ptr %.1106144, i64 72
-  %196 = add i32 %182, %174
-  %197 = trunc i32 %196 to i16
-  %198 = getelementptr inbounds i8, ptr %.1106144, i64 -64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %195, i8 0, i64 10, i1 false)
-  store i16 %197, ptr %198, align 8, !tbaa !76
-  %199 = getelementptr inbounds i8, ptr %.1106144, i64 -62
-  store i16 %193, ptr %199, align 2, !tbaa !81
-  %200 = getelementptr inbounds i8, ptr %.1106144, i64 -16
-  %201 = getelementptr inbounds i8, ptr %.1106144, i64 -152
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %200, i8 0, i64 10, i1 false)
-  store i16 %189, ptr %201, align 8, !tbaa !76
-  %202 = add i32 %186, %176
-  %203 = trunc i32 %202 to i16
-  %204 = getelementptr inbounds i8, ptr %.1106144, i64 -150
-  store i16 %203, ptr %204, align 2, !tbaa !81
-  %205 = getelementptr inbounds i8, ptr %.1106144, i64 -104
-  %206 = getelementptr inbounds i8, ptr %.1106144, i64 -264
+  %186 = getelementptr inbounds nuw i8, ptr %.1106144, i64 72
+  %187 = add i32 %173, %166
+  %188 = trunc i32 %187 to i16
+  %189 = getelementptr inbounds i8, ptr %.1106144, i64 -64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %186, i8 0, i64 10, i1 false)
+  store i16 %188, ptr %189, align 8, !tbaa !76
+  %190 = getelementptr inbounds i8, ptr %.1106144, i64 -62
+  store i16 %184, ptr %190, align 2, !tbaa !81
+  %191 = getelementptr inbounds i8, ptr %.1106144, i64 -16
+  %192 = getelementptr inbounds i8, ptr %.1106144, i64 -152
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %191, i8 0, i64 10, i1 false)
+  store i16 %180, ptr %192, align 8, !tbaa !76
+  %193 = add i32 %177, %168
+  %194 = trunc i32 %193 to i16
+  %195 = getelementptr inbounds i8, ptr %.1106144, i64 -150
+  store i16 %194, ptr %195, align 2, !tbaa !81
+  %196 = getelementptr inbounds i8, ptr %.1106144, i64 -104
+  %197 = getelementptr inbounds i8, ptr %.1106144, i64 -264
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count218
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %205, i8 0, i64 10, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %196, i8 0, i64 10, i1 false)
   br i1 %exitcond.not, label %.split146.us.thread, label %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130, !llvm.loop !193
 
 .split146.us.thread:                              ; preds = %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176, %.split146.us
-  %.us-phi148228 = phi ptr [ %.us-phi148, %.split146.us ], [ %170, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176 ], [ %206, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130 ]
-  %.us-phi147226 = phi i32 [ %.us-phi147, %.split146.us ], [ %145, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176 ], [ %176, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130 ]
-  %.us-phi224 = phi i32 [ %.us-phi, %.split146.us ], [ %143, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176 ], [ %174, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130 ]
-  %.idx220 = shl nuw nsw i64 %36, 3
-  %207 = getelementptr i8, ptr %31, i64 %.idx220
-  %208 = getelementptr i8, ptr %207, i64 -4
-  %209 = load i32, ptr %208, align 4, !tbaa !19
-  br label %210
+  %.us-phi148232 = phi ptr [ %.us-phi148, %.split146.us ], [ %162, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176 ], [ %197, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130 ]
+  %.us-phi147230 = phi i32 [ %.us-phi147, %.split146.us ], [ %139, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176 ], [ %168, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130 ]
+  %.us-phi228 = phi i32 [ %.us-phi, %.split146.us ], [ %137, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130.us176 ], [ %166, %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit130 ]
+  %.idx224 = shl nuw nsw i64 %36, 3
+  %198 = getelementptr i8, ptr %31, i64 %.idx224
+  %199 = getelementptr i8, ptr %198, i64 -4
+  %200 = load i32, ptr %199, align 4, !tbaa !19
+  br label %201
 
-210:                                              ; preds = %.split146.us.thread, %.split146.us
-  %.us-phi148229 = phi ptr [ %.us-phi148228, %.split146.us.thread ], [ %.us-phi148, %.split146.us ]
-  %.us-phi147227 = phi i32 [ %.us-phi147226, %.split146.us.thread ], [ %.us-phi147, %.split146.us ]
-  %.us-phi225 = phi i32 [ %.us-phi224, %.split146.us.thread ], [ %.us-phi, %.split146.us ]
-  %.1113 = phi i32 [ %209, %.split146.us.thread ], [ 0, %.split146.us ]
-  br i1 %.not124, label %215, label %211
+201:                                              ; preds = %.split146.us.thread, %.split146.us
+  %.us-phi148233 = phi ptr [ %.us-phi148232, %.split146.us.thread ], [ %.us-phi148, %.split146.us ]
+  %.us-phi147231 = phi i32 [ %.us-phi147230, %.split146.us.thread ], [ %.us-phi147, %.split146.us ]
+  %.us-phi229 = phi i32 [ %.us-phi228, %.split146.us.thread ], [ %.us-phi, %.split146.us ]
+  %.1113 = phi i32 [ %200, %.split146.us.thread ], [ 0, %.split146.us ]
+  br i1 %.not124, label %206, label %202
 
-211:                                              ; preds = %210
+202:                                              ; preds = %201
   %.idx = shl nuw nsw i64 %23, 3
-  %212 = getelementptr i8, ptr %35, i64 %.idx
-  %213 = getelementptr i8, ptr %212, i64 -4
-  %214 = load i32, ptr %213, align 4, !tbaa !19
-  br label %215
+  %203 = getelementptr i8, ptr %35, i64 %.idx
+  %204 = getelementptr i8, ptr %203, i64 -4
+  %205 = load i32, ptr %204, align 4, !tbaa !19
+  br label %206
 
-215:                                              ; preds = %210, %211
-  %.0114 = phi i32 [ %214, %211 ], [ 0, %210 ]
-  %216 = add i32 %.1113, %.us-phi225
-  %217 = trunc i32 %216 to i16
-  %218 = getelementptr inbounds nuw i8, ptr %.us-phi148229, i64 24
-  store i16 %217, ptr %218, align 8, !tbaa !76
-  %219 = add i32 %.0114, %.us-phi147227
-  %220 = trunc i32 %219 to i16
-  %221 = getelementptr inbounds nuw i8, ptr %.us-phi148229, i64 26
-  store i16 %220, ptr %221, align 2, !tbaa !81
-  br i1 %46, label %222, label %232
+206:                                              ; preds = %201, %202
+  %.0114 = phi i32 [ %205, %202 ], [ 0, %201 ]
+  %207 = add i32 %.1113, %.us-phi229
+  %208 = trunc i32 %207 to i16
+  %209 = getelementptr inbounds nuw i8, ptr %.us-phi148233, i64 24
+  store i16 %208, ptr %209, align 8, !tbaa !76
+  %210 = add i32 %.0114, %.us-phi147231
+  %211 = trunc i32 %210 to i16
+  %212 = getelementptr inbounds nuw i8, ptr %.us-phi148233, i64 26
+  store i16 %211, ptr %212, align 2, !tbaa !81
+  br i1 %46, label %213, label %223
 
-222:                                              ; preds = %215
-  %223 = trunc i32 %.0114 to i16
-  %224 = trunc i32 %.1113 to i16
-  %225 = getelementptr inbounds nuw i8, ptr %.us-phi148229, i64 72
-  store i16 0, ptr %225, align 8, !tbaa !80
-  %226 = getelementptr inbounds nuw i8, ptr %.us-phi148229, i64 74
-  store i16 %223, ptr %226, align 2, !tbaa !82
-  %227 = getelementptr inbounds nuw i8, ptr %.us-phi148229, i64 76
-  store i16 0, ptr %227, align 4, !tbaa !83
-  %228 = getelementptr inbounds nuw i8, ptr %.us-phi148229, i64 78
-  store i16 %224, ptr %228, align 2, !tbaa !84
-  %229 = zext i8 %16 to i16
-  %230 = sub nsw i16 3, %229
-  %231 = getelementptr inbounds nuw i8, ptr %.us-phi148229, i64 80
-  store i16 %230, ptr %231, align 8, !tbaa !85
+213:                                              ; preds = %206
+  %214 = trunc i32 %.0114 to i16
+  %215 = trunc i32 %.1113 to i16
+  %216 = getelementptr inbounds nuw i8, ptr %.us-phi148233, i64 72
+  store i16 0, ptr %216, align 8, !tbaa !80
+  %217 = getelementptr inbounds nuw i8, ptr %.us-phi148233, i64 74
+  store i16 %214, ptr %217, align 2, !tbaa !82
+  %218 = getelementptr inbounds nuw i8, ptr %.us-phi148233, i64 76
+  store i16 0, ptr %218, align 4, !tbaa !83
+  %219 = getelementptr inbounds nuw i8, ptr %.us-phi148233, i64 78
+  store i16 %215, ptr %219, align 2, !tbaa !84
+  %220 = zext i8 %16 to i16
+  %221 = sub nsw i16 3, %220
+  %222 = getelementptr inbounds nuw i8, ptr %.us-phi148233, i64 80
+  store i16 %221, ptr %222, align 8, !tbaa !85
   br label %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit131
 
-232:                                              ; preds = %215
-  %233 = getelementptr inbounds nuw i8, ptr %.us-phi148229, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %233, i8 0, i64 10, i1 false)
+223:                                              ; preds = %206
+  %224 = getelementptr inbounds nuw i8, ptr %.us-phi148233, i64 72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %224, i8 0, i64 10, i1 false)
   br label %_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit131
 
-_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit131: ; preds = %232, %222, %.thread
+_Z18crxSetupSubbandIdxP17crx_data_header_tP8CrxImageP10CrxSubbandissss.exit131: ; preds = %223, %213, %.thread
   ret i32 0
 }
 

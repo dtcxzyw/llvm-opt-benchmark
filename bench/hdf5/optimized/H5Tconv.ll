@@ -176,7 +176,7 @@ define noundef i32 @H5T__reverse_order(ptr noundef writeonly captures(none) %0, 
   %.071 = load i32, ptr %.071.in, align 8, !tbaa !15
   switch i32 %.071, label %.preheader [
     i32 2, label %.preheader79
-    i32 1, label %37
+    i32 1, label %36
   ]
 
 .preheader79:                                     ; preds = %22
@@ -193,7 +193,7 @@ define noundef i32 @H5T__reverse_order(ptr noundef writeonly captures(none) %0, 
   br i1 %.not97, label %.loopexit, label %.lr.ph93
 
 25:                                               ; preds = %.lr.ph91, %25
-  %.07090 = phi i64 [ 0, %.lr.ph91 ], [ %35, %25 ]
+  %.07090 = phi i64 [ 0, %.lr.ph91 ], [ %34, %25 ]
   %26 = sub i64 %23, %.07090
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
   %28 = load i8, ptr %27, align 1, !tbaa !15
@@ -202,74 +202,73 @@ define noundef i32 @H5T__reverse_order(ptr noundef writeonly captures(none) %0, 
   %30 = xor i64 %.07090, -1
   %31 = getelementptr i8, ptr %24, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !15
-  %33 = or disjoint i64 %.07090, 1
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %33
-  store i8 %32, ptr %34, align 1, !tbaa !15
-  %35 = add nuw i64 %.07090, 2
-  %36 = icmp ult i64 %35, %14
-  br i1 %36, label %25, label %.loopexit, !llvm.loop !32
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  store i8 %32, ptr %33, align 1, !tbaa !15
+  %34 = add nuw i64 %.07090, 2
+  %35 = icmp ult i64 %34, %14
+  br i1 %35, label %25, label %.loopexit, !llvm.loop !32
 
-37:                                               ; preds = %22
-  br i1 %switch, label %43, label %.preheader82
+36:                                               ; preds = %22
+  br i1 %switch, label %42, label %.preheader82
 
-.preheader82:                                     ; preds = %37
+.preheader82:                                     ; preds = %36
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader82, %.lr.ph
-  %.06984 = phi i64 [ %40, %.lr.ph ], [ 0, %.preheader82 ]
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 %.06984
-  %39 = load i8, ptr %38, align 1, !tbaa !15
-  %40 = add nuw i64 %.06984, 1
-  %41 = sub i64 %14, %40
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %41
-  store i8 %39, ptr %42, align 1, !tbaa !15
-  %exitcond.not = icmp eq i64 %40, %14
+  %.06984 = phi i64 [ %39, %.lr.ph ], [ 0, %.preheader82 ]
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %.06984
+  %38 = load i8, ptr %37, align 1, !tbaa !15
+  %39 = add nuw i64 %.06984, 1
+  %40 = sub i64 %14, %39
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %40
+  store i8 %38, ptr %41, align 1, !tbaa !15
+  %exitcond.not = icmp eq i64 %39, %14
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
 
-43:                                               ; preds = %37
-  %44 = lshr i64 %14, 1
+42:                                               ; preds = %36
+  %43 = lshr i64 %14, 1
   %.not94 = icmp ult i64 %14, 2
   br i1 %.not94, label %.loopexit, label %.lr.ph86
 
 .lr.ph89.preheader:                               ; preds = %.lr.ph86
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %44
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 %44
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %43
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 %43
   br label %.lr.ph89
 
-.lr.ph86:                                         ; preds = %43, %.lr.ph86
-  %.06885 = phi i64 [ %49, %.lr.ph86 ], [ 0, %43 ]
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %.06885
-  %48 = load i8, ptr %47, align 1, !tbaa !15
-  %49 = add nuw nsw i64 %.06885, 1
-  %50 = sub nsw i64 %44, %49
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 %50
-  store i8 %48, ptr %51, align 1, !tbaa !15
-  %exitcond101.not = icmp eq i64 %49, %44
+.lr.ph86:                                         ; preds = %42, %.lr.ph86
+  %.06885 = phi i64 [ %48, %.lr.ph86 ], [ 0, %42 ]
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 %.06885
+  %47 = load i8, ptr %46, align 1, !tbaa !15
+  %48 = add nuw nsw i64 %.06885, 1
+  %49 = sub nsw i64 %43, %48
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 %49
+  store i8 %47, ptr %50, align 1, !tbaa !15
+  %exitcond101.not = icmp eq i64 %48, %43
   br i1 %exitcond101.not, label %.lr.ph89.preheader, label %.lr.ph86, !llvm.loop !35
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
-  %.06787 = phi i64 [ %54, %.lr.ph89 ], [ 0, %.lr.ph89.preheader ]
-  %52 = getelementptr inbounds nuw i8, ptr %46, i64 %.06787
-  %53 = load i8, ptr %52, align 1, !tbaa !15
-  %54 = add nuw nsw i64 %.06787, 1
-  %55 = sub nsw i64 %44, %54
-  %56 = getelementptr inbounds nuw i8, ptr %45, i64 %55
-  store i8 %53, ptr %56, align 1, !tbaa !15
-  %exitcond102.not = icmp eq i64 %54, %44
+  %.06787 = phi i64 [ %53, %.lr.ph89 ], [ 0, %.lr.ph89.preheader ]
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 %.06787
+  %52 = load i8, ptr %51, align 1, !tbaa !15
+  %53 = add nuw nsw i64 %.06787, 1
+  %54 = sub nsw i64 %43, %53
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 %54
+  store i8 %52, ptr %55, align 1, !tbaa !15
+  %exitcond102.not = icmp eq i64 %53, %43
   br i1 %exitcond102.not, label %.loopexit, label %.lr.ph89, !llvm.loop !36
 
 .lr.ph93:                                         ; preds = %.preheader, %.lr.ph93
-  %.092 = phi i64 [ %60, %.lr.ph93 ], [ 0, %.preheader ]
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 %.092
-  %58 = load i8, ptr %57, align 1, !tbaa !15
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %.092
-  store i8 %58, ptr %59, align 1, !tbaa !15
-  %60 = add nuw i64 %.092, 1
-  %exitcond103.not = icmp eq i64 %60, %14
+  %.092 = phi i64 [ %59, %.lr.ph93 ], [ 0, %.preheader ]
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 %.092
+  %57 = load i8, ptr %56, align 1, !tbaa !15
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %.092
+  store i8 %57, ptr %58, align 1, !tbaa !15
+  %59 = add nuw i64 %.092, 1
+  %exitcond103.not = icmp eq i64 %59, %14
   br i1 %exitcond103.not, label %.loopexit, label %.lr.ph93, !llvm.loop !37
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph89, %25, %.lr.ph93, %43, %.preheader82, %.preheader79, %.preheader, %3
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph89, %25, %.lr.ph93, %42, %.preheader82, %.preheader79, %.preheader, %3
   ret i32 0
 }
 

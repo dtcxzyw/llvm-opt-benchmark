@@ -1827,6 +1827,7 @@ for.body132.lr.ph:                                ; preds = %invoke.cont125
   %138 = load ptr, ptr %bounds, align 8, !tbaa !41
   %139 = load ptr, ptr %sequence_.i, align 8, !tbaa !92
   %140 = load ptr, ptr %add.ptr.i.i227, align 8, !tbaa !41
+  %invariant.gep = getelementptr i8, ptr %139, i64 8
   %141 = load ptr, ptr %add.ptr.i.i252, align 8, !tbaa !41
   br label %for.body132
 
@@ -1915,9 +1916,8 @@ for.body132:                                      ; preds = %for.body132.lr.ph, 
   %arrayidx.i292 = getelementptr inbounds nuw double, ptr %140, i64 %j.0357
   store double %159, ptr %arrayidx.i292, align 8, !tbaa !93
   %160 = load double, ptr %arrayidx.i290, align 8, !tbaa !93
-  %add = or disjoint i64 %mul139, 1
-  %add.ptr.i294 = getelementptr inbounds nuw double, ptr %139, i64 %add
-  %161 = load double, ptr %add.ptr.i294, align 8, !tbaa !93
+  %gep = getelementptr double, ptr %invariant.gep, i64 %mul139
+  %161 = load double, ptr %gep, align 8, !tbaa !93
   %162 = call double @llvm.fmuladd.f64(double %161, double 2.000000e+00, double -1.000000e+00)
   %mul149 = fmul double %160, %162
   %arrayidx.i295 = getelementptr inbounds nuw double, ptr %141, i64 %j.0357

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imath_3_1::half" = type { i16 }
 
 $_ZN19OpenColorIO_v2_5dev7GenericIhE21PackRGBAFromImageDescERKNS_16GenericImageDescEPhPfil = comdat any
 
@@ -52,7 +51,7 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIhE21PackRGBAFromIm
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %72
 
 12:                                               ; preds = %5
   %13 = load i64, ptr %0, align 8, !tbaa !3
@@ -78,7 +77,7 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIhE21PackRGBAFromIm
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %72
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -114,60 +113,57 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIhE21PackRGBAFromIm
   %spec.select90 = select i1 %.not80, ptr null, ptr %37
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
-  %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.lr.ph.preheader ]
-  %.186 = phi ptr [ %spec.select, %61 ], [ %spec.select90, %.lr.ph.preheader ]
-  %.07185 = phi ptr [ %67, %61 ], [ %41, %.lr.ph.preheader ]
-  %.07284 = phi ptr [ %66, %61 ], [ %45, %.lr.ph.preheader ]
-  %.07383 = phi ptr [ %65, %61 ], [ %49, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %59
+  %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph.preheader ]
+  %.186 = phi ptr [ %spec.select, %59 ], [ %spec.select90, %.lr.ph.preheader ]
+  %.07185 = phi ptr [ %64, %59 ], [ %41, %.lr.ph.preheader ]
+  %.07284 = phi ptr [ %63, %59 ], [ %45, %.lr.ph.preheader ]
+  %.07383 = phi ptr [ %62, %59 ], [ %49, %.lr.ph.preheader ]
   %50 = load i8, ptr %.07383, align 1, !tbaa !23
   %51 = shl nsw i64 %indvars.iv, 2
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 %51
   store i8 %50, ptr %52, align 1, !tbaa !23
   %53 = load i8, ptr %.07284, align 1, !tbaa !23
-  %54 = or disjoint i64 %51, 1
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 %54
-  store i8 %53, ptr %55, align 1, !tbaa !23
-  %56 = load i8, ptr %.07185, align 1, !tbaa !23
-  %57 = or disjoint i64 %51, 2
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 %57
-  store i8 %56, ptr %58, align 1, !tbaa !23
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  store i8 %53, ptr %54, align 1, !tbaa !23
+  %55 = load i8, ptr %.07185, align 1, !tbaa !23
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 2
+  store i8 %55, ptr %56, align 1, !tbaa !23
   %.not81 = icmp eq ptr %.186, null
-  br i1 %.not81, label %61, label %59
+  br i1 %.not81, label %59, label %57
 
-59:                                               ; preds = %.lr.ph
-  %60 = load i8, ptr %.186, align 1, !tbaa !23
-  br label %61
+57:                                               ; preds = %.lr.ph
+  %58 = load i8, ptr %.186, align 1, !tbaa !23
+  br label %59
 
-61:                                               ; preds = %.lr.ph, %59
-  %62 = phi i8 [ %60, %59 ], [ 0, %.lr.ph ]
-  %63 = or disjoint i64 %51, 3
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %63
-  store i8 %62, ptr %64, align 1, !tbaa !23
+59:                                               ; preds = %.lr.ph, %57
+  %60 = phi i8 [ %58, %57 ], [ 0, %.lr.ph ]
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 3
+  store i8 %60, ptr %61, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds i8, ptr %.07383, i64 %26
-  %66 = getelementptr inbounds i8, ptr %.07284, i64 %26
-  %67 = getelementptr inbounds i8, ptr %.07185, i64 %26
-  %68 = getelementptr inbounds i8, ptr %.186, i64 %26
-  %spec.select = select i1 %.not81, ptr null, ptr %68
+  %62 = getelementptr inbounds i8, ptr %.07383, i64 %26
+  %63 = getelementptr inbounds i8, ptr %.07284, i64 %26
+  %64 = getelementptr inbounds i8, ptr %.07185, i64 %26
+  %65 = getelementptr inbounds i8, ptr %.186, i64 %26
+  %spec.select = select i1 %.not81, ptr null, ptr %65
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
 
-._crit_edge.loopexit:                             ; preds = %61
-  %69 = zext nneg i32 %3 to i64
+._crit_edge.loopexit:                             ; preds = %59
+  %66 = zext nneg i32 %3 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %._crit_edge.loopexit
-  %.0.lcssa = phi i64 [ %69, %._crit_edge.loopexit ], [ 0, %24 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %71 = load ptr, ptr %70, align 8, !tbaa !26
-  %72 = load ptr, ptr %71, align 8, !tbaa !27
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load ptr, ptr %73, align 8
-  tail call void %74(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %.0.lcssa)
+  %.0.lcssa = phi i64 [ %66, %._crit_edge.loopexit ], [ 0, %24 ]
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %68 = load ptr, ptr %67, align 8, !tbaa !26
+  %69 = load ptr, ptr %68, align 8, !tbaa !27
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %71 = load ptr, ptr %70, align 8
+  tail call void %71(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %.0.lcssa)
   ret void
 
-75:                                               ; preds = %22, %10
+72:                                               ; preds = %22, %10
   %.sink = phi ptr [ %20, %22 ], [ %8, %10 ]
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %11, %10 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #6
@@ -261,45 +257,42 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIhE21UnpackRGBAToIm
   %spec.select87 = select i1 %.not78, ptr null, ptr %44
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
-  %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph.preheader ]
-  %.183 = phi ptr [ %spec.select, %64 ], [ %spec.select87, %.lr.ph.preheader ]
-  %.07182 = phi ptr [ %67, %64 ], [ %46, %.lr.ph.preheader ]
-  %.07281 = phi ptr [ %66, %64 ], [ %48, %.lr.ph.preheader ]
-  %.07380 = phi ptr [ %65, %64 ], [ %50, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
+  %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.lr.ph.preheader ]
+  %.183 = phi ptr [ %spec.select, %61 ], [ %spec.select87, %.lr.ph.preheader ]
+  %.07182 = phi ptr [ %64, %61 ], [ %46, %.lr.ph.preheader ]
+  %.07281 = phi ptr [ %63, %61 ], [ %48, %.lr.ph.preheader ]
+  %.07380 = phi ptr [ %62, %61 ], [ %50, %.lr.ph.preheader ]
   %51 = shl nsw i64 %indvars.iv, 2
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !23
   store i8 %53, ptr %.07380, align 1, !tbaa !23
-  %54 = or disjoint i64 %51, 1
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !23
-  store i8 %56, ptr %.07281, align 1, !tbaa !23
-  %57 = or disjoint i64 %51, 2
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 %57
-  %59 = load i8, ptr %58, align 1, !tbaa !23
-  store i8 %59, ptr %.07182, align 1, !tbaa !23
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  %55 = load i8, ptr %54, align 1, !tbaa !23
+  store i8 %55, ptr %.07281, align 1, !tbaa !23
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 2
+  %57 = load i8, ptr %56, align 1, !tbaa !23
+  store i8 %57, ptr %.07182, align 1, !tbaa !23
   %.not79 = icmp eq ptr %.183, null
-  br i1 %.not79, label %64, label %60
+  br i1 %.not79, label %61, label %58
 
-60:                                               ; preds = %.lr.ph
-  %61 = or disjoint i64 %51, 3
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 %61
-  %63 = load i8, ptr %62, align 1, !tbaa !23
-  store i8 %63, ptr %.183, align 1, !tbaa !23
-  br label %64
+58:                                               ; preds = %.lr.ph
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 3
+  %60 = load i8, ptr %59, align 1, !tbaa !23
+  store i8 %60, ptr %.183, align 1, !tbaa !23
+  br label %61
 
-64:                                               ; preds = %60, %.lr.ph
+61:                                               ; preds = %58, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds i8, ptr %.07380, i64 %21
-  %66 = getelementptr inbounds i8, ptr %.07281, i64 %21
-  %67 = getelementptr inbounds i8, ptr %.07182, i64 %21
-  %68 = getelementptr inbounds i8, ptr %.183, i64 %21
-  %spec.select = select i1 %.not79, ptr null, ptr %68
+  %62 = getelementptr inbounds i8, ptr %.07380, i64 %21
+  %63 = getelementptr inbounds i8, ptr %.07281, i64 %21
+  %64 = getelementptr inbounds i8, ptr %.07182, i64 %21
+  %65 = getelementptr inbounds i8, ptr %.183, i64 %21
+  %spec.select = select i1 %.not79, ptr null, ptr %65
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
-.loopexit:                                        ; preds = %64, %19, %12, %15
+.loopexit:                                        ; preds = %61, %19, %12, %15
   ret void
 }
 
@@ -320,7 +313,7 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21PackRGBAFromIm
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %71
 
 12:                                               ; preds = %5
   %13 = load i64, ptr %0, align 8, !tbaa !3
@@ -346,7 +339,7 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21PackRGBAFromIm
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %71
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -382,60 +375,57 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21PackRGBAFromIm
   %spec.select90 = select i1 %.not80, ptr null, ptr %37
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
-  %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.lr.ph.preheader ]
-  %.186 = phi ptr [ %spec.select, %61 ], [ %spec.select90, %.lr.ph.preheader ]
-  %.07185 = phi ptr [ %67, %61 ], [ %41, %.lr.ph.preheader ]
-  %.07284 = phi ptr [ %66, %61 ], [ %45, %.lr.ph.preheader ]
-  %.07383 = phi ptr [ %65, %61 ], [ %49, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %58
+  %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph.preheader ]
+  %.186 = phi ptr [ %spec.select, %58 ], [ %spec.select90, %.lr.ph.preheader ]
+  %.07185 = phi ptr [ %63, %58 ], [ %41, %.lr.ph.preheader ]
+  %.07284 = phi ptr [ %62, %58 ], [ %45, %.lr.ph.preheader ]
+  %.07383 = phi ptr [ %61, %58 ], [ %49, %.lr.ph.preheader ]
   %50 = load i16, ptr %.07383, align 2, !tbaa !30
-  %51 = shl nsw i64 %indvars.iv, 2
-  %52 = getelementptr inbounds nuw i16, ptr %1, i64 %51
-  store i16 %50, ptr %52, align 2, !tbaa !30
-  %53 = load i16, ptr %.07284, align 2, !tbaa !30
-  %54 = or disjoint i64 %51, 1
-  %55 = getelementptr inbounds nuw i16, ptr %1, i64 %54
-  store i16 %53, ptr %55, align 2, !tbaa !30
-  %56 = load i16, ptr %.07185, align 2, !tbaa !30
-  %57 = or disjoint i64 %51, 2
-  %58 = getelementptr inbounds nuw i16, ptr %1, i64 %57
-  store i16 %56, ptr %58, align 2, !tbaa !30
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  store i16 %50, ptr %51, align 2, !tbaa !30
+  %52 = load i16, ptr %.07284, align 2, !tbaa !30
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  store i16 %52, ptr %53, align 2, !tbaa !30
+  %54 = load i16, ptr %.07185, align 2, !tbaa !30
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store i16 %54, ptr %55, align 2, !tbaa !30
   %.not81 = icmp eq ptr %.186, null
-  br i1 %.not81, label %61, label %59
+  br i1 %.not81, label %58, label %56
 
-59:                                               ; preds = %.lr.ph
-  %60 = load i16, ptr %.186, align 2, !tbaa !30
-  br label %61
+56:                                               ; preds = %.lr.ph
+  %57 = load i16, ptr %.186, align 2, !tbaa !30
+  br label %58
 
-61:                                               ; preds = %.lr.ph, %59
-  %62 = phi i16 [ %60, %59 ], [ 0, %.lr.ph ]
-  %63 = or disjoint i64 %51, 3
-  %64 = getelementptr inbounds nuw i16, ptr %1, i64 %63
-  store i16 %62, ptr %64, align 2, !tbaa !30
+58:                                               ; preds = %.lr.ph, %56
+  %59 = phi i16 [ %57, %56 ], [ 0, %.lr.ph ]
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 6
+  store i16 %59, ptr %60, align 2, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds i8, ptr %.07383, i64 %26
-  %66 = getelementptr inbounds i8, ptr %.07284, i64 %26
-  %67 = getelementptr inbounds i8, ptr %.07185, i64 %26
-  %68 = getelementptr inbounds i8, ptr %.186, i64 %26
-  %spec.select = select i1 %.not81, ptr null, ptr %68
+  %61 = getelementptr inbounds i8, ptr %.07383, i64 %26
+  %62 = getelementptr inbounds i8, ptr %.07284, i64 %26
+  %63 = getelementptr inbounds i8, ptr %.07185, i64 %26
+  %64 = getelementptr inbounds i8, ptr %.186, i64 %26
+  %spec.select = select i1 %.not81, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
 
-._crit_edge.loopexit:                             ; preds = %61
-  %69 = zext nneg i32 %3 to i64
+._crit_edge.loopexit:                             ; preds = %58
+  %65 = zext nneg i32 %3 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %._crit_edge.loopexit
-  %.0.lcssa = phi i64 [ %69, %._crit_edge.loopexit ], [ 0, %24 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %71 = load ptr, ptr %70, align 8, !tbaa !26
-  %72 = load ptr, ptr %71, align 8, !tbaa !27
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load ptr, ptr %73, align 8
-  tail call void %74(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %.0.lcssa)
+  %.0.lcssa = phi i64 [ %65, %._crit_edge.loopexit ], [ 0, %24 ]
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %67 = load ptr, ptr %66, align 8, !tbaa !26
+  %68 = load ptr, ptr %67, align 8, !tbaa !27
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %70 = load ptr, ptr %69, align 8
+  tail call void %70(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %.0.lcssa)
   ret void
 
-75:                                               ; preds = %22, %10
+71:                                               ; preds = %22, %10
   %.sink = phi ptr [ %20, %22 ], [ %8, %10 ]
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %11, %10 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #6
@@ -515,45 +505,42 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericItE21UnpackRGBAToIm
   %spec.select87 = select i1 %.not78, ptr null, ptr %44
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
-  %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph.preheader ]
-  %.183 = phi ptr [ %spec.select, %64 ], [ %spec.select87, %.lr.ph.preheader ]
-  %.07182 = phi ptr [ %67, %64 ], [ %46, %.lr.ph.preheader ]
-  %.07281 = phi ptr [ %66, %64 ], [ %48, %.lr.ph.preheader ]
-  %.07380 = phi ptr [ %65, %64 ], [ %50, %.lr.ph.preheader ]
-  %51 = shl nsw i64 %indvars.iv, 2
-  %52 = getelementptr inbounds nuw i16, ptr %2, i64 %51
-  %53 = load i16, ptr %52, align 2, !tbaa !30
-  store i16 %53, ptr %.07380, align 2, !tbaa !30
-  %54 = or disjoint i64 %51, 1
-  %55 = getelementptr inbounds nuw i16, ptr %2, i64 %54
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %60
+  %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.lr.ph.preheader ]
+  %.183 = phi ptr [ %spec.select, %60 ], [ %spec.select87, %.lr.ph.preheader ]
+  %.07182 = phi ptr [ %63, %60 ], [ %46, %.lr.ph.preheader ]
+  %.07281 = phi ptr [ %62, %60 ], [ %48, %.lr.ph.preheader ]
+  %.07380 = phi ptr [ %61, %60 ], [ %50, %.lr.ph.preheader ]
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  %52 = load i16, ptr %51, align 2, !tbaa !30
+  store i16 %52, ptr %.07380, align 2, !tbaa !30
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  %54 = load i16, ptr %53, align 2, !tbaa !30
+  store i16 %54, ptr %.07281, align 2, !tbaa !30
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %56 = load i16, ptr %55, align 2, !tbaa !30
-  store i16 %56, ptr %.07281, align 2, !tbaa !30
-  %57 = or disjoint i64 %51, 2
-  %58 = getelementptr inbounds nuw i16, ptr %2, i64 %57
-  %59 = load i16, ptr %58, align 2, !tbaa !30
-  store i16 %59, ptr %.07182, align 2, !tbaa !30
+  store i16 %56, ptr %.07182, align 2, !tbaa !30
   %.not79 = icmp eq ptr %.183, null
-  br i1 %.not79, label %64, label %60
+  br i1 %.not79, label %60, label %57
 
-60:                                               ; preds = %.lr.ph
-  %61 = or disjoint i64 %51, 3
-  %62 = getelementptr inbounds nuw i16, ptr %2, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !30
-  store i16 %63, ptr %.183, align 2, !tbaa !30
-  br label %64
+57:                                               ; preds = %.lr.ph
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 6
+  %59 = load i16, ptr %58, align 2, !tbaa !30
+  store i16 %59, ptr %.183, align 2, !tbaa !30
+  br label %60
 
-64:                                               ; preds = %60, %.lr.ph
+60:                                               ; preds = %57, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds i8, ptr %.07380, i64 %21
-  %66 = getelementptr inbounds i8, ptr %.07281, i64 %21
-  %67 = getelementptr inbounds i8, ptr %.07182, i64 %21
-  %68 = getelementptr inbounds i8, ptr %.183, i64 %21
-  %spec.select = select i1 %.not79, ptr null, ptr %68
+  %61 = getelementptr inbounds i8, ptr %.07380, i64 %21
+  %62 = getelementptr inbounds i8, ptr %.07281, i64 %21
+  %63 = getelementptr inbounds i8, ptr %.07182, i64 %21
+  %64 = getelementptr inbounds i8, ptr %.183, i64 %21
+  %spec.select = select i1 %.not79, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
-.loopexit:                                        ; preds = %64, %19, %12, %15
+.loopexit:                                        ; preds = %60, %19, %12, %15
   ret void
 }
 
@@ -574,7 +561,7 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  br label %74
+  br label %70
 
 12:                                               ; preds = %5
   %13 = load i64, ptr %0, align 8, !tbaa !3
@@ -600,7 +587,7 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %74
+  br label %70
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -636,60 +623,57 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
   %spec.select90 = select i1 %.not80, ptr null, ptr %37
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
-  %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.lr.ph.preheader ]
-  %.186 = phi ptr [ %spec.select, %61 ], [ %spec.select90, %.lr.ph.preheader ]
-  %.07185 = phi ptr [ %66, %61 ], [ %41, %.lr.ph.preheader ]
-  %.07284 = phi ptr [ %65, %61 ], [ %45, %.lr.ph.preheader ]
-  %.07383 = phi ptr [ %64, %61 ], [ %49, %.lr.ph.preheader ]
-  %50 = shl nsw i64 %indvars.iv, 2
-  %51 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %1, i64 %50
-  %52 = load i16, ptr %.07383, align 2, !tbaa !30
-  store i16 %52, ptr %51, align 2, !tbaa !30
-  %53 = or disjoint i64 %50, 1
-  %54 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %1, i64 %53
-  %55 = load i16, ptr %.07284, align 2, !tbaa !30
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %58
+  %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph.preheader ]
+  %.186 = phi ptr [ %spec.select, %58 ], [ %spec.select90, %.lr.ph.preheader ]
+  %.07185 = phi ptr [ %62, %58 ], [ %41, %.lr.ph.preheader ]
+  %.07284 = phi ptr [ %61, %58 ], [ %45, %.lr.ph.preheader ]
+  %.07383 = phi ptr [ %60, %58 ], [ %49, %.lr.ph.preheader ]
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  %51 = load i16, ptr %.07383, align 2, !tbaa !30
+  store i16 %51, ptr %50, align 2, !tbaa !30
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 2
+  %53 = load i16, ptr %.07284, align 2, !tbaa !30
+  store i16 %53, ptr %52, align 2, !tbaa !30
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %55 = load i16, ptr %.07185, align 2, !tbaa !30
   store i16 %55, ptr %54, align 2, !tbaa !30
-  %56 = or disjoint i64 %50, 2
-  %57 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %1, i64 %56
-  %58 = load i16, ptr %.07185, align 2, !tbaa !30
-  store i16 %58, ptr %57, align 2, !tbaa !30
   %.not81 = icmp eq ptr %.186, null
-  br i1 %.not81, label %61, label %59
+  br i1 %.not81, label %58, label %56
 
-59:                                               ; preds = %.lr.ph
-  %60 = load i16, ptr %.186, align 2, !tbaa !30
-  br label %61
+56:                                               ; preds = %.lr.ph
+  %57 = load i16, ptr %.186, align 2, !tbaa !30
+  br label %58
 
-61:                                               ; preds = %.lr.ph, %59
-  %.sroa.0.0 = phi i16 [ %60, %59 ], [ 0, %.lr.ph ]
-  %62 = or disjoint i64 %50, 3
-  %63 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %1, i64 %62
-  store i16 %.sroa.0.0, ptr %63, align 2, !tbaa !30
+58:                                               ; preds = %.lr.ph, %56
+  %.sroa.0.0 = phi i16 [ %57, %56 ], [ 0, %.lr.ph ]
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 6
+  store i16 %.sroa.0.0, ptr %59, align 2, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = getelementptr inbounds i8, ptr %.07383, i64 %26
-  %65 = getelementptr inbounds i8, ptr %.07284, i64 %26
-  %66 = getelementptr inbounds i8, ptr %.07185, i64 %26
-  %67 = getelementptr inbounds i8, ptr %.186, i64 %26
-  %spec.select = select i1 %.not81, ptr null, ptr %67
+  %60 = getelementptr inbounds i8, ptr %.07383, i64 %26
+  %61 = getelementptr inbounds i8, ptr %.07284, i64 %26
+  %62 = getelementptr inbounds i8, ptr %.07185, i64 %26
+  %63 = getelementptr inbounds i8, ptr %.186, i64 %26
+  %spec.select = select i1 %.not81, ptr null, ptr %63
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
 
-._crit_edge.loopexit:                             ; preds = %61
-  %68 = zext nneg i32 %3 to i64
+._crit_edge.loopexit:                             ; preds = %58
+  %64 = zext nneg i32 %3 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %._crit_edge.loopexit
-  %.0.lcssa = phi i64 [ %68, %._crit_edge.loopexit ], [ 0, %24 ]
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %70 = load ptr, ptr %69, align 8, !tbaa !26
-  %71 = load ptr, ptr %70, align 8, !tbaa !27
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %.0.lcssa)
+  %.0.lcssa = phi i64 [ %64, %._crit_edge.loopexit ], [ 0, %24 ]
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %66 = load ptr, ptr %65, align 8, !tbaa !26
+  %67 = load ptr, ptr %66, align 8, !tbaa !27
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %69 = load ptr, ptr %68, align 8
+  tail call void %69(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %.0.lcssa)
   ret void
 
-74:                                               ; preds = %22, %10
+70:                                               ; preds = %22, %10
   %.sink = phi ptr [ %20, %22 ], [ %8, %10 ]
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %11, %10 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #6
@@ -769,45 +753,42 @@ define weak_odr hidden void @_ZN19OpenColorIO_v2_5dev7GenericIN9Imath_3_14halfEE
   %spec.select87 = select i1 %.not78, ptr null, ptr %44
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
-  %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph.preheader ]
-  %.183 = phi ptr [ %spec.select, %64 ], [ %spec.select87, %.lr.ph.preheader ]
-  %.07182 = phi ptr [ %67, %64 ], [ %46, %.lr.ph.preheader ]
-  %.07281 = phi ptr [ %66, %64 ], [ %48, %.lr.ph.preheader ]
-  %.07380 = phi ptr [ %65, %64 ], [ %50, %.lr.ph.preheader ]
-  %51 = shl nsw i64 %indvars.iv, 2
-  %52 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %2, i64 %51
-  %53 = load i16, ptr %52, align 2, !tbaa !30
-  store i16 %53, ptr %.07380, align 2, !tbaa !30
-  %54 = or disjoint i64 %51, 1
-  %55 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %2, i64 %54
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %60
+  %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.lr.ph.preheader ]
+  %.183 = phi ptr [ %spec.select, %60 ], [ %spec.select87, %.lr.ph.preheader ]
+  %.07182 = phi ptr [ %63, %60 ], [ %46, %.lr.ph.preheader ]
+  %.07281 = phi ptr [ %62, %60 ], [ %48, %.lr.ph.preheader ]
+  %.07380 = phi ptr [ %61, %60 ], [ %50, %.lr.ph.preheader ]
+  %.idx = shl nsw i64 %indvars.iv, 3
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  %52 = load i16, ptr %51, align 2, !tbaa !30
+  store i16 %52, ptr %.07380, align 2, !tbaa !30
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  %54 = load i16, ptr %53, align 2, !tbaa !30
+  store i16 %54, ptr %.07281, align 2, !tbaa !30
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %56 = load i16, ptr %55, align 2, !tbaa !30
-  store i16 %56, ptr %.07281, align 2, !tbaa !30
-  %57 = or disjoint i64 %51, 2
-  %58 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %2, i64 %57
-  %59 = load i16, ptr %58, align 2, !tbaa !30
-  store i16 %59, ptr %.07182, align 2, !tbaa !30
+  store i16 %56, ptr %.07182, align 2, !tbaa !30
   %.not79 = icmp eq ptr %.183, null
-  br i1 %.not79, label %64, label %60
+  br i1 %.not79, label %60, label %57
 
-60:                                               ; preds = %.lr.ph
-  %61 = or disjoint i64 %51, 3
-  %62 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %2, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !30
-  store i16 %63, ptr %.183, align 2, !tbaa !30
-  br label %64
+57:                                               ; preds = %.lr.ph
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 6
+  %59 = load i16, ptr %58, align 2, !tbaa !30
+  store i16 %59, ptr %.183, align 2, !tbaa !30
+  br label %60
 
-64:                                               ; preds = %60, %.lr.ph
+60:                                               ; preds = %57, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds i8, ptr %.07380, i64 %21
-  %66 = getelementptr inbounds i8, ptr %.07281, i64 %21
-  %67 = getelementptr inbounds i8, ptr %.07182, i64 %21
-  %68 = getelementptr inbounds i8, ptr %.183, i64 %21
-  %spec.select = select i1 %.not79, ptr null, ptr %68
+  %61 = getelementptr inbounds i8, ptr %.07380, i64 %21
+  %62 = getelementptr inbounds i8, ptr %.07281, i64 %21
+  %63 = getelementptr inbounds i8, ptr %.07182, i64 %21
+  %64 = getelementptr inbounds i8, ptr %.183, i64 %21
+  %spec.select = select i1 %.not79, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
-.loopexit:                                        ; preds = %64, %19, %12, %15
+.loopexit:                                        ; preds = %60, %19, %12, %15
   ret void
 }
 
@@ -828,7 +809,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21PackRGBAFromImageDescER
 10:                                               ; preds = %7
   %11 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %71
 
 12:                                               ; preds = %5
   %13 = load i64, ptr %0, align 8, !tbaa !3
@@ -854,7 +835,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21PackRGBAFromImageDescER
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %71
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -890,60 +871,57 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21PackRGBAFromImageDescER
   %spec.select90 = select i1 %.not80, ptr null, ptr %37
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %61
-  %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.lr.ph.preheader ]
-  %.186 = phi ptr [ %spec.select, %61 ], [ %spec.select90, %.lr.ph.preheader ]
-  %.07185 = phi ptr [ %67, %61 ], [ %41, %.lr.ph.preheader ]
-  %.07284 = phi ptr [ %66, %61 ], [ %45, %.lr.ph.preheader ]
-  %.07383 = phi ptr [ %65, %61 ], [ %49, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %58
+  %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph.preheader ]
+  %.186 = phi ptr [ %spec.select, %58 ], [ %spec.select90, %.lr.ph.preheader ]
+  %.07185 = phi ptr [ %63, %58 ], [ %41, %.lr.ph.preheader ]
+  %.07284 = phi ptr [ %62, %58 ], [ %45, %.lr.ph.preheader ]
+  %.07383 = phi ptr [ %61, %58 ], [ %49, %.lr.ph.preheader ]
   %50 = load float, ptr %.07383, align 4, !tbaa !36
-  %51 = shl nsw i64 %indvars.iv, 2
-  %52 = getelementptr inbounds nuw float, ptr %2, i64 %51
-  store float %50, ptr %52, align 4, !tbaa !36
-  %53 = load float, ptr %.07284, align 4, !tbaa !36
-  %54 = or disjoint i64 %51, 1
-  %55 = getelementptr inbounds nuw float, ptr %2, i64 %54
-  store float %53, ptr %55, align 4, !tbaa !36
-  %56 = load float, ptr %.07185, align 4, !tbaa !36
-  %57 = or disjoint i64 %51, 2
-  %58 = getelementptr inbounds nuw float, ptr %2, i64 %57
-  store float %56, ptr %58, align 4, !tbaa !36
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  store float %50, ptr %51, align 4, !tbaa !36
+  %52 = load float, ptr %.07284, align 4, !tbaa !36
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store float %52, ptr %53, align 4, !tbaa !36
+  %54 = load float, ptr %.07185, align 4, !tbaa !36
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store float %54, ptr %55, align 4, !tbaa !36
   %.not81 = icmp eq ptr %.186, null
-  br i1 %.not81, label %61, label %59
+  br i1 %.not81, label %58, label %56
 
-59:                                               ; preds = %.lr.ph
-  %60 = load float, ptr %.186, align 4, !tbaa !36
-  br label %61
+56:                                               ; preds = %.lr.ph
+  %57 = load float, ptr %.186, align 4, !tbaa !36
+  br label %58
 
-61:                                               ; preds = %.lr.ph, %59
-  %62 = phi float [ %60, %59 ], [ 0.000000e+00, %.lr.ph ]
-  %63 = or disjoint i64 %51, 3
-  %64 = getelementptr inbounds nuw float, ptr %2, i64 %63
-  store float %62, ptr %64, align 4, !tbaa !36
+58:                                               ; preds = %.lr.ph, %56
+  %59 = phi float [ %57, %56 ], [ 0.000000e+00, %.lr.ph ]
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  store float %59, ptr %60, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds i8, ptr %.07383, i64 %26
-  %66 = getelementptr inbounds i8, ptr %.07284, i64 %26
-  %67 = getelementptr inbounds i8, ptr %.07185, i64 %26
-  %68 = getelementptr inbounds i8, ptr %.186, i64 %26
-  %spec.select = select i1 %.not81, ptr null, ptr %68
+  %61 = getelementptr inbounds i8, ptr %.07383, i64 %26
+  %62 = getelementptr inbounds i8, ptr %.07284, i64 %26
+  %63 = getelementptr inbounds i8, ptr %.07185, i64 %26
+  %64 = getelementptr inbounds i8, ptr %.186, i64 %26
+  %spec.select = select i1 %.not81, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
 
-._crit_edge.loopexit:                             ; preds = %61
-  %69 = zext nneg i32 %3 to i64
+._crit_edge.loopexit:                             ; preds = %58
+  %65 = zext nneg i32 %3 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %24, %._crit_edge.loopexit
-  %.0.lcssa = phi i64 [ %69, %._crit_edge.loopexit ], [ 0, %24 ]
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %71 = load ptr, ptr %70, align 8, !tbaa !26
-  %72 = load ptr, ptr %71, align 8, !tbaa !27
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load ptr, ptr %73, align 8
-  tail call void %74(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull %2, ptr noundef nonnull %2, i64 noundef %.0.lcssa)
+  %.0.lcssa = phi i64 [ %65, %._crit_edge.loopexit ], [ 0, %24 ]
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %67 = load ptr, ptr %66, align 8, !tbaa !26
+  %68 = load ptr, ptr %67, align 8, !tbaa !27
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %70 = load ptr, ptr %69, align 8
+  tail call void %70(ptr noundef nonnull align 8 dereferenceable(8) %67, ptr noundef nonnull %2, ptr noundef nonnull %2, i64 noundef %.0.lcssa)
   ret void
 
-75:                                               ; preds = %22, %10
+71:                                               ; preds = %22, %10
   %.sink = phi ptr [ %20, %22 ], [ %8, %10 ]
   %.pn = phi { ptr, i32 } [ %23, %22 ], [ %11, %10 ]
   tail call void @__cxa_free_exception(ptr nonnull %.sink) #6
@@ -1023,45 +1001,42 @@ define hidden void @_ZN19OpenColorIO_v2_5dev7GenericIfE21UnpackRGBAToImageDescER
   %spec.select87 = select i1 %.not78, ptr null, ptr %44
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %64
-  %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.lr.ph.preheader ]
-  %.183 = phi ptr [ %spec.select, %64 ], [ %spec.select87, %.lr.ph.preheader ]
-  %.07182 = phi ptr [ %67, %64 ], [ %46, %.lr.ph.preheader ]
-  %.07281 = phi ptr [ %66, %64 ], [ %48, %.lr.ph.preheader ]
-  %.07380 = phi ptr [ %65, %64 ], [ %50, %.lr.ph.preheader ]
-  %51 = shl nsw i64 %indvars.iv, 2
-  %52 = getelementptr inbounds nuw float, ptr %1, i64 %51
-  %53 = load float, ptr %52, align 4, !tbaa !36
-  store float %53, ptr %.07380, align 4, !tbaa !36
-  %54 = or disjoint i64 %51, 1
-  %55 = getelementptr inbounds nuw float, ptr %1, i64 %54
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %60
+  %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.lr.ph.preheader ]
+  %.183 = phi ptr [ %spec.select, %60 ], [ %spec.select87, %.lr.ph.preheader ]
+  %.07182 = phi ptr [ %63, %60 ], [ %46, %.lr.ph.preheader ]
+  %.07281 = phi ptr [ %62, %60 ], [ %48, %.lr.ph.preheader ]
+  %.07380 = phi ptr [ %61, %60 ], [ %50, %.lr.ph.preheader ]
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  %52 = load float, ptr %51, align 4, !tbaa !36
+  store float %52, ptr %.07380, align 4, !tbaa !36
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %54 = load float, ptr %53, align 4, !tbaa !36
+  store float %54, ptr %.07281, align 4, !tbaa !36
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %56 = load float, ptr %55, align 4, !tbaa !36
-  store float %56, ptr %.07281, align 4, !tbaa !36
-  %57 = or disjoint i64 %51, 2
-  %58 = getelementptr inbounds nuw float, ptr %1, i64 %57
-  %59 = load float, ptr %58, align 4, !tbaa !36
-  store float %59, ptr %.07182, align 4, !tbaa !36
+  store float %56, ptr %.07182, align 4, !tbaa !36
   %.not79 = icmp eq ptr %.183, null
-  br i1 %.not79, label %64, label %60
+  br i1 %.not79, label %60, label %57
 
-60:                                               ; preds = %.lr.ph
-  %61 = or disjoint i64 %51, 3
-  %62 = getelementptr inbounds nuw float, ptr %1, i64 %61
-  %63 = load float, ptr %62, align 4, !tbaa !36
-  store float %63, ptr %.183, align 4, !tbaa !36
-  br label %64
+57:                                               ; preds = %.lr.ph
+  %58 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  %59 = load float, ptr %58, align 4, !tbaa !36
+  store float %59, ptr %.183, align 4, !tbaa !36
+  br label %60
 
-64:                                               ; preds = %60, %.lr.ph
+60:                                               ; preds = %57, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds i8, ptr %.07380, i64 %21
-  %66 = getelementptr inbounds i8, ptr %.07281, i64 %21
-  %67 = getelementptr inbounds i8, ptr %.07182, i64 %21
-  %68 = getelementptr inbounds i8, ptr %.183, i64 %21
-  %spec.select = select i1 %.not79, ptr null, ptr %68
+  %61 = getelementptr inbounds i8, ptr %.07380, i64 %21
+  %62 = getelementptr inbounds i8, ptr %.07281, i64 %21
+  %63 = getelementptr inbounds i8, ptr %.07182, i64 %21
+  %64 = getelementptr inbounds i8, ptr %.183, i64 %21
+  %spec.select = select i1 %.not79, ptr null, ptr %64
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
-.loopexit:                                        ; preds = %64, %19, %12, %15
+.loopexit:                                        ; preds = %60, %19, %12, %15
   ret void
 }
 

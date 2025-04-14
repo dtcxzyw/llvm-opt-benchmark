@@ -1774,26 +1774,26 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %26
 
 .lr.ph96:                                         ; preds = %.preheader
   %134 = mul nsw i64 %indvars.iv117, %31
-  %135 = or disjoint i64 %134, 1
   br i1 %123, label %.lr.ph96.split.us, label %.lr.ph96.split
 
 .lr.ph96.split.us:                                ; preds = %.lr.ph96, %.lr.ph96.split.us
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.lr.ph96.split.us ], [ 0, %.lr.ph96 ]
   %.194.us = phi ptr [ %147, %.lr.ph96.split.us ], [ %.05198, %.lr.ph96 ]
-  %136 = load ptr, ptr %7, align 8, !tbaa !97
-  %137 = getelementptr inbounds nuw %"class.std::vector.26", ptr %136, i64 %indvars.iv114
-  %138 = load ptr, ptr %137, align 8, !tbaa !103
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 %134
-  %140 = load i8, ptr %139, align 1, !tbaa !14
-  %141 = getelementptr inbounds nuw i8, ptr %.194.us, i64 1
-  store i8 %140, ptr %.194.us, align 1, !tbaa !14
-  %142 = load ptr, ptr %7, align 8, !tbaa !97
-  %143 = getelementptr inbounds nuw %"class.std::vector.26", ptr %142, i64 %indvars.iv114
-  %144 = load ptr, ptr %143, align 8, !tbaa !103
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 %135
+  %135 = load ptr, ptr %7, align 8, !tbaa !97
+  %136 = getelementptr inbounds nuw %"class.std::vector.26", ptr %135, i64 %indvars.iv114
+  %137 = load ptr, ptr %136, align 8, !tbaa !103
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %134
+  %139 = load i8, ptr %138, align 1, !tbaa !14
+  %140 = getelementptr inbounds nuw i8, ptr %.194.us, i64 1
+  store i8 %139, ptr %.194.us, align 1, !tbaa !14
+  %141 = load ptr, ptr %7, align 8, !tbaa !97
+  %142 = getelementptr inbounds nuw %"class.std::vector.26", ptr %141, i64 %indvars.iv114
+  %143 = load ptr, ptr %142, align 8, !tbaa !103
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 %134
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 1
   %146 = load i8, ptr %145, align 1, !tbaa !14
   %147 = getelementptr inbounds nuw i8, ptr %.194.us, i64 2
-  store i8 %146, ptr %141, align 1, !tbaa !14
+  store i8 %146, ptr %140, align 1, !tbaa !14
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %148 = load i32, ptr %32, align 4, !tbaa !96
   %149 = sext i32 %148 to i64

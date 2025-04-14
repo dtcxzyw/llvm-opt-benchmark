@@ -4982,71 +4982,69 @@ define hidden void @_ZN8LIR_List6appendEP19LIR_InsertionBuffer(ptr noundef nonnu
   %.02540 = phi i32 [ %31, %.lr.ph44 ], [ %.126.lcssa, %.loopexit ]
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, -1
   %41 = load ptr, ptr %34, align 8
-  %sext = shl i64 %indvars.iv.next61, 33
-  %42 = ashr exact i64 %sext, 30
-  %43 = getelementptr inbounds i8, ptr %41, i64 %42
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp slt i32 %44, %.02540
-  br i1 %45, label %.lr.ph.preheader, label %._crit_edge
+  %indvars.iv.next61.tr = trunc i64 %indvars.iv.next61 to i32
+  %42 = shl i32 %indvars.iv.next61.tr, 1
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds i32, ptr %41, i64 %43
+  %45 = load i32, ptr %44, align 4
+  %46 = icmp slt i32 %45, %.02540
+  br i1 %46, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %40
-  %46 = sext i32 %.02341 to i64
-  %47 = sext i32 %.02540 to i64
-  %48 = sext i32 %44 to i64
+  %47 = sext i32 %.02341 to i64
+  %48 = sext i32 %.02540 to i64
+  %49 = sext i32 %45 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv48 = phi i64 [ %47, %.lr.ph.preheader ], [ %indvars.iv.next49, %.lr.ph ]
-  %indvars.iv = phi i64 [ %46, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %indvars.iv48 = phi i64 [ %48, %.lr.ph.preheader ], [ %indvars.iv.next49, %.lr.ph ]
+  %indvars.iv = phi i64 [ %47, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
-  %49 = load ptr, ptr %25, align 8
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv48
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv
-  store ptr %51, ptr %52, align 8
-  %53 = icmp sgt i64 %indvars.iv.next49, %48
-  br i1 %53, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
+  %50 = load ptr, ptr %25, align 8
+  %51 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv48
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv
+  store ptr %52, ptr %53, align 8
+  %54 = icmp sgt i64 %indvars.iv.next49, %49
+  br i1 %54, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %54 = trunc nsw i64 %indvars.iv.next49 to i32
-  %55 = trunc nsw i64 %indvars.iv.next to i32
+  %55 = trunc nsw i64 %indvars.iv.next49 to i32
+  %56 = trunc nsw i64 %indvars.iv.next to i32
   %.pre = load ptr, ptr %34, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %40
-  %56 = phi ptr [ %41, %40 ], [ %.pre, %._crit_edge.loopexit ]
-  %.126.lcssa = phi i32 [ %.02540, %40 ], [ %54, %._crit_edge.loopexit ]
-  %.124.lcssa = phi i32 [ %.02341, %40 ], [ %55, %._crit_edge.loopexit ]
-  %indvars.iv.next61.tr = trunc i64 %indvars.iv.next61 to i32
-  %57 = shl i32 %indvars.iv.next61.tr, 1
-  %58 = or disjoint i32 %57, 1
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i32, ptr %56, i64 %59
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.lr.ph36.preheader, label %.loopexit
+  %57 = phi ptr [ %41, %40 ], [ %.pre, %._crit_edge.loopexit ]
+  %.126.lcssa = phi i32 [ %.02540, %40 ], [ %55, %._crit_edge.loopexit ]
+  %.124.lcssa = phi i32 [ %.02341, %40 ], [ %56, %._crit_edge.loopexit ]
+  %58 = getelementptr i32, ptr %57, i64 %43
+  %59 = getelementptr i8, ptr %58, i64 4
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp sgt i32 %60, 0
+  br i1 %61, label %.lr.ph36.preheader, label %.loopexit
 
 .lr.ph36.preheader:                               ; preds = %._crit_edge
-  %63 = sext i32 %.02242 to i64
-  %64 = sext i32 %.124.lcssa to i64
+  %62 = sext i32 %.02242 to i64
+  %63 = sext i32 %.124.lcssa to i64
   br label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %.lr.ph36.preheader, %.lr.ph36
-  %indvars.iv55 = phi i64 [ %64, %.lr.ph36.preheader ], [ %indvars.iv.next56, %.lr.ph36 ]
-  %indvars.iv53 = phi i64 [ %63, %.lr.ph36.preheader ], [ %indvars.iv.next54, %.lr.ph36 ]
-  %.034 = phi i32 [ %61, %.lr.ph36.preheader ], [ %70, %.lr.ph36 ]
+  %indvars.iv55 = phi i64 [ %63, %.lr.ph36.preheader ], [ %indvars.iv.next56, %.lr.ph36 ]
+  %indvars.iv53 = phi i64 [ %62, %.lr.ph36.preheader ], [ %indvars.iv.next54, %.lr.ph36 ]
+  %.034 = phi i32 [ %60, %.lr.ph36.preheader ], [ %69, %.lr.ph36 ]
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, -1
-  %65 = load ptr, ptr %35, align 8
-  %66 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv53
-  %67 = load ptr, ptr %66, align 8
-  %68 = load ptr, ptr %25, align 8
-  %69 = getelementptr inbounds ptr, ptr %68, i64 %indvars.iv55
-  store ptr %67, ptr %69, align 8
-  %70 = add nsw i32 %.034, -1
-  %71 = icmp samesign ugt i32 %.034, 1
-  br i1 %71, label %.lr.ph36, label %.loopexit.loopexit, !llvm.loop !13
+  %64 = load ptr, ptr %35, align 8
+  %65 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv53
+  %66 = load ptr, ptr %65, align 8
+  %67 = load ptr, ptr %25, align 8
+  %68 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv55
+  store ptr %66, ptr %68, align 8
+  %69 = add nsw i32 %.034, -1
+  %70 = icmp samesign ugt i32 %.034, 1
+  br i1 %70, label %.lr.ph36, label %.loopexit.loopexit, !llvm.loop !13
 
 .loopexit28:                                      ; preds = %.loopexit, %._crit_edge.i, %2
   store ptr null, ptr %1, align 8
@@ -9530,11 +9528,11 @@ define hidden void @_ZN19LIR_InsertionBuffer6appendEiP6LIR_Op(ptr noundef nonnul
 
 7:                                                ; preds = %3
   %8 = and i32 %5, 2147483646
-  %9 = add nsw i32 %8, -2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load ptr, ptr %9, align 8
+  %11 = zext nneg i32 %8 to i64
+  %12 = getelementptr i32, ptr %10, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load i32, ptr %13, align 4
   %15 = icmp slt i32 %14, %1
   br i1 %15, label %16, label %50
@@ -9595,48 +9593,46 @@ _ZN19LIR_InsertionBuffer10append_newEii.exit:     ; preds = %_ZN26GrowableArrayW
   %48 = sext i32 %45 to i64
   %49 = getelementptr inbounds i32, ptr %47, i64 %48
   store i32 1, ptr %49, align 4
-  br label %56
+  br label %54
 
 50:                                               ; preds = %7
-  %51 = or disjoint i32 %9, 1
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %11, i64 %52
-  %54 = load i32, ptr %53, align 4
-  %55 = add nsw i32 %54, 1
-  store i32 %55, ptr %53, align 4
-  br label %56
+  %51 = getelementptr i8, ptr %12, i64 -4
+  %52 = load i32, ptr %51, align 4
+  %53 = add nsw i32 %52, 1
+  store i32 %53, ptr %51, align 4
+  br label %54
 
-56:                                               ; preds = %50, %_ZN19LIR_InsertionBuffer10append_newEii.exit
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %58, %60
-  br i1 %61, label %62, label %_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE4pushERKS1_.exit
+54:                                               ; preds = %50, %_ZN19LIR_InsertionBuffer10append_newEii.exit
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %56 = load i32, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp eq i32 %56, %58
+  br i1 %59, label %60, label %_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE4pushERKS1_.exit
 
-62:                                               ; preds = %56
-  %63 = add nsw i32 %58, 1
-  %64 = icmp sgt i32 %58, -1
-  %65 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %63)
-  %66 = icmp samesign ult i32 %65, 2
-  %or.cond.i.i.i.i.i6 = select i1 %64, i1 %66, i1 false
-  %67 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %63, i1 true)
-  %68 = sub nuw nsw i32 32, %67
-  %69 = shl nuw i32 1, %68
-  %.0.i.i.i.i.i7 = select i1 %or.cond.i.i.i.i.i6, i32 %63, i32 %69
-  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %57, i32 noundef %.0.i.i.i.i.i7)
-  %.pre.i.i8 = load i32, ptr %57, align 8
+60:                                               ; preds = %54
+  %61 = add nsw i32 %56, 1
+  %62 = icmp sgt i32 %56, -1
+  %63 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %61)
+  %64 = icmp samesign ult i32 %63, 2
+  %or.cond.i.i.i.i.i6 = select i1 %62, i1 %64, i1 false
+  %65 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %61, i1 true)
+  %66 = sub nuw nsw i32 32, %65
+  %67 = shl nuw i32 1, %66
+  %.0.i.i.i.i.i7 = select i1 %or.cond.i.i.i.i.i6, i32 %61, i32 %67
+  tail call void @_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %55, i32 noundef %.0.i.i.i.i.i7)
+  %.pre.i.i8 = load i32, ptr %55, align 8
   br label %_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE4pushERKS1_.exit
 
-_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %56, %62
-  %70 = phi i32 [ %.pre.i.i8, %62 ], [ %58, %56 ]
-  %71 = add nsw i32 %70, 1
-  store i32 %71, ptr %57, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %73 = load ptr, ptr %72, align 8
-  %74 = sext i32 %70 to i64
-  %75 = getelementptr inbounds ptr, ptr %73, i64 %74
-  store ptr %2, ptr %75, align 8
+_ZN26GrowableArrayWithAllocatorIP6LIR_Op13GrowableArrayIS1_EE4pushERKS1_.exit: ; preds = %54, %60
+  %68 = phi i32 [ %.pre.i.i8, %60 ], [ %56, %54 ]
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %55, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %71 = load ptr, ptr %70, align 8
+  %72 = sext i32 %68 to i64
+  %73 = getelementptr inbounds ptr, ptr %71, i64 %72
+  store ptr %2, ptr %73, align 8
   ret void
 }
 

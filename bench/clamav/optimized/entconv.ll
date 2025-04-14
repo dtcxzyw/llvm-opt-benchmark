@@ -1257,7 +1257,7 @@ define range(i32 -1, 3) i32 @encoding_normalize_toascii(ptr noundef readonly cap
   %or.cond = and i1 %12, %11
   %13 = icmp ne ptr %2, null
   %or.cond3 = and i1 %or.cond, %13
-  br i1 %or.cond3, label %14, label %185
+  br i1 %or.cond3, label %14, label %184
 
 14:                                               ; preds = %3
   %15 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #15
@@ -1315,7 +1315,7 @@ define range(i32 -1, 3) i32 @encoding_normalize_toascii(ptr noundef readonly cap
 
 .loopexit43:                                      ; preds = %.lr.ph.i, %14, %._crit_edge.i, %._crit_edge.thread.i
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #16
-  br label %185
+  br label %184
 
 .loopexit:                                        ; preds = %28, %._crit_edge.thread.i
   %38 = phi ptr [ %26, %._crit_edge.thread.i ], [ %25, %28 ]
@@ -1438,7 +1438,7 @@ iconv_open_cached.exit:                           ; preds = %64, %89
 iconv_open_cached.exit.thread:                    ; preds = %73, %51, %86, %iconv_open_cached.exit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %38) #16
   call void @free(ptr noundef nonnull %38) #16
-  br label %185
+  br label %184
 
 100:                                              ; preds = %iconv_open_cached.exit
   call void @free(ptr noundef nonnull %38) #16
@@ -1605,41 +1605,40 @@ in_iconv_u16.exit:                                ; preds = %100, %166
   %168 = icmp sgt i64 %167, 0
   br i1 %168, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %in_iconv_u16.exit, %181
-  %169 = phi i64 [ %182, %181 ], [ %167, %in_iconv_u16.exit ]
-  %.02845 = phi i64 [ %183, %181 ], [ 0, %in_iconv_u16.exit ]
-  %.02944 = phi i64 [ %.1, %181 ], [ 0, %in_iconv_u16.exit ]
+.lr.ph:                                           ; preds = %in_iconv_u16.exit, %180
+  %169 = phi i64 [ %181, %180 ], [ %167, %in_iconv_u16.exit ]
+  %.02845 = phi i64 [ %182, %180 ], [ 0, %in_iconv_u16.exit ]
+  %.02944 = phi i64 [ %.1, %180 ], [ 0, %in_iconv_u16.exit ]
   %170 = load ptr, ptr %2, align 8, !tbaa !27
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 %.02845
   %172 = load i8, ptr %171, align 1, !tbaa !3
   %173 = shl i8 %172, 4
-  %174 = or disjoint i64 %.02845, 1
-  %175 = getelementptr inbounds nuw i8, ptr %170, i64 %174
-  %176 = load i8, ptr %175, align 1, !tbaa !3
-  %177 = add i8 %173, %176
-  %.not35 = icmp eq i8 %177, 0
-  br i1 %.not35, label %181, label %178
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 1
+  %175 = load i8, ptr %174, align 1, !tbaa !3
+  %176 = add i8 %173, %175
+  %.not35 = icmp eq i8 %176, 0
+  br i1 %.not35, label %180, label %177
 
-178:                                              ; preds = %.lr.ph
-  %179 = add nsw i64 %.02944, 1
-  %180 = getelementptr inbounds i8, ptr %170, i64 %.02944
-  store i8 %177, ptr %180, align 1, !tbaa !3
+177:                                              ; preds = %.lr.ph
+  %178 = add nsw i64 %.02944, 1
+  %179 = getelementptr inbounds i8, ptr %170, i64 %.02944
+  store i8 %176, ptr %179, align 1, !tbaa !3
   %.pre = load i64, ptr %107, align 8, !tbaa !23
-  br label %181
+  br label %180
 
-181:                                              ; preds = %178, %.lr.ph
-  %182 = phi i64 [ %.pre, %178 ], [ %169, %.lr.ph ]
-  %.1 = phi i64 [ %179, %178 ], [ %.02944, %.lr.ph ]
-  %183 = add nuw nsw i64 %.02845, 2
-  %184 = icmp slt i64 %183, %182
-  br i1 %184, label %.lr.ph, label %._crit_edge
+180:                                              ; preds = %177, %.lr.ph
+  %181 = phi i64 [ %.pre, %177 ], [ %169, %.lr.ph ]
+  %.1 = phi i64 [ %178, %177 ], [ %.02944, %.lr.ph ]
+  %182 = add nuw nsw i64 %.02845, 2
+  %183 = icmp slt i64 %182, %181
+  br i1 %183, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %181, %in_iconv_u16.exit
-  %.029.lcssa = phi i64 [ 0, %in_iconv_u16.exit ], [ %.1, %181 ]
+._crit_edge:                                      ; preds = %180, %in_iconv_u16.exit
+  %.029.lcssa = phi i64 [ 0, %in_iconv_u16.exit ], [ %.1, %180 ]
   store i64 %.029.lcssa, ptr %107, align 8, !tbaa !23
-  br label %185
+  br label %184
 
-185:                                              ; preds = %3, %._crit_edge, %iconv_open_cached.exit.thread, %.loopexit43
+184:                                              ; preds = %3, %._crit_edge, %iconv_open_cached.exit.thread, %.loopexit43
   %.0 = phi i32 [ -1, %iconv_open_cached.exit.thread ], [ 0, %._crit_edge ], [ -1, %.loopexit43 ], [ 2, %3 ]
   ret i32 %.0
 }
@@ -1942,21 +1941,21 @@ define ptr @cli_utf16toascii(ptr noundef readonly captures(none) %0, i32 noundef
   %11 = lshr i32 %10, 1
   %12 = add nuw nsw i32 %11, 1
   %wide.trip.count = zext nneg i32 %12 to i64
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv25 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next26, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = or disjoint i64 %indvars.iv25, 1
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !3
-  %16 = shl i8 %15, 4
-  %17 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
-  store i8 %16, ptr %17, align 1, !tbaa !3
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv25
-  %19 = load i8, ptr %18, align 1, !tbaa !3
-  %20 = add i8 %19, %16
-  store i8 %20, ptr %17, align 1, !tbaa !3
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv25
+  %13 = load i8, ptr %gep, align 1, !tbaa !3
+  %14 = shl i8 %13, 4
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
+  store i8 %14, ptr %15, align 1, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv25
+  %17 = load i8, ptr %16, align 1, !tbaa !3
+  %18 = add i8 %17, %14
+  store i8 %18, ptr %15, align 1, !tbaa !3
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

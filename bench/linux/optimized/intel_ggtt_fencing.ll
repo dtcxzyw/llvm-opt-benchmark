@@ -960,13 +960,13 @@ define dso_local void @i915_gem_object_do_bit_17_swizzle(ptr noundef readonly ca
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.thread
-  %28 = phi ptr [ %102, %.thread ], [ %21, %.preheader.preheader ]
-  %29 = phi i64 [ %97, %.thread ], [ %.pre, %.preheader.preheader ]
-  %30 = phi ptr [ %95, %.thread ], [ %8, %.preheader.preheader ]
-  %31 = phi i32 [ %63, %.thread ], [ 0, %.preheader.preheader ]
-  %32 = phi i32 [ %94, %.thread ], [ %26, %.preheader.preheader ]
-  %33 = phi i32 [ %93, %.thread ], [ %12, %.preheader.preheader ]
-  %34 = phi i64 [ %92, %.thread ], [ %27, %.preheader.preheader ]
+  %28 = phi ptr [ %101, %.thread ], [ %21, %.preheader.preheader ]
+  %29 = phi i64 [ %96, %.thread ], [ %.pre, %.preheader.preheader ]
+  %30 = phi ptr [ %94, %.thread ], [ %8, %.preheader.preheader ]
+  %31 = phi i32 [ %62, %.thread ], [ 0, %.preheader.preheader ]
+  %32 = phi i32 [ %93, %.thread ], [ %26, %.preheader.preheader ]
+  %33 = phi i32 [ %92, %.thread ], [ %12, %.preheader.preheader ]
+  %34 = phi i64 [ %91, %.thread ], [ %27, %.preheader.preheader ]
   %35 = ptrtoint ptr %28 to i64
   %36 = sub i64 %35, %29
   %37 = load ptr, ptr %4, align 8
@@ -978,7 +978,7 @@ define dso_local void @i915_gem_object_do_bit_17_swizzle(ptr noundef readonly ca
   %42 = and i64 %36, 2048
   %43 = icmp eq i64 %42, 0
   %44 = xor i1 %43, %41
-  br i1 %44, label %62, label %45
+  br i1 %44, label %61, label %45
 
 45:                                               ; preds = %.preheader
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
@@ -992,79 +992,78 @@ define dso_local void @i915_gem_object_do_bit_17_swizzle(ptr noundef readonly ca
   br label %53
 
 53:                                               ; preds = %53, %45
-  %54 = phi i64 [ 0, %45 ], [ %58, %53 ]
+  %54 = phi i64 [ 0, %45 ], [ %57, %53 ]
   %55 = getelementptr i8, ptr %52, i64 %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, ptr noundef align 1 dereferenceable(64) %55, i64 64, i1 false)
-  %56 = or disjoint i64 %54, 64
-  %57 = getelementptr i8, ptr %52, i64 %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(64) %55, ptr noundef align 1 dereferenceable(64) %57, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(64) %57, ptr noundef nonnull align 16 dereferenceable(64) %3, i64 64, i1 false)
-  %58 = add nuw nsw i64 %54, 128
-  %59 = icmp samesign ult i64 %54, 3968
-  br i1 %59, label %53, label %60, !llvm.loop !40
+  %56 = getelementptr i8, ptr %55, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(64) %55, ptr noundef align 1 dereferenceable(64) %56, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(64) %56, ptr noundef nonnull align 16 dereferenceable(64) %3, i64 64, i1 false)
+  %57 = add nuw nsw i64 %54, 128
+  %58 = icmp samesign ult i64 %54, 3968
+  br i1 %58, label %53, label %59, !llvm.loop !40
 
-60:                                               ; preds = %53
+59:                                               ; preds = %53
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
-  %61 = tail call zeroext i1 @set_page_dirty(ptr noundef nonnull %28) #9
-  br label %62
+  %60 = tail call zeroext i1 @set_page_dirty(ptr noundef nonnull %28) #9
+  br label %61
 
-62:                                               ; preds = %60, %.preheader
-  %63 = add i32 %31, 1
-  %64 = add i32 %33, 4096
-  %65 = icmp ult i32 %64, %32
-  br i1 %65, label %.thread, label %66
+61:                                               ; preds = %59, %.preheader
+  %62 = add i32 %31, 1
+  %63 = add i32 %33, 4096
+  %64 = icmp ult i32 %63, %32
+  br i1 %64, label %.thread, label %65
 
-66:                                               ; preds = %62
-  %67 = load i64, ptr %30, align 8
-  %68 = and i64 %67, 2
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %70, label %.thread
+65:                                               ; preds = %61
+  %66 = load i64, ptr %30, align 8
+  %67 = and i64 %66, 2
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %69, label %.thread
 
-70:                                               ; preds = %66
-  %71 = getelementptr i8, ptr %30, i64 32
-  %72 = load i64, ptr %71, align 8
-  %73 = and i64 %72, 1
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %78, label %75, !prof !23
+69:                                               ; preds = %65
+  %70 = getelementptr i8, ptr %30, i64 32
+  %71 = load i64, ptr %70, align 8
+  %72 = and i64 %71, 1
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %77, label %74, !prof !23
 
-75:                                               ; preds = %70
-  %76 = and i64 %72, -4
-  %77 = inttoptr i64 %76 to ptr
-  br label %78
+74:                                               ; preds = %69
+  %75 = and i64 %71, -4
+  %76 = inttoptr i64 %75 to ptr
+  br label %77
 
-78:                                               ; preds = %75, %70
-  %79 = phi ptr [ %77, %75 ], [ %71, %70 ]
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %.thread, label %81
+77:                                               ; preds = %74, %69
+  %78 = phi ptr [ %76, %74 ], [ %70, %69 ]
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %.thread, label %80
 
-81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %83 = load i32, ptr %82, align 8, !noalias !41
-  %84 = load i64, ptr %79, align 8, !noalias !41
-  %85 = and i64 %84, -4
-  %86 = load i64, ptr @vmemmap_base, align 8, !noalias !41
-  %87 = sub i64 %85, %86
-  %88 = ashr exact i64 %87, 6
-  %89 = getelementptr inbounds nuw i8, ptr %79, i64 12
-  %90 = load i32, ptr %89, align 4, !noalias !41
-  %91 = add i32 %90, %83
+80:                                               ; preds = %77
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %82 = load i32, ptr %81, align 8, !noalias !41
+  %83 = load i64, ptr %78, align 8, !noalias !41
+  %84 = and i64 %83, -4
+  %85 = load i64, ptr @vmemmap_base, align 8, !noalias !41
+  %86 = sub i64 %84, %85
+  %87 = ashr exact i64 %86, 6
+  %88 = getelementptr inbounds nuw i8, ptr %78, i64 12
+  %89 = load i32, ptr %88, align 4, !noalias !41
+  %90 = add i32 %89, %82
   br label %.thread
 
-.thread:                                          ; preds = %66, %81, %78, %62
-  %92 = phi i64 [ %34, %62 ], [ 0, %78 ], [ %88, %81 ], [ 0, %66 ]
-  %93 = phi i32 [ %64, %62 ], [ 0, %78 ], [ %83, %81 ], [ 0, %66 ]
-  %94 = phi i32 [ %32, %62 ], [ 0, %78 ], [ %91, %81 ], [ 0, %66 ]
-  %95 = phi ptr [ %30, %62 ], [ null, %78 ], [ %79, %81 ], [ null, %66 ]
-  %96 = icmp eq i64 %92, 0
-  %97 = load i64, ptr @vmemmap_base, align 8
-  %98 = inttoptr i64 %97 to ptr
-  %99 = lshr i32 %93, 12
-  %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr %struct.page, ptr %98, i64 %92
-  %102 = getelementptr %struct.page, ptr %101, i64 %100
-  %103 = icmp eq ptr %102, null
-  %104 = select i1 %96, i1 true, i1 %103
-  br i1 %104, label %.loopexit, label %.preheader, !llvm.loop !44
+.thread:                                          ; preds = %65, %80, %77, %61
+  %91 = phi i64 [ %34, %61 ], [ 0, %77 ], [ %87, %80 ], [ 0, %65 ]
+  %92 = phi i32 [ %63, %61 ], [ 0, %77 ], [ %82, %80 ], [ 0, %65 ]
+  %93 = phi i32 [ %32, %61 ], [ 0, %77 ], [ %90, %80 ], [ 0, %65 ]
+  %94 = phi ptr [ %30, %61 ], [ null, %77 ], [ %78, %80 ], [ null, %65 ]
+  %95 = icmp eq i64 %91, 0
+  %96 = load i64, ptr @vmemmap_base, align 8
+  %97 = inttoptr i64 %96 to ptr
+  %98 = lshr i32 %92, 12
+  %99 = zext nneg i32 %98 to i64
+  %100 = getelementptr %struct.page, ptr %97, i64 %91
+  %101 = getelementptr %struct.page, ptr %100, i64 %99
+  %102 = icmp eq ptr %101, null
+  %103 = select i1 %95, i1 true, i1 %102
+  br i1 %103, label %.loopexit, label %.preheader, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.thread, %7, %10, %2
   ret void

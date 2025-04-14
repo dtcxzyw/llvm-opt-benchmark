@@ -32264,22 +32264,22 @@ luaC_barrierf.exit.i:                             ; preds = %114, %113, %102, %.
   %126 = load i32, ptr %125, align 8, !tbaa !46
   %127 = trunc i32 %126 to i8
   %.idx.i = shl nuw nsw i64 %.pre-phi.i, 1
-  %.offs.i = or disjoint i64 %.idx.i, 1
-  %128 = getelementptr inbounds nuw i8, ptr %123, i64 %.offs.i
-  store i8 %127, ptr %128, align 1, !tbaa !372
-  %129 = add i8 %120, 1
-  store i8 %129, ptr %48, align 8, !tbaa !183
-  %130 = zext i8 %120 to i32
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 %.idx.i
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 1
+  store i8 %127, ptr %129, align 1, !tbaa !372
+  %130 = add i8 %120, 1
+  store i8 %130, ptr %48, align 8, !tbaa !183
+  %131 = zext i8 %120 to i32
   br label %indexupvalue.exit
 
 .loopexit.loopexit.i:                             ; preds = %59
-  %131 = trunc nuw nsw i64 %indvars.iv.i20 to i32
+  %132 = trunc nuw nsw i64 %indvars.iv.i20 to i32
   br label %indexupvalue.exit
 
 indexupvalue.exit:                                ; preds = %luaC_barrierf.exit.i, %.loopexit.loopexit.i
-  %.039.i = phi i32 [ %130, %luaC_barrierf.exit.i ], [ %131, %.loopexit.loopexit.i ]
-  %132 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %.039.i, ptr %132, align 8, !tbaa !46
+  %.039.i = phi i32 [ %131, %luaC_barrierf.exit.i ], [ %132, %.loopexit.loopexit.i ]
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %.039.i, ptr %133, align 8, !tbaa !46
   store i32 7, ptr %2, align 8, !tbaa !311
   br label %markupval.exit
 

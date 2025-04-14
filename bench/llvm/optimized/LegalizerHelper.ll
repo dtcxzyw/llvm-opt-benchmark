@@ -58918,8 +58918,8 @@ _ZN4llvm11SmallVectorINS_8RegisterELj12EEaSERKS2_.exit: ; preds = %92, %_ZSt4cop
   %.sroa.056.0.copyload = load i32, ptr %114, align 4, !tbaa !193
   store i32 %.sroa.056.0.copyload, ptr %9, align 8, !tbaa !193
   store i32 0, ptr %83, align 8, !tbaa !257
-  %115 = or disjoint i64 %indvars.iv220, 1
-  %116 = getelementptr inbounds nuw %"class.llvm::Register", ptr %113, i64 %115
+  %115 = getelementptr inbounds nuw %"class.llvm::Register", ptr %113, i64 %indvars.iv220
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %.sroa.055.0.copyload = load i32, ptr %116, align 4, !tbaa !193
   store i32 %.sroa.055.0.copyload, ptr %84, align 8, !tbaa !193
   store i32 0, ptr %85, align 8, !tbaa !257

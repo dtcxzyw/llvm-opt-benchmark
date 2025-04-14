@@ -17,7 +17,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
   %9 = alloca [4 x float], align 16
   %10 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %142, label %11
+  br i1 %.not, label %139, label %11
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
@@ -29,38 +29,38 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
   %15 = load i8, ptr %5, align 2
   %16 = icmp ne i8 %15, 80
   %or.cond = select i1 %14, i1 true, i1 %16
-  br i1 %or.cond, label %137, label %17
+  br i1 %or.cond, label %134, label %17
 
 17:                                               ; preds = %11
   %18 = load i8, ptr %12, align 1, !tbaa !6
   %19 = icmp eq i8 %18, 70
-  switch i8 %18, label %137 [
-    i8 102, label %.preheader145.preheader
-    i8 70, label %.preheader145.preheader
+  switch i8 %18, label %134 [
+    i8 102, label %.preheader147.preheader
+    i8 70, label %.preheader147.preheader
   ]
 
-.preheader145.preheader:                          ; preds = %17, %17
-  br label %.preheader145
+.preheader147.preheader:                          ; preds = %17, %17
+  br label %.preheader147
 
-.preheader145:                                    ; preds = %.preheader145.preheader, %21
+.preheader147:                                    ; preds = %.preheader147.preheader, %21
   %20 = call i32 @fgetc(ptr noundef nonnull %10)
   switch i32 %20, label %21 [
     i32 -1, label %23
     i32 10, label %23
   ]
 
-21:                                               ; preds = %.preheader145
+21:                                               ; preds = %.preheader147
   %22 = icmp slt i32 %20, 48
-  br i1 %22, label %23, label %.preheader145
+  br i1 %22, label %23, label %.preheader147
 
-23:                                               ; preds = %21, %.preheader145, %.preheader145
+23:                                               ; preds = %21, %.preheader147, %.preheader147
   %24 = call i32 @fseek(ptr noundef nonnull %10, i64 noundef 3, i32 noundef 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %6, i8 0, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %7, i8 0, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   %25 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %10, ptr noundef nonnull @.str.2, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
   %.not131 = icmp eq i32 %25, 3
-  br i1 %.not131, label %26, label %137
+  br i1 %.not131, label %26, label %134
 
 26:                                               ; preds = %23
   %27 = tail call ptr @__errno_location() #10
@@ -77,23 +77,23 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
   %35 = fptrunc reassoc nsz arcp contract afn double %34 to float
   %36 = load i32, ptr %27, align 4, !tbaa !9
   %.not132 = icmp eq i32 %36, 0
-  br i1 %.not132, label %37, label %137
+  br i1 %.not132, label %37, label %134
 
 37:                                               ; preds = %26
   %38 = load i32, ptr %30, align 4, !tbaa !11
   %39 = icmp slt i32 %38, 1
-  br i1 %39, label %137, label %40
+  br i1 %39, label %134, label %40
 
 40:                                               ; preds = %37
   %41 = load i32, ptr %33, align 16, !tbaa !27
   %42 = icmp slt i32 %41, 1
-  br i1 %42, label %137, label %43
+  br i1 %42, label %134, label %43
 
 43:                                               ; preds = %40
   %44 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef nonnull %10)
   %45 = and i64 %44, 4294967295
   %.not133 = icmp eq i64 %45, 1
-  br i1 %.not133, label %46, label %137
+  br i1 %.not133, label %46, label %134
 
 46:                                               ; preds = %43
   %47 = fcmp reassoc nsz arcp contract afn oge float %35, 0.000000e+00
@@ -103,7 +103,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
   store i32 1, ptr %49, align 4, !tbaa !29
   %50 = call ptr @dt_mipmap_cache_alloc(ptr noundef %2, ptr noundef nonnull %0) #9
   %.not134 = icmp eq ptr %50, null
-  br i1 %.not134, label %139, label %51
+  br i1 %.not134, label %136, label %51
 
 51:                                               ; preds = %46
   %52 = load i32, ptr %30, align 4, !tbaa !11
@@ -115,7 +115,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
   %58 = call ptr @dt_alloc_aligned(i64 noundef %57) #9
   call void @llvm.assume(i1 true) [ "align"(ptr %58, i64 64) ]
   %.not135 = icmp eq ptr %58, null
-  br i1 %.not135, label %139, label %59
+  br i1 %.not135, label %136, label %59
 
 59:                                               ; preds = %51
   br i1 %19, label %60, label %99
@@ -123,39 +123,39 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
 60:                                               ; preds = %59
   %61 = call i64 @fread(ptr noundef nonnull %58, i64 noundef 12, i64 noundef %56, ptr noundef nonnull %10)
   %62 = load i32, ptr %33, align 16, !tbaa !27
-  %.not155 = icmp eq i32 %62, 0
-  br i1 %.not155, label %.loopexit, label %.preheader.preheader
+  %.not157 = icmp eq i32 %62, 0
+  br i1 %.not157, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %60
   %.pre = load i32, ptr %30, align 4, !tbaa !11
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge151
-  %63 = phi i32 [ %66, %._crit_edge151 ], [ %62, %.preheader.preheader ]
-  %64 = phi i32 [ %67, %._crit_edge151 ], [ %.pre, %.preheader.preheader ]
-  %.0124152 = phi i64 [ %68, %._crit_edge151 ], [ 0, %.preheader.preheader ]
-  %.not156 = icmp eq i32 %64, 0
-  br i1 %.not156, label %._crit_edge151, label %.lr.ph150.preheader
+.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge153
+  %63 = phi i32 [ %66, %._crit_edge153 ], [ %62, %.preheader.preheader ]
+  %64 = phi i32 [ %67, %._crit_edge153 ], [ %.pre, %.preheader.preheader ]
+  %.0124154 = phi i64 [ %68, %._crit_edge153 ], [ 0, %.preheader.preheader ]
+  %.not158 = icmp eq i32 %64, 0
+  br i1 %.not158, label %._crit_edge153, label %.lr.ph152.preheader
 
-.lr.ph150.preheader:                              ; preds = %.preheader
+.lr.ph152.preheader:                              ; preds = %.preheader
   %65 = sext i32 %64 to i64
-  br label %.lr.ph150
+  br label %.lr.ph152
 
-._crit_edge151.loopexit:                          ; preds = %81
-  %.pre160 = load i32, ptr %33, align 16, !tbaa !27
-  br label %._crit_edge151
+._crit_edge153.loopexit:                          ; preds = %81
+  %.pre162 = load i32, ptr %33, align 16, !tbaa !27
+  br label %._crit_edge153
 
-._crit_edge151:                                   ; preds = %._crit_edge151.loopexit, %.preheader
-  %66 = phi i32 [ %.pre160, %._crit_edge151.loopexit ], [ %63, %.preheader ]
-  %67 = phi i32 [ %86, %._crit_edge151.loopexit ], [ 0, %.preheader ]
-  %68 = add nuw i64 %.0124152, 1
+._crit_edge153:                                   ; preds = %._crit_edge153.loopexit, %.preheader
+  %66 = phi i32 [ %.pre162, %._crit_edge153.loopexit ], [ %63, %.preheader ]
+  %67 = phi i32 [ %86, %._crit_edge153.loopexit ], [ 0, %.preheader ]
+  %68 = add nuw i64 %.0124154, 1
   %69 = sext i32 %66 to i64
   %70 = icmp ult i64 %68, %69
   br i1 %70, label %.preheader, label %.loopexit
 
-.lr.ph150:                                        ; preds = %.lr.ph150.preheader, %81
-  %71 = phi i64 [ %87, %81 ], [ %65, %.lr.ph150.preheader ]
-  %.0123149 = phi i64 [ %85, %81 ], [ 0, %.lr.ph150.preheader ]
+.lr.ph152:                                        ; preds = %.lr.ph152.preheader, %81
+  %71 = phi i64 [ %87, %81 ], [ %65, %.lr.ph152.preheader ]
+  %.0123151 = phi i64 [ %85, %81 ], [ 0, %.lr.ph152.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   switch i32 %20, label %72 [
@@ -163,38 +163,38 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
     i32 10, label %77
   ]
 
-72:                                               ; preds = %.lr.ph150
+72:                                               ; preds = %.lr.ph152
   %73 = load i32, ptr %33, align 16, !tbaa !27
   %74 = add nsw i32 %73, -1
   %75 = sext i32 %74 to i64
-  %76 = sub i64 %75, %.0124152
+  %76 = sub i64 %75, %.0124154
   br label %77
 
-77:                                               ; preds = %.lr.ph150, %.lr.ph150, %72
-  %.0125 = phi i64 [ %76, %72 ], [ %.0124152, %.lr.ph150 ], [ %.0124152, %.lr.ph150 ]
+77:                                               ; preds = %.lr.ph152, %.lr.ph152, %72
+  %.0125 = phi i64 [ %76, %72 ], [ %.0124154, %.lr.ph152 ], [ %.0124154, %.lr.ph152 ]
   %78 = mul i64 %.0125, %71
-  %79 = add i64 %78, %.0123149
-  %.idx141 = mul i64 %79, 12
-  %80 = getelementptr i8, ptr %58, i64 %.idx141
+  %79 = add i64 %78, %.0123151
+  %.idx143 = mul i64 %79, 12
+  %80 = getelementptr i8, ptr %58, i64 %.idx143
   br label %89
 
 81:                                               ; preds = %96
-  %82 = mul i64 %71, %.0124152
-  %83 = add i64 %82, %.0123149
-  %.idx140 = shl i64 %83, 4
-  %84 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx140
+  %82 = mul i64 %71, %.0124154
+  %83 = add i64 %82, %.0123151
+  %.idx142 = shl i64 %83, 4
+  %84 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx142
   %.val = load <4 x float>, ptr %9, align 16, !tbaa !6
   store <4 x float> %.val, ptr %84, align 16, !tbaa !6, !alias.scope !30, !nontemporal !33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #9
-  %85 = add nuw i64 %.0123149, 1
+  %85 = add nuw i64 %.0123151, 1
   %86 = load i32, ptr %30, align 4, !tbaa !11
   %87 = sext i32 %86 to i64
   %88 = icmp ult i64 %85, %87
-  br i1 %88, label %.lr.ph150, label %._crit_edge151.loopexit
+  br i1 %88, label %.lr.ph152, label %._crit_edge153.loopexit
 
 89:                                               ; preds = %77, %96
-  %.0122148 = phi i64 [ 0, %77 ], [ %98, %96 ]
-  %90 = getelementptr float, ptr %80, i64 %.0122148
+  %.0122150 = phi i64 [ 0, %77 ], [ %98, %96 ]
+  %90 = getelementptr float, ptr %80, i64 %.0122150
   %91 = load float, ptr %90, align 4, !tbaa !34
   br i1 %47, label %92, label %96
 
@@ -206,44 +206,44 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
 
 96:                                               ; preds = %92, %89
   %.sroa.0.0 = phi nsz float [ %95, %92 ], [ %91, %89 ]
-  %97 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.0122148
+  %97 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, i64 %.0122150
   store float %.sroa.0.0, ptr %97, align 4, !tbaa !34
-  %98 = add nuw nsw i64 %.0122148, 1
-  %exitcond159.not = icmp eq i64 %98, 3
-  br i1 %exitcond159.not, label %81, label %89
+  %98 = add nuw nsw i64 %.0122150, 1
+  %exitcond161.not = icmp eq i64 %98, 3
+  br i1 %exitcond161.not, label %81, label %89
 
 99:                                               ; preds = %59
   %100 = call i64 @fread(ptr noundef nonnull %58, i64 noundef 4, i64 noundef %56, ptr noundef nonnull %10)
   %101 = load i32, ptr %33, align 16, !tbaa !27
   %102 = sext i32 %101 to i64
-  %.not153 = icmp eq i32 %101, 0
-  br i1 %.not153, label %.loopexit, label %.preheader143.lr.ph
+  %.not155 = icmp eq i32 %101, 0
+  br i1 %.not155, label %.loopexit, label %.preheader145.lr.ph
 
-.preheader143.lr.ph:                              ; preds = %99
+.preheader145.lr.ph:                              ; preds = %99
   %103 = load i32, ptr %30, align 4, !tbaa !11
   %104 = sext i32 %103 to i64
-  %.not154 = icmp eq i32 %103, 0
+  %.not156 = icmp eq i32 %103, 0
   %105 = add nsw i32 %101, -1
   %106 = sext i32 %105 to i64
-  br label %.preheader143
+  br label %.preheader145
 
-.preheader143:                                    ; preds = %.preheader143.lr.ph, %._crit_edge
-  %.0117147 = phi i64 [ 0, %.preheader143.lr.ph ], [ %109, %._crit_edge ]
-  br i1 %.not154, label %._crit_edge, label %.lr.ph
+.preheader145:                                    ; preds = %.preheader145.lr.ph, %._crit_edge
+  %.0117149 = phi i64 [ 0, %.preheader145.lr.ph ], [ %109, %._crit_edge ]
+  br i1 %.not156, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader143
-  %107 = sub i64 %106, %.0117147
-  %108 = mul i64 %.0117147, %104
-  %.pre161 = mul i64 %107, %104
+.lr.ph:                                           ; preds = %.preheader145
+  %107 = sub i64 %106, %.0117149
+  %108 = mul i64 %.0117149, %104
+  %.pre163 = mul i64 %107, %104
   br label %110
 
-._crit_edge:                                      ; preds = %120, %.preheader143
-  %109 = add nuw i64 %.0117147, 1
-  %exitcond158.not = icmp eq i64 %109, %102
-  br i1 %exitcond158.not, label %.loopexit, label %.preheader143
+._crit_edge:                                      ; preds = %120, %.preheader145
+  %109 = add nuw i64 %.0117149, 1
+  %exitcond160.not = icmp eq i64 %109, %102
+  br i1 %exitcond160.not, label %.loopexit, label %.preheader145
 
 110:                                              ; preds = %.lr.ph, %120
-  %.0116146 = phi i64 [ 0, %.lr.ph ], [ %128, %120 ]
+  %.0116148 = phi i64 [ 0, %.lr.ph ], [ %125, %120 ]
   switch i32 %20, label %111 [
     i32 -1, label %112
     i32 10, label %112
@@ -253,9 +253,9 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
   br label %112
 
 112:                                              ; preds = %110, %110, %111
-  %.pre-phi = phi i64 [ %108, %110 ], [ %108, %110 ], [ %.pre161, %111 ]
+  %.pre-phi = phi i64 [ %108, %110 ], [ %108, %110 ], [ %.pre163, %111 ]
   %113 = getelementptr float, ptr %58, i64 %.pre-phi
-  %114 = getelementptr float, ptr %113, i64 %.0116146
+  %114 = getelementptr float, ptr %113, i64 %.0116148
   %115 = load float, ptr %114, align 4, !tbaa !34
   br i1 %47, label %116, label %120
 
@@ -267,53 +267,50 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
 
 120:                                              ; preds = %116, %112
   %.sroa.0.1 = phi nsz float [ %119, %116 ], [ %115, %112 ]
-  %121 = add i64 %108, %.0116146
+  %121 = add i64 %108, %.0116148
   %.idx = shl i64 %121, 4
   %122 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx
   store float %.sroa.0.1, ptr %122, align 4, !tbaa !34
-  %123 = shl i64 %121, 2
-  %124 = or disjoint i64 %123, 1
-  %125 = getelementptr inbounds nuw float, ptr %50, i64 %124
-  store float %.sroa.0.1, ptr %125, align 4, !tbaa !34
-  %126 = or disjoint i64 %123, 2
-  %127 = getelementptr inbounds nuw float, ptr %50, i64 %126
-  store float %.sroa.0.1, ptr %127, align 4, !tbaa !34
-  %128 = add nuw i64 %.0116146, 1
-  %exitcond.not = icmp eq i64 %128, %104
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
+  store float %.sroa.0.1, ptr %123, align 4, !tbaa !34
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  store float %.sroa.0.1, ptr %124, align 4, !tbaa !34
+  %125 = add nuw i64 %.0116148, 1
+  %exitcond.not = icmp eq i64 %125, %104
   br i1 %exitcond.not, label %._crit_edge, label %110
 
-.loopexit:                                        ; preds = %._crit_edge, %._crit_edge151, %99, %60
-  %129 = call i32 @fclose(ptr noundef nonnull %10)
+.loopexit:                                        ; preds = %._crit_edge, %._crit_edge153, %99, %60
+  %126 = call i32 @fclose(ptr noundef nonnull %10)
   call void @free(ptr noundef %58) #9
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  store i32 2, ptr %130, align 16, !tbaa !37
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 1496
-  store i32 0, ptr %131, align 8, !tbaa !38
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  %133 = load i32, ptr %132, align 4, !tbaa !39
-  %134 = and i32 %133, -131297
-  %135 = or disjoint i32 %134, 128
-  store i32 %135, ptr %132, align 4, !tbaa !39
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  store i32 7, ptr %136, align 16, !tbaa !40
-  br label %141
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 1600
+  store i32 2, ptr %127, align 16, !tbaa !37
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 1496
+  store i32 0, ptr %128, align 8, !tbaa !38
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 1420
+  %130 = load i32, ptr %129, align 4, !tbaa !39
+  %131 = and i32 %130, -131297
+  %132 = or disjoint i32 %131, 128
+  store i32 %132, ptr %129, align 4, !tbaa !39
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  store i32 7, ptr %133, align 16, !tbaa !40
+  br label %138
 
-137:                                              ; preds = %17, %43, %37, %40, %26, %23, %11
-  %138 = call i32 @fclose(ptr noundef nonnull %10)
-  br label %141
+134:                                              ; preds = %17, %43, %37, %40, %26, %23, %11
+  %135 = call i32 @fclose(ptr noundef nonnull %10)
+  br label %138
 
-139:                                              ; preds = %51, %46
-  %140 = call i32 @fclose(ptr noundef nonnull %10)
-  br label %141
+136:                                              ; preds = %51, %46
+  %137 = call i32 @fclose(ptr noundef nonnull %10)
+  br label %138
 
-141:                                              ; preds = %139, %137, %.loopexit
-  %.1 = phi i32 [ 6, %137 ], [ 0, %.loopexit ], [ 8, %139 ]
+138:                                              ; preds = %136, %134, %.loopexit
+  %.1 = phi i32 [ 6, %134 ], [ 0, %.loopexit ], [ 8, %136 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  br label %142
+  br label %139
 
-142:                                              ; preds = %3, %141
-  %.0 = phi i32 [ %.1, %141 ], [ 1, %3 ]
+139:                                              ; preds = %3, %138
+  %.0 = phi i32 [ %.1, %138 ], [ 1, %3 ]
   ret i32 %.0
 }
 

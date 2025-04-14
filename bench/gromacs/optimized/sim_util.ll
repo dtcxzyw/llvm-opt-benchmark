@@ -3173,16 +3173,16 @@ _ZN3gmxL20reduceAndUpdateMuTotEPNS_10DipoleDataEPK9t_commrecbNS_8ArrayRefIKfEEPf
   %1829 = getelementptr inbounds nuw i8, ptr %11, i64 2612
   %1830 = load i32, ptr %1829, align 4, !tbaa !247
   %1831 = mul nsw i32 %1830, 60
-  %1832 = or disjoint i32 %1831, 2
-  %1833 = sext i32 %1832 to i64
-  %1834 = getelementptr inbounds nuw %struct.wallcc_t, ptr %1819, i64 %1833
+  %1832 = sext i32 %1831 to i64
+  %1833 = getelementptr %struct.wallcc_t, ptr %1819, i64 %1832
+  %1834 = getelementptr i8, ptr %1833, i64 48
   %1835 = load i32, ptr %1834, align 8, !tbaa !248
   %1836 = add nsw i32 %1835, 1
   store i32 %1836, ptr %1834, align 8, !tbaa !248
   %1837 = getelementptr inbounds nuw i8, ptr %11, i64 2616
   %1838 = load i64, ptr %1837, align 8, !tbaa !249
   %1839 = sub i64 %1816, %1838
-  %1840 = getelementptr inbounds nuw i8, ptr %1834, i64 8
+  %1840 = getelementptr i8, ptr %1833, i64 56
   %1841 = load i64, ptr %1840, align 8, !tbaa !250
   %1842 = add i64 %1839, %1841
   store i64 %1842, ptr %1840, align 8, !tbaa !250

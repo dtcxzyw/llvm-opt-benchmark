@@ -9175,8 +9175,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIPN4llvm3cfg6UpdateIPNS0_10BasicBlo
   %20 = shl i64 %.031, 1
   %21 = add i64 %20, 2
   %22 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %21
-  %23 = or disjoint i64 %20, 1
-  %24 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %23
+  %23 = getelementptr %"class.llvm::cfg::Update", ptr %0, i64 %20
+  %24 = getelementptr i8, ptr %23, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #17
   %25 = load ptr, ptr %22, align 8, !tbaa !521
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -9189,7 +9189,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIPN4llvm3cfg6UpdateIPNS0_10BasicBlo
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #17
   %30 = load ptr, ptr %24, align 8, !tbaa !521
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %31 = getelementptr i8, ptr %23, i64 24
   %.0.copyload.i.i.i.i9.i.i = load i64, ptr %31, align 8
   %32 = and i64 %.0.copyload.i.i.i.i9.i.i, -8
   %33 = inttoptr i64 %32 to ptr
@@ -9204,88 +9204,89 @@ define linkonce_odr void @_ZSt13__adjust_heapIPN4llvm3cfg6UpdateIPNS0_10BasicBlo
   %39 = icmp slt i32 %37, %38
   %40 = icmp sgt i32 %37, %38
   %41 = select i1 %36, i1 %39, i1 %40
-  %spec.select = select i1 %41, i64 %23, i64 %21
-  %42 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %spec.select
-  %43 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %.031
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !543
-  %44 = icmp slt i64 %spec.select, %12
-  br i1 %44, label %19, label %._crit_edge, !llvm.loop !549
+  %42 = or disjoint i64 %20, 1
+  %spec.select = select i1 %41, i64 %42, i64 %21
+  %43 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %spec.select
+  %44 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %.031
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !543
+  %45 = icmp slt i64 %spec.select, %12
+  br i1 %45, label %19, label %._crit_edge, !llvm.loop !549
 
 ._crit_edge:                                      ; preds = %19, %6
   %.0.lcssa = phi i64 [ %1, %6 ], [ %spec.select, %19 ]
-  %45 = and i64 %2, 1
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %47, label %56
+  %46 = and i64 %2, 1
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %48, label %57
 
-47:                                               ; preds = %._crit_edge
-  %48 = add nsw i64 %2, -2
-  %49 = ashr exact i64 %48, 1
-  %50 = icmp eq i64 %.0.lcssa, %49
-  br i1 %50, label %51, label %56
+48:                                               ; preds = %._crit_edge
+  %49 = add nsw i64 %2, -2
+  %50 = ashr exact i64 %49, 1
+  %51 = icmp eq i64 %.0.lcssa, %50
+  br i1 %51, label %52, label %57
 
-51:                                               ; preds = %47
-  %52 = shl nsw i64 %.0.lcssa, 1
-  %53 = or disjoint i64 %52, 1
-  %54 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %53
-  %55 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %.0.lcssa
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false), !tbaa.struct !543
-  br label %56
+52:                                               ; preds = %48
+  %53 = shl nsw i64 %.0.lcssa, 1
+  %54 = or disjoint i64 %53, 1
+  %55 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %54
+  %56 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %.0.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !543
+  br label %57
 
-56:                                               ; preds = %51, %47, %._crit_edge
-  %.1 = phi i64 [ %53, %51 ], [ %.0.lcssa, %47 ], [ %.0.lcssa, %._crit_edge ]
+57:                                               ; preds = %52, %48, %._crit_edge
+  %.1 = phi i64 [ %54, %52 ], [ %.0.lcssa, %48 ], [ %.0.lcssa, %._crit_edge ]
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !550
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !551
-  %57 = icmp sgt i64 %.1, %1
-  br i1 %57, label %.lr.ph.i, label %_ZSt11__push_heapIPN4llvm3cfg6UpdateIPNS0_10BasicBlockEEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15LegalizeUpdatesIS4_EEvNS0_8ArrayRefINS2_IT_EEEERNS0_15SmallVectorImplISD_EEbbEUlRKS5_SJ_E_EEEvSC_T0_SM_T1_RT2_.exit
+  %58 = icmp sgt i64 %.1, %1
+  br i1 %58, label %.lr.ph.i, label %_ZSt11__push_heapIPN4llvm3cfg6UpdateIPNS0_10BasicBlockEEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15LegalizeUpdatesIS4_EEvNS0_8ArrayRefINS2_IT_EEEERNS0_15SmallVectorImplISD_EEbbEUlRKS5_SJ_E_EEEvSC_T0_SM_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %59 = and i64 %4, -8
-  %60 = inttoptr i64 %59 to ptr
-  %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br label %62
+.lr.ph.i:                                         ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %60 = and i64 %4, -8
+  %61 = inttoptr i64 %60 to ptr
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br label %63
 
-62:                                               ; preds = %77, %.lr.ph.i
-  %.01316.i = phi i64 [ %.1, %.lr.ph.i ], [ %.017.i, %77 ]
+63:                                               ; preds = %78, %.lr.ph.i
+  %.01316.i = phi i64 [ %.1, %.lr.ph.i ], [ %.017.i, %78 ]
   %.017.in.i = add nsw i64 %.01316.i, -1
   %.017.i = sdiv i64 %.017.in.i, 2
-  %63 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %.017.i
+  %64 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %.017.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
-  %64 = load ptr, ptr %63, align 8, !tbaa !521
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %65, align 8
-  %66 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
-  %67 = inttoptr i64 %66 to ptr
-  store ptr %64, ptr %7, align 8, !tbaa !525
-  store ptr %67, ptr %58, align 8, !tbaa !527
-  %68 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixEOS5_(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %65 = load ptr, ptr %64, align 8, !tbaa !521
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %66, align 8
+  %67 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
+  %68 = inttoptr i64 %67 to ptr
+  store ptr %65, ptr %7, align 8, !tbaa !525
+  store ptr %68, ptr %59, align 8, !tbaa !527
+  %69 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixEOS5_(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
   store ptr %3, ptr %8, align 8, !tbaa !525
-  store ptr %60, ptr %61, align 8, !tbaa !527
-  %69 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixEOS5_(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  store ptr %61, ptr %62, align 8, !tbaa !527
+  %70 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapISt4pairIPNS_10BasicBlockES4_EiLj4ENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_iEEEES5_iS7_SA_EixEOS5_(ptr noundef nonnull align 1 dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17
-  %70 = load i8, ptr %.sroa.5.0.copyload, align 1, !tbaa !47, !range !48, !noundef !49
-  %71 = trunc nuw i8 %70 to i1
-  %72 = load i32, ptr %68, align 4, !tbaa !432
+  %71 = load i8, ptr %.sroa.5.0.copyload, align 1, !tbaa !47, !range !48, !noundef !49
+  %72 = trunc nuw i8 %71 to i1
   %73 = load i32, ptr %69, align 4, !tbaa !432
-  %74 = icmp slt i32 %72, %73
-  %75 = icmp sgt i32 %72, %73
-  %76 = select i1 %71, i1 %74, i1 %75
-  br i1 %76, label %77, label %_ZSt11__push_heapIPN4llvm3cfg6UpdateIPNS0_10BasicBlockEEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15LegalizeUpdatesIS4_EEvNS0_8ArrayRefINS2_IT_EEEERNS0_15SmallVectorImplISD_EEbbEUlRKS5_SJ_E_EEEvSC_T0_SM_T1_RT2_.exit
+  %74 = load i32, ptr %70, align 4, !tbaa !432
+  %75 = icmp slt i32 %73, %74
+  %76 = icmp sgt i32 %73, %74
+  %77 = select i1 %72, i1 %75, i1 %76
+  br i1 %77, label %78, label %_ZSt11__push_heapIPN4llvm3cfg6UpdateIPNS0_10BasicBlockEEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15LegalizeUpdatesIS4_EEvNS0_8ArrayRefINS2_IT_EEEERNS0_15SmallVectorImplISD_EEbbEUlRKS5_SJ_E_EEEvSC_T0_SM_T1_RT2_.exit
 
-77:                                               ; preds = %62
-  %78 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %.01316.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull align 8 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !543
-  %79 = icmp sgt i64 %.017.i, %1
-  br i1 %79, label %62, label %_ZSt11__push_heapIPN4llvm3cfg6UpdateIPNS0_10BasicBlockEEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15LegalizeUpdatesIS4_EEvNS0_8ArrayRefINS2_IT_EEEERNS0_15SmallVectorImplISD_EEbbEUlRKS5_SJ_E_EEEvSC_T0_SM_T1_RT2_.exit, !llvm.loop !552
+78:                                               ; preds = %63
+  %79 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %.01316.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %64, i64 16, i1 false), !tbaa.struct !543
+  %80 = icmp sgt i64 %.017.i, %1
+  br i1 %80, label %63, label %_ZSt11__push_heapIPN4llvm3cfg6UpdateIPNS0_10BasicBlockEEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15LegalizeUpdatesIS4_EEvNS0_8ArrayRefINS2_IT_EEEERNS0_15SmallVectorImplISD_EEbbEUlRKS5_SJ_E_EEEvSC_T0_SM_T1_RT2_.exit, !llvm.loop !552
 
-_ZSt11__push_heapIPN4llvm3cfg6UpdateIPNS0_10BasicBlockEEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15LegalizeUpdatesIS4_EEvNS0_8ArrayRefINS2_IT_EEEERNS0_15SmallVectorImplISD_EEbbEUlRKS5_SJ_E_EEEvSC_T0_SM_T1_RT2_.exit: ; preds = %62, %77, %56
-  %.013.lcssa.i = phi i64 [ %.1, %56 ], [ %.01316.i, %62 ], [ %.017.i, %77 ]
-  %80 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %80, align 8, !tbaa !126
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %80, i64 8
+_ZSt11__push_heapIPN4llvm3cfg6UpdateIPNS0_10BasicBlockEEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_15LegalizeUpdatesIS4_EEvNS0_8ArrayRefINS2_IT_EEEERNS0_15SmallVectorImplISD_EEbbEUlRKS5_SJ_E_EEEvSC_T0_SM_T1_RT2_.exit: ; preds = %63, %78, %57
+  %.013.lcssa.i = phi i64 [ %.1, %57 ], [ %.01316.i, %63 ], [ %.017.i, %78 ]
+  %81 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %81, align 8, !tbaa !126
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i64 %4, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !352
   ret void
 }

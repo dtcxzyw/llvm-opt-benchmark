@@ -476,9 +476,9 @@ _ZNSt6vectorI10PbcAndFlagSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.thread: ; pre
   store i32 %215, ptr %217, align 4, !tbaa !150
   %218 = load i32, ptr %192, align 4, !tbaa !150
   %219 = shl nsw i32 %218, 1
-  %220 = or disjoint i32 %219, 1
-  %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds nuw i32, ptr %211, i64 %221
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr i32, ptr %211, i64 %220
+  %222 = getelementptr i8, ptr %221, i64 4
   store i32 %186, ptr %222, align 4, !tbaa !150
   %223 = load i32, ptr %192, align 4, !tbaa !150
   %224 = add nsw i32 %223, 1
@@ -1492,9 +1492,9 @@ _ZN14DDBufferAccessIN3gmx11BasicVectorIfEEED2Ev.exit: ; preds = %._crit_edge622
   %.0274619 = phi i32 [ 0, %.lr.ph621 ], [ %.3277, %1053 ]
   %.1283618 = phi i32 [ %.0282625, %.lr.ph621 ], [ %.2284, %1053 ]
   %714 = shl nuw nsw i64 %indvars.iv710, 1
-  %715 = or disjoint i64 %714, 1
-  %716 = inttoptr i64 %712 to ptr
-  %717 = getelementptr inbounds nuw i32, ptr %716, i64 %715
+  %715 = inttoptr i64 %712 to ptr
+  %716 = getelementptr inbounds nuw i32, ptr %715, i64 %714
+  %717 = getelementptr inbounds nuw i8, ptr %716, i64 4
   %718 = load i32, ptr %717, align 4, !tbaa !150
   %719 = sext i32 %.0274619 to i64
   %720 = inttoptr i64 %713 to ptr

@@ -2464,7 +2464,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %13 = load i32, ptr %12, align 4, !tbaa !202
   %14 = tail call i32 @dt_iop_have_required_input_format(i32 noundef 4, ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #21
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %295, label %15
+  br i1 %.not, label %293, label %15
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2883,7 +2883,7 @@ _auto_levels.exit:                                ; preds = %._crit_edge.split.s
 ._crit_edge160:                                   ; preds = %223, %213
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #21
-  br label %294
+  br label %292
 
 223:                                              ; preds = %253
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 4
@@ -2946,17 +2946,17 @@ _auto_levels.exit:                                ; preds = %._crit_edge.split.s
   %258 = getelementptr inbounds nuw i8, ptr %17, i64 56
   br label %259
 
-._crit_edge:                                      ; preds = %292, %255
+._crit_edge:                                      ; preds = %290, %255
   call void @llvm.x86.sse.sfence()
-  br label %294
+  br label %292
 
-259:                                              ; preds = %.lr.ph, %292
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %292 ]
+259:                                              ; preds = %.lr.ph, %290
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %290 ]
   %260 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %261 = load i32, ptr %210, align 4, !tbaa !210
   %262 = call reassoc nsz arcp contract afn fastcc float @dt_rgb_norm(ptr noundef %260, i32 noundef %261, ptr noundef %22)
   %263 = fcmp reassoc nsz arcp contract afn ogt float %262, %183
-  br i1 %263, label %264, label %290
+  br i1 %263, label %264, label %288
 
 264:                                              ; preds = %259
   %265 = fsub reassoc nsz arcp contract afn float %262, %183
@@ -2990,36 +2990,35 @@ _auto_levels.exit:                                ; preds = %._crit_edge.split.s
   %.val137 = load <4 x float>, ptr %11, align 16, !tbaa !211
   store <4 x float> %.val137, ptr %281, align 16, !tbaa !211, !alias.scope !212, !nontemporal !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #21
-  br label %292
+  br label %290
 
 282:                                              ; preds = %278, %282
-  %.0155 = phi i64 [ 0, %278 ], [ %289, %282 ]
-  %283 = or disjoint i64 %.0155, %indvars.iv
-  %284 = getelementptr inbounds nuw float, ptr %2, i64 %283
-  %285 = load float, ptr %284, align 4, !tbaa !37
-  %286 = fmul reassoc nsz arcp contract afn float %.0121, %285
-  %287 = fmul reassoc nsz arcp contract afn float %286, %279
-  %288 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.0155
-  store float %287, ptr %288, align 4, !tbaa !37
-  %289 = add nuw nsw i64 %.0155, 1
-  %exitcond.not = icmp eq i64 %289, 4
+  %.0155 = phi i64 [ 0, %278 ], [ %287, %282 ]
+  %gep = getelementptr inbounds nuw float, ptr %260, i64 %.0155
+  %283 = load float, ptr %gep, align 4, !tbaa !37
+  %284 = fmul reassoc nsz arcp contract afn float %.0121, %283
+  %285 = fmul reassoc nsz arcp contract afn float %284, %279
+  %286 = getelementptr inbounds nuw [4 x float], ptr %11, i64 0, i64 %.0155
+  store float %285, ptr %286, align 4, !tbaa !37
+  %287 = add nuw nsw i64 %.0155, 1
+  %exitcond.not = icmp eq i64 %287, 4
   br i1 %exitcond.not, label %280, label %282
 
-290:                                              ; preds = %259
-  %291 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
-  store <4 x float> zeroinitializer, ptr %291, align 16, !tbaa !211, !alias.scope !216, !nontemporal !215
-  br label %292
+288:                                              ; preds = %259
+  %289 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  store <4 x float> zeroinitializer, ptr %289, align 16, !tbaa !211, !alias.scope !216, !nontemporal !215
+  br label %290
 
-292:                                              ; preds = %290, %280
+290:                                              ; preds = %288, %280
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %293 = icmp ugt i64 %256, %indvars.iv.next
-  br i1 %293, label %259, label %._crit_edge
+  %291 = icmp ugt i64 %256, %indvars.iv.next
+  br i1 %291, label %259, label %._crit_edge
 
-294:                                              ; preds = %._crit_edge, %._crit_edge160
+292:                                              ; preds = %._crit_edge, %._crit_edge160
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #21
-  br label %295
+  br label %293
 
-295:                                              ; preds = %6, %294
+293:                                              ; preds = %6, %292
   ret void
 }
 

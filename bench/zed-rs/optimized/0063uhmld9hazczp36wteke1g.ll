@@ -39684,8 +39684,8 @@ define hidden void @"_ZN8async_io14Async$LT$T$GT$3new17h1b435c04f799d0eeE"(ptr d
 21:                                               ; preds = %14
   %.neg = mul i64 %15, -281474976710656
   %22 = ashr exact i64 %.neg, 16
-  %23 = or disjoint i64 %22, 2
-  %24 = getelementptr i8, ptr null, i64 %23
+  %23 = getelementptr i8, ptr null, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 2
   br label %34
 
 25:                                               ; preds = %19
@@ -39780,8 +39780,8 @@ define hidden void @"_ZN8async_io14Async$LT$T$GT$3new17h1bc3713c7525163cE.llvm.3
 21:                                               ; preds = %14
   %.neg = mul i64 %15, -281474976710656
   %22 = ashr exact i64 %.neg, 16
-  %23 = or disjoint i64 %22, 2
-  %24 = getelementptr i8, ptr null, i64 %23
+  %23 = getelementptr i8, ptr null, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 2
   br label %34
 
 25:                                               ; preds = %19

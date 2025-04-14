@@ -3018,13 +3018,13 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_data(ptr noundef readonly cap
   %16 = phi ptr [ %9, %5 ], [ %13, %11 ]
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %41, label %18
+  br i1 %.not, label %43, label %18
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 27120
   %20 = load ptr, ptr %19, align 8
   %.not17 = icmp eq ptr %20, null
-  br i1 %.not17, label %41, label %21
+  br i1 %.not17, label %43, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -3039,22 +3039,22 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_data(ptr noundef readonly cap
   %31 = sext i32 %30 to i64
   %.idx = shl nsw i64 %28, 10
   %.idx18 = shl nsw i64 %31, 4
-  %.offs = add nsw i64 %.idx18, %.idx
-  %.offs19 = or disjoint i64 %.offs, 8
-  %32 = getelementptr inbounds i8, ptr %25, i64 %.offs19
-  %33 = load i64, ptr %32, align 8
-  store i64 %33, ptr %17, align 8
-  %34 = load i32, ptr %26, align 32
-  %35 = sext i32 %34 to i64
-  %36 = load i32, ptr %29, align 4
+  %32 = getelementptr i8, ptr %25, i64 %.idx
+  %33 = getelementptr i8, ptr %32, i64 %.idx18
+  %34 = getelementptr i8, ptr %33, i64 8
+  %35 = load i64, ptr %34, align 8
+  store i64 %35, ptr %17, align 8
+  %36 = load i32, ptr %26, align 32
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [64 x [64 x %struct.TileBufferDec]], ptr %25, i64 0, i64 %35, i64 %37
-  %39 = load ptr, ptr %38, align 16
-  %40 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %39, ptr %40, align 8
-  br label %41
+  %38 = load i32, ptr %29, align 4
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds [64 x [64 x %struct.TileBufferDec]], ptr %25, i64 0, i64 %37, i64 %39
+  %41 = load ptr, ptr %40, align 16
+  %42 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %41, ptr %42, align 8
+  br label %43
 
-41:                                               ; preds = %15, %18, %21
+43:                                               ; preds = %15, %18, %21
   %.0 = phi i32 [ 0, %21 ], [ 1, %18 ], [ 8, %15 ]
   ret i32 %.0
 }

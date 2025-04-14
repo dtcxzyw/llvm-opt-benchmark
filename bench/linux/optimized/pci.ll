@@ -3620,7 +3620,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_enable_device_flags(pt
   %25 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, i32 1, ptr nonnull elementtype(i32) %24) #27, !srcloc !35
   %26 = add i32 %25, 1
   %27 = icmp sgt i32 %26, 1
-  br i1 %27, label %69, label %28
+  br i1 %27, label %66, label %28
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3641,55 +3641,53 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_enable_device_flags(pt
   br label %.thread
 
 .thread:                                          ; preds = %28, %38, %34
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  br label %40
+  %invariant.gep = getelementptr i8, ptr %0, i64 944
+  br label %39
 
-40:                                               ; preds = %40, %.thread
-  %41 = phi i64 [ 0, %.thread ], [ %51, %40 ]
-  %42 = phi i32 [ 0, %.thread ], [ %50, %40 ]
-  %.idx = shl i64 %41, 6
-  %.offs = or disjoint i64 %.idx, 24
-  %43 = getelementptr i8, ptr %39, i64 %.offs
-  %44 = load i64, ptr %43, align 8
-  %45 = and i64 %44, %1
-  %46 = icmp eq i64 %45, 0
-  %47 = trunc i64 %41 to i32
-  %48 = shl nuw nsw i32 1, %47
-  %49 = select i1 %46, i32 0, i32 %48
-  %50 = or i32 %49, %42
-  %51 = add nuw nsw i64 %41, 1
-  %52 = icmp eq i64 %51, 7
-  br i1 %52, label %.preheader, label %40, !llvm.loop !36
+39:                                               ; preds = %39, %.thread
+  %40 = phi i64 [ 0, %.thread ], [ %49, %39 ]
+  %41 = phi i32 [ 0, %.thread ], [ %48, %39 ]
+  %.idx = shl i64 %40, 6
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %42 = load i64, ptr %gep, align 8
+  %43 = and i64 %42, %1
+  %44 = icmp eq i64 %43, 0
+  %45 = trunc i64 %40 to i32
+  %46 = shl nuw nsw i32 1, %45
+  %47 = select i1 %44, i32 0, i32 %46
+  %48 = or i32 %47, %41
+  %49 = add nuw nsw i64 %40, 1
+  %50 = icmp eq i64 %49, 7
+  br i1 %50, label %.preheader, label %39, !llvm.loop !36
 
-.preheader:                                       ; preds = %40, %.preheader
-  %53 = phi i64 [ %63, %.preheader ], [ 7, %40 ]
-  %54 = phi i32 [ %62, %.preheader ], [ %50, %40 ]
-  %.idx3 = shl i64 %53, 6
-  %.offs4 = or disjoint i64 %.idx3, 24
-  %55 = getelementptr i8, ptr %39, i64 %.offs4
-  %56 = load i64, ptr %55, align 8
-  %57 = and i64 %56, %1
-  %58 = icmp eq i64 %57, 0
-  %59 = trunc i64 %53 to i32
-  %60 = shl nuw nsw i32 1, %59
-  %61 = select i1 %58, i32 0, i32 %60
-  %62 = or i32 %61, %54
-  %63 = add nuw nsw i64 %53, 1
-  %64 = icmp eq i64 %63, 11
-  br i1 %64, label %65, label %.preheader, !llvm.loop !37
+.preheader:                                       ; preds = %39, %.preheader
+  %51 = phi i64 [ %60, %.preheader ], [ 7, %39 ]
+  %52 = phi i32 [ %59, %.preheader ], [ %48, %39 ]
+  %.idx3 = shl i64 %51, 6
+  %gep6 = getelementptr i8, ptr %invariant.gep, i64 %.idx3
+  %53 = load i64, ptr %gep6, align 8
+  %54 = and i64 %53, %1
+  %55 = icmp eq i64 %54, 0
+  %56 = trunc i64 %51 to i32
+  %57 = shl nuw nsw i32 1, %56
+  %58 = select i1 %55, i32 0, i32 %57
+  %59 = or i32 %58, %52
+  %60 = add nuw nsw i64 %51, 1
+  %61 = icmp eq i64 %60, 11
+  br i1 %61, label %62, label %.preheader, !llvm.loop !37
 
-65:                                               ; preds = %.preheader
-  %66 = call fastcc i32 @do_pci_enable_device(ptr noundef %0, i32 noundef %62), !range !17
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %68, label %69
+62:                                               ; preds = %.preheader
+  %63 = call fastcc i32 @do_pci_enable_device(ptr noundef %0, i32 noundef %59), !range !17
+  %64 = icmp slt i32 %63, 0
+  br i1 %64, label %65, label %66
 
-68:                                               ; preds = %65
+65:                                               ; preds = %62
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %24, ptr nonnull elementtype(i32) %24) #27, !srcloc !38
-  br label %69
+  br label %66
 
-69:                                               ; preds = %68, %65, %23
-  %70 = phi i32 [ 0, %23 ], [ %66, %68 ], [ 0, %65 ]
-  ret i32 %70
+66:                                               ; preds = %65, %62, %23
+  %67 = phi i32 [ 0, %23 ], [ %63, %65 ], [ 0, %62 ]
+  ret i32 %67
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -1461,23 +1461,23 @@ for.body:                                         ; preds = %for.body, %for.body
   %18 = load i8, ptr %arrayidx, align 1, !tbaa !32
   %and = and i8 %18, %not
   store i8 %and, ptr %arrayidx, align 1, !tbaa !32
-  %indvars.iv.next = or disjoint i64 %indvars.iv, 1
   %19 = load ptr, ptr %m_flags, align 8, !tbaa !15
-  %arrayidx.1 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.next
-  %20 = load i8, ptr %arrayidx.1, align 1, !tbaa !32
-  %and.1 = and i8 %20, %not
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
+  %arrayidx.1 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  %21 = load i8, ptr %arrayidx.1, align 1, !tbaa !32
+  %and.1 = and i8 %21, %not
   store i8 %and.1, ptr %arrayidx.1, align 1, !tbaa !32
-  %indvars.iv.next.1 = or disjoint i64 %indvars.iv, 2
-  %21 = load ptr, ptr %m_flags, align 8, !tbaa !15
-  %arrayidx.2 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.next.1
-  %22 = load i8, ptr %arrayidx.2, align 1, !tbaa !32
-  %and.2 = and i8 %22, %not
+  %22 = load ptr, ptr %m_flags, align 8, !tbaa !15
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv
+  %arrayidx.2 = getelementptr inbounds nuw i8, ptr %23, i64 2
+  %24 = load i8, ptr %arrayidx.2, align 1, !tbaa !32
+  %and.2 = and i8 %24, %not
   store i8 %and.2, ptr %arrayidx.2, align 1, !tbaa !32
-  %indvars.iv.next.2 = or disjoint i64 %indvars.iv, 3
-  %23 = load ptr, ptr %m_flags, align 8, !tbaa !15
-  %arrayidx.3 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv.next.2
-  %24 = load i8, ptr %arrayidx.3, align 1, !tbaa !32
-  %and.3 = and i8 %24, %not
+  %25 = load ptr, ptr %m_flags, align 8, !tbaa !15
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv
+  %arrayidx.3 = getelementptr inbounds nuw i8, ptr %26, i64 3
+  %27 = load i8, ptr %arrayidx.3, align 1, !tbaa !32
+  %and.3 = and i8 %27, %not
   store i8 %and.3, ptr %arrayidx.3, align 1, !tbaa !32
   %indvars.iv.next.3 = add nuw i64 %indvars.iv, 4
   %niter.ncmp.3 = icmp eq i64 %indvars.iv.next.3, %unroll_iter

@@ -15582,12 +15582,12 @@ define linkonce_odr void @_ZSt13__adjust_heapIPSt4pairIN4llvm7memprof12LineLocat
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread32
-  %.034 = phi i64 [ %35, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread32 ], [ %1, %5 ]
+  %.034 = phi i64 [ %37, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread32 ], [ %1, %5 ]
   %9 = shl i64 %.034, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %12
+  %12 = getelementptr %"struct.std::pair", ptr %0, i64 %9
+  %13 = getelementptr i8, ptr %12, i64 16
   %14 = load i32, ptr %11, align 4, !tbaa !374
   %15 = load i32, ptr %13, align 4, !tbaa !374
   %16 = icmp ult i32 %14, %15
@@ -15600,7 +15600,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIPSt4pairIN4llvm7memprof12LineLocat
 _ZNK4llvm7memprof12LineLocationltERKS1_.exit.i.i: ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !375
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %21 = getelementptr i8, ptr %12, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !375
   %23 = icmp ult i32 %20, %22
   br i1 %23, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread, label %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i
@@ -15610,123 +15610,126 @@ _ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i: ; preds = %_ZNK4llvm7m
   br i1 %24, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread32, label %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i
 
 _ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i: ; preds = %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %25 = getelementptr i8, ptr %12, i64 20
   %26 = load i32, ptr %25, align 4, !tbaa !375
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !375
   %29 = icmp ult i32 %26, %28
   br i1 %29, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread32, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit: ; preds = %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !370
-  %32 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !370
-  %34 = icmp ult i64 %31, %33
-  %cond.fr = freeze i1 %34
-  br i1 %cond.fr, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread32
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread: ; preds = %.lr.ph, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread: ; preds = %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.i.i, %.lr.ph
+  %30 = or disjoint i64 %9, 1
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread32
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread32: ; preds = %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread
-  %35 = phi i64 [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit ], [ %10, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i ], [ %10, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i ]
-  %36 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %35
-  %37 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.034
-  %38 = load i64, ptr %36, align 8
-  store i64 %38, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %40 = load i64, ptr %39, align 8, !tbaa !45
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i64 %40, ptr %41, align 8, !tbaa !370
-  %42 = icmp slt i64 %35, %7
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !768
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit: ; preds = %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %32 = load i64, ptr %31, align 8, !tbaa !370
+  %33 = getelementptr i8, ptr %12, i64 24
+  %34 = load i64, ptr %33, align 8, !tbaa !370
+  %35 = icmp ult i64 %32, %34
+  %36 = or disjoint i64 %9, 1
+  %cond.fr = freeze i1 %35
+  %spec.select = select i1 %cond.fr, i64 %36, i64 %10
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread32
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread32: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread
+  %37 = phi i64 [ %30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread ], [ %10, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i ], [ %10, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i ], [ %spec.select, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit ]
+  %38 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %37
+  %39 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.034
+  %40 = load i64, ptr %38, align 8
+  store i64 %40, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %42 = load i64, ptr %41, align 8, !tbaa !45
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i64 %42, ptr %43, align 8, !tbaa !370
+  %44 = icmp slt i64 %37, %7
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !768
 
 ._crit_edge:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread32, %5
-  %.0.lcssa = phi i64 [ %1, %5 ], [ %35, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread32 ]
-  %43 = and i64 %2, 1
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %58
+  %.0.lcssa = phi i64 [ %1, %5 ], [ %37, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairIN4llvm7memprof12LineLocationEmES8_EEbT_T0_.exit.thread32 ]
+  %45 = and i64 %2, 1
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %47, label %60
 
-45:                                               ; preds = %._crit_edge
-  %46 = add nsw i64 %2, -2
-  %47 = ashr exact i64 %46, 1
-  %48 = icmp eq i64 %.0.lcssa, %47
-  br i1 %48, label %49, label %58
+47:                                               ; preds = %._crit_edge
+  %48 = add nsw i64 %2, -2
+  %49 = ashr exact i64 %48, 1
+  %50 = icmp eq i64 %.0.lcssa, %49
+  br i1 %50, label %51, label %60
 
-49:                                               ; preds = %45
-  %50 = shl nsw i64 %.0.lcssa, 1
-  %51 = or disjoint i64 %50, 1
-  %52 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %51
-  %53 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa
-  %54 = load i64, ptr %52, align 8
-  store i64 %54, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %56 = load i64, ptr %55, align 8, !tbaa !45
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i64 %56, ptr %57, align 8, !tbaa !370
-  br label %58
+51:                                               ; preds = %47
+  %52 = shl nsw i64 %.0.lcssa, 1
+  %53 = or disjoint i64 %52, 1
+  %54 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %53
+  %55 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa
+  %56 = load i64, ptr %54, align 8
+  store i64 %56, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %58 = load i64, ptr %57, align 8, !tbaa !45
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i64 %58, ptr %59, align 8, !tbaa !370
+  br label %60
 
-58:                                               ; preds = %49, %45, %._crit_edge
-  %.1 = phi i64 [ %51, %49 ], [ %.0.lcssa, %45 ], [ %.0.lcssa, %._crit_edge ]
+60:                                               ; preds = %51, %47, %._crit_edge
+  %.1 = phi i64 [ %53, %51 ], [ %.0.lcssa, %47 ], [ %.0.lcssa, %._crit_edge ]
   %.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
   %.sroa.3.0.extract.shift.i = lshr i64 %3, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
-  %59 = icmp sgt i64 %.1, %1
-  br i1 %59, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairIN4llvm7memprof12LineLocationEmElS4_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SA_T1_RT2_.exit
+  %61 = icmp sgt i64 %.1, %1
+  br i1 %61, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairIN4llvm7memprof12LineLocationEmElS4_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SA_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %58, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i
-  %.01321.i = phi i64 [ %.022.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i ], [ %.1, %58 ]
+.lr.ph.i:                                         ; preds = %60, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i
+  %.01321.i = phi i64 [ %.022.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i ], [ %.1, %60 ]
   %.022.in.i = add nsw i64 %.01321.i, -1
   %.022.i = sdiv i64 %.022.in.i, 2
-  %60 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.022.i
-  %61 = load i32, ptr %60, align 4, !tbaa !374
-  %62 = icmp ult i32 %61, %.sroa.0.0.extract.trunc.i
-  br i1 %62, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i, label %63
+  %62 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.022.i
+  %63 = load i32, ptr %62, align 4, !tbaa !374
+  %64 = icmp ult i32 %63, %.sroa.0.0.extract.trunc.i
+  br i1 %64, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i, label %65
 
-63:                                               ; preds = %.lr.ph.i
-  %64 = icmp eq i32 %61, %.sroa.0.0.extract.trunc.i
-  br i1 %64, label %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.i.i.i, label %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i.i
+65:                                               ; preds = %.lr.ph.i
+  %66 = icmp eq i32 %63, %.sroa.0.0.extract.trunc.i
+  br i1 %66, label %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.i.i.i, label %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i.i
 
-_ZNK4llvm7memprof12LineLocationltERKS1_.exit.i.i.i: ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %66 = load i32, ptr %65, align 4, !tbaa !375
-  %67 = icmp ult i32 %66, %.sroa.3.0.extract.trunc.i
-  br i1 %67, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i, label %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i.i
+_ZNK4llvm7memprof12LineLocationltERKS1_.exit.i.i.i: ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %68 = load i32, ptr %67, align 4, !tbaa !375
+  %69 = icmp ult i32 %68, %.sroa.3.0.extract.trunc.i
+  br i1 %69, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i, label %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i.i
 
-_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i.i: ; preds = %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.i.i.i, %63
-  %68 = icmp ugt i32 %61, %.sroa.0.0.extract.trunc.i
-  br i1 %68, label %_ZSt11__push_heapIPSt4pairIN4llvm7memprof12LineLocationEmElS4_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SA_T1_RT2_.exit, label %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i.i
+_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i.i: ; preds = %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.i.i.i, %65
+  %70 = icmp ugt i32 %63, %.sroa.0.0.extract.trunc.i
+  br i1 %70, label %_ZSt11__push_heapIPSt4pairIN4llvm7memprof12LineLocationEmElS4_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SA_T1_RT2_.exit, label %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i.i
 
 _ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i.i: ; preds = %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i.i
-  %69 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  %70 = load i32, ptr %69, align 4, !tbaa !375
-  %71 = icmp ugt i32 %70, %.sroa.3.0.extract.trunc.i
-  br i1 %71, label %_ZSt11__push_heapIPSt4pairIN4llvm7memprof12LineLocationEmElS4_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SA_T1_RT2_.exit, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.i
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %72 = load i32, ptr %71, align 4, !tbaa !375
+  %73 = icmp ugt i32 %72, %.sroa.3.0.extract.trunc.i
+  br i1 %73, label %_ZSt11__push_heapIPSt4pairIN4llvm7memprof12LineLocationEmElS4_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SA_T1_RT2_.exit, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.i
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.i: ; preds = %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i.i
-  %72 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %73 = load i64, ptr %72, align 8, !tbaa !370
-  %74 = icmp ult i64 %73, %4
-  br i1 %74, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPSt4pairIN4llvm7memprof12LineLocationEmElS4_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SA_T1_RT2_.exit
+  %74 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %75 = load i64, ptr %74, align 8, !tbaa !370
+  %76 = icmp ult i64 %75, %4
+  br i1 %76, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPSt4pairIN4llvm7memprof12LineLocationEmElS4_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SA_T1_RT2_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.i, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.i.i.i, %.lr.ph.i
-  %75 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.01321.i
-  %76 = load i64, ptr %60, align 8
-  store i64 %76, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %78 = load i64, ptr %77, align 8, !tbaa !45
-  %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store i64 %78, ptr %79, align 8, !tbaa !370
-  %80 = icmp sgt i64 %.022.i, %1
-  br i1 %80, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairIN4llvm7memprof12LineLocationEmElS4_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SA_T1_RT2_.exit, !llvm.loop !769
+  %77 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.01321.i
+  %78 = load i64, ptr %62, align 8
+  store i64 %78, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %80 = load i64, ptr %79, align 8, !tbaa !45
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  store i64 %80, ptr %81, align 8, !tbaa !370
+  %82 = icmp sgt i64 %.022.i, %1
+  br i1 %82, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairIN4llvm7memprof12LineLocationEmElS4_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SA_T1_RT2_.exit, !llvm.loop !769
 
-_ZSt11__push_heapIPSt4pairIN4llvm7memprof12LineLocationEmElS4_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SA_T1_RT2_.exit: ; preds = %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i.i, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i, %58
-  %.013.lcssa.i = phi i64 [ %.1, %58 ], [ %.01321.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.i ], [ %.022.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i ], [ %.01321.i, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i.i ], [ %.01321.i, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i.i ]
-  %81 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i
-  store i64 %3, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store i64 %4, ptr %82, align 8, !tbaa !370
+_ZSt11__push_heapIPSt4pairIN4llvm7memprof12LineLocationEmElS4_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_SA_T1_RT2_.exit: ; preds = %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i.i, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i, %60
+  %.013.lcssa.i = phi i64 [ %.1, %60 ], [ %.01321.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.i ], [ %.022.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairIN4llvm7memprof12LineLocationEmES7_EEbT_RT0_.exit.thread.i ], [ %.01321.i, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit6.i.i.i ], [ %.01321.i, %_ZNK4llvm7memprof12LineLocationltERKS1_.exit.thread7.i.i.i ]
+  %83 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i
+  store i64 %3, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store i64 %4, ptr %84, align 8, !tbaa !370
   ret void
 }
 

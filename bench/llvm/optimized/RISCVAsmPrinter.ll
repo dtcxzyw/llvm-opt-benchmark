@@ -5585,11 +5585,11 @@ _ZN12_GLOBAL__N_115RISCVAsmPrinter13LowerSTACKMAPERN4llvm10MCStreamerERNS1_9Stac
   %1333 = load ptr, ptr %17, align 8, !tbaa !547
   %1334 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %1335 = load i8, ptr %1334, align 8, !tbaa !549, !range !455, !noundef !456
-  %1336 = or disjoint i8 %1335, 2
-  %1337 = getelementptr inbounds nuw i8, ptr %1333, i64 32
-  %1338 = load ptr, ptr %1337, align 8, !tbaa !480
-  %1339 = zext nneg i8 %1336 to i64
-  %1340 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %1338, i64 %1339
+  %1336 = getelementptr inbounds nuw i8, ptr %1333, i64 32
+  %1337 = load ptr, ptr %1336, align 8, !tbaa !480
+  %1338 = zext nneg i8 %1335 to i64
+  %1339 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %1337, i64 %1338
+  %1340 = getelementptr inbounds nuw i8, ptr %1339, i64 64
   %1341 = load i32, ptr %1340, align 8
   %trunc.i = trunc i32 %1341 to i8
   switch i8 %trunc.i, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerPATCHPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit [
@@ -5598,7 +5598,7 @@ _ZN12_GLOBAL__N_115RISCVAsmPrinter13LowerSTACKMAPERN4llvm10MCStreamerERNS1_9Stac
   ]
 
 1342:                                             ; preds = %1318
-  %1343 = getelementptr inbounds nuw i8, ptr %1340, i64 16
+  %1343 = getelementptr inbounds nuw i8, ptr %1339, i64 80
   %1344 = load i64, ptr %1343, align 8, !tbaa !276
   %.not.i40 = icmp eq i64 %1344, 0
   br i1 %.not.i40, label %_ZN12_GLOBAL__N_115RISCVAsmPrinter15LowerPATCHPOINTERN4llvm10MCStreamerERNS1_9StackMapsERKNS1_12MachineInstrE.exit, label %1345

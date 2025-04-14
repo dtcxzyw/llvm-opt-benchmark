@@ -19908,7 +19908,7 @@ tryToClone.exit:                                  ; preds = %347, %368, %371
 .critedge2801.thread4669:                         ; preds = %473, %.critedge2777
   %485 = icmp samesign ugt i32 %130, 1
   %486 = icmp samesign ugt i32 %130, 4
-  br label %1712
+  br label %1708
 
 .thread3241:                                      ; preds = %245, %.critedge2772, %179
   %.ph3234.ph = phi i1 [ false, %.critedge2772 ], [ false, %245 ], [ true, %179 ]
@@ -19920,13 +19920,13 @@ tryToClone.exit:                                  ; preds = %347, %368, %371
   %489 = icmp eq i8 %131, 100
   %490 = icmp samesign ugt i32 %130, 1
   %or.cond42 = select i1 %489, i1 %490, i1 false
-  br i1 %or.cond42, label %491, label %559
+  br i1 %or.cond42, label %491, label %555
 
 491:                                              ; preds = %488
   %492 = and i64 %strlen.i, 1073741823
   %493 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.747, i64 noundef range(i64 0, 1073741824) %492) #44
   %494 = icmp eq i32 %493, 0
-  br i1 %494, label %495, label %559
+  br i1 %494, label %495, label %555
 
 495:                                              ; preds = %491
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #43
@@ -19947,9 +19947,9 @@ tryToClone.exit:                                  ; preds = %347, %368, %371
   call fastcc void @shellDatabaseError(ptr noundef %502)
   br label %.loopexit3775.thread
 
-.lr.ph3928:                                       ; preds = %.preheader3774, %523
-  %.122383927 = phi ptr [ %.22239, %523 ], [ null, %.preheader3774 ]
-  %.122413926 = phi i32 [ %.22242, %523 ], [ 0, %.preheader3774 ]
+.lr.ph3928:                                       ; preds = %.preheader3774, %521
+  %.122383927 = phi ptr [ %.22239, %521 ], [ null, %.preheader3774 ]
+  %.122413926 = phi i32 [ %.22242, %521 ], [ 0, %.preheader3774 ]
   %503 = load ptr, ptr %6, align 8, !tbaa !31
   %504 = call ptr @sqlite3_column_text(ptr noundef %503, i32 noundef 1) #43
   %505 = load ptr, ptr %6, align 8, !tbaa !31
@@ -19957,7 +19957,7 @@ tryToClone.exit:                                  ; preds = %347, %368, %371
   %507 = icmp eq ptr %504, null
   %508 = icmp eq ptr %506, null
   %or.cond44 = select i1 %507, i1 true, i1 %508
-  br i1 %or.cond44, label %523, label %509, !llvm.loop !502
+  br i1 %or.cond44, label %521, label %509, !llvm.loop !502
 
 509:                                              ; preds = %.lr.ph3928
   %510 = add nsw i32 %.122413926, 1
@@ -19977,1663 +19977,1660 @@ shell_check_oom.exit:                             ; preds = %509
   %518 = getelementptr inbounds ptr, ptr %512, i64 %517
   store ptr %515, ptr %518, align 8, !tbaa !29
   %519 = call noalias ptr @strdup(ptr noundef nonnull %506) #43
-  %520 = or disjoint i32 %516, 1
-  %521 = sext i32 %520 to i64
-  %522 = getelementptr inbounds ptr, ptr %512, i64 %521
-  store ptr %519, ptr %522, align 8, !tbaa !29
-  br label %523
+  %520 = getelementptr i8, ptr %518, i64 8
+  store ptr %519, ptr %520, align 8, !tbaa !29
+  br label %521
 
-523:                                              ; preds = %.lr.ph3928, %shell_check_oom.exit
+521:                                              ; preds = %.lr.ph3928, %shell_check_oom.exit
   %.22242 = phi i32 [ %510, %shell_check_oom.exit ], [ %.122413926, %.lr.ph3928 ]
   %.22239 = phi ptr [ %512, %shell_check_oom.exit ], [ %.122383927, %.lr.ph3928 ]
-  %524 = load ptr, ptr %6, align 8, !tbaa !31
-  %525 = call i32 @sqlite3_step(ptr noundef %524) #43
-  %526 = icmp eq i32 %525, 100
-  br i1 %526, label %.lr.ph3928, label %.loopexit3775
+  %522 = load ptr, ptr %6, align 8, !tbaa !31
+  %523 = call i32 @sqlite3_step(ptr noundef %522) #43
+  %524 = icmp eq i32 %523, 100
+  br i1 %524, label %.lr.ph3928, label %.loopexit3775
 
 .loopexit3775.thread:                             ; preds = %501, %.preheader3774
   %.52143.ph = phi i32 [ 0, %.preheader3774 ], [ 1, %501 ]
-  %527 = load ptr, ptr %6, align 8, !tbaa !31
-  %528 = call i32 @sqlite3_finalize(ptr noundef %527) #43
+  %525 = load ptr, ptr %6, align 8, !tbaa !31
+  %526 = call i32 @sqlite3_finalize(ptr noundef %525) #43
   br label %._crit_edge3934
 
-.loopexit3775:                                    ; preds = %523
-  %529 = load ptr, ptr %6, align 8, !tbaa !31
-  %530 = call i32 @sqlite3_finalize(ptr noundef %529) #43
-  %531 = icmp sgt i32 %.22242, 0
-  br i1 %531, label %.lr.ph3933, label %._crit_edge3934
+.loopexit3775:                                    ; preds = %521
+  %527 = load ptr, ptr %6, align 8, !tbaa !31
+  %528 = call i32 @sqlite3_finalize(ptr noundef %527) #43
+  %529 = icmp sgt i32 %.22242, 0
+  br i1 %529, label %.lr.ph3933, label %._crit_edge3934
 
 .lr.ph3933:                                       ; preds = %.loopexit3775
-  %532 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %530 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %wide.trip.count = zext nneg i32 %.22242 to i64
-  br label %533
+  br label %531
 
-533:                                              ; preds = %.lr.ph3933, %549
-  %indvars.iv4336 = phi i64 [ 0, %.lr.ph3933 ], [ %indvars.iv.next4337, %549 ]
-  %534 = load ptr, ptr %1, align 8, !tbaa !477
-  %535 = shl nuw nsw i64 %indvars.iv4336, 1
-  %536 = getelementptr inbounds nuw ptr, ptr %.22239, i64 %535
-  %537 = load ptr, ptr %536, align 8, !tbaa !29
-  %538 = call i32 @sqlite3_txn_state(ptr noundef %534, ptr noundef %537) #43
-  %539 = load ptr, ptr %1, align 8, !tbaa !477
-  %540 = load ptr, ptr %536, align 8, !tbaa !29
-  %541 = call i32 @sqlite3_db_readonly(ptr noundef %539, ptr noundef %540) #43
-  %542 = or disjoint i64 %535, 1
-  %543 = getelementptr inbounds nuw ptr, ptr %.22239, i64 %542
-  %544 = load ptr, ptr %543, align 8, !tbaa !29
-  %545 = load ptr, ptr %532, align 8, !tbaa !462
-  %546 = load ptr, ptr %536, align 8, !tbaa !29
-  %.not2749 = icmp eq ptr %544, null
-  br i1 %.not2749, label %549, label %547
+531:                                              ; preds = %.lr.ph3933, %545
+  %indvars.iv4336 = phi i64 [ 0, %.lr.ph3933 ], [ %indvars.iv.next4337, %545 ]
+  %532 = load ptr, ptr %1, align 8, !tbaa !477
+  %.idx = shl nuw nsw i64 %indvars.iv4336, 4
+  %533 = getelementptr inbounds nuw i8, ptr %.22239, i64 %.idx
+  %534 = load ptr, ptr %533, align 8, !tbaa !29
+  %535 = call i32 @sqlite3_txn_state(ptr noundef %532, ptr noundef %534) #43
+  %536 = load ptr, ptr %1, align 8, !tbaa !477
+  %537 = load ptr, ptr %533, align 8, !tbaa !29
+  %538 = call i32 @sqlite3_db_readonly(ptr noundef %536, ptr noundef %537) #43
+  %539 = getelementptr inbounds nuw i8, ptr %533, i64 8
+  %540 = load ptr, ptr %539, align 8, !tbaa !29
+  %541 = load ptr, ptr %530, align 8, !tbaa !462
+  %542 = load ptr, ptr %533, align 8, !tbaa !29
+  %.not2749 = icmp eq ptr %540, null
+  br i1 %.not2749, label %545, label %543
 
-547:                                              ; preds = %533
-  %548 = load i8, ptr %544, align 1, !tbaa !25
-  %.not2750 = icmp eq i8 %548, 0
-  %spec.select = select i1 %.not2750, ptr @.str.749, ptr %544
-  br label %549
+543:                                              ; preds = %531
+  %544 = load i8, ptr %540, align 1, !tbaa !25
+  %.not2750 = icmp eq i8 %544, 0
+  %spec.select = select i1 %.not2750, ptr @.str.749, ptr %540
+  br label %545
 
-549:                                              ; preds = %547, %533
-  %550 = phi ptr [ @.str.749, %533 ], [ %spec.select, %547 ]
-  %.not2751 = icmp eq i32 %541, 0
-  %551 = select i1 %.not2751, ptr @.str.751, ptr @.str.750
-  %552 = icmp eq i32 %538, 0
-  %553 = icmp eq i32 %538, 1
-  %554 = select i1 %553, ptr @.str.752, ptr @.str.753
-  %555 = select i1 %552, ptr @.str.44, ptr %554
-  %556 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %545, ptr noundef nonnull @.str.748, ptr noundef %546, ptr noundef %550, ptr noundef nonnull %551, ptr noundef nonnull %555) #43
-  %557 = load ptr, ptr %536, align 8, !tbaa !29
-  call void @free(ptr noundef %557) #43
-  %558 = load ptr, ptr %543, align 8, !tbaa !29
-  call void @free(ptr noundef %558) #43
+545:                                              ; preds = %543, %531
+  %546 = phi ptr [ @.str.749, %531 ], [ %spec.select, %543 ]
+  %.not2751 = icmp eq i32 %538, 0
+  %547 = select i1 %.not2751, ptr @.str.751, ptr @.str.750
+  %548 = icmp eq i32 %535, 0
+  %549 = icmp eq i32 %535, 1
+  %550 = select i1 %549, ptr @.str.752, ptr @.str.753
+  %551 = select i1 %548, ptr @.str.44, ptr %550
+  %552 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %541, ptr noundef nonnull @.str.748, ptr noundef %542, ptr noundef %546, ptr noundef nonnull %547, ptr noundef nonnull %551) #43
+  %553 = load ptr, ptr %533, align 8, !tbaa !29
+  call void @free(ptr noundef %553) #43
+  %554 = load ptr, ptr %539, align 8, !tbaa !29
+  call void @free(ptr noundef %554) #43
   %indvars.iv.next4337 = add nuw nsw i64 %indvars.iv4336, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next4337, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge3934, label %533, !llvm.loop !503
+  br i1 %exitcond.not, label %._crit_edge3934, label %531, !llvm.loop !503
 
-._crit_edge3934:                                  ; preds = %549, %.loopexit3775.thread, %.loopexit3775
-  %.521434561 = phi i32 [ %.52143.ph, %.loopexit3775.thread ], [ 0, %.loopexit3775 ], [ 0, %549 ]
-  %.022374560 = phi ptr [ null, %.loopexit3775.thread ], [ %.22239, %.loopexit3775 ], [ %.22239, %549 ]
+._crit_edge3934:                                  ; preds = %545, %.loopexit3775.thread, %.loopexit3775
+  %.521434561 = phi i32 [ %.52143.ph, %.loopexit3775.thread ], [ 0, %.loopexit3775 ], [ 0, %545 ]
+  %.022374560 = phi ptr [ null, %.loopexit3775.thread ], [ %.22239, %.loopexit3775 ], [ %.22239, %545 ]
   call void @sqlite3_free(ptr noundef %.022374560) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #43
   br label %test_breakpoint.exit
 
-559:                                              ; preds = %491, %488
-  %560 = phi i1 [ true, %491 ], [ %490, %488 ]
-  %561 = phi i1 [ true, %491 ], [ %489, %488 ]
-  %562 = phi i1 [ false, %491 ], [ %178, %488 ]
-  %or.cond46 = select i1 %561, i1 %172, i1 false
-  br i1 %or.cond46, label %563, label %.critedge2779
+555:                                              ; preds = %491, %488
+  %556 = phi i1 [ true, %491 ], [ %490, %488 ]
+  %557 = phi i1 [ true, %491 ], [ %489, %488 ]
+  %558 = phi i1 [ false, %491 ], [ %178, %488 ]
+  %or.cond46 = select i1 %557, i1 %172, i1 false
+  br i1 %or.cond46, label %559, label %.critedge2779
+
+559:                                              ; preds = %555
+  %560 = and i64 %strlen.i, 1073741823
+  %561 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.754, i64 noundef range(i64 0, 1073741824) %560) #44
+  %562 = icmp eq i32 %561, 0
+  br i1 %562, label %563, label %600
 
 563:                                              ; preds = %559
-  %564 = and i64 %strlen.i, 1073741823
-  %565 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.754, i64 noundef range(i64 0, 1073741824) %564) #44
-  %566 = icmp eq i32 %565, 0
-  br i1 %566, label %567, label %604
-
-567:                                              ; preds = %563
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #43
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   %.not2745 = icmp ne i32 %.02122.lcssa.ph, 1
-  %568 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %569 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
-  %570 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %571 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %564 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %565 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
+  %566 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %567 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %567
-  %indvars.iv4516 = phi i64 [ 0, %567 ], [ %indvars.iv4516.be, %.backedge.backedge ]
-  br i1 %.not2745, label %572, label %.thread3245
+.backedge:                                        ; preds = %.backedge.backedge, %563
+  %indvars.iv4516 = phi i64 [ 0, %563 ], [ %indvars.iv4516.be, %.backedge.backedge ]
+  br i1 %.not2745, label %568, label %.thread3245
 
-572:                                              ; preds = %.backedge
-  %573 = load ptr, ptr %568, align 8, !tbaa !29
-  %574 = getelementptr inbounds nuw [21 x %struct.DbConfigChoices], ptr @do_meta_command.aDbConfig, i64 0, i64 %indvars.iv4516
-  %575 = load ptr, ptr %574, align 16, !tbaa !504
-  %576 = icmp eq ptr %573, null
-  %spec.store.select.i2881 = select i1 %576, ptr @.str.44, ptr %573
-  %577 = icmp eq ptr %575, null
-  %spec.store.select1.i = select i1 %577, ptr @.str.44, ptr %575
-  %578 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i2881, ptr noundef nonnull dereferenceable(1) %spec.store.select1.i) #44
-  %.not2746 = icmp eq i32 %578, 0
-  br i1 %.not2746, label %579, label %597
+568:                                              ; preds = %.backedge
+  %569 = load ptr, ptr %564, align 8, !tbaa !29
+  %570 = getelementptr inbounds nuw [21 x %struct.DbConfigChoices], ptr @do_meta_command.aDbConfig, i64 0, i64 %indvars.iv4516
+  %571 = load ptr, ptr %570, align 16, !tbaa !504
+  %572 = icmp eq ptr %569, null
+  %spec.store.select.i2881 = select i1 %572, ptr @.str.44, ptr %569
+  %573 = icmp eq ptr %571, null
+  %spec.store.select1.i = select i1 %573, ptr @.str.44, ptr %571
+  %574 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i2881, ptr noundef nonnull dereferenceable(1) %spec.store.select1.i) #44
+  %.not2746 = icmp eq i32 %574, 0
+  br i1 %.not2746, label %575, label %593
 
-579:                                              ; preds = %572
-  br i1 %569, label %580, label %.thread3245
+575:                                              ; preds = %568
+  br i1 %565, label %576, label %.thread3245
 
-580:                                              ; preds = %579
-  %581 = load ptr, ptr %1, align 8, !tbaa !477
-  %582 = getelementptr inbounds nuw [21 x %struct.DbConfigChoices], ptr @do_meta_command.aDbConfig, i64 0, i64 %indvars.iv4516, i32 1
-  %583 = load i32, ptr %582, align 8, !tbaa !506
-  %584 = load ptr, ptr %570, align 16, !tbaa !29
-  %585 = call fastcc i32 @booleanValue(ptr noundef %584)
-  %586 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %581, i32 noundef %583, i32 noundef %585, i32 noundef 0) #43
+576:                                              ; preds = %575
+  %577 = load ptr, ptr %1, align 8, !tbaa !477
+  %578 = getelementptr inbounds nuw [21 x %struct.DbConfigChoices], ptr @do_meta_command.aDbConfig, i64 0, i64 %indvars.iv4516, i32 1
+  %579 = load i32, ptr %578, align 8, !tbaa !506
+  %580 = load ptr, ptr %566, align 16, !tbaa !29
+  %581 = call fastcc i32 @booleanValue(ptr noundef %580)
+  %582 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %577, i32 noundef %579, i32 noundef %581, i32 noundef 0) #43
   br label %.thread3245
 
-.thread3245:                                      ; preds = %.backedge, %580, %579
-  %587 = load ptr, ptr %1, align 8, !tbaa !477
-  %588 = getelementptr inbounds nuw [21 x %struct.DbConfigChoices], ptr @do_meta_command.aDbConfig, i64 0, i64 %indvars.iv4516
-  %589 = getelementptr inbounds nuw i8, ptr %588, i64 8
-  %590 = load i32, ptr %589, align 8, !tbaa !506
-  %591 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %587, i32 noundef %590, i32 noundef -1, ptr noundef nonnull %7) #43
-  %592 = load ptr, ptr %571, align 8, !tbaa !462
-  %593 = load ptr, ptr %588, align 16, !tbaa !504
-  %594 = load i32, ptr %7, align 4, !tbaa !36
-  %.not2747 = icmp eq i32 %594, 0
-  %595 = select i1 %.not2747, ptr @.str.776, ptr @.str.775
-  %596 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %592, ptr noundef nonnull @.str.774, ptr noundef %593, ptr noundef nonnull %595) #43
+.thread3245:                                      ; preds = %.backedge, %576, %575
+  %583 = load ptr, ptr %1, align 8, !tbaa !477
+  %584 = getelementptr inbounds nuw [21 x %struct.DbConfigChoices], ptr @do_meta_command.aDbConfig, i64 0, i64 %indvars.iv4516
+  %585 = getelementptr inbounds nuw i8, ptr %584, i64 8
+  %586 = load i32, ptr %585, align 8, !tbaa !506
+  %587 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %583, i32 noundef %586, i32 noundef -1, ptr noundef nonnull %7) #43
+  %588 = load ptr, ptr %567, align 8, !tbaa !462
+  %589 = load ptr, ptr %584, align 16, !tbaa !504
+  %590 = load i32, ptr %7, align 4, !tbaa !36
+  %.not2747 = icmp eq i32 %590, 0
+  %591 = select i1 %.not2747, ptr @.str.776, ptr @.str.775
+  %592 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %588, ptr noundef nonnull @.str.774, ptr noundef %589, ptr noundef nonnull %591) #43
   %indvars.iv.next45174569 = add nuw nsw i64 %indvars.iv4516, 1
   %exitcond4520.not4570 = icmp eq i64 %indvars.iv.next45174569, 21
   %or.cond = select i1 %.not2745, i1 true, i1 %exitcond4520.not4570
   br i1 %or.cond, label %.thread3246, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.thread3245, %597
-  %indvars.iv4516.be = phi i64 [ %indvars.iv.next4517, %597 ], [ %indvars.iv.next45174569, %.thread3245 ]
+.backedge.backedge:                               ; preds = %.thread3245, %593
+  %indvars.iv4516.be = phi i64 [ %indvars.iv.next4517, %593 ], [ %indvars.iv.next45174569, %.thread3245 ]
   br label %.backedge, !llvm.loop !507
 
-597:                                              ; preds = %572
+593:                                              ; preds = %568
   %indvars.iv.next4517 = add nuw nsw i64 %indvars.iv4516, 1
   %exitcond4520.not = icmp eq i64 %indvars.iv.next4517, 21
-  br i1 %exitcond4520.not, label %598, label %.backedge.backedge
+  br i1 %exitcond4520.not, label %594, label %.backedge.backedge
 
-598:                                              ; preds = %597
-  %599 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %600 = load ptr, ptr %568, align 8, !tbaa !29
-  %601 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %599, ptr noundef nonnull @.str.777, ptr noundef %600) #46
-  %602 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %603 = call i64 @fwrite(ptr nonnull @.str.778, i64 47, i64 1, ptr %602) #50
+594:                                              ; preds = %593
+  %595 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %596 = load ptr, ptr %564, align 8, !tbaa !29
+  %597 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %595, ptr noundef nonnull @.str.777, ptr noundef %596) #46
+  %598 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %599 = call i64 @fwrite(ptr nonnull @.str.778, i64 47, i64 1, ptr %598) #50
   br label %.thread3246
 
-.thread3246:                                      ; preds = %.thread3245, %598
+.thread3246:                                      ; preds = %.thread3245, %594
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #43
   br label %test_breakpoint.exit
 
-604:                                              ; preds = %563
-  %605 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.779, i64 noundef range(i64 0, 1073741824) %564) #44
-  %606 = icmp eq i32 %605, 0
-  br i1 %606, label %607, label %.critedge2779
+600:                                              ; preds = %559
+  %601 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.779, i64 noundef range(i64 0, 1073741824) %560) #44
+  %602 = icmp eq i32 %601, 0
+  br i1 %602, label %603, label %.critedge2779
 
-607:                                              ; preds = %604
-  %608 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.val = load ptr, ptr %608, align 8
-  %609 = tail call fastcc i32 @shell_dbinfo_command(ptr noundef %1, i32 noundef %.02122.lcssa.ph, ptr %.val)
+603:                                              ; preds = %600
+  %604 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.val = load ptr, ptr %604, align 8
+  %605 = tail call fastcc i32 @shell_dbinfo_command(ptr noundef %1, i32 noundef %.02122.lcssa.ph, ptr %.val)
   br label %test_breakpoint.exit
 
-.critedge2779:                                    ; preds = %.thread3241, %559, %604
-  %or.cond464567 = phi i1 [ false, %559 ], [ true, %604 ], [ false, %.thread3241 ]
-  %610 = phi i1 [ %172, %559 ], [ %172, %604 ], [ %.ph3235.ph, %.thread3241 ]
-  %611 = phi i1 [ %562, %559 ], [ %562, %604 ], [ %.ph3234.ph, %.thread3241 ]
-  %612 = phi i1 [ %561, %559 ], [ %561, %604 ], [ false, %.thread3241 ]
-  %613 = phi i1 [ %560, %559 ], [ %560, %604 ], [ %487, %.thread3241 ]
-  %614 = icmp eq i8 %131, 114
-  br i1 %614, label %615, label %621
+.critedge2779:                                    ; preds = %.thread3241, %555, %600
+  %or.cond464567 = phi i1 [ false, %555 ], [ true, %600 ], [ false, %.thread3241 ]
+  %606 = phi i1 [ %172, %555 ], [ %172, %600 ], [ %.ph3235.ph, %.thread3241 ]
+  %607 = phi i1 [ %558, %555 ], [ %558, %600 ], [ %.ph3234.ph, %.thread3241 ]
+  %608 = phi i1 [ %557, %555 ], [ %557, %600 ], [ false, %.thread3241 ]
+  %609 = phi i1 [ %556, %555 ], [ %556, %600 ], [ %487, %.thread3241 ]
+  %610 = icmp eq i8 %131, 114
+  br i1 %610, label %611, label %617
 
-615:                                              ; preds = %.critedge2779
-  %616 = and i64 %strlen.i, 1073741823
-  %617 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.780, i64 noundef range(i64 0, 1073741824) %616) #44
-  %618 = icmp eq i32 %617, 0
-  br i1 %618, label %619, label %621
+611:                                              ; preds = %.critedge2779
+  %612 = and i64 %strlen.i, 1073741823
+  %613 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.780, i64 noundef range(i64 0, 1073741824) %612) #44
+  %614 = icmp eq i32 %613, 0
+  br i1 %614, label %615, label %617
 
-619:                                              ; preds = %615
+615:                                              ; preds = %611
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
-  %620 = call fastcc i32 @recoverDatabaseCmd(ptr noundef %1, i32 noundef %.02122.lcssa.ph, ptr noundef %4)
+  %616 = call fastcc i32 @recoverDatabaseCmd(ptr noundef %1, i32 noundef %.02122.lcssa.ph, ptr noundef %4)
   br label %test_breakpoint.exit
 
-621:                                              ; preds = %615, %.critedge2779
-  br i1 %612, label %622, label %716
+617:                                              ; preds = %611, %.critedge2779
+  br i1 %608, label %618, label %712
 
-622:                                              ; preds = %621
-  %623 = and i64 %strlen.i, 1073741823
-  %624 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.781, i64 noundef range(i64 0, 1073741824) %623) #44
-  %625 = icmp eq i32 %624, 0
-  br i1 %625, label %626, label %716
+618:                                              ; preds = %617
+  %619 = and i64 %strlen.i, 1073741823
+  %620 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.781, i64 noundef range(i64 0, 1073741824) %619) #44
+  %621 = icmp eq i32 %620, 0
+  br i1 %621, label %622, label %712
 
-626:                                              ; preds = %622
-  %627 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %628 = load i32, ptr %627, align 8, !tbaa !467
-  %629 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %630 = load i32, ptr %629, align 4, !tbaa !454
-  %631 = and i32 %630, -857
-  store i32 %631, ptr %629, align 4, !tbaa !454
+622:                                              ; preds = %618
+  %623 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %624 = load i32, ptr %623, align 8, !tbaa !467
+  %625 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %626 = load i32, ptr %625, align 4, !tbaa !454
+  %627 = and i32 %626, -857
+  store i32 %627, ptr %625, align 4, !tbaa !454
   %.not4246 = icmp eq i32 %.02122.lcssa.ph, 1
   br i1 %.not4246, label %._crit_edge4201, label %.lr.ph4200.preheader
 
-.lr.ph4200.preheader:                             ; preds = %626
+.lr.ph4200.preheader:                             ; preds = %622
   %wide.trip.count4514 = and i64 %.02122.lcssa.ph.in, 4294967295
   br label %.lr.ph4200
 
 .lr.ph4200:                                       ; preds = %.lr.ph4200.preheader, %.thread3249
   %indvars.iv4509 = phi i64 [ 1, %.lr.ph4200.preheader ], [ %indvars.iv.next4510, %.thread3249 ]
   %.022564198 = phi ptr [ null, %.lr.ph4200.preheader ], [ %.22258, %.thread3249 ]
-  %632 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4509
-  %633 = load ptr, ptr %632, align 8, !tbaa !29
+  %628 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4509
+  %629 = load ptr, ptr %628, align 8, !tbaa !29
+  %630 = load i8, ptr %629, align 1, !tbaa !25
+  %631 = icmp eq i8 %630, 45
+  br i1 %631, label %632, label %663
+
+632:                                              ; preds = %.lr.ph4200
+  %633 = getelementptr inbounds nuw i8, ptr %629, i64 1
   %634 = load i8, ptr %633, align 1, !tbaa !25
   %635 = icmp eq i8 %634, 45
-  br i1 %635, label %636, label %667
+  %636 = getelementptr inbounds nuw i8, ptr %629, i64 2
+  %spec.select2780 = select i1 %635, ptr %636, ptr %633
+  %637 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2780, ptr noundef nonnull dereferenceable(16) @.str.782) #44
+  %638 = icmp eq i32 %637, 0
+  br i1 %638, label %639, label %642
 
-636:                                              ; preds = %.lr.ph4200
-  %637 = getelementptr inbounds nuw i8, ptr %633, i64 1
-  %638 = load i8, ptr %637, align 1, !tbaa !25
-  %639 = icmp eq i8 %638, 45
-  %640 = getelementptr inbounds nuw i8, ptr %633, i64 2
-  %spec.select2780 = select i1 %639, ptr %640, ptr %637
-  %641 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2780, ptr noundef nonnull dereferenceable(16) @.str.782) #44
-  %642 = icmp eq i32 %641, 0
-  br i1 %642, label %643, label %646
-
-643:                                              ; preds = %636
-  %644 = load i32, ptr %629, align 4, !tbaa !454
-  %645 = or i32 %644, 8
-  store i32 %645, ptr %629, align 4, !tbaa !454
+639:                                              ; preds = %632
+  %640 = load i32, ptr %625, align 4, !tbaa !454
+  %641 = or i32 %640, 8
+  store i32 %641, ptr %625, align 4, !tbaa !454
   br label %.thread3249
 
-646:                                              ; preds = %636
-  %647 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2780, ptr noundef nonnull dereferenceable(9) @.str.783) #44
-  %648 = icmp eq i32 %647, 0
-  br i1 %648, label %649, label %652
+642:                                              ; preds = %632
+  %643 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2780, ptr noundef nonnull dereferenceable(9) @.str.783) #44
+  %644 = icmp eq i32 %643, 0
+  br i1 %644, label %645, label %648
 
-649:                                              ; preds = %646
-  %650 = load i32, ptr %629, align 4, !tbaa !454
-  %651 = or i32 %650, 16
-  store i32 %651, ptr %629, align 4, !tbaa !454
+645:                                              ; preds = %642
+  %646 = load i32, ptr %625, align 4, !tbaa !454
+  %647 = or i32 %646, 16
+  store i32 %647, ptr %625, align 4, !tbaa !454
   br label %.thread3249
 
-652:                                              ; preds = %646
-  %653 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2780, ptr noundef nonnull dereferenceable(10) @.str.784) #44
-  %654 = icmp eq i32 %653, 0
-  br i1 %654, label %655, label %658
+648:                                              ; preds = %642
+  %649 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2780, ptr noundef nonnull dereferenceable(10) @.str.784) #44
+  %650 = icmp eq i32 %649, 0
+  br i1 %650, label %651, label %654
 
-655:                                              ; preds = %652
-  %656 = load i32, ptr %629, align 4, !tbaa !454
-  %657 = or i32 %656, 256
-  store i32 %657, ptr %629, align 4, !tbaa !454
+651:                                              ; preds = %648
+  %652 = load i32, ptr %625, align 4, !tbaa !454
+  %653 = or i32 %652, 256
+  store i32 %653, ptr %625, align 4, !tbaa !454
   br label %.thread3249
 
-658:                                              ; preds = %652
-  %659 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2780, ptr noundef nonnull dereferenceable(6) @.str.785) #44
-  %660 = icmp eq i32 %659, 0
-  br i1 %660, label %661, label %664
+654:                                              ; preds = %648
+  %655 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2780, ptr noundef nonnull dereferenceable(6) @.str.785) #44
+  %656 = icmp eq i32 %655, 0
+  br i1 %656, label %657, label %660
 
-661:                                              ; preds = %658
-  %662 = load i32, ptr %629, align 4, !tbaa !454
-  %663 = or i32 %662, 512
-  store i32 %663, ptr %629, align 4, !tbaa !454
+657:                                              ; preds = %654
+  %658 = load i32, ptr %625, align 4, !tbaa !454
+  %659 = or i32 %658, 512
+  store i32 %659, ptr %625, align 4, !tbaa !454
   br label %.thread3249
 
-664:                                              ; preds = %658
-  %665 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %666 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %665, ptr noundef nonnull @.str.786, ptr noundef nonnull %633) #46
+660:                                              ; preds = %654
+  %661 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %662 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %661, ptr noundef nonnull @.str.786, ptr noundef nonnull %629) #46
   tail call void @sqlite3_free(ptr noundef %.022564198) #43
   br label %test_breakpoint.exit
 
-667:                                              ; preds = %.lr.ph4200
-  %668 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.787, ptr noundef nonnull %633, ptr noundef nonnull %633) #43
+663:                                              ; preds = %.lr.ph4200
+  %664 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.787, ptr noundef nonnull %629, ptr noundef nonnull %629) #43
   %.not2744 = icmp eq ptr %.022564198, null
-  br i1 %.not2744, label %.thread3249, label %669
+  br i1 %.not2744, label %.thread3249, label %665
 
-669:                                              ; preds = %667
-  %670 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.788, ptr noundef nonnull %.022564198, ptr noundef %668) #43
+665:                                              ; preds = %663
+  %666 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.788, ptr noundef nonnull %.022564198, ptr noundef %664) #43
   br label %.thread3249
 
-.thread3249:                                      ; preds = %643, %655, %661, %649, %669, %667
-  %.22258 = phi ptr [ %670, %669 ], [ %668, %667 ], [ %.022564198, %649 ], [ %.022564198, %661 ], [ %.022564198, %655 ], [ %.022564198, %643 ]
+.thread3249:                                      ; preds = %639, %651, %657, %645, %665, %663
+  %.22258 = phi ptr [ %666, %665 ], [ %664, %663 ], [ %.022564198, %645 ], [ %.022564198, %657 ], [ %.022564198, %651 ], [ %.022564198, %639 ]
   %indvars.iv.next4510 = add nuw nsw i64 %indvars.iv4509, 1
   %exitcond4515.not = icmp eq i64 %indvars.iv.next4510, %wide.trip.count4514
   br i1 %exitcond4515.not, label %._crit_edge4201, label %.lr.ph4200, !llvm.loop !508
 
-._crit_edge4201:                                  ; preds = %.thread3249, %626
-  %.02256.lcssa = phi ptr [ null, %626 ], [ %.22258, %.thread3249 ]
+._crit_edge4201:                                  ; preds = %.thread3249, %622
+  %.02256.lcssa = phi ptr [ null, %622 ], [ %.22258, %.thread3249 ]
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   tail call fastcc void @outputDumpWarning(ptr noundef %1, ptr noundef %.02256.lcssa)
-  %671 = load i32, ptr %629, align 4, !tbaa !454
-  %672 = and i32 %671, 256
-  %673 = icmp eq i32 %672, 0
-  br i1 %673, label %674, label %680
+  %667 = load i32, ptr %625, align 4, !tbaa !454
+  %668 = and i32 %667, 256
+  %669 = icmp eq i32 %668, 0
+  br i1 %669, label %670, label %676
 
-674:                                              ; preds = %._crit_edge4201
-  %675 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %676 = load ptr, ptr %675, align 8, !tbaa !462
-  %677 = tail call i64 @fwrite(ptr nonnull @.str.789, i64 25, i64 1, ptr %676)
-  %678 = load ptr, ptr %675, align 8, !tbaa !462
-  %679 = tail call i64 @fwrite(ptr nonnull @.str.790, i64 19, i64 1, ptr %678)
-  br label %680
+670:                                              ; preds = %._crit_edge4201
+  %671 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %672 = load ptr, ptr %671, align 8, !tbaa !462
+  %673 = tail call i64 @fwrite(ptr nonnull @.str.789, i64 25, i64 1, ptr %672)
+  %674 = load ptr, ptr %671, align 8, !tbaa !462
+  %675 = tail call i64 @fwrite(ptr nonnull @.str.790, i64 19, i64 1, ptr %674)
+  br label %676
 
-680:                                              ; preds = %674, %._crit_edge4201
-  %681 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  store i32 0, ptr %681, align 4, !tbaa !509
-  store i32 0, ptr %627, align 8, !tbaa !467
-  %682 = load ptr, ptr %1, align 8, !tbaa !477
-  %683 = tail call i32 @sqlite3_exec(ptr noundef %682, ptr noundef nonnull @.str.791, ptr noundef null, ptr noundef null, ptr noundef null) #43
-  %684 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 0, ptr %684, align 8, !tbaa !510
-  %685 = icmp eq ptr %.02256.lcssa, null
-  br i1 %685, label %686, label %688
+676:                                              ; preds = %670, %._crit_edge4201
+  %677 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  store i32 0, ptr %677, align 4, !tbaa !509
+  store i32 0, ptr %623, align 8, !tbaa !467
+  %678 = load ptr, ptr %1, align 8, !tbaa !477
+  %679 = tail call i32 @sqlite3_exec(ptr noundef %678, ptr noundef nonnull @.str.791, ptr noundef null, ptr noundef null, ptr noundef null) #43
+  %680 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  store i32 0, ptr %680, align 8, !tbaa !510
+  %681 = icmp eq ptr %.02256.lcssa, null
+  br i1 %681, label %682, label %684
 
-686:                                              ; preds = %680
-  %687 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.792) #43
-  br label %688
+682:                                              ; preds = %676
+  %683 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.792) #43
+  br label %684
 
-688:                                              ; preds = %686, %680
-  %.32259 = phi ptr [ %687, %686 ], [ %.02256.lcssa, %680 ]
-  %689 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.793, ptr noundef %.32259) #43
-  tail call fastcc void @run_schema_dump_query(ptr noundef %1, ptr noundef %689)
-  tail call void @sqlite3_free(ptr noundef %689) #43
-  %690 = load i32, ptr %629, align 4, !tbaa !454
-  %691 = and i32 %690, 256
-  %692 = icmp eq i32 %691, 0
-  br i1 %692, label %693, label %695
+684:                                              ; preds = %682, %676
+  %.32259 = phi ptr [ %683, %682 ], [ %.02256.lcssa, %676 ]
+  %685 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.793, ptr noundef %.32259) #43
+  tail call fastcc void @run_schema_dump_query(ptr noundef %1, ptr noundef %685)
+  tail call void @sqlite3_free(ptr noundef %685) #43
+  %686 = load i32, ptr %625, align 4, !tbaa !454
+  %687 = and i32 %686, 256
+  %688 = icmp eq i32 %687, 0
+  br i1 %688, label %689, label %691
 
-693:                                              ; preds = %688
-  %694 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.794, ptr noundef %.32259) #43
-  tail call fastcc void @run_table_dump_query(ptr noundef %1, ptr noundef %694)
-  tail call void @sqlite3_free(ptr noundef %694) #43
-  br label %695
+689:                                              ; preds = %684
+  %690 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.794, ptr noundef %.32259) #43
+  tail call fastcc void @run_table_dump_query(ptr noundef %1, ptr noundef %690)
+  tail call void @sqlite3_free(ptr noundef %690) #43
+  br label %691
 
-695:                                              ; preds = %693, %688
+691:                                              ; preds = %689, %684
   tail call void @sqlite3_free(ptr noundef %.32259) #43
-  %696 = load i32, ptr %681, align 4, !tbaa !509
-  %.not2742 = icmp eq i32 %696, 0
-  br i1 %.not2742, label %701, label %697
+  %692 = load i32, ptr %677, align 4, !tbaa !509
+  %.not2742 = icmp eq i32 %692, 0
+  br i1 %.not2742, label %697, label %693
 
-697:                                              ; preds = %695
-  %698 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %699 = load ptr, ptr %698, align 8, !tbaa !462
-  %700 = tail call i64 @fwrite(ptr nonnull @.str.795, i64 28, i64 1, ptr %699)
-  store i32 0, ptr %681, align 4, !tbaa !509
-  br label %701
+693:                                              ; preds = %691
+  %694 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %695 = load ptr, ptr %694, align 8, !tbaa !462
+  %696 = tail call i64 @fwrite(ptr nonnull @.str.795, i64 28, i64 1, ptr %695)
+  store i32 0, ptr %677, align 4, !tbaa !509
+  br label %697
 
-701:                                              ; preds = %697, %695
-  %702 = load ptr, ptr %1, align 8, !tbaa !477
-  %703 = tail call i32 @sqlite3_exec(ptr noundef %702, ptr noundef nonnull @.str.796, ptr noundef null, ptr noundef null, ptr noundef null) #43
-  %704 = load ptr, ptr %1, align 8, !tbaa !477
-  %705 = tail call i32 @sqlite3_exec(ptr noundef %704, ptr noundef nonnull @.str.797, ptr noundef null, ptr noundef null, ptr noundef null) #43
-  %706 = load i32, ptr %629, align 4, !tbaa !454
-  %707 = and i32 %706, 256
-  %708 = icmp eq i32 %707, 0
-  br i1 %708, label %709, label %715
+697:                                              ; preds = %693, %691
+  %698 = load ptr, ptr %1, align 8, !tbaa !477
+  %699 = tail call i32 @sqlite3_exec(ptr noundef %698, ptr noundef nonnull @.str.796, ptr noundef null, ptr noundef null, ptr noundef null) #43
+  %700 = load ptr, ptr %1, align 8, !tbaa !477
+  %701 = tail call i32 @sqlite3_exec(ptr noundef %700, ptr noundef nonnull @.str.797, ptr noundef null, ptr noundef null, ptr noundef null) #43
+  %702 = load i32, ptr %625, align 4, !tbaa !454
+  %703 = and i32 %702, 256
+  %704 = icmp eq i32 %703, 0
+  br i1 %704, label %705, label %711
 
-709:                                              ; preds = %701
-  %710 = load i32, ptr %684, align 8, !tbaa !510
-  %.not2743 = icmp eq i32 %710, 0
-  %711 = select i1 %.not2743, ptr @.str.799, ptr @.str.798
-  %712 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %713 = load ptr, ptr %712, align 8, !tbaa !462
-  %714 = tail call i32 @fputs(ptr noundef nonnull %711, ptr noundef %713)
-  br label %715
+705:                                              ; preds = %697
+  %706 = load i32, ptr %680, align 8, !tbaa !510
+  %.not2743 = icmp eq i32 %706, 0
+  %707 = select i1 %.not2743, ptr @.str.799, ptr @.str.798
+  %708 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %709 = load ptr, ptr %708, align 8, !tbaa !462
+  %710 = tail call i32 @fputs(ptr noundef nonnull %707, ptr noundef %709)
+  br label %711
 
-715:                                              ; preds = %709, %701
-  store i32 %628, ptr %627, align 8, !tbaa !467
-  store i32 %630, ptr %629, align 4, !tbaa !454
+711:                                              ; preds = %705, %697
+  store i32 %624, ptr %623, align 8, !tbaa !467
+  store i32 %626, ptr %625, align 4, !tbaa !454
   br label %test_breakpoint.exit
 
-716:                                              ; preds = %622, %621
-  %717 = icmp eq i8 %131, 101
-  br i1 %717, label %718, label %737
+712:                                              ; preds = %618, %617
+  %713 = icmp eq i8 %131, 101
+  br i1 %713, label %714, label %733
 
-718:                                              ; preds = %716
-  %719 = and i64 %strlen.i, 1073741823
-  %720 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.800, i64 noundef range(i64 0, 1073741824) %719) #44
-  %721 = icmp eq i32 %720, 0
-  br i1 %721, label %722, label %737
+714:                                              ; preds = %712
+  %715 = and i64 %strlen.i, 1073741823
+  %716 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.800, i64 noundef range(i64 0, 1073741824) %715) #44
+  %717 = icmp eq i32 %716, 0
+  br i1 %717, label %718, label %733
 
-722:                                              ; preds = %718
-  %723 = icmp eq i32 %.02122.lcssa.ph, 2
-  br i1 %723, label %724, label %734
+718:                                              ; preds = %714
+  %719 = icmp eq i32 %.02122.lcssa.ph, 2
+  br i1 %719, label %720, label %730
 
-724:                                              ; preds = %722
-  %725 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %726 = load ptr, ptr %725, align 8, !tbaa !29
-  %727 = tail call fastcc i32 @booleanValue(ptr noundef %726)
-  %.not.i2890 = icmp eq i32 %727, 0
-  %728 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %729 = load i32, ptr %728, align 4, !tbaa !454
-  br i1 %.not.i2890, label %732, label %730
+720:                                              ; preds = %718
+  %721 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %722 = load ptr, ptr %721, align 8, !tbaa !29
+  %723 = tail call fastcc i32 @booleanValue(ptr noundef %722)
+  %.not.i2890 = icmp eq i32 %723, 0
+  %724 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %725 = load i32, ptr %724, align 4, !tbaa !454
+  br i1 %.not.i2890, label %728, label %726
 
-730:                                              ; preds = %724
-  %731 = or i32 %729, 64
-  store i32 %731, ptr %728, align 4, !tbaa !454
+726:                                              ; preds = %720
+  %727 = or i32 %725, 64
+  store i32 %727, ptr %724, align 4, !tbaa !454
   br label %test_breakpoint.exit
 
-732:                                              ; preds = %724
-  %733 = and i32 %729, -65
-  store i32 %733, ptr %728, align 4, !tbaa !454
+728:                                              ; preds = %720
+  %729 = and i32 %725, -65
+  store i32 %729, ptr %724, align 4, !tbaa !454
   br label %test_breakpoint.exit
 
-734:                                              ; preds = %722
-  %735 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %736 = tail call i64 @fwrite(ptr nonnull @.str.801, i64 20, i64 1, ptr %735) #50
+730:                                              ; preds = %718
+  %731 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %732 = tail call i64 @fwrite(ptr nonnull @.str.801, i64 20, i64 1, ptr %731) #50
   br label %test_breakpoint.exit
 
-737:                                              ; preds = %718, %716
-  br i1 %or.cond464567, label %738, label %744
+733:                                              ; preds = %714, %712
+  br i1 %or.cond464567, label %734, label %740
 
-738:                                              ; preds = %737
-  %739 = and i64 %strlen.i, 1073741823
-  %740 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.802, i64 noundef range(i64 0, 1073741824) %739) #44
-  %741 = icmp eq i32 %740, 0
-  br i1 %741, label %742, label %744
+734:                                              ; preds = %733
+  %735 = and i64 %strlen.i, 1073741823
+  %736 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.802, i64 noundef range(i64 0, 1073741824) %735) #44
+  %737 = icmp eq i32 %736, 0
+  br i1 %737, label %738, label %740
 
-742:                                              ; preds = %738
-  %743 = tail call fastcc i32 @shell_dbtotxt_command(ptr noundef %1)
+738:                                              ; preds = %734
+  %739 = tail call fastcc i32 @shell_dbtotxt_command(ptr noundef %1)
   br label %test_breakpoint.exit
 
-744:                                              ; preds = %738, %737
-  br i1 %717, label %745, label %.critedge2784
+740:                                              ; preds = %734, %733
+  br i1 %713, label %741, label %.critedge2784
 
-745:                                              ; preds = %744
-  %746 = and i64 %strlen.i, 1073741823
-  %747 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.803, i64 noundef range(i64 0, 1073741824) %746) #44
-  %748 = icmp eq i32 %747, 0
-  br i1 %748, label %749, label %780
+741:                                              ; preds = %740
+  %742 = and i64 %strlen.i, 1073741823
+  %743 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.803, i64 noundef range(i64 0, 1073741824) %742) #44
+  %744 = icmp eq i32 %743, 0
+  br i1 %744, label %745, label %776
 
-749:                                              ; preds = %745
-  %750 = icmp eq i32 %.02122.lcssa.ph, 2
-  br i1 %750, label %751, label %777
+745:                                              ; preds = %741
+  %746 = icmp eq i32 %.02122.lcssa.ph, 2
+  br i1 %746, label %747, label %773
 
-751:                                              ; preds = %749
-  %752 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  store i8 0, ptr %752, align 2, !tbaa !511
-  %753 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %754 = load i8, ptr %753, align 1, !tbaa !512
-  %.not2740 = icmp eq i8 %754, 0
-  br i1 %.not2740, label %760, label %755
+747:                                              ; preds = %745
+  %748 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  store i8 0, ptr %748, align 2, !tbaa !511
+  %749 = getelementptr inbounds nuw i8, ptr %1, i64 11
+  %750 = load i8, ptr %749, align 1, !tbaa !512
+  %.not2740 = icmp eq i8 %750, 0
+  br i1 %.not2740, label %756, label %751
 
-755:                                              ; preds = %751
-  %756 = load ptr, ptr %1, align 8, !tbaa !477
-  %.not2741 = icmp eq ptr %756, null
-  br i1 %.not2741, label %759, label %757
+751:                                              ; preds = %747
+  %752 = load ptr, ptr %1, align 8, !tbaa !477
+  %.not2741 = icmp eq ptr %752, null
+  br i1 %.not2741, label %755, label %753
 
-757:                                              ; preds = %755
-  %758 = tail call i32 @sqlite3_exec(ptr noundef nonnull %756, ptr noundef nonnull @.str.804, ptr noundef null, ptr noundef null, ptr noundef null) #43
-  br label %759
+753:                                              ; preds = %751
+  %754 = tail call i32 @sqlite3_exec(ptr noundef nonnull %752, ptr noundef nonnull @.str.804, ptr noundef null, ptr noundef null, ptr noundef null) #43
+  br label %755
 
-759:                                              ; preds = %757, %755
-  store i8 0, ptr %753, align 1, !tbaa !512
-  br label %760
+755:                                              ; preds = %753, %751
+  store i8 0, ptr %749, align 1, !tbaa !512
+  br label %756
 
-760:                                              ; preds = %759, %751
-  %761 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %762 = load ptr, ptr %761, align 8, !tbaa !29
-  %763 = icmp eq ptr %762, null
-  %spec.store.select.i2894 = select i1 %763, ptr @.str.44, ptr %762
-  %764 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i2894, ptr noundef nonnull dereferenceable(5) @.str.805) #44
-  %765 = icmp eq i32 %764, 0
-  br i1 %765, label %766, label %768
+756:                                              ; preds = %755, %747
+  %757 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %758 = load ptr, ptr %757, align 8, !tbaa !29
+  %759 = icmp eq ptr %758, null
+  %spec.store.select.i2894 = select i1 %759, ptr @.str.44, ptr %758
+  %760 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i2894, ptr noundef nonnull dereferenceable(5) @.str.805) #44
+  %761 = icmp eq i32 %760, 0
+  br i1 %761, label %762, label %764
 
-766:                                              ; preds = %760
-  %767 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 3, ptr %767, align 1, !tbaa !468
+762:                                              ; preds = %756
+  %763 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  store i8 3, ptr %763, align 1, !tbaa !468
   br label %test_breakpoint.exit
 
-768:                                              ; preds = %760
-  %769 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i2894, ptr noundef nonnull dereferenceable(8) @.str.806) #44
-  %770 = icmp eq i32 %769, 0
-  br i1 %770, label %771, label %773
+764:                                              ; preds = %756
+  %765 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i2894, ptr noundef nonnull dereferenceable(8) @.str.806) #44
+  %766 = icmp eq i32 %765, 0
+  br i1 %766, label %767, label %769
 
-771:                                              ; preds = %768
+767:                                              ; preds = %764
+  %768 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  store i8 2, ptr %768, align 1, !tbaa !468
+  br label %test_breakpoint.exit
+
+769:                                              ; preds = %764
+  %770 = tail call fastcc i32 @booleanValue(ptr noundef %758)
+  %771 = trunc i32 %770 to i8
   %772 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 2, ptr %772, align 1, !tbaa !468
+  store i8 %771, ptr %772, align 1, !tbaa !468
   br label %test_breakpoint.exit
 
-773:                                              ; preds = %768
-  %774 = tail call fastcc i32 @booleanValue(ptr noundef %762)
-  %775 = trunc i32 %774 to i8
-  %776 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  store i8 %775, ptr %776, align 1, !tbaa !468
+773:                                              ; preds = %745
+  %774 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %775 = tail call i64 @fwrite(ptr nonnull @.str.807, i64 38, i64 1, ptr %774) #50
   br label %test_breakpoint.exit
 
-777:                                              ; preds = %749
-  %778 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %779 = tail call i64 @fwrite(ptr nonnull @.str.807, i64 38, i64 1, ptr %778) #50
-  br label %test_breakpoint.exit
+776:                                              ; preds = %741
+  %777 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.808, i64 noundef range(i64 0, 1073741824) %742) #44
+  %778 = icmp eq i32 %777, 0
+  br i1 %778, label %779, label %.critedge2782
 
-780:                                              ; preds = %745
-  %781 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.808, i64 noundef range(i64 0, 1073741824) %746) #44
-  %782 = icmp eq i32 %781, 0
-  br i1 %782, label %783, label %.critedge2782
-
-783:                                              ; preds = %780
+779:                                              ; preds = %776
   %.not2738 = icmp eq i32 %.02122.lcssa.ph, 1
-  br i1 %.not2738, label %test_breakpoint.exit, label %784
+  br i1 %.not2738, label %test_breakpoint.exit, label %780
 
-784:                                              ; preds = %783
-  %785 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %786 = load ptr, ptr %785, align 8, !tbaa !29
-  %787 = tail call fastcc i64 @integerValue(ptr noundef %786)
-  %788 = trunc i64 %787 to i32
-  %.not2739 = icmp eq i32 %788, 0
-  br i1 %.not2739, label %test_breakpoint.exit, label %789
+780:                                              ; preds = %779
+  %781 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %782 = load ptr, ptr %781, align 8, !tbaa !29
+  %783 = tail call fastcc i64 @integerValue(ptr noundef %782)
+  %784 = trunc i64 %783 to i32
+  %.not2739 = icmp eq i32 %784, 0
+  br i1 %.not2739, label %test_breakpoint.exit, label %785
 
-789:                                              ; preds = %784
-  tail call void @exit(i32 noundef %788) #51
+785:                                              ; preds = %780
+  tail call void @exit(i32 noundef %784) #51
   unreachable
 
-.critedge2782:                                    ; preds = %780
-  %790 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.809, i64 noundef range(i64 0, 1073741824) %746) #44
-  %791 = icmp eq i32 %790, 0
-  br i1 %791, label %792, label %.critedge2783
+.critedge2782:                                    ; preds = %776
+  %786 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.809, i64 noundef range(i64 0, 1073741824) %742) #44
+  %787 = icmp eq i32 %786, 0
+  br i1 %787, label %788, label %.critedge2783
 
-792:                                              ; preds = %.critedge2782
+788:                                              ; preds = %.critedge2782
   %.not2736 = icmp eq i32 %.02122.lcssa.ph, 1
-  br i1 %.not2736, label %.thread3253, label %793
+  br i1 %.not2736, label %.thread3253, label %789
 
-793:                                              ; preds = %792
-  %794 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %795 = load ptr, ptr %794, align 8, !tbaa !29
-  %796 = icmp eq ptr %795, null
-  %spec.store.select.i2898 = select i1 %796, ptr @.str.44, ptr %795
-  %797 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i2898, ptr noundef nonnull dereferenceable(5) @.str.810) #44
-  %798 = icmp eq i32 %797, 0
-  br i1 %798, label %.thread3256, label %799
+789:                                              ; preds = %788
+  %790 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %791 = load ptr, ptr %790, align 8, !tbaa !29
+  %792 = icmp eq ptr %791, null
+  %spec.store.select.i2898 = select i1 %792, ptr @.str.44, ptr %791
+  %793 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i2898, ptr noundef nonnull dereferenceable(5) @.str.810) #44
+  %794 = icmp eq i32 %793, 0
+  br i1 %794, label %.thread3256, label %795
 
-799:                                              ; preds = %793
-  %800 = tail call fastcc i32 @booleanValue(ptr noundef %795)
-  switch i32 %800, label %test_breakpoint.exit [
+795:                                              ; preds = %789
+  %796 = tail call fastcc i32 @booleanValue(ptr noundef %791)
+  switch i32 %796, label %test_breakpoint.exit [
     i32 1, label %.thread3253
-    i32 0, label %806
+    i32 0, label %802
     i32 99, label %.thread3256
   ]
 
-.thread3253:                                      ; preds = %792, %799
-  %801 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %802 = load i32, ptr %801, align 4, !tbaa !442
-  %.not2737 = icmp eq i32 %802, 9
-  br i1 %.not2737, label %test_breakpoint.exit, label %803
+.thread3253:                                      ; preds = %788, %795
+  %797 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %798 = load i32, ptr %797, align 4, !tbaa !442
+  %.not2737 = icmp eq i32 %798, 9
+  br i1 %.not2737, label %test_breakpoint.exit, label %799
 
-803:                                              ; preds = %.thread3253
-  %804 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store i32 %802, ptr %804, align 8, !tbaa !451
-  store i32 9, ptr %801, align 4, !tbaa !442
-  %805 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 0, ptr %805, align 8, !tbaa !452
+799:                                              ; preds = %.thread3253
+  %800 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  store i32 %798, ptr %800, align 8, !tbaa !451
+  store i32 9, ptr %797, align 4, !tbaa !442
+  %801 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 0, ptr %801, align 8, !tbaa !452
   br label %test_breakpoint.exit
 
-806:                                              ; preds = %799
-  %807 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %808 = load i32, ptr %807, align 4, !tbaa !442
-  %809 = icmp eq i32 %808, 9
-  br i1 %809, label %810, label %813
+802:                                              ; preds = %795
+  %803 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %804 = load i32, ptr %803, align 4, !tbaa !442
+  %805 = icmp eq i32 %804, 9
+  br i1 %805, label %806, label %809
 
-810:                                              ; preds = %806
-  %811 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %812 = load i32, ptr %811, align 8, !tbaa !451
-  store i32 %812, ptr %807, align 4, !tbaa !442
-  br label %813
+806:                                              ; preds = %802
+  %807 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %808 = load i32, ptr %807, align 8, !tbaa !451
+  store i32 %808, ptr %803, align 4, !tbaa !442
+  br label %809
 
-813:                                              ; preds = %810, %806
-  %814 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 0, ptr %814, align 8, !tbaa !452
+809:                                              ; preds = %806, %802
+  %810 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 0, ptr %810, align 8, !tbaa !452
   br label %test_breakpoint.exit
 
-.thread3256:                                      ; preds = %793, %799
-  %815 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %816 = load i32, ptr %815, align 4, !tbaa !442
-  %817 = icmp eq i32 %816, 9
-  br i1 %817, label %818, label %821
+.thread3256:                                      ; preds = %789, %795
+  %811 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %812 = load i32, ptr %811, align 4, !tbaa !442
+  %813 = icmp eq i32 %812, 9
+  br i1 %813, label %814, label %817
 
-818:                                              ; preds = %.thread3256
-  %819 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %820 = load i32, ptr %819, align 8, !tbaa !451
-  store i32 %820, ptr %815, align 4, !tbaa !442
-  br label %821
+814:                                              ; preds = %.thread3256
+  %815 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %816 = load i32, ptr %815, align 8, !tbaa !451
+  store i32 %816, ptr %811, align 4, !tbaa !442
+  br label %817
 
-821:                                              ; preds = %818, %.thread3256
-  %822 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 1, ptr %822, align 8, !tbaa !452
+817:                                              ; preds = %814, %.thread3256
+  %818 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 1, ptr %818, align 8, !tbaa !452
   br label %test_breakpoint.exit
 
 .critedge2783:                                    ; preds = %.critedge2782
-  %823 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.267, i64 noundef range(i64 0, 1073741824) %746) #44
-  %824 = icmp eq i32 %823, 0
-  br i1 %824, label %825, label %.thread4592
+  %819 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.267, i64 noundef range(i64 0, 1073741824) %742) #44
+  %820 = icmp eq i32 %819, 0
+  br i1 %820, label %821, label %.thread4592
 
-825:                                              ; preds = %.critedge2783
-  %826 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %827 = load i8, ptr %826, align 1, !tbaa !472
-  %.not2735 = icmp eq i8 %827, 0
-  br i1 %.not2735, label %831, label %828
+821:                                              ; preds = %.critedge2783
+  %822 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %823 = load i8, ptr %822, align 1, !tbaa !472
+  %.not2735 = icmp eq i8 %823, 0
+  br i1 %.not2735, label %827, label %824
 
-828:                                              ; preds = %825
-  %829 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %830 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %829, ptr noundef nonnull @.str.811, ptr noundef nonnull %128) #46
+824:                                              ; preds = %821
+  %825 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %826 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %825, ptr noundef nonnull @.str.811, ptr noundef nonnull %128) #46
   br label %test_breakpoint.exit
 
-831:                                              ; preds = %825
+827:                                              ; preds = %821
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   call fastcc void @expertDotCommand(ptr noundef %1, ptr noundef %4, i32 noundef %.02122.lcssa.ph)
   br label %test_breakpoint.exit
 
-.critedge2784:                                    ; preds = %744
+.critedge2784:                                    ; preds = %740
   switch i8 %131, label %.critedge2801 [
-    i8 102, label %832
-    i8 104, label %1029
-    i8 105, label %1062
+    i8 102, label %828
+    i8 104, label %1025
+    i8 105, label %1058
   ]
 
-832:                                              ; preds = %.critedge2784
-  %833 = and i64 %strlen.i, 1073741823
-  %834 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.812, i64 noundef range(i64 0, 1073741824) %833) #44
-  %835 = icmp eq i32 %834, 0
-  br i1 %835, label %836, label %985
+828:                                              ; preds = %.critedge2784
+  %829 = and i64 %strlen.i, 1073741823
+  %830 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.812, i64 noundef range(i64 0, 1073741824) %829) #44
+  %831 = icmp eq i32 %830, 0
+  br i1 %831, label %832, label %981
 
-836:                                              ; preds = %832
+832:                                              ; preds = %828
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #43
   store i64 0, ptr %8, align 8, !tbaa !23
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   %.not2728 = icmp eq i32 %.02122.lcssa.ph, 1
-  %837 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %838 = load ptr, ptr %837, align 8
-  %839 = select i1 %.not2728, ptr @.str.827, ptr %838
-  %840 = load i8, ptr %839, align 1, !tbaa !25
-  %841 = icmp eq i8 %840, 45
-  br i1 %841, label %842, label %.thread3258
+  %833 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %834 = load ptr, ptr %833, align 8
+  %835 = select i1 %.not2728, ptr @.str.827, ptr %834
+  %836 = load i8, ptr %835, align 1, !tbaa !25
+  %837 = icmp eq i8 %836, 45
+  br i1 %837, label %838, label %.thread3258
 
-842:                                              ; preds = %836
-  %843 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %839, ptr noundef nonnull dereferenceable(9) @.str.828) #44
-  %844 = icmp eq i32 %843, 0
-  br i1 %844, label %849, label %845
+838:                                              ; preds = %832
+  %839 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %835, ptr noundef nonnull dereferenceable(9) @.str.828) #44
+  %840 = icmp eq i32 %839, 0
+  br i1 %840, label %845, label %841
 
-845:                                              ; preds = %842
-  %846 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %839, ptr noundef nonnull dereferenceable(8) @.str.829) #44
-  %847 = icmp eq i32 %846, 0
-  %848 = icmp samesign ugt i32 %.02122.lcssa.ph, 3
-  %or.cond54 = select i1 %847, i1 %848, i1 false
-  br i1 %or.cond54, label %850, label %.thread4574
+841:                                              ; preds = %838
+  %842 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %835, ptr noundef nonnull dereferenceable(8) @.str.829) #44
+  %843 = icmp eq i32 %842, 0
+  %844 = icmp samesign ugt i32 %.02122.lcssa.ph, 3
+  %or.cond54 = select i1 %843, i1 %844, i1 false
+  br i1 %or.cond54, label %846, label %.thread4574
 
-849:                                              ; preds = %842
+845:                                              ; preds = %838
   %.old53 = icmp samesign ugt i32 %.02122.lcssa.ph, 3
-  br i1 %.old53, label %850, label %.thread4574
+  br i1 %.old53, label %846, label %.thread4574
 
-850:                                              ; preds = %849, %845
-  %851 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %852 = load ptr, ptr %851, align 16, !tbaa !29
+846:                                              ; preds = %845, %841
+  %847 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %848 = load ptr, ptr %847, align 16, !tbaa !29
   %scevgep4357 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %853 = shl i64 %.02122.lcssa.ph.in, 3
-  %854 = add i64 %853, 34359738344
-  %855 = and i64 %854, 34359738360
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %837, ptr nonnull align 8 %scevgep4357, i64 %855, i1 false), !tbaa !29
-  %.pre4524 = load ptr, ptr %837, align 8, !tbaa !29
-  %856 = add nsw i32 %.02122.lcssa.ph, -2
+  %849 = shl i64 %.02122.lcssa.ph.in, 3
+  %850 = add i64 %849, 34359738344
+  %851 = and i64 %850, 34359738360
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %833, ptr nonnull align 8 %scevgep4357, i64 %851, i1 false), !tbaa !29
+  %.pre4524 = load ptr, ptr %833, align 8, !tbaa !29
+  %852 = add nsw i32 %.02122.lcssa.ph, -2
   %.pr.pre = load i8, ptr %.pre4524, align 1, !tbaa !25
-  %857 = icmp eq i8 %.pr.pre, 45
-  br i1 %857, label %.thread4574, label %.thread3258
+  %853 = icmp eq i8 %.pr.pre, 45
+  br i1 %853, label %.thread4574, label %.thread3258
 
-.thread4574:                                      ; preds = %849, %845, %850
-  %.22124.ph4581 = phi i32 [ %856, %850 ], [ %.02122.lcssa.ph, %845 ], [ %.02122.lcssa.ph, %849 ]
-  %.02322.ph4580 = phi ptr [ %.pre4524, %850 ], [ %839, %845 ], [ %839, %849 ]
-  %.02324.ph4579 = phi ptr [ %852, %850 ], [ null, %845 ], [ null, %849 ]
-  %858 = getelementptr inbounds nuw i8, ptr %.02322.ph4580, i64 1
-  %859 = load i8, ptr %858, align 1, !tbaa !25
-  switch i8 %859, label %.fold.split [
+.thread4574:                                      ; preds = %845, %841, %846
+  %.22124.ph4581 = phi i32 [ %852, %846 ], [ %.02122.lcssa.ph, %841 ], [ %.02122.lcssa.ph, %845 ]
+  %.02322.ph4580 = phi ptr [ %.pre4524, %846 ], [ %835, %841 ], [ %835, %845 ]
+  %.02324.ph4579 = phi ptr [ %848, %846 ], [ null, %841 ], [ null, %845 ]
+  %854 = getelementptr inbounds nuw i8, ptr %.02322.ph4580, i64 1
+  %855 = load i8, ptr %854, align 1, !tbaa !25
+  switch i8 %855, label %.fold.split [
     i8 0, label %.thread3258
-    i8 45, label %860
+    i8 45, label %856
   ]
 
-860:                                              ; preds = %.thread4574
-  %861 = getelementptr inbounds nuw i8, ptr %.02322.ph4580, i64 2
-  %862 = load i8, ptr %861, align 1, !tbaa !25
-  %.not2730 = icmp eq i8 %862, 0
-  %spec.select2785 = select i1 %.not2730, ptr %858, ptr %861
+856:                                              ; preds = %.thread4574
+  %857 = getelementptr inbounds nuw i8, ptr %.02322.ph4580, i64 2
+  %858 = load i8, ptr %857, align 1, !tbaa !25
+  %.not2730 = icmp eq i8 %858, 0
+  %spec.select2785 = select i1 %.not2730, ptr %854, ptr %857
   br label %.thread3258
 
 .fold.split:                                      ; preds = %.thread4574
   br label %.thread3258
 
-.thread3258:                                      ; preds = %836, %860, %.thread4574, %.fold.split, %850
-  %.221243263 = phi i32 [ %.22124.ph4581, %.thread4574 ], [ %856, %850 ], [ %.22124.ph4581, %.fold.split ], [ %.22124.ph4581, %860 ], [ %.02122.lcssa.ph, %836 ]
-  %.023243262 = phi ptr [ %.02324.ph4579, %.thread4574 ], [ %852, %850 ], [ %.02324.ph4579, %.fold.split ], [ %.02324.ph4579, %860 ], [ null, %836 ]
-  %.12323 = phi ptr [ %.02322.ph4580, %.thread4574 ], [ %.pre4524, %850 ], [ %858, %.fold.split ], [ %spec.select2785, %860 ], [ %839, %836 ]
-  %863 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.12323, ptr noundef nonnull dereferenceable(5) @.str.827) #44
-  %864 = icmp eq i32 %863, 0
-  br i1 %864, label %865, label %876
+.thread3258:                                      ; preds = %832, %856, %.thread4574, %.fold.split, %846
+  %.221243263 = phi i32 [ %.22124.ph4581, %.thread4574 ], [ %852, %846 ], [ %.22124.ph4581, %.fold.split ], [ %.22124.ph4581, %856 ], [ %.02122.lcssa.ph, %832 ]
+  %.023243262 = phi ptr [ %.02324.ph4579, %.thread4574 ], [ %848, %846 ], [ %.02324.ph4579, %.fold.split ], [ %.02324.ph4579, %856 ], [ null, %832 ]
+  %.12323 = phi ptr [ %.02322.ph4580, %.thread4574 ], [ %.pre4524, %846 ], [ %854, %.fold.split ], [ %spec.select2785, %856 ], [ %835, %832 ]
+  %859 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.12323, ptr noundef nonnull dereferenceable(5) @.str.827) #44
+  %860 = icmp eq i32 %859, 0
+  br i1 %860, label %861, label %872
 
-865:                                              ; preds = %.thread3258
-  %866 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %867 = load ptr, ptr %866, align 8, !tbaa !462
-  %868 = tail call i64 @fwrite(ptr nonnull @.str.830, i64 25, i64 1, ptr %867)
-  br label %869
+861:                                              ; preds = %.thread3258
+  %862 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %863 = load ptr, ptr %862, align 8, !tbaa !462
+  %864 = tail call i64 @fwrite(ptr nonnull @.str.830, i64 25, i64 1, ptr %863)
+  br label %865
 
-869:                                              ; preds = %865, %869
-  %indvars.iv4367 = phi i64 [ 0, %865 ], [ %indvars.iv.next4368, %869 ]
-  %870 = load ptr, ptr %866, align 8, !tbaa !462
-  %871 = getelementptr inbounds nuw [9 x %struct.anon.4], ptr @do_meta_command.aCtrl, i64 0, i64 %indvars.iv4367
-  %872 = load ptr, ptr %871, align 8, !tbaa !513
-  %873 = getelementptr inbounds nuw i8, ptr %871, i64 16
-  %874 = load ptr, ptr %873, align 8, !tbaa !515
-  %875 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %870, ptr noundef nonnull @.str.831, ptr noundef %872, ptr noundef %874) #43
+865:                                              ; preds = %861, %865
+  %indvars.iv4367 = phi i64 [ 0, %861 ], [ %indvars.iv.next4368, %865 ]
+  %866 = load ptr, ptr %862, align 8, !tbaa !462
+  %867 = getelementptr inbounds nuw [9 x %struct.anon.4], ptr @do_meta_command.aCtrl, i64 0, i64 %indvars.iv4367
+  %868 = load ptr, ptr %867, align 8, !tbaa !513
+  %869 = getelementptr inbounds nuw i8, ptr %867, i64 16
+  %870 = load ptr, ptr %869, align 8, !tbaa !515
+  %871 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %866, ptr noundef nonnull @.str.831, ptr noundef %868, ptr noundef %870) #43
   %indvars.iv.next4368 = add nuw nsw i64 %indvars.iv4367, 1
   %exitcond4371.not = icmp eq i64 %indvars.iv.next4368, 9
-  br i1 %exitcond4371.not, label %.loopexit3766, label %869, !llvm.loop !516
+  br i1 %exitcond4371.not, label %.loopexit3766, label %865, !llvm.loop !516
 
-876:                                              ; preds = %.thread3258
+872:                                              ; preds = %.thread3258
   %strlen.i2904 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %.12323)
-  %877 = and i64 %strlen.i2904, 1073741823
-  br label %878
+  %873 = and i64 %strlen.i2904, 1073741823
+  br label %874
 
-878:                                              ; preds = %876, %893
-  %indvars.iv4362 = phi i64 [ 0, %876 ], [ %indvars.iv.next4363, %893 ]
-  %.022844017 = phi i32 [ -1, %876 ], [ %.12285, %893 ]
-  %.022864016 = phi i32 [ -1, %876 ], [ %.12287, %893 ]
-  %879 = getelementptr inbounds nuw [9 x %struct.anon.4], ptr @do_meta_command.aCtrl, i64 0, i64 %indvars.iv4362
-  %880 = load ptr, ptr %879, align 8, !tbaa !513
-  %881 = icmp eq ptr %880, null
-  %spec.store.select1.i2906 = select i1 %881, ptr @.str.44, ptr %880
-  %882 = tail call i32 @strncmp(ptr noundef nonnull %.12323, ptr noundef nonnull %spec.store.select1.i2906, i64 noundef range(i64 0, 1073741824) %877) #44
-  %883 = icmp eq i32 %882, 0
-  br i1 %883, label %884, label %893
+874:                                              ; preds = %872, %889
+  %indvars.iv4362 = phi i64 [ 0, %872 ], [ %indvars.iv.next4363, %889 ]
+  %.022844017 = phi i32 [ -1, %872 ], [ %.12285, %889 ]
+  %.022864016 = phi i32 [ -1, %872 ], [ %.12287, %889 ]
+  %875 = getelementptr inbounds nuw [9 x %struct.anon.4], ptr @do_meta_command.aCtrl, i64 0, i64 %indvars.iv4362
+  %876 = load ptr, ptr %875, align 8, !tbaa !513
+  %877 = icmp eq ptr %876, null
+  %spec.store.select1.i2906 = select i1 %877, ptr @.str.44, ptr %876
+  %878 = tail call i32 @strncmp(ptr noundef nonnull %.12323, ptr noundef nonnull %spec.store.select1.i2906, i64 noundef range(i64 0, 1073741824) %873) #44
+  %879 = icmp eq i32 %878, 0
+  br i1 %879, label %880, label %889
 
-884:                                              ; preds = %878
-  %885 = icmp slt i32 %.022844017, 0
-  br i1 %885, label %886, label %890
+880:                                              ; preds = %874
+  %881 = icmp slt i32 %.022844017, 0
+  br i1 %881, label %882, label %886
 
-886:                                              ; preds = %884
-  %887 = getelementptr inbounds nuw i8, ptr %879, i64 8
-  %888 = load i32, ptr %887, align 8, !tbaa !517
-  %889 = trunc nuw nsw i64 %indvars.iv4362 to i32
-  br label %893
+882:                                              ; preds = %880
+  %883 = getelementptr inbounds nuw i8, ptr %875, i64 8
+  %884 = load i32, ptr %883, align 8, !tbaa !517
+  %885 = trunc nuw nsw i64 %indvars.iv4362 to i32
+  br label %889
 
-890:                                              ; preds = %884
-  %891 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %892 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %891, ptr noundef nonnull @.str.832, ptr noundef nonnull %.12323) #46
+886:                                              ; preds = %880
+  %887 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %888 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %887, ptr noundef nonnull @.str.832, ptr noundef nonnull %.12323) #46
   br label %.loopexit3766
 
-893:                                              ; preds = %878, %886
-  %.12287 = phi i32 [ %889, %886 ], [ %.022864016, %878 ]
-  %.12285 = phi i32 [ %888, %886 ], [ %.022844017, %878 ]
+889:                                              ; preds = %874, %882
+  %.12287 = phi i32 [ %885, %882 ], [ %.022864016, %874 ]
+  %.12285 = phi i32 [ %884, %882 ], [ %.022844017, %874 ]
   %indvars.iv.next4363 = add nuw nsw i64 %indvars.iv4362, 1
   %exitcond4366.not = icmp eq i64 %indvars.iv.next4363, 9
-  br i1 %exitcond4366.not, label %894, label %878, !llvm.loop !518
+  br i1 %exitcond4366.not, label %890, label %874, !llvm.loop !518
 
-894:                                              ; preds = %893
-  %895 = icmp slt i32 %.12285, 0
-  br i1 %895, label %896, label %899
+890:                                              ; preds = %889
+  %891 = icmp slt i32 %.12285, 0
+  br i1 %891, label %892, label %895
 
-896:                                              ; preds = %894
-  %897 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %898 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %897, ptr noundef nonnull @.str.833, ptr noundef nonnull %.12323) #46
-  br label %968
+892:                                              ; preds = %890
+  %893 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %894 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %893, ptr noundef nonnull @.str.833, ptr noundef nonnull %.12323) #46
+  br label %964
 
-899:                                              ; preds = %894
-  switch i32 %.12285, label %968 [
-    i32 36, label %900
-    i32 34, label %911
-    i32 6, label %911
-    i32 10, label %920
-    i32 13, label %920
-    i32 35, label %935
-    i32 20, label %935
-    i32 16, label %942
-    i32 38, label %953
+895:                                              ; preds = %890
+  switch i32 %.12285, label %964 [
+    i32 36, label %896
+    i32 34, label %907
+    i32 6, label %907
+    i32 10, label %916
+    i32 13, label %916
+    i32 35, label %931
+    i32 20, label %931
+    i32 16, label %938
+    i32 38, label %949
   ]
 
-900:                                              ; preds = %899
-  %901 = add nsw i32 %.221243263, -4
-  %or.cond57 = icmp ult i32 %901, -2
-  br i1 %or.cond57, label %968, label %902
+896:                                              ; preds = %895
+  %897 = add nsw i32 %.221243263, -4
+  %or.cond57 = icmp ult i32 %897, -2
+  br i1 %or.cond57, label %964, label %898
 
-902:                                              ; preds = %900
-  %903 = icmp eq i32 %.221243263, 3
-  br i1 %903, label %904, label %.thread3265.thread
+898:                                              ; preds = %896
+  %899 = icmp eq i32 %.221243263, 3
+  br i1 %899, label %900, label %.thread3265.thread
 
-904:                                              ; preds = %902
-  %905 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %906 = load ptr, ptr %905, align 16, !tbaa !29
-  %907 = tail call fastcc i64 @integerValue(ptr noundef %906)
+900:                                              ; preds = %898
+  %901 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %902 = load ptr, ptr %901, align 16, !tbaa !29
+  %903 = tail call fastcc i64 @integerValue(ptr noundef %902)
   br label %.thread3265.thread
 
-.thread3265.thread:                               ; preds = %904, %902
-  %908 = phi i64 [ %907, %904 ], [ -1, %902 ]
-  store i64 %908, ptr %8, align 8, !tbaa !23
-  %909 = load ptr, ptr %1, align 8, !tbaa !477
-  %910 = call i32 @sqlite3_file_control(ptr noundef %909, ptr noundef %.023243262, i32 noundef 36, ptr noundef nonnull %8) #43
-  br label %979
+.thread3265.thread:                               ; preds = %900, %898
+  %904 = phi i64 [ %903, %900 ], [ -1, %898 ]
+  store i64 %904, ptr %8, align 8, !tbaa !23
+  %905 = load ptr, ptr %1, align 8, !tbaa !477
+  %906 = call i32 @sqlite3_file_control(ptr noundef %905, ptr noundef %.023243262, i32 noundef 36, ptr noundef nonnull %8) #43
+  br label %975
 
-911:                                              ; preds = %899, %899
+907:                                              ; preds = %895, %895
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #43
   %.not2734 = icmp eq i32 %.221243263, 3
-  br i1 %.not2734, label %912, label %919
+  br i1 %.not2734, label %908, label %915
 
-912:                                              ; preds = %911
-  %913 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %914 = load ptr, ptr %913, align 16, !tbaa !29
-  %915 = tail call fastcc i64 @integerValue(ptr noundef %914)
-  %916 = trunc i64 %915 to i32
-  store i32 %916, ptr %9, align 4, !tbaa !36
-  %917 = load ptr, ptr %1, align 8, !tbaa !477
-  %918 = call i32 @sqlite3_file_control(ptr noundef %917, ptr noundef %.023243262, i32 noundef %.12285, ptr noundef nonnull %9) #43
-  br label %919
+908:                                              ; preds = %907
+  %909 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %910 = load ptr, ptr %909, align 16, !tbaa !29
+  %911 = tail call fastcc i64 @integerValue(ptr noundef %910)
+  %912 = trunc i64 %911 to i32
+  store i32 %912, ptr %9, align 4, !tbaa !36
+  %913 = load ptr, ptr %1, align 8, !tbaa !477
+  %914 = call i32 @sqlite3_file_control(ptr noundef %913, ptr noundef %.023243262, i32 noundef %.12285, ptr noundef nonnull %9) #43
+  br label %915
 
-919:                                              ; preds = %911, %912
-  %.12289 = phi i32 [ 2, %912 ], [ 0, %911 ]
+915:                                              ; preds = %907, %908
+  %.12289 = phi i32 [ 2, %908 ], [ 0, %907 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #43
-  br label %968
+  br label %964
 
-920:                                              ; preds = %899, %899
+916:                                              ; preds = %895, %895
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #43
-  %921 = add nsw i32 %.221243263, -4
-  %or.cond60 = icmp ult i32 %921, -2
-  br i1 %or.cond60, label %934, label %922
+  %917 = add nsw i32 %.221243263, -4
+  %or.cond60 = icmp ult i32 %917, -2
+  br i1 %or.cond60, label %930, label %918
 
-922:                                              ; preds = %920
-  %923 = icmp eq i32 %.221243263, 3
-  br i1 %923, label %924, label %928
+918:                                              ; preds = %916
+  %919 = icmp eq i32 %.221243263, 3
+  br i1 %919, label %920, label %924
 
-924:                                              ; preds = %922
-  %925 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %926 = load ptr, ptr %925, align 16, !tbaa !29
-  %927 = tail call fastcc i32 @booleanValue(ptr noundef %926)
-  br label %928
+920:                                              ; preds = %918
+  %921 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %922 = load ptr, ptr %921, align 16, !tbaa !29
+  %923 = tail call fastcc i32 @booleanValue(ptr noundef %922)
+  br label %924
 
-928:                                              ; preds = %922, %924
-  %929 = phi i32 [ %927, %924 ], [ -1, %922 ]
-  store i32 %929, ptr %10, align 4, !tbaa !36
-  %930 = load ptr, ptr %1, align 8, !tbaa !477
-  %931 = call i32 @sqlite3_file_control(ptr noundef %930, ptr noundef %.023243262, i32 noundef %.12285, ptr noundef nonnull %10) #43
-  %932 = load i32, ptr %10, align 4, !tbaa !36
-  %933 = sext i32 %932 to i64
-  store i64 %933, ptr %8, align 8, !tbaa !23
-  br label %934
+924:                                              ; preds = %918, %920
+  %925 = phi i32 [ %923, %920 ], [ -1, %918 ]
+  store i32 %925, ptr %10, align 4, !tbaa !36
+  %926 = load ptr, ptr %1, align 8, !tbaa !477
+  %927 = call i32 @sqlite3_file_control(ptr noundef %926, ptr noundef %.023243262, i32 noundef %.12285, ptr noundef nonnull %10) #43
+  %928 = load i32, ptr %10, align 4, !tbaa !36
+  %929 = sext i32 %928 to i64
+  store i64 %929, ptr %8, align 8, !tbaa !23
+  br label %930
 
-934:                                              ; preds = %920, %928
-  %.22290 = phi i32 [ 1, %928 ], [ 0, %920 ]
+930:                                              ; preds = %916, %924
+  %.22290 = phi i32 [ 1, %924 ], [ 0, %916 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #43
-  br label %968
+  br label %964
 
-935:                                              ; preds = %899, %899
+931:                                              ; preds = %895, %895
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #43
   %.not2733 = icmp eq i32 %.221243263, 2
-  br i1 %.not2733, label %936, label %941
+  br i1 %.not2733, label %932, label %937
 
-936:                                              ; preds = %935
-  %937 = load ptr, ptr %1, align 8, !tbaa !477
-  %938 = call i32 @sqlite3_file_control(ptr noundef %937, ptr noundef %.023243262, i32 noundef %.12285, ptr noundef nonnull %11) #43
-  %939 = load i32, ptr %11, align 4, !tbaa !36
-  %940 = sext i32 %939 to i64
-  store i64 %940, ptr %8, align 8, !tbaa !23
-  br label %941
+932:                                              ; preds = %931
+  %933 = load ptr, ptr %1, align 8, !tbaa !477
+  %934 = call i32 @sqlite3_file_control(ptr noundef %933, ptr noundef %.023243262, i32 noundef %.12285, ptr noundef nonnull %11) #43
+  %935 = load i32, ptr %11, align 4, !tbaa !36
+  %936 = sext i32 %935 to i64
+  store i64 %936, ptr %8, align 8, !tbaa !23
+  br label %937
 
-941:                                              ; preds = %935, %936
-  %.32291 = phi i32 [ 1, %936 ], [ 0, %935 ]
+937:                                              ; preds = %931, %932
+  %.32291 = phi i32 [ 1, %932 ], [ 0, %931 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #43
-  br label %968
+  br label %964
 
-942:                                              ; preds = %899
+938:                                              ; preds = %895
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #43
   store ptr null, ptr %12, align 8, !tbaa !29
   %.not2731 = icmp eq i32 %.221243263, 2
-  br i1 %.not2731, label %943, label %952
+  br i1 %.not2731, label %939, label %948
 
-943:                                              ; preds = %942
-  %944 = load ptr, ptr %1, align 8, !tbaa !477
-  %945 = call i32 @sqlite3_file_control(ptr noundef %944, ptr noundef %.023243262, i32 noundef 16, ptr noundef nonnull %12) #43
-  %946 = load ptr, ptr %12, align 8, !tbaa !29
-  %.not2732 = icmp eq ptr %946, null
-  br i1 %.not2732, label %952, label %947
+939:                                              ; preds = %938
+  %940 = load ptr, ptr %1, align 8, !tbaa !477
+  %941 = call i32 @sqlite3_file_control(ptr noundef %940, ptr noundef %.023243262, i32 noundef 16, ptr noundef nonnull %12) #43
+  %942 = load ptr, ptr %12, align 8, !tbaa !29
+  %.not2732 = icmp eq ptr %942, null
+  br i1 %.not2732, label %948, label %943
 
-947:                                              ; preds = %943
-  %948 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %949 = load ptr, ptr %948, align 8, !tbaa !462
-  %950 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %949, ptr noundef nonnull @.str.310, ptr noundef nonnull %946) #43
-  %951 = load ptr, ptr %12, align 8, !tbaa !29
-  call void @sqlite3_free(ptr noundef %951) #43
-  br label %952
+943:                                              ; preds = %939
+  %944 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %945 = load ptr, ptr %944, align 8, !tbaa !462
+  %946 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %945, ptr noundef nonnull @.str.310, ptr noundef nonnull %942) #43
+  %947 = load ptr, ptr %12, align 8, !tbaa !29
+  call void @sqlite3_free(ptr noundef %947) #43
+  br label %948
 
-952:                                              ; preds = %943, %947, %942
-  %.42292 = phi i32 [ 0, %942 ], [ 2, %947 ], [ 2, %943 ]
+948:                                              ; preds = %939, %943, %938
+  %.42292 = phi i32 [ 0, %938 ], [ 2, %943 ], [ 2, %939 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #43
-  br label %968
+  br label %964
 
-953:                                              ; preds = %899
+949:                                              ; preds = %895
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #43
-  %954 = icmp sgt i32 %.221243263, 2
-  br i1 %954, label %955, label %.thread3265.thread3639
+  %950 = icmp sgt i32 %.221243263, 2
+  br i1 %950, label %951, label %.thread3265.thread3639
 
-955:                                              ; preds = %953
-  %956 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %957 = load ptr, ptr %956, align 16, !tbaa !29
-  %958 = tail call i64 @strtol(ptr noundef nonnull captures(none) %957, ptr noundef null, i32 noundef 10) #43
-  %959 = trunc i64 %958 to i32
-  store i32 %959, ptr %13, align 4, !tbaa !36
-  %960 = load ptr, ptr %1, align 8, !tbaa !477
-  %961 = call i32 @sqlite3_file_control(ptr noundef %960, ptr noundef %.023243262, i32 noundef 38, ptr noundef nonnull %13) #43
+951:                                              ; preds = %949
+  %952 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %953 = load ptr, ptr %952, align 16, !tbaa !29
+  %954 = tail call i64 @strtol(ptr noundef nonnull captures(none) %953, ptr noundef null, i32 noundef 10) #43
+  %955 = trunc i64 %954 to i32
+  store i32 %955, ptr %13, align 4, !tbaa !36
+  %956 = load ptr, ptr %1, align 8, !tbaa !477
+  %957 = call i32 @sqlite3_file_control(ptr noundef %956, ptr noundef %.023243262, i32 noundef 38, ptr noundef nonnull %13) #43
   br label %.thread3265.thread3639
 
-.thread3265.thread3639:                           ; preds = %953, %955
+.thread3265.thread3639:                           ; preds = %949, %951
   store i32 -1, ptr %13, align 4, !tbaa !36
-  %962 = load ptr, ptr %1, align 8, !tbaa !477
-  %963 = call i32 @sqlite3_file_control(ptr noundef %962, ptr noundef %.023243262, i32 noundef 38, ptr noundef nonnull %13) #43
-  %964 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %965 = load ptr, ptr %964, align 8, !tbaa !462
-  %966 = load i32, ptr %13, align 4, !tbaa !36
-  %967 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %965, ptr noundef nonnull @.str.834, i32 noundef %966) #43
+  %958 = load ptr, ptr %1, align 8, !tbaa !477
+  %959 = call i32 @sqlite3_file_control(ptr noundef %958, ptr noundef %.023243262, i32 noundef 38, ptr noundef nonnull %13) #43
+  %960 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %961 = load ptr, ptr %960, align 8, !tbaa !462
+  %962 = load i32, ptr %13, align 4, !tbaa !36
+  %963 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %961, ptr noundef nonnull @.str.834, i32 noundef %962) #43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #43
   br label %.loopexit3766
 
-968:                                              ; preds = %899, %919, %934, %941, %952, %900, %896
-  %.02288 = phi i32 [ 0, %896 ], [ 0, %899 ], [ %.42292, %952 ], [ %.32291, %941 ], [ %.22290, %934 ], [ %.12289, %919 ], [ 0, %900 ]
-  %969 = icmp eq i32 %.02288, 0
-  %970 = icmp sgt i32 %.12287, -1
-  %or.cond63 = select i1 %969, i1 %970, i1 false
-  br i1 %or.cond63, label %971, label %.thread3265
+964:                                              ; preds = %895, %915, %930, %937, %948, %896, %892
+  %.02288 = phi i32 [ 0, %892 ], [ 0, %895 ], [ %.42292, %948 ], [ %.32291, %937 ], [ %.22290, %930 ], [ %.12289, %915 ], [ 0, %896 ]
+  %965 = icmp eq i32 %.02288, 0
+  %966 = icmp sgt i32 %.12287, -1
+  %or.cond63 = select i1 %965, i1 %966, i1 false
+  br i1 %or.cond63, label %967, label %.thread3265
 
-971:                                              ; preds = %968
-  %972 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %973 = load ptr, ptr %972, align 8, !tbaa !462
-  %974 = zext nneg i32 %.12287 to i64
-  %975 = getelementptr inbounds nuw [9 x %struct.anon.4], ptr @do_meta_command.aCtrl, i64 0, i64 %974, i32 2
-  %976 = load ptr, ptr %975, align 8, !tbaa !515
-  %977 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %973, ptr noundef nonnull @.str.835, ptr noundef nonnull %.12323, ptr noundef %976) #43
+967:                                              ; preds = %964
+  %968 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %969 = load ptr, ptr %968, align 8, !tbaa !462
+  %970 = zext nneg i32 %.12287 to i64
+  %971 = getelementptr inbounds nuw [9 x %struct.anon.4], ptr @do_meta_command.aCtrl, i64 0, i64 %970, i32 2
+  %972 = load ptr, ptr %971, align 8, !tbaa !515
+  %973 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %969, ptr noundef nonnull @.str.835, ptr noundef nonnull %.12323, ptr noundef %972) #43
   br label %.loopexit3766
 
-.thread3265:                                      ; preds = %968
-  %978 = icmp eq i32 %.02288, 1
-  br i1 %978, label %979, label %.loopexit3766
+.thread3265:                                      ; preds = %964
+  %974 = icmp eq i32 %.02288, 1
+  br i1 %974, label %975, label %.loopexit3766
 
-979:                                              ; preds = %.thread3265.thread, %.thread3265
+975:                                              ; preds = %.thread3265.thread, %.thread3265
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %14) #43
-  %980 = load i64, ptr %8, align 8, !tbaa !23
-  %981 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 100, ptr noundef nonnull %14, ptr noundef nonnull @.str.167, i64 noundef %980) #43
-  %982 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %983 = load ptr, ptr %982, align 8, !tbaa !462
-  %984 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %983, ptr noundef nonnull @.str.310, ptr noundef nonnull %14) #43
+  %976 = load i64, ptr %8, align 8, !tbaa !23
+  %977 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 100, ptr noundef nonnull %14, ptr noundef nonnull @.str.167, i64 noundef %976) #43
+  %978 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %979 = load ptr, ptr %978, align 8, !tbaa !462
+  %980 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %979, ptr noundef nonnull @.str.310, ptr noundef nonnull %14) #43
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %14) #43
   br label %.loopexit3766
 
-.loopexit3766:                                    ; preds = %869, %.thread3265.thread3639, %971, %979, %.thread3265, %890
-  %.10 = phi i32 [ 1, %890 ], [ 1, %971 ], [ 0, %979 ], [ 0, %.thread3265 ], [ 0, %.thread3265.thread3639 ], [ 1, %869 ]
+.loopexit3766:                                    ; preds = %865, %.thread3265.thread3639, %967, %975, %.thread3265, %886
+  %.10 = phi i32 [ 1, %886 ], [ 1, %967 ], [ 0, %975 ], [ 0, %.thread3265 ], [ 0, %.thread3265.thread3639 ], [ 1, %865 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #43
   br label %test_breakpoint.exit
 
-985:                                              ; preds = %832
-  %986 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.836, i64 noundef range(i64 0, 1073741824) %833) #44
-  %987 = icmp eq i32 %986, 0
-  br i1 %987, label %988, label %.thread4592
+981:                                              ; preds = %828
+  %982 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.836, i64 noundef range(i64 0, 1073741824) %829) #44
+  %983 = icmp eq i32 %982, 0
+  br i1 %983, label %984, label %.thread4592
 
-988:                                              ; preds = %985
+984:                                              ; preds = %981
   call void @llvm.lifetime.start.p0(i64 4720, ptr nonnull %15) #43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4720) %15, ptr noundef nonnull align 8 dereferenceable(4720) %1, i64 4720, i1 false)
-  %989 = getelementptr inbounds nuw i8, ptr %15, i64 112
-  store i32 0, ptr %989, align 8, !tbaa !467
-  %990 = getelementptr inbounds nuw i8, ptr %15, i64 92
-  store i32 3, ptr %990, align 4, !tbaa !442
-  %991 = getelementptr inbounds nuw i8, ptr %15, i64 100
-  store i32 3, ptr %991, align 4, !tbaa !450
+  %985 = getelementptr inbounds nuw i8, ptr %15, i64 112
+  store i32 0, ptr %985, align 8, !tbaa !467
+  %986 = getelementptr inbounds nuw i8, ptr %15, i64 92
+  store i32 3, ptr %986, align 4, !tbaa !442
+  %987 = getelementptr inbounds nuw i8, ptr %15, i64 100
+  store i32 3, ptr %987, align 4, !tbaa !450
   switch i32 %.02122.lcssa.ph, label %.thread3272 [
-    i32 2, label %992
-    i32 1, label %1003
+    i32 2, label %988
+    i32 1, label %999
   ]
 
-992:                                              ; preds = %988
-  %993 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %994 = load ptr, ptr %993, align 8, !tbaa !29
-  %995 = load i8, ptr %994, align 1, !tbaa !25
-  %.not.i2908 = icmp eq i8 %995, 45
+988:                                              ; preds = %984
+  %989 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %990 = load ptr, ptr %989, align 8, !tbaa !29
+  %991 = load i8, ptr %990, align 1, !tbaa !25
+  %.not.i2908 = icmp eq i8 %991, 45
   br i1 %.not.i2908, label %optionMatch.exit, label %.thread3272
 
-optionMatch.exit:                                 ; preds = %992
-  %996 = getelementptr inbounds nuw i8, ptr %994, i64 1
-  %997 = load i8, ptr %996, align 1, !tbaa !25
-  %998 = icmp eq i8 %997, 45
-  %999 = getelementptr inbounds nuw i8, ptr %994, i64 2
-  %spec.select.i = select i1 %998, ptr %999, ptr %996
-  %1000 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(7) @.str.837) #44
-  %.not3651 = icmp eq i32 %1000, 0
+optionMatch.exit:                                 ; preds = %988
+  %992 = getelementptr inbounds nuw i8, ptr %990, i64 1
+  %993 = load i8, ptr %992, align 1, !tbaa !25
+  %994 = icmp eq i8 %993, 45
+  %995 = getelementptr inbounds nuw i8, ptr %990, i64 2
+  %spec.select.i = select i1 %994, ptr %995, ptr %992
+  %996 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(7) @.str.837) #44
+  %.not3651 = icmp eq i32 %996, 0
   br i1 %.not3651, label %.thread3275, label %.thread3272
 
 .thread3275:                                      ; preds = %optionMatch.exit
-  store i32 11, ptr %990, align 4, !tbaa !442
-  store i32 11, ptr %991, align 4, !tbaa !450
-  br label %1003
+  store i32 11, ptr %986, align 4, !tbaa !442
+  store i32 11, ptr %987, align 4, !tbaa !450
+  br label %999
 
-.thread3272:                                      ; preds = %988, %992, %optionMatch.exit
-  %1001 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1002 = tail call i64 @fwrite(ptr nonnull @.str.838, i64 30, i64 1, ptr %1001) #50
-  br label %1028
+.thread3272:                                      ; preds = %984, %988, %optionMatch.exit
+  %997 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %998 = tail call i64 @fwrite(ptr nonnull @.str.838, i64 30, i64 1, ptr %997) #50
+  br label %1024
 
-1003:                                             ; preds = %988, %.thread3275
+999:                                              ; preds = %984, %.thread3275
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
-  %1004 = load ptr, ptr %1, align 8, !tbaa !477
-  %1005 = call i32 @sqlite3_exec(ptr noundef %1004, ptr noundef nonnull @.str.839, ptr noundef nonnull @callback, ptr noundef nonnull %15, ptr noundef null) #43
-  %1006 = icmp eq i32 %1005, 0
-  br i1 %1006, label %1007, label %.thread3278
+  %1000 = load ptr, ptr %1, align 8, !tbaa !477
+  %1001 = call i32 @sqlite3_exec(ptr noundef %1000, ptr noundef nonnull @.str.839, ptr noundef nonnull @callback, ptr noundef nonnull %15, ptr noundef null) #43
+  %1002 = icmp eq i32 %1001, 0
+  br i1 %1002, label %1003, label %.thread3278
 
-1007:                                             ; preds = %1003
+1003:                                             ; preds = %999
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #43
-  %1008 = load ptr, ptr %1, align 8, !tbaa !477
-  %1009 = call i32 @sqlite3_prepare_v2(ptr noundef %1008, ptr noundef nonnull @.str.840, i32 noundef -1, ptr noundef nonnull %16, ptr noundef null) #43
-  %1010 = icmp eq i32 %1009, 0
-  br i1 %1010, label %1011, label %.thread3282
+  %1004 = load ptr, ptr %1, align 8, !tbaa !477
+  %1005 = call i32 @sqlite3_prepare_v2(ptr noundef %1004, ptr noundef nonnull @.str.840, i32 noundef -1, ptr noundef nonnull %16, ptr noundef null) #43
+  %1006 = icmp eq i32 %1005, 0
+  br i1 %1006, label %1007, label %.thread3282
 
-.thread3282:                                      ; preds = %1007
+.thread3282:                                      ; preds = %1003
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #43
   br label %.thread3278
 
-1011:                                             ; preds = %1007
-  %1012 = load ptr, ptr %16, align 8, !tbaa !31
-  %1013 = call i32 @sqlite3_step(ptr noundef %1012) #43
-  %.not3652 = icmp eq i32 %1013, 100
-  %1014 = load ptr, ptr %16, align 8, !tbaa !31
-  %1015 = call i32 @sqlite3_finalize(ptr noundef %1014) #43
+1007:                                             ; preds = %1003
+  %1008 = load ptr, ptr %16, align 8, !tbaa !31
+  %1009 = call i32 @sqlite3_step(ptr noundef %1008) #43
+  %.not3652 = icmp eq i32 %1009, 100
+  %1010 = load ptr, ptr %16, align 8, !tbaa !31
+  %1011 = call i32 @sqlite3_finalize(ptr noundef %1010) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #43
-  br i1 %.not3652, label %1019, label %.thread3278
+  br i1 %.not3652, label %1015, label %.thread3278
 
-.thread3278:                                      ; preds = %1003, %.thread3282, %1011
-  %.133281 = phi i32 [ 0, %1011 ], [ %1009, %.thread3282 ], [ %1005, %1003 ]
+.thread3278:                                      ; preds = %999, %.thread3282, %1007
+  %.133281 = phi i32 [ 0, %1007 ], [ %1005, %.thread3282 ], [ %1001, %999 ]
+  %1012 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %1013 = load ptr, ptr %1012, align 8, !tbaa !462
+  %1014 = call i64 @fwrite(ptr nonnull @.str.841, i64 31, i64 1, ptr %1013)
+  br label %1024
+
+1015:                                             ; preds = %1007
   %1016 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %1017 = load ptr, ptr %1016, align 8, !tbaa !462
-  %1018 = call i64 @fwrite(ptr nonnull @.str.841, i64 31, i64 1, ptr %1017)
-  br label %1028
+  %1018 = call i64 @fwrite(ptr nonnull @.str.842, i64 23, i64 1, ptr %1017)
+  store i32 5, ptr %986, align 4, !tbaa !442
+  store i32 5, ptr %987, align 4, !tbaa !450
+  %1019 = getelementptr inbounds nuw i8, ptr %15, i64 152
+  store ptr @.str.843, ptr %1019, align 8, !tbaa !476
+  %1020 = call fastcc i32 @shell_exec(ptr noundef nonnull %15, ptr noundef nonnull @.str.844, ptr noundef null)
+  store ptr @.str.845, ptr %1019, align 8, !tbaa !476
+  %1021 = call fastcc i32 @shell_exec(ptr noundef nonnull %15, ptr noundef nonnull @.str.846, ptr noundef null)
+  %1022 = load ptr, ptr %1016, align 8, !tbaa !462
+  %1023 = call i64 @fwrite(ptr nonnull @.str.842, i64 23, i64 1, ptr %1022)
+  br label %1024
 
-1019:                                             ; preds = %1011
-  %1020 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %1021 = load ptr, ptr %1020, align 8, !tbaa !462
-  %1022 = call i64 @fwrite(ptr nonnull @.str.842, i64 23, i64 1, ptr %1021)
-  store i32 5, ptr %990, align 4, !tbaa !442
-  store i32 5, ptr %991, align 4, !tbaa !450
-  %1023 = getelementptr inbounds nuw i8, ptr %15, i64 152
-  store ptr @.str.843, ptr %1023, align 8, !tbaa !476
-  %1024 = call fastcc i32 @shell_exec(ptr noundef nonnull %15, ptr noundef nonnull @.str.844, ptr noundef null)
-  store ptr @.str.845, ptr %1023, align 8, !tbaa !476
-  %1025 = call fastcc i32 @shell_exec(ptr noundef nonnull %15, ptr noundef nonnull @.str.846, ptr noundef null)
-  %1026 = load ptr, ptr %1020, align 8, !tbaa !462
-  %1027 = call i64 @fwrite(ptr nonnull @.str.842, i64 23, i64 1, ptr %1026)
-  br label %1028
-
-1028:                                             ; preds = %.thread3278, %1019, %.thread3272
-  %.12 = phi i32 [ 1, %.thread3272 ], [ 0, %1019 ], [ %.133281, %.thread3278 ]
+1024:                                             ; preds = %.thread3278, %1015, %.thread3272
+  %.12 = phi i32 [ 1, %.thread3272 ], [ 0, %1015 ], [ %.133281, %.thread3278 ]
   call void @llvm.lifetime.end.p0(i64 4720, ptr nonnull %15) #43
   br label %test_breakpoint.exit
 
-1029:                                             ; preds = %.critedge2784
-  %1030 = and i64 %strlen.i, 1073741823
-  %1031 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.847, i64 noundef range(i64 0, 1073741824) %1030) #44
-  %1032 = icmp eq i32 %1031, 0
-  br i1 %1032, label %1033, label %1046
+1025:                                             ; preds = %.critedge2784
+  %1026 = and i64 %strlen.i, 1073741823
+  %1027 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.847, i64 noundef range(i64 0, 1073741824) %1026) #44
+  %1028 = icmp eq i32 %1027, 0
+  br i1 %1028, label %1029, label %1042
 
-1033:                                             ; preds = %1029
-  %1034 = icmp eq i32 %.02122.lcssa.ph, 2
-  br i1 %1034, label %1035, label %1043
+1029:                                             ; preds = %1025
+  %1030 = icmp eq i32 %.02122.lcssa.ph, 2
+  br i1 %1030, label %1031, label %1039
 
-1035:                                             ; preds = %1033
-  %1036 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %1037 = load ptr, ptr %1036, align 8, !tbaa !29
-  %1038 = tail call fastcc i32 @booleanValue(ptr noundef %1037)
-  %1039 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i32 %1038, ptr %1039, align 8, !tbaa !467
-  %1040 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %1041 = load i32, ptr %1040, align 4, !tbaa !454
-  %1042 = or i32 %1041, 128
-  store i32 %1042, ptr %1040, align 4, !tbaa !454
+1031:                                             ; preds = %1029
+  %1032 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %1033 = load ptr, ptr %1032, align 8, !tbaa !29
+  %1034 = tail call fastcc i32 @booleanValue(ptr noundef %1033)
+  %1035 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store i32 %1034, ptr %1035, align 8, !tbaa !467
+  %1036 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %1037 = load i32, ptr %1036, align 4, !tbaa !454
+  %1038 = or i32 %1037, 128
+  store i32 %1038, ptr %1036, align 4, !tbaa !454
   br label %test_breakpoint.exit
 
-1043:                                             ; preds = %1033
-  %1044 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1045 = tail call i64 @fwrite(ptr nonnull @.str.848, i64 23, i64 1, ptr %1044) #50
+1039:                                             ; preds = %1029
+  %1040 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1041 = tail call i64 @fwrite(ptr nonnull @.str.848, i64 23, i64 1, ptr %1040) #50
   br label %test_breakpoint.exit
 
-1046:                                             ; preds = %1029
-  %1047 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.827, i64 noundef range(i64 0, 1073741824) %1030) #44
-  %1048 = icmp eq i32 %1047, 0
-  br i1 %1048, label %1049, label %.thread4592
+1042:                                             ; preds = %1025
+  %1043 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.827, i64 noundef range(i64 0, 1073741824) %1026) #44
+  %1044 = icmp eq i32 %1043, 0
+  br i1 %1044, label %1045, label %.thread4592
 
-1049:                                             ; preds = %1046
+1045:                                             ; preds = %1042
   %.not2725 = icmp eq i32 %.02122.lcssa.ph, 1
-  %1050 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %1051 = load ptr, ptr %1050, align 8, !tbaa !462
-  br i1 %.not2725, label %1060, label %1052
+  %1046 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %1047 = load ptr, ptr %1046, align 8, !tbaa !462
+  br i1 %.not2725, label %1056, label %1048
 
-1052:                                             ; preds = %1049
-  %1053 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %1054 = load ptr, ptr %1053, align 8, !tbaa !29
-  %1055 = tail call fastcc i32 @showHelp(ptr noundef %1051, ptr noundef %1054)
-  %1056 = icmp eq i32 %1055, 0
-  br i1 %1056, label %1057, label %test_breakpoint.exit
+1048:                                             ; preds = %1045
+  %1049 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %1050 = load ptr, ptr %1049, align 8, !tbaa !29
+  %1051 = tail call fastcc i32 @showHelp(ptr noundef %1047, ptr noundef %1050)
+  %1052 = icmp eq i32 %1051, 0
+  br i1 %1052, label %1053, label %test_breakpoint.exit
 
-1057:                                             ; preds = %1052
-  %1058 = load ptr, ptr %1050, align 8, !tbaa !462
-  %1059 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1058, ptr noundef nonnull @.str.849, ptr noundef %1054) #43
+1053:                                             ; preds = %1048
+  %1054 = load ptr, ptr %1046, align 8, !tbaa !462
+  %1055 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1054, ptr noundef nonnull @.str.849, ptr noundef %1050) #43
   br label %test_breakpoint.exit
 
-1060:                                             ; preds = %1049
-  %1061 = tail call fastcc i32 @showHelp(ptr noundef %1051, ptr noundef null)
+1056:                                             ; preds = %1045
+  %1057 = tail call fastcc i32 @showHelp(ptr noundef %1047, ptr noundef null)
   br label %test_breakpoint.exit
 
-1062:                                             ; preds = %.critedge2784
-  %1063 = and i64 %strlen.i, 1073741823
-  %1064 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.850, i64 noundef range(i64 0, 1073741824) %1063) #44
-  %1065 = icmp eq i32 %1064, 0
-  br i1 %1065, label %1066, label %1516
+1058:                                             ; preds = %.critedge2784
+  %1059 = and i64 %strlen.i, 1073741823
+  %1060 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.850, i64 noundef range(i64 0, 1073741824) %1059) #44
+  %1061 = icmp eq i32 %1060, 0
+  br i1 %1061, label %1062, label %1512
 
-1066:                                             ; preds = %1062
+1062:                                             ; preds = %1058
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #43
   store ptr null, ptr %17, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %18) #43
   tail call void (ptr, ptr, ...) @failIfSafeMode(ptr noundef nonnull %1, ptr noundef nonnull @.str.851)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, i8 0, i64 72, i1 false)
-  %1067 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %1068 = icmp sgt i32 %.02122.lcssa.ph, 1
-  br i1 %1068, label %.lr.ph3979, label %._crit_edge3980.thread
+  %1063 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %1064 = icmp sgt i32 %.02122.lcssa.ph, 1
+  br i1 %1064, label %.lr.ph3979, label %._crit_edge3980.thread
 
-.lr.ph3979:                                       ; preds = %1066
-  %1069 = load i32, ptr %1067, align 4, !tbaa !442
-  %1070 = icmp eq i32 %1069, 10
-  %ascii_read_one_field.csv_read_one_field = select i1 %1070, ptr @ascii_read_one_field, ptr @csv_read_one_field
-  %1071 = add nsw i32 %.02122.lcssa.ph, -1
-  %1072 = getelementptr inbounds nuw i8, ptr %18, i64 60
-  %1073 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  br label %1074
+.lr.ph3979:                                       ; preds = %1062
+  %1065 = load i32, ptr %1063, align 4, !tbaa !442
+  %1066 = icmp eq i32 %1065, 10
+  %ascii_read_one_field.csv_read_one_field = select i1 %1066, ptr @ascii_read_one_field, ptr @csv_read_one_field
+  %1067 = add nsw i32 %.02122.lcssa.ph, -1
+  %1068 = getelementptr inbounds nuw i8, ptr %18, i64 60
+  %1069 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  br label %1070
 
-1074:                                             ; preds = %.lr.ph3979, %1132
-  %1075 = phi i32 [ 0, %.lr.ph3979 ], [ %1133, %1132 ]
-  %.023383977 = phi ptr [ null, %.lr.ph3979 ], [ %.12339.ph, %1132 ]
-  %.023433976 = phi ptr [ null, %.lr.ph3979 ], [ %.12344.ph, %1132 ]
-  %.023463975 = phi ptr [ null, %.lr.ph3979 ], [ %.12347.ph, %1132 ]
-  %.023563974 = phi i32 [ 1, %.lr.ph3979 ], [ %1134, %1132 ]
-  %.123963973 = phi ptr [ %ascii_read_one_field.csv_read_one_field, %.lr.ph3979 ], [ %.22397.ph, %1132 ]
-  %.024123972 = phi i32 [ 0, %.lr.ph3979 ], [ %.12413.ph, %1132 ]
-  %.024153971 = phi i32 [ 0, %.lr.ph3979 ], [ %.12416.ph, %1132 ]
-  %.024193970 = phi i32 [ 1, %.lr.ph3979 ], [ %.12420.ph, %1132 ]
-  %1076 = sext i32 %.023563974 to i64
-  %1077 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %1076
-  %1078 = load ptr, ptr %1077, align 8, !tbaa !29
-  %1079 = load i8, ptr %1078, align 1, !tbaa !25
-  %1080 = icmp eq i8 %1079, 45
-  br i1 %1080, label %sub_13679, label %.thread3285
+1070:                                             ; preds = %.lr.ph3979, %1128
+  %1071 = phi i32 [ 0, %.lr.ph3979 ], [ %1129, %1128 ]
+  %.023383977 = phi ptr [ null, %.lr.ph3979 ], [ %.12339.ph, %1128 ]
+  %.023433976 = phi ptr [ null, %.lr.ph3979 ], [ %.12344.ph, %1128 ]
+  %.023463975 = phi ptr [ null, %.lr.ph3979 ], [ %.12347.ph, %1128 ]
+  %.023563974 = phi i32 [ 1, %.lr.ph3979 ], [ %1130, %1128 ]
+  %.123963973 = phi ptr [ %ascii_read_one_field.csv_read_one_field, %.lr.ph3979 ], [ %.22397.ph, %1128 ]
+  %.024123972 = phi i32 [ 0, %.lr.ph3979 ], [ %.12413.ph, %1128 ]
+  %.024153971 = phi i32 [ 0, %.lr.ph3979 ], [ %.12416.ph, %1128 ]
+  %.024193970 = phi i32 [ 1, %.lr.ph3979 ], [ %.12420.ph, %1128 ]
+  %1072 = sext i32 %.023563974 to i64
+  %1073 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %1072
+  %1074 = load ptr, ptr %1073, align 8, !tbaa !29
+  %1075 = load i8, ptr %1074, align 1, !tbaa !25
+  %1076 = icmp eq i8 %1075, 45
+  br i1 %1076, label %sub_13679, label %.thread3285
 
-.thread3285:                                      ; preds = %1074
-  %1081 = icmp eq ptr %.023463975, null
-  br i1 %1081, label %1132, label %1082
+.thread3285:                                      ; preds = %1070
+  %1077 = icmp eq ptr %.023463975, null
+  br i1 %1077, label %1128, label %1078
 
-1082:                                             ; preds = %.thread3285
-  %1083 = icmp eq ptr %.023383977, null
-  br i1 %1083, label %1132, label %1084
+1078:                                             ; preds = %.thread3285
+  %1079 = icmp eq ptr %.023383977, null
+  br i1 %1079, label %1128, label %1080
 
-1084:                                             ; preds = %1082
-  %1085 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %1086 = load ptr, ptr %1085, align 8, !tbaa !462
-  %1087 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1086, ptr noundef nonnull @.str.852, ptr noundef nonnull %1078) #43
-  %1088 = load ptr, ptr %1085, align 8, !tbaa !462
-  %1089 = tail call fastcc i32 @showHelp(ptr noundef %1088, ptr noundef nonnull @.str.850)
+1080:                                             ; preds = %1078
+  %1081 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %1082 = load ptr, ptr %1081, align 8, !tbaa !462
+  %1083 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1082, ptr noundef nonnull @.str.852, ptr noundef nonnull %1074) #43
+  %1084 = load ptr, ptr %1081, align 8, !tbaa !462
+  %1085 = tail call fastcc i32 @showHelp(ptr noundef %1084, ptr noundef nonnull @.str.850)
   br label %.thread3326
 
-sub_13679:                                        ; preds = %1074
-  %1090 = getelementptr inbounds nuw i8, ptr %1078, i64 1
-  %1091 = load i8, ptr %1090, align 1, !tbaa !25
-  %1092 = icmp eq i8 %1091, 45
-  %spec.select2790 = select i1 %1092, ptr %1090, ptr %1078
-  %1093 = getelementptr inbounds nuw i8, ptr %spec.select2790, i64 1
-  %1094 = load i8, ptr %1093, align 1
-  %.not4209 = icmp eq i8 %1094, 118
+sub_13679:                                        ; preds = %1070
+  %1086 = getelementptr inbounds nuw i8, ptr %1074, i64 1
+  %1087 = load i8, ptr %1086, align 1, !tbaa !25
+  %1088 = icmp eq i8 %1087, 45
+  %spec.select2790 = select i1 %1088, ptr %1086, ptr %1074
+  %1089 = getelementptr inbounds nuw i8, ptr %spec.select2790, i64 1
+  %1090 = load i8, ptr %1089, align 1
+  %.not4209 = icmp eq i8 %1090, 118
   br i1 %.not4209, label %.tail3677, label %.tail3677.thread
 
 .tail3677:                                        ; preds = %sub_13679
-  %1095 = getelementptr inbounds nuw i8, ptr %spec.select2790, i64 2
-  %1096 = load i8, ptr %1095, align 1
-  %1097 = icmp eq i8 %1096, 0
-  br i1 %1097, label %1098, label %.tail3677.thread
+  %1091 = getelementptr inbounds nuw i8, ptr %spec.select2790, i64 2
+  %1092 = load i8, ptr %1091, align 1
+  %1093 = icmp eq i8 %1092, 0
+  br i1 %1093, label %1094, label %.tail3677.thread
 
-1098:                                             ; preds = %.tail3677
-  %1099 = add nsw i32 %.024123972, 1
-  br label %1132
+1094:                                             ; preds = %.tail3677
+  %1095 = add nsw i32 %.024123972, 1
+  br label %1128
 
 .tail3677.thread:                                 ; preds = %sub_13679, %.tail3677
-  %1100 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2790, ptr noundef nonnull dereferenceable(8) @.str.829) #44
-  %1101 = icmp eq i32 %1100, 0
-  %1102 = icmp slt i32 %.023563974, %1071
-  %or.cond2792 = select i1 %1101, i1 %1102, i1 false
-  br i1 %or.cond2792, label %1103, label %1108
+  %1096 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2790, ptr noundef nonnull dereferenceable(8) @.str.829) #44
+  %1097 = icmp eq i32 %1096, 0
+  %1098 = icmp slt i32 %.023563974, %1067
+  %or.cond2792 = select i1 %1097, i1 %1098, i1 false
+  br i1 %or.cond2792, label %1099, label %1104
 
-1103:                                             ; preds = %.tail3677.thread
-  %1104 = add nsw i32 %.023563974, 1
-  %1105 = sext i32 %1104 to i64
-  %1106 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %1105
-  %1107 = load ptr, ptr %1106, align 8, !tbaa !29
-  br label %1132
+1099:                                             ; preds = %.tail3677.thread
+  %1100 = add nsw i32 %.023563974, 1
+  %1101 = sext i32 %1100 to i64
+  %1102 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %1101
+  %1103 = load ptr, ptr %1102, align 8, !tbaa !29
+  br label %1128
 
-1108:                                             ; preds = %.tail3677.thread
-  %1109 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2790, ptr noundef nonnull dereferenceable(6) @.str.854) #44
-  %1110 = icmp eq i32 %1109, 0
-  %or.cond2794 = select i1 %1110, i1 %1102, i1 false
-  br i1 %or.cond2794, label %1111, label %1118
+1104:                                             ; preds = %.tail3677.thread
+  %1105 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2790, ptr noundef nonnull dereferenceable(6) @.str.854) #44
+  %1106 = icmp eq i32 %1105, 0
+  %or.cond2794 = select i1 %1106, i1 %1098, i1 false
+  br i1 %or.cond2794, label %1107, label %1114
 
-1111:                                             ; preds = %1108
-  %1112 = add nsw i32 %.023563974, 1
-  %1113 = sext i32 %1112 to i64
-  %1114 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %1113
-  %1115 = load ptr, ptr %1114, align 8, !tbaa !29
-  %1116 = tail call fastcc i64 @integerValue(ptr noundef %1115)
-  %1117 = trunc i64 %1116 to i32
-  br label %1132
+1107:                                             ; preds = %1104
+  %1108 = add nsw i32 %.023563974, 1
+  %1109 = sext i32 %1108 to i64
+  %1110 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %1109
+  %1111 = load ptr, ptr %1110, align 8, !tbaa !29
+  %1112 = tail call fastcc i64 @integerValue(ptr noundef %1111)
+  %1113 = trunc i64 %1112 to i32
+  br label %1128
 
-1118:                                             ; preds = %1108
-  %1119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2790, ptr noundef nonnull dereferenceable(7) @.str.110) #44
+1114:                                             ; preds = %1104
+  %1115 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2790, ptr noundef nonnull dereferenceable(7) @.str.110) #44
+  %1116 = icmp eq i32 %1115, 0
+  br i1 %1116, label %1117, label %1118
+
+1117:                                             ; preds = %1114
+  store i32 31, ptr %1068, align 4, !tbaa !519
+  store i32 30, ptr %1069, align 8, !tbaa !521
+  br label %1128
+
+1118:                                             ; preds = %1114
+  %1119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2790, ptr noundef nonnull dereferenceable(5) @.str.109) #44
   %1120 = icmp eq i32 %1119, 0
   br i1 %1120, label %1121, label %1122
 
 1121:                                             ; preds = %1118
-  store i32 31, ptr %1072, align 4, !tbaa !519
-  store i32 30, ptr %1073, align 8, !tbaa !521
-  br label %1132
+  store i32 44, ptr %1068, align 4, !tbaa !519
+  store i32 10, ptr %1069, align 8, !tbaa !521
+  br label %1128
 
 1122:                                             ; preds = %1118
-  %1123 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2790, ptr noundef nonnull dereferenceable(5) @.str.109) #44
-  %1124 = icmp eq i32 %1123, 0
-  br i1 %1124, label %1125, label %1126
-
-1125:                                             ; preds = %1122
-  store i32 44, ptr %1072, align 4, !tbaa !519
-  store i32 10, ptr %1073, align 8, !tbaa !521
-  br label %1132
-
-1126:                                             ; preds = %1122
-  %1127 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %1128 = load ptr, ptr %1127, align 8, !tbaa !462
-  %1129 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1128, ptr noundef nonnull @.str.855, ptr noundef nonnull %spec.select2790) #43
-  %1130 = load ptr, ptr %1127, align 8, !tbaa !462
-  %1131 = tail call fastcc i32 @showHelp(ptr noundef %1130, ptr noundef nonnull @.str.850)
+  %1123 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %1124 = load ptr, ptr %1123, align 8, !tbaa !462
+  %1125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1124, ptr noundef nonnull @.str.855, ptr noundef nonnull %spec.select2790) #43
+  %1126 = load ptr, ptr %1123, align 8, !tbaa !462
+  %1127 = tail call fastcc i32 @showHelp(ptr noundef %1126, ptr noundef nonnull @.str.850)
   br label %.thread3326
 
-1132:                                             ; preds = %1082, %.thread3285, %1098, %1111, %1125, %1121, %1103
-  %1133 = phi i32 [ %1075, %1082 ], [ %1075, %.thread3285 ], [ 44, %1125 ], [ 31, %1121 ], [ %1075, %1111 ], [ %1075, %1103 ], [ %1075, %1098 ]
-  %.12420.ph = phi i32 [ %.024193970, %1082 ], [ %.024193970, %.thread3285 ], [ 0, %1125 ], [ 0, %1121 ], [ %.024193970, %1111 ], [ %.024193970, %1103 ], [ %.024193970, %1098 ]
-  %.12416.ph = phi i32 [ %.024153971, %1082 ], [ %.024153971, %.thread3285 ], [ %.024153971, %1125 ], [ %.024153971, %1121 ], [ %1117, %1111 ], [ %.024153971, %1103 ], [ %.024153971, %1098 ]
-  %.12413.ph = phi i32 [ %.024123972, %1082 ], [ %.024123972, %.thread3285 ], [ %.024123972, %1125 ], [ %.024123972, %1121 ], [ %.024123972, %1111 ], [ %.024123972, %1103 ], [ %1099, %1098 ]
-  %.22397.ph = phi ptr [ %.123963973, %1082 ], [ %.123963973, %.thread3285 ], [ @csv_read_one_field, %1125 ], [ @ascii_read_one_field, %1121 ], [ %.123963973, %1111 ], [ %.123963973, %1103 ], [ %.123963973, %1098 ]
-  %.12357.ph = phi i32 [ %.023563974, %1082 ], [ %.023563974, %.thread3285 ], [ %.023563974, %1125 ], [ %.023563974, %1121 ], [ %1112, %1111 ], [ %1104, %1103 ], [ %.023563974, %1098 ]
-  %.12347.ph = phi ptr [ %.023463975, %1082 ], [ %1078, %.thread3285 ], [ %.023463975, %1125 ], [ %.023463975, %1121 ], [ %.023463975, %1111 ], [ %.023463975, %1103 ], [ %.023463975, %1098 ]
-  %.12344.ph = phi ptr [ %.023433976, %1082 ], [ %.023433976, %.thread3285 ], [ %.023433976, %1125 ], [ %.023433976, %1121 ], [ %.023433976, %1111 ], [ %1107, %1103 ], [ %.023433976, %1098 ]
-  %.12339.ph = phi ptr [ %1078, %1082 ], [ %.023383977, %.thread3285 ], [ %.023383977, %1125 ], [ %.023383977, %1121 ], [ %.023383977, %1111 ], [ %.023383977, %1103 ], [ %.023383977, %1098 ]
-  %1134 = add nsw i32 %.12357.ph, 1
-  %1135 = icmp slt i32 %1134, %.02122.lcssa.ph
-  br i1 %1135, label %1074, label %._crit_edge3980, !llvm.loop !522
+1128:                                             ; preds = %1078, %.thread3285, %1094, %1107, %1121, %1117, %1099
+  %1129 = phi i32 [ %1071, %1078 ], [ %1071, %.thread3285 ], [ 44, %1121 ], [ 31, %1117 ], [ %1071, %1107 ], [ %1071, %1099 ], [ %1071, %1094 ]
+  %.12420.ph = phi i32 [ %.024193970, %1078 ], [ %.024193970, %.thread3285 ], [ 0, %1121 ], [ 0, %1117 ], [ %.024193970, %1107 ], [ %.024193970, %1099 ], [ %.024193970, %1094 ]
+  %.12416.ph = phi i32 [ %.024153971, %1078 ], [ %.024153971, %.thread3285 ], [ %.024153971, %1121 ], [ %.024153971, %1117 ], [ %1113, %1107 ], [ %.024153971, %1099 ], [ %.024153971, %1094 ]
+  %.12413.ph = phi i32 [ %.024123972, %1078 ], [ %.024123972, %.thread3285 ], [ %.024123972, %1121 ], [ %.024123972, %1117 ], [ %.024123972, %1107 ], [ %.024123972, %1099 ], [ %1095, %1094 ]
+  %.22397.ph = phi ptr [ %.123963973, %1078 ], [ %.123963973, %.thread3285 ], [ @csv_read_one_field, %1121 ], [ @ascii_read_one_field, %1117 ], [ %.123963973, %1107 ], [ %.123963973, %1099 ], [ %.123963973, %1094 ]
+  %.12357.ph = phi i32 [ %.023563974, %1078 ], [ %.023563974, %.thread3285 ], [ %.023563974, %1121 ], [ %.023563974, %1117 ], [ %1108, %1107 ], [ %1100, %1099 ], [ %.023563974, %1094 ]
+  %.12347.ph = phi ptr [ %.023463975, %1078 ], [ %1074, %.thread3285 ], [ %.023463975, %1121 ], [ %.023463975, %1117 ], [ %.023463975, %1107 ], [ %.023463975, %1099 ], [ %.023463975, %1094 ]
+  %.12344.ph = phi ptr [ %.023433976, %1078 ], [ %.023433976, %.thread3285 ], [ %.023433976, %1121 ], [ %.023433976, %1117 ], [ %.023433976, %1107 ], [ %1103, %1099 ], [ %.023433976, %1094 ]
+  %.12339.ph = phi ptr [ %1074, %1078 ], [ %.023383977, %.thread3285 ], [ %.023383977, %1121 ], [ %.023383977, %1117 ], [ %.023383977, %1107 ], [ %.023383977, %1099 ], [ %.023383977, %1094 ]
+  %1130 = add nsw i32 %.12357.ph, 1
+  %1131 = icmp slt i32 %1130, %.02122.lcssa.ph
+  br i1 %1131, label %1070, label %._crit_edge3980, !llvm.loop !522
 
-._crit_edge3980:                                  ; preds = %1132
-  %1136 = icmp ne i32 %.12420.ph, 0
-  %1137 = icmp eq ptr %.12339.ph, null
-  br i1 %1137, label %._crit_edge3980.thread, label %1145
+._crit_edge3980:                                  ; preds = %1128
+  %1132 = icmp ne i32 %.12420.ph, 0
+  %1133 = icmp eq ptr %.12339.ph, null
+  br i1 %1133, label %._crit_edge3980.thread, label %1141
 
-._crit_edge3980.thread:                           ; preds = %1066, %._crit_edge3980
-  %.02346.lcssa4589 = phi ptr [ %.12347.ph, %._crit_edge3980 ], [ null, %1066 ]
-  %1138 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %1139 = load ptr, ptr %1138, align 8, !tbaa !462
-  %1140 = icmp eq ptr %.02346.lcssa4589, null
-  %1141 = select i1 %1140, ptr @.str.857, ptr @.str.650
-  %1142 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1139, ptr noundef nonnull @.str.856, ptr noundef nonnull %1141) #43
-  %1143 = load ptr, ptr %1138, align 8, !tbaa !462
-  %1144 = tail call fastcc i32 @showHelp(ptr noundef %1143, ptr noundef nonnull @.str.850)
+._crit_edge3980.thread:                           ; preds = %1062, %._crit_edge3980
+  %.02346.lcssa4589 = phi ptr [ %.12347.ph, %._crit_edge3980 ], [ null, %1062 ]
+  %1134 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %1135 = load ptr, ptr %1134, align 8, !tbaa !462
+  %1136 = icmp eq ptr %.02346.lcssa4589, null
+  %1137 = select i1 %1136, ptr @.str.857, ptr @.str.650
+  %1138 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1135, ptr noundef nonnull @.str.856, ptr noundef nonnull %1137) #43
+  %1139 = load ptr, ptr %1134, align 8, !tbaa !462
+  %1140 = tail call fastcc i32 @showHelp(ptr noundef %1139, ptr noundef nonnull @.str.850)
   br label %.thread3326
 
-1145:                                             ; preds = %._crit_edge3980
+1141:                                             ; preds = %._crit_edge3980
   store volatile i32 0, ptr @seenInterrupt, align 4, !tbaa !36
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
-  br i1 %1136, label %1146, label %1187
+  br i1 %1132, label %1142, label %1183
 
-1146:                                             ; preds = %1145
-  %1147 = getelementptr inbounds nuw i8, ptr %1, i64 198
-  %strlen.i2917 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %1147)
-  %1148 = trunc i64 %strlen.i2917 to i32
-  %1149 = and i32 %1148, 1073741823
-  switch i32 %1149, label %1153 [
-    i32 0, label %1150
-    i32 1, label %1156
+1142:                                             ; preds = %1141
+  %1143 = getelementptr inbounds nuw i8, ptr %1, i64 198
+  %strlen.i2917 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %1143)
+  %1144 = trunc i64 %strlen.i2917 to i32
+  %1145 = and i32 %1144, 1073741823
+  switch i32 %1145, label %1149 [
+    i32 0, label %1146
+    i32 1, label %1152
   ]
 
-1150:                                             ; preds = %1146
-  %1151 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1152 = tail call i64 @fwrite(ptr nonnull @.str.858, i64 53, i64 1, ptr %1151) #50
+1146:                                             ; preds = %1142
+  %1147 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1148 = tail call i64 @fwrite(ptr nonnull @.str.858, i64 53, i64 1, ptr %1147) #50
   br label %.thread3326
 
-1153:                                             ; preds = %1146
-  %1154 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1155 = tail call i64 @fwrite(ptr nonnull @.str.859, i64 64, i64 1, ptr %1154) #50
+1149:                                             ; preds = %1142
+  %1150 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1151 = tail call i64 @fwrite(ptr nonnull @.str.859, i64 64, i64 1, ptr %1150) #50
   br label %.thread3326
 
-1156:                                             ; preds = %1146
-  %1157 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  %strlen.i2918 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %1157)
-  %1158 = trunc i64 %strlen.i2918 to i32
-  %1159 = and i32 %1158, 1073741823
-  switch i32 %1159, label %1176 [
-    i32 0, label %1160
-    i32 2, label %1163
+1152:                                             ; preds = %1142
+  %1153 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  %strlen.i2918 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %1153)
+  %1154 = trunc i64 %strlen.i2918 to i32
+  %1155 = and i32 %1154, 1073741823
+  switch i32 %1155, label %1172 [
+    i32 0, label %1156
+    i32 2, label %1159
   ]
 
-1160:                                             ; preds = %1156
-  %1161 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1162 = tail call i64 @fwrite(ptr nonnull @.str.860, i64 50, i64 1, ptr %1161) #50
+1156:                                             ; preds = %1152
+  %1157 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1158 = tail call i64 @fwrite(ptr nonnull @.str.860, i64 50, i64 1, ptr %1157) #50
   br label %.thread3326
 
-1163:                                             ; preds = %1156
-  %1164 = load i32, ptr %1067, align 4, !tbaa !442
-  %1165 = icmp eq i32 %1164, 8
-  br i1 %1165, label %sub_03683, label %.thread3310
+1159:                                             ; preds = %1152
+  %1160 = load i32, ptr %1063, align 4, !tbaa !442
+  %1161 = icmp eq i32 %1160, 8
+  br i1 %1161, label %sub_03683, label %.thread3310
 
-sub_03683:                                        ; preds = %1163
-  %1166 = load i8, ptr %1157, align 1
-  %.not4210 = icmp eq i8 %1166, 13
+sub_03683:                                        ; preds = %1159
+  %1162 = load i8, ptr %1153, align 1
+  %.not4210 = icmp eq i8 %1162, 13
   br i1 %.not4210, label %sub_13684, label %.thread3310
 
 sub_13684:                                        ; preds = %sub_03683
-  %1167 = getelementptr inbounds nuw i8, ptr %1, i64 219
-  %1168 = load i8, ptr %1167, align 1
-  %.not4211 = icmp eq i8 %1168, 10
+  %1163 = getelementptr inbounds nuw i8, ptr %1, i64 219
+  %1164 = load i8, ptr %1163, align 1
+  %.not4211 = icmp eq i8 %1164, 10
   br i1 %.not4211, label %.tail3682, label %.thread3310
 
 .tail3682:                                        ; preds = %sub_13684
-  %1169 = getelementptr inbounds nuw i8, ptr %1, i64 220
-  %1170 = load i8, ptr %1169, align 1
-  %1171 = icmp eq i8 %1170, 0
-  br i1 %1171, label %1172, label %.thread3310
+  %1165 = getelementptr inbounds nuw i8, ptr %1, i64 220
+  %1166 = load i8, ptr %1165, align 1
+  %1167 = icmp eq i8 %1166, 0
+  br i1 %1167, label %1168, label %.thread3310
 
-1172:                                             ; preds = %.tail3682
-  %1173 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1157, ptr noundef nonnull @.str.102) #43
-  %strlen.i2920 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %1157)
-  %1174 = trunc i64 %strlen.i2920 to i32
-  %1175 = and i32 %1174, 1073741823
-  br label %1176
+1168:                                             ; preds = %.tail3682
+  %1169 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1153, ptr noundef nonnull @.str.102) #43
+  %strlen.i2920 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %1153)
+  %1170 = trunc i64 %strlen.i2920 to i32
+  %1171 = and i32 %1170, 1073741823
+  br label %1172
 
-1176:                                             ; preds = %1156, %1172
-  %.02369 = phi i32 [ %1175, %1172 ], [ %1159, %1156 ]
-  %1177 = icmp samesign ugt i32 %.02369, 1
-  br i1 %1177, label %.thread3310, label %1180
+1172:                                             ; preds = %1152, %1168
+  %.02369 = phi i32 [ %1171, %1168 ], [ %1155, %1152 ]
+  %1173 = icmp samesign ugt i32 %.02369, 1
+  br i1 %1173, label %.thread3310, label %1176
 
-.thread3310:                                      ; preds = %sub_13684, %sub_03683, %1163, %.tail3682, %1176
-  %1178 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1179 = tail call i64 @fwrite(ptr nonnull @.str.861, i64 61, i64 1, ptr %1178) #50
+.thread3310:                                      ; preds = %sub_13684, %sub_03683, %1159, %.tail3682, %1172
+  %1174 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1175 = tail call i64 @fwrite(ptr nonnull @.str.861, i64 61, i64 1, ptr %1174) #50
   br label %.thread3326
 
-1180:                                             ; preds = %1176
-  %1181 = load i8, ptr %1147, align 2, !tbaa !25
-  %1182 = zext i8 %1181 to i32
-  %1183 = getelementptr inbounds nuw i8, ptr %18, i64 60
-  store i32 %1182, ptr %1183, align 4, !tbaa !519
-  %1184 = load i8, ptr %1157, align 2, !tbaa !25
-  %1185 = zext i8 %1184 to i32
-  %1186 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store i32 %1185, ptr %1186, align 8, !tbaa !521
-  br label %1187
+1176:                                             ; preds = %1172
+  %1177 = load i8, ptr %1143, align 2, !tbaa !25
+  %1178 = zext i8 %1177 to i32
+  %1179 = getelementptr inbounds nuw i8, ptr %18, i64 60
+  store i32 %1178, ptr %1179, align 4, !tbaa !519
+  %1180 = load i8, ptr %1153, align 2, !tbaa !25
+  %1181 = zext i8 %1180 to i32
+  %1182 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  store i32 %1181, ptr %1182, align 8, !tbaa !521
+  br label %1183
 
-1187:                                             ; preds = %1180, %1145
-  %1188 = phi i32 [ %1182, %1180 ], [ %1133, %1145 ]
+1183:                                             ; preds = %1176, %1141
+  %1184 = phi i32 [ %1178, %1176 ], [ %1129, %1141 ]
   store ptr %.12347.ph, ptr %18, align 8, !tbaa !523
-  %1189 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store i32 1, ptr %1189, align 8, !tbaa !524
-  %1190 = load i8, ptr %.12347.ph, align 1, !tbaa !25
-  %1191 = icmp eq i8 %1190, 124
-  br i1 %1191, label %1192, label %1195
+  %1185 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  store i32 1, ptr %1185, align 8, !tbaa !524
+  %1186 = load i8, ptr %.12347.ph, align 1, !tbaa !25
+  %1187 = icmp eq i8 %1186, 124
+  br i1 %1187, label %1188, label %1191
 
-1192:                                             ; preds = %1187
-  %1193 = getelementptr inbounds nuw i8, ptr %.12347.ph, i64 1
-  %1194 = tail call noalias ptr @popen(ptr noundef nonnull %1193, ptr noundef nonnull @.str.679)
+1188:                                             ; preds = %1183
+  %1189 = getelementptr inbounds nuw i8, ptr %.12347.ph, i64 1
+  %1190 = tail call noalias ptr @popen(ptr noundef nonnull %1189, ptr noundef nonnull @.str.679)
   store ptr @.str.862, ptr %18, align 8, !tbaa !523
-  br label %1197
+  br label %1193
 
-1195:                                             ; preds = %1187
-  %1196 = tail call noalias ptr @fopen64(ptr noundef nonnull %.12347.ph, ptr noundef nonnull @.str.54)
-  br label %1197
+1191:                                             ; preds = %1183
+  %1192 = tail call noalias ptr @fopen64(ptr noundef nonnull %.12347.ph, ptr noundef nonnull @.str.54)
+  br label %1193
 
-1197:                                             ; preds = %1195, %1192
-  %.sink = phi ptr [ %1194, %1192 ], [ %1196, %1195 ]
-  %fclose.sink = phi ptr [ @pclose, %1192 ], [ @fclose, %1195 ]
-  %1198 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %.sink, ptr %1198, align 8, !tbaa !525
-  %1199 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %fclose.sink, ptr %1199, align 8, !tbaa !526
-  %1200 = icmp eq ptr %.sink, null
-  br i1 %1200, label %1201, label %1204
+1193:                                             ; preds = %1191, %1188
+  %.sink = phi ptr [ %1190, %1188 ], [ %1192, %1191 ]
+  %fclose.sink = phi ptr [ @pclose, %1188 ], [ @fclose, %1191 ]
+  %1194 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr %.sink, ptr %1194, align 8, !tbaa !525
+  %1195 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr %fclose.sink, ptr %1195, align 8, !tbaa !526
+  %1196 = icmp eq ptr %.sink, null
+  br i1 %1196, label %1197, label %1200
 
-1201:                                             ; preds = %1197
-  %1202 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1202, ptr noundef nonnull @.str.714, ptr noundef nonnull %.12347.ph) #46
+1197:                                             ; preds = %1193
+  %1198 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1199 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1198, ptr noundef nonnull @.str.714, ptr noundef nonnull %.12347.ph) #46
   br label %.thread3326
 
-1204:                                             ; preds = %1197
-  %1205 = icmp sgt i32 %.12413.ph, 1
-  %1206 = icmp eq i32 %.12413.ph, 1
-  %or.cond66 = and i1 %1136, %1206
-  %or.cond2795 = or i1 %1205, %or.cond66
-  br i1 %or.cond2795, label %1207, label %1221
+1200:                                             ; preds = %1193
+  %1201 = icmp sgt i32 %.12413.ph, 1
+  %1202 = icmp eq i32 %.12413.ph, 1
+  %or.cond66 = and i1 %1132, %1202
+  %or.cond2795 = or i1 %1201, %or.cond66
+  br i1 %or.cond2795, label %1203, label %1217
 
-1207:                                             ; preds = %1204
+1203:                                             ; preds = %1200
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %19) #43
-  %1208 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  store i8 0, ptr %1208, align 1, !tbaa !25
-  %1209 = trunc i32 %1188 to i8
-  store i8 %1209, ptr %19, align 1, !tbaa !25
-  %1210 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %1211 = load ptr, ptr %1210, align 8, !tbaa !462
-  %1212 = tail call i64 @fwrite(ptr nonnull @.str.863, i64 17, i64 1, ptr %1211)
-  %1213 = load ptr, ptr %1210, align 8, !tbaa !462
-  call fastcc void @output_c_string(ptr noundef %1213, ptr noundef nonnull %19)
-  %1214 = load ptr, ptr %1210, align 8, !tbaa !462
-  %1215 = call i64 @fwrite(ptr nonnull @.str.864, i64 16, i64 1, ptr %1214)
-  %1216 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %1217 = load i32, ptr %1216, align 8, !tbaa !521
-  %1218 = trunc i32 %1217 to i8
-  store i8 %1218, ptr %19, align 1, !tbaa !25
-  %1219 = load ptr, ptr %1210, align 8, !tbaa !462
-  call fastcc void @output_c_string(ptr noundef %1219, ptr noundef nonnull %19)
-  %1220 = load ptr, ptr %1210, align 8, !tbaa !462
-  %fputc2705 = call i32 @fputc(i32 10, ptr %1220)
+  %1204 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  store i8 0, ptr %1204, align 1, !tbaa !25
+  %1205 = trunc i32 %1184 to i8
+  store i8 %1205, ptr %19, align 1, !tbaa !25
+  %1206 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %1207 = load ptr, ptr %1206, align 8, !tbaa !462
+  %1208 = tail call i64 @fwrite(ptr nonnull @.str.863, i64 17, i64 1, ptr %1207)
+  %1209 = load ptr, ptr %1206, align 8, !tbaa !462
+  call fastcc void @output_c_string(ptr noundef %1209, ptr noundef nonnull %19)
+  %1210 = load ptr, ptr %1206, align 8, !tbaa !462
+  %1211 = call i64 @fwrite(ptr nonnull @.str.864, i64 16, i64 1, ptr %1210)
+  %1212 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %1213 = load i32, ptr %1212, align 8, !tbaa !521
+  %1214 = trunc i32 %1213 to i8
+  store i8 %1214, ptr %19, align 1, !tbaa !25
+  %1215 = load ptr, ptr %1206, align 8, !tbaa !462
+  call fastcc void @output_c_string(ptr noundef %1215, ptr noundef nonnull %19)
+  %1216 = load ptr, ptr %1206, align 8, !tbaa !462
+  %fputc2705 = call i32 @fputc(i32 10, ptr %1216)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %19) #43
-  br label %1221
+  br label %1217
 
-1221:                                             ; preds = %1204, %1207
-  %1222 = call ptr @sqlite3_malloc64(i64 noundef 120) #43
-  %1223 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %1222, ptr %1223, align 8, !tbaa !527
-  %1224 = icmp eq ptr %1222, null
-  br i1 %1224, label %1228, label %.preheader3770
+1217:                                             ; preds = %1200, %1203
+  %1218 = call ptr @sqlite3_malloc64(i64 noundef 120) #43
+  %1219 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store ptr %1218, ptr %1219, align 8, !tbaa !527
+  %1220 = icmp eq ptr %1218, null
+  br i1 %1220, label %1224, label %.preheader3770
 
-.preheader3770:                                   ; preds = %1221
-  %1225 = icmp sgt i32 %.12416.ph, 0
-  br i1 %1225, label %.preheader3769.lr.ph, label %._crit_edge3988
+.preheader3770:                                   ; preds = %1217
+  %1221 = icmp sgt i32 %.12416.ph, 0
+  br i1 %1221, label %.preheader3769.lr.ph, label %._crit_edge3988
 
 .preheader3769.lr.ph:                             ; preds = %.preheader3770
-  %1226 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %1227 = getelementptr inbounds nuw i8, ptr %18, i64 60
+  %1222 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %1223 = getelementptr inbounds nuw i8, ptr %18, i64 60
   br label %.preheader3769
 
-1228:                                             ; preds = %1221
-  %1229 = load ptr, ptr %1198, align 8, !tbaa !525
-  %.not.i2921 = icmp eq ptr %1229, null
-  br i1 %.not.i2921, label %import_cleanup.exit, label %1230
+1224:                                             ; preds = %1217
+  %1225 = load ptr, ptr %1194, align 8, !tbaa !525
+  %.not.i2921 = icmp eq ptr %1225, null
+  br i1 %.not.i2921, label %import_cleanup.exit, label %1226
 
-1230:                                             ; preds = %1228
-  %1231 = load ptr, ptr %1199, align 8, !tbaa !526
-  %.not8.i = icmp eq ptr %1231, null
-  br i1 %.not8.i, label %import_cleanup.exit, label %1232
+1226:                                             ; preds = %1224
+  %1227 = load ptr, ptr %1195, align 8, !tbaa !526
+  %.not8.i = icmp eq ptr %1227, null
+  br i1 %.not8.i, label %import_cleanup.exit, label %1228
 
-1232:                                             ; preds = %1230
-  %1233 = call i32 %1231(ptr noundef nonnull %1229) #43
-  store ptr null, ptr %1198, align 8, !tbaa !525
-  %.pre4523 = load ptr, ptr %1223, align 8, !tbaa !527
+1228:                                             ; preds = %1226
+  %1229 = call i32 %1227(ptr noundef nonnull %1225) #43
+  store ptr null, ptr %1194, align 8, !tbaa !525
+  %.pre4523 = load ptr, ptr %1219, align 8, !tbaa !527
   br label %import_cleanup.exit
 
-import_cleanup.exit:                              ; preds = %1228, %1230, %1232
-  %1234 = phi ptr [ null, %1228 ], [ null, %1230 ], [ %.pre4523, %1232 ]
-  call void @sqlite3_free(ptr noundef %1234) #43
-  store ptr null, ptr %1223, align 8, !tbaa !527
+import_cleanup.exit:                              ; preds = %1224, %1226, %1228
+  %1230 = phi ptr [ null, %1224 ], [ null, %1226 ], [ %.pre4523, %1228 ]
+  call void @sqlite3_free(ptr noundef %1230) #43
+  store ptr null, ptr %1219, align 8, !tbaa !527
   call fastcc void @shell_out_of_memory()
   unreachable
 
-.preheader3769:                                   ; preds = %.preheader3769.lr.ph, %1242
-  %.in4212 = phi i32 [ %.12416.ph, %.preheader3769.lr.ph ], [ %1243, %1242 ]
-  br label %1235
+.preheader3769:                                   ; preds = %.preheader3769.lr.ph, %1238
+  %.in4212 = phi i32 [ %.12416.ph, %.preheader3769.lr.ph ], [ %1239, %1238 ]
+  br label %1231
 
-1235:                                             ; preds = %.preheader3769, %1235
-  %1236 = call ptr %.22397.ph(ptr noundef nonnull %18) #43, !callees !528
-  %1237 = icmp ne ptr %1236, null
-  %1238 = load i32, ptr %1226, align 8
-  %1239 = load i32, ptr %1227, align 4
-  %1240 = icmp eq i32 %1238, %1239
-  %1241 = select i1 %1237, i1 %1240, i1 false
-  br i1 %1241, label %1235, label %1242, !llvm.loop !529
+1231:                                             ; preds = %.preheader3769, %1231
+  %1232 = call ptr %.22397.ph(ptr noundef nonnull %18) #43, !callees !528
+  %1233 = icmp ne ptr %1232, null
+  %1234 = load i32, ptr %1222, align 8
+  %1235 = load i32, ptr %1223, align 4
+  %1236 = icmp eq i32 %1234, %1235
+  %1237 = select i1 %1233, i1 %1236, i1 false
+  br i1 %1237, label %1231, label %1238, !llvm.loop !529
 
-1242:                                             ; preds = %1235
-  %1243 = add nsw i32 %.in4212, -1
-  %1244 = icmp sgt i32 %.in4212, 1
-  br i1 %1244, label %.preheader3769, label %._crit_edge3988, !llvm.loop !530
+1238:                                             ; preds = %1231
+  %1239 = add nsw i32 %.in4212, -1
+  %1240 = icmp sgt i32 %.in4212, 1
+  br i1 %1240, label %.preheader3769, label %._crit_edge3988, !llvm.loop !530
 
-._crit_edge3988:                                  ; preds = %1242, %.preheader3770
+._crit_edge3988:                                  ; preds = %1238, %.preheader3770
   call fastcc void @import_append_char(ptr noundef nonnull %18, i32 noundef 0)
-  %1245 = load ptr, ptr %1, align 8, !tbaa !477
-  %1246 = call i32 @sqlite3_table_column_metadata(ptr noundef %1245, ptr noundef %.12344.ph, ptr noundef nonnull %.12339.ph, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #43
-  %.not2706 = icmp eq i32 %1246, 0
-  br i1 %.not2706, label %1321, label %1247
+  %1241 = load ptr, ptr %1, align 8, !tbaa !477
+  %1242 = call i32 @sqlite3_table_column_metadata(ptr noundef %1241, ptr noundef %.12344.ph, ptr noundef nonnull %.12339.ph, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #43
+  %.not2706 = icmp eq i32 %1242, 0
+  br i1 %.not2706, label %1317, label %1243
 
-1247:                                             ; preds = %._crit_edge3988
-  %1248 = load ptr, ptr %1, align 8, !tbaa !477
+1243:                                             ; preds = %._crit_edge3988
+  %1244 = load ptr, ptr %1, align 8, !tbaa !477
   %.not2707 = icmp eq ptr %.12344.ph, null
-  %1249 = select i1 %.not2707, ptr @.str.45, ptr %.12344.ph
-  %1250 = call i32 (ptr, ptr, ...) @db_int(ptr noundef %1248, ptr noundef nonnull @.str.865, ptr noundef nonnull %1249, ptr noundef nonnull %.12339.ph)
-  %1251 = icmp eq i32 %1250, 0
-  br i1 %1251, label %1252, label %1321
+  %1245 = select i1 %.not2707, ptr @.str.45, ptr %.12344.ph
+  %1246 = call i32 (ptr, ptr, ...) @db_int(ptr noundef %1244, ptr noundef nonnull @.str.865, ptr noundef nonnull %1245, ptr noundef nonnull %.12339.ph)
+  %1247 = icmp eq i32 %1246, 0
+  br i1 %1247, label %1248, label %1317
 
-1252:                                             ; preds = %1247
+1248:                                             ; preds = %1243
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #43
   store ptr null, ptr %20, align 8, !tbaa !218
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #43
   store ptr null, ptr %21, align 8, !tbaa !29
-  %1253 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.866, ptr noundef nonnull %1249, ptr noundef nonnull %.12339.ph) #43
-  %1254 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %1255 = getelementptr inbounds nuw i8, ptr %18, i64 60
-  br label %1256
+  %1249 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.866, ptr noundef nonnull %1245, ptr noundef nonnull %.12339.ph) #43
+  %1250 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %1251 = getelementptr inbounds nuw i8, ptr %18, i64 60
+  br label %1252
 
-1256:                                             ; preds = %1258, %1252
-  %1257 = call ptr %.22397.ph(ptr noundef nonnull %18) #43, !callees !528
-  %.not2708 = icmp eq ptr %1257, null
-  br i1 %.not2708, label %1263, label %1258
+1252:                                             ; preds = %1254, %1248
+  %1253 = call ptr %.22397.ph(ptr noundef nonnull %18) #43, !callees !528
+  %.not2708 = icmp eq ptr %1253, null
+  br i1 %.not2708, label %1259, label %1254
 
-1258:                                             ; preds = %1256
-  %1259 = load ptr, ptr %1223, align 8, !tbaa !527
-  %1260 = call fastcc ptr @zAutoColumn(ptr noundef %1259, ptr noundef %20, ptr noundef null)
-  %1261 = load i32, ptr %1254, align 8, !tbaa !531
-  %1262 = load i32, ptr %1255, align 4, !tbaa !519
-  %.not2709 = icmp eq i32 %1261, %1262
-  br i1 %.not2709, label %1256, label %1263, !llvm.loop !532
+1254:                                             ; preds = %1252
+  %1255 = load ptr, ptr %1219, align 8, !tbaa !527
+  %1256 = call fastcc ptr @zAutoColumn(ptr noundef %1255, ptr noundef %20, ptr noundef null)
+  %1257 = load i32, ptr %1250, align 8, !tbaa !531
+  %1258 = load i32, ptr %1251, align 4, !tbaa !519
+  %.not2709 = icmp eq i32 %1257, %1258
+  br i1 %.not2709, label %1252, label %1259, !llvm.loop !532
 
-1263:                                             ; preds = %1258, %1256
-  %1264 = call fastcc ptr @zAutoColumn(ptr noundef null, ptr noundef %20, ptr noundef nonnull %21)
-  %1265 = load ptr, ptr %21, align 8, !tbaa !29
-  %.not2710 = icmp eq ptr %1265, null
-  br i1 %.not2710, label %1278, label %1266
+1259:                                             ; preds = %1254, %1252
+  %1260 = call fastcc ptr @zAutoColumn(ptr noundef null, ptr noundef %20, ptr noundef nonnull %21)
+  %1261 = load ptr, ptr %21, align 8, !tbaa !29
+  %.not2710 = icmp eq ptr %1261, null
+  br i1 %.not2710, label %1274, label %1262
 
-1266:                                             ; preds = %1263
-  %1267 = load i32, ptr @stdin_is_interactive, align 4, !tbaa !36
-  %.not2711 = icmp eq i32 %1267, 0
-  br i1 %.not2711, label %1274, label %1268
+1262:                                             ; preds = %1259
+  %1263 = load i32, ptr @stdin_is_interactive, align 4, !tbaa !36
+  %.not2711 = icmp eq i32 %1263, 0
+  br i1 %.not2711, label %1270, label %1264
 
-1268:                                             ; preds = %1266
-  %1269 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %1270 = load ptr, ptr %1269, align 8, !tbaa !463
-  %1271 = load ptr, ptr @stdin, align 8, !tbaa !14
-  %1272 = icmp eq ptr %1270, %1271
-  %1273 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %spec.select2855 = select i1 %1272, ptr %1273, ptr @stderr
+1264:                                             ; preds = %1262
+  %1265 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %1266 = load ptr, ptr %1265, align 8, !tbaa !463
+  %1267 = load ptr, ptr @stdin, align 8, !tbaa !14
+  %1268 = icmp eq ptr %1266, %1267
+  %1269 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %spec.select2855 = select i1 %1268, ptr %1269, ptr @stderr
+  br label %1270
+
+1270:                                             ; preds = %1264, %1262
+  %.in = phi ptr [ @stderr, %1262 ], [ %spec.select2855, %1264 ]
+  %1271 = load ptr, ptr %.in, align 8, !tbaa !14
+  %1272 = load ptr, ptr %18, align 8, !tbaa !523
+  %1273 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1271, ptr noundef nonnull @.str.867, ptr noundef %1272, ptr noundef nonnull %1261) #43
+  call void @sqlite3_free(ptr noundef nonnull %1261) #43
   br label %1274
 
-1274:                                             ; preds = %1268, %1266
-  %.in = phi ptr [ @stderr, %1266 ], [ %spec.select2855, %1268 ]
-  %1275 = load ptr, ptr %.in, align 8, !tbaa !14
-  %1276 = load ptr, ptr %18, align 8, !tbaa !523
-  %1277 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1275, ptr noundef nonnull @.str.867, ptr noundef %1276, ptr noundef nonnull %1265) #43
-  call void @sqlite3_free(ptr noundef nonnull %1265) #43
-  br label %1278
+1274:                                             ; preds = %1270, %1259
+  %1275 = icmp eq ptr %1260, null
+  br i1 %1275, label %1276, label %1286
 
-1278:                                             ; preds = %1274, %1263
-  %1279 = icmp eq ptr %1264, null
-  br i1 %1279, label %1280, label %1290
+1276:                                             ; preds = %1274
+  %1277 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1278 = load ptr, ptr %18, align 8, !tbaa !523
+  %1279 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1277, ptr noundef nonnull @.str.868, ptr noundef %1278) #46
+  %1280 = load ptr, ptr %1194, align 8, !tbaa !525
+  %.not.i2922 = icmp eq ptr %1280, null
+  br i1 %.not.i2922, label %import_cleanup.exit2924, label %1281
 
-1280:                                             ; preds = %1278
-  %1281 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1282 = load ptr, ptr %18, align 8, !tbaa !523
-  %1283 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1281, ptr noundef nonnull @.str.868, ptr noundef %1282) #46
-  %1284 = load ptr, ptr %1198, align 8, !tbaa !525
-  %.not.i2922 = icmp eq ptr %1284, null
-  br i1 %.not.i2922, label %import_cleanup.exit2924, label %1285
+1281:                                             ; preds = %1276
+  %1282 = load ptr, ptr %1195, align 8, !tbaa !526
+  %.not8.i2923 = icmp eq ptr %1282, null
+  br i1 %.not8.i2923, label %import_cleanup.exit2924, label %1283
 
-1285:                                             ; preds = %1280
-  %1286 = load ptr, ptr %1199, align 8, !tbaa !526
-  %.not8.i2923 = icmp eq ptr %1286, null
-  br i1 %.not8.i2923, label %import_cleanup.exit2924, label %1287
-
-1287:                                             ; preds = %1285
-  %1288 = call i32 %1286(ptr noundef nonnull %1284) #43
-  store ptr null, ptr %1198, align 8, !tbaa !525
+1283:                                             ; preds = %1281
+  %1284 = call i32 %1282(ptr noundef nonnull %1280) #43
+  store ptr null, ptr %1194, align 8, !tbaa !525
   br label %import_cleanup.exit2924
 
-import_cleanup.exit2924:                          ; preds = %1280, %1285, %1287
-  %1289 = load ptr, ptr %1223, align 8, !tbaa !527
-  call void @sqlite3_free(ptr noundef %1289) #43
-  store ptr null, ptr %1223, align 8, !tbaa !527
-  call void @sqlite3_free(ptr noundef %1253) #43
+import_cleanup.exit2924:                          ; preds = %1276, %1281, %1283
+  %1285 = load ptr, ptr %1219, align 8, !tbaa !527
+  call void @sqlite3_free(ptr noundef %1285) #43
+  store ptr null, ptr %1219, align 8, !tbaa !527
+  call void @sqlite3_free(ptr noundef %1249) #43
   br label %.thread3313
 
-1290:                                             ; preds = %1278
-  %1291 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.869, ptr noundef %1253, ptr noundef nonnull %1264) #43
-  %1292 = icmp eq ptr %1291, null
-  br i1 %1292, label %1293, label %1300
+1286:                                             ; preds = %1274
+  %1287 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.869, ptr noundef %1249, ptr noundef nonnull %1260) #43
+  %1288 = icmp eq ptr %1287, null
+  br i1 %1288, label %1289, label %1296
 
-1293:                                             ; preds = %1290
-  %1294 = load ptr, ptr %1198, align 8, !tbaa !525
-  %.not.i2925 = icmp eq ptr %1294, null
-  br i1 %.not.i2925, label %import_cleanup.exit2927, label %1295
+1289:                                             ; preds = %1286
+  %1290 = load ptr, ptr %1194, align 8, !tbaa !525
+  %.not.i2925 = icmp eq ptr %1290, null
+  br i1 %.not.i2925, label %import_cleanup.exit2927, label %1291
 
-1295:                                             ; preds = %1293
-  %1296 = load ptr, ptr %1199, align 8, !tbaa !526
-  %.not8.i2926 = icmp eq ptr %1296, null
-  br i1 %.not8.i2926, label %import_cleanup.exit2927, label %1297
+1291:                                             ; preds = %1289
+  %1292 = load ptr, ptr %1195, align 8, !tbaa !526
+  %.not8.i2926 = icmp eq ptr %1292, null
+  br i1 %.not8.i2926, label %import_cleanup.exit2927, label %1293
 
-1297:                                             ; preds = %1295
-  %1298 = call i32 %1296(ptr noundef nonnull %1294) #43
-  store ptr null, ptr %1198, align 8, !tbaa !525
+1293:                                             ; preds = %1291
+  %1294 = call i32 %1292(ptr noundef nonnull %1290) #43
+  store ptr null, ptr %1194, align 8, !tbaa !525
   br label %import_cleanup.exit2927
 
-import_cleanup.exit2927:                          ; preds = %1293, %1295, %1297
-  %1299 = load ptr, ptr %1223, align 8, !tbaa !527
-  call void @sqlite3_free(ptr noundef %1299) #43
-  store ptr null, ptr %1223, align 8, !tbaa !527
+import_cleanup.exit2927:                          ; preds = %1289, %1291, %1293
+  %1295 = load ptr, ptr %1219, align 8, !tbaa !527
+  call void @sqlite3_free(ptr noundef %1295) #43
+  store ptr null, ptr %1219, align 8, !tbaa !527
   call fastcc void @shell_out_of_memory()
   unreachable
 
-1300:                                             ; preds = %1290
-  %1301 = icmp sgt i32 %.12413.ph, 0
-  br i1 %1301, label %1302, label %1306
+1296:                                             ; preds = %1286
+  %1297 = icmp sgt i32 %.12413.ph, 0
+  br i1 %1297, label %1298, label %1302
 
-1302:                                             ; preds = %1300
-  %1303 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %1304 = load ptr, ptr %1303, align 8, !tbaa !462
-  %1305 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1304, ptr noundef nonnull @.str.310, ptr noundef nonnull %1291) #43
-  br label %1306
+1298:                                             ; preds = %1296
+  %1299 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %1300 = load ptr, ptr %1299, align 8, !tbaa !462
+  %1301 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1300, ptr noundef nonnull @.str.310, ptr noundef nonnull %1287) #43
+  br label %1302
 
-1306:                                             ; preds = %1302, %1300
+1302:                                             ; preds = %1298, %1296
+  %1303 = load ptr, ptr %1, align 8, !tbaa !477
+  %1304 = call i32 @sqlite3_exec(ptr noundef %1303, ptr noundef nonnull %1287, ptr noundef null, ptr noundef null, ptr noundef null) #43
+  %.not2712 = icmp eq i32 %1304, 0
+  br i1 %.not2712, label %1316, label %1305
+
+1305:                                             ; preds = %1302
+  %1306 = load ptr, ptr @stderr, align 8, !tbaa !14
   %1307 = load ptr, ptr %1, align 8, !tbaa !477
-  %1308 = call i32 @sqlite3_exec(ptr noundef %1307, ptr noundef nonnull %1291, ptr noundef null, ptr noundef null, ptr noundef null) #43
-  %.not2712 = icmp eq i32 %1308, 0
-  br i1 %.not2712, label %1320, label %1309
+  %1308 = call ptr @sqlite3_errmsg(ptr noundef %1307) #43
+  %1309 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1306, ptr noundef nonnull @.str.870, ptr noundef nonnull %1287, ptr noundef %1308) #46
+  call void @sqlite3_free(ptr noundef nonnull %1287) #43
+  %1310 = load ptr, ptr %1194, align 8, !tbaa !525
+  %.not.i2928 = icmp eq ptr %1310, null
+  br i1 %.not.i2928, label %import_cleanup.exit2930, label %1311
 
-1309:                                             ; preds = %1306
-  %1310 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1311 = load ptr, ptr %1, align 8, !tbaa !477
-  %1312 = call ptr @sqlite3_errmsg(ptr noundef %1311) #43
-  %1313 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1310, ptr noundef nonnull @.str.870, ptr noundef nonnull %1291, ptr noundef %1312) #46
-  call void @sqlite3_free(ptr noundef nonnull %1291) #43
-  %1314 = load ptr, ptr %1198, align 8, !tbaa !525
-  %.not.i2928 = icmp eq ptr %1314, null
-  br i1 %.not.i2928, label %import_cleanup.exit2930, label %1315
+1311:                                             ; preds = %1305
+  %1312 = load ptr, ptr %1195, align 8, !tbaa !526
+  %.not8.i2929 = icmp eq ptr %1312, null
+  br i1 %.not8.i2929, label %import_cleanup.exit2930, label %1313
 
-1315:                                             ; preds = %1309
-  %1316 = load ptr, ptr %1199, align 8, !tbaa !526
-  %.not8.i2929 = icmp eq ptr %1316, null
-  br i1 %.not8.i2929, label %import_cleanup.exit2930, label %1317
-
-1317:                                             ; preds = %1315
-  %1318 = call i32 %1316(ptr noundef nonnull %1314) #43
-  store ptr null, ptr %1198, align 8, !tbaa !525
+1313:                                             ; preds = %1311
+  %1314 = call i32 %1312(ptr noundef nonnull %1310) #43
+  store ptr null, ptr %1194, align 8, !tbaa !525
   br label %import_cleanup.exit2930
 
-import_cleanup.exit2930:                          ; preds = %1309, %1315, %1317
-  %1319 = load ptr, ptr %1223, align 8, !tbaa !527
-  call void @sqlite3_free(ptr noundef %1319) #43
-  store ptr null, ptr %1223, align 8, !tbaa !527
+import_cleanup.exit2930:                          ; preds = %1305, %1311, %1313
+  %1315 = load ptr, ptr %1219, align 8, !tbaa !527
+  call void @sqlite3_free(ptr noundef %1315) #43
+  store ptr null, ptr %1219, align 8, !tbaa !527
   br label %.thread3313
 
 .thread3313:                                      ; preds = %import_cleanup.exit2924, %import_cleanup.exit2930
@@ -21641,1923 +21638,1923 @@ import_cleanup.exit2930:                          ; preds = %1309, %1315, %1317
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #43
   br label %.thread3326
 
-1320:                                             ; preds = %1306
-  call void @sqlite3_free(ptr noundef nonnull %1291) #43
+1316:                                             ; preds = %1302
+  call void @sqlite3_free(ptr noundef nonnull %1287) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #43
-  br label %1321
+  br label %1317
 
-1321:                                             ; preds = %1320, %1247, %._crit_edge3988
-  %1322 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.871, ptr noundef nonnull %.12339.ph, ptr noundef %.12344.ph) #43
-  %1323 = icmp eq ptr %1322, null
-  br i1 %1323, label %1324, label %1331
+1317:                                             ; preds = %1316, %1243, %._crit_edge3988
+  %1318 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.871, ptr noundef nonnull %.12339.ph, ptr noundef %.12344.ph) #43
+  %1319 = icmp eq ptr %1318, null
+  br i1 %1319, label %1320, label %1327
 
-1324:                                             ; preds = %1321
-  %1325 = load ptr, ptr %1198, align 8, !tbaa !525
-  %.not.i2931 = icmp eq ptr %1325, null
-  br i1 %.not.i2931, label %import_cleanup.exit2933, label %1326
+1320:                                             ; preds = %1317
+  %1321 = load ptr, ptr %1194, align 8, !tbaa !525
+  %.not.i2931 = icmp eq ptr %1321, null
+  br i1 %.not.i2931, label %import_cleanup.exit2933, label %1322
 
-1326:                                             ; preds = %1324
-  %1327 = load ptr, ptr %1199, align 8, !tbaa !526
-  %.not8.i2932 = icmp eq ptr %1327, null
-  br i1 %.not8.i2932, label %import_cleanup.exit2933, label %1328
+1322:                                             ; preds = %1320
+  %1323 = load ptr, ptr %1195, align 8, !tbaa !526
+  %.not8.i2932 = icmp eq ptr %1323, null
+  br i1 %.not8.i2932, label %import_cleanup.exit2933, label %1324
 
-1328:                                             ; preds = %1326
-  %1329 = call i32 %1327(ptr noundef nonnull %1325) #43
-  store ptr null, ptr %1198, align 8, !tbaa !525
+1324:                                             ; preds = %1322
+  %1325 = call i32 %1323(ptr noundef nonnull %1321) #43
+  store ptr null, ptr %1194, align 8, !tbaa !525
   br label %import_cleanup.exit2933
 
-import_cleanup.exit2933:                          ; preds = %1324, %1326, %1328
-  %1330 = load ptr, ptr %1223, align 8, !tbaa !527
-  call void @sqlite3_free(ptr noundef %1330) #43
-  store ptr null, ptr %1223, align 8, !tbaa !527
+import_cleanup.exit2933:                          ; preds = %1320, %1322, %1324
+  %1326 = load ptr, ptr %1219, align 8, !tbaa !527
+  call void @sqlite3_free(ptr noundef %1326) #43
+  store ptr null, ptr %1219, align 8, !tbaa !527
   call fastcc void @shell_out_of_memory()
   unreachable
 
-1331:                                             ; preds = %1321
-  %1332 = load ptr, ptr %1, align 8, !tbaa !477
-  %1333 = call i32 @sqlite3_prepare_v2(ptr noundef %1332, ptr noundef nonnull %1322, i32 noundef -1, ptr noundef nonnull %17, ptr noundef null) #43
-  call void @sqlite3_free(ptr noundef nonnull %1322) #43
-  %.not2713 = icmp eq i32 %1333, 0
-  %1334 = load ptr, ptr %17, align 8, !tbaa !31
-  br i1 %.not2713, label %1346, label %1335
+1327:                                             ; preds = %1317
+  %1328 = load ptr, ptr %1, align 8, !tbaa !477
+  %1329 = call i32 @sqlite3_prepare_v2(ptr noundef %1328, ptr noundef nonnull %1318, i32 noundef -1, ptr noundef nonnull %17, ptr noundef null) #43
+  call void @sqlite3_free(ptr noundef nonnull %1318) #43
+  %.not2713 = icmp eq i32 %1329, 0
+  %1330 = load ptr, ptr %17, align 8, !tbaa !31
+  br i1 %.not2713, label %1342, label %1331
 
-1335:                                             ; preds = %1331
-  %.not2723 = icmp eq ptr %1334, null
-  br i1 %.not2723, label %1338, label %1336
+1331:                                             ; preds = %1327
+  %.not2723 = icmp eq ptr %1330, null
+  br i1 %.not2723, label %1334, label %1332
 
-1336:                                             ; preds = %1335
-  %1337 = call i32 @sqlite3_finalize(ptr noundef nonnull %1334) #43
-  br label %1338
+1332:                                             ; preds = %1331
+  %1333 = call i32 @sqlite3_finalize(ptr noundef nonnull %1330) #43
+  br label %1334
 
-1338:                                             ; preds = %1336, %1335
-  %1339 = load ptr, ptr %1, align 8, !tbaa !477
-  call fastcc void @shellDatabaseError(ptr noundef %1339)
-  %1340 = load ptr, ptr %1198, align 8, !tbaa !525
-  %.not.i2934 = icmp eq ptr %1340, null
-  br i1 %.not.i2934, label %import_cleanup.exit2936, label %1341
+1334:                                             ; preds = %1332, %1331
+  %1335 = load ptr, ptr %1, align 8, !tbaa !477
+  call fastcc void @shellDatabaseError(ptr noundef %1335)
+  %1336 = load ptr, ptr %1194, align 8, !tbaa !525
+  %.not.i2934 = icmp eq ptr %1336, null
+  br i1 %.not.i2934, label %import_cleanup.exit2936, label %1337
 
-1341:                                             ; preds = %1338
-  %1342 = load ptr, ptr %1199, align 8, !tbaa !526
-  %.not8.i2935 = icmp eq ptr %1342, null
-  br i1 %.not8.i2935, label %import_cleanup.exit2936, label %1343
+1337:                                             ; preds = %1334
+  %1338 = load ptr, ptr %1195, align 8, !tbaa !526
+  %.not8.i2935 = icmp eq ptr %1338, null
+  br i1 %.not8.i2935, label %import_cleanup.exit2936, label %1339
 
-1343:                                             ; preds = %1341
-  %1344 = call i32 %1342(ptr noundef nonnull %1340) #43
-  store ptr null, ptr %1198, align 8, !tbaa !525
+1339:                                             ; preds = %1337
+  %1340 = call i32 %1338(ptr noundef nonnull %1336) #43
+  store ptr null, ptr %1194, align 8, !tbaa !525
   br label %import_cleanup.exit2936
 
-import_cleanup.exit2936:                          ; preds = %1338, %1341, %1343
-  %1345 = load ptr, ptr %1223, align 8, !tbaa !527
-  call void @sqlite3_free(ptr noundef %1345) #43
-  store ptr null, ptr %1223, align 8, !tbaa !527
+import_cleanup.exit2936:                          ; preds = %1334, %1337, %1339
+  %1341 = load ptr, ptr %1219, align 8, !tbaa !527
+  call void @sqlite3_free(ptr noundef %1341) #43
+  store ptr null, ptr %1219, align 8, !tbaa !527
   br label %.thread3326
 
-1346:                                             ; preds = %1331
-  %1347 = call i32 @sqlite3_step(ptr noundef %1334) #43
-  %1348 = icmp eq i32 %1347, 100
-  br i1 %1348, label %1349, label %1352
+1342:                                             ; preds = %1327
+  %1343 = call i32 @sqlite3_step(ptr noundef %1330) #43
+  %1344 = icmp eq i32 %1343, 100
+  br i1 %1344, label %1345, label %1348
 
-1349:                                             ; preds = %1346
-  %1350 = load ptr, ptr %17, align 8, !tbaa !31
-  %1351 = call i32 @sqlite3_column_int(ptr noundef %1350, i32 noundef 0) #43
-  br label %1352
+1345:                                             ; preds = %1342
+  %1346 = load ptr, ptr %17, align 8, !tbaa !31
+  %1347 = call i32 @sqlite3_column_int(ptr noundef %1346, i32 noundef 0) #43
+  br label %1348
 
-1352:                                             ; preds = %1346, %1349
-  %.02355 = phi i32 [ %1351, %1349 ], [ 0, %1346 ]
-  %1353 = load ptr, ptr %17, align 8, !tbaa !31
-  %1354 = call i32 @sqlite3_finalize(ptr noundef %1353) #43
+1348:                                             ; preds = %1342, %1345
+  %.02355 = phi i32 [ %1347, %1345 ], [ 0, %1342 ]
+  %1349 = load ptr, ptr %17, align 8, !tbaa !31
+  %1350 = call i32 @sqlite3_finalize(ptr noundef %1349) #43
   store ptr null, ptr %17, align 8, !tbaa !31
-  %1355 = icmp eq i32 %.02355, 0
-  br i1 %1355, label %1515, label %1356
+  %1351 = icmp eq i32 %.02355, 0
+  br i1 %1351, label %1511, label %1352
 
-1356:                                             ; preds = %1352
+1352:                                             ; preds = %1348
   %.not2714 = icmp eq ptr %.12344.ph, null
-  br i1 %.not2714, label %1361, label %1357
+  br i1 %.not2714, label %1357, label %1353
 
-1357:                                             ; preds = %1356
-  %1358 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.12344.ph) #44
-  %1359 = shl i64 %1358, 1
-  %1360 = add i64 %1359, 66
-  br label %1361
+1353:                                             ; preds = %1352
+  %1354 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.12344.ph) #44
+  %1355 = shl i64 %1354, 1
+  %1356 = add i64 %1355, 66
+  br label %1357
 
-1361:                                             ; preds = %1356, %1357
-  %1362 = phi i64 [ %1360, %1357 ], [ 64, %1356 ]
-  %1363 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.12339.ph) #44
-  %1364 = shl i64 %1363, 1
-  %1365 = shl nsw i32 %.02355, 1
-  %1366 = sext i32 %1365 to i64
-  %1367 = add nsw i64 %1366, 2
-  %1368 = add i64 %1367, %1362
-  %1369 = add i64 %1368, %1364
-  %1370 = call ptr @sqlite3_malloc64(i64 noundef %1369) #43
-  %1371 = icmp eq ptr %1370, null
-  br i1 %1371, label %1372, label %1379
+1357:                                             ; preds = %1352, %1353
+  %1358 = phi i64 [ %1356, %1353 ], [ 64, %1352 ]
+  %1359 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.12339.ph) #44
+  %1360 = shl i64 %1359, 1
+  %1361 = shl nsw i32 %.02355, 1
+  %1362 = sext i32 %1361 to i64
+  %1363 = add nsw i64 %1362, 2
+  %1364 = add i64 %1363, %1358
+  %1365 = add i64 %1364, %1360
+  %1366 = call ptr @sqlite3_malloc64(i64 noundef %1365) #43
+  %1367 = icmp eq ptr %1366, null
+  br i1 %1367, label %1368, label %1375
 
-1372:                                             ; preds = %1361
-  %1373 = load ptr, ptr %1198, align 8, !tbaa !525
-  %.not.i2937 = icmp eq ptr %1373, null
-  br i1 %.not.i2937, label %import_cleanup.exit2939, label %1374
+1368:                                             ; preds = %1357
+  %1369 = load ptr, ptr %1194, align 8, !tbaa !525
+  %.not.i2937 = icmp eq ptr %1369, null
+  br i1 %.not.i2937, label %import_cleanup.exit2939, label %1370
 
-1374:                                             ; preds = %1372
-  %1375 = load ptr, ptr %1199, align 8, !tbaa !526
-  %.not8.i2938 = icmp eq ptr %1375, null
-  br i1 %.not8.i2938, label %import_cleanup.exit2939, label %1376
+1370:                                             ; preds = %1368
+  %1371 = load ptr, ptr %1195, align 8, !tbaa !526
+  %.not8.i2938 = icmp eq ptr %1371, null
+  br i1 %.not8.i2938, label %import_cleanup.exit2939, label %1372
 
-1376:                                             ; preds = %1374
-  %1377 = call i32 %1375(ptr noundef nonnull %1373) #43
-  store ptr null, ptr %1198, align 8, !tbaa !525
+1372:                                             ; preds = %1370
+  %1373 = call i32 %1371(ptr noundef nonnull %1369) #43
+  store ptr null, ptr %1194, align 8, !tbaa !525
   br label %import_cleanup.exit2939
 
-import_cleanup.exit2939:                          ; preds = %1372, %1374, %1376
-  %1378 = load ptr, ptr %1223, align 8, !tbaa !527
-  call void @sqlite3_free(ptr noundef %1378) #43
-  store ptr null, ptr %1223, align 8, !tbaa !527
+import_cleanup.exit2939:                          ; preds = %1368, %1370, %1372
+  %1374 = load ptr, ptr %1219, align 8, !tbaa !527
+  call void @sqlite3_free(ptr noundef %1374) #43
+  store ptr null, ptr %1219, align 8, !tbaa !527
   call fastcc void @shell_out_of_memory()
   unreachable
 
-1379:                                             ; preds = %1361
-  %1380 = trunc i64 %1369 to i32
-  br i1 %.not2714, label %1383, label %1381
+1375:                                             ; preds = %1357
+  %1376 = trunc i64 %1365 to i32
+  br i1 %.not2714, label %1379, label %1377
 
-1381:                                             ; preds = %1379
-  %1382 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef %1380, ptr noundef nonnull %1370, ptr noundef nonnull @.str.872, ptr noundef nonnull %.12344.ph, ptr noundef nonnull %.12339.ph) #43
-  br label %1385
+1377:                                             ; preds = %1375
+  %1378 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef %1376, ptr noundef nonnull %1366, ptr noundef nonnull @.str.872, ptr noundef nonnull %.12344.ph, ptr noundef nonnull %.12339.ph) #43
+  br label %1381
 
-1383:                                             ; preds = %1379
-  %1384 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef %1380, ptr noundef nonnull %1370, ptr noundef nonnull @.str.873, ptr noundef nonnull %.12339.ph) #43
-  br label %1385
+1379:                                             ; preds = %1375
+  %1380 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef %1376, ptr noundef nonnull %1366, ptr noundef nonnull @.str.873, ptr noundef nonnull %.12339.ph) #43
+  br label %1381
 
-1385:                                             ; preds = %1383, %1381
-  %strlen.i2940 = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %1370)
-  %1386 = and i64 %strlen.i2940, 1073741823
-  %1387 = icmp sgt i32 %.02355, 1
-  br i1 %1387, label %.lr.ph3992.preheader, label %._crit_edge3993
+1381:                                             ; preds = %1379, %1377
+  %strlen.i2940 = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %1366)
+  %1382 = and i64 %strlen.i2940, 1073741823
+  %1383 = icmp sgt i32 %.02355, 1
+  br i1 %1383, label %.lr.ph3992.preheader, label %._crit_edge3993
 
-.lr.ph3992.preheader:                             ; preds = %1385
-  %1388 = and i64 %strlen.i2940, 1073741823
+.lr.ph3992.preheader:                             ; preds = %1381
+  %1384 = and i64 %strlen.i2940, 1073741823
   br label %.lr.ph3992
 
 .lr.ph3992:                                       ; preds = %.lr.ph3992.preheader, %.lr.ph3992
-  %indvars.iv4351 = phi i64 [ %1388, %.lr.ph3992.preheader ], [ %indvars.iv.next4352, %.lr.ph3992 ]
-  %.323593990 = phi i32 [ 1, %.lr.ph3992.preheader ], [ %1391, %.lr.ph3992 ]
-  %1389 = getelementptr inbounds nuw i8, ptr %1370, i64 %indvars.iv4351
-  store i8 44, ptr %1389, align 1, !tbaa !25
+  %indvars.iv4351 = phi i64 [ %1384, %.lr.ph3992.preheader ], [ %indvars.iv.next4352, %.lr.ph3992 ]
+  %.323593990 = phi i32 [ 1, %.lr.ph3992.preheader ], [ %1387, %.lr.ph3992 ]
+  %1385 = getelementptr inbounds nuw i8, ptr %1366, i64 %indvars.iv4351
+  store i8 44, ptr %1385, align 1, !tbaa !25
   %indvars.iv.next4352 = add nuw nsw i64 %indvars.iv4351, 2
-  %1390 = getelementptr inbounds nuw i8, ptr %1389, i64 1
-  store i8 63, ptr %1390, align 1, !tbaa !25
-  %1391 = add nuw nsw i32 %.323593990, 1
-  %exitcond4355.not = icmp eq i32 %1391, %.02355
+  %1386 = getelementptr inbounds nuw i8, ptr %1385, i64 1
+  store i8 63, ptr %1386, align 1, !tbaa !25
+  %1387 = add nuw nsw i32 %.323593990, 1
+  %exitcond4355.not = icmp eq i32 %1387, %.02355
   br i1 %exitcond4355.not, label %._crit_edge3993.loopexit, label %.lr.ph3992, !llvm.loop !533
 
 ._crit_edge3993.loopexit:                         ; preds = %.lr.ph3992
-  %1392 = and i64 %indvars.iv.next4352, 4294967295
+  %1388 = and i64 %indvars.iv.next4352, 4294967295
   br label %._crit_edge3993
 
-._crit_edge3993:                                  ; preds = %._crit_edge3993.loopexit, %1385
-  %.02367.lcssa = phi i64 [ %1386, %1385 ], [ %1392, %._crit_edge3993.loopexit ]
-  %1393 = getelementptr inbounds nuw i8, ptr %1370, i64 %.02367.lcssa
-  store i8 41, ptr %1393, align 1, !tbaa !25
-  %1394 = getelementptr i8, ptr %1393, i64 1
-  store i8 0, ptr %1394, align 1, !tbaa !25
-  br i1 %1205, label %1395, label %1399
+._crit_edge3993:                                  ; preds = %._crit_edge3993.loopexit, %1381
+  %.02367.lcssa = phi i64 [ %1382, %1381 ], [ %1388, %._crit_edge3993.loopexit ]
+  %1389 = getelementptr inbounds nuw i8, ptr %1366, i64 %.02367.lcssa
+  store i8 41, ptr %1389, align 1, !tbaa !25
+  %1390 = getelementptr i8, ptr %1389, i64 1
+  store i8 0, ptr %1390, align 1, !tbaa !25
+  br i1 %1201, label %1391, label %1395
 
-1395:                                             ; preds = %._crit_edge3993
-  %1396 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %1397 = load ptr, ptr %1396, align 8, !tbaa !462
-  %1398 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1397, ptr noundef nonnull @.str.874, ptr noundef nonnull %1370) #43
-  br label %1399
+1391:                                             ; preds = %._crit_edge3993
+  %1392 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %1393 = load ptr, ptr %1392, align 8, !tbaa !462
+  %1394 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1393, ptr noundef nonnull @.str.874, ptr noundef nonnull %1366) #43
+  br label %1395
 
-1399:                                             ; preds = %1395, %._crit_edge3993
-  %1400 = load ptr, ptr %1, align 8, !tbaa !477
-  %1401 = call i32 @sqlite3_prepare_v2(ptr noundef %1400, ptr noundef nonnull %1370, i32 noundef -1, ptr noundef nonnull %17, ptr noundef null) #43
-  call void @sqlite3_free(ptr noundef nonnull %1370) #43
-  %.not2715 = icmp eq i32 %1401, 0
-  %1402 = load ptr, ptr %1, align 8, !tbaa !477
-  br i1 %.not2715, label %1414, label %1403
+1395:                                             ; preds = %1391, %._crit_edge3993
+  %1396 = load ptr, ptr %1, align 8, !tbaa !477
+  %1397 = call i32 @sqlite3_prepare_v2(ptr noundef %1396, ptr noundef nonnull %1366, i32 noundef -1, ptr noundef nonnull %17, ptr noundef null) #43
+  call void @sqlite3_free(ptr noundef nonnull %1366) #43
+  %.not2715 = icmp eq i32 %1397, 0
+  %1398 = load ptr, ptr %1, align 8, !tbaa !477
+  br i1 %.not2715, label %1410, label %1399
 
-1403:                                             ; preds = %1399
-  call fastcc void @shellDatabaseError(ptr noundef %1402)
-  %1404 = load ptr, ptr %17, align 8, !tbaa !31
-  %.not2722 = icmp eq ptr %1404, null
-  br i1 %.not2722, label %1407, label %1405
+1399:                                             ; preds = %1395
+  call fastcc void @shellDatabaseError(ptr noundef %1398)
+  %1400 = load ptr, ptr %17, align 8, !tbaa !31
+  %.not2722 = icmp eq ptr %1400, null
+  br i1 %.not2722, label %1403, label %1401
+
+1401:                                             ; preds = %1399
+  %1402 = call i32 @sqlite3_finalize(ptr noundef nonnull %1400) #43
+  br label %1403
+
+1403:                                             ; preds = %1401, %1399
+  %1404 = load ptr, ptr %1194, align 8, !tbaa !525
+  %.not.i2941 = icmp eq ptr %1404, null
+  br i1 %.not.i2941, label %import_cleanup.exit2943, label %1405
 
 1405:                                             ; preds = %1403
-  %1406 = call i32 @sqlite3_finalize(ptr noundef nonnull %1404) #43
-  br label %1407
+  %1406 = load ptr, ptr %1195, align 8, !tbaa !526
+  %.not8.i2942 = icmp eq ptr %1406, null
+  br i1 %.not8.i2942, label %import_cleanup.exit2943, label %1407
 
-1407:                                             ; preds = %1405, %1403
-  %1408 = load ptr, ptr %1198, align 8, !tbaa !525
-  %.not.i2941 = icmp eq ptr %1408, null
-  br i1 %.not.i2941, label %import_cleanup.exit2943, label %1409
-
-1409:                                             ; preds = %1407
-  %1410 = load ptr, ptr %1199, align 8, !tbaa !526
-  %.not8.i2942 = icmp eq ptr %1410, null
-  br i1 %.not8.i2942, label %import_cleanup.exit2943, label %1411
-
-1411:                                             ; preds = %1409
-  %1412 = call i32 %1410(ptr noundef nonnull %1408) #43
-  store ptr null, ptr %1198, align 8, !tbaa !525
+1407:                                             ; preds = %1405
+  %1408 = call i32 %1406(ptr noundef nonnull %1404) #43
+  store ptr null, ptr %1194, align 8, !tbaa !525
   br label %import_cleanup.exit2943
 
-import_cleanup.exit2943:                          ; preds = %1407, %1409, %1411
-  %1413 = load ptr, ptr %1223, align 8, !tbaa !527
-  call void @sqlite3_free(ptr noundef %1413) #43
-  store ptr null, ptr %1223, align 8, !tbaa !527
+import_cleanup.exit2943:                          ; preds = %1403, %1405, %1407
+  %1409 = load ptr, ptr %1219, align 8, !tbaa !527
+  call void @sqlite3_free(ptr noundef %1409) #43
+  store ptr null, ptr %1219, align 8, !tbaa !527
   br label %.thread3326
 
-1414:                                             ; preds = %1399
-  %1415 = call i32 @sqlite3_get_autocommit(ptr noundef %1402) #43
-  %.not2716 = icmp eq i32 %1415, 0
-  br i1 %.not2716, label %1419, label %1416
+1410:                                             ; preds = %1395
+  %1411 = call i32 @sqlite3_get_autocommit(ptr noundef %1398) #43
+  %.not2716 = icmp eq i32 %1411, 0
+  br i1 %.not2716, label %1415, label %1412
 
-1416:                                             ; preds = %1414
-  %1417 = load ptr, ptr %1, align 8, !tbaa !477
-  %1418 = call i32 @sqlite3_exec(ptr noundef %1417, ptr noundef nonnull @.str.548, ptr noundef null, ptr noundef null, ptr noundef null) #43
-  br label %1419
+1412:                                             ; preds = %1410
+  %1413 = load ptr, ptr %1, align 8, !tbaa !477
+  %1414 = call i32 @sqlite3_exec(ptr noundef %1413, ptr noundef nonnull @.str.548, ptr noundef null, ptr noundef null, ptr noundef null) #43
+  br label %1415
 
-1419:                                             ; preds = %1416, %1414
-  %1420 = icmp sgt i32 %.02355, 0
-  %1421 = icmp eq ptr %.22397.ph, @csv_read_one_field
-  %1422 = add nsw i32 %.02355, -1
-  %1423 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %1424 = getelementptr inbounds nuw i8, ptr %18, i64 60
-  %1425 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %1426 = getelementptr inbounds nuw i8, ptr %18, i64 44
-  %1427 = add i32 %.02355, 1
-  br label %1428
+1415:                                             ; preds = %1412, %1410
+  %1416 = icmp sgt i32 %.02355, 0
+  %1417 = icmp eq ptr %.22397.ph, @csv_read_one_field
+  %1418 = add nsw i32 %.02355, -1
+  %1419 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %1420 = getelementptr inbounds nuw i8, ptr %18, i64 60
+  %1421 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  %1422 = getelementptr inbounds nuw i8, ptr %18, i64 44
+  %1423 = add i32 %.02355, 1
+  br label %1424
 
-1428:                                             ; preds = %1491, %1419
-  %.16 = phi i32 [ 0, %1419 ], [ %.17, %1491 ]
-  %1429 = load i32, ptr %1189, align 8, !tbaa !524
-  br i1 %1420, label %.lr.ph4002, label %._crit_edge4003
+1424:                                             ; preds = %1487, %1415
+  %.16 = phi i32 [ 0, %1415 ], [ %.17, %1487 ]
+  %1425 = load i32, ptr %1185, align 8, !tbaa !524
+  br i1 %1416, label %.lr.ph4002, label %._crit_edge4003
 
-.lr.ph4002:                                       ; preds = %1428, %.loopexit3767
-  %.423604000 = phi i32 [ %1460, %.loopexit3767 ], [ 0, %1428 ]
-  %1430 = call ptr %.22397.ph(ptr noundef nonnull %18) #43, !callees !528
-  %1431 = icmp eq ptr %1430, null
-  %1432 = icmp eq i32 %.423604000, 0
-  %or.cond69 = and i1 %1432, %1431
-  br i1 %or.cond69, label %._crit_edge4003, label %1433
+.lr.ph4002:                                       ; preds = %1424, %.loopexit3767
+  %.423604000 = phi i32 [ %1456, %.loopexit3767 ], [ 0, %1424 ]
+  %1426 = call ptr %.22397.ph(ptr noundef nonnull %18) #43, !callees !528
+  %1427 = icmp eq ptr %1426, null
+  %1428 = icmp eq i32 %.423604000, 0
+  %or.cond69 = and i1 %1428, %1427
+  br i1 %or.cond69, label %._crit_edge4003, label %1429
 
-1433:                                             ; preds = %.lr.ph4002
-  %1434 = load i32, ptr %1067, align 4, !tbaa !442
-  %1435 = icmp eq i32 %1434, 10
-  br i1 %1435, label %1436, label %1441
+1429:                                             ; preds = %.lr.ph4002
+  %1430 = load i32, ptr %1063, align 4, !tbaa !442
+  %1431 = icmp eq i32 %1430, 10
+  br i1 %1431, label %1432, label %1437
 
-1436:                                             ; preds = %1433
-  br i1 %1431, label %1440, label %1437
+1432:                                             ; preds = %1429
+  br i1 %1427, label %1436, label %1433
 
-1437:                                             ; preds = %1436
-  %1438 = load i8, ptr %1430, align 1, !tbaa !25
-  %1439 = icmp eq i8 %1438, 0
-  %or.cond72 = and i1 %1432, %1439
+1433:                                             ; preds = %1432
+  %1434 = load i8, ptr %1426, align 1, !tbaa !25
+  %1435 = icmp eq i8 %1434, 0
+  %or.cond72 = and i1 %1428, %1435
   br i1 %or.cond72, label %._crit_edge4003, label %.thread3317
 
-1440:                                             ; preds = %1436
-  br i1 %1432, label %._crit_edge4003, label %1441
+1436:                                             ; preds = %1432
+  br i1 %1428, label %._crit_edge4003, label %1437
 
-1441:                                             ; preds = %1440, %1433
-  %or.cond75 = select i1 %1431, i1 %1421, i1 false
-  br i1 %or.cond75, label %1442, label %.thread3317
+1437:                                             ; preds = %1436, %1429
+  %or.cond75 = select i1 %1427, i1 %1417, i1 false
+  br i1 %or.cond75, label %1438, label %.thread3317
 
-1442:                                             ; preds = %1441
-  %1443 = icmp eq i32 %.423604000, %1422
-  %1444 = icmp sgt i32 %.423604000, 0
-  %or.cond78 = and i1 %1443, %1444
+1438:                                             ; preds = %1437
+  %1439 = icmp eq i32 %.423604000, %1418
+  %1440 = icmp sgt i32 %.423604000, 0
+  %or.cond78 = and i1 %1439, %1440
   %spec.select2798 = select i1 %or.cond78, ptr @.str.44, ptr null
   br label %.thread3317
 
-.thread3317:                                      ; preds = %1437, %1442, %1441
-  %.02423 = phi ptr [ %1430, %1441 ], [ %spec.select2798, %1442 ], [ %1430, %1437 ]
-  %1445 = load ptr, ptr %17, align 8, !tbaa !31
-  %1446 = add nsw i32 %.423604000, 1
-  %1447 = call i32 @sqlite3_bind_text(ptr noundef %1445, i32 noundef %1446, ptr noundef %.02423, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #43
-  %1448 = icmp slt i32 %.423604000, %1422
-  br i1 %1448, label %1449, label %.loopexit3767
+.thread3317:                                      ; preds = %1433, %1438, %1437
+  %.02423 = phi ptr [ %1426, %1437 ], [ %spec.select2798, %1438 ], [ %1426, %1433 ]
+  %1441 = load ptr, ptr %17, align 8, !tbaa !31
+  %1442 = add nsw i32 %.423604000, 1
+  %1443 = call i32 @sqlite3_bind_text(ptr noundef %1441, i32 noundef %1442, ptr noundef %.02423, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #43
+  %1444 = icmp slt i32 %.423604000, %1418
+  br i1 %1444, label %1445, label %.loopexit3767
 
-1449:                                             ; preds = %.thread3317
-  %1450 = load i32, ptr %1423, align 8, !tbaa !531
-  %1451 = load i32, ptr %1424, align 4, !tbaa !519
-  %.not2717 = icmp eq i32 %1450, %1451
-  br i1 %.not2717, label %.loopexit3767, label %1452
+1445:                                             ; preds = %.thread3317
+  %1446 = load i32, ptr %1419, align 8, !tbaa !531
+  %1447 = load i32, ptr %1420, align 4, !tbaa !519
+  %.not2717 = icmp eq i32 %1446, %1447
+  br i1 %.not2717, label %.loopexit3767, label %1448
 
-1452:                                             ; preds = %1449
-  %1453 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1454 = load ptr, ptr %18, align 8, !tbaa !523
-  %1455 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1453, ptr noundef nonnull @.str.875, ptr noundef %1454, i32 noundef %1429, i32 noundef %.02355, i32 noundef %1446) #46
-  %1456 = add nsw i32 %.423604000, 2
-  %.not27183995 = icmp sgt i32 %1456, %.02355
+1448:                                             ; preds = %1445
+  %1449 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1450 = load ptr, ptr %18, align 8, !tbaa !523
+  %1451 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1449, ptr noundef nonnull @.str.875, ptr noundef %1450, i32 noundef %1425, i32 noundef %.02355, i32 noundef %1442) #46
+  %1452 = add nsw i32 %.423604000, 2
+  %.not27183995 = icmp sgt i32 %1452, %.02355
   br i1 %.not27183995, label %.loopexit3767, label %.lr.ph3998
 
-.lr.ph3998:                                       ; preds = %1452, %.lr.ph3998
-  %.823643996 = phi i32 [ %1459, %.lr.ph3998 ], [ %1456, %1452 ]
-  %1457 = load ptr, ptr %17, align 8, !tbaa !31
-  %1458 = call i32 @sqlite3_bind_null(ptr noundef %1457, i32 noundef %.823643996) #43
-  %1459 = add i32 %.823643996, 1
+.lr.ph3998:                                       ; preds = %1448, %.lr.ph3998
+  %.823643996 = phi i32 [ %1455, %.lr.ph3998 ], [ %1452, %1448 ]
+  %1453 = load ptr, ptr %17, align 8, !tbaa !31
+  %1454 = call i32 @sqlite3_bind_null(ptr noundef %1453, i32 noundef %.823643996) #43
+  %1455 = add i32 %.823643996, 1
   %exitcond4356.not = icmp eq i32 %.823643996, %.02355
   br i1 %exitcond4356.not, label %.loopexit3767, label %.lr.ph3998, !llvm.loop !534
 
-.loopexit3767:                                    ; preds = %.lr.ph3998, %1452, %1449, %.thread3317
-  %.62362.ph = phi i32 [ %.423604000, %.thread3317 ], [ %.423604000, %1449 ], [ %1456, %1452 ], [ %1427, %.lr.ph3998 ]
-  %1460 = add nsw i32 %.62362.ph, 1
-  %1461 = icmp slt i32 %1460, %.02355
-  br i1 %1461, label %.lr.ph4002, label %._crit_edge4003, !llvm.loop !535
+.loopexit3767:                                    ; preds = %.lr.ph3998, %1448, %1445, %.thread3317
+  %.62362.ph = phi i32 [ %.423604000, %.thread3317 ], [ %.423604000, %1445 ], [ %1452, %1448 ], [ %1423, %.lr.ph3998 ]
+  %1456 = add nsw i32 %.62362.ph, 1
+  %1457 = icmp slt i32 %1456, %.02355
+  br i1 %1457, label %.lr.ph4002, label %._crit_edge4003, !llvm.loop !535
 
-._crit_edge4003:                                  ; preds = %.loopexit3767, %1440, %1437, %.lr.ph4002, %1428
-  %.52361 = phi i32 [ 0, %1428 ], [ 0, %.lr.ph4002 ], [ 0, %1437 ], [ 0, %1440 ], [ %1460, %.loopexit3767 ]
-  %1462 = load i32, ptr %1423, align 8, !tbaa !531
-  %1463 = load i32, ptr %1424, align 4, !tbaa !519
-  %1464 = icmp eq i32 %1462, %1463
-  br i1 %1464, label %.preheader3768, label %1474
+._crit_edge4003:                                  ; preds = %.loopexit3767, %1436, %1433, %.lr.ph4002, %1424
+  %.52361 = phi i32 [ 0, %1424 ], [ 0, %.lr.ph4002 ], [ 0, %1433 ], [ 0, %1436 ], [ %1456, %.loopexit3767 ]
+  %1458 = load i32, ptr %1419, align 8, !tbaa !531
+  %1459 = load i32, ptr %1420, align 4, !tbaa !519
+  %1460 = icmp eq i32 %1458, %1459
+  br i1 %1460, label %.preheader3768, label %1470
 
 .preheader3768:                                   ; preds = %._crit_edge4003, %.preheader3768
-  %.102366 = phi i32 [ %1466, %.preheader3768 ], [ %.52361, %._crit_edge4003 ]
-  %1465 = call ptr %.22397.ph(ptr noundef nonnull %18) #43, !callees !528
-  %1466 = add nsw i32 %.102366, 1
-  %1467 = load i32, ptr %1423, align 8, !tbaa !531
-  %1468 = load i32, ptr %1424, align 4, !tbaa !519
-  %1469 = icmp eq i32 %1467, %1468
-  br i1 %1469, label %.preheader3768, label %1470, !llvm.loop !536
+  %.102366 = phi i32 [ %1462, %.preheader3768 ], [ %.52361, %._crit_edge4003 ]
+  %1461 = call ptr %.22397.ph(ptr noundef nonnull %18) #43, !callees !528
+  %1462 = add nsw i32 %.102366, 1
+  %1463 = load i32, ptr %1419, align 8, !tbaa !531
+  %1464 = load i32, ptr %1420, align 4, !tbaa !519
+  %1465 = icmp eq i32 %1463, %1464
+  br i1 %1465, label %.preheader3768, label %1466, !llvm.loop !536
 
-1470:                                             ; preds = %.preheader3768
-  %1471 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1472 = load ptr, ptr %18, align 8, !tbaa !523
-  %1473 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1471, ptr noundef nonnull @.str.876, ptr noundef %1472, i32 noundef %1429, i32 noundef %.02355, i32 noundef %1466) #46
-  br label %1474
+1466:                                             ; preds = %.preheader3768
+  %1467 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1468 = load ptr, ptr %18, align 8, !tbaa !523
+  %1469 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1467, ptr noundef nonnull @.str.876, ptr noundef %1468, i32 noundef %1425, i32 noundef %.02355, i32 noundef %1462) #46
+  br label %1470
 
-1474:                                             ; preds = %1470, %._crit_edge4003
-  %.92365 = phi i32 [ %1466, %1470 ], [ %.52361, %._crit_edge4003 ]
+1470:                                             ; preds = %1466, %._crit_edge4003
+  %.92365 = phi i32 [ %1462, %1466 ], [ %.52361, %._crit_edge4003 ]
   %.not2719 = icmp slt i32 %.92365, %.02355
-  br i1 %.not2719, label %1491, label %1475
+  br i1 %.not2719, label %1487, label %1471
 
-1475:                                             ; preds = %1474
-  %1476 = load ptr, ptr %17, align 8, !tbaa !31
-  %1477 = call i32 @sqlite3_step(ptr noundef %1476) #43
-  %1478 = load ptr, ptr %17, align 8, !tbaa !31
-  %1479 = call i32 @sqlite3_reset(ptr noundef %1478) #43
-  %.not2720 = icmp eq i32 %1479, 0
-  br i1 %.not2720, label %1488, label %1480
+1471:                                             ; preds = %1470
+  %1472 = load ptr, ptr %17, align 8, !tbaa !31
+  %1473 = call i32 @sqlite3_step(ptr noundef %1472) #43
+  %1474 = load ptr, ptr %17, align 8, !tbaa !31
+  %1475 = call i32 @sqlite3_reset(ptr noundef %1474) #43
+  %.not2720 = icmp eq i32 %1475, 0
+  br i1 %.not2720, label %1484, label %1476
 
-1480:                                             ; preds = %1475
-  %1481 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1482 = load ptr, ptr %18, align 8, !tbaa !523
-  %1483 = load ptr, ptr %1, align 8, !tbaa !477
-  %1484 = call ptr @sqlite3_errmsg(ptr noundef %1483) #43
-  %1485 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1481, ptr noundef nonnull @.str.877, ptr noundef %1482, i32 noundef %1429, ptr noundef %1484) #46
-  %1486 = load i32, ptr %1425, align 8, !tbaa !537
-  %1487 = add nsw i32 %1486, 1
-  store i32 %1487, ptr %1425, align 8, !tbaa !537
-  br label %1491
+1476:                                             ; preds = %1471
+  %1477 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1478 = load ptr, ptr %18, align 8, !tbaa !523
+  %1479 = load ptr, ptr %1, align 8, !tbaa !477
+  %1480 = call ptr @sqlite3_errmsg(ptr noundef %1479) #43
+  %1481 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1477, ptr noundef nonnull @.str.877, ptr noundef %1478, i32 noundef %1425, ptr noundef %1480) #46
+  %1482 = load i32, ptr %1421, align 8, !tbaa !537
+  %1483 = add nsw i32 %1482, 1
+  store i32 %1483, ptr %1421, align 8, !tbaa !537
+  br label %1487
 
-1488:                                             ; preds = %1475
-  %1489 = load i32, ptr %1426, align 4, !tbaa !538
-  %1490 = add nsw i32 %1489, 1
-  store i32 %1490, ptr %1426, align 4, !tbaa !538
-  br label %1491
+1484:                                             ; preds = %1471
+  %1485 = load i32, ptr %1422, align 4, !tbaa !538
+  %1486 = add nsw i32 %1485, 1
+  store i32 %1486, ptr %1422, align 4, !tbaa !538
+  br label %1487
 
-1491:                                             ; preds = %1480, %1488, %1474
-  %.17 = phi i32 [ %1479, %1480 ], [ 0, %1488 ], [ %.16, %1474 ]
-  %1492 = load i32, ptr %1423, align 8, !tbaa !531
-  %.not2721 = icmp eq i32 %1492, -1
-  br i1 %.not2721, label %1493, label %1428, !llvm.loop !539
+1487:                                             ; preds = %1476, %1484, %1470
+  %.17 = phi i32 [ %1475, %1476 ], [ 0, %1484 ], [ %.16, %1470 ]
+  %1488 = load i32, ptr %1419, align 8, !tbaa !531
+  %.not2721 = icmp eq i32 %1488, -1
+  br i1 %.not2721, label %1489, label %1424, !llvm.loop !539
+
+1489:                                             ; preds = %1487
+  %1490 = load ptr, ptr %1194, align 8, !tbaa !525
+  %.not.i2944 = icmp eq ptr %1490, null
+  br i1 %.not.i2944, label %import_cleanup.exit2946, label %1491
+
+1491:                                             ; preds = %1489
+  %1492 = load ptr, ptr %1195, align 8, !tbaa !526
+  %.not8.i2945 = icmp eq ptr %1492, null
+  br i1 %.not8.i2945, label %import_cleanup.exit2946, label %1493
 
 1493:                                             ; preds = %1491
-  %1494 = load ptr, ptr %1198, align 8, !tbaa !525
-  %.not.i2944 = icmp eq ptr %1494, null
-  br i1 %.not.i2944, label %import_cleanup.exit2946, label %1495
-
-1495:                                             ; preds = %1493
-  %1496 = load ptr, ptr %1199, align 8, !tbaa !526
-  %.not8.i2945 = icmp eq ptr %1496, null
-  br i1 %.not8.i2945, label %import_cleanup.exit2946, label %1497
-
-1497:                                             ; preds = %1495
-  %1498 = call i32 %1496(ptr noundef nonnull %1494) #43
-  store ptr null, ptr %1198, align 8, !tbaa !525
+  %1494 = call i32 %1492(ptr noundef nonnull %1490) #43
+  store ptr null, ptr %1194, align 8, !tbaa !525
   br label %import_cleanup.exit2946
 
-import_cleanup.exit2946:                          ; preds = %1493, %1495, %1497
-  %1499 = load ptr, ptr %1223, align 8, !tbaa !527
-  call void @sqlite3_free(ptr noundef %1499) #43
-  store ptr null, ptr %1223, align 8, !tbaa !527
-  %1500 = load ptr, ptr %17, align 8, !tbaa !31
-  %1501 = call i32 @sqlite3_finalize(ptr noundef %1500) #43
-  br i1 %.not2716, label %1505, label %1502
+import_cleanup.exit2946:                          ; preds = %1489, %1491, %1493
+  %1495 = load ptr, ptr %1219, align 8, !tbaa !527
+  call void @sqlite3_free(ptr noundef %1495) #43
+  store ptr null, ptr %1219, align 8, !tbaa !527
+  %1496 = load ptr, ptr %17, align 8, !tbaa !31
+  %1497 = call i32 @sqlite3_finalize(ptr noundef %1496) #43
+  br i1 %.not2716, label %1501, label %1498
 
-1502:                                             ; preds = %import_cleanup.exit2946
-  %1503 = load ptr, ptr %1, align 8, !tbaa !477
-  %1504 = call i32 @sqlite3_exec(ptr noundef %1503, ptr noundef nonnull @.str.551, ptr noundef null, ptr noundef null, ptr noundef null) #43
-  br label %1505
+1498:                                             ; preds = %import_cleanup.exit2946
+  %1499 = load ptr, ptr %1, align 8, !tbaa !477
+  %1500 = call i32 @sqlite3_exec(ptr noundef %1499, ptr noundef nonnull @.str.551, ptr noundef null, ptr noundef null, ptr noundef null) #43
+  br label %1501
 
-1505:                                             ; preds = %1502, %import_cleanup.exit2946
-  %1506 = icmp sgt i32 %.12413.ph, 0
-  br i1 %1506, label %1507, label %.thread3326
+1501:                                             ; preds = %1498, %import_cleanup.exit2946
+  %1502 = icmp sgt i32 %.12413.ph, 0
+  br i1 %1502, label %1503, label %.thread3326
 
-1507:                                             ; preds = %1505
-  %1508 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %1509 = load ptr, ptr %1508, align 8, !tbaa !462
-  %1510 = load i32, ptr %1426, align 4, !tbaa !538
-  %1511 = load i32, ptr %1425, align 8, !tbaa !537
-  %1512 = load i32, ptr %1189, align 8, !tbaa !524
-  %1513 = add nsw i32 %1512, -1
-  %1514 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1509, ptr noundef nonnull @.str.878, i32 noundef %1510, i32 noundef %1511, i32 noundef %1513) #43
+1503:                                             ; preds = %1501
+  %1504 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %1505 = load ptr, ptr %1504, align 8, !tbaa !462
+  %1506 = load i32, ptr %1422, align 4, !tbaa !538
+  %1507 = load i32, ptr %1421, align 8, !tbaa !537
+  %1508 = load i32, ptr %1185, align 8, !tbaa !524
+  %1509 = add nsw i32 %1508, -1
+  %1510 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1505, ptr noundef nonnull @.str.878, i32 noundef %1506, i32 noundef %1507, i32 noundef %1509) #43
   br label %.thread3326
 
-.thread3326:                                      ; preds = %._crit_edge3980.thread, %1150, %1153, %1160, %.thread3310, %1201, %import_cleanup.exit2936, %import_cleanup.exit2943, %1507, %1505, %1084, %1126, %.thread3313
-  %.14.ph = phi i32 [ 1, %.thread3313 ], [ 1, %1084 ], [ 1, %1126 ], [ %.17, %1505 ], [ %.17, %1507 ], [ 1, %import_cleanup.exit2943 ], [ 1, %import_cleanup.exit2936 ], [ 1, %1201 ], [ 1, %.thread3310 ], [ 1, %1160 ], [ 1, %1153 ], [ 1, %1150 ], [ 1, %._crit_edge3980.thread ]
+.thread3326:                                      ; preds = %._crit_edge3980.thread, %1146, %1149, %1156, %.thread3310, %1197, %import_cleanup.exit2936, %import_cleanup.exit2943, %1503, %1501, %1080, %1122, %.thread3313
+  %.14.ph = phi i32 [ 1, %.thread3313 ], [ 1, %1080 ], [ 1, %1122 ], [ %.17, %1501 ], [ %.17, %1503 ], [ 1, %import_cleanup.exit2943 ], [ 1, %import_cleanup.exit2936 ], [ 1, %1197 ], [ 1, %.thread3310 ], [ 1, %1156 ], [ 1, %1149 ], [ 1, %1146 ], [ 1, %._crit_edge3980.thread ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #43
   br label %test_breakpoint.exit
 
-1515:                                             ; preds = %1352
+1511:                                             ; preds = %1348
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #43
   br label %._crit_edge.thread
 
-1516:                                             ; preds = %1062
-  %1517 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.879, i64 noundef range(i64 0, 1073741824) %1063) #44
-  %1518 = icmp eq i32 %1517, 0
-  br i1 %1518, label %1519, label %.critedge2800
+1512:                                             ; preds = %1058
+  %1513 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.879, i64 noundef range(i64 0, 1073741824) %1059) #44
+  %1514 = icmp eq i32 %1513, 0
+  br i1 %1514, label %1515, label %.critedge2800
 
-1519:                                             ; preds = %1516
+1515:                                             ; preds = %1512
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #43
-  %1520 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %1521 = load i32, ptr %1520, align 4, !tbaa !454
-  %1522 = and i32 %1521, 1024
-  %.not2701 = icmp eq i32 %1522, 0
-  br i1 %.not2701, label %1523, label %1526
+  %1516 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %1517 = load i32, ptr %1516, align 4, !tbaa !454
+  %1518 = and i32 %1517, 1024
+  %.not2701 = icmp eq i32 %1518, 0
+  br i1 %.not2701, label %1519, label %1522
 
-1523:                                             ; preds = %1519
-  %1524 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1525 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1524, ptr noundef nonnull @.str.880, ptr noundef nonnull @.str.879) #46
-  br label %1630
+1519:                                             ; preds = %1515
+  %1520 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1521 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1520, ptr noundef nonnull @.str.880, ptr noundef nonnull @.str.879) #46
+  br label %1626
 
-1526:                                             ; preds = %1519
-  switch i32 %.02122.lcssa.ph, label %1532 [
-    i32 3, label %1538
-    i32 2, label %1527
+1522:                                             ; preds = %1515
+  switch i32 %.02122.lcssa.ph, label %1528 [
+    i32 3, label %1534
+    i32 2, label %1523
   ]
 
-1527:                                             ; preds = %1526
-  %1528 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %1529 = load ptr, ptr %1528, align 8, !tbaa !29
-  %1530 = tail call i32 @sqlite3_stricmp(ptr noundef %1529, ptr noundef nonnull @.str.776) #43
-  %1531 = icmp eq i32 %1530, 0
-  br i1 %1531, label %1535, label %1532
+1523:                                             ; preds = %1522
+  %1524 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %1525 = load ptr, ptr %1524, align 8, !tbaa !29
+  %1526 = tail call i32 @sqlite3_stricmp(ptr noundef %1525, ptr noundef nonnull @.str.776) #43
+  %1527 = icmp eq i32 %1526, 0
+  br i1 %1527, label %1531, label %1528
 
-1532:                                             ; preds = %1526, %1527
-  %1533 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1534 = tail call i64 @fwrite(ptr nonnull @.str.881, i64 53, i64 1, ptr %1533) #50
-  br label %1630
+1528:                                             ; preds = %1522, %1523
+  %1529 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1530 = tail call i64 @fwrite(ptr nonnull @.str.881, i64 53, i64 1, ptr %1529) #50
+  br label %1626
 
-1535:                                             ; preds = %1527
+1531:                                             ; preds = %1523
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
-  %1536 = load ptr, ptr %1, align 8, !tbaa !477
-  %1537 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 25, ptr noundef %1536, ptr noundef nonnull @.str.45, i32 noundef 0, i32 noundef 1) #43
-  br label %1630
+  %1532 = load ptr, ptr %1, align 8, !tbaa !477
+  %1533 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 25, ptr noundef %1532, ptr noundef nonnull @.str.45, i32 noundef 0, i32 noundef 1) #43
+  br label %1626
 
-1538:                                             ; preds = %1526
+1534:                                             ; preds = %1522
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
-  %1539 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %1540 = load ptr, ptr %1539, align 8, !tbaa !29
-  %1541 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.882, ptr noundef %1540, ptr noundef %1540) #43
-  %1542 = load ptr, ptr %1, align 8, !tbaa !477
-  %1543 = call i32 @sqlite3_prepare_v2(ptr noundef %1542, ptr noundef %1541, i32 noundef -1, ptr noundef nonnull %22, ptr noundef null) #43
-  call void @sqlite3_free(ptr noundef %1541) #43
+  %1535 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %1536 = load ptr, ptr %1535, align 8, !tbaa !29
+  %1537 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.882, ptr noundef %1536, ptr noundef %1536) #43
+  %1538 = load ptr, ptr %1, align 8, !tbaa !477
+  %1539 = call i32 @sqlite3_prepare_v2(ptr noundef %1538, ptr noundef %1537, i32 noundef -1, ptr noundef nonnull %22, ptr noundef null) #43
+  call void @sqlite3_free(ptr noundef %1537) #43
+  %1540 = load ptr, ptr %22, align 8, !tbaa !31
+  %1541 = call i32 @sqlite3_step(ptr noundef %1540) #43
+  %1542 = icmp eq i32 %1541, 100
+  br i1 %1542, label %1543, label %1548
+
+1543:                                             ; preds = %1534
   %1544 = load ptr, ptr %22, align 8, !tbaa !31
-  %1545 = call i32 @sqlite3_step(ptr noundef %1544) #43
-  %1546 = icmp eq i32 %1545, 100
-  br i1 %1546, label %1547, label %1552
+  %1545 = call i32 @sqlite3_column_int(ptr noundef %1544, i32 noundef 0) #43
+  %1546 = load ptr, ptr %22, align 8, !tbaa !31
+  %1547 = call i32 @sqlite3_column_int(ptr noundef %1546, i32 noundef 1) #43
+  br label %1548
 
-1547:                                             ; preds = %1538
-  %1548 = load ptr, ptr %22, align 8, !tbaa !31
-  %1549 = call i32 @sqlite3_column_int(ptr noundef %1548, i32 noundef 0) #43
-  %1550 = load ptr, ptr %22, align 8, !tbaa !31
-  %1551 = call i32 @sqlite3_column_int(ptr noundef %1550, i32 noundef 1) #43
-  br label %1552
+1548:                                             ; preds = %1543, %1534
+  %.02448 = phi i32 [ %1547, %1543 ], [ 0, %1534 ]
+  %.02440 = phi i32 [ %1545, %1543 ], [ 0, %1534 ]
+  %1549 = load ptr, ptr %22, align 8, !tbaa !31
+  %1550 = call i32 @sqlite3_finalize(ptr noundef %1549) #43
+  %1551 = load ptr, ptr %1535, align 8, !tbaa !29
+  %1552 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.883, ptr noundef %1551) #43
+  %1553 = load ptr, ptr %1, align 8, !tbaa !477
+  %1554 = call i32 @sqlite3_prepare_v2(ptr noundef %1553, ptr noundef %1552, i32 noundef -1, ptr noundef nonnull %22, ptr noundef null) #43
+  call void @sqlite3_free(ptr noundef %1552) #43
+  %1555 = icmp eq i32 %1554, 0
+  br i1 %1555, label %.lr.ph3952, label %.critedge80
 
-1552:                                             ; preds = %1547, %1538
-  %.02448 = phi i32 [ %1551, %1547 ], [ 0, %1538 ]
-  %.02440 = phi i32 [ %1549, %1547 ], [ 0, %1538 ]
-  %1553 = load ptr, ptr %22, align 8, !tbaa !31
-  %1554 = call i32 @sqlite3_finalize(ptr noundef %1553) #43
-  %1555 = load ptr, ptr %1539, align 8, !tbaa !29
-  %1556 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.883, ptr noundef %1555) #43
-  %1557 = load ptr, ptr %1, align 8, !tbaa !477
-  %1558 = call i32 @sqlite3_prepare_v2(ptr noundef %1557, ptr noundef %1556, i32 noundef -1, ptr noundef nonnull %22, ptr noundef null) #43
-  call void @sqlite3_free(ptr noundef %1556) #43
-  %1559 = icmp eq i32 %1558, 0
-  br i1 %1559, label %.lr.ph3952, label %.critedge80
+.lr.ph3952:                                       ; preds = %1548
+  %1556 = icmp ne i32 %.02448, 0
+  %1557 = load ptr, ptr %22, align 8, !tbaa !31
+  %1558 = call i32 @sqlite3_step(ptr noundef %1557) #43
+  %1559 = icmp eq i32 %1558, 100
+  br i1 %1559, label %.lr.ph3966, label %.critedge80
 
-.lr.ph3952:                                       ; preds = %1552
-  %1560 = icmp ne i32 %.02448, 0
-  %1561 = load ptr, ptr %22, align 8, !tbaa !31
-  %1562 = call i32 @sqlite3_step(ptr noundef %1561) #43
-  %1563 = icmp eq i32 %1562, 100
-  br i1 %1563, label %.lr.ph3966, label %.critedge80
-
-.lr.ph3966:                                       ; preds = %.lr.ph3952, %1589
-  %.024463948.us3965 = phi i32 [ %.124473332.us, %1589 ], [ 0, %.lr.ph3952 ]
-  %.024453949.us3964 = phi i32 [ %1566, %1589 ], [ 0, %.lr.ph3952 ]
-  %.024363950.us3963 = phi ptr [ %.12437.us, %1589 ], [ null, %.lr.ph3952 ]
+.lr.ph3966:                                       ; preds = %.lr.ph3952, %1585
+  %.024463948.us3965 = phi i32 [ %.124473332.us, %1585 ], [ 0, %.lr.ph3952 ]
+  %.024453949.us3964 = phi i32 [ %1562, %1585 ], [ 0, %.lr.ph3952 ]
+  %.024363950.us3963 = phi ptr [ %.12437.us, %1585 ], [ null, %.lr.ph3952 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %23) #43
-  %1564 = load ptr, ptr %22, align 8, !tbaa !31
-  %1565 = call ptr @sqlite3_column_text(ptr noundef %1564, i32 noundef 2) #43
-  %1566 = add nuw nsw i32 %.024453949.us3964, 1
-  %1567 = icmp eq ptr %1565, null
-  br i1 %1567, label %1568, label %1574
+  %1560 = load ptr, ptr %22, align 8, !tbaa !31
+  %1561 = call ptr @sqlite3_column_text(ptr noundef %1560, i32 noundef 2) #43
+  %1562 = add nuw nsw i32 %.024453949.us3964, 1
+  %1563 = icmp eq ptr %1561, null
+  br i1 %1563, label %1564, label %1570
 
-1568:                                             ; preds = %.lr.ph3966
-  %1569 = load ptr, ptr %22, align 8, !tbaa !31
-  %1570 = call i32 @sqlite3_column_int(ptr noundef %1569, i32 noundef 1) #43
-  %1571 = icmp eq i32 %1570, -1
-  br i1 %1571, label %1574, label %1572
+1564:                                             ; preds = %.lr.ph3966
+  %1565 = load ptr, ptr %22, align 8, !tbaa !31
+  %1566 = call i32 @sqlite3_column_int(ptr noundef %1565, i32 noundef 1) #43
+  %1567 = icmp eq i32 %1566, -1
+  br i1 %1567, label %1570, label %1568
 
-1572:                                             ; preds = %1568
-  %1573 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %23, ptr noundef nonnull @.str.885, i32 noundef %1566) #43
-  br label %1574
+1568:                                             ; preds = %1564
+  %1569 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %23, ptr noundef nonnull @.str.885, i32 noundef %1562) #43
+  br label %1570
 
-1574:                                             ; preds = %1572, %1568, %.lr.ph3966
-  %.02444.us = phi ptr [ %23, %1572 ], [ %1565, %.lr.ph3966 ], [ @.str.884, %1568 ]
-  %1575 = icmp eq i32 %.024463948.us3965, 0
-  %or.cond83.us = select i1 %1560, i1 %1575, i1 false
-  br i1 %or.cond83.us, label %1576, label %1581
+1570:                                             ; preds = %1568, %1564, %.lr.ph3966
+  %.02444.us = phi ptr [ %23, %1568 ], [ %1561, %.lr.ph3966 ], [ @.str.884, %1564 ]
+  %1571 = icmp eq i32 %.024463948.us3965, 0
+  %or.cond83.us = select i1 %1556, i1 %1571, i1 false
+  br i1 %or.cond83.us, label %1572, label %1577
 
-1576:                                             ; preds = %1574
-  %1577 = load ptr, ptr %22, align 8, !tbaa !31
-  %1578 = call i32 @sqlite3_column_int(ptr noundef %1577, i32 noundef 5) #43
-  %1579 = icmp eq i32 %1578, 0
-  %1580 = icmp ne ptr %.024363950.us3963, null
-  %or.cond86.us = select i1 %1579, i1 %1580, i1 false
-  br i1 %or.cond86.us, label %.thread3330.us, label %1581
+1572:                                             ; preds = %1570
+  %1573 = load ptr, ptr %22, align 8, !tbaa !31
+  %1574 = call i32 @sqlite3_column_int(ptr noundef %1573, i32 noundef 5) #43
+  %1575 = icmp eq i32 %1574, 0
+  %1576 = icmp ne ptr %.024363950.us3963, null
+  %or.cond86.us = select i1 %1575, i1 %1576, i1 false
+  br i1 %or.cond86.us, label %.thread3330.us, label %1577
 
-1581:                                             ; preds = %1576, %1574
-  %.12447.us = phi i32 [ 0, %1576 ], [ %.024463948.us3965, %1574 ]
-  %1582 = icmp eq ptr %.024363950.us3963, null
-  br i1 %1582, label %1583, label %1587
+1577:                                             ; preds = %1572, %1570
+  %.12447.us = phi i32 [ 0, %1572 ], [ %.024463948.us3965, %1570 ]
+  %1578 = icmp eq ptr %.024363950.us3963, null
+  br i1 %1578, label %1579, label %1583
 
-1583:                                             ; preds = %1581
-  %1584 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.886, ptr noundef nonnull %.02444.us) #43
-  br label %1589
+1579:                                             ; preds = %1577
+  %1580 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.886, ptr noundef nonnull %.02444.us) #43
+  br label %1585
 
-.thread3330.us:                                   ; preds = %1576
-  %1585 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.024363950.us3963) #44
-  %1586 = trunc i64 %1585 to i32
-  br label %1587
+.thread3330.us:                                   ; preds = %1572
+  %1581 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.024363950.us3963) #44
+  %1582 = trunc i64 %1581 to i32
+  br label %1583
 
-1587:                                             ; preds = %.thread3330.us, %1581
-  %.124473333.us = phi i32 [ %1586, %.thread3330.us ], [ %.12447.us, %1581 ]
-  %1588 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.887, ptr noundef nonnull %.024363950.us3963, ptr noundef nonnull %.02444.us) #43
-  br label %1589
+1583:                                             ; preds = %.thread3330.us, %1577
+  %.124473333.us = phi i32 [ %1582, %.thread3330.us ], [ %.12447.us, %1577 ]
+  %1584 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.887, ptr noundef nonnull %.024363950.us3963, ptr noundef nonnull %.02444.us) #43
+  br label %1585
 
-1589:                                             ; preds = %1587, %1583
-  %.124473332.us = phi i32 [ %.12447.us, %1583 ], [ %.124473333.us, %1587 ]
-  %.12437.us = phi ptr [ %1584, %1583 ], [ %1588, %1587 ]
+1585:                                             ; preds = %1583, %1579
+  %.124473332.us = phi i32 [ %.12447.us, %1579 ], [ %.124473333.us, %1583 ]
+  %.12437.us = phi ptr [ %1580, %1579 ], [ %1584, %1583 ]
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %23) #43
-  %1590 = load ptr, ptr %22, align 8, !tbaa !31
-  %1591 = call i32 @sqlite3_step(ptr noundef %1590) #43
-  %1592 = icmp eq i32 %1591, 100
-  br i1 %1592, label %.lr.ph3966, label %.critedge80
+  %1586 = load ptr, ptr %22, align 8, !tbaa !31
+  %1587 = call i32 @sqlite3_step(ptr noundef %1586) #43
+  %1588 = icmp eq i32 %1587, 100
+  br i1 %1588, label %.lr.ph3966, label %.critedge80
 
-.critedge80:                                      ; preds = %1589, %.lr.ph3952, %1552
-  %.02446.lcssa = phi i32 [ 0, %1552 ], [ 0, %.lr.ph3952 ], [ %.124473332.us, %1589 ]
-  %1593 = phi i1 [ true, %1552 ], [ true, %.lr.ph3952 ], [ false, %1589 ]
-  %.02436.lcssa = phi ptr [ null, %1552 ], [ null, %.lr.ph3952 ], [ %.12437.us, %1589 ]
-  %1594 = load ptr, ptr %22, align 8, !tbaa !31
-  %1595 = call i32 @sqlite3_finalize(ptr noundef %1594) #43
-  %1596 = icmp eq i32 %.02440, 0
-  %or.cond89 = select i1 %1593, i1 true, i1 %1596
-  br i1 %or.cond89, label %1597, label %1601
+.critedge80:                                      ; preds = %1585, %.lr.ph3952, %1548
+  %.02446.lcssa = phi i32 [ 0, %1548 ], [ 0, %.lr.ph3952 ], [ %.124473332.us, %1585 ]
+  %1589 = phi i1 [ true, %1548 ], [ true, %.lr.ph3952 ], [ false, %1585 ]
+  %.02436.lcssa = phi ptr [ null, %1548 ], [ null, %.lr.ph3952 ], [ %.12437.us, %1585 ]
+  %1590 = load ptr, ptr %22, align 8, !tbaa !31
+  %1591 = call i32 @sqlite3_finalize(ptr noundef %1590) #43
+  %1592 = icmp eq i32 %.02440, 0
+  %or.cond89 = select i1 %1589, i1 true, i1 %1592
+  br i1 %or.cond89, label %1593, label %1597
+
+1593:                                             ; preds = %.critedge80
+  %1594 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1595 = load ptr, ptr %1535, align 8, !tbaa !29
+  %1596 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1594, ptr noundef nonnull @.str.888, ptr noundef %1595) #46
+  call void @sqlite3_free(ptr noundef %.02436.lcssa) #43
+  br label %1626
 
 1597:                                             ; preds = %.critedge80
-  %1598 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1599 = load ptr, ptr %1539, align 8, !tbaa !29
-  %1600 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1598, ptr noundef nonnull @.str.888, ptr noundef %1599) #46
+  %1598 = icmp eq i32 %.02446.lcssa, 0
+  %spec.store.select90 = select i1 %1598, i32 100000, i32 %.02446.lcssa
+  %1599 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %1600 = load ptr, ptr %1599, align 16, !tbaa !29
+  %1601 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.889, ptr noundef %1600, ptr noundef %.02436.lcssa, i32 noundef %spec.store.select90, ptr noundef %.02436.lcssa) #43
   call void @sqlite3_free(ptr noundef %.02436.lcssa) #43
-  br label %1630
+  %1602 = load ptr, ptr %1, align 8, !tbaa !477
+  %1603 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 25, ptr noundef %1602, ptr noundef nonnull @.str.45, i32 noundef 1, i32 noundef %.02440) #43
+  %1604 = icmp eq i32 %1603, 0
+  br i1 %1604, label %1605, label %1622
 
-1601:                                             ; preds = %.critedge80
-  %1602 = icmp eq i32 %.02446.lcssa, 0
-  %spec.store.select90 = select i1 %1602, i32 100000, i32 %.02446.lcssa
-  %1603 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %1604 = load ptr, ptr %1603, align 16, !tbaa !29
-  %1605 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.889, ptr noundef %1604, ptr noundef %.02436.lcssa, i32 noundef %spec.store.select90, ptr noundef %.02436.lcssa) #43
-  call void @sqlite3_free(ptr noundef %.02436.lcssa) #43
+1605:                                             ; preds = %1597
   %1606 = load ptr, ptr %1, align 8, !tbaa !477
-  %1607 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 25, ptr noundef %1606, ptr noundef nonnull @.str.45, i32 noundef 1, i32 noundef %.02440) #43
-  %1608 = icmp eq i32 %1607, 0
-  br i1 %1608, label %1609, label %1626
+  %1607 = call i32 @sqlite3_exec(ptr noundef %1606, ptr noundef %1601, ptr noundef null, ptr noundef null, ptr noundef null) #43
+  %1608 = load ptr, ptr %1, align 8, !tbaa !477
+  %1609 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 25, ptr noundef %1608, ptr noundef nonnull @.str.45, i32 noundef 0, i32 noundef 0) #43
+  %.not2702 = icmp eq i32 %1607, 0
+  br i1 %.not2702, label %1615, label %1610
 
-1609:                                             ; preds = %1601
-  %1610 = load ptr, ptr %1, align 8, !tbaa !477
-  %1611 = call i32 @sqlite3_exec(ptr noundef %1610, ptr noundef %1605, ptr noundef null, ptr noundef null, ptr noundef null) #43
+1610:                                             ; preds = %1605
+  %1611 = load ptr, ptr @stderr, align 8, !tbaa !14
   %1612 = load ptr, ptr %1, align 8, !tbaa !477
-  %1613 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 25, ptr noundef %1612, ptr noundef nonnull @.str.45, i32 noundef 0, i32 noundef 0) #43
-  %.not2702 = icmp eq i32 %1611, 0
-  br i1 %.not2702, label %1619, label %1614
+  %1613 = call ptr @sqlite3_errmsg(ptr noundef %1612) #43
+  %1614 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1611, ptr noundef nonnull @.str.890, ptr noundef %1601, ptr noundef %1613) #46
+  br label %1625
 
-1614:                                             ; preds = %1609
-  %1615 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1616 = load ptr, ptr %1, align 8, !tbaa !477
-  %1617 = call ptr @sqlite3_errmsg(ptr noundef %1616) #43
-  %1618 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1615, ptr noundef nonnull @.str.890, ptr noundef %1605, ptr noundef %1617) #46
-  br label %1629
-
-1619:                                             ; preds = %1609
-  %1620 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %1621 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1620, ptr noundef nonnull @.str.311, ptr noundef %1605) #43
-  %1622 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %1623 = load ptr, ptr %1539, align 8, !tbaa !29
+1615:                                             ; preds = %1605
+  %1616 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %1617 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1616, ptr noundef nonnull @.str.311, ptr noundef %1601) #43
+  %1618 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %1619 = load ptr, ptr %1535, align 8, !tbaa !29
   %.not2703 = icmp eq i32 %.02448, 0
-  %1624 = select i1 %.not2703, ptr @.str.893, ptr @.str.892
-  %1625 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1622, ptr noundef nonnull @.str.891, ptr noundef %1623, ptr noundef nonnull %1624) #43
-  br label %1629
+  %1620 = select i1 %.not2703, ptr @.str.893, ptr @.str.892
+  %1621 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1618, ptr noundef nonnull @.str.891, ptr noundef %1619, ptr noundef nonnull %1620) #43
+  br label %1625
 
-1626:                                             ; preds = %1601
-  %1627 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1628 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1627, ptr noundef nonnull @.str.894, i32 noundef %1607) #46
-  br label %1629
+1622:                                             ; preds = %1597
+  %1623 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1624 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1623, ptr noundef nonnull @.str.894, i32 noundef %1603) #46
+  br label %1625
 
-1629:                                             ; preds = %1614, %1619, %1626
-  %.19 = phi i32 [ %1611, %1614 ], [ 0, %1619 ], [ 1, %1626 ]
-  call void @sqlite3_free(ptr noundef %1605) #43
-  br label %1630
+1625:                                             ; preds = %1610, %1615, %1622
+  %.19 = phi i32 [ %1607, %1610 ], [ 0, %1615 ], [ 1, %1622 ]
+  call void @sqlite3_free(ptr noundef %1601) #43
+  br label %1626
 
-1630:                                             ; preds = %1629, %1597, %1535, %1532, %1523
-  %.18 = phi i32 [ 0, %1535 ], [ 1, %1597 ], [ %.19, %1629 ], [ 1, %1532 ], [ 1, %1523 ]
+1626:                                             ; preds = %1625, %1593, %1531, %1528, %1519
+  %.18 = phi i32 [ 0, %1531 ], [ 1, %1593 ], [ %.19, %1625 ], [ 1, %1528 ], [ 1, %1519 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #43
   br label %test_breakpoint.exit
 
-.critedge2800:                                    ; preds = %1516
-  %1631 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.895, i64 noundef range(i64 0, 1073741824) %1063) #44
-  %1632 = icmp eq i32 %1631, 0
-  br i1 %1632, label %1633, label %.thread4592
+.critedge2800:                                    ; preds = %1512
+  %1627 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.895, i64 noundef range(i64 0, 1073741824) %1059) #44
+  %1628 = icmp eq i32 %1627, 0
+  br i1 %1628, label %1629, label %.thread4592
 
-1633:                                             ; preds = %.critedge2800
-  %1634 = icmp eq i32 %.02122.lcssa.ph, 2
-  br i1 %1634, label %1635, label %1640
+1629:                                             ; preds = %.critedge2800
+  %1630 = icmp eq i32 %.02122.lcssa.ph, 2
+  br i1 %1630, label %1631, label %1636
 
-1635:                                             ; preds = %1633
-  %1636 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %1637 = load ptr, ptr %1636, align 8, !tbaa !29
-  %1638 = tail call fastcc i64 @integerValue(ptr noundef %1637)
-  %1639 = icmp eq i64 %1638, 0
-  %spec.store.select91 = select i1 %1639, i64 -1, i64 %1638
-  br label %1640
+1631:                                             ; preds = %1629
+  %1632 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %1633 = load ptr, ptr %1632, align 8, !tbaa !29
+  %1634 = tail call fastcc i64 @integerValue(ptr noundef %1633)
+  %1635 = icmp eq i64 %1634, 0
+  %spec.store.select91 = select i1 %1635, i64 -1, i64 %1634
+  br label %1636
 
-1640:                                             ; preds = %1635, %1633
-  %.02443 = phi i64 [ %spec.store.select91, %1635 ], [ 0, %1633 ]
-  %1641 = add nsw i32 %.02122.lcssa.ph, -3
-  %or.cond94 = icmp ult i32 %1641, -2
-  %1642 = icmp slt i64 %.02443, 0
-  %or.cond97 = select i1 %or.cond94, i1 true, i1 %1642
-  br i1 %or.cond97, label %1643, label %1646
+1636:                                             ; preds = %1631, %1629
+  %.02443 = phi i64 [ %spec.store.select91, %1631 ], [ 0, %1629 ]
+  %1637 = add nsw i32 %.02122.lcssa.ph, -3
+  %or.cond94 = icmp ult i32 %1637, -2
+  %1638 = icmp slt i64 %.02443, 0
+  %or.cond97 = select i1 %or.cond94, i1 true, i1 %1638
+  br i1 %or.cond97, label %1639, label %1642
 
-1643:                                             ; preds = %1640
-  %1644 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1645 = tail call i64 @fwrite(ptr nonnull @.str.896, i64 31, i64 1, ptr %1644) #50
+1639:                                             ; preds = %1636
+  %1640 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1641 = tail call i64 @fwrite(ptr nonnull @.str.896, i64 31, i64 1, ptr %1640) #50
   br label %test_breakpoint.exit
 
-1646:                                             ; preds = %1640
+1642:                                             ; preds = %1636
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
-  %1647 = tail call fastcc i32 @intckDatabaseCmd(ptr noundef %1, i64 noundef %.02443)
+  %1643 = tail call fastcc i32 @intckDatabaseCmd(ptr noundef %1, i64 noundef %.02443)
   br label %test_breakpoint.exit
 
-.thread4592:                                      ; preds = %.critedge2783, %985, %1046, %.critedge2800
-  %.ph = phi i1 [ true, %.critedge2800 ], [ false, %1046 ], [ false, %985 ], [ false, %.critedge2783 ]
-  %1648 = icmp samesign ugt i32 %130, 4
+.thread4592:                                      ; preds = %.critedge2783, %981, %1042, %.critedge2800
+  %.ph = phi i1 [ true, %.critedge2800 ], [ false, %1042 ], [ false, %981 ], [ false, %.critedge2783 ]
+  %1644 = icmp samesign ugt i32 %130, 4
   br label %.critedge2803
 
 .critedge2801:                                    ; preds = %.critedge2784
-  %1649 = icmp eq i8 %131, 108
-  %1650 = icmp samesign ugt i32 %130, 4
-  %or.cond100 = select i1 %1649, i1 %1650, i1 false
-  br i1 %or.cond100, label %1651, label %1712
+  %1645 = icmp eq i8 %131, 108
+  %1646 = icmp samesign ugt i32 %130, 4
+  %or.cond100 = select i1 %1645, i1 %1646, i1 false
+  br i1 %or.cond100, label %1647, label %1708
 
-1651:                                             ; preds = %.critedge2801
-  %1652 = and i64 %strlen.i, 1073741823
-  %1653 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.897, i64 noundef range(i64 0, 1073741824) %1652) #44
-  %1654 = icmp eq i32 %1653, 0
-  br i1 %1654, label %1655, label %1712
+1647:                                             ; preds = %.critedge2801
+  %1648 = and i64 %strlen.i, 1073741823
+  %1649 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.897, i64 noundef range(i64 0, 1073741824) %1648) #44
+  %1650 = icmp eq i32 %1649, 0
+  br i1 %1650, label %1651, label %1708
 
-1655:                                             ; preds = %1651
+1651:                                             ; preds = %1647
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
-  %1656 = icmp eq i32 %.02122.lcssa.ph, 1
-  br i1 %1656, label %.preheader3764, label %1665
+  %1652 = icmp eq i32 %.02122.lcssa.ph, 1
+  br i1 %1652, label %.preheader3764, label %1661
 
-.preheader3764:                                   ; preds = %1655, %.preheader3764
-  %indvars.iv4377 = phi i64 [ %indvars.iv.next4378, %.preheader3764 ], [ 0, %1655 ]
-  %1657 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %1658 = getelementptr inbounds nuw [12 x %struct.anon.5], ptr @do_meta_command.aLimit, i64 0, i64 %indvars.iv4377
-  %1659 = load ptr, ptr %1658, align 16, !tbaa !487
-  %1660 = load ptr, ptr %1, align 8, !tbaa !477
-  %1661 = getelementptr inbounds nuw i8, ptr %1658, i64 8
-  %1662 = load i32, ptr %1661, align 8, !tbaa !489
-  %1663 = tail call i32 @sqlite3_limit(ptr noundef %1660, i32 noundef %1662, i32 noundef -1) #43
-  %1664 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1657, ptr noundef nonnull @.str.910, ptr noundef %1659, i32 noundef %1663) #43
+.preheader3764:                                   ; preds = %1651, %.preheader3764
+  %indvars.iv4377 = phi i64 [ %indvars.iv.next4378, %.preheader3764 ], [ 0, %1651 ]
+  %1653 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %1654 = getelementptr inbounds nuw [12 x %struct.anon.5], ptr @do_meta_command.aLimit, i64 0, i64 %indvars.iv4377
+  %1655 = load ptr, ptr %1654, align 16, !tbaa !487
+  %1656 = load ptr, ptr %1, align 8, !tbaa !477
+  %1657 = getelementptr inbounds nuw i8, ptr %1654, i64 8
+  %1658 = load i32, ptr %1657, align 8, !tbaa !489
+  %1659 = tail call i32 @sqlite3_limit(ptr noundef %1656, i32 noundef %1658, i32 noundef -1) #43
+  %1660 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1653, ptr noundef nonnull @.str.910, ptr noundef %1655, i32 noundef %1659) #43
   %indvars.iv.next4378 = add nuw nsw i64 %indvars.iv4377, 1
   %exitcond4381.not = icmp eq i64 %indvars.iv.next4378, 12
   br i1 %exitcond4381.not, label %test_breakpoint.exit, label %.preheader3764, !llvm.loop !540
 
-1665:                                             ; preds = %1655
-  %1666 = icmp samesign ugt i32 %.02122.lcssa.ph, 3
-  br i1 %1666, label %1667, label %1670
+1661:                                             ; preds = %1651
+  %1662 = icmp samesign ugt i32 %.02122.lcssa.ph, 3
+  br i1 %1662, label %1663, label %1666
 
-1667:                                             ; preds = %1665
-  %1668 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1669 = tail call i64 @fwrite(ptr nonnull @.str.911, i64 31, i64 1, ptr %1668) #50
+1663:                                             ; preds = %1661
+  %1664 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1665 = tail call i64 @fwrite(ptr nonnull @.str.911, i64 31, i64 1, ptr %1664) #50
   br label %test_breakpoint.exit
 
-1670:                                             ; preds = %1665
-  %1671 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %1672 = load ptr, ptr %1671, align 8, !tbaa !29
-  %strlen.i2950 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %1672)
-  %1673 = trunc i64 %strlen.i2950 to i32
-  %1674 = and i32 %1673, 1073741823
-  br label %1675
+1666:                                             ; preds = %1661
+  %1667 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %1668 = load ptr, ptr %1667, align 8, !tbaa !29
+  %strlen.i2950 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %1668)
+  %1669 = trunc i64 %strlen.i2950 to i32
+  %1670 = and i32 %1669, 1073741823
+  br label %1671
 
-1675:                                             ; preds = %1670, %1686
-  %indvars.iv4372 = phi i64 [ 0, %1670 ], [ %indvars.iv.next4373, %1686 ]
-  %.024384020 = phi i32 [ -1, %1670 ], [ %.12439, %1686 ]
-  %1676 = getelementptr inbounds nuw [12 x %struct.anon.5], ptr @do_meta_command.aLimit, i64 0, i64 %indvars.iv4372
-  %1677 = load ptr, ptr %1676, align 16, !tbaa !487
-  %1678 = tail call i32 @sqlite3_strnicmp(ptr noundef %1677, ptr noundef nonnull %1672, i32 noundef %1674) #43
-  %1679 = icmp eq i32 %1678, 0
-  br i1 %1679, label %1680, label %1686
+1671:                                             ; preds = %1666, %1682
+  %indvars.iv4372 = phi i64 [ 0, %1666 ], [ %indvars.iv.next4373, %1682 ]
+  %.024384020 = phi i32 [ -1, %1666 ], [ %.12439, %1682 ]
+  %1672 = getelementptr inbounds nuw [12 x %struct.anon.5], ptr @do_meta_command.aLimit, i64 0, i64 %indvars.iv4372
+  %1673 = load ptr, ptr %1672, align 16, !tbaa !487
+  %1674 = tail call i32 @sqlite3_strnicmp(ptr noundef %1673, ptr noundef nonnull %1668, i32 noundef %1670) #43
+  %1675 = icmp eq i32 %1674, 0
+  br i1 %1675, label %1676, label %1682
 
-1680:                                             ; preds = %1675
-  %1681 = icmp slt i32 %.024384020, 0
-  %1682 = trunc nuw nsw i64 %indvars.iv4372 to i32
-  br i1 %1681, label %1686, label %1683
+1676:                                             ; preds = %1671
+  %1677 = icmp slt i32 %.024384020, 0
+  %1678 = trunc nuw nsw i64 %indvars.iv4372 to i32
+  br i1 %1677, label %1682, label %1679
 
-1683:                                             ; preds = %1680
-  %1684 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1685 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1684, ptr noundef nonnull @.str.912, ptr noundef nonnull %1672) #46
+1679:                                             ; preds = %1676
+  %1680 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1681 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1680, ptr noundef nonnull @.str.912, ptr noundef nonnull %1668) #46
   br label %test_breakpoint.exit
 
-1686:                                             ; preds = %1680, %1675
-  %.12439 = phi i32 [ %.024384020, %1675 ], [ %1682, %1680 ]
+1682:                                             ; preds = %1676, %1671
+  %.12439 = phi i32 [ %.024384020, %1671 ], [ %1678, %1676 ]
   %indvars.iv.next4373 = add nuw nsw i64 %indvars.iv4372, 1
   %exitcond4376.not = icmp eq i64 %indvars.iv.next4373, 12
-  br i1 %exitcond4376.not, label %1687, label %1675, !llvm.loop !541
+  br i1 %exitcond4376.not, label %1683, label %1671, !llvm.loop !541
 
-1687:                                             ; preds = %1686
-  %1688 = icmp slt i32 %.12439, 0
-  br i1 %1688, label %1689, label %1692
+1683:                                             ; preds = %1682
+  %1684 = icmp slt i32 %.12439, 0
+  br i1 %1684, label %1685, label %1688
 
-1689:                                             ; preds = %1687
-  %1690 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1691 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1690, ptr noundef nonnull @.str.913, ptr noundef nonnull %1672) #46
+1685:                                             ; preds = %1683
+  %1686 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1687 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1686, ptr noundef nonnull @.str.913, ptr noundef nonnull %1668) #46
   br label %test_breakpoint.exit
 
-1692:                                             ; preds = %1687
-  %1693 = icmp eq i32 %.02122.lcssa.ph, 3
-  br i1 %1693, label %1694, label %._crit_edge4526
+1688:                                             ; preds = %1683
+  %1689 = icmp eq i32 %.02122.lcssa.ph, 3
+  br i1 %1689, label %1690, label %._crit_edge4526
 
-._crit_edge4526:                                  ; preds = %1692
+._crit_edge4526:                                  ; preds = %1688
   %.phi.trans.insert4527 = zext nneg i32 %.12439 to i64
   %.phi.trans.insert4529 = getelementptr inbounds nuw [12 x %struct.anon.5], ptr @do_meta_command.aLimit, i64 0, i64 %.phi.trans.insert4527, i32 1
   %.pre4530 = load i32, ptr %.phi.trans.insert4529, align 8, !tbaa !489
-  br label %1704
+  br label %1700
 
-1694:                                             ; preds = %1692
-  %1695 = load ptr, ptr %1, align 8, !tbaa !477
-  %1696 = zext nneg i32 %.12439 to i64
-  %1697 = getelementptr inbounds nuw [12 x %struct.anon.5], ptr @do_meta_command.aLimit, i64 0, i64 %1696, i32 1
-  %1698 = load i32, ptr %1697, align 8, !tbaa !489
-  %1699 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %1700 = load ptr, ptr %1699, align 16, !tbaa !29
-  %1701 = tail call fastcc i64 @integerValue(ptr noundef %1700)
-  %1702 = trunc i64 %1701 to i32
-  %1703 = tail call i32 @sqlite3_limit(ptr noundef %1695, i32 noundef %1698, i32 noundef %1702) #43
-  br label %1704
+1690:                                             ; preds = %1688
+  %1691 = load ptr, ptr %1, align 8, !tbaa !477
+  %1692 = zext nneg i32 %.12439 to i64
+  %1693 = getelementptr inbounds nuw [12 x %struct.anon.5], ptr @do_meta_command.aLimit, i64 0, i64 %1692, i32 1
+  %1694 = load i32, ptr %1693, align 8, !tbaa !489
+  %1695 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %1696 = load ptr, ptr %1695, align 16, !tbaa !29
+  %1697 = tail call fastcc i64 @integerValue(ptr noundef %1696)
+  %1698 = trunc i64 %1697 to i32
+  %1699 = tail call i32 @sqlite3_limit(ptr noundef %1691, i32 noundef %1694, i32 noundef %1698) #43
+  br label %1700
 
-1704:                                             ; preds = %._crit_edge4526, %1694
-  %.pre-phi = phi i64 [ %.phi.trans.insert4527, %._crit_edge4526 ], [ %1696, %1694 ]
-  %1705 = phi i32 [ %.pre4530, %._crit_edge4526 ], [ %1698, %1694 ]
-  %1706 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %1707 = getelementptr inbounds nuw [12 x %struct.anon.5], ptr @do_meta_command.aLimit, i64 0, i64 %.pre-phi
-  %1708 = load ptr, ptr %1707, align 16, !tbaa !487
-  %1709 = load ptr, ptr %1, align 8, !tbaa !477
-  %1710 = tail call i32 @sqlite3_limit(ptr noundef %1709, i32 noundef %1705, i32 noundef -1) #43
-  %1711 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1706, ptr noundef nonnull @.str.910, ptr noundef %1708, i32 noundef %1710) #43
+1700:                                             ; preds = %._crit_edge4526, %1690
+  %.pre-phi = phi i64 [ %.phi.trans.insert4527, %._crit_edge4526 ], [ %1692, %1690 ]
+  %1701 = phi i32 [ %.pre4530, %._crit_edge4526 ], [ %1694, %1690 ]
+  %1702 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %1703 = getelementptr inbounds nuw [12 x %struct.anon.5], ptr @do_meta_command.aLimit, i64 0, i64 %.pre-phi
+  %1704 = load ptr, ptr %1703, align 16, !tbaa !487
+  %1705 = load ptr, ptr %1, align 8, !tbaa !477
+  %1706 = tail call i32 @sqlite3_limit(ptr noundef %1705, i32 noundef %1701, i32 noundef -1) #43
+  %1707 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1702, ptr noundef nonnull @.str.910, ptr noundef %1704, i32 noundef %1706) #43
   br label %test_breakpoint.exit
 
-1712:                                             ; preds = %.critedge2801.thread4669, %1651, %.critedge2801
-  %1713 = phi i1 [ %614, %1651 ], [ %614, %.critedge2801 ], [ false, %.critedge2801.thread4669 ]
-  %1714 = phi i1 [ %613, %1651 ], [ %613, %.critedge2801 ], [ %485, %.critedge2801.thread4669 ]
-  %1715 = phi i1 [ %611, %1651 ], [ %611, %.critedge2801 ], [ false, %.critedge2801.thread4669 ]
-  %1716 = phi i1 [ %610, %1651 ], [ %610, %.critedge2801 ], [ %172, %.critedge2801.thread4669 ]
-  %1717 = phi i1 [ true, %1651 ], [ %1650, %.critedge2801 ], [ %486, %.critedge2801.thread4669 ]
-  %1718 = phi i1 [ true, %1651 ], [ %1649, %.critedge2801 ], [ false, %.critedge2801.thread4669 ]
-  %or.cond103 = select i1 %1718, i1 %1716, i1 false
-  br i1 %or.cond103, label %1719, label %1724
+1708:                                             ; preds = %.critedge2801.thread4669, %1647, %.critedge2801
+  %1709 = phi i1 [ %610, %1647 ], [ %610, %.critedge2801 ], [ false, %.critedge2801.thread4669 ]
+  %1710 = phi i1 [ %609, %1647 ], [ %609, %.critedge2801 ], [ %485, %.critedge2801.thread4669 ]
+  %1711 = phi i1 [ %607, %1647 ], [ %607, %.critedge2801 ], [ false, %.critedge2801.thread4669 ]
+  %1712 = phi i1 [ %606, %1647 ], [ %606, %.critedge2801 ], [ %172, %.critedge2801.thread4669 ]
+  %1713 = phi i1 [ true, %1647 ], [ %1646, %.critedge2801 ], [ %486, %.critedge2801.thread4669 ]
+  %1714 = phi i1 [ true, %1647 ], [ %1645, %.critedge2801 ], [ false, %.critedge2801.thread4669 ]
+  %or.cond103 = select i1 %1714, i1 %1712, i1 false
+  br i1 %or.cond103, label %1715, label %1720
 
-1719:                                             ; preds = %1712
-  %1720 = and i64 %strlen.i, 1073741823
-  %1721 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.914, i64 noundef range(i64 0, 1073741824) %1720) #44
-  %1722 = icmp eq i32 %1721, 0
-  br i1 %1722, label %1723, label %1724
+1715:                                             ; preds = %1708
+  %1716 = and i64 %strlen.i, 1073741823
+  %1717 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.914, i64 noundef range(i64 0, 1073741824) %1716) #44
+  %1718 = icmp eq i32 %1717, 0
+  br i1 %1718, label %1719, label %1720
 
-1723:                                             ; preds = %1719
+1719:                                             ; preds = %1715
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   call fastcc void @lintDotCommand(ptr noundef %1, ptr noundef %4, i32 noundef %.02122.lcssa.ph)
   br label %test_breakpoint.exit
 
-1724:                                             ; preds = %1719, %1712
-  br i1 %1718, label %1725, label %.critedge2803
+1720:                                             ; preds = %1715, %1708
+  br i1 %1714, label %1721, label %.critedge2803
 
-1725:                                             ; preds = %1724
-  %1726 = and i64 %strlen.i, 1073741823
-  %1727 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.915, i64 noundef range(i64 0, 1073741824) %1726) #44
-  %1728 = icmp eq i32 %1727, 0
-  br i1 %1728, label %1729, label %1752
+1721:                                             ; preds = %1720
+  %1722 = and i64 %strlen.i, 1073741823
+  %1723 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.915, i64 noundef range(i64 0, 1073741824) %1722) #44
+  %1724 = icmp eq i32 %1723, 0
+  br i1 %1724, label %1725, label %1748
 
-1729:                                             ; preds = %1725
+1725:                                             ; preds = %1721
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #43
   store ptr null, ptr %24, align 8, !tbaa !29
   tail call void (ptr, ptr, ...) @failIfSafeMode(ptr noundef nonnull %1, ptr noundef nonnull @.str.916)
-  %1730 = icmp eq i32 %.02122.lcssa.ph, 1
-  br i1 %1730, label %1736, label %1731
+  %1726 = icmp eq i32 %.02122.lcssa.ph, 1
+  br i1 %1726, label %1732, label %1727
 
-1731:                                             ; preds = %1729
-  %1732 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %1733 = load ptr, ptr %1732, align 8, !tbaa !29
-  %1734 = load i8, ptr %1733, align 1, !tbaa !25
-  %1735 = icmp eq i8 %1734, 0
-  br i1 %1735, label %1736, label %1739
+1727:                                             ; preds = %1725
+  %1728 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %1729 = load ptr, ptr %1728, align 8, !tbaa !29
+  %1730 = load i8, ptr %1729, align 1, !tbaa !25
+  %1731 = icmp eq i8 %1730, 0
+  br i1 %1731, label %1732, label %1735
 
-1736:                                             ; preds = %1731, %1729
-  %1737 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1738 = tail call i64 @fwrite(ptr nonnull @.str.917, i64 31, i64 1, ptr %1737) #50
-  br label %1751
+1732:                                             ; preds = %1727, %1725
+  %1733 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1734 = tail call i64 @fwrite(ptr nonnull @.str.917, i64 31, i64 1, ptr %1733) #50
+  br label %1747
 
-1739:                                             ; preds = %1731
-  %1740 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
-  %1741 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %1742 = load ptr, ptr %1741, align 16
-  %1743 = select i1 %1740, ptr %1742, ptr null
+1735:                                             ; preds = %1727
+  %1736 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
+  %1737 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %1738 = load ptr, ptr %1737, align 16
+  %1739 = select i1 %1736, ptr %1738, ptr null
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
-  %1744 = load ptr, ptr %1, align 8, !tbaa !477
-  %1745 = call i32 @sqlite3_load_extension(ptr noundef %1744, ptr noundef nonnull %1733, ptr noundef %1743, ptr noundef nonnull %24) #43
-  %.not2700 = icmp eq i32 %1745, 0
-  br i1 %.not2700, label %1751, label %1746
+  %1740 = load ptr, ptr %1, align 8, !tbaa !477
+  %1741 = call i32 @sqlite3_load_extension(ptr noundef %1740, ptr noundef nonnull %1729, ptr noundef %1739, ptr noundef nonnull %24) #43
+  %.not2700 = icmp eq i32 %1741, 0
+  br i1 %.not2700, label %1747, label %1742
 
-1746:                                             ; preds = %1739
-  %1747 = load ptr, ptr %24, align 8, !tbaa !29
-  %1748 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1749 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1748, ptr noundef nonnull @.str.991, ptr noundef %1747) #46
-  %1750 = load ptr, ptr %24, align 8, !tbaa !29
-  call void @sqlite3_free(ptr noundef %1750) #43
-  br label %1751
+1742:                                             ; preds = %1735
+  %1743 = load ptr, ptr %24, align 8, !tbaa !29
+  %1744 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1745 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1744, ptr noundef nonnull @.str.991, ptr noundef %1743) #46
+  %1746 = load ptr, ptr %24, align 8, !tbaa !29
+  call void @sqlite3_free(ptr noundef %1746) #43
+  br label %1747
 
-1751:                                             ; preds = %1739, %1746, %1736
-  %.24 = phi i32 [ 1, %1736 ], [ 1, %1746 ], [ 0, %1739 ]
+1747:                                             ; preds = %1735, %1742, %1732
+  %.24 = phi i32 [ 1, %1732 ], [ 1, %1742 ], [ 0, %1735 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #43
   br label %test_breakpoint.exit
 
-1752:                                             ; preds = %1725
-  %1753 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.918, i64 noundef range(i64 0, 1073741824) %1726) #44
-  %1754 = icmp eq i32 %1753, 0
-  br i1 %1754, label %1755, label %.critedge2803
+1748:                                             ; preds = %1721
+  %1749 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.918, i64 noundef range(i64 0, 1073741824) %1722) #44
+  %1750 = icmp eq i32 %1749, 0
+  br i1 %1750, label %1751, label %.critedge2803
 
-1755:                                             ; preds = %1752
+1751:                                             ; preds = %1748
   %.not2696 = icmp eq i32 %.02122.lcssa.ph, 2
-  br i1 %.not2696, label %1759, label %1756
+  br i1 %.not2696, label %1755, label %1752
 
-1756:                                             ; preds = %1755
-  %1757 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1758 = tail call i64 @fwrite(ptr nonnull @.str.919, i64 21, i64 1, ptr %1757) #50
+1752:                                             ; preds = %1751
+  %1753 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1754 = tail call i64 @fwrite(ptr nonnull @.str.919, i64 21, i64 1, ptr %1753) #50
   br label %test_breakpoint.exit
 
-1759:                                             ; preds = %1755
-  %1760 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %1761 = load ptr, ptr %1760, align 8, !tbaa !29
-  %1762 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %1763 = load i8, ptr %1762, align 1, !tbaa !472
-  %.not2697 = icmp eq i8 %1763, 0
-  br i1 %.not2697, label %1775, label %sub_03688
+1755:                                             ; preds = %1751
+  %1756 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %1757 = load ptr, ptr %1756, align 8, !tbaa !29
+  %1758 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %1759 = load i8, ptr %1758, align 1, !tbaa !472
+  %.not2697 = icmp eq i8 %1759, 0
+  br i1 %.not2697, label %1771, label %sub_03688
 
-sub_03688:                                        ; preds = %1759
-  %1764 = icmp eq ptr %1761, null
-  %spec.store.select.i2954 = select i1 %1764, ptr @.str.44, ptr %1761
-  %1765 = load i8, ptr %spec.store.select.i2954, align 1
-  %.not4242 = icmp eq i8 %1765, 111
+sub_03688:                                        ; preds = %1755
+  %1760 = icmp eq ptr %1757, null
+  %spec.store.select.i2954 = select i1 %1760, ptr @.str.44, ptr %1757
+  %1761 = load i8, ptr %spec.store.select.i2954, align 1
+  %.not4242 = icmp eq i8 %1761, 111
   br i1 %.not4242, label %sub_13689, label %.tail3687.thread
 
 sub_13689:                                        ; preds = %sub_03688
-  %1766 = getelementptr inbounds nuw i8, ptr %spec.store.select.i2954, i64 1
-  %1767 = load i8, ptr %1766, align 1
-  %.not4243 = icmp eq i8 %1767, 110
+  %1762 = getelementptr inbounds nuw i8, ptr %spec.store.select.i2954, i64 1
+  %1763 = load i8, ptr %1762, align 1
+  %.not4243 = icmp eq i8 %1763, 110
   br i1 %.not4243, label %.tail3687, label %.tail3687.thread
 
 .tail3687:                                        ; preds = %sub_13689
-  %1768 = getelementptr inbounds nuw i8, ptr %spec.store.select.i2954, i64 2
-  %1769 = load i8, ptr %1768, align 1
-  %1770 = icmp eq i8 %1769, 0
-  br i1 %1770, label %1775, label %.tail3687.thread
+  %1764 = getelementptr inbounds nuw i8, ptr %spec.store.select.i2954, i64 2
+  %1765 = load i8, ptr %1764, align 1
+  %1766 = icmp eq i8 %1765, 0
+  br i1 %1766, label %1771, label %.tail3687.thread
 
 .tail3687.thread:                                 ; preds = %sub_13689, %sub_03688, %.tail3687
-  %1771 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i2954, ptr noundef nonnull dereferenceable(4) @.str.776) #44
-  %.not2699 = icmp eq i32 %1771, 0
-  br i1 %.not2699, label %1775, label %1772
+  %1767 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i2954, ptr noundef nonnull dereferenceable(4) @.str.776) #44
+  %.not2699 = icmp eq i32 %1767, 0
+  br i1 %.not2699, label %1771, label %1768
 
-1772:                                             ; preds = %.tail3687.thread
-  %1773 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %1774 = tail call i64 @fwrite(ptr nonnull @.str.920, i64 53, i64 1, ptr %1773)
-  br label %1775
+1768:                                             ; preds = %.tail3687.thread
+  %1769 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %1770 = tail call i64 @fwrite(ptr nonnull @.str.920, i64 53, i64 1, ptr %1769)
+  br label %1771
 
-1775:                                             ; preds = %1772, %.tail3687.thread, %.tail3687, %1759
-  %.02434 = phi ptr [ @.str.776, %1772 ], [ %1761, %.tail3687.thread ], [ %1761, %.tail3687 ], [ %1761, %1759 ]
-  %1776 = getelementptr inbounds nuw i8, ptr %1, i64 4424
-  %1777 = load ptr, ptr %1776, align 8, !tbaa !542
-  %.not.i2956 = icmp eq ptr %1777, null
-  %1778 = load ptr, ptr @stdout, align 8
-  %.not4.i = icmp eq ptr %1777, %1778
+1771:                                             ; preds = %1768, %.tail3687.thread, %.tail3687, %1755
+  %.02434 = phi ptr [ @.str.776, %1768 ], [ %1757, %.tail3687.thread ], [ %1757, %.tail3687 ], [ %1757, %1755 ]
+  %1772 = getelementptr inbounds nuw i8, ptr %1, i64 4424
+  %1773 = load ptr, ptr %1772, align 8, !tbaa !542
+  %.not.i2956 = icmp eq ptr %1773, null
+  %1774 = load ptr, ptr @stdout, align 8
+  %.not4.i = icmp eq ptr %1773, %1774
   %or.cond.i = select i1 %.not.i2956, i1 true, i1 %.not4.i
-  %1779 = load ptr, ptr @stderr, align 8
-  %.not5.i2957 = icmp eq ptr %1777, %1779
+  %1775 = load ptr, ptr @stderr, align 8
+  %.not5.i2957 = icmp eq ptr %1773, %1775
   %or.cond6.i = select i1 %or.cond.i, i1 true, i1 %.not5.i2957
-  br i1 %or.cond6.i, label %output_file_close.exit, label %1780
+  br i1 %or.cond6.i, label %output_file_close.exit, label %1776
 
-1780:                                             ; preds = %1775
-  %1781 = tail call i32 @fclose(ptr noundef nonnull %1777)
+1776:                                             ; preds = %1771
+  %1777 = tail call i32 @fclose(ptr noundef nonnull %1773)
   br label %output_file_close.exit
 
-output_file_close.exit:                           ; preds = %1775, %1780
-  %1782 = icmp eq ptr %.02434, null
-  %spec.store.select.i2958 = select i1 %1782, ptr @.str.44, ptr %.02434
-  %1783 = load i8, ptr %spec.store.select.i2958, align 1
-  %.not4244 = icmp eq i8 %1783, 111
+output_file_close.exit:                           ; preds = %1771, %1776
+  %1778 = icmp eq ptr %.02434, null
+  %spec.store.select.i2958 = select i1 %1778, ptr @.str.44, ptr %.02434
+  %1779 = load i8, ptr %spec.store.select.i2958, align 1
+  %.not4244 = icmp eq i8 %1779, 111
   br i1 %.not4244, label %sub_13693, label %output_file_close.exit.tail
 
 sub_13693:                                        ; preds = %output_file_close.exit
-  %1784 = getelementptr inbounds nuw i8, ptr %spec.store.select.i2958, i64 1
-  %1785 = load i8, ptr %1784, align 1
-  %.not4245 = icmp eq i8 %1785, 110
+  %1780 = getelementptr inbounds nuw i8, ptr %spec.store.select.i2958, i64 1
+  %1781 = load i8, ptr %1780, align 1
+  %.not4245 = icmp eq i8 %1781, 110
   br i1 %.not4245, label %sub_23694, label %output_file_close.exit.tail
 
 sub_23694:                                        ; preds = %sub_13693
-  %1786 = getelementptr inbounds nuw i8, ptr %spec.store.select.i2958, i64 2
-  %1787 = load i8, ptr %1786, align 1
-  %1788 = icmp eq i8 %1787, 0
-  %1789 = select i1 %1788, ptr @.str.921, ptr %.02434
+  %1782 = getelementptr inbounds nuw i8, ptr %spec.store.select.i2958, i64 2
+  %1783 = load i8, ptr %1782, align 1
+  %1784 = icmp eq i8 %1783, 0
+  %1785 = select i1 %1784, ptr @.str.921, ptr %.02434
   br label %output_file_close.exit.tail
 
 output_file_close.exit.tail:                      ; preds = %output_file_close.exit, %sub_13693, %sub_23694
-  %spec.select2804 = phi ptr [ %.02434, %output_file_close.exit ], [ %.02434, %sub_13693 ], [ %1789, %sub_23694 ]
-  %1790 = tail call fastcc ptr @output_file_open(ptr noundef %spec.select2804)
-  store ptr %1790, ptr %1776, align 8, !tbaa !542
+  %spec.select2804 = phi ptr [ %.02434, %output_file_close.exit ], [ %.02434, %sub_13693 ], [ %1785, %sub_23694 ]
+  %1786 = tail call fastcc ptr @output_file_open(ptr noundef %spec.select2804)
+  store ptr %1786, ptr %1772, align 8, !tbaa !542
   br label %test_breakpoint.exit
 
-.critedge2803:                                    ; preds = %.thread4592, %1724, %1752
-  %1791 = phi i1 [ %717, %.thread4592 ], [ false, %1724 ], [ false, %1752 ]
-  %1792 = phi i1 [ %614, %.thread4592 ], [ %1713, %1724 ], [ %1713, %1752 ]
-  %1793 = phi i1 [ %613, %.thread4592 ], [ %1714, %1724 ], [ %1714, %1752 ]
-  %1794 = phi i1 [ %611, %.thread4592 ], [ %1715, %1724 ], [ %1715, %1752 ]
-  %1795 = phi i1 [ %610, %.thread4592 ], [ %1716, %1724 ], [ %1716, %1752 ]
-  %1796 = phi i1 [ %1648, %.thread4592 ], [ %1717, %1724 ], [ %1717, %1752 ]
-  %1797 = phi i1 [ %.ph, %.thread4592 ], [ false, %1724 ], [ false, %1752 ]
+.critedge2803:                                    ; preds = %.thread4592, %1720, %1748
+  %1787 = phi i1 [ %713, %.thread4592 ], [ false, %1720 ], [ false, %1748 ]
+  %1788 = phi i1 [ %610, %.thread4592 ], [ %1709, %1720 ], [ %1709, %1748 ]
+  %1789 = phi i1 [ %609, %.thread4592 ], [ %1710, %1720 ], [ %1710, %1748 ]
+  %1790 = phi i1 [ %607, %.thread4592 ], [ %1711, %1720 ], [ %1711, %1748 ]
+  %1791 = phi i1 [ %606, %.thread4592 ], [ %1712, %1720 ], [ %1712, %1748 ]
+  %1792 = phi i1 [ %1644, %.thread4592 ], [ %1713, %1720 ], [ %1713, %1748 ]
+  %1793 = phi i1 [ %.ph, %.thread4592 ], [ false, %1720 ], [ false, %1748 ]
   switch i8 %131, label %.critedge2809 [
-    i8 109, label %1798
-    i8 110, label %2013
-    i8 111, label %2047
+    i8 109, label %1794
+    i8 110, label %2009
+    i8 111, label %2043
   ]
 
-1798:                                             ; preds = %.critedge2803
-  %1799 = and i64 %strlen.i, 1073741823
-  %1800 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.922, i64 noundef range(i64 0, 1073741824) %1799) #44
-  %1801 = icmp eq i32 %1800, 0
-  br i1 %1801, label %.preheader3762, label %.critedge2823
+1794:                                             ; preds = %.critedge2803
+  %1795 = and i64 %strlen.i, 1073741823
+  %1796 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.922, i64 noundef range(i64 0, 1073741824) %1795) #44
+  %1797 = icmp eq i32 %1796, 0
+  br i1 %1797, label %.preheader3762, label %.critedge2823
 
-.preheader3762:                                   ; preds = %1798
-  %1802 = icmp sgt i32 %.02122.lcssa.ph, 1
-  br i1 %1802, label %.lr.ph4041, label %._crit_edge4042.thread
+.preheader3762:                                   ; preds = %1794
+  %1798 = icmp sgt i32 %.02122.lcssa.ph, 1
+  br i1 %1798, label %.lr.ph4041, label %._crit_edge4042.thread
 
-.lr.ph4041:                                       ; preds = %.preheader3762, %1854
-  %.sroa.0.04039 = phi i32 [ %.sroa.0.2.ph, %1854 ], [ 60, %.preheader3762 ]
-  %.sroa.9.04037 = phi i8 [ %.sroa.9.2.ph, %1854 ], [ 0, %.preheader3762 ]
-  %.sroa.11.04035 = phi i8 [ %.sroa.11.2.ph, %1854 ], [ 0, %.preheader3762 ]
-  %.024244034 = phi i32 [ %1855, %1854 ], [ 1, %.preheader3762 ]
-  %.024274032 = phi ptr [ %.22429.ph, %1854 ], [ null, %.preheader3762 ]
-  %.024304031 = phi ptr [ %.22432.ph, %1854 ], [ null, %.preheader3762 ]
-  %1803 = sext i32 %.024244034 to i64
-  %1804 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %1803
-  %1805 = load ptr, ptr %1804, align 8, !tbaa !29
-  %1806 = load i8, ptr %1805, align 1, !tbaa !25
-  %.not.i2960 = icmp eq i8 %1806, 45
+.lr.ph4041:                                       ; preds = %.preheader3762, %1850
+  %.sroa.0.04039 = phi i32 [ %.sroa.0.2.ph, %1850 ], [ 60, %.preheader3762 ]
+  %.sroa.9.04037 = phi i8 [ %.sroa.9.2.ph, %1850 ], [ 0, %.preheader3762 ]
+  %.sroa.11.04035 = phi i8 [ %.sroa.11.2.ph, %1850 ], [ 0, %.preheader3762 ]
+  %.024244034 = phi i32 [ %1851, %1850 ], [ 1, %.preheader3762 ]
+  %.024274032 = phi ptr [ %.22429.ph, %1850 ], [ null, %.preheader3762 ]
+  %.024304031 = phi ptr [ %.22432.ph, %1850 ], [ null, %.preheader3762 ]
+  %1799 = sext i32 %.024244034 to i64
+  %1800 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %1799
+  %1801 = load ptr, ptr %1800, align 8, !tbaa !29
+  %1802 = load i8, ptr %1801, align 1, !tbaa !25
+  %.not.i2960 = icmp eq i8 %1802, 45
   br i1 %.not.i2960, label %optionMatch.exit2963, label %optionMatch.exit2979.thread
 
 optionMatch.exit2963:                             ; preds = %.lr.ph4041
-  %1807 = getelementptr inbounds nuw i8, ptr %1805, i64 1
-  %1808 = load i8, ptr %1807, align 1, !tbaa !25
-  %1809 = icmp eq i8 %1808, 45
-  %1810 = getelementptr inbounds nuw i8, ptr %1805, i64 2
-  %spec.select.i2962 = select i1 %1809, ptr %1810, ptr %1807
-  %1811 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i2962, ptr noundef nonnull dereferenceable(5) @.str.923) #44
-  %.not3662 = icmp eq i32 %1811, 0
-  br i1 %.not3662, label %1812, label %optionMatch.exit2967
+  %1803 = getelementptr inbounds nuw i8, ptr %1801, i64 1
+  %1804 = load i8, ptr %1803, align 1, !tbaa !25
+  %1805 = icmp eq i8 %1804, 45
+  %1806 = getelementptr inbounds nuw i8, ptr %1801, i64 2
+  %spec.select.i2962 = select i1 %1805, ptr %1806, ptr %1803
+  %1807 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i2962, ptr noundef nonnull dereferenceable(5) @.str.923) #44
+  %.not3662 = icmp eq i32 %1807, 0
+  br i1 %.not3662, label %1808, label %optionMatch.exit2967
 
-1812:                                             ; preds = %optionMatch.exit2963
-  %1813 = add nsw i32 %.024244034, 1
-  %1814 = icmp slt i32 %1813, %.02122.lcssa.ph
-  br i1 %1814, label %1815, label %optionMatch.exit2967
+1808:                                             ; preds = %optionMatch.exit2963
+  %1809 = add nsw i32 %.024244034, 1
+  %1810 = icmp slt i32 %1809, %.02122.lcssa.ph
+  br i1 %1810, label %1811, label %optionMatch.exit2967
 
-1815:                                             ; preds = %1812
-  %1816 = sext i32 %1813 to i64
-  %1817 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %1816
-  %1818 = load ptr, ptr %1817, align 8, !tbaa !29
-  %1819 = tail call fastcc i64 @integerValue(ptr noundef %1818)
-  %1820 = trunc i64 %1819 to i32
-  br label %1854
+1811:                                             ; preds = %1808
+  %1812 = sext i32 %1809 to i64
+  %1813 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %1812
+  %1814 = load ptr, ptr %1813, align 8, !tbaa !29
+  %1815 = tail call fastcc i64 @integerValue(ptr noundef %1814)
+  %1816 = trunc i64 %1815 to i32
+  br label %1850
 
-optionMatch.exit2967:                             ; preds = %optionMatch.exit2963, %1812
-  %1821 = load i8, ptr %spec.select.i2962, align 1
-  %.not4213 = icmp eq i8 %1821, 119
+optionMatch.exit2967:                             ; preds = %optionMatch.exit2963, %1808
+  %1817 = load i8, ptr %spec.select.i2962, align 1
+  %.not4213 = icmp eq i8 %1817, 119
   br i1 %.not4213, label %sub_13697, label %optionMatch.exit2971
 
 sub_13697:                                        ; preds = %optionMatch.exit2967
-  %1822 = getelementptr inbounds nuw i8, ptr %spec.select.i2962, i64 1
-  %1823 = load i8, ptr %1822, align 1
-  %.not4214 = icmp eq i8 %1823, 119
+  %1818 = getelementptr inbounds nuw i8, ptr %spec.select.i2962, i64 1
+  %1819 = load i8, ptr %1818, align 1
+  %.not4214 = icmp eq i8 %1819, 119
   br i1 %.not4214, label %optionMatch.exit2967.tail, label %optionMatch.exit2971
 
 optionMatch.exit2967.tail:                        ; preds = %sub_13697
-  %1824 = getelementptr inbounds nuw i8, ptr %spec.select.i2962, i64 2
-  %1825 = load i8, ptr %1824, align 1
-  %1826 = icmp eq i8 %1825, 0
-  br i1 %1826, label %1854, label %optionMatch.exit2971
+  %1820 = getelementptr inbounds nuw i8, ptr %spec.select.i2962, i64 2
+  %1821 = load i8, ptr %1820, align 1
+  %1822 = icmp eq i8 %1821, 0
+  br i1 %1822, label %1850, label %optionMatch.exit2971
 
 optionMatch.exit2971:                             ; preds = %sub_13697, %optionMatch.exit2967, %optionMatch.exit2967.tail
-  %1827 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i2962, ptr noundef nonnull dereferenceable(9) @.str.925) #44
-  %.not3664 = icmp eq i32 %1827, 0
-  br i1 %.not3664, label %1828, label %optionMatch.exit2975
+  %1823 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i2962, ptr noundef nonnull dereferenceable(9) @.str.925) #44
+  %.not3664 = icmp eq i32 %1823, 0
+  br i1 %.not3664, label %1824, label %optionMatch.exit2975
 
-1828:                                             ; preds = %optionMatch.exit2971
-  %1829 = add nsw i32 %.024244034, 1
-  %1830 = icmp slt i32 %1829, %.02122.lcssa.ph
-  br i1 %1830, label %1831, label %optionMatch.exit2975
+1824:                                             ; preds = %optionMatch.exit2971
+  %1825 = add nsw i32 %.024244034, 1
+  %1826 = icmp slt i32 %1825, %.02122.lcssa.ph
+  br i1 %1826, label %1827, label %optionMatch.exit2975
 
-1831:                                             ; preds = %1828
-  %1832 = sext i32 %1829 to i64
-  %1833 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %1832
-  %1834 = load ptr, ptr %1833, align 8, !tbaa !29
-  %1835 = tail call fastcc i32 @booleanValue(ptr noundef %1834)
-  %1836 = trunc i32 %1835 to i8
-  br label %1854
+1827:                                             ; preds = %1824
+  %1828 = sext i32 %1825 to i64
+  %1829 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %1828
+  %1830 = load ptr, ptr %1829, align 8, !tbaa !29
+  %1831 = tail call fastcc i32 @booleanValue(ptr noundef %1830)
+  %1832 = trunc i32 %1831 to i8
+  br label %1850
 
-optionMatch.exit2975:                             ; preds = %optionMatch.exit2971, %1828
-  %1837 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i2962, ptr noundef nonnull dereferenceable(6) @.str.926) #44
-  %.not3665 = icmp eq i32 %1837, 0
-  br i1 %.not3665, label %1854, label %optionMatch.exit2979
+optionMatch.exit2975:                             ; preds = %optionMatch.exit2971, %1824
+  %1833 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i2962, ptr noundef nonnull dereferenceable(6) @.str.926) #44
+  %.not3665 = icmp eq i32 %1833, 0
+  br i1 %.not3665, label %1850, label %optionMatch.exit2979
 
 optionMatch.exit2979:                             ; preds = %optionMatch.exit2975
-  %1838 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i2962, ptr noundef nonnull dereferenceable(8) @.str.927) #44
-  %.not3666 = icmp eq i32 %1838, 0
-  br i1 %.not3666, label %1854, label %optionMatch.exit2979.thread
+  %1834 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i2962, ptr noundef nonnull dereferenceable(8) @.str.927) #44
+  %.not3666 = icmp eq i32 %1834, 0
+  br i1 %.not3666, label %1850, label %optionMatch.exit2979.thread
 
 optionMatch.exit2979.thread:                      ; preds = %.lr.ph4041, %optionMatch.exit2979
-  %1839 = icmp eq ptr %.024304031, null
-  br i1 %1839, label %1840, label %1844
+  %1835 = icmp eq ptr %.024304031, null
+  br i1 %1835, label %1836, label %1840
+
+1836:                                             ; preds = %optionMatch.exit2979.thread
+  %1837 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1801, ptr noundef nonnull dereferenceable(5) @.str.928) #44
+  %1838 = icmp eq i32 %1837, 0
+  br i1 %1838, label %1839, label %1850
+
+1839:                                             ; preds = %1836
+  br label %1850
 
 1840:                                             ; preds = %optionMatch.exit2979.thread
-  %1841 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1805, ptr noundef nonnull dereferenceable(5) @.str.928) #44
-  %1842 = icmp eq i32 %1841, 0
-  br i1 %1842, label %1843, label %1854
+  %1841 = icmp eq ptr %.024274032, null
+  br i1 %1841, label %1850, label %1842
 
-1843:                                             ; preds = %1840
-  br label %1854
+1842:                                             ; preds = %1840
+  %1843 = load ptr, ptr @stderr, align 8, !tbaa !14
+  br i1 %.not.i2960, label %1844, label %1848
 
-1844:                                             ; preds = %optionMatch.exit2979.thread
-  %1845 = icmp eq ptr %.024274032, null
-  br i1 %1845, label %1854, label %1846
-
-1846:                                             ; preds = %1844
-  %1847 = load ptr, ptr @stderr, align 8, !tbaa !14
-  br i1 %.not.i2960, label %1848, label %1852
-
-1848:                                             ; preds = %1846
-  %1849 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1847, ptr noundef nonnull @.str.711, ptr noundef nonnull %1805) #46
-  %1850 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %1851 = tail call i64 @fwrite(ptr nonnull @.str.930, i64 69, i64 1, ptr %1850) #50
+1844:                                             ; preds = %1842
+  %1845 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1843, ptr noundef nonnull @.str.711, ptr noundef nonnull %1801) #46
+  %1846 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %1847 = tail call i64 @fwrite(ptr nonnull @.str.930, i64 69, i64 1, ptr %1846) #50
   br label %test_breakpoint.exit
 
-1852:                                             ; preds = %1846
-  %1853 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1847, ptr noundef nonnull @.str.931, ptr noundef nonnull %1805) #46
+1848:                                             ; preds = %1842
+  %1849 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1843, ptr noundef nonnull @.str.931, ptr noundef nonnull %1801) #46
   br label %test_breakpoint.exit
 
-1854:                                             ; preds = %1844, %optionMatch.exit2979, %optionMatch.exit2975, %optionMatch.exit2967.tail, %1843, %1840, %1831, %1815
-  %.22432.ph = phi ptr [ %.024304031, %1844 ], [ %.024304031, %optionMatch.exit2979 ], [ %.024304031, %optionMatch.exit2975 ], [ %.024304031, %optionMatch.exit2967.tail ], [ %1805, %1840 ], [ @.str.929, %1843 ], [ %.024304031, %1831 ], [ %.024304031, %1815 ]
-  %.22429.ph = phi ptr [ %1805, %1844 ], [ %.024274032, %optionMatch.exit2979 ], [ %.024274032, %optionMatch.exit2975 ], [ %.024274032, %optionMatch.exit2967.tail ], [ %.024274032, %1840 ], [ %.024274032, %1843 ], [ %.024274032, %1831 ], [ %.024274032, %1815 ]
-  %.22426.ph = phi i32 [ %.024244034, %1844 ], [ %.024244034, %optionMatch.exit2979 ], [ %.024244034, %optionMatch.exit2975 ], [ %.024244034, %optionMatch.exit2967.tail ], [ %.024244034, %1840 ], [ %.024244034, %1843 ], [ %1829, %1831 ], [ %1813, %1815 ]
-  %.sroa.11.2.ph = phi i8 [ %.sroa.11.04035, %1844 ], [ %.sroa.11.04035, %optionMatch.exit2979 ], [ %.sroa.11.04035, %optionMatch.exit2975 ], [ 1, %optionMatch.exit2967.tail ], [ %.sroa.11.04035, %1840 ], [ 0, %1843 ], [ %1836, %1831 ], [ %.sroa.11.04035, %1815 ]
-  %.sroa.9.2.ph = phi i8 [ %.sroa.9.04037, %1844 ], [ 0, %optionMatch.exit2979 ], [ 1, %optionMatch.exit2975 ], [ %.sroa.9.04037, %optionMatch.exit2967.tail ], [ %.sroa.9.04037, %1840 ], [ 1, %1843 ], [ %.sroa.9.04037, %1831 ], [ %.sroa.9.04037, %1815 ]
-  %.sroa.0.2.ph = phi i32 [ %.sroa.0.04039, %1844 ], [ %.sroa.0.04039, %optionMatch.exit2979 ], [ %.sroa.0.04039, %optionMatch.exit2975 ], [ %.sroa.0.04039, %optionMatch.exit2967.tail ], [ %.sroa.0.04039, %1840 ], [ 60, %1843 ], [ %.sroa.0.04039, %1831 ], [ %1820, %1815 ]
-  %1855 = add nsw i32 %.22426.ph, 1
-  %1856 = icmp slt i32 %1855, %.02122.lcssa.ph
-  br i1 %1856, label %.lr.ph4041, label %._crit_edge4042, !llvm.loop !543
+1850:                                             ; preds = %1840, %optionMatch.exit2979, %optionMatch.exit2975, %optionMatch.exit2967.tail, %1839, %1836, %1827, %1811
+  %.22432.ph = phi ptr [ %.024304031, %1840 ], [ %.024304031, %optionMatch.exit2979 ], [ %.024304031, %optionMatch.exit2975 ], [ %.024304031, %optionMatch.exit2967.tail ], [ %1801, %1836 ], [ @.str.929, %1839 ], [ %.024304031, %1827 ], [ %.024304031, %1811 ]
+  %.22429.ph = phi ptr [ %1801, %1840 ], [ %.024274032, %optionMatch.exit2979 ], [ %.024274032, %optionMatch.exit2975 ], [ %.024274032, %optionMatch.exit2967.tail ], [ %.024274032, %1836 ], [ %.024274032, %1839 ], [ %.024274032, %1827 ], [ %.024274032, %1811 ]
+  %.22426.ph = phi i32 [ %.024244034, %1840 ], [ %.024244034, %optionMatch.exit2979 ], [ %.024244034, %optionMatch.exit2975 ], [ %.024244034, %optionMatch.exit2967.tail ], [ %.024244034, %1836 ], [ %.024244034, %1839 ], [ %1825, %1827 ], [ %1809, %1811 ]
+  %.sroa.11.2.ph = phi i8 [ %.sroa.11.04035, %1840 ], [ %.sroa.11.04035, %optionMatch.exit2979 ], [ %.sroa.11.04035, %optionMatch.exit2975 ], [ 1, %optionMatch.exit2967.tail ], [ %.sroa.11.04035, %1836 ], [ 0, %1839 ], [ %1832, %1827 ], [ %.sroa.11.04035, %1811 ]
+  %.sroa.9.2.ph = phi i8 [ %.sroa.9.04037, %1840 ], [ 0, %optionMatch.exit2979 ], [ 1, %optionMatch.exit2975 ], [ %.sroa.9.04037, %optionMatch.exit2967.tail ], [ %.sroa.9.04037, %1836 ], [ 1, %1839 ], [ %.sroa.9.04037, %1827 ], [ %.sroa.9.04037, %1811 ]
+  %.sroa.0.2.ph = phi i32 [ %.sroa.0.04039, %1840 ], [ %.sroa.0.04039, %optionMatch.exit2979 ], [ %.sroa.0.04039, %optionMatch.exit2975 ], [ %.sroa.0.04039, %optionMatch.exit2967.tail ], [ %.sroa.0.04039, %1836 ], [ 60, %1839 ], [ %.sroa.0.04039, %1827 ], [ %1816, %1811 ]
+  %1851 = add nsw i32 %.22426.ph, 1
+  %1852 = icmp slt i32 %1851, %.02122.lcssa.ph
+  br i1 %1852, label %.lr.ph4041, label %._crit_edge4042, !llvm.loop !543
 
-._crit_edge4042:                                  ; preds = %1854
-  %1857 = icmp eq ptr %.22432.ph, null
-  br i1 %1857, label %._crit_edge4042.thread, label %1887
+._crit_edge4042:                                  ; preds = %1850
+  %1853 = icmp eq ptr %.22432.ph, null
+  br i1 %1853, label %._crit_edge4042.thread, label %1883
 
 ._crit_edge4042.thread:                           ; preds = %.preheader3762, %._crit_edge4042
   %.sroa.0.0.lcssa4607 = phi i32 [ %.sroa.0.2.ph, %._crit_edge4042 ], [ 60, %.preheader3762 ]
   %.sroa.9.0.lcssa4605 = phi i8 [ %.sroa.9.2.ph, %._crit_edge4042 ], [ 0, %.preheader3762 ]
   %.sroa.11.0.lcssa4603 = phi i8 [ %.sroa.11.2.ph, %._crit_edge4042 ], [ 0, %.preheader3762 ]
   %.02427.lcssa4601 = phi ptr [ %.22429.ph, %._crit_edge4042 ], [ null, %.preheader3762 ]
-  %1858 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %1859 = load i32, ptr %1858, align 4, !tbaa !442
-  switch i32 %1859, label %1875 [
-    i32 16, label %1860
-    i32 15, label %1860
-    i32 14, label %1860
-    i32 1, label %1860
+  %1854 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %1855 = load i32, ptr %1854, align 4, !tbaa !442
+  switch i32 %1855, label %1871 [
+    i32 16, label %1856
+    i32 15, label %1856
+    i32 14, label %1856
+    i32 1, label %1856
   ]
 
-1860:                                             ; preds = %._crit_edge4042.thread, %._crit_edge4042.thread, %._crit_edge4042.thread, %._crit_edge4042.thread
-  %1861 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %1862 = load ptr, ptr %1861, align 8, !tbaa !462
-  %1863 = zext nneg i32 %1859 to i64
-  %1864 = getelementptr inbounds nuw [21 x ptr], ptr @modeDescr, i64 0, i64 %1863
-  %1865 = load ptr, ptr %1864, align 8, !tbaa !29
-  %1866 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %1867 = load i32, ptr %1866, align 8, !tbaa !544
-  %1868 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %1869 = load i8, ptr %1868, align 1, !tbaa !545
-  %.not2688 = icmp eq i8 %1869, 0
-  %1870 = select i1 %.not2688, ptr @.str.776, ptr @.str.775
-  %1871 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %1872 = load i8, ptr %1871, align 4, !tbaa !546
-  %.not2689 = icmp eq i8 %1872, 0
-  %1873 = select i1 %.not2689, ptr @.str.933, ptr @.str.44
-  %1874 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1862, ptr noundef nonnull @.str.932, ptr noundef %1865, i32 noundef %1867, ptr noundef nonnull %1870, ptr noundef nonnull %1873) #43
-  br label %1882
+1856:                                             ; preds = %._crit_edge4042.thread, %._crit_edge4042.thread, %._crit_edge4042.thread, %._crit_edge4042.thread
+  %1857 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %1858 = load ptr, ptr %1857, align 8, !tbaa !462
+  %1859 = zext nneg i32 %1855 to i64
+  %1860 = getelementptr inbounds nuw [21 x ptr], ptr @modeDescr, i64 0, i64 %1859
+  %1861 = load ptr, ptr %1860, align 8, !tbaa !29
+  %1862 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %1863 = load i32, ptr %1862, align 8, !tbaa !544
+  %1864 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %1865 = load i8, ptr %1864, align 1, !tbaa !545
+  %.not2688 = icmp eq i8 %1865, 0
+  %1866 = select i1 %.not2688, ptr @.str.776, ptr @.str.775
+  %1867 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %1868 = load i8, ptr %1867, align 4, !tbaa !546
+  %.not2689 = icmp eq i8 %1868, 0
+  %1869 = select i1 %.not2689, ptr @.str.933, ptr @.str.44
+  %1870 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1858, ptr noundef nonnull @.str.932, ptr noundef %1861, i32 noundef %1863, ptr noundef nonnull %1866, ptr noundef nonnull %1869) #43
+  br label %1878
 
-1875:                                             ; preds = %._crit_edge4042.thread
-  %1876 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %1877 = load ptr, ptr %1876, align 8, !tbaa !462
-  %1878 = sext i32 %1859 to i64
-  %1879 = getelementptr inbounds [21 x ptr], ptr @modeDescr, i64 0, i64 %1878
-  %1880 = load ptr, ptr %1879, align 8, !tbaa !29
-  %1881 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1877, ptr noundef nonnull @.str.934, ptr noundef %1880) #43
-  br label %1882
+1871:                                             ; preds = %._crit_edge4042.thread
+  %1872 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %1873 = load ptr, ptr %1872, align 8, !tbaa !462
+  %1874 = sext i32 %1855 to i64
+  %1875 = getelementptr inbounds [21 x ptr], ptr @modeDescr, i64 0, i64 %1874
+  %1876 = load ptr, ptr %1875, align 8, !tbaa !29
+  %1877 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1873, ptr noundef nonnull @.str.934, ptr noundef %1876) #43
+  br label %1878
 
-1882:                                             ; preds = %1875, %1860
-  %1883 = load i32, ptr %1858, align 4, !tbaa !442
-  %1884 = sext i32 %1883 to i64
-  %1885 = getelementptr inbounds [21 x ptr], ptr @modeDescr, i64 0, i64 %1884
-  %1886 = load ptr, ptr %1885, align 8, !tbaa !29
-  br label %1887
+1878:                                             ; preds = %1871, %1856
+  %1879 = load i32, ptr %1854, align 4, !tbaa !442
+  %1880 = sext i32 %1879 to i64
+  %1881 = getelementptr inbounds [21 x ptr], ptr @modeDescr, i64 0, i64 %1880
+  %1882 = load ptr, ptr %1881, align 8, !tbaa !29
+  br label %1883
 
-1887:                                             ; preds = %1882, %._crit_edge4042
-  %.sroa.0.0.lcssa4606 = phi i32 [ %.sroa.0.0.lcssa4607, %1882 ], [ %.sroa.0.2.ph, %._crit_edge4042 ]
-  %.sroa.9.0.lcssa4604 = phi i8 [ %.sroa.9.0.lcssa4605, %1882 ], [ %.sroa.9.2.ph, %._crit_edge4042 ]
-  %.sroa.11.0.lcssa4602 = phi i8 [ %.sroa.11.0.lcssa4603, %1882 ], [ %.sroa.11.2.ph, %._crit_edge4042 ]
-  %.02427.lcssa4600 = phi ptr [ %.02427.lcssa4601, %1882 ], [ %.22429.ph, %._crit_edge4042 ]
-  %.32433 = phi ptr [ %1886, %1882 ], [ %.22432.ph, %._crit_edge4042 ]
+1883:                                             ; preds = %1878, %._crit_edge4042
+  %.sroa.0.0.lcssa4606 = phi i32 [ %.sroa.0.0.lcssa4607, %1878 ], [ %.sroa.0.2.ph, %._crit_edge4042 ]
+  %.sroa.9.0.lcssa4604 = phi i8 [ %.sroa.9.0.lcssa4605, %1878 ], [ %.sroa.9.2.ph, %._crit_edge4042 ]
+  %.sroa.11.0.lcssa4602 = phi i8 [ %.sroa.11.0.lcssa4603, %1878 ], [ %.sroa.11.2.ph, %._crit_edge4042 ]
+  %.02427.lcssa4600 = phi ptr [ %.02427.lcssa4601, %1878 ], [ %.22429.ph, %._crit_edge4042 ]
+  %.32433 = phi ptr [ %1882, %1878 ], [ %.22432.ph, %._crit_edge4042 ]
   %strlen.i2981 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %.32433)
-  %1888 = and i64 %strlen.i2981, 1073741823
-  %1889 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.935, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1890 = icmp eq i32 %1889, 0
-  br i1 %1890, label %1891, label %1895
+  %1884 = and i64 %strlen.i2981, 1073741823
+  %1885 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.935, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1886 = icmp eq i32 %1885, 0
+  br i1 %1886, label %1887, label %1891
 
-1891:                                             ; preds = %1887
-  %1892 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 0, ptr %1892, align 4, !tbaa !442
-  %1893 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  %1894 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1893, ptr noundef nonnull @.str.102) #43
-  br label %2009
+1887:                                             ; preds = %1883
+  %1888 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 0, ptr %1888, align 4, !tbaa !442
+  %1889 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  %1890 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1889, ptr noundef nonnull @.str.102) #43
+  br label %2005
 
-1895:                                             ; preds = %1887
-  %1896 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.936, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1897 = icmp eq i32 %1896, 0
-  br i1 %1897, label %1898, label %1910
+1891:                                             ; preds = %1883
+  %1892 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.936, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1893 = icmp eq i32 %1892, 0
+  br i1 %1893, label %1894, label %1906
 
-1898:                                             ; preds = %1895
-  %1899 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 1, ptr %1899, align 4, !tbaa !442
-  %1900 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %1901 = load i32, ptr %1900, align 4, !tbaa !454
-  %1902 = and i32 %1901, 128
-  %1903 = icmp eq i32 %1902, 0
-  br i1 %1903, label %1904, label %1906
+1894:                                             ; preds = %1891
+  %1895 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 1, ptr %1895, align 4, !tbaa !442
+  %1896 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %1897 = load i32, ptr %1896, align 4, !tbaa !454
+  %1898 = and i32 %1897, 128
+  %1899 = icmp eq i32 %1898, 0
+  br i1 %1899, label %1900, label %1902
 
-1904:                                             ; preds = %1898
-  %1905 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store i32 1, ptr %1905, align 8, !tbaa !467
-  br label %1906
+1900:                                             ; preds = %1894
+  %1901 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store i32 1, ptr %1901, align 8, !tbaa !467
+  br label %1902
 
-1906:                                             ; preds = %1904, %1898
-  %1907 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  %1908 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1907, ptr noundef nonnull @.str.102) #43
-  %1909 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %.sroa.0.0.lcssa4606, ptr %1909, align 8, !tbaa !36
+1902:                                             ; preds = %1900, %1894
+  %1903 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  %1904 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1903, ptr noundef nonnull @.str.102) #43
+  %1905 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %.sroa.0.0.lcssa4606, ptr %1905, align 8, !tbaa !36
   %.sroa.9.0..sroa_idx723 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 %.sroa.9.0.lcssa4604, ptr %.sroa.9.0..sroa_idx723, align 4, !tbaa !25
   %.sroa.11.0..sroa_idx732 = getelementptr inbounds nuw i8, ptr %1, i64 29
   store i8 %.sroa.11.0.lcssa4602, ptr %.sroa.11.0..sroa_idx732, align 1, !tbaa !25
   %.sroa.13.0..sroa_idx741 = getelementptr inbounds nuw i8, ptr %1, i64 30
   store i16 0, ptr %.sroa.13.0..sroa_idx741, align 2
-  br label %2009
+  br label %2005
 
-1910:                                             ; preds = %1895
-  %1911 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.937, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1912 = icmp eq i32 %1911, 0
-  br i1 %1912, label %1913, label %1919
+1906:                                             ; preds = %1891
+  %1907 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.937, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1908 = icmp eq i32 %1907, 0
+  br i1 %1908, label %1909, label %1915
 
-1913:                                             ; preds = %1910
-  %1914 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 2, ptr %1914, align 4, !tbaa !442
-  %1915 = getelementptr inbounds nuw i8, ptr %1, i64 198
-  %1916 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1915, ptr noundef nonnull @.str.621) #43
-  %1917 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  %1918 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1917, ptr noundef nonnull @.str.102) #43
-  br label %2009
+1909:                                             ; preds = %1906
+  %1910 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 2, ptr %1910, align 4, !tbaa !442
+  %1911 = getelementptr inbounds nuw i8, ptr %1, i64 198
+  %1912 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1911, ptr noundef nonnull @.str.621) #43
+  %1913 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  %1914 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1913, ptr noundef nonnull @.str.102) #43
+  br label %2005
 
-1919:                                             ; preds = %1910
-  %1920 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.938, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1921 = icmp eq i32 %1920, 0
-  br i1 %1921, label %1922, label %1924
+1915:                                             ; preds = %1906
+  %1916 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.938, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1917 = icmp eq i32 %1916, 0
+  br i1 %1917, label %1918, label %1920
 
-1922:                                             ; preds = %1919
-  %1923 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 4, ptr %1923, align 4, !tbaa !442
-  br label %2009
+1918:                                             ; preds = %1915
+  %1919 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 4, ptr %1919, align 4, !tbaa !442
+  br label %2005
 
-1924:                                             ; preds = %1919
-  %1925 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.939, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1926 = icmp eq i32 %1925, 0
-  br i1 %1926, label %1927, label %1933
+1920:                                             ; preds = %1915
+  %1921 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.939, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1922 = icmp eq i32 %1921, 0
+  br i1 %1922, label %1923, label %1929
 
-1927:                                             ; preds = %1924
-  %1928 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 7, ptr %1928, align 4, !tbaa !442
-  %1929 = getelementptr inbounds nuw i8, ptr %1, i64 198
-  %1930 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1929, ptr noundef nonnull @.str.940) #43
-  %1931 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  %1932 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1931, ptr noundef nonnull @.str.102) #43
-  br label %2009
+1923:                                             ; preds = %1920
+  %1924 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 7, ptr %1924, align 4, !tbaa !442
+  %1925 = getelementptr inbounds nuw i8, ptr %1, i64 198
+  %1926 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1925, ptr noundef nonnull @.str.940) #43
+  %1927 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  %1928 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1927, ptr noundef nonnull @.str.102) #43
+  br label %2005
 
-1933:                                             ; preds = %1924
-  %1934 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.941, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1935 = icmp eq i32 %1934, 0
-  br i1 %1935, label %1936, label %1942
+1929:                                             ; preds = %1920
+  %1930 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.941, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1931 = icmp eq i32 %1930, 0
+  br i1 %1931, label %1932, label %1938
 
-1936:                                             ; preds = %1933
-  %1937 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 8, ptr %1937, align 4, !tbaa !442
-  %1938 = getelementptr inbounds nuw i8, ptr %1, i64 198
-  %1939 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1938, ptr noundef nonnull @.str.101) #43
-  %1940 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  %1941 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1940, ptr noundef nonnull @.str.671) #43
-  br label %2009
+1932:                                             ; preds = %1929
+  %1933 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 8, ptr %1933, align 4, !tbaa !442
+  %1934 = getelementptr inbounds nuw i8, ptr %1, i64 198
+  %1935 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1934, ptr noundef nonnull @.str.101) #43
+  %1936 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  %1937 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1936, ptr noundef nonnull @.str.671) #43
+  br label %2005
 
-1942:                                             ; preds = %1933
-  %1943 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.942, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1944 = icmp eq i32 %1943, 0
-  br i1 %1944, label %1945, label %1949
+1938:                                             ; preds = %1929
+  %1939 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.942, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1940 = icmp eq i32 %1939, 0
+  br i1 %1940, label %1941, label %1945
 
-1945:                                             ; preds = %1942
-  %1946 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 2, ptr %1946, align 4, !tbaa !442
-  %1947 = getelementptr inbounds nuw i8, ptr %1, i64 198
-  %1948 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1947, ptr noundef nonnull @.str.114) #43
-  br label %2009
+1941:                                             ; preds = %1938
+  %1942 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 2, ptr %1942, align 4, !tbaa !442
+  %1943 = getelementptr inbounds nuw i8, ptr %1, i64 198
+  %1944 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1943, ptr noundef nonnull @.str.114) #43
+  br label %2005
 
-1949:                                             ; preds = %1942
-  %1950 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.943, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1951 = icmp eq i32 %1950, 0
-  br i1 %1951, label %1952, label %1955
+1945:                                             ; preds = %1938
+  %1946 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.943, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1947 = icmp eq i32 %1946, 0
+  br i1 %1947, label %1948, label %1951
 
-1952:                                             ; preds = %1949
-  %1953 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 5, ptr %1953, align 4, !tbaa !442
+1948:                                             ; preds = %1945
+  %1949 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 5, ptr %1949, align 4, !tbaa !442
   %.not2690 = icmp eq ptr %.02427.lcssa4600, null
-  %1954 = select i1 %.not2690, ptr @.str.892, ptr %.02427.lcssa4600
-  tail call fastcc void @set_table_name(ptr noundef %1, ptr noundef nonnull %1954)
-  br label %2009
+  %1950 = select i1 %.not2690, ptr @.str.892, ptr %.02427.lcssa4600
+  tail call fastcc void @set_table_name(ptr noundef %1, ptr noundef nonnull %1950)
+  br label %2005
 
-1955:                                             ; preds = %1949
-  %1956 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.926, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1957 = icmp eq i32 %1956, 0
-  br i1 %1957, label %1958, label %1964
+1951:                                             ; preds = %1945
+  %1952 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.926, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1953 = icmp eq i32 %1952, 0
+  br i1 %1953, label %1954, label %1960
 
-1958:                                             ; preds = %1955
-  %1959 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 6, ptr %1959, align 4, !tbaa !442
-  %1960 = getelementptr inbounds nuw i8, ptr %1, i64 198
-  %1961 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1960, ptr noundef nonnull @.str.101) #43
-  %1962 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  %1963 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1962, ptr noundef nonnull @.str.102) #43
-  br label %2009
+1954:                                             ; preds = %1951
+  %1955 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 6, ptr %1955, align 4, !tbaa !442
+  %1956 = getelementptr inbounds nuw i8, ptr %1, i64 198
+  %1957 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1956, ptr noundef nonnull @.str.101) #43
+  %1958 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  %1959 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1958, ptr noundef nonnull @.str.102) #43
+  br label %2005
 
-1964:                                             ; preds = %1955
-  %1965 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.944, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1966 = icmp eq i32 %1965, 0
-  br i1 %1966, label %1967, label %1973
+1960:                                             ; preds = %1951
+  %1961 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.944, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1962 = icmp eq i32 %1961, 0
+  br i1 %1962, label %1963, label %1969
 
-1967:                                             ; preds = %1964
-  %1968 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 10, ptr %1968, align 4, !tbaa !442
-  %1969 = getelementptr inbounds nuw i8, ptr %1, i64 198
-  %1970 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1969, ptr noundef nonnull @.str.111) #43
-  %1971 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  %1972 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1971, ptr noundef nonnull @.str.112) #43
-  br label %2009
+1963:                                             ; preds = %1960
+  %1964 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 10, ptr %1964, align 4, !tbaa !442
+  %1965 = getelementptr inbounds nuw i8, ptr %1, i64 198
+  %1966 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1965, ptr noundef nonnull @.str.111) #43
+  %1967 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  %1968 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %1967, ptr noundef nonnull @.str.112) #43
+  br label %2005
 
-1973:                                             ; preds = %1964
-  %1974 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.945, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1975 = icmp eq i32 %1974, 0
-  br i1 %1975, label %1976, label %1979
+1969:                                             ; preds = %1960
+  %1970 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.945, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1971 = icmp eq i32 %1970, 0
+  br i1 %1971, label %1972, label %1975
 
-1976:                                             ; preds = %1973
-  %1977 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 14, ptr %1977, align 4, !tbaa !442
-  %1978 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %.sroa.0.0.lcssa4606, ptr %1978, align 8, !tbaa !36
+1972:                                             ; preds = %1969
+  %1973 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 14, ptr %1973, align 4, !tbaa !442
+  %1974 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %.sroa.0.0.lcssa4606, ptr %1974, align 8, !tbaa !36
   %.sroa.9.0..sroa_idx725 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 %.sroa.9.0.lcssa4604, ptr %.sroa.9.0..sroa_idx725, align 4, !tbaa !25
   %.sroa.11.0..sroa_idx734 = getelementptr inbounds nuw i8, ptr %1, i64 29
   store i8 %.sroa.11.0.lcssa4602, ptr %.sroa.11.0..sroa_idx734, align 1, !tbaa !25
   %.sroa.13.0..sroa_idx743 = getelementptr inbounds nuw i8, ptr %1, i64 30
   store i16 0, ptr %.sroa.13.0..sroa_idx743, align 2
-  br label %2009
+  br label %2005
 
-1979:                                             ; preds = %1973
-  %1980 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.892, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1981 = icmp eq i32 %1980, 0
-  br i1 %1981, label %1982, label %1985
+1975:                                             ; preds = %1969
+  %1976 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.892, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1977 = icmp eq i32 %1976, 0
+  br i1 %1977, label %1978, label %1981
 
-1982:                                             ; preds = %1979
-  %1983 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 15, ptr %1983, align 4, !tbaa !442
-  %1984 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %.sroa.0.0.lcssa4606, ptr %1984, align 8, !tbaa !36
+1978:                                             ; preds = %1975
+  %1979 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 15, ptr %1979, align 4, !tbaa !442
+  %1980 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %.sroa.0.0.lcssa4606, ptr %1980, align 8, !tbaa !36
   %.sroa.9.0..sroa_idx727 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 %.sroa.9.0.lcssa4604, ptr %.sroa.9.0..sroa_idx727, align 4, !tbaa !25
   %.sroa.11.0..sroa_idx736 = getelementptr inbounds nuw i8, ptr %1, i64 29
   store i8 %.sroa.11.0.lcssa4602, ptr %.sroa.11.0..sroa_idx736, align 1, !tbaa !25
   %.sroa.13.0..sroa_idx745 = getelementptr inbounds nuw i8, ptr %1, i64 30
   store i16 0, ptr %.sroa.13.0..sroa_idx745, align 2
-  br label %2009
+  br label %2005
 
-1985:                                             ; preds = %1979
-  %1986 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.929, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1987 = icmp eq i32 %1986, 0
-  br i1 %1987, label %1988, label %1991
+1981:                                             ; preds = %1975
+  %1982 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.929, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1983 = icmp eq i32 %1982, 0
+  br i1 %1983, label %1984, label %1987
 
-1988:                                             ; preds = %1985
-  %1989 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 16, ptr %1989, align 4, !tbaa !442
-  %1990 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %.sroa.0.0.lcssa4606, ptr %1990, align 8, !tbaa !36
+1984:                                             ; preds = %1981
+  %1985 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 16, ptr %1985, align 4, !tbaa !442
+  %1986 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %.sroa.0.0.lcssa4606, ptr %1986, align 8, !tbaa !36
   %.sroa.9.0..sroa_idx729 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 %.sroa.9.0.lcssa4604, ptr %.sroa.9.0..sroa_idx729, align 4, !tbaa !25
   %.sroa.11.0..sroa_idx738 = getelementptr inbounds nuw i8, ptr %1, i64 29
   store i8 %.sroa.11.0.lcssa4602, ptr %.sroa.11.0..sroa_idx738, align 1, !tbaa !25
   %.sroa.13.0..sroa_idx747 = getelementptr inbounds nuw i8, ptr %1, i64 30
   store i16 0, ptr %.sroa.13.0..sroa_idx747, align 2
-  br label %2009
+  br label %2005
 
-1991:                                             ; preds = %1985
-  %1992 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.946, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1993 = icmp eq i32 %1992, 0
-  br i1 %1993, label %1994, label %1996
+1987:                                             ; preds = %1981
+  %1988 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.946, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1989 = icmp eq i32 %1988, 0
+  br i1 %1989, label %1990, label %1992
 
-1994:                                             ; preds = %1991
-  %1995 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 17, ptr %1995, align 4, !tbaa !442
-  br label %2009
+1990:                                             ; preds = %1987
+  %1991 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 17, ptr %1991, align 4, !tbaa !442
+  br label %2005
 
-1996:                                             ; preds = %1991
-  %1997 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.776, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %1998 = icmp eq i32 %1997, 0
-  br i1 %1998, label %1999, label %2001
+1992:                                             ; preds = %1987
+  %1993 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.776, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1994 = icmp eq i32 %1993, 0
+  br i1 %1994, label %1995, label %1997
 
-1999:                                             ; preds = %1996
-  %2000 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 18, ptr %2000, align 4, !tbaa !442
-  br label %2009
+1995:                                             ; preds = %1992
+  %1996 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 18, ptr %1996, align 4, !tbaa !442
+  br label %2005
 
-2001:                                             ; preds = %1996
-  %2002 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.947, i64 noundef range(i64 0, 1073741824) %1888) #44
-  %2003 = icmp eq i32 %2002, 0
-  br i1 %2003, label %2004, label %2006
+1997:                                             ; preds = %1992
+  %1998 = tail call i32 @strncmp(ptr noundef nonnull %.32433, ptr noundef nonnull @.str.947, i64 noundef range(i64 0, 1073741824) %1884) #44
+  %1999 = icmp eq i32 %1998, 0
+  br i1 %1999, label %2000, label %2002
 
-2004:                                             ; preds = %2001
-  %2005 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 13, ptr %2005, align 4, !tbaa !442
-  br label %2009
+2000:                                             ; preds = %1997
+  %2001 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  store i32 13, ptr %2001, align 4, !tbaa !442
+  br label %2005
 
-2006:                                             ; preds = %2001
-  %2007 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2008 = tail call i64 @fwrite(ptr nonnull @.str.948, i64 113, i64 1, ptr %2007) #50
-  br label %2009
+2002:                                             ; preds = %1997
+  %2003 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2004 = tail call i64 @fwrite(ptr nonnull @.str.948, i64 113, i64 1, ptr %2003) #50
+  br label %2005
 
-2009:                                             ; preds = %1906, %1922, %1936, %1952, %1967, %1982, %1994, %2004, %2006, %1999, %1988, %1976, %1958, %1945, %1927, %1913, %1891
-  %.29 = phi i32 [ 0, %1891 ], [ 0, %1906 ], [ 0, %1913 ], [ 0, %1922 ], [ 0, %1927 ], [ 0, %1936 ], [ 0, %1945 ], [ 0, %1952 ], [ 0, %1958 ], [ 0, %1967 ], [ 0, %1976 ], [ 0, %1982 ], [ 0, %1988 ], [ 0, %1994 ], [ 0, %1999 ], [ 0, %2004 ], [ 1, %2006 ]
-  %2010 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %2011 = load i32, ptr %2010, align 4, !tbaa !442
-  %2012 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  store i32 %2011, ptr %2012, align 4, !tbaa !450
+2005:                                             ; preds = %1902, %1918, %1932, %1948, %1963, %1978, %1990, %2000, %2002, %1995, %1984, %1972, %1954, %1941, %1923, %1909, %1887
+  %.29 = phi i32 [ 0, %1887 ], [ 0, %1902 ], [ 0, %1909 ], [ 0, %1918 ], [ 0, %1923 ], [ 0, %1932 ], [ 0, %1941 ], [ 0, %1948 ], [ 0, %1954 ], [ 0, %1963 ], [ 0, %1972 ], [ 0, %1978 ], [ 0, %1984 ], [ 0, %1990 ], [ 0, %1995 ], [ 0, %2000 ], [ 1, %2002 ]
+  %2006 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %2007 = load i32, ptr %2006, align 4, !tbaa !442
+  %2008 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  store i32 %2007, ptr %2008, align 4, !tbaa !450
   br label %test_breakpoint.exit
 
-2013:                                             ; preds = %.critedge2803
-  %2014 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(6) @.str.949) #44
-  %2015 = icmp eq i32 %2014, 0
-  br i1 %2015, label %2016, label %2033
+2009:                                             ; preds = %.critedge2803
+  %2010 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(6) @.str.949) #44
+  %2011 = icmp eq i32 %2010, 0
+  br i1 %2011, label %2012, label %2029
 
-2016:                                             ; preds = %2013
+2012:                                             ; preds = %2009
   %.not2686 = icmp eq i32 %.02122.lcssa.ph, 2
-  br i1 %.not2686, label %2020, label %2017
+  br i1 %.not2686, label %2016, label %2013
 
-2017:                                             ; preds = %2016
-  %2018 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2019 = tail call i64 @fwrite(ptr nonnull @.str.950, i64 20, i64 1, ptr %2018) #50
+2013:                                             ; preds = %2012
+  %2014 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2015 = tail call i64 @fwrite(ptr nonnull @.str.950, i64 20, i64 1, ptr %2014) #50
   br label %test_breakpoint.exit
 
-2020:                                             ; preds = %2016
-  %2021 = getelementptr inbounds nuw i8, ptr %1, i64 4576
-  %2022 = load ptr, ptr %2021, align 8, !tbaa !460
-  %2023 = icmp eq ptr %2022, null
+2016:                                             ; preds = %2012
+  %2017 = getelementptr inbounds nuw i8, ptr %1, i64 4576
+  %2018 = load ptr, ptr %2017, align 8, !tbaa !460
+  %2019 = icmp eq ptr %2018, null
   %.phi.trans.insert4532 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.pre4533 = load ptr, ptr %.phi.trans.insert4532, align 8, !tbaa !29
-  br i1 %2023, label %._crit_edge4531, label %2024
+  br i1 %2019, label %._crit_edge4531, label %2020
 
-2024:                                             ; preds = %2020
-  %2025 = icmp eq ptr %.pre4533, null
-  %spec.store.select.i2999 = select i1 %2025, ptr @.str.44, ptr %.pre4533
-  %2026 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i2999, ptr noundef nonnull dereferenceable(1) %2022) #44
-  %.not2687 = icmp eq i32 %2026, 0
-  br i1 %.not2687, label %2031, label %._crit_edge4531
+2020:                                             ; preds = %2016
+  %2021 = icmp eq ptr %.pre4533, null
+  %spec.store.select.i2999 = select i1 %2021, ptr @.str.44, ptr %.pre4533
+  %2022 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i2999, ptr noundef nonnull dereferenceable(1) %2018) #44
+  %.not2687 = icmp eq i32 %2022, 0
+  br i1 %.not2687, label %2027, label %._crit_edge4531
 
-._crit_edge4531:                                  ; preds = %2020, %2024
-  %2027 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2028 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %2029 = load i32, ptr %2028, align 4, !tbaa !464
-  %2030 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2027, ptr noundef nonnull @.str.951, i32 noundef %2029, ptr noundef %.pre4533) #46
+._crit_edge4531:                                  ; preds = %2016, %2020
+  %2023 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2024 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %2025 = load i32, ptr %2024, align 4, !tbaa !464
+  %2026 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2023, ptr noundef nonnull @.str.951, i32 noundef %2025, ptr noundef %.pre4533) #46
   tail call void @exit(i32 noundef 1) #47
   unreachable
 
-2031:                                             ; preds = %2024
-  %2032 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  store i8 0, ptr %2032, align 1, !tbaa !472
+2027:                                             ; preds = %2020
+  %2028 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  store i8 0, ptr %2028, align 1, !tbaa !472
   br label %._crit_edge.thread
 
-2033:                                             ; preds = %2013
-  %2034 = and i64 %strlen.i, 1073741823
-  %2035 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.952, i64 noundef range(i64 0, 1073741824) %2034) #44
-  %2036 = icmp eq i32 %2035, 0
-  br i1 %2036, label %2037, label %.critedge2823
+2029:                                             ; preds = %2009
+  %2030 = and i64 %strlen.i, 1073741823
+  %2031 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.952, i64 noundef range(i64 0, 1073741824) %2030) #44
+  %2032 = icmp eq i32 %2031, 0
+  br i1 %2032, label %2033, label %.critedge2823
 
-2037:                                             ; preds = %2033
-  %2038 = icmp eq i32 %.02122.lcssa.ph, 2
-  br i1 %2038, label %2039, label %2044
+2033:                                             ; preds = %2029
+  %2034 = icmp eq i32 %.02122.lcssa.ph, 2
+  br i1 %2034, label %2035, label %2040
 
-2039:                                             ; preds = %2037
-  %2040 = getelementptr inbounds nuw i8, ptr %1, i64 300
-  %2041 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %2042 = load ptr, ptr %2041, align 8, !tbaa !29
-  %2043 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %2040, ptr noundef nonnull @.str.219, i32 noundef 19, ptr noundef %2042) #43
+2035:                                             ; preds = %2033
+  %2036 = getelementptr inbounds nuw i8, ptr %1, i64 300
+  %2037 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %2038 = load ptr, ptr %2037, align 8, !tbaa !29
+  %2039 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %2036, ptr noundef nonnull @.str.219, i32 noundef 19, ptr noundef %2038) #43
   br label %test_breakpoint.exit
 
-2044:                                             ; preds = %2037
-  %2045 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2046 = tail call i64 @fwrite(ptr nonnull @.str.953, i64 25, i64 1, ptr %2045) #50
+2040:                                             ; preds = %2033
+  %2041 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2042 = tail call i64 @fwrite(ptr nonnull @.str.953, i64 25, i64 1, ptr %2041) #50
   br label %test_breakpoint.exit
 
-2047:                                             ; preds = %.critedge2803
-  %2048 = and i64 %strlen.i, 1073741823
-  %2049 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.402, i64 noundef range(i64 0, 1073741824) %2048) #44
-  %2050 = icmp eq i32 %2049, 0
-  %or.cond106 = select i1 %2050, i1 %1793, i1 false
-  br i1 %or.cond106, label %.preheader3763, label %2142
+2043:                                             ; preds = %.critedge2803
+  %2044 = and i64 %strlen.i, 1073741823
+  %2045 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.402, i64 noundef range(i64 0, 1073741824) %2044) #44
+  %2046 = icmp eq i32 %2045, 0
+  %or.cond106 = select i1 %2046, i1 %1789, i1 false
+  br i1 %or.cond106, label %.preheader3763, label %2138
 
-.preheader3763:                                   ; preds = %2047
-  %2051 = icmp sgt i32 %.02122.lcssa.ph, 1
-  br i1 %2051, label %.lr.ph4026, label %._crit_edge4027
+.preheader3763:                                   ; preds = %2043
+  %2047 = icmp sgt i32 %.02122.lcssa.ph, 1
+  br i1 %2047, label %.lr.ph4026, label %._crit_edge4027
 
 .lr.ph4026:                                       ; preds = %.preheader3763
-  %2052 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %2053 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  br label %2054
+  %2048 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %2049 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  br label %2050
 
-2054:                                             ; preds = %.lr.ph4026, %2089
-  %.023994025 = phi i32 [ 0, %.lr.ph4026 ], [ %.22401.ph, %2089 ]
-  %.024024024 = phi i32 [ 0, %.lr.ph4026 ], [ %.22404.ph, %2089 ]
-  %.024054023 = phi i32 [ 1, %.lr.ph4026 ], [ %2090, %2089 ]
-  %.024094022 = phi ptr [ null, %.lr.ph4026 ], [ %.22411.ph, %2089 ]
-  %2055 = sext i32 %.024054023 to i64
-  %2056 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %2055
-  %2057 = load ptr, ptr %2056, align 8, !tbaa !29
-  %2058 = load i8, ptr %2057, align 1, !tbaa !25
-  %.not.i3003 = icmp eq i8 %2058, 45
-  br i1 %.not.i3003, label %optionMatch.exit3006, label %2085
+2050:                                             ; preds = %.lr.ph4026, %2085
+  %.023994025 = phi i32 [ 0, %.lr.ph4026 ], [ %.22401.ph, %2085 ]
+  %.024024024 = phi i32 [ 0, %.lr.ph4026 ], [ %.22404.ph, %2085 ]
+  %.024054023 = phi i32 [ 1, %.lr.ph4026 ], [ %2086, %2085 ]
+  %.024094022 = phi ptr [ null, %.lr.ph4026 ], [ %.22411.ph, %2085 ]
+  %2051 = sext i32 %.024054023 to i64
+  %2052 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %2051
+  %2053 = load ptr, ptr %2052, align 8, !tbaa !29
+  %2054 = load i8, ptr %2053, align 1, !tbaa !25
+  %.not.i3003 = icmp eq i8 %2054, 45
+  br i1 %.not.i3003, label %optionMatch.exit3006, label %2081
 
-optionMatch.exit3006:                             ; preds = %2054
-  %2059 = getelementptr inbounds nuw i8, ptr %2057, i64 1
-  %2060 = load i8, ptr %2059, align 1, !tbaa !25
-  %2061 = icmp eq i8 %2060, 45
-  %2062 = getelementptr inbounds nuw i8, ptr %2057, i64 2
-  %spec.select.i3005 = select i1 %2061, ptr %2062, ptr %2059
-  %2063 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(4) @.str.954) #44
-  %.not3654 = icmp eq i32 %2063, 0
-  br i1 %.not3654, label %2089, label %optionMatch.exit3010
+optionMatch.exit3006:                             ; preds = %2050
+  %2055 = getelementptr inbounds nuw i8, ptr %2053, i64 1
+  %2056 = load i8, ptr %2055, align 1, !tbaa !25
+  %2057 = icmp eq i8 %2056, 45
+  %2058 = getelementptr inbounds nuw i8, ptr %2053, i64 2
+  %spec.select.i3005 = select i1 %2057, ptr %2058, ptr %2055
+  %2059 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(4) @.str.954) #44
+  %.not3654 = icmp eq i32 %2059, 0
+  br i1 %.not3654, label %2085, label %optionMatch.exit3010
 
 optionMatch.exit3010:                             ; preds = %optionMatch.exit3006
-  %2064 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(4) @.str.955) #44
-  %.not3655 = icmp eq i32 %2064, 0
-  br i1 %.not3655, label %2089, label %optionMatch.exit3014
+  %2060 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(4) @.str.955) #44
+  %.not3655 = icmp eq i32 %2060, 0
+  br i1 %.not3655, label %2085, label %optionMatch.exit3014
 
 optionMatch.exit3014:                             ; preds = %optionMatch.exit3010
-  %2065 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(7) @.str.956) #44
-  %.not3656 = icmp eq i32 %2065, 0
-  br i1 %.not3656, label %2089, label %optionMatch.exit3018
+  %2061 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(7) @.str.956) #44
+  %.not3656 = icmp eq i32 %2061, 0
+  br i1 %.not3656, label %2085, label %optionMatch.exit3018
 
 optionMatch.exit3018:                             ; preds = %optionMatch.exit3014
-  %2066 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(9) @.str.957) #44
-  %.not3657 = icmp eq i32 %2066, 0
-  br i1 %.not3657, label %2089, label %optionMatch.exit3022
+  %2062 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(9) @.str.957) #44
+  %.not3657 = icmp eq i32 %2062, 0
+  br i1 %.not3657, label %2085, label %optionMatch.exit3022
 
 optionMatch.exit3022:                             ; preds = %optionMatch.exit3018
-  %2067 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(9) @.str.958) #44
-  %.not3658 = icmp eq i32 %2067, 0
-  br i1 %.not3658, label %2068, label %optionMatch.exit3026
+  %2063 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(9) @.str.958) #44
+  %.not3658 = icmp eq i32 %2063, 0
+  br i1 %.not3658, label %2064, label %optionMatch.exit3026
 
-2068:                                             ; preds = %optionMatch.exit3022
-  %2069 = load i32, ptr %2053, align 8, !tbaa !459
-  %2070 = or i32 %2069, 16777216
-  store i32 %2070, ptr %2053, align 8, !tbaa !459
-  br label %2089
+2064:                                             ; preds = %optionMatch.exit3022
+  %2065 = load i32, ptr %2049, align 8, !tbaa !459
+  %2066 = or i32 %2065, 16777216
+  store i32 %2066, ptr %2049, align 8, !tbaa !459
+  br label %2085
 
 optionMatch.exit3026:                             ; preds = %optionMatch.exit3022
-  %2071 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(12) @.str.959) #44
-  %.not3659 = icmp eq i32 %2071, 0
-  br i1 %.not3659, label %2089, label %optionMatch.exit3030
+  %2067 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(12) @.str.959) #44
+  %.not3659 = icmp eq i32 %2067, 0
+  br i1 %.not3659, label %2085, label %optionMatch.exit3030
 
 optionMatch.exit3030:                             ; preds = %optionMatch.exit3026
-  %2072 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(6) @.str.960) #44
-  %.not3660 = icmp eq i32 %2072, 0
-  br i1 %.not3660, label %2089, label %optionMatch.exit3034
+  %2068 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(6) @.str.960) #44
+  %.not3660 = icmp eq i32 %2068, 0
+  br i1 %.not3660, label %2085, label %optionMatch.exit3034
 
 optionMatch.exit3034:                             ; preds = %optionMatch.exit3030
-  %2073 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(8) @.str.961) #44
-  %.not3661 = icmp eq i32 %2073, 0
-  br i1 %.not3661, label %2074, label %2082
+  %2069 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3005, ptr noundef nonnull dereferenceable(8) @.str.961) #44
+  %.not3661 = icmp eq i32 %2069, 0
+  br i1 %.not3661, label %2070, label %2078
 
-2074:                                             ; preds = %optionMatch.exit3034
-  %2075 = add nsw i32 %.024054023, 1
-  %2076 = icmp slt i32 %2075, %.02122.lcssa.ph
-  br i1 %2076, label %2077, label %2082
+2070:                                             ; preds = %optionMatch.exit3034
+  %2071 = add nsw i32 %.024054023, 1
+  %2072 = icmp slt i32 %2071, %.02122.lcssa.ph
+  br i1 %2072, label %2073, label %2078
 
-2077:                                             ; preds = %2074
-  %2078 = sext i32 %2075 to i64
-  %2079 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %2078
-  %2080 = load ptr, ptr %2079, align 8, !tbaa !29
-  %2081 = tail call fastcc i64 @integerValue(ptr noundef %2080)
-  store i64 %2081, ptr %2052, align 8, !tbaa !458
-  br label %2089
+2073:                                             ; preds = %2070
+  %2074 = sext i32 %2071 to i64
+  %2075 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %2074
+  %2076 = load ptr, ptr %2075, align 8, !tbaa !29
+  %2077 = tail call fastcc i64 @integerValue(ptr noundef %2076)
+  store i64 %2077, ptr %2048, align 8, !tbaa !458
+  br label %2085
 
-2082:                                             ; preds = %2074, %optionMatch.exit3034
-  %2083 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2084 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2083, ptr noundef nonnull @.str.711, ptr noundef nonnull %2057) #46
+2078:                                             ; preds = %2070, %optionMatch.exit3034
+  %2079 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2080 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2079, ptr noundef nonnull @.str.711, ptr noundef nonnull %2053) #46
   br label %test_breakpoint.exit
 
-2085:                                             ; preds = %2054
+2081:                                             ; preds = %2050
   %.not2685 = icmp eq ptr %.024094022, null
-  br i1 %.not2685, label %2089, label %2086
+  br i1 %.not2685, label %2085, label %2082
 
-2086:                                             ; preds = %2085
-  %2087 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2088 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2087, ptr noundef nonnull @.str.931, ptr noundef nonnull %2057) #46
+2082:                                             ; preds = %2081
+  %2083 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2084 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2083, ptr noundef nonnull @.str.931, ptr noundef nonnull %2053) #46
   br label %test_breakpoint.exit
 
-2089:                                             ; preds = %2085, %optionMatch.exit3030, %optionMatch.exit3026, %optionMatch.exit3018, %optionMatch.exit3014, %optionMatch.exit3010, %optionMatch.exit3006, %2077, %2068
-  %.22411.ph = phi ptr [ %2057, %2085 ], [ %.024094022, %optionMatch.exit3030 ], [ %.024094022, %optionMatch.exit3026 ], [ %.024094022, %optionMatch.exit3018 ], [ %.024094022, %optionMatch.exit3014 ], [ %.024094022, %optionMatch.exit3010 ], [ %.024094022, %optionMatch.exit3006 ], [ %.024094022, %2077 ], [ %.024094022, %2068 ]
-  %.22407.ph = phi i32 [ %.024054023, %2085 ], [ %.024054023, %optionMatch.exit3030 ], [ %.024054023, %optionMatch.exit3026 ], [ %.024054023, %optionMatch.exit3018 ], [ %.024054023, %optionMatch.exit3014 ], [ %.024054023, %optionMatch.exit3010 ], [ %.024054023, %optionMatch.exit3006 ], [ %2075, %2077 ], [ %.024054023, %2068 ]
-  %.22404.ph = phi i32 [ %.024024024, %2085 ], [ %.024024024, %optionMatch.exit3030 ], [ %.024024024, %optionMatch.exit3026 ], [ %.024024024, %optionMatch.exit3018 ], [ %.024024024, %optionMatch.exit3014 ], [ %.024024024, %optionMatch.exit3010 ], [ 1, %optionMatch.exit3006 ], [ %.024024024, %2077 ], [ %.024024024, %2068 ]
-  %.22401.ph = phi i32 [ %.023994025, %2085 ], [ 6, %optionMatch.exit3030 ], [ 5, %optionMatch.exit3026 ], [ 4, %optionMatch.exit3018 ], [ 2, %optionMatch.exit3014 ], [ 3, %optionMatch.exit3010 ], [ %.023994025, %optionMatch.exit3006 ], [ %.023994025, %2077 ], [ %.023994025, %2068 ]
-  %2090 = add nsw i32 %.22407.ph, 1
-  %2091 = icmp slt i32 %2090, %.02122.lcssa.ph
-  br i1 %2091, label %2054, label %._crit_edge4027.loopexit, !llvm.loop !547
+2085:                                             ; preds = %2081, %optionMatch.exit3030, %optionMatch.exit3026, %optionMatch.exit3018, %optionMatch.exit3014, %optionMatch.exit3010, %optionMatch.exit3006, %2073, %2064
+  %.22411.ph = phi ptr [ %2053, %2081 ], [ %.024094022, %optionMatch.exit3030 ], [ %.024094022, %optionMatch.exit3026 ], [ %.024094022, %optionMatch.exit3018 ], [ %.024094022, %optionMatch.exit3014 ], [ %.024094022, %optionMatch.exit3010 ], [ %.024094022, %optionMatch.exit3006 ], [ %.024094022, %2073 ], [ %.024094022, %2064 ]
+  %.22407.ph = phi i32 [ %.024054023, %2081 ], [ %.024054023, %optionMatch.exit3030 ], [ %.024054023, %optionMatch.exit3026 ], [ %.024054023, %optionMatch.exit3018 ], [ %.024054023, %optionMatch.exit3014 ], [ %.024054023, %optionMatch.exit3010 ], [ %.024054023, %optionMatch.exit3006 ], [ %2071, %2073 ], [ %.024054023, %2064 ]
+  %.22404.ph = phi i32 [ %.024024024, %2081 ], [ %.024024024, %optionMatch.exit3030 ], [ %.024024024, %optionMatch.exit3026 ], [ %.024024024, %optionMatch.exit3018 ], [ %.024024024, %optionMatch.exit3014 ], [ %.024024024, %optionMatch.exit3010 ], [ 1, %optionMatch.exit3006 ], [ %.024024024, %2073 ], [ %.024024024, %2064 ]
+  %.22401.ph = phi i32 [ %.023994025, %2081 ], [ 6, %optionMatch.exit3030 ], [ 5, %optionMatch.exit3026 ], [ 4, %optionMatch.exit3018 ], [ 2, %optionMatch.exit3014 ], [ 3, %optionMatch.exit3010 ], [ %.023994025, %optionMatch.exit3006 ], [ %.023994025, %2073 ], [ %.023994025, %2064 ]
+  %2086 = add nsw i32 %.22407.ph, 1
+  %2087 = icmp slt i32 %2086, %.02122.lcssa.ph
+  br i1 %2087, label %2050, label %._crit_edge4027.loopexit, !llvm.loop !547
 
-._crit_edge4027.loopexit:                         ; preds = %2089
-  %2092 = icmp eq i32 %.22404.ph, 0
+._crit_edge4027.loopexit:                         ; preds = %2085
+  %2088 = icmp eq i32 %.22404.ph, 0
   br label %._crit_edge4027
 
 ._crit_edge4027:                                  ; preds = %._crit_edge4027.loopexit, %.preheader3763
   %.02409.lcssa = phi ptr [ null, %.preheader3763 ], [ %.22411.ph, %._crit_edge4027.loopexit ]
-  %.02402.lcssa = phi i1 [ true, %.preheader3763 ], [ %2092, %._crit_edge4027.loopexit ]
+  %.02402.lcssa = phi i1 [ true, %.preheader3763 ], [ %2088, %._crit_edge4027.loopexit ]
   %.02399.lcssa = phi i32 [ 0, %.preheader3763 ], [ %.22401.ph, %._crit_edge4027.loopexit ]
-  %2093 = load ptr, ptr %1, align 8, !tbaa !477
-  tail call void @close_db(ptr noundef %2093)
+  %2089 = load ptr, ptr %1, align 8, !tbaa !477
+  tail call void @close_db(ptr noundef %2089)
   store ptr null, ptr %1, align 8, !tbaa !477
-  %2094 = getelementptr inbounds nuw i8, ptr %1, i64 4552
-  %2095 = load ptr, ptr %2094, align 8, !tbaa !453
-  %2096 = getelementptr inbounds nuw i8, ptr %2095, i64 8
-  store ptr null, ptr %2096, align 8, !tbaa !455
-  %2097 = getelementptr inbounds nuw i8, ptr %2095, i64 16
-  %2098 = load ptr, ptr %2097, align 8, !tbaa !478
-  tail call void @sqlite3_free(ptr noundef %2098) #43
-  %2099 = load ptr, ptr %2094, align 8, !tbaa !453
-  %2100 = getelementptr inbounds nuw i8, ptr %2099, i64 16
-  store ptr null, ptr %2100, align 8, !tbaa !478
-  %2101 = trunc nuw nsw i32 %.02399.lcssa to i8
-  %2102 = getelementptr inbounds nuw i8, ptr %1, i64 13
-  store i8 %2101, ptr %2102, align 1, !tbaa !457
-  %2103 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store i32 0, ptr %2103, align 8, !tbaa !459
-  %2104 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store i64 0, ptr %2104, align 8, !tbaa !458
-  %2105 = icmp ne ptr %.02409.lcssa, null
-  br i1 %2105, label %2108, label %2106
+  %2090 = getelementptr inbounds nuw i8, ptr %1, i64 4552
+  %2091 = load ptr, ptr %2090, align 8, !tbaa !453
+  %2092 = getelementptr inbounds nuw i8, ptr %2091, i64 8
+  store ptr null, ptr %2092, align 8, !tbaa !455
+  %2093 = getelementptr inbounds nuw i8, ptr %2091, i64 16
+  %2094 = load ptr, ptr %2093, align 8, !tbaa !478
+  tail call void @sqlite3_free(ptr noundef %2094) #43
+  %2095 = load ptr, ptr %2090, align 8, !tbaa !453
+  %2096 = getelementptr inbounds nuw i8, ptr %2095, i64 16
+  store ptr null, ptr %2096, align 8, !tbaa !478
+  %2097 = trunc nuw nsw i32 %.02399.lcssa to i8
+  %2098 = getelementptr inbounds nuw i8, ptr %1, i64 13
+  store i8 %2097, ptr %2098, align 1, !tbaa !457
+  %2099 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i32 0, ptr %2099, align 8, !tbaa !459
+  %2100 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  store i64 0, ptr %2100, align 8, !tbaa !458
+  %2101 = icmp ne ptr %.02409.lcssa, null
+  br i1 %2101, label %2104, label %2102
 
-2106:                                             ; preds = %._crit_edge4027
-  %2107 = icmp eq i32 %.02399.lcssa, 6
-  br i1 %2107, label %.thread3415, label %2136
+2102:                                             ; preds = %._crit_edge4027
+  %2103 = icmp eq i32 %.02399.lcssa, 6
+  br i1 %2103, label %.thread3415, label %2132
 
-2108:                                             ; preds = %._crit_edge4027
-  br i1 %.02402.lcssa, label %.thread3415, label %2109
+2104:                                             ; preds = %._crit_edge4027
+  br i1 %.02402.lcssa, label %.thread3415, label %2105
 
-2109:                                             ; preds = %2108
-  %2110 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %2111 = load i8, ptr %2110, align 1, !tbaa !472
-  %.not2674 = icmp eq i8 %2111, 0
-  br i1 %.not2674, label %2112, label %.thread3415
+2105:                                             ; preds = %2104
+  %2106 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %2107 = load i8, ptr %2106, align 1, !tbaa !472
+  %.not2674 = icmp eq i8 %2107, 0
+  br i1 %.not2674, label %2108, label %.thread3415
 
-2112:                                             ; preds = %2109
-  %2113 = tail call noundef i32 @unlink(ptr noundef nonnull readonly %.02409.lcssa) #43
+2108:                                             ; preds = %2105
+  %2109 = tail call noundef i32 @unlink(ptr noundef nonnull readonly %.02409.lcssa) #43
   br label %.thread3415
 
-.thread3415:                                      ; preds = %2106, %2112, %2109, %2108
-  %2114 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %2115 = load i8, ptr %2114, align 1, !tbaa !472
-  %.not2675 = icmp eq i8 %2115, 0
-  br i1 %.not2675, label %2122, label %2116
+.thread3415:                                      ; preds = %2102, %2108, %2105, %2104
+  %2110 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %2111 = load i8, ptr %2110, align 1, !tbaa !472
+  %.not2675 = icmp eq i8 %2111, 0
+  br i1 %.not2675, label %2118, label %2112
 
-2116:                                             ; preds = %.thread3415
-  %2117 = load i8, ptr %2102, align 1, !tbaa !457
-  %2118 = icmp ne i8 %2117, 6
-  %or.cond112 = and i1 %2105, %2118
-  br i1 %or.cond112, label %2119, label %2122
+2112:                                             ; preds = %.thread3415
+  %2113 = load i8, ptr %2098, align 1, !tbaa !457
+  %2114 = icmp ne i8 %2113, 6
+  %or.cond112 = and i1 %2101, %2114
+  br i1 %or.cond112, label %2115, label %2118
 
-2119:                                             ; preds = %2116
-  %2120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02409.lcssa, ptr noundef nonnull dereferenceable(9) @.str.39) #44
-  %.not2676 = icmp eq i32 %2120, 0
-  br i1 %.not2676, label %.thread3418, label %2121
+2115:                                             ; preds = %2112
+  %2116 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02409.lcssa, ptr noundef nonnull dereferenceable(9) @.str.39) #44
+  %.not2676 = icmp eq i32 %2116, 0
+  br i1 %.not2676, label %.thread3418, label %2117
 
-2121:                                             ; preds = %2119
+2117:                                             ; preds = %2115
   tail call void (ptr, ptr, ...) @failIfSafeMode(ptr noundef nonnull %1, ptr noundef nonnull @.str.962)
   br label %.thread3418
 
-2122:                                             ; preds = %2116, %.thread3415
-  br i1 %2105, label %.thread3418, label %shell_check_oom.exit3036
+2118:                                             ; preds = %2112, %.thread3415
+  br i1 %2101, label %.thread3418, label %shell_check_oom.exit3036
 
-.thread3418:                                      ; preds = %2119, %2121, %2122
-  %2123 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.47, ptr noundef nonnull %.02409.lcssa) #43
-  %2124 = icmp eq ptr %2123, null
-  br i1 %2124, label %2125, label %shell_check_oom.exit3036
+.thread3418:                                      ; preds = %2115, %2117, %2118
+  %2119 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.47, ptr noundef nonnull %.02409.lcssa) #43
+  %2120 = icmp eq ptr %2119, null
+  br i1 %2120, label %2121, label %shell_check_oom.exit3036
 
-2125:                                             ; preds = %.thread3418
+2121:                                             ; preds = %.thread3418
   tail call fastcc void @shell_out_of_memory()
   unreachable
 
-shell_check_oom.exit3036:                         ; preds = %.thread3418, %2122
-  %.02408 = phi ptr [ null, %2122 ], [ %2123, %.thread3418 ]
-  %2126 = load ptr, ptr %2094, align 8, !tbaa !453
-  %2127 = getelementptr inbounds nuw i8, ptr %2126, i64 8
-  store ptr %.02408, ptr %2127, align 8, !tbaa !455
+shell_check_oom.exit3036:                         ; preds = %.thread3418, %2118
+  %.02408 = phi ptr [ null, %2118 ], [ %2119, %.thread3418 ]
+  %2122 = load ptr, ptr %2090, align 8, !tbaa !453
+  %2123 = getelementptr inbounds nuw i8, ptr %2122, i64 8
+  store ptr %.02408, ptr %2123, align 8, !tbaa !455
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 1)
-  %2128 = load ptr, ptr %1, align 8, !tbaa !477
-  %2129 = icmp eq ptr %2128, null
-  br i1 %2129, label %2130, label %2133
+  %2124 = load ptr, ptr %1, align 8, !tbaa !477
+  %2125 = icmp eq ptr %2124, null
+  br i1 %2125, label %2126, label %2129
 
-2130:                                             ; preds = %shell_check_oom.exit3036
-  %2131 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2131, ptr noundef nonnull @.str.963, ptr noundef %.02408) #46
+2126:                                             ; preds = %shell_check_oom.exit3036
+  %2127 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2127, ptr noundef nonnull @.str.963, ptr noundef %.02408) #46
   tail call void @sqlite3_free(ptr noundef %.02408) #43
-  br label %2136
+  br label %2132
 
-2133:                                             ; preds = %shell_check_oom.exit3036
-  %2134 = load ptr, ptr %2094, align 8, !tbaa !453
-  %2135 = getelementptr inbounds nuw i8, ptr %2134, i64 16
-  store ptr %.02408, ptr %2135, align 8, !tbaa !478
-  br label %2136
+2129:                                             ; preds = %shell_check_oom.exit3036
+  %2130 = load ptr, ptr %2090, align 8, !tbaa !453
+  %2131 = getelementptr inbounds nuw i8, ptr %2130, i64 16
+  store ptr %.02408, ptr %2131, align 8, !tbaa !478
+  br label %2132
 
-2136:                                             ; preds = %2130, %2133, %2106
-  %2137 = load ptr, ptr %1, align 8, !tbaa !477
-  %2138 = icmp eq ptr %2137, null
-  br i1 %2138, label %2139, label %test_breakpoint.exit
+2132:                                             ; preds = %2126, %2129, %2102
+  %2133 = load ptr, ptr %1, align 8, !tbaa !477
+  %2134 = icmp eq ptr %2133, null
+  br i1 %2134, label %2135, label %test_breakpoint.exit
 
-2139:                                             ; preds = %2136
-  %2140 = load ptr, ptr %2094, align 8, !tbaa !453
-  %2141 = getelementptr inbounds nuw i8, ptr %2140, i64 8
-  store ptr null, ptr %2141, align 8, !tbaa !455
+2135:                                             ; preds = %2132
+  %2136 = load ptr, ptr %2090, align 8, !tbaa !453
+  %2137 = getelementptr inbounds nuw i8, ptr %2136, i64 8
+  store ptr null, ptr %2137, align 8, !tbaa !455
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   br label %test_breakpoint.exit
 
-2142:                                             ; preds = %2047
-  %2143 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.964, i64 noundef range(i64 0, 1073741824) %2048) #44
-  %2144 = icmp eq i32 %2143, 0
-  br i1 %2144, label %2160, label %2145
+2138:                                             ; preds = %2043
+  %2139 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.964, i64 noundef range(i64 0, 1073741824) %2044) #44
+  %2140 = icmp eq i32 %2139, 0
+  br i1 %2140, label %2156, label %2141
 
-2145:                                             ; preds = %2142
-  %2146 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.965, i64 noundef range(i64 0, 1073741824) %2048) #44
-  %2147 = icmp eq i32 %2146, 0
-  br i1 %2147, label %2160, label %.critedge2823
+2141:                                             ; preds = %2138
+  %2142 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.965, i64 noundef range(i64 0, 1073741824) %2044) #44
+  %2143 = icmp eq i32 %2142, 0
+  br i1 %2143, label %2156, label %.critedge2823
 
 .critedge2809:                                    ; preds = %.critedge2803
-  %2148 = icmp eq i32 %130, 5
-  %or.cond115 = select i1 %1791, i1 %2148, i1 false
-  br i1 %or.cond115, label %2149, label %2152
+  %2144 = icmp eq i32 %130, 5
+  %or.cond115 = select i1 %1787, i1 %2144, i1 false
+  br i1 %or.cond115, label %2145, label %2148
 
-2149:                                             ; preds = %.critedge2809
-  %2150 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(6) @.str.966) #44
-  %2151 = icmp eq i32 %2150, 0
-  br i1 %2151, label %2158, label %.critedge2823
+2145:                                             ; preds = %.critedge2809
+  %2146 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(6) @.str.966) #44
+  %2147 = icmp eq i32 %2146, 0
+  br i1 %2147, label %2154, label %.critedge2823
 
-2152:                                             ; preds = %.critedge2809
-  %2153 = icmp eq i8 %131, 119
-  %2154 = icmp eq i32 %130, 3
-  %or.cond118 = select i1 %2153, i1 %2154, i1 false
-  br i1 %or.cond118, label %2155, label %2287
+2148:                                             ; preds = %.critedge2809
+  %2149 = icmp eq i8 %131, 119
+  %2150 = icmp eq i32 %130, 3
+  %or.cond118 = select i1 %2149, i1 %2150, i1 false
+  br i1 %or.cond118, label %2151, label %2283
 
-2155:                                             ; preds = %2152
-  %2156 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(4) @.str.967) #44
-  %2157 = icmp eq i32 %2156, 0
-  br i1 %2157, label %2159, label %.critedge2823
+2151:                                             ; preds = %2148
+  %2152 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(4) @.str.967) #44
+  %2153 = icmp eq i32 %2152, 0
+  br i1 %2153, label %2155, label %.critedge2823
 
-2158:                                             ; preds = %2149
+2154:                                             ; preds = %2145
   tail call void (ptr, ptr, ...) @failIfSafeMode(ptr noundef nonnull %1, ptr noundef nonnull @.str.709, ptr noundef nonnull %128)
-  br label %2163
+  br label %2159
 
-2159:                                             ; preds = %2155
+2155:                                             ; preds = %2151
   tail call void (ptr, ptr, ...) @failIfSafeMode(ptr noundef nonnull %1, ptr noundef nonnull @.str.709, ptr noundef nonnull %128)
-  br label %2163
+  br label %2159
 
-2160:                                             ; preds = %2145, %2142
+2156:                                             ; preds = %2141, %2138
   tail call void (ptr, ptr, ...) @failIfSafeMode(ptr noundef nonnull %1, ptr noundef nonnull @.str.709, ptr noundef nonnull %128)
-  %2161 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.965, i64 noundef range(i64 0, 1073741824) %2048) #44
-  %.not4763 = icmp eq i32 %2161, 0
-  %2162 = select i1 %.not4763, i32 2, i32 0
-  br label %2163
+  %2157 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.965, i64 noundef range(i64 0, 1073741824) %2044) #44
+  %.not4763 = icmp eq i32 %2157, 0
+  %2158 = select i1 %.not4763, i32 2, i32 0
+  br label %2159
 
-2163:                                             ; preds = %2159, %2158, %2160
-  %2164 = phi i1 [ false, %2158 ], [ false, %2159 ], [ true, %2160 ]
-  %.02380 = phi i32 [ 120, %2158 ], [ 119, %2159 ], [ 0, %2160 ]
-  %.not2669 = phi i32 [ 2, %2158 ], [ 2, %2159 ], [ %2162, %2160 ]
+2159:                                             ; preds = %2155, %2154, %2156
+  %2160 = phi i1 [ false, %2154 ], [ false, %2155 ], [ true, %2156 ]
+  %.02380 = phi i32 [ 120, %2154 ], [ 119, %2155 ], [ 0, %2156 ]
+  %.not2669 = phi i32 [ 2, %2154 ], [ 2, %2155 ], [ %2158, %2156 ]
   %.not4235 = icmp eq i32 %.02122.lcssa.ph, 1
   br i1 %.not4235, label %.loopexit.thread, label %.lr.ph4189.preheader
 
-.lr.ph4189.preheader:                             ; preds = %2163
+.lr.ph4189.preheader:                             ; preds = %2159
   %wide.trip.count4496 = and i64 %.02122.lcssa.ph.in, 4294967295
   br label %.lr.ph4189
 
-.lr.ph4189:                                       ; preds = %.lr.ph4189.preheader, %2219
-  %indvars.iv4498 = phi i64 [ 2, %.lr.ph4189.preheader ], [ %indvars.iv.next4499, %2219 ]
-  %indvars.iv4491 = phi i64 [ 1, %.lr.ph4189.preheader ], [ %indvars.iv.next4492, %2219 ]
-  %.023714187 = phi ptr [ null, %.lr.ph4189.preheader ], [ %.22373.ph, %2219 ]
-  %.023754186 = phi i32 [ 0, %.lr.ph4189.preheader ], [ %.22377.ph, %2219 ]
-  %.123814185 = phi i32 [ %.02380, %.lr.ph4189.preheader ], [ %.32383.ph, %2219 ]
-  %.023884183 = phi ptr [ null, %.lr.ph4189.preheader ], [ %.22390.ph, %2219 ]
-  %2165 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4491
-  %2166 = load ptr, ptr %2165, align 8, !tbaa !29
+.lr.ph4189:                                       ; preds = %.lr.ph4189.preheader, %2215
+  %indvars.iv4498 = phi i64 [ 2, %.lr.ph4189.preheader ], [ %indvars.iv.next4499, %2215 ]
+  %indvars.iv4491 = phi i64 [ 1, %.lr.ph4189.preheader ], [ %indvars.iv.next4492, %2215 ]
+  %.023714187 = phi ptr [ null, %.lr.ph4189.preheader ], [ %.22373.ph, %2215 ]
+  %.023754186 = phi i32 [ 0, %.lr.ph4189.preheader ], [ %.22377.ph, %2215 ]
+  %.123814185 = phi i32 [ %.02380, %.lr.ph4189.preheader ], [ %.32383.ph, %2215 ]
+  %.023884183 = phi ptr [ null, %.lr.ph4189.preheader ], [ %.22390.ph, %2215 ]
+  %2161 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4491
+  %2162 = load ptr, ptr %2161, align 8, !tbaa !29
+  %2163 = load i8, ptr %2162, align 1, !tbaa !25
+  %2164 = icmp eq i8 %2163, 45
+  br i1 %2164, label %2165, label %2195
+
+2165:                                             ; preds = %.lr.ph4189
+  %2166 = getelementptr inbounds nuw i8, ptr %2162, i64 1
   %2167 = load i8, ptr %2166, align 1, !tbaa !25
   %2168 = icmp eq i8 %2167, 45
-  br i1 %2168, label %2169, label %2199
+  %spec.select2811 = select i1 %2168, ptr %2166, ptr %2162
+  %2169 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2811, ptr noundef nonnull dereferenceable(5) @.str.969) #44
+  %2170 = icmp eq i32 %2169, 0
+  br i1 %2170, label %2215, label %2171
 
-2169:                                             ; preds = %.lr.ph4189
-  %2170 = getelementptr inbounds nuw i8, ptr %2166, i64 1
-  %2171 = load i8, ptr %2170, align 1, !tbaa !25
-  %2172 = icmp eq i8 %2171, 45
-  %spec.select2811 = select i1 %2172, ptr %2170, ptr %2166
-  %2173 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2811, ptr noundef nonnull dereferenceable(5) @.str.969) #44
-  %2174 = icmp eq i32 %2173, 0
-  br i1 %2174, label %2219, label %2175
+2171:                                             ; preds = %2165
+  %2172 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2811, ptr noundef nonnull dereferenceable(7) @.str.970) #44
+  %2173 = icmp eq i32 %2172, 0
+  br i1 %2173, label %2215, label %2174
 
-2175:                                             ; preds = %2169
-  %2176 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2811, ptr noundef nonnull dereferenceable(7) @.str.970) #44
-  %2177 = icmp eq i32 %2176, 0
-  br i1 %2177, label %2219, label %2178
+2174:                                             ; preds = %2171
+  br i1 %2160, label %sub_13702, label %.critedge2814
 
-2178:                                             ; preds = %2175
-  br i1 %2164, label %sub_13702, label %.critedge2814
-
-sub_13702:                                        ; preds = %2178
-  %2179 = getelementptr inbounds nuw i8, ptr %spec.select2811, i64 1
-  %2180 = load i8, ptr %2179, align 1
-  %.not4237 = icmp eq i8 %2180, 120
+sub_13702:                                        ; preds = %2174
+  %2175 = getelementptr inbounds nuw i8, ptr %spec.select2811, i64 1
+  %2176 = load i8, ptr %2175, align 1
+  %.not4237 = icmp eq i8 %2176, 120
   br i1 %.not4237, label %.tail3700, label %sub_13707
 
 .tail3700:                                        ; preds = %sub_13702
-  %2181 = getelementptr inbounds nuw i8, ptr %spec.select2811, i64 2
-  %2182 = load i8, ptr %2181, align 1
-  %2183 = icmp eq i8 %2182, 0
-  br i1 %2183, label %2219, label %sub_13707
+  %2177 = getelementptr inbounds nuw i8, ptr %spec.select2811, i64 2
+  %2178 = load i8, ptr %2177, align 1
+  %2179 = icmp eq i8 %2178, 0
+  br i1 %2179, label %2215, label %sub_13707
 
 sub_13707:                                        ; preds = %sub_13702, %.tail3700
-  %2184 = getelementptr inbounds nuw i8, ptr %spec.select2811, i64 1
-  %2185 = load i8, ptr %2184, align 1
-  %.not4239 = icmp eq i8 %2185, 101
+  %2180 = getelementptr inbounds nuw i8, ptr %spec.select2811, i64 1
+  %2181 = load i8, ptr %2180, align 1
+  %.not4239 = icmp eq i8 %2181, 101
   br i1 %.not4239, label %.tail3705, label %sub_13711
 
 .tail3705:                                        ; preds = %sub_13707
-  %2186 = getelementptr inbounds nuw i8, ptr %spec.select2811, i64 2
-  %2187 = load i8, ptr %2186, align 1
-  %2188 = icmp eq i8 %2187, 0
-  br i1 %2188, label %2219, label %sub_13711
+  %2182 = getelementptr inbounds nuw i8, ptr %spec.select2811, i64 2
+  %2183 = load i8, ptr %2182, align 1
+  %2184 = icmp eq i8 %2183, 0
+  br i1 %2184, label %2215, label %sub_13711
 
 sub_13711:                                        ; preds = %sub_13707, %.tail3705
-  %2189 = getelementptr inbounds nuw i8, ptr %spec.select2811, i64 1
-  %2190 = load i8, ptr %2189, align 1
-  %.not4241 = icmp eq i8 %2190, 119
+  %2185 = getelementptr inbounds nuw i8, ptr %spec.select2811, i64 1
+  %2186 = load i8, ptr %2185, align 1
+  %.not4241 = icmp eq i8 %2186, 119
   br i1 %.not4241, label %.critedge2813.tail, label %.critedge2814
 
 .critedge2813.tail:                               ; preds = %sub_13711
-  %2191 = getelementptr inbounds nuw i8, ptr %spec.select2811, i64 2
-  %2192 = load i8, ptr %2191, align 1
-  %2193 = icmp eq i8 %2192, 0
-  br i1 %2193, label %2219, label %.critedge2814
+  %2187 = getelementptr inbounds nuw i8, ptr %spec.select2811, i64 2
+  %2188 = load i8, ptr %2187, align 1
+  %2189 = icmp eq i8 %2188, 0
+  br i1 %2189, label %2215, label %.critedge2814
 
-.critedge2814:                                    ; preds = %sub_13711, %2178, %.critedge2813.tail
-  %2194 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %2195 = load ptr, ptr %2194, align 8, !tbaa !462
-  %2196 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2195, ptr noundef nonnull @.str.974, ptr noundef nonnull %2166) #43
-  %2197 = load ptr, ptr %2194, align 8, !tbaa !462
-  %2198 = tail call fastcc i32 @showHelp(ptr noundef %2197, ptr noundef %128)
+.critedge2814:                                    ; preds = %sub_13711, %2174, %.critedge2813.tail
+  %2190 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %2191 = load ptr, ptr %2190, align 8, !tbaa !462
+  %2192 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2191, ptr noundef nonnull @.str.974, ptr noundef nonnull %2162) #43
+  %2193 = load ptr, ptr %2190, align 8, !tbaa !462
+  %2194 = tail call fastcc i32 @showHelp(ptr noundef %2193, ptr noundef %128)
   br label %test_breakpoint.exit
 
-2199:                                             ; preds = %.lr.ph4189
-  %2200 = icmp eq ptr %.023884183, null
-  %2201 = icmp eq i32 %.123814185, 0
-  %or.cond121 = select i1 %2200, i1 %2201, i1 false
-  br i1 %or.cond121, label %2202, label %2213
+2195:                                             ; preds = %.lr.ph4189
+  %2196 = icmp eq ptr %.023884183, null
+  %2197 = icmp eq i32 %.123814185, 0
+  %or.cond121 = select i1 %2196, i1 %2197, i1 false
+  br i1 %or.cond121, label %2198, label %2209
 
-2202:                                             ; preds = %2199
-  %2203 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.47, ptr noundef nonnull %2166) #43
-  %.not2668 = icmp eq ptr %2203, null
-  br i1 %.not2668, label %2219, label %2204
+2198:                                             ; preds = %2195
+  %2199 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.47, ptr noundef nonnull %2162) #43
+  %.not2668 = icmp eq ptr %2199, null
+  br i1 %.not2668, label %2215, label %2200
 
-2204:                                             ; preds = %2202
-  %2205 = load i8, ptr %2203, align 1, !tbaa !25
-  %2206 = icmp eq i8 %2205, 124
-  br i1 %2206, label %.preheader, label %2219
+2200:                                             ; preds = %2198
+  %2201 = load i8, ptr %2199, align 1, !tbaa !25
+  %2202 = icmp eq i8 %2201, 124
+  br i1 %2202, label %.preheader, label %2215
 
-.preheader:                                       ; preds = %2204
-  %2207 = trunc nuw nsw i64 %indvars.iv4491 to i32
-  %2208 = add nuw nsw i32 %2207, 1
-  %2209 = icmp samesign ult i32 %2208, %.02122.lcssa.ph
-  br i1 %2209, label %.lr.ph4195, label %shell_check_oom.exit3047
+.preheader:                                       ; preds = %2200
+  %2203 = trunc nuw nsw i64 %indvars.iv4491 to i32
+  %2204 = add nuw nsw i32 %2203, 1
+  %2205 = icmp samesign ult i32 %2204, %.02122.lcssa.ph
+  br i1 %2205, label %.lr.ph4195, label %shell_check_oom.exit3047
 
 .lr.ph4195:                                       ; preds = %.preheader, %.lr.ph4195
   %indvars.iv4503 = phi i64 [ %indvars.iv.next4504, %.lr.ph4195 ], [ %indvars.iv4498, %.preheader ]
-  %.423924194 = phi ptr [ %2212, %.lr.ph4195 ], [ %2203, %.preheader ]
-  %2210 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4503
-  %2211 = load ptr, ptr %2210, align 8, !tbaa !29
-  %2212 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.975, ptr noundef %.423924194, ptr noundef %2211) #43
+  %.423924194 = phi ptr [ %2208, %.lr.ph4195 ], [ %2199, %.preheader ]
+  %2206 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4503
+  %2207 = load ptr, ptr %2206, align 8, !tbaa !29
+  %2208 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.975, ptr noundef %.423924194, ptr noundef %2207) #43
   %indvars.iv.next4504 = add nuw nsw i64 %indvars.iv4503, 1
   %exitcond4508.not = icmp eq i64 %indvars.iv.next4504, %124
   br i1 %exitcond4508.not, label %.loopexit, label %.lr.ph4195, !llvm.loop !548
 
-2213:                                             ; preds = %2199
-  %2214 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %2215 = load ptr, ptr %2214, align 8, !tbaa !462
-  %2216 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2215, ptr noundef nonnull @.str.976, ptr noundef nonnull %2166) #43
-  %2217 = load ptr, ptr %2214, align 8, !tbaa !462
-  %2218 = tail call fastcc i32 @showHelp(ptr noundef %2217, ptr noundef %128)
+2209:                                             ; preds = %2195
+  %2210 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %2211 = load ptr, ptr %2210, align 8, !tbaa !462
+  %2212 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2211, ptr noundef nonnull @.str.976, ptr noundef nonnull %2162) #43
+  %2213 = load ptr, ptr %2210, align 8, !tbaa !462
+  %2214 = tail call fastcc i32 @showHelp(ptr noundef %2213, ptr noundef %128)
   tail call void @sqlite3_free(ptr noundef %.023884183) #43
   br label %test_breakpoint.exit
 
-2219:                                             ; preds = %.critedge2813.tail, %.tail3705, %.tail3700, %2175, %2169, %2204, %2202
-  %.22390.ph = phi ptr [ %.023884183, %.critedge2813.tail ], [ %.023884183, %.tail3705 ], [ %.023884183, %.tail3700 ], [ %.023884183, %2175 ], [ %.023884183, %2169 ], [ null, %2202 ], [ %2203, %2204 ]
-  %.32383.ph = phi i32 [ 119, %.critedge2813.tail ], [ 101, %.tail3705 ], [ 120, %.tail3700 ], [ %.123814185, %2175 ], [ %.123814185, %2169 ], [ 0, %2202 ], [ 0, %2204 ]
-  %.22377.ph = phi i32 [ %.023754186, %.critedge2813.tail ], [ %.023754186, %.tail3705 ], [ %.023754186, %.tail3700 ], [ 1, %2175 ], [ %.023754186, %2169 ], [ %.023754186, %2202 ], [ %.023754186, %2204 ]
-  %.22373.ph = phi ptr [ %.023714187, %.critedge2813.tail ], [ %.023714187, %.tail3705 ], [ %.023714187, %.tail3700 ], [ %.023714187, %2175 ], [ @.str.968, %2169 ], [ %.023714187, %2202 ], [ %.023714187, %2204 ]
+2215:                                             ; preds = %.critedge2813.tail, %.tail3705, %.tail3700, %2171, %2165, %2200, %2198
+  %.22390.ph = phi ptr [ %.023884183, %.critedge2813.tail ], [ %.023884183, %.tail3705 ], [ %.023884183, %.tail3700 ], [ %.023884183, %2171 ], [ %.023884183, %2165 ], [ null, %2198 ], [ %2199, %2200 ]
+  %.32383.ph = phi i32 [ 119, %.critedge2813.tail ], [ 101, %.tail3705 ], [ 120, %.tail3700 ], [ %.123814185, %2171 ], [ %.123814185, %2165 ], [ 0, %2198 ], [ 0, %2200 ]
+  %.22377.ph = phi i32 [ %.023754186, %.critedge2813.tail ], [ %.023754186, %.tail3705 ], [ %.023754186, %.tail3700 ], [ 1, %2171 ], [ %.023754186, %2165 ], [ %.023754186, %2198 ], [ %.023754186, %2200 ]
+  %.22373.ph = phi ptr [ %.023714187, %.critedge2813.tail ], [ %.023714187, %.tail3705 ], [ %.023714187, %.tail3700 ], [ %.023714187, %2171 ], [ @.str.968, %2165 ], [ %.023714187, %2198 ], [ %.023714187, %2200 ]
   %indvars.iv.next4492 = add nuw nsw i64 %indvars.iv4491, 1
   %exitcond4497.not = icmp eq i64 %indvars.iv.next4492, %wide.trip.count4496
   %indvars.iv.next4499 = add nuw nsw i64 %indvars.iv4498, 1
   br i1 %exitcond4497.not, label %.loopexit, label %.lr.ph4189, !llvm.loop !549
 
-.loopexit:                                        ; preds = %2219, %.lr.ph4195
-  %.023753787 = phi i32 [ %.023754186, %.lr.ph4195 ], [ %.22377.ph, %2219 ]
-  %.023713783 = phi ptr [ %.023714187, %.lr.ph4195 ], [ %.22373.ph, %2219 ]
-  %.12389 = phi ptr [ %2212, %.lr.ph4195 ], [ %.22390.ph, %2219 ]
-  %.22382 = phi i32 [ 0, %.lr.ph4195 ], [ %.32383.ph, %2219 ]
-  %2220 = icmp eq ptr %.12389, null
-  br i1 %2220, label %.loopexit.thread, label %shell_check_oom.exit3047
+.loopexit:                                        ; preds = %2215, %.lr.ph4195
+  %.023753787 = phi i32 [ %.023754186, %.lr.ph4195 ], [ %.22377.ph, %2215 ]
+  %.023713783 = phi ptr [ %.023714187, %.lr.ph4195 ], [ %.22373.ph, %2215 ]
+  %.12389 = phi ptr [ %2208, %.lr.ph4195 ], [ %.22390.ph, %2215 ]
+  %.22382 = phi i32 [ 0, %.lr.ph4195 ], [ %.32383.ph, %2215 ]
+  %2216 = icmp eq ptr %.12389, null
+  br i1 %2216, label %.loopexit.thread, label %shell_check_oom.exit3047
 
-.loopexit.thread:                                 ; preds = %2163, %.loopexit
-  %.223824617 = phi i32 [ %.22382, %.loopexit ], [ %.02380, %2163 ]
-  %.0237137834615 = phi ptr [ %.023713783, %.loopexit ], [ null, %2163 ]
-  %.0237537874613 = phi i32 [ %.023753787, %.loopexit ], [ 0, %2163 ]
-  %2221 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.921) #43
-  %2222 = icmp eq ptr %2221, null
-  br i1 %2222, label %2223, label %shell_check_oom.exit3047
+.loopexit.thread:                                 ; preds = %2159, %.loopexit
+  %.223824617 = phi i32 [ %.22382, %.loopexit ], [ %.02380, %2159 ]
+  %.0237137834615 = phi ptr [ %.023713783, %.loopexit ], [ null, %2159 ]
+  %.0237537874613 = phi i32 [ %.023753787, %.loopexit ], [ 0, %2159 ]
+  %2217 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.921) #43
+  %2218 = icmp eq ptr %2217, null
+  br i1 %2218, label %2219, label %shell_check_oom.exit3047
 
-2223:                                             ; preds = %.loopexit.thread
+2219:                                             ; preds = %.loopexit.thread
   tail call fastcc void @shell_out_of_memory()
   unreachable
 
@@ -23565,1228 +23562,1228 @@ shell_check_oom.exit3047:                         ; preds = %.preheader, %.loope
   %.223824616 = phi i32 [ %.223824617, %.loopexit.thread ], [ %.22382, %.loopexit ], [ 0, %.preheader ]
   %.0237137834614 = phi ptr [ %.0237137834615, %.loopexit.thread ], [ %.023713783, %.loopexit ], [ %.023714187, %.preheader ]
   %.0237537874612 = phi i32 [ %.0237537874613, %.loopexit.thread ], [ %.023753787, %.loopexit ], [ %.023754186, %.preheader ]
-  %.523933458 = phi ptr [ %2221, %.loopexit.thread ], [ %.12389, %.loopexit ], [ %2203, %.preheader ]
-  %2224 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  store i32 %.not2669, ptr %2224, align 4, !tbaa !550
+  %.523933458 = phi ptr [ %2217, %.loopexit.thread ], [ %.12389, %.loopexit ], [ %2199, %.preheader ]
+  %2220 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  store i32 %.not2669, ptr %2220, align 4, !tbaa !550
   tail call fastcc void @output_reset(ptr noundef %1)
-  %2225 = icmp eq i32 %.223824616, 119
+  %2221 = icmp eq i32 %.223824616, 119
   switch i32 %.223824616, label %shell_check_oom.exit3048 [
-    i32 120, label %2226
-    i32 119, label %2226
-    i32 101, label %2226
+    i32 120, label %2222
+    i32 119, label %2222
+    i32 101, label %2222
   ]
 
-2226:                                             ; preds = %shell_check_oom.exit3047, %shell_check_oom.exit3047, %shell_check_oom.exit3047
-  %2227 = icmp eq i32 %.223824616, 120
-  %2228 = getelementptr inbounds nuw i8, ptr %1, i64 14
-  store i8 1, ptr %2228, align 2, !tbaa !481
-  %2229 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %2230 = load i32, ptr %2229, align 4, !tbaa !442
-  %2231 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i32 %2230, ptr %2231, align 8, !tbaa !551
-  %2232 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %2233 = load i32, ptr %2232, align 4, !tbaa !454
-  %2234 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store i32 %2233, ptr %2234, align 8, !tbaa !552
-  %2235 = getelementptr inbounds nuw i8, ptr %1, i64 238
-  %2236 = getelementptr inbounds nuw i8, ptr %1, i64 198
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %2235, ptr noundef nonnull align 2 dereferenceable(20) %2236, i64 20, i1 false)
-  %2237 = getelementptr inbounds nuw i8, ptr %1, i64 258
-  %2238 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %2237, ptr noundef nonnull align 2 dereferenceable(20) %2238, i64 20, i1 false)
-  br i1 %2227, label %2239, label %2244
+2222:                                             ; preds = %shell_check_oom.exit3047, %shell_check_oom.exit3047, %shell_check_oom.exit3047
+  %2223 = icmp eq i32 %.223824616, 120
+  %2224 = getelementptr inbounds nuw i8, ptr %1, i64 14
+  store i8 1, ptr %2224, align 2, !tbaa !481
+  %2225 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %2226 = load i32, ptr %2225, align 4, !tbaa !442
+  %2227 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store i32 %2226, ptr %2227, align 8, !tbaa !551
+  %2228 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %2229 = load i32, ptr %2228, align 4, !tbaa !454
+  %2230 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  store i32 %2229, ptr %2230, align 8, !tbaa !552
+  %2231 = getelementptr inbounds nuw i8, ptr %1, i64 238
+  %2232 = getelementptr inbounds nuw i8, ptr %1, i64 198
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %2231, ptr noundef nonnull align 2 dereferenceable(20) %2232, i64 20, i1 false)
+  %2233 = getelementptr inbounds nuw i8, ptr %1, i64 258
+  %2234 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %2233, ptr noundef nonnull align 2 dereferenceable(20) %2234, i64 20, i1 false)
+  br i1 %2223, label %2235, label %2240
 
-2239:                                             ; preds = %2226
+2235:                                             ; preds = %2222
   tail call fastcc void @newTempFile(ptr noundef %1, ptr noundef nonnull @.str.941)
-  %2240 = load i32, ptr %2232, align 4, !tbaa !454
-  %2241 = and i32 %2240, -65
-  store i32 %2241, ptr %2232, align 4, !tbaa !454
-  store i32 8, ptr %2229, align 4, !tbaa !442
-  %2242 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %2236, ptr noundef nonnull @.str.101) #43
-  %2243 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %2238, ptr noundef nonnull @.str.671) #43
-  br label %2248
+  %2236 = load i32, ptr %2228, align 4, !tbaa !454
+  %2237 = and i32 %2236, -65
+  store i32 %2237, ptr %2228, align 4, !tbaa !454
+  store i32 8, ptr %2225, align 4, !tbaa !442
+  %2238 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %2232, ptr noundef nonnull @.str.101) #43
+  %2239 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %2234, ptr noundef nonnull @.str.671) #43
+  br label %2244
 
-2244:                                             ; preds = %2226
-  br i1 %2225, label %2245, label %2247
+2240:                                             ; preds = %2222
+  br i1 %2221, label %2241, label %2243
 
-2245:                                             ; preds = %2244
+2241:                                             ; preds = %2240
   tail call fastcc void @newTempFile(ptr noundef %1, ptr noundef nonnull @.str.938)
   %.not2670 = icmp eq i32 %.0237537874612, 0
-  br i1 %.not2670, label %2246, label %2248
+  br i1 %.not2670, label %2242, label %2244
 
-2246:                                             ; preds = %2245
-  store i32 20, ptr %2229, align 4, !tbaa !442
-  br label %2248
+2242:                                             ; preds = %2241
+  store i32 20, ptr %2225, align 4, !tbaa !442
+  br label %2244
 
-2247:                                             ; preds = %2244
+2243:                                             ; preds = %2240
   tail call fastcc void @newTempFile(ptr noundef %1, ptr noundef nonnull @.str.977)
-  br label %2248
+  br label %2244
 
-2248:                                             ; preds = %2239, %2245, %2246, %2247
+2244:                                             ; preds = %2235, %2241, %2242, %2243
   tail call void @sqlite3_free(ptr noundef nonnull %.523933458) #43
-  %2249 = load ptr, ptr %132, align 8, !tbaa !482
-  %2250 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.47, ptr noundef %2249) #43
-  %2251 = icmp eq ptr %2250, null
-  br i1 %2251, label %2252, label %shell_check_oom.exit3048
+  %2245 = load ptr, ptr %132, align 8, !tbaa !482
+  %2246 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.47, ptr noundef %2245) #43
+  %2247 = icmp eq ptr %2246, null
+  br i1 %2247, label %2248, label %shell_check_oom.exit3048
 
-2252:                                             ; preds = %2248
+2248:                                             ; preds = %2244
   tail call fastcc void @shell_out_of_memory()
   unreachable
 
-shell_check_oom.exit3048:                         ; preds = %shell_check_oom.exit3047, %2248
-  %.623943461 = phi ptr [ %2250, %2248 ], [ %.523933458, %shell_check_oom.exit3047 ]
-  %2253 = load i8, ptr %.623943461, align 1, !tbaa !25
-  %2254 = icmp eq i8 %2253, 124
-  br i1 %2254, label %2255, label %2268
+shell_check_oom.exit3048:                         ; preds = %shell_check_oom.exit3047, %2244
+  %.623943461 = phi ptr [ %2246, %2244 ], [ %.523933458, %shell_check_oom.exit3047 ]
+  %2249 = load i8, ptr %.623943461, align 1, !tbaa !25
+  %2250 = icmp eq i8 %2249, 124
+  br i1 %2250, label %2251, label %2264
 
-2255:                                             ; preds = %shell_check_oom.exit3048
-  %2256 = getelementptr inbounds nuw i8, ptr %.623943461, i64 1
-  %2257 = tail call noalias ptr @popen(ptr noundef nonnull %2256, ptr noundef nonnull @.str.36)
-  %2258 = icmp eq ptr %2257, null
-  br i1 %2258, label %2259, label %2262
+2251:                                             ; preds = %shell_check_oom.exit3048
+  %2252 = getelementptr inbounds nuw i8, ptr %.623943461, i64 1
+  %2253 = tail call noalias ptr @popen(ptr noundef nonnull %2252, ptr noundef nonnull @.str.36)
+  %2254 = icmp eq ptr %2253, null
+  br i1 %2254, label %2255, label %2258
 
-2259:                                             ; preds = %2255
-  %2260 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2261 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2260, ptr noundef nonnull @.str.978, ptr noundef nonnull %2256) #46
-  br label %2286
+2255:                                             ; preds = %2251
+  %2256 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2257 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2256, ptr noundef nonnull @.str.978, ptr noundef nonnull %2252) #46
+  br label %2282
 
-2262:                                             ; preds = %2255
-  tail call fastcc void @output_redir(ptr noundef %1, ptr noundef %2257)
+2258:                                             ; preds = %2251
+  tail call fastcc void @output_redir(ptr noundef %1, ptr noundef %2253)
   %.not2673 = icmp eq ptr %.0237137834614, null
-  br i1 %.not2673, label %2265, label %2263
+  br i1 %.not2673, label %2261, label %2259
 
-2263:                                             ; preds = %2262
-  %2264 = tail call i32 @fputs(ptr noundef nonnull %.0237137834614, ptr noundef nonnull %2257)
-  br label %2265
+2259:                                             ; preds = %2258
+  %2260 = tail call i32 @fputs(ptr noundef nonnull %.0237137834614, ptr noundef nonnull %2253)
+  br label %2261
 
-2265:                                             ; preds = %2263, %2262
-  %2266 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %2267 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 4096, ptr noundef nonnull %2266, ptr noundef nonnull @.str.47, ptr noundef nonnull %.623943461) #43
-  br label %2286
+2261:                                             ; preds = %2259, %2258
+  %2262 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %2263 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 4096, ptr noundef nonnull %2262, ptr noundef nonnull @.str.47, ptr noundef nonnull %.623943461) #43
+  br label %2282
 
-2268:                                             ; preds = %shell_check_oom.exit3048
-  %2269 = tail call fastcc ptr @output_file_open(ptr noundef nonnull %.623943461)
-  %2270 = icmp eq ptr %2269, null
-  br i1 %2270, label %2271, label %2276
+2264:                                             ; preds = %shell_check_oom.exit3048
+  %2265 = tail call fastcc ptr @output_file_open(ptr noundef nonnull %.623943461)
+  %2266 = icmp eq ptr %2265, null
+  br i1 %2266, label %2267, label %2272
 
-2271:                                             ; preds = %2268
-  %2272 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.623943461, ptr noundef nonnull dereferenceable(4) @.str.776) #44
-  %.not2672 = icmp eq i32 %2272, 0
-  br i1 %.not2672, label %2286, label %2273
+2267:                                             ; preds = %2264
+  %2268 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.623943461, ptr noundef nonnull dereferenceable(4) @.str.776) #44
+  %.not2672 = icmp eq i32 %2268, 0
+  br i1 %.not2672, label %2282, label %2269
 
-2273:                                             ; preds = %2271
-  %2274 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2275 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2274, ptr noundef nonnull @.str.979, ptr noundef nonnull %.623943461) #46
-  br label %2286
+2269:                                             ; preds = %2267
+  %2270 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2271 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2270, ptr noundef nonnull @.str.979, ptr noundef nonnull %.623943461) #46
+  br label %2282
 
-2276:                                             ; preds = %2268
-  tail call fastcc void @output_redir(ptr noundef %1, ptr noundef %2269)
+2272:                                             ; preds = %2264
+  tail call fastcc void @output_redir(ptr noundef %1, ptr noundef %2265)
   %.not2671 = icmp eq ptr %.0237137834614, null
-  br i1 %.not2671, label %2279, label %2277
+  br i1 %.not2671, label %2275, label %2273
 
-2277:                                             ; preds = %2276
-  %2278 = tail call i32 @fputs(ptr noundef nonnull %.0237137834614, ptr noundef nonnull %2269)
+2273:                                             ; preds = %2272
+  %2274 = tail call i32 @fputs(ptr noundef nonnull %.0237137834614, ptr noundef nonnull %2265)
+  br label %2275
+
+2275:                                             ; preds = %2273, %2272
+  %2276 = icmp ne i32 %.0237537874612, 0
+  %or.cond130 = select i1 %2276, i1 %2221, i1 false
+  br i1 %or.cond130, label %2277, label %2279
+
+2277:                                             ; preds = %2275
+  %2278 = tail call i64 @fwrite(ptr nonnull @.str.980, i64 35, i64 1, ptr nonnull %2265)
   br label %2279
 
-2279:                                             ; preds = %2277, %2276
-  %2280 = icmp ne i32 %.0237537874612, 0
-  %or.cond130 = select i1 %2280, i1 %2225, i1 false
-  br i1 %or.cond130, label %2281, label %2283
+2279:                                             ; preds = %2277, %2275
+  %2280 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %2281 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 4096, ptr noundef nonnull %2280, ptr noundef nonnull @.str.47, ptr noundef nonnull %.623943461) #43
+  br label %2282
 
-2281:                                             ; preds = %2279
-  %2282 = tail call i64 @fwrite(ptr nonnull @.str.980, i64 35, i64 1, ptr nonnull %2269)
-  br label %2283
-
-2283:                                             ; preds = %2281, %2279
-  %2284 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %2285 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 4096, ptr noundef nonnull %2284, ptr noundef nonnull @.str.47, ptr noundef nonnull %.623943461) #43
-  br label %2286
-
-2286:                                             ; preds = %2283, %2273, %2271, %2259, %2265
-  %.38 = phi i32 [ 1, %2259 ], [ 0, %2265 ], [ 0, %2283 ], [ 1, %2273 ], [ 1, %2271 ]
+2282:                                             ; preds = %2279, %2269, %2267, %2255, %2261
+  %.38 = phi i32 [ 1, %2255 ], [ 0, %2261 ], [ 0, %2279 ], [ 1, %2269 ], [ 1, %2267 ]
   tail call void @sqlite3_free(ptr noundef nonnull %.623943461) #43
   br label %test_breakpoint.exit
 
-2287:                                             ; preds = %2152
-  %2288 = icmp eq i8 %131, 112
-  %or.cond133 = select i1 %2288, i1 %1795, i1 false
-  br i1 %or.cond133, label %2289, label %.critedge2820
+2283:                                             ; preds = %2148
+  %2284 = icmp eq i8 %131, 112
+  %or.cond133 = select i1 %2284, i1 %1791, i1 false
+  br i1 %or.cond133, label %2285, label %.critedge2820
 
-2289:                                             ; preds = %2287
-  %2290 = and i64 %strlen.i, 1073741823
-  %2291 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.981, i64 noundef range(i64 0, 1073741824) %2290) #44
-  %2292 = icmp eq i32 %2291, 0
-  br i1 %2292, label %2293, label %2397
+2285:                                             ; preds = %2283
+  %2286 = and i64 %strlen.i, 1073741823
+  %2287 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.981, i64 noundef range(i64 0, 1073741824) %2286) #44
+  %2288 = icmp eq i32 %2287, 0
+  br i1 %2288, label %2289, label %2393
 
-2293:                                             ; preds = %2289
+2289:                                             ; preds = %2285
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   switch i32 %.02122.lcssa.ph, label %.critedge2817.thread [
-    i32 3, label %2380
-    i32 2, label %2294
-    i32 4, label %2343
+    i32 3, label %2376
+    i32 2, label %2290
+    i32 4, label %2339
   ]
 
-2294:                                             ; preds = %2293
-  %2295 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %2296 = load ptr, ptr %2295, align 8, !tbaa !29
-  %2297 = icmp eq ptr %2296, null
-  %spec.store.select.i3051 = select i1 %2297, ptr @.str.44, ptr %2296
-  %2298 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3051, ptr noundef nonnull dereferenceable(6) @.str.982) #44
-  %2299 = icmp eq i32 %2298, 0
-  br i1 %2299, label %2300, label %2303
+2290:                                             ; preds = %2289
+  %2291 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %2292 = load ptr, ptr %2291, align 8, !tbaa !29
+  %2293 = icmp eq ptr %2292, null
+  %spec.store.select.i3051 = select i1 %2293, ptr @.str.44, ptr %2292
+  %2294 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3051, ptr noundef nonnull dereferenceable(6) @.str.982) #44
+  %2295 = icmp eq i32 %2294, 0
+  br i1 %2295, label %2296, label %2299
 
-2300:                                             ; preds = %2294
-  %2301 = load ptr, ptr %1, align 8, !tbaa !477
-  %2302 = tail call i32 @sqlite3_exec(ptr noundef %2301, ptr noundef nonnull @.str.983, ptr noundef null, ptr noundef null, ptr noundef null) #43
+2296:                                             ; preds = %2290
+  %2297 = load ptr, ptr %1, align 8, !tbaa !477
+  %2298 = tail call i32 @sqlite3_exec(ptr noundef %2297, ptr noundef nonnull @.str.983, ptr noundef null, ptr noundef null, ptr noundef null) #43
   br label %test_breakpoint.exit
 
-2303:                                             ; preds = %2294
-  %2304 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3051, ptr noundef nonnull dereferenceable(5) @.str.937) #44
-  %2305 = icmp eq i32 %2304, 0
-  br i1 %2305, label %2306, label %.critedge2816
+2299:                                             ; preds = %2290
+  %2300 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3051, ptr noundef nonnull dereferenceable(5) @.str.937) #44
+  %2301 = icmp eq i32 %2300, 0
+  br i1 %2301, label %2302, label %.critedge2816
 
-2306:                                             ; preds = %2303
+2302:                                             ; preds = %2299
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #43
   store ptr null, ptr %25, align 8, !tbaa !31
-  %2307 = load ptr, ptr %1, align 8, !tbaa !477
-  %2308 = call i32 @sqlite3_prepare_v2(ptr noundef %2307, ptr noundef nonnull @.str.984, i32 noundef -1, ptr noundef nonnull %25, ptr noundef null) #43
-  %2309 = icmp eq i32 %2308, 0
-  br i1 %2309, label %2310, label %2317
+  %2303 = load ptr, ptr %1, align 8, !tbaa !477
+  %2304 = call i32 @sqlite3_prepare_v2(ptr noundef %2303, ptr noundef nonnull @.str.984, i32 noundef -1, ptr noundef nonnull %25, ptr noundef null) #43
+  %2305 = icmp eq i32 %2304, 0
+  br i1 %2305, label %2306, label %2313
+
+2306:                                             ; preds = %2302
+  %2307 = load ptr, ptr %25, align 8, !tbaa !31
+  %2308 = call i32 @sqlite3_step(ptr noundef %2307) #43
+  %2309 = icmp eq i32 %2308, 100
+  br i1 %2309, label %2310, label %2313
 
 2310:                                             ; preds = %2306
   %2311 = load ptr, ptr %25, align 8, !tbaa !31
-  %2312 = call i32 @sqlite3_step(ptr noundef %2311) #43
-  %2313 = icmp eq i32 %2312, 100
-  br i1 %2313, label %2314, label %2317
+  %2312 = call i32 @sqlite3_column_int(ptr noundef %2311, i32 noundef 0) #43
+  %spec.store.select134 = call i32 @llvm.smin.i32(i32 %2312, i32 40)
+  br label %2313
 
-2314:                                             ; preds = %2310
-  %2315 = load ptr, ptr %25, align 8, !tbaa !31
-  %2316 = call i32 @sqlite3_column_int(ptr noundef %2315, i32 noundef 0) #43
-  %spec.store.select134 = call i32 @llvm.smin.i32(i32 %2316, i32 40)
-  br label %2317
-
-2317:                                             ; preds = %2314, %2310, %2306
-  %.02368 = phi i32 [ %spec.store.select134, %2314 ], [ 0, %2310 ], [ 0, %2306 ]
-  %2318 = load ptr, ptr %25, align 8, !tbaa !31
-  %2319 = call i32 @sqlite3_finalize(ptr noundef %2318) #43
+2313:                                             ; preds = %2310, %2306, %2302
+  %.02368 = phi i32 [ %spec.store.select134, %2310 ], [ 0, %2306 ], [ 0, %2302 ]
+  %2314 = load ptr, ptr %25, align 8, !tbaa !31
+  %2315 = call i32 @sqlite3_finalize(ptr noundef %2314) #43
   store ptr null, ptr %25, align 8, !tbaa !31
   %.not2667 = icmp eq i32 %.02368, 0
-  br i1 %.not2667, label %2339, label %2320
+  br i1 %.not2667, label %2335, label %2316
 
-2320:                                             ; preds = %2317
-  %2321 = load ptr, ptr %1, align 8, !tbaa !477
-  %2322 = call i32 @sqlite3_prepare_v2(ptr noundef %2321, ptr noundef nonnull @.str.985, i32 noundef -1, ptr noundef nonnull %25, ptr noundef null) #43
-  %2323 = icmp eq i32 %2322, 0
-  br i1 %2323, label %.lr.ph4058, label %.critedge136
+2316:                                             ; preds = %2313
+  %2317 = load ptr, ptr %1, align 8, !tbaa !477
+  %2318 = call i32 @sqlite3_prepare_v2(ptr noundef %2317, ptr noundef nonnull @.str.985, i32 noundef -1, ptr noundef nonnull %25, ptr noundef null) #43
+  %2319 = icmp eq i32 %2318, 0
+  br i1 %2319, label %.lr.ph4058, label %.critedge136
 
-.lr.ph4058:                                       ; preds = %2320
-  %2324 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %2325 = load ptr, ptr %25, align 8, !tbaa !31
-  %2326 = call i32 @sqlite3_step(ptr noundef %2325) #43
-  %2327 = icmp eq i32 %2326, 100
-  br i1 %2327, label %.lr.ph4060, label %.critedge136
+.lr.ph4058:                                       ; preds = %2316
+  %2320 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %2321 = load ptr, ptr %25, align 8, !tbaa !31
+  %2322 = call i32 @sqlite3_step(ptr noundef %2321) #43
+  %2323 = icmp eq i32 %2322, 100
+  br i1 %2323, label %.lr.ph4060, label %.critedge136
 
 .lr.ph4060:                                       ; preds = %.lr.ph4058, %.lr.ph4060
-  %2328 = load ptr, ptr %2324, align 8, !tbaa !462
-  %2329 = load ptr, ptr %25, align 8, !tbaa !31
-  %2330 = call ptr @sqlite3_column_text(ptr noundef %2329, i32 noundef 0) #43
-  %2331 = load ptr, ptr %25, align 8, !tbaa !31
-  %2332 = call ptr @sqlite3_column_text(ptr noundef %2331, i32 noundef 1) #43
-  %2333 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2328, ptr noundef nonnull @.str.986, i32 noundef %.02368, ptr noundef %2330, ptr noundef %2332) #43
-  %2334 = load ptr, ptr %25, align 8, !tbaa !31
-  %2335 = call i32 @sqlite3_step(ptr noundef %2334) #43
-  %2336 = icmp eq i32 %2335, 100
-  br i1 %2336, label %.lr.ph4060, label %.critedge136
+  %2324 = load ptr, ptr %2320, align 8, !tbaa !462
+  %2325 = load ptr, ptr %25, align 8, !tbaa !31
+  %2326 = call ptr @sqlite3_column_text(ptr noundef %2325, i32 noundef 0) #43
+  %2327 = load ptr, ptr %25, align 8, !tbaa !31
+  %2328 = call ptr @sqlite3_column_text(ptr noundef %2327, i32 noundef 1) #43
+  %2329 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2324, ptr noundef nonnull @.str.986, i32 noundef %.02368, ptr noundef %2326, ptr noundef %2328) #43
+  %2330 = load ptr, ptr %25, align 8, !tbaa !31
+  %2331 = call i32 @sqlite3_step(ptr noundef %2330) #43
+  %2332 = icmp eq i32 %2331, 100
+  br i1 %2332, label %.lr.ph4060, label %.critedge136
 
-.critedge136:                                     ; preds = %.lr.ph4060, %.lr.ph4058, %2320
-  %2337 = load ptr, ptr %25, align 8, !tbaa !31
-  %2338 = call i32 @sqlite3_finalize(ptr noundef %2337) #43
-  br label %2339
+.critedge136:                                     ; preds = %.lr.ph4060, %.lr.ph4058, %2316
+  %2333 = load ptr, ptr %25, align 8, !tbaa !31
+  %2334 = call i32 @sqlite3_finalize(ptr noundef %2333) #43
+  br label %2335
 
-2339:                                             ; preds = %.critedge136, %2317
+2335:                                             ; preds = %.critedge136, %2313
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #43
   br label %test_breakpoint.exit
 
-.critedge2816:                                    ; preds = %2303
-  %2340 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3051, ptr noundef nonnull dereferenceable(5) @.str.987) #44
-  %2341 = icmp eq i32 %2340, 0
-  br i1 %2341, label %2342, label %.critedge2817.thread
+.critedge2816:                                    ; preds = %2299
+  %2336 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3051, ptr noundef nonnull dereferenceable(5) @.str.987) #44
+  %2337 = icmp eq i32 %2336, 0
+  br i1 %2337, label %2338, label %.critedge2817.thread
 
-2342:                                             ; preds = %.critedge2816
+2338:                                             ; preds = %.critedge2816
   tail call fastcc void @bind_table_init(ptr noundef %1)
   br label %test_breakpoint.exit
 
-2343:                                             ; preds = %2293
-  %2344 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %2345 = load ptr, ptr %2344, align 8, !tbaa !29
-  %2346 = icmp eq ptr %2345, null
-  %spec.store.select.i3054 = select i1 %2346, ptr @.str.44, ptr %2345
-  %2347 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3054, ptr noundef nonnull dereferenceable(4) @.str.988) #44
-  %2348 = icmp eq i32 %2347, 0
-  br i1 %2348, label %2349, label %.critedge2817.thread
+2339:                                             ; preds = %2289
+  %2340 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %2341 = load ptr, ptr %2340, align 8, !tbaa !29
+  %2342 = icmp eq ptr %2341, null
+  %spec.store.select.i3054 = select i1 %2342, ptr @.str.44, ptr %2341
+  %2343 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3054, ptr noundef nonnull dereferenceable(4) @.str.988) #44
+  %2344 = icmp eq i32 %2343, 0
+  br i1 %2344, label %2345, label %.critedge2817.thread
 
-2349:                                             ; preds = %2343
+2345:                                             ; preds = %2339
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #43
-  %2350 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %2351 = load ptr, ptr %2350, align 16, !tbaa !29
-  %2352 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %2353 = load ptr, ptr %2352, align 8, !tbaa !29
+  %2346 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %2347 = load ptr, ptr %2346, align 16, !tbaa !29
+  %2348 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %2349 = load ptr, ptr %2348, align 8, !tbaa !29
   tail call fastcc void @bind_table_init(ptr noundef %1)
-  %2354 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.989, ptr noundef %2351, ptr noundef %2353) #43
-  %2355 = icmp eq ptr %2354, null
-  br i1 %2355, label %2356, label %shell_check_oom.exit3055
+  %2350 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.989, ptr noundef %2347, ptr noundef %2349) #43
+  %2351 = icmp eq ptr %2350, null
+  br i1 %2351, label %2352, label %shell_check_oom.exit3055
 
-2356:                                             ; preds = %2349
+2352:                                             ; preds = %2345
   tail call fastcc void @shell_out_of_memory()
   unreachable
 
-shell_check_oom.exit3055:                         ; preds = %2349
+shell_check_oom.exit3055:                         ; preds = %2345
   store ptr null, ptr %26, align 8, !tbaa !31
-  %2357 = load ptr, ptr %1, align 8, !tbaa !477
-  %2358 = call i32 @sqlite3_prepare_v2(ptr noundef %2357, ptr noundef nonnull %2354, i32 noundef -1, ptr noundef nonnull %26, ptr noundef null) #43
-  call void @sqlite3_free(ptr noundef nonnull %2354) #43
-  %.not2665 = icmp eq i32 %2358, 0
+  %2353 = load ptr, ptr %1, align 8, !tbaa !477
+  %2354 = call i32 @sqlite3_prepare_v2(ptr noundef %2353, ptr noundef nonnull %2350, i32 noundef -1, ptr noundef nonnull %26, ptr noundef null) #43
+  call void @sqlite3_free(ptr noundef nonnull %2350) #43
+  %.not2665 = icmp eq i32 %2354, 0
   %.pre4535 = load ptr, ptr %26, align 8, !tbaa !31
-  br i1 %.not2665, label %2374, label %2359
+  br i1 %.not2665, label %2370, label %2355
 
-2359:                                             ; preds = %shell_check_oom.exit3055
-  %2360 = call i32 @sqlite3_finalize(ptr noundef %.pre4535) #43
+2355:                                             ; preds = %shell_check_oom.exit3055
+  %2356 = call i32 @sqlite3_finalize(ptr noundef %.pre4535) #43
   store ptr null, ptr %26, align 8, !tbaa !31
-  %2361 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.990, ptr noundef %2351, ptr noundef %2353) #43
-  %2362 = icmp eq ptr %2361, null
-  br i1 %2362, label %2363, label %shell_check_oom.exit3056
+  %2357 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.990, ptr noundef %2347, ptr noundef %2349) #43
+  %2358 = icmp eq ptr %2357, null
+  br i1 %2358, label %2359, label %shell_check_oom.exit3056
 
-2363:                                             ; preds = %2359
+2359:                                             ; preds = %2355
   call fastcc void @shell_out_of_memory()
   unreachable
 
-shell_check_oom.exit3056:                         ; preds = %2359
-  %2364 = load ptr, ptr %1, align 8, !tbaa !477
-  %2365 = call i32 @sqlite3_prepare_v2(ptr noundef %2364, ptr noundef nonnull %2361, i32 noundef -1, ptr noundef nonnull %26, ptr noundef null) #43
-  call void @sqlite3_free(ptr noundef nonnull %2361) #43
-  %.not2666 = icmp eq i32 %2365, 0
-  br i1 %.not2666, label %shell_check_oom.exit3056._crit_edge, label %2366
+shell_check_oom.exit3056:                         ; preds = %2355
+  %2360 = load ptr, ptr %1, align 8, !tbaa !477
+  %2361 = call i32 @sqlite3_prepare_v2(ptr noundef %2360, ptr noundef nonnull %2357, i32 noundef -1, ptr noundef nonnull %26, ptr noundef null) #43
+  call void @sqlite3_free(ptr noundef nonnull %2357) #43
+  %.not2666 = icmp eq i32 %2361, 0
+  br i1 %.not2666, label %shell_check_oom.exit3056._crit_edge, label %2362
 
 shell_check_oom.exit3056._crit_edge:              ; preds = %shell_check_oom.exit3056
   %.pre4534 = load ptr, ptr %26, align 8, !tbaa !31
-  br label %2374
+  br label %2370
 
-2366:                                             ; preds = %shell_check_oom.exit3056
-  %2367 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %2368 = load ptr, ptr %2367, align 8, !tbaa !462
-  %2369 = load ptr, ptr %1, align 8, !tbaa !477
-  %2370 = call ptr @sqlite3_errmsg(ptr noundef %2369) #43
-  %2371 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2368, ptr noundef nonnull @.str.991, ptr noundef %2370) #43
-  %2372 = load ptr, ptr %26, align 8, !tbaa !31
-  %2373 = call i32 @sqlite3_finalize(ptr noundef %2372) #43
+2362:                                             ; preds = %shell_check_oom.exit3056
+  %2363 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %2364 = load ptr, ptr %2363, align 8, !tbaa !462
+  %2365 = load ptr, ptr %1, align 8, !tbaa !477
+  %2366 = call ptr @sqlite3_errmsg(ptr noundef %2365) #43
+  %2367 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2364, ptr noundef nonnull @.str.991, ptr noundef %2366) #43
+  %2368 = load ptr, ptr %26, align 8, !tbaa !31
+  %2369 = call i32 @sqlite3_finalize(ptr noundef %2368) #43
   store ptr null, ptr %26, align 8, !tbaa !31
-  br label %2374
+  br label %2370
 
-2374:                                             ; preds = %shell_check_oom.exit3056._crit_edge, %2366, %shell_check_oom.exit3055
-  %2375 = phi ptr [ null, %2366 ], [ %.pre4534, %shell_check_oom.exit3056._crit_edge ], [ %.pre4535, %shell_check_oom.exit3055 ]
-  %.40 = phi i32 [ 1, %2366 ], [ 0, %shell_check_oom.exit3056._crit_edge ], [ 0, %shell_check_oom.exit3055 ]
-  call fastcc void @bind_prepared_stmt(ptr noundef nonnull %1, ptr noundef %2375)
-  %2376 = load ptr, ptr %26, align 8, !tbaa !31
-  %2377 = call i32 @sqlite3_step(ptr noundef %2376) #43
-  %2378 = load ptr, ptr %26, align 8, !tbaa !31
-  %2379 = call i32 @sqlite3_finalize(ptr noundef %2378) #43
+2370:                                             ; preds = %shell_check_oom.exit3056._crit_edge, %2362, %shell_check_oom.exit3055
+  %2371 = phi ptr [ null, %2362 ], [ %.pre4534, %shell_check_oom.exit3056._crit_edge ], [ %.pre4535, %shell_check_oom.exit3055 ]
+  %.40 = phi i32 [ 1, %2362 ], [ 0, %shell_check_oom.exit3056._crit_edge ], [ 0, %shell_check_oom.exit3055 ]
+  call fastcc void @bind_prepared_stmt(ptr noundef nonnull %1, ptr noundef %2371)
+  %2372 = load ptr, ptr %26, align 8, !tbaa !31
+  %2373 = call i32 @sqlite3_step(ptr noundef %2372) #43
+  %2374 = load ptr, ptr %26, align 8, !tbaa !31
+  %2375 = call i32 @sqlite3_finalize(ptr noundef %2374) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #43
   br label %test_breakpoint.exit
 
-2380:                                             ; preds = %2293
-  %2381 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %2382 = load ptr, ptr %2381, align 8, !tbaa !29
-  %2383 = icmp eq ptr %2382, null
-  %spec.store.select.i3057 = select i1 %2383, ptr @.str.44, ptr %2382
-  %2384 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3057, ptr noundef nonnull dereferenceable(6) @.str.992) #44
-  %2385 = icmp eq i32 %2384, 0
-  br i1 %2385, label %2386, label %.critedge2817.thread
+2376:                                             ; preds = %2289
+  %2377 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %2378 = load ptr, ptr %2377, align 8, !tbaa !29
+  %2379 = icmp eq ptr %2378, null
+  %spec.store.select.i3057 = select i1 %2379, ptr @.str.44, ptr %2378
+  %2380 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3057, ptr noundef nonnull dereferenceable(6) @.str.992) #44
+  %2381 = icmp eq i32 %2380, 0
+  br i1 %2381, label %2382, label %.critedge2817.thread
 
-2386:                                             ; preds = %2380
-  %2387 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %2388 = load ptr, ptr %2387, align 16, !tbaa !29
-  %2389 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.993, ptr noundef %2388) #43
-  %2390 = icmp eq ptr %2389, null
-  br i1 %2390, label %2391, label %shell_check_oom.exit3058
+2382:                                             ; preds = %2376
+  %2383 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %2384 = load ptr, ptr %2383, align 16, !tbaa !29
+  %2385 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.993, ptr noundef %2384) #43
+  %2386 = icmp eq ptr %2385, null
+  br i1 %2386, label %2387, label %shell_check_oom.exit3058
 
-2391:                                             ; preds = %2386
+2387:                                             ; preds = %2382
   tail call fastcc void @shell_out_of_memory()
   unreachable
 
-shell_check_oom.exit3058:                         ; preds = %2386
-  %2392 = load ptr, ptr %1, align 8, !tbaa !477
-  %2393 = tail call i32 @sqlite3_exec(ptr noundef %2392, ptr noundef nonnull %2389, ptr noundef null, ptr noundef null, ptr noundef null) #43
-  tail call void @sqlite3_free(ptr noundef nonnull %2389) #43
+shell_check_oom.exit3058:                         ; preds = %2382
+  %2388 = load ptr, ptr %1, align 8, !tbaa !477
+  %2389 = tail call i32 @sqlite3_exec(ptr noundef %2388, ptr noundef nonnull %2385, ptr noundef null, ptr noundef null, ptr noundef null) #43
+  tail call void @sqlite3_free(ptr noundef nonnull %2385) #43
   br label %test_breakpoint.exit
 
-.critedge2817.thread:                             ; preds = %2293, %.critedge2816, %2343, %2380
-  %2394 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %2395 = load ptr, ptr %2394, align 8, !tbaa !462
-  %2396 = tail call fastcc i32 @showHelp(ptr noundef %2395, ptr noundef nonnull @.str.981)
+.critedge2817.thread:                             ; preds = %2289, %.critedge2816, %2339, %2376
+  %2390 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %2391 = load ptr, ptr %2390, align 8, !tbaa !462
+  %2392 = tail call fastcc i32 @showHelp(ptr noundef %2391, ptr noundef nonnull @.str.981)
   br label %test_breakpoint.exit
 
-2397:                                             ; preds = %2289
-  %2398 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.994, i64 noundef range(i64 0, 1073741824) %2290) #44
-  %2399 = icmp eq i32 %2398, 0
-  br i1 %2399, label %.preheader3760, label %.critedge2819
+2393:                                             ; preds = %2285
+  %2394 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.994, i64 noundef range(i64 0, 1073741824) %2286) #44
+  %2395 = icmp eq i32 %2394, 0
+  br i1 %2395, label %.preheader3760, label %.critedge2819
 
-.preheader3760:                                   ; preds = %2397
+.preheader3760:                                   ; preds = %2393
   %.not4216 = icmp eq i32 %.02122.lcssa.ph, 1
   br i1 %.not4216, label %._crit_edge4056, label %.lr.ph4055
 
 .lr.ph4055:                                       ; preds = %.preheader3760
-  %2400 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %2396 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %wide.trip.count4387 = and i64 %.02122.lcssa.ph.in, 4294967295
+  br label %2397
+
+2397:                                             ; preds = %.lr.ph4055, %2401
+  %indvars.iv4382 = phi i64 [ 1, %.lr.ph4055 ], [ %indvars.iv.next4383, %2401 ]
+  %2398 = icmp samesign ugt i64 %indvars.iv4382, 1
+  br i1 %2398, label %2399, label %2401
+
+2399:                                             ; preds = %2397
+  %2400 = load ptr, ptr %2396, align 8, !tbaa !462
+  %fputc2664 = tail call i32 @fputc(i32 32, ptr %2400)
   br label %2401
 
-2401:                                             ; preds = %.lr.ph4055, %2405
-  %indvars.iv4382 = phi i64 [ 1, %.lr.ph4055 ], [ %indvars.iv.next4383, %2405 ]
-  %2402 = icmp samesign ugt i64 %indvars.iv4382, 1
-  br i1 %2402, label %2403, label %2405
-
-2403:                                             ; preds = %2401
-  %2404 = load ptr, ptr %2400, align 8, !tbaa !462
-  %fputc2664 = tail call i32 @fputc(i32 32, ptr %2404)
-  br label %2405
-
-2405:                                             ; preds = %2403, %2401
-  %2406 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4382
-  %2407 = load ptr, ptr %2406, align 8, !tbaa !29
-  %2408 = load ptr, ptr %2400, align 8, !tbaa !462
-  %2409 = tail call i32 @fputs(ptr noundef %2407, ptr noundef %2408)
+2401:                                             ; preds = %2399, %2397
+  %2402 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4382
+  %2403 = load ptr, ptr %2402, align 8, !tbaa !29
+  %2404 = load ptr, ptr %2396, align 8, !tbaa !462
+  %2405 = tail call i32 @fputs(ptr noundef %2403, ptr noundef %2404)
   %indvars.iv.next4383 = add nuw nsw i64 %indvars.iv4382, 1
   %exitcond4388.not = icmp eq i64 %indvars.iv.next4383, %wide.trip.count4387
-  br i1 %exitcond4388.not, label %._crit_edge4056, label %2401, !llvm.loop !553
+  br i1 %exitcond4388.not, label %._crit_edge4056, label %2397, !llvm.loop !553
 
-._crit_edge4056:                                  ; preds = %2405, %.preheader3760
-  %2410 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %2411 = load ptr, ptr %2410, align 8, !tbaa !462
-  %fputc2663 = tail call i32 @fputc(i32 10, ptr %2411)
+._crit_edge4056:                                  ; preds = %2401, %.preheader3760
+  %2406 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %2407 = load ptr, ptr %2406, align 8, !tbaa !462
+  %fputc2663 = tail call i32 @fputc(i32 10, ptr %2407)
   br label %test_breakpoint.exit
 
-.critedge2819:                                    ; preds = %2397
-  %2412 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.995, i64 noundef range(i64 0, 1073741824) %2290) #44
-  %2413 = icmp eq i32 %2412, 0
-  br i1 %2413, label %2414, label %.critedge2820.thread
+.critedge2819:                                    ; preds = %2393
+  %2408 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.995, i64 noundef range(i64 0, 1073741824) %2286) #44
+  %2409 = icmp eq i32 %2408, 0
+  br i1 %2409, label %2410, label %.critedge2820.thread
 
-2414:                                             ; preds = %.critedge2819
-  %2415 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i32 0, ptr %2415, align 8, !tbaa !554
-  %2416 = getelementptr inbounds nuw i8, ptr %1, i64 124
-  store i32 0, ptr %2416, align 4, !tbaa !555
-  %2417 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store i32 0, ptr %2417, align 8, !tbaa !556
-  %2418 = icmp sgt i32 %.02122.lcssa.ph, 1
-  br i1 %2418, label %.lr.ph4051, label %._crit_edge4052
+2410:                                             ; preds = %.critedge2819
+  %2411 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  store i32 0, ptr %2411, align 8, !tbaa !554
+  %2412 = getelementptr inbounds nuw i8, ptr %1, i64 124
+  store i32 0, ptr %2412, align 4, !tbaa !555
+  %2413 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store i32 0, ptr %2413, align 8, !tbaa !556
+  %2414 = icmp sgt i32 %.02122.lcssa.ph, 1
+  br i1 %2414, label %.lr.ph4051, label %._crit_edge4052
 
-.lr.ph4051:                                       ; preds = %2414, %2469
-  %.023504049 = phi i32 [ %.12351.ph, %2469 ], [ 0, %2414 ]
-  %.023524048 = phi i32 [ %2470, %2469 ], [ 1, %2414 ]
-  %2419 = sext i32 %.023524048 to i64
-  %2420 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %2419
-  %2421 = load ptr, ptr %2420, align 8, !tbaa !29
+.lr.ph4051:                                       ; preds = %2410, %2465
+  %.023504049 = phi i32 [ %.12351.ph, %2465 ], [ 0, %2410 ]
+  %.023524048 = phi i32 [ %2466, %2465 ], [ 1, %2410 ]
+  %2415 = sext i32 %.023524048 to i64
+  %2416 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %2415
+  %2417 = load ptr, ptr %2416, align 8, !tbaa !29
+  %2418 = load i8, ptr %2417, align 1, !tbaa !25
+  %2419 = icmp eq i8 %2418, 45
+  br i1 %2419, label %2420, label %2462
+
+2420:                                             ; preds = %.lr.ph4051
+  %2421 = getelementptr inbounds nuw i8, ptr %2417, i64 1
   %2422 = load i8, ptr %2421, align 1, !tbaa !25
   %2423 = icmp eq i8 %2422, 45
-  br i1 %2423, label %2424, label %2466
+  %2424 = getelementptr inbounds nuw i8, ptr %2417, i64 2
+  %spec.select2821 = select i1 %2423, ptr %2424, ptr %2421
+  %2425 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2821, ptr noundef nonnull dereferenceable(6) @.str.996) #44
+  %2426 = icmp eq i32 %2425, 0
+  br i1 %2426, label %2431, label %sub_03715
 
-2424:                                             ; preds = %.lr.ph4051
-  %2425 = getelementptr inbounds nuw i8, ptr %2421, i64 1
-  %2426 = load i8, ptr %2425, align 1, !tbaa !25
-  %2427 = icmp eq i8 %2426, 45
-  %2428 = getelementptr inbounds nuw i8, ptr %2421, i64 2
-  %spec.select2821 = select i1 %2427, ptr %2428, ptr %2425
-  %2429 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2821, ptr noundef nonnull dereferenceable(6) @.str.996) #44
-  %2430 = icmp eq i32 %2429, 0
-  br i1 %2430, label %2435, label %sub_03715
-
-sub_03715:                                        ; preds = %2424
-  %2431 = load i8, ptr %spec.select2821, align 1
-  %.not4215 = icmp eq i8 %2431, 113
+sub_03715:                                        ; preds = %2420
+  %2427 = load i8, ptr %spec.select2821, align 1
+  %.not4215 = icmp eq i8 %2427, 113
   br i1 %.not4215, label %.tail3714, label %.tail3714.thread
 
 .tail3714:                                        ; preds = %sub_03715
-  %2432 = getelementptr inbounds nuw i8, ptr %spec.select2821, i64 1
-  %2433 = load i8, ptr %2432, align 1
-  %2434 = icmp eq i8 %2433, 0
-  br i1 %2434, label %2435, label %.tail3714.thread
+  %2428 = getelementptr inbounds nuw i8, ptr %spec.select2821, i64 1
+  %2429 = load i8, ptr %2428, align 1
+  %2430 = icmp eq i8 %2429, 0
+  br i1 %2430, label %2431, label %.tail3714.thread
 
-2435:                                             ; preds = %.tail3714, %2424
-  %2436 = load i32, ptr %2415, align 8, !tbaa !554
-  %2437 = or i32 %2436, 1
-  store i32 %2437, ptr %2415, align 8, !tbaa !554
-  br label %2469
+2431:                                             ; preds = %.tail3714, %2420
+  %2432 = load i32, ptr %2411, align 8, !tbaa !554
+  %2433 = or i32 %2432, 1
+  store i32 %2433, ptr %2411, align 8, !tbaa !554
+  br label %2465
 
 .tail3714.thread:                                 ; preds = %sub_03715, %.tail3714
-  %2438 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2821, ptr noundef nonnull dereferenceable(6) @.str.998) #44
-  %2439 = icmp eq i32 %2438, 0
-  br i1 %2439, label %2440, label %2443
+  %2434 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2821, ptr noundef nonnull dereferenceable(6) @.str.998) #44
+  %2435 = icmp eq i32 %2434, 0
+  br i1 %2435, label %2436, label %2439
 
-2440:                                             ; preds = %.tail3714.thread
-  %2441 = load i32, ptr %2415, align 8, !tbaa !554
-  %2442 = or i32 %2441, 2
-  store i32 %2442, ptr %2415, align 8, !tbaa !554
-  br label %2469
+2436:                                             ; preds = %.tail3714.thread
+  %2437 = load i32, ptr %2411, align 8, !tbaa !554
+  %2438 = or i32 %2437, 2
+  store i32 %2438, ptr %2411, align 8, !tbaa !554
+  br label %2465
 
-2443:                                             ; preds = %.tail3714.thread
-  %2444 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2821, ptr noundef nonnull dereferenceable(5) @.str.965) #44
-  %2445 = icmp eq i32 %2444, 0
-  br i1 %2445, label %2446, label %2449
+2439:                                             ; preds = %.tail3714.thread
+  %2440 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2821, ptr noundef nonnull dereferenceable(5) @.str.965) #44
+  %2441 = icmp eq i32 %2440, 0
+  br i1 %2441, label %2442, label %2445
 
-2446:                                             ; preds = %2443
-  %2447 = load i32, ptr %2415, align 8, !tbaa !554
-  %2448 = or i32 %2447, 4
-  store i32 %2448, ptr %2415, align 8, !tbaa !554
-  br label %2469
+2442:                                             ; preds = %2439
+  %2443 = load i32, ptr %2411, align 8, !tbaa !554
+  %2444 = or i32 %2443, 4
+  store i32 %2444, ptr %2411, align 8, !tbaa !554
+  br label %2465
 
-2449:                                             ; preds = %2443
-  %2450 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2821, ptr noundef nonnull dereferenceable(6) @.str.999) #44
-  %2451 = icmp eq i32 %2450, 0
-  br i1 %2451, label %2452, label %2463
+2445:                                             ; preds = %2439
+  %2446 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2821, ptr noundef nonnull dereferenceable(6) @.str.999) #44
+  %2447 = icmp eq i32 %2446, 0
+  br i1 %2447, label %2448, label %2459
 
-2452:                                             ; preds = %2449
-  %2453 = add nsw i32 %.023524048, 1
-  %.not2662 = icmp slt i32 %2453, %.02122.lcssa.ph
-  br i1 %.not2662, label %2457, label %2454
+2448:                                             ; preds = %2445
+  %2449 = add nsw i32 %.023524048, 1
+  %.not2662 = icmp slt i32 %2449, %.02122.lcssa.ph
+  br i1 %.not2662, label %2453, label %2450
 
-2454:                                             ; preds = %2452
-  %2455 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2456 = tail call i64 @fwrite(ptr nonnull @.str.1000, i64 35, i64 1, ptr %2455) #50
+2450:                                             ; preds = %2448
+  %2451 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2452 = tail call i64 @fwrite(ptr nonnull @.str.1000, i64 35, i64 1, ptr %2451) #50
   br label %test_breakpoint.exit
 
-2457:                                             ; preds = %2452
-  %2458 = sext i32 %2453 to i64
-  %2459 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %2458
-  %2460 = load ptr, ptr %2459, align 8, !tbaa !29
-  %2461 = tail call fastcc i64 @integerValue(ptr noundef %2460)
-  %2462 = trunc i64 %2461 to i32
-  store i32 %2462, ptr %2416, align 4, !tbaa !555
-  br label %2469
+2453:                                             ; preds = %2448
+  %2454 = sext i32 %2449 to i64
+  %2455 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %2454
+  %2456 = load ptr, ptr %2455, align 8, !tbaa !29
+  %2457 = tail call fastcc i64 @integerValue(ptr noundef %2456)
+  %2458 = trunc i64 %2457 to i32
+  store i32 %2458, ptr %2412, align 4, !tbaa !555
+  br label %2465
 
-2463:                                             ; preds = %2449
-  %2464 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2465 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2464, ptr noundef nonnull @.str.1001, ptr noundef nonnull %2421) #46
+2459:                                             ; preds = %2445
+  %2460 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2461 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2460, ptr noundef nonnull @.str.1001, ptr noundef nonnull %2417) #46
   br label %test_breakpoint.exit
 
-2466:                                             ; preds = %.lr.ph4051
-  %2467 = tail call fastcc i64 @integerValue(ptr noundef nonnull %2421)
-  %2468 = trunc i64 %2467 to i32
-  br label %2469
+2462:                                             ; preds = %.lr.ph4051
+  %2463 = tail call fastcc i64 @integerValue(ptr noundef nonnull %2417)
+  %2464 = trunc i64 %2463 to i32
+  br label %2465
 
-2469:                                             ; preds = %2435, %2440, %2446, %2457, %2466
-  %.12353.ph = phi i32 [ %.023524048, %2466 ], [ %2453, %2457 ], [ %.023524048, %2446 ], [ %.023524048, %2440 ], [ %.023524048, %2435 ]
-  %.12351.ph = phi i32 [ %2468, %2466 ], [ %.023504049, %2457 ], [ %.023504049, %2446 ], [ %.023504049, %2440 ], [ %.023504049, %2435 ]
-  %2470 = add nsw i32 %.12353.ph, 1
-  %2471 = icmp slt i32 %2470, %.02122.lcssa.ph
-  br i1 %2471, label %.lr.ph4051, label %._crit_edge4052, !llvm.loop !557
+2465:                                             ; preds = %2431, %2436, %2442, %2453, %2462
+  %.12353.ph = phi i32 [ %.023524048, %2462 ], [ %2449, %2453 ], [ %.023524048, %2442 ], [ %.023524048, %2436 ], [ %.023524048, %2431 ]
+  %.12351.ph = phi i32 [ %2464, %2462 ], [ %.023504049, %2453 ], [ %.023504049, %2442 ], [ %.023504049, %2436 ], [ %.023504049, %2431 ]
+  %2466 = add nsw i32 %.12353.ph, 1
+  %2467 = icmp slt i32 %2466, %.02122.lcssa.ph
+  br i1 %2467, label %.lr.ph4051, label %._crit_edge4052, !llvm.loop !557
 
-._crit_edge4052:                                  ; preds = %2469, %2414
-  %.02350.lcssa = phi i32 [ 0, %2414 ], [ %.12351.ph, %2469 ]
+._crit_edge4052:                                  ; preds = %2465, %2410
+  %.02350.lcssa = phi i32 [ 0, %2410 ], [ %.12351.ph, %2465 ]
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
-  %2472 = load ptr, ptr %1, align 8, !tbaa !477
-  tail call void @sqlite3_progress_handler(ptr noundef %2472, i32 noundef %.02350.lcssa, ptr noundef nonnull @progress_handler, ptr noundef nonnull %1) #43
+  %2468 = load ptr, ptr %1, align 8, !tbaa !477
+  tail call void @sqlite3_progress_handler(ptr noundef %2468, i32 noundef %.02350.lcssa, ptr noundef nonnull @progress_handler, ptr noundef nonnull %1) #43
   br label %test_breakpoint.exit
 
-.critedge2820:                                    ; preds = %2287
-  br i1 %2288, label %.critedge2820.thread, label %.thread3464
+.critedge2820:                                    ; preds = %2283
+  br i1 %2284, label %.critedge2820.thread, label %.thread3464
 
 .critedge2820.thread:                             ; preds = %.critedge2819, %.critedge2820
-  %2473 = and i64 %strlen.i, 1073741823
-  %2474 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1002, i64 noundef range(i64 0, 1073741824) %2473) #44
-  %2475 = icmp eq i32 %2474, 0
-  br i1 %2475, label %2476, label %.critedge2823
+  %2469 = and i64 %strlen.i, 1073741823
+  %2470 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1002, i64 noundef range(i64 0, 1073741824) %2469) #44
+  %2471 = icmp eq i32 %2470, 0
+  br i1 %2471, label %2472, label %.critedge2823
 
-2476:                                             ; preds = %.critedge2820.thread
+2472:                                             ; preds = %.critedge2820.thread
   %.not2661 = icmp eq i32 %.02122.lcssa.ph, 1
-  br i1 %.not2661, label %test_breakpoint.exit, label %2477
+  br i1 %.not2661, label %test_breakpoint.exit, label %2473
 
-2477:                                             ; preds = %2476
-  %2478 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %2479 = load ptr, ptr %2478, align 8, !tbaa !29
+2473:                                             ; preds = %2472
+  %2474 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %2475 = load ptr, ptr %2474, align 8, !tbaa !29
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %2482, %2477
-  %.011.i = phi i64 [ %2484, %2482 ], [ 0, %2477 ]
-  %2480 = getelementptr inbounds nuw i8, ptr %2479, i64 %.011.i
-  %2481 = load i8, ptr %2480, align 1, !tbaa !25
-  %.not.i3067 = icmp eq i8 %2481, 0
-  br i1 %.not.i3067, label %2485, label %2482
+.lr.ph.i:                                         ; preds = %2478, %2473
+  %.011.i = phi i64 [ %2480, %2478 ], [ 0, %2473 ]
+  %2476 = getelementptr inbounds nuw i8, ptr %2475, i64 %.011.i
+  %2477 = load i8, ptr %2476, align 1, !tbaa !25
+  %.not.i3067 = icmp eq i8 %2477, 0
+  br i1 %.not.i3067, label %2481, label %2478
 
-2482:                                             ; preds = %.lr.ph.i
-  %2483 = getelementptr inbounds nuw i8, ptr @mainPrompt, i64 %.011.i
-  store i8 %2481, ptr %2483, align 1, !tbaa !25
-  %2484 = add nuw nsw i64 %.011.i, 1
-  %exitcond.not.i = icmp eq i64 %2484, 18
-  br i1 %exitcond.not.i, label %2485, label %.lr.ph.i, !llvm.loop !558
+2478:                                             ; preds = %.lr.ph.i
+  %2479 = getelementptr inbounds nuw i8, ptr @mainPrompt, i64 %.011.i
+  store i8 %2477, ptr %2479, align 1, !tbaa !25
+  %2480 = add nuw nsw i64 %.011.i, 1
+  %exitcond.not.i = icmp eq i64 %2480, 18
+  br i1 %exitcond.not.i, label %2481, label %.lr.ph.i, !llvm.loop !558
 
-2485:                                             ; preds = %2482, %.lr.ph.i
-  %.0.lcssa.ph.i = phi i64 [ %.011.i, %.lr.ph.i ], [ 18, %2482 ]
-  %2486 = getelementptr inbounds nuw i8, ptr @mainPrompt, i64 %.0.lcssa.ph.i
-  store i8 0, ptr %2486, align 1, !tbaa !25
-  %2487 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
-  br i1 %2487, label %2488, label %test_breakpoint.exit
+2481:                                             ; preds = %2478, %.lr.ph.i
+  %.0.lcssa.ph.i = phi i64 [ %.011.i, %.lr.ph.i ], [ 18, %2478 ]
+  %2482 = getelementptr inbounds nuw i8, ptr @mainPrompt, i64 %.0.lcssa.ph.i
+  store i8 0, ptr %2482, align 1, !tbaa !25
+  %2483 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
+  br i1 %2483, label %2484, label %test_breakpoint.exit
 
-2488:                                             ; preds = %2485
-  %2489 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %2490 = load ptr, ptr %2489, align 16, !tbaa !29
+2484:                                             ; preds = %2481
+  %2485 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %2486 = load ptr, ptr %2485, align 16, !tbaa !29
   br label %.lr.ph.i3068
 
-.lr.ph.i3068:                                     ; preds = %2493, %2488
-  %.011.i3069 = phi i64 [ %2495, %2493 ], [ 0, %2488 ]
-  %2491 = getelementptr inbounds nuw i8, ptr %2490, i64 %.011.i3069
-  %2492 = load i8, ptr %2491, align 1, !tbaa !25
-  %.not.i3070 = icmp eq i8 %2492, 0
-  br i1 %.not.i3070, label %shell_strncpy.exit3073, label %2493
+.lr.ph.i3068:                                     ; preds = %2489, %2484
+  %.011.i3069 = phi i64 [ %2491, %2489 ], [ 0, %2484 ]
+  %2487 = getelementptr inbounds nuw i8, ptr %2486, i64 %.011.i3069
+  %2488 = load i8, ptr %2487, align 1, !tbaa !25
+  %.not.i3070 = icmp eq i8 %2488, 0
+  br i1 %.not.i3070, label %shell_strncpy.exit3073, label %2489
 
-2493:                                             ; preds = %.lr.ph.i3068
-  %2494 = getelementptr inbounds nuw i8, ptr @continuePrompt, i64 %.011.i3069
-  store i8 %2492, ptr %2494, align 1, !tbaa !25
-  %2495 = add nuw nsw i64 %.011.i3069, 1
-  %exitcond.not.i3071 = icmp eq i64 %2495, 18
+2489:                                             ; preds = %.lr.ph.i3068
+  %2490 = getelementptr inbounds nuw i8, ptr @continuePrompt, i64 %.011.i3069
+  store i8 %2488, ptr %2490, align 1, !tbaa !25
+  %2491 = add nuw nsw i64 %.011.i3069, 1
+  %exitcond.not.i3071 = icmp eq i64 %2491, 18
   br i1 %exitcond.not.i3071, label %shell_strncpy.exit3073, label %.lr.ph.i3068, !llvm.loop !558
 
-shell_strncpy.exit3073:                           ; preds = %.lr.ph.i3068, %2493
-  %.0.lcssa.ph.i3072 = phi i64 [ %.011.i3069, %.lr.ph.i3068 ], [ 18, %2493 ]
-  %2496 = getelementptr inbounds nuw i8, ptr @continuePrompt, i64 %.0.lcssa.ph.i3072
-  store i8 0, ptr %2496, align 1, !tbaa !25
+shell_strncpy.exit3073:                           ; preds = %.lr.ph.i3068, %2489
+  %.0.lcssa.ph.i3072 = phi i64 [ %.011.i3069, %.lr.ph.i3068 ], [ 18, %2489 ]
+  %2492 = getelementptr inbounds nuw i8, ptr @continuePrompt, i64 %.0.lcssa.ph.i3072
+  store i8 0, ptr %2492, align 1, !tbaa !25
   br label %test_breakpoint.exit
 
 .thread3464:                                      ; preds = %.critedge2820
-  %2497 = icmp eq i8 %131, 113
-  br i1 %2497, label %2498, label %.thread3464.thread
+  %2493 = icmp eq i8 %131, 113
+  br i1 %2493, label %2494, label %.thread3464.thread
 
-2498:                                             ; preds = %.thread3464
-  %2499 = and i64 %strlen.i, 1073741823
-  %2500 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1003, i64 noundef range(i64 0, 1073741824) %2499) #44
-  %2501 = icmp eq i32 %2500, 0
-  br i1 %2501, label %test_breakpoint.exit, label %.critedge2823
+2494:                                             ; preds = %.thread3464
+  %2495 = and i64 %strlen.i, 1073741823
+  %2496 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1003, i64 noundef range(i64 0, 1073741824) %2495) #44
+  %2497 = icmp eq i32 %2496, 0
+  br i1 %2497, label %test_breakpoint.exit, label %.critedge2823
 
 .thread3464.thread:                               ; preds = %.thread3464
-  %or.cond145 = select i1 %1792, i1 %1795, i1 false
-  br i1 %or.cond145, label %2502, label %.critedge2823
+  %or.cond145 = select i1 %1788, i1 %1791, i1 false
+  br i1 %or.cond145, label %2498, label %.critedge2823
 
-2502:                                             ; preds = %.thread3464.thread
-  %2503 = and i64 %strlen.i, 1073741823
-  %2504 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.387, i64 noundef range(i64 0, 1073741824) %2503) #44
-  %2505 = icmp eq i32 %2504, 0
-  br i1 %2505, label %2506, label %2541
+2498:                                             ; preds = %.thread3464.thread
+  %2499 = and i64 %strlen.i, 1073741823
+  %2500 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.387, i64 noundef range(i64 0, 1073741824) %2499) #44
+  %2501 = icmp eq i32 %2500, 0
+  br i1 %2501, label %2502, label %2537
 
-2506:                                             ; preds = %2502
-  %2507 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %2508 = load ptr, ptr %2507, align 8, !tbaa !463
-  %2509 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %2510 = load i32, ptr %2509, align 4, !tbaa !464
+2502:                                             ; preds = %2498
+  %2503 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %2504 = load ptr, ptr %2503, align 8, !tbaa !463
+  %2505 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %2506 = load i32, ptr %2505, align 4, !tbaa !464
   tail call void (ptr, ptr, ...) @failIfSafeMode(ptr noundef nonnull %1, ptr noundef nonnull @.str.1004)
   %.not2660 = icmp eq i32 %.02122.lcssa.ph, 2
-  br i1 %.not2660, label %2514, label %2511
+  br i1 %.not2660, label %2510, label %2507
 
-2511:                                             ; preds = %2506
-  %2512 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2513 = tail call i64 @fwrite(ptr nonnull @.str.1005, i64 18, i64 1, ptr %2512) #50
+2507:                                             ; preds = %2502
+  %2508 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2509 = tail call i64 @fwrite(ptr nonnull @.str.1005, i64 18, i64 1, ptr %2508) #50
   br label %test_breakpoint.exit
 
-2514:                                             ; preds = %2506
-  %2515 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %2516 = load ptr, ptr %2515, align 8, !tbaa !29
-  %2517 = load i8, ptr %2516, align 1, !tbaa !25
-  %2518 = icmp eq i8 %2517, 124
-  br i1 %2518, label %2519, label %2530
+2510:                                             ; preds = %2502
+  %2511 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %2512 = load ptr, ptr %2511, align 8, !tbaa !29
+  %2513 = load i8, ptr %2512, align 1, !tbaa !25
+  %2514 = icmp eq i8 %2513, 124
+  br i1 %2514, label %2515, label %2526
 
-2519:                                             ; preds = %2514
-  %2520 = getelementptr inbounds nuw i8, ptr %2516, i64 1
-  %2521 = tail call noalias ptr @popen(ptr noundef nonnull %2520, ptr noundef nonnull @.str.679)
-  store ptr %2521, ptr %2507, align 8, !tbaa !463
-  %2522 = icmp eq ptr %2521, null
-  br i1 %2522, label %2523, label %2526
+2515:                                             ; preds = %2510
+  %2516 = getelementptr inbounds nuw i8, ptr %2512, i64 1
+  %2517 = tail call noalias ptr @popen(ptr noundef nonnull %2516, ptr noundef nonnull @.str.679)
+  store ptr %2517, ptr %2503, align 8, !tbaa !463
+  %2518 = icmp eq ptr %2517, null
+  br i1 %2518, label %2519, label %2522
 
-2523:                                             ; preds = %2519
-  %2524 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2525 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2524, ptr noundef nonnull @.str.714, ptr noundef nonnull %2516) #46
-  br label %2540
+2519:                                             ; preds = %2515
+  %2520 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2521 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2520, ptr noundef nonnull @.str.714, ptr noundef nonnull %2512) #46
+  br label %2536
 
-2526:                                             ; preds = %2519
-  %2527 = tail call fastcc i32 @process_input(ptr noundef %1)
-  %2528 = load ptr, ptr %2507, align 8, !tbaa !463
-  %2529 = tail call i32 @pclose(ptr noundef %2528)
-  br label %2540
+2522:                                             ; preds = %2515
+  %2523 = tail call fastcc i32 @process_input(ptr noundef %1)
+  %2524 = load ptr, ptr %2503, align 8, !tbaa !463
+  %2525 = tail call i32 @pclose(ptr noundef %2524)
+  br label %2536
 
-2530:                                             ; preds = %2514
-  %2531 = tail call fastcc ptr @openChrSource(ptr noundef nonnull %2516)
-  store ptr %2531, ptr %2507, align 8, !tbaa !463
-  %2532 = icmp eq ptr %2531, null
-  br i1 %2532, label %2533, label %2536
+2526:                                             ; preds = %2510
+  %2527 = tail call fastcc ptr @openChrSource(ptr noundef nonnull %2512)
+  store ptr %2527, ptr %2503, align 8, !tbaa !463
+  %2528 = icmp eq ptr %2527, null
+  br i1 %2528, label %2529, label %2532
 
-2533:                                             ; preds = %2530
-  %2534 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2535 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2534, ptr noundef nonnull @.str.714, ptr noundef nonnull %2516) #46
-  br label %2540
+2529:                                             ; preds = %2526
+  %2530 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2531 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2530, ptr noundef nonnull @.str.714, ptr noundef nonnull %2512) #46
+  br label %2536
 
-2536:                                             ; preds = %2530
-  %2537 = tail call fastcc i32 @process_input(ptr noundef %1)
-  %2538 = load ptr, ptr %2507, align 8, !tbaa !463
-  %2539 = tail call i32 @fclose(ptr noundef %2538)
-  br label %2540
+2532:                                             ; preds = %2526
+  %2533 = tail call fastcc i32 @process_input(ptr noundef %1)
+  %2534 = load ptr, ptr %2503, align 8, !tbaa !463
+  %2535 = tail call i32 @fclose(ptr noundef %2534)
+  br label %2536
 
-2540:                                             ; preds = %2533, %2536, %2523, %2526
-  %.45 = phi i32 [ 1, %2523 ], [ %2527, %2526 ], [ 1, %2533 ], [ %2537, %2536 ]
-  store ptr %2508, ptr %2507, align 8, !tbaa !463
-  store i32 %2510, ptr %2509, align 4, !tbaa !464
+2536:                                             ; preds = %2529, %2532, %2519, %2522
+  %.45 = phi i32 [ 1, %2519 ], [ %2523, %2522 ], [ 1, %2529 ], [ %2533, %2532 ]
+  store ptr %2504, ptr %2503, align 8, !tbaa !463
+  store i32 %2506, ptr %2505, align 4, !tbaa !464
   br label %test_breakpoint.exit
 
-2541:                                             ; preds = %2502
-  %2542 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1006, i64 noundef range(i64 0, 1073741824) %2503) #44
-  %2543 = icmp eq i32 %2542, 0
-  br i1 %2543, label %2544, label %.critedge2823
+2537:                                             ; preds = %2498
+  %2538 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1006, i64 noundef range(i64 0, 1073741824) %2499) #44
+  %2539 = icmp eq i32 %2538, 0
+  br i1 %2539, label %2540, label %.critedge2823
 
-2544:                                             ; preds = %2541
+2540:                                             ; preds = %2537
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #43
   tail call void (ptr, ptr, ...) @failIfSafeMode(ptr noundef nonnull %1, ptr noundef nonnull @.str.1007)
-  switch i32 %.02122.lcssa.ph, label %2553 [
-    i32 2, label %2545
-    i32 3, label %2548
+  switch i32 %.02122.lcssa.ph, label %2549 [
+    i32 2, label %2541
+    i32 3, label %2544
   ]
 
-2545:                                             ; preds = %2544
-  %2546 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %2547 = load ptr, ptr %2546, align 8, !tbaa !29
-  br label %2556
+2541:                                             ; preds = %2540
+  %2542 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %2543 = load ptr, ptr %2542, align 8, !tbaa !29
+  br label %2552
 
-2548:                                             ; preds = %2544
-  %2549 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %2550 = load ptr, ptr %2549, align 16, !tbaa !29
-  %2551 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %2552 = load ptr, ptr %2551, align 8, !tbaa !29
-  br label %2556
+2544:                                             ; preds = %2540
+  %2545 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %2546 = load ptr, ptr %2545, align 16, !tbaa !29
+  %2547 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %2548 = load ptr, ptr %2547, align 8, !tbaa !29
+  br label %2552
 
-2553:                                             ; preds = %2544
-  %2554 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2555 = tail call i64 @fwrite(ptr nonnull @.str.1008, i64 26, i64 1, ptr %2554) #50
-  br label %2588
+2549:                                             ; preds = %2540
+  %2550 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2551 = tail call i64 @fwrite(ptr nonnull @.str.1008, i64 26, i64 1, ptr %2550) #50
+  br label %2584
 
-2556:                                             ; preds = %2548, %2545
-  %.02342 = phi ptr [ %2547, %2545 ], [ %2550, %2548 ]
-  %.02341 = phi ptr [ @.str.45, %2545 ], [ %2552, %2548 ]
-  %2557 = call i32 @sqlite3_open(ptr noundef %.02342, ptr noundef nonnull %27) #43
-  %.not2659 = icmp eq i32 %2557, 0
-  br i1 %.not2659, label %2561, label %2558
+2552:                                             ; preds = %2544, %2541
+  %.02342 = phi ptr [ %2543, %2541 ], [ %2546, %2544 ]
+  %.02341 = phi ptr [ @.str.45, %2541 ], [ %2548, %2544 ]
+  %2553 = call i32 @sqlite3_open(ptr noundef %.02342, ptr noundef nonnull %27) #43
+  %.not2659 = icmp eq i32 %2553, 0
+  br i1 %.not2659, label %2557, label %2554
 
-2558:                                             ; preds = %2556
-  %2559 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2560 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2559, ptr noundef nonnull @.str.714, ptr noundef %.02342) #46
+2554:                                             ; preds = %2552
+  %2555 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2556 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2555, ptr noundef nonnull @.str.714, ptr noundef %.02342) #46
   br label %.thread3482
 
-2561:                                             ; preds = %2556
+2557:                                             ; preds = %2552
   call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
-  %2562 = load ptr, ptr %1, align 8, !tbaa !477
-  %2563 = load ptr, ptr %27, align 8, !tbaa !218
-  %2564 = call ptr @sqlite3_backup_init(ptr noundef %2562, ptr noundef %.02341, ptr noundef %2563, ptr noundef nonnull @.str.45) #43
-  %2565 = icmp eq ptr %2564, null
-  br i1 %2565, label %2566, label %.preheader3761.outer
+  %2558 = load ptr, ptr %1, align 8, !tbaa !477
+  %2559 = load ptr, ptr %27, align 8, !tbaa !218
+  %2560 = call ptr @sqlite3_backup_init(ptr noundef %2558, ptr noundef %.02341, ptr noundef %2559, ptr noundef nonnull @.str.45) #43
+  %2561 = icmp eq ptr %2560, null
+  br i1 %2561, label %2562, label %.preheader3761.outer
 
-2566:                                             ; preds = %2561
-  %2567 = load ptr, ptr %1, align 8, !tbaa !477
-  call fastcc void @shellDatabaseError(ptr noundef %2567)
+2562:                                             ; preds = %2557
+  %2563 = load ptr, ptr %1, align 8, !tbaa !477
+  call fastcc void @shellDatabaseError(ptr noundef %2563)
   br label %.thread3482
 
 .preheader3761:                                   ; preds = %.preheader3761.outer, %.preheader3761
-  %2568 = call i32 @sqlite3_backup_step(ptr noundef nonnull %2564, i32 noundef 100) #43
-  switch i32 %2568, label %2575 [
-    i32 5, label %2569
+  %2564 = call i32 @sqlite3_backup_step(ptr noundef nonnull %2560, i32 noundef 100) #43
+  switch i32 %2564, label %2571 [
+    i32 5, label %2565
     i32 0, label %.preheader3761
   ], !llvm.loop !559
 
-2569:                                             ; preds = %.preheader3761
-  %2570 = icmp samesign ugt i32 %.02336.ph, 2
-  br i1 %2570, label %.thread3479, label %2572
+2565:                                             ; preds = %.preheader3761
+  %2566 = icmp samesign ugt i32 %.02336.ph, 2
+  br i1 %2566, label %.thread3479, label %2568
 
-.thread3479:                                      ; preds = %2569
-  %2571 = call i32 @sqlite3_backup_finish(ptr noundef nonnull %2564) #43
-  br label %2580
+.thread3479:                                      ; preds = %2565
+  %2567 = call i32 @sqlite3_backup_finish(ptr noundef nonnull %2560) #43
+  br label %2576
 
-2572:                                             ; preds = %2569
-  %2573 = add nuw nsw i32 %.02336.ph, 1
-  %2574 = call i32 @sqlite3_sleep(i32 noundef 100) #43
+2568:                                             ; preds = %2565
+  %2569 = add nuw nsw i32 %.02336.ph, 1
+  %2570 = call i32 @sqlite3_sleep(i32 noundef 100) #43
   br label %.preheader3761.outer, !llvm.loop !559
 
-.preheader3761.outer:                             ; preds = %2561, %2572
-  %.02336.ph = phi i32 [ %2573, %2572 ], [ 0, %2561 ]
+.preheader3761.outer:                             ; preds = %2557, %2568
+  %.02336.ph = phi i32 [ %2569, %2568 ], [ 0, %2557 ]
   br label %.preheader3761
 
-2575:                                             ; preds = %.preheader3761
-  %2576 = call i32 @sqlite3_backup_finish(ptr noundef nonnull %2564) #43
-  %2577 = icmp eq i32 %2568, 101
-  br i1 %2577, label %2585, label %2578
+2571:                                             ; preds = %.preheader3761
+  %2572 = call i32 @sqlite3_backup_finish(ptr noundef nonnull %2560) #43
+  %2573 = icmp eq i32 %2564, 101
+  br i1 %2573, label %2581, label %2574
 
-2578:                                             ; preds = %2575
-  %2579 = add i32 %2568, -5
-  %or.cond151 = icmp ult i32 %2579, 2
-  br i1 %or.cond151, label %2580, label %2583
+2574:                                             ; preds = %2571
+  %2575 = add i32 %2564, -5
+  %or.cond151 = icmp ult i32 %2575, 2
+  br i1 %or.cond151, label %2576, label %2579
 
-2580:                                             ; preds = %.thread3479, %2578
-  %2581 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2582 = call i64 @fwrite(ptr nonnull @.str.1009, i64 31, i64 1, ptr %2581) #50
-  br label %2585
+2576:                                             ; preds = %.thread3479, %2574
+  %2577 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2578 = call i64 @fwrite(ptr nonnull @.str.1009, i64 31, i64 1, ptr %2577) #50
+  br label %2581
 
-2583:                                             ; preds = %2578
-  %2584 = load ptr, ptr %1, align 8, !tbaa !477
-  call fastcc void @shellDatabaseError(ptr noundef %2584)
-  br label %2585
+2579:                                             ; preds = %2574
+  %2580 = load ptr, ptr %1, align 8, !tbaa !477
+  call fastcc void @shellDatabaseError(ptr noundef %2580)
+  br label %2581
 
-2585:                                             ; preds = %2575, %2580, %2583
-  %.47 = phi i32 [ 1, %2580 ], [ 1, %2583 ], [ 0, %2575 ]
-  %2586 = load ptr, ptr %27, align 8, !tbaa !218
-  call void @close_db(ptr noundef %2586)
-  br label %2588
+2581:                                             ; preds = %2571, %2576, %2579
+  %.47 = phi i32 [ 1, %2576 ], [ 1, %2579 ], [ 0, %2571 ]
+  %2582 = load ptr, ptr %27, align 8, !tbaa !218
+  call void @close_db(ptr noundef %2582)
+  br label %2584
 
-.thread3482:                                      ; preds = %2558, %2566
-  %2587 = load ptr, ptr %27, align 8, !tbaa !218
-  call void @close_db(ptr noundef %2587)
+.thread3482:                                      ; preds = %2554, %2562
+  %2583 = load ptr, ptr %27, align 8, !tbaa !218
+  call void @close_db(ptr noundef %2583)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #43
   br label %._crit_edge.thread
 
-2588:                                             ; preds = %2585, %2553
-  %.46 = phi i32 [ %.47, %2585 ], [ 1, %2553 ]
+2584:                                             ; preds = %2581, %2549
+  %.46 = phi i32 [ %.47, %2581 ], [ 1, %2549 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #43
   br label %test_breakpoint.exit
 
-.critedge2823:                                    ; preds = %.critedge2820.thread, %1798, %2033, %2145, %2149, %2155, %2498, %.thread3464.thread, %2541
-  %2589 = phi i1 [ %2153, %.thread3464.thread ], [ false, %2541 ], [ false, %2498 ], [ true, %2155 ], [ false, %2149 ], [ false, %2145 ], [ false, %2033 ], [ false, %1798 ], [ %2153, %.critedge2820.thread ]
-  br i1 %1794, label %2590, label %.critedge2825.thread
+.critedge2823:                                    ; preds = %.critedge2820.thread, %1794, %2029, %2141, %2145, %2151, %2494, %.thread3464.thread, %2537
+  %2585 = phi i1 [ %2149, %.thread3464.thread ], [ false, %2537 ], [ false, %2494 ], [ true, %2151 ], [ false, %2145 ], [ false, %2141 ], [ false, %2029 ], [ false, %1794 ], [ %2149, %.critedge2820.thread ]
+  br i1 %1790, label %2586, label %.critedge2825.thread
 
-2590:                                             ; preds = %.critedge2823
-  %2591 = and i64 %strlen.i, 1073741823
-  %2592 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1010, i64 noundef range(i64 0, 1073741824) %2591) #44
-  %2593 = icmp eq i32 %2592, 0
-  br i1 %2593, label %2597, label %2594
+2586:                                             ; preds = %.critedge2823
+  %2587 = and i64 %strlen.i, 1073741823
+  %2588 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1010, i64 noundef range(i64 0, 1073741824) %2587) #44
+  %2589 = icmp eq i32 %2588, 0
+  br i1 %2589, label %2593, label %2590
 
-2594:                                             ; preds = %2590
-  %2595 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1011, i64 noundef range(i64 0, 1073741824) %2591) #44
-  %2596 = icmp eq i32 %2595, 0
-  br i1 %2596, label %2597, label %2625
+2590:                                             ; preds = %2586
+  %2591 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1011, i64 noundef range(i64 0, 1073741824) %2587) #44
+  %2592 = icmp eq i32 %2591, 0
+  br i1 %2592, label %2593, label %2621
 
-2597:                                             ; preds = %2594, %2590
-  %2598 = icmp eq i32 %.02122.lcssa.ph, 2
-  br i1 %2598, label %sub_03719, label %2622
+2593:                                             ; preds = %2590, %2586
+  %2594 = icmp eq i32 %.02122.lcssa.ph, 2
+  br i1 %2594, label %sub_03719, label %2618
 
-sub_03719:                                        ; preds = %2597
-  %2599 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %2600 = load ptr, ptr %2599, align 8, !tbaa !29
-  %2601 = icmp eq ptr %2600, null
-  %spec.store.select.i3079 = select i1 %2601, ptr @.str.44, ptr %2600
-  %2602 = load i8, ptr %spec.store.select.i3079, align 1
-  %.not4233 = icmp eq i8 %2602, 118
+sub_03719:                                        ; preds = %2593
+  %2595 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %2596 = load ptr, ptr %2595, align 8, !tbaa !29
+  %2597 = icmp eq ptr %2596, null
+  %spec.store.select.i3079 = select i1 %2597, ptr @.str.44, ptr %2596
+  %2598 = load i8, ptr %spec.store.select.i3079, align 1
+  %.not4233 = icmp eq i8 %2598, 118
   br i1 %.not4233, label %sub_13720, label %.tail3718.thread
 
 sub_13720:                                        ; preds = %sub_03719
-  %2603 = getelementptr inbounds nuw i8, ptr %spec.store.select.i3079, i64 1
-  %2604 = load i8, ptr %2603, align 1
-  %.not4234 = icmp eq i8 %2604, 109
+  %2599 = getelementptr inbounds nuw i8, ptr %spec.store.select.i3079, i64 1
+  %2600 = load i8, ptr %2599, align 1
+  %.not4234 = icmp eq i8 %2600, 109
   br i1 %.not4234, label %.tail3718, label %.tail3718.thread
 
 .tail3718:                                        ; preds = %sub_13720
-  %2605 = getelementptr inbounds nuw i8, ptr %spec.store.select.i3079, i64 2
-  %2606 = load i8, ptr %2605, align 1
-  %2607 = icmp eq i8 %2606, 0
-  br i1 %2607, label %2613, label %.tail3718.thread
+  %2601 = getelementptr inbounds nuw i8, ptr %spec.store.select.i3079, i64 2
+  %2602 = load i8, ptr %2601, align 1
+  %2603 = icmp eq i8 %2602, 0
+  br i1 %2603, label %2609, label %.tail3718.thread
 
 .tail3718.thread:                                 ; preds = %sub_13720, %sub_03719, %.tail3718
-  %2608 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3079, ptr noundef nonnull dereferenceable(4) @.str.1013) #44
-  %2609 = icmp eq i32 %2608, 0
-  br i1 %2609, label %2613, label %2610
+  %2604 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3079, ptr noundef nonnull dereferenceable(4) @.str.1013) #44
+  %2605 = icmp eq i32 %2604, 0
+  br i1 %2605, label %2609, label %2606
 
-2610:                                             ; preds = %.tail3718.thread
-  %2611 = tail call fastcc i32 @booleanValue(ptr noundef %2600)
-  %2612 = trunc i32 %2611 to i8
-  br label %2613
+2606:                                             ; preds = %.tail3718.thread
+  %2607 = tail call fastcc i32 @booleanValue(ptr noundef %2596)
+  %2608 = trunc i32 %2607 to i8
+  br label %2609
 
-2613:                                             ; preds = %.tail3718.thread, %.tail3718, %2610
-  %.sink4751 = phi i8 [ %2612, %2610 ], [ 3, %.tail3718 ], [ 2, %.tail3718.thread ]
-  %2614 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i8 %.sink4751, ptr %2614, align 4, !tbaa !470
+2609:                                             ; preds = %.tail3718.thread, %.tail3718, %2606
+  %.sink4751 = phi i8 [ %2608, %2606 ], [ 3, %.tail3718 ], [ 2, %.tail3718.thread ]
+  %2610 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i8 %.sink4751, ptr %2610, align 4, !tbaa !470
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
-  %2615 = load ptr, ptr %1, align 8, !tbaa !477
-  %2616 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %2617 = load i8, ptr %2616, align 4, !tbaa !470
-  %2618 = zext i8 %2617 to i32
-  %2619 = tail call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %2615, i32 noundef 1018, i32 noundef %2618, ptr noundef null) #43
-  %2620 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2621 = tail call i64 @fwrite(ptr nonnull @.str.1014, i64 49, i64 1, ptr %2620) #50
+  %2611 = load ptr, ptr %1, align 8, !tbaa !477
+  %2612 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %2613 = load i8, ptr %2612, align 4, !tbaa !470
+  %2614 = zext i8 %2613 to i32
+  %2615 = tail call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %2611, i32 noundef 1018, i32 noundef %2614, ptr noundef null) #43
+  %2616 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2617 = tail call i64 @fwrite(ptr nonnull @.str.1014, i64 49, i64 1, ptr %2616) #50
   br label %test_breakpoint.exit
 
-2622:                                             ; preds = %2597
-  %2623 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2624 = tail call i64 @fwrite(ptr nonnull @.str.1015, i64 29, i64 1, ptr %2623) #50
+2618:                                             ; preds = %2593
+  %2619 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2620 = tail call i64 @fwrite(ptr nonnull @.str.1015, i64 29, i64 1, ptr %2619) #50
   br label %test_breakpoint.exit
 
-2625:                                             ; preds = %2594
-  %2626 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1016, i64 noundef range(i64 0, 1073741824) %2591) #44
-  %2627 = icmp eq i32 %2626, 0
-  br i1 %2627, label %2628, label %.critedge2825
+2621:                                             ; preds = %2590
+  %2622 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1016, i64 noundef range(i64 0, 1073741824) %2587) #44
+  %2623 = icmp eq i32 %2622, 0
+  br i1 %2623, label %2624, label %.critedge2825
 
-2628:                                             ; preds = %2625
+2624:                                             ; preds = %2621
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #43
   call void @llvm.lifetime.start.p0(i64 4720, ptr nonnull %29) #43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #43
   store ptr null, ptr %30, align 8, !tbaa !29
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4720) %29, ptr noundef nonnull align 8 dereferenceable(4720) %1, i64 4720, i1 false)
-  %2629 = getelementptr inbounds nuw i8, ptr %29, i64 112
-  store i32 0, ptr %2629, align 8, !tbaa !467
-  %2630 = getelementptr inbounds nuw i8, ptr %29, i64 92
-  store i32 3, ptr %2630, align 4, !tbaa !442
-  %2631 = getelementptr inbounds nuw i8, ptr %29, i64 100
-  store i32 3, ptr %2631, align 4, !tbaa !450
+  %2625 = getelementptr inbounds nuw i8, ptr %29, i64 112
+  store i32 0, ptr %2625, align 8, !tbaa !467
+  %2626 = getelementptr inbounds nuw i8, ptr %29, i64 92
+  store i32 3, ptr %2626, align 4, !tbaa !442
+  %2627 = getelementptr inbounds nuw i8, ptr %29, i64 100
+  store i32 3, ptr %2627, align 4, !tbaa !450
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   %.not4232 = icmp eq i32 %.02122.lcssa.ph, 1
   br i1 %.not4232, label %._crit_edge4174.thread, label %.lr.ph4173.preheader
 
-.lr.ph4173.preheader:                             ; preds = %2628
+.lr.ph4173.preheader:                             ; preds = %2624
   %wide.trip.count4489 = and i64 %.02122.lcssa.ph.in, 4294967295
   br label %.lr.ph4173
 
-.lr.ph4173:                                       ; preds = %.lr.ph4173.preheader, %2651
-  %indvars.iv4484 = phi i64 [ 1, %.lr.ph4173.preheader ], [ %indvars.iv.next4485, %2651 ]
-  %.023284170 = phi i32 [ 0, %.lr.ph4173.preheader ], [ %.12329, %2651 ]
-  %.023304169 = phi i32 [ 0, %.lr.ph4173.preheader ], [ %.12331, %2651 ]
-  %.023334168 = phi ptr [ null, %.lr.ph4173.preheader ], [ %.12334, %2651 ]
-  %2632 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4484
-  %2633 = load ptr, ptr %2632, align 8, !tbaa !29
-  %2634 = load i8, ptr %2633, align 1, !tbaa !25
-  %.not.i3082 = icmp eq i8 %2634, 45
-  br i1 %.not.i3082, label %optionMatch.exit3085, label %2646
+.lr.ph4173:                                       ; preds = %.lr.ph4173.preheader, %2647
+  %indvars.iv4484 = phi i64 [ 1, %.lr.ph4173.preheader ], [ %indvars.iv.next4485, %2647 ]
+  %.023284170 = phi i32 [ 0, %.lr.ph4173.preheader ], [ %.12329, %2647 ]
+  %.023304169 = phi i32 [ 0, %.lr.ph4173.preheader ], [ %.12331, %2647 ]
+  %.023334168 = phi ptr [ null, %.lr.ph4173.preheader ], [ %.12334, %2647 ]
+  %2628 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4484
+  %2629 = load ptr, ptr %2628, align 8, !tbaa !29
+  %2630 = load i8, ptr %2629, align 1, !tbaa !25
+  %.not.i3082 = icmp eq i8 %2630, 45
+  br i1 %.not.i3082, label %optionMatch.exit3085, label %2642
 
 optionMatch.exit3085:                             ; preds = %.lr.ph4173
-  %2635 = getelementptr inbounds nuw i8, ptr %2633, i64 1
-  %2636 = load i8, ptr %2635, align 1, !tbaa !25
-  %2637 = icmp eq i8 %2636, 45
-  %2638 = getelementptr inbounds nuw i8, ptr %2633, i64 2
-  %spec.select.i3084 = select i1 %2637, ptr %2638, ptr %2635
-  %2639 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3084, ptr noundef nonnull dereferenceable(7) @.str.837) #44
-  %.not3674 = icmp eq i32 %2639, 0
-  br i1 %.not3674, label %2640, label %optionMatch.exit3089
+  %2631 = getelementptr inbounds nuw i8, ptr %2629, i64 1
+  %2632 = load i8, ptr %2631, align 1, !tbaa !25
+  %2633 = icmp eq i8 %2632, 45
+  %2634 = getelementptr inbounds nuw i8, ptr %2629, i64 2
+  %spec.select.i3084 = select i1 %2633, ptr %2634, ptr %2631
+  %2635 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3084, ptr noundef nonnull dereferenceable(7) @.str.837) #44
+  %.not3674 = icmp eq i32 %2635, 0
+  br i1 %.not3674, label %2636, label %optionMatch.exit3089
 
-2640:                                             ; preds = %optionMatch.exit3085
-  store i32 11, ptr %2630, align 4, !tbaa !442
-  store i32 11, ptr %2631, align 4, !tbaa !450
-  br label %2651
+2636:                                             ; preds = %optionMatch.exit3085
+  store i32 11, ptr %2626, align 4, !tbaa !442
+  store i32 11, ptr %2627, align 4, !tbaa !450
+  br label %2647
 
 optionMatch.exit3089:                             ; preds = %optionMatch.exit3085
-  %2641 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3084, ptr noundef nonnull dereferenceable(6) @.str.1017) #44
-  %.not3675 = icmp eq i32 %2641, 0
-  br i1 %.not3675, label %2651, label %optionMatch.exit3093
+  %2637 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3084, ptr noundef nonnull dereferenceable(6) @.str.1017) #44
+  %.not3675 = icmp eq i32 %2637, 0
+  br i1 %.not3675, label %2647, label %optionMatch.exit3093
 
 optionMatch.exit3093:                             ; preds = %optionMatch.exit3089
-  %2642 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3084, ptr noundef nonnull dereferenceable(6) @.str.785) #44
-  %.not3676 = icmp eq i32 %2642, 0
-  br i1 %.not3676, label %2651, label %2643
+  %2638 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3084, ptr noundef nonnull dereferenceable(6) @.str.785) #44
+  %.not3676 = icmp eq i32 %2638, 0
+  br i1 %.not3676, label %2647, label %2639
 
-2643:                                             ; preds = %optionMatch.exit3093
-  %2644 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2645 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2644, ptr noundef nonnull @.str.1018, ptr noundef nonnull %2633) #46
-  br label %2731
+2639:                                             ; preds = %optionMatch.exit3093
+  %2640 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2641 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2640, ptr noundef nonnull @.str.1018, ptr noundef nonnull %2629) #46
+  br label %2727
 
-2646:                                             ; preds = %.lr.ph4173
-  %2647 = icmp eq ptr %.023334168, null
-  br i1 %2647, label %2651, label %2648
+2642:                                             ; preds = %.lr.ph4173
+  %2643 = icmp eq ptr %.023334168, null
+  br i1 %2643, label %2647, label %2644
 
-2648:                                             ; preds = %2646
-  %2649 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2650 = tail call i64 @fwrite(ptr nonnull @.str.1019, i64 51, i64 1, ptr %2649) #50
-  br label %2731
+2644:                                             ; preds = %2642
+  %2645 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2646 = tail call i64 @fwrite(ptr nonnull @.str.1019, i64 51, i64 1, ptr %2645) #50
+  br label %2727
 
-2651:                                             ; preds = %2646, %optionMatch.exit3093, %optionMatch.exit3089, %2640
-  %.12334 = phi ptr [ %.023334168, %2640 ], [ %.023334168, %optionMatch.exit3089 ], [ %.023334168, %optionMatch.exit3093 ], [ %2633, %2646 ]
-  %.12331 = phi i32 [ %.023304169, %2640 ], [ 1, %optionMatch.exit3089 ], [ %.023304169, %optionMatch.exit3093 ], [ %.023304169, %2646 ]
-  %.12329 = phi i32 [ %.023284170, %2640 ], [ %.023284170, %optionMatch.exit3089 ], [ 1, %optionMatch.exit3093 ], [ %.023284170, %2646 ]
+2647:                                             ; preds = %2642, %optionMatch.exit3093, %optionMatch.exit3089, %2636
+  %.12334 = phi ptr [ %.023334168, %2636 ], [ %.023334168, %optionMatch.exit3089 ], [ %.023334168, %optionMatch.exit3093 ], [ %2629, %2642 ]
+  %.12331 = phi i32 [ %.023304169, %2636 ], [ 1, %optionMatch.exit3089 ], [ %.023304169, %optionMatch.exit3093 ], [ %.023304169, %2642 ]
+  %.12329 = phi i32 [ %.023284170, %2636 ], [ %.023284170, %optionMatch.exit3089 ], [ 1, %optionMatch.exit3093 ], [ %.023284170, %2642 ]
   %indvars.iv.next4485 = add nuw nsw i64 %indvars.iv4484, 1
   %exitcond4490.not = icmp eq i64 %indvars.iv.next4485, %wide.trip.count4489
   br i1 %exitcond4490.not, label %._crit_edge4174, label %.lr.ph4173, !llvm.loop !560
 
-._crit_edge4174:                                  ; preds = %2651
-  %2652 = icmp eq i32 %.12329, 0
-  %2653 = icmp eq i32 %.12331, 0
+._crit_edge4174:                                  ; preds = %2647
+  %2648 = icmp eq i32 %.12329, 0
+  %2649 = icmp eq i32 %.12331, 0
   %.not2646 = icmp eq ptr %.12334, null
-  br i1 %.not2646, label %._crit_edge4174.thread, label %2654
+  br i1 %.not2646, label %._crit_edge4174.thread, label %2650
 
-2654:                                             ; preds = %._crit_edge4174
-  %2655 = tail call i32 @sqlite3_strlike(ptr noundef nonnull %.12334, ptr noundef nonnull @.str.1020, i32 noundef 92) #43
-  %2656 = icmp eq i32 %2655, 0
-  br i1 %2656, label %.critedge2827, label %2657
+2650:                                             ; preds = %._crit_edge4174
+  %2651 = tail call i32 @sqlite3_strlike(ptr noundef nonnull %.12334, ptr noundef nonnull @.str.1020, i32 noundef 92) #43
+  %2652 = icmp eq i32 %2651, 0
+  br i1 %2652, label %.critedge2827, label %2653
 
-2657:                                             ; preds = %2654
-  %2658 = tail call i32 @sqlite3_strlike(ptr noundef nonnull %.12334, ptr noundef nonnull @.str.1021, i32 noundef 92) #43
-  %2659 = icmp eq i32 %2658, 0
-  br i1 %2659, label %.critedge2827, label %2660
+2653:                                             ; preds = %2650
+  %2654 = tail call i32 @sqlite3_strlike(ptr noundef nonnull %.12334, ptr noundef nonnull @.str.1021, i32 noundef 92) #43
+  %2655 = icmp eq i32 %2654, 0
+  br i1 %2655, label %.critedge2827, label %2656
 
-2660:                                             ; preds = %2657
-  %2661 = tail call i32 @sqlite3_strlike(ptr noundef nonnull %.12334, ptr noundef nonnull @.str.1022, i32 noundef 92) #43
-  %2662 = icmp eq i32 %2661, 0
-  br i1 %2662, label %.critedge2827, label %2663
+2656:                                             ; preds = %2653
+  %2657 = tail call i32 @sqlite3_strlike(ptr noundef nonnull %.12334, ptr noundef nonnull @.str.1022, i32 noundef 92) #43
+  %2658 = icmp eq i32 %2657, 0
+  br i1 %2658, label %.critedge2827, label %2659
 
-2663:                                             ; preds = %2660
-  %2664 = tail call i32 @sqlite3_strlike(ptr noundef nonnull %.12334, ptr noundef nonnull @.str.1023, i32 noundef 92) #43
-  %2665 = icmp eq i32 %2664, 0
-  br i1 %2665, label %.critedge2827, label %._crit_edge4174.thread
+2659:                                             ; preds = %2656
+  %2660 = tail call i32 @sqlite3_strlike(ptr noundef nonnull %.12334, ptr noundef nonnull @.str.1023, i32 noundef 92) #43
+  %2661 = icmp eq i32 %2660, 0
+  br i1 %2661, label %.critedge2827, label %._crit_edge4174.thread
 
-.critedge2827:                                    ; preds = %2660, %2657, %2654, %2663
+.critedge2827:                                    ; preds = %2656, %2653, %2650, %2659
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #43
-  %2666 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.1024, ptr noundef nonnull %.12334) #43
-  store ptr %2666, ptr %31, align 16, !tbaa !29
-  %2667 = icmp eq ptr %2666, null
-  br i1 %2667, label %2668, label %shell_check_oom.exit3094
+  %2662 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.1024, ptr noundef nonnull %.12334) #43
+  store ptr %2662, ptr %31, align 16, !tbaa !29
+  %2663 = icmp eq ptr %2662, null
+  br i1 %2663, label %2664, label %shell_check_oom.exit3094
 
-2668:                                             ; preds = %.critedge2827
+2664:                                             ; preds = %.critedge2827
   tail call fastcc void @shell_out_of_memory()
   unreachable
 
 shell_check_oom.exit3094:                         ; preds = %.critedge2827
-  %2669 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr null, ptr %2669, align 8, !tbaa !29
+  %2665 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr null, ptr %2665, align 8, !tbaa !29
   store ptr @.str.1025, ptr %32, align 16, !tbaa !29
-  %2670 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr null, ptr %2670, align 8, !tbaa !29
+  %2666 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr null, ptr %2666, align 8, !tbaa !29
   call fastcc void @shell_callback(ptr noundef nonnull %29, i32 noundef 1, ptr noundef nonnull %31, ptr noundef nonnull readonly %32, ptr noundef null)
-  call void @sqlite3_free(ptr noundef nonnull %2666) #43
+  call void @sqlite3_free(ptr noundef nonnull %2662) #43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #43
   br label %._crit_edge4174.thread
 
-._crit_edge4174.thread:                           ; preds = %2628, %._crit_edge4174, %shell_check_oom.exit3094, %2663
-  %.not26464632 = phi i1 [ true, %._crit_edge4174 ], [ false, %shell_check_oom.exit3094 ], [ false, %2663 ], [ true, %2628 ]
-  %.02328.lcssa4631 = phi i1 [ %2652, %._crit_edge4174 ], [ %2652, %shell_check_oom.exit3094 ], [ %2652, %2663 ], [ true, %2628 ]
-  %.02330.lcssa4630 = phi i1 [ %2653, %._crit_edge4174 ], [ %2653, %shell_check_oom.exit3094 ], [ %2653, %2663 ], [ true, %2628 ]
-  %.02333.lcssa4629 = phi ptr [ null, %._crit_edge4174 ], [ %.12334, %shell_check_oom.exit3094 ], [ %.12334, %2663 ], [ null, %2628 ]
+._crit_edge4174.thread:                           ; preds = %2624, %._crit_edge4174, %shell_check_oom.exit3094, %2659
+  %.not26464632 = phi i1 [ true, %._crit_edge4174 ], [ false, %shell_check_oom.exit3094 ], [ false, %2659 ], [ true, %2624 ]
+  %.02328.lcssa4631 = phi i1 [ %2648, %._crit_edge4174 ], [ %2648, %shell_check_oom.exit3094 ], [ %2648, %2659 ], [ true, %2624 ]
+  %.02330.lcssa4630 = phi i1 [ %2649, %._crit_edge4174 ], [ %2649, %shell_check_oom.exit3094 ], [ %2649, %2659 ], [ true, %2624 ]
+  %.02333.lcssa4629 = phi ptr [ null, %._crit_edge4174 ], [ %.12334, %shell_check_oom.exit3094 ], [ %.12334, %2659 ], [ null, %2624 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #43
   store ptr null, ptr %33, align 8, !tbaa !31
-  %2671 = load ptr, ptr %1, align 8, !tbaa !477
-  %2672 = call i32 @sqlite3_prepare_v2(ptr noundef %2671, ptr noundef nonnull @.str.1026, i32 noundef -1, ptr noundef nonnull %33, ptr noundef null) #43
-  %.not2647 = icmp eq i32 %2672, 0
-  br i1 %.not2647, label %2676, label %.thread3494
+  %2667 = load ptr, ptr %1, align 8, !tbaa !477
+  %2668 = call i32 @sqlite3_prepare_v2(ptr noundef %2667, ptr noundef nonnull @.str.1026, i32 noundef -1, ptr noundef nonnull %33, ptr noundef null) #43
+  %.not2647 = icmp eq i32 %2668, 0
+  br i1 %.not2647, label %2672, label %.thread3494
 
 .thread3494:                                      ; preds = %._crit_edge4174.thread
-  %2673 = load ptr, ptr %1, align 8, !tbaa !477
-  call fastcc void @shellDatabaseError(ptr noundef %2673)
-  %2674 = load ptr, ptr %33, align 8, !tbaa !31
-  %2675 = call i32 @sqlite3_finalize(ptr noundef %2674) #43
+  %2669 = load ptr, ptr %1, align 8, !tbaa !477
+  call fastcc void @shellDatabaseError(ptr noundef %2669)
+  %2670 = load ptr, ptr %33, align 8, !tbaa !31
+  %2671 = call i32 @sqlite3_finalize(ptr noundef %2670) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #43
-  br label %2731
+  br label %2727
 
-2676:                                             ; preds = %._crit_edge4174.thread
+2672:                                             ; preds = %._crit_edge4174.thread
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1027, i8 noundef signext 0)
-  %2677 = load ptr, ptr %33, align 8, !tbaa !31
-  %2678 = call i32 @sqlite3_step(ptr noundef %2677) #43
-  %2679 = icmp eq i32 %2678, 100
-  br i1 %2679, label %.lr.ph4181, label %._crit_edge4182
+  %2673 = load ptr, ptr %33, align 8, !tbaa !31
+  %2674 = call i32 @sqlite3_step(ptr noundef %2673) #43
+  %2675 = icmp eq i32 %2674, 100
+  br i1 %2675, label %.lr.ph4181, label %._crit_edge4182
 
-.lr.ph4181:                                       ; preds = %2676, %2687
-  %.023324179 = phi i32 [ %2682, %2687 ], [ 0, %2676 ]
-  %.023354178 = phi ptr [ @.str.1028, %2687 ], [ @.str.662, %2676 ]
-  %2680 = load ptr, ptr %33, align 8, !tbaa !31
-  %2681 = call ptr @sqlite3_column_text(ptr noundef %2680, i32 noundef 0) #43
+.lr.ph4181:                                       ; preds = %2672, %2683
+  %.023324179 = phi i32 [ %2678, %2683 ], [ 0, %2672 ]
+  %.023354178 = phi ptr [ @.str.1028, %2683 ], [ @.str.662, %2672 ]
+  %2676 = load ptr, ptr %33, align 8, !tbaa !31
+  %2677 = call ptr @sqlite3_column_text(ptr noundef %2676, i32 noundef 0) #43
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %34) #43
-  %2682 = add nuw nsw i32 %.023324179, 1
-  %2683 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 30, ptr noundef nonnull %34, ptr noundef nonnull @.str.305, i32 noundef %2682) #43
+  %2678 = add nuw nsw i32 %.023324179, 1
+  %2679 = call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 30, ptr noundef nonnull %34, ptr noundef nonnull @.str.305, i32 noundef %2678) #43
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull %.023354178, i8 noundef signext 0)
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1029, i8 noundef signext 0)
-  %2684 = call i32 @sqlite3_stricmp(ptr noundef %2681, ptr noundef nonnull @.str.45) #43
-  %.not2653 = icmp eq i32 %2684, 0
-  br i1 %.not2653, label %2686, label %2685
+  %2680 = call i32 @sqlite3_stricmp(ptr noundef %2677, ptr noundef nonnull @.str.45) #43
+  %.not2653 = icmp eq i32 %2680, 0
+  br i1 %.not2653, label %2682, label %2681
 
-2685:                                             ; preds = %.lr.ph4181
-  call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef %2681, i8 noundef signext 39)
-  br label %2687
+2681:                                             ; preds = %.lr.ph4181
+  call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef %2677, i8 noundef signext 39)
+  br label %2683
 
-2686:                                             ; preds = %.lr.ph4181
+2682:                                             ; preds = %.lr.ph4181
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1030, i8 noundef signext 0)
-  br label %2687
+  br label %2683
 
-2687:                                             ; preds = %2686, %2685
+2683:                                             ; preds = %2682, %2681
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1031, i8 noundef signext 0)
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull %34, i8 noundef signext 0)
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1032, i8 noundef signext 0)
-  call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef %2681, i8 noundef signext 39)
+  call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef %2677, i8 noundef signext 39)
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1033, i8 noundef signext 0)
-  %2688 = call fastcc signext i8 @quoteChar(ptr noundef %2681)
-  call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef %2681, i8 noundef signext %2688)
+  %2684 = call fastcc signext i8 @quoteChar(ptr noundef %2677)
+  call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef %2677, i8 noundef signext %2684)
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1034, i8 noundef signext 0)
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %34) #43
-  %2689 = load ptr, ptr %33, align 8, !tbaa !31
-  %2690 = call i32 @sqlite3_step(ptr noundef %2689) #43
-  %2691 = icmp eq i32 %2690, 100
-  br i1 %2691, label %.lr.ph4181, label %._crit_edge4182, !llvm.loop !561
+  %2685 = load ptr, ptr %33, align 8, !tbaa !31
+  %2686 = call i32 @sqlite3_step(ptr noundef %2685) #43
+  %2687 = icmp eq i32 %2686, 100
+  br i1 %2687, label %.lr.ph4181, label %._crit_edge4182, !llvm.loop !561
 
-._crit_edge4182:                                  ; preds = %2687, %2676
-  %2692 = load ptr, ptr %33, align 8, !tbaa !31
-  %2693 = call i32 @sqlite3_finalize(ptr noundef %2692) #43
-  br i1 %.not26464632, label %.critedge2829, label %2694
+._crit_edge4182:                                  ; preds = %2683, %2672
+  %2688 = load ptr, ptr %33, align 8, !tbaa !31
+  %2689 = call i32 @sqlite3_finalize(ptr noundef %2688) #43
+  br i1 %.not26464632, label %.critedge2829, label %2690
 
-2694:                                             ; preds = %._crit_edge4182
+2690:                                             ; preds = %._crit_edge4182
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1035, i8 noundef signext 0)
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1036, i8 noundef signext 0)
-  %2695 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.287, ptr noundef nonnull %.02333.lcssa4629) #43
-  %2696 = icmp eq ptr %2695, null
-  br i1 %2696, label %2697, label %shell_check_oom.exit3095
+  %2691 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.287, ptr noundef nonnull %.02333.lcssa4629) #43
+  %2692 = icmp eq ptr %2691, null
+  br i1 %2692, label %2693, label %shell_check_oom.exit3095
 
-2697:                                             ; preds = %2694
+2693:                                             ; preds = %2690
   call fastcc void @shell_out_of_memory()
   unreachable
 
-shell_check_oom.exit3095:                         ; preds = %2694
-  %2698 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02333.lcssa4629, i32 noundef 42) #44
-  %.not2648 = icmp eq ptr %2698, null
-  br i1 %.not2648, label %2699, label %.critedge4759
+shell_check_oom.exit3095:                         ; preds = %2690
+  %2694 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02333.lcssa4629, i32 noundef 42) #44
+  %.not2648 = icmp eq ptr %2694, null
+  br i1 %.not2648, label %2695, label %.critedge4759
 
-2699:                                             ; preds = %shell_check_oom.exit3095
-  %2700 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02333.lcssa4629, i32 noundef 63) #44
-  %.not2649 = icmp eq ptr %2700, null
-  br i1 %.not2649, label %2701, label %.critedge4759
+2695:                                             ; preds = %shell_check_oom.exit3095
+  %2696 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02333.lcssa4629, i32 noundef 63) #44
+  %.not2649 = icmp eq ptr %2696, null
+  br i1 %.not2649, label %2697, label %.critedge4759
 
-2701:                                             ; preds = %2699
-  %2702 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02333.lcssa4629, i32 noundef 91) #44
-  %.not4762 = icmp eq ptr %2702, null
-  %2703 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02333.lcssa4629, i32 noundef 46) #44
-  %.not2650 = icmp eq ptr %2703, null
+2697:                                             ; preds = %2695
+  %2698 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02333.lcssa4629, i32 noundef 91) #44
+  %.not4762 = icmp eq ptr %2698, null
+  %2699 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02333.lcssa4629, i32 noundef 46) #44
+  %.not2650 = icmp eq ptr %2699, null
   %.str.1038..str.1037 = select i1 %.not2650, ptr @.str.1038, ptr @.str.1037
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull %.str.1038..str.1037, i8 noundef signext 0)
-  %2704 = select i1 %.not4762, ptr @.str.1040, ptr @.str.1039
-  call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull %2704, i8 noundef signext 0)
-  call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull %2695, i8 noundef signext 0)
-  br i1 %.not4762, label %.sink.split4760, label %2706
+  %2700 = select i1 %.not4762, ptr @.str.1040, ptr @.str.1039
+  call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull %2700, i8 noundef signext 0)
+  call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull %2691, i8 noundef signext 0)
+  br i1 %.not4762, label %.sink.split4760, label %2702
 
-.critedge4759:                                    ; preds = %shell_check_oom.exit3095, %2699
-  %2705 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02333.lcssa4629, i32 noundef 46) #44
-  %.not2650.c = icmp eq ptr %2705, null
+.critedge4759:                                    ; preds = %shell_check_oom.exit3095, %2695
+  %2701 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.02333.lcssa4629, i32 noundef 46) #44
+  %.not2650.c = icmp eq ptr %2701, null
   %.str.1038..str.1037.c = select i1 %.not2650.c, ptr @.str.1038, ptr @.str.1037
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull %.str.1038..str.1037.c, i8 noundef signext 0)
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1039, i8 noundef signext 0)
   br label %.sink.split4760
 
-.sink.split4760:                                  ; preds = %2701, %.critedge4759
-  %.sink4761 = phi ptr [ %2695, %.critedge4759 ], [ @.str.1041, %2701 ]
+.sink.split4760:                                  ; preds = %2697, %.critedge4759
+  %.sink4761 = phi ptr [ %2691, %.critedge4759 ], [ @.str.1041, %2697 ]
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull %.sink4761, i8 noundef signext 0)
-  br label %2706
+  br label %2702
 
-2706:                                             ; preds = %.sink.split4760, %2701
+2702:                                             ; preds = %.sink.split4760, %2697
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1042, i8 noundef signext 0)
-  call void @sqlite3_free(ptr noundef nonnull %2695) #43
-  br label %2707
+  call void @sqlite3_free(ptr noundef nonnull %2691) #43
+  br label %2703
 
 .critedge2829:                                    ; preds = %._crit_edge4182
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1036, i8 noundef signext 0)
-  br label %2707
+  br label %2703
 
-2707:                                             ; preds = %.critedge2829, %2706
-  br i1 %.02328.lcssa4631, label %2709, label %2708
+2703:                                             ; preds = %.critedge2829, %2702
+  br i1 %.02328.lcssa4631, label %2705, label %2704
 
-2708:                                             ; preds = %2707
+2704:                                             ; preds = %2703
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1043, i8 noundef signext 0)
-  br label %2709
+  br label %2705
 
-2709:                                             ; preds = %2708, %2707
+2705:                                             ; preds = %2704, %2703
   call fastcc void @appendText(ptr noundef nonnull %28, ptr noundef nonnull @.str.1044, i8 noundef signext 0)
-  br i1 %.02330.lcssa4630, label %2715, label %2710
+  br i1 %.02330.lcssa4630, label %2711, label %2706
 
-2710:                                             ; preds = %2709
-  %2711 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %2712 = load ptr, ptr %2711, align 8, !tbaa !462
+2706:                                             ; preds = %2705
+  %2707 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %2708 = load ptr, ptr %2707, align 8, !tbaa !462
+  %2709 = load ptr, ptr %28, align 8, !tbaa !562
+  %2710 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2708, ptr noundef nonnull @.str.1045, ptr noundef %2709) #43
+  br label %2716
+
+2711:                                             ; preds = %2705
+  %2712 = load ptr, ptr %1, align 8, !tbaa !477
   %2713 = load ptr, ptr %28, align 8, !tbaa !562
-  %2714 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2712, ptr noundef nonnull @.str.1045, ptr noundef %2713) #43
-  br label %2720
+  %2714 = call i32 @sqlite3_exec(ptr noundef %2712, ptr noundef %2713, ptr noundef nonnull @callback, ptr noundef nonnull %29, ptr noundef nonnull %30) #43
+  %2715 = icmp eq i32 %2714, 0
+  br label %2716
 
-2715:                                             ; preds = %2709
-  %2716 = load ptr, ptr %1, align 8, !tbaa !477
-  %2717 = load ptr, ptr %28, align 8, !tbaa !562
-  %2718 = call i32 @sqlite3_exec(ptr noundef %2716, ptr noundef %2717, ptr noundef nonnull @callback, ptr noundef nonnull %29, ptr noundef nonnull %30) #43
-  %2719 = icmp eq i32 %2718, 0
-  br label %2720
-
-2720:                                             ; preds = %2710, %2715
-  %2721 = phi ptr [ %2713, %2710 ], [ %2717, %2715 ]
-  %.51 = phi i1 [ true, %2710 ], [ %2719, %2715 ]
-  call void @free(ptr noundef %2721) #43
+2716:                                             ; preds = %2706, %2711
+  %2717 = phi ptr [ %2709, %2706 ], [ %2713, %2711 ]
+  %.51 = phi i1 [ true, %2706 ], [ %2715, %2711 ]
+  call void @free(ptr noundef %2717) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #43
+  %2718 = load ptr, ptr %30, align 8, !tbaa !29
+  %.not2654 = icmp eq ptr %2718, null
+  br i1 %.not2654, label %2723, label %2719
+
+2719:                                             ; preds = %2716
+  %2720 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2721 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2720, ptr noundef nonnull @.str.991, ptr noundef nonnull %2718) #46
   %2722 = load ptr, ptr %30, align 8, !tbaa !29
-  %.not2654 = icmp eq ptr %2722, null
-  br i1 %.not2654, label %2727, label %2723
+  call void @sqlite3_free(ptr noundef %2722) #43
+  br label %2727
 
-2723:                                             ; preds = %2720
-  %2724 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2725 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2724, ptr noundef nonnull @.str.991, ptr noundef nonnull %2722) #46
-  %2726 = load ptr, ptr %30, align 8, !tbaa !29
-  call void @sqlite3_free(ptr noundef %2726) #43
-  br label %2731
+2723:                                             ; preds = %2716
+  br i1 %.51, label %2727, label %2724
 
-2727:                                             ; preds = %2720
-  br i1 %.51, label %2731, label %2728
+2724:                                             ; preds = %2723
+  %2725 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2726 = call i64 @fwrite(ptr nonnull @.str.1046, i64 35, i64 1, ptr %2725) #50
+  br label %2727
 
-2728:                                             ; preds = %2727
-  %2729 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2730 = call i64 @fwrite(ptr nonnull @.str.1046, i64 35, i64 1, ptr %2729) #50
-  br label %2731
-
-2731:                                             ; preds = %.thread3494, %2723, %2728, %2727, %2648, %2643
-  %.48 = phi i32 [ 1, %2643 ], [ 1, %2648 ], [ 1, %2723 ], [ 1, %2728 ], [ 0, %2727 ], [ 1, %.thread3494 ]
+2727:                                             ; preds = %.thread3494, %2719, %2724, %2723, %2644, %2639
+  %.48 = phi i32 [ 1, %2639 ], [ 1, %2644 ], [ 1, %2719 ], [ 1, %2724 ], [ 0, %2723 ], [ 1, %.thread3494 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #43
   call void @llvm.lifetime.end.p0(i64 4720, ptr nonnull %29) #43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #43
   br label %test_breakpoint.exit
 
-.critedge2825:                                    ; preds = %2625
-  %2732 = icmp eq i32 %130, 11
-  br i1 %2732, label %2733, label %.critedge2825.thread
+.critedge2825:                                    ; preds = %2621
+  %2728 = icmp eq i32 %130, 11
+  br i1 %2728, label %2729, label %.critedge2825.thread
 
-2733:                                             ; preds = %.critedge2825
-  %2734 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(12) @.str.1047, i64 noundef 11) #44
-  %2735 = icmp eq i32 %2734, 0
-  br i1 %2735, label %2742, label %.thread3498
+2729:                                             ; preds = %.critedge2825
+  %2730 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(12) @.str.1047, i64 noundef 11) #44
+  %2731 = icmp eq i32 %2730, 0
+  br i1 %2731, label %2738, label %.thread3498
 
-.thread3498:                                      ; preds = %2733
-  %2736 = icmp eq i8 %131, 116
-  br label %2751
+.thread3498:                                      ; preds = %2729
+  %2732 = icmp eq i8 %131, 116
+  br label %2747
 
 .critedge2825.thread:                             ; preds = %.critedge2823, %.critedge2825
-  %2737 = icmp eq i8 %131, 116
-  %2738 = icmp eq i32 %130, 9
-  %or.cond157 = select i1 %2737, i1 %2738, i1 false
-  br i1 %or.cond157, label %2739, label %2751
+  %2733 = icmp eq i8 %131, 116
+  %2734 = icmp eq i32 %130, 9
+  %or.cond157 = select i1 %2733, i1 %2734, i1 false
+  br i1 %or.cond157, label %2735, label %2747
 
-2739:                                             ; preds = %.critedge2825.thread
-  %2740 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(10) @.str.1048, i64 noundef 9) #44
-  %2741 = icmp eq i32 %2740, 0
-  br i1 %2741, label %2742, label %2751
+2735:                                             ; preds = %.critedge2825.thread
+  %2736 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(10) @.str.1048, i64 noundef 9) #44
+  %2737 = icmp eq i32 %2736, 0
+  br i1 %2737, label %2738, label %2747
 
-2742:                                             ; preds = %2739, %2733
+2738:                                             ; preds = %2735, %2729
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %35) #43
   %.not2645 = icmp eq i32 %.02122.lcssa.ph, 1
-  br i1 %.not2645, label %2748, label %2743
+  br i1 %.not2645, label %2744, label %2739
 
-2743:                                             ; preds = %2742
-  %2744 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %2745 = load ptr, ptr %2744, align 8, !tbaa !29
-  %2746 = tail call fastcc i64 @integerValue(ptr noundef %2745)
-  %2747 = trunc i64 %2746 to i32
-  br label %2748
+2739:                                             ; preds = %2738
+  %2740 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %2741 = load ptr, ptr %2740, align 8, !tbaa !29
+  %2742 = tail call fastcc i64 @integerValue(ptr noundef %2741)
+  %2743 = trunc i64 %2742 to i32
+  br label %2744
 
-2748:                                             ; preds = %2742, %2743
-  %2749 = phi i32 [ %2747, %2743 ], [ -1, %2742 ]
-  store i32 %2749, ptr %35, align 4, !tbaa !36
-  %2750 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 31, i32 noundef 1, ptr noundef nonnull %35) #43
+2744:                                             ; preds = %2738, %2739
+  %2745 = phi i32 [ %2743, %2739 ], [ -1, %2738 ]
+  store i32 %2745, ptr %35, align 4, !tbaa !36
+  %2746 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 31, i32 noundef 1, ptr noundef nonnull %35) #43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %35) #43
   br label %test_breakpoint.exit
 
-2751:                                             ; preds = %.thread3498, %2739, %.critedge2825.thread
-  %2752 = phi i1 [ %2736, %.thread3498 ], [ true, %2739 ], [ %2737, %.critedge2825.thread ]
-  %2753 = icmp samesign ugt i32 %130, 3
-  %or.cond160 = select i1 %1794, i1 %2753, i1 false
-  br i1 %or.cond160, label %2754, label %2872
+2747:                                             ; preds = %.thread3498, %2735, %.critedge2825.thread
+  %2748 = phi i1 [ %2732, %.thread3498 ], [ true, %2735 ], [ %2733, %.critedge2825.thread ]
+  %2749 = icmp samesign ugt i32 %130, 3
+  %or.cond160 = select i1 %1790, i1 %2749, i1 false
+  br i1 %or.cond160, label %2750, label %2868
 
-2754:                                             ; preds = %2751
-  %2755 = and i64 %strlen.i, 1073741823
-  %2756 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1049, i64 noundef range(i64 0, 1073741824) %2755) #44
-  %2757 = icmp eq i32 %2756, 0
-  br i1 %2757, label %2758, label %2872
+2750:                                             ; preds = %2747
+  %2751 = and i64 %strlen.i, 1073741823
+  %2752 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1049, i64 noundef range(i64 0, 1073741824) %2751) #44
+  %2753 = icmp eq i32 %2752, 0
+  br i1 %2753, label %2754, label %2868
 
-2758:                                             ; preds = %2754
+2754:                                             ; preds = %2750
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #43
   store ptr null, ptr %37, align 8, !tbaa !31
@@ -24794,302 +24791,302 @@ shell_check_oom.exit3095:                         ; preds = %2694
   %.not4229 = icmp eq i32 %.02122.lcssa.ph, 1
   br i1 %.not4229, label %._crit_edge4153, label %.lr.ph4152.preheader
 
-.lr.ph4152.preheader:                             ; preds = %2758
+.lr.ph4152.preheader:                             ; preds = %2754
   %wide.trip.count4482 = and i64 %.02122.lcssa.ph.in, 4294967295
   br label %.lr.ph4152
 
-.lr.ph4152:                                       ; preds = %.lr.ph4152.preheader, %2782
-  %indvars.iv4477 = phi i64 [ 1, %.lr.ph4152.preheader ], [ %indvars.iv.next4478, %2782 ]
-  %.023134149 = phi i32 [ 0, %.lr.ph4152.preheader ], [ %.22315.ph, %2782 ]
-  %.023164148 = phi i32 [ 0, %.lr.ph4152.preheader ], [ %.22318.ph, %2782 ]
-  %2759 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4477
-  %2760 = load ptr, ptr %2759, align 8, !tbaa !29
+.lr.ph4152:                                       ; preds = %.lr.ph4152.preheader, %2778
+  %indvars.iv4477 = phi i64 [ 1, %.lr.ph4152.preheader ], [ %indvars.iv.next4478, %2778 ]
+  %.023134149 = phi i32 [ 0, %.lr.ph4152.preheader ], [ %.22315.ph, %2778 ]
+  %.023164148 = phi i32 [ 0, %.lr.ph4152.preheader ], [ %.22318.ph, %2778 ]
+  %2755 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4477
+  %2756 = load ptr, ptr %2755, align 8, !tbaa !29
+  %2757 = load i8, ptr %2756, align 1, !tbaa !25
+  %2758 = icmp eq i8 %2757, 45
+  br i1 %2758, label %2759, label %.thread4633
+
+2759:                                             ; preds = %.lr.ph4152
+  %2760 = getelementptr inbounds nuw i8, ptr %2756, i64 1
   %2761 = load i8, ptr %2760, align 1, !tbaa !25
   %2762 = icmp eq i8 %2761, 45
-  br i1 %2762, label %2763, label %.thread4633
-
-2763:                                             ; preds = %.lr.ph4152
-  %2764 = getelementptr inbounds nuw i8, ptr %2760, i64 1
-  %2765 = load i8, ptr %2764, align 1, !tbaa !25
-  %2766 = icmp eq i8 %2765, 45
-  %spec.select2830 = select i1 %2766, ptr %2764, ptr %2760
-  %2767 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2830, ptr noundef nonnull dereferenceable(6) @.str.70) #44
-  %2768 = icmp eq i32 %2767, 0
-  br i1 %2768, label %2782, label %sub_13725
+  %spec.select2830 = select i1 %2762, ptr %2760, ptr %2756
+  %2763 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2830, ptr noundef nonnull dereferenceable(6) @.str.70) #44
+  %2764 = icmp eq i32 %2763, 0
+  br i1 %2764, label %2778, label %sub_13725
 
 .thread4633:                                      ; preds = %.lr.ph4152
-  %2769 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2760, ptr noundef nonnull dereferenceable(6) @.str.70) #44
-  %2770 = icmp eq i32 %2769, 0
-  br i1 %2770, label %2782, label %.tail3723.thread
+  %2765 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2756, ptr noundef nonnull dereferenceable(6) @.str.70) #44
+  %2766 = icmp eq i32 %2765, 0
+  br i1 %2766, label %2778, label %.tail3723.thread
 
-sub_13725:                                        ; preds = %2763
-  %2771 = getelementptr inbounds nuw i8, ptr %spec.select2830, i64 1
-  %2772 = load i8, ptr %2771, align 1
-  %.not4231 = icmp eq i8 %2772, 118
+sub_13725:                                        ; preds = %2759
+  %2767 = getelementptr inbounds nuw i8, ptr %spec.select2830, i64 1
+  %2768 = load i8, ptr %2767, align 1
+  %.not4231 = icmp eq i8 %2768, 118
   br i1 %.not4231, label %.tail3723, label %.tail3723.thread
 
 .tail3723:                                        ; preds = %sub_13725
-  %2773 = getelementptr inbounds nuw i8, ptr %spec.select2830, i64 2
-  %2774 = load i8, ptr %2773, align 1
-  %2775 = icmp eq i8 %2774, 0
-  br i1 %2775, label %2776, label %.tail3723.thread
+  %2769 = getelementptr inbounds nuw i8, ptr %spec.select2830, i64 2
+  %2770 = load i8, ptr %2769, align 1
+  %2771 = icmp eq i8 %2770, 0
+  br i1 %2771, label %2772, label %.tail3723.thread
 
-2776:                                             ; preds = %.tail3723
-  %2777 = add nsw i32 %.023134149, 1
-  br label %2782
+2772:                                             ; preds = %.tail3723
+  %2773 = add nsw i32 %.023134149, 1
+  br label %2778
 
 .tail3723.thread:                                 ; preds = %.thread4633, %sub_13725, %.tail3723
-  %2778 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2779 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2778, ptr noundef nonnull @.str.1050, ptr noundef nonnull %2760, ptr noundef %128) #46
-  %2780 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2781 = tail call i64 @fwrite(ptr nonnull @.str.1051, i64 28, i64 1, ptr %2780) #50
-  br label %2871
+  %2774 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2775 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2774, ptr noundef nonnull @.str.1050, ptr noundef nonnull %2756, ptr noundef %128) #46
+  %2776 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2777 = tail call i64 @fwrite(ptr nonnull @.str.1051, i64 28, i64 1, ptr %2776) #50
+  br label %2867
 
-2782:                                             ; preds = %.thread4633, %2763, %2776
-  %.22318.ph = phi i32 [ 1, %2763 ], [ %.023164148, %2776 ], [ 1, %.thread4633 ]
-  %.22315.ph = phi i32 [ %.023134149, %2763 ], [ %2777, %2776 ], [ %.023134149, %.thread4633 ]
+2778:                                             ; preds = %.thread4633, %2759, %2772
+  %.22318.ph = phi i32 [ 1, %2759 ], [ %.023164148, %2772 ], [ 1, %.thread4633 ]
+  %.22315.ph = phi i32 [ %.023134149, %2759 ], [ %2773, %2772 ], [ %.023134149, %.thread4633 ]
   %indvars.iv.next4478 = add nuw nsw i64 %indvars.iv4477, 1
   %exitcond4483.not = icmp eq i64 %indvars.iv.next4478, %wide.trip.count4482
   br i1 %exitcond4483.not, label %._crit_edge4153.loopexit, label %.lr.ph4152, !llvm.loop !564
 
-._crit_edge4153.loopexit:                         ; preds = %2782
-  %2783 = icmp eq i32 %.22318.ph, 0
+._crit_edge4153.loopexit:                         ; preds = %2778
+  %2779 = icmp eq i32 %.22318.ph, 0
   br label %._crit_edge4153
 
-._crit_edge4153:                                  ; preds = %._crit_edge4153.loopexit, %2758
-  %.02316.lcssa = phi i1 [ true, %2758 ], [ %2783, %._crit_edge4153.loopexit ]
-  %.02313.lcssa = phi i32 [ 0, %2758 ], [ %.22315.ph, %._crit_edge4153.loopexit ]
-  %2784 = load ptr, ptr %1, align 8, !tbaa !477
-  %2785 = tail call i32 @sqlite3_table_column_metadata(ptr noundef %2784, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.1049, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #43
-  %.not2640 = icmp eq i32 %2785, 0
+._crit_edge4153:                                  ; preds = %._crit_edge4153.loopexit, %2754
+  %.02316.lcssa = phi i1 [ true, %2754 ], [ %2779, %._crit_edge4153.loopexit ]
+  %.02313.lcssa = phi i32 [ 0, %2754 ], [ %.22315.ph, %._crit_edge4153.loopexit ]
+  %2780 = load ptr, ptr %1, align 8, !tbaa !477
+  %2781 = tail call i32 @sqlite3_table_column_metadata(ptr noundef %2780, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.1049, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #43
+  %.not2640 = icmp eq i32 %2781, 0
   %. = zext i1 %.not2640 to i32
-  br i1 %.02316.lcssa, label %2787, label %2786
+  br i1 %.02316.lcssa, label %2783, label %2782
 
-2786:                                             ; preds = %._crit_edge4153
+2782:                                             ; preds = %._crit_edge4153
   tail call fastcc void @createSelftestTable(ptr noundef %1)
-  br label %2787
+  br label %2783
 
-2787:                                             ; preds = %2786, %._crit_edge4153
-  %.12312 = phi i32 [ 1, %2786 ], [ %., %._crit_edge4153 ]
+2783:                                             ; preds = %2782, %._crit_edge4153
+  %.12312 = phi i32 [ 1, %2782 ], [ %., %._crit_edge4153 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   call fastcc void @appendText(ptr noundef nonnull %36, ptr noundef nonnull @.str.1052, i8 noundef signext 0)
-  %2788 = icmp sgt i32 %.02313.lcssa, 0
-  %2789 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %2784 = icmp sgt i32 %.02313.lcssa, 0
+  %2785 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.not2643 = icmp eq i32 %.02313.lcssa, 0
-  %2790 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  br label %2791
+  %2786 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  br label %2787
 
-2791:                                             ; preds = %2787, %.loopexit3754
-  %.022944167 = phi i32 [ 0, %2787 ], [ %.122953810, %.loopexit3754 ]
-  %.023004166 = phi i32 [ 0, %2787 ], [ %.123013812, %.loopexit3754 ]
-  %.023054165 = phi i32 [ %.12312, %2787 ], [ %2865, %.loopexit3754 ]
-  %2792 = icmp eq i32 %.023054165, 1
-  %2793 = load ptr, ptr %1, align 8, !tbaa !477
-  %.str.1053..str.1054 = select i1 %2792, ptr @.str.1053, ptr @.str.1054
-  %2794 = call i32 @sqlite3_prepare_v2(ptr noundef %2793, ptr noundef nonnull %.str.1053..str.1054, i32 noundef -1, ptr noundef nonnull %37, ptr noundef null) #43
-  %.not2642 = icmp eq i32 %2794, 0
-  br i1 %.not2642, label %.preheader3753, label %2798
+2787:                                             ; preds = %2783, %.loopexit3754
+  %.022944167 = phi i32 [ 0, %2783 ], [ %.122953810, %.loopexit3754 ]
+  %.023004166 = phi i32 [ 0, %2783 ], [ %.123013812, %.loopexit3754 ]
+  %.023054165 = phi i32 [ %.12312, %2783 ], [ %2861, %.loopexit3754 ]
+  %2788 = icmp eq i32 %.023054165, 1
+  %2789 = load ptr, ptr %1, align 8, !tbaa !477
+  %.str.1053..str.1054 = select i1 %2788, ptr @.str.1053, ptr @.str.1054
+  %2790 = call i32 @sqlite3_prepare_v2(ptr noundef %2789, ptr noundef nonnull %.str.1053..str.1054, i32 noundef -1, ptr noundef nonnull %37, ptr noundef null) #43
+  %.not2642 = icmp eq i32 %2790, 0
+  br i1 %.not2642, label %.preheader3753, label %2794
 
-.preheader3753:                                   ; preds = %2791
-  %2795 = load ptr, ptr %37, align 8, !tbaa !31
-  %2796 = call i32 @sqlite3_step(ptr noundef %2795) #43
-  %2797 = icmp eq i32 %2796, 100
-  br i1 %2797, label %.lr.ph4160, label %.loopexit3754
+.preheader3753:                                   ; preds = %2787
+  %2791 = load ptr, ptr %37, align 8, !tbaa !31
+  %2792 = call i32 @sqlite3_step(ptr noundef %2791) #43
+  %2793 = icmp eq i32 %2792, 100
+  br i1 %2793, label %.lr.ph4160, label %.loopexit3754
 
-2798:                                             ; preds = %2791
-  %2799 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2800 = call i64 @fwrite(ptr nonnull @.str.1055, i64 34, i64 1, ptr %2799) #50
+2794:                                             ; preds = %2787
+  %2795 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2796 = call i64 @fwrite(ptr nonnull @.str.1055, i64 34, i64 1, ptr %2795) #50
+  %2797 = load ptr, ptr %37, align 8, !tbaa !31
+  %2798 = call i32 @sqlite3_finalize(ptr noundef %2797) #43
+  br label %2867
+
+.lr.ph4160:                                       ; preds = %.preheader3753, %2855
+  %.584159 = phi i32 [ %.60, %2855 ], [ 0, %.preheader3753 ]
+  %.122954158 = phi i32 [ %.32297, %2855 ], [ %.022944167, %.preheader3753 ]
+  %.123014157 = phi i32 [ %.32303, %2855 ], [ %.023004166, %.preheader3753 ]
+  %.123064156 = phi i32 [ %.32308, %2855 ], [ %.023054165, %.preheader3753 ]
+  %2799 = load ptr, ptr %37, align 8, !tbaa !31
+  %2800 = call i32 @sqlite3_column_int(ptr noundef %2799, i32 noundef 0) #43
   %2801 = load ptr, ptr %37, align 8, !tbaa !31
-  %2802 = call i32 @sqlite3_finalize(ptr noundef %2801) #43
-  br label %2871
-
-.lr.ph4160:                                       ; preds = %.preheader3753, %2859
-  %.584159 = phi i32 [ %.60, %2859 ], [ 0, %.preheader3753 ]
-  %.122954158 = phi i32 [ %.32297, %2859 ], [ %.022944167, %.preheader3753 ]
-  %.123014157 = phi i32 [ %.32303, %2859 ], [ %.023004166, %.preheader3753 ]
-  %.123064156 = phi i32 [ %.32308, %2859 ], [ %.023054165, %.preheader3753 ]
+  %2802 = call ptr @sqlite3_column_text(ptr noundef %2801, i32 noundef 1) #43
   %2803 = load ptr, ptr %37, align 8, !tbaa !31
-  %2804 = call i32 @sqlite3_column_int(ptr noundef %2803, i32 noundef 0) #43
+  %2804 = call ptr @sqlite3_column_text(ptr noundef %2803, i32 noundef 2) #43
   %2805 = load ptr, ptr %37, align 8, !tbaa !31
-  %2806 = call ptr @sqlite3_column_text(ptr noundef %2805, i32 noundef 1) #43
-  %2807 = load ptr, ptr %37, align 8, !tbaa !31
-  %2808 = call ptr @sqlite3_column_text(ptr noundef %2807, i32 noundef 2) #43
-  %2809 = load ptr, ptr %37, align 8, !tbaa !31
-  %2810 = call ptr @sqlite3_column_text(ptr noundef %2809, i32 noundef 3) #43
-  %2811 = icmp eq ptr %2806, null
-  %2812 = icmp eq ptr %2808, null
-  %or.cond2857 = select i1 %2811, i1 true, i1 %2812
-  %2813 = icmp eq ptr %2810, null
-  %or.cond2858 = select i1 %or.cond2857, i1 true, i1 %2813
-  br i1 %or.cond2858, label %2859, label %2814
+  %2806 = call ptr @sqlite3_column_text(ptr noundef %2805, i32 noundef 3) #43
+  %2807 = icmp eq ptr %2802, null
+  %2808 = icmp eq ptr %2804, null
+  %or.cond2857 = select i1 %2807, i1 true, i1 %2808
+  %2809 = icmp eq ptr %2806, null
+  %or.cond2858 = select i1 %or.cond2857, i1 true, i1 %2809
+  br i1 %or.cond2858, label %2855, label %2810
 
-2814:                                             ; preds = %.lr.ph4160
-  br i1 %2788, label %2815, label %2818
+2810:                                             ; preds = %.lr.ph4160
+  br i1 %2784, label %2811, label %2814
 
-2815:                                             ; preds = %2814
-  %2816 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %2817 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2816, ptr noundef nonnull @.str.1056, i32 noundef %2804, ptr noundef nonnull %2806, ptr noundef nonnull %2808) #43
-  br label %2818
+2811:                                             ; preds = %2810
+  %2812 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %2813 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2812, ptr noundef nonnull @.str.1056, i32 noundef %2800, ptr noundef nonnull %2802, ptr noundef nonnull %2804) #43
+  br label %2814
 
-2818:                                             ; preds = %2815, %2814
-  %2819 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2806, ptr noundef nonnull dereferenceable(5) @.str.1057) #44
-  %2820 = icmp eq i32 %2819, 0
-  br i1 %2820, label %2821, label %2824
+2814:                                             ; preds = %2811, %2810
+  %2815 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2802, ptr noundef nonnull dereferenceable(5) @.str.1057) #44
+  %2816 = icmp eq i32 %2815, 0
+  br i1 %2816, label %2817, label %2820
 
-2821:                                             ; preds = %2818
-  %2822 = load ptr, ptr %2790, align 8, !tbaa !462
-  %2823 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2822, ptr noundef nonnull @.str.310, ptr noundef nonnull %2808) #43
-  br label %2859
+2817:                                             ; preds = %2814
+  %2818 = load ptr, ptr %2786, align 8, !tbaa !462
+  %2819 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2818, ptr noundef nonnull @.str.310, ptr noundef nonnull %2804) #43
+  br label %2855
 
-2824:                                             ; preds = %2818
-  %2825 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2806, ptr noundef nonnull dereferenceable(4) @.str.1058) #44
-  %2826 = icmp eq i32 %2825, 0
-  br i1 %2826, label %2827, label %.thread3510
+2820:                                             ; preds = %2814
+  %2821 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2802, ptr noundef nonnull dereferenceable(4) @.str.1058) #44
+  %2822 = icmp eq i32 %2821, 0
+  br i1 %2822, label %2823, label %.thread3510
 
-2827:                                             ; preds = %2824
+2823:                                             ; preds = %2820
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #43
   store ptr null, ptr %38, align 8, !tbaa !29
-  store i32 0, ptr %2789, align 8, !tbaa !565
-  %2828 = load ptr, ptr %36, align 8, !tbaa !562
-  store i8 0, ptr %2828, align 1, !tbaa !25
-  %2829 = load ptr, ptr %1, align 8, !tbaa !477
-  %2830 = call i32 @sqlite3_exec(ptr noundef %2829, ptr noundef nonnull %2808, ptr noundef nonnull @captureOutputCallback, ptr noundef nonnull %36, ptr noundef nonnull %38) #43
-  %2831 = add nsw i32 %.123014157, 1
-  br i1 %.not2643, label %2836, label %2832
+  store i32 0, ptr %2785, align 8, !tbaa !565
+  %2824 = load ptr, ptr %36, align 8, !tbaa !562
+  store i8 0, ptr %2824, align 1, !tbaa !25
+  %2825 = load ptr, ptr %1, align 8, !tbaa !477
+  %2826 = call i32 @sqlite3_exec(ptr noundef %2825, ptr noundef nonnull %2804, ptr noundef nonnull @captureOutputCallback, ptr noundef nonnull %36, ptr noundef nonnull %38) #43
+  %2827 = add nsw i32 %.123014157, 1
+  br i1 %.not2643, label %2832, label %2828
 
-2832:                                             ; preds = %2827
-  %2833 = load ptr, ptr %2790, align 8, !tbaa !462
-  %2834 = load ptr, ptr %36, align 8, !tbaa !562
-  %2835 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2833, ptr noundef nonnull @.str.1059, ptr noundef %2834) #43
-  br label %2836
+2828:                                             ; preds = %2823
+  %2829 = load ptr, ptr %2786, align 8, !tbaa !462
+  %2830 = load ptr, ptr %36, align 8, !tbaa !562
+  %2831 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2829, ptr noundef nonnull @.str.1059, ptr noundef %2830) #43
+  br label %2832
 
-2836:                                             ; preds = %2832, %2827
-  %2837 = icmp ne i32 %2830, 0
-  %2838 = load ptr, ptr %38, align 8
-  %2839 = icmp ne ptr %2838, null
-  %or.cond163 = select i1 %2837, i1 true, i1 %2839
-  br i1 %or.cond163, label %2840, label %2845
+2832:                                             ; preds = %2828, %2823
+  %2833 = icmp ne i32 %2826, 0
+  %2834 = load ptr, ptr %38, align 8
+  %2835 = icmp ne ptr %2834, null
+  %or.cond163 = select i1 %2833, i1 true, i1 %2835
+  br i1 %or.cond163, label %2836, label %2841
 
-2840:                                             ; preds = %2836
-  %2841 = add nsw i32 %.122954158, 1
-  %2842 = load ptr, ptr %2790, align 8, !tbaa !462
-  %2843 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2842, ptr noundef nonnull @.str.1060, i32 noundef %2804, i32 noundef 1, ptr noundef %2838) #43
-  %2844 = load ptr, ptr %38, align 8, !tbaa !29
-  call void @sqlite3_free(ptr noundef %2844) #43
-  br label %2856
+2836:                                             ; preds = %2832
+  %2837 = add nsw i32 %.122954158, 1
+  %2838 = load ptr, ptr %2786, align 8, !tbaa !462
+  %2839 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2838, ptr noundef nonnull @.str.1060, i32 noundef %2800, i32 noundef 1, ptr noundef %2834) #43
+  %2840 = load ptr, ptr %38, align 8, !tbaa !29
+  call void @sqlite3_free(ptr noundef %2840) #43
+  br label %2852
 
-2845:                                             ; preds = %2836
-  %2846 = load ptr, ptr %36, align 8, !tbaa !562
-  %2847 = icmp eq ptr %2846, null
-  %spec.store.select1.i3104 = select i1 %2847, ptr @.str.44, ptr %2846
-  %2848 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2810, ptr noundef nonnull dereferenceable(1) %spec.store.select1.i3104) #44
-  %.not2644 = icmp eq i32 %2848, 0
-  br i1 %.not2644, label %2856, label %2849
+2841:                                             ; preds = %2832
+  %2842 = load ptr, ptr %36, align 8, !tbaa !562
+  %2843 = icmp eq ptr %2842, null
+  %spec.store.select1.i3104 = select i1 %2843, ptr @.str.44, ptr %2842
+  %2844 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2806, ptr noundef nonnull dereferenceable(1) %spec.store.select1.i3104) #44
+  %.not2644 = icmp eq i32 %2844, 0
+  br i1 %.not2644, label %2852, label %2845
 
-2849:                                             ; preds = %2845
-  %2850 = add nsw i32 %.122954158, 1
-  %2851 = load ptr, ptr %2790, align 8, !tbaa !462
-  %2852 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2851, ptr noundef nonnull @.str.1061, i32 noundef %2804, ptr noundef nonnull %2810) #43
-  %2853 = load ptr, ptr %2790, align 8, !tbaa !462
-  %2854 = load ptr, ptr %36, align 8, !tbaa !562
-  %2855 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2853, ptr noundef nonnull @.str.1062, i32 noundef %2804, ptr noundef %2854) #43
-  br label %2856
+2845:                                             ; preds = %2841
+  %2846 = add nsw i32 %.122954158, 1
+  %2847 = load ptr, ptr %2786, align 8, !tbaa !462
+  %2848 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2847, ptr noundef nonnull @.str.1061, i32 noundef %2800, ptr noundef nonnull %2806) #43
+  %2849 = load ptr, ptr %2786, align 8, !tbaa !462
+  %2850 = load ptr, ptr %36, align 8, !tbaa !562
+  %2851 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2849, ptr noundef nonnull @.str.1062, i32 noundef %2800, ptr noundef %2850) #43
+  br label %2852
 
-2856:                                             ; preds = %2845, %2849, %2840
-  %.52299 = phi i32 [ %2841, %2840 ], [ %2850, %2849 ], [ %.122954158, %2845 ]
-  %.62 = phi i32 [ 1, %2840 ], [ 1, %2849 ], [ 0, %2845 ]
+2852:                                             ; preds = %2841, %2845, %2836
+  %.52299 = phi i32 [ %2837, %2836 ], [ %2846, %2845 ], [ %.122954158, %2841 ]
+  %.62 = phi i32 [ 1, %2836 ], [ 1, %2845 ], [ 0, %2841 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #43
-  br label %2859
+  br label %2855
 
-.thread3510:                                      ; preds = %2824
-  %2857 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2858 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2857, ptr noundef nonnull @.str.1063, ptr noundef nonnull %2806, i32 noundef %2804) #46
+.thread3510:                                      ; preds = %2820
+  %2853 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2854 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2853, ptr noundef nonnull @.str.1063, ptr noundef nonnull %2802, i32 noundef %2800) #46
   br label %.loopexit3754
 
-2859:                                             ; preds = %2821, %2856, %.lr.ph4160
-  %.32308 = phi i32 [ %.123064156, %.lr.ph4160 ], [ 0, %2856 ], [ 0, %2821 ]
-  %.32303 = phi i32 [ %.123014157, %.lr.ph4160 ], [ %2831, %2856 ], [ %.123014157, %2821 ]
-  %.32297 = phi i32 [ %.122954158, %.lr.ph4160 ], [ %.52299, %2856 ], [ %.122954158, %2821 ]
-  %.60 = phi i32 [ %.584159, %.lr.ph4160 ], [ %.62, %2856 ], [ %.584159, %2821 ]
-  %2860 = load ptr, ptr %37, align 8, !tbaa !31
-  %2861 = call i32 @sqlite3_step(ptr noundef %2860) #43
-  %2862 = icmp eq i32 %2861, 100
-  br i1 %2862, label %.lr.ph4160, label %.loopexit3754
+2855:                                             ; preds = %2817, %2852, %.lr.ph4160
+  %.32308 = phi i32 [ %.123064156, %.lr.ph4160 ], [ 0, %2852 ], [ 0, %2817 ]
+  %.32303 = phi i32 [ %.123014157, %.lr.ph4160 ], [ %2827, %2852 ], [ %.123014157, %2817 ]
+  %.32297 = phi i32 [ %.122954158, %.lr.ph4160 ], [ %.52299, %2852 ], [ %.122954158, %2817 ]
+  %.60 = phi i32 [ %.584159, %.lr.ph4160 ], [ %.62, %2852 ], [ %.584159, %2817 ]
+  %2856 = load ptr, ptr %37, align 8, !tbaa !31
+  %2857 = call i32 @sqlite3_step(ptr noundef %2856) #43
+  %2858 = icmp eq i32 %2857, 100
+  br i1 %2858, label %.lr.ph4160, label %.loopexit3754
 
-.loopexit3754:                                    ; preds = %2859, %.preheader3753, %.thread3510
-  %.123013812 = phi i32 [ %.123014157, %.thread3510 ], [ %.023004166, %.preheader3753 ], [ %.32303, %2859 ]
-  %.122953810 = phi i32 [ %.122954158, %.thread3510 ], [ %.022944167, %.preheader3753 ], [ %.32297, %2859 ]
-  %.22307 = phi i32 [ 0, %.thread3510 ], [ %.023054165, %.preheader3753 ], [ %.32308, %2859 ]
-  %.59 = phi i32 [ 1, %.thread3510 ], [ 0, %.preheader3753 ], [ %.60, %2859 ]
-  %2863 = load ptr, ptr %37, align 8, !tbaa !31
-  %2864 = call i32 @sqlite3_finalize(ptr noundef %2863) #43
-  %2865 = add nsw i32 %.22307, -1
-  %2866 = icmp sgt i32 %.22307, 0
-  br i1 %2866, label %2791, label %2867, !llvm.loop !566
+.loopexit3754:                                    ; preds = %2855, %.preheader3753, %.thread3510
+  %.123013812 = phi i32 [ %.123014157, %.thread3510 ], [ %.023004166, %.preheader3753 ], [ %.32303, %2855 ]
+  %.122953810 = phi i32 [ %.122954158, %.thread3510 ], [ %.022944167, %.preheader3753 ], [ %.32297, %2855 ]
+  %.22307 = phi i32 [ 0, %.thread3510 ], [ %.023054165, %.preheader3753 ], [ %.32308, %2855 ]
+  %.59 = phi i32 [ 1, %.thread3510 ], [ 0, %.preheader3753 ], [ %.60, %2855 ]
+  %2859 = load ptr, ptr %37, align 8, !tbaa !31
+  %2860 = call i32 @sqlite3_finalize(ptr noundef %2859) #43
+  %2861 = add nsw i32 %.22307, -1
+  %2862 = icmp sgt i32 %.22307, 0
+  br i1 %2862, label %2787, label %2863, !llvm.loop !566
 
-2867:                                             ; preds = %.loopexit3754
-  %2868 = load ptr, ptr %36, align 8, !tbaa !562
-  call void @free(ptr noundef %2868) #43
+2863:                                             ; preds = %.loopexit3754
+  %2864 = load ptr, ptr %36, align 8, !tbaa !562
+  call void @free(ptr noundef %2864) #43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
-  %2869 = load ptr, ptr %2790, align 8, !tbaa !462
-  %2870 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2869, ptr noundef nonnull @.str.1064, i32 noundef %.122953810, i32 noundef %.123013812) #43
-  br label %2871
+  %2865 = load ptr, ptr %2786, align 8, !tbaa !462
+  %2866 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2865, ptr noundef nonnull @.str.1064, i32 noundef %.122953810, i32 noundef %.123013812) #43
+  br label %2867
 
-2871:                                             ; preds = %.tail3723.thread, %2867, %2798
-  %.55 = phi i32 [ 1, %.tail3723.thread ], [ 1, %2798 ], [ %.59, %2867 ]
+2867:                                             ; preds = %.tail3723.thread, %2863, %2794
+  %.55 = phi i32 [ 1, %.tail3723.thread ], [ 1, %2794 ], [ %.59, %2863 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #43
   br label %test_breakpoint.exit
 
-2872:                                             ; preds = %2754, %2751
-  br i1 %1794, label %2873, label %2895
+2868:                                             ; preds = %2750, %2747
+  br i1 %1790, label %2869, label %2891
 
-2873:                                             ; preds = %2872
-  %2874 = and i64 %strlen.i, 1073741823
-  %2875 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1065, i64 noundef range(i64 0, 1073741824) %2874) #44
-  %2876 = icmp eq i32 %2875, 0
-  br i1 %2876, label %2877, label %2895
+2869:                                             ; preds = %2868
+  %2870 = and i64 %strlen.i, 1073741823
+  %2871 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1065, i64 noundef range(i64 0, 1073741824) %2870) #44
+  %2872 = icmp eq i32 %2871, 0
+  br i1 %2872, label %2873, label %2891
 
-2877:                                             ; preds = %2873
-  %2878 = icmp eq i32 %.02122.lcssa.ph, 1
-  %2879 = icmp samesign ugt i32 %.02122.lcssa.ph, 3
-  %or.cond166 = or i1 %2878, %2879
-  br i1 %or.cond166, label %2880, label %2883
+2873:                                             ; preds = %2869
+  %2874 = icmp eq i32 %.02122.lcssa.ph, 1
+  %2875 = icmp samesign ugt i32 %.02122.lcssa.ph, 3
+  %or.cond166 = or i1 %2874, %2875
+  br i1 %or.cond166, label %2876, label %2879
 
-2880:                                             ; preds = %2877
-  %2881 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2882 = tail call i64 @fwrite(ptr nonnull @.str.1066, i64 28, i64 1, ptr %2881) #50
-  br label %2883
+2876:                                             ; preds = %2873
+  %2877 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2878 = tail call i64 @fwrite(ptr nonnull @.str.1066, i64 28, i64 1, ptr %2877) #50
+  br label %2879
 
-2883:                                             ; preds = %2877, %2880
-  %.63 = phi i32 [ 1, %2880 ], [ 0, %2877 ]
-  br i1 %2878, label %test_breakpoint.exit, label %2884
+2879:                                             ; preds = %2873, %2876
+  %.63 = phi i32 [ 1, %2876 ], [ 0, %2873 ]
+  br i1 %2874, label %test_breakpoint.exit, label %2880
 
-2884:                                             ; preds = %2883
-  %2885 = getelementptr inbounds nuw i8, ptr %1, i64 198
-  %2886 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %2887 = load ptr, ptr %2886, align 8, !tbaa !29
-  %2888 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %2885, ptr noundef nonnull @.str.219, i32 noundef 19, ptr noundef %2887) #43
-  %2889 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
-  br i1 %2889, label %2890, label %test_breakpoint.exit
+2880:                                             ; preds = %2879
+  %2881 = getelementptr inbounds nuw i8, ptr %1, i64 198
+  %2882 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %2883 = load ptr, ptr %2882, align 8, !tbaa !29
+  %2884 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %2881, ptr noundef nonnull @.str.219, i32 noundef 19, ptr noundef %2883) #43
+  %2885 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
+  br i1 %2885, label %2886, label %test_breakpoint.exit
 
-2890:                                             ; preds = %2884
-  %2891 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  %2892 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %2893 = load ptr, ptr %2892, align 16, !tbaa !29
-  %2894 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %2891, ptr noundef nonnull @.str.219, i32 noundef 19, ptr noundef %2893) #43
+2886:                                             ; preds = %2880
+  %2887 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  %2888 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %2889 = load ptr, ptr %2888, align 16, !tbaa !29
+  %2890 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 20, ptr noundef nonnull %2887, ptr noundef nonnull @.str.219, i32 noundef 19, ptr noundef %2889) #43
   br label %test_breakpoint.exit
 
-2895:                                             ; preds = %2873, %2872
-  br i1 %or.cond160, label %2896, label %3052
+2891:                                             ; preds = %2869, %2868
+  br i1 %or.cond160, label %2892, label %3048
 
-2896:                                             ; preds = %2895
-  %2897 = and i64 %strlen.i, 1073741823
-  %2898 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1067, i64 noundef range(i64 0, 1073741824) %2897) #44
-  %2899 = icmp eq i32 %2898, 0
-  br i1 %2899, label %2900, label %3052
+2892:                                             ; preds = %2891
+  %2893 = and i64 %strlen.i, 1073741823
+  %2894 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1067, i64 noundef range(i64 0, 1073741824) %2893) #44
+  %2895 = icmp eq i32 %2894, 0
+  br i1 %2895, label %2896, label %3048
 
-2900:                                             ; preds = %2896
+2896:                                             ; preds = %2892
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #43
@@ -25097,1270 +25094,1270 @@ sub_13725:                                        ; preds = %2763
   %.not4228 = icmp eq i32 %.02122.lcssa.ph, 1
   br i1 %.not4228, label %._crit_edge4138, label %.lr.ph4137.preheader
 
-.lr.ph4137.preheader:                             ; preds = %2900
+.lr.ph4137.preheader:                             ; preds = %2896
   %wide.trip.count4475 = and i64 %.02122.lcssa.ph.in, 4294967295
   br label %.lr.ph4137
 
-.lr.ph4137:                                       ; preds = %.lr.ph4137.preheader, %2944
-  %indvars.iv4470 = phi i64 [ 1, %.lr.ph4137.preheader ], [ %indvars.iv.next4471, %2944 ]
-  %.022674135 = phi i32 [ 0, %.lr.ph4137.preheader ], [ %.12268.ph, %2944 ]
-  %.022704134 = phi i32 [ 224, %.lr.ph4137.preheader ], [ %.12271.ph, %2944 ]
-  %.022734133 = phi i32 [ 0, %.lr.ph4137.preheader ], [ %.12274.ph, %2944 ]
-  %.022764132 = phi i32 [ 0, %.lr.ph4137.preheader ], [ %.12277.ph, %2944 ]
-  %.022804130 = phi ptr [ null, %.lr.ph4137.preheader ], [ %.12281.ph, %2944 ]
-  %2901 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4470
-  %2902 = load ptr, ptr %2901, align 8, !tbaa !29
+.lr.ph4137:                                       ; preds = %.lr.ph4137.preheader, %2940
+  %indvars.iv4470 = phi i64 [ 1, %.lr.ph4137.preheader ], [ %indvars.iv.next4471, %2940 ]
+  %.022674135 = phi i32 [ 0, %.lr.ph4137.preheader ], [ %.12268.ph, %2940 ]
+  %.022704134 = phi i32 [ 224, %.lr.ph4137.preheader ], [ %.12271.ph, %2940 ]
+  %.022734133 = phi i32 [ 0, %.lr.ph4137.preheader ], [ %.12274.ph, %2940 ]
+  %.022764132 = phi i32 [ 0, %.lr.ph4137.preheader ], [ %.12277.ph, %2940 ]
+  %.022804130 = phi ptr [ null, %.lr.ph4137.preheader ], [ %.12281.ph, %2940 ]
+  %2897 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4470
+  %2898 = load ptr, ptr %2897, align 8, !tbaa !29
+  %2899 = load i8, ptr %2898, align 1, !tbaa !25
+  %2900 = icmp eq i8 %2899, 45
+  br i1 %2900, label %2901, label %2933
+
+2901:                                             ; preds = %.lr.ph4137
+  %2902 = getelementptr inbounds nuw i8, ptr %2898, i64 1
   %2903 = load i8, ptr %2902, align 1, !tbaa !25
   %2904 = icmp eq i8 %2903, 45
-  br i1 %2904, label %2905, label %2937
+  %2905 = getelementptr inbounds nuw i8, ptr %2898, i64 2
+  %spec.select2833 = select i1 %2904, ptr %2905, ptr %2902
+  %2906 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2833, ptr noundef nonnull dereferenceable(7) @.str.1016) #44
+  %2907 = icmp eq i32 %2906, 0
+  br i1 %2907, label %2940, label %2908
 
-2905:                                             ; preds = %.lr.ph4137
-  %2906 = getelementptr inbounds nuw i8, ptr %2902, i64 1
-  %2907 = load i8, ptr %2906, align 1, !tbaa !25
-  %2908 = icmp eq i8 %2907, 45
-  %2909 = getelementptr inbounds nuw i8, ptr %2902, i64 2
-  %spec.select2833 = select i1 %2908, ptr %2909, ptr %2906
-  %2910 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2833, ptr noundef nonnull dereferenceable(7) @.str.1016) #44
-  %2911 = icmp eq i32 %2910, 0
-  br i1 %2911, label %2944, label %2912
+2908:                                             ; preds = %2901
+  %2909 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2833, ptr noundef nonnull dereferenceable(9) @.str.1068) #44
+  %2910 = icmp eq i32 %2909, 0
+  br i1 %2910, label %2920, label %2911
 
-2912:                                             ; preds = %2905
-  %2913 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2833, ptr noundef nonnull dereferenceable(9) @.str.1068) #44
-  %2914 = icmp eq i32 %2913, 0
-  br i1 %2914, label %2924, label %2915
+2911:                                             ; preds = %2908
+  %2912 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2833, ptr noundef nonnull dereferenceable(9) @.str.1069) #44
+  %2913 = icmp eq i32 %2912, 0
+  br i1 %2913, label %2920, label %2914
 
-2915:                                             ; preds = %2912
-  %2916 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2833, ptr noundef nonnull dereferenceable(9) @.str.1069) #44
-  %2917 = icmp eq i32 %2916, 0
-  br i1 %2917, label %2924, label %2918
+2914:                                             ; preds = %2911
+  %2915 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2833, ptr noundef nonnull dereferenceable(9) @.str.1070) #44
+  %2916 = icmp eq i32 %2915, 0
+  br i1 %2916, label %2920, label %2917
 
-2918:                                             ; preds = %2915
-  %2919 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2833, ptr noundef nonnull dereferenceable(9) @.str.1070) #44
-  %2920 = icmp eq i32 %2919, 0
-  br i1 %2920, label %2924, label %2921
+2917:                                             ; preds = %2914
+  %2918 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2833, ptr noundef nonnull dereferenceable(9) @.str.1071) #44
+  %2919 = icmp eq i32 %2918, 0
+  br i1 %2919, label %2920, label %2924
 
-2921:                                             ; preds = %2918
-  %2922 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2833, ptr noundef nonnull dereferenceable(9) @.str.1071) #44
-  %2923 = icmp eq i32 %2922, 0
-  br i1 %2923, label %2924, label %2928
+2920:                                             ; preds = %2917, %2914, %2911, %2908
+  %2921 = getelementptr inbounds nuw i8, ptr %spec.select2833, i64 5
+  %2922 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2921, ptr noundef null, i32 noundef 10) #43
+  %2923 = trunc i64 %2922 to i32
+  br label %2940
 
-2924:                                             ; preds = %2921, %2918, %2915, %2912
-  %2925 = getelementptr inbounds nuw i8, ptr %spec.select2833, i64 5
-  %2926 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2925, ptr noundef null, i32 noundef 10) #43
-  %2927 = trunc i64 %2926 to i32
-  br label %2944
+2924:                                             ; preds = %2917
+  %2925 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2833, ptr noundef nonnull dereferenceable(6) @.str.1017) #44
+  %2926 = icmp eq i32 %2925, 0
+  br i1 %2926, label %2940, label %2927
 
-2928:                                             ; preds = %2921
-  %2929 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2833, ptr noundef nonnull dereferenceable(6) @.str.1017) #44
-  %2930 = icmp eq i32 %2929, 0
-  br i1 %2930, label %2944, label %2931
+2927:                                             ; preds = %2924
+  %2928 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2929 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2928, ptr noundef nonnull @.str.1050, ptr noundef nonnull %2898, ptr noundef nonnull %128) #46
+  %2930 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %2931 = load ptr, ptr %2930, align 8, !tbaa !462
+  %2932 = tail call fastcc i32 @showHelp(ptr noundef %2931, ptr noundef nonnull %128)
+  br label %3047
 
-2931:                                             ; preds = %2928
-  %2932 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2933 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2932, ptr noundef nonnull @.str.1050, ptr noundef nonnull %2902, ptr noundef nonnull %128) #46
-  %2934 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %2935 = load ptr, ptr %2934, align 8, !tbaa !462
-  %2936 = tail call fastcc i32 @showHelp(ptr noundef %2935, ptr noundef nonnull %128)
-  br label %3051
-
-2937:                                             ; preds = %.lr.ph4137
+2933:                                             ; preds = %.lr.ph4137
   %.not2638 = icmp eq ptr %.022804130, null
-  br i1 %.not2638, label %2941, label %2938
+  br i1 %.not2638, label %2937, label %2934
 
-2938:                                             ; preds = %2937
-  %2939 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %2940 = tail call i64 @fwrite(ptr nonnull @.str.1072, i64 41, i64 1, ptr %2939) #50
-  br label %3051
+2934:                                             ; preds = %2933
+  %2935 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %2936 = tail call i64 @fwrite(ptr nonnull @.str.1072, i64 41, i64 1, ptr %2935) #50
+  br label %3047
 
-2941:                                             ; preds = %2937
-  %2942 = tail call i32 @sqlite3_strlike(ptr noundef nonnull @.str.1073, ptr noundef nonnull %2902, i32 noundef 92) #43
-  %2943 = icmp eq i32 %2942, 0
-  %spec.select2834 = select i1 %2943, i32 1, i32 %.022764132
-  br label %2944
+2937:                                             ; preds = %2933
+  %2938 = tail call i32 @sqlite3_strlike(ptr noundef nonnull @.str.1073, ptr noundef nonnull %2898, i32 noundef 92) #43
+  %2939 = icmp eq i32 %2938, 0
+  %spec.select2834 = select i1 %2939, i32 1, i32 %.022764132
+  br label %2940
 
-2944:                                             ; preds = %2928, %2905, %2941, %2924
-  %.12281.ph = phi ptr [ %2902, %2941 ], [ %.022804130, %2928 ], [ %.022804130, %2905 ], [ %.022804130, %2924 ]
-  %.12277.ph = phi i32 [ %spec.select2834, %2941 ], [ %.022764132, %2928 ], [ 1, %2905 ], [ %.022764132, %2924 ]
-  %.12274.ph = phi i32 [ 1, %2941 ], [ %.022734133, %2928 ], [ %.022734133, %2905 ], [ %.022734133, %2924 ]
-  %.12271.ph = phi i32 [ %.022704134, %2941 ], [ %.022704134, %2928 ], [ %.022704134, %2905 ], [ %2927, %2924 ]
-  %.12268.ph = phi i32 [ %.022674135, %2941 ], [ 1, %2928 ], [ %.022674135, %2905 ], [ %.022674135, %2924 ]
+2940:                                             ; preds = %2924, %2901, %2937, %2920
+  %.12281.ph = phi ptr [ %2898, %2937 ], [ %.022804130, %2924 ], [ %.022804130, %2901 ], [ %.022804130, %2920 ]
+  %.12277.ph = phi i32 [ %spec.select2834, %2937 ], [ %.022764132, %2924 ], [ 1, %2901 ], [ %.022764132, %2920 ]
+  %.12274.ph = phi i32 [ 1, %2937 ], [ %.022734133, %2924 ], [ %.022734133, %2901 ], [ %.022734133, %2920 ]
+  %.12271.ph = phi i32 [ %.022704134, %2937 ], [ %.022704134, %2924 ], [ %.022704134, %2901 ], [ %2923, %2920 ]
+  %.12268.ph = phi i32 [ %.022674135, %2937 ], [ 1, %2924 ], [ %.022674135, %2901 ], [ %.022674135, %2920 ]
   %indvars.iv.next4471 = add nuw nsw i64 %indvars.iv4470, 1
   %exitcond4476.not = icmp eq i64 %indvars.iv.next4471, %wide.trip.count4475
   br i1 %exitcond4476.not, label %._crit_edge4138.loopexit, label %.lr.ph4137, !llvm.loop !567
 
-._crit_edge4138.loopexit:                         ; preds = %2944
-  %2945 = icmp eq i32 %.12277.ph, 0
-  %2946 = select i1 %2945, ptr @.str.1075, ptr @.str.1074
-  %2947 = icmp eq i32 %.12274.ph, 0
-  %2948 = icmp eq i32 %.12268.ph, 0
-  %2949 = select i1 %2947, ptr @.str.1087, ptr @.str.1086
+._crit_edge4138.loopexit:                         ; preds = %2940
+  %2941 = icmp eq i32 %.12277.ph, 0
+  %2942 = select i1 %2941, ptr @.str.1075, ptr @.str.1074
+  %2943 = icmp eq i32 %.12274.ph, 0
+  %2944 = icmp eq i32 %.12268.ph, 0
+  %2945 = select i1 %2943, ptr @.str.1087, ptr @.str.1086
   br label %._crit_edge4138
 
-._crit_edge4138:                                  ; preds = %._crit_edge4138.loopexit, %2900
-  %.02280.lcssa = phi ptr [ null, %2900 ], [ %.12281.ph, %._crit_edge4138.loopexit ]
-  %.02276.lcssa = phi ptr [ @.str.1075, %2900 ], [ %2946, %._crit_edge4138.loopexit ]
-  %.02273.lcssa = phi ptr [ @.str.1087, %2900 ], [ %2949, %._crit_edge4138.loopexit ]
-  %.02270.lcssa = phi i32 [ 224, %2900 ], [ %.12271.ph, %._crit_edge4138.loopexit ]
-  %.02267.lcssa = phi i1 [ true, %2900 ], [ %2948, %._crit_edge4138.loopexit ]
-  %2950 = load ptr, ptr %1, align 8, !tbaa !477
-  %2951 = call i32 @sqlite3_prepare_v2(ptr noundef %2950, ptr noundef nonnull %.02276.lcssa, i32 noundef -1, ptr noundef nonnull %39, ptr noundef null) #43
+._crit_edge4138:                                  ; preds = %._crit_edge4138.loopexit, %2896
+  %.02280.lcssa = phi ptr [ null, %2896 ], [ %.12281.ph, %._crit_edge4138.loopexit ]
+  %.02276.lcssa = phi ptr [ @.str.1075, %2896 ], [ %2942, %._crit_edge4138.loopexit ]
+  %.02273.lcssa = phi ptr [ @.str.1087, %2896 ], [ %2945, %._crit_edge4138.loopexit ]
+  %.02270.lcssa = phi i32 [ 224, %2896 ], [ %.12271.ph, %._crit_edge4138.loopexit ]
+  %.02267.lcssa = phi i1 [ true, %2896 ], [ %2944, %._crit_edge4138.loopexit ]
+  %2946 = load ptr, ptr %1, align 8, !tbaa !477
+  %2947 = call i32 @sqlite3_prepare_v2(ptr noundef %2946, ptr noundef nonnull %.02276.lcssa, i32 noundef -1, ptr noundef nonnull %39, ptr noundef null) #43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   call fastcc void @appendText(ptr noundef nonnull %40, ptr noundef nonnull @.str.1076, i8 noundef signext 0)
-  %2952 = load ptr, ptr %39, align 8, !tbaa !31
-  %2953 = call i32 @sqlite3_step(ptr noundef %2952) #43
-  %2954 = icmp eq i32 %2953, 100
-  br i1 %2954, label %.lr.ph4146, label %._crit_edge4147
+  %2948 = load ptr, ptr %39, align 8, !tbaa !31
+  %2949 = call i32 @sqlite3_step(ptr noundef %2948) #43
+  %2950 = icmp eq i32 %2949, 100
+  br i1 %2950, label %.lr.ph4146, label %._crit_edge4147
 
 .lr.ph4146:                                       ; preds = %._crit_edge4138
   %.not2635 = icmp eq ptr %.02280.lcssa, null
-  %2955 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  br label %2956
+  %2951 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  br label %2952
 
-2956:                                             ; preds = %.lr.ph4146, %2979
-  %.022634144 = phi ptr [ @.str.1077, %.lr.ph4146 ], [ %.12264, %2979 ]
-  %2957 = load ptr, ptr %39, align 8, !tbaa !31
-  %2958 = call ptr @sqlite3_column_text(ptr noundef %2957, i32 noundef 0) #43
-  %2959 = icmp eq ptr %2958, null
-  br i1 %2959, label %2979, label %2960, !llvm.loop !568
+2952:                                             ; preds = %.lr.ph4146, %2975
+  %.022634144 = phi ptr [ @.str.1077, %.lr.ph4146 ], [ %.12264, %2975 ]
+  %2953 = load ptr, ptr %39, align 8, !tbaa !31
+  %2954 = call ptr @sqlite3_column_text(ptr noundef %2953, i32 noundef 0) #43
+  %2955 = icmp eq ptr %2954, null
+  br i1 %2955, label %2975, label %2956, !llvm.loop !568
 
-2960:                                             ; preds = %2956
-  br i1 %.not2635, label %2963, label %2961
+2956:                                             ; preds = %2952
+  br i1 %.not2635, label %2959, label %2957
 
-2961:                                             ; preds = %2960
-  %2962 = call i32 @sqlite3_strlike(ptr noundef nonnull %.02280.lcssa, ptr noundef nonnull %2958, i32 noundef 0) #43
-  %.not2636 = icmp eq i32 %2962, 0
-  br i1 %.not2636, label %2963, label %2979, !llvm.loop !568
+2957:                                             ; preds = %2956
+  %2958 = call i32 @sqlite3_strlike(ptr noundef nonnull %.02280.lcssa, ptr noundef nonnull %2954, i32 noundef 0) #43
+  %.not2636 = icmp eq i32 %2958, 0
+  br i1 %.not2636, label %2959, label %2975, !llvm.loop !568
 
-2963:                                             ; preds = %2961, %2960
-  %2964 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2958, ptr noundef nonnull dereferenceable(8) @.str.1078, i64 noundef 7) #44
-  %.not2637 = icmp eq i32 %2964, 0
-  br i1 %.not2637, label %2965, label %.sink.split.sink.split
+2959:                                             ; preds = %2957, %2956
+  %2960 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %2954, ptr noundef nonnull dereferenceable(8) @.str.1078, i64 noundef 7) #44
+  %.not2637 = icmp eq i32 %2960, 0
+  br i1 %.not2637, label %2961, label %.sink.split.sink.split
 
-2965:                                             ; preds = %2963
-  %2966 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2958, ptr noundef nonnull dereferenceable(14) @.str.1021) #44
-  %2967 = icmp eq i32 %2966, 0
-  br i1 %2967, label %.sink.split, label %2968
+2961:                                             ; preds = %2959
+  %2962 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2954, ptr noundef nonnull dereferenceable(14) @.str.1021) #44
+  %2963 = icmp eq i32 %2962, 0
+  br i1 %2963, label %.sink.split, label %2964
 
-2968:                                             ; preds = %2965
-  %2969 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2958, ptr noundef nonnull dereferenceable(16) @.str.589) #44
-  %2970 = icmp eq i32 %2969, 0
-  br i1 %2970, label %.sink.split, label %2971
+2964:                                             ; preds = %2961
+  %2965 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2954, ptr noundef nonnull dereferenceable(16) @.str.589) #44
+  %2966 = icmp eq i32 %2965, 0
+  br i1 %2966, label %.sink.split, label %2967
 
-2971:                                             ; preds = %2968
-  %2972 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2958, ptr noundef nonnull dereferenceable(13) @.str.843) #44
-  %2973 = icmp eq i32 %2972, 0
-  br i1 %2973, label %.sink.split, label %2974
+2967:                                             ; preds = %2964
+  %2968 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2954, ptr noundef nonnull dereferenceable(13) @.str.843) #44
+  %2969 = icmp eq i32 %2968, 0
+  br i1 %2969, label %.sink.split, label %2970
 
-2974:                                             ; preds = %2971
-  %2975 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2958, ptr noundef nonnull dereferenceable(13) @.str.845) #44
-  %2976 = icmp eq i32 %2975, 0
-  br i1 %2976, label %.sink.split.sink.split, label %2977
+2970:                                             ; preds = %2967
+  %2971 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2954, ptr noundef nonnull dereferenceable(13) @.str.845) #44
+  %2972 = icmp eq i32 %2971, 0
+  br i1 %2972, label %.sink.split.sink.split, label %2973
 
-.sink.split.sink.split:                           ; preds = %2974, %2963
-  %.sink4755 = phi i8 [ 34, %2963 ], [ 0, %2974 ]
-  %.str.1081.sink.ph = phi ptr [ @.str.1080, %2963 ], [ @.str.1084, %2974 ]
+.sink.split.sink.split:                           ; preds = %2970, %2959
+  %.sink4755 = phi i8 [ 34, %2959 ], [ 0, %2970 ]
+  %.str.1081.sink.ph = phi ptr [ @.str.1080, %2959 ], [ @.str.1084, %2970 ]
   call fastcc void @appendText(ptr noundef nonnull %41, ptr noundef nonnull @.str.1079, i8 noundef signext 0)
-  call fastcc void @appendText(ptr noundef nonnull %41, ptr noundef nonnull %2958, i8 noundef signext %.sink4755)
+  call fastcc void @appendText(ptr noundef nonnull %41, ptr noundef nonnull %2954, i8 noundef signext %.sink4755)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %2971, %2968, %2965
-  %.str.1081.sink = phi ptr [ @.str.1081, %2965 ], [ @.str.1082, %2968 ], [ @.str.1083, %2971 ], [ %.str.1081.sink.ph, %.sink.split.sink.split ]
+.sink.split:                                      ; preds = %.sink.split.sink.split, %2967, %2964, %2961
+  %.str.1081.sink = phi ptr [ @.str.1081, %2961 ], [ @.str.1082, %2964 ], [ @.str.1083, %2967 ], [ %.str.1081.sink.ph, %.sink.split.sink.split ]
   call fastcc void @appendText(ptr noundef nonnull %41, ptr noundef nonnull %.str.1081.sink, i8 noundef signext 0)
-  br label %2977
+  br label %2973
 
-2977:                                             ; preds = %.sink.split, %2974
+2973:                                             ; preds = %.sink.split, %2970
   call fastcc void @appendText(ptr noundef nonnull %40, ptr noundef %.022634144, i8 noundef signext 0)
-  %2978 = load ptr, ptr %41, align 8, !tbaa !562
-  call fastcc void @appendText(ptr noundef nonnull %40, ptr noundef %2978, i8 noundef signext 39)
-  store i32 0, ptr %2955, align 8, !tbaa !565
+  %2974 = load ptr, ptr %41, align 8, !tbaa !562
+  call fastcc void @appendText(ptr noundef nonnull %40, ptr noundef %2974, i8 noundef signext 39)
+  store i32 0, ptr %2951, align 8, !tbaa !565
   call fastcc void @appendText(ptr noundef nonnull %40, ptr noundef nonnull @.str.101, i8 noundef signext 0)
-  call fastcc void @appendText(ptr noundef nonnull %40, ptr noundef nonnull %2958, i8 noundef signext 39)
-  br label %2979
+  call fastcc void @appendText(ptr noundef nonnull %40, ptr noundef nonnull %2954, i8 noundef signext 39)
+  br label %2975
 
-2979:                                             ; preds = %2961, %2956, %2977
-  %.12264 = phi ptr [ @.str.1085, %2977 ], [ %.022634144, %2956 ], [ %.022634144, %2961 ]
-  %2980 = load ptr, ptr %39, align 8, !tbaa !31
-  %2981 = call i32 @sqlite3_step(ptr noundef %2980) #43
-  %2982 = icmp eq i32 %2981, 100
-  br i1 %2982, label %2956, label %._crit_edge4147
+2975:                                             ; preds = %2957, %2952, %2973
+  %.12264 = phi ptr [ @.str.1085, %2973 ], [ %.022634144, %2952 ], [ %.022634144, %2957 ]
+  %2976 = load ptr, ptr %39, align 8, !tbaa !31
+  %2977 = call i32 @sqlite3_step(ptr noundef %2976) #43
+  %2978 = icmp eq i32 %2977, 100
+  br i1 %2978, label %2952, label %._crit_edge4147
 
-._crit_edge4147:                                  ; preds = %2979, %._crit_edge4138
-  %2983 = load ptr, ptr %39, align 8, !tbaa !31
-  %2984 = call i32 @sqlite3_finalize(ptr noundef %2983) #43
-  %2985 = load ptr, ptr %40, align 8, !tbaa !562
-  %2986 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull %.02273.lcssa, ptr noundef %2985, i32 noundef %.02270.lcssa) #43
-  %2987 = icmp eq ptr %2986, null
-  br i1 %2987, label %2988, label %shell_check_oom.exit3118
+._crit_edge4147:                                  ; preds = %2975, %._crit_edge4138
+  %2979 = load ptr, ptr %39, align 8, !tbaa !31
+  %2980 = call i32 @sqlite3_finalize(ptr noundef %2979) #43
+  %2981 = load ptr, ptr %40, align 8, !tbaa !562
+  %2982 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull %.02273.lcssa, ptr noundef %2981, i32 noundef %.02270.lcssa) #43
+  %2983 = icmp eq ptr %2982, null
+  br i1 %2983, label %2984, label %shell_check_oom.exit3118
 
-2988:                                             ; preds = %._crit_edge4147
+2984:                                             ; preds = %._crit_edge4147
   call fastcc void @shell_out_of_memory()
   unreachable
 
 shell_check_oom.exit3118:                         ; preds = %._crit_edge4147
-  %2989 = load ptr, ptr %41, align 8, !tbaa !562
-  call void @free(ptr noundef %2989) #43
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
+  %2985 = load ptr, ptr %41, align 8, !tbaa !562
   call void @free(ptr noundef %2985) #43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
+  call void @free(ptr noundef %2981) #43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  br i1 %.02267.lcssa, label %2994, label %2990
+  br i1 %.02267.lcssa, label %2990, label %2986
+
+2986:                                             ; preds = %shell_check_oom.exit3118
+  %2987 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %2988 = load ptr, ptr %2987, align 8, !tbaa !462
+  %2989 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2988, ptr noundef nonnull @.str.310, ptr noundef nonnull %2982) #43
+  br label %2992
 
 2990:                                             ; preds = %shell_check_oom.exit3118
-  %2991 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %2992 = load ptr, ptr %2991, align 8, !tbaa !462
-  %2993 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2992, ptr noundef nonnull @.str.310, ptr noundef nonnull %2986) #43
-  br label %2996
+  %2991 = call fastcc i32 @shell_exec(ptr noundef nonnull %1, ptr noundef nonnull %2982, ptr noundef null)
+  br label %2992
 
-2994:                                             ; preds = %shell_check_oom.exit3118
-  %2995 = call fastcc i32 @shell_exec(ptr noundef nonnull %1, ptr noundef nonnull %2986, ptr noundef null)
-  br label %2996
-
-2996:                                             ; preds = %2994, %2990
+2992:                                             ; preds = %2990, %2986
   %.not2631 = icmp eq ptr %.02280.lcssa, null
-  %2997 = select i1 %.not2631, ptr @.str.44, ptr @.str.1089
-  %2998 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.1088, ptr noundef nonnull %2997) #43
-  %2999 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.1090, ptr noundef %2998) #43
-  %3000 = icmp eq ptr %2999, null
-  br i1 %3000, label %3001, label %shell_check_oom.exit3119
+  %2993 = select i1 %.not2631, ptr @.str.44, ptr @.str.1089
+  %2994 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.1088, ptr noundef nonnull %2993) #43
+  %2995 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.1090, ptr noundef %2994) #43
+  %2996 = icmp eq ptr %2995, null
+  br i1 %2996, label %2997, label %shell_check_oom.exit3119
 
-3001:                                             ; preds = %2996
+2997:                                             ; preds = %2992
   call fastcc void @shell_out_of_memory()
   unreachable
 
-shell_check_oom.exit3119:                         ; preds = %2996
-  br i1 %.02267.lcssa, label %3006, label %3002
+shell_check_oom.exit3119:                         ; preds = %2992
+  br i1 %.02267.lcssa, label %3002, label %2998
 
-3002:                                             ; preds = %shell_check_oom.exit3119
-  %3003 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3004 = load ptr, ptr %3003, align 8, !tbaa !462
-  %3005 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3004, ptr noundef nonnull @.str.310, ptr noundef nonnull %2999) #43
-  br label %3006
+2998:                                             ; preds = %shell_check_oom.exit3119
+  %2999 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3000 = load ptr, ptr %2999, align 8, !tbaa !462
+  %3001 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3000, ptr noundef nonnull @.str.310, ptr noundef nonnull %2995) #43
+  br label %3002
 
-3006:                                             ; preds = %3002, %shell_check_oom.exit3119
-  %3007 = load ptr, ptr %1, align 8, !tbaa !477
-  %3008 = call i32 @sqlite3_prepare_v2(ptr noundef %3007, ptr noundef nonnull %2999, i32 noundef -1, ptr noundef nonnull %39, ptr noundef null) #43
-  %.not2632 = icmp eq i32 %3008, 0
-  br i1 %.not2632, label %3009, label %.thread3539
+3002:                                             ; preds = %2998, %shell_check_oom.exit3119
+  %3003 = load ptr, ptr %1, align 8, !tbaa !477
+  %3004 = call i32 @sqlite3_prepare_v2(ptr noundef %3003, ptr noundef nonnull %2995, i32 noundef -1, ptr noundef nonnull %39, ptr noundef null) #43
+  %.not2632 = icmp eq i32 %3004, 0
+  br i1 %.not2632, label %3005, label %.thread3539
 
-3009:                                             ; preds = %3006
-  br i1 %.not2631, label %3013, label %3010
+3005:                                             ; preds = %3002
+  br i1 %.not2631, label %3009, label %3006
 
-3010:                                             ; preds = %3009
-  %3011 = load ptr, ptr %39, align 8, !tbaa !31
-  %3012 = call i32 @sqlite3_bind_text(ptr noundef %3011, i32 noundef 1, ptr noundef nonnull %.02280.lcssa, i32 noundef -1, ptr noundef null) #43
-  br label %3013
+3006:                                             ; preds = %3005
+  %3007 = load ptr, ptr %39, align 8, !tbaa !31
+  %3008 = call i32 @sqlite3_bind_text(ptr noundef %3007, i32 noundef 1, ptr noundef nonnull %.02280.lcssa, i32 noundef -1, ptr noundef null) #43
+  br label %3009
 
-3013:                                             ; preds = %3010, %3009
+3009:                                             ; preds = %3006, %3005
+  %3010 = load ptr, ptr %39, align 8, !tbaa !31
+  %3011 = call i32 @sqlite3_step(ptr noundef %3010) #43
+  %3012 = icmp eq i32 %3011, 100
+  br i1 %3012, label %3013, label %.thread3535
+
+3013:                                             ; preds = %3009
   %3014 = load ptr, ptr %39, align 8, !tbaa !31
-  %3015 = call i32 @sqlite3_step(ptr noundef %3014) #43
-  %3016 = icmp eq i32 %3015, 100
-  br i1 %3016, label %3017, label %.thread3535
-
-3017:                                             ; preds = %3013
-  %3018 = load ptr, ptr %39, align 8, !tbaa !31
-  %3019 = call ptr @sqlite3_column_text(ptr noundef %3018, i32 noundef 0) #43
+  %3015 = call ptr @sqlite3_column_text(ptr noundef %3014, i32 noundef 0) #43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #43
-  %3020 = load ptr, ptr %1, align 8, !tbaa !477
-  %3021 = call i32 @sqlite3_prepare_v2(ptr noundef %3020, ptr noundef %3019, i32 noundef -1, ptr noundef nonnull %42, ptr noundef null) #43
-  br i1 %.02267.lcssa, label %3026, label %3022
+  %3016 = load ptr, ptr %1, align 8, !tbaa !477
+  %3017 = call i32 @sqlite3_prepare_v2(ptr noundef %3016, ptr noundef %3015, i32 noundef -1, ptr noundef nonnull %42, ptr noundef null) #43
+  br i1 %.02267.lcssa, label %3022, label %3018
 
-3022:                                             ; preds = %3017
-  %3023 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3024 = load ptr, ptr %3023, align 8, !tbaa !462
-  %3025 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3024, ptr noundef nonnull @.str.310, ptr noundef %3019) #43
-  br label %3026
+3018:                                             ; preds = %3013
+  %3019 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3020 = load ptr, ptr %3019, align 8, !tbaa !462
+  %3021 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3020, ptr noundef nonnull @.str.310, ptr noundef %3015) #43
+  br label %3022
 
-3026:                                             ; preds = %3022, %3017
-  %.not2633 = icmp eq i32 %3021, 0
-  br i1 %.not2633, label %3027, label %3046
+3022:                                             ; preds = %3018, %3013
+  %.not2633 = icmp eq i32 %3017, 0
+  br i1 %.not2633, label %3023, label %3042
 
-3027:                                             ; preds = %3026
+3023:                                             ; preds = %3022
+  %3024 = load ptr, ptr %42, align 8, !tbaa !31
+  %3025 = call i32 @sqlite3_step(ptr noundef %3024) #43
+  %3026 = icmp eq i32 %3025, 100
+  br i1 %3026, label %3027, label %.thread3543
+
+3027:                                             ; preds = %3023
   %3028 = load ptr, ptr %42, align 8, !tbaa !31
-  %3029 = call i32 @sqlite3_step(ptr noundef %3028) #43
-  %3030 = icmp eq i32 %3029, 100
+  %3029 = call double @sqlite3_column_double(ptr noundef %3028, i32 noundef 0) #43
+  %3030 = fcmp ogt double %3029, 0.000000e+00
   br i1 %3030, label %3031, label %.thread3543
 
 3031:                                             ; preds = %3027
-  %3032 = load ptr, ptr %42, align 8, !tbaa !31
-  %3033 = call double @sqlite3_column_double(ptr noundef %3032, i32 noundef 0) #43
-  %3034 = fcmp ogt double %3033, 0.000000e+00
-  br i1 %3034, label %3035, label %.thread3543
-
-3035:                                             ; preds = %3031
-  %3036 = fadd double %3033, 5.000000e-01
-  %3037 = fptosi double %3036 to i32
-  %3038 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3039 = icmp sgt i32 %3037, 1
-  %3040 = select i1 %3039, ptr @.str.38, ptr @.str.44
-  %3041 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3038, ptr noundef nonnull @.str.1091, i32 noundef %3037, ptr noundef nonnull %3040) #46
+  %3032 = fadd double %3029, 5.000000e-01
+  %3033 = fptosi double %3032 to i32
+  %3034 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3035 = icmp sgt i32 %3033, 1
+  %3036 = select i1 %3035, ptr @.str.38, ptr @.str.44
+  %3037 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3034, ptr noundef nonnull @.str.1091, i32 noundef %3033, ptr noundef nonnull %3036) #46
   br label %.thread3543
 
-.thread3543:                                      ; preds = %3027, %3035, %3031
-  %3042 = load ptr, ptr %42, align 8, !tbaa !31
-  %3043 = call i32 @sqlite3_finalize(ptr noundef %3042) #43
-  %3044 = load ptr, ptr %39, align 8, !tbaa !31
-  %3045 = call i32 @sqlite3_finalize(ptr noundef %3044) #43
+.thread3543:                                      ; preds = %3023, %3031, %3027
+  %3038 = load ptr, ptr %42, align 8, !tbaa !31
+  %3039 = call i32 @sqlite3_finalize(ptr noundef %3038) #43
+  %3040 = load ptr, ptr %39, align 8, !tbaa !31
+  %3041 = call i32 @sqlite3_finalize(ptr noundef %3040) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #43
   br label %.thread3535
 
-3046:                                             ; preds = %3026
-  %3047 = load ptr, ptr %39, align 8, !tbaa !31
-  %3048 = call i32 @sqlite3_finalize(ptr noundef %3047) #43
+3042:                                             ; preds = %3022
+  %3043 = load ptr, ptr %39, align 8, !tbaa !31
+  %3044 = call i32 @sqlite3_finalize(ptr noundef %3043) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #43
   br label %.thread3539
 
-.thread3539:                                      ; preds = %3006, %3046
-  %3049 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3050 = call i64 @fwrite(ptr nonnull @.str.1092, i64 17, i64 1, ptr %3049) #50
+.thread3539:                                      ; preds = %3002, %3042
+  %3045 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3046 = call i64 @fwrite(ptr nonnull @.str.1092, i64 17, i64 1, ptr %3045) #50
   br label %.thread3535
 
-.thread3535:                                      ; preds = %3013, %.thread3543, %.thread3539
-  %.673538 = phi i32 [ 1, %.thread3539 ], [ 0, %.thread3543 ], [ 0, %3013 ]
-  call void @sqlite3_free(ptr noundef nonnull %2999) #43
-  call void @sqlite3_free(ptr noundef nonnull %2986) #43
-  br label %3051
+.thread3535:                                      ; preds = %3009, %.thread3543, %.thread3539
+  %.673538 = phi i32 [ 1, %.thread3539 ], [ 0, %.thread3543 ], [ 0, %3009 ]
+  call void @sqlite3_free(ptr noundef nonnull %2995) #43
+  call void @sqlite3_free(ptr noundef nonnull %2982) #43
+  br label %3047
 
-3051:                                             ; preds = %2931, %2938, %.thread3535
-  %.66 = phi i32 [ %.673538, %.thread3535 ], [ 1, %2931 ], [ 1, %2938 ]
+3047:                                             ; preds = %2927, %2934, %.thread3535
+  %.66 = phi i32 [ %.673538, %.thread3535 ], [ 1, %2927 ], [ 1, %2934 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #43
   br label %test_breakpoint.exit
 
-3052:                                             ; preds = %2896, %2895
-  br i1 %1794, label %3053, label %.critedge2839
+3048:                                             ; preds = %2892, %2891
+  br i1 %1790, label %3049, label %.critedge2839
 
-3053:                                             ; preds = %3052
-  %3054 = and i64 %strlen.i, 1073741823
-  %3055 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1093, i64 noundef range(i64 0, 1073741824) %3054) #44
-  %3056 = icmp eq i32 %3055, 0
-  br i1 %3056, label %3060, label %3057
+3049:                                             ; preds = %3048
+  %3050 = and i64 %strlen.i, 1073741823
+  %3051 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1093, i64 noundef range(i64 0, 1073741824) %3050) #44
+  %3052 = icmp eq i32 %3051, 0
+  br i1 %3052, label %3056, label %3053
 
-3057:                                             ; preds = %3053
-  %3058 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1094, i64 noundef range(i64 0, 1073741824) %3054) #44
-  %3059 = icmp eq i32 %3058, 0
-  br i1 %3059, label %3060, label %3090
+3053:                                             ; preds = %3049
+  %3054 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1094, i64 noundef range(i64 0, 1073741824) %3050) #44
+  %3055 = icmp eq i32 %3054, 0
+  br i1 %3055, label %3056, label %3086
 
-3060:                                             ; preds = %3057, %3053
+3056:                                             ; preds = %3053, %3049
   tail call void (ptr, ptr, ...) @failIfSafeMode(ptr noundef nonnull %1, ptr noundef nonnull @.str.709, ptr noundef nonnull %128)
-  %3061 = icmp eq i32 %.02122.lcssa.ph, 1
-  br i1 %3061, label %3062, label %3065
+  %3057 = icmp eq i32 %.02122.lcssa.ph, 1
+  br i1 %3057, label %3058, label %3061
 
-3062:                                             ; preds = %3060
-  %3063 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3064 = tail call i64 @fwrite(ptr nonnull @.str.1095, i64 23, i64 1, ptr %3063) #50
+3058:                                             ; preds = %3056
+  %3059 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3060 = tail call i64 @fwrite(ptr nonnull @.str.1095, i64 23, i64 1, ptr %3059) #50
   br label %test_breakpoint.exit
 
-3065:                                             ; preds = %3060
-  %3066 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %3067 = load ptr, ptr %3066, align 8, !tbaa !29
-  %3068 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3067, i32 noundef 32) #44
-  %3069 = icmp eq ptr %3068, null
-  %3070 = select i1 %3069, ptr @.str.47, ptr @.str.1096
-  %3071 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull %3070, ptr noundef nonnull %3067) #43
-  %3072 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
-  %3073 = icmp ne ptr %3071, null
-  %3074 = select i1 %3072, i1 %3073, i1 false
-  br i1 %3074, label %.lr.ph4126, label %._crit_edge4127
+3061:                                             ; preds = %3056
+  %3062 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %3063 = load ptr, ptr %3062, align 8, !tbaa !29
+  %3064 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3063, i32 noundef 32) #44
+  %3065 = icmp eq ptr %3064, null
+  %3066 = select i1 %3065, ptr @.str.47, ptr @.str.1096
+  %3067 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull %3066, ptr noundef nonnull %3063) #43
+  %3068 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
+  %3069 = icmp ne ptr %3067, null
+  %3070 = select i1 %3068, i1 %3069, i1 false
+  br i1 %3070, label %.lr.ph4126, label %._crit_edge4127
 
-.lr.ph4126:                                       ; preds = %3065, %.lr.ph4126
-  %indvars.iv4466 = phi i64 [ %indvars.iv.next4467, %.lr.ph4126 ], [ 2, %3065 ]
-  %.022554123 = phi ptr [ %3080, %.lr.ph4126 ], [ %3071, %3065 ]
-  %3075 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4466
-  %3076 = load ptr, ptr %3075, align 8, !tbaa !29
-  %3077 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3076, i32 noundef 32) #44
-  %3078 = icmp eq ptr %3077, null
-  %3079 = select i1 %3078, ptr @.str.975, ptr @.str.1097
-  %3080 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull %3079, ptr noundef nonnull %.022554123, ptr noundef nonnull %3076) #43
+.lr.ph4126:                                       ; preds = %3061, %.lr.ph4126
+  %indvars.iv4466 = phi i64 [ %indvars.iv.next4467, %.lr.ph4126 ], [ 2, %3061 ]
+  %.022554123 = phi ptr [ %3076, %.lr.ph4126 ], [ %3067, %3061 ]
+  %3071 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4466
+  %3072 = load ptr, ptr %3071, align 8, !tbaa !29
+  %3073 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3072, i32 noundef 32) #44
+  %3074 = icmp eq ptr %3073, null
+  %3075 = select i1 %3074, ptr @.str.975, ptr @.str.1097
+  %3076 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull %3075, ptr noundef nonnull %.022554123, ptr noundef nonnull %3072) #43
   %indvars.iv.next4467 = add nuw nsw i64 %indvars.iv4466, 1
-  %3081 = icmp samesign ult i64 %indvars.iv.next4467, %124
-  %3082 = icmp ne ptr %3080, null
-  %3083 = select i1 %3081, i1 %3082, i1 false
-  br i1 %3083, label %.lr.ph4126, label %._crit_edge4127, !llvm.loop !569
+  %3077 = icmp samesign ult i64 %indvars.iv.next4467, %124
+  %3078 = icmp ne ptr %3076, null
+  %3079 = select i1 %3077, i1 %3078, i1 false
+  br i1 %3079, label %.lr.ph4126, label %._crit_edge4127, !llvm.loop !569
 
-._crit_edge4127:                                  ; preds = %.lr.ph4126, %3065
-  %.02255.lcssa = phi ptr [ %3071, %3065 ], [ %3080, %.lr.ph4126 ]
-  %.lcssa3834 = phi i1 [ %3073, %3065 ], [ %3082, %.lr.ph4126 ]
-  br i1 %.lcssa3834, label %3084, label %.thread3546
+._crit_edge4127:                                  ; preds = %.lr.ph4126, %3061
+  %.02255.lcssa = phi ptr [ %3067, %3061 ], [ %3076, %.lr.ph4126 ]
+  %.lcssa3834 = phi i1 [ %3069, %3061 ], [ %3078, %.lr.ph4126 ]
+  br i1 %.lcssa3834, label %3080, label %.thread3546
 
 .thread3546:                                      ; preds = %._crit_edge4127
   tail call void @sqlite3_free(ptr noundef %.02255.lcssa) #43
-  br label %3086
+  br label %3082
 
-3084:                                             ; preds = %._crit_edge4127
-  %3085 = tail call i32 @system(ptr noundef nonnull %.02255.lcssa) #43
+3080:                                             ; preds = %._crit_edge4127
+  %3081 = tail call i32 @system(ptr noundef nonnull %.02255.lcssa) #43
   tail call void @sqlite3_free(ptr noundef nonnull %.02255.lcssa) #43
-  %.not2627 = icmp eq i32 %3085, 0
-  br i1 %.not2627, label %test_breakpoint.exit, label %3086
+  %.not2627 = icmp eq i32 %3081, 0
+  br i1 %.not2627, label %test_breakpoint.exit, label %3082
 
-3086:                                             ; preds = %.thread3546, %3084
-  %3087 = phi i32 [ 1, %.thread3546 ], [ %3085, %3084 ]
-  %3088 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3089 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3088, ptr noundef nonnull @.str.1098, i32 noundef %3087) #46
+3082:                                             ; preds = %.thread3546, %3080
+  %3083 = phi i32 [ 1, %.thread3546 ], [ %3081, %3080 ]
+  %3084 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3085 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3084, ptr noundef nonnull @.str.1098, i32 noundef %3083) #46
   br label %test_breakpoint.exit
 
-3090:                                             ; preds = %3057
-  %3091 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1099, i64 noundef range(i64 0, 1073741824) %3054) #44
-  %3092 = icmp eq i32 %3091, 0
-  br i1 %3092, label %3093, label %.critedge2836
+3086:                                             ; preds = %3053
+  %3087 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1099, i64 noundef range(i64 0, 1073741824) %3050) #44
+  %3088 = icmp eq i32 %3087, 0
+  br i1 %3088, label %3089, label %.critedge2836
 
-3093:                                             ; preds = %3090
+3089:                                             ; preds = %3086
   %.not2617 = icmp eq i32 %.02122.lcssa.ph, 1
-  br i1 %.not2617, label %3097, label %3094
+  br i1 %.not2617, label %3093, label %3090
 
-3094:                                             ; preds = %3093
-  %3095 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3096 = tail call i64 @fwrite(ptr nonnull @.str.1100, i64 13, i64 1, ptr %3095) #50
+3090:                                             ; preds = %3089
+  %3091 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3092 = tail call i64 @fwrite(ptr nonnull @.str.1100, i64 13, i64 1, ptr %3091) #50
   br label %test_breakpoint.exit
 
-3097:                                             ; preds = %3093
-  %3098 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3099 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3100 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %3101 = load i32, ptr %3100, align 4, !tbaa !454
-  %3102 = lshr i32 %3101, 6
-  %.lobit = and i32 %3102, 1
-  %3103 = zext nneg i32 %.lobit to i64
-  %3104 = getelementptr inbounds nuw [4 x ptr], ptr @do_meta_command.azBool, i64 0, i64 %3103
-  %3105 = load ptr, ptr %3104, align 8, !tbaa !29
-  %3106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3099, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.800, ptr noundef %3105) #43
-  %3107 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3108 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %3109 = load i8, ptr %3108, align 1, !tbaa !468
-  %3110 = and i8 %3109, 3
-  %3111 = zext nneg i8 %3110 to i64
-  %3112 = getelementptr inbounds nuw [4 x ptr], ptr @do_meta_command.azBool, i64 0, i64 %3111
-  %3113 = load ptr, ptr %3112, align 8, !tbaa !29
-  %3114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3107, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.803, ptr noundef %3113) #43
-  %3115 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3116 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %3117 = load i32, ptr %3116, align 4, !tbaa !442
-  %3118 = icmp eq i32 %3117, 9
-  br i1 %3118, label %3123, label %3119
+3093:                                             ; preds = %3089
+  %3094 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3095 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3096 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %3097 = load i32, ptr %3096, align 4, !tbaa !454
+  %3098 = lshr i32 %3097, 6
+  %.lobit = and i32 %3098, 1
+  %3099 = zext nneg i32 %.lobit to i64
+  %3100 = getelementptr inbounds nuw [4 x ptr], ptr @do_meta_command.azBool, i64 0, i64 %3099
+  %3101 = load ptr, ptr %3100, align 8, !tbaa !29
+  %3102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3095, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.800, ptr noundef %3101) #43
+  %3103 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3104 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %3105 = load i8, ptr %3104, align 1, !tbaa !468
+  %3106 = and i8 %3105, 3
+  %3107 = zext nneg i8 %3106 to i64
+  %3108 = getelementptr inbounds nuw [4 x ptr], ptr @do_meta_command.azBool, i64 0, i64 %3107
+  %3109 = load ptr, ptr %3108, align 8, !tbaa !29
+  %3110 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3103, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.803, ptr noundef %3109) #43
+  %3111 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3112 = getelementptr inbounds nuw i8, ptr %1, i64 92
+  %3113 = load i32, ptr %3112, align 4, !tbaa !442
+  %3114 = icmp eq i32 %3113, 9
+  br i1 %3114, label %3119, label %3115
 
-3119:                                             ; preds = %3097
-  %3120 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3121 = load i8, ptr %3120, align 8, !tbaa !452
-  %.not2618 = icmp eq i8 %3121, 0
-  %3122 = select i1 %.not2618, ptr @.str.776, ptr @.str.810
-  br label %3123
+3115:                                             ; preds = %3093
+  %3116 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3117 = load i8, ptr %3116, align 8, !tbaa !452
+  %.not2618 = icmp eq i8 %3117, 0
+  %3118 = select i1 %.not2618, ptr @.str.776, ptr @.str.810
+  br label %3119
 
-3123:                                             ; preds = %3097, %3119
-  %3124 = phi ptr [ %3122, %3119 ], [ @.str.775, %3097 ]
-  %3125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3115, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.809, ptr noundef nonnull %3124) #43
-  %3126 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3127 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %3128 = load i32, ptr %3127, align 8, !tbaa !467
-  %3129 = icmp ne i32 %3128, 0
-  %3130 = zext i1 %3129 to i64
-  %3131 = getelementptr inbounds nuw [4 x ptr], ptr @do_meta_command.azBool, i64 0, i64 %3130
-  %3132 = load ptr, ptr %3131, align 8, !tbaa !29
-  %3133 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3126, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.847, ptr noundef %3132) #43
-  %3134 = load i32, ptr %3116, align 4, !tbaa !442
-  switch i32 %3134, label %3149 [
-    i32 16, label %3135
-    i32 15, label %3135
-    i32 14, label %3135
-    i32 1, label %3135
+3119:                                             ; preds = %3093, %3115
+  %3120 = phi ptr [ %3118, %3115 ], [ @.str.775, %3093 ]
+  %3121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3111, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.809, ptr noundef nonnull %3120) #43
+  %3122 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3123 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %3124 = load i32, ptr %3123, align 8, !tbaa !467
+  %3125 = icmp ne i32 %3124, 0
+  %3126 = zext i1 %3125 to i64
+  %3127 = getelementptr inbounds nuw [4 x ptr], ptr @do_meta_command.azBool, i64 0, i64 %3126
+  %3128 = load ptr, ptr %3127, align 8, !tbaa !29
+  %3129 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3122, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.847, ptr noundef %3128) #43
+  %3130 = load i32, ptr %3112, align 4, !tbaa !442
+  switch i32 %3130, label %3145 [
+    i32 16, label %3131
+    i32 15, label %3131
+    i32 14, label %3131
+    i32 1, label %3131
   ]
 
-3135:                                             ; preds = %3123, %3123, %3123, %3123
-  %3136 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3137 = zext nneg i32 %3134 to i64
-  %3138 = getelementptr inbounds nuw [21 x ptr], ptr @modeDescr, i64 0, i64 %3137
-  %3139 = load ptr, ptr %3138, align 8, !tbaa !29
-  %3140 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %3141 = load i32, ptr %3140, align 8, !tbaa !544
-  %3142 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %3143 = load i8, ptr %3142, align 1, !tbaa !545
-  %.not2619 = icmp eq i8 %3143, 0
-  %3144 = select i1 %.not2619, ptr @.str.776, ptr @.str.775
-  %3145 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %3146 = load i8, ptr %3145, align 4, !tbaa !546
-  %.not2620 = icmp eq i8 %3146, 0
-  %3147 = select i1 %.not2620, ptr @.str.933, ptr @.str.44
-  %3148 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3136, ptr noundef nonnull @.str.1102, ptr noundef nonnull @.str.922, ptr noundef %3139, i32 noundef %3141, ptr noundef nonnull %3144, ptr noundef nonnull %3147) #43
-  br label %3155
+3131:                                             ; preds = %3119, %3119, %3119, %3119
+  %3132 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3133 = zext nneg i32 %3130 to i64
+  %3134 = getelementptr inbounds nuw [21 x ptr], ptr @modeDescr, i64 0, i64 %3133
+  %3135 = load ptr, ptr %3134, align 8, !tbaa !29
+  %3136 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %3137 = load i32, ptr %3136, align 8, !tbaa !544
+  %3138 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %3139 = load i8, ptr %3138, align 1, !tbaa !545
+  %.not2619 = icmp eq i8 %3139, 0
+  %3140 = select i1 %.not2619, ptr @.str.776, ptr @.str.775
+  %3141 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %3142 = load i8, ptr %3141, align 4, !tbaa !546
+  %.not2620 = icmp eq i8 %3142, 0
+  %3143 = select i1 %.not2620, ptr @.str.933, ptr @.str.44
+  %3144 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3132, ptr noundef nonnull @.str.1102, ptr noundef nonnull @.str.922, ptr noundef %3135, i32 noundef %3137, ptr noundef nonnull %3140, ptr noundef nonnull %3143) #43
+  br label %3151
 
-3149:                                             ; preds = %3123
-  %3150 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3151 = sext i32 %3134 to i64
-  %3152 = getelementptr inbounds [21 x ptr], ptr @modeDescr, i64 0, i64 %3151
-  %3153 = load ptr, ptr %3152, align 8, !tbaa !29
-  %3154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3150, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.922, ptr noundef %3153) #43
-  br label %3155
+3145:                                             ; preds = %3119
+  %3146 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3147 = sext i32 %3130 to i64
+  %3148 = getelementptr inbounds [21 x ptr], ptr @modeDescr, i64 0, i64 %3147
+  %3149 = load ptr, ptr %3148, align 8, !tbaa !29
+  %3150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3146, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.922, ptr noundef %3149) #43
+  br label %3151
 
-3155:                                             ; preds = %3149, %3135
-  %3156 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3157 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3156, ptr noundef nonnull @.str.1103, ptr noundef nonnull @.str.952) #43
-  %3158 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3159 = getelementptr inbounds nuw i8, ptr %1, i64 300
-  tail call fastcc void @output_c_string(ptr noundef %3158, ptr noundef nonnull %3159)
-  %3160 = load ptr, ptr %3098, align 8, !tbaa !462
-  %fputc2621 = tail call i32 @fputc(i32 10, ptr %3160)
-  %3161 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3162 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %strlen.i3123 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %3162)
-  %3163 = and i64 %strlen.i3123, 1073741823
-  %.not2622 = icmp eq i64 %3163, 0
-  %3164 = select i1 %.not2622, ptr @.str.921, ptr %3162
-  %3165 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3161, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.964, ptr noundef nonnull %3164) #43
-  %3166 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3167 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3166, ptr noundef nonnull @.str.1103, ptr noundef nonnull @.str.1104) #43
-  %3168 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3169 = getelementptr inbounds nuw i8, ptr %1, i64 198
-  tail call fastcc void @output_c_string(ptr noundef %3168, ptr noundef nonnull %3169)
-  %3170 = load ptr, ptr %3098, align 8, !tbaa !462
-  %fputc2623 = tail call i32 @fputc(i32 10, ptr %3170)
-  %3171 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3172 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3171, ptr noundef nonnull @.str.1103, ptr noundef nonnull @.str.1105) #43
-  %3173 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3174 = getelementptr inbounds nuw i8, ptr %1, i64 218
-  tail call fastcc void @output_c_string(ptr noundef %3173, ptr noundef nonnull %3174)
-  %3175 = load ptr, ptr %3098, align 8, !tbaa !462
-  %fputc2624 = tail call i32 @fputc(i32 10, ptr %3175)
-  %3176 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %3177 = load i32, ptr %3176, align 8, !tbaa !469
-  %3178 = icmp ult i32 %3177, 4
-  br i1 %3178, label %switch.lookup, label %3180
+3151:                                             ; preds = %3145, %3131
+  %3152 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3153 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3152, ptr noundef nonnull @.str.1103, ptr noundef nonnull @.str.952) #43
+  %3154 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3155 = getelementptr inbounds nuw i8, ptr %1, i64 300
+  tail call fastcc void @output_c_string(ptr noundef %3154, ptr noundef nonnull %3155)
+  %3156 = load ptr, ptr %3094, align 8, !tbaa !462
+  %fputc2621 = tail call i32 @fputc(i32 10, ptr %3156)
+  %3157 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3158 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %strlen.i3123 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %3158)
+  %3159 = and i64 %strlen.i3123, 1073741823
+  %.not2622 = icmp eq i64 %3159, 0
+  %3160 = select i1 %.not2622, ptr @.str.921, ptr %3158
+  %3161 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3157, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.964, ptr noundef nonnull %3160) #43
+  %3162 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3163 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3162, ptr noundef nonnull @.str.1103, ptr noundef nonnull @.str.1104) #43
+  %3164 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3165 = getelementptr inbounds nuw i8, ptr %1, i64 198
+  tail call fastcc void @output_c_string(ptr noundef %3164, ptr noundef nonnull %3165)
+  %3166 = load ptr, ptr %3094, align 8, !tbaa !462
+  %fputc2623 = tail call i32 @fputc(i32 10, ptr %3166)
+  %3167 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3168 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3167, ptr noundef nonnull @.str.1103, ptr noundef nonnull @.str.1105) #43
+  %3169 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3170 = getelementptr inbounds nuw i8, ptr %1, i64 218
+  tail call fastcc void @output_c_string(ptr noundef %3169, ptr noundef nonnull %3170)
+  %3171 = load ptr, ptr %3094, align 8, !tbaa !462
+  %fputc2624 = tail call i32 @fputc(i32 10, ptr %3171)
+  %3172 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %3173 = load i32, ptr %3172, align 8, !tbaa !469
+  %3174 = icmp ult i32 %3173, 4
+  br i1 %3174, label %switch.lookup, label %3176
 
-switch.lookup:                                    ; preds = %3155
-  %3179 = zext nneg i32 %3177 to i64
-  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.do_meta_command, i64 0, i64 %3179
+switch.lookup:                                    ; preds = %3151
+  %3175 = zext nneg i32 %3173 to i64
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.do_meta_command, i64 0, i64 %3175
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %3180
+  br label %3176
 
-3180:                                             ; preds = %3155, %switch.lookup
-  %.02252 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.775, %3155 ]
-  %3181 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3182 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3181, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.1108, ptr noundef nonnull %.02252) #43
-  %3183 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3184 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3183, ptr noundef nonnull @.str.1103, ptr noundef nonnull @.str.1109) #43
-  %3185 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %3186 = load i32, ptr %3185, align 8, !tbaa !570
-  %3187 = icmp sgt i32 %3186, 0
-  br i1 %3187, label %.lr.ph4121, label %._crit_edge4122
+3176:                                             ; preds = %3151, %switch.lookup
+  %.02252 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.775, %3151 ]
+  %3177 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3178 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3177, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.1108, ptr noundef nonnull %.02252) #43
+  %3179 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3180 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3179, ptr noundef nonnull @.str.1103, ptr noundef nonnull @.str.1109) #43
+  %3181 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %3182 = load i32, ptr %3181, align 8, !tbaa !570
+  %3183 = icmp sgt i32 %3182, 0
+  br i1 %3183, label %.lr.ph4121, label %._crit_edge4122
 
-.lr.ph4121:                                       ; preds = %3180
-  %3188 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  br label %3189
+.lr.ph4121:                                       ; preds = %3176
+  %3184 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  br label %3185
 
-3189:                                             ; preds = %.lr.ph4121, %3189
-  %indvars.iv4462 = phi i64 [ 0, %.lr.ph4121 ], [ %indvars.iv.next4463, %3189 ]
-  %3190 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3191 = load ptr, ptr %3188, align 8, !tbaa !483
-  %3192 = getelementptr inbounds nuw i32, ptr %3191, i64 %indvars.iv4462
-  %3193 = load i32, ptr %3192, align 4, !tbaa !36
-  %3194 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3190, ptr noundef nonnull @.str.1110, i32 noundef %3193) #43
+3185:                                             ; preds = %.lr.ph4121, %3185
+  %indvars.iv4462 = phi i64 [ 0, %.lr.ph4121 ], [ %indvars.iv.next4463, %3185 ]
+  %3186 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3187 = load ptr, ptr %3184, align 8, !tbaa !483
+  %3188 = getelementptr inbounds nuw i32, ptr %3187, i64 %indvars.iv4462
+  %3189 = load i32, ptr %3188, align 4, !tbaa !36
+  %3190 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3186, ptr noundef nonnull @.str.1110, i32 noundef %3189) #43
   %indvars.iv.next4463 = add nuw nsw i64 %indvars.iv4462, 1
-  %3195 = load i32, ptr %3185, align 8, !tbaa !570
-  %3196 = sext i32 %3195 to i64
-  %3197 = icmp slt i64 %indvars.iv.next4463, %3196
-  br i1 %3197, label %3189, label %._crit_edge4122, !llvm.loop !571
+  %3191 = load i32, ptr %3181, align 8, !tbaa !570
+  %3192 = sext i32 %3191 to i64
+  %3193 = icmp slt i64 %indvars.iv.next4463, %3192
+  br i1 %3193, label %3185, label %._crit_edge4122, !llvm.loop !571
 
-._crit_edge4122:                                  ; preds = %3189, %3180
-  %3198 = load ptr, ptr %3098, align 8, !tbaa !462
-  %fputc2625 = tail call i32 @fputc(i32 10, ptr %3198)
-  %3199 = load ptr, ptr %3098, align 8, !tbaa !462
-  %3200 = getelementptr inbounds nuw i8, ptr %1, i64 4552
-  %3201 = load ptr, ptr %3200, align 8, !tbaa !453
-  %3202 = getelementptr inbounds nuw i8, ptr %3201, i64 8
-  %3203 = load ptr, ptr %3202, align 8, !tbaa !455
-  %.not2626 = icmp eq ptr %3203, null
-  %spec.select2838 = select i1 %.not2626, ptr @.str.44, ptr %3203
-  %3204 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3199, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.1111, ptr noundef nonnull %spec.select2838) #43
+._crit_edge4122:                                  ; preds = %3185, %3176
+  %3194 = load ptr, ptr %3094, align 8, !tbaa !462
+  %fputc2625 = tail call i32 @fputc(i32 10, ptr %3194)
+  %3195 = load ptr, ptr %3094, align 8, !tbaa !462
+  %3196 = getelementptr inbounds nuw i8, ptr %1, i64 4552
+  %3197 = load ptr, ptr %3196, align 8, !tbaa !453
+  %3198 = getelementptr inbounds nuw i8, ptr %3197, i64 8
+  %3199 = load ptr, ptr %3198, align 8, !tbaa !455
+  %.not2626 = icmp eq ptr %3199, null
+  %spec.select2838 = select i1 %.not2626, ptr @.str.44, ptr %3199
+  %3200 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3195, ptr noundef nonnull @.str.1101, ptr noundef nonnull @.str.1111, ptr noundef nonnull %spec.select2838) #43
   br label %test_breakpoint.exit
 
-.critedge2836:                                    ; preds = %3090
-  %3205 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1108, i64 noundef range(i64 0, 1073741824) %3054) #44
-  %3206 = icmp eq i32 %3205, 0
-  br i1 %3206, label %3207, label %.critedge2839
+.critedge2836:                                    ; preds = %3086
+  %3201 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1108, i64 noundef range(i64 0, 1073741824) %3050) #44
+  %3202 = icmp eq i32 %3201, 0
+  br i1 %3202, label %3203, label %.critedge2839
 
-3207:                                             ; preds = %.critedge2836
-  switch i32 %.02122.lcssa.ph, label %3227 [
-    i32 2, label %3208
-    i32 1, label %3225
+3203:                                             ; preds = %.critedge2836
+  switch i32 %.02122.lcssa.ph, label %3223 [
+    i32 2, label %3204
+    i32 1, label %3221
   ]
 
-3208:                                             ; preds = %3207
-  %3209 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %3210 = load ptr, ptr %3209, align 8, !tbaa !29
-  %3211 = icmp eq ptr %3210, null
-  %spec.store.select.i3125 = select i1 %3211, ptr @.str.44, ptr %3210
-  %3212 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3125, ptr noundef nonnull dereferenceable(5) @.str.1106) #44
-  %3213 = icmp eq i32 %3212, 0
-  br i1 %3213, label %3214, label %3216
+3204:                                             ; preds = %3203
+  %3205 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %3206 = load ptr, ptr %3205, align 8, !tbaa !29
+  %3207 = icmp eq ptr %3206, null
+  %spec.store.select.i3125 = select i1 %3207, ptr @.str.44, ptr %3206
+  %3208 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3125, ptr noundef nonnull dereferenceable(5) @.str.1106) #44
+  %3209 = icmp eq i32 %3208, 0
+  br i1 %3209, label %3210, label %3212
 
-3214:                                             ; preds = %3208
-  %3215 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 2, ptr %3215, align 8, !tbaa !469
+3210:                                             ; preds = %3204
+  %3211 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 2, ptr %3211, align 8, !tbaa !469
   br label %test_breakpoint.exit
 
-3216:                                             ; preds = %3208
-  %3217 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3125, ptr noundef nonnull dereferenceable(7) @.str.1107) #44
-  %3218 = icmp eq i32 %3217, 0
-  br i1 %3218, label %3219, label %3221
+3212:                                             ; preds = %3204
+  %3213 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3125, ptr noundef nonnull dereferenceable(7) @.str.1107) #44
+  %3214 = icmp eq i32 %3213, 0
+  br i1 %3214, label %3215, label %3217
 
-3219:                                             ; preds = %3216
+3215:                                             ; preds = %3212
+  %3216 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 3, ptr %3216, align 8, !tbaa !469
+  br label %test_breakpoint.exit
+
+3217:                                             ; preds = %3212
+  %3218 = tail call fastcc i32 @booleanValue(ptr noundef %3206)
+  %3219 = and i32 %3218, 255
   %3220 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 3, ptr %3220, align 8, !tbaa !469
+  store i32 %3219, ptr %3220, align 8, !tbaa !469
   br label %test_breakpoint.exit
 
-3221:                                             ; preds = %3216
-  %3222 = tail call fastcc i32 @booleanValue(ptr noundef %3210)
-  %3223 = and i32 %3222, 255
-  %3224 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %3223, ptr %3224, align 8, !tbaa !469
+3221:                                             ; preds = %3203
+  %3222 = load ptr, ptr %1, align 8, !tbaa !477
+  tail call fastcc void @display_stats(ptr noundef %3222, ptr noundef nonnull %1)
   br label %test_breakpoint.exit
 
-3225:                                             ; preds = %3207
-  %3226 = load ptr, ptr %1, align 8, !tbaa !477
-  tail call fastcc void @display_stats(ptr noundef %3226, ptr noundef nonnull %1)
+3223:                                             ; preds = %3203
+  %3224 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3225 = tail call i64 @fwrite(ptr nonnull @.str.1112, i64 35, i64 1, ptr %3224) #50
   br label %test_breakpoint.exit
 
-3227:                                             ; preds = %3207
-  %3228 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3229 = tail call i64 @fwrite(ptr nonnull @.str.1112, i64 35, i64 1, ptr %3228) #50
-  br label %test_breakpoint.exit
+.critedge2839:                                    ; preds = %3048, %.critedge2836
+  %or.cond172 = select i1 %2748, i1 %1789, i1 false
+  br i1 %or.cond172, label %3226, label %3230
 
-.critedge2839:                                    ; preds = %3052, %.critedge2836
-  %or.cond172 = select i1 %2752, i1 %1793, i1 false
-  br i1 %or.cond172, label %3230, label %3234
+3226:                                             ; preds = %.critedge2839
+  %3227 = and i64 %strlen.i, 1073741823
+  %3228 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1113, i64 noundef range(i64 0, 1073741824) %3227) #44
+  %3229 = icmp eq i32 %3228, 0
+  br i1 %3229, label %3238, label %3230
 
-3230:                                             ; preds = %.critedge2839
-  %3231 = and i64 %strlen.i, 1073741823
-  %3232 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1113, i64 noundef range(i64 0, 1073741824) %3231) #44
-  %3233 = icmp eq i32 %3232, 0
-  br i1 %3233, label %3242, label %3234
+3230:                                             ; preds = %3226, %.critedge2839
+  br i1 %1793, label %3231, label %3345
 
-3234:                                             ; preds = %3230, %.critedge2839
-  br i1 %1797, label %3235, label %3349
+3231:                                             ; preds = %3230
+  %3232 = and i64 %strlen.i, 1073741823
+  %3233 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1114, i64 noundef range(i64 0, 1073741824) %3232) #44
+  %3234 = icmp eq i32 %3233, 0
+  br i1 %3234, label %3238, label %3235
 
-3235:                                             ; preds = %3234
-  %3236 = and i64 %strlen.i, 1073741823
-  %3237 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1114, i64 noundef range(i64 0, 1073741824) %3236) #44
-  %3238 = icmp eq i32 %3237, 0
-  br i1 %3238, label %3242, label %3239
+3235:                                             ; preds = %3231
+  %3236 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1115, i64 noundef range(i64 0, 1073741824) %3232) #44
+  %3237 = icmp eq i32 %3236, 0
+  br i1 %3237, label %3238, label %3345
 
-3239:                                             ; preds = %3235
-  %3240 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1115, i64 noundef range(i64 0, 1073741824) %3236) #44
-  %3241 = icmp eq i32 %3240, 0
-  br i1 %3241, label %3242, label %3349
-
-3242:                                             ; preds = %3239, %3235, %3230
+3238:                                             ; preds = %3235, %3231, %3226
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44) #43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
-  %3243 = load ptr, ptr %1, align 8, !tbaa !477
-  %3244 = call i32 @sqlite3_prepare_v2(ptr noundef %3243, ptr noundef nonnull @.str.220, i32 noundef -1, ptr noundef nonnull %43, ptr noundef null) #43
-  %.not2608 = icmp eq i32 %3244, 0
-  br i1 %.not2608, label %3248, label %3245
+  %3239 = load ptr, ptr %1, align 8, !tbaa !477
+  %3240 = call i32 @sqlite3_prepare_v2(ptr noundef %3239, ptr noundef nonnull @.str.220, i32 noundef -1, ptr noundef nonnull %43, ptr noundef null) #43
+  %.not2608 = icmp eq i32 %3240, 0
+  br i1 %.not2608, label %3244, label %3241
 
-3245:                                             ; preds = %3242
-  %3246 = load ptr, ptr %43, align 8, !tbaa !31
-  %3247 = call i32 @sqlite3_finalize(ptr noundef %3246) #43
+3241:                                             ; preds = %3238
+  %3242 = load ptr, ptr %43, align 8, !tbaa !31
+  %3243 = call i32 @sqlite3_finalize(ptr noundef %3242) #43
   br label %.thread3553
 
-3248:                                             ; preds = %3242
-  %3249 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
-  %or.cond175 = and i1 %3249, %1797
-  br i1 %or.cond175, label %3253, label %.preheader3758
+3244:                                             ; preds = %3238
+  %3245 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
+  %or.cond175 = and i1 %3245, %1793
+  br i1 %or.cond175, label %3249, label %.preheader3758
 
-.preheader3758:                                   ; preds = %3248
-  %3250 = load ptr, ptr %43, align 8, !tbaa !31
-  %3251 = call i32 @sqlite3_step(ptr noundef %3250) #43
-  %3252 = icmp eq i32 %3251, 100
-  br i1 %3252, label %.lr.ph4099.preheader, label %._crit_edge4100
+.preheader3758:                                   ; preds = %3244
+  %3246 = load ptr, ptr %43, align 8, !tbaa !31
+  %3247 = call i32 @sqlite3_step(ptr noundef %3246) #43
+  %3248 = icmp eq i32 %3247, 100
+  br i1 %3248, label %.lr.ph4099.preheader, label %._crit_edge4100
 
 .lr.ph4099.preheader:                             ; preds = %.preheader3758
-  %.str.1121..str.1122 = select i1 %2752, ptr @.str.1121, ptr @.str.1122
+  %.str.1121..str.1122 = select i1 %2748, ptr @.str.1121, ptr @.str.1122
   br label %.lr.ph4099
 
-3253:                                             ; preds = %3248
-  %3254 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3255 = call i64 @fwrite(ptr nonnull @.str.1116, i64 31, i64 1, ptr %3254) #50
-  %3256 = load ptr, ptr %43, align 8, !tbaa !31
-  %3257 = call i32 @sqlite3_finalize(ptr noundef %3256) #43
-  br label %3348
+3249:                                             ; preds = %3244
+  %3250 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3251 = call i64 @fwrite(ptr nonnull @.str.1116, i64 31, i64 1, ptr %3250) #50
+  %3252 = load ptr, ptr %43, align 8, !tbaa !31
+  %3253 = call i32 @sqlite3_finalize(ptr noundef %3252) #43
+  br label %3344
 
-.lr.ph4099:                                       ; preds = %.lr.ph4099.preheader, %3270
-  %3258 = load ptr, ptr %43, align 8, !tbaa !31
-  %3259 = call ptr @sqlite3_column_text(ptr noundef %3258, i32 noundef 1) #43
-  %3260 = icmp eq ptr %3259, null
-  br i1 %3260, label %3270, label %3261
+.lr.ph4099:                                       ; preds = %.lr.ph4099.preheader, %3266
+  %3254 = load ptr, ptr %43, align 8, !tbaa !31
+  %3255 = call ptr @sqlite3_column_text(ptr noundef %3254, i32 noundef 1) #43
+  %3256 = icmp eq ptr %3255, null
+  br i1 %3256, label %3266, label %3257
 
-3261:                                             ; preds = %.lr.ph4099
-  %3262 = load ptr, ptr %44, align 8, !tbaa !562
-  %.not2615 = icmp eq ptr %3262, null
-  br i1 %.not2615, label %3266, label %3263
+3257:                                             ; preds = %.lr.ph4099
+  %3258 = load ptr, ptr %44, align 8, !tbaa !562
+  %.not2615 = icmp eq ptr %3258, null
+  br i1 %.not2615, label %3262, label %3259
 
-3263:                                             ; preds = %3261
-  %3264 = load i8, ptr %3262, align 1, !tbaa !25
-  %.not2616 = icmp eq i8 %3264, 0
-  br i1 %.not2616, label %3266, label %3265
+3259:                                             ; preds = %3257
+  %3260 = load i8, ptr %3258, align 1, !tbaa !25
+  %.not2616 = icmp eq i8 %3260, 0
+  br i1 %.not2616, label %3262, label %3261
 
-3265:                                             ; preds = %3263
+3261:                                             ; preds = %3259
   call fastcc void @appendText(ptr noundef nonnull %44, ptr noundef nonnull @.str.1028, i8 noundef signext 0)
-  br label %3266
+  br label %3262
 
-3266:                                             ; preds = %3265, %3263, %3261
-  %3267 = call i32 @sqlite3_stricmp(ptr noundef nonnull %3259, ptr noundef nonnull @.str.45) #43
-  %3268 = icmp eq i32 %3267, 0
-  br i1 %3268, label %.sink.split4753, label %3269
+3262:                                             ; preds = %3261, %3259, %3257
+  %3263 = call i32 @sqlite3_stricmp(ptr noundef nonnull %3255, ptr noundef nonnull @.str.45) #43
+  %3264 = icmp eq i32 %3263, 0
+  br i1 %3264, label %.sink.split4753, label %3265
 
-3269:                                             ; preds = %3266
+3265:                                             ; preds = %3262
   call fastcc void @appendText(ptr noundef nonnull %44, ptr noundef nonnull @.str.1118, i8 noundef signext 0)
-  call fastcc void @appendText(ptr noundef nonnull %44, ptr noundef nonnull %3259, i8 noundef signext 39)
+  call fastcc void @appendText(ptr noundef nonnull %44, ptr noundef nonnull %3255, i8 noundef signext 39)
   br label %.sink.split4753
 
-.sink.split4753:                                  ; preds = %3266, %3269
-  %.str.1119.sink = phi ptr [ @.str.1119, %3269 ], [ @.str.1117, %3266 ]
+.sink.split4753:                                  ; preds = %3262, %3265
+  %.str.1119.sink = phi ptr [ @.str.1119, %3265 ], [ @.str.1117, %3262 ]
   call fastcc void @appendText(ptr noundef nonnull %44, ptr noundef nonnull %.str.1119.sink, i8 noundef signext 0)
-  call fastcc void @appendText(ptr noundef nonnull %44, ptr noundef nonnull %3259, i8 noundef signext 34)
+  call fastcc void @appendText(ptr noundef nonnull %44, ptr noundef nonnull %3255, i8 noundef signext 34)
   call fastcc void @appendText(ptr noundef nonnull %44, ptr noundef nonnull @.str.1120, i8 noundef signext 0)
   call fastcc void @appendText(ptr noundef nonnull %44, ptr noundef nonnull %.str.1121..str.1122, i8 noundef signext 0)
-  br label %3270
+  br label %3266
 
-3270:                                             ; preds = %.sink.split4753, %.lr.ph4099
-  %3271 = load ptr, ptr %43, align 8, !tbaa !31
-  %3272 = call i32 @sqlite3_step(ptr noundef %3271) #43
-  %3273 = icmp eq i32 %3272, 100
-  br i1 %3273, label %.lr.ph4099, label %._crit_edge4100, !llvm.loop !572
+3266:                                             ; preds = %.sink.split4753, %.lr.ph4099
+  %3267 = load ptr, ptr %43, align 8, !tbaa !31
+  %3268 = call i32 @sqlite3_step(ptr noundef %3267) #43
+  %3269 = icmp eq i32 %3268, 100
+  br i1 %3269, label %.lr.ph4099, label %._crit_edge4100, !llvm.loop !572
 
-._crit_edge4100:                                  ; preds = %3270, %.preheader3758
-  %3274 = load ptr, ptr %43, align 8, !tbaa !31
-  %3275 = call i32 @sqlite3_finalize(ptr noundef %3274) #43
-  %3276 = icmp eq i32 %3275, 0
-  br i1 %3276, label %3277, label %.critedge3751
+._crit_edge4100:                                  ; preds = %3266, %.preheader3758
+  %3270 = load ptr, ptr %43, align 8, !tbaa !31
+  %3271 = call i32 @sqlite3_finalize(ptr noundef %3270) #43
+  %3272 = icmp eq i32 %3271, 0
+  br i1 %3272, label %3273, label %.critedge3751
 
-3277:                                             ; preds = %._crit_edge4100
+3273:                                             ; preds = %._crit_edge4100
   call fastcc void @appendText(ptr noundef nonnull %44, ptr noundef nonnull @.str.1123, i8 noundef signext 0)
-  %3278 = load ptr, ptr %1, align 8, !tbaa !477
-  %3279 = load ptr, ptr %44, align 8, !tbaa !562
-  %3280 = call i32 @sqlite3_prepare_v2(ptr noundef %3278, ptr noundef %3279, i32 noundef -1, ptr noundef nonnull %43, ptr noundef null) #43
-  %3281 = icmp eq i32 %3280, 0
-  call void @free(ptr noundef %3279) #43
+  %3274 = load ptr, ptr %1, align 8, !tbaa !477
+  %3275 = load ptr, ptr %44, align 8, !tbaa !562
+  %3276 = call i32 @sqlite3_prepare_v2(ptr noundef %3274, ptr noundef %3275, i32 noundef -1, ptr noundef nonnull %43, ptr noundef null) #43
+  %3277 = icmp eq i32 %3276, 0
+  call void @free(ptr noundef %3275) #43
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
-  br i1 %3281, label %3283, label %.thread3553
+  br i1 %3277, label %3279, label %.thread3553
 
 .critedge3751:                                    ; preds = %._crit_edge4100
-  %3282 = load ptr, ptr %44, align 8, !tbaa !562
-  call void @free(ptr noundef %3282) #43
+  %3278 = load ptr, ptr %44, align 8, !tbaa !562
+  call void @free(ptr noundef %3278) #43
   br label %.thread3553
 
-3283:                                             ; preds = %3277
+3279:                                             ; preds = %3273
   %.not2610 = icmp eq i32 %.02122.lcssa.ph, 1
-  %3284 = load ptr, ptr %43, align 8, !tbaa !31
-  br i1 %.not2610, label %3289, label %3285
+  %3280 = load ptr, ptr %43, align 8, !tbaa !31
+  br i1 %.not2610, label %3285, label %3281
 
-3285:                                             ; preds = %3283
-  %3286 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %3287 = load ptr, ptr %3286, align 8, !tbaa !29
-  %3288 = call i32 @sqlite3_bind_text(ptr noundef %3284, i32 noundef 1, ptr noundef %3287, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #43
-  br label %3291
+3281:                                             ; preds = %3279
+  %3282 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %3283 = load ptr, ptr %3282, align 8, !tbaa !29
+  %3284 = call i32 @sqlite3_bind_text(ptr noundef %3280, i32 noundef 1, ptr noundef %3283, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #43
+  br label %3287
 
-3289:                                             ; preds = %3283
-  %3290 = call i32 @sqlite3_bind_text(ptr noundef %3284, i32 noundef 1, ptr noundef nonnull @.str.1124, i32 noundef -1, ptr noundef null) #43
-  br label %3291
+3285:                                             ; preds = %3279
+  %3286 = call i32 @sqlite3_bind_text(ptr noundef %3280, i32 noundef 1, ptr noundef nonnull @.str.1124, i32 noundef -1, ptr noundef null) #43
+  br label %3287
 
-3291:                                             ; preds = %3289, %3285
-  %3292 = load ptr, ptr %43, align 8, !tbaa !31
-  %3293 = call i32 @sqlite3_step(ptr noundef %3292) #43
-  %3294 = icmp eq i32 %3293, 100
-  br i1 %3294, label %.lr.ph4105, label %._crit_edge4106
+3287:                                             ; preds = %3285, %3281
+  %3288 = load ptr, ptr %43, align 8, !tbaa !31
+  %3289 = call i32 @sqlite3_step(ptr noundef %3288) #43
+  %3290 = icmp eq i32 %3289, 100
+  br i1 %3290, label %.lr.ph4105, label %._crit_edge4106
 
-.lr.ph4105:                                       ; preds = %3291, %shell_check_oom.exit3131
-  %indvars.iv4440 = phi i64 [ %indvars.iv.next4441, %shell_check_oom.exit3131 ], [ 0, %3291 ]
-  %.022464103 = phi i32 [ %.12247, %shell_check_oom.exit3131 ], [ 0, %3291 ]
-  %.022494101 = phi ptr [ %.12250, %shell_check_oom.exit3131 ], [ null, %3291 ]
-  %3295 = sext i32 %.022464103 to i64
-  %.not2614 = icmp slt i64 %indvars.iv4440, %3295
-  br i1 %.not2614, label %shell_check_oom.exit3130, label %3296
+.lr.ph4105:                                       ; preds = %3287, %shell_check_oom.exit3131
+  %indvars.iv4440 = phi i64 [ %indvars.iv.next4441, %shell_check_oom.exit3131 ], [ 0, %3287 ]
+  %.022464103 = phi i32 [ %.12247, %shell_check_oom.exit3131 ], [ 0, %3287 ]
+  %.022494101 = phi ptr [ %.12250, %shell_check_oom.exit3131 ], [ null, %3287 ]
+  %3291 = sext i32 %.022464103 to i64
+  %.not2614 = icmp slt i64 %indvars.iv4440, %3291
+  br i1 %.not2614, label %shell_check_oom.exit3130, label %3292
 
-3296:                                             ; preds = %.lr.ph4105
-  %3297 = shl nsw i32 %.022464103, 1
-  %3298 = add nsw i32 %3297, 10
-  %3299 = sext i32 %3298 to i64
-  %3300 = shl nsw i64 %3299, 3
-  %3301 = call ptr @sqlite3_realloc64(ptr noundef %.022494101, i64 noundef %3300) #43
-  %3302 = icmp eq ptr %3301, null
-  br i1 %3302, label %3303, label %shell_check_oom.exit3130
+3292:                                             ; preds = %.lr.ph4105
+  %3293 = shl nsw i32 %.022464103, 1
+  %3294 = add nsw i32 %3293, 10
+  %3295 = sext i32 %3294 to i64
+  %3296 = shl nsw i64 %3295, 3
+  %3297 = call ptr @sqlite3_realloc64(ptr noundef %.022494101, i64 noundef %3296) #43
+  %3298 = icmp eq ptr %3297, null
+  br i1 %3298, label %3299, label %shell_check_oom.exit3130
 
-3303:                                             ; preds = %3296
+3299:                                             ; preds = %3292
   call fastcc void @shell_out_of_memory()
   unreachable
 
-shell_check_oom.exit3130:                         ; preds = %3296, %.lr.ph4105
-  %.12250 = phi ptr [ %.022494101, %.lr.ph4105 ], [ %3301, %3296 ]
-  %.12247 = phi i32 [ %.022464103, %.lr.ph4105 ], [ %3298, %3296 ]
-  %3304 = load ptr, ptr %43, align 8, !tbaa !31
-  %3305 = call ptr @sqlite3_column_text(ptr noundef %3304, i32 noundef 0) #43
-  %3306 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.47, ptr noundef %3305) #43
-  %3307 = getelementptr inbounds nuw ptr, ptr %.12250, i64 %indvars.iv4440
-  store ptr %3306, ptr %3307, align 8, !tbaa !29
-  %3308 = icmp eq ptr %3306, null
-  br i1 %3308, label %3309, label %shell_check_oom.exit3131
+shell_check_oom.exit3130:                         ; preds = %3292, %.lr.ph4105
+  %.12250 = phi ptr [ %.022494101, %.lr.ph4105 ], [ %3297, %3292 ]
+  %.12247 = phi i32 [ %.022464103, %.lr.ph4105 ], [ %3294, %3292 ]
+  %3300 = load ptr, ptr %43, align 8, !tbaa !31
+  %3301 = call ptr @sqlite3_column_text(ptr noundef %3300, i32 noundef 0) #43
+  %3302 = call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.47, ptr noundef %3301) #43
+  %3303 = getelementptr inbounds nuw ptr, ptr %.12250, i64 %indvars.iv4440
+  store ptr %3302, ptr %3303, align 8, !tbaa !29
+  %3304 = icmp eq ptr %3302, null
+  br i1 %3304, label %3305, label %shell_check_oom.exit3131
 
-3309:                                             ; preds = %shell_check_oom.exit3130
+3305:                                             ; preds = %shell_check_oom.exit3130
   call fastcc void @shell_out_of_memory()
   unreachable
 
 shell_check_oom.exit3131:                         ; preds = %shell_check_oom.exit3130
   %indvars.iv.next4441 = add nuw nsw i64 %indvars.iv4440, 1
-  %3310 = load ptr, ptr %43, align 8, !tbaa !31
-  %3311 = call i32 @sqlite3_step(ptr noundef %3310) #43
-  %3312 = icmp eq i32 %3311, 100
-  br i1 %3312, label %.lr.ph4105, label %._crit_edge4106.loopexit, !llvm.loop !573
+  %3306 = load ptr, ptr %43, align 8, !tbaa !31
+  %3307 = call i32 @sqlite3_step(ptr noundef %3306) #43
+  %3308 = icmp eq i32 %3307, 100
+  br i1 %3308, label %.lr.ph4105, label %._crit_edge4106.loopexit, !llvm.loop !573
 
 ._crit_edge4106.loopexit:                         ; preds = %shell_check_oom.exit3131
-  %3313 = trunc nuw i64 %indvars.iv.next4441 to i32
+  %3309 = trunc nuw i64 %indvars.iv.next4441 to i32
   br label %._crit_edge4106
 
-._crit_edge4106:                                  ; preds = %._crit_edge4106.loopexit, %3291
-  %.02249.lcssa = phi ptr [ null, %3291 ], [ %.12250, %._crit_edge4106.loopexit ]
-  %.02248.lcssa = phi i32 [ 0, %3291 ], [ %3313, %._crit_edge4106.loopexit ]
-  %3314 = load ptr, ptr %43, align 8, !tbaa !31
-  %3315 = call i32 @sqlite3_finalize(ptr noundef %3314) #43
-  %.not2611 = icmp eq i32 %3315, 0
-  br i1 %.not2611, label %3317, label %.thread3548
+._crit_edge4106:                                  ; preds = %._crit_edge4106.loopexit, %3287
+  %.02249.lcssa = phi ptr [ null, %3287 ], [ %.12250, %._crit_edge4106.loopexit ]
+  %.02248.lcssa = phi i32 [ 0, %3287 ], [ %3309, %._crit_edge4106.loopexit ]
+  %3310 = load ptr, ptr %43, align 8, !tbaa !31
+  %3311 = call i32 @sqlite3_finalize(ptr noundef %3310) #43
+  %.not2611 = icmp eq i32 %3311, 0
+  br i1 %.not2611, label %3313, label %.thread3548
 
 .thread3548:                                      ; preds = %._crit_edge4106
-  %3316 = load ptr, ptr %1, align 8, !tbaa !477
-  call fastcc void @shellDatabaseError(ptr noundef %3316)
+  %3312 = load ptr, ptr %1, align 8, !tbaa !477
+  call fastcc void @shellDatabaseError(ptr noundef %3312)
   br label %.loopexit3756
 
-3317:                                             ; preds = %._crit_edge4106
+3313:                                             ; preds = %._crit_edge4106
   %.not3673 = icmp eq i32 %.02248.lcssa, 0
   br i1 %.not3673, label %._crit_edge4118, label %.preheader3757.preheader
 
-.preheader3757.preheader:                         ; preds = %3317
+.preheader3757.preheader:                         ; preds = %3313
   %wide.trip.count4448 = zext i32 %.02248.lcssa to i64
   br label %.preheader3757
 
 .preheader3757:                                   ; preds = %.preheader3757.preheader, %.preheader3757
   %indvars.iv4444 = phi i64 [ 0, %.preheader3757.preheader ], [ %indvars.iv.next4445, %.preheader3757 ]
   %.022344109 = phi i32 [ 0, %.preheader3757.preheader ], [ %spec.select2840, %.preheader3757 ]
-  %3318 = getelementptr inbounds nuw ptr, ptr %.02249.lcssa, i64 %indvars.iv4444
-  %3319 = load ptr, ptr %3318, align 8, !tbaa !29
-  %strlen.i3132 = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %3319)
-  %3320 = trunc i64 %strlen.i3132 to i32
-  %3321 = and i32 %3320, 1073741823
-  %spec.select2840 = call i32 @llvm.umax.i32(i32 %3321, i32 %.022344109)
+  %3314 = getelementptr inbounds nuw ptr, ptr %.02249.lcssa, i64 %indvars.iv4444
+  %3315 = load ptr, ptr %3314, align 8, !tbaa !29
+  %strlen.i3132 = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %3315)
+  %3316 = trunc i64 %strlen.i3132 to i32
+  %3317 = and i32 %3316, 1073741823
+  %spec.select2840 = call i32 @llvm.umax.i32(i32 %3317, i32 %.022344109)
   %indvars.iv.next4445 = add nuw nsw i64 %indvars.iv4444, 1
   %exitcond4449.not = icmp eq i64 %indvars.iv.next4445, %wide.trip.count4448
-  br i1 %exitcond4449.not, label %3322, label %.preheader3757, !llvm.loop !574
+  br i1 %exitcond4449.not, label %3318, label %.preheader3757, !llvm.loop !574
 
-3322:                                             ; preds = %.preheader3757
-  %3323 = add nuw nsw i32 %spec.select2840, 2
-  %3324 = udiv i32 80, %3323
-  %3325 = icmp samesign ugt i32 %spec.select2840, 78
-  %spec.store.select179 = select i1 %3325, i32 1, i32 %3324
-  %3326 = add i32 %.02248.lcssa, -1
-  %3327 = add i32 %3326, %spec.store.select179
-  %3328 = udiv i32 %3327, %spec.store.select179
-  %3329 = icmp sgt i32 %3328, 0
-  br i1 %3329, label %.preheader3755.lr.ph, label %.lr.ph4117.preheader
+3318:                                             ; preds = %.preheader3757
+  %3319 = add nuw nsw i32 %spec.select2840, 2
+  %3320 = udiv i32 80, %3319
+  %3321 = icmp samesign ugt i32 %spec.select2840, 78
+  %spec.store.select179 = select i1 %3321, i32 1, i32 %3320
+  %3322 = add i32 %.02248.lcssa, -1
+  %3323 = add i32 %3322, %spec.store.select179
+  %3324 = udiv i32 %3323, %spec.store.select179
+  %3325 = icmp sgt i32 %3324, 0
+  br i1 %3325, label %.preheader3755.lr.ph, label %.lr.ph4117.preheader
 
-.preheader3755.lr.ph:                             ; preds = %3322
-  %3330 = getelementptr inbounds nuw i8, ptr %1, i64 72
+.preheader3755.lr.ph:                             ; preds = %3318
+  %3326 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %.preheader3755
 
 .preheader3755:                                   ; preds = %.preheader3755.lr.ph, %._crit_edge4113
   %indvars.iv4450 = phi i64 [ 0, %.preheader3755.lr.ph ], [ %indvars.iv.next4451, %._crit_edge4113 ]
   %indvars4455 = trunc i64 %indvars.iv4450 to i32
-  %3331 = icmp sgt i32 %.02248.lcssa, %indvars4455
-  br i1 %3331, label %.lr.ph4112.preheader, label %._crit_edge4113
+  %3327 = icmp sgt i32 %.02248.lcssa, %indvars4455
+  br i1 %3327, label %.lr.ph4112.preheader, label %._crit_edge4113
 
 .lr.ph4112.preheader:                             ; preds = %.preheader3755
-  %3332 = udiv i32 %3327, %spec.store.select179
-  %3333 = zext i32 %3332 to i64
+  %3328 = udiv i32 %3323, %spec.store.select179
+  %3329 = zext i32 %3328 to i64
   br label %.lr.ph4112
 
 .lr.ph4112:                                       ; preds = %.lr.ph4112.preheader, %.lr.ph4112
   %indvars.iv4452 = phi i64 [ %indvars.iv4450, %.lr.ph4112.preheader ], [ %indvars.iv.next4453, %.lr.ph4112 ]
-  %3334 = trunc nuw i64 %indvars.iv4452 to i32
-  %3335 = icmp sgt i32 %3328, %3334
-  %3336 = select i1 %3335, ptr @.str.44, ptr @.str.1125
-  %3337 = load ptr, ptr %3330, align 8, !tbaa !462
-  %3338 = getelementptr inbounds nuw ptr, ptr %.02249.lcssa, i64 %indvars.iv4452
-  %3339 = load ptr, ptr %3338, align 8, !tbaa !29
-  %.not2613 = icmp eq ptr %3339, null
-  %spec.select2841 = select i1 %.not2613, ptr @.str.44, ptr %3339
-  %3340 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3337, ptr noundef nonnull @.str.1126, ptr noundef nonnull %3336, i32 noundef %spec.select2840, ptr noundef nonnull %spec.select2841) #43
-  %indvars.iv.next4453 = add nuw nsw i64 %indvars.iv4452, %3333
-  %3341 = trunc nuw i64 %indvars.iv.next4453 to i32
-  %3342 = icmp sgt i32 %.02248.lcssa, %3341
-  br i1 %3342, label %.lr.ph4112, label %._crit_edge4113, !llvm.loop !575
+  %3330 = trunc nuw i64 %indvars.iv4452 to i32
+  %3331 = icmp sgt i32 %3324, %3330
+  %3332 = select i1 %3331, ptr @.str.44, ptr @.str.1125
+  %3333 = load ptr, ptr %3326, align 8, !tbaa !462
+  %3334 = getelementptr inbounds nuw ptr, ptr %.02249.lcssa, i64 %indvars.iv4452
+  %3335 = load ptr, ptr %3334, align 8, !tbaa !29
+  %.not2613 = icmp eq ptr %3335, null
+  %spec.select2841 = select i1 %.not2613, ptr @.str.44, ptr %3335
+  %3336 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3333, ptr noundef nonnull @.str.1126, ptr noundef nonnull %3332, i32 noundef %spec.select2840, ptr noundef nonnull %spec.select2841) #43
+  %indvars.iv.next4453 = add nuw nsw i64 %indvars.iv4452, %3329
+  %3337 = trunc nuw i64 %indvars.iv.next4453 to i32
+  %3338 = icmp sgt i32 %.02248.lcssa, %3337
+  br i1 %3338, label %.lr.ph4112, label %._crit_edge4113, !llvm.loop !575
 
 ._crit_edge4113:                                  ; preds = %.lr.ph4112, %.preheader3755
-  %3343 = load ptr, ptr %3330, align 8, !tbaa !462
-  %fputc2612 = call i32 @fputc(i32 10, ptr %3343)
+  %3339 = load ptr, ptr %3326, align 8, !tbaa !462
+  %fputc2612 = call i32 @fputc(i32 10, ptr %3339)
   %indvars.iv.next4451 = add nuw nsw i64 %indvars.iv4450, 1
   %indvars4454 = trunc i64 %indvars.iv.next4451 to i32
-  %3344 = icmp sgt i32 %3328, %indvars4454
-  br i1 %3344, label %.preheader3755, label %.loopexit3756, !llvm.loop !576
+  %3340 = icmp sgt i32 %3324, %indvars4454
+  br i1 %3340, label %.preheader3755, label %.loopexit3756, !llvm.loop !576
 
 .loopexit3756:                                    ; preds = %._crit_edge4113, %.thread3548
   %.733551 = phi i32 [ 1, %.thread3548 ], [ 0, %._crit_edge4113 ]
   %.not4227 = icmp eq i32 %.02248.lcssa, 0
   br i1 %.not4227, label %._crit_edge4118, label %.lr.ph4117.preheader
 
-.lr.ph4117.preheader:                             ; preds = %3322, %.loopexit3756
-  %.7335514643 = phi i32 [ %.733551, %.loopexit3756 ], [ 0, %3322 ]
+.lr.ph4117.preheader:                             ; preds = %3318, %.loopexit3756
+  %.7335514643 = phi i32 [ %.733551, %.loopexit3756 ], [ 0, %3318 ]
   %wide.trip.count4460 = zext i32 %.02248.lcssa to i64
   br label %.lr.ph4117
 
 .lr.ph4117:                                       ; preds = %.lr.ph4117.preheader, %.lr.ph4117
   %indvars.iv4456 = phi i64 [ 0, %.lr.ph4117.preheader ], [ %indvars.iv.next4457, %.lr.ph4117 ]
-  %3345 = getelementptr inbounds nuw ptr, ptr %.02249.lcssa, i64 %indvars.iv4456
-  %3346 = load ptr, ptr %3345, align 8, !tbaa !29
-  call void @sqlite3_free(ptr noundef %3346) #43
+  %3341 = getelementptr inbounds nuw ptr, ptr %.02249.lcssa, i64 %indvars.iv4456
+  %3342 = load ptr, ptr %3341, align 8, !tbaa !29
+  call void @sqlite3_free(ptr noundef %3342) #43
   %indvars.iv.next4457 = add nuw nsw i64 %indvars.iv4456, 1
   %exitcond4461.not = icmp eq i64 %indvars.iv.next4457, %wide.trip.count4460
   br i1 %exitcond4461.not, label %._crit_edge4118, label %.lr.ph4117, !llvm.loop !577
 
-._crit_edge4118:                                  ; preds = %.lr.ph4117, %3317, %.loopexit3756
-  %.7335514639 = phi i32 [ %.733551, %.loopexit3756 ], [ 0, %3317 ], [ %.7335514643, %.lr.ph4117 ]
+._crit_edge4118:                                  ; preds = %.lr.ph4117, %3313, %.loopexit3756
+  %.7335514639 = phi i32 [ %.733551, %.loopexit3756 ], [ 0, %3313 ], [ %.7335514643, %.lr.ph4117 ]
   call void @sqlite3_free(ptr noundef %.02249.lcssa) #43
-  br label %3348
+  br label %3344
 
-.thread3553:                                      ; preds = %3277, %.critedge3751, %3245
-  %3347 = load ptr, ptr %1, align 8, !tbaa !477
-  call fastcc void @shellDatabaseError(ptr noundef %3347)
+.thread3553:                                      ; preds = %3273, %.critedge3751, %3241
+  %3343 = load ptr, ptr %1, align 8, !tbaa !477
+  call fastcc void @shellDatabaseError(ptr noundef %3343)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #43
   br label %._crit_edge.thread
 
-3348:                                             ; preds = %._crit_edge4118, %3253
-  %.71 = phi i32 [ 1, %3253 ], [ %.7335514639, %._crit_edge4118 ]
+3344:                                             ; preds = %._crit_edge4118, %3249
+  %.71 = phi i32 [ 1, %3249 ], [ %.7335514639, %._crit_edge4118 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #43
   br label %test_breakpoint.exit
 
-3349:                                             ; preds = %3239, %3234
-  br i1 %2752, label %3350, label %3897
+3345:                                             ; preds = %3235, %3230
+  br i1 %2748, label %3346, label %3893
 
-3350:                                             ; preds = %3349
-  %3351 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(9) @.str.1127) #44
-  %3352 = icmp eq i32 %3351, 0
-  br i1 %3352, label %3353, label %3368
+3346:                                             ; preds = %3345
+  %3347 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %128, ptr noundef nonnull dereferenceable(9) @.str.1127) #44
+  %3348 = icmp eq i32 %3347, 0
+  br i1 %3348, label %3349, label %3364
 
-3353:                                             ; preds = %3350
+3349:                                             ; preds = %3346
   tail call fastcc void @output_reset(ptr noundef %1)
-  %3354 = tail call fastcc ptr @output_file_open(ptr noundef nonnull @.str.728)
-  %3355 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %3354, ptr %3355, align 8, !tbaa !462
-  %3356 = icmp eq ptr %3354, null
-  br i1 %3356, label %3357, label %3360
+  %3350 = tail call fastcc ptr @output_file_open(ptr noundef nonnull @.str.728)
+  %3351 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store ptr %3350, ptr %3351, align 8, !tbaa !462
+  %3352 = icmp eq ptr %3350, null
+  br i1 %3352, label %3353, label %3356
 
-3357:                                             ; preds = %3353
-  %3358 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3359 = tail call i64 @fwrite(ptr nonnull @.str.1128, i64 38, i64 1, ptr %3358) #50
-  br label %3360
+3353:                                             ; preds = %3349
+  %3354 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3355 = tail call i64 @fwrite(ptr nonnull @.str.1128, i64 38, i64 1, ptr %3354) #50
+  br label %3356
 
-3360:                                             ; preds = %3357, %3353
+3356:                                             ; preds = %3353, %3349
   %.not2607 = icmp eq i32 %.02122.lcssa.ph, 1
-  %3361 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  br i1 %.not2607, label %3366, label %3362
+  %3357 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  br i1 %.not2607, label %3362, label %3358
 
-3362:                                             ; preds = %3360
-  %3363 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %3364 = load ptr, ptr %3363, align 8, !tbaa !29
-  %3365 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 30, ptr noundef nonnull %3361, ptr noundef nonnull @.str.47, ptr noundef %3364) #43
+3358:                                             ; preds = %3356
+  %3359 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %3360 = load ptr, ptr %3359, align 8, !tbaa !29
+  %3361 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 30, ptr noundef nonnull %3357, ptr noundef nonnull @.str.47, ptr noundef %3360) #43
   br label %test_breakpoint.exit
 
-3366:                                             ; preds = %3360
-  %3367 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 30, ptr noundef nonnull %3361, ptr noundef nonnull @.str.1129) #43
+3362:                                             ; preds = %3356
+  %3363 = tail call ptr (i32, ptr, ptr, ...) @sqlite3_snprintf(i32 noundef 30, ptr noundef nonnull %3357, ptr noundef nonnull @.str.1129) #43
   br label %test_breakpoint.exit
 
-3368:                                             ; preds = %3350
-  %3369 = icmp samesign ugt i32 %130, 7
-  br i1 %3369, label %3370, label %3820
+3364:                                             ; preds = %3346
+  %3365 = icmp samesign ugt i32 %130, 7
+  br i1 %3365, label %3366, label %3816
 
-3370:                                             ; preds = %3368
-  %3371 = and i64 %strlen.i, 1073741823
-  %3372 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1130, i64 noundef range(i64 0, 1073741824) %3371) #44
-  %3373 = icmp eq i32 %3372, 0
-  br i1 %3373, label %3374, label %3820
+3366:                                             ; preds = %3364
+  %3367 = and i64 %strlen.i, 1073741823
+  %3368 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1130, i64 noundef range(i64 0, 1073741824) %3367) #44
+  %3369 = icmp eq i32 %3368, 0
+  br i1 %3369, label %3370, label %3816
 
-3374:                                             ; preds = %3370
+3370:                                             ; preds = %3366
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %45) #43
   store i32 0, ptr %45, align 4, !tbaa !36
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   %.not2588 = icmp eq i32 %.02122.lcssa.ph, 1
-  %3375 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %3376 = load ptr, ptr %3375, align 8
-  %3377 = select i1 %.not2588, ptr @.str.827, ptr %3376
-  %3378 = load i8, ptr %3377, align 1, !tbaa !25
-  %3379 = icmp eq i8 %3378, 45
-  br i1 %3379, label %3380, label %3386
+  %3371 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %3372 = load ptr, ptr %3371, align 8
+  %3373 = select i1 %.not2588, ptr @.str.827, ptr %3372
+  %3374 = load i8, ptr %3373, align 1, !tbaa !25
+  %3375 = icmp eq i8 %3374, 45
+  br i1 %3375, label %3376, label %3382
 
-3380:                                             ; preds = %3374
-  %3381 = getelementptr inbounds nuw i8, ptr %3377, i64 1
-  %3382 = load i8, ptr %3381, align 1, !tbaa !25
-  switch i8 %3382, label %.fold.split2842 [
-    i8 0, label %3386
-    i8 45, label %3383
+3376:                                             ; preds = %3370
+  %3377 = getelementptr inbounds nuw i8, ptr %3373, i64 1
+  %3378 = load i8, ptr %3377, align 1, !tbaa !25
+  switch i8 %3378, label %.fold.split2842 [
+    i8 0, label %3382
+    i8 45, label %3379
   ]
 
-3383:                                             ; preds = %3380
-  %3384 = getelementptr inbounds nuw i8, ptr %3377, i64 2
-  %3385 = load i8, ptr %3384, align 1, !tbaa !25
-  %.not2590 = icmp eq i8 %3385, 0
-  %spec.select2843 = select i1 %.not2590, ptr %3381, ptr %3384
-  br label %3386
+3379:                                             ; preds = %3376
+  %3380 = getelementptr inbounds nuw i8, ptr %3373, i64 2
+  %3381 = load i8, ptr %3380, align 1, !tbaa !25
+  %.not2590 = icmp eq i8 %3381, 0
+  %spec.select2843 = select i1 %.not2590, ptr %3377, ptr %3380
+  br label %3382
 
-.fold.split2842:                                  ; preds = %3380
-  br label %3386
+.fold.split2842:                                  ; preds = %3376
+  br label %3382
 
-3386:                                             ; preds = %3383, %3380, %.fold.split2842, %3374
-  %.02215 = phi ptr [ %3377, %3380 ], [ %3377, %3374 ], [ %3381, %.fold.split2842 ], [ %spec.select2843, %3383 ]
-  %3387 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02215, ptr noundef nonnull dereferenceable(5) @.str.827) #44
-  %3388 = icmp eq i32 %3387, 0
-  br i1 %3388, label %3389, label %3408
+3382:                                             ; preds = %3379, %3376, %.fold.split2842, %3370
+  %.02215 = phi ptr [ %3373, %3376 ], [ %3373, %3370 ], [ %3377, %.fold.split2842 ], [ %spec.select2843, %3379 ]
+  %3383 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02215, ptr noundef nonnull dereferenceable(5) @.str.827) #44
+  %3384 = icmp eq i32 %3383, 0
+  br i1 %3384, label %3385, label %3404
 
-3389:                                             ; preds = %3386
-  %3390 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3391 = load ptr, ptr %3390, align 8, !tbaa !462
-  %3392 = tail call i64 @fwrite(ptr nonnull @.str.1158, i64 25, i64 1, ptr %3391)
-  %3393 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  br label %3394
+3385:                                             ; preds = %3382
+  %3386 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3387 = load ptr, ptr %3386, align 8, !tbaa !462
+  %3388 = tail call i64 @fwrite(ptr nonnull @.str.1158, i64 25, i64 1, ptr %3387)
+  %3389 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  br label %3390
 
-3394:                                             ; preds = %3389, %3407
-  %indvars.iv4435 = phi i64 [ 0, %3389 ], [ %indvars.iv.next4436, %3407 ]
-  %3395 = getelementptr inbounds nuw [19 x %struct.anon.6], ptr @do_meta_command.aCtrl.1131, i64 0, i64 %indvars.iv4435
-  %3396 = getelementptr inbounds nuw i8, ptr %3395, i64 12
-  %3397 = load i32, ptr %3396, align 4, !tbaa !578
-  %.not2605 = icmp eq i32 %3397, 0
-  br i1 %.not2605, label %3401, label %3398
+3390:                                             ; preds = %3385, %3403
+  %indvars.iv4435 = phi i64 [ 0, %3385 ], [ %indvars.iv.next4436, %3403 ]
+  %3391 = getelementptr inbounds nuw [19 x %struct.anon.6], ptr @do_meta_command.aCtrl.1131, i64 0, i64 %indvars.iv4435
+  %3392 = getelementptr inbounds nuw i8, ptr %3391, i64 12
+  %3393 = load i32, ptr %3392, align 4, !tbaa !578
+  %.not2605 = icmp eq i32 %3393, 0
+  br i1 %.not2605, label %3397, label %3394
 
-3398:                                             ; preds = %3394
-  %3399 = load i32, ptr %3393, align 4, !tbaa !454
-  %3400 = and i32 %3399, 1024
-  %.not2606 = icmp eq i32 %3400, 0
-  br i1 %.not2606, label %3407, label %3401
+3394:                                             ; preds = %3390
+  %3395 = load i32, ptr %3389, align 4, !tbaa !454
+  %3396 = and i32 %3395, 1024
+  %.not2606 = icmp eq i32 %3396, 0
+  br i1 %.not2606, label %3403, label %3397
 
-3401:                                             ; preds = %3398, %3394
-  %3402 = load ptr, ptr %3390, align 8, !tbaa !462
-  %3403 = load ptr, ptr %3395, align 8, !tbaa !580
-  %3404 = getelementptr inbounds nuw i8, ptr %3395, i64 16
-  %3405 = load ptr, ptr %3404, align 8, !tbaa !581
-  %3406 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3402, ptr noundef nonnull @.str.1159, ptr noundef %3403, ptr noundef %3405) #43
-  br label %3407
+3397:                                             ; preds = %3394, %3390
+  %3398 = load ptr, ptr %3386, align 8, !tbaa !462
+  %3399 = load ptr, ptr %3391, align 8, !tbaa !580
+  %3400 = getelementptr inbounds nuw i8, ptr %3391, i64 16
+  %3401 = load ptr, ptr %3400, align 8, !tbaa !581
+  %3402 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3398, ptr noundef nonnull @.str.1159, ptr noundef %3399, ptr noundef %3401) #43
+  br label %3403
 
-3407:                                             ; preds = %3398, %3401
+3403:                                             ; preds = %3394, %3397
   %indvars.iv.next4436 = add nuw nsw i64 %indvars.iv4435, 1
   %exitcond4439.not = icmp eq i64 %indvars.iv.next4436, 19
-  br i1 %exitcond4439.not, label %.thread3616, label %3394, !llvm.loop !582
+  br i1 %exitcond4439.not, label %.thread3616, label %3390, !llvm.loop !582
 
-3408:                                             ; preds = %3386
+3404:                                             ; preds = %3382
   %strlen.i3136 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %.02215)
-  %3409 = and i64 %strlen.i3136, 1073741823
-  %3410 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  br label %3411
+  %3405 = and i64 %strlen.i3136, 1073741823
+  %3406 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  br label %3407
 
-3411:                                             ; preds = %3408, %3432
-  %indvars.iv4403 = phi i64 [ 0, %3408 ], [ %indvars.iv.next4404, %3432 ]
-  %.022244076 = phi i32 [ -1, %3408 ], [ %.12225, %3432 ]
-  %.022264075 = phi i32 [ -1, %3408 ], [ %.12227, %3432 ]
-  %3412 = getelementptr inbounds nuw [19 x %struct.anon.6], ptr @do_meta_command.aCtrl.1131, i64 0, i64 %indvars.iv4403
-  %3413 = getelementptr inbounds nuw i8, ptr %3412, i64 12
-  %3414 = load i32, ptr %3413, align 4, !tbaa !578
-  %.not2603 = icmp eq i32 %3414, 0
-  br i1 %.not2603, label %3418, label %3415
+3407:                                             ; preds = %3404, %3428
+  %indvars.iv4403 = phi i64 [ 0, %3404 ], [ %indvars.iv.next4404, %3428 ]
+  %.022244076 = phi i32 [ -1, %3404 ], [ %.12225, %3428 ]
+  %.022264075 = phi i32 [ -1, %3404 ], [ %.12227, %3428 ]
+  %3408 = getelementptr inbounds nuw [19 x %struct.anon.6], ptr @do_meta_command.aCtrl.1131, i64 0, i64 %indvars.iv4403
+  %3409 = getelementptr inbounds nuw i8, ptr %3408, i64 12
+  %3410 = load i32, ptr %3409, align 4, !tbaa !578
+  %.not2603 = icmp eq i32 %3410, 0
+  br i1 %.not2603, label %3414, label %3411
 
-3415:                                             ; preds = %3411
-  %3416 = load i32, ptr %3410, align 4, !tbaa !454
-  %3417 = and i32 %3416, 1024
-  %.not2604 = icmp eq i32 %3417, 0
-  br i1 %.not2604, label %3432, label %3418
+3411:                                             ; preds = %3407
+  %3412 = load i32, ptr %3406, align 4, !tbaa !454
+  %3413 = and i32 %3412, 1024
+  %.not2604 = icmp eq i32 %3413, 0
+  br i1 %.not2604, label %3428, label %3414
 
-3418:                                             ; preds = %3415, %3411
-  %3419 = load ptr, ptr %3412, align 8, !tbaa !580
-  %3420 = icmp eq ptr %3419, null
-  %spec.store.select1.i3138 = select i1 %3420, ptr @.str.44, ptr %3419
-  %3421 = tail call i32 @strncmp(ptr noundef nonnull %.02215, ptr noundef nonnull %spec.store.select1.i3138, i64 noundef range(i64 0, 1073741824) %3409) #44
-  %3422 = icmp eq i32 %3421, 0
-  br i1 %3422, label %3423, label %3432
+3414:                                             ; preds = %3411, %3407
+  %3415 = load ptr, ptr %3408, align 8, !tbaa !580
+  %3416 = icmp eq ptr %3415, null
+  %spec.store.select1.i3138 = select i1 %3416, ptr @.str.44, ptr %3415
+  %3417 = tail call i32 @strncmp(ptr noundef nonnull %.02215, ptr noundef nonnull %spec.store.select1.i3138, i64 noundef range(i64 0, 1073741824) %3405) #44
+  %3418 = icmp eq i32 %3417, 0
+  br i1 %3418, label %3419, label %3428
 
-3423:                                             ; preds = %3418
-  %3424 = icmp slt i32 %.022264075, 0
-  br i1 %3424, label %3425, label %3429
+3419:                                             ; preds = %3414
+  %3420 = icmp slt i32 %.022264075, 0
+  br i1 %3420, label %3421, label %3425
 
-3425:                                             ; preds = %3423
-  %3426 = getelementptr inbounds nuw i8, ptr %3412, i64 8
-  %3427 = load i32, ptr %3426, align 8, !tbaa !583
-  %3428 = trunc nuw nsw i64 %indvars.iv4403 to i32
-  br label %3432
+3421:                                             ; preds = %3419
+  %3422 = getelementptr inbounds nuw i8, ptr %3408, i64 8
+  %3423 = load i32, ptr %3422, align 8, !tbaa !583
+  %3424 = trunc nuw nsw i64 %indvars.iv4403 to i32
+  br label %3428
 
-3429:                                             ; preds = %3423
-  %3430 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3431 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3430, ptr noundef nonnull @.str.1160, ptr noundef nonnull %.02215) #46
+3425:                                             ; preds = %3419
+  %3426 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3427 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3426, ptr noundef nonnull @.str.1160, ptr noundef nonnull %.02215) #46
   br label %.thread3616
 
-3432:                                             ; preds = %3418, %3425, %3415
-  %.12227 = phi i32 [ %3427, %3425 ], [ %.022264075, %3418 ], [ %.022264075, %3415 ]
-  %.12225 = phi i32 [ %3428, %3425 ], [ %.022244076, %3418 ], [ %.022244076, %3415 ]
+3428:                                             ; preds = %3414, %3421, %3411
+  %.12227 = phi i32 [ %3423, %3421 ], [ %.022264075, %3414 ], [ %.022264075, %3411 ]
+  %.12225 = phi i32 [ %3424, %3421 ], [ %.022244076, %3414 ], [ %.022244076, %3411 ]
   %indvars.iv.next4404 = add nuw nsw i64 %indvars.iv4403, 1
   %exitcond4407.not = icmp eq i64 %indvars.iv.next4404, 19
-  br i1 %exitcond4407.not, label %3433, label %3411, !llvm.loop !584
+  br i1 %exitcond4407.not, label %3429, label %3407, !llvm.loop !584
 
-3433:                                             ; preds = %3432
-  %3434 = icmp slt i32 %.12227, 0
-  br i1 %3434, label %3435, label %3438
+3429:                                             ; preds = %3428
+  %3430 = icmp slt i32 %.12227, 0
+  br i1 %3430, label %3431, label %3434
 
-3435:                                             ; preds = %3433
-  %3436 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3437 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3436, ptr noundef nonnull @.str.1161, ptr noundef nonnull %.02215) #46
-  br label %3802
+3431:                                             ; preds = %3429
+  %3432 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3433 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3432, ptr noundef nonnull @.str.1161, ptr noundef nonnull %.02215) #46
+  br label %3798
 
-3438:                                             ; preds = %3433
-  switch i32 %.12227, label %3802 [
-    i32 15, label %3439
-    i32 7, label %3546
-    i32 5, label %3555
-    i32 6, label %3555
-    i32 22, label %3555
-    i32 11, label %3560
-    i32 28, label %3568
-    i32 12, label %3592
-    i32 13, label %3592
-    i32 18, label %3599
-    i32 20, label %3599
-    i32 17, label %3606
-    i32 25, label %3609
-    i32 30, label %3622
-    i32 24, label %3629
-    i32 14, label %3638
-    i32 9, label %3641
+3434:                                             ; preds = %3429
+  switch i32 %.12227, label %3798 [
+    i32 15, label %3435
+    i32 7, label %3542
+    i32 5, label %3551
+    i32 6, label %3551
+    i32 22, label %3551
+    i32 11, label %3556
+    i32 28, label %3564
+    i32 12, label %3588
+    i32 13, label %3588
+    i32 18, label %3595
+    i32 20, label %3595
+    i32 17, label %3602
+    i32 25, label %3605
+    i32 30, label %3618
+    i32 24, label %3625
+    i32 14, label %3634
+    i32 9, label %3637
   ]
 
-3439:                                             ; preds = %3438
+3435:                                             ; preds = %3434
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %46) #43
-  %3440 = load ptr, ptr %1, align 8, !tbaa !477
-  %3441 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 16, ptr noundef %3440, ptr noundef nonnull %46) #43
-  %3442 = load i32, ptr %46, align 4, !tbaa !36
-  %3443 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
-  br i1 %3443, label %.lr.ph4089, label %._crit_edge4090.thread
+  %3436 = load ptr, ptr %1, align 8, !tbaa !477
+  %3437 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 16, ptr noundef %3436, ptr noundef nonnull %46) #43
+  %3438 = load i32, ptr %46, align 4, !tbaa !36
+  %3439 = icmp samesign ugt i32 %.02122.lcssa.ph, 2
+  br i1 %3439, label %.lr.ph4089, label %._crit_edge4090.thread
 
-.lr.ph4089:                                       ; preds = %3439, %.thread3565
-  %indvars.iv4413 = phi i64 [ %indvars.iv.next4414, %.thread3565 ], [ 2, %3439 ]
-  %.022094086 = phi i32 [ %.522143570, %.thread3565 ], [ %3442, %3439 ]
-  %3444 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4413
-  %3445 = load ptr, ptr %3444, align 8, !tbaa !29
-  %3446 = load i8, ptr %3445, align 1, !tbaa !25
-  switch i8 %3446, label %.lr.ph4089._crit_edge [
-    i8 43, label %3447
-    i8 45, label %3447
+.lr.ph4089:                                       ; preds = %3435, %.thread3565
+  %indvars.iv4413 = phi i64 [ %indvars.iv.next4414, %.thread3565 ], [ 2, %3435 ]
+  %.022094086 = phi i32 [ %.522143570, %.thread3565 ], [ %3438, %3435 ]
+  %3440 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4413
+  %3441 = load ptr, ptr %3440, align 8, !tbaa !29
+  %3442 = load i8, ptr %3441, align 1, !tbaa !25
+  switch i8 %3442, label %.lr.ph4089._crit_edge [
+    i8 43, label %3443
+    i8 45, label %3443
   ]
 
 .lr.ph4089._crit_edge:                            ; preds = %.lr.ph4089
   %.pre4539 = tail call ptr @__ctype_b_loc() #45
-  br label %3458
+  br label %3454
 
-3447:                                             ; preds = %.lr.ph4089, %.lr.ph4089
-  %3448 = tail call ptr @__ctype_b_loc() #45
-  %3449 = load ptr, ptr %3448, align 8, !tbaa !43
-  %3450 = getelementptr inbounds nuw i8, ptr %3445, i64 1
-  %3451 = load i8, ptr %3450, align 1, !tbaa !25
-  %3452 = zext i8 %3451 to i64
-  %3453 = getelementptr inbounds nuw i16, ptr %3449, i64 %3452
-  %3454 = load i16, ptr %3453, align 2, !tbaa !45
-  %3455 = and i16 %3454, 2048
-  %.not2597 = icmp eq i16 %3455, 0
-  br i1 %.not2597, label %3456, label %3458
+3443:                                             ; preds = %.lr.ph4089, %.lr.ph4089
+  %3444 = tail call ptr @__ctype_b_loc() #45
+  %3445 = load ptr, ptr %3444, align 8, !tbaa !43
+  %3446 = getelementptr inbounds nuw i8, ptr %3441, i64 1
+  %3447 = load i8, ptr %3446, align 1, !tbaa !25
+  %3448 = zext i8 %3447 to i64
+  %3449 = getelementptr inbounds nuw i16, ptr %3445, i64 %3448
+  %3450 = load i16, ptr %3449, align 2, !tbaa !45
+  %3451 = and i16 %3450, 2048
+  %.not2597 = icmp eq i16 %3451, 0
+  br i1 %.not2597, label %3452, label %3454
 
-3456:                                             ; preds = %3447
-  %3457 = icmp eq i8 %3446, 43
-  br label %3473
+3452:                                             ; preds = %3443
+  %3453 = icmp eq i8 %3442, 43
+  br label %3469
 
-3458:                                             ; preds = %.lr.ph4089._crit_edge, %3447
-  %.pre-phi4540 = phi ptr [ %.pre4539, %.lr.ph4089._crit_edge ], [ %3448, %3447 ]
-  %3459 = load ptr, ptr %.pre-phi4540, align 8, !tbaa !43
-  %3460 = zext i8 %3446 to i64
-  %3461 = getelementptr inbounds nuw i16, ptr %3459, i64 %3460
-  %3462 = load i16, ptr %3461, align 2, !tbaa !45
-  %3463 = and i16 %3462, 2048
-  %.not2598 = icmp ne i16 %3463, 0
-  %.not2599 = icmp eq i8 %3446, 0
+3454:                                             ; preds = %.lr.ph4089._crit_edge, %3443
+  %.pre-phi4540 = phi ptr [ %.pre4539, %.lr.ph4089._crit_edge ], [ %3444, %3443 ]
+  %3455 = load ptr, ptr %.pre-phi4540, align 8, !tbaa !43
+  %3456 = zext i8 %3442 to i64
+  %3457 = getelementptr inbounds nuw i16, ptr %3455, i64 %3456
+  %3458 = load i16, ptr %3457, align 2, !tbaa !45
+  %3459 = and i16 %3458, 2048
+  %.not2598 = icmp ne i16 %3459, 0
+  %.not2599 = icmp eq i8 %3442, 0
   %or.cond2844 = or i1 %.not2599, %.not2598
-  br i1 %or.cond2844, label %.thread3558, label %3464
+  br i1 %or.cond2844, label %.thread3558, label %3460
 
-3464:                                             ; preds = %3458
-  %3465 = getelementptr inbounds nuw i8, ptr %3445, i64 1
-  %3466 = load i8, ptr %3465, align 1, !tbaa !25
-  %3467 = zext i8 %3466 to i64
-  %3468 = getelementptr inbounds nuw i16, ptr %3459, i64 %3467
-  %3469 = load i16, ptr %3468, align 2, !tbaa !45
-  %3470 = and i16 %3469, 2048
-  %.not2600 = icmp eq i16 %3470, 0
-  br i1 %.not2600, label %3473, label %.thread3558
+3460:                                             ; preds = %3454
+  %3461 = getelementptr inbounds nuw i8, ptr %3441, i64 1
+  %3462 = load i8, ptr %3461, align 1, !tbaa !25
+  %3463 = zext i8 %3462 to i64
+  %3464 = getelementptr inbounds nuw i16, ptr %3455, i64 %3463
+  %3465 = load i16, ptr %3464, align 2, !tbaa !45
+  %3466 = and i16 %3465, 2048
+  %.not2600 = icmp eq i16 %3466, 0
+  br i1 %.not2600, label %3469, label %.thread3558
 
-.thread3558:                                      ; preds = %3458, %3464
-  %3471 = call i64 @strtol(ptr noundef nonnull captures(none) %3445, ptr noundef null, i32 noundef 0) #43
-  %3472 = trunc i64 %3471 to i32
+.thread3558:                                      ; preds = %3454, %3460
+  %3467 = call i64 @strtol(ptr noundef nonnull captures(none) %3441, ptr noundef null, i32 noundef 0) #43
+  %3468 = trunc i64 %3467 to i32
   br label %.thread3565
 
-3473:                                             ; preds = %3464, %3456
-  %.02198 = phi i1 [ %3457, %3456 ], [ true, %3464 ]
-  %.02197 = phi ptr [ %3450, %3456 ], [ %3445, %3464 ]
-  br label %3474
+3469:                                             ; preds = %3460, %3452
+  %.02198 = phi i1 [ %3453, %3452 ], [ true, %3460 ]
+  %.02197 = phi ptr [ %3446, %3452 ], [ %3441, %3460 ]
+  br label %3470
 
-3474:                                             ; preds = %3473, %3479
-  %indvars.iv4408 = phi i64 [ 0, %3473 ], [ %indvars.iv.next4409, %3479 ]
-  %3475 = getelementptr inbounds nuw [32 x %struct.anon.7], ptr @do_meta_command.aLabel, i64 0, i64 %indvars.iv4408, i32 2
-  %3476 = load ptr, ptr %3475, align 8, !tbaa !585
-  %3477 = call i32 @sqlite3_stricmp(ptr noundef nonnull %.02197, ptr noundef %3476) #43
-  %3478 = icmp eq i32 %3477, 0
-  br i1 %3478, label %3490, label %3479
+3470:                                             ; preds = %3469, %3475
+  %indvars.iv4408 = phi i64 [ 0, %3469 ], [ %indvars.iv.next4409, %3475 ]
+  %3471 = getelementptr inbounds nuw [32 x %struct.anon.7], ptr @do_meta_command.aLabel, i64 0, i64 %indvars.iv4408, i32 2
+  %3472 = load ptr, ptr %3471, align 8, !tbaa !585
+  %3473 = call i32 @sqlite3_stricmp(ptr noundef nonnull %.02197, ptr noundef %3472) #43
+  %3474 = icmp eq i32 %3473, 0
+  br i1 %3474, label %3486, label %3475
 
-3479:                                             ; preds = %3474
+3475:                                             ; preds = %3470
   %indvars.iv.next4409 = add nuw nsw i64 %indvars.iv4408, 1
   %exitcond4412.not = icmp eq i64 %indvars.iv.next4409, 32
-  br i1 %exitcond4412.not, label %3480, label %3474, !llvm.loop !587
+  br i1 %exitcond4412.not, label %3476, label %3470, !llvm.loop !587
 
-3480:                                             ; preds = %3479
-  %3481 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3482 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3481, ptr noundef nonnull @.str.1194, ptr noundef nonnull %.02197) #46
-  %3483 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3484 = call i64 @fwrite(ptr nonnull @.str.1195, i64 17, i64 1, ptr %3483) #50
-  br label %3485
+3476:                                             ; preds = %3475
+  %3477 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3478 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3477, ptr noundef nonnull @.str.1194, ptr noundef nonnull %.02197) #46
+  %3479 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3480 = call i64 @fwrite(ptr nonnull @.str.1195, i64 17, i64 1, ptr %3479) #50
+  br label %3481
 
-3485:                                             ; preds = %3480, %3485
-  %indvars.iv4419 = phi i64 [ 0, %3480 ], [ %indvars.iv.next4420, %3485 ]
-  %3486 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3487 = getelementptr inbounds nuw [32 x %struct.anon.7], ptr @do_meta_command.aLabel, i64 0, i64 %indvars.iv4419, i32 2
-  %3488 = load ptr, ptr %3487, align 8, !tbaa !585
-  %3489 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3486, ptr noundef nonnull @.str.1196, ptr noundef %3488) #46
+3481:                                             ; preds = %3476, %3481
+  %indvars.iv4419 = phi i64 [ 0, %3476 ], [ %indvars.iv.next4420, %3481 ]
+  %3482 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3483 = getelementptr inbounds nuw [32 x %struct.anon.7], ptr @do_meta_command.aLabel, i64 0, i64 %indvars.iv4419, i32 2
+  %3484 = load ptr, ptr %3483, align 8, !tbaa !585
+  %3485 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3482, ptr noundef nonnull @.str.1196, ptr noundef %3484) #46
   %indvars.iv.next4420 = add nuw nsw i64 %indvars.iv4419, 1
   %exitcond4423.not = icmp eq i64 %indvars.iv.next4420, 32
-  br i1 %exitcond4423.not, label %3499, label %3485, !llvm.loop !588
+  br i1 %exitcond4423.not, label %3495, label %3481, !llvm.loop !588
 
-3490:                                             ; preds = %3474
-  %3491 = and i64 %indvars.iv4408, 4294967295
-  %3492 = getelementptr inbounds nuw [32 x %struct.anon.7], ptr @do_meta_command.aLabel, i64 0, i64 %3491
-  %3493 = load i32, ptr %3492, align 16, !tbaa !589
-  br i1 %.02198, label %3494, label %3497
+3486:                                             ; preds = %3470
+  %3487 = and i64 %indvars.iv4408, 4294967295
+  %3488 = getelementptr inbounds nuw [32 x %struct.anon.7], ptr @do_meta_command.aLabel, i64 0, i64 %3487
+  %3489 = load i32, ptr %3488, align 16, !tbaa !589
+  br i1 %.02198, label %3490, label %3493
 
-3494:                                             ; preds = %3490
-  %3495 = xor i32 %3493, -1
-  %3496 = and i32 %.022094086, %3495
+3490:                                             ; preds = %3486
+  %3491 = xor i32 %3489, -1
+  %3492 = and i32 %.022094086, %3491
   br label %.thread3565
 
-3497:                                             ; preds = %3490
-  %3498 = or i32 %3493, %.022094086
+3493:                                             ; preds = %3486
+  %3494 = or i32 %3489, %.022094086
   br label %.thread3565
 
-3499:                                             ; preds = %3485
-  %3500 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %fputc2602 = call i32 @fputc(i32 10, ptr %3500)
+3495:                                             ; preds = %3481
+  %3496 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %fputc2602 = call i32 @fputc(i32 10, ptr %3496)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #43
   br label %test_breakpoint.exit
 
-.thread3565:                                      ; preds = %3497, %3494, %.thread3558
-  %.522143570 = phi i32 [ %3472, %.thread3558 ], [ %3498, %3497 ], [ %3496, %3494 ]
+.thread3565:                                      ; preds = %3493, %3490, %.thread3558
+  %.522143570 = phi i32 [ %3468, %.thread3558 ], [ %3494, %3493 ], [ %3492, %3490 ]
   %indvars.iv.next4414 = add nuw nsw i64 %indvars.iv4413, 1
   %exitcond4418.not = icmp eq i64 %indvars.iv.next4414, %124
   br i1 %exitcond4418.not, label %._crit_edge4090, label %.lr.ph4089, !llvm.loop !590
@@ -26368,1064 +26365,1064 @@ shell_check_oom.exit3131:                         ; preds = %shell_check_oom.exi
 ._crit_edge4090:                                  ; preds = %.thread3565
   %.pre4538 = load i32, ptr %46, align 4, !tbaa !36
   %.not2592 = icmp eq i32 %.pre4538, %.522143570
-  br i1 %.not2592, label %._crit_edge4090.thread, label %3501
+  br i1 %.not2592, label %._crit_edge4090.thread, label %3497
 
-3501:                                             ; preds = %._crit_edge4090
-  %3502 = load ptr, ptr %1, align 8, !tbaa !477
-  %3503 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 15, ptr noundef %3502, i32 noundef %.522143570) #43
+3497:                                             ; preds = %._crit_edge4090
+  %3498 = load ptr, ptr %1, align 8, !tbaa !477
+  %3499 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 15, ptr noundef %3498, i32 noundef %.522143570) #43
   br label %._crit_edge4090.thread
 
-._crit_edge4090.thread:                           ; preds = %3439, %3501, %._crit_edge4090
-  %.02209.lcssa4646 = phi i32 [ %.522143570, %3501 ], [ %.522143570, %._crit_edge4090 ], [ %3442, %3439 ]
-  br label %3504
+._crit_edge4090.thread:                           ; preds = %3435, %3497, %._crit_edge4090
+  %.02209.lcssa4646 = phi i32 [ %.522143570, %3497 ], [ %.522143570, %._crit_edge4090 ], [ %3438, %3435 ]
+  br label %3500
 
-3504:                                             ; preds = %._crit_edge4090.thread, %3504
-  %.022024094 = phi i32 [ 0, %._crit_edge4090.thread ], [ %spec.select2845, %3504 ]
-  %.122054093 = phi i32 [ 0, %._crit_edge4090.thread ], [ %3507, %3504 ]
-  %.022084092 = phi i32 [ 1, %._crit_edge4090.thread ], [ %3508, %3504 ]
-  %3505 = and i32 %.022084092, %.02209.lcssa4646
-  %.not2596 = icmp ne i32 %3505, 0
-  %3506 = zext i1 %.not2596 to i32
-  %spec.select2845 = add nuw nsw i32 %.022024094, %3506
-  %3507 = add nuw nsw i32 %.122054093, 1
-  %3508 = shl i32 %.022084092, 1
-  %exitcond4424.not = icmp eq i32 %3507, 32
-  br i1 %exitcond4424.not, label %3509, label %3504, !llvm.loop !591
+3500:                                             ; preds = %._crit_edge4090.thread, %3500
+  %.022024094 = phi i32 [ 0, %._crit_edge4090.thread ], [ %spec.select2845, %3500 ]
+  %.122054093 = phi i32 [ 0, %._crit_edge4090.thread ], [ %3503, %3500 ]
+  %.022084092 = phi i32 [ 1, %._crit_edge4090.thread ], [ %3504, %3500 ]
+  %3501 = and i32 %.022084092, %.02209.lcssa4646
+  %.not2596 = icmp ne i32 %3501, 0
+  %3502 = zext i1 %.not2596 to i32
+  %spec.select2845 = add nuw nsw i32 %.022024094, %3502
+  %3503 = add nuw nsw i32 %.122054093, 1
+  %3504 = shl i32 %.022084092, 1
+  %exitcond4424.not = icmp eq i32 %3503, 32
+  br i1 %exitcond4424.not, label %3505, label %3500, !llvm.loop !591
 
-3509:                                             ; preds = %3504
-  %3510 = icmp samesign ult i32 %spec.select2845, 12
-  %3511 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3512 = load ptr, ptr %3511, align 8, !tbaa !462
-  br i1 %3510, label %3513, label %3528
+3505:                                             ; preds = %3500
+  %3506 = icmp samesign ult i32 %spec.select2845, 12
+  %3507 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3508 = load ptr, ptr %3507, align 8, !tbaa !462
+  br i1 %3506, label %3509, label %3524
 
-3513:                                             ; preds = %3509
-  %3514 = call i64 @fwrite(ptr nonnull @.str.1197, i64 4, i64 1, ptr %3512)
-  br label %3515
+3509:                                             ; preds = %3505
+  %3510 = call i64 @fwrite(ptr nonnull @.str.1197, i64 4, i64 1, ptr %3508)
+  br label %3511
 
-3515:                                             ; preds = %3513, %3527
-  %indvars.iv4430 = phi i64 [ 0, %3513 ], [ %indvars.iv.next4431, %3527 ]
-  %3516 = getelementptr inbounds nuw [32 x %struct.anon.7], ptr @do_meta_command.aLabel, i64 0, i64 %indvars.iv4430
-  %3517 = getelementptr inbounds nuw i8, ptr %3516, i64 4
-  %3518 = load i32, ptr %3517, align 4, !tbaa !592
-  %.not2594 = icmp eq i32 %3518, 0
-  br i1 %.not2594, label %3527, label %3519
+3511:                                             ; preds = %3509, %3523
+  %indvars.iv4430 = phi i64 [ 0, %3509 ], [ %indvars.iv.next4431, %3523 ]
+  %3512 = getelementptr inbounds nuw [32 x %struct.anon.7], ptr @do_meta_command.aLabel, i64 0, i64 %indvars.iv4430
+  %3513 = getelementptr inbounds nuw i8, ptr %3512, i64 4
+  %3514 = load i32, ptr %3513, align 4, !tbaa !592
+  %.not2594 = icmp eq i32 %3514, 0
+  br i1 %.not2594, label %3523, label %3515
 
-3519:                                             ; preds = %3515
-  %3520 = load i32, ptr %3516, align 16, !tbaa !589
-  %3521 = and i32 %3520, %.02209.lcssa4646
-  %.not2595 = icmp eq i32 %3521, 0
-  br i1 %.not2595, label %3527, label %3522
+3515:                                             ; preds = %3511
+  %3516 = load i32, ptr %3512, align 16, !tbaa !589
+  %3517 = and i32 %3516, %.02209.lcssa4646
+  %.not2595 = icmp eq i32 %3517, 0
+  br i1 %.not2595, label %3523, label %3518
 
-3522:                                             ; preds = %3519
-  %3523 = load ptr, ptr %3511, align 8, !tbaa !462
-  %3524 = getelementptr inbounds nuw i8, ptr %3516, i64 8
-  %3525 = load ptr, ptr %3524, align 8, !tbaa !585
-  %3526 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3523, ptr noundef nonnull @.str.1198, ptr noundef %3525) #43
-  br label %3527
+3518:                                             ; preds = %3515
+  %3519 = load ptr, ptr %3507, align 8, !tbaa !462
+  %3520 = getelementptr inbounds nuw i8, ptr %3512, i64 8
+  %3521 = load ptr, ptr %3520, align 8, !tbaa !585
+  %3522 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3519, ptr noundef nonnull @.str.1198, ptr noundef %3521) #43
+  br label %3523
 
-3527:                                             ; preds = %3519, %3522, %3515
+3523:                                             ; preds = %3515, %3518, %3511
   %indvars.iv.next4431 = add nuw nsw i64 %indvars.iv4430, 1
   %exitcond4434.not = icmp eq i64 %indvars.iv.next4431, 32
-  br i1 %exitcond4434.not, label %.thread3572, label %3515, !llvm.loop !593
+  br i1 %exitcond4434.not, label %.thread3572, label %3511, !llvm.loop !593
 
-3528:                                             ; preds = %3509
-  %3529 = call i64 @fwrite(ptr nonnull @.str.1199, i64 4, i64 1, ptr %3512)
-  br label %3530
+3524:                                             ; preds = %3505
+  %3525 = call i64 @fwrite(ptr nonnull @.str.1199, i64 4, i64 1, ptr %3508)
+  br label %3526
 
-3530:                                             ; preds = %3528, %3543
-  %indvars.iv4425 = phi i64 [ 0, %3528 ], [ %indvars.iv.next4426, %3543 ]
-  %3531 = getelementptr inbounds nuw [32 x %struct.anon.7], ptr @do_meta_command.aLabel, i64 0, i64 %indvars.iv4425
-  %3532 = getelementptr inbounds nuw i8, ptr %3531, i64 4
-  %3533 = load i32, ptr %3532, align 4, !tbaa !592
-  %.not2593 = icmp eq i32 %3533, 0
-  br i1 %.not2593, label %3543, label %3534
+3526:                                             ; preds = %3524, %3539
+  %indvars.iv4425 = phi i64 [ 0, %3524 ], [ %indvars.iv.next4426, %3539 ]
+  %3527 = getelementptr inbounds nuw [32 x %struct.anon.7], ptr @do_meta_command.aLabel, i64 0, i64 %indvars.iv4425
+  %3528 = getelementptr inbounds nuw i8, ptr %3527, i64 4
+  %3529 = load i32, ptr %3528, align 4, !tbaa !592
+  %.not2593 = icmp eq i32 %3529, 0
+  br i1 %.not2593, label %3539, label %3530
+
+3530:                                             ; preds = %3526
+  %3531 = load i32, ptr %3527, align 16, !tbaa !589
+  %3532 = and i32 %3531, %.02209.lcssa4646
+  %3533 = icmp eq i32 %3532, 0
+  br i1 %3533, label %3534, label %3539
 
 3534:                                             ; preds = %3530
-  %3535 = load i32, ptr %3531, align 16, !tbaa !589
-  %3536 = and i32 %3535, %.02209.lcssa4646
-  %3537 = icmp eq i32 %3536, 0
-  br i1 %3537, label %3538, label %3543
+  %3535 = load ptr, ptr %3507, align 8, !tbaa !462
+  %3536 = getelementptr inbounds nuw i8, ptr %3527, i64 8
+  %3537 = load ptr, ptr %3536, align 8, !tbaa !585
+  %3538 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3535, ptr noundef nonnull @.str.1200, ptr noundef %3537) #43
+  br label %3539
 
-3538:                                             ; preds = %3534
-  %3539 = load ptr, ptr %3511, align 8, !tbaa !462
-  %3540 = getelementptr inbounds nuw i8, ptr %3531, i64 8
-  %3541 = load ptr, ptr %3540, align 8, !tbaa !585
-  %3542 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3539, ptr noundef nonnull @.str.1200, ptr noundef %3541) #43
-  br label %3543
-
-3543:                                             ; preds = %3534, %3538, %3530
+3539:                                             ; preds = %3530, %3534, %3526
   %indvars.iv.next4426 = add nuw nsw i64 %indvars.iv4425, 1
   %exitcond4429.not = icmp eq i64 %indvars.iv.next4426, 32
-  br i1 %exitcond4429.not, label %.thread3572, label %3530, !llvm.loop !594
+  br i1 %exitcond4429.not, label %.thread3572, label %3526, !llvm.loop !594
 
-.thread3572:                                      ; preds = %3543, %3527
-  %3544 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3545 = load ptr, ptr %3544, align 8, !tbaa !462
-  %fputc = call i32 @fputc(i32 10, ptr %3545)
+.thread3572:                                      ; preds = %3539, %3523
+  %3540 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3541 = load ptr, ptr %3540, align 8, !tbaa !462
+  %fputc = call i32 @fputc(i32 10, ptr %3541)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #43
   br label %.thread3616
 
-3546:                                             ; preds = %3438
-  %3547 = icmp eq i32 %.02122.lcssa.ph, 3
-  br i1 %3547, label %3548, label %3802
+3542:                                             ; preds = %3434
+  %3543 = icmp eq i32 %.02122.lcssa.ph, 3
+  br i1 %3543, label %3544, label %3798
 
-3548:                                             ; preds = %3546
-  %3549 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %3550 = load ptr, ptr %3549, align 16, !tbaa !29
-  %3551 = tail call i64 @strtol(ptr noundef captures(none) %3550, ptr noundef null, i32 noundef 0) #43
-  %3552 = trunc i64 %3551 to i32
-  %3553 = load ptr, ptr %1, align 8, !tbaa !477
-  %3554 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 7, ptr noundef %3553, i32 noundef %3552) #43
+3544:                                             ; preds = %3542
+  %3545 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %3546 = load ptr, ptr %3545, align 16, !tbaa !29
+  %3547 = tail call i64 @strtol(ptr noundef captures(none) %3546, ptr noundef null, i32 noundef 0) #43
+  %3548 = trunc i64 %3547 to i32
+  %3549 = load ptr, ptr %1, align 8, !tbaa !477
+  %3550 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 7, ptr noundef %3549, i32 noundef %3548) #43
   br label %.thread3616
 
-3555:                                             ; preds = %3438, %3438, %3438
-  %3556 = icmp eq i32 %.02122.lcssa.ph, 2
-  br i1 %3556, label %3557, label %3802
+3551:                                             ; preds = %3434, %3434, %3434
+  %3552 = icmp eq i32 %.02122.lcssa.ph, 2
+  br i1 %3552, label %3553, label %3798
 
-3557:                                             ; preds = %3555
-  %3558 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef %.12227) #43
-  store i32 %3558, ptr %45, align 4, !tbaa !36
-  %3559 = icmp eq i32 %.12227, 22
-  br i1 %3559, label %.thread3608, label %.thread3616
+3553:                                             ; preds = %3551
+  %3554 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef %.12227) #43
+  store i32 %3554, ptr %45, align 4, !tbaa !36
+  %3555 = icmp eq i32 %.12227, 22
+  br i1 %3555, label %.thread3608, label %.thread3616
 
-3560:                                             ; preds = %3438
-  %3561 = icmp eq i32 %.02122.lcssa.ph, 3
-  br i1 %3561, label %3562, label %3802
+3556:                                             ; preds = %3434
+  %3557 = icmp eq i32 %.02122.lcssa.ph, 3
+  br i1 %3557, label %3558, label %3798
 
-3562:                                             ; preds = %3560
-  %3563 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %3564 = load ptr, ptr %3563, align 16, !tbaa !29
-  %3565 = tail call fastcc i64 @integerValue(ptr noundef %3564)
-  %3566 = trunc i64 %3565 to i32
-  %3567 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 11, i32 noundef %3566) #43
+3558:                                             ; preds = %3556
+  %3559 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %3560 = load ptr, ptr %3559, align 16, !tbaa !29
+  %3561 = tail call fastcc i64 @integerValue(ptr noundef %3560)
+  %3562 = trunc i64 %3561 to i32
+  %3563 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 11, i32 noundef %3562) #43
   br label %.thread3616
 
-3568:                                             ; preds = %3438
-  %3569 = icmp eq i32 %.02122.lcssa.ph, 3
-  %3570 = add nsw i32 %.02122.lcssa.ph, -3
-  %or.cond185 = icmp ult i32 %3570, 2
-  br i1 %or.cond185, label %3571, label %3802
+3564:                                             ; preds = %3434
+  %3565 = icmp eq i32 %.02122.lcssa.ph, 3
+  %3566 = add nsw i32 %.02122.lcssa.ph, -3
+  %or.cond185 = icmp ult i32 %3566, 2
+  br i1 %or.cond185, label %3567, label %3798
 
-3571:                                             ; preds = %3568
+3567:                                             ; preds = %3564
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %47) #43
-  %3572 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %3573 = load ptr, ptr %3572, align 16, !tbaa !29
-  %3574 = tail call fastcc i64 @integerValue(ptr noundef %3573)
-  %3575 = trunc i64 %3574 to i32
-  store i32 %3575, ptr %47, align 4, !tbaa !36
+  %3568 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %3569 = load ptr, ptr %3568, align 16, !tbaa !29
+  %3570 = tail call fastcc i64 @integerValue(ptr noundef %3569)
+  %3571 = trunc i64 %3570 to i32
+  store i32 %3571, ptr %47, align 4, !tbaa !36
+  %3572 = icmp eq i32 %3571, 0
+  br i1 %3572, label %3573, label %3581
+
+3573:                                             ; preds = %3567
+  %3574 = icmp eq ptr %3569, null
+  %spec.store.select.i3139 = select i1 %3574, ptr @.str.44, ptr %3569
+  %3575 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3139, ptr noundef nonnull dereferenceable(7) @.str.1201) #44
   %3576 = icmp eq i32 %3575, 0
-  br i1 %3576, label %3577, label %3585
+  br i1 %3576, label %3577, label %3581
 
-3577:                                             ; preds = %3571
-  %3578 = icmp eq ptr %3573, null
-  %spec.store.select.i3139 = select i1 %3578, ptr @.str.44, ptr %3573
-  %3579 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select.i3139, ptr noundef nonnull dereferenceable(7) @.str.1201) #44
-  %3580 = icmp eq i32 %3579, 0
-  br i1 %3580, label %3581, label %3585
-
-3581:                                             ; preds = %3577
+3577:                                             ; preds = %3573
   call void @sqlite3_randomness(i32 noundef 4, ptr noundef nonnull %47) #43
-  %3582 = load ptr, ptr @stdout, align 8, !tbaa !14
-  %3583 = load i32, ptr %47, align 4, !tbaa !36
-  %3584 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3582, ptr noundef nonnull @.str.1202, i32 noundef %3583) #43
+  %3578 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %3579 = load i32, ptr %47, align 4, !tbaa !36
+  %3580 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3578, ptr noundef nonnull @.str.1202, i32 noundef %3579) #43
+  br label %3581
+
+3581:                                             ; preds = %3577, %3573, %3567
+  br i1 %3565, label %3585, label %3582
+
+3582:                                             ; preds = %3581
+  %3583 = load ptr, ptr %1, align 8, !tbaa !477
+  %3584 = call i32 @sqlite3_table_column_metadata(ptr noundef %3583, ptr noundef null, ptr noundef nonnull @.str.1052, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #43
   br label %3585
 
-3585:                                             ; preds = %3581, %3577, %3571
-  br i1 %3569, label %3589, label %3586
-
-3586:                                             ; preds = %3585
-  %3587 = load ptr, ptr %1, align 8, !tbaa !477
-  %3588 = call i32 @sqlite3_table_column_metadata(ptr noundef %3587, ptr noundef null, ptr noundef nonnull @.str.1052, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #43
-  br label %3589
-
-3589:                                             ; preds = %3585, %3586
-  %.02190 = phi ptr [ %3587, %3586 ], [ null, %3585 ]
-  %3590 = load i32, ptr %47, align 4, !tbaa !36
-  %3591 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 28, i32 noundef %3590, ptr noundef %.02190) #43
+3585:                                             ; preds = %3581, %3582
+  %.02190 = phi ptr [ %3583, %3582 ], [ null, %3581 ]
+  %3586 = load i32, ptr %47, align 4, !tbaa !36
+  %3587 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 28, i32 noundef %3586, ptr noundef %.02190) #43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %47) #43
   br label %.thread3616
 
-3592:                                             ; preds = %3438, %3438
-  %3593 = icmp eq i32 %.02122.lcssa.ph, 3
-  br i1 %3593, label %3594, label %3802
+3588:                                             ; preds = %3434, %3434
+  %3589 = icmp eq i32 %.02122.lcssa.ph, 3
+  br i1 %3589, label %3590, label %3798
 
-3594:                                             ; preds = %3592
-  %3595 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %3596 = load ptr, ptr %3595, align 16, !tbaa !29
-  %3597 = tail call fastcc i32 @booleanValue(ptr noundef %3596)
-  %3598 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef %.12227, i32 noundef %3597) #43
-  store i32 %3598, ptr %45, align 4, !tbaa !36
+3590:                                             ; preds = %3588
+  %3591 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %3592 = load ptr, ptr %3591, align 16, !tbaa !29
+  %3593 = tail call fastcc i32 @booleanValue(ptr noundef %3592)
+  %3594 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef %.12227, i32 noundef %3593) #43
+  store i32 %3594, ptr %45, align 4, !tbaa !36
   br label %.thread3608
 
-3599:                                             ; preds = %3438, %3438
-  %3600 = icmp eq i32 %.02122.lcssa.ph, 3
-  br i1 %3600, label %3601, label %3802
+3595:                                             ; preds = %3434, %3434
+  %3596 = icmp eq i32 %.02122.lcssa.ph, 3
+  br i1 %3596, label %3597, label %3798
 
-3601:                                             ; preds = %3599
-  %3602 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %3603 = load ptr, ptr %3602, align 16, !tbaa !29
-  %3604 = tail call fastcc i32 @booleanValue(ptr noundef %3603)
-  %3605 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef %.12227, i32 noundef %3604) #43
+3597:                                             ; preds = %3595
+  %3598 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %3599 = load ptr, ptr %3598, align 16, !tbaa !29
+  %3600 = tail call fastcc i32 @booleanValue(ptr noundef %3599)
+  %3601 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef %.12227, i32 noundef %3600) #43
   br label %.thread3616
 
-3606:                                             ; preds = %3438
-  %3607 = load ptr, ptr %1, align 8, !tbaa !477
-  %3608 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 17, ptr noundef %3607) #43
-  store i32 %3608, ptr %45, align 4, !tbaa !36
+3602:                                             ; preds = %3434
+  %3603 = load ptr, ptr %1, align 8, !tbaa !477
+  %3604 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 17, ptr noundef %3603) #43
+  store i32 %3604, ptr %45, align 4, !tbaa !36
   br label %.thread3616
 
-3609:                                             ; preds = %3438
-  %3610 = icmp eq i32 %.02122.lcssa.ph, 5
-  br i1 %3610, label %3611, label %3802
+3605:                                             ; preds = %3434
+  %3606 = icmp eq i32 %.02122.lcssa.ph, 5
+  br i1 %3606, label %3607, label %3798
 
-3611:                                             ; preds = %3609
-  %3612 = load ptr, ptr %1, align 8, !tbaa !477
-  %3613 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %3614 = load ptr, ptr %3613, align 16, !tbaa !29
-  %3615 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %3616 = load ptr, ptr %3615, align 8, !tbaa !29
-  %3617 = tail call fastcc i64 @integerValue(ptr noundef %3616)
-  %3618 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %3619 = load ptr, ptr %3618, align 16, !tbaa !29
-  %3620 = tail call fastcc i64 @integerValue(ptr noundef %3619)
-  %3621 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 25, ptr noundef %3612, ptr noundef %3614, i64 noundef %3617, i64 noundef %3620) #43
-  store i32 %3621, ptr %45, align 4, !tbaa !36
+3607:                                             ; preds = %3605
+  %3608 = load ptr, ptr %1, align 8, !tbaa !477
+  %3609 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %3610 = load ptr, ptr %3609, align 16, !tbaa !29
+  %3611 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %3612 = load ptr, ptr %3611, align 8, !tbaa !29
+  %3613 = tail call fastcc i64 @integerValue(ptr noundef %3612)
+  %3614 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %3615 = load ptr, ptr %3614, align 16, !tbaa !29
+  %3616 = tail call fastcc i64 @integerValue(ptr noundef %3615)
+  %3617 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 25, ptr noundef %3608, ptr noundef %3610, i64 noundef %3613, i64 noundef %3616) #43
+  store i32 %3617, ptr %45, align 4, !tbaa !36
   br label %.thread3616
 
-3622:                                             ; preds = %3438
+3618:                                             ; preds = %3434
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #43
   store i64 0, ptr %48, align 8, !tbaa !23
-  %3623 = load ptr, ptr %1, align 8, !tbaa !477
-  %3624 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 30, ptr noundef %3623, ptr noundef nonnull %48) #43
-  store i32 %3624, ptr %45, align 4, !tbaa !36
-  %3625 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3626 = load ptr, ptr %3625, align 8, !tbaa !462
-  %3627 = load i64, ptr %48, align 8, !tbaa !23
-  %3628 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3626, ptr noundef nonnull @.str.1203, i64 noundef %3627) #43
+  %3619 = load ptr, ptr %1, align 8, !tbaa !477
+  %3620 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 30, ptr noundef %3619, ptr noundef nonnull %48) #43
+  store i32 %3620, ptr %45, align 4, !tbaa !36
+  %3621 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3622 = load ptr, ptr %3621, align 8, !tbaa !462
+  %3623 = load i64, ptr %48, align 8, !tbaa !23
+  %3624 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3622, ptr noundef nonnull @.str.1203, i64 noundef %3623) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #43
   br label %.thread3616
 
-3629:                                             ; preds = %3438
-  %3630 = icmp eq i32 %.02122.lcssa.ph, 3
-  br i1 %3630, label %3631, label %3802
+3625:                                             ; preds = %3434
+  %3626 = icmp eq i32 %.02122.lcssa.ph, 3
+  br i1 %3626, label %3627, label %3798
 
-3631:                                             ; preds = %3629
-  %3632 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %3633 = load ptr, ptr %3632, align 16, !tbaa !29
-  %3634 = tail call fastcc i64 @integerValue(ptr noundef %3633)
-  %3635 = trunc i64 %3634 to i32
-  %3636 = load ptr, ptr %1, align 8, !tbaa !477
-  %3637 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 24, ptr noundef %3636, i32 noundef %3635) #43
-  store i32 %3637, ptr %45, align 4, !tbaa !36
+3627:                                             ; preds = %3625
+  %3628 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %3629 = load ptr, ptr %3628, align 16, !tbaa !29
+  %3630 = tail call fastcc i64 @integerValue(ptr noundef %3629)
+  %3631 = trunc i64 %3630 to i32
+  %3632 = load ptr, ptr %1, align 8, !tbaa !477
+  %3633 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 24, ptr noundef %3632, i32 noundef %3631) #43
+  store i32 %3633, ptr %45, align 4, !tbaa !36
   br label %.thread3616
 
-3638:                                             ; preds = %3438
-  %3639 = icmp eq i32 %.02122.lcssa.ph, 2
-  br i1 %3639, label %.thread3612, label %3811
+3634:                                             ; preds = %3434
+  %3635 = icmp eq i32 %.02122.lcssa.ph, 2
+  br i1 %3635, label %.thread3612, label %3807
 
-.thread3612:                                      ; preds = %3638
+.thread3612:                                      ; preds = %3634
   store i32 -1, ptr %45, align 4, !tbaa !36
-  %3640 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 14, ptr noundef nonnull %45) #43
+  %3636 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 14, ptr noundef nonnull %45) #43
   %.pre4537 = load i32, ptr %45, align 4, !tbaa !36
   br label %.thread3608
 
-3641:                                             ; preds = %3438
-  %3642 = icmp samesign ult i32 %.02122.lcssa.ph, 3
-  %3643 = zext i1 %3642 to i32
-  %3644 = icmp sgt i32 %.02122.lcssa.ph, 2
-  br i1 %3644, label %.lr.ph4082, label %._crit_edge4083
+3637:                                             ; preds = %3434
+  %3638 = icmp samesign ult i32 %.02122.lcssa.ph, 3
+  %3639 = zext i1 %3638 to i32
+  %3640 = icmp sgt i32 %.02122.lcssa.ph, 2
+  br i1 %3640, label %.lr.ph4082, label %._crit_edge4083
 
-.lr.ph4082:                                       ; preds = %3641
-  %3645 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  br label %3646
+.lr.ph4082:                                       ; preds = %3637
+  %3641 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  br label %3642
 
-3646:                                             ; preds = %.lr.ph4082, %3795
-  %.021314080 = phi i32 [ %3643, %.lr.ph4082 ], [ %.32134.ph, %3795 ]
-  %.021354079 = phi i32 [ 2, %.lr.ph4082 ], [ %3796, %3795 ]
-  %3647 = sext i32 %.021354079 to i64
-  %3648 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %3647
-  %3649 = load ptr, ptr %3648, align 8, !tbaa !29
-  %3650 = load i8, ptr %3649, align 1, !tbaa !25
-  %3651 = icmp eq i8 %3650, 45
-  br i1 %3651, label %.thread4647, label %3652
+3642:                                             ; preds = %.lr.ph4082, %3791
+  %.021314080 = phi i32 [ %3639, %.lr.ph4082 ], [ %.32134.ph, %3791 ]
+  %.021354079 = phi i32 [ 2, %.lr.ph4082 ], [ %3792, %3791 ]
+  %3643 = sext i32 %.021354079 to i64
+  %3644 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %3643
+  %3645 = load ptr, ptr %3644, align 8, !tbaa !29
+  %3646 = load i8, ptr %3645, align 1, !tbaa !25
+  %3647 = icmp eq i8 %3646, 45
+  br i1 %3647, label %.thread4647, label %3648
 
-3652:                                             ; preds = %3646
-  %3653 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3649, ptr noundef nonnull dereferenceable(4) @.str.776) #44
-  %3654 = icmp eq i32 %3653, 0
-  br i1 %3654, label %3660, label %sub_03729
+3648:                                             ; preds = %3642
+  %3649 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3645, ptr noundef nonnull dereferenceable(4) @.str.776) #44
+  %3650 = icmp eq i32 %3649, 0
+  br i1 %3650, label %3656, label %sub_03729
 
-.thread4647:                                      ; preds = %3646
-  %3655 = getelementptr inbounds nuw i8, ptr %3649, i64 1
-  %3656 = load i8, ptr %3655, align 1, !tbaa !25
-  %3657 = icmp eq i8 %3656, 45
-  %spec.select2846 = select i1 %3657, ptr %3655, ptr %3649
-  %3658 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2846, ptr noundef nonnull dereferenceable(4) @.str.776) #44
-  %3659 = icmp eq i32 %3658, 0
-  br i1 %3659, label %3660, label %.tail3728.thread
+.thread4647:                                      ; preds = %3642
+  %3651 = getelementptr inbounds nuw i8, ptr %3645, i64 1
+  %3652 = load i8, ptr %3651, align 1, !tbaa !25
+  %3653 = icmp eq i8 %3652, 45
+  %spec.select2846 = select i1 %3653, ptr %3651, ptr %3645
+  %3654 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select2846, ptr noundef nonnull dereferenceable(4) @.str.776) #44
+  %3655 = icmp eq i32 %3654, 0
+  br i1 %3655, label %3656, label %.tail3728.thread
 
-3660:                                             ; preds = %.thread4647, %3652
-  %3661 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 9, i32 noundef 0) #43
-  br label %3795
+3656:                                             ; preds = %.thread4647, %3648
+  %3657 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 9, i32 noundef 0) #43
+  br label %3791
 
-sub_03729:                                        ; preds = %3652
-  %.not4219 = icmp eq i8 %3650, 111
+sub_03729:                                        ; preds = %3648
+  %.not4219 = icmp eq i8 %3646, 111
   br i1 %.not4219, label %sub_13730, label %.tail3728.thread
 
 sub_13730:                                        ; preds = %sub_03729
-  %3662 = getelementptr inbounds nuw i8, ptr %3649, i64 1
-  %3663 = load i8, ptr %3662, align 1
-  %.not4220 = icmp eq i8 %3663, 110
+  %3658 = getelementptr inbounds nuw i8, ptr %3645, i64 1
+  %3659 = load i8, ptr %3658, align 1
+  %.not4220 = icmp eq i8 %3659, 110
   br i1 %.not4220, label %.tail3728, label %.tail3728.thread
 
 .tail3728:                                        ; preds = %sub_13730
-  %3664 = getelementptr inbounds nuw i8, ptr %3649, i64 2
-  %3665 = load i8, ptr %3664, align 1
-  %3666 = icmp eq i8 %3665, 0
-  br i1 %3666, label %3667, label %.tail3728.thread
+  %3660 = getelementptr inbounds nuw i8, ptr %3645, i64 2
+  %3661 = load i8, ptr %3660, align 1
+  %3662 = icmp eq i8 %3661, 0
+  br i1 %3662, label %3663, label %.tail3728.thread
 
-3667:                                             ; preds = %.tail3728
-  %3668 = load i32, ptr @faultsim_state.7, align 4, !tbaa !595
-  store i32 %3668, ptr @faultsim_state.2, align 4, !tbaa !597
-  %3669 = load i32, ptr @faultsim_state.1, align 4, !tbaa !598
-  %3670 = icmp eq i32 %3669, 0
-  br i1 %3670, label %3671, label %3672
+3663:                                             ; preds = %.tail3728
+  %3664 = load i32, ptr @faultsim_state.7, align 4, !tbaa !595
+  store i32 %3664, ptr @faultsim_state.2, align 4, !tbaa !597
+  %3665 = load i32, ptr @faultsim_state.1, align 4, !tbaa !598
+  %3666 = icmp eq i32 %3665, 0
+  br i1 %3666, label %3667, label %3668
 
-3671:                                             ; preds = %3667
+3667:                                             ; preds = %3663
   store i32 1, ptr @faultsim_state.1, align 4, !tbaa !598
-  br label %3672
+  br label %3668
 
-3672:                                             ; preds = %3671, %3667
+3668:                                             ; preds = %3667, %3663
   store i32 0, ptr @faultsim_state.5, align 4, !tbaa !599
-  %3673 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 9, ptr noundef nonnull @faultsim_callback) #43
-  br label %3795
+  %3669 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 9, ptr noundef nonnull @faultsim_callback) #43
+  br label %3791
 
 .tail3728.thread:                                 ; preds = %.thread4647, %sub_13730, %sub_03729, %.tail3728
-  %.02130464946524655 = phi ptr [ %3649, %.tail3728 ], [ %3649, %sub_13730 ], [ %3649, %sub_03729 ], [ %spec.select2846, %.thread4647 ]
-  %3674 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(6) @.str.998) #44
-  %3675 = icmp eq i32 %3674, 0
-  br i1 %3675, label %3676, label %3679
+  %.02130464946524655 = phi ptr [ %3645, %.tail3728 ], [ %3645, %sub_13730 ], [ %3645, %sub_03729 ], [ %spec.select2846, %.thread4647 ]
+  %3670 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(6) @.str.998) #44
+  %3671 = icmp eq i32 %3670, 0
+  br i1 %3671, label %3672, label %3675
 
-3676:                                             ; preds = %.tail3728.thread
-  %3677 = load i32, ptr @faultsim_state.7, align 4, !tbaa !595
-  store i32 %3677, ptr @faultsim_state.2, align 4, !tbaa !597
+3672:                                             ; preds = %.tail3728.thread
+  %3673 = load i32, ptr @faultsim_state.7, align 4, !tbaa !595
+  store i32 %3673, ptr @faultsim_state.2, align 4, !tbaa !597
   store i32 0, ptr @faultsim_state.5, align 4, !tbaa !599
-  %3678 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 9, ptr noundef nonnull @faultsim_callback) #43
-  br label %3795
+  %3674 = tail call i32 (i32, ...) @sqlite3_test_control(i32 noundef 9, ptr noundef nonnull @faultsim_callback) #43
+  br label %3791
 
-3679:                                             ; preds = %.tail3728.thread
-  %3680 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(7) @.str.1204) #44
-  %3681 = icmp eq i32 %3680, 0
-  br i1 %3681, label %3682, label %sub_03734
+3675:                                             ; preds = %.tail3728.thread
+  %3676 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(7) @.str.1204) #44
+  %3677 = icmp eq i32 %3676, 0
+  br i1 %3677, label %3678, label %sub_03734
 
-3682:                                             ; preds = %3679
-  %3683 = load ptr, ptr %3645, align 8, !tbaa !462
-  %3684 = load i32, ptr @faultsim_state.0, align 4, !tbaa !600
-  %3685 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3683, ptr noundef nonnull @.str.1205, i32 noundef %3684) #43
-  %3686 = load ptr, ptr %3645, align 8, !tbaa !462
-  %3687 = load i32, ptr @faultsim_state.1, align 4, !tbaa !598
-  %3688 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3686, ptr noundef nonnull @.str.1206, i32 noundef %3687) #43
-  %3689 = load ptr, ptr %3645, align 8, !tbaa !462
-  %3690 = load i32, ptr @faultsim_state.2, align 4, !tbaa !597
-  %3691 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3689, ptr noundef nonnull @.str.1207, i32 noundef %3690) #43
-  %3692 = load ptr, ptr %3645, align 8, !tbaa !462
-  %3693 = load i32, ptr @faultsim_state.5, align 4, !tbaa !599
-  %3694 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3692, ptr noundef nonnull @.str.1208, i32 noundef %3693) #43
-  %3695 = load ptr, ptr %3645, align 8, !tbaa !462
-  %3696 = load i32, ptr @faultsim_state.3, align 4, !tbaa !601
-  %3697 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3695, ptr noundef nonnull @.str.1209, i32 noundef %3696) #43
-  %3698 = load ptr, ptr %3645, align 8, !tbaa !462
-  %3699 = load i32, ptr @faultsim_state.4, align 4, !tbaa !602
-  %3700 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3698, ptr noundef nonnull @.str.1210, i32 noundef %3699) #43
-  %3701 = load ptr, ptr %3645, align 8, !tbaa !462
-  %3702 = load i32, ptr @faultsim_state.6, align 4, !tbaa !603
-  %3703 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3701, ptr noundef nonnull @.str.1211, i32 noundef %3702) #43
-  %3704 = load ptr, ptr %3645, align 8, !tbaa !462
-  %3705 = load i32, ptr @faultsim_state.7, align 4, !tbaa !595
-  %3706 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3704, ptr noundef nonnull @.str.1212, i32 noundef %3705) #43
-  br label %3795
+3678:                                             ; preds = %3675
+  %3679 = load ptr, ptr %3641, align 8, !tbaa !462
+  %3680 = load i32, ptr @faultsim_state.0, align 4, !tbaa !600
+  %3681 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3679, ptr noundef nonnull @.str.1205, i32 noundef %3680) #43
+  %3682 = load ptr, ptr %3641, align 8, !tbaa !462
+  %3683 = load i32, ptr @faultsim_state.1, align 4, !tbaa !598
+  %3684 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3682, ptr noundef nonnull @.str.1206, i32 noundef %3683) #43
+  %3685 = load ptr, ptr %3641, align 8, !tbaa !462
+  %3686 = load i32, ptr @faultsim_state.2, align 4, !tbaa !597
+  %3687 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3685, ptr noundef nonnull @.str.1207, i32 noundef %3686) #43
+  %3688 = load ptr, ptr %3641, align 8, !tbaa !462
+  %3689 = load i32, ptr @faultsim_state.5, align 4, !tbaa !599
+  %3690 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3688, ptr noundef nonnull @.str.1208, i32 noundef %3689) #43
+  %3691 = load ptr, ptr %3641, align 8, !tbaa !462
+  %3692 = load i32, ptr @faultsim_state.3, align 4, !tbaa !601
+  %3693 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3691, ptr noundef nonnull @.str.1209, i32 noundef %3692) #43
+  %3694 = load ptr, ptr %3641, align 8, !tbaa !462
+  %3695 = load i32, ptr @faultsim_state.4, align 4, !tbaa !602
+  %3696 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3694, ptr noundef nonnull @.str.1210, i32 noundef %3695) #43
+  %3697 = load ptr, ptr %3641, align 8, !tbaa !462
+  %3698 = load i32, ptr @faultsim_state.6, align 4, !tbaa !603
+  %3699 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3697, ptr noundef nonnull @.str.1211, i32 noundef %3698) #43
+  %3700 = load ptr, ptr %3641, align 8, !tbaa !462
+  %3701 = load i32, ptr @faultsim_state.7, align 4, !tbaa !595
+  %3702 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3700, ptr noundef nonnull @.str.1212, i32 noundef %3701) #43
+  br label %3791
 
-sub_03734:                                        ; preds = %3679
-  br i1 %3651, label %sub_13735, label %.tail3738.thread
+sub_03734:                                        ; preds = %3675
+  br i1 %3647, label %sub_13735, label %.tail3738.thread
 
 sub_13735:                                        ; preds = %sub_03734
-  %3707 = getelementptr inbounds nuw i8, ptr %.02130464946524655, i64 1
-  %3708 = load i8, ptr %3707, align 1
-  %.not4222 = icmp eq i8 %3708, 118
+  %3703 = getelementptr inbounds nuw i8, ptr %.02130464946524655, i64 1
+  %3704 = load i8, ptr %3703, align 1
+  %.not4222 = icmp eq i8 %3704, 118
   br i1 %.not4222, label %.tail3733, label %sub_13740
 
 .tail3733:                                        ; preds = %sub_13735
-  %3709 = getelementptr inbounds nuw i8, ptr %.02130464946524655, i64 2
-  %3710 = load i8, ptr %3709, align 1
-  %3711 = icmp eq i8 %3710, 0
-  br i1 %3711, label %3712, label %sub_13740
+  %3705 = getelementptr inbounds nuw i8, ptr %.02130464946524655, i64 2
+  %3706 = load i8, ptr %3705, align 1
+  %3707 = icmp eq i8 %3706, 0
+  br i1 %3707, label %3708, label %sub_13740
 
-3712:                                             ; preds = %.tail3733
-  %3713 = load i32, ptr @faultsim_state.4, align 4, !tbaa !602
-  %3714 = icmp slt i32 %3713, 2
-  br i1 %3714, label %3715, label %3795
+3708:                                             ; preds = %.tail3733
+  %3709 = load i32, ptr @faultsim_state.4, align 4, !tbaa !602
+  %3710 = icmp slt i32 %3709, 2
+  br i1 %3710, label %3711, label %3791
 
-3715:                                             ; preds = %3712
-  %3716 = add nsw i32 %3713, 1
-  store i32 %3716, ptr @faultsim_state.4, align 4, !tbaa !602
-  br label %3795
+3711:                                             ; preds = %3708
+  %3712 = add nsw i32 %3709, 1
+  store i32 %3712, ptr @faultsim_state.4, align 4, !tbaa !602
+  br label %3791
 
 sub_13740:                                        ; preds = %.tail3733, %sub_13735
-  %3717 = getelementptr inbounds nuw i8, ptr %.02130464946524655, i64 1
-  %3718 = load i8, ptr %3717, align 1
-  %.not4224 = icmp eq i8 %3718, 113
+  %3713 = getelementptr inbounds nuw i8, ptr %.02130464946524655, i64 1
+  %3714 = load i8, ptr %3713, align 1
+  %.not4224 = icmp eq i8 %3714, 113
   br i1 %.not4224, label %.tail3738, label %.tail3738.thread
 
 .tail3738:                                        ; preds = %sub_13740
-  %3719 = getelementptr inbounds nuw i8, ptr %.02130464946524655, i64 2
-  %3720 = load i8, ptr %3719, align 1
-  %3721 = icmp eq i8 %3720, 0
-  br i1 %3721, label %3722, label %.tail3738.thread
+  %3715 = getelementptr inbounds nuw i8, ptr %.02130464946524655, i64 2
+  %3716 = load i8, ptr %3715, align 1
+  %3717 = icmp eq i8 %3716, 0
+  br i1 %3717, label %3718, label %.tail3738.thread
 
-3722:                                             ; preds = %.tail3738
-  %3723 = load i32, ptr @faultsim_state.4, align 4, !tbaa !602
-  %3724 = icmp sgt i32 %3723, 0
-  br i1 %3724, label %3725, label %3795
+3718:                                             ; preds = %.tail3738
+  %3719 = load i32, ptr @faultsim_state.4, align 4, !tbaa !602
+  %3720 = icmp sgt i32 %3719, 0
+  br i1 %3720, label %3721, label %3791
 
-3725:                                             ; preds = %3722
-  %3726 = add nsw i32 %3723, -1
-  store i32 %3726, ptr @faultsim_state.4, align 4, !tbaa !602
-  br label %3795
+3721:                                             ; preds = %3718
+  %3722 = add nsw i32 %3719, -1
+  store i32 %3722, ptr @faultsim_state.4, align 4, !tbaa !602
+  br label %3791
 
 .tail3738.thread:                                 ; preds = %sub_03734, %sub_13740, %.tail3738
-  %3727 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(4) @.str.1214) #44
-  %3728 = icmp eq i32 %3727, 0
-  br i1 %3728, label %3729, label %3738
+  %3723 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(4) @.str.1214) #44
+  %3724 = icmp eq i32 %3723, 0
+  br i1 %3724, label %3725, label %3734
 
-3729:                                             ; preds = %.tail3738.thread
-  %3730 = add nsw i32 %.021354079, 1
-  %3731 = icmp slt i32 %3730, %.02122.lcssa.ph
-  br i1 %3731, label %3732, label %3738
+3725:                                             ; preds = %.tail3738.thread
+  %3726 = add nsw i32 %.021354079, 1
+  %3727 = icmp slt i32 %3726, %.02122.lcssa.ph
+  br i1 %3727, label %3728, label %3734
 
-3732:                                             ; preds = %3729
-  %3733 = sext i32 %3730 to i64
-  %3734 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %3733
-  %3735 = load ptr, ptr %3734, align 8, !tbaa !29
-  %3736 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3735, ptr noundef null, i32 noundef 10) #43
-  %3737 = trunc i64 %3736 to i32
-  store i32 %3737, ptr @faultsim_state.0, align 4, !tbaa !600
-  br label %3795
+3728:                                             ; preds = %3725
+  %3729 = sext i32 %3726 to i64
+  %3730 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %3729
+  %3731 = load ptr, ptr %3730, align 8, !tbaa !29
+  %3732 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3731, ptr noundef null, i32 noundef 10) #43
+  %3733 = trunc i64 %3732 to i32
+  store i32 %3733, ptr @faultsim_state.0, align 4, !tbaa !600
+  br label %3791
 
-3738:                                             ; preds = %3729, %.tail3738.thread
-  %3739 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(9) @.str.1215) #44
-  %3740 = icmp eq i32 %3739, 0
-  br i1 %3740, label %3741, label %3750
+3734:                                             ; preds = %3725, %.tail3738.thread
+  %3735 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(9) @.str.1215) #44
+  %3736 = icmp eq i32 %3735, 0
+  br i1 %3736, label %3737, label %3746
 
-3741:                                             ; preds = %3738
-  %3742 = add nsw i32 %.021354079, 1
-  %3743 = icmp slt i32 %3742, %.02122.lcssa.ph
-  br i1 %3743, label %3744, label %3750
+3737:                                             ; preds = %3734
+  %3738 = add nsw i32 %.021354079, 1
+  %3739 = icmp slt i32 %3738, %.02122.lcssa.ph
+  br i1 %3739, label %3740, label %3746
 
-3744:                                             ; preds = %3741
-  %3745 = sext i32 %3742 to i64
-  %3746 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %3745
-  %3747 = load ptr, ptr %3746, align 8, !tbaa !29
-  %3748 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3747, ptr noundef null, i32 noundef 10) #43
-  %3749 = trunc i64 %3748 to i32
-  store i32 %3749, ptr @faultsim_state.1, align 4, !tbaa !598
-  br label %3795
+3740:                                             ; preds = %3737
+  %3741 = sext i32 %3738 to i64
+  %3742 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %3741
+  %3743 = load ptr, ptr %3742, align 8, !tbaa !29
+  %3744 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3743, ptr noundef null, i32 noundef 10) #43
+  %3745 = trunc i64 %3744 to i32
+  store i32 %3745, ptr @faultsim_state.1, align 4, !tbaa !598
+  br label %3791
 
-3750:                                             ; preds = %3741, %3738
-  %3751 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(10) @.str.1216) #44
-  %3752 = icmp eq i32 %3751, 0
-  br i1 %3752, label %3753, label %3762
+3746:                                             ; preds = %3737, %3734
+  %3747 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(10) @.str.1216) #44
+  %3748 = icmp eq i32 %3747, 0
+  br i1 %3748, label %3749, label %3758
 
-3753:                                             ; preds = %3750
-  %3754 = add nsw i32 %.021354079, 1
-  %3755 = icmp slt i32 %3754, %.02122.lcssa.ph
-  br i1 %3755, label %3756, label %3762
+3749:                                             ; preds = %3746
+  %3750 = add nsw i32 %.021354079, 1
+  %3751 = icmp slt i32 %3750, %.02122.lcssa.ph
+  br i1 %3751, label %3752, label %3758
 
-3756:                                             ; preds = %3753
-  %3757 = sext i32 %3754 to i64
-  %3758 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %3757
-  %3759 = load ptr, ptr %3758, align 8, !tbaa !29
-  %3760 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3759, ptr noundef null, i32 noundef 10) #43
-  %3761 = trunc i64 %3760 to i32
-  store i32 %3761, ptr @faultsim_state.3, align 4, !tbaa !601
-  br label %3795
+3752:                                             ; preds = %3749
+  %3753 = sext i32 %3750 to i64
+  %3754 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %3753
+  %3755 = load ptr, ptr %3754, align 8, !tbaa !29
+  %3756 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3755, ptr noundef null, i32 noundef 10) #43
+  %3757 = trunc i64 %3756 to i32
+  store i32 %3757, ptr @faultsim_state.3, align 4, !tbaa !601
+  br label %3791
 
-3762:                                             ; preds = %3753, %3750
-  %3763 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(8) @.str.1217) #44
-  %3764 = icmp eq i32 %3763, 0
-  br i1 %3764, label %3765, label %3774
+3758:                                             ; preds = %3749, %3746
+  %3759 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(8) @.str.1217) #44
+  %3760 = icmp eq i32 %3759, 0
+  br i1 %3760, label %3761, label %3770
 
-3765:                                             ; preds = %3762
-  %3766 = add nsw i32 %.021354079, 1
-  %3767 = icmp slt i32 %3766, %.02122.lcssa.ph
-  br i1 %3767, label %3768, label %3774
+3761:                                             ; preds = %3758
+  %3762 = add nsw i32 %.021354079, 1
+  %3763 = icmp slt i32 %3762, %.02122.lcssa.ph
+  br i1 %3763, label %3764, label %3770
 
-3768:                                             ; preds = %3765
-  %3769 = sext i32 %3766 to i64
-  %3770 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %3769
-  %3771 = load ptr, ptr %3770, align 8, !tbaa !29
-  %3772 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3771, ptr noundef null, i32 noundef 10) #43
-  %3773 = trunc i64 %3772 to i32
-  store i32 %3773, ptr @faultsim_state.6, align 4, !tbaa !603
-  br label %3795
+3764:                                             ; preds = %3761
+  %3765 = sext i32 %3762 to i64
+  %3766 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %3765
+  %3767 = load ptr, ptr %3766, align 8, !tbaa !29
+  %3768 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3767, ptr noundef null, i32 noundef 10) #43
+  %3769 = trunc i64 %3768 to i32
+  store i32 %3769, ptr @faultsim_state.6, align 4, !tbaa !603
+  br label %3791
 
-3774:                                             ; preds = %3765, %3762
-  %3775 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(6) @.str.854) #44
-  %3776 = icmp eq i32 %3775, 0
-  br i1 %3776, label %3777, label %sub_03744
+3770:                                             ; preds = %3761, %3758
+  %3771 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02130464946524655, ptr noundef nonnull dereferenceable(6) @.str.854) #44
+  %3772 = icmp eq i32 %3771, 0
+  br i1 %3772, label %3773, label %sub_03744
 
-3777:                                             ; preds = %3774
-  %3778 = add nsw i32 %.021354079, 1
-  %3779 = icmp slt i32 %3778, %.02122.lcssa.ph
-  br i1 %3779, label %3780, label %sub_03744
+3773:                                             ; preds = %3770
+  %3774 = add nsw i32 %.021354079, 1
+  %3775 = icmp slt i32 %3774, %.02122.lcssa.ph
+  br i1 %3775, label %3776, label %sub_03744
 
-3780:                                             ; preds = %3777
-  %3781 = sext i32 %3778 to i64
-  %3782 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %3781
-  %3783 = load ptr, ptr %3782, align 8, !tbaa !29
-  %3784 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3783, ptr noundef null, i32 noundef 10) #43
-  %3785 = trunc i64 %3784 to i32
-  store i32 %3785, ptr @faultsim_state.7, align 4, !tbaa !595
-  br label %3795
+3776:                                             ; preds = %3773
+  %3777 = sext i32 %3774 to i64
+  %3778 = getelementptr inbounds [52 x ptr], ptr %4, i64 0, i64 %3777
+  %3779 = load ptr, ptr %3778, align 8, !tbaa !29
+  %3780 = tail call i64 @strtol(ptr noundef nonnull captures(none) %3779, ptr noundef null, i32 noundef 10) #43
+  %3781 = trunc i64 %3780 to i32
+  store i32 %3781, ptr @faultsim_state.7, align 4, !tbaa !595
+  br label %3791
 
-sub_03744:                                        ; preds = %3774, %3777
-  br i1 %3651, label %sub_13745, label %.tail3743.thread
+sub_03744:                                        ; preds = %3770, %3773
+  br i1 %3647, label %sub_13745, label %.tail3743.thread
 
 sub_13745:                                        ; preds = %sub_03744
-  %3786 = getelementptr inbounds nuw i8, ptr %.02130464946524655, i64 1
-  %3787 = load i8, ptr %3786, align 1
-  %.not4226 = icmp eq i8 %3787, 63
+  %3782 = getelementptr inbounds nuw i8, ptr %.02130464946524655, i64 1
+  %3783 = load i8, ptr %3782, align 1
+  %.not4226 = icmp eq i8 %3783, 63
   br i1 %.not4226, label %.tail3743, label %.tail3743.thread
 
 .tail3743:                                        ; preds = %sub_13745
-  %3788 = getelementptr inbounds nuw i8, ptr %.02130464946524655, i64 2
-  %3789 = load i8, ptr %3788, align 1
-  %3790 = icmp eq i8 %3789, 0
-  br i1 %3790, label %3795, label %.tail3743.thread
+  %3784 = getelementptr inbounds nuw i8, ptr %.02130464946524655, i64 2
+  %3785 = load i8, ptr %3784, align 1
+  %3786 = icmp eq i8 %3785, 0
+  br i1 %3786, label %3791, label %.tail3743.thread
 
 .tail3743.thread:                                 ; preds = %sub_13745, %sub_03744, %.tail3743
-  %3791 = tail call i32 @sqlite3_strglob(ptr noundef nonnull @.str.1219, ptr noundef nonnull %.02130464946524655) #43
-  %3792 = icmp eq i32 %3791, 0
-  br i1 %3792, label %3795, label %.thread3587
+  %3787 = tail call i32 @sqlite3_strglob(ptr noundef nonnull @.str.1219, ptr noundef nonnull %.02130464946524655) #43
+  %3788 = icmp eq i32 %3787, 0
+  br i1 %3788, label %3791, label %.thread3587
 
 .thread3587:                                      ; preds = %.tail3743.thread
-  %3793 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3794 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3793, ptr noundef nonnull @.str.1220, ptr noundef nonnull %3649) #46
-  br label %3798
+  %3789 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3790 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3789, ptr noundef nonnull @.str.1220, ptr noundef nonnull %3645) #46
+  br label %3794
 
-3795:                                             ; preds = %.tail3743, %.tail3743.thread, %3672, %3682, %3725, %3722, %3744, %3768, %3780, %3756, %3732, %3712, %3715, %3676, %3660
-  %.22137.ph = phi i32 [ %.021354079, %.tail3743 ], [ %.021354079, %.tail3743.thread ], [ %3778, %3780 ], [ %3766, %3768 ], [ %3754, %3756 ], [ %3742, %3744 ], [ %3730, %3732 ], [ %.021354079, %3722 ], [ %.021354079, %3725 ], [ %.021354079, %3712 ], [ %.021354079, %3715 ], [ %.021354079, %3682 ], [ %.021354079, %3676 ], [ %.021354079, %3672 ], [ %.021354079, %3660 ]
-  %.32134.ph = phi i32 [ 1, %.tail3743 ], [ 1, %.tail3743.thread ], [ %.021314080, %3780 ], [ %.021314080, %3768 ], [ %.021314080, %3756 ], [ %.021314080, %3744 ], [ %.021314080, %3732 ], [ %.021314080, %3722 ], [ %.021314080, %3725 ], [ %.021314080, %3712 ], [ %.021314080, %3715 ], [ %.021314080, %3682 ], [ %.021314080, %3676 ], [ %.021314080, %3672 ], [ %.021314080, %3660 ]
-  %3796 = add nsw i32 %.22137.ph, 1
-  %3797 = icmp slt i32 %3796, %.02122.lcssa.ph
-  br i1 %3797, label %3646, label %._crit_edge4083, !llvm.loop !604
+3791:                                             ; preds = %.tail3743, %.tail3743.thread, %3668, %3678, %3721, %3718, %3740, %3764, %3776, %3752, %3728, %3708, %3711, %3672, %3656
+  %.22137.ph = phi i32 [ %.021354079, %.tail3743 ], [ %.021354079, %.tail3743.thread ], [ %3774, %3776 ], [ %3762, %3764 ], [ %3750, %3752 ], [ %3738, %3740 ], [ %3726, %3728 ], [ %.021354079, %3718 ], [ %.021354079, %3721 ], [ %.021354079, %3708 ], [ %.021354079, %3711 ], [ %.021354079, %3678 ], [ %.021354079, %3672 ], [ %.021354079, %3668 ], [ %.021354079, %3656 ]
+  %.32134.ph = phi i32 [ 1, %.tail3743 ], [ 1, %.tail3743.thread ], [ %.021314080, %3776 ], [ %.021314080, %3764 ], [ %.021314080, %3752 ], [ %.021314080, %3740 ], [ %.021314080, %3728 ], [ %.021314080, %3718 ], [ %.021314080, %3721 ], [ %.021314080, %3708 ], [ %.021314080, %3711 ], [ %.021314080, %3678 ], [ %.021314080, %3672 ], [ %.021314080, %3668 ], [ %.021314080, %3656 ]
+  %3792 = add nsw i32 %.22137.ph, 1
+  %3793 = icmp slt i32 %3792, %.02122.lcssa.ph
+  br i1 %3793, label %3642, label %._crit_edge4083, !llvm.loop !604
 
-._crit_edge4083:                                  ; preds = %3795, %3641
-  %.02131.lcssa = phi i32 [ %3643, %3641 ], [ %.32134.ph, %3795 ]
+._crit_edge4083:                                  ; preds = %3791, %3637
+  %.02131.lcssa = phi i32 [ %3639, %3637 ], [ %.32134.ph, %3791 ]
   %.not2591 = icmp eq i32 %.02131.lcssa, 0
-  br i1 %.not2591, label %.thread3616, label %3798
+  br i1 %.not2591, label %.thread3616, label %3794
 
-3798:                                             ; preds = %.thread3587, %._crit_edge4083
+3794:                                             ; preds = %.thread3587, %._crit_edge4083
   %.823591 = phi i32 [ 1, %.thread3587 ], [ 0, %._crit_edge4083 ]
-  %3799 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3800 = load ptr, ptr %3799, align 8, !tbaa !462
-  %3801 = tail call i64 @fwrite(ptr nonnull @.str.1221, i64 580, i64 1, ptr %3800)
+  %3795 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3796 = load ptr, ptr %3795, align 8, !tbaa !462
+  %3797 = tail call i64 @fwrite(ptr nonnull @.str.1221, i64 580, i64 1, ptr %3796)
   br label %.thread3616
 
-3802:                                             ; preds = %3438, %3546, %3555, %3560, %3568, %3592, %3599, %3609, %3629, %3435
-  %3803 = icmp sgt i32 %.12225, -1
-  br i1 %3803, label %3804, label %.thread3616
+3798:                                             ; preds = %3434, %3542, %3551, %3556, %3564, %3588, %3595, %3605, %3625, %3431
+  %3799 = icmp sgt i32 %.12225, -1
+  br i1 %3799, label %3800, label %.thread3616
 
-3804:                                             ; preds = %3802
-  %3805 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3806 = load ptr, ptr %3805, align 8, !tbaa !462
-  %3807 = zext nneg i32 %.12225 to i64
-  %3808 = getelementptr inbounds nuw [19 x %struct.anon.6], ptr @do_meta_command.aCtrl.1131, i64 0, i64 %3807, i32 3
-  %3809 = load ptr, ptr %3808, align 8, !tbaa !581
-  %3810 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3806, ptr noundef nonnull @.str.1222, ptr noundef nonnull %.02215, ptr noundef %3809) #43
+3800:                                             ; preds = %3798
+  %3801 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3802 = load ptr, ptr %3801, align 8, !tbaa !462
+  %3803 = zext nneg i32 %.12225 to i64
+  %3804 = getelementptr inbounds nuw [19 x %struct.anon.6], ptr @do_meta_command.aCtrl.1131, i64 0, i64 %3803, i32 3
+  %3805 = load ptr, ptr %3804, align 8, !tbaa !581
+  %3806 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3802, ptr noundef nonnull @.str.1222, ptr noundef nonnull %.02215, ptr noundef %3805) #43
   br label %.thread3616
 
-3811:                                             ; preds = %3638
-  %3812 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %3813 = load ptr, ptr %3812, align 16, !tbaa !29
-  %3814 = tail call fastcc i32 @booleanValue(ptr noundef %3813)
-  store i32 %3814, ptr %45, align 4, !tbaa !36
-  %3815 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 14, ptr noundef nonnull %45) #43
+3807:                                             ; preds = %3634
+  %3808 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %3809 = load ptr, ptr %3808, align 16, !tbaa !29
+  %3810 = tail call fastcc i32 @booleanValue(ptr noundef %3809)
+  store i32 %3810, ptr %45, align 4, !tbaa !36
+  %3811 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 14, ptr noundef nonnull %45) #43
   br label %.thread3616
 
-.thread3608:                                      ; preds = %3557, %3594, %.thread3612
-  %3816 = phi i32 [ %3558, %3557 ], [ %3598, %3594 ], [ %.pre4537, %.thread3612 ]
-  %3817 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3818 = load ptr, ptr %3817, align 8, !tbaa !462
-  %3819 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3818, ptr noundef nonnull @.str.834, i32 noundef %3816) #43
+.thread3608:                                      ; preds = %3553, %3590, %.thread3612
+  %3812 = phi i32 [ %3554, %3553 ], [ %3594, %3590 ], [ %.pre4537, %.thread3612 ]
+  %3813 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3814 = load ptr, ptr %3813, align 8, !tbaa !462
+  %3815 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3814, ptr noundef nonnull @.str.834, i32 noundef %3812) #43
   br label %.thread3616
 
-.thread3616:                                      ; preds = %3407, %3429, %3811, %.thread3608, %3804, %3802, %.thread3572, %._crit_edge4083, %3798, %3548, %3557, %3562, %3589, %3601, %3606, %3611, %3622, %3631
-  %.74.ph = phi i32 [ 0, %3811 ], [ 0, %.thread3608 ], [ 1, %3804 ], [ 1, %3429 ], [ 0, %3802 ], [ 0, %3631 ], [ 0, %3622 ], [ 0, %3611 ], [ 0, %3606 ], [ 0, %3601 ], [ 0, %3589 ], [ 0, %3562 ], [ 0, %3557 ], [ 0, %3548 ], [ %.823591, %3798 ], [ 0, %._crit_edge4083 ], [ 0, %.thread3572 ], [ 1, %3407 ]
+.thread3616:                                      ; preds = %3403, %3425, %3807, %.thread3608, %3800, %3798, %.thread3572, %._crit_edge4083, %3794, %3544, %3553, %3558, %3585, %3597, %3602, %3607, %3618, %3627
+  %.74.ph = phi i32 [ 0, %3807 ], [ 0, %.thread3608 ], [ 1, %3800 ], [ 1, %3425 ], [ 0, %3798 ], [ 0, %3627 ], [ 0, %3618 ], [ 0, %3607 ], [ 0, %3602 ], [ 0, %3597 ], [ 0, %3585 ], [ 0, %3558 ], [ 0, %3553 ], [ 0, %3544 ], [ %.823591, %3794 ], [ 0, %._crit_edge4083 ], [ 0, %.thread3572 ], [ 1, %3403 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #43
   br label %test_breakpoint.exit
 
-3820:                                             ; preds = %3370, %3368
-  %3821 = and i64 %strlen.i, 1073741823
-  br i1 %1796, label %3822, label %.thread3624
+3816:                                             ; preds = %3366, %3364
+  %3817 = and i64 %strlen.i, 1073741823
+  br i1 %1792, label %3818, label %.thread3624
 
-3822:                                             ; preds = %3820
-  %3823 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1224, i64 noundef range(i64 0, 1073741824) %3821) #44
-  %3824 = icmp eq i32 %3823, 0
-  br i1 %3824, label %3825, label %3835
+3818:                                             ; preds = %3816
+  %3819 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1224, i64 noundef range(i64 0, 1073741824) %3817) #44
+  %3820 = icmp eq i32 %3819, 0
+  br i1 %3820, label %3821, label %3831
 
-3825:                                             ; preds = %3822
+3821:                                             ; preds = %3818
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
-  %3826 = load ptr, ptr %1, align 8, !tbaa !477
+  %3822 = load ptr, ptr %1, align 8, !tbaa !477
   %.not2587 = icmp eq i32 %.02122.lcssa.ph, 1
-  br i1 %.not2587, label %3832, label %3827
+  br i1 %.not2587, label %3828, label %3823
 
-3827:                                             ; preds = %3825
-  %3828 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %3829 = load ptr, ptr %3828, align 8, !tbaa !29
-  %3830 = tail call fastcc i64 @integerValue(ptr noundef %3829)
-  %3831 = trunc i64 %3830 to i32
-  br label %3832
+3823:                                             ; preds = %3821
+  %3824 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %3825 = load ptr, ptr %3824, align 8, !tbaa !29
+  %3826 = tail call fastcc i64 @integerValue(ptr noundef %3825)
+  %3827 = trunc i64 %3826 to i32
+  br label %3828
 
-3832:                                             ; preds = %3825, %3827
-  %3833 = phi i32 [ %3831, %3827 ], [ 0, %3825 ]
-  %3834 = tail call i32 @sqlite3_busy_timeout(ptr noundef %3826, i32 noundef %3833) #43
+3828:                                             ; preds = %3821, %3823
+  %3829 = phi i32 [ %3827, %3823 ], [ 0, %3821 ]
+  %3830 = tail call i32 @sqlite3_busy_timeout(ptr noundef %3822, i32 noundef %3829) #43
   br label %test_breakpoint.exit
 
-3835:                                             ; preds = %3822
-  %3836 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1225, i64 noundef range(i64 0, 1073741824) %3821) #44
-  %3837 = icmp eq i32 %3836, 0
-  br i1 %3837, label %3838, label %.thread3624
+3831:                                             ; preds = %3818
+  %3832 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1225, i64 noundef range(i64 0, 1073741824) %3817) #44
+  %3833 = icmp eq i32 %3832, 0
+  br i1 %3833, label %3834, label %.thread3624
 
-3838:                                             ; preds = %3835
-  %3839 = icmp eq i32 %.02122.lcssa.ph, 2
-  br i1 %3839, label %3840, label %3844
+3834:                                             ; preds = %3831
+  %3835 = icmp eq i32 %.02122.lcssa.ph, 2
+  br i1 %3835, label %3836, label %3840
 
-3840:                                             ; preds = %3838
-  %3841 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %3842 = load ptr, ptr %3841, align 8, !tbaa !29
-  %3843 = tail call fastcc i32 @booleanValue(ptr noundef %3842)
-  store i32 %3843, ptr @enableTimer, align 4, !tbaa !36
+3836:                                             ; preds = %3834
+  %3837 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %3838 = load ptr, ptr %3837, align 8, !tbaa !29
+  %3839 = tail call fastcc i32 @booleanValue(ptr noundef %3838)
+  store i32 %3839, ptr @enableTimer, align 4, !tbaa !36
   br label %test_breakpoint.exit
 
-3844:                                             ; preds = %3838
-  %3845 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3846 = tail call i64 @fwrite(ptr nonnull @.str.1227, i64 21, i64 1, ptr %3845) #50
+3840:                                             ; preds = %3834
+  %3841 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3842 = tail call i64 @fwrite(ptr nonnull @.str.1227, i64 21, i64 1, ptr %3841) #50
   br label %test_breakpoint.exit
 
-.thread3624:                                      ; preds = %3820, %3835
-  %3847 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.97, i64 noundef range(i64 0, 1073741824) %3821) #44
-  %3848 = icmp eq i32 %3847, 0
-  br i1 %3848, label %3849, label %3897
+.thread3624:                                      ; preds = %3816, %3831
+  %3843 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.97, i64 noundef range(i64 0, 1073741824) %3817) #44
+  %3844 = icmp eq i32 %3843, 0
+  br i1 %3844, label %3845, label %3893
 
-3849:                                             ; preds = %.thread3624
+3845:                                             ; preds = %.thread3624
   tail call fastcc void @open_db(ptr noundef %1, i32 noundef 0)
   %.not4218 = icmp eq i32 %.02122.lcssa.ph, 1
   br i1 %.not4218, label %._crit_edge4073, label %.lr.ph4072
 
-.lr.ph4072:                                       ; preds = %3849
-  %3850 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %3851 = getelementptr inbounds nuw i8, ptr %1, i64 16
+.lr.ph4072:                                       ; preds = %3845
+  %3846 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %3847 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %wide.trip.count4401 = and i64 %.02122.lcssa.ph.in, 4294967295
-  br label %3852
+  br label %3848
 
-3852:                                             ; preds = %.lr.ph4072, %3887
-  %indvars.iv4396 = phi i64 [ 1, %.lr.ph4072 ], [ %indvars.iv.next4397, %3887 ]
-  %.021274069 = phi i32 [ 0, %.lr.ph4072 ], [ %.12128.ph, %3887 ]
-  %3853 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4396
-  %3854 = load ptr, ptr %3853, align 8, !tbaa !29
-  %3855 = load i8, ptr %3854, align 1, !tbaa !25
-  %3856 = icmp eq i8 %3855, 45
-  br i1 %3856, label %optionMatch.exit3158, label %3877
+3848:                                             ; preds = %.lr.ph4072, %3883
+  %indvars.iv4396 = phi i64 [ 1, %.lr.ph4072 ], [ %indvars.iv.next4397, %3883 ]
+  %.021274069 = phi i32 [ 0, %.lr.ph4072 ], [ %.12128.ph, %3883 ]
+  %3849 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4396
+  %3850 = load ptr, ptr %3849, align 8, !tbaa !29
+  %3851 = load i8, ptr %3850, align 1, !tbaa !25
+  %3852 = icmp eq i8 %3851, 45
+  br i1 %3852, label %optionMatch.exit3158, label %3873
 
-optionMatch.exit3158:                             ; preds = %3852
-  %3857 = getelementptr inbounds nuw i8, ptr %3854, i64 1
-  %3858 = load i8, ptr %3857, align 1, !tbaa !25
-  %3859 = icmp eq i8 %3858, 45
-  %3860 = getelementptr inbounds nuw i8, ptr %3854, i64 2
-  %spec.select.i3157 = select i1 %3859, ptr %3860, ptr %3857
-  %3861 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3157, ptr noundef nonnull dereferenceable(9) @.str.1228) #44
-  %.not3667 = icmp eq i32 %3861, 0
-  br i1 %.not3667, label %3862, label %optionMatch.exit3162
+optionMatch.exit3158:                             ; preds = %3848
+  %3853 = getelementptr inbounds nuw i8, ptr %3850, i64 1
+  %3854 = load i8, ptr %3853, align 1, !tbaa !25
+  %3855 = icmp eq i8 %3854, 45
+  %3856 = getelementptr inbounds nuw i8, ptr %3850, i64 2
+  %spec.select.i3157 = select i1 %3855, ptr %3856, ptr %3853
+  %3857 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3157, ptr noundef nonnull dereferenceable(9) @.str.1228) #44
+  %.not3667 = icmp eq i32 %3857, 0
+  br i1 %.not3667, label %3858, label %optionMatch.exit3162
 
-3862:                                             ; preds = %optionMatch.exit3158
-  store i8 1, ptr %3851, align 8, !tbaa !605
-  br label %3887
+3858:                                             ; preds = %optionMatch.exit3158
+  store i8 1, ptr %3847, align 8, !tbaa !605
+  br label %3883
 
 optionMatch.exit3162:                             ; preds = %optionMatch.exit3158
-  %3863 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3157, ptr noundef nonnull dereferenceable(6) @.str.1229) #44
-  %.not3668 = icmp eq i32 %3863, 0
-  br i1 %.not3668, label %3864, label %optionMatch.exit3166
+  %3859 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3157, ptr noundef nonnull dereferenceable(6) @.str.1229) #44
+  %.not3668 = icmp eq i32 %3859, 0
+  br i1 %.not3668, label %3860, label %optionMatch.exit3166
 
-3864:                                             ; preds = %optionMatch.exit3162
-  store i8 0, ptr %3851, align 8, !tbaa !605
-  br label %3887
+3860:                                             ; preds = %optionMatch.exit3162
+  store i8 0, ptr %3847, align 8, !tbaa !605
+  br label %3883
 
 optionMatch.exit3166:                             ; preds = %optionMatch.exit3162
-  %3865 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3157, ptr noundef nonnull dereferenceable(8) @.str.1230) #44
-  %.not3669 = icmp eq i32 %3865, 0
-  br i1 %.not3669, label %3866, label %optionMatch.exit3170
+  %3861 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3157, ptr noundef nonnull dereferenceable(8) @.str.1230) #44
+  %.not3669 = icmp eq i32 %3861, 0
+  br i1 %.not3669, label %3862, label %optionMatch.exit3170
 
-3866:                                             ; preds = %optionMatch.exit3166
-  %3867 = or i32 %.021274069, 2
-  br label %3887
+3862:                                             ; preds = %optionMatch.exit3166
+  %3863 = or i32 %.021274069, 2
+  br label %3883
 
 optionMatch.exit3170:                             ; preds = %optionMatch.exit3166
-  %3868 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3157, ptr noundef nonnull dereferenceable(4) @.str.1231) #44
-  %.not3670 = icmp eq i32 %3868, 0
-  br i1 %.not3670, label %3869, label %optionMatch.exit3174
+  %3864 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3157, ptr noundef nonnull dereferenceable(4) @.str.1231) #44
+  %.not3670 = icmp eq i32 %3864, 0
+  br i1 %.not3670, label %3865, label %optionMatch.exit3174
 
-3869:                                             ; preds = %optionMatch.exit3170
-  %3870 = or i32 %.021274069, 4
-  br label %3887
+3865:                                             ; preds = %optionMatch.exit3170
+  %3866 = or i32 %.021274069, 4
+  br label %3883
 
 optionMatch.exit3174:                             ; preds = %optionMatch.exit3170
-  %3871 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3157, ptr noundef nonnull dereferenceable(5) @.str.1106) #44
-  %.not3671 = icmp eq i32 %3871, 0
-  br i1 %.not3671, label %3872, label %optionMatch.exit3178
+  %3867 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3157, ptr noundef nonnull dereferenceable(5) @.str.1106) #44
+  %.not3671 = icmp eq i32 %3867, 0
+  br i1 %.not3671, label %3868, label %optionMatch.exit3178
 
-3872:                                             ; preds = %optionMatch.exit3174
-  %3873 = or i32 %.021274069, 1
-  br label %3887
+3868:                                             ; preds = %optionMatch.exit3174
+  %3869 = or i32 %.021274069, 1
+  br label %3883
 
 optionMatch.exit3178:                             ; preds = %optionMatch.exit3174
-  %3874 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3157, ptr noundef nonnull dereferenceable(6) @.str.386) #44
-  %.not3672 = icmp eq i32 %3874, 0
-  br i1 %.not3672, label %3875, label %3884
+  %3870 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i3157, ptr noundef nonnull dereferenceable(6) @.str.386) #44
+  %.not3672 = icmp eq i32 %3870, 0
+  br i1 %.not3672, label %3871, label %3880
 
-3875:                                             ; preds = %optionMatch.exit3178
-  %3876 = or i32 %.021274069, 8
-  br label %3887
+3871:                                             ; preds = %optionMatch.exit3178
+  %3872 = or i32 %.021274069, 8
+  br label %3883
 
-3877:                                             ; preds = %3852
-  %3878 = load ptr, ptr %3850, align 8, !tbaa !606
-  %.not.i3179 = icmp eq ptr %3878, null
-  %3879 = load ptr, ptr @stdout, align 8
-  %.not4.i3180 = icmp eq ptr %3878, %3879
+3873:                                             ; preds = %3848
+  %3874 = load ptr, ptr %3846, align 8, !tbaa !606
+  %.not.i3179 = icmp eq ptr %3874, null
+  %3875 = load ptr, ptr @stdout, align 8
+  %.not4.i3180 = icmp eq ptr %3874, %3875
   %or.cond.i3181 = select i1 %.not.i3179, i1 true, i1 %.not4.i3180
-  %3880 = load ptr, ptr @stderr, align 8
-  %.not5.i3182 = icmp eq ptr %3878, %3880
+  %3876 = load ptr, ptr @stderr, align 8
+  %.not5.i3182 = icmp eq ptr %3874, %3876
   %or.cond6.i3183 = select i1 %or.cond.i3181, i1 true, i1 %.not5.i3182
-  br i1 %or.cond6.i3183, label %output_file_close.exit3184, label %3881
+  br i1 %or.cond6.i3183, label %output_file_close.exit3184, label %3877
 
-3881:                                             ; preds = %3877
-  %3882 = tail call i32 @fclose(ptr noundef nonnull %3878)
+3877:                                             ; preds = %3873
+  %3878 = tail call i32 @fclose(ptr noundef nonnull %3874)
   br label %output_file_close.exit3184
 
-output_file_close.exit3184:                       ; preds = %3877, %3881
-  %3883 = tail call fastcc ptr @output_file_open(ptr noundef nonnull %3854)
-  store ptr %3883, ptr %3850, align 8, !tbaa !606
-  br label %3887
+output_file_close.exit3184:                       ; preds = %3873, %3877
+  %3879 = tail call fastcc ptr @output_file_open(ptr noundef nonnull %3850)
+  store ptr %3879, ptr %3846, align 8, !tbaa !606
+  br label %3883
 
-3884:                                             ; preds = %optionMatch.exit3178
-  %3885 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %3886 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3885, ptr noundef nonnull @.str.1232, ptr noundef nonnull %3854) #46
+3880:                                             ; preds = %optionMatch.exit3178
+  %3881 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %3882 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3881, ptr noundef nonnull @.str.1232, ptr noundef nonnull %3850) #46
   br label %test_breakpoint.exit
 
-3887:                                             ; preds = %3862, %3866, %3872, %3875, %3869, %3864, %output_file_close.exit3184
-  %.12128.ph = phi i32 [ %.021274069, %output_file_close.exit3184 ], [ %3876, %3875 ], [ %3873, %3872 ], [ %3870, %3869 ], [ %3867, %3866 ], [ %.021274069, %3864 ], [ %.021274069, %3862 ]
+3883:                                             ; preds = %3858, %3862, %3868, %3871, %3865, %3860, %output_file_close.exit3184
+  %.12128.ph = phi i32 [ %.021274069, %output_file_close.exit3184 ], [ %3872, %3871 ], [ %3869, %3868 ], [ %3866, %3865 ], [ %3863, %3862 ], [ %.021274069, %3860 ], [ %.021274069, %3858 ]
   %indvars.iv.next4397 = add nuw nsw i64 %indvars.iv4396, 1
   %exitcond4402.not = icmp eq i64 %indvars.iv.next4397, %wide.trip.count4401
-  br i1 %exitcond4402.not, label %._crit_edge4073, label %3852, !llvm.loop !607
+  br i1 %exitcond4402.not, label %._crit_edge4073, label %3848, !llvm.loop !607
 
-._crit_edge4073:                                  ; preds = %3887, %3849
-  %.02127.lcssa = phi i32 [ 0, %3849 ], [ %.12128.ph, %3887 ]
-  %3888 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %3889 = load ptr, ptr %3888, align 8, !tbaa !606
-  %3890 = icmp eq ptr %3889, null
-  br i1 %3890, label %3891, label %3894
+._crit_edge4073:                                  ; preds = %3883, %3845
+  %.02127.lcssa = phi i32 [ 0, %3845 ], [ %.12128.ph, %3883 ]
+  %3884 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %3885 = load ptr, ptr %3884, align 8, !tbaa !606
+  %3886 = icmp eq ptr %3885, null
+  br i1 %3886, label %3887, label %3890
 
-3891:                                             ; preds = %._crit_edge4073
-  %3892 = load ptr, ptr %1, align 8, !tbaa !477
-  %3893 = tail call i32 @sqlite3_trace_v2(ptr noundef %3892, i32 noundef 0, ptr noundef null, ptr noundef null) #43
+3887:                                             ; preds = %._crit_edge4073
+  %3888 = load ptr, ptr %1, align 8, !tbaa !477
+  %3889 = tail call i32 @sqlite3_trace_v2(ptr noundef %3888, i32 noundef 0, ptr noundef null, ptr noundef null) #43
   br label %test_breakpoint.exit
 
-3894:                                             ; preds = %._crit_edge4073
+3890:                                             ; preds = %._crit_edge4073
   %spec.store.select195 = tail call i32 @llvm.umax.i32(i32 %.02127.lcssa, i32 1)
-  %3895 = load ptr, ptr %1, align 8, !tbaa !477
-  %3896 = tail call i32 @sqlite3_trace_v2(ptr noundef %3895, i32 noundef %spec.store.select195, ptr noundef nonnull @sql_trace_callback, ptr noundef nonnull %1) #43
+  %3891 = load ptr, ptr %1, align 8, !tbaa !477
+  %3892 = tail call i32 @sqlite3_trace_v2(ptr noundef %3891, i32 noundef %spec.store.select195, ptr noundef nonnull @sql_trace_callback, ptr noundef nonnull %1) #43
   br label %test_breakpoint.exit
 
-3897:                                             ; preds = %3349, %.thread3624
-  %3898 = icmp eq i8 %131, 118
-  br i1 %3898, label %3899, label %.critedge2852
+3893:                                             ; preds = %3345, %.thread3624
+  %3894 = icmp eq i8 %131, 118
+  br i1 %3894, label %3895, label %.critedge2852
 
-3899:                                             ; preds = %3897
-  %3900 = and i64 %strlen.i, 1073741823
-  %3901 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1233, i64 noundef range(i64 0, 1073741824) %3900) #44
-  %3902 = icmp eq i32 %3901, 0
-  br i1 %3902, label %3903, label %3914
+3895:                                             ; preds = %3893
+  %3896 = and i64 %strlen.i, 1073741823
+  %3897 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1233, i64 noundef range(i64 0, 1073741824) %3896) #44
+  %3898 = icmp eq i32 %3897, 0
+  br i1 %3898, label %3899, label %3910
 
-3903:                                             ; preds = %3899
-  %3904 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3905 = load ptr, ptr %3904, align 8, !tbaa !462
-  %3906 = tail call ptr @sqlite3_libversion() #43
-  %3907 = tail call ptr @sqlite3_sourceid() #43
-  %3908 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3905, ptr noundef nonnull @.str.1235, ptr noundef %3906, ptr noundef %3907) #43
-  %3909 = load ptr, ptr %3904, align 8, !tbaa !462
-  %3910 = tail call ptr @zlibVersion() #43
-  %3911 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3909, ptr noundef nonnull @.str.1236, ptr noundef %3910) #43
-  %3912 = load ptr, ptr %3904, align 8, !tbaa !462
-  %3913 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3912, ptr noundef nonnull @.str.1237, ptr noundef nonnull @.str.1234) #43
+3899:                                             ; preds = %3895
+  %3900 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3901 = load ptr, ptr %3900, align 8, !tbaa !462
+  %3902 = tail call ptr @sqlite3_libversion() #43
+  %3903 = tail call ptr @sqlite3_sourceid() #43
+  %3904 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3901, ptr noundef nonnull @.str.1235, ptr noundef %3902, ptr noundef %3903) #43
+  %3905 = load ptr, ptr %3900, align 8, !tbaa !462
+  %3906 = tail call ptr @zlibVersion() #43
+  %3907 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3905, ptr noundef nonnull @.str.1236, ptr noundef %3906) #43
+  %3908 = load ptr, ptr %3900, align 8, !tbaa !462
+  %3909 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3908, ptr noundef nonnull @.str.1237, ptr noundef nonnull @.str.1234) #43
   br label %test_breakpoint.exit
 
-3914:                                             ; preds = %3899
-  %3915 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1238, i64 noundef range(i64 0, 1073741824) %3900) #44
-  %3916 = icmp eq i32 %3915, 0
-  br i1 %3916, label %3917, label %.critedge2850
+3910:                                             ; preds = %3895
+  %3911 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1238, i64 noundef range(i64 0, 1073741824) %3896) #44
+  %3912 = icmp eq i32 %3911, 0
+  br i1 %3912, label %3913, label %.critedge2850
 
-3917:                                             ; preds = %3914
-  %3918 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %3919 = load ptr, ptr %3918, align 8
+3913:                                             ; preds = %3910
+  %3914 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %3915 = load ptr, ptr %3914, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #43
   store ptr null, ptr %49, align 8, !tbaa !608
-  %3920 = load ptr, ptr %1, align 8, !tbaa !477
-  %.not2579 = icmp eq ptr %3920, null
-  br i1 %.not2579, label %3946, label %3921
+  %3916 = load ptr, ptr %1, align 8, !tbaa !477
+  %.not2579 = icmp eq ptr %3916, null
+  br i1 %.not2579, label %3942, label %3917
 
-3921:                                             ; preds = %3917
-  %3922 = icmp eq i32 %.02122.lcssa.ph, 2
-  %3923 = select i1 %3922, ptr %3919, ptr @.str.45
-  %3924 = call i32 @sqlite3_file_control(ptr noundef nonnull %3920, ptr noundef %3923, i32 noundef 27, ptr noundef nonnull %49) #43
-  %3925 = load ptr, ptr %49, align 8, !tbaa !608
-  %.not2580 = icmp eq ptr %3925, null
-  br i1 %.not2580, label %3946, label %3926
+3917:                                             ; preds = %3913
+  %3918 = icmp eq i32 %.02122.lcssa.ph, 2
+  %3919 = select i1 %3918, ptr %3915, ptr @.str.45
+  %3920 = call i32 @sqlite3_file_control(ptr noundef nonnull %3916, ptr noundef %3919, i32 noundef 27, ptr noundef nonnull %49) #43
+  %3921 = load ptr, ptr %49, align 8, !tbaa !608
+  %.not2580 = icmp eq ptr %3921, null
+  br i1 %.not2580, label %3942, label %3922
 
-3926:                                             ; preds = %3921
-  %3927 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3928 = load ptr, ptr %3927, align 8, !tbaa !462
-  %3929 = getelementptr inbounds nuw i8, ptr %3925, i64 24
-  %3930 = load ptr, ptr %3929, align 8, !tbaa !276
-  %3931 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3928, ptr noundef nonnull @.str.1239, ptr noundef %3930) #43
-  %3932 = load ptr, ptr %3927, align 8, !tbaa !462
+3922:                                             ; preds = %3917
+  %3923 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3924 = load ptr, ptr %3923, align 8, !tbaa !462
+  %3925 = getelementptr inbounds nuw i8, ptr %3921, i64 24
+  %3926 = load ptr, ptr %3925, align 8, !tbaa !276
+  %3927 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3924, ptr noundef nonnull @.str.1239, ptr noundef %3926) #43
+  %3928 = load ptr, ptr %3923, align 8, !tbaa !462
+  %3929 = load ptr, ptr %49, align 8, !tbaa !608
+  %3930 = load i32, ptr %3929, align 8, !tbaa !133
+  %3931 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3928, ptr noundef nonnull @.str.1240, i32 noundef %3930) #43
+  %3932 = load ptr, ptr %3923, align 8, !tbaa !462
   %3933 = load ptr, ptr %49, align 8, !tbaa !608
-  %3934 = load i32, ptr %3933, align 8, !tbaa !133
-  %3935 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3932, ptr noundef nonnull @.str.1240, i32 noundef %3934) #43
-  %3936 = load ptr, ptr %3927, align 8, !tbaa !462
-  %3937 = load ptr, ptr %49, align 8, !tbaa !608
-  %3938 = getelementptr inbounds nuw i8, ptr %3937, i64 4
-  %3939 = load i32, ptr %3938, align 4, !tbaa !137
-  %3940 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3936, ptr noundef nonnull @.str.1241, i32 noundef %3939) #43
-  %3941 = load ptr, ptr %3927, align 8, !tbaa !462
-  %3942 = load ptr, ptr %49, align 8, !tbaa !608
-  %3943 = getelementptr inbounds nuw i8, ptr %3942, i64 8
-  %3944 = load i32, ptr %3943, align 8, !tbaa !275
-  %3945 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3941, ptr noundef nonnull @.str.1242, i32 noundef %3944) #43
-  br label %3946
+  %3934 = getelementptr inbounds nuw i8, ptr %3933, i64 4
+  %3935 = load i32, ptr %3934, align 4, !tbaa !137
+  %3936 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3932, ptr noundef nonnull @.str.1241, i32 noundef %3935) #43
+  %3937 = load ptr, ptr %3923, align 8, !tbaa !462
+  %3938 = load ptr, ptr %49, align 8, !tbaa !608
+  %3939 = getelementptr inbounds nuw i8, ptr %3938, i64 8
+  %3940 = load i32, ptr %3939, align 8, !tbaa !275
+  %3941 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3937, ptr noundef nonnull @.str.1242, i32 noundef %3940) #43
+  br label %3942
 
-3946:                                             ; preds = %3921, %3926, %3917
+3942:                                             ; preds = %3917, %3922, %3913
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #43
   br label %test_breakpoint.exit
 
-.critedge2850:                                    ; preds = %3914
-  %3947 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1243, i64 noundef range(i64 0, 1073741824) %3900) #44
-  %3948 = icmp eq i32 %3947, 0
-  br i1 %3948, label %3949, label %.critedge2851
+.critedge2850:                                    ; preds = %3910
+  %3943 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1243, i64 noundef range(i64 0, 1073741824) %3896) #44
+  %3944 = icmp eq i32 %3943, 0
+  br i1 %3944, label %3945, label %.critedge2851
 
-3949:                                             ; preds = %.critedge2850
+3945:                                             ; preds = %.critedge2850
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #43
   store ptr null, ptr %50, align 8, !tbaa !608
-  %3950 = load ptr, ptr %1, align 8, !tbaa !477
-  %.not2576 = icmp eq ptr %3950, null
-  br i1 %.not2576, label %3953, label %3951
+  %3946 = load ptr, ptr %1, align 8, !tbaa !477
+  %.not2576 = icmp eq ptr %3946, null
+  br i1 %.not2576, label %3949, label %3947
 
-3951:                                             ; preds = %3949
-  %3952 = call i32 @sqlite3_file_control(ptr noundef nonnull %3950, ptr noundef nonnull @.str.45, i32 noundef 27, ptr noundef nonnull %50) #43
-  br label %3953
+3947:                                             ; preds = %3945
+  %3948 = call i32 @sqlite3_file_control(ptr noundef nonnull %3946, ptr noundef nonnull @.str.45, i32 noundef 27, ptr noundef nonnull %50) #43
+  br label %3949
 
-3953:                                             ; preds = %3951, %3949
-  %3954 = call ptr @sqlite3_vfs_find(ptr noundef null) #43
-  %.not25774064 = icmp eq ptr %3954, null
+3949:                                             ; preds = %3947, %3945
+  %3950 = call ptr @sqlite3_vfs_find(ptr noundef null) #43
+  %.not25774064 = icmp eq ptr %3950, null
   br i1 %.not25774064, label %._crit_edge4068, label %.lr.ph4067
 
-.lr.ph4067:                                       ; preds = %3953
-  %3955 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  br label %3956
+.lr.ph4067:                                       ; preds = %3949
+  %3951 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  br label %3952
 
-3956:                                             ; preds = %.lr.ph4067, %3977
-  %.021144065 = phi ptr [ %3954, %.lr.ph4067 ], [ %.pre4536, %3977 ]
-  %3957 = load ptr, ptr %3955, align 8, !tbaa !462
-  %3958 = getelementptr inbounds nuw i8, ptr %.021144065, i64 24
-  %3959 = load ptr, ptr %3958, align 8, !tbaa !276
-  %3960 = load ptr, ptr %50, align 8, !tbaa !608
-  %3961 = icmp eq ptr %.021144065, %3960
-  %3962 = select i1 %3961, ptr @.str.1245, ptr @.str.44
-  %3963 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3957, ptr noundef nonnull @.str.1244, ptr noundef %3959, ptr noundef nonnull %3962) #43
-  %3964 = load ptr, ptr %3955, align 8, !tbaa !462
-  %3965 = load i32, ptr %.021144065, align 8, !tbaa !133
-  %3966 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3964, ptr noundef nonnull @.str.1240, i32 noundef %3965) #43
-  %3967 = load ptr, ptr %3955, align 8, !tbaa !462
-  %3968 = getelementptr inbounds nuw i8, ptr %.021144065, i64 4
-  %3969 = load i32, ptr %3968, align 4, !tbaa !137
-  %3970 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3967, ptr noundef nonnull @.str.1241, i32 noundef %3969) #43
-  %3971 = load ptr, ptr %3955, align 8, !tbaa !462
-  %3972 = getelementptr inbounds nuw i8, ptr %.021144065, i64 8
-  %3973 = load i32, ptr %3972, align 8, !tbaa !275
-  %3974 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3971, ptr noundef nonnull @.str.1242, i32 noundef %3973) #43
-  %3975 = getelementptr inbounds nuw i8, ptr %.021144065, i64 16
-  %3976 = load ptr, ptr %3975, align 8, !tbaa !609
-  %.not2578 = icmp eq ptr %3976, null
-  br i1 %.not2578, label %._crit_edge4068, label %3977
+3952:                                             ; preds = %.lr.ph4067, %3973
+  %.021144065 = phi ptr [ %3950, %.lr.ph4067 ], [ %.pre4536, %3973 ]
+  %3953 = load ptr, ptr %3951, align 8, !tbaa !462
+  %3954 = getelementptr inbounds nuw i8, ptr %.021144065, i64 24
+  %3955 = load ptr, ptr %3954, align 8, !tbaa !276
+  %3956 = load ptr, ptr %50, align 8, !tbaa !608
+  %3957 = icmp eq ptr %.021144065, %3956
+  %3958 = select i1 %3957, ptr @.str.1245, ptr @.str.44
+  %3959 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3953, ptr noundef nonnull @.str.1244, ptr noundef %3955, ptr noundef nonnull %3958) #43
+  %3960 = load ptr, ptr %3951, align 8, !tbaa !462
+  %3961 = load i32, ptr %.021144065, align 8, !tbaa !133
+  %3962 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3960, ptr noundef nonnull @.str.1240, i32 noundef %3961) #43
+  %3963 = load ptr, ptr %3951, align 8, !tbaa !462
+  %3964 = getelementptr inbounds nuw i8, ptr %.021144065, i64 4
+  %3965 = load i32, ptr %3964, align 4, !tbaa !137
+  %3966 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3963, ptr noundef nonnull @.str.1241, i32 noundef %3965) #43
+  %3967 = load ptr, ptr %3951, align 8, !tbaa !462
+  %3968 = getelementptr inbounds nuw i8, ptr %.021144065, i64 8
+  %3969 = load i32, ptr %3968, align 8, !tbaa !275
+  %3970 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3967, ptr noundef nonnull @.str.1242, i32 noundef %3969) #43
+  %3971 = getelementptr inbounds nuw i8, ptr %.021144065, i64 16
+  %3972 = load ptr, ptr %3971, align 8, !tbaa !609
+  %.not2578 = icmp eq ptr %3972, null
+  br i1 %.not2578, label %._crit_edge4068, label %3973
 
-3977:                                             ; preds = %3956
-  %3978 = load ptr, ptr %3955, align 8, !tbaa !462
-  %3979 = call i64 @fwrite(ptr nonnull @.str.1246, i64 36, i64 1, ptr %3978)
-  %.pre4536 = load ptr, ptr %3975, align 8, !tbaa !609
+3973:                                             ; preds = %3952
+  %3974 = load ptr, ptr %3951, align 8, !tbaa !462
+  %3975 = call i64 @fwrite(ptr nonnull @.str.1246, i64 36, i64 1, ptr %3974)
+  %.pre4536 = load ptr, ptr %3971, align 8, !tbaa !609
   %.not2577 = icmp eq ptr %.pre4536, null
-  br i1 %.not2577, label %._crit_edge4068, label %3956, !llvm.loop !610
+  br i1 %.not2577, label %._crit_edge4068, label %3952, !llvm.loop !610
 
-._crit_edge4068:                                  ; preds = %3956, %3977, %3953
+._crit_edge4068:                                  ; preds = %3952, %3973, %3949
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #43
   br label %test_breakpoint.exit
 
 .critedge2851:                                    ; preds = %.critedge2850
-  %3980 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1247, i64 noundef range(i64 0, 1073741824) %3900) #44
-  %3981 = icmp eq i32 %3980, 0
-  br i1 %3981, label %3982, label %.critedge2852
+  %3976 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1247, i64 noundef range(i64 0, 1073741824) %3896) #44
+  %3977 = icmp eq i32 %3976, 0
+  br i1 %3977, label %3978, label %.critedge2852
 
-3982:                                             ; preds = %.critedge2851
-  %3983 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %3984 = load ptr, ptr %3983, align 8
+3978:                                             ; preds = %.critedge2851
+  %3979 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %3980 = load ptr, ptr %3979, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #43
   store ptr null, ptr %51, align 8, !tbaa !29
-  %3985 = load ptr, ptr %1, align 8, !tbaa !477
-  %.not2574 = icmp eq ptr %3985, null
-  br i1 %.not2574, label %3996, label %3986
+  %3981 = load ptr, ptr %1, align 8, !tbaa !477
+  %.not2574 = icmp eq ptr %3981, null
+  br i1 %.not2574, label %3992, label %3982
 
-3986:                                             ; preds = %3982
-  %3987 = icmp eq i32 %.02122.lcssa.ph, 2
-  %3988 = select i1 %3987, ptr %3984, ptr @.str.45
-  %3989 = call i32 @sqlite3_file_control(ptr noundef nonnull %3985, ptr noundef %3988, i32 noundef 12, ptr noundef nonnull %51) #43
-  %3990 = load ptr, ptr %51, align 8, !tbaa !29
-  %.not2575 = icmp eq ptr %3990, null
-  br i1 %.not2575, label %3996, label %3991
+3982:                                             ; preds = %3978
+  %3983 = icmp eq i32 %.02122.lcssa.ph, 2
+  %3984 = select i1 %3983, ptr %3980, ptr @.str.45
+  %3985 = call i32 @sqlite3_file_control(ptr noundef nonnull %3981, ptr noundef %3984, i32 noundef 12, ptr noundef nonnull %51) #43
+  %3986 = load ptr, ptr %51, align 8, !tbaa !29
+  %.not2575 = icmp eq ptr %3986, null
+  br i1 %.not2575, label %3992, label %3987
 
-3991:                                             ; preds = %3986
-  %3992 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3993 = load ptr, ptr %3992, align 8, !tbaa !462
-  %3994 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3993, ptr noundef nonnull @.str.310, ptr noundef nonnull %3990) #43
-  %3995 = load ptr, ptr %51, align 8, !tbaa !29
-  call void @sqlite3_free(ptr noundef %3995) #43
-  br label %3996
+3987:                                             ; preds = %3982
+  %3988 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3989 = load ptr, ptr %3988, align 8, !tbaa !462
+  %3990 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3989, ptr noundef nonnull @.str.310, ptr noundef nonnull %3986) #43
+  %3991 = load ptr, ptr %51, align 8, !tbaa !29
+  call void @sqlite3_free(ptr noundef %3991) #43
+  br label %3992
 
-3996:                                             ; preds = %3986, %3991, %3982
+3992:                                             ; preds = %3982, %3987, %3978
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #43
   br label %test_breakpoint.exit
 
-.critedge2852:                                    ; preds = %3897, %.critedge2851
-  br i1 %2589, label %3997, label %.critedge2854
+.critedge2852:                                    ; preds = %3893, %.critedge2851
+  br i1 %2585, label %3993, label %.critedge2854
 
-3997:                                             ; preds = %.critedge2852
-  %3998 = and i64 %strlen.i, 1073741823
-  %3999 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1248, i64 noundef range(i64 0, 1073741824) %3998) #44
-  %4000 = icmp eq i32 %3999, 0
-  br i1 %4000, label %4001, label %4010
+3993:                                             ; preds = %.critedge2852
+  %3994 = and i64 %strlen.i, 1073741823
+  %3995 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1248, i64 noundef range(i64 0, 1073741824) %3994) #44
+  %3996 = icmp eq i32 %3995, 0
+  br i1 %3996, label %3997, label %4006
 
-4001:                                             ; preds = %3997
+3997:                                             ; preds = %3993
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %52) #43
   %.not2573 = icmp eq i32 %.02122.lcssa.ph, 1
-  br i1 %.not2573, label %4007, label %4002
+  br i1 %.not2573, label %4003, label %3998
 
-4002:                                             ; preds = %4001
-  %4003 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %4004 = load ptr, ptr %4003, align 8, !tbaa !29
-  %4005 = tail call fastcc i64 @integerValue(ptr noundef %4004)
-  %4006 = trunc i64 %4005 to i32
-  br label %4007
+3998:                                             ; preds = %3997
+  %3999 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %4000 = load ptr, ptr %3999, align 8, !tbaa !29
+  %4001 = tail call fastcc i64 @integerValue(ptr noundef %4000)
+  %4002 = trunc i64 %4001 to i32
+  br label %4003
 
-4007:                                             ; preds = %4001, %4002
-  %4008 = phi i32 [ %4006, %4002 ], [ -1, %4001 ]
-  store i32 %4008, ptr %52, align 4, !tbaa !36
-  %4009 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 31, i32 noundef 3, ptr noundef nonnull %52) #43
+4003:                                             ; preds = %3997, %3998
+  %4004 = phi i32 [ %4002, %3998 ], [ -1, %3997 ]
+  store i32 %4004, ptr %52, align 4, !tbaa !36
+  %4005 = call i32 (i32, ...) @sqlite3_test_control(i32 noundef 31, i32 noundef 3, ptr noundef nonnull %52) #43
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #43
   br label %test_breakpoint.exit
 
-4010:                                             ; preds = %3997
-  %4011 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1109, i64 noundef range(i64 0, 1073741824) %3998) #44
-  %4012 = icmp eq i32 %4011, 0
-  br i1 %4012, label %4013, label %.critedge2854
+4006:                                             ; preds = %3993
+  %4007 = tail call i32 @strncmp(ptr noundef nonnull %128, ptr noundef nonnull @.str.1109, i64 noundef range(i64 0, 1073741824) %3994) #44
+  %4008 = icmp eq i32 %4007, 0
+  br i1 %4008, label %4009, label %.critedge2854
 
-4013:                                             ; preds = %4010
-  %4014 = add nsw i32 %.02122.lcssa.ph, -1
-  %4015 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  store i32 %4014, ptr %4015, align 8, !tbaa !570
-  %4016 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %4017 = load ptr, ptr %4016, align 8, !tbaa !483
-  %4018 = shl nuw nsw i64 %124, 3
-  %4019 = tail call ptr @realloc(ptr noundef %4017, i64 noundef %4018) #48
-  store ptr %4019, ptr %4016, align 8, !tbaa !483
-  %4020 = icmp eq ptr %4019, null
-  %4021 = load i32, ptr %4015, align 8, !tbaa !570
-  %4022 = icmp sgt i32 %4021, 0
-  %or.cond4756 = select i1 %4020, i1 %4022, i1 false
-  br i1 %or.cond4756, label %4023, label %thread-pre-split3636
+4009:                                             ; preds = %4006
+  %4010 = add nsw i32 %.02122.lcssa.ph, -1
+  %4011 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  store i32 %4010, ptr %4011, align 8, !tbaa !570
+  %4012 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %4013 = load ptr, ptr %4012, align 8, !tbaa !483
+  %4014 = shl nuw nsw i64 %124, 3
+  %4015 = tail call ptr @realloc(ptr noundef %4013, i64 noundef %4014) #48
+  store ptr %4015, ptr %4012, align 8, !tbaa !483
+  %4016 = icmp eq ptr %4015, null
+  %4017 = load i32, ptr %4011, align 8, !tbaa !570
+  %4018 = icmp sgt i32 %4017, 0
+  %or.cond4756 = select i1 %4016, i1 %4018, i1 false
+  br i1 %or.cond4756, label %4019, label %thread-pre-split3636
 
-4023:                                             ; preds = %4013
+4019:                                             ; preds = %4009
   tail call fastcc void @shell_out_of_memory()
   unreachable
 
-thread-pre-split3636:                             ; preds = %4013
-  %.not2572 = icmp eq i32 %4021, 0
-  br i1 %.not2572, label %4028, label %4024
+thread-pre-split3636:                             ; preds = %4009
+  %.not2572 = icmp eq i32 %4017, 0
+  br i1 %.not2572, label %4024, label %4020
 
-4024:                                             ; preds = %thread-pre-split3636
-  %4025 = sext i32 %4021 to i64
-  %4026 = getelementptr inbounds i32, ptr %4019, i64 %4025
-  %4027 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  store ptr %4026, ptr %4027, align 8, !tbaa !611
-  br label %4028
+4020:                                             ; preds = %thread-pre-split3636
+  %4021 = sext i32 %4017 to i64
+  %4022 = getelementptr inbounds i32, ptr %4015, i64 %4021
+  %4023 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  store ptr %4022, ptr %4023, align 8, !tbaa !611
+  br label %4024
 
-4028:                                             ; preds = %4024, %thread-pre-split3636
+4024:                                             ; preds = %4020, %thread-pre-split3636
   %.not4217 = icmp eq i32 %.02122.lcssa.ph, 1
   br i1 %.not4217, label %test_breakpoint.exit, label %.lr.ph4063.preheader
 
-.lr.ph4063.preheader:                             ; preds = %4028
+.lr.ph4063.preheader:                             ; preds = %4024
   %wide.trip.count4394 = and i64 %.02122.lcssa.ph.in, 4294967295
   br label %.lr.ph4063
 
 .lr.ph4063:                                       ; preds = %.lr.ph4063.preheader, %.lr.ph4063
   %indvars.iv4389 = phi i64 [ 1, %.lr.ph4063.preheader ], [ %indvars.iv.next4390, %.lr.ph4063 ]
-  %4029 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4389
-  %4030 = load ptr, ptr %4029, align 8, !tbaa !29
-  %4031 = tail call fastcc i64 @integerValue(ptr noundef %4030)
-  %4032 = trunc i64 %4031 to i32
-  %4033 = load ptr, ptr %4016, align 8, !tbaa !483
-  %4034 = getelementptr i32, ptr %4033, i64 %indvars.iv4389
-  %4035 = getelementptr i8, ptr %4034, i64 -4
-  store i32 %4032, ptr %4035, align 4, !tbaa !36
+  %4025 = getelementptr inbounds nuw [52 x ptr], ptr %4, i64 0, i64 %indvars.iv4389
+  %4026 = load ptr, ptr %4025, align 8, !tbaa !29
+  %4027 = tail call fastcc i64 @integerValue(ptr noundef %4026)
+  %4028 = trunc i64 %4027 to i32
+  %4029 = load ptr, ptr %4012, align 8, !tbaa !483
+  %4030 = getelementptr i32, ptr %4029, i64 %indvars.iv4389
+  %4031 = getelementptr i8, ptr %4030, i64 -4
+  store i32 %4028, ptr %4031, align 4, !tbaa !36
   %indvars.iv.next4390 = add nuw nsw i64 %indvars.iv4389, 1
   %exitcond4395.not = icmp eq i64 %indvars.iv.next4390, %wide.trip.count4394
   br i1 %exitcond4395.not, label %test_breakpoint.exit, label %.lr.ph4063, !llvm.loop !612
 
-.critedge2854:                                    ; preds = %.critedge2852, %4010
-  %4036 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %4037 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4036, ptr noundef nonnull @.str.1249, ptr noundef nonnull %128) #46
+.critedge2854:                                    ; preds = %.critedge2852, %4006
+  %4032 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %4033 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4032, ptr noundef nonnull @.str.1249, ptr noundef nonnull %128) #46
   br label %test_breakpoint.exit
 
-test_breakpoint.exit:                             ; preds = %.thread3232, %.preheader3764, %.lr.ph4063, %4028, %3499, %2883, %2476, %2213, %.critedge2814, %1689, %1683, %3894, %3891, %3884, %.thread3616, %3348, %3094, %._crit_edge4122, %3062, %3086, %3084, %3051, %2871, %2731, %2588, %2511, %2540, %._crit_edge4052, %2463, %2454, %2286, %2139, %2136, %2086, %2082, %2009, %1852, %1848, %1751, %1667, %1704, %1643, %1646, %1630, %.thread3326, %1028, %.loopexit3766, %.thread3253, %732, %730, %715, %664, %305, %303, %271, %267, %close_db.exit, %2498, %803, %821, %813, %799, %783, %784, %450, %463, %465, %460, %417, %427, %162, %164, %155, %262, %281, %285, %288, %337, %466, %._crit_edge3934, %607, %742, %831, %828, %1052, %1057, %1060, %2044, %2039, %._crit_edge4056, %shell_strncpy.exit3073, %2485, %2622, %2613, %2748, %2890, %2884, %3225, %3227, %3214, %3221, %3219, %3366, %3362, %3832, %3946, %3996, %.critedge2854, %4007, %._crit_edge4068, %3903, %3840, %3844, %2300, %2342, %shell_check_oom.exit3058, %.critedge2817.thread, %2374, %2339, %2017, %1756, %output_file_close.exit.tail, %1723, %1035, %1043, %777, %771, %773, %766, %734, %619, %.thread3246, %482, %tryToClone.exit, %375, %307, %252, %256, %169, %148
-  %.02138 = phi i32 [ 1, %148 ], [ 0, %155 ], [ 0, %162 ], [ 0, %164 ], [ %170, %169 ], [ %.22140, %close_db.exit ], [ 0, %252 ], [ 1, %256 ], [ 1, %262 ], [ 1, %285 ], [ 0, %281 ], [ 1, %288 ], [ 1, %307 ], [ %.32141, %337 ], [ 0, %tryToClone.exit ], [ 1, %375 ], [ 1, %466 ], [ 0, %482 ], [ %.521434561, %._crit_edge3934 ], [ 0, %.thread3246 ], [ %609, %607 ], [ %620, %619 ], [ 1, %734 ], [ %743, %742 ], [ 0, %766 ], [ 0, %771 ], [ 0, %773 ], [ 1, %777 ], [ 1, %828 ], [ 0, %831 ], [ %.10, %.loopexit3766 ], [ %.12, %1028 ], [ 0, %1035 ], [ 1, %1043 ], [ 0, %1057 ], [ 0, %1052 ], [ 0, %1060 ], [ %.18, %1630 ], [ 0, %1723 ], [ %.24, %1751 ], [ 1, %1756 ], [ 0, %output_file_close.exit.tail ], [ 1, %2017 ], [ 0, %2039 ], [ 1, %2044 ], [ 0, %.critedge2817.thread ], [ 0, %2300 ], [ 0, %2339 ], [ 0, %2342 ], [ %.40, %2374 ], [ 0, %shell_check_oom.exit3058 ], [ 0, %._crit_edge4056 ], [ 0, %shell_strncpy.exit3073 ], [ 0, %2485 ], [ %.46, %2588 ], [ 0, %2613 ], [ 1, %2622 ], [ %.48, %2731 ], [ 0, %2748 ], [ %.55, %2871 ], [ %.63, %2890 ], [ %.63, %2884 ], [ %.66, %3051 ], [ 0, %3214 ], [ 0, %3219 ], [ 0, %3221 ], [ 0, %3225 ], [ 1, %3227 ], [ %.71, %3348 ], [ 0, %3362 ], [ 0, %3366 ], [ 1, %3499 ], [ 0, %3832 ], [ 0, %3840 ], [ 1, %3844 ], [ 0, %3903 ], [ 0, %3946 ], [ 0, %._crit_edge4068 ], [ 0, %3996 ], [ 0, %4007 ], [ 1, %.critedge2854 ], [ 0, %427 ], [ 0, %417 ], [ 0, %450 ], [ 1, %460 ], [ 0, %465 ], [ 0, %463 ], [ 2, %784 ], [ 2, %783 ], [ 0, %799 ], [ 0, %813 ], [ 0, %821 ], [ 0, %803 ], [ 2, %2498 ], [ 0, %267 ], [ 0, %271 ], [ 0, %303 ], [ 0, %305 ], [ 1, %664 ], [ 0, %715 ], [ 0, %730 ], [ 0, %732 ], [ 0, %.thread3253 ], [ %.14.ph, %.thread3326 ], [ 1, %1643 ], [ %1647, %1646 ], [ 1, %1667 ], [ 0, %1704 ], [ %.29, %2009 ], [ 1, %1848 ], [ 1, %1852 ], [ 0, %2139 ], [ 0, %2136 ], [ 1, %2082 ], [ 1, %2086 ], [ %.38, %2286 ], [ 0, %._crit_edge4052 ], [ 1, %2454 ], [ 1, %2463 ], [ 1, %2511 ], [ %.45, %2540 ], [ 1, %3062 ], [ 0, %3086 ], [ 0, %3084 ], [ 1, %3094 ], [ 0, %._crit_edge4122 ], [ %.74.ph, %.thread3616 ], [ 1, %3884 ], [ 0, %3894 ], [ 0, %3891 ], [ 1, %1683 ], [ 1, %1689 ], [ 1, %.critedge2814 ], [ 1, %2213 ], [ 0, %2476 ], [ %.63, %2883 ], [ 0, %4028 ], [ 0, %.lr.ph4063 ], [ 0, %.preheader3764 ], [ 0, %.thread3232 ]
-  %4038 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %4039 = load i32, ptr %4038, align 4, !tbaa !550
-  %.not2765 = icmp eq i32 %4039, 0
-  br i1 %.not2765, label %4044, label %4040
+test_breakpoint.exit:                             ; preds = %.thread3232, %.preheader3764, %.lr.ph4063, %4024, %3495, %2879, %2472, %2209, %.critedge2814, %1685, %1679, %3890, %3887, %3880, %.thread3616, %3344, %3090, %._crit_edge4122, %3058, %3082, %3080, %3047, %2867, %2727, %2584, %2507, %2536, %._crit_edge4052, %2459, %2450, %2282, %2135, %2132, %2082, %2078, %2005, %1848, %1844, %1747, %1663, %1700, %1639, %1642, %1626, %.thread3326, %1024, %.loopexit3766, %.thread3253, %728, %726, %711, %660, %305, %303, %271, %267, %close_db.exit, %2494, %799, %817, %809, %795, %779, %780, %450, %463, %465, %460, %417, %427, %162, %164, %155, %262, %281, %285, %288, %337, %466, %._crit_edge3934, %603, %738, %827, %824, %1048, %1053, %1056, %2040, %2035, %._crit_edge4056, %shell_strncpy.exit3073, %2481, %2618, %2609, %2744, %2886, %2880, %3221, %3223, %3210, %3217, %3215, %3362, %3358, %3828, %3942, %3992, %.critedge2854, %4003, %._crit_edge4068, %3899, %3836, %3840, %2296, %2338, %shell_check_oom.exit3058, %.critedge2817.thread, %2370, %2335, %2013, %1752, %output_file_close.exit.tail, %1719, %1031, %1039, %773, %767, %769, %762, %730, %615, %.thread3246, %482, %tryToClone.exit, %375, %307, %252, %256, %169, %148
+  %.02138 = phi i32 [ 1, %148 ], [ 0, %155 ], [ 0, %162 ], [ 0, %164 ], [ %170, %169 ], [ %.22140, %close_db.exit ], [ 0, %252 ], [ 1, %256 ], [ 1, %262 ], [ 1, %285 ], [ 0, %281 ], [ 1, %288 ], [ 1, %307 ], [ %.32141, %337 ], [ 0, %tryToClone.exit ], [ 1, %375 ], [ 1, %466 ], [ 0, %482 ], [ %.521434561, %._crit_edge3934 ], [ 0, %.thread3246 ], [ %605, %603 ], [ %616, %615 ], [ 1, %730 ], [ %739, %738 ], [ 0, %762 ], [ 0, %767 ], [ 0, %769 ], [ 1, %773 ], [ 1, %824 ], [ 0, %827 ], [ %.10, %.loopexit3766 ], [ %.12, %1024 ], [ 0, %1031 ], [ 1, %1039 ], [ 0, %1053 ], [ 0, %1048 ], [ 0, %1056 ], [ %.18, %1626 ], [ 0, %1719 ], [ %.24, %1747 ], [ 1, %1752 ], [ 0, %output_file_close.exit.tail ], [ 1, %2013 ], [ 0, %2035 ], [ 1, %2040 ], [ 0, %.critedge2817.thread ], [ 0, %2296 ], [ 0, %2335 ], [ 0, %2338 ], [ %.40, %2370 ], [ 0, %shell_check_oom.exit3058 ], [ 0, %._crit_edge4056 ], [ 0, %shell_strncpy.exit3073 ], [ 0, %2481 ], [ %.46, %2584 ], [ 0, %2609 ], [ 1, %2618 ], [ %.48, %2727 ], [ 0, %2744 ], [ %.55, %2867 ], [ %.63, %2886 ], [ %.63, %2880 ], [ %.66, %3047 ], [ 0, %3210 ], [ 0, %3215 ], [ 0, %3217 ], [ 0, %3221 ], [ 1, %3223 ], [ %.71, %3344 ], [ 0, %3358 ], [ 0, %3362 ], [ 1, %3495 ], [ 0, %3828 ], [ 0, %3836 ], [ 1, %3840 ], [ 0, %3899 ], [ 0, %3942 ], [ 0, %._crit_edge4068 ], [ 0, %3992 ], [ 0, %4003 ], [ 1, %.critedge2854 ], [ 0, %427 ], [ 0, %417 ], [ 0, %450 ], [ 1, %460 ], [ 0, %465 ], [ 0, %463 ], [ 2, %780 ], [ 2, %779 ], [ 0, %795 ], [ 0, %809 ], [ 0, %817 ], [ 0, %799 ], [ 2, %2494 ], [ 0, %267 ], [ 0, %271 ], [ 0, %303 ], [ 0, %305 ], [ 1, %660 ], [ 0, %711 ], [ 0, %726 ], [ 0, %728 ], [ 0, %.thread3253 ], [ %.14.ph, %.thread3326 ], [ 1, %1639 ], [ %1643, %1642 ], [ 1, %1663 ], [ 0, %1700 ], [ %.29, %2005 ], [ 1, %1844 ], [ 1, %1848 ], [ 0, %2135 ], [ 0, %2132 ], [ 1, %2078 ], [ 1, %2082 ], [ %.38, %2282 ], [ 0, %._crit_edge4052 ], [ 1, %2450 ], [ 1, %2459 ], [ 1, %2507 ], [ %.45, %2536 ], [ 1, %3058 ], [ 0, %3082 ], [ 0, %3080 ], [ 1, %3090 ], [ 0, %._crit_edge4122 ], [ %.74.ph, %.thread3616 ], [ 1, %3880 ], [ 0, %3890 ], [ 0, %3887 ], [ 1, %1679 ], [ 1, %1685 ], [ 1, %.critedge2814 ], [ 1, %2209 ], [ 0, %2472 ], [ %.63, %2879 ], [ 0, %4024 ], [ 0, %.lr.ph4063 ], [ 0, %.preheader3764 ], [ 0, %.thread3232 ]
+  %4034 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %4035 = load i32, ptr %4034, align 4, !tbaa !550
+  %.not2765 = icmp eq i32 %4035, 0
+  br i1 %.not2765, label %4040, label %4036
 
-4040:                                             ; preds = %test_breakpoint.exit
-  %4041 = add nsw i32 %4039, -1
-  store i32 %4041, ptr %4038, align 4, !tbaa !550
-  %4042 = icmp eq i32 %4041, 0
-  br i1 %4042, label %4043, label %4044
+4036:                                             ; preds = %test_breakpoint.exit
+  %4037 = add nsw i32 %4035, -1
+  store i32 %4037, ptr %4034, align 4, !tbaa !550
+  %4038 = icmp eq i32 %4037, 0
+  br i1 %4038, label %4039, label %4040
 
-4043:                                             ; preds = %4040
+4039:                                             ; preds = %4036
   call fastcc void @output_reset(ptr noundef %1)
-  br label %4044
+  br label %4040
 
-4044:                                             ; preds = %4040, %4043, %test_breakpoint.exit
-  %4045 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %4046 = load i8, ptr %4045, align 2, !tbaa !471
-  %4047 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  store i8 %4046, ptr %4047, align 1, !tbaa !472
+4040:                                             ; preds = %4036, %4039, %test_breakpoint.exit
+  %4041 = getelementptr inbounds nuw i8, ptr %1, i64 18
+  %4042 = load i8, ptr %4041, align 2, !tbaa !471
+  %4043 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  store i8 %4042, ptr %4043, align 1, !tbaa !472
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %56, %.thread3553, %.thread3482, %1515, %close_db.exit.thread, %._crit_edge, %4044, %2031
-  %.02113 = phi i32 [ %.02138, %4044 ], [ 0, %1515 ], [ 0, %2031 ], [ 0, %._crit_edge ], [ 1, %close_db.exit.thread ], [ 1, %.thread3482 ], [ 1, %.thread3553 ], [ 0, %56 ]
+._crit_edge.thread:                               ; preds = %56, %.thread3553, %.thread3482, %1511, %close_db.exit.thread, %._crit_edge, %4040, %2027
+  %.02113 = phi i32 [ %.02138, %4040 ], [ 0, %1511 ], [ 0, %2027 ], [ 0, %._crit_edge ], [ 1, %close_db.exit.thread ], [ 1, %.thread3482 ], [ 1, %.thread3553 ], [ 0, %56 ]
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %4) #43
   ret i32 %.02113
 }
@@ -32028,7 +32025,7 @@ hash_step.exit37:                                 ; preds = %._crit_edge, %68
 
 86:                                               ; preds = %85
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %1, ptr noundef nonnull align 16 dereferenceable(20) %5, i64 20, i1 false)
-  br label %103
+  br label %102
 
 .preheader:                                       ; preds = %85, %.preheader
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.preheader ], [ 0, %85 ]
@@ -32045,19 +32042,18 @@ hash_step.exit37:                                 ; preds = %._crit_edge, %68
   %96 = zext nneg i8 %95 to i64
   %97 = getelementptr inbounds nuw [17 x i8], ptr @hash_finish.zEncode, i64 0, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !25
-  %99 = or disjoint i64 %93, 1
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 %99
-  store i8 %98, ptr %100, align 1, !tbaa !25
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 1
+  store i8 %98, ptr %99, align 1, !tbaa !25
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 20
-  br i1 %exitcond52.not, label %101, label %.preheader, !llvm.loop !695
+  br i1 %exitcond52.not, label %100, label %.preheader, !llvm.loop !695
 
-101:                                              ; preds = %.preheader
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i8 0, ptr %102, align 1, !tbaa !25
-  br label %103
+100:                                              ; preds = %.preheader
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  store i8 0, ptr %101, align 1, !tbaa !25
+  br label %102
 
-103:                                              ; preds = %101, %86
+102:                                              ; preds = %100, %86
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #43
   ret void
@@ -43678,177 +43674,183 @@ zipfileReadData.exit109:                          ; preds = %85, %76
 
 .lr.ph.i.outer:                                   ; preds = %96, %.thread
   %100 = phi i1 [ false, %.thread ], [ true, %96 ]
-  %.01619.i.ph = phi ptr [ %112, %.thread ], [ %94, %96 ]
+  %.01619.i.ph = phi ptr [ %117, %.thread ], [ %94, %96 ]
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %107
-  %.01619.i = phi ptr [ %108, %107 ], [ %.01619.i.ph, %.lr.ph.i.outer ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.outer, %110
+  %.01619.i = phi ptr [ %112, %110 ], [ %.01619.i.ph, %.lr.ph.i.outer ]
   %.016.val.i = load i16, ptr %.01619.i, align 1
   %101 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 4
   %102 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 2
-  %.val.i110 = load i16, ptr %102, align 1
-  %103 = zext i16 %.val.i110 to i64
+  %.val.i110 = load i8, ptr %102, align 1, !tbaa !25
+  %103 = getelementptr i8, ptr %.01619.i, i64 3
+  %.val17.i = load i8, ptr %103, align 1, !tbaa !25
+  %104 = zext i8 %.val17.i to i64
+  %105 = shl nuw nsw i64 %104, 8
+  %106 = zext i8 %.val.i110 to i64
   %cond.i = icmp eq i16 %.016.val.i, 21589
-  br i1 %cond.i, label %104, label %107
+  br i1 %cond.i, label %107, label %110
 
-104:                                              ; preds = %.lr.ph.i
-  %105 = load i8, ptr %101, align 1, !tbaa !25
-  %106 = and i8 %105, 1
-  %.not.i111 = icmp eq i8 %106, 0
-  br i1 %.not.i111, label %107, label %.thread
+107:                                              ; preds = %.lr.ph.i
+  %108 = load i8, ptr %101, align 1, !tbaa !25
+  %109 = and i8 %108, 1
+  %.not.i111 = icmp eq i8 %109, 0
+  br i1 %.not.i111, label %110, label %.thread
 
-107:                                              ; preds = %104, %.lr.ph.i
-  %108 = getelementptr inbounds nuw i8, ptr %101, i64 %103
-  %109 = icmp ult ptr %108, %99
-  br i1 %109, label %.lr.ph.i, label %zipfileScanExtra.exit, !llvm.loop !918
-
-.thread:                                          ; preds = %104
-  %110 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 5
-  %111 = load i32, ptr %110, align 1
-  store i32 %111, ptr %88, align 4, !tbaa !36
-  %112 = getelementptr inbounds nuw i8, ptr %101, i64 %103
+110:                                              ; preds = %107, %.lr.ph.i
+  %111 = getelementptr inbounds nuw i8, ptr %101, i64 %105
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 %106
   %113 = icmp ult ptr %112, %99
-  br i1 %113, label %.lr.ph.i.outer, label %zipfileScanExtra.exit.thread160, !llvm.loop !918
+  br i1 %113, label %.lr.ph.i, label %zipfileScanExtra.exit, !llvm.loop !918
 
-zipfileScanExtra.exit:                            ; preds = %107
+.thread:                                          ; preds = %107
+  %114 = getelementptr inbounds nuw i8, ptr %.01619.i, i64 5
+  %115 = load i32, ptr %114, align 1
+  store i32 %115, ptr %88, align 4, !tbaa !36
+  %116 = getelementptr inbounds nuw i8, ptr %101, i64 %105
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 %106
+  %118 = icmp ult ptr %117, %99
+  br i1 %118, label %.lr.ph.i.outer, label %zipfileScanExtra.exit.thread160, !llvm.loop !918
+
+zipfileScanExtra.exit:                            ; preds = %110
   br i1 %100, label %zipfileScanExtra.exit.thread, label %zipfileScanExtra.exit.thread160
 
 zipfileScanExtra.exit.thread:                     ; preds = %96, %zipfileScanExtra.exit
   %.val102 = load i16, ptr %51, align 8, !tbaa !879
   %.val103 = load i16, ptr %53, align 2, !tbaa !878
-  %114 = zext i16 %.val103 to i32
-  %115 = lshr i32 %114, 9
-  %116 = lshr i32 %114, 5
-  %117 = and i32 %116, 15
-  %118 = icmp samesign ult i32 %117, 3
-  %119 = or disjoint i32 %117, 12
-  %.021.i = select i1 %118, i32 %119, i32 %117
-  %.0.v.i = select i1 %118, i32 1979, i32 1980
-  %.0.i112 = add nuw nsw i32 %.0.v.i, %115
-  %120 = zext i16 %.val102 to i32
-  %121 = lshr i32 %120, 11
-  %122 = lshr i32 %120, 5
-  %123 = and i32 %122, 63
-  %124 = shl nuw nsw i32 %120, 1
-  %125 = and i32 %124, 62
-  %126 = and i32 %114, 31
-  %127 = mul nuw nsw i32 %.0.i112, 36525
-  %128 = add nuw nsw i32 %127, 172251900
-  %129 = udiv i32 %128, 100
-  %130 = mul nuw nsw i32 %.021.i, 306001
-  %131 = add nuw nsw i32 %130, 306001
-  %132 = udiv i32 %131, 10000
+  %119 = zext i16 %.val103 to i32
+  %120 = lshr i32 %119, 9
+  %121 = lshr i32 %119, 5
+  %122 = and i32 %121, 15
+  %123 = icmp samesign ult i32 %122, 3
+  %124 = or disjoint i32 %122, 12
+  %.021.i = select i1 %123, i32 %124, i32 %122
+  %.0.v.i = select i1 %123, i32 1979, i32 1980
+  %.0.i112 = add nuw nsw i32 %.0.v.i, %120
+  %125 = zext i16 %.val102 to i32
+  %126 = lshr i32 %125, 11
+  %127 = lshr i32 %125, 5
+  %128 = and i32 %127, 63
+  %129 = shl nuw nsw i32 %125, 1
+  %130 = and i32 %129, 62
+  %131 = and i32 %119, 31
+  %132 = mul nuw nsw i32 %.0.i112, 36525
+  %133 = add nuw nsw i32 %132, 172251900
+  %134 = udiv i32 %133, 100
+  %135 = mul nuw nsw i32 %.021.i, 306001
+  %136 = add nuw nsw i32 %135, 306001
+  %137 = udiv i32 %136, 10000
   %.lhs.trunc.i = trunc nuw nsw i32 %.0.i112 to i16
-  %133 = udiv i16 %.lhs.trunc.i, 100
-  %.zext.i = zext nneg i16 %133 to i32
-  %134 = udiv i16 %.lhs.trunc.i, 400
-  %.zext2.i = zext nneg i16 %134 to i32
-  %reass.sub.i = add nuw nsw i32 %126, 2
-  %135 = add nuw nsw i32 %reass.sub.i, %132
-  %136 = add nuw nsw i32 %135, %129
-  %137 = sub nuw nsw i32 %136, %.zext.i
-  %138 = add nuw nsw i32 %137, %.zext2.i
-  %139 = uitofp nneg i32 %138 to double
-  %140 = fadd double %139, -1.524500e+03
-  %141 = fmul double %140, 8.640000e+04
-  %142 = fptosi double %141 to i64
-  %143 = mul nuw nsw i32 %121, 3600
-  %144 = mul nuw nsw i32 %123, 60
-  %145 = trunc i64 %142 to i32
-  %146 = add nuw nsw i32 %143, -413362496
-  %147 = add nuw nsw i32 %146, %125
-  %148 = add nuw nsw i32 %147, %144
-  %149 = add i32 %148, %145
-  store i32 %149, ptr %88, align 8, !tbaa !866
+  %138 = udiv i16 %.lhs.trunc.i, 100
+  %.zext.i = zext nneg i16 %138 to i32
+  %139 = udiv i16 %.lhs.trunc.i, 400
+  %.zext2.i = zext nneg i16 %139 to i32
+  %reass.sub.i = add nuw nsw i32 %131, 2
+  %140 = add nuw nsw i32 %reass.sub.i, %137
+  %141 = add nuw nsw i32 %140, %134
+  %142 = sub nuw nsw i32 %141, %.zext.i
+  %143 = add nuw nsw i32 %142, %.zext2.i
+  %144 = uitofp nneg i32 %143 to double
+  %145 = fadd double %144, -1.524500e+03
+  %146 = fmul double %145, 8.640000e+04
+  %147 = fptosi double %146 to i64
+  %148 = mul nuw nsw i32 %126, 3600
+  %149 = mul nuw nsw i32 %128, 60
+  %150 = trunc i64 %147 to i32
+  %151 = add nuw nsw i32 %148, -413362496
+  %152 = add nuw nsw i32 %151, %130
+  %153 = add nuw nsw i32 %152, %149
+  %154 = add i32 %153, %150
+  store i32 %154, ptr %88, align 8, !tbaa !866
   br label %zipfileScanExtra.exit.thread160
 
 zipfileScanExtra.exit.thread160:                  ; preds = %.thread, %zipfileScanExtra.exit.thread, %zipfileScanExtra.exit
   %.not94 = icmp eq ptr %2, null
-  %150 = load i32, ptr %75, align 8, !tbaa !885
-  %151 = zext i32 %150 to i64
-  br i1 %.not94, label %.thread134, label %152
+  %155 = load i32, ptr %75, align 8, !tbaa !885
+  %156 = zext i32 %155 to i64
+  br i1 %.not94, label %.thread134, label %157
 
-152:                                              ; preds = %zipfileScanExtra.exit.thread160
-  %153 = tail call i32 @fseek(ptr noundef nonnull %2, i64 noundef %151, i32 noundef 0)
-  %154 = tail call i64 @fread(ptr noundef %.1, i64 noundef 1, i64 noundef 30, ptr noundef nonnull %2)
-  %155 = and i64 %154, 4294967295
-  %.not.i113 = icmp eq i64 %155, 30
-  br i1 %.not.i113, label %.thread138, label %157
+157:                                              ; preds = %zipfileScanExtra.exit.thread160
+  %158 = tail call i32 @fseek(ptr noundef nonnull %2, i64 noundef %156, i32 noundef 0)
+  %159 = tail call i64 @fread(ptr noundef %.1, i64 noundef 1, i64 noundef 30, ptr noundef nonnull %2)
+  %160 = and i64 %159, 4294967295
+  %.not.i113 = icmp eq i64 %160, 30
+  br i1 %.not.i113, label %.thread138, label %162
 
 .thread134:                                       ; preds = %zipfileScanExtra.exit.thread160
-  %156 = getelementptr inbounds nuw i8, ptr %1, i64 %151
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 %156
   br label %.thread138
 
-157:                                              ; preds = %152
-  %158 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.235) #43
-  store ptr %158, ptr %6, align 8, !tbaa !29
-  br label %180
-
-.thread138:                                       ; preds = %152, %.thread134
-  %.2137 = phi ptr [ %156, %.thread134 ], [ %.1, %152 ]
-  %159 = icmp eq ptr %.2137, null
-  br i1 %159, label %180, label %zipfileGetU32.exit.i116
-
-zipfileGetU32.exit.i116:                          ; preds = %.thread138
-  %160 = load i32, ptr %.2137, align 1
-  %.not.i117 = icmp eq i32 %160, 67324752
-  br i1 %.not.i117, label %161, label %180
-
-161:                                              ; preds = %zipfileGetU32.exit.i116
-  %162 = getelementptr inbounds nuw i8, ptr %.2137, i64 26
-  %.val35.i = load i16, ptr %162, align 1
-  %163 = getelementptr inbounds nuw i8, ptr %.2137, i64 28
-  %.val.i119 = load i16, ptr %163, align 1
-  %164 = load i32, ptr %75, align 8, !tbaa !885
-  %165 = add i32 %164, 30
-  %166 = zext i32 %165 to i64
-  %167 = getelementptr inbounds nuw i8, ptr %38, i64 72
-  %168 = zext i16 %.val35.i to i64
-  %169 = zext i16 %.val.i119 to i64
-  %170 = add nuw nsw i64 %169, %168
-  %171 = add nuw nsw i64 %170, %166
-  store i64 %171, ptr %167, align 8, !tbaa !871
-  br i1 %7, label %185, label %172
-
-172:                                              ; preds = %161
-  %173 = load i32, ptr %59, align 8, !tbaa !881
-  %.not95 = icmp eq i32 %173, 0
-  br i1 %.not95, label %185, label %174
-
-174:                                              ; preds = %172
-  %175 = load ptr, ptr %92, align 8, !tbaa !917
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 %30
-  %177 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  store ptr %176, ptr %177, align 8, !tbaa !870
-  %178 = getelementptr inbounds nuw i8, ptr %1, i64 %171
-  %179 = zext i32 %173 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %176, ptr nonnull align 1 %178, i64 %179, i1 false)
+162:                                              ; preds = %157
+  %163 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.235) #43
+  store ptr %163, ptr %6, align 8, !tbaa !29
   br label %185
 
-180:                                              ; preds = %157, %zipfileGetU32.exit.i116, %.thread138
-  %181 = load i32, ptr %75, align 8, !tbaa !885
-  %182 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.234, i32 noundef %181) #43
+.thread138:                                       ; preds = %157, %.thread134
+  %.2137 = phi ptr [ %161, %.thread134 ], [ %.1, %157 ]
+  %164 = icmp eq ptr %.2137, null
+  br i1 %164, label %185, label %zipfileGetU32.exit.i116
+
+zipfileGetU32.exit.i116:                          ; preds = %.thread138
+  %165 = load i32, ptr %.2137, align 1
+  %.not.i117 = icmp eq i32 %165, 67324752
+  br i1 %.not.i117, label %166, label %185
+
+166:                                              ; preds = %zipfileGetU32.exit.i116
+  %167 = getelementptr inbounds nuw i8, ptr %.2137, i64 26
+  %.val35.i = load i16, ptr %167, align 1
+  %168 = getelementptr inbounds nuw i8, ptr %.2137, i64 28
+  %.val.i119 = load i16, ptr %168, align 1
+  %169 = load i32, ptr %75, align 8, !tbaa !885
+  %170 = add i32 %169, 30
+  %171 = zext i32 %170 to i64
+  %172 = getelementptr inbounds nuw i8, ptr %38, i64 72
+  %173 = zext i16 %.val35.i to i64
+  %174 = zext i16 %.val.i119 to i64
+  %175 = add nuw nsw i64 %174, %173
+  %176 = add nuw nsw i64 %175, %171
+  store i64 %176, ptr %172, align 8, !tbaa !871
+  br i1 %7, label %190, label %177
+
+177:                                              ; preds = %166
+  %178 = load i32, ptr %59, align 8, !tbaa !881
+  %.not95 = icmp eq i32 %178, 0
+  br i1 %.not95, label %190, label %179
+
+179:                                              ; preds = %177
+  %180 = load ptr, ptr %92, align 8, !tbaa !917
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 %30
+  %182 = getelementptr inbounds nuw i8, ptr %38, i64 80
+  store ptr %181, ptr %182, align 8, !tbaa !870
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 %176
+  %184 = zext i32 %178 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %181, ptr nonnull align 1 %183, i64 %184, i1 false)
+  br label %190
+
+185:                                              ; preds = %162, %zipfileGetU32.exit.i116, %.thread138
+  %186 = load i32, ptr %75, align 8, !tbaa !885
+  %187 = tail call ptr (ptr, ...) @sqlite3_mprintf(ptr noundef nonnull @.str.234, i32 noundef %186) #43
   br label %.thread151.sink.split
 
-.thread151.sink.split:                            ; preds = %180, %zipfileReadCDS.exit, %83
-  %.sink = phi ptr [ %84, %83 ], [ %41, %zipfileReadCDS.exit ], [ %182, %180 ]
+.thread151.sink.split:                            ; preds = %185, %zipfileReadCDS.exit, %83
+  %.sink = phi ptr [ %84, %83 ], [ %41, %zipfileReadCDS.exit ], [ %187, %185 ]
   store ptr %.sink, ptr %6, align 8, !tbaa !29
   br label %.thread151
 
 .thread151:                                       ; preds = %.thread151.sink.split, %zipfileReadData.exit109
   %.5153 = phi i32 [ 7, %zipfileReadData.exit109 ], [ 1, %.thread151.sink.split ]
-  %183 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %184 = load ptr, ptr %183, align 8, !tbaa !834
-  tail call void @sqlite3_free(ptr noundef %184) #43
+  %188 = getelementptr inbounds nuw i8, ptr %38, i64 48
+  %189 = load ptr, ptr %188, align 8, !tbaa !834
+  tail call void @sqlite3_free(ptr noundef %189) #43
   tail call void @sqlite3_free(ptr noundef nonnull %38) #43
   br label %zipfileEntryFree.exit
 
-185:                                              ; preds = %161, %172, %174
+190:                                              ; preds = %166, %177, %179
   store ptr %38, ptr %4, align 8, !tbaa !853
   br label %zipfileEntryFree.exit
 
-zipfileEntryFree.exit:                            ; preds = %.thread151, %37, %zipfileReadData.exit, %185
-  %.183 = phi i32 [ 1, %zipfileReadData.exit ], [ 0, %185 ], [ %.5153, %.thread151 ], [ 7, %37 ]
+zipfileEntryFree.exit:                            ; preds = %.thread151, %37, %zipfileReadData.exit, %190
+  %.183 = phi i32 [ 1, %zipfileReadData.exit ], [ 0, %190 ], [ %.5153, %.thread151 ], [ 7, %37 ]
   ret i32 %.183
 }
 
@@ -48209,11 +48211,11 @@ dbdataLoadPage.exit:                              ; preds = %.thread.i, %53
   %.not216 = icmp eq i32 %65, 0
   %66 = select i1 %.not216, i32 0, i32 -2
   store i32 %66, ptr %15, align 8, !tbaa !976
-  %67 = or disjoint i32 %27, 3
-  %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %.pr280, i64 %68
+  %67 = zext nneg i32 %27 to i64
+  %68 = getelementptr inbounds nuw i8, ptr %.pr280, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 3
   %.val = load i8, ptr %69, align 1, !tbaa !25
-  %70 = getelementptr i8, ptr %69, i64 1
+  %70 = getelementptr i8, ptr %68, i64 4
   %.val236 = load i8, ptr %70, align 1, !tbaa !25
   %71 = zext i8 %.val to i32
   %72 = shl nuw nsw i32 %71, 8
@@ -61231,23 +61233,22 @@ shell_check_oom.exit:                             ; preds = %shell_check_oom.exi
   %20 = zext nneg i8 %19 to i64
   %21 = getelementptr inbounds nuw [16 x i8], ptr @output_hex_blob.aHex, i64 0, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !25
-  %23 = or disjoint i64 %16, 1
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 %23
-  store i8 %22, ptr %24, align 1, !tbaa !25
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 1
+  store i8 %22, ptr %23, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %shell_check_oom.exit._crit_edge.loopexit, label %shell_check_oom.exit, !llvm.loop !1131
 
 shell_check_oom.exit._crit_edge.loopexit:         ; preds = %shell_check_oom.exit
-  %25 = shl nuw nsw i32 %2, 1
-  %26 = zext nneg i32 %25 to i64
+  %24 = shl nuw nsw i32 %2, 1
+  %25 = zext nneg i32 %24 to i64
   br label %shell_check_oom.exit._crit_edge
 
 shell_check_oom.exit._crit_edge:                  ; preds = %shell_check_oom.exit.preheader, %shell_check_oom.exit._crit_edge.loopexit
-  %.0.lcssa = phi i64 [ %26, %shell_check_oom.exit._crit_edge.loopexit ], [ 0, %shell_check_oom.exit.preheader ]
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 %.0.lcssa
-  store i8 0, ptr %27, align 1, !tbaa !25
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1441, ptr noundef nonnull %6) #43
+  %.0.lcssa = phi i64 [ %25, %shell_check_oom.exit._crit_edge.loopexit ], [ 0, %shell_check_oom.exit.preheader ]
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 %.0.lcssa
+  store i8 0, ptr %26, align 1, !tbaa !25
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.1441, ptr noundef nonnull %6) #43
   tail call void @sqlite3_free(ptr noundef nonnull %6) #43
   ret void
 }

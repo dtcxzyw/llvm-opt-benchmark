@@ -678,14 +678,14 @@ define void @dorcsd2by1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   store i32 %351, ptr %22, align 4, !tbaa !3
   store i32 %351, ptr %23, align 4, !tbaa !3
   %352 = shl i32 %36, 1
-  %353 = or disjoint i32 %352, 1
-  %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds double, ptr %38, i64 %354
+  %353 = sext i32 %352 to i64
+  %354 = getelementptr double, ptr %38, i64 %353
+  %355 = getelementptr i8, ptr %354, i64 8
   %356 = shl i32 %45, 1
   %357 = sext i32 %356 to i64
   %358 = getelementptr double, ptr %47, i64 %357
   %359 = getelementptr i8, ptr %358, i64 16
-  call void @dlacpy_(ptr noundef nonnull @.str.5, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %355, ptr noundef nonnull %9, ptr noundef %359, ptr noundef nonnull %16) #4
+  call void @dlacpy_(ptr noundef nonnull @.str.5, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %355, ptr noundef nonnull %9, ptr noundef %359, ptr noundef nonnull %16) #4
   %360 = load i32, ptr %5, align 4, !tbaa !3
   %361 = add nsw i32 %360, -1
   store i32 %361, ptr %22, align 4, !tbaa !3

@@ -1511,9 +1511,9 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
   br i1 %.not, label %38, label %.critedge
 
 38:                                               ; preds = %33
-  %39 = or disjoint i64 %indvars.iv155, 1
   %.val122 = load ptr, ptr %29, align 8, !tbaa !40
-  %40 = getelementptr inbounds nuw i32, ptr %.val122, i64 %39
+  %39 = getelementptr inbounds nuw i32, ptr %.val122, i64 %indvars.iv155
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !3
   %42 = load ptr, ptr %31, align 8, !tbaa !77
   %43 = tail call i32 @Amap_ManFindCut(ptr poison, ptr noundef %18, i32 noundef %25, i32 noundef %41, ptr noundef %42)
@@ -1521,9 +1521,9 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
   br i1 %.not100, label %44, label %.critedge
 
 44:                                               ; preds = %38
-  %45 = or disjoint i64 %indvars.iv155, 2
   %.val121 = load ptr, ptr %29, align 8, !tbaa !40
-  %46 = getelementptr inbounds nuw i32, ptr %.val121, i64 %45
+  %45 = getelementptr inbounds nuw i32, ptr %.val121, i64 %indvars.iv155
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 4, !tbaa !3
   %48 = load ptr, ptr %32, align 8, !tbaa !78
   %49 = tail call i32 @Amap_ManFindCut(ptr poison, ptr noundef %23, i32 noundef %26, i32 noundef %47, ptr noundef %48)
@@ -1538,65 +1538,65 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
   br i1 %52, label %.lr.ph141, label %.critedge
 
 .lr.ph141:                                        ; preds = %.preheader
-  %53 = or disjoint i64 %indvars.iv155, 3
-  %54 = load ptr, ptr %31, align 8, !tbaa !77
-  %55 = getelementptr i8, ptr %54, i64 4
-  %56 = load i32, ptr %55, align 4, !tbaa !21
-  %57 = icmp sgt i32 %56, 0
-  br i1 %57, label %.lr.ph141.split, label %.critedge
+  %53 = load ptr, ptr %31, align 8, !tbaa !77
+  %54 = getelementptr i8, ptr %53, i64 4
+  %55 = load i32, ptr %54, align 4, !tbaa !21
+  %56 = icmp sgt i32 %55, 0
+  br i1 %56, label %.lr.ph141.split, label %.critedge
 
 .lr.ph141.split:                                  ; preds = %.lr.ph141, %.critedge2
-  %58 = phi ptr [ %161, %.critedge2 ], [ %50, %.lr.ph141 ]
-  %59 = phi ptr [ %162, %.critedge2 ], [ %54, %.lr.ph141 ]
-  %60 = phi ptr [ %163, %.critedge2 ], [ %54, %.lr.ph141 ]
+  %57 = phi ptr [ %161, %.critedge2 ], [ %50, %.lr.ph141 ]
+  %58 = phi ptr [ %162, %.critedge2 ], [ %53, %.lr.ph141 ]
+  %59 = phi ptr [ %163, %.critedge2 ], [ %53, %.lr.ph141 ]
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.critedge2 ], [ 0, %.lr.ph141 ]
-  %61 = getelementptr i8, ptr %58, i64 8
-  %.val117 = load ptr, ptr %61, align 8, !tbaa !23
-  %62 = getelementptr inbounds nuw ptr, ptr %.val117, i64 %indvars.iv152
-  %63 = load ptr, ptr %62, align 8, !tbaa !24
-  %64 = getelementptr i8, ptr %60, i64 4
-  %.val113136 = load i32, ptr %64, align 4, !tbaa !21
-  %65 = icmp sgt i32 %.val113136, 0
-  br i1 %65, label %.lr.ph138, label %.critedge2
+  %60 = getelementptr i8, ptr %57, i64 8
+  %.val117 = load ptr, ptr %60, align 8, !tbaa !23
+  %61 = getelementptr inbounds nuw ptr, ptr %.val117, i64 %indvars.iv152
+  %62 = load ptr, ptr %61, align 8, !tbaa !24
+  %63 = getelementptr i8, ptr %59, i64 4
+  %.val113136 = load i32, ptr %63, align 4, !tbaa !21
+  %64 = icmp sgt i32 %.val113136, 0
+  br i1 %64, label %.lr.ph138, label %.critedge2
 
 .lr.ph138:                                        ; preds = %.lr.ph141.split
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %67 = load ptr, ptr %32, align 8, !tbaa !78
-  %68 = getelementptr i8, ptr %67, i64 4
-  %69 = load i32, ptr %68, align 4, !tbaa !21
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %.lr.ph138.split, label %.critedge2
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %66 = load ptr, ptr %32, align 8, !tbaa !78
+  %67 = getelementptr i8, ptr %66, i64 4
+  %68 = load i32, ptr %67, align 4, !tbaa !21
+  %69 = icmp sgt i32 %68, 0
+  br i1 %69, label %.lr.ph138.split, label %.critedge2
 
 .lr.ph138.split:                                  ; preds = %.lr.ph138, %.critedge4
-  %71 = phi ptr [ %156, %.critedge4 ], [ %59, %.lr.ph138 ]
-  %72 = phi ptr [ %157, %.critedge4 ], [ %67, %.lr.ph138 ]
+  %70 = phi ptr [ %156, %.critedge4 ], [ %58, %.lr.ph138 ]
+  %71 = phi ptr [ %157, %.critedge4 ], [ %66, %.lr.ph138 ]
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %.critedge4 ], [ 0, %.lr.ph138 ]
-  %73 = phi ptr [ %156, %.critedge4 ], [ %60, %.lr.ph138 ]
-  %74 = getelementptr i8, ptr %73, i64 8
-  %.val116 = load ptr, ptr %74, align 8, !tbaa !23
-  %75 = getelementptr inbounds nuw ptr, ptr %.val116, i64 %indvars.iv149
-  %76 = load ptr, ptr %75, align 8, !tbaa !24
-  %77 = getelementptr i8, ptr %72, i64 4
-  %.val134 = load i32, ptr %77, align 4, !tbaa !21
-  %78 = icmp sgt i32 %.val134, 0
-  br i1 %78, label %.lr.ph, label %.critedge4
+  %72 = phi ptr [ %156, %.critedge4 ], [ %59, %.lr.ph138 ]
+  %73 = getelementptr i8, ptr %72, i64 8
+  %.val116 = load ptr, ptr %73, align 8, !tbaa !23
+  %74 = getelementptr inbounds nuw ptr, ptr %.val116, i64 %indvars.iv149
+  %75 = load ptr, ptr %74, align 8, !tbaa !24
+  %76 = getelementptr i8, ptr %71, i64 4
+  %.val134 = load i32, ptr %76, align 4, !tbaa !21
+  %77 = icmp sgt i32 %.val134, 0
+  br i1 %77, label %.lr.ph, label %.critedge4
 
 .lr.ph:                                           ; preds = %.lr.ph138.split
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  br label %80
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  br label %79
 
-80:                                               ; preds = %.lr.ph, %151
+79:                                               ; preds = %.lr.ph, %151
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %151 ]
-  %81 = phi ptr [ %72, %.lr.ph ], [ %152, %151 ]
-  %82 = getelementptr i8, ptr %81, i64 8
-  %.val115 = load ptr, ptr %82, align 8, !tbaa !23
-  %83 = getelementptr inbounds nuw ptr, ptr %.val115, i64 %indvars.iv
-  %84 = load ptr, ptr %83, align 8, !tbaa !24
-  %85 = load ptr, ptr %3, align 8, !tbaa !56
+  %80 = phi ptr [ %71, %.lr.ph ], [ %152, %151 ]
+  %81 = getelementptr i8, ptr %80, i64 8
+  %.val115 = load ptr, ptr %81, align 8, !tbaa !23
+  %82 = getelementptr inbounds nuw ptr, ptr %.val115, i64 %indvars.iv
+  %83 = load ptr, ptr %82, align 8, !tbaa !24
+  %84 = load ptr, ptr %3, align 8, !tbaa !56
   %.val120 = load ptr, ptr %29, align 8, !tbaa !40
-  %86 = getelementptr inbounds nuw i32, ptr %.val120, i64 %53
+  %85 = getelementptr inbounds nuw i32, ptr %.val120, i64 %indvars.iv155
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 12
   %87 = load i32, ptr %86, align 4, !tbaa !3
-  %88 = getelementptr i8, ptr %85, i64 88
+  %88 = getelementptr i8, ptr %84, i64 88
   %.val133 = load ptr, ptr %88, align 8, !tbaa !79
   %89 = sext i32 %87 to i64
   %90 = getelementptr inbounds %struct.Amap_Nod_t_, ptr %.val133, i64 %89, i32 5
@@ -1604,8 +1604,8 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
   %92 = icmp eq ptr %91, null
   br i1 %92, label %151, label %93
 
-93:                                               ; preds = %80
-  %94 = load i32, ptr %63, align 4
+93:                                               ; preds = %79
+  %94 = load i32, ptr %62, align 4
   %.mask = and i32 %94, -131072
   %95 = icmp eq i32 %.mask, 131072
   br i1 %95, label %96, label %102
@@ -1617,13 +1617,13 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
   br i1 %.not102, label %102, label %99
 
 99:                                               ; preds = %96
-  %100 = load i32, ptr %66, align 4, !tbaa !3
+  %100 = load i32, ptr %65, align 4, !tbaa !3
   %101 = xor i32 %100, 1
-  store i32 %101, ptr %66, align 4, !tbaa !3
+  store i32 %101, ptr %65, align 4, !tbaa !3
   br label %102
 
 102:                                              ; preds = %99, %96, %93
-  %103 = load i32, ptr %76, align 4
+  %103 = load i32, ptr %75, align 4
   %.mask103 = and i32 %103, -131072
   %104 = icmp eq i32 %.mask103, 131072
   br i1 %104, label %105, label %111
@@ -1635,13 +1635,13 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
   br i1 %.not104, label %111, label %108
 
 108:                                              ; preds = %105
-  %109 = load i32, ptr %79, align 4, !tbaa !3
+  %109 = load i32, ptr %78, align 4, !tbaa !3
   %110 = xor i32 %109, 1
-  store i32 %110, ptr %79, align 4, !tbaa !3
+  store i32 %110, ptr %78, align 4, !tbaa !3
   br label %111
 
 111:                                              ; preds = %108, %105, %102
-  %112 = load i32, ptr %84, align 4
+  %112 = load i32, ptr %83, align 4
   %.mask105 = and i32 %112, -131072
   %113 = icmp eq i32 %.mask105, 131072
   br i1 %113, label %114, label %121
@@ -1653,7 +1653,7 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
   br i1 %.not106, label %121, label %117
 
 117:                                              ; preds = %114
-  %118 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %119 = load i32, ptr %118, align 4, !tbaa !3
   %120 = xor i32 %119, 1
   store i32 %120, ptr %118, align 4, !tbaa !3
@@ -1661,8 +1661,8 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
 
 121:                                              ; preds = %117, %114, %111
   %122 = load i32, ptr %86, align 4, !tbaa !3
-  %123 = tail call ptr @Amap_ManCutCreate3(ptr noundef nonnull %0, ptr noundef nonnull %63, ptr noundef nonnull %76, ptr noundef nonnull %84, i32 noundef %122)
-  %124 = load i32, ptr %63, align 4
+  %123 = tail call ptr @Amap_ManCutCreate3(ptr noundef nonnull %0, ptr noundef nonnull %62, ptr noundef nonnull %75, ptr noundef nonnull %83, i32 noundef %122)
+  %124 = load i32, ptr %62, align 4
   %.mask107 = and i32 %124, -131072
   %125 = icmp eq i32 %.mask107, 131072
   br i1 %125, label %126, label %132
@@ -1674,13 +1674,13 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
   br i1 %.not108, label %132, label %129
 
 129:                                              ; preds = %126
-  %130 = load i32, ptr %66, align 4, !tbaa !3
+  %130 = load i32, ptr %65, align 4, !tbaa !3
   %131 = xor i32 %130, 1
-  store i32 %131, ptr %66, align 4, !tbaa !3
+  store i32 %131, ptr %65, align 4, !tbaa !3
   br label %132
 
 132:                                              ; preds = %129, %126, %121
-  %133 = load i32, ptr %76, align 4
+  %133 = load i32, ptr %75, align 4
   %.mask109 = and i32 %133, -131072
   %134 = icmp eq i32 %.mask109, 131072
   br i1 %134, label %135, label %141
@@ -1692,13 +1692,13 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
   br i1 %.not110, label %141, label %138
 
 138:                                              ; preds = %135
-  %139 = load i32, ptr %79, align 4, !tbaa !3
+  %139 = load i32, ptr %78, align 4, !tbaa !3
   %140 = xor i32 %139, 1
-  store i32 %140, ptr %79, align 4, !tbaa !3
+  store i32 %140, ptr %78, align 4, !tbaa !3
   br label %141
 
 141:                                              ; preds = %138, %135, %132
-  %142 = load i32, ptr %84, align 4
+  %142 = load i32, ptr %83, align 4
   %.mask111 = and i32 %142, -131072
   %143 = icmp eq i32 %.mask111, 131072
   br i1 %143, label %144, label %151
@@ -1710,28 +1710,28 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
   br i1 %.not112, label %151, label %147
 
 147:                                              ; preds = %144
-  %148 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %148 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %149 = load i32, ptr %148, align 4, !tbaa !3
   %150 = xor i32 %149, 1
   store i32 %150, ptr %148, align 4, !tbaa !3
   br label %151
 
-151:                                              ; preds = %141, %144, %147, %80
+151:                                              ; preds = %141, %144, %147, %79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %152 = load ptr, ptr %32, align 8, !tbaa !78
   %153 = getelementptr i8, ptr %152, i64 4
   %.val = load i32, ptr %153, align 4, !tbaa !21
   %154 = sext i32 %.val to i64
   %155 = icmp slt i64 %indvars.iv.next, %154
-  br i1 %155, label %80, label %.critedge4.loopexit, !llvm.loop !83
+  br i1 %155, label %79, label %.critedge4.loopexit, !llvm.loop !83
 
 .critedge4.loopexit:                              ; preds = %151
   %.pre = load ptr, ptr %31, align 8, !tbaa !77
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.lr.ph138.split
-  %156 = phi ptr [ %.pre, %.critedge4.loopexit ], [ %71, %.lr.ph138.split ]
-  %157 = phi ptr [ %152, %.critedge4.loopexit ], [ %72, %.lr.ph138.split ]
+  %156 = phi ptr [ %.pre, %.critedge4.loopexit ], [ %70, %.lr.ph138.split ]
+  %157 = phi ptr [ %152, %.critedge4.loopexit ], [ %71, %.lr.ph138.split ]
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %158 = getelementptr i8, ptr %156, i64 4
   %.val113 = load i32, ptr %158, align 4, !tbaa !21
@@ -1744,9 +1744,9 @@ define void @Amap_ManMergeNodeCutsMux(ptr noundef captures(none) %0, ptr noundef
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.lr.ph138, %.critedge2.loopexit, %.lr.ph141.split
-  %161 = phi ptr [ %.pre158, %.critedge2.loopexit ], [ %58, %.lr.ph141.split ], [ %58, %.lr.ph138 ]
-  %162 = phi ptr [ %156, %.critedge2.loopexit ], [ %59, %.lr.ph141.split ], [ %59, %.lr.ph138 ]
-  %163 = phi ptr [ %156, %.critedge2.loopexit ], [ %60, %.lr.ph141.split ], [ %60, %.lr.ph138 ]
+  %161 = phi ptr [ %.pre158, %.critedge2.loopexit ], [ %57, %.lr.ph141.split ], [ %57, %.lr.ph138 ]
+  %162 = phi ptr [ %156, %.critedge2.loopexit ], [ %58, %.lr.ph141.split ], [ %58, %.lr.ph138 ]
+  %163 = phi ptr [ %156, %.critedge2.loopexit ], [ %59, %.lr.ph141.split ], [ %59, %.lr.ph138 ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %164 = getelementptr i8, ptr %161, i64 4
   %.val114 = load i32, ptr %164, align 4, !tbaa !21

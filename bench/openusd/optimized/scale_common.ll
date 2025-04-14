@@ -39,9 +39,8 @@ define hidden void @ScaleRowUp2_Linear_C(ptr noundef readonly captures(none) %0,
   %25 = add nuw nsw i16 %24, %23
   %26 = lshr i16 %25, 2
   %27 = trunc nuw i16 %26 to i8
-  %28 = or disjoint i64 %17, 1
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %28
-  store i8 %27, ptr %29, align 1
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  store i8 %27, ptr %28, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
@@ -173,21 +172,20 @@ define hidden void @ScaleRowUp2_Linear_16_C(ptr noundef readonly captures(none) 
   %14 = add nuw nsw i32 %13, %9
   %15 = lshr i32 %14, 2
   %16 = trunc nuw i32 %15 to i16
-  %17 = shl nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw i16, ptr %1, i64 %17
-  store i16 %16, ptr %18, align 2
-  %19 = load i16, ptr %6, align 2
-  %20 = zext i16 %19 to i32
-  %21 = load i16, ptr %10, align 2
-  %22 = zext i16 %21 to i32
-  %23 = mul nuw nsw i32 %22, 3
-  %24 = add nuw nsw i32 %20, 2
-  %25 = add nuw nsw i32 %24, %23
-  %26 = lshr i32 %25, 2
-  %27 = trunc nuw i32 %26 to i16
-  %28 = or disjoint i64 %17, 1
-  %29 = getelementptr inbounds nuw i16, ptr %1, i64 %28
-  store i16 %27, ptr %29, align 2
+  %.idx = shl nuw nsw i64 %indvars.iv, 2
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  store i16 %16, ptr %17, align 2
+  %18 = load i16, ptr %6, align 2
+  %19 = zext i16 %18 to i32
+  %20 = load i16, ptr %10, align 2
+  %21 = zext i16 %20 to i32
+  %22 = mul nuw nsw i32 %21, 3
+  %23 = add nuw nsw i32 %19, 2
+  %24 = add nuw nsw i32 %23, %22
+  %25 = lshr i32 %24, 2
+  %26 = trunc nuw i32 %25 to i16
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  store i16 %26, ptr %27, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 

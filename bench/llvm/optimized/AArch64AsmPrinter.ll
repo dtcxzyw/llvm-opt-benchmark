@@ -14108,11 +14108,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter15LowerPATCHPOI
   %17 = load ptr, ptr %8, align 8, !tbaa !1152
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = load i8, ptr %18, align 8, !tbaa !1154, !range !56, !noundef !57
-  %20 = or disjoint i8 %19, 2
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !746
-  %23 = zext nneg i8 %20 to i64
-  %24 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %22, i64 %23, i32 3
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %21 = load ptr, ptr %20, align 8, !tbaa !746
+  %22 = zext nneg i8 %19 to i64
+  %23 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %21, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %25 = load i64, ptr %24, align 8, !tbaa !73
   %.not = icmp eq i64 %25, 0
   br i1 %.not, label %142, label %26
@@ -14392,27 +14392,27 @@ _ZN4llvm13MCInstBuilderD2Ev.exit:                 ; preds = %_ZN4llvm13MCInstBui
   %.pre62 = load i8, ptr %18, align 8, !tbaa !1154, !range !56
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %.pre63 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !746
+  %.pre64 = zext nneg i8 %.pre62 to i64
   br label %142
 
 142:                                              ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit, %4
-  %143 = phi ptr [ %.pre63, %_ZN4llvm13MCInstBuilderD2Ev.exit ], [ %22, %4 ]
-  %144 = phi i8 [ %.pre62, %_ZN4llvm13MCInstBuilderD2Ev.exit ], [ %19, %4 ]
+  %.pre-phi = phi i64 [ %.pre64, %_ZN4llvm13MCInstBuilderD2Ev.exit ], [ %22, %4 ]
+  %143 = phi ptr [ %.pre63, %_ZN4llvm13MCInstBuilderD2Ev.exit ], [ %21, %4 ]
   %.022 = phi i32 [ 16, %_ZN4llvm13MCInstBuilderD2Ev.exit ], [ 0, %4 ]
-  %145 = zext nneg i8 %144 to i64
-  %146 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %143, i64 %145
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 48
-  %148 = load i64, ptr %147, align 8, !tbaa !73
-  %149 = trunc i64 %148 to i32
-  %150 = icmp ult i32 %.022, %149
-  br i1 %150, label %_ZN4llvm13MCInstBuilder6addImmEl.exit.lr.ph, label %._crit_edge
+  %144 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %143, i64 %.pre-phi
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 48
+  %146 = load i64, ptr %145, align 8, !tbaa !73
+  %147 = trunc i64 %146 to i32
+  %148 = icmp ult i32 %.022, %147
+  br i1 %148, label %_ZN4llvm13MCInstBuilder6addImmEl.exit.lr.ph, label %._crit_edge
 
 _ZN4llvm13MCInstBuilder6addImmEl.exit.lr.ph:      ; preds = %142
-  %151 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %152 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %153 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %154 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %149 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %.sroa.22.0..sroa_idx.i.i.i56 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 912
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 912
   br label %_ZN4llvm13MCInstBuilder6addImmEl.exit
 
 ._crit_edge:                                      ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit57, %142
@@ -14420,33 +14420,33 @@ _ZN4llvm13MCInstBuilder6addImmEl.exit.lr.ph:      ; preds = %142
   ret void
 
 _ZN4llvm13MCInstBuilder6addImmEl.exit:            ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit.lr.ph, %_ZN4llvm13MCInstBuilderD2Ev.exit57
-  %.061 = phi i32 [ %.022, %_ZN4llvm13MCInstBuilder6addImmEl.exit.lr.ph ], [ %162, %_ZN4llvm13MCInstBuilderD2Ev.exit57 ]
+  %.061 = phi i32 [ %.022, %_ZN4llvm13MCInstBuilder6addImmEl.exit.lr.ph ], [ %160, %_ZN4llvm13MCInstBuilderD2Ev.exit57 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %10) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %10, i8 0, i64 16, i1 false)
-  store ptr %152, ptr %151, align 8, !tbaa !25
-  store i32 6, ptr %154, align 4, !tbaa !27
+  store ptr %150, ptr %149, align 8, !tbaa !25
+  store i32 6, ptr %152, align 4, !tbaa !27
   store i32 4081, ptr %10, align 8, !tbaa !651
-  store i8 2, ptr %152, align 8
+  store i8 2, ptr %150, align 8
   store i64 0, ptr %.sroa.22.0..sroa_idx.i.i.i56, align 8
-  store i32 1, ptr %153, align 8, !tbaa !26
-  %.val = load ptr, ptr %155, align 8, !tbaa !378
-  %156 = load ptr, ptr %1, align 8, !tbaa !3
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 1272
-  %158 = load ptr, ptr %157, align 8
-  call void %158(ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(304) %.val) #24
-  %159 = load ptr, ptr %151, align 8, !tbaa !25
-  %160 = icmp eq ptr %159, %152
-  br i1 %160, label %_ZN4llvm13MCInstBuilderD2Ev.exit57, label %161
+  store i32 1, ptr %151, align 8, !tbaa !26
+  %.val = load ptr, ptr %153, align 8, !tbaa !378
+  %154 = load ptr, ptr %1, align 8, !tbaa !3
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 1272
+  %156 = load ptr, ptr %155, align 8
+  call void %156(ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(304) %.val) #24
+  %157 = load ptr, ptr %149, align 8, !tbaa !25
+  %158 = icmp eq ptr %157, %150
+  br i1 %158, label %_ZN4llvm13MCInstBuilderD2Ev.exit57, label %159
 
-161:                                              ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit
-  call void @free(ptr noundef %159) #24
+159:                                              ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit
+  call void @free(ptr noundef %157) #24
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit57
 
-_ZN4llvm13MCInstBuilderD2Ev.exit57:               ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit, %161
+_ZN4llvm13MCInstBuilderD2Ev.exit57:               ; preds = %_ZN4llvm13MCInstBuilder6addImmEl.exit, %159
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #24
-  %162 = add i32 %.061, 4
-  %163 = icmp ult i32 %162, %149
-  br i1 %163, label %_ZN4llvm13MCInstBuilder6addImmEl.exit, label %._crit_edge, !llvm.loop !1155
+  %160 = add i32 %.061, 4
+  %161 = icmp ult i32 %160, %147
+  br i1 %161, label %_ZN4llvm13MCInstBuilder6addImmEl.exit, label %._crit_edge, !llvm.loop !1155
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

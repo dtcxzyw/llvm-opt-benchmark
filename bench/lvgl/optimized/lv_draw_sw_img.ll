@@ -29,13 +29,13 @@ define void @lv_draw_sw_layer(ptr noundef %0, ptr noundef readonly captures(none
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %131, label %14
+  br i1 %13, label %129, label %14
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %123, label %17
+  br i1 %.not, label %121, label %17
 
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #6
@@ -84,7 +84,7 @@ apply_mask.exit.thread10:                         ; preds = %26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
-  br label %131
+  br label %129
 
 40:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
@@ -174,9 +174,10 @@ apply_mask.exit.thread10:                         ; preds = %26
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %.03546.us.i = phi i32 [ %122, %._crit_edge.us.i ], [ 0, %.preheader.us.preheader.i ]
-  %.03745.us.i = phi ptr [ %121, %._crit_edge.us.i ], [ %97, %.preheader.us.preheader.i ]
-  %.03844.us.i = phi ptr [ %120, %._crit_edge.us.i ], [ %88, %.preheader.us.preheader.i ]
+  %.03546.us.i = phi i32 [ %120, %._crit_edge.us.i ], [ 0, %.preheader.us.preheader.i ]
+  %.03745.us.i = phi ptr [ %119, %._crit_edge.us.i ], [ %97, %.preheader.us.preheader.i ]
+  %.03844.us.i = phi ptr [ %118, %._crit_edge.us.i ], [ %88, %.preheader.us.preheader.i ]
+  %invariant.gep.us.i = getelementptr inbounds nuw i8, ptr %.03844.us.i, i64 3
   br label %103
 
 103:                                              ; preds = %103, %.preheader.us.i
@@ -185,28 +186,27 @@ apply_mask.exit.thread10:                         ; preds = %26
   %105 = load i8, ptr %104, align 1, !tbaa !41
   %106 = zext i8 %105 to i16
   %107 = shl nsw i64 %indvars.iv.i, 2
-  %108 = or disjoint i64 %107, 3
-  %109 = getelementptr inbounds nuw i8, ptr %.03844.us.i, i64 %108
-  %110 = load i8, ptr %109, align 1, !tbaa !41
-  %111 = zext i8 %110 to i16
-  %112 = mul nuw i16 %111, %106
-  %113 = lshr i16 %112, 8
-  %114 = trunc nuw i16 %113 to i8
-  store i8 %114, ptr %109, align 1, !tbaa !41
+  %gep.us.i = getelementptr inbounds nuw i8, ptr %invariant.gep.us.i, i64 %107
+  %108 = load i8, ptr %gep.us.i, align 1, !tbaa !41
+  %109 = zext i8 %108 to i16
+  %110 = mul nuw i16 %109, %106
+  %111 = lshr i16 %110, 8
+  %112 = trunc nuw i16 %111 to i8
+  store i8 %112, ptr %gep.us.i, align 1, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %103, !llvm.loop !42
 
 ._crit_edge.us.i:                                 ; preds = %103
-  %115 = load ptr, ptr %11, align 8, !tbaa !19
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %117 = load i32, ptr %116, align 8
-  %118 = and i32 %117, 65535
-  %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw i8, ptr %.03844.us.i, i64 %119
-  %121 = getelementptr inbounds nuw i8, ptr %.03745.us.i, i64 %102
-  %122 = add nuw nsw i32 %.03546.us.i, 1
-  %exitcond50.not.i = icmp eq i32 %122, %98
+  %113 = load ptr, ptr %11, align 8, !tbaa !19
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  %115 = load i32, ptr %114, align 8
+  %116 = and i32 %115, 65535
+  %117 = zext nneg i32 %116 to i64
+  %118 = getelementptr inbounds nuw i8, ptr %.03844.us.i, i64 %117
+  %119 = getelementptr inbounds nuw i8, ptr %.03745.us.i, i64 %102
+  %120 = add nuw nsw i32 %.03546.us.i, 1
+  %exitcond50.not.i = icmp eq i32 %120, %98
   br i1 %exitcond50.not.i, label %.sink.split.sink.split, label %.preheader.us.i, !llvm.loop !44
 
 .sink.split.sink.split:                           ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i, %40
@@ -218,33 +218,33 @@ apply_mask.exit.thread10:                         ; preds = %26
 .sink.split:                                      ; preds = %.sink.split.sink.split, %23, %17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #6
-  br label %123
+  br label %121
 
-123:                                              ; preds = %.sink.split, %14
+121:                                              ; preds = %.sink.split, %14
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(144) %1, i64 144, i1 false), !tbaa.struct !45
-  %124 = load ptr, ptr %11, align 8, !tbaa !19
-  %125 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr %124, ptr %125, align 8, !tbaa !3
-  %126 = getelementptr inbounds nuw i8, ptr %9, i64 101
-  %127 = load i8, ptr %126, align 1
-  %128 = and i8 %127, 16
-  %.not.i = icmp eq i8 %128, 0
-  br i1 %.not.i, label %129, label %130
+  %122 = load ptr, ptr %11, align 8, !tbaa !19
+  %123 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  store ptr %122, ptr %123, align 8, !tbaa !3
+  %124 = getelementptr inbounds nuw i8, ptr %9, i64 101
+  %125 = load i8, ptr %124, align 1
+  %126 = and i8 %125, 16
+  %.not.i = icmp eq i8 %126, 0
+  br i1 %.not.i, label %127, label %128
 
-129:                                              ; preds = %123
+127:                                              ; preds = %121
   call void @lv_draw_image_normal_helper(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %2, ptr noundef nonnull @img_draw_core) #6
   br label %lv_draw_sw_image.exit
 
-130:                                              ; preds = %123
+128:                                              ; preds = %121
   call void @lv_draw_image_tiled_helper(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %2, ptr noundef nonnull @img_draw_core) #6
   br label %lv_draw_sw_image.exit
 
-lv_draw_sw_image.exit:                            ; preds = %129, %130
+lv_draw_sw_image.exit:                            ; preds = %127, %128
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9) #6
-  br label %131
+  br label %129
 
-131:                                              ; preds = %apply_mask.exit.thread10, %3, %lv_draw_sw_image.exit
+129:                                              ; preds = %apply_mask.exit.thread10, %3, %lv_draw_sw_image.exit
   ret void
 }
 

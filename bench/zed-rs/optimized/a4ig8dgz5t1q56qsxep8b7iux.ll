@@ -3947,8 +3947,8 @@ define hidden void @"_ZN84_$LT$http_body_util..util..BufList$LT$T$GT$$u20$as$u20
   %94 = sub nuw nsw i64 64, %93
   %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %94, i64 7)
   %95 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i, 2
-  %96 = or disjoint i64 %95, 1
-  %97 = getelementptr i8, ptr null, i64 %96
+  %96 = getelementptr i8, ptr null, i64 %95
+  %97 = getelementptr i8, ptr %96, i64 1
   store ptr %91, ptr %17, align 8, !alias.scope !580, !noalias !583
   %98 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 0, ptr %98, align 8, !alias.scope !580, !noalias !583

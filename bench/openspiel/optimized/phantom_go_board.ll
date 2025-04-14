@@ -2934,9 +2934,9 @@ define noundef range(i32 0, 262141) i32 @_ZN10open_spiel10phantom_go14PhantomGoB
   %.334 = phi i32 [ %108, %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard17CaptureDeadChainsEtNS0_7GoColorEE3$_0EEvtRKT_.exit" ], [ %.2, %88 ], [ %.2, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard17CaptureDeadChainsEtNS0_7GoColorEENK3$_0clEt.exit14.i" ]
   %.432 = phi i32 [ %99, %"_ZN10open_spiel10phantom_go12_GLOBAL__N_110NeighboursIZNS0_14PhantomGoBoard17CaptureDeadChainsEtNS0_7GoColorEE3$_0EEvtRKT_.exit" ], [ %.327, %88 ], [ %.327, %"_ZZN10open_spiel10phantom_go14PhantomGoBoard17CaptureDeadChainsEtNS0_7GoColorEENK3$_0clEt.exit14.i" ]
   %110 = shl nuw nsw i32 %.432, 1
-  %111 = or disjoint i32 %110, 8688
-  %112 = zext nneg i32 %111 to i64
-  %scevgep = getelementptr i8, ptr %0, i64 %112
+  %111 = zext nneg i32 %110 to i64
+  %112 = getelementptr i8, ptr %0, i64 %111
+  %scevgep = getelementptr i8, ptr %112, i64 8688
   %113 = shl nuw nsw i32 %.432, 1
   %narrow = sub nuw nsw i32 8, %113
   %114 = zext nneg i32 %narrow to i64

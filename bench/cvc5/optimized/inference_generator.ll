@@ -34019,9 +34019,9 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit71: ; preds = %177, %181, %187
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit75: ; preds = %251, %246, %253
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #20
-  %255 = or disjoint i64 %.0207, 1
-  %256 = load ptr, ptr %176, align 8, !tbaa !956
-  %257 = getelementptr inbounds nuw i32, ptr %256, i64 %255
+  %255 = load ptr, ptr %176, align 8, !tbaa !956
+  %256 = getelementptr inbounds nuw i32, ptr %255, i64 %.0207
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 4
   %258 = load i32, ptr %257, align 4, !tbaa !957
   %259 = zext i32 %258 to i64
   %260 = load ptr, ptr %38, align 8, !tbaa !89
@@ -37383,9 +37383,9 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit166: ; preds = %592, %585, %59
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit173: ; preds = %703, %698, %705
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #20
-  %707 = or disjoint i64 %.0256, 1
-  %708 = load ptr, ptr %563, align 8, !tbaa !956
-  %709 = getelementptr inbounds nuw i32, ptr %708, i64 %707
+  %707 = load ptr, ptr %563, align 8, !tbaa !956
+  %708 = getelementptr inbounds nuw i32, ptr %707, i64 %.0256
+  %709 = getelementptr inbounds nuw i8, ptr %708, i64 4
   %710 = load i32, ptr %709, align 4, !tbaa !957
   %711 = zext i32 %710 to i64
   %712 = load ptr, ptr %40, align 8, !tbaa !89

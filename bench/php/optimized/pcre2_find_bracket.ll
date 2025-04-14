@@ -32,8 +32,8 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
   %15 = getelementptr inbounds nuw i8, ptr %.06291, i64 2
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = zext i8 %16 to i64
-  %18 = or disjoint i64 %14, %17
-  %19 = getelementptr inbounds nuw i8, ptr %.06291, i64 %18
+  %18 = getelementptr inbounds nuw i8, ptr %.06291, i64 %14
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %17
   br label %88
 
 20:                                               ; preds = %7
@@ -48,8 +48,8 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
   %27 = getelementptr inbounds nuw i8, ptr %.06291, i64 6
   %28 = load i8, ptr %27, align 1, !tbaa !4
   %29 = zext i8 %28 to i64
-  %30 = or disjoint i64 %26, %29
-  %31 = getelementptr inbounds nuw i8, ptr %.06291, i64 %30
+  %30 = getelementptr inbounds nuw i8, ptr %.06291, i64 %26
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %29
   br label %88
 
 32:                                               ; preds = %20

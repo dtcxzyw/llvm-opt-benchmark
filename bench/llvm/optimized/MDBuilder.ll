@@ -2087,7 +2087,7 @@ _ZN4llvm11SmallVectorIPNS_8MetadataELj4EEC2Em.exit.._crit_edge_crit_edge: ; pred
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11SmallVectorIPNS_8MetadataELj4EEC2Em.exit.._crit_edge_crit_edge, %._crit_edge.loopexit
   %20 = phi i32 [ %19, %_ZN4llvm11SmallVectorIPNS_8MetadataELj4EEC2Em.exit.._crit_edge_crit_edge ], [ %.pre11, %._crit_edge.loopexit ]
-  %21 = phi ptr [ %.pre, %_ZN4llvm11SmallVectorIPNS_8MetadataELj4EEC2Em.exit.._crit_edge_crit_edge ], [ %39, %._crit_edge.loopexit ]
+  %21 = phi ptr [ %.pre, %_ZN4llvm11SmallVectorIPNS_8MetadataELj4EEC2Em.exit.._crit_edge_crit_edge ], [ %38, %._crit_edge.loopexit ]
   %22 = load ptr, ptr %0, align 8, !tbaa !3
   %23 = zext i32 %20 to i64
   %24 = call noundef ptr @_ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr %21, i64 %23, i32 noundef 0, i1 noundef zeroext true) #9
@@ -2119,9 +2119,9 @@ _ZN4llvm11SmallVectorIPNS_8MetadataELj4EED2Ev.exit: ; preds = %._crit_edge, %27
   %35 = load i64, ptr %34, align 8, !tbaa !62
   %36 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %6, i64 noundef %35, i1 noundef zeroext false) #9
   %37 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef %36) #9
-  %38 = or disjoint i64 %31, 1
-  %39 = load ptr, ptr %4, align 8, !tbaa !13
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %38
+  %38 = load ptr, ptr %4, align 8, !tbaa !13
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %31
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %37, ptr %40, align 8, !tbaa !9
   %41 = add nuw i64 %.010, 1
   %exitcond.not = icmp eq i64 %41, %2

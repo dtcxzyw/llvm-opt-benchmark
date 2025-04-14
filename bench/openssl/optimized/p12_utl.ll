@@ -18,7 +18,7 @@ define ptr @OPENSSL_asc2uni(ptr noundef readonly captures(none) %0, i32 noundef 
 9:                                                ; preds = %6, %4
   %.026 = phi i32 [ %8, %6 ], [ %1, %4 ]
   %10 = icmp slt i32 %.026, 0
-  br i1 %10, label %32, label %11
+  br i1 %10, label %29, label %11
 
 11:                                               ; preds = %9
   %12 = shl nuw nsw i32 %.026, 1
@@ -26,7 +26,7 @@ define ptr @OPENSSL_asc2uni(ptr noundef readonly captures(none) %0, i32 noundef 
   %14 = zext nneg i32 %13 to i64
   %15 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %14, ptr noundef nonnull @.str, i32 noundef 29) #6
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %32, label %.preheader
+  br i1 %16, label %29, label %.preheader
 
 .preheader:                                       ; preds = %11
   %.not34 = icmp eq i32 %.026, 0
@@ -43,38 +43,35 @@ define ptr @OPENSSL_asc2uni(ptr noundef readonly captures(none) %0, i32 noundef 
   %19 = lshr exact i64 %indvars.iv, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !3
-  %22 = or disjoint i64 %indvars.iv, 1
-  %23 = getelementptr inbounds nuw i8, ptr %15, i64 %22
-  store i8 %21, ptr %23, align 1, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  store i8 %21, ptr %22, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %24 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  %23 = icmp samesign ult i64 %indvars.iv.next, %17
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.pre-phi = phi i64 [ 0, %.preheader ], [ %17, %.lr.ph ]
-  %25 = getelementptr inbounds nuw i8, ptr %15, i64 %.pre-phi
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 %.pre-phi
+  store i8 0, ptr %24, align 1, !tbaa !3
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 0, ptr %25, align 1, !tbaa !3
-  %26 = or disjoint i32 %12, 1
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %15, i64 %27
-  store i8 0, ptr %28, align 1, !tbaa !3
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %30, label %29
+  br i1 %.not, label %27, label %26
 
-29:                                               ; preds = %._crit_edge
+26:                                               ; preds = %._crit_edge
   store i32 %13, ptr %3, align 4, !tbaa !8
-  br label %30
+  br label %27
 
-30:                                               ; preds = %29, %._crit_edge
+27:                                               ; preds = %26, %._crit_edge
   %.not32 = icmp eq ptr %2, null
-  br i1 %.not32, label %32, label %31
+  br i1 %.not32, label %29, label %28
 
-31:                                               ; preds = %30
+28:                                               ; preds = %27
   store ptr %15, ptr %2, align 8, !tbaa !10
-  br label %32
+  br label %29
 
-32:                                               ; preds = %30, %31, %11, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %11 ], [ %15, %31 ], [ %15, %30 ]
+29:                                               ; preds = %27, %28, %11, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %11 ], [ %15, %28 ], [ %15, %27 ]
   ret ptr %.0
 }
 
@@ -169,15 +166,15 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   %11 = icmp sgt i32 %.047, 0
   br i1 %11, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %10, %40
-  %.04865 = phi i32 [ %.1, %40 ], [ 0, %10 ]
-  %.05164 = phi i32 [ %42, %40 ], [ 0, %10 ]
+.lr.ph:                                           ; preds = %10, %37
+  %.04865 = phi i32 [ %.1, %37 ], [ 0, %10 ]
+  %.05164 = phi i32 [ %39, %37 ], [ 0, %10 ]
   %12 = zext nneg i32 %.05164 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = sub nsw i32 %.047, %.05164
   %15 = call i32 @UTF8_getc(ptr noundef %13, i32 noundef %14, ptr noundef nonnull %5) #6
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %37
+  br i1 %16, label %17, label %34
 
 17:                                               ; preds = %.lr.ph
   %18 = shl nuw nsw i32 %.047, 1
@@ -198,131 +195,128 @@ define ptr @OPENSSL_utf82uni(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   %25 = lshr exact i64 %indvars.iv.i, 1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !3
-  %28 = or disjoint i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds nuw i8, ptr %21, i64 %28
-  store i8 %27, ptr %29, align 1, !tbaa !3
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  store i8 %27, ptr %28, align 1, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %30 = icmp samesign ult i64 %indvars.iv.next.i, %23
-  br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
+  %29 = icmp samesign ult i64 %indvars.iv.next.i, %23
+  br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds nuw i8, ptr %21, i64 %23
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 %23
+  store i8 0, ptr %30, align 1, !tbaa !3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store i8 0, ptr %31, align 1, !tbaa !3
-  %32 = or disjoint i32 %18, 1
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %21, i64 %33
-  store i8 0, ptr %34, align 1, !tbaa !3
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %36, label %35
+  br i1 %.not.i, label %33, label %32
 
-35:                                               ; preds = %._crit_edge.i
+32:                                               ; preds = %._crit_edge.i
   store i32 %19, ptr %3, align 4, !tbaa !8
-  br label %36
+  br label %33
 
-36:                                               ; preds = %35, %._crit_edge.i
+33:                                               ; preds = %32, %._crit_edge.i
   %.not32.i = icmp eq ptr %2, null
   br i1 %.not32.i, label %OPENSSL_asc2uni.exit, label %OPENSSL_asc2uni.exit.sink.split
 
-37:                                               ; preds = %.lr.ph
-  %38 = load i64, ptr %5, align 8, !tbaa !14
-  %39 = icmp ugt i64 %38, 1114111
-  br i1 %39, label %OPENSSL_asc2uni.exit, label %40
+34:                                               ; preds = %.lr.ph
+  %35 = load i64, ptr %5, align 8, !tbaa !14
+  %36 = icmp ugt i64 %35, 1114111
+  br i1 %36, label %OPENSSL_asc2uni.exit, label %37
 
-40:                                               ; preds = %37
-  %41 = icmp samesign ugt i64 %38, 65535
-  %.1.v = select i1 %41, i32 4, i32 2
+37:                                               ; preds = %34
+  %38 = icmp samesign ugt i64 %35, 65535
+  %.1.v = select i1 %38, i32 4, i32 2
   %.1 = add nuw nsw i32 %.1.v, %.04865
-  %42 = add nuw nsw i32 %15, %.05164
-  %43 = icmp slt i32 %42, %.047
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  %39 = add nuw nsw i32 %15, %.05164
+  %40 = icmp slt i32 %39, %.047
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %40
-  %44 = add nuw nsw i32 %.1, 2
-  %45 = zext nneg i32 %44 to i64
-  %46 = call noalias ptr @CRYPTO_malloc(i64 noundef %45, ptr noundef nonnull @.str, i32 noundef 120) #6
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %OPENSSL_asc2uni.exit, label %.lr.ph68
+._crit_edge:                                      ; preds = %37
+  %41 = add nuw nsw i32 %.1, 2
+  %42 = zext nneg i32 %41 to i64
+  %43 = call noalias ptr @CRYPTO_malloc(i64 noundef %42, ptr noundef nonnull @.str, i32 noundef 120) #6
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %OPENSSL_asc2uni.exit, label %.lr.ph68
 
 ._crit_edge.thread:                               ; preds = %10
-  %48 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 2, ptr noundef nonnull @.str, i32 noundef 120) #6
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %OPENSSL_asc2uni.exit, label %._crit_edge69
+  %45 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 2, ptr noundef nonnull @.str, i32 noundef 120) #6
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %OPENSSL_asc2uni.exit, label %._crit_edge69
 
-.lr.ph68:                                         ; preds = %._crit_edge, %76
-  %.04967 = phi ptr [ %.150, %76 ], [ %46, %._crit_edge ]
-  %.15266 = phi i32 [ %78, %76 ], [ 0, %._crit_edge ]
-  %50 = sext i32 %.15266 to i64
-  %51 = getelementptr inbounds i8, ptr %0, i64 %50
-  %52 = sub nsw i32 %.047, %.15266
-  %53 = call i32 @UTF8_getc(ptr noundef %51, i32 noundef %52, ptr noundef nonnull %5) #6
-  %54 = load i64, ptr %5, align 8, !tbaa !14
-  %55 = icmp ugt i64 %54, 65535
-  br i1 %55, label %56, label %71
+.lr.ph68:                                         ; preds = %._crit_edge, %73
+  %.04967 = phi ptr [ %.150, %73 ], [ %43, %._crit_edge ]
+  %.15266 = phi i32 [ %75, %73 ], [ 0, %._crit_edge ]
+  %47 = sext i32 %.15266 to i64
+  %48 = getelementptr inbounds i8, ptr %0, i64 %47
+  %49 = sub nsw i32 %.047, %.15266
+  %50 = call i32 @UTF8_getc(ptr noundef %48, i32 noundef %49, ptr noundef nonnull %5) #6
+  %51 = load i64, ptr %5, align 8, !tbaa !14
+  %52 = icmp ugt i64 %51, 65535
+  br i1 %52, label %53, label %68
 
-56:                                               ; preds = %.lr.ph68
-  %57 = add i64 %54, -65536
-  store i64 %57, ptr %5, align 8, !tbaa !14
-  %58 = lshr i64 %57, 10
-  %59 = trunc i64 %58 to i32
-  %60 = add i32 %59, 55296
-  %61 = lshr i32 %60, 8
-  %62 = trunc i32 %61 to i8
-  store i8 %62, ptr %.04967, align 1, !tbaa !3
-  %63 = getelementptr inbounds nuw i8, ptr %.04967, i64 2
-  %64 = lshr i64 %54, 8
-  %65 = trunc i64 %64 to i8
-  %66 = and i8 %65, 3
-  %67 = or disjoint i8 %66, -36
-  %68 = getelementptr inbounds nuw i8, ptr %.04967, i64 3
-  store i8 %67, ptr %63, align 1, !tbaa !3
-  %69 = trunc i64 %54 to i8
-  %70 = getelementptr inbounds nuw i8, ptr %.04967, i64 4
-  store i8 %69, ptr %68, align 1, !tbaa !3
-  br label %76
+53:                                               ; preds = %.lr.ph68
+  %54 = add i64 %51, -65536
+  store i64 %54, ptr %5, align 8, !tbaa !14
+  %55 = lshr i64 %54, 10
+  %56 = trunc i64 %55 to i32
+  %57 = add i32 %56, 55296
+  %58 = lshr i32 %57, 8
+  %59 = trunc i32 %58 to i8
+  store i8 %59, ptr %.04967, align 1, !tbaa !3
+  %60 = getelementptr inbounds nuw i8, ptr %.04967, i64 2
+  %61 = lshr i64 %51, 8
+  %62 = trunc i64 %61 to i8
+  %63 = and i8 %62, 3
+  %64 = or disjoint i8 %63, -36
+  %65 = getelementptr inbounds nuw i8, ptr %.04967, i64 3
+  store i8 %64, ptr %60, align 1, !tbaa !3
+  %66 = trunc i64 %51 to i8
+  %67 = getelementptr inbounds nuw i8, ptr %.04967, i64 4
+  store i8 %66, ptr %65, align 1, !tbaa !3
+  br label %73
 
-71:                                               ; preds = %.lr.ph68
-  %72 = lshr i64 %54, 8
-  %73 = trunc nuw i64 %72 to i8
-  store i8 %73, ptr %.04967, align 1, !tbaa !3
-  %74 = load i64, ptr %5, align 8, !tbaa !14
-  %75 = getelementptr inbounds nuw i8, ptr %.04967, i64 2
-  br label %76
+68:                                               ; preds = %.lr.ph68
+  %69 = lshr i64 %51, 8
+  %70 = trunc nuw i64 %69 to i8
+  store i8 %70, ptr %.04967, align 1, !tbaa !3
+  %71 = load i64, ptr %5, align 8, !tbaa !14
+  %72 = getelementptr inbounds nuw i8, ptr %.04967, i64 2
+  br label %73
 
-76:                                               ; preds = %56, %71
-  %.sink.in = phi i64 [ %58, %56 ], [ %74, %71 ]
-  %.150 = phi ptr [ %70, %56 ], [ %75, %71 ]
+73:                                               ; preds = %53, %68
+  %.sink.in = phi i64 [ %55, %53 ], [ %71, %68 ]
+  %.150 = phi ptr [ %67, %53 ], [ %72, %68 ]
   %.sink = trunc i64 %.sink.in to i8
-  %77 = getelementptr inbounds nuw i8, ptr %.04967, i64 1
-  store i8 %.sink, ptr %77, align 1, !tbaa !3
-  %78 = add nsw i32 %53, %.15266
-  %79 = icmp slt i32 %78, %.047
-  br i1 %79, label %.lr.ph68, label %._crit_edge69, !llvm.loop !17
+  %74 = getelementptr inbounds nuw i8, ptr %.04967, i64 1
+  store i8 %.sink, ptr %74, align 1, !tbaa !3
+  %75 = add nsw i32 %50, %.15266
+  %76 = icmp slt i32 %75, %.047
+  br i1 %76, label %.lr.ph68, label %._crit_edge69, !llvm.loop !17
 
-._crit_edge69:                                    ; preds = %76, %._crit_edge.thread
-  %.048.lcssa7274 = phi i32 [ 2, %._crit_edge.thread ], [ %44, %76 ]
-  %80 = phi ptr [ %48, %._crit_edge.thread ], [ %46, %76 ]
-  %.049.lcssa = phi ptr [ %48, %._crit_edge.thread ], [ %.150, %76 ]
-  %81 = getelementptr inbounds nuw i8, ptr %.049.lcssa, i64 1
+._crit_edge69:                                    ; preds = %73, %._crit_edge.thread
+  %.048.lcssa7274 = phi i32 [ 2, %._crit_edge.thread ], [ %41, %73 ]
+  %77 = phi ptr [ %45, %._crit_edge.thread ], [ %43, %73 ]
+  %.049.lcssa = phi ptr [ %45, %._crit_edge.thread ], [ %.150, %73 ]
+  %78 = getelementptr inbounds nuw i8, ptr %.049.lcssa, i64 1
   store i8 0, ptr %.049.lcssa, align 1, !tbaa !3
-  store i8 0, ptr %81, align 1, !tbaa !3
+  store i8 0, ptr %78, align 1, !tbaa !3
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %83, label %82
+  br i1 %.not, label %80, label %79
 
-82:                                               ; preds = %._crit_edge69
+79:                                               ; preds = %._crit_edge69
   store i32 %.048.lcssa7274, ptr %3, align 4, !tbaa !8
-  br label %83
+  br label %80
 
-83:                                               ; preds = %82, %._crit_edge69
+80:                                               ; preds = %79, %._crit_edge69
   %.not61 = icmp eq ptr %2, null
   br i1 %.not61, label %OPENSSL_asc2uni.exit, label %OPENSSL_asc2uni.exit.sink.split
 
-OPENSSL_asc2uni.exit.sink.split:                  ; preds = %83, %36
-  %.sink75 = phi ptr [ %21, %36 ], [ %80, %83 ]
+OPENSSL_asc2uni.exit.sink.split:                  ; preds = %80, %33
+  %.sink75 = phi ptr [ %21, %33 ], [ %77, %80 ]
   store ptr %.sink75, ptr %2, align 8, !tbaa !10
   br label %OPENSSL_asc2uni.exit
 
-OPENSSL_asc2uni.exit:                             ; preds = %37, %OPENSSL_asc2uni.exit.sink.split, %._crit_edge.thread, %36, %17, %83, %._crit_edge
-  %.0 = phi ptr [ null, %._crit_edge ], [ %80, %83 ], [ null, %17 ], [ %21, %36 ], [ null, %._crit_edge.thread ], [ %.sink75, %OPENSSL_asc2uni.exit.sink.split ], [ null, %37 ]
+OPENSSL_asc2uni.exit:                             ; preds = %34, %OPENSSL_asc2uni.exit.sink.split, %._crit_edge.thread, %33, %17, %80, %._crit_edge
+  %.0 = phi ptr [ null, %._crit_edge ], [ %77, %80 ], [ null, %17 ], [ %21, %33 ], [ null, %._crit_edge.thread ], [ %.sink75, %OPENSSL_asc2uni.exit.sink.split ], [ null, %34 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   ret ptr %.0
 }

@@ -275,8 +275,8 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$3new17h3bf38fd3
   %17 = sub nuw nsw i64 64, %16
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %17, i64 7)
   %18 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %19 = or disjoint i64 %18, 1
-  %20 = getelementptr i8, ptr null, i64 %19
+  %19 = getelementptr i8, ptr null, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 1
   store ptr %13, ptr %4, align 8, !alias.scope !11, !noalias !14
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %21, align 8, !alias.scope !11, !noalias !14
@@ -303,8 +303,8 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$3new17h3bf38fd3
   %33 = sub nuw nsw i64 64, %32
   %.0.sroa.speculated.i.i7 = tail call noundef i64 @llvm.umin.i64(i64 %33, i64 7)
   %34 = shl nuw nsw i64 %.0.sroa.speculated.i.i7, 2
-  %35 = or disjoint i64 %34, 1
-  %36 = getelementptr i8, ptr null, i64 %35
+  %35 = getelementptr i8, ptr null, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %37, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
@@ -373,8 +373,8 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$3new17h67b3c0b6
   %17 = sub nuw nsw i64 64, %16
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %17, i64 7)
   %18 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %19 = or disjoint i64 %18, 1
-  %20 = getelementptr i8, ptr null, i64 %19
+  %19 = getelementptr i8, ptr null, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 1
   store ptr %13, ptr %4, align 8, !alias.scope !16, !noalias !19
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %21, align 8, !alias.scope !16, !noalias !19
@@ -401,8 +401,8 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$3new17h67b3c0b6
   %33 = sub nuw nsw i64 64, %32
   %.0.sroa.speculated.i.i7 = tail call noundef i64 @llvm.umin.i64(i64 %33, i64 7)
   %34 = shl nuw nsw i64 %.0.sroa.speculated.i.i7, 2
-  %35 = or disjoint i64 %34, 1
-  %36 = getelementptr i8, ptr null, i64 %35
+  %35 = getelementptr i8, ptr null, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 96, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
@@ -471,8 +471,8 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$3new17h90920fc6
   %17 = sub nuw nsw i64 64, %16
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %17, i64 7)
   %18 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %19 = or disjoint i64 %18, 1
-  %20 = getelementptr i8, ptr null, i64 %19
+  %19 = getelementptr i8, ptr null, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 1
   store ptr %13, ptr %4, align 8, !alias.scope !21, !noalias !24
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %21, align 8, !alias.scope !21, !noalias !24
@@ -499,8 +499,8 @@ define hidden void @"_ZN11actix_codec6framed19Framed$LT$T$C$U$GT$3new17h90920fc6
   %33 = sub nuw nsw i64 64, %32
   %.0.sroa.speculated.i.i7 = tail call noundef i64 @llvm.umin.i64(i64 %33, i64 7)
   %34 = shl nuw nsw i64 %.0.sroa.speculated.i.i7, 2
-  %35 = or disjoint i64 %34, 1
-  %36 = getelementptr i8, ptr null, i64 %35
+  %35 = getelementptr i8, ptr null, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %37, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
@@ -7370,8 +7370,8 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut8from_vec17h46aaf2ae3c84b632E.ll
   %5 = sub nuw nsw i64 64, %4
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 7)
   %6 = shl nuw nsw i64 %.0.sroa.speculated.i, 2
-  %7 = or disjoint i64 %6, 1
-  %8 = getelementptr i8, ptr null, i64 %7
+  %7 = getelementptr i8, ptr null, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 1
   store ptr %.sroa.4.0.copyload, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.copyload, ptr %9, align 8

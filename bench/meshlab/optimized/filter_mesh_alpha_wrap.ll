@@ -40553,7 +40553,6 @@ _ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit: ; preds = %_Z
 _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit: ; preds = %._ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit_crit_edge, %789
   %792 = phi ptr [ %.pre, %._ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit_crit_edge ], [ %790, %789 ]
   %793 = getelementptr inbounds nuw i8, ptr %270, i64 16
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %272, i64 8
   %794 = load ptr, ptr %793, align 8
   %795 = icmp eq ptr %792, %794
   br i1 %795, label %._crit_edge, label %.lr.ph
@@ -40666,6 +40665,7 @@ _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interva
   %.sroa.2320.0..sroa_idx = getelementptr inbounds nuw i8, ptr %278, i64 144
   %.sroa.3321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %278, i64 160
   %.sroa.4322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %278, i64 176
+  %invariant.gep472 = getelementptr inbounds nuw i8, ptr %272, i64 56
   br label %842
 
 842:                                              ; preds = %.lr.ph, %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150
@@ -40700,14 +40700,13 @@ _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interva
   %856 = fcmp ult double %854, %855
   %857 = load double, ptr %805, align 8
   %. = select i1 %856, double %855, double %854
-  %.475 = zext i1 %856 to i32
+  %.477 = zext i1 %856 to i32
   %858 = fcmp oge double %., %857
-  %859 = select i1 %858, i32 %.475, i32 2
+  %859 = select i1 %858, i32 %.477, i32 2
   %860 = shl nuw nsw i32 %859, 6
-  %861 = or disjoint i32 %860, 48
-  %gep.offs = zext nneg i32 %861 to i64
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.offs
-  %862 = load double, ptr %gep, align 8
+  %861 = zext nneg i32 %860 to i64
+  %gep473 = getelementptr inbounds nuw i8, ptr %invariant.gep472, i64 %861
+  %862 = load double, ptr %gep473, align 8
   %863 = load double, ptr %0, align 8
   %864 = fmul double %863, 9.000000e+00
   %865 = fcmp ogt double %862, %864
@@ -42863,8 +42862,8 @@ _ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit274: ; preds = 
   br label %1772
 
 _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150.sink.split: ; preds = %1048, %1231, %1413
-  %.sink474 = phi ptr [ %1410, %1413 ], [ %1228, %1231 ], [ %1045, %1048 ]
-  %1753 = getelementptr inbounds nuw i8, ptr %.sink474, i64 192
+  %.sink476 = phi ptr [ %1410, %1413 ], [ %1228, %1231 ], [ %1045, %1048 ]
+  %1753 = getelementptr inbounds nuw i8, ptr %.sink476, i64 192
   store ptr %1753, ptr %784, align 8
   br label %_ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interval_ntILb1EEEEEEES6_ELm3EESt5dequeISA_SaISA_EEE4pushEOSA_.exit150
 

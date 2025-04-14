@@ -8064,7 +8064,7 @@ define void @Str_MuxChangeOnce(ptr noundef captures(none) %0, ptr noundef readon
 
 ._crit_edge111:                                   ; preds = %81, %._crit_edge
   %101 = icmp eq ptr %5, null
-  br i1 %101, label %201, label %.preheader
+  br i1 %101, label %202, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge111
   %102 = icmp slt i32 %2, %3
@@ -8206,15 +8206,15 @@ Str_ObjDelay.exit:                                ; preds = %107, %190
   %195 = getelementptr inbounds nuw i8, ptr %42, i64 60
   store i32 %194, ptr %195, align 4, !tbaa !145
   %196 = shl nuw nsw i32 %45, 4
-  %197 = or disjoint i32 %196, 4
-  %.offs = zext nneg i32 %197 to i64
-  %198 = getelementptr inbounds nuw i8, ptr %56, i64 %.offs
-  %199 = load i32, ptr %198, align 4, !tbaa !141
-  %200 = xor i32 %199, %.0.lcssa
-  store i32 %200, ptr %198, align 4, !tbaa !141
-  br label %201
+  %197 = zext nneg i32 %196 to i64
+  %198 = getelementptr inbounds nuw i8, ptr %56, i64 %197
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 4
+  %200 = load i32, ptr %199, align 4, !tbaa !141
+  %201 = xor i32 %200, %.0.lcssa
+  store i32 %201, ptr %199, align 4, !tbaa !141
+  br label %202
 
-201:                                              ; preds = %._crit_edge111, %._crit_edge115
+202:                                              ; preds = %._crit_edge111, %._crit_edge115
   ret void
 }
 
@@ -8272,49 +8272,48 @@ define range(i32 0, 2) i32 @Str_MuxFindPathEdge_rec(ptr noundef readonly capture
   %21 = load i32, ptr %20, align 4, !tbaa !138
   %22 = tail call noundef i32 @llvm.smax.i32(i32 %19, i32 %21)
   %23 = tail call noundef i32 @llvm.smax.i32(i32 %17, i32 %22)
-  %24 = getelementptr i8, ptr %15, i64 24
-  br label %25
+  br label %24
 
-25:                                               ; preds = %10, %31
-  %26 = phi i1 [ true, %10 ], [ false, %31 ]
-  %indvars.iv = phi i64 [ 0, %10 ], [ 1, %31 ]
-  %27 = shl nuw nsw i64 %indvars.iv, 4
-  %28 = getelementptr i8, ptr %24, i64 %27
-  %29 = load i32, ptr %28, align 4, !tbaa !138
-  %30 = icmp eq i32 %29, %23
-  br i1 %30, label %Str_MuxFindPath_rec.exit, label %31
+24:                                               ; preds = %10, %29
+  %25 = phi i1 [ true, %10 ], [ false, %29 ]
+  %indvars.iv = phi i64 [ 0, %10 ], [ 1, %29 ]
+  %26 = shl nuw nsw i64 %indvars.iv, 4
+  %gep = getelementptr inbounds nuw i8, ptr %16, i64 %26
+  %27 = load i32, ptr %gep, align 4, !tbaa !138
+  %28 = icmp eq i32 %27, %23
+  br i1 %28, label %Str_MuxFindPath_rec.exit, label %29
 
-31:                                               ; preds = %25
-  br i1 %26, label %25, label %32, !llvm.loop !152
+29:                                               ; preds = %24
+  br i1 %25, label %24, label %30, !llvm.loop !152
 
-32:                                               ; preds = %31
-  %33 = icmp eq i32 %21, %23
-  br i1 %33, label %Str_MuxFindPath_rec.exit.thread, label %Str_MuxFindPath_rec.exit.thread12
+30:                                               ; preds = %29
+  %31 = icmp eq i32 %21, %23
+  br i1 %31, label %Str_MuxFindPath_rec.exit.thread, label %Str_MuxFindPath_rec.exit.thread12
 
-Str_MuxFindPath_rec.exit:                         ; preds = %25
-  %34 = trunc nuw nsw i64 %indvars.iv to i32
-  %35 = tail call i32 @Str_MuxFindPathEdge_rec(ptr noundef nonnull %15, i32 noundef %34, ptr noundef %2, ptr noundef %3)
-  %.not = icmp eq i32 %35, 0
+Str_MuxFindPath_rec.exit:                         ; preds = %24
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
+  %33 = tail call i32 @Str_MuxFindPathEdge_rec(ptr noundef nonnull %15, i32 noundef %32, ptr noundef %2, ptr noundef %3)
+  %.not = icmp eq i32 %33, 0
   br i1 %.not, label %Str_MuxFindPath_rec.exit.thread, label %Str_MuxFindPath_rec.exit.Str_MuxFindPath_rec.exit.thread12_crit_edge
 
 Str_MuxFindPath_rec.exit.Str_MuxFindPath_rec.exit.thread12_crit_edge: ; preds = %Str_MuxFindPath_rec.exit
   %.pre = load i32, ptr %0, align 4, !tbaa !139
   br label %Str_MuxFindPath_rec.exit.thread12
 
-Str_MuxFindPath_rec.exit.thread12:                ; preds = %Str_MuxFindPath_rec.exit.Str_MuxFindPath_rec.exit.thread12_crit_edge, %32, %4
-  %36 = phi i32 [ %.pre, %Str_MuxFindPath_rec.exit.Str_MuxFindPath_rec.exit.thread12_crit_edge ], [ %.pre19, %32 ], [ %.pre19, %4 ]
-  %37 = shl nsw i32 %36, 1
-  %38 = add nsw i32 %37, %1
-  %39 = load i32, ptr %3, align 4, !tbaa !38
-  %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %3, align 4, !tbaa !38
-  %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds i32, ptr %2, i64 %41
-  store i32 %38, ptr %42, align 4, !tbaa !38
+Str_MuxFindPath_rec.exit.thread12:                ; preds = %Str_MuxFindPath_rec.exit.Str_MuxFindPath_rec.exit.thread12_crit_edge, %30, %4
+  %34 = phi i32 [ %.pre, %Str_MuxFindPath_rec.exit.Str_MuxFindPath_rec.exit.thread12_crit_edge ], [ %.pre19, %30 ], [ %.pre19, %4 ]
+  %35 = shl nsw i32 %34, 1
+  %36 = add nsw i32 %35, %1
+  %37 = load i32, ptr %3, align 4, !tbaa !38
+  %38 = add nsw i32 %37, 1
+  store i32 %38, ptr %3, align 4, !tbaa !38
+  %39 = sext i32 %37 to i64
+  %40 = getelementptr inbounds i32, ptr %2, i64 %39
+  store i32 %36, ptr %40, align 4, !tbaa !38
   br label %Str_MuxFindPath_rec.exit.thread
 
-Str_MuxFindPath_rec.exit.thread:                  ; preds = %32, %Str_MuxFindPath_rec.exit, %Str_MuxFindPath_rec.exit.thread12
-  %.0 = phi i32 [ 1, %Str_MuxFindPath_rec.exit.thread12 ], [ 0, %Str_MuxFindPath_rec.exit ], [ 0, %32 ]
+Str_MuxFindPath_rec.exit.thread:                  ; preds = %30, %Str_MuxFindPath_rec.exit, %Str_MuxFindPath_rec.exit.thread12
+  %.0 = phi i32 [ 1, %Str_MuxFindPath_rec.exit.thread12 ], [ 0, %Str_MuxFindPath_rec.exit ], [ 0, %30 ]
   ret i32 %.0
 }
 
@@ -8328,33 +8327,32 @@ define range(i32 -1, 2) i32 @Str_MuxFindPath_rec(ptr noundef readonly captures(n
   %9 = load i32, ptr %8, align 4, !tbaa !138
   %10 = tail call noundef i32 @llvm.smax.i32(i32 %7, i32 %9)
   %11 = tail call noundef i32 @llvm.smax.i32(i32 %5, i32 %10)
-  %12 = getelementptr i8, ptr %0, i64 24
-  br label %13
+  br label %12
 
-13:                                               ; preds = %3, %22
-  %14 = phi i1 [ true, %3 ], [ false, %22 ]
-  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %22 ]
-  %15 = shl nuw nsw i64 %indvars.iv, 4
-  %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = load i32, ptr %16, align 4, !tbaa !138
-  %18 = icmp eq i32 %17, %11
-  br i1 %18, label %19, label %22
+12:                                               ; preds = %3, %20
+  %13 = phi i1 [ true, %3 ], [ false, %20 ]
+  %indvars.iv = phi i64 [ 0, %3 ], [ 1, %20 ]
+  %14 = shl nuw nsw i64 %indvars.iv, 4
+  %gep = getelementptr inbounds nuw i8, ptr %4, i64 %14
+  %15 = load i32, ptr %gep, align 4, !tbaa !138
+  %16 = icmp eq i32 %15, %11
+  br i1 %16, label %17, label %20
 
-19:                                               ; preds = %13
-  %20 = trunc nuw nsw i64 %indvars.iv to i32
-  %21 = tail call i32 @Str_MuxFindPathEdge_rec(ptr noundef nonnull %0, i32 noundef %20, ptr noundef %1, ptr noundef %2)
-  br label %25
+17:                                               ; preds = %12
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
+  %19 = tail call i32 @Str_MuxFindPathEdge_rec(ptr noundef nonnull %0, i32 noundef %18, ptr noundef %1, ptr noundef %2)
+  br label %23
 
-22:                                               ; preds = %13
-  br i1 %14, label %13, label %23, !llvm.loop !152
+20:                                               ; preds = %12
+  br i1 %13, label %12, label %21, !llvm.loop !152
 
-23:                                               ; preds = %22
-  %24 = icmp ne i32 %9, %11
-  %. = sext i1 %24 to i32
-  br label %25
+21:                                               ; preds = %20
+  %22 = icmp ne i32 %9, %11
+  %. = sext i1 %22 to i32
+  br label %23
 
-25:                                               ; preds = %23, %19
-  %.0 = phi i32 [ %21, %19 ], [ %., %23 ]
+23:                                               ; preds = %21, %17
+  %.0 = phi i32 [ %19, %17 ], [ %., %21 ]
   ret i32 %.0
 }
 

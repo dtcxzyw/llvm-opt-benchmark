@@ -15720,8 +15720,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit32.i2042:         ; preds = %747
   br i1 %771, label %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit1267.thread, label %772
 
 772:                                              ; preds = %.lr.ph.i1259
-  %.02952.i1261.add1885 = or disjoint i64 %.02952.i1261.idx, 24
-  %.ptr1889 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE13AVX512CostTbl, i64 %.02952.i1261.add1885
+  %.ptr1889 = getelementptr inbounds nuw i8, ptr %.02952.i1261.ptr, i64 24
   %773 = load i32, ptr %.ptr1889, align 8, !tbaa !198
   %774 = icmp eq i32 %773, %.51617
   %775 = getelementptr inbounds nuw i8, ptr %.02952.i1261.ptr, i64 28
@@ -15770,7 +15769,7 @@ _ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter
   br label %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit1267.thread1720
 
 _ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit1267: ; preds = %772
-  %.ptr1889.le = getelementptr inbounds nuw i8, ptr @_ZZN4llvm10X86TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE13AVX512CostTbl, i64 %.02952.i1261.add1885
+  %.ptr1889.le = getelementptr inbounds nuw i8, ptr %.02952.i1261.ptr, i64 24
   %.not.i.i957 = icmp eq i64 %.02952.i1261.idx, 2976
   br i1 %.not.i.i957, label %.critedge632, label %_ZSt9__find_ifIPKN4llvm13CostTblEntryTI13CostKindCostsEEN9__gnu_cxx5__ops10_Iter_predIZNS0_15CostTableLookupIS2_EEPKNS1_IT_EENS0_8ArrayRefISB_EEiNS0_3MVTEEUlRS4_E_EEESA_SA_SA_T0_St26random_access_iterator_tag.exit1267.thread1720
 

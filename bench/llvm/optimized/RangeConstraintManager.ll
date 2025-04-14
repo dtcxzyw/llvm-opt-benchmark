@@ -13128,6 +13128,7 @@ _ZSt26__unguarded_insertion_sortIPN5clang4ento5RangeEN9__gnu_cxx5__ops15_Iter_le
 define linkonce_odr void @_ZSt13__adjust_heapIPN5clang4ento5RangeElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr %3, ptr %4) local_unnamed_addr #1 comdat {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
+  %invariant.gep = getelementptr i8, ptr %0, i64 16
   %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -13136,108 +13137,108 @@ define linkonce_odr void @_ZSt13__adjust_heapIPN5clang4ento5RangeElS2_N9__gnu_cx
   %9 = shl i64 %.030, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %12
-  %14 = load ptr, ptr %11, align 8, !tbaa !30
-  %15 = load ptr, ptr %13, align 8, !tbaa !30
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %17 = load i8, ptr %16, align 4, !tbaa !34, !range !38, !noundef !39
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %21
+  %gep = getelementptr %"class.clang::ento::Range", ptr %invariant.gep, i64 %9
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  %13 = load ptr, ptr %gep, align 8, !tbaa !30
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %15 = load i8, ptr %14, align 4, !tbaa !34, !range !38, !noundef !39
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %17, label %19
+
+17:                                               ; preds = %.lr.ph
+  %18 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %12, ptr noundef nonnull align 8 dereferenceable(13) %13) #26
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN5clang4ento5RangeES6_EEbT_T0_.exit
 
 19:                                               ; preds = %.lr.ph
-  %20 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %14, ptr noundef nonnull align 8 dereferenceable(13) %15) #26
+  %20 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %12, ptr noundef nonnull align 8 dereferenceable(13) %13) #26
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN5clang4ento5RangeES6_EEbT_T0_.exit
 
-21:                                               ; preds = %.lr.ph
-  %22 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %14, ptr noundef nonnull align 8 dereferenceable(13) %15) #26
-  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN5clang4ento5RangeES6_EEbT_T0_.exit
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN5clang4ento5RangeES6_EEbT_T0_.exit: ; preds = %19, %21
-  %.in.i.i.i = phi i32 [ %20, %19 ], [ %22, %21 ]
-  %23 = icmp slt i32 %.in.i.i.i, 0
-  %spec.select = select i1 %23, i64 %12, i64 %10
-  %24 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %spec.select
-  %25 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %.030
-  %26 = load ptr, ptr %24, align 8, !tbaa !43
-  store ptr %26, ptr %25, align 8, !tbaa !44
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !43
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %28, ptr %29, align 8, !tbaa !45
-  %30 = icmp slt i64 %spec.select, %7
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !658
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN5clang4ento5RangeES6_EEbT_T0_.exit: ; preds = %17, %19
+  %.in.i.i.i = phi i32 [ %18, %17 ], [ %20, %19 ]
+  %21 = icmp slt i32 %.in.i.i.i, 0
+  %22 = or disjoint i64 %9, 1
+  %spec.select = select i1 %21, i64 %22, i64 %10
+  %23 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %spec.select
+  %24 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %.030
+  %25 = load ptr, ptr %23, align 8, !tbaa !43
+  store ptr %25, ptr %24, align 8, !tbaa !44
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !43
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr %27, ptr %28, align 8, !tbaa !45
+  %29 = icmp slt i64 %spec.select, %7
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !658
 
 ._crit_edge:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN5clang4ento5RangeES6_EEbT_T0_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPN5clang4ento5RangeES6_EEbT_T0_.exit ]
-  %31 = and i64 %2, 1
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %46
+  %30 = and i64 %2, 1
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %45
 
-33:                                               ; preds = %._crit_edge
-  %34 = add nsw i64 %2, -2
-  %35 = ashr exact i64 %34, 1
-  %36 = icmp eq i64 %.0.lcssa, %35
-  br i1 %36, label %37, label %46
+32:                                               ; preds = %._crit_edge
+  %33 = add nsw i64 %2, -2
+  %34 = ashr exact i64 %33, 1
+  %35 = icmp eq i64 %.0.lcssa, %34
+  br i1 %35, label %36, label %45
 
-37:                                               ; preds = %33
-  %38 = shl nsw i64 %.0.lcssa, 1
-  %39 = or disjoint i64 %38, 1
-  %40 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %39
-  %41 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %.0.lcssa
-  %42 = load ptr, ptr %40, align 8, !tbaa !43
-  store ptr %42, ptr %41, align 8, !tbaa !44
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !43
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %44, ptr %45, align 8, !tbaa !45
-  br label %46
+36:                                               ; preds = %32
+  %37 = shl nsw i64 %.0.lcssa, 1
+  %38 = or disjoint i64 %37, 1
+  %39 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %38
+  %40 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %.0.lcssa
+  %41 = load ptr, ptr %39, align 8, !tbaa !43
+  store ptr %41, ptr %40, align 8, !tbaa !44
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !43
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store ptr %43, ptr %44, align 8, !tbaa !45
+  br label %45
 
-46:                                               ; preds = %37, %33, %._crit_edge
-  %.1 = phi i64 [ %39, %37 ], [ %.0.lcssa, %33 ], [ %.0.lcssa, %._crit_edge ]
-  %47 = icmp sgt i64 %.1, %1
-  br i1 %47, label %.lr.ph.i, label %_ZSt11__push_heapIPN5clang4ento5RangeElS2_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S8_T1_RT2_.exit
+45:                                               ; preds = %36, %32, %._crit_edge
+  %.1 = phi i64 [ %38, %36 ], [ %.0.lcssa, %32 ], [ %.0.lcssa, %._crit_edge ]
+  %46 = icmp sgt i64 %.1, %1
+  br i1 %46, label %.lr.ph.i, label %_ZSt11__push_heapIPN5clang4ento5RangeElS2_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S8_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %46, %58
-  %.01317.i = phi i64 [ %.018.i, %58 ], [ %.1, %46 ]
+.lr.ph.i:                                         ; preds = %45, %57
+  %.01317.i = phi i64 [ %.018.i, %57 ], [ %.1, %45 ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %48 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %.018.i
-  %49 = load ptr, ptr %48, align 8, !tbaa !30
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  %51 = load i8, ptr %50, align 4, !tbaa !34, !range !38, !noundef !39
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %53, label %55
+  %47 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %.018.i
+  %48 = load ptr, ptr %47, align 8, !tbaa !30
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 12
+  %50 = load i8, ptr %49, align 4, !tbaa !34, !range !38, !noundef !39
+  %51 = trunc nuw i8 %50 to i1
+  br i1 %51, label %52, label %54
 
-53:                                               ; preds = %.lr.ph.i
-  %54 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %49, ptr noundef nonnull align 8 dereferenceable(13) %3) #26
+52:                                               ; preds = %.lr.ph.i
+  %53 = tail call noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %48, ptr noundef nonnull align 8 dereferenceable(13) %3) #26
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN5clang4ento5RangeES5_EEbT_RT0_.exit.i
 
-55:                                               ; preds = %.lr.ph.i
-  %56 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %49, ptr noundef nonnull align 8 dereferenceable(13) %3) #26
+54:                                               ; preds = %.lr.ph.i
+  %55 = tail call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %48, ptr noundef nonnull align 8 dereferenceable(13) %3) #26
   br label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN5clang4ento5RangeES5_EEbT_RT0_.exit.i
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN5clang4ento5RangeES5_EEbT_RT0_.exit.i: ; preds = %55, %53
-  %.in.i.i.i.i = phi i32 [ %54, %53 ], [ %56, %55 ]
-  %57 = icmp slt i32 %.in.i.i.i.i, 0
-  br i1 %57, label %58, label %_ZSt11__push_heapIPN5clang4ento5RangeElS2_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S8_T1_RT2_.exit
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN5clang4ento5RangeES5_EEbT_RT0_.exit.i: ; preds = %54, %52
+  %.in.i.i.i.i = phi i32 [ %53, %52 ], [ %55, %54 ]
+  %56 = icmp slt i32 %.in.i.i.i.i, 0
+  br i1 %56, label %57, label %_ZSt11__push_heapIPN5clang4ento5RangeElS2_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S8_T1_RT2_.exit
 
-58:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN5clang4ento5RangeES5_EEbT_RT0_.exit.i
-  %59 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %.01317.i
-  store ptr %49, ptr %59, align 8, !tbaa !44
-  %60 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !43
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store ptr %61, ptr %62, align 8, !tbaa !45
-  %63 = icmp sgt i64 %.018.i, %1
-  br i1 %63, label %.lr.ph.i, label %_ZSt11__push_heapIPN5clang4ento5RangeElS2_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S8_T1_RT2_.exit, !llvm.loop !659
+57:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN5clang4ento5RangeES5_EEbT_RT0_.exit.i
+  %58 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %.01317.i
+  store ptr %48, ptr %58, align 8, !tbaa !44
+  %59 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !43
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store ptr %60, ptr %61, align 8, !tbaa !45
+  %62 = icmp sgt i64 %.018.i, %1
+  br i1 %62, label %.lr.ph.i, label %_ZSt11__push_heapIPN5clang4ento5RangeElS2_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S8_T1_RT2_.exit, !llvm.loop !659
 
-_ZSt11__push_heapIPN5clang4ento5RangeElS2_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S8_T1_RT2_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN5clang4ento5RangeES5_EEbT_RT0_.exit.i, %58, %46
-  %.013.lcssa.i = phi i64 [ %.1, %46 ], [ %.01317.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN5clang4ento5RangeES5_EEbT_RT0_.exit.i ], [ %.018.i, %58 ]
-  %64 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %64, align 8, !tbaa !44
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store ptr %4, ptr %65, align 8, !tbaa !45
+_ZSt11__push_heapIPN5clang4ento5RangeElS2_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S8_T1_RT2_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN5clang4ento5RangeES5_EEbT_RT0_.exit.i, %57, %45
+  %.013.lcssa.i = phi i64 [ %.1, %45 ], [ %.01317.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPN5clang4ento5RangeES5_EEbT_RT0_.exit.i ], [ %.018.i, %57 ]
+  %63 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %63, align 8, !tbaa !44
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store ptr %4, ptr %64, align 8, !tbaa !45
   ret void
 }
 
@@ -39283,15 +39284,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4ento7SymExprElN9
   br i1 %9, label %.lr.ph, label %"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_T0_.exit"
 
 .lr.ph:                                           ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr i8, ptr %0, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEET_SI_SI_T0_.exit"
-  %12 = phi i64 [ %8, %.lr.ph ], [ %150, %"_ZSt27__unguarded_partition_pivotIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEET_SI_SI_T0_.exit" ]
+  %12 = phi i64 [ %8, %.lr.ph ], [ %147, %"_ZSt27__unguarded_partition_pivotIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEET_SI_SI_T0_.exit" ]
   %.026 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %"_ZSt27__unguarded_partition_pivotIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEET_SI_SI_T0_.exit" ]
-  %.01725 = phi i64 [ %2, %.lr.ph ], [ %111, %"_ZSt27__unguarded_partition_pivotIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEET_SI_SI_T0_.exit" ]
+  %.01725 = phi i64 [ %2, %.lr.ph ], [ %108, %"_ZSt27__unguarded_partition_pivotIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEET_SI_SI_T0_.exit" ]
   %13 = icmp eq i64 %.01725, 0
-  br i1 %13, label %14, label %110
+  br i1 %13, label %14, label %107
 
 14:                                               ; preds = %11
   %15 = lshr i64 %12, 3
@@ -39310,7 +39311,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4ento7SymExprElN9
   br label %.split.i.i.i
 
 .split.us.i.i.i:                                  ; preds = %14, %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.us.i.i.i"
-  %.014.us.i.i.i = phi i64 [ %45, %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.us.i.i.i" ], [ %17, %14 ]
+  %.014.us.i.i.i = phi i64 [ %44, %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.us.i.i.i" ], [ %17, %14 ]
   %25 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.us.i.i.i
   %26 = load ptr, ptr %25, align 8, !tbaa !489
   %27 = icmp slt i64 %.014.us.i.i.i, %19
@@ -39325,300 +39326,300 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4ento7SymExprElN9
   %28 = shl i64 %.029.i.us.i.i.i, 1
   %29 = add i64 %28, 2
   %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %29
-  %31 = or disjoint i64 %28, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %31
-  %33 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %30, ptr noundef nonnull readonly align 8 dereferenceable(8) %32)
-  %spec.select.i.us.i.i.i = select i1 %33, i64 %31, i64 %29
-  %34 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.us.i.i.i
-  %35 = load ptr, ptr %34, align 8, !tbaa !489
-  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %.029.i.us.i.i.i
-  store ptr %35, ptr %36, align 8, !tbaa !489
-  %37 = icmp slt i64 %spec.select.i.us.i.i.i, %19
-  br i1 %37, label %.lr.ph.i.us.i.i.i, label %._crit_edge.i.us.i.i.i, !llvm.loop !1284
+  %gep.i.us.i.i.i = getelementptr ptr, ptr %10, i64 %28
+  %31 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %30, ptr noundef nonnull readonly align 8 dereferenceable(8) %gep.i.us.i.i.i)
+  %32 = or disjoint i64 %28, 1
+  %spec.select.i.us.i.i.i = select i1 %31, i64 %32, i64 %29
+  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.us.i.i.i
+  %34 = load ptr, ptr %33, align 8, !tbaa !489
+  %35 = getelementptr inbounds nuw ptr, ptr %0, i64 %.029.i.us.i.i.i
+  store ptr %34, ptr %35, align 8, !tbaa !489
+  %36 = icmp slt i64 %spec.select.i.us.i.i.i, %19
+  br i1 %36, label %.lr.ph.i.us.i.i.i, label %._crit_edge.i.us.i.i.i, !llvm.loop !1284
 
 ._crit_edge.i.us.i.i.i:                           ; preds = %.lr.ph.i.us.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %26, ptr %5, align 8, !tbaa !489
   br label %.lr.ph.i.i.us.i.i.i
 
-.lr.ph.i.i.us.i.i.i:                              ; preds = %40, %._crit_edge.i.us.i.i.i
-  %.0133.i.i.us.i.i.i = phi i64 [ %.04.i.i.us.i.i.i, %40 ], [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ]
+.lr.ph.i.i.us.i.i.i:                              ; preds = %39, %._crit_edge.i.us.i.i.i
+  %.0133.i.i.us.i.i.i = phi i64 [ %.04.i.i.us.i.i.i, %39 ], [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ]
   %.04.in.i.i.us.i.i.i = add nsw i64 %.0133.i.i.us.i.i.i, -1
   %.04.i.i.us.i.i.i = sdiv i64 %.04.in.i.i.us.i.i.i, 2
-  %38 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.us.i.i.i
-  %39 = call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %38, ptr noundef nonnull readonly align 8 dereferenceable(8) %5)
-  br i1 %39, label %40, label %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.us.i.i.i"
+  %37 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.us.i.i.i
+  %38 = call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %37, ptr noundef nonnull readonly align 8 dereferenceable(8) %5)
+  br i1 %38, label %39, label %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.us.i.i.i"
 
-40:                                               ; preds = %.lr.ph.i.i.us.i.i.i
-  %41 = load ptr, ptr %38, align 8, !tbaa !489
-  %42 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.us.i.i.i
-  store ptr %41, ptr %42, align 8, !tbaa !489
-  %43 = icmp sgt i64 %.04.i.i.us.i.i.i, %.014.us.i.i.i
-  br i1 %43, label %.lr.ph.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.us.i.i.i", !llvm.loop !1285
+39:                                               ; preds = %.lr.ph.i.i.us.i.i.i
+  %40 = load ptr, ptr %37, align 8, !tbaa !489
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.us.i.i.i
+  store ptr %40, ptr %41, align 8, !tbaa !489
+  %42 = icmp sgt i64 %.04.i.i.us.i.i.i, %.014.us.i.i.i
+  br i1 %42, label %.lr.ph.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.us.i.i.i", !llvm.loop !1285
 
-"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.us.i.i.i": ; preds = %40, %.lr.ph.i.i.us.i.i.i, %._crit_edge.i.us.thread.i.i.i
-  %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.014.us.i.i.i, %._crit_edge.i.us.thread.i.i.i ], [ %.0133.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.04.i.i.us.i.i.i, %40 ]
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
-  store ptr %26, ptr %44, align 8, !tbaa !489
+"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.us.i.i.i": ; preds = %39, %.lr.ph.i.i.us.i.i.i, %._crit_edge.i.us.thread.i.i.i
+  %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.014.us.i.i.i, %._crit_edge.i.us.thread.i.i.i ], [ %.0133.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.04.i.i.us.i.i.i, %39 ]
+  %43 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
+  store ptr %26, ptr %43, align 8, !tbaa !489
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not.us.i.i.i = icmp eq i64 %.014.us.i.i.i, 0
-  %45 = add nsw i64 %.014.us.i.i.i, -1
+  %44 = add nsw i64 %.014.us.i.i.i, -1
   br i1 %.not.us.i.i.i, label %.lr.ph.i5.i.preheader, label %.split.us.i.i.i, !llvm.loop !1286
 
 .split.i.i.i:                                     ; preds = %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i", %.split.preheader.i.i.i
-  %.014.i.i.i = phi i64 [ %71, %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i" ], [ %17, %.split.preheader.i.i.i ]
-  %46 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.i.i.i
-  %47 = load ptr, ptr %46, align 8, !tbaa !489
-  %48 = icmp slt i64 %.014.i.i.i, %19
-  br i1 %48, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %.014.i.i.i = phi i64 [ %69, %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i" ], [ %17, %.split.preheader.i.i.i ]
+  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.i.i.i
+  %46 = load ptr, ptr %45, align 8, !tbaa !489
+  %47 = icmp slt i64 %.014.i.i.i, %19
+  br i1 %47, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
   %.029.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.014.i.i.i, %.split.i.i.i ]
-  %49 = shl i64 %.029.i.i.i.i, 1
-  %50 = add i64 %49, 2
-  %51 = getelementptr inbounds nuw ptr, ptr %0, i64 %50
-  %52 = or disjoint i64 %49, 1
-  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %52
-  %54 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %51, ptr noundef nonnull readonly align 8 dereferenceable(8) %53)
-  %spec.select.i.i.i.i = select i1 %54, i64 %52, i64 %50
-  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
-  %56 = load ptr, ptr %55, align 8, !tbaa !489
-  %57 = getelementptr inbounds nuw ptr, ptr %0, i64 %.029.i.i.i.i
-  store ptr %56, ptr %57, align 8, !tbaa !489
-  %58 = icmp slt i64 %spec.select.i.i.i.i, %19
-  br i1 %58, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1284
+  %48 = shl i64 %.029.i.i.i.i, 1
+  %49 = add i64 %48, 2
+  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %49
+  %gep.i.i.i.i = getelementptr ptr, ptr %10, i64 %48
+  %51 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %50, ptr noundef nonnull readonly align 8 dereferenceable(8) %gep.i.i.i.i)
+  %52 = or disjoint i64 %48, 1
+  %spec.select.i.i.i.i = select i1 %51, i64 %52, i64 %49
+  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %54 = load ptr, ptr %53, align 8, !tbaa !489
+  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %.029.i.i.i.i
+  store ptr %54, ptr %55, align 8, !tbaa !489
+  %56 = icmp slt i64 %spec.select.i.i.i.i, %19
+  br i1 %56, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1284
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.split.i.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ %.014.i.i.i, %.split.i.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %59 = icmp eq i64 %.0.lcssa.i.i.i.i, %17
-  br i1 %59, label %60, label %62
+  %57 = icmp eq i64 %.0.lcssa.i.i.i.i, %17
+  br i1 %57, label %58, label %60
 
-60:                                               ; preds = %._crit_edge.i.i.i.i
-  %61 = load ptr, ptr %23, align 8, !tbaa !489
-  store ptr %61, ptr %24, align 8, !tbaa !489
-  br label %62
+58:                                               ; preds = %._crit_edge.i.i.i.i
+  %59 = load ptr, ptr %23, align 8, !tbaa !489
+  store ptr %59, ptr %24, align 8, !tbaa !489
+  br label %60
 
-62:                                               ; preds = %60, %._crit_edge.i.i.i.i
-  %.128.i.i.i.i = phi i64 [ %22, %60 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+60:                                               ; preds = %58, %._crit_edge.i.i.i.i
+  %.128.i.i.i.i = phi i64 [ %22, %58 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr %47, ptr %5, align 8, !tbaa !489
-  %63 = icmp samesign ugt i64 %.128.i.i.i.i, %.014.i.i.i
-  br i1 %63, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i"
+  store ptr %46, ptr %5, align 8, !tbaa !489
+  %61 = icmp samesign ugt i64 %.128.i.i.i.i, %.014.i.i.i
+  br i1 %61, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %62, %66
-  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %66 ], [ %.128.i.i.i.i, %62 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %60, %64
+  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %64 ], [ %.128.i.i.i.i, %60 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %64 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.i.i.i
-  %65 = call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %64, ptr noundef nonnull readonly align 8 dereferenceable(8) %5)
-  br i1 %65, label %66, label %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i"
+  %62 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.i.i.i
+  %63 = call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %62, ptr noundef nonnull readonly align 8 dereferenceable(8) %5)
+  br i1 %63, label %64, label %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i"
 
-66:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %67 = load ptr, ptr %64, align 8, !tbaa !489
-  %68 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
-  store ptr %67, ptr %68, align 8, !tbaa !489
-  %69 = icmp sgt i64 %.04.i.i.i.i.i, %.014.i.i.i
-  br i1 %69, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i", !llvm.loop !1285
+64:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %65 = load ptr, ptr %62, align 8, !tbaa !489
+  %66 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  store ptr %65, ptr %66, align 8, !tbaa !489
+  %67 = icmp sgt i64 %.04.i.i.i.i.i, %.014.i.i.i
+  br i1 %67, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i", !llvm.loop !1285
 
-"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i": ; preds = %66, %.lr.ph.i.i.i.i.i, %62
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %62 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %66 ]
-  %70 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store ptr %47, ptr %70, align 8, !tbaa !489
+"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i": ; preds = %64, %.lr.ph.i.i.i.i.i, %60
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %60 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %64 ]
+  %68 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store ptr %46, ptr %68, align 8, !tbaa !489
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
-  %71 = add nsw i64 %.014.i.i.i, -1
+  %69 = add nsw i64 %.014.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i5.i.preheader, label %.split.i.i.i, !llvm.loop !1286
 
 .lr.ph.i5.i.preheader:                            ; preds = %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.us.i.i.i", %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i.i"
   br label %.lr.ph.i5.i
 
 .lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_RT0_.exit.i.i"
-  %.01.i.i = phi ptr [ %72, %"_ZSt10__pop_heapIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_RT0_.exit.i.i" ], [ %.026, %.lr.ph.i5.i.preheader ]
-  %72 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
-  %73 = load ptr, ptr %72, align 8, !tbaa !489
-  %74 = load ptr, ptr %0, align 8, !tbaa !489
-  store ptr %74, ptr %72, align 8, !tbaa !489
-  %75 = ptrtoint ptr %72 to i64
-  %76 = sub i64 %75, %6
-  %77 = ashr exact i64 %76, 3
-  %78 = add nsw i64 %77, -1
-  %79 = sdiv i64 %78, 2
-  %80 = icmp sgt i64 %77, 2
-  br i1 %80, label %.lr.ph.i.i.i13.i, label %._crit_edge.i.i.i6.i
+  %.01.i.i = phi ptr [ %70, %"_ZSt10__pop_heapIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_RT0_.exit.i.i" ], [ %.026, %.lr.ph.i5.i.preheader ]
+  %70 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
+  %71 = load ptr, ptr %70, align 8, !tbaa !489
+  %72 = load ptr, ptr %0, align 8, !tbaa !489
+  store ptr %72, ptr %70, align 8, !tbaa !489
+  %73 = ptrtoint ptr %70 to i64
+  %74 = sub i64 %73, %6
+  %75 = ashr exact i64 %74, 3
+  %76 = add nsw i64 %75, -1
+  %77 = sdiv i64 %76, 2
+  %78 = icmp sgt i64 %75, 2
+  br i1 %78, label %.lr.ph.i.i.i14.i, label %._crit_edge.i.i.i7.i
 
-.lr.ph.i.i.i13.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i13.i
-  %.029.i.i.i14.i = phi i64 [ %spec.select.i.i.i15.i, %.lr.ph.i.i.i13.i ], [ 0, %.lr.ph.i5.i ]
-  %81 = shl i64 %.029.i.i.i14.i, 1
-  %82 = add i64 %81, 2
-  %83 = getelementptr inbounds nuw ptr, ptr %0, i64 %82
-  %84 = or disjoint i64 %81, 1
-  %85 = getelementptr inbounds nuw ptr, ptr %0, i64 %84
-  %86 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %83, ptr noundef nonnull readonly align 8 dereferenceable(8) %85)
-  %spec.select.i.i.i15.i = select i1 %86, i64 %84, i64 %82
-  %87 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i15.i
-  %88 = load ptr, ptr %87, align 8, !tbaa !489
-  %89 = getelementptr inbounds nuw ptr, ptr %0, i64 %.029.i.i.i14.i
-  store ptr %88, ptr %89, align 8, !tbaa !489
-  %90 = icmp slt i64 %spec.select.i.i.i15.i, %79
-  br i1 %90, label %.lr.ph.i.i.i13.i, label %._crit_edge.i.i.i6.i, !llvm.loop !1284
+.lr.ph.i.i.i14.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i14.i
+  %.029.i.i.i15.i = phi i64 [ %spec.select.i.i.i17.i, %.lr.ph.i.i.i14.i ], [ 0, %.lr.ph.i5.i ]
+  %79 = shl i64 %.029.i.i.i15.i, 1
+  %80 = add i64 %79, 2
+  %81 = getelementptr inbounds nuw ptr, ptr %0, i64 %80
+  %gep.i.i.i16.i = getelementptr ptr, ptr %10, i64 %79
+  %82 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %81, ptr noundef nonnull readonly align 8 dereferenceable(8) %gep.i.i.i16.i)
+  %83 = or disjoint i64 %79, 1
+  %spec.select.i.i.i17.i = select i1 %82, i64 %83, i64 %80
+  %84 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i17.i
+  %85 = load ptr, ptr %84, align 8, !tbaa !489
+  %86 = getelementptr inbounds nuw ptr, ptr %0, i64 %.029.i.i.i15.i
+  store ptr %85, ptr %86, align 8, !tbaa !489
+  %87 = icmp slt i64 %spec.select.i.i.i17.i, %77
+  br i1 %87, label %.lr.ph.i.i.i14.i, label %._crit_edge.i.i.i7.i, !llvm.loop !1284
 
-._crit_edge.i.i.i6.i:                             ; preds = %.lr.ph.i.i.i13.i, %.lr.ph.i5.i
-  %.0.lcssa.i.i.i7.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i15.i, %.lr.ph.i.i.i13.i ]
-  %91 = and i64 %76, 8
-  %92 = icmp eq i64 %91, 0
-  br i1 %92, label %93, label %102
+._crit_edge.i.i.i7.i:                             ; preds = %.lr.ph.i.i.i14.i, %.lr.ph.i5.i
+  %.0.lcssa.i.i.i8.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i17.i, %.lr.ph.i.i.i14.i ]
+  %88 = and i64 %74, 8
+  %89 = icmp eq i64 %88, 0
+  br i1 %89, label %90, label %99
 
-93:                                               ; preds = %._crit_edge.i.i.i6.i
-  %94 = add nsw i64 %77, -2
-  %95 = ashr exact i64 %94, 1
-  %96 = icmp eq i64 %.0.lcssa.i.i.i7.i, %95
-  br i1 %96, label %.thread.i.i.i, label %102
+90:                                               ; preds = %._crit_edge.i.i.i7.i
+  %91 = add nsw i64 %75, -2
+  %92 = ashr exact i64 %91, 1
+  %93 = icmp eq i64 %.0.lcssa.i.i.i8.i, %92
+  br i1 %93, label %.thread.i.i.i, label %99
 
-.thread.i.i.i:                                    ; preds = %93
-  %97 = shl nuw nsw i64 %.0.lcssa.i.i.i7.i, 1
-  %98 = or disjoint i64 %97, 1
-  %99 = getelementptr inbounds nuw ptr, ptr %0, i64 %98
-  %100 = load ptr, ptr %99, align 8, !tbaa !489
-  %101 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
-  store ptr %100, ptr %101, align 8, !tbaa !489
+.thread.i.i.i:                                    ; preds = %90
+  %94 = shl nuw nsw i64 %.0.lcssa.i.i.i8.i, 1
+  %95 = or disjoint i64 %94, 1
+  %96 = getelementptr inbounds nuw ptr, ptr %0, i64 %95
+  %97 = load ptr, ptr %96, align 8, !tbaa !489
+  %98 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i8.i
+  store ptr %97, ptr %98, align 8, !tbaa !489
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %73, ptr %4, align 8, !tbaa !489
-  br label %.lr.ph.i.i.i.i9.i.preheader
+  store ptr %71, ptr %4, align 8, !tbaa !489
+  br label %.lr.ph.i.i.i.i10.i.preheader
 
-102:                                              ; preds = %93, %._crit_edge.i.i.i6.i
+99:                                               ; preds = %90, %._crit_edge.i.i.i7.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %73, ptr %4, align 8, !tbaa !489
-  %.not.i.i8.i = icmp eq i64 %.0.lcssa.i.i.i7.i, 0
-  br i1 %.not.i.i8.i, label %"_ZSt10__pop_heapIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_RT0_.exit.i.i", label %.lr.ph.i.i.i.i9.i.preheader
+  store ptr %71, ptr %4, align 8, !tbaa !489
+  %.not.i.i9.i = icmp eq i64 %.0.lcssa.i.i.i8.i, 0
+  br i1 %.not.i.i9.i, label %"_ZSt10__pop_heapIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_RT0_.exit.i.i", label %.lr.ph.i.i.i.i10.i.preheader
 
-.lr.ph.i.i.i.i9.i.preheader:                      ; preds = %102, %.thread.i.i.i
-  %.0133.i.i.i.i10.i.ph = phi i64 [ %.0.lcssa.i.i.i7.i, %102 ], [ %98, %.thread.i.i.i ]
-  br label %.lr.ph.i.i.i.i9.i
+.lr.ph.i.i.i.i10.i.preheader:                     ; preds = %99, %.thread.i.i.i
+  %.0133.i.i.i.i11.i.ph = phi i64 [ %.0.lcssa.i.i.i8.i, %99 ], [ %95, %.thread.i.i.i ]
+  br label %.lr.ph.i.i.i.i10.i
 
-.lr.ph.i.i.i.i9.i:                                ; preds = %.lr.ph.i.i.i.i9.i.preheader, %105
-  %.0133.i.i.i.i10.i = phi i64 [ %.04.i.i12.i.i.i, %105 ], [ %.0133.i.i.i.i10.i.ph, %.lr.ph.i.i.i.i9.i.preheader ]
-  %.04.in.i.i.i.i11.i = add nsw i64 %.0133.i.i.i.i10.i, -1
-  %.04.i.i12.i.i.i = lshr i64 %.04.in.i.i.i.i11.i, 1
-  %103 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i12.i.i.i
-  %104 = call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %103, ptr noundef nonnull readonly align 8 dereferenceable(8) %4)
-  br i1 %104, label %105, label %"_ZSt10__pop_heapIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_RT0_.exit.i.i"
+.lr.ph.i.i.i.i10.i:                               ; preds = %.lr.ph.i.i.i.i10.i.preheader, %102
+  %.0133.i.i.i.i11.i = phi i64 [ %.04.i.i12.i.i.i, %102 ], [ %.0133.i.i.i.i11.i.ph, %.lr.ph.i.i.i.i10.i.preheader ]
+  %.04.in.i.i.i.i12.i = add nsw i64 %.0133.i.i.i.i11.i, -1
+  %.04.i.i12.i.i.i = lshr i64 %.04.in.i.i.i.i12.i, 1
+  %100 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i12.i.i.i
+  %101 = call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %100, ptr noundef nonnull readonly align 8 dereferenceable(8) %4)
+  br i1 %101, label %102, label %"_ZSt10__pop_heapIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_RT0_.exit.i.i"
 
-105:                                              ; preds = %.lr.ph.i.i.i.i9.i
-  %106 = load ptr, ptr %103, align 8, !tbaa !489
-  %107 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i10.i
-  store ptr %106, ptr %107, align 8, !tbaa !489
-  %.not3.i.i.i = icmp ult i64 %.04.in.i.i.i.i11.i, 2
-  br i1 %.not3.i.i.i, label %"_ZSt10__pop_heapIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_RT0_.exit.i.i", label %.lr.ph.i.i.i.i9.i, !llvm.loop !1285
+102:                                              ; preds = %.lr.ph.i.i.i.i10.i
+  %103 = load ptr, ptr %100, align 8, !tbaa !489
+  %104 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i11.i
+  store ptr %103, ptr %104, align 8, !tbaa !489
+  %.not3.i.i.i = icmp ult i64 %.04.in.i.i.i.i12.i, 2
+  br i1 %.not3.i.i.i, label %"_ZSt10__pop_heapIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_RT0_.exit.i.i", label %.lr.ph.i.i.i.i10.i, !llvm.loop !1285
 
-"_ZSt10__pop_heapIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_RT0_.exit.i.i": ; preds = %105, %.lr.ph.i.i.i.i9.i, %102
-  %.013.lcssa.i.i.i.i12.i = phi i64 [ 0, %102 ], [ %.0133.i.i.i.i10.i, %.lr.ph.i.i.i.i9.i ], [ 0, %105 ]
-  %108 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i12.i
-  store ptr %73, ptr %108, align 8, !tbaa !489
+"_ZSt10__pop_heapIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_RT0_.exit.i.i": ; preds = %102, %.lr.ph.i.i.i.i10.i, %99
+  %.013.lcssa.i.i.i.i13.i = phi i64 [ 0, %99 ], [ %.0133.i.i.i.i11.i, %.lr.ph.i.i.i.i10.i ], [ 0, %102 ]
+  %105 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i13.i
+  store ptr %71, ptr %105, align 8, !tbaa !489
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %109 = icmp sgt i64 %76, 8
-  br i1 %109, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_T0_.exit", !llvm.loop !1287
+  %106 = icmp sgt i64 %74, 8
+  br i1 %106, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_T0_.exit", !llvm.loop !1287
 
-110:                                              ; preds = %11
-  %111 = add nsw i64 %.01725, -1
-  %112 = lshr i64 %12, 4
-  %113 = getelementptr inbounds nuw ptr, ptr %0, i64 %112
-  %114 = getelementptr inbounds i8, ptr %.026, i64 -8
-  %115 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull readonly align 8 dereferenceable(8) %113)
-  br i1 %115, label %116, label %128
+107:                                              ; preds = %11
+  %108 = add nsw i64 %.01725, -1
+  %109 = lshr i64 %12, 4
+  %110 = getelementptr inbounds nuw ptr, ptr %0, i64 %109
+  %111 = getelementptr inbounds i8, ptr %.026, i64 -8
+  %112 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull readonly align 8 dereferenceable(8) %110)
+  br i1 %112, label %113, label %125
 
-116:                                              ; preds = %110
-  %117 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %113, ptr noundef nonnull readonly align 8 dereferenceable(8) %114)
-  br i1 %117, label %118, label %121
+113:                                              ; preds = %107
+  %114 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %110, ptr noundef nonnull readonly align 8 dereferenceable(8) %111)
+  br i1 %114, label %115, label %118
 
-118:                                              ; preds = %116
-  %119 = load ptr, ptr %0, align 8, !tbaa !489
-  %120 = load ptr, ptr %113, align 8, !tbaa !489
-  store ptr %120, ptr %0, align 8, !tbaa !489
-  store ptr %119, ptr %113, align 8, !tbaa !489
+115:                                              ; preds = %113
+  %116 = load ptr, ptr %0, align 8, !tbaa !489
+  %117 = load ptr, ptr %110, align 8, !tbaa !489
+  store ptr %117, ptr %0, align 8, !tbaa !489
+  store ptr %116, ptr %110, align 8, !tbaa !489
   br label %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-121:                                              ; preds = %116
-  %122 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull readonly align 8 dereferenceable(8) %114)
-  %123 = load ptr, ptr %0, align 8, !tbaa !489
-  br i1 %122, label %124, label %126
+118:                                              ; preds = %113
+  %119 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull readonly align 8 dereferenceable(8) %111)
+  %120 = load ptr, ptr %0, align 8, !tbaa !489
+  br i1 %119, label %121, label %123
 
-124:                                              ; preds = %121
-  %125 = load ptr, ptr %114, align 8, !tbaa !489
-  store ptr %125, ptr %0, align 8, !tbaa !489
-  store ptr %123, ptr %114, align 8, !tbaa !489
+121:                                              ; preds = %118
+  %122 = load ptr, ptr %111, align 8, !tbaa !489
+  store ptr %122, ptr %0, align 8, !tbaa !489
+  store ptr %120, ptr %111, align 8, !tbaa !489
   br label %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-126:                                              ; preds = %121
-  %127 = load ptr, ptr %10, align 8, !tbaa !489
-  store ptr %127, ptr %0, align 8, !tbaa !489
-  store ptr %123, ptr %10, align 8, !tbaa !489
+123:                                              ; preds = %118
+  %124 = load ptr, ptr %10, align 8, !tbaa !489
+  store ptr %124, ptr %0, align 8, !tbaa !489
+  store ptr %120, ptr %10, align 8, !tbaa !489
   br label %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-128:                                              ; preds = %110
-  %129 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull readonly align 8 dereferenceable(8) %114)
-  br i1 %129, label %130, label %133
+125:                                              ; preds = %107
+  %126 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noundef nonnull readonly align 8 dereferenceable(8) %111)
+  br i1 %126, label %127, label %130
 
-130:                                              ; preds = %128
-  %131 = load ptr, ptr %0, align 8, !tbaa !489
-  %132 = load ptr, ptr %10, align 8, !tbaa !489
-  store ptr %132, ptr %0, align 8, !tbaa !489
-  store ptr %131, ptr %10, align 8, !tbaa !489
+127:                                              ; preds = %125
+  %128 = load ptr, ptr %0, align 8, !tbaa !489
+  %129 = load ptr, ptr %10, align 8, !tbaa !489
+  store ptr %129, ptr %0, align 8, !tbaa !489
+  store ptr %128, ptr %10, align 8, !tbaa !489
   br label %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-133:                                              ; preds = %128
-  %134 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %113, ptr noundef nonnull readonly align 8 dereferenceable(8) %114)
-  %135 = load ptr, ptr %0, align 8, !tbaa !489
-  br i1 %134, label %136, label %138
+130:                                              ; preds = %125
+  %131 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %110, ptr noundef nonnull readonly align 8 dereferenceable(8) %111)
+  %132 = load ptr, ptr %0, align 8, !tbaa !489
+  br i1 %131, label %133, label %135
 
-136:                                              ; preds = %133
-  %137 = load ptr, ptr %114, align 8, !tbaa !489
-  store ptr %137, ptr %0, align 8, !tbaa !489
-  store ptr %135, ptr %114, align 8, !tbaa !489
+133:                                              ; preds = %130
+  %134 = load ptr, ptr %111, align 8, !tbaa !489
+  store ptr %134, ptr %0, align 8, !tbaa !489
+  store ptr %132, ptr %111, align 8, !tbaa !489
   br label %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-138:                                              ; preds = %133
-  %139 = load ptr, ptr %113, align 8, !tbaa !489
-  store ptr %139, ptr %0, align 8, !tbaa !489
-  store ptr %135, ptr %113, align 8, !tbaa !489
+135:                                              ; preds = %130
+  %136 = load ptr, ptr %110, align 8, !tbaa !489
+  store ptr %136, ptr %0, align 8, !tbaa !489
+  store ptr %132, ptr %110, align 8, !tbaa !489
   br label %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader": ; preds = %138, %136, %130, %126, %124, %118
+"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader": ; preds = %135, %133, %127, %123, %121, %115
   br label %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader", %146
-  %.013.i.i = phi ptr [ %.114.i.i, %146 ], [ %.026, %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader" ]
-  %.0.i.i = phi ptr [ %142, %146 ], [ %10, %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader" ]
-  br label %140
+"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader", %143
+  %.013.i.i = phi ptr [ %.114.i.i, %143 ], [ %.026, %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader" ]
+  %.0.i.i = phi ptr [ %139, %143 ], [ %10, %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i.preheader" ]
+  br label %137
 
-140:                                              ; preds = %140, %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i"
-  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i" ], [ %142, %140 ]
-  %141 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %.1.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
-  %142 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %141, label %140, label %.preheader.i.i, !llvm.loop !1288
+137:                                              ; preds = %137, %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i"
+  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i" ], [ %139, %137 ]
+  %138 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %.1.i.i, ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
+  %139 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  br i1 %138, label %137, label %.preheader.i.i, !llvm.loop !1288
 
-.preheader.i.i:                                   ; preds = %140, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %140 ]
+.preheader.i.i:                                   ; preds = %137, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %137 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
-  %143 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %.114.i.i)
-  br i1 %143, label %.preheader.i.i, label %144, !llvm.loop !1289
+  %140 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %.114.i.i)
+  br i1 %140, label %.preheader.i.i, label %141, !llvm.loop !1289
 
-144:                                              ; preds = %.preheader.i.i
-  %145 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %145, label %146, label %"_ZSt27__unguarded_partition_pivotIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEET_SI_SI_T0_.exit"
+141:                                              ; preds = %.preheader.i.i
+  %142 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %142, label %143, label %"_ZSt27__unguarded_partition_pivotIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEET_SI_SI_T0_.exit"
 
-146:                                              ; preds = %144
-  %147 = load ptr, ptr %.1.i.i, align 8, !tbaa !489
-  %148 = load ptr, ptr %.114.i.i, align 8, !tbaa !489
-  store ptr %148, ptr %.1.i.i, align 8, !tbaa !489
-  store ptr %147, ptr %.114.i.i, align 8, !tbaa !489
+143:                                              ; preds = %141
+  %144 = load ptr, ptr %.1.i.i, align 8, !tbaa !489
+  %145 = load ptr, ptr %.114.i.i, align 8, !tbaa !489
+  store ptr %145, ptr %.1.i.i, align 8, !tbaa !489
+  store ptr %144, ptr %.114.i.i, align 8, !tbaa !489
   br label %"_ZSt22__move_median_to_firstIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_SI_T0_.exit.i", !llvm.loop !1290
 
-"_ZSt27__unguarded_partition_pivotIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEET_SI_SI_T0_.exit": ; preds = %144
-  tail call fastcc void @"_ZSt16__introsort_loopIPPKN5clang4ento7SymExprElN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.026, i64 noundef %111)
-  %149 = ptrtoint ptr %.1.i.i to i64
-  %150 = sub i64 %149, %6
-  %151 = icmp sgt i64 %150, 128
-  br i1 %151, label %11, label %"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_T0_.exit", !llvm.loop !1291
+"_ZSt27__unguarded_partition_pivotIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEET_SI_SI_T0_.exit": ; preds = %141
+  tail call fastcc void @"_ZSt16__introsort_loopIPPKN5clang4ento7SymExprElN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.026, i64 noundef %108)
+  %146 = ptrtoint ptr %.1.i.i to i64
+  %147 = sub i64 %146, %6
+  %148 = icmp sgt i64 %147, 128
+  br i1 %148, label %11, label %"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_T0_.exit", !llvm.loop !1291
 
 "_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEET_SI_SI_T0_.exit", %"_ZSt10__pop_heapIPPKN5clang4ento7SymExprEN9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_SI_SI_RT0_.exit.i.i", %3
   ret void

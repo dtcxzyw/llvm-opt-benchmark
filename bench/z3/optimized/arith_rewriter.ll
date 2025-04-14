@@ -60116,6 +60116,7 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__op
   store ptr %4, ptr %6, align 8
   %8 = add nsw i64 %2, -1
   %9 = sdiv i64 %8, 2
+  %invariant.gep = getelementptr i8, ptr %0, i64 8
   %10 = icmp slt i64 %1, %9
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -60124,98 +60125,98 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__op
   %11 = shl i64 %.029, 1
   %12 = add i64 %11, 2
   %13 = getelementptr inbounds ptr, ptr %0, i64 %12
-  %14 = or disjoint i64 %11, 1
-  %15 = getelementptr inbounds ptr, ptr %0, i64 %14
-  %16 = load ptr, ptr %13, align 8, !tbaa !100
-  %17 = load ptr, ptr %15, align 8, !tbaa !100
-  %18 = load ptr, ptr %6, align 8, !tbaa !466
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 82
-  %20 = load i8, ptr %19, align 2, !tbaa !91, !range !89, !noundef !90
-  %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %22, label %24
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %11
+  %14 = load ptr, ptr %13, align 8, !tbaa !100
+  %15 = load ptr, ptr %gep, align 8, !tbaa !100
+  %16 = load ptr, ptr %6, align 8, !tbaa !466
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 82
+  %18 = load i8, ptr %17, align 2, !tbaa !91, !range !89, !noundef !90
+  %19 = trunc nuw i8 %18 to i1
+  br i1 %19, label %20, label %22
+
+20:                                               ; preds = %.lr.ph
+  %21 = call noundef zeroext i1 @_Z2ltP3astS0_(ptr noundef %14, ptr noundef %15)
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprSA_EEbT_T0_.exit
 
 22:                                               ; preds = %.lr.ph
-  %23 = call noundef zeroext i1 @_Z2ltP3astS0_(ptr noundef %16, ptr noundef %17)
+  %23 = call noundef i32 @_ZNK13poly_rewriterI19arith_rewriter_coreE6mon_lt7ordinalEP4expr(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %14)
+  %24 = call noundef i32 @_ZNK13poly_rewriterI19arith_rewriter_coreE6mon_lt7ordinalEP4expr(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %15)
+  %25 = icmp slt i32 %23, %24
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprSA_EEbT_T0_.exit
 
-24:                                               ; preds = %.lr.ph
-  %25 = call noundef i32 @_ZNK13poly_rewriterI19arith_rewriter_coreE6mon_lt7ordinalEP4expr(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %16)
-  %26 = call noundef i32 @_ZNK13poly_rewriterI19arith_rewriter_coreE6mon_lt7ordinalEP4expr(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %17)
-  %27 = icmp slt i32 %25, %26
-  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprSA_EEbT_T0_.exit
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprSA_EEbT_T0_.exit: ; preds = %22, %24
-  %.0.i.i = phi i1 [ %23, %22 ], [ %27, %24 ]
-  %spec.select = select i1 %.0.i.i, i64 %14, i64 %12
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
-  %29 = load ptr, ptr %28, align 8, !tbaa !100
-  %30 = getelementptr inbounds ptr, ptr %0, i64 %.029
-  store ptr %29, ptr %30, align 8, !tbaa !100
-  %31 = icmp slt i64 %spec.select, %9
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !556
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprSA_EEbT_T0_.exit: ; preds = %20, %22
+  %.0.i.i = phi i1 [ %21, %20 ], [ %25, %22 ]
+  %26 = or disjoint i64 %11, 1
+  %spec.select = select i1 %.0.i.i, i64 %26, i64 %12
+  %27 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %28 = load ptr, ptr %27, align 8, !tbaa !100
+  %29 = getelementptr inbounds ptr, ptr %0, i64 %.029
+  store ptr %28, ptr %29, align 8, !tbaa !100
+  %30 = icmp slt i64 %spec.select, %9
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !556
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprSA_EEbT_T0_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprSA_EEbT_T0_.exit ]
-  %32 = and i64 %2, 1
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %34, label %44
+  %31 = and i64 %2, 1
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %33, label %43
 
-34:                                               ; preds = %._crit_edge
-  %35 = add nsw i64 %2, -2
-  %36 = ashr exact i64 %35, 1
-  %37 = icmp eq i64 %.0.lcssa, %36
-  br i1 %37, label %38, label %44
+33:                                               ; preds = %._crit_edge
+  %34 = add nsw i64 %2, -2
+  %35 = ashr exact i64 %34, 1
+  %36 = icmp eq i64 %.0.lcssa, %35
+  br i1 %36, label %37, label %43
 
-38:                                               ; preds = %34
-  %39 = shl nsw i64 %.0.lcssa, 1
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !100
-  %43 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
-  store ptr %42, ptr %43, align 8, !tbaa !100
-  br label %44
+37:                                               ; preds = %33
+  %38 = shl nsw i64 %.0.lcssa, 1
+  %39 = or disjoint i64 %38, 1
+  %40 = getelementptr inbounds ptr, ptr %0, i64 %39
+  %41 = load ptr, ptr %40, align 8, !tbaa !100
+  %42 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  store ptr %41, ptr %42, align 8, !tbaa !100
+  br label %43
 
-44:                                               ; preds = %38, %34, %._crit_edge
-  %.128 = phi i64 [ %40, %38 ], [ %.0.lcssa, %34 ], [ %.0.lcssa, %._crit_edge ]
+43:                                               ; preds = %37, %33, %._crit_edge
+  %.128 = phi i64 [ %39, %37 ], [ %.0.lcssa, %33 ], [ %.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
-  %45 = load i64, ptr %6, align 8, !tbaa !403
-  store i64 %45, ptr %7, align 8, !tbaa !403
-  %46 = icmp sgt i64 %.128, %1
-  br i1 %46, label %.lr.ph.i, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_T0_SC_T1_RT2_.exit
+  %44 = load i64, ptr %6, align 8, !tbaa !403
+  store i64 %44, ptr %7, align 8, !tbaa !403
+  %45 = icmp sgt i64 %.128, %1
+  br i1 %45, label %.lr.ph.i, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_T0_SC_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %44, %58
-  %.01317.i = phi i64 [ %.018.i, %58 ], [ %.128, %44 ]
+.lr.ph.i:                                         ; preds = %43, %57
+  %.01317.i = phi i64 [ %.018.i, %57 ], [ %.128, %43 ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %47 = getelementptr inbounds ptr, ptr %0, i64 %.018.i
-  %48 = load ptr, ptr %47, align 8, !tbaa !100
-  %49 = load ptr, ptr %7, align 8, !tbaa !466
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 82
-  %51 = load i8, ptr %50, align 2, !tbaa !91, !range !89, !noundef !90
-  %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %53, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprS9_EEbT_RT0_.exit.i
+  %46 = getelementptr inbounds ptr, ptr %0, i64 %.018.i
+  %47 = load ptr, ptr %46, align 8, !tbaa !100
+  %48 = load ptr, ptr %7, align 8, !tbaa !466
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 82
+  %50 = load i8, ptr %49, align 2, !tbaa !91, !range !89, !noundef !90
+  %51 = trunc nuw i8 %50 to i1
+  br i1 %51, label %52, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprS9_EEbT_RT0_.exit.i
 
-53:                                               ; preds = %.lr.ph.i
-  %54 = call noundef zeroext i1 @_Z2ltP3astS0_(ptr noundef %48, ptr noundef %3)
-  br i1 %54, label %58, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_T0_SC_T1_RT2_.exit
+52:                                               ; preds = %.lr.ph.i
+  %53 = call noundef zeroext i1 @_Z2ltP3astS0_(ptr noundef %47, ptr noundef %3)
+  br i1 %53, label %57, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_T0_SC_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprS9_EEbT_RT0_.exit.i: ; preds = %.lr.ph.i
-  %55 = call noundef i32 @_ZNK13poly_rewriterI19arith_rewriter_coreE6mon_lt7ordinalEP4expr(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %48)
-  %56 = call noundef i32 @_ZNK13poly_rewriterI19arith_rewriter_coreE6mon_lt7ordinalEP4expr(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %3)
-  %57 = icmp slt i32 %55, %56
-  br i1 %57, label %58, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_T0_SC_T1_RT2_.exit
+  %54 = call noundef i32 @_ZNK13poly_rewriterI19arith_rewriter_coreE6mon_lt7ordinalEP4expr(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %47)
+  %55 = call noundef i32 @_ZNK13poly_rewriterI19arith_rewriter_coreE6mon_lt7ordinalEP4expr(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %3)
+  %56 = icmp slt i32 %54, %55
+  br i1 %56, label %57, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_T0_SC_T1_RT2_.exit
 
-58:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprS9_EEbT_RT0_.exit.i, %53
-  %59 = load ptr, ptr %47, align 8, !tbaa !100
-  %60 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i
-  store ptr %59, ptr %60, align 8, !tbaa !100
-  %61 = icmp sgt i64 %.018.i, %1
-  br i1 %61, label %.lr.ph.i, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_T0_SC_T1_RT2_.exit, !llvm.loop !557
+57:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprS9_EEbT_RT0_.exit.i, %52
+  %58 = load ptr, ptr %46, align 8, !tbaa !100
+  %59 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i
+  store ptr %58, ptr %59, align 8, !tbaa !100
+  %60 = icmp sgt i64 %.018.i, %1
+  br i1 %60, label %.lr.ph.i, label %_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_T0_SC_T1_RT2_.exit, !llvm.loop !557
 
-_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_T0_SC_T1_RT2_.exit: ; preds = %53, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprS9_EEbT_RT0_.exit.i, %58, %44
-  %.013.lcssa.i = phi i64 [ %.128, %44 ], [ %.01317.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprS9_EEbT_RT0_.exit.i ], [ %.018.i, %58 ], [ %.01317.i, %53 ]
-  %62 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %62, align 8, !tbaa !100
+_ZSt11__push_heapIPP4exprlS1_N9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEEEvT_T0_SC_T1_RT2_.exit: ; preds = %52, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprS9_EEbT_RT0_.exit.i, %57, %43
+  %.013.lcssa.i = phi i64 [ %.128, %43 ], [ %.01317.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN13poly_rewriterI19arith_rewriter_coreE6mon_ltEEclIPP4exprS9_EEbT_RT0_.exit.i ], [ %.018.i, %57 ], [ %.01317.i, %52 ]
+  %61 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %61, align 8, !tbaa !100
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
   ret void
 }

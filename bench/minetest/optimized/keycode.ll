@@ -658,12 +658,10 @@ entry:
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %__begin1.0.add = or disjoint i64 %__begin1.0.idx37, 24
-  %__begin1.0.ptr38.1 = getelementptr inbounds nuw i8, ptr @_ZL5table, i64 %__begin1.0.add
-  %Key.1 = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr38.1, i64 8
+  %Key.1 = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr38, i64 32
   %0 = load i32, ptr %Key.1, align 16, !tbaa !25
   %cmp1.not.1 = icmp eq i32 %0, %key
-  br i1 %cmp1.not.1, label %return, label %for.cond.1
+  br i1 %cmp1.not.1, label %return.loopexit.split.loop.exit, label %for.cond.1
 
 for.cond.1:                                       ; preds = %for.cond
   %Key.2 = getelementptr i8, ptr %__begin1.0.ptr38, i64 56
@@ -771,8 +769,12 @@ return.split.loop.exit43:                         ; preds = %for.cond.1
   %__begin1.0.ptr38.2.le = getelementptr i8, ptr %__begin1.0.ptr38, i64 48
   br label %return
 
-return:                                           ; preds = %for.body, %for.cond, %return.split.loop.exit43, %return.split.loop.exit
-  %__begin1.0.ptr38.lcssa = phi ptr [ %__begin1.0.ptr38.3.le, %return.split.loop.exit ], [ %__begin1.0.ptr38.2.le, %return.split.loop.exit43 ], [ %__begin1.0.ptr38, %for.body ], [ %__begin1.0.ptr38.1, %for.cond ]
+return.loopexit.split.loop.exit:                  ; preds = %for.cond
+  %__begin1.0.ptr38.1.le = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr38, i64 24
+  br label %return
+
+return:                                           ; preds = %for.body, %return.loopexit.split.loop.exit, %return.split.loop.exit43, %return.split.loop.exit
+  %__begin1.0.ptr38.lcssa = phi ptr [ %__begin1.0.ptr38.3.le, %return.split.loop.exit ], [ %__begin1.0.ptr38.2.le, %return.split.loop.exit43 ], [ %__begin1.0.ptr38.1.le, %return.loopexit.split.loop.exit ], [ %__begin1.0.ptr38, %for.body ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %__begin1.0.ptr38.lcssa, i64 24, i1 false), !tbaa.struct !11
   ret void
 
@@ -802,12 +804,10 @@ entry:
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %__begin1.0.add = or disjoint i64 %__begin1.0.idx58, 24
-  %__begin1.0.ptr59.1 = getelementptr inbounds nuw i8, ptr @_ZL5table, i64 %__begin1.0.add
-  %Char1.1 = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr59.1, i64 12
+  %Char1.1 = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr59, i64 36
   %0 = load i32, ptr %Char1.1, align 4, !tbaa !26
   %cmp2.not.1 = icmp eq i32 %0, %Char
-  br i1 %cmp2.not.1, label %return, label %for.cond.1
+  br i1 %cmp2.not.1, label %return.loopexit.split.loop.exit, label %for.cond.1
 
 for.cond.1:                                       ; preds = %for.cond
   %Char1.2 = getelementptr i8, ptr %__begin1.0.ptr59, i64 60
@@ -968,8 +968,12 @@ return.split.loop.exit64:                         ; preds = %for.cond.1
   %__begin1.0.ptr59.2.le = getelementptr i8, ptr %__begin1.0.ptr59, i64 48
   br label %return
 
-return:                                           ; preds = %for.body, %for.cond, %return.split.loop.exit64, %return.split.loop.exit
-  %__begin1.0.ptr59.lcssa = phi ptr [ %__begin1.0.ptr59.3.le, %return.split.loop.exit ], [ %__begin1.0.ptr59.2.le, %return.split.loop.exit64 ], [ %__begin1.0.ptr59, %for.body ], [ %__begin1.0.ptr59.1, %for.cond ]
+return.loopexit.split.loop.exit:                  ; preds = %for.cond
+  %__begin1.0.ptr59.1.le = getelementptr inbounds nuw i8, ptr %__begin1.0.ptr59, i64 24
+  br label %return
+
+return:                                           ; preds = %for.body, %return.loopexit.split.loop.exit, %return.split.loop.exit64, %return.split.loop.exit
+  %__begin1.0.ptr59.lcssa = phi ptr [ %__begin1.0.ptr59.3.le, %return.split.loop.exit ], [ %__begin1.0.ptr59.2.le, %return.split.loop.exit64 ], [ %__begin1.0.ptr59.1.le, %return.loopexit.split.loop.exit ], [ %__begin1.0.ptr59, %for.body ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %__begin1.0.ptr59.lcssa, i64 24, i1 false), !tbaa.struct !11
   ret void
 

@@ -301,18 +301,18 @@ g_vertex_class.exit:                              ; preds = %gv_calloc.exit88, %
   %45 = phi ptr [ %44, %42 ], [ %40, %gv_calloc.exit88 ]
   %46 = call ptr @gts_constraint_class() #19
   %.not = icmp eq i32 %5, 0
-  %.not149 = icmp eq i32 %2, 0
+  %.not150 = icmp eq i32 %2, 0
   br i1 %.not, label %.preheader105, label %.preheader106
 
 .preheader106:                                    ; preds = %g_vertex_class.exit
-  br i1 %.not149, label %.loopexit, label %.lr.ph.preheader
+  br i1 %.not150, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader106
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
 .preheader105:                                    ; preds = %g_vertex_class.exit
-  br i1 %.not149, label %.loopexit, label %.lr.ph110.preheader
+  br i1 %.not150, label %.loopexit, label %.lr.ph110.preheader
 
 .lr.ph110.preheader:                              ; preds = %.preheader105
   %wide.trip.count126 = zext nneg i32 %2 to i64
@@ -336,33 +336,32 @@ g_vertex_class.exit:                              ; preds = %gv_calloc.exit88, %
 
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %.lr.ph110
   %indvars.iv123 = phi i64 [ 0, %.lr.ph110.preheader ], [ %indvars.iv.next124, %.lr.ph110 ]
-  %55 = shl nuw nsw i64 %indvars.iv123, 1
-  %56 = getelementptr inbounds nuw double, ptr %0, i64 %55
-  %57 = load double, ptr %56, align 8, !tbaa !19
-  %58 = or disjoint i64 %55, 1
-  %59 = getelementptr inbounds nuw double, ptr %0, i64 %58
-  %60 = load double, ptr %59, align 8, !tbaa !19
-  %61 = call ptr @gts_vertex_new(ptr noundef %45, double noundef %57, double noundef %60, double noundef 0.000000e+00) #19
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 56
-  %63 = trunc nuw nsw i64 %indvars.iv123 to i32
-  store i32 %63, ptr %62, align 8, !tbaa !23
-  %64 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv123
-  store ptr %61, ptr %64, align 8, !tbaa !21
+  %.idx = shl nuw nsw i64 %indvars.iv123, 4
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %56 = load double, ptr %55, align 8, !tbaa !19
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %58 = load double, ptr %57, align 8, !tbaa !19
+  %59 = call ptr @gts_vertex_new(ptr noundef %45, double noundef %56, double noundef %58, double noundef 0.000000e+00) #19
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 56
+  %61 = trunc nuw nsw i64 %indvars.iv123 to i32
+  store i32 %61, ptr %60, align 8, !tbaa !23
+  %62 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv123
+  store ptr %59, ptr %62, align 8, !tbaa !21
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
   br i1 %exitcond127.not, label %.loopexit, label %.lr.ph110, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph110, %.preheader106, %.preheader105
-  %.not150 = icmp eq i32 %4, 0
-  br i1 %.not150, label %.preheader104, label %.lr.ph112.preheader
+  %.not151 = icmp eq i32 %4, 0
+  br i1 %.not151, label %.preheader104, label %.lr.ph112.preheader
 
 .lr.ph112.preheader:                              ; preds = %.loopexit
   %wide.trip.count131 = zext nneg i32 %4 to i64
   br label %.lr.ph112
 
 .preheader104:                                    ; preds = %.lr.ph112, %.loopexit
-  %.not151 = icmp eq i32 %2, 0
-  br i1 %.not151, label %._crit_edge, label %.lr.ph115.preheader
+  %.not152 = icmp eq i32 %2, 0
+  br i1 %.not152, label %._crit_edge, label %.lr.ph115.preheader
 
 .lr.ph115.preheader:                              ; preds = %.preheader104
   %wide.trip.count136 = zext nneg i32 %2 to i64
@@ -370,106 +369,105 @@ g_vertex_class.exit:                              ; preds = %gv_calloc.exit88, %
 
 .lr.ph112:                                        ; preds = %.lr.ph112.preheader, %.lr.ph112
   %indvars.iv128 = phi i64 [ 0, %.lr.ph112.preheader ], [ %indvars.iv.next129, %.lr.ph112 ]
-  %65 = shl nuw nsw i64 %indvars.iv128, 1
-  %66 = getelementptr inbounds nuw i32, ptr %3, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !10
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr %25, i64 %68
-  %70 = load ptr, ptr %69, align 8, !tbaa !21
-  %71 = or disjoint i64 %65, 1
-  %72 = getelementptr inbounds nuw i32, ptr %3, i64 %71
-  %73 = load i32, ptr %72, align 4, !tbaa !10
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr %25, i64 %74
-  %76 = load ptr, ptr %75, align 8, !tbaa !21
-  %77 = call ptr @gts_edge_new(ptr noundef %46, ptr noundef %70, ptr noundef %76) #19
-  %78 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv128
-  store ptr %77, ptr %78, align 8, !tbaa !32
+  %.idx148 = shl nuw nsw i64 %indvars.iv128, 3
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx148
+  %64 = load i32, ptr %63, align 4, !tbaa !10
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds ptr, ptr %25, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !21
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %69 = load i32, ptr %68, align 4, !tbaa !10
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds ptr, ptr %25, i64 %70
+  %72 = load ptr, ptr %71, align 8, !tbaa !21
+  %73 = call ptr @gts_edge_new(ptr noundef %46, ptr noundef %67, ptr noundef %72) #19
+  %74 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv128
+  store ptr %73, ptr %74, align 8, !tbaa !32
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
   br i1 %exitcond132.not, label %.preheader104, label %.lr.ph112, !llvm.loop !34
 
 .lr.ph115:                                        ; preds = %.lr.ph115.preheader, %.lr.ph115
   %indvars.iv133 = phi i64 [ 0, %.lr.ph115.preheader ], [ %indvars.iv.next134, %.lr.ph115 ]
-  %.076113 = phi ptr [ null, %.lr.ph115.preheader ], [ %81, %.lr.ph115 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv133
-  %80 = load ptr, ptr %79, align 8, !tbaa !21
-  %81 = call ptr @g_slist_prepend(ptr noundef %.076113, ptr noundef %80) #19
+  %.076113 = phi ptr [ null, %.lr.ph115.preheader ], [ %77, %.lr.ph115 ]
+  %75 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv133
+  %76 = load ptr, ptr %75, align 8, !tbaa !21
+  %77 = call ptr @g_slist_prepend(ptr noundef %.076113, ptr noundef %76) #19
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
   br i1 %exitcond137.not, label %._crit_edge, label %.lr.ph115, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph115, %.preheader104
-  %.076.lcssa = phi ptr [ null, %.preheader104 ], [ %81, %.lr.ph115 ]
-  %82 = call ptr @gts_triangle_class() #19
-  %83 = call ptr @gts_triangle_enclosing(ptr noundef %82, ptr noundef %.076.lcssa, double noundef 1.000000e+02) #19
+  %.076.lcssa = phi ptr [ null, %.preheader104 ], [ %77, %.lr.ph115 ]
+  %78 = call ptr @gts_triangle_class() #19
+  %79 = call ptr @gts_triangle_enclosing(ptr noundef %78, ptr noundef %.076.lcssa, double noundef 1.000000e+02) #19
   call void @g_slist_free(ptr noundef %.076.lcssa) #19
-  call void @gts_triangle_vertices(ptr noundef %83, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #19
-  %84 = call ptr @gts_surface_class() #19
-  %85 = load ptr, ptr @g_face_class.klass, align 8, !tbaa !21
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %g_face_class.exit
+  call void @gts_triangle_vertices(ptr noundef %79, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11) #19
+  %80 = call ptr @gts_surface_class() #19
+  %81 = load ptr, ptr @g_face_class.klass, align 8, !tbaa !21
+  %82 = icmp eq ptr %81, null
+  br i1 %82, label %83, label %g_face_class.exit
 
-87:                                               ; preds = %._crit_edge
+83:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(80) @__const.g_face_class.face_info, i64 80, i1 false)
-  %88 = call ptr @gts_face_class() #19
-  %89 = call ptr @gts_object_class_new(ptr noundef %88, ptr noundef nonnull %7) #19
-  store ptr %89, ptr @g_face_class.klass, align 8, !tbaa !21
+  %84 = call ptr @gts_face_class() #19
+  %85 = call ptr @gts_object_class_new(ptr noundef %84, ptr noundef nonnull %7) #19
+  store ptr %85, ptr @g_face_class.klass, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #19
   br label %g_face_class.exit
 
-g_face_class.exit:                                ; preds = %._crit_edge, %87
-  %90 = phi ptr [ %89, %87 ], [ %85, %._crit_edge ]
-  %91 = call ptr @gts_edge_class() #19
-  %92 = call ptr @gts_vertex_class() #19
-  %93 = call ptr @gts_surface_new(ptr noundef %84, ptr noundef %90, ptr noundef %91, ptr noundef %92) #19
-  %94 = call ptr @gts_face_class() #19
-  %95 = getelementptr inbounds nuw i8, ptr %83, i64 24
-  %96 = load ptr, ptr %95, align 8, !tbaa !36
-  %97 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %98 = load ptr, ptr %97, align 8, !tbaa !38
-  %99 = getelementptr inbounds nuw i8, ptr %83, i64 40
-  %100 = load ptr, ptr %99, align 8, !tbaa !39
-  %101 = call ptr @gts_face_new(ptr noundef %94, ptr noundef %96, ptr noundef %98, ptr noundef %100) #19
-  call void @gts_surface_add_face(ptr noundef %93, ptr noundef %101) #19
-  br i1 %.not151, label %.preheader, label %.lr.ph117.preheader
+g_face_class.exit:                                ; preds = %._crit_edge, %83
+  %86 = phi ptr [ %85, %83 ], [ %81, %._crit_edge ]
+  %87 = call ptr @gts_edge_class() #19
+  %88 = call ptr @gts_vertex_class() #19
+  %89 = call ptr @gts_surface_new(ptr noundef %80, ptr noundef %86, ptr noundef %87, ptr noundef %88) #19
+  %90 = call ptr @gts_face_class() #19
+  %91 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %92 = load ptr, ptr %91, align 8, !tbaa !36
+  %93 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %94 = load ptr, ptr %93, align 8, !tbaa !38
+  %95 = getelementptr inbounds nuw i8, ptr %79, i64 40
+  %96 = load ptr, ptr %95, align 8, !tbaa !39
+  %97 = call ptr @gts_face_new(ptr noundef %90, ptr noundef %92, ptr noundef %94, ptr noundef %96) #19
+  call void @gts_surface_add_face(ptr noundef %89, ptr noundef %97) #19
+  br i1 %.not152, label %.preheader, label %.lr.ph117.preheader
 
 .lr.ph117.preheader:                              ; preds = %g_face_class.exit
   %wide.trip.count141 = zext nneg i32 %2 to i64
   br label %.lr.ph117
 
-.preheader:                                       ; preds = %106, %g_face_class.exit
-  br i1 %.not150, label %._crit_edge120, label %.lr.ph119.preheader
+.preheader:                                       ; preds = %102, %g_face_class.exit
+  br i1 %.not151, label %._crit_edge120, label %.lr.ph119.preheader
 
 .lr.ph119.preheader:                              ; preds = %.preheader
   %wide.trip.count146 = zext nneg i32 %4 to i64
   br label %.lr.ph119
 
-.lr.ph117:                                        ; preds = %.lr.ph117.preheader, %106
-  %indvars.iv138 = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next139, %106 ]
-  %102 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv138
-  %103 = load ptr, ptr %102, align 8, !tbaa !21
-  %104 = call ptr @gts_delaunay_add_vertex(ptr noundef %93, ptr noundef %103, ptr noundef null) #19
-  %.not82 = icmp eq ptr %104, null
-  %.not83 = icmp eq ptr %103, %104
+.lr.ph117:                                        ; preds = %.lr.ph117.preheader, %102
+  %indvars.iv138 = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next139, %102 ]
+  %98 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv138
+  %99 = load ptr, ptr %98, align 8, !tbaa !21
+  %100 = call ptr @gts_delaunay_add_vertex(ptr noundef %89, ptr noundef %99, ptr noundef null) #19
+  %.not82 = icmp eq ptr %100, null
+  %.not83 = icmp eq ptr %99, %100
   %or.cond = or i1 %.not82, %.not83
-  br i1 %or.cond, label %106, label %105
+  br i1 %or.cond, label %102, label %101
 
-105:                                              ; preds = %.lr.ph117
-  call void @gts_vertex_replace(ptr noundef %103, ptr noundef nonnull %104) #19
-  br label %106
+101:                                              ; preds = %.lr.ph117
+  call void @gts_vertex_replace(ptr noundef %99, ptr noundef nonnull %100) #19
+  br label %102
 
-106:                                              ; preds = %105, %.lr.ph117
+102:                                              ; preds = %101, %.lr.ph117
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
   br i1 %exitcond142.not, label %.preheader, label %.lr.ph117, !llvm.loop !40
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.lr.ph119
   %indvars.iv143 = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next144, %.lr.ph119 ]
-  %107 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv143
-  %108 = load ptr, ptr %107, align 8, !tbaa !32
-  %109 = call ptr @gts_delaunay_add_constraint(ptr noundef %93, ptr noundef %108) #19
+  %103 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv143
+  %104 = load ptr, ptr %103, align 8, !tbaa !32
+  %105 = call ptr @gts_delaunay_add_constraint(ptr noundef %89, ptr noundef %104) #19
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
   br i1 %exitcond147.not, label %._crit_edge120, label %.lr.ph119, !llvm.loop !41
@@ -477,99 +475,99 @@ g_face_class.exit:                                ; preds = %._crit_edge, %87
 ._crit_edge120:                                   ; preds = %.lr.ph119, %.preheader
   store i32 1, ptr @gts_allow_floating_vertices, align 4, !tbaa !10
   store i32 1, ptr @gts_allow_floating_edges, align 4, !tbaa !10
-  %110 = load ptr, ptr %9, align 8, !tbaa !42
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 48
-  %112 = load ptr, ptr %111, align 8, !tbaa !44
-  %.not11.i = icmp eq ptr %112, null
+  %106 = load ptr, ptr %9, align 8, !tbaa !42
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 48
+  %108 = load ptr, ptr %107, align 8, !tbaa !44
+  %.not11.i = icmp eq ptr %108, null
   br i1 %.not11.i, label %destroy.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge120, %.lr.ph.i
-  %.012.i = phi ptr [ %114, %.lr.ph.i ], [ %112, %._crit_edge120 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
-  %114 = load ptr, ptr %113, align 8, !tbaa !45
-  %115 = load ptr, ptr %.012.i, align 8, !tbaa !47
-  call void @gts_object_destroy(ptr noundef %115) #19
-  %.not.i89 = icmp eq ptr %114, null
+  %.012.i = phi ptr [ %110, %.lr.ph.i ], [ %108, %._crit_edge120 ]
+  %109 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
+  %110 = load ptr, ptr %109, align 8, !tbaa !45
+  %111 = load ptr, ptr %.012.i, align 8, !tbaa !47
+  call void @gts_object_destroy(ptr noundef %111) #19
+  %.not.i89 = icmp eq ptr %110, null
   br i1 %.not.i89, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !48
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.pre.i = load ptr, ptr %111, align 8, !tbaa !44
-  %116 = icmp eq ptr %.pre.i, null
-  br i1 %116, label %destroy.exit, label %117, !prof !49
+  %.pre.i = load ptr, ptr %107, align 8, !tbaa !44
+  %112 = icmp eq ptr %.pre.i, null
+  br i1 %112, label %destroy.exit, label %113, !prof !49
 
-117:                                              ; preds = %._crit_edge.i
+113:                                              ; preds = %._crit_edge.i
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 116, ptr noundef nonnull @__func__.destroy, ptr noundef nonnull @.str.1) #23
   unreachable
 
 destroy.exit:                                     ; preds = %._crit_edge120, %._crit_edge.i
-  call void @gts_object_destroy(ptr noundef nonnull %110) #19
-  %118 = load ptr, ptr %10, align 8, !tbaa !42
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 48
-  %120 = load ptr, ptr %119, align 8, !tbaa !44
-  %.not11.i90 = icmp eq ptr %120, null
+  call void @gts_object_destroy(ptr noundef nonnull %106) #19
+  %114 = load ptr, ptr %10, align 8, !tbaa !42
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 48
+  %116 = load ptr, ptr %115, align 8, !tbaa !44
+  %.not11.i90 = icmp eq ptr %116, null
   br i1 %.not11.i90, label %destroy.exit96, label %.lr.ph.i91
 
 .lr.ph.i91:                                       ; preds = %destroy.exit, %.lr.ph.i91
-  %.012.i92 = phi ptr [ %122, %.lr.ph.i91 ], [ %120, %destroy.exit ]
-  %121 = getelementptr inbounds nuw i8, ptr %.012.i92, i64 8
-  %122 = load ptr, ptr %121, align 8, !tbaa !45
-  %123 = load ptr, ptr %.012.i92, align 8, !tbaa !47
-  call void @gts_object_destroy(ptr noundef %123) #19
-  %.not.i93 = icmp eq ptr %122, null
+  %.012.i92 = phi ptr [ %118, %.lr.ph.i91 ], [ %116, %destroy.exit ]
+  %117 = getelementptr inbounds nuw i8, ptr %.012.i92, i64 8
+  %118 = load ptr, ptr %117, align 8, !tbaa !45
+  %119 = load ptr, ptr %.012.i92, align 8, !tbaa !47
+  call void @gts_object_destroy(ptr noundef %119) #19
+  %.not.i93 = icmp eq ptr %118, null
   br i1 %.not.i93, label %._crit_edge.i94, label %.lr.ph.i91, !llvm.loop !48
 
 ._crit_edge.i94:                                  ; preds = %.lr.ph.i91
-  %.pre.i95 = load ptr, ptr %119, align 8, !tbaa !44
-  %124 = icmp eq ptr %.pre.i95, null
-  br i1 %124, label %destroy.exit96, label %125, !prof !49
+  %.pre.i95 = load ptr, ptr %115, align 8, !tbaa !44
+  %120 = icmp eq ptr %.pre.i95, null
+  br i1 %120, label %destroy.exit96, label %121, !prof !49
 
-125:                                              ; preds = %._crit_edge.i94
+121:                                              ; preds = %._crit_edge.i94
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 116, ptr noundef nonnull @__func__.destroy, ptr noundef nonnull @.str.1) #23
   unreachable
 
 destroy.exit96:                                   ; preds = %destroy.exit, %._crit_edge.i94
-  call void @gts_object_destroy(ptr noundef nonnull %118) #19
-  %126 = load ptr, ptr %11, align 8, !tbaa !42
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 48
-  %128 = load ptr, ptr %127, align 8, !tbaa !44
-  %.not11.i97 = icmp eq ptr %128, null
+  call void @gts_object_destroy(ptr noundef nonnull %114) #19
+  %122 = load ptr, ptr %11, align 8, !tbaa !42
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 48
+  %124 = load ptr, ptr %123, align 8, !tbaa !44
+  %.not11.i97 = icmp eq ptr %124, null
   br i1 %.not11.i97, label %destroy.exit103, label %.lr.ph.i98
 
 .lr.ph.i98:                                       ; preds = %destroy.exit96, %.lr.ph.i98
-  %.012.i99 = phi ptr [ %130, %.lr.ph.i98 ], [ %128, %destroy.exit96 ]
-  %129 = getelementptr inbounds nuw i8, ptr %.012.i99, i64 8
-  %130 = load ptr, ptr %129, align 8, !tbaa !45
-  %131 = load ptr, ptr %.012.i99, align 8, !tbaa !47
-  call void @gts_object_destroy(ptr noundef %131) #19
-  %.not.i100 = icmp eq ptr %130, null
+  %.012.i99 = phi ptr [ %126, %.lr.ph.i98 ], [ %124, %destroy.exit96 ]
+  %125 = getelementptr inbounds nuw i8, ptr %.012.i99, i64 8
+  %126 = load ptr, ptr %125, align 8, !tbaa !45
+  %127 = load ptr, ptr %.012.i99, align 8, !tbaa !47
+  call void @gts_object_destroy(ptr noundef %127) #19
+  %.not.i100 = icmp eq ptr %126, null
   br i1 %.not.i100, label %._crit_edge.i101, label %.lr.ph.i98, !llvm.loop !48
 
 ._crit_edge.i101:                                 ; preds = %.lr.ph.i98
-  %.pre.i102 = load ptr, ptr %127, align 8, !tbaa !44
-  %132 = icmp eq ptr %.pre.i102, null
-  br i1 %132, label %destroy.exit103, label %133, !prof !49
+  %.pre.i102 = load ptr, ptr %123, align 8, !tbaa !44
+  %128 = icmp eq ptr %.pre.i102, null
+  br i1 %128, label %destroy.exit103, label %129, !prof !49
 
-133:                                              ; preds = %._crit_edge.i101
+129:                                              ; preds = %._crit_edge.i101
   call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 116, ptr noundef nonnull @__func__.destroy, ptr noundef nonnull @.str.1) #23
   unreachable
 
 destroy.exit103:                                  ; preds = %destroy.exit96, %._crit_edge.i101
-  call void @gts_object_destroy(ptr noundef nonnull %126) #19
+  call void @gts_object_destroy(ptr noundef nonnull %122) #19
   store i32 0, ptr @gts_allow_floating_edges, align 4, !tbaa !10
   store i32 0, ptr @gts_allow_floating_vertices, align 4, !tbaa !10
-  br i1 %.not.i84, label %136, label %134
+  br i1 %.not.i84, label %132, label %130
 
-134:                                              ; preds = %destroy.exit103
-  %135 = call i32 @gts_surface_foreach_face_remove(ptr noundef %93, ptr noundef nonnull @triangle_is_hole, ptr noundef null) #19
-  br label %136
+130:                                              ; preds = %destroy.exit103
+  %131 = call i32 @gts_surface_foreach_face_remove(ptr noundef %89, ptr noundef nonnull @triangle_is_hole, ptr noundef null) #19
+  br label %132
 
-136:                                              ; preds = %134, %destroy.exit103
+132:                                              ; preds = %130, %destroy.exit103
   call void @free(ptr noundef %39) #19
   call void @free(ptr noundef %25) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
-  ret ptr %93
+  ret ptr %89
 }
 
 declare void @gts_surface_foreach_edge(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -593,9 +591,9 @@ define internal noundef i32 @addEdge(ptr noundef readonly captures(none) %0, ptr
   store i32 %6, ptr %16, align 4, !tbaa !10
   %17 = load i32, ptr %1, align 8, !tbaa !13
   %18 = shl nsw i32 %17, 1
-  %19 = or disjoint i32 %18, 1
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %12, i64 %20
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr i32, ptr %12, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 4
   store i32 %10, ptr %21, align 4, !tbaa !10
   %22 = load i32, ptr %1, align 8, !tbaa !13
   %23 = add nsw i32 %22, 1

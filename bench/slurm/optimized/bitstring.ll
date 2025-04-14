@@ -1442,7 +1442,7 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   store ptr null, ptr %2, align 8
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %70, label %4
+  br i1 %3, label %69, label %4
 
 4:                                                ; preds = %1
   %5 = tail call ptr @xstrchr(ptr noundef nonnull %0, i32 noundef 58) #17
@@ -1521,7 +1521,7 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
   %36 = load ptr, ptr %2, align 8
   %37 = load i8, ptr %36, align 1
   %.not68 = icmp eq i8 %37, 45
-  br i1 %.not68, label %38, label %70
+  br i1 %.not68, label %38, label %69
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 1
@@ -1530,7 +1530,7 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
   %42 = load ptr, ptr %2, align 8
   %43 = load i8, ptr %42, align 1
   %.not69 = icmp eq i8 %43, 58
-  br i1 %.not69, label %44, label %70
+  br i1 %.not69, label %44, label %69
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 1
@@ -1539,13 +1539,13 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
   %48 = load ptr, ptr %2, align 8
   %49 = load i8, ptr %48, align 1
   %.not70 = icmp eq i8 %49, 0
-  br i1 %.not70, label %50, label %70
+  br i1 %.not70, label %50, label %69
 
 50:                                               ; preds = %44
   %51 = icmp slt i32 %41, %35
   %52 = icmp slt i32 %47, 1
   %or.cond = select i1 %51, i1 true, i1 %52
-  br i1 %or.cond, label %70, label %53
+  br i1 %or.cond, label %69, label %53
 
 53:                                               ; preds = %50
   %54 = sub nsw i32 %41, %35
@@ -1560,30 +1560,29 @@ define dso_local ptr @bitfmt2int(ptr noundef %0) #0 {
 
 .lr.ph:                                           ; preds = %53, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %53 ]
-  %.15973 = phi i32 [ %65, %.lr.ph ], [ %35, %53 ]
-  %62 = or disjoint i64 %indvars.iv, 1
-  %63 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
-  store i32 %.15973, ptr %63, align 4
+  %.15973 = phi i32 [ %64, %.lr.ph ], [ %35, %53 ]
+  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
+  store i32 %.15973, ptr %62, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %64 = getelementptr inbounds nuw i32, ptr %60, i64 %62
-  store i32 %.15973, ptr %64, align 4
-  %65 = add nsw i32 %.15973, %47
-  %66 = icmp slt i32 %65, %41
-  br i1 %66, label %.lr.ph, label %.loopexit.loopexit83, !llvm.loop !30
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  store i32 %.15973, ptr %63, align 4
+  %64 = add nsw i32 %.15973, %47
+  %65 = icmp slt i32 %64, %41
+  br i1 %65, label %.lr.ph, label %.loopexit.loopexit83, !llvm.loop !30
 
 .loopexit.loopexit83:                             ; preds = %.lr.ph
-  %67 = trunc nuw i64 %indvars.iv.next to i32
+  %66 = trunc nuw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %32, %.loopexit.loopexit83, %53, %6
   %.060 = phi ptr [ %14, %6 ], [ %60, %53 ], [ %60, %.loopexit.loopexit83 ], [ %14, %32 ], [ %14, %24 ]
-  %.257 = phi i32 [ 0, %6 ], [ 0, %53 ], [ %67, %.loopexit.loopexit83 ], [ %.05576, %24 ], [ %.156, %32 ]
-  %68 = sext i32 %.257 to i64
-  %69 = getelementptr inbounds i32, ptr %.060, i64 %68
-  store i32 -1, ptr %69, align 4
-  br label %70
+  %.257 = phi i32 [ 0, %6 ], [ 0, %53 ], [ %66, %.loopexit.loopexit83 ], [ %.05576, %24 ], [ %.156, %32 ]
+  %67 = sext i32 %.257 to i64
+  %68 = getelementptr inbounds i32, ptr %.060, i64 %67
+  store i32 -1, ptr %68, align 4
+  br label %69
 
-70:                                               ; preds = %50, %44, %38, %33, %1, %.loopexit
+69:                                               ; preds = %50, %44, %38, %33, %1, %.loopexit
   %.061 = phi ptr [ %.060, %.loopexit ], [ null, %1 ], [ null, %33 ], [ null, %38 ], [ null, %44 ], [ null, %50 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
   ret ptr %.061

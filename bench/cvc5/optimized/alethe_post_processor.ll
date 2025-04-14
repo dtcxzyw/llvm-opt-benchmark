@@ -9171,9 +9171,9 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit5747: ; preds 
 
 3663:                                             ; preds = %.lr.ph7652, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit5759
   %.031177650 = phi i64 [ 0, %.lr.ph7652 ], [ %3711, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit5759 ]
-  %3664 = or disjoint i64 %.031177650, 1
-  %3665 = load ptr, ptr %263, align 8, !tbaa !54
-  %3666 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %3665, i64 %3664
+  %3664 = load ptr, ptr %263, align 8, !tbaa !54
+  %3665 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %3664, i64 %.031177650
+  %3666 = getelementptr inbounds nuw i8, ptr %3665, i64 8
   %3667 = load ptr, ptr %3646, align 8, !tbaa !68
   %3668 = load ptr, ptr %3647, align 8, !tbaa !69
   %.not.i5750 = icmp eq ptr %3667, %3668

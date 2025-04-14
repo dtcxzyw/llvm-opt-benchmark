@@ -22916,15 +22916,15 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIPN4llvm11InstructionES
   %9 = shl i64 %.033, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %0, i64 %12
+  %12 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.val = load ptr, ptr %11, align 8, !tbaa !632
   %.val31 = load ptr, ptr %13, align 8, !tbaa !632
   %14 = icmp eq ptr %.val, %.val31
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr i8, ptr %13, i64 8
+  %16 = getelementptr i8, ptr %12, i64 24
   %.val32 = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %11, i64 8
   %.val30 = load ptr, ptr %17, align 8
@@ -22937,83 +22937,84 @@ define internal fastcc void @_ZSt13__adjust_heapIPSt4pairIPN4llvm11InstructionES
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_112TransformDFA12updateDefMapERN4llvm9MapVectorIPNS4_11InstructionESt6vectorIS7_SaIS7_EENS4_8DenseMapIS7_jNS4_12DenseMapInfoIS7_vEENS4_6detail12DenseMapPairIS7_jEEEENS4_11SmallVectorISt4pairIS7_SA_ELj0EEEEERNS4_8ValueMapIPKNS4_5ValueENS4_14WeakTrackingVHENS4_14ValueMapConfigISR_NS4_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EclIPSJ_IS7_S7_ES1A_EEbS10_S13_.exit: ; preds = %15, %19
   %.0.i.i = phi i1 [ %18, %15 ], [ %20, %19 ]
-  %spec.select = select i1 %.0.i.i, i64 %12, i64 %10
-  %21 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %0, i64 %spec.select
-  %22 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %0, i64 %.033
-  %23 = load ptr, ptr %21, align 8, !tbaa !635
-  store ptr %23, ptr %22, align 8, !tbaa !632
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !635
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %25, ptr %26, align 8, !tbaa !636
-  %27 = icmp slt i64 %spec.select, %7
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !1200
+  %21 = or disjoint i64 %9, 1
+  %spec.select = select i1 %.0.i.i, i64 %21, i64 %10
+  %22 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %0, i64 %spec.select
+  %23 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %0, i64 %.033
+  %24 = load ptr, ptr %22, align 8, !tbaa !635
+  store ptr %24, ptr %23, align 8, !tbaa !632
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !635
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store ptr %26, ptr %27, align 8, !tbaa !636
+  %28 = icmp slt i64 %spec.select, %7
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !1200
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_112TransformDFA12updateDefMapERN4llvm9MapVectorIPNS4_11InstructionESt6vectorIS7_SaIS7_EENS4_8DenseMapIS7_jNS4_12DenseMapInfoIS7_vEENS4_6detail12DenseMapPairIS7_jEEEENS4_11SmallVectorISt4pairIS7_SA_ELj0EEEEERNS4_8ValueMapIPKNS4_5ValueENS4_14WeakTrackingVHENS4_14ValueMapConfigISR_NS4_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EclIPSJ_IS7_S7_ES1A_EEbS10_S13_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_112TransformDFA12updateDefMapERN4llvm9MapVectorIPNS4_11InstructionESt6vectorIS7_SaIS7_EENS4_8DenseMapIS7_jNS4_12DenseMapInfoIS7_vEENS4_6detail12DenseMapPairIS7_jEEEENS4_11SmallVectorISt4pairIS7_SA_ELj0EEEEERNS4_8ValueMapIPKNS4_5ValueENS4_14WeakTrackingVHENS4_14ValueMapConfigISR_NS4_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EclIPSJ_IS7_S7_ES1A_EEbS10_S13_.exit ]
-  %28 = and i64 %2, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %43
+  %29 = and i64 %2, 1
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %31, label %44
 
-30:                                               ; preds = %._crit_edge
-  %31 = add nsw i64 %2, -2
-  %32 = ashr exact i64 %31, 1
-  %33 = icmp eq i64 %.0.lcssa, %32
-  br i1 %33, label %34, label %43
+31:                                               ; preds = %._crit_edge
+  %32 = add nsw i64 %2, -2
+  %33 = ashr exact i64 %32, 1
+  %34 = icmp eq i64 %.0.lcssa, %33
+  br i1 %34, label %35, label %44
 
-34:                                               ; preds = %30
-  %35 = shl nsw i64 %.0.lcssa, 1
-  %36 = or disjoint i64 %35, 1
-  %37 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %0, i64 %36
-  %38 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %0, i64 %.0.lcssa
-  %39 = load ptr, ptr %37, align 8, !tbaa !635
-  store ptr %39, ptr %38, align 8, !tbaa !632
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !635
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %41, ptr %42, align 8, !tbaa !636
-  br label %43
+35:                                               ; preds = %31
+  %36 = shl nsw i64 %.0.lcssa, 1
+  %37 = or disjoint i64 %36, 1
+  %38 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %0, i64 %37
+  %39 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %0, i64 %.0.lcssa
+  %40 = load ptr, ptr %38, align 8, !tbaa !635
+  store ptr %40, ptr %39, align 8, !tbaa !632
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !635
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store ptr %42, ptr %43, align 8, !tbaa !636
+  br label %44
 
-43:                                               ; preds = %34, %30, %._crit_edge
-  %.1 = phi i64 [ %36, %34 ], [ %.0.lcssa, %30 ], [ %.0.lcssa, %._crit_edge ]
-  %44 = icmp sgt i64 %.1, %1
-  br i1 %44, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairIPN4llvm11InstructionES3_ElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERNS1_9MapVectorIS3_St6vectorIS3_SaIS3_EENS1_8DenseMapIS3_jNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEENS1_11SmallVectorIS0_IS3_SE_ELj0EEEEERNS1_8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_14ValueMapConfigISU_NS1_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EEEvS13_S16_S16_T1_RT2_.exit
+44:                                               ; preds = %35, %31, %._crit_edge
+  %.1 = phi i64 [ %37, %35 ], [ %.0.lcssa, %31 ], [ %.0.lcssa, %._crit_edge ]
+  %45 = icmp sgt i64 %.1, %1
+  br i1 %45, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairIPN4llvm11InstructionES3_ElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERNS1_9MapVectorIS3_St6vectorIS3_SaIS3_EENS1_8DenseMapIS3_jNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEENS1_11SmallVectorIS0_IS3_SE_ELj0EEEEERNS1_8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_14ValueMapConfigISU_NS1_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EEEvS13_S16_S16_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %43, %51
-  %.0133.i = phi i64 [ %.04.i, %51 ], [ %.1, %43 ]
+.lr.ph.i:                                         ; preds = %44, %52
+  %.0133.i = phi i64 [ %.04.i, %52 ], [ %.1, %44 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %45 = getelementptr inbounds %"struct.std::pair.306", ptr %0, i64 %.04.i
-  %.val.i = load ptr, ptr %45, align 8, !tbaa !632
-  %46 = getelementptr i8, ptr %45, i64 8
-  %47 = icmp eq ptr %.val.i, %3
-  br i1 %47, label %48, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERN4llvm9MapVectorIPNS4_11InstructionESt6vectorIS7_SaIS7_EENS4_8DenseMapIS7_jNS4_12DenseMapInfoIS7_vEENS4_6detail12DenseMapPairIS7_jEEEENS4_11SmallVectorISt4pairIS7_SA_ELj0EEEEERNS4_8ValueMapIPKNS4_5ValueENS4_14WeakTrackingVHENS4_14ValueMapConfigISR_NS4_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EclIPSJ_IS7_S7_ES19_EEbS10_RS13_.exit.i
+  %46 = getelementptr inbounds %"struct.std::pair.306", ptr %0, i64 %.04.i
+  %.val.i = load ptr, ptr %46, align 8, !tbaa !632
+  %47 = getelementptr i8, ptr %46, i64 8
+  %48 = icmp eq ptr %.val.i, %3
+  br i1 %48, label %49, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERN4llvm9MapVectorIPNS4_11InstructionESt6vectorIS7_SaIS7_EENS4_8DenseMapIS7_jNS4_12DenseMapInfoIS7_vEENS4_6detail12DenseMapPairIS7_jEEEENS4_11SmallVectorISt4pairIS7_SA_ELj0EEEEERNS4_8ValueMapIPKNS4_5ValueENS4_14WeakTrackingVHENS4_14ValueMapConfigISR_NS4_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EclIPSJ_IS7_S7_ES19_EEbS10_RS13_.exit.i
 
-48:                                               ; preds = %.lr.ph.i
-  %.val14.i = load ptr, ptr %46, align 8
-  %49 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.val14.i, ptr noundef %4) #21
-  br i1 %49, label %51, label %_ZSt11__push_heapIPSt4pairIPN4llvm11InstructionES3_ElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERNS1_9MapVectorIS3_St6vectorIS3_SaIS3_EENS1_8DenseMapIS3_jNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEENS1_11SmallVectorIS0_IS3_SE_ELj0EEEEERNS1_8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_14ValueMapConfigISU_NS1_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EEEvS13_S16_S16_T1_RT2_.exit
+49:                                               ; preds = %.lr.ph.i
+  %.val14.i = load ptr, ptr %47, align 8
+  %50 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.val14.i, ptr noundef %4) #21
+  br i1 %50, label %52, label %_ZSt11__push_heapIPSt4pairIPN4llvm11InstructionES3_ElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERNS1_9MapVectorIS3_St6vectorIS3_SaIS3_EENS1_8DenseMapIS3_jNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEENS1_11SmallVectorIS0_IS3_SE_ELj0EEEEERNS1_8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_14ValueMapConfigISU_NS1_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EEEvS13_S16_S16_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERN4llvm9MapVectorIPNS4_11InstructionESt6vectorIS7_SaIS7_EENS4_8DenseMapIS7_jNS4_12DenseMapInfoIS7_vEENS4_6detail12DenseMapPairIS7_jEEEENS4_11SmallVectorISt4pairIS7_SA_ELj0EEEEERNS4_8ValueMapIPKNS4_5ValueENS4_14WeakTrackingVHENS4_14ValueMapConfigISR_NS4_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EclIPSJ_IS7_S7_ES19_EEbS10_RS13_.exit.i: ; preds = %.lr.ph.i
-  %50 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.val.i, ptr noundef %3) #21
-  br i1 %50, label %51, label %_ZSt11__push_heapIPSt4pairIPN4llvm11InstructionES3_ElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERNS1_9MapVectorIS3_St6vectorIS3_SaIS3_EENS1_8DenseMapIS3_jNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEENS1_11SmallVectorIS0_IS3_SE_ELj0EEEEERNS1_8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_14ValueMapConfigISU_NS1_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EEEvS13_S16_S16_T1_RT2_.exit
+  %51 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.val.i, ptr noundef %3) #21
+  br i1 %51, label %52, label %_ZSt11__push_heapIPSt4pairIPN4llvm11InstructionES3_ElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERNS1_9MapVectorIS3_St6vectorIS3_SaIS3_EENS1_8DenseMapIS3_jNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEENS1_11SmallVectorIS0_IS3_SE_ELj0EEEEERNS1_8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_14ValueMapConfigISU_NS1_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EEEvS13_S16_S16_T1_RT2_.exit
 
-51:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERN4llvm9MapVectorIPNS4_11InstructionESt6vectorIS7_SaIS7_EENS4_8DenseMapIS7_jNS4_12DenseMapInfoIS7_vEENS4_6detail12DenseMapPairIS7_jEEEENS4_11SmallVectorISt4pairIS7_SA_ELj0EEEEERNS4_8ValueMapIPKNS4_5ValueENS4_14WeakTrackingVHENS4_14ValueMapConfigISR_NS4_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EclIPSJ_IS7_S7_ES19_EEbS10_RS13_.exit.i, %48
-  %52 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %0, i64 %.0133.i
-  %53 = load ptr, ptr %45, align 8, !tbaa !635
-  store ptr %53, ptr %52, align 8, !tbaa !632
+52:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERN4llvm9MapVectorIPNS4_11InstructionESt6vectorIS7_SaIS7_EENS4_8DenseMapIS7_jNS4_12DenseMapInfoIS7_vEENS4_6detail12DenseMapPairIS7_jEEEENS4_11SmallVectorISt4pairIS7_SA_ELj0EEEEERNS4_8ValueMapIPKNS4_5ValueENS4_14WeakTrackingVHENS4_14ValueMapConfigISR_NS4_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EclIPSJ_IS7_S7_ES19_EEbS10_RS13_.exit.i, %49
+  %53 = getelementptr inbounds nuw %"struct.std::pair.306", ptr %0, i64 %.0133.i
   %54 = load ptr, ptr %46, align 8, !tbaa !635
-  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %54, ptr %55, align 8, !tbaa !636
-  %56 = icmp sgt i64 %.04.i, %1
-  br i1 %56, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairIPN4llvm11InstructionES3_ElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERNS1_9MapVectorIS3_St6vectorIS3_SaIS3_EENS1_8DenseMapIS3_jNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEENS1_11SmallVectorIS0_IS3_SE_ELj0EEEEERNS1_8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_14ValueMapConfigISU_NS1_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EEEvS13_S16_S16_T1_RT2_.exit, !llvm.loop !1201
+  store ptr %54, ptr %53, align 8, !tbaa !632
+  %55 = load ptr, ptr %47, align 8, !tbaa !635
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store ptr %55, ptr %56, align 8, !tbaa !636
+  %57 = icmp sgt i64 %.04.i, %1
+  br i1 %57, label %.lr.ph.i, label %_ZSt11__push_heapIPSt4pairIPN4llvm11InstructionES3_ElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERNS1_9MapVectorIS3_St6vectorIS3_SaIS3_EENS1_8DenseMapIS3_jNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEENS1_11SmallVectorIS0_IS3_SE_ELj0EEEEERNS1_8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_14ValueMapConfigISU_NS1_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EEEvS13_S16_S16_T1_RT2_.exit, !llvm.loop !1201
 
-_ZSt11__push_heapIPSt4pairIPN4llvm11InstructionES3_ElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERNS1_9MapVectorIS3_St6vectorIS3_SaIS3_EENS1_8DenseMapIS3_jNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEENS1_11SmallVectorIS0_IS3_SE_ELj0EEEEERNS1_8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_14ValueMapConfigISU_NS1_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EEEvS13_S16_S16_T1_RT2_.exit: ; preds = %48, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERN4llvm9MapVectorIPNS4_11InstructionESt6vectorIS7_SaIS7_EENS4_8DenseMapIS7_jNS4_12DenseMapInfoIS7_vEENS4_6detail12DenseMapPairIS7_jEEEENS4_11SmallVectorISt4pairIS7_SA_ELj0EEEEERNS4_8ValueMapIPKNS4_5ValueENS4_14WeakTrackingVHENS4_14ValueMapConfigISR_NS4_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EclIPSJ_IS7_S7_ES19_EEbS10_RS13_.exit.i, %51, %43
-  %.013.lcssa.i = phi i64 [ %.1, %43 ], [ %.0133.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERN4llvm9MapVectorIPNS4_11InstructionESt6vectorIS7_SaIS7_EENS4_8DenseMapIS7_jNS4_12DenseMapInfoIS7_vEENS4_6detail12DenseMapPairIS7_jEEEENS4_11SmallVectorISt4pairIS7_SA_ELj0EEEEERNS4_8ValueMapIPKNS4_5ValueENS4_14WeakTrackingVHENS4_14ValueMapConfigISR_NS4_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EclIPSJ_IS7_S7_ES19_EEbS10_RS13_.exit.i ], [ %.04.i, %51 ], [ %.0133.i, %48 ]
-  %57 = getelementptr inbounds %"struct.std::pair.306", ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %57, align 8, !tbaa !632
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store ptr %4, ptr %58, align 8, !tbaa !636
+_ZSt11__push_heapIPSt4pairIPN4llvm11InstructionES3_ElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERNS1_9MapVectorIS3_St6vectorIS3_SaIS3_EENS1_8DenseMapIS3_jNS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_jEEEENS1_11SmallVectorIS0_IS3_SE_ELj0EEEEERNS1_8ValueMapIPKNS1_5ValueENS1_14WeakTrackingVHENS1_14ValueMapConfigISU_NS1_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EEEvS13_S16_S16_T1_RT2_.exit: ; preds = %49, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERN4llvm9MapVectorIPNS4_11InstructionESt6vectorIS7_SaIS7_EENS4_8DenseMapIS7_jNS4_12DenseMapInfoIS7_vEENS4_6detail12DenseMapPairIS7_jEEEENS4_11SmallVectorISt4pairIS7_SA_ELj0EEEEERNS4_8ValueMapIPKNS4_5ValueENS4_14WeakTrackingVHENS4_14ValueMapConfigISR_NS4_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EclIPSJ_IS7_S7_ES19_EEbS10_RS13_.exit.i, %52, %44
+  %.013.lcssa.i = phi i64 [ %.1, %44 ], [ %.0133.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_112TransformDFA12updateDefMapERN4llvm9MapVectorIPNS4_11InstructionESt6vectorIS7_SaIS7_EENS4_8DenseMapIS7_jNS4_12DenseMapInfoIS7_vEENS4_6detail12DenseMapPairIS7_jEEEENS4_11SmallVectorISt4pairIS7_SA_ELj0EEEEERNS4_8ValueMapIPKNS4_5ValueENS4_14WeakTrackingVHENS4_14ValueMapConfigISR_NS4_3sys10SmartMutexILb0EEEEEEEEUlRKT_RKT0_E_EclIPSJ_IS7_S7_ES19_EEbS10_RS13_.exit.i ], [ %.04.i, %52 ], [ %.0133.i, %49 ]
+  %58 = getelementptr inbounds %"struct.std::pair.306", ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %58, align 8, !tbaa !632
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store ptr %4, ptr %59, align 8, !tbaa !636
   ret void
 }
 

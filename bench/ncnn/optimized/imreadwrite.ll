@@ -6384,7 +6384,7 @@ _ZL22stbi__check_png_headerP13stbi__context.exit: ; preds = %22
   %67 = shl nuw i32 %66, 16
   %68 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %8)
   %69 = or disjoint i32 %67, %68
-  switch i32 %69, label %685 [
+  switch i32 %69, label %673 [
     i32 1130840649, label %70
     i32 1229472850, label %93
     i32 1347179589, label %238
@@ -7612,7 +7612,7 @@ _ZL22stbi__create_png_imageP9stbi__pngPhjiiii.exit: ; preds = %512
   br label %619
 
 619:                                              ; preds = %618, %615, %612
-  br i1 %518, label %677, label %620
+  br i1 %518, label %665, label %620
 
 620:                                              ; preds = %619
   %621 = zext nneg i8 %.0204 to i32
@@ -7666,62 +7666,50 @@ _ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit.thread: ; preds = %620, %_ZL21
 
 .lr.ph55.i:                                       ; preds = %.lr.ph55.i, %.lr.ph55.preheader.i
   %indvars.iv59.i = phi i64 [ 0, %.lr.ph55.preheader.i ], [ %indvars.iv.next60.i, %.lr.ph55.i ]
-  %.04553.i = phi ptr [ %632, %.lr.ph55.preheader.i ], [ %653, %.lr.ph55.i ]
+  %.04553.i = phi ptr [ %632, %.lr.ph55.preheader.i ], [ %648, %.lr.ph55.i ]
   %636 = getelementptr inbounds nuw i8, ptr %628, i64 %indvars.iv59.i
   %637 = load i8, ptr %636, align 1, !tbaa !23
-  %638 = zext i8 %637 to i32
-  %639 = shl nuw nsw i32 %638, 2
-  %640 = zext nneg i32 %639 to i64
-  %641 = getelementptr inbounds nuw i8, ptr %5, i64 %640
-  %642 = load i8, ptr %641, align 4, !tbaa !23
-  store i8 %642, ptr %.04553.i, align 1, !tbaa !23
-  %643 = or disjoint i32 %639, 1
-  %644 = zext nneg i32 %643 to i64
-  %645 = getelementptr inbounds nuw i8, ptr %5, i64 %644
-  %646 = load i8, ptr %645, align 1, !tbaa !23
-  %647 = getelementptr inbounds nuw i8, ptr %.04553.i, i64 1
+  %638 = zext i8 %637 to i64
+  %639 = shl nuw nsw i64 %638, 2
+  %640 = getelementptr inbounds nuw i8, ptr %5, i64 %639
+  %641 = load i8, ptr %640, align 4, !tbaa !23
+  store i8 %641, ptr %.04553.i, align 1, !tbaa !23
+  %642 = getelementptr inbounds nuw i8, ptr %640, i64 1
+  %643 = load i8, ptr %642, align 1, !tbaa !23
+  %644 = getelementptr inbounds nuw i8, ptr %.04553.i, i64 1
+  store i8 %643, ptr %644, align 1, !tbaa !23
+  %645 = getelementptr inbounds nuw i8, ptr %640, i64 2
+  %646 = load i8, ptr %645, align 2, !tbaa !23
+  %647 = getelementptr inbounds nuw i8, ptr %.04553.i, i64 2
   store i8 %646, ptr %647, align 1, !tbaa !23
-  %648 = or disjoint i32 %639, 2
-  %649 = zext nneg i32 %648 to i64
-  %650 = getelementptr inbounds nuw i8, ptr %5, i64 %649
-  %651 = load i8, ptr %650, align 2, !tbaa !23
-  %652 = getelementptr inbounds nuw i8, ptr %.04553.i, i64 2
-  store i8 %651, ptr %652, align 1, !tbaa !23
-  %653 = getelementptr inbounds nuw i8, ptr %.04553.i, i64 3
+  %648 = getelementptr inbounds nuw i8, ptr %.04553.i, i64 3
   %indvars.iv.next60.i = add nuw nsw i64 %indvars.iv59.i, 1
   %exitcond63.not.i = icmp eq i64 %indvars.iv.next60.i, %wide.trip.count62.i
   br i1 %exitcond63.not.i, label %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit, label %.lr.ph55.i, !llvm.loop !178
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i360 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i361, %.lr.ph.i ]
-  %.14651.i = phi ptr [ %632, %.lr.ph.preheader.i ], [ %676, %.lr.ph.i ]
-  %654 = getelementptr inbounds nuw i8, ptr %628, i64 %indvars.iv.i360
-  %655 = load i8, ptr %654, align 1, !tbaa !23
-  %656 = zext i8 %655 to i32
-  %657 = shl nuw nsw i32 %656, 2
-  %658 = zext nneg i32 %657 to i64
-  %659 = getelementptr inbounds nuw i8, ptr %5, i64 %658
-  %660 = load i8, ptr %659, align 4, !tbaa !23
-  store i8 %660, ptr %.14651.i, align 1, !tbaa !23
-  %661 = or disjoint i32 %657, 1
-  %662 = zext nneg i32 %661 to i64
-  %663 = getelementptr inbounds nuw i8, ptr %5, i64 %662
-  %664 = load i8, ptr %663, align 1, !tbaa !23
-  %665 = getelementptr inbounds nuw i8, ptr %.14651.i, i64 1
-  store i8 %664, ptr %665, align 1, !tbaa !23
-  %666 = or disjoint i32 %657, 2
-  %667 = zext nneg i32 %666 to i64
-  %668 = getelementptr inbounds nuw i8, ptr %5, i64 %667
-  %669 = load i8, ptr %668, align 2, !tbaa !23
-  %670 = getelementptr inbounds nuw i8, ptr %.14651.i, i64 2
-  store i8 %669, ptr %670, align 1, !tbaa !23
-  %671 = or disjoint i32 %657, 3
-  %672 = zext nneg i32 %671 to i64
-  %673 = getelementptr inbounds nuw i8, ptr %5, i64 %672
-  %674 = load i8, ptr %673, align 1, !tbaa !23
-  %675 = getelementptr inbounds nuw i8, ptr %.14651.i, i64 3
-  store i8 %674, ptr %675, align 1, !tbaa !23
-  %676 = getelementptr inbounds nuw i8, ptr %.14651.i, i64 4
+  %.14651.i = phi ptr [ %632, %.lr.ph.preheader.i ], [ %664, %.lr.ph.i ]
+  %649 = getelementptr inbounds nuw i8, ptr %628, i64 %indvars.iv.i360
+  %650 = load i8, ptr %649, align 1, !tbaa !23
+  %651 = zext i8 %650 to i64
+  %652 = shl nuw nsw i64 %651, 2
+  %653 = getelementptr inbounds nuw i8, ptr %5, i64 %652
+  %654 = load i8, ptr %653, align 4, !tbaa !23
+  store i8 %654, ptr %.14651.i, align 1, !tbaa !23
+  %655 = getelementptr inbounds nuw i8, ptr %653, i64 1
+  %656 = load i8, ptr %655, align 1, !tbaa !23
+  %657 = getelementptr inbounds nuw i8, ptr %.14651.i, i64 1
+  store i8 %656, ptr %657, align 1, !tbaa !23
+  %658 = getelementptr inbounds nuw i8, ptr %653, i64 2
+  %659 = load i8, ptr %658, align 2, !tbaa !23
+  %660 = getelementptr inbounds nuw i8, ptr %.14651.i, i64 2
+  store i8 %659, ptr %660, align 1, !tbaa !23
+  %661 = getelementptr inbounds nuw i8, ptr %653, i64 3
+  %662 = load i8, ptr %661, align 1, !tbaa !23
+  %663 = getelementptr inbounds nuw i8, ptr %.14651.i, i64 3
+  store i8 %662, ptr %663, align 1, !tbaa !23
+  %664 = getelementptr inbounds nuw i8, ptr %.14651.i, i64 4
   %indvars.iv.next.i361 = add nuw nsw i64 %indvars.iv.i360, 1
   %exitcond.not.i362 = icmp eq i64 %indvars.iv.next.i361, %wide.trip.count.i
   br i1 %exitcond.not.i362, label %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit, label %.lr.ph.i, !llvm.loop !179
@@ -7729,115 +7717,115 @@ _ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit.thread: ; preds = %620, %_ZL21
 _ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit: ; preds = %.lr.ph.i, %.lr.ph55.i, %.preheader49.i, %.preheader.i
   call void @free(ptr noundef %628) #35
   store ptr %632, ptr %11, align 8, !tbaa !39
-  br label %681
+  br label %669
 
-677:                                              ; preds = %619
-  br i1 %519, label %678, label %681
+665:                                              ; preds = %619
+  br i1 %519, label %666, label %669
 
-678:                                              ; preds = %677
-  %679 = load i32, ptr %57, align 8, !tbaa !44
-  %680 = add nsw i32 %679, 1
-  store i32 %680, ptr %57, align 8, !tbaa !44
-  br label %681
+666:                                              ; preds = %665
+  %667 = load i32, ptr %57, align 8, !tbaa !44
+  %668 = add nsw i32 %667, 1
+  store i32 %668, ptr %57, align 8, !tbaa !44
+  br label %669
 
-681:                                              ; preds = %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit, %677, %678
-  %682 = load ptr, ptr %9, align 8, !tbaa !45
-  call void @free(ptr noundef %682) #35
+669:                                              ; preds = %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit, %665, %666
+  %670 = load ptr, ptr %9, align 8, !tbaa !45
+  call void @free(ptr noundef %670) #35
   store ptr null, ptr %9, align 8, !tbaa !45
-  %683 = call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %8)
-  %684 = call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %8)
+  %671 = call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %8)
+  %672 = call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef nonnull %8)
   br label %.thread405
 
-685:                                              ; preds = %61
+673:                                              ; preds = %61
   %.not294 = icmp eq i32 %.0230, 0
-  br i1 %.not294, label %687, label %686
+  br i1 %.not294, label %675, label %674
 
-686:                                              ; preds = %685
+674:                                              ; preds = %673
   store ptr @.str.15, ptr @_ZL22stbi__g_failure_reason, align 8, !tbaa !5
   br label %.thread405
 
-687:                                              ; preds = %685
-  %688 = and i32 %66, 8192
-  %689 = icmp eq i32 %688, 0
-  br i1 %689, label %690, label %697
+675:                                              ; preds = %673
+  %676 = and i32 %66, 8192
+  %677 = icmp eq i32 %676, 0
+  br i1 %677, label %678, label %685
 
-690:                                              ; preds = %687
-  %691 = lshr i32 %66, 8
-  %692 = trunc nuw i32 %691 to i8
-  store i8 %692, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, align 16, !tbaa !23
-  %693 = trunc i32 %66 to i8
-  store i8 %693, ptr getelementptr inbounds nuw (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 1), align 1, !tbaa !23
-  %694 = lshr i32 %68, 8
-  %695 = trunc nuw i32 %694 to i8
-  store i8 %695, ptr getelementptr inbounds nuw (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 2), align 2, !tbaa !23
-  %696 = trunc i32 %68 to i8
-  store i8 %696, ptr getelementptr inbounds nuw (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 3), align 1, !tbaa !23
+678:                                              ; preds = %675
+  %679 = lshr i32 %66, 8
+  %680 = trunc nuw i32 %679 to i8
+  store i8 %680, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, align 16, !tbaa !23
+  %681 = trunc i32 %66 to i8
+  store i8 %681, ptr getelementptr inbounds nuw (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 1), align 1, !tbaa !23
+  %682 = lshr i32 %68, 8
+  %683 = trunc nuw i32 %682 to i8
+  store i8 %683, ptr getelementptr inbounds nuw (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 2), align 2, !tbaa !23
+  %684 = trunc i32 %68 to i8
+  store i8 %684, ptr getelementptr inbounds nuw (i8, ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, i64 3), align 1, !tbaa !23
   store ptr @_ZZL20stbi__parse_png_fileP9stbi__pngiiE13invalid_chunk, ptr @_ZL22stbi__g_failure_reason, align 8, !tbaa !5
   br label %.thread405
 
-697:                                              ; preds = %687
-  %698 = icmp eq i32 %65, 0
-  br i1 %698, label %.loopexit, label %699
+685:                                              ; preds = %675
+  %686 = icmp eq i32 %65, 0
+  br i1 %686, label %.loopexit, label %687
 
-699:                                              ; preds = %697
-  %700 = icmp slt i32 %63, 0
-  br i1 %700, label %701, label %703
+687:                                              ; preds = %685
+  %688 = icmp slt i32 %63, 0
+  br i1 %688, label %689, label %691
 
-701:                                              ; preds = %699
-  %702 = load ptr, ptr %13, align 8, !tbaa !24
-  store ptr %702, ptr %12, align 8, !tbaa !21
+689:                                              ; preds = %687
+  %690 = load ptr, ptr %13, align 8, !tbaa !24
+  store ptr %690, ptr %12, align 8, !tbaa !21
   br label %.loopexit
 
-703:                                              ; preds = %699
-  %704 = load ptr, ptr %15, align 8, !tbaa !22
-  %.not.i363 = icmp eq ptr %704, null
-  br i1 %.not.i363, label %..thread_crit_edge.i365, label %705
+691:                                              ; preds = %687
+  %692 = load ptr, ptr %15, align 8, !tbaa !22
+  %.not.i363 = icmp eq ptr %692, null
+  br i1 %.not.i363, label %..thread_crit_edge.i365, label %693
 
-..thread_crit_edge.i365:                          ; preds = %703
+..thread_crit_edge.i365:                          ; preds = %691
   %.pre.i367 = load ptr, ptr %12, align 8, !tbaa !21
   br label %.thread.i364
 
-705:                                              ; preds = %703
-  %706 = load ptr, ptr %13, align 8, !tbaa !24
-  %707 = load ptr, ptr %12, align 8, !tbaa !21
-  %708 = ptrtoint ptr %706 to i64
-  %709 = ptrtoint ptr %707 to i64
-  %710 = sub i64 %708, %709
-  %711 = trunc i64 %710 to i32
-  %712 = icmp sgt i32 %65, %711
-  br i1 %712, label %713, label %.thread.i364
+693:                                              ; preds = %691
+  %694 = load ptr, ptr %13, align 8, !tbaa !24
+  %695 = load ptr, ptr %12, align 8, !tbaa !21
+  %696 = ptrtoint ptr %694 to i64
+  %697 = ptrtoint ptr %695 to i64
+  %698 = sub i64 %696, %697
+  %699 = trunc i64 %698 to i32
+  %700 = icmp sgt i32 %65, %699
+  br i1 %700, label %701, label %.thread.i364
 
-713:                                              ; preds = %705
-  store ptr %706, ptr %12, align 8, !tbaa !21
-  %714 = load ptr, ptr %60, align 8, !tbaa !59
-  %715 = load ptr, ptr %16, align 8, !tbaa !14
-  %716 = sub nsw i32 %65, %711
-  tail call void %714(ptr noundef %715, i32 noundef %716)
+701:                                              ; preds = %693
+  store ptr %694, ptr %12, align 8, !tbaa !21
+  %702 = load ptr, ptr %60, align 8, !tbaa !59
+  %703 = load ptr, ptr %16, align 8, !tbaa !14
+  %704 = sub nsw i32 %65, %699
+  tail call void %702(ptr noundef %703, i32 noundef %704)
   br label %.loopexit
 
-.thread.i364:                                     ; preds = %705, %..thread_crit_edge.i365
-  %717 = phi ptr [ %.pre.i367, %..thread_crit_edge.i365 ], [ %707, %705 ]
-  %718 = zext nneg i32 %65 to i64
-  %719 = getelementptr inbounds nuw i8, ptr %717, i64 %718
-  store ptr %719, ptr %12, align 8, !tbaa !21
+.thread.i364:                                     ; preds = %693, %..thread_crit_edge.i365
+  %705 = phi ptr [ %.pre.i367, %..thread_crit_edge.i365 ], [ %695, %693 ]
+  %706 = zext nneg i32 %65 to i64
+  %707 = getelementptr inbounds nuw i8, ptr %705, i64 %706
+  store ptr %707, ptr %12, align 8, !tbaa !21
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZL10stbi__get8P13stbi__context.exit341, %.lr.ph756, %.lr.ph758, %_ZL10stbi__get8P13stbi__context.exit335, %.preheader422, %.preheader420, %.preheader418, %.preheader, %_ZL10stbi__getnP13stbi__contextPhi.exit, %70, %74, %86, %.thread.i, %224, %233, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392, %697, %701, %713, %.thread.i364
-  %.1242 = phi i32 [ %.0241, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0241, %70 ], [ %.0241, %74 ], [ %.0241, %86 ], [ %.0241, %.thread.i ], [ %215, %233 ], [ %215, %224 ], [ %.0241, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0241, %697 ], [ %.0241, %701 ], [ %.0241, %713 ], [ %.0241, %.thread.i364 ], [ %.0241, %.preheader ], [ %.0241, %.preheader418 ], [ %.0241, %.preheader420 ], [ %.0241, %.preheader422 ], [ %.0241, %_ZL10stbi__get8P13stbi__context.exit335 ], [ %.0241, %.lr.ph758 ], [ %.0241, %.lr.ph756 ], [ %.0241, %_ZL10stbi__get8P13stbi__context.exit341 ]
-  %.1238 = phi i32 [ %.0237, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0237, %70 ], [ %.0237, %74 ], [ %.0237, %86 ], [ %.0237, %.thread.i ], [ %184, %233 ], [ %184, %224 ], [ %.0237, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0237, %697 ], [ %.0237, %701 ], [ %.0237, %713 ], [ %.0237, %.thread.i364 ], [ %.0237, %.preheader ], [ %.0237, %.preheader418 ], [ %.0237, %.preheader420 ], [ %.0237, %.preheader422 ], [ %.0237, %_ZL10stbi__get8P13stbi__context.exit335 ], [ %.0237, %.lr.ph758 ], [ %.0237, %.lr.ph756 ], [ %.0237, %_ZL10stbi__get8P13stbi__context.exit341 ]
-  %.1235 = phi i32 [ %.0234, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ 1, %70 ], [ 1, %74 ], [ 1, %86 ], [ 1, %.thread.i ], [ %.0234, %233 ], [ %.0234, %224 ], [ %.0234, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0234, %697 ], [ %.0234, %701 ], [ %.0234, %713 ], [ %.0234, %.thread.i364 ], [ %.0234, %.preheader ], [ %.0234, %.preheader418 ], [ %.0234, %.preheader420 ], [ %.0234, %.preheader422 ], [ %.0234, %_ZL10stbi__get8P13stbi__context.exit335 ], [ %.0234, %.lr.ph758 ], [ %.0234, %.lr.ph756 ], [ %.0234, %_ZL10stbi__get8P13stbi__context.exit341 ]
-  %.1231 = phi i32 [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0230, %70 ], [ %.0230, %74 ], [ %.0230, %86 ], [ %.0230, %.thread.i ], [ 0, %233 ], [ 0, %224 ], [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ 0, %697 ], [ 0, %701 ], [ 0, %713 ], [ 0, %.thread.i364 ], [ 0, %.preheader ], [ 0, %.preheader418 ], [ 0, %.preheader420 ], [ 0, %.preheader422 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit335 ], [ 0, %.lr.ph758 ], [ 0, %.lr.ph756 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit341 ]
-  %.1224 = phi i32 [ %.0223, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0223, %70 ], [ %.0223, %74 ], [ %.0223, %86 ], [ %.0223, %.thread.i ], [ %.0223, %233 ], [ %.0223, %224 ], [ %.0223, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0223, %697 ], [ %.0223, %701 ], [ %.0223, %713 ], [ %.0223, %.thread.i364 ], [ %.zext, %.preheader ], [ %.0223, %.preheader418 ], [ %.0223, %.preheader420 ], [ %.0223, %.preheader422 ], [ %.zext, %_ZL10stbi__get8P13stbi__context.exit335 ], [ %.0223, %.lr.ph758 ], [ %.0223, %.lr.ph756 ], [ %.0223, %_ZL10stbi__get8P13stbi__context.exit341 ]
-  %.1216 = phi i32 [ %.3218, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0215, %70 ], [ %.0215, %74 ], [ %.0215, %86 ], [ %.0215, %.thread.i ], [ %.0215, %233 ], [ %.0215, %224 ], [ %.3218, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0215, %697 ], [ %.0215, %701 ], [ %.0215, %713 ], [ %.0215, %.thread.i364 ], [ %.0215, %.preheader ], [ %.0215, %.preheader418 ], [ %.0215, %.preheader420 ], [ %.0215, %.preheader422 ], [ %.0215, %_ZL10stbi__get8P13stbi__context.exit335 ], [ %.0215, %.lr.ph758 ], [ %.0215, %.lr.ph756 ], [ %.0215, %_ZL10stbi__get8P13stbi__context.exit341 ]
-  %.1213 = phi i32 [ %430, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0212, %70 ], [ %.0212, %74 ], [ %.0212, %86 ], [ %.0212, %.thread.i ], [ %.0212, %233 ], [ %.0212, %224 ], [ %430, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0212, %697 ], [ %.0212, %701 ], [ %.0212, %713 ], [ %.0212, %.thread.i364 ], [ %.0212, %.preheader ], [ %.0212, %.preheader418 ], [ %.0212, %.preheader420 ], [ %.0212, %.preheader422 ], [ %.0212, %_ZL10stbi__get8P13stbi__context.exit335 ], [ %.0212, %.lr.ph758 ], [ %.0212, %.lr.ph756 ], [ %.0212, %_ZL10stbi__get8P13stbi__context.exit341 ]
-  %.1210 = phi i8 [ %.0209, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0209, %70 ], [ %.0209, %74 ], [ %.0209, %86 ], [ %.0209, %.thread.i ], [ %.0209, %233 ], [ %.0209, %224 ], [ %.0209, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0209, %697 ], [ %.0209, %701 ], [ %.0209, %713 ], [ %.0209, %.thread.i364 ], [ %.0209, %.preheader ], [ 1, %.preheader418 ], [ 1, %.preheader420 ], [ %.0209, %.preheader422 ], [ %.0209, %_ZL10stbi__get8P13stbi__context.exit335 ], [ 1, %.lr.ph758 ], [ 1, %.lr.ph756 ], [ %.0209, %_ZL10stbi__get8P13stbi__context.exit341 ]
-  %.1205 = phi i8 [ %.0204, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0204, %70 ], [ %.0204, %74 ], [ %.0204, %86 ], [ %.0204, %.thread.i ], [ %.3207, %233 ], [ 0, %224 ], [ %.0204, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0204, %697 ], [ %.0204, %701 ], [ %.0204, %713 ], [ %.0204, %.thread.i364 ], [ %.0204, %.preheader ], [ 0, %.preheader418 ], [ 0, %.preheader420 ], [ 4, %.preheader422 ], [ %.0204, %_ZL10stbi__get8P13stbi__context.exit335 ], [ 0, %.lr.ph758 ], [ 0, %.lr.ph756 ], [ 4, %_ZL10stbi__get8P13stbi__context.exit341 ]
-  %720 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %8)
-  %721 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %8)
+.loopexit:                                        ; preds = %_ZL10stbi__get8P13stbi__context.exit341, %.lr.ph756, %.lr.ph758, %_ZL10stbi__get8P13stbi__context.exit335, %.preheader422, %.preheader420, %.preheader418, %.preheader, %_ZL10stbi__getnP13stbi__contextPhi.exit, %70, %74, %86, %.thread.i, %224, %233, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392, %685, %689, %701, %.thread.i364
+  %.1242 = phi i32 [ %.0241, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0241, %70 ], [ %.0241, %74 ], [ %.0241, %86 ], [ %.0241, %.thread.i ], [ %215, %233 ], [ %215, %224 ], [ %.0241, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0241, %685 ], [ %.0241, %689 ], [ %.0241, %701 ], [ %.0241, %.thread.i364 ], [ %.0241, %.preheader ], [ %.0241, %.preheader418 ], [ %.0241, %.preheader420 ], [ %.0241, %.preheader422 ], [ %.0241, %_ZL10stbi__get8P13stbi__context.exit335 ], [ %.0241, %.lr.ph758 ], [ %.0241, %.lr.ph756 ], [ %.0241, %_ZL10stbi__get8P13stbi__context.exit341 ]
+  %.1238 = phi i32 [ %.0237, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0237, %70 ], [ %.0237, %74 ], [ %.0237, %86 ], [ %.0237, %.thread.i ], [ %184, %233 ], [ %184, %224 ], [ %.0237, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0237, %685 ], [ %.0237, %689 ], [ %.0237, %701 ], [ %.0237, %.thread.i364 ], [ %.0237, %.preheader ], [ %.0237, %.preheader418 ], [ %.0237, %.preheader420 ], [ %.0237, %.preheader422 ], [ %.0237, %_ZL10stbi__get8P13stbi__context.exit335 ], [ %.0237, %.lr.ph758 ], [ %.0237, %.lr.ph756 ], [ %.0237, %_ZL10stbi__get8P13stbi__context.exit341 ]
+  %.1235 = phi i32 [ %.0234, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ 1, %70 ], [ 1, %74 ], [ 1, %86 ], [ 1, %.thread.i ], [ %.0234, %233 ], [ %.0234, %224 ], [ %.0234, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0234, %685 ], [ %.0234, %689 ], [ %.0234, %701 ], [ %.0234, %.thread.i364 ], [ %.0234, %.preheader ], [ %.0234, %.preheader418 ], [ %.0234, %.preheader420 ], [ %.0234, %.preheader422 ], [ %.0234, %_ZL10stbi__get8P13stbi__context.exit335 ], [ %.0234, %.lr.ph758 ], [ %.0234, %.lr.ph756 ], [ %.0234, %_ZL10stbi__get8P13stbi__context.exit341 ]
+  %.1231 = phi i32 [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0230, %70 ], [ %.0230, %74 ], [ %.0230, %86 ], [ %.0230, %.thread.i ], [ 0, %233 ], [ 0, %224 ], [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ 0, %685 ], [ 0, %689 ], [ 0, %701 ], [ 0, %.thread.i364 ], [ 0, %.preheader ], [ 0, %.preheader418 ], [ 0, %.preheader420 ], [ 0, %.preheader422 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit335 ], [ 0, %.lr.ph758 ], [ 0, %.lr.ph756 ], [ 0, %_ZL10stbi__get8P13stbi__context.exit341 ]
+  %.1224 = phi i32 [ %.0223, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0223, %70 ], [ %.0223, %74 ], [ %.0223, %86 ], [ %.0223, %.thread.i ], [ %.0223, %233 ], [ %.0223, %224 ], [ %.0223, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0223, %685 ], [ %.0223, %689 ], [ %.0223, %701 ], [ %.0223, %.thread.i364 ], [ %.zext, %.preheader ], [ %.0223, %.preheader418 ], [ %.0223, %.preheader420 ], [ %.0223, %.preheader422 ], [ %.zext, %_ZL10stbi__get8P13stbi__context.exit335 ], [ %.0223, %.lr.ph758 ], [ %.0223, %.lr.ph756 ], [ %.0223, %_ZL10stbi__get8P13stbi__context.exit341 ]
+  %.1216 = phi i32 [ %.3218, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0215, %70 ], [ %.0215, %74 ], [ %.0215, %86 ], [ %.0215, %.thread.i ], [ %.0215, %233 ], [ %.0215, %224 ], [ %.3218, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0215, %685 ], [ %.0215, %689 ], [ %.0215, %701 ], [ %.0215, %.thread.i364 ], [ %.0215, %.preheader ], [ %.0215, %.preheader418 ], [ %.0215, %.preheader420 ], [ %.0215, %.preheader422 ], [ %.0215, %_ZL10stbi__get8P13stbi__context.exit335 ], [ %.0215, %.lr.ph758 ], [ %.0215, %.lr.ph756 ], [ %.0215, %_ZL10stbi__get8P13stbi__context.exit341 ]
+  %.1213 = phi i32 [ %430, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0212, %70 ], [ %.0212, %74 ], [ %.0212, %86 ], [ %.0212, %.thread.i ], [ %.0212, %233 ], [ %.0212, %224 ], [ %430, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0212, %685 ], [ %.0212, %689 ], [ %.0212, %701 ], [ %.0212, %.thread.i364 ], [ %.0212, %.preheader ], [ %.0212, %.preheader418 ], [ %.0212, %.preheader420 ], [ %.0212, %.preheader422 ], [ %.0212, %_ZL10stbi__get8P13stbi__context.exit335 ], [ %.0212, %.lr.ph758 ], [ %.0212, %.lr.ph756 ], [ %.0212, %_ZL10stbi__get8P13stbi__context.exit341 ]
+  %.1210 = phi i8 [ %.0209, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0209, %70 ], [ %.0209, %74 ], [ %.0209, %86 ], [ %.0209, %.thread.i ], [ %.0209, %233 ], [ %.0209, %224 ], [ %.0209, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0209, %685 ], [ %.0209, %689 ], [ %.0209, %701 ], [ %.0209, %.thread.i364 ], [ %.0209, %.preheader ], [ 1, %.preheader418 ], [ 1, %.preheader420 ], [ %.0209, %.preheader422 ], [ %.0209, %_ZL10stbi__get8P13stbi__context.exit335 ], [ 1, %.lr.ph758 ], [ 1, %.lr.ph756 ], [ %.0209, %_ZL10stbi__get8P13stbi__context.exit341 ]
+  %.1205 = phi i8 [ %.0204, %_ZL10stbi__getnP13stbi__contextPhi.exit ], [ %.0204, %70 ], [ %.0204, %74 ], [ %.0204, %86 ], [ %.0204, %.thread.i ], [ %.3207, %233 ], [ 0, %224 ], [ %.0204, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread392 ], [ %.0204, %685 ], [ %.0204, %689 ], [ %.0204, %701 ], [ %.0204, %.thread.i364 ], [ %.0204, %.preheader ], [ 0, %.preheader418 ], [ 0, %.preheader420 ], [ 4, %.preheader422 ], [ %.0204, %_ZL10stbi__get8P13stbi__context.exit335 ], [ 0, %.lr.ph758 ], [ 0, %.lr.ph756 ], [ 4, %_ZL10stbi__get8P13stbi__context.exit341 ]
+  %708 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %8)
+  %709 = tail call fastcc noundef i32 @_ZL13stbi__get16beP13stbi__context(ptr noundef %8)
   br label %61, !llvm.loop !180
 
-.thread405:                                       ; preds = %429, %.thread101.i, %_ZL17stbi__malloc_mad3iiii.exit.thread.i, %94, %181, %222, %232, %237, %217, %212, %210, %179, %173, %.loopexit425, %111, %107, %96, %472, %477, %681, %473, %stbi_zlib_decode_malloc_guesssize_headerflag.exit, %_ZL22stbi__create_png_imageP9stbi__pngPhjiiii.exit, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread, %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit.thread, %.thread388, %423, %424, %246, %242, %239, %388, %393, %391, %352, %348, %345, %342, %339, %421, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread, %428, %417, %690, %686, %_ZL22stbi__check_png_headerP13stbi__context.exit.thread, %_ZL22stbi__check_png_headerP13stbi__context.exit
-  %.0 = phi i32 [ 1, %_ZL22stbi__check_png_headerP13stbi__context.exit ], [ 0, %_ZL22stbi__check_png_headerP13stbi__context.exit.thread ], [ 0, %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit.thread ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread ], [ 0, %_ZL22stbi__create_png_imageP9stbi__pngPhjiiii.exit ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit ], [ 1, %473 ], [ 1, %681 ], [ 0, %477 ], [ 0, %472 ], [ 0, %.thread388 ], [ 1, %423 ], [ 1, %424 ], [ 0, %246 ], [ 0, %242 ], [ 0, %239 ], [ 0, %388 ], [ 1, %393 ], [ 0, %391 ], [ 0, %352 ], [ 0, %348 ], [ 1, %345 ], [ 0, %342 ], [ 0, %339 ], [ 0, %421 ], [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread ], [ 0, %428 ], [ 0, %417 ], [ 0, %690 ], [ 0, %686 ], [ 0, %96 ], [ 0, %107 ], [ 0, %111 ], [ 0, %.loopexit425 ], [ 0, %173 ], [ 0, %179 ], [ 0, %210 ], [ 0, %212 ], [ 0, %217 ], [ 0, %237 ], [ 0, %232 ], [ 0, %222 ], [ 0, %181 ], [ 0, %94 ], [ 0, %_ZL17stbi__malloc_mad3iiii.exit.thread.i ], [ 0, %.thread101.i ], [ 0, %429 ]
+.thread405:                                       ; preds = %429, %.thread101.i, %_ZL17stbi__malloc_mad3iiii.exit.thread.i, %94, %181, %222, %232, %237, %217, %212, %210, %179, %173, %.loopexit425, %111, %107, %96, %472, %477, %669, %473, %stbi_zlib_decode_malloc_guesssize_headerflag.exit, %_ZL22stbi__create_png_imageP9stbi__pngPhjiiii.exit, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread, %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit.thread, %.thread388, %423, %424, %246, %242, %239, %388, %393, %391, %352, %348, %345, %342, %339, %421, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread, %428, %417, %678, %674, %_ZL22stbi__check_png_headerP13stbi__context.exit.thread, %_ZL22stbi__check_png_headerP13stbi__context.exit
+  %.0 = phi i32 [ 1, %_ZL22stbi__check_png_headerP13stbi__context.exit ], [ 0, %_ZL22stbi__check_png_headerP13stbi__context.exit.thread ], [ 0, %_ZL24stbi__expand_png_paletteP9stbi__pngPhii.exit.thread ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit.thread ], [ 0, %_ZL22stbi__create_png_imageP9stbi__pngPhjiiii.exit ], [ 0, %stbi_zlib_decode_malloc_guesssize_headerflag.exit ], [ 1, %473 ], [ 1, %669 ], [ 0, %477 ], [ 0, %472 ], [ 0, %.thread388 ], [ 1, %423 ], [ 1, %424 ], [ 0, %246 ], [ 0, %242 ], [ 0, %239 ], [ 0, %388 ], [ 1, %393 ], [ 0, %391 ], [ 0, %352 ], [ 0, %348 ], [ 1, %345 ], [ 0, %342 ], [ 0, %339 ], [ 0, %421 ], [ 0, %_ZL10stbi__getnP13stbi__contextPhi.exit.thread ], [ 0, %428 ], [ 0, %417 ], [ 0, %678 ], [ 0, %674 ], [ 0, %96 ], [ 0, %107 ], [ 0, %111 ], [ 0, %.loopexit425 ], [ 0, %173 ], [ 0, %179 ], [ 0, %210 ], [ 0, %212 ], [ 0, %217 ], [ 0, %237 ], [ 0, %232 ], [ 0, %222 ], [ 0, %181 ], [ 0, %94 ], [ 0, %_ZL17stbi__malloc_mad3iiii.exit.thread.i ], [ 0, %.thread101.i ], [ 0, %429 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7) #35
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #35
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #35
@@ -9914,10 +9902,10 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
 
 ._crit_edge836:                                   ; preds = %.loopexit733
   %304 = icmp slt i32 %6, 8
-  br i1 %304, label %.lr.ph873, label %481
+  br i1 %304, label %.lr.ph873, label %477
 
 ._crit_edge836.thread:                            ; preds = %.preheader748
-  br i1 %9, label %482, label %.loopexit712
+  br i1 %9, label %478, label %.loopexit712
 
 .lr.ph873:                                        ; preds = %._crit_edge836
   %305 = zext i32 %11 to i64
@@ -10213,73 +10201,69 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
 .lr.ph871:                                        ; preds = %.preheader, %.lr.ph871
   %indvars.iv982 = phi i64 [ %indvars.iv.next983, %.lr.ph871 ], [ %316, %.preheader ]
   %458 = shl nuw nsw i64 %indvars.iv982, 1
-  %459 = or disjoint i64 %458, 1
-  %460 = getelementptr inbounds nuw i8, ptr %457, i64 %459
+  %459 = getelementptr inbounds nuw i8, ptr %457, i64 %458
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 1
   store i8 -1, ptr %460, align 1, !tbaa !23
   %461 = getelementptr inbounds nuw i8, ptr %457, i64 %indvars.iv982
   %462 = load i8, ptr %461, align 1, !tbaa !23
-  %463 = getelementptr inbounds nuw i8, ptr %457, i64 %458
-  store i8 %462, ptr %463, align 1, !tbaa !23
+  store i8 %462, ptr %459, align 1, !tbaa !23
   %indvars.iv.next983 = add nsw i64 %indvars.iv982, -1
-  %464 = icmp sgt i64 %indvars.iv982, 0
-  br i1 %464, label %.lr.ph871, label %.loopexit, !llvm.loop !240
+  %463 = icmp sgt i64 %indvars.iv982, 0
+  br i1 %463, label %.lr.ph871, label %.loopexit, !llvm.loop !240
 
 .lr.ph868:                                        ; preds = %.preheader706, %.lr.ph868
   %indvars.iv979 = phi i64 [ %indvars.iv.next980, %.lr.ph868 ], [ %316, %.preheader706 ]
-  %465 = shl nsw i64 %indvars.iv979, 2
-  %466 = or disjoint i64 %465, 3
-  %467 = getelementptr inbounds nuw i8, ptr %457, i64 %466
-  store i8 -1, ptr %467, align 1, !tbaa !23
-  %468 = mul nuw nsw i64 %indvars.iv979, 3
-  %469 = getelementptr inbounds nuw i8, ptr %457, i64 %468
-  %470 = getelementptr inbounds nuw i8, ptr %469, i64 2
-  %471 = load i8, ptr %470, align 1, !tbaa !23
-  %472 = or disjoint i64 %465, 2
-  %473 = getelementptr inbounds nuw i8, ptr %457, i64 %472
-  store i8 %471, ptr %473, align 1, !tbaa !23
-  %474 = getelementptr inbounds nuw i8, ptr %469, i64 1
-  %475 = load i8, ptr %474, align 1, !tbaa !23
-  %476 = or disjoint i64 %465, 1
-  %477 = getelementptr inbounds nuw i8, ptr %457, i64 %476
-  store i8 %475, ptr %477, align 1, !tbaa !23
-  %478 = load i8, ptr %469, align 1, !tbaa !23
-  %479 = getelementptr inbounds nuw i8, ptr %457, i64 %465
-  store i8 %478, ptr %479, align 1, !tbaa !23
+  %464 = shl nsw i64 %indvars.iv979, 2
+  %465 = getelementptr inbounds nuw i8, ptr %457, i64 %464
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 3
+  store i8 -1, ptr %466, align 1, !tbaa !23
+  %467 = mul nuw nsw i64 %indvars.iv979, 3
+  %468 = getelementptr inbounds nuw i8, ptr %457, i64 %467
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 2
+  %470 = load i8, ptr %469, align 1, !tbaa !23
+  %471 = getelementptr inbounds nuw i8, ptr %465, i64 2
+  store i8 %470, ptr %471, align 1, !tbaa !23
+  %472 = getelementptr inbounds nuw i8, ptr %468, i64 1
+  %473 = load i8, ptr %472, align 1, !tbaa !23
+  %474 = getelementptr inbounds nuw i8, ptr %465, i64 1
+  store i8 %473, ptr %474, align 1, !tbaa !23
+  %475 = load i8, ptr %468, align 1, !tbaa !23
+  store i8 %475, ptr %465, align 1, !tbaa !23
   %indvars.iv.next980 = add nsw i64 %indvars.iv979, -1
-  %480 = icmp sgt i64 %indvars.iv979, 0
-  br i1 %480, label %.lr.ph868, label %.loopexit, !llvm.loop !241
+  %476 = icmp sgt i64 %indvars.iv979, 0
+  br i1 %476, label %.lr.ph868, label %.loopexit, !llvm.loop !241
 
 .loopexit:                                        ; preds = %.lr.ph868, %.lr.ph871, %.preheader706, %.preheader, %.thread680
   %indvars.iv.next986 = add nuw nsw i64 %indvars.iv985, 1
   %exitcond989.not = icmp eq i64 %indvars.iv.next986, %wide.trip.count988
   br i1 %exitcond989.not, label %.loopexit712, label %317, !llvm.loop !242
 
-481:                                              ; preds = %._crit_edge836
-  br i1 %9, label %482, label %.loopexit712
+477:                                              ; preds = %._crit_edge836
+  br i1 %9, label %478, label %.loopexit712
 
-482:                                              ; preds = %._crit_edge836.thread, %481
-  %483 = mul i32 %11, %5
-  %.not876 = icmp eq i32 %483, 0
+478:                                              ; preds = %._crit_edge836.thread, %477
+  %479 = mul i32 %11, %5
+  %.not876 = icmp eq i32 %479, 0
   br i1 %.not876, label %.loopexit712, label %.lr.ph841.preheader
 
-.lr.ph841.preheader:                              ; preds = %482
-  %484 = load ptr, ptr %31, align 8, !tbaa !39
+.lr.ph841.preheader:                              ; preds = %478
+  %480 = load ptr, ptr %31, align 8, !tbaa !39
   br label %.lr.ph841
 
 .lr.ph841:                                        ; preds = %.lr.ph841.preheader, %.lr.ph841
-  %.0839 = phi ptr [ %493, %.lr.ph841 ], [ %484, %.lr.ph841.preheader ]
-  %.8570837 = phi i32 [ %492, %.lr.ph841 ], [ 0, %.lr.ph841.preheader ]
-  %485 = load i8, ptr %.0839, align 1, !tbaa !23
+  %.0839 = phi ptr [ %489, %.lr.ph841 ], [ %480, %.lr.ph841.preheader ]
+  %.8570837 = phi i32 [ %488, %.lr.ph841 ], [ 0, %.lr.ph841.preheader ]
+  %481 = load i8, ptr %.0839, align 1, !tbaa !23
+  %482 = zext i8 %481 to i16
+  %483 = shl nuw i16 %482, 8
+  %484 = getelementptr inbounds nuw i8, ptr %.0839, i64 1
+  %485 = load i8, ptr %484, align 1, !tbaa !23
   %486 = zext i8 %485 to i16
-  %487 = shl nuw i16 %486, 8
-  %488 = getelementptr inbounds nuw i8, ptr %.0839, i64 1
-  %489 = load i8, ptr %488, align 1, !tbaa !23
-  %490 = zext i8 %489 to i16
-  %491 = or disjoint i16 %487, %490
-  store i16 %491, ptr %.0839, align 2, !tbaa !28
-  %492 = add nuw i32 %.8570837, 1
-  %493 = getelementptr i8, ptr %.0839, i64 2
-  %exitcond978.not = icmp eq i32 %492, %483
+  %487 = or disjoint i16 %483, %486
+  store i16 %487, ptr %.0839, align 2, !tbaa !28
+  %488 = add nuw i32 %.8570837, 1
+  %489 = getelementptr i8, ptr %.0839, i64 2
+  %exitcond978.not = icmp eq i32 %488, %479
   br i1 %exitcond978.not, label %.loopexit712, label %.lr.ph841, !llvm.loop !243
 
 .loopexit712.sink.split:                          ; preds = %69, %59, %_ZL21stbi__mad3sizes_validiiii.exit._crit_edge, %_ZL21stbi__mul2sizes_validii.exit12.i, %_ZL21stbi__mul2sizes_validii.exit.i, %32, %_ZL21stbi__mul2sizes_validii.exit.thread15.i, %_ZL17stbi__malloc_mad3iiii.exit, %_ZL17stbi__malloc_mad3iiii.exit.thread
@@ -10287,8 +10271,8 @@ _ZL21stbi__mad3sizes_validiiii.exit._crit_edge:   ; preds = %39, %_ZL21stbi__mul
   store ptr %.str.27.sink, ptr @_ZL22stbi__g_failure_reason, align 8, !tbaa !5
   br label %.loopexit712
 
-.loopexit712:                                     ; preds = %.loopexit, %.lr.ph841, %.loopexit712.sink.split, %._crit_edge836.thread, %482, %481
-  %.0517 = phi i32 [ 1, %481 ], [ 1, %482 ], [ 1, %._crit_edge836.thread ], [ 0, %.loopexit712.sink.split ], [ 1, %.lr.ph841 ], [ 1, %.loopexit ]
+.loopexit712:                                     ; preds = %.loopexit, %.lr.ph841, %.loopexit712.sink.split, %._crit_edge836.thread, %478, %477
+  %.0517 = phi i32 [ 1, %477 ], [ 1, %478 ], [ 1, %._crit_edge836.thread ], [ 0, %.loopexit712.sink.split ], [ 1, %.lr.ph841 ], [ 1, %.loopexit ]
   ret i32 %.0517
 }
 
@@ -13733,7 +13717,7 @@ define internal noundef ptr @_ZL22stbi__resample_row_h_2PhS_S_ii(ptr noundef ret
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %7, ptr %9, align 1, !tbaa !23
   store i8 %7, ptr %0, align 1, !tbaa !23
-  br label %65
+  br label %62
 
 10:                                               ; preds = %5
   store i8 %7, ptr %0, align 1, !tbaa !23
@@ -13779,18 +13763,18 @@ define internal noundef ptr @_ZL22stbi__resample_row_h_2PhS_S_ii(ptr noundef ret
   %39 = add nuw nsw i32 %27, %38
   %40 = lshr i32 %39, 2
   %41 = trunc nuw i32 %40 to i8
-  %42 = or disjoint i64 %34, 1
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %42
-  store i8 %41, ptr %43, align 1, !tbaa !23
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 1
+  store i8 %41, ptr %42, align 1, !tbaa !23
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !276
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %44 = shl nuw nsw i32 %21, 1
+  %43 = shl nuw nsw i32 %21, 1
+  %44 = zext nneg i32 %43 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
-  %.037.lcssa = phi i32 [ 2, %10 ], [ %44, %._crit_edge.loopexit ]
+  %.037.lcssa = phi i64 [ 2, %10 ], [ %44, %._crit_edge.loopexit ]
   %45 = sext i32 %3 to i64
   %46 = getelementptr i8, ptr %1, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -2
@@ -13805,17 +13789,14 @@ define internal noundef ptr @_ZL22stbi__resample_row_h_2PhS_S_ii(ptr noundef ret
   %56 = add nuw nsw i16 %55, %50
   %57 = lshr i16 %56, 2
   %58 = trunc nuw i16 %57 to i8
-  %59 = zext nneg i32 %.037.lcssa to i64
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 %59
-  store i8 %58, ptr %60, align 1, !tbaa !23
-  %61 = load i8, ptr %52, align 1, !tbaa !23
-  %62 = or disjoint i32 %.037.lcssa, 1
-  %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %63
-  store i8 %61, ptr %64, align 1, !tbaa !23
-  br label %65
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %.037.lcssa
+  store i8 %58, ptr %59, align 1, !tbaa !23
+  %60 = load i8, ptr %52, align 1, !tbaa !23
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 1
+  store i8 %60, ptr %61, align 1, !tbaa !23
+  br label %62
 
-65:                                               ; preds = %._crit_edge, %8
+62:                                               ; preds = %._crit_edge, %8
   ret ptr %0
 }
 
@@ -24749,8 +24730,8 @@ _ZNK2cv3Mat5cloneEv.exit:                         ; preds = %45, %_ZN2cv3MatC2Ei
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %.lr.ph154
-  %86 = or disjoint i64 %.0153, 1
-  %87 = getelementptr inbounds nuw i32, ptr %75, i64 %86
+  %86 = getelementptr inbounds nuw i32, ptr %75, i64 %.0153
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i32, ptr %87, align 4, !tbaa !10
   br label %.loopexit
 

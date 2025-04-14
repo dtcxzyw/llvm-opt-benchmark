@@ -54124,9 +54124,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1326: ; preds = %_
           to label %_ZNK6casadi13GenericMatrixINS_2MXEE5numelEv.exit1329 unwind label %.loopexit1626
 
 _ZNK6casadi13GenericMatrixINS_2MXEE5numelEv.exit1329: ; preds = %.noexc1327
-  %2111 = or disjoint i64 %.03281643, 1
-  %2112 = load ptr, ptr %142, align 8, !tbaa !79
-  %2113 = getelementptr inbounds nuw %"class.casadi::MX", ptr %2112, i64 %2111
+  %2111 = load ptr, ptr %142, align 8, !tbaa !79
+  %2112 = getelementptr inbounds nuw %"class.casadi::MX", ptr %2111, i64 %.03281643
+  %2113 = getelementptr inbounds nuw i8, ptr %2112, i64 8
   %2114 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %2113)
           to label %.noexc1330 unwind label %.loopexit1626
 
@@ -62712,9 +62712,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1599: ; preds = %_
           to label %_ZNK6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEE5numelEv.exit1602 unwind label %.loopexit1990
 
 _ZNK6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEE5numelEv.exit1602: ; preds = %.noexc1600
-  %2506 = or disjoint i64 %.03282006, 1
-  %2507 = load ptr, ptr %142, align 8, !tbaa !415
-  %2508 = getelementptr inbounds nuw %"class.casadi::Matrix", ptr %2507, i64 %2506
+  %2506 = load ptr, ptr %142, align 8, !tbaa !415
+  %2507 = getelementptr inbounds nuw %"class.casadi::Matrix", ptr %2506, i64 %.03282006
+  %2508 = getelementptr inbounds nuw i8, ptr %2507, i64 40
   %2509 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi6MatrixINS_6SXElemEE8sparsityEv(ptr noundef nonnull align 8 dereferenceable(40) %2508)
           to label %.noexc1603 unwind label %.loopexit1990
 

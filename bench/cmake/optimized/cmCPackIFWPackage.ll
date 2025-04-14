@@ -17517,7 +17517,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit880: ; preds = %_Z
   br label %2073
 
 ._crit_edge.i.i881:                               ; preds = %._crit_edge.i.i881.lr.ph, %1713
-  %1699 = phi ptr [ %1573, %._crit_edge.i.i881.lr.ph ], [ %1710, %1713 ]
+  %1699 = phi ptr [ %1573, %._crit_edge.i.i881.lr.ph ], [ %1709, %1713 ]
   %.01341 = phi i64 [ 0, %._crit_edge.i.i881.lr.ph ], [ %1714, %1713 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %108) #23
   store ptr %1688, ptr %108, align 8, !tbaa !14
@@ -17551,9 +17551,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit887: ; preds = %_Z
           to label %1708 unwind label %1729
 
 1708:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit887
-  %1709 = or disjoint i64 %.01341, 1
-  %1710 = load ptr, ptr %103, align 8, !tbaa !69
-  %1711 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1710, i64 %1709
+  %1709 = load ptr, ptr %103, align 8, !tbaa !69
+  %1710 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1709, i64 %.01341
+  %1711 = getelementptr inbounds nuw i8, ptr %1710, i64 32
   invoke void @_ZN11cmXMLWriter9AttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRKT_(ptr noundef nonnull align 8 dereferenceable(83) %60, ptr noundef nonnull @.str.80, ptr noundef nonnull align 8 dereferenceable(32) %1711)
           to label %1712 unwind label %1729
 
@@ -17565,7 +17565,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit887: ; preds = %_Z
   %1714 = add i64 %.01341, 2
   %1715 = load ptr, ptr %1555, align 8, !tbaa !70
   %1716 = ptrtoint ptr %1715 to i64
-  %1717 = ptrtoint ptr %1710 to i64
+  %1717 = ptrtoint ptr %1709 to i64
   %1718 = sub i64 %1716, %1717
   %1719 = ashr exact i64 %1718, 5
   %1720 = icmp ult i64 %1714, %1719
@@ -17606,7 +17606,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit890: ; preds = %_Z
 
 1733:                                             ; preds = %._crit_edge1342, %._crit_edge1338
   %1734 = phi ptr [ %1715, %._crit_edge1342 ], [ %1572, %._crit_edge1338 ]
-  %.pr.i = phi ptr [ %1710, %._crit_edge1342 ], [ %1573, %._crit_edge1338 ]
+  %.pr.i = phi ptr [ %1709, %._crit_edge1342 ], [ %1573, %._crit_edge1338 ]
   %1735 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %1736 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %1737 = load i64, ptr %1736, align 8, !tbaa !15

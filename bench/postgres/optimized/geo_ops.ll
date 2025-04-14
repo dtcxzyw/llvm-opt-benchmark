@@ -8863,57 +8863,57 @@ define internal fastcc double @dist_ppoly_internal(ptr noundef readonly captures
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %17, ptr %18, align 8
   %.idx = shl nsw i64 %15, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 %.offs
-  %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store double %20, ptr %21, align 8
-  %22 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %3, ptr noundef %0)
-  %23 = load i32, ptr %4, align 4
-  %24 = add i32 %23, -1
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph, label %.loopexit
+  %19 = getelementptr i8, ptr %6, i64 %.idx
+  %20 = getelementptr i8, ptr %19, i64 8
+  %21 = load double, ptr %20, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store double %21, ptr %22, align 8
+  %23 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %3, ptr noundef %0)
+  %24 = load i32, ptr %4, align 4
+  %25 = add i32 %24, -1
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %8, %float8_lt.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %float8_lt.exit.thread ], [ 0, %8 ]
-  %.02729 = phi double [ %40, %float8_lt.exit.thread ], [ %22, %8 ]
-  %26 = getelementptr inbounds nuw [0 x %struct.Point], ptr %6, i64 0, i64 %indvars.iv
-  %27 = load double, ptr %26, align 8
-  store double %27, ptr %3, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load double, ptr %28, align 8
-  store double %29, ptr %12, align 8
+  %.02729 = phi double [ %41, %float8_lt.exit.thread ], [ %23, %8 ]
+  %27 = getelementptr inbounds nuw [0 x %struct.Point], ptr %6, i64 0, i64 %indvars.iv
+  %28 = load double, ptr %27, align 8
+  store double %28, ptr %3, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = load double, ptr %29, align 8
+  store double %30, ptr %12, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds nuw [0 x %struct.Point], ptr %6, i64 0, i64 %indvars.iv.next
-  %31 = load double, ptr %30, align 8
-  store double %31, ptr %18, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = load double, ptr %32, align 8
-  store double %33, ptr %21, align 8
-  %34 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %3, ptr noundef %0)
-  %35 = fcmp uno double %34, 0.000000e+00
-  br i1 %35, label %float8_lt.exit.thread, label %float8_lt.exit
+  %31 = getelementptr inbounds nuw [0 x %struct.Point], ptr %6, i64 0, i64 %indvars.iv.next
+  %32 = load double, ptr %31, align 8
+  store double %32, ptr %18, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %34 = load double, ptr %33, align 8
+  store double %34, ptr %22, align 8
+  %35 = call fastcc double @lseg_closept_point(ptr noundef null, ptr noundef nonnull %3, ptr noundef %0)
+  %36 = fcmp uno double %35, 0.000000e+00
+  br i1 %36, label %float8_lt.exit.thread, label %float8_lt.exit
 
 float8_lt.exit:                                   ; preds = %.lr.ph
-  %36 = fcmp uno double %.02729, 0.000000e+00
-  %37 = fcmp olt double %34, %.02729
-  %38 = or i1 %36, %37
-  %cond.fr = freeze i1 %38
-  br i1 %cond.fr, label %39, label %float8_lt.exit.thread
+  %37 = fcmp uno double %.02729, 0.000000e+00
+  %38 = fcmp olt double %35, %.02729
+  %39 = or i1 %37, %38
+  %cond.fr = freeze i1 %39
+  br i1 %cond.fr, label %40, label %float8_lt.exit.thread
 
-39:                                               ; preds = %float8_lt.exit
+40:                                               ; preds = %float8_lt.exit
   br label %float8_lt.exit.thread
 
-float8_lt.exit.thread:                            ; preds = %.lr.ph, %float8_lt.exit, %39
-  %40 = phi double [ %34, %39 ], [ %.02729, %float8_lt.exit ], [ %.02729, %.lr.ph ]
-  %41 = load i32, ptr %4, align 4
-  %42 = add i32 %41, -1
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %.lr.ph, label %.loopexit, !llvm.loop !38
+float8_lt.exit.thread:                            ; preds = %.lr.ph, %float8_lt.exit, %40
+  %41 = phi double [ %35, %40 ], [ %.02729, %float8_lt.exit ], [ %.02729, %.lr.ph ]
+  %42 = load i32, ptr %4, align 4
+  %43 = add i32 %42, -1
+  %44 = sext i32 %43 to i64
+  %45 = icmp slt i64 %indvars.iv.next, %44
+  br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !38
 
 .loopexit:                                        ; preds = %float8_lt.exit.thread, %8, %2
-  %.026 = phi double [ 0.000000e+00, %2 ], [ %22, %8 ], [ %40, %float8_lt.exit.thread ]
+  %.026 = phi double [ 0.000000e+00, %2 ], [ %23, %8 ], [ %41, %float8_lt.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
   ret double %.026
 }
@@ -13780,7 +13780,7 @@ define dso_local noundef i64 @path_add(ptr noundef captures(none) %0) local_unna
 15:                                               ; preds = %1, %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %16, align 4
-  br label %79
+  br label %78
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -13838,6 +13838,7 @@ define dso_local noundef i64 @path_add(ptr noundef captures(none) %0) local_unna
 .lr.ph54:                                         ; preds = %.preheader
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %50 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %invariant.gep = getelementptr i8, ptr %34, i64 24
   br label %61
 
 51:                                               ; preds = %.lr.ph, %51
@@ -13872,21 +13873,20 @@ define dso_local noundef i64 @path_add(ptr noundef captures(none) %0) local_unna
   %72 = add i32 %71, %65
   %73 = sext i32 %72 to i64
   %.idx = shl nsw i64 %73, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %74 = getelementptr inbounds i8, ptr %50, i64 %.offs
-  store double %70, ptr %74, align 8
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  store double %70, ptr %gep, align 8
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %75 = load i32, ptr %20, align 4
-  %76 = sext i32 %75 to i64
-  %77 = icmp slt i64 %indvars.iv.next57, %76
-  br i1 %77, label %61, label %._crit_edge, !llvm.loop !57
+  %74 = load i32, ptr %20, align 4
+  %75 = sext i32 %74 to i64
+  %76 = icmp slt i64 %indvars.iv.next57, %75
+  br i1 %76, label %61, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %61, %.preheader
-  %78 = ptrtoint ptr %34 to i64
-  br label %79
+  %77 = ptrtoint ptr %34 to i64
+  br label %78
 
-79:                                               ; preds = %._crit_edge, %15
-  %.047 = phi i64 [ 0, %15 ], [ %78, %._crit_edge ]
+78:                                               ; preds = %._crit_edge, %15
+  %.047 = phi i64 [ 0, %15 ], [ %77, %._crit_edge ]
   ret i64 %.047
 }
 

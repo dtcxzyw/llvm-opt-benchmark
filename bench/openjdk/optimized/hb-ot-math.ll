@@ -1269,8 +1269,8 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %34 = zext i8 %20 to i64
   %35 = shl nuw nsw i64 %33, 9
   %36 = shl nuw nsw i64 %34, 1
-  %37 = or disjoint i64 %36, %35
-  %38 = getelementptr inbounds nuw i8, ptr %15, i64 %37
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %35
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %40 = add nuw nsw i32 %31, %22
   %.lobit.i = lshr i8 %.fr74, 7

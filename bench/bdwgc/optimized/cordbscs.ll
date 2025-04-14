@@ -2287,7 +2287,7 @@ define void @CORD__prev(ptr noundef captures(none) %0) local_unnamed_addr #11 {
 
 6:                                                ; preds = %1
   store i32 1431655765, ptr %3, align 8, !tbaa !47
-  br label %27
+  br label %28
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %3, align 8, !tbaa !47
@@ -2295,44 +2295,44 @@ define void @CORD__prev(ptr noundef captures(none) %0) local_unnamed_addr #11 {
   %10 = add i64 %4, -1
   store i64 %10, ptr %0, align 8, !tbaa !52
   %.idx = shl nsw i64 %9, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 %.offs
-  %12 = load i64, ptr %11, align 8, !tbaa !53
-  %.not = icmp ult i64 %10, %12
-  br i1 %.not, label %13, label %27
+  %11 = getelementptr i8, ptr %2, i64 %.idx
+  %12 = getelementptr i8, ptr %11, i64 8
+  %13 = load i64, ptr %12, align 8, !tbaa !53
+  %.not = icmp ult i64 %10, %13
+  br i1 %.not, label %14, label %28
 
-13:                                               ; preds = %7
-  %14 = icmp sgt i32 %8, 0
-  br i1 %14, label %.lr.ph.preheader, label %.critedge
+14:                                               ; preds = %7
+  %15 = icmp sgt i32 %8, 0
+  br i1 %15, label %.lr.ph.preheader, label %.critedge
 
-.lr.ph.preheader:                                 ; preds = %13
-  %15 = getelementptr inbounds nuw [49 x %struct.CORD_pe], ptr %2, i64 0, i64 %9
+.lr.ph.preheader:                                 ; preds = %14
+  %16 = getelementptr inbounds nuw [49 x %struct.CORD_pe], ptr %2, i64 0, i64 %9
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %22
-  %.018 = phi ptr [ %23, %22 ], [ %15, %.lr.ph.preheader ]
-  %16 = phi i32 [ %24, %22 ], [ %8, %.lr.ph.preheader ]
-  %17 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !53
-  %19 = getelementptr inbounds i8, ptr %.018, i64 -8
-  %20 = load i64, ptr %19, align 8, !tbaa !53
-  %21 = icmp eq i64 %18, %20
-  br i1 %21, label %22, label %.critedge
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
+  %.018 = phi ptr [ %24, %23 ], [ %16, %.lr.ph.preheader ]
+  %17 = phi i32 [ %25, %23 ], [ %8, %.lr.ph.preheader ]
+  %18 = getelementptr inbounds nuw i8, ptr %.018, i64 8
+  %19 = load i64, ptr %18, align 8, !tbaa !53
+  %20 = getelementptr inbounds i8, ptr %.018, i64 -8
+  %21 = load i64, ptr %20, align 8, !tbaa !53
+  %22 = icmp eq i64 %19, %21
+  br i1 %22, label %23, label %.critedge
 
-22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.018, i64 -16
-  %24 = add nsw i32 %16, -1
-  %25 = icmp sgt i32 %16, 1
-  br i1 %25, label %.lr.ph, label %.critedge, !llvm.loop !61
+23:                                               ; preds = %.lr.ph
+  %24 = getelementptr inbounds i8, ptr %.018, i64 -16
+  %25 = add nsw i32 %17, -1
+  %26 = icmp sgt i32 %17, 1
+  br i1 %26, label %.lr.ph, label %.critedge, !llvm.loop !61
 
-.critedge:                                        ; preds = %.lr.ph, %22, %13
-  %.lcssa = phi i32 [ %8, %13 ], [ 0, %22 ], [ %16, %.lr.ph ]
-  %26 = add nsw i32 %.lcssa, -1
-  store i32 %26, ptr %3, align 8, !tbaa !47
+.critedge:                                        ; preds = %.lr.ph, %23, %14
+  %.lcssa = phi i32 [ %8, %14 ], [ 0, %23 ], [ %17, %.lr.ph ]
+  %27 = add nsw i32 %.lcssa, -1
+  store i32 %27, ptr %3, align 8, !tbaa !47
   tail call fastcc void @CORD_extend_path(ptr noundef nonnull %0)
-  br label %27
+  br label %28
 
-27:                                               ; preds = %7, %.critedge, %6
+28:                                               ; preds = %7, %.critedge, %6
   ret void
 }
 
@@ -2456,40 +2456,40 @@ thread-pre-split:                                 ; preds = %1, %4
   %17 = add i64 %.pr, -1
   store i64 %17, ptr %0, align 8, !tbaa !52
   %.idx.i = shl nsw i64 %16, 4
-  %.offs.i = or disjoint i64 %.idx.i, 8
-  %18 = getelementptr inbounds i8, ptr %10, i64 %.offs.i
-  %19 = load i64, ptr %18, align 8, !tbaa !53
-  %.not.i = icmp ult i64 %17, %19
-  br i1 %.not.i, label %20, label %CORD__prev.exit
+  %18 = getelementptr i8, ptr %10, i64 %.idx.i
+  %19 = getelementptr i8, ptr %18, i64 8
+  %20 = load i64, ptr %19, align 8, !tbaa !53
+  %.not.i = icmp ult i64 %17, %20
+  br i1 %.not.i, label %21, label %CORD__prev.exit
 
-20:                                               ; preds = %14
-  %21 = icmp sgt i32 %15, 0
-  br i1 %21, label %.lr.ph.preheader.i, label %.critedge.i
+21:                                               ; preds = %14
+  %22 = icmp sgt i32 %15, 0
+  br i1 %22, label %.lr.ph.preheader.i, label %.critedge.i
 
-.lr.ph.preheader.i:                               ; preds = %20
-  %22 = getelementptr inbounds nuw [49 x %struct.CORD_pe], ptr %10, i64 0, i64 %16
+.lr.ph.preheader.i:                               ; preds = %21
+  %23 = getelementptr inbounds nuw [49 x %struct.CORD_pe], ptr %10, i64 0, i64 %16
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %29, %.lr.ph.preheader.i
-  %.018.i = phi ptr [ %30, %29 ], [ %22, %.lr.ph.preheader.i ]
-  %23 = phi i32 [ %31, %29 ], [ %15, %.lr.ph.preheader.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !53
-  %26 = getelementptr inbounds i8, ptr %.018.i, i64 -8
-  %27 = load i64, ptr %26, align 8, !tbaa !53
-  %28 = icmp eq i64 %25, %27
-  br i1 %28, label %29, label %.critedge.i
+.lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
+  %.018.i = phi ptr [ %31, %30 ], [ %23, %.lr.ph.preheader.i ]
+  %24 = phi i32 [ %32, %30 ], [ %15, %.lr.ph.preheader.i ]
+  %25 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  %26 = load i64, ptr %25, align 8, !tbaa !53
+  %27 = getelementptr inbounds i8, ptr %.018.i, i64 -8
+  %28 = load i64, ptr %27, align 8, !tbaa !53
+  %29 = icmp eq i64 %26, %28
+  br i1 %29, label %30, label %.critedge.i
 
-29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds i8, ptr %.018.i, i64 -16
-  %31 = add nsw i32 %23, -1
-  %32 = icmp sgt i32 %23, 1
-  br i1 %32, label %.lr.ph.i, label %.critedge.i, !llvm.loop !61
+30:                                               ; preds = %.lr.ph.i
+  %31 = getelementptr inbounds i8, ptr %.018.i, i64 -16
+  %32 = add nsw i32 %24, -1
+  %33 = icmp sgt i32 %24, 1
+  br i1 %33, label %.lr.ph.i, label %.critedge.i, !llvm.loop !61
 
-.critedge.i:                                      ; preds = %29, %.lr.ph.i, %20
-  %.lcssa.i = phi i32 [ %15, %20 ], [ %23, %.lr.ph.i ], [ 0, %29 ]
-  %33 = add nsw i32 %.lcssa.i, -1
-  store i32 %33, ptr %11, align 8, !tbaa !47
+.critedge.i:                                      ; preds = %30, %.lr.ph.i, %21
+  %.lcssa.i = phi i32 [ %15, %21 ], [ %24, %.lr.ph.i ], [ 0, %30 ]
+  %34 = add nsw i32 %.lcssa.i, -1
+  store i32 %34, ptr %11, align 8, !tbaa !47
   tail call fastcc void @CORD_extend_path(ptr noundef nonnull %0)
   br label %CORD__prev.exit
 

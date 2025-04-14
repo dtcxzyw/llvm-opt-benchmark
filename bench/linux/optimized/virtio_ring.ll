@@ -1896,7 +1896,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   br i1 %6, label %90, label %10
 
 10:                                               ; preds = %3
-  br i1 %9, label %11, label %153, !prof !14
+  br i1 %9, label %11, label %154, !prof !14
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1914,7 +1914,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %24 = xor i16 %19, %13
   %25 = icmp sgt i16 %24, -1
   %26 = and i1 %25, %23
-  br i1 %26, label %27, label %153
+  br i1 %26, label %27, label %154
 
 27:                                               ; preds = %11
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 66
@@ -1944,7 +1944,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %48 = load ptr, ptr %47, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %46, ptr noundef nonnull @.str.2, ptr noundef %48, i32 noundef %40) #19
   store i8 1, ptr %7, align 1
-  br label %153
+  br label %154
 
 49:                                               ; preds = %27
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1963,7 +1963,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %61 = load ptr, ptr %60, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %59, ptr noundef nonnull @.str.3, ptr noundef %61, i32 noundef %40) #19
   store i8 1, ptr %7, align 1
-  br label %153
+  br label %154
 
 62:                                               ; preds = %49
   tail call fastcc void @detach_buf_packed(ptr noundef %0, i32 noundef %40, ptr noundef %2)
@@ -1991,7 +1991,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %80 = load i16, ptr %79, align 2
   %81 = icmp eq i16 %80, 2
-  br i1 %81, label %82, label %153
+  br i1 %81, label %82, label %154
 
 82:                                               ; preds = %74
   %83 = load i8, ptr %28, align 2, !range !9, !noundef !10
@@ -2002,15 +2002,15 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
 
 87:                                               ; preds = %82
   %88 = tail call i16 asm sideeffect "xchgw ${0:w}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %86, i16 %78, ptr elementtype(i16) %86) #17, !srcloc !51
-  br label %153
+  br label %154
 
 89:                                               ; preds = %82
   store volatile i16 %78, ptr %86, align 2
   tail call void asm sideeffect "mfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !52
-  br label %153
+  br label %154
 
 90:                                               ; preds = %3
-  br i1 %9, label %91, label %153, !prof !14
+  br i1 %9, label %91, label %154, !prof !14
 
 91:                                               ; preds = %90
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2020,7 +2020,7 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 2
   %97 = load i16, ptr %96, align 2
   %98 = icmp eq i16 %93, %97
-  br i1 %98, label %153, label %99
+  br i1 %98, label %154, label %99
 
 99:                                               ; preds = %91
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 66
@@ -2038,75 +2038,75 @@ define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonl
   %111 = getelementptr [0 x %struct.vring_used_elem], ptr %109, i64 0, i64 %110
   %112 = load i32, ptr %111, align 4
   %.idx = shl nuw nsw i64 %110, 3
-  %.offs = or disjoint i64 %.idx, 4
-  %113 = getelementptr i8, ptr %109, i64 %.offs
-  %114 = load i32, ptr %113, align 4
-  store i32 %114, ptr %1, align 4
-  %115 = load i32, ptr %102, align 8
-  %116 = icmp ult i32 %112, %115
-  br i1 %116, label %122, label %117, !prof !14
+  %113 = getelementptr i8, ptr %109, i64 %.idx
+  %114 = getelementptr i8, ptr %113, i64 4
+  %115 = load i32, ptr %114, align 4
+  store i32 %115, ptr %1, align 4
+  %116 = load i32, ptr %102, align 8
+  %117 = icmp ult i32 %112, %116
+  br i1 %117, label %123, label %118, !prof !14
 
-117:                                              ; preds = %99
-  %118 = load ptr, ptr %107, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %121 = load ptr, ptr %120, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %119, ptr noundef nonnull @.str.2, ptr noundef %121, i32 noundef %112) #19
+118:                                              ; preds = %99
+  %119 = load ptr, ptr %107, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %122 = load ptr, ptr %121, align 8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %120, ptr noundef nonnull @.str.2, ptr noundef %122, i32 noundef %112) #19
   store i8 1, ptr %7, align 1
-  br label %153
+  br label %154
 
-122:                                              ; preds = %99
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %124 = load ptr, ptr %123, align 8
-  %125 = zext i32 %112 to i64
-  %126 = getelementptr %struct.vring_desc_state_split, ptr %124, i64 %125
-  %127 = load ptr, ptr %126, align 8
-  %128 = icmp eq ptr %127, null
-  br i1 %128, label %129, label %134, !prof !11
+123:                                              ; preds = %99
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %125 = load ptr, ptr %124, align 8
+  %126 = zext i32 %112 to i64
+  %127 = getelementptr %struct.vring_desc_state_split, ptr %125, i64 %126
+  %128 = load ptr, ptr %127, align 8
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %130, label %135, !prof !11
 
-129:                                              ; preds = %122
-  %130 = load ptr, ptr %107, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %133 = load ptr, ptr %132, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %131, ptr noundef nonnull @.str.3, ptr noundef %133, i32 noundef %112) #19
+130:                                              ; preds = %123
+  %131 = load ptr, ptr %107, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %134 = load ptr, ptr %133, align 8
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %132, ptr noundef nonnull @.str.3, ptr noundef %134, i32 noundef %112) #19
   store i8 1, ptr %7, align 1
-  br label %153
+  br label %154
 
-134:                                              ; preds = %122
+135:                                              ; preds = %123
   tail call fastcc void @detach_buf_split(ptr noundef %0, i32 noundef %112, ptr noundef %2)
-  %135 = load i16, ptr %92, align 8
-  %136 = add i16 %135, 1
-  store i16 %136, ptr %92, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %138 = load i16, ptr %137, align 8
-  %139 = and i16 %138, 1
-  %140 = icmp eq i16 %139, 0
-  br i1 %140, label %141, label %153
+  %136 = load i16, ptr %92, align 8
+  %137 = add i16 %136, 1
+  store i16 %137, ptr %92, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %139 = load i16, ptr %138, align 8
+  %140 = and i16 %139, 1
+  %141 = icmp eq i16 %140, 0
+  br i1 %141, label %142, label %154
 
-141:                                              ; preds = %134
-  %142 = load i8, ptr %100, align 2, !range !9, !noundef !10
-  %143 = icmp eq i8 %142, 0
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 4
-  %147 = load i32, ptr %102, align 8
-  %148 = zext i32 %147 to i64
-  %149 = getelementptr [0 x i16], ptr %146, i64 0, i64 %148
-  br i1 %143, label %152, label %150
+142:                                              ; preds = %135
+  %143 = load i8, ptr %100, align 2, !range !9, !noundef !10
+  %144 = icmp eq i8 %143, 0
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
+  %148 = load i32, ptr %102, align 8
+  %149 = zext i32 %148 to i64
+  %150 = getelementptr [0 x i16], ptr %147, i64 0, i64 %149
+  br i1 %144, label %153, label %151
 
-150:                                              ; preds = %141
-  %151 = tail call i16 asm sideeffect "xchgw ${0:w}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %149, i16 %136, ptr elementtype(i16) %149) #17, !srcloc !53
-  br label %153
+151:                                              ; preds = %142
+  %152 = tail call i16 asm sideeffect "xchgw ${0:w}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i16) %150, i16 %137, ptr elementtype(i16) %150) #17, !srcloc !53
+  br label %154
 
-152:                                              ; preds = %141
-  store volatile i16 %136, ptr %149, align 2
+153:                                              ; preds = %142
+  store volatile i16 %137, ptr %150, align 2
   tail call void asm sideeffect "mfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !54
-  br label %153
+  br label %154
 
-153:                                              ; preds = %152, %150, %134, %129, %117, %91, %90, %89, %87, %74, %56, %43, %11, %10
-  %154 = phi ptr [ null, %43 ], [ null, %56 ], [ null, %10 ], [ null, %11 ], [ %54, %87 ], [ %54, %89 ], [ %54, %74 ], [ null, %117 ], [ null, %129 ], [ null, %90 ], [ null, %91 ], [ %127, %150 ], [ %127, %152 ], [ %127, %134 ]
-  ret ptr %154
+154:                                              ; preds = %153, %151, %135, %130, %118, %91, %90, %89, %87, %74, %56, %43, %11, %10
+  %155 = phi ptr [ null, %43 ], [ null, %56 ], [ null, %10 ], [ null, %11 ], [ %54, %87 ], [ %54, %89 ], [ %54, %74 ], [ null, %118 ], [ null, %130 ], [ null, %90 ], [ null, %91 ], [ %128, %151 ], [ %128, %153 ], [ %128, %135 ]
+  ret ptr %155
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

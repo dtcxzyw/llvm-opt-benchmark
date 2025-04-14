@@ -798,7 +798,7 @@ _ZNK6duckdb10ByteBuffer9availableEm.exit.preheader: ; preds = %33
   %44 = load i32, ptr %35, align 8, !tbaa !30
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 %45
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv38
+  %invariant.gep.us = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv38
   br label %47
 
 47:                                               ; preds = %.lr.ph.us, %47
@@ -806,8 +806,8 @@ _ZNK6duckdb10ByteBuffer9availableEm.exit.preheader: ; preds = %33
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 %indvars.iv
   %49 = load i8, ptr %48, align 1, !tbaa !118
   %50 = shl nuw nsw i64 %indvars.iv, 2
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %50
-  store i8 %49, ptr %gep, align 1, !tbaa !118
+  %gep.us = getelementptr inbounds nuw i8, ptr %invariant.gep.us, i64 %50
+  store i8 %49, ptr %gep.us, align 1, !tbaa !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %47, !llvm.loop !225
@@ -969,7 +969,7 @@ _ZNK6duckdb10ByteBuffer9availableEm.exit.preheader: ; preds = %33
   %44 = load i32, ptr %35, align 8, !tbaa !30
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 %45
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv38
+  %invariant.gep.us = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv38
   br label %47
 
 47:                                               ; preds = %.lr.ph.us, %47
@@ -977,8 +977,8 @@ _ZNK6duckdb10ByteBuffer9availableEm.exit.preheader: ; preds = %33
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 %indvars.iv
   %49 = load i8, ptr %48, align 1, !tbaa !118
   %50 = shl nuw nsw i64 %indvars.iv, 3
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %50
-  store i8 %49, ptr %gep, align 1, !tbaa !118
+  %gep.us = getelementptr inbounds nuw i8, ptr %invariant.gep.us, i64 %50
+  store i8 %49, ptr %gep.us, align 1, !tbaa !118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %47, !llvm.loop !227

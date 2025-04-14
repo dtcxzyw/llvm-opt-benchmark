@@ -562,15 +562,14 @@ define void @Bac_PtrDumpBoxBlif(ptr noundef captures(none) %0, ptr noundef reado
   %.val13 = load ptr, ptr %4, align 8, !tbaa !3
   %9 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !9
-  %11 = or disjoint i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !9
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %10, ptr noundef %13) #14
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !9
+  %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %10, ptr noundef %12) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val15 = load i32, ptr %7, align 4, !tbaa !15
-  %15 = trunc nuw i64 %indvars.iv.next to i32
-  %16 = icmp sgt i32 %.val15, %15
-  br i1 %16, label %.lr.ph, label %.critedge, !llvm.loop !24
+  %14 = trunc nuw i64 %indvars.iv.next to i32
+  %15 = icmp sgt i32 %.val15, %14
+  br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %.lr.ph, %2
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
@@ -608,23 +607,22 @@ define void @Bac_PtrDumpBoxesBlif(ptr noundef captures(none) %0, ptr noundef rea
   %.val13.i = load ptr, ptr %10, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw ptr, ptr %.val13.i, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !9
-  %17 = or disjoint i64 %indvars.iv.i, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %.val13.i, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !9
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %16, ptr noundef %19) #14
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !9
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %16, ptr noundef %18) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %.val15.i = load i32, ptr %13, align 4, !tbaa !15
-  %21 = trunc nuw i64 %indvars.iv.next.i to i32
-  %22 = icmp sgt i32 %.val15.i, %21
-  br i1 %22, label %.lr.ph.i, label %Bac_PtrDumpBoxBlif.exit, !llvm.loop !24
+  %20 = trunc nuw i64 %indvars.iv.next.i to i32
+  %21 = icmp sgt i32 %.val15.i, %20
+  br i1 %21, label %.lr.ph.i, label %Bac_PtrDumpBoxBlif.exit, !llvm.loop !24
 
 Bac_PtrDumpBoxBlif.exit:                          ; preds = %.lr.ph.i, %6
   %fputc.i = tail call i32 @fputc(i32 10, ptr %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val6 = load i32, ptr %3, align 4, !tbaa !15
-  %23 = sext i32 %.val6 to i64
-  %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %6, label %.critedge, !llvm.loop !25
+  %22 = sext i32 %.val6 to i64
+  %23 = icmp slt i64 %indvars.iv.next, %22
+  br i1 %23, label %6, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %Bac_PtrDumpBoxBlif.exit, %2
   ret void
@@ -816,22 +814,21 @@ define void @Bac_PtrDumpBoxVerilog(ptr noundef captures(none) %0, ptr noundef re
   %.val16 = load ptr, ptr %3, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw ptr, ptr %.val16, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !9
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw ptr, ptr %.val16, i64 %13
-  %15 = load ptr, ptr %14, align 8, !tbaa !9
-  %16 = add nsw i32 %.val2023, -2
-  %17 = sext i32 %16 to i64
-  %18 = icmp slt i64 %indvars.iv, %17
-  %19 = select i1 %18, ptr @.str.17, ptr @.str.13
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %12, ptr noundef %15, ptr noundef nonnull %19) #14
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !9
+  %15 = add nsw i32 %.val2023, -2
+  %16 = sext i32 %15 to i64
+  %17 = icmp slt i64 %indvars.iv, %16
+  %18 = select i1 %17, ptr @.str.17, ptr @.str.13
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %12, ptr noundef %14, ptr noundef nonnull %18) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val20 = load i32, ptr %9, align 4, !tbaa !15
-  %21 = trunc nuw i64 %indvars.iv.next to i32
-  %22 = icmp sgt i32 %.val20, %21
-  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !28
+  %20 = trunc nuw i64 %indvars.iv.next to i32
+  %21 = icmp sgt i32 %.val20, %20
+  br i1 %21, label %.lr.ph, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph, %2
-  %23 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr %0)
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr %0)
   ret void
 }
 
@@ -846,19 +843,52 @@ define void @Bac_PtrDumpBoxesVerilog(ptr noundef captures(none) %0, ptr noundef 
   %5 = getelementptr i8, ptr %1, i64 8
   br label %6
 
-6:                                                ; preds = %.lr.ph, %6
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
+6:                                                ; preds = %.lr.ph, %Bac_PtrDumpBoxVerilog.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Bac_PtrDumpBoxVerilog.exit ]
   %.val = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !9
-  tail call void @Bac_PtrDumpBoxVerilog(ptr noundef %0, ptr noundef %8)
+  %9 = getelementptr i8, ptr %8, i64 8
+  %.val18.i = load ptr, ptr %9, align 8, !tbaa !3
+  %10 = load ptr, ptr %.val18.i, align 8, !tbaa !9
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %10) #14
+  %.val17.i = load ptr, ptr %9, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw i8, ptr %.val17.i, i64 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !9
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %13) #14
+  %15 = getelementptr i8, ptr %8, i64 4
+  %.val2021.i = load i32, ptr %15, align 4, !tbaa !15
+  %16 = icmp sgt i32 %.val2021.i, 2
+  br i1 %16, label %.lr.ph.i, label %Bac_PtrDumpBoxVerilog.exit
+
+.lr.ph.i:                                         ; preds = %6, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 2, %6 ]
+  %.val2023.i = phi i32 [ %.val20.i, %.lr.ph.i ], [ %.val2021.i, %6 ]
+  %.val16.i = load ptr, ptr %9, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw ptr, ptr %.val16.i, i64 %indvars.iv.i
+  %18 = load ptr, ptr %17, align 8, !tbaa !9
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !9
+  %21 = add nsw i32 %.val2023.i, -2
+  %22 = sext i32 %21 to i64
+  %23 = icmp slt i64 %indvars.iv.i, %22
+  %24 = select i1 %23, ptr @.str.17, ptr @.str.13
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, ptr noundef %18, ptr noundef %20, ptr noundef nonnull %24) #14
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
+  %.val20.i = load i32, ptr %15, align 4, !tbaa !15
+  %26 = trunc nuw i64 %indvars.iv.next.i to i32
+  %27 = icmp sgt i32 %.val20.i, %26
+  br i1 %27, label %.lr.ph.i, label %Bac_PtrDumpBoxVerilog.exit, !llvm.loop !28
+
+Bac_PtrDumpBoxVerilog.exit:                       ; preds = %.lr.ph.i, %6
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val6 = load i32, ptr %3, align 4, !tbaa !15
-  %9 = sext i32 %.val6 to i64
-  %10 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %10, label %6, label %.critedge, !llvm.loop !29
+  %29 = sext i32 %.val6 to i64
+  %30 = icmp slt i64 %indvars.iv.next, %29
+  br i1 %30, label %6, label %.critedge, !llvm.loop !29
 
-.critedge:                                        ; preds = %6, %2
+.critedge:                                        ; preds = %Bac_PtrDumpBoxVerilog.exit, %2
   ret void
 }
 
@@ -995,29 +1025,8 @@ Bac_PtrDumpSignalsVerilog.exit43:                 ; preds = %.lr.ph.split.us.i37
   %.val = load ptr, ptr %3, align 8, !tbaa !3
   %63 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %64 = load ptr, ptr %63, align 8, !tbaa !9
-  %65 = getelementptr i8, ptr %64, i64 4
-  %.val67.i = load i32, ptr %65, align 4, !tbaa !15
-  %66 = icmp sgt i32 %.val67.i, 0
-  br i1 %66, label %.lr.ph.i44, label %Bac_PtrDumpBoxesVerilog.exit
-
-.lr.ph.i44:                                       ; preds = %Bac_PtrDumpSignalsVerilog.exit43
-  %67 = getelementptr i8, ptr %64, i64 8
-  br label %68
-
-68:                                               ; preds = %68, %.lr.ph.i44
-  %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.i44 ], [ %indvars.iv.next.i47, %68 ]
-  %.val.i46 = load ptr, ptr %67, align 8, !tbaa !3
-  %69 = getelementptr inbounds nuw ptr, ptr %.val.i46, i64 %indvars.iv.i45
-  %70 = load ptr, ptr %69, align 8, !tbaa !9
-  tail call void @Bac_PtrDumpBoxVerilog(ptr noundef %0, ptr noundef %70)
-  %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i45, 1
-  %.val6.i = load i32, ptr %65, align 4, !tbaa !15
-  %71 = sext i32 %.val6.i to i64
-  %72 = icmp slt i64 %indvars.iv.next.i47, %71
-  br i1 %72, label %68, label %Bac_PtrDumpBoxesVerilog.exit, !llvm.loop !29
-
-Bac_PtrDumpBoxesVerilog.exit:                     ; preds = %68, %Bac_PtrDumpSignalsVerilog.exit43
-  %73 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 11, i64 1, ptr %0)
+  tail call void @Bac_PtrDumpBoxesVerilog(ptr noundef %0, ptr noundef %64)
+  %65 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 11, i64 1, ptr %0)
   ret void
 }
 

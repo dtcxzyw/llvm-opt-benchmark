@@ -447,7 +447,7 @@ define void @_ZN6icu_7713UnicodeStringC2Eiii(ptr noundef nonnull align 8 derefer
 28:                                               ; preds = %74, %13
   %29 = landingpad { ptr, i32 }
           cleanup
-  br label %134
+  br label %133
 
 30:                                               ; preds = %4
   %31 = icmp samesign ult i32 %2, 65536
@@ -534,7 +534,7 @@ _ZN6icu_7713UnicodeString8allocateEi.exit63:      ; preds = %34, %.noexc62
 64:                                               ; preds = %36
   %65 = landingpad { ptr, i32 }
           cleanup
-  br label %134
+  br label %133
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv88 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next89, %.lr.ph85 ]
@@ -680,23 +680,22 @@ _ZN6icu_7713UnicodeString8allocateEi.exit73:      ; preds = %92, %.noexc72
 128:                                              ; preds = %94
   %129 = landingpad { ptr, i32 }
           cleanup
-  br label %134
+  br label %133
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %130 = getelementptr inbounds nuw i16, ptr %112, i64 %indvars.iv
   store i16 %115, ptr %130, align 2, !tbaa !10
-  %131 = or disjoint i64 %indvars.iv, 1
-  %132 = getelementptr inbounds nuw i16, ptr %112, i64 %131
-  store i16 %118, ptr %132, align 2, !tbaa !10
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 2
+  store i16 %118, ptr %131, align 2, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %133 = icmp samesign ult i64 %indvars.iv.next, %119
-  br i1 %133, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  %132 = icmp samesign ult i64 %indvars.iv.next, %119
+  br i1 %132, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 _ZN6icu_7713UnicodeString8allocateEi.exit:        ; preds = %125, %121, %_ZN6icu_7713UnicodeString8allocateEi.exit73, %.thread.i64, %80, %71, %61, %57, %_ZN6icu_7713UnicodeString8allocateEi.exit63, %.thread.i, %19, %10
   ret void
 
-134:                                              ; preds = %128, %64, %28
+133:                                              ; preds = %128, %64, %28
   %.pn56 = phi { ptr, i32 } [ %29, %28 ], [ %65, %64 ], [ %129, %128 ]
   tail call void @_ZN6icu_777UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
   resume { ptr, i32 } %.pn56

@@ -1110,20 +1110,20 @@ define range(i32 0, 2) i32 @dt_imageio_export_with_flags(i32 noundef %0, ptr nou
   %57 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #18
   %58 = getelementptr inbounds nuw i8, ptr %27, i64 1228
   call void (ptr, ...) @dt_control_log(ptr noundef %57, ptr noundef nonnull %58) #18
-  br label %578
+  br label %577
 
 59:                                               ; preds = %53, %53, %53
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %1, i32 noundef %55) #18
   %60 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.13, i32 noundef 5) #18
   %61 = getelementptr inbounds nuw i8, ptr %27, i64 1228
   call void (ptr, ...) @dt_control_log(ptr noundef %60, ptr noundef nonnull %61) #18
-  br label %578
+  br label %577
 
 62:                                               ; preds = %53
   %63 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.14, i32 noundef 5) #18
   %64 = getelementptr inbounds nuw i8, ptr %27, i64 1228
   call void (ptr, ...) @dt_control_log(ptr noundef %63, ptr noundef nonnull %64) #18
-  br label %578
+  br label %577
 
 65:                                               ; preds = %42
   %66 = getelementptr inbounds nuw i8, ptr %27, i64 1484
@@ -1954,67 +1954,66 @@ dt_get_perf_times.exit442:                        ; preds = %330, %336
   br i1 %exitcond521.not, label %.loopexit, label %.lr.ph498
 
 .lr.ph496:                                        ; preds = %.preheader465, %.lr.ph496
-  %.0361495 = phi i64 [ %511, %.lr.ph496 ], [ 0, %.preheader465 ]
+  %.0361495 = phi i64 [ %510, %.lr.ph496 ], [ 0, %.preheader465 ]
   %505 = shl i64 %.0361495, 2
   %506 = getelementptr inbounds nuw i8, ptr %387, i64 %505
   %507 = load i8, ptr %506, align 1, !tbaa !53
-  %508 = or disjoint i64 %505, 2
-  %509 = getelementptr inbounds nuw i8, ptr %387, i64 %508
-  %510 = load i8, ptr %509, align 1, !tbaa !53
-  store i8 %510, ptr %506, align 1, !tbaa !53
-  store i8 %507, ptr %509, align 1, !tbaa !53
-  %511 = add nuw i64 %.0361495, 1
-  %exitcond520.not = icmp eq i64 %511, %464
+  %508 = getelementptr inbounds nuw i8, ptr %506, i64 2
+  %509 = load i8, ptr %508, align 1, !tbaa !53
+  store i8 %509, ptr %506, align 1, !tbaa !53
+  store i8 %507, ptr %508, align 1, !tbaa !53
+  %510 = add nuw i64 %.0361495, 1
+  %exitcond520.not = icmp eq i64 %510, %464
   br i1 %exitcond520.not, label %.loopexit, label %.lr.ph496
 
 .loopexit:                                        ; preds = %._crit_edge491.us, %453, %.lr.ph496, %497, %.preheader469.lr.ph, %.preheader470, %.preheader467, %.preheader465, %.preheader, %393, %417
-  %512 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %312, ptr %512, align 4, !tbaa !199
-  %513 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %316, ptr %513, align 4, !tbaa !200
+  %511 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %312, ptr %511, align 4, !tbaa !199
+  %512 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %316, ptr %512, align 4, !tbaa !200
   %.not420 = icmp eq i32 %4, 0
-  br i1 %.not420, label %514, label %.thread459
+  br i1 %.not420, label %513, label %.thread459
 
-514:                                              ; preds = %.loopexit
-  %515 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %516 = load ptr, ptr %515, align 8, !tbaa !96
-  %517 = call ptr %516(ptr noundef null) #18
-  %518 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %517, ptr noundef nonnull dereferenceable(11) @.str.44) #19
-  %.not421 = icmp eq i32 %518, 0
-  br i1 %.not421, label %531, label %519
+513:                                              ; preds = %.loopexit
+  %514 = getelementptr inbounds nuw i8, ptr %2, i64 144
+  %515 = load ptr, ptr %514, align 8, !tbaa !96
+  %516 = call ptr %515(ptr noundef null) #18
+  %517 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %516, ptr noundef nonnull dereferenceable(11) @.str.44) #19
+  %.not421 = icmp eq i32 %517, 0
+  br i1 %.not421, label %530, label %518
 
-519:                                              ; preds = %514
-  %520 = load ptr, ptr %515, align 8, !tbaa !96
-  %521 = call ptr %520(ptr noundef null) #18
-  %522 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %521, ptr noundef nonnull dereferenceable(12) @.str.45) #19
-  %.not422 = icmp eq i32 %522, 0
-  br i1 %.not422, label %531, label %523
+518:                                              ; preds = %513
+  %519 = load ptr, ptr %514, align 8, !tbaa !96
+  %520 = call ptr %519(ptr noundef null) #18
+  %521 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %520, ptr noundef nonnull dereferenceable(12) @.str.45) #19
+  %.not422 = icmp eq i32 %521, 0
+  br i1 %.not422, label %530, label %522
 
-523:                                              ; preds = %519
-  %524 = load ptr, ptr %515, align 8, !tbaa !96
-  %525 = call ptr %524(ptr noundef null) #18
-  %526 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %525, ptr noundef nonnull dereferenceable(10) @.str.46) #19
-  %.not423 = icmp eq i32 %526, 0
-  br i1 %.not423, label %531, label %527
+522:                                              ; preds = %518
+  %523 = load ptr, ptr %514, align 8, !tbaa !96
+  %524 = call ptr %523(ptr noundef null) #18
+  %525 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %524, ptr noundef nonnull dereferenceable(10) @.str.46) #19
+  %.not423 = icmp eq i32 %525, 0
+  br i1 %.not423, label %530, label %526
 
-527:                                              ; preds = %523
-  %528 = load ptr, ptr %515, align 8, !tbaa !96
-  %529 = call ptr %528(ptr noundef null) #18
-  %530 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %529, ptr noundef nonnull dereferenceable(12) @.str.47) #19
-  %.not424 = icmp eq i32 %530, 0
-  br i1 %.not424, label %531, label %.critedge463
+526:                                              ; preds = %522
+  %527 = load ptr, ptr %514, align 8, !tbaa !96
+  %528 = call ptr %527(ptr noundef null) #18
+  %529 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %528, ptr noundef nonnull dereferenceable(12) @.str.47) #19
+  %.not424 = icmp eq i32 %529, 0
+  br i1 %.not424, label %530, label %.critedge463
 
-531:                                              ; preds = %527, %523, %519, %514
+530:                                              ; preds = %526, %522, %518, %513
   %.not425 = icmp eq ptr %20, null
-  br i1 %.not425, label %.thread459, label %532
+  br i1 %.not425, label %.thread459, label %531
 
-532:                                              ; preds = %531
-  %533 = load i32, ptr %20, align 8, !tbaa !201
-  %534 = and i32 %533, 458815
-  %535 = icmp eq i32 %534, 458815
-  br i1 %535, label %.critedge463, label %.thread459
+531:                                              ; preds = %530
+  %532 = load i32, ptr %20, align 8, !tbaa !201
+  %533 = and i32 %532, 458815
+  %534 = icmp eq i32 %533, 458815
+  br i1 %534, label %.critedge463, label %.thread459
 
-.critedge463:                                     ; preds = %527, %532
+.critedge463:                                     ; preds = %526, %531
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #18
   store ptr null, ptr %36, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %37) #18
@@ -2022,109 +2021,109 @@ dt_get_perf_times.exit442:                        ; preds = %330, %336
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #18
   store i32 1, ptr %38, align 4, !tbaa !52
   call void @dt_image_full_path(i32 noundef %0, ptr noundef nonnull %37, i64 noundef 4096, ptr noundef nonnull %38) #18
-  %536 = call i32 @dt_exif_read_blob(ptr noundef nonnull %36, ptr noundef nonnull %37, i32 noundef %0, i32 noundef %.0363, i32 noundef %312, i32 noundef %316, i32 noundef 0) #18
-  %537 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %538 = load ptr, ptr %537, align 8, !tbaa !102
-  %539 = load ptr, ptr %36, align 8, !tbaa !6
-  %540 = call i32 %538(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %387, i32 noundef %13, ptr noundef %14, ptr noundef %539, i32 noundef %536, i32 noundef %0, i32 noundef %18, i32 noundef %19, ptr noundef nonnull %30, i32 noundef %12) #18
-  %541 = load ptr, ptr %36, align 8, !tbaa !6
-  call void @free(ptr noundef %541) #18
+  %535 = call i32 @dt_exif_read_blob(ptr noundef nonnull %36, ptr noundef nonnull %37, i32 noundef %0, i32 noundef %.0363, i32 noundef %312, i32 noundef %316, i32 noundef 0) #18
+  %536 = getelementptr inbounds nuw i8, ptr %2, i64 176
+  %537 = load ptr, ptr %536, align 8, !tbaa !102
+  %538 = load ptr, ptr %36, align 8, !tbaa !6
+  %539 = call i32 %537(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %387, i32 noundef %13, ptr noundef %14, ptr noundef %538, i32 noundef %535, i32 noundef %0, i32 noundef %18, i32 noundef %19, ptr noundef nonnull %30, i32 noundef %12) #18
+  %540 = load ptr, ptr %36, align 8, !tbaa !6
+  call void @free(ptr noundef %540) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #18
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %37) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #18
-  br label %545
+  br label %544
 
-.thread459:                                       ; preds = %531, %.loopexit, %532
-  %542 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %543 = load ptr, ptr %542, align 8, !tbaa !102
-  %544 = call i32 %543(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %387, i32 noundef %13, ptr noundef %14, ptr noundef null, i32 noundef 0, i32 noundef %0, i32 noundef %18, i32 noundef %19, ptr noundef nonnull %30, i32 noundef %12) #18
-  br label %545
+.thread459:                                       ; preds = %530, %.loopexit, %531
+  %541 = getelementptr inbounds nuw i8, ptr %2, i64 176
+  %542 = load ptr, ptr %541, align 8, !tbaa !102
+  %543 = call i32 %542(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %387, i32 noundef %13, ptr noundef %14, ptr noundef null, i32 noundef 0, i32 noundef %0, i32 noundef %18, i32 noundef %19, ptr noundef nonnull %30, i32 noundef %12) #18
+  br label %544
 
-545:                                              ; preds = %.thread459, %.critedge463
-  %.0350.in.in = phi i32 [ %540, %.critedge463 ], [ %544, %.thread459 ]
+544:                                              ; preds = %.thread459, %.critedge463
+  %.0350.in.in = phi i32 [ %539, %.critedge463 ], [ %543, %.thread459 ]
   %.0350.in.not = icmp eq i32 %.0350.in.in, 0
-  br i1 %.0350.in.not, label %546, label %.thread454
+  br i1 %.0350.in.not, label %545, label %.thread454
+
+545:                                              ; preds = %544
+  %.not426 = icmp eq i32 %11, 0
+  br i1 %.not426, label %553, label %546
 
 546:                                              ; preds = %545
-  %.not426 = icmp eq i32 %11, 0
-  br i1 %.not426, label %554, label %547
+  %547 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %548 = load ptr, ptr %547, align 8, !tbaa !203
+  %549 = call i32 %548(ptr noundef nonnull %3) #18
+  %550 = and i32 %549, 1
+  %.not427 = icmp eq i32 %550, 0
+  br i1 %.not427, label %553, label %551
 
-547:                                              ; preds = %546
-  %548 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %549 = load ptr, ptr %548, align 8, !tbaa !203
-  %550 = call i32 %549(ptr noundef nonnull %3) #18
-  %551 = and i32 %550, 1
-  %.not427 = icmp eq i32 %551, 0
-  br i1 %.not427, label %554, label %552
+551:                                              ; preds = %546
+  %552 = call i32 @dt_exif_xmp_attach_export(i32 noundef %0, ptr noundef %1, ptr noundef %20, ptr noundef nonnull %27, ptr noundef nonnull %30) #18
+  br label %553
 
-552:                                              ; preds = %547
-  %553 = call i32 @dt_exif_xmp_attach_export(i32 noundef %0, ptr noundef %1, ptr noundef %20, ptr noundef nonnull %27, ptr noundef nonnull %30) #18
-  br label %554
-
-554:                                              ; preds = %552, %547, %546
+553:                                              ; preds = %551, %546, %545
   call void @dt_dev_pixelpipe_cleanup(ptr noundef nonnull %30) #18
   call void @dt_dev_cleanup(ptr noundef nonnull %27) #18
-  %555 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !103
-  call void @dt_mipmap_cache_release_with_caller(ptr noundef %555, ptr noundef nonnull %28, ptr noundef nonnull @.str.10, i32 noundef 1489) #18
-  br i1 %.not398, label %556, label %.critedge
+  %554 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !103
+  call void @dt_mipmap_cache_release_with_caller(ptr noundef %554, ptr noundef nonnull %28, ptr noundef nonnull @.str.10, i32 noundef 1489) #18
+  br i1 %.not398, label %555, label %.critedge
 
-556:                                              ; preds = %554
-  %557 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %558 = load ptr, ptr %557, align 8, !tbaa !96
-  %559 = call ptr %558(ptr noundef nonnull %3) #18
-  %560 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %559, ptr noundef nonnull dereferenceable(7) @.str.48) #19
-  %.not428 = icmp eq i32 %560, 0
-  br i1 %.not428, label %.critedge.sink.split, label %561
+555:                                              ; preds = %553
+  %556 = getelementptr inbounds nuw i8, ptr %2, i64 144
+  %557 = load ptr, ptr %556, align 8, !tbaa !96
+  %558 = call ptr %557(ptr noundef nonnull %3) #18
+  %559 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %558, ptr noundef nonnull dereferenceable(7) @.str.48) #19
+  %.not428 = icmp eq i32 %559, 0
+  br i1 %.not428, label %.critedge.sink.split, label %560
 
-561:                                              ; preds = %556
-  %562 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %563 = load ptr, ptr %562, align 8, !tbaa !203
-  %564 = call i32 %563(ptr noundef nonnull %3) #18
-  %565 = and i32 %564, 2
-  %.not429 = icmp eq i32 %565, 0
-  br i1 %.not429, label %566, label %.critedge.sink.split
+560:                                              ; preds = %555
+  %561 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %562 = load ptr, ptr %561, align 8, !tbaa !203
+  %563 = call i32 %562(ptr noundef nonnull %3) #18
+  %564 = and i32 %563, 2
+  %.not429 = icmp eq i32 %564, 0
+  br i1 %.not429, label %565, label %.critedge.sink.split
 
-566:                                              ; preds = %561
-  %567 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !204
-  %568 = and i32 %567, 1
-  %569 = icmp ne i32 %568, 0
-  %570 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3272), align 8
-  %571 = icmp ne i32 %570, 0
-  %or.cond17 = select i1 %569, i1 %571, i1 false
-  br i1 %or.cond17, label %572, label %576
+565:                                              ; preds = %560
+  %566 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !204
+  %567 = and i32 %566, 1
+  %568 = icmp ne i32 %567, 0
+  %569 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3272), align 8
+  %570 = icmp ne i32 %569, 0
+  %or.cond17 = select i1 %568, i1 %570, i1 false
+  br i1 %or.cond17, label %571, label %575
 
-572:                                              ; preds = %566
-  %573 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
-  %574 = and i32 %573, 1048576
-  %.not430 = icmp eq i32 %574, 0
-  br i1 %.not430, label %576, label %575
+571:                                              ; preds = %565
+  %572 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !54
+  %573 = and i32 %572, 1048576
+  %.not430 = icmp eq i32 %573, 0
+  br i1 %.not430, label %575, label %574
 
-575:                                              ; preds = %572
+574:                                              ; preds = %571
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.10, i32 noundef 1517, ptr noundef nonnull @__FUNCTION__.dt_imageio_export_with_flags) #18
-  br label %576
+  br label %575
 
-576:                                              ; preds = %572, %575, %566
-  %577 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !205
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %577, i32 noundef 35, i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %16, ptr noundef %17) #18
+575:                                              ; preds = %571, %574, %565
+  %576 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !205
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %576, i32 noundef 35, i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %16, ptr noundef %17) #18
   br label %.critedge.sink.split
 
-.thread454:                                       ; preds = %120, %122, %545, %389, %392, %97
+.thread454:                                       ; preds = %120, %122, %544, %389, %392, %97
   call void @dt_dev_pixelpipe_cleanup(ptr noundef nonnull %30) #18
-  br label %578
+  br label %577
 
-578:                                              ; preds = %56, %62, %59, %.thread454
+577:                                              ; preds = %56, %62, %59, %.thread454
   call void @dt_dev_cleanup(ptr noundef nonnull %27) #18
-  %579 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !103
-  call void @dt_mipmap_cache_release_with_caller(ptr noundef %579, ptr noundef nonnull %28, ptr noundef nonnull @.str.10, i32 noundef 1528) #18
+  %578 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !103
+  call void @dt_mipmap_cache_release_with_caller(ptr noundef %578, ptr noundef nonnull %28, ptr noundef nonnull @.str.10, i32 noundef 1528) #18
   br i1 %.not398, label %.critedge.sink.split, label %.critedge
 
-.critedge.sink.split:                             ; preds = %578, %576, %561, %556
-  %.0.ph = phi i32 [ 0, %556 ], [ 0, %561 ], [ 0, %576 ], [ 1, %578 ]
+.critedge.sink.split:                             ; preds = %577, %575, %560, %555
+  %.0.ph = phi i32 [ 0, %555 ], [ 0, %560 ], [ 0, %575 ], [ 1, %577 ]
   call void @dt_set_backthumb_time(double noundef 5.000000e+00) #18
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %578, %554
-  %.0 = phi i32 [ 0, %554 ], [ 1, %578 ], [ %.0.ph, %.critedge.sink.split ]
+.critedge:                                        ; preds = %.critedge.sink.split, %577, %553
+  %.0 = phi i32 [ 0, %553 ], [ 1, %577 ], [ %.0.ph, %.critedge.sink.split ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %28) #18
   call void @llvm.lifetime.end.p0(i64 2832, ptr nonnull %27) #18
   ret i32 %.0

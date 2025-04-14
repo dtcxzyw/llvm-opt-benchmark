@@ -434,9 +434,9 @@ define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVe
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %28 = load ptr, ptr %27, align 8
   %29 = shl nsw i32 %23, 1
-  %30 = or disjoint i32 %29, 1
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i16, ptr %28, i64 %31
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr i16, ptr %28, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 2
   %33 = load i16, ptr %32, align 2
   %34 = sext i16 %33 to i32
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
@@ -480,9 +480,9 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit: ; preds = %26, %40,
 52:                                               ; preds = %47
   %53 = load ptr, ptr %46, align 8
   %54 = shl nuw nsw i32 %.024, 1
-  %55 = or disjoint i32 %54, 1
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw i16, ptr %53, i64 %56
+  %55 = zext nneg i32 %54 to i64
+  %56 = getelementptr i16, ptr %53, i64 %55
+  %57 = getelementptr i8, ptr %56, i64 2
   %58 = load i16, ptr %57, align 2
   %59 = sext i16 %58 to i32
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit23
@@ -552,9 +552,9 @@ define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVe
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %17 = load ptr, ptr %16, align 8
   %18 = shl nsw i32 %12, 1
-  %19 = or disjoint i32 %18, 1
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i16, ptr %17, i64 %20
+  %19 = sext i32 %18 to i64
+  %20 = getelementptr i16, ptr %17, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 2
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i32
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
@@ -611,9 +611,9 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit: ; preds = %15, %30,
 49:                                               ; preds = %44
   %50 = load ptr, ptr %36, align 8
   %51 = shl nuw nsw i32 %.02033, 1
-  %52 = or disjoint i32 %51, 1
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %50, i64 %53
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr i16, ptr %50, i64 %52
+  %54 = getelementptr i8, ptr %53, i64 2
   %55 = load i16, ptr %54, align 2
   %56 = sext i16 %55 to i32
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit25
@@ -1048,9 +1048,9 @@ define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVe
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %28 = load ptr, ptr %27, align 8
   %29 = shl nsw i32 %18, 1
-  %30 = or disjoint i32 %29, 1
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i16, ptr %28, i64 %31
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr i16, ptr %28, i64 %30
+  %32 = getelementptr i8, ptr %31, i64 2
   %33 = load i16, ptr %32, align 2
   %34 = sext i16 %33 to i32
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
@@ -1161,9 +1161,9 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit: 
 89:                                               ; preds = %84
   %90 = load ptr, ptr %49, align 8
   %91 = shl nsw i32 %.05085, 1
-  %92 = or disjoint i32 %91, 1
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds i16, ptr %90, i64 %93
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr i16, ptr %90, i64 %92
+  %94 = getelementptr i8, ptr %93, i64 2
   %95 = load i16, ptr %94, align 2
   %96 = sext i16 %95 to i32
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit59
@@ -1720,6 +1720,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.
   %64 = zext i8 %63 to i32
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %66 = load ptr, ptr %65, align 8
+  %invariant.gep = getelementptr i8, ptr %66, i64 2
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %68 = load i16, ptr %67, align 2
   %69 = sext i16 %68 to i32
@@ -1761,7 +1762,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us.us: ; preds = %_Z
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit.us17: ; preds = %.lr.ph.split, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us19
   %.012.us15 = phi i32 [ %88, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us19 ], [ 0, %.lr.ph.split ]
-  %.0711.us16 = phi i32 [ %94, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us19 ], [ %.09.i.i, %.lr.ph.split ]
+  %.0711.us16 = phi i32 [ %92, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us19 ], [ %.09.i.i, %.lr.ph.split ]
   %82 = sext i32 %.0711.us16 to i64
   %83 = getelementptr i32, ptr %61, i64 %82
   %84 = getelementptr i8, ptr %83, i64 4
@@ -1774,11 +1775,10 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit.us17: ; preds = %.lr
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us19: ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit.us17
   %88 = add nuw nsw i32 %.012.us15, 1
   %89 = shl nsw i32 %.0711.us16, 1
-  %90 = or disjoint i32 %89, 1
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i16, ptr %66, i64 %91
-  %93 = load i16, ptr %92, align 2
-  %94 = sext i16 %93 to i32
+  %90 = sext i32 %89 to i64
+  %gep.us = getelementptr i16, ptr %invariant.gep, i64 %90
+  %91 = load i16, ptr %gep.us, align 2
+  %92 = sext i16 %91 to i32
   %exitcond.not = icmp eq i32 %88, %55
   br i1 %exitcond.not, label %.loopexit, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit.us17, !llvm.loop !21
 
@@ -1880,9 +1880,11 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.
   %58 = zext nneg i16 %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
+  %invariant.gep = getelementptr i8, ptr %60, i64 4
   %61 = load float, ptr @_ZN10OpenSubdiv6v3_6_03Sdc6Crease18SHARPNESS_INFINITEE, align 4
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %63 = load ptr, ptr %62, align 8
+  %invariant.gep17 = getelementptr i8, ptr %63, i64 2
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %65 = load i16, ptr %64, align 2
   %66 = sext i16 %65 to i32
@@ -1893,45 +1895,43 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.
   br i1 %.not.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
-  %.014.us = phi i32 [ %76, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %58, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
+  %.014.us = phi i32 [ %74, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %58, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
   %.01013.us = phi i32 [ %.0.i.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %.09.i.i, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
   %70 = shl nsw i32 %.01013.us, 1
-  %71 = or disjoint i32 %70, 1
-  %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds float, ptr %60, i64 %72
-  %74 = load float, ptr %73, align 4
-  %75 = fcmp oge float %74, %61
-  br i1 %75, label %.loopexit, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
+  %71 = sext i32 %70 to i64
+  %gep.us = getelementptr float, ptr %invariant.gep, i64 %71
+  %72 = load float, ptr %gep.us, align 4
+  %73 = fcmp oge float %72, %61
+  br i1 %73, label %.loopexit, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us: ; preds = %.lr.ph.split.us
-  %76 = add nuw nsw i32 %.014.us, 1
-  %77 = icmp slt i32 %.01013.us, %67
-  %78 = add nsw i32 %.01013.us, 1
-  %.0.i.us = select i1 %77, i32 %78, i32 %69
-  %exitcond20.not = icmp eq i32 %76, %5
-  br i1 %exitcond20.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !22
+  %74 = add nuw nsw i32 %.014.us, 1
+  %75 = icmp slt i32 %.01013.us, %67
+  %76 = add nsw i32 %.01013.us, 1
+  %.0.i.us = select i1 %75, i32 %76, i32 %69
+  %exitcond22.not = icmp eq i32 %74, %5
+  br i1 %exitcond22.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
-  %.014 = phi i32 [ %85, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %58, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
-  %.01013 = phi i32 [ %88, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %.09.i.i, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
-  %79 = shl nsw i32 %.01013, 1
-  %80 = or disjoint i32 %79, 1
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds float, ptr %60, i64 %81
-  %83 = load float, ptr %82, align 4
-  %84 = fcmp oge float %83, %61
-  br i1 %84, label %.loopexit, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
+  %.014 = phi i32 [ %81, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %58, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
+  %.01013 = phi i32 [ %83, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %.09.i.i, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
+  %77 = shl nsw i32 %.01013, 1
+  %78 = sext i32 %77 to i64
+  %gep = getelementptr float, ptr %invariant.gep, i64 %78
+  %79 = load float, ptr %gep, align 4
+  %80 = fcmp oge float %79, %61
+  br i1 %80, label %.loopexit, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit: ; preds = %.lr.ph.split
-  %85 = add nuw nsw i32 %.014, 1
-  %86 = getelementptr inbounds i16, ptr %63, i64 %81
-  %87 = load i16, ptr %86, align 2
-  %88 = sext i16 %87 to i32
-  %exitcond.not = icmp eq i32 %85, %5
+  %81 = add nuw nsw i32 %.014, 1
+  %gep18 = getelementptr i16, ptr %invariant.gep17, i64 %78
+  %82 = load i16, ptr %gep18, align 2
+  %83 = sext i16 %82 to i32
+  %exitcond.not = icmp eq i32 %81, %5
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph.split, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit, %.lr.ph.split.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us, %2
-  %.011 = phi i1 [ false, %2 ], [ %75, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %75, %.lr.ph.split.us ], [ %84, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %84, %.lr.ph.split ]
+  %.011 = phi i1 [ false, %2 ], [ %73, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %73, %.lr.ph.split.us ], [ %80, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %80, %.lr.ph.split ]
   ret i1 %.011
 }
 
@@ -2024,10 +2024,12 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.
   %58 = zext nneg i16 %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
+  %invariant.gep = getelementptr i8, ptr %60, i64 4
   %61 = load float, ptr @_ZN10OpenSubdiv6v3_6_03Sdc6Crease16SHARPNESS_SMOOTHE, align 4
   %62 = load float, ptr @_ZN10OpenSubdiv6v3_6_03Sdc6Crease18SHARPNESS_INFINITEE, align 4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %64 = load ptr, ptr %63, align 8
+  %invariant.gep17 = getelementptr i8, ptr %64, i64 2
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %66 = load i16, ptr %65, align 2
   %67 = sext i16 %66 to i32
@@ -2038,49 +2040,47 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.
   br i1 %.not.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
-  %.014.us = phi i32 [ %79, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %58, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
+  %.014.us = phi i32 [ %77, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %58, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
   %.01013.us = phi i32 [ %.0.i.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %.09.i.i, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
   %71 = shl nsw i32 %.01013.us, 1
-  %72 = or disjoint i32 %71, 1
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds float, ptr %60, i64 %73
-  %75 = load float, ptr %74, align 4
-  %76 = fcmp olt float %61, %75
-  %77 = fcmp olt float %75, %62
-  %78 = select i1 %76, i1 %77, i1 false
-  br i1 %78, label %.loopexit, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
+  %72 = sext i32 %71 to i64
+  %gep.us = getelementptr float, ptr %invariant.gep, i64 %72
+  %73 = load float, ptr %gep.us, align 4
+  %74 = fcmp olt float %61, %73
+  %75 = fcmp olt float %73, %62
+  %76 = select i1 %74, i1 %75, i1 false
+  br i1 %76, label %.loopexit, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us: ; preds = %.lr.ph.split.us
-  %79 = add nuw nsw i32 %.014.us, 1
-  %80 = icmp slt i32 %.01013.us, %68
-  %81 = add nsw i32 %.01013.us, 1
-  %.0.i.us = select i1 %80, i32 %81, i32 %70
-  %exitcond20.not = icmp eq i32 %79, %5
-  br i1 %exitcond20.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !23
+  %77 = add nuw nsw i32 %.014.us, 1
+  %78 = icmp slt i32 %.01013.us, %68
+  %79 = add nsw i32 %.01013.us, 1
+  %.0.i.us = select i1 %78, i32 %79, i32 %70
+  %exitcond22.not = icmp eq i32 %77, %5
+  br i1 %exitcond22.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
-  %.014 = phi i32 [ %90, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %58, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
-  %.01013 = phi i32 [ %93, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %.09.i.i, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
-  %82 = shl nsw i32 %.01013, 1
-  %83 = or disjoint i32 %82, 1
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds float, ptr %60, i64 %84
-  %86 = load float, ptr %85, align 4
-  %87 = fcmp olt float %61, %86
-  %88 = fcmp olt float %86, %62
-  %89 = select i1 %87, i1 %88, i1 false
-  br i1 %89, label %.loopexit, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
+  %.014 = phi i32 [ %86, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %58, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
+  %.01013 = phi i32 [ %88, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %.09.i.i, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex12GetFaceFirstERKNS1_16FaceVertexSubsetE.exit ]
+  %80 = shl nsw i32 %.01013, 1
+  %81 = sext i32 %80 to i64
+  %gep = getelementptr float, ptr %invariant.gep, i64 %81
+  %82 = load float, ptr %gep, align 4
+  %83 = fcmp olt float %61, %82
+  %84 = fcmp olt float %82, %62
+  %85 = select i1 %83, i1 %84, i1 false
+  br i1 %85, label %.loopexit, label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit
 
 _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit: ; preds = %.lr.ph.split
-  %90 = add nuw nsw i32 %.014, 1
-  %91 = getelementptr inbounds i16, ptr %64, i64 %84
-  %92 = load i16, ptr %91, align 2
-  %93 = sext i16 %92 to i32
-  %exitcond.not = icmp eq i32 %90, %5
+  %86 = add nuw nsw i32 %.014, 1
+  %gep18 = getelementptr i16, ptr %invariant.gep17, i64 %81
+  %87 = load i16, ptr %gep18, align 2
+  %88 = sext i16 %87 to i32
+  %exitcond.not = icmp eq i32 %86, %5
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph.split, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit, %.lr.ph.split.us, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us, %2
-  %.011 = phi i1 [ false, %2 ], [ %78, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %78, %.lr.ph.split.us ], [ %89, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %89, %.lr.ph.split ]
+  %.011 = phi i1 [ false, %2 ], [ %76, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit.us ], [ %76, %.lr.ph.split.us ], [ %85, %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit ], [ %85, %.lr.ph.split ]
   ret i1 %.011
 }
 
@@ -2561,178 +2561,176 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18markDuplicateEdgesEPNS2_4E
   br i1 %13, label %16, label %.preheader55
 
 .preheader55:                                     ; preds = %8
-  br i1 %14, label %.lr.ph62, label %.loopexit
+  br i1 %14, label %.lr.ph64, label %.loopexit
 
-.lr.ph62:                                         ; preds = %.preheader55
+.lr.ph64:                                         ; preds = %.preheader55
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %wide.trip.count71 = zext nneg i32 %12 to i64
-  br label %39
-
-16:                                               ; preds = %8
-  br i1 %14, label %.lr.ph65.preheader, label %.loopexit
-
-.lr.ph65.preheader:                               ; preds = %16
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %wide.trip.count76 = zext nneg i32 %12 to i64
-  br label %.lr.ph65
-
-.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %37
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next74, %37 ]
-  %.04964 = phi ptr [ %17, %.lr.ph65.preheader ], [ %38, %37 ]
-  %18 = load i32, ptr %.04964, align 4
-  %19 = icmp eq i32 %18, %9
-  br i1 %19, label %20, label %37
-
-20:                                               ; preds = %.lr.ph65
-  %21 = shl nuw nsw i64 %indvars.iv73, 1
-  %22 = getelementptr inbounds nuw i16, ptr %2, i64 %21
-  %23 = load i16, ptr %22, align 2
-  %24 = sext i16 %23 to i64
-  %25 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %24, i32 1
-  %26 = load i8, ptr %25, align 4
-  %27 = and i8 %26, -40
-  %28 = or disjoint i8 %27, 36
-  store i8 %28, ptr %25, align 4
-  %29 = or disjoint i64 %21, 1
-  %30 = getelementptr inbounds nuw i16, ptr %2, i64 %29
-  %31 = load i16, ptr %30, align 2
-  %32 = sext i16 %31 to i64
-  %33 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %32, i32 1
-  %34 = load i8, ptr %33, align 4
-  %35 = and i8 %34, -40
-  %36 = or disjoint i8 %35, 36
-  store i8 %36, ptr %33, align 4
+  %invariant.gep57 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %wide.trip.count73 = zext nneg i32 %12 to i64
   br label %37
 
-37:                                               ; preds = %.lr.ph65, %20
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %38 = getelementptr inbounds nuw i8, ptr %.04964, i64 16
-  %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %.loopexit, label %.lr.ph65, !llvm.loop !28
+16:                                               ; preds = %8
+  br i1 %14, label %.lr.ph67.preheader, label %.loopexit
 
-39:                                               ; preds = %.lr.ph62, %.loopexit54
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next69, %.loopexit54 ]
-  %.05158 = phi ptr [ %3, %.lr.ph62 ], [ %111, %.loopexit54 ]
-  %40 = load i16, ptr %5, align 4
-  %.not.i = icmp eq i16 %40, 0
-  br i1 %.not.i, label %43, label %41
+.lr.ph67.preheader:                               ; preds = %16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %wide.trip.count78 = zext nneg i32 %12 to i64
+  br label %.lr.ph67
 
-41:                                               ; preds = %39
-  %42 = sext i16 %40 to i32
+.lr.ph67:                                         ; preds = %.lr.ph67.preheader, %35
+  %indvars.iv75 = phi i64 [ 0, %.lr.ph67.preheader ], [ %indvars.iv.next76, %35 ]
+  %.04966 = phi ptr [ %17, %.lr.ph67.preheader ], [ %36, %35 ]
+  %18 = load i32, ptr %.04966, align 4
+  %19 = icmp eq i32 %18, %9
+  br i1 %19, label %20, label %35
+
+20:                                               ; preds = %.lr.ph67
+  %.idx80 = shl nuw nsw i64 %indvars.iv75, 2
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx80
+  %22 = load i16, ptr %21, align 2
+  %23 = sext i16 %22 to i64
+  %24 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %23, i32 1
+  %25 = load i8, ptr %24, align 4
+  %26 = and i8 %25, -40
+  %27 = or disjoint i8 %26, 36
+  store i8 %27, ptr %24, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 2
+  %29 = load i16, ptr %28, align 2
+  %30 = sext i16 %29 to i64
+  %31 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %30, i32 1
+  %32 = load i8, ptr %31, align 4
+  %33 = and i8 %32, -40
+  %34 = or disjoint i8 %33, 36
+  store i8 %34, ptr %31, align 4
+  br label %35
+
+35:                                               ; preds = %.lr.ph67, %20
+  %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
+  %36 = getelementptr inbounds nuw i8, ptr %.04966, i64 16
+  %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
+  br i1 %exitcond79.not, label %.loopexit, label %.lr.ph67, !llvm.loop !28
+
+37:                                               ; preds = %.lr.ph64, %.loopexit54
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next71, %.loopexit54 ]
+  %.05160 = phi ptr [ %3, %.lr.ph64 ], [ %105, %.loopexit54 ]
+  %38 = load i16, ptr %5, align 4
+  %.not.i = icmp eq i16 %38, 0
+  br i1 %.not.i, label %41, label %39
+
+39:                                               ; preds = %37
+  %40 = sext i16 %38 to i32
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit
 
-43:                                               ; preds = %39
-  %44 = load ptr, ptr %15, align 8
-  %45 = getelementptr i32, ptr %44, i64 %indvars.iv68
-  %46 = getelementptr i8, ptr %45, i64 4
-  %47 = load i32, ptr %46, align 4
-  %48 = load i32, ptr %45, align 4
-  %49 = sub nsw i32 %47, %48
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %15, align 8
+  %43 = getelementptr i32, ptr %42, i64 %indvars.iv70
+  %44 = getelementptr i8, ptr %43, i64 4
+  %45 = load i32, ptr %44, align 4
+  %46 = load i32, ptr %43, align 4
+  %47 = sub nsw i32 %45, %46
   br label %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit
 
-_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit: ; preds = %41, %43
-  %50 = phi i32 [ %42, %41 ], [ %49, %43 ]
-  %51 = icmp eq i32 %50, 4
-  br i1 %51, label %60, label %.preheader
+_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit: ; preds = %39, %41
+  %48 = phi i32 [ %40, %39 ], [ %47, %41 ]
+  %49 = icmp eq i32 %48, 4
+  br i1 %49, label %56, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit
-  %52 = icmp sgt i32 %50, 4
-  br i1 %52, label %.lr.ph, label %.loopexit54
+  %50 = icmp sgt i32 %48, 4
+  br i1 %50, label %.lr.ph, label %.loopexit54
 
 .lr.ph:                                           ; preds = %.preheader
-  %53 = add nsw i32 %50, -2
-  %invariant.gep = getelementptr i8, ptr %.05158, i64 -4
-  %54 = getelementptr inbounds nuw i8, ptr %.05158, i64 4
-  %55 = shl nuw nsw i64 %indvars.iv68, 1
-  %56 = getelementptr inbounds nuw i16, ptr %2, i64 %55
-  %57 = zext nneg i32 %50 to i64
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %57
-  %58 = or disjoint i64 %55, 1
-  %59 = getelementptr inbounds nuw i16, ptr %2, i64 %58
-  %wide.trip.count = zext nneg i32 %53 to i64
-  br label %81
+  %51 = add nsw i32 %48, -2
+  %invariant.gep = getelementptr i8, ptr %.05160, i64 -4
+  %52 = getelementptr inbounds nuw i8, ptr %.05160, i64 4
+  %53 = shl nuw nsw i64 %indvars.iv70, 1
+  %54 = getelementptr inbounds nuw i16, ptr %2, i64 %53
+  %55 = zext nneg i32 %48 to i64
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %55
+  %gep58 = getelementptr inbounds nuw i16, ptr %invariant.gep57, i64 %53
+  %wide.trip.count = zext nneg i32 %51 to i64
+  br label %75
 
-60:                                               ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit
-  %61 = getelementptr inbounds nuw i8, ptr %.05158, i64 8
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp eq i32 %62, %9
-  br i1 %63, label %64, label %.loopexit54
+56:                                               ; preds = %_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceSizeEi.exit
+  %57 = getelementptr inbounds nuw i8, ptr %.05160, i64 8
+  %58 = load i32, ptr %57, align 4
+  %59 = icmp eq i32 %58, %9
+  br i1 %59, label %60, label %.loopexit54
 
-64:                                               ; preds = %60
-  %65 = shl nuw nsw i64 %indvars.iv68, 1
-  %66 = getelementptr inbounds nuw i16, ptr %2, i64 %65
-  %67 = load i16, ptr %66, align 2
-  %68 = sext i16 %67 to i64
-  %69 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %68, i32 1
-  %70 = load i8, ptr %69, align 4
-  %71 = and i8 %70, -40
-  %72 = or disjoint i8 %71, 36
-  store i8 %72, ptr %69, align 4
-  %73 = or disjoint i64 %65, 1
-  %74 = getelementptr inbounds nuw i16, ptr %2, i64 %73
-  %75 = load i16, ptr %74, align 2
-  %76 = sext i16 %75 to i64
-  %77 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %76, i32 1
-  %78 = load i8, ptr %77, align 4
-  %79 = and i8 %78, -40
-  %80 = or disjoint i8 %79, 36
-  store i8 %80, ptr %77, align 4
+60:                                               ; preds = %56
+  %.idx = shl nuw nsw i64 %indvars.iv70, 2
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  %62 = load i16, ptr %61, align 2
+  %63 = sext i16 %62 to i64
+  %64 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %63, i32 1
+  %65 = load i8, ptr %64, align 4
+  %66 = and i8 %65, -40
+  %67 = or disjoint i8 %66, 36
+  store i8 %67, ptr %64, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 2
+  %69 = load i16, ptr %68, align 2
+  %70 = sext i16 %69 to i64
+  %71 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %70, i32 1
+  %72 = load i8, ptr %71, align 4
+  %73 = and i8 %72, -40
+  %74 = or disjoint i8 %73, 36
+  store i8 %74, ptr %71, align 4
   br label %.loopexit54
 
-81:                                               ; preds = %.lr.ph, %109
-  %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %109 ]
-  %82 = getelementptr inbounds nuw i32, ptr %.05158, i64 %indvars.iv
-  %83 = load i32, ptr %82, align 4
-  %84 = icmp eq i32 %83, %9
-  br i1 %84, label %85, label %109
+75:                                               ; preds = %.lr.ph, %103
+  %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %103 ]
+  %76 = getelementptr inbounds nuw i32, ptr %.05160, i64 %indvars.iv
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp eq i32 %77, %9
+  br i1 %78, label %79, label %103
 
-85:                                               ; preds = %81
-  %86 = getelementptr i8, ptr %82, i64 -4
-  %87 = load i32, ptr %86, align 4
-  %88 = load i32, ptr %54, align 4
-  %89 = icmp eq i32 %87, %88
-  br i1 %89, label %90, label %97
+79:                                               ; preds = %75
+  %80 = getelementptr i8, ptr %76, i64 -4
+  %81 = load i32, ptr %80, align 4
+  %82 = load i32, ptr %52, align 4
+  %83 = icmp eq i32 %81, %82
+  br i1 %83, label %84, label %91
 
-90:                                               ; preds = %85
-  %91 = load i16, ptr %56, align 2
-  %92 = sext i16 %91 to i64
-  %93 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %92, i32 1
-  %94 = load i8, ptr %93, align 4
-  %95 = and i8 %94, -40
-  %96 = or disjoint i8 %95, 36
-  store i8 %96, ptr %93, align 4
-  br label %97
+84:                                               ; preds = %79
+  %85 = load i16, ptr %54, align 2
+  %86 = sext i16 %85 to i64
+  %87 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %86, i32 1
+  %88 = load i8, ptr %87, align 4
+  %89 = and i8 %88, -40
+  %90 = or disjoint i8 %89, 36
+  store i8 %90, ptr %87, align 4
+  br label %91
 
-97:                                               ; preds = %90, %85
-  %98 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %99 = load i32, ptr %98, align 4
-  %100 = load i32, ptr %gep, align 4
-  %101 = icmp eq i32 %99, %100
-  br i1 %101, label %102, label %109
+91:                                               ; preds = %84, %79
+  %92 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %93 = load i32, ptr %92, align 4
+  %94 = load i32, ptr %gep, align 4
+  %95 = icmp eq i32 %93, %94
+  br i1 %95, label %96, label %103
 
-102:                                              ; preds = %97
-  %103 = load i16, ptr %59, align 2
-  %104 = sext i16 %103 to i64
-  %105 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %104, i32 1
-  %106 = load i8, ptr %105, align 4
-  %107 = and i8 %106, -40
-  %108 = or disjoint i8 %107, 36
-  store i8 %108, ptr %105, align 4
-  br label %109
+96:                                               ; preds = %91
+  %97 = load i16, ptr %gep58, align 2
+  %98 = sext i16 %97 to i64
+  %99 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::FaceVertex::Edge", ptr %1, i64 %98, i32 1
+  %100 = load i8, ptr %99, align 4
+  %101 = and i8 %100, -40
+  %102 = or disjoint i8 %101, 36
+  store i8 %102, ptr %99, align 4
+  br label %103
 
-109:                                              ; preds = %81, %102, %97
+103:                                              ; preds = %75, %96, %91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit54, label %81, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit54, label %75, !llvm.loop !29
 
-.loopexit54:                                      ; preds = %109, %.preheader, %60, %64
-  %110 = sext i32 %50 to i64
-  %111 = getelementptr inbounds i32, ptr %.05158, i64 %110
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
-  br i1 %exitcond72.not, label %.loopexit, label %39, !llvm.loop !30
+.loopexit54:                                      ; preds = %103, %.preheader, %56, %60
+  %104 = sext i32 %48 to i64
+  %105 = getelementptr inbounds i32, ptr %.05160, i64 %104
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
+  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
+  br i1 %exitcond74.not, label %.loopexit, label %37, !llvm.loop !30
 
-.loopexit:                                        ; preds = %.loopexit54, %37, %.preheader55, %16, %4
+.loopexit:                                        ; preds = %.loopexit54, %35, %.preheader55, %16, %4
   ret void
 }
 

@@ -339,6 +339,8 @@ define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly cap
   %indvars.iv46 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next47, %._crit_edge ]
   %20 = lshr exact i64 %indvars.iv46, 1
   %21 = mul nsw i64 %20, %18
+  %invariant.gep = getelementptr float, ptr %3, i64 %indvars.iv46
+  %invariant.gep49 = getelementptr float, ptr %5, i64 %21
   br label %22
 
 22:                                               ; preds = %.preheader, %22
@@ -346,29 +348,25 @@ define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly cap
   %23 = load float, ptr %2, align 4, !tbaa !3
   %24 = lshr exact i64 %indvars.iv, 1
   %25 = mul nsw i64 %24, %16
-  %26 = add nsw i64 %25, %indvars.iv46
-  %27 = getelementptr inbounds float, ptr %3, i64 %26
-  %28 = load float, ptr %27, align 4, !tbaa !3
-  %29 = load float, ptr %13, align 4, !tbaa !3
-  %30 = fmul float %29, %12
-  %31 = or disjoint i64 %26, 1
-  %32 = getelementptr inbounds float, ptr %3, i64 %31
-  %33 = load float, ptr %32, align 4, !tbaa !3
-  %34 = fmul float %30, %33
-  %35 = tail call float @llvm.fmuladd.f32(float %23, float %28, float %34)
-  %36 = add nsw i64 %indvars.iv, %21
-  %37 = getelementptr inbounds float, ptr %5, i64 %36
-  store float %35, ptr %37, align 4, !tbaa !3
-  %38 = load float, ptr %2, align 4, !tbaa !3
-  %39 = fmul float %38, %14
-  %40 = load float, ptr %32, align 4, !tbaa !3
-  %41 = load float, ptr %13, align 4, !tbaa !3
-  %42 = load float, ptr %27, align 4, !tbaa !3
-  %43 = fmul float %41, %42
-  %44 = tail call float @llvm.fmuladd.f32(float %39, float %40, float %43)
-  %45 = or disjoint i64 %36, 1
-  %46 = getelementptr inbounds float, ptr %5, i64 %45
-  store float %44, ptr %46, align 4, !tbaa !3
+  %gep = getelementptr float, ptr %invariant.gep, i64 %25
+  %26 = load float, ptr %gep, align 4, !tbaa !3
+  %27 = load float, ptr %13, align 4, !tbaa !3
+  %28 = fmul float %27, %12
+  %29 = getelementptr i8, ptr %gep, i64 4
+  %30 = load float, ptr %29, align 4, !tbaa !3
+  %31 = fmul float %28, %30
+  %32 = tail call float @llvm.fmuladd.f32(float %23, float %26, float %31)
+  %gep50 = getelementptr float, ptr %invariant.gep49, i64 %indvars.iv
+  store float %32, ptr %gep50, align 4, !tbaa !3
+  %33 = load float, ptr %2, align 4, !tbaa !3
+  %34 = fmul float %33, %14
+  %35 = load float, ptr %29, align 4, !tbaa !3
+  %36 = load float, ptr %13, align 4, !tbaa !3
+  %37 = load float, ptr %gep, align 4, !tbaa !3
+  %38 = fmul float %36, %37
+  %39 = tail call float @llvm.fmuladd.f32(float %34, float %35, float %38)
+  %40 = getelementptr i8, ptr %gep50, i64 4
+  store float %39, ptr %40, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.not38 = icmp eq i64 %indvars.iv.next, %17
   br i1 %.not38, label %._crit_edge, label %22, !llvm.loop !24
@@ -412,6 +410,8 @@ define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly cap
   %indvars.iv46 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next47, %._crit_edge ]
   %20 = lshr exact i64 %indvars.iv46, 1
   %21 = mul nsw i64 %20, %18
+  %invariant.gep = getelementptr double, ptr %3, i64 %indvars.iv46
+  %invariant.gep49 = getelementptr double, ptr %5, i64 %21
   br label %22
 
 22:                                               ; preds = %.preheader, %22
@@ -419,29 +419,25 @@ define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly cap
   %23 = load double, ptr %2, align 8, !tbaa !9
   %24 = lshr exact i64 %indvars.iv, 1
   %25 = mul nsw i64 %24, %16
-  %26 = add nsw i64 %25, %indvars.iv46
-  %27 = getelementptr inbounds double, ptr %3, i64 %26
-  %28 = load double, ptr %27, align 8, !tbaa !9
-  %29 = load double, ptr %13, align 8, !tbaa !9
-  %30 = fmul double %29, %12
-  %31 = or disjoint i64 %26, 1
-  %32 = getelementptr inbounds double, ptr %3, i64 %31
-  %33 = load double, ptr %32, align 8, !tbaa !9
-  %34 = fmul double %30, %33
-  %35 = tail call double @llvm.fmuladd.f64(double %23, double %28, double %34)
-  %36 = add nsw i64 %indvars.iv, %21
-  %37 = getelementptr inbounds double, ptr %5, i64 %36
-  store double %35, ptr %37, align 8, !tbaa !9
-  %38 = load double, ptr %2, align 8, !tbaa !9
-  %39 = fmul double %38, %14
-  %40 = load double, ptr %32, align 8, !tbaa !9
-  %41 = load double, ptr %13, align 8, !tbaa !9
-  %42 = load double, ptr %27, align 8, !tbaa !9
-  %43 = fmul double %41, %42
-  %44 = tail call double @llvm.fmuladd.f64(double %39, double %40, double %43)
-  %45 = or disjoint i64 %36, 1
-  %46 = getelementptr inbounds double, ptr %5, i64 %45
-  store double %44, ptr %46, align 8, !tbaa !9
+  %gep = getelementptr double, ptr %invariant.gep, i64 %25
+  %26 = load double, ptr %gep, align 8, !tbaa !9
+  %27 = load double, ptr %13, align 8, !tbaa !9
+  %28 = fmul double %27, %12
+  %29 = getelementptr i8, ptr %gep, i64 8
+  %30 = load double, ptr %29, align 8, !tbaa !9
+  %31 = fmul double %28, %30
+  %32 = tail call double @llvm.fmuladd.f64(double %23, double %26, double %31)
+  %gep50 = getelementptr double, ptr %invariant.gep49, i64 %indvars.iv
+  store double %32, ptr %gep50, align 8, !tbaa !9
+  %33 = load double, ptr %2, align 8, !tbaa !9
+  %34 = fmul double %33, %14
+  %35 = load double, ptr %29, align 8, !tbaa !9
+  %36 = load double, ptr %13, align 8, !tbaa !9
+  %37 = load double, ptr %gep, align 8, !tbaa !9
+  %38 = fmul double %36, %37
+  %39 = tail call double @llvm.fmuladd.f64(double %34, double %35, double %38)
+  %40 = getelementptr i8, ptr %gep50, i64 8
+  store double %39, ptr %40, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.not38 = icmp eq i64 %indvars.iv.next, %17
   br i1 %.not38, label %._crit_edge, label %22, !llvm.loop !26
@@ -568,34 +564,32 @@ define void @my_ccopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captu
   %indvars.iv46 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next47, %._crit_edge ]
   %19 = mul nsw i64 %indvars.iv46, %16
   %20 = mul nsw i64 %indvars.iv46, %17
+  %invariant.gep = getelementptr float, ptr %3, i64 %19
+  %invariant.gep49 = getelementptr float, ptr %5, i64 %20
   br label %21
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
   %22 = load float, ptr %2, align 4, !tbaa !3
-  %23 = add nsw i64 %indvars.iv, %19
-  %24 = getelementptr inbounds float, ptr %3, i64 %23
-  %25 = load float, ptr %24, align 4, !tbaa !3
-  %26 = load float, ptr %12, align 4, !tbaa !3
-  %27 = fmul float %26, %11
-  %28 = or disjoint i64 %23, 1
-  %29 = getelementptr inbounds float, ptr %3, i64 %28
-  %30 = load float, ptr %29, align 4, !tbaa !3
-  %31 = fmul float %27, %30
-  %32 = tail call float @llvm.fmuladd.f32(float %22, float %25, float %31)
-  %33 = add nsw i64 %indvars.iv, %20
-  %34 = getelementptr inbounds float, ptr %5, i64 %33
-  store float %32, ptr %34, align 4, !tbaa !3
-  %35 = load float, ptr %2, align 4, !tbaa !3
-  %36 = fmul float %35, %13
-  %37 = load float, ptr %29, align 4, !tbaa !3
-  %38 = load float, ptr %12, align 4, !tbaa !3
-  %39 = load float, ptr %24, align 4, !tbaa !3
-  %40 = fmul float %38, %39
-  %41 = tail call float @llvm.fmuladd.f32(float %36, float %37, float %40)
-  %42 = or disjoint i64 %33, 1
-  %43 = getelementptr inbounds float, ptr %5, i64 %42
-  store float %41, ptr %43, align 4, !tbaa !3
+  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %23 = load float, ptr %gep, align 4, !tbaa !3
+  %24 = load float, ptr %12, align 4, !tbaa !3
+  %25 = fmul float %24, %11
+  %26 = getelementptr i8, ptr %gep, i64 4
+  %27 = load float, ptr %26, align 4, !tbaa !3
+  %28 = fmul float %25, %27
+  %29 = tail call float @llvm.fmuladd.f32(float %22, float %23, float %28)
+  %gep50 = getelementptr float, ptr %invariant.gep49, i64 %indvars.iv
+  store float %29, ptr %gep50, align 4, !tbaa !3
+  %30 = load float, ptr %2, align 4, !tbaa !3
+  %31 = fmul float %30, %13
+  %32 = load float, ptr %26, align 4, !tbaa !3
+  %33 = load float, ptr %12, align 4, !tbaa !3
+  %34 = load float, ptr %gep, align 4, !tbaa !3
+  %35 = fmul float %33, %34
+  %36 = tail call float @llvm.fmuladd.f32(float %31, float %32, float %35)
+  %37 = getelementptr i8, ptr %gep50, i64 4
+  store float %36, ptr %37, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.not38 = icmp eq i64 %indvars.iv.next, %15
   br i1 %.not38, label %._crit_edge, label %21, !llvm.loop !32
@@ -635,34 +629,32 @@ define void @my_zcopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captu
   %indvars.iv46 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next47, %._crit_edge ]
   %19 = mul nsw i64 %indvars.iv46, %16
   %20 = mul nsw i64 %indvars.iv46, %17
+  %invariant.gep = getelementptr double, ptr %3, i64 %19
+  %invariant.gep49 = getelementptr double, ptr %5, i64 %20
   br label %21
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
   %22 = load double, ptr %2, align 8, !tbaa !9
-  %23 = add nsw i64 %indvars.iv, %19
-  %24 = getelementptr inbounds double, ptr %3, i64 %23
-  %25 = load double, ptr %24, align 8, !tbaa !9
-  %26 = load double, ptr %12, align 8, !tbaa !9
-  %27 = fmul double %26, %11
-  %28 = or disjoint i64 %23, 1
-  %29 = getelementptr inbounds double, ptr %3, i64 %28
-  %30 = load double, ptr %29, align 8, !tbaa !9
-  %31 = fmul double %27, %30
-  %32 = tail call double @llvm.fmuladd.f64(double %22, double %25, double %31)
-  %33 = add nsw i64 %indvars.iv, %20
-  %34 = getelementptr inbounds double, ptr %5, i64 %33
-  store double %32, ptr %34, align 8, !tbaa !9
-  %35 = load double, ptr %2, align 8, !tbaa !9
-  %36 = fmul double %35, %13
-  %37 = load double, ptr %29, align 8, !tbaa !9
-  %38 = load double, ptr %12, align 8, !tbaa !9
-  %39 = load double, ptr %24, align 8, !tbaa !9
-  %40 = fmul double %38, %39
-  %41 = tail call double @llvm.fmuladd.f64(double %36, double %37, double %40)
-  %42 = or disjoint i64 %33, 1
-  %43 = getelementptr inbounds double, ptr %5, i64 %42
-  store double %41, ptr %43, align 8, !tbaa !9
+  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %23 = load double, ptr %gep, align 8, !tbaa !9
+  %24 = load double, ptr %12, align 8, !tbaa !9
+  %25 = fmul double %24, %11
+  %26 = getelementptr i8, ptr %gep, i64 8
+  %27 = load double, ptr %26, align 8, !tbaa !9
+  %28 = fmul double %25, %27
+  %29 = tail call double @llvm.fmuladd.f64(double %22, double %23, double %28)
+  %gep50 = getelementptr double, ptr %invariant.gep49, i64 %indvars.iv
+  store double %29, ptr %gep50, align 8, !tbaa !9
+  %30 = load double, ptr %2, align 8, !tbaa !9
+  %31 = fmul double %30, %13
+  %32 = load double, ptr %26, align 8, !tbaa !9
+  %33 = load double, ptr %12, align 8, !tbaa !9
+  %34 = load double, ptr %gep, align 8, !tbaa !9
+  %35 = fmul double %33, %34
+  %36 = tail call double @llvm.fmuladd.f64(double %31, double %32, double %35)
+  %37 = getelementptr i8, ptr %gep50, i64 8
+  store double %36, ptr %37, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.not38 = icmp eq i64 %indvars.iv.next, %15
   br i1 %.not38, label %._crit_edge, label %21, !llvm.loop !34

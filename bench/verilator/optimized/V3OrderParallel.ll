@@ -23166,103 +23166,106 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIPZN11Contraction24siblingP
   br i1 %14, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-  %.033.i.i = phi i64 [ %30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ], [ 0, %.lr.ph ]
+  %.033.i.i = phi i64 [ %32, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ], [ 0, %.lr.ph ]
   %15 = shl i64 %.033.i.i, 1
   %16 = add i64 %15, 2
   %17 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %16
-  %18 = or disjoint i64 %15, 1
-  %19 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %18
+  %18 = getelementptr %struct.SortingRecord, ptr %0, i64 %15
+  %19 = getelementptr i8, ptr %18, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !564
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %22 = getelementptr i8, ptr %18, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !564
   %24 = icmp ult i32 %21, %23
-  br i1 %24, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %25
+  br i1 %24, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %26
 
-25:                                               ; preds = %.lr.ph.i.i
-  %26 = icmp eq i32 %21, %23
-  br i1 %26, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i: ; preds = %25
-  %27 = load i64, ptr %17, align 16, !tbaa !562
-  %28 = load i64, ptr %19, align 16, !tbaa !562
-  %29 = icmp ult i64 %27, %28
-  %cond.fr.i.i = freeze i1 %29
-  br i1 %cond.fr.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %.lr.ph.i.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i: ; preds = %.lr.ph.i.i
+  %25 = or disjoint i64 %15, 1
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %25
-  %30 = phi i64 [ %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i ], [ %16, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i ], [ %16, %25 ]
-  %31 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %30
-  %32 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.033.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %32, ptr noundef nonnull align 16 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !579
-  %33 = icmp slt i64 %30, %13
-  br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !585
+26:                                               ; preds = %.lr.ph.i.i
+  %27 = icmp eq i32 %21, %23
+  br i1 %27, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i: ; preds = %26
+  %28 = load i64, ptr %17, align 16, !tbaa !562
+  %29 = load i64, ptr %19, align 16, !tbaa !562
+  %30 = icmp ult i64 %28, %29
+  %31 = or disjoint i64 %15, 1
+  %cond.fr.i.i = freeze i1 %30
+  %spec.select.i.i = select i1 %cond.fr.i.i, i64 %31, i64 %16
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i
+  %32 = phi i64 [ %25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i ], [ %16, %26 ], [ %spec.select.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i ]
+  %33 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %32
+  %34 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.033.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %34, ptr noundef nonnull align 16 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !579
+  %35 = icmp slt i64 %32, %13
+  br i1 %35, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !585
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i, %.lr.ph
-  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ]
-  %34 = and i64 %10, 16
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %45
+  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %32, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ]
+  %36 = and i64 %10, 16
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %38, label %47
 
-36:                                               ; preds = %._crit_edge.i.i
-  %37 = add nsw i64 %11, -2
-  %38 = ashr exact i64 %37, 1
-  %39 = icmp eq i64 %.0.lcssa.i.i, %38
-  br i1 %39, label %40, label %45
+38:                                               ; preds = %._crit_edge.i.i
+  %39 = add nsw i64 %11, -2
+  %40 = ashr exact i64 %39, 1
+  %41 = icmp eq i64 %.0.lcssa.i.i, %40
+  br i1 %41, label %42, label %47
 
-40:                                               ; preds = %36
-  %41 = shl nsw i64 %.0.lcssa.i.i, 1
-  %42 = or disjoint i64 %41, 1
-  %43 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %42
-  %44 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.0.lcssa.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %44, ptr noundef nonnull align 16 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !579
-  br label %45
-
-45:                                               ; preds = %40, %36, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %42, %40 ], [ %.0.lcssa.i.i, %36 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %46 = icmp sgt i64 %.1.i.i, 0
-  br i1 %46, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
-
-.lr.ph.i.i.i:                                     ; preds = %45
-  %.sroa.3.8.extract.trunc.i.i.i = trunc i64 %.sroa.4.0.copyload.i to i32
+42:                                               ; preds = %38
+  %43 = shl nsw i64 %.0.lcssa.i.i, 1
+  %44 = or disjoint i64 %43, 1
+  %45 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %44
+  %46 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.0.lcssa.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %46, ptr noundef nonnull align 16 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !579
   br label %47
 
-47:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
+47:                                               ; preds = %42, %38, %._crit_edge.i.i
+  %.1.i.i = phi i64 [ %44, %42 ], [ %.0.lcssa.i.i, %38 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
+  %48 = icmp sgt i64 %.1.i.i, 0
+  br i1 %48, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+
+.lr.ph.i.i.i:                                     ; preds = %47
+  %.sroa.3.8.extract.trunc.i.i.i = trunc i64 %.sroa.4.0.copyload.i to i32
+  br label %49
+
+49:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
   %.01317.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.018.i.i78.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ]
   %.018.in.i.i.i = add nsw i64 %.01317.i.i.i, -1
   %.018.i.i78.i = lshr i64 %.018.in.i.i.i, 1
-  %48 = getelementptr inbounds nuw %struct.SortingRecord, ptr %0, i64 %.018.i.i78.i
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i32, ptr %49, align 8, !tbaa !564
-  %51 = icmp ult i32 %50, %.sroa.3.8.extract.trunc.i.i.i
-  br i1 %51, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %52
+  %50 = getelementptr inbounds nuw %struct.SortingRecord, ptr %0, i64 %.018.i.i78.i
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i32, ptr %51, align 8, !tbaa !564
+  %53 = icmp ult i32 %52, %.sroa.3.8.extract.trunc.i.i.i
+  br i1 %53, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %54
 
-52:                                               ; preds = %47
-  %53 = icmp eq i32 %50, %.sroa.3.8.extract.trunc.i.i.i
-  br i1 %53, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+54:                                               ; preds = %49
+  %55 = icmp eq i32 %52, %.sroa.3.8.extract.trunc.i.i.i
+  br i1 %55, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i: ; preds = %52
-  %54 = load i64, ptr %48, align 16, !tbaa !562
-  %55 = icmp ult i64 %54, %.sroa.01.0.copyload.i
-  br i1 %55, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i: ; preds = %54
+  %56 = load i64, ptr %50, align 16, !tbaa !562
+  %57 = icmp ult i64 %56, %.sroa.01.0.copyload.i
+  br i1 %57, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %47
-  %56 = getelementptr inbounds nuw %struct.SortingRecord, ptr %0, i64 %.01317.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 16 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !579
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %49
+  %58 = getelementptr inbounds nuw %struct.SortingRecord, ptr %0, i64 %.01317.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %58, ptr noundef nonnull align 16 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !579
   %.not.i = icmp ult i64 %.018.in.i.i.i, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %47, !llvm.loop !586
+  br i1 %.not.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %49, !llvm.loop !586
 
-_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %52, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %45
-  %.013.lcssa.i.i.i = phi i64 [ %.1.i.i, %45 ], [ %.01317.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ], [ %.01317.i.i.i, %52 ]
-  %57 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.013.lcssa.i.i.i
-  store i64 %.sroa.01.0.copyload.i, ptr %57, align 16, !tbaa !23
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
+_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %54, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %47
+  %.013.lcssa.i.i.i = phi i64 [ %.1.i.i, %47 ], [ %.01317.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ], [ %.01317.i.i.i, %54 ]
+  %59 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.013.lcssa.i.i.i
+  store i64 %.sroa.01.0.copyload.i, ptr %59, align 16, !tbaa !23
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
-  %58 = icmp sgt i64 %10, 16
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !587
+  %60 = icmp sgt i64 %10, 16
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !587
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, %3
   ret void
@@ -23291,7 +23294,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPZN11Contraction24siblingP
   br label %20
 
 20:                                               ; preds = %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, %9
-  %.013 = phi i64 [ %11, %9 ], [ %58, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ]
+  %.013 = phi i64 [ %11, %9 ], [ %60, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ]
   %21 = getelementptr inbounds nuw %struct.SortingRecord, ptr %0, i64 %.013
   %.sroa.01.0.copyload = load i64, ptr %21, align 16, !tbaa !23
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -23300,93 +23303,96 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPZN11Contraction24siblingP
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %20, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
-  %.033.i = phi i64 [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ], [ %.013, %20 ]
+  %.033.i = phi i64 [ %40, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ], [ %.013, %20 ]
   %23 = shl i64 %.033.i, 1
   %24 = add i64 %23, 2
   %25 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %24
-  %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %26
+  %26 = getelementptr %struct.SortingRecord, ptr %0, i64 %23
+  %27 = getelementptr i8, ptr %26, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !564
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = getelementptr i8, ptr %26, i64 24
   %31 = load i32, ptr %30, align 8, !tbaa !564
   %32 = icmp ult i32 %29, %31
-  br i1 %32, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, label %33
+  br i1 %32, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, label %34
 
-33:                                               ; preds = %.lr.ph.i
-  %34 = icmp eq i32 %29, %31
-  br i1 %34, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i: ; preds = %33
-  %35 = load i64, ptr %25, align 16, !tbaa !562
-  %36 = load i64, ptr %27, align 16, !tbaa !562
-  %37 = icmp ult i64 %35, %36
-  %cond.fr.i = freeze i1 %37
-  br i1 %cond.fr.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, %.lr.ph.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i: ; preds = %.lr.ph.i
+  %33 = or disjoint i64 %23, 1
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, %33
-  %38 = phi i64 [ %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i ], [ %24, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i ], [ %24, %33 ]
-  %39 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %38
-  %40 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.033.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %40, ptr noundef nonnull align 16 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !579
-  %41 = icmp slt i64 %38, %13
-  br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !585
+34:                                               ; preds = %.lr.ph.i
+  %35 = icmp eq i32 %29, %31
+  br i1 %35, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i: ; preds = %34
+  %36 = load i64, ptr %25, align 16, !tbaa !562
+  %37 = load i64, ptr %27, align 16, !tbaa !562
+  %38 = icmp ult i64 %36, %37
+  %39 = or disjoint i64 %23, 1
+  %cond.fr.i = freeze i1 %38
+  %spec.select.i = select i1 %cond.fr.i, i64 %39, i64 %24
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i
+  %40 = phi i64 [ %33, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i ], [ %24, %34 ], [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i ]
+  %41 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %40
+  %42 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.033.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %42, ptr noundef nonnull align 16 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !579
+  %43 = icmp slt i64 %40, %13
+  br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !585
 
 ._crit_edge.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i, %20
-  %.0.lcssa.i = phi i64 [ %.013, %20 ], [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ]
-  %42 = icmp eq i64 %.0.lcssa.i, %16
-  %or.cond = select i1 %15, i1 %42, i1 false
-  br i1 %or.cond, label %43, label %44
+  %.0.lcssa.i = phi i64 [ %.013, %20 ], [ %40, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ]
+  %44 = icmp eq i64 %.0.lcssa.i, %16
+  %or.cond = select i1 %15, i1 %44, i1 false
+  br i1 %or.cond, label %45, label %46
 
-43:                                               ; preds = %._crit_edge.i
+45:                                               ; preds = %._crit_edge.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, ptr noundef nonnull align 16 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !579
-  br label %44
-
-44:                                               ; preds = %43, %._crit_edge.i
-  %.1.i = phi i64 [ %17, %43 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %45 = icmp sgt i64 %.1.i, %.013
-  br i1 %45, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
-
-.lr.ph.i.i:                                       ; preds = %44
-  %.sroa.3.8.extract.trunc.i.i = trunc i64 %.sroa.4.0.copyload to i32
   br label %46
 
-46:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %.lr.ph.i.i
+46:                                               ; preds = %45, %._crit_edge.i
+  %.1.i = phi i64 [ %17, %45 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %47 = icmp sgt i64 %.1.i, %.013
+  br i1 %47, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
+
+.lr.ph.i.i:                                       ; preds = %46
+  %.sroa.3.8.extract.trunc.i.i = trunc i64 %.sroa.4.0.copyload to i32
+  br label %48
+
+48:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %.lr.ph.i.i
   %.01317.i.i = phi i64 [ %.1.i, %.lr.ph.i.i ], [ %.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %47 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.018.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load i32, ptr %48, align 8, !tbaa !564
-  %50 = icmp ult i32 %49, %.sroa.3.8.extract.trunc.i.i
-  br i1 %50, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %51
+  %49 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.018.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load i32, ptr %50, align 8, !tbaa !564
+  %52 = icmp ult i32 %51, %.sroa.3.8.extract.trunc.i.i
+  br i1 %52, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %53
 
-51:                                               ; preds = %46
-  %52 = icmp eq i32 %49, %.sroa.3.8.extract.trunc.i.i
-  br i1 %52, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
+53:                                               ; preds = %48
+  %54 = icmp eq i32 %51, %.sroa.3.8.extract.trunc.i.i
+  br i1 %54, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i: ; preds = %51
-  %53 = load i64, ptr %47, align 16, !tbaa !562
-  %54 = icmp ult i64 %53, %.sroa.01.0.copyload
-  br i1 %54, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i: ; preds = %53
+  %55 = load i64, ptr %49, align 16, !tbaa !562
+  %56 = icmp ult i64 %55, %.sroa.01.0.copyload
+  br i1 %56, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %46
-  %55 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.01317.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %55, ptr noundef nonnull align 16 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !579
-  %56 = icmp sgt i64 %.018.i.i, %.013
-  br i1 %56, label %46, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !586
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %48
+  %57 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.01317.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %57, ptr noundef nonnull align 16 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !579
+  %58 = icmp sgt i64 %.018.i.i, %.013
+  br i1 %58, label %48, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !586
 
-_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %51, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %44
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %44 ], [ %.01317.i.i, %51 ], [ %.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i ], [ %.01317.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i ]
-  %57 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.013.lcssa.i.i
-  store i64 %.sroa.01.0.copyload, ptr %57, align 16, !tbaa !23
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
+_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %53, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %46
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %46 ], [ %.01317.i.i, %53 ], [ %.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i ], [ %.01317.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i ]
+  %59 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %.013.lcssa.i.i
+  store i64 %.sroa.01.0.copyload, ptr %59, align 16, !tbaa !23
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sroa.4.0.copyload, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %.not = icmp eq i64 %.013, 0
-  %58 = add nsw i64 %.013, -1
+  %60 = add nsw i64 %.013, -1
   br i1 %.not, label %.loopexit, label %20, !llvm.loop !588
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, %3
@@ -23962,103 +23968,106 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIPZN11Contraction24siblingP
   br i1 %14, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-  %.033.i.i = phi i64 [ %30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ], [ 0, %.lr.ph ]
+  %.033.i.i = phi i64 [ %32, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ], [ 0, %.lr.ph ]
   %15 = shl i64 %.033.i.i, 1
   %16 = add i64 %15, 2
   %17 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %16
-  %18 = or disjoint i64 %15, 1
-  %19 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %18
+  %18 = getelementptr %struct.SortingRecord.329, ptr %0, i64 %15
+  %19 = getelementptr i8, ptr %18, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !569
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %22 = getelementptr i8, ptr %18, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !569
   %24 = icmp ult i32 %21, %23
-  br i1 %24, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %25
+  br i1 %24, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %26
 
-25:                                               ; preds = %.lr.ph.i.i
-  %26 = icmp eq i32 %21, %23
-  br i1 %26, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i: ; preds = %25
-  %27 = load i64, ptr %17, align 16, !tbaa !567
-  %28 = load i64, ptr %19, align 16, !tbaa !567
-  %29 = icmp ult i64 %27, %28
-  %cond.fr.i.i = freeze i1 %29
-  br i1 %cond.fr.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %.lr.ph.i.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i: ; preds = %.lr.ph.i.i
+  %25 = or disjoint i64 %15, 1
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %25
-  %30 = phi i64 [ %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i ], [ %16, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i ], [ %16, %25 ]
-  %31 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %30
-  %32 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.033.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %32, ptr noundef nonnull align 16 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !579
-  %33 = icmp slt i64 %30, %13
-  br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !596
+26:                                               ; preds = %.lr.ph.i.i
+  %27 = icmp eq i32 %21, %23
+  br i1 %27, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i: ; preds = %26
+  %28 = load i64, ptr %17, align 16, !tbaa !567
+  %29 = load i64, ptr %19, align 16, !tbaa !567
+  %30 = icmp ult i64 %28, %29
+  %31 = or disjoint i64 %15, 1
+  %cond.fr.i.i = freeze i1 %30
+  %spec.select.i.i = select i1 %cond.fr.i.i, i64 %31, i64 %16
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i
+  %32 = phi i64 [ %25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i ], [ %16, %26 ], [ %spec.select.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i ]
+  %33 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %32
+  %34 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.033.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %34, ptr noundef nonnull align 16 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !579
+  %35 = icmp slt i64 %32, %13
+  br i1 %35, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !596
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i, %.lr.ph
-  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ]
-  %34 = and i64 %10, 16
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %45
+  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %32, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ]
+  %36 = and i64 %10, 16
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %38, label %47
 
-36:                                               ; preds = %._crit_edge.i.i
-  %37 = add nsw i64 %11, -2
-  %38 = ashr exact i64 %37, 1
-  %39 = icmp eq i64 %.0.lcssa.i.i, %38
-  br i1 %39, label %40, label %45
+38:                                               ; preds = %._crit_edge.i.i
+  %39 = add nsw i64 %11, -2
+  %40 = ashr exact i64 %39, 1
+  %41 = icmp eq i64 %.0.lcssa.i.i, %40
+  br i1 %41, label %42, label %47
 
-40:                                               ; preds = %36
-  %41 = shl nsw i64 %.0.lcssa.i.i, 1
-  %42 = or disjoint i64 %41, 1
-  %43 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %42
-  %44 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.0.lcssa.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %44, ptr noundef nonnull align 16 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !579
-  br label %45
-
-45:                                               ; preds = %40, %36, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %42, %40 ], [ %.0.lcssa.i.i, %36 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %46 = icmp sgt i64 %.1.i.i, 0
-  br i1 %46, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
-
-.lr.ph.i.i.i:                                     ; preds = %45
-  %.sroa.3.8.extract.trunc.i.i.i = trunc i64 %.sroa.4.0.copyload.i to i32
+42:                                               ; preds = %38
+  %43 = shl nsw i64 %.0.lcssa.i.i, 1
+  %44 = or disjoint i64 %43, 1
+  %45 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %44
+  %46 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.0.lcssa.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %46, ptr noundef nonnull align 16 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !579
   br label %47
 
-47:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
+47:                                               ; preds = %42, %38, %._crit_edge.i.i
+  %.1.i.i = phi i64 [ %44, %42 ], [ %.0.lcssa.i.i, %38 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
+  %48 = icmp sgt i64 %.1.i.i, 0
+  br i1 %48, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+
+.lr.ph.i.i.i:                                     ; preds = %47
+  %.sroa.3.8.extract.trunc.i.i.i = trunc i64 %.sroa.4.0.copyload.i to i32
+  br label %49
+
+49:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
   %.01317.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.018.i.i78.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ]
   %.018.in.i.i.i = add nsw i64 %.01317.i.i.i, -1
   %.018.i.i78.i = lshr i64 %.018.in.i.i.i, 1
-  %48 = getelementptr inbounds nuw %struct.SortingRecord.329, ptr %0, i64 %.018.i.i78.i
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i32, ptr %49, align 8, !tbaa !569
-  %51 = icmp ult i32 %50, %.sroa.3.8.extract.trunc.i.i.i
-  br i1 %51, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %52
+  %50 = getelementptr inbounds nuw %struct.SortingRecord.329, ptr %0, i64 %.018.i.i78.i
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i32, ptr %51, align 8, !tbaa !569
+  %53 = icmp ult i32 %52, %.sroa.3.8.extract.trunc.i.i.i
+  br i1 %53, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %54
 
-52:                                               ; preds = %47
-  %53 = icmp eq i32 %50, %.sroa.3.8.extract.trunc.i.i.i
-  br i1 %53, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+54:                                               ; preds = %49
+  %55 = icmp eq i32 %52, %.sroa.3.8.extract.trunc.i.i.i
+  br i1 %55, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i: ; preds = %52
-  %54 = load i64, ptr %48, align 16, !tbaa !567
-  %55 = icmp ult i64 %54, %.sroa.01.0.copyload.i
-  br i1 %55, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i: ; preds = %54
+  %56 = load i64, ptr %50, align 16, !tbaa !567
+  %57 = icmp ult i64 %56, %.sroa.01.0.copyload.i
+  br i1 %57, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %47
-  %56 = getelementptr inbounds nuw %struct.SortingRecord.329, ptr %0, i64 %.01317.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 16 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !579
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %49
+  %58 = getelementptr inbounds nuw %struct.SortingRecord.329, ptr %0, i64 %.01317.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %58, ptr noundef nonnull align 16 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !579
   %.not.i = icmp ult i64 %.018.in.i.i.i, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %47, !llvm.loop !597
+  br i1 %.not.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %49, !llvm.loop !597
 
-_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %52, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %45
-  %.013.lcssa.i.i.i = phi i64 [ %.1.i.i, %45 ], [ %.01317.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ], [ %.01317.i.i.i, %52 ]
-  %57 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.013.lcssa.i.i.i
-  store i64 %.sroa.01.0.copyload.i, ptr %57, align 16, !tbaa !23
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
+_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %54, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %47
+  %.013.lcssa.i.i.i = phi i64 [ %.1.i.i, %47 ], [ %.01317.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ], [ %.01317.i.i.i, %54 ]
+  %59 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.013.lcssa.i.i.i
+  store i64 %.sroa.01.0.copyload.i, ptr %59, align 16, !tbaa !23
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
-  %58 = icmp sgt i64 %10, 16
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !598
+  %60 = icmp sgt i64 %10, 16
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !598
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, %3
   ret void
@@ -24087,7 +24096,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPZN11Contraction24siblingP
   br label %20
 
 20:                                               ; preds = %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, %9
-  %.013 = phi i64 [ %11, %9 ], [ %58, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ]
+  %.013 = phi i64 [ %11, %9 ], [ %60, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ]
   %21 = getelementptr inbounds nuw %struct.SortingRecord.329, ptr %0, i64 %.013
   %.sroa.01.0.copyload = load i64, ptr %21, align 16, !tbaa !23
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -24096,93 +24105,96 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPZN11Contraction24siblingP
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %20, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
-  %.033.i = phi i64 [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ], [ %.013, %20 ]
+  %.033.i = phi i64 [ %40, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ], [ %.013, %20 ]
   %23 = shl i64 %.033.i, 1
   %24 = add i64 %23, 2
   %25 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %24
-  %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %26
+  %26 = getelementptr %struct.SortingRecord.329, ptr %0, i64 %23
+  %27 = getelementptr i8, ptr %26, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !569
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = getelementptr i8, ptr %26, i64 24
   %31 = load i32, ptr %30, align 8, !tbaa !569
   %32 = icmp ult i32 %29, %31
-  br i1 %32, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, label %33
+  br i1 %32, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, label %34
 
-33:                                               ; preds = %.lr.ph.i
-  %34 = icmp eq i32 %29, %31
-  br i1 %34, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i: ; preds = %33
-  %35 = load i64, ptr %25, align 16, !tbaa !567
-  %36 = load i64, ptr %27, align 16, !tbaa !567
-  %37 = icmp ult i64 %35, %36
-  %cond.fr.i = freeze i1 %37
-  br i1 %cond.fr.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, %.lr.ph.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i: ; preds = %.lr.ph.i
+  %33 = or disjoint i64 %23, 1
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, %33
-  %38 = phi i64 [ %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i ], [ %24, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i ], [ %24, %33 ]
-  %39 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %38
-  %40 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.033.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %40, ptr noundef nonnull align 16 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !579
-  %41 = icmp slt i64 %38, %13
-  br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !596
+34:                                               ; preds = %.lr.ph.i
+  %35 = icmp eq i32 %29, %31
+  br i1 %35, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i: ; preds = %34
+  %36 = load i64, ptr %25, align 16, !tbaa !567
+  %37 = load i64, ptr %27, align 16, !tbaa !567
+  %38 = icmp ult i64 %36, %37
+  %39 = or disjoint i64 %23, 1
+  %cond.fr.i = freeze i1 %38
+  %spec.select.i = select i1 %cond.fr.i, i64 %39, i64 %24
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i
+  %40 = phi i64 [ %33, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i ], [ %24, %34 ], [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i ]
+  %41 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %40
+  %42 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.033.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %42, ptr noundef nonnull align 16 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !579
+  %43 = icmp slt i64 %40, %13
+  br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !596
 
 ._crit_edge.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i, %20
-  %.0.lcssa.i = phi i64 [ %.013, %20 ], [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ]
-  %42 = icmp eq i64 %.0.lcssa.i, %16
-  %or.cond = select i1 %15, i1 %42, i1 false
-  br i1 %or.cond, label %43, label %44
+  %.0.lcssa.i = phi i64 [ %.013, %20 ], [ %40, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ]
+  %44 = icmp eq i64 %.0.lcssa.i, %16
+  %or.cond = select i1 %15, i1 %44, i1 false
+  br i1 %or.cond, label %45, label %46
 
-43:                                               ; preds = %._crit_edge.i
+45:                                               ; preds = %._crit_edge.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, ptr noundef nonnull align 16 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !579
-  br label %44
-
-44:                                               ; preds = %43, %._crit_edge.i
-  %.1.i = phi i64 [ %17, %43 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %45 = icmp sgt i64 %.1.i, %.013
-  br i1 %45, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
-
-.lr.ph.i.i:                                       ; preds = %44
-  %.sroa.3.8.extract.trunc.i.i = trunc i64 %.sroa.4.0.copyload to i32
   br label %46
 
-46:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %.lr.ph.i.i
+46:                                               ; preds = %45, %._crit_edge.i
+  %.1.i = phi i64 [ %17, %45 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %47 = icmp sgt i64 %.1.i, %.013
+  br i1 %47, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
+
+.lr.ph.i.i:                                       ; preds = %46
+  %.sroa.3.8.extract.trunc.i.i = trunc i64 %.sroa.4.0.copyload to i32
+  br label %48
+
+48:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %.lr.ph.i.i
   %.01317.i.i = phi i64 [ %.1.i, %.lr.ph.i.i ], [ %.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %47 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.018.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load i32, ptr %48, align 8, !tbaa !569
-  %50 = icmp ult i32 %49, %.sroa.3.8.extract.trunc.i.i
-  br i1 %50, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %51
+  %49 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.018.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load i32, ptr %50, align 8, !tbaa !569
+  %52 = icmp ult i32 %51, %.sroa.3.8.extract.trunc.i.i
+  br i1 %52, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %53
 
-51:                                               ; preds = %46
-  %52 = icmp eq i32 %49, %.sroa.3.8.extract.trunc.i.i
-  br i1 %52, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
+53:                                               ; preds = %48
+  %54 = icmp eq i32 %51, %.sroa.3.8.extract.trunc.i.i
+  br i1 %54, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i: ; preds = %51
-  %53 = load i64, ptr %47, align 16, !tbaa !567
-  %54 = icmp ult i64 %53, %.sroa.01.0.copyload
-  br i1 %54, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i: ; preds = %53
+  %55 = load i64, ptr %49, align 16, !tbaa !567
+  %56 = icmp ult i64 %55, %.sroa.01.0.copyload
+  br i1 %56, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %46
-  %55 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.01317.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %55, ptr noundef nonnull align 16 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !579
-  %56 = icmp sgt i64 %.018.i.i, %.013
-  br i1 %56, label %46, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !597
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %48
+  %57 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.01317.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %57, ptr noundef nonnull align 16 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !579
+  %58 = icmp sgt i64 %.018.i.i, %.013
+  br i1 %58, label %48, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !597
 
-_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %51, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %44
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %44 ], [ %.01317.i.i, %51 ], [ %.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i ], [ %.01317.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i ]
-  %57 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.013.lcssa.i.i
-  store i64 %.sroa.01.0.copyload, ptr %57, align 16, !tbaa !23
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
+_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %53, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %46
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %46 ], [ %.01317.i.i, %53 ], [ %.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i ], [ %.01317.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i ]
+  %59 = getelementptr inbounds %struct.SortingRecord.329, ptr %0, i64 %.013.lcssa.i.i
+  store i64 %.sroa.01.0.copyload, ptr %59, align 16, !tbaa !23
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sroa.4.0.copyload, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %.not = icmp eq i64 %.013, 0
-  %58 = add nsw i64 %.013, -1
+  %60 = add nsw i64 %.013, -1
   br i1 %.not, label %.loopexit, label %20, !llvm.loop !599
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, %3
@@ -27207,7 +27219,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIPZN11Contraction24siblin
   ret void
 
 21:                                               ; preds = %.lr.ph, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread11
-  %.012 = phi ptr [ %1, %.lr.ph ], [ %65, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread11 ]
+  %.012 = phi ptr [ %1, %.lr.ph ], [ %67, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread11 ]
   %22 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !622
   %24 = load i32, ptr %6, align 8, !tbaa !622
@@ -27235,97 +27247,100 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativ
   br i1 %13, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-  %.033.i.i = phi i64 [ %46, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread ]
+  %.033.i.i = phi i64 [ %48, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread ]
   %31 = shl i64 %.033.i.i, 1
   %32 = add i64 %31, 2
   %33 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %32
-  %34 = or disjoint i64 %31, 1
-  %35 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %34
+  %34 = getelementptr %struct.SortingRecord.353, ptr %0, i64 %31
+  %35 = getelementptr i8, ptr %34, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !622
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %38 = getelementptr i8, ptr %34, i64 24
   %39 = load i32, ptr %38, align 8, !tbaa !622
   %40 = icmp ult i32 %37, %39
-  br i1 %40, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %41
+  br i1 %40, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %42
 
-41:                                               ; preds = %.lr.ph.i.i
-  %42 = icmp eq i32 %37, %39
-  br i1 %42, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i: ; preds = %41
-  %43 = load i64, ptr %33, align 16, !tbaa !620
-  %44 = load i64, ptr %35, align 16, !tbaa !620
-  %45 = icmp ult i64 %43, %44
-  %cond.fr.i.i = freeze i1 %45
-  br i1 %cond.fr.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %.lr.ph.i.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i: ; preds = %.lr.ph.i.i
+  %41 = or disjoint i64 %31, 1
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %41
-  %46 = phi i64 [ %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i ], [ %32, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i ], [ %32, %41 ]
-  %47 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %46
-  %48 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.033.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %48, ptr noundef nonnull align 16 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !579
-  %49 = icmp slt i64 %46, %12
-  br i1 %49, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !655
+42:                                               ; preds = %.lr.ph.i.i
+  %43 = icmp eq i32 %37, %39
+  br i1 %43, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i: ; preds = %42
+  %44 = load i64, ptr %33, align 16, !tbaa !620
+  %45 = load i64, ptr %35, align 16, !tbaa !620
+  %46 = icmp ult i64 %44, %45
+  %47 = or disjoint i64 %31, 1
+  %cond.fr.i.i = freeze i1 %46
+  %spec.select.i.i = select i1 %cond.fr.i.i, i64 %47, i64 %32
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %42, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i
+  %48 = phi i64 [ %41, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i ], [ %32, %42 ], [ %spec.select.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i ]
+  %49 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %48
+  %50 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.033.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %50, ptr noundef nonnull align 16 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !579
+  %51 = icmp slt i64 %48, %12
+  br i1 %51, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !655
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread
-  %.0.lcssa.i.i = phi i64 [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread ], [ %46, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ]
-  %50 = icmp eq i64 %.0.lcssa.i.i, %17
-  %or.cond = select i1 %15, i1 %50, i1 false
-  br i1 %or.cond, label %51, label %52
+  %.0.lcssa.i.i = phi i64 [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread ], [ %48, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ]
+  %52 = icmp eq i64 %.0.lcssa.i.i, %17
+  %or.cond = select i1 %15, i1 %52, i1 false
+  br i1 %or.cond, label %53, label %54
 
-51:                                               ; preds = %._crit_edge.i.i
+53:                                               ; preds = %._crit_edge.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, ptr noundef nonnull align 16 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !579
-  br label %52
-
-52:                                               ; preds = %51, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %18, %51 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %53 = icmp sgt i64 %.1.i.i, 0
-  br i1 %53, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
-
-.lr.ph.i.i.i:                                     ; preds = %52
-  %.sroa.3.8.extract.trunc.i.i.i = trunc i64 %.sroa.4.0.copyload.i to i32
   br label %54
 
-54:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
+54:                                               ; preds = %53, %._crit_edge.i.i
+  %.1.i.i = phi i64 [ %18, %53 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
+  %55 = icmp sgt i64 %.1.i.i, 0
+  br i1 %55, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+
+.lr.ph.i.i.i:                                     ; preds = %54
+  %.sroa.3.8.extract.trunc.i.i.i = trunc i64 %.sroa.4.0.copyload.i to i32
+  br label %56
+
+56:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
   %.01317.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.018.i.i78.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ]
   %.018.in.i.i.i = add nsw i64 %.01317.i.i.i, -1
   %.018.i.i78.i = lshr i64 %.018.in.i.i.i, 1
-  %55 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %0, i64 %.018.i.i78.i
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load i32, ptr %56, align 8, !tbaa !622
-  %58 = icmp ult i32 %57, %.sroa.3.8.extract.trunc.i.i.i
-  br i1 %58, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %59
+  %57 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %0, i64 %.018.i.i78.i
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load i32, ptr %58, align 8, !tbaa !622
+  %60 = icmp ult i32 %59, %.sroa.3.8.extract.trunc.i.i.i
+  br i1 %60, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %61
 
-59:                                               ; preds = %54
-  %60 = icmp eq i32 %57, %.sroa.3.8.extract.trunc.i.i.i
-  br i1 %60, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+61:                                               ; preds = %56
+  %62 = icmp eq i32 %59, %.sroa.3.8.extract.trunc.i.i.i
+  br i1 %62, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i: ; preds = %59
-  %61 = load i64, ptr %55, align 16, !tbaa !620
-  %62 = icmp ult i64 %61, %.sroa.01.0.copyload.i
-  br i1 %62, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i: ; preds = %61
+  %63 = load i64, ptr %57, align 16, !tbaa !620
+  %64 = icmp ult i64 %63, %.sroa.01.0.copyload.i
+  br i1 %64, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %54
-  %63 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %0, i64 %.01317.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %63, ptr noundef nonnull align 16 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !579
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %56
+  %65 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %0, i64 %.01317.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %65, ptr noundef nonnull align 16 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !579
   %.not.i = icmp ult i64 %.018.in.i.i.i, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %54, !llvm.loop !656
+  br i1 %.not.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %56, !llvm.loop !656
 
-_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %59, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %52
-  %.013.lcssa.i.i.i = phi i64 [ %.1.i.i, %52 ], [ %.01317.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ], [ %.01317.i.i.i, %59 ]
-  %64 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.013.lcssa.i.i.i
-  store i64 %.sroa.01.0.copyload.i, ptr %64, align 16, !tbaa !23
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %64, i64 8
+_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %61, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %54
+  %.013.lcssa.i.i.i = phi i64 [ %.1.i.i, %54 ], [ %.01317.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ], [ %.01317.i.i.i, %61 ]
+  %66 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.013.lcssa.i.i.i
+  store i64 %.sroa.01.0.copyload.i, ptr %66, align 16, !tbaa !23
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread11
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread11: ; preds = %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit, %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
-  %65 = getelementptr inbounds nuw i8, ptr %.012, i64 16
-  %66 = icmp ult ptr %65, %2
-  br i1 %66, label %21, label %._crit_edge, !llvm.loop !657
+  %67 = getelementptr inbounds nuw i8, ptr %.012, i64 16
+  %68 = icmp ult ptr %67, %2
+  br i1 %68, label %21, label %._crit_edge, !llvm.loop !657
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27352,103 +27367,106 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIPZN11Contraction24siblingP
   br i1 %14, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-  %.033.i.i = phi i64 [ %30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ], [ 0, %.lr.ph ]
+  %.033.i.i = phi i64 [ %32, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ], [ 0, %.lr.ph ]
   %15 = shl i64 %.033.i.i, 1
   %16 = add i64 %15, 2
   %17 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %16
-  %18 = or disjoint i64 %15, 1
-  %19 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %18
+  %18 = getelementptr %struct.SortingRecord.353, ptr %0, i64 %15
+  %19 = getelementptr i8, ptr %18, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !622
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %22 = getelementptr i8, ptr %18, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !622
   %24 = icmp ult i32 %21, %23
-  br i1 %24, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %25
+  br i1 %24, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %26
 
-25:                                               ; preds = %.lr.ph.i.i
-  %26 = icmp eq i32 %21, %23
-  br i1 %26, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i: ; preds = %25
-  %27 = load i64, ptr %17, align 16, !tbaa !620
-  %28 = load i64, ptr %19, align 16, !tbaa !620
-  %29 = icmp ult i64 %27, %28
-  %cond.fr.i.i = freeze i1 %29
-  br i1 %cond.fr.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %.lr.ph.i.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i: ; preds = %.lr.ph.i.i
+  %25 = or disjoint i64 %15, 1
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %25
-  %30 = phi i64 [ %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i ], [ %16, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i ], [ %16, %25 ]
-  %31 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %30
-  %32 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.033.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %32, ptr noundef nonnull align 16 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !579
-  %33 = icmp slt i64 %30, %13
-  br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !655
+26:                                               ; preds = %.lr.ph.i.i
+  %27 = icmp eq i32 %21, %23
+  br i1 %27, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i: ; preds = %26
+  %28 = load i64, ptr %17, align 16, !tbaa !620
+  %29 = load i64, ptr %19, align 16, !tbaa !620
+  %30 = icmp ult i64 %28, %29
+  %31 = or disjoint i64 %15, 1
+  %cond.fr.i.i = freeze i1 %30
+  %spec.select.i.i = select i1 %cond.fr.i.i, i64 %31, i64 %16
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i
+  %32 = phi i64 [ %25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i ], [ %16, %26 ], [ %spec.select.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i ]
+  %33 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %32
+  %34 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.033.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %34, ptr noundef nonnull align 16 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !579
+  %35 = icmp slt i64 %32, %13
+  br i1 %35, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !655
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i, %.lr.ph
-  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ]
-  %34 = and i64 %10, 16
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %45
+  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %32, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ]
+  %36 = and i64 %10, 16
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %38, label %47
 
-36:                                               ; preds = %._crit_edge.i.i
-  %37 = add nsw i64 %11, -2
-  %38 = ashr exact i64 %37, 1
-  %39 = icmp eq i64 %.0.lcssa.i.i, %38
-  br i1 %39, label %40, label %45
+38:                                               ; preds = %._crit_edge.i.i
+  %39 = add nsw i64 %11, -2
+  %40 = ashr exact i64 %39, 1
+  %41 = icmp eq i64 %.0.lcssa.i.i, %40
+  br i1 %41, label %42, label %47
 
-40:                                               ; preds = %36
-  %41 = shl nsw i64 %.0.lcssa.i.i, 1
-  %42 = or disjoint i64 %41, 1
-  %43 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %42
-  %44 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.0.lcssa.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %44, ptr noundef nonnull align 16 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !579
-  br label %45
-
-45:                                               ; preds = %40, %36, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %42, %40 ], [ %.0.lcssa.i.i, %36 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %46 = icmp sgt i64 %.1.i.i, 0
-  br i1 %46, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
-
-.lr.ph.i.i.i:                                     ; preds = %45
-  %.sroa.3.8.extract.trunc.i.i.i = trunc i64 %.sroa.4.0.copyload.i to i32
+42:                                               ; preds = %38
+  %43 = shl nsw i64 %.0.lcssa.i.i, 1
+  %44 = or disjoint i64 %43, 1
+  %45 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %44
+  %46 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.0.lcssa.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %46, ptr noundef nonnull align 16 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !579
   br label %47
 
-47:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
+47:                                               ; preds = %42, %38, %._crit_edge.i.i
+  %.1.i.i = phi i64 [ %44, %42 ], [ %.0.lcssa.i.i, %38 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
+  %48 = icmp sgt i64 %.1.i.i, 0
+  br i1 %48, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+
+.lr.ph.i.i.i:                                     ; preds = %47
+  %.sroa.3.8.extract.trunc.i.i.i = trunc i64 %.sroa.4.0.copyload.i to i32
+  br label %49
+
+49:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
   %.01317.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.018.i.i78.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ]
   %.018.in.i.i.i = add nsw i64 %.01317.i.i.i, -1
   %.018.i.i78.i = lshr i64 %.018.in.i.i.i, 1
-  %48 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %0, i64 %.018.i.i78.i
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i32, ptr %49, align 8, !tbaa !622
-  %51 = icmp ult i32 %50, %.sroa.3.8.extract.trunc.i.i.i
-  br i1 %51, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %52
+  %50 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %0, i64 %.018.i.i78.i
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i32, ptr %51, align 8, !tbaa !622
+  %53 = icmp ult i32 %52, %.sroa.3.8.extract.trunc.i.i.i
+  br i1 %53, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %54
 
-52:                                               ; preds = %47
-  %53 = icmp eq i32 %50, %.sroa.3.8.extract.trunc.i.i.i
-  br i1 %53, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+54:                                               ; preds = %49
+  %55 = icmp eq i32 %52, %.sroa.3.8.extract.trunc.i.i.i
+  br i1 %55, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i: ; preds = %52
-  %54 = load i64, ptr %48, align 16, !tbaa !620
-  %55 = icmp ult i64 %54, %.sroa.01.0.copyload.i
-  br i1 %55, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i: ; preds = %54
+  %56 = load i64, ptr %50, align 16, !tbaa !620
+  %57 = icmp ult i64 %56, %.sroa.01.0.copyload.i
+  br i1 %57, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %47
-  %56 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %0, i64 %.01317.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 16 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !579
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %49
+  %58 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %0, i64 %.01317.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %58, ptr noundef nonnull align 16 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !579
   %.not.i = icmp ult i64 %.018.in.i.i.i, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %47, !llvm.loop !656
+  br i1 %.not.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %49, !llvm.loop !656
 
-_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %52, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %45
-  %.013.lcssa.i.i.i = phi i64 [ %.1.i.i, %45 ], [ %.01317.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ], [ %.01317.i.i.i, %52 ]
-  %57 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.013.lcssa.i.i.i
-  store i64 %.sroa.01.0.copyload.i, ptr %57, align 16, !tbaa !23
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
+_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %54, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %47
+  %.013.lcssa.i.i.i = phi i64 [ %.1.i.i, %47 ], [ %.01317.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ], [ %.01317.i.i.i, %54 ]
+  %59 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.013.lcssa.i.i.i
+  store i64 %.sroa.01.0.copyload.i, ptr %59, align 16, !tbaa !23
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
-  %58 = icmp sgt i64 %10, 16
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !658
+  %60 = icmp sgt i64 %10, 16
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !658
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, %3
   ret void
@@ -27477,7 +27495,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPZN11Contraction24siblingP
   br label %20
 
 20:                                               ; preds = %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, %9
-  %.013 = phi i64 [ %11, %9 ], [ %58, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ]
+  %.013 = phi i64 [ %11, %9 ], [ %60, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ]
   %21 = getelementptr inbounds nuw %struct.SortingRecord.353, ptr %0, i64 %.013
   %.sroa.01.0.copyload = load i64, ptr %21, align 16, !tbaa !23
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -27486,93 +27504,96 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPZN11Contraction24siblingP
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %20, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
-  %.033.i = phi i64 [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ], [ %.013, %20 ]
+  %.033.i = phi i64 [ %40, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ], [ %.013, %20 ]
   %23 = shl i64 %.033.i, 1
   %24 = add i64 %23, 2
   %25 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %24
-  %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %26
+  %26 = getelementptr %struct.SortingRecord.353, ptr %0, i64 %23
+  %27 = getelementptr i8, ptr %26, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !622
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = getelementptr i8, ptr %26, i64 24
   %31 = load i32, ptr %30, align 8, !tbaa !622
   %32 = icmp ult i32 %29, %31
-  br i1 %32, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, label %33
+  br i1 %32, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, label %34
 
-33:                                               ; preds = %.lr.ph.i
-  %34 = icmp eq i32 %29, %31
-  br i1 %34, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i: ; preds = %33
-  %35 = load i64, ptr %25, align 16, !tbaa !620
-  %36 = load i64, ptr %27, align 16, !tbaa !620
-  %37 = icmp ult i64 %35, %36
-  %cond.fr.i = freeze i1 %37
-  br i1 %cond.fr.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, %.lr.ph.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i: ; preds = %.lr.ph.i
+  %33 = or disjoint i64 %23, 1
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, %33
-  %38 = phi i64 [ %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i ], [ %24, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i ], [ %24, %33 ]
-  %39 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %38
-  %40 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.033.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %40, ptr noundef nonnull align 16 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !579
-  %41 = icmp slt i64 %38, %13
-  br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !655
+34:                                               ; preds = %.lr.ph.i
+  %35 = icmp eq i32 %29, %31
+  br i1 %35, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i: ; preds = %34
+  %36 = load i64, ptr %25, align 16, !tbaa !620
+  %37 = load i64, ptr %27, align 16, !tbaa !620
+  %38 = icmp ult i64 %36, %37
+  %39 = or disjoint i64 %23, 1
+  %cond.fr.i = freeze i1 %38
+  %spec.select.i = select i1 %cond.fr.i, i64 %39, i64 %24
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i
+  %40 = phi i64 [ %33, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i ], [ %24, %34 ], [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i ]
+  %41 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %40
+  %42 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.033.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %42, ptr noundef nonnull align 16 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !579
+  %43 = icmp slt i64 %40, %13
+  br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !655
 
 ._crit_edge.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i, %20
-  %.0.lcssa.i = phi i64 [ %.013, %20 ], [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ]
-  %42 = icmp eq i64 %.0.lcssa.i, %16
-  %or.cond = select i1 %15, i1 %42, i1 false
-  br i1 %or.cond, label %43, label %44
+  %.0.lcssa.i = phi i64 [ %.013, %20 ], [ %40, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ]
+  %44 = icmp eq i64 %.0.lcssa.i, %16
+  %or.cond = select i1 %15, i1 %44, i1 false
+  br i1 %or.cond, label %45, label %46
 
-43:                                               ; preds = %._crit_edge.i
+45:                                               ; preds = %._crit_edge.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, ptr noundef nonnull align 16 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !579
-  br label %44
-
-44:                                               ; preds = %43, %._crit_edge.i
-  %.1.i = phi i64 [ %17, %43 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %45 = icmp sgt i64 %.1.i, %.013
-  br i1 %45, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
-
-.lr.ph.i.i:                                       ; preds = %44
-  %.sroa.3.8.extract.trunc.i.i = trunc i64 %.sroa.4.0.copyload to i32
   br label %46
 
-46:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %.lr.ph.i.i
+46:                                               ; preds = %45, %._crit_edge.i
+  %.1.i = phi i64 [ %17, %45 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %47 = icmp sgt i64 %.1.i, %.013
+  br i1 %47, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
+
+.lr.ph.i.i:                                       ; preds = %46
+  %.sroa.3.8.extract.trunc.i.i = trunc i64 %.sroa.4.0.copyload to i32
+  br label %48
+
+48:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %.lr.ph.i.i
   %.01317.i.i = phi i64 [ %.1.i, %.lr.ph.i.i ], [ %.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %47 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.018.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load i32, ptr %48, align 8, !tbaa !622
-  %50 = icmp ult i32 %49, %.sroa.3.8.extract.trunc.i.i
-  br i1 %50, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %51
+  %49 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.018.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load i32, ptr %50, align 8, !tbaa !622
+  %52 = icmp ult i32 %51, %.sroa.3.8.extract.trunc.i.i
+  br i1 %52, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %53
 
-51:                                               ; preds = %46
-  %52 = icmp eq i32 %49, %.sroa.3.8.extract.trunc.i.i
-  br i1 %52, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
+53:                                               ; preds = %48
+  %54 = icmp eq i32 %51, %.sroa.3.8.extract.trunc.i.i
+  br i1 %54, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i: ; preds = %51
-  %53 = load i64, ptr %47, align 16, !tbaa !620
-  %54 = icmp ult i64 %53, %.sroa.01.0.copyload
-  br i1 %54, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i: ; preds = %53
+  %55 = load i64, ptr %49, align 16, !tbaa !620
+  %56 = icmp ult i64 %55, %.sroa.01.0.copyload
+  br i1 %56, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %46
-  %55 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.01317.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %55, ptr noundef nonnull align 16 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !579
-  %56 = icmp sgt i64 %.018.i.i, %.013
-  br i1 %56, label %46, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !656
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %48
+  %57 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.01317.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %57, ptr noundef nonnull align 16 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !579
+  %58 = icmp sgt i64 %.018.i.i, %.013
+  br i1 %58, label %48, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !656
 
-_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %51, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %44
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %44 ], [ %.01317.i.i, %51 ], [ %.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i ], [ %.01317.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i ]
-  %57 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.013.lcssa.i.i
-  store i64 %.sroa.01.0.copyload, ptr %57, align 16, !tbaa !23
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
+_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %53, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %46
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %46 ], [ %.01317.i.i, %53 ], [ %.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i ], [ %.01317.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i ]
+  %59 = getelementptr inbounds %struct.SortingRecord.353, ptr %0, i64 %.013.lcssa.i.i
+  store i64 %.sroa.01.0.copyload, ptr %59, align 16, !tbaa !23
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sroa.4.0.copyload, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %.not = icmp eq i64 %.013, 0
-  %58 = add nsw i64 %.013, -1
+  %60 = add nsw i64 %.013, -1
   br i1 %.not, label %.loopexit, label %20, !llvm.loop !659
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, %3
@@ -28076,7 +28097,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIPZN11Contraction24siblin
   ret void
 
 21:                                               ; preds = %.lr.ph, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread11
-  %.012 = phi ptr [ %1, %.lr.ph ], [ %65, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread11 ]
+  %.012 = phi ptr [ %1, %.lr.ph ], [ %67, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread11 ]
   %22 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !628
   %24 = load i32, ptr %6, align 8, !tbaa !628
@@ -28104,97 +28125,100 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativ
   br i1 %13, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-  %.033.i.i = phi i64 [ %46, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread ]
+  %.033.i.i = phi i64 [ %48, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread ]
   %31 = shl i64 %.033.i.i, 1
   %32 = add i64 %31, 2
   %33 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %32
-  %34 = or disjoint i64 %31, 1
-  %35 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %34
+  %34 = getelementptr %struct.SortingRecord.355, ptr %0, i64 %31
+  %35 = getelementptr i8, ptr %34, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !628
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %38 = getelementptr i8, ptr %34, i64 24
   %39 = load i32, ptr %38, align 8, !tbaa !628
   %40 = icmp ult i32 %37, %39
-  br i1 %40, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %41
+  br i1 %40, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %42
 
-41:                                               ; preds = %.lr.ph.i.i
-  %42 = icmp eq i32 %37, %39
-  br i1 %42, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i: ; preds = %41
-  %43 = load i64, ptr %33, align 16, !tbaa !626
-  %44 = load i64, ptr %35, align 16, !tbaa !626
-  %45 = icmp ult i64 %43, %44
-  %cond.fr.i.i = freeze i1 %45
-  br i1 %cond.fr.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %.lr.ph.i.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i: ; preds = %.lr.ph.i.i
+  %41 = or disjoint i64 %31, 1
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %41
-  %46 = phi i64 [ %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i ], [ %32, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i ], [ %32, %41 ]
-  %47 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %46
-  %48 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.033.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %48, ptr noundef nonnull align 16 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !579
-  %49 = icmp slt i64 %46, %12
-  br i1 %49, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !667
+42:                                               ; preds = %.lr.ph.i.i
+  %43 = icmp eq i32 %37, %39
+  br i1 %43, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i: ; preds = %42
+  %44 = load i64, ptr %33, align 16, !tbaa !626
+  %45 = load i64, ptr %35, align 16, !tbaa !626
+  %46 = icmp ult i64 %44, %45
+  %47 = or disjoint i64 %31, 1
+  %cond.fr.i.i = freeze i1 %46
+  %spec.select.i.i = select i1 %cond.fr.i.i, i64 %47, i64 %32
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %42, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i
+  %48 = phi i64 [ %41, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i ], [ %32, %42 ], [ %spec.select.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i ]
+  %49 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %48
+  %50 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.033.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %50, ptr noundef nonnull align 16 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !579
+  %51 = icmp slt i64 %48, %12
+  br i1 %51, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !667
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread
-  %.0.lcssa.i.i = phi i64 [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread ], [ %46, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ]
-  %50 = icmp eq i64 %.0.lcssa.i.i, %17
-  %or.cond = select i1 %15, i1 %50, i1 false
-  br i1 %or.cond, label %51, label %52
+  %.0.lcssa.i.i = phi i64 [ 0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread ], [ %48, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ]
+  %52 = icmp eq i64 %.0.lcssa.i.i, %17
+  %or.cond = select i1 %15, i1 %52, i1 false
+  br i1 %or.cond, label %53, label %54
 
-51:                                               ; preds = %._crit_edge.i.i
+53:                                               ; preds = %._crit_edge.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, ptr noundef nonnull align 16 dereferenceable(16) %19, i64 16, i1 false), !tbaa.struct !579
-  br label %52
-
-52:                                               ; preds = %51, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %18, %51 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %53 = icmp sgt i64 %.1.i.i, 0
-  br i1 %53, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
-
-.lr.ph.i.i.i:                                     ; preds = %52
-  %.sroa.3.8.extract.trunc.i.i.i = trunc i64 %.sroa.4.0.copyload.i to i32
   br label %54
 
-54:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
+54:                                               ; preds = %53, %._crit_edge.i.i
+  %.1.i.i = phi i64 [ %18, %53 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
+  %55 = icmp sgt i64 %.1.i.i, 0
+  br i1 %55, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+
+.lr.ph.i.i.i:                                     ; preds = %54
+  %.sroa.3.8.extract.trunc.i.i.i = trunc i64 %.sroa.4.0.copyload.i to i32
+  br label %56
+
+56:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
   %.01317.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.018.i.i78.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ]
   %.018.in.i.i.i = add nsw i64 %.01317.i.i.i, -1
   %.018.i.i78.i = lshr i64 %.018.in.i.i.i, 1
-  %55 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %0, i64 %.018.i.i78.i
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load i32, ptr %56, align 8, !tbaa !628
-  %58 = icmp ult i32 %57, %.sroa.3.8.extract.trunc.i.i.i
-  br i1 %58, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %59
+  %57 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %0, i64 %.018.i.i78.i
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load i32, ptr %58, align 8, !tbaa !628
+  %60 = icmp ult i32 %59, %.sroa.3.8.extract.trunc.i.i.i
+  br i1 %60, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %61
 
-59:                                               ; preds = %54
-  %60 = icmp eq i32 %57, %.sroa.3.8.extract.trunc.i.i.i
-  br i1 %60, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+61:                                               ; preds = %56
+  %62 = icmp eq i32 %59, %.sroa.3.8.extract.trunc.i.i.i
+  br i1 %62, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i: ; preds = %59
-  %61 = load i64, ptr %55, align 16, !tbaa !626
-  %62 = icmp ult i64 %61, %.sroa.01.0.copyload.i
-  br i1 %62, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i: ; preds = %61
+  %63 = load i64, ptr %57, align 16, !tbaa !626
+  %64 = icmp ult i64 %63, %.sroa.01.0.copyload.i
+  br i1 %64, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %54
-  %63 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %0, i64 %.01317.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %63, ptr noundef nonnull align 16 dereferenceable(16) %55, i64 16, i1 false), !tbaa.struct !579
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %56
+  %65 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %0, i64 %.01317.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %65, ptr noundef nonnull align 16 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !579
   %.not.i = icmp ult i64 %.018.in.i.i.i, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %54, !llvm.loop !668
+  br i1 %.not.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %56, !llvm.loop !668
 
-_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %59, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %52
-  %.013.lcssa.i.i.i = phi i64 [ %.1.i.i, %52 ], [ %.01317.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ], [ %.01317.i.i.i, %59 ]
-  %64 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.013.lcssa.i.i.i
-  store i64 %.sroa.01.0.copyload.i, ptr %64, align 16, !tbaa !23
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %64, i64 8
+_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %61, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %54
+  %.013.lcssa.i.i.i = phi i64 [ %.1.i.i, %54 ], [ %.01317.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ], [ %.01317.i.i.i, %61 ]
+  %66 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.013.lcssa.i.i.i
+  store i64 %.sroa.01.0.copyload.i, ptr %66, align 16, !tbaa !23
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i64 %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread11
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread11: ; preds = %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit, %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
-  %65 = getelementptr inbounds nuw i8, ptr %.012, i64 16
-  %66 = icmp ult ptr %65, %2
-  br i1 %66, label %21, label %._crit_edge, !llvm.loop !669
+  %67 = getelementptr inbounds nuw i8, ptr %.012, i64 16
+  %68 = icmp ult ptr %67, %2
+  br i1 %68, label %21, label %._crit_edge, !llvm.loop !669
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -28221,103 +28245,106 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapIPZN11Contraction24siblingP
   br i1 %14, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-  %.033.i.i = phi i64 [ %30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ], [ 0, %.lr.ph ]
+  %.033.i.i = phi i64 [ %32, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ], [ 0, %.lr.ph ]
   %15 = shl i64 %.033.i.i, 1
   %16 = add i64 %15, 2
   %17 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %16
-  %18 = or disjoint i64 %15, 1
-  %19 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %18
+  %18 = getelementptr %struct.SortingRecord.355, ptr %0, i64 %15
+  %19 = getelementptr i8, ptr %18, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !628
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %22 = getelementptr i8, ptr %18, i64 24
   %23 = load i32, ptr %22, align 8, !tbaa !628
   %24 = icmp ult i32 %21, %23
-  br i1 %24, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %25
+  br i1 %24, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %26
 
-25:                                               ; preds = %.lr.ph.i.i
-  %26 = icmp eq i32 %21, %23
-  br i1 %26, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i: ; preds = %25
-  %27 = load i64, ptr %17, align 16, !tbaa !626
-  %28 = load i64, ptr %19, align 16, !tbaa !626
-  %29 = icmp ult i64 %27, %28
-  %cond.fr.i.i = freeze i1 %29
-  br i1 %cond.fr.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %.lr.ph.i.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i: ; preds = %.lr.ph.i.i
+  %25 = or disjoint i64 %15, 1
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %25
-  %30 = phi i64 [ %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i ], [ %16, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i ], [ %16, %25 ]
-  %31 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %30
-  %32 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.033.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %32, ptr noundef nonnull align 16 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !579
-  %33 = icmp slt i64 %30, %13
-  br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !667
+26:                                               ; preds = %.lr.ph.i.i
+  %27 = icmp eq i32 %21, %23
+  br i1 %27, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i: ; preds = %26
+  %28 = load i64, ptr %17, align 16, !tbaa !626
+  %29 = load i64, ptr %19, align 16, !tbaa !626
+  %30 = icmp ult i64 %28, %29
+  %31 = or disjoint i64 %15, 1
+  %cond.fr.i.i = freeze i1 %30
+  %spec.select.i.i = select i1 %cond.fr.i.i, i64 %31, i64 %16
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i, %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i
+  %32 = phi i64 [ %25, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i.i ], [ %16, %26 ], [ %spec.select.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i.i ]
+  %33 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %32
+  %34 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.033.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %34, ptr noundef nonnull align 16 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !579
+  %35 = icmp slt i64 %32, %13
+  br i1 %35, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !667
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i, %.lr.ph
-  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ]
-  %34 = and i64 %10, 16
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %45
+  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %32, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i.i ]
+  %36 = and i64 %10, 16
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %38, label %47
 
-36:                                               ; preds = %._crit_edge.i.i
-  %37 = add nsw i64 %11, -2
-  %38 = ashr exact i64 %37, 1
-  %39 = icmp eq i64 %.0.lcssa.i.i, %38
-  br i1 %39, label %40, label %45
+38:                                               ; preds = %._crit_edge.i.i
+  %39 = add nsw i64 %11, -2
+  %40 = ashr exact i64 %39, 1
+  %41 = icmp eq i64 %.0.lcssa.i.i, %40
+  br i1 %41, label %42, label %47
 
-40:                                               ; preds = %36
-  %41 = shl nsw i64 %.0.lcssa.i.i, 1
-  %42 = or disjoint i64 %41, 1
-  %43 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %42
-  %44 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.0.lcssa.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %44, ptr noundef nonnull align 16 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !579
-  br label %45
-
-45:                                               ; preds = %40, %36, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %42, %40 ], [ %.0.lcssa.i.i, %36 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %46 = icmp sgt i64 %.1.i.i, 0
-  br i1 %46, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
-
-.lr.ph.i.i.i:                                     ; preds = %45
-  %.sroa.3.8.extract.trunc.i.i.i = trunc i64 %.sroa.4.0.copyload.i to i32
+42:                                               ; preds = %38
+  %43 = shl nsw i64 %.0.lcssa.i.i, 1
+  %44 = or disjoint i64 %43, 1
+  %45 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %44
+  %46 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.0.lcssa.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %46, ptr noundef nonnull align 16 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !579
   br label %47
 
-47:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
+47:                                               ; preds = %42, %38, %._crit_edge.i.i
+  %.1.i.i = phi i64 [ %44, %42 ], [ %.0.lcssa.i.i, %38 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
+  %48 = icmp sgt i64 %.1.i.i, 0
+  br i1 %48, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+
+.lr.ph.i.i.i:                                     ; preds = %47
+  %.sroa.3.8.extract.trunc.i.i.i = trunc i64 %.sroa.4.0.copyload.i to i32
+  br label %49
+
+49:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
   %.01317.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.018.i.i78.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ]
   %.018.in.i.i.i = add nsw i64 %.01317.i.i.i, -1
   %.018.i.i78.i = lshr i64 %.018.in.i.i.i, 1
-  %48 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %0, i64 %.018.i.i78.i
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load i32, ptr %49, align 8, !tbaa !628
-  %51 = icmp ult i32 %50, %.sroa.3.8.extract.trunc.i.i.i
-  br i1 %51, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %52
+  %50 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %0, i64 %.018.i.i78.i
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i32, ptr %51, align 8, !tbaa !628
+  %53 = icmp ult i32 %52, %.sroa.3.8.extract.trunc.i.i.i
+  br i1 %53, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %54
 
-52:                                               ; preds = %47
-  %53 = icmp eq i32 %50, %.sroa.3.8.extract.trunc.i.i.i
-  br i1 %53, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+54:                                               ; preds = %49
+  %55 = icmp eq i32 %52, %.sroa.3.8.extract.trunc.i.i.i
+  br i1 %55, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i: ; preds = %52
-  %54 = load i64, ptr %48, align 16, !tbaa !626
-  %55 = icmp ult i64 %54, %.sroa.01.0.copyload.i
-  br i1 %55, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i: ; preds = %54
+  %56 = load i64, ptr %50, align 16, !tbaa !626
+  %57 = icmp ult i64 %56, %.sroa.01.0.copyload.i
+  br i1 %57, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %47
-  %56 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %0, i64 %.01317.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %56, ptr noundef nonnull align 16 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !579
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %49
+  %58 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %0, i64 %.01317.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %58, ptr noundef nonnull align 16 dereferenceable(16) %50, i64 16, i1 false), !tbaa.struct !579
   %.not.i = icmp ult i64 %.018.in.i.i.i, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %47, !llvm.loop !668
+  br i1 %.not.i, label %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, label %49, !llvm.loop !668
 
-_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %52, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %45
-  %.013.lcssa.i.i.i = phi i64 [ %.1.i.i, %45 ], [ %.01317.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ], [ %.01317.i.i.i, %52 ]
-  %57 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.013.lcssa.i.i.i
-  store i64 %.sroa.01.0.copyload.i, ptr %57, align 16, !tbaa !23
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
+_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit: ; preds = %54, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i, %47
+  %.013.lcssa.i.i.i = phi i64 [ %.1.i.i, %47 ], [ %.01317.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i.i ], [ %.01317.i.i.i, %54 ]
+  %59 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.013.lcssa.i.i.i
+  store i64 %.sroa.01.0.copyload.i, ptr %59, align 16, !tbaa !23
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8
-  %58 = icmp sgt i64 %10, 16
-  br i1 %58, label %.lr.ph, label %._crit_edge, !llvm.loop !670
+  %60 = icmp sgt i64 %10, 16
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !670
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit, %3
   ret void
@@ -28346,7 +28373,7 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPZN11Contraction24siblingP
   br label %20
 
 20:                                               ; preds = %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, %9
-  %.013 = phi i64 [ %11, %9 ], [ %58, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ]
+  %.013 = phi i64 [ %11, %9 ], [ %60, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ]
   %21 = getelementptr inbounds nuw %struct.SortingRecord.355, ptr %0, i64 %.013
   %.sroa.01.0.copyload = load i64, ptr %21, align 16, !tbaa !23
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -28355,93 +28382,96 @@ define linkonce_odr dso_local void @_ZSt11__make_heapIPZN11Contraction24siblingP
   br i1 %22, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %20, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
-  %.033.i = phi i64 [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ], [ %.013, %20 ]
+  %.033.i = phi i64 [ %40, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ], [ %.013, %20 ]
   %23 = shl i64 %.033.i, 1
   %24 = add i64 %23, 2
   %25 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %24
-  %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %26
+  %26 = getelementptr %struct.SortingRecord.355, ptr %0, i64 %23
+  %27 = getelementptr i8, ptr %26, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !628
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %30 = getelementptr i8, ptr %26, i64 24
   %31 = load i32, ptr %30, align 8, !tbaa !628
   %32 = icmp ult i32 %29, %31
-  br i1 %32, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, label %33
+  br i1 %32, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, label %34
 
-33:                                               ; preds = %.lr.ph.i
-  %34 = icmp eq i32 %29, %31
-  br i1 %34, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i: ; preds = %33
-  %35 = load i64, ptr %25, align 16, !tbaa !626
-  %36 = load i64, ptr %27, align 16, !tbaa !626
-  %37 = icmp ult i64 %35, %36
-  %cond.fr.i = freeze i1 %37
-  br i1 %cond.fr.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, %.lr.ph.i
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i: ; preds = %.lr.ph.i
+  %33 = or disjoint i64 %23, 1
   br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
 
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, %33
-  %38 = phi i64 [ %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i ], [ %24, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i ], [ %24, %33 ]
-  %39 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %38
-  %40 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.033.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %40, ptr noundef nonnull align 16 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !579
-  %41 = icmp slt i64 %38, %13
-  br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !667
+34:                                               ; preds = %.lr.ph.i
+  %35 = icmp eq i32 %29, %31
+  br i1 %35, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i: ; preds = %34
+  %36 = load i64, ptr %25, align 16, !tbaa !626
+  %37 = load i64, ptr %27, align 16, !tbaa !626
+  %38 = icmp ult i64 %36, %37
+  %39 = or disjoint i64 %23, 1
+  %cond.fr.i = freeze i1 %38
+  %spec.select.i = select i1 %cond.fr.i, i64 %39, i64 %24
+  br label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i, %34, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i
+  %40 = phi i64 [ %33, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread.i ], [ %24, %34 ], [ %spec.select.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.i ]
+  %41 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %40
+  %42 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.033.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %42, ptr noundef nonnull align 16 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !579
+  %43 = icmp slt i64 %40, %13
+  br i1 %43, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !667
 
 ._crit_edge.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i, %20
-  %.0.lcssa.i = phi i64 [ %.013, %20 ], [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ]
-  %42 = icmp eq i64 %.0.lcssa.i, %16
-  %or.cond = select i1 %15, i1 %42, i1 false
-  br i1 %or.cond, label %43, label %44
+  %.0.lcssa.i = phi i64 [ %.013, %20 ], [ %40, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordSA_EEbT_T0_.exit.thread31.i ]
+  %44 = icmp eq i64 %.0.lcssa.i, %16
+  %or.cond = select i1 %15, i1 %44, i1 false
+  br i1 %or.cond, label %45, label %46
 
-43:                                               ; preds = %._crit_edge.i
+45:                                               ; preds = %._crit_edge.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, ptr noundef nonnull align 16 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !579
-  br label %44
-
-44:                                               ; preds = %43, %._crit_edge.i
-  %.1.i = phi i64 [ %17, %43 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %45 = icmp sgt i64 %.1.i, %.013
-  br i1 %45, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
-
-.lr.ph.i.i:                                       ; preds = %44
-  %.sroa.3.8.extract.trunc.i.i = trunc i64 %.sroa.4.0.copyload to i32
   br label %46
 
-46:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %.lr.ph.i.i
+46:                                               ; preds = %45, %._crit_edge.i
+  %.1.i = phi i64 [ %17, %45 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %47 = icmp sgt i64 %.1.i, %.013
+  br i1 %47, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
+
+.lr.ph.i.i:                                       ; preds = %46
+  %.sroa.3.8.extract.trunc.i.i = trunc i64 %.sroa.4.0.copyload to i32
+  br label %48
+
+48:                                               ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %.lr.ph.i.i
   %.01317.i.i = phi i64 [ %.1.i, %.lr.ph.i.i ], [ %.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %47 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.018.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load i32, ptr %48, align 8, !tbaa !628
-  %50 = icmp ult i32 %49, %.sroa.3.8.extract.trunc.i.i
-  br i1 %50, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %51
+  %49 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.018.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load i32, ptr %50, align 8, !tbaa !628
+  %52 = icmp ult i32 %51, %.sroa.3.8.extract.trunc.i.i
+  br i1 %52, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %53
 
-51:                                               ; preds = %46
-  %52 = icmp eq i32 %49, %.sroa.3.8.extract.trunc.i.i
-  br i1 %52, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
+53:                                               ; preds = %48
+  %54 = icmp eq i32 %51, %.sroa.3.8.extract.trunc.i.i
+  br i1 %54, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i: ; preds = %51
-  %53 = load i64, ptr %47, align 16, !tbaa !626
-  %54 = icmp ult i64 %53, %.sroa.01.0.copyload
-  br i1 %54, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i: ; preds = %53
+  %55 = load i64, ptr %49, align 16, !tbaa !626
+  %56 = icmp ult i64 %55, %.sroa.01.0.copyload
+  br i1 %56, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
 
-_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %46
-  %55 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.01317.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %55, ptr noundef nonnull align 16 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !579
-  %56 = icmp sgt i64 %.018.i.i, %.013
-  br i1 %56, label %46, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !668
+_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %48
+  %57 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.01317.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %57, ptr noundef nonnull align 16 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !579
+  %58 = icmp sgt i64 %.018.i.i, %.013
+  br i1 %58, label %48, label %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !668
 
-_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %51, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %44
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %44 ], [ %.01317.i.i, %51 ], [ %.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i ], [ %.01317.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i ]
-  %57 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.013.lcssa.i.i
-  store i64 %.sroa.01.0.copyload, ptr %57, align 16, !tbaa !23
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
+_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %53, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i, %46
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %46 ], [ %.01317.i.i, %53 ], [ %.018.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.thread.i.i ], [ %.01317.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordS9_EEbT_RT0_.exit.i.i ]
+  %59 = getelementptr inbounds %struct.SortingRecord.355, ptr %0, i64 %.013.lcssa.i.i
+  store i64 %.sroa.01.0.copyload, ptr %59, align 16, !tbaa !23
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sroa.4.0.copyload, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %.not = icmp eq i64 %.013, 0
-  %58 = add nsw i64 %.013, -1
+  %60 = add nsw i64 %.013, -1
   br i1 %.not, label %.loopexit, label %20, !llvm.loop !671
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, %3

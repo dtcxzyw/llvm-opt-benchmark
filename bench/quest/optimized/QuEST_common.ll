@@ -160,6 +160,8 @@ define { double, double } @getConjugateScalar(double %0, double %1) local_unname
 define void @getConjugateMatrix2(ptr dead_on_unwind noalias writable writeonly sret(%struct.ComplexMatrix2) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %invariant.gep = getelementptr inbounds i8, ptr %3, i64 8
+  %invariant.gep20 = getelementptr inbounds i8, ptr %4, i64 8
   br label %.preheader
 
 .preheader:                                       ; preds = %2, %.preheader
@@ -179,17 +181,15 @@ define void @getConjugateMatrix2(ptr dead_on_unwind noalias writable writeonly s
   %15 = getelementptr inbounds nuw [2 x [2 x double]], ptr %0, i64 0, i64 %indvars.iv16, i64 1
   store double %14, ptr %15, align 8, !tbaa !13
   %.idx = shl nuw nsw i64 %indvars.iv16, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %.offs
-  %17 = load double, ptr %16, align 8, !tbaa !13
-  %18 = fneg double %17
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx
+  %16 = load double, ptr %gep, align 8, !tbaa !13
+  %17 = fneg double %16
   %.idx19 = shl nuw nsw i64 %indvars.iv16, 4
-  %.offs20 = or disjoint i64 %.idx19, 8
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 %.offs20
-  store double %18, ptr %19, align 8, !tbaa !13
-  br i1 %5, label %.preheader, label %20
+  %gep21 = getelementptr inbounds i8, ptr %invariant.gep20, i64 %.idx19
+  store double %17, ptr %gep21, align 8, !tbaa !13
+  br i1 %5, label %.preheader, label %18
 
-20:                                               ; preds = %.preheader
+18:                                               ; preds = %.preheader
   ret void
 }
 

@@ -771,9 +771,9 @@ define dso_local noundef zeroext i1 @php_random_hex2bin_le(ptr noundef readonly 
   %.not3336 = icmp ult i64 %4, 2
   br i1 %.not3336, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %35
-  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %2 ]
-  %.02938 = phi i64 [ %42, %35 ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %2, %34
+  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %2 ]
+  %.02938 = phi i64 [ %41, %34 ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %8 = load i8, ptr %7, align 1, !tbaa !71
   %9 = and i8 %8, -33
@@ -791,42 +791,41 @@ define dso_local noundef zeroext i1 @php_random_hex2bin_le(ptr noundef readonly 
   br i1 %.not, label %.critedge, label %20, !prof !44
 
 20:                                               ; preds = %.lr.ph
-  %21 = or disjoint i64 %indvars.iv, 1
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !71
-  %24 = and i8 %23, -33
-  %25 = zext i8 %24 to i32
-  %26 = add nsw i32 %25, -65
-  %27 = add nsw i32 %25, -71
-  %28 = xor i32 %26, %27
-  %29 = lshr i32 %28, 31
-  %30 = xor i8 %23, 48
-  %31 = zext i8 %30 to i32
-  %32 = add nsw i32 %31, -10
-  %33 = ashr i32 %32, 31
-  %34 = or i32 %29, %33
-  %.not32 = icmp eq i32 %34, 0
-  br i1 %.not32, label %.critedge, label %35, !prof !44
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %22 = load i8, ptr %21, align 1, !tbaa !71
+  %23 = and i8 %22, -33
+  %24 = zext i8 %23 to i32
+  %25 = add nsw i32 %24, -65
+  %26 = add nsw i32 %24, -71
+  %27 = xor i32 %25, %26
+  %28 = lshr i32 %27, 31
+  %29 = xor i8 %22, 48
+  %30 = zext i8 %29 to i32
+  %31 = add nsw i32 %30, -10
+  %32 = ashr i32 %31, 31
+  %33 = or i32 %28, %32
+  %.not32 = icmp eq i32 %33, 0
+  br i1 %.not32, label %.critedge, label %34, !prof !44
 
-35:                                               ; preds = %20
+34:                                               ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %isneg = icmp slt i32 %13, 0
   %.neg = select i1 %isneg, i8 9, i8 0
-  %36 = add i8 %.neg, %8
-  %37 = shl i8 %36, 4
-  %38 = add i8 %24, -16
-  %isneg34 = icmp slt i32 %28, 0
+  %35 = add i8 %.neg, %8
+  %36 = shl i8 %35, 4
+  %37 = add i8 %23, -16
+  %isneg34 = icmp slt i32 %27, 0
   %.neg35 = select i1 %isneg34, i8 -39, i8 0
-  %39 = add i8 %38, %.neg35
-  %40 = or i8 %39, %37
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 %.02938
-  store i8 %40, ptr %41, align 1, !tbaa !71
-  %42 = add nuw nsw i64 %.02938, 1
-  %exitcond.not = icmp eq i64 %42, %5
+  %38 = add i8 %37, %.neg35
+  %39 = or i8 %38, %36
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %.02938
+  store i8 %39, ptr %40, align 1, !tbaa !71
+  %41 = add nuw nsw i64 %.02938, 1
+  %exitcond.not = icmp eq i64 %41, %5
   br i1 %exitcond.not, label %.critedge, label %.lr.ph
 
-.critedge:                                        ; preds = %20, %.lr.ph, %35, %2
-  %.not33.lcssa = phi i1 [ true, %2 ], [ true, %35 ], [ false, %.lr.ph ], [ false, %20 ]
+.critedge:                                        ; preds = %20, %.lr.ph, %34, %2
+  %.not33.lcssa = phi i1 [ true, %2 ], [ true, %34 ], [ false, %.lr.ph ], [ false, %20 ]
   ret i1 %.not33.lcssa
 }
 

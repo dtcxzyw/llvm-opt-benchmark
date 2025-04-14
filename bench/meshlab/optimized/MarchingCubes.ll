@@ -1288,71 +1288,72 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKdd
   %.sroa.12 = alloca double, align 8
   switch i32 %2, label %.thread111 [
     i32 0, label %.preheader
-    i32 1, label %.preheader114
+    i32 1, label %.preheader115
     i32 2, label %.thread111.sink.split
-    i32 3, label %.preheader120.preheader
+    i32 3, label %.preheader121
     i32 4, label %.preheader123
-    i32 5, label %.preheader126.preheader
+    i32 5, label %.preheader127
   ]
 
-.preheader126.preheader:                          ; preds = %3
-  %invariant.gep203 = getelementptr inbounds nuw i8, ptr %0, i64 32
+.preheader127:                                    ; preds = %3
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.thread111.sink.split
 
-.preheader120.preheader:                          ; preds = %3
-  %invariant.gep209 = getelementptr inbounds nuw i8, ptr %0, i64 16
+.preheader121:                                    ; preds = %3
+  %invariant.gep133 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %.thread111.sink.split
 
-.preheader:                                       ; preds = %3
-  %invariant.gep215 = getelementptr inbounds nuw i8, ptr %0, i64 0
-  %4 = load double, ptr %invariant.gep215, align 8
+.preheader115:                                    ; preds = %3
+  %invariant.gep139 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %invariant.gep202 = getelementptr inbounds nuw i8, ptr %invariant.gep139, i64 0
+  %4 = load double, ptr %invariant.gep202, align 8
   store double %4, ptr %.sroa.0, align 16
-  %gep216.c = getelementptr inbounds nuw i8, ptr %invariant.gep215, i64 32
-  %5 = load double, ptr %gep216.c, align 8
+  %gep203.c = getelementptr inbounds nuw i8, ptr %invariant.gep202, i64 32
+  %5 = load double, ptr %gep203.c, align 8
   store double %5, ptr %.sroa.4, align 8
-  %invariant.gep215.c = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load double, ptr %invariant.gep215.c, align 8
+  %invariant.gep202.c = getelementptr inbounds nuw i8, ptr %invariant.gep139, i64 16
+  %6 = load double, ptr %invariant.gep202.c, align 8
   store double %6, ptr %.sroa.8, align 16
-  %gep216.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep215.c, i64 32
-  %7 = load double, ptr %gep216.c.c, align 8
+  %gep203.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep202.c, i64 32
+  %7 = load double, ptr %gep203.c.c, align 8
   store double %7, ptr %.sroa.12, align 8
   br label %.thread111
 
-.preheader114:                                    ; preds = %3
-  %invariant.gep213 = getelementptr inbounds nuw double, ptr %0, i64 1
-  %8 = load double, ptr %invariant.gep213, align 8
+.preheader:                                       ; preds = %3
+  %invariant.gep204 = getelementptr inbounds nuw i8, ptr %0, i64 0
+  %8 = load double, ptr %invariant.gep204, align 8
   store double %8, ptr %.sroa.0, align 16
-  %gep214.c = getelementptr inbounds nuw i8, ptr %invariant.gep213, i64 32
-  %9 = load double, ptr %gep214.c, align 8
+  %gep205.c = getelementptr inbounds nuw i8, ptr %invariant.gep204, i64 32
+  %9 = load double, ptr %gep205.c, align 8
   store double %9, ptr %.sroa.4, align 8
-  %invariant.gep213.c = getelementptr inbounds nuw double, ptr %0, i64 3
-  %10 = load double, ptr %invariant.gep213.c, align 8
+  %invariant.gep204.c = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load double, ptr %invariant.gep204.c, align 8
   store double %10, ptr %.sroa.8, align 16
-  %gep214.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep213.c, i64 32
-  %11 = load double, ptr %gep214.c.c, align 8
+  %gep205.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep204.c, i64 32
+  %11 = load double, ptr %gep205.c.c, align 8
   store double %11, ptr %.sroa.12, align 8
   br label %.thread111
 
 .preheader123:                                    ; preds = %3
   br label %.thread111.sink.split
 
-.thread111.sink.split:                            ; preds = %3, %.preheader120.preheader, %.preheader123, %.preheader126.preheader
-  %invariant.gep203.sink248 = phi ptr [ %invariant.gep203, %.preheader126.preheader ], [ %0, %.preheader123 ], [ %invariant.gep209, %.preheader120.preheader ], [ %0, %3 ]
-  %.sink243 = phi i64 [ 16, %.preheader126.preheader ], [ 16, %.preheader123 ], [ 32, %.preheader120.preheader ], [ 32, %3 ]
-  %12 = load double, ptr %invariant.gep203.sink248, align 8
+.thread111.sink.split:                            ; preds = %3, %.preheader121, %.preheader123, %.preheader127
+  %invariant.gep.sink237 = phi ptr [ %invariant.gep, %.preheader127 ], [ %0, %.preheader123 ], [ %invariant.gep133, %.preheader121 ], [ %0, %3 ]
+  %.sink232 = phi i64 [ 16, %.preheader127 ], [ 16, %.preheader123 ], [ 32, %.preheader121 ], [ 32, %3 ]
+  %12 = load double, ptr %invariant.gep.sink237, align 8
   store double %12, ptr %.sroa.0, align 16
-  %gep202.c = getelementptr inbounds nuw i8, ptr %invariant.gep203.sink248, i64 %.sink243
-  %13 = load double, ptr %gep202.c, align 8
+  %gep196.c = getelementptr inbounds nuw i8, ptr %invariant.gep.sink237, i64 %.sink232
+  %13 = load double, ptr %gep196.c, align 8
   store double %13, ptr %.sroa.4, align 8
-  %gep.c = getelementptr inbounds nuw i8, ptr %invariant.gep203.sink248, i64 8
-  %14 = load double, ptr %gep.c, align 8
+  %invariant.gep195.c = getelementptr inbounds nuw i8, ptr %invariant.gep.sink237, i64 8
+  %14 = load double, ptr %invariant.gep195.c, align 8
   store double %14, ptr %.sroa.8, align 16
-  %gep202.c.c = getelementptr inbounds nuw i8, ptr %gep.c, i64 %.sink243
-  %15 = load double, ptr %gep202.c.c, align 8
+  %gep196.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep195.c, i64 %.sink232
+  %15 = load double, ptr %gep196.c.c, align 8
   store double %15, ptr %.sroa.12, align 8
   br label %.thread111
 
-.thread111:                                       ; preds = %.preheader114, %.preheader, %.thread111.sink.split, %3
+.thread111:                                       ; preds = %.preheader115, %.preheader, %.thread111.sink.split, %3
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16
   %16 = fcmp olt double %.sroa.0.0..sroa.0.0., %1
   %.0 = zext i1 %16 to i8
@@ -1501,7 +1502,7 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr noundef 
 
 40:                                               ; preds = %.preheader38, %_ZN13MarchingCubes9SetVertexEiPKdd.exit
   %indvars.iv = phi i64 [ 0, %.preheader38 ], [ %indvars.iv.next, %_ZN13MarchingCubes9SetVertexEiPKdd.exit ]
-  %.041 = phi i32 [ 1, %.preheader38 ], [ %101, %_ZN13MarchingCubes9SetVertexEiPKdd.exit ]
+  %.041 = phi i32 [ 1, %.preheader38 ], [ %95, %_ZN13MarchingCubes9SetVertexEiPKdd.exit ]
   %41 = and i32 %37, %.041
   %.not36 = icmp eq i32 %41, 0
   br i1 %.not36, label %_ZN13MarchingCubes9SetVertexEiPKdd.exit, label %42
@@ -1514,8 +1515,8 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr noundef 
   %47 = and i32 %46, 1
   switch i32 %44, label %default.unreachable [
     i32 0, label %48
-    i32 1, label %67
-    i32 2, label %85
+    i32 1, label %65
+    i32 2, label %81
   ]
 
 48:                                               ; preds = %42
@@ -1526,74 +1527,68 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr noundef 
   %53 = getelementptr inbounds nuw double, ptr %0, i64 %52
   %54 = load double, ptr %53, align 8
   %55 = fsub double %54, %1
-  %56 = or disjoint i32 %51, 1
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw double, ptr %0, i64 %57
-  %59 = load double, ptr %58, align 8
-  %60 = fsub double %59, %1
-  %61 = fsub double %55, %60
-  %62 = fdiv double %55, %61
-  %63 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %57 = load double, ptr %56, align 8
+  %58 = fsub double %57, %1
+  %59 = fsub double %55, %58
+  %60 = fdiv double %55, %59
+  %61 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %indvars.iv
+  store double %60, ptr %61, align 8
+  %62 = uitofp nneg i32 %45 to double
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store double %62, ptr %63, align 8
-  %64 = uitofp nneg i32 %45 to double
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store double %64, ptr %65, align 8
-  %66 = uitofp nneg i32 %47 to double
+  %64 = uitofp nneg i32 %47 to double
   br label %.sink.split.i
 
-67:                                               ; preds = %42
-  %68 = shl nuw nsw i32 %47, 2
-  %69 = or disjoint i32 %68, %45
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw double, ptr %0, i64 %70
-  %72 = load double, ptr %71, align 8
-  %73 = fsub double %72, %1
-  %74 = or disjoint i32 %69, 2
-  %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds nuw double, ptr %0, i64 %75
-  %77 = load double, ptr %76, align 8
-  %78 = fsub double %77, %1
-  %79 = fsub double %73, %78
-  %80 = fdiv double %73, %79
-  %81 = uitofp nneg i32 %45 to double
-  %82 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %indvars.iv
-  store double %81, ptr %82, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store double %80, ptr %83, align 8
-  %84 = uitofp nneg i32 %47 to double
+65:                                               ; preds = %42
+  %66 = shl nuw nsw i32 %47, 2
+  %67 = or disjoint i32 %66, %45
+  %68 = zext nneg i32 %67 to i64
+  %69 = getelementptr inbounds nuw double, ptr %0, i64 %68
+  %70 = load double, ptr %69, align 8
+  %71 = fsub double %70, %1
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %73 = load double, ptr %72, align 8
+  %74 = fsub double %73, %1
+  %75 = fsub double %71, %74
+  %76 = fdiv double %71, %75
+  %77 = uitofp nneg i32 %45 to double
+  %78 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %indvars.iv
+  store double %77, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  store double %76, ptr %79, align 8
+  %80 = uitofp nneg i32 %47 to double
   br label %.sink.split.i
 
-85:                                               ; preds = %42
+81:                                               ; preds = %42
   %urem.i = and i64 %indvars.iv, 3
-  %86 = and i64 %indvars.iv, 3
-  %87 = getelementptr inbounds nuw double, ptr %0, i64 %86
-  %88 = load double, ptr %87, align 8
-  %89 = fsub double %88, %1
-  %90 = or disjoint i64 %urem.i, 4
-  %91 = getelementptr inbounds nuw double, ptr %0, i64 %90
-  %92 = load double, ptr %91, align 8
-  %93 = fsub double %92, %1
-  %94 = fsub double %89, %93
-  %95 = fdiv double %89, %94
-  %96 = uitofp nneg i32 %45 to double
-  %97 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %indvars.iv
-  store double %96, ptr %97, align 8
-  %98 = uitofp nneg i32 %47 to double
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store double %98, ptr %99, align 8
+  %82 = getelementptr inbounds nuw double, ptr %0, i64 %urem.i
+  %83 = load double, ptr %82, align 8
+  %84 = fsub double %83, %1
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  %86 = load double, ptr %85, align 8
+  %87 = fsub double %86, %1
+  %88 = fsub double %84, %87
+  %89 = fdiv double %84, %88
+  %90 = uitofp nneg i32 %45 to double
+  %91 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %indvars.iv
+  store double %90, ptr %91, align 8
+  %92 = uitofp nneg i32 %47 to double
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  store double %92, ptr %93, align 8
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %85, %67, %48
-  %.sink.i = phi double [ %95, %85 ], [ %84, %67 ], [ %66, %48 ]
-  %100 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %indvars.iv, i64 2
-  store double %.sink.i, ptr %100, align 8
+.sink.split.i:                                    ; preds = %81, %65, %48
+  %.sink.i = phi double [ %89, %81 ], [ %80, %65 ], [ %64, %48 ]
+  %94 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %indvars.iv, i64 2
+  store double %.sink.i, ptr %94, align 8
   br label %_ZN13MarchingCubes9SetVertexEiPKdd.exit
 
 default.unreachable:                              ; preds = %42
   unreachable
 
 _ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %.sink.split.i, %40
-  %101 = shl i32 %.041, 1
+  %95 = shl i32 %.041, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond.not, label %.preheader.lr.ph, label %40, !llvm.loop !9
@@ -1601,40 +1596,40 @@ _ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %.sink.split.i, %40
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv54 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next55, %.preheader ]
   %indvars.iv52 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next53, %.preheader ]
-  %102 = phi i32 [ %39, %.preheader.lr.ph ], [ %117, %.preheader ]
-  %103 = sext i32 %102 to i64
-  %104 = add nuw nsw i64 %indvars.iv52, 1
-  %105 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %104
-  %106 = load i32, ptr %105, align 4
-  %107 = sext i32 %106 to i64
-  %108 = add nuw nsw i64 %indvars.iv52, 2
-  %109 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %108
-  %110 = load i32, ptr %109, align 4
-  %111 = sext i32 %110 to i64
-  %112 = mul nsw i64 %103, 24
-  %scevgep = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %112
+  %96 = phi i32 [ %39, %.preheader.lr.ph ], [ %111, %.preheader ]
+  %97 = sext i32 %96 to i64
+  %98 = add nuw nsw i64 %indvars.iv52, 1
+  %99 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %98
+  %100 = load i32, ptr %99, align 4
+  %101 = sext i32 %100 to i64
+  %102 = add nuw nsw i64 %indvars.iv52, 2
+  %103 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %102
+  %104 = load i32, ptr %103, align 4
+  %105 = sext i32 %104 to i64
+  %106 = mul nsw i64 %97, 24
+  %scevgep = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i64 24, i1 false)
-  %113 = mul nsw i64 %107, 24
-  %scevgep47 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %113
+  %107 = mul nsw i64 %101, 24
+  %scevgep47 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %scevgep47, i64 24, i1 false)
-  %114 = mul nsw i64 %111, 24
-  %scevgep48 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %114
+  %108 = mul nsw i64 %105, 24
+  %scevgep48 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %scevgep48, i64 24, i1 false)
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %115 = getelementptr inbounds nuw %class.Triangle, ptr %2, i64 %indvars.iv54
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %115, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
+  %109 = getelementptr inbounds nuw %class.Triangle, ptr %2, i64 %indvars.iv54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %109, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 3
-  %116 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %indvars.iv.next53
-  %117 = load i32, ptr %116, align 4
-  %.not35 = icmp eq i32 %117, -1
+  %110 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %indvars.iv.next53
+  %111 = load i32, ptr %110, align 4
+  %.not35 = icmp eq i32 %111, -1
   br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %118 = trunc nuw i64 %indvars.iv.next55 to i32
+  %112 = trunc nuw i64 %indvars.iv.next55 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
-  %.034 = phi i32 [ 0, %3 ], [ %118, %.loopexit.loopexit ]
+  %.034 = phi i32 [ 0, %3 ], [ %112, %.loopexit.loopexit ]
   ret i32 %.034
 }
 
@@ -1644,10 +1639,10 @@ define void @_ZN13MarchingCubes9SetVertexEiPKdd(i32 noundef %0, ptr noundef read
   %5 = and i32 %0, 1
   %6 = lshr i32 %0, 1
   %7 = and i32 %6, 1
-  switch i32 %4, label %65 [
+  switch i32 %4, label %59 [
     i32 0, label %8
-    i32 1, label %28
-    i32 2, label %47
+    i32 1, label %26
+    i32 2, label %43
   ]
 
 8:                                                ; preds = %3
@@ -1658,75 +1653,69 @@ define void @_ZN13MarchingCubes9SetVertexEiPKdd(i32 noundef %0, ptr noundef read
   %13 = getelementptr inbounds nuw double, ptr %1, i64 %12
   %14 = load double, ptr %13, align 8
   %15 = fsub double %14, %2
-  %16 = or disjoint i32 %11, 1
-  %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw double, ptr %1, i64 %17
-  %19 = load double, ptr %18, align 8
-  %20 = fsub double %19, %2
-  %21 = fsub double %15, %20
-  %22 = fdiv double %15, %21
-  %23 = sext i32 %0 to i64
-  %24 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %23
-  store double %22, ptr %24, align 8
-  %25 = uitofp nneg i32 %5 to double
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store double %25, ptr %26, align 8
-  %27 = uitofp nneg i32 %7 to double
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %17 = load double, ptr %16, align 8
+  %18 = fsub double %17, %2
+  %19 = fsub double %15, %18
+  %20 = fdiv double %15, %19
+  %21 = sext i32 %0 to i64
+  %22 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %21
+  store double %20, ptr %22, align 8
+  %23 = uitofp nneg i32 %5 to double
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store double %23, ptr %24, align 8
+  %25 = uitofp nneg i32 %7 to double
   br label %.sink.split
 
-28:                                               ; preds = %3
-  %29 = shl nuw nsw i32 %7, 2
-  %30 = or disjoint i32 %29, %5
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw double, ptr %1, i64 %31
-  %33 = load double, ptr %32, align 8
-  %34 = fsub double %33, %2
-  %35 = or disjoint i32 %30, 2
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw double, ptr %1, i64 %36
-  %38 = load double, ptr %37, align 8
-  %39 = fsub double %38, %2
-  %40 = fsub double %34, %39
-  %41 = fdiv double %34, %40
-  %42 = uitofp nneg i32 %5 to double
-  %43 = sext i32 %0 to i64
-  %44 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %43
-  store double %42, ptr %44, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store double %41, ptr %45, align 8
-  %46 = uitofp nneg i32 %7 to double
+26:                                               ; preds = %3
+  %27 = shl nuw nsw i32 %7, 2
+  %28 = or disjoint i32 %27, %5
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr inbounds nuw double, ptr %1, i64 %29
+  %31 = load double, ptr %30, align 8
+  %32 = fsub double %31, %2
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %34 = load double, ptr %33, align 8
+  %35 = fsub double %34, %2
+  %36 = fsub double %32, %35
+  %37 = fdiv double %32, %36
+  %38 = uitofp nneg i32 %5 to double
+  %39 = sext i32 %0 to i64
+  %40 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %39
+  store double %38, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store double %37, ptr %41, align 8
+  %42 = uitofp nneg i32 %7 to double
   br label %.sink.split
 
-47:                                               ; preds = %3
+43:                                               ; preds = %3
   %urem = and i32 %0, 3
-  %48 = zext nneg i32 %urem to i64
-  %49 = getelementptr inbounds nuw double, ptr %1, i64 %48
-  %50 = load double, ptr %49, align 8
-  %51 = fsub double %50, %2
-  %52 = or disjoint i32 %urem, 4
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw double, ptr %1, i64 %53
-  %55 = load double, ptr %54, align 8
-  %56 = fsub double %55, %2
-  %57 = fsub double %51, %56
-  %58 = fdiv double %51, %57
-  %59 = uitofp nneg i32 %5 to double
-  %60 = sext i32 %0 to i64
-  %61 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %60
-  store double %59, ptr %61, align 8
-  %62 = uitofp nneg i32 %7 to double
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store double %62, ptr %63, align 8
+  %44 = zext nneg i32 %urem to i64
+  %45 = getelementptr inbounds nuw double, ptr %1, i64 %44
+  %46 = load double, ptr %45, align 8
+  %47 = fsub double %46, %2
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %49 = load double, ptr %48, align 8
+  %50 = fsub double %49, %2
+  %51 = fsub double %47, %50
+  %52 = fdiv double %47, %51
+  %53 = uitofp nneg i32 %5 to double
+  %54 = sext i32 %0 to i64
+  %55 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %54
+  store double %53, ptr %55, align 8
+  %56 = uitofp nneg i32 %7 to double
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store double %56, ptr %57, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %8, %28, %47
-  %.sink43 = phi ptr [ %61, %47 ], [ %44, %28 ], [ %24, %8 ]
-  %.sink = phi double [ %58, %47 ], [ %46, %28 ], [ %27, %8 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.sink43, i64 16
-  store double %.sink, ptr %64, align 8
-  br label %65
+.sink.split:                                      ; preds = %8, %26, %43
+  %.sink43 = phi ptr [ %55, %43 ], [ %40, %26 ], [ %22, %8 ]
+  %.sink = phi double [ %52, %43 ], [ %42, %26 ], [ %25, %8 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.sink43, i64 16
+  store double %.sink, ptr %58, align 8
+  br label %59
 
-65:                                               ; preds = %.sink.split, %3
+59:                                               ; preds = %.sink.split, %3
   ret void
 }
 
@@ -1862,130 +1851,131 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKff
   %.sroa.21 = alloca double, align 8
   switch i32 %2, label %.thread111 [
     i32 0, label %.preheader
-    i32 1, label %.preheader114
+    i32 1, label %.preheader115
     i32 2, label %.preheader117
-    i32 3, label %.preheader120.preheader
+    i32 3, label %.preheader121
     i32 4, label %.preheader123
-    i32 5, label %.preheader126.preheader
+    i32 5, label %.preheader127
   ]
 
-.preheader126.preheader:                          ; preds = %3
-  %invariant.gep203 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep203, i64 0
-  %4 = load float, ptr %gep, align 4
+.preheader127:                                    ; preds = %3
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %invariant.gep195 = getelementptr inbounds nuw float, ptr %invariant.gep, i64 0
+  %4 = load float, ptr %invariant.gep195, align 4
   %5 = fpext float %4 to double
   store double %5, ptr %.sroa.0, align 16
-  %gep202.c = getelementptr inbounds nuw i8, ptr %gep, i64 8
-  %6 = load float, ptr %gep202.c, align 4
+  %gep196.c = getelementptr inbounds nuw i8, ptr %invariant.gep195, i64 8
+  %6 = load float, ptr %gep196.c, align 4
   %7 = fpext float %6 to double
   store double %7, ptr %.sroa.7, align 8
-  %gep.c = getelementptr inbounds nuw float, ptr %invariant.gep203, i64 1
-  %8 = load float, ptr %gep.c, align 4
+  %invariant.gep195.c = getelementptr inbounds nuw float, ptr %invariant.gep, i64 1
+  %8 = load float, ptr %invariant.gep195.c, align 4
   %9 = fpext float %8 to double
   store double %9, ptr %.sroa.14, align 16
-  %gep202.c.c = getelementptr inbounds nuw i8, ptr %gep.c, i64 8
-  %10 = load float, ptr %gep202.c.c, align 4
+  %gep196.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep195.c, i64 8
+  %10 = load float, ptr %gep196.c.c, align 4
   %11 = fpext float %10 to double
   store double %11, ptr %.sroa.21, align 8
   br label %.thread111
 
-.preheader120.preheader:                          ; preds = %3
-  %invariant.gep209 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %gep210 = getelementptr inbounds nuw float, ptr %invariant.gep209, i64 0
-  %12 = load float, ptr %gep210, align 4
+.preheader121:                                    ; preds = %3
+  %invariant.gep133 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %invariant.gep198 = getelementptr inbounds nuw float, ptr %invariant.gep133, i64 0
+  %12 = load float, ptr %invariant.gep198, align 4
   %13 = fpext float %12 to double
   store double %13, ptr %.sroa.0, align 16
-  %gep208.c = getelementptr inbounds nuw i8, ptr %gep210, i64 16
-  %14 = load float, ptr %gep208.c, align 4
+  %gep199.c = getelementptr inbounds nuw i8, ptr %invariant.gep198, i64 16
+  %14 = load float, ptr %gep199.c, align 4
   %15 = fpext float %14 to double
   store double %15, ptr %.sroa.7, align 8
-  %gep210.c = getelementptr inbounds nuw float, ptr %invariant.gep209, i64 1
-  %16 = load float, ptr %gep210.c, align 4
+  %invariant.gep198.c = getelementptr inbounds nuw float, ptr %invariant.gep133, i64 1
+  %16 = load float, ptr %invariant.gep198.c, align 4
   %17 = fpext float %16 to double
   store double %17, ptr %.sroa.14, align 16
-  %gep208.c.c = getelementptr inbounds nuw i8, ptr %gep210.c, i64 16
-  %18 = load float, ptr %gep208.c.c, align 4
+  %gep199.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep198.c, i64 16
+  %18 = load float, ptr %gep199.c.c, align 4
   %19 = fpext float %18 to double
   store double %19, ptr %.sroa.21, align 8
   br label %.thread111
 
-.preheader:                                       ; preds = %3
-  %invariant.gep215 = getelementptr inbounds nuw i8, ptr %0, i64 0
-  %20 = load float, ptr %invariant.gep215, align 4
+.preheader115:                                    ; preds = %3
+  %invariant.gep139 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %invariant.gep202 = getelementptr inbounds nuw i8, ptr %invariant.gep139, i64 0
+  %20 = load float, ptr %invariant.gep202, align 4
   %21 = fpext float %20 to double
   store double %21, ptr %.sroa.0, align 16
-  %gep216.c = getelementptr inbounds nuw i8, ptr %invariant.gep215, i64 16
-  %22 = load float, ptr %gep216.c, align 4
+  %gep203.c = getelementptr inbounds nuw i8, ptr %invariant.gep202, i64 16
+  %22 = load float, ptr %gep203.c, align 4
   %23 = fpext float %22 to double
   store double %23, ptr %.sroa.7, align 8
-  %invariant.gep215.c = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load float, ptr %invariant.gep215.c, align 4
+  %invariant.gep202.c = getelementptr inbounds nuw i8, ptr %invariant.gep139, i64 8
+  %24 = load float, ptr %invariant.gep202.c, align 4
   %25 = fpext float %24 to double
   store double %25, ptr %.sroa.14, align 16
-  %gep216.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep215.c, i64 16
-  %26 = load float, ptr %gep216.c.c, align 4
+  %gep203.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep202.c, i64 16
+  %26 = load float, ptr %gep203.c.c, align 4
   %27 = fpext float %26 to double
   store double %27, ptr %.sroa.21, align 8
   br label %.thread111
 
-.preheader114:                                    ; preds = %3
-  %invariant.gep213 = getelementptr inbounds nuw float, ptr %0, i64 1
-  %28 = load float, ptr %invariant.gep213, align 4
+.preheader:                                       ; preds = %3
+  %invariant.gep204 = getelementptr inbounds nuw i8, ptr %0, i64 0
+  %28 = load float, ptr %invariant.gep204, align 4
   %29 = fpext float %28 to double
   store double %29, ptr %.sroa.0, align 16
-  %gep214.c = getelementptr inbounds nuw i8, ptr %invariant.gep213, i64 16
-  %30 = load float, ptr %gep214.c, align 4
+  %gep205.c = getelementptr inbounds nuw i8, ptr %invariant.gep204, i64 16
+  %30 = load float, ptr %gep205.c, align 4
   %31 = fpext float %30 to double
   store double %31, ptr %.sroa.7, align 8
-  %invariant.gep213.c = getelementptr inbounds nuw float, ptr %0, i64 3
-  %32 = load float, ptr %invariant.gep213.c, align 4
+  %invariant.gep204.c = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load float, ptr %invariant.gep204.c, align 4
   %33 = fpext float %32 to double
   store double %33, ptr %.sroa.14, align 16
-  %gep214.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep213.c, i64 16
-  %34 = load float, ptr %gep214.c.c, align 4
+  %gep205.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep204.c, i64 16
+  %34 = load float, ptr %gep205.c.c, align 4
   %35 = fpext float %34 to double
   store double %35, ptr %.sroa.21, align 8
   br label %.thread111
 
 .preheader117:                                    ; preds = %3
-  %invariant.gep211 = getelementptr inbounds nuw float, ptr %0, i64 0
-  %36 = load float, ptr %invariant.gep211, align 4
+  %invariant.gep200 = getelementptr inbounds nuw float, ptr %0, i64 0
+  %36 = load float, ptr %invariant.gep200, align 4
   %37 = fpext float %36 to double
   store double %37, ptr %.sroa.0, align 16
-  %gep212.c = getelementptr inbounds nuw i8, ptr %invariant.gep211, i64 16
-  %38 = load float, ptr %gep212.c, align 4
+  %gep201.c = getelementptr inbounds nuw i8, ptr %invariant.gep200, i64 16
+  %38 = load float, ptr %gep201.c, align 4
   %39 = fpext float %38 to double
   store double %39, ptr %.sroa.7, align 8
-  %invariant.gep211.c = getelementptr inbounds nuw float, ptr %0, i64 1
-  %40 = load float, ptr %invariant.gep211.c, align 4
+  %invariant.gep200.c = getelementptr inbounds nuw float, ptr %0, i64 1
+  %40 = load float, ptr %invariant.gep200.c, align 4
   %41 = fpext float %40 to double
   store double %41, ptr %.sroa.14, align 16
-  %gep212.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep211.c, i64 16
-  %42 = load float, ptr %gep212.c.c, align 4
+  %gep201.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep200.c, i64 16
+  %42 = load float, ptr %gep201.c.c, align 4
   %43 = fpext float %42 to double
   store double %43, ptr %.sroa.21, align 8
   br label %.thread111
 
 .preheader123:                                    ; preds = %3
-  %invariant.gep = getelementptr inbounds nuw float, ptr %0, i64 0
-  %44 = load float, ptr %invariant.gep, align 4
+  %invariant.gep197 = getelementptr inbounds nuw float, ptr %0, i64 0
+  %44 = load float, ptr %invariant.gep197, align 4
   %45 = fpext float %44 to double
   store double %45, ptr %.sroa.0, align 16
-  %gep204.c = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 8
-  %46 = load float, ptr %gep204.c, align 4
+  %gep.c = getelementptr inbounds nuw i8, ptr %invariant.gep197, i64 8
+  %46 = load float, ptr %gep.c, align 4
   %47 = fpext float %46 to double
   store double %47, ptr %.sroa.7, align 8
-  %invariant.gep.c = getelementptr inbounds nuw float, ptr %0, i64 1
-  %48 = load float, ptr %invariant.gep.c, align 4
+  %invariant.gep197.c = getelementptr inbounds nuw float, ptr %0, i64 1
+  %48 = load float, ptr %invariant.gep197.c, align 4
   %49 = fpext float %48 to double
   store double %49, ptr %.sroa.14, align 16
-  %gep204.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep.c, i64 8
-  %50 = load float, ptr %gep204.c.c, align 4
+  %gep.c.c = getelementptr inbounds nuw i8, ptr %invariant.gep197.c, i64 8
+  %50 = load float, ptr %gep.c.c, align 4
   %51 = fpext float %50 to double
   store double %51, ptr %.sroa.21, align 8
   br label %.thread111
 
-.thread111:                                       ; preds = %.preheader126.preheader, %.preheader123, %.preheader120.preheader, %.preheader117, %.preheader114, %.preheader, %3
+.thread111:                                       ; preds = %.preheader127, %.preheader123, %.preheader121, %.preheader117, %.preheader115, %.preheader, %3
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16
   %52 = fpext float %1 to double
   %53 = fcmp olt double %.sroa.0.0..sroa.0.0., %52
@@ -2357,67 +2347,146 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKffP8Triangle(ptr noundef 
   %37 = load i32, ptr %36, align 4
   br label %40
 
-.preheader.lr.ph:                                 ; preds = %43
+.preheader.lr.ph:                                 ; preds = %_ZN13MarchingCubes9SetVertexEiPKff.exit
   %38 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 0
   %39 = load i32, ptr %38, align 16
   %.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
   %.sroa.0.48..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 48
   br label %.preheader
 
-40:                                               ; preds = %.preheader38, %43
-  %.040 = phi i32 [ 1, %.preheader38 ], [ %44, %43 ]
-  %.03239 = phi i32 [ 0, %.preheader38 ], [ %45, %43 ]
-  %41 = and i32 %37, %.040
+40:                                               ; preds = %.preheader38, %_ZN13MarchingCubes9SetVertexEiPKff.exit
+  %indvars.iv = phi i64 [ 0, %.preheader38 ], [ %indvars.iv.next, %_ZN13MarchingCubes9SetVertexEiPKff.exit ]
+  %.041 = phi i32 [ 1, %.preheader38 ], [ %98, %_ZN13MarchingCubes9SetVertexEiPKff.exit ]
+  %41 = and i32 %37, %.041
   %.not36 = icmp eq i32 %41, 0
-  br i1 %.not36, label %43, label %42
+  br i1 %.not36, label %_ZN13MarchingCubes9SetVertexEiPKff.exit, label %42
 
 42:                                               ; preds = %40
-  tail call void @_ZN13MarchingCubes9SetVertexEiPKff(i32 noundef %.03239, ptr noundef nonnull %0, float noundef %1)
-  br label %43
+  %43 = trunc nuw nsw i64 %indvars.iv to i32
+  %44 = lshr i32 %43, 2
+  %45 = and i32 %43, 1
+  %46 = lshr i32 %43, 1
+  %47 = and i32 %46, 1
+  switch i32 %44, label %default.unreachable [
+    i32 0, label %48
+    i32 1, label %66
+    i32 2, label %83
+  ]
 
-43:                                               ; preds = %42, %40
-  %44 = shl i32 %.040, 1
-  %45 = add nuw nsw i32 %.03239, 1
-  %exitcond.not = icmp eq i32 %45, 12
+48:                                               ; preds = %42
+  %49 = shl nuw nsw i32 %47, 2
+  %50 = shl nuw nsw i32 %45, 1
+  %51 = or disjoint i32 %49, %50
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw float, ptr %0, i64 %52
+  %54 = load float, ptr %53, align 4
+  %55 = fsub float %54, %1
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  %57 = load float, ptr %56, align 4
+  %58 = fsub float %57, %1
+  %59 = fsub float %55, %58
+  %60 = fdiv float %55, %59
+  %61 = fpext float %60 to double
+  %62 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %indvars.iv
+  store double %61, ptr %62, align 8
+  %63 = uitofp nneg i32 %45 to double
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store double %63, ptr %64, align 8
+  %65 = uitofp nneg i32 %47 to double
+  br label %.sink.split.i
+
+66:                                               ; preds = %42
+  %67 = shl nuw nsw i32 %47, 2
+  %68 = or disjoint i32 %67, %45
+  %69 = zext nneg i32 %68 to i64
+  %70 = getelementptr inbounds nuw float, ptr %0, i64 %69
+  %71 = load float, ptr %70, align 4
+  %72 = fsub float %71, %1
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %74 = load float, ptr %73, align 4
+  %75 = fsub float %74, %1
+  %76 = fsub float %72, %75
+  %77 = fdiv float %72, %76
+  %78 = fpext float %77 to double
+  %79 = uitofp nneg i32 %45 to double
+  %80 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %indvars.iv
+  store double %79, ptr %80, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  store double %78, ptr %81, align 8
+  %82 = uitofp nneg i32 %47 to double
+  br label %.sink.split.i
+
+83:                                               ; preds = %42
+  %urem.i = and i64 %indvars.iv, 3
+  %84 = getelementptr inbounds nuw float, ptr %0, i64 %urem.i
+  %85 = load float, ptr %84, align 4
+  %86 = fsub float %85, %1
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %88 = load float, ptr %87, align 4
+  %89 = fsub float %88, %1
+  %90 = fsub float %86, %89
+  %91 = fdiv float %86, %90
+  %92 = fpext float %91 to double
+  %93 = uitofp nneg i32 %45 to double
+  %94 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %indvars.iv
+  store double %93, ptr %94, align 8
+  %95 = uitofp nneg i32 %47 to double
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store double %95, ptr %96, align 8
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %83, %66, %48
+  %.sink.i = phi double [ %92, %83 ], [ %82, %66 ], [ %65, %48 ]
+  %97 = getelementptr inbounds nuw [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %indvars.iv, i64 2
+  store double %.sink.i, ptr %97, align 8
+  br label %_ZN13MarchingCubes9SetVertexEiPKff.exit
+
+default.unreachable:                              ; preds = %42
+  unreachable
+
+_ZN13MarchingCubes9SetVertexEiPKff.exit:          ; preds = %.sink.split.i, %40
+  %98 = shl i32 %.041, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond.not, label %.preheader.lr.ph, label %40, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %indvars.iv48 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next49, %.preheader ]
-  %indvars.iv = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next, %.preheader ]
-  %46 = phi i32 [ %39, %.preheader.lr.ph ], [ %61, %.preheader ]
-  %47 = sext i32 %46 to i64
-  %48 = add nuw nsw i64 %indvars.iv, 1
-  %49 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %48
-  %50 = load i32, ptr %49, align 4
-  %51 = sext i32 %50 to i64
-  %52 = add nuw nsw i64 %indvars.iv, 2
-  %53 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %52
-  %54 = load i32, ptr %53, align 4
-  %55 = sext i32 %54 to i64
-  %56 = mul nsw i64 %47, 24
-  %scevgep = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %56
+  %indvars.iv54 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next55, %.preheader ]
+  %indvars.iv52 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next53, %.preheader ]
+  %99 = phi i32 [ %39, %.preheader.lr.ph ], [ %114, %.preheader ]
+  %100 = sext i32 %99 to i64
+  %101 = add nuw nsw i64 %indvars.iv52, 1
+  %102 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %101
+  %103 = load i32, ptr %102, align 4
+  %104 = sext i32 %103 to i64
+  %105 = add nuw nsw i64 %indvars.iv52, 2
+  %106 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %105
+  %107 = load i32, ptr %106, align 4
+  %108 = sext i32 %107 to i64
+  %109 = mul nsw i64 %100, 24
+  %scevgep = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %109
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %scevgep, i64 24, i1 false)
-  %57 = mul nsw i64 %51, 24
-  %scevgep45 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %57
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %scevgep45, i64 24, i1 false)
-  %58 = mul nsw i64 %55, 24
-  %scevgep46 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %58
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %scevgep46, i64 24, i1 false)
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %59 = getelementptr inbounds nuw %class.Triangle, ptr %2, i64 %indvars.iv48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %59, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %60 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %indvars.iv.next
-  %61 = load i32, ptr %60, align 4
-  %.not35 = icmp eq i32 %61, -1
+  %110 = mul nsw i64 %104, 24
+  %scevgep47 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %110
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %scevgep47, i64 24, i1 false)
+  %111 = mul nsw i64 %108, 24
+  %scevgep48 = getelementptr i8, ptr @_ZN13MarchingCubes10vertexListE, i64 %111
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %scevgep48, i64 24, i1 false)
+  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
+  %112 = getelementptr inbounds nuw %class.Triangle, ptr %2, i64 %indvars.iv54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %112, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0, i64 72, i1 false)
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 3
+  %113 = getelementptr inbounds nuw [256 x [16 x i32]], ptr @_ZN13MarchingCubes9trianglesE, i64 0, i64 %34, i64 %indvars.iv.next53
+  %114 = load i32, ptr %113, align 4
+  %.not35 = icmp eq i32 %114, -1
   br i1 %.not35, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %.preheader
-  %62 = trunc nuw i64 %indvars.iv.next49 to i32
+  %115 = trunc nuw i64 %indvars.iv.next55 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3
-  %.034 = phi i32 [ 0, %3 ], [ %62, %.loopexit.loopexit ]
+  %.034 = phi i32 [ 0, %3 ], [ %115, %.loopexit.loopexit ]
   ret i32 %.034
 }
 
@@ -2427,10 +2496,10 @@ define void @_ZN13MarchingCubes9SetVertexEiPKff(i32 noundef %0, ptr noundef read
   %5 = and i32 %0, 1
   %6 = lshr i32 %0, 1
   %7 = and i32 %6, 1
-  switch i32 %4, label %68 [
+  switch i32 %4, label %62 [
     i32 0, label %8
-    i32 1, label %29
-    i32 2, label %49
+    i32 1, label %27
+    i32 2, label %45
   ]
 
 8:                                                ; preds = %3
@@ -2441,78 +2510,72 @@ define void @_ZN13MarchingCubes9SetVertexEiPKff(i32 noundef %0, ptr noundef read
   %13 = getelementptr inbounds nuw float, ptr %1, i64 %12
   %14 = load float, ptr %13, align 4
   %15 = fsub float %14, %2
-  %16 = or disjoint i32 %11, 1
-  %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw float, ptr %1, i64 %17
-  %19 = load float, ptr %18, align 4
-  %20 = fsub float %19, %2
-  %21 = fsub float %15, %20
-  %22 = fdiv float %15, %21
-  %23 = fpext float %22 to double
-  %24 = sext i32 %0 to i64
-  %25 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %24
-  store double %23, ptr %25, align 8
-  %26 = uitofp nneg i32 %5 to double
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store double %26, ptr %27, align 8
-  %28 = uitofp nneg i32 %7 to double
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %17 = load float, ptr %16, align 4
+  %18 = fsub float %17, %2
+  %19 = fsub float %15, %18
+  %20 = fdiv float %15, %19
+  %21 = fpext float %20 to double
+  %22 = sext i32 %0 to i64
+  %23 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %22
+  store double %21, ptr %23, align 8
+  %24 = uitofp nneg i32 %5 to double
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store double %24, ptr %25, align 8
+  %26 = uitofp nneg i32 %7 to double
   br label %.sink.split
 
-29:                                               ; preds = %3
-  %30 = shl nuw nsw i32 %7, 2
-  %31 = or disjoint i32 %30, %5
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw float, ptr %1, i64 %32
-  %34 = load float, ptr %33, align 4
-  %35 = fsub float %34, %2
-  %36 = or disjoint i32 %31, 2
-  %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw float, ptr %1, i64 %37
-  %39 = load float, ptr %38, align 4
-  %40 = fsub float %39, %2
-  %41 = fsub float %35, %40
-  %42 = fdiv float %35, %41
-  %43 = fpext float %42 to double
-  %44 = uitofp nneg i32 %5 to double
-  %45 = sext i32 %0 to i64
-  %46 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %45
-  store double %44, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store double %43, ptr %47, align 8
-  %48 = uitofp nneg i32 %7 to double
+27:                                               ; preds = %3
+  %28 = shl nuw nsw i32 %7, 2
+  %29 = or disjoint i32 %28, %5
+  %30 = zext nneg i32 %29 to i64
+  %31 = getelementptr inbounds nuw float, ptr %1, i64 %30
+  %32 = load float, ptr %31, align 4
+  %33 = fsub float %32, %2
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %35 = load float, ptr %34, align 4
+  %36 = fsub float %35, %2
+  %37 = fsub float %33, %36
+  %38 = fdiv float %33, %37
+  %39 = fpext float %38 to double
+  %40 = uitofp nneg i32 %5 to double
+  %41 = sext i32 %0 to i64
+  %42 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %41
+  store double %40, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store double %39, ptr %43, align 8
+  %44 = uitofp nneg i32 %7 to double
   br label %.sink.split
 
-49:                                               ; preds = %3
+45:                                               ; preds = %3
   %urem = and i32 %0, 3
-  %50 = zext nneg i32 %urem to i64
-  %51 = getelementptr inbounds nuw float, ptr %1, i64 %50
-  %52 = load float, ptr %51, align 4
-  %53 = fsub float %52, %2
-  %54 = or disjoint i32 %urem, 4
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw float, ptr %1, i64 %55
-  %57 = load float, ptr %56, align 4
-  %58 = fsub float %57, %2
-  %59 = fsub float %53, %58
-  %60 = fdiv float %53, %59
-  %61 = fpext float %60 to double
-  %62 = uitofp nneg i32 %5 to double
-  %63 = sext i32 %0 to i64
-  %64 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %63
-  store double %62, ptr %64, align 8
-  %65 = uitofp nneg i32 %7 to double
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store double %65, ptr %66, align 8
+  %46 = zext nneg i32 %urem to i64
+  %47 = getelementptr inbounds nuw float, ptr %1, i64 %46
+  %48 = load float, ptr %47, align 4
+  %49 = fsub float %48, %2
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %51 = load float, ptr %50, align 4
+  %52 = fsub float %51, %2
+  %53 = fsub float %49, %52
+  %54 = fdiv float %49, %53
+  %55 = fpext float %54 to double
+  %56 = uitofp nneg i32 %5 to double
+  %57 = sext i32 %0 to i64
+  %58 = getelementptr inbounds [12 x [3 x double]], ptr @_ZN13MarchingCubes10vertexListE, i64 0, i64 %57
+  store double %56, ptr %58, align 8
+  %59 = uitofp nneg i32 %7 to double
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store double %59, ptr %60, align 8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %8, %29, %49
-  %.sink43 = phi ptr [ %64, %49 ], [ %46, %29 ], [ %25, %8 ]
-  %.sink = phi double [ %61, %49 ], [ %48, %29 ], [ %28, %8 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.sink43, i64 16
-  store double %.sink, ptr %67, align 8
-  br label %68
+.sink.split:                                      ; preds = %8, %27, %45
+  %.sink43 = phi ptr [ %58, %45 ], [ %42, %27 ], [ %23, %8 ]
+  %.sink = phi double [ %55, %45 ], [ %44, %27 ], [ %26, %8 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.sink43, i64 16
+  store double %.sink, ptr %61, align 8
+  br label %62
 
-68:                                               ; preds = %.sink.split, %3
+62:                                               ; preds = %.sink.split, %3
   ret void
 }
 

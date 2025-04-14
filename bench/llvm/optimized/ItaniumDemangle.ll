@@ -20658,8 +20658,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIf
   %isdigit = icmp ult i32 %isdigittmp, 10
   %.v = select i1 %isdigit, i8 0, i8 9
   %14 = add i8 %.v, %12
-  %.0.add = or disjoint i64 %.0.idx24, 1
-  %.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.0.add
+  %.ptr = getelementptr inbounds nuw i8, ptr %.0.ptr, i64 1
   %15 = load i8, ptr %.ptr, align 1, !tbaa !3
   %16 = sext i8 %15 to i32
   %isdigittmp20 = add nsw i32 %16, -48
@@ -20785,8 +20784,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplId
   %isdigit = icmp ult i32 %isdigittmp, 10
   %.v = select i1 %isdigit, i8 0, i8 9
   %14 = add i8 %.v, %12
-  %.0.add = or disjoint i64 %.0.idx24, 1
-  %.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.0.add
+  %.ptr = getelementptr inbounds nuw i8, ptr %.0.ptr, i64 1
   %15 = load i8, ptr %.ptr, align 1, !tbaa !3
   %16 = sext i8 %15 to i32
   %isdigittmp20 = add nsw i32 %16, -48
@@ -20905,8 +20903,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FloatLiteralImplIe
   %isdigit = icmp ult i32 %isdigittmp, 10
   %.v = select i1 %isdigit, i8 0, i8 9
   %14 = add i8 %.v, %12
-  %.0.add = or disjoint i64 %.0.idx24, 1
-  %.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.0.add
+  %.ptr = getelementptr inbounds nuw i8, ptr %.0.ptr, i64 1
   %15 = load i8, ptr %.ptr, align 1, !tbaa !3
   %16 = sext i8 %15 to i32
   %isdigittmp20 = add nsw i32 %16, -48

@@ -2885,75 +2885,73 @@ define internal fastcc range(i32 -2147483647, 1073741824) i32 @reduce_expanded_r
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds %struct.ExpandedRange, ptr %0, i64 %24, i32 1
   %26 = load i64, ptr %25, align 8
-  %27 = or disjoint i64 %indvars.iv59, 1
-  %28 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv59
-  store i64 %26, ptr %28, align 8
-  %29 = add i32 %23, 1
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %struct.ExpandedRange, ptr %0, i64 %30
-  %32 = load i64, ptr %31, align 8
+  %27 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv59
+  store i64 %26, ptr %27, align 8
+  %28 = add i32 %23, 1
+  %29 = sext i32 %28 to i64
+  %30 = getelementptr inbounds %struct.ExpandedRange, ptr %0, i64 %29
+  %31 = load i64, ptr %30, align 8
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 2
-  %33 = getelementptr inbounds nuw i64, ptr %14, i64 %27
-  store i64 %32, ptr %33, align 8
+  %32 = getelementptr i8, ptr %27, i64 8
+  store i64 %31, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %34 = trunc nuw nsw i64 %indvars.iv.next60 to i32
+  %33 = trunc nuw nsw i64 %indvars.iv.next60 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
-  %.049.lcssa = phi i32 [ 2, %10 ], [ %34, %._crit_edge.loopexit ]
-  %35 = sext i32 %.049.lcssa to i64
-  call void @qsort_arg(ptr noundef nonnull %14, i64 noundef %35, i64 noundef 8, ptr noundef nonnull @compare_values, ptr noundef nonnull %7) #12
-  %36 = ashr exact i32 %.049.lcssa, 1
-  %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %.lr.ph57.preheader, label %.loopexit
+  %.049.lcssa = phi i32 [ 2, %10 ], [ %33, %._crit_edge.loopexit ]
+  %34 = sext i32 %.049.lcssa to i64
+  call void @qsort_arg(ptr noundef nonnull %14, i64 noundef %34, i64 noundef 8, ptr noundef nonnull @compare_values, ptr noundef nonnull %7) #12
+  %35 = ashr exact i32 %.049.lcssa, 1
+  %36 = icmp sgt i32 %35, 0
+  br i1 %36, label %.lr.ph57.preheader, label %.loopexit
 
 .lr.ph57.preheader:                               ; preds = %._crit_edge
-  %wide.trip.count67 = zext nneg i32 %36 to i64
+  %wide.trip.count67 = zext nneg i32 %35 to i64
   br label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %compare_values.exit
   %indvars.iv64 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next65, %compare_values.exit ]
-  %38 = shl nuw i64 %indvars.iv64, 1
-  %39 = getelementptr inbounds i64, ptr %14, i64 %38
-  %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds nuw %struct.ExpandedRange, ptr %0, i64 %indvars.iv64
-  store i64 %40, ptr %41, align 8
-  %42 = or disjoint i64 %38, 1
-  %43 = getelementptr inbounds i64, ptr %14, i64 %42
-  %44 = load i64, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i64 %44, ptr %45, align 8
-  %46 = load ptr, ptr %7, align 8
-  %47 = load i32, ptr %11, align 8
-  %48 = load i64, ptr %39, align 8
-  %49 = call i64 @FunctionCall2Coll(ptr noundef %46, i32 noundef %47, i64 noundef %48, i64 noundef %44) #12
-  %.not.i = icmp eq i64 %49, 0
-  br i1 %.not.i, label %50, label %compare_values.exit
+  %.idx = shl i64 %indvars.iv64, 4
+  %37 = getelementptr inbounds i8, ptr %14, i64 %.idx
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds nuw %struct.ExpandedRange, ptr %0, i64 %indvars.iv64
+  store i64 %38, ptr %39, align 8
+  %40 = getelementptr i8, ptr %37, i64 8
+  %41 = load i64, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i64 %41, ptr %42, align 8
+  %43 = load ptr, ptr %7, align 8
+  %44 = load i32, ptr %11, align 8
+  %45 = load i64, ptr %37, align 8
+  %46 = call i64 @FunctionCall2Coll(ptr noundef %43, i32 noundef %44, i64 noundef %45, i64 noundef %41) #12
+  %.not.i = icmp eq i64 %46, 0
+  br i1 %.not.i, label %47, label %compare_values.exit
 
-50:                                               ; preds = %.lr.ph57
-  %51 = load ptr, ptr %7, align 8
-  %52 = load i32, ptr %11, align 8
-  %53 = load i64, ptr %43, align 8
-  %54 = load i64, ptr %39, align 8
-  %55 = call i64 @FunctionCall2Coll(ptr noundef %51, i32 noundef %52, i64 noundef %53, i64 noundef %54) #12
-  %.not13.i.not = icmp eq i64 %55, 0
-  %56 = zext i1 %.not13.i.not to i8
+47:                                               ; preds = %.lr.ph57
+  %48 = load ptr, ptr %7, align 8
+  %49 = load i32, ptr %11, align 8
+  %50 = load i64, ptr %40, align 8
+  %51 = load i64, ptr %37, align 8
+  %52 = call i64 @FunctionCall2Coll(ptr noundef %48, i32 noundef %49, i64 noundef %50, i64 noundef %51) #12
+  %.not13.i.not = icmp eq i64 %52, 0
+  %53 = zext i1 %.not13.i.not to i8
   br label %compare_values.exit
 
-compare_values.exit:                              ; preds = %.lr.ph57, %50
-  %.0.i = phi i8 [ 0, %.lr.ph57 ], [ %56, %50 ]
-  %57 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i8 %.0.i, ptr %57, align 8
+compare_values.exit:                              ; preds = %.lr.ph57, %47
+  %.0.i = phi i8 [ 0, %.lr.ph57 ], [ %53, %47 ]
+  %54 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store i8 %.0.i, ptr %54, align 8
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count67
   br i1 %exitcond68.not, label %.loopexit, label %.lr.ph57, !llvm.loop !26
 
 .loopexit:                                        ; preds = %compare_values.exit, %._crit_edge, %6
-  %.0 = phi i32 [ %1, %6 ], [ %36, %._crit_edge ], [ %36, %compare_values.exit ]
+  %.0 = phi i32 [ %1, %6 ], [ %35, %._crit_edge ], [ %35, %compare_values.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
   ret i32 %.0
 }

@@ -3999,9 +3999,9 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
           to label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit2167 unwind label %1627
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit2167: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i2164, %1600
-  %1601 = or disjoint i64 %.03793886, 1
-  %1602 = load ptr, ptr %71, align 8, !tbaa !18
-  %1603 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %1602, i64 %1601
+  %1601 = load ptr, ptr %71, align 8, !tbaa !18
+  %1602 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %1601, i64 %.03793886
+  %1603 = getelementptr inbounds nuw i8, ptr %1602, i64 8
   %1604 = load ptr, ptr %1496, align 8, !tbaa !14
   %1605 = load ptr, ptr %1497, align 8, !tbaa !20
   %.not.i2168 = icmp eq ptr %1604, %1605

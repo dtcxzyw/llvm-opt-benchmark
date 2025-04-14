@@ -12304,7 +12304,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %47 = load ptr, ptr %46, align 8, !tbaa !173
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %55, label %48
+  br i1 %.not, label %56, label %48
 
 48:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr nonnull @.str.481, i64 21) #23
@@ -12313,35 +12313,35 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %50 = load i32, ptr %49, align 8, !tbaa !174
   %51 = zext i32 %50 to i64
   %.idx.i.i = shl nuw nsw i64 %51, 5
-  %.add.i.i = or disjoint i64 %.idx.i.i, 16
-  %.ptr5.i.i = getelementptr inbounds nuw i8, ptr %47, i64 %.add.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i
+  %.ptr5.i.i = getelementptr inbounds nuw i8, ptr %52, i64 16
   %.not3.i.i = icmp eq i32 %50, 0
   br i1 %.not3.i.i, label %"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper5VisitEPKNS4_16ConceptReferenceEE3$_0EEvl.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %48
   %.ptr.i.i = getelementptr inbounds nuw i8, ptr %47, i64 16
-  br label %52
+  br label %53
 
-52:                                               ; preds = %52, %.lr.ph.i.i
-  %.04.i.i = phi ptr [ %.ptr.i.i, %.lr.ph.i.i ], [ %54, %52 ]
+53:                                               ; preds = %53, %.lr.ph.i.i
+  %.04.i.i = phi ptr [ %.ptr.i.i, %.lr.ph.i.i ], [ %55, %53 ]
   call void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %8) #23
-  %53 = call i64 @_ZNK5clang19TemplateArgumentLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(32) %.04.i.i) #25
-  call void @_ZN5clang14JSONNodeDumper5VisitERKNS_16TemplateArgumentENS_11SourceRangeEPKNS_4DeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 dereferenceable(24) %.04.i.i, i64 %53, ptr noundef null, ptr null, i64 0)
+  %54 = call i64 @_ZNK5clang19TemplateArgumentLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(32) %.04.i.i) #25
+  call void @_ZN5clang14JSONNodeDumper5VisitERKNS_16TemplateArgumentENS_11SourceRangeEPKNS_4DeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 dereferenceable(24) %.04.i.i, i64 %54, ptr noundef null, ptr null, i64 0)
   call void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176) %8) #23
-  %54 = getelementptr inbounds nuw i8, ptr %.04.i.i, i64 32
-  %.not.i.i = icmp eq ptr %54, %.ptr5.i.i
-  br i1 %.not.i.i, label %"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper5VisitEPKNS4_16ConceptReferenceEE3$_0EEvl.exit", label %52
+  %55 = getelementptr inbounds nuw i8, ptr %.04.i.i, i64 32
+  %.not.i.i = icmp eq ptr %55, %.ptr5.i.i
+  br i1 %.not.i.i, label %"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper5VisitEPKNS4_16ConceptReferenceEE3$_0EEvl.exit", label %53
 
-"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper5VisitEPKNS4_16ConceptReferenceEE3$_0EEvl.exit": ; preds = %52, %48
+"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper5VisitEPKNS4_16ConceptReferenceEE3$_0EEvl.exit": ; preds = %53, %48
   call void @_ZN4llvm4json7OStream8arrayEndEv(ptr noundef nonnull align 8 dereferenceable(176) %8) #23
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %8) #23
-  br label %55
+  br label %56
 
-55:                                               ; preds = %"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper5VisitEPKNS4_16ConceptReferenceEE3$_0EEvl.exit", %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+56:                                               ; preds = %"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper5VisitEPKNS4_16ConceptReferenceEE3$_0EEvl.exit", %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr nonnull @.str.452, i64 3) #23
   call void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %8) #23
-  %56 = getelementptr i8, ptr %1, i64 32
-  %.val.val.i = load i32, ptr %56, align 8, !tbaa !32
+  %57 = getelementptr i8, ptr %1, i64 32
+  %.val.val.i = load i32, ptr %57, align 8, !tbaa !32
   call void @_ZN5clang14JSONNodeDumper19writeSourceLocationENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(1312) %0, i32 %.val.val.i)
   call void @_ZN4llvm4json7OStream9objectEndEv(ptr noundef nonnull align 8 dereferenceable(176) %8) #23
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %8) #23
@@ -12349,43 +12349,43 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %8) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 16, i1 false), !tbaa.struct !176
-  %57 = load ptr, ptr %3, align 8, !tbaa !178
-  %.not.i.i.i.i = icmp eq ptr %57, null
-  br i1 %.not.i.i.i.i, label %60, label %58
+  %58 = load ptr, ptr %3, align 8, !tbaa !178
+  %.not.i.i.i.i = icmp eq ptr %58, null
+  br i1 %.not.i.i.i.i, label %61, label %59
 
-58:                                               ; preds = %55
-  %59 = call i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
-  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %59 to i32
+59:                                               ; preds = %56
+  %60 = call i64 @_ZNK5clang22NestedNameSpecifierLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
+  %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %60 to i32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
   br label %_ZNK5clang16ConceptReference11getBeginLocEv.exit.i.i.i
 
-60:                                               ; preds = %55
+61:                                               ; preds = %56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
-  %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %56, align 8, !tbaa !32
+  %.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %57, align 8, !tbaa !32
   br label %_ZNK5clang16ConceptReference11getBeginLocEv.exit.i.i.i
 
-_ZNK5clang16ConceptReference11getBeginLocEv.exit.i.i.i: ; preds = %60, %58
-  %.sroa.0.1.i.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %58 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %60 ]
-  %61 = load ptr, ptr %46, align 8, !tbaa !173
-  %.not.i2.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i2.i.i.i, label %64, label %62
+_ZNK5clang16ConceptReference11getBeginLocEv.exit.i.i.i: ; preds = %61, %59
+  %.sroa.0.1.i.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %59 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %61 ]
+  %62 = load ptr, ptr %46, align 8, !tbaa !173
+  %.not.i2.i.i.i = icmp eq ptr %62, null
+  br i1 %.not.i2.i.i.i, label %65, label %63
 
-62:                                               ; preds = %_ZNK5clang16ConceptReference11getBeginLocEv.exit.i.i.i
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  %.sroa.0.0.copyload.i.i3.i.i.i = load i32, ptr %63, align 4, !tbaa !32
+63:                                               ; preds = %_ZNK5clang16ConceptReference11getBeginLocEv.exit.i.i.i
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %.sroa.0.0.copyload.i.i3.i.i.i = load i32, ptr %64, align 4, !tbaa !32
   %.not2.i.i.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i3.i.i.i, 0
-  br i1 %.not2.i.i.i.i, label %64, label %"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper5VisitEPKNS4_16ConceptReferenceEE3$_2EEvl.exit"
+  br i1 %.not2.i.i.i.i, label %65, label %"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper5VisitEPKNS4_16ConceptReferenceEE3$_2EEvl.exit"
 
-64:                                               ; preds = %62, %_ZNK5clang16ConceptReference11getBeginLocEv.exit.i.i.i
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %66 = call i32 @_ZNK5clang19DeclarationNameInfo16getEndLocPrivateEv(ptr noundef nonnull align 8 dereferenceable(24) %65) #23
-  %.not.i.i.i.i.i = icmp eq i32 %66, 0
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i32, ptr %56, align 8
-  %.sroa.0.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i32 %.sroa.0.0.copyload.i.i.i.i.i.i, i32 %66
+65:                                               ; preds = %63, %_ZNK5clang16ConceptReference11getBeginLocEv.exit.i.i.i
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %67 = call i32 @_ZNK5clang19DeclarationNameInfo16getEndLocPrivateEv(ptr noundef nonnull align 8 dereferenceable(24) %66) #23
+  %.not.i.i.i.i.i = icmp eq i32 %67, 0
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i32, ptr %57, align 8
+  %.sroa.0.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i32 %.sroa.0.0.copyload.i.i.i.i.i.i, i32 %67
   br label %"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper5VisitEPKNS4_16ConceptReferenceEE3$_2EEvl.exit"
 
-"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper5VisitEPKNS4_16ConceptReferenceEE3$_2EEvl.exit": ; preds = %62, %64
-  %.sroa.0.0.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.i, %64 ], [ %.sroa.0.0.copyload.i.i3.i.i.i, %62 ]
+"_ZN4llvm12function_refIFvvEE11callback_fnIZN5clang14JSONNodeDumper5VisitEPKNS4_16ConceptReferenceEE3$_2EEvl.exit": ; preds = %63, %65
+  %.sroa.0.0.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.i, %65 ], [ %.sroa.0.0.copyload.i.i3.i.i.i, %63 ]
   call void @_ZN4llvm4json7OStream14attributeBeginENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(176) %8, ptr nonnull @.str.492, i64 5) #23
   call void @_ZN4llvm4json7OStream11objectBeginEv(ptr noundef nonnull align 8 dereferenceable(176) %8) #23
   call void @_ZN5clang14JSONNodeDumper19writeSourceLocationENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(1312) %0, i32 %.sroa.0.1.i.i.i.i)

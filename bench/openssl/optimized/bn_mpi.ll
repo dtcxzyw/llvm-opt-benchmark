@@ -15,11 +15,11 @@ define range(i32 -2147483644, -2147483648) i32 @BN_bn2mpi(ptr noundef %0, ptr no
   %7 = and i32 %3, 7
   %8 = icmp eq i32 %7, 0
   %narrow = and i1 %6, %8
-  %.026 = zext i1 %narrow to i32
   %9 = icmp eq ptr %1, null
   br i1 %9, label %35, label %10
 
 10:                                               ; preds = %2
+  %.026 = zext i1 %narrow to i32
   %11 = add nsw i32 %5, %.026
   %12 = lshr i32 %11, 24
   %13 = trunc nuw i32 %12 to i8
@@ -43,9 +43,9 @@ define range(i32 -2147483644, -2147483648) i32 @BN_bn2mpi(ptr noundef %0, ptr no
   br label %24
 
 24:                                               ; preds = %22, %10
-  %25 = or disjoint i32 %.026, 4
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
+  %25 = zext i1 %narrow to i64
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = tail call i32 @BN_bn2bin(ptr noundef %0, ptr noundef nonnull %27) #2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i32, ptr %29, align 8, !tbaa !6

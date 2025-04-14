@@ -119,6 +119,7 @@ define internal range(i32 -22, 1) i32 @nonstatic_find_io(ptr noundef captures(no
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = add i32 %4, -1
   %10 = zext i32 %9 to i64
+  %invariant.gep = getelementptr i8, ptr %0, i64 80
   br label %23
 
 11:                                               ; preds = %36
@@ -137,9 +138,9 @@ define internal range(i32 -22, 1) i32 @nonstatic_find_io(ptr noundef captures(no
 
 23:                                               ; preds = %36, %6
   %24 = phi i1 [ true, %6 ], [ false, %36 ]
-  %.offs = phi i64 [ 8, %6 ], [ 24, %36 ]
-  %25 = getelementptr i8, ptr %8, i64 %.offs
-  %26 = load ptr, ptr %25, align 8
+  %25 = phi i64 [ 0, %6 ], [ 16, %36 ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %25
+  %26 = load ptr, ptr %gep, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %36, label %28
 

@@ -2917,7 +2917,7 @@ define range(i32 -1, 1) i32 @H5E_printf_stack(ptr noundef %0, ptr noundef %1, i3
   %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 2104), align 8
   %.not = icmp eq i32 %15, 0
   %or.cond = select i1 %14, i1 %.not, i1 false
-  br i1 %or.cond, label %16, label %41, !prof !12
+  br i1 %or.cond, label %16, label %42, !prof !12
 
 16:                                               ; preds = %6
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -2939,51 +2939,51 @@ define range(i32 -1, 1) i32 @H5E_printf_stack(ptr noundef %0, ptr noundef %1, i3
   %28 = getelementptr inbounds nuw [32 x %struct.H5E_entry_t], ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 8), i64 0, i64 %25
   store i8 0, ptr %28, align 8, !tbaa !18
   %.idx.i = shl nuw nsw i64 %25, 6
-  %.offs.i = or disjoint i64 %.idx.i, 8
-  %29 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 8), i64 %.offs.i
+  %29 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @H5E_stack_g, i64 8), i64 %.idx.i
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.not.i.i = icmp eq ptr %1, null
   %spec.store.select.i.i = select i1 %.not.i.i, ptr @.str.405, ptr %1
   %.not28.i.i = icmp eq ptr %0, null
   %spec.store.select2.i.i = select i1 %.not28.i.i, ptr @.str.406, ptr %0
   %.not29.i.i = icmp eq ptr %5, null
   %spec.store.select1.i.i = select i1 %.not29.i.i, ptr @.str.407, ptr %5
-  store i64 %17, ptr %29, align 16, !tbaa !22
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i64 %3, ptr %30, align 8, !tbaa !23
+  store i64 %17, ptr %30, align 16, !tbaa !22
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i64 %4, ptr %31, align 16, !tbaa !24
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  store ptr %spec.store.select.i.i, ptr %32, align 16, !tbaa !25
+  store i64 %3, ptr %31, align 8, !tbaa !23
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  store i64 %4, ptr %32, align 16, !tbaa !24
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  store ptr %spec.store.select2.i.i, ptr %33, align 8, !tbaa !26
-  %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store i32 %2, ptr %34, align 8, !tbaa !27
+  store ptr %spec.store.select.i.i, ptr %33, align 16, !tbaa !25
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  store ptr %spec.store.select2.i.i, ptr %34, align 8, !tbaa !26
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  store i32 %2, ptr %35, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
   store ptr null, ptr %7, align 8, !tbaa !28
-  %35 = call i32 @vasprintf(ptr noundef nonnull %7, ptr noundef nonnull %spec.store.select1.i.i, ptr noundef nonnull %8) #16
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %40, label %H5E__set_stack_entry.exit.thread.i
+  %36 = call i32 @vasprintf(ptr noundef nonnull %7, ptr noundef nonnull %spec.store.select1.i.i, ptr noundef nonnull %8) #16
+  %37 = icmp slt i32 %36, 0
+  br i1 %37, label %41, label %H5E__set_stack_entry.exit.thread.i
 
 H5E__set_stack_entry.exit.thread.i:               ; preds = %27
-  %37 = load ptr, ptr %7, align 8, !tbaa !28
-  %38 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  store ptr %37, ptr %38, align 16, !tbaa !29
+  %38 = load ptr, ptr %7, align 8, !tbaa !28
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  store ptr %38, ptr %39, align 16, !tbaa !29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   %.pre.i = load i64, ptr @H5E_stack_g, align 16, !tbaa !13
-  %39 = add i64 %.pre.i, 1
-  store i64 %39, ptr @H5E_stack_g, align 16, !tbaa !13
+  %40 = add i64 %.pre.i, 1
+  store i64 %40, ptr @H5E_stack_g, align 16, !tbaa !13
   br label %H5E__push_stack.exit.thread
 
-40:                                               ; preds = %27
+41:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
   br label %H5E__push_stack.exit.thread
 
-H5E__push_stack.exit.thread:                      ; preds = %16, %24, %H5E__set_stack_entry.exit.thread.i, %40
-  %.1.ph = phi i32 [ -1, %40 ], [ 0, %H5E__set_stack_entry.exit.thread.i ], [ 0, %24 ], [ 0, %16 ]
+H5E__push_stack.exit.thread:                      ; preds = %16, %24, %H5E__set_stack_entry.exit.thread.i, %41
+  %.1.ph = phi i32 [ -1, %41 ], [ 0, %H5E__set_stack_entry.exit.thread.i ], [ 0, %24 ], [ 0, %16 ]
   call void @llvm.va_end.p0(ptr nonnull %8)
-  br label %41
+  br label %42
 
-41:                                               ; preds = %H5E__push_stack.exit.thread, %6
+42:                                               ; preds = %H5E__push_stack.exit.thread, %6
   %.0 = phi i32 [ %.1.ph, %H5E__push_stack.exit.thread ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #16
   ret i32 %.0
@@ -4841,20 +4841,19 @@ define range(i32 -1, 1) i32 @H5E__push_stack(ptr noundef captures(none) %0, i1 n
   %16 = trunc nuw i8 %15 to i1
   %17 = xor i1 %16, true
   %18 = select i1 %14, i1 true, i1 %17
-  br i1 %18, label %19, label %49, !prof !9
+  br i1 %18, label %19, label %50, !prof !9
 
 19:                                               ; preds = %10
   %20 = load i64, ptr %0, align 8, !tbaa !13
   %21 = icmp ult i64 %20, 32
-  br i1 %21, label %22, label %49
+  br i1 %21, label %22, label %50
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = getelementptr inbounds nuw [32 x %struct.H5E_entry_t], ptr %23, i64 0, i64 %20
   store i8 %12, ptr %24, align 8, !tbaa !18
   %.idx = shl nuw nsw i64 %20, 6
-  %.offs = or disjoint i64 %.idx, 8
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.offs
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
   %26 = load i8, ptr @H5E_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %27 = trunc nuw i8 %26 to i1
   %28 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -4864,62 +4863,63 @@ define range(i32 -1, 1) i32 @H5E__push_stack(ptr noundef captures(none) %0, i1 n
   br i1 %31, label %32, label %H5E__set_stack_entry.exit.thread, !prof !9
 
 32:                                               ; preds = %22
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.not.i = icmp eq ptr %3, null
   %spec.store.select.i = select i1 %.not.i, ptr @.str.405, ptr %3
   %.not28.i = icmp eq ptr %2, null
   %spec.store.select2.i = select i1 %.not28.i, ptr @.str.406, ptr %2
   %.not29.i = icmp eq ptr %8, null
   %spec.store.select1.i = select i1 %.not29.i, ptr @.str.407, ptr %8
-  store i64 %5, ptr %25, align 8, !tbaa !22
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i64 %6, ptr %33, align 8, !tbaa !23
+  store i64 %5, ptr %33, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i64 %7, ptr %34, align 8, !tbaa !24
-  %35 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store ptr %spec.store.select.i, ptr %35, align 8, !tbaa !25
+  store i64 %6, ptr %34, align 8, !tbaa !23
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  store i64 %7, ptr %35, align 8, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  store ptr %spec.store.select2.i, ptr %36, align 8, !tbaa !26
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store i32 %4, ptr %37, align 8, !tbaa !27
+  store ptr %spec.store.select.i, ptr %36, align 8, !tbaa !25
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  store ptr %spec.store.select2.i, ptr %37, align 8, !tbaa !26
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store i32 %4, ptr %38, align 8, !tbaa !27
   %.not30.i = icmp eq ptr %9, null
-  br i1 %.not30.i, label %H5E__set_stack_entry.exit, label %38
+  br i1 %.not30.i, label %H5E__set_stack_entry.exit, label %39
 
-38:                                               ; preds = %32
+39:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
   store ptr null, ptr %11, align 8, !tbaa !28
-  %39 = call i32 @vasprintf(ptr noundef nonnull %11, ptr noundef nonnull %spec.store.select1.i, ptr noundef nonnull %9) #16
-  %40 = icmp slt i32 %39, 0
-  br i1 %40, label %.thread, label %41
+  %40 = call i32 @vasprintf(ptr noundef nonnull %11, ptr noundef nonnull %spec.store.select1.i, ptr noundef nonnull %9) #16
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %.thread, label %42
 
-.thread:                                          ; preds = %38
+.thread:                                          ; preds = %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
-  br label %49
+  br label %50
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %11, align 8, !tbaa !28
-  %43 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  store ptr %42, ptr %43, align 8, !tbaa !29
+42:                                               ; preds = %39
+  %43 = load ptr, ptr %11, align 8, !tbaa !28
+  %44 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  store ptr %43, ptr %44, align 8, !tbaa !29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
   br label %H5E__set_stack_entry.exit.H5E__set_stack_entry.exit.thread_crit_edge
 
 H5E__set_stack_entry.exit:                        ; preds = %32
-  %44 = tail call noalias ptr @strdup(ptr noundef nonnull %spec.store.select1.i) #16
-  %45 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  store ptr %44, ptr %45, align 8, !tbaa !29
-  %46 = icmp eq ptr %44, null
-  br i1 %46, label %49, label %H5E__set_stack_entry.exit.H5E__set_stack_entry.exit.thread_crit_edge
+  %45 = tail call noalias ptr @strdup(ptr noundef nonnull %spec.store.select1.i) #16
+  %46 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  store ptr %45, ptr %46, align 8, !tbaa !29
+  %47 = icmp eq ptr %45, null
+  br i1 %47, label %50, label %H5E__set_stack_entry.exit.H5E__set_stack_entry.exit.thread_crit_edge
 
-H5E__set_stack_entry.exit.H5E__set_stack_entry.exit.thread_crit_edge: ; preds = %41, %H5E__set_stack_entry.exit
+H5E__set_stack_entry.exit.H5E__set_stack_entry.exit.thread_crit_edge: ; preds = %42, %H5E__set_stack_entry.exit
   %.pre = load i64, ptr %0, align 8, !tbaa !13
   br label %H5E__set_stack_entry.exit.thread
 
 H5E__set_stack_entry.exit.thread:                 ; preds = %H5E__set_stack_entry.exit.H5E__set_stack_entry.exit.thread_crit_edge, %22
-  %47 = phi i64 [ %.pre, %H5E__set_stack_entry.exit.H5E__set_stack_entry.exit.thread_crit_edge ], [ %20, %22 ]
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %0, align 8, !tbaa !13
-  br label %49
+  %48 = phi i64 [ %.pre, %H5E__set_stack_entry.exit.H5E__set_stack_entry.exit.thread_crit_edge ], [ %20, %22 ]
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %0, align 8, !tbaa !13
+  br label %50
 
-49:                                               ; preds = %.thread, %H5E__set_stack_entry.exit, %H5E__set_stack_entry.exit.thread, %19, %10
+50:                                               ; preds = %.thread, %H5E__set_stack_entry.exit, %H5E__set_stack_entry.exit.thread, %19, %10
   %.0 = phi i32 [ 0, %H5E__set_stack_entry.exit.thread ], [ 0, %19 ], [ 0, %10 ], [ -1, %H5E__set_stack_entry.exit ], [ -1, %.thread ]
   ret i32 %.0
 }

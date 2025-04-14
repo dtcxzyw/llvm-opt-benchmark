@@ -21133,9 +21133,9 @@ _ZN3ue212_GLOBAL__N_111maskSetBitsIjEEvRT_RKN5boost14dynamic_bitsetImSaImEEE.exi
   br i1 %2181, label %.lr.ph265.preheader.i, label %._crit_edge266.i
 
 .lr.ph265.preheader.i:                            ; preds = %.thread.i
-  %2182 = or disjoint i32 %.0100.lcssa.i, 512
-  %2183 = zext nneg i32 %2182 to i64
-  %scevgep.i485 = getelementptr i8, ptr %568, i64 %2183
+  %2182 = zext nneg i32 %.0100.lcssa.i to i64
+  %2183 = getelementptr i8, ptr %568, i64 %2182
+  %scevgep.i485 = getelementptr i8, ptr %2183, i64 512
   %narrow.i = sub nuw nsw i32 64, %.0100.lcssa.i
   %2184 = zext nneg i32 %narrow.i to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i485, i8 -1, i64 %2184, i1 false)
@@ -48487,9 +48487,9 @@ _ZN3ue212_GLOBAL__N_111maskSetBitsIyEEvRT_RKN5boost14dynamic_bitsetImSaImEEE.exi
   br i1 %2181, label %.lr.ph265.preheader.i, label %._crit_edge266.i
 
 .lr.ph265.preheader.i:                            ; preds = %.thread.i
-  %2182 = or disjoint i32 %.0100.lcssa.i, 576
-  %2183 = zext nneg i32 %2182 to i64
-  %scevgep.i485 = getelementptr i8, ptr %568, i64 %2183
+  %2182 = zext nneg i32 %.0100.lcssa.i to i64
+  %2183 = getelementptr i8, ptr %568, i64 %2182
+  %scevgep.i485 = getelementptr i8, ptr %2183, i64 576
   %narrow.i = sub nuw nsw i32 64, %.0100.lcssa.i
   %2184 = zext nneg i32 %narrow.i to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i485, i8 -1, i64 %2184, i1 false)
@@ -55227,9 +55227,9 @@ _ZN3ue212_GLOBAL__N_111maskSetBitsIDv2_xEEvRT_RKN5boost14dynamic_bitsetImSaImEEE
   br i1 %2321, label %.lr.ph265.preheader.i, label %._crit_edge266.i
 
 .lr.ph265.preheader.i:                            ; preds = %.thread.i
-  %2322 = or disjoint i32 %.0100.lcssa.i, 768
-  %2323 = zext nneg i32 %2322 to i64
-  %scevgep.i489 = getelementptr i8, ptr %568, i64 %2323
+  %2322 = zext nneg i32 %.0100.lcssa.i to i64
+  %2323 = getelementptr i8, ptr %568, i64 %2322
+  %scevgep.i489 = getelementptr i8, ptr %2323, i64 768
   %narrow.i = sub nuw nsw i32 64, %.0100.lcssa.i
   %2324 = zext nneg i32 %narrow.i to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i489, i8 -1, i64 %2324, i1 false)
@@ -61964,9 +61964,9 @@ _ZN3ue212_GLOBAL__N_111maskSetBitsI4m256EEvRT_RKN5boost14dynamic_bitsetImSaImEEE
   br i1 %2322, label %.lr.ph265.preheader.i, label %._crit_edge266.i
 
 .lr.ph265.preheader.i:                            ; preds = %.thread.i
-  %2323 = or disjoint i32 %.0100.lcssa.i, 1088
-  %2324 = zext nneg i32 %2323 to i64
-  %scevgep.i489 = getelementptr i8, ptr %569, i64 %2324
+  %2323 = zext nneg i32 %.0100.lcssa.i to i64
+  %2324 = getelementptr i8, ptr %569, i64 %2323
+  %scevgep.i489 = getelementptr i8, ptr %2324, i64 1088
   %narrow.i = sub nuw nsw i32 64, %.0100.lcssa.i
   %2325 = zext nneg i32 %narrow.i to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i489, i8 -1, i64 %2325, i1 false)
@@ -68703,9 +68703,9 @@ _ZN3ue212_GLOBAL__N_111maskSetBitsI4m384EEvRT_RKN5boost14dynamic_bitsetImSaImEEE
   br i1 %2324, label %.lr.ph265.preheader.i, label %._crit_edge266.i
 
 .lr.ph265.preheader.i:                            ; preds = %.thread.i
-  %2325 = or disjoint i32 %.0100.lcssa.i, 1408
-  %2326 = zext nneg i32 %2325 to i64
-  %scevgep.i486 = getelementptr i8, ptr %571, i64 %2326
+  %2325 = zext nneg i32 %.0100.lcssa.i to i64
+  %2326 = getelementptr i8, ptr %571, i64 %2325
+  %scevgep.i486 = getelementptr i8, ptr %2326, i64 1408
   %narrow.i = sub nuw nsw i32 64, %.0100.lcssa.i
   %2327 = zext nneg i32 %narrow.i to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i486, i8 -1, i64 %2327, i1 false)
@@ -75441,9 +75441,9 @@ _ZN3ue212_GLOBAL__N_111maskSetBitsI4m512EEvRT_RKN5boost14dynamic_bitsetImSaImEEE
   br i1 %2322, label %.lr.ph265.preheader.i, label %._crit_edge266.i
 
 .lr.ph265.preheader.i:                            ; preds = %.thread.i
-  %2323 = or disjoint i32 %.0100.lcssa.i, 1792
-  %2324 = zext nneg i32 %2323 to i64
-  %scevgep.i489 = getelementptr i8, ptr %569, i64 %2324
+  %2323 = zext nneg i32 %.0100.lcssa.i to i64
+  %2324 = getelementptr i8, ptr %569, i64 %2323
+  %scevgep.i489 = getelementptr i8, ptr %2324, i64 1792
   %narrow.i = sub nuw nsw i32 64, %.0100.lcssa.i
   %2325 = zext nneg i32 %narrow.i to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i489, i8 -1, i64 %2325, i1 false)

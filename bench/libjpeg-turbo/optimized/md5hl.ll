@@ -27,12 +27,12 @@ define dso_local noundef ptr @MD5FileChunk(ptr noundef readonly captures(none) %
   call void @MD5Init(ptr noundef nonnull %7) #9
   %9 = call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0) #9
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %55, label %11
+  br i1 %10, label %54, label %11
 
 11:                                               ; preds = %4
   %12 = call i32 @fstat(i32 noundef %9, ptr noundef nonnull %8) #9
   %13 = icmp slt i32 %12, 0
-  br i1 %13, label %55, label %14
+  br i1 %13, label %54, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -40,7 +40,7 @@ define dso_local noundef ptr @MD5FileChunk(ptr noundef readonly captures(none) %
   %spec.select = call i64 @llvm.smin.i64(i64 %2, i64 %16)
   %17 = call i64 @lseek(i32 noundef %9, i64 noundef %spec.select, i32 noundef 0) #9
   %18 = icmp slt i64 %17, 0
-  br i1 %18, label %55, label %.preheader
+  br i1 %18, label %54, label %.preheader
 
 .preheader:                                       ; preds = %14
   %19 = icmp eq i64 %3, 0
@@ -70,7 +70,7 @@ define dso_local noundef ptr @MD5FileChunk(ptr noundef readonly captures(none) %
   %31 = load i32, ptr %30, align 4, !tbaa !13
   %32 = call i32 @close(i32 noundef %9) #9
   store i32 %31, ptr %30, align 4, !tbaa !13
-  br label %55
+  br label %54
 
 ._crit_edge:                                      ; preds = %25, %.preheader
   %33 = tail call ptr @__errno_location() #10
@@ -106,24 +106,23 @@ define dso_local noundef ptr @MD5FileChunk(ptr noundef readonly captures(none) %
   %48 = zext nneg i8 %47 to i64
   %49 = getelementptr inbounds nuw [17 x i8], ptr @MD5End.hex, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !14
-  %51 = or disjoint i64 %45, 1
-  %52 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 %51
-  store i8 %50, ptr %52, align 1, !tbaa !14
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 1
+  store i8 %50, ptr %51, align 1, !tbaa !14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %53, label %38, !llvm.loop !15
+  br i1 %exitcond.not.i, label %52, label %38, !llvm.loop !15
 
-53:                                               ; preds = %38
-  %54 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 32
-  store i8 0, ptr %54, align 1, !tbaa !14
+52:                                               ; preds = %38
+  %53 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 32
+  store i8 0, ptr %53, align 1, !tbaa !14
   br label %MD5End.exit
 
-MD5End.exit:                                      ; preds = %36, %53
-  %.018.i = phi ptr [ %.01723.i, %53 ], [ null, %36 ]
+MD5End.exit:                                      ; preds = %36, %52
+  %.018.i = phi ptr [ %.01723.i, %52 ], [ null, %36 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #9
-  br label %55
+  br label %54
 
-55:                                               ; preds = %29, %14, %11, %4, %MD5End.exit
+54:                                               ; preds = %29, %14, %11, %4, %MD5End.exit
   %.024 = phi ptr [ %.018.i, %MD5End.exit ], [ null, %4 ], [ null, %11 ], [ null, %14 ], [ null, %29 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #9

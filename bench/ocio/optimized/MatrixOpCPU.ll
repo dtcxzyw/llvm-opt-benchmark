@@ -89,7 +89,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev17GetMatrixRendererERSt10shared_ptrI
   unreachable
 
 common.resume:                                    ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_124MatrixWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %87, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_124MatrixWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ], [ %183, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %87, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_124MatrixWithOffsetRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ], [ %181, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i ]
   resume { ptr, i32 } %common.resume.op
 
 10:                                               ; preds = %7
@@ -159,7 +159,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_123ScaleWithOffsetRendere
   %53 = fptrunc double %52 to float
   %54 = getelementptr inbounds nuw i8, ptr %18, i64 52
   store float %53, ptr %54, align 4, !tbaa !55, !noalias !43
-  br label %252
+  br label %248
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_113ScaleRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %17
   %55 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17, !noalias !57
@@ -191,10 +191,10 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_113ScaleRendererELN9__gnu
   %73 = fptrunc double %72 to float
   %74 = getelementptr inbounds nuw i8, ptr %55, i64 36
   store float %73, ptr %74, align 4, !tbaa !55, !noalias !57
-  br label %252
+  br label %248
 
 75:                                               ; preds = %12
-  br i1 %16, label %76, label %172
+  br i1 %16, label %76, label %170
 
 76:                                               ; preds = %75
   %77 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #17, !noalias !60
@@ -220,230 +220,228 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_G
   br label %common.resume
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124MatrixWithOffsetRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %76
-  %88 = shl i64 %86, 1
-  %89 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !60
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 192
-  %91 = load ptr, ptr %90, align 8, !tbaa !52, !noalias !60
-  %92 = load double, ptr %91, align 8, !tbaa !53, !noalias !60
-  %93 = fptrunc double %92 to float
-  %94 = getelementptr inbounds nuw i8, ptr %77, i64 24
-  store float %93, ptr %94, align 8, !tbaa !55, !noalias !60
-  %95 = getelementptr double, ptr %91, i64 %86
-  %96 = load double, ptr %95, align 8, !tbaa !53, !noalias !60
-  %97 = fptrunc double %96 to float
-  %98 = getelementptr inbounds nuw i8, ptr %77, i64 28
-  store float %97, ptr %98, align 4, !tbaa !55, !noalias !60
-  %99 = getelementptr double, ptr %91, i64 %88
-  %100 = load double, ptr %99, align 8, !tbaa !53, !noalias !60
-  %101 = fptrunc double %100 to float
-  %102 = getelementptr inbounds nuw i8, ptr %77, i64 32
-  store float %101, ptr %102, align 8, !tbaa !55, !noalias !60
-  %.idx.i.i.i.i.i.i.i.i = mul i64 %86, 24
-  %103 = getelementptr i8, ptr %91, i64 %.idx.i.i.i.i.i.i.i.i
-  %104 = load double, ptr %103, align 8, !tbaa !53, !noalias !60
-  %105 = fptrunc double %104 to float
-  %106 = getelementptr inbounds nuw i8, ptr %77, i64 36
-  store float %105, ptr %106, align 4, !tbaa !55, !noalias !60
-  %107 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %108 = load double, ptr %107, align 8, !tbaa !53, !noalias !60
-  %109 = fptrunc double %108 to float
-  %110 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  store float %109, ptr %110, align 8, !tbaa !55, !noalias !60
-  %111 = getelementptr i8, ptr %95, i64 8
-  %112 = load double, ptr %111, align 8, !tbaa !53, !noalias !60
-  %113 = fptrunc double %112 to float
-  %114 = getelementptr inbounds nuw i8, ptr %77, i64 44
-  store float %113, ptr %114, align 4, !tbaa !55, !noalias !60
-  %115 = or disjoint i64 %88, 1
-  %116 = getelementptr inbounds nuw double, ptr %91, i64 %115
-  %117 = load double, ptr %116, align 8, !tbaa !53, !noalias !60
-  %118 = fptrunc double %117 to float
-  %119 = getelementptr inbounds nuw i8, ptr %77, i64 48
-  store float %118, ptr %119, align 8, !tbaa !55, !noalias !60
-  %120 = getelementptr i8, ptr %103, i64 8
-  %121 = load double, ptr %120, align 8, !tbaa !53, !noalias !60
-  %122 = fptrunc double %121 to float
-  %123 = getelementptr inbounds nuw i8, ptr %77, i64 52
-  store float %122, ptr %123, align 4, !tbaa !55, !noalias !60
-  %124 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %125 = load double, ptr %124, align 8, !tbaa !53, !noalias !60
-  %126 = fptrunc double %125 to float
-  %127 = getelementptr inbounds nuw i8, ptr %77, i64 56
-  store float %126, ptr %127, align 8, !tbaa !55, !noalias !60
-  %128 = getelementptr i8, ptr %95, i64 16
-  %129 = load double, ptr %128, align 8, !tbaa !53, !noalias !60
-  %130 = fptrunc double %129 to float
-  %131 = getelementptr inbounds nuw i8, ptr %77, i64 60
-  store float %130, ptr %131, align 4, !tbaa !55, !noalias !60
-  %132 = getelementptr i8, ptr %99, i64 16
-  %133 = load double, ptr %132, align 8, !tbaa !53, !noalias !60
-  %134 = fptrunc double %133 to float
-  %135 = getelementptr inbounds nuw i8, ptr %77, i64 64
-  store float %134, ptr %135, align 8, !tbaa !55, !noalias !60
-  %136 = getelementptr i8, ptr %103, i64 16
-  %137 = load double, ptr %136, align 8, !tbaa !53, !noalias !60
-  %138 = fptrunc double %137 to float
-  %139 = getelementptr inbounds nuw i8, ptr %77, i64 68
-  store float %138, ptr %139, align 4, !tbaa !55, !noalias !60
-  %140 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  %141 = load double, ptr %140, align 8, !tbaa !53, !noalias !60
-  %142 = fptrunc double %141 to float
-  %143 = getelementptr inbounds nuw i8, ptr %77, i64 72
-  store float %142, ptr %143, align 8, !tbaa !55, !noalias !60
-  %144 = getelementptr i8, ptr %95, i64 24
-  %145 = load double, ptr %144, align 8, !tbaa !53, !noalias !60
-  %146 = fptrunc double %145 to float
-  %147 = getelementptr inbounds nuw i8, ptr %77, i64 76
-  store float %146, ptr %147, align 4, !tbaa !55, !noalias !60
-  %148 = getelementptr i8, ptr %99, i64 24
-  %149 = load double, ptr %148, align 8, !tbaa !53, !noalias !60
-  %150 = fptrunc double %149 to float
-  %151 = getelementptr inbounds nuw i8, ptr %77, i64 80
-  store float %150, ptr %151, align 8, !tbaa !55, !noalias !60
-  %152 = getelementptr i8, ptr %103, i64 24
-  %153 = load double, ptr %152, align 8, !tbaa !53, !noalias !60
-  %154 = fptrunc double %153 to float
-  %155 = getelementptr inbounds nuw i8, ptr %77, i64 84
-  store float %154, ptr %155, align 4, !tbaa !55, !noalias !60
-  %156 = getelementptr inbounds nuw i8, ptr %89, i64 216
-  %157 = load double, ptr %156, align 8, !tbaa !53, !noalias !60
-  %158 = fptrunc double %157 to float
-  %159 = getelementptr inbounds nuw i8, ptr %77, i64 88
-  store float %158, ptr %159, align 8, !tbaa !55, !noalias !60
-  %160 = getelementptr inbounds nuw i8, ptr %89, i64 224
-  %161 = load double, ptr %160, align 8, !tbaa !53, !noalias !60
-  %162 = fptrunc double %161 to float
-  %163 = getelementptr inbounds nuw i8, ptr %77, i64 92
-  store float %162, ptr %163, align 4, !tbaa !55, !noalias !60
-  %164 = getelementptr inbounds nuw i8, ptr %89, i64 232
-  %165 = load double, ptr %164, align 8, !tbaa !53, !noalias !60
-  %166 = fptrunc double %165 to float
-  %167 = getelementptr inbounds nuw i8, ptr %77, i64 96
-  store float %166, ptr %167, align 8, !tbaa !55, !noalias !60
-  %168 = getelementptr inbounds nuw i8, ptr %89, i64 240
-  %169 = load double, ptr %168, align 8, !tbaa !53, !noalias !60
-  %170 = fptrunc double %169 to float
-  %171 = getelementptr inbounds nuw i8, ptr %77, i64 100
-  store float %170, ptr %171, align 4, !tbaa !55, !noalias !60
-  br label %252
+  %88 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !60
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 192
+  %90 = load ptr, ptr %89, align 8, !tbaa !52, !noalias !60
+  %91 = load double, ptr %90, align 8, !tbaa !53, !noalias !60
+  %92 = fptrunc double %91 to float
+  %93 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  store float %92, ptr %93, align 8, !tbaa !55, !noalias !60
+  %94 = getelementptr double, ptr %90, i64 %86
+  %95 = load double, ptr %94, align 8, !tbaa !53, !noalias !60
+  %96 = fptrunc double %95 to float
+  %97 = getelementptr inbounds nuw i8, ptr %77, i64 28
+  store float %96, ptr %97, align 4, !tbaa !55, !noalias !60
+  %.idx.i.i.i.i.i.i.i.i = shl i64 %86, 4
+  %98 = getelementptr i8, ptr %90, i64 %.idx.i.i.i.i.i.i.i.i
+  %99 = load double, ptr %98, align 8, !tbaa !53, !noalias !60
+  %100 = fptrunc double %99 to float
+  %101 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  store float %100, ptr %101, align 8, !tbaa !55, !noalias !60
+  %.idx39.i.i.i.i.i.i.i.i = mul i64 %86, 24
+  %102 = getelementptr i8, ptr %90, i64 %.idx39.i.i.i.i.i.i.i.i
+  %103 = load double, ptr %102, align 8, !tbaa !53, !noalias !60
+  %104 = fptrunc double %103 to float
+  %105 = getelementptr inbounds nuw i8, ptr %77, i64 36
+  store float %104, ptr %105, align 4, !tbaa !55, !noalias !60
+  %106 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %107 = load double, ptr %106, align 8, !tbaa !53, !noalias !60
+  %108 = fptrunc double %107 to float
+  %109 = getelementptr inbounds nuw i8, ptr %77, i64 40
+  store float %108, ptr %109, align 8, !tbaa !55, !noalias !60
+  %110 = getelementptr i8, ptr %94, i64 8
+  %111 = load double, ptr %110, align 8, !tbaa !53, !noalias !60
+  %112 = fptrunc double %111 to float
+  %113 = getelementptr inbounds nuw i8, ptr %77, i64 44
+  store float %112, ptr %113, align 4, !tbaa !55, !noalias !60
+  %114 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %115 = load double, ptr %114, align 8, !tbaa !53, !noalias !60
+  %116 = fptrunc double %115 to float
+  %117 = getelementptr inbounds nuw i8, ptr %77, i64 48
+  store float %116, ptr %117, align 8, !tbaa !55, !noalias !60
+  %118 = getelementptr i8, ptr %102, i64 8
+  %119 = load double, ptr %118, align 8, !tbaa !53, !noalias !60
+  %120 = fptrunc double %119 to float
+  %121 = getelementptr inbounds nuw i8, ptr %77, i64 52
+  store float %120, ptr %121, align 4, !tbaa !55, !noalias !60
+  %122 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %123 = load double, ptr %122, align 8, !tbaa !53, !noalias !60
+  %124 = fptrunc double %123 to float
+  %125 = getelementptr inbounds nuw i8, ptr %77, i64 56
+  store float %124, ptr %125, align 8, !tbaa !55, !noalias !60
+  %126 = getelementptr i8, ptr %94, i64 16
+  %127 = load double, ptr %126, align 8, !tbaa !53, !noalias !60
+  %128 = fptrunc double %127 to float
+  %129 = getelementptr inbounds nuw i8, ptr %77, i64 60
+  store float %128, ptr %129, align 4, !tbaa !55, !noalias !60
+  %130 = getelementptr i8, ptr %98, i64 16
+  %131 = load double, ptr %130, align 8, !tbaa !53, !noalias !60
+  %132 = fptrunc double %131 to float
+  %133 = getelementptr inbounds nuw i8, ptr %77, i64 64
+  store float %132, ptr %133, align 8, !tbaa !55, !noalias !60
+  %134 = getelementptr i8, ptr %102, i64 16
+  %135 = load double, ptr %134, align 8, !tbaa !53, !noalias !60
+  %136 = fptrunc double %135 to float
+  %137 = getelementptr inbounds nuw i8, ptr %77, i64 68
+  store float %136, ptr %137, align 4, !tbaa !55, !noalias !60
+  %138 = getelementptr inbounds nuw i8, ptr %90, i64 24
+  %139 = load double, ptr %138, align 8, !tbaa !53, !noalias !60
+  %140 = fptrunc double %139 to float
+  %141 = getelementptr inbounds nuw i8, ptr %77, i64 72
+  store float %140, ptr %141, align 8, !tbaa !55, !noalias !60
+  %142 = getelementptr i8, ptr %94, i64 24
+  %143 = load double, ptr %142, align 8, !tbaa !53, !noalias !60
+  %144 = fptrunc double %143 to float
+  %145 = getelementptr inbounds nuw i8, ptr %77, i64 76
+  store float %144, ptr %145, align 4, !tbaa !55, !noalias !60
+  %146 = getelementptr i8, ptr %98, i64 24
+  %147 = load double, ptr %146, align 8, !tbaa !53, !noalias !60
+  %148 = fptrunc double %147 to float
+  %149 = getelementptr inbounds nuw i8, ptr %77, i64 80
+  store float %148, ptr %149, align 8, !tbaa !55, !noalias !60
+  %150 = getelementptr i8, ptr %102, i64 24
+  %151 = load double, ptr %150, align 8, !tbaa !53, !noalias !60
+  %152 = fptrunc double %151 to float
+  %153 = getelementptr inbounds nuw i8, ptr %77, i64 84
+  store float %152, ptr %153, align 4, !tbaa !55, !noalias !60
+  %154 = getelementptr inbounds nuw i8, ptr %88, i64 216
+  %155 = load double, ptr %154, align 8, !tbaa !53, !noalias !60
+  %156 = fptrunc double %155 to float
+  %157 = getelementptr inbounds nuw i8, ptr %77, i64 88
+  store float %156, ptr %157, align 8, !tbaa !55, !noalias !60
+  %158 = getelementptr inbounds nuw i8, ptr %88, i64 224
+  %159 = load double, ptr %158, align 8, !tbaa !53, !noalias !60
+  %160 = fptrunc double %159 to float
+  %161 = getelementptr inbounds nuw i8, ptr %77, i64 92
+  store float %160, ptr %161, align 4, !tbaa !55, !noalias !60
+  %162 = getelementptr inbounds nuw i8, ptr %88, i64 232
+  %163 = load double, ptr %162, align 8, !tbaa !53, !noalias !60
+  %164 = fptrunc double %163 to float
+  %165 = getelementptr inbounds nuw i8, ptr %77, i64 96
+  store float %164, ptr %165, align 8, !tbaa !55, !noalias !60
+  %166 = getelementptr inbounds nuw i8, ptr %88, i64 240
+  %167 = load double, ptr %166, align 8, !tbaa !53, !noalias !60
+  %168 = fptrunc double %167 to float
+  %169 = getelementptr inbounds nuw i8, ptr %77, i64 100
+  store float %168, ptr %169, align 4, !tbaa !55, !noalias !60
+  br label %248
 
-172:                                              ; preds = %75
-  %173 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #17, !noalias !63
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  store i32 1, ptr %174, align 8, !tbaa !46, !noalias !63
-  %175 = getelementptr inbounds nuw i8, ptr %173, i64 12
-  store i32 1, ptr %175, align 4, !tbaa !49, !noalias !63
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %173, align 8, !tbaa !50, !noalias !63
-  %176 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererE, i64 16), ptr %176, align 8, !tbaa !50, !noalias !63
-  %177 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !63
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 168
-  %179 = load ptr, ptr %178, align 8, !tbaa !50, !noalias !63
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 32
-  %181 = load ptr, ptr %180, align 8, !noalias !63
-  %182 = invoke noundef i64 %181(ptr noundef nonnull align 8 dereferenceable(48) %178)
+170:                                              ; preds = %75
+  %171 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #17, !noalias !63
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  store i32 1, ptr %172, align 8, !tbaa !46, !noalias !63
+  %173 = getelementptr inbounds nuw i8, ptr %171, i64 12
+  store i32 1, ptr %173, align 4, !tbaa !49, !noalias !63
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %171, align 8, !tbaa !50, !noalias !63
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 16
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererE, i64 16), ptr %174, align 8, !tbaa !50, !noalias !63
+  %175 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !63
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 168
+  %177 = load ptr, ptr %176, align 8, !tbaa !50, !noalias !63
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 32
+  %179 = load ptr, ptr %178, align 8, !noalias !63
+  %180 = invoke noundef i64 %179(ptr noundef nonnull align 8 dereferenceable(48) %176)
           to label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i, !noalias !63
 
-_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %172
-  %183 = landingpad { ptr, i32 }
+_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit12.i.i.i.i: ; preds = %170
+  %181 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %173, i64 noundef 88) #18, !noalias !63
+  tail call void @_ZdlPvm(ptr noundef nonnull %171, i64 noundef 88) #18, !noalias !63
   br label %common.resume
 
-_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %172
-  %184 = shl i64 %182, 1
-  %185 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !63
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 192
-  %187 = load ptr, ptr %186, align 8, !tbaa !52, !noalias !63
-  %188 = load double, ptr %187, align 8, !tbaa !53, !noalias !63
-  %189 = fptrunc double %188 to float
-  %190 = getelementptr inbounds nuw i8, ptr %173, i64 24
-  store float %189, ptr %190, align 8, !tbaa !55, !noalias !63
-  %191 = getelementptr double, ptr %187, i64 %182
-  %192 = load double, ptr %191, align 8, !tbaa !53, !noalias !63
-  %193 = fptrunc double %192 to float
-  %194 = getelementptr inbounds nuw i8, ptr %173, i64 28
-  store float %193, ptr %194, align 4, !tbaa !55, !noalias !63
-  %195 = getelementptr double, ptr %187, i64 %184
-  %196 = load double, ptr %195, align 8, !tbaa !53, !noalias !63
-  %197 = fptrunc double %196 to float
-  %198 = getelementptr inbounds nuw i8, ptr %173, i64 32
-  store float %197, ptr %198, align 8, !tbaa !55, !noalias !63
-  %.idx.i.i.i.i.i.i.i.i22 = mul i64 %182, 24
-  %199 = getelementptr i8, ptr %187, i64 %.idx.i.i.i.i.i.i.i.i22
-  %200 = load double, ptr %199, align 8, !tbaa !53, !noalias !63
-  %201 = fptrunc double %200 to float
-  %202 = getelementptr inbounds nuw i8, ptr %173, i64 36
-  store float %201, ptr %202, align 4, !tbaa !55, !noalias !63
-  %203 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  %204 = load double, ptr %203, align 8, !tbaa !53, !noalias !63
-  %205 = fptrunc double %204 to float
-  %206 = getelementptr inbounds nuw i8, ptr %173, i64 40
-  store float %205, ptr %206, align 8, !tbaa !55, !noalias !63
-  %207 = getelementptr i8, ptr %191, i64 8
-  %208 = load double, ptr %207, align 8, !tbaa !53, !noalias !63
-  %209 = fptrunc double %208 to float
-  %210 = getelementptr inbounds nuw i8, ptr %173, i64 44
-  store float %209, ptr %210, align 4, !tbaa !55, !noalias !63
-  %211 = or disjoint i64 %184, 1
-  %212 = getelementptr inbounds nuw double, ptr %187, i64 %211
+_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %170
+  %182 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !63
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 192
+  %184 = load ptr, ptr %183, align 8, !tbaa !52, !noalias !63
+  %185 = load double, ptr %184, align 8, !tbaa !53, !noalias !63
+  %186 = fptrunc double %185 to float
+  %187 = getelementptr inbounds nuw i8, ptr %171, i64 24
+  store float %186, ptr %187, align 8, !tbaa !55, !noalias !63
+  %188 = getelementptr double, ptr %184, i64 %180
+  %189 = load double, ptr %188, align 8, !tbaa !53, !noalias !63
+  %190 = fptrunc double %189 to float
+  %191 = getelementptr inbounds nuw i8, ptr %171, i64 28
+  store float %190, ptr %191, align 4, !tbaa !55, !noalias !63
+  %.idx.i.i.i.i.i.i.i.i22 = shl i64 %180, 4
+  %192 = getelementptr i8, ptr %184, i64 %.idx.i.i.i.i.i.i.i.i22
+  %193 = load double, ptr %192, align 8, !tbaa !53, !noalias !63
+  %194 = fptrunc double %193 to float
+  %195 = getelementptr inbounds nuw i8, ptr %171, i64 32
+  store float %194, ptr %195, align 8, !tbaa !55, !noalias !63
+  %.idx34.i.i.i.i.i.i.i.i = mul i64 %180, 24
+  %196 = getelementptr i8, ptr %184, i64 %.idx34.i.i.i.i.i.i.i.i
+  %197 = load double, ptr %196, align 8, !tbaa !53, !noalias !63
+  %198 = fptrunc double %197 to float
+  %199 = getelementptr inbounds nuw i8, ptr %171, i64 36
+  store float %198, ptr %199, align 4, !tbaa !55, !noalias !63
+  %200 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %201 = load double, ptr %200, align 8, !tbaa !53, !noalias !63
+  %202 = fptrunc double %201 to float
+  %203 = getelementptr inbounds nuw i8, ptr %171, i64 40
+  store float %202, ptr %203, align 8, !tbaa !55, !noalias !63
+  %204 = getelementptr i8, ptr %188, i64 8
+  %205 = load double, ptr %204, align 8, !tbaa !53, !noalias !63
+  %206 = fptrunc double %205 to float
+  %207 = getelementptr inbounds nuw i8, ptr %171, i64 44
+  store float %206, ptr %207, align 4, !tbaa !55, !noalias !63
+  %208 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  %209 = load double, ptr %208, align 8, !tbaa !53, !noalias !63
+  %210 = fptrunc double %209 to float
+  %211 = getelementptr inbounds nuw i8, ptr %171, i64 48
+  store float %210, ptr %211, align 8, !tbaa !55, !noalias !63
+  %212 = getelementptr i8, ptr %196, i64 8
   %213 = load double, ptr %212, align 8, !tbaa !53, !noalias !63
   %214 = fptrunc double %213 to float
-  %215 = getelementptr inbounds nuw i8, ptr %173, i64 48
-  store float %214, ptr %215, align 8, !tbaa !55, !noalias !63
-  %216 = getelementptr i8, ptr %199, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %171, i64 52
+  store float %214, ptr %215, align 4, !tbaa !55, !noalias !63
+  %216 = getelementptr inbounds nuw i8, ptr %184, i64 16
   %217 = load double, ptr %216, align 8, !tbaa !53, !noalias !63
   %218 = fptrunc double %217 to float
-  %219 = getelementptr inbounds nuw i8, ptr %173, i64 52
-  store float %218, ptr %219, align 4, !tbaa !55, !noalias !63
-  %220 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  %219 = getelementptr inbounds nuw i8, ptr %171, i64 56
+  store float %218, ptr %219, align 8, !tbaa !55, !noalias !63
+  %220 = getelementptr i8, ptr %188, i64 16
   %221 = load double, ptr %220, align 8, !tbaa !53, !noalias !63
   %222 = fptrunc double %221 to float
-  %223 = getelementptr inbounds nuw i8, ptr %173, i64 56
-  store float %222, ptr %223, align 8, !tbaa !55, !noalias !63
-  %224 = getelementptr i8, ptr %191, i64 16
+  %223 = getelementptr inbounds nuw i8, ptr %171, i64 60
+  store float %222, ptr %223, align 4, !tbaa !55, !noalias !63
+  %224 = getelementptr i8, ptr %192, i64 16
   %225 = load double, ptr %224, align 8, !tbaa !53, !noalias !63
   %226 = fptrunc double %225 to float
-  %227 = getelementptr inbounds nuw i8, ptr %173, i64 60
-  store float %226, ptr %227, align 4, !tbaa !55, !noalias !63
-  %228 = getelementptr i8, ptr %195, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %171, i64 64
+  store float %226, ptr %227, align 8, !tbaa !55, !noalias !63
+  %228 = getelementptr i8, ptr %196, i64 16
   %229 = load double, ptr %228, align 8, !tbaa !53, !noalias !63
   %230 = fptrunc double %229 to float
-  %231 = getelementptr inbounds nuw i8, ptr %173, i64 64
-  store float %230, ptr %231, align 8, !tbaa !55, !noalias !63
-  %232 = getelementptr i8, ptr %199, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %171, i64 68
+  store float %230, ptr %231, align 4, !tbaa !55, !noalias !63
+  %232 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %233 = load double, ptr %232, align 8, !tbaa !53, !noalias !63
   %234 = fptrunc double %233 to float
-  %235 = getelementptr inbounds nuw i8, ptr %173, i64 68
-  store float %234, ptr %235, align 4, !tbaa !55, !noalias !63
-  %236 = getelementptr inbounds nuw i8, ptr %187, i64 24
+  %235 = getelementptr inbounds nuw i8, ptr %171, i64 72
+  store float %234, ptr %235, align 8, !tbaa !55, !noalias !63
+  %236 = getelementptr i8, ptr %188, i64 24
   %237 = load double, ptr %236, align 8, !tbaa !53, !noalias !63
   %238 = fptrunc double %237 to float
-  %239 = getelementptr inbounds nuw i8, ptr %173, i64 72
-  store float %238, ptr %239, align 8, !tbaa !55, !noalias !63
-  %240 = getelementptr i8, ptr %191, i64 24
+  %239 = getelementptr inbounds nuw i8, ptr %171, i64 76
+  store float %238, ptr %239, align 4, !tbaa !55, !noalias !63
+  %240 = getelementptr i8, ptr %192, i64 24
   %241 = load double, ptr %240, align 8, !tbaa !53, !noalias !63
   %242 = fptrunc double %241 to float
-  %243 = getelementptr inbounds nuw i8, ptr %173, i64 76
-  store float %242, ptr %243, align 4, !tbaa !55, !noalias !63
-  %244 = getelementptr i8, ptr %195, i64 24
+  %243 = getelementptr inbounds nuw i8, ptr %171, i64 80
+  store float %242, ptr %243, align 8, !tbaa !55, !noalias !63
+  %244 = getelementptr i8, ptr %196, i64 24
   %245 = load double, ptr %244, align 8, !tbaa !53, !noalias !63
   %246 = fptrunc double %245 to float
-  %247 = getelementptr inbounds nuw i8, ptr %173, i64 80
-  store float %246, ptr %247, align 8, !tbaa !55, !noalias !63
-  %248 = getelementptr i8, ptr %199, i64 24
-  %249 = load double, ptr %248, align 8, !tbaa !53, !noalias !63
-  %250 = fptrunc double %249 to float
-  %251 = getelementptr inbounds nuw i8, ptr %173, i64 84
-  store float %250, ptr %251, align 4, !tbaa !55, !noalias !63
-  br label %252
+  %247 = getelementptr inbounds nuw i8, ptr %171, i64 84
+  store float %246, ptr %247, align 4, !tbaa !55, !noalias !63
+  br label %248
 
-252:                                              ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124MatrixWithOffsetRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_113ScaleRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_123ScaleWithOffsetRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink33 = phi ptr [ %176, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %80, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124MatrixWithOffsetRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %59, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_113ScaleRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %21, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_123ScaleWithOffsetRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
-  %.sink = phi ptr [ %173, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %77, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124MatrixWithOffsetRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %55, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_113ScaleRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %18, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_123ScaleWithOffsetRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+248:                                              ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124MatrixWithOffsetRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_113ScaleRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_123ScaleWithOffsetRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  %.sink33 = phi ptr [ %174, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %80, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124MatrixWithOffsetRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %59, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_113ScaleRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %21, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_123ScaleWithOffsetRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.sink = phi ptr [ %171, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_114MatrixRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %77, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_124MatrixWithOffsetRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %55, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_113ScaleRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %18, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_123ScaleWithOffsetRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   store ptr %.sink33, ptr %0, align 8, !tbaa !66
-  %253 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %253, align 8, !tbaa !69
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %249, align 8, !tbaa !69
   ret void
 }
 

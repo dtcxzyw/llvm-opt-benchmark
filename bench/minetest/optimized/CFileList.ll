@@ -184,315 +184,283 @@ pred.store.continue:                              ; preds = %pred.store.if, %vec
   br i1 %13, label %pred.store.if46, label %pred.store.continue47
 
 pred.store.if46:                                  ; preds = %pred.store.continue
-  %14 = or disjoint i64 %index, 1
-  %next.gep14 = getelementptr i8, ptr %8, i64 %14
+  %next.gep14 = getelementptr i8, ptr %next.gep, i64 1
   store i8 47, ptr %next.gep14, align 1, !tbaa !25
   br label %pred.store.continue47
 
 pred.store.continue47:                            ; preds = %pred.store.if46, %pred.store.continue
-  %15 = extractelement <16 x i1> %10, i64 2
-  br i1 %15, label %pred.store.if48, label %pred.store.continue49
+  %14 = extractelement <16 x i1> %10, i64 2
+  br i1 %14, label %pred.store.if48, label %pred.store.continue49
 
 pred.store.if48:                                  ; preds = %pred.store.continue47
-  %16 = or disjoint i64 %index, 2
-  %next.gep15 = getelementptr i8, ptr %8, i64 %16
+  %next.gep15 = getelementptr i8, ptr %next.gep, i64 2
   store i8 47, ptr %next.gep15, align 1, !tbaa !25
   br label %pred.store.continue49
 
 pred.store.continue49:                            ; preds = %pred.store.if48, %pred.store.continue47
-  %17 = extractelement <16 x i1> %10, i64 3
-  br i1 %17, label %pred.store.if50, label %pred.store.continue51
+  %15 = extractelement <16 x i1> %10, i64 3
+  br i1 %15, label %pred.store.if50, label %pred.store.continue51
 
 pred.store.if50:                                  ; preds = %pred.store.continue49
-  %18 = or disjoint i64 %index, 3
-  %next.gep16 = getelementptr i8, ptr %8, i64 %18
+  %next.gep16 = getelementptr i8, ptr %next.gep, i64 3
   store i8 47, ptr %next.gep16, align 1, !tbaa !25
   br label %pred.store.continue51
 
 pred.store.continue51:                            ; preds = %pred.store.if50, %pred.store.continue49
-  %19 = extractelement <16 x i1> %10, i64 4
-  br i1 %19, label %pred.store.if52, label %pred.store.continue53
+  %16 = extractelement <16 x i1> %10, i64 4
+  br i1 %16, label %pred.store.if52, label %pred.store.continue53
 
 pred.store.if52:                                  ; preds = %pred.store.continue51
-  %20 = or disjoint i64 %index, 4
-  %next.gep17 = getelementptr i8, ptr %8, i64 %20
+  %next.gep17 = getelementptr i8, ptr %next.gep, i64 4
   store i8 47, ptr %next.gep17, align 1, !tbaa !25
   br label %pred.store.continue53
 
 pred.store.continue53:                            ; preds = %pred.store.if52, %pred.store.continue51
-  %21 = extractelement <16 x i1> %10, i64 5
-  br i1 %21, label %pred.store.if54, label %pred.store.continue55
+  %17 = extractelement <16 x i1> %10, i64 5
+  br i1 %17, label %pred.store.if54, label %pred.store.continue55
 
 pred.store.if54:                                  ; preds = %pred.store.continue53
-  %22 = or disjoint i64 %index, 5
-  %next.gep18 = getelementptr i8, ptr %8, i64 %22
+  %next.gep18 = getelementptr i8, ptr %next.gep, i64 5
   store i8 47, ptr %next.gep18, align 1, !tbaa !25
   br label %pred.store.continue55
 
 pred.store.continue55:                            ; preds = %pred.store.if54, %pred.store.continue53
-  %23 = extractelement <16 x i1> %10, i64 6
-  br i1 %23, label %pred.store.if56, label %pred.store.continue57
+  %18 = extractelement <16 x i1> %10, i64 6
+  br i1 %18, label %pred.store.if56, label %pred.store.continue57
 
 pred.store.if56:                                  ; preds = %pred.store.continue55
-  %24 = or disjoint i64 %index, 6
-  %next.gep19 = getelementptr i8, ptr %8, i64 %24
+  %next.gep19 = getelementptr i8, ptr %next.gep, i64 6
   store i8 47, ptr %next.gep19, align 1, !tbaa !25
   br label %pred.store.continue57
 
 pred.store.continue57:                            ; preds = %pred.store.if56, %pred.store.continue55
-  %25 = extractelement <16 x i1> %10, i64 7
-  br i1 %25, label %pred.store.if58, label %pred.store.continue59
+  %19 = extractelement <16 x i1> %10, i64 7
+  br i1 %19, label %pred.store.if58, label %pred.store.continue59
 
 pred.store.if58:                                  ; preds = %pred.store.continue57
-  %26 = or disjoint i64 %index, 7
-  %next.gep20 = getelementptr i8, ptr %8, i64 %26
+  %next.gep20 = getelementptr i8, ptr %next.gep, i64 7
   store i8 47, ptr %next.gep20, align 1, !tbaa !25
   br label %pred.store.continue59
 
 pred.store.continue59:                            ; preds = %pred.store.if58, %pred.store.continue57
-  %27 = extractelement <16 x i1> %10, i64 8
-  br i1 %27, label %pred.store.if60, label %pred.store.continue61
+  %20 = extractelement <16 x i1> %10, i64 8
+  br i1 %20, label %pred.store.if60, label %pred.store.continue61
 
 pred.store.if60:                                  ; preds = %pred.store.continue59
-  %28 = or disjoint i64 %index, 8
-  %next.gep21 = getelementptr i8, ptr %8, i64 %28
+  %next.gep21 = getelementptr i8, ptr %next.gep, i64 8
   store i8 47, ptr %next.gep21, align 1, !tbaa !25
   br label %pred.store.continue61
 
 pred.store.continue61:                            ; preds = %pred.store.if60, %pred.store.continue59
-  %29 = extractelement <16 x i1> %10, i64 9
-  br i1 %29, label %pred.store.if62, label %pred.store.continue63
+  %21 = extractelement <16 x i1> %10, i64 9
+  br i1 %21, label %pred.store.if62, label %pred.store.continue63
 
 pred.store.if62:                                  ; preds = %pred.store.continue61
-  %30 = or disjoint i64 %index, 9
-  %next.gep22 = getelementptr i8, ptr %8, i64 %30
+  %next.gep22 = getelementptr i8, ptr %next.gep, i64 9
   store i8 47, ptr %next.gep22, align 1, !tbaa !25
   br label %pred.store.continue63
 
 pred.store.continue63:                            ; preds = %pred.store.if62, %pred.store.continue61
-  %31 = extractelement <16 x i1> %10, i64 10
-  br i1 %31, label %pred.store.if64, label %pred.store.continue65
+  %22 = extractelement <16 x i1> %10, i64 10
+  br i1 %22, label %pred.store.if64, label %pred.store.continue65
 
 pred.store.if64:                                  ; preds = %pred.store.continue63
-  %32 = or disjoint i64 %index, 10
-  %next.gep23 = getelementptr i8, ptr %8, i64 %32
+  %next.gep23 = getelementptr i8, ptr %next.gep, i64 10
   store i8 47, ptr %next.gep23, align 1, !tbaa !25
   br label %pred.store.continue65
 
 pred.store.continue65:                            ; preds = %pred.store.if64, %pred.store.continue63
-  %33 = extractelement <16 x i1> %10, i64 11
-  br i1 %33, label %pred.store.if66, label %pred.store.continue67
+  %23 = extractelement <16 x i1> %10, i64 11
+  br i1 %23, label %pred.store.if66, label %pred.store.continue67
 
 pred.store.if66:                                  ; preds = %pred.store.continue65
-  %34 = or disjoint i64 %index, 11
-  %next.gep24 = getelementptr i8, ptr %8, i64 %34
+  %next.gep24 = getelementptr i8, ptr %next.gep, i64 11
   store i8 47, ptr %next.gep24, align 1, !tbaa !25
   br label %pred.store.continue67
 
 pred.store.continue67:                            ; preds = %pred.store.if66, %pred.store.continue65
-  %35 = extractelement <16 x i1> %10, i64 12
-  br i1 %35, label %pred.store.if68, label %pred.store.continue69
+  %24 = extractelement <16 x i1> %10, i64 12
+  br i1 %24, label %pred.store.if68, label %pred.store.continue69
 
 pred.store.if68:                                  ; preds = %pred.store.continue67
-  %36 = or disjoint i64 %index, 12
-  %next.gep25 = getelementptr i8, ptr %8, i64 %36
+  %next.gep25 = getelementptr i8, ptr %next.gep, i64 12
   store i8 47, ptr %next.gep25, align 1, !tbaa !25
   br label %pred.store.continue69
 
 pred.store.continue69:                            ; preds = %pred.store.if68, %pred.store.continue67
-  %37 = extractelement <16 x i1> %10, i64 13
-  br i1 %37, label %pred.store.if70, label %pred.store.continue71
+  %25 = extractelement <16 x i1> %10, i64 13
+  br i1 %25, label %pred.store.if70, label %pred.store.continue71
 
 pred.store.if70:                                  ; preds = %pred.store.continue69
-  %38 = or disjoint i64 %index, 13
-  %next.gep26 = getelementptr i8, ptr %8, i64 %38
+  %next.gep26 = getelementptr i8, ptr %next.gep, i64 13
   store i8 47, ptr %next.gep26, align 1, !tbaa !25
   br label %pred.store.continue71
 
 pred.store.continue71:                            ; preds = %pred.store.if70, %pred.store.continue69
-  %39 = extractelement <16 x i1> %10, i64 14
-  br i1 %39, label %pred.store.if72, label %pred.store.continue73
+  %26 = extractelement <16 x i1> %10, i64 14
+  br i1 %26, label %pred.store.if72, label %pred.store.continue73
 
 pred.store.if72:                                  ; preds = %pred.store.continue71
-  %40 = or disjoint i64 %index, 14
-  %next.gep27 = getelementptr i8, ptr %8, i64 %40
+  %next.gep27 = getelementptr i8, ptr %next.gep, i64 14
   store i8 47, ptr %next.gep27, align 1, !tbaa !25
   br label %pred.store.continue73
 
 pred.store.continue73:                            ; preds = %pred.store.if72, %pred.store.continue71
-  %41 = extractelement <16 x i1> %10, i64 15
-  br i1 %41, label %pred.store.if74, label %pred.store.continue75
+  %27 = extractelement <16 x i1> %10, i64 15
+  br i1 %27, label %pred.store.if74, label %pred.store.continue75
 
 pred.store.if74:                                  ; preds = %pred.store.continue73
-  %42 = or disjoint i64 %index, 15
-  %next.gep28 = getelementptr i8, ptr %8, i64 %42
+  %next.gep28 = getelementptr i8, ptr %next.gep, i64 15
   store i8 47, ptr %next.gep28, align 1, !tbaa !25
   br label %pred.store.continue75
 
 pred.store.continue75:                            ; preds = %pred.store.if74, %pred.store.continue73
-  %43 = extractelement <16 x i1> %11, i64 0
-  br i1 %43, label %pred.store.if76, label %pred.store.continue77
+  %28 = extractelement <16 x i1> %11, i64 0
+  br i1 %28, label %pred.store.if76, label %pred.store.continue77
 
 pred.store.if76:                                  ; preds = %pred.store.continue75
-  %44 = or disjoint i64 %index, 16
-  %next.gep29 = getelementptr i8, ptr %8, i64 %44
-  store i8 47, ptr %next.gep29, align 1, !tbaa !25
+  store i8 47, ptr %9, align 1, !tbaa !25
   br label %pred.store.continue77
 
 pred.store.continue77:                            ; preds = %pred.store.if76, %pred.store.continue75
-  %45 = extractelement <16 x i1> %11, i64 1
-  br i1 %45, label %pred.store.if78, label %pred.store.continue79
+  %29 = extractelement <16 x i1> %11, i64 1
+  br i1 %29, label %pred.store.if78, label %pred.store.continue79
 
 pred.store.if78:                                  ; preds = %pred.store.continue77
-  %46 = or disjoint i64 %index, 17
-  %next.gep30 = getelementptr i8, ptr %8, i64 %46
+  %next.gep30 = getelementptr i8, ptr %next.gep, i64 17
   store i8 47, ptr %next.gep30, align 1, !tbaa !25
   br label %pred.store.continue79
 
 pred.store.continue79:                            ; preds = %pred.store.if78, %pred.store.continue77
-  %47 = extractelement <16 x i1> %11, i64 2
-  br i1 %47, label %pred.store.if80, label %pred.store.continue81
+  %30 = extractelement <16 x i1> %11, i64 2
+  br i1 %30, label %pred.store.if80, label %pred.store.continue81
 
 pred.store.if80:                                  ; preds = %pred.store.continue79
-  %48 = or disjoint i64 %index, 18
-  %next.gep31 = getelementptr i8, ptr %8, i64 %48
+  %next.gep31 = getelementptr i8, ptr %next.gep, i64 18
   store i8 47, ptr %next.gep31, align 1, !tbaa !25
   br label %pred.store.continue81
 
 pred.store.continue81:                            ; preds = %pred.store.if80, %pred.store.continue79
-  %49 = extractelement <16 x i1> %11, i64 3
-  br i1 %49, label %pred.store.if82, label %pred.store.continue83
+  %31 = extractelement <16 x i1> %11, i64 3
+  br i1 %31, label %pred.store.if82, label %pred.store.continue83
 
 pred.store.if82:                                  ; preds = %pred.store.continue81
-  %50 = or disjoint i64 %index, 19
-  %next.gep32 = getelementptr i8, ptr %8, i64 %50
+  %next.gep32 = getelementptr i8, ptr %next.gep, i64 19
   store i8 47, ptr %next.gep32, align 1, !tbaa !25
   br label %pred.store.continue83
 
 pred.store.continue83:                            ; preds = %pred.store.if82, %pred.store.continue81
-  %51 = extractelement <16 x i1> %11, i64 4
-  br i1 %51, label %pred.store.if84, label %pred.store.continue85
+  %32 = extractelement <16 x i1> %11, i64 4
+  br i1 %32, label %pred.store.if84, label %pred.store.continue85
 
 pred.store.if84:                                  ; preds = %pred.store.continue83
-  %52 = or disjoint i64 %index, 20
-  %next.gep33 = getelementptr i8, ptr %8, i64 %52
+  %next.gep33 = getelementptr i8, ptr %next.gep, i64 20
   store i8 47, ptr %next.gep33, align 1, !tbaa !25
   br label %pred.store.continue85
 
 pred.store.continue85:                            ; preds = %pred.store.if84, %pred.store.continue83
-  %53 = extractelement <16 x i1> %11, i64 5
-  br i1 %53, label %pred.store.if86, label %pred.store.continue87
+  %33 = extractelement <16 x i1> %11, i64 5
+  br i1 %33, label %pred.store.if86, label %pred.store.continue87
 
 pred.store.if86:                                  ; preds = %pred.store.continue85
-  %54 = or disjoint i64 %index, 21
-  %next.gep34 = getelementptr i8, ptr %8, i64 %54
+  %next.gep34 = getelementptr i8, ptr %next.gep, i64 21
   store i8 47, ptr %next.gep34, align 1, !tbaa !25
   br label %pred.store.continue87
 
 pred.store.continue87:                            ; preds = %pred.store.if86, %pred.store.continue85
-  %55 = extractelement <16 x i1> %11, i64 6
-  br i1 %55, label %pred.store.if88, label %pred.store.continue89
+  %34 = extractelement <16 x i1> %11, i64 6
+  br i1 %34, label %pred.store.if88, label %pred.store.continue89
 
 pred.store.if88:                                  ; preds = %pred.store.continue87
-  %56 = or disjoint i64 %index, 22
-  %next.gep35 = getelementptr i8, ptr %8, i64 %56
+  %next.gep35 = getelementptr i8, ptr %next.gep, i64 22
   store i8 47, ptr %next.gep35, align 1, !tbaa !25
   br label %pred.store.continue89
 
 pred.store.continue89:                            ; preds = %pred.store.if88, %pred.store.continue87
-  %57 = extractelement <16 x i1> %11, i64 7
-  br i1 %57, label %pred.store.if90, label %pred.store.continue91
+  %35 = extractelement <16 x i1> %11, i64 7
+  br i1 %35, label %pred.store.if90, label %pred.store.continue91
 
 pred.store.if90:                                  ; preds = %pred.store.continue89
-  %58 = or disjoint i64 %index, 23
-  %next.gep36 = getelementptr i8, ptr %8, i64 %58
+  %next.gep36 = getelementptr i8, ptr %next.gep, i64 23
   store i8 47, ptr %next.gep36, align 1, !tbaa !25
   br label %pred.store.continue91
 
 pred.store.continue91:                            ; preds = %pred.store.if90, %pred.store.continue89
-  %59 = extractelement <16 x i1> %11, i64 8
-  br i1 %59, label %pred.store.if92, label %pred.store.continue93
+  %36 = extractelement <16 x i1> %11, i64 8
+  br i1 %36, label %pred.store.if92, label %pred.store.continue93
 
 pred.store.if92:                                  ; preds = %pred.store.continue91
-  %60 = or disjoint i64 %index, 24
-  %next.gep37 = getelementptr i8, ptr %8, i64 %60
+  %next.gep37 = getelementptr i8, ptr %next.gep, i64 24
   store i8 47, ptr %next.gep37, align 1, !tbaa !25
   br label %pred.store.continue93
 
 pred.store.continue93:                            ; preds = %pred.store.if92, %pred.store.continue91
-  %61 = extractelement <16 x i1> %11, i64 9
-  br i1 %61, label %pred.store.if94, label %pred.store.continue95
+  %37 = extractelement <16 x i1> %11, i64 9
+  br i1 %37, label %pred.store.if94, label %pred.store.continue95
 
 pred.store.if94:                                  ; preds = %pred.store.continue93
-  %62 = or disjoint i64 %index, 25
-  %next.gep38 = getelementptr i8, ptr %8, i64 %62
+  %next.gep38 = getelementptr i8, ptr %next.gep, i64 25
   store i8 47, ptr %next.gep38, align 1, !tbaa !25
   br label %pred.store.continue95
 
 pred.store.continue95:                            ; preds = %pred.store.if94, %pred.store.continue93
-  %63 = extractelement <16 x i1> %11, i64 10
-  br i1 %63, label %pred.store.if96, label %pred.store.continue97
+  %38 = extractelement <16 x i1> %11, i64 10
+  br i1 %38, label %pred.store.if96, label %pred.store.continue97
 
 pred.store.if96:                                  ; preds = %pred.store.continue95
-  %64 = or disjoint i64 %index, 26
-  %next.gep39 = getelementptr i8, ptr %8, i64 %64
+  %next.gep39 = getelementptr i8, ptr %next.gep, i64 26
   store i8 47, ptr %next.gep39, align 1, !tbaa !25
   br label %pred.store.continue97
 
 pred.store.continue97:                            ; preds = %pred.store.if96, %pred.store.continue95
-  %65 = extractelement <16 x i1> %11, i64 11
-  br i1 %65, label %pred.store.if98, label %pred.store.continue99
+  %39 = extractelement <16 x i1> %11, i64 11
+  br i1 %39, label %pred.store.if98, label %pred.store.continue99
 
 pred.store.if98:                                  ; preds = %pred.store.continue97
-  %66 = or disjoint i64 %index, 27
-  %next.gep40 = getelementptr i8, ptr %8, i64 %66
+  %next.gep40 = getelementptr i8, ptr %next.gep, i64 27
   store i8 47, ptr %next.gep40, align 1, !tbaa !25
   br label %pred.store.continue99
 
 pred.store.continue99:                            ; preds = %pred.store.if98, %pred.store.continue97
-  %67 = extractelement <16 x i1> %11, i64 12
-  br i1 %67, label %pred.store.if100, label %pred.store.continue101
+  %40 = extractelement <16 x i1> %11, i64 12
+  br i1 %40, label %pred.store.if100, label %pred.store.continue101
 
 pred.store.if100:                                 ; preds = %pred.store.continue99
-  %68 = or disjoint i64 %index, 28
-  %next.gep41 = getelementptr i8, ptr %8, i64 %68
+  %next.gep41 = getelementptr i8, ptr %next.gep, i64 28
   store i8 47, ptr %next.gep41, align 1, !tbaa !25
   br label %pred.store.continue101
 
 pred.store.continue101:                           ; preds = %pred.store.if100, %pred.store.continue99
-  %69 = extractelement <16 x i1> %11, i64 13
-  br i1 %69, label %pred.store.if102, label %pred.store.continue103
+  %41 = extractelement <16 x i1> %11, i64 13
+  br i1 %41, label %pred.store.if102, label %pred.store.continue103
 
 pred.store.if102:                                 ; preds = %pred.store.continue101
-  %70 = or disjoint i64 %index, 29
-  %next.gep42 = getelementptr i8, ptr %8, i64 %70
+  %next.gep42 = getelementptr i8, ptr %next.gep, i64 29
   store i8 47, ptr %next.gep42, align 1, !tbaa !25
   br label %pred.store.continue103
 
 pred.store.continue103:                           ; preds = %pred.store.if102, %pred.store.continue101
-  %71 = extractelement <16 x i1> %11, i64 14
-  br i1 %71, label %pred.store.if104, label %pred.store.continue105
+  %42 = extractelement <16 x i1> %11, i64 14
+  br i1 %42, label %pred.store.if104, label %pred.store.continue105
 
 pred.store.if104:                                 ; preds = %pred.store.continue103
-  %72 = or disjoint i64 %index, 30
-  %next.gep43 = getelementptr i8, ptr %8, i64 %72
+  %next.gep43 = getelementptr i8, ptr %next.gep, i64 30
   store i8 47, ptr %next.gep43, align 1, !tbaa !25
   br label %pred.store.continue105
 
 pred.store.continue105:                           ; preds = %pred.store.if104, %pred.store.continue103
-  %73 = extractelement <16 x i1> %11, i64 15
-  br i1 %73, label %pred.store.if106, label %pred.store.continue107
+  %43 = extractelement <16 x i1> %11, i64 15
+  br i1 %43, label %pred.store.if106, label %pred.store.continue107
 
 pred.store.if106:                                 ; preds = %pred.store.continue105
-  %74 = or disjoint i64 %index, 31
-  %next.gep44 = getelementptr i8, ptr %8, i64 %74
+  %next.gep44 = getelementptr i8, ptr %next.gep, i64 31
   store i8 47, ptr %next.gep44, align 1, !tbaa !25
   br label %pred.store.continue107
 
 pred.store.continue107:                           ; preds = %pred.store.if106, %pred.store.continue105
   %index.next = add nuw i64 %index, 32
-  %75 = icmp eq i64 %index.next, %n.vec
-  br i1 %75, label %middle.block, label %vector.body, !llvm.loop !27
+  %44 = icmp eq i64 %index.next, %n.vec
+  br i1 %44, label %middle.block, label %vector.body, !llvm.loop !27
 
 middle.block:                                     ; preds = %pred.store.continue107
   %cmp.n = icmp eq i64 %.pr, %n.vec
@@ -513,88 +481,81 @@ vec.epilog.vector.body:                           ; preds = %pred.store.continue
   %index112 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next138, %pred.store.continue137 ]
   %next.gep113 = getelementptr i8, ptr %8, i64 %index112
   %wide.load121 = load <8 x i8>, ptr %next.gep113, align 1, !tbaa !25
-  %76 = icmp eq <8 x i8> %wide.load121, splat (i8 92)
-  %77 = extractelement <8 x i1> %76, i64 0
-  br i1 %77, label %pred.store.if122, label %pred.store.continue123
+  %45 = icmp eq <8 x i8> %wide.load121, splat (i8 92)
+  %46 = extractelement <8 x i1> %45, i64 0
+  br i1 %46, label %pred.store.if122, label %pred.store.continue123
 
 pred.store.if122:                                 ; preds = %vec.epilog.vector.body
   store i8 47, ptr %next.gep113, align 1, !tbaa !25
   br label %pred.store.continue123
 
 pred.store.continue123:                           ; preds = %pred.store.if122, %vec.epilog.vector.body
-  %78 = extractelement <8 x i1> %76, i64 1
-  br i1 %78, label %pred.store.if124, label %pred.store.continue125
+  %47 = extractelement <8 x i1> %45, i64 1
+  br i1 %47, label %pred.store.if124, label %pred.store.continue125
 
 pred.store.if124:                                 ; preds = %pred.store.continue123
-  %79 = or disjoint i64 %index112, 1
-  %next.gep114 = getelementptr i8, ptr %8, i64 %79
+  %next.gep114 = getelementptr i8, ptr %next.gep113, i64 1
   store i8 47, ptr %next.gep114, align 1, !tbaa !25
   br label %pred.store.continue125
 
 pred.store.continue125:                           ; preds = %pred.store.if124, %pred.store.continue123
-  %80 = extractelement <8 x i1> %76, i64 2
-  br i1 %80, label %pred.store.if126, label %pred.store.continue127
+  %48 = extractelement <8 x i1> %45, i64 2
+  br i1 %48, label %pred.store.if126, label %pred.store.continue127
 
 pred.store.if126:                                 ; preds = %pred.store.continue125
-  %81 = or disjoint i64 %index112, 2
-  %next.gep115 = getelementptr i8, ptr %8, i64 %81
+  %next.gep115 = getelementptr i8, ptr %next.gep113, i64 2
   store i8 47, ptr %next.gep115, align 1, !tbaa !25
   br label %pred.store.continue127
 
 pred.store.continue127:                           ; preds = %pred.store.if126, %pred.store.continue125
-  %82 = extractelement <8 x i1> %76, i64 3
-  br i1 %82, label %pred.store.if128, label %pred.store.continue129
+  %49 = extractelement <8 x i1> %45, i64 3
+  br i1 %49, label %pred.store.if128, label %pred.store.continue129
 
 pred.store.if128:                                 ; preds = %pred.store.continue127
-  %83 = or disjoint i64 %index112, 3
-  %next.gep116 = getelementptr i8, ptr %8, i64 %83
+  %next.gep116 = getelementptr i8, ptr %next.gep113, i64 3
   store i8 47, ptr %next.gep116, align 1, !tbaa !25
   br label %pred.store.continue129
 
 pred.store.continue129:                           ; preds = %pred.store.if128, %pred.store.continue127
-  %84 = extractelement <8 x i1> %76, i64 4
-  br i1 %84, label %pred.store.if130, label %pred.store.continue131
+  %50 = extractelement <8 x i1> %45, i64 4
+  br i1 %50, label %pred.store.if130, label %pred.store.continue131
 
 pred.store.if130:                                 ; preds = %pred.store.continue129
-  %85 = or disjoint i64 %index112, 4
-  %next.gep117 = getelementptr i8, ptr %8, i64 %85
+  %next.gep117 = getelementptr i8, ptr %next.gep113, i64 4
   store i8 47, ptr %next.gep117, align 1, !tbaa !25
   br label %pred.store.continue131
 
 pred.store.continue131:                           ; preds = %pred.store.if130, %pred.store.continue129
-  %86 = extractelement <8 x i1> %76, i64 5
-  br i1 %86, label %pred.store.if132, label %pred.store.continue133
+  %51 = extractelement <8 x i1> %45, i64 5
+  br i1 %51, label %pred.store.if132, label %pred.store.continue133
 
 pred.store.if132:                                 ; preds = %pred.store.continue131
-  %87 = or disjoint i64 %index112, 5
-  %next.gep118 = getelementptr i8, ptr %8, i64 %87
+  %next.gep118 = getelementptr i8, ptr %next.gep113, i64 5
   store i8 47, ptr %next.gep118, align 1, !tbaa !25
   br label %pred.store.continue133
 
 pred.store.continue133:                           ; preds = %pred.store.if132, %pred.store.continue131
-  %88 = extractelement <8 x i1> %76, i64 6
-  br i1 %88, label %pred.store.if134, label %pred.store.continue135
+  %52 = extractelement <8 x i1> %45, i64 6
+  br i1 %52, label %pred.store.if134, label %pred.store.continue135
 
 pred.store.if134:                                 ; preds = %pred.store.continue133
-  %89 = or disjoint i64 %index112, 6
-  %next.gep119 = getelementptr i8, ptr %8, i64 %89
+  %next.gep119 = getelementptr i8, ptr %next.gep113, i64 6
   store i8 47, ptr %next.gep119, align 1, !tbaa !25
   br label %pred.store.continue135
 
 pred.store.continue135:                           ; preds = %pred.store.if134, %pred.store.continue133
-  %90 = extractelement <8 x i1> %76, i64 7
-  br i1 %90, label %pred.store.if136, label %pred.store.continue137
+  %53 = extractelement <8 x i1> %45, i64 7
+  br i1 %53, label %pred.store.if136, label %pred.store.continue137
 
 pred.store.if136:                                 ; preds = %pred.store.continue135
-  %91 = or disjoint i64 %index112, 7
-  %next.gep120 = getelementptr i8, ptr %8, i64 %91
+  %next.gep120 = getelementptr i8, ptr %next.gep113, i64 7
   store i8 47, ptr %next.gep120, align 1, !tbaa !25
   br label %pred.store.continue137
 
 pred.store.continue137:                           ; preds = %pred.store.if136, %pred.store.continue135
   %index.next138 = add nuw i64 %index112, 8
-  %92 = icmp eq i64 %index.next138, %n.vec109
-  br i1 %92, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !31
+  %54 = icmp eq i64 %index.next138, %n.vec109
+  br i1 %54, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !31
 
 vec.epilog.middle.block:                          ; preds = %pred.store.continue137
   %ind.end = getelementptr i8, ptr %8, i64 %n.vec109
@@ -607,8 +568,8 @@ for.body.i.i.preheader:                           ; preds = %vec.epilog.middle.b
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.inc.i.i
   %__first.sroa.0.010.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %__first.sroa.0.010.i.i.ph, %for.body.i.i.preheader ]
-  %93 = load i8, ptr %__first.sroa.0.010.i.i, align 1, !tbaa !25
-  %cmp.i.i8 = icmp eq i8 %93, 92
+  %55 = load i8, ptr %__first.sroa.0.010.i.i, align 1, !tbaa !25
+  %cmp.i.i8 = icmp eq i8 %55, 92
   br i1 %cmp.i.i8, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -700,315 +661,283 @@ pred.store.continue:                              ; preds = %pred.store.if, %vec
   br i1 %7, label %pred.store.if45, label %pred.store.continue46
 
 pred.store.if45:                                  ; preds = %pred.store.continue
-  %8 = or disjoint i64 %index, 1
-  %next.gep13 = getelementptr i8, ptr %2, i64 %8
+  %next.gep13 = getelementptr i8, ptr %next.gep, i64 1
   store i8 47, ptr %next.gep13, align 1, !tbaa !25
   br label %pred.store.continue46
 
 pred.store.continue46:                            ; preds = %pred.store.if45, %pred.store.continue
-  %9 = extractelement <16 x i1> %4, i64 2
-  br i1 %9, label %pred.store.if47, label %pred.store.continue48
+  %8 = extractelement <16 x i1> %4, i64 2
+  br i1 %8, label %pred.store.if47, label %pred.store.continue48
 
 pred.store.if47:                                  ; preds = %pred.store.continue46
-  %10 = or disjoint i64 %index, 2
-  %next.gep14 = getelementptr i8, ptr %2, i64 %10
+  %next.gep14 = getelementptr i8, ptr %next.gep, i64 2
   store i8 47, ptr %next.gep14, align 1, !tbaa !25
   br label %pred.store.continue48
 
 pred.store.continue48:                            ; preds = %pred.store.if47, %pred.store.continue46
-  %11 = extractelement <16 x i1> %4, i64 3
-  br i1 %11, label %pred.store.if49, label %pred.store.continue50
+  %9 = extractelement <16 x i1> %4, i64 3
+  br i1 %9, label %pred.store.if49, label %pred.store.continue50
 
 pred.store.if49:                                  ; preds = %pred.store.continue48
-  %12 = or disjoint i64 %index, 3
-  %next.gep15 = getelementptr i8, ptr %2, i64 %12
+  %next.gep15 = getelementptr i8, ptr %next.gep, i64 3
   store i8 47, ptr %next.gep15, align 1, !tbaa !25
   br label %pred.store.continue50
 
 pred.store.continue50:                            ; preds = %pred.store.if49, %pred.store.continue48
-  %13 = extractelement <16 x i1> %4, i64 4
-  br i1 %13, label %pred.store.if51, label %pred.store.continue52
+  %10 = extractelement <16 x i1> %4, i64 4
+  br i1 %10, label %pred.store.if51, label %pred.store.continue52
 
 pred.store.if51:                                  ; preds = %pred.store.continue50
-  %14 = or disjoint i64 %index, 4
-  %next.gep16 = getelementptr i8, ptr %2, i64 %14
+  %next.gep16 = getelementptr i8, ptr %next.gep, i64 4
   store i8 47, ptr %next.gep16, align 1, !tbaa !25
   br label %pred.store.continue52
 
 pred.store.continue52:                            ; preds = %pred.store.if51, %pred.store.continue50
-  %15 = extractelement <16 x i1> %4, i64 5
-  br i1 %15, label %pred.store.if53, label %pred.store.continue54
+  %11 = extractelement <16 x i1> %4, i64 5
+  br i1 %11, label %pred.store.if53, label %pred.store.continue54
 
 pred.store.if53:                                  ; preds = %pred.store.continue52
-  %16 = or disjoint i64 %index, 5
-  %next.gep17 = getelementptr i8, ptr %2, i64 %16
+  %next.gep17 = getelementptr i8, ptr %next.gep, i64 5
   store i8 47, ptr %next.gep17, align 1, !tbaa !25
   br label %pred.store.continue54
 
 pred.store.continue54:                            ; preds = %pred.store.if53, %pred.store.continue52
-  %17 = extractelement <16 x i1> %4, i64 6
-  br i1 %17, label %pred.store.if55, label %pred.store.continue56
+  %12 = extractelement <16 x i1> %4, i64 6
+  br i1 %12, label %pred.store.if55, label %pred.store.continue56
 
 pred.store.if55:                                  ; preds = %pred.store.continue54
-  %18 = or disjoint i64 %index, 6
-  %next.gep18 = getelementptr i8, ptr %2, i64 %18
+  %next.gep18 = getelementptr i8, ptr %next.gep, i64 6
   store i8 47, ptr %next.gep18, align 1, !tbaa !25
   br label %pred.store.continue56
 
 pred.store.continue56:                            ; preds = %pred.store.if55, %pred.store.continue54
-  %19 = extractelement <16 x i1> %4, i64 7
-  br i1 %19, label %pred.store.if57, label %pred.store.continue58
+  %13 = extractelement <16 x i1> %4, i64 7
+  br i1 %13, label %pred.store.if57, label %pred.store.continue58
 
 pred.store.if57:                                  ; preds = %pred.store.continue56
-  %20 = or disjoint i64 %index, 7
-  %next.gep19 = getelementptr i8, ptr %2, i64 %20
+  %next.gep19 = getelementptr i8, ptr %next.gep, i64 7
   store i8 47, ptr %next.gep19, align 1, !tbaa !25
   br label %pred.store.continue58
 
 pred.store.continue58:                            ; preds = %pred.store.if57, %pred.store.continue56
-  %21 = extractelement <16 x i1> %4, i64 8
-  br i1 %21, label %pred.store.if59, label %pred.store.continue60
+  %14 = extractelement <16 x i1> %4, i64 8
+  br i1 %14, label %pred.store.if59, label %pred.store.continue60
 
 pred.store.if59:                                  ; preds = %pred.store.continue58
-  %22 = or disjoint i64 %index, 8
-  %next.gep20 = getelementptr i8, ptr %2, i64 %22
+  %next.gep20 = getelementptr i8, ptr %next.gep, i64 8
   store i8 47, ptr %next.gep20, align 1, !tbaa !25
   br label %pred.store.continue60
 
 pred.store.continue60:                            ; preds = %pred.store.if59, %pred.store.continue58
-  %23 = extractelement <16 x i1> %4, i64 9
-  br i1 %23, label %pred.store.if61, label %pred.store.continue62
+  %15 = extractelement <16 x i1> %4, i64 9
+  br i1 %15, label %pred.store.if61, label %pred.store.continue62
 
 pred.store.if61:                                  ; preds = %pred.store.continue60
-  %24 = or disjoint i64 %index, 9
-  %next.gep21 = getelementptr i8, ptr %2, i64 %24
+  %next.gep21 = getelementptr i8, ptr %next.gep, i64 9
   store i8 47, ptr %next.gep21, align 1, !tbaa !25
   br label %pred.store.continue62
 
 pred.store.continue62:                            ; preds = %pred.store.if61, %pred.store.continue60
-  %25 = extractelement <16 x i1> %4, i64 10
-  br i1 %25, label %pred.store.if63, label %pred.store.continue64
+  %16 = extractelement <16 x i1> %4, i64 10
+  br i1 %16, label %pred.store.if63, label %pred.store.continue64
 
 pred.store.if63:                                  ; preds = %pred.store.continue62
-  %26 = or disjoint i64 %index, 10
-  %next.gep22 = getelementptr i8, ptr %2, i64 %26
+  %next.gep22 = getelementptr i8, ptr %next.gep, i64 10
   store i8 47, ptr %next.gep22, align 1, !tbaa !25
   br label %pred.store.continue64
 
 pred.store.continue64:                            ; preds = %pred.store.if63, %pred.store.continue62
-  %27 = extractelement <16 x i1> %4, i64 11
-  br i1 %27, label %pred.store.if65, label %pred.store.continue66
+  %17 = extractelement <16 x i1> %4, i64 11
+  br i1 %17, label %pred.store.if65, label %pred.store.continue66
 
 pred.store.if65:                                  ; preds = %pred.store.continue64
-  %28 = or disjoint i64 %index, 11
-  %next.gep23 = getelementptr i8, ptr %2, i64 %28
+  %next.gep23 = getelementptr i8, ptr %next.gep, i64 11
   store i8 47, ptr %next.gep23, align 1, !tbaa !25
   br label %pred.store.continue66
 
 pred.store.continue66:                            ; preds = %pred.store.if65, %pred.store.continue64
-  %29 = extractelement <16 x i1> %4, i64 12
-  br i1 %29, label %pred.store.if67, label %pred.store.continue68
+  %18 = extractelement <16 x i1> %4, i64 12
+  br i1 %18, label %pred.store.if67, label %pred.store.continue68
 
 pred.store.if67:                                  ; preds = %pred.store.continue66
-  %30 = or disjoint i64 %index, 12
-  %next.gep24 = getelementptr i8, ptr %2, i64 %30
+  %next.gep24 = getelementptr i8, ptr %next.gep, i64 12
   store i8 47, ptr %next.gep24, align 1, !tbaa !25
   br label %pred.store.continue68
 
 pred.store.continue68:                            ; preds = %pred.store.if67, %pred.store.continue66
-  %31 = extractelement <16 x i1> %4, i64 13
-  br i1 %31, label %pred.store.if69, label %pred.store.continue70
+  %19 = extractelement <16 x i1> %4, i64 13
+  br i1 %19, label %pred.store.if69, label %pred.store.continue70
 
 pred.store.if69:                                  ; preds = %pred.store.continue68
-  %32 = or disjoint i64 %index, 13
-  %next.gep25 = getelementptr i8, ptr %2, i64 %32
+  %next.gep25 = getelementptr i8, ptr %next.gep, i64 13
   store i8 47, ptr %next.gep25, align 1, !tbaa !25
   br label %pred.store.continue70
 
 pred.store.continue70:                            ; preds = %pred.store.if69, %pred.store.continue68
-  %33 = extractelement <16 x i1> %4, i64 14
-  br i1 %33, label %pred.store.if71, label %pred.store.continue72
+  %20 = extractelement <16 x i1> %4, i64 14
+  br i1 %20, label %pred.store.if71, label %pred.store.continue72
 
 pred.store.if71:                                  ; preds = %pred.store.continue70
-  %34 = or disjoint i64 %index, 14
-  %next.gep26 = getelementptr i8, ptr %2, i64 %34
+  %next.gep26 = getelementptr i8, ptr %next.gep, i64 14
   store i8 47, ptr %next.gep26, align 1, !tbaa !25
   br label %pred.store.continue72
 
 pred.store.continue72:                            ; preds = %pred.store.if71, %pred.store.continue70
-  %35 = extractelement <16 x i1> %4, i64 15
-  br i1 %35, label %pred.store.if73, label %pred.store.continue74
+  %21 = extractelement <16 x i1> %4, i64 15
+  br i1 %21, label %pred.store.if73, label %pred.store.continue74
 
 pred.store.if73:                                  ; preds = %pred.store.continue72
-  %36 = or disjoint i64 %index, 15
-  %next.gep27 = getelementptr i8, ptr %2, i64 %36
+  %next.gep27 = getelementptr i8, ptr %next.gep, i64 15
   store i8 47, ptr %next.gep27, align 1, !tbaa !25
   br label %pred.store.continue74
 
 pred.store.continue74:                            ; preds = %pred.store.if73, %pred.store.continue72
-  %37 = extractelement <16 x i1> %5, i64 0
-  br i1 %37, label %pred.store.if75, label %pred.store.continue76
+  %22 = extractelement <16 x i1> %5, i64 0
+  br i1 %22, label %pred.store.if75, label %pred.store.continue76
 
 pred.store.if75:                                  ; preds = %pred.store.continue74
-  %38 = or disjoint i64 %index, 16
-  %next.gep28 = getelementptr i8, ptr %2, i64 %38
-  store i8 47, ptr %next.gep28, align 1, !tbaa !25
+  store i8 47, ptr %3, align 1, !tbaa !25
   br label %pred.store.continue76
 
 pred.store.continue76:                            ; preds = %pred.store.if75, %pred.store.continue74
-  %39 = extractelement <16 x i1> %5, i64 1
-  br i1 %39, label %pred.store.if77, label %pred.store.continue78
+  %23 = extractelement <16 x i1> %5, i64 1
+  br i1 %23, label %pred.store.if77, label %pred.store.continue78
 
 pred.store.if77:                                  ; preds = %pred.store.continue76
-  %40 = or disjoint i64 %index, 17
-  %next.gep29 = getelementptr i8, ptr %2, i64 %40
+  %next.gep29 = getelementptr i8, ptr %next.gep, i64 17
   store i8 47, ptr %next.gep29, align 1, !tbaa !25
   br label %pred.store.continue78
 
 pred.store.continue78:                            ; preds = %pred.store.if77, %pred.store.continue76
-  %41 = extractelement <16 x i1> %5, i64 2
-  br i1 %41, label %pred.store.if79, label %pred.store.continue80
+  %24 = extractelement <16 x i1> %5, i64 2
+  br i1 %24, label %pred.store.if79, label %pred.store.continue80
 
 pred.store.if79:                                  ; preds = %pred.store.continue78
-  %42 = or disjoint i64 %index, 18
-  %next.gep30 = getelementptr i8, ptr %2, i64 %42
+  %next.gep30 = getelementptr i8, ptr %next.gep, i64 18
   store i8 47, ptr %next.gep30, align 1, !tbaa !25
   br label %pred.store.continue80
 
 pred.store.continue80:                            ; preds = %pred.store.if79, %pred.store.continue78
-  %43 = extractelement <16 x i1> %5, i64 3
-  br i1 %43, label %pred.store.if81, label %pred.store.continue82
+  %25 = extractelement <16 x i1> %5, i64 3
+  br i1 %25, label %pred.store.if81, label %pred.store.continue82
 
 pred.store.if81:                                  ; preds = %pred.store.continue80
-  %44 = or disjoint i64 %index, 19
-  %next.gep31 = getelementptr i8, ptr %2, i64 %44
+  %next.gep31 = getelementptr i8, ptr %next.gep, i64 19
   store i8 47, ptr %next.gep31, align 1, !tbaa !25
   br label %pred.store.continue82
 
 pred.store.continue82:                            ; preds = %pred.store.if81, %pred.store.continue80
-  %45 = extractelement <16 x i1> %5, i64 4
-  br i1 %45, label %pred.store.if83, label %pred.store.continue84
+  %26 = extractelement <16 x i1> %5, i64 4
+  br i1 %26, label %pred.store.if83, label %pred.store.continue84
 
 pred.store.if83:                                  ; preds = %pred.store.continue82
-  %46 = or disjoint i64 %index, 20
-  %next.gep32 = getelementptr i8, ptr %2, i64 %46
+  %next.gep32 = getelementptr i8, ptr %next.gep, i64 20
   store i8 47, ptr %next.gep32, align 1, !tbaa !25
   br label %pred.store.continue84
 
 pred.store.continue84:                            ; preds = %pred.store.if83, %pred.store.continue82
-  %47 = extractelement <16 x i1> %5, i64 5
-  br i1 %47, label %pred.store.if85, label %pred.store.continue86
+  %27 = extractelement <16 x i1> %5, i64 5
+  br i1 %27, label %pred.store.if85, label %pred.store.continue86
 
 pred.store.if85:                                  ; preds = %pred.store.continue84
-  %48 = or disjoint i64 %index, 21
-  %next.gep33 = getelementptr i8, ptr %2, i64 %48
+  %next.gep33 = getelementptr i8, ptr %next.gep, i64 21
   store i8 47, ptr %next.gep33, align 1, !tbaa !25
   br label %pred.store.continue86
 
 pred.store.continue86:                            ; preds = %pred.store.if85, %pred.store.continue84
-  %49 = extractelement <16 x i1> %5, i64 6
-  br i1 %49, label %pred.store.if87, label %pred.store.continue88
+  %28 = extractelement <16 x i1> %5, i64 6
+  br i1 %28, label %pred.store.if87, label %pred.store.continue88
 
 pred.store.if87:                                  ; preds = %pred.store.continue86
-  %50 = or disjoint i64 %index, 22
-  %next.gep34 = getelementptr i8, ptr %2, i64 %50
+  %next.gep34 = getelementptr i8, ptr %next.gep, i64 22
   store i8 47, ptr %next.gep34, align 1, !tbaa !25
   br label %pred.store.continue88
 
 pred.store.continue88:                            ; preds = %pred.store.if87, %pred.store.continue86
-  %51 = extractelement <16 x i1> %5, i64 7
-  br i1 %51, label %pred.store.if89, label %pred.store.continue90
+  %29 = extractelement <16 x i1> %5, i64 7
+  br i1 %29, label %pred.store.if89, label %pred.store.continue90
 
 pred.store.if89:                                  ; preds = %pred.store.continue88
-  %52 = or disjoint i64 %index, 23
-  %next.gep35 = getelementptr i8, ptr %2, i64 %52
+  %next.gep35 = getelementptr i8, ptr %next.gep, i64 23
   store i8 47, ptr %next.gep35, align 1, !tbaa !25
   br label %pred.store.continue90
 
 pred.store.continue90:                            ; preds = %pred.store.if89, %pred.store.continue88
-  %53 = extractelement <16 x i1> %5, i64 8
-  br i1 %53, label %pred.store.if91, label %pred.store.continue92
+  %30 = extractelement <16 x i1> %5, i64 8
+  br i1 %30, label %pred.store.if91, label %pred.store.continue92
 
 pred.store.if91:                                  ; preds = %pred.store.continue90
-  %54 = or disjoint i64 %index, 24
-  %next.gep36 = getelementptr i8, ptr %2, i64 %54
+  %next.gep36 = getelementptr i8, ptr %next.gep, i64 24
   store i8 47, ptr %next.gep36, align 1, !tbaa !25
   br label %pred.store.continue92
 
 pred.store.continue92:                            ; preds = %pred.store.if91, %pred.store.continue90
-  %55 = extractelement <16 x i1> %5, i64 9
-  br i1 %55, label %pred.store.if93, label %pred.store.continue94
+  %31 = extractelement <16 x i1> %5, i64 9
+  br i1 %31, label %pred.store.if93, label %pred.store.continue94
 
 pred.store.if93:                                  ; preds = %pred.store.continue92
-  %56 = or disjoint i64 %index, 25
-  %next.gep37 = getelementptr i8, ptr %2, i64 %56
+  %next.gep37 = getelementptr i8, ptr %next.gep, i64 25
   store i8 47, ptr %next.gep37, align 1, !tbaa !25
   br label %pred.store.continue94
 
 pred.store.continue94:                            ; preds = %pred.store.if93, %pred.store.continue92
-  %57 = extractelement <16 x i1> %5, i64 10
-  br i1 %57, label %pred.store.if95, label %pred.store.continue96
+  %32 = extractelement <16 x i1> %5, i64 10
+  br i1 %32, label %pred.store.if95, label %pred.store.continue96
 
 pred.store.if95:                                  ; preds = %pred.store.continue94
-  %58 = or disjoint i64 %index, 26
-  %next.gep38 = getelementptr i8, ptr %2, i64 %58
+  %next.gep38 = getelementptr i8, ptr %next.gep, i64 26
   store i8 47, ptr %next.gep38, align 1, !tbaa !25
   br label %pred.store.continue96
 
 pred.store.continue96:                            ; preds = %pred.store.if95, %pred.store.continue94
-  %59 = extractelement <16 x i1> %5, i64 11
-  br i1 %59, label %pred.store.if97, label %pred.store.continue98
+  %33 = extractelement <16 x i1> %5, i64 11
+  br i1 %33, label %pred.store.if97, label %pred.store.continue98
 
 pred.store.if97:                                  ; preds = %pred.store.continue96
-  %60 = or disjoint i64 %index, 27
-  %next.gep39 = getelementptr i8, ptr %2, i64 %60
+  %next.gep39 = getelementptr i8, ptr %next.gep, i64 27
   store i8 47, ptr %next.gep39, align 1, !tbaa !25
   br label %pred.store.continue98
 
 pred.store.continue98:                            ; preds = %pred.store.if97, %pred.store.continue96
-  %61 = extractelement <16 x i1> %5, i64 12
-  br i1 %61, label %pred.store.if99, label %pred.store.continue100
+  %34 = extractelement <16 x i1> %5, i64 12
+  br i1 %34, label %pred.store.if99, label %pred.store.continue100
 
 pred.store.if99:                                  ; preds = %pred.store.continue98
-  %62 = or disjoint i64 %index, 28
-  %next.gep40 = getelementptr i8, ptr %2, i64 %62
+  %next.gep40 = getelementptr i8, ptr %next.gep, i64 28
   store i8 47, ptr %next.gep40, align 1, !tbaa !25
   br label %pred.store.continue100
 
 pred.store.continue100:                           ; preds = %pred.store.if99, %pred.store.continue98
-  %63 = extractelement <16 x i1> %5, i64 13
-  br i1 %63, label %pred.store.if101, label %pred.store.continue102
+  %35 = extractelement <16 x i1> %5, i64 13
+  br i1 %35, label %pred.store.if101, label %pred.store.continue102
 
 pred.store.if101:                                 ; preds = %pred.store.continue100
-  %64 = or disjoint i64 %index, 29
-  %next.gep41 = getelementptr i8, ptr %2, i64 %64
+  %next.gep41 = getelementptr i8, ptr %next.gep, i64 29
   store i8 47, ptr %next.gep41, align 1, !tbaa !25
   br label %pred.store.continue102
 
 pred.store.continue102:                           ; preds = %pred.store.if101, %pred.store.continue100
-  %65 = extractelement <16 x i1> %5, i64 14
-  br i1 %65, label %pred.store.if103, label %pred.store.continue104
+  %36 = extractelement <16 x i1> %5, i64 14
+  br i1 %36, label %pred.store.if103, label %pred.store.continue104
 
 pred.store.if103:                                 ; preds = %pred.store.continue102
-  %66 = or disjoint i64 %index, 30
-  %next.gep42 = getelementptr i8, ptr %2, i64 %66
+  %next.gep42 = getelementptr i8, ptr %next.gep, i64 30
   store i8 47, ptr %next.gep42, align 1, !tbaa !25
   br label %pred.store.continue104
 
 pred.store.continue104:                           ; preds = %pred.store.if103, %pred.store.continue102
-  %67 = extractelement <16 x i1> %5, i64 15
-  br i1 %67, label %pred.store.if105, label %pred.store.continue106
+  %37 = extractelement <16 x i1> %5, i64 15
+  br i1 %37, label %pred.store.if105, label %pred.store.continue106
 
 pred.store.if105:                                 ; preds = %pred.store.continue104
-  %68 = or disjoint i64 %index, 31
-  %next.gep43 = getelementptr i8, ptr %2, i64 %68
+  %next.gep43 = getelementptr i8, ptr %next.gep, i64 31
   store i8 47, ptr %next.gep43, align 1, !tbaa !25
   br label %pred.store.continue106
 
 pred.store.continue106:                           ; preds = %pred.store.if105, %pred.store.continue104
   %index.next = add nuw i64 %index, 32
-  %69 = icmp eq i64 %index.next, %n.vec
-  br i1 %69, label %middle.block, label %vector.body, !llvm.loop !37
+  %38 = icmp eq i64 %index.next, %n.vec
+  br i1 %38, label %middle.block, label %vector.body, !llvm.loop !37
 
 middle.block:                                     ; preds = %pred.store.continue106
   %cmp.n = icmp eq i64 %.pr, %n.vec
@@ -1029,88 +958,81 @@ vec.epilog.vector.body:                           ; preds = %pred.store.continue
   %index111 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next137, %pred.store.continue136 ]
   %next.gep112 = getelementptr i8, ptr %2, i64 %index111
   %wide.load120 = load <8 x i8>, ptr %next.gep112, align 1, !tbaa !25
-  %70 = icmp eq <8 x i8> %wide.load120, splat (i8 92)
-  %71 = extractelement <8 x i1> %70, i64 0
-  br i1 %71, label %pred.store.if121, label %pred.store.continue122
+  %39 = icmp eq <8 x i8> %wide.load120, splat (i8 92)
+  %40 = extractelement <8 x i1> %39, i64 0
+  br i1 %40, label %pred.store.if121, label %pred.store.continue122
 
 pred.store.if121:                                 ; preds = %vec.epilog.vector.body
   store i8 47, ptr %next.gep112, align 1, !tbaa !25
   br label %pred.store.continue122
 
 pred.store.continue122:                           ; preds = %pred.store.if121, %vec.epilog.vector.body
-  %72 = extractelement <8 x i1> %70, i64 1
-  br i1 %72, label %pred.store.if123, label %pred.store.continue124
+  %41 = extractelement <8 x i1> %39, i64 1
+  br i1 %41, label %pred.store.if123, label %pred.store.continue124
 
 pred.store.if123:                                 ; preds = %pred.store.continue122
-  %73 = or disjoint i64 %index111, 1
-  %next.gep113 = getelementptr i8, ptr %2, i64 %73
+  %next.gep113 = getelementptr i8, ptr %next.gep112, i64 1
   store i8 47, ptr %next.gep113, align 1, !tbaa !25
   br label %pred.store.continue124
 
 pred.store.continue124:                           ; preds = %pred.store.if123, %pred.store.continue122
-  %74 = extractelement <8 x i1> %70, i64 2
-  br i1 %74, label %pred.store.if125, label %pred.store.continue126
+  %42 = extractelement <8 x i1> %39, i64 2
+  br i1 %42, label %pred.store.if125, label %pred.store.continue126
 
 pred.store.if125:                                 ; preds = %pred.store.continue124
-  %75 = or disjoint i64 %index111, 2
-  %next.gep114 = getelementptr i8, ptr %2, i64 %75
+  %next.gep114 = getelementptr i8, ptr %next.gep112, i64 2
   store i8 47, ptr %next.gep114, align 1, !tbaa !25
   br label %pred.store.continue126
 
 pred.store.continue126:                           ; preds = %pred.store.if125, %pred.store.continue124
-  %76 = extractelement <8 x i1> %70, i64 3
-  br i1 %76, label %pred.store.if127, label %pred.store.continue128
+  %43 = extractelement <8 x i1> %39, i64 3
+  br i1 %43, label %pred.store.if127, label %pred.store.continue128
 
 pred.store.if127:                                 ; preds = %pred.store.continue126
-  %77 = or disjoint i64 %index111, 3
-  %next.gep115 = getelementptr i8, ptr %2, i64 %77
+  %next.gep115 = getelementptr i8, ptr %next.gep112, i64 3
   store i8 47, ptr %next.gep115, align 1, !tbaa !25
   br label %pred.store.continue128
 
 pred.store.continue128:                           ; preds = %pred.store.if127, %pred.store.continue126
-  %78 = extractelement <8 x i1> %70, i64 4
-  br i1 %78, label %pred.store.if129, label %pred.store.continue130
+  %44 = extractelement <8 x i1> %39, i64 4
+  br i1 %44, label %pred.store.if129, label %pred.store.continue130
 
 pred.store.if129:                                 ; preds = %pred.store.continue128
-  %79 = or disjoint i64 %index111, 4
-  %next.gep116 = getelementptr i8, ptr %2, i64 %79
+  %next.gep116 = getelementptr i8, ptr %next.gep112, i64 4
   store i8 47, ptr %next.gep116, align 1, !tbaa !25
   br label %pred.store.continue130
 
 pred.store.continue130:                           ; preds = %pred.store.if129, %pred.store.continue128
-  %80 = extractelement <8 x i1> %70, i64 5
-  br i1 %80, label %pred.store.if131, label %pred.store.continue132
+  %45 = extractelement <8 x i1> %39, i64 5
+  br i1 %45, label %pred.store.if131, label %pred.store.continue132
 
 pred.store.if131:                                 ; preds = %pred.store.continue130
-  %81 = or disjoint i64 %index111, 5
-  %next.gep117 = getelementptr i8, ptr %2, i64 %81
+  %next.gep117 = getelementptr i8, ptr %next.gep112, i64 5
   store i8 47, ptr %next.gep117, align 1, !tbaa !25
   br label %pred.store.continue132
 
 pred.store.continue132:                           ; preds = %pred.store.if131, %pred.store.continue130
-  %82 = extractelement <8 x i1> %70, i64 6
-  br i1 %82, label %pred.store.if133, label %pred.store.continue134
+  %46 = extractelement <8 x i1> %39, i64 6
+  br i1 %46, label %pred.store.if133, label %pred.store.continue134
 
 pred.store.if133:                                 ; preds = %pred.store.continue132
-  %83 = or disjoint i64 %index111, 6
-  %next.gep118 = getelementptr i8, ptr %2, i64 %83
+  %next.gep118 = getelementptr i8, ptr %next.gep112, i64 6
   store i8 47, ptr %next.gep118, align 1, !tbaa !25
   br label %pred.store.continue134
 
 pred.store.continue134:                           ; preds = %pred.store.if133, %pred.store.continue132
-  %84 = extractelement <8 x i1> %70, i64 7
-  br i1 %84, label %pred.store.if135, label %pred.store.continue136
+  %47 = extractelement <8 x i1> %39, i64 7
+  br i1 %47, label %pred.store.if135, label %pred.store.continue136
 
 pred.store.if135:                                 ; preds = %pred.store.continue134
-  %85 = or disjoint i64 %index111, 7
-  %next.gep119 = getelementptr i8, ptr %2, i64 %85
+  %next.gep119 = getelementptr i8, ptr %next.gep112, i64 7
   store i8 47, ptr %next.gep119, align 1, !tbaa !25
   br label %pred.store.continue136
 
 pred.store.continue136:                           ; preds = %pred.store.if135, %pred.store.continue134
   %index.next137 = add nuw i64 %index111, 8
-  %86 = icmp eq i64 %index.next137, %n.vec108
-  br i1 %86, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !38
+  %48 = icmp eq i64 %index.next137, %n.vec108
+  br i1 %48, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !38
 
 vec.epilog.middle.block:                          ; preds = %pred.store.continue136
   %ind.end = getelementptr i8, ptr %2, i64 %n.vec108
@@ -1123,8 +1045,8 @@ for.body.i.i.preheader:                           ; preds = %vec.epilog.middle.b
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.inc.i.i
   %__first.sroa.0.010.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %__first.sroa.0.010.i.i.ph, %for.body.i.i.preheader ]
-  %87 = load i8, ptr %__first.sroa.0.010.i.i, align 1, !tbaa !25
-  %cmp.i.i7 = icmp eq i8 %87, 92
+  %49 = load i8, ptr %__first.sroa.0.010.i.i, align 1, !tbaa !25
+  %cmp.i.i7 = icmp eq i8 %49, 92
   br i1 %cmp.i.i7, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -1526,315 +1448,283 @@ pred.store.continue:                              ; preds = %pred.store.if, %vec
   br i1 %8, label %pred.store.if117, label %pred.store.continue118
 
 pred.store.if117:                                 ; preds = %pred.store.continue
-  %9 = or disjoint i64 %index, 1
-  %next.gep85 = getelementptr i8, ptr %.pre, i64 %9
+  %next.gep85 = getelementptr i8, ptr %next.gep, i64 1
   store i8 47, ptr %next.gep85, align 1, !tbaa !25
   br label %pred.store.continue118
 
 pred.store.continue118:                           ; preds = %pred.store.if117, %pred.store.continue
-  %10 = extractelement <16 x i1> %5, i64 2
-  br i1 %10, label %pred.store.if119, label %pred.store.continue120
+  %9 = extractelement <16 x i1> %5, i64 2
+  br i1 %9, label %pred.store.if119, label %pred.store.continue120
 
 pred.store.if119:                                 ; preds = %pred.store.continue118
-  %11 = or disjoint i64 %index, 2
-  %next.gep86 = getelementptr i8, ptr %.pre, i64 %11
+  %next.gep86 = getelementptr i8, ptr %next.gep, i64 2
   store i8 47, ptr %next.gep86, align 1, !tbaa !25
   br label %pred.store.continue120
 
 pred.store.continue120:                           ; preds = %pred.store.if119, %pred.store.continue118
-  %12 = extractelement <16 x i1> %5, i64 3
-  br i1 %12, label %pred.store.if121, label %pred.store.continue122
+  %10 = extractelement <16 x i1> %5, i64 3
+  br i1 %10, label %pred.store.if121, label %pred.store.continue122
 
 pred.store.if121:                                 ; preds = %pred.store.continue120
-  %13 = or disjoint i64 %index, 3
-  %next.gep87 = getelementptr i8, ptr %.pre, i64 %13
+  %next.gep87 = getelementptr i8, ptr %next.gep, i64 3
   store i8 47, ptr %next.gep87, align 1, !tbaa !25
   br label %pred.store.continue122
 
 pred.store.continue122:                           ; preds = %pred.store.if121, %pred.store.continue120
-  %14 = extractelement <16 x i1> %5, i64 4
-  br i1 %14, label %pred.store.if123, label %pred.store.continue124
+  %11 = extractelement <16 x i1> %5, i64 4
+  br i1 %11, label %pred.store.if123, label %pred.store.continue124
 
 pred.store.if123:                                 ; preds = %pred.store.continue122
-  %15 = or disjoint i64 %index, 4
-  %next.gep88 = getelementptr i8, ptr %.pre, i64 %15
+  %next.gep88 = getelementptr i8, ptr %next.gep, i64 4
   store i8 47, ptr %next.gep88, align 1, !tbaa !25
   br label %pred.store.continue124
 
 pred.store.continue124:                           ; preds = %pred.store.if123, %pred.store.continue122
-  %16 = extractelement <16 x i1> %5, i64 5
-  br i1 %16, label %pred.store.if125, label %pred.store.continue126
+  %12 = extractelement <16 x i1> %5, i64 5
+  br i1 %12, label %pred.store.if125, label %pred.store.continue126
 
 pred.store.if125:                                 ; preds = %pred.store.continue124
-  %17 = or disjoint i64 %index, 5
-  %next.gep89 = getelementptr i8, ptr %.pre, i64 %17
+  %next.gep89 = getelementptr i8, ptr %next.gep, i64 5
   store i8 47, ptr %next.gep89, align 1, !tbaa !25
   br label %pred.store.continue126
 
 pred.store.continue126:                           ; preds = %pred.store.if125, %pred.store.continue124
-  %18 = extractelement <16 x i1> %5, i64 6
-  br i1 %18, label %pred.store.if127, label %pred.store.continue128
+  %13 = extractelement <16 x i1> %5, i64 6
+  br i1 %13, label %pred.store.if127, label %pred.store.continue128
 
 pred.store.if127:                                 ; preds = %pred.store.continue126
-  %19 = or disjoint i64 %index, 6
-  %next.gep90 = getelementptr i8, ptr %.pre, i64 %19
+  %next.gep90 = getelementptr i8, ptr %next.gep, i64 6
   store i8 47, ptr %next.gep90, align 1, !tbaa !25
   br label %pred.store.continue128
 
 pred.store.continue128:                           ; preds = %pred.store.if127, %pred.store.continue126
-  %20 = extractelement <16 x i1> %5, i64 7
-  br i1 %20, label %pred.store.if129, label %pred.store.continue130
+  %14 = extractelement <16 x i1> %5, i64 7
+  br i1 %14, label %pred.store.if129, label %pred.store.continue130
 
 pred.store.if129:                                 ; preds = %pred.store.continue128
-  %21 = or disjoint i64 %index, 7
-  %next.gep91 = getelementptr i8, ptr %.pre, i64 %21
+  %next.gep91 = getelementptr i8, ptr %next.gep, i64 7
   store i8 47, ptr %next.gep91, align 1, !tbaa !25
   br label %pred.store.continue130
 
 pred.store.continue130:                           ; preds = %pred.store.if129, %pred.store.continue128
-  %22 = extractelement <16 x i1> %5, i64 8
-  br i1 %22, label %pred.store.if131, label %pred.store.continue132
+  %15 = extractelement <16 x i1> %5, i64 8
+  br i1 %15, label %pred.store.if131, label %pred.store.continue132
 
 pred.store.if131:                                 ; preds = %pred.store.continue130
-  %23 = or disjoint i64 %index, 8
-  %next.gep92 = getelementptr i8, ptr %.pre, i64 %23
+  %next.gep92 = getelementptr i8, ptr %next.gep, i64 8
   store i8 47, ptr %next.gep92, align 1, !tbaa !25
   br label %pred.store.continue132
 
 pred.store.continue132:                           ; preds = %pred.store.if131, %pred.store.continue130
-  %24 = extractelement <16 x i1> %5, i64 9
-  br i1 %24, label %pred.store.if133, label %pred.store.continue134
+  %16 = extractelement <16 x i1> %5, i64 9
+  br i1 %16, label %pred.store.if133, label %pred.store.continue134
 
 pred.store.if133:                                 ; preds = %pred.store.continue132
-  %25 = or disjoint i64 %index, 9
-  %next.gep93 = getelementptr i8, ptr %.pre, i64 %25
+  %next.gep93 = getelementptr i8, ptr %next.gep, i64 9
   store i8 47, ptr %next.gep93, align 1, !tbaa !25
   br label %pred.store.continue134
 
 pred.store.continue134:                           ; preds = %pred.store.if133, %pred.store.continue132
-  %26 = extractelement <16 x i1> %5, i64 10
-  br i1 %26, label %pred.store.if135, label %pred.store.continue136
+  %17 = extractelement <16 x i1> %5, i64 10
+  br i1 %17, label %pred.store.if135, label %pred.store.continue136
 
 pred.store.if135:                                 ; preds = %pred.store.continue134
-  %27 = or disjoint i64 %index, 10
-  %next.gep94 = getelementptr i8, ptr %.pre, i64 %27
+  %next.gep94 = getelementptr i8, ptr %next.gep, i64 10
   store i8 47, ptr %next.gep94, align 1, !tbaa !25
   br label %pred.store.continue136
 
 pred.store.continue136:                           ; preds = %pred.store.if135, %pred.store.continue134
-  %28 = extractelement <16 x i1> %5, i64 11
-  br i1 %28, label %pred.store.if137, label %pred.store.continue138
+  %18 = extractelement <16 x i1> %5, i64 11
+  br i1 %18, label %pred.store.if137, label %pred.store.continue138
 
 pred.store.if137:                                 ; preds = %pred.store.continue136
-  %29 = or disjoint i64 %index, 11
-  %next.gep95 = getelementptr i8, ptr %.pre, i64 %29
+  %next.gep95 = getelementptr i8, ptr %next.gep, i64 11
   store i8 47, ptr %next.gep95, align 1, !tbaa !25
   br label %pred.store.continue138
 
 pred.store.continue138:                           ; preds = %pred.store.if137, %pred.store.continue136
-  %30 = extractelement <16 x i1> %5, i64 12
-  br i1 %30, label %pred.store.if139, label %pred.store.continue140
+  %19 = extractelement <16 x i1> %5, i64 12
+  br i1 %19, label %pred.store.if139, label %pred.store.continue140
 
 pred.store.if139:                                 ; preds = %pred.store.continue138
-  %31 = or disjoint i64 %index, 12
-  %next.gep96 = getelementptr i8, ptr %.pre, i64 %31
+  %next.gep96 = getelementptr i8, ptr %next.gep, i64 12
   store i8 47, ptr %next.gep96, align 1, !tbaa !25
   br label %pred.store.continue140
 
 pred.store.continue140:                           ; preds = %pred.store.if139, %pred.store.continue138
-  %32 = extractelement <16 x i1> %5, i64 13
-  br i1 %32, label %pred.store.if141, label %pred.store.continue142
+  %20 = extractelement <16 x i1> %5, i64 13
+  br i1 %20, label %pred.store.if141, label %pred.store.continue142
 
 pred.store.if141:                                 ; preds = %pred.store.continue140
-  %33 = or disjoint i64 %index, 13
-  %next.gep97 = getelementptr i8, ptr %.pre, i64 %33
+  %next.gep97 = getelementptr i8, ptr %next.gep, i64 13
   store i8 47, ptr %next.gep97, align 1, !tbaa !25
   br label %pred.store.continue142
 
 pred.store.continue142:                           ; preds = %pred.store.if141, %pred.store.continue140
-  %34 = extractelement <16 x i1> %5, i64 14
-  br i1 %34, label %pred.store.if143, label %pred.store.continue144
+  %21 = extractelement <16 x i1> %5, i64 14
+  br i1 %21, label %pred.store.if143, label %pred.store.continue144
 
 pred.store.if143:                                 ; preds = %pred.store.continue142
-  %35 = or disjoint i64 %index, 14
-  %next.gep98 = getelementptr i8, ptr %.pre, i64 %35
+  %next.gep98 = getelementptr i8, ptr %next.gep, i64 14
   store i8 47, ptr %next.gep98, align 1, !tbaa !25
   br label %pred.store.continue144
 
 pred.store.continue144:                           ; preds = %pred.store.if143, %pred.store.continue142
-  %36 = extractelement <16 x i1> %5, i64 15
-  br i1 %36, label %pred.store.if145, label %pred.store.continue146
+  %22 = extractelement <16 x i1> %5, i64 15
+  br i1 %22, label %pred.store.if145, label %pred.store.continue146
 
 pred.store.if145:                                 ; preds = %pred.store.continue144
-  %37 = or disjoint i64 %index, 15
-  %next.gep99 = getelementptr i8, ptr %.pre, i64 %37
+  %next.gep99 = getelementptr i8, ptr %next.gep, i64 15
   store i8 47, ptr %next.gep99, align 1, !tbaa !25
   br label %pred.store.continue146
 
 pred.store.continue146:                           ; preds = %pred.store.if145, %pred.store.continue144
-  %38 = extractelement <16 x i1> %6, i64 0
-  br i1 %38, label %pred.store.if147, label %pred.store.continue148
+  %23 = extractelement <16 x i1> %6, i64 0
+  br i1 %23, label %pred.store.if147, label %pred.store.continue148
 
 pred.store.if147:                                 ; preds = %pred.store.continue146
-  %39 = or disjoint i64 %index, 16
-  %next.gep100 = getelementptr i8, ptr %.pre, i64 %39
-  store i8 47, ptr %next.gep100, align 1, !tbaa !25
+  store i8 47, ptr %4, align 1, !tbaa !25
   br label %pred.store.continue148
 
 pred.store.continue148:                           ; preds = %pred.store.if147, %pred.store.continue146
-  %40 = extractelement <16 x i1> %6, i64 1
-  br i1 %40, label %pred.store.if149, label %pred.store.continue150
+  %24 = extractelement <16 x i1> %6, i64 1
+  br i1 %24, label %pred.store.if149, label %pred.store.continue150
 
 pred.store.if149:                                 ; preds = %pred.store.continue148
-  %41 = or disjoint i64 %index, 17
-  %next.gep101 = getelementptr i8, ptr %.pre, i64 %41
+  %next.gep101 = getelementptr i8, ptr %next.gep, i64 17
   store i8 47, ptr %next.gep101, align 1, !tbaa !25
   br label %pred.store.continue150
 
 pred.store.continue150:                           ; preds = %pred.store.if149, %pred.store.continue148
-  %42 = extractelement <16 x i1> %6, i64 2
-  br i1 %42, label %pred.store.if151, label %pred.store.continue152
+  %25 = extractelement <16 x i1> %6, i64 2
+  br i1 %25, label %pred.store.if151, label %pred.store.continue152
 
 pred.store.if151:                                 ; preds = %pred.store.continue150
-  %43 = or disjoint i64 %index, 18
-  %next.gep102 = getelementptr i8, ptr %.pre, i64 %43
+  %next.gep102 = getelementptr i8, ptr %next.gep, i64 18
   store i8 47, ptr %next.gep102, align 1, !tbaa !25
   br label %pred.store.continue152
 
 pred.store.continue152:                           ; preds = %pred.store.if151, %pred.store.continue150
-  %44 = extractelement <16 x i1> %6, i64 3
-  br i1 %44, label %pred.store.if153, label %pred.store.continue154
+  %26 = extractelement <16 x i1> %6, i64 3
+  br i1 %26, label %pred.store.if153, label %pred.store.continue154
 
 pred.store.if153:                                 ; preds = %pred.store.continue152
-  %45 = or disjoint i64 %index, 19
-  %next.gep103 = getelementptr i8, ptr %.pre, i64 %45
+  %next.gep103 = getelementptr i8, ptr %next.gep, i64 19
   store i8 47, ptr %next.gep103, align 1, !tbaa !25
   br label %pred.store.continue154
 
 pred.store.continue154:                           ; preds = %pred.store.if153, %pred.store.continue152
-  %46 = extractelement <16 x i1> %6, i64 4
-  br i1 %46, label %pred.store.if155, label %pred.store.continue156
+  %27 = extractelement <16 x i1> %6, i64 4
+  br i1 %27, label %pred.store.if155, label %pred.store.continue156
 
 pred.store.if155:                                 ; preds = %pred.store.continue154
-  %47 = or disjoint i64 %index, 20
-  %next.gep104 = getelementptr i8, ptr %.pre, i64 %47
+  %next.gep104 = getelementptr i8, ptr %next.gep, i64 20
   store i8 47, ptr %next.gep104, align 1, !tbaa !25
   br label %pred.store.continue156
 
 pred.store.continue156:                           ; preds = %pred.store.if155, %pred.store.continue154
-  %48 = extractelement <16 x i1> %6, i64 5
-  br i1 %48, label %pred.store.if157, label %pred.store.continue158
+  %28 = extractelement <16 x i1> %6, i64 5
+  br i1 %28, label %pred.store.if157, label %pred.store.continue158
 
 pred.store.if157:                                 ; preds = %pred.store.continue156
-  %49 = or disjoint i64 %index, 21
-  %next.gep105 = getelementptr i8, ptr %.pre, i64 %49
+  %next.gep105 = getelementptr i8, ptr %next.gep, i64 21
   store i8 47, ptr %next.gep105, align 1, !tbaa !25
   br label %pred.store.continue158
 
 pred.store.continue158:                           ; preds = %pred.store.if157, %pred.store.continue156
-  %50 = extractelement <16 x i1> %6, i64 6
-  br i1 %50, label %pred.store.if159, label %pred.store.continue160
+  %29 = extractelement <16 x i1> %6, i64 6
+  br i1 %29, label %pred.store.if159, label %pred.store.continue160
 
 pred.store.if159:                                 ; preds = %pred.store.continue158
-  %51 = or disjoint i64 %index, 22
-  %next.gep106 = getelementptr i8, ptr %.pre, i64 %51
+  %next.gep106 = getelementptr i8, ptr %next.gep, i64 22
   store i8 47, ptr %next.gep106, align 1, !tbaa !25
   br label %pred.store.continue160
 
 pred.store.continue160:                           ; preds = %pred.store.if159, %pred.store.continue158
-  %52 = extractelement <16 x i1> %6, i64 7
-  br i1 %52, label %pred.store.if161, label %pred.store.continue162
+  %30 = extractelement <16 x i1> %6, i64 7
+  br i1 %30, label %pred.store.if161, label %pred.store.continue162
 
 pred.store.if161:                                 ; preds = %pred.store.continue160
-  %53 = or disjoint i64 %index, 23
-  %next.gep107 = getelementptr i8, ptr %.pre, i64 %53
+  %next.gep107 = getelementptr i8, ptr %next.gep, i64 23
   store i8 47, ptr %next.gep107, align 1, !tbaa !25
   br label %pred.store.continue162
 
 pred.store.continue162:                           ; preds = %pred.store.if161, %pred.store.continue160
-  %54 = extractelement <16 x i1> %6, i64 8
-  br i1 %54, label %pred.store.if163, label %pred.store.continue164
+  %31 = extractelement <16 x i1> %6, i64 8
+  br i1 %31, label %pred.store.if163, label %pred.store.continue164
 
 pred.store.if163:                                 ; preds = %pred.store.continue162
-  %55 = or disjoint i64 %index, 24
-  %next.gep108 = getelementptr i8, ptr %.pre, i64 %55
+  %next.gep108 = getelementptr i8, ptr %next.gep, i64 24
   store i8 47, ptr %next.gep108, align 1, !tbaa !25
   br label %pred.store.continue164
 
 pred.store.continue164:                           ; preds = %pred.store.if163, %pred.store.continue162
-  %56 = extractelement <16 x i1> %6, i64 9
-  br i1 %56, label %pred.store.if165, label %pred.store.continue166
+  %32 = extractelement <16 x i1> %6, i64 9
+  br i1 %32, label %pred.store.if165, label %pred.store.continue166
 
 pred.store.if165:                                 ; preds = %pred.store.continue164
-  %57 = or disjoint i64 %index, 25
-  %next.gep109 = getelementptr i8, ptr %.pre, i64 %57
+  %next.gep109 = getelementptr i8, ptr %next.gep, i64 25
   store i8 47, ptr %next.gep109, align 1, !tbaa !25
   br label %pred.store.continue166
 
 pred.store.continue166:                           ; preds = %pred.store.if165, %pred.store.continue164
-  %58 = extractelement <16 x i1> %6, i64 10
-  br i1 %58, label %pred.store.if167, label %pred.store.continue168
+  %33 = extractelement <16 x i1> %6, i64 10
+  br i1 %33, label %pred.store.if167, label %pred.store.continue168
 
 pred.store.if167:                                 ; preds = %pred.store.continue166
-  %59 = or disjoint i64 %index, 26
-  %next.gep110 = getelementptr i8, ptr %.pre, i64 %59
+  %next.gep110 = getelementptr i8, ptr %next.gep, i64 26
   store i8 47, ptr %next.gep110, align 1, !tbaa !25
   br label %pred.store.continue168
 
 pred.store.continue168:                           ; preds = %pred.store.if167, %pred.store.continue166
-  %60 = extractelement <16 x i1> %6, i64 11
-  br i1 %60, label %pred.store.if169, label %pred.store.continue170
+  %34 = extractelement <16 x i1> %6, i64 11
+  br i1 %34, label %pred.store.if169, label %pred.store.continue170
 
 pred.store.if169:                                 ; preds = %pred.store.continue168
-  %61 = or disjoint i64 %index, 27
-  %next.gep111 = getelementptr i8, ptr %.pre, i64 %61
+  %next.gep111 = getelementptr i8, ptr %next.gep, i64 27
   store i8 47, ptr %next.gep111, align 1, !tbaa !25
   br label %pred.store.continue170
 
 pred.store.continue170:                           ; preds = %pred.store.if169, %pred.store.continue168
-  %62 = extractelement <16 x i1> %6, i64 12
-  br i1 %62, label %pred.store.if171, label %pred.store.continue172
+  %35 = extractelement <16 x i1> %6, i64 12
+  br i1 %35, label %pred.store.if171, label %pred.store.continue172
 
 pred.store.if171:                                 ; preds = %pred.store.continue170
-  %63 = or disjoint i64 %index, 28
-  %next.gep112 = getelementptr i8, ptr %.pre, i64 %63
+  %next.gep112 = getelementptr i8, ptr %next.gep, i64 28
   store i8 47, ptr %next.gep112, align 1, !tbaa !25
   br label %pred.store.continue172
 
 pred.store.continue172:                           ; preds = %pred.store.if171, %pred.store.continue170
-  %64 = extractelement <16 x i1> %6, i64 13
-  br i1 %64, label %pred.store.if173, label %pred.store.continue174
+  %36 = extractelement <16 x i1> %6, i64 13
+  br i1 %36, label %pred.store.if173, label %pred.store.continue174
 
 pred.store.if173:                                 ; preds = %pred.store.continue172
-  %65 = or disjoint i64 %index, 29
-  %next.gep113 = getelementptr i8, ptr %.pre, i64 %65
+  %next.gep113 = getelementptr i8, ptr %next.gep, i64 29
   store i8 47, ptr %next.gep113, align 1, !tbaa !25
   br label %pred.store.continue174
 
 pred.store.continue174:                           ; preds = %pred.store.if173, %pred.store.continue172
-  %66 = extractelement <16 x i1> %6, i64 14
-  br i1 %66, label %pred.store.if175, label %pred.store.continue176
+  %37 = extractelement <16 x i1> %6, i64 14
+  br i1 %37, label %pred.store.if175, label %pred.store.continue176
 
 pred.store.if175:                                 ; preds = %pred.store.continue174
-  %67 = or disjoint i64 %index, 30
-  %next.gep114 = getelementptr i8, ptr %.pre, i64 %67
+  %next.gep114 = getelementptr i8, ptr %next.gep, i64 30
   store i8 47, ptr %next.gep114, align 1, !tbaa !25
   br label %pred.store.continue176
 
 pred.store.continue176:                           ; preds = %pred.store.if175, %pred.store.continue174
-  %68 = extractelement <16 x i1> %6, i64 15
-  br i1 %68, label %pred.store.if177, label %pred.store.continue178
+  %38 = extractelement <16 x i1> %6, i64 15
+  br i1 %38, label %pred.store.if177, label %pred.store.continue178
 
 pred.store.if177:                                 ; preds = %pred.store.continue176
-  %69 = or disjoint i64 %index, 31
-  %next.gep115 = getelementptr i8, ptr %.pre, i64 %69
+  %next.gep115 = getelementptr i8, ptr %next.gep, i64 31
   store i8 47, ptr %next.gep115, align 1, !tbaa !25
   br label %pred.store.continue178
 
 pred.store.continue178:                           ; preds = %pred.store.if177, %pred.store.continue176
   %index.next = add nuw i64 %index, 32
-  %70 = icmp eq i64 %index.next, %n.vec
-  br i1 %70, label %middle.block, label %vector.body, !llvm.loop !52
+  %39 = icmp eq i64 %index.next, %n.vec
+  br i1 %39, label %middle.block, label %vector.body, !llvm.loop !52
 
 middle.block:                                     ; preds = %pred.store.continue178
   %cmp.n = icmp eq i64 %.pre76, %n.vec
@@ -1855,88 +1745,81 @@ vec.epilog.vector.body:                           ; preds = %pred.store.continue
   %index183 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next209, %pred.store.continue208 ]
   %next.gep184 = getelementptr i8, ptr %.pre, i64 %index183
   %wide.load192 = load <8 x i8>, ptr %next.gep184, align 1, !tbaa !25
-  %71 = icmp eq <8 x i8> %wide.load192, splat (i8 92)
-  %72 = extractelement <8 x i1> %71, i64 0
-  br i1 %72, label %pred.store.if193, label %pred.store.continue194
+  %40 = icmp eq <8 x i8> %wide.load192, splat (i8 92)
+  %41 = extractelement <8 x i1> %40, i64 0
+  br i1 %41, label %pred.store.if193, label %pred.store.continue194
 
 pred.store.if193:                                 ; preds = %vec.epilog.vector.body
   store i8 47, ptr %next.gep184, align 1, !tbaa !25
   br label %pred.store.continue194
 
 pred.store.continue194:                           ; preds = %pred.store.if193, %vec.epilog.vector.body
-  %73 = extractelement <8 x i1> %71, i64 1
-  br i1 %73, label %pred.store.if195, label %pred.store.continue196
+  %42 = extractelement <8 x i1> %40, i64 1
+  br i1 %42, label %pred.store.if195, label %pred.store.continue196
 
 pred.store.if195:                                 ; preds = %pred.store.continue194
-  %74 = or disjoint i64 %index183, 1
-  %next.gep185 = getelementptr i8, ptr %.pre, i64 %74
+  %next.gep185 = getelementptr i8, ptr %next.gep184, i64 1
   store i8 47, ptr %next.gep185, align 1, !tbaa !25
   br label %pred.store.continue196
 
 pred.store.continue196:                           ; preds = %pred.store.if195, %pred.store.continue194
-  %75 = extractelement <8 x i1> %71, i64 2
-  br i1 %75, label %pred.store.if197, label %pred.store.continue198
+  %43 = extractelement <8 x i1> %40, i64 2
+  br i1 %43, label %pred.store.if197, label %pred.store.continue198
 
 pred.store.if197:                                 ; preds = %pred.store.continue196
-  %76 = or disjoint i64 %index183, 2
-  %next.gep186 = getelementptr i8, ptr %.pre, i64 %76
+  %next.gep186 = getelementptr i8, ptr %next.gep184, i64 2
   store i8 47, ptr %next.gep186, align 1, !tbaa !25
   br label %pred.store.continue198
 
 pred.store.continue198:                           ; preds = %pred.store.if197, %pred.store.continue196
-  %77 = extractelement <8 x i1> %71, i64 3
-  br i1 %77, label %pred.store.if199, label %pred.store.continue200
+  %44 = extractelement <8 x i1> %40, i64 3
+  br i1 %44, label %pred.store.if199, label %pred.store.continue200
 
 pred.store.if199:                                 ; preds = %pred.store.continue198
-  %78 = or disjoint i64 %index183, 3
-  %next.gep187 = getelementptr i8, ptr %.pre, i64 %78
+  %next.gep187 = getelementptr i8, ptr %next.gep184, i64 3
   store i8 47, ptr %next.gep187, align 1, !tbaa !25
   br label %pred.store.continue200
 
 pred.store.continue200:                           ; preds = %pred.store.if199, %pred.store.continue198
-  %79 = extractelement <8 x i1> %71, i64 4
-  br i1 %79, label %pred.store.if201, label %pred.store.continue202
+  %45 = extractelement <8 x i1> %40, i64 4
+  br i1 %45, label %pred.store.if201, label %pred.store.continue202
 
 pred.store.if201:                                 ; preds = %pred.store.continue200
-  %80 = or disjoint i64 %index183, 4
-  %next.gep188 = getelementptr i8, ptr %.pre, i64 %80
+  %next.gep188 = getelementptr i8, ptr %next.gep184, i64 4
   store i8 47, ptr %next.gep188, align 1, !tbaa !25
   br label %pred.store.continue202
 
 pred.store.continue202:                           ; preds = %pred.store.if201, %pred.store.continue200
-  %81 = extractelement <8 x i1> %71, i64 5
-  br i1 %81, label %pred.store.if203, label %pred.store.continue204
+  %46 = extractelement <8 x i1> %40, i64 5
+  br i1 %46, label %pred.store.if203, label %pred.store.continue204
 
 pred.store.if203:                                 ; preds = %pred.store.continue202
-  %82 = or disjoint i64 %index183, 5
-  %next.gep189 = getelementptr i8, ptr %.pre, i64 %82
+  %next.gep189 = getelementptr i8, ptr %next.gep184, i64 5
   store i8 47, ptr %next.gep189, align 1, !tbaa !25
   br label %pred.store.continue204
 
 pred.store.continue204:                           ; preds = %pred.store.if203, %pred.store.continue202
-  %83 = extractelement <8 x i1> %71, i64 6
-  br i1 %83, label %pred.store.if205, label %pred.store.continue206
+  %47 = extractelement <8 x i1> %40, i64 6
+  br i1 %47, label %pred.store.if205, label %pred.store.continue206
 
 pred.store.if205:                                 ; preds = %pred.store.continue204
-  %84 = or disjoint i64 %index183, 6
-  %next.gep190 = getelementptr i8, ptr %.pre, i64 %84
+  %next.gep190 = getelementptr i8, ptr %next.gep184, i64 6
   store i8 47, ptr %next.gep190, align 1, !tbaa !25
   br label %pred.store.continue206
 
 pred.store.continue206:                           ; preds = %pred.store.if205, %pred.store.continue204
-  %85 = extractelement <8 x i1> %71, i64 7
-  br i1 %85, label %pred.store.if207, label %pred.store.continue208
+  %48 = extractelement <8 x i1> %40, i64 7
+  br i1 %48, label %pred.store.if207, label %pred.store.continue208
 
 pred.store.if207:                                 ; preds = %pred.store.continue206
-  %86 = or disjoint i64 %index183, 7
-  %next.gep191 = getelementptr i8, ptr %.pre, i64 %86
+  %next.gep191 = getelementptr i8, ptr %next.gep184, i64 7
   store i8 47, ptr %next.gep191, align 1, !tbaa !25
   br label %pred.store.continue208
 
 pred.store.continue208:                           ; preds = %pred.store.if207, %pred.store.continue206
   %index.next209 = add nuw i64 %index183, 8
-  %87 = icmp eq i64 %index.next209, %n.vec180
-  br i1 %87, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !53
+  %49 = icmp eq i64 %index.next209, %n.vec180
+  br i1 %49, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !53
 
 vec.epilog.middle.block:                          ; preds = %pred.store.continue208
   %ind.end = getelementptr i8, ptr %.pre, i64 %n.vec180
@@ -1950,8 +1833,8 @@ _ZN3irr4core6stringIcE7replaceEcc.exit.thread:    ; preds = %_ZN3irr4core6string
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.inc.i.i
   %__first.sroa.0.010.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %__first.sroa.0.010.i.i.ph, %for.body.i.i.preheader ]
-  %88 = load i8, ptr %__first.sroa.0.010.i.i, align 1, !tbaa !25
-  %cmp.i.i = icmp eq i8 %88, 92
+  %50 = load i8, ptr %__first.sroa.0.010.i.i, align 1, !tbaa !25
+  %cmp.i.i = icmp eq i8 %50, 92
   br i1 %cmp.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -1971,24 +1854,24 @@ _ZN3irr4core6stringIcE7replaceEcc.exit:           ; preds = %for.inc.i.i, %vec.e
   br i1 %cmp.i.i38, label %if.end, label %_ZNK3irr4core6stringIcE8lastCharEv.exit
 
 _ZNK3irr4core6stringIcE8lastCharEv.exit:          ; preds = %_ZN3irr4core6stringIcE7replaceEcc.exit
-  %89 = load ptr, ptr %entry2, align 8, !tbaa !3
-  %90 = getelementptr i8, ptr %89, i64 %.pr
-  %arrayidx.i.i.i = getelementptr i8, ptr %90, i64 -1
-  %91 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !25
-  %cmp = icmp eq i8 %91, 47
+  %51 = load ptr, ptr %entry2, align 8, !tbaa !3
+  %52 = getelementptr i8, ptr %51, i64 %.pr
+  %arrayidx.i.i.i = getelementptr i8, ptr %52, i64 -1
+  %53 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !25
+  %cmp = icmp eq i8 %53, 47
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK3irr4core6stringIcE8lastCharEv.exit
   store i8 1, ptr %IsDirectory, align 4, !tbaa !54
   %sub = add i64 %.pr, 4294967295
   %conv.i40 = and i64 %sub, 4294967295
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %89, i64 %conv.i40
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %51, i64 %conv.i40
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !25
-  %92 = load ptr, ptr %entry2, align 8, !tbaa !3
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %92) #22
+  %54 = load ptr, ptr %entry2, align 8, !tbaa !3
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #22
   %conv.i.i = trunc i64 %call.i.i to i32
-  %93 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
-  %conv.i5.i = trunc i64 %93 to i32
+  %55 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
+  %conv.i5.i = trunc i64 %55 to i32
   %cmp.not.i = icmp eq i32 %conv.i.i, %conv.i5.i
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
@@ -1999,89 +1882,89 @@ if.then.i:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then.i, %if.then, %_ZNK3irr4core6stringIcE8lastCharEv.exit, %_ZN3irr4core6stringIcE7replaceEcc.exit, %_ZN3irr4core6stringIcE7replaceEcc.exit.thread
   %IgnoreCase = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %94 = load i8, ptr %IgnoreCase, align 1, !tbaa !23, !range !43, !noundef !44
-  %tobool17.not = icmp eq i8 %94, 0
+  %56 = load i8, ptr %IgnoreCase, align 1, !tbaa !23, !range !43, !noundef !44
+  %tobool17.not = icmp eq i8 %56, 0
   br i1 %tobool17.not, label %if.end21, label %if.then18
 
 if.then18:                                        ; preds = %if.end
-  %95 = load ptr, ptr %entry2, align 8, !tbaa !3
-  %96 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
-  %add.ptr.i.i45 = getelementptr inbounds i8, ptr %95, i64 %96
-  %cmp.i.not13.i.i = icmp eq i64 %96, 0
+  %57 = load ptr, ptr %entry2, align 8, !tbaa !3
+  %58 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
+  %add.ptr.i.i45 = getelementptr inbounds i8, ptr %57, i64 %58
+  %cmp.i.not13.i.i = icmp eq i64 %58, 0
   br i1 %cmp.i.not13.i.i, label %if.end21, label %iter.check213
 
 iter.check213:                                    ; preds = %if.then18
-  %min.iters.check211 = icmp ult i64 %96, 8
+  %min.iters.check211 = icmp ult i64 %58, 8
   br i1 %min.iters.check211, label %for.body.i.i46.preheader, label %vector.main.loop.iter.check215
 
 vector.main.loop.iter.check215:                   ; preds = %iter.check213
-  %min.iters.check214 = icmp ult i64 %96, 16
+  %min.iters.check214 = icmp ult i64 %58, 16
   br i1 %min.iters.check214, label %vec.epilog.ph228, label %vector.ph216
 
 vector.ph216:                                     ; preds = %vector.main.loop.iter.check215
-  %n.vec218 = and i64 %96, -16
+  %n.vec218 = and i64 %58, -16
   br label %vector.body220
 
 vector.body220:                                   ; preds = %vector.body220, %vector.ph216
   %index221 = phi i64 [ 0, %vector.ph216 ], [ %index.next224, %vector.body220 ]
-  %next.gep222 = getelementptr i8, ptr %95, i64 %index221
+  %next.gep222 = getelementptr i8, ptr %57, i64 %index221
   %wide.load223 = load <16 x i8>, ptr %next.gep222, align 1, !tbaa !25
-  %97 = sext <16 x i8> %wide.load223 to <16 x i32>
-  %98 = add nsw <16 x i32> %97, splat (i32 -65)
-  %99 = icmp ult <16 x i32> %98, splat (i32 26)
-  %100 = add <16 x i8> %wide.load223, splat (i8 32)
-  %101 = select <16 x i1> %99, <16 x i8> %100, <16 x i8> %wide.load223
-  store <16 x i8> %101, ptr %next.gep222, align 1, !tbaa !25
+  %59 = sext <16 x i8> %wide.load223 to <16 x i32>
+  %60 = add nsw <16 x i32> %59, splat (i32 -65)
+  %61 = icmp ult <16 x i32> %60, splat (i32 26)
+  %62 = add <16 x i8> %wide.load223, splat (i8 32)
+  %63 = select <16 x i1> %61, <16 x i8> %62, <16 x i8> %wide.load223
+  store <16 x i8> %63, ptr %next.gep222, align 1, !tbaa !25
   %index.next224 = add nuw i64 %index221, 16
-  %102 = icmp eq i64 %index.next224, %n.vec218
-  br i1 %102, label %middle.block210, label %vector.body220, !llvm.loop !56
+  %64 = icmp eq i64 %index.next224, %n.vec218
+  br i1 %64, label %middle.block210, label %vector.body220, !llvm.loop !56
 
 middle.block210:                                  ; preds = %vector.body220
-  %cmp.n219 = icmp eq i64 %96, %n.vec218
+  %cmp.n219 = icmp eq i64 %58, %n.vec218
   br i1 %cmp.n219, label %if.end21, label %vec.epilog.iter.check227
 
 vec.epilog.iter.check227:                         ; preds = %middle.block210
-  %ind.end235 = getelementptr i8, ptr %95, i64 %n.vec218
-  %n.vec.remaining229 = and i64 %96, 8
+  %ind.end235 = getelementptr i8, ptr %57, i64 %n.vec218
+  %n.vec.remaining229 = and i64 %58, 8
   %min.epilog.iters.check230.not.not = icmp eq i64 %n.vec.remaining229, 0
   br i1 %min.epilog.iters.check230.not.not, label %for.body.i.i46.preheader, label %vec.epilog.ph228
 
 vec.epilog.ph228:                                 ; preds = %vec.epilog.iter.check227, %vector.main.loop.iter.check215
   %vec.epilog.resume.val231 = phi i64 [ %n.vec218, %vec.epilog.iter.check227 ], [ 0, %vector.main.loop.iter.check215 ]
-  %n.vec233 = and i64 %96, -8
+  %n.vec233 = and i64 %58, -8
   br label %vec.epilog.vector.body238
 
 vec.epilog.vector.body238:                        ; preds = %vec.epilog.vector.body238, %vec.epilog.ph228
   %index239 = phi i64 [ %vec.epilog.resume.val231, %vec.epilog.ph228 ], [ %index.next242, %vec.epilog.vector.body238 ]
-  %next.gep240 = getelementptr i8, ptr %95, i64 %index239
+  %next.gep240 = getelementptr i8, ptr %57, i64 %index239
   %wide.load241 = load <8 x i8>, ptr %next.gep240, align 1, !tbaa !25
-  %103 = sext <8 x i8> %wide.load241 to <8 x i32>
-  %104 = add nsw <8 x i32> %103, splat (i32 -65)
-  %105 = icmp ult <8 x i32> %104, splat (i32 26)
-  %106 = add <8 x i8> %wide.load241, splat (i8 32)
-  %107 = select <8 x i1> %105, <8 x i8> %106, <8 x i8> %wide.load241
-  store <8 x i8> %107, ptr %next.gep240, align 1, !tbaa !25
+  %65 = sext <8 x i8> %wide.load241 to <8 x i32>
+  %66 = add nsw <8 x i32> %65, splat (i32 -65)
+  %67 = icmp ult <8 x i32> %66, splat (i32 26)
+  %68 = add <8 x i8> %wide.load241, splat (i8 32)
+  %69 = select <8 x i1> %67, <8 x i8> %68, <8 x i8> %wide.load241
+  store <8 x i8> %69, ptr %next.gep240, align 1, !tbaa !25
   %index.next242 = add nuw i64 %index239, 8
-  %108 = icmp eq i64 %index.next242, %n.vec233
-  br i1 %108, label %vec.epilog.middle.block225, label %vec.epilog.vector.body238, !llvm.loop !57
+  %70 = icmp eq i64 %index.next242, %n.vec233
+  br i1 %70, label %vec.epilog.middle.block225, label %vec.epilog.vector.body238, !llvm.loop !57
 
 vec.epilog.middle.block225:                       ; preds = %vec.epilog.vector.body238
-  %ind.end234 = getelementptr i8, ptr %95, i64 %n.vec233
-  %cmp.n237 = icmp eq i64 %96, %n.vec233
+  %ind.end234 = getelementptr i8, ptr %57, i64 %n.vec233
+  %cmp.n237 = icmp eq i64 %58, %n.vec233
   br i1 %cmp.n237, label %if.end21, label %for.body.i.i46.preheader
 
 for.body.i.i46.preheader:                         ; preds = %vec.epilog.middle.block225, %vec.epilog.iter.check227, %iter.check213
-  %__result.sroa.0.015.i.i.ph = phi ptr [ %ind.end234, %vec.epilog.middle.block225 ], [ %ind.end235, %vec.epilog.iter.check227 ], [ %95, %iter.check213 ]
+  %__result.sroa.0.015.i.i.ph = phi ptr [ %ind.end234, %vec.epilog.middle.block225 ], [ %ind.end235, %vec.epilog.iter.check227 ], [ %57, %iter.check213 ]
   br label %for.body.i.i46
 
 for.body.i.i46:                                   ; preds = %for.body.i.i46.preheader, %for.body.i.i46
   %__result.sroa.0.015.i.i = phi ptr [ %incdec.ptr.i9.i.i, %for.body.i.i46 ], [ %__result.sroa.0.015.i.i.ph, %for.body.i.i46.preheader ]
-  %109 = load i8, ptr %__result.sroa.0.015.i.i, align 1, !tbaa !25
-  %conv.i.i.i = sext i8 %109 to i32
-  %110 = add nsw i32 %conv.i.i.i, -65
-  %or.cond.i.i.i.i = icmp ult i32 %110, 26
-  %add.i.i.i.i = add i8 %109, 32
-  %cond.i.i.i.i = select i1 %or.cond.i.i.i.i, i8 %add.i.i.i.i, i8 %109
+  %71 = load i8, ptr %__result.sroa.0.015.i.i, align 1, !tbaa !25
+  %conv.i.i.i = sext i8 %71 to i32
+  %72 = add nsw i32 %conv.i.i.i, -65
+  %or.cond.i.i.i.i = icmp ult i32 %72, 26
+  %add.i.i.i.i = add i8 %71, 32
+  %cond.i.i.i.i = select i1 %or.cond.i.i.i.i, i8 %add.i.i.i.i, i8 %71
   store i8 %cond.i.i.i.i, ptr %__result.sroa.0.015.i.i, align 1, !tbaa !25
   %incdec.ptr.i9.i.i = getelementptr i8, ptr %__result.sroa.0.015.i.i, i64 1
   %cmp.i.not.i.i47 = icmp eq ptr %incdec.ptr.i9.i.i, %add.ptr.i.i45
@@ -2089,22 +1972,22 @@ for.body.i.i46:                                   ; preds = %for.body.i.i46.preh
 
 if.end21:                                         ; preds = %for.body.i.i46, %vec.epilog.middle.block225, %middle.block210, %if.then18, %if.end
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %FullName.i, ptr noundef nonnull align 8 dereferenceable(32) %entry2) #21
-  %111 = load ptr, ptr %entry2, align 8, !tbaa !3
-  %112 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
-  %idx.ext.i = and i64 %112, 4294967295
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %111, i64 %idx.ext.i
+  %73 = load ptr, ptr %entry2, align 8, !tbaa !3
+  %74 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
+  %idx.ext.i = and i64 %74, 4294967295
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %73, i64 %idx.ext.i
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.end21
   %p.0.i = phi ptr [ %add.ptr.i, %if.end21 ], [ %incdec.ptr.i, %while.body.i ]
-  %113 = load i8, ptr %p.0.i, align 1, !tbaa !25
-  switch i8 %113, label %land.rhs.i [
+  %75 = load i8, ptr %p.0.i, align 1, !tbaa !25
+  switch i8 %75, label %land.rhs.i [
     i8 47, label %while.end.i
     i8 92, label %while.end.i
   ]
 
 land.rhs.i:                                       ; preds = %while.cond.i
-  %cmp4.not.i = icmp eq ptr %p.0.i, %111
+  %cmp4.not.i = icmp eq ptr %p.0.i, %73
   br i1 %cmp4.not.i, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -2112,7 +1995,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br label %while.cond.i, !llvm.loop !59
 
 while.end.i:                                      ; preds = %while.cond.i, %while.cond.i
-  %cmp5.not.i = icmp eq ptr %p.0.i, %111
+  %cmp5.not.i = icmp eq ptr %p.0.i, %73
   br i1 %cmp5.not.i, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit, label %if.then.i50
 
 if.then.i50:                                      ; preds = %while.end.i
@@ -2125,8 +2008,8 @@ if.then.i50:                                      ; preds = %while.end.i
 
 for.body.i.i51.preheader:                         ; preds = %if.then.i50
   %xtraiter = and i64 %call.i.i.i, 3
-  %114 = icmp samesign ult i64 %conv.i19.i, 4
-  br i1 %114, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa, label %for.body.i.i51.preheader.new
+  %76 = icmp samesign ult i64 %conv.i19.i, 4
+  br i1 %76, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa, label %for.body.i.i51.preheader.new
 
 for.body.i.i51.preheader.new:                     ; preds = %for.body.i.i51.preheader
   %unroll_iter = and i64 %call.i.i.i, 4294967292
@@ -2135,28 +2018,28 @@ for.body.i.i51.preheader.new:                     ; preds = %for.body.i.i51.preh
 for.body.i.i51:                                   ; preds = %for.body.i.i51, %for.body.i.i51.preheader.new
   %indvars.iv.i.i = phi i64 [ 0, %for.body.i.i51.preheader.new ], [ %indvars.iv.next.i.i.3, %for.body.i.i51 ]
   %arrayidx.i.i52 = getelementptr inbounds nuw i8, ptr %incdec.ptr6.i, i64 %indvars.iv.i.i
-  %115 = load i8, ptr %arrayidx.i.i52, align 1, !tbaa !25
-  %116 = load ptr, ptr %entry2, align 8, !tbaa !3
-  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr %116, i64 %indvars.iv.i.i
-  store i8 %115, ptr %arrayidx.i.i.i53, align 1, !tbaa !25
+  %77 = load i8, ptr %arrayidx.i.i52, align 1, !tbaa !25
+  %78 = load ptr, ptr %entry2, align 8, !tbaa !3
+  %arrayidx.i.i.i53 = getelementptr inbounds nuw i8, ptr %78, i64 %indvars.iv.i.i
+  store i8 %77, ptr %arrayidx.i.i.i53, align 1, !tbaa !25
   %indvars.iv.next.i.i = or disjoint i64 %indvars.iv.i.i, 1
   %arrayidx.i.i52.1 = getelementptr inbounds nuw i8, ptr %incdec.ptr6.i, i64 %indvars.iv.next.i.i
-  %117 = load i8, ptr %arrayidx.i.i52.1, align 1, !tbaa !25
-  %118 = load ptr, ptr %entry2, align 8, !tbaa !3
-  %arrayidx.i.i.i53.1 = getelementptr inbounds nuw i8, ptr %118, i64 %indvars.iv.next.i.i
-  store i8 %117, ptr %arrayidx.i.i.i53.1, align 1, !tbaa !25
+  %79 = load i8, ptr %arrayidx.i.i52.1, align 1, !tbaa !25
+  %80 = load ptr, ptr %entry2, align 8, !tbaa !3
+  %arrayidx.i.i.i53.1 = getelementptr inbounds nuw i8, ptr %80, i64 %indvars.iv.next.i.i
+  store i8 %79, ptr %arrayidx.i.i.i53.1, align 1, !tbaa !25
   %indvars.iv.next.i.i.1 = or disjoint i64 %indvars.iv.i.i, 2
   %arrayidx.i.i52.2 = getelementptr inbounds nuw i8, ptr %incdec.ptr6.i, i64 %indvars.iv.next.i.i.1
-  %119 = load i8, ptr %arrayidx.i.i52.2, align 1, !tbaa !25
-  %120 = load ptr, ptr %entry2, align 8, !tbaa !3
-  %arrayidx.i.i.i53.2 = getelementptr inbounds nuw i8, ptr %120, i64 %indvars.iv.next.i.i.1
-  store i8 %119, ptr %arrayidx.i.i.i53.2, align 1, !tbaa !25
+  %81 = load i8, ptr %arrayidx.i.i52.2, align 1, !tbaa !25
+  %82 = load ptr, ptr %entry2, align 8, !tbaa !3
+  %arrayidx.i.i.i53.2 = getelementptr inbounds nuw i8, ptr %82, i64 %indvars.iv.next.i.i.1
+  store i8 %81, ptr %arrayidx.i.i.i53.2, align 1, !tbaa !25
   %indvars.iv.next.i.i.2 = or disjoint i64 %indvars.iv.i.i, 3
   %arrayidx.i.i52.3 = getelementptr inbounds nuw i8, ptr %incdec.ptr6.i, i64 %indvars.iv.next.i.i.2
-  %121 = load i8, ptr %arrayidx.i.i52.3, align 1, !tbaa !25
-  %122 = load ptr, ptr %entry2, align 8, !tbaa !3
-  %arrayidx.i.i.i53.3 = getelementptr inbounds nuw i8, ptr %122, i64 %indvars.iv.next.i.i.2
-  store i8 %121, ptr %arrayidx.i.i.i53.3, align 1, !tbaa !25
+  %83 = load i8, ptr %arrayidx.i.i52.3, align 1, !tbaa !25
+  %84 = load ptr, ptr %entry2, align 8, !tbaa !3
+  %arrayidx.i.i.i53.3 = getelementptr inbounds nuw i8, ptr %84, i64 %indvars.iv.next.i.i.2
+  store i8 %83, ptr %arrayidx.i.i.i53.3, align 1, !tbaa !25
   %indvars.iv.next.i.i.3 = add nuw i64 %indvars.iv.i.i, 4
   %niter.ncmp.3 = icmp eq i64 %indvars.iv.next.i.i.3, %unroll_iter
   br i1 %niter.ncmp.3, label %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa, label %for.body.i.i51, !llvm.loop !60
@@ -2170,10 +2053,10 @@ for.body.i.i51.epil:                              ; preds = %_ZN3irr4core22delet
   %indvars.iv.i.i.epil = phi i64 [ %indvars.iv.next.i.i.epil, %for.body.i.i51.epil ], [ %indvars.iv.i.i.unr, %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i.i51.epil ], [ 0, %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa ]
   %arrayidx.i.i52.epil = getelementptr inbounds nuw i8, ptr %incdec.ptr6.i, i64 %indvars.iv.i.i.epil
-  %123 = load i8, ptr %arrayidx.i.i52.epil, align 1, !tbaa !25
-  %124 = load ptr, ptr %entry2, align 8, !tbaa !3
-  %arrayidx.i.i.i53.epil = getelementptr inbounds nuw i8, ptr %124, i64 %indvars.iv.i.i.epil
-  store i8 %123, ptr %arrayidx.i.i.i53.epil, align 1, !tbaa !25
+  %85 = load i8, ptr %arrayidx.i.i52.epil, align 1, !tbaa !25
+  %86 = load ptr, ptr %entry2, align 8, !tbaa !3
+  %arrayidx.i.i.i53.epil = getelementptr inbounds nuw i8, ptr %86, i64 %indvars.iv.i.i.epil
+  store i8 %85, ptr %arrayidx.i.i.i53.epil, align 1, !tbaa !25
   %indvars.iv.next.i.i.epil = add nuw nsw i64 %indvars.iv.i.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
   %epil.iter.cmp.not = icmp eq i64 %epil.iter.next, %xtraiter
@@ -2181,8 +2064,8 @@ for.body.i.i51.epil:                              ; preds = %_ZN3irr4core22delet
 
 _ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit: ; preds = %land.rhs.i, %for.body.i.i51.epil, %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit.loopexit.unr-lcssa, %if.then.i50, %while.end.i
   %IgnorePaths = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %125 = load i8, ptr %IgnorePaths, align 8, !tbaa !13, !range !43, !noundef !44
-  %tobool26.not = icmp eq i8 %125, 0
+  %87 = load i8, ptr %IgnorePaths, align 8, !tbaa !13, !range !43, !noundef !44
+  %tobool26.not = icmp eq i8 %87, 0
   br i1 %tobool26.not, label %if.end31, label %if.then27
 
 if.then27:                                        ; preds = %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit
@@ -2192,19 +2075,19 @@ if.then27:                                        ; preds = %_ZN3irr4core22delet
 if.end31:                                         ; preds = %if.then27, %_ZN3irr4core22deletePathFromFilenameERNS0_6stringIcEE.exit
   %Files32 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %_M_finish.i.i56 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %126 = load ptr, ptr %_M_finish.i.i56, align 8, !tbaa !45
+  %88 = load ptr, ptr %_M_finish.i.i56, align 8, !tbaa !45
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %127 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !63
-  %cmp.not.i.i = icmp eq ptr %126, %127
+  %89 = load ptr, ptr %_M_end_of_storage.i.i, align 8, !tbaa !63
+  %cmp.not.i.i = icmp eq ptr %88, %89
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then.i.i57
 
 if.then.i.i57:                                    ; preds = %if.end31
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  store ptr %128, ptr %126, align 8, !tbaa !24
-  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  store ptr %90, ptr %88, align 8, !tbaa !24
+  %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %128, align 1, !tbaa !25
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %126, %entry2
+  store i8 0, ptr %90, align 1, !tbaa !25
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %88, %entry2
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i, label %if.end.i.i9.i.i.i.i.i
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i: ; preds = %if.then.i.i57
@@ -2214,66 +2097,66 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i: ; preds = %if.then.i.i57
   br label %_ZNSt16allocator_traitsISaIN3irr2io14SFileListEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i
 
 if.end.i.i9.i.i.i.i.i:                            ; preds = %if.then.i.i57
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %126, ptr noundef nonnull align 8 dereferenceable(32) %entry2) #21
-  %FullName.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %126, i64 32
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 48
-  store ptr %129, ptr %FullName.i.i.i.i.i, align 8, !tbaa !24
-  %_M_string_length.i.i.i.i7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %126, i64 40
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %entry2) #21
+  %FullName.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %88, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 48
+  store ptr %91, ptr %FullName.i.i.i.i.i, align 8, !tbaa !24
+  %_M_string_length.i.i.i.i7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %88, i64 40
   store i64 0, ptr %_M_string_length.i.i.i.i7.i.i.i.i.i, align 8, !tbaa !10
-  store i8 0, ptr %129, align 1, !tbaa !25
+  store i8 0, ptr %91, align 1, !tbaa !25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %FullName.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %FullName.i) #21
   br label %_ZNSt16allocator_traitsISaIN3irr2io14SFileListEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaIN3irr2io14SFileListEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i: ; preds = %if.end.i.i9.i.i.i.i.i, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread.i.i.i.i.i
-  %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %126, i64 64
+  %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %88, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %Size.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(13) %Size, i64 13, i1 false)
-  %130 = load ptr, ptr %_M_finish.i.i56, align 8, !tbaa !41
-  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %130, i64 80
+  %92 = load ptr, ptr %_M_finish.i.i56, align 8, !tbaa !41
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %92, i64 80
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i56, align 8, !tbaa !41
   br label %_ZN3irr4core5arrayINS_2io14SFileListEntryEE9push_backERKS3_.exit
 
 if.else.i.i:                                      ; preds = %if.end31
-  call void @_ZNSt6vectorIN3irr2io14SFileListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %Files32, ptr %126, ptr noundef nonnull align 8 dereferenceable(77) %entry2)
+  call void @_ZNSt6vectorIN3irr2io14SFileListEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %Files32, ptr %88, ptr noundef nonnull align 8 dereferenceable(77) %entry2)
   %.pre77 = load ptr, ptr %_M_finish.i.i56, align 8, !tbaa !41
   br label %_ZN3irr4core5arrayINS_2io14SFileListEntryEE9push_backERKS3_.exit
 
 _ZN3irr4core5arrayINS_2io14SFileListEntryEE9push_backERKS3_.exit: ; preds = %if.else.i.i, %_ZNSt16allocator_traitsISaIN3irr2io14SFileListEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i
-  %131 = phi ptr [ %incdec.ptr.i.i, %_ZNSt16allocator_traitsISaIN3irr2io14SFileListEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i ], [ %.pre77, %if.else.i.i ]
+  %93 = phi ptr [ %incdec.ptr.i.i, %_ZNSt16allocator_traitsISaIN3irr2io14SFileListEntryEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_.exit.i.i ], [ %.pre77, %if.else.i.i ]
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 0, ptr %is_sorted.i, align 8, !tbaa !26
-  %132 = load ptr, ptr %Files32, align 8, !tbaa !40
-  %133 = load ptr, ptr %FullName.i, align 8, !tbaa !3
-  %cmp.i.i.i.i.i = icmp eq ptr %133, %1
+  %94 = load ptr, ptr %Files32, align 8, !tbaa !40
+  %95 = load ptr, ptr %FullName.i, align 8, !tbaa !3
+  %cmp.i.i.i.i.i = icmp eq ptr %95, %1
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZN3irr4core5arrayINS_2io14SFileListEntryEE9push_backERKS3_.exit
-  %134 = load i64, ptr %_M_string_length.i.i.i.i2.i, align 8, !tbaa !10
-  %cmp3.i.i.i.i.i = icmp ult i64 %134, 16
+  %96 = load i64, ptr %_M_string_length.i.i.i.i2.i, align 8, !tbaa !10
+  %cmp3.i.i.i.i.i = icmp ult i64 %96, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
   br label %_ZN3irr4core6stringIcED2Ev.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZN3irr4core5arrayINS_2io14SFileListEntryEE9push_backERKS3_.exit
-  call void @_ZdlPv(ptr noundef %133) #20
+  call void @_ZdlPv(ptr noundef %95) #20
   br label %_ZN3irr4core6stringIcED2Ev.exit.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i:                ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  %135 = load ptr, ptr %entry2, align 8, !tbaa !3
-  %cmp.i.i.i.i2.i = icmp eq ptr %135, %0
+  %97 = load ptr, ptr %entry2, align 8, !tbaa !3
+  %cmp.i.i.i.i2.i = icmp eq ptr %97, %0
   br i1 %cmp.i.i.i.i2.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4.i, label %if.then.i.i.i3.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4.i: ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i
-  %136 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
-  %cmp3.i.i.i.i6.i = icmp ult i64 %136, 16
+  %98 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
+  %cmp3.i.i.i.i6.i = icmp ult i64 %98, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i6.i)
   br label %_ZN3irr2io14SFileListEntryD2Ev.exit
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef %135) #20
+  call void @_ZdlPv(ptr noundef %97) #20
   br label %_ZN3irr2io14SFileListEntryD2Ev.exit
 
 _ZN3irr2io14SFileListEntryD2Ev.exit:              ; preds = %if.then.i.i.i3.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4.i
-  %sub.ptr.lhs.cast.i.i59 = ptrtoint ptr %131 to i64
-  %sub.ptr.rhs.cast.i.i60 = ptrtoint ptr %132 to i64
+  %sub.ptr.lhs.cast.i.i59 = ptrtoint ptr %93 to i64
+  %sub.ptr.rhs.cast.i.i60 = ptrtoint ptr %94 to i64
   %sub.ptr.sub.i.i61 = sub i64 %sub.ptr.lhs.cast.i.i59, %sub.ptr.rhs.cast.i.i60
   %sub.ptr.div.i.i62 = sdiv exact i64 %sub.ptr.sub.i.i61, 80
   %conv.i63 = trunc i64 %sub.ptr.div.i.i62 to i32
@@ -2460,315 +2343,283 @@ pred.store.continue:                              ; preds = %pred.store.if, %vec
   br i1 %6, label %pred.store.if95, label %pred.store.continue96
 
 pred.store.if95:                                  ; preds = %pred.store.continue
-  %7 = or disjoint i64 %index, 1
-  %next.gep63 = getelementptr i8, ptr %.pre, i64 %7
+  %next.gep63 = getelementptr i8, ptr %next.gep, i64 1
   store i8 47, ptr %next.gep63, align 1, !tbaa !25
   br label %pred.store.continue96
 
 pred.store.continue96:                            ; preds = %pred.store.if95, %pred.store.continue
-  %8 = extractelement <16 x i1> %3, i64 2
-  br i1 %8, label %pred.store.if97, label %pred.store.continue98
+  %7 = extractelement <16 x i1> %3, i64 2
+  br i1 %7, label %pred.store.if97, label %pred.store.continue98
 
 pred.store.if97:                                  ; preds = %pred.store.continue96
-  %9 = or disjoint i64 %index, 2
-  %next.gep64 = getelementptr i8, ptr %.pre, i64 %9
+  %next.gep64 = getelementptr i8, ptr %next.gep, i64 2
   store i8 47, ptr %next.gep64, align 1, !tbaa !25
   br label %pred.store.continue98
 
 pred.store.continue98:                            ; preds = %pred.store.if97, %pred.store.continue96
-  %10 = extractelement <16 x i1> %3, i64 3
-  br i1 %10, label %pred.store.if99, label %pred.store.continue100
+  %8 = extractelement <16 x i1> %3, i64 3
+  br i1 %8, label %pred.store.if99, label %pred.store.continue100
 
 pred.store.if99:                                  ; preds = %pred.store.continue98
-  %11 = or disjoint i64 %index, 3
-  %next.gep65 = getelementptr i8, ptr %.pre, i64 %11
+  %next.gep65 = getelementptr i8, ptr %next.gep, i64 3
   store i8 47, ptr %next.gep65, align 1, !tbaa !25
   br label %pred.store.continue100
 
 pred.store.continue100:                           ; preds = %pred.store.if99, %pred.store.continue98
-  %12 = extractelement <16 x i1> %3, i64 4
-  br i1 %12, label %pred.store.if101, label %pred.store.continue102
+  %9 = extractelement <16 x i1> %3, i64 4
+  br i1 %9, label %pred.store.if101, label %pred.store.continue102
 
 pred.store.if101:                                 ; preds = %pred.store.continue100
-  %13 = or disjoint i64 %index, 4
-  %next.gep66 = getelementptr i8, ptr %.pre, i64 %13
+  %next.gep66 = getelementptr i8, ptr %next.gep, i64 4
   store i8 47, ptr %next.gep66, align 1, !tbaa !25
   br label %pred.store.continue102
 
 pred.store.continue102:                           ; preds = %pred.store.if101, %pred.store.continue100
-  %14 = extractelement <16 x i1> %3, i64 5
-  br i1 %14, label %pred.store.if103, label %pred.store.continue104
+  %10 = extractelement <16 x i1> %3, i64 5
+  br i1 %10, label %pred.store.if103, label %pred.store.continue104
 
 pred.store.if103:                                 ; preds = %pred.store.continue102
-  %15 = or disjoint i64 %index, 5
-  %next.gep67 = getelementptr i8, ptr %.pre, i64 %15
+  %next.gep67 = getelementptr i8, ptr %next.gep, i64 5
   store i8 47, ptr %next.gep67, align 1, !tbaa !25
   br label %pred.store.continue104
 
 pred.store.continue104:                           ; preds = %pred.store.if103, %pred.store.continue102
-  %16 = extractelement <16 x i1> %3, i64 6
-  br i1 %16, label %pred.store.if105, label %pred.store.continue106
+  %11 = extractelement <16 x i1> %3, i64 6
+  br i1 %11, label %pred.store.if105, label %pred.store.continue106
 
 pred.store.if105:                                 ; preds = %pred.store.continue104
-  %17 = or disjoint i64 %index, 6
-  %next.gep68 = getelementptr i8, ptr %.pre, i64 %17
+  %next.gep68 = getelementptr i8, ptr %next.gep, i64 6
   store i8 47, ptr %next.gep68, align 1, !tbaa !25
   br label %pred.store.continue106
 
 pred.store.continue106:                           ; preds = %pred.store.if105, %pred.store.continue104
-  %18 = extractelement <16 x i1> %3, i64 7
-  br i1 %18, label %pred.store.if107, label %pred.store.continue108
+  %12 = extractelement <16 x i1> %3, i64 7
+  br i1 %12, label %pred.store.if107, label %pred.store.continue108
 
 pred.store.if107:                                 ; preds = %pred.store.continue106
-  %19 = or disjoint i64 %index, 7
-  %next.gep69 = getelementptr i8, ptr %.pre, i64 %19
+  %next.gep69 = getelementptr i8, ptr %next.gep, i64 7
   store i8 47, ptr %next.gep69, align 1, !tbaa !25
   br label %pred.store.continue108
 
 pred.store.continue108:                           ; preds = %pred.store.if107, %pred.store.continue106
-  %20 = extractelement <16 x i1> %3, i64 8
-  br i1 %20, label %pred.store.if109, label %pred.store.continue110
+  %13 = extractelement <16 x i1> %3, i64 8
+  br i1 %13, label %pred.store.if109, label %pred.store.continue110
 
 pred.store.if109:                                 ; preds = %pred.store.continue108
-  %21 = or disjoint i64 %index, 8
-  %next.gep70 = getelementptr i8, ptr %.pre, i64 %21
+  %next.gep70 = getelementptr i8, ptr %next.gep, i64 8
   store i8 47, ptr %next.gep70, align 1, !tbaa !25
   br label %pred.store.continue110
 
 pred.store.continue110:                           ; preds = %pred.store.if109, %pred.store.continue108
-  %22 = extractelement <16 x i1> %3, i64 9
-  br i1 %22, label %pred.store.if111, label %pred.store.continue112
+  %14 = extractelement <16 x i1> %3, i64 9
+  br i1 %14, label %pred.store.if111, label %pred.store.continue112
 
 pred.store.if111:                                 ; preds = %pred.store.continue110
-  %23 = or disjoint i64 %index, 9
-  %next.gep71 = getelementptr i8, ptr %.pre, i64 %23
+  %next.gep71 = getelementptr i8, ptr %next.gep, i64 9
   store i8 47, ptr %next.gep71, align 1, !tbaa !25
   br label %pred.store.continue112
 
 pred.store.continue112:                           ; preds = %pred.store.if111, %pred.store.continue110
-  %24 = extractelement <16 x i1> %3, i64 10
-  br i1 %24, label %pred.store.if113, label %pred.store.continue114
+  %15 = extractelement <16 x i1> %3, i64 10
+  br i1 %15, label %pred.store.if113, label %pred.store.continue114
 
 pred.store.if113:                                 ; preds = %pred.store.continue112
-  %25 = or disjoint i64 %index, 10
-  %next.gep72 = getelementptr i8, ptr %.pre, i64 %25
+  %next.gep72 = getelementptr i8, ptr %next.gep, i64 10
   store i8 47, ptr %next.gep72, align 1, !tbaa !25
   br label %pred.store.continue114
 
 pred.store.continue114:                           ; preds = %pred.store.if113, %pred.store.continue112
-  %26 = extractelement <16 x i1> %3, i64 11
-  br i1 %26, label %pred.store.if115, label %pred.store.continue116
+  %16 = extractelement <16 x i1> %3, i64 11
+  br i1 %16, label %pred.store.if115, label %pred.store.continue116
 
 pred.store.if115:                                 ; preds = %pred.store.continue114
-  %27 = or disjoint i64 %index, 11
-  %next.gep73 = getelementptr i8, ptr %.pre, i64 %27
+  %next.gep73 = getelementptr i8, ptr %next.gep, i64 11
   store i8 47, ptr %next.gep73, align 1, !tbaa !25
   br label %pred.store.continue116
 
 pred.store.continue116:                           ; preds = %pred.store.if115, %pred.store.continue114
-  %28 = extractelement <16 x i1> %3, i64 12
-  br i1 %28, label %pred.store.if117, label %pred.store.continue118
+  %17 = extractelement <16 x i1> %3, i64 12
+  br i1 %17, label %pred.store.if117, label %pred.store.continue118
 
 pred.store.if117:                                 ; preds = %pred.store.continue116
-  %29 = or disjoint i64 %index, 12
-  %next.gep74 = getelementptr i8, ptr %.pre, i64 %29
+  %next.gep74 = getelementptr i8, ptr %next.gep, i64 12
   store i8 47, ptr %next.gep74, align 1, !tbaa !25
   br label %pred.store.continue118
 
 pred.store.continue118:                           ; preds = %pred.store.if117, %pred.store.continue116
-  %30 = extractelement <16 x i1> %3, i64 13
-  br i1 %30, label %pred.store.if119, label %pred.store.continue120
+  %18 = extractelement <16 x i1> %3, i64 13
+  br i1 %18, label %pred.store.if119, label %pred.store.continue120
 
 pred.store.if119:                                 ; preds = %pred.store.continue118
-  %31 = or disjoint i64 %index, 13
-  %next.gep75 = getelementptr i8, ptr %.pre, i64 %31
+  %next.gep75 = getelementptr i8, ptr %next.gep, i64 13
   store i8 47, ptr %next.gep75, align 1, !tbaa !25
   br label %pred.store.continue120
 
 pred.store.continue120:                           ; preds = %pred.store.if119, %pred.store.continue118
-  %32 = extractelement <16 x i1> %3, i64 14
-  br i1 %32, label %pred.store.if121, label %pred.store.continue122
+  %19 = extractelement <16 x i1> %3, i64 14
+  br i1 %19, label %pred.store.if121, label %pred.store.continue122
 
 pred.store.if121:                                 ; preds = %pred.store.continue120
-  %33 = or disjoint i64 %index, 14
-  %next.gep76 = getelementptr i8, ptr %.pre, i64 %33
+  %next.gep76 = getelementptr i8, ptr %next.gep, i64 14
   store i8 47, ptr %next.gep76, align 1, !tbaa !25
   br label %pred.store.continue122
 
 pred.store.continue122:                           ; preds = %pred.store.if121, %pred.store.continue120
-  %34 = extractelement <16 x i1> %3, i64 15
-  br i1 %34, label %pred.store.if123, label %pred.store.continue124
+  %20 = extractelement <16 x i1> %3, i64 15
+  br i1 %20, label %pred.store.if123, label %pred.store.continue124
 
 pred.store.if123:                                 ; preds = %pred.store.continue122
-  %35 = or disjoint i64 %index, 15
-  %next.gep77 = getelementptr i8, ptr %.pre, i64 %35
+  %next.gep77 = getelementptr i8, ptr %next.gep, i64 15
   store i8 47, ptr %next.gep77, align 1, !tbaa !25
   br label %pred.store.continue124
 
 pred.store.continue124:                           ; preds = %pred.store.if123, %pred.store.continue122
-  %36 = extractelement <16 x i1> %4, i64 0
-  br i1 %36, label %pred.store.if125, label %pred.store.continue126
+  %21 = extractelement <16 x i1> %4, i64 0
+  br i1 %21, label %pred.store.if125, label %pred.store.continue126
 
 pred.store.if125:                                 ; preds = %pred.store.continue124
-  %37 = or disjoint i64 %index, 16
-  %next.gep78 = getelementptr i8, ptr %.pre, i64 %37
-  store i8 47, ptr %next.gep78, align 1, !tbaa !25
+  store i8 47, ptr %2, align 1, !tbaa !25
   br label %pred.store.continue126
 
 pred.store.continue126:                           ; preds = %pred.store.if125, %pred.store.continue124
-  %38 = extractelement <16 x i1> %4, i64 1
-  br i1 %38, label %pred.store.if127, label %pred.store.continue128
+  %22 = extractelement <16 x i1> %4, i64 1
+  br i1 %22, label %pred.store.if127, label %pred.store.continue128
 
 pred.store.if127:                                 ; preds = %pred.store.continue126
-  %39 = or disjoint i64 %index, 17
-  %next.gep79 = getelementptr i8, ptr %.pre, i64 %39
+  %next.gep79 = getelementptr i8, ptr %next.gep, i64 17
   store i8 47, ptr %next.gep79, align 1, !tbaa !25
   br label %pred.store.continue128
 
 pred.store.continue128:                           ; preds = %pred.store.if127, %pred.store.continue126
-  %40 = extractelement <16 x i1> %4, i64 2
-  br i1 %40, label %pred.store.if129, label %pred.store.continue130
+  %23 = extractelement <16 x i1> %4, i64 2
+  br i1 %23, label %pred.store.if129, label %pred.store.continue130
 
 pred.store.if129:                                 ; preds = %pred.store.continue128
-  %41 = or disjoint i64 %index, 18
-  %next.gep80 = getelementptr i8, ptr %.pre, i64 %41
+  %next.gep80 = getelementptr i8, ptr %next.gep, i64 18
   store i8 47, ptr %next.gep80, align 1, !tbaa !25
   br label %pred.store.continue130
 
 pred.store.continue130:                           ; preds = %pred.store.if129, %pred.store.continue128
-  %42 = extractelement <16 x i1> %4, i64 3
-  br i1 %42, label %pred.store.if131, label %pred.store.continue132
+  %24 = extractelement <16 x i1> %4, i64 3
+  br i1 %24, label %pred.store.if131, label %pred.store.continue132
 
 pred.store.if131:                                 ; preds = %pred.store.continue130
-  %43 = or disjoint i64 %index, 19
-  %next.gep81 = getelementptr i8, ptr %.pre, i64 %43
+  %next.gep81 = getelementptr i8, ptr %next.gep, i64 19
   store i8 47, ptr %next.gep81, align 1, !tbaa !25
   br label %pred.store.continue132
 
 pred.store.continue132:                           ; preds = %pred.store.if131, %pred.store.continue130
-  %44 = extractelement <16 x i1> %4, i64 4
-  br i1 %44, label %pred.store.if133, label %pred.store.continue134
+  %25 = extractelement <16 x i1> %4, i64 4
+  br i1 %25, label %pred.store.if133, label %pred.store.continue134
 
 pred.store.if133:                                 ; preds = %pred.store.continue132
-  %45 = or disjoint i64 %index, 20
-  %next.gep82 = getelementptr i8, ptr %.pre, i64 %45
+  %next.gep82 = getelementptr i8, ptr %next.gep, i64 20
   store i8 47, ptr %next.gep82, align 1, !tbaa !25
   br label %pred.store.continue134
 
 pred.store.continue134:                           ; preds = %pred.store.if133, %pred.store.continue132
-  %46 = extractelement <16 x i1> %4, i64 5
-  br i1 %46, label %pred.store.if135, label %pred.store.continue136
+  %26 = extractelement <16 x i1> %4, i64 5
+  br i1 %26, label %pred.store.if135, label %pred.store.continue136
 
 pred.store.if135:                                 ; preds = %pred.store.continue134
-  %47 = or disjoint i64 %index, 21
-  %next.gep83 = getelementptr i8, ptr %.pre, i64 %47
+  %next.gep83 = getelementptr i8, ptr %next.gep, i64 21
   store i8 47, ptr %next.gep83, align 1, !tbaa !25
   br label %pred.store.continue136
 
 pred.store.continue136:                           ; preds = %pred.store.if135, %pred.store.continue134
-  %48 = extractelement <16 x i1> %4, i64 6
-  br i1 %48, label %pred.store.if137, label %pred.store.continue138
+  %27 = extractelement <16 x i1> %4, i64 6
+  br i1 %27, label %pred.store.if137, label %pred.store.continue138
 
 pred.store.if137:                                 ; preds = %pred.store.continue136
-  %49 = or disjoint i64 %index, 22
-  %next.gep84 = getelementptr i8, ptr %.pre, i64 %49
+  %next.gep84 = getelementptr i8, ptr %next.gep, i64 22
   store i8 47, ptr %next.gep84, align 1, !tbaa !25
   br label %pred.store.continue138
 
 pred.store.continue138:                           ; preds = %pred.store.if137, %pred.store.continue136
-  %50 = extractelement <16 x i1> %4, i64 7
-  br i1 %50, label %pred.store.if139, label %pred.store.continue140
+  %28 = extractelement <16 x i1> %4, i64 7
+  br i1 %28, label %pred.store.if139, label %pred.store.continue140
 
 pred.store.if139:                                 ; preds = %pred.store.continue138
-  %51 = or disjoint i64 %index, 23
-  %next.gep85 = getelementptr i8, ptr %.pre, i64 %51
+  %next.gep85 = getelementptr i8, ptr %next.gep, i64 23
   store i8 47, ptr %next.gep85, align 1, !tbaa !25
   br label %pred.store.continue140
 
 pred.store.continue140:                           ; preds = %pred.store.if139, %pred.store.continue138
-  %52 = extractelement <16 x i1> %4, i64 8
-  br i1 %52, label %pred.store.if141, label %pred.store.continue142
+  %29 = extractelement <16 x i1> %4, i64 8
+  br i1 %29, label %pred.store.if141, label %pred.store.continue142
 
 pred.store.if141:                                 ; preds = %pred.store.continue140
-  %53 = or disjoint i64 %index, 24
-  %next.gep86 = getelementptr i8, ptr %.pre, i64 %53
+  %next.gep86 = getelementptr i8, ptr %next.gep, i64 24
   store i8 47, ptr %next.gep86, align 1, !tbaa !25
   br label %pred.store.continue142
 
 pred.store.continue142:                           ; preds = %pred.store.if141, %pred.store.continue140
-  %54 = extractelement <16 x i1> %4, i64 9
-  br i1 %54, label %pred.store.if143, label %pred.store.continue144
+  %30 = extractelement <16 x i1> %4, i64 9
+  br i1 %30, label %pred.store.if143, label %pred.store.continue144
 
 pred.store.if143:                                 ; preds = %pred.store.continue142
-  %55 = or disjoint i64 %index, 25
-  %next.gep87 = getelementptr i8, ptr %.pre, i64 %55
+  %next.gep87 = getelementptr i8, ptr %next.gep, i64 25
   store i8 47, ptr %next.gep87, align 1, !tbaa !25
   br label %pred.store.continue144
 
 pred.store.continue144:                           ; preds = %pred.store.if143, %pred.store.continue142
-  %56 = extractelement <16 x i1> %4, i64 10
-  br i1 %56, label %pred.store.if145, label %pred.store.continue146
+  %31 = extractelement <16 x i1> %4, i64 10
+  br i1 %31, label %pred.store.if145, label %pred.store.continue146
 
 pred.store.if145:                                 ; preds = %pred.store.continue144
-  %57 = or disjoint i64 %index, 26
-  %next.gep88 = getelementptr i8, ptr %.pre, i64 %57
+  %next.gep88 = getelementptr i8, ptr %next.gep, i64 26
   store i8 47, ptr %next.gep88, align 1, !tbaa !25
   br label %pred.store.continue146
 
 pred.store.continue146:                           ; preds = %pred.store.if145, %pred.store.continue144
-  %58 = extractelement <16 x i1> %4, i64 11
-  br i1 %58, label %pred.store.if147, label %pred.store.continue148
+  %32 = extractelement <16 x i1> %4, i64 11
+  br i1 %32, label %pred.store.if147, label %pred.store.continue148
 
 pred.store.if147:                                 ; preds = %pred.store.continue146
-  %59 = or disjoint i64 %index, 27
-  %next.gep89 = getelementptr i8, ptr %.pre, i64 %59
+  %next.gep89 = getelementptr i8, ptr %next.gep, i64 27
   store i8 47, ptr %next.gep89, align 1, !tbaa !25
   br label %pred.store.continue148
 
 pred.store.continue148:                           ; preds = %pred.store.if147, %pred.store.continue146
-  %60 = extractelement <16 x i1> %4, i64 12
-  br i1 %60, label %pred.store.if149, label %pred.store.continue150
+  %33 = extractelement <16 x i1> %4, i64 12
+  br i1 %33, label %pred.store.if149, label %pred.store.continue150
 
 pred.store.if149:                                 ; preds = %pred.store.continue148
-  %61 = or disjoint i64 %index, 28
-  %next.gep90 = getelementptr i8, ptr %.pre, i64 %61
+  %next.gep90 = getelementptr i8, ptr %next.gep, i64 28
   store i8 47, ptr %next.gep90, align 1, !tbaa !25
   br label %pred.store.continue150
 
 pred.store.continue150:                           ; preds = %pred.store.if149, %pred.store.continue148
-  %62 = extractelement <16 x i1> %4, i64 13
-  br i1 %62, label %pred.store.if151, label %pred.store.continue152
+  %34 = extractelement <16 x i1> %4, i64 13
+  br i1 %34, label %pred.store.if151, label %pred.store.continue152
 
 pred.store.if151:                                 ; preds = %pred.store.continue150
-  %63 = or disjoint i64 %index, 29
-  %next.gep91 = getelementptr i8, ptr %.pre, i64 %63
+  %next.gep91 = getelementptr i8, ptr %next.gep, i64 29
   store i8 47, ptr %next.gep91, align 1, !tbaa !25
   br label %pred.store.continue152
 
 pred.store.continue152:                           ; preds = %pred.store.if151, %pred.store.continue150
-  %64 = extractelement <16 x i1> %4, i64 14
-  br i1 %64, label %pred.store.if153, label %pred.store.continue154
+  %35 = extractelement <16 x i1> %4, i64 14
+  br i1 %35, label %pred.store.if153, label %pred.store.continue154
 
 pred.store.if153:                                 ; preds = %pred.store.continue152
-  %65 = or disjoint i64 %index, 30
-  %next.gep92 = getelementptr i8, ptr %.pre, i64 %65
+  %next.gep92 = getelementptr i8, ptr %next.gep, i64 30
   store i8 47, ptr %next.gep92, align 1, !tbaa !25
   br label %pred.store.continue154
 
 pred.store.continue154:                           ; preds = %pred.store.if153, %pred.store.continue152
-  %66 = extractelement <16 x i1> %4, i64 15
-  br i1 %66, label %pred.store.if155, label %pred.store.continue156
+  %36 = extractelement <16 x i1> %4, i64 15
+  br i1 %36, label %pred.store.if155, label %pred.store.continue156
 
 pred.store.if155:                                 ; preds = %pred.store.continue154
-  %67 = or disjoint i64 %index, 31
-  %next.gep93 = getelementptr i8, ptr %.pre, i64 %67
+  %next.gep93 = getelementptr i8, ptr %next.gep, i64 31
   store i8 47, ptr %next.gep93, align 1, !tbaa !25
   br label %pred.store.continue156
 
 pred.store.continue156:                           ; preds = %pred.store.if155, %pred.store.continue154
   %index.next = add nuw i64 %index, 32
-  %68 = icmp eq i64 %index.next, %n.vec
-  br i1 %68, label %middle.block, label %vector.body, !llvm.loop !64
+  %37 = icmp eq i64 %index.next, %n.vec
+  br i1 %37, label %middle.block, label %vector.body, !llvm.loop !64
 
 middle.block:                                     ; preds = %pred.store.continue156
   %cmp.n = icmp eq i64 %.pre54, %n.vec
@@ -2789,88 +2640,81 @@ vec.epilog.vector.body:                           ; preds = %pred.store.continue
   %index161 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next187, %pred.store.continue186 ]
   %next.gep162 = getelementptr i8, ptr %.pre, i64 %index161
   %wide.load170 = load <8 x i8>, ptr %next.gep162, align 1, !tbaa !25
-  %69 = icmp eq <8 x i8> %wide.load170, splat (i8 92)
-  %70 = extractelement <8 x i1> %69, i64 0
-  br i1 %70, label %pred.store.if171, label %pred.store.continue172
+  %38 = icmp eq <8 x i8> %wide.load170, splat (i8 92)
+  %39 = extractelement <8 x i1> %38, i64 0
+  br i1 %39, label %pred.store.if171, label %pred.store.continue172
 
 pred.store.if171:                                 ; preds = %vec.epilog.vector.body
   store i8 47, ptr %next.gep162, align 1, !tbaa !25
   br label %pred.store.continue172
 
 pred.store.continue172:                           ; preds = %pred.store.if171, %vec.epilog.vector.body
-  %71 = extractelement <8 x i1> %69, i64 1
-  br i1 %71, label %pred.store.if173, label %pred.store.continue174
+  %40 = extractelement <8 x i1> %38, i64 1
+  br i1 %40, label %pred.store.if173, label %pred.store.continue174
 
 pred.store.if173:                                 ; preds = %pred.store.continue172
-  %72 = or disjoint i64 %index161, 1
-  %next.gep163 = getelementptr i8, ptr %.pre, i64 %72
+  %next.gep163 = getelementptr i8, ptr %next.gep162, i64 1
   store i8 47, ptr %next.gep163, align 1, !tbaa !25
   br label %pred.store.continue174
 
 pred.store.continue174:                           ; preds = %pred.store.if173, %pred.store.continue172
-  %73 = extractelement <8 x i1> %69, i64 2
-  br i1 %73, label %pred.store.if175, label %pred.store.continue176
+  %41 = extractelement <8 x i1> %38, i64 2
+  br i1 %41, label %pred.store.if175, label %pred.store.continue176
 
 pred.store.if175:                                 ; preds = %pred.store.continue174
-  %74 = or disjoint i64 %index161, 2
-  %next.gep164 = getelementptr i8, ptr %.pre, i64 %74
+  %next.gep164 = getelementptr i8, ptr %next.gep162, i64 2
   store i8 47, ptr %next.gep164, align 1, !tbaa !25
   br label %pred.store.continue176
 
 pred.store.continue176:                           ; preds = %pred.store.if175, %pred.store.continue174
-  %75 = extractelement <8 x i1> %69, i64 3
-  br i1 %75, label %pred.store.if177, label %pred.store.continue178
+  %42 = extractelement <8 x i1> %38, i64 3
+  br i1 %42, label %pred.store.if177, label %pred.store.continue178
 
 pred.store.if177:                                 ; preds = %pred.store.continue176
-  %76 = or disjoint i64 %index161, 3
-  %next.gep165 = getelementptr i8, ptr %.pre, i64 %76
+  %next.gep165 = getelementptr i8, ptr %next.gep162, i64 3
   store i8 47, ptr %next.gep165, align 1, !tbaa !25
   br label %pred.store.continue178
 
 pred.store.continue178:                           ; preds = %pred.store.if177, %pred.store.continue176
-  %77 = extractelement <8 x i1> %69, i64 4
-  br i1 %77, label %pred.store.if179, label %pred.store.continue180
+  %43 = extractelement <8 x i1> %38, i64 4
+  br i1 %43, label %pred.store.if179, label %pred.store.continue180
 
 pred.store.if179:                                 ; preds = %pred.store.continue178
-  %78 = or disjoint i64 %index161, 4
-  %next.gep166 = getelementptr i8, ptr %.pre, i64 %78
+  %next.gep166 = getelementptr i8, ptr %next.gep162, i64 4
   store i8 47, ptr %next.gep166, align 1, !tbaa !25
   br label %pred.store.continue180
 
 pred.store.continue180:                           ; preds = %pred.store.if179, %pred.store.continue178
-  %79 = extractelement <8 x i1> %69, i64 5
-  br i1 %79, label %pred.store.if181, label %pred.store.continue182
+  %44 = extractelement <8 x i1> %38, i64 5
+  br i1 %44, label %pred.store.if181, label %pred.store.continue182
 
 pred.store.if181:                                 ; preds = %pred.store.continue180
-  %80 = or disjoint i64 %index161, 5
-  %next.gep167 = getelementptr i8, ptr %.pre, i64 %80
+  %next.gep167 = getelementptr i8, ptr %next.gep162, i64 5
   store i8 47, ptr %next.gep167, align 1, !tbaa !25
   br label %pred.store.continue182
 
 pred.store.continue182:                           ; preds = %pred.store.if181, %pred.store.continue180
-  %81 = extractelement <8 x i1> %69, i64 6
-  br i1 %81, label %pred.store.if183, label %pred.store.continue184
+  %45 = extractelement <8 x i1> %38, i64 6
+  br i1 %45, label %pred.store.if183, label %pred.store.continue184
 
 pred.store.if183:                                 ; preds = %pred.store.continue182
-  %82 = or disjoint i64 %index161, 6
-  %next.gep168 = getelementptr i8, ptr %.pre, i64 %82
+  %next.gep168 = getelementptr i8, ptr %next.gep162, i64 6
   store i8 47, ptr %next.gep168, align 1, !tbaa !25
   br label %pred.store.continue184
 
 pred.store.continue184:                           ; preds = %pred.store.if183, %pred.store.continue182
-  %83 = extractelement <8 x i1> %69, i64 7
-  br i1 %83, label %pred.store.if185, label %pred.store.continue186
+  %46 = extractelement <8 x i1> %38, i64 7
+  br i1 %46, label %pred.store.if185, label %pred.store.continue186
 
 pred.store.if185:                                 ; preds = %pred.store.continue184
-  %84 = or disjoint i64 %index161, 7
-  %next.gep169 = getelementptr i8, ptr %.pre, i64 %84
+  %next.gep169 = getelementptr i8, ptr %next.gep162, i64 7
   store i8 47, ptr %next.gep169, align 1, !tbaa !25
   br label %pred.store.continue186
 
 pred.store.continue186:                           ; preds = %pred.store.if185, %pred.store.continue184
   %index.next187 = add nuw i64 %index161, 8
-  %85 = icmp eq i64 %index.next187, %n.vec158
-  br i1 %85, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !65
+  %47 = icmp eq i64 %index.next187, %n.vec158
+  br i1 %47, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !65
 
 vec.epilog.middle.block:                          ; preds = %pred.store.continue186
   %ind.end = getelementptr i8, ptr %.pre, i64 %n.vec158
@@ -2883,8 +2727,8 @@ for.body.i.i.preheader:                           ; preds = %vec.epilog.middle.b
 
 for.body.i.i:                                     ; preds = %for.body.i.i.preheader, %for.inc.i.i
   %__first.sroa.0.010.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.inc.i.i ], [ %__first.sroa.0.010.i.i.ph, %for.body.i.i.preheader ]
-  %86 = load i8, ptr %__first.sroa.0.010.i.i, align 1, !tbaa !25
-  %cmp.i.i = icmp eq i8 %86, 92
+  %48 = load i8, ptr %__first.sroa.0.010.i.i, align 1, !tbaa !25
+  %cmp.i.i = icmp eq i8 %48, 92
   br i1 %cmp.i.i, label %if.then.i.i, label %for.inc.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
@@ -2902,24 +2746,24 @@ _ZN3irr4core6stringIcE7replaceEcc.exit:           ; preds = %for.inc.i.i, %vec.e
   br i1 %cmp.i.i27, label %if.end, label %_ZNK3irr4core6stringIcE8lastCharEv.exit
 
 _ZNK3irr4core6stringIcE8lastCharEv.exit:          ; preds = %_ZN3irr4core6stringIcE7replaceEcc.exit
-  %87 = load ptr, ptr %FullName.i, align 8, !tbaa !3
-  %88 = getelementptr i8, ptr %87, i64 %.pr
-  %arrayidx.i.i.i = getelementptr i8, ptr %88, i64 -1
-  %89 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !25
-  %cmp = icmp eq i8 %89, 47
+  %49 = load ptr, ptr %FullName.i, align 8, !tbaa !3
+  %50 = getelementptr i8, ptr %49, i64 %.pr
+  %arrayidx.i.i.i = getelementptr i8, ptr %50, i64 -1
+  %51 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !25
+  %cmp = icmp eq i8 %51, 47
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK3irr4core6stringIcE8lastCharEv.exit
   store i8 1, ptr %IsDirectory, align 4, !tbaa !54
   %sub = add i64 %.pr, 4294967295
   %conv.i28 = and i64 %sub, 4294967295
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %87, i64 %conv.i28
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %49, i64 %conv.i28
   store i8 0, ptr %arrayidx.i.i, align 1, !tbaa !25
-  %90 = load ptr, ptr %FullName.i, align 8, !tbaa !3
-  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #22
+  %52 = load ptr, ptr %FullName.i, align 8, !tbaa !3
+  %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #22
   %conv.i.i = trunc i64 %call.i.i to i32
-  %91 = load i64, ptr %_M_string_length.i.i.i.i2.i, align 8, !tbaa !10
-  %conv.i5.i = trunc i64 %91 to i32
+  %53 = load i64, ptr %_M_string_length.i.i.i.i2.i, align 8, !tbaa !10
+  %conv.i5.i = trunc i64 %53 to i32
   %cmp.not.i = icmp eq i32 %conv.i.i, %conv.i5.i
   br i1 %cmp.not.i, label %if.end, label %if.then.i
 
@@ -2930,89 +2774,89 @@ if.then.i:                                        ; preds = %if.then
 
 if.end:                                           ; preds = %if.then.i, %if.then, %_ZNK3irr4core6stringIcE8lastCharEv.exit, %_ZN3irr4core6stringIcE7replaceEcc.exit, %_ZN3irr4core6stringIcEaSERKS2_.exit, %_ZN3irr4core6stringIcEaSERKS2_.exit.thread
   %IgnoreCase = getelementptr inbounds nuw i8, ptr %this, i64 9
-  %92 = load i8, ptr %IgnoreCase, align 1, !tbaa !23, !range !43, !noundef !44
-  %tobool15.not = icmp eq i8 %92, 0
+  %54 = load i8, ptr %IgnoreCase, align 1, !tbaa !23, !range !43, !noundef !44
+  %tobool15.not = icmp eq i8 %54, 0
   br i1 %tobool15.not, label %if.end19, label %if.then16
 
 if.then16:                                        ; preds = %if.end
-  %93 = load ptr, ptr %FullName.i, align 8, !tbaa !3
-  %94 = load i64, ptr %_M_string_length.i.i.i.i2.i, align 8, !tbaa !10
-  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %93, i64 %94
-  %cmp.i.not13.i.i = icmp eq i64 %94, 0
+  %55 = load ptr, ptr %FullName.i, align 8, !tbaa !3
+  %56 = load i64, ptr %_M_string_length.i.i.i.i2.i, align 8, !tbaa !10
+  %add.ptr.i.i33 = getelementptr inbounds i8, ptr %55, i64 %56
+  %cmp.i.not13.i.i = icmp eq i64 %56, 0
   br i1 %cmp.i.not13.i.i, label %if.end19, label %iter.check191
 
 iter.check191:                                    ; preds = %if.then16
-  %min.iters.check189 = icmp ult i64 %94, 8
+  %min.iters.check189 = icmp ult i64 %56, 8
   br i1 %min.iters.check189, label %for.body.i.i34.preheader, label %vector.main.loop.iter.check193
 
 vector.main.loop.iter.check193:                   ; preds = %iter.check191
-  %min.iters.check192 = icmp ult i64 %94, 16
+  %min.iters.check192 = icmp ult i64 %56, 16
   br i1 %min.iters.check192, label %vec.epilog.ph206, label %vector.ph194
 
 vector.ph194:                                     ; preds = %vector.main.loop.iter.check193
-  %n.vec196 = and i64 %94, -16
+  %n.vec196 = and i64 %56, -16
   br label %vector.body198
 
 vector.body198:                                   ; preds = %vector.body198, %vector.ph194
   %index199 = phi i64 [ 0, %vector.ph194 ], [ %index.next202, %vector.body198 ]
-  %next.gep200 = getelementptr i8, ptr %93, i64 %index199
+  %next.gep200 = getelementptr i8, ptr %55, i64 %index199
   %wide.load201 = load <16 x i8>, ptr %next.gep200, align 1, !tbaa !25
-  %95 = sext <16 x i8> %wide.load201 to <16 x i32>
-  %96 = add nsw <16 x i32> %95, splat (i32 -65)
-  %97 = icmp ult <16 x i32> %96, splat (i32 26)
-  %98 = add <16 x i8> %wide.load201, splat (i8 32)
-  %99 = select <16 x i1> %97, <16 x i8> %98, <16 x i8> %wide.load201
-  store <16 x i8> %99, ptr %next.gep200, align 1, !tbaa !25
+  %57 = sext <16 x i8> %wide.load201 to <16 x i32>
+  %58 = add nsw <16 x i32> %57, splat (i32 -65)
+  %59 = icmp ult <16 x i32> %58, splat (i32 26)
+  %60 = add <16 x i8> %wide.load201, splat (i8 32)
+  %61 = select <16 x i1> %59, <16 x i8> %60, <16 x i8> %wide.load201
+  store <16 x i8> %61, ptr %next.gep200, align 1, !tbaa !25
   %index.next202 = add nuw i64 %index199, 16
-  %100 = icmp eq i64 %index.next202, %n.vec196
-  br i1 %100, label %middle.block188, label %vector.body198, !llvm.loop !67
+  %62 = icmp eq i64 %index.next202, %n.vec196
+  br i1 %62, label %middle.block188, label %vector.body198, !llvm.loop !67
 
 middle.block188:                                  ; preds = %vector.body198
-  %cmp.n197 = icmp eq i64 %94, %n.vec196
+  %cmp.n197 = icmp eq i64 %56, %n.vec196
   br i1 %cmp.n197, label %if.end19, label %vec.epilog.iter.check205
 
 vec.epilog.iter.check205:                         ; preds = %middle.block188
-  %ind.end213 = getelementptr i8, ptr %93, i64 %n.vec196
-  %n.vec.remaining207 = and i64 %94, 8
+  %ind.end213 = getelementptr i8, ptr %55, i64 %n.vec196
+  %n.vec.remaining207 = and i64 %56, 8
   %min.epilog.iters.check208.not.not = icmp eq i64 %n.vec.remaining207, 0
   br i1 %min.epilog.iters.check208.not.not, label %for.body.i.i34.preheader, label %vec.epilog.ph206
 
 vec.epilog.ph206:                                 ; preds = %vec.epilog.iter.check205, %vector.main.loop.iter.check193
   %vec.epilog.resume.val209 = phi i64 [ %n.vec196, %vec.epilog.iter.check205 ], [ 0, %vector.main.loop.iter.check193 ]
-  %n.vec211 = and i64 %94, -8
+  %n.vec211 = and i64 %56, -8
   br label %vec.epilog.vector.body216
 
 vec.epilog.vector.body216:                        ; preds = %vec.epilog.vector.body216, %vec.epilog.ph206
   %index217 = phi i64 [ %vec.epilog.resume.val209, %vec.epilog.ph206 ], [ %index.next220, %vec.epilog.vector.body216 ]
-  %next.gep218 = getelementptr i8, ptr %93, i64 %index217
+  %next.gep218 = getelementptr i8, ptr %55, i64 %index217
   %wide.load219 = load <8 x i8>, ptr %next.gep218, align 1, !tbaa !25
-  %101 = sext <8 x i8> %wide.load219 to <8 x i32>
-  %102 = add nsw <8 x i32> %101, splat (i32 -65)
-  %103 = icmp ult <8 x i32> %102, splat (i32 26)
-  %104 = add <8 x i8> %wide.load219, splat (i8 32)
-  %105 = select <8 x i1> %103, <8 x i8> %104, <8 x i8> %wide.load219
-  store <8 x i8> %105, ptr %next.gep218, align 1, !tbaa !25
+  %63 = sext <8 x i8> %wide.load219 to <8 x i32>
+  %64 = add nsw <8 x i32> %63, splat (i32 -65)
+  %65 = icmp ult <8 x i32> %64, splat (i32 26)
+  %66 = add <8 x i8> %wide.load219, splat (i8 32)
+  %67 = select <8 x i1> %65, <8 x i8> %66, <8 x i8> %wide.load219
+  store <8 x i8> %67, ptr %next.gep218, align 1, !tbaa !25
   %index.next220 = add nuw i64 %index217, 8
-  %106 = icmp eq i64 %index.next220, %n.vec211
-  br i1 %106, label %vec.epilog.middle.block203, label %vec.epilog.vector.body216, !llvm.loop !68
+  %68 = icmp eq i64 %index.next220, %n.vec211
+  br i1 %68, label %vec.epilog.middle.block203, label %vec.epilog.vector.body216, !llvm.loop !68
 
 vec.epilog.middle.block203:                       ; preds = %vec.epilog.vector.body216
-  %ind.end212 = getelementptr i8, ptr %93, i64 %n.vec211
-  %cmp.n215 = icmp eq i64 %94, %n.vec211
+  %ind.end212 = getelementptr i8, ptr %55, i64 %n.vec211
+  %cmp.n215 = icmp eq i64 %56, %n.vec211
   br i1 %cmp.n215, label %if.end19, label %for.body.i.i34.preheader
 
 for.body.i.i34.preheader:                         ; preds = %vec.epilog.middle.block203, %vec.epilog.iter.check205, %iter.check191
-  %__result.sroa.0.015.i.i.ph = phi ptr [ %ind.end212, %vec.epilog.middle.block203 ], [ %ind.end213, %vec.epilog.iter.check205 ], [ %93, %iter.check191 ]
+  %__result.sroa.0.015.i.i.ph = phi ptr [ %ind.end212, %vec.epilog.middle.block203 ], [ %ind.end213, %vec.epilog.iter.check205 ], [ %55, %iter.check191 ]
   br label %for.body.i.i34
 
 for.body.i.i34:                                   ; preds = %for.body.i.i34.preheader, %for.body.i.i34
   %__result.sroa.0.015.i.i = phi ptr [ %incdec.ptr.i9.i.i, %for.body.i.i34 ], [ %__result.sroa.0.015.i.i.ph, %for.body.i.i34.preheader ]
-  %107 = load i8, ptr %__result.sroa.0.015.i.i, align 1, !tbaa !25
-  %conv.i.i.i = sext i8 %107 to i32
-  %108 = add nsw i32 %conv.i.i.i, -65
-  %or.cond.i.i.i.i = icmp ult i32 %108, 26
-  %add.i.i.i.i = add i8 %107, 32
-  %cond.i.i.i.i = select i1 %or.cond.i.i.i.i, i8 %add.i.i.i.i, i8 %107
+  %69 = load i8, ptr %__result.sroa.0.015.i.i, align 1, !tbaa !25
+  %conv.i.i.i = sext i8 %69 to i32
+  %70 = add nsw i32 %conv.i.i.i, -65
+  %or.cond.i.i.i.i = icmp ult i32 %70, 26
+  %add.i.i.i.i = add i8 %69, 32
+  %cond.i.i.i.i = select i1 %or.cond.i.i.i.i, i8 %add.i.i.i.i, i8 %69
   store i8 %cond.i.i.i.i, ptr %__result.sroa.0.015.i.i, align 1, !tbaa !25
   %incdec.ptr.i9.i.i = getelementptr i8, ptr %__result.sroa.0.015.i.i, i64 1
   %cmp.i.not.i.i35 = icmp eq ptr %incdec.ptr.i9.i.i, %add.ptr.i.i33
@@ -3020,27 +2864,27 @@ for.body.i.i34:                                   ; preds = %for.body.i.i34.preh
 
 if.end19:                                         ; preds = %for.body.i.i34, %vec.epilog.middle.block203, %middle.block188, %if.then16, %if.end
   %IgnorePaths = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %109 = load i8, ptr %IgnorePaths, align 8, !tbaa !13, !range !43, !noundef !44
-  %tobool20.not = icmp eq i8 %109, 0
+  %71 = load i8, ptr %IgnorePaths, align 8, !tbaa !13, !range !43, !noundef !44
+  %tobool20.not = icmp eq i8 %71, 0
   br i1 %tobool20.not, label %if.end24, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %110 = load ptr, ptr %FullName.i, align 8, !tbaa !3
-  %111 = load i64, ptr %_M_string_length.i.i.i.i2.i, align 8, !tbaa !10
-  %idx.ext.i = and i64 %111, 4294967295
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %110, i64 %idx.ext.i
+  %72 = load ptr, ptr %FullName.i, align 8, !tbaa !3
+  %73 = load i64, ptr %_M_string_length.i.i.i.i2.i, align 8, !tbaa !10
+  %idx.ext.i = and i64 %73, 4294967295
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %72, i64 %idx.ext.i
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.then21
   %p.0.i = phi ptr [ %add.ptr.i, %if.then21 ], [ %incdec.ptr.i, %while.body.i ]
-  %112 = load i8, ptr %p.0.i, align 1, !tbaa !25
-  switch i8 %112, label %land.rhs.i [
+  %74 = load i8, ptr %p.0.i, align 1, !tbaa !25
+  switch i8 %74, label %land.rhs.i [
     i8 47, label %while.end.i
     i8 92, label %while.end.i
   ]
 
 land.rhs.i:                                       ; preds = %while.cond.i
-  %cmp4.not.i = icmp eq ptr %p.0.i, %110
+  %cmp4.not.i = icmp eq ptr %p.0.i, %72
   br i1 %cmp4.not.i, label %if.end24, label %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.i
@@ -3048,7 +2892,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br label %while.cond.i, !llvm.loop !59
 
 while.end.i:                                      ; preds = %while.cond.i, %while.cond.i
-  %cmp5.not.i = icmp eq ptr %p.0.i, %110
+  %cmp5.not.i = icmp eq ptr %p.0.i, %72
   br i1 %cmp5.not.i, label %if.end24, label %if.then.i37
 
 if.then.i37:                                      ; preds = %while.end.i
@@ -3061,8 +2905,8 @@ if.then.i37:                                      ; preds = %while.end.i
 
 for.body.i.i38.preheader:                         ; preds = %if.then.i37
   %xtraiter = and i64 %call.i.i.i, 3
-  %113 = icmp samesign ult i64 %conv.i19.i, 4
-  br i1 %113, label %if.end24.loopexit.unr-lcssa, label %for.body.i.i38.preheader.new
+  %75 = icmp samesign ult i64 %conv.i19.i, 4
+  br i1 %75, label %if.end24.loopexit.unr-lcssa, label %for.body.i.i38.preheader.new
 
 for.body.i.i38.preheader.new:                     ; preds = %for.body.i.i38.preheader
   %unroll_iter = and i64 %call.i.i.i, 4294967292
@@ -3071,28 +2915,28 @@ for.body.i.i38.preheader.new:                     ; preds = %for.body.i.i38.preh
 for.body.i.i38:                                   ; preds = %for.body.i.i38, %for.body.i.i38.preheader.new
   %indvars.iv.i.i = phi i64 [ 0, %for.body.i.i38.preheader.new ], [ %indvars.iv.next.i.i.3, %for.body.i.i38 ]
   %arrayidx.i.i39 = getelementptr inbounds nuw i8, ptr %incdec.ptr6.i, i64 %indvars.iv.i.i
-  %114 = load i8, ptr %arrayidx.i.i39, align 1, !tbaa !25
-  %115 = load ptr, ptr %FullName.i, align 8, !tbaa !3
-  %arrayidx.i.i.i40 = getelementptr inbounds nuw i8, ptr %115, i64 %indvars.iv.i.i
-  store i8 %114, ptr %arrayidx.i.i.i40, align 1, !tbaa !25
+  %76 = load i8, ptr %arrayidx.i.i39, align 1, !tbaa !25
+  %77 = load ptr, ptr %FullName.i, align 8, !tbaa !3
+  %arrayidx.i.i.i40 = getelementptr inbounds nuw i8, ptr %77, i64 %indvars.iv.i.i
+  store i8 %76, ptr %arrayidx.i.i.i40, align 1, !tbaa !25
   %indvars.iv.next.i.i = or disjoint i64 %indvars.iv.i.i, 1
   %arrayidx.i.i39.1 = getelementptr inbounds nuw i8, ptr %incdec.ptr6.i, i64 %indvars.iv.next.i.i
-  %116 = load i8, ptr %arrayidx.i.i39.1, align 1, !tbaa !25
-  %117 = load ptr, ptr %FullName.i, align 8, !tbaa !3
-  %arrayidx.i.i.i40.1 = getelementptr inbounds nuw i8, ptr %117, i64 %indvars.iv.next.i.i
-  store i8 %116, ptr %arrayidx.i.i.i40.1, align 1, !tbaa !25
+  %78 = load i8, ptr %arrayidx.i.i39.1, align 1, !tbaa !25
+  %79 = load ptr, ptr %FullName.i, align 8, !tbaa !3
+  %arrayidx.i.i.i40.1 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv.next.i.i
+  store i8 %78, ptr %arrayidx.i.i.i40.1, align 1, !tbaa !25
   %indvars.iv.next.i.i.1 = or disjoint i64 %indvars.iv.i.i, 2
   %arrayidx.i.i39.2 = getelementptr inbounds nuw i8, ptr %incdec.ptr6.i, i64 %indvars.iv.next.i.i.1
-  %118 = load i8, ptr %arrayidx.i.i39.2, align 1, !tbaa !25
-  %119 = load ptr, ptr %FullName.i, align 8, !tbaa !3
-  %arrayidx.i.i.i40.2 = getelementptr inbounds nuw i8, ptr %119, i64 %indvars.iv.next.i.i.1
-  store i8 %118, ptr %arrayidx.i.i.i40.2, align 1, !tbaa !25
+  %80 = load i8, ptr %arrayidx.i.i39.2, align 1, !tbaa !25
+  %81 = load ptr, ptr %FullName.i, align 8, !tbaa !3
+  %arrayidx.i.i.i40.2 = getelementptr inbounds nuw i8, ptr %81, i64 %indvars.iv.next.i.i.1
+  store i8 %80, ptr %arrayidx.i.i.i40.2, align 1, !tbaa !25
   %indvars.iv.next.i.i.2 = or disjoint i64 %indvars.iv.i.i, 3
   %arrayidx.i.i39.3 = getelementptr inbounds nuw i8, ptr %incdec.ptr6.i, i64 %indvars.iv.next.i.i.2
-  %120 = load i8, ptr %arrayidx.i.i39.3, align 1, !tbaa !25
-  %121 = load ptr, ptr %FullName.i, align 8, !tbaa !3
-  %arrayidx.i.i.i40.3 = getelementptr inbounds nuw i8, ptr %121, i64 %indvars.iv.next.i.i.2
-  store i8 %120, ptr %arrayidx.i.i.i40.3, align 1, !tbaa !25
+  %82 = load i8, ptr %arrayidx.i.i39.3, align 1, !tbaa !25
+  %83 = load ptr, ptr %FullName.i, align 8, !tbaa !3
+  %arrayidx.i.i.i40.3 = getelementptr inbounds nuw i8, ptr %83, i64 %indvars.iv.next.i.i.2
+  store i8 %82, ptr %arrayidx.i.i.i40.3, align 1, !tbaa !25
   %indvars.iv.next.i.i.3 = add nuw i64 %indvars.iv.i.i, 4
   %niter.ncmp.3 = icmp eq i64 %indvars.iv.next.i.i.3, %unroll_iter
   br i1 %niter.ncmp.3, label %if.end24.loopexit.unr-lcssa, label %for.body.i.i38, !llvm.loop !60
@@ -3106,10 +2950,10 @@ for.body.i.i38.epil:                              ; preds = %if.end24.loopexit.u
   %indvars.iv.i.i.epil = phi i64 [ %indvars.iv.next.i.i.epil, %for.body.i.i38.epil ], [ %indvars.iv.i.i.unr, %if.end24.loopexit.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.i.i38.epil ], [ 0, %if.end24.loopexit.unr-lcssa ]
   %arrayidx.i.i39.epil = getelementptr inbounds nuw i8, ptr %incdec.ptr6.i, i64 %indvars.iv.i.i.epil
-  %122 = load i8, ptr %arrayidx.i.i39.epil, align 1, !tbaa !25
-  %123 = load ptr, ptr %FullName.i, align 8, !tbaa !3
-  %arrayidx.i.i.i40.epil = getelementptr inbounds nuw i8, ptr %123, i64 %indvars.iv.i.i.epil
-  store i8 %122, ptr %arrayidx.i.i.i40.epil, align 1, !tbaa !25
+  %84 = load i8, ptr %arrayidx.i.i39.epil, align 1, !tbaa !25
+  %85 = load ptr, ptr %FullName.i, align 8, !tbaa !3
+  %arrayidx.i.i.i40.epil = getelementptr inbounds nuw i8, ptr %85, i64 %indvars.iv.i.i.epil
+  store i8 %84, ptr %arrayidx.i.i.i40.epil, align 1, !tbaa !25
   %indvars.iv.next.i.i.epil = add nuw nsw i64 %indvars.iv.i.i.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
   %epil.iter.cmp.not = icmp eq i64 %epil.iter.next, %xtraiter
@@ -3118,16 +2962,16 @@ for.body.i.i38.epil:                              ; preds = %if.end24.loopexit.u
 if.end24:                                         ; preds = %land.rhs.i, %for.body.i.i38.epil, %if.end24.loopexit.unr-lcssa, %if.then.i37, %while.end.i, %if.end19
   %Files = getelementptr inbounds nuw i8, ptr %this, i64 48
   %is_sorted.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %124 = load i8, ptr %is_sorted.i, align 8, !tbaa !26, !range !43, !noundef !44
-  %tobool.not.i = icmp eq i8 %124, 0
+  %86 = load i8, ptr %is_sorted.i, align 8, !tbaa !26, !range !43, !noundef !44
+  %tobool.not.i = icmp eq i8 %86, 0
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i42
 
 if.then.i42:                                      ; preds = %if.end24
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %125 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
-  %126 = load ptr, ptr %Files, align 8, !tbaa !40
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %125 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %126 to i64
+  %87 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !41
+  %88 = load ptr, ptr %Files, align 8, !tbaa !40
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %87 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %88 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 80
   %conv.i43 = trunc i64 %sub.ptr.div.i.i to i32
@@ -3136,18 +2980,18 @@ if.then.i42:                                      ; preds = %if.end24
   br label %_ZNK3irr4core5arrayINS_2io14SFileListEntryEE13binary_searchERKS3_.exit
 
 if.else.i:                                        ; preds = %if.end24
-  %127 = load ptr, ptr %Files, align 8, !tbaa !45
+  %89 = load ptr, ptr %Files, align 8, !tbaa !45
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %128 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !45
-  %call.i.i.i.i = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIS5_EEET_SE_SE_T0_St26random_access_iterator_tag(ptr %127, ptr %128, ptr nonnull %entry2)
-  %129 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !45
-  %cmp.i.i.i = icmp eq ptr %call.i.i.i.i, %129
+  %90 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !45
+  %call.i.i.i.i = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN3irr2io14SFileListEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops16_Iter_equals_valIS5_EEET_SE_SE_T0_St26random_access_iterator_tag(ptr %89, ptr %90, ptr nonnull %entry2)
+  %91 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !45
+  %cmp.i.i.i = icmp eq ptr %call.i.i.i.i, %91
   br i1 %cmp.i.i.i, label %_ZNK3irr4core5arrayINS_2io14SFileListEntryEE13binary_searchERKS3_.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i
-  %130 = load ptr, ptr %Files, align 8, !tbaa !45
+  %92 = load ptr, ptr %Files, align 8, !tbaa !45
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %call.i.i.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %130 to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %92 to i64
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %sub.ptr.div.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i, 80
   %conv.i.i44 = trunc i64 %sub.ptr.div.i.i.i to i32
@@ -3155,33 +2999,33 @@ if.end.i.i:                                       ; preds = %if.else.i
 
 _ZNK3irr4core5arrayINS_2io14SFileListEntryEE13binary_searchERKS3_.exit: ; preds = %if.end.i.i, %if.else.i, %if.then.i42
   %retval.0.i = phi i32 [ %call2.i, %if.then.i42 ], [ %conv.i.i44, %if.end.i.i ], [ -1, %if.else.i ]
-  %131 = load ptr, ptr %FullName.i, align 8, !tbaa !3
-  %cmp.i.i.i.i.i = icmp eq ptr %131, %1
+  %93 = load ptr, ptr %FullName.i, align 8, !tbaa !3
+  %cmp.i.i.i.i.i = icmp eq ptr %93, %1
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZNK3irr4core5arrayINS_2io14SFileListEntryEE13binary_searchERKS3_.exit
-  %132 = load i64, ptr %_M_string_length.i.i.i.i2.i, align 8, !tbaa !10
-  %cmp3.i.i.i.i.i = icmp ult i64 %132, 16
+  %94 = load i64, ptr %_M_string_length.i.i.i.i2.i, align 8, !tbaa !10
+  %cmp3.i.i.i.i.i = icmp ult i64 %94, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
   br label %_ZN3irr4core6stringIcED2Ev.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %_ZNK3irr4core5arrayINS_2io14SFileListEntryEE13binary_searchERKS3_.exit
-  call void @_ZdlPv(ptr noundef %131) #20
+  call void @_ZdlPv(ptr noundef %93) #20
   br label %_ZN3irr4core6stringIcED2Ev.exit.i
 
 _ZN3irr4core6stringIcED2Ev.exit.i:                ; preds = %if.then.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  %133 = load ptr, ptr %entry2, align 8, !tbaa !3
-  %cmp.i.i.i.i2.i = icmp eq ptr %133, %0
+  %95 = load ptr, ptr %entry2, align 8, !tbaa !3
+  %cmp.i.i.i.i2.i = icmp eq ptr %95, %0
   br i1 %cmp.i.i.i.i2.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4.i, label %if.then.i.i.i3.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4.i: ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i
-  %134 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
-  %cmp3.i.i.i.i6.i = icmp ult i64 %134, 16
+  %96 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
+  %cmp3.i.i.i.i6.i = icmp ult i64 %96, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i6.i)
   br label %_ZN3irr2io14SFileListEntryD2Ev.exit
 
 if.then.i.i.i3.i:                                 ; preds = %_ZN3irr4core6stringIcED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef %133) #20
+  call void @_ZdlPv(ptr noundef %95) #20
   br label %_ZN3irr2io14SFileListEntryD2Ev.exit
 
 _ZN3irr2io14SFileListEntryD2Ev.exit:              ; preds = %if.then.i.i.i3.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i4.i

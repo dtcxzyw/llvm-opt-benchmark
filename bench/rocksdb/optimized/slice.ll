@@ -2806,99 +2806,98 @@ define noundef zeroext i1 @_ZNK7rocksdb5Slice9DecodeHexEPNSt7__cxx1112basic_stri
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %11
 
-11:                                               ; preds = %.lr.ph, %52
-  %.02139 = phi i64 [ 0, %.lr.ph ], [ %26, %52 ]
+11:                                               ; preds = %.lr.ph, %51
+  %.02139 = phi i64 [ 0, %.lr.ph ], [ %25, %51 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !126
-  %13 = or disjoint i64 %.02139, 1
-  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.02139
-  %15 = load i8, ptr %14, align 1, !tbaa !25
-  %16 = add i8 %15, -97
-  %or.cond.i = icmp ult i8 %16, 6
-  %17 = add nsw i8 %15, -32
-  %spec.select.i = select i1 %or.cond.i, i8 %17, i8 %15
-  %18 = sext i8 %spec.select.i to i32
-  %19 = icmp slt i8 %spec.select.i, 48
-  br i1 %19, label %.thread, label %20
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.02139
+  %14 = load i8, ptr %13, align 1, !tbaa !25
+  %15 = add i8 %14, -97
+  %or.cond.i = icmp ult i8 %15, 6
+  %16 = add nsw i8 %14, -32
+  %spec.select.i = select i1 %or.cond.i, i8 %16, i8 %14
+  %17 = sext i8 %spec.select.i to i32
+  %18 = icmp slt i8 %spec.select.i, 48
+  br i1 %18, label %.thread, label %19
 
-20:                                               ; preds = %11
-  %21 = icmp samesign ugt i8 %spec.select.i, 57
-  %22 = add nsw i8 %spec.select.i, -71
-  %or.cond5.i = icmp ult i8 %22, -6
-  %or.cond19.i = select i1 %21, i1 %or.cond5.i, i1 false
+19:                                               ; preds = %11
+  %20 = icmp samesign ugt i8 %spec.select.i, 57
+  %21 = add nsw i8 %spec.select.i, -71
+  %or.cond5.i = icmp ult i8 %21, -6
+  %or.cond19.i = select i1 %20, i1 %or.cond5.i, i1 false
   br i1 %or.cond19.i, label %.thread, label %_ZN7rocksdb7fromHexEc.exit
 
-_ZN7rocksdb7fromHexEc.exit:                       ; preds = %20
-  %23 = icmp samesign ult i8 %spec.select.i, 58
-  %.016.i.v = select i1 %23, i32 -48, i32 -55
-  %.016.i = add nsw i32 %.016.i.v, %18
-  %24 = icmp slt i32 %.016.i, 0
-  br i1 %24, label %.thread, label %25
+_ZN7rocksdb7fromHexEc.exit:                       ; preds = %19
+  %22 = icmp samesign ult i8 %spec.select.i, 58
+  %.016.i.v = select i1 %22, i32 -48, i32 -55
+  %.016.i = add nsw i32 %.016.i.v, %17
+  %23 = icmp slt i32 %.016.i, 0
+  br i1 %23, label %.thread, label %24
 
-25:                                               ; preds = %_ZN7rocksdb7fromHexEc.exit
-  %26 = add i64 %.02139, 2
-  %27 = getelementptr inbounds nuw i8, ptr %12, i64 %13
-  %28 = load i8, ptr %27, align 1, !tbaa !25
-  %29 = add i8 %28, -97
-  %or.cond.i28 = icmp ult i8 %29, 6
-  %30 = add nsw i8 %28, -32
-  %spec.select.i29 = select i1 %or.cond.i28, i8 %30, i8 %28
-  %31 = sext i8 %spec.select.i29 to i32
-  %32 = icmp slt i8 %spec.select.i29, 48
-  br i1 %32, label %.thread, label %33
+24:                                               ; preds = %_ZN7rocksdb7fromHexEc.exit
+  %25 = add i64 %.02139, 2
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %27 = load i8, ptr %26, align 1, !tbaa !25
+  %28 = add i8 %27, -97
+  %or.cond.i28 = icmp ult i8 %28, 6
+  %29 = add nsw i8 %27, -32
+  %spec.select.i29 = select i1 %or.cond.i28, i8 %29, i8 %27
+  %30 = sext i8 %spec.select.i29 to i32
+  %31 = icmp slt i8 %spec.select.i29, 48
+  br i1 %31, label %.thread, label %32
 
-33:                                               ; preds = %25
-  %34 = icmp samesign ugt i8 %spec.select.i29, 57
-  %35 = add nsw i8 %spec.select.i29, -71
-  %or.cond5.i30 = icmp ult i8 %35, -6
-  %or.cond19.i31 = select i1 %34, i1 %or.cond5.i30, i1 false
+32:                                               ; preds = %24
+  %33 = icmp samesign ugt i8 %spec.select.i29, 57
+  %34 = add nsw i8 %spec.select.i29, -71
+  %or.cond5.i30 = icmp ult i8 %34, -6
+  %or.cond19.i31 = select i1 %33, i1 %or.cond5.i30, i1 false
   br i1 %or.cond19.i31, label %.thread, label %_ZN7rocksdb7fromHexEc.exit33
 
-_ZN7rocksdb7fromHexEc.exit33:                     ; preds = %33
-  %36 = icmp samesign ult i8 %spec.select.i29, 58
-  %.016.i32.v = select i1 %36, i32 -48, i32 -55
-  %.016.i32 = add nsw i32 %.016.i32.v, %31
-  %37 = icmp sgt i32 %.016.i32, -1
-  br i1 %37, label %38, label %.thread
+_ZN7rocksdb7fromHexEc.exit33:                     ; preds = %32
+  %35 = icmp samesign ult i8 %spec.select.i29, 58
+  %.016.i32.v = select i1 %35, i32 -48, i32 -55
+  %.016.i32 = add nsw i32 %.016.i32.v, %30
+  %36 = icmp sgt i32 %.016.i32, -1
+  br i1 %36, label %37, label %.thread
 
-38:                                               ; preds = %_ZN7rocksdb7fromHexEc.exit33
-  %39 = shl nuw nsw i32 %.016.i, 4
-  %40 = or i32 %.016.i32, %39
-  %41 = trunc i32 %40 to i8
-  %42 = load i64, ptr %7, align 8, !tbaa !24
-  %43 = add i64 %42, 1
-  %44 = load ptr, ptr %1, align 8, !tbaa !27
-  %45 = icmp eq ptr %44, %10
-  br i1 %45, label %46, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+37:                                               ; preds = %_ZN7rocksdb7fromHexEc.exit33
+  %38 = shl nuw nsw i32 %.016.i, 4
+  %39 = or i32 %.016.i32, %38
+  %40 = trunc i32 %39 to i8
+  %41 = load i64, ptr %7, align 8, !tbaa !24
+  %42 = add i64 %41, 1
+  %43 = load ptr, ptr %1, align 8, !tbaa !27
+  %44 = icmp eq ptr %43, %10
+  br i1 %44, label %45, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
-46:                                               ; preds = %38
-  %47 = icmp ult i64 %42, 16
-  tail call void @llvm.assume(i1 %47)
+45:                                               ; preds = %37
+  %46 = icmp ult i64 %41, 16
+  tail call void @llvm.assume(i1 %46)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %46, %38
-  %48 = load i64, ptr %10, align 8
-  %49 = select i1 %45, i64 15, i64 %48
-  %50 = icmp ugt i64 %43, %49
-  br i1 %50, label %51, label %52
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %45, %37
+  %47 = load i64, ptr %10, align 8
+  %48 = select i1 %44, i64 15, i64 %47
+  %49 = icmp ugt i64 %42, %48
+  br i1 %49, label %50, label %51
 
-51:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %42, i64 noundef 0, ptr noundef null, i64 noundef 1)
+50:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %41, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !27
-  br label %52
+  br label %51
 
-52:                                               ; preds = %51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
-  %53 = phi ptr [ %.pre.i, %51 ], [ %44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %42
-  store i8 %41, ptr %54, align 1, !tbaa !25
-  store i64 %43, ptr %7, align 8, !tbaa !24
-  %55 = load ptr, ptr %1, align 8, !tbaa !27
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %43
-  store i8 0, ptr %56, align 1, !tbaa !25
-  %.not27.not = icmp ult i64 %26, %4
+51:                                               ; preds = %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+  %52 = phi ptr [ %.pre.i, %50 ], [ %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %41
+  store i8 %40, ptr %53, align 1, !tbaa !25
+  store i64 %42, ptr %7, align 8, !tbaa !24
+  %54 = load ptr, ptr %1, align 8, !tbaa !27
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %42
+  store i8 0, ptr %55, align 1, !tbaa !25
+  %.not27.not = icmp ult i64 %25, %4
   br i1 %.not27.not, label %11, label %.thread, !llvm.loop !140
 
-.thread:                                          ; preds = %25, %33, %11, %20, %_ZN7rocksdb7fromHexEc.exit33, %_ZN7rocksdb7fromHexEc.exit, %52, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %25 ], [ false, %33 ], [ false, %11 ], [ false, %20 ], [ false, %_ZN7rocksdb7fromHexEc.exit33 ], [ false, %_ZN7rocksdb7fromHexEc.exit ], [ true, %52 ]
+.thread:                                          ; preds = %24, %32, %11, %19, %_ZN7rocksdb7fromHexEc.exit33, %_ZN7rocksdb7fromHexEc.exit, %51, %6, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %6 ], [ false, %24 ], [ false, %32 ], [ false, %11 ], [ false, %19 ], [ false, %_ZN7rocksdb7fromHexEc.exit33 ], [ false, %_ZN7rocksdb7fromHexEc.exit ], [ true, %51 ]
   ret i1 %.0
 }
 

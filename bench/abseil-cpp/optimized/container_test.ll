@@ -53148,8 +53148,8 @@ _ZSt11find_if_notIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEPFbiEET_S
 
 .lr.ph.i.i.i.i.i.preheader.i.i:                   ; preds = %47
   %53 = and i64 %50, -16
-  %54 = or disjoint i64 %53, 4
-  %scevgep40.i.i = getelementptr i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, i64 %54
+  %54 = getelementptr i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, i64 %53
+  %scevgep40.i.i = getelementptr i8, ptr %54, i64 4
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %69, %.lr.ph.i.i.i.i.i.preheader.i.i

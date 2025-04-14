@@ -3323,16 +3323,16 @@ _ZNK3gmx11StopHandler9setSignalEv.exit:           ; preds = %54, %.critedge.i, %
   %84 = getelementptr inbounds nuw i8, ptr %62, i64 2612
   %85 = load i32, ptr %84, align 4, !tbaa !405
   %86 = mul nsw i32 %85, 60
-  %87 = or disjoint i32 %86, 1
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %struct.wallcc_t, ptr %74, i64 %88
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr %struct.wallcc_t, ptr %74, i64 %87
+  %89 = getelementptr i8, ptr %88, i64 24
   %90 = load i32, ptr %89, align 8, !tbaa !441
   %91 = add nsw i32 %90, 1
   store i32 %91, ptr %89, align 8, !tbaa !441
   %92 = getelementptr inbounds nuw i8, ptr %62, i64 2616
   %93 = load i64, ptr %92, align 8, !tbaa !406
   %94 = sub i64 %71, %93
-  %95 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %95 = getelementptr i8, ptr %88, i64 32
   %96 = load i64, ptr %95, align 8, !tbaa !442
   %97 = add i64 %94, %96
   store i64 %97, ptr %95, align 8, !tbaa !442

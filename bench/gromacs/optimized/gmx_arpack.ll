@@ -544,10 +544,10 @@ sub_0200:                                         ; preds = %117
   %299 = sext i32 %narrow.i.i to i64
   %300 = getelementptr inbounds double, ptr %184, i64 %299
   %301 = shl i32 %.val384.i, 1
-  %302 = or disjoint i32 %301, 1
-  %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds double, ptr %300, i64 %303
-  call void @dcopy_(ptr noundef nonnull %298, ptr noundef nonnull %304, ptr noundef nonnull %44, ptr noundef nonnull %189, ptr noundef nonnull %44)
+  %302 = sext i32 %301 to i64
+  %303 = getelementptr double, ptr %300, i64 %302
+  %304 = getelementptr i8, ptr %303, i64 8
+  call void @dcopy_(ptr noundef nonnull %298, ptr noundef %304, ptr noundef nonnull %44, ptr noundef nonnull %189, ptr noundef nonnull %44)
   %305 = load i32, ptr %298, align 4, !tbaa !3
   %306 = add nsw i32 %305, -1
   store i32 %306, ptr %45, align 4, !tbaa !3
@@ -1349,10 +1349,10 @@ _ZL7dstqrb_PiPdS0_S0_S0_S_.exit.i.thread.i:       ; preds = %292
   call void @dcopy_(ptr noundef nonnull %298, ptr noundef nonnull %189, ptr noundef nonnull %46, ptr noundef %657, ptr noundef nonnull %46)
   %658 = load i32, ptr %298, align 4, !tbaa !3
   %659 = shl i32 %658, 1
-  %660 = or disjoint i32 %659, 1
-  %661 = sext i32 %660 to i64
-  %662 = getelementptr inbounds double, ptr %202, i64 %661
-  call void @dcopy_(ptr noundef nonnull %298, ptr noundef nonnull %192, ptr noundef nonnull %46, ptr noundef nonnull %662, ptr noundef nonnull %46)
+  %660 = sext i32 %659 to i64
+  %661 = getelementptr double, ptr %202, i64 %660
+  %662 = getelementptr i8, ptr %661, i64 8
+  call void @dcopy_(ptr noundef nonnull %298, ptr noundef nonnull %192, ptr noundef nonnull %46, ptr noundef %662, ptr noundef nonnull %46)
   %663 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %664 = load i32, ptr %663, align 4, !tbaa !3
   store i32 %664, ptr %176, align 4, !tbaa !3
@@ -4498,10 +4498,10 @@ sub_0200:                                         ; preds = %117
   %299 = sext i32 %narrow.i.i to i64
   %300 = getelementptr inbounds float, ptr %184, i64 %299
   %301 = shl i32 %.val384.i, 1
-  %302 = or disjoint i32 %301, 1
-  %303 = sext i32 %302 to i64
-  %304 = getelementptr inbounds float, ptr %300, i64 %303
-  call void @scopy_(ptr noundef nonnull %298, ptr noundef nonnull %304, ptr noundef nonnull %44, ptr noundef nonnull %189, ptr noundef nonnull %44)
+  %302 = sext i32 %301 to i64
+  %303 = getelementptr float, ptr %300, i64 %302
+  %304 = getelementptr i8, ptr %303, i64 4
+  call void @scopy_(ptr noundef nonnull %298, ptr noundef %304, ptr noundef nonnull %44, ptr noundef nonnull %189, ptr noundef nonnull %44)
   %305 = load i32, ptr %298, align 4, !tbaa !3
   %306 = add nsw i32 %305, -1
   store i32 %306, ptr %45, align 4, !tbaa !3
@@ -5317,10 +5317,10 @@ _ZL7sstqrb_PiPfS0_S0_S0_S_.exit.i.thread.i:       ; preds = %292
   call void @scopy_(ptr noundef nonnull %298, ptr noundef nonnull %189, ptr noundef nonnull %46, ptr noundef %671, ptr noundef nonnull %46)
   %672 = load i32, ptr %298, align 4, !tbaa !3
   %673 = shl i32 %672, 1
-  %674 = or disjoint i32 %673, 1
-  %675 = sext i32 %674 to i64
-  %676 = getelementptr inbounds float, ptr %202, i64 %675
-  call void @scopy_(ptr noundef nonnull %298, ptr noundef nonnull %192, ptr noundef nonnull %46, ptr noundef nonnull %676, ptr noundef nonnull %46)
+  %674 = sext i32 %673 to i64
+  %675 = getelementptr float, ptr %202, i64 %674
+  %676 = getelementptr i8, ptr %675, i64 4
+  call void @scopy_(ptr noundef nonnull %298, ptr noundef nonnull %192, ptr noundef nonnull %46, ptr noundef %676, ptr noundef nonnull %46)
   %677 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %678 = load i32, ptr %677, align 4, !tbaa !3
   store i32 %678, ptr %176, align 4, !tbaa !3

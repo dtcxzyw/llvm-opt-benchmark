@@ -23238,9 +23238,9 @@ _ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj
   br i1 %.not9.i.i.i, label %208, label %"_ZN2OT16OpenTypeFontFile16serialize_singleI13hb_map_iter_tI10hb_array_tIK9hb_pair_tIj17face_table_info_tEEZL36_hb_face_builder_data_reference_blobP22hb_face_builder_data_tE3$_0L24hb_function_sortedness_t0ELPv0EETnPN12hb_enable_ifIXsr15hb_is_source_ofIT_S4_IjP9hb_blob_tEEE5valueEvE4typeELSD_0EEEbP22hb_serialize_context_tjSG_.exit.i", !prof !350
 
 208:                                              ; preds = %_ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj2EEEEERjEEbRT_OT0_20hb_serialize_error_t.exit.i.i
-  %209 = or disjoint i32 %199, 8
-  %210 = zext nneg i32 %209 to i64
-  %211 = getelementptr inbounds nuw i8, ptr %133, i64 %210
+  %209 = zext nneg i32 %199 to i64
+  %210 = getelementptr inbounds nuw i8, ptr %133, i64 %209
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %212 = load ptr, ptr %134, align 8, !tbaa !712
   %213 = ptrtoint ptr %211 to i64
   %214 = ptrtoint ptr %212 to i64
@@ -36137,8 +36137,8 @@ _ZNK16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_
   %65 = tail call noundef i16 @llvm.bswap.i16(i16 %64)
   %66 = zext i16 %65 to i64
   %67 = shl nuw nsw i64 %66, 2
-  %68 = or disjoint i64 %67, 2
-  %69 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 %68
+  %68 = getelementptr inbounds nuw i8, ptr %.0911.i, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK2OT4avar12unmap_coordsEPij.exit, label %.lr.ph.i, !llvm.loop !926
@@ -95246,8 +95246,8 @@ define linkonce_odr dso_local void @_ZNK2OT4avar10map_coordsEPij(ptr noundef non
   %15 = tail call noundef i16 @llvm.bswap.i16(i16 %14)
   %16 = zext i16 %15 to i64
   %17 = shl nuw nsw i64 %16, 2
-  %18 = or disjoint i64 %17, 2
-  %19 = getelementptr inbounds nuw i8, ptr %.03485, i64 %18
+  %18 = getelementptr inbounds nuw i8, ptr %.03485, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !2063
@@ -95267,8 +95267,8 @@ define linkonce_odr dso_local void @_ZNK2OT4avar10map_coordsEPij(ptr noundef non
   %26 = tail call noundef i16 @llvm.bswap.i16(i16 %25)
   %27 = zext i16 %26 to i64
   %28 = shl nuw nsw i64 %27, 2
-  %29 = or disjoint i64 %28, 2
-  %30 = getelementptr inbounds nuw i8, ptr %.186, i64 %29
+  %29 = getelementptr inbounds nuw i8, ptr %.186, i64 %28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %31 = add nuw nsw i32 %.03387, 1
   %exitcond110.not = icmp eq i32 %31, %23
   br i1 %exitcond110.not, label %._crit_edge90, label %.lr.ph89, !llvm.loop !2064
@@ -108194,12 +108194,12 @@ _ZNK2OT18ResourceTypeRecord18get_resource_countEv.exit.i.i: ; preds = %_ZNK2OT11
   %75 = load i8, ptr %74, align 1, !tbaa !219
   %76 = zext i8 %75 to i64
   %77 = shl nuw nsw i64 %76, 8
-  %78 = or disjoint i64 %77, %73
-  %79 = getelementptr inbounds nuw i8, ptr %69, i64 7
-  %80 = load i8, ptr %79, align 1, !tbaa !219
-  %81 = zext i8 %80 to i64
-  %82 = or disjoint i64 %78, %81
-  %83 = getelementptr inbounds nuw i8, ptr %32, i64 %82
+  %78 = getelementptr inbounds nuw i8, ptr %69, i64 7
+  %79 = load i8, ptr %78, align 1, !tbaa !219
+  %80 = zext i8 %79 to i64
+  %81 = getelementptr inbounds nuw i8, ptr %32, i64 %77
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %73
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %80
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   br label %_ZNK2OT11ResourceMap8get_faceEjPKv.exit.i
 
@@ -276992,12 +276992,12 @@ _ZNK2OT14UnsizedArrayOfINS_14ResourceRecordEE16sanitize_shallowEP21hb_sanitize_c
   %107 = load i8, ptr %106, align 1, !tbaa !219
   %108 = zext i8 %107 to i64
   %109 = shl nuw nsw i64 %108, 8
-  %110 = or disjoint i64 %109, %105
-  %111 = getelementptr inbounds nuw i8, ptr %91, i64 7
-  %112 = load i8, ptr %111, align 1, !tbaa !219
-  %113 = zext i8 %112 to i64
-  %114 = or disjoint i64 %110, %113
-  %115 = getelementptr inbounds nuw i8, ptr %43, i64 %114
+  %110 = getelementptr inbounds nuw i8, ptr %91, i64 7
+  %111 = load i8, ptr %110, align 1, !tbaa !219
+  %112 = zext i8 %111 to i64
+  %113 = getelementptr inbounds nuw i8, ptr %43, i64 %109
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 %105
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 %112
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %117 = load ptr, ptr %6, align 8, !tbaa !80
   %118 = ptrtoint ptr %116 to i64
@@ -277043,11 +277043,11 @@ _ZNK2OT8OffsetToINS_7ArrayOfINS_7IntTypeIhLj1EEENS2_IjLj4EEEEENS2_IjLj3EEEvLb0EE
   %142 = load i8, ptr %106, align 1, !tbaa !219
   %143 = zext i8 %142 to i64
   %144 = shl nuw nsw i64 %143, 8
-  %145 = or disjoint i64 %144, %141
-  %146 = load i8, ptr %111, align 1, !tbaa !219
-  %147 = zext i8 %146 to i64
-  %148 = or disjoint i64 %145, %147
-  %149 = getelementptr inbounds nuw i8, ptr %43, i64 %148
+  %145 = load i8, ptr %110, align 1, !tbaa !219
+  %146 = zext i8 %145 to i64
+  %147 = getelementptr inbounds nuw i8, ptr %43, i64 %144
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 %141
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 %146
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %151 = load ptr, ptr %6, align 8, !tbaa !80
   %152 = ptrtoint ptr %150 to i64
@@ -280991,8 +280991,8 @@ _ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_s
 _ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE8sanitizeIJEEEbP21hb_sanitize_context_tDpOT_.exit: ; preds = %_ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit
   %57 = zext i16 %41 to i64
   %58 = shl nuw nsw i64 %57, 2
-  %59 = or disjoint i64 %58, 2
-  %60 = getelementptr inbounds nuw i8, ptr %.01528, i64 %59
+  %59 = getelementptr inbounds nuw i8, ptr %.01528, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %61 = add nuw nsw i32 %.01329, 1
   %exitcond.not = icmp eq i32 %61, %umax
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %31, !llvm.loop !5012

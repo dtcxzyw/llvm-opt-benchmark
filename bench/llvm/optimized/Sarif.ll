@@ -12517,22 +12517,22 @@ define linkonce_odr void @_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefEN5clang6
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread
-  %.035 = phi i64 [ %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread ], [ %1, %4 ]
-  %9 = shl i64 %.035, 1
+  %.036 = phi i64 [ %spec.select35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread ], [ %1, %4 ]
+  %9 = shl i64 %.036, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.std::pair.103", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.std::pair.103", ptr %0, i64 %12
+  %12 = getelementptr %"struct.std::pair.103", ptr %0, i64 %9
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !51
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr i8, ptr %12, i64 264
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !51
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload.i.i.i.i, i64 %.sroa.22.0.copyload.i.i.i.i)
-  %14 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
-  br i1 %14, label %.thread.i.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
+  %13 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 0
+  br i1 %13, label %.thread.i.i.i.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %.lr.ph
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %13, align 8, !tbaa !64
+  %14 = getelementptr i8, ptr %12, i64 256
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !64
   %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %11, align 8, !tbaa !64
   %15 = tail call i32 @memcmp(ptr noundef %.sroa.01.0.copyload.i.i.i.i, ptr noundef %.sroa.0.0.copyload.i.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i) #22
   %.fr.i.i.i.i.i.i = freeze i32 %15
@@ -12541,28 +12541,27 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %.lr.ph
 
 .thread.i.i.i.i.i.i:                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i, %.lr.ph
   %16 = icmp ult i64 %.sroa.22.0.copyload.i.i.i.i, %.sroa.2.0.copyload.i.i.i.i
-  br i1 %16, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i
   %17 = icmp slt i32 %.fr.i.i.i.i.i.i, 0
-  br i1 %17, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread32: ; preds = %.thread.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread: ; preds = %.thread.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread32
-  %18 = phi i64 [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread32 ], [ %10, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit ], [ %10, %.thread.i.i.i.i.i.i ]
-  %19 = getelementptr inbounds %"struct.std::pair.103", ptr %0, i64 %18
-  %20 = getelementptr inbounds %"struct.std::pair.103", ptr %0, i64 %.035
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread: ; preds = %.thread.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit
+  %.sink = phi i1 [ %16, %.thread.i.i.i.i.i.i ], [ %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit ]
+  %18 = or disjoint i64 %9, 1
+  %spec.select35 = select i1 %.sink, i64 %18, i64 %10
+  %19 = getelementptr inbounds %"struct.std::pair.103", ptr %0, i64 %spec.select35
+  %20 = getelementptr inbounds %"struct.std::pair.103", ptr %0, i64 %.036
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %20, ptr noundef nonnull align 8 dereferenceable(256) %19, i64 16, i1 false), !tbaa.struct !194
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = tail call noundef nonnull align 8 dereferenceable(240) ptr @_ZN5clang6detail13SarifArtifactaSEOS1_(ptr noundef nonnull align 8 dereferenceable(240) %22, ptr noundef nonnull align 8 dereferenceable(240) %21)
-  %24 = icmp slt i64 %18, %7
+  %24 = icmp slt i64 %spec.select35, %7
   br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !408
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread, %4
-  %.0.lcssa = phi i64 [ %1, %4 ], [ %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread ]
+  %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select35, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEclIPSt4pairINS2_9StringRefEN5clang6detail13SarifArtifactEESC_EEbT_T0_.exit.thread ]
   %25 = and i64 %2, 1
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %27, label %39
@@ -12650,12 +12649,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %63, ptr %60, align 8, !tbaa !33
   %71 = load i64, ptr %64, align 8, !tbaa !52
   store i64 %71, ptr %62, align 8, !tbaa !52
-  %.phi.trans.insert36 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %.pre37 = load i64, ptr %.phi.trans.insert36, align 8, !tbaa !36
+  %.phi.trans.insert37 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %.pre38 = load i64, ptr %.phi.trans.insert37, align 8, !tbaa !36
   br label %_ZN5clang6detail21SarifArtifactLocationC2EOS1_.exit.i.i
 
 _ZN5clang6detail21SarifArtifactLocationC2EOS1_.exit.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i, %66
-  %72 = phi i64 [ %.pre37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %68, %66 ]
+  %72 = phi i64 [ %.pre38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i ], [ %68, %66 ]
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store i64 %72, ptr %74, align 8, !tbaa !36

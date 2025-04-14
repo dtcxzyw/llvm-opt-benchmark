@@ -32515,6 +32515,7 @@ _ZNK4llvm9MapVectorIPKNS_5ValueEjNS_8DenseMapIS3_jNS_12DenseMapInfoIS3_vEENS_6de
 define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_T2_"(ptr noundef captures(none) %0, i64 noundef range(i64 0, 288230376151711743) %1, i64 noundef range(i64 -576460752303423488, 576460752303423488) %2, ptr %3, i32 %4, ptr noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 captures(none) %5) unnamed_addr #1 {
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
+  %invariant.gep = getelementptr i8, ptr %0, i64 16
   %9 = icmp slt i64 %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
@@ -32523,79 +32524,79 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9
   %10 = shl i64 %.031, 1
   %11 = add i64 %10, 2
   %12 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %11
-  %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %13
+  %gep = getelementptr %"struct.std::pair.417", ptr %invariant.gep, i64 %10
   %.val = load ptr, ptr %12, align 8, !tbaa !445
-  %.val30 = load ptr, ptr %14, align 8, !tbaa !445
-  %15 = call fastcc noundef zeroext i1 @"_ZZL24predictValueUseListOrderPKN4llvm5ValueEjRKNS_9MapVectorIS2_jNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj0EEEEEENK3$_0clERKSC_IPKNS_3UseEjESO_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %5, ptr %.val, ptr %.val30)
-  %spec.select = select i1 %15, i64 %13, i64 %11
-  %16 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %spec.select
-  %17 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %.031
-  %18 = load ptr, ptr %16, align 8, !tbaa !185
-  store ptr %18, ptr %17, align 8, !tbaa !445
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %20 = load i32, ptr %19, align 4, !tbaa !120
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i32 %20, ptr %21, align 8, !tbaa !447
-  %22 = icmp slt i64 %spec.select, %8
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !894
+  %.val30 = load ptr, ptr %gep, align 8, !tbaa !445
+  %13 = call fastcc noundef zeroext i1 @"_ZZL24predictValueUseListOrderPKN4llvm5ValueEjRKNS_9MapVectorIS2_jNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj0EEEEEENK3$_0clERKSC_IPKNS_3UseEjESO_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %5, ptr %.val, ptr %.val30)
+  %14 = or disjoint i64 %10, 1
+  %spec.select = select i1 %13, i64 %14, i64 %11
+  %15 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %spec.select
+  %16 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %.031
+  %17 = load ptr, ptr %15, align 8, !tbaa !185
+  store ptr %17, ptr %16, align 8, !tbaa !445
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %19 = load i32, ptr %18, align 4, !tbaa !120
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i32 %19, ptr %20, align 8, !tbaa !447
+  %21 = icmp slt i64 %spec.select, %8
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !894
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.0.lcssa = phi i64 [ %1, %6 ], [ %spec.select, %.lr.ph ]
-  %23 = and i64 %2, 1
-  %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %38
+  %22 = and i64 %2, 1
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %24, label %37
 
-25:                                               ; preds = %._crit_edge
-  %26 = add nsw i64 %2, -2
-  %27 = ashr exact i64 %26, 1
-  %28 = icmp eq i64 %.0.lcssa, %27
-  br i1 %28, label %29, label %38
+24:                                               ; preds = %._crit_edge
+  %25 = add nsw i64 %2, -2
+  %26 = ashr exact i64 %25, 1
+  %27 = icmp eq i64 %.0.lcssa, %26
+  br i1 %27, label %28, label %37
 
-29:                                               ; preds = %25
-  %30 = shl nuw nsw i64 %.0.lcssa, 1
-  %31 = or disjoint i64 %30, 1
-  %32 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %31
-  %33 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %.0.lcssa
-  %34 = load ptr, ptr %32, align 8, !tbaa !185
-  store ptr %34, ptr %33, align 8, !tbaa !445
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !120
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 %36, ptr %37, align 8, !tbaa !447
-  br label %38
+28:                                               ; preds = %24
+  %29 = shl nuw nsw i64 %.0.lcssa, 1
+  %30 = or disjoint i64 %29, 1
+  %31 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %30
+  %32 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %.0.lcssa
+  %33 = load ptr, ptr %31, align 8, !tbaa !185
+  store ptr %33, ptr %32, align 8, !tbaa !445
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %35 = load i32, ptr %34, align 4, !tbaa !120
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i32 %35, ptr %36, align 8, !tbaa !447
+  br label %37
 
-38:                                               ; preds = %29, %25, %._crit_edge
-  %.1 = phi i64 [ %31, %29 ], [ %.0.lcssa, %25 ], [ %.0.lcssa, %._crit_edge ]
-  %39 = icmp samesign ugt i64 %.1, %1
-  br i1 %39, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_RT2_.exit"
+37:                                               ; preds = %28, %24, %._crit_edge
+  %.1 = phi i64 [ %30, %28 ], [ %.0.lcssa, %24 ], [ %.0.lcssa, %._crit_edge ]
+  %38 = icmp samesign ugt i64 %.1, %1
+  br i1 %38, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %38, %42
-  %.01317.i = phi i64 [ %.018.i, %42 ], [ %.1, %38 ]
+.lr.ph.i:                                         ; preds = %37, %41
+  %.01317.i = phi i64 [ %.018.i, %41 ], [ %.1, %37 ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %40 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %.018.i
-  %.val.i = load ptr, ptr %40, align 8, !tbaa !445
-  %41 = call fastcc noundef zeroext i1 @"_ZZL24predictValueUseListOrderPKN4llvm5ValueEjRKNS_9MapVectorIS2_jNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj0EEEEEENK3$_0clERKSC_IPKNS_3UseEjESO_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %5, ptr %.val.i, ptr %3)
-  br i1 %41, label %42, label %"_ZSt11__push_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_RT2_.exit"
+  %39 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %.018.i
+  %.val.i = load ptr, ptr %39, align 8, !tbaa !445
+  %40 = call fastcc noundef zeroext i1 @"_ZZL24predictValueUseListOrderPKN4llvm5ValueEjRKNS_9MapVectorIS2_jNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj0EEEEEENK3$_0clERKSC_IPKNS_3UseEjESO_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %5, ptr %.val.i, ptr %3)
+  br i1 %40, label %41, label %"_ZSt11__push_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_RT2_.exit"
 
-42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %.01317.i
-  %44 = load ptr, ptr %40, align 8, !tbaa !185
-  store ptr %44, ptr %43, align 8, !tbaa !445
-  %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %46 = load i32, ptr %45, align 4, !tbaa !120
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i32 %46, ptr %47, align 8, !tbaa !447
-  %48 = icmp sgt i64 %.018.i, %1
-  br i1 %48, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_RT2_.exit", !llvm.loop !895
+41:                                               ; preds = %.lr.ph.i
+  %42 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %.01317.i
+  %43 = load ptr, ptr %39, align 8, !tbaa !185
+  store ptr %43, ptr %42, align 8, !tbaa !445
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %45 = load i32, ptr %44, align 4, !tbaa !120
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store i32 %45, ptr %46, align 8, !tbaa !447
+  %47 = icmp sgt i64 %.018.i, %1
+  br i1 %47, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_RT2_.exit", !llvm.loop !895
 
-"_ZSt11__push_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_RT2_.exit": ; preds = %.lr.ph.i, %42, %38
-  %.013.lcssa.i = phi i64 [ %.1, %38 ], [ %.01317.i, %.lr.ph.i ], [ %.018.i, %42 ]
-  %49 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %49, align 8, !tbaa !445
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 %4, ptr %50, align 8, !tbaa !447
+"_ZSt11__push_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_RT2_.exit": ; preds = %.lr.ph.i, %41, %37
+  %.013.lcssa.i = phi i64 [ %.1, %37 ], [ %.01317.i, %.lr.ph.i ], [ %.018.i, %41 ]
+  %48 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %48, align 8, !tbaa !445
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 %4, ptr %49, align 8, !tbaa !447
   ret void
 }
 

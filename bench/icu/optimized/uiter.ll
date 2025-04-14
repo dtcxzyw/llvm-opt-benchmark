@@ -692,7 +692,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL22utf16BEIteratorCurrentP13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = icmp slt i32 %3, %5
-  br i1 %6, label %7, label %20
+  br i1 %6, label %7, label %18
 
 7:                                                ; preds = %1
   %.val = load ptr, ptr %0, align 8, !tbaa !10
@@ -702,16 +702,14 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL22utf16BEIteratorCurrentP13
   %11 = load i8, ptr %10, align 1, !tbaa !14
   %12 = zext i8 %11 to i32
   %13 = shl nuw nsw i32 %12, 8
-  %14 = or disjoint i32 %8, 1
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %.val, i64 %15
-  %17 = load i8, ptr %16, align 1, !tbaa !14
-  %18 = zext i8 %17 to i32
-  %19 = or disjoint i32 %13, %18
-  br label %20
+  %14 = getelementptr i8, ptr %10, i64 1
+  %15 = load i8, ptr %14, align 1, !tbaa !14
+  %16 = zext i8 %15 to i32
+  %17 = or disjoint i32 %13, %16
+  br label %18
 
-20:                                               ; preds = %1, %7
-  %.0 = phi i32 [ %19, %7 ], [ -1, %1 ]
+18:                                               ; preds = %1, %7
+  %.0 = phi i32 [ %17, %7 ], [ -1, %1 ]
   ret i32 %.0
 }
 
@@ -722,7 +720,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL19utf16BEIteratorNextP13UCh
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !13
   %6 = icmp slt i32 %3, %5
-  br i1 %6, label %7, label %21
+  br i1 %6, label %7, label %19
 
 7:                                                ; preds = %1
   %8 = add nsw i32 %3, 1
@@ -734,16 +732,14 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL19utf16BEIteratorNextP13UCh
   %12 = load i8, ptr %11, align 1, !tbaa !14
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 8
-  %15 = or disjoint i32 %9, 1
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i8, ptr %.val, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !14
-  %19 = zext i8 %18 to i32
-  %20 = or disjoint i32 %14, %19
-  br label %21
+  %15 = getelementptr i8, ptr %11, i64 1
+  %16 = load i8, ptr %15, align 1, !tbaa !14
+  %17 = zext i8 %16 to i32
+  %18 = or disjoint i32 %14, %17
+  br label %19
 
-21:                                               ; preds = %1, %7
-  %.0 = phi i32 [ %20, %7 ], [ -1, %1 ]
+19:                                               ; preds = %1, %7
+  %.0 = phi i32 [ %18, %7 ], [ -1, %1 ]
   ret i32 %.0
 }
 
@@ -754,7 +750,7 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL23utf16BEIteratorPreviousP1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !27
   %6 = icmp sgt i32 %3, %5
-  br i1 %6, label %7, label %21
+  br i1 %6, label %7, label %19
 
 7:                                                ; preds = %1
   %8 = add nsw i32 %3, -1
@@ -766,16 +762,14 @@ define internal noundef range(i32 -1, 65536) i32 @_ZL23utf16BEIteratorPreviousP1
   %12 = load i8, ptr %11, align 1, !tbaa !14
   %13 = zext i8 %12 to i32
   %14 = shl nuw nsw i32 %13, 8
-  %15 = or disjoint i32 %9, 1
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i8, ptr %.val, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !14
-  %19 = zext i8 %18 to i32
-  %20 = or disjoint i32 %14, %19
-  br label %21
+  %15 = getelementptr i8, ptr %11, i64 1
+  %16 = load i8, ptr %15, align 1, !tbaa !14
+  %17 = zext i8 %16 to i32
+  %18 = or disjoint i32 %14, %17
+  br label %19
 
-21:                                               ; preds = %1, %7
-  %.0 = phi i32 [ %20, %7 ], [ -1, %1 ]
+19:                                               ; preds = %1, %7
+  %.0 = phi i32 [ %18, %7 ], [ -1, %1 ]
   ret i32 %.0
 }
 

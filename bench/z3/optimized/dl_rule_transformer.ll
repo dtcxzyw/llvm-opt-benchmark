@@ -1368,24 +1368,24 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN7datalog16rule_transf
   br i1 %8, label %.lr.ph, label %_ZSt14__partial_sortIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEET_SA_SA_T0_.exit
-  %11 = phi i64 [ %7, %.lr.ph ], [ %113, %_ZSt27__unguarded_partition_pivotIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEET_SA_SA_T0_.exit ]
+  %11 = phi i64 [ %7, %.lr.ph ], [ %112, %_ZSt27__unguarded_partition_pivotIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEET_SA_SA_T0_.exit ]
   %.025 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEET_SA_SA_T0_.exit ]
-  %.01724 = phi i64 [ %2, %.lr.ph ], [ %64, %_ZSt27__unguarded_partition_pivotIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEET_SA_SA_T0_.exit ]
+  %.01724 = phi i64 [ %2, %.lr.ph ], [ %63, %_ZSt27__unguarded_partition_pivotIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEET_SA_SA_T0_.exit ]
   %12 = icmp eq i64 %.01724, 0
-  br i1 %12, label %13, label %63
+  br i1 %12, label %.lr.ph.i.i, label %62
 
-13:                                               ; preds = %10
+.lr.ph.i.i:                                       ; preds = %10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   call void @_ZSt11__make_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_RT0_(ptr noundef %0, ptr noundef %.025, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %.lr.ph.i.i
+  br label %13
 
-.lr.ph.i.i:                                       ; preds = %13, %_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i
-  %.07.i.i = phi ptr [ %14, %_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i ], [ %.025, %13 ]
+13:                                               ; preds = %_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i, %.lr.ph.i.i
+  %.07.i.i = phi ptr [ %.025, %.lr.ph.i.i ], [ %14, %_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i ]
   %14 = getelementptr inbounds i8, ptr %.07.i.i, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = load ptr, ptr %0, align 8, !tbaa !20
@@ -1398,194 +1398,194 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN7datalog16rule_transf
   %22 = icmp sgt i64 %19, 2
   br i1 %22, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i
-  %.029.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %13, %.lr.ph.i.i.i.i
+  %.029.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %13 ]
   %23 = shl i64 %.029.i.i.i.i, 1
   %24 = add i64 %23, 2
   %25 = getelementptr inbounds ptr, ptr %0, i64 %24
-  %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %26
-  %28 = load ptr, ptr %25, align 8, !tbaa !20
-  %29 = load ptr, ptr %27, align 8, !tbaa !20
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %gep.i.i.i.i = getelementptr ptr, ptr %9, i64 %23
+  %26 = load ptr, ptr %25, align 8, !tbaa !20
+  %27 = load ptr, ptr %gep.i.i.i.i, align 8, !tbaa !20
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !252
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !252
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %33 = load i32, ptr %32, align 8, !tbaa !252
-  %34 = icmp ugt i32 %31, %33
-  %spec.select.i.i.i.i = select i1 %34, i64 %26, i64 %24
-  %35 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
-  %36 = load ptr, ptr %35, align 8, !tbaa !20
-  %37 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.i.i.i
-  store ptr %36, ptr %37, align 8, !tbaa !20
-  %38 = icmp slt i64 %spec.select.i.i.i.i, %21
-  br i1 %38, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !253
+  %32 = icmp ugt i32 %29, %31
+  %33 = or disjoint i64 %23, 1
+  %spec.select.i.i.i.i = select i1 %32, i64 %33, i64 %24
+  %34 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %35 = load ptr, ptr %34, align 8, !tbaa !20
+  %36 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.i.i.i
+  store ptr %35, ptr %36, align 8, !tbaa !20
+  %37 = icmp slt i64 %spec.select.i.i.i.i, %21
+  br i1 %37, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !253
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %39 = and i64 %18, 8
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %50
+._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %13
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %13 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %38 = and i64 %18, 8
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %40, label %49
 
-41:                                               ; preds = %._crit_edge.i.i.i.i
-  %42 = add nsw i64 %19, -2
-  %43 = ashr exact i64 %42, 1
-  %44 = icmp eq i64 %.0.lcssa.i.i.i.i, %43
-  br i1 %44, label %.thread.i.i.i, label %50
+40:                                               ; preds = %._crit_edge.i.i.i.i
+  %41 = add nsw i64 %19, -2
+  %42 = ashr exact i64 %41, 1
+  %43 = icmp eq i64 %.0.lcssa.i.i.i.i, %42
+  br i1 %43, label %.thread.i.i.i, label %49
 
-.thread.i.i.i:                                    ; preds = %41
-  %45 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %46 = or disjoint i64 %45, 1
-  %47 = getelementptr inbounds nuw ptr, ptr %0, i64 %46
-  %48 = load ptr, ptr %47, align 8, !tbaa !20
-  %49 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
-  store ptr %48, ptr %49, align 8, !tbaa !20
+.thread.i.i.i:                                    ; preds = %40
+  %44 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %45 = or disjoint i64 %44, 1
+  %46 = getelementptr inbounds nuw ptr, ptr %0, i64 %45
+  %47 = load ptr, ptr %46, align 8, !tbaa !20
+  %48 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  store ptr %47, ptr %48, align 8, !tbaa !20
   br label %.lr.ph.i.i.i.i.i
 
-50:                                               ; preds = %41, %._crit_edge.i.i.i.i
+49:                                               ; preds = %40, %._crit_edge.i.i.i.i
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %50, %.thread.i.i.i
-  %.128.i9.i.i.i = phi i64 [ %46, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %50 ]
-  %51 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %52 = load i32, ptr %51, align 8, !tbaa !252
-  br label %53
+.lr.ph.i.i.i.i.i:                                 ; preds = %49, %.thread.i.i.i
+  %.128.i9.i.i.i = phi i64 [ %45, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %49 ]
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %51 = load i32, ptr %50, align 8, !tbaa !252
+  br label %52
 
-53:                                               ; preds = %59, %.lr.ph.i.i.i.i.i
-  %.01317.i.i.i.i.i = phi i64 [ %.128.i9.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.018.i.i1011.i.i.i, %59 ]
+52:                                               ; preds = %58, %.lr.ph.i.i.i.i.i
+  %.01317.i.i.i.i.i = phi i64 [ %.128.i9.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.018.i.i1011.i.i.i, %58 ]
   %.018.in.i.i.i.i.i = add nsw i64 %.01317.i.i.i.i.i, -1
   %.018.i.i1011.i.i.i = lshr i64 %.018.in.i.i.i.i.i, 1
-  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %.018.i.i1011.i.i.i
-  %55 = load ptr, ptr %54, align 8, !tbaa !20
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %57 = load i32, ptr %56, align 8, !tbaa !252
-  %58 = icmp ugt i32 %57, %52
-  br i1 %58, label %59, label %_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i
+  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %.018.i.i1011.i.i.i
+  %54 = load ptr, ptr %53, align 8, !tbaa !20
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %56 = load i32, ptr %55, align 8, !tbaa !252
+  %57 = icmp ugt i32 %56, %51
+  br i1 %57, label %58, label %_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i
 
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i.i.i
-  store ptr %55, ptr %60, align 8, !tbaa !20
+58:                                               ; preds = %52
+  %59 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i.i.i
+  store ptr %54, ptr %59, align 8, !tbaa !20
   %.not12.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
-  br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i, label %53, !llvm.loop !254
+  br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i, label %52, !llvm.loop !254
 
-_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i: ; preds = %59, %53, %50
-  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %50 ], [ %.01317.i.i.i.i.i, %53 ], [ 0, %59 ]
-  %61 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store ptr %15, ptr %61, align 8, !tbaa !20
-  %62 = icmp sgt i64 %18, 8
-  br i1 %62, label %.lr.ph.i.i, label %_ZSt14__partial_sortIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_T0_.exit, !llvm.loop !255
+_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i: ; preds = %58, %52, %49
+  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %49 ], [ %.01317.i.i.i.i.i, %52 ], [ 0, %58 ]
+  %60 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store ptr %15, ptr %60, align 8, !tbaa !20
+  %61 = icmp sgt i64 %18, 8
+  br i1 %61, label %13, label %_ZSt14__partial_sortIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_T0_.exit, !llvm.loop !255
 
-63:                                               ; preds = %10
-  %64 = add nsw i64 %.01724, -1
-  %65 = lshr i64 %11, 4
-  %66 = getelementptr inbounds nuw ptr, ptr %0, i64 %65
-  %67 = getelementptr inbounds i8, ptr %.025, i64 -8
-  %68 = load ptr, ptr %9, align 8, !tbaa !20
-  %69 = load ptr, ptr %66, align 8, !tbaa !20
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %71 = load i32, ptr %70, align 8, !tbaa !252
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %73 = load i32, ptr %72, align 8, !tbaa !252
-  %74 = icmp ugt i32 %71, %73
-  %75 = load ptr, ptr %67, align 8, !tbaa !20
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %77 = load i32, ptr %76, align 8, !tbaa !252
-  br i1 %74, label %78, label %87
+62:                                               ; preds = %10
+  %63 = add nsw i64 %.01724, -1
+  %64 = lshr i64 %11, 4
+  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %64
+  %66 = getelementptr inbounds i8, ptr %.025, i64 -8
+  %67 = load ptr, ptr %9, align 8, !tbaa !20
+  %68 = load ptr, ptr %65, align 8, !tbaa !20
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %70 = load i32, ptr %69, align 8, !tbaa !252
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %72 = load i32, ptr %71, align 8, !tbaa !252
+  %73 = icmp ugt i32 %70, %72
+  %74 = load ptr, ptr %66, align 8, !tbaa !20
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %76 = load i32, ptr %75, align 8, !tbaa !252
+  br i1 %73, label %77, label %86
 
-78:                                               ; preds = %63
-  %79 = icmp ugt i32 %73, %77
-  br i1 %79, label %80, label %82
+77:                                               ; preds = %62
+  %78 = icmp ugt i32 %72, %76
+  br i1 %78, label %79, label %81
 
-80:                                               ; preds = %78
-  %81 = load ptr, ptr %0, align 8, !tbaa !20
-  store ptr %69, ptr %0, align 8, !tbaa !20
-  store ptr %81, ptr %66, align 8, !tbaa !20
-  br label %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader
-
-82:                                               ; preds = %78
-  %83 = icmp ugt i32 %71, %77
-  %84 = load ptr, ptr %0, align 8, !tbaa !20
-  br i1 %83, label %85, label %86
-
-85:                                               ; preds = %82
-  store ptr %75, ptr %0, align 8, !tbaa !20
-  store ptr %84, ptr %67, align 8, !tbaa !20
-  br label %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader
-
-86:                                               ; preds = %82
+79:                                               ; preds = %77
+  %80 = load ptr, ptr %0, align 8, !tbaa !20
   store ptr %68, ptr %0, align 8, !tbaa !20
-  store ptr %84, ptr %9, align 8, !tbaa !20
+  store ptr %80, ptr %65, align 8, !tbaa !20
   br label %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader
 
-87:                                               ; preds = %63
-  %88 = icmp ugt i32 %71, %77
-  br i1 %88, label %89, label %91
+81:                                               ; preds = %77
+  %82 = icmp ugt i32 %70, %76
+  %83 = load ptr, ptr %0, align 8, !tbaa !20
+  br i1 %82, label %84, label %85
 
-89:                                               ; preds = %87
-  %90 = load ptr, ptr %0, align 8, !tbaa !20
+84:                                               ; preds = %81
+  store ptr %74, ptr %0, align 8, !tbaa !20
+  store ptr %83, ptr %66, align 8, !tbaa !20
+  br label %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader
+
+85:                                               ; preds = %81
+  store ptr %67, ptr %0, align 8, !tbaa !20
+  store ptr %83, ptr %9, align 8, !tbaa !20
+  br label %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader
+
+86:                                               ; preds = %62
+  %87 = icmp ugt i32 %70, %76
+  br i1 %87, label %88, label %90
+
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %0, align 8, !tbaa !20
+  store ptr %67, ptr %0, align 8, !tbaa !20
+  store ptr %89, ptr %9, align 8, !tbaa !20
+  br label %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader
+
+90:                                               ; preds = %86
+  %91 = icmp ugt i32 %72, %76
+  %92 = load ptr, ptr %0, align 8, !tbaa !20
+  br i1 %91, label %93, label %94
+
+93:                                               ; preds = %90
+  store ptr %74, ptr %0, align 8, !tbaa !20
+  store ptr %92, ptr %66, align 8, !tbaa !20
+  br label %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader
+
+94:                                               ; preds = %90
   store ptr %68, ptr %0, align 8, !tbaa !20
-  store ptr %90, ptr %9, align 8, !tbaa !20
+  store ptr %92, ptr %65, align 8, !tbaa !20
   br label %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader
 
-91:                                               ; preds = %87
-  %92 = icmp ugt i32 %73, %77
-  %93 = load ptr, ptr %0, align 8, !tbaa !20
-  br i1 %92, label %94, label %95
-
-94:                                               ; preds = %91
-  store ptr %75, ptr %0, align 8, !tbaa !20
-  store ptr %93, ptr %67, align 8, !tbaa !20
-  br label %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader
-
-95:                                               ; preds = %91
-  store ptr %69, ptr %0, align 8, !tbaa !20
-  store ptr %93, ptr %66, align 8, !tbaa !20
-  br label %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader
-
-_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader: ; preds = %95, %94, %89, %86, %85, %80
+_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader: ; preds = %94, %93, %88, %85, %84, %79
   br label %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader, %111
-  %.013.i.i = phi ptr [ %.114.i.i, %111 ], [ %.025, %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %104, %111 ], [ %9, %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader ]
-  %96 = load ptr, ptr %0, align 8, !tbaa !20
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %98 = load i32, ptr %97, align 8, !tbaa !252
-  br label %99
+_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader, %110
+  %.013.i.i = phi ptr [ %.114.i.i, %110 ], [ %.025, %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %103, %110 ], [ %9, %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i.preheader ]
+  %95 = load ptr, ptr %0, align 8, !tbaa !20
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %97 = load i32, ptr %96, align 8, !tbaa !252
+  br label %98
 
-99:                                               ; preds = %99, %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i ], [ %104, %99 ]
-  %100 = load ptr, ptr %.1.i.i, align 8, !tbaa !20
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %102 = load i32, ptr %101, align 8, !tbaa !252
-  %103 = icmp ugt i32 %102, %98
-  %104 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %103, label %99, label %.preheader.i.i, !llvm.loop !256
+98:                                               ; preds = %98, %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i ], [ %103, %98 ]
+  %99 = load ptr, ptr %.1.i.i, align 8, !tbaa !20
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %101 = load i32, ptr %100, align 8, !tbaa !252
+  %102 = icmp ugt i32 %101, %97
+  %103 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  br i1 %102, label %98, label %.preheader.i.i, !llvm.loop !256
 
-.preheader.i.i:                                   ; preds = %99, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %99 ]
+.preheader.i.i:                                   ; preds = %98, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %98 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
-  %105 = load ptr, ptr %.114.i.i, align 8, !tbaa !20
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
-  %107 = load i32, ptr %106, align 8, !tbaa !252
-  %108 = icmp ugt i32 %98, %107
-  br i1 %108, label %.preheader.i.i, label %109, !llvm.loop !257
+  %104 = load ptr, ptr %.114.i.i, align 8, !tbaa !20
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %106 = load i32, ptr %105, align 8, !tbaa !252
+  %107 = icmp ugt i32 %97, %106
+  br i1 %107, label %.preheader.i.i, label %108, !llvm.loop !257
 
-109:                                              ; preds = %.preheader.i.i
-  %110 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %110, label %111, label %_ZSt27__unguarded_partition_pivotIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEET_SA_SA_T0_.exit
+108:                                              ; preds = %.preheader.i.i
+  %109 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %109, label %110, label %_ZSt27__unguarded_partition_pivotIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEET_SA_SA_T0_.exit
 
-111:                                              ; preds = %109
-  store ptr %105, ptr %.1.i.i, align 8, !tbaa !20
-  store ptr %100, ptr %.114.i.i, align 8, !tbaa !20
+110:                                              ; preds = %108
+  store ptr %104, ptr %.1.i.i, align 8, !tbaa !20
+  store ptr %99, ptr %.114.i.i, align 8, !tbaa !20
   br label %_ZSt22__move_median_to_firstIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_SA_T0_.exit.i, !llvm.loop !258
 
-_ZSt27__unguarded_partition_pivotIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEET_SA_SA_T0_.exit: ; preds = %109
-  tail call void @_ZSt16__introsort_loopIPPN7datalog16rule_transformer6pluginElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %64)
-  %112 = ptrtoint ptr %.1.i.i to i64
-  %113 = sub i64 %112, %5
-  %114 = icmp sgt i64 %113, 128
-  br i1 %114, label %10, label %_ZSt14__partial_sortIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_T0_.exit, !llvm.loop !259
+_ZSt27__unguarded_partition_pivotIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEET_SA_SA_T0_.exit: ; preds = %108
+  tail call void @_ZSt16__introsort_loopIPPN7datalog16rule_transformer6pluginElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %63)
+  %111 = ptrtoint ptr %.1.i.i to i64
+  %112 = sub i64 %111, %5
+  %113 = icmp sgt i64 %112, 128
+  br i1 %113, label %10, label %_ZSt14__partial_sortIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_T0_.exit, !llvm.loop !259
 
 _ZSt14__partial_sortIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEET_SA_SA_T0_.exit, %_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i, %3
   ret void
@@ -1758,6 +1758,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN7datalog16rule_transformer
   %11 = lshr i64 %10, 1
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
+  %invariant.gep.i = getelementptr i8, ptr %0, i64 8
   %14 = and i64 %6, 8
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
@@ -1770,7 +1771,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN7datalog16rule_transformer
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us
-  %.014.us = phi i64 [ %52, %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us ], [ %11, %9 ]
+  %.014.us = phi i64 [ %51, %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us ], [ %11, %9 ]
   %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.us
   %21 = load ptr, ptr %20, align 8, !tbaa !20
   %22 = icmp slt i64 %.014.us, %13
@@ -1781,129 +1782,129 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN7datalog16rule_transformer
   %23 = shl i64 %.029.i.us, 1
   %24 = add i64 %23, 2
   %25 = getelementptr inbounds ptr, ptr %0, i64 %24
-  %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %26
-  %28 = load ptr, ptr %25, align 8, !tbaa !20
-  %29 = load ptr, ptr %27, align 8, !tbaa !20
-  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %gep.i.us = getelementptr ptr, ptr %invariant.gep.i, i64 %23
+  %26 = load ptr, ptr %25, align 8, !tbaa !20
+  %27 = load ptr, ptr %gep.i.us, align 8, !tbaa !20
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !252
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !252
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %33 = load i32, ptr %32, align 8, !tbaa !252
-  %34 = icmp ugt i32 %31, %33
-  %spec.select.i.us = select i1 %34, i64 %26, i64 %24
-  %35 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.us
-  %36 = load ptr, ptr %35, align 8, !tbaa !20
-  %37 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.us
-  store ptr %36, ptr %37, align 8, !tbaa !20
-  %38 = icmp slt i64 %spec.select.i.us, %13
-  br i1 %38, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !253
+  %32 = icmp ugt i32 %29, %31
+  %33 = or disjoint i64 %23, 1
+  %spec.select.i.us = select i1 %32, i64 %33, i64 %24
+  %34 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.us
+  %35 = load ptr, ptr %34, align 8, !tbaa !20
+  %36 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.us
+  store ptr %35, ptr %36, align 8, !tbaa !20
+  %37 = icmp slt i64 %spec.select.i.us, %13
+  br i1 %37, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !253
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
-  %39 = icmp sgt i64 %spec.select.i.us, %.014.us
-  br i1 %39, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us
+  %38 = icmp sgt i64 %spec.select.i.us, %.014.us
+  br i1 %38, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us
 
 .lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us
-  %40 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %41 = load i32, ptr %40, align 8, !tbaa !252
-  br label %42
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %40 = load i32, ptr %39, align 8, !tbaa !252
+  br label %41
 
-42:                                               ; preds = %48, %.lr.ph.i.i.us
-  %.01317.i.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %48 ]
+41:                                               ; preds = %47, %.lr.ph.i.i.us
+  %.01317.i.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %47 ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %43 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i.us
-  %44 = load ptr, ptr %43, align 8, !tbaa !20
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load i32, ptr %45, align 8, !tbaa !252
-  %47 = icmp ugt i32 %46, %41
-  br i1 %47, label %48, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us
+  %42 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i.us
+  %43 = load ptr, ptr %42, align 8, !tbaa !20
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load i32, ptr %44, align 8, !tbaa !252
+  %46 = icmp ugt i32 %45, %40
+  br i1 %46, label %47, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us
 
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.us
-  store ptr %44, ptr %49, align 8, !tbaa !20
-  %50 = icmp sgt i64 %.018.i.i.us, %.014.us
-  br i1 %50, label %42, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us, !llvm.loop !254
+47:                                               ; preds = %41
+  %48 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.us
+  store ptr %43, ptr %48, align 8, !tbaa !20
+  %49 = icmp sgt i64 %.018.i.i.us, %.014.us
+  br i1 %49, label %41, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us, !llvm.loop !254
 
-_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us: ; preds = %42, %48, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.014.us, %.split.us ], [ %.018.i.i.us, %48 ], [ %.01317.i.i.us, %42 ]
-  %51 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.us
-  store ptr %21, ptr %51, align 8, !tbaa !20
+_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us: ; preds = %41, %47, %.split.us, %._crit_edge.i.us
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.014.us, %.split.us ], [ %.018.i.i.us, %47 ], [ %.01317.i.i.us, %41 ]
+  %50 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.us
+  store ptr %21, ptr %50, align 8, !tbaa !20
   %.not.us = icmp eq i64 %.014.us, 0
-  %52 = add nsw i64 %.014.us, -1
+  %51 = add nsw i64 %.014.us, -1
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !263
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit
-  %.014 = phi i64 [ %89, %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014
-  %54 = load ptr, ptr %53, align 8, !tbaa !20
-  %55 = icmp slt i64 %.014, %13
-  br i1 %55, label %.lr.ph.i, label %._crit_edge.i
+  %.014 = phi i64 [ %87, %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit ], [ %11, %.split.preheader ]
+  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014
+  %53 = load ptr, ptr %52, align 8, !tbaa !20
+  %54 = icmp slt i64 %.014, %13
+  br i1 %54, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
   %.029.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.014, %.split ]
-  %56 = shl i64 %.029.i, 1
-  %57 = add i64 %56, 2
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %57
-  %59 = or disjoint i64 %56, 1
-  %60 = getelementptr inbounds ptr, ptr %0, i64 %59
-  %61 = load ptr, ptr %58, align 8, !tbaa !20
-  %62 = load ptr, ptr %60, align 8, !tbaa !20
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %64 = load i32, ptr %63, align 8, !tbaa !252
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %66 = load i32, ptr %65, align 8, !tbaa !252
-  %67 = icmp ugt i32 %64, %66
-  %spec.select.i = select i1 %67, i64 %59, i64 %57
-  %68 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i
-  %69 = load ptr, ptr %68, align 8, !tbaa !20
-  %70 = getelementptr inbounds ptr, ptr %0, i64 %.029.i
-  store ptr %69, ptr %70, align 8, !tbaa !20
-  %71 = icmp slt i64 %spec.select.i, %13
-  br i1 %71, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !253
+  %55 = shl i64 %.029.i, 1
+  %56 = add i64 %55, 2
+  %57 = getelementptr inbounds ptr, ptr %0, i64 %56
+  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %55
+  %58 = load ptr, ptr %57, align 8, !tbaa !20
+  %59 = load ptr, ptr %gep.i, align 8, !tbaa !20
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %61 = load i32, ptr %60, align 8, !tbaa !252
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %63 = load i32, ptr %62, align 8, !tbaa !252
+  %64 = icmp ugt i32 %61, %63
+  %65 = or disjoint i64 %55, 1
+  %spec.select.i = select i1 %64, i64 %65, i64 %56
+  %66 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i
+  %67 = load ptr, ptr %66, align 8, !tbaa !20
+  %68 = getelementptr inbounds ptr, ptr %0, i64 %.029.i
+  store ptr %67, ptr %68, align 8, !tbaa !20
+  %69 = icmp slt i64 %spec.select.i, %13
+  br i1 %69, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !253
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.014, %.split ], [ %spec.select.i, %.lr.ph.i ]
-  %72 = icmp eq i64 %.0.lcssa.i, %16
-  br i1 %72, label %73, label %75
+  %70 = icmp eq i64 %.0.lcssa.i, %16
+  br i1 %70, label %71, label %73
 
-73:                                               ; preds = %._crit_edge.i
-  %74 = load ptr, ptr %18, align 8, !tbaa !20
-  store ptr %74, ptr %19, align 8, !tbaa !20
-  br label %75
+71:                                               ; preds = %._crit_edge.i
+  %72 = load ptr, ptr %18, align 8, !tbaa !20
+  store ptr %72, ptr %19, align 8, !tbaa !20
+  br label %73
 
-75:                                               ; preds = %73, %._crit_edge.i
-  %.128.i = phi i64 [ %17, %73 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %76 = icmp sgt i64 %.128.i, %.014
-  br i1 %76, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit
+73:                                               ; preds = %71, %._crit_edge.i
+  %.128.i = phi i64 [ %17, %71 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %74 = icmp sgt i64 %.128.i, %.014
+  br i1 %74, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %75
-  %77 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %78 = load i32, ptr %77, align 8, !tbaa !252
-  br label %79
+.lr.ph.i.i:                                       ; preds = %73
+  %75 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %76 = load i32, ptr %75, align 8, !tbaa !252
+  br label %77
 
-79:                                               ; preds = %85, %.lr.ph.i.i
-  %.01317.i.i = phi i64 [ %.128.i, %.lr.ph.i.i ], [ %.018.i.i, %85 ]
+77:                                               ; preds = %83, %.lr.ph.i.i
+  %.01317.i.i = phi i64 [ %.128.i, %.lr.ph.i.i ], [ %.018.i.i, %83 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %80 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i
-  %81 = load ptr, ptr %80, align 8, !tbaa !20
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %83 = load i32, ptr %82, align 8, !tbaa !252
-  %84 = icmp ugt i32 %83, %78
-  br i1 %84, label %85, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit
+  %78 = getelementptr inbounds ptr, ptr %0, i64 %.018.i.i
+  %79 = load ptr, ptr %78, align 8, !tbaa !20
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load i32, ptr %80, align 8, !tbaa !252
+  %82 = icmp ugt i32 %81, %76
+  br i1 %82, label %83, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit
 
-85:                                               ; preds = %79
-  %86 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i
-  store ptr %81, ptr %86, align 8, !tbaa !20
-  %87 = icmp sgt i64 %.018.i.i, %.014
-  br i1 %87, label %79, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit, !llvm.loop !254
+83:                                               ; preds = %77
+  %84 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i
+  store ptr %79, ptr %84, align 8, !tbaa !20
+  %85 = icmp sgt i64 %.018.i.i, %.014
+  br i1 %85, label %77, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit, !llvm.loop !254
 
-_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit: ; preds = %79, %85, %75
-  %.013.lcssa.i.i = phi i64 [ %.128.i, %75 ], [ %.018.i.i, %85 ], [ %.01317.i.i, %79 ]
-  %88 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i
-  store ptr %54, ptr %88, align 8, !tbaa !20
+_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit: ; preds = %77, %83, %73
+  %.013.lcssa.i.i = phi i64 [ %.128.i, %73 ], [ %.018.i.i, %83 ], [ %.01317.i.i, %77 ]
+  %86 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i
+  store ptr %53, ptr %86, align 8, !tbaa !20
   %.not = icmp eq i64 %.014, 0
-  %89 = add nsw i64 %.014, -1
+  %87 = add nsw i64 %.014, -1
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !263
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us, %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit, %3

@@ -526,6 +526,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr noundef rea
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 1544
   %21 = icmp eq i32 %9, 1
+  %invariant.gep = getelementptr i8, ptr %2, i64 1528
   br label %29
 
 22:                                               ; preds = %3
@@ -543,7 +544,7 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr noundef rea
   br label %.thread34
 
 29:                                               ; preds = %.thread32, %13
-  %30 = phi i64 [ 0, %13 ], [ %222, %.thread32 ]
+  %30 = phi i64 [ 0, %13 ], [ %221, %.thread32 ]
   %31 = load i32, ptr %7, align 4
   %32 = trunc i64 %30 to i32
   %33 = shl nuw i32 1, %32
@@ -856,19 +857,18 @@ define dso_local i32 @intel_atomic_setup_scalers(ptr noundef %0, ptr noundef rea
   %219 = load i32, ptr %86, align 4
   %220 = sext i32 %219 to i64
   %.idx = shl nsw i64 %220, 3
-  %.offs = or disjoint i64 %.idx, 4
-  %221 = getelementptr i8, ptr %4, i64 %.offs
-  store i32 %210, ptr %221, align 4
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  store i32 %210, ptr %gep, align 4
   br label %.thread32
 
 .thread32:                                        ; preds = %215, %73, %29, %43
-  %222 = add nuw nsw i64 %30, 1
-  %223 = icmp eq i64 %222, 32
-  br i1 %223, label %.thread34, label %29, !llvm.loop !25
+  %221 = add nuw nsw i64 %30, 1
+  %222 = icmp eq i64 %221, 32
+  br i1 %222, label %.thread34, label %29, !llvm.loop !25
 
 .thread34:                                        ; preds = %.thread32, %119, %206, %.thread35, %27
-  %224 = phi i32 [ -22, %27 ], [ %57, %.thread35 ], [ -22, %206 ], [ -22, %119 ], [ 0, %.thread32 ]
-  ret i32 %224
+  %223 = phi i32 [ -22, %27 ], [ %57, %.thread35 ], [ -22, %206 ], [ -22, %119 ], [ 0, %.thread32 ]
+  ret i32 %223
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -6259,15 +6259,15 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN2cv8MSCREdgeElN9__gnu_
   br i1 %14, label %.lr.ph, label %_ZSt14__partial_sortIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = getelementptr i8, ptr %0, i64 24
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEET_S8_S8_T0_.exit
-  %17 = phi i64 [ %13, %.lr.ph ], [ %126, %_ZSt27__unguarded_partition_pivotIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEET_S8_S8_T0_.exit ]
+  %17 = phi i64 [ %13, %.lr.ph ], [ %124, %_ZSt27__unguarded_partition_pivotIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEET_S8_S8_T0_.exit ]
   %.027 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEET_S8_S8_T0_.exit ]
-  %.01726 = phi i64 [ %2, %.lr.ph ], [ %93, %_ZSt27__unguarded_partition_pivotIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEET_S8_S8_T0_.exit ]
+  %.01726 = phi i64 [ %2, %.lr.ph ], [ %91, %_ZSt27__unguarded_partition_pivotIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEET_S8_S8_T0_.exit ]
   %18 = icmp eq i64 %.01726, 0
-  br i1 %18, label %19, label %92
+  br i1 %18, label %19, label %90
 
 19:                                               ; preds = %16
   %20 = udiv exact i64 %17, 24
@@ -6283,7 +6283,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN2cv8MSCREdgeElN9__gnu_
   br label %30
 
 30:                                               ; preds = %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i, %19
-  %.013.i.i18 = phi i64 [ %22, %19 ], [ %55, %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i ]
+  %.013.i.i18 = phi i64 [ %22, %19 ], [ %54, %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i ]
   %31 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %.013.i.i18
   %.sroa.016.0.copyload.i.i = load double, ptr %31, align 8, !tbaa !91
   %.sroa.417.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -6297,181 +6297,181 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN2cv8MSCREdgeElN9__gnu_
   %33 = shl i64 %.032.i.i.i, 1
   %34 = add i64 %33, 2
   %35 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %34
-  %36 = or disjoint i64 %33, 1
-  %37 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %36
-  %38 = load double, ptr %35, align 8, !tbaa !107
-  %39 = load double, ptr %37, align 8, !tbaa !107
-  %40 = fcmp olt double %38, %39
-  %spec.select.i.i.i = select i1 %40, i64 %36, i64 %34
-  %41 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %spec.select.i.i.i
-  %42 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.032.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false), !tbaa.struct !302
-  %43 = icmp slt i64 %spec.select.i.i.i, %24
-  br i1 %43, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !304
+  %gep.i.i.i = getelementptr %"struct.cv::MSCREdge", ptr %15, i64 %33
+  %36 = load double, ptr %35, align 8, !tbaa !107
+  %37 = load double, ptr %gep.i.i.i, align 8, !tbaa !107
+  %38 = fcmp olt double %36, %37
+  %39 = or disjoint i64 %33, 1
+  %spec.select.i.i.i = select i1 %38, i64 %39, i64 %34
+  %40 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %spec.select.i.i.i
+  %41 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.032.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false), !tbaa.struct !302
+  %42 = icmp slt i64 %spec.select.i.i.i, %24
+  br i1 %42, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !304
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %30
   %.0.lcssa.i.i.i = phi i64 [ %.013.i.i18, %30 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %44 = icmp eq i64 %.0.lcssa.i.i.i, %22
-  %or.cond.i.i = select i1 %26, i1 %44, i1 false
-  br i1 %or.cond.i.i, label %45, label %46
+  %43 = icmp eq i64 %.0.lcssa.i.i.i, %22
+  %or.cond.i.i = select i1 %26, i1 %43, i1 false
+  br i1 %or.cond.i.i, label %44, label %45
 
-45:                                               ; preds = %._crit_edge.i.i.i
+44:                                               ; preds = %._crit_edge.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false), !tbaa.struct !302
-  br label %46
+  br label %45
 
-46:                                               ; preds = %45, %._crit_edge.i.i.i
-  %.127.i.i.i = phi i64 [ %27, %45 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %47 = icmp sgt i64 %.127.i.i.i, %.013.i.i18
-  br i1 %47, label %.lr.ph.i.i.i.i19, label %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i
+45:                                               ; preds = %44, %._crit_edge.i.i.i
+  %.127.i.i.i = phi i64 [ %27, %44 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+  %46 = icmp sgt i64 %.127.i.i.i, %.013.i.i18
+  br i1 %46, label %.lr.ph.i.i.i.i19, label %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i
 
-.lr.ph.i.i.i.i19:                                 ; preds = %46, %51
-  %.01316.i.i.i.i = phi i64 [ %.017.i.i.i.i, %51 ], [ %.127.i.i.i, %46 ]
+.lr.ph.i.i.i.i19:                                 ; preds = %45, %50
+  %.01316.i.i.i.i = phi i64 [ %.017.i.i.i.i, %50 ], [ %.127.i.i.i, %45 ]
   %.017.in.i.i.i.i = add nsw i64 %.01316.i.i.i.i, -1
   %.017.i.i.i.i = sdiv i64 %.017.in.i.i.i.i, 2
-  %48 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.017.i.i.i.i
-  %49 = load double, ptr %48, align 8, !tbaa !107
-  %50 = fcmp olt double %49, %.sroa.016.0.copyload.i.i
-  br i1 %50, label %51, label %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i
+  %47 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.017.i.i.i.i
+  %48 = load double, ptr %47, align 8, !tbaa !107
+  %49 = fcmp olt double %48, %.sroa.016.0.copyload.i.i
+  br i1 %49, label %50, label %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i
 
-51:                                               ; preds = %.lr.ph.i.i.i.i19
-  %52 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.01316.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %48, i64 24, i1 false), !tbaa.struct !302
-  %53 = icmp sgt i64 %.017.i.i.i.i, %.013.i.i18
-  br i1 %53, label %.lr.ph.i.i.i.i19, label %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i, !llvm.loop !305
+50:                                               ; preds = %.lr.ph.i.i.i.i19
+  %51 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.01316.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false), !tbaa.struct !302
+  %52 = icmp sgt i64 %.017.i.i.i.i, %.013.i.i18
+  br i1 %52, label %.lr.ph.i.i.i.i19, label %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i, !llvm.loop !305
 
-_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i19, %46
-  %.013.lcssa.i.i.i.i = phi i64 [ %.127.i.i.i, %46 ], [ %.017.i.i.i.i, %51 ], [ %.01316.i.i.i.i, %.lr.ph.i.i.i.i19 ]
-  %54 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.013.lcssa.i.i.i.i
-  store double %.sroa.016.0.copyload.i.i, ptr %54, align 8, !tbaa !91
-  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 8
+_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i: ; preds = %50, %.lr.ph.i.i.i.i19, %45
+  %.013.lcssa.i.i.i.i = phi i64 [ %.127.i.i.i, %45 ], [ %.017.i.i.i.i, %50 ], [ %.01316.i.i.i.i, %.lr.ph.i.i.i.i19 ]
+  %53 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.013.lcssa.i.i.i.i
+  store double %.sroa.016.0.copyload.i.i, ptr %53, align 8, !tbaa !91
+  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i.i)
   %.not.i.i = icmp eq i64 %.013.i.i18, 0
-  %55 = add nsw i64 %.013.i.i18, -1
+  %54 = add nsw i64 %.013.i.i18, -1
   br i1 %.not.i.i, label %.lr.ph.i.i, label %30, !llvm.loop !306
 
 .lr.ph.i.i:                                       ; preds = %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i, %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i.i
-  %.07.i.i = phi ptr [ %56, %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i.i ], [ %.027, %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i ]
-  %56 = getelementptr inbounds i8, ptr %.07.i.i, i64 -24
-  %.sroa.08.0.copyload.i.i.i = load double, ptr %56, align 8, !tbaa !91
+  %.07.i.i = phi ptr [ %55, %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i.i ], [ %.027, %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i.i ]
+  %55 = getelementptr inbounds i8, ptr %.07.i.i, i64 -24
+  %.sroa.08.0.copyload.i.i.i = load double, ptr %55, align 8, !tbaa !91
   %.sroa.49.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.07.i.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.49.0..sroa_idx.i.i.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !302
-  %57 = ptrtoint ptr %56 to i64
-  %58 = sub i64 %57, %11
-  %59 = sdiv exact i64 %58, 24
-  %60 = add nsw i64 %59, -1
-  %61 = sdiv i64 %60, 2
-  %62 = icmp sgt i64 %58, 48
-  br i1 %62, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !302
+  %56 = ptrtoint ptr %55 to i64
+  %57 = sub i64 %56, %11
+  %58 = sdiv exact i64 %57, 24
+  %59 = add nsw i64 %58, -1
+  %60 = sdiv i64 %59, 2
+  %61 = icmp sgt i64 %57, 48
+  br i1 %61, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i
   %.032.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %63 = shl i64 %.032.i.i.i.i, 1
-  %64 = add i64 %63, 2
-  %65 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %64
-  %66 = or disjoint i64 %63, 1
-  %67 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %66
-  %68 = load double, ptr %65, align 8, !tbaa !107
-  %69 = load double, ptr %67, align 8, !tbaa !107
-  %70 = fcmp olt double %68, %69
-  %spec.select.i.i.i.i = select i1 %70, i64 %66, i64 %64
-  %71 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %spec.select.i.i.i.i
-  %72 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.032.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %71, i64 24, i1 false), !tbaa.struct !302
-  %73 = icmp slt i64 %spec.select.i.i.i.i, %61
-  br i1 %73, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !304
+  %62 = shl i64 %.032.i.i.i.i, 1
+  %63 = add i64 %62, 2
+  %64 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %63
+  %gep.i.i.i.i = getelementptr %"struct.cv::MSCREdge", ptr %15, i64 %62
+  %65 = load double, ptr %64, align 8, !tbaa !107
+  %66 = load double, ptr %gep.i.i.i.i, align 8, !tbaa !107
+  %67 = fcmp olt double %65, %66
+  %68 = or disjoint i64 %62, 1
+  %spec.select.i.i.i.i = select i1 %67, i64 %68, i64 %63
+  %69 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %spec.select.i.i.i.i
+  %70 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.032.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false), !tbaa.struct !302
+  %71 = icmp slt i64 %spec.select.i.i.i.i, %60
+  br i1 %71, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !304
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %74 = and i64 %59, 1
-  %75 = icmp eq i64 %74, 0
-  br i1 %75, label %76, label %84
+  %72 = and i64 %58, 1
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %74, label %82
 
-76:                                               ; preds = %._crit_edge.i.i.i.i
-  %77 = add nsw i64 %59, -2
-  %78 = ashr exact i64 %77, 1
-  %79 = icmp eq i64 %.0.lcssa.i.i.i.i, %78
-  br i1 %79, label %.thread.i.i.i, label %84
+74:                                               ; preds = %._crit_edge.i.i.i.i
+  %75 = add nsw i64 %58, -2
+  %76 = ashr exact i64 %75, 1
+  %77 = icmp eq i64 %.0.lcssa.i.i.i.i, %76
+  br i1 %77, label %.thread.i.i.i, label %82
 
-.thread.i.i.i:                                    ; preds = %76
-  %80 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %81 = or disjoint i64 %80, 1
-  %82 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %81
-  %83 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.0.lcssa.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %82, i64 24, i1 false), !tbaa.struct !302
+.thread.i.i.i:                                    ; preds = %74
+  %78 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %79 = or disjoint i64 %78, 1
+  %80 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %79
+  %81 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.0.lcssa.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %80, i64 24, i1 false), !tbaa.struct !302
   br label %.lr.ph.i.i.i.i.i.preheader
 
-84:                                               ; preds = %76, %._crit_edge.i.i.i.i
+82:                                               ; preds = %74, %._crit_edge.i.i.i.i
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %84, %.thread.i.i.i
-  %.01316.i.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i.i, %84 ], [ %81, %.thread.i.i.i ]
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %82, %.thread.i.i.i
+  %.01316.i.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i.i, %82 ], [ %79, %.thread.i.i.i ]
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %88
-  %.01316.i.i.i.i.i = phi i64 [ %.017.i.i1011.i.i.i, %88 ], [ %.01316.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %86
+  %.01316.i.i.i.i.i = phi i64 [ %.017.i.i1011.i.i.i, %86 ], [ %.01316.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.017.in.i.i.i.i.i = add nsw i64 %.01316.i.i.i.i.i, -1
   %.017.i.i1011.i.i.i = lshr i64 %.017.in.i.i.i.i.i, 1
-  %85 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %.017.i.i1011.i.i.i
-  %86 = load double, ptr %85, align 8, !tbaa !107
-  %87 = fcmp olt double %86, %.sroa.08.0.copyload.i.i.i
-  br i1 %87, label %88, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i.i
+  %83 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %.017.i.i1011.i.i.i
+  %84 = load double, ptr %83, align 8, !tbaa !107
+  %85 = fcmp olt double %84, %.sroa.08.0.copyload.i.i.i
+  br i1 %85, label %86, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i.i
 
-88:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %89 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.01316.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false), !tbaa.struct !302
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.01316.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull align 8 dereferenceable(24) %83, i64 24, i1 false), !tbaa.struct !302
   %.not12.i.i.i = icmp ult i64 %.017.in.i.i.i.i.i, 2
   br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !305
 
-_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i.i: ; preds = %88, %.lr.ph.i.i.i.i.i, %84
-  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %84 ], [ %.01316.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %88 ]
-  %90 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store double %.sroa.08.0.copyload.i.i.i, ptr %90, align 8, !tbaa !91
-  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %90, i64 8
+_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i.i: ; preds = %86, %.lr.ph.i.i.i.i.i, %82
+  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %82 ], [ %.01316.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %86 ]
+  %88 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store double %.sroa.08.0.copyload.i.i.i, ptr %88, align 8, !tbaa !91
+  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %88, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i.i.i)
-  %91 = icmp sgt i64 %58, 24
-  br i1 %91, label %.lr.ph.i.i, label %_ZSt14__partial_sortIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_T0_.exit, !llvm.loop !307
+  %89 = icmp sgt i64 %57, 24
+  br i1 %89, label %.lr.ph.i.i, label %_ZSt14__partial_sortIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_T0_.exit, !llvm.loop !307
 
-92:                                               ; preds = %16
-  %93 = add nsw i64 %.01726, -1
-  %94 = udiv i64 %17, 48
-  %95 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %94
-  %96 = getelementptr inbounds i8, ptr %.027, i64 -24
-  %97 = load double, ptr %15, align 8, !tbaa !107
-  %98 = load double, ptr %95, align 8, !tbaa !107
-  %99 = fcmp olt double %97, %98
-  %100 = load double, ptr %96, align 8, !tbaa !107
-  br i1 %99, label %101, label %108
+90:                                               ; preds = %16
+  %91 = add nsw i64 %.01726, -1
+  %92 = udiv i64 %17, 48
+  %93 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %92
+  %94 = getelementptr inbounds i8, ptr %.027, i64 -24
+  %95 = load double, ptr %15, align 8, !tbaa !107
+  %96 = load double, ptr %93, align 8, !tbaa !107
+  %97 = fcmp olt double %95, %96
+  %98 = load double, ptr %94, align 8, !tbaa !107
+  br i1 %97, label %99, label %106
 
-101:                                              ; preds = %92
-  %102 = fcmp olt double %98, %100
-  br i1 %102, label %103, label %104
+99:                                               ; preds = %90
+  %100 = fcmp olt double %96, %98
+  br i1 %100, label %101, label %102
 
-103:                                              ; preds = %101
+101:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !302
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false), !tbaa.struct !302
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !tbaa.struct !302
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false), !tbaa.struct !302
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !tbaa.struct !302
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-104:                                              ; preds = %101
-  %105 = fcmp olt double %97, %100
-  br i1 %105, label %106, label %107
+102:                                              ; preds = %99
+  %103 = fcmp olt double %95, %98
+  br i1 %103, label %104, label %105
 
-106:                                              ; preds = %104
+104:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !302
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %96, i64 24, i1 false), !tbaa.struct !302
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !302
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %94, i64 24, i1 false), !tbaa.struct !302
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !302
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-107:                                              ; preds = %104
+105:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !302
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !tbaa.struct !302
@@ -6479,11 +6479,11 @@ _ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessTha
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-108:                                              ; preds = %92
-  %109 = fcmp olt double %97, %100
-  br i1 %109, label %110, label %111
+106:                                              ; preds = %90
+  %107 = fcmp olt double %95, %98
+  br i1 %107, label %108, label %109
 
-110:                                              ; preds = %108
+108:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !302
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !tbaa.struct !302
@@ -6491,54 +6491,54 @@ _ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessTha
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-111:                                              ; preds = %108
-  %112 = fcmp olt double %98, %100
-  br i1 %112, label %113, label %114
+109:                                              ; preds = %106
+  %110 = fcmp olt double %96, %98
+  br i1 %110, label %111, label %112
 
-113:                                              ; preds = %111
+111:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !302
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %96, i64 24, i1 false), !tbaa.struct !302
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !302
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %94, i64 24, i1 false), !tbaa.struct !302
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !302
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-114:                                              ; preds = %111
+112:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !302
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false), !tbaa.struct !302
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %95, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !302
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false), !tbaa.struct !302
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !302
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader: ; preds = %114, %113, %110, %107, %106, %103
+_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader: ; preds = %112, %111, %108, %105, %104, %101
   br label %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader, %124
-  %.013.i.i = phi ptr [ %.114.i.i, %124 ], [ %.027, %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %119, %124 ], [ %15, %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
-  %115 = load double, ptr %0, align 8, !tbaa !107
-  br label %116
+_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader, %122
+  %.013.i.i = phi ptr [ %.114.i.i, %122 ], [ %.027, %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %117, %122 ], [ %15, %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
+  %113 = load double, ptr %0, align 8, !tbaa !107
+  br label %114
 
-116:                                              ; preds = %116, %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i ], [ %119, %116 ]
-  %117 = load double, ptr %.1.i.i, align 8, !tbaa !107
-  %118 = fcmp olt double %117, %115
-  %119 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
-  br i1 %118, label %116, label %.preheader.i.i, !llvm.loop !308
+114:                                              ; preds = %114, %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i ], [ %117, %114 ]
+  %115 = load double, ptr %.1.i.i, align 8, !tbaa !107
+  %116 = fcmp olt double %115, %113
+  %117 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
+  br i1 %116, label %114, label %.preheader.i.i, !llvm.loop !308
 
-.preheader.i.i:                                   ; preds = %116, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %116 ]
+.preheader.i.i:                                   ; preds = %114, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %114 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -24
-  %120 = load double, ptr %.114.i.i, align 8, !tbaa !107
-  %121 = fcmp olt double %115, %120
-  br i1 %121, label %.preheader.i.i, label %122, !llvm.loop !309
+  %118 = load double, ptr %.114.i.i, align 8, !tbaa !107
+  %119 = fcmp olt double %113, %118
+  br i1 %119, label %.preheader.i.i, label %120, !llvm.loop !309
 
-122:                                              ; preds = %.preheader.i.i
-  %123 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %123, label %124, label %_ZSt27__unguarded_partition_pivotIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEET_S8_S8_T0_.exit
+120:                                              ; preds = %.preheader.i.i
+  %121 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %121, label %122, label %_ZSt27__unguarded_partition_pivotIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEET_S8_S8_T0_.exit
 
-124:                                              ; preds = %122
+122:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.1.i.i, i64 24, i1 false), !tbaa.struct !302
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.114.i.i, i64 24, i1 false), !tbaa.struct !302
@@ -6546,12 +6546,12 @@ _ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterIN
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %_ZSt22__move_median_to_firstIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_S8_T0_.exit.i, !llvm.loop !310
 
-_ZSt27__unguarded_partition_pivotIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEET_S8_S8_T0_.exit: ; preds = %122
-  tail call void @_ZSt16__introsort_loopIPN2cv8MSCREdgeElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.027, i64 noundef %93)
-  %125 = ptrtoint ptr %.1.i.i to i64
-  %126 = sub i64 %125, %11
-  %127 = icmp sgt i64 %126, 384
-  br i1 %127, label %16, label %_ZSt14__partial_sortIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_T0_.exit, !llvm.loop !311
+_ZSt27__unguarded_partition_pivotIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEET_S8_S8_T0_.exit: ; preds = %120
+  tail call void @_ZSt16__introsort_loopIPN2cv8MSCREdgeElN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.027, i64 noundef %91)
+  %123 = ptrtoint ptr %.1.i.i to i64
+  %124 = sub i64 %123, %11
+  %125 = icmp sgt i64 %124, 384
+  br i1 %125, label %16, label %_ZSt14__partial_sortIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_T0_.exit, !llvm.loop !311
 
 _ZSt14__partial_sortIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEET_S8_S8_T0_.exit, %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i.i, %3
   ret void

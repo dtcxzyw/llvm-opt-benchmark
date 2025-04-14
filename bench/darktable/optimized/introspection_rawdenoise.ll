@@ -1125,17 +1125,18 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   %23 = getelementptr inbounds nuw [4 x ptr], ptr %8, i64 0, i64 %indvars.iv19
   store ptr %13, ptr %23, align 8, !tbaa !93
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %13, i64 28
   br label %26
 
 25:                                               ; preds = %26
-  store i8 %35, ptr %18, align 4, !tbaa !112
+  store i8 %34, ptr %18, align 4, !tbaa !112
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 4
   br i1 %exitcond22.not, label %11, label %12
 
 26:                                               ; preds = %12, %26
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %26 ]
-  %27 = phi i8 [ 0, %12 ], [ %35, %26 ]
+  %27 = phi i8 [ 0, %12 ], [ %34, %26 ]
   %28 = getelementptr inbounds nuw [4 x [5 x float]], ptr %9, i64 0, i64 %indvars.iv19, i64 %indvars.iv
   %29 = load float, ptr %28, align 4, !tbaa !17
   %30 = getelementptr inbounds nuw [4 x [5 x float]], ptr %10, i64 0, i64 %indvars.iv19, i64 %indvars.iv
@@ -1144,10 +1145,9 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   %33 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %24, i64 0, i64 %32
   store float %29, ptr %33, align 8, !tbaa !95
   %.idx.i = shl nuw nsw i64 %32, 3
-  %.offs.i = or disjoint i64 %.idx.i, 4
-  %34 = getelementptr inbounds nuw i8, ptr %24, i64 %.offs.i
-  store float %31, ptr %34, align 4, !tbaa !97
-  %35 = add i8 %27, 1
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx.i
+  store float %31, ptr %gep, align 4, !tbaa !97
+  %34 = add i8 %27, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %25, label %26
@@ -1365,19 +1365,18 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   ret void
 
 116:                                              ; preds = %_iop_gui_alloc.exit, %116
-  %indvars.iv80 = phi i64 [ 1, %_iop_gui_alloc.exit ], [ %indvars.iv.next81, %116 ]
+  %indvars.iv78 = phi i64 [ 1, %_iop_gui_alloc.exit ], [ %indvars.iv.next79, %116 ]
   %indvars.iv = phi i64 [ 0, %_iop_gui_alloc.exit ], [ %indvars.iv.next, %116 ]
   %117 = getelementptr inbounds [4 x [5 x float]], ptr %42, i64 0, i64 %43, i64 %indvars.iv
   %118 = load float, ptr %117, align 4, !tbaa !17
   %119 = getelementptr inbounds [4 x [5 x float]], ptr %48, i64 0, i64 %43, i64 %indvars.iv
   %120 = load float, ptr %119, align 4, !tbaa !17
-  %121 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %52, i64 0, i64 %indvars.iv80
+  %121 = getelementptr inbounds nuw [20 x %struct.CurveAnchorPoint], ptr %52, i64 0, i64 %indvars.iv78
   store float %118, ptr %121, align 8, !tbaa !95
-  %.idx.i76 = shl nuw nsw i64 %indvars.iv80, 3
-  %.offs.i77 = or disjoint i64 %.idx.i76, 4
-  %122 = getelementptr inbounds nuw i8, ptr %52, i64 %.offs.i77
-  store float %120, ptr %122, align 4, !tbaa !97
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %.idx.i75 = shl nuw nsw i64 %indvars.iv78, 3
+  %gep = getelementptr inbounds nuw i8, ptr %53, i64 %.idx.i75
+  store float %120, ptr %gep, align 4, !tbaa !97
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %54, label %116

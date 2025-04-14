@@ -5013,102 +5013,95 @@ vector.ph:                                        ; preds = %vector.memcheck
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %26 = or disjoint i64 %index, 1
-  %27 = or disjoint i64 %index, 2
-  %28 = or disjoint i64 %index, 3
-  %29 = or disjoint i64 %index, 4
-  %30 = or disjoint i64 %index, 5
-  %31 = or disjoint i64 %index, 6
-  %32 = or disjoint i64 %index, 7
-  %33 = trunc i64 %index to i32
-  %34 = shl nuw i64 %index, 1
-  %35 = and i64 %34, 4294967280
-  %36 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %35
-  %37 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %index
-  %38 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %26
-  %39 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %27
-  %40 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %28
-  %41 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %29
-  %42 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %30
-  %43 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %31
-  %44 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %32
+  %26 = trunc i64 %index to i32
+  %27 = shl nuw i64 %index, 1
+  %28 = and i64 %27, 4294967280
+  %29 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %28
+  %30 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %index
+  %31 = getelementptr i8, ptr %30, i64 4
+  %32 = getelementptr i8, ptr %30, i64 8
+  %33 = getelementptr i8, ptr %30, i64 12
+  %34 = getelementptr i8, ptr %30, i64 16
+  %35 = getelementptr i8, ptr %30, i64 20
+  %36 = getelementptr i8, ptr %30, i64 24
+  %37 = getelementptr i8, ptr %30, i64 28
+  %38 = load i16, ptr %30, align 4, !tbaa !52
+  %39 = load i16, ptr %31, align 4, !tbaa !52
+  %40 = load i16, ptr %32, align 4, !tbaa !52
+  %41 = load i16, ptr %33, align 4, !tbaa !52
+  %42 = load i16, ptr %34, align 4, !tbaa !52
+  %43 = load i16, ptr %35, align 4, !tbaa !52
+  %44 = load i16, ptr %36, align 4, !tbaa !52
   %45 = load i16, ptr %37, align 4, !tbaa !52
-  %46 = load i16, ptr %38, align 4, !tbaa !52
-  %47 = load i16, ptr %39, align 4, !tbaa !52
-  %48 = load i16, ptr %40, align 4, !tbaa !52
-  %49 = load i16, ptr %41, align 4, !tbaa !52
-  %50 = load i16, ptr %42, align 4, !tbaa !52
-  %51 = load i16, ptr %43, align 4, !tbaa !52
-  %52 = load i16, ptr %44, align 4, !tbaa !52
-  %53 = insertelement <8 x i16> poison, i16 %45, i64 0
-  %54 = insertelement <8 x i16> %53, i16 %46, i64 1
-  %55 = insertelement <8 x i16> %54, i16 %47, i64 2
-  %56 = insertelement <8 x i16> %55, i16 %48, i64 3
-  %57 = insertelement <8 x i16> %56, i16 %49, i64 4
-  %58 = insertelement <8 x i16> %57, i16 %50, i64 5
-  %59 = insertelement <8 x i16> %58, i16 %51, i64 6
-  %60 = insertelement <8 x i16> %59, i16 %52, i64 7
-  %61 = tail call <8 x i16> @llvm.bswap.v8i16(<8 x i16> %60)
-  store <8 x i16> %61, ptr %36, align 1, !alias.scope !212, !noalias !215
-  %62 = add i32 %mul34, %33
-  %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %37, i64 2
-  %66 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  %67 = getelementptr inbounds nuw i8, ptr %39, i64 2
-  %68 = getelementptr inbounds nuw i8, ptr %40, i64 2
-  %69 = getelementptr inbounds nuw i8, ptr %41, i64 2
-  %70 = getelementptr inbounds nuw i8, ptr %42, i64 2
-  %71 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  %72 = getelementptr inbounds nuw i8, ptr %44, i64 2
+  %46 = insertelement <8 x i16> poison, i16 %38, i64 0
+  %47 = insertelement <8 x i16> %46, i16 %39, i64 1
+  %48 = insertelement <8 x i16> %47, i16 %40, i64 2
+  %49 = insertelement <8 x i16> %48, i16 %41, i64 3
+  %50 = insertelement <8 x i16> %49, i16 %42, i64 4
+  %51 = insertelement <8 x i16> %50, i16 %43, i64 5
+  %52 = insertelement <8 x i16> %51, i16 %44, i64 6
+  %53 = insertelement <8 x i16> %52, i16 %45, i64 7
+  %54 = tail call <8 x i16> @llvm.bswap.v8i16(<8 x i16> %53)
+  store <8 x i16> %54, ptr %29, align 1, !alias.scope !212, !noalias !215
+  %55 = add i32 %mul34, %26
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %30, i64 2
+  %59 = getelementptr i8, ptr %30, i64 6
+  %60 = getelementptr i8, ptr %30, i64 10
+  %61 = getelementptr i8, ptr %30, i64 14
+  %62 = getelementptr i8, ptr %30, i64 18
+  %63 = getelementptr i8, ptr %30, i64 22
+  %64 = getelementptr i8, ptr %30, i64 26
+  %65 = getelementptr i8, ptr %30, i64 30
+  %66 = load i8, ptr %58, align 2, !tbaa !208
+  %67 = load i8, ptr %59, align 2, !tbaa !208
+  %68 = load i8, ptr %60, align 2, !tbaa !208
+  %69 = load i8, ptr %61, align 2, !tbaa !208
+  %70 = load i8, ptr %62, align 2, !tbaa !208
+  %71 = load i8, ptr %63, align 2, !tbaa !208
+  %72 = load i8, ptr %64, align 2, !tbaa !208
   %73 = load i8, ptr %65, align 2, !tbaa !208
-  %74 = load i8, ptr %66, align 2, !tbaa !208
-  %75 = load i8, ptr %67, align 2, !tbaa !208
-  %76 = load i8, ptr %68, align 2, !tbaa !208
-  %77 = load i8, ptr %69, align 2, !tbaa !208
-  %78 = load i8, ptr %70, align 2, !tbaa !208
-  %79 = load i8, ptr %71, align 2, !tbaa !208
-  %80 = load i8, ptr %72, align 2, !tbaa !208
-  %81 = insertelement <8 x i8> poison, i8 %73, i64 0
-  %82 = insertelement <8 x i8> %81, i8 %74, i64 1
-  %83 = insertelement <8 x i8> %82, i8 %75, i64 2
-  %84 = insertelement <8 x i8> %83, i8 %76, i64 3
-  %85 = insertelement <8 x i8> %84, i8 %77, i64 4
-  %86 = insertelement <8 x i8> %85, i8 %78, i64 5
-  %87 = insertelement <8 x i8> %86, i8 %79, i64 6
-  %88 = insertelement <8 x i8> %87, i8 %80, i64 7
-  store <8 x i8> %88, ptr %64, align 1, !tbaa !58, !alias.scope !218, !noalias !219
-  %89 = add i32 %mul37, %33
-  %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %90
-  %92 = getelementptr inbounds nuw i8, ptr %37, i64 3
-  %93 = getelementptr inbounds nuw i8, ptr %38, i64 3
-  %94 = getelementptr inbounds nuw i8, ptr %39, i64 3
-  %95 = getelementptr inbounds nuw i8, ptr %40, i64 3
-  %96 = getelementptr inbounds nuw i8, ptr %41, i64 3
-  %97 = getelementptr inbounds nuw i8, ptr %42, i64 3
-  %98 = getelementptr inbounds nuw i8, ptr %43, i64 3
-  %99 = getelementptr inbounds nuw i8, ptr %44, i64 3
+  %74 = insertelement <8 x i8> poison, i8 %66, i64 0
+  %75 = insertelement <8 x i8> %74, i8 %67, i64 1
+  %76 = insertelement <8 x i8> %75, i8 %68, i64 2
+  %77 = insertelement <8 x i8> %76, i8 %69, i64 3
+  %78 = insertelement <8 x i8> %77, i8 %70, i64 4
+  %79 = insertelement <8 x i8> %78, i8 %71, i64 5
+  %80 = insertelement <8 x i8> %79, i8 %72, i64 6
+  %81 = insertelement <8 x i8> %80, i8 %73, i64 7
+  store <8 x i8> %81, ptr %57, align 1, !tbaa !58, !alias.scope !218, !noalias !219
+  %82 = add i32 %mul37, %26
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %83
+  %85 = getelementptr inbounds nuw i8, ptr %30, i64 3
+  %86 = getelementptr i8, ptr %30, i64 7
+  %87 = getelementptr i8, ptr %30, i64 11
+  %88 = getelementptr i8, ptr %30, i64 15
+  %89 = getelementptr i8, ptr %30, i64 19
+  %90 = getelementptr i8, ptr %30, i64 23
+  %91 = getelementptr i8, ptr %30, i64 27
+  %92 = getelementptr i8, ptr %30, i64 31
+  %93 = load i8, ptr %85, align 1, !tbaa !47
+  %94 = load i8, ptr %86, align 1, !tbaa !47
+  %95 = load i8, ptr %87, align 1, !tbaa !47
+  %96 = load i8, ptr %88, align 1, !tbaa !47
+  %97 = load i8, ptr %89, align 1, !tbaa !47
+  %98 = load i8, ptr %90, align 1, !tbaa !47
+  %99 = load i8, ptr %91, align 1, !tbaa !47
   %100 = load i8, ptr %92, align 1, !tbaa !47
-  %101 = load i8, ptr %93, align 1, !tbaa !47
-  %102 = load i8, ptr %94, align 1, !tbaa !47
-  %103 = load i8, ptr %95, align 1, !tbaa !47
-  %104 = load i8, ptr %96, align 1, !tbaa !47
-  %105 = load i8, ptr %97, align 1, !tbaa !47
-  %106 = load i8, ptr %98, align 1, !tbaa !47
-  %107 = load i8, ptr %99, align 1, !tbaa !47
-  %108 = insertelement <8 x i8> poison, i8 %100, i64 0
-  %109 = insertelement <8 x i8> %108, i8 %101, i64 1
-  %110 = insertelement <8 x i8> %109, i8 %102, i64 2
-  %111 = insertelement <8 x i8> %110, i8 %103, i64 3
-  %112 = insertelement <8 x i8> %111, i8 %104, i64 4
-  %113 = insertelement <8 x i8> %112, i8 %105, i64 5
-  %114 = insertelement <8 x i8> %113, i8 %106, i64 6
-  %115 = insertelement <8 x i8> %114, i8 %107, i64 7
-  store <8 x i8> %115, ptr %91, align 1, !tbaa !58, !alias.scope !219
+  %101 = insertelement <8 x i8> poison, i8 %93, i64 0
+  %102 = insertelement <8 x i8> %101, i8 %94, i64 1
+  %103 = insertelement <8 x i8> %102, i8 %95, i64 2
+  %104 = insertelement <8 x i8> %103, i8 %96, i64 3
+  %105 = insertelement <8 x i8> %104, i8 %97, i64 4
+  %106 = insertelement <8 x i8> %105, i8 %98, i64 5
+  %107 = insertelement <8 x i8> %106, i8 %99, i64 6
+  %108 = insertelement <8 x i8> %107, i8 %100, i64 7
+  store <8 x i8> %108, ptr %84, align 1, !tbaa !58, !alias.scope !219
   %index.next = add nuw nsw i64 %index, 8
-  %116 = icmp eq i64 %index.next, %n.vec
-  br i1 %116, label %invoke.cont43.preheader2, label %vector.body, !llvm.loop !220
+  %109 = icmp eq i64 %index.next, %n.vec
+  br i1 %109, label %invoke.cont43.preheader2, label %vector.body, !llvm.loop !220
 
 invoke.cont43.preheader2:                         ; preds = %vector.body, %vector.memcheck, %vector.scevcheck, %invoke.cont43.preheader
   %indvars.iv.ph = phi i64 [ 0, %invoke.cont43.preheader ], [ 0, %vector.scevcheck ], [ 0, %vector.memcheck ], [ %n.vec, %vector.body ]
@@ -5116,26 +5109,26 @@ invoke.cont43.preheader2:                         ; preds = %vector.body, %vecto
 
 invoke.cont43:                                    ; preds = %invoke.cont43.preheader2, %invoke.cont43
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont43 ], [ %indvars.iv.ph, %invoke.cont43.preheader2 ]
-  %117 = trunc i64 %indvars.iv to i32
+  %110 = trunc i64 %indvars.iv to i32
   %mul39 = shl nuw i64 %indvars.iv, 1
   %idxprom.i = and i64 %mul39, 4294967294
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i
   %arrayidx = getelementptr inbounds %struct.MapNode, ptr %nodes, i64 %indvars.iv
-  %118 = load i16, ptr %arrayidx, align 4, !tbaa !52
-  %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %118)
+  %111 = load i16, ptr %arrayidx, align 4, !tbaa !52
+  %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %111)
   store i16 %rev.i.i, ptr %arrayidx.i, align 1
-  %add44 = add i32 %mul34, %117
+  %add44 = add i32 %mul34, %110
   %idxprom.i88 = zext i32 %add44 to i64
   %arrayidx.i89 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i88
   %param1 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 2
-  %119 = load i8, ptr %param1, align 2, !tbaa !208
-  store i8 %119, ptr %arrayidx.i89, align 1, !tbaa !58
-  %add50 = add i32 %mul37, %117
+  %112 = load i8, ptr %param1, align 2, !tbaa !208
+  store i8 %112, ptr %arrayidx.i89, align 1, !tbaa !58
+  %add50 = add i32 %mul37, %110
   %idxprom.i90 = zext i32 %add50 to i64
   %arrayidx.i91 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i90
   %param2 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 3
-  %120 = load i8, ptr %param2, align 1, !tbaa !47
-  store i8 %120, ptr %arrayidx.i91, align 1, !tbaa !58
+  %113 = load i8, ptr %param2, align 1, !tbaa !47
+  store i8 %113, ptr %arrayidx.i91, align 1, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %nrvo.skipdtor, label %invoke.cont43, !llvm.loop !223
@@ -5261,45 +5254,38 @@ vector.ph:                                        ; preds = %for.body41.preheade
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %9 = or disjoint i64 %index, 1
-  %10 = or disjoint i64 %index, 2
-  %11 = or disjoint i64 %index, 3
-  %12 = or disjoint i64 %index, 4
-  %13 = or disjoint i64 %index, 5
-  %14 = or disjoint i64 %index, 6
-  %15 = or disjoint i64 %index, 7
-  %16 = shl nuw i64 %index, 1
-  %17 = and i64 %16, 4294967280
-  %18 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %17
-  %wide.load = load <8 x i16>, ptr %18, align 1
-  %19 = tail call <8 x i16> @llvm.bswap.v8i16(<8 x i16> %wide.load)
-  %20 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %index
-  %21 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %9
-  %22 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %10
-  %23 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %11
-  %24 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %12
-  %25 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %13
-  %26 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %14
-  %27 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %15
-  %28 = extractelement <8 x i16> %19, i64 0
+  %9 = shl nuw i64 %index, 1
+  %10 = and i64 %9, 4294967280
+  %11 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %10
+  %wide.load = load <8 x i16>, ptr %11, align 1
+  %12 = tail call <8 x i16> @llvm.bswap.v8i16(<8 x i16> %wide.load)
+  %13 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %index
+  %14 = getelementptr i8, ptr %13, i64 4
+  %15 = getelementptr i8, ptr %13, i64 8
+  %16 = getelementptr i8, ptr %13, i64 12
+  %17 = getelementptr i8, ptr %13, i64 16
+  %18 = getelementptr i8, ptr %13, i64 20
+  %19 = getelementptr i8, ptr %13, i64 24
+  %20 = getelementptr i8, ptr %13, i64 28
+  %21 = extractelement <8 x i16> %12, i64 0
+  store i16 %21, ptr %13, align 4, !tbaa !52
+  %22 = extractelement <8 x i16> %12, i64 1
+  store i16 %22, ptr %14, align 4, !tbaa !52
+  %23 = extractelement <8 x i16> %12, i64 2
+  store i16 %23, ptr %15, align 4, !tbaa !52
+  %24 = extractelement <8 x i16> %12, i64 3
+  store i16 %24, ptr %16, align 4, !tbaa !52
+  %25 = extractelement <8 x i16> %12, i64 4
+  store i16 %25, ptr %17, align 4, !tbaa !52
+  %26 = extractelement <8 x i16> %12, i64 5
+  store i16 %26, ptr %18, align 4, !tbaa !52
+  %27 = extractelement <8 x i16> %12, i64 6
+  store i16 %27, ptr %19, align 4, !tbaa !52
+  %28 = extractelement <8 x i16> %12, i64 7
   store i16 %28, ptr %20, align 4, !tbaa !52
-  %29 = extractelement <8 x i16> %19, i64 1
-  store i16 %29, ptr %21, align 4, !tbaa !52
-  %30 = extractelement <8 x i16> %19, i64 2
-  store i16 %30, ptr %22, align 4, !tbaa !52
-  %31 = extractelement <8 x i16> %19, i64 3
-  store i16 %31, ptr %23, align 4, !tbaa !52
-  %32 = extractelement <8 x i16> %19, i64 4
-  store i16 %32, ptr %24, align 4, !tbaa !52
-  %33 = extractelement <8 x i16> %19, i64 5
-  store i16 %33, ptr %25, align 4, !tbaa !52
-  %34 = extractelement <8 x i16> %19, i64 6
-  store i16 %34, ptr %26, align 4, !tbaa !52
-  %35 = extractelement <8 x i16> %19, i64 7
-  store i16 %35, ptr %27, align 4, !tbaa !52
   %index.next = add nuw nsw i64 %index, 8
-  %36 = icmp eq i64 %index.next, %n.vec
-  br i1 %36, label %middle.block, label %vector.body, !llvm.loop !224
+  %29 = icmp eq i64 %index.next, %n.vec
+  br i1 %29, label %middle.block, label %vector.body, !llvm.loop !224
 
 middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %n.vec, %wide.trip.count
@@ -5329,9 +5315,9 @@ for.body41.prol:                                  ; preds = %for.body41.preheade
 
 for.body41.prol.loopexit:                         ; preds = %for.body41.prol, %for.body41.preheader275
   %indvars.iv.unr = phi i64 [ %indvars.iv.ph, %for.body41.preheader275 ], [ %indvars.iv.next.prol, %for.body41.prol ]
-  %37 = add nsw i64 %wide.trip.count, -1
-  %38 = icmp eq i64 %indvars.iv.ph, %37
-  br i1 %38, label %for.body63.preheader, label %for.body41
+  %30 = add nsw i64 %wide.trip.count, -1
+  %31 = icmp eq i64 %indvars.iv.ph, %30
+  br i1 %31, label %for.body63.preheader, label %for.body41
 
 for.cond.preheader:                               ; preds = %invoke.cont21
   br i1 %cmp26232.not, label %if.end149, label %for.body.preheader
@@ -5339,15 +5325,15 @@ for.cond.preheader:                               ; preds = %invoke.cont21
 for.body.preheader:                               ; preds = %for.cond.preheader
   %wide.trip.count247 = zext i32 %nodecount to i64
   %xtraiter277 = and i64 %wide.trip.count247, 3
-  %39 = icmp ult i32 %nodecount, 4
-  br i1 %39, label %if.end56.loopexit.unr-lcssa, label %for.body.preheader.new
+  %32 = icmp ult i32 %nodecount, 4
+  br i1 %32, label %if.end56.loopexit.unr-lcssa, label %for.body.preheader.new
 
 for.body.preheader.new:                           ; preds = %for.body.preheader
   %unroll_iter = and i64 %wide.trip.count247, 4294967292
   br label %for.body
 
 lpad17:                                           ; preds = %_ZN6BufferIhEC2Ej.exit
-  %40 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   %isnull.i.i = icmp eq ptr %storemerge.i, null
   br i1 %isnull.i.i, label %eh.resume, label %delete.notnull.i.i
@@ -5359,26 +5345,26 @@ delete.notnull.i.i:                               ; preds = %lpad17
 for.body:                                         ; preds = %for.body, %for.body.preheader.new
   %indvars.iv244 = phi i64 [ 0, %for.body.preheader.new ], [ %indvars.iv.next245.3, %for.body ]
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %indvars.iv244
-  %41 = load i8, ptr %arrayidx.i, align 1, !tbaa !58
-  %conv32 = zext i8 %41 to i16
+  %34 = load i8, ptr %arrayidx.i, align 1, !tbaa !58
+  %conv32 = zext i8 %34 to i16
   %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv244
   store i16 %conv32, ptr %arrayidx, align 4, !tbaa !52
   %indvars.iv.next245 = or disjoint i64 %indvars.iv244, 1
   %arrayidx.i.1 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %indvars.iv.next245
-  %42 = load i8, ptr %arrayidx.i.1, align 1, !tbaa !58
-  %conv32.1 = zext i8 %42 to i16
+  %35 = load i8, ptr %arrayidx.i.1, align 1, !tbaa !58
+  %conv32.1 = zext i8 %35 to i16
   %arrayidx.1 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next245
   store i16 %conv32.1, ptr %arrayidx.1, align 4, !tbaa !52
   %indvars.iv.next245.1 = or disjoint i64 %indvars.iv244, 2
   %arrayidx.i.2 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %indvars.iv.next245.1
-  %43 = load i8, ptr %arrayidx.i.2, align 1, !tbaa !58
-  %conv32.2 = zext i8 %43 to i16
+  %36 = load i8, ptr %arrayidx.i.2, align 1, !tbaa !58
+  %conv32.2 = zext i8 %36 to i16
   %arrayidx.2 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next245.1
   store i16 %conv32.2, ptr %arrayidx.2, align 4, !tbaa !52
   %indvars.iv.next245.2 = or disjoint i64 %indvars.iv244, 3
   %arrayidx.i.3 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %indvars.iv.next245.2
-  %44 = load i8, ptr %arrayidx.i.3, align 1, !tbaa !58
-  %conv32.3 = zext i8 %44 to i16
+  %37 = load i8, ptr %arrayidx.i.3, align 1, !tbaa !58
+  %conv32.3 = zext i8 %37 to i16
   %arrayidx.3 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next245.2
   store i16 %conv32.3, ptr %arrayidx.3, align 4, !tbaa !52
   %indvars.iv.next245.3 = add nuw nsw i64 %indvars.iv244, 4
@@ -5415,8 +5401,8 @@ for.body.epil:                                    ; preds = %if.end56.loopexit.u
   %indvars.iv244.epil = phi i64 [ %indvars.iv.next245.epil, %for.body.epil ], [ %indvars.iv244.unr, %if.end56.loopexit.unr-lcssa ]
   %epil.iter = phi i64 [ %epil.iter.next, %for.body.epil ], [ 0, %if.end56.loopexit.unr-lcssa ]
   %arrayidx.i.epil = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %indvars.iv244.epil
-  %45 = load i8, ptr %arrayidx.i.epil, align 1, !tbaa !58
-  %conv32.epil = zext i8 %45 to i16
+  %38 = load i8, ptr %arrayidx.i.epil, align 1, !tbaa !58
+  %conv32.epil = zext i8 %38 to i16
   %arrayidx.epil = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv244.epil
   store i16 %conv32.epil, ptr %arrayidx.epil, align 4, !tbaa !52
   %indvars.iv.next245.epil = add nuw nsw i64 %indvars.iv244.epil, 1
@@ -5428,8 +5414,8 @@ for.body63.preheader:                             ; preds = %for.body41, %for.bo
   %wide.trip.count252.pre-phi = phi i64 [ %wide.trip.count, %for.body41.prol.loopexit ], [ %wide.trip.count247, %if.end56.loopexit.unr-lcssa ], [ %wide.trip.count247, %for.body.epil ], [ %wide.trip.count, %for.body41 ]
   %mul58 = mul i32 %nodecount, %conv
   %xtraiter279 = and i64 %wide.trip.count252.pre-phi, 3
-  %46 = icmp ult i32 %nodecount, 4
-  br i1 %46, label %for.cond.cleanup62.loopexit.unr-lcssa, label %for.body63.preheader.new
+  %39 = icmp ult i32 %nodecount, 4
+  br i1 %39, label %for.cond.cleanup62.loopexit.unr-lcssa, label %for.body63.preheader.new
 
 for.body63.preheader.new:                         ; preds = %for.body63.preheader.thread, %for.body63.preheader
   %xtraiter2798 = phi i64 [ %xtraiter2794, %for.body63.preheader.thread ], [ %xtraiter279, %for.body63.preheader ]
@@ -5448,13 +5434,13 @@ for.cond.cleanup62.loopexit.unr-lcssa:            ; preds = %for.body63, %for.bo
 for.body63.epil:                                  ; preds = %for.cond.cleanup62.loopexit.unr-lcssa, %for.body63.epil
   %indvars.iv249.epil = phi i64 [ %indvars.iv.next250.epil, %for.body63.epil ], [ %indvars.iv249.unr, %for.cond.cleanup62.loopexit.unr-lcssa ]
   %epil.iter280 = phi i64 [ %epil.iter280.next, %for.body63.epil ], [ 0, %for.cond.cleanup62.loopexit.unr-lcssa ]
-  %47 = trunc i64 %indvars.iv249.epil to i32
-  %add64.epil = add i32 %mul586, %47
+  %40 = trunc i64 %indvars.iv249.epil to i32
+  %add64.epil = add i32 %mul586, %40
   %idxprom.i210.epil = zext i32 %add64.epil to i64
   %arrayidx.i211.epil = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210.epil
-  %48 = load i8, ptr %arrayidx.i211.epil, align 1, !tbaa !58
+  %41 = load i8, ptr %arrayidx.i211.epil, align 1, !tbaa !58
   %param1.epil = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv249.epil, i32 1
-  store i8 %48, ptr %param1.epil, align 2, !tbaa !208
+  store i8 %41, ptr %param1.epil, align 2, !tbaa !208
   %indvars.iv.next250.epil = add nuw nsw i64 %indvars.iv249.epil, 1
   %epil.iter280.next = add nuw nsw i64 %epil.iter280, 1
   %epil.iter280.cmp.not = icmp eq i64 %epil.iter280.next, %xtraiter2799
@@ -5468,63 +5454,63 @@ for.cond.cleanup62:                               ; preds = %for.body63.epil, %f
 
 for.body63:                                       ; preds = %for.body63, %for.body63.preheader.new
   %indvars.iv249 = phi i64 [ 0, %for.body63.preheader.new ], [ %indvars.iv.next250.3, %for.body63 ]
-  %49 = trunc i64 %indvars.iv249 to i32
-  %add64 = add i32 %mul585, %49
+  %42 = trunc i64 %indvars.iv249 to i32
+  %add64 = add i32 %mul585, %42
   %idxprom.i210 = zext i32 %add64 to i64
   %arrayidx.i211 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210
-  %50 = load i8, ptr %arrayidx.i211, align 1, !tbaa !58
+  %43 = load i8, ptr %arrayidx.i211, align 1, !tbaa !58
   %param1 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv249, i32 1
-  store i8 %50, ptr %param1, align 2, !tbaa !208
+  store i8 %43, ptr %param1, align 2, !tbaa !208
   %indvars.iv.next250 = or disjoint i64 %indvars.iv249, 1
-  %51 = trunc i64 %indvars.iv.next250 to i32
-  %add64.1 = add i32 %mul585, %51
+  %44 = trunc i64 %indvars.iv.next250 to i32
+  %add64.1 = add i32 %mul585, %44
   %idxprom.i210.1 = zext i32 %add64.1 to i64
   %arrayidx.i211.1 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210.1
-  %52 = load i8, ptr %arrayidx.i211.1, align 1, !tbaa !58
+  %45 = load i8, ptr %arrayidx.i211.1, align 1, !tbaa !58
   %param1.1 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next250, i32 1
-  store i8 %52, ptr %param1.1, align 2, !tbaa !208
+  store i8 %45, ptr %param1.1, align 2, !tbaa !208
   %indvars.iv.next250.1 = or disjoint i64 %indvars.iv249, 2
-  %53 = trunc i64 %indvars.iv.next250.1 to i32
-  %add64.2 = add i32 %mul585, %53
+  %46 = trunc i64 %indvars.iv.next250.1 to i32
+  %add64.2 = add i32 %mul585, %46
   %idxprom.i210.2 = zext i32 %add64.2 to i64
   %arrayidx.i211.2 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210.2
-  %54 = load i8, ptr %arrayidx.i211.2, align 1, !tbaa !58
+  %47 = load i8, ptr %arrayidx.i211.2, align 1, !tbaa !58
   %param1.2 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next250.1, i32 1
-  store i8 %54, ptr %param1.2, align 2, !tbaa !208
+  store i8 %47, ptr %param1.2, align 2, !tbaa !208
   %indvars.iv.next250.2 = or disjoint i64 %indvars.iv249, 3
-  %55 = trunc i64 %indvars.iv.next250.2 to i32
-  %add64.3 = add i32 %mul585, %55
+  %48 = trunc i64 %indvars.iv.next250.2 to i32
+  %add64.3 = add i32 %mul585, %48
   %idxprom.i210.3 = zext i32 %add64.3 to i64
   %arrayidx.i211.3 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210.3
-  %56 = load i8, ptr %arrayidx.i211.3, align 1, !tbaa !58
+  %49 = load i8, ptr %arrayidx.i211.3, align 1, !tbaa !58
   %param1.3 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next250.2, i32 1
-  store i8 %56, ptr %param1.3, align 2, !tbaa !208
+  store i8 %49, ptr %param1.3, align 2, !tbaa !208
   %indvars.iv.next250.3 = add nuw i64 %indvars.iv249, 4
   %niter283.ncmp.3 = icmp eq i64 %indvars.iv.next250.3, %unroll_iter282
   br i1 %niter283.ncmp.3, label %for.cond.cleanup62.loopexit.unr-lcssa, label %for.body63, !llvm.loop !230
 
 for.body86:                                       ; preds = %for.cond.cleanup62, %for.inc122
   %indvars.iv259 = phi i64 [ %indvars.iv.next260, %for.inc122 ], [ 0, %for.cond.cleanup62 ]
-  %57 = trunc i64 %indvars.iv259 to i32
-  %add87 = add i32 %mul78, %57
+  %50 = trunc i64 %indvars.iv259 to i32
+  %add87 = add i32 %mul78, %50
   %idxprom.i212 = zext i32 %add87 to i64
   %arrayidx.i213 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i212
-  %58 = load i8, ptr %arrayidx.i213, align 1, !tbaa !58
+  %51 = load i8, ptr %arrayidx.i213, align 1, !tbaa !58
   %arrayidx94 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv259
   %param2 = getelementptr inbounds nuw i8, ptr %arrayidx94, i64 3
-  store i8 %58, ptr %param2, align 1, !tbaa !47
-  %59 = load i16, ptr %arrayidx94, align 4, !tbaa !52
-  %cmp99 = icmp ugt i16 %59, 127
+  store i8 %51, ptr %param2, align 1, !tbaa !47
+  %52 = load i16, ptr %arrayidx94, align 4, !tbaa !52
+  %cmp99 = icmp ugt i16 %52, 127
   br i1 %cmp99, label %if.then100, label %for.inc122
 
 if.then100:                                       ; preds = %for.body86
-  %shl = shl i16 %59, 4
-  %60 = lshr i8 %58, 4
-  %61 = zext nneg i8 %60 to i16
-  %62 = or disjoint i16 %shl, %61
-  store i16 %62, ptr %arrayidx94, align 4, !tbaa !52
-  %63 = and i8 %58, 15
-  store i8 %63, ptr %param2, align 1, !tbaa !47
+  %shl = shl i16 %52, 4
+  %53 = lshr i8 %51, 4
+  %54 = zext nneg i8 %53 to i16
+  %55 = or disjoint i16 %shl, %54
+  store i16 %55, ptr %arrayidx94, align 4, !tbaa !52
+  %56 = and i8 %51, 15
+  store i8 %56, ptr %param2, align 1, !tbaa !47
   br label %for.inc122
 
 for.inc122:                                       ; preds = %if.then100, %for.body86
@@ -5534,8 +5520,8 @@ for.inc122:                                       ; preds = %if.then100, %for.bo
 
 for.body134.preheader:                            ; preds = %for.cond.cleanup62
   %xtraiter284 = and i64 %wide.trip.count262, 3
-  %64 = icmp ult i32 %nodecount, 4
-  br i1 %64, label %delete.notnull.i.i217.loopexit274.unr-lcssa, label %for.body134.preheader.new
+  %57 = icmp ult i32 %nodecount, 4
+  br i1 %57, label %delete.notnull.i.i217.loopexit274.unr-lcssa, label %for.body134.preheader.new
 
 for.body134.preheader.new:                        ; preds = %for.body134.preheader
   %unroll_iter287 = and i64 %wide.trip.count262, 4294967292
@@ -5543,37 +5529,37 @@ for.body134.preheader.new:                        ; preds = %for.body134.prehead
 
 for.body134:                                      ; preds = %for.body134, %for.body134.preheader.new
   %indvars.iv254 = phi i64 [ 0, %for.body134.preheader.new ], [ %indvars.iv.next255.3, %for.body134 ]
-  %65 = trunc i64 %indvars.iv254 to i32
-  %add135 = add i32 %mul78, %65
+  %58 = trunc i64 %indvars.iv254 to i32
+  %add135 = add i32 %mul78, %58
   %idxprom.i214 = zext i32 %add135 to i64
   %arrayidx.i215 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i214
-  %66 = load i8, ptr %arrayidx.i215, align 1, !tbaa !58
+  %59 = load i8, ptr %arrayidx.i215, align 1, !tbaa !58
   %param2143 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv254, i32 2
-  store i8 %66, ptr %param2143, align 1, !tbaa !47
+  store i8 %59, ptr %param2143, align 1, !tbaa !47
   %indvars.iv.next255 = or disjoint i64 %indvars.iv254, 1
-  %67 = trunc i64 %indvars.iv.next255 to i32
-  %add135.1 = add i32 %mul78, %67
+  %60 = trunc i64 %indvars.iv.next255 to i32
+  %add135.1 = add i32 %mul78, %60
   %idxprom.i214.1 = zext i32 %add135.1 to i64
   %arrayidx.i215.1 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i214.1
-  %68 = load i8, ptr %arrayidx.i215.1, align 1, !tbaa !58
+  %61 = load i8, ptr %arrayidx.i215.1, align 1, !tbaa !58
   %param2143.1 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next255, i32 2
-  store i8 %68, ptr %param2143.1, align 1, !tbaa !47
+  store i8 %61, ptr %param2143.1, align 1, !tbaa !47
   %indvars.iv.next255.1 = or disjoint i64 %indvars.iv254, 2
-  %69 = trunc i64 %indvars.iv.next255.1 to i32
-  %add135.2 = add i32 %mul78, %69
+  %62 = trunc i64 %indvars.iv.next255.1 to i32
+  %add135.2 = add i32 %mul78, %62
   %idxprom.i214.2 = zext i32 %add135.2 to i64
   %arrayidx.i215.2 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i214.2
-  %70 = load i8, ptr %arrayidx.i215.2, align 1, !tbaa !58
+  %63 = load i8, ptr %arrayidx.i215.2, align 1, !tbaa !58
   %param2143.2 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next255.1, i32 2
-  store i8 %70, ptr %param2143.2, align 1, !tbaa !47
+  store i8 %63, ptr %param2143.2, align 1, !tbaa !47
   %indvars.iv.next255.2 = or disjoint i64 %indvars.iv254, 3
-  %71 = trunc i64 %indvars.iv.next255.2 to i32
-  %add135.3 = add i32 %mul78, %71
+  %64 = trunc i64 %indvars.iv.next255.2 to i32
+  %add135.3 = add i32 %mul78, %64
   %idxprom.i214.3 = zext i32 %add135.3 to i64
   %arrayidx.i215.3 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i214.3
-  %72 = load i8, ptr %arrayidx.i215.3, align 1, !tbaa !58
+  %65 = load i8, ptr %arrayidx.i215.3, align 1, !tbaa !58
   %param2143.3 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next255.2, i32 2
-  store i8 %72, ptr %param2143.3, align 1, !tbaa !47
+  store i8 %65, ptr %param2143.3, align 1, !tbaa !47
   %indvars.iv.next255.3 = add nuw nsw i64 %indvars.iv254, 4
   %niter288.ncmp.3 = icmp eq i64 %indvars.iv.next255.3, %unroll_iter287
   br i1 %niter288.ncmp.3, label %delete.notnull.i.i217.loopexit274.unr-lcssa, label %for.body134, !llvm.loop !232
@@ -5590,13 +5576,13 @@ delete.notnull.i.i217.loopexit274.unr-lcssa:      ; preds = %for.body134, %for.b
 for.body134.epil:                                 ; preds = %delete.notnull.i.i217.loopexit274.unr-lcssa, %for.body134.epil
   %indvars.iv254.epil = phi i64 [ %indvars.iv.next255.epil, %for.body134.epil ], [ %indvars.iv254.unr, %delete.notnull.i.i217.loopexit274.unr-lcssa ]
   %epil.iter285 = phi i64 [ %epil.iter285.next, %for.body134.epil ], [ 0, %delete.notnull.i.i217.loopexit274.unr-lcssa ]
-  %73 = trunc i64 %indvars.iv254.epil to i32
-  %add135.epil = add i32 %mul78, %73
+  %66 = trunc i64 %indvars.iv254.epil to i32
+  %add135.epil = add i32 %mul78, %66
   %idxprom.i214.epil = zext i32 %add135.epil to i64
   %arrayidx.i215.epil = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i214.epil
-  %74 = load i8, ptr %arrayidx.i215.epil, align 1, !tbaa !58
+  %67 = load i8, ptr %arrayidx.i215.epil, align 1, !tbaa !58
   %param2143.epil = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv254.epil, i32 2
-  store i8 %74, ptr %param2143.epil, align 1, !tbaa !47
+  store i8 %67, ptr %param2143.epil, align 1, !tbaa !47
   %indvars.iv.next255.epil = add nuw nsw i64 %indvars.iv254.epil, 1
   %epil.iter285.next = add nuw nsw i64 %epil.iter285, 1
   %epil.iter285.cmp.not = icmp eq i64 %epil.iter285.next, %xtraiter284
@@ -5610,7 +5596,7 @@ _ZN6BufferIhED2Ev.exit218:                        ; preds = %delete.notnull.i.i2
   ret void
 
 eh.resume:                                        ; preds = %delete.notnull.i.i, %lpad17, %cleanup.action, %ehcleanup.thread
-  %.pn206 = phi { ptr, i32 } [ %5, %cleanup.action ], [ %1, %ehcleanup.thread ], [ %40, %lpad17 ], [ %40, %delete.notnull.i.i ]
+  %.pn206 = phi { ptr, i32 } [ %5, %cleanup.action ], [ %1, %ehcleanup.thread ], [ %33, %lpad17 ], [ %33, %delete.notnull.i.i ]
   resume { ptr, i32 } %.pn206
 
 unreachable:                                      ; preds = %invoke.cont

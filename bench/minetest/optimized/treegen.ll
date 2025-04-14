@@ -6424,11 +6424,10 @@ if.end154.1:                                      ; preds = %if.then149.1, %invo
   br i1 %cmp148.not.1.1, label %if.end154.1.1, label %if.then149.1.1
 
 if.then149.1.1:                                   ; preds = %if.end154.1
-  %indvars.iv.next1386 = or disjoint i64 %indvars.iv1383, 1
   %gep1485 = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   store i8 1, ptr %gep1485, align 1, !tbaa !12
-  %arrayidx.i826.1.1 = getelementptr inbounds nuw i8, ptr %call.i723, i64 %indvars.iv.next1386
-  store i8 2, ptr %arrayidx.i826.1.1, align 1, !tbaa !12
+  %gep20 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv1383
+  store i8 2, ptr %gep20, align 1, !tbaa !12
   br label %if.end154.1.1
 
 if.end154.1.1:                                    ; preds = %if.then149.1.1, %if.end154.1
@@ -6684,11 +6683,10 @@ if.end154:                                        ; preds = %if.then149, %invoke
   br i1 %cmp148.not.11417, label %if.end154.11422, label %if.then149.11421
 
 if.then149.11421:                                 ; preds = %if.end154
-  %indvars.iv.next1404 = or disjoint i64 %indvars.iv1401, 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv1397
   store i8 1, ptr %gep, align 1, !tbaa !12
-  %arrayidx.i826.11420 = getelementptr inbounds nuw i8, ptr %call.i723, i64 %indvars.iv.next1404
-  store i8 2, ptr %arrayidx.i826.11420, align 1, !tbaa !12
+  %gep18 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv1401
+  store i8 2, ptr %gep18, align 1, !tbaa !12
   br label %if.end154.11422
 
 if.end154.11422:                                  ; preds = %if.then149.11421, %if.end154

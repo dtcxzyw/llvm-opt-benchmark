@@ -534,8 +534,8 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
   %invariant.gep = getelementptr i8, ptr %33, i64 32
   %invariant.gep171 = getelementptr i8, ptr %33, i64 64
   %wide.trip.count = and i64 %41, 2147483647
-  %invariant.gep218 = getelementptr i8, ptr %33, i64 32
-  %invariant.gep220 = getelementptr i8, ptr %33, i64 64
+  %invariant.gep220 = getelementptr i8, ptr %33, i64 32
+  %invariant.gep222 = getelementptr i8, ptr %33, i64 64
   br label %46
 
 ._crit_edge180.loopexit:                          ; preds = %._crit_edge.thread
@@ -580,10 +580,11 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
   %67 = or disjoint i32 %65, %66
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #9
   %68 = sext i32 %67 to i64
+  %invariant.gep210 = getelementptr float, ptr %33, i64 %68
   %69 = sext i32 %67 to i64
-  %gep219 = getelementptr float, ptr %invariant.gep218, i64 %69
+  %gep221 = getelementptr float, ptr %invariant.gep220, i64 %69
   %70 = sext i32 %67 to i64
-  %gep221 = getelementptr float, ptr %invariant.gep220, i64 %70
+  %gep223 = getelementptr float, ptr %invariant.gep222, i64 %70
   br label %78
 
 71:                                               ; preds = %78
@@ -600,167 +601,166 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
 
 78:                                               ; preds = %46, %78
   %indvars.iv = phi i64 [ 0, %46 ], [ %indvars.iv.next, %78 ]
-  %79 = or disjoint i64 %indvars.iv, %68
-  %80 = getelementptr inbounds float, ptr %33, i64 %79
-  %81 = load float, ptr %80, align 4, !tbaa !23
-  %.scalar = fadd float %58, %81
-  %82 = insertelement <8 x float> poison, float %.scalar, i64 0
-  %83 = shufflevector <8 x float> %82, <8 x float> poison, <8 x i32> zeroinitializer
-  %84 = getelementptr inbounds nuw [4 x %"struct.std::array.48"], ptr %6, i64 0, i64 %indvars.iv
-  store <8 x float> %83, ptr %84, align 32, !tbaa !26
-  %gep213 = getelementptr float, ptr %gep219, i64 %indvars.iv
-  %85 = load float, ptr %gep213, align 4, !tbaa !23
-  %.scalar206 = fadd float %60, %85
-  %86 = insertelement <8 x float> poison, float %.scalar206, i64 0
-  %87 = shufflevector <8 x float> %86, <8 x float> poison, <8 x i32> zeroinitializer
-  %88 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  store <8 x float> %87, ptr %88, align 32, !tbaa !26
-  %gep217 = getelementptr float, ptr %gep221, i64 %indvars.iv
-  %89 = load float, ptr %gep217, align 4, !tbaa !23
-  %.scalar207 = fadd float %62, %89
-  %90 = insertelement <8 x float> poison, float %.scalar207, i64 0
-  %91 = shufflevector <8 x float> %90, <8 x float> poison, <8 x i32> zeroinitializer
-  %92 = getelementptr inbounds nuw i8, ptr %84, i64 64
-  store <8 x float> %91, ptr %92, align 32, !tbaa !26
+  %gep211 = getelementptr float, ptr %invariant.gep210, i64 %indvars.iv
+  %79 = load float, ptr %gep211, align 4, !tbaa !23
+  %.scalar = fadd float %58, %79
+  %80 = insertelement <8 x float> poison, float %.scalar, i64 0
+  %81 = shufflevector <8 x float> %80, <8 x float> poison, <8 x i32> zeroinitializer
+  %82 = getelementptr inbounds nuw [4 x %"struct.std::array.48"], ptr %6, i64 0, i64 %indvars.iv
+  store <8 x float> %81, ptr %82, align 32, !tbaa !26
+  %gep215 = getelementptr float, ptr %gep221, i64 %indvars.iv
+  %83 = load float, ptr %gep215, align 4, !tbaa !23
+  %.scalar206 = fadd float %60, %83
+  %84 = insertelement <8 x float> poison, float %.scalar206, i64 0
+  %85 = shufflevector <8 x float> %84, <8 x float> poison, <8 x i32> zeroinitializer
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  store <8 x float> %85, ptr %86, align 32, !tbaa !26
+  %gep219 = getelementptr float, ptr %gep223, i64 %indvars.iv
+  %87 = load float, ptr %gep219, align 4, !tbaa !23
+  %.scalar207 = fadd float %62, %87
+  %88 = insertelement <8 x float> poison, float %.scalar207, i64 0
+  %89 = shufflevector <8 x float> %88, <8 x float> poison, <8 x i32> zeroinitializer
+  %90 = getelementptr inbounds nuw i8, ptr %82, i64 64
+  store <8 x float> %89, ptr %90, align 32, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %71, label %78, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %126
+._crit_edge:                                      ; preds = %124
   %.pre = load i32, ptr %54, align 4, !tbaa !22
-  %93 = icmp sgt i32 %spec.select, %.pre
-  br i1 %93, label %148, label %._crit_edge.thread
+  %91 = icmp sgt i32 %spec.select, %.pre
+  br i1 %91, label %146, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %126
-  %indvars.iv199 = phi i64 [ %77, %.lr.ph.preheader ], [ %indvars.iv.next200, %126 ]
-  %.1140174 = phi i32 [ %.0139176, %.lr.ph.preheader ], [ %spec.select, %126 ]
-  %94 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %30, i64 %indvars.iv199
-  %95 = load i32, ptr %94, align 4, !tbaa !29
-  %96 = mul nsw i32 %95, 24
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds float, ptr %33, i64 %97
-  %.val150 = load <8 x float>, ptr %98, align 32, !tbaa !26
-  %gep = getelementptr float, ptr %invariant.gep, i64 %97
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %124
+  %indvars.iv199 = phi i64 [ %77, %.lr.ph.preheader ], [ %indvars.iv.next200, %124 ]
+  %.1140174 = phi i32 [ %.0139176, %.lr.ph.preheader ], [ %spec.select, %124 ]
+  %92 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %30, i64 %indvars.iv199
+  %93 = load i32, ptr %92, align 4, !tbaa !29
+  %94 = mul nsw i32 %93, 24
+  %95 = sext i32 %94 to i64
+  %96 = getelementptr inbounds float, ptr %33, i64 %95
+  %.val150 = load <8 x float>, ptr %96, align 32, !tbaa !26
+  %gep = getelementptr float, ptr %invariant.gep, i64 %95
   %.val149 = load <8 x float>, ptr %gep, align 32, !tbaa !26
-  %gep172 = getelementptr float, ptr %invariant.gep171, i64 %97
+  %gep172 = getelementptr float, ptr %invariant.gep171, i64 %95
   %.val = load <8 x float>, ptr %gep172, align 32, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %7) #9
-  br label %100
+  br label %98
 
-99:                                               ; preds = %100
+97:                                               ; preds = %98
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #9
-  br label %111
+  br label %109
 
-100:                                              ; preds = %.lr.ph, %100
-  %indvars.iv184 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next185, %100 ]
-  %101 = getelementptr inbounds nuw [4 x %"struct.std::array.48"], ptr %6, i64 0, i64 %indvars.iv184
-  %.sroa.037.0.copyload = load <8 x float>, ptr %101, align 32, !tbaa !26
-  %102 = fsub <8 x float> %.sroa.037.0.copyload, %.val150
-  %103 = getelementptr inbounds nuw [4 x %"struct.std::array.48"], ptr %7, i64 0, i64 %indvars.iv184
-  store <8 x float> %102, ptr %103, align 32, !tbaa !26
+98:                                               ; preds = %.lr.ph, %98
+  %indvars.iv184 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next185, %98 ]
+  %99 = getelementptr inbounds nuw [4 x %"struct.std::array.48"], ptr %6, i64 0, i64 %indvars.iv184
+  %.sroa.037.0.copyload = load <8 x float>, ptr %99, align 32, !tbaa !26
+  %100 = fsub <8 x float> %.sroa.037.0.copyload, %.val150
+  %101 = getelementptr inbounds nuw [4 x %"struct.std::array.48"], ptr %7, i64 0, i64 %indvars.iv184
+  store <8 x float> %100, ptr %101, align 32, !tbaa !26
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  %.sroa.034.0.copyload = load <8 x float>, ptr %102, align 32, !tbaa !26
+  %103 = fsub <8 x float> %.sroa.034.0.copyload, %.val149
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 32
-  %.sroa.034.0.copyload = load <8 x float>, ptr %104, align 32, !tbaa !26
-  %105 = fsub <8 x float> %.sroa.034.0.copyload, %.val149
-  %106 = getelementptr inbounds nuw i8, ptr %103, i64 32
-  store <8 x float> %105, ptr %106, align 32, !tbaa !26
+  store <8 x float> %103, ptr %104, align 32, !tbaa !26
+  %105 = getelementptr inbounds nuw i8, ptr %99, i64 64
+  %.sroa.031.0.copyload = load <8 x float>, ptr %105, align 32, !tbaa !26
+  %106 = fsub <8 x float> %.sroa.031.0.copyload, %.val
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 64
-  %.sroa.031.0.copyload = load <8 x float>, ptr %107, align 32, !tbaa !26
-  %108 = fsub <8 x float> %.sroa.031.0.copyload, %.val
-  %109 = getelementptr inbounds nuw i8, ptr %103, i64 64
-  store <8 x float> %108, ptr %109, align 32, !tbaa !26
+  store <8 x float> %106, ptr %107, align 32, !tbaa !26
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next185, 4
-  br i1 %exitcond187.not, label %99, label %100, !llvm.loop !42
+  br i1 %exitcond187.not, label %97, label %98, !llvm.loop !42
 
-110:                                              ; preds = %111
+108:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #9
-  br label %121
+  br label %119
 
-111:                                              ; preds = %99, %111
-  %indvars.iv188 = phi i64 [ 0, %99 ], [ %indvars.iv.next189, %111 ]
-  %112 = getelementptr inbounds nuw [4 x %"struct.std::array.48"], ptr %7, i64 0, i64 %indvars.iv188
-  %.sroa.022.0.copyload = load <8 x float>, ptr %112, align 32, !tbaa !26
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %.sroa.021.0.copyload = load <8 x float>, ptr %113, align 32, !tbaa !26
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 64
-  %.sroa.020.0.copyload = load <8 x float>, ptr %114, align 32, !tbaa !26
-  %115 = fmul <8 x float> %.sroa.022.0.copyload, %.sroa.022.0.copyload
-  %116 = fmul <8 x float> %.sroa.021.0.copyload, %.sroa.021.0.copyload
-  %117 = fadd <8 x float> %115, %116
-  %118 = fmul <8 x float> %.sroa.020.0.copyload, %.sroa.020.0.copyload
-  %119 = fadd <8 x float> %118, %117
-  %120 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFloat"], ptr %8, i64 0, i64 %indvars.iv188
-  store <8 x float> %119, ptr %120, align 32, !tbaa !26
+109:                                              ; preds = %97, %109
+  %indvars.iv188 = phi i64 [ 0, %97 ], [ %indvars.iv.next189, %109 ]
+  %110 = getelementptr inbounds nuw [4 x %"struct.std::array.48"], ptr %7, i64 0, i64 %indvars.iv188
+  %.sroa.022.0.copyload = load <8 x float>, ptr %110, align 32, !tbaa !26
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 32
+  %.sroa.021.0.copyload = load <8 x float>, ptr %111, align 32, !tbaa !26
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 64
+  %.sroa.020.0.copyload = load <8 x float>, ptr %112, align 32, !tbaa !26
+  %113 = fmul <8 x float> %.sroa.022.0.copyload, %.sroa.022.0.copyload
+  %114 = fmul <8 x float> %.sroa.021.0.copyload, %.sroa.021.0.copyload
+  %115 = fadd <8 x float> %113, %114
+  %116 = fmul <8 x float> %.sroa.020.0.copyload, %.sroa.020.0.copyload
+  %117 = fadd <8 x float> %116, %115
+  %118 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFloat"], ptr %8, i64 0, i64 %indvars.iv188
+  store <8 x float> %117, ptr %118, align 32, !tbaa !26
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next189, 4
-  br i1 %exitcond191.not, label %110, label %111, !llvm.loop !43
+  br i1 %exitcond191.not, label %108, label %109, !llvm.loop !43
 
-121:                                              ; preds = %110, %121
-  %indvars.iv192 = phi i64 [ 0, %110 ], [ %indvars.iv.next193, %121 ]
-  %122 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFloat"], ptr %8, i64 0, i64 %indvars.iv192
-  %.sroa.014.0.copyload = load <8 x float>, ptr %122, align 32, !tbaa !26
-  %123 = fcmp olt <8 x float> %.sroa.014.0.copyload, %36
-  %124 = sext <8 x i1> %123 to <8 x i32>
-  %125 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFBool"], ptr %9, i64 0, i64 %indvars.iv192
-  store <8 x i32> %124, ptr %125, align 32, !tbaa !26
+119:                                              ; preds = %108, %119
+  %indvars.iv192 = phi i64 [ 0, %108 ], [ %indvars.iv.next193, %119 ]
+  %120 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFloat"], ptr %8, i64 0, i64 %indvars.iv192
+  %.sroa.014.0.copyload = load <8 x float>, ptr %120, align 32, !tbaa !26
+  %121 = fcmp olt <8 x float> %.sroa.014.0.copyload, %36
+  %122 = sext <8 x i1> %121 to <8 x i32>
+  %123 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFBool"], ptr %9, i64 0, i64 %indvars.iv192
+  store <8 x i32> %122, ptr %123, align 32, !tbaa !26
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next193, 4
-  br i1 %exitcond195.not, label %.preheader, label %121, !llvm.loop !44
+  br i1 %exitcond195.not, label %.preheader, label %119, !llvm.loop !44
 
-126:                                              ; preds = %141
-  %127 = sext i32 %.1140174 to i64
-  %128 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %31, i64 %127
-  %129 = load i64, ptr %94, align 4
-  store i64 %129, ptr %128, align 4
+124:                                              ; preds = %139
+  %125 = sext i32 %.1140174 to i64
+  %126 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %31, i64 %125
+  %127 = load i64, ptr %92, align 4
+  store i64 %127, ptr %126, align 4
   %.sroa.0.0.copyload162 = load <8 x i32>, ptr %9, align 32, !tbaa !26
-  %130 = icmp slt <8 x i32> %.sroa.0.0.copyload162, zeroinitializer
-  %131 = bitcast <8 x i1> %130 to i8
-  %.not = icmp ne i8 %131, 0
-  %132 = zext i1 %.not to i32
-  %spec.select = add nsw i32 %.1140174, %132
+  %128 = icmp slt <8 x i32> %.sroa.0.0.copyload162, zeroinitializer
+  %129 = bitcast <8 x i1> %128 to i8
+  %.not = icmp ne i8 %129, 0
+  %130 = zext i1 %.not to i32
+  %spec.select = add nsw i32 %.1140174, %130
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %7) #9
   %indvars.iv.next200 = add nsw i64 %indvars.iv199, 1
-  %133 = load i32, ptr %74, align 4, !tbaa !25
-  %134 = sext i32 %133 to i64
-  %135 = icmp slt i64 %indvars.iv.next200, %134
-  br i1 %135, label %.lr.ph, label %._crit_edge, !llvm.loop !45
+  %131 = load i32, ptr %74, align 4, !tbaa !25
+  %132 = sext i32 %131 to i64
+  %133 = icmp slt i64 %indvars.iv.next200, %132
+  br i1 %133, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
-.preheader:                                       ; preds = %121, %141
-  %136 = phi i1 [ false, %141 ], [ true, %121 ]
-  %.0144170 = phi i32 [ 1, %141 ], [ 0, %121 ]
-  %137 = shl nuw nsw i32 1, %.0144170
-  %138 = shl nuw nsw i32 2, %.0144170
-  %139 = zext nneg i32 %138 to i64
-  %140 = zext nneg i32 %137 to i64
-  br label %142
+.preheader:                                       ; preds = %119, %139
+  %134 = phi i1 [ false, %139 ], [ true, %119 ]
+  %.0144170 = phi i32 [ 1, %139 ], [ 0, %119 ]
+  %135 = shl nuw nsw i32 1, %.0144170
+  %136 = shl nuw nsw i32 2, %.0144170
+  %137 = zext nneg i32 %136 to i64
+  %138 = zext nneg i32 %135 to i64
+  br label %140
 
-141:                                              ; preds = %142
-  br i1 %136, label %.preheader, label %126, !llvm.loop !46
+139:                                              ; preds = %140
+  br i1 %134, label %.preheader, label %124, !llvm.loop !46
 
-142:                                              ; preds = %.preheader, %142
-  %indvars.iv196 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next197, %142 ]
-  %143 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFBool"], ptr %9, i64 0, i64 %indvars.iv196
-  %.sroa.02.0.copyload163 = load <8 x i32>, ptr %143, align 32, !tbaa !26
-  %144 = add nuw nsw i64 %indvars.iv196, %140
-  %145 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFBool"], ptr %9, i64 0, i64 %144
-  %.sroa.01.0.copyload164 = load <8 x i32>, ptr %145, align 32, !tbaa !26
-  %146 = or <8 x i32> %.sroa.01.0.copyload164, %.sroa.02.0.copyload163
-  store <8 x i32> %146, ptr %143, align 32, !tbaa !26
-  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, %139
-  %147 = icmp samesign ult i64 %indvars.iv.next197, 4
-  br i1 %147, label %142, label %141, !llvm.loop !47
+140:                                              ; preds = %.preheader, %140
+  %indvars.iv196 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next197, %140 ]
+  %141 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFBool"], ptr %9, i64 0, i64 %indvars.iv196
+  %.sroa.02.0.copyload163 = load <8 x i32>, ptr %141, align 32, !tbaa !26
+  %142 = add nuw nsw i64 %indvars.iv196, %138
+  %143 = getelementptr inbounds nuw [4 x %"class.gmx::SimdFBool"], ptr %9, i64 0, i64 %142
+  %.sroa.01.0.copyload164 = load <8 x i32>, ptr %143, align 32, !tbaa !26
+  %144 = or <8 x i32> %.sroa.01.0.copyload164, %.sroa.02.0.copyload163
+  store <8 x i32> %144, ptr %141, align 32, !tbaa !26
+  %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, %137
+  %145 = icmp samesign ult i64 %indvars.iv.next197, 4
+  br i1 %145, label %140, label %139, !llvm.loop !47
 
-148:                                              ; preds = %._crit_edge
-  %149 = getelementptr inbounds nuw i8, ptr %50, i64 12
-  store i32 %spec.select, ptr %149, align 4, !tbaa !25
-  %150 = add nsw i32 %.0177, 1
+146:                                              ; preds = %._crit_edge
+  %147 = getelementptr inbounds nuw i8, ptr %50, i64 12
+  store i32 %spec.select, ptr %147, align 4, !tbaa !25
+  %148 = add nsw i32 %.0177, 1
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %71, %148, %._crit_edge
-  %.1140.lcssa209 = phi i32 [ %spec.select, %148 ], [ %spec.select, %._crit_edge ], [ %.0139176, %71 ]
-  %.1 = phi i32 [ %150, %148 ], [ %.0177, %._crit_edge ], [ %.0177, %71 ]
+._crit_edge.thread:                               ; preds = %71, %146, %._crit_edge
+  %.1140.lcssa209 = phi i32 [ %spec.select, %146 ], [ %spec.select, %._crit_edge ], [ %.0139176, %71 ]
+  %.1 = phi i32 [ %148, %146 ], [ %.0177, %._crit_edge ], [ %.0177, %71 ]
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #9
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count

@@ -72,9 +72,9 @@ define void @dlasd8_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double 1.000000e+00, ptr %43, align 8, !tbaa !7
   %44 = shl i32 %21, 1
-  %45 = or disjoint i32 %44, 1
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds double, ptr %23, i64 %46
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr double, ptr %23, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 8
   store double 1.000000e+00, ptr %47, align 8, !tbaa !7
   br label %.loopexit
 

@@ -1135,9 +1135,9 @@ define dso_local void @_ZNK4llvm3MD59MD5Result6digestEv(ptr dead_on_unwind noali
   %19 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !12
   %21 = or i8 %20, 32
-  %22 = or disjoint i64 %14, 1
-  %23 = load ptr, ptr %0, align 8, !tbaa !25
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %22
+  %22 = load ptr, ptr %0, align 8, !tbaa !25
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %14
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 %21, ptr %24, align 1, !tbaa !12
   %25 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %25, 16
@@ -1193,9 +1193,9 @@ define dso_local void @_ZN4llvm3MD515stringifyResultERNS0_9MD5ResultERNS_15Small
   %26 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !12
   %28 = or i8 %27, 32
-  %29 = or disjoint i64 %21, 1
-  %30 = load ptr, ptr %1, align 8, !tbaa !25
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %29
+  %29 = load ptr, ptr %1, align 8, !tbaa !25
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %21
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store i8 %28, ptr %31, align 1, !tbaa !12
   %32 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %32, 16

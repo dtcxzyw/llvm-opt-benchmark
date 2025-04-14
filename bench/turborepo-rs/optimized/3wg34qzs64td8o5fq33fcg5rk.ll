@@ -1428,9 +1428,9 @@ _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.277294647238992513
   %461 = phi i64 [ %74, %361 ], [ %460, %_RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE4pushCs8mTrBI1stz4_15turborepo_vt100.llvm.3209305459455205536.exit139 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !213)
   %462 = shl nuw nsw i8 %.sroa.413.0.copyload, 1
-  %463 = or disjoint i8 %462, 80
-  %464 = zext nneg i8 %463 to i64
-  %465 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %464
+  %463 = zext nneg i8 %462 to i64
+  %464 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %463
+  %465 = getelementptr inbounds nuw i8, ptr %464, i64 80
   %466 = load i16, ptr %465, align 1, !noalias !216
   %467 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %468 = load i64, ptr %1, align 8, !alias.scope !219, !noundef !4

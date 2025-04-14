@@ -10841,12 +10841,12 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %50 = icmp eq ptr %46, %48
   %51 = icmp eq ptr %46, %49
   %or.cond.i.i.i.i = select i1 %50, i1 true, i1 %51
-  br i1 %or.cond.i.i.i.i, label %198, label %52
+  br i1 %or.cond.i.i.i.i, label %190, label %52
 
 52:                                               ; preds = %_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit.i.i
   tail call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull %48, ptr noundef %49) #34
   %.pre.i.i = load ptr, ptr %47, align 8, !tbaa !54
-  br label %198
+  br label %190
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %20, %25, %..loopexit_crit_edge21.i.i.i.i.i.i
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -10893,7 +10893,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %75 = extractvalue { ptr, i32 } %74, 1
   %76 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #34
   %77 = icmp eq i32 %75, %76
-  br i1 %77, label %78, label %221
+  br i1 %77, label %78, label %211
 
 78:                                               ; preds = %73
   %79 = extractvalue { ptr, i32 } %74, 0
@@ -10909,13 +10909,13 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
 
 87:                                               ; preds = %78
   tail call void @__cxa_end_catch()
-  br label %220
+  br label %210
 
 88:                                               ; preds = %78
   %89 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %221 unwind label %222
+          to label %211 unwind label %212
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge, %72, %70, %68
   %90 = phi i32 [ %.pre, %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge ], [ %55, %72 ], [ %55, %70 ], [ %55, %68 ]
@@ -10944,10 +10944,11 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
 .preheader:                                       ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit
   %110 = load i32, ptr %54, align 8, !tbaa !31
   %111 = icmp sgt i32 %110, 1
-  %.pre79 = load ptr, ptr %53, align 8, !tbaa !73
+  %.pre85 = load ptr, ptr %53, align 8, !tbaa !73
   br i1 %111, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %.pre85, i64 4
   %wide.trip.count = zext nneg i32 %110 to i64
   br label %132
 
@@ -10955,14 +10956,14 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %113 = load ptr, ptr %112, align 8, !tbaa !314
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %113, i32 noundef 1029)
-  br label %220
+  br label %210
 
 ._crit_edge:                                      ; preds = %132, %.preheader
   %114 = shl nsw i32 %110, 1
   %115 = sext i32 %114 to i64
   %116 = load ptr, ptr %58, align 8, !tbaa !119
   %117 = ptrtoint ptr %116 to i64
-  %118 = ptrtoint ptr %.pre79 to i64
+  %118 = ptrtoint ptr %.pre85 to i64
   %119 = sub i64 %117, %118
   %120 = ashr exact i64 %119, 2
   %121 = icmp ult i64 %120, %115
@@ -10971,7 +10972,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
 122:                                              ; preds = %._crit_edge
   %123 = sub nuw nsw i64 %115, %120
   tail call void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %53, i64 noundef %123)
-  %.pre81.pre = load i32, ptr %54, align 8, !tbaa !31
+  %.pre87.pre = load i32, ptr %54, align 8, !tbaa !31
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
 
 124:                                              ; preds = %._crit_edge
@@ -10979,7 +10980,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   br i1 %125, label %126, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds nuw float, ptr %.pre79, i64 %115
+  %127 = getelementptr inbounds nuw float, ptr %.pre85, i64 %115
   %.not.i.i50 = icmp eq ptr %116, %127
   br i1 %.not.i.i50, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51, label %128
 
@@ -10988,191 +10989,186 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit51:             ; preds = %122, %124, %126, %128
-  %.pre81 = phi i32 [ %.pre81.pre, %122 ], [ %110, %124 ], [ %110, %126 ], [ %110, %128 ]
+  %.pre87 = phi i32 [ %.pre87.pre, %122 ], [ %110, %124 ], [ %110, %126 ], [ %110, %128 ]
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %130 = load i8, ptr %129, align 8, !tbaa !317, !range !13, !noundef !14
   %131 = trunc nuw i8 %130 to i1
-  br i1 %131, label %143, label %_ZN5osgeo4projL10swap_wordsEPvmm.exit
+  br i1 %131, label %139, label %_ZN5osgeo4projL10swap_wordsEPvmm.exit
 
 132:                                              ; preds = %.lr.ph, %132
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %132 ]
   %133 = shl nsw i64 %indvars.iv, 2
-  %134 = getelementptr inbounds nuw float, ptr %.pre79, i64 %133
+  %134 = getelementptr inbounds nuw float, ptr %.pre85, i64 %133
   %135 = load float, ptr %134, align 4, !tbaa !38
   %136 = shl nuw nsw i64 %indvars.iv, 1
-  %137 = getelementptr inbounds nuw float, ptr %.pre79, i64 %136
+  %137 = getelementptr inbounds nuw float, ptr %.pre85, i64 %136
   store float %135, ptr %137, align 4, !tbaa !38
-  %138 = or disjoint i64 %133, 1
-  %139 = getelementptr inbounds nuw float, ptr %.pre79, i64 %138
-  %140 = load float, ptr %139, align 4, !tbaa !38
-  %141 = or disjoint i64 %136, 1
-  %142 = getelementptr inbounds nuw float, ptr %.pre79, i64 %141
-  store float %140, ptr %142, align 4, !tbaa !38
+  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %133
+  %138 = load float, ptr %gep, align 4, !tbaa !38
+  %gep66 = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %136
+  store float %138, ptr %gep66, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %132, !llvm.loop !318
 
-143:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
-  %144 = shl nsw i32 %.pre81, 1
-  %145 = sext i32 %144 to i64
-  %.not.i = icmp eq i32 %.pre81, 0
-  br i1 %.not.i, label %._crit_edge67, label %.preheader.us.i.preheader
+139:                                              ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
+  %140 = shl nsw i32 %.pre87, 1
+  %141 = sext i32 %140 to i64
+  %.not.i = icmp eq i32 %.pre87, 0
+  br i1 %.not.i, label %._crit_edge69, label %.preheader.us.i.preheader
 
-.preheader.us.i.preheader:                        ; preds = %143
-  %146 = load ptr, ptr %53, align 8, !tbaa !73
+.preheader.us.i.preheader:                        ; preds = %139
+  %142 = load ptr, ptr %53, align 8, !tbaa !73
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.preheader.us.i.preheader, %._crit_edge.us.i
-  %.023.us.i = phi ptr [ %147, %._crit_edge.us.i ], [ %146, %.preheader.us.i.preheader ]
-  %.02022.us.i = phi i64 [ %155, %._crit_edge.us.i ], [ 0, %.preheader.us.i.preheader ]
-  %147 = getelementptr i8, ptr %.023.us.i, i64 4
-  br label %148
+  %.023.us.i = phi ptr [ %143, %._crit_edge.us.i ], [ %142, %.preheader.us.i.preheader ]
+  %.02022.us.i = phi i64 [ %151, %._crit_edge.us.i ], [ 0, %.preheader.us.i.preheader ]
+  %143 = getelementptr i8, ptr %.023.us.i, i64 4
+  br label %144
 
-148:                                              ; preds = %148, %.preheader.us.i
-  %.01921.us.i = phi i64 [ 0, %.preheader.us.i ], [ %154, %148 ]
-  %149 = getelementptr inbounds nuw i8, ptr %.023.us.i, i64 %.01921.us.i
-  %150 = load i8, ptr %149, align 1, !tbaa !30
-  %151 = xor i64 %.01921.us.i, -1
-  %152 = getelementptr i8, ptr %147, i64 %151
-  %153 = load i8, ptr %152, align 1, !tbaa !30
-  store i8 %153, ptr %149, align 1, !tbaa !30
-  store i8 %150, ptr %152, align 1, !tbaa !30
-  %154 = add nuw nsw i64 %.01921.us.i, 1
-  %exitcond.not.i = icmp eq i64 %154, 2
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %148, !llvm.loop !90
+144:                                              ; preds = %144, %.preheader.us.i
+  %.01921.us.i = phi i64 [ 0, %.preheader.us.i ], [ %150, %144 ]
+  %145 = getelementptr inbounds nuw i8, ptr %.023.us.i, i64 %.01921.us.i
+  %146 = load i8, ptr %145, align 1, !tbaa !30
+  %147 = xor i64 %.01921.us.i, -1
+  %148 = getelementptr i8, ptr %143, i64 %147
+  %149 = load i8, ptr %148, align 1, !tbaa !30
+  store i8 %149, ptr %145, align 1, !tbaa !30
+  store i8 %146, ptr %148, align 1, !tbaa !30
+  %150 = add nuw nsw i64 %.01921.us.i, 1
+  %exitcond.not.i = icmp eq i64 %150, 2
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %144, !llvm.loop !90
 
-._crit_edge.us.i:                                 ; preds = %148
-  %155 = add nuw i64 %.02022.us.i, 1
-  %exitcond27.not.i = icmp eq i64 %155, %145
+._crit_edge.us.i:                                 ; preds = %144
+  %151 = add nuw i64 %.02022.us.i, 1
+  %exitcond27.not.i = icmp eq i64 %151, %141
   br i1 %exitcond27.not.i, label %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit, label %.preheader.us.i, !llvm.loop !91
 
 _ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit:   ; preds = %._crit_edge.us.i
-  %.pre80 = load i32, ptr %54, align 8, !tbaa !31
+  %.pre86 = load i32, ptr %54, align 8, !tbaa !31
   br label %_ZN5osgeo4projL10swap_wordsEPvmm.exit
 
 _ZN5osgeo4projL10swap_wordsEPvmm.exit:            ; preds = %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit, %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
-  %156 = phi i32 [ %.pre80, %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit ], [ %.pre81, %_ZNSt6vectorIfSaIfEE6resizeEm.exit51 ]
-  %157 = icmp sgt i32 %156, 1
-  br i1 %157, label %.lr.ph66, label %._crit_edge67
+  %152 = phi i32 [ %.pre86, %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit ], [ %.pre87, %_ZNSt6vectorIfSaIfEE6resizeEm.exit51 ]
+  %153 = icmp sgt i32 %152, 1
+  br i1 %153, label %.lr.ph68, label %._crit_edge69
 
-.lr.ph66:                                         ; preds = %_ZN5osgeo4projL10swap_wordsEPvmm.exit
-  %158 = lshr i32 %156, 1
-  %159 = load ptr, ptr %53, align 8, !tbaa !73
-  %160 = zext nneg i32 %156 to i64
-  %wide.trip.count77 = zext nneg i32 %158 to i64
-  br label %166
+.lr.ph68:                                         ; preds = %_ZN5osgeo4projL10swap_wordsEPvmm.exit
+  %154 = lshr i32 %152, 1
+  %155 = load ptr, ptr %53, align 8, !tbaa !73
+  %invariant.gep70 = getelementptr i8, ptr %155, i64 4
+  %156 = zext nneg i32 %152 to i64
+  %wide.trip.count83 = zext nneg i32 %154 to i64
+  br label %162
 
-._crit_edge67:                                    ; preds = %166, %143, %_ZN5osgeo4projL10swap_wordsEPvmm.exit
-  %161 = load ptr, ptr %8, align 8, !tbaa !310
-  %162 = load i32, ptr %10, align 8, !tbaa !313
+._crit_edge69:                                    ; preds = %162, %139, %_ZN5osgeo4projL10swap_wordsEPvmm.exit
+  %157 = load ptr, ptr %8, align 8, !tbaa !310
+  %158 = load i32, ptr %10, align 8, !tbaa !313
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #34
-  %163 = zext i32 %162 to i64
-  %164 = shl nuw i64 %163, 32
-  %165 = or disjoint i64 %164, %14
-  store i64 %165, ptr %7, align 8, !tbaa !29
-  invoke void @_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6insertERSH_RKS5_(ptr noundef nonnull align 8 dereferenceable(112) %161, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %53)
-          to label %_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit unwind label %181
+  %159 = zext i32 %158 to i64
+  %160 = shl nuw i64 %159, 32
+  %161 = or disjoint i64 %160, %14
+  store i64 %161, ptr %7, align 8, !tbaa !29
+  invoke void @_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6insertERSH_RKS5_(ptr noundef nonnull align 8 dereferenceable(112) %157, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %53)
+          to label %_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit unwind label %173
 
-_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit: ; preds = %._crit_edge67
+_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit: ; preds = %._crit_edge69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #34
-  br label %201
+  br label %193
 
-166:                                              ; preds = %.lr.ph66, %166
-  %indvars.iv74 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next75, %166 ]
-  %167 = shl nuw nsw i64 %indvars.iv74, 1
-  %168 = getelementptr inbounds nuw float, ptr %159, i64 %167
-  %169 = xor i64 %indvars.iv74, -1
-  %170 = add nsw i64 %160, %169
-  %171 = shl nsw i64 %170, 1
-  %172 = getelementptr inbounds nuw float, ptr %159, i64 %171
-  %173 = load float, ptr %168, align 4, !tbaa !38
-  %174 = load float, ptr %172, align 4, !tbaa !38
-  store float %174, ptr %168, align 4, !tbaa !38
-  store float %173, ptr %172, align 4, !tbaa !38
-  %175 = or disjoint i64 %167, 1
-  %176 = getelementptr inbounds nuw float, ptr %159, i64 %175
-  %177 = or disjoint i64 %171, 1
-  %178 = getelementptr inbounds nuw float, ptr %159, i64 %177
-  %179 = load float, ptr %176, align 4, !tbaa !38
-  %180 = load float, ptr %178, align 4, !tbaa !38
-  store float %180, ptr %176, align 4, !tbaa !38
-  store float %179, ptr %178, align 4, !tbaa !38
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %._crit_edge67, label %166, !llvm.loop !319
+162:                                              ; preds = %.lr.ph68, %162
+  %indvars.iv80 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next81, %162 ]
+  %163 = shl nuw nsw i64 %indvars.iv80, 1
+  %164 = getelementptr inbounds nuw float, ptr %155, i64 %163
+  %165 = xor i64 %indvars.iv80, -1
+  %166 = add nsw i64 %156, %165
+  %167 = shl nsw i64 %166, 1
+  %168 = getelementptr inbounds nuw float, ptr %155, i64 %167
+  %169 = load float, ptr %164, align 4, !tbaa !38
+  %170 = load float, ptr %168, align 4, !tbaa !38
+  store float %170, ptr %164, align 4, !tbaa !38
+  store float %169, ptr %168, align 4, !tbaa !38
+  %gep71 = getelementptr inbounds nuw float, ptr %invariant.gep70, i64 %163
+  %gep73 = getelementptr float, ptr %invariant.gep70, i64 %167
+  %171 = load float, ptr %gep71, align 4, !tbaa !38
+  %172 = load float, ptr %gep73, align 4, !tbaa !38
+  store float %172, ptr %gep71, align 4, !tbaa !38
+  store float %171, ptr %gep73, align 4, !tbaa !38
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
+  br i1 %exitcond84.not, label %._crit_edge69, label %162, !llvm.loop !319
 
-181:                                              ; preds = %._crit_edge67
-  %182 = landingpad { ptr, i32 }
+173:                                              ; preds = %._crit_edge69
+  %174 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  %183 = extractvalue { ptr, i32 } %182, 1
-  %184 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #34
-  %185 = icmp eq i32 %183, %184
-  br i1 %185, label %186, label %221
+  %175 = extractvalue { ptr, i32 } %174, 1
+  %176 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #34
+  %177 = icmp eq i32 %175, %176
+  br i1 %177, label %178, label %211
 
-186:                                              ; preds = %181
-  %187 = extractvalue { ptr, i32 } %182, 0
-  %188 = call ptr @__cxa_begin_catch(ptr %187) #34
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %190 = load ptr, ptr %189, align 8, !tbaa !314
-  %191 = load ptr, ptr %188, align 8, !tbaa !19
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
-  %193 = load ptr, ptr %192, align 8
-  %194 = call noundef ptr %193(ptr noundef nonnull align 8 dereferenceable(8) %188) #34
-  invoke void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %190, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %194)
-          to label %195 unwind label %196
+178:                                              ; preds = %173
+  %179 = extractvalue { ptr, i32 } %174, 0
+  %180 = call ptr @__cxa_begin_catch(ptr %179) #34
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %182 = load ptr, ptr %181, align 8, !tbaa !314
+  %183 = load ptr, ptr %180, align 8, !tbaa !19
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
+  %185 = load ptr, ptr %184, align 8
+  %186 = call noundef ptr %185(ptr noundef nonnull align 8 dereferenceable(8) %180) #34
+  invoke void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %182, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %186)
+          to label %187 unwind label %188
 
-195:                                              ; preds = %186
+187:                                              ; preds = %178
   call void @__cxa_end_catch()
-  br label %201
+  br label %193
 
-196:                                              ; preds = %186
-  %197 = landingpad { ptr, i32 }
+188:                                              ; preds = %178
+  %189 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %221 unwind label %222
+          to label %211 unwind label %212
 
-198:                                              ; preds = %52, %_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit.i.i
-  %199 = phi ptr [ %48, %_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit.i.i ], [ %.pre.i.i, %52 ]
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 24
-  br label %201
+190:                                              ; preds = %52, %_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit.i.i
+  %191 = phi ptr [ %48, %_ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEESt4hashImESt8equal_toImESaISt4pairIKmS9_EEE4findERSF_.exit.i.i ], [ %.pre.i.i, %52 ]
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
+  br label %193
 
-201:                                              ; preds = %_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit, %195, %198
-  %202 = phi ptr [ %200, %198 ], [ %53, %195 ], [ %53, %_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit ]
-  %203 = shl nsw i32 %1, 1
-  %204 = sext i32 %203 to i64
-  %205 = load ptr, ptr %202, align 8, !tbaa !73
-  %206 = getelementptr inbounds nuw float, ptr %205, i64 %204
-  %207 = load float, ptr %206, align 4, !tbaa !38
-  %208 = fpext float %207 to double
-  %209 = fmul double %208, 0x3ED455A5B2FF8F9D
-  %210 = fptrunc double %209 to float
-  store float %210, ptr %5, align 4, !tbaa !38
-  %211 = or disjoint i32 %203, 1
-  %212 = sext i32 %211 to i64
-  %213 = getelementptr inbounds nuw float, ptr %205, i64 %212
-  %214 = load float, ptr %213, align 4, !tbaa !38
-  %215 = fpext float %214 to double
-  %216 = fmul double %215, 0x3ED455A5B2FF8F9D
-  %217 = fptrunc double %216 to float
-  %218 = fneg float %217
-  %219 = select i1 %3, float %218, float %217
-  store float %219, ptr %4, align 4, !tbaa !38
-  br label %220
+193:                                              ; preds = %_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit, %187, %190
+  %194 = phi ptr [ %192, %190 ], [ %53, %187 ], [ %53, %_ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit ]
+  %195 = shl nsw i32 %1, 1
+  %196 = sext i32 %195 to i64
+  %197 = load ptr, ptr %194, align 8, !tbaa !73
+  %198 = getelementptr float, ptr %197, i64 %196
+  %199 = load float, ptr %198, align 4, !tbaa !38
+  %200 = fpext float %199 to double
+  %201 = fmul double %200, 0x3ED455A5B2FF8F9D
+  %202 = fptrunc double %201 to float
+  store float %202, ptr %5, align 4, !tbaa !38
+  %203 = getelementptr i8, ptr %198, i64 4
+  %204 = load float, ptr %203, align 4, !tbaa !38
+  %205 = fpext float %204 to double
+  %206 = fmul double %205, 0x3ED455A5B2FF8F9D
+  %207 = fptrunc double %206 to float
+  %208 = fneg float %207
+  %209 = select i1 %3, float %208, float %207
+  store float %209, ptr %4, align 4, !tbaa !38
+  br label %210
 
-220:                                              ; preds = %.thread, %201, %87
-  %.0 = phi i1 [ true, %201 ], [ false, %87 ], [ false, %.thread ]
+210:                                              ; preds = %.thread, %193, %87
+  %.0 = phi i1 [ true, %193 ], [ false, %87 ], [ false, %.thread ]
   ret i1 %.0
 
-221:                                              ; preds = %181, %196, %88, %73
-  %.merged = phi { ptr, i32 } [ %74, %73 ], [ %89, %88 ], [ %182, %181 ], [ %197, %196 ]
+211:                                              ; preds = %173, %188, %88, %73
+  %.merged = phi { ptr, i32 } [ %74, %73 ], [ %89, %88 ], [ %174, %173 ], [ %189, %188 ]
   resume { ptr, i32 } %.merged
 
-222:                                              ; preds = %196, %88
-  %223 = landingpad { ptr, i32 }
+212:                                              ; preds = %188, %88
+  %213 = landingpad { ptr, i32 }
           catch ptr null
-  %224 = extractvalue { ptr, i32 } %223, 0
-  call void @__clang_call_terminate(ptr %224) #36
+  %214 = extractvalue { ptr, i32 } %213, 0
+  call void @__clang_call_terminate(ptr %214) #36
   unreachable
 }
 

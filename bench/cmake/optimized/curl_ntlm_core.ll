@@ -274,7 +274,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define dso_local i32 @Curl_ntlm_core_mk_nt_hash(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %4 = icmp slt i64 %3, 0
-  br i1 %4, label %26, label %5
+  br i1 %4, label %25, label %5
 
 5:                                                ; preds = %2
   %.not = icmp eq i64 %3, 0
@@ -284,48 +284,47 @@ define dso_local i32 @Curl_ntlm_core_mk_nt_hash(ptr noundef readonly captures(no
   %7 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !7
   %8 = tail call ptr %7(ptr noundef nonnull @.str) #8
   %.not17 = icmp eq ptr %8, null
-  br i1 %.not17, label %26, label %ascii_to_unicode_le.exit
+  br i1 %.not17, label %25, label %ascii_to_unicode_le.exit
 
 .thread:                                          ; preds = %5
   %9 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !7
   %10 = shl nuw i64 %3, 1
   %11 = tail call ptr %9(i64 noundef %10) #8
   %.not1719 = icmp eq ptr %11, null
-  br i1 %.not1719, label %26, label %.lr.ph.i
+  br i1 %.not1719, label %25, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread, %.lr.ph.i
-  %.08.i = phi i64 [ %18, %.lr.ph.i ], [ 0, %.thread ]
+  %.08.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %.thread ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.08.i
   %13 = load i8, ptr %12, align 1, !tbaa !4
   %14 = shl nuw i64 %.08.i, 1
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %14
   store i8 %13, ptr %15, align 1, !tbaa !4
-  %16 = or disjoint i64 %14, 1
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 %16
-  store i8 0, ptr %17, align 1, !tbaa !4
-  %18 = add nuw nsw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %18, %3
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  store i8 0, ptr %16, align 1, !tbaa !4
+  %17 = add nuw nsw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %17, %3
   br i1 %exitcond.not.i, label %ascii_to_unicode_le.exit, label %.lr.ph.i, !llvm.loop !9
 
 ascii_to_unicode_le.exit:                         ; preds = %.lr.ph.i, %6
-  %19 = phi ptr [ %8, %6 ], [ %11, %.lr.ph.i ]
-  %20 = shl nuw i64 %3, 1
-  %21 = tail call i32 @Curl_md4it(ptr noundef %1, ptr noundef nonnull %19, i64 noundef %20) #8
-  %.not18 = icmp eq i32 %21, 0
-  br i1 %.not18, label %22, label %24
+  %18 = phi ptr [ %8, %6 ], [ %11, %.lr.ph.i ]
+  %19 = shl nuw i64 %3, 1
+  %20 = tail call i32 @Curl_md4it(ptr noundef %1, ptr noundef nonnull %18, i64 noundef %19) #8
+  %.not18 = icmp eq i32 %20, 0
+  br i1 %.not18, label %21, label %23
 
-22:                                               ; preds = %ascii_to_unicode_le.exit
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %23, i8 0, i64 5, i1 false)
-  br label %24
+21:                                               ; preds = %ascii_to_unicode_le.exit
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %22, i8 0, i64 5, i1 false)
+  br label %23
 
-24:                                               ; preds = %22, %ascii_to_unicode_le.exit
-  %25 = load ptr, ptr @Curl_cfree, align 8, !tbaa !7
-  tail call void %25(ptr noundef nonnull %19) #8
-  br label %26
+23:                                               ; preds = %21, %ascii_to_unicode_le.exit
+  %24 = load ptr, ptr @Curl_cfree, align 8, !tbaa !7
+  tail call void %24(ptr noundef nonnull %18) #8
+  br label %25
 
-26:                                               ; preds = %.thread, %6, %2, %24
-  %.0 = phi i32 [ %21, %24 ], [ 27, %2 ], [ 27, %6 ], [ 27, %.thread ]
+25:                                               ; preds = %.thread, %6, %2, %23
+  %.0 = phi i32 [ %20, %23 ], [ 27, %2 ], [ 27, %6 ], [ 27, %.thread ]
   ret i32 %.0
 }
 
@@ -336,7 +335,7 @@ define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_hash(ptr noundef readonly capture
   %7 = icmp ugt i64 %1, 8000000
   %8 = icmp ugt i64 %3, 8000000
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %35, label %9
+  br i1 %or.cond, label %33, label %9
 
 9:                                                ; preds = %6
   %10 = add nuw nsw i64 %3, %1
@@ -345,55 +344,53 @@ define dso_local i32 @Curl_ntlm_core_mk_ntlmv2_hash(ptr noundef readonly capture
   %13 = or disjoint i64 %11, 1
   %14 = tail call ptr %12(i64 noundef %13) #8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %35, label %15
+  br i1 %.not, label %33, label %15
 
 15:                                               ; preds = %9
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %ascii_uppercase_to_unicode_le.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
-  %.08.i = phi i64 [ %23, %.lr.ph.i ], [ 0, %15 ]
+  %.08.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %15 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.08.i
   %17 = load i8, ptr %16, align 1, !tbaa !4
   %18 = tail call signext i8 @Curl_raw_toupper(i8 noundef signext %17) #8
   %19 = shl nuw nsw i64 %.08.i, 1
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %19
   store i8 %18, ptr %20, align 1, !tbaa !4
-  %21 = or disjoint i64 %19, 1
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 %21
-  store i8 0, ptr %22, align 1, !tbaa !4
-  %23 = add nuw nsw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %23, %1
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
+  store i8 0, ptr %21, align 1, !tbaa !4
+  %22 = add nuw nsw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %22, %1
   br i1 %exitcond.not.i, label %ascii_uppercase_to_unicode_le.exit, label %.lr.ph.i, !llvm.loop !11
 
 ascii_uppercase_to_unicode_le.exit:               ; preds = %.lr.ph.i, %15
-  %24 = shl nuw nsw i64 %1, 1
-  %25 = getelementptr inbounds nuw i8, ptr %14, i64 %24
+  %23 = shl nuw nsw i64 %1, 1
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 %23
   %.not.i23 = icmp eq i64 %3, 0
   br i1 %.not.i23, label %ascii_to_unicode_le.exit, label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %ascii_uppercase_to_unicode_le.exit, %.lr.ph.i24
-  %.08.i25 = phi i64 [ %32, %.lr.ph.i24 ], [ 0, %ascii_uppercase_to_unicode_le.exit ]
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 %.08.i25
-  %27 = load i8, ptr %26, align 1, !tbaa !4
-  %28 = shl nuw i64 %.08.i25, 1
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %28
-  store i8 %27, ptr %29, align 1, !tbaa !4
-  %30 = or disjoint i64 %28, 1
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 %30
-  store i8 0, ptr %31, align 1, !tbaa !4
-  %32 = add nuw nsw i64 %.08.i25, 1
-  %exitcond.not.i26 = icmp eq i64 %32, %3
+  %.08.i25 = phi i64 [ %30, %.lr.ph.i24 ], [ 0, %ascii_uppercase_to_unicode_le.exit ]
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %.08.i25
+  %26 = load i8, ptr %25, align 1, !tbaa !4
+  %27 = shl nuw i64 %.08.i25, 1
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %27
+  store i8 %26, ptr %28, align 1, !tbaa !4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  store i8 0, ptr %29, align 1, !tbaa !4
+  %30 = add nuw nsw i64 %.08.i25, 1
+  %exitcond.not.i26 = icmp eq i64 %30, %3
   br i1 %exitcond.not.i26, label %ascii_to_unicode_le.exit, label %.lr.ph.i24, !llvm.loop !9
 
 ascii_to_unicode_le.exit:                         ; preds = %.lr.ph.i24, %ascii_uppercase_to_unicode_le.exit
-  %33 = tail call i32 @Curl_hmacit(ptr noundef nonnull @Curl_HMAC_MD5, ptr noundef %4, i64 noundef 16, ptr noundef nonnull %14, i64 noundef %11, ptr noundef %5) #8
-  %34 = load ptr, ptr @Curl_cfree, align 8, !tbaa !7
-  tail call void %34(ptr noundef nonnull %14) #8
-  br label %35
+  %31 = tail call i32 @Curl_hmacit(ptr noundef nonnull @Curl_HMAC_MD5, ptr noundef %4, i64 noundef 16, ptr noundef nonnull %14, i64 noundef %11, ptr noundef %5) #8
+  %32 = load ptr, ptr @Curl_cfree, align 8, !tbaa !7
+  tail call void %32(ptr noundef nonnull %14) #8
+  br label %33
 
-35:                                               ; preds = %9, %6, %ascii_to_unicode_le.exit
-  %.0 = phi i32 [ %33, %ascii_to_unicode_le.exit ], [ 27, %6 ], [ 27, %9 ]
+33:                                               ; preds = %9, %6, %ascii_to_unicode_le.exit
+  %.0 = phi i32 [ %31, %ascii_to_unicode_le.exit ], [ 27, %6 ], [ 27, %9 ]
   ret i32 %.0
 }
 

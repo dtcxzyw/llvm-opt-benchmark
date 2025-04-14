@@ -162042,6 +162042,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116IntExprEvaluator17
   %24 = load ptr, ptr %23, align 8, !tbaa !2374
   %.sroa.0.0.copyload.i = load i64, ptr %24, align 8, !tbaa !21
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %.sroa.2.0..sroa_idx.i.i.i.i.i80 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -162058,9 +162059,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_116IntExprEvaluator17
   %.sroa.0121.0158 = phi i64 [ 0, %22 ], [ %.sroa.0121.4, %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_16IntExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit85.thread ]
   %.sroa.0117.0157 = phi i64 [ %.sroa.0.0.copyload.i, %22 ], [ %.sroa.0117.3, %_ZN12_GLOBAL__N_117ExprEvaluatorBaseINS_16IntExprEvaluatorEE5ErrorEPKN5clang4ExprE.exit85.thread ]
   %.sroa.3.0..sroa_idx.idx = shl nuw nsw i64 %indvars.iv, 4
-  %.sroa.3.0..sroa_idx.offs = or disjoint i64 %.sroa.3.0..sroa_idx.idx, 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.3.0..sroa_idx.offs
-  %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !27
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.sroa.3.0..sroa_idx.idx
+  %.sroa.3.0.copyload = load i64, ptr %gep, align 8, !tbaa !27
   %35 = trunc i64 %.sroa.3.0.copyload to i32
   %36 = and i32 %35, 3
   switch i32 %36, label %default.unreachable162 [

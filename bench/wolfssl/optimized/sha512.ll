@@ -1582,32 +1582,32 @@ define internal fastcc void @_Transform_Sha512(ptr noundef nonnull captures(none
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %27
 
-27:                                               ; preds = %1, %751
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %751 ]
-  %28 = phi i64 [ undef, %1 ], [ %437, %751 ]
-  %29 = phi i64 [ undef, %1 ], [ %392, %751 ]
-  %30 = phi i64 [ undef, %1 ], [ %347, %751 ]
-  %31 = phi i64 [ undef, %1 ], [ %302, %751 ]
-  %32 = phi i64 [ undef, %1 ], [ %662, %751 ]
-  %33 = phi i64 [ undef, %1 ], [ %257, %751 ]
-  %34 = phi i64 [ undef, %1 ], [ %617, %751 ]
-  %35 = phi i64 [ undef, %1 ], [ %212, %751 ]
-  %36 = phi i64 [ undef, %1 ], [ %572, %751 ]
-  %37 = phi i64 [ undef, %1 ], [ %167, %751 ]
-  %38 = phi i64 [ undef, %1 ], [ %527, %751 ]
-  %39 = phi i64 [ undef, %1 ], [ %752, %751 ]
-  %40 = phi i64 [ undef, %1 ], [ %122, %751 ]
-  %41 = phi i64 [ undef, %1 ], [ %482, %751 ]
-  %42 = phi i64 [ undef, %1 ], [ %707, %751 ]
-  %43 = phi i64 [ %.promoted, %1 ], [ %757, %751 ]
-  %44 = phi i64 [ %.promoted93, %1 ], [ %667, %751 ]
-  %45 = phi i64 [ %.promoted95, %1 ], [ %712, %751 ]
-  %storemerge98109 = phi i64 [ undef, %1 ], [ %storemerge, %751 ]
-  %46 = phi i64 [ %.promoted99, %1 ], [ %622, %751 ]
-  %47 = phi i64 [ %.promoted101, %1 ], [ %633, %751 ]
-  %48 = phi i64 [ %.promoted103, %1 ], [ %768, %751 ]
-  %49 = phi i64 [ %.promoted105, %1 ], [ %723, %751 ]
-  %50 = phi i64 [ %.promoted107, %1 ], [ %678, %751 ]
+27:                                               ; preds = %1, %736
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %736 ]
+  %28 = phi i64 [ undef, %1 ], [ %429, %736 ]
+  %29 = phi i64 [ undef, %1 ], [ %385, %736 ]
+  %30 = phi i64 [ undef, %1 ], [ %341, %736 ]
+  %31 = phi i64 [ undef, %1 ], [ %297, %736 ]
+  %32 = phi i64 [ undef, %1 ], [ %649, %736 ]
+  %33 = phi i64 [ undef, %1 ], [ %253, %736 ]
+  %34 = phi i64 [ undef, %1 ], [ %605, %736 ]
+  %35 = phi i64 [ undef, %1 ], [ %209, %736 ]
+  %36 = phi i64 [ undef, %1 ], [ %561, %736 ]
+  %37 = phi i64 [ undef, %1 ], [ %165, %736 ]
+  %38 = phi i64 [ undef, %1 ], [ %517, %736 ]
+  %39 = phi i64 [ undef, %1 ], [ %737, %736 ]
+  %40 = phi i64 [ undef, %1 ], [ %121, %736 ]
+  %41 = phi i64 [ undef, %1 ], [ %473, %736 ]
+  %42 = phi i64 [ undef, %1 ], [ %693, %736 ]
+  %43 = phi i64 [ %.promoted, %1 ], [ %742, %736 ]
+  %44 = phi i64 [ %.promoted93, %1 ], [ %654, %736 ]
+  %45 = phi i64 [ %.promoted95, %1 ], [ %698, %736 ]
+  %storemerge98109 = phi i64 [ undef, %1 ], [ %storemerge, %736 ]
+  %46 = phi i64 [ %.promoted99, %1 ], [ %610, %736 ]
+  %47 = phi i64 [ %.promoted101, %1 ], [ %621, %736 ]
+  %48 = phi i64 [ %.promoted103, %1 ], [ %753, %736 ]
+  %49 = phi i64 [ %.promoted105, %1 ], [ %709, %736 ]
+  %50 = phi i64 [ %.promoted107, %1 ], [ %665, %736 ]
   %51 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 50)
   %52 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 46)
   %53 = xor i64 %51, %52
@@ -1667,817 +1667,802 @@ define internal fastcc void @_Transform_Sha512(ptr noundef nonnull captures(none
   %99 = xor i64 %45, %43
   %100 = and i64 %82, %99
   %101 = xor i64 %100, %45
-  %102 = or disjoint i64 %indvars.iv, 1
-  %103 = getelementptr inbounds nuw i64, ptr @K512, i64 %102
-  %104 = load i64, ptr %103, align 8, !tbaa !10
-  br i1 %.not, label %119, label %105
+  %102 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %103 = load i64, ptr %102, align 8, !tbaa !10
+  br i1 %.not, label %118, label %104
 
-105:                                              ; preds = %77
-  %106 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 45)
-  %107 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 3)
-  %108 = xor i64 %106, %107
-  %109 = lshr i64 %39, 6
-  %110 = xor i64 %108, %109
-  %111 = add i64 %110, %38
-  %112 = tail call i64 @llvm.fshl.i64(i64 %37, i64 %37, i64 63)
-  %113 = tail call i64 @llvm.fshl.i64(i64 %37, i64 %37, i64 56)
-  %114 = xor i64 %112, %113
-  %115 = lshr i64 %37, 7
-  %116 = xor i64 %114, %115
-  %117 = add i64 %111, %40
-  %118 = add i64 %117, %116
-  br label %121
+104:                                              ; preds = %77
+  %105 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 45)
+  %106 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 3)
+  %107 = xor i64 %105, %106
+  %108 = lshr i64 %39, 6
+  %109 = xor i64 %107, %108
+  %110 = add i64 %109, %38
+  %111 = tail call i64 @llvm.fshl.i64(i64 %37, i64 %37, i64 63)
+  %112 = tail call i64 @llvm.fshl.i64(i64 %37, i64 %37, i64 56)
+  %113 = xor i64 %111, %112
+  %114 = lshr i64 %37, 7
+  %115 = xor i64 %113, %114
+  %116 = add i64 %110, %40
+  %117 = add i64 %116, %115
+  br label %120
 
-119:                                              ; preds = %77
-  %120 = load i64, ptr %12, align 8, !tbaa !10
-  br label %121
+118:                                              ; preds = %77
+  %119 = load i64, ptr %12, align 8, !tbaa !10
+  br label %120
 
-121:                                              ; preds = %119, %105
-  %122 = phi i64 [ %118, %105 ], [ %120, %119 ]
-  %123 = add i64 %101, %44
-  %124 = add i64 %123, %98
-  %125 = add i64 %124, %104
-  %126 = add i64 %125, %122
-  %127 = add i64 %126, %50
-  %128 = tail call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 36)
-  %129 = tail call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 30)
-  %130 = xor i64 %128, %129
-  %131 = tail call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 25)
-  %132 = xor i64 %130, %131
-  %133 = and i64 %93, %48
-  %134 = or i64 %93, %48
-  %135 = and i64 %134, %49
-  %136 = or i64 %135, %133
-  %137 = add i64 %132, %136
-  %138 = add i64 %137, %126
-  %139 = tail call i64 @llvm.fshl.i64(i64 %127, i64 %127, i64 50)
-  %140 = tail call i64 @llvm.fshl.i64(i64 %127, i64 %127, i64 46)
-  %141 = xor i64 %139, %140
-  %142 = tail call i64 @llvm.fshl.i64(i64 %127, i64 %127, i64 23)
-  %143 = xor i64 %141, %142
-  %144 = xor i64 %82, %43
-  %145 = and i64 %127, %144
-  %146 = xor i64 %145, %43
-  %147 = or disjoint i64 %indvars.iv, 2
-  %148 = getelementptr inbounds nuw i64, ptr @K512, i64 %147
-  %149 = load i64, ptr %148, align 16, !tbaa !10
-  br i1 %.not, label %164, label %150
+120:                                              ; preds = %118, %104
+  %121 = phi i64 [ %117, %104 ], [ %119, %118 ]
+  %122 = add i64 %101, %44
+  %123 = add i64 %122, %98
+  %124 = add i64 %123, %103
+  %125 = add i64 %124, %121
+  %126 = add i64 %125, %50
+  %127 = tail call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 36)
+  %128 = tail call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 30)
+  %129 = xor i64 %127, %128
+  %130 = tail call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 25)
+  %131 = xor i64 %129, %130
+  %132 = and i64 %93, %48
+  %133 = or i64 %93, %48
+  %134 = and i64 %133, %49
+  %135 = or i64 %134, %132
+  %136 = add i64 %131, %135
+  %137 = add i64 %136, %125
+  %138 = tail call i64 @llvm.fshl.i64(i64 %126, i64 %126, i64 50)
+  %139 = tail call i64 @llvm.fshl.i64(i64 %126, i64 %126, i64 46)
+  %140 = xor i64 %138, %139
+  %141 = tail call i64 @llvm.fshl.i64(i64 %126, i64 %126, i64 23)
+  %142 = xor i64 %140, %141
+  %143 = xor i64 %82, %43
+  %144 = and i64 %126, %143
+  %145 = xor i64 %144, %43
+  %146 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %147 = load i64, ptr %146, align 16, !tbaa !10
+  br i1 %.not, label %162, label %148
 
-150:                                              ; preds = %121
-  %151 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 45)
-  %152 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 3)
+148:                                              ; preds = %120
+  %149 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 45)
+  %150 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 3)
+  %151 = xor i64 %149, %150
+  %152 = lshr i64 %storemerge, 6
   %153 = xor i64 %151, %152
-  %154 = lshr i64 %storemerge, 6
-  %155 = xor i64 %153, %154
-  %156 = add i64 %36, %155
-  %157 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 63)
-  %158 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 56)
+  %154 = add i64 %36, %153
+  %155 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 63)
+  %156 = tail call i64 @llvm.fshl.i64(i64 %35, i64 %35, i64 56)
+  %157 = xor i64 %155, %156
+  %158 = lshr i64 %35, 7
   %159 = xor i64 %157, %158
-  %160 = lshr i64 %35, 7
-  %161 = xor i64 %159, %160
-  %162 = add i64 %156, %37
-  %163 = add i64 %162, %161
-  br label %166
+  %160 = add i64 %154, %37
+  %161 = add i64 %160, %159
+  br label %164
 
-164:                                              ; preds = %121
-  %165 = load i64, ptr %13, align 8, !tbaa !10
-  br label %166
+162:                                              ; preds = %120
+  %163 = load i64, ptr %13, align 8, !tbaa !10
+  br label %164
 
-166:                                              ; preds = %164, %150
-  %167 = phi i64 [ %163, %150 ], [ %165, %164 ]
-  %168 = add i64 %149, %45
-  %169 = add i64 %168, %146
-  %170 = add i64 %169, %143
-  %171 = add i64 %170, %167
-  %172 = add i64 %171, %49
-  %173 = tail call i64 @llvm.fshl.i64(i64 %138, i64 %138, i64 36)
-  %174 = tail call i64 @llvm.fshl.i64(i64 %138, i64 %138, i64 30)
+164:                                              ; preds = %162, %148
+  %165 = phi i64 [ %161, %148 ], [ %163, %162 ]
+  %166 = add i64 %147, %45
+  %167 = add i64 %166, %145
+  %168 = add i64 %167, %142
+  %169 = add i64 %168, %165
+  %170 = add i64 %169, %49
+  %171 = tail call i64 @llvm.fshl.i64(i64 %137, i64 %137, i64 36)
+  %172 = tail call i64 @llvm.fshl.i64(i64 %137, i64 %137, i64 30)
+  %173 = xor i64 %171, %172
+  %174 = tail call i64 @llvm.fshl.i64(i64 %137, i64 %137, i64 25)
   %175 = xor i64 %173, %174
-  %176 = tail call i64 @llvm.fshl.i64(i64 %138, i64 %138, i64 25)
-  %177 = xor i64 %175, %176
-  %178 = and i64 %138, %93
-  %179 = or i64 %138, %93
-  %180 = and i64 %179, %48
-  %181 = or i64 %180, %178
-  %182 = add i64 %177, %181
-  %183 = add i64 %182, %171
-  %184 = tail call i64 @llvm.fshl.i64(i64 %172, i64 %172, i64 50)
-  %185 = tail call i64 @llvm.fshl.i64(i64 %172, i64 %172, i64 46)
+  %176 = and i64 %137, %93
+  %177 = or i64 %137, %93
+  %178 = and i64 %177, %48
+  %179 = or i64 %178, %176
+  %180 = add i64 %175, %179
+  %181 = add i64 %180, %169
+  %182 = tail call i64 @llvm.fshl.i64(i64 %170, i64 %170, i64 50)
+  %183 = tail call i64 @llvm.fshl.i64(i64 %170, i64 %170, i64 46)
+  %184 = xor i64 %182, %183
+  %185 = tail call i64 @llvm.fshl.i64(i64 %170, i64 %170, i64 23)
   %186 = xor i64 %184, %185
-  %187 = tail call i64 @llvm.fshl.i64(i64 %172, i64 %172, i64 23)
-  %188 = xor i64 %186, %187
-  %189 = xor i64 %127, %82
-  %190 = and i64 %172, %189
-  %191 = xor i64 %190, %82
-  %192 = or disjoint i64 %indvars.iv, 3
-  %193 = getelementptr inbounds nuw i64, ptr @K512, i64 %192
-  %194 = load i64, ptr %193, align 8, !tbaa !10
-  br i1 %.not, label %209, label %195
+  %187 = xor i64 %126, %82
+  %188 = and i64 %170, %187
+  %189 = xor i64 %188, %82
+  %190 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %191 = load i64, ptr %190, align 8, !tbaa !10
+  br i1 %.not, label %206, label %192
 
-195:                                              ; preds = %166
-  %196 = tail call i64 @llvm.fshl.i64(i64 %122, i64 %122, i64 45)
-  %197 = tail call i64 @llvm.fshl.i64(i64 %122, i64 %122, i64 3)
-  %198 = xor i64 %196, %197
-  %199 = lshr i64 %122, 6
-  %200 = xor i64 %198, %199
-  %201 = add i64 %200, %34
-  %202 = tail call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 63)
-  %203 = tail call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 56)
-  %204 = xor i64 %202, %203
-  %205 = lshr i64 %33, 7
-  %206 = xor i64 %204, %205
-  %207 = add i64 %201, %35
-  %208 = add i64 %207, %206
-  br label %211
+192:                                              ; preds = %164
+  %193 = tail call i64 @llvm.fshl.i64(i64 %121, i64 %121, i64 45)
+  %194 = tail call i64 @llvm.fshl.i64(i64 %121, i64 %121, i64 3)
+  %195 = xor i64 %193, %194
+  %196 = lshr i64 %121, 6
+  %197 = xor i64 %195, %196
+  %198 = add i64 %197, %34
+  %199 = tail call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 63)
+  %200 = tail call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 56)
+  %201 = xor i64 %199, %200
+  %202 = lshr i64 %33, 7
+  %203 = xor i64 %201, %202
+  %204 = add i64 %198, %35
+  %205 = add i64 %204, %203
+  br label %208
 
-209:                                              ; preds = %166
-  %210 = load i64, ptr %14, align 8, !tbaa !10
-  br label %211
+206:                                              ; preds = %164
+  %207 = load i64, ptr %14, align 8, !tbaa !10
+  br label %208
 
-211:                                              ; preds = %209, %195
-  %212 = phi i64 [ %208, %195 ], [ %210, %209 ]
-  %213 = add i64 %194, %43
-  %214 = add i64 %213, %191
-  %215 = add i64 %214, %188
-  %216 = add i64 %215, %212
-  %217 = add i64 %216, %48
-  %218 = tail call i64 @llvm.fshl.i64(i64 %183, i64 %183, i64 36)
-  %219 = tail call i64 @llvm.fshl.i64(i64 %183, i64 %183, i64 30)
-  %220 = xor i64 %218, %219
-  %221 = tail call i64 @llvm.fshl.i64(i64 %183, i64 %183, i64 25)
-  %222 = xor i64 %220, %221
-  %223 = and i64 %183, %138
-  %224 = or i64 %183, %138
-  %225 = and i64 %224, %93
-  %226 = or i64 %225, %223
-  %227 = add i64 %222, %226
-  %228 = add i64 %227, %216
-  %229 = tail call i64 @llvm.fshl.i64(i64 %217, i64 %217, i64 50)
-  %230 = tail call i64 @llvm.fshl.i64(i64 %217, i64 %217, i64 46)
-  %231 = xor i64 %229, %230
-  %232 = tail call i64 @llvm.fshl.i64(i64 %217, i64 %217, i64 23)
-  %233 = xor i64 %231, %232
-  %234 = xor i64 %172, %127
-  %235 = and i64 %217, %234
-  %236 = xor i64 %235, %127
-  %237 = or disjoint i64 %indvars.iv, 4
-  %238 = getelementptr inbounds nuw i64, ptr @K512, i64 %237
-  %239 = load i64, ptr %238, align 16, !tbaa !10
-  br i1 %.not, label %254, label %240
+208:                                              ; preds = %206, %192
+  %209 = phi i64 [ %205, %192 ], [ %207, %206 ]
+  %210 = add i64 %191, %43
+  %211 = add i64 %210, %189
+  %212 = add i64 %211, %186
+  %213 = add i64 %212, %209
+  %214 = add i64 %213, %48
+  %215 = tail call i64 @llvm.fshl.i64(i64 %181, i64 %181, i64 36)
+  %216 = tail call i64 @llvm.fshl.i64(i64 %181, i64 %181, i64 30)
+  %217 = xor i64 %215, %216
+  %218 = tail call i64 @llvm.fshl.i64(i64 %181, i64 %181, i64 25)
+  %219 = xor i64 %217, %218
+  %220 = and i64 %181, %137
+  %221 = or i64 %181, %137
+  %222 = and i64 %221, %93
+  %223 = or i64 %222, %220
+  %224 = add i64 %219, %223
+  %225 = add i64 %224, %213
+  %226 = tail call i64 @llvm.fshl.i64(i64 %214, i64 %214, i64 50)
+  %227 = tail call i64 @llvm.fshl.i64(i64 %214, i64 %214, i64 46)
+  %228 = xor i64 %226, %227
+  %229 = tail call i64 @llvm.fshl.i64(i64 %214, i64 %214, i64 23)
+  %230 = xor i64 %228, %229
+  %231 = xor i64 %170, %126
+  %232 = and i64 %214, %231
+  %233 = xor i64 %232, %126
+  %234 = getelementptr inbounds nuw i8, ptr %59, i64 32
+  %235 = load i64, ptr %234, align 16, !tbaa !10
+  br i1 %.not, label %250, label %236
 
-240:                                              ; preds = %211
-  %241 = tail call i64 @llvm.fshl.i64(i64 %167, i64 %167, i64 45)
-  %242 = tail call i64 @llvm.fshl.i64(i64 %167, i64 %167, i64 3)
-  %243 = xor i64 %241, %242
-  %244 = lshr i64 %167, 6
+236:                                              ; preds = %208
+  %237 = tail call i64 @llvm.fshl.i64(i64 %165, i64 %165, i64 45)
+  %238 = tail call i64 @llvm.fshl.i64(i64 %165, i64 %165, i64 3)
+  %239 = xor i64 %237, %238
+  %240 = lshr i64 %165, 6
+  %241 = xor i64 %239, %240
+  %242 = add i64 %241, %32
+  %243 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 63)
+  %244 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 56)
   %245 = xor i64 %243, %244
-  %246 = add i64 %245, %32
-  %247 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 63)
-  %248 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 56)
-  %249 = xor i64 %247, %248
-  %250 = lshr i64 %31, 7
-  %251 = xor i64 %249, %250
-  %252 = add i64 %246, %33
-  %253 = add i64 %252, %251
-  br label %256
+  %246 = lshr i64 %31, 7
+  %247 = xor i64 %245, %246
+  %248 = add i64 %242, %33
+  %249 = add i64 %248, %247
+  br label %252
 
-254:                                              ; preds = %211
-  %255 = load i64, ptr %15, align 8, !tbaa !10
-  br label %256
+250:                                              ; preds = %208
+  %251 = load i64, ptr %15, align 8, !tbaa !10
+  br label %252
 
-256:                                              ; preds = %254, %240
-  %257 = phi i64 [ %253, %240 ], [ %255, %254 ]
-  %258 = add i64 %239, %82
-  %259 = add i64 %258, %236
-  %260 = add i64 %259, %233
-  %261 = add i64 %260, %257
-  %262 = add i64 %261, %93
-  %263 = tail call i64 @llvm.fshl.i64(i64 %228, i64 %228, i64 36)
-  %264 = tail call i64 @llvm.fshl.i64(i64 %228, i64 %228, i64 30)
-  %265 = xor i64 %263, %264
-  %266 = tail call i64 @llvm.fshl.i64(i64 %228, i64 %228, i64 25)
-  %267 = xor i64 %265, %266
-  %268 = and i64 %228, %183
-  %269 = or i64 %228, %183
-  %270 = and i64 %269, %138
-  %271 = or i64 %270, %268
-  %272 = add i64 %267, %271
-  %273 = add i64 %272, %261
-  %274 = tail call i64 @llvm.fshl.i64(i64 %262, i64 %262, i64 50)
-  %275 = tail call i64 @llvm.fshl.i64(i64 %262, i64 %262, i64 46)
-  %276 = xor i64 %274, %275
-  %277 = tail call i64 @llvm.fshl.i64(i64 %262, i64 %262, i64 23)
-  %278 = xor i64 %276, %277
-  %279 = xor i64 %217, %172
-  %280 = and i64 %262, %279
-  %281 = xor i64 %280, %172
-  %282 = or disjoint i64 %indvars.iv, 5
-  %283 = getelementptr inbounds nuw i64, ptr @K512, i64 %282
-  %284 = load i64, ptr %283, align 8, !tbaa !10
-  br i1 %.not, label %299, label %285
+252:                                              ; preds = %250, %236
+  %253 = phi i64 [ %249, %236 ], [ %251, %250 ]
+  %254 = add i64 %235, %82
+  %255 = add i64 %254, %233
+  %256 = add i64 %255, %230
+  %257 = add i64 %256, %253
+  %258 = add i64 %257, %93
+  %259 = tail call i64 @llvm.fshl.i64(i64 %225, i64 %225, i64 36)
+  %260 = tail call i64 @llvm.fshl.i64(i64 %225, i64 %225, i64 30)
+  %261 = xor i64 %259, %260
+  %262 = tail call i64 @llvm.fshl.i64(i64 %225, i64 %225, i64 25)
+  %263 = xor i64 %261, %262
+  %264 = and i64 %225, %181
+  %265 = or i64 %225, %181
+  %266 = and i64 %265, %137
+  %267 = or i64 %266, %264
+  %268 = add i64 %263, %267
+  %269 = add i64 %268, %257
+  %270 = tail call i64 @llvm.fshl.i64(i64 %258, i64 %258, i64 50)
+  %271 = tail call i64 @llvm.fshl.i64(i64 %258, i64 %258, i64 46)
+  %272 = xor i64 %270, %271
+  %273 = tail call i64 @llvm.fshl.i64(i64 %258, i64 %258, i64 23)
+  %274 = xor i64 %272, %273
+  %275 = xor i64 %214, %170
+  %276 = and i64 %258, %275
+  %277 = xor i64 %276, %170
+  %278 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  %279 = load i64, ptr %278, align 8, !tbaa !10
+  br i1 %.not, label %294, label %280
 
-285:                                              ; preds = %256
-  %286 = tail call i64 @llvm.fshl.i64(i64 %212, i64 %212, i64 45)
-  %287 = tail call i64 @llvm.fshl.i64(i64 %212, i64 %212, i64 3)
-  %288 = xor i64 %286, %287
-  %289 = lshr i64 %212, 6
-  %290 = xor i64 %288, %289
-  %291 = add i64 %290, %42
-  %292 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 63)
-  %293 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 56)
-  %294 = xor i64 %292, %293
-  %295 = lshr i64 %30, 7
-  %296 = xor i64 %294, %295
-  %297 = add i64 %291, %31
-  %298 = add i64 %297, %296
-  br label %301
+280:                                              ; preds = %252
+  %281 = tail call i64 @llvm.fshl.i64(i64 %209, i64 %209, i64 45)
+  %282 = tail call i64 @llvm.fshl.i64(i64 %209, i64 %209, i64 3)
+  %283 = xor i64 %281, %282
+  %284 = lshr i64 %209, 6
+  %285 = xor i64 %283, %284
+  %286 = add i64 %285, %42
+  %287 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 63)
+  %288 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 56)
+  %289 = xor i64 %287, %288
+  %290 = lshr i64 %30, 7
+  %291 = xor i64 %289, %290
+  %292 = add i64 %286, %31
+  %293 = add i64 %292, %291
+  br label %296
 
-299:                                              ; preds = %256
-  %300 = load i64, ptr %16, align 8, !tbaa !10
-  br label %301
+294:                                              ; preds = %252
+  %295 = load i64, ptr %16, align 8, !tbaa !10
+  br label %296
 
-301:                                              ; preds = %299, %285
-  %302 = phi i64 [ %298, %285 ], [ %300, %299 ]
-  %303 = add i64 %284, %127
-  %304 = add i64 %303, %281
-  %305 = add i64 %304, %278
-  %306 = add i64 %305, %302
-  %307 = add i64 %306, %138
-  %308 = tail call i64 @llvm.fshl.i64(i64 %273, i64 %273, i64 36)
-  %309 = tail call i64 @llvm.fshl.i64(i64 %273, i64 %273, i64 30)
-  %310 = xor i64 %308, %309
-  %311 = tail call i64 @llvm.fshl.i64(i64 %273, i64 %273, i64 25)
-  %312 = xor i64 %310, %311
-  %313 = and i64 %273, %228
-  %314 = or i64 %273, %228
-  %315 = and i64 %314, %183
-  %316 = or i64 %315, %313
-  %317 = add i64 %312, %316
-  %318 = add i64 %317, %306
-  %319 = tail call i64 @llvm.fshl.i64(i64 %307, i64 %307, i64 50)
-  %320 = tail call i64 @llvm.fshl.i64(i64 %307, i64 %307, i64 46)
-  %321 = xor i64 %319, %320
-  %322 = tail call i64 @llvm.fshl.i64(i64 %307, i64 %307, i64 23)
-  %323 = xor i64 %321, %322
-  %324 = xor i64 %262, %217
-  %325 = and i64 %307, %324
-  %326 = xor i64 %325, %217
-  %327 = or disjoint i64 %indvars.iv, 6
-  %328 = getelementptr inbounds nuw i64, ptr @K512, i64 %327
-  %329 = load i64, ptr %328, align 16, !tbaa !10
-  br i1 %.not, label %344, label %330
+296:                                              ; preds = %294, %280
+  %297 = phi i64 [ %293, %280 ], [ %295, %294 ]
+  %298 = add i64 %279, %126
+  %299 = add i64 %298, %277
+  %300 = add i64 %299, %274
+  %301 = add i64 %300, %297
+  %302 = add i64 %301, %137
+  %303 = tail call i64 @llvm.fshl.i64(i64 %269, i64 %269, i64 36)
+  %304 = tail call i64 @llvm.fshl.i64(i64 %269, i64 %269, i64 30)
+  %305 = xor i64 %303, %304
+  %306 = tail call i64 @llvm.fshl.i64(i64 %269, i64 %269, i64 25)
+  %307 = xor i64 %305, %306
+  %308 = and i64 %269, %225
+  %309 = or i64 %269, %225
+  %310 = and i64 %309, %181
+  %311 = or i64 %310, %308
+  %312 = add i64 %307, %311
+  %313 = add i64 %312, %301
+  %314 = tail call i64 @llvm.fshl.i64(i64 %302, i64 %302, i64 50)
+  %315 = tail call i64 @llvm.fshl.i64(i64 %302, i64 %302, i64 46)
+  %316 = xor i64 %314, %315
+  %317 = tail call i64 @llvm.fshl.i64(i64 %302, i64 %302, i64 23)
+  %318 = xor i64 %316, %317
+  %319 = xor i64 %258, %214
+  %320 = and i64 %302, %319
+  %321 = xor i64 %320, %214
+  %322 = getelementptr inbounds nuw i8, ptr %59, i64 48
+  %323 = load i64, ptr %322, align 16, !tbaa !10
+  br i1 %.not, label %338, label %324
 
-330:                                              ; preds = %301
-  %331 = tail call i64 @llvm.fshl.i64(i64 %257, i64 %257, i64 45)
-  %332 = tail call i64 @llvm.fshl.i64(i64 %257, i64 %257, i64 3)
+324:                                              ; preds = %296
+  %325 = tail call i64 @llvm.fshl.i64(i64 %253, i64 %253, i64 45)
+  %326 = tail call i64 @llvm.fshl.i64(i64 %253, i64 %253, i64 3)
+  %327 = xor i64 %325, %326
+  %328 = lshr i64 %253, 6
+  %329 = xor i64 %327, %328
+  %330 = add i64 %329, %39
+  %331 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 63)
+  %332 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 56)
   %333 = xor i64 %331, %332
-  %334 = lshr i64 %257, 6
+  %334 = lshr i64 %29, 7
   %335 = xor i64 %333, %334
-  %336 = add i64 %335, %39
-  %337 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 63)
-  %338 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 56)
-  %339 = xor i64 %337, %338
-  %340 = lshr i64 %29, 7
-  %341 = xor i64 %339, %340
-  %342 = add i64 %336, %30
-  %343 = add i64 %342, %341
-  br label %346
+  %336 = add i64 %330, %30
+  %337 = add i64 %336, %335
+  br label %340
 
-344:                                              ; preds = %301
-  %345 = load i64, ptr %17, align 8, !tbaa !10
-  br label %346
+338:                                              ; preds = %296
+  %339 = load i64, ptr %17, align 8, !tbaa !10
+  br label %340
 
-346:                                              ; preds = %344, %330
-  %347 = phi i64 [ %343, %330 ], [ %345, %344 ]
-  %348 = add i64 %329, %172
-  %349 = add i64 %348, %326
-  %350 = add i64 %349, %323
-  %351 = add i64 %350, %347
-  %352 = add i64 %351, %183
-  %353 = tail call i64 @llvm.fshl.i64(i64 %318, i64 %318, i64 36)
-  %354 = tail call i64 @llvm.fshl.i64(i64 %318, i64 %318, i64 30)
-  %355 = xor i64 %353, %354
-  %356 = tail call i64 @llvm.fshl.i64(i64 %318, i64 %318, i64 25)
-  %357 = xor i64 %355, %356
-  %358 = and i64 %318, %273
-  %359 = or i64 %318, %273
-  %360 = and i64 %359, %228
-  %361 = or i64 %360, %358
-  %362 = add i64 %357, %361
-  %363 = add i64 %362, %351
-  %364 = tail call i64 @llvm.fshl.i64(i64 %352, i64 %352, i64 50)
-  %365 = tail call i64 @llvm.fshl.i64(i64 %352, i64 %352, i64 46)
-  %366 = xor i64 %364, %365
-  %367 = tail call i64 @llvm.fshl.i64(i64 %352, i64 %352, i64 23)
-  %368 = xor i64 %366, %367
-  %369 = xor i64 %307, %262
-  %370 = and i64 %352, %369
-  %371 = xor i64 %370, %262
-  %372 = or disjoint i64 %indvars.iv, 7
-  %373 = getelementptr inbounds nuw i64, ptr @K512, i64 %372
-  %374 = load i64, ptr %373, align 8, !tbaa !10
-  br i1 %.not, label %389, label %375
+340:                                              ; preds = %338, %324
+  %341 = phi i64 [ %337, %324 ], [ %339, %338 ]
+  %342 = add i64 %323, %170
+  %343 = add i64 %342, %321
+  %344 = add i64 %343, %318
+  %345 = add i64 %344, %341
+  %346 = add i64 %345, %181
+  %347 = tail call i64 @llvm.fshl.i64(i64 %313, i64 %313, i64 36)
+  %348 = tail call i64 @llvm.fshl.i64(i64 %313, i64 %313, i64 30)
+  %349 = xor i64 %347, %348
+  %350 = tail call i64 @llvm.fshl.i64(i64 %313, i64 %313, i64 25)
+  %351 = xor i64 %349, %350
+  %352 = and i64 %313, %269
+  %353 = or i64 %313, %269
+  %354 = and i64 %353, %225
+  %355 = or i64 %354, %352
+  %356 = add i64 %351, %355
+  %357 = add i64 %356, %345
+  %358 = tail call i64 @llvm.fshl.i64(i64 %346, i64 %346, i64 50)
+  %359 = tail call i64 @llvm.fshl.i64(i64 %346, i64 %346, i64 46)
+  %360 = xor i64 %358, %359
+  %361 = tail call i64 @llvm.fshl.i64(i64 %346, i64 %346, i64 23)
+  %362 = xor i64 %360, %361
+  %363 = xor i64 %302, %258
+  %364 = and i64 %346, %363
+  %365 = xor i64 %364, %258
+  %366 = getelementptr inbounds nuw i8, ptr %59, i64 56
+  %367 = load i64, ptr %366, align 8, !tbaa !10
+  br i1 %.not, label %382, label %368
 
-375:                                              ; preds = %346
-  %376 = tail call i64 @llvm.fshl.i64(i64 %302, i64 %302, i64 45)
-  %377 = tail call i64 @llvm.fshl.i64(i64 %302, i64 %302, i64 3)
+368:                                              ; preds = %340
+  %369 = tail call i64 @llvm.fshl.i64(i64 %297, i64 %297, i64 45)
+  %370 = tail call i64 @llvm.fshl.i64(i64 %297, i64 %297, i64 3)
+  %371 = xor i64 %369, %370
+  %372 = lshr i64 %297, 6
+  %373 = xor i64 %371, %372
+  %374 = tail call i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 63)
+  %375 = tail call i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 56)
+  %376 = xor i64 %374, %375
+  %377 = lshr i64 %28, 7
   %378 = xor i64 %376, %377
-  %379 = lshr i64 %302, 6
-  %380 = xor i64 %378, %379
-  %381 = tail call i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 63)
-  %382 = tail call i64 @llvm.fshl.i64(i64 %28, i64 %28, i64 56)
-  %383 = xor i64 %381, %382
-  %384 = lshr i64 %28, 7
-  %385 = xor i64 %383, %384
-  %386 = add i64 %29, %storemerge
-  %387 = add i64 %386, %380
-  %388 = add i64 %387, %385
-  br label %391
+  %379 = add i64 %29, %storemerge
+  %380 = add i64 %379, %373
+  %381 = add i64 %380, %378
+  br label %384
 
-389:                                              ; preds = %346
-  %390 = load i64, ptr %18, align 8, !tbaa !10
-  br label %391
+382:                                              ; preds = %340
+  %383 = load i64, ptr %18, align 8, !tbaa !10
+  br label %384
 
-391:                                              ; preds = %389, %375
-  %392 = phi i64 [ %388, %375 ], [ %390, %389 ]
-  %393 = add i64 %374, %217
-  %394 = add i64 %393, %371
-  %395 = add i64 %394, %368
-  %396 = add i64 %395, %392
-  %397 = add i64 %396, %228
-  %398 = tail call i64 @llvm.fshl.i64(i64 %363, i64 %363, i64 36)
-  %399 = tail call i64 @llvm.fshl.i64(i64 %363, i64 %363, i64 30)
-  %400 = xor i64 %398, %399
-  %401 = tail call i64 @llvm.fshl.i64(i64 %363, i64 %363, i64 25)
-  %402 = xor i64 %400, %401
-  %403 = and i64 %363, %318
-  %404 = or i64 %363, %318
-  %405 = and i64 %404, %273
-  %406 = or i64 %405, %403
-  %407 = add i64 %402, %406
-  %408 = add i64 %407, %396
-  %409 = tail call i64 @llvm.fshl.i64(i64 %397, i64 %397, i64 50)
-  %410 = tail call i64 @llvm.fshl.i64(i64 %397, i64 %397, i64 46)
-  %411 = xor i64 %409, %410
-  %412 = tail call i64 @llvm.fshl.i64(i64 %397, i64 %397, i64 23)
-  %413 = xor i64 %411, %412
-  %414 = xor i64 %352, %307
-  %415 = and i64 %397, %414
-  %416 = xor i64 %415, %307
-  %417 = or disjoint i64 %indvars.iv, 8
-  %418 = getelementptr inbounds nuw i64, ptr @K512, i64 %417
-  %419 = load i64, ptr %418, align 16, !tbaa !10
-  br i1 %.not, label %434, label %420
+384:                                              ; preds = %382, %368
+  %385 = phi i64 [ %381, %368 ], [ %383, %382 ]
+  %386 = add i64 %367, %214
+  %387 = add i64 %386, %365
+  %388 = add i64 %387, %362
+  %389 = add i64 %388, %385
+  %390 = add i64 %389, %225
+  %391 = tail call i64 @llvm.fshl.i64(i64 %357, i64 %357, i64 36)
+  %392 = tail call i64 @llvm.fshl.i64(i64 %357, i64 %357, i64 30)
+  %393 = xor i64 %391, %392
+  %394 = tail call i64 @llvm.fshl.i64(i64 %357, i64 %357, i64 25)
+  %395 = xor i64 %393, %394
+  %396 = and i64 %357, %313
+  %397 = or i64 %357, %313
+  %398 = and i64 %397, %269
+  %399 = or i64 %398, %396
+  %400 = add i64 %395, %399
+  %401 = add i64 %400, %389
+  %402 = tail call i64 @llvm.fshl.i64(i64 %390, i64 %390, i64 50)
+  %403 = tail call i64 @llvm.fshl.i64(i64 %390, i64 %390, i64 46)
+  %404 = xor i64 %402, %403
+  %405 = tail call i64 @llvm.fshl.i64(i64 %390, i64 %390, i64 23)
+  %406 = xor i64 %404, %405
+  %407 = xor i64 %346, %302
+  %408 = and i64 %390, %407
+  %409 = xor i64 %408, %302
+  %410 = getelementptr inbounds nuw i8, ptr %59, i64 64
+  %411 = load i64, ptr %410, align 16, !tbaa !10
+  br i1 %.not, label %426, label %412
 
-420:                                              ; preds = %391
-  %421 = tail call i64 @llvm.fshl.i64(i64 %347, i64 %347, i64 45)
-  %422 = tail call i64 @llvm.fshl.i64(i64 %347, i64 %347, i64 3)
+412:                                              ; preds = %384
+  %413 = tail call i64 @llvm.fshl.i64(i64 %341, i64 %341, i64 45)
+  %414 = tail call i64 @llvm.fshl.i64(i64 %341, i64 %341, i64 3)
+  %415 = xor i64 %413, %414
+  %416 = lshr i64 %341, 6
+  %417 = xor i64 %415, %416
+  %418 = add i64 %417, %121
+  %419 = tail call i64 @llvm.fshl.i64(i64 %41, i64 %41, i64 63)
+  %420 = tail call i64 @llvm.fshl.i64(i64 %41, i64 %41, i64 56)
+  %421 = xor i64 %419, %420
+  %422 = lshr i64 %41, 7
   %423 = xor i64 %421, %422
-  %424 = lshr i64 %347, 6
-  %425 = xor i64 %423, %424
-  %426 = add i64 %425, %122
-  %427 = tail call i64 @llvm.fshl.i64(i64 %41, i64 %41, i64 63)
-  %428 = tail call i64 @llvm.fshl.i64(i64 %41, i64 %41, i64 56)
-  %429 = xor i64 %427, %428
-  %430 = lshr i64 %41, 7
-  %431 = xor i64 %429, %430
-  %432 = add i64 %426, %28
-  %433 = add i64 %432, %431
-  br label %436
+  %424 = add i64 %418, %28
+  %425 = add i64 %424, %423
+  br label %428
 
-434:                                              ; preds = %391
-  %435 = load i64, ptr %19, align 8, !tbaa !10
-  br label %436
+426:                                              ; preds = %384
+  %427 = load i64, ptr %19, align 8, !tbaa !10
+  br label %428
 
-436:                                              ; preds = %434, %420
-  %437 = phi i64 [ %433, %420 ], [ %435, %434 ]
-  %438 = add i64 %419, %262
-  %439 = add i64 %438, %416
-  %440 = add i64 %439, %413
-  %441 = add i64 %440, %437
-  %442 = add i64 %441, %273
-  %443 = tail call i64 @llvm.fshl.i64(i64 %408, i64 %408, i64 36)
-  %444 = tail call i64 @llvm.fshl.i64(i64 %408, i64 %408, i64 30)
-  %445 = xor i64 %443, %444
-  %446 = tail call i64 @llvm.fshl.i64(i64 %408, i64 %408, i64 25)
-  %447 = xor i64 %445, %446
-  %448 = and i64 %408, %363
-  %449 = or i64 %408, %363
-  %450 = and i64 %449, %318
-  %451 = or i64 %450, %448
-  %452 = add i64 %447, %451
-  %453 = add i64 %452, %441
-  %454 = tail call i64 @llvm.fshl.i64(i64 %442, i64 %442, i64 50)
-  %455 = tail call i64 @llvm.fshl.i64(i64 %442, i64 %442, i64 46)
-  %456 = xor i64 %454, %455
-  %457 = tail call i64 @llvm.fshl.i64(i64 %442, i64 %442, i64 23)
-  %458 = xor i64 %456, %457
-  %459 = xor i64 %397, %352
-  %460 = and i64 %442, %459
-  %461 = xor i64 %460, %352
-  %462 = or disjoint i64 %indvars.iv, 9
-  %463 = getelementptr inbounds nuw i64, ptr @K512, i64 %462
-  %464 = load i64, ptr %463, align 8, !tbaa !10
-  br i1 %.not, label %479, label %465
+428:                                              ; preds = %426, %412
+  %429 = phi i64 [ %425, %412 ], [ %427, %426 ]
+  %430 = add i64 %411, %258
+  %431 = add i64 %430, %409
+  %432 = add i64 %431, %406
+  %433 = add i64 %432, %429
+  %434 = add i64 %433, %269
+  %435 = tail call i64 @llvm.fshl.i64(i64 %401, i64 %401, i64 36)
+  %436 = tail call i64 @llvm.fshl.i64(i64 %401, i64 %401, i64 30)
+  %437 = xor i64 %435, %436
+  %438 = tail call i64 @llvm.fshl.i64(i64 %401, i64 %401, i64 25)
+  %439 = xor i64 %437, %438
+  %440 = and i64 %401, %357
+  %441 = or i64 %401, %357
+  %442 = and i64 %441, %313
+  %443 = or i64 %442, %440
+  %444 = add i64 %439, %443
+  %445 = add i64 %444, %433
+  %446 = tail call i64 @llvm.fshl.i64(i64 %434, i64 %434, i64 50)
+  %447 = tail call i64 @llvm.fshl.i64(i64 %434, i64 %434, i64 46)
+  %448 = xor i64 %446, %447
+  %449 = tail call i64 @llvm.fshl.i64(i64 %434, i64 %434, i64 23)
+  %450 = xor i64 %448, %449
+  %451 = xor i64 %390, %346
+  %452 = and i64 %434, %451
+  %453 = xor i64 %452, %346
+  %454 = getelementptr inbounds nuw i8, ptr %59, i64 72
+  %455 = load i64, ptr %454, align 8, !tbaa !10
+  br i1 %.not, label %470, label %456
 
-465:                                              ; preds = %436
-  %466 = tail call i64 @llvm.fshl.i64(i64 %392, i64 %392, i64 45)
-  %467 = tail call i64 @llvm.fshl.i64(i64 %392, i64 %392, i64 3)
-  %468 = xor i64 %466, %467
-  %469 = lshr i64 %392, 6
-  %470 = xor i64 %468, %469
-  %471 = add i64 %470, %167
-  %472 = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 63)
-  %473 = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 56)
-  %474 = xor i64 %472, %473
-  %475 = lshr i64 %38, 7
-  %476 = xor i64 %474, %475
-  %477 = add i64 %471, %41
-  %478 = add i64 %477, %476
-  br label %481
+456:                                              ; preds = %428
+  %457 = tail call i64 @llvm.fshl.i64(i64 %385, i64 %385, i64 45)
+  %458 = tail call i64 @llvm.fshl.i64(i64 %385, i64 %385, i64 3)
+  %459 = xor i64 %457, %458
+  %460 = lshr i64 %385, 6
+  %461 = xor i64 %459, %460
+  %462 = add i64 %461, %165
+  %463 = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 63)
+  %464 = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 56)
+  %465 = xor i64 %463, %464
+  %466 = lshr i64 %38, 7
+  %467 = xor i64 %465, %466
+  %468 = add i64 %462, %41
+  %469 = add i64 %468, %467
+  br label %472
 
-479:                                              ; preds = %436
-  %480 = load i64, ptr %20, align 8, !tbaa !10
-  br label %481
+470:                                              ; preds = %428
+  %471 = load i64, ptr %20, align 8, !tbaa !10
+  br label %472
 
-481:                                              ; preds = %479, %465
-  %482 = phi i64 [ %478, %465 ], [ %480, %479 ]
-  %483 = add i64 %464, %307
-  %484 = add i64 %483, %461
-  %485 = add i64 %484, %458
-  %486 = add i64 %485, %482
-  %487 = add i64 %486, %318
-  %488 = tail call i64 @llvm.fshl.i64(i64 %453, i64 %453, i64 36)
-  %489 = tail call i64 @llvm.fshl.i64(i64 %453, i64 %453, i64 30)
-  %490 = xor i64 %488, %489
-  %491 = tail call i64 @llvm.fshl.i64(i64 %453, i64 %453, i64 25)
+472:                                              ; preds = %470, %456
+  %473 = phi i64 [ %469, %456 ], [ %471, %470 ]
+  %474 = add i64 %455, %302
+  %475 = add i64 %474, %453
+  %476 = add i64 %475, %450
+  %477 = add i64 %476, %473
+  %478 = add i64 %477, %313
+  %479 = tail call i64 @llvm.fshl.i64(i64 %445, i64 %445, i64 36)
+  %480 = tail call i64 @llvm.fshl.i64(i64 %445, i64 %445, i64 30)
+  %481 = xor i64 %479, %480
+  %482 = tail call i64 @llvm.fshl.i64(i64 %445, i64 %445, i64 25)
+  %483 = xor i64 %481, %482
+  %484 = and i64 %445, %401
+  %485 = or i64 %445, %401
+  %486 = and i64 %485, %357
+  %487 = or i64 %486, %484
+  %488 = add i64 %483, %487
+  %489 = add i64 %488, %477
+  %490 = tail call i64 @llvm.fshl.i64(i64 %478, i64 %478, i64 50)
+  %491 = tail call i64 @llvm.fshl.i64(i64 %478, i64 %478, i64 46)
   %492 = xor i64 %490, %491
-  %493 = and i64 %453, %408
-  %494 = or i64 %453, %408
-  %495 = and i64 %494, %363
-  %496 = or i64 %495, %493
-  %497 = add i64 %492, %496
-  %498 = add i64 %497, %486
-  %499 = tail call i64 @llvm.fshl.i64(i64 %487, i64 %487, i64 50)
-  %500 = tail call i64 @llvm.fshl.i64(i64 %487, i64 %487, i64 46)
-  %501 = xor i64 %499, %500
-  %502 = tail call i64 @llvm.fshl.i64(i64 %487, i64 %487, i64 23)
+  %493 = tail call i64 @llvm.fshl.i64(i64 %478, i64 %478, i64 23)
+  %494 = xor i64 %492, %493
+  %495 = xor i64 %434, %390
+  %496 = and i64 %478, %495
+  %497 = xor i64 %496, %390
+  %498 = getelementptr inbounds nuw i8, ptr %59, i64 80
+  %499 = load i64, ptr %498, align 16, !tbaa !10
+  br i1 %.not, label %514, label %500
+
+500:                                              ; preds = %472
+  %501 = tail call i64 @llvm.fshl.i64(i64 %429, i64 %429, i64 45)
+  %502 = tail call i64 @llvm.fshl.i64(i64 %429, i64 %429, i64 3)
   %503 = xor i64 %501, %502
-  %504 = xor i64 %442, %397
-  %505 = and i64 %487, %504
-  %506 = xor i64 %505, %397
-  %507 = or disjoint i64 %indvars.iv, 10
-  %508 = getelementptr inbounds nuw i64, ptr @K512, i64 %507
-  %509 = load i64, ptr %508, align 16, !tbaa !10
-  br i1 %.not, label %524, label %510
+  %504 = lshr i64 %429, 6
+  %505 = xor i64 %503, %504
+  %506 = add i64 %505, %209
+  %507 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 63)
+  %508 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 56)
+  %509 = xor i64 %507, %508
+  %510 = lshr i64 %36, 7
+  %511 = xor i64 %509, %510
+  %512 = add i64 %506, %38
+  %513 = add i64 %512, %511
+  br label %516
 
-510:                                              ; preds = %481
-  %511 = tail call i64 @llvm.fshl.i64(i64 %437, i64 %437, i64 45)
-  %512 = tail call i64 @llvm.fshl.i64(i64 %437, i64 %437, i64 3)
-  %513 = xor i64 %511, %512
-  %514 = lshr i64 %437, 6
-  %515 = xor i64 %513, %514
-  %516 = add i64 %515, %212
-  %517 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 63)
-  %518 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 56)
-  %519 = xor i64 %517, %518
-  %520 = lshr i64 %36, 7
-  %521 = xor i64 %519, %520
-  %522 = add i64 %516, %38
-  %523 = add i64 %522, %521
-  br label %526
+514:                                              ; preds = %472
+  %515 = load i64, ptr %21, align 8, !tbaa !10
+  br label %516
 
-524:                                              ; preds = %481
-  %525 = load i64, ptr %21, align 8, !tbaa !10
-  br label %526
+516:                                              ; preds = %514, %500
+  %517 = phi i64 [ %513, %500 ], [ %515, %514 ]
+  %518 = add i64 %499, %346
+  %519 = add i64 %518, %497
+  %520 = add i64 %519, %494
+  %521 = add i64 %520, %517
+  %522 = add i64 %521, %357
+  %523 = tail call i64 @llvm.fshl.i64(i64 %489, i64 %489, i64 36)
+  %524 = tail call i64 @llvm.fshl.i64(i64 %489, i64 %489, i64 30)
+  %525 = xor i64 %523, %524
+  %526 = tail call i64 @llvm.fshl.i64(i64 %489, i64 %489, i64 25)
+  %527 = xor i64 %525, %526
+  %528 = and i64 %489, %445
+  %529 = or i64 %489, %445
+  %530 = and i64 %529, %401
+  %531 = or i64 %530, %528
+  %532 = add i64 %527, %531
+  %533 = add i64 %532, %521
+  %534 = tail call i64 @llvm.fshl.i64(i64 %522, i64 %522, i64 50)
+  %535 = tail call i64 @llvm.fshl.i64(i64 %522, i64 %522, i64 46)
+  %536 = xor i64 %534, %535
+  %537 = tail call i64 @llvm.fshl.i64(i64 %522, i64 %522, i64 23)
+  %538 = xor i64 %536, %537
+  %539 = xor i64 %478, %434
+  %540 = and i64 %522, %539
+  %541 = xor i64 %540, %434
+  %542 = getelementptr inbounds nuw i8, ptr %59, i64 88
+  %543 = load i64, ptr %542, align 8, !tbaa !10
+  br i1 %.not, label %558, label %544
 
-526:                                              ; preds = %524, %510
-  %527 = phi i64 [ %523, %510 ], [ %525, %524 ]
-  %528 = add i64 %509, %352
-  %529 = add i64 %528, %506
-  %530 = add i64 %529, %503
-  %531 = add i64 %530, %527
-  %532 = add i64 %531, %363
-  %533 = tail call i64 @llvm.fshl.i64(i64 %498, i64 %498, i64 36)
-  %534 = tail call i64 @llvm.fshl.i64(i64 %498, i64 %498, i64 30)
-  %535 = xor i64 %533, %534
-  %536 = tail call i64 @llvm.fshl.i64(i64 %498, i64 %498, i64 25)
-  %537 = xor i64 %535, %536
-  %538 = and i64 %498, %453
-  %539 = or i64 %498, %453
-  %540 = and i64 %539, %408
-  %541 = or i64 %540, %538
-  %542 = add i64 %537, %541
-  %543 = add i64 %542, %531
-  %544 = tail call i64 @llvm.fshl.i64(i64 %532, i64 %532, i64 50)
-  %545 = tail call i64 @llvm.fshl.i64(i64 %532, i64 %532, i64 46)
-  %546 = xor i64 %544, %545
-  %547 = tail call i64 @llvm.fshl.i64(i64 %532, i64 %532, i64 23)
-  %548 = xor i64 %546, %547
-  %549 = xor i64 %487, %442
-  %550 = and i64 %532, %549
-  %551 = xor i64 %550, %442
-  %552 = or disjoint i64 %indvars.iv, 11
-  %553 = getelementptr inbounds nuw i64, ptr @K512, i64 %552
-  %554 = load i64, ptr %553, align 8, !tbaa !10
-  br i1 %.not, label %569, label %555
+544:                                              ; preds = %516
+  %545 = tail call i64 @llvm.fshl.i64(i64 %473, i64 %473, i64 45)
+  %546 = tail call i64 @llvm.fshl.i64(i64 %473, i64 %473, i64 3)
+  %547 = xor i64 %545, %546
+  %548 = lshr i64 %473, 6
+  %549 = xor i64 %547, %548
+  %550 = add i64 %549, %253
+  %551 = tail call i64 @llvm.fshl.i64(i64 %34, i64 %34, i64 63)
+  %552 = tail call i64 @llvm.fshl.i64(i64 %34, i64 %34, i64 56)
+  %553 = xor i64 %551, %552
+  %554 = lshr i64 %34, 7
+  %555 = xor i64 %553, %554
+  %556 = add i64 %550, %36
+  %557 = add i64 %556, %555
+  br label %560
 
-555:                                              ; preds = %526
-  %556 = tail call i64 @llvm.fshl.i64(i64 %482, i64 %482, i64 45)
-  %557 = tail call i64 @llvm.fshl.i64(i64 %482, i64 %482, i64 3)
-  %558 = xor i64 %556, %557
-  %559 = lshr i64 %482, 6
-  %560 = xor i64 %558, %559
-  %561 = add i64 %560, %257
-  %562 = tail call i64 @llvm.fshl.i64(i64 %34, i64 %34, i64 63)
-  %563 = tail call i64 @llvm.fshl.i64(i64 %34, i64 %34, i64 56)
-  %564 = xor i64 %562, %563
-  %565 = lshr i64 %34, 7
-  %566 = xor i64 %564, %565
-  %567 = add i64 %561, %36
-  %568 = add i64 %567, %566
-  br label %571
+558:                                              ; preds = %516
+  %559 = load i64, ptr %22, align 8, !tbaa !10
+  br label %560
 
-569:                                              ; preds = %526
-  %570 = load i64, ptr %22, align 8, !tbaa !10
-  br label %571
-
-571:                                              ; preds = %569, %555
-  %572 = phi i64 [ %568, %555 ], [ %570, %569 ]
-  %573 = add i64 %554, %397
-  %574 = add i64 %573, %551
-  %575 = add i64 %574, %548
-  %576 = add i64 %575, %572
-  %577 = add i64 %576, %408
-  %578 = tail call i64 @llvm.fshl.i64(i64 %543, i64 %543, i64 36)
-  %579 = tail call i64 @llvm.fshl.i64(i64 %543, i64 %543, i64 30)
+560:                                              ; preds = %558, %544
+  %561 = phi i64 [ %557, %544 ], [ %559, %558 ]
+  %562 = add i64 %543, %390
+  %563 = add i64 %562, %541
+  %564 = add i64 %563, %538
+  %565 = add i64 %564, %561
+  %566 = add i64 %565, %401
+  %567 = tail call i64 @llvm.fshl.i64(i64 %533, i64 %533, i64 36)
+  %568 = tail call i64 @llvm.fshl.i64(i64 %533, i64 %533, i64 30)
+  %569 = xor i64 %567, %568
+  %570 = tail call i64 @llvm.fshl.i64(i64 %533, i64 %533, i64 25)
+  %571 = xor i64 %569, %570
+  %572 = and i64 %533, %489
+  %573 = or i64 %533, %489
+  %574 = and i64 %573, %445
+  %575 = or i64 %574, %572
+  %576 = add i64 %571, %575
+  %577 = add i64 %576, %565
+  %578 = tail call i64 @llvm.fshl.i64(i64 %566, i64 %566, i64 50)
+  %579 = tail call i64 @llvm.fshl.i64(i64 %566, i64 %566, i64 46)
   %580 = xor i64 %578, %579
-  %581 = tail call i64 @llvm.fshl.i64(i64 %543, i64 %543, i64 25)
+  %581 = tail call i64 @llvm.fshl.i64(i64 %566, i64 %566, i64 23)
   %582 = xor i64 %580, %581
-  %583 = and i64 %543, %498
-  %584 = or i64 %543, %498
-  %585 = and i64 %584, %453
-  %586 = or i64 %585, %583
-  %587 = add i64 %582, %586
-  %588 = add i64 %587, %576
-  %589 = tail call i64 @llvm.fshl.i64(i64 %577, i64 %577, i64 50)
-  %590 = tail call i64 @llvm.fshl.i64(i64 %577, i64 %577, i64 46)
+  %583 = xor i64 %522, %478
+  %584 = and i64 %566, %583
+  %585 = xor i64 %584, %478
+  %586 = getelementptr inbounds nuw i8, ptr %59, i64 96
+  %587 = load i64, ptr %586, align 16, !tbaa !10
+  br i1 %.not, label %602, label %588
+
+588:                                              ; preds = %560
+  %589 = tail call i64 @llvm.fshl.i64(i64 %517, i64 %517, i64 45)
+  %590 = tail call i64 @llvm.fshl.i64(i64 %517, i64 %517, i64 3)
   %591 = xor i64 %589, %590
-  %592 = tail call i64 @llvm.fshl.i64(i64 %577, i64 %577, i64 23)
+  %592 = lshr i64 %517, 6
   %593 = xor i64 %591, %592
-  %594 = xor i64 %532, %487
-  %595 = and i64 %577, %594
-  %596 = xor i64 %595, %487
-  %597 = or disjoint i64 %indvars.iv, 12
-  %598 = getelementptr inbounds nuw i64, ptr @K512, i64 %597
-  %599 = load i64, ptr %598, align 16, !tbaa !10
-  br i1 %.not, label %614, label %600
+  %594 = add i64 %593, %297
+  %595 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 63)
+  %596 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 56)
+  %597 = xor i64 %595, %596
+  %598 = lshr i64 %32, 7
+  %599 = xor i64 %597, %598
+  %600 = add i64 %594, %34
+  %601 = add i64 %600, %599
+  br label %604
 
-600:                                              ; preds = %571
-  %601 = tail call i64 @llvm.fshl.i64(i64 %527, i64 %527, i64 45)
-  %602 = tail call i64 @llvm.fshl.i64(i64 %527, i64 %527, i64 3)
-  %603 = xor i64 %601, %602
-  %604 = lshr i64 %527, 6
-  %605 = xor i64 %603, %604
-  %606 = add i64 %605, %302
-  %607 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 63)
-  %608 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 56)
-  %609 = xor i64 %607, %608
-  %610 = lshr i64 %32, 7
-  %611 = xor i64 %609, %610
-  %612 = add i64 %606, %34
-  %613 = add i64 %612, %611
-  br label %616
+602:                                              ; preds = %560
+  %603 = load i64, ptr %23, align 8, !tbaa !10
+  br label %604
 
-614:                                              ; preds = %571
-  %615 = load i64, ptr %23, align 8, !tbaa !10
-  br label %616
+604:                                              ; preds = %602, %588
+  %605 = phi i64 [ %601, %588 ], [ %603, %602 ]
+  %606 = add i64 %587, %434
+  %607 = add i64 %606, %585
+  %608 = add i64 %607, %582
+  %609 = add i64 %608, %605
+  %610 = add i64 %609, %445
+  %611 = tail call i64 @llvm.fshl.i64(i64 %577, i64 %577, i64 36)
+  %612 = tail call i64 @llvm.fshl.i64(i64 %577, i64 %577, i64 30)
+  %613 = xor i64 %611, %612
+  %614 = tail call i64 @llvm.fshl.i64(i64 %577, i64 %577, i64 25)
+  %615 = xor i64 %613, %614
+  %616 = and i64 %577, %533
+  %617 = or i64 %577, %533
+  %618 = and i64 %617, %489
+  %619 = or i64 %618, %616
+  %620 = add i64 %615, %619
+  %621 = add i64 %620, %609
+  %622 = tail call i64 @llvm.fshl.i64(i64 %610, i64 %610, i64 50)
+  %623 = tail call i64 @llvm.fshl.i64(i64 %610, i64 %610, i64 46)
+  %624 = xor i64 %622, %623
+  %625 = tail call i64 @llvm.fshl.i64(i64 %610, i64 %610, i64 23)
+  %626 = xor i64 %624, %625
+  %627 = xor i64 %566, %522
+  %628 = and i64 %610, %627
+  %629 = xor i64 %628, %522
+  %630 = getelementptr inbounds nuw i8, ptr %59, i64 104
+  %631 = load i64, ptr %630, align 8, !tbaa !10
+  br i1 %.not, label %646, label %632
 
-616:                                              ; preds = %614, %600
-  %617 = phi i64 [ %613, %600 ], [ %615, %614 ]
-  %618 = add i64 %599, %442
-  %619 = add i64 %618, %596
-  %620 = add i64 %619, %593
-  %621 = add i64 %620, %617
-  %622 = add i64 %621, %453
-  %623 = tail call i64 @llvm.fshl.i64(i64 %588, i64 %588, i64 36)
-  %624 = tail call i64 @llvm.fshl.i64(i64 %588, i64 %588, i64 30)
-  %625 = xor i64 %623, %624
-  %626 = tail call i64 @llvm.fshl.i64(i64 %588, i64 %588, i64 25)
-  %627 = xor i64 %625, %626
-  %628 = and i64 %588, %543
-  %629 = or i64 %588, %543
-  %630 = and i64 %629, %498
-  %631 = or i64 %630, %628
-  %632 = add i64 %627, %631
-  %633 = add i64 %632, %621
-  %634 = tail call i64 @llvm.fshl.i64(i64 %622, i64 %622, i64 50)
-  %635 = tail call i64 @llvm.fshl.i64(i64 %622, i64 %622, i64 46)
-  %636 = xor i64 %634, %635
-  %637 = tail call i64 @llvm.fshl.i64(i64 %622, i64 %622, i64 23)
-  %638 = xor i64 %636, %637
-  %639 = xor i64 %577, %532
-  %640 = and i64 %622, %639
-  %641 = xor i64 %640, %532
-  %642 = or disjoint i64 %indvars.iv, 13
-  %643 = getelementptr inbounds nuw i64, ptr @K512, i64 %642
-  %644 = load i64, ptr %643, align 8, !tbaa !10
-  br i1 %.not, label %659, label %645
+632:                                              ; preds = %604
+  %633 = tail call i64 @llvm.fshl.i64(i64 %561, i64 %561, i64 45)
+  %634 = tail call i64 @llvm.fshl.i64(i64 %561, i64 %561, i64 3)
+  %635 = xor i64 %633, %634
+  %636 = lshr i64 %561, 6
+  %637 = xor i64 %635, %636
+  %638 = add i64 %637, %341
+  %639 = tail call i64 @llvm.fshl.i64(i64 %42, i64 %42, i64 63)
+  %640 = tail call i64 @llvm.fshl.i64(i64 %42, i64 %42, i64 56)
+  %641 = xor i64 %639, %640
+  %642 = lshr i64 %42, 7
+  %643 = xor i64 %641, %642
+  %644 = add i64 %638, %32
+  %645 = add i64 %644, %643
+  br label %648
 
-645:                                              ; preds = %616
-  %646 = tail call i64 @llvm.fshl.i64(i64 %572, i64 %572, i64 45)
-  %647 = tail call i64 @llvm.fshl.i64(i64 %572, i64 %572, i64 3)
-  %648 = xor i64 %646, %647
-  %649 = lshr i64 %572, 6
-  %650 = xor i64 %648, %649
-  %651 = add i64 %650, %347
-  %652 = tail call i64 @llvm.fshl.i64(i64 %42, i64 %42, i64 63)
-  %653 = tail call i64 @llvm.fshl.i64(i64 %42, i64 %42, i64 56)
-  %654 = xor i64 %652, %653
-  %655 = lshr i64 %42, 7
-  %656 = xor i64 %654, %655
-  %657 = add i64 %651, %32
-  %658 = add i64 %657, %656
-  br label %661
+646:                                              ; preds = %604
+  %647 = load i64, ptr %24, align 8, !tbaa !10
+  br label %648
 
-659:                                              ; preds = %616
-  %660 = load i64, ptr %24, align 8, !tbaa !10
-  br label %661
-
-661:                                              ; preds = %659, %645
-  %662 = phi i64 [ %658, %645 ], [ %660, %659 ]
-  %663 = add i64 %644, %487
-  %664 = add i64 %663, %641
-  %665 = add i64 %664, %638
-  %666 = add i64 %665, %662
-  %667 = add i64 %666, %498
-  %668 = tail call i64 @llvm.fshl.i64(i64 %633, i64 %633, i64 36)
-  %669 = tail call i64 @llvm.fshl.i64(i64 %633, i64 %633, i64 30)
+648:                                              ; preds = %646, %632
+  %649 = phi i64 [ %645, %632 ], [ %647, %646 ]
+  %650 = add i64 %631, %478
+  %651 = add i64 %650, %629
+  %652 = add i64 %651, %626
+  %653 = add i64 %652, %649
+  %654 = add i64 %653, %489
+  %655 = tail call i64 @llvm.fshl.i64(i64 %621, i64 %621, i64 36)
+  %656 = tail call i64 @llvm.fshl.i64(i64 %621, i64 %621, i64 30)
+  %657 = xor i64 %655, %656
+  %658 = tail call i64 @llvm.fshl.i64(i64 %621, i64 %621, i64 25)
+  %659 = xor i64 %657, %658
+  %660 = and i64 %621, %577
+  %661 = or i64 %621, %577
+  %662 = and i64 %661, %533
+  %663 = or i64 %662, %660
+  %664 = add i64 %659, %663
+  %665 = add i64 %664, %653
+  %666 = tail call i64 @llvm.fshl.i64(i64 %654, i64 %654, i64 50)
+  %667 = tail call i64 @llvm.fshl.i64(i64 %654, i64 %654, i64 46)
+  %668 = xor i64 %666, %667
+  %669 = tail call i64 @llvm.fshl.i64(i64 %654, i64 %654, i64 23)
   %670 = xor i64 %668, %669
-  %671 = tail call i64 @llvm.fshl.i64(i64 %633, i64 %633, i64 25)
-  %672 = xor i64 %670, %671
-  %673 = and i64 %633, %588
-  %674 = or i64 %633, %588
-  %675 = and i64 %674, %543
-  %676 = or i64 %675, %673
-  %677 = add i64 %672, %676
-  %678 = add i64 %677, %666
-  %679 = tail call i64 @llvm.fshl.i64(i64 %667, i64 %667, i64 50)
-  %680 = tail call i64 @llvm.fshl.i64(i64 %667, i64 %667, i64 46)
+  %671 = xor i64 %610, %566
+  %672 = and i64 %654, %671
+  %673 = xor i64 %672, %566
+  %674 = getelementptr inbounds nuw i8, ptr %59, i64 112
+  %675 = load i64, ptr %674, align 16, !tbaa !10
+  br i1 %.not, label %690, label %676
+
+676:                                              ; preds = %648
+  %677 = tail call i64 @llvm.fshl.i64(i64 %605, i64 %605, i64 45)
+  %678 = tail call i64 @llvm.fshl.i64(i64 %605, i64 %605, i64 3)
+  %679 = xor i64 %677, %678
+  %680 = lshr i64 %605, 6
   %681 = xor i64 %679, %680
-  %682 = tail call i64 @llvm.fshl.i64(i64 %667, i64 %667, i64 23)
-  %683 = xor i64 %681, %682
-  %684 = xor i64 %622, %577
-  %685 = and i64 %667, %684
-  %686 = xor i64 %685, %577
-  %687 = or disjoint i64 %indvars.iv, 14
-  %688 = getelementptr inbounds nuw i64, ptr @K512, i64 %687
-  %689 = load i64, ptr %688, align 16, !tbaa !10
-  br i1 %.not, label %704, label %690
+  %682 = add i64 %681, %385
+  %683 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 63)
+  %684 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 56)
+  %685 = xor i64 %683, %684
+  %686 = lshr i64 %39, 7
+  %687 = xor i64 %685, %686
+  %688 = add i64 %682, %42
+  %689 = add i64 %688, %687
+  br label %692
 
-690:                                              ; preds = %661
-  %691 = tail call i64 @llvm.fshl.i64(i64 %617, i64 %617, i64 45)
-  %692 = tail call i64 @llvm.fshl.i64(i64 %617, i64 %617, i64 3)
-  %693 = xor i64 %691, %692
-  %694 = lshr i64 %617, 6
-  %695 = xor i64 %693, %694
-  %696 = add i64 %695, %392
-  %697 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 63)
-  %698 = tail call i64 @llvm.fshl.i64(i64 %39, i64 %39, i64 56)
-  %699 = xor i64 %697, %698
-  %700 = lshr i64 %39, 7
+690:                                              ; preds = %648
+  %691 = load i64, ptr %25, align 8, !tbaa !10
+  br label %692
+
+692:                                              ; preds = %690, %676
+  %693 = phi i64 [ %689, %676 ], [ %691, %690 ]
+  %694 = add i64 %675, %522
+  %695 = add i64 %694, %673
+  %696 = add i64 %695, %670
+  %697 = add i64 %696, %693
+  %698 = add i64 %697, %533
+  %699 = tail call i64 @llvm.fshl.i64(i64 %665, i64 %665, i64 36)
+  %700 = tail call i64 @llvm.fshl.i64(i64 %665, i64 %665, i64 30)
   %701 = xor i64 %699, %700
-  %702 = add i64 %696, %42
-  %703 = add i64 %702, %701
-  br label %706
+  %702 = tail call i64 @llvm.fshl.i64(i64 %665, i64 %665, i64 25)
+  %703 = xor i64 %701, %702
+  %704 = and i64 %665, %621
+  %705 = or i64 %665, %621
+  %706 = and i64 %705, %577
+  %707 = or i64 %706, %704
+  %708 = add i64 %703, %707
+  %709 = add i64 %708, %697
+  %710 = tail call i64 @llvm.fshl.i64(i64 %698, i64 %698, i64 50)
+  %711 = tail call i64 @llvm.fshl.i64(i64 %698, i64 %698, i64 46)
+  %712 = xor i64 %710, %711
+  %713 = tail call i64 @llvm.fshl.i64(i64 %698, i64 %698, i64 23)
+  %714 = xor i64 %712, %713
+  %715 = xor i64 %654, %610
+  %716 = and i64 %698, %715
+  %717 = xor i64 %716, %610
+  %718 = getelementptr inbounds nuw i8, ptr %59, i64 120
+  %719 = load i64, ptr %718, align 8, !tbaa !10
+  br i1 %.not, label %734, label %720
 
-704:                                              ; preds = %661
-  %705 = load i64, ptr %25, align 8, !tbaa !10
-  br label %706
+720:                                              ; preds = %692
+  %721 = tail call i64 @llvm.fshl.i64(i64 %649, i64 %649, i64 45)
+  %722 = tail call i64 @llvm.fshl.i64(i64 %649, i64 %649, i64 3)
+  %723 = xor i64 %721, %722
+  %724 = lshr i64 %649, 6
+  %725 = xor i64 %723, %724
+  %726 = add i64 %725, %429
+  %727 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 63)
+  %728 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 56)
+  %729 = xor i64 %727, %728
+  %730 = lshr i64 %storemerge, 7
+  %731 = xor i64 %729, %730
+  %732 = add i64 %726, %39
+  %733 = add i64 %732, %731
+  br label %736
 
-706:                                              ; preds = %704, %690
-  %707 = phi i64 [ %703, %690 ], [ %705, %704 ]
-  %708 = add i64 %689, %532
-  %709 = add i64 %708, %686
-  %710 = add i64 %709, %683
-  %711 = add i64 %710, %707
-  %712 = add i64 %711, %543
-  %713 = tail call i64 @llvm.fshl.i64(i64 %678, i64 %678, i64 36)
-  %714 = tail call i64 @llvm.fshl.i64(i64 %678, i64 %678, i64 30)
-  %715 = xor i64 %713, %714
-  %716 = tail call i64 @llvm.fshl.i64(i64 %678, i64 %678, i64 25)
-  %717 = xor i64 %715, %716
-  %718 = and i64 %678, %633
-  %719 = or i64 %678, %633
-  %720 = and i64 %719, %588
-  %721 = or i64 %720, %718
-  %722 = add i64 %717, %721
-  %723 = add i64 %722, %711
-  %724 = tail call i64 @llvm.fshl.i64(i64 %712, i64 %712, i64 50)
-  %725 = tail call i64 @llvm.fshl.i64(i64 %712, i64 %712, i64 46)
-  %726 = xor i64 %724, %725
-  %727 = tail call i64 @llvm.fshl.i64(i64 %712, i64 %712, i64 23)
-  %728 = xor i64 %726, %727
-  %729 = xor i64 %667, %622
-  %730 = and i64 %712, %729
-  %731 = xor i64 %730, %622
-  %732 = or disjoint i64 %indvars.iv, 15
-  %733 = getelementptr inbounds nuw i64, ptr @K512, i64 %732
-  %734 = load i64, ptr %733, align 8, !tbaa !10
-  br i1 %.not, label %749, label %735
+734:                                              ; preds = %692
+  %735 = load i64, ptr %26, align 8, !tbaa !10
+  br label %736
 
-735:                                              ; preds = %706
-  %736 = tail call i64 @llvm.fshl.i64(i64 %662, i64 %662, i64 45)
-  %737 = tail call i64 @llvm.fshl.i64(i64 %662, i64 %662, i64 3)
-  %738 = xor i64 %736, %737
-  %739 = lshr i64 %662, 6
-  %740 = xor i64 %738, %739
-  %741 = add i64 %740, %437
-  %742 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 63)
-  %743 = tail call i64 @llvm.fshl.i64(i64 %storemerge, i64 %storemerge, i64 56)
-  %744 = xor i64 %742, %743
-  %745 = lshr i64 %storemerge, 7
-  %746 = xor i64 %744, %745
-  %747 = add i64 %741, %39
-  %748 = add i64 %747, %746
-  br label %751
-
-749:                                              ; preds = %706
-  %750 = load i64, ptr %26, align 8, !tbaa !10
-  br label %751
-
-751:                                              ; preds = %749, %735
-  %752 = phi i64 [ %748, %735 ], [ %750, %749 ]
-  %753 = add i64 %734, %577
-  %754 = add i64 %753, %731
-  %755 = add i64 %754, %728
-  %756 = add i64 %755, %752
-  %757 = add i64 %756, %588
-  %758 = tail call i64 @llvm.fshl.i64(i64 %723, i64 %723, i64 36)
-  %759 = tail call i64 @llvm.fshl.i64(i64 %723, i64 %723, i64 30)
-  %760 = xor i64 %758, %759
-  %761 = tail call i64 @llvm.fshl.i64(i64 %723, i64 %723, i64 25)
-  %762 = xor i64 %760, %761
-  %763 = and i64 %723, %678
-  %764 = or i64 %723, %678
-  %765 = and i64 %764, %633
-  %766 = or i64 %765, %763
-  %767 = add i64 %762, %766
-  %768 = add i64 %767, %756
+736:                                              ; preds = %734, %720
+  %737 = phi i64 [ %733, %720 ], [ %735, %734 ]
+  %738 = add i64 %719, %566
+  %739 = add i64 %738, %717
+  %740 = add i64 %739, %714
+  %741 = add i64 %740, %737
+  %742 = add i64 %741, %577
+  %743 = tail call i64 @llvm.fshl.i64(i64 %709, i64 %709, i64 36)
+  %744 = tail call i64 @llvm.fshl.i64(i64 %709, i64 %709, i64 30)
+  %745 = xor i64 %743, %744
+  %746 = tail call i64 @llvm.fshl.i64(i64 %709, i64 %709, i64 25)
+  %747 = xor i64 %745, %746
+  %748 = and i64 %709, %665
+  %749 = or i64 %709, %665
+  %750 = and i64 %749, %621
+  %751 = or i64 %750, %748
+  %752 = add i64 %747, %751
+  %753 = add i64 %752, %741
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
-  %769 = icmp samesign ult i64 %indvars.iv, 64
-  br i1 %769, label %27, label %.lr.ph29.preheader.i, !llvm.loop !22
+  %754 = icmp samesign ult i64 %indvars.iv, 64
+  br i1 %754, label %27, label %.lr.ph29.preheader.i, !llvm.loop !22
 
-.lr.ph29.preheader.i:                             ; preds = %751
-  %770 = load i64, ptr %0, align 8, !tbaa !10
-  %771 = add i64 %770, %768
-  store i64 %771, ptr %0, align 8, !tbaa !10
-  %772 = getelementptr inbounds nuw i8, ptr %0, i64 8
+.lr.ph29.preheader.i:                             ; preds = %736
+  %755 = load i64, ptr %0, align 8, !tbaa !10
+  %756 = add i64 %755, %753
+  store i64 %756, ptr %0, align 8, !tbaa !10
+  %757 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %758 = load i64, ptr %757, align 8, !tbaa !10
+  %759 = add i64 %758, %709
+  store i64 %759, ptr %757, align 8, !tbaa !10
+  %760 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %761 = load i64, ptr %760, align 8, !tbaa !10
+  %762 = add i64 %761, %665
+  store i64 %762, ptr %760, align 8, !tbaa !10
+  %763 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %764 = load i64, ptr %763, align 8, !tbaa !10
+  %765 = add i64 %764, %621
+  store i64 %765, ptr %763, align 8, !tbaa !10
+  %766 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %767 = load i64, ptr %766, align 8, !tbaa !10
+  %768 = add i64 %767, %742
+  store i64 %768, ptr %766, align 8, !tbaa !10
+  %769 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %770 = load i64, ptr %769, align 8, !tbaa !10
+  %771 = add i64 %770, %698
+  store i64 %771, ptr %769, align 8, !tbaa !10
+  %772 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %773 = load i64, ptr %772, align 8, !tbaa !10
-  %774 = add i64 %773, %723
+  %774 = add i64 %773, %654
   store i64 %774, ptr %772, align 8, !tbaa !10
-  %775 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %775 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %776 = load i64, ptr %775, align 8, !tbaa !10
-  %777 = add i64 %776, %678
+  %777 = add i64 %776, %610
   store i64 %777, ptr %775, align 8, !tbaa !10
-  %778 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %779 = load i64, ptr %778, align 8, !tbaa !10
-  %780 = add i64 %779, %633
-  store i64 %780, ptr %778, align 8, !tbaa !10
-  %781 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %782 = load i64, ptr %781, align 8, !tbaa !10
-  %783 = add i64 %782, %757
-  store i64 %783, ptr %781, align 8, !tbaa !10
-  %784 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %785 = load i64, ptr %784, align 8, !tbaa !10
-  %786 = add i64 %785, %712
-  store i64 %786, ptr %784, align 8, !tbaa !10
-  %787 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %788 = load i64, ptr %787, align 8, !tbaa !10
-  %789 = add i64 %788, %667
-  store i64 %789, ptr %787, align 8, !tbaa !10
-  %790 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %791 = load i64, ptr %790, align 8, !tbaa !10
-  %792 = add i64 %791, %622
-  store i64 %792, ptr %790, align 8, !tbaa !10
   br label %.lr.ph29.i
 
 .lr.ph29.i:                                       ; preds = %.lr.ph29.i, %.lr.ph29.preheader.i
-  %.01528.i = phi ptr [ %793, %.lr.ph29.i ], [ %3, %.lr.ph29.preheader.i ]
-  %.01827.i = phi i32 [ %794, %.lr.ph29.i ], [ 128, %.lr.ph29.preheader.i ]
-  %793 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
+  %.01528.i = phi ptr [ %778, %.lr.ph29.i ], [ %3, %.lr.ph29.preheader.i ]
+  %.01827.i = phi i32 [ %779, %.lr.ph29.i ], [ 128, %.lr.ph29.preheader.i ]
+  %778 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !10
-  %794 = add nsw i32 %.01827.i, -8
-  %.not91 = icmp eq i32 %794, 0
+  %779 = add nsw i32 %.01827.i, -8
+  %.not91 = icmp eq i32 %779, 0
   br i1 %.not91, label %.lr.ph29.i81, label %.lr.ph29.i, !llvm.loop !19
 
 .lr.ph29.i81:                                     ; preds = %.lr.ph29.i, %.lr.ph29.i81
-  %.01528.i82 = phi ptr [ %795, %.lr.ph29.i81 ], [ %2, %.lr.ph29.i ]
-  %.01827.i83 = phi i32 [ %796, %.lr.ph29.i81 ], [ 64, %.lr.ph29.i ]
-  %795 = getelementptr inbounds nuw i8, ptr %.01528.i82, i64 8
+  %.01528.i82 = phi ptr [ %780, %.lr.ph29.i81 ], [ %2, %.lr.ph29.i ]
+  %.01827.i83 = phi i32 [ %781, %.lr.ph29.i81 ], [ 64, %.lr.ph29.i ]
+  %780 = getelementptr inbounds nuw i8, ptr %.01528.i82, i64 8
   store volatile i64 0, ptr %.01528.i82, align 8, !tbaa !10
-  %796 = add nsw i32 %.01827.i83, -8
-  %.not92 = icmp eq i32 %796, 0
+  %781 = add nsw i32 %.01827.i83, -8
+  %.not92 = icmp eq i32 %781, 0
   br i1 %.not92, label %ForceZero.exit90, label %.lr.ph29.i81, !llvm.loop !19
 
 ForceZero.exit90:                                 ; preds = %.lr.ph29.i81

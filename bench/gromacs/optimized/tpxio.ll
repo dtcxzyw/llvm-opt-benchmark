@@ -6307,27 +6307,27 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit.i:             ; preds = %1720, %1718, %1716,
   call void %1734(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1731)
   %1735 = load ptr, ptr %1654, align 8, !tbaa !330
   %1736 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %1735, i64 %indvars.iv47.i
-  %1737 = or disjoint i64 %1729, 1
-  %1738 = load ptr, ptr %1736, align 8, !tbaa !332
-  %1739 = getelementptr inbounds nuw float, ptr %1738, i64 %1737
+  %1737 = load ptr, ptr %1736, align 8, !tbaa !332
+  %1738 = getelementptr inbounds nuw float, ptr %1737, i64 %1729
+  %1739 = getelementptr inbounds nuw i8, ptr %1738, i64 4
   %1740 = load ptr, ptr %0, align 8, !tbaa !19
   %1741 = getelementptr inbounds nuw i8, ptr %1740, i64 96
   %1742 = load ptr, ptr %1741, align 8
   call void %1742(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1739)
   %1743 = load ptr, ptr %1654, align 8, !tbaa !330
   %1744 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %1743, i64 %indvars.iv47.i
-  %1745 = or disjoint i64 %1729, 2
-  %1746 = load ptr, ptr %1744, align 8, !tbaa !332
-  %1747 = getelementptr inbounds nuw float, ptr %1746, i64 %1745
+  %1745 = load ptr, ptr %1744, align 8, !tbaa !332
+  %1746 = getelementptr inbounds nuw float, ptr %1745, i64 %1729
+  %1747 = getelementptr inbounds nuw i8, ptr %1746, i64 8
   %1748 = load ptr, ptr %0, align 8, !tbaa !19
   %1749 = getelementptr inbounds nuw i8, ptr %1748, i64 96
   %1750 = load ptr, ptr %1749, align 8
   call void %1750(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1747)
   %1751 = load ptr, ptr %1654, align 8, !tbaa !330
   %1752 = getelementptr inbounds nuw %struct.gmx_cmapdata_t, ptr %1751, i64 %indvars.iv47.i
-  %1753 = or disjoint i64 %1729, 3
-  %1754 = load ptr, ptr %1752, align 8, !tbaa !332
-  %1755 = getelementptr inbounds nuw float, ptr %1754, i64 %1753
+  %1753 = load ptr, ptr %1752, align 8, !tbaa !332
+  %1754 = getelementptr inbounds nuw float, ptr %1753, i64 %1729
+  %1755 = getelementptr inbounds nuw i8, ptr %1754, i64 12
   %1756 = load ptr, ptr %0, align 8, !tbaa !19
   %1757 = getelementptr inbounds nuw i8, ptr %1756, i64 96
   %1758 = load ptr, ptr %1757, align 8
@@ -6902,8 +6902,8 @@ _ZL8do_ilistPN3gmx11ISerializerEP15InteractionList.exit: ; preds = %.lr.ph.i.i, 
   %85 = sub nuw nsw i64 %81, %82
   call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %85)
   %.pre.i25 = load ptr, ptr %29, align 8, !tbaa !207
-  %.pre22.i = load ptr, ptr %9, align 8, !tbaa !208
-  %.pre23.i = ptrtoint ptr %.pre22.i to i64
+  %.pre28.i = load ptr, ptr %9, align 8, !tbaa !208
+  %.pre29.i = ptrtoint ptr %.pre28.i to i64
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i23
 
 86:                                               ; preds = %76
@@ -6920,13 +6920,16 @@ _ZL8do_ilistPN3gmx11ISerializerEP15InteractionList.exit: ; preds = %.lr.ph.i.i, 
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i23
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit.i23:           ; preds = %90, %88, %86, %84
-  %.pre-phi.i = phi i64 [ %.pre23.i, %84 ], [ %78, %86 ], [ %78, %88 ], [ %78, %90 ]
-  %91 = phi ptr [ %.pre22.i, %84 ], [ %73, %86 ], [ %73, %88 ], [ %73, %90 ]
+  %.pre-phi.i = phi i64 [ %.pre29.i, %84 ], [ %78, %86 ], [ %78, %88 ], [ %78, %90 ]
+  %91 = phi ptr [ %.pre28.i, %84 ], [ %73, %86 ], [ %73, %88 ], [ %73, %90 ]
   %92 = phi ptr [ %.pre.i25, %84 ], [ %74, %86 ], [ %74, %88 ], [ %89, %90 ]
   %93 = ptrtoint ptr %92 to i64
   %94 = sub i64 %93, %.pre-phi.i
   %95 = lshr exact i64 %94, 2
   %96 = trunc i64 %95 to i32
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %91, i64 4
+  %invariant.gep22.i = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %invariant.gep24.i = getelementptr inbounds nuw i8, ptr %91, i64 12
   %97 = icmp sgt i32 %96, 3
   br i1 %97, label %.lr.ph.preheader.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
@@ -6944,22 +6947,18 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i23:           ; preds = %90, %88, %86, %84
   %103 = shl nuw nsw i64 %indvars.iv.next.i, 2
   %104 = getelementptr inbounds nuw i32, ptr %91, i64 %103
   store i32 %102, ptr %104, align 4, !tbaa !14
-  %105 = or disjoint i64 %100, 1
-  %106 = getelementptr inbounds nuw i32, ptr %91, i64 %105
-  %107 = load i32, ptr %106, align 4, !tbaa !14
-  %108 = or disjoint i64 %103, 1
-  %109 = getelementptr inbounds nuw i32, ptr %91, i64 %108
-  store i32 %107, ptr %109, align 4, !tbaa !14
-  %110 = add nsw i32 %107, 1
-  %111 = or disjoint i64 %103, 2
-  %112 = getelementptr inbounds nuw i32, ptr %91, i64 %111
-  store i32 %110, ptr %112, align 4, !tbaa !14
-  %113 = add nsw i32 %107, 2
-  %114 = or disjoint i64 %103, 3
-  %115 = getelementptr inbounds nuw i32, ptr %91, i64 %114
-  store i32 %113, ptr %115, align 4, !tbaa !14
-  %116 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %116, label %.lr.ph.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, !llvm.loop !347
+  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %100
+  %105 = load i32, ptr %gep.i, align 4, !tbaa !14
+  %gep21.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %103
+  store i32 %105, ptr %gep21.i, align 4, !tbaa !14
+  %106 = add nsw i32 %105, 1
+  %gep23.i = getelementptr inbounds nuw i32, ptr %invariant.gep22.i, i64 %103
+  store i32 %106, ptr %gep23.i, align 4, !tbaa !14
+  %107 = add nsw i32 %105, 2
+  %gep25.i = getelementptr inbounds nuw i32, ptr %invariant.gep24.i, i64 %103
+  store i32 %107, ptr %gep25.i, align 4, !tbaa !14
+  %108 = icmp samesign ugt i64 %indvars.iv.i, 1
+  br i1 %108, label %.lr.ph.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, !llvm.loop !347
 
 _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %.lr.ph.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i23, %28, %24, %_ZL8do_ilistPN3gmx11ISerializerEP15InteractionList.exit, %72
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1

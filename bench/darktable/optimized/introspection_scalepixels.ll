@@ -112,21 +112,20 @@ define noundef i32 @distort_transform(ptr noundef %0, ptr noundef %1, ptr nounde
   ret i32 1
 
 20:                                               ; preds = %.lr.ph, %20
-  %.011 = phi i64 [ 0, %.lr.ph ], [ %30, %20 ]
+  %.011 = phi i64 [ 0, %.lr.ph ], [ %29, %20 ]
   %21 = load float, ptr %18, align 4, !tbaa !42
   %22 = getelementptr inbounds nuw float, ptr %2, i64 %.011
   %23 = load float, ptr %22, align 4, !tbaa !44
   %24 = fdiv reassoc nsz arcp contract afn float %23, %21
   store float %24, ptr %22, align 4, !tbaa !44
   %25 = load float, ptr %19, align 4, !tbaa !45
-  %26 = or disjoint i64 %.011, 1
-  %27 = getelementptr inbounds nuw float, ptr %2, i64 %26
-  %28 = load float, ptr %27, align 4, !tbaa !44
-  %29 = fdiv reassoc nsz arcp contract afn float %28, %25
-  store float %29, ptr %27, align 4, !tbaa !44
-  %30 = add nuw i64 %.011, 2
-  %31 = icmp ult i64 %30, %15
-  br i1 %31, label %20, label %._crit_edge
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %27 = load float, ptr %26, align 4, !tbaa !44
+  %28 = fdiv reassoc nsz arcp contract afn float %27, %25
+  store float %28, ptr %26, align 4, !tbaa !44
+  %29 = add nuw i64 %.011, 2
+  %30 = icmp ult i64 %29, %15
+  br i1 %30, label %20, label %._crit_edge
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -169,21 +168,20 @@ define noundef i32 @distort_backtransform(ptr noundef %0, ptr noundef %1, ptr no
   ret i32 1
 
 20:                                               ; preds = %.lr.ph, %20
-  %.011 = phi i64 [ 0, %.lr.ph ], [ %30, %20 ]
+  %.011 = phi i64 [ 0, %.lr.ph ], [ %29, %20 ]
   %21 = load float, ptr %18, align 4, !tbaa !42
   %22 = getelementptr inbounds nuw float, ptr %2, i64 %.011
   %23 = load float, ptr %22, align 4, !tbaa !44
   %24 = fmul reassoc nsz arcp contract afn float %23, %21
   store float %24, ptr %22, align 4, !tbaa !44
   %25 = load float, ptr %19, align 4, !tbaa !45
-  %26 = or disjoint i64 %.011, 1
-  %27 = getelementptr inbounds nuw float, ptr %2, i64 %26
-  %28 = load float, ptr %27, align 4, !tbaa !44
-  %29 = fmul reassoc nsz arcp contract afn float %28, %25
-  store float %29, ptr %27, align 4, !tbaa !44
-  %30 = add nuw i64 %.011, 2
-  %31 = icmp ult i64 %30, %15
-  br i1 %31, label %20, label %._crit_edge
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %27 = load float, ptr %26, align 4, !tbaa !44
+  %28 = fmul reassoc nsz arcp contract afn float %27, %25
+  store float %28, ptr %26, align 4, !tbaa !44
+  %29 = add nuw i64 %.011, 2
+  %30 = icmp ult i64 %29, %15
+  br i1 %30, label %20, label %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable

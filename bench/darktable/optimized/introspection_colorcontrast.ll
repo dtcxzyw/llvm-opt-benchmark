@@ -189,24 +189,24 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.not45 = icmp eq i64 %23, 0
   br i1 %.not45, label %.loopexit, label %.lr.ph43
 
-.lr.ph:                                           ; preds = %.preheader38, %40
-  %.03641 = phi i64 [ %42, %40 ], [ 0, %.preheader38 ]
+.lr.ph:                                           ; preds = %.preheader38, %41
+  %.03641 = phi i64 [ %43, %41 ], [ 0, %.preheader38 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #19
-  br label %44
+  %40 = getelementptr inbounds nuw float, ptr %2, i64 %.03641
+  br label %45
 
-40:                                               ; preds = %44
-  %41 = getelementptr inbounds nuw float, ptr %3, i64 %.03641
+41:                                               ; preds = %45
+  %42 = getelementptr inbounds nuw float, ptr %3, i64 %.03641
   %.val = load <4 x float>, ptr %10, align 16, !tbaa !49
-  store <4 x float> %.val, ptr %41, align 16, !tbaa !49, !alias.scope !50, !nontemporal !53
+  store <4 x float> %.val, ptr %42, align 16, !tbaa !49, !alias.scope !50, !nontemporal !53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #19
-  %42 = add nuw i64 %.03641, 4
-  %43 = icmp ult i64 %42, %39
-  br i1 %43, label %.lr.ph, label %.loopexit
+  %43 = add nuw i64 %.03641, 4
+  %44 = icmp ult i64 %43, %39
+  br i1 %44, label %.lr.ph, label %.loopexit
 
-44:                                               ; preds = %.lr.ph, %44
-  %.03540 = phi i64 [ 0, %.lr.ph ], [ %55, %44 ]
-  %45 = or disjoint i64 %.03540, %.03641
-  %46 = getelementptr inbounds nuw float, ptr %2, i64 %45
+45:                                               ; preds = %.lr.ph, %45
+  %.03540 = phi i64 [ 0, %.lr.ph ], [ %55, %45 ]
+  %46 = getelementptr inbounds nuw float, ptr %40, i64 %.03540
   %47 = load float, ptr %46, align 4, !tbaa !42
   %48 = getelementptr inbounds nuw [4 x float], ptr %8, i64 0, i64 %.03540
   %49 = load float, ptr %48, align 4, !tbaa !42
@@ -218,7 +218,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store float %53, ptr %54, align 4, !tbaa !42
   %55 = add nuw nsw i64 %.03540, 1
   %exitcond.not = icmp eq i64 %55, 4
-  br i1 %exitcond.not, label %40, label %44
+  br i1 %exitcond.not, label %41, label %45
 
 .lr.ph43:                                         ; preds = %.preheader, %clamped_scaling.exit
   %.042 = phi i64 [ %79, %clamped_scaling.exit ], [ 0, %.preheader ]
@@ -268,7 +268,7 @@ clamped_scaling.exit:                             ; preds = %74
   %exitcond47.not = icmp eq i64 %79, %23
   br i1 %exitcond47.not, label %.loopexit, label %.lr.ph43
 
-.loopexit:                                        ; preds = %40, %clamped_scaling.exit, %.preheader38, %.preheader
+.loopexit:                                        ; preds = %41, %clamped_scaling.exit, %.preheader38, %.preheader
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19
   br label %80

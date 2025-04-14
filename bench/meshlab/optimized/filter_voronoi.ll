@@ -93314,46 +93314,50 @@ define linkonce_odr void @_ZSt14__partial_sortIPN3vcg20HeapMaxPriorityQueueIifE7
   %7 = icmp sgt i64 %6, 8
   br i1 %7, label %.lr.ph.i, label %_ZSt11__sort_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_RT0_.exit
 
-.lr.ph.i:                                         ; preds = %3, %_ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_SA_RT0_.exit.i
-  %.07.i = phi ptr [ %8, %_ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_SA_RT0_.exit.i ], [ %1, %3 ]
-  %8 = getelementptr inbounds i8, ptr %.07.i, i64 -8
-  %.sroa.02.0.copyload.i.i = load i64, ptr %8, align 4
-  %9 = load i64, ptr %0, align 4
-  store i64 %9, ptr %8, align 4
-  %10 = ptrtoint ptr %8 to i64
-  %11 = sub i64 %10, %4
-  %12 = ashr exact i64 %11, 3
-  %13 = add nsw i64 %12, -1
-  %14 = sdiv i64 %13, 2
-  %15 = icmp sgt i64 %12, 2
-  br i1 %15, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+.lr.ph.i:                                         ; preds = %3
+  %invariant.gep.i.i.i = getelementptr i8, ptr %0, i64 8
+  br label %8
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i, %.lr.ph.i.i.i
-  %.029.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i ]
-  %16 = shl i64 %.029.i.i.i, 1
-  %17 = add i64 %16, 2
-  %18 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %17
-  %19 = or disjoint i64 %16, 1
-  %20 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %19
-  %21 = load float, ptr %18, align 4
-  %22 = load float, ptr %20, align 4
-  %23 = fcmp olt float %21, %22
-  %spec.select.i.i.i = select i1 %23, i64 %19, i64 %17
+8:                                                ; preds = %_ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_SA_RT0_.exit.i, %.lr.ph.i
+  %.07.i = phi ptr [ %1, %.lr.ph.i ], [ %9, %_ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_SA_RT0_.exit.i ]
+  %9 = getelementptr inbounds i8, ptr %.07.i, i64 -8
+  %.sroa.02.0.copyload.i.i = load i64, ptr %9, align 4
+  %10 = load i64, ptr %0, align 4
+  store i64 %10, ptr %9, align 4
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %11, %4
+  %13 = ashr exact i64 %12, 3
+  %14 = add nsw i64 %13, -1
+  %15 = sdiv i64 %14, 2
+  %16 = icmp sgt i64 %13, 2
+  br i1 %16, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %8, %.lr.ph.i.i.i
+  %.029.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %8 ]
+  %17 = shl i64 %.029.i.i.i, 1
+  %18 = add i64 %17, 2
+  %19 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %18
+  %gep.i.i.i = getelementptr %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %invariant.gep.i.i.i, i64 %17
+  %20 = load float, ptr %19, align 4
+  %21 = load float, ptr %gep.i.i.i, align 4
+  %22 = fcmp olt float %20, %21
+  %23 = or disjoint i64 %17, 1
+  %spec.select.i.i.i = select i1 %22, i64 %23, i64 %18
   %24 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %spec.select.i.i.i
   %25 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.029.i.i.i
   %26 = load i64, ptr %24, align 4
   store i64 %26, ptr %25, align 4
-  %27 = icmp slt i64 %spec.select.i.i.i, %14
+  %27 = icmp slt i64 %spec.select.i.i.i, %15
   br i1 %27, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !889
 
-._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.lr.ph.i
-  %.0.lcssa.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %28 = and i64 %11, 8
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %8
+  %.0.lcssa.i.i.i = phi i64 [ 0, %8 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
+  %28 = and i64 %12, 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %39
 
 30:                                               ; preds = %._crit_edge.i.i.i
-  %31 = add nsw i64 %12, -2
+  %31 = add nsw i64 %13, -2
   %32 = ashr exact i64 %31, 1
   %33 = icmp eq i64 %.0.lcssa.i.i.i, %32
   br i1 %33, label %.thread.i.i, label %39
@@ -93404,8 +93408,8 @@ _ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_It
   store i32 %.sroa.0.0.extract.trunc.i.i17.i.i, ptr %47, align 4
   %.sroa_idx14.i.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 %.sroa.3.0.extract.trunc.i.i.i.i, ptr %.sroa_idx14.i.i.i.i, align 4
-  %48 = icmp sgt i64 %11, 8
-  br i1 %48, label %.lr.ph.i, label %_ZSt11__sort_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_RT0_.exit, !llvm.loop !891
+  %48 = icmp sgt i64 %12, 8
+  br i1 %48, label %8, label %_ZSt11__sort_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_RT0_.exit, !llvm.loop !891
 
 _ZSt11__sort_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_RT0_.exit: ; preds = %_ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_SA_RT0_.exit.i, %3
   ret void
@@ -93425,6 +93429,7 @@ define linkonce_odr void @_ZSt13__heap_selectIPN3vcg20HeapMaxPriorityQueueIifE7E
   %9 = ashr i64 %8, 3
   %10 = add nsw i64 %9, -1
   %11 = sdiv i64 %10, 2
+  %invariant.gep.i.i = getelementptr i8, ptr %0, i64 8
   %12 = icmp sgt i64 %9, 2
   %13 = and i64 %8, 8
   %14 = icmp eq i64 %13, 0
@@ -93438,12 +93443,12 @@ define linkonce_odr void @_ZSt13__heap_selectIPN3vcg20HeapMaxPriorityQueueIifE7E
   %19 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %16
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %46
-  %.011.us = phi ptr [ %47, %46 ], [ %1, %.lr.ph.split.us.preheader ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %45
+  %.011.us = phi ptr [ %46, %45 ], [ %1, %.lr.ph.split.us.preheader ]
   %20 = load float, ptr %.011.us, align 4
   %21 = load float, ptr %0, align 4
   %22 = fcmp olt float %20, %21
-  br i1 %22, label %.lr.ph.i.i.preheader.us, label %46
+  br i1 %22, label %.lr.ph.i.i.preheader.us, label %45
 
 .lr.ph.i.i.preheader.us:                          ; preds = %.lr.ph.split.us
   %.sroa.02.0.copyload.i.us = load i64, ptr %.011.us, align 4
@@ -93456,174 +93461,173 @@ define linkonce_odr void @_ZSt13__heap_selectIPN3vcg20HeapMaxPriorityQueueIifE7E
   %24 = shl i64 %.029.i.i.us, 1
   %25 = add i64 %24, 2
   %26 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %25
-  %27 = or disjoint i64 %24, 1
-  %28 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %27
-  %29 = load float, ptr %26, align 4
-  %30 = load float, ptr %28, align 4
-  %31 = fcmp olt float %29, %30
-  %spec.select.i.i.us = select i1 %31, i64 %27, i64 %25
-  %32 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %spec.select.i.i.us
-  %33 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.029.i.i.us
-  %34 = load i64, ptr %32, align 4
-  store i64 %34, ptr %33, align 4
-  %35 = icmp slt i64 %spec.select.i.i.us, %11
-  br i1 %35, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !889
+  %gep.i.i.us = getelementptr %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %invariant.gep.i.i, i64 %24
+  %27 = load float, ptr %26, align 4
+  %28 = load float, ptr %gep.i.i.us, align 4
+  %29 = fcmp olt float %27, %28
+  %30 = or disjoint i64 %24, 1
+  %spec.select.i.i.us = select i1 %29, i64 %30, i64 %25
+  %31 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %spec.select.i.i.us
+  %32 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.029.i.i.us
+  %33 = load i64, ptr %31, align 4
+  store i64 %33, ptr %32, align 4
+  %34 = icmp slt i64 %spec.select.i.i.us, %11
+  br i1 %34, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !889
 
-36:                                               ; preds = %._crit_edge.i.i.loopexit.us
+35:                                               ; preds = %._crit_edge.i.i.loopexit.us
   %.sroa.0.0.extract.trunc.i.i.i.us = trunc i64 %.sroa.02.0.copyload.i.us to i32
   %.not.i.us = icmp eq i64 %spec.select.i.i.us, 0
   br i1 %.not.i.us, label %_ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_SA_RT0_.exit.us, label %.lr.ph.i.i.preheader.i.us
 
 .thread.i.us:                                     ; preds = %._crit_edge.i.i.loopexit.us
-  %37 = load i64, ptr %18, align 4
-  store i64 %37, ptr %19, align 4
+  %36 = load i64, ptr %18, align 4
+  store i64 %36, ptr %19, align 4
   %.sroa.0.0.extract.trunc.i.i13.i.us = trunc i64 %.sroa.02.0.copyload.i.us to i32
   br label %.lr.ph.i.i.preheader.i.us
 
-.lr.ph.i.i.preheader.i.us:                        ; preds = %.thread.i.us, %36
-  %.sroa.0.0.extract.trunc.i.i16.i.us = phi i32 [ %.sroa.0.0.extract.trunc.i.i13.i.us, %.thread.i.us ], [ %.sroa.0.0.extract.trunc.i.i.i.us, %36 ]
-  %.1.i15.i.us = phi i64 [ %17, %.thread.i.us ], [ %spec.select.i.i.us, %36 ]
-  %38 = bitcast i32 %.sroa.0.0.extract.trunc.i.i16.i.us to float
+.lr.ph.i.i.preheader.i.us:                        ; preds = %.thread.i.us, %35
+  %.sroa.0.0.extract.trunc.i.i16.i.us = phi i32 [ %.sroa.0.0.extract.trunc.i.i13.i.us, %.thread.i.us ], [ %.sroa.0.0.extract.trunc.i.i.i.us, %35 ]
+  %.1.i15.i.us = phi i64 [ %17, %.thread.i.us ], [ %spec.select.i.i.us, %35 ]
+  %37 = bitcast i32 %.sroa.0.0.extract.trunc.i.i16.i.us to float
   br label %.lr.ph.i.i.i.us
 
-.lr.ph.i.i.i.us:                                  ; preds = %42, %.lr.ph.i.i.preheader.i.us
-  %.01318.i.i.i.us = phi i64 [ %.019.i.i910.i.us, %42 ], [ %.1.i15.i.us, %.lr.ph.i.i.preheader.i.us ]
+.lr.ph.i.i.i.us:                                  ; preds = %41, %.lr.ph.i.i.preheader.i.us
+  %.01318.i.i.i.us = phi i64 [ %.019.i.i910.i.us, %41 ], [ %.1.i15.i.us, %.lr.ph.i.i.preheader.i.us ]
   %.019.in.i.i.i.us = add nsw i64 %.01318.i.i.i.us, -1
   %.019.i.i910.i.us = lshr i64 %.019.in.i.i.i.us, 1
-  %39 = getelementptr inbounds nuw %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.019.i.i910.i.us
-  %40 = load float, ptr %39, align 4
-  %41 = fcmp olt float %40, %38
-  br i1 %41, label %42, label %_ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_SA_RT0_.exit.us
+  %38 = getelementptr inbounds nuw %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.019.i.i910.i.us
+  %39 = load float, ptr %38, align 4
+  %40 = fcmp olt float %39, %37
+  br i1 %40, label %41, label %_ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_SA_RT0_.exit.us
 
-42:                                               ; preds = %.lr.ph.i.i.i.us
-  %43 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.01318.i.i.i.us
-  %44 = load i64, ptr %39, align 4
-  store i64 %44, ptr %43, align 4
+41:                                               ; preds = %.lr.ph.i.i.i.us
+  %42 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.01318.i.i.i.us
+  %43 = load i64, ptr %38, align 4
+  store i64 %43, ptr %42, align 4
   %.not11.i.us = icmp ult i64 %.019.in.i.i.i.us, 2
   br i1 %.not11.i.us, label %_ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_SA_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !890
 
-_ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_SA_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %42, %36
-  %.sroa.0.0.extract.trunc.i.i17.i.us = phi i32 [ %.sroa.0.0.extract.trunc.i.i.i.us, %36 ], [ %.sroa.0.0.extract.trunc.i.i16.i.us, %42 ], [ %.sroa.0.0.extract.trunc.i.i16.i.us, %.lr.ph.i.i.i.us ]
-  %.013.lcssa.i.i.i.us = phi i64 [ 0, %36 ], [ %.01318.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %42 ]
+_ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_SA_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %41, %35
+  %.sroa.0.0.extract.trunc.i.i17.i.us = phi i32 [ %.sroa.0.0.extract.trunc.i.i.i.us, %35 ], [ %.sroa.0.0.extract.trunc.i.i16.i.us, %41 ], [ %.sroa.0.0.extract.trunc.i.i16.i.us, %.lr.ph.i.i.i.us ]
+  %.013.lcssa.i.i.i.us = phi i64 [ 0, %35 ], [ %.01318.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %41 ]
   %.sroa.3.0.extract.shift.i.i.i.us = lshr i64 %.sroa.02.0.copyload.i.us, 32
   %.sroa.3.0.extract.trunc.i.i.i.us = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i.us to i32
-  %45 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.013.lcssa.i.i.i.us
-  store i32 %.sroa.0.0.extract.trunc.i.i17.i.us, ptr %45, align 4
-  %.sroa_idx14.i.i.i.us = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %44 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.013.lcssa.i.i.i.us
+  store i32 %.sroa.0.0.extract.trunc.i.i17.i.us, ptr %44, align 4
+  %.sroa_idx14.i.i.i.us = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 %.sroa.3.0.extract.trunc.i.i.i.us, ptr %.sroa_idx14.i.i.i.us, align 4
-  br label %46
+  br label %45
 
-46:                                               ; preds = %_ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_SA_RT0_.exit.us, %.lr.ph.split.us
-  %47 = getelementptr inbounds nuw i8, ptr %.011.us, i64 8
-  %48 = icmp ult ptr %47, %2
-  br i1 %48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !892
+45:                                               ; preds = %_ZSt10__pop_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementEN9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_SA_SA_RT0_.exit.us, %.lr.ph.split.us
+  %46 = getelementptr inbounds nuw i8, ptr %.011.us, i64 8
+  %47 = icmp ult ptr %46, %2
+  br i1 %47, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !892
 
 ._crit_edge.i.i.loopexit.us:                      ; preds = %.lr.ph.i.i.us
-  %49 = icmp eq i64 %spec.select.i.i.us, %16
-  %or.cond = select i1 %14, i1 %49, i1 false
-  br i1 %or.cond, label %.thread.i.us, label %36
+  %48 = icmp eq i64 %spec.select.i.i.us, %16
+  %or.cond = select i1 %14, i1 %48, i1 false
+  br i1 %or.cond, label %.thread.i.us, label %35
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %14, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %51 = icmp eq i64 %15, 0
-  br i1 %51, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
+  %49 = icmp eq i64 %15, 0
+  br i1 %49, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %62
-  %.011.us12.us = phi ptr [ %63, %62 ], [ %1, %.lr.ph.split.split.us ]
-  %52 = load float, ptr %.011.us12.us, align 4
-  %53 = load float, ptr %0, align 4
-  %54 = fcmp olt float %52, %53
-  br i1 %54, label %._crit_edge.i.i.us13.us, label %62
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %60
+  %.011.us12.us = phi ptr [ %61, %60 ], [ %1, %.lr.ph.split.split.us ]
+  %50 = load float, ptr %.011.us12.us, align 4
+  %51 = load float, ptr %0, align 4
+  %52 = fcmp olt float %50, %51
+  br i1 %52, label %._crit_edge.i.i.us13.us, label %60
 
 ._crit_edge.i.i.us13.us:                          ; preds = %.lr.ph.split.split.us.split.us
   %.sroa.02.0.copyload.i.us14.us = load i64, ptr %.011.us12.us, align 4
-  %55 = load i64, ptr %0, align 4
-  store i64 %55, ptr %.011.us12.us, align 4
-  %56 = load i64, ptr %50, align 4
-  store i64 %56, ptr %0, align 4
+  %53 = load i64, ptr %0, align 4
+  store i64 %53, ptr %.011.us12.us, align 4
+  %54 = load i64, ptr %invariant.gep.i.i, align 4
+  store i64 %54, ptr %0, align 4
   %.sroa.0.0.extract.trunc.i.i13.i.us17.us = trunc i64 %.sroa.02.0.copyload.i.us14.us to i32
-  %57 = bitcast i32 %.sroa.0.0.extract.trunc.i.i13.i.us17.us to float
-  %58 = trunc i64 %56 to i32
-  %59 = bitcast i32 %58 to float
-  %60 = fcmp uge float %59, %57
-  %.013.lcssa.i.i.i.ph.us30.us = zext i1 %60 to i64
+  %55 = bitcast i32 %.sroa.0.0.extract.trunc.i.i13.i.us17.us to float
+  %56 = trunc i64 %54 to i32
+  %57 = bitcast i32 %56 to float
+  %58 = fcmp uge float %57, %55
+  %.013.lcssa.i.i.i.ph.us30.us = zext i1 %58 to i64
   %.sroa.3.0.extract.shift.i.i.i.us26.us = lshr i64 %.sroa.02.0.copyload.i.us14.us, 32
   %.sroa.3.0.extract.trunc.i.i.i.us27.us = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i.us26.us to i32
-  %61 = getelementptr inbounds nuw %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.013.lcssa.i.i.i.ph.us30.us
-  store i32 %.sroa.0.0.extract.trunc.i.i13.i.us17.us, ptr %61, align 4
-  %.sroa_idx14.i.i.i.us28.us = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %59 = getelementptr inbounds nuw %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.013.lcssa.i.i.i.ph.us30.us
+  store i32 %.sroa.0.0.extract.trunc.i.i13.i.us17.us, ptr %59, align 4
+  %.sroa_idx14.i.i.i.us28.us = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 %.sroa.3.0.extract.trunc.i.i.i.us27.us, ptr %.sroa_idx14.i.i.i.us28.us, align 4
-  br label %62
+  br label %60
 
-62:                                               ; preds = %._crit_edge.i.i.us13.us, %.lr.ph.split.split.us.split.us
-  %63 = getelementptr inbounds nuw i8, ptr %.011.us12.us, i64 8
-  %64 = icmp ult ptr %63, %2
-  br i1 %64, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !892
+60:                                               ; preds = %._crit_edge.i.i.us13.us, %.lr.ph.split.split.us.split.us
+  %61 = getelementptr inbounds nuw i8, ptr %.011.us12.us, i64 8
+  %62 = icmp ult ptr %61, %2
+  br i1 %62, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !892
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
   %.sroa_idx14.i.i.i.us28 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre36 = load float, ptr %0, align 4
-  br label %65
+  br label %63
 
-65:                                               ; preds = %71, %.lr.ph.split.split.us.split
-  %66 = phi float [ %.pre36, %.lr.ph.split.split.us.split ], [ %72, %71 ]
-  %.011.us12 = phi ptr [ %1, %.lr.ph.split.split.us.split ], [ %73, %71 ]
-  %67 = load float, ptr %.011.us12, align 4
-  %68 = fcmp olt float %67, %66
-  br i1 %68, label %._crit_edge.i.i.us13, label %71
+63:                                               ; preds = %69, %.lr.ph.split.split.us.split
+  %64 = phi float [ %.pre36, %.lr.ph.split.split.us.split ], [ %70, %69 ]
+  %.011.us12 = phi ptr [ %1, %.lr.ph.split.split.us.split ], [ %71, %69 ]
+  %65 = load float, ptr %.011.us12, align 4
+  %66 = fcmp olt float %65, %64
+  br i1 %66, label %._crit_edge.i.i.us13, label %69
 
-._crit_edge.i.i.us13:                             ; preds = %65
+._crit_edge.i.i.us13:                             ; preds = %63
   %.sroa.02.0.copyload.i.us14 = load i64, ptr %.011.us12, align 4
-  %69 = load i64, ptr %0, align 4
-  store i64 %69, ptr %.011.us12, align 4
+  %67 = load i64, ptr %0, align 4
+  store i64 %67, ptr %.011.us12, align 4
   %.sroa.0.0.extract.trunc.i.i.i.us15 = trunc i64 %.sroa.02.0.copyload.i.us14 to i32
   %.sroa.3.0.extract.shift.i.i.i.us26 = lshr i64 %.sroa.02.0.copyload.i.us14, 32
   %.sroa.3.0.extract.trunc.i.i.i.us27 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i.us26 to i32
   store i32 %.sroa.0.0.extract.trunc.i.i.i.us15, ptr %0, align 4
   store i32 %.sroa.3.0.extract.trunc.i.i.i.us27, ptr %.sroa_idx14.i.i.i.us28, align 4
-  %70 = bitcast i32 %.sroa.0.0.extract.trunc.i.i.i.us15 to float
-  br label %71
+  %68 = bitcast i32 %.sroa.0.0.extract.trunc.i.i.i.us15 to float
+  br label %69
 
-71:                                               ; preds = %._crit_edge.i.i.us13, %65
-  %72 = phi float [ %70, %._crit_edge.i.i.us13 ], [ %66, %65 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.011.us12, i64 8
-  %74 = icmp ult ptr %73, %2
-  br i1 %74, label %65, label %._crit_edge, !llvm.loop !892
+69:                                               ; preds = %._crit_edge.i.i.us13, %63
+  %70 = phi float [ %68, %._crit_edge.i.i.us13 ], [ %64, %63 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.011.us12, i64 8
+  %72 = icmp ult ptr %71, %2
+  br i1 %72, label %63, label %._crit_edge, !llvm.loop !892
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   %.sroa_idx14.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre = load float, ptr %0, align 4
-  br label %75
+  br label %73
 
-75:                                               ; preds = %.lr.ph.split.split, %81
-  %76 = phi float [ %.pre, %.lr.ph.split.split ], [ %82, %81 ]
-  %.011 = phi ptr [ %1, %.lr.ph.split.split ], [ %83, %81 ]
-  %77 = load float, ptr %.011, align 4
-  %78 = fcmp olt float %77, %76
-  br i1 %78, label %._crit_edge.i.i, label %81
+73:                                               ; preds = %.lr.ph.split.split, %79
+  %74 = phi float [ %.pre, %.lr.ph.split.split ], [ %80, %79 ]
+  %.011 = phi ptr [ %1, %.lr.ph.split.split ], [ %81, %79 ]
+  %75 = load float, ptr %.011, align 4
+  %76 = fcmp olt float %75, %74
+  br i1 %76, label %._crit_edge.i.i, label %79
 
-._crit_edge.i.i:                                  ; preds = %75
+._crit_edge.i.i:                                  ; preds = %73
   %.sroa.02.0.copyload.i = load i64, ptr %.011, align 4
-  %79 = load i64, ptr %0, align 4
-  store i64 %79, ptr %.011, align 4
+  %77 = load i64, ptr %0, align 4
+  store i64 %77, ptr %.011, align 4
   %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %.sroa.02.0.copyload.i to i32
   %.sroa.3.0.extract.shift.i.i.i = lshr i64 %.sroa.02.0.copyload.i, 32
   %.sroa.3.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i to i32
   store i32 %.sroa.0.0.extract.trunc.i.i.i, ptr %0, align 4
   store i32 %.sroa.3.0.extract.trunc.i.i.i, ptr %.sroa_idx14.i.i.i, align 4
-  %80 = bitcast i32 %.sroa.0.0.extract.trunc.i.i.i to float
-  br label %81
+  %78 = bitcast i32 %.sroa.0.0.extract.trunc.i.i.i to float
+  br label %79
 
-81:                                               ; preds = %75, %._crit_edge.i.i
-  %82 = phi float [ %76, %75 ], [ %80, %._crit_edge.i.i ]
-  %83 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %84 = icmp ult ptr %83, %2
-  br i1 %84, label %75, label %._crit_edge, !llvm.loop !892
+79:                                               ; preds = %73, %._crit_edge.i.i
+  %80 = phi float [ %74, %73 ], [ %78, %._crit_edge.i.i ]
+  %81 = getelementptr inbounds nuw i8, ptr %.011, i64 8
+  %82 = icmp ult ptr %81, %2
+  br i1 %82, label %73, label %._crit_edge, !llvm.loop !892
 
-._crit_edge:                                      ; preds = %81, %71, %62, %46, %3
+._crit_edge:                                      ; preds = %79, %69, %60, %45, %3
   ret void
 }
 
@@ -93643,6 +93647,7 @@ define linkonce_odr void @_ZSt11__make_heapIPN3vcg20HeapMaxPriorityQueueIifE7Ele
   %.sroa.02.0.copyload14 = load i64, ptr %11, align 4
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
+  %invariant.gep.i = getelementptr i8, ptr %0, i64 8
   %14 = icmp samesign ult i64 %10, %13
   br i1 %14, label %.lr.ph.i, label %._crit_edge.i
 
@@ -93651,213 +93656,213 @@ define linkonce_odr void @_ZSt11__make_heapIPN3vcg20HeapMaxPriorityQueueIifE7Ele
   %15 = shl i64 %.029.i, 1
   %16 = add i64 %15, 2
   %17 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %16
-  %18 = or disjoint i64 %15, 1
-  %19 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %18
-  %20 = load float, ptr %17, align 4
-  %21 = load float, ptr %19, align 4
-  %22 = fcmp olt float %20, %21
-  %spec.select.i = select i1 %22, i64 %18, i64 %16
-  %23 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %spec.select.i
-  %24 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.029.i
-  %25 = load i64, ptr %23, align 4
-  store i64 %25, ptr %24, align 4
-  %26 = icmp slt i64 %spec.select.i, %13
-  br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !889
+  %gep.i = getelementptr %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %invariant.gep.i, i64 %15
+  %18 = load float, ptr %17, align 4
+  %19 = load float, ptr %gep.i, align 4
+  %20 = fcmp olt float %18, %19
+  %21 = or disjoint i64 %15, 1
+  %spec.select.i = select i1 %20, i64 %21, i64 %16
+  %22 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %spec.select.i
+  %23 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.029.i
+  %24 = load i64, ptr %22, align 4
+  store i64 %24, ptr %23, align 4
+  %25 = icmp slt i64 %spec.select.i, %13
+  br i1 %25, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !889
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %10, %.split ], [ %spec.select.i, %.lr.ph.i ]
-  %27 = and i64 %6, 8
-  %28 = icmp eq i64 %27, 0
-  %29 = icmp eq i64 %.0.lcssa.i, %10
-  %or.cond = and i1 %28, %29
-  br i1 %or.cond, label %30, label %34
+  %26 = and i64 %6, 8
+  %27 = icmp eq i64 %26, 0
+  %28 = icmp eq i64 %.0.lcssa.i, %10
+  %or.cond = and i1 %27, %28
+  br i1 %or.cond, label %29, label %33
 
-30:                                               ; preds = %._crit_edge.i
-  %31 = or disjoint i64 %9, 1
-  %32 = getelementptr inbounds nuw %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %31
-  %33 = load i64, ptr %32, align 4
-  store i64 %33, ptr %11, align 4
-  br label %34
+29:                                               ; preds = %._crit_edge.i
+  %30 = or disjoint i64 %9, 1
+  %31 = getelementptr inbounds nuw %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %30
+  %32 = load i64, ptr %31, align 4
+  store i64 %32, ptr %11, align 4
+  br label %33
 
-34:                                               ; preds = %30, %._crit_edge.i
-  %.1.i = phi i64 [ %31, %30 ], [ %.0.lcssa.i, %._crit_edge.i ]
+33:                                               ; preds = %29, %._crit_edge.i
+  %.1.i = phi i64 [ %30, %29 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.02.0.copyload14 to i32
-  %35 = bitcast i32 %.sroa.0.0.extract.trunc.i.i to float
-  %36 = icmp samesign ugt i64 %.1.i, %10
-  br i1 %36, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit
+  %34 = bitcast i32 %.sroa.0.0.extract.trunc.i.i to float
+  %35 = icmp samesign ugt i64 %.1.i, %10
+  br i1 %35, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %34, %40
-  %.01318.i.i = phi i64 [ %.019.i.i, %40 ], [ %.1.i, %34 ]
+.lr.ph.i.i:                                       ; preds = %33, %39
+  %.01318.i.i = phi i64 [ %.019.i.i, %39 ], [ %.1.i, %33 ]
   %.019.in.i.i = add nsw i64 %.01318.i.i, -1
   %.019.i.i = sdiv i64 %.019.in.i.i, 2
-  %37 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.019.i.i
-  %38 = load float, ptr %37, align 4
-  %39 = fcmp olt float %38, %35
-  br i1 %39, label %40, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit
+  %36 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.019.i.i
+  %37 = load float, ptr %36, align 4
+  %38 = fcmp olt float %37, %34
+  br i1 %38, label %39, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit
 
-40:                                               ; preds = %.lr.ph.i.i
-  %41 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.01318.i.i
-  %42 = load i64, ptr %37, align 4
-  store i64 %42, ptr %41, align 4
-  %43 = icmp sgt i64 %.019.i.i, %10
-  br i1 %43, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit, !llvm.loop !890
+39:                                               ; preds = %.lr.ph.i.i
+  %40 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.01318.i.i
+  %41 = load i64, ptr %36, align 4
+  store i64 %41, ptr %40, align 4
+  %42 = icmp sgt i64 %.019.i.i, %10
+  br i1 %42, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit, !llvm.loop !890
 
-_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit: ; preds = %.lr.ph.i.i, %40, %34
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %34 ], [ %.019.i.i, %40 ], [ %.01318.i.i, %.lr.ph.i.i ]
+_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit: ; preds = %.lr.ph.i.i, %39, %33
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %33 ], [ %.019.i.i, %39 ], [ %.01318.i.i, %.lr.ph.i.i ]
   %.sroa.3.0.extract.shift.i.i = lshr i64 %.sroa.02.0.copyload14, 32
   %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
-  %44 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.013.lcssa.i.i
-  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %44, align 4
-  %.sroa_idx14.i.i = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %43 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.013.lcssa.i.i
+  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %43, align 4
+  %.sroa_idx14.i.i = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 %.sroa.3.0.extract.trunc.i.i, ptr %.sroa_idx14.i.i, align 4
-  %45 = icmp ult i64 %9, 2
-  br i1 %45, label %.loopexit, label %.split16.lr.ph
+  %44 = icmp ult i64 %9, 2
+  br i1 %44, label %.loopexit, label %.split16.lr.ph
 
 .split16.lr.ph:                                   ; preds = %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit
-  %46 = ashr exact i64 %9, 1
-  br i1 %28, label %.split16.preheader, label %.split16.us
+  %45 = ashr exact i64 %9, 1
+  br i1 %27, label %.split16.preheader, label %.split16.us
 
 .split16.preheader:                               ; preds = %.split16.lr.ph
-  %47 = or disjoint i64 %9, 1
-  %48 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %47
-  %49 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %46
+  %46 = or disjoint i64 %9, 1
+  %47 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %46
+  %48 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %45
   br label %.split16
 
-.split16.us:                                      ; preds = %.split16.lr.ph, %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34.us
-  %.040.us = phi i64 [ %50, %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34.us ], [ %10, %.split16.lr.ph ]
-  %50 = add nsw i64 %.040.us, -1
-  %51 = getelementptr inbounds nuw %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %50
-  %.sroa.02.0.copyload17.us = load i64, ptr %51, align 4
-  %.not.us = icmp sgt i64 %.040.us, %13
-  br i1 %.not.us, label %._crit_edge.i19.us.thread, label %.lr.ph.i31.us
+.split16.us:                                      ; preds = %.split16.lr.ph, %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36.us
+  %.042.us = phi i64 [ %49, %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36.us ], [ %10, %.split16.lr.ph ]
+  %49 = add nsw i64 %.042.us, -1
+  %50 = getelementptr inbounds nuw %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %49
+  %.sroa.02.0.copyload17.us = load i64, ptr %50, align 4
+  %.not.us = icmp sgt i64 %.042.us, %13
+  br i1 %.not.us, label %._crit_edge.i20.us.thread, label %.lr.ph.i32.us
 
-._crit_edge.i19.us.thread:                        ; preds = %.split16.us
-  %.sroa.0.0.extract.trunc.i.i22.us43 = trunc i64 %.sroa.02.0.copyload17.us to i32
-  br label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34.us
+._crit_edge.i20.us.thread:                        ; preds = %.split16.us
+  %.sroa.0.0.extract.trunc.i.i23.us45 = trunc i64 %.sroa.02.0.copyload17.us to i32
+  br label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36.us
 
-.lr.ph.i31.us:                                    ; preds = %.split16.us, %.lr.ph.i31.us
-  %.029.i32.us = phi i64 [ %spec.select.i33.us, %.lr.ph.i31.us ], [ %50, %.split16.us ]
-  %52 = shl i64 %.029.i32.us, 1
-  %53 = add i64 %52, 2
-  %54 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %53
-  %55 = or disjoint i64 %52, 1
-  %56 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %55
-  %57 = load float, ptr %54, align 4
-  %58 = load float, ptr %56, align 4
-  %59 = fcmp olt float %57, %58
-  %spec.select.i33.us = select i1 %59, i64 %55, i64 %53
-  %60 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %spec.select.i33.us
-  %61 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.029.i32.us
-  %62 = load i64, ptr %60, align 4
-  store i64 %62, ptr %61, align 4
-  %63 = icmp slt i64 %spec.select.i33.us, %13
-  br i1 %63, label %.lr.ph.i31.us, label %._crit_edge.i19.us, !llvm.loop !889
+.lr.ph.i32.us:                                    ; preds = %.split16.us, %.lr.ph.i32.us
+  %.029.i33.us = phi i64 [ %spec.select.i35.us, %.lr.ph.i32.us ], [ %49, %.split16.us ]
+  %51 = shl i64 %.029.i33.us, 1
+  %52 = add i64 %51, 2
+  %53 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %52
+  %gep.i34.us = getelementptr %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %invariant.gep.i, i64 %51
+  %54 = load float, ptr %53, align 4
+  %55 = load float, ptr %gep.i34.us, align 4
+  %56 = fcmp olt float %54, %55
+  %57 = or disjoint i64 %51, 1
+  %spec.select.i35.us = select i1 %56, i64 %57, i64 %52
+  %58 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %spec.select.i35.us
+  %59 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.029.i33.us
+  %60 = load i64, ptr %58, align 4
+  store i64 %60, ptr %59, align 4
+  %61 = icmp slt i64 %spec.select.i35.us, %13
+  br i1 %61, label %.lr.ph.i32.us, label %._crit_edge.i20.us, !llvm.loop !889
 
-._crit_edge.i19.us:                               ; preds = %.lr.ph.i31.us
-  %.sroa.0.0.extract.trunc.i.i22.us = trunc i64 %.sroa.02.0.copyload17.us to i32
-  %64 = bitcast i32 %.sroa.0.0.extract.trunc.i.i22.us to float
-  %.not38.us = icmp slt i64 %spec.select.i33.us, %.040.us
-  br i1 %.not38.us, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34.us, label %.lr.ph.i.i27.us
+._crit_edge.i20.us:                               ; preds = %.lr.ph.i32.us
+  %.sroa.0.0.extract.trunc.i.i23.us = trunc i64 %.sroa.02.0.copyload17.us to i32
+  %62 = bitcast i32 %.sroa.0.0.extract.trunc.i.i23.us to float
+  %.not40.us = icmp slt i64 %spec.select.i35.us, %.042.us
+  br i1 %.not40.us, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36.us, label %.lr.ph.i.i28.us
 
-.lr.ph.i.i27.us:                                  ; preds = %._crit_edge.i19.us, %68
-  %.01318.i.i28.us = phi i64 [ %.019.i.i30.us, %68 ], [ %spec.select.i33.us, %._crit_edge.i19.us ]
-  %.019.in.i.i29.us = add nsw i64 %.01318.i.i28.us, -1
-  %.019.i.i30.us = sdiv i64 %.019.in.i.i29.us, 2
-  %65 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.019.i.i30.us
-  %66 = load float, ptr %65, align 4
-  %67 = fcmp olt float %66, %64
-  br i1 %67, label %68, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34.us
+.lr.ph.i.i28.us:                                  ; preds = %._crit_edge.i20.us, %66
+  %.01318.i.i29.us = phi i64 [ %.019.i.i31.us, %66 ], [ %spec.select.i35.us, %._crit_edge.i20.us ]
+  %.019.in.i.i30.us = add nsw i64 %.01318.i.i29.us, -1
+  %.019.i.i31.us = sdiv i64 %.019.in.i.i30.us, 2
+  %63 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.019.i.i31.us
+  %64 = load float, ptr %63, align 4
+  %65 = fcmp olt float %64, %62
+  br i1 %65, label %66, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36.us
 
-68:                                               ; preds = %.lr.ph.i.i27.us
-  %69 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.01318.i.i28.us
-  %70 = load i64, ptr %65, align 4
-  store i64 %70, ptr %69, align 4
-  %.not39.us = icmp slt i64 %.019.i.i30.us, %.040.us
-  br i1 %.not39.us, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34.us, label %.lr.ph.i.i27.us, !llvm.loop !890
+66:                                               ; preds = %.lr.ph.i.i28.us
+  %67 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.01318.i.i29.us
+  %68 = load i64, ptr %63, align 4
+  store i64 %68, ptr %67, align 4
+  %.not41.us = icmp slt i64 %.019.i.i31.us, %.042.us
+  br i1 %.not41.us, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36.us, label %.lr.ph.i.i28.us, !llvm.loop !890
 
-_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34.us: ; preds = %.lr.ph.i.i27.us, %68, %._crit_edge.i19.us.thread, %._crit_edge.i19.us
-  %.sroa.0.0.extract.trunc.i.i22.us45 = phi i32 [ %.sroa.0.0.extract.trunc.i.i22.us, %._crit_edge.i19.us ], [ %.sroa.0.0.extract.trunc.i.i22.us43, %._crit_edge.i19.us.thread ], [ %.sroa.0.0.extract.trunc.i.i22.us, %68 ], [ %.sroa.0.0.extract.trunc.i.i22.us, %.lr.ph.i.i27.us ]
-  %.013.lcssa.i.i23.us = phi i64 [ %spec.select.i33.us, %._crit_edge.i19.us ], [ %50, %._crit_edge.i19.us.thread ], [ %.01318.i.i28.us, %.lr.ph.i.i27.us ], [ %.019.i.i30.us, %68 ]
-  %.sroa.3.0.extract.shift.i.i24.us = lshr i64 %.sroa.02.0.copyload17.us, 32
-  %.sroa.3.0.extract.trunc.i.i25.us = trunc nuw i64 %.sroa.3.0.extract.shift.i.i24.us to i32
-  %71 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.013.lcssa.i.i23.us
-  store i32 %.sroa.0.0.extract.trunc.i.i22.us45, ptr %71, align 4
-  %.sroa_idx14.i.i26.us = getelementptr inbounds nuw i8, ptr %71, i64 4
-  store i32 %.sroa.3.0.extract.trunc.i.i25.us, ptr %.sroa_idx14.i.i26.us, align 4
-  %72 = icmp eq i64 %50, 0
-  br i1 %72, label %.loopexit, label %.split16.us, !llvm.loop !893
+_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36.us: ; preds = %.lr.ph.i.i28.us, %66, %._crit_edge.i20.us.thread, %._crit_edge.i20.us
+  %.sroa.0.0.extract.trunc.i.i23.us47 = phi i32 [ %.sroa.0.0.extract.trunc.i.i23.us, %._crit_edge.i20.us ], [ %.sroa.0.0.extract.trunc.i.i23.us45, %._crit_edge.i20.us.thread ], [ %.sroa.0.0.extract.trunc.i.i23.us, %66 ], [ %.sroa.0.0.extract.trunc.i.i23.us, %.lr.ph.i.i28.us ]
+  %.013.lcssa.i.i24.us = phi i64 [ %spec.select.i35.us, %._crit_edge.i20.us ], [ %49, %._crit_edge.i20.us.thread ], [ %.01318.i.i29.us, %.lr.ph.i.i28.us ], [ %.019.i.i31.us, %66 ]
+  %.sroa.3.0.extract.shift.i.i25.us = lshr i64 %.sroa.02.0.copyload17.us, 32
+  %.sroa.3.0.extract.trunc.i.i26.us = trunc nuw i64 %.sroa.3.0.extract.shift.i.i25.us to i32
+  %69 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.013.lcssa.i.i24.us
+  store i32 %.sroa.0.0.extract.trunc.i.i23.us47, ptr %69, align 4
+  %.sroa_idx14.i.i27.us = getelementptr inbounds nuw i8, ptr %69, i64 4
+  store i32 %.sroa.3.0.extract.trunc.i.i26.us, ptr %.sroa_idx14.i.i27.us, align 4
+  %70 = icmp eq i64 %49, 0
+  br i1 %70, label %.loopexit, label %.split16.us, !llvm.loop !893
 
-.split16:                                         ; preds = %.split16.preheader, %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34
-  %.040 = phi i64 [ %73, %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34 ], [ %10, %.split16.preheader ]
-  %73 = add nsw i64 %.040, -1
-  %74 = getelementptr inbounds nuw %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %73
-  %.sroa.02.0.copyload17 = load i64, ptr %74, align 4
-  %.not = icmp sgt i64 %.040, %13
-  br i1 %.not, label %._crit_edge.i19, label %.lr.ph.i31
+.split16:                                         ; preds = %.split16.preheader, %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36
+  %.042 = phi i64 [ %71, %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36 ], [ %10, %.split16.preheader ]
+  %71 = add nsw i64 %.042, -1
+  %72 = getelementptr inbounds nuw %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %71
+  %.sroa.02.0.copyload17 = load i64, ptr %72, align 4
+  %.not = icmp sgt i64 %.042, %13
+  br i1 %.not, label %._crit_edge.i20, label %.lr.ph.i32
 
-.lr.ph.i31:                                       ; preds = %.split16, %.lr.ph.i31
-  %.029.i32 = phi i64 [ %spec.select.i33, %.lr.ph.i31 ], [ %73, %.split16 ]
-  %75 = shl i64 %.029.i32, 1
-  %76 = add i64 %75, 2
-  %77 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %76
-  %78 = or disjoint i64 %75, 1
-  %79 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %78
-  %80 = load float, ptr %77, align 4
-  %81 = load float, ptr %79, align 4
-  %82 = fcmp olt float %80, %81
-  %spec.select.i33 = select i1 %82, i64 %78, i64 %76
-  %83 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %spec.select.i33
-  %84 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.029.i32
-  %85 = load i64, ptr %83, align 4
-  store i64 %85, ptr %84, align 4
-  %86 = icmp slt i64 %spec.select.i33, %13
-  br i1 %86, label %.lr.ph.i31, label %._crit_edge.i19, !llvm.loop !889
+.lr.ph.i32:                                       ; preds = %.split16, %.lr.ph.i32
+  %.029.i33 = phi i64 [ %spec.select.i35, %.lr.ph.i32 ], [ %71, %.split16 ]
+  %73 = shl i64 %.029.i33, 1
+  %74 = add i64 %73, 2
+  %75 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %74
+  %gep.i34 = getelementptr %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %invariant.gep.i, i64 %73
+  %76 = load float, ptr %75, align 4
+  %77 = load float, ptr %gep.i34, align 4
+  %78 = fcmp olt float %76, %77
+  %79 = or disjoint i64 %73, 1
+  %spec.select.i35 = select i1 %78, i64 %79, i64 %74
+  %80 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %spec.select.i35
+  %81 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.029.i33
+  %82 = load i64, ptr %80, align 4
+  store i64 %82, ptr %81, align 4
+  %83 = icmp slt i64 %spec.select.i35, %13
+  br i1 %83, label %.lr.ph.i32, label %._crit_edge.i20, !llvm.loop !889
 
-._crit_edge.i19:                                  ; preds = %.lr.ph.i31, %.split16
-  %.0.lcssa.i20 = phi i64 [ %73, %.split16 ], [ %spec.select.i33, %.lr.ph.i31 ]
-  %87 = icmp eq i64 %.0.lcssa.i20, %46
-  br i1 %87, label %88, label %90
+._crit_edge.i20:                                  ; preds = %.lr.ph.i32, %.split16
+  %.0.lcssa.i21 = phi i64 [ %71, %.split16 ], [ %spec.select.i35, %.lr.ph.i32 ]
+  %84 = icmp eq i64 %.0.lcssa.i21, %45
+  br i1 %84, label %85, label %87
 
-88:                                               ; preds = %._crit_edge.i19
-  %89 = load i64, ptr %48, align 4
-  store i64 %89, ptr %49, align 4
-  br label %90
+85:                                               ; preds = %._crit_edge.i20
+  %86 = load i64, ptr %47, align 4
+  store i64 %86, ptr %48, align 4
+  br label %87
 
-90:                                               ; preds = %88, %._crit_edge.i19
-  %.1.i21 = phi i64 [ %47, %88 ], [ %.0.lcssa.i20, %._crit_edge.i19 ]
-  %.sroa.0.0.extract.trunc.i.i22 = trunc i64 %.sroa.02.0.copyload17 to i32
-  %91 = bitcast i32 %.sroa.0.0.extract.trunc.i.i22 to float
-  %.not38 = icmp slt i64 %.1.i21, %.040
-  br i1 %.not38, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34, label %.lr.ph.i.i27
+87:                                               ; preds = %85, %._crit_edge.i20
+  %.1.i22 = phi i64 [ %46, %85 ], [ %.0.lcssa.i21, %._crit_edge.i20 ]
+  %.sroa.0.0.extract.trunc.i.i23 = trunc i64 %.sroa.02.0.copyload17 to i32
+  %88 = bitcast i32 %.sroa.0.0.extract.trunc.i.i23 to float
+  %.not40 = icmp slt i64 %.1.i22, %.042
+  br i1 %.not40, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36, label %.lr.ph.i.i28
 
-.lr.ph.i.i27:                                     ; preds = %90, %95
-  %.01318.i.i28 = phi i64 [ %.019.i.i30, %95 ], [ %.1.i21, %90 ]
-  %.019.in.i.i29 = add nsw i64 %.01318.i.i28, -1
-  %.019.i.i30 = sdiv i64 %.019.in.i.i29, 2
-  %92 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.019.i.i30
-  %93 = load float, ptr %92, align 4
-  %94 = fcmp olt float %93, %91
-  br i1 %94, label %95, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34
+.lr.ph.i.i28:                                     ; preds = %87, %92
+  %.01318.i.i29 = phi i64 [ %.019.i.i31, %92 ], [ %.1.i22, %87 ]
+  %.019.in.i.i30 = add nsw i64 %.01318.i.i29, -1
+  %.019.i.i31 = sdiv i64 %.019.in.i.i30, 2
+  %89 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.019.i.i31
+  %90 = load float, ptr %89, align 4
+  %91 = fcmp olt float %90, %88
+  br i1 %91, label %92, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36
 
-95:                                               ; preds = %.lr.ph.i.i27
-  %96 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.01318.i.i28
-  %97 = load i64, ptr %92, align 4
-  store i64 %97, ptr %96, align 4
-  %.not39 = icmp slt i64 %.019.i.i30, %.040
-  br i1 %.not39, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34, label %.lr.ph.i.i27, !llvm.loop !890
+92:                                               ; preds = %.lr.ph.i.i28
+  %93 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.01318.i.i29
+  %94 = load i64, ptr %89, align 4
+  store i64 %94, ptr %93, align 4
+  %.not41 = icmp slt i64 %.019.i.i31, %.042
+  br i1 %.not41, label %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36, label %.lr.ph.i.i28, !llvm.loop !890
 
-_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34: ; preds = %.lr.ph.i.i27, %95, %90
-  %.013.lcssa.i.i23 = phi i64 [ %.1.i21, %90 ], [ %.019.i.i30, %95 ], [ %.01318.i.i28, %.lr.ph.i.i27 ]
-  %.sroa.3.0.extract.shift.i.i24 = lshr i64 %.sroa.02.0.copyload17, 32
-  %.sroa.3.0.extract.trunc.i.i25 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i24 to i32
-  %98 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.013.lcssa.i.i23
-  store i32 %.sroa.0.0.extract.trunc.i.i22, ptr %98, align 4
-  %.sroa_idx14.i.i26 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  store i32 %.sroa.3.0.extract.trunc.i.i25, ptr %.sroa_idx14.i.i26, align 4
-  %99 = icmp eq i64 %73, 0
-  br i1 %99, label %.loopexit, label %.split16, !llvm.loop !893
+_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36: ; preds = %.lr.ph.i.i28, %92, %87
+  %.013.lcssa.i.i24 = phi i64 [ %.1.i22, %87 ], [ %.019.i.i31, %92 ], [ %.01318.i.i29, %.lr.ph.i.i28 ]
+  %.sroa.3.0.extract.shift.i.i25 = lshr i64 %.sroa.02.0.copyload17, 32
+  %.sroa.3.0.extract.trunc.i.i26 = trunc nuw i64 %.sroa.3.0.extract.shift.i.i25 to i32
+  %95 = getelementptr inbounds %"struct.vcg::HeapMaxPriorityQueue<int, float>::Element", ptr %0, i64 %.013.lcssa.i.i24
+  store i32 %.sroa.0.0.extract.trunc.i.i23, ptr %95, align 4
+  %.sroa_idx14.i.i27 = getelementptr inbounds nuw i8, ptr %95, i64 4
+  store i32 %.sroa.3.0.extract.trunc.i.i26, ptr %.sroa_idx14.i.i27, align 4
+  %96 = icmp eq i64 %71, 0
+  br i1 %96, label %.loopexit, label %.split16, !llvm.loop !893
 
-.loopexit:                                        ; preds = %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34.us, %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit34, %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit, %3
+.loopexit:                                        ; preds = %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36.us, %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit36, %_ZSt13__adjust_heapIPN3vcg20HeapMaxPriorityQueueIifE7ElementElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS2_Ut_EEEEvT_T0_SB_T1_T2_.exit, %3
   ret void
 }
 
@@ -101237,15 +101242,15 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit: ; preds = %75, %64
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %95
 
-95:                                               ; preds = %.lr.ph352, %458
-  %96 = phi ptr [ %79, %.lr.ph352 ], [ %459, %458 ]
-  %97 = phi ptr [ %78, %.lr.ph352 ], [ %460, %458 ]
-  %.0122351 = phi i64 [ 0, %.lr.ph352 ], [ %461, %458 ]
+95:                                               ; preds = %.lr.ph352, %457
+  %96 = phi ptr [ %79, %.lr.ph352 ], [ %458, %457 ]
+  %97 = phi ptr [ %78, %.lr.ph352 ], [ %459, %457 ]
+  %.0122351 = phi i64 [ 0, %.lr.ph352 ], [ %460, %457 ]
   %98 = getelementptr inbounds %class.CFaceO, ptr %96, i64 %.0122351, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %99 = load i32, ptr %98, align 8
   %100 = and i32 %99, 16
   %.not = icmp eq i32 %100, 0
-  br i1 %.not, label %101, label %458
+  br i1 %.not, label %101, label %457
 
 101:                                              ; preds = %95
   call void @_ZN6CMeshOC1Ev(ptr noundef nonnull align 8 dereferenceable(1196) %18)
@@ -101362,13 +101367,13 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit: ; preds = %75, %64
   %exitcond.not = icmp eq i64 %173, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !919
 
-174:                                              ; preds = %453, %448, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit, %417, %452, %450, %416, %101
+174:                                              ; preds = %452, %447, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit, %416, %451, %449, %415, %101
   %175 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %407, %410, %390, %393, %366, %369, %345, %348, %322, %325, %297, %300, %258, %261, %245, %248, %174
-  %eh.lpad-body = phi { ptr, i32 } [ %175, %174 ], [ %246, %248 ], [ %246, %245 ], [ %259, %261 ], [ %259, %258 ], [ %298, %300 ], [ %298, %297 ], [ %323, %325 ], [ %323, %322 ], [ %346, %348 ], [ %346, %345 ], [ %367, %369 ], [ %367, %366 ], [ %391, %393 ], [ %391, %390 ], [ %408, %410 ], [ %408, %407 ]
+.body:                                            ; preds = %406, %409, %390, %393, %366, %369, %345, %348, %322, %325, %297, %300, %258, %261, %245, %248, %174
+  %eh.lpad-body = phi { ptr, i32 } [ %175, %174 ], [ %246, %248 ], [ %246, %245 ], [ %259, %261 ], [ %259, %258 ], [ %298, %300 ], [ %298, %297 ], [ %323, %325 ], [ %323, %322 ], [ %346, %348 ], [ %346, %345 ], [ %367, %369 ], [ %367, %366 ], [ %391, %393 ], [ %391, %390 ], [ %407, %409 ], [ %407, %406 ]
   %176 = load ptr, ptr %20, align 8
   %.not.i.i.i = icmp eq ptr %176, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit, label %177
@@ -101853,127 +101858,126 @@ _ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_mmm.exit205: ; preds = %352, %365
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %10, i8 0, i64 57, i1 false)
   %396 = invoke ptr @_ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_mRNS3_14PointerUpdaterIP6CFaceOEE(ptr noundef nonnull align 8 dereferenceable(1196) %18, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(57) %10)
-          to label %397 unwind label %407
+          to label %397 unwind label %406
 
 397:                                              ; preds = %394
-  %398 = or disjoint i64 %377, 1
-  %399 = getelementptr inbounds %class.CVertexO, ptr %395, i64 %377
-  %400 = getelementptr inbounds %class.CVertexO, ptr %395, i64 %398
-  %401 = getelementptr inbounds %class.CVertexO, ptr %395, i64 %374
-  %402 = getelementptr inbounds nuw i8, ptr %396, i64 8
-  store ptr %401, ptr %402, align 8
-  %403 = getelementptr inbounds nuw i8, ptr %396, i64 16
-  store ptr %400, ptr %403, align 8
-  %404 = getelementptr inbounds nuw i8, ptr %396, i64 24
-  store ptr %399, ptr %404, align 8
-  %405 = load ptr, ptr %90, align 8
-  %.not.i.i.i.i.i.i214 = icmp eq ptr %405, null
-  br i1 %.not.i.i.i.i.i.i214, label %_ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_mmm.exit217, label %406
+  %398 = getelementptr %class.CVertexO, ptr %395, i64 %377
+  %399 = getelementptr i8, ptr %398, i64 48
+  %400 = getelementptr inbounds %class.CVertexO, ptr %395, i64 %374
+  %401 = getelementptr inbounds nuw i8, ptr %396, i64 8
+  store ptr %400, ptr %401, align 8
+  %402 = getelementptr inbounds nuw i8, ptr %396, i64 16
+  store ptr %399, ptr %402, align 8
+  %403 = getelementptr inbounds nuw i8, ptr %396, i64 24
+  store ptr %398, ptr %403, align 8
+  %404 = load ptr, ptr %90, align 8
+  %.not.i.i.i.i.i.i214 = icmp eq ptr %404, null
+  br i1 %.not.i.i.i.i.i.i214, label %_ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_mmm.exit217, label %405
 
-406:                                              ; preds = %397
-  call void @_ZdlPv(ptr noundef nonnull %405) #28
+405:                                              ; preds = %397
+  call void @_ZdlPv(ptr noundef nonnull %404) #28
   br label %_ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_mmm.exit217
 
-407:                                              ; preds = %394
-  %408 = landingpad { ptr, i32 }
+406:                                              ; preds = %394
+  %407 = landingpad { ptr, i32 }
           cleanup
-  %409 = load ptr, ptr %90, align 8
-  %.not.i.i.i.i5.i.i212 = icmp eq ptr %409, null
-  br i1 %.not.i.i.i.i5.i.i212, label %.body, label %410
+  %408 = load ptr, ptr %90, align 8
+  %.not.i.i.i.i5.i.i212 = icmp eq ptr %408, null
+  br i1 %.not.i.i.i.i5.i.i212, label %.body, label %409
 
-410:                                              ; preds = %407
-  call void @_ZdlPv(ptr noundef nonnull %409) #28
+409:                                              ; preds = %406
+  call void @_ZdlPv(ptr noundef nonnull %408) #28
   br label %.body
 
-_ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_mmm.exit217: ; preds = %397, %406
+_ZN3vcg3tri9AllocatorI6CMeshOE7AddFaceERS2_mmm.exit217: ; preds = %397, %405
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10)
   %exitcond374.not = icmp eq i64 %371, %umax373
   br i1 %exitcond374.not, label %.lr.ph349.preheader, label %.lr.ph347
 
 .lr.ph349:                                        ; preds = %.lr.ph349.preheader, %.lr.ph349
-  %.0348 = phi i64 [ %415, %.lr.ph349 ], [ 0, %.lr.ph349.preheader ]
-  %411 = load ptr, ptr %91, align 8
-  %412 = getelementptr inbounds %class.CFaceO, ptr %411, i64 %.0348, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
-  %413 = load i32, ptr %412, align 4
-  %414 = or i32 %413, 32
-  store i32 %414, ptr %412, align 4
-  %415 = add nuw i64 %.0348, 1
-  %exitcond376.not = icmp eq i64 %415, %umax375
+  %.0348 = phi i64 [ %414, %.lr.ph349 ], [ 0, %.lr.ph349.preheader ]
+  %410 = load ptr, ptr %91, align 8
+  %411 = getelementptr inbounds %class.CFaceO, ptr %410, i64 %.0348, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
+  %412 = load i32, ptr %411, align 4
+  %413 = or i32 %412, 32
+  store i32 %413, ptr %411, align 4
+  %414 = add nuw i64 %.0348, 1
+  %exitcond376.not = icmp eq i64 %414, %umax375
   br i1 %exitcond376.not, label %._crit_edge350, label %.lr.ph349, !llvm.loop !922
 
 ._crit_edge350:                                   ; preds = %.lr.ph349, %_ZN3vcg3tri9AllocatorI6CMeshOE9AddVertexERS2_RKNS_6Point3IfEE.exit158
-  br i1 %4, label %416, label %453
+  br i1 %4, label %415, label %452
 
-416:                                              ; preds = %._crit_edge350
+415:                                              ; preds = %._crit_edge350
   invoke void @_ZN3vcg3tri14UpdateTopologyI6CMeshOE8FaceFaceERS2_(ptr noundef nonnull align 8 dereferenceable(1196) %18)
-          to label %417 unwind label %174
+          to label %416 unwind label %174
 
-417:                                              ; preds = %416
+416:                                              ; preds = %415
   invoke void @_ZN3vcg3tri18RequireFFAdjacencyI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %18)
           to label %.noexc unwind label %174
 
-.noexc:                                           ; preds = %417
-  %418 = load ptr, ptr %91, align 8
-  %419 = load ptr, ptr %92, align 8
-  %.not19.i = icmp eq ptr %418, %419
+.noexc:                                           ; preds = %416
+  %417 = load ptr, ptr %91, align 8
+  %418 = load ptr, ptr %92, align 8
+  %.not19.i = icmp eq ptr %417, %418
   br i1 %.not19.i, label %_ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %.loopexit.i
-  %420 = phi ptr [ %445, %.loopexit.i ], [ %419, %.noexc ]
-  %.sroa.08.020.i = phi ptr [ %446, %.loopexit.i ], [ %418, %.noexc ]
-  %421 = getelementptr inbounds nuw i8, ptr %.sroa.08.020.i, i64 32
-  %422 = load i32, ptr %421, align 8
-  %423 = and i32 %422, 1
-  %.not15.i = icmp eq i32 %423, 0
+  %419 = phi ptr [ %444, %.loopexit.i ], [ %418, %.noexc ]
+  %.sroa.08.020.i = phi ptr [ %445, %.loopexit.i ], [ %417, %.noexc ]
+  %420 = getelementptr inbounds nuw i8, ptr %.sroa.08.020.i, i64 32
+  %421 = load i32, ptr %420, align 8
+  %422 = and i32 %421, 1
+  %.not15.i = icmp eq i32 %422, 0
   br i1 %.not15.i, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i
-  %424 = ptrtoint ptr %.sroa.08.020.i to i64
+  %423 = ptrtoint ptr %.sroa.08.020.i to i64
   %.pre.i = load ptr, ptr %.sroa.08.020.i, align 8
-  %425 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 273
-  %426 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 240
-  br label %427
+  %424 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 273
+  %425 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 240
+  br label %426
 
-427:                                              ; preds = %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.i, %.preheader.i
+426:                                              ; preds = %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.i ]
-  %storemerge1617.i = phi i32 [ %422, %.preheader.i ], [ %storemerge.i, %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.i ]
-  %428 = load i8, ptr %425, align 1
-  %429 = trunc i8 %428 to i1
-  br i1 %429, label %430, label %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.i
+  %storemerge1617.i = phi i32 [ %421, %.preheader.i ], [ %storemerge.i, %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.i ]
+  %427 = load i8, ptr %424, align 1
+  %428 = trunc i8 %427 to i1
+  br i1 %428, label %429, label %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.i
 
-430:                                              ; preds = %427
-  %431 = load ptr, ptr %.pre.i, align 8
-  %432 = ptrtoint ptr %431 to i64
-  %433 = sub i64 %424, %432
-  %434 = sdiv exact i64 %433, 48
-  %435 = load ptr, ptr %426, align 8
-  %436 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %435, i64 %434
-  %437 = getelementptr inbounds nuw [3 x ptr], ptr %436, i64 0, i64 %indvars.iv.i
-  %438 = load ptr, ptr %437, align 8
+429:                                              ; preds = %426
+  %430 = load ptr, ptr %.pre.i, align 8
+  %431 = ptrtoint ptr %430 to i64
+  %432 = sub i64 %423, %431
+  %433 = sdiv exact i64 %432, 48
+  %434 = load ptr, ptr %425, align 8
+  %435 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %434, i64 %433
+  %436 = getelementptr inbounds nuw [3 x ptr], ptr %435, i64 0, i64 %indvars.iv.i
+  %437 = load ptr, ptr %436, align 8
   br label %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.i
 
-_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.i:     ; preds = %430, %427
-  %.0.i.i.i = phi ptr [ %438, %430 ], [ null, %427 ]
-  %439 = icmp eq ptr %.0.i.i.i, %.sroa.08.020.i
-  %440 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %441 = shl nuw nsw i32 64, %440
-  %442 = xor i32 %441, -1
-  %443 = and i32 %storemerge1617.i, %442
-  %444 = or i32 %441, %storemerge1617.i
-  %storemerge.i = select i1 %439, i32 %444, i32 %443
-  store i32 %storemerge.i, ptr %421, align 4
+_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.i:     ; preds = %429, %426
+  %.0.i.i.i = phi ptr [ %437, %429 ], [ null, %426 ]
+  %438 = icmp eq ptr %.0.i.i.i, %.sroa.08.020.i
+  %439 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %440 = shl nuw nsw i32 64, %439
+  %441 = xor i32 %440, -1
+  %442 = and i32 %storemerge1617.i, %441
+  %443 = or i32 %440, %storemerge1617.i
+  %storemerge.i = select i1 %438, i32 %443, i32 %442
+  store i32 %storemerge.i, ptr %420, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %427, !llvm.loop !74
+  br i1 %exitcond.not.i, label %.loopexit.loopexit.i, label %426, !llvm.loop !74
 
 .loopexit.loopexit.i:                             ; preds = %_ZN3vcg4face8IsBorderI6CFaceOEEbRKT_i.exit.i
   %.pre22.i = load ptr, ptr %92, align 8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.lr.ph.i
-  %445 = phi ptr [ %.pre22.i, %.loopexit.loopexit.i ], [ %420, %.lr.ph.i ]
-  %446 = getelementptr inbounds nuw i8, ptr %.sroa.08.020.i, i64 48
-  %.not.i = icmp eq ptr %446, %445
+  %444 = phi ptr [ %.pre22.i, %.loopexit.loopexit.i ], [ %419, %.lr.ph.i ]
+  %445 = getelementptr inbounds nuw i8, ptr %.sroa.08.020.i, i64 48
+  %.not.i = icmp eq ptr %445, %444
   br i1 %.not.i, label %_ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit, label %.lr.ph.i, !llvm.loop !75
 
 _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loopexit.i, %.noexc
@@ -101982,10 +101986,10 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
   store ptr %18, ptr %8, align 8
   store ptr null, ptr %93, align 8
   store float 0.000000e+00, ptr %9, align 4
-  %447 = invoke noundef zeroext i1 @_ZN3vcg3tri7RefineEI6CMeshONS0_8MidPointIS2_NS0_16BaseInterpolatorIS2_EEEENS0_7EdgeLenIS2_fEEEEbRT_RT0_RT1_bPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(1196) %18, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, i1 noundef zeroext true, ptr noundef null)
-          to label %448 unwind label %174
+  %446 = invoke noundef zeroext i1 @_ZN3vcg3tri7RefineEI6CMeshONS0_8MidPointIS2_NS0_16BaseInterpolatorIS2_EEEENS0_7EdgeLenIS2_fEEEEbRT_RT0_RT1_bPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(1196) %18, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(4) %9, i1 noundef zeroext true, ptr noundef null)
+          to label %447 unwind label %174
 
-448:                                              ; preds = %_ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit
+447:                                              ; preds = %_ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -101993,59 +101997,59 @@ _ZN3vcg3tri11UpdateFlagsI6CMeshOE16FaceBorderFromFFERS2_.exit: ; preds = %.loope
   store ptr %18, ptr %6, align 8
   store ptr null, ptr %94, align 8
   store float 0.000000e+00, ptr %7, align 4
-  %449 = invoke noundef zeroext i1 @_ZN3vcg3tri7RefineEI6CMeshONS0_8MidPointIS2_NS0_16BaseInterpolatorIS2_EEEENS0_7EdgeLenIS2_fEEEEbRT_RT0_RT1_bPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(1196) %18, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, i1 noundef zeroext true, ptr noundef null)
-          to label %450 unwind label %174
+  %448 = invoke noundef zeroext i1 @_ZN3vcg3tri7RefineEI6CMeshONS0_8MidPointIS2_NS0_16BaseInterpolatorIS2_EEEENS0_7EdgeLenIS2_fEEEEbRT_RT0_RT1_bPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(1196) %18, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, i1 noundef zeroext true, ptr noundef null)
+          to label %449 unwind label %174
 
-450:                                              ; preds = %448
+449:                                              ; preds = %447
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %451 = invoke noundef i64 @_ZN3vcg3tri15UpdateSelectionI6CMeshOE20VertexFromFaceStrictERS2_b(ptr noundef nonnull align 8 dereferenceable(1196) %18, i1 noundef zeroext false)
+  %450 = invoke noundef i64 @_ZN3vcg3tri15UpdateSelectionI6CMeshOE20VertexFromFaceStrictERS2_b(ptr noundef nonnull align 8 dereferenceable(1196) %18, i1 noundef zeroext false)
+          to label %451 unwind label %174
+
+451:                                              ; preds = %449
+  invoke void @_ZN3vcg3tri6SmoothI6CMeshOE20VertexCoordLaplacianERS2_ibbPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(1196) %18, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null)
           to label %452 unwind label %174
 
-452:                                              ; preds = %450
-  invoke void @_ZN3vcg3tri6SmoothI6CMeshOE20VertexCoordLaplacianERS2_ibbPFbiPKcE(ptr noundef nonnull align 8 dereferenceable(1196) %18, i32 noundef 2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null)
-          to label %453 unwind label %174
-
-453:                                              ; preds = %452, %._crit_edge350
+452:                                              ; preds = %451, %._crit_edge350
   invoke void @_ZN3vcg3tri6AppendI6CMeshOS2_E15MeshAppendConstERS2_RKS2_bb(ptr noundef nonnull align 8 dereferenceable(1196) %1, ptr noundef nonnull align 8 dereferenceable(1196) %18, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %_ZN3vcg3tri6AppendI6CMeshOS2_E4MeshERS2_S4_bb.exit unwind label %174
 
-_ZN3vcg3tri6AppendI6CMeshOS2_E4MeshERS2_S4_bb.exit: ; preds = %453
-  %454 = load ptr, ptr %20, align 8
-  %.not.i.i.i222 = icmp eq ptr %454, null
-  br i1 %.not.i.i.i222, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit223, label %455
+_ZN3vcg3tri6AppendI6CMeshOS2_E4MeshERS2_S4_bb.exit: ; preds = %452
+  %453 = load ptr, ptr %20, align 8
+  %.not.i.i.i222 = icmp eq ptr %453, null
+  br i1 %.not.i.i.i222, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit223, label %454
 
-455:                                              ; preds = %_ZN3vcg3tri6AppendI6CMeshOS2_E4MeshERS2_S4_bb.exit
-  call void @_ZdlPv(ptr noundef nonnull %454) #28
+454:                                              ; preds = %_ZN3vcg3tri6AppendI6CMeshOS2_E4MeshERS2_S4_bb.exit
+  call void @_ZdlPv(ptr noundef nonnull %453) #28
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit223
 
-_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit223:        ; preds = %_ZN3vcg3tri6AppendI6CMeshOS2_E4MeshERS2_S4_bb.exit, %455
-  %456 = load ptr, ptr %19, align 8
-  %.not.i.i.i224 = icmp eq ptr %456, null
-  br i1 %.not.i.i.i224, label %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit225, label %457
+_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit223:        ; preds = %_ZN3vcg3tri6AppendI6CMeshOS2_E4MeshERS2_S4_bb.exit, %454
+  %455 = load ptr, ptr %19, align 8
+  %.not.i.i.i224 = icmp eq ptr %455, null
+  br i1 %.not.i.i.i224, label %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit225, label %456
 
-457:                                              ; preds = %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit223
-  call void @_ZdlPv(ptr noundef nonnull %456) #28
+456:                                              ; preds = %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit223
+  call void @_ZdlPv(ptr noundef nonnull %455) #28
   br label %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit225
 
-_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit225:      ; preds = %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit223, %457
+_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit225:      ; preds = %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit223, %456
   call void @_ZN6CMeshOD1Ev(ptr noundef nonnull align 8 dereferenceable(1196) %18) #29
   %.pre = load ptr, ptr %67, align 8
   %.pre377 = load ptr, ptr %65, align 8
-  br label %458
+  br label %457
 
-458:                                              ; preds = %95, %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit225
-  %459 = phi ptr [ %96, %95 ], [ %.pre377, %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit225 ]
-  %460 = phi ptr [ %97, %95 ], [ %.pre, %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit225 ]
-  %461 = add nuw i64 %.0122351, 1
-  %462 = ptrtoint ptr %460 to i64
-  %463 = ptrtoint ptr %459 to i64
-  %464 = sub i64 %462, %463
-  %465 = sdiv exact i64 %464, 48
-  %466 = icmp ult i64 %461, %465
-  br i1 %466, label %95, label %._crit_edge353, !llvm.loop !923
+457:                                              ; preds = %95, %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit225
+  %458 = phi ptr [ %96, %95 ], [ %.pre377, %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit225 ]
+  %459 = phi ptr [ %97, %95 ], [ %.pre, %_ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit225 ]
+  %460 = add nuw i64 %.0122351, 1
+  %461 = ptrtoint ptr %459 to i64
+  %462 = ptrtoint ptr %458 to i64
+  %463 = sub i64 %461, %462
+  %464 = sdiv exact i64 %463, 48
+  %465 = icmp ult i64 %460, %464
+  br i1 %465, label %95, label %._crit_edge353, !llvm.loop !923
 
-._crit_edge353:                                   ; preds = %458, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit
+._crit_edge353:                                   ; preds = %457, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE10FaceClearVERS2_.exit
   ret void
 }
 

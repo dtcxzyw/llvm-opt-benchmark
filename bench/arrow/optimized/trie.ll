@@ -352,9 +352,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %68 = sext i16 %67 to i32
   %69 = shl nsw i32 %68, 8
   %70 = sext i32 %69 to i64
-  %71 = or disjoint i64 %.01629, %70
-  %72 = load ptr, ptr %56, align 8, !tbaa !46
-  %73 = getelementptr inbounds nuw i16, ptr %72, i64 %71
+  %71 = load ptr, ptr %56, align 8, !tbaa !46
+  %72 = getelementptr inbounds nuw i16, ptr %71, i64 %.01629
+  %73 = getelementptr inbounds nuw i16, ptr %72, i64 %70
   %74 = load i16, ptr %73, align 2, !tbaa !26
   %75 = icmp sgt i16 %74, -1
   br i1 %75, label %76, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit

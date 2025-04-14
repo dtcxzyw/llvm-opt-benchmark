@@ -217,119 +217,116 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
   br i1 %.not32, label %.loopexit, label %.lr.ph.split.us.split.us.split
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split
-  %.03034.us.us = phi i64 [ %19, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
+  %.03034.us.us = phi i64 [ %18, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
   %14 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us.us
   %15 = load float, ptr %14, align 4, !tbaa !55
-  %16 = or disjoint i64 %.03034.us.us, 1
-  %17 = getelementptr inbounds nuw float, ptr %2, i64 %16
-  %18 = load float, ptr %17, align 4, !tbaa !55
-  store float %18, ptr %14, align 4, !tbaa !55
-  store float %15, ptr %17, align 4, !tbaa !55
-  %19 = add nuw i64 %.03034.us.us, 2
-  %20 = icmp ult i64 %19, %9
-  br i1 %20, label %.lr.ph.split.us.split.us.split, label %.loopexit
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %17 = load float, ptr %16, align 4, !tbaa !55
+  store float %17, ptr %14, align 4, !tbaa !55
+  store float %15, ptr %16, align 4, !tbaa !55
+  %18 = add nuw i64 %.03034.us.us, 2
+  %19 = icmp ult i64 %18, %9
+  br i1 %19, label %.lr.ph.split.us.split.us.split, label %.loopexit
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  %21 = load i32, ptr %12, align 4, !tbaa !56
-  %22 = sitofp i32 %21 to float
-  br i1 %.not32, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
+  %20 = load i32, ptr %12, align 4, !tbaa !56
+  %21 = sitofp i32 %20 to float
+  br i1 %.not32, label %.lr.ph.split.us.split.split.us.preheader, label %.lr.ph.split.us.split.split
 
-.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split.us
-  %.03034.us.us42 = phi i64 [ %27, %.lr.ph.split.us.split.split.us ], [ 0, %.lr.ph.split.us.split ]
-  %23 = or disjoint i64 %.03034.us.us42, 1
-  %24 = getelementptr inbounds nuw float, ptr %2, i64 %23
-  %25 = load float, ptr %24, align 4, !tbaa !55
-  %26 = fsub reassoc nsz arcp contract afn float %22, %25
-  store float %26, ptr %24, align 4, !tbaa !55
-  %27 = add nuw i64 %.03034.us.us42, 2
-  %28 = icmp ult i64 %27, %9
-  br i1 %28, label %.lr.ph.split.us.split.split.us, label %.loopexit
+.lr.ph.split.us.split.split.us.preheader:         ; preds = %.lr.ph.split.us.split
+  %invariant.gep = getelementptr i8, ptr %2, i64 4
+  br label %.lr.ph.split.us.split.split.us
+
+.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split.split.us.preheader, %.lr.ph.split.us.split.split.us
+  %.03034.us.us42 = phi i64 [ %24, %.lr.ph.split.us.split.split.us ], [ 0, %.lr.ph.split.us.split.split.us.preheader ]
+  %gep = getelementptr float, ptr %invariant.gep, i64 %.03034.us.us42
+  %22 = load float, ptr %gep, align 4, !tbaa !55
+  %23 = fsub reassoc nsz arcp contract afn float %21, %22
+  store float %23, ptr %gep, align 4, !tbaa !55
+  %24 = add nuw i64 %.03034.us.us42, 2
+  %25 = icmp ult i64 %24, %9
+  br i1 %25, label %.lr.ph.split.us.split.split.us, label %.loopexit
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
-  %.03034.us = phi i64 [ %35, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
-  %29 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us
-  %30 = load float, ptr %29, align 4, !tbaa !55
-  %31 = or disjoint i64 %.03034.us, 1
-  %32 = getelementptr inbounds nuw float, ptr %2, i64 %31
-  %33 = load float, ptr %32, align 4, !tbaa !55
-  %34 = fsub reassoc nsz arcp contract afn float %22, %33
-  store float %34, ptr %29, align 4, !tbaa !55
-  store float %30, ptr %32, align 4, !tbaa !55
-  %35 = add nuw i64 %.03034.us, 2
-  %36 = icmp ult i64 %35, %9
-  br i1 %36, label %.lr.ph.split.us.split.split, label %.loopexit
+  %.03034.us = phi i64 [ %31, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
+  %26 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us
+  %27 = load float, ptr %26, align 4, !tbaa !55
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %29 = load float, ptr %28, align 4, !tbaa !55
+  %30 = fsub reassoc nsz arcp contract afn float %21, %29
+  store float %30, ptr %26, align 4, !tbaa !55
+  store float %27, ptr %28, align 4, !tbaa !55
+  %31 = add nuw i64 %.03034.us, 2
+  %32 = icmp ult i64 %31, %9
+  br i1 %32, label %.lr.ph.split.us.split.split, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %38 = load i32, ptr %37, align 8, !tbaa !57
-  %39 = sitofp i32 %38 to float
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %34 = load i32, ptr %33, align 8, !tbaa !57
+  %35 = sitofp i32 %34 to float
   br i1 %.not31, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
   br i1 %.not32, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split.us
-  %.03034.us35.us = phi i64 [ %46, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
-  %40 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us35.us
-  %41 = load float, ptr %40, align 4, !tbaa !55
-  %42 = or disjoint i64 %.03034.us35.us, 1
-  %43 = getelementptr inbounds nuw float, ptr %2, i64 %42
-  %44 = load float, ptr %43, align 4, !tbaa !55
-  %45 = fsub reassoc nsz arcp contract afn float %39, %41
-  store float %45, ptr %40, align 4, !tbaa !55
-  store float %44, ptr %43, align 4, !tbaa !55
-  %46 = add nuw i64 %.03034.us35.us, 2
-  %47 = icmp ult i64 %46, %9
-  br i1 %47, label %.lr.ph.split.split.us.split.us, label %.loopexit
+  %.03034.us35.us = phi i64 [ %41, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
+  %36 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us35.us
+  %37 = load float, ptr %36, align 4, !tbaa !55
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %39 = load float, ptr %38, align 4, !tbaa !55
+  %40 = fsub reassoc nsz arcp contract afn float %35, %37
+  store float %40, ptr %36, align 4, !tbaa !55
+  store float %39, ptr %38, align 4, !tbaa !55
+  %41 = add nuw i64 %.03034.us35.us, 2
+  %42 = icmp ult i64 %41, %9
+  br i1 %42, label %.lr.ph.split.split.us.split.us, label %.loopexit
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
-  %.03034.us35 = phi i64 [ %54, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
-  %48 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us35
-  %49 = load float, ptr %48, align 4, !tbaa !55
-  %50 = or disjoint i64 %.03034.us35, 1
-  %51 = getelementptr inbounds nuw float, ptr %2, i64 %50
-  %52 = load float, ptr %51, align 4, !tbaa !55
-  %53 = fsub reassoc nsz arcp contract afn float %39, %49
-  store float %52, ptr %48, align 4, !tbaa !55
-  store float %53, ptr %51, align 4, !tbaa !55
-  %54 = add nuw i64 %.03034.us35, 2
-  %55 = icmp ult i64 %54, %9
-  br i1 %55, label %.lr.ph.split.split.us.split, label %.loopexit
+  %.03034.us35 = phi i64 [ %48, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
+  %43 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us35
+  %44 = load float, ptr %43, align 4, !tbaa !55
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %46 = load float, ptr %45, align 4, !tbaa !55
+  %47 = fsub reassoc nsz arcp contract afn float %35, %44
+  store float %46, ptr %43, align 4, !tbaa !55
+  store float %47, ptr %45, align 4, !tbaa !55
+  %48 = add nuw i64 %.03034.us35, 2
+  %49 = icmp ult i64 %48, %9
+  br i1 %49, label %.lr.ph.split.split.us.split, label %.loopexit
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %56 = load i32, ptr %12, align 4, !tbaa !56
-  %57 = sitofp i32 %56 to float
+  %50 = load i32, ptr %12, align 4, !tbaa !56
+  %51 = sitofp i32 %50 to float
   br i1 %.not32, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split.us
-  %.03034.us39 = phi i64 [ %65, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split ]
-  %58 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us39
-  %59 = load float, ptr %58, align 4, !tbaa !55
-  %60 = or disjoint i64 %.03034.us39, 1
-  %61 = getelementptr inbounds nuw float, ptr %2, i64 %60
-  %62 = load float, ptr %61, align 4, !tbaa !55
-  %63 = fsub reassoc nsz arcp contract afn float %39, %59
-  %64 = fsub reassoc nsz arcp contract afn float %57, %62
-  store float %63, ptr %58, align 4, !tbaa !55
-  store float %64, ptr %61, align 4, !tbaa !55
-  %65 = add nuw i64 %.03034.us39, 2
-  %66 = icmp ult i64 %65, %9
-  br i1 %66, label %.lr.ph.split.split.split.us, label %.loopexit
+  %.03034.us39 = phi i64 [ %58, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split ]
+  %52 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us39
+  %53 = load float, ptr %52, align 4, !tbaa !55
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %55 = load float, ptr %54, align 4, !tbaa !55
+  %56 = fsub reassoc nsz arcp contract afn float %35, %53
+  %57 = fsub reassoc nsz arcp contract afn float %51, %55
+  store float %56, ptr %52, align 4, !tbaa !55
+  store float %57, ptr %54, align 4, !tbaa !55
+  %58 = add nuw i64 %.03034.us39, 2
+  %59 = icmp ult i64 %58, %9
+  br i1 %59, label %.lr.ph.split.split.split.us, label %.loopexit
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
-  %.03034 = phi i64 [ %74, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
-  %67 = getelementptr inbounds nuw float, ptr %2, i64 %.03034
-  %68 = load float, ptr %67, align 4, !tbaa !55
-  %69 = or disjoint i64 %.03034, 1
-  %70 = getelementptr inbounds nuw float, ptr %2, i64 %69
-  %71 = load float, ptr %70, align 4, !tbaa !55
-  %72 = fsub reassoc nsz arcp contract afn float %39, %68
-  %73 = fsub reassoc nsz arcp contract afn float %57, %71
-  store float %73, ptr %67, align 4, !tbaa !55
-  store float %72, ptr %70, align 4, !tbaa !55
-  %74 = add nuw i64 %.03034, 2
-  %75 = icmp ult i64 %74, %9
-  br i1 %75, label %.lr.ph.split.split.split, label %.loopexit
+  %.03034 = phi i64 [ %66, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
+  %60 = getelementptr inbounds nuw float, ptr %2, i64 %.03034
+  %61 = load float, ptr %60, align 4, !tbaa !55
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  %63 = load float, ptr %62, align 4, !tbaa !55
+  %64 = fsub reassoc nsz arcp contract afn float %35, %61
+  %65 = fsub reassoc nsz arcp contract afn float %51, %63
+  store float %65, ptr %60, align 4, !tbaa !55
+  store float %64, ptr %62, align 4, !tbaa !55
+  %66 = add nuw i64 %.03034, 2
+  %67 = icmp ult i64 %66, %9
+  br i1 %67, label %.lr.ph.split.split.split, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us, %.preheader, %4
   ret i32 1
@@ -340,21 +337,21 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !47
   %7 = load i32, ptr %6, align 4, !tbaa !53
-  %.fr57 = freeze i32 %7
-  %8 = icmp eq i32 %.fr57, 0
+  %.fr51 = freeze i32 %7
+  %8 = icmp eq i32 %.fr51, 0
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %4
   %9 = shl i64 %3, 1
-  %.not56 = icmp eq i64 %9, 0
-  br i1 %.not56, label %.loopexit, label %.lr.ph
+  %.not50 = icmp eq i64 %9, 0
+  br i1 %.not50, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = and i32 %.fr57, 4
+  %10 = and i32 %.fr51, 4
   %.not = icmp eq i32 %10, 0
-  %11 = and i32 %.fr57, 2
+  %11 = and i32 %.fr51, 2
   %.not30 = icmp eq i32 %11, 0
-  %12 = and i32 %.fr57, 1
+  %12 = and i32 %.fr51, 1
   %.not31 = icmp eq i32 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 148
   br i1 %.not30, label %.lr.ph.split.us, label %.lr.ph.split
@@ -366,119 +363,116 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
   br i1 %.not, label %.loopexit, label %.lr.ph.split.us.split.us.split
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split
-  %.02832.us.us = phi i64 [ %15, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
-  %14 = or disjoint i64 %.02832.us.us, 1
-  %.0.in.us.us = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us.us
-  %.0.us.us = load float, ptr %.0.in.us.us, align 4, !tbaa !55
-  %.026.in.us.us = getelementptr inbounds nuw float, ptr %2, i64 %14
-  %.026.us.us = load float, ptr %.026.in.us.us, align 4, !tbaa !55
-  store float %.026.us.us, ptr %.0.in.us.us, align 4, !tbaa !55
-  store float %.0.us.us, ptr %.026.in.us.us, align 4, !tbaa !55
-  %15 = add nuw i64 %.02832.us.us, 2
-  %16 = icmp ult i64 %15, %9
-  br i1 %16, label %.lr.ph.split.us.split.us.split, label %.loopexit
+  %.02832.us.us = phi i64 [ %16, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
+  %14 = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us.us
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %.0.us.us = load float, ptr %14, align 4, !tbaa !55
+  %.026.us.us = load float, ptr %15, align 4, !tbaa !55
+  store float %.026.us.us, ptr %14, align 4, !tbaa !55
+  store float %.0.us.us, ptr %15, align 4, !tbaa !55
+  %16 = add nuw i64 %.02832.us.us, 2
+  %17 = icmp ult i64 %16, %9
+  br i1 %17, label %.lr.ph.split.us.split.us.split, label %.loopexit
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  %17 = load i32, ptr %13, align 4, !tbaa !56
-  %18 = sitofp i32 %17 to float
-  br i1 %.not, label %.lr.ph.split.us.split.split.us, label %.lr.ph.split.us.split.split
+  %18 = load i32, ptr %13, align 4, !tbaa !56
+  %19 = sitofp i32 %18 to float
+  br i1 %.not, label %.lr.ph.split.us.split.split.us.preheader, label %.lr.ph.split.us.split.split
 
-.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split.us
-  %.02832.us.us48 = phi i64 [ %21, %.lr.ph.split.us.split.split.us ], [ 0, %.lr.ph.split.us.split ]
-  %19 = or disjoint i64 %.02832.us.us48, 1
-  %.0.in.us.us50 = getelementptr inbounds nuw float, ptr %2, i64 %19
-  %.0.us.us51 = load float, ptr %.0.in.us.us50, align 4, !tbaa !55
-  %20 = fsub reassoc nsz arcp contract afn float %18, %.0.us.us51
-  store float %20, ptr %.0.in.us.us50, align 4, !tbaa !55
-  %21 = add nuw i64 %.02832.us.us48, 2
+.lr.ph.split.us.split.split.us.preheader:         ; preds = %.lr.ph.split.us.split
+  %invariant.gep = getelementptr i8, ptr %2, i64 4
+  br label %.lr.ph.split.us.split.split.us
+
+.lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split.split.us.preheader, %.lr.ph.split.us.split.split.us
+  %.02832.us.us44 = phi i64 [ %21, %.lr.ph.split.us.split.split.us ], [ 0, %.lr.ph.split.us.split.split.us.preheader ]
+  %gep = getelementptr float, ptr %invariant.gep, i64 %.02832.us.us44
+  %.0.us.us46 = load float, ptr %gep, align 4, !tbaa !55
+  %20 = fsub reassoc nsz arcp contract afn float %19, %.0.us.us46
+  store float %20, ptr %gep, align 4, !tbaa !55
+  %21 = add nuw i64 %.02832.us.us44, 2
   %22 = icmp ult i64 %21, %9
   br i1 %22, label %.lr.ph.split.us.split.split.us, label %.loopexit
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
-  %.02832.us = phi i64 [ %25, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
-  %23 = or disjoint i64 %.02832.us, 1
-  %.0.in.us = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us
-  %.0.us = load float, ptr %.0.in.us, align 4, !tbaa !55
-  %.026.in.us = getelementptr inbounds nuw float, ptr %2, i64 %23
-  %.026.us = load float, ptr %.026.in.us, align 4, !tbaa !55
-  %24 = fsub reassoc nsz arcp contract afn float %18, %.0.us
-  store float %.026.us, ptr %.0.in.us, align 4, !tbaa !55
-  store float %24, ptr %.026.in.us, align 4, !tbaa !55
-  %25 = add nuw i64 %.02832.us, 2
-  %26 = icmp ult i64 %25, %9
-  br i1 %26, label %.lr.ph.split.us.split.split, label %.loopexit
+  %.02832.us = phi i64 [ %26, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
+  %23 = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %.0.us = load float, ptr %23, align 4, !tbaa !55
+  %.026.us = load float, ptr %24, align 4, !tbaa !55
+  %25 = fsub reassoc nsz arcp contract afn float %19, %.0.us
+  store float %.026.us, ptr %23, align 4, !tbaa !55
+  store float %25, ptr %24, align 4, !tbaa !55
+  %26 = add nuw i64 %.02832.us, 2
+  %27 = icmp ult i64 %26, %9
+  br i1 %27, label %.lr.ph.split.us.split.split, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %28 = load i32, ptr %27, align 8, !tbaa !57
-  %29 = sitofp i32 %28 to float
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %29 = load i32, ptr %28, align 8, !tbaa !57
+  %30 = sitofp i32 %29 to float
   br i1 %.not31, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
   br i1 %.not, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split.us
-  %.02832.us33.us = phi i64 [ %32, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
-  %30 = or disjoint i64 %.02832.us33.us, 1
-  %.0.in.us36.us = getelementptr inbounds nuw float, ptr %2, i64 %30
-  %.0.us37.us = load float, ptr %.0.in.us36.us, align 4, !tbaa !55
-  %.026.in.us38.us = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us33.us
-  %.026.us39.us = load float, ptr %.026.in.us38.us, align 4, !tbaa !55
-  %31 = fsub reassoc nsz arcp contract afn float %29, %.026.us39.us
-  store float %31, ptr %.026.in.us38.us, align 4, !tbaa !55
-  store float %.0.us37.us, ptr %.0.in.us36.us, align 4, !tbaa !55
-  %32 = add nuw i64 %.02832.us33.us, 2
-  %33 = icmp ult i64 %32, %9
-  br i1 %33, label %.lr.ph.split.split.us.split.us, label %.loopexit
+  %.02832.us33.us = phi i64 [ %34, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
+  %31 = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us33.us
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %.0.us36.us = load float, ptr %32, align 4, !tbaa !55
+  %.026.us37.us = load float, ptr %31, align 4, !tbaa !55
+  %33 = fsub reassoc nsz arcp contract afn float %30, %.026.us37.us
+  store float %33, ptr %31, align 4, !tbaa !55
+  store float %.0.us36.us, ptr %32, align 4, !tbaa !55
+  %34 = add nuw i64 %.02832.us33.us, 2
+  %35 = icmp ult i64 %34, %9
+  br i1 %35, label %.lr.ph.split.split.us.split.us, label %.loopexit
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
-  %.02832.us33 = phi i64 [ %36, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
-  %34 = or disjoint i64 %.02832.us33, 1
-  %.0.in.us36 = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us33
-  %.0.us37 = load float, ptr %.0.in.us36, align 4, !tbaa !55
-  %.026.in.us38 = getelementptr inbounds nuw float, ptr %2, i64 %34
-  %.026.us39 = load float, ptr %.026.in.us38, align 4, !tbaa !55
-  %35 = fsub reassoc nsz arcp contract afn float %29, %.026.us39
-  store float %35, ptr %.0.in.us36, align 4, !tbaa !55
-  store float %.0.us37, ptr %.026.in.us38, align 4, !tbaa !55
-  %36 = add nuw i64 %.02832.us33, 2
-  %37 = icmp ult i64 %36, %9
-  br i1 %37, label %.lr.ph.split.split.us.split, label %.loopexit
+  %.02832.us33 = phi i64 [ %39, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
+  %36 = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us33
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %.0.us36 = load float, ptr %36, align 4, !tbaa !55
+  %.026.us37 = load float, ptr %37, align 4, !tbaa !55
+  %38 = fsub reassoc nsz arcp contract afn float %30, %.026.us37
+  store float %38, ptr %36, align 4, !tbaa !55
+  store float %.0.us36, ptr %37, align 4, !tbaa !55
+  %39 = add nuw i64 %.02832.us33, 2
+  %40 = icmp ult i64 %39, %9
+  br i1 %40, label %.lr.ph.split.split.us.split, label %.loopexit
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %38 = load i32, ptr %13, align 4, !tbaa !56
-  %39 = sitofp i32 %38 to float
+  %41 = load i32, ptr %13, align 4, !tbaa !56
+  %42 = sitofp i32 %41 to float
   br i1 %.not, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split.us
-  %.02832.us41 = phi i64 [ %43, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split ]
-  %40 = or disjoint i64 %.02832.us41, 1
-  %.0.in.us43 = getelementptr inbounds nuw float, ptr %2, i64 %40
-  %.0.us44 = load float, ptr %.0.in.us43, align 4, !tbaa !55
-  %.026.in.us45 = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us41
-  %.026.us46 = load float, ptr %.026.in.us45, align 4, !tbaa !55
-  %41 = fsub reassoc nsz arcp contract afn float %29, %.026.us46
-  %42 = fsub reassoc nsz arcp contract afn float %39, %.0.us44
-  store float %41, ptr %.026.in.us45, align 4, !tbaa !55
-  store float %42, ptr %.0.in.us43, align 4, !tbaa !55
-  %43 = add nuw i64 %.02832.us41, 2
-  %44 = icmp ult i64 %43, %9
-  br i1 %44, label %.lr.ph.split.split.split.us, label %.loopexit
+  %.02832.us39 = phi i64 [ %47, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split ]
+  %43 = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us39
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %.0.us41 = load float, ptr %44, align 4, !tbaa !55
+  %.026.us42 = load float, ptr %43, align 4, !tbaa !55
+  %45 = fsub reassoc nsz arcp contract afn float %30, %.026.us42
+  %46 = fsub reassoc nsz arcp contract afn float %42, %.0.us41
+  store float %45, ptr %43, align 4, !tbaa !55
+  store float %46, ptr %44, align 4, !tbaa !55
+  %47 = add nuw i64 %.02832.us39, 2
+  %48 = icmp ult i64 %47, %9
+  br i1 %48, label %.lr.ph.split.split.split.us, label %.loopexit
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
-  %.02832 = phi i64 [ %48, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
-  %45 = or disjoint i64 %.02832, 1
-  %.0.in = getelementptr inbounds nuw float, ptr %2, i64 %.02832
-  %.0 = load float, ptr %.0.in, align 4, !tbaa !55
-  %.026.in = getelementptr inbounds nuw float, ptr %2, i64 %45
-  %.026 = load float, ptr %.026.in, align 4, !tbaa !55
-  %46 = fsub reassoc nsz arcp contract afn float %29, %.026
-  %47 = fsub reassoc nsz arcp contract afn float %39, %.0
-  store float %46, ptr %.0.in, align 4, !tbaa !55
-  store float %47, ptr %.026.in, align 4, !tbaa !55
-  %48 = add nuw i64 %.02832, 2
-  %49 = icmp ult i64 %48, %9
-  br i1 %49, label %.lr.ph.split.split.split, label %.loopexit
+  %.02832 = phi i64 [ %53, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
+  %49 = getelementptr inbounds nuw float, ptr %2, i64 %.02832
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %.0 = load float, ptr %49, align 4, !tbaa !55
+  %.026 = load float, ptr %50, align 4, !tbaa !55
+  %51 = fsub reassoc nsz arcp contract afn float %30, %.026
+  %52 = fsub reassoc nsz arcp contract afn float %42, %.0
+  store float %51, ptr %49, align 4, !tbaa !55
+  store float %52, ptr %50, align 4, !tbaa !55
+  %53 = add nuw i64 %.02832, 2
+  %54 = icmp ult i64 %53, %9
+  br i1 %54, label %.lr.ph.split.split.split, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.split.split.split, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us.split.split, %.lr.ph.split.us.split.split.us, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us, %.preheader, %4
   ret i32 1

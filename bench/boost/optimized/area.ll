@@ -162363,8 +162363,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217: ; preds = %_Z
 
 .lr.ph.i.i.i227.preheader:                        ; preds = %461
   %468 = and i64 %gepdiff, -4
-  %469 = or disjoint i64 %468, 1
-  %scevgep416 = getelementptr i8, ptr %458, i64 %469
+  %469 = getelementptr i8, ptr %458, i64 %468
+  %scevgep416 = getelementptr i8, ptr %469, i64 1
   br label %.lr.ph.i.i.i227
 
 .lr.ph.i.i.i227:                                  ; preds = %.lr.ph.i.i.i227.preheader, %480

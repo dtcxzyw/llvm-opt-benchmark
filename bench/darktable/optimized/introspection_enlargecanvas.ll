@@ -412,19 +412,18 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
   br label %46
 
 46:                                               ; preds = %.lr.ph, %46
-  %.033 = phi i64 [ 0, %.lr.ph ], [ %54, %46 ]
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %53, %46 ]
   %47 = getelementptr inbounds nuw float, ptr %2, i64 %.033
   %48 = load float, ptr %47, align 8, !tbaa !40
   %49 = fadd reassoc nsz arcp contract afn float %48, %44
   store float %49, ptr %47, align 8, !tbaa !40
-  %50 = or disjoint i64 %.033, 1
-  %51 = getelementptr inbounds nuw float, ptr %2, i64 %50
-  %52 = load float, ptr %51, align 4, !tbaa !40
-  %53 = fadd reassoc nsz arcp contract afn float %52, %45
-  store float %53, ptr %51, align 4, !tbaa !40
-  %54 = add nuw i64 %.033, 2
-  %55 = icmp ult i64 %54, %43
-  br i1 %55, label %46, label %.loopexit
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %51 = load float, ptr %50, align 4, !tbaa !40
+  %52 = fadd reassoc nsz arcp contract afn float %51, %45
+  store float %52, ptr %50, align 4, !tbaa !40
+  %53 = add nuw i64 %.033, 2
+  %54 = icmp ult i64 %53, %43
+  br i1 %54, label %46, label %.loopexit
 
 .loopexit:                                        ; preds = %46, %42, %33
   ret i32 1
@@ -497,19 +496,18 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
   br label %46
 
 46:                                               ; preds = %.lr.ph, %46
-  %.033 = phi i64 [ 0, %.lr.ph ], [ %54, %46 ]
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %53, %46 ]
   %47 = getelementptr inbounds nuw float, ptr %2, i64 %.033
   %48 = load float, ptr %47, align 8, !tbaa !40
   %49 = fsub reassoc nsz arcp contract afn float %48, %44
   store float %49, ptr %47, align 8, !tbaa !40
-  %50 = or disjoint i64 %.033, 1
-  %51 = getelementptr inbounds nuw float, ptr %2, i64 %50
-  %52 = load float, ptr %51, align 4, !tbaa !40
-  %53 = fsub reassoc nsz arcp contract afn float %52, %45
-  store float %53, ptr %51, align 4, !tbaa !40
-  %54 = add nuw i64 %.033, 2
-  %55 = icmp ult i64 %54, %43
-  br i1 %55, label %46, label %.loopexit
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %51 = load float, ptr %50, align 4, !tbaa !40
+  %52 = fsub reassoc nsz arcp contract afn float %51, %45
+  store float %52, ptr %50, align 4, !tbaa !40
+  %53 = add nuw i64 %.033, 2
+  %54 = icmp ult i64 %53, %43
+  br i1 %54, label %46, label %.loopexit
 
 .loopexit:                                        ; preds = %46, %42, %33
   ret i32 1

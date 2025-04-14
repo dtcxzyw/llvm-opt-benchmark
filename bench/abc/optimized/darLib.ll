@@ -1204,104 +1204,103 @@ Dar_LibAlloc.exit:                                ; preds = %.lr.ph, %Dar_LibAll
   %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !18
   %38 = ashr i32 %37, 1
-  %39 = or disjoint i64 %indvars.iv, 1
-  %40 = getelementptr inbounds nuw i32, ptr %35, i64 %39
-  %41 = load i32, ptr %40, align 4, !tbaa !18
-  %42 = ashr i32 %41, 1
-  %43 = and i32 %37, 1
-  %44 = and i32 %41, 1
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %40 = load i32, ptr %39, align 4, !tbaa !18
+  %41 = ashr i32 %40, 1
+  %42 = and i32 %37, 1
+  %43 = and i32 %40, 1
   %.val.i = load ptr, ptr %calloc.i, align 8, !tbaa !15
-  %45 = sext i32 %38 to i64
-  %46 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val.i, i64 %45
-  %47 = sext i32 %42 to i64
-  %48 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val.i, i64 %47
-  %49 = load i32, ptr %16, align 4, !tbaa !17
-  %50 = add nsw i32 %49, 1
-  store i32 %50, ptr %16, align 4, !tbaa !17
-  %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val.i, i64 %51
-  %53 = load i64, ptr %52, align 4
-  %54 = and i64 %53, -17179869184
-  %55 = shl i32 %42, 16
-  %56 = and i32 %38, 65535
-  %57 = zext nneg i32 %43 to i64
-  %58 = shl nuw nsw i64 %57, 32
-  %59 = zext nneg i32 %44 to i64
-  %60 = shl nuw nsw i64 %59, 33
-  %61 = or disjoint i32 %55, %56
-  %62 = zext i32 %61 to i64
-  %63 = or disjoint i64 %58, %62
-  %64 = or disjoint i64 %63, %60
-  %65 = or disjoint i64 %64, %54
-  store i64 %65, ptr %52, align 4
-  %66 = load i64, ptr %46, align 4
-  %67 = lshr i64 %66, 34
-  %68 = trunc nuw nsw i64 %67 to i32
-  %69 = xor i32 %37, %68
-  %70 = load i64, ptr %48, align 4
-  %71 = lshr i64 %70, 34
-  %72 = trunc nuw nsw i64 %71 to i32
-  %73 = xor i32 %44, %72
-  %74 = and i32 %69, 1
-  %75 = and i32 %74, %73
-  %76 = zext nneg i32 %75 to i64
-  %77 = shl nuw nsw i64 %76, 34
-  %78 = and i64 %65, -17179869185
-  %79 = or disjoint i64 %77, %78
-  store i64 %79, ptr %52, align 4
-  %80 = load i64, ptr %46, align 4
-  %sext = sub nsw i32 0, %43
-  %81 = sext i32 %sext to i64
-  %82 = xor i64 %80, %81
-  %.not25.i = icmp eq i32 %44, 0
-  %83 = load i64, ptr %48, align 4
-  %84 = xor i64 %83, -68719476736
-  %85 = select i1 %.not25.i, i64 %83, i64 %84
-  %86 = and i64 %82, 4503530907893760
-  %87 = and i64 %86, %85
-  %88 = and i64 %79, 68719476735
-  %89 = or disjoint i64 %88, %87
-  store i64 %89, ptr %52, align 4
+  %44 = sext i32 %38 to i64
+  %45 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val.i, i64 %44
+  %46 = sext i32 %41 to i64
+  %47 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val.i, i64 %46
+  %48 = load i32, ptr %16, align 4, !tbaa !17
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %16, align 4, !tbaa !17
+  %50 = sext i32 %48 to i64
+  %51 = getelementptr inbounds %struct.Dar_LibObj_t_, ptr %.val.i, i64 %50
+  %52 = load i64, ptr %51, align 4
+  %53 = and i64 %52, -17179869184
+  %54 = shl i32 %41, 16
+  %55 = and i32 %38, 65535
+  %56 = zext nneg i32 %42 to i64
+  %57 = shl nuw nsw i64 %56, 32
+  %58 = zext nneg i32 %43 to i64
+  %59 = shl nuw nsw i64 %58, 33
+  %60 = or disjoint i32 %54, %55
+  %61 = zext i32 %60 to i64
+  %62 = or disjoint i64 %57, %61
+  %63 = or disjoint i64 %62, %59
+  %64 = or disjoint i64 %63, %53
+  store i64 %64, ptr %51, align 4
+  %65 = load i64, ptr %45, align 4
+  %66 = lshr i64 %65, 34
+  %67 = trunc nuw nsw i64 %66 to i32
+  %68 = xor i32 %37, %67
+  %69 = load i64, ptr %47, align 4
+  %70 = lshr i64 %69, 34
+  %71 = trunc nuw nsw i64 %70 to i32
+  %72 = xor i32 %43, %71
+  %73 = and i32 %68, 1
+  %74 = and i32 %73, %72
+  %75 = zext nneg i32 %74 to i64
+  %76 = shl nuw nsw i64 %75, 34
+  %77 = and i64 %64, -17179869185
+  %78 = or disjoint i64 %76, %77
+  store i64 %78, ptr %51, align 4
+  %79 = load i64, ptr %45, align 4
+  %sext = sub nsw i32 0, %42
+  %80 = sext i32 %sext to i64
+  %81 = xor i64 %79, %80
+  %.not25.i = icmp eq i32 %43, 0
+  %82 = load i64, ptr %47, align 4
+  %83 = xor i64 %82, -68719476736
+  %84 = select i1 %.not25.i, i64 %82, i64 %83
+  %85 = and i64 %81, 4503530907893760
+  %86 = and i64 %85, %84
+  %87 = and i64 %78, 68719476735
+  %88 = or disjoint i64 %87, %86
+  store i64 %88, ptr %51, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %90 = load i32, ptr %4, align 4, !tbaa !38
-  %91 = sext i32 %90 to i64
-  %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %Dar_LibAlloc.exit, label %Dar_LibAlloc.exit._crit_edge, !llvm.loop !72
+  %89 = load i32, ptr %4, align 4, !tbaa !38
+  %90 = sext i32 %89 to i64
+  %91 = icmp slt i64 %indvars.iv.next, %90
+  br i1 %91, label %Dar_LibAlloc.exit, label %Dar_LibAlloc.exit._crit_edge, !llvm.loop !72
 
 Dar_LibAlloc.exit._crit_edge:                     ; preds = %Dar_LibAlloc.exit, %Dar_LibAlloc.exit.preheader
   tail call void @Dar_LibSetup(ptr noundef nonnull %calloc.i, ptr noundef %2, ptr noundef %3)
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !40
-  %.not.i19 = icmp eq ptr %94, null
-  br i1 %.not.i19, label %Vec_IntFree.exit, label %95
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !40
+  %.not.i19 = icmp eq ptr %93, null
+  br i1 %.not.i19, label %Vec_IntFree.exit, label %94
 
-95:                                               ; preds = %Dar_LibAlloc.exit._crit_edge
-  tail call void @free(ptr noundef nonnull %94) #20
+94:                                               ; preds = %Dar_LibAlloc.exit._crit_edge
+  tail call void @free(ptr noundef nonnull %93) #20
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Dar_LibAlloc.exit._crit_edge, %95
+Vec_IntFree.exit:                                 ; preds = %Dar_LibAlloc.exit._crit_edge, %94
   tail call void @free(ptr noundef nonnull %1) #20
-  %96 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !40
-  %.not.i20 = icmp eq ptr %97, null
-  br i1 %.not.i20, label %Vec_IntFree.exit21, label %98
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %96 = load ptr, ptr %95, align 8, !tbaa !40
+  %.not.i20 = icmp eq ptr %96, null
+  br i1 %.not.i20, label %Vec_IntFree.exit21, label %97
 
-98:                                               ; preds = %Vec_IntFree.exit
-  tail call void @free(ptr noundef nonnull %97) #20
+97:                                               ; preds = %Vec_IntFree.exit
+  tail call void @free(ptr noundef nonnull %96) #20
   br label %Vec_IntFree.exit21
 
-Vec_IntFree.exit21:                               ; preds = %Vec_IntFree.exit, %98
+Vec_IntFree.exit21:                               ; preds = %Vec_IntFree.exit, %97
   tail call void @free(ptr noundef nonnull %2) #20
-  %99 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %100 = load ptr, ptr %99, align 8, !tbaa !40
-  %.not.i22 = icmp eq ptr %100, null
-  br i1 %.not.i22, label %Vec_IntFree.exit23, label %101
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %99 = load ptr, ptr %98, align 8, !tbaa !40
+  %.not.i22 = icmp eq ptr %99, null
+  br i1 %.not.i22, label %Vec_IntFree.exit23, label %100
 
-101:                                              ; preds = %Vec_IntFree.exit21
-  tail call void @free(ptr noundef nonnull %100) #20
+100:                                              ; preds = %Vec_IntFree.exit21
+  tail call void @free(ptr noundef nonnull %99) #20
   br label %Vec_IntFree.exit23
 
-Vec_IntFree.exit23:                               ; preds = %Vec_IntFree.exit21, %101
+Vec_IntFree.exit23:                               ; preds = %Vec_IntFree.exit21, %100
   tail call void @free(ptr noundef nonnull %3) #20
   ret ptr %calloc.i
 }

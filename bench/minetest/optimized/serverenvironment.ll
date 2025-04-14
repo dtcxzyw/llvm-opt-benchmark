@@ -12744,9 +12744,9 @@ for.body.i:                                       ; preds = %call1.i71.i.noexc, 
   br i1 %cmp7.i, label %if.then8.i, label %if.else.i
 
 if.then8.i:                                       ; preds = %for.body.i
-  %25 = or disjoint i64 %indvars.iv.i, %19
-  %26 = load ptr, ptr %data, align 8, !tbaa !11
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %26, i64 %25
+  %25 = load ptr, ptr %data, align 8, !tbaa !11
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %26, i64 %19
   %27 = load i8, ptr %arrayidx.i.i, align 1, !tbaa !13
   %conv11.i = sext i8 %27 to i32
   %call12.i207 = invoke noundef i32 (ptr, i64, ptr, ...) @_ZN7porting11mt_snprintfEPcmPKcz(ptr noundef nonnull %buf.i, i64 noundef 4, ptr noundef nonnull @.str.166, i32 noundef %conv11.i)

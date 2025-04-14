@@ -108,9 +108,9 @@ define dso_local noundef i32 @node_attr_put(ptr noundef %0, ptr noundef %1) loca
   %24 = load ptr, ptr @node_attr, align 8
   %25 = load i32, ptr @na_cnt, align 4
   %26 = shl nsw i32 %25, 1
-  %27 = or disjoint i32 %26, 1
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %28
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr ptr, ptr %24, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 8
   store ptr %23, ptr %29, align 8
   %30 = add nsw i32 %25, 1
   store i32 %30, ptr @na_cnt, align 4
@@ -263,23 +263,22 @@ define dso_local ptr @node_attr_get(ptr noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %.lr.ph
   %18 = load ptr, ptr @node_attr, align 8
-  %19 = and i64 %13, 4294967294
-  %20 = or disjoint i64 %19, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
-  %22 = load ptr, ptr %21, align 8
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %13
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load ptr, ptr %20, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %5, %17
-  %.0 = phi ptr [ %22, %17 ], [ null, %5 ], [ null, %8 ]
-  %23 = tail call i32 @slurm_get_log_level() #5
-  %24 = icmp sgt i32 %23, 6
-  br i1 %24, label %25, label %26
+  %.0 = phi ptr [ %21, %17 ], [ null, %5 ], [ null, %8 ]
+  %22 = tail call i32 @slurm_get_log_level() #5
+  %23 = icmp sgt i32 %22, 6
+  br i1 %23, label %24, label %25
 
-25:                                               ; preds = %.loopexit
+24:                                               ; preds = %.loopexit
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.node_attr_get, ptr noundef %.0) #5
-  br label %26
+  br label %25
 
-26:                                               ; preds = %25, %.loopexit
+25:                                               ; preds = %24, %.loopexit
   ret ptr %.0
 }
 

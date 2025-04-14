@@ -12226,29 +12226,21 @@ define internal noundef float @_ZN2cv6detail12_GLOBAL__N_113diffL2Square4IfEEfRK
   %30 = load float, ptr %29, align 4, !tbaa !292
   %31 = fsub float %26, %30
   %32 = fmul float %31, %31
-  %33 = or disjoint i32 %23, 1
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds float, ptr %14, i64 %34
+  %33 = getelementptr i8, ptr %25, i64 4
+  %34 = load float, ptr %33, align 4, !tbaa !292
+  %35 = getelementptr i8, ptr %29, i64 4
   %36 = load float, ptr %35, align 4, !tbaa !292
-  %37 = or disjoint i32 %27, 1
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds float, ptr %22, i64 %38
-  %40 = load float, ptr %39, align 4, !tbaa !292
-  %41 = fsub float %36, %40
-  %42 = fmul float %41, %41
-  %43 = fadd float %32, %42
-  %44 = or disjoint i32 %23, 2
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds float, ptr %14, i64 %45
-  %47 = load float, ptr %46, align 4, !tbaa !292
-  %48 = or disjoint i32 %27, 2
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds float, ptr %22, i64 %49
-  %51 = load float, ptr %50, align 4, !tbaa !292
-  %52 = fsub float %47, %51
-  %53 = fmul float %52, %52
-  %54 = fadd float %43, %53
-  ret float %54
+  %37 = fsub float %34, %36
+  %38 = fmul float %37, %37
+  %39 = fadd float %32, %38
+  %40 = getelementptr i8, ptr %25, i64 8
+  %41 = load float, ptr %40, align 4, !tbaa !292
+  %42 = getelementptr i8, ptr %29, i64 8
+  %43 = load float, ptr %42, align 4, !tbaa !292
+  %44 = fsub float %41, %43
+  %45 = fmul float %44, %44
+  %46 = fadd float %39, %45
+  ret float %46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -12281,34 +12273,26 @@ define internal noundef float @_ZN2cv6detail12_GLOBAL__N_113diffL2Square4IhEEfRK
   %32 = zext i8 %31 to i32
   %33 = sub nsw i32 %27, %32
   %34 = mul nsw i32 %33, %33
-  %35 = or disjoint i32 %23, 1
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %14, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !85
-  %39 = zext i8 %38 to i32
-  %40 = or disjoint i32 %28, 1
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %22, i64 %41
-  %43 = load i8, ptr %42, align 1, !tbaa !85
-  %44 = zext i8 %43 to i32
-  %45 = sub nsw i32 %39, %44
-  %46 = mul nsw i32 %45, %45
-  %47 = add nuw nsw i32 %46, %34
-  %48 = or disjoint i32 %23, 2
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %14, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !85
-  %52 = zext i8 %51 to i32
-  %53 = or disjoint i32 %28, 2
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %22, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !85
-  %57 = zext i8 %56 to i32
-  %58 = sub nsw i32 %52, %57
-  %59 = mul nsw i32 %58, %58
-  %60 = add nuw nsw i32 %47, %59
-  %61 = uitofp nneg i32 %60 to float
-  ret float %61
+  %35 = getelementptr i8, ptr %25, i64 1
+  %36 = load i8, ptr %35, align 1, !tbaa !85
+  %37 = zext i8 %36 to i32
+  %38 = getelementptr i8, ptr %30, i64 1
+  %39 = load i8, ptr %38, align 1, !tbaa !85
+  %40 = zext i8 %39 to i32
+  %41 = sub nsw i32 %37, %40
+  %42 = mul nsw i32 %41, %41
+  %43 = add nuw nsw i32 %42, %34
+  %44 = getelementptr i8, ptr %25, i64 2
+  %45 = load i8, ptr %44, align 1, !tbaa !85
+  %46 = zext i8 %45 to i32
+  %47 = getelementptr i8, ptr %30, i64 2
+  %48 = load i8, ptr %47, align 1, !tbaa !85
+  %49 = zext i8 %48 to i32
+  %50 = sub nsw i32 %46, %49
+  %51 = mul nsw i32 %50, %50
+  %52 = add nuw nsw i32 %43, %51
+  %53 = uitofp nneg i32 %52 to float
+  ret float %53
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

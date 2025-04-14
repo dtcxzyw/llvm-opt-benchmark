@@ -1371,8 +1371,8 @@ _ZNK4llvm6MDNode10getOperandEj.exit146:           ; preds = %176, %178
 
 _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
   %.sroa.0.0.i.i148 = phi ptr [ %203, %199 ], [ %198, %197 ]
-  %204 = or disjoint i64 %183, 1
-  %205 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i148, i64 %204
+  %204 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i148, i64 %183
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %206 = load ptr, ptr %205, align 8, !tbaa !367
   %207 = load i8, ptr %206, align 4, !tbaa !373
   %.not.i150 = icmp eq i8 %207, 1
@@ -1450,26 +1450,26 @@ _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
   %249 = zext nneg i32 %248 to i64
   %250 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %249
   %251 = load i8, ptr %250, align 1, !tbaa !348, !noalias !389
-  %252 = or disjoint i64 %.04345.i, 1
-  %253 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 %252
+  %252 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 %.04345.i
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 1
   store i8 %251, ptr %254, align 1, !tbaa !348
   %255 = lshr i32 %239, 6
   %256 = and i32 %255, 63
   %257 = zext nneg i32 %256 to i64
   %258 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %257
   %259 = load i8, ptr %258, align 1, !tbaa !348, !noalias !389
-  %260 = or disjoint i64 %.04345.i, 2
-  %261 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 %260
+  %260 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 %.04345.i
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 2
   store i8 %259, ptr %262, align 1, !tbaa !348
   %263 = and i32 %238, 63
   %264 = zext nneg i32 %263 to i64
   %265 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %264
   %266 = load i8, ptr %265, align 1, !tbaa !348, !noalias !389
-  %267 = or disjoint i64 %.04345.i, 3
-  %268 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 %267
+  %267 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
+  %268 = getelementptr inbounds nuw i8, ptr %267, i64 %.04345.i
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 3
   store i8 %266, ptr %269, align 1, !tbaa !348
   %270 = add i64 %.046.i, 3
   %271 = add i64 %.04345.i, 4
@@ -1493,9 +1493,9 @@ _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
   %286 = zext nneg i32 %285 to i64
   %287 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %286
   %288 = load i8, ptr %287, align 16, !tbaa !348, !noalias !389
-  %289 = or disjoint i64 %.043.lcssa.i, 1
-  %290 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
-  %291 = getelementptr inbounds nuw i8, ptr %290, i64 %289
+  %289 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 %.043.lcssa.i
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 1
   store i8 %288, ptr %291, align 1, !tbaa !348
   br label %.sink.split.i
 
@@ -1527,9 +1527,9 @@ _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
   %314 = zext nneg i32 %313 to i64
   %315 = getelementptr inbounds nuw [65 x i8], ptr @_ZZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_E5Table, i64 0, i64 %314
   %316 = load i8, ptr %315, align 1, !tbaa !348, !noalias !389
-  %317 = or disjoint i64 %.043.lcssa.i, 1
-  %318 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
-  %319 = getelementptr inbounds nuw i8, ptr %318, i64 %317
+  %317 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 %.043.lcssa.i
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 1
   store i8 %316, ptr %319, align 1, !tbaa !348
   %320 = shl nuw nsw i32 %303, 2
   %321 = and i32 %320, 60
@@ -1540,13 +1540,13 @@ _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
 
 .sink.split.i:                                    ; preds = %295, %273
   %.sink.i = phi i8 [ 61, %273 ], [ %324, %295 ]
-  %325 = or disjoint i64 %.043.lcssa.i, 2
-  %326 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 %325
+  %325 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 %.043.lcssa.i
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 2
   store i8 %.sink.i, ptr %327, align 1, !tbaa !348
-  %328 = or disjoint i64 %.043.lcssa.i, 3
-  %329 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
-  %330 = getelementptr inbounds nuw i8, ptr %329, i64 %328
+  %328 = load ptr, ptr %7, align 8, !tbaa !394, !alias.scope !389
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 %.043.lcssa.i
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 3
   store i8 61, ptr %330, align 1, !tbaa !348
   br label %_ZN4llvm12encodeBase64INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKT_.exit
 

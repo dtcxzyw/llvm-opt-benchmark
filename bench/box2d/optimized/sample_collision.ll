@@ -5248,51 +5248,51 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnu
   %69 = getelementptr inbounds %struct.ShapeUserData, ptr %66, i64 %68
   store ptr %69, ptr %4, align 8, !tbaa !237
   %.idx = shl nsw i64 %68, 3
-  %.offs = or disjoint i64 %.idx, 4
-  %70 = getelementptr inbounds i8, ptr %66, i64 %.offs
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1908
-  %72 = load i32, ptr %71, align 4, !tbaa !206
-  %73 = icmp eq i32 %67, %72
-  %spec.store.select = zext i1 %73 to i8
-  store i8 %spec.store.select, ptr %70, align 8
-  %74 = icmp slt i32 %1, 4
-  %75 = getelementptr inbounds [64 x %struct.b2BodyId], ptr %5, i64 0, i64 %68
-  %.sroa.07.0.copyload = load i64, ptr %75, align 4
-  br i1 %74, label %76, label %81
+  %70 = getelementptr i8, ptr %66, i64 %.idx
+  %71 = getelementptr i8, ptr %70, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1908
+  %73 = load i32, ptr %72, align 4, !tbaa !206
+  %74 = icmp eq i32 %67, %73
+  %spec.store.select = zext i1 %74 to i8
+  store i8 %spec.store.select, ptr %71, align 8
+  %75 = icmp slt i32 %1, 4
+  %76 = getelementptr inbounds [64 x %struct.b2BodyId], ptr %5, i64 0, i64 %68
+  %.sroa.07.0.copyload = load i64, ptr %76, align 4
+  br i1 %75, label %77, label %82
 
-76:                                               ; preds = %60
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1276
-  %78 = sext i32 %1 to i64
-  %79 = getelementptr inbounds %struct.b2Polygon, ptr %77, i64 %78
-  %80 = call i64 @b2CreatePolygonShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %79)
-  br label %91
+77:                                               ; preds = %60
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 1276
+  %79 = sext i32 %1 to i64
+  %80 = getelementptr inbounds %struct.b2Polygon, ptr %78, i64 %79
+  %81 = call i64 @b2CreatePolygonShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %80)
+  br label %92
 
-81:                                               ; preds = %60
-  switch i32 %1, label %88 [
-    i32 4, label %82
-    i32 5, label %85
+82:                                               ; preds = %60
+  switch i32 %1, label %89 [
+    i32 4, label %83
+    i32 5, label %86
   ]
 
-82:                                               ; preds = %81
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1872
-  %84 = call i64 @b2CreateCircleShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %83)
-  br label %91
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1872
+  %85 = call i64 @b2CreateCircleShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %84)
+  br label %92
 
-85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1852
-  %87 = call i64 @b2CreateCapsuleShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %86)
-  br label %91
+86:                                               ; preds = %82
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1852
+  %88 = call i64 @b2CreateCapsuleShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %87)
+  br label %92
 
-88:                                               ; preds = %81
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1884
-  %90 = call i64 @b2CreateSegmentShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %89)
-  br label %91
+89:                                               ; preds = %82
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 1884
+  %91 = call i64 @b2CreateSegmentShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %90)
+  br label %92
 
-91:                                               ; preds = %82, %88, %85, %76
-  %92 = load i32, ptr %6, align 8, !tbaa !231
-  %93 = add nsw i32 %92, 1
-  %94 = srem i32 %93, 64
-  store i32 %94, ptr %6, align 8, !tbaa !231
+92:                                               ; preds = %83, %89, %86, %77
+  %93 = load i32, ptr %6, align 8, !tbaa !231
+  %94 = add nsw i32 %93, 1
+  %95 = srem i32 %94, 64
+  store i32 %95, ptr %6, align 8, !tbaa !231
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #24
   ret void
@@ -6255,51 +6255,51 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnu
   store ptr %62, ptr %4, align 8, !tbaa !237
   store i32 %60, ptr %62, align 4, !tbaa !199
   %.idx = shl nsw i64 %61, 3
-  %.offs = or disjoint i64 %.idx, 4
-  %63 = getelementptr inbounds i8, ptr %59, i64 %.offs
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1900
-  %65 = load i32, ptr %64, align 4, !tbaa !241
-  %66 = icmp eq i32 %60, %65
-  %spec.store.select = zext i1 %66 to i8
-  store i8 %spec.store.select, ptr %63, align 8
-  %67 = icmp slt i32 %1, 4
-  %68 = getelementptr inbounds [64 x %struct.b2BodyId], ptr %5, i64 0, i64 %61
-  %.sroa.07.0.copyload = load i64, ptr %68, align 4
-  br i1 %67, label %69, label %74
+  %63 = getelementptr i8, ptr %59, i64 %.idx
+  %64 = getelementptr i8, ptr %63, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1900
+  %66 = load i32, ptr %65, align 4, !tbaa !241
+  %67 = icmp eq i32 %60, %66
+  %spec.store.select = zext i1 %67 to i8
+  store i8 %spec.store.select, ptr %64, align 8
+  %68 = icmp slt i32 %1, 4
+  %69 = getelementptr inbounds [64 x %struct.b2BodyId], ptr %5, i64 0, i64 %61
+  %.sroa.07.0.copyload = load i64, ptr %69, align 4
+  br i1 %68, label %70, label %75
 
-69:                                               ; preds = %15
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1276
-  %71 = sext i32 %1 to i64
-  %72 = getelementptr inbounds %struct.b2Polygon, ptr %70, i64 %71
-  %73 = call i64 @b2CreatePolygonShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %72)
-  br label %84
+70:                                               ; preds = %15
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1276
+  %72 = sext i32 %1 to i64
+  %73 = getelementptr inbounds %struct.b2Polygon, ptr %71, i64 %72
+  %74 = call i64 @b2CreatePolygonShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %73)
+  br label %85
 
-74:                                               ; preds = %15
-  switch i32 %1, label %81 [
-    i32 4, label %75
-    i32 5, label %78
+75:                                               ; preds = %15
+  switch i32 %1, label %82 [
+    i32 4, label %76
+    i32 5, label %79
   ]
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1872
-  %77 = call i64 @b2CreateCircleShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %76)
-  br label %84
+76:                                               ; preds = %75
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1872
+  %78 = call i64 @b2CreateCircleShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %77)
+  br label %85
 
-78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 1852
-  %80 = call i64 @b2CreateCapsuleShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %79)
-  br label %84
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1852
+  %81 = call i64 @b2CreateCapsuleShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %80)
+  br label %85
 
-81:                                               ; preds = %74
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1884
-  %83 = call i64 @b2CreateSegmentShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %82)
-  br label %84
+82:                                               ; preds = %75
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1884
+  %84 = call i64 @b2CreateSegmentShape(i64 %.sroa.07.0.copyload, ptr noundef nonnull %4, ptr noundef nonnull %83)
+  br label %85
 
-84:                                               ; preds = %75, %81, %78, %69
-  %85 = load i32, ptr %6, align 8, !tbaa !257
-  %86 = add nsw i32 %85, 1
-  %87 = srem i32 %86, 64
-  store i32 %87, ptr %6, align 8, !tbaa !257
+85:                                               ; preds = %76, %82, %79, %70
+  %86 = load i32, ptr %6, align 8, !tbaa !257
+  %87 = add nsw i32 %86, 1
+  %88 = srem i32 %87, 64
+  store i32 %88, ptr %6, align 8, !tbaa !257
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #24
   ret void

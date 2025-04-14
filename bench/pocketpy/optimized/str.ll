@@ -5796,8 +5796,8 @@ _ZN4pkpy7SStreamlsEPKc.exit28:                    ; preds = %_ZN4pkpy10pod_vecto
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZN4pkpy7SStreamlsEPKc.exit28
   %91 = and i64 %gepdiff, -4
-  %92 = or disjoint i64 %91, 1
-  %scevgep = getelementptr i8, ptr %3, i64 %92
+  %92 = getelementptr i8, ptr %3, i64 %91
+  %scevgep = getelementptr i8, ptr %92, i64 1
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %111

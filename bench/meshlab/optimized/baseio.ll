@@ -49375,9 +49375,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseE
   %504 = load ptr, ptr %351, align 8
   %505 = getelementptr inbounds nuw %class.CFaceO, ptr %504, i64 %494, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i64 1
   store ptr %503, ptr %505, align 8
-  %506 = or disjoint i64 %indvars.iv662, 2
-  %507 = load ptr, ptr %10, align 8
-  %508 = getelementptr inbounds nuw i32, ptr %507, i64 %506
+  %506 = load ptr, ptr %10, align 8
+  %507 = getelementptr inbounds nuw i32, ptr %506, i64 %indvars.iv662
+  %508 = getelementptr inbounds nuw i8, ptr %507, i64 8
   %509 = load i32, ptr %508, align 4
   %510 = sext i32 %509 to i64
   %511 = load ptr, ptr %349, align 8

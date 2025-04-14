@@ -1297,7 +1297,7 @@ define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonl
   %or.cond3 = or i1 %or.cond, %7
   %8 = icmp eq ptr %3, null
   %or.cond5 = or i1 %or.cond3, %8
-  br i1 %or.cond5, label %75, label %9
+  br i1 %or.cond5, label %73, label %9
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %0, align 8, !tbaa !34
@@ -1349,7 +1349,7 @@ define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonl
   %45 = shl nsw i32 %44, 1
   %46 = sub nsw i32 %12, %14
   %47 = icmp slt i32 %45, %46
-  br i1 %47, label %48, label %75
+  br i1 %47, label %48, label %73
 
 48:                                               ; preds = %43
   %49 = sext i32 %14 to i64
@@ -1359,36 +1359,34 @@ define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonl
   %53 = load i16, ptr %52, align 2, !tbaa !32
   %54 = zext i16 %53 to i32
   %55 = shl nuw i32 %54, 16
-  %56 = or disjoint i32 %45, 1
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i16, ptr %50, i64 %57
-  %59 = load i16, ptr %58, align 2, !tbaa !32
-  %60 = zext i16 %59 to i32
-  %61 = or disjoint i32 %55, %60
-  store i32 %61, ptr %2, align 4, !tbaa !21
-  %62 = add nsw i32 %45, 2
-  %63 = icmp slt i32 %62, %46
-  br i1 %63, label %64, label %.sink.split
+  %56 = getelementptr i8, ptr %52, i64 2
+  %57 = load i16, ptr %56, align 2, !tbaa !32
+  %58 = zext i16 %57 to i32
+  %59 = or disjoint i32 %55, %58
+  store i32 %59, ptr %2, align 4, !tbaa !21
+  %60 = add nsw i32 %45, 2
+  %61 = icmp slt i32 %60, %46
+  br i1 %61, label %62, label %.sink.split
 
-64:                                               ; preds = %48
-  %65 = sext i32 %62 to i64
-  %66 = getelementptr inbounds i16, ptr %50, i64 %65
-  %67 = load i16, ptr %66, align 2, !tbaa !32
-  %68 = zext i16 %67 to i32
-  %69 = shl nuw i32 %68, 16
-  %70 = getelementptr i8, ptr %52, i64 6
-  %71 = load i16, ptr %70, align 2, !tbaa !32
-  %72 = zext i16 %71 to i32
-  %73 = or disjoint i32 %69, %72
-  %74 = add nsw i32 %73, -1
+62:                                               ; preds = %48
+  %63 = sext i32 %60 to i64
+  %64 = getelementptr inbounds i16, ptr %50, i64 %63
+  %65 = load i16, ptr %64, align 2, !tbaa !32
+  %66 = zext i16 %65 to i32
+  %67 = shl nuw i32 %66, 16
+  %68 = getelementptr i8, ptr %52, i64 6
+  %69 = load i16, ptr %68, align 2, !tbaa !32
+  %70 = zext i16 %69 to i32
+  %71 = or disjoint i32 %67, %70
+  %72 = add nsw i32 %71, -1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %64, %48, %30, %32, %24
-  %.sink = phi i32 [ %29, %24 ], [ %42, %32 ], [ 1114111, %30 ], [ %74, %64 ], [ 1114111, %48 ]
+.sink.split:                                      ; preds = %62, %48, %30, %32, %24
+  %.sink = phi i32 [ %29, %24 ], [ %42, %32 ], [ 1114111, %30 ], [ %72, %62 ], [ 1114111, %48 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !21
-  br label %75
+  br label %73
 
-75:                                               ; preds = %.sink.split, %43, %4
+73:                                               ; preds = %.sink.split, %43, %4
   %.0 = phi i8 [ 0, %4 ], [ 0, %43 ], [ 1, %.sink.split ]
   ret i8 %.0
 }

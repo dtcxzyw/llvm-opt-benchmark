@@ -24965,6 +24965,7 @@ _ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i27.i.i: ; preds = %_ZN4llvm9StringR
 define internal fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_T2_"(ptr noundef captures(none) %0, i64 noundef range(i64 0, 1152921504606846975) %1, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %2, i32 noundef %3, ptr noundef readonly byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.285") align 8 captures(none) %4) unnamed_addr #18 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
+  %invariant.gep = getelementptr i8, ptr %0, i64 4
   %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -24982,197 +24983,200 @@ define internal fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_c
   br label %16
 
 16:                                               ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32"
-  %.034 = phi i64 [ %1, %.lr.ph ], [ %48, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32" ]
+  %.034 = phi i64 [ %1, %.lr.ph ], [ %47, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32" ]
   %17 = shl i64 %.034, 1
   %18 = add i64 %17, 2
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
-  %20 = or disjoint i64 %17, 1
-  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %20
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %17
   %.val = load i32, ptr %19, align 4, !tbaa !229
-  %.val29 = load i32, ptr %21, align 4, !tbaa !229
-  %22 = zext i32 %.val to i64
-  %23 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::JavaImportDirective", ptr %.val8.i.i, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 104
-  %25 = load i8, ptr %24, align 8, !tbaa !426, !range !141, !noundef !142
-  %.reass.reass = xor i8 %25, %invariant.op
-  %26 = getelementptr inbounds nuw i32, ptr %15, i64 %22
-  %.sroa.010.0.copyload.i.i = load ptr, ptr %23, align 8, !tbaa !315
-  %.sroa.411.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.val29 = load i32, ptr %gep, align 4, !tbaa !229
+  %20 = zext i32 %.val to i64
+  %21 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::JavaImportDirective", ptr %.val8.i.i, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 104
+  %23 = load i8, ptr %22, align 8, !tbaa !426, !range !141, !noundef !142
+  %.reass.reass = xor i8 %23, %invariant.op
+  %24 = getelementptr inbounds nuw i32, ptr %15, i64 %20
+  %.sroa.010.0.copyload.i.i = load ptr, ptr %21, align 8, !tbaa !315
+  %.sroa.411.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.411.0.copyload.i.i = load i64, ptr %.sroa.411.0..sroa_idx.i.i, align 8, !tbaa !14
-  %27 = load i32, ptr %26, align 4, !tbaa !229, !noalias !916
-  %28 = zext i32 %.val29 to i64
-  %29 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::JavaImportDirective", ptr %.val8.i.i, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
-  %31 = load i8, ptr %30, align 8, !tbaa !426, !range !141, !noundef !142
-  %.reass36.reass = xor i8 %31, %invariant.op38
-  %32 = getelementptr inbounds nuw i32, ptr %15, i64 %28
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %29, align 8, !tbaa !315
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %25 = load i32, ptr %24, align 4, !tbaa !229, !noalias !916
+  %26 = zext i32 %.val29 to i64
+  %27 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::JavaImportDirective", ptr %.val8.i.i, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 104
+  %29 = load i8, ptr %28, align 8, !tbaa !426, !range !141, !noundef !142
+  %.reass36.reass = xor i8 %29, %invariant.op38
+  %30 = getelementptr inbounds nuw i32, ptr %15, i64 %26
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %27, align 8, !tbaa !315
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !14
-  %33 = load i32, ptr %32, align 4, !tbaa !229, !noalias !919
-  %34 = icmp samesign ult i8 %.reass.reass, %.reass36.reass
-  br i1 %34, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread", label %35
+  %31 = load i32, ptr %30, align 4, !tbaa !229, !noalias !919
+  %32 = icmp samesign ult i8 %.reass.reass, %.reass36.reass
+  br i1 %32, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread", label %33
 
-35:                                               ; preds = %16
-  %36 = icmp samesign ult i8 %.reass36.reass, %.reass.reass
-  br i1 %36, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32", label %37
+33:                                               ; preds = %16
+  %34 = icmp samesign ult i8 %.reass36.reass, %.reass.reass
+  br i1 %34, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32", label %35
+
+35:                                               ; preds = %33
+  %36 = icmp ult i32 %25, %31
+  br i1 %36, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread", label %37
 
 37:                                               ; preds = %35
-  %38 = icmp ult i32 %27, %33
-  br i1 %38, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread", label %39
+  %38 = icmp ult i32 %31, %25
+  br i1 %38, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32", label %39
 
 39:                                               ; preds = %37
-  %40 = icmp ult i32 %33, %27
-  br i1 %40, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32", label %41
-
-41:                                               ; preds = %39
   %.sroa.speculated.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.4.0.copyload.i.i, i64 %.sroa.411.0.copyload.i.i)
-  %42 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i.i, 0
-  br i1 %42, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit", label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i
+  %40 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i.i, 0
+  br i1 %40, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit", label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %41
-  %43 = tail call i32 @memcmp(ptr noundef %.sroa.010.0.copyload.i.i, ptr noundef %.sroa.0.0.copyload.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #35
-  %.fr.i.i.i.i.i.i.i.i = freeze i32 %43
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %39
+  %41 = tail call i32 @memcmp(ptr noundef %.sroa.010.0.copyload.i.i, ptr noundef %.sroa.0.0.copyload.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i) #35
+  %.fr.i.i.i.i.i.i.i.i = freeze i32 %41
   %.not.not.i.i.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i.i.i, 0
   br i1 %.not.not.i.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i.i, label %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i.i.i:                          ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i
-  %44 = icmp ult i64 %.sroa.411.0.copyload.i.i, %.sroa.4.0.copyload.i.i
-  br i1 %44, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32"
+  %42 = icmp ult i64 %.sroa.411.0.copyload.i.i, %.sroa.4.0.copyload.i.i
+  br i1 %42, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32"
 
 _ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i:    ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i
-  %45 = icmp slt i32 %.fr.i.i.i.i.i.i.i.i, 0
-  br i1 %45, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32"
+  %43 = icmp slt i32 %.fr.i.i.i.i.i.i.i.i, 0
+  br i1 %43, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit": ; preds = %41
-  %46 = icmp ult i64 %.sroa.411.0.copyload.i.i, %.sroa.4.0.copyload.i.i
-  %cond.fr = freeze i1 %46
-  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32"
-
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread": ; preds = %.thread.i.i.i.i.i.i.i.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i, %37, %16, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread": ; preds = %16, %35, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i
+  %44 = or disjoint i64 %17, 1
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32": ; preds = %.thread.i.i.i.i.i.i.i.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i, %39, %35, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread"
-  %47 = phi i32 [ %.val29, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread" ], [ %.val, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit" ], [ %.val, %35 ], [ %.val, %39 ], [ %.val, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i ], [ %.val, %.thread.i.i.i.i.i.i.i.i ]
-  %48 = phi i64 [ %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread" ], [ %18, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit" ], [ %18, %35 ], [ %18, %39 ], [ %18, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i ], [ %18, %.thread.i.i.i.i.i.i.i.i ]
-  %49 = getelementptr inbounds nuw i32, ptr %0, i64 %.034
-  store i32 %47, ptr %49, align 4, !tbaa !229
-  %50 = icmp slt i64 %48, %7
-  br i1 %50, label %16, label %._crit_edge, !llvm.loop !922
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit": ; preds = %39
+  %45 = icmp ult i64 %.sroa.411.0.copyload.i.i, %.sroa.4.0.copyload.i.i
+  %46 = or disjoint i64 %17, 1
+  %cond.fr = freeze i1 %45
+  %spec.select = select i1 %cond.fr, i64 %46, i64 %18
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32"
+
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit", %.thread.i.i.i.i.i.i.i.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i, %37, %33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread"
+  %47 = phi i64 [ %44, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread" ], [ %18, %33 ], [ %18, %37 ], [ %18, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i ], [ %18, %.thread.i.i.i.i.i.i.i.i ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit" ]
+  %48 = getelementptr inbounds nuw i32, ptr %0, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !229
+  %50 = getelementptr inbounds nuw i32, ptr %0, i64 %.034
+  store i32 %49, ptr %50, align 4, !tbaa !229
+  %51 = icmp slt i64 %47, %7
+  br i1 %51, label %16, label %._crit_edge, !llvm.loop !922
 
 ._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32", %5
-  %.0.lcssa = phi i64 [ %1, %5 ], [ %48, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32" ]
-  %51 = and i64 %2, 1
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %53, label %63
+  %.0.lcssa = phi i64 [ %1, %5 ], [ %47, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjSN_EEbT_T0_.exit.thread32" ]
+  %52 = and i64 %2, 1
+  %53 = icmp eq i64 %52, 0
+  br i1 %53, label %54, label %64
 
-53:                                               ; preds = %._crit_edge
-  %54 = add nsw i64 %2, -2
-  %55 = ashr exact i64 %54, 1
-  %56 = icmp eq i64 %.0.lcssa, %55
-  br i1 %56, label %57, label %63
+54:                                               ; preds = %._crit_edge
+  %55 = add nsw i64 %2, -2
+  %56 = ashr exact i64 %55, 1
+  %57 = icmp eq i64 %.0.lcssa, %56
+  br i1 %57, label %58, label %64
 
-57:                                               ; preds = %53
-  %58 = shl nsw i64 %.0.lcssa, 1
-  %59 = or disjoint i64 %58, 1
-  %60 = getelementptr inbounds nuw i32, ptr %0, i64 %59
-  %61 = load i32, ptr %60, align 4, !tbaa !229
-  %62 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa
-  store i32 %61, ptr %62, align 4, !tbaa !229
-  br label %63
+58:                                               ; preds = %54
+  %59 = shl nsw i64 %.0.lcssa, 1
+  %60 = or disjoint i64 %59, 1
+  %61 = getelementptr inbounds nuw i32, ptr %0, i64 %60
+  %62 = load i32, ptr %61, align 4, !tbaa !229
+  %63 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa
+  store i32 %62, ptr %63, align 4, !tbaa !229
+  br label %64
 
-63:                                               ; preds = %57, %53, %._crit_edge
-  %.128 = phi i64 [ %59, %57 ], [ %.0.lcssa, %53 ], [ %.0.lcssa, %._crit_edge ]
-  %64 = icmp sgt i64 %.128, %1
-  br i1 %64, label %.lr.ph.i, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit"
+64:                                               ; preds = %58, %54, %._crit_edge
+  %.128 = phi i64 [ %60, %58 ], [ %.0.lcssa, %54 ], [ %.0.lcssa, %._crit_edge ]
+  %65 = icmp sgt i64 %.128, %1
+  br i1 %65, label %.lr.ph.i, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %63
+.lr.ph.i:                                         ; preds = %64
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !885
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !715
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !883
   %.val8.i.i.i = load ptr, ptr %.sroa.0.0.copyload, align 8, !tbaa !427
-  %65 = load i8, ptr %.sroa.4.0.copyload, align 1, !tbaa !186, !range !141, !noundef !142
-  %66 = load ptr, ptr %.sroa.5.0.copyload, align 8, !tbaa !371
-  %67 = zext i32 %3 to i64
-  %68 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::JavaImportDirective", ptr %.val8.i.i.i, i64 %67
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 104
-  %70 = load i8, ptr %69, align 8, !tbaa !426, !range !141, !noundef !142
-  %71 = xor i8 %65, %70
-  %72 = xor i8 %71, 1
-  %73 = getelementptr inbounds nuw i32, ptr %66, i64 %67
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %68, align 8, !tbaa !315
-  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %66 = load i8, ptr %.sroa.4.0.copyload, align 1, !tbaa !186, !range !141, !noundef !142
+  %67 = load ptr, ptr %.sroa.5.0.copyload, align 8, !tbaa !371
+  %68 = zext i32 %3 to i64
+  %69 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::JavaImportDirective", ptr %.val8.i.i.i, i64 %68
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 104
+  %71 = load i8, ptr %70, align 8, !tbaa !426, !range !141, !noundef !142
+  %72 = xor i8 %66, %71
+  %73 = xor i8 %72, 1
+  %74 = getelementptr inbounds nuw i32, ptr %67, i64 %68
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %69, align 8, !tbaa !315
+  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %69, i64 8
   %.sroa.4.0.copyload.i.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !14
-  %invariant.op39 = xor i8 %65, 1
-  br label %74
+  %invariant.op39 = xor i8 %66, 1
+  br label %75
 
-74:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i", %.lr.ph.i
+75:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i", %.lr.ph.i
   %.01320.i = phi i64 [ %.128, %.lr.ph.i ], [ %.021.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i" ]
   %.021.in.i = add nsw i64 %.01320.i, -1
   %.021.i = sdiv i64 %.021.in.i, 2
-  %75 = getelementptr inbounds i32, ptr %0, i64 %.021.i
-  %.val.i = load i32, ptr %75, align 4, !tbaa !229
-  %76 = zext i32 %.val.i to i64
-  %77 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::JavaImportDirective", ptr %.val8.i.i.i, i64 %76
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 104
-  %79 = load i8, ptr %78, align 8, !tbaa !426, !range !141, !noundef !142
-  %.reass.i.reass.reass = xor i8 %79, %invariant.op39
-  %80 = getelementptr inbounds nuw i32, ptr %66, i64 %76
-  %.sroa.010.0.copyload.i.i.i = load ptr, ptr %77, align 8, !tbaa !315
-  %.sroa.411.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %76 = getelementptr inbounds i32, ptr %0, i64 %.021.i
+  %.val.i = load i32, ptr %76, align 4, !tbaa !229
+  %77 = zext i32 %.val.i to i64
+  %78 = getelementptr inbounds nuw %"struct.clang::format::(anonymous namespace)::JavaImportDirective", ptr %.val8.i.i.i, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 104
+  %80 = load i8, ptr %79, align 8, !tbaa !426, !range !141, !noundef !142
+  %.reass.i.reass.reass = xor i8 %80, %invariant.op39
+  %81 = getelementptr inbounds nuw i32, ptr %67, i64 %77
+  %.sroa.010.0.copyload.i.i.i = load ptr, ptr %78, align 8, !tbaa !315
+  %.sroa.411.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %78, i64 8
   %.sroa.411.0.copyload.i.i.i = load i64, ptr %.sroa.411.0..sroa_idx.i.i.i, align 8, !tbaa !14
-  %81 = load i32, ptr %80, align 4, !tbaa !229, !noalias !923
-  %82 = load i32, ptr %73, align 4, !tbaa !229, !noalias !926
-  %83 = icmp samesign ult i8 %.reass.i.reass.reass, %72
-  br i1 %83, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i", label %84
+  %82 = load i32, ptr %81, align 4, !tbaa !229, !noalias !923
+  %83 = load i32, ptr %74, align 4, !tbaa !229, !noalias !926
+  %84 = icmp samesign ult i8 %.reass.i.reass.reass, %73
+  br i1 %84, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i", label %85
 
-84:                                               ; preds = %74
-  %85 = icmp samesign ult i8 %72, %.reass.i.reass.reass
-  br i1 %85, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit", label %86
+85:                                               ; preds = %75
+  %86 = icmp samesign ult i8 %73, %.reass.i.reass.reass
+  br i1 %86, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit", label %87
 
-86:                                               ; preds = %84
-  %87 = icmp ult i32 %81, %82
-  br i1 %87, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i", label %88
+87:                                               ; preds = %85
+  %88 = icmp ult i32 %82, %83
+  br i1 %88, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i", label %89
 
-88:                                               ; preds = %86
-  %89 = icmp ult i32 %82, %81
-  br i1 %89, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit", label %90
+89:                                               ; preds = %87
+  %90 = icmp ult i32 %83, %82
+  br i1 %90, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit", label %91
 
-90:                                               ; preds = %88
+91:                                               ; preds = %89
   %.sroa.speculated.i.i.i.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.4.0.copyload.i.i.i, i64 %.sroa.411.0.copyload.i.i.i)
-  %91 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i, 0
-  br i1 %91, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.i", label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i
+  %92 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i.i.i.i, 0
+  br i1 %92, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.i", label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i
 
-_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %90
-  %92 = tail call i32 @memcmp(ptr noundef %.sroa.010.0.copyload.i.i.i, ptr noundef %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #35
-  %.fr.i.i.i.i.i.i.i.i.i = freeze i32 %92
+_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %91
+  %93 = tail call i32 @memcmp(ptr noundef %.sroa.010.0.copyload.i.i.i, ptr noundef %.sroa.0.0.copyload.i.i.i, i64 noundef %.sroa.speculated.i.i.i.i.i.i.i.i.i) #35
+  %.fr.i.i.i.i.i.i.i.i.i = freeze i32 %93
   %.not.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %.fr.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not.not.i.i.i.i.i.i.i.i.i, label %.thread.i.i.i.i.i.i.i.i.i, label %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i
-  %93 = icmp ult i64 %.sroa.411.0.copyload.i.i.i, %.sroa.4.0.copyload.i.i.i
-  br i1 %93, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i", label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit"
-
-_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i.i:  ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i
-  %94 = icmp slt i32 %.fr.i.i.i.i.i.i.i.i.i, 0
+  %94 = icmp ult i64 %.sroa.411.0.copyload.i.i.i, %.sroa.4.0.copyload.i.i.i
   br i1 %94, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i", label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.i": ; preds = %90
-  %95 = icmp ult i64 %.sroa.411.0.copyload.i.i.i, %.sroa.4.0.copyload.i.i.i
+_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i.i:  ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i.i.i.i.i
+  %95 = icmp slt i32 %.fr.i.i.i.i.i.i.i.i.i, 0
   br i1 %95, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i", label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.i", %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i.i, %86, %74
-  %96 = getelementptr inbounds nuw i32, ptr %0, i64 %.01320.i
-  store i32 %.val.i, ptr %96, align 4, !tbaa !229
-  %97 = icmp sgt i64 %.021.i, %1
-  br i1 %97, label %74, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit", !llvm.loop !929
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.i": ; preds = %91
+  %96 = icmp ult i64 %.sroa.411.0.copyload.i.i.i, %.sroa.4.0.copyload.i.i.i
+  br i1 %96, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i", label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit"
 
-"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit": ; preds = %84, %88, %.thread.i.i.i.i.i.i.i.i.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i", %63
-  %.013.lcssa.i = phi i64 [ %.128, %63 ], [ %.01320.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.i" ], [ %.021.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i" ], [ %.01320.i, %84 ], [ %.01320.i, %88 ], [ %.01320.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i.i ], [ %.01320.i, %.thread.i.i.i.i.i.i.i.i.i ]
-  %98 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i
-  store i32 %3, ptr %98, align 4, !tbaa !229
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.i", %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i.i, %87, %75
+  %97 = getelementptr inbounds nuw i32, ptr %0, i64 %.01320.i
+  store i32 %.val.i, ptr %97, align 4, !tbaa !229
+  %98 = icmp sgt i64 %.021.i, %1
+  br i1 %98, label %75, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit", !llvm.loop !929
+
+"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm8ArrayRefINS5_12_GLOBAL__N_119JavaImportDirectiveEEENSA_INS4_7tooling5RangeEEENS9_9StringRefESJ_RNSG_12ReplacementsEE3$_0EEEvT_T0_SP_T1_RT2_.exit": ; preds = %85, %89, %.thread.i.i.i.i.i.i.i.i.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i", %64
+  %.013.lcssa.i = phi i64 [ %.128, %64 ], [ %.01320.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.i" ], [ %.021.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS3_11FormatStyleERKN4llvm8ArrayRefINS3_12_GLOBAL__N_119JavaImportDirectiveEEENS8_INS2_7tooling5RangeEEENS7_9StringRefESH_RNSE_12ReplacementsEE3$_0EclIPjjEEbT_RT0_.exit.thread.i" ], [ %.01320.i, %85 ], [ %.01320.i, %89 ], [ %.01320.i, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i.i.i ], [ %.01320.i, %.thread.i.i.i.i.i.i.i.i.i ]
+  %99 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i
+  store i32 %3, ptr %99, align 4, !tbaa !229
   ret void
 }
 

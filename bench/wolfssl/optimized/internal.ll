@@ -961,11 +961,11 @@ AddSuiteHashSigAlgo.exit40:                       ; preds = %7, %8, %5
   %.0 = phi i16 [ 0, %5 ], [ 8, %8 ], [ 8, %7 ]
   %16 = and i32 %1, 2
   %.not27 = icmp eq i32 %16, 0
-  br i1 %.not27, label %63, label %17
+  br i1 %.not27, label %64, label %17
 
 17:                                               ; preds = %AddSuiteHashSigAlgo.exit40
   %.not28 = icmp eq i32 %2, 0
-  br i1 %.not28, label %43, label %18
+  br i1 %.not28, label %44, label %18
 
 18:                                               ; preds = %17
   %.not25.i41 = icmp eq ptr %0, null
@@ -981,90 +981,90 @@ AddSuiteHashSigAlgo.exit40:                       ; preds = %7, %8, %5
   store i8 8, ptr %22, align 1, !tbaa !45
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 6, ptr %23, align 1, !tbaa !45
-  %24 = or disjoint i16 %.0, 2
-  %25 = zext nneg i16 %24 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %25
+  %24 = zext nneg i16 %.0 to i64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 2
   store i8 8, ptr %26, align 1, !tbaa !45
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 3
   store i8 11, ptr %27, align 1, !tbaa !45
-  %storemerge.i43 = or disjoint i16 %.0, 4
-  %28 = zext nneg i16 %storemerge.i43 to i64
+  %28 = zext nneg i16 %.0 to i64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
-  store i8 8, ptr %29, align 1, !tbaa !45
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  store i8 5, ptr %30, align 1, !tbaa !45
-  %31 = or disjoint i16 %.0, 6
-  %32 = zext nneg i16 %31 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  store i8 8, ptr %30, align 1, !tbaa !45
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 5
+  store i8 5, ptr %31, align 1, !tbaa !45
+  %32 = zext nneg i16 %.0 to i64
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  store i8 8, ptr %33, align 1, !tbaa !45
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  store i8 10, ptr %34, align 1, !tbaa !45
-  %35 = zext nneg i16 %.0 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i8 8, ptr %37, align 1, !tbaa !45
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 9
-  store i8 4, ptr %38, align 1, !tbaa !45
-  %39 = add nuw nsw i16 %.0, 10
-  %40 = zext nneg i16 %39 to i64
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %40
-  store i8 8, ptr %41, align 1, !tbaa !45
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
-  store i8 9, ptr %42, align 1, !tbaa !45
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 6
+  store i8 8, ptr %34, align 1, !tbaa !45
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 7
+  store i8 10, ptr %35, align 1, !tbaa !45
+  %36 = zext nneg i16 %.0 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i8 8, ptr %38, align 1, !tbaa !45
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 9
+  store i8 4, ptr %39, align 1, !tbaa !45
+  %40 = add nuw nsw i16 %.0, 10
+  %41 = zext nneg i16 %40 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 %41
+  store i8 8, ptr %42, align 1, !tbaa !45
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
+  store i8 9, ptr %43, align 1, !tbaa !45
   br label %AddSuiteHashSigAlgo.exit54
 
 AddSuiteHashSigAlgo.exit54:                       ; preds = %.thread.i53, %20
-  %.5 = phi i16 [ %19, %.thread.i53 ], [ %39, %20 ]
+  %.5 = phi i16 [ %19, %.thread.i53 ], [ %40, %20 ]
   %storemerge.i52 = add nuw nsw i16 %.5, 2
-  br label %43
+  br label %44
 
-43:                                               ; preds = %AddSuiteHashSigAlgo.exit54, %17
+44:                                               ; preds = %AddSuiteHashSigAlgo.exit54, %17
   %.2 = phi i16 [ %.0, %17 ], [ %storemerge.i52, %AddSuiteHashSigAlgo.exit54 ]
   %.not25.i55 = icmp eq ptr %0, null
-  br i1 %.not25.i55, label %AddSuiteHashSigAlgo.exit70.thread, label %44
+  br i1 %.not25.i55, label %AddSuiteHashSigAlgo.exit70.thread, label %45
 
-AddSuiteHashSigAlgo.exit70.thread:                ; preds = %43
+AddSuiteHashSigAlgo.exit70.thread:                ; preds = %44
   %storemerge.i69132 = add nuw nsw i16 %.2, 8
   br label %AddSuiteHashSigAlgo.exit74
 
-44:                                               ; preds = %43
-  %45 = zext nneg i16 %.2 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
-  store i8 6, ptr %46, align 1, !tbaa !45
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
-  store i8 1, ptr %47, align 1, !tbaa !45
-  %48 = sext i16 %.2 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 2
-  store i8 5, ptr %50, align 1, !tbaa !45
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 3
-  store i8 1, ptr %51, align 1, !tbaa !45
-  %52 = sext i16 %.2 to i64
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store i8 4, ptr %54, align 1, !tbaa !45
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 5
-  store i8 1, ptr %55, align 1, !tbaa !45
-  %56 = sext i16 %.2 to i64
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 6
-  store i8 3, ptr %58, align 1, !tbaa !45
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 7
-  store i8 1, ptr %59, align 1, !tbaa !45
+45:                                               ; preds = %44
+  %46 = zext nneg i16 %.2 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %46
+  store i8 6, ptr %47, align 1, !tbaa !45
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
+  store i8 1, ptr %48, align 1, !tbaa !45
+  %49 = sext i16 %.2 to i64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 2
+  store i8 5, ptr %51, align 1, !tbaa !45
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 3
+  store i8 1, ptr %52, align 1, !tbaa !45
+  %53 = sext i16 %.2 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  store i8 4, ptr %55, align 1, !tbaa !45
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 5
+  store i8 1, ptr %56, align 1, !tbaa !45
+  %57 = sext i16 %.2 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 6
+  store i8 3, ptr %59, align 1, !tbaa !45
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 7
+  store i8 1, ptr %60, align 1, !tbaa !45
   %storemerge.i69 = add nuw nsw i16 %.2, 8
-  %60 = zext nneg i16 %storemerge.i69 to i64
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %60
-  store i8 2, ptr %61, align 1, !tbaa !45
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store i8 1, ptr %62, align 1, !tbaa !45
+  %61 = zext nneg i16 %storemerge.i69 to i64
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %61
+  store i8 2, ptr %62, align 1, !tbaa !45
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
+  store i8 1, ptr %63, align 1, !tbaa !45
   br label %AddSuiteHashSigAlgo.exit74
 
-AddSuiteHashSigAlgo.exit74:                       ; preds = %AddSuiteHashSigAlgo.exit70.thread, %44
-  %storemerge.i69133 = phi i16 [ %storemerge.i69132, %AddSuiteHashSigAlgo.exit70.thread ], [ %storemerge.i69, %44 ]
+AddSuiteHashSigAlgo.exit74:                       ; preds = %AddSuiteHashSigAlgo.exit70.thread, %45
+  %storemerge.i69133 = phi i16 [ %storemerge.i69132, %AddSuiteHashSigAlgo.exit70.thread ], [ %storemerge.i69, %45 ]
   %storemerge.i73 = add nuw nsw i16 %storemerge.i69133, 2
-  br label %63
+  br label %64
 
-63:                                               ; preds = %AddSuiteHashSigAlgo.exit74, %AddSuiteHashSigAlgo.exit40
+64:                                               ; preds = %AddSuiteHashSigAlgo.exit74, %AddSuiteHashSigAlgo.exit40
   %.1 = phi i16 [ %.0, %AddSuiteHashSigAlgo.exit40 ], [ %storemerge.i73, %AddSuiteHashSigAlgo.exit74 ]
   store i16 %.1, ptr %4, align 2, !tbaa !97
   ret void
@@ -1142,14 +1142,14 @@ define void @InitSuites(ptr noundef %0, i16 %1, i32 %2, i16 noundef zeroext %3, 
   %22 = icmp ugt i16 %1, 1023
   %23 = and i1 %22, %17
   %24 = icmp eq ptr %0, null
-  br i1 %24, label %293, label %25
+  br i1 %24, label %292, label %25
 
 25:                                               ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 342
   %27 = load i8, ptr %26, align 2
   %28 = and i8 %27, 1
   %.not = icmp eq i8 %28, 0
-  br i1 %.not, label %29, label %293
+  br i1 %.not, label %29, label %292
 
 29:                                               ; preds = %25
   br i1 %23, label %30, label %37
@@ -1573,7 +1573,7 @@ define void @InitSuites(ptr noundef %0, i16 %1, i32 %2, i16 noundef zeroext %3, 
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %257 = load i16, ptr %256, align 2, !tbaa !102
   %258 = icmp eq i16 %257, 0
-  br i1 %258, label %259, label %293
+  br i1 %258, label %259, label %292
 
 259:                                              ; preds = %255
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -1628,29 +1628,27 @@ InitSuitesHashSigAlgo.exit:                       ; preds = %259, %268
   store i8 6, ptr %282, align 1, !tbaa !45
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 1
   store i8 1, ptr %283, align 1, !tbaa !45
-  %storemerge.i57.i = or disjoint i16 %.2.i, 2
-  %284 = zext nneg i16 %storemerge.i57.i to i64
-  %285 = getelementptr inbounds nuw i8, ptr %260, i64 %284
-  store i8 5, ptr %285, align 1, !tbaa !45
-  %286 = getelementptr inbounds nuw i8, ptr %285, i64 1
-  store i8 1, ptr %286, align 1, !tbaa !45
-  %287 = getelementptr inbounds nuw i8, ptr %282, i64 4
-  store i8 4, ptr %287, align 1, !tbaa !45
-  %288 = getelementptr inbounds nuw i8, ptr %282, i64 5
-  store i8 1, ptr %288, align 1, !tbaa !45
-  %289 = getelementptr inbounds nuw i8, ptr %282, i64 6
-  store i8 3, ptr %289, align 1, !tbaa !45
-  %290 = getelementptr inbounds nuw i8, ptr %282, i64 7
-  store i8 1, ptr %290, align 1, !tbaa !45
-  %291 = getelementptr inbounds nuw i8, ptr %282, i64 8
-  store i8 2, ptr %291, align 1, !tbaa !45
-  %292 = getelementptr inbounds nuw i8, ptr %282, i64 9
-  store i8 1, ptr %292, align 1, !tbaa !45
+  %284 = getelementptr inbounds nuw i8, ptr %282, i64 2
+  store i8 5, ptr %284, align 1, !tbaa !45
+  %285 = getelementptr inbounds nuw i8, ptr %282, i64 3
+  store i8 1, ptr %285, align 1, !tbaa !45
+  %286 = getelementptr inbounds nuw i8, ptr %282, i64 4
+  store i8 4, ptr %286, align 1, !tbaa !45
+  %287 = getelementptr inbounds nuw i8, ptr %282, i64 5
+  store i8 1, ptr %287, align 1, !tbaa !45
+  %288 = getelementptr inbounds nuw i8, ptr %282, i64 6
+  store i8 3, ptr %288, align 1, !tbaa !45
+  %289 = getelementptr inbounds nuw i8, ptr %282, i64 7
+  store i8 1, ptr %289, align 1, !tbaa !45
+  %290 = getelementptr inbounds nuw i8, ptr %282, i64 8
+  store i8 2, ptr %290, align 1, !tbaa !45
+  %291 = getelementptr inbounds nuw i8, ptr %282, i64 9
+  store i8 1, ptr %291, align 1, !tbaa !45
   %storemerge.i73.i = add nuw nsw i16 %.2.i, 10
   store i16 %storemerge.i73.i, ptr %256, align 2, !tbaa !97
-  br label %293
+  br label %292
 
-293:                                              ; preds = %255, %InitSuitesHashSigAlgo.exit, %25, %16
+292:                                              ; preds = %255, %InitSuitesHashSigAlgo.exit, %25, %16
   ret void
 }
 
@@ -21490,68 +21488,56 @@ AddSuiteHashSigAlgo.exit40.i.i:                   ; preds = %104, %99
   store i8 8, ptr %115, align 1, !tbaa !45
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 1
   store i8 6, ptr %116, align 1, !tbaa !45
-  %117 = or disjoint i16 %.0.i.i, 2
-  %118 = zext nneg i16 %117 to i64
-  %119 = getelementptr inbounds nuw i8, ptr %101, i64 %118
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 2
+  store i8 8, ptr %117, align 1, !tbaa !45
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 3
+  store i8 11, ptr %118, align 1, !tbaa !45
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store i8 8, ptr %119, align 1, !tbaa !45
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1
-  store i8 11, ptr %120, align 1, !tbaa !45
-  %storemerge.i43.i.i = or disjoint i16 %.0.i.i, 4
-  %121 = zext nneg i16 %storemerge.i43.i.i to i64
-  %122 = getelementptr inbounds nuw i8, ptr %101, i64 %121
-  store i8 8, ptr %122, align 1, !tbaa !45
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
-  store i8 5, ptr %123, align 1, !tbaa !45
-  %124 = or disjoint i16 %.0.i.i, 6
-  %125 = zext nneg i16 %124 to i64
-  %126 = getelementptr inbounds nuw i8, ptr %101, i64 %125
-  store i8 8, ptr %126, align 1, !tbaa !45
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 1
-  store i8 10, ptr %127, align 1, !tbaa !45
-  %128 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  store i8 8, ptr %128, align 1, !tbaa !45
-  %129 = getelementptr inbounds nuw i8, ptr %115, i64 9
-  store i8 4, ptr %129, align 1, !tbaa !45
-  %130 = getelementptr inbounds nuw i8, ptr %115, i64 10
-  store i8 8, ptr %130, align 1, !tbaa !45
-  %131 = getelementptr inbounds nuw i8, ptr %115, i64 11
-  store i8 9, ptr %131, align 1, !tbaa !45
-  %132 = getelementptr inbounds nuw i8, ptr %115, i64 12
-  store i8 6, ptr %132, align 1, !tbaa !45
-  %133 = getelementptr inbounds nuw i8, ptr %115, i64 13
-  store i8 1, ptr %133, align 1, !tbaa !45
-  %134 = getelementptr inbounds nuw i8, ptr %115, i64 14
-  store i8 5, ptr %134, align 1, !tbaa !45
-  %135 = getelementptr inbounds nuw i8, ptr %115, i64 15
-  store i8 1, ptr %135, align 1, !tbaa !45
-  %storemerge.i61.i.i = or disjoint i16 %.0.i.i, 16
-  %136 = zext nneg i16 %storemerge.i61.i.i to i64
-  %137 = getelementptr inbounds nuw i8, ptr %101, i64 %136
-  store i8 4, ptr %137, align 1, !tbaa !45
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
-  store i8 1, ptr %138, align 1, !tbaa !45
-  %storemerge.i65.i.i = or disjoint i16 %.0.i.i, 18
-  %139 = zext nneg i16 %storemerge.i65.i.i to i64
-  %140 = getelementptr inbounds nuw i8, ptr %101, i64 %139
-  store i8 3, ptr %140, align 1, !tbaa !45
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 1
-  store i8 1, ptr %141, align 1, !tbaa !45
-  %storemerge.i69.i.i = or disjoint i16 %.0.i.i, 20
-  %142 = zext nneg i16 %storemerge.i69.i.i to i64
-  %143 = getelementptr inbounds nuw i8, ptr %101, i64 %142
-  store i8 2, ptr %143, align 1, !tbaa !45
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 1
-  store i8 1, ptr %144, align 1, !tbaa !45
+  %120 = getelementptr inbounds nuw i8, ptr %115, i64 5
+  store i8 5, ptr %120, align 1, !tbaa !45
+  %121 = getelementptr inbounds nuw i8, ptr %115, i64 6
+  store i8 8, ptr %121, align 1, !tbaa !45
+  %122 = getelementptr inbounds nuw i8, ptr %115, i64 7
+  store i8 10, ptr %122, align 1, !tbaa !45
+  %123 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  store i8 8, ptr %123, align 1, !tbaa !45
+  %124 = getelementptr inbounds nuw i8, ptr %115, i64 9
+  store i8 4, ptr %124, align 1, !tbaa !45
+  %125 = getelementptr inbounds nuw i8, ptr %115, i64 10
+  store i8 8, ptr %125, align 1, !tbaa !45
+  %126 = getelementptr inbounds nuw i8, ptr %115, i64 11
+  store i8 9, ptr %126, align 1, !tbaa !45
+  %127 = getelementptr inbounds nuw i8, ptr %115, i64 12
+  store i8 6, ptr %127, align 1, !tbaa !45
+  %128 = getelementptr inbounds nuw i8, ptr %115, i64 13
+  store i8 1, ptr %128, align 1, !tbaa !45
+  %129 = getelementptr inbounds nuw i8, ptr %115, i64 14
+  store i8 5, ptr %129, align 1, !tbaa !45
+  %130 = getelementptr inbounds nuw i8, ptr %115, i64 15
+  store i8 1, ptr %130, align 1, !tbaa !45
+  %131 = getelementptr inbounds nuw i8, ptr %115, i64 16
+  store i8 4, ptr %131, align 1, !tbaa !45
+  %132 = getelementptr inbounds nuw i8, ptr %115, i64 17
+  store i8 1, ptr %132, align 1, !tbaa !45
+  %133 = getelementptr inbounds nuw i8, ptr %115, i64 18
+  store i8 3, ptr %133, align 1, !tbaa !45
+  %134 = getelementptr inbounds nuw i8, ptr %115, i64 19
+  store i8 1, ptr %134, align 1, !tbaa !45
+  %135 = getelementptr inbounds nuw i8, ptr %115, i64 20
+  store i8 2, ptr %135, align 1, !tbaa !45
+  %136 = getelementptr inbounds nuw i8, ptr %115, i64 21
+  store i8 1, ptr %136, align 1, !tbaa !45
   %storemerge.i73.i.i = or disjoint i16 %.0.i.i, 22
   br label %InitSuitesHashSigAlgo.exit.i
 
 InitSuitesHashSigAlgo.exit.i:                     ; preds = %113, %AddSuiteHashSigAlgo.exit40.i.i
   %.1.i.i = phi i16 [ %.0.i.i, %AddSuiteHashSigAlgo.exit40.i.i ], [ %storemerge.i73.i.i, %113 ]
   store i16 %.1.i.i, ptr %102, align 2, !tbaa !97
-  %145 = getelementptr inbounds nuw i8, ptr %2, i64 342
-  %146 = load i8, ptr %145, align 2
-  %147 = or i8 %146, 1
-  store i8 %147, ptr %145, align 2
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 342
+  %138 = load i8, ptr %137, align 2
+  %139 = or i8 %138, 1
+  store i8 %139, ptr %137, align 2
   br label %ParseCipherList.exit
 
 ParseCipherList.exit:                             ; preds = %InitSuitesHashSigAlgo.exit.i, %.loopexit.i, %.thread139.i, %34, %18, %10

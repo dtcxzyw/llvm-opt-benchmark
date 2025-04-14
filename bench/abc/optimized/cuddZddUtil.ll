@@ -280,8 +280,8 @@ define internal fastcc void @zddPrintCoverAux(ptr noundef readonly captures(none
   br label %tailrecurse.outer
 
 tailrecurse.outer:                                ; preds = %tailrecurse.outer.backedge, %4
-  %.tr70.ph = phi ptr [ %1, %4 ], [ %61, %tailrecurse.outer.backedge ]
-  %.tr71.ph = phi i32 [ %2, %4 ], [ %66, %tailrecurse.outer.backedge ]
+  %.tr70.ph = phi ptr [ %1, %4 ], [ %60, %tailrecurse.outer.backedge ]
+  %.tr71.ph = phi i32 [ %2, %4 ], [ %65, %tailrecurse.outer.backedge ]
   %9 = ptrtoint ptr %.tr70.ph to i64
   %10 = and i64 %9, -2
   %11 = inttoptr i64 %10 to ptr
@@ -292,7 +292,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %indvars.iv = phi i64 [ %indvars.iv.next, %tailrecurse.backedge ], [ %12, %tailrecurse.outer ]
   %13 = load i32, ptr %11, align 8, !tbaa !28
   %14 = icmp eq i32 %13, 2147483647
-  br i1 %14, label %15, label %47
+  br i1 %14, label %15, label %46
 
 15:                                               ; preds = %tailrecurse
   %16 = load ptr, ptr %7, align 8, !tbaa !29
@@ -313,7 +313,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 608
   br label %28
 
-tailrecurse.backedge:                             ; preds = %18, %55
+tailrecurse.backedge:                             ; preds = %18, %54
   %23 = load ptr, ptr %6, align 8, !tbaa !30
   %24 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !25
@@ -323,83 +323,82 @@ tailrecurse.backedge:                             ; preds = %18, %55
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br label %tailrecurse
 
-28:                                               ; preds = %.lr.ph, %39
-  %indvars.iv80 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next81, %39 ]
+28:                                               ; preds = %.lr.ph, %38
+  %indvars.iv80 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next81, %38 ]
   %29 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv80
   %30 = load i32, ptr %29, align 4, !tbaa !25
   %31 = shl nsw i32 %30, 2
-  %32 = or disjoint i64 %indvars.iv80, 1
-  %33 = getelementptr inbounds nuw i32, ptr %3, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !25
-  %35 = add nsw i32 %31, %34
-  %36 = load ptr, ptr %22, align 8, !tbaa !31
-  %37 = icmp ult i32 %35, 5
-  br i1 %37, label %switch.lookup, label %39
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !25
+  %34 = add nsw i32 %31, %33
+  %35 = load ptr, ptr %22, align 8, !tbaa !31
+  %36 = icmp ult i32 %34, 5
+  br i1 %36, label %switch.lookup, label %38
 
 switch.lookup:                                    ; preds = %28
-  %38 = zext nneg i32 %35 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.zddPrintCoverAux, i64 0, i64 %38
+  %37 = zext nneg i32 %34 to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.zddPrintCoverAux, i64 0, i64 %37
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %39
+  br label %38
 
-39:                                               ; preds = %28, %switch.lookup
+38:                                               ; preds = %28, %switch.lookup
   %.sink = phi i32 [ %switch.load, %switch.lookup ], [ 64, %28 ]
-  %40 = tail call i32 @putc(i32 noundef %.sink, ptr noundef %36)
+  %39 = tail call i32 @putc(i32 noundef %.sink, ptr noundef %35)
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 2
-  %41 = load i32, ptr %8, align 4, !tbaa !3
-  %42 = trunc nuw i64 %indvars.iv.next81 to i32
-  %43 = icmp sgt i32 %41, %42
-  br i1 %43, label %28, label %._crit_edge, !llvm.loop !36
+  %40 = load i32, ptr %8, align 4, !tbaa !3
+  %41 = trunc nuw i64 %indvars.iv.next81 to i32
+  %42 = icmp sgt i32 %40, %41
+  br i1 %42, label %28, label %._crit_edge, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %39, %.preheader
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %45 = load ptr, ptr %44, align 8, !tbaa !31
-  %46 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 3, i64 1, ptr %45)
+._crit_edge:                                      ; preds = %38, %.preheader
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %44 = load ptr, ptr %43, align 8, !tbaa !31
+  %45 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 3, i64 1, ptr %44)
   br label %.loopexit
 
-47:                                               ; preds = %tailrecurse
-  %48 = load i32, ptr %.tr70.ph, align 8, !tbaa !28
-  %49 = icmp eq i32 %48, 2147483647
-  br i1 %49, label %55, label %50
+46:                                               ; preds = %tailrecurse
+  %47 = load i32, ptr %.tr70.ph, align 8, !tbaa !28
+  %48 = icmp eq i32 %47, 2147483647
+  br i1 %48, label %54, label %49
 
-50:                                               ; preds = %47
-  %51 = load ptr, ptr %5, align 8, !tbaa !33
-  %52 = zext i32 %48 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %52
-  %54 = load i32, ptr %53, align 4, !tbaa !25
-  br label %55
+49:                                               ; preds = %46
+  %50 = load ptr, ptr %5, align 8, !tbaa !33
+  %51 = zext i32 %47 to i64
+  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
+  %53 = load i32, ptr %52, align 4, !tbaa !25
+  br label %54
 
-55:                                               ; preds = %47, %50
-  %56 = phi i32 [ %54, %50 ], [ 2147483647, %47 ]
-  %57 = trunc nsw i64 %indvars.iv to i32
-  %.not = icmp eq i32 %56, %57
-  br i1 %.not, label %58, label %tailrecurse.backedge
+54:                                               ; preds = %46, %49
+  %55 = phi i32 [ %53, %49 ], [ 2147483647, %46 ]
+  %56 = trunc nsw i64 %indvars.iv to i32
+  %.not = icmp eq i32 %55, %56
+  br i1 %.not, label %57, label %tailrecurse.backedge
 
-58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %.tr70.ph, i64 16
-  %60 = getelementptr inbounds nuw i8, ptr %.tr70.ph, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !34
-  %62 = load ptr, ptr %59, align 8, !tbaa !34
-  %63 = icmp eq ptr %62, %61
-  %64 = zext i32 %48 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %3, i64 %64
-  %66 = add nsw i32 %56, 1
-  br i1 %63, label %67, label %68
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %.tr70.ph, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.tr70.ph, i64 24
+  %60 = load ptr, ptr %59, align 8, !tbaa !34
+  %61 = load ptr, ptr %58, align 8, !tbaa !34
+  %62 = icmp eq ptr %61, %60
+  %63 = zext i32 %47 to i64
+  %64 = getelementptr inbounds nuw i32, ptr %3, i64 %63
+  %65 = add nsw i32 %55, 1
+  br i1 %62, label %66, label %67
 
-67:                                               ; preds = %58
-  store i32 2, ptr %65, align 4, !tbaa !25
+66:                                               ; preds = %57
+  store i32 2, ptr %64, align 4, !tbaa !25
   br label %tailrecurse.outer.backedge
 
-tailrecurse.outer.backedge:                       ; preds = %67, %68
+tailrecurse.outer.backedge:                       ; preds = %66, %67
   br label %tailrecurse.outer
 
-68:                                               ; preds = %58
-  store i32 1, ptr %65, align 4, !tbaa !25
-  tail call fastcc void @zddPrintCoverAux(ptr noundef %0, ptr noundef %62, i32 noundef %66, ptr noundef %3)
-  %69 = load i32, ptr %.tr70.ph, align 8, !tbaa !28
-  %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %3, i64 %70
-  store i32 0, ptr %71, align 4, !tbaa !25
+67:                                               ; preds = %57
+  store i32 1, ptr %64, align 4, !tbaa !25
+  tail call fastcc void @zddPrintCoverAux(ptr noundef %0, ptr noundef %61, i32 noundef %65, ptr noundef %3)
+  %68 = load i32, ptr %.tr70.ph, align 8, !tbaa !28
+  %69 = zext i32 %68 to i64
+  %70 = getelementptr inbounds nuw i32, ptr %3, i64 %69
+  store i32 0, ptr %70, align 4, !tbaa !25
   br label %tailrecurse.outer.backedge
 
 .loopexit:                                        ; preds = %15, %._crit_edge
@@ -896,7 +895,7 @@ define noundef ptr @Cudd_zddCoverPathToString(ptr noundef readonly captures(none
   %5 = load i32, ptr %4, align 4, !tbaa !3
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %31
+  br i1 %.not, label %7, label %29
 
 7:                                                ; preds = %3
   %8 = ashr exact i32 %5, 1
@@ -908,7 +907,7 @@ define noundef ptr @Cudd_zddCoverPathToString(ptr noundef readonly captures(none
   %12 = sext i32 %11 to i64
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #11
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %31, label %15
+  br i1 %14, label %29, label %15
 
 15:                                               ; preds = %7, %10
   %.026 = phi ptr [ %13, %10 ], [ %2, %7 ]
@@ -919,40 +918,39 @@ define noundef ptr @Cudd_zddCoverPathToString(ptr noundef readonly captures(none
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %27
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %17 = shl nuw nsw i64 %indvars.iv, 1
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %17
-  %19 = load i32, ptr %18, align 4, !tbaa !25
-  %20 = shl i32 %19, 2
-  %21 = or disjoint i64 %17, 1
-  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !25
-  %24 = or i32 %20, %23
-  %25 = icmp ult i32 %24, 11
-  br i1 %25, label %switch.lookup, label %27
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %25
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  %18 = load i32, ptr %17, align 4, !tbaa !25
+  %19 = shl i32 %18, 2
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %21 = load i32, ptr %20, align 4, !tbaa !25
+  %22 = or i32 %19, %21
+  %23 = icmp ult i32 %22, 11
+  br i1 %23, label %switch.lookup, label %25
 
 switch.lookup:                                    ; preds = %.lr.ph
-  %26 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table.Cudd_zddCoverPathToString, i64 0, i64 %26
+  %24 = zext nneg i32 %22 to i64
+  %switch.gep = getelementptr inbounds nuw [11 x i8], ptr @switch.table.Cudd_zddCoverPathToString, i64 0, i64 %24
   %switch.load = load i8, ptr %switch.gep, align 1
-  br label %27
+  br label %25
 
-27:                                               ; preds = %.lr.ph, %switch.lookup
+25:                                               ; preds = %.lr.ph, %switch.lookup
   %.sink = phi i8 [ %switch.load, %switch.lookup ], [ 63, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i8, ptr %.026, i64 %indvars.iv
-  store i8 %.sink, ptr %28, align 1, !tbaa !34
+  %26 = getelementptr inbounds nuw i8, ptr %.026, i64 %indvars.iv
+  store i8 %.sink, ptr %26, align 1, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %27, %15
-  %29 = sext i32 %8 to i64
-  %30 = getelementptr inbounds i8, ptr %.026, i64 %29
-  store i8 0, ptr %30, align 1, !tbaa !34
-  br label %31
+._crit_edge:                                      ; preds = %25, %15
+  %27 = sext i32 %8 to i64
+  %28 = getelementptr inbounds i8, ptr %.026, i64 %27
+  store i8 0, ptr %28, align 1, !tbaa !34
+  br label %29
 
-31:                                               ; preds = %10, %3, %._crit_edge
+29:                                               ; preds = %10, %3, %._crit_edge
   %.0 = phi ptr [ %.026, %._crit_edge ], [ null, %3 ], [ null, %10 ]
   ret ptr %.0
 }

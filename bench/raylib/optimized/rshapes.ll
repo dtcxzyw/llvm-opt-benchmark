@@ -3414,100 +3414,99 @@ define void @DrawSplineBezierQuadratic(ptr noundef readonly captures(none) %0, i
 14:                                               ; preds = %.lr.ph, %DrawSplineSegmentBezierQuadratic.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %DrawSplineSegmentBezierQuadratic.exit ]
   %15 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv
-  %16 = or disjoint i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %18 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv.next
-  %19 = load <2 x float>, ptr %15, align 4
+  %17 = getelementptr inbounds nuw %struct.Vector2, ptr %0, i64 %indvars.iv.next
+  %18 = load <2 x float>, ptr %15, align 4
+  %19 = load <2 x float>, ptr %16, align 4
   %20 = load <2 x float>, ptr %17, align 4
-  %21 = load <2 x float>, ptr %18, align 4
-  %.sroa.050.0.vec.extract52.i = extractelement <2 x float> %19, i64 0
-  %.sroa.050.4.vec.extract54.i = extractelement <2 x float> %19, i64 1
+  %.sroa.050.0.vec.extract52.i = extractelement <2 x float> %18, i64 0
+  %.sroa.050.4.vec.extract54.i = extractelement <2 x float> %18, i64 1
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %8, i8 0, i64 384, i1 false)
-  %.sroa.049.4.vec.extract.i = extractelement <2 x float> %20, i64 1
-  %.sroa.048.4.vec.extract.i = extractelement <2 x float> %21, i64 1
-  %.sroa.049.0.vec.extract.i = extractelement <2 x float> %20, i64 0
-  %.sroa.048.0.vec.extract.i = extractelement <2 x float> %21, i64 0
-  br label %22
+  %.sroa.049.4.vec.extract.i = extractelement <2 x float> %19, i64 1
+  %.sroa.048.4.vec.extract.i = extractelement <2 x float> %20, i64 1
+  %.sroa.049.0.vec.extract.i = extractelement <2 x float> %19, i64 0
+  %.sroa.048.0.vec.extract.i = extractelement <2 x float> %20, i64 0
+  br label %21
 
-22:                                               ; preds = %52, %14
-  %indvars.iv.i = phi i64 [ 1, %14 ], [ %indvars.iv.next.i, %52 ]
-  %23 = phi float [ 0.000000e+00, %14 ], [ %53, %52 ]
-  %24 = phi float [ 0.000000e+00, %14 ], [ %54, %52 ]
-  %25 = phi float [ 0.000000e+00, %14 ], [ %55, %52 ]
-  %.sroa.7.058.i = phi float [ %.sroa.050.4.vec.extract54.i, %14 ], [ %35, %52 ]
-  %.sroa.041.057.i = phi float [ %.sroa.050.0.vec.extract52.i, %14 ], [ %38, %52 ]
-  %26 = phi float [ 0.000000e+00, %14 ], [ %56, %52 ]
-  %27 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %28 = uitofp nneg i32 %27 to float
-  %29 = fmul float %28, 0x3FA5555560000000
-  %30 = fsub float 1.000000e+00, %29
-  %square.i = fmul float %30, %30
-  %31 = fmul float %30, 2.000000e+00
-  %32 = fmul float %29, %31
-  %square55.i = fmul float %29, %29
-  %33 = fmul float %.sroa.049.4.vec.extract.i, %32
-  %34 = tail call float @llvm.fmuladd.f32(float %square.i, float %.sroa.050.4.vec.extract54.i, float %33)
-  %35 = tail call float @llvm.fmuladd.f32(float %square55.i, float %.sroa.048.4.vec.extract.i, float %34)
-  %36 = fmul float %.sroa.049.0.vec.extract.i, %32
-  %37 = tail call float @llvm.fmuladd.f32(float %square.i, float %.sroa.050.0.vec.extract52.i, float %36)
-  %38 = tail call float @llvm.fmuladd.f32(float %square55.i, float %.sroa.048.0.vec.extract.i, float %37)
-  %39 = fsub float %35, %.sroa.7.058.i
-  %40 = fsub float %38, %.sroa.041.057.i
-  %41 = fmul float %39, %39
-  %42 = tail call float @llvm.fmuladd.f32(float %40, float %40, float %41)
-  %sqrt.i = tail call float @llvm.sqrt.f32(float %42)
-  %43 = fdiv float %9, %sqrt.i
-  %44 = icmp eq i64 %indvars.iv.i, 1
-  %45 = fneg float %40
-  br i1 %44, label %46, label %._crit_edge.i
+21:                                               ; preds = %51, %14
+  %indvars.iv.i = phi i64 [ 1, %14 ], [ %indvars.iv.next.i, %51 ]
+  %22 = phi float [ 0.000000e+00, %14 ], [ %52, %51 ]
+  %23 = phi float [ 0.000000e+00, %14 ], [ %53, %51 ]
+  %24 = phi float [ 0.000000e+00, %14 ], [ %54, %51 ]
+  %.sroa.7.058.i = phi float [ %.sroa.050.4.vec.extract54.i, %14 ], [ %34, %51 ]
+  %.sroa.041.057.i = phi float [ %.sroa.050.0.vec.extract52.i, %14 ], [ %37, %51 ]
+  %25 = phi float [ 0.000000e+00, %14 ], [ %55, %51 ]
+  %26 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %27 = uitofp nneg i32 %26 to float
+  %28 = fmul float %27, 0x3FA5555560000000
+  %29 = fsub float 1.000000e+00, %28
+  %square.i = fmul float %29, %29
+  %30 = fmul float %29, 2.000000e+00
+  %31 = fmul float %28, %30
+  %square55.i = fmul float %28, %28
+  %32 = fmul float %.sroa.049.4.vec.extract.i, %31
+  %33 = tail call float @llvm.fmuladd.f32(float %square.i, float %.sroa.050.4.vec.extract54.i, float %32)
+  %34 = tail call float @llvm.fmuladd.f32(float %square55.i, float %.sroa.048.4.vec.extract.i, float %33)
+  %35 = fmul float %.sroa.049.0.vec.extract.i, %31
+  %36 = tail call float @llvm.fmuladd.f32(float %square.i, float %.sroa.050.0.vec.extract52.i, float %35)
+  %37 = tail call float @llvm.fmuladd.f32(float %square55.i, float %.sroa.048.0.vec.extract.i, float %36)
+  %38 = fsub float %34, %.sroa.7.058.i
+  %39 = fsub float %37, %.sroa.041.057.i
+  %40 = fmul float %38, %38
+  %41 = tail call float @llvm.fmuladd.f32(float %39, float %39, float %40)
+  %sqrt.i = tail call float @llvm.sqrt.f32(float %41)
+  %42 = fdiv float %9, %sqrt.i
+  %43 = icmp eq i64 %indvars.iv.i, 1
+  %44 = fneg float %39
+  br i1 %43, label %45, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %22
-  %.pre.i = fneg float %39
-  br label %52
+._crit_edge.i:                                    ; preds = %21
+  %.pre.i = fneg float %38
+  br label %51
 
-46:                                               ; preds = %22
-  %47 = tail call float @llvm.fmuladd.f32(float %39, float %43, float %.sroa.041.057.i)
-  %48 = tail call float @llvm.fmuladd.f32(float %45, float %43, float %.sroa.7.058.i)
-  %49 = fneg float %39
-  %50 = tail call float @llvm.fmuladd.f32(float %49, float %43, float %.sroa.041.057.i)
-  %51 = tail call float @llvm.fmuladd.f32(float %40, float %43, float %.sroa.7.058.i)
-  br label %52
+45:                                               ; preds = %21
+  %46 = tail call float @llvm.fmuladd.f32(float %38, float %42, float %.sroa.041.057.i)
+  %47 = tail call float @llvm.fmuladd.f32(float %44, float %42, float %.sroa.7.058.i)
+  %48 = fneg float %38
+  %49 = tail call float @llvm.fmuladd.f32(float %48, float %42, float %.sroa.041.057.i)
+  %50 = tail call float @llvm.fmuladd.f32(float %39, float %42, float %.sroa.7.058.i)
+  br label %51
 
-52:                                               ; preds = %46, %._crit_edge.i
-  %.pre-phi.i = phi float [ %.pre.i, %._crit_edge.i ], [ %49, %46 ]
-  %53 = phi float [ %23, %._crit_edge.i ], [ %51, %46 ]
-  %54 = phi float [ %24, %._crit_edge.i ], [ %50, %46 ]
-  %55 = phi float [ %25, %._crit_edge.i ], [ %48, %46 ]
-  %56 = phi float [ %26, %._crit_edge.i ], [ %47, %46 ]
-  %57 = tail call float @llvm.fmuladd.f32(float %.pre-phi.i, float %43, float %38)
-  %58 = shl nuw nsw i64 %indvars.iv.i, 1
-  %59 = or disjoint i64 %58, 1
-  %60 = getelementptr inbounds nuw [50 x %struct.Vector2], ptr %5, i64 0, i64 %59
-  store float %57, ptr %60, align 8
-  %61 = tail call float @llvm.fmuladd.f32(float %40, float %43, float %35)
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store float %61, ptr %62, align 4
-  %63 = tail call float @llvm.fmuladd.f32(float %39, float %43, float %38)
-  %64 = getelementptr inbounds nuw [50 x %struct.Vector2], ptr %5, i64 0, i64 %58
-  store float %63, ptr %64, align 16
-  %65 = tail call float @llvm.fmuladd.f32(float %45, float %43, float %35)
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  store float %65, ptr %66, align 4
+51:                                               ; preds = %45, %._crit_edge.i
+  %.pre-phi.i = phi float [ %.pre.i, %._crit_edge.i ], [ %48, %45 ]
+  %52 = phi float [ %22, %._crit_edge.i ], [ %50, %45 ]
+  %53 = phi float [ %23, %._crit_edge.i ], [ %49, %45 ]
+  %54 = phi float [ %24, %._crit_edge.i ], [ %47, %45 ]
+  %55 = phi float [ %25, %._crit_edge.i ], [ %46, %45 ]
+  %56 = tail call float @llvm.fmuladd.f32(float %.pre-phi.i, float %42, float %37)
+  %57 = shl nuw nsw i64 %indvars.iv.i, 1
+  %58 = or disjoint i64 %57, 1
+  %59 = getelementptr inbounds nuw [50 x %struct.Vector2], ptr %5, i64 0, i64 %58
+  store float %56, ptr %59, align 8
+  %60 = tail call float @llvm.fmuladd.f32(float %39, float %42, float %34)
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  store float %60, ptr %61, align 4
+  %62 = tail call float @llvm.fmuladd.f32(float %38, float %42, float %37)
+  %63 = getelementptr inbounds nuw [50 x %struct.Vector2], ptr %5, i64 0, i64 %57
+  store float %62, ptr %63, align 16
+  %64 = tail call float @llvm.fmuladd.f32(float %44, float %42, float %34)
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  store float %64, ptr %65, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 25
-  br i1 %exitcond.not.i, label %DrawSplineSegmentBezierQuadratic.exit, label %22
+  br i1 %exitcond.not.i, label %DrawSplineSegmentBezierQuadratic.exit, label %21
 
-DrawSplineSegmentBezierQuadratic.exit:            ; preds = %52
-  store float %55, ptr %12, align 4
-  store float %54, ptr %11, align 8
-  store float %53, ptr %10, align 4
-  store float %56, ptr %5, align 16
+DrawSplineSegmentBezierQuadratic.exit:            ; preds = %51
+  store float %54, ptr %12, align 4
+  store float %53, ptr %11, align 8
+  store float %52, ptr %10, align 4
+  store float %55, ptr %5, align 16
   call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 50, i32 %3)
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %5) #16
-  %67 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %67, label %14, label %.loopexit
+  %66 = icmp samesign ult i64 %indvars.iv.next, %13
+  br i1 %66, label %14, label %.loopexit
 
 .loopexit:                                        ; preds = %DrawSplineSegmentBezierQuadratic.exit, %4
   ret void

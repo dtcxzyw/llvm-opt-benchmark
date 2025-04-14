@@ -5896,8 +5896,8 @@ _ZN4core4iter6traits8iterator8Iterator3any17hb549db5b7d1878a3E.exit.i: ; preds =
   %273 = sub nuw nsw i64 64, %272
   %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %273, i64 7)
   %274 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i.i, 2
-  %275 = or disjoint i64 %274, 1
-  %276 = getelementptr i8, ptr null, i64 %275
+  %275 = getelementptr i8, ptr null, i64 %274
+  %276 = getelementptr i8, ptr %275, i64 1
   store ptr %269, ptr %151, align 8, !alias.scope !758, !noalias !748
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %151, i64 8
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !758, !noalias !748
@@ -8277,8 +8277,8 @@ _ZN4core4iter6traits8iterator8Iterator3any17h6d735842b4735806E.exit.i: ; preds =
   %1085 = sub nuw nsw i64 64, %1084
   %.0.sroa.speculated.i.i.i.i266 = call noundef i64 @llvm.umin.i64(i64 %1085, i64 7)
   %1086 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i.i266, 2
-  %1087 = or disjoint i64 %1086, 1
-  %1088 = getelementptr i8, ptr null, i64 %1087
+  %1087 = getelementptr i8, ptr null, i64 %1086
+  %1088 = getelementptr i8, ptr %1087, i64 1
   store ptr %1081, ptr %104, align 8, !alias.scope !957, !noalias !947
   %.sroa.5.0..sroa_idx.i267 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i64 0, ptr %.sroa.5.0..sroa_idx.i267, align 8, !alias.scope !957, !noalias !947

@@ -4889,7 +4889,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %154 = getelementptr inbounds nuw i8, ptr %6, i64 152
   br label %161
 
-.preheader:                                       ; preds = %379, %147
+.preheader:                                       ; preds = %378, %147
   %155 = load ptr, ptr %44, align 8, !tbaa !153
   %156 = getelementptr i8, ptr %155, i64 4
   %.val235399 = load i32, ptr %156, align 4, !tbaa !41
@@ -4900,20 +4900,20 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %158 = getelementptr i8, ptr %16, i64 8
   %159 = getelementptr i8, ptr %6, i64 32
   %160 = getelementptr i8, ptr %6, i64 64
-  br label %383
+  br label %382
 
-161:                                              ; preds = %.lr.ph398, %379
-  %.val265442 = phi i32 [ %.val265396, %.lr.ph398 ], [ %.val265, %379 ]
-  %.val30.i = phi ptr [ %.val272, %.lr.ph398 ], [ %.val30.i305441, %379 ]
-  %.0192397 = phi i32 [ 2, %.lr.ph398 ], [ %380, %379 ]
+161:                                              ; preds = %.lr.ph398, %378
+  %.val265442 = phi i32 [ %.val265396, %.lr.ph398 ], [ %.val265, %378 ]
+  %.val30.i = phi ptr [ %.val272, %.lr.ph398 ], [ %.val30.i305441, %378 ]
+  %.0192397 = phi i32 [ 2, %.lr.ph398 ], [ %379, %378 ]
   %.val277 = load ptr, ptr %149, align 8, !tbaa !169
   %162 = getelementptr i8, ptr %.val277, i64 8
   %.val277.val = load ptr, ptr %162, align 8, !tbaa !43
   %163 = sext i32 %.0192397 to i64
   %164 = getelementptr inbounds i32, ptr %.val277.val, i64 %163
   %165 = load i32, ptr %164, align 4, !tbaa !35
-  switch i32 %165, label %314 [
-    i32 0, label %379
+  switch i32 %165, label %313 [
+    i32 0, label %378
     i32 -2, label %166
     i32 -1, label %211
   ]
@@ -4997,7 +4997,7 @@ Abc_NtkFromCellRead.exit:                         ; preds = %182, %.split.i, %.s
   %209 = load i32, ptr %154, align 8, !tbaa !170
   %210 = add nsw i32 %209, 1
   store i32 %210, ptr %154, align 8, !tbaa !170
-  br label %375
+  br label %374
 
 211:                                              ; preds = %161
   %212 = xor i32 %.0192397, 1
@@ -5007,7 +5007,7 @@ Abc_NtkFromCellRead.exit:                         ; preds = %182, %.split.i, %.s
 
 ._crit_edge:                                      ; preds = %211
   %.pre449 = sext i32 %212 to i64
-  br label %280
+  br label %279
 
 214:                                              ; preds = %211
   %215 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #21
@@ -5124,347 +5124,346 @@ Abc_NtkFromCellRead.exit304:                      ; preds = %233, %.split.i299, 
   %276 = getelementptr i8, ptr %215, i64 16
   %.val = load i32, ptr %276, align 8, !tbaa !8
   %.val273 = load ptr, ptr %150, align 8, !tbaa !43
-  %277 = or disjoint i32 %.0192397, 1
-  %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds i32, ptr %.val273, i64 %278
-  store i32 %.val, ptr %279, align 4, !tbaa !35
-  br label %280
+  %277 = getelementptr i32, ptr %.val273, i64 %163
+  %278 = getelementptr i8, ptr %277, i64 4
+  store i32 %.val, ptr %278, align 4, !tbaa !35
+  br label %279
 
-280:                                              ; preds = %._crit_edge, %.critedge10
+279:                                              ; preds = %._crit_edge, %.critedge10
   %.pre-phi450 = phi i64 [ %.pre449, %._crit_edge ], [ %216, %.critedge10 ]
   %.val30.i305 = phi ptr [ %.val30.i, %._crit_edge ], [ %.val273, %.critedge10 ]
   %.1 = phi i32 [ 0, %._crit_edge ], [ 1, %.critedge10 ]
-  %281 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #21
-  %282 = and i32 %212, 1
-  %283 = getelementptr inbounds i32, ptr %.val30.i305, i64 %.pre-phi450
-  %284 = load i32, ptr %283, align 4, !tbaa !35
-  %285 = icmp sgt i32 %284, -1
-  br i1 %285, label %286, label %291
+  %280 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #21
+  %281 = and i32 %212, 1
+  %282 = getelementptr inbounds i32, ptr %.val30.i305, i64 %.pre-phi450
+  %283 = load i32, ptr %282, align 4, !tbaa !35
+  %284 = icmp sgt i32 %283, -1
+  br i1 %284, label %285, label %290
 
-286:                                              ; preds = %280
+285:                                              ; preds = %279
   %.val28.i316 = load ptr, ptr %151, align 8, !tbaa !21
-  %287 = getelementptr i8, ptr %.val28.i316, i64 8
-  %.val28.val.i317 = load ptr, ptr %287, align 8, !tbaa !17
-  %288 = zext nneg i32 %284 to i64
-  %289 = getelementptr inbounds nuw ptr, ptr %.val28.val.i317, i64 %288
-  %290 = load ptr, ptr %289, align 8, !tbaa !18
+  %286 = getelementptr i8, ptr %.val28.i316, i64 8
+  %.val28.val.i317 = load ptr, ptr %286, align 8, !tbaa !17
+  %287 = zext nneg i32 %283 to i64
+  %288 = getelementptr inbounds nuw ptr, ptr %.val28.val.i317, i64 %287
+  %289 = load ptr, ptr %288, align 8, !tbaa !18
   br label %Abc_NtkFromCellRead.exit318
 
-291:                                              ; preds = %280
-  %292 = icmp ult i32 %.0192397, 2
-  br i1 %292, label %293, label %.split23.i306
+290:                                              ; preds = %279
+  %291 = icmp ult i32 %.0192397, 2
+  br i1 %291, label %292, label %.split23.i306
 
-293:                                              ; preds = %291
-  %.not.i312 = icmp eq i32 %282, 0
-  br i1 %.not.i312, label %296, label %294
+292:                                              ; preds = %290
+  %.not.i312 = icmp eq i32 %281, 0
+  br i1 %.not.i312, label %295, label %293
 
-294:                                              ; preds = %293
-  %295 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #21
+293:                                              ; preds = %292
+  %294 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #21
   br label %.split.i313
 
-296:                                              ; preds = %293
-  %297 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #21
+295:                                              ; preds = %292
+  %296 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #21
   br label %.split.i313
 
-.split.i313:                                      ; preds = %296, %294
-  %298 = phi ptr [ %295, %294 ], [ %297, %296 ]
-  %299 = getelementptr i8, ptr %298, i64 16
-  %.val26.i314 = load i32, ptr %299, align 8, !tbaa !8
-  %300 = zext nneg i32 %282 to i64
-  %301 = getelementptr inbounds nuw i32, ptr %.val30.i305, i64 %300
-  store i32 %.val26.i314, ptr %301, align 4, !tbaa !35
+.split.i313:                                      ; preds = %295, %293
+  %297 = phi ptr [ %294, %293 ], [ %296, %295 ]
+  %298 = getelementptr i8, ptr %297, i64 16
+  %.val26.i314 = load i32, ptr %298, align 8, !tbaa !8
+  %299 = zext nneg i32 %281 to i64
+  %300 = getelementptr inbounds nuw i32, ptr %.val30.i305, i64 %299
+  store i32 %.val26.i314, ptr %300, align 4, !tbaa !35
   br label %Abc_NtkFromCellRead.exit318
 
-.split23.i306:                                    ; preds = %291
-  %302 = getelementptr inbounds i32, ptr %.val30.i305, i64 %163
-  %303 = load i32, ptr %302, align 4, !tbaa !35
+.split23.i306:                                    ; preds = %290
+  %301 = getelementptr inbounds i32, ptr %.val30.i305, i64 %163
+  %302 = load i32, ptr %301, align 4, !tbaa !35
   %.val27.i307 = load ptr, ptr %151, align 8, !tbaa !21
-  %304 = getelementptr i8, ptr %.val27.i307, i64 8
-  %.val27.val.i308 = load ptr, ptr %304, align 8, !tbaa !17
-  %305 = sext i32 %303 to i64
-  %306 = getelementptr inbounds ptr, ptr %.val27.val.i308, i64 %305
-  %307 = load ptr, ptr %306, align 8, !tbaa !18
-  %308 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %307) #21
-  %309 = getelementptr i8, ptr %308, i64 16
-  %.val.i309 = load i32, ptr %309, align 8, !tbaa !8
-  store i32 %.val.i309, ptr %283, align 4, !tbaa !35
+  %303 = getelementptr i8, ptr %.val27.i307, i64 8
+  %.val27.val.i308 = load ptr, ptr %303, align 8, !tbaa !17
+  %304 = sext i32 %302 to i64
+  %305 = getelementptr inbounds ptr, ptr %.val27.val.i308, i64 %304
+  %306 = load ptr, ptr %305, align 8, !tbaa !18
+  %307 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %306) #21
+  %308 = getelementptr i8, ptr %307, i64 16
+  %.val.i309 = load i32, ptr %308, align 8, !tbaa !8
+  store i32 %.val.i309, ptr %282, align 4, !tbaa !35
   br label %Abc_NtkFromCellRead.exit318
 
-Abc_NtkFromCellRead.exit318:                      ; preds = %286, %.split.i313, %.split23.i306
-  %.021.i311 = phi ptr [ %290, %286 ], [ %298, %.split.i313 ], [ %308, %.split23.i306 ]
-  call void @Abc_ObjAddFanin(ptr noundef %281, ptr noundef %.021.i311) #21
-  %310 = load ptr, ptr %152, align 8, !tbaa !112
-  %311 = load ptr, ptr %153, align 8, !tbaa !172
-  %312 = call ptr @Mio_LibraryReadGateByName(ptr noundef %310, ptr noundef %311, ptr noundef null) #21
-  %313 = getelementptr inbounds nuw i8, ptr %281, i64 56
-  store ptr %312, ptr %313, align 8, !tbaa !39
-  br label %375
+Abc_NtkFromCellRead.exit318:                      ; preds = %285, %.split.i313, %.split23.i306
+  %.021.i311 = phi ptr [ %289, %285 ], [ %297, %.split.i313 ], [ %307, %.split23.i306 ]
+  call void @Abc_ObjAddFanin(ptr noundef %280, ptr noundef %.021.i311) #21
+  %309 = load ptr, ptr %152, align 8, !tbaa !112
+  %310 = load ptr, ptr %153, align 8, !tbaa !172
+  %311 = call ptr @Mio_LibraryReadGateByName(ptr noundef %309, ptr noundef %310, ptr noundef null) #21
+  %312 = getelementptr inbounds nuw i8, ptr %280, i64 56
+  store ptr %311, ptr %312, align 8, !tbaa !39
+  br label %374
 
-314:                                              ; preds = %161
-  %315 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #21
+313:                                              ; preds = %161
+  %314 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 7) #21
   %.val282390 = load ptr, ptr %149, align 8, !tbaa !169
-  %316 = getelementptr i8, ptr %.val282390, i64 8
-  %.val282.val391 = load ptr, ptr %316, align 8, !tbaa !43
-  %317 = getelementptr inbounds i32, ptr %.val282.val391, i64 %163
-  %318 = load i32, ptr %317, align 4, !tbaa !35
-  %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds i32, ptr %.val282.val391, i64 %319
-  %321 = load i32, ptr %320, align 4, !tbaa !35
-  %322 = icmp sgt i32 %321, 0
-  br i1 %322, label %.lr.ph393, label %..critedge12_crit_edge
+  %315 = getelementptr i8, ptr %.val282390, i64 8
+  %.val282.val391 = load ptr, ptr %315, align 8, !tbaa !43
+  %316 = getelementptr inbounds i32, ptr %.val282.val391, i64 %163
+  %317 = load i32, ptr %316, align 4, !tbaa !35
+  %318 = sext i32 %317 to i64
+  %319 = getelementptr inbounds i32, ptr %.val282.val391, i64 %318
+  %320 = load i32, ptr %319, align 4, !tbaa !35
+  %321 = icmp sgt i32 %320, 0
+  br i1 %321, label %.lr.ph393, label %..critedge12_crit_edge
 
-..critedge12_crit_edge:                           ; preds = %314
-  %.pre446 = sext i32 %321 to i64
+..critedge12_crit_edge:                           ; preds = %313
+  %.pre446 = sext i32 %320 to i64
   br label %.critedge12
 
-.lr.ph393:                                        ; preds = %314, %Abc_NtkFromCellRead.exit332
-  %indvars.iv425 = phi i64 [ %indvars.iv.next426, %Abc_NtkFromCellRead.exit332 ], [ 0, %314 ]
-  %323 = phi ptr [ %362, %Abc_NtkFromCellRead.exit332 ], [ %320, %314 ]
-  %324 = getelementptr inbounds nuw i8, ptr %323, i64 4
-  %325 = getelementptr inbounds nuw i32, ptr %324, i64 %indvars.iv425
-  %326 = load i32, ptr %325, align 4, !tbaa !35
-  %327 = and i32 %326, 1
+.lr.ph393:                                        ; preds = %313, %Abc_NtkFromCellRead.exit332
+  %indvars.iv425 = phi i64 [ %indvars.iv.next426, %Abc_NtkFromCellRead.exit332 ], [ 0, %313 ]
+  %322 = phi ptr [ %361, %Abc_NtkFromCellRead.exit332 ], [ %319, %313 ]
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 4
+  %324 = getelementptr inbounds nuw i32, ptr %323, i64 %indvars.iv425
+  %325 = load i32, ptr %324, align 4, !tbaa !35
+  %326 = and i32 %325, 1
   %.val30.i319 = load ptr, ptr %150, align 8, !tbaa !43
-  %328 = sext i32 %326 to i64
-  %329 = getelementptr inbounds i32, ptr %.val30.i319, i64 %328
-  %330 = load i32, ptr %329, align 4, !tbaa !35
-  %331 = icmp sgt i32 %330, -1
-  br i1 %331, label %332, label %337
+  %327 = sext i32 %325 to i64
+  %328 = getelementptr inbounds i32, ptr %.val30.i319, i64 %327
+  %329 = load i32, ptr %328, align 4, !tbaa !35
+  %330 = icmp sgt i32 %329, -1
+  br i1 %330, label %331, label %336
 
-332:                                              ; preds = %.lr.ph393
+331:                                              ; preds = %.lr.ph393
   %.val28.i330 = load ptr, ptr %151, align 8, !tbaa !21
-  %333 = getelementptr i8, ptr %.val28.i330, i64 8
-  %.val28.val.i331 = load ptr, ptr %333, align 8, !tbaa !17
-  %334 = zext nneg i32 %330 to i64
-  %335 = getelementptr inbounds nuw ptr, ptr %.val28.val.i331, i64 %334
-  %336 = load ptr, ptr %335, align 8, !tbaa !18
+  %332 = getelementptr i8, ptr %.val28.i330, i64 8
+  %.val28.val.i331 = load ptr, ptr %332, align 8, !tbaa !17
+  %333 = zext nneg i32 %329 to i64
+  %334 = getelementptr inbounds nuw ptr, ptr %.val28.val.i331, i64 %333
+  %335 = load ptr, ptr %334, align 8, !tbaa !18
   br label %Abc_NtkFromCellRead.exit332
 
-337:                                              ; preds = %.lr.ph393
-  %338 = icmp ult i32 %326, 2
-  br i1 %338, label %339, label %.split23.i320
+336:                                              ; preds = %.lr.ph393
+  %337 = icmp ult i32 %325, 2
+  br i1 %337, label %338, label %.split23.i320
 
-339:                                              ; preds = %337
-  %.not.i326 = icmp eq i32 %327, 0
-  br i1 %.not.i326, label %342, label %340
+338:                                              ; preds = %336
+  %.not.i326 = icmp eq i32 %326, 0
+  br i1 %.not.i326, label %341, label %339
 
-340:                                              ; preds = %339
-  %341 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #21
+339:                                              ; preds = %338
+  %340 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #21
   br label %.split.i327
 
-342:                                              ; preds = %339
-  %343 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #21
+341:                                              ; preds = %338
+  %342 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #21
   br label %.split.i327
 
-.split.i327:                                      ; preds = %342, %340
-  %344 = phi ptr [ %341, %340 ], [ %343, %342 ]
-  %345 = getelementptr i8, ptr %344, i64 16
-  %.val26.i328 = load i32, ptr %345, align 8, !tbaa !8
-  %346 = zext nneg i32 %327 to i64
-  %347 = getelementptr inbounds nuw i32, ptr %.val30.i319, i64 %346
-  store i32 %.val26.i328, ptr %347, align 4, !tbaa !35
+.split.i327:                                      ; preds = %341, %339
+  %343 = phi ptr [ %340, %339 ], [ %342, %341 ]
+  %344 = getelementptr i8, ptr %343, i64 16
+  %.val26.i328 = load i32, ptr %344, align 8, !tbaa !8
+  %345 = zext nneg i32 %326 to i64
+  %346 = getelementptr inbounds nuw i32, ptr %.val30.i319, i64 %345
+  store i32 %.val26.i328, ptr %346, align 4, !tbaa !35
   br label %Abc_NtkFromCellRead.exit332
 
-.split23.i320:                                    ; preds = %337
-  %348 = xor i32 %326, 1
-  %349 = sext i32 %348 to i64
-  %350 = getelementptr inbounds i32, ptr %.val30.i319, i64 %349
-  %351 = load i32, ptr %350, align 4, !tbaa !35
+.split23.i320:                                    ; preds = %336
+  %347 = xor i32 %325, 1
+  %348 = sext i32 %347 to i64
+  %349 = getelementptr inbounds i32, ptr %.val30.i319, i64 %348
+  %350 = load i32, ptr %349, align 4, !tbaa !35
   %.val27.i321 = load ptr, ptr %151, align 8, !tbaa !21
-  %352 = getelementptr i8, ptr %.val27.i321, i64 8
-  %.val27.val.i322 = load ptr, ptr %352, align 8, !tbaa !17
-  %353 = sext i32 %351 to i64
-  %354 = getelementptr inbounds ptr, ptr %.val27.val.i322, i64 %353
-  %355 = load ptr, ptr %354, align 8, !tbaa !18
-  %356 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %355) #21
-  %357 = getelementptr i8, ptr %356, i64 16
-  %.val.i323 = load i32, ptr %357, align 8, !tbaa !8
-  store i32 %.val.i323, ptr %329, align 4, !tbaa !35
+  %351 = getelementptr i8, ptr %.val27.i321, i64 8
+  %.val27.val.i322 = load ptr, ptr %351, align 8, !tbaa !17
+  %352 = sext i32 %350 to i64
+  %353 = getelementptr inbounds ptr, ptr %.val27.val.i322, i64 %352
+  %354 = load ptr, ptr %353, align 8, !tbaa !18
+  %355 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %354) #21
+  %356 = getelementptr i8, ptr %355, i64 16
+  %.val.i323 = load i32, ptr %356, align 8, !tbaa !8
+  store i32 %.val.i323, ptr %328, align 4, !tbaa !35
   br label %Abc_NtkFromCellRead.exit332
 
-Abc_NtkFromCellRead.exit332:                      ; preds = %332, %.split.i327, %.split23.i320
-  %.021.i325 = phi ptr [ %336, %332 ], [ %344, %.split.i327 ], [ %356, %.split23.i320 ]
-  call void @Abc_ObjAddFanin(ptr noundef %315, ptr noundef %.021.i325) #21
+Abc_NtkFromCellRead.exit332:                      ; preds = %331, %.split.i327, %.split23.i320
+  %.021.i325 = phi ptr [ %335, %331 ], [ %343, %.split.i327 ], [ %355, %.split23.i320 ]
+  call void @Abc_ObjAddFanin(ptr noundef %314, ptr noundef %.021.i325) #21
   %indvars.iv.next426 = add nuw nsw i64 %indvars.iv425, 1
   %.val282 = load ptr, ptr %149, align 8, !tbaa !169
-  %358 = getelementptr i8, ptr %.val282, i64 8
-  %.val282.val = load ptr, ptr %358, align 8, !tbaa !43
-  %359 = getelementptr inbounds i32, ptr %.val282.val, i64 %163
-  %360 = load i32, ptr %359, align 4, !tbaa !35
-  %361 = sext i32 %360 to i64
-  %362 = getelementptr inbounds i32, ptr %.val282.val, i64 %361
-  %363 = load i32, ptr %362, align 4, !tbaa !35
-  %364 = sext i32 %363 to i64
-  %365 = icmp slt i64 %indvars.iv.next426, %364
-  br i1 %365, label %.lr.ph393, label %.critedge12, !llvm.loop !174
+  %357 = getelementptr i8, ptr %.val282, i64 8
+  %.val282.val = load ptr, ptr %357, align 8, !tbaa !43
+  %358 = getelementptr inbounds i32, ptr %.val282.val, i64 %163
+  %359 = load i32, ptr %358, align 4, !tbaa !35
+  %360 = sext i32 %359 to i64
+  %361 = getelementptr inbounds i32, ptr %.val282.val, i64 %360
+  %362 = load i32, ptr %361, align 4, !tbaa !35
+  %363 = sext i32 %362 to i64
+  %364 = icmp slt i64 %indvars.iv.next426, %363
+  br i1 %364, label %.lr.ph393, label %.critedge12, !llvm.loop !174
 
 .critedge12:                                      ; preds = %Abc_NtkFromCellRead.exit332, %..critedge12_crit_edge
-  %.pre-phi = phi i64 [ %.pre446, %..critedge12_crit_edge ], [ %364, %Abc_NtkFromCellRead.exit332 ]
-  %.lcssa356 = phi ptr [ %320, %..critedge12_crit_edge ], [ %362, %Abc_NtkFromCellRead.exit332 ]
-  %366 = load ptr, ptr %152, align 8, !tbaa !112
-  %367 = getelementptr inbounds nuw i8, ptr %.lcssa356, i64 4
-  %368 = getelementptr inbounds i32, ptr %367, i64 %.pre-phi
-  %369 = load i32, ptr %368, align 4, !tbaa !35
-  %370 = sext i32 %369 to i64
-  %371 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %5, i64 %370
-  %372 = load ptr, ptr %371, align 8, !tbaa !172
-  %373 = call ptr @Mio_LibraryReadGateByName(ptr noundef %366, ptr noundef %372, ptr noundef null) #21
-  %374 = getelementptr inbounds nuw i8, ptr %315, i64 56
-  store ptr %373, ptr %374, align 8, !tbaa !39
-  br label %375
+  %.pre-phi = phi i64 [ %.pre446, %..critedge12_crit_edge ], [ %363, %Abc_NtkFromCellRead.exit332 ]
+  %.lcssa356 = phi ptr [ %319, %..critedge12_crit_edge ], [ %361, %Abc_NtkFromCellRead.exit332 ]
+  %365 = load ptr, ptr %152, align 8, !tbaa !112
+  %366 = getelementptr inbounds nuw i8, ptr %.lcssa356, i64 4
+  %367 = getelementptr inbounds i32, ptr %366, i64 %.pre-phi
+  %368 = load i32, ptr %367, align 4, !tbaa !35
+  %369 = sext i32 %368 to i64
+  %370 = getelementptr inbounds %struct.Mio_Cell2_t_, ptr %5, i64 %369
+  %371 = load ptr, ptr %370, align 8, !tbaa !172
+  %372 = call ptr @Mio_LibraryReadGateByName(ptr noundef %365, ptr noundef %371, ptr noundef null) #21
+  %373 = getelementptr inbounds nuw i8, ptr %314, i64 56
+  store ptr %372, ptr %373, align 8, !tbaa !39
+  br label %374
 
-375:                                              ; preds = %Abc_NtkFromCellRead.exit318, %.critedge12, %Abc_NtkFromCellRead.exit
+374:                                              ; preds = %Abc_NtkFromCellRead.exit318, %.critedge12, %Abc_NtkFromCellRead.exit
   %.0191 = phi i32 [ 0, %Abc_NtkFromCellRead.exit ], [ %.1, %Abc_NtkFromCellRead.exit318 ], [ 0, %.critedge12 ]
-  %.0 = phi ptr [ %167, %Abc_NtkFromCellRead.exit ], [ %281, %Abc_NtkFromCellRead.exit318 ], [ %315, %.critedge12 ]
-  %376 = getelementptr i8, ptr %.0, i64 16
-  %.0.val = load i32, ptr %376, align 8, !tbaa !8
+  %.0 = phi ptr [ %167, %Abc_NtkFromCellRead.exit ], [ %280, %Abc_NtkFromCellRead.exit318 ], [ %314, %.critedge12 ]
+  %375 = getelementptr i8, ptr %.0, i64 16
+  %.0.val = load i32, ptr %375, align 8, !tbaa !8
   %.val274 = load ptr, ptr %150, align 8, !tbaa !43
-  %377 = getelementptr inbounds i32, ptr %.val274, i64 %163
-  store i32 %.0.val, ptr %377, align 4, !tbaa !35
-  %378 = add nsw i32 %.0191, %.0192397
+  %376 = getelementptr inbounds i32, ptr %.val274, i64 %163
+  store i32 %.0.val, ptr %376, align 4, !tbaa !35
+  %377 = add nsw i32 %.0191, %.0192397
   %.val265.pre = load i32, ptr %14, align 8, !tbaa !158
-  br label %379
+  br label %378
 
-379:                                              ; preds = %161, %375
-  %.val265 = phi i32 [ %.val265.pre, %375 ], [ %.val265442, %161 ]
-  %.val30.i305441 = phi ptr [ %.val274, %375 ], [ %.val30.i, %161 ]
-  %.1193 = phi i32 [ %378, %375 ], [ %.0192397, %161 ]
-  %380 = add nsw i32 %.1193, 1
-  %381 = shl nsw i32 %.val265, 1
-  %382 = icmp slt i32 %380, %381
-  br i1 %382, label %161, label %.preheader, !llvm.loop !175
+378:                                              ; preds = %161, %374
+  %.val265 = phi i32 [ %.val265.pre, %374 ], [ %.val265442, %161 ]
+  %.val30.i305441 = phi ptr [ %.val274, %374 ], [ %.val30.i, %161 ]
+  %.1193 = phi i32 [ %377, %374 ], [ %.0192397, %161 ]
+  %379 = add nsw i32 %.1193, 1
+  %380 = shl nsw i32 %.val265, 1
+  %381 = icmp slt i32 %379, %380
+  br i1 %381, label %161, label %.preheader, !llvm.loop !175
 
-383:                                              ; preds = %.lr.ph401, %Abc_NtkFromCellRead.exit347
+382:                                              ; preds = %.lr.ph401, %Abc_NtkFromCellRead.exit347
   %indvars.iv428 = phi i64 [ 0, %.lr.ph401 ], [ %indvars.iv.next429, %Abc_NtkFromCellRead.exit347 ]
-  %384 = phi ptr [ %155, %.lr.ph401 ], [ %431, %Abc_NtkFromCellRead.exit347 ]
+  %383 = phi ptr [ %155, %.lr.ph401 ], [ %430, %Abc_NtkFromCellRead.exit347 ]
   %.val249 = load ptr, ptr %27, align 8, !tbaa !143
   %.not214 = icmp eq ptr %.val249, null
-  br i1 %.not214, label %.critedge14, label %385
+  br i1 %.not214, label %.critedge14, label %384
 
-385:                                              ; preds = %383
-  %386 = getelementptr i8, ptr %384, i64 8
-  %.val250.val = load ptr, ptr %386, align 8, !tbaa !43
-  %387 = getelementptr inbounds nuw i32, ptr %.val250.val, i64 %indvars.iv428
-  %388 = load i32, ptr %387, align 4, !tbaa !35
-  %389 = sext i32 %388 to i64
-  %390 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val249, i64 %389
-  %.val.i333 = load i64, ptr %390, align 4
-  %391 = trunc i64 %.val.i333 to i32
-  %392 = and i32 %391, 536870911
-  %393 = sub nsw i32 %388, %392
-  %394 = lshr i32 %391, 29
-  %395 = and i32 %394, 1
-  %396 = shl nsw i32 %393, 1
-  %397 = or disjoint i32 %396, %395
+384:                                              ; preds = %382
+  %385 = getelementptr i8, ptr %383, i64 8
+  %.val250.val = load ptr, ptr %385, align 8, !tbaa !43
+  %386 = getelementptr inbounds nuw i32, ptr %.val250.val, i64 %indvars.iv428
+  %387 = load i32, ptr %386, align 4, !tbaa !35
+  %388 = sext i32 %387 to i64
+  %389 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val249, i64 %388
+  %.val.i333 = load i64, ptr %389, align 4
+  %390 = trunc i64 %.val.i333 to i32
+  %391 = and i32 %390, 536870911
+  %392 = sub nsw i32 %387, %391
+  %393 = lshr i32 %390, 29
+  %394 = and i32 %393, 1
+  %395 = shl nsw i32 %392, 1
+  %396 = or disjoint i32 %395, %394
   %.val30.i334 = load ptr, ptr %158, align 8, !tbaa !43
-  %398 = sext i32 %397 to i64
-  %399 = getelementptr inbounds i32, ptr %.val30.i334, i64 %398
-  %400 = load i32, ptr %399, align 4, !tbaa !35
-  %401 = icmp sgt i32 %400, -1
-  br i1 %401, label %402, label %407
+  %397 = sext i32 %396 to i64
+  %398 = getelementptr inbounds i32, ptr %.val30.i334, i64 %397
+  %399 = load i32, ptr %398, align 4, !tbaa !35
+  %400 = icmp sgt i32 %399, -1
+  br i1 %400, label %401, label %406
 
-402:                                              ; preds = %385
+401:                                              ; preds = %384
   %.val28.i345 = load ptr, ptr %159, align 8, !tbaa !21
-  %403 = getelementptr i8, ptr %.val28.i345, i64 8
-  %.val28.val.i346 = load ptr, ptr %403, align 8, !tbaa !17
-  %404 = zext nneg i32 %400 to i64
-  %405 = getelementptr inbounds nuw ptr, ptr %.val28.val.i346, i64 %404
-  %406 = load ptr, ptr %405, align 8, !tbaa !18
+  %402 = getelementptr i8, ptr %.val28.i345, i64 8
+  %.val28.val.i346 = load ptr, ptr %402, align 8, !tbaa !17
+  %403 = zext nneg i32 %399 to i64
+  %404 = getelementptr inbounds nuw ptr, ptr %.val28.val.i346, i64 %403
+  %405 = load ptr, ptr %404, align 8, !tbaa !18
   br label %Abc_NtkFromCellRead.exit347
 
-407:                                              ; preds = %385
-  %408 = icmp eq i32 %388, %392
-  br i1 %408, label %409, label %.split23.i335
+406:                                              ; preds = %384
+  %407 = icmp eq i32 %387, %391
+  br i1 %407, label %408, label %.split23.i335
 
-409:                                              ; preds = %407
-  %.not.i341 = icmp eq i32 %395, 0
-  br i1 %.not.i341, label %412, label %410
+408:                                              ; preds = %406
+  %.not.i341 = icmp eq i32 %394, 0
+  br i1 %.not.i341, label %411, label %409
 
-410:                                              ; preds = %409
-  %411 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #21
+409:                                              ; preds = %408
+  %410 = call ptr @Abc_NtkCreateNodeConst1(ptr noundef %6) #21
   br label %.split.i342
 
-412:                                              ; preds = %409
-  %413 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #21
+411:                                              ; preds = %408
+  %412 = call ptr @Abc_NtkCreateNodeConst0(ptr noundef %6) #21
   br label %.split.i342
 
-.split.i342:                                      ; preds = %412, %410
-  %414 = phi ptr [ %411, %410 ], [ %413, %412 ]
-  %415 = getelementptr i8, ptr %414, i64 16
-  %.val26.i343 = load i32, ptr %415, align 8, !tbaa !8
-  %416 = zext nneg i32 %395 to i64
-  %417 = getelementptr inbounds nuw i32, ptr %.val30.i334, i64 %416
-  store i32 %.val26.i343, ptr %417, align 4, !tbaa !35
+.split.i342:                                      ; preds = %411, %409
+  %413 = phi ptr [ %410, %409 ], [ %412, %411 ]
+  %414 = getelementptr i8, ptr %413, i64 16
+  %.val26.i343 = load i32, ptr %414, align 8, !tbaa !8
+  %415 = zext nneg i32 %394 to i64
+  %416 = getelementptr inbounds nuw i32, ptr %.val30.i334, i64 %415
+  store i32 %.val26.i343, ptr %416, align 4, !tbaa !35
   br label %Abc_NtkFromCellRead.exit347
 
-.split23.i335:                                    ; preds = %407
-  %418 = xor i32 %397, 1
-  %419 = sext i32 %418 to i64
-  %420 = getelementptr inbounds i32, ptr %.val30.i334, i64 %419
-  %421 = load i32, ptr %420, align 4, !tbaa !35
+.split23.i335:                                    ; preds = %406
+  %417 = xor i32 %396, 1
+  %418 = sext i32 %417 to i64
+  %419 = getelementptr inbounds i32, ptr %.val30.i334, i64 %418
+  %420 = load i32, ptr %419, align 4, !tbaa !35
   %.val27.i336 = load ptr, ptr %159, align 8, !tbaa !21
-  %422 = getelementptr i8, ptr %.val27.i336, i64 8
-  %.val27.val.i337 = load ptr, ptr %422, align 8, !tbaa !17
-  %423 = sext i32 %421 to i64
-  %424 = getelementptr inbounds ptr, ptr %.val27.val.i337, i64 %423
-  %425 = load ptr, ptr %424, align 8, !tbaa !18
-  %426 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %425) #21
-  %427 = getelementptr i8, ptr %426, i64 16
-  %.val.i338 = load i32, ptr %427, align 8, !tbaa !8
-  store i32 %.val.i338, ptr %399, align 4, !tbaa !35
+  %421 = getelementptr i8, ptr %.val27.i336, i64 8
+  %.val27.val.i337 = load ptr, ptr %421, align 8, !tbaa !17
+  %422 = sext i32 %420 to i64
+  %423 = getelementptr inbounds ptr, ptr %.val27.val.i337, i64 %422
+  %424 = load ptr, ptr %423, align 8, !tbaa !18
+  %425 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %6, ptr noundef %424) #21
+  %426 = getelementptr i8, ptr %425, i64 16
+  %.val.i338 = load i32, ptr %426, align 8, !tbaa !8
+  store i32 %.val.i338, ptr %398, align 4, !tbaa !35
   br label %Abc_NtkFromCellRead.exit347
 
-Abc_NtkFromCellRead.exit347:                      ; preds = %402, %.split.i342, %.split23.i335
-  %.021.i340 = phi ptr [ %406, %402 ], [ %414, %.split.i342 ], [ %426, %.split23.i335 ]
+Abc_NtkFromCellRead.exit347:                      ; preds = %401, %.split.i342, %.split23.i335
+  %.021.i340 = phi ptr [ %405, %401 ], [ %413, %.split.i342 ], [ %425, %.split23.i335 ]
   %.val229 = load ptr, ptr %160, align 8, !tbaa !78
-  %428 = getelementptr i8, ptr %.val229, i64 8
-  %.val229.val = load ptr, ptr %428, align 8, !tbaa !17
-  %429 = getelementptr inbounds nuw ptr, ptr %.val229.val, i64 %indvars.iv428
-  %430 = load ptr, ptr %429, align 8, !tbaa !18
-  call void @Abc_ObjAddFanin(ptr noundef %430, ptr noundef %.021.i340) #21
+  %427 = getelementptr i8, ptr %.val229, i64 8
+  %.val229.val = load ptr, ptr %427, align 8, !tbaa !17
+  %428 = getelementptr inbounds nuw ptr, ptr %.val229.val, i64 %indvars.iv428
+  %429 = load ptr, ptr %428, align 8, !tbaa !18
+  call void @Abc_ObjAddFanin(ptr noundef %429, ptr noundef %.021.i340) #21
   %indvars.iv.next429 = add nuw nsw i64 %indvars.iv428, 1
-  %431 = load ptr, ptr %44, align 8, !tbaa !153
-  %432 = getelementptr i8, ptr %431, i64 4
-  %.val235 = load i32, ptr %432, align 4, !tbaa !41
-  %433 = sext i32 %.val235 to i64
-  %434 = icmp slt i64 %indvars.iv.next429, %433
-  br i1 %434, label %383, label %.critedge14, !llvm.loop !176
+  %430 = load ptr, ptr %44, align 8, !tbaa !153
+  %431 = getelementptr i8, ptr %430, i64 4
+  %.val235 = load i32, ptr %431, align 4, !tbaa !41
+  %432 = sext i32 %.val235 to i64
+  %433 = icmp slt i64 %indvars.iv.next429, %432
+  br i1 %433, label %382, label %.critedge14, !llvm.loop !176
 
-.critedge14:                                      ; preds = %383, %Abc_NtkFromCellRead.exit347, %.preheader
+.critedge14:                                      ; preds = %382, %Abc_NtkFromCellRead.exit347, %.preheader
   call void @Abc_NtkAddDummyPiNames(ptr noundef %6) #21
   call void @Abc_NtkAddDummyPoNames(ptr noundef %6) #21
   call void @Abc_NtkAddDummyBoxNames(ptr noundef %6) #21
   %.not215 = icmp eq i32 %1, 0
-  %435 = zext i1 %.not215 to i32
-  %436 = call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %6, i32 noundef %435) #21
-  %437 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %438 = load ptr, ptr %437, align 8, !tbaa !43
-  %.not.i348 = icmp eq ptr %438, null
-  br i1 %.not.i348, label %Vec_IntFree.exit, label %439
+  %434 = zext i1 %.not215 to i32
+  %435 = call i32 @Abc_NtkLogicMakeSimpleCos(ptr noundef %6, i32 noundef %434) #21
+  %436 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %437 = load ptr, ptr %436, align 8, !tbaa !43
+  %.not.i348 = icmp eq ptr %437, null
+  br i1 %.not.i348, label %Vec_IntFree.exit, label %438
 
-439:                                              ; preds = %.critedge14
-  call void @free(ptr noundef nonnull %438) #21
+438:                                              ; preds = %.critedge14
+  call void @free(ptr noundef nonnull %437) #21
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.critedge14, %439
+Vec_IntFree.exit:                                 ; preds = %.critedge14, %438
   call void @free(ptr noundef nonnull %16) #21
   %.not216 = icmp eq ptr %5, null
-  br i1 %.not216, label %441, label %440
+  br i1 %.not216, label %440, label %439
 
-440:                                              ; preds = %Vec_IntFree.exit
+439:                                              ; preds = %Vec_IntFree.exit
   call void @free(ptr noundef nonnull %5) #21
-  br label %441
+  br label %440
 
-441:                                              ; preds = %Vec_IntFree.exit, %440
-  %442 = call i32 @Abc_NtkCheck(ptr noundef %6) #21
-  %.not217 = icmp eq i32 %442, 0
-  br i1 %.not217, label %443, label %444
+440:                                              ; preds = %Vec_IntFree.exit, %439
+  %441 = call i32 @Abc_NtkCheck(ptr noundef %6) #21
+  %.not217 = icmp eq i32 %441, 0
+  br i1 %.not217, label %442, label %443
 
-443:                                              ; preds = %441
+442:                                              ; preds = %440
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.17)
-  br label %444
+  br label %443
 
-444:                                              ; preds = %443, %441
+443:                                              ; preds = %442, %440
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #21
   ret ptr %6

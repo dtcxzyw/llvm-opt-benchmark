@@ -774,7 +774,7 @@ ClearHistogramsCommand.exit:                      ; preds = %.thread342, %ClearH
   %342 = load ptr, ptr %336, align 8, !tbaa !70
   br label %343
 
-.loopexit:                                        ; preds = %346
+.loopexit:                                        ; preds = %347
   %.not173 = icmp eq i64 %344, 0
   br i1 %.not173, label %.loopexit273, label %343, !llvm.loop !73
 
@@ -782,60 +782,60 @@ ClearHistogramsCommand.exit:                      ; preds = %.thread342, %ClearH
   %.1154306 = phi i64 [ %341, %.lr.ph307 ], [ %344, %.loopexit ]
   %344 = add i64 %.1154306, -1
   %345 = getelementptr inbounds nuw i32, ptr %342, i64 %344
-  %.pre328 = load i32, ptr %345, align 4, !tbaa !15
   %.idx = shl i64 %344, 8
-  %invariant.gep = getelementptr i8, ptr %342, i64 %.idx
-  br label %346
+  %346 = getelementptr inbounds nuw i8, ptr %342, i64 %.idx
+  %.pre328 = load i32, ptr %345, align 4, !tbaa !15
+  br label %347
 
-346:                                              ; preds = %343, %346
-  %.0304 = phi i64 [ 0, %343 ], [ %347, %346 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %.0304
-  store i32 %.pre328, ptr %gep, align 4, !tbaa !15
-  %347 = add nuw nsw i64 %.0304, 1
-  %exitcond323.not = icmp eq i64 %347, 64
-  br i1 %exitcond323.not, label %.loopexit, label %346, !llvm.loop !74
+347:                                              ; preds = %343, %347
+  %.0304 = phi i64 [ 0, %343 ], [ %349, %347 ]
+  %348 = getelementptr inbounds nuw i32, ptr %346, i64 %.0304
+  store i32 %.pre328, ptr %348, align 4, !tbaa !15
+  %349 = add nuw nsw i64 %.0304, 1
+  %exitcond323.not = icmp eq i64 %349, 64
+  br i1 %exitcond323.not, label %.loopexit, label %347, !llvm.loop !74
 
 .loopexit273:                                     ; preds = %.loopexit, %340, %333
-  %348 = load i64, ptr %284, align 8, !tbaa !61
-  %349 = shl i64 %348, 2
-  %350 = getelementptr inbounds nuw i8, ptr %10, i64 168
-  store i64 %349, ptr %350, align 8, !tbaa !75
-  %.not174 = icmp eq i64 %349, 0
-  br i1 %.not174, label %.thread270, label %353
+  %350 = load i64, ptr %284, align 8, !tbaa !61
+  %351 = shl i64 %350, 2
+  %352 = getelementptr inbounds nuw i8, ptr %10, i64 168
+  store i64 %351, ptr %352, align 8, !tbaa !75
+  %.not174 = icmp eq i64 %351, 0
+  br i1 %.not174, label %.thread270, label %355
 
 .thread270:                                       ; preds = %.loopexit273
-  %351 = getelementptr inbounds nuw i8, ptr %10, i64 160
-  store ptr null, ptr %351, align 8, !tbaa !76
-  %352 = getelementptr inbounds nuw i8, ptr %10, i64 216
-  store i64 0, ptr %352, align 8, !tbaa !77
-  br label %361
+  %353 = getelementptr inbounds nuw i8, ptr %10, i64 160
+  store ptr null, ptr %353, align 8, !tbaa !76
+  %354 = getelementptr inbounds nuw i8, ptr %10, i64 216
+  store i64 0, ptr %354, align 8, !tbaa !77
+  br label %363
 
-353:                                              ; preds = %.loopexit273
-  %354 = shl i64 %348, 4
-  %355 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %354) #10
-  %.pr269 = load i64, ptr %350, align 8, !tbaa !75
-  %356 = getelementptr inbounds nuw i8, ptr %10, i64 160
-  store ptr %355, ptr %356, align 8, !tbaa !76
-  %357 = getelementptr inbounds nuw i8, ptr %10, i64 216
-  store i64 %.pr269, ptr %357, align 8, !tbaa !77
+355:                                              ; preds = %.loopexit273
+  %356 = shl i64 %350, 4
+  %357 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %356) #10
+  %.pr269 = load i64, ptr %352, align 8, !tbaa !75
+  %358 = getelementptr inbounds nuw i8, ptr %10, i64 160
+  store ptr %357, ptr %358, align 8, !tbaa !76
+  %359 = getelementptr inbounds nuw i8, ptr %10, i64 216
+  store i64 %.pr269, ptr %359, align 8, !tbaa !77
   %.not175 = icmp eq i64 %.pr269, 0
-  br i1 %.not175, label %361, label %358
+  br i1 %.not175, label %363, label %360
 
-358:                                              ; preds = %353
-  %359 = mul i64 %.pr269, 2192
-  %360 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %359) #10
-  %.pre329 = load i64, ptr %350, align 8, !tbaa !75
-  %.pre330 = load ptr, ptr %356, align 8, !tbaa !76
-  br label %361
+360:                                              ; preds = %355
+  %361 = mul i64 %.pr269, 2192
+  %362 = tail call ptr @BrotliAllocate(ptr noundef %0, i64 noundef %361) #10
+  %.pre329 = load i64, ptr %352, align 8, !tbaa !75
+  %.pre330 = load ptr, ptr %358, align 8, !tbaa !76
+  br label %363
 
-361:                                              ; preds = %.thread270, %353, %358
-  %362 = phi ptr [ %.pre330, %358 ], [ %355, %353 ], [ null, %.thread270 ]
-  %363 = phi i64 [ %.pre329, %358 ], [ 0, %353 ], [ 0, %.thread270 ]
-  %364 = phi ptr [ %357, %358 ], [ %357, %353 ], [ %352, %.thread270 ]
-  %365 = phi ptr [ %360, %358 ], [ null, %353 ], [ null, %.thread270 ]
-  %366 = getelementptr inbounds nuw i8, ptr %10, i64 208
-  store ptr %365, ptr %366, align 8, !tbaa !78
-  tail call void @BrotliClusterHistogramsDistance(ptr noundef %0, ptr noundef %308, i64 noundef %363, i64 noundef 256, ptr noundef %365, ptr noundef nonnull %364, ptr noundef %362) #10
+363:                                              ; preds = %.thread270, %355, %360
+  %364 = phi ptr [ %.pre330, %360 ], [ %357, %355 ], [ null, %.thread270 ]
+  %365 = phi i64 [ %.pre329, %360 ], [ 0, %355 ], [ 0, %.thread270 ]
+  %366 = phi ptr [ %359, %360 ], [ %359, %355 ], [ %354, %.thread270 ]
+  %367 = phi ptr [ %362, %360 ], [ null, %355 ], [ null, %.thread270 ]
+  %368 = getelementptr inbounds nuw i8, ptr %10, i64 208
+  store ptr %367, ptr %368, align 8, !tbaa !78
+  tail call void @BrotliClusterHistogramsDistance(ptr noundef %0, ptr noundef %308, i64 noundef %365, i64 noundef 256, ptr noundef %367, ptr noundef nonnull %366, ptr noundef %364) #10
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %308) #10
   ret void
 }
@@ -1384,31 +1384,31 @@ BlockSplitterAddSymbolDistance.exit47:            ; preds = %269, %253, %243, %.
   %.not22.i = icmp eq i64 %278, 0
   br i1 %.not22.i, label %BrotliBuildMetaBlockGreedyInternal.exit41, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %277, %288
-  %.01821.i = phi i64 [ %289, %288 ], [ 0, %277 ]
+.lr.ph.i:                                         ; preds = %277, %290
+  %.01821.i = phi i64 [ %291, %290 ], [ 0, %277 ]
   %281 = mul i64 %.01821.i, %7
   %282 = trunc i64 %281 to i32
   %.idx.i = shl i64 %.01821.i, 8
-  %invariant.gep.i = getelementptr i8, ptr %279, i64 %.idx.i
-  br label %283
+  %283 = getelementptr inbounds nuw i8, ptr %279, i64 %.idx.i
+  br label %284
 
-283:                                              ; preds = %283, %.lr.ph.i
-  %.020.i = phi i64 [ 0, %.lr.ph.i ], [ %287, %283 ]
-  %284 = getelementptr inbounds nuw i32, ptr %8, i64 %.020.i
-  %285 = load i32, ptr %284, align 4, !tbaa !15
-  %286 = add i32 %285, %282
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %.020.i
-  store i32 %286, ptr %gep.i, align 4, !tbaa !15
-  %287 = add nuw nsw i64 %.020.i, 1
-  %exitcond.not.i49 = icmp eq i64 %287, 64
-  br i1 %exitcond.not.i49, label %288, label %283, !llvm.loop !125
+284:                                              ; preds = %284, %.lr.ph.i
+  %.020.i = phi i64 [ 0, %.lr.ph.i ], [ %289, %284 ]
+  %285 = getelementptr inbounds nuw i32, ptr %8, i64 %.020.i
+  %286 = load i32, ptr %285, align 4, !tbaa !15
+  %287 = add i32 %286, %282
+  %288 = getelementptr inbounds nuw i32, ptr %283, i64 %.020.i
+  store i32 %287, ptr %288, align 4, !tbaa !15
+  %289 = add nuw nsw i64 %.020.i, 1
+  %exitcond.not.i49 = icmp eq i64 %289, 64
+  br i1 %exitcond.not.i49, label %290, label %284, !llvm.loop !125
 
-288:                                              ; preds = %283
-  %289 = add nuw i64 %.01821.i, 1
-  %exitcond23.not.i = icmp eq i64 %289, %278
+290:                                              ; preds = %284
+  %291 = add nuw i64 %.01821.i, 1
+  %exitcond23.not.i = icmp eq i64 %291, %278
   br i1 %exitcond23.not.i, label %BrotliBuildMetaBlockGreedyInternal.exit41, label %.lr.ph.i, !llvm.loop !126
 
-BrotliBuildMetaBlockGreedyInternal.exit41:        ; preds = %288, %277, %BrotliBuildMetaBlockGreedyInternal.exit
+BrotliBuildMetaBlockGreedyInternal.exit41:        ; preds = %290, %277, %BrotliBuildMetaBlockGreedyInternal.exit
   tail call void @BrotliFree(ptr noundef %0, ptr noundef %13) #10
   ret void
 }

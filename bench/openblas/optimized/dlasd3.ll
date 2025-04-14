@@ -468,13 +468,13 @@ define void @dlasd3_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 220:                                              ; preds = %._crit_edge504.thread
   %221 = shl i32 %38, 1
-  %222 = or disjoint i32 %221, 1
-  %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds double, ptr %40, i64 %223
+  %222 = sext i32 %221 to i64
+  %223 = getelementptr double, ptr %40, i64 %222
+  %224 = getelementptr i8, ptr %223, i64 8
   %225 = sext i32 %31 to i64
   %226 = getelementptr double, ptr %33, i64 %225
   %227 = getelementptr i8, ptr %226, i64 16
-  call void @dgemm_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %17, ptr noundef nonnull @c_b13, ptr noundef nonnull %224, ptr noundef nonnull %11, ptr noundef %227, ptr noundef nonnull %6, ptr noundef nonnull @c_b26, ptr noundef %8, ptr noundef nonnull %9) #4
+  call void @dgemm_(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2, ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %17, ptr noundef nonnull @c_b13, ptr noundef %224, ptr noundef nonnull %11, ptr noundef %227, ptr noundef nonnull %6, ptr noundef nonnull @c_b26, ptr noundef %8, ptr noundef nonnull %9) #4
   %228 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %229 = load i32, ptr %228, align 4, !tbaa !3
   %230 = icmp sgt i32 %229, 0

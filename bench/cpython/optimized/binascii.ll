@@ -2575,59 +2575,58 @@ define internal fastcc ptr @binascii_a2b_hex_impl(ptr noundef %0, ptr readonly c
   %13 = icmp sgt i64 %.16.val, 0
   br i1 %13, label %.lr.ph, label %Py_DECREF.exit
 
-.lr.ph:                                           ; preds = %11, %30
-  %.0298 = phi i64 [ %35, %30 ], [ 0, %11 ]
-  %.0317 = phi i64 [ %33, %30 ], [ 0, %11 ]
+.lr.ph:                                           ; preds = %11, %29
+  %.0298 = phi i64 [ %34, %29 ], [ 0, %11 ]
+  %.0317 = phi i64 [ %32, %29 ], [ 0, %11 ]
   %14 = getelementptr i8, ptr %.0.val, i64 %.0298
   %15 = load i8, ptr %14, align 1, !tbaa !11
   %16 = zext i8 %15 to i64
   %17 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !11
-  %19 = or disjoint i64 %.0298, 1
-  %20 = getelementptr i8, ptr %.0.val, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !11
-  %22 = zext i8 %21 to i64
-  %23 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !11
-  %25 = icmp ugt i8 %18, 15
-  %26 = icmp ugt i8 %24, 15
-  %or.cond = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond, label %27, label %30
+  %19 = getelementptr i8, ptr %14, i64 1
+  %20 = load i8, ptr %19, align 1, !tbaa !11
+  %21 = zext i8 %20 to i64
+  %22 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %21
+  %23 = load i8, ptr %22, align 1, !tbaa !11
+  %24 = icmp ugt i8 %18, 15
+  %25 = icmp ugt i8 %23, 15
+  %or.cond = select i1 %24, i1 true, i1 %25
+  br i1 %or.cond, label %26, label %29
 
-27:                                               ; preds = %.lr.ph
-  %28 = tail call ptr @PyModule_GetState(ptr noundef %0) #5
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %Py_DECREF.exit, label %37
+26:                                               ; preds = %.lr.ph
+  %27 = tail call ptr @PyModule_GetState(ptr noundef %0) #5
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %Py_DECREF.exit, label %36
 
-30:                                               ; preds = %.lr.ph
-  %31 = shl nuw i8 %18, 4
-  %32 = or disjoint i8 %24, %31
-  %33 = add i64 %.0317, 1
-  %34 = getelementptr i8, ptr %12, i64 %.0317
-  store i8 %32, ptr %34, align 1, !tbaa !11
-  %35 = add i64 %.0298, 2
-  %36 = icmp slt i64 %35, %.16.val
-  br i1 %36, label %.lr.ph, label %Py_DECREF.exit, !llvm.loop !48
+29:                                               ; preds = %.lr.ph
+  %30 = shl nuw i8 %18, 4
+  %31 = or disjoint i8 %23, %30
+  %32 = add i64 %.0317, 1
+  %33 = getelementptr i8, ptr %12, i64 %.0317
+  store i8 %31, ptr %33, align 1, !tbaa !11
+  %34 = add i64 %.0298, 2
+  %35 = icmp slt i64 %34, %.16.val
+  br i1 %35, label %.lr.ph, label %Py_DECREF.exit, !llvm.loop !48
 
-37:                                               ; preds = %27
-  %38 = load ptr, ptr %28, align 8, !tbaa !3
-  tail call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.32) #5
-  %39 = load i32, ptr %10, align 8, !tbaa !11
-  %.not.i = icmp sgt i32 %39, -1
-  br i1 %.not.i, label %40, label %Py_DECREF.exit
+36:                                               ; preds = %26
+  %37 = load ptr, ptr %27, align 8, !tbaa !3
+  tail call void @PyErr_SetString(ptr noundef %37, ptr noundef nonnull @.str.32) #5
+  %38 = load i32, ptr %10, align 8, !tbaa !11
+  %.not.i = icmp sgt i32 %38, -1
+  br i1 %.not.i, label %39, label %Py_DECREF.exit
 
-40:                                               ; preds = %37
-  %41 = add nsw i32 %39, -1
-  store i32 %41, ptr %10, align 8, !tbaa !11
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %Py_DECREF.exit
+39:                                               ; preds = %36
+  %40 = add nsw i32 %38, -1
+  store i32 %40, ptr %10, align 8, !tbaa !11
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %Py_DECREF.exit
 
-43:                                               ; preds = %40
+42:                                               ; preds = %39
   tail call void @_Py_Dealloc(ptr noundef nonnull %10) #5
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %30, %11, %27, %43, %40, %37, %8, %3, %6
-  %.0 = phi ptr [ null, %6 ], [ null, %3 ], [ null, %8 ], [ null, %37 ], [ null, %40 ], [ null, %43 ], [ null, %27 ], [ %10, %11 ], [ %10, %30 ]
+Py_DECREF.exit:                                   ; preds = %29, %11, %26, %42, %39, %36, %8, %3, %6
+  %.0 = phi ptr [ null, %6 ], [ null, %3 ], [ null, %8 ], [ null, %36 ], [ null, %39 ], [ null, %42 ], [ null, %26 ], [ %10, %11 ], [ %10, %29 ]
   ret ptr %.0
 }
 

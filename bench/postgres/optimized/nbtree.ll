@@ -1631,8 +1631,8 @@ BTreeTupleIsPosting.exit.thread.i:                ; preds = %BTreeTupleIsPosting
   %169 = zext i16 %.val.i.i.i to i64
   %170 = shl nuw nsw i64 %169, 16
   %171 = zext i16 %.val2.i.i.i to i64
-  %172 = or disjoint i64 %170, %171
-  %173 = getelementptr inbounds nuw i8, ptr %151, i64 %172
+  %172 = getelementptr inbounds nuw i8, ptr %151, i64 %170
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 %171
   %.not.i181.i = icmp eq i16 %167, 0
   br i1 %.not.i181.i, label %btreevacuumposting.exit.thread.i, label %.lr.ph.i.i
 

@@ -61,7 +61,7 @@ common.ret:                                       ; preds = %3
   br label %common.ret31
 
 common.ret31:                                     ; preds = %8, %common.ret
-  %common.ret31.op = phi i64 [ %7, %common.ret ], [ %34, %8 ]
+  %common.ret31.op = phi i64 [ %7, %common.ret ], [ %32, %8 ]
   ret i64 %common.ret31.op
 
 8:                                                ; preds = %3
@@ -70,30 +70,28 @@ common.ret31:                                     ; preds = %8, %common.ret
   %11 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %11, align 8, !tbaa !10
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds i32, ptr %.val, i64 %12
+  %13 = getelementptr i32, ptr %.val, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !11
-  %15 = or disjoint i32 %10, 1
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %.val, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !11
-  %19 = ashr i32 %14, 1
-  %20 = add nsw i32 %19, -2
-  %21 = tail call i64 @Gia_ResubToTruth6_rec(ptr noundef %0, i32 noundef %20, i32 noundef %2)
-  %22 = ashr i32 %18, 1
-  %23 = add nsw i32 %22, -2
-  %24 = tail call i64 @Gia_ResubToTruth6_rec(ptr noundef %0, i32 noundef %23, i32 noundef %2)
-  %25 = and i32 %14, 1
-  %sext = sub nsw i32 0, %25
-  %26 = sext i32 %sext to i64
-  %27 = xor i64 %21, %26
-  %28 = and i32 %18, 1
-  %sext29 = sub nsw i32 0, %28
-  %29 = sext i32 %sext29 to i64
-  %30 = xor i64 %24, %29
-  %31 = icmp sgt i32 %14, %18
-  %32 = xor i64 %30, %27
-  %33 = and i64 %30, %27
-  %34 = select i1 %31, i64 %32, i64 %33
+  %15 = getelementptr i8, ptr %13, i64 4
+  %16 = load i32, ptr %15, align 4, !tbaa !11
+  %17 = ashr i32 %14, 1
+  %18 = add nsw i32 %17, -2
+  %19 = tail call i64 @Gia_ResubToTruth6_rec(ptr noundef %0, i32 noundef %18, i32 noundef %2)
+  %20 = ashr i32 %16, 1
+  %21 = add nsw i32 %20, -2
+  %22 = tail call i64 @Gia_ResubToTruth6_rec(ptr noundef %0, i32 noundef %21, i32 noundef %2)
+  %23 = and i32 %14, 1
+  %sext = sub nsw i32 0, %23
+  %24 = sext i32 %sext to i64
+  %25 = xor i64 %19, %24
+  %26 = and i32 %16, 1
+  %sext29 = sub nsw i32 0, %26
+  %27 = sext i32 %sext29 to i64
+  %28 = xor i64 %22, %27
+  %29 = icmp sgt i32 %14, %16
+  %30 = xor i64 %28, %25
+  %31 = and i64 %28, %25
+  %32 = select i1 %29, i64 %30, i64 %31
   br label %common.ret31
 }
 

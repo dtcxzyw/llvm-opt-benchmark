@@ -6592,10 +6592,10 @@ _ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.ex
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br label %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit
 
-_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit: ; preds = %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph, %333
-  %41 = phi ptr [ %9, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph ], [ %337, %333 ]
-  %42 = phi i64 [ 0, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph ], [ %335, %333 ]
-  %.054 = phi i32 [ 0, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph ], [ %334, %333 ]
+_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit: ; preds = %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph, %321
+  %41 = phi ptr [ %9, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph ], [ %325, %321 ]
+  %42 = phi i64 [ 0, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph ], [ %323, %321 ]
+  %.054 = phi i32 [ 0, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph ], [ %322, %321 ]
   %43 = getelementptr inbounds nuw %"struct.std::pair.256", ptr %41, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %43, i64 40, i1 false)
   %44 = load ptr, ptr %14, align 8
@@ -6669,19 +6669,19 @@ _Z5brush5Brushffff.exit:                          ; preds = %_ZNSt6vectorISt4pai
   %.1.i = phi float [ 0.000000e+00, %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit ], [ %84, %83 ], [ %60, %59 ]
   %85 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %85, null
-  br i1 %.not, label %333, label %86
+  br i1 %.not, label %321, label %86
 
 86:                                               ; preds = %_Z5brush5Brushffff.exit
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 56
   %88 = load ptr, ptr %87, align 8
   %.not25 = icmp eq ptr %88, null
-  br i1 %.not25, label %333, label %89
+  br i1 %.not25, label %321, label %89
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 48
   %91 = call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %90)
   %.not27 = icmp eq ptr %91, null
-  br i1 %.not27, label %333, label %92
+  br i1 %.not27, label %321, label %92
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %25, align 8
@@ -6727,7 +6727,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8containsERKS1_.exit.thread: ; p
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 792
   %122 = load i32, ptr %121, align 8
   %123 = icmp eq i32 %122, 4
-  br i1 %123, label %124, label %176
+  br i1 %123, label %124, label %170
 
 124:                                              ; preds = %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8containsERKS1_.exit.thread
   %125 = load i32, ptr %15, align 8
@@ -6780,299 +6780,287 @@ _ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit: ; preds = %153
   %162 = getelementptr inbounds i8, ptr %160, i64 %161
   %163 = load i8, ptr %162, align 1
   store i8 %163, ptr %28, align 8
-  %164 = or disjoint i32 %159, 1
-  %165 = sext i32 %164 to i64
-  %166 = getelementptr inbounds i8, ptr %160, i64 %165
+  %164 = getelementptr i8, ptr %162, i64 1
+  %165 = load i8, ptr %164, align 1
+  store i8 %165, ptr %37, align 1
+  %166 = getelementptr i8, ptr %162, i64 2
   %167 = load i8, ptr %166, align 1
-  store i8 %167, ptr %37, align 1
-  %168 = or disjoint i32 %159, 2
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds i8, ptr %160, i64 %169
-  %171 = load i8, ptr %170, align 1
-  store i8 %171, ptr %38, align 2
-  %172 = or disjoint i32 %159, 3
-  %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds i8, ptr %160, i64 %173
-  %175 = load i8, ptr %174, align 1
-  store i8 %175, ptr %39, align 1
+  store i8 %167, ptr %38, align 2
+  %168 = getelementptr i8, ptr %162, i64 3
+  %169 = load i8, ptr %168, align 1
+  store i8 %169, ptr %39, align 1
   %.pr = load i32, ptr %121, align 8
-  br label %176
+  br label %170
 
-176:                                              ; preds = %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8containsERKS1_.exit.thread
-  %177 = phi i32 [ %.pr, %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit ], [ %122, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8containsERKS1_.exit.thread ]
-  %178 = icmp eq i32 %177, 6
+170:                                              ; preds = %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8containsERKS1_.exit.thread
+  %171 = phi i32 [ %.pr, %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit ], [ %122, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8containsERKS1_.exit.thread ]
+  %172 = icmp eq i32 %171, 6
   %.pre65 = load ptr, ptr %5, align 8
-  br i1 %178, label %179, label %180
+  br i1 %172, label %173, label %174
 
-179:                                              ; preds = %176
+173:                                              ; preds = %170
   call void @_ZN15EditPaintPlugin17computeNoiseColorEP8CVertexORN3vcg6Color4IhEE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef %.pre65, ptr noundef nonnull align 1 dereferenceable(4) %28)
   %.pre64 = load ptr, ptr %5, align 8
-  br label %180
+  br label %174
 
-180:                                              ; preds = %179, %176
-  %181 = phi ptr [ %.pre64, %179 ], [ %.pre65, %176 ]
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 40
-  %183 = load i32, ptr %182, align 1
-  %184 = fmul float %.1.i, %26
-  %185 = fptosi float %184 to i32
-  store i32 %183, ptr %6, align 4
-  store i32 %185, ptr %40, align 4
-  %186 = call ptr @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE6insertERKS1_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(8) %6)
-  %187 = load ptr, ptr %14, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 808
-  %189 = load ptr, ptr %188, align 8
-  %190 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %189)
-  %191 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
-  %192 = load ptr, ptr %5, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 40
-  %.sroa.01.0.copyload = load i32, ptr %193, align 1
-  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(28) %191, ptr noundef null)
-          to label %194 unwind label %220
+174:                                              ; preds = %173, %170
+  %175 = phi ptr [ %.pre64, %173 ], [ %.pre65, %170 ]
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 40
+  %177 = load i32, ptr %176, align 1
+  %178 = fmul float %.1.i, %26
+  %179 = fptosi float %178 to i32
+  store i32 %177, ptr %6, align 4
+  store i32 %179, ptr %40, align 4
+  %180 = call ptr @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE6insertERKS1_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(8) %6)
+  %181 = load ptr, ptr %14, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 808
+  %183 = load ptr, ptr %182, align 8
+  %184 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %183)
+  %185 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %186 = load ptr, ptr %5, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 40
+  %.sroa.01.0.copyload = load i32, ptr %187, align 1
+  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(28) %185, ptr noundef null)
+          to label %188 unwind label %214
 
-194:                                              ; preds = %180
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %191, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  %196 = getelementptr inbounds nuw i8, ptr %191, i64 16
-  store ptr %192, ptr %196, align 8
-  store i32 %.sroa.01.0.copyload, ptr %195, align 8
-  call void @_ZN10QUndoStack4pushEP12QUndoCommand(ptr noundef nonnull align 8 dereferenceable(16) %190, ptr noundef nonnull %191)
-  %197 = load ptr, ptr %5, align 8
+188:                                              ; preds = %174
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %185, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %185, i64 24
+  %190 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  store ptr %186, ptr %190, align 8
+  store i32 %.sroa.01.0.copyload, ptr %189, align 8
+  call void @_ZN10QUndoStack4pushEP12QUndoCommand(ptr noundef nonnull align 8 dereferenceable(16) %184, ptr noundef nonnull %185)
+  %191 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 40
-  %199 = load i32, ptr %198, align 1
-  store i32 %199, ptr %4, align 4
-  %200 = load i8, ptr %39, align 1
-  %201 = uitofp i8 %200 to double
-  %202 = fdiv double %201, 2.550000e+02
-  %203 = sitofp i32 %185 to double
-  %204 = fmul double %202, %203
-  %205 = fptosi double %204 to i32
-  br label %206
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 40
+  %193 = load i32, ptr %192, align 1
+  store i32 %193, ptr %4, align 4
+  %194 = load i8, ptr %39, align 1
+  %195 = uitofp i8 %194 to double
+  %196 = fdiv double %195, 2.550000e+02
+  %197 = sitofp i32 %179 to double
+  %198 = fmul double %196, %197
+  %199 = fptosi double %198 to i32
+  br label %200
 
-206:                                              ; preds = %206, %194
-  %indvars.iv.i = phi i64 [ 0, %194 ], [ %indvars.iv.next.i, %206 ]
-  %207 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 0, i64 %indvars.iv.i
-  %208 = load i8, ptr %207, align 1
-  %209 = zext i8 %208 to i32
-  %210 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %indvars.iv.i
-  %211 = load i8, ptr %210, align 1
-  %212 = zext i8 %211 to i32
-  %213 = sub nsw i32 %209, %212
-  %214 = mul nsw i32 %213, %205
-  %215 = mul nuw nsw i32 %212, 100
-  %216 = add nsw i32 %214, %215
-  %217 = sdiv i32 %216, 100
-  %.sroa.speculated.i31 = call i32 @llvm.smin.i32(i32 %217, i32 255)
-  %218 = trunc i32 %.sroa.speculated.i31 to i8
-  store i8 %218, ptr %210, align 1
+200:                                              ; preds = %200, %188
+  %indvars.iv.i = phi i64 [ 0, %188 ], [ %indvars.iv.next.i, %200 ]
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 0, i64 %indvars.iv.i
+  %202 = load i8, ptr %201, align 1
+  %203 = zext i8 %202 to i32
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 0, i64 %indvars.iv.i
+  %205 = load i8, ptr %204, align 1
+  %206 = zext i8 %205 to i32
+  %207 = sub nsw i32 %203, %206
+  %208 = mul nsw i32 %207, %199
+  %209 = mul nuw nsw i32 %206, 100
+  %210 = add nsw i32 %208, %209
+  %211 = sdiv i32 %210, 100
+  %.sroa.speculated.i31 = call i32 @llvm.smin.i32(i32 %211, i32 255)
+  %212 = trunc i32 %.sroa.speculated.i31 to i8
+  store i8 %212, ptr %204, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit, label %206, !llvm.loop !61
+  br i1 %exitcond.not.i, label %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit, label %200, !llvm.loop !61
 
-_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit: ; preds = %206
-  %219 = load i32, ptr %4, align 4
-  store i32 %219, ptr %198, align 1
+_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit: ; preds = %200
+  %213 = load i32, ptr %4, align 4
+  store i32 %213, ptr %192, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %333
+  br label %321
 
-220:                                              ; preds = %180
-  %221 = landingpad { ptr, i32 }
+214:                                              ; preds = %174
+  %215 = landingpad { ptr, i32 }
           cleanup
-  br label %343
+  br label %331
 
 _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8containsERKS1_.exit: ; preds = %112
-  %222 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEEixERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 4
-  %224 = load i32, ptr %223, align 4
-  %225 = fmul float %.1.i, %26
-  %226 = fptosi float %225 to i32
-  %227 = icmp slt i32 %224, %226
-  br i1 %227, label %228, label %333
+  %216 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEEixERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 4
+  %218 = load i32, ptr %217, align 4
+  %219 = fmul float %.1.i, %26
+  %220 = fptosi float %219 to i32
+  %221 = icmp slt i32 %218, %220
+  br i1 %221, label %222, label %321
 
-228:                                              ; preds = %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8containsERKS1_.exit
-  %229 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEEixERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 4
-  store i32 %226, ptr %230, align 4
-  %231 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEEixERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %232 = load i32, ptr %231, align 4
-  %.sroa.0.0.extract.trunc = trunc i32 %232 to i8
-  %.sroa.2.0.extract.shift = lshr i32 %232, 8
+222:                                              ; preds = %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8containsERKS1_.exit
+  %223 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEEixERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 4
+  store i32 %220, ptr %224, align 4
+  %225 = call noundef nonnull align 4 dereferenceable(8) ptr @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEEixERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %226 = load i32, ptr %225, align 4
+  %.sroa.0.0.extract.trunc = trunc i32 %226 to i8
+  %.sroa.2.0.extract.shift = lshr i32 %226, 8
   %.sroa.2.0.extract.trunc = trunc i32 %.sroa.2.0.extract.shift to i8
-  %.sroa.3.0.extract.shift = lshr i32 %232, 16
+  %.sroa.3.0.extract.shift = lshr i32 %226, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
-  %233 = load ptr, ptr %5, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 40
-  store i8 %.sroa.0.0.extract.trunc, ptr %234, align 1
-  %235 = getelementptr inbounds nuw i8, ptr %233, i64 41
-  store i8 %.sroa.2.0.extract.trunc, ptr %235, align 1
-  %236 = getelementptr inbounds nuw i8, ptr %233, i64 42
-  store i8 %.sroa.3.0.extract.trunc, ptr %236, align 1
-  %237 = load ptr, ptr %14, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 792
-  %239 = load i32, ptr %238, align 8
-  %240 = icmp eq i32 %239, 4
-  br i1 %240, label %241, label %293
+  %227 = load ptr, ptr %5, align 8
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 40
+  store i8 %.sroa.0.0.extract.trunc, ptr %228, align 1
+  %229 = getelementptr inbounds nuw i8, ptr %227, i64 41
+  store i8 %.sroa.2.0.extract.trunc, ptr %229, align 1
+  %230 = getelementptr inbounds nuw i8, ptr %227, i64 42
+  store i8 %.sroa.3.0.extract.trunc, ptr %230, align 1
+  %231 = load ptr, ptr %14, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 792
+  %233 = load i32, ptr %232, align 8
+  %234 = icmp eq i32 %233, 4
+  br i1 %234, label %235, label %281
 
-241:                                              ; preds = %228
-  %242 = load i32, ptr %15, align 8
-  %243 = load i32, ptr %27, align 4
-  %244 = load i32, ptr %29, align 4
-  %245 = load i32, ptr %31, align 4
-  %246 = load i32, ptr %33, align 4
-  %247 = load ptr, ptr %24, align 8
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 40
-  %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 32
-  %251 = load i32, ptr %250, align 4
-  %252 = getelementptr inbounds nuw i8, ptr %249, i64 24
-  %253 = load i32, ptr %252, align 4
-  %.neg23.i32 = xor i32 %251, -1
-  %.neg.i33 = add i32 %244, %243
-  %254 = sub i32 %.neg.i33, %245
-  %255 = add i32 %254, %246
-  %256 = add i32 %255, %.neg23.i32
-  %257 = add i32 %256, %253
-  %258 = load i32, ptr %30, align 8
-  %259 = load i32, ptr %32, align 8
-  %260 = sub nsw i32 %242, %259
-  %261 = add nsw i32 %260, %258
-  %262 = load i32, ptr %34, align 8
-  %263 = mul nsw i32 %262, %257
-  %264 = add nsw i32 %263, %261
-  %265 = icmp slt i32 %261, %262
-  br i1 %265, label %266, label %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit.thread
+235:                                              ; preds = %222
+  %236 = load i32, ptr %15, align 8
+  %237 = load i32, ptr %27, align 4
+  %238 = load i32, ptr %29, align 4
+  %239 = load i32, ptr %31, align 4
+  %240 = load i32, ptr %33, align 4
+  %241 = load ptr, ptr %24, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 40
+  %243 = load ptr, ptr %242, align 8
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 32
+  %245 = load i32, ptr %244, align 4
+  %246 = getelementptr inbounds nuw i8, ptr %243, i64 24
+  %247 = load i32, ptr %246, align 4
+  %.neg23.i32 = xor i32 %245, -1
+  %.neg.i33 = add i32 %238, %237
+  %248 = sub i32 %.neg.i33, %239
+  %249 = add i32 %248, %240
+  %250 = add i32 %249, %.neg23.i32
+  %251 = add i32 %250, %247
+  %252 = load i32, ptr %30, align 8
+  %253 = load i32, ptr %32, align 8
+  %254 = sub nsw i32 %236, %253
+  %255 = add nsw i32 %254, %252
+  %256 = load i32, ptr %34, align 8
+  %257 = mul nsw i32 %256, %251
+  %258 = add nsw i32 %257, %255
+  %259 = icmp slt i32 %255, %256
+  br i1 %259, label %260, label %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit.thread
 
-266:                                              ; preds = %241
-  %267 = icmp slt i32 %257, %244
-  %268 = or i32 %261, %257
-  %269 = icmp sgt i32 %268, -1
-  %or.cond3.i35 = and i1 %267, %269
-  br i1 %or.cond3.i35, label %270, label %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit.thread
+260:                                              ; preds = %235
+  %261 = icmp slt i32 %251, %238
+  %262 = or i32 %255, %251
+  %263 = icmp sgt i32 %262, -1
+  %or.cond3.i35 = and i1 %261, %263
+  br i1 %or.cond3.i35, label %264, label %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit.thread
 
-270:                                              ; preds = %266
-  %271 = load ptr, ptr %35, align 8
-  %272 = sext i32 %264 to i64
-  %273 = getelementptr inbounds float, ptr %271, i64 %272
-  %274 = load float, ptr %273, align 4
-  %275 = fcmp olt float %274, 1.000000e+00
-  br i1 %275, label %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36, label %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit.thread
+264:                                              ; preds = %260
+  %265 = load ptr, ptr %35, align 8
+  %266 = sext i32 %258 to i64
+  %267 = getelementptr inbounds float, ptr %265, i64 %266
+  %268 = load float, ptr %267, align 4
+  %269 = fcmp olt float %268, 1.000000e+00
+  br i1 %269, label %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36, label %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit.thread
 
-_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36: ; preds = %270
-  %276 = shl nsw i32 %264, 2
-  %277 = load ptr, ptr %36, align 8
-  %278 = sext i32 %276 to i64
-  %279 = getelementptr inbounds i8, ptr %277, i64 %278
+_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36: ; preds = %264
+  %270 = shl nsw i32 %258, 2
+  %271 = load ptr, ptr %36, align 8
+  %272 = sext i32 %270 to i64
+  %273 = getelementptr inbounds i8, ptr %271, i64 %272
+  %274 = load i8, ptr %273, align 1
+  store i8 %274, ptr %28, align 8
+  %275 = getelementptr i8, ptr %273, i64 1
+  %276 = load i8, ptr %275, align 1
+  store i8 %276, ptr %37, align 1
+  %277 = getelementptr i8, ptr %273, i64 2
+  %278 = load i8, ptr %277, align 1
+  store i8 %278, ptr %38, align 2
+  %279 = getelementptr i8, ptr %273, i64 3
   %280 = load i8, ptr %279, align 1
-  store i8 %280, ptr %28, align 8
-  %281 = or disjoint i32 %276, 1
-  %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds i8, ptr %277, i64 %282
-  %284 = load i8, ptr %283, align 1
-  store i8 %284, ptr %37, align 1
-  %285 = or disjoint i32 %276, 2
-  %286 = sext i32 %285 to i64
-  %287 = getelementptr inbounds i8, ptr %277, i64 %286
-  %288 = load i8, ptr %287, align 1
-  store i8 %288, ptr %38, align 2
-  %289 = or disjoint i32 %276, 3
-  %290 = sext i32 %289 to i64
-  %291 = getelementptr inbounds i8, ptr %277, i64 %290
-  %292 = load i8, ptr %291, align 1
-  store i8 %292, ptr %39, align 1
-  %.pr49 = load i32, ptr %238, align 8
-  br label %293
+  store i8 %280, ptr %39, align 1
+  %.pr49 = load i32, ptr %232, align 8
+  br label %281
 
-293:                                              ; preds = %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36, %228
-  %294 = phi i32 [ %.pr49, %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36 ], [ %239, %228 ]
-  %295 = icmp eq i32 %294, 6
-  br i1 %295, label %296, label %297
+281:                                              ; preds = %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36, %222
+  %282 = phi i32 [ %.pr49, %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36 ], [ %233, %222 ]
+  %283 = icmp eq i32 %282, 6
+  br i1 %283, label %284, label %285
 
-296:                                              ; preds = %293
-  call void @_ZN15EditPaintPlugin17computeNoiseColorEP8CVertexORN3vcg6Color4IhEE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %233, ptr noundef nonnull align 1 dereferenceable(4) %28)
+284:                                              ; preds = %281
+  call void @_ZN15EditPaintPlugin17computeNoiseColorEP8CVertexORN3vcg6Color4IhEE(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull %227, ptr noundef nonnull align 1 dereferenceable(4) %28)
   %.pre = load ptr, ptr %14, align 8
-  br label %297
+  br label %285
 
-297:                                              ; preds = %296, %293
-  %298 = phi ptr [ %.pre, %296 ], [ %237, %293 ]
-  %299 = getelementptr inbounds nuw i8, ptr %298, i64 808
-  %300 = load ptr, ptr %299, align 8
-  %301 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %300)
-  %302 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
-  %303 = load ptr, ptr %5, align 8
-  %304 = getelementptr inbounds nuw i8, ptr %303, i64 40
-  %.sroa.0.0.copyload = load i32, ptr %304, align 1
-  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(28) %302, ptr noundef null)
-          to label %305 unwind label %331
+285:                                              ; preds = %284, %281
+  %286 = phi ptr [ %.pre, %284 ], [ %231, %281 ]
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 808
+  %288 = load ptr, ptr %287, align 8
+  %289 = call noundef ptr @_ZNK10QUndoGroup11activeStackEv(ptr noundef nonnull align 8 dereferenceable(16) %288)
+  %290 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %291 = load ptr, ptr %5, align 8
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 40
+  %.sroa.0.0.copyload = load i32, ptr %292, align 1
+  invoke void @_ZN12QUndoCommandC2EPS_(ptr noundef nonnull align 8 dereferenceable(28) %290, ptr noundef null)
+          to label %293 unwind label %319
 
-305:                                              ; preds = %297
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %302, align 8
-  %306 = getelementptr inbounds nuw i8, ptr %302, i64 24
-  %307 = getelementptr inbounds nuw i8, ptr %302, i64 16
-  store ptr %303, ptr %307, align 8
-  store i32 %.sroa.0.0.copyload, ptr %306, align 8
-  call void @_ZN10QUndoStack4pushEP12QUndoCommand(ptr noundef nonnull align 8 dereferenceable(16) %301, ptr noundef nonnull %302)
-  %308 = load ptr, ptr %5, align 8
+293:                                              ; preds = %285
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV15SingleColorUndo, i64 16), ptr %290, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %290, i64 24
+  %295 = getelementptr inbounds nuw i8, ptr %290, i64 16
+  store ptr %291, ptr %295, align 8
+  store i32 %.sroa.0.0.copyload, ptr %294, align 8
+  call void @_ZN10QUndoStack4pushEP12QUndoCommand(ptr noundef nonnull align 8 dereferenceable(16) %289, ptr noundef nonnull %290)
+  %296 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %309 = getelementptr inbounds nuw i8, ptr %308, i64 40
-  %310 = load i32, ptr %309, align 1
-  store i32 %310, ptr %3, align 4
-  %311 = load i8, ptr %39, align 1
-  %312 = uitofp i8 %311 to double
-  %313 = fdiv double %312, 2.550000e+02
-  %314 = sitofp i32 %226 to double
-  %315 = fmul double %313, %314
-  %316 = fptosi double %315 to i32
-  br label %317
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 40
+  %298 = load i32, ptr %297, align 1
+  store i32 %298, ptr %3, align 4
+  %299 = load i8, ptr %39, align 1
+  %300 = uitofp i8 %299 to double
+  %301 = fdiv double %300, 2.550000e+02
+  %302 = sitofp i32 %220 to double
+  %303 = fmul double %301, %302
+  %304 = fptosi double %303 to i32
+  br label %305
 
-317:                                              ; preds = %317, %305
-  %indvars.iv.i38 = phi i64 [ 0, %305 ], [ %indvars.iv.next.i40, %317 ]
-  %318 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 0, i64 %indvars.iv.i38
-  %319 = load i8, ptr %318, align 1
-  %320 = zext i8 %319 to i32
-  %321 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i38
-  %322 = load i8, ptr %321, align 1
-  %323 = zext i8 %322 to i32
-  %324 = sub nsw i32 %320, %323
-  %325 = mul nsw i32 %324, %316
-  %326 = mul nuw nsw i32 %323, 100
-  %327 = add nsw i32 %325, %326
-  %328 = sdiv i32 %327, 100
-  %.sroa.speculated.i39 = call i32 @llvm.smin.i32(i32 %328, i32 255)
-  %329 = trunc i32 %.sroa.speculated.i39 to i8
-  store i8 %329, ptr %321, align 1
+305:                                              ; preds = %305, %293
+  %indvars.iv.i38 = phi i64 [ 0, %293 ], [ %indvars.iv.next.i40, %305 ]
+  %306 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 0, i64 %indvars.iv.i38
+  %307 = load i8, ptr %306, align 1
+  %308 = zext i8 %307 to i32
+  %309 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i38
+  %310 = load i8, ptr %309, align 1
+  %311 = zext i8 %310 to i32
+  %312 = sub nsw i32 %308, %311
+  %313 = mul nsw i32 %312, %304
+  %314 = mul nuw nsw i32 %311, 100
+  %315 = add nsw i32 %313, %314
+  %316 = sdiv i32 %315, 100
+  %.sroa.speculated.i39 = call i32 @llvm.smin.i32(i32 %316, i32 255)
+  %317 = trunc i32 %.sroa.speculated.i39 to i8
+  store i8 %317, ptr %309, align 1
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i38, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, 3
-  br i1 %exitcond.not.i41, label %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit42, label %317, !llvm.loop !61
+  br i1 %exitcond.not.i41, label %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit42, label %305, !llvm.loop !61
 
-_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit42: ; preds = %317
-  %330 = load i32, ptr %3, align 4
-  store i32 %330, ptr %309, align 1
+_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit42: ; preds = %305
+  %318 = load i32, ptr %3, align 4
+  store i32 %318, ptr %297, align 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %333
+  br label %321
 
-331:                                              ; preds = %297
-  %332 = landingpad { ptr, i32 }
+319:                                              ; preds = %285
+  %320 = landingpad { ptr, i32 }
           cleanup
-  br label %343
+  br label %331
 
-333:                                              ; preds = %_Z5brush5Brushffff.exit, %86, %89, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8containsERKS1_.exit, %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit42, %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit
-  %334 = add i32 %.054, 1
-  %335 = zext i32 %334 to i64
-  %336 = load ptr, ptr %7, align 8
-  %337 = load ptr, ptr %1, align 8
-  %338 = ptrtoint ptr %336 to i64
-  %339 = ptrtoint ptr %337 to i64
-  %340 = sub i64 %338, %339
-  %341 = sdiv exact i64 %340, 40
-  %342 = icmp ugt i64 %341, %335
-  br i1 %342, label %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit, label %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit.thread, !llvm.loop !62
+321:                                              ; preds = %_Z5brush5Brushffff.exit, %86, %89, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8containsERKS1_.exit, %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit42, %_Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit
+  %322 = add i32 %.054, 1
+  %323 = zext i32 %322 to i64
+  %324 = load ptr, ptr %7, align 8
+  %325 = load ptr, ptr %1, align 8
+  %326 = ptrtoint ptr %324 to i64
+  %327 = ptrtoint ptr %325 to i64
+  %328 = sub i64 %326, %327
+  %329 = sdiv exact i64 %328, 40
+  %330 = icmp ugt i64 %329, %323
+  br i1 %330, label %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit, label %_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit.thread, !llvm.loop !62
 
-_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit.thread: ; preds = %333, %153, %149, %124, %270, %266, %241, %2
+_ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit.thread: ; preds = %321, %153, %149, %124, %264, %260, %235, %2
   ret void
 
-343:                                              ; preds = %331, %220
-  %.lcssa.sink = phi ptr [ %302, %331 ], [ %191, %220 ]
-  %.pn = phi { ptr, i32 } [ %332, %331 ], [ %221, %220 ]
+331:                                              ; preds = %319, %214
+  %.lcssa.sink = phi ptr [ %290, %319 ], [ %185, %214 ]
+  %.pn = phi { ptr, i32 } [ %320, %319 ], [ %215, %214 ]
   call void @_ZdlPv(ptr noundef nonnull %.lcssa.sink) #25
   resume { ptr, i32 } %.pn
 }
@@ -11077,7 +11065,7 @@ define linkonce_odr void @_ZN15EditPaintPlugin7captureEv(ptr noundef nonnull ali
 
 .preheader:                                       ; preds = %1, %._crit_edge
   %.pre = phi ptr [ %.pre34, %._crit_edge ], [ %109, %1 ]
-  %.032 = phi i32 [ %176, %._crit_edge ], [ 0, %1 ]
+  %.032 = phi i32 [ %170, %._crit_edge ], [ 0, %1 ]
   %117 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %118 = load i32, ptr %117, align 4
   %119 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
@@ -11087,10 +11075,10 @@ define linkonce_odr void @_ZN15EditPaintPlugin7captureEv(ptr noundef nonnull ali
   %123 = icmp sgt i32 %122, 0
   br i1 %123, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader, %163
-  %124 = phi i32 [ %173, %163 ], [ %122, %.preheader ]
-  %125 = phi ptr [ %167, %163 ], [ %.pre, %.preheader ]
-  %.01430 = phi i32 [ %164, %163 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %157
+  %124 = phi i32 [ %167, %157 ], [ %122, %.preheader ]
+  %125 = phi ptr [ %161, %157 ], [ %.pre, %.preheader ]
+  %.01430 = phi i32 [ %158, %157 ], [ 0, %.preheader ]
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 20
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 28
   %128 = load i32, ptr %127, align 4
@@ -11107,97 +11095,91 @@ define linkonce_odr void @_ZN15EditPaintPlugin7captureEv(ptr noundef nonnull ali
   %139 = getelementptr inbounds i8, ptr %137, i64 %138
   %140 = load i8, ptr %139, align 1
   %141 = zext i8 %140 to i32
-  %142 = or disjoint i32 %134, 1
-  %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds i8, ptr %137, i64 %143
-  %145 = load i8, ptr %144, align 1
-  %146 = zext i8 %145 to i32
-  %147 = or disjoint i32 %134, 2
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds i8, ptr %137, i64 %148
-  %150 = load i8, ptr %149, align 1
-  %151 = zext i8 %150 to i32
-  %152 = or disjoint i32 %134, 3
-  %153 = sext i32 %152 to i64
-  %154 = getelementptr inbounds i8, ptr %137, i64 %153
-  %155 = load i8, ptr %154, align 1
-  %156 = zext i8 %155 to i32
-  %157 = shl nuw i32 %156, 24
-  %158 = shl nuw nsw i32 %141, 16
-  %159 = shl nuw nsw i32 %146, 8
-  %160 = or disjoint i32 %159, %158
-  %161 = or disjoint i32 %160, %151
-  %162 = or disjoint i32 %161, %157
-  invoke void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %.032, i32 noundef %136, i32 noundef %162)
-          to label %163 unwind label %.loopexit
+  %142 = getelementptr i8, ptr %139, i64 1
+  %143 = load i8, ptr %142, align 1
+  %144 = zext i8 %143 to i32
+  %145 = getelementptr i8, ptr %139, i64 2
+  %146 = load i8, ptr %145, align 1
+  %147 = zext i8 %146 to i32
+  %148 = getelementptr i8, ptr %139, i64 3
+  %149 = load i8, ptr %148, align 1
+  %150 = zext i8 %149 to i32
+  %151 = shl nuw i32 %150, 24
+  %152 = shl nuw nsw i32 %141, 16
+  %153 = shl nuw nsw i32 %144, 8
+  %154 = or disjoint i32 %153, %152
+  %155 = or disjoint i32 %154, %147
+  %156 = or disjoint i32 %155, %151
+  invoke void @_ZN6QImage8setPixelEiij(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %.032, i32 noundef %136, i32 noundef %156)
+          to label %157 unwind label %.loopexit
 
-163:                                              ; preds = %.lr.ph
-  %164 = add nuw nsw i32 %.01430, 1
-  %165 = load ptr, ptr %3, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 40
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 32
-  %169 = load i32, ptr %168, align 4
-  %170 = getelementptr inbounds nuw i8, ptr %167, i64 24
-  %171 = load i32, ptr %170, align 4
-  %172 = add i32 %169, 1
-  %173 = sub i32 %172, %171
-  %174 = icmp slt i32 %164, %173
-  br i1 %174, label %.lr.ph, label %._crit_edge, !llvm.loop !104
+157:                                              ; preds = %.lr.ph
+  %158 = add nuw nsw i32 %.01430, 1
+  %159 = load ptr, ptr %3, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 40
+  %161 = load ptr, ptr %160, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 32
+  %163 = load i32, ptr %162, align 4
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 24
+  %165 = load i32, ptr %164, align 4
+  %166 = add i32 %163, 1
+  %167 = sub i32 %166, %165
+  %168 = icmp slt i32 %158, %167
+  br i1 %168, label %.lr.ph, label %._crit_edge, !llvm.loop !104
 
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %175
+  br label %169
 
-.loopexit.split-lp:                               ; preds = %._crit_edge33, %189, %196
+.loopexit.split-lp:                               ; preds = %._crit_edge33, %183, %190
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %175
+  br label %169
 
-175:                                              ; preds = %.loopexit.split-lp, %.loopexit
+169:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   resume { ptr, i32 } %lpad.phi
 
-._crit_edge:                                      ; preds = %163, %.preheader
-  %.pre34 = phi ptr [ %.pre, %.preheader ], [ %167, %163 ]
-  %176 = add nuw nsw i32 %.032, 1
-  %177 = getelementptr inbounds nuw i8, ptr %.pre34, i64 20
-  %178 = getelementptr inbounds nuw i8, ptr %.pre34, i64 28
-  %179 = load i32, ptr %178, align 4
-  %180 = load i32, ptr %177, align 4
-  %181 = add i32 %179, 1
-  %182 = sub i32 %181, %180
-  %183 = icmp slt i32 %176, %182
-  br i1 %183, label %.preheader, label %._crit_edge33, !llvm.loop !105
+._crit_edge:                                      ; preds = %157, %.preheader
+  %.pre34 = phi ptr [ %.pre, %.preheader ], [ %161, %157 ]
+  %170 = add nuw nsw i32 %.032, 1
+  %171 = getelementptr inbounds nuw i8, ptr %.pre34, i64 20
+  %172 = getelementptr inbounds nuw i8, ptr %.pre34, i64 28
+  %173 = load i32, ptr %172, align 4
+  %174 = load i32, ptr %171, align 4
+  %175 = add i32 %173, 1
+  %176 = sub i32 %175, %174
+  %177 = icmp slt i32 %170, %176
+  br i1 %177, label %.preheader, label %._crit_edge33, !llvm.loop !105
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %1
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 484
-  %185 = load i32, ptr %184, align 4
-  %186 = or i32 %185, 8
-  store i32 %186, ptr %184, align 4
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %188 = load ptr, ptr %187, align 8
-  invoke void @_ZN8Paintbox14setClonePixmapER6QImage(ptr noundef nonnull align 8 dereferenceable(844) %188, ptr noundef nonnull align 8 dereferenceable(32) %2)
-          to label %189 unwind label %.loopexit.split-lp
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 484
+  %179 = load i32, ptr %178, align 4
+  %180 = or i32 %179, 8
+  store i32 %180, ptr %178, align 4
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %182 = load ptr, ptr %181, align 8
+  invoke void @_ZN8Paintbox14setClonePixmapER6QImage(ptr noundef nonnull align 8 dereferenceable(844) %182, ptr noundef nonnull align 8 dereferenceable(32) %2)
+          to label %183 unwind label %.loopexit.split-lp
 
-189:                                              ; preds = %._crit_edge33
-  %190 = load ptr, ptr %187, align 8
-  %191 = load i32, ptr %92, align 8
-  %192 = sitofp i32 %191 to double
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  %194 = load i32, ptr %193, align 4
-  %195 = sitofp i32 %194 to double
-  invoke void @_ZN8Paintbox14setPixmapDeltaEdd(ptr noundef nonnull align 8 dereferenceable(844) %190, double noundef %192, double noundef %195)
-          to label %196 unwind label %.loopexit.split-lp
+183:                                              ; preds = %._crit_edge33
+  %184 = load ptr, ptr %181, align 8
+  %185 = load i32, ptr %92, align 8
+  %186 = sitofp i32 %185 to double
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 652
+  %188 = load i32, ptr %187, align 4
+  %189 = sitofp i32 %188 to double
+  invoke void @_ZN8Paintbox14setPixmapDeltaEdd(ptr noundef nonnull align 8 dereferenceable(844) %184, double noundef %186, double noundef %189)
+          to label %190 unwind label %.loopexit.split-lp
 
-196:                                              ; preds = %189
-  %197 = load ptr, ptr %3, align 8
-  invoke void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %197)
-          to label %198 unwind label %.loopexit.split-lp
+190:                                              ; preds = %183
+  %191 = load ptr, ptr %3, align 8
+  invoke void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %191)
+          to label %192 unwind label %.loopexit.split-lp
 
-198:                                              ; preds = %196
+192:                                              ; preds = %190
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   ret void
 }

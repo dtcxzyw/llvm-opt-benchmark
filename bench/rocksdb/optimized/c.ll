@@ -13907,7 +13907,7 @@ define void @rocksdb_batched_multi_get_cf(ptr noundef readonly captures(none) %0
   %13 = select i1 %11, i64 -1, i64 %12
   %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #46
   %15 = icmp eq i64 %3, 0
-  br i1 %15, label %.loopexit81, label %16
+  br i1 %15, label %.loopexit73, label %16
 
 16:                                               ; preds = %9
   %17 = getelementptr inbounds %"class.rocksdb::Slice", ptr %14, i64 %3
@@ -13920,9 +13920,9 @@ define void @rocksdb_batched_multi_get_cf(ptr noundef readonly captures(none) %0
   store i64 0, ptr %20, align 8, !tbaa !253
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = icmp eq ptr %21, %17
-  br i1 %22, label %.loopexit81, label %18
+  br i1 %22, label %.loopexit73, label %18
 
-.loopexit81:                                      ; preds = %18, %9
+.loopexit73:                                      ; preds = %18, %9
   %23 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 96)
   %24 = extractvalue { i64, i1 } %23, 1
   %25 = extractvalue { i64, i1 } %23, 0
@@ -13931,9 +13931,9 @@ define void @rocksdb_batched_multi_get_cf(ptr noundef readonly captures(none) %0
   %28 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %27) #46
   store i64 %3, ptr %28, align 16
   %.ptr56.ptr = getelementptr inbounds nuw i8, ptr %28, i64 8
-  br i1 %15, label %.loopexit80, label %29
+  br i1 %15, label %.loopexit72, label %29
 
-29:                                               ; preds = %.loopexit81
+29:                                               ; preds = %.loopexit73
   %30 = getelementptr inbounds %"class.rocksdb::PinnableSlice", ptr %.ptr56.ptr, i64 %3
   br label %31
 
@@ -13961,28 +13961,28 @@ define void @rocksdb_batched_multi_get_cf(ptr noundef readonly captures(none) %0
   %.add = add nuw nsw i64 %.idx, 96
   %.ptr55 = getelementptr inbounds nuw i8, ptr %28, i64 %.add
   %40 = icmp eq ptr %.ptr55, %30
-  br i1 %40, label %.loopexit80, label %31
+  br i1 %40, label %.loopexit72, label %31
 
-.loopexit80:                                      ; preds = %34, %.loopexit81
+.loopexit72:                                      ; preds = %34, %.loopexit73
   %41 = or disjoint i64 %12, 8
   %42 = select i1 %11, i64 -1, i64 %41
   %43 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %42) #46
   store i64 %3, ptr %43, align 16
-  %.ptr = getelementptr i8, ptr %43, i64 8
+  %.ptr64 = getelementptr inbounds nuw i8, ptr %43, i64 8
   br i1 %15, label %._crit_edge.thread, label %46
 
-._crit_edge.thread:                               ; preds = %.loopexit80
+._crit_edge.thread:                               ; preds = %.loopexit72
   %44 = load ptr, ptr %0, align 8, !tbaa !26
   %45 = load ptr, ptr %2, align 8, !tbaa !196
-  tail call void @_ZN7rocksdb2DB8MultiGetERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleEmPKNS_5SliceEPNS_13PinnableSliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6StatusEb(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef %45, i64 noundef %3, ptr noundef nonnull %14, ptr noundef nonnull %.ptr56.ptr, ptr noundef null, ptr noundef nonnull %.ptr, i1 noundef zeroext %8)
-  br label %._crit_edge87
+  tail call void @_ZN7rocksdb2DB8MultiGetERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleEmPKNS_5SliceEPNS_13PinnableSliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6StatusEb(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef %45, i64 noundef %3, ptr noundef nonnull %14, ptr noundef nonnull %.ptr56.ptr, ptr noundef null, ptr noundef nonnull %.ptr64, i1 noundef zeroext %8)
+  br label %._crit_edge79
 
-46:                                               ; preds = %.loopexit80
-  %47 = getelementptr inbounds %"class.rocksdb::Status", ptr %.ptr, i64 %3
+46:                                               ; preds = %.loopexit72
+  %47 = getelementptr inbounds %"class.rocksdb::Status", ptr %.ptr64, i64 %3
   br label %48
 
 48:                                               ; preds = %48, %46
-  %49 = phi ptr [ %.ptr, %46 ], [ %51, %48 ]
+  %49 = phi ptr [ %.ptr64, %46 ], [ %51, %48 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr null, ptr %50, align 8, !tbaa !300
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 6, i1 false)
@@ -13990,10 +13990,10 @@ define void @rocksdb_batched_multi_get_cf(ptr noundef readonly captures(none) %0
   %52 = icmp eq ptr %51, %47
   br i1 %52, label %.lr.ph, label %48
 
-.lr.ph86:                                         ; preds = %.lr.ph
+.lr.ph78:                                         ; preds = %.lr.ph
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = load ptr, ptr %2, align 8, !tbaa !196
-  tail call void @_ZN7rocksdb2DB8MultiGetERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleEmPKNS_5SliceEPNS_13PinnableSliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6StatusEb(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef %54, i64 noundef %3, ptr noundef nonnull %14, ptr noundef nonnull %.ptr56.ptr, ptr noundef null, ptr noundef nonnull %.ptr, i1 noundef zeroext %8)
+  tail call void @_ZN7rocksdb2DB8MultiGetERKNS_11ReadOptionsEPNS_18ColumnFamilyHandleEmPKNS_5SliceEPNS_13PinnableSliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6StatusEb(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef %54, i64 noundef %3, ptr noundef nonnull %14, ptr noundef nonnull %.ptr56.ptr, ptr noundef null, ptr noundef nonnull %.ptr64, i1 noundef zeroext %8)
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %67
@@ -14002,37 +14002,37 @@ define void @rocksdb_batched_multi_get_cf(ptr noundef readonly captures(none) %0
   %58 = landingpad { ptr, i32 }
           cleanup
   %59 = icmp eq i64 %.idx, 8
-  br i1 %59, label %.loopexit79, label %.preheader78
+  br i1 %59, label %.loopexit71, label %.preheader70
 
-.preheader78:                                     ; preds = %57, %.preheader78
-  %.idx57 = phi i64 [ %.add58, %.preheader78 ], [ %.idx, %57 ]
+.preheader70:                                     ; preds = %57, %.preheader70
+  %.idx57 = phi i64 [ %.add58, %.preheader70 ], [ %.idx, %57 ]
   %.add58 = add nsw i64 %.idx57, -96
   %.ptr60 = getelementptr inbounds i8, ptr %28, i64 %.add58
   tail call void @_ZN7rocksdb13PinnableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %.ptr60) #43
   %60 = icmp eq i64 %.add58, 8
-  br i1 %60, label %.loopexit79, label %.preheader78
+  br i1 %60, label %.loopexit71, label %.preheader70
 
-.loopexit79:                                      ; preds = %.preheader78, %57
+.loopexit71:                                      ; preds = %.preheader70, %57
   tail call void @_ZdaPvm(ptr noundef nonnull %28, i64 noundef %27) #45
-  br label %120
+  br label %129
 
 .lr.ph:                                           ; preds = %48, %.lr.ph
-  %.04783 = phi i64 [ %66, %.lr.ph ], [ 0, %48 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %4, i64 %.04783
+  %.04775 = phi i64 [ %66, %.lr.ph ], [ 0, %48 ]
+  %61 = getelementptr inbounds nuw ptr, ptr %4, i64 %.04775
   %62 = load ptr, ptr %61, align 8, !tbaa !25
-  %63 = getelementptr inbounds nuw i64, ptr %5, i64 %.04783
+  %63 = getelementptr inbounds nuw i64, ptr %5, i64 %.04775
   %64 = load i64, ptr %63, align 8, !tbaa !10
-  %65 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %14, i64 %.04783
+  %65 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %14, i64 %.04775
   store ptr %62, ptr %65, align 8, !tbaa !25
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !10
-  %66 = add nuw i64 %.04783, 1
+  %66 = add nuw i64 %.04775, 1
   %exitcond.not = icmp eq i64 %66, %3
-  br i1 %exitcond.not, label %.lr.ph86, label %.lr.ph, !llvm.loop !307
+  br i1 %exitcond.not, label %.lr.ph78, label %.lr.ph, !llvm.loop !307
 
-67:                                               ; preds = %.lr.ph86, %101
-  %.084 = phi i64 [ 0, %.lr.ph86 ], [ %102, %101 ]
-  %68 = getelementptr inbounds nuw %"class.rocksdb::Status", ptr %.ptr, i64 %.084
+67:                                               ; preds = %.lr.ph78, %101
+  %.076 = phi i64 [ 0, %.lr.ph78 ], [ %102, %101 ]
+  %68 = getelementptr inbounds nuw %"class.rocksdb::Status", ptr %.ptr64, i64 %.076
   %69 = load i8, ptr %68, align 8, !tbaa !28
   %70 = icmp eq i8 %69, 0
   br i1 %70, label %71, label %87
@@ -14057,11 +14057,11 @@ define void @rocksdb_batched_multi_get_cf(ptr noundef readonly captures(none) %0
   store i8 0, ptr %79, align 8, !tbaa !257
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 80
   store ptr %76, ptr %80, align 8, !tbaa !262
-  %81 = getelementptr inbounds nuw ptr, ptr %6, i64 %.084
+  %81 = getelementptr inbounds nuw ptr, ptr %6, i64 %.076
   store ptr %72, ptr %81, align 8, !tbaa !308
-  %82 = getelementptr inbounds nuw %"class.rocksdb::PinnableSlice", ptr %.ptr56.ptr, i64 %.084
+  %82 = getelementptr inbounds nuw %"class.rocksdb::PinnableSlice", ptr %.ptr56.ptr, i64 %.076
   %83 = call noundef nonnull align 8 dereferenceable(89) ptr @_ZN7rocksdb13PinnableSliceaSEOS0_(ptr noundef nonnull align 8 dereferenceable(89) %72, ptr noundef nonnull align 8 dereferenceable(89) %82)
-  %84 = getelementptr inbounds nuw ptr, ptr %7, i64 %.084
+  %84 = getelementptr inbounds nuw ptr, ptr %7, i64 %.076
   store ptr null, ptr %84, align 8, !tbaa !25
   br label %101
 
@@ -14069,10 +14069,10 @@ define void @rocksdb_batched_multi_get_cf(ptr noundef readonly captures(none) %0
   %86 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef 96) #45
-  br label %120
+  br label %129
 
 87:                                               ; preds = %67
-  %88 = getelementptr inbounds nuw ptr, ptr %6, i64 %.084
+  %88 = getelementptr inbounds nuw ptr, ptr %6, i64 %.076
   store ptr null, ptr %88, align 8, !tbaa !308
   %89 = icmp eq i8 %69, 1
   br i1 %89, label %99, label %90
@@ -14082,7 +14082,7 @@ define void @rocksdb_batched_multi_get_cf(ptr noundef readonly captures(none) %0
   call void @_ZNK7rocksdb6Status8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %68)
   %91 = load ptr, ptr %10, align 8, !tbaa !12
   %92 = call noalias ptr @strdup(ptr noundef %91) #43
-  %93 = getelementptr inbounds nuw ptr, ptr %7, i64 %.084
+  %93 = getelementptr inbounds nuw ptr, ptr %7, i64 %.076
   store ptr %92, ptr %93, align 8, !tbaa !25
   %94 = icmp eq ptr %91, %55
   br i1 %94, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -14104,83 +14104,92 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %101
 
 99:                                               ; preds = %87
-  %100 = getelementptr inbounds nuw ptr, ptr %7, i64 %.084
+  %100 = getelementptr inbounds nuw ptr, ptr %7, i64 %.076
   store ptr null, ptr %100, align 8, !tbaa !25
   br label %101
 
 101:                                              ; preds = %75, %99, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %102 = add nuw i64 %.084, 1
-  %exitcond90.not = icmp eq i64 %102, %3
-  br i1 %exitcond90.not, label %._crit_edge87, label %67, !llvm.loop !310
+  %102 = add nuw i64 %.076, 1
+  %exitcond82.not = icmp eq i64 %102, %3
+  br i1 %exitcond82.not, label %._crit_edge79, label %67, !llvm.loop !310
 
-._crit_edge87:                                    ; preds = %101, %._crit_edge.thread
+._crit_edge79:                                    ; preds = %101, %._crit_edge.thread
   call void @_ZdaPv(ptr noundef nonnull %14) #45
   %103 = load i64, ptr %28, align 8
   %.idx61 = mul i64 %103, 96
-  %.ptr56.add = or disjoint i64 %.idx61, 8
   %104 = icmp eq i64 %103, 0
-  br i1 %104, label %.loopexit76, label %.preheader75
+  br i1 %104, label %.loopexit68, label %.preheader67.preheader
 
-.preheader75:                                     ; preds = %._crit_edge87, %_ZN7rocksdb13PinnableSliceD2Ev.exit
-  %.idx62 = phi i64 [ %.add63, %_ZN7rocksdb13PinnableSliceD2Ev.exit ], [ %.ptr56.add, %._crit_edge87 ]
-  %.add63 = add nsw i64 %.idx62, -96
-  %.ptr65 = getelementptr inbounds i8, ptr %28, i64 %.add63
-  %105 = getelementptr inbounds nuw i8, ptr %.ptr65, i64 48
-  %106 = load ptr, ptr %105, align 8, !tbaa !12
-  %107 = getelementptr inbounds nuw i8, ptr %.ptr65, i64 64
-  %108 = icmp eq ptr %106, %107
-  br i1 %108, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+.preheader67.preheader:                           ; preds = %._crit_edge79
+  %105 = getelementptr i8, ptr %28, i64 %.idx61
+  %.ptr = getelementptr i8, ptr %105, i64 8
+  br label %.preheader67
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %.preheader75
-  %109 = getelementptr inbounds nuw i8, ptr %.ptr65, i64 56
-  %110 = load i64, ptr %109, align 8, !tbaa !15
-  %111 = icmp ult i64 %110, 16
-  call void @llvm.assume(i1 %111)
+.preheader67:                                     ; preds = %.preheader67.preheader, %_ZN7rocksdb13PinnableSliceD2Ev.exit
+  %106 = phi ptr [ %107, %_ZN7rocksdb13PinnableSliceD2Ev.exit ], [ %.ptr, %.preheader67.preheader ]
+  %107 = getelementptr inbounds i8, ptr %106, i64 -96
+  %108 = getelementptr inbounds i8, ptr %106, i64 -48
+  %109 = load ptr, ptr %108, align 8, !tbaa !12
+  %110 = getelementptr inbounds i8, ptr %106, i64 -32
+  %111 = icmp eq ptr %109, %110
+  br i1 %111, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %.preheader67
+  %112 = getelementptr inbounds i8, ptr %106, i64 -40
+  %113 = load i64, ptr %112, align 8, !tbaa !15
+  %114 = icmp ult i64 %113, 16
+  call void @llvm.assume(i1 %114)
   br label %_ZN7rocksdb13PinnableSliceD2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %.preheader75
-  %112 = load i64, ptr %107, align 8, !tbaa !14
-  %113 = add i64 %112, 1
-  call void @_ZdlPvm(ptr noundef %106, i64 noundef %113) #45
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %.preheader67
+  %115 = load i64, ptr %110, align 8, !tbaa !14
+  %116 = add i64 %115, 1
+  call void @_ZdlPvm(ptr noundef %109, i64 noundef %116) #45
   br label %_ZN7rocksdb13PinnableSliceD2Ev.exit
 
 _ZN7rocksdb13PinnableSliceD2Ev.exit:              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %114 = getelementptr inbounds nuw i8, ptr %.ptr65, i64 16
-  call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %114) #43
-  %115 = icmp eq i64 %.add63, 8
-  br i1 %115, label %.loopexit76, label %.preheader75
+  %117 = getelementptr inbounds i8, ptr %106, i64 -80
+  call void @_ZN7rocksdb9CleanableD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #43
+  %118 = icmp eq ptr %107, %.ptr56.ptr
+  br i1 %118, label %.loopexit68, label %.preheader67
 
-.loopexit76:                                      ; preds = %_ZN7rocksdb13PinnableSliceD2Ev.exit, %._crit_edge87
-  call void @_ZdaPvm(ptr noundef nonnull %28, i64 noundef %.ptr56.add) #45
-  %116 = load i64, ptr %43, align 8
-  %.idx67 = shl i64 %116, 4
-  %.add68 = or disjoint i64 %.idx67, 8
-  %117 = icmp eq i64 %116, 0
-  br i1 %117, label %.loopexit, label %.preheader
+.loopexit68:                                      ; preds = %_ZN7rocksdb13PinnableSliceD2Ev.exit, %._crit_edge79
+  %119 = or disjoint i64 %.idx61, 8
+  call void @_ZdaPvm(ptr noundef nonnull %28, i64 noundef %119) #45
+  %120 = load i64, ptr %43, align 8
+  %.idx62 = shl i64 %120, 4
+  %121 = icmp eq i64 %120, 0
+  br i1 %121, label %.loopexit, label %.preheader.preheader
 
-.preheader:                                       ; preds = %.loopexit76, %_ZN7rocksdb6StatusD2Ev.exit
-  %.idx70 = phi i64 [ %.add71, %_ZN7rocksdb6StatusD2Ev.exit ], [ %.add68, %.loopexit76 ]
-  %.add71 = add nsw i64 %.idx70, -16
-  %gep = getelementptr i8, ptr %.ptr, i64 %.add71
-  %118 = load ptr, ptr %gep, align 8, !tbaa !25
-  %.not.i.i = icmp eq ptr %118, null
+.preheader.preheader:                             ; preds = %.loopexit68
+  %122 = getelementptr i8, ptr %43, i64 %.idx62
+  %.ptr65 = getelementptr i8, ptr %122, i64 8
+  br label %.preheader
+
+.preheader:                                       ; preds = %.preheader.preheader, %_ZN7rocksdb6StatusD2Ev.exit
+  %123 = phi ptr [ %124, %_ZN7rocksdb6StatusD2Ev.exit ], [ %.ptr65, %.preheader.preheader ]
+  %124 = getelementptr inbounds i8, ptr %123, i64 -16
+  %125 = getelementptr inbounds i8, ptr %123, i64 -8
+  %126 = load ptr, ptr %125, align 8, !tbaa !25
+  %.not.i.i = icmp eq ptr %126, null
   br i1 %.not.i.i, label %_ZN7rocksdb6StatusD2Ev.exit, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i: ; preds = %.preheader
-  call void @_ZdaPv(ptr noundef nonnull %118) #45
+  call void @_ZdaPv(ptr noundef nonnull %126) #45
   br label %_ZN7rocksdb6StatusD2Ev.exit
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %.preheader, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
-  store ptr null, ptr %gep, align 8, !tbaa !25
-  %119 = icmp eq i64 %.add71, 8
-  br i1 %119, label %.loopexit, label %.preheader
+  store ptr null, ptr %125, align 8, !tbaa !25
+  %127 = icmp eq ptr %124, %.ptr64
+  br i1 %127, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %.loopexit76
-  call void @_ZdaPvm(ptr noundef nonnull %43, i64 noundef %.add68) #45
+.loopexit:                                        ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %.loopexit68
+  %128 = or disjoint i64 %.idx62, 8
+  call void @_ZdaPvm(ptr noundef nonnull %43, i64 noundef %128) #45
   ret void
 
-120:                                              ; preds = %85, %.loopexit79
-  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %58, %.loopexit79 ]
+129:                                              ; preds = %85, %.loopexit71
+  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %58, %.loopexit71 ]
   resume { ptr, i32 } %.pn
 }
 

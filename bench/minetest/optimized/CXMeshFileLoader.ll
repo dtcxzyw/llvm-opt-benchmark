@@ -1673,8 +1673,7 @@ if.then189:                                       ; preds = %for.body185
   br label %for.inc193
 
 for.inc193:                                       ; preds = %if.then189, %for.body185
-  %indvars.iv.next1386 = or disjoint i64 %indvars.iv1385, 1
-  %add.ptr.i.i769.1 = getelementptr inbounds nuw i16, ptr %verticesLinkBuffer.sroa.0.4.lcssa, i64 %indvars.iv.next1386
+  %add.ptr.i.i769.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i769, i64 2
   %130 = load i16, ptr %add.ptr.i.i769.1, align 2, !tbaa !119
   %cmp188.not.1 = icmp eq i16 %130, -1
   br i1 %cmp188.not.1, label %for.inc193.1, label %if.then189.1
@@ -2267,24 +2266,21 @@ for.body282:                                      ; preds = %for.body282, %for.b
   %201 = load i32, ptr %arrayidx286, align 4, !tbaa !110
   %inc287 = add i32 %201, 1
   store i32 %inc287, ptr %arrayidx286, align 4, !tbaa !110
-  %indvars.iv.next1394 = or disjoint i64 %indvars.iv1393, 1
-  %add.ptr.i.i1019.1 = getelementptr inbounds nuw i32, ptr %191, i64 %indvars.iv.next1394
+  %add.ptr.i.i1019.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i1019, i64 4
   %202 = load i32, ptr %add.ptr.i.i1019.1, align 4, !tbaa !110
   %idxprom285.1 = zext i32 %202 to i64
   %arrayidx286.1 = getelementptr inbounds nuw i32, ptr %call176, i64 %idxprom285.1
   %203 = load i32, ptr %arrayidx286.1, align 4, !tbaa !110
   %inc287.1 = add i32 %203, 1
   store i32 %inc287.1, ptr %arrayidx286.1, align 4, !tbaa !110
-  %indvars.iv.next1394.1 = or disjoint i64 %indvars.iv1393, 2
-  %add.ptr.i.i1019.2 = getelementptr inbounds nuw i32, ptr %191, i64 %indvars.iv.next1394.1
+  %add.ptr.i.i1019.2 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i1019, i64 8
   %204 = load i32, ptr %add.ptr.i.i1019.2, align 4, !tbaa !110
   %idxprom285.2 = zext i32 %204 to i64
   %arrayidx286.2 = getelementptr inbounds nuw i32, ptr %call176, i64 %idxprom285.2
   %205 = load i32, ptr %arrayidx286.2, align 4, !tbaa !110
   %inc287.2 = add i32 %205, 1
   store i32 %inc287.2, ptr %arrayidx286.2, align 4, !tbaa !110
-  %indvars.iv.next1394.2 = or disjoint i64 %indvars.iv1393, 3
-  %add.ptr.i.i1019.3 = getelementptr inbounds nuw i32, ptr %191, i64 %indvars.iv.next1394.2
+  %add.ptr.i.i1019.3 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i1019, i64 12
   %206 = load i32, ptr %add.ptr.i.i1019.3, align 4, !tbaa !110
   %idxprom285.3 = zext i32 %206 to i64
   %arrayidx286.3 = getelementptr inbounds nuw i32, ptr %call176, i64 %idxprom285.3

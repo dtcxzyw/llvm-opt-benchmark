@@ -1068,8 +1068,8 @@ define hidden void @_ZN9actix_web5error14response_error13ResponseError14error_re
   %38 = sub nuw nsw i64 64, %37
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %38, i64 7)
   %39 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 2
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr i8, ptr null, i64 %40
+  %40 = getelementptr i8, ptr null, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 1
   store ptr %35, ptr %21, align 8, !alias.scope !85, !noalias !88
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %42, align 8, !alias.scope !85, !noalias !88

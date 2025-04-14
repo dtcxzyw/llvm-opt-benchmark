@@ -88,7 +88,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   br label %.thread87
 
 .thread:                                          ; preds = %14, %29, %8, %4
-  %scevgep148 = getelementptr i8, ptr %0, i64 7
+  %scevgep154 = getelementptr i8, ptr %0, i64 7
   br label %33
 
 33:                                               ; preds = %.thread, %42
@@ -124,7 +124,7 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
 
 .thread93:                                        ; preds = %42, %47
   %.059113 = phi i32 [ %.059123, %47 ], [ %44, %42 ]
-  %.058111 = phi ptr [ %.058124, %47 ], [ %scevgep148, %42 ]
+  %.058111 = phi ptr [ %.058124, %47 ], [ %scevgep154, %42 ]
   %49 = load i8, ptr %.058111, align 1, !tbaa !3
   switch i8 %49, label %.thread91.preheader [
     i8 0, label %.thread87
@@ -159,9 +159,9 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   br label %56
 
 56:                                               ; preds = %54, %72
-  %.055.i128 = phi i32 [ 52, %54 ], [ %.257.i, %72 ]
-  %.058.i127 = phi i32 [ 0, %54 ], [ %.260.i, %72 ]
-  %57 = add nsw i32 %.055.i128, %.058.i127
+  %.055.i129 = phi i32 [ 52, %54 ], [ %.257.i, %72 ]
+  %.058.i128 = phi i32 [ 0, %54 ], [ %.260.i, %72 ]
+  %57 = add nsw i32 %.055.i129, %.058.i128
   %58 = and i32 %57, -2
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ft_adobe_glyph_list, i64 2), i64 %59
@@ -171,8 +171,8 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 1
   %65 = load i8, ptr %64, align 1, !tbaa !3
   %66 = zext i8 %65 to i64
-  %67 = or disjoint i64 %63, %66
-  %68 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %67
+  %67 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %63
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %66
   %69 = load i8, ptr %68, align 1, !tbaa !3
   %70 = and i8 %69, 127
   %71 = icmp eq i8 %70, %2
@@ -182,15 +182,15 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   %73 = ashr i32 %57, 1
   %74 = icmp slt i8 %70, %2
   %75 = add nsw i32 %73, 1
-  %.260.i = select i1 %74, i32 %75, i32 %.058.i127
-  %.257.i = select i1 %74, i32 %.055.i128, i32 %73
+  %.260.i = select i1 %74, i32 %75, i32 %.058.i128
+  %.257.i = select i1 %74, i32 %.055.i129, i32 %73
   %76 = icmp slt i32 %.260.i, %.257.i
   br i1 %76, label %56, label %ft_get_adobe_glyph_index.exit
 
 .preheader.i:                                     ; preds = %56
-  %77 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %67
-  %.not6579.i.not = icmp eq i64 %.0.idx, 1
-  br i1 %.not6579.i.not, label %._crit_edge.i, label %.lr.ph82.i
+  %77 = getelementptr inbounds nuw i8, ptr %67, i64 %66
+  %.not6580.i.not = icmp eq i64 %.0.idx, 1
+  br i1 %.not6580.i.not, label %._crit_edge.i, label %.lr.ph83.i
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %.preheader.i
   %78 = phi i8 [ %69, %.preheader.i ], [ %100, %.backedge.i ]
@@ -215,64 +215,64 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   %91 = or disjoint i32 %87, %90
   br label %ft_get_adobe_glyph_index.exit
 
-.lr.ph82.i:                                       ; preds = %.preheader.i, %.backedge.i
+.lr.ph83.i:                                       ; preds = %.preheader.i, %.backedge.i
   %92 = phi i8 [ %100, %.backedge.i ], [ %69, %.preheader.i ]
-  %.05081.i = phi ptr [ %93, %.backedge.i ], [ %55, %.preheader.i ]
-  %.280.i = phi ptr [ %.2.be.i, %.backedge.i ], [ %77, %.preheader.i ]
-  %93 = getelementptr inbounds nuw i8, ptr %.05081.i, i64 1
-  %94 = load i8, ptr %.05081.i, align 1, !tbaa !3
+  %.05082.i = phi ptr [ %93, %.backedge.i ], [ %55, %.preheader.i ]
+  %.281.i = phi ptr [ %.2.be.i, %.backedge.i ], [ %77, %.preheader.i ]
+  %93 = getelementptr inbounds nuw i8, ptr %.05082.i, i64 1
+  %94 = load i8, ptr %.05082.i, align 1, !tbaa !3
   %.not66.i = icmp sgt i8 %92, -1
-  %95 = getelementptr inbounds nuw i8, ptr %.280.i, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.281.i, i64 1
   %96 = load i8, ptr %95, align 1, !tbaa !3
   %97 = and i8 %96, 127
   br i1 %.not66.i, label %101, label %98
 
-98:                                               ; preds = %.lr.ph82.i
+98:                                               ; preds = %.lr.ph83.i
   %.not68.i = icmp eq i8 %94, %97
   br i1 %.not68.i, label %.backedge.i, label %ft_get_adobe_glyph_index.exit
 
 .backedge.i.loopexit:                             ; preds = %.lr.ph.i
-  %99 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %111
+  %99 = getelementptr inbounds nuw i8, ptr %111, i64 %110
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.loopexit, %98
   %100 = phi i8 [ %96, %98 ], [ %113, %.backedge.i.loopexit ]
   %.2.be.i = phi ptr [ %95, %98 ], [ %99, %.backedge.i.loopexit ]
   %exitcond.not.i = icmp eq ptr %93, %.0.ptr.le
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph82.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph83.i
 
-101:                                              ; preds = %.lr.ph82.i
-  %.not83.i = icmp eq i8 %97, 0
-  br i1 %.not83.i, label %ft_get_adobe_glyph_index.exit, label %.lr.ph.preheader.i
+101:                                              ; preds = %.lr.ph83.i
+  %.not84.i = icmp eq i8 %97, 0
+  br i1 %.not84.i, label %ft_get_adobe_glyph_index.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %101
   %.not67.i = icmp sgt i8 %96, -1
   %spec.select.i = select i1 %.not67.i, i64 1, i64 3
-  %102 = getelementptr inbounds nuw i8, ptr %.280.i, i64 %spec.select.i
+  %102 = getelementptr inbounds nuw i8, ptr %.281.i, i64 %spec.select.i
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 1
   %104 = zext nneg i8 %97 to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %116, %.lr.ph.preheader.i
-  %.05277.i = phi i32 [ %117, %116 ], [ %104, %.lr.ph.preheader.i ]
-  %.476.i = phi ptr [ %118, %116 ], [ %103, %.lr.ph.preheader.i ]
-  %105 = load i8, ptr %.476.i, align 1, !tbaa !3
+  %.05278.i = phi i32 [ %117, %116 ], [ %104, %.lr.ph.preheader.i ]
+  %.477.i = phi ptr [ %118, %116 ], [ %103, %.lr.ph.preheader.i ]
+  %105 = load i8, ptr %.477.i, align 1, !tbaa !3
   %106 = zext i8 %105 to i64
   %107 = shl nuw nsw i64 %106, 8
-  %108 = getelementptr inbounds nuw i8, ptr %.476.i, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %.477.i, i64 1
   %109 = load i8, ptr %108, align 1, !tbaa !3
   %110 = zext i8 %109 to i64
-  %111 = or disjoint i64 %107, %110
-  %112 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %111
+  %111 = getelementptr inbounds nuw i8, ptr @ft_adobe_glyph_list, i64 %107
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 %110
   %113 = load i8, ptr %112, align 1, !tbaa !3
   %114 = and i8 %113, 127
   %115 = icmp eq i8 %94, %114
   br i1 %115, label %.backedge.i.loopexit, label %116
 
 116:                                              ; preds = %.lr.ph.i
-  %117 = add nsw i32 %.05277.i, -1
-  %118 = getelementptr inbounds nuw i8, ptr %.476.i, i64 2
-  %119 = icmp sgt i32 %.05277.i, 1
+  %117 = add nsw i32 %.05278.i, -1
+  %118 = getelementptr inbounds nuw i8, ptr %.477.i, i64 2
+  %119 = icmp sgt i32 %.05278.i, 1
   br i1 %119, label %.lr.ph.i, label %ft_get_adobe_glyph_index.exit, !llvm.loop !10
 
 ft_get_adobe_glyph_index.exit:                    ; preds = %72, %98, %101, %116, %._crit_edge.i, %80, %83

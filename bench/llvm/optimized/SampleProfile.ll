@@ -43148,11 +43148,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   br label %18
 
 18:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEET_SE_SE_T0_.exit"
-  %19 = phi i64 [ %13, %.lr.ph ], [ %137, %"_ZSt27__unguarded_partition_pivotIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEET_SE_SE_T0_.exit" ]
+  %19 = phi i64 [ %13, %.lr.ph ], [ %139, %"_ZSt27__unguarded_partition_pivotIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEET_SE_SE_T0_.exit" ]
   %.025 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %"_ZSt27__unguarded_partition_pivotIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEET_SE_SE_T0_.exit" ]
-  %.01724 = phi i64 [ %2, %.lr.ph ], [ %99, %"_ZSt27__unguarded_partition_pivotIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEET_SE_SE_T0_.exit" ]
+  %.01724 = phi i64 [ %2, %.lr.ph ], [ %101, %"_ZSt27__unguarded_partition_pivotIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEET_SE_SE_T0_.exit" ]
   %20 = icmp eq i64 %.01724, 0
-  br i1 %20, label %21, label %98
+  br i1 %20, label %21, label %100
 
 21:                                               ; preds = %18
   %22 = lshr i64 %19, 4
@@ -43168,7 +43168,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   br label %32
 
 32:                                               ; preds = %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", %21
-  %.015.i.i.i = phi i64 [ %24, %21 ], [ %59, %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i" ]
+  %.015.i.i.i = phi i64 [ %24, %21 ], [ %60, %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i" ]
   %33 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.015.i.i.i
   %.sroa.02.0.copyload.i.i.i = load i64, ptr %33, align 8, !tbaa !47
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -43181,216 +43181,218 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   %35 = shl i64 %.033.i.i.i.i, 1
   %36 = add i64 %35, 2
   %37 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %36
-  %38 = or disjoint i64 %35, 1
-  %39 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %38
+  %38 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %35
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %.val.i.i.i.i = load i64, ptr %37, align 8
   %40 = getelementptr i8, ptr %37, i64 8
   %.val30.i.i.i.i = load i64, ptr %40, align 8, !tbaa !1506
   %.val31.i.i.i.i = load i64, ptr %39, align 8
-  %41 = getelementptr i8, ptr %39, i64 8
+  %41 = getelementptr i8, ptr %38, i64 24
   %.val32.i.i.i.i = load i64, ptr %41, align 8, !tbaa !1506
   %.not.i.i.i.i.i.i = icmp eq i64 %.val30.i.i.i.i, %.val32.i.i.i.i
   %42 = icmp ugt i64 %.val30.i.i.i.i, %.val32.i.i.i.i
   %43 = icmp ugt i64 %.val.i.i.i.i, %.val31.i.i.i.i
   %.0.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %43, i1 %42
-  %spec.select.i.i.i.i = select i1 %.0.i.i.i.i.i.i, i64 %38, i64 %36
-  %44 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %spec.select.i.i.i.i
-  %45 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.033.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !1033
-  %46 = icmp slt i64 %spec.select.i.i.i.i, %26
-  br i1 %46, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1615
+  %44 = or disjoint i64 %35, 1
+  %spec.select.i.i.i.i = select i1 %.0.i.i.i.i.i.i, i64 %44, i64 %36
+  %45 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %spec.select.i.i.i.i
+  %46 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.033.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !1033
+  %47 = icmp slt i64 %spec.select.i.i.i.i, %26
+  br i1 %47, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1615
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %32
   %.0.lcssa.i.i.i.i = phi i64 [ %.015.i.i.i, %32 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %47 = icmp eq i64 %.0.lcssa.i.i.i.i, %24
-  %or.cond.i.i.i = select i1 %28, i1 %47, i1 false
-  br i1 %or.cond.i.i.i, label %48, label %49
+  %48 = icmp eq i64 %.0.lcssa.i.i.i.i, %24
+  %or.cond.i.i.i = select i1 %28, i1 %48, i1 false
+  br i1 %or.cond.i.i.i, label %49, label %50
 
-48:                                               ; preds = %._crit_edge.i.i.i.i
+49:                                               ; preds = %._crit_edge.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !1033
-  br label %49
+  br label %50
 
-49:                                               ; preds = %48, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %29, %48 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %50 = icmp samesign ugt i64 %.1.i.i.i.i, %.015.i.i.i
-  br i1 %50, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
+50:                                               ; preds = %49, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi i64 [ %29, %49 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %51 = icmp samesign ugt i64 %.1.i.i.i.i, %.015.i.i.i
+  br i1 %51, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %49, %55
-  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %55 ], [ %.1.i.i.i.i, %49 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %50, %56
+  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %56 ], [ %.1.i.i.i.i, %50 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %51 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.04.i.i.i.i.i
-  %.val.i.i.i.i.i = load i64, ptr %51, align 8
-  %52 = getelementptr i8, ptr %51, i64 8
-  %.val14.i.i.i.i.i = load i64, ptr %52, align 8, !tbaa !1506
+  %52 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.04.i.i.i.i.i
+  %.val.i.i.i.i.i = load i64, ptr %52, align 8
+  %53 = getelementptr i8, ptr %52, i64 8
+  %.val14.i.i.i.i.i = load i64, ptr %53, align 8, !tbaa !1506
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.val14.i.i.i.i.i, %.sroa.4.0.copyload.i.i.i
-  %53 = icmp ugt i64 %.val14.i.i.i.i.i, %.sroa.4.0.copyload.i.i.i
-  %54 = icmp ugt i64 %.val.i.i.i.i.i, %.sroa.02.0.copyload.i.i.i
-  %.0.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i1 %54, i1 %53
-  br i1 %.0.i.i.i.i.i.i.i, label %55, label %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
+  %54 = icmp ugt i64 %.val14.i.i.i.i.i, %.sroa.4.0.copyload.i.i.i
+  %55 = icmp ugt i64 %.val.i.i.i.i.i, %.sroa.02.0.copyload.i.i.i
+  %.0.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i1 %55, i1 %54
+  br i1 %.0.i.i.i.i.i.i.i, label %56, label %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
 
-55:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %56 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.0133.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false), !tbaa.struct !1033
-  %57 = icmp sgt i64 %.04.i.i.i.i.i, %.015.i.i.i
-  br i1 %57, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", !llvm.loop !1616
+56:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %57 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.0133.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !1033
+  %58 = icmp sgt i64 %.04.i.i.i.i.i, %.015.i.i.i
+  br i1 %58, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", !llvm.loop !1616
 
-"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i": ; preds = %55, %.lr.ph.i.i.i.i.i, %49
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %49 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %55 ]
-  %58 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i64 %.sroa.02.0.copyload.i.i.i, ptr %58, align 8, !tbaa !47
-  %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %58, i64 8
+"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i": ; preds = %56, %.lr.ph.i.i.i.i.i, %50
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %50 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %56 ]
+  %59 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store i64 %.sroa.02.0.copyload.i.i.i, ptr %59, align 8, !tbaa !47
+  %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !47
   %.not.i.i.i = icmp eq i64 %.015.i.i.i, 0
-  %59 = add nsw i64 %.015.i.i.i, -1
+  %60 = add nsw i64 %.015.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i5.i, label %32, !llvm.loop !1617
 
 .lr.ph.i5.i:                                      ; preds = %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_RT0_.exit.i22.i"
-  %.01.i.i = phi ptr [ %60, %"_ZSt10__pop_heapIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_RT0_.exit.i22.i" ], [ %.025, %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i" ]
-  %60 = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
-  %.sroa.02.0.copyload.i.i6.i = load i64, ptr %60, align 8, !tbaa !47
+  %.01.i.i = phi ptr [ %61, %"_ZSt10__pop_heapIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_RT0_.exit.i22.i" ], [ %.025, %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i" ]
+  %61 = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
+  %.sroa.02.0.copyload.i.i6.i = load i64, ptr %61, align 8, !tbaa !47
   %.sroa.4.0..sroa_idx.i.i7.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
   %.sroa.4.0.copyload.i.i8.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i7.i, align 8, !tbaa !47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1033
-  %61 = ptrtoint ptr %60 to i64
-  %62 = sub i64 %61, %11
-  %63 = ashr exact i64 %62, 4
-  %64 = add nsw i64 %63, -1
-  %65 = sdiv i64 %64, 2
-  %66 = icmp sgt i64 %63, 2
-  br i1 %66, label %.lr.ph.i.i.i27.i, label %._crit_edge.i.i.i9.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1033
+  %62 = ptrtoint ptr %61 to i64
+  %63 = sub i64 %62, %11
+  %64 = ashr exact i64 %63, 4
+  %65 = add nsw i64 %64, -1
+  %66 = sdiv i64 %65, 2
+  %67 = icmp sgt i64 %64, 2
+  br i1 %67, label %.lr.ph.i.i.i27.i, label %._crit_edge.i.i.i9.i
 
 .lr.ph.i.i.i27.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i27.i
   %.033.i.i.i28.i = phi i64 [ %spec.select.i.i.i35.i, %.lr.ph.i.i.i27.i ], [ 0, %.lr.ph.i5.i ]
-  %67 = shl i64 %.033.i.i.i28.i, 1
-  %68 = add i64 %67, 2
-  %69 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %68
-  %70 = or disjoint i64 %67, 1
-  %71 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %70
-  %.val.i.i.i29.i = load i64, ptr %69, align 8
-  %72 = getelementptr i8, ptr %69, i64 8
-  %.val30.i.i.i30.i = load i64, ptr %72, align 8, !tbaa !1506
-  %.val31.i.i.i31.i = load i64, ptr %71, align 8
-  %73 = getelementptr i8, ptr %71, i64 8
-  %.val32.i.i.i32.i = load i64, ptr %73, align 8, !tbaa !1506
+  %68 = shl i64 %.033.i.i.i28.i, 1
+  %69 = add i64 %68, 2
+  %70 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %69
+  %71 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %68
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %.val.i.i.i29.i = load i64, ptr %70, align 8
+  %73 = getelementptr i8, ptr %70, i64 8
+  %.val30.i.i.i30.i = load i64, ptr %73, align 8, !tbaa !1506
+  %.val31.i.i.i31.i = load i64, ptr %72, align 8
+  %74 = getelementptr i8, ptr %71, i64 24
+  %.val32.i.i.i32.i = load i64, ptr %74, align 8, !tbaa !1506
   %.not.i.i.i.i.i33.i = icmp eq i64 %.val30.i.i.i30.i, %.val32.i.i.i32.i
-  %74 = icmp ugt i64 %.val30.i.i.i30.i, %.val32.i.i.i32.i
-  %75 = icmp ugt i64 %.val.i.i.i29.i, %.val31.i.i.i31.i
-  %.0.i.i.i.i.i34.i = select i1 %.not.i.i.i.i.i33.i, i1 %75, i1 %74
-  %spec.select.i.i.i35.i = select i1 %.0.i.i.i.i.i34.i, i64 %70, i64 %68
-  %76 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %spec.select.i.i.i35.i
-  %77 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.033.i.i.i28.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false), !tbaa.struct !1033
-  %78 = icmp slt i64 %spec.select.i.i.i35.i, %65
-  br i1 %78, label %.lr.ph.i.i.i27.i, label %._crit_edge.i.i.i9.i, !llvm.loop !1615
+  %75 = icmp ugt i64 %.val30.i.i.i30.i, %.val32.i.i.i32.i
+  %76 = icmp ugt i64 %.val.i.i.i29.i, %.val31.i.i.i31.i
+  %.0.i.i.i.i.i34.i = select i1 %.not.i.i.i.i.i33.i, i1 %76, i1 %75
+  %77 = or disjoint i64 %68, 1
+  %spec.select.i.i.i35.i = select i1 %.0.i.i.i.i.i34.i, i64 %77, i64 %69
+  %78 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %spec.select.i.i.i35.i
+  %79 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.033.i.i.i28.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !1033
+  %80 = icmp slt i64 %spec.select.i.i.i35.i, %66
+  br i1 %80, label %.lr.ph.i.i.i27.i, label %._crit_edge.i.i.i9.i, !llvm.loop !1615
 
 ._crit_edge.i.i.i9.i:                             ; preds = %.lr.ph.i.i.i27.i, %.lr.ph.i5.i
   %.0.lcssa.i.i.i10.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i35.i, %.lr.ph.i.i.i27.i ]
-  %79 = and i64 %62, 16
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %81, label %89
+  %81 = and i64 %63, 16
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %83, label %91
 
-81:                                               ; preds = %._crit_edge.i.i.i9.i
-  %82 = add nsw i64 %63, -2
-  %83 = ashr exact i64 %82, 1
-  %84 = icmp eq i64 %.0.lcssa.i.i.i10.i, %83
-  br i1 %84, label %.thread.i.i26.i, label %89
+83:                                               ; preds = %._crit_edge.i.i.i9.i
+  %84 = add nsw i64 %64, -2
+  %85 = ashr exact i64 %84, 1
+  %86 = icmp eq i64 %.0.lcssa.i.i.i10.i, %85
+  br i1 %86, label %.thread.i.i26.i, label %91
 
-.thread.i.i26.i:                                  ; preds = %81
-  %85 = shl nuw nsw i64 %.0.lcssa.i.i.i10.i, 1
-  %86 = or disjoint i64 %85, 1
-  %87 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %86
-  %88 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.0.lcssa.i.i.i10.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull align 8 dereferenceable(16) %87, i64 16, i1 false), !tbaa.struct !1033
+.thread.i.i26.i:                                  ; preds = %83
+  %87 = shl nuw nsw i64 %.0.lcssa.i.i.i10.i, 1
+  %88 = or disjoint i64 %87, 1
+  %89 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %88
+  %90 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.0.lcssa.i.i.i10.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %89, i64 16, i1 false), !tbaa.struct !1033
   br label %.lr.ph.i.i.i.i14.i.preheader
 
-89:                                               ; preds = %81, %._crit_edge.i.i.i9.i
+91:                                               ; preds = %83, %._crit_edge.i.i.i9.i
   %.not.i.i11.i = icmp eq i64 %.0.lcssa.i.i.i10.i, 0
   br i1 %.not.i.i11.i, label %"_ZSt10__pop_heapIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_RT0_.exit.i22.i", label %.lr.ph.i.i.i.i14.i.preheader
 
-.lr.ph.i.i.i.i14.i.preheader:                     ; preds = %89, %.thread.i.i26.i
-  %.0133.i.i.i.i15.i.ph = phi i64 [ %.0.lcssa.i.i.i10.i, %89 ], [ %86, %.thread.i.i26.i ]
+.lr.ph.i.i.i.i14.i.preheader:                     ; preds = %91, %.thread.i.i26.i
+  %.0133.i.i.i.i15.i.ph = phi i64 [ %.0.lcssa.i.i.i10.i, %91 ], [ %88, %.thread.i.i26.i ]
   br label %.lr.ph.i.i.i.i14.i
 
-.lr.ph.i.i.i.i14.i:                               ; preds = %.lr.ph.i.i.i.i14.i.preheader, %94
-  %.0133.i.i.i.i15.i = phi i64 [ %.04.i.i12.i.i17.i, %94 ], [ %.0133.i.i.i.i15.i.ph, %.lr.ph.i.i.i.i14.i.preheader ]
+.lr.ph.i.i.i.i14.i:                               ; preds = %.lr.ph.i.i.i.i14.i.preheader, %96
+  %.0133.i.i.i.i15.i = phi i64 [ %.04.i.i12.i.i17.i, %96 ], [ %.0133.i.i.i.i15.i.ph, %.lr.ph.i.i.i.i14.i.preheader ]
   %.04.in.i.i.i.i16.i = add nsw i64 %.0133.i.i.i.i15.i, -1
   %.04.i.i12.i.i17.i = lshr i64 %.04.in.i.i.i.i16.i, 1
-  %90 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.04.i.i12.i.i17.i
-  %.val.i.i.i.i18.i = load i64, ptr %90, align 8
-  %91 = getelementptr i8, ptr %90, i64 8
-  %.val14.i.i.i.i19.i = load i64, ptr %91, align 8, !tbaa !1506
+  %92 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.04.i.i12.i.i17.i
+  %.val.i.i.i.i18.i = load i64, ptr %92, align 8
+  %93 = getelementptr i8, ptr %92, i64 8
+  %.val14.i.i.i.i19.i = load i64, ptr %93, align 8, !tbaa !1506
   %.not.i.i.i.i.i.i20.i = icmp eq i64 %.val14.i.i.i.i19.i, %.sroa.4.0.copyload.i.i8.i
-  %92 = icmp ugt i64 %.val14.i.i.i.i19.i, %.sroa.4.0.copyload.i.i8.i
-  %93 = icmp ugt i64 %.val.i.i.i.i18.i, %.sroa.02.0.copyload.i.i6.i
-  %.0.i.i.i.i.i.i21.i = select i1 %.not.i.i.i.i.i.i20.i, i1 %93, i1 %92
-  br i1 %.0.i.i.i.i.i.i21.i, label %94, label %"_ZSt10__pop_heapIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_RT0_.exit.i22.i"
+  %94 = icmp ugt i64 %.val14.i.i.i.i19.i, %.sroa.4.0.copyload.i.i8.i
+  %95 = icmp ugt i64 %.val.i.i.i.i18.i, %.sroa.02.0.copyload.i.i6.i
+  %.0.i.i.i.i.i.i21.i = select i1 %.not.i.i.i.i.i.i20.i, i1 %95, i1 %94
+  br i1 %.0.i.i.i.i.i.i21.i, label %96, label %"_ZSt10__pop_heapIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_RT0_.exit.i22.i"
 
-94:                                               ; preds = %.lr.ph.i.i.i.i14.i
-  %95 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.0133.i.i.i.i15.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !1033
+96:                                               ; preds = %.lr.ph.i.i.i.i14.i
+  %97 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.0133.i.i.i.i15.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false), !tbaa.struct !1033
   %.not3.i.i25.i = icmp ult i64 %.04.in.i.i.i.i16.i, 2
   br i1 %.not3.i.i25.i, label %"_ZSt10__pop_heapIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_RT0_.exit.i22.i", label %.lr.ph.i.i.i.i14.i, !llvm.loop !1616
 
-"_ZSt10__pop_heapIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_RT0_.exit.i22.i": ; preds = %94, %.lr.ph.i.i.i.i14.i, %89
-  %.013.lcssa.i.i.i.i23.i = phi i64 [ 0, %89 ], [ %.0133.i.i.i.i15.i, %.lr.ph.i.i.i.i14.i ], [ 0, %94 ]
-  %96 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.013.lcssa.i.i.i.i23.i
-  store i64 %.sroa.02.0.copyload.i.i6.i, ptr %96, align 8, !tbaa !47
-  %.sroa.3.0..sroa_idx.i.i.i.i24.i = getelementptr inbounds nuw i8, ptr %96, i64 8
+"_ZSt10__pop_heapIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_RT0_.exit.i22.i": ; preds = %96, %.lr.ph.i.i.i.i14.i, %91
+  %.013.lcssa.i.i.i.i23.i = phi i64 [ 0, %91 ], [ %.0133.i.i.i.i15.i, %.lr.ph.i.i.i.i14.i ], [ 0, %96 ]
+  %98 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.013.lcssa.i.i.i.i23.i
+  store i64 %.sroa.02.0.copyload.i.i6.i, ptr %98, align 8, !tbaa !47
+  %.sroa.3.0..sroa_idx.i.i.i.i24.i = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 %.sroa.4.0.copyload.i.i8.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i24.i, align 8, !tbaa !47
-  %97 = icmp sgt i64 %62, 16
-  br i1 %97, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !1618
+  %99 = icmp sgt i64 %63, 16
+  br i1 %99, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !1618
 
-98:                                               ; preds = %18
-  %99 = add nsw i64 %.01724, -1
-  %100 = lshr i64 %19, 5
-  %101 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %100
-  %102 = getelementptr inbounds i8, ptr %.025, i64 -16
+100:                                              ; preds = %18
+  %101 = add nsw i64 %.01724, -1
+  %102 = lshr i64 %19, 5
+  %103 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %102
+  %104 = getelementptr inbounds i8, ptr %.025, i64 -16
   %.val37.i.i = load i64, ptr %15, align 8
   %.val38.i.i = load i64, ptr %16, align 8, !tbaa !1506
-  %.val39.i.i = load i64, ptr %101, align 8
-  %103 = getelementptr i8, ptr %101, i64 8
-  %.val40.i.i = load i64, ptr %103, align 8, !tbaa !1506
+  %.val39.i.i = load i64, ptr %103, align 8
+  %105 = getelementptr i8, ptr %103, i64 8
+  %.val40.i.i = load i64, ptr %105, align 8, !tbaa !1506
   %.not.i.i.i.i = icmp eq i64 %.val38.i.i, %.val40.i.i
-  %104 = icmp ugt i64 %.val38.i.i, %.val40.i.i
-  %105 = icmp ugt i64 %.val37.i.i, %.val39.i.i
-  %.0.i.i.i.i = select i1 %.not.i.i.i.i, i1 %105, i1 %104
-  %.val35.i.i = load i64, ptr %102, align 8
-  %106 = getelementptr i8, ptr %.025, i64 -8
-  %.val36.i.i = load i64, ptr %106, align 8, !tbaa !1506
-  br i1 %.0.i.i.i.i, label %107, label %116
+  %106 = icmp ugt i64 %.val38.i.i, %.val40.i.i
+  %107 = icmp ugt i64 %.val37.i.i, %.val39.i.i
+  %.0.i.i.i.i = select i1 %.not.i.i.i.i, i1 %107, i1 %106
+  %.val35.i.i = load i64, ptr %104, align 8
+  %108 = getelementptr i8, ptr %.025, i64 -8
+  %.val36.i.i = load i64, ptr %108, align 8, !tbaa !1506
+  br i1 %.0.i.i.i.i, label %109, label %118
 
-107:                                              ; preds = %98
+109:                                              ; preds = %100
   %.not.i.i41.i.i = icmp eq i64 %.val40.i.i, %.val36.i.i
-  %108 = icmp ugt i64 %.val40.i.i, %.val36.i.i
-  %109 = icmp ugt i64 %.val39.i.i, %.val35.i.i
-  %.0.i.i42.i.i = select i1 %.not.i.i41.i.i, i1 %109, i1 %108
-  br i1 %.0.i.i42.i.i, label %110, label %111
+  %110 = icmp ugt i64 %.val40.i.i, %.val36.i.i
+  %111 = icmp ugt i64 %.val39.i.i, %.val35.i.i
+  %.0.i.i42.i.i = select i1 %.not.i.i41.i.i, i1 %111, i1 %110
+  br i1 %.0.i.i42.i.i, label %112, label %113
 
-110:                                              ; preds = %107
+112:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1033
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false), !tbaa.struct !1033
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !1033
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false), !tbaa.struct !1033
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !1033
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-111:                                              ; preds = %107
+113:                                              ; preds = %109
   %.not.i.i43.i.i = icmp eq i64 %.val38.i.i, %.val36.i.i
-  %112 = icmp ugt i64 %.val38.i.i, %.val36.i.i
-  %113 = icmp ugt i64 %.val37.i.i, %.val35.i.i
-  %.0.i.i44.i.i = select i1 %.not.i.i43.i.i, i1 %113, i1 %112
-  br i1 %.0.i.i44.i.i, label %114, label %115
+  %114 = icmp ugt i64 %.val38.i.i, %.val36.i.i
+  %115 = icmp ugt i64 %.val37.i.i, %.val35.i.i
+  %.0.i.i44.i.i = select i1 %.not.i.i43.i.i, i1 %115, i1 %114
+  br i1 %.0.i.i44.i.i, label %116, label %117
 
-114:                                              ; preds = %111
+116:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1033
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false), !tbaa.struct !1033
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !1033
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false), !tbaa.struct !1033
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !1033
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-115:                                              ; preds = %111
+117:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1033
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !1033
@@ -43398,14 +43400,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-116:                                              ; preds = %98
+118:                                              ; preds = %100
   %.not.i.i45.i.i = icmp eq i64 %.val38.i.i, %.val36.i.i
-  %117 = icmp ugt i64 %.val38.i.i, %.val36.i.i
-  %118 = icmp ugt i64 %.val37.i.i, %.val35.i.i
-  %.0.i.i46.i.i = select i1 %.not.i.i45.i.i, i1 %118, i1 %117
-  br i1 %.0.i.i46.i.i, label %119, label %120
+  %119 = icmp ugt i64 %.val38.i.i, %.val36.i.i
+  %120 = icmp ugt i64 %.val37.i.i, %.val35.i.i
+  %.0.i.i46.i.i = select i1 %.not.i.i45.i.i, i1 %120, i1 %119
+  br i1 %.0.i.i46.i.i, label %121, label %122
 
-119:                                              ; preds = %116
+121:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1033
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !1033
@@ -43413,68 +43415,68 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-120:                                              ; preds = %116
+122:                                              ; preds = %118
   %.not.i.i47.i.i = icmp eq i64 %.val40.i.i, %.val36.i.i
-  %121 = icmp ugt i64 %.val40.i.i, %.val36.i.i
-  %122 = icmp ugt i64 %.val39.i.i, %.val35.i.i
-  %.0.i.i48.i.i = select i1 %.not.i.i47.i.i, i1 %122, i1 %121
-  br i1 %.0.i.i48.i.i, label %123, label %124
+  %123 = icmp ugt i64 %.val40.i.i, %.val36.i.i
+  %124 = icmp ugt i64 %.val39.i.i, %.val35.i.i
+  %.0.i.i48.i.i = select i1 %.not.i.i47.i.i, i1 %124, i1 %123
+  br i1 %.0.i.i48.i.i, label %125, label %126
 
-123:                                              ; preds = %120
+125:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1033
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false), !tbaa.struct !1033
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !1033
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false), !tbaa.struct !1033
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !1033
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-124:                                              ; preds = %120
+126:                                              ; preds = %122
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1033
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %101, i64 16, i1 false), !tbaa.struct !1033
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !1033
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %103, i64 16, i1 false), !tbaa.struct !1033
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !1033
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader": ; preds = %124, %123, %119, %115, %114, %110
+"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader": ; preds = %126, %125, %121, %117, %116, %112
   br label %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader", %135
-  %.013.i.i = phi ptr [ %.114.i.i, %135 ], [ %.025, %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
-  %.0.i.i = phi ptr [ %129, %135 ], [ %15, %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader", %137
+  %.013.i.i = phi ptr [ %.114.i.i, %137 ], [ %.025, %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
+  %.0.i.i = phi ptr [ %131, %137 ], [ %15, %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
   %.val18.i.i = load i64, ptr %0, align 8
   %.val19.i.i = load i64, ptr %17, align 8, !tbaa !1506
-  br label %125
+  br label %127
 
-125:                                              ; preds = %125, %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i"
-  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i" ], [ %129, %125 ]
+127:                                              ; preds = %127, %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i"
+  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i" ], [ %131, %127 ]
   %.1.val.i.i = load i64, ptr %.1.i.i, align 8
-  %126 = getelementptr i8, ptr %.1.i.i, i64 8
-  %.1.val17.i.i = load i64, ptr %126, align 8, !tbaa !1506
+  %128 = getelementptr i8, ptr %.1.i.i, i64 8
+  %.1.val17.i.i = load i64, ptr %128, align 8, !tbaa !1506
   %.not.i.i.i13.i = icmp eq i64 %.1.val17.i.i, %.val19.i.i
-  %127 = icmp ugt i64 %.1.val17.i.i, %.val19.i.i
-  %128 = icmp ugt i64 %.1.val.i.i, %.val18.i.i
-  %.0.i.i.i14.i = select i1 %.not.i.i.i13.i, i1 %128, i1 %127
-  %129 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
-  br i1 %.0.i.i.i14.i, label %125, label %.preheader.i.i, !llvm.loop !1619
+  %129 = icmp ugt i64 %.1.val17.i.i, %.val19.i.i
+  %130 = icmp ugt i64 %.1.val.i.i, %.val18.i.i
+  %.0.i.i.i14.i = select i1 %.not.i.i.i13.i, i1 %130, i1 %129
+  %131 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
+  br i1 %.0.i.i.i14.i, label %127, label %.preheader.i.i, !llvm.loop !1619
 
-.preheader.i.i:                                   ; preds = %125, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %125 ]
+.preheader.i.i:                                   ; preds = %127, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %127 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -16
   %.114.val.i.i = load i64, ptr %.114.i.i, align 8
-  %130 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
-  %.114.val16.i.i = load i64, ptr %130, align 8, !tbaa !1506
+  %132 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
+  %.114.val16.i.i = load i64, ptr %132, align 8, !tbaa !1506
   %.not.i.i20.i.i = icmp eq i64 %.val19.i.i, %.114.val16.i.i
-  %131 = icmp ugt i64 %.val19.i.i, %.114.val16.i.i
-  %132 = icmp ugt i64 %.val18.i.i, %.114.val.i.i
-  %.0.i.i21.i.i = select i1 %.not.i.i20.i.i, i1 %132, i1 %131
-  br i1 %.0.i.i21.i.i, label %.preheader.i.i, label %133, !llvm.loop !1620
+  %133 = icmp ugt i64 %.val19.i.i, %.114.val16.i.i
+  %134 = icmp ugt i64 %.val18.i.i, %.114.val.i.i
+  %.0.i.i21.i.i = select i1 %.not.i.i20.i.i, i1 %134, i1 %133
+  br i1 %.0.i.i21.i.i, label %.preheader.i.i, label %135, !llvm.loop !1620
 
-133:                                              ; preds = %.preheader.i.i
-  %134 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %134, label %135, label %"_ZSt27__unguarded_partition_pivotIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEET_SE_SE_T0_.exit"
+135:                                              ; preds = %.preheader.i.i
+  %136 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %136, label %137, label %"_ZSt27__unguarded_partition_pivotIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEET_SE_SE_T0_.exit"
 
-135:                                              ; preds = %133
+137:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.1.i.i, i64 16, i1 false), !tbaa.struct !1033
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.114.i.i, i64 16, i1 false), !tbaa.struct !1033
@@ -43482,12 +43484,12 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %"_ZSt22__move_median_to_firstIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_SE_T0_.exit.i", !llvm.loop !1621
 
-"_ZSt27__unguarded_partition_pivotIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEET_SE_SE_T0_.exit": ; preds = %133
-  tail call fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %99)
-  %136 = ptrtoint ptr %.1.i.i to i64
-  %137 = sub i64 %136, %11
-  %138 = icmp sgt i64 %137, 256
-  br i1 %138, label %18, label %"_ZSt14__partial_sortIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !1622
+"_ZSt27__unguarded_partition_pivotIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEET_SE_SE_T0_.exit": ; preds = %135
+  tail call fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %101)
+  %138 = ptrtoint ptr %.1.i.i to i64
+  %139 = sub i64 %138, %11
+  %140 = icmp sgt i64 %139, 256
+  br i1 %140, label %18, label %"_ZSt14__partial_sortIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !1622
 
 "_ZSt14__partial_sortIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIP18InstrProfValueDataN9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_SE_SE_RT0_.exit.i22.i", %3
   ret void

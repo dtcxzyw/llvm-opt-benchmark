@@ -1132,78 +1132,81 @@ _ZN19OpenColorIO_v2_5dev15MatrixTransform8IdentityEPdS1_.exit: ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !28
   %.not51 = icmp eq i32 %28, 0
-  br i1 %.not51, label %32, label %.preheader53
+  br i1 %.not51, label %30, label %.preheader53
 
-.preheader53:                                     ; preds = %26, %.preheader53
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader53 ], [ 0, %26 ]
-  %29 = shl nuw nsw i64 %indvars.iv, 2
-  %30 = or disjoint i64 %29, 3
-  %31 = getelementptr inbounds nuw double, ptr %0, i64 %30
-  store double 1.000000e+00, ptr %31, align 8, !tbaa !67
+.preheader53:                                     ; preds = %26
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %29
+
+29:                                               ; preds = %.preheader53, %29
+  %indvars.iv = phi i64 [ 0, %.preheader53 ], [ %indvars.iv.next, %29 ]
+  %gep.idx = shl nuw nsw i64 %indvars.iv, 5
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
+  store double 1.000000e+00, ptr %gep, align 8, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader53, !llvm.loop !71
+  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !71
 
-32:                                               ; preds = %26
+30:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  br label %42
+  br label %40
 
-33:                                               ; preds = %42
-  %34 = load double, ptr %5, align 16, !tbaa !67
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %36 = load double, ptr %35, align 8, !tbaa !67
-  %37 = fadd double %34, %36
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %39 = load double, ptr %38, align 16, !tbaa !67
-  %40 = fadd double %37, %39
-  %41 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIdEEbT_(double noundef %40)
-  br i1 %41, label %.preheader.preheader, label %51
+31:                                               ; preds = %40
+  %32 = load double, ptr %5, align 16, !tbaa !67
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %34 = load double, ptr %33, align 8, !tbaa !67
+  %35 = fadd double %32, %34
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %37 = load double, ptr %36, align 16, !tbaa !67
+  %38 = fadd double %35, %37
+  %39 = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIdEEbT_(double noundef %38)
+  br i1 %39, label %.preheader.preheader, label %49
 
-42:                                               ; preds = %32, %42
-  %indvars.iv59 = phi i64 [ 0, %32 ], [ %indvars.iv.next60, %42 ]
-  %43 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv59
-  %44 = load double, ptr %43, align 8, !tbaa !67
-  %45 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv59
-  %46 = load i32, ptr %45, align 4, !tbaa !28
-  %.not52 = icmp eq i32 %46, 0
-  %47 = select i1 %.not52, double 0.000000e+00, double 1.000000e+00
-  %48 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv59
-  %49 = load double, ptr %48, align 8, !tbaa !67
-  %50 = tail call double @llvm.fmuladd.f64(double %44, double %47, double %49)
-  store double %50, ptr %48, align 8, !tbaa !67
+40:                                               ; preds = %30, %40
+  %indvars.iv59 = phi i64 [ 0, %30 ], [ %indvars.iv.next60, %40 ]
+  %41 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv59
+  %42 = load double, ptr %41, align 8, !tbaa !67
+  %43 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv59
+  %44 = load i32, ptr %43, align 4, !tbaa !28
+  %.not52 = icmp eq i32 %44, 0
+  %45 = select i1 %.not52, double 0.000000e+00, double 1.000000e+00
+  %46 = getelementptr inbounds nuw [3 x double], ptr %5, i64 0, i64 %indvars.iv59
+  %47 = load double, ptr %46, align 8, !tbaa !67
+  %48 = tail call double @llvm.fmuladd.f64(double %42, double %45, double %47)
+  store double %48, ptr %46, align 8, !tbaa !67
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 3
-  br i1 %exitcond62.not, label %33, label %42, !llvm.loop !72
+  br i1 %exitcond62.not, label %31, label %40, !llvm.loop !72
 
-51:                                               ; preds = %33
-  %52 = fdiv double %34, %40
-  store double %52, ptr %5, align 16, !tbaa !67
-  %53 = fdiv double %36, %40
-  store double %53, ptr %35, align 8, !tbaa !67
-  %54 = fdiv double %39, %40
-  store double %54, ptr %38, align 16, !tbaa !67
+49:                                               ; preds = %31
+  %50 = fdiv double %32, %38
+  store double %50, ptr %5, align 16, !tbaa !67
+  %51 = fdiv double %34, %38
+  store double %51, ptr %33, align 8, !tbaa !67
+  %52 = fdiv double %37, %38
+  store double %52, ptr %36, align 16, !tbaa !67
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %51, %33
+.preheader.preheader:                             ; preds = %49, %31
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvar = phi i64 [ %indvar.next, %.preheader ], [ 0, %.preheader.preheader ]
-  %55 = shl nuw nsw i64 %indvar, 5
-  %scevgep = getelementptr nuw i8, ptr %0, i64 %55
+  %53 = shl nuw nsw i64 %indvar, 5
+  %scevgep = getelementptr nuw i8, ptr %0, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 16 dereferenceable(24) %5, i64 24, i1 false), !tbaa !67
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond67.not = icmp eq i64 %indvar.next, 3
-  br i1 %exitcond67.not, label %56, label %.preheader, !llvm.loop !73
+  br i1 %exitcond67.not, label %54, label %.preheader, !llvm.loop !73
 
-56:                                               ; preds = %.preheader
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store double 1.000000e+00, ptr %57, align 8, !tbaa !67
+54:                                               ; preds = %.preheader
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store double 1.000000e+00, ptr %55, align 8, !tbaa !67
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader53, %_ZN19OpenColorIO_v2_5dev15MatrixTransform8IdentityEPdS1_.exit, %56, %4, %10
+.loopexit:                                        ; preds = %29, %_ZN19OpenColorIO_v2_5dev15MatrixTransform8IdentityEPdS1_.exit, %54, %4, %10
   ret void
 }
 

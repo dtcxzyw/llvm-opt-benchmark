@@ -2778,8 +2778,8 @@ _php_dns_free_res.exit155:                        ; preds = %113
   %131 = getelementptr inbounds nuw i8, ptr %117, i64 9
   %132 = load i8, ptr %131, align 1, !tbaa !4
   %133 = zext i8 %132 to i64
-  %134 = or disjoint i64 %130, %133
-  %135 = getelementptr inbounds nuw i8, ptr %125, i64 %134
+  %134 = getelementptr inbounds nuw i8, ptr %125, i64 %130
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 %133
   br label %.backedge
 
 .backedge:                                        ; preds = %158, %162, %126

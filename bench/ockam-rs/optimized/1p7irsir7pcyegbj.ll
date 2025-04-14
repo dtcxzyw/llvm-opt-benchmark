@@ -4149,8 +4149,8 @@ define hidden void @"_ZN10tokio_util3udp5frame22UdpFramed$LT$C$C$T$GT$3new17h3ca
   %15 = sub nuw nsw i64 64, %14
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 7)
   %16 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %17 = or disjoint i64 %16, 1
-  %18 = getelementptr i8, ptr null, i64 %17
+  %17 = getelementptr i8, ptr null, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 1
   store ptr %10, ptr %3, align 8, !alias.scope !489, !noalias !492
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %19, align 8, !alias.scope !489, !noalias !492
@@ -4177,8 +4177,8 @@ define hidden void @"_ZN10tokio_util3udp5frame22UdpFramed$LT$C$C$T$GT$3new17h3ca
   %31 = sub nuw nsw i64 64, %30
   %.0.sroa.speculated.i.i16 = tail call noundef i64 @llvm.umin.i64(i64 %31, i64 7)
   %32 = shl nuw nsw i64 %.0.sroa.speculated.i.i16, 2
-  %33 = or disjoint i64 %32, 1
-  %34 = getelementptr i8, ptr null, i64 %33
+  %33 = getelementptr i8, ptr null, i64 %32
+  %34 = getelementptr i8, ptr %33, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)

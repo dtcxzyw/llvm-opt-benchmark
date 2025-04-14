@@ -2239,7 +2239,7 @@ define ptr @Abc_AigMiter(ptr noundef %0, ptr noundef captures(none) %1, i32 noun
   %13 = ptrtoint ptr %12 to i64
   %14 = xor i64 %13, 1
   %15 = inttoptr i64 %14 to ptr
-  br label %73
+  br label %71
 
 16:                                               ; preds = %3
   %.not = icmp eq i32 %2, 0
@@ -2258,77 +2258,75 @@ define ptr @Abc_AigMiter(ptr noundef %0, ptr noundef captures(none) %1, i32 noun
 
 .lr.ph33:                                         ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %37
+  br label %36
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %21 = load ptr, ptr %18, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !36
-  %24 = or disjoint i64 %indvars.iv, 1
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !36
-  %27 = ptrtoint ptr %26 to i64
-  %28 = xor i64 %27, 1
-  %29 = inttoptr i64 %28 to ptr
-  %30 = tail call ptr @Abc_AigAnd(ptr noundef %0, ptr noundef %23, ptr noundef %29)
-  %31 = load ptr, ptr %18, align 8, !tbaa !21
-  %32 = lshr exact i64 %indvars.iv, 1
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
-  store ptr %30, ptr %33, align 8, !tbaa !36
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !36
+  %26 = ptrtoint ptr %25 to i64
+  %27 = xor i64 %26, 1
+  %28 = inttoptr i64 %27 to ptr
+  %29 = tail call ptr @Abc_AigAnd(ptr noundef %0, ptr noundef %23, ptr noundef %28)
+  %30 = load ptr, ptr %18, align 8, !tbaa !21
+  %31 = lshr exact i64 %indvars.iv, 1
+  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  store ptr %29, ptr %32, align 8, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %34 = load i32, ptr %4, align 4, !tbaa !18
-  %35 = trunc nuw i64 %indvars.iv.next to i32
-  %36 = icmp sgt i32 %34, %35
-  br i1 %36, label %20, label %.loopexit, !llvm.loop !88
+  %33 = load i32, ptr %4, align 4, !tbaa !18
+  %34 = trunc nuw i64 %indvars.iv.next to i32
+  %35 = icmp sgt i32 %33, %34
+  br i1 %35, label %20, label %.loopexit, !llvm.loop !88
 
-37:                                               ; preds = %.lr.ph33, %37
-  %indvars.iv36 = phi i64 [ 0, %.lr.ph33 ], [ %indvars.iv.next37, %37 ]
-  %38 = load ptr, ptr %19, align 8, !tbaa !21
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv36
-  %40 = load ptr, ptr %39, align 8, !tbaa !36
-  %41 = or disjoint i64 %indvars.iv36, 1
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
-  %43 = load ptr, ptr %42, align 8, !tbaa !36
-  %44 = ptrtoint ptr %43 to i64
-  %45 = xor i64 %44, 1
-  %46 = inttoptr i64 %45 to ptr
-  %47 = tail call ptr @Abc_AigAnd(ptr noundef %0, ptr noundef %40, ptr noundef %46)
-  %48 = ptrtoint ptr %40 to i64
-  %49 = xor i64 %48, 1
-  %50 = inttoptr i64 %49 to ptr
-  %51 = tail call ptr @Abc_AigAnd(ptr noundef %0, ptr noundef %43, ptr noundef %50)
-  %52 = ptrtoint ptr %47 to i64
-  %53 = xor i64 %52, 1
-  %54 = inttoptr i64 %53 to ptr
-  %55 = ptrtoint ptr %51 to i64
-  %56 = xor i64 %55, 1
-  %57 = inttoptr i64 %56 to ptr
-  %58 = tail call ptr @Abc_AigAnd(ptr noundef %0, ptr noundef %54, ptr noundef %57)
-  %59 = ptrtoint ptr %58 to i64
-  %60 = xor i64 %59, 1
-  %61 = inttoptr i64 %60 to ptr
-  %62 = load ptr, ptr %19, align 8, !tbaa !21
-  %63 = lshr exact i64 %indvars.iv36, 1
-  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
-  store ptr %61, ptr %64, align 8, !tbaa !36
+36:                                               ; preds = %.lr.ph33, %36
+  %indvars.iv36 = phi i64 [ 0, %.lr.ph33 ], [ %indvars.iv.next37, %36 ]
+  %37 = load ptr, ptr %19, align 8, !tbaa !21
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv36
+  %39 = load ptr, ptr %38, align 8, !tbaa !36
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !36
+  %42 = ptrtoint ptr %41 to i64
+  %43 = xor i64 %42, 1
+  %44 = inttoptr i64 %43 to ptr
+  %45 = tail call ptr @Abc_AigAnd(ptr noundef %0, ptr noundef %39, ptr noundef %44)
+  %46 = ptrtoint ptr %39 to i64
+  %47 = xor i64 %46, 1
+  %48 = inttoptr i64 %47 to ptr
+  %49 = tail call ptr @Abc_AigAnd(ptr noundef %0, ptr noundef %41, ptr noundef %48)
+  %50 = ptrtoint ptr %45 to i64
+  %51 = xor i64 %50, 1
+  %52 = inttoptr i64 %51 to ptr
+  %53 = ptrtoint ptr %49 to i64
+  %54 = xor i64 %53, 1
+  %55 = inttoptr i64 %54 to ptr
+  %56 = tail call ptr @Abc_AigAnd(ptr noundef %0, ptr noundef %52, ptr noundef %55)
+  %57 = ptrtoint ptr %56 to i64
+  %58 = xor i64 %57, 1
+  %59 = inttoptr i64 %58 to ptr
+  %60 = load ptr, ptr %19, align 8, !tbaa !21
+  %61 = lshr exact i64 %indvars.iv36, 1
+  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  store ptr %59, ptr %62, align 8, !tbaa !36
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 2
-  %65 = load i32, ptr %4, align 4, !tbaa !18
-  %66 = trunc nuw i64 %indvars.iv.next37 to i32
-  %67 = icmp sgt i32 %65, %66
-  br i1 %67, label %37, label %.loopexit, !llvm.loop !89
+  %63 = load i32, ptr %4, align 4, !tbaa !18
+  %64 = trunc nuw i64 %indvars.iv.next37 to i32
+  %65 = icmp sgt i32 %63, %64
+  br i1 %65, label %36, label %.loopexit, !llvm.loop !89
 
-.loopexit:                                        ; preds = %20, %37, %.preheader29, %.preheader
-  %68 = phi i32 [ %5, %.preheader29 ], [ %5, %.preheader ], [ %65, %37 ], [ %34, %20 ]
-  %69 = sdiv i32 %68, 2
-  store i32 %69, ptr %4, align 4, !tbaa !18
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !21
-  %72 = tail call ptr @Abc_AigMiter_rec(ptr noundef %0, ptr noundef %71, i32 noundef %69)
-  br label %73
+.loopexit:                                        ; preds = %20, %36, %.preheader29, %.preheader
+  %66 = phi i32 [ %5, %.preheader29 ], [ %5, %.preheader ], [ %63, %36 ], [ %33, %20 ]
+  %67 = sdiv i32 %66, 2
+  store i32 %67, ptr %4, align 4, !tbaa !18
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !21
+  %70 = tail call ptr @Abc_AigMiter_rec(ptr noundef %0, ptr noundef %69, i32 noundef %67)
+  br label %71
 
-73:                                               ; preds = %.loopexit, %7
-  %.028 = phi ptr [ %15, %7 ], [ %72, %.loopexit ]
+71:                                               ; preds = %.loopexit, %7
+  %.028 = phi ptr [ %15, %7 ], [ %70, %.loopexit ]
   ret ptr %.028
 }
 
@@ -2350,37 +2348,36 @@ define ptr @Abc_AigMiter2(ptr noundef captures(none) %0, ptr noundef readonly ca
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %.012.in.in.in13 = phi ptr [ %7, %.lr.ph ], [ %34, %12 ]
+  %.012.in.in.in13 = phi ptr [ %7, %.lr.ph ], [ %33, %12 ]
   %13 = load ptr, ptr %11, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !36
-  %16 = or disjoint i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !36
-  %19 = ptrtoint ptr %18 to i64
-  %20 = xor i64 %19, 1
-  %21 = inttoptr i64 %20 to ptr
-  %22 = tail call ptr @Abc_AigAnd(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %21)
-  %23 = ptrtoint ptr %15 to i64
-  %24 = xor i64 %23, 1
-  %25 = inttoptr i64 %24 to ptr
-  %26 = tail call ptr @Abc_AigAnd(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %25)
-  %27 = ptrtoint ptr %22 to i64
-  %28 = xor i64 %27, 1
-  %29 = inttoptr i64 %28 to ptr
-  %30 = ptrtoint ptr %26 to i64
-  %31 = xor i64 %30, 1
-  %32 = inttoptr i64 %31 to ptr
-  %33 = tail call ptr @Abc_AigAnd(ptr noundef nonnull %0, ptr noundef %29, ptr noundef %32)
-  %34 = tail call ptr @Abc_AigAnd(ptr noundef nonnull %0, ptr noundef %.012.in.in.in13, ptr noundef %33)
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !36
+  %18 = ptrtoint ptr %17 to i64
+  %19 = xor i64 %18, 1
+  %20 = inttoptr i64 %19 to ptr
+  %21 = tail call ptr @Abc_AigAnd(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %20)
+  %22 = ptrtoint ptr %15 to i64
+  %23 = xor i64 %22, 1
+  %24 = inttoptr i64 %23 to ptr
+  %25 = tail call ptr @Abc_AigAnd(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %24)
+  %26 = ptrtoint ptr %21 to i64
+  %27 = xor i64 %26, 1
+  %28 = inttoptr i64 %27 to ptr
+  %29 = ptrtoint ptr %25 to i64
+  %30 = xor i64 %29, 1
+  %31 = inttoptr i64 %30 to ptr
+  %32 = tail call ptr @Abc_AigAnd(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %31)
+  %33 = tail call ptr @Abc_AigAnd(ptr noundef nonnull %0, ptr noundef %.012.in.in.in13, ptr noundef %32)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %35 = load i32, ptr %8, align 4, !tbaa !18
-  %36 = trunc nuw i64 %indvars.iv.next to i32
-  %37 = icmp sgt i32 %35, %36
-  br i1 %37, label %12, label %._crit_edge, !llvm.loop !90
+  %34 = load i32, ptr %8, align 4, !tbaa !18
+  %35 = trunc nuw i64 %indvars.iv.next to i32
+  %36 = icmp sgt i32 %34, %35
+  br i1 %36, label %12, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %12, %2
-  %.012.in.in.in.lcssa = phi ptr [ %7, %2 ], [ %34, %12 ]
+  %.012.in.in.in.lcssa = phi ptr [ %7, %2 ], [ %33, %12 ]
   %.012.in.in = ptrtoint ptr %.012.in.in.in.lcssa to i64
   %.012.in = xor i64 %.012.in.in, 1
   %.012 = inttoptr i64 %.012.in to ptr

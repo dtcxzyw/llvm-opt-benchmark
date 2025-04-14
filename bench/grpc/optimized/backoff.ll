@@ -41,17 +41,14 @@ define void @_ZN9grpc_core7BackOffC2ERKNS0_7OptionsE(ptr noundef nonnull align 8
   %7 = ptrtoint ptr %4 to i64
   %8 = and i64 %7, 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 %8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !tbaa !4, !alias.scope !10
-  %10 = or disjoint i64 %8, 16
-  %scevgep.i.i.i.i = getelementptr nuw i8, ptr %4, i64 %10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i, i8 0, i64 240, i1 false), !tbaa !4, !alias.scope !10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %9, i8 0, i64 256, i1 false), !alias.scope !10
   call void @_ZN4absl12lts_2024072215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %4, ptr noundef nonnull align 1 dereferenceable(1) %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #12, !noalias !10
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %.sroa.0.0.copyload.i.i = load i64, ptr %0, align 8, !tbaa !4
-  store i64 %.sroa.0.0.copyload.i.i, ptr %11, align 8, !tbaa !4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i8 1, ptr %12, align 8, !tbaa !18
+  store i64 %.sroa.0.0.copyload.i.i, ptr %10, align 8, !tbaa !4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  store i8 1, ptr %11, align 8, !tbaa !18
   ret void
 }
 

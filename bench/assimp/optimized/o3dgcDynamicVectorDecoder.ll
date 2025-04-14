@@ -28,39 +28,38 @@ define hidden noundef i32 @_ZN5o3dgc7IUpdateEPll(ptr noundef captures(none) %0, 
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.018 = phi i64 [ %21, %.lr.ph ], [ 2, %2 ]
+  %.018 = phi i64 [ %20, %.lr.ph ], [ 2, %2 ]
   %10 = getelementptr i64, ptr %0, i64 %.018
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load i64, ptr %11, align 8
-  %13 = or disjoint i64 %.018, 1
-  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %13
-  %15 = load i64, ptr %14, align 8
-  %16 = add i64 %12, 2
-  %17 = add i64 %16, %15
-  %18 = ashr i64 %17, 2
-  %19 = load i64, ptr %10, align 8
-  %20 = sub nsw i64 %19, %18
-  store i64 %20, ptr %10, align 8
-  %21 = add nuw nsw i64 %.018, 2
-  %22 = icmp slt i64 %21, %3
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !3
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %14 = load i64, ptr %13, align 8
+  %15 = add i64 %12, 2
+  %16 = add i64 %15, %14
+  %17 = ashr i64 %16, 2
+  %18 = load i64, ptr %10, align 8
+  %19 = sub nsw i64 %18, %17
+  store i64 %19, ptr %10, align 8
+  %20 = add nuw nsw i64 %.018, 2
+  %21 = icmp slt i64 %20, %3
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi i64 [ 2, %2 ], [ %21, %.lr.ph ]
-  %23 = icmp eq i64 %.0.lcssa, %3
-  br i1 %23, label %24, label %31
+  %.0.lcssa = phi i64 [ 2, %2 ], [ %20, %.lr.ph ]
+  %22 = icmp eq i64 %.0.lcssa, %3
+  br i1 %22, label %23, label %30
 
-24:                                               ; preds = %._crit_edge
-  %25 = getelementptr i64, ptr %0, i64 %3
-  %26 = getelementptr i8, ptr %25, i64 -8
-  %27 = load i64, ptr %26, align 8
-  %28 = ashr i64 %27, 1
-  %29 = load i64, ptr %25, align 8
-  %30 = sub nsw i64 %29, %28
-  store i64 %30, ptr %25, align 8
-  br label %31
+23:                                               ; preds = %._crit_edge
+  %24 = getelementptr i64, ptr %0, i64 %3
+  %25 = getelementptr i8, ptr %24, i64 -8
+  %26 = load i64, ptr %25, align 8
+  %27 = ashr i64 %26, 1
+  %28 = load i64, ptr %24, align 8
+  %29 = sub nsw i64 %28, %27
+  store i64 %29, ptr %24, align 8
+  br label %30
 
-31:                                               ; preds = %24, %._crit_edge
+30:                                               ; preds = %23, %._crit_edge
   ret i32 0
 }
 
@@ -1209,7 +1208,7 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc10ITransformEPlm(ptr noundef %0
   ret i32 0
 
 16:                                               ; preds = %.lr.ph39, %_ZN5o3dgc8IPredictEPll.exit
-  %.037 = phi i64 [ %13, %.lr.ph39 ], [ %80, %_ZN5o3dgc8IPredictEPll.exit ]
+  %.037 = phi i64 [ %13, %.lr.ph39 ], [ %79, %_ZN5o3dgc8IPredictEPll.exit ]
   %.136 = phi i64 [ 1, %.lr.ph39 ], [ %20, %_ZN5o3dgc8IPredictEPll.exit ]
   %17 = shl i64 %.136, 1
   %18 = lshr i64 %11, %.037
@@ -1256,77 +1255,76 @@ _ZN5o3dgc5MergeEPll.exit:                         ; preds = %._crit_edge.i, %16
   br i1 %38, label %.lr.ph.i25, label %._crit_edge.i24
 
 .lr.ph.i25:                                       ; preds = %_ZN5o3dgc5MergeEPll.exit, %.lr.ph.i25
-  %.018.i = phi i64 [ %50, %.lr.ph.i25 ], [ 2, %_ZN5o3dgc5MergeEPll.exit ]
+  %.018.i = phi i64 [ %49, %.lr.ph.i25 ], [ 2, %_ZN5o3dgc5MergeEPll.exit ]
   %39 = getelementptr i64, ptr %0, i64 %.018.i
   %40 = getelementptr i8, ptr %39, i64 -8
   %41 = load i64, ptr %40, align 8
-  %42 = or disjoint i64 %.018.i, 1
-  %43 = getelementptr inbounds nuw i64, ptr %0, i64 %42
-  %44 = load i64, ptr %43, align 8
-  %45 = add i64 %41, 2
-  %46 = add i64 %45, %44
-  %47 = ashr i64 %46, 2
-  %48 = load i64, ptr %39, align 8
-  %49 = sub nsw i64 %48, %47
-  store i64 %49, ptr %39, align 8
-  %50 = add nuw nsw i64 %.018.i, 2
-  %51 = icmp slt i64 %50, %33
-  br i1 %51, label %.lr.ph.i25, label %._crit_edge.i24, !llvm.loop !3
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %43 = load i64, ptr %42, align 8
+  %44 = add i64 %41, 2
+  %45 = add i64 %44, %43
+  %46 = ashr i64 %45, 2
+  %47 = load i64, ptr %39, align 8
+  %48 = sub nsw i64 %47, %46
+  store i64 %48, ptr %39, align 8
+  %49 = add nuw nsw i64 %.018.i, 2
+  %50 = icmp slt i64 %49, %33
+  br i1 %50, label %.lr.ph.i25, label %._crit_edge.i24, !llvm.loop !3
 
 ._crit_edge.i24:                                  ; preds = %.lr.ph.i25, %_ZN5o3dgc5MergeEPll.exit
-  %.0.lcssa.i = phi i64 [ 2, %_ZN5o3dgc5MergeEPll.exit ], [ %50, %.lr.ph.i25 ]
-  %52 = icmp eq i64 %.0.lcssa.i, %33
-  br i1 %52, label %53, label %_ZN5o3dgc7IUpdateEPll.exit
+  %.0.lcssa.i = phi i64 [ 2, %_ZN5o3dgc5MergeEPll.exit ], [ %49, %.lr.ph.i25 ]
+  %51 = icmp eq i64 %.0.lcssa.i, %33
+  br i1 %51, label %52, label %_ZN5o3dgc7IUpdateEPll.exit
 
-53:                                               ; preds = %._crit_edge.i24
-  %54 = getelementptr i64, ptr %0, i64 %33
-  %55 = getelementptr i8, ptr %54, i64 -8
-  %56 = load i64, ptr %55, align 8
-  %57 = ashr i64 %56, 1
-  %58 = load i64, ptr %54, align 8
-  %59 = sub nsw i64 %58, %57
-  store i64 %59, ptr %54, align 8
+52:                                               ; preds = %._crit_edge.i24
+  %53 = getelementptr i64, ptr %0, i64 %33
+  %54 = getelementptr i8, ptr %53, i64 -8
+  %55 = load i64, ptr %54, align 8
+  %56 = ashr i64 %55, 1
+  %57 = load i64, ptr %53, align 8
+  %58 = sub nsw i64 %57, %56
+  store i64 %58, ptr %53, align 8
   br label %_ZN5o3dgc7IUpdateEPll.exit
 
-_ZN5o3dgc7IUpdateEPll.exit:                       ; preds = %._crit_edge.i24, %53
-  %60 = icmp sgt i64 %20, 2
-  br i1 %60, label %.lr.ph.i28, label %._crit_edge.i26
+_ZN5o3dgc7IUpdateEPll.exit:                       ; preds = %._crit_edge.i24, %52
+  %59 = icmp sgt i64 %20, 2
+  br i1 %59, label %.lr.ph.i28, label %._crit_edge.i26
 
 .lr.ph.i28:                                       ; preds = %_ZN5o3dgc7IUpdateEPll.exit, %.lr.ph.i28
-  %.016.i29 = phi i64 [ %71, %.lr.ph.i28 ], [ 1, %_ZN5o3dgc7IUpdateEPll.exit ]
-  %61 = getelementptr i64, ptr %0, i64 %.016.i29
-  %62 = getelementptr i8, ptr %61, i64 -8
-  %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %65 = load i64, ptr %64, align 8
-  %66 = add i64 %63, 1
-  %67 = add i64 %66, %65
-  %68 = ashr i64 %67, 1
-  %69 = load i64, ptr %61, align 8
-  %70 = add nsw i64 %68, %69
-  store i64 %70, ptr %61, align 8
-  %71 = add nuw nsw i64 %.016.i29, 2
-  %72 = icmp slt i64 %71, %33
-  br i1 %72, label %.lr.ph.i28, label %._crit_edge.i26, !llvm.loop !5
+  %.016.i29 = phi i64 [ %70, %.lr.ph.i28 ], [ 1, %_ZN5o3dgc7IUpdateEPll.exit ]
+  %60 = getelementptr i64, ptr %0, i64 %.016.i29
+  %61 = getelementptr i8, ptr %60, i64 -8
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %64 = load i64, ptr %63, align 8
+  %65 = add i64 %62, 1
+  %66 = add i64 %65, %64
+  %67 = ashr i64 %66, 1
+  %68 = load i64, ptr %60, align 8
+  %69 = add nsw i64 %67, %68
+  store i64 %69, ptr %60, align 8
+  %70 = add nuw nsw i64 %.016.i29, 2
+  %71 = icmp slt i64 %70, %33
+  br i1 %71, label %.lr.ph.i28, label %._crit_edge.i26, !llvm.loop !5
 
 ._crit_edge.i26:                                  ; preds = %.lr.ph.i28, %_ZN5o3dgc7IUpdateEPll.exit
-  %.0.lcssa.i27 = phi i64 [ 1, %_ZN5o3dgc7IUpdateEPll.exit ], [ %71, %.lr.ph.i28 ]
-  %73 = icmp eq i64 %.0.lcssa.i27, %33
-  br i1 %73, label %74, label %_ZN5o3dgc8IPredictEPll.exit
+  %.0.lcssa.i27 = phi i64 [ 1, %_ZN5o3dgc7IUpdateEPll.exit ], [ %70, %.lr.ph.i28 ]
+  %72 = icmp eq i64 %.0.lcssa.i27, %33
+  br i1 %72, label %73, label %_ZN5o3dgc8IPredictEPll.exit
 
-74:                                               ; preds = %._crit_edge.i26
-  %75 = getelementptr i64, ptr %0, i64 %33
-  %76 = getelementptr i8, ptr %75, i64 -8
-  %77 = load i64, ptr %76, align 8
-  %78 = load i64, ptr %75, align 8
-  %79 = add nsw i64 %78, %77
-  store i64 %79, ptr %75, align 8
+73:                                               ; preds = %._crit_edge.i26
+  %74 = getelementptr i64, ptr %0, i64 %33
+  %75 = getelementptr i8, ptr %74, i64 -8
+  %76 = load i64, ptr %75, align 8
+  %77 = load i64, ptr %74, align 8
+  %78 = add nsw i64 %77, %76
+  store i64 %78, ptr %74, align 8
   br label %_ZN5o3dgc8IPredictEPll.exit
 
-_ZN5o3dgc8IPredictEPll.exit:                      ; preds = %._crit_edge.i26, %74
-  %80 = add nsw i64 %.037, -1
-  %81 = icmp sgt i64 %.037, 0
-  br i1 %81, label %16, label %._crit_edge40, !llvm.loop !21
+_ZN5o3dgc8IPredictEPll.exit:                      ; preds = %._crit_edge.i26, %73
+  %79 = add nsw i64 %.037, -1
+  %80 = icmp sgt i64 %.037, 0
+  br i1 %80, label %16, label %._crit_edge40, !llvm.loop !21
 }
 
 ; Function Attrs: mustprogress uwtable

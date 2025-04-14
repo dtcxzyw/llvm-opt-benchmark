@@ -3684,8 +3684,8 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut8from_vec17h46aaf2ae3c84b632E.ll
   %5 = sub nuw nsw i64 64, %4
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 7)
   %6 = shl nuw nsw i64 %.0.sroa.speculated.i, 2
-  %7 = or disjoint i64 %6, 1
-  %8 = getelementptr i8, ptr null, i64 %7
+  %7 = getelementptr i8, ptr null, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 1
   store ptr %.sroa.4.0.copyload, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.copyload, ptr %9, align 8
@@ -3877,8 +3877,8 @@ define hidden void @"_ZN70_$LT$T$u20$as$u20$actix_http..header..into_pair..TryIn
   %22 = sub nuw nsw i64 64, %21
   %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %22, i64 7)
   %23 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i.i, 2
-  %24 = or disjoint i64 %23, 1
-  %25 = getelementptr i8, ptr null, i64 %24
+  %24 = getelementptr i8, ptr null, i64 %23
+  %25 = getelementptr i8, ptr %24, i64 1
   store ptr %18, ptr %7, align 8, !alias.scope !642, !noalias !639
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !642, !noalias !639
@@ -4749,8 +4749,8 @@ define internal void @"_ZN118_$LT$actix_web..error..internal..InternalError$LT$T
   %48 = sub nuw nsw i64 64, %47
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %48, i64 7)
   %49 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %50 = or disjoint i64 %49, 1
-  %51 = getelementptr i8, ptr null, i64 %50
+  %50 = getelementptr i8, ptr null, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 1
   store ptr %44, ptr %24, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -5596,8 +5596,8 @@ define void @"_ZN127_$LT$actix_web..http..header..content_range..ContentRangeSpe
   %18 = sub nuw nsw i64 64, %17
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 7)
   %19 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i, 2
-  %20 = or disjoint i64 %19, 1
-  %21 = getelementptr i8, ptr null, i64 %20
+  %20 = getelementptr i8, ptr null, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 1
   store ptr %14, ptr %6, align 8, !alias.scope !946
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !946
@@ -6374,8 +6374,8 @@ define void @"_ZN108_$LT$actix_web..http..header..range..Range$u20$as$u20$actix_
   %18 = sub nuw nsw i64 64, %17
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 7)
   %19 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i, 2
-  %20 = or disjoint i64 %19, 1
-  %21 = getelementptr i8, ptr null, i64 %20
+  %20 = getelementptr i8, ptr null, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 1
   store ptr %14, ptr %6, align 8, !alias.scope !1039
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1039
@@ -6443,8 +6443,8 @@ define void @_ZN9actix_web4http6header6Writer3new17hd414c8bb949895bcE(ptr noalia
   %8 = sub nuw nsw i64 64, %7
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 7)
   %9 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %10 = or disjoint i64 %9, 1
-  %11 = getelementptr i8, ptr null, i64 %10
+  %10 = getelementptr i8, ptr null, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 1
   store ptr %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -9129,8 +9129,8 @@ _ZN10actix_http6header3map9HeaderMap3get17h6e5c2eb97cd33725E.exit.i: ; preds = %
   %203 = sub nuw nsw i64 64, %202
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %203, i64 7)
   %204 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %205 = or disjoint i64 %204, 1
-  %206 = getelementptr i8, ptr null, i64 %205
+  %205 = getelementptr i8, ptr null, i64 %204
+  %206 = getelementptr i8, ptr %205, i64 1
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 262144, ptr %207, align 8
   store i64 %.sroa.020.0, ptr %0, align 8

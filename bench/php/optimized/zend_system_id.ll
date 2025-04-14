@@ -118,15 +118,15 @@ define hidden void @zend_finalize_system_id() local_unnamed_addr #0 {
   call void @PHP_MD5Update(ptr noundef nonnull @context, ptr noundef nonnull %2, i64 noundef 1) #5
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #5
   store i16 0, ptr %3, align 2, !tbaa !9
-  br label %41
+  br label %40
 
-24:                                               ; preds = %45
+24:                                               ; preds = %44
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #5
   call void @PHP_MD5Final(ptr noundef nonnull %1, ptr noundef nonnull @context) #5
   br label %25
 
 25:                                               ; preds = %25, %24
-  %.01.i = phi i64 [ 0, %24 ], [ %40, %25 ]
+  %.01.i = phi i64 [ 0, %24 ], [ %39, %25 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 %.01.i
   %27 = load i8, ptr %26, align 1, !tbaa !4
   %28 = lshr i8 %27, 4
@@ -140,11 +140,10 @@ define hidden void @zend_finalize_system_id() local_unnamed_addr #0 {
   %35 = zext nneg i8 %34 to i64
   %36 = getelementptr inbounds nuw [17 x i8], ptr @php_hash_bin2hex.hexits, i64 0, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !4
-  %38 = or disjoint i64 %32, 1
-  %39 = getelementptr inbounds nuw i8, ptr @zend_system_id, i64 %38
-  store i8 %37, ptr %39, align 1, !tbaa !4
-  %40 = add nuw nsw i64 %.01.i, 1
-  %exitcond.not.i = icmp eq i64 %40, 16
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  store i8 %37, ptr %38, align 1, !tbaa !4
+  %39 = add nuw nsw i64 %.01.i, 1
+  %exitcond.not.i = icmp eq i64 %39, 16
   br i1 %exitcond.not.i, label %php_hash_bin2hex.exit, label %25
 
 php_hash_bin2hex.exit:                            ; preds = %25
@@ -153,23 +152,23 @@ php_hash_bin2hex.exit:                            ; preds = %25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #5
   ret void
 
-41:                                               ; preds = %23, %45
-  %storemerge6 = phi i16 [ 0, %23 ], [ %47, %45 ]
-  %42 = trunc i16 %storemerge6 to i8
-  %43 = call ptr @zend_get_user_opcode_handler(i8 noundef zeroext %42) #5
-  %.not5 = icmp eq ptr %43, null
-  br i1 %.not5, label %45, label %44
+40:                                               ; preds = %23, %44
+  %storemerge6 = phi i16 [ 0, %23 ], [ %46, %44 ]
+  %41 = trunc i16 %storemerge6 to i8
+  %42 = call ptr @zend_get_user_opcode_handler(i8 noundef zeroext %41) #5
+  %.not5 = icmp eq ptr %42, null
+  br i1 %.not5, label %44, label %43
 
-44:                                               ; preds = %41
+43:                                               ; preds = %40
   call void @PHP_MD5Update(ptr noundef nonnull @context, ptr noundef nonnull %3, i64 noundef 2) #5
-  br label %45
+  br label %44
 
-45:                                               ; preds = %41, %44
-  %46 = load i16, ptr %3, align 2, !tbaa !9
-  %47 = add i16 %46, 1
-  store i16 %47, ptr %3, align 2, !tbaa !9
-  %48 = icmp slt i16 %47, 256
-  br i1 %48, label %41, label %24
+44:                                               ; preds = %40, %43
+  %45 = load i16, ptr %3, align 2, !tbaa !9
+  %46 = add i16 %45, 1
+  store i16 %46, ptr %3, align 2, !tbaa !9
+  %47 = icmp slt i16 %46, 256
+  br i1 %47, label %40, label %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

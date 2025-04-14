@@ -36,20 +36,20 @@ define void @Aig_ManOrderStart(ptr noundef captures(none) initializes((216, 236)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 236
   br label %18
 
-18:                                               ; preds = %.lr.ph, %73
-  %.pre30.pre35 = phi ptr [ %.val21, %.lr.ph ], [ %.pre30.pre36, %73 ]
-  %.pre3032 = phi ptr [ %.val21, %.lr.ph ], [ %.pre3033, %73 ]
-  %19 = phi ptr [ %.val21, %.lr.ph ], [ %74, %73 ]
-  %20 = phi i32 [ 0, %.lr.ph ], [ %75, %73 ]
-  %.pre30.i = phi ptr [ %9, %.lr.ph ], [ %.pre30.i28, %73 ]
-  %21 = phi ptr [ %9, %.lr.ph ], [ %76, %73 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
+18:                                               ; preds = %.lr.ph, %71
+  %.pre30.pre35 = phi ptr [ %.val21, %.lr.ph ], [ %.pre30.pre36, %71 ]
+  %.pre3032 = phi ptr [ %.val21, %.lr.ph ], [ %.pre3033, %71 ]
+  %19 = phi ptr [ %.val21, %.lr.ph ], [ %72, %71 ]
+  %20 = phi i32 [ 0, %.lr.ph ], [ %73, %71 ]
+  %.pre30.i = phi ptr [ %9, %.lr.ph ], [ %.pre30.i28, %71 ]
+  %21 = phi ptr [ %9, %.lr.ph ], [ %74, %71 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
   %22 = getelementptr i8, ptr %19, i64 8
   %.val22 = load ptr, ptr %22, align 8, !tbaa !28
   %23 = getelementptr inbounds nuw ptr, ptr %.val22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !29
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %73, label %26
+  br i1 %25, label %71, label %26
 
 26:                                               ; preds = %18
   %27 = getelementptr i8, ptr %24, i64 24
@@ -58,7 +58,7 @@ define void @Aig_ManOrderStart(ptr noundef captures(none) initializes((216, 236)
   %29 = and i32 %28, 7
   %30 = add nsw i32 %29, -7
   %narrow.i = icmp ult i32 %30, -2
-  br i1 %narrow.i, label %73, label %31
+  br i1 %narrow.i, label %71, label %31
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 36
@@ -115,9 +115,9 @@ Aig_ObjOrderInsert.exit:                          ; preds = %31, %43
   %58 = getelementptr inbounds i32, ptr %.pre30.i29, i64 %57
   store i32 %56, ptr %58, align 4, !tbaa !25
   %59 = shl nsw i32 %56, 1
-  %60 = or disjoint i32 %59, 1
-  %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %.pre30.i29, i64 %61
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr i32, ptr %.pre30.i29, i64 %60
+  %62 = getelementptr i8, ptr %61, i64 4
   store i32 %33, ptr %62, align 4, !tbaa !25
   %63 = load i32, ptr %14, align 8, !tbaa !26
   %64 = shl nsw i32 %63, 1
@@ -125,30 +125,28 @@ Aig_ObjOrderInsert.exit:                          ; preds = %31, %43
   %66 = getelementptr inbounds i32, ptr %.pre30.i29, i64 %65
   store i32 %33, ptr %66, align 4, !tbaa !25
   %67 = load i32, ptr %14, align 8, !tbaa !26
-  %68 = or disjoint i32 %.pre31.i, 1
-  %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds i32, ptr %.pre30.i29, i64 %69
-  store i32 %67, ptr %70, align 4, !tbaa !25
-  %71 = load i32, ptr %17, align 4, !tbaa !31
-  %72 = add nsw i32 %71, 1
-  store i32 %72, ptr %17, align 4, !tbaa !31
-  br label %73
+  %68 = getelementptr i8, ptr %58, i64 4
+  store i32 %67, ptr %68, align 4, !tbaa !25
+  %69 = load i32, ptr %17, align 4, !tbaa !31
+  %70 = add nsw i32 %69, 1
+  store i32 %70, ptr %17, align 4, !tbaa !31
+  br label %71
 
-73:                                               ; preds = %Aig_ObjOrderInsert.exit, %26, %18
+71:                                               ; preds = %Aig_ObjOrderInsert.exit, %26, %18
   %.pre30.pre36 = phi ptr [ %.pre30.pre37, %Aig_ObjOrderInsert.exit ], [ %.pre30.pre35, %26 ], [ %.pre30.pre35, %18 ]
   %.pre3033 = phi ptr [ %.pre30, %Aig_ObjOrderInsert.exit ], [ %.pre3032, %26 ], [ %.pre3032, %18 ]
-  %74 = phi ptr [ %.pre30, %Aig_ObjOrderInsert.exit ], [ %19, %26 ], [ %19, %18 ]
-  %75 = phi i32 [ %67, %Aig_ObjOrderInsert.exit ], [ %20, %26 ], [ %20, %18 ]
+  %72 = phi ptr [ %.pre30, %Aig_ObjOrderInsert.exit ], [ %19, %26 ], [ %19, %18 ]
+  %73 = phi i32 [ %67, %Aig_ObjOrderInsert.exit ], [ %20, %26 ], [ %20, %18 ]
   %.pre30.i28 = phi ptr [ %.pre30.i29, %Aig_ObjOrderInsert.exit ], [ %.pre30.i, %26 ], [ %.pre30.i, %18 ]
-  %76 = phi ptr [ %.pre30.i29, %Aig_ObjOrderInsert.exit ], [ %21, %26 ], [ %21, %18 ]
+  %74 = phi ptr [ %.pre30.i29, %Aig_ObjOrderInsert.exit ], [ %21, %26 ], [ %21, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = getelementptr i8, ptr %74, i64 4
-  %.val = load i32, ptr %77, align 4, !tbaa !21
-  %78 = sext i32 %.val to i64
-  %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %18, label %.critedge, !llvm.loop !32
+  %75 = getelementptr i8, ptr %72, i64 4
+  %.val = load i32, ptr %75, align 4, !tbaa !21
+  %76 = sext i32 %.val to i64
+  %77 = icmp slt i64 %indvars.iv.next, %76
+  br i1 %77, label %18, label %.critedge, !llvm.loop !32
 
-.critedge:                                        ; preds = %73, %1
+.critedge:                                        ; preds = %71, %1
   ret void
 }
 
@@ -217,9 +215,9 @@ define void @Aig_ObjOrderInsert(ptr noundef captures(none) %0, i32 noundef %1) l
   %34 = getelementptr inbounds i32, ptr %26, i64 %33
   store i32 %32, ptr %34, align 4, !tbaa !25
   %35 = shl nsw i32 %32, 1
-  %36 = or disjoint i32 %35, 1
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %26, i64 %37
+  %36 = sext i32 %35 to i64
+  %37 = getelementptr i32, ptr %26, i64 %36
+  %38 = getelementptr i8, ptr %37, i64 4
   store i32 %1, ptr %38, align 4, !tbaa !25
   %39 = load i32, ptr %27, align 8, !tbaa !26
   %40 = shl nsw i32 %39, 1
@@ -227,14 +225,12 @@ define void @Aig_ObjOrderInsert(ptr noundef captures(none) %0, i32 noundef %1) l
   %42 = getelementptr inbounds i32, ptr %26, i64 %41
   store i32 %1, ptr %42, align 4, !tbaa !25
   %43 = load i32, ptr %27, align 8, !tbaa !26
-  %44 = or disjoint i32 %.pre-phi, 1
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %26, i64 %45
-  store i32 %43, ptr %46, align 4, !tbaa !25
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %48 = load i32, ptr %47, align 4, !tbaa !31
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %47, align 4, !tbaa !31
+  %44 = getelementptr i8, ptr %34, i64 4
+  store i32 %43, ptr %44, align 4, !tbaa !25
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  %46 = load i32, ptr %45, align 4, !tbaa !31
+  %47 = add nsw i32 %46, 1
+  store i32 %47, ptr %45, align 4, !tbaa !31
   ret void
 }
 
@@ -272,51 +268,49 @@ define void @Aig_ObjOrderRemove(ptr noundef captures(none) %0, i32 noundef %1) l
   %4 = load ptr, ptr %3, align 8, !tbaa !24
   %5 = shl nsw i32 %1, 1
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds i32, ptr %4, i64 %6
+  %7 = getelementptr i32, ptr %4, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !25
-  %9 = or disjoint i32 %5, 1
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i32, ptr %4, i64 %10
-  %12 = load i32, ptr %11, align 4, !tbaa !25
+  %9 = getelementptr i8, ptr %7, i64 4
+  %10 = load i32, ptr %9, align 4, !tbaa !25
   store i32 -1, ptr %7, align 4, !tbaa !25
-  store i32 -1, ptr %11, align 4, !tbaa !25
-  %13 = shl nsw i32 %12, 1
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %4, i64 %14
-  store i32 %8, ptr %15, align 4, !tbaa !25
-  %16 = shl nsw i32 %8, 1
-  %17 = or disjoint i32 %16, 1
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %4, i64 %18
-  store i32 %12, ptr %19, align 4, !tbaa !25
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %21 = load i32, ptr %20, align 4, !tbaa !27
-  %22 = icmp eq i32 %21, %1
-  br i1 %22, label %23, label %27
+  store i32 -1, ptr %9, align 4, !tbaa !25
+  %11 = shl nsw i32 %10, 1
+  %12 = sext i32 %11 to i64
+  %13 = getelementptr inbounds i32, ptr %4, i64 %12
+  store i32 %8, ptr %13, align 4, !tbaa !25
+  %14 = shl nsw i32 %8, 1
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr i32, ptr %4, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 4
+  store i32 %10, ptr %17, align 4, !tbaa !25
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  %19 = load i32, ptr %18, align 4, !tbaa !27
+  %20 = icmp eq i32 %19, %1
+  br i1 %20, label %21, label %25
 
-23:                                               ; preds = %2
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %25 = load i32, ptr %24, align 8, !tbaa !34
-  %26 = add nsw i32 %25, -1
-  store i32 %26, ptr %24, align 8, !tbaa !34
-  store i32 %8, ptr %20, align 4, !tbaa !27
-  br label %27
+21:                                               ; preds = %2
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %23 = load i32, ptr %22, align 8, !tbaa !34
+  %24 = add nsw i32 %23, -1
+  store i32 %24, ptr %22, align 8, !tbaa !34
+  store i32 %8, ptr %18, align 4, !tbaa !27
+  br label %25
 
-27:                                               ; preds = %23, %2
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %29 = load i32, ptr %28, align 8, !tbaa !26
-  %30 = icmp eq i32 %29, %1
-  br i1 %30, label %31, label %32
+25:                                               ; preds = %21, %2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %27 = load i32, ptr %26, align 8, !tbaa !26
+  %28 = icmp eq i32 %27, %1
+  br i1 %28, label %29, label %30
 
-31:                                               ; preds = %27
-  store i32 %12, ptr %28, align 8, !tbaa !26
-  br label %32
+29:                                               ; preds = %25
+  store i32 %10, ptr %26, align 8, !tbaa !26
+  br label %30
 
-32:                                               ; preds = %31, %27
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %34 = load i32, ptr %33, align 4, !tbaa !31
-  %35 = add nsw i32 %34, -1
-  store i32 %35, ptr %33, align 4, !tbaa !31
+30:                                               ; preds = %29, %25
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  %32 = load i32, ptr %31, align 4, !tbaa !31
+  %33 = add nsw i32 %32, -1
+  store i32 %33, ptr %31, align 4, !tbaa !31
   ret void
 }
 

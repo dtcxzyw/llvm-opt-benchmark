@@ -206,10 +206,10 @@ define hidden void @Any4ByteSetParallelogram(ptr noundef readonly captures(none)
   br label %.lr.ph56
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %._crit_edge
-  %.040.in53 = phi i64 [ %47, %._crit_edge ], [ %29, %.lr.ph56.preheader ]
-  %.04152 = phi i32 [ %50, %._crit_edge ], [ %2, %.lr.ph56.preheader ]
-  %.04251 = phi i64 [ %48, %._crit_edge ], [ %5, %.lr.ph56.preheader ]
-  %.04350 = phi i64 [ %49, %._crit_edge ], [ %7, %.lr.ph56.preheader ]
+  %.040.in53 = phi i64 [ %44, %._crit_edge ], [ %29, %.lr.ph56.preheader ]
+  %.04152 = phi i32 [ %47, %._crit_edge ], [ %2, %.lr.ph56.preheader ]
+  %.04251 = phi i64 [ %45, %._crit_edge ], [ %5, %.lr.ph56.preheader ]
+  %.04350 = phi i64 [ %46, %._crit_edge ], [ %7, %.lr.ph56.preheader ]
   %31 = lshr i64 %.04251, 32
   %32 = trunc nuw i64 %31 to i32
   %.04054 = inttoptr i64 %.040.in53 to ptr
@@ -231,25 +231,22 @@ define hidden void @Any4ByteSetParallelogram(ptr noundef readonly captures(none)
   %38 = shl nsw i64 %indvars.iv, 2
   %39 = getelementptr inbounds i8, ptr %.04054, i64 %38
   store i8 %16, ptr %39, align 1
-  %40 = or disjoint i64 %38, 1
-  %41 = getelementptr inbounds i8, ptr %.04054, i64 %40
-  store i8 %18, ptr %41, align 1
-  %42 = or disjoint i64 %38, 2
-  %43 = getelementptr inbounds i8, ptr %.04054, i64 %42
-  store i8 %20, ptr %43, align 1
-  %44 = or disjoint i64 %38, 3
-  %45 = getelementptr inbounds i8, ptr %.04054, i64 %44
-  store i8 %22, ptr %45, align 1
+  %40 = getelementptr i8, ptr %39, i64 1
+  store i8 %18, ptr %40, align 1
+  %41 = getelementptr i8, ptr %39, i64 2
+  store i8 %20, ptr %41, align 1
+  %42 = getelementptr i8, ptr %39, i64 3
+  store i8 %22, ptr %42, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %46 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  %43 = icmp slt i64 %indvars.iv.next, %37
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph56
-  %47 = add nsw i64 %.040.in53, %15
-  %48 = add nsw i64 %.04251, %6
-  %49 = add nsw i64 %.04350, %8
-  %50 = add nsw i32 %.04152, 1
-  %exitcond.not = icmp eq i32 %50, %4
+  %44 = add nsw i64 %.040.in53, %15
+  %45 = add nsw i64 %.04251, %6
+  %46 = add nsw i64 %.04350, %8
+  %47 = add nsw i32 %.04152, 1
+  %exitcond.not = icmp eq i32 %47, %4
   br i1 %exitcond.not, label %._crit_edge57, label %.lr.ph56, !llvm.loop !13
 
 ._crit_edge57:                                    ; preds = %._crit_edge, %12
@@ -792,48 +789,45 @@ define hidden void @Any4ByteDrawGlyphList(ptr noundef readonly captures(none) %0
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %58
 
-58:                                               ; preds = %72, %39
-  %.083.in = phi i64 [ %56, %39 ], [ %73, %72 ]
-  %.2 = phi ptr [ %.1, %39 ], [ %74, %72 ]
-  %.078 = phi i32 [ %48, %39 ], [ %75, %72 ]
+58:                                               ; preds = %69, %39
+  %.083.in = phi i64 [ %56, %39 ], [ %70, %69 ]
+  %.2 = phi ptr [ %.1, %39 ], [ %71, %69 ]
+  %.078 = phi i32 [ %48, %39 ], [ %72, %69 ]
   %.083 = inttoptr i64 %.083.in to ptr
   br label %59
 
-59:                                               ; preds = %71, %58
-  %indvars.iv = phi i64 [ %indvars.iv.next, %71 ], [ 0, %58 ]
+59:                                               ; preds = %68, %58
+  %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %58 ]
   %60 = getelementptr inbounds nuw i8, ptr %.2, i64 %indvars.iv
   %61 = load i8, ptr %60, align 1
   %.not99 = icmp eq i8 %61, 0
-  br i1 %.not99, label %71, label %62
+  br i1 %.not99, label %68, label %62
 
 62:                                               ; preds = %59
   %63 = shl nsw i64 %indvars.iv, 2
   %64 = getelementptr inbounds nuw i8, ptr %.083, i64 %63
   store i8 %12, ptr %64, align 1
-  %65 = or disjoint i64 %63, 1
-  %66 = getelementptr inbounds nuw i8, ptr %.083, i64 %65
-  store i8 %14, ptr %66, align 1
-  %67 = or disjoint i64 %63, 2
-  %68 = getelementptr inbounds nuw i8, ptr %.083, i64 %67
-  store i8 %16, ptr %68, align 1
-  %69 = or disjoint i64 %63, 3
-  %70 = getelementptr inbounds nuw i8, ptr %.083, i64 %69
-  store i8 %18, ptr %70, align 1
-  br label %71
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
+  store i8 %14, ptr %65, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 2
+  store i8 %16, ptr %66, align 1
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 3
+  store i8 %18, ptr %67, align 1
+  br label %68
 
-71:                                               ; preds = %59, %62
+68:                                               ; preds = %59, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %72, label %59, !llvm.loop !23
+  br i1 %exitcond.not, label %69, label %59, !llvm.loop !23
 
-72:                                               ; preds = %71
-  %73 = add nsw i64 %.083.in, %23
-  %74 = getelementptr inbounds i8, ptr %.2, i64 %57
-  %75 = add nsw i32 %.078, -1
-  %76 = icmp sgt i32 %.078, 1
-  br i1 %76, label %58, label %.loopexit, !llvm.loop !24
+69:                                               ; preds = %68
+  %70 = add nsw i64 %.083.in, %23
+  %71 = getelementptr inbounds i8, ptr %.2, i64 %57
+  %72 = add nsw i32 %.078, -1
+  %73 = icmp sgt i32 %.078, 1
+  br i1 %73, label %58, label %.loopexit, !llvm.loop !24
 
-.loopexit:                                        ; preds = %72, %28, %24
+.loopexit:                                        ; preds = %69, %28, %24
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
   br i1 %exitcond107.not, label %._crit_edge, label %24, !llvm.loop !25
@@ -926,19 +920,19 @@ define hidden void @Any4ByteDrawGlyphListXor(ptr noundef readonly captures(none)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %65
 
-65:                                               ; preds = %87, %46
-  %.0101.in = phi i64 [ %63, %46 ], [ %88, %87 ]
-  %.2 = phi ptr [ %.1, %46 ], [ %89, %87 ]
-  %.096 = phi i32 [ %55, %46 ], [ %90, %87 ]
+65:                                               ; preds = %84, %46
+  %.0101.in = phi i64 [ %63, %46 ], [ %85, %84 ]
+  %.2 = phi ptr [ %.1, %46 ], [ %86, %84 ]
+  %.096 = phi i32 [ %55, %46 ], [ %87, %84 ]
   %.0101 = inttoptr i64 %.0101.in to ptr
   br label %66
 
-66:                                               ; preds = %86, %65
-  %indvars.iv = phi i64 [ %indvars.iv.next, %86 ], [ 0, %65 ]
+66:                                               ; preds = %83, %65
+  %indvars.iv = phi i64 [ %indvars.iv.next, %83 ], [ 0, %65 ]
   %67 = getelementptr inbounds nuw i8, ptr %.2, i64 %indvars.iv
   %68 = load i8, ptr %67, align 1
   %.not117 = icmp eq i8 %68, 0
-  br i1 %.not117, label %86, label %69
+  br i1 %.not117, label %83, label %69
 
 69:                                               ; preds = %66
   %70 = shl nsw i64 %indvars.iv, 2
@@ -946,36 +940,33 @@ define hidden void @Any4ByteDrawGlyphListXor(ptr noundef readonly captures(none)
   %72 = load i8, ptr %71, align 1
   %73 = xor i8 %72, %24
   store i8 %73, ptr %71, align 1
-  %74 = or disjoint i64 %70, 1
-  %75 = getelementptr inbounds nuw i8, ptr %.0101, i64 %74
-  %76 = load i8, ptr %75, align 1
-  %77 = xor i8 %76, %26
-  store i8 %77, ptr %75, align 1
-  %78 = or disjoint i64 %70, 2
-  %79 = getelementptr inbounds nuw i8, ptr %.0101, i64 %78
-  %80 = load i8, ptr %79, align 1
-  %81 = xor i8 %80, %28
-  store i8 %81, ptr %79, align 1
-  %82 = or disjoint i64 %70, 3
-  %83 = getelementptr inbounds nuw i8, ptr %.0101, i64 %82
-  %84 = load i8, ptr %83, align 1
-  %85 = xor i8 %84, %30
-  store i8 %85, ptr %83, align 1
-  br label %86
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 1
+  %75 = load i8, ptr %74, align 1
+  %76 = xor i8 %75, %26
+  store i8 %76, ptr %74, align 1
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 2
+  %78 = load i8, ptr %77, align 1
+  %79 = xor i8 %78, %28
+  store i8 %79, ptr %77, align 1
+  %80 = getelementptr inbounds nuw i8, ptr %71, i64 3
+  %81 = load i8, ptr %80, align 1
+  %82 = xor i8 %81, %30
+  store i8 %82, ptr %80, align 1
+  br label %83
 
-86:                                               ; preds = %66, %69
+83:                                               ; preds = %66, %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %87, label %66, !llvm.loop !26
+  br i1 %exitcond.not, label %84, label %66, !llvm.loop !26
 
-87:                                               ; preds = %86
-  %88 = add nsw i64 %.0101.in, %20
-  %89 = getelementptr inbounds i8, ptr %.2, i64 %64
-  %90 = add nsw i32 %.096, -1
-  %91 = icmp sgt i32 %.096, 1
-  br i1 %91, label %65, label %.loopexit, !llvm.loop !27
+84:                                               ; preds = %83
+  %85 = add nsw i64 %.0101.in, %20
+  %86 = getelementptr inbounds i8, ptr %.2, i64 %64
+  %87 = add nsw i32 %.096, -1
+  %88 = icmp sgt i32 %.096, 1
+  br i1 %88, label %65, label %.loopexit, !llvm.loop !27
 
-.loopexit:                                        ; preds = %87, %35, %31
+.loopexit:                                        ; preds = %84, %35, %31
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
   br i1 %exitcond125.not, label %._crit_edge, label %31, !llvm.loop !28
@@ -1039,10 +1030,10 @@ define hidden void @Any4ByteIsomorphicScaleCopy(ptr noundef %0, ptr noundef %1, 
   %22 = sext i32 %15 to i64
   br label %23
 
-23:                                               ; preds = %55, %13
-  %.036 = phi ptr [ %1, %13 ], [ %57, %55 ]
-  %.035 = phi i32 [ %5, %13 ], [ %58, %55 ]
-  %.0 = phi i32 [ %3, %13 ], [ %59, %55 ]
+23:                                               ; preds = %49, %13
+  %.036 = phi ptr [ %1, %13 ], [ %51, %49 ]
+  %.035 = phi i32 [ %5, %13 ], [ %52, %49 ]
+  %.0 = phi i32 [ %3, %13 ], [ %53, %49 ]
   %24 = ashr i32 %.035, %8
   %25 = sext i32 %24 to i64
   %26 = mul nsw i64 %25, %22
@@ -1051,50 +1042,44 @@ define hidden void @Any4ByteIsomorphicScaleCopy(ptr noundef %0, ptr noundef %1, 
   br label %29
 
 29:                                               ; preds = %29, %23
-  %.1 = phi ptr [ %.036, %23 ], [ %52, %29 ]
-  %.034 = phi i32 [ %2, %23 ], [ %54, %29 ]
-  %.033 = phi i32 [ %4, %23 ], [ %53, %29 ]
+  %.1 = phi ptr [ %.036, %23 ], [ %46, %29 ]
+  %.034 = phi i32 [ %2, %23 ], [ %48, %29 ]
+  %.033 = phi i32 [ %4, %23 ], [ %47, %29 ]
   %30 = ashr i32 %.033, %8
   %31 = shl nsw i32 %30, 2
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %28, i64 %32
   %34 = load i8, ptr %33, align 1
   store i8 %34, ptr %.1, align 1
-  %35 = or disjoint i32 %31, 1
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %28, i64 %36
-  %38 = load i8, ptr %37, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  store i8 %38, ptr %39, align 1
-  %40 = or disjoint i32 %31, 2
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %28, i64 %41
-  %43 = load i8, ptr %42, align 1
-  %44 = getelementptr inbounds nuw i8, ptr %.1, i64 2
-  store i8 %43, ptr %44, align 1
-  %45 = or disjoint i32 %31, 3
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr %28, i64 %46
-  %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds nuw i8, ptr %.1, i64 3
-  store i8 %48, ptr %49, align 1
-  %50 = ptrtoint ptr %.1 to i64
-  %51 = add nsw i64 %50, 4
-  %52 = inttoptr i64 %51 to ptr
-  %53 = add nsw i32 %.033, %6
-  %54 = add i32 %.034, -1
-  %.not = icmp eq i32 %54, 0
-  br i1 %.not, label %55, label %29, !llvm.loop !30
+  %35 = getelementptr i8, ptr %33, i64 1
+  %36 = load i8, ptr %35, align 1
+  %37 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  store i8 %36, ptr %37, align 1
+  %38 = getelementptr i8, ptr %33, i64 2
+  %39 = load i8, ptr %38, align 1
+  %40 = getelementptr inbounds nuw i8, ptr %.1, i64 2
+  store i8 %39, ptr %40, align 1
+  %41 = getelementptr i8, ptr %33, i64 3
+  %42 = load i8, ptr %41, align 1
+  %43 = getelementptr inbounds nuw i8, ptr %.1, i64 3
+  store i8 %42, ptr %43, align 1
+  %44 = ptrtoint ptr %.1 to i64
+  %45 = add nsw i64 %44, 4
+  %46 = inttoptr i64 %45 to ptr
+  %47 = add nsw i32 %.033, %6
+  %48 = add i32 %.034, -1
+  %.not = icmp eq i32 %48, 0
+  br i1 %.not, label %49, label %29, !llvm.loop !30
 
-55:                                               ; preds = %29
-  %56 = add nsw i64 %51, %20
-  %57 = inttoptr i64 %56 to ptr
-  %58 = add nsw i32 %.035, %7
-  %59 = add i32 %.0, -1
-  %.not38 = icmp eq i32 %59, 0
-  br i1 %.not38, label %60, label %23, !llvm.loop !31
+49:                                               ; preds = %29
+  %50 = add nsw i64 %45, %20
+  %51 = inttoptr i64 %50 to ptr
+  %52 = add nsw i32 %.035, %7
+  %53 = add i32 %.0, -1
+  %.not38 = icmp eq i32 %53, 0
+  br i1 %.not38, label %54, label %23, !llvm.loop !31
 
-60:                                               ; preds = %55
+54:                                               ; preds = %49
   ret void
 }
 

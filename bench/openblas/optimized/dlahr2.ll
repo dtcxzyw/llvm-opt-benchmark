@@ -313,10 +313,10 @@ define void @dlahr2_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %197 = getelementptr inbounds double, ptr %18, i64 %196
   store double %.0.lcssa, ptr %197, align 8, !tbaa !7
   %198 = shl i32 %16, 1
-  %199 = or disjoint i32 %198, 1
-  %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds double, ptr %18, i64 %200
-  call void @dlacpy_(ptr noundef nonnull @.str.7, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %201, ptr noundef nonnull %4, ptr noundef %8, ptr noundef nonnull %9) #3
+  %199 = sext i32 %198 to i64
+  %200 = getelementptr double, ptr %18, i64 %199
+  %201 = getelementptr i8, ptr %200, i64 8
+  call void @dlacpy_(ptr noundef nonnull @.str.7, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %201, ptr noundef nonnull %4, ptr noundef %8, ptr noundef nonnull %9) #3
   %202 = load i32, ptr %1, align 4, !tbaa !3
   %203 = add i32 %.pre-phi, %202
   %204 = sext i32 %203 to i64

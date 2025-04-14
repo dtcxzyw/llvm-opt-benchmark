@@ -4052,19 +4052,20 @@ define dso_local noundef range(i32 -19, 1) i32 @ata_pci_sff_init_host(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = getelementptr i8, ptr %3, i64 736
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %invariant.gep = getelementptr i8, ptr %3, i64 744
   br label %8
 
-8:                                                ; preds = %86, %1
-  %9 = phi i1 [ true, %1 ], [ false, %86 ]
-  %10 = phi i64 [ 0, %1 ], [ 1, %86 ]
-  %11 = phi i32 [ 0, %1 ], [ %87, %86 ]
+8:                                                ; preds = %85, %1
+  %9 = phi i1 [ true, %1 ], [ false, %85 ]
+  %10 = phi i64 [ 0, %1 ], [ 1, %85 ]
+  %11 = phi i32 [ 0, %1 ], [ %86, %85 ]
   %12 = getelementptr [0 x ptr], ptr %5, i64 0, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = shl nuw nsw i64 %10, 1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, @ata_dummy_port_ops
-  br i1 %17, label %86, label %18
+  br i1 %17, label %85, label %18
 
 18:                                               ; preds = %8
   %19 = getelementptr [11 x %struct.resource], ptr %6, i64 0, i64 %14
@@ -4087,113 +4088,112 @@ define dso_local noundef range(i32 -19, 1) i32 @ata_pci_sff_init_host(ptr nounde
   %30 = phi i64 [ %23, %25 ], [ %14, %22 ]
   %31 = phi i1 [ true, %25 ], [ false, %22 ]
   %.idx = shl nsw i64 %30, 6
-  %.offs = or disjoint i64 %.idx, 8
-  %32 = getelementptr i8, ptr %6, i64 %.offs
-  %33 = load i64, ptr %32, align 8
-  %34 = icmp eq i64 %33, 0
-  %35 = add i64 %33, 1
-  %36 = icmp eq i64 %35, %29
-  %37 = or i1 %34, %36
-  %38 = or i1 %31, %37
-  br i1 %38, label %39, label %25
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %32 = load i64, ptr %gep, align 8
+  %33 = icmp eq i64 %32, 0
+  %34 = add i64 %32, 1
+  %35 = icmp eq i64 %34, %29
+  %36 = or i1 %33, %35
+  %37 = or i1 %31, %36
+  br i1 %37, label %38, label %25
 
-39:                                               ; preds = %28
-  %not. = xor i1 %37, true
-  %40 = and i1 %31, %not.
-  br i1 %40, label %41, label %.critedge
+38:                                               ; preds = %28
+  %not. = xor i1 %36, true
+  %39 = and i1 %31, %not.
+  br i1 %39, label %40, label %.critedge
 
-.critedge:                                        ; preds = %25, %39, %18
+.critedge:                                        ; preds = %25, %38, %18
   store ptr @ata_dummy_port_ops, ptr %15, align 8
-  br label %86
+  br label %85
 
-41:                                               ; preds = %39
-  %42 = trunc nuw nsw i64 %14 to i32
-  %43 = shl nuw nsw i32 3, %42
-  %44 = tail call ptr @dev_driver_string(ptr noundef %3) #13
-  %45 = tail call i32 @pcim_iomap_regions(ptr noundef %4, i32 noundef %43, ptr noundef %44) #13
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %52, label %47
+40:                                               ; preds = %38
+  %41 = trunc nuw nsw i64 %14 to i32
+  %42 = shl nuw nsw i32 3, %41
+  %43 = tail call ptr @dev_driver_string(ptr noundef %3) #13
+  %44 = tail call i32 @pcim_iomap_regions(ptr noundef %4, i32 noundef %42, ptr noundef %43) #13
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %51, label %46
 
-47:                                               ; preds = %41
-  %48 = trunc nuw nsw i64 %10 to i32
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %3, ptr noundef nonnull @.str.12, i32 noundef %48, i32 noundef %45) #14
-  %49 = icmp eq i32 %45, -16
-  br i1 %49, label %50, label %51
+46:                                               ; preds = %40
+  %47 = trunc nuw nsw i64 %10 to i32
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %3, ptr noundef nonnull @.str.12, i32 noundef %47, i32 noundef %44) #14
+  %48 = icmp eq i32 %44, -16
+  br i1 %48, label %49, label %50
 
-50:                                               ; preds = %47
+49:                                               ; preds = %46
   tail call void @pcim_pin_device(ptr noundef %4) #13
-  br label %51
+  br label %50
 
-51:                                               ; preds = %50, %47
+50:                                               ; preds = %49, %46
   store ptr @ata_dummy_port_ops, ptr %15, align 8
-  br label %86
+  br label %85
 
-52:                                               ; preds = %41
-  %53 = tail call ptr @pcim_iomap_table(ptr noundef %4) #13
-  store ptr %53, ptr %7, align 8
-  %54 = getelementptr ptr, ptr %53, i64 %14
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  store ptr %55, ptr %56, align 16
-  %57 = getelementptr ptr, ptr %53, i64 %23
-  %58 = load ptr, ptr %57, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %60 = or i64 %59, 2
-  %61 = inttoptr i64 %60 to ptr
-  %62 = getelementptr inbounds nuw i8, ptr %13, i64 144
-  store ptr %61, ptr %62, align 16
-  %63 = getelementptr inbounds nuw i8, ptr %13, i64 136
-  store ptr %61, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store ptr %55, ptr %64, align 8
-  %65 = getelementptr i8, ptr %55, i64 1
-  %66 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  store ptr %65, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  store ptr %65, ptr %67, align 8
-  %68 = getelementptr i8, ptr %55, i64 2
-  %69 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  store ptr %68, ptr %69, align 8
-  %70 = getelementptr i8, ptr %55, i64 3
-  %71 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  store ptr %70, ptr %71, align 8
-  %72 = getelementptr i8, ptr %55, i64 4
-  %73 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  store ptr %72, ptr %73, align 8
-  %74 = getelementptr i8, ptr %55, i64 5
-  %75 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  store ptr %74, ptr %75, align 8
-  %76 = getelementptr i8, ptr %55, i64 6
-  %77 = getelementptr inbounds nuw i8, ptr %13, i64 112
-  store ptr %76, ptr %77, align 8
-  %78 = getelementptr i8, ptr %55, i64 7
-  %79 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  store ptr %78, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %13, i64 128
-  store ptr %78, ptr %80, align 8
-  %81 = load i64, ptr %19, align 8
-  %82 = load i64, ptr %24, align 8
-  tail call void (ptr, ptr, ...) @ata_port_desc(ptr noundef %13, ptr noundef nonnull @.str.13, i64 noundef %81, i64 noundef %82) #13
-  %83 = trunc nuw nsw i64 %10 to i32
-  %84 = shl nuw nsw i32 1, %83
-  %85 = or i32 %84, %11
-  br label %86
+51:                                               ; preds = %40
+  %52 = tail call ptr @pcim_iomap_table(ptr noundef %4) #13
+  store ptr %52, ptr %7, align 8
+  %53 = getelementptr ptr, ptr %52, i64 %14
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  store ptr %54, ptr %55, align 16
+  %56 = getelementptr ptr, ptr %52, i64 %23
+  %57 = load ptr, ptr %56, align 8
+  %58 = ptrtoint ptr %57 to i64
+  %59 = or i64 %58, 2
+  %60 = inttoptr i64 %59 to ptr
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 144
+  store ptr %60, ptr %61, align 16
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 136
+  store ptr %60, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  store ptr %54, ptr %63, align 8
+  %64 = getelementptr i8, ptr %54, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 64
+  store ptr %64, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  store ptr %64, ptr %66, align 8
+  %67 = getelementptr i8, ptr %54, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 80
+  store ptr %67, ptr %68, align 8
+  %69 = getelementptr i8, ptr %54, i64 3
+  %70 = getelementptr inbounds nuw i8, ptr %13, i64 88
+  store ptr %69, ptr %70, align 8
+  %71 = getelementptr i8, ptr %54, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 96
+  store ptr %71, ptr %72, align 8
+  %73 = getelementptr i8, ptr %54, i64 5
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 104
+  store ptr %73, ptr %74, align 8
+  %75 = getelementptr i8, ptr %54, i64 6
+  %76 = getelementptr inbounds nuw i8, ptr %13, i64 112
+  store ptr %75, ptr %76, align 8
+  %77 = getelementptr i8, ptr %54, i64 7
+  %78 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  store ptr %77, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %13, i64 128
+  store ptr %77, ptr %79, align 8
+  %80 = load i64, ptr %19, align 8
+  %81 = load i64, ptr %24, align 8
+  tail call void (ptr, ptr, ...) @ata_port_desc(ptr noundef %13, ptr noundef nonnull @.str.13, i64 noundef %80, i64 noundef %81) #13
+  %82 = trunc nuw nsw i64 %10 to i32
+  %83 = shl nuw nsw i32 1, %82
+  %84 = or i32 %83, %11
+  br label %85
 
-86:                                               ; preds = %52, %51, %.critedge, %8
-  %87 = phi i32 [ %11, %51 ], [ %85, %52 ], [ %11, %.critedge ], [ %11, %8 ]
-  br i1 %9, label %8, label %88, !llvm.loop !106
+85:                                               ; preds = %51, %50, %.critedge, %8
+  %86 = phi i32 [ %11, %50 ], [ %84, %51 ], [ %11, %.critedge ], [ %11, %8 ]
+  br i1 %9, label %8, label %87, !llvm.loop !106
 
-88:                                               ; preds = %86
-  %89 = icmp eq i32 %87, 0
-  br i1 %89, label %90, label %91
+87:                                               ; preds = %85
+  %88 = icmp eq i32 %86, 0
+  br i1 %88, label %89, label %90
 
-90:                                               ; preds = %88
+89:                                               ; preds = %87
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %3, ptr noundef nonnull @.str.14) #14
-  br label %91
+  br label %90
 
-91:                                               ; preds = %90, %88
-  %92 = phi i32 [ -19, %90 ], [ 0, %88 ]
-  ret i32 %92
+90:                                               ; preds = %89, %87
+  %91 = phi i32 [ -19, %89 ], [ 0, %87 ]
+  ret i32 %91
 }
 
 ; Function Attrs: null_pointer_is_valid

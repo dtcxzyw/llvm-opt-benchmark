@@ -7519,15 +7519,15 @@ _ZN2cv3Mat2atIdEERT_i.exit102:                    ; preds = %.lr.ph225
 
 _ZN2cv3Mat2atIdEERT_i.exit102.thread:             ; preds = %178
   %254 = load ptr, ptr %106, align 8, !tbaa !153
-  %255 = or disjoint i64 %174, 1
-  %256 = or disjoint i32 %175, 1
-  %257 = getelementptr inbounds nuw double, ptr %254, i64 %255
+  %255 = or disjoint i32 %175, 1
+  %256 = getelementptr inbounds nuw double, ptr %254, i64 %174
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   br label %258
 
 258:                                              ; preds = %_ZN2cv3Mat2atIdEERT_i.exit102.thread, %_ZN2cv3Mat2atIdEERT_i.exit102
   %259 = phi ptr [ %254, %_ZN2cv3Mat2atIdEERT_i.exit102.thread ], [ %250, %_ZN2cv3Mat2atIdEERT_i.exit102 ]
   %.in = phi ptr [ %257, %_ZN2cv3Mat2atIdEERT_i.exit102.thread ], [ %252, %_ZN2cv3Mat2atIdEERT_i.exit102 ]
-  %260 = phi i32 [ %256, %_ZN2cv3Mat2atIdEERT_i.exit102.thread ], [ %253, %_ZN2cv3Mat2atIdEERT_i.exit102 ]
+  %260 = phi i32 [ %255, %_ZN2cv3Mat2atIdEERT_i.exit102.thread ], [ %253, %_ZN2cv3Mat2atIdEERT_i.exit102 ]
   %.in287 = getelementptr inbounds nuw double, ptr %259, i64 %174
   %261 = load double, ptr %.in287, align 8, !tbaa !105
   %262 = load double, ptr %.in, align 8, !tbaa !105

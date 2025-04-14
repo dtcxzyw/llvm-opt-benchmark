@@ -4920,7 +4920,7 @@ define dso_local range(i32 0, 2) i32 @quicklistBookmarkCreate(ptr noundef captur
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 64424509440
   %8 = icmp eq i64 %7, 64424509440
-  br i1 %8, label %35, label %9
+  br i1 %8, label %36, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -4948,7 +4948,7 @@ define dso_local range(i32 0, 2) i32 @quicklistBookmarkCreate(ptr noundef captur
 
 _quicklistBookmarkFindByName.exit:                ; preds = %.lr.ph.i
   store ptr %2, ptr %13, align 8, !tbaa !31
-  br label %35
+  br label %36
 
 .loopexit:                                        ; preds = %12, %9
   %17 = lshr i64 %6, 28
@@ -4967,17 +4967,17 @@ _quicklistBookmarkFindByName.exit:                ; preds = %.lr.ph.i
   %28 = load i64, ptr %22, align 8
   %29 = lshr i64 %28, 28
   %.idx = and i64 %29, 240
-  %.offs = or disjoint i64 %.idx, 8
-  %30 = getelementptr inbounds nuw i8, ptr %21, i64 %.offs
-  store ptr %27, ptr %30, align 8, !tbaa !20
-  %31 = add i64 %28, 4294967296
-  %32 = and i64 %31, 64424509440
-  %33 = and i64 %28, -64424509441
-  %34 = or disjoint i64 %32, %33
-  store i64 %34, ptr %22, align 8
-  br label %35
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store ptr %27, ptr %31, align 8, !tbaa !20
+  %32 = add i64 %28, 4294967296
+  %33 = and i64 %32, 64424509440
+  %34 = and i64 %28, -64424509441
+  %35 = or disjoint i64 %33, %34
+  store i64 %35, ptr %22, align 8
+  br label %36
 
-35:                                               ; preds = %_quicklistBookmarkFindByName.exit, %.loopexit, %3
+36:                                               ; preds = %_quicklistBookmarkFindByName.exit, %.loopexit, %3
   %.0 = phi i32 [ 0, %3 ], [ 1, %.loopexit ], [ 1, %_quicklistBookmarkFindByName.exit ]
   ret i32 %.0
 }

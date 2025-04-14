@@ -67,32 +67,30 @@ define void @BF_set_key(ptr noundef initializes((0, 4168)) %0, i32 noundef %1, p
   %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv62
   store i32 %32, ptr %33, align 4, !tbaa !6
   %34 = load i32, ptr %30, align 4, !tbaa !6
-  %35 = or disjoint i64 %indvars.iv62, 1
-  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %35
-  store i32 %34, ptr %36, align 4, !tbaa !6
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  store i32 %34, ptr %35, align 4, !tbaa !6
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 2
-  %37 = icmp samesign ult i64 %indvars.iv62, 16
-  br i1 %37, label %31, label %38, !llvm.loop !10
+  %36 = icmp samesign ult i64 %indvars.iv62, 16
+  br i1 %36, label %31, label %37, !llvm.loop !10
 
-38:                                               ; preds = %31
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %40
+37:                                               ; preds = %31
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  br label %39
 
-40:                                               ; preds = %38, %40
-  %indvars.iv65 = phi i64 [ 0, %38 ], [ %indvars.iv.next66, %40 ]
+39:                                               ; preds = %37, %39
+  %indvars.iv65 = phi i64 [ 0, %37 ], [ %indvars.iv.next66, %39 ]
   call void @BF_encrypt(ptr noundef nonnull %4, ptr noundef nonnull %0) #5
-  %41 = load i32, ptr %4, align 4, !tbaa !6
-  %42 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv65
-  store i32 %41, ptr %42, align 4, !tbaa !6
-  %43 = load i32, ptr %30, align 4, !tbaa !6
-  %44 = or disjoint i64 %indvars.iv65, 1
-  %45 = getelementptr inbounds nuw i32, ptr %39, i64 %44
-  store i32 %43, ptr %45, align 4, !tbaa !6
+  %40 = load i32, ptr %4, align 4, !tbaa !6
+  %41 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv65
+  store i32 %40, ptr %41, align 4, !tbaa !6
+  %42 = load i32, ptr %30, align 4, !tbaa !6
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store i32 %42, ptr %43, align 4, !tbaa !6
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 2
-  %46 = icmp samesign ult i64 %indvars.iv65, 1022
-  br i1 %46, label %40, label %47, !llvm.loop !11
+  %44 = icmp samesign ult i64 %indvars.iv65, 1022
+  br i1 %44, label %39, label %45, !llvm.loop !11
 
-47:                                               ; preds = %40
+45:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   ret void
 }

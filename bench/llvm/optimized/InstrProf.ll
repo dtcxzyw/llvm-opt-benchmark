@@ -4149,111 +4149,114 @@ define dso_local noundef i64 @_ZN4llvm15InstrProfSymtab24getVTableHashFromAddres
   %12 = add i32 %5, -1
   %13 = zext i32 %12 to i64
   %.idx = shl nuw nsw i64 %13, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %.offs
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %16 = getelementptr inbounds nuw [5 x i64], ptr %15, i64 0, i64 %13
-  %.in.i.i = select i1 %.not.i.i, ptr %14, ptr %16
-  %17 = load i64, ptr %.in.i.i, align 8, !tbaa !55
-  %.not.i = icmp ugt i64 %17, %1
-  br i1 %.not.i, label %18, label %_ZNK4llvm11IntervalMapImmLj4ENS_23IntervalMapHalfOpenInfoImEEE6lookupEmm.exit
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %17 = getelementptr inbounds nuw [5 x i64], ptr %16, i64 0, i64 %13
+  %.in.i.i = select i1 %.not.i.i, ptr %15, ptr %17
+  %18 = load i64, ptr %.in.i.i, align 8, !tbaa !55
+  %.not.i = icmp ugt i64 %18, %1
+  br i1 %.not.i, label %19, label %_ZNK4llvm11IntervalMapImmLj4ENS_23IntervalMapHalfOpenInfoImEEE6lookupEmm.exit
 
-18:                                               ; preds = %9
-  br i1 %.not.i.i, label %.preheader.i, label %.preheader12.i
+19:                                               ; preds = %9
+  br i1 %.not.i.i, label %.preheader.i.preheader, label %.preheader12.i
 
-.preheader12.i:                                   ; preds = %18, %.preheader12.i
-  %.0.i.i.i.i = phi i32 [ %22, %.preheader12.i ], [ 0, %18 ]
-  %19 = zext i32 %.0.i.i.i.i to i64
-  %20 = getelementptr inbounds nuw [5 x i64], ptr %15, i64 0, i64 %19
-  %21 = load i64, ptr %20, align 8, !tbaa !55
-  %.not.i.i.i.i = icmp ugt i64 %21, %1
-  %22 = add i32 %.0.i.i.i.i, 1
+.preheader.i.preheader:                           ; preds = %19
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 280
+  br label %.preheader.i
+
+.preheader12.i:                                   ; preds = %19, %.preheader12.i
+  %.0.i.i.i.i = phi i32 [ %23, %.preheader12.i ], [ 0, %19 ]
+  %20 = zext i32 %.0.i.i.i.i to i64
+  %21 = getelementptr inbounds nuw [5 x i64], ptr %16, i64 0, i64 %20
+  %22 = load i64, ptr %21, align 8, !tbaa !55
+  %.not.i.i.i.i = icmp ugt i64 %22, %1
+  %23 = add i32 %.0.i.i.i.i, 1
   br i1 %.not.i.i.i.i, label %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i, label %.preheader12.i, !llvm.loop !357
 
 _ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i: ; preds = %.preheader12.i
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %24 = getelementptr inbounds nuw [5 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %23, i64 0, i64 %19
-  %.sroa.0.015.i.i = load i64, ptr %24, align 8, !tbaa !74
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %25 = getelementptr inbounds nuw [5 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %24, i64 0, i64 %20
+  %.sroa.0.015.i.i = load i64, ptr %25, align 8, !tbaa !74
   %.016.i.i = add i32 %11, -1
   %.not17.i.i = icmp eq i32 %.016.i.i, 0
   br i1 %.not17.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i
   %.sroa.0.0.lcssa.i.i = phi i64 [ %.sroa.0.015.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i ], [ %.sroa.0.0.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i ]
-  %25 = and i64 %.sroa.0.0.lcssa.i.i, -64
-  %26 = inttoptr i64 %25 to ptr
-  br label %27
+  %26 = and i64 %.sroa.0.0.lcssa.i.i, -64
+  %27 = inttoptr i64 %26 to ptr
+  br label %28
 
-27:                                               ; preds = %27, %._crit_edge.i.i
-  %.0.i.i6.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %31, %27 ]
-  %28 = zext i32 %.0.i.i6.i.i to i64
-  %29 = getelementptr inbounds nuw [8 x %"struct.std::pair.143"], ptr %26, i64 0, i64 %28, i32 1
-  %30 = load i64, ptr %29, align 8, !tbaa !55
-  %.not.i.i7.i.i = icmp ugt i64 %30, %1
-  %31 = add i32 %.0.i.i6.i.i, 1
-  br i1 %.not.i.i7.i.i, label %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i, label %27, !llvm.loop !358
+28:                                               ; preds = %28, %._crit_edge.i.i
+  %.0.i.i6.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %32, %28 ]
+  %29 = zext i32 %.0.i.i6.i.i to i64
+  %30 = getelementptr inbounds nuw [8 x %"struct.std::pair.143"], ptr %27, i64 0, i64 %29, i32 1
+  %31 = load i64, ptr %30, align 8, !tbaa !55
+  %.not.i.i7.i.i = icmp ugt i64 %31, %1
+  %32 = add i32 %.0.i.i6.i.i, 1
+  br i1 %.not.i.i7.i.i, label %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i, label %28, !llvm.loop !358
 
-_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i: ; preds = %27
-  %32 = getelementptr inbounds nuw [8 x %"struct.std::pair.143"], ptr %26, i64 0, i64 %28
-  %33 = load i64, ptr %32, align 16, !tbaa !55
-  %34 = icmp ult i64 %1, %33
-  br i1 %34, label %_ZNK4llvm11IntervalMapImmLj4ENS_23IntervalMapHalfOpenInfoImEEE6lookupEmm.exit, label %35
+_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i: ; preds = %28
+  %33 = getelementptr inbounds nuw [8 x %"struct.std::pair.143"], ptr %27, i64 0, i64 %29
+  %34 = load i64, ptr %33, align 16, !tbaa !55
+  %35 = icmp ult i64 %1, %34
+  br i1 %35, label %_ZNK4llvm11IntervalMapImmLj4ENS_23IntervalMapHalfOpenInfoImEEE6lookupEmm.exit, label %36
 
-35:                                               ; preds = %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  %37 = getelementptr inbounds nuw [8 x i64], ptr %36, i64 0, i64 %28
-  %38 = load i64, ptr %37, align 8, !tbaa !55
+36:                                               ; preds = %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i
+  %37 = getelementptr inbounds nuw i8, ptr %27, i64 128
+  %38 = getelementptr inbounds nuw [8 x i64], ptr %37, i64 0, i64 %29
+  %39 = load i64, ptr %38, align 8, !tbaa !55
   br label %_ZNK4llvm11IntervalMapImmLj4ENS_23IntervalMapHalfOpenInfoImEEE6lookupEmm.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i
   %.019.i.i = phi i32 [ %.0.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i ], [ %.016.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i ]
   %.sroa.0.018.i.i = phi i64 [ %.sroa.0.0.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i ], [ %.sroa.0.015.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i ]
-  %39 = and i64 %.sroa.0.018.i.i, -64
-  %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
-  br label %42
+  %40 = and i64 %.sroa.0.018.i.i, -64
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
+  br label %43
 
-42:                                               ; preds = %42, %.lr.ph.i.i
-  %.0.i.i9.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %46, %42 ]
-  %43 = zext i32 %.0.i.i9.i.i to i64
-  %44 = getelementptr inbounds nuw [12 x i64], ptr %41, i64 0, i64 %43
-  %45 = load i64, ptr %44, align 8, !tbaa !55
-  %.not.i.i10.i.i = icmp ugt i64 %45, %1
-  %46 = add i32 %.0.i.i9.i.i, 1
-  br i1 %.not.i.i10.i.i, label %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i, label %42, !llvm.loop !359
+43:                                               ; preds = %43, %.lr.ph.i.i
+  %.0.i.i9.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %47, %43 ]
+  %44 = zext i32 %.0.i.i9.i.i to i64
+  %45 = getelementptr inbounds nuw [12 x i64], ptr %42, i64 0, i64 %44
+  %46 = load i64, ptr %45, align 8, !tbaa !55
+  %.not.i.i10.i.i = icmp ugt i64 %46, %1
+  %47 = add i32 %.0.i.i9.i.i, 1
+  br i1 %.not.i.i10.i.i, label %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i, label %43, !llvm.loop !359
 
-_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i: ; preds = %42
-  %47 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %40, i64 0, i64 %43
-  %.sroa.0.0.i.i = load i64, ptr %47, align 8, !tbaa !74
+_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i: ; preds = %43
+  %48 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %41, i64 0, i64 %44
+  %.sroa.0.0.i.i = load i64, ptr %48, align 8, !tbaa !74
   %.0.i.i = add i32 %.019.i.i, -1
   %.not.i4.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not.i4.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !360
 
-.preheader.i:                                     ; preds = %18, %.preheader.i
-  %.0.i.i.i = phi i32 [ %51, %.preheader.i ], [ 0, %18 ]
-  %48 = zext i32 %.0.i.i.i to i64
-  %.idx1 = shl nuw nsw i64 %48, 4
-  %.offs2 = or disjoint i64 %.idx1, 8
-  %49 = getelementptr inbounds nuw i8, ptr %3, i64 %.offs2
-  %50 = load i64, ptr %49, align 8, !tbaa !55
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
+  %.0.i.i.i = phi i32 [ %51, %.preheader.i ], [ 0, %.preheader.i.preheader ]
+  %49 = zext i32 %.0.i.i.i to i64
+  %.idx1 = shl nuw nsw i64 %49, 4
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx1
+  %50 = load i64, ptr %gep, align 8, !tbaa !55
   %.not.i.i.i = icmp ugt i64 %50, %1
   %51 = add i32 %.0.i.i.i, 1
   br i1 %.not.i.i.i, label %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i, label %.preheader.i, !llvm.loop !361
 
 _ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i: ; preds = %.preheader.i
-  %52 = getelementptr inbounds nuw [4 x %"struct.std::pair.143"], ptr %3, i64 0, i64 %48
+  %52 = getelementptr inbounds nuw [4 x %"struct.std::pair.143"], ptr %3, i64 0, i64 %49
   %53 = load i64, ptr %52, align 8, !tbaa !55
   %54 = icmp ult i64 %1, %53
   br i1 %54, label %_ZNK4llvm11IntervalMapImmLj4ENS_23IntervalMapHalfOpenInfoImEEE6lookupEmm.exit, label %55
 
 55:                                               ; preds = %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %57 = getelementptr inbounds nuw [4 x i64], ptr %56, i64 0, i64 %48
+  %57 = getelementptr inbounds nuw [4 x i64], ptr %56, i64 0, i64 %49
   %58 = load i64, ptr %57, align 8, !tbaa !55
   br label %_ZNK4llvm11IntervalMapImmLj4ENS_23IntervalMapHalfOpenInfoImEEE6lookupEmm.exit
 
-_ZNK4llvm11IntervalMapImmLj4ENS_23IntervalMapHalfOpenInfoImEEE6lookupEmm.exit: ; preds = %2, %9, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i, %35, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i, %55
-  %.0.i = phi i64 [ 0, %9 ], [ 0, %2 ], [ %38, %35 ], [ 0, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i ], [ %58, %55 ], [ 0, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i ]
+_ZNK4llvm11IntervalMapImmLj4ENS_23IntervalMapHalfOpenInfoImEEE6lookupEmm.exit: ; preds = %2, %9, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i, %36, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i, %55
+  %.0.i = phi i64 [ 0, %9 ], [ 0, %2 ], [ %39, %36 ], [ 0, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i ], [ %58, %55 ], [ 0, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i ]
   ret i64 %.0.i
 }
 
@@ -7477,111 +7480,114 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEEl
   %37 = add i32 %30, -1
   %38 = zext i32 %37 to i64
   %.idx.i = shl nuw nsw i64 %38, 4
-  %.offs.i = or disjoint i64 %.idx.i, 8
-  %39 = getelementptr inbounds nuw i8, ptr %28, i64 %.offs.i
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 320
-  %41 = getelementptr inbounds nuw [5 x i64], ptr %40, i64 0, i64 %38
-  %.in.i.i.i = select i1 %.not.i.i.i, ptr %39, ptr %41
-  %42 = load i64, ptr %.in.i.i.i, align 8, !tbaa !55
-  %.not.i.i = icmp ugt i64 %42, %1
-  br i1 %.not.i.i, label %43, label %_ZN4llvm15InstrProfSymtab26getFunctionHashFromAddressEm.exit
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx.i
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 320
+  %42 = getelementptr inbounds nuw [5 x i64], ptr %41, i64 0, i64 %38
+  %.in.i.i.i = select i1 %.not.i.i.i, ptr %40, ptr %42
+  %43 = load i64, ptr %.in.i.i.i, align 8, !tbaa !55
+  %.not.i.i = icmp ugt i64 %43, %1
+  br i1 %.not.i.i, label %44, label %_ZN4llvm15InstrProfSymtab26getFunctionHashFromAddressEm.exit
 
-43:                                               ; preds = %34
-  br i1 %.not.i.i.i, label %.preheader.i.i, label %.preheader12.i.i
+44:                                               ; preds = %34
+  br i1 %.not.i.i.i, label %.preheader.i.preheader.i, label %.preheader12.i.i
 
-.preheader12.i.i:                                 ; preds = %43, %.preheader12.i.i
-  %.0.i.i.i.i.i = phi i32 [ %47, %.preheader12.i.i ], [ 0, %43 ]
-  %44 = zext i32 %.0.i.i.i.i.i to i64
-  %45 = getelementptr inbounds nuw [5 x i64], ptr %40, i64 0, i64 %44
-  %46 = load i64, ptr %45, align 8, !tbaa !55
-  %.not.i.i.i.i.i = icmp ugt i64 %46, %1
-  %47 = add i32 %.0.i.i.i.i.i, 1
+.preheader.i.preheader.i:                         ; preds = %44
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 280
+  br label %.preheader.i.i
+
+.preheader12.i.i:                                 ; preds = %44, %.preheader12.i.i
+  %.0.i.i.i.i.i = phi i32 [ %48, %.preheader12.i.i ], [ 0, %44 ]
+  %45 = zext i32 %.0.i.i.i.i.i to i64
+  %46 = getelementptr inbounds nuw [5 x i64], ptr %41, i64 0, i64 %45
+  %47 = load i64, ptr %46, align 8, !tbaa !55
+  %.not.i.i.i.i.i = icmp ugt i64 %47, %1
+  %48 = add i32 %.0.i.i.i.i.i, 1
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i, label %.preheader12.i.i, !llvm.loop !357
 
 _ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i: ; preds = %.preheader12.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 280
-  %49 = getelementptr inbounds nuw [5 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %48, i64 0, i64 %44
-  %.sroa.0.015.i.i.i = load i64, ptr %49, align 8, !tbaa !74
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 280
+  %50 = getelementptr inbounds nuw [5 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %49, i64 0, i64 %45
+  %.sroa.0.015.i.i.i = load i64, ptr %50, align 8, !tbaa !74
   %.016.i.i.i = add i32 %36, -1
   %.not17.i.i.i = icmp eq i32 %.016.i.i.i, 0
   br i1 %.not17.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i
   %.sroa.0.0.lcssa.i.i.i = phi i64 [ %.sroa.0.015.i.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i ], [ %.sroa.0.0.i.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i ]
-  %50 = and i64 %.sroa.0.0.lcssa.i.i.i, -64
-  %51 = inttoptr i64 %50 to ptr
-  br label %52
+  %51 = and i64 %.sroa.0.0.lcssa.i.i.i, -64
+  %52 = inttoptr i64 %51 to ptr
+  br label %53
 
-52:                                               ; preds = %52, %._crit_edge.i.i.i
-  %.0.i.i6.i.i.i = phi i32 [ 0, %._crit_edge.i.i.i ], [ %56, %52 ]
-  %53 = zext i32 %.0.i.i6.i.i.i to i64
-  %54 = getelementptr inbounds nuw [8 x %"struct.std::pair.143"], ptr %51, i64 0, i64 %53, i32 1
-  %55 = load i64, ptr %54, align 8, !tbaa !55
-  %.not.i.i7.i.i.i = icmp ugt i64 %55, %1
-  %56 = add i32 %.0.i.i6.i.i.i, 1
-  br i1 %.not.i.i7.i.i.i, label %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i.i, label %52, !llvm.loop !358
+53:                                               ; preds = %53, %._crit_edge.i.i.i
+  %.0.i.i6.i.i.i = phi i32 [ 0, %._crit_edge.i.i.i ], [ %57, %53 ]
+  %54 = zext i32 %.0.i.i6.i.i.i to i64
+  %55 = getelementptr inbounds nuw [8 x %"struct.std::pair.143"], ptr %52, i64 0, i64 %54, i32 1
+  %56 = load i64, ptr %55, align 8, !tbaa !55
+  %.not.i.i7.i.i.i = icmp ugt i64 %56, %1
+  %57 = add i32 %.0.i.i6.i.i.i, 1
+  br i1 %.not.i.i7.i.i.i, label %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i.i, label %53, !llvm.loop !358
 
-_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i.i: ; preds = %52
-  %57 = getelementptr inbounds nuw [8 x %"struct.std::pair.143"], ptr %51, i64 0, i64 %53
-  %58 = load i64, ptr %57, align 16, !tbaa !55
-  %59 = icmp ult i64 %1, %58
-  br i1 %59, label %_ZN4llvm15InstrProfSymtab26getFunctionHashFromAddressEm.exit, label %60
+_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i.i: ; preds = %53
+  %58 = getelementptr inbounds nuw [8 x %"struct.std::pair.143"], ptr %52, i64 0, i64 %54
+  %59 = load i64, ptr %58, align 16, !tbaa !55
+  %60 = icmp ult i64 %1, %59
+  br i1 %60, label %_ZN4llvm15InstrProfSymtab26getFunctionHashFromAddressEm.exit, label %61
 
-60:                                               ; preds = %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i.i
-  %61 = getelementptr inbounds nuw i8, ptr %51, i64 128
-  %62 = getelementptr inbounds nuw [8 x i64], ptr %61, i64 0, i64 %53
-  %63 = load i64, ptr %62, align 8, !tbaa !55
+61:                                               ; preds = %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i.i
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 128
+  %63 = getelementptr inbounds nuw [8 x i64], ptr %62, i64 0, i64 %54
+  %64 = load i64, ptr %63, align 8, !tbaa !55
   br label %_ZN4llvm15InstrProfSymtab26getFunctionHashFromAddressEm.exit
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i
   %.019.i.i.i = phi i32 [ %.0.i.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i ], [ %.016.i.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i ]
   %.sroa.0.018.i.i.i = phi i64 [ %.sroa.0.0.i.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i ], [ %.sroa.0.015.i.i.i, %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj5ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i ]
-  %64 = and i64 %.sroa.0.018.i.i.i, -64
-  %65 = inttoptr i64 %64 to ptr
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 96
-  br label %67
+  %65 = and i64 %.sroa.0.018.i.i.i, -64
+  %66 = inttoptr i64 %65 to ptr
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 96
+  br label %68
 
-67:                                               ; preds = %67, %.lr.ph.i.i.i
-  %.0.i.i9.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %71, %67 ]
-  %68 = zext i32 %.0.i.i9.i.i.i to i64
-  %69 = getelementptr inbounds nuw [12 x i64], ptr %66, i64 0, i64 %68
-  %70 = load i64, ptr %69, align 8, !tbaa !55
-  %.not.i.i10.i.i.i = icmp ugt i64 %70, %1
-  %71 = add i32 %.0.i.i9.i.i.i, 1
-  br i1 %.not.i.i10.i.i.i, label %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i, label %67, !llvm.loop !359
+68:                                               ; preds = %68, %.lr.ph.i.i.i
+  %.0.i.i9.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %72, %68 ]
+  %69 = zext i32 %.0.i.i9.i.i.i to i64
+  %70 = getelementptr inbounds nuw [12 x i64], ptr %67, i64 0, i64 %69
+  %71 = load i64, ptr %70, align 8, !tbaa !55
+  %.not.i.i10.i.i.i = icmp ugt i64 %71, %1
+  %72 = add i32 %.0.i.i9.i.i.i, 1
+  br i1 %.not.i.i10.i.i.i, label %_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i, label %68, !llvm.loop !359
 
-_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i: ; preds = %67
-  %72 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %65, i64 0, i64 %68
-  %.sroa.0.0.i.i.i = load i64, ptr %72, align 8, !tbaa !74
+_ZNK4llvm15IntervalMapImpl10BranchNodeImmLj12ENS_23IntervalMapHalfOpenInfoImEEE10safeLookupEm.exit.i.i.i: ; preds = %68
+  %73 = getelementptr inbounds nuw [12 x %"class.llvm::IntervalMapImpl::NodeRef"], ptr %66, i64 0, i64 %69
+  %.sroa.0.0.i.i.i = load i64, ptr %73, align 8, !tbaa !74
   %.0.i.i.i = add i32 %.019.i.i.i, -1
   %.not.i4.i.i = icmp eq i32 %.0.i.i.i, 0
   br i1 %.not.i4.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !360
 
-.preheader.i.i:                                   ; preds = %43, %.preheader.i.i
-  %.0.i.i.i.i = phi i32 [ %76, %.preheader.i.i ], [ 0, %43 ]
-  %73 = zext i32 %.0.i.i.i.i to i64
-  %.idx1.i = shl nuw nsw i64 %73, 4
-  %.offs2.i = or disjoint i64 %.idx1.i, 8
-  %74 = getelementptr inbounds nuw i8, ptr %28, i64 %.offs2.i
-  %75 = load i64, ptr %74, align 8, !tbaa !55
+.preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.i.preheader.i
+  %.0.i.i.i.i = phi i32 [ %76, %.preheader.i.i ], [ 0, %.preheader.i.preheader.i ]
+  %74 = zext i32 %.0.i.i.i.i to i64
+  %.idx1.i = shl nuw nsw i64 %74, 4
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %.idx1.i
+  %75 = load i64, ptr %gep.i, align 8, !tbaa !55
   %.not.i.i.i.i = icmp ugt i64 %75, %1
   %76 = add i32 %.0.i.i.i.i, 1
   br i1 %.not.i.i.i.i, label %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i, label %.preheader.i.i, !llvm.loop !361
 
 _ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i: ; preds = %.preheader.i.i
-  %77 = getelementptr inbounds nuw [4 x %"struct.std::pair.143"], ptr %28, i64 0, i64 %73
+  %77 = getelementptr inbounds nuw [4 x %"struct.std::pair.143"], ptr %28, i64 0, i64 %74
   %78 = load i64, ptr %77, align 8, !tbaa !55
   %79 = icmp ult i64 %1, %78
   br i1 %79, label %_ZN4llvm15InstrProfSymtab26getFunctionHashFromAddressEm.exit, label %80
 
 80:                                               ; preds = %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 336
-  %82 = getelementptr inbounds nuw [4 x i64], ptr %81, i64 0, i64 %73
+  %82 = getelementptr inbounds nuw [4 x i64], ptr %81, i64 0, i64 %74
   %83 = load i64, ptr %82, align 8, !tbaa !55
   br label %_ZN4llvm15InstrProfSymtab26getFunctionHashFromAddressEm.exit
 
-_ZN4llvm15InstrProfSymtab26getFunctionHashFromAddressEm.exit: ; preds = %80, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i, %60, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i.i, %34, %27, %24, %21, %"_ZN4llvm15partition_pointIRSt6vectorISt4pairImmESaIS3_EEZNS_15InstrProfSymtab26getFunctionHashFromAddressEmE3$_0RS3_EEDaOT_T0_.exit.i", %5, %4
-  %.0 = phi i64 [ %1, %4 ], [ %1, %5 ], [ %26, %24 ], [ 0, %21 ], [ 0, %"_ZN4llvm15partition_pointIRSt6vectorISt4pairImmESaIS3_EEZNS_15InstrProfSymtab26getFunctionHashFromAddressEmE3$_0RS3_EEDaOT_T0_.exit.i" ], [ 0, %34 ], [ 0, %27 ], [ %63, %60 ], [ 0, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i.i ], [ %83, %80 ], [ 0, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i ]
+_ZN4llvm15InstrProfSymtab26getFunctionHashFromAddressEm.exit: ; preds = %80, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i, %61, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i.i, %34, %27, %24, %21, %"_ZN4llvm15partition_pointIRSt6vectorISt4pairImmESaIS3_EEZNS_15InstrProfSymtab26getFunctionHashFromAddressEmE3$_0RS3_EEDaOT_T0_.exit.i", %5, %4
+  %.0 = phi i64 [ %1, %4 ], [ %1, %5 ], [ %26, %24 ], [ 0, %21 ], [ 0, %"_ZN4llvm15partition_pointIRSt6vectorISt4pairImmESaIS3_EEZNS_15InstrProfSymtab26getFunctionHashFromAddressEmE3$_0RS3_EEDaOT_T0_.exit.i" ], [ 0, %34 ], [ 0, %27 ], [ %64, %61 ], [ 0, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj8ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i.i ], [ %83, %80 ], [ 0, %_ZNK4llvm15IntervalMapImpl8LeafNodeImmLj4ENS_23IntervalMapHalfOpenInfoImEEE8safeFindEjm.exit.i.i.i ]
   ret i64 %.0
 }
 

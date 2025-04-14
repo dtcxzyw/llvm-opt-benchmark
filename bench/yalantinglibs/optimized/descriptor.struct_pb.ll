@@ -16039,11 +16039,10 @@ if.end.i92:                                       ; preds = %_ZN9struct_pb8inter
   unreachable
 
 _ZNKRSt8optionalIbE5valueEv.exit93:               ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit151
-  %inc2.i143 = or disjoint i64 %pos.0, 1
   %5 = load i8, ptr %no_standard_descriptor_accessor, align 2
   %conv1.i126 = and i8 %5, 1
   %inc2.i127 = add nuw nsw i64 %pos.0, 2
-  %arrayidx3.i128 = getelementptr inbounds nuw i8, ptr %data, i64 %inc2.i143
+  %arrayidx3.i128 = getelementptr inbounds nuw i8, ptr %arrayidx3.i144, i64 1
   store i8 %conv1.i126, ptr %arrayidx3.i128, align 1
   br label %if.end9
 
@@ -26106,11 +26105,10 @@ if.end.i60:                                       ; preds = %_ZN9struct_pb8inter
   unreachable
 
 _ZNKRSt8optionalIbE5valueEv.exit61:               ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit73
-  %inc2.i65 = or disjoint i64 %pos.0, 1
   %5 = load i8, ptr %deprecated, align 2
   %conv1.i48 = and i8 %5, 1
   %inc2.i49 = add nuw nsw i64 %pos.0, 2
-  %arrayidx3.i50 = getelementptr inbounds nuw i8, ptr %data, i64 %inc2.i65
+  %arrayidx3.i50 = getelementptr inbounds nuw i8, ptr %arrayidx3.i66, i64 1
   store i8 %conv1.i48, ptr %arrayidx3.i50, align 1
   br label %if.end9
 

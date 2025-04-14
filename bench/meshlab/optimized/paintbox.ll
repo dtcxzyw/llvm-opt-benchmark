@@ -13515,7 +13515,7 @@ define void @_ZN8Paintbox15getPixmapBufferERPhRPfRiS4_(ptr noundef nonnull align
   %9 = load ptr, ptr %8, align 8
   call void @_ZNK19QGraphicsPixmapItem6pixmapEv(ptr dead_on_unwind nonnull writable sret(%class.QPixmap) align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %9)
   invoke void @_ZNK7QPixmap7toImageEv(ptr dead_on_unwind nonnull writable sret(%class.QImage) align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
-          to label %10 unwind label %91
+          to label %10 unwind label %88
 
 10:                                               ; preds = %5
   call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
@@ -13560,18 +13560,18 @@ define void @_ZN8Paintbox15getPixmapBufferERPhRPfRiS4_(ptr noundef nonnull align
   store ptr %29, ptr %2, align 8
   br label %31
 
-31:                                               ; preds = %93, %30
-  %.031 = phi i32 [ 0, %30 ], [ %94, %93 ]
+31:                                               ; preds = %90, %30
+  %.031 = phi i32 [ 0, %30 ], [ %91, %90 ]
   %32 = invoke i64 @_ZNK6QImage4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %33 unwind label %.loopexit.split-lp.loopexit
 
 33:                                               ; preds = %31
   %.sroa.048.0.extract.trunc = trunc i64 %32 to i32
   %34 = icmp slt i32 %.031, %.sroa.048.0.extract.trunc
-  br i1 %34, label %.preheader, label %95
+  br i1 %34, label %.preheader, label %92
 
-.preheader:                                       ; preds = %33, %83
-  %.0 = phi i32 [ %90, %83 ], [ 0, %33 ]
+.preheader:                                       ; preds = %33, %81
+  %.0 = phi i32 [ %87, %81 ], [ 0, %33 ]
   %35 = invoke i64 @_ZNK6QImage4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %36 unwind label %.loopexit
 
@@ -13579,7 +13579,7 @@ define void @_ZN8Paintbox15getPixmapBufferERPhRPfRiS4_(ptr noundef nonnull align
   %.sroa.147.0.extract.shift = lshr i64 %35, 32
   %.sroa.147.0.extract.trunc = trunc nuw i64 %.sroa.147.0.extract.shift to i32
   %37 = icmp slt i32 %.0, %.sroa.147.0.extract.trunc
-  br i1 %37, label %38, label %93
+  br i1 %37, label %38, label %90
 
 38:                                               ; preds = %36
   %39 = invoke i64 @_ZNK6QImage4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -13626,55 +13626,52 @@ define void @_ZN8Paintbox15getPixmapBufferERPhRPfRiS4_(ptr noundef nonnull align
   %63 = lshr i32 %61, 8
   %64 = trunc i32 %63 to i8
   %65 = load ptr, ptr %1, align 8
-  %66 = or disjoint i32 %46, 1
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %65, i64 %67
-  store i8 %64, ptr %68, align 1
-  %69 = invoke i64 @_ZNK6QImage4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %70 unwind label %.loopexit
+  %66 = getelementptr i8, ptr %65, i64 %56
+  %67 = getelementptr i8, ptr %66, i64 1
+  store i8 %64, ptr %67, align 1
+  %68 = invoke i64 @_ZNK6QImage4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %69 unwind label %.loopexit
 
-70:                                               ; preds = %62
-  %.sroa.139.0.extract.shift = lshr i64 %69, 32
+69:                                               ; preds = %62
+  %.sroa.139.0.extract.shift = lshr i64 %68, 32
   %.sroa.139.0.extract.trunc = trunc nuw i64 %.sroa.139.0.extract.shift to i32
-  %71 = add i32 %.sroa.139.0.extract.trunc, %49
-  %72 = invoke noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %.031, i32 noundef %71)
-          to label %73 unwind label %.loopexit
+  %70 = add i32 %.sroa.139.0.extract.trunc, %49
+  %71 = invoke noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %.031, i32 noundef %70)
+          to label %72 unwind label %.loopexit
 
-73:                                               ; preds = %70
-  %74 = trunc i32 %72 to i8
-  %75 = load ptr, ptr %1, align 8
-  %76 = or disjoint i32 %46, 2
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %75, i64 %77
-  store i8 %74, ptr %78, align 1
-  %79 = invoke i64 @_ZNK6QImage4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %80 unwind label %.loopexit
+72:                                               ; preds = %69
+  %73 = trunc i32 %71 to i8
+  %74 = load ptr, ptr %1, align 8
+  %75 = getelementptr i8, ptr %74, i64 %56
+  %76 = getelementptr i8, ptr %75, i64 2
+  store i8 %73, ptr %76, align 1
+  %77 = invoke i64 @_ZNK6QImage4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %78 unwind label %.loopexit
 
-80:                                               ; preds = %73
-  %.sroa.137.0.extract.shift = lshr i64 %79, 32
+78:                                               ; preds = %72
+  %.sroa.137.0.extract.shift = lshr i64 %77, 32
   %.sroa.137.0.extract.trunc = trunc nuw i64 %.sroa.137.0.extract.shift to i32
-  %81 = add i32 %.sroa.137.0.extract.trunc, %49
-  %82 = invoke noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %.031, i32 noundef %81)
-          to label %83 unwind label %.loopexit
+  %79 = add i32 %.sroa.137.0.extract.trunc, %49
+  %80 = invoke noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %.031, i32 noundef %79)
+          to label %81 unwind label %.loopexit
 
-83:                                               ; preds = %80
-  %84 = lshr i32 %82, 24
-  %85 = trunc nuw i32 %84 to i8
-  %86 = load ptr, ptr %1, align 8
-  %87 = or disjoint i32 %46, 3
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i8, ptr %86, i64 %88
-  store i8 %85, ptr %89, align 1
-  %90 = add nuw nsw i32 %.0, 1
+81:                                               ; preds = %78
+  %82 = lshr i32 %80, 24
+  %83 = trunc nuw i32 %82 to i8
+  %84 = load ptr, ptr %1, align 8
+  %85 = getelementptr i8, ptr %84, i64 %56
+  %86 = getelementptr i8, ptr %85, i64 3
+  store i8 %83, ptr %86, align 1
+  %87 = add nuw nsw i32 %.0, 1
   br label %.preheader, !llvm.loop !14
 
-91:                                               ; preds = %5
-  %92 = landingpad { ptr, i32 }
+88:                                               ; preds = %5
+  %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #19
-  br label %101
+  br label %98
 
-.loopexit:                                        ; preds = %.preheader, %38, %40, %48, %52, %59, %62, %70, %73, %80
+.loopexit:                                        ; preds = %.preheader, %38, %40, %48, %52, %59, %62, %69, %72, %78
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -13684,7 +13681,7 @@ define void @_ZN8Paintbox15getPixmapBufferERPhRPfRiS4_(ptr noundef nonnull align
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %97, %95, %23, %21, %19, %14, %12, %10
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %94, %92, %23, %21, %19, %14, %12, %10
   %lpad.loopexit.split-lp59 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -13692,33 +13689,33 @@ define void @_ZN8Paintbox15getPixmapBufferERPhRPfRiS4_(ptr noundef nonnull align
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit58, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
-  br label %101
+  br label %98
 
-93:                                               ; preds = %36
-  %94 = add nuw nsw i32 %.031, 1
+90:                                               ; preds = %36
+  %91 = add nuw nsw i32 %.031, 1
   br label %31, !llvm.loop !15
 
-95:                                               ; preds = %33
-  %96 = invoke i64 @_ZNK6QImage4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %97 unwind label %.loopexit.split-lp.loopexit.split-lp
+92:                                               ; preds = %33
+  %93 = invoke i64 @_ZNK6QImage4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %94 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-97:                                               ; preds = %95
-  %.sroa.035.0.extract.trunc = trunc i64 %96 to i32
+94:                                               ; preds = %92
+  %.sroa.035.0.extract.trunc = trunc i64 %93 to i32
   store i32 %.sroa.035.0.extract.trunc, ptr %3, align 4
-  %98 = invoke i64 @_ZNK6QImage4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
-          to label %99 unwind label %.loopexit.split-lp.loopexit.split-lp
+  %95 = invoke i64 @_ZNK6QImage4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %96 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-99:                                               ; preds = %97
-  %.sroa.1.0.extract.shift = lshr i64 %98, 32
+96:                                               ; preds = %94
+  %.sroa.1.0.extract.shift = lshr i64 %95, 32
   %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   store i32 %.sroa.1.0.extract.trunc, ptr %4, align 4
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 832
-  store i8 0, ptr %100, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 832
+  store i8 0, ptr %97, align 8
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #19
   ret void
 
-101:                                              ; preds = %.loopexit.split-lp, %91
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %92, %91 ]
+98:                                               ; preds = %.loopexit.split-lp, %88
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %89, %88 ]
   resume { ptr, i32 } %.pn
 }
 

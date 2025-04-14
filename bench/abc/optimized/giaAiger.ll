@@ -9214,7 +9214,7 @@ define noalias noundef ptr @Aiger_Read(ptr noundef %0, ptr noundef writeonly cap
 15:                                               ; preds = %6
   %16 = load ptr, ptr @stdout, align 8, !tbaa !59
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.98, ptr noundef %0) #27
-  br label %156
+  br label %150
 
 18:                                               ; preds = %6
   %19 = tail call i32 @fgetc(ptr noundef nonnull %13)
@@ -9235,7 +9235,7 @@ define noalias noundef ptr @Aiger_Read(ptr noundef %0, ptr noundef writeonly cap
   %25 = load ptr, ptr @stdout, align 8, !tbaa !59
   %26 = tail call i64 @fwrite(ptr nonnull @.str.99, i64 42, i64 1, ptr %25)
   %27 = tail call i32 @fclose(ptr noundef nonnull %13)
-  br label %156
+  br label %150
 
 28:                                               ; preds = %22
   %29 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %13, ptr noundef nonnull @.str.100, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #27
@@ -9246,7 +9246,7 @@ define noalias noundef ptr @Aiger_Read(ptr noundef %0, ptr noundef writeonly cap
   %31 = load ptr, ptr @stdout, align 8, !tbaa !59
   %32 = call i64 @fwrite(ptr nonnull @.str.101, i64 43, i64 1, ptr %31)
   %33 = call i32 @fclose(ptr noundef nonnull %13)
-  br label %156
+  br label %150
 
 34:                                               ; preds = %28
   %35 = load i32, ptr %8, align 4, !tbaa !37
@@ -9262,7 +9262,7 @@ define noalias noundef ptr @Aiger_Read(ptr noundef %0, ptr noundef writeonly cap
   %42 = load ptr, ptr @stdout, align 8, !tbaa !59
   %43 = call i64 @fwrite(ptr nonnull @.str.3, i64 38, i64 1, ptr %42)
   %44 = call i32 @fclose(ptr noundef nonnull %13)
-  br label %156
+  br label %150
 
 45:                                               ; preds = %34
   %46 = add nsw i32 %36, 1
@@ -9278,7 +9278,7 @@ define noalias noundef ptr @Aiger_Read(ptr noundef %0, ptr noundef writeonly cap
   br i1 %55, label %.preheader97, label %.preheader96
 
 .preheader97:                                     ; preds = %45, %60
-  %.060103 = phi i32 [ %72, %60 ], [ 0, %45 ]
+  %.060103 = phi i32 [ %70, %60 ], [ 0, %45 ]
   br label %58
 
 .preheader96.loopexit:                            ; preds = %60
@@ -9305,55 +9305,51 @@ define noalias noundef ptr @Aiger_Read(ptr noundef %0, ptr noundef writeonly cap
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i32, ptr %54, i64 %67
   store i32 %62, ptr %68, align 4, !tbaa !37
-  %69 = or disjoint i32 %66, 1
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %54, i64 %70
-  store i32 %62, ptr %71, align 4, !tbaa !37
-  %72 = add nuw nsw i32 %.060103, 1
-  %73 = icmp slt i32 %72, %63
-  br i1 %73, label %.preheader97, label %.preheader96.loopexit, !llvm.loop !167
+  %69 = getelementptr i8, ptr %68, i64 4
+  store i32 %62, ptr %69, align 4, !tbaa !37
+  %70 = add nuw nsw i32 %.060103, 1
+  %71 = icmp slt i32 %70, %63
+  br i1 %71, label %.preheader97, label %.preheader96.loopexit, !llvm.loop !167
 
-.preheader95:                                     ; preds = %.preheader96, %76
-  %.1104 = phi i32 [ %89, %76 ], [ 0, %.preheader96 ]
-  br label %74
+.preheader95:                                     ; preds = %.preheader96, %74
+  %.1104 = phi i32 [ %85, %74 ], [ 0, %.preheader96 ]
+  br label %72
 
-74:                                               ; preds = %.preheader95, %74
-  %75 = call i32 @fgetc(ptr noundef nonnull %13)
-  %.not79 = icmp eq i32 %75, 10
-  br i1 %.not79, label %76, label %74, !llvm.loop !168
+72:                                               ; preds = %.preheader95, %72
+  %73 = call i32 @fgetc(ptr noundef nonnull %13)
+  %.not79 = icmp eq i32 %73, 10
+  br i1 %.not79, label %74, label %72, !llvm.loop !168
 
-76:                                               ; preds = %74
-  %77 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %13, ptr noundef nonnull @.str.102, ptr noundef nonnull %7) #27
-  %78 = load i32, ptr %7, align 4, !tbaa !37
-  %79 = load i32, ptr %11, align 4, !tbaa !37
-  %80 = load i32, ptr %10, align 4, !tbaa !37
+74:                                               ; preds = %72
+  %75 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %13, ptr noundef nonnull @.str.102, ptr noundef nonnull %7) #27
+  %76 = load i32, ptr %7, align 4, !tbaa !37
+  %77 = load i32, ptr %11, align 4, !tbaa !37
+  %78 = load i32, ptr %10, align 4, !tbaa !37
   %.neg92 = add i32 %.1104, %51
-  %81 = add i32 %79, %80
-  %82 = sub i32 %.neg92, %81
-  %83 = shl nsw i32 %82, 1
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i32, ptr %54, i64 %84
-  store i32 %78, ptr %85, align 4, !tbaa !37
-  %86 = or disjoint i32 %83, 1
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %54, i64 %87
-  store i32 %78, ptr %88, align 4, !tbaa !37
-  %89 = add nuw nsw i32 %.1104, 1
-  %90 = icmp slt i32 %89, %79
-  br i1 %90, label %.preheader95, label %.preheader94.preheader, !llvm.loop !169
+  %79 = add i32 %77, %78
+  %80 = sub i32 %.neg92, %79
+  %81 = shl nsw i32 %80, 1
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i32, ptr %54, i64 %82
+  store i32 %76, ptr %83, align 4, !tbaa !37
+  %84 = getelementptr i8, ptr %83, i64 4
+  store i32 %76, ptr %84, align 4, !tbaa !37
+  %85 = add nuw nsw i32 %.1104, 1
+  %86 = icmp slt i32 %85, %77
+  br i1 %86, label %.preheader95, label %.preheader94.preheader, !llvm.loop !169
 
-.preheader94.preheader:                           ; preds = %76, %.preheader96
+.preheader94.preheader:                           ; preds = %74, %.preheader96
   br label %.preheader94
 
 .preheader94:                                     ; preds = %.preheader94.preheader, %.preheader94
-  %91 = call i32 @fgetc(ptr noundef nonnull %13)
-  %.not73 = icmp eq i32 %91, 10
+  %87 = call i32 @fgetc(ptr noundef nonnull %13)
+  %.not73 = icmp eq i32 %87, 10
   br i1 %.not73, label %.preheader, label %.preheader94, !llvm.loop !170
 
 .preheader:                                       ; preds = %.preheader94
-  %92 = load i32, ptr %12, align 4, !tbaa !37
-  %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %.lr.ph.preheader, label %._crit_edge
+  %88 = load i32, ptr %12, align 4, !tbaa !37
+  %89 = icmp sgt i32 %88, 0
+  br i1 %89, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %.pre111 = load i32, ptr %9, align 4, !tbaa !37
@@ -9361,138 +9357,136 @@ define noalias noundef ptr @Aiger_Read(ptr noundef %0, ptr noundef writeonly cap
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Aiger_ReadUnsigned.exit90
-  %94 = phi i32 [ %131, %Aiger_ReadUnsigned.exit90 ], [ %.pre112, %.lr.ph.preheader ]
-  %95 = phi i32 [ %130, %Aiger_ReadUnsigned.exit90 ], [ %.pre111, %.lr.ph.preheader ]
-  %.2105 = phi i32 [ %96, %Aiger_ReadUnsigned.exit90 ], [ 0, %.lr.ph.preheader ]
-  %96 = add nuw nsw i32 %.2105, 1
-  %97 = add i32 %96, %95
-  %98 = add i32 %97, %94
-  %99 = shl nsw i32 %98, 1
-  %100 = call i32 @fgetc(ptr noundef nonnull %13)
-  %101 = and i32 %100, 128
-  %.not7.i = icmp eq i32 %101, 0
+  %90 = phi i32 [ %127, %Aiger_ReadUnsigned.exit90 ], [ %.pre112, %.lr.ph.preheader ]
+  %91 = phi i32 [ %126, %Aiger_ReadUnsigned.exit90 ], [ %.pre111, %.lr.ph.preheader ]
+  %.2105 = phi i32 [ %92, %Aiger_ReadUnsigned.exit90 ], [ 0, %.lr.ph.preheader ]
+  %92 = add nuw nsw i32 %.2105, 1
+  %93 = add i32 %92, %91
+  %94 = add i32 %93, %90
+  %95 = shl nsw i32 %94, 1
+  %96 = call i32 @fgetc(ptr noundef nonnull %13)
+  %97 = and i32 %96, 128
+  %.not7.i = icmp eq i32 %97, 0
   br i1 %.not7.i, label %Aiger_ReadUnsigned.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %.lr.ph.i
-  %102 = phi i32 [ %108, %.lr.ph.i ], [ %100, %.lr.ph ]
-  %.09.i = phi i32 [ %107, %.lr.ph.i ], [ 0, %.lr.ph ]
-  %.068.i = phi i32 [ %104, %.lr.ph.i ], [ 0, %.lr.ph ]
-  %103 = and i32 %102, 127
-  %104 = add i32 %.068.i, 1
-  %105 = mul i32 %.068.i, 7
-  %106 = shl i32 %103, %105
-  %107 = or i32 %106, %.09.i
-  %108 = call i32 @fgetc(ptr noundef nonnull %13)
-  %109 = and i32 %108, 128
-  %.not.i = icmp eq i32 %109, 0
+  %98 = phi i32 [ %104, %.lr.ph.i ], [ %96, %.lr.ph ]
+  %.09.i = phi i32 [ %103, %.lr.ph.i ], [ 0, %.lr.ph ]
+  %.068.i = phi i32 [ %100, %.lr.ph.i ], [ 0, %.lr.ph ]
+  %99 = and i32 %98, 127
+  %100 = add i32 %.068.i, 1
+  %101 = mul i32 %.068.i, 7
+  %102 = shl i32 %99, %101
+  %103 = or i32 %102, %.09.i
+  %104 = call i32 @fgetc(ptr noundef nonnull %13)
+  %105 = and i32 %104, 128
+  %.not.i = icmp eq i32 %105, 0
   br i1 %.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !171
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %110 = mul i32 %104, 7
+  %106 = mul i32 %100, 7
   br label %Aiger_ReadUnsigned.exit
 
 Aiger_ReadUnsigned.exit:                          ; preds = %.lr.ph, %._crit_edge.loopexit.i
-  %.06.lcssa.i = phi i32 [ 0, %.lr.ph ], [ %110, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i = phi i32 [ 0, %.lr.ph ], [ %107, %._crit_edge.loopexit.i ]
-  %.lcssa.i = phi i32 [ %100, %.lr.ph ], [ %108, %._crit_edge.loopexit.i ]
-  %111 = and i32 %.lcssa.i, 127
-  %112 = shl i32 %111, %.06.lcssa.i
-  %113 = or i32 %112, %.0.lcssa.i
-  %114 = sub i32 %99, %113
-  %115 = call i32 @fgetc(ptr noundef nonnull %13)
-  %116 = and i32 %115, 128
-  %.not7.i81 = icmp eq i32 %116, 0
+  %.06.lcssa.i = phi i32 [ 0, %.lr.ph ], [ %106, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i = phi i32 [ 0, %.lr.ph ], [ %103, %._crit_edge.loopexit.i ]
+  %.lcssa.i = phi i32 [ %96, %.lr.ph ], [ %104, %._crit_edge.loopexit.i ]
+  %107 = and i32 %.lcssa.i, 127
+  %108 = shl i32 %107, %.06.lcssa.i
+  %109 = or i32 %108, %.0.lcssa.i
+  %110 = sub i32 %95, %109
+  %111 = call i32 @fgetc(ptr noundef nonnull %13)
+  %112 = and i32 %111, 128
+  %.not7.i81 = icmp eq i32 %112, 0
   br i1 %.not7.i81, label %Aiger_ReadUnsigned.exit90, label %.lr.ph.i82
 
 .lr.ph.i82:                                       ; preds = %Aiger_ReadUnsigned.exit, %.lr.ph.i82
-  %117 = phi i32 [ %123, %.lr.ph.i82 ], [ %115, %Aiger_ReadUnsigned.exit ]
-  %.09.i83 = phi i32 [ %122, %.lr.ph.i82 ], [ 0, %Aiger_ReadUnsigned.exit ]
-  %.068.i84 = phi i32 [ %119, %.lr.ph.i82 ], [ 0, %Aiger_ReadUnsigned.exit ]
-  %118 = and i32 %117, 127
-  %119 = add i32 %.068.i84, 1
-  %120 = mul i32 %.068.i84, 7
-  %121 = shl i32 %118, %120
-  %122 = or i32 %121, %.09.i83
-  %123 = call i32 @fgetc(ptr noundef nonnull %13)
-  %124 = and i32 %123, 128
-  %.not.i85 = icmp eq i32 %124, 0
+  %113 = phi i32 [ %119, %.lr.ph.i82 ], [ %111, %Aiger_ReadUnsigned.exit ]
+  %.09.i83 = phi i32 [ %118, %.lr.ph.i82 ], [ 0, %Aiger_ReadUnsigned.exit ]
+  %.068.i84 = phi i32 [ %115, %.lr.ph.i82 ], [ 0, %Aiger_ReadUnsigned.exit ]
+  %114 = and i32 %113, 127
+  %115 = add i32 %.068.i84, 1
+  %116 = mul i32 %.068.i84, 7
+  %117 = shl i32 %114, %116
+  %118 = or i32 %117, %.09.i83
+  %119 = call i32 @fgetc(ptr noundef nonnull %13)
+  %120 = and i32 %119, 128
+  %.not.i85 = icmp eq i32 %120, 0
   br i1 %.not.i85, label %._crit_edge.loopexit.i86, label %.lr.ph.i82, !llvm.loop !171
 
 ._crit_edge.loopexit.i86:                         ; preds = %.lr.ph.i82
-  %125 = mul i32 %119, 7
+  %121 = mul i32 %115, 7
   br label %Aiger_ReadUnsigned.exit90
 
 Aiger_ReadUnsigned.exit90:                        ; preds = %Aiger_ReadUnsigned.exit, %._crit_edge.loopexit.i86
-  %.06.lcssa.i87 = phi i32 [ 0, %Aiger_ReadUnsigned.exit ], [ %125, %._crit_edge.loopexit.i86 ]
-  %.0.lcssa.i88 = phi i32 [ 0, %Aiger_ReadUnsigned.exit ], [ %122, %._crit_edge.loopexit.i86 ]
-  %.lcssa.i89 = phi i32 [ %115, %Aiger_ReadUnsigned.exit ], [ %123, %._crit_edge.loopexit.i86 ]
-  %126 = and i32 %.lcssa.i89, 127
-  %127 = shl i32 %126, %.06.lcssa.i87
-  %128 = or i32 %127, %.0.lcssa.i88
-  %129 = sub i32 %114, %128
-  %130 = load i32, ptr %9, align 4, !tbaa !37
-  %131 = load i32, ptr %10, align 4, !tbaa !37
-  %132 = add i32 %96, %130
-  %133 = add i32 %132, %131
-  %134 = shl nsw i32 %133, 1
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i32, ptr %54, i64 %135
-  store i32 %129, ptr %136, align 4, !tbaa !37
-  %137 = or disjoint i32 %134, 1
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds i32, ptr %54, i64 %138
-  store i32 %114, ptr %139, align 4, !tbaa !37
-  %140 = load i32, ptr %12, align 4, !tbaa !37
-  %141 = icmp slt i32 %96, %140
-  br i1 %141, label %.lr.ph, label %._crit_edge, !llvm.loop !172
+  %.06.lcssa.i87 = phi i32 [ 0, %Aiger_ReadUnsigned.exit ], [ %121, %._crit_edge.loopexit.i86 ]
+  %.0.lcssa.i88 = phi i32 [ 0, %Aiger_ReadUnsigned.exit ], [ %118, %._crit_edge.loopexit.i86 ]
+  %.lcssa.i89 = phi i32 [ %111, %Aiger_ReadUnsigned.exit ], [ %119, %._crit_edge.loopexit.i86 ]
+  %122 = and i32 %.lcssa.i89, 127
+  %123 = shl i32 %122, %.06.lcssa.i87
+  %124 = or i32 %123, %.0.lcssa.i88
+  %125 = sub i32 %110, %124
+  %126 = load i32, ptr %9, align 4, !tbaa !37
+  %127 = load i32, ptr %10, align 4, !tbaa !37
+  %128 = add i32 %92, %126
+  %129 = add i32 %128, %127
+  %130 = shl nsw i32 %129, 1
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds i32, ptr %54, i64 %131
+  store i32 %125, ptr %132, align 4, !tbaa !37
+  %133 = getelementptr i8, ptr %132, i64 4
+  store i32 %110, ptr %133, align 4, !tbaa !37
+  %134 = load i32, ptr %12, align 4, !tbaa !37
+  %135 = icmp slt i32 %92, %134
+  br i1 %135, label %.lr.ph, label %._crit_edge, !llvm.loop !172
 
 ._crit_edge:                                      ; preds = %Aiger_ReadUnsigned.exit90, %.preheader
-  %142 = call i32 @fclose(ptr noundef nonnull %13)
+  %136 = call i32 @fclose(ptr noundef nonnull %13)
   %.not74 = icmp eq ptr %1, null
-  br i1 %.not74, label %144, label %143
+  br i1 %.not74, label %138, label %137
 
-143:                                              ; preds = %._crit_edge
+137:                                              ; preds = %._crit_edge
   store i32 %51, ptr %1, align 4, !tbaa !37
+  br label %138
+
+138:                                              ; preds = %137, %._crit_edge
+  %.not75 = icmp eq ptr %2, null
+  br i1 %.not75, label %141, label %139
+
+139:                                              ; preds = %138
+  %140 = load i32, ptr %9, align 4, !tbaa !37
+  store i32 %140, ptr %2, align 4, !tbaa !37
+  br label %141
+
+141:                                              ; preds = %139, %138
+  %.not76 = icmp eq ptr %3, null
+  br i1 %.not76, label %144, label %142
+
+142:                                              ; preds = %141
+  %143 = load i32, ptr %10, align 4, !tbaa !37
+  store i32 %143, ptr %3, align 4, !tbaa !37
   br label %144
 
-144:                                              ; preds = %143, %._crit_edge
-  %.not75 = icmp eq ptr %2, null
-  br i1 %.not75, label %147, label %145
+144:                                              ; preds = %142, %141
+  %.not77 = icmp eq ptr %4, null
+  br i1 %.not77, label %147, label %145
 
 145:                                              ; preds = %144
-  %146 = load i32, ptr %9, align 4, !tbaa !37
-  store i32 %146, ptr %2, align 4, !tbaa !37
+  %146 = load i32, ptr %11, align 4, !tbaa !37
+  store i32 %146, ptr %4, align 4, !tbaa !37
   br label %147
 
 147:                                              ; preds = %145, %144
-  %.not76 = icmp eq ptr %3, null
-  br i1 %.not76, label %150, label %148
+  %.not78 = icmp eq ptr %5, null
+  br i1 %.not78, label %150, label %148
 
 148:                                              ; preds = %147
-  %149 = load i32, ptr %10, align 4, !tbaa !37
-  store i32 %149, ptr %3, align 4, !tbaa !37
+  %149 = load i32, ptr %12, align 4, !tbaa !37
+  store i32 %149, ptr %5, align 4, !tbaa !37
   br label %150
 
-150:                                              ; preds = %148, %147
-  %.not77 = icmp eq ptr %4, null
-  br i1 %.not77, label %153, label %151
-
-151:                                              ; preds = %150
-  %152 = load i32, ptr %11, align 4, !tbaa !37
-  store i32 %152, ptr %4, align 4, !tbaa !37
-  br label %153
-
-153:                                              ; preds = %151, %150
-  %.not78 = icmp eq ptr %5, null
-  br i1 %.not78, label %156, label %154
-
-154:                                              ; preds = %153
-  %155 = load i32, ptr %12, align 4, !tbaa !37
-  store i32 %155, ptr %5, align 4, !tbaa !37
-  br label %156
-
-156:                                              ; preds = %153, %154, %41, %30, %24, %15
-  %.0 = phi ptr [ null, %15 ], [ null, %24 ], [ null, %30 ], [ null, %41 ], [ %54, %154 ], [ %54, %153 ]
+150:                                              ; preds = %147, %148, %41, %30, %24, %15
+  %.0 = phi ptr [ null, %15 ], [ null, %24 ], [ null, %30 ], [ null, %41 ], [ %54, %148 ], [ %54, %147 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #27
@@ -9516,7 +9510,7 @@ define void @Aiger_Write(ptr noundef %0, ptr noundef readonly captures(none) %1,
 10:                                               ; preds = %7
   %11 = load ptr, ptr @stdout, align 8, !tbaa !59
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.103, ptr noundef %0) #27
-  br label %60
+  br label %59
 
 13:                                               ; preds = %7
   %14 = add i32 %4, %3
@@ -9580,52 +9574,51 @@ define void @Aiger_Write(ptr noundef %0, ptr noundef readonly captures(none) %1,
   %39 = shl nsw i64 %38, 1
   %40 = getelementptr inbounds i32, ptr %1, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !37
-  %42 = or disjoint i64 %39, 1
-  %43 = getelementptr inbounds i32, ptr %1, i64 %42
-  %44 = load i32, ptr %43, align 4, !tbaa !37
-  %45 = trunc nsw i64 %39 to i32
-  %46 = sub nsw i32 %45, %44
-  %.not7.i = icmp ult i32 %46, 128
+  %42 = getelementptr i8, ptr %40, i64 4
+  %43 = load i32, ptr %42, align 4, !tbaa !37
+  %44 = trunc nsw i64 %39 to i32
+  %45 = sub nsw i32 %44, %43
+  %.not7.i = icmp ult i32 %45, 128
   br i1 %.not7.i, label %Aiger_WriteUnsigned.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %37, %.lr.ph.i
-  %.08.i = phi i32 [ %50, %.lr.ph.i ], [ %46, %37 ]
-  %47 = and i32 %.08.i, 127
-  %48 = or disjoint i32 %47, 128
-  %49 = tail call i32 @fputc(i32 noundef %48, ptr noundef nonnull %8)
-  %50 = lshr i32 %.08.i, 7
+  %.08.i = phi i32 [ %49, %.lr.ph.i ], [ %45, %37 ]
+  %46 = and i32 %.08.i, 127
+  %47 = or disjoint i32 %46, 128
+  %48 = tail call i32 @fputc(i32 noundef %47, ptr noundef nonnull %8)
+  %49 = lshr i32 %.08.i, 7
   %.not.i = icmp ult i32 %.08.i, 16384
   br i1 %.not.i, label %Aiger_WriteUnsigned.exit, label %.lr.ph.i, !llvm.loop !175
 
 Aiger_WriteUnsigned.exit:                         ; preds = %.lr.ph.i, %37
-  %.0.lcssa.i = phi i32 [ %46, %37 ], [ %50, %.lr.ph.i ]
-  %51 = tail call i32 @fputc(i32 noundef %.0.lcssa.i, ptr noundef nonnull %8)
-  %52 = sub nsw i32 %44, %41
-  %.not7.i53 = icmp ult i32 %52, 128
+  %.0.lcssa.i = phi i32 [ %45, %37 ], [ %49, %.lr.ph.i ]
+  %50 = tail call i32 @fputc(i32 noundef %.0.lcssa.i, ptr noundef nonnull %8)
+  %51 = sub nsw i32 %43, %41
+  %.not7.i53 = icmp ult i32 %51, 128
   br i1 %.not7.i53, label %Aiger_WriteUnsigned.exit58, label %.lr.ph.i54
 
 .lr.ph.i54:                                       ; preds = %Aiger_WriteUnsigned.exit, %.lr.ph.i54
-  %.08.i55 = phi i32 [ %56, %.lr.ph.i54 ], [ %52, %Aiger_WriteUnsigned.exit ]
-  %53 = and i32 %.08.i55, 127
-  %54 = or disjoint i32 %53, 128
-  %55 = tail call i32 @fputc(i32 noundef %54, ptr noundef nonnull %8)
-  %56 = lshr i32 %.08.i55, 7
+  %.08.i55 = phi i32 [ %55, %.lr.ph.i54 ], [ %51, %Aiger_WriteUnsigned.exit ]
+  %52 = and i32 %.08.i55, 127
+  %53 = or disjoint i32 %52, 128
+  %54 = tail call i32 @fputc(i32 noundef %53, ptr noundef nonnull %8)
+  %55 = lshr i32 %.08.i55, 7
   %.not.i56 = icmp ult i32 %.08.i55, 16384
   br i1 %.not.i56, label %Aiger_WriteUnsigned.exit58, label %.lr.ph.i54, !llvm.loop !175
 
 Aiger_WriteUnsigned.exit58:                       ; preds = %.lr.ph.i54, %Aiger_WriteUnsigned.exit
-  %.0.lcssa.i57 = phi i32 [ %52, %Aiger_WriteUnsigned.exit ], [ %56, %.lr.ph.i54 ]
-  %57 = tail call i32 @fputc(i32 noundef %.0.lcssa.i57, ptr noundef nonnull %8)
+  %.0.lcssa.i57 = phi i32 [ %51, %Aiger_WriteUnsigned.exit ], [ %55, %.lr.ph.i54 ]
+  %56 = tail call i32 @fputc(i32 noundef %.0.lcssa.i57, ptr noundef nonnull %8)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
   br i1 %exitcond79.not, label %._crit_edge, label %37, !llvm.loop !176
 
 ._crit_edge:                                      ; preds = %Aiger_WriteUnsigned.exit58, %.preheader
-  %58 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 2, i64 1, ptr nonnull %8)
-  %59 = tail call i32 @fclose(ptr noundef nonnull %8)
-  br label %60
+  %57 = tail call i64 @fwrite(ptr nonnull @.str.63, i64 2, i64 1, ptr nonnull %8)
+  %58 = tail call i32 @fclose(ptr noundef nonnull %8)
+  br label %59
 
-60:                                               ; preds = %._crit_edge, %10
+59:                                               ; preds = %._crit_edge, %10
   ret void
 }
 

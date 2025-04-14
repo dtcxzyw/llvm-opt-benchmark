@@ -9991,12 +9991,12 @@ _ZNK4pbrt6Tuple3INS_6Point3EfEixEi.exit217:       ; preds = %_ZNK4pbrt6Tuple3INS
   store i32 0, ptr %.sroa.5314.0..sroa_idx329, align 4, !tbaa !367
   %203 = getelementptr inbounds nuw i8, ptr %189, i64 %.sink
   %.0.i216 = load float, ptr %203, align 4, !tbaa !52
-  %204 = or disjoint i64 %202, 1
-  %205 = getelementptr inbounds nuw %"struct.pbrt::BoundEdge", ptr %201, i64 %204
+  %204 = getelementptr inbounds nuw %"struct.pbrt::BoundEdge", ptr %201, i64 %202
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 12
   store float %.0.i216, ptr %205, align 4, !tbaa !52
-  %.sroa.4311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %205, i64 4
+  %.sroa.4311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 16
   store i32 %187, ptr %.sroa.4311.0..sroa_idx, align 4, !tbaa !48
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %205, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %204, i64 20
   store i32 1, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !367
   %206 = add nuw i64 %.0194345, 1
   %exitcond.not = icmp eq i64 %206, %5
@@ -26862,12 +26862,11 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__
   %9 = shl i64 %.048, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %0, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.021.0.copyload.i.i.i = load <2 x float>, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %.sroa.011.0.copyload.i.i.i = load <2 x float>, ptr %15, align 4
+  %12 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.021.0.copyload.i.i.i = load <2 x float>, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %.sroa.011.0.copyload.i.i.i = load <2 x float>, ptr %14, align 4
   switch i32 %4, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i [
     i32 0, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i
     i32 1, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i
@@ -26875,53 +26874,54 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i: ; preds = %.lr.ph
   %.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.021.0.copyload.i.i.i, i64 0
-  %16 = fmul float %.sroa.0.0.vec.extract.i.i.i.i, 5.000000e-01
+  %15 = fmul float %.sroa.0.0.vec.extract.i.i.i.i, 5.000000e-01
   %.sroa.0.0.vec.extract.i25.i.i.i = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i, i64 0
-  %17 = fmul float %.sroa.0.0.vec.extract.i25.i.i.i, 5.000000e-01
-  %18 = fadd float %16, %17
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.021.0.copyload.i77.i.i = load <2 x float>, ptr %19, align 8
+  %16 = fmul float %.sroa.0.0.vec.extract.i25.i.i.i, 5.000000e-01
+  %17 = fadd float %15, %16
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %.sroa.021.0.copyload.i77.i.i = load <2 x float>, ptr %18, align 8
   %.sroa.0.0.vec.extract.i.i108.i.i = extractelement <2 x float> %.sroa.021.0.copyload.i77.i.i, i64 0
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  %.sroa.011.0.copyload.i129.i.i = load <2 x float>, ptr %20, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 52
+  %.sroa.011.0.copyload.i129.i.i = load <2 x float>, ptr %19, align 4
   %.sroa.0.0.vec.extract.i25.i1510.i.i = extractelement <2 x float> %.sroa.011.0.copyload.i129.i.i, i64 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit"
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i: ; preds = %.lr.ph
   %.sroa.0.4.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.021.0.copyload.i.i.i, i64 1
-  %21 = fmul float %.sroa.0.4.vec.extract.i.i.i.i, 5.000000e-01
+  %20 = fmul float %.sroa.0.4.vec.extract.i.i.i.i, 5.000000e-01
   %.sroa.0.4.vec.extract.i26.i.i.i = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i, i64 1
-  %22 = fmul float %.sroa.0.4.vec.extract.i26.i.i.i, 5.000000e-01
-  %23 = fadd float %21, %22
-  %24 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %.sroa.0.4.vec.extract.i.i11.i.i = load float, ptr %24, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.sroa.0.4.vec.extract.i26.i16.i.i = load float, ptr %25, align 4
+  %21 = fmul float %.sroa.0.4.vec.extract.i26.i.i.i, 5.000000e-01
+  %22 = fadd float %20, %21
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 44
+  %.sroa.0.4.vec.extract.i.i11.i.i = load float, ptr %23, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %.sroa.0.4.vec.extract.i26.i16.i.i = load float, ptr %24, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit"
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i:       ; preds = %.lr.ph
   %.sroa.222.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.222.0.copyload.i.i.i = load float, ptr %.sroa.222.0..sroa_idx.i.i.i, align 8, !tbaa !52
-  %26 = fmul float %.sroa.222.0.copyload.i.i.i, 5.000000e-01
+  %25 = fmul float %.sroa.222.0.copyload.i.i.i, 5.000000e-01
   %.sroa.212.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 28
   %.sroa.212.0.copyload.i.i.i = load float, ptr %.sroa.212.0..sroa_idx.i.i.i, align 4, !tbaa !52
-  %27 = fmul float %.sroa.212.0.copyload.i.i.i, 5.000000e-01
-  %28 = fadd float %26, %27
-  %.sroa.222.0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %26 = fmul float %.sroa.212.0.copyload.i.i.i, 5.000000e-01
+  %27 = fadd float %25, %26
+  %.sroa.222.0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %12, i64 48
   %.sroa.222.0.copyload.i9.i.i = load float, ptr %.sroa.222.0..sroa_idx.i8.i.i, align 8, !tbaa !52
-  %.sroa.212.0..sroa_idx.i13.i.i = getelementptr inbounds nuw i8, ptr %13, i64 28
+  %.sroa.212.0..sroa_idx.i13.i.i = getelementptr inbounds nuw i8, ptr %12, i64 60
   %.sroa.212.0.copyload.i14.i.i = load float, ptr %.sroa.212.0..sroa_idx.i13.i.i, align 4, !tbaa !52
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit": ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i
   %.sroa.0.0.vec.extract.i25.i1510.sink.i.i = phi float [ %.sroa.0.0.vec.extract.i25.i1510.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i ], [ %.sroa.0.4.vec.extract.i26.i16.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i ], [ %.sroa.212.0.copyload.i14.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i ]
   %.sink.in.i.i = phi float [ %.sroa.0.0.vec.extract.i.i108.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i ], [ %.sroa.0.4.vec.extract.i.i11.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i ], [ %.sroa.222.0.copyload.i9.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i ]
-  %.0.i.sroa.speculated11.i.i = phi float [ %18, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i ], [ %23, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i ], [ %28, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i ]
+  %.0.i.sroa.speculated11.i.i = phi float [ %17, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i ], [ %22, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i ], [ %27, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i ]
   %.sink.i.i = fmul float %.sink.in.i.i, 5.000000e-01
-  %29 = fmul float %.sroa.0.0.vec.extract.i25.i1510.sink.i.i, 5.000000e-01
-  %30 = fadd float %29, %.sink.i.i
-  %31 = fcmp olt float %.0.i.sroa.speculated11.i.i, %30
-  %spec.select = select i1 %31, i64 %12, i64 %10
+  %28 = fmul float %.sroa.0.0.vec.extract.i25.i1510.sink.i.i, 5.000000e-01
+  %29 = fadd float %28, %.sink.i.i
+  %30 = fcmp olt float %.0.i.sroa.speculated11.i.i, %29
+  %31 = or disjoint i64 %9, 1
+  %spec.select = select i1 %30, i64 %31, i64 %10
   %32 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %0, i64 %spec.select
   %33 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %0, i64 %.048
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)
@@ -27090,12 +27090,11 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__
   %9 = shl i64 %.048, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %0, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.021.0.copyload.i.i.i = load <2 x float>, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %.sroa.011.0.copyload.i.i.i = load <2 x float>, ptr %15, align 4
+  %12 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.021.0.copyload.i.i.i = load <2 x float>, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %.sroa.011.0.copyload.i.i.i = load <2 x float>, ptr %14, align 4
   switch i32 %4, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i [
     i32 0, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i
     i32 1, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i
@@ -27103,53 +27102,54 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i: ; preds = %.lr.ph
   %.sroa.0.0.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.021.0.copyload.i.i.i, i64 0
-  %16 = fmul float %.sroa.0.0.vec.extract.i.i.i.i, 5.000000e-01
+  %15 = fmul float %.sroa.0.0.vec.extract.i.i.i.i, 5.000000e-01
   %.sroa.0.0.vec.extract.i25.i.i.i = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i, i64 0
-  %17 = fmul float %.sroa.0.0.vec.extract.i25.i.i.i, 5.000000e-01
-  %18 = fadd float %16, %17
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.021.0.copyload.i77.i.i = load <2 x float>, ptr %19, align 8
+  %16 = fmul float %.sroa.0.0.vec.extract.i25.i.i.i, 5.000000e-01
+  %17 = fadd float %15, %16
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %.sroa.021.0.copyload.i77.i.i = load <2 x float>, ptr %18, align 8
   %.sroa.0.0.vec.extract.i.i108.i.i = extractelement <2 x float> %.sroa.021.0.copyload.i77.i.i, i64 0
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  %.sroa.011.0.copyload.i129.i.i = load <2 x float>, ptr %20, align 4
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 52
+  %.sroa.011.0.copyload.i129.i.i = load <2 x float>, ptr %19, align 4
   %.sroa.0.0.vec.extract.i25.i1510.i.i = extractelement <2 x float> %.sroa.011.0.copyload.i129.i.i, i64 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit"
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i: ; preds = %.lr.ph
   %.sroa.0.4.vec.extract.i.i.i.i = extractelement <2 x float> %.sroa.021.0.copyload.i.i.i, i64 1
-  %21 = fmul float %.sroa.0.4.vec.extract.i.i.i.i, 5.000000e-01
+  %20 = fmul float %.sroa.0.4.vec.extract.i.i.i.i, 5.000000e-01
   %.sroa.0.4.vec.extract.i26.i.i.i = extractelement <2 x float> %.sroa.011.0.copyload.i.i.i, i64 1
-  %22 = fmul float %.sroa.0.4.vec.extract.i26.i.i.i, 5.000000e-01
-  %23 = fadd float %21, %22
-  %24 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %.sroa.0.4.vec.extract.i.i11.i.i = load float, ptr %24, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.sroa.0.4.vec.extract.i26.i16.i.i = load float, ptr %25, align 4
+  %21 = fmul float %.sroa.0.4.vec.extract.i26.i.i.i, 5.000000e-01
+  %22 = fadd float %20, %21
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 44
+  %.sroa.0.4.vec.extract.i.i11.i.i = load float, ptr %23, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %.sroa.0.4.vec.extract.i26.i16.i.i = load float, ptr %24, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit"
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i:       ; preds = %.lr.ph
   %.sroa.222.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.222.0.copyload.i.i.i = load float, ptr %.sroa.222.0..sroa_idx.i.i.i, align 8, !tbaa !52
-  %26 = fmul float %.sroa.222.0.copyload.i.i.i, 5.000000e-01
+  %25 = fmul float %.sroa.222.0.copyload.i.i.i, 5.000000e-01
   %.sroa.212.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 28
   %.sroa.212.0.copyload.i.i.i = load float, ptr %.sroa.212.0..sroa_idx.i.i.i, align 4, !tbaa !52
-  %27 = fmul float %.sroa.212.0.copyload.i.i.i, 5.000000e-01
-  %28 = fadd float %26, %27
-  %.sroa.222.0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %26 = fmul float %.sroa.212.0.copyload.i.i.i, 5.000000e-01
+  %27 = fadd float %25, %26
+  %.sroa.222.0..sroa_idx.i8.i.i = getelementptr inbounds nuw i8, ptr %12, i64 48
   %.sroa.222.0.copyload.i9.i.i = load float, ptr %.sroa.222.0..sroa_idx.i8.i.i, align 8, !tbaa !52
-  %.sroa.212.0..sroa_idx.i13.i.i = getelementptr inbounds nuw i8, ptr %13, i64 28
+  %.sroa.212.0..sroa_idx.i13.i.i = getelementptr inbounds nuw i8, ptr %12, i64 60
   %.sroa.212.0.copyload.i14.i.i = load float, ptr %.sroa.212.0..sroa_idx.i13.i.i, align 4, !tbaa !52
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit": ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i
   %.sroa.0.0.vec.extract.i25.i1510.sink.i.i = phi float [ %.sroa.0.0.vec.extract.i25.i1510.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i ], [ %.sroa.0.4.vec.extract.i26.i16.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i ], [ %.sroa.212.0.copyload.i14.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i ]
   %.sink.in.i.i = phi float [ %.sroa.0.0.vec.extract.i.i108.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i ], [ %.sroa.0.4.vec.extract.i.i11.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i ], [ %.sroa.222.0.copyload.i9.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i ]
-  %.0.i.sroa.speculated11.i.i = phi float [ %18, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i ], [ %23, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i ], [ %28, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i ]
+  %.0.i.sroa.speculated11.i.i = phi float [ %17, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i ], [ %22, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i ], [ %27, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i ]
   %.sink.i.i = fmul float %.sink.in.i.i, 5.000000e-01
-  %29 = fmul float %.sroa.0.0.vec.extract.i25.i1510.sink.i.i, 5.000000e-01
-  %30 = fadd float %29, %.sink.i.i
-  %31 = fcmp olt float %.0.i.sroa.speculated11.i.i, %30
-  %spec.select = select i1 %31, i64 %12, i64 %10
+  %28 = fmul float %.sroa.0.0.vec.extract.i25.i1510.sink.i.i, 5.000000e-01
+  %29 = fadd float %28, %.sink.i.i
+  %30 = fcmp olt float %.0.i.sroa.speculated11.i.i, %29
+  %31 = or disjoint i64 %9, 1
+  %spec.select = select i1 %30, i64 %31, i64 %10
   %32 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %0, i64 %spec.select
   %33 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %0, i64 %.048
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)

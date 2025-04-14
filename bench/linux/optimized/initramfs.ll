@@ -1125,18 +1125,18 @@ define internal noundef i32 @do_symlink() #1 section ".init.text" align 16 {
   %3 = load i64, ptr @name_len, align 8
   %4 = add i64 %3, 1
   %5 = and i64 %4, -4
-  %6 = or disjoint i64 %5, 2
-  %7 = load i64, ptr @body_len, align 8
-  %8 = getelementptr i8, ptr %2, i64 %6
-  %9 = getelementptr i8, ptr %8, i64 %7
+  %6 = load i64, ptr @body_len, align 8
+  %7 = getelementptr i8, ptr %2, i64 %5
+  %8 = getelementptr i8, ptr %7, i64 2
+  %9 = getelementptr i8, ptr %8, i64 %6
   store i8 0, ptr %9, align 1
   tail call fastcc void @clean_path(ptr noundef %2, i16 noundef zeroext 0) #23
   %10 = load ptr, ptr @collected, align 8
   %11 = load i64, ptr @name_len, align 8
   %12 = add i64 %11, 1
   %13 = and i64 %12, -4
-  %14 = or disjoint i64 %13, 2
-  %15 = getelementptr i8, ptr %10, i64 %14
+  %14 = getelementptr i8, ptr %10, i64 %13
+  %15 = getelementptr i8, ptr %14, i64 2
   %16 = tail call i32 @init_symlink(ptr noundef %15, ptr noundef %10) #22
   %17 = load ptr, ptr @collected, align 8
   %18 = load i32, ptr @uid, align 4

@@ -2167,9 +2167,9 @@ define internal fastcc void @__guc_ads_init(ptr noundef %0) unnamed_addr #0 alig
   %234 = load i8, ptr %221, align 1
   %235 = zext i8 %234 to i64
   %236 = shl nuw nsw i64 %235, 3
-  %237 = add nuw nsw i64 %236, %220
-  %238 = or disjoint i64 %237, 4
-  %239 = getelementptr i8, ptr %233, i64 %238
+  %237 = getelementptr i8, ptr %233, i64 %236
+  %238 = getelementptr i8, ptr %237, i64 %220
+  %239 = getelementptr i8, ptr %238, i64 4
   br i1 %232, label %241, label %240
 
 240:                                              ; preds = %230
@@ -2199,9 +2199,9 @@ define internal fastcc void @__guc_ads_init(ptr noundef %0) unnamed_addr #0 alig
   %250 = load i8, ptr %221, align 1
   %251 = zext i8 %250 to i64
   %252 = shl nuw nsw i64 %251, 3
-  %253 = add nuw nsw i64 %252, %220
-  %254 = or disjoint i64 %253, 4
-  %255 = getelementptr i8, ptr %249, i64 %254
+  %253 = getelementptr i8, ptr %249, i64 %252
+  %254 = getelementptr i8, ptr %253, i64 %220
+  %255 = getelementptr i8, ptr %254, i64 4
   br i1 %248, label %257, label %256
 
 256:                                              ; preds = %245

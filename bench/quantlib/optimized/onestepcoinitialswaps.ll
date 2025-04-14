@@ -11,7 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl" }
 %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.QuantLib::MarketModelMultiProduct::CashFlow" = type { i64, double }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -475,15 +474,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body12.lr.ph:                                 ; preds = %for.body
   %11 = load ptr, ptr %genCashFlows, align 8, !tbaa !38
-  %mul = shl i64 %indexOfTime.036, 1
   %12 = load double, ptr %fixedRate_, align 8, !tbaa !14
   %fneg = fneg double %12
   %13 = load ptr, ptr %fixedAccruals_, align 8, !tbaa !8
   %add.ptr.i24 = getelementptr inbounds nuw double, ptr %13, i64 %indexOfTime.036
-  %add = or disjoint i64 %mul, 1
   %14 = load ptr, ptr %floatingAccruals_, align 8, !tbaa !8
   %add.ptr.i29 = getelementptr inbounds nuw double, ptr %14, i64 %indexOfTime.036
   %15 = load ptr, ptr %numberCashFlowsThisStep, align 8, !tbaa !33
+  %add.ptr.i23.idx = shl i64 %indexOfTime.036, 5
   br label %for.body12
 
 for.cond.cleanup11:                               ; preds = %for.body12, %for.body
@@ -496,17 +494,17 @@ for.body12:                                       ; preds = %for.body12.lr.ph, %
   %i.034 = phi i64 [ %indexOfTime.036, %for.body12.lr.ph ], [ %inc, %for.body12 ]
   %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.15", ptr %11, i64 %i.034
   %17 = load ptr, ptr %add.ptr.i, align 8, !tbaa !42
-  %add.ptr.i23 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %17, i64 %mul
+  %add.ptr.i23 = getelementptr inbounds nuw i8, ptr %17, i64 %add.ptr.i23.idx
   store i64 %indexOfTime.036, ptr %add.ptr.i23, align 8, !tbaa !44
   %18 = load double, ptr %add.ptr.i24, align 8, !tbaa !46
   %mul16 = fmul double %18, %fneg
   %amount = getelementptr inbounds nuw i8, ptr %add.ptr.i23, i64 8
   store double %mul16, ptr %amount, align 8, !tbaa !47
-  %add.ptr.i28 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %17, i64 %add
+  %add.ptr.i28 = getelementptr inbounds nuw i8, ptr %add.ptr.i23, i64 16
   store i64 %indexOfTime.036, ptr %add.ptr.i28, align 8, !tbaa !44
   %19 = load double, ptr %add.ptr.i29, align 8, !tbaa !46
   %mul25 = fmul double %call7, %19
-  %amount30 = getelementptr inbounds nuw i8, ptr %add.ptr.i28, i64 8
+  %amount30 = getelementptr inbounds nuw i8, ptr %add.ptr.i23, i64 24
   store double %mul25, ptr %amount30, align 8, !tbaa !47
   %add.ptr.i32 = getelementptr inbounds nuw i64, ptr %15, i64 %i.034
   %20 = load i64, ptr %add.ptr.i32, align 8, !tbaa !37

@@ -1150,7 +1150,7 @@ define internal range(i32 0, 2) i32 @padlock_aes_init_key(ptr noundef %0, ptr no
   %7 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %0) #10
   %8 = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %7) #10
   %9 = icmp eq ptr %1, null
-  br i1 %9, label %125, label %10
+  br i1 %9, label %119, label %10
 
 10:                                               ; preds = %4
   %11 = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %0) #10
@@ -1189,7 +1189,7 @@ define internal range(i32 0, 2) i32 @padlock_aes_init_key(ptr noundef %0, ptr no
   %38 = or disjoint i16 %37, %33
   %39 = or disjoint i16 %38, %27
   store i16 %39, ptr %30, align 4
-  switch i32 %5, label %125 [
+  switch i32 %5, label %119 [
     i32 16, label %40
     i32 24, label %43
     i32 32, label %43
@@ -1199,7 +1199,7 @@ define internal range(i32 0, 2) i32 @padlock_aes_init_key(ptr noundef %0, ptr no
   %41 = getelementptr inbounds nuw i8, ptr %16, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %41, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
   %42 = and i16 %39, -129
-  br label %124
+  br label %118
 
 43:                                               ; preds = %26, %26
   %44 = add i32 %8, -3
@@ -1237,105 +1237,99 @@ define internal range(i32 0, 2) i32 @padlock_aes_init_key(ptr noundef %0, ptr no
   %59 = load i32, ptr %58, align 4, !tbaa !12
   store i32 %59, ptr %56, align 4, !tbaa !12
   store i32 %57, ptr %58, align 4, !tbaa !12
-  %60 = or disjoint i64 %indvars.iv.i, 1
-  %61 = getelementptr inbounds nuw i32, ptr %46, i64 %60
-  %62 = load i32, ptr %61, align 4, !tbaa !12
-  %63 = or disjoint i64 %indvars.iv96.i, 1
-  %64 = getelementptr inbounds i32, ptr %46, i64 %63
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %61 = load i32, ptr %60, align 4, !tbaa !12
+  %62 = getelementptr i8, ptr %58, i64 4
+  %63 = load i32, ptr %62, align 4, !tbaa !12
+  store i32 %63, ptr %60, align 4, !tbaa !12
+  store i32 %61, ptr %62, align 4, !tbaa !12
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %65 = load i32, ptr %64, align 4, !tbaa !12
-  store i32 %65, ptr %61, align 4, !tbaa !12
-  store i32 %62, ptr %64, align 4, !tbaa !12
-  %66 = or disjoint i64 %indvars.iv.i, 2
-  %67 = getelementptr inbounds nuw i32, ptr %46, i64 %66
-  %68 = load i32, ptr %67, align 4, !tbaa !12
-  %69 = or disjoint i64 %indvars.iv96.i, 2
-  %70 = getelementptr inbounds i32, ptr %46, i64 %69
+  %66 = getelementptr i8, ptr %58, i64 8
+  %67 = load i32, ptr %66, align 4, !tbaa !12
+  store i32 %67, ptr %64, align 4, !tbaa !12
+  store i32 %65, ptr %66, align 4, !tbaa !12
+  %68 = getelementptr inbounds nuw i8, ptr %56, i64 12
+  %69 = load i32, ptr %68, align 4, !tbaa !12
+  %70 = getelementptr i8, ptr %58, i64 12
   %71 = load i32, ptr %70, align 4, !tbaa !12
-  store i32 %71, ptr %67, align 4, !tbaa !12
-  store i32 %68, ptr %70, align 4, !tbaa !12
-  %72 = or disjoint i64 %indvars.iv.i, 3
-  %73 = getelementptr inbounds nuw i32, ptr %46, i64 %72
-  %74 = load i32, ptr %73, align 4, !tbaa !12
-  %75 = or disjoint i64 %indvars.iv96.i, 3
-  %76 = getelementptr inbounds i32, ptr %46, i64 %75
-  %77 = load i32, ptr %76, align 4, !tbaa !12
-  store i32 %77, ptr %73, align 4, !tbaa !12
-  store i32 %74, ptr %76, align 4, !tbaa !12
+  store i32 %71, ptr %68, align 4, !tbaa !12
+  store i32 %69, ptr %70, align 4, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %indvars.iv.next97.i = add nsw i64 %indvars.iv96.i, -4
-  %78 = icmp slt i64 %indvars.iv.next.i, %indvars.iv.next97.i
-  br i1 %78, label %.lr.ph.i, label %.preheader.i, !llvm.loop !20
+  %72 = icmp slt i64 %indvars.iv.next.i, %indvars.iv.next97.i
+  br i1 %72, label %.lr.ph.i, label %.preheader.i, !llvm.loop !20
 
-.lr.ph95.i:                                       ; preds = %.preheader.i, %117
-  %.08594.i = phi ptr [ %79, %117 ], [ %46, %.preheader.i ]
-  %.193.i = phi i32 [ %118, %117 ], [ 1, %.preheader.i ]
-  %79 = getelementptr inbounds nuw i8, ptr %.08594.i, i64 16
-  br label %80
+.lr.ph95.i:                                       ; preds = %.preheader.i, %111
+  %.08594.i = phi ptr [ %73, %111 ], [ %46, %.preheader.i ]
+  %.193.i = phi i32 [ %112, %111 ], [ 1, %.preheader.i ]
+  %73 = getelementptr inbounds nuw i8, ptr %.08594.i, i64 16
+  br label %74
 
-80:                                               ; preds = %80, %.lr.ph95.i
-  %indvars.iv101.i = phi i64 [ 0, %.lr.ph95.i ], [ %indvars.iv.next102.i, %80 ]
-  %81 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv101.i
-  %82 = load i32, ptr %81, align 4, !tbaa !12
-  %83 = and i32 %82, -2139062144
-  %84 = shl i32 %82, 1
-  %85 = and i32 %84, -16843010
-  %86 = lshr exact i32 %83, 7
-  %87 = sub i32 %83, %86
-  %88 = and i32 %87, 454761243
-  %89 = xor i32 %88, %85
-  %90 = and i32 %84, -2139062144
-  %91 = shl i32 %89, 1
-  %92 = and i32 %91, -16843010
-  %93 = lshr exact i32 %90, 7
-  %94 = sub i32 %90, %93
-  %95 = and i32 %94, 454761243
-  %96 = xor i32 %92, %95
-  %97 = and i32 %91, -2139062144
-  %98 = shl i32 %96, 1
-  %99 = and i32 %98, -16843010
-  %100 = lshr exact i32 %97, 7
-  %101 = sub i32 %97, %100
-  %102 = and i32 %101, 454761243
-  %103 = xor i32 %99, %102
-  %104 = xor i32 %103, %82
-  %105 = xor i32 %104, %89
-  %106 = xor i32 %104, %96
-  %107 = tail call i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 16)
-  %108 = lshr i32 %105, 24
-  %109 = shl i32 %105, 8
-  %110 = tail call i32 @llvm.fshl.i32(i32 %104, i32 %104, i32 24)
-  %111 = xor i32 %110, %107
-  %112 = xor i32 %111, %108
-  %113 = xor i32 %112, %109
-  %114 = xor i32 %113, %89
-  %115 = xor i32 %114, %96
-  %116 = xor i32 %115, %103
-  store i32 %116, ptr %81, align 4, !tbaa !12
+74:                                               ; preds = %74, %.lr.ph95.i
+  %indvars.iv101.i = phi i64 [ 0, %.lr.ph95.i ], [ %indvars.iv.next102.i, %74 ]
+  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv101.i
+  %76 = load i32, ptr %75, align 4, !tbaa !12
+  %77 = and i32 %76, -2139062144
+  %78 = shl i32 %76, 1
+  %79 = and i32 %78, -16843010
+  %80 = lshr exact i32 %77, 7
+  %81 = sub i32 %77, %80
+  %82 = and i32 %81, 454761243
+  %83 = xor i32 %82, %79
+  %84 = and i32 %78, -2139062144
+  %85 = shl i32 %83, 1
+  %86 = and i32 %85, -16843010
+  %87 = lshr exact i32 %84, 7
+  %88 = sub i32 %84, %87
+  %89 = and i32 %88, 454761243
+  %90 = xor i32 %86, %89
+  %91 = and i32 %85, -2139062144
+  %92 = shl i32 %90, 1
+  %93 = and i32 %92, -16843010
+  %94 = lshr exact i32 %91, 7
+  %95 = sub i32 %91, %94
+  %96 = and i32 %95, 454761243
+  %97 = xor i32 %93, %96
+  %98 = xor i32 %97, %76
+  %99 = xor i32 %98, %83
+  %100 = xor i32 %98, %90
+  %101 = tail call i32 @llvm.fshl.i32(i32 %100, i32 %100, i32 16)
+  %102 = lshr i32 %99, 24
+  %103 = shl i32 %99, 8
+  %104 = tail call i32 @llvm.fshl.i32(i32 %98, i32 %98, i32 24)
+  %105 = xor i32 %104, %101
+  %106 = xor i32 %105, %102
+  %107 = xor i32 %106, %103
+  %108 = xor i32 %107, %83
+  %109 = xor i32 %108, %90
+  %110 = xor i32 %109, %97
+  store i32 %110, ptr %75, align 4, !tbaa !12
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next102.i, 4
-  br i1 %exitcond.not.i, label %117, label %80, !llvm.loop !22
+  br i1 %exitcond.not.i, label %111, label %74, !llvm.loop !22
 
-117:                                              ; preds = %80
-  %118 = add nuw nsw i32 %.193.i, 1
-  %119 = load i32, ptr %50, align 4, !tbaa !18
-  %120 = icmp slt i32 %118, %119
-  br i1 %120, label %.lr.ph95.i, label %padlock_aes_set_decrypt_key.exit, !llvm.loop !23
+111:                                              ; preds = %74
+  %112 = add nuw nsw i32 %.193.i, 1
+  %113 = load i32, ptr %50, align 4, !tbaa !18
+  %114 = icmp slt i32 %112, %113
+  br i1 %114, label %.lr.ph95.i, label %padlock_aes_set_decrypt_key.exit, !llvm.loop !23
 
-padlock_aes_set_decrypt_key.exit:                 ; preds = %117, %43, %.preheader.i, %49
-  %121 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  tail call void @padlock_key_bswap(ptr noundef nonnull %121) #10
-  %122 = load i16, ptr %30, align 4
-  %123 = or i16 %122, 128
-  br label %124
+padlock_aes_set_decrypt_key.exit:                 ; preds = %111, %43, %.preheader.i, %49
+  %115 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  tail call void @padlock_key_bswap(ptr noundef nonnull %115) #10
+  %116 = load i16, ptr %30, align 4
+  %117 = or i16 %116, 128
+  br label %118
 
-124:                                              ; preds = %padlock_aes_set_decrypt_key.exit, %40
-  %storemerge = phi i16 [ %123, %padlock_aes_set_decrypt_key.exit ], [ %42, %40 ]
+118:                                              ; preds = %padlock_aes_set_decrypt_key.exit, %40
+  %storemerge = phi i16 [ %117, %padlock_aes_set_decrypt_key.exit ], [ %42, %40 ]
   store i16 %storemerge, ptr %30, align 4
   tail call void @padlock_reload_key() #10
-  br label %125
+  br label %119
 
-125:                                              ; preds = %26, %4, %124
-  %.0 = phi i32 [ 1, %124 ], [ 0, %4 ], [ 0, %26 ]
+119:                                              ; preds = %26, %4, %118
+  %.0 = phi i32 [ 1, %118 ], [ 0, %4 ], [ 0, %26 ]
   ret i32 %.0
 }
 

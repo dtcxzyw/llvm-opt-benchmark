@@ -110632,13 +110632,13 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm12VPRecipeBase
   %10 = icmp slt i64 %1, %9
   br i1 %10, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %38
-  %.038 = phi i64 [ %39, %38 ], [ %1, %6 ]
+.lr.ph:                                           ; preds = %6, %39
+  %.038 = phi i64 [ %40, %39 ], [ %1, %6 ]
   %11 = shl i64 %.038, 1
   %12 = add i64 %11, 2
   %13 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %12
-  %14 = or disjoint i64 %11, 1
-  %15 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %14
+  %14 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %11
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %13)
   %17 = load i32, ptr %16, align 4, !tbaa !66
   %18 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %15)
@@ -110653,18 +110653,18 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm12VPRecipeBase
   %24 = load i32, ptr %23, align 4, !tbaa !66
   %25 = icmp ult i32 %22, %24
   %cond.fr37 = freeze i1 %25
-  br i1 %cond.fr37, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit.thread", label %38
+  br i1 %cond.fr37, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit.thread", label %39
 
 26:                                               ; preds = %.lr.ph
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %28 = load i8, ptr %27, align 4, !tbaa !320, !range !48, !noundef !49
-  %29 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %30 = load i8, ptr %29, align 4, !tbaa !320, !range !48, !noundef !49
   %31 = icmp samesign ult i8 %28, %30
   br i1 %31, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit": ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %33 = load i32, ptr %32, align 4, !tbaa !426
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %35 = load i32, ptr %34, align 4, !tbaa !426
@@ -110672,118 +110672,119 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm12VPRecipeBase
   %37 = icmp ult i32 %35, %33
   %spec.select.i.i = select i1 %36, i1 %37, i1 false
   %cond.fr = freeze i1 %spec.select.i.i
-  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit.thread", label %38
+  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit.thread", label %39
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit.thread": ; preds = %26, %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit"
-  br label %38
+  %38 = or disjoint i64 %11, 1
+  br label %39
 
-38:                                               ; preds = %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit.thread"
-  %39 = phi i64 [ %14, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit.thread" ], [ %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit" ], [ %12, %20 ]
-  %40 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %39
-  %41 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %.038
-  %42 = load ptr, ptr %40, align 8, !tbaa !1243
-  store ptr %42, ptr %41, align 8, !tbaa !1235
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
+39:                                               ; preds = %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit.thread"
+  %40 = phi i64 [ %38, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit.thread" ], [ %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESE_EEbT_T0_.exit" ], [ %12, %20 ]
+  %41 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %40
+  %42 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %.038
+  %43 = load ptr, ptr %41, align 8, !tbaa !1243
+  store ptr %43, ptr %42, align 8, !tbaa !1235
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %44, ptr noundef nonnull align 8 dereferenceable(5) %43, i64 5, i1 false)
-  %45 = icmp slt i64 %39, %9
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !2900
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %45, ptr noundef nonnull align 8 dereferenceable(5) %44, i64 5, i1 false)
+  %46 = icmp slt i64 %40, %9
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !2900
 
-._crit_edge:                                      ; preds = %38, %6
-  %.0.lcssa = phi i64 [ %1, %6 ], [ %39, %38 ]
-  %46 = and i64 %2, 1
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %48, label %60
+._crit_edge:                                      ; preds = %39, %6
+  %.0.lcssa = phi i64 [ %1, %6 ], [ %40, %39 ]
+  %47 = and i64 %2, 1
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %49, label %61
 
-48:                                               ; preds = %._crit_edge
-  %49 = add nsw i64 %2, -2
-  %50 = ashr exact i64 %49, 1
-  %51 = icmp eq i64 %.0.lcssa, %50
-  br i1 %51, label %52, label %60
+49:                                               ; preds = %._crit_edge
+  %50 = add nsw i64 %2, -2
+  %51 = ashr exact i64 %50, 1
+  %52 = icmp eq i64 %.0.lcssa, %51
+  br i1 %52, label %53, label %61
 
-52:                                               ; preds = %48
-  %53 = shl nsw i64 %.0.lcssa, 1
-  %54 = or disjoint i64 %53, 1
-  %55 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %54
-  %56 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %.0.lcssa
-  %57 = load ptr, ptr %55, align 8, !tbaa !1243
-  store ptr %57, ptr %56, align 8, !tbaa !1235
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
+53:                                               ; preds = %49
+  %54 = shl nsw i64 %.0.lcssa, 1
+  %55 = or disjoint i64 %54, 1
+  %56 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %55
+  %57 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %.0.lcssa
+  %58 = load ptr, ptr %56, align 8, !tbaa !1243
+  store ptr %58, ptr %57, align 8, !tbaa !1235
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %59, ptr noundef nonnull align 8 dereferenceable(5) %58, i64 5, i1 false)
-  br label %60
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %60, ptr noundef nonnull align 8 dereferenceable(5) %59, i64 5, i1 false)
+  br label %61
 
-60:                                               ; preds = %52, %48, %._crit_edge
-  %.1 = phi i64 [ %54, %52 ], [ %.0.lcssa, %48 ], [ %.0.lcssa, %._crit_edge ]
+61:                                               ; preds = %53, %49, %._crit_edge
+  %.1 = phi i64 [ %55, %53 ], [ %.0.lcssa, %49 ], [ %.0.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %3, ptr %7, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %4, ptr %61, align 8
-  %62 = icmp sgt i64 %.1, %1
-  br i1 %62, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 %4, ptr %62, align 8
+  %63 = icmp sgt i64 %.1, %1
+  br i1 %63, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  br label %64
+.lr.ph.i:                                         ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  br label %65
 
-64:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i", %.lr.ph.i
+65:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i", %.lr.ph.i
   %.0134.i = phi i64 [ %.1, %.lr.ph.i ], [ %.05.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i" ]
   %.05.in.i = add nsw i64 %.0134.i, -1
   %.05.i = sdiv i64 %.05.in.i, 2
-  %65 = getelementptr inbounds %"struct.std::pair.784", ptr %0, i64 %.05.i
-  %66 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %65)
-  %67 = load i32, ptr %66, align 4, !tbaa !66
-  %68 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %69 = load i32, ptr %68, align 4, !tbaa !66
-  %.not.i.i.i = icmp eq i32 %67, %69
-  br i1 %.not.i.i.i, label %76, label %70
+  %66 = getelementptr inbounds %"struct.std::pair.784", ptr %0, i64 %.05.i
+  %67 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %66)
+  %68 = load i32, ptr %67, align 4, !tbaa !66
+  %69 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %70 = load i32, ptr %69, align 4, !tbaa !66
+  %.not.i.i.i = icmp eq i32 %68, %70
+  br i1 %.not.i.i.i, label %77, label %71
 
-70:                                               ; preds = %64
-  %71 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %65)
-  %72 = load i32, ptr %71, align 4, !tbaa !66
-  %73 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %74 = load i32, ptr %73, align 4, !tbaa !66
-  %75 = icmp ult i32 %72, %74
-  br i1 %75, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i", label %.critedge.loopexit.i
+71:                                               ; preds = %65
+  %72 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %66)
+  %73 = load i32, ptr %72, align 4, !tbaa !66
+  %74 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12VPRecipeBaseEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %75 = load i32, ptr %74, align 4, !tbaa !66
+  %76 = icmp ult i32 %73, %75
+  br i1 %76, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i", label %.critedge.loopexit.i
 
-76:                                               ; preds = %64
-  %77 = getelementptr inbounds nuw i8, ptr %65, i64 12
-  %78 = load i8, ptr %77, align 4, !tbaa !320, !range !48, !noundef !49
-  %79 = load i8, ptr %63, align 4, !tbaa !320, !range !48, !noundef !49
-  %80 = icmp samesign ult i8 %78, %79
-  br i1 %80, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.i"
+77:                                               ; preds = %65
+  %78 = getelementptr inbounds nuw i8, ptr %66, i64 12
+  %79 = load i8, ptr %78, align 4, !tbaa !320, !range !48, !noundef !49
+  %80 = load i8, ptr %64, align 4, !tbaa !320, !range !48, !noundef !49
+  %81 = icmp samesign ult i8 %79, %80
+  br i1 %81, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.i": ; preds = %76
-  %81 = load i32, ptr %61, align 8, !tbaa !426
-  %82 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %83 = load i32, ptr %82, align 4, !tbaa !426
-  %84 = icmp samesign uge i8 %79, %78
-  %85 = icmp ult i32 %83, %81
-  %spec.select.i.i.i = select i1 %84, i1 %85, i1 false
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.i": ; preds = %77
+  %82 = load i32, ptr %62, align 8, !tbaa !426
+  %83 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %84 = load i32, ptr %83, align 4, !tbaa !426
+  %85 = icmp samesign uge i8 %80, %79
+  %86 = icmp ult i32 %84, %82
+  %spec.select.i.i.i = select i1 %85, i1 %86, i1 false
   br i1 %spec.select.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i", label %.critedge.loopexit.i
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.i", %76, %70
-  %86 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %.0134.i
-  %87 = load ptr, ptr %65, align 8, !tbaa !1243
-  store ptr %87, ptr %86, align 8, !tbaa !1235
-  %88 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %89, ptr noundef nonnull align 8 dereferenceable(5) %88, i64 5, i1 false)
-  %90 = icmp sgt i64 %.05.i, %1
-  br i1 %90, label %64, label %.critedge.loopexit.i, !llvm.loop !2901
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.i", %77, %71
+  %87 = getelementptr inbounds nuw %"struct.std::pair.784", ptr %0, i64 %.0134.i
+  %88 = load ptr, ptr %66, align 8, !tbaa !1243
+  store ptr %88, ptr %87, align 8, !tbaa !1235
+  %89 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %90, ptr noundef nonnull align 8 dereferenceable(5) %89, i64 5, i1 false)
+  %91 = icmp sgt i64 %.05.i, %1
+  br i1 %91, label %65, label %.critedge.loopexit.i, !llvm.loop !2901
 
-.critedge.loopexit.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.i", %70
-  %.013.lcssa.ph.i = phi i64 [ %.0134.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.i" ], [ %.05.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i" ], [ %.0134.i, %70 ]
+.critedge.loopexit.i:                             ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.i", %71
+  %.013.lcssa.ph.i = phi i64 [ %.0134.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.i" ], [ %.05.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS2_25OptimizationRemarkEmitterEE3$_0EclIPSt4pairIPNS2_12VPRecipeBaseENS2_12ElementCountEESD_EEbT_RT0_.exit.thread.i" ], [ %.0134.i, %71 ]
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !1243
   br label %"_ZSt11__push_heapIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
-"_ZSt11__push_heapIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %60, %.critedge.loopexit.i
-  %91 = phi ptr [ %3, %60 ], [ %.pre.i, %.critedge.loopexit.i ]
-  %.013.lcssa.i = phi i64 [ %.1, %60 ], [ %.013.lcssa.ph.i, %.critedge.loopexit.i ]
-  %92 = getelementptr inbounds %"struct.std::pair.784", ptr %0, i64 %.013.lcssa.i
-  store ptr %91, ptr %92, align 8, !tbaa !1235
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %93, ptr noundef nonnull align 8 dereferenceable(5) %61, i64 5, i1 false)
+"_ZSt11__push_heapIPSt4pairIPN4llvm12VPRecipeBaseENS1_12ElementCountEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS1_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %61, %.critedge.loopexit.i
+  %92 = phi ptr [ %3, %61 ], [ %.pre.i, %.critedge.loopexit.i ]
+  %.013.lcssa.i = phi i64 [ %.1, %61 ], [ %.013.lcssa.ph.i, %.critedge.loopexit.i ]
+  %93 = getelementptr inbounds %"struct.std::pair.784", ptr %0, i64 %.013.lcssa.i
+  store ptr %92, ptr %93, align 8, !tbaa !1235
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %94, ptr noundef nonnull align 8 dereferenceable(5) %62, i64 5, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   ret void
 }

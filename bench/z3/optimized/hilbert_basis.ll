@@ -14487,6 +14487,7 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPN13hilbert_basis8offset_tEN9
 
 .lr.ph:                                           ; preds = %3
   %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8, !tbaa !35
+  %invariant.gep.i.i = getelementptr i8, ptr %0, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 24
   br label %10
@@ -14530,513 +14531,184 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPN13hilbert_basis8offset_tEN9
   %.030.i.i = phi i64 [ %spec.select.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit30 ], [ 0, %.lr.ph.i.i.preheader.split ]
   %29 = shl i64 %.030.i.i, 1
   %30 = add i64 %29, 2
-  %31 = or disjoint i64 %29, 1
-  %32 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %31
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %32, align 4, !tbaa !77
-  %33 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %30
-  %.sroa.01.0.copyload.i.i.i = load i32, ptr %33, align 4, !tbaa !77
-  %34 = load i32, ptr %21, align 4, !tbaa !77
-  %35 = zext i32 %34 to i64
-  %36 = zext i32 %.sroa.01.0.copyload.i.i.i to i64
-  %37 = getelementptr inbounds nuw %class.checked_int64, ptr %28, i64 %36
-  %38 = getelementptr inbounds nuw %class.checked_int64, ptr %37, i64 %35
-  %39 = zext i32 %.sroa.0.0.copyload.i.i.i to i64
-  %40 = getelementptr inbounds nuw %class.checked_int64, ptr %28, i64 %39
-  %41 = getelementptr inbounds nuw %class.checked_int64, ptr %40, i64 %35
-  %42 = icmp eq i32 %34, 0
-  br i1 %42, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit30, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i8
+  %gep.i.i = getelementptr %"struct.hilbert_basis::offset_t", ptr %invariant.gep.i.i, i64 %29
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %gep.i.i, align 4, !tbaa !77
+  %31 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %30
+  %.sroa.01.0.copyload.i.i.i = load i32, ptr %31, align 4, !tbaa !77
+  %32 = load i32, ptr %21, align 4, !tbaa !77
+  %33 = zext i32 %32 to i64
+  %34 = zext i32 %.sroa.01.0.copyload.i.i.i to i64
+  %35 = getelementptr inbounds nuw %class.checked_int64, ptr %28, i64 %34
+  %36 = getelementptr inbounds nuw %class.checked_int64, ptr %35, i64 %33
+  %37 = zext i32 %.sroa.0.0.copyload.i.i.i to i64
+  %38 = getelementptr inbounds nuw %class.checked_int64, ptr %28, i64 %37
+  %39 = getelementptr inbounds nuw %class.checked_int64, ptr %38, i64 %33
+  %40 = icmp eq i32 %32, 0
+  br i1 %40, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit30, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i8
 
 _ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i8: ; preds = %.lr.ph.i.i
-  %43 = add i32 %34, -1
-  %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %class.vector.1, ptr %19, i64 %44
-  %46 = load ptr, ptr %45, align 8, !tbaa !91
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit30, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i9
+  %41 = add i32 %32, -1
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw %class.vector.1, ptr %19, i64 %42
+  %44 = load ptr, ptr %43, align 8, !tbaa !91
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit30, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i9
 
 _ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i9: ; preds = %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i8
-  %48 = getelementptr inbounds i8, ptr %46, i64 -4
-  %49 = load i32, ptr %48, align 4, !tbaa !77
-  %wide.trip.count.i10 = zext i32 %49 to i64
+  %46 = getelementptr inbounds i8, ptr %44, i64 -4
+  %47 = load i32, ptr %46, align 4, !tbaa !77
+  %wide.trip.count.i10 = zext i32 %47 to i64
   br label %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i11
 
 _ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i11: ; preds = %_Z3absRK13checked_int64ILb1EE.exit10.i20, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i9
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i23, %_Z3absRK13checked_int64ILb1EE.exit10.i20 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i9 ]
-  %.sroa.015.0.i13 = phi i64 [ %71, %_Z3absRK13checked_int64ILb1EE.exit10.i20 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i9 ]
-  %.sroa.017.0.i14 = phi i64 [ %59, %_Z3absRK13checked_int64ILb1EE.exit10.i20 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i9 ]
+  %.sroa.015.0.i13 = phi i64 [ %69, %_Z3absRK13checked_int64ILb1EE.exit10.i20 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i9 ]
+  %.sroa.017.0.i14 = phi i64 [ %57, %_Z3absRK13checked_int64ILb1EE.exit10.i20 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i9 ]
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.i12, %wide.trip.count.i10
-  br i1 %exitcond.not.i15, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit30, label %50
+  br i1 %exitcond.not.i15, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit30, label %48
 
-50:                                               ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i11
-  %51 = getelementptr inbounds nuw %class.checked_int64, ptr %38, i64 %indvars.iv.i12
-  %52 = load i64, ptr %51, align 8, !tbaa !142
-  %53 = icmp sgt i64 %52, -1
-  br i1 %53, label %_Z3absRK13checked_int64ILb1EE.exit.i16, label %54
+48:                                               ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i11
+  %49 = getelementptr inbounds nuw %class.checked_int64, ptr %36, i64 %indvars.iv.i12
+  %50 = load i64, ptr %49, align 8, !tbaa !142
+  %51 = icmp sgt i64 %50, -1
+  br i1 %51, label %_Z3absRK13checked_int64ILb1EE.exit.i16, label %52
 
-54:                                               ; preds = %50
-  %55 = icmp eq i64 %52, -9223372036854775808
-  br i1 %55, label %.split33.i27, label %57
+52:                                               ; preds = %48
+  %53 = icmp eq i64 %50, -9223372036854775808
+  br i1 %53, label %.split33.i27, label %55
 
-.split33.i27:                                     ; preds = %54
-  %56 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %56, align 8, !tbaa !54
-  tail call void @__cxa_throw(ptr nonnull %56, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+.split33.i27:                                     ; preds = %52
+  %54 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %54, align 8, !tbaa !54
+  tail call void @__cxa_throw(ptr nonnull %54, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
-57:                                               ; preds = %54
-  %58 = sub nsw i64 0, %52
+55:                                               ; preds = %52
+  %56 = sub nsw i64 0, %50
   br label %_Z3absRK13checked_int64ILb1EE.exit.i16
 
-_Z3absRK13checked_int64ILb1EE.exit.i16:           ; preds = %57, %50
-  %.sroa.0.0.i.i.i17 = phi i64 [ %58, %57 ], [ %52, %50 ]
-  %59 = add i64 %.sroa.0.0.i.i.i17, %.sroa.017.0.i14
-  %60 = icmp sgt i64 %.sroa.017.0.i14, 0
-  %61 = icmp slt i64 %59, 1
-  %or.cond.i18 = select i1 %60, i1 %61, i1 false
+_Z3absRK13checked_int64ILb1EE.exit.i16:           ; preds = %55, %48
+  %.sroa.0.0.i.i.i17 = phi i64 [ %56, %55 ], [ %50, %48 ]
+  %57 = add i64 %.sroa.0.0.i.i.i17, %.sroa.017.0.i14
+  %58 = icmp sgt i64 %.sroa.017.0.i14, 0
+  %59 = icmp slt i64 %57, 1
+  %or.cond.i18 = select i1 %58, i1 %59, i1 false
   br i1 %or.cond.i18, label %.split35.i26, label %_ZN13checked_int64ILb1EEpLERKS0_.exit.i19
 
 .split35.i26:                                     ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i16
-  %62 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %62, align 8, !tbaa !54
-  tail call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+  %60 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %60, align 8, !tbaa !54
+  tail call void @__cxa_throw(ptr nonnull %60, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
 _ZN13checked_int64ILb1EEpLERKS0_.exit.i19:        ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i16
-  %63 = getelementptr inbounds nuw %class.checked_int64, ptr %41, i64 %indvars.iv.i12
-  %64 = load i64, ptr %63, align 8, !tbaa !142
-  %65 = icmp sgt i64 %64, -1
-  br i1 %65, label %_Z3absRK13checked_int64ILb1EE.exit10.i20, label %66
+  %61 = getelementptr inbounds nuw %class.checked_int64, ptr %39, i64 %indvars.iv.i12
+  %62 = load i64, ptr %61, align 8, !tbaa !142
+  %63 = icmp sgt i64 %62, -1
+  br i1 %63, label %_Z3absRK13checked_int64ILb1EE.exit10.i20, label %64
 
-66:                                               ; preds = %_ZN13checked_int64ILb1EEpLERKS0_.exit.i19
-  %67 = icmp eq i64 %64, -9223372036854775808
-  br i1 %67, label %.split37.i25, label %69
+64:                                               ; preds = %_ZN13checked_int64ILb1EEpLERKS0_.exit.i19
+  %65 = icmp eq i64 %62, -9223372036854775808
+  br i1 %65, label %.split37.i25, label %67
 
-.split37.i25:                                     ; preds = %66
-  %68 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %68, align 8, !tbaa !54
-  tail call void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+.split37.i25:                                     ; preds = %64
+  %66 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %66, align 8, !tbaa !54
+  tail call void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
-69:                                               ; preds = %66
-  %70 = sub nsw i64 0, %64
+67:                                               ; preds = %64
+  %68 = sub nsw i64 0, %62
   br label %_Z3absRK13checked_int64ILb1EE.exit10.i20
 
-_Z3absRK13checked_int64ILb1EE.exit10.i20:         ; preds = %69, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i19
-  %.sroa.0.0.i.i9.i21 = phi i64 [ %70, %69 ], [ %64, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i19 ]
-  %71 = add i64 %.sroa.0.0.i.i9.i21, %.sroa.015.0.i13
-  %72 = icmp sgt i64 %.sroa.015.0.i13, 0
-  %73 = icmp slt i64 %71, 1
-  %or.cond22.i22 = select i1 %72, i1 %73, i1 false
+_Z3absRK13checked_int64ILb1EE.exit10.i20:         ; preds = %67, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i19
+  %.sroa.0.0.i.i9.i21 = phi i64 [ %68, %67 ], [ %62, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i19 ]
+  %69 = add i64 %.sroa.0.0.i.i9.i21, %.sroa.015.0.i13
+  %70 = icmp sgt i64 %.sroa.015.0.i13, 0
+  %71 = icmp slt i64 %69, 1
+  %or.cond22.i22 = select i1 %70, i1 %71, i1 false
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i12, 1
   br i1 %or.cond22.i22, label %.split39.i24, label %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i11, !llvm.loop !194
 
 .split39.i24:                                     ; preds = %_Z3absRK13checked_int64ILb1EE.exit10.i20
-  %74 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %74, align 8, !tbaa !54
-  tail call void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+  %72 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %72, align 8, !tbaa !54
+  tail call void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
   unreachable
 
 _ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit30: ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i11, %.lr.ph.i.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i8
   %.us-phi.i28 = phi i64 [ 0, %.lr.ph.i.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i8 ], [ %.sroa.015.0.i13, %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i11 ]
   %.us-phi31.i29 = phi i64 [ 0, %.lr.ph.i.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i8 ], [ %.sroa.017.0.i14, %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i11 ]
-  %75 = icmp slt i64 %.us-phi31.i29, %.us-phi.i28
-  %spec.select.i.i = select i1 %75, i64 %31, i64 %30
-  %76 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %spec.select.i.i
-  %77 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.030.i.i
-  %78 = load i32, ptr %76, align 4, !tbaa !77
-  store i32 %78, ptr %77, align 4, !tbaa !77
-  %79 = icmp slt i64 %spec.select.i.i, %17
-  br i1 %79, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !278
+  %73 = icmp slt i64 %.us-phi31.i29, %.us-phi.i28
+  %74 = or disjoint i64 %29, 1
+  %spec.select.i.i = select i1 %73, i64 %74, i64 %30
+  %75 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %spec.select.i.i
+  %76 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.030.i.i
+  %77 = load i32, ptr %75, align 4, !tbaa !77
+  store i32 %77, ptr %76, align 4, !tbaa !77
+  %78 = icmp slt i64 %spec.select.i.i, %17
+  br i1 %78, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !278
 
 ._crit_edge.i.i:                                  ; preds = %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit30, %.lr.ph.i.i.us, %10
   %.0.lcssa.i.i = phi i64 [ 0, %10 ], [ %23, %.lr.ph.i.i.us ], [ %spec.select.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit30 ]
-  %80 = and i64 %14, 4
-  %81 = icmp eq i64 %80, 0
-  br i1 %81, label %82, label %91
+  %79 = and i64 %14, 4
+  %80 = icmp eq i64 %79, 0
+  br i1 %80, label %81, label %90
 
-82:                                               ; preds = %._crit_edge.i.i
-  %83 = add nsw i64 %15, -2
-  %84 = ashr exact i64 %83, 1
-  %85 = icmp eq i64 %.0.lcssa.i.i, %84
-  br i1 %85, label %.thread.i, label %91
+81:                                               ; preds = %._crit_edge.i.i
+  %82 = add nsw i64 %15, -2
+  %83 = ashr exact i64 %82, 1
+  %84 = icmp eq i64 %.0.lcssa.i.i, %83
+  br i1 %84, label %.thread.i, label %90
 
-.thread.i:                                        ; preds = %82
-  %86 = shl nuw nsw i64 %.0.lcssa.i.i, 1
-  %87 = or disjoint i64 %86, 1
-  %88 = getelementptr inbounds nuw %"struct.hilbert_basis::offset_t", ptr %0, i64 %87
-  %89 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.0.lcssa.i.i
-  %90 = load i32, ptr %88, align 4, !tbaa !77
-  store i32 %90, ptr %89, align 4, !tbaa !77
+.thread.i:                                        ; preds = %81
+  %85 = shl nuw nsw i64 %.0.lcssa.i.i, 1
+  %86 = or disjoint i64 %85, 1
+  %87 = getelementptr inbounds nuw %"struct.hilbert_basis::offset_t", ptr %0, i64 %86
+  %88 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.0.lcssa.i.i
+  %89 = load i32, ptr %87, align 4, !tbaa !77
+  store i32 %89, ptr %88, align 4, !tbaa !77
   br label %.lr.ph.i.i.preheader.i
 
-91:                                               ; preds = %82, %._crit_edge.i.i
+90:                                               ; preds = %81, %._crit_edge.i.i
   %.not.i = icmp eq i64 %.0.lcssa.i.i, 0
   br i1 %.not.i, label %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit, label %.lr.ph.i.i.preheader.i
 
-.lr.ph.i.i.preheader.i:                           ; preds = %91, %.thread.i
-  %.1.i14.i = phi i64 [ %87, %.thread.i ], [ %.0.lcssa.i.i, %91 ]
-  %92 = load ptr, ptr %8, align 8, !tbaa !93
-  %93 = icmp eq ptr %92, null
-  %94 = getelementptr inbounds i8, ptr %92, i64 -4
-  br i1 %93, label %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit, label %.lr.ph.i.i.preheader.i.split
-
-.lr.ph.i.i.preheader.i.split:                     ; preds = %.lr.ph.i.i.preheader.i
-  %95 = zext i32 %.sroa.02.0.copyload.i to i64
-  %96 = load ptr, ptr %9, align 8, !tbaa !91
-  %97 = getelementptr inbounds nuw %class.checked_int64, ptr %96, i64 %95
-  br label %.lr.ph.i.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %139, %.lr.ph.i.i.preheader.i.split
-  %.01317.i.i.i = phi i64 [ %.018.i.i910.i, %139 ], [ %.1.i14.i, %.lr.ph.i.i.preheader.i.split ]
-  %.018.in.i.i.i = add nsw i64 %.01317.i.i.i, -1
-  %.018.i.i910.i = lshr i64 %.018.in.i.i.i, 1
-  %98 = getelementptr inbounds nuw %"struct.hilbert_basis::offset_t", ptr %0, i64 %.018.i.i910.i
-  %.sroa.01.0.copyload.i.i.i.i = load i32, ptr %98, align 4, !tbaa !77
-  %99 = load i32, ptr %94, align 4, !tbaa !77
-  %100 = zext i32 %99 to i64
-  %101 = zext i32 %.sroa.01.0.copyload.i.i.i.i to i64
-  %102 = getelementptr inbounds nuw %class.checked_int64, ptr %96, i64 %101
-  %103 = getelementptr inbounds nuw %class.checked_int64, ptr %102, i64 %100
-  %104 = getelementptr inbounds nuw %class.checked_int64, ptr %97, i64 %100
-  %105 = icmp eq i32 %99, 0
-  br i1 %105, label %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i
-
-_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i: ; preds = %.lr.ph.i.i.i
-  %106 = add i32 %99, -1
-  %107 = zext i32 %106 to i64
-  %108 = getelementptr inbounds nuw %class.vector.1, ptr %92, i64 %107
-  %109 = load ptr, ptr %108, align 8, !tbaa !91
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i
-
-_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i: ; preds = %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i
-  %111 = getelementptr inbounds i8, ptr %109, i64 -4
-  %112 = load i32, ptr %111, align 4, !tbaa !77
-  %wide.trip.count.i = zext i32 %112 to i64
-  br label %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i
-
-_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i: ; preds = %_Z3absRK13checked_int64ILb1EE.exit10.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_Z3absRK13checked_int64ILb1EE.exit10.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i ]
-  %.sroa.015.0.i = phi i64 [ %134, %_Z3absRK13checked_int64ILb1EE.exit10.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i ]
-  %.sroa.017.0.i = phi i64 [ %122, %_Z3absRK13checked_int64ILb1EE.exit10.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit, label %113
-
-113:                                              ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i
-  %114 = getelementptr inbounds nuw %class.checked_int64, ptr %103, i64 %indvars.iv.i
-  %115 = load i64, ptr %114, align 8, !tbaa !142
-  %116 = icmp sgt i64 %115, -1
-  br i1 %116, label %_Z3absRK13checked_int64ILb1EE.exit.i, label %117
-
-117:                                              ; preds = %113
-  %118 = icmp eq i64 %115, -9223372036854775808
-  br i1 %118, label %.split33.i, label %120
-
-.split33.i:                                       ; preds = %117
-  %119 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %119, align 8, !tbaa !54
-  tail call void @__cxa_throw(ptr nonnull %119, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
-  unreachable
-
-120:                                              ; preds = %117
-  %121 = sub nsw i64 0, %115
-  br label %_Z3absRK13checked_int64ILb1EE.exit.i
-
-_Z3absRK13checked_int64ILb1EE.exit.i:             ; preds = %120, %113
-  %.sroa.0.0.i.i.i = phi i64 [ %121, %120 ], [ %115, %113 ]
-  %122 = add i64 %.sroa.0.0.i.i.i, %.sroa.017.0.i
-  %123 = icmp sgt i64 %.sroa.017.0.i, 0
-  %124 = icmp slt i64 %122, 1
-  %or.cond.i = select i1 %123, i1 %124, i1 false
-  br i1 %or.cond.i, label %.split35.i, label %_ZN13checked_int64ILb1EEpLERKS0_.exit.i
-
-.split35.i:                                       ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i
-  %125 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %125, align 8, !tbaa !54
-  tail call void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
-  unreachable
-
-_ZN13checked_int64ILb1EEpLERKS0_.exit.i:          ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i
-  %126 = getelementptr inbounds nuw %class.checked_int64, ptr %104, i64 %indvars.iv.i
-  %127 = load i64, ptr %126, align 8, !tbaa !142
-  %128 = icmp sgt i64 %127, -1
-  br i1 %128, label %_Z3absRK13checked_int64ILb1EE.exit10.i, label %129
-
-129:                                              ; preds = %_ZN13checked_int64ILb1EEpLERKS0_.exit.i
-  %130 = icmp eq i64 %127, -9223372036854775808
-  br i1 %130, label %.split37.i, label %132
-
-.split37.i:                                       ; preds = %129
-  %131 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %131, align 8, !tbaa !54
-  tail call void @__cxa_throw(ptr nonnull %131, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
-  unreachable
-
-132:                                              ; preds = %129
-  %133 = sub nsw i64 0, %127
-  br label %_Z3absRK13checked_int64ILb1EE.exit10.i
-
-_Z3absRK13checked_int64ILb1EE.exit10.i:           ; preds = %132, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i
-  %.sroa.0.0.i.i9.i = phi i64 [ %133, %132 ], [ %127, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i ]
-  %134 = add i64 %.sroa.0.0.i.i9.i, %.sroa.015.0.i
-  %135 = icmp sgt i64 %.sroa.015.0.i, 0
-  %136 = icmp slt i64 %134, 1
-  %or.cond22.i = select i1 %135, i1 %136, i1 false
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %or.cond22.i, label %.split39.i, label %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i, !llvm.loop !194
-
-.split39.i:                                       ; preds = %_Z3absRK13checked_int64ILb1EE.exit10.i
-  %137 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %137, align 8, !tbaa !54
-  tail call void @__cxa_throw(ptr nonnull %137, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
-  unreachable
-
-_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit: ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i
-  %138 = icmp slt i64 %.sroa.017.0.i, %.sroa.015.0.i
-  br i1 %138, label %139, label %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit
-
-139:                                              ; preds = %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit
-  %140 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.01317.i.i.i
-  store i32 %.sroa.01.0.copyload.i.i.i.i, ptr %140, align 4, !tbaa !77
-  %.not11.i = icmp ult i64 %.018.in.i.i.i, 2
-  br i1 %.not11.i, label %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !279
-
-_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit: ; preds = %139, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit, %.lr.ph.i.i.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i, %.lr.ph.i.i.preheader.i, %91
-  %.013.lcssa.i.i.i = phi i64 [ 0, %91 ], [ %.1.i14.i, %.lr.ph.i.i.preheader.i ], [ %.01317.i.i.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i ], [ %.01317.i.i.i, %.lr.ph.i.i.i ], [ %.01317.i.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit ], [ 0, %139 ]
-  %141 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.013.lcssa.i.i.i
-  store i32 %.sroa.02.0.copyload.i, ptr %141, align 4, !tbaa !77
-  %142 = icmp sgt i64 %14, 4
-  br i1 %142, label %10, label %._crit_edge, !llvm.loop !280
-
-._crit_edge:                                      ; preds = %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit, %3
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden void @_ZSt11__make_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat {
-  %4 = ptrtoint ptr %1 to i64
-  %5 = ptrtoint ptr %0 to i64
-  %6 = sub i64 %4, %5
-  %7 = ashr exact i64 %6, 2
-  %8 = icmp slt i64 %7, 2
-  br i1 %8, label %.loopexit, label %9
-
-9:                                                ; preds = %3
-  %10 = add nsw i64 %7, -2
-  %11 = lshr i64 %10, 1
-  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !35
-  %12 = add nsw i64 %7, -1
-  %13 = lshr i64 %12, 1
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 24
-  %16 = and i64 %6, 4
-  %17 = icmp eq i64 %16, 0
-  %18 = lshr exact i64 %10, 1
-  %19 = or disjoint i64 %10, 1
-  %20 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %19
-  %21 = getelementptr inbounds nuw %"struct.hilbert_basis::offset_t", ptr %0, i64 %18
-  br label %22
-
-22:                                               ; preds = %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit, %9
-  %.015 = phi i64 [ %11, %9 ], [ %142, %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit ]
-  %23 = getelementptr inbounds nuw %"struct.hilbert_basis::offset_t", ptr %0, i64 %.015
-  %.sroa.02.0.copyload = load i32, ptr %23, align 4, !tbaa !77
-  %24 = icmp slt i64 %.015, %13
-  br i1 %24, label %.lr.ph.i.preheader, label %._crit_edge.i
-
-.lr.ph.i.preheader:                               ; preds = %22
-  %25 = load ptr, ptr %14, align 8, !tbaa !93
-  %26 = icmp eq ptr %25, null
-  %27 = getelementptr inbounds i8, ptr %25, i64 -4
-  br i1 %26, label %.lr.ph.i.us, label %.lr.ph.i.preheader.split
-
-.lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader, %.lr.ph.i.us
-  %.030.i.us = phi i64 [ %29, %.lr.ph.i.us ], [ %.015, %.lr.ph.i.preheader ]
-  %28 = shl i64 %.030.i.us, 1
-  %29 = add i64 %28, 2
-  %30 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %29
-  %31 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.030.i.us
-  %32 = load i32, ptr %30, align 4, !tbaa !77
-  store i32 %32, ptr %31, align 4, !tbaa !77
-  %33 = icmp slt i64 %29, %13
-  br i1 %33, label %.lr.ph.i.us, label %._crit_edge.i, !llvm.loop !278
-
-.lr.ph.i.preheader.split:                         ; preds = %.lr.ph.i.preheader
-  %34 = load ptr, ptr %15, align 8, !tbaa !91
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader.split, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40
-  %.030.i = phi i64 [ %spec.select.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40 ], [ %.015, %.lr.ph.i.preheader.split ]
-  %35 = shl i64 %.030.i, 1
-  %36 = add i64 %35, 2
-  %37 = or disjoint i64 %35, 1
-  %38 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %37
-  %.sroa.0.0.copyload.i.i = load i32, ptr %38, align 4, !tbaa !77
-  %39 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %36
-  %.sroa.01.0.copyload.i.i = load i32, ptr %39, align 4, !tbaa !77
-  %40 = load i32, ptr %27, align 4, !tbaa !77
-  %41 = zext i32 %40 to i64
-  %42 = zext i32 %.sroa.01.0.copyload.i.i to i64
-  %43 = getelementptr inbounds nuw %class.checked_int64, ptr %34, i64 %42
-  %44 = getelementptr inbounds nuw %class.checked_int64, ptr %43, i64 %41
-  %45 = zext i32 %.sroa.0.0.copyload.i.i to i64
-  %46 = getelementptr inbounds nuw %class.checked_int64, ptr %34, i64 %45
-  %47 = getelementptr inbounds nuw %class.checked_int64, ptr %46, i64 %41
-  %48 = icmp eq i32 %40, 0
-  br i1 %48, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i18
-
-_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i18: ; preds = %.lr.ph.i
-  %49 = add i32 %40, -1
-  %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %class.vector.1, ptr %25, i64 %50
-  %52 = load ptr, ptr %51, align 8, !tbaa !91
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i19
-
-_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i19: ; preds = %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i18
-  %54 = getelementptr inbounds i8, ptr %52, i64 -4
-  %55 = load i32, ptr %54, align 4, !tbaa !77
-  %wide.trip.count.i20 = zext i32 %55 to i64
-  br label %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21
-
-_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21: ; preds = %_Z3absRK13checked_int64ILb1EE.exit10.i30, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i19
-  %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i33, %_Z3absRK13checked_int64ILb1EE.exit10.i30 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i19 ]
-  %.sroa.015.0.i23 = phi i64 [ %77, %_Z3absRK13checked_int64ILb1EE.exit10.i30 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i19 ]
-  %.sroa.017.0.i24 = phi i64 [ %65, %_Z3absRK13checked_int64ILb1EE.exit10.i30 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i19 ]
-  %exitcond.not.i25 = icmp eq i64 %indvars.iv.i22, %wide.trip.count.i20
-  br i1 %exitcond.not.i25, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40, label %56
-
-56:                                               ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21
-  %57 = getelementptr inbounds nuw %class.checked_int64, ptr %44, i64 %indvars.iv.i22
-  %58 = load i64, ptr %57, align 8, !tbaa !142
-  %59 = icmp sgt i64 %58, -1
-  br i1 %59, label %_Z3absRK13checked_int64ILb1EE.exit.i26, label %60
-
-60:                                               ; preds = %56
-  %61 = icmp eq i64 %58, -9223372036854775808
-  br i1 %61, label %.split33.i37, label %63
-
-.split33.i37:                                     ; preds = %60
-  %62 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %62, align 8, !tbaa !54
-  tail call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
-  unreachable
-
-63:                                               ; preds = %60
-  %64 = sub nsw i64 0, %58
-  br label %_Z3absRK13checked_int64ILb1EE.exit.i26
-
-_Z3absRK13checked_int64ILb1EE.exit.i26:           ; preds = %63, %56
-  %.sroa.0.0.i.i.i27 = phi i64 [ %64, %63 ], [ %58, %56 ]
-  %65 = add i64 %.sroa.0.0.i.i.i27, %.sroa.017.0.i24
-  %66 = icmp sgt i64 %.sroa.017.0.i24, 0
-  %67 = icmp slt i64 %65, 1
-  %or.cond.i28 = select i1 %66, i1 %67, i1 false
-  br i1 %or.cond.i28, label %.split35.i36, label %_ZN13checked_int64ILb1EEpLERKS0_.exit.i29
-
-.split35.i36:                                     ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i26
-  %68 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %68, align 8, !tbaa !54
-  tail call void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
-  unreachable
-
-_ZN13checked_int64ILb1EEpLERKS0_.exit.i29:        ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i26
-  %69 = getelementptr inbounds nuw %class.checked_int64, ptr %47, i64 %indvars.iv.i22
-  %70 = load i64, ptr %69, align 8, !tbaa !142
-  %71 = icmp sgt i64 %70, -1
-  br i1 %71, label %_Z3absRK13checked_int64ILb1EE.exit10.i30, label %72
-
-72:                                               ; preds = %_ZN13checked_int64ILb1EEpLERKS0_.exit.i29
-  %73 = icmp eq i64 %70, -9223372036854775808
-  br i1 %73, label %.split37.i35, label %75
-
-.split37.i35:                                     ; preds = %72
-  %74 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %74, align 8, !tbaa !54
-  tail call void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
-  unreachable
-
-75:                                               ; preds = %72
-  %76 = sub nsw i64 0, %70
-  br label %_Z3absRK13checked_int64ILb1EE.exit10.i30
-
-_Z3absRK13checked_int64ILb1EE.exit10.i30:         ; preds = %75, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i29
-  %.sroa.0.0.i.i9.i31 = phi i64 [ %76, %75 ], [ %70, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i29 ]
-  %77 = add i64 %.sroa.0.0.i.i9.i31, %.sroa.015.0.i23
-  %78 = icmp sgt i64 %.sroa.015.0.i23, 0
-  %79 = icmp slt i64 %77, 1
-  %or.cond22.i32 = select i1 %78, i1 %79, i1 false
-  %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i22, 1
-  br i1 %or.cond22.i32, label %.split39.i34, label %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21, !llvm.loop !194
-
-.split39.i34:                                     ; preds = %_Z3absRK13checked_int64ILb1EE.exit10.i30
-  %80 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %80, align 8, !tbaa !54
-  tail call void @__cxa_throw(ptr nonnull %80, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
-  unreachable
-
-_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40: ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21, %.lr.ph.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i18
-  %.us-phi.i38 = phi i64 [ 0, %.lr.ph.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i18 ], [ %.sroa.015.0.i23, %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21 ]
-  %.us-phi31.i39 = phi i64 [ 0, %.lr.ph.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i18 ], [ %.sroa.017.0.i24, %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21 ]
-  %81 = icmp slt i64 %.us-phi31.i39, %.us-phi.i38
-  %spec.select.i = select i1 %81, i64 %37, i64 %36
-  %82 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %spec.select.i
-  %83 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.030.i
-  %84 = load i32, ptr %82, align 4, !tbaa !77
-  store i32 %84, ptr %83, align 4, !tbaa !77
-  %85 = icmp slt i64 %spec.select.i, %13
-  br i1 %85, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !278
-
-._crit_edge.i:                                    ; preds = %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40, %.lr.ph.i.us, %22
-  %.0.lcssa.i = phi i64 [ %.015, %22 ], [ %29, %.lr.ph.i.us ], [ %spec.select.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40 ]
-  %86 = icmp eq i64 %.0.lcssa.i, %18
-  %or.cond = select i1 %17, i1 %86, i1 false
-  br i1 %or.cond, label %87, label %89
-
-87:                                               ; preds = %._crit_edge.i
-  %88 = load i32, ptr %20, align 4, !tbaa !77
-  store i32 %88, ptr %21, align 4, !tbaa !77
-  br label %89
-
-89:                                               ; preds = %87, %._crit_edge.i
-  %.1.i = phi i64 [ %19, %87 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %90 = icmp sgt i64 %.1.i, %.015
-  br i1 %90, label %.lr.ph.i.i.preheader, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit
-
-.lr.ph.i.i.preheader:                             ; preds = %89
-  %91 = load ptr, ptr %14, align 8, !tbaa !93
+.lr.ph.i.i.preheader.i:                           ; preds = %90, %.thread.i
+  %.1.i14.i = phi i64 [ %86, %.thread.i ], [ %.0.lcssa.i.i, %90 ]
+  %91 = load ptr, ptr %8, align 8, !tbaa !93
   %92 = icmp eq ptr %91, null
   %93 = getelementptr inbounds i8, ptr %91, i64 -4
-  br i1 %92, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit, label %.lr.ph.i.i.preheader.split
+  br i1 %92, label %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit, label %.lr.ph.i.i.preheader.i.split
 
-.lr.ph.i.i.preheader.split:                       ; preds = %.lr.ph.i.i.preheader
-  %94 = zext i32 %.sroa.02.0.copyload to i64
-  %95 = load ptr, ptr %15, align 8, !tbaa !91
+.lr.ph.i.i.preheader.i.split:                     ; preds = %.lr.ph.i.i.preheader.i
+  %94 = zext i32 %.sroa.02.0.copyload.i to i64
+  %95 = load ptr, ptr %9, align 8, !tbaa !91
   %96 = getelementptr inbounds nuw %class.checked_int64, ptr %95, i64 %94
-  br label %.lr.ph.i.i
+  br label %.lr.ph.i.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader.split, %138
-  %.01317.i.i = phi i64 [ %.018.i.i, %138 ], [ %.1.i, %.lr.ph.i.i.preheader.split ]
-  %.018.in.i.i = add nsw i64 %.01317.i.i, -1
-  %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %97 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.018.i.i
-  %.sroa.01.0.copyload.i.i.i = load i32, ptr %97, align 4, !tbaa !77
+.lr.ph.i.i.i:                                     ; preds = %138, %.lr.ph.i.i.preheader.i.split
+  %.01317.i.i.i = phi i64 [ %.018.i.i910.i, %138 ], [ %.1.i14.i, %.lr.ph.i.i.preheader.i.split ]
+  %.018.in.i.i.i = add nsw i64 %.01317.i.i.i, -1
+  %.018.i.i910.i = lshr i64 %.018.in.i.i.i, 1
+  %97 = getelementptr inbounds nuw %"struct.hilbert_basis::offset_t", ptr %0, i64 %.018.i.i910.i
+  %.sroa.01.0.copyload.i.i.i.i = load i32, ptr %97, align 4, !tbaa !77
   %98 = load i32, ptr %93, align 4, !tbaa !77
   %99 = zext i32 %98 to i64
-  %100 = zext i32 %.sroa.01.0.copyload.i.i.i to i64
+  %100 = zext i32 %.sroa.01.0.copyload.i.i.i.i to i64
   %101 = getelementptr inbounds nuw %class.checked_int64, ptr %95, i64 %100
   %102 = getelementptr inbounds nuw %class.checked_int64, ptr %101, i64 %99
   %103 = getelementptr inbounds nuw %class.checked_int64, ptr %96, i64 %99
   %104 = icmp eq i32 %98, 0
-  br i1 %104, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i
+  br i1 %104, label %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i
 
-_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i: ; preds = %.lr.ph.i.i
+_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i: ; preds = %.lr.ph.i.i.i
   %105 = add i32 %98, -1
   %106 = zext i32 %105 to i64
   %107 = getelementptr inbounds nuw %class.vector.1, ptr %91, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !91
   %109 = icmp eq ptr %108, null
-  br i1 %109, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i
+  br i1 %109, label %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i
 
 _ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i: ; preds = %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i
   %110 = getelementptr inbounds i8, ptr %108, i64 -4
@@ -15122,20 +14794,350 @@ _Z3absRK13checked_int64ILb1EE.exit10.i:           ; preds = %131, %_ZN13checked_
 
 _ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit: ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i
   %137 = icmp slt i64 %.sroa.017.0.i, %.sroa.015.0.i
-  br i1 %137, label %138, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit
+  br i1 %137, label %138, label %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit
 
 138:                                              ; preds = %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit
-  %139 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.01317.i.i
-  store i32 %.sroa.01.0.copyload.i.i.i, ptr %139, align 4, !tbaa !77
-  %140 = icmp sgt i64 %.018.i.i, %.015
-  br i1 %140, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit, !llvm.loop !279
+  %139 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.01317.i.i.i
+  store i32 %.sroa.01.0.copyload.i.i.i.i, ptr %139, align 4, !tbaa !77
+  %.not11.i = icmp ult i64 %.018.in.i.i.i, 2
+  br i1 %.not11.i, label %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !279
 
-_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit: ; preds = %138, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit, %.lr.ph.i.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i, %.lr.ph.i.i.preheader, %89
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %89 ], [ %.1.i, %.lr.ph.i.i.preheader ], [ %.01317.i.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i ], [ %.01317.i.i, %.lr.ph.i.i ], [ %.018.i.i, %138 ], [ %.01317.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit ]
-  %141 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.013.lcssa.i.i
-  store i32 %.sroa.02.0.copyload, ptr %141, align 4, !tbaa !77
+_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit: ; preds = %138, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit, %.lr.ph.i.i.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i, %.lr.ph.i.i.preheader.i, %90
+  %.013.lcssa.i.i.i = phi i64 [ 0, %90 ], [ %.1.i14.i, %.lr.ph.i.i.preheader.i ], [ %.01317.i.i.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i ], [ %.01317.i.i.i, %.lr.ph.i.i.i ], [ %.01317.i.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit ], [ 0, %138 ]
+  %140 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.013.lcssa.i.i.i
+  store i32 %.sroa.02.0.copyload.i, ptr %140, align 4, !tbaa !77
+  %141 = icmp sgt i64 %14, 4
+  br i1 %141, label %10, label %._crit_edge, !llvm.loop !280
+
+._crit_edge:                                      ; preds = %_ZSt10__pop_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_S8_RT0_.exit, %3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr hidden void @_ZSt11__make_heapIPN13hilbert_basis8offset_tEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_S8_RT0_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #3 comdat {
+  %4 = ptrtoint ptr %1 to i64
+  %5 = ptrtoint ptr %0 to i64
+  %6 = sub i64 %4, %5
+  %7 = ashr exact i64 %6, 2
+  %8 = icmp slt i64 %7, 2
+  br i1 %8, label %.loopexit, label %9
+
+9:                                                ; preds = %3
+  %10 = add nsw i64 %7, -2
+  %11 = lshr i64 %10, 1
+  %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !35
+  %12 = add nsw i64 %7, -1
+  %13 = lshr i64 %12, 1
+  %invariant.gep.i = getelementptr i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 24
+  %16 = and i64 %6, 4
+  %17 = icmp eq i64 %16, 0
+  %18 = lshr exact i64 %10, 1
+  %19 = or disjoint i64 %10, 1
+  %20 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %19
+  %21 = getelementptr inbounds nuw %"struct.hilbert_basis::offset_t", ptr %0, i64 %18
+  br label %22
+
+22:                                               ; preds = %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit, %9
+  %.015 = phi i64 [ %11, %9 ], [ %141, %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit ]
+  %23 = getelementptr inbounds nuw %"struct.hilbert_basis::offset_t", ptr %0, i64 %.015
+  %.sroa.02.0.copyload = load i32, ptr %23, align 4, !tbaa !77
+  %24 = icmp slt i64 %.015, %13
+  br i1 %24, label %.lr.ph.i.preheader, label %._crit_edge.i
+
+.lr.ph.i.preheader:                               ; preds = %22
+  %25 = load ptr, ptr %14, align 8, !tbaa !93
+  %26 = icmp eq ptr %25, null
+  %27 = getelementptr inbounds i8, ptr %25, i64 -4
+  br i1 %26, label %.lr.ph.i.us, label %.lr.ph.i.preheader.split
+
+.lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader, %.lr.ph.i.us
+  %.030.i.us = phi i64 [ %29, %.lr.ph.i.us ], [ %.015, %.lr.ph.i.preheader ]
+  %28 = shl i64 %.030.i.us, 1
+  %29 = add i64 %28, 2
+  %30 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %29
+  %31 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.030.i.us
+  %32 = load i32, ptr %30, align 4, !tbaa !77
+  store i32 %32, ptr %31, align 4, !tbaa !77
+  %33 = icmp slt i64 %29, %13
+  br i1 %33, label %.lr.ph.i.us, label %._crit_edge.i, !llvm.loop !278
+
+.lr.ph.i.preheader.split:                         ; preds = %.lr.ph.i.preheader
+  %34 = load ptr, ptr %15, align 8, !tbaa !91
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader.split, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40
+  %.030.i = phi i64 [ %spec.select.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40 ], [ %.015, %.lr.ph.i.preheader.split ]
+  %35 = shl i64 %.030.i, 1
+  %36 = add i64 %35, 2
+  %gep.i = getelementptr %"struct.hilbert_basis::offset_t", ptr %invariant.gep.i, i64 %35
+  %.sroa.0.0.copyload.i.i = load i32, ptr %gep.i, align 4, !tbaa !77
+  %37 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %36
+  %.sroa.01.0.copyload.i.i = load i32, ptr %37, align 4, !tbaa !77
+  %38 = load i32, ptr %27, align 4, !tbaa !77
+  %39 = zext i32 %38 to i64
+  %40 = zext i32 %.sroa.01.0.copyload.i.i to i64
+  %41 = getelementptr inbounds nuw %class.checked_int64, ptr %34, i64 %40
+  %42 = getelementptr inbounds nuw %class.checked_int64, ptr %41, i64 %39
+  %43 = zext i32 %.sroa.0.0.copyload.i.i to i64
+  %44 = getelementptr inbounds nuw %class.checked_int64, ptr %34, i64 %43
+  %45 = getelementptr inbounds nuw %class.checked_int64, ptr %44, i64 %39
+  %46 = icmp eq i32 %38, 0
+  br i1 %46, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i18
+
+_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i18: ; preds = %.lr.ph.i
+  %47 = add i32 %38, -1
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw %class.vector.1, ptr %25, i64 %48
+  %50 = load ptr, ptr %49, align 8, !tbaa !91
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i19
+
+_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i19: ; preds = %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i18
+  %52 = getelementptr inbounds i8, ptr %50, i64 -4
+  %53 = load i32, ptr %52, align 4, !tbaa !77
+  %wide.trip.count.i20 = zext i32 %53 to i64
+  br label %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21
+
+_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21: ; preds = %_Z3absRK13checked_int64ILb1EE.exit10.i30, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i19
+  %indvars.iv.i22 = phi i64 [ %indvars.iv.next.i33, %_Z3absRK13checked_int64ILb1EE.exit10.i30 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i19 ]
+  %.sroa.015.0.i23 = phi i64 [ %75, %_Z3absRK13checked_int64ILb1EE.exit10.i30 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i19 ]
+  %.sroa.017.0.i24 = phi i64 [ %63, %_Z3absRK13checked_int64ILb1EE.exit10.i30 ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i19 ]
+  %exitcond.not.i25 = icmp eq i64 %indvars.iv.i22, %wide.trip.count.i20
+  br i1 %exitcond.not.i25, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40, label %54
+
+54:                                               ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21
+  %55 = getelementptr inbounds nuw %class.checked_int64, ptr %42, i64 %indvars.iv.i22
+  %56 = load i64, ptr %55, align 8, !tbaa !142
+  %57 = icmp sgt i64 %56, -1
+  br i1 %57, label %_Z3absRK13checked_int64ILb1EE.exit.i26, label %58
+
+58:                                               ; preds = %54
+  %59 = icmp eq i64 %56, -9223372036854775808
+  br i1 %59, label %.split33.i37, label %61
+
+.split33.i37:                                     ; preds = %58
+  %60 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %60, align 8, !tbaa !54
+  tail call void @__cxa_throw(ptr nonnull %60, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+  unreachable
+
+61:                                               ; preds = %58
+  %62 = sub nsw i64 0, %56
+  br label %_Z3absRK13checked_int64ILb1EE.exit.i26
+
+_Z3absRK13checked_int64ILb1EE.exit.i26:           ; preds = %61, %54
+  %.sroa.0.0.i.i.i27 = phi i64 [ %62, %61 ], [ %56, %54 ]
+  %63 = add i64 %.sroa.0.0.i.i.i27, %.sroa.017.0.i24
+  %64 = icmp sgt i64 %.sroa.017.0.i24, 0
+  %65 = icmp slt i64 %63, 1
+  %or.cond.i28 = select i1 %64, i1 %65, i1 false
+  br i1 %or.cond.i28, label %.split35.i36, label %_ZN13checked_int64ILb1EEpLERKS0_.exit.i29
+
+.split35.i36:                                     ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i26
+  %66 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %66, align 8, !tbaa !54
+  tail call void @__cxa_throw(ptr nonnull %66, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+  unreachable
+
+_ZN13checked_int64ILb1EEpLERKS0_.exit.i29:        ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i26
+  %67 = getelementptr inbounds nuw %class.checked_int64, ptr %45, i64 %indvars.iv.i22
+  %68 = load i64, ptr %67, align 8, !tbaa !142
+  %69 = icmp sgt i64 %68, -1
+  br i1 %69, label %_Z3absRK13checked_int64ILb1EE.exit10.i30, label %70
+
+70:                                               ; preds = %_ZN13checked_int64ILb1EEpLERKS0_.exit.i29
+  %71 = icmp eq i64 %68, -9223372036854775808
+  br i1 %71, label %.split37.i35, label %73
+
+.split37.i35:                                     ; preds = %70
+  %72 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %72, align 8, !tbaa !54
+  tail call void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+  unreachable
+
+73:                                               ; preds = %70
+  %74 = sub nsw i64 0, %68
+  br label %_Z3absRK13checked_int64ILb1EE.exit10.i30
+
+_Z3absRK13checked_int64ILb1EE.exit10.i30:         ; preds = %73, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i29
+  %.sroa.0.0.i.i9.i31 = phi i64 [ %74, %73 ], [ %68, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i29 ]
+  %75 = add i64 %.sroa.0.0.i.i9.i31, %.sroa.015.0.i23
+  %76 = icmp sgt i64 %.sroa.015.0.i23, 0
+  %77 = icmp slt i64 %75, 1
+  %or.cond22.i32 = select i1 %76, i1 %77, i1 false
+  %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i22, 1
+  br i1 %or.cond22.i32, label %.split39.i34, label %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21, !llvm.loop !194
+
+.split39.i34:                                     ; preds = %_Z3absRK13checked_int64ILb1EE.exit10.i30
+  %78 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %78, align 8, !tbaa !54
+  tail call void @__cxa_throw(ptr nonnull %78, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+  unreachable
+
+_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40: ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21, %.lr.ph.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i18
+  %.us-phi.i38 = phi i64 [ 0, %.lr.ph.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i18 ], [ %.sroa.015.0.i23, %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21 ]
+  %.us-phi31.i39 = phi i64 [ 0, %.lr.ph.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i18 ], [ %.sroa.017.0.i24, %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i21 ]
+  %79 = icmp slt i64 %.us-phi31.i39, %.us-phi.i38
+  %80 = or disjoint i64 %35, 1
+  %spec.select.i = select i1 %79, i64 %80, i64 %36
+  %81 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %spec.select.i
+  %82 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.030.i
+  %83 = load i32, ptr %81, align 4, !tbaa !77
+  store i32 %83, ptr %82, align 4, !tbaa !77
+  %84 = icmp slt i64 %spec.select.i, %13
+  br i1 %84, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !278
+
+._crit_edge.i:                                    ; preds = %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40, %.lr.ph.i.us, %22
+  %.0.lcssa.i = phi i64 [ %.015, %22 ], [ %29, %.lr.ph.i.us ], [ %spec.select.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit40 ]
+  %85 = icmp eq i64 %.0.lcssa.i, %18
+  %or.cond = select i1 %17, i1 %85, i1 false
+  br i1 %or.cond, label %86, label %88
+
+86:                                               ; preds = %._crit_edge.i
+  %87 = load i32, ptr %20, align 4, !tbaa !77
+  store i32 %87, ptr %21, align 4, !tbaa !77
+  br label %88
+
+88:                                               ; preds = %86, %._crit_edge.i
+  %.1.i = phi i64 [ %19, %86 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %89 = icmp sgt i64 %.1.i, %.015
+  br i1 %89, label %.lr.ph.i.i.preheader, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit
+
+.lr.ph.i.i.preheader:                             ; preds = %88
+  %90 = load ptr, ptr %14, align 8, !tbaa !93
+  %91 = icmp eq ptr %90, null
+  %92 = getelementptr inbounds i8, ptr %90, i64 -4
+  br i1 %91, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit, label %.lr.ph.i.i.preheader.split
+
+.lr.ph.i.i.preheader.split:                       ; preds = %.lr.ph.i.i.preheader
+  %93 = zext i32 %.sroa.02.0.copyload to i64
+  %94 = load ptr, ptr %15, align 8, !tbaa !91
+  %95 = getelementptr inbounds nuw %class.checked_int64, ptr %94, i64 %93
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader.split, %137
+  %.01317.i.i = phi i64 [ %.018.i.i, %137 ], [ %.1.i, %.lr.ph.i.i.preheader.split ]
+  %.018.in.i.i = add nsw i64 %.01317.i.i, -1
+  %.018.i.i = sdiv i64 %.018.in.i.i, 2
+  %96 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.018.i.i
+  %.sroa.01.0.copyload.i.i.i = load i32, ptr %96, align 4, !tbaa !77
+  %97 = load i32, ptr %92, align 4, !tbaa !77
+  %98 = zext i32 %97 to i64
+  %99 = zext i32 %.sroa.01.0.copyload.i.i.i to i64
+  %100 = getelementptr inbounds nuw %class.checked_int64, ptr %94, i64 %99
+  %101 = getelementptr inbounds nuw %class.checked_int64, ptr %100, i64 %98
+  %102 = getelementptr inbounds nuw %class.checked_int64, ptr %95, i64 %98
+  %103 = icmp eq i32 %97, 0
+  br i1 %103, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i
+
+_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i: ; preds = %.lr.ph.i.i
+  %104 = add i32 %97, -1
+  %105 = zext i32 %104 to i64
+  %106 = getelementptr inbounds nuw %class.vector.1, ptr %90, i64 %105
+  %107 = load ptr, ptr %106, align 8, !tbaa !91
+  %108 = icmp eq ptr %107, null
+  br i1 %108, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit, label %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i
+
+_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i: ; preds = %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i
+  %109 = getelementptr inbounds i8, ptr %107, i64 -4
+  %110 = load i32, ptr %109, align 4, !tbaa !77
+  %wide.trip.count.i = zext i32 %110 to i64
+  br label %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i
+
+_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i: ; preds = %_Z3absRK13checked_int64ILb1EE.exit10.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_Z3absRK13checked_int64ILb1EE.exit10.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i ]
+  %.sroa.015.0.i = phi i64 [ %132, %_Z3absRK13checked_int64ILb1EE.exit10.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i ]
+  %.sroa.017.0.i = phi i64 [ %120, %_Z3absRK13checked_int64ILb1EE.exit10.i ], [ 0, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.split.i ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit, label %111
+
+111:                                              ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i
+  %112 = getelementptr inbounds nuw %class.checked_int64, ptr %101, i64 %indvars.iv.i
+  %113 = load i64, ptr %112, align 8, !tbaa !142
+  %114 = icmp sgt i64 %113, -1
+  br i1 %114, label %_Z3absRK13checked_int64ILb1EE.exit.i, label %115
+
+115:                                              ; preds = %111
+  %116 = icmp eq i64 %113, -9223372036854775808
+  br i1 %116, label %.split33.i, label %118
+
+.split33.i:                                       ; preds = %115
+  %117 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %117, align 8, !tbaa !54
+  tail call void @__cxa_throw(ptr nonnull %117, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+  unreachable
+
+118:                                              ; preds = %115
+  %119 = sub nsw i64 0, %113
+  br label %_Z3absRK13checked_int64ILb1EE.exit.i
+
+_Z3absRK13checked_int64ILb1EE.exit.i:             ; preds = %118, %111
+  %.sroa.0.0.i.i.i = phi i64 [ %119, %118 ], [ %113, %111 ]
+  %120 = add i64 %.sroa.0.0.i.i.i, %.sroa.017.0.i
+  %121 = icmp sgt i64 %.sroa.017.0.i, 0
+  %122 = icmp slt i64 %120, 1
+  %or.cond.i = select i1 %121, i1 %122, i1 false
+  br i1 %or.cond.i, label %.split35.i, label %_ZN13checked_int64ILb1EEpLERKS0_.exit.i
+
+.split35.i:                                       ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i
+  %123 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %123, align 8, !tbaa !54
+  tail call void @__cxa_throw(ptr nonnull %123, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+  unreachable
+
+_ZN13checked_int64ILb1EEpLERKS0_.exit.i:          ; preds = %_Z3absRK13checked_int64ILb1EE.exit.i
+  %124 = getelementptr inbounds nuw %class.checked_int64, ptr %102, i64 %indvars.iv.i
+  %125 = load i64, ptr %124, align 8, !tbaa !142
+  %126 = icmp sgt i64 %125, -1
+  br i1 %126, label %_Z3absRK13checked_int64ILb1EE.exit10.i, label %127
+
+127:                                              ; preds = %_ZN13checked_int64ILb1EEpLERKS0_.exit.i
+  %128 = icmp eq i64 %125, -9223372036854775808
+  br i1 %128, label %.split37.i, label %130
+
+.split37.i:                                       ; preds = %127
+  %129 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %129, align 8, !tbaa !54
+  tail call void @__cxa_throw(ptr nonnull %129, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+  unreachable
+
+130:                                              ; preds = %127
+  %131 = sub nsw i64 0, %125
+  br label %_Z3absRK13checked_int64ILb1EE.exit10.i
+
+_Z3absRK13checked_int64ILb1EE.exit10.i:           ; preds = %130, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i
+  %.sroa.0.0.i.i9.i = phi i64 [ %131, %130 ], [ %125, %_ZN13checked_int64ILb1EEpLERKS0_.exit.i ]
+  %132 = add i64 %.sroa.0.0.i.i9.i, %.sroa.015.0.i
+  %133 = icmp sgt i64 %.sroa.015.0.i, 0
+  %134 = icmp slt i64 %132, 1
+  %or.cond22.i = select i1 %133, i1 %134, i1 false
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  br i1 %or.cond22.i, label %.split39.i, label %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i, !llvm.loop !194
+
+.split39.i:                                       ; preds = %_Z3absRK13checked_int64ILb1EE.exit10.i
+  %135 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV18overflow_exception, i64 16), ptr %135, align 8, !tbaa !54
+  tail call void @__cxa_throw(ptr nonnull %135, ptr nonnull @_ZTI18overflow_exception, ptr nonnull @_ZNSt9exceptionD2Ev) #28
+  unreachable
+
+_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit: ; preds = %_ZNK6vectorIS_I13checked_int64ILb1EELb1EjELb1EjE5emptyEv.exit.i.i
+  %136 = icmp slt i64 %.sroa.017.0.i, %.sroa.015.0.i
+  br i1 %136, label %137, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit
+
+137:                                              ; preds = %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit
+  %138 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.01317.i.i
+  store i32 %.sroa.01.0.copyload.i.i.i, ptr %138, align 4, !tbaa !77
+  %139 = icmp sgt i64 %.018.i.i, %.015
+  br i1 %139, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit, !llvm.loop !279
+
+_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit: ; preds = %137, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit, %.lr.ph.i.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i, %.lr.ph.i.i.preheader, %88
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %88 ], [ %.1.i, %.lr.ph.i.i.preheader ], [ %.01317.i.i, %_ZNK13hilbert_basis3vecENS_8offset_tE.exit8.split.split.i ], [ %.01317.i.i, %.lr.ph.i.i ], [ %.018.i.i, %137 ], [ %.01317.i.i, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit ]
+  %140 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %0, i64 %.013.lcssa.i.i
+  store i32 %.sroa.02.0.copyload, ptr %140, align 4, !tbaa !77
   %.not = icmp eq i64 %.015, 0
-  %142 = add nsw i64 %.015, -1
+  %141 = add nsw i64 %.015, -1
   br i1 %.not, label %.loopexit, label %22, !llvm.loop !281
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPN13hilbert_basis8offset_tElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_11vector_lt_tEEEEvT_T0_S9_T1_T2_.exit, %3

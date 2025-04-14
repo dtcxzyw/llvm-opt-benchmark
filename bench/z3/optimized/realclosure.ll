@@ -52431,126 +52431,133 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPPN11realclosure9algebraicEN9
   %7 = icmp sgt i64 %6, 8
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit
-  %.07 = phi ptr [ %8, %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit ], [ %1, %3 ]
-  %8 = getelementptr inbounds i8, ptr %.07, i64 -8
-  %9 = load ptr, ptr %8, align 8, !tbaa !367
-  %10 = load ptr, ptr %0, align 8, !tbaa !367
-  store ptr %10, ptr %8, align 8, !tbaa !367
-  %11 = ptrtoint ptr %8 to i64
-  %12 = sub i64 %11, %4
-  %13 = ashr exact i64 %12, 3
-  %14 = add nsw i64 %13, -1
-  %15 = sdiv i64 %14, 2
-  %16 = icmp sgt i64 %13, 2
-  br i1 %16, label %.lr.ph.i.i, label %._crit_edge.i.i
+.lr.ph:                                           ; preds = %3
+  %invariant.gep.i.i = getelementptr i8, ptr %0, i64 8
+  br label %8
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i
-  %.032.i.i = phi i64 [ %37, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i ], [ 0, %.lr.ph ]
-  %17 = shl i64 %.032.i.i, 1
-  %18 = add i64 %17, 2
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
-  %20 = or disjoint i64 %17, 1
-  %21 = getelementptr inbounds ptr, ptr %0, i64 %20
-  %22 = load ptr, ptr %19, align 8, !tbaa !367
-  %23 = load ptr, ptr %21, align 8, !tbaa !367
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %25 = load i32, ptr %24, align 4
-  %26 = and i32 %25, 3
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %28 = load i32, ptr %27, align 4
-  %29 = and i32 %28, 3
-  %30 = icmp samesign ult i32 %26, %29
-  br i1 %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i.i, label %31
+8:                                                ; preds = %.lr.ph, %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit
+  %.07 = phi ptr [ %1, %.lr.ph ], [ %9, %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit ]
+  %9 = getelementptr inbounds i8, ptr %.07, i64 -8
+  %10 = load ptr, ptr %9, align 8, !tbaa !367
+  %11 = load ptr, ptr %0, align 8, !tbaa !367
+  store ptr %11, ptr %9, align 8, !tbaa !367
+  %12 = ptrtoint ptr %9 to i64
+  %13 = sub i64 %12, %4
+  %14 = ashr exact i64 %13, 3
+  %15 = add nsw i64 %14, -1
+  %16 = sdiv i64 %15, 2
+  %17 = icmp sgt i64 %14, 2
+  br i1 %17, label %.lr.ph.i.i, label %._crit_edge.i.i
+
+.lr.ph.i.i:                                       ; preds = %8, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i
+  %.032.i.i = phi i64 [ %37, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i ], [ 0, %8 ]
+  %18 = shl i64 %.032.i.i, 1
+  %19 = add i64 %18, 2
+  %20 = getelementptr inbounds ptr, ptr %0, i64 %19
+  %gep.i.i = getelementptr ptr, ptr %invariant.gep.i.i, i64 %18
+  %21 = load ptr, ptr %20, align 8, !tbaa !367
+  %22 = load ptr, ptr %gep.i.i, align 8, !tbaa !367
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %24 = load i32, ptr %23, align 4
+  %25 = and i32 %24, 3
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %27 = load i32, ptr %26, align 4
+  %28 = and i32 %27, 3
+  %29 = icmp samesign ult i32 %25, %28
+  br i1 %29, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i.i, label %31
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i.i: ; preds = %.lr.ph.i.i
+  %30 = or disjoint i64 %18, 1
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i
 
 31:                                               ; preds = %.lr.ph.i.i
-  %32 = icmp eq i32 %26, %29
+  %32 = icmp eq i32 %25, %28
   br i1 %32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i.i: ; preds = %31
-  %33 = lshr i32 %25, 2
-  %34 = lshr i32 %28, 2
+  %33 = lshr i32 %24, 2
+  %34 = lshr i32 %27, 2
   %35 = icmp samesign ult i32 %33, %34
+  %36 = or disjoint i64 %18, 1
   %cond.fr.i.i = freeze i1 %35
-  br i1 %cond.fr.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i.i, %.lr.ph.i.i
+  %spec.select.i.i = select i1 %cond.fr.i.i, i64 %36, i64 %19
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i.i, %31
-  %36 = phi ptr [ %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i.i ], [ %22, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i.i ], [ %22, %31 ]
-  %37 = phi i64 [ %20, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i.i ], [ %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i.i ], [ %18, %31 ]
-  %38 = getelementptr inbounds ptr, ptr %0, i64 %.032.i.i
-  store ptr %36, ptr %38, align 8, !tbaa !367
-  %39 = icmp slt i64 %37, %15
-  br i1 %39, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !381
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i.i, %31, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i.i
+  %37 = phi i64 [ %30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i.i ], [ %19, %31 ], [ %spec.select.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i.i ]
+  %38 = getelementptr inbounds ptr, ptr %0, i64 %37
+  %39 = load ptr, ptr %38, align 8, !tbaa !367
+  %40 = getelementptr inbounds ptr, ptr %0, i64 %.032.i.i
+  store ptr %39, ptr %40, align 8, !tbaa !367
+  %41 = icmp slt i64 %37, %16
+  br i1 %41, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !381
 
-._crit_edge.i.i:                                  ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i, %.lr.ph
-  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %37, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i ]
-  %40 = and i64 %12, 8
-  %41 = icmp eq i64 %40, 0
-  br i1 %41, label %42, label %52
+._crit_edge.i.i:                                  ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i, %8
+  %.0.lcssa.i.i = phi i64 [ 0, %8 ], [ %37, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i.i ]
+  %42 = and i64 %13, 8
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %44, label %54
 
-42:                                               ; preds = %._crit_edge.i.i
-  %43 = add nsw i64 %13, -2
-  %44 = ashr exact i64 %43, 1
-  %45 = icmp eq i64 %.0.lcssa.i.i, %44
-  br i1 %45, label %46, label %52
+44:                                               ; preds = %._crit_edge.i.i
+  %45 = add nsw i64 %14, -2
+  %46 = ashr exact i64 %45, 1
+  %47 = icmp eq i64 %.0.lcssa.i.i, %46
+  br i1 %47, label %48, label %54
 
-46:                                               ; preds = %42
-  %47 = shl nsw i64 %.0.lcssa.i.i, 1
-  %48 = or disjoint i64 %47, 1
-  %49 = getelementptr inbounds ptr, ptr %0, i64 %48
-  %50 = load ptr, ptr %49, align 8, !tbaa !367
-  %51 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i
-  store ptr %50, ptr %51, align 8, !tbaa !367
-  br label %52
+48:                                               ; preds = %44
+  %49 = shl nsw i64 %.0.lcssa.i.i, 1
+  %50 = or disjoint i64 %49, 1
+  %51 = getelementptr inbounds ptr, ptr %0, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !367
+  %53 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i
+  store ptr %52, ptr %53, align 8, !tbaa !367
+  br label %54
 
-52:                                               ; preds = %46, %42, %._crit_edge.i.i
-  %.128.i.i = phi i64 [ %48, %46 ], [ %.0.lcssa.i.i, %42 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %53 = icmp sgt i64 %.128.i.i, 0
-  br i1 %53, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit
+54:                                               ; preds = %48, %44, %._crit_edge.i.i
+  %.128.i.i = phi i64 [ %50, %48 ], [ %.0.lcssa.i.i, %44 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
+  %55 = icmp sgt i64 %.128.i.i, 0
+  br i1 %55, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit
 
-.lr.ph.i.i.i:                                     ; preds = %52
-  %54 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  br label %55
+.lr.ph.i.i.i:                                     ; preds = %54
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  br label %57
 
-55:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
+57:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i, %.lr.ph.i.i.i
   %.01318.i.i.i = phi i64 [ %.128.i.i, %.lr.ph.i.i.i ], [ %.019.i.i89.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i ]
   %.019.in.i.i.i = add nsw i64 %.01318.i.i.i, -1
   %.019.i.i89.i = lshr i64 %.019.in.i.i.i, 1
-  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %.019.i.i89.i
-  %57 = load ptr, ptr %56, align 8, !tbaa !367
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %59 = load i32, ptr %58, align 4
-  %60 = and i32 %59, 3
-  %61 = load i32, ptr %54, align 4
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %.019.i.i89.i
+  %59 = load ptr, ptr %58, align 8, !tbaa !367
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 3
-  %63 = icmp samesign ult i32 %60, %62
-  br i1 %63, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i, label %64
+  %63 = load i32, ptr %56, align 4
+  %64 = and i32 %63, 3
+  %65 = icmp samesign ult i32 %62, %64
+  br i1 %65, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i, label %66
 
-64:                                               ; preds = %55
-  %65 = icmp eq i32 %60, %62
-  br i1 %65, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit
+66:                                               ; preds = %57
+  %67 = icmp eq i32 %62, %64
+  br i1 %67, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i.i, label %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i.i: ; preds = %64
-  %66 = lshr i32 %59, 2
-  %67 = lshr i32 %61, 2
-  %68 = icmp samesign ult i32 %66, %67
-  br i1 %68, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i.i: ; preds = %66
+  %68 = lshr i32 %61, 2
+  %69 = lshr i32 %63, 2
+  %70 = icmp samesign ult i32 %68, %69
+  br i1 %70, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i.i, %55
-  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01318.i.i.i
-  store ptr %57, ptr %69, align 8, !tbaa !367
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i.i, %57
+  %71 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01318.i.i.i
+  store ptr %59, ptr %71, align 8, !tbaa !367
   %.not.i = icmp ult i64 %.019.in.i.i.i, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit, label %55, !llvm.loop !382
+  br i1 %.not.i, label %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit, label %57, !llvm.loop !382
 
-_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit: ; preds = %64, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i, %52
-  %.013.lcssa.i.i.i = phi i64 [ %.128.i.i, %52 ], [ %.01318.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i ], [ %.01318.i.i.i, %64 ]
-  %70 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i
-  store ptr %9, ptr %70, align 8, !tbaa !367
-  %71 = icmp sgt i64 %12, 8
-  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !383
+_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit: ; preds = %66, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i, %54
+  %.013.lcssa.i.i.i = phi i64 [ %.128.i.i, %54 ], [ %.01318.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i.i ], [ %.01318.i.i.i, %66 ]
+  %72 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i
+  store ptr %10, ptr %72, align 8, !tbaa !367
+  %73 = icmp sgt i64 %13, 8
+  br i1 %73, label %8, label %._crit_edge, !llvm.loop !383
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIPPN11realclosure9algebraicEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_S9_S9_RT0_.exit, %3
   ret void
@@ -52570,6 +52577,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN11realclosure9algebraicEN9
   %11 = lshr i64 %10, 1
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
+  %invariant.gep.i = getelementptr i8, ptr %0, i64 8
   %14 = and i64 %6, 8
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
@@ -52579,108 +52587,111 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN11realclosure9algebraicEN9
   br label %20
 
 20:                                               ; preds = %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit, %9
-  %.014 = phi i64 [ %11, %9 ], [ %70, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit ]
+  %.014 = phi i64 [ %11, %9 ], [ %71, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit ]
   %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014
   %22 = load ptr, ptr %21, align 8, !tbaa !367
   %23 = icmp slt i64 %.014, %13
   br i1 %23, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %20, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i
-  %.032.i = phi i64 [ %44, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i ], [ %.014, %20 ]
+  %.032.i = phi i64 [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i ], [ %.014, %20 ]
   %24 = shl i64 %.032.i, 1
   %25 = add i64 %24, 2
   %26 = getelementptr inbounds ptr, ptr %0, i64 %25
-  %27 = or disjoint i64 %24, 1
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %27
-  %29 = load ptr, ptr %26, align 8, !tbaa !367
-  %30 = load ptr, ptr %28, align 8, !tbaa !367
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %32 = load i32, ptr %31, align 4
-  %33 = and i32 %32, 3
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %35 = load i32, ptr %34, align 4
-  %36 = and i32 %35, 3
-  %37 = icmp samesign ult i32 %33, %36
-  br i1 %37, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, label %38
+  %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %24
+  %27 = load ptr, ptr %26, align 8, !tbaa !367
+  %28 = load ptr, ptr %gep.i, align 8, !tbaa !367
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %30, 3
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %33 = load i32, ptr %32, align 4
+  %34 = and i32 %33, 3
+  %35 = icmp samesign ult i32 %31, %34
+  br i1 %35, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, label %37
 
-38:                                               ; preds = %.lr.ph.i
-  %39 = icmp eq i32 %33, %36
-  br i1 %39, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i: ; preds = %38
-  %40 = lshr i32 %32, 2
-  %41 = lshr i32 %35, 2
-  %42 = icmp samesign ult i32 %40, %41
-  %cond.fr.i = freeze i1 %42
-  br i1 %cond.fr.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %.lr.ph.i
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i: ; preds = %.lr.ph.i
+  %36 = or disjoint i64 %24, 1
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %38
-  %43 = phi ptr [ %30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %29, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ], [ %29, %38 ]
-  %44 = phi i64 [ %27, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %25, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ], [ %25, %38 ]
-  %45 = getelementptr inbounds ptr, ptr %0, i64 %.032.i
-  store ptr %43, ptr %45, align 8, !tbaa !367
-  %46 = icmp slt i64 %44, %13
-  br i1 %46, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !381
+37:                                               ; preds = %.lr.ph.i
+  %38 = icmp eq i32 %31, %34
+  br i1 %38, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i: ; preds = %37
+  %39 = lshr i32 %30, 2
+  %40 = lshr i32 %33, 2
+  %41 = icmp samesign ult i32 %39, %40
+  %42 = or disjoint i64 %24, 1
+  %cond.fr.i = freeze i1 %41
+  %spec.select.i = select i1 %cond.fr.i, i64 %42, i64 %25
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i, %37, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i
+  %43 = phi i64 [ %36, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread.i ], [ %25, %37 ], [ %spec.select.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.i ]
+  %44 = getelementptr inbounds ptr, ptr %0, i64 %43
+  %45 = load ptr, ptr %44, align 8, !tbaa !367
+  %46 = getelementptr inbounds ptr, ptr %0, i64 %.032.i
+  store ptr %45, ptr %46, align 8, !tbaa !367
+  %47 = icmp slt i64 %43, %13
+  br i1 %47, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !381
 
 ._crit_edge.i:                                    ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i, %20
-  %.0.lcssa.i = phi i64 [ %.014, %20 ], [ %44, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i ]
-  %47 = icmp eq i64 %.0.lcssa.i, %16
-  %or.cond = select i1 %15, i1 %47, i1 false
-  br i1 %or.cond, label %48, label %50
+  %.0.lcssa.i = phi i64 [ %.014, %20 ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES8_EEbT_T0_.exit.thread30.i ]
+  %48 = icmp eq i64 %.0.lcssa.i, %16
+  %or.cond = select i1 %15, i1 %48, i1 false
+  br i1 %or.cond, label %49, label %51
 
-48:                                               ; preds = %._crit_edge.i
-  %49 = load ptr, ptr %18, align 8, !tbaa !367
-  store ptr %49, ptr %19, align 8, !tbaa !367
-  br label %50
+49:                                               ; preds = %._crit_edge.i
+  %50 = load ptr, ptr %18, align 8, !tbaa !367
+  store ptr %50, ptr %19, align 8, !tbaa !367
+  br label %51
 
-50:                                               ; preds = %48, %._crit_edge.i
-  %.128.i = phi i64 [ %17, %48 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %51 = icmp sgt i64 %.128.i, %.014
-  br i1 %51, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit
+51:                                               ; preds = %49, %._crit_edge.i
+  %.128.i = phi i64 [ %17, %49 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %52 = icmp sgt i64 %.128.i, %.014
+  br i1 %52, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %50
-  %52 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  br label %53
+.lr.ph.i.i:                                       ; preds = %51
+  %53 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  br label %54
 
-53:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i, %.lr.ph.i.i
+54:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i, %.lr.ph.i.i
   %.01318.i.i = phi i64 [ %.128.i, %.lr.ph.i.i ], [ %.019.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i ]
   %.019.in.i.i = add nsw i64 %.01318.i.i, -1
   %.019.i.i = sdiv i64 %.019.in.i.i, 2
-  %54 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i
-  %55 = load ptr, ptr %54, align 8, !tbaa !367
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %57 = load i32, ptr %56, align 4
-  %58 = and i32 %57, 3
-  %59 = load i32, ptr %52, align 4
-  %60 = and i32 %59, 3
-  %61 = icmp samesign ult i32 %58, %60
-  br i1 %61, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i, label %62
+  %55 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i
+  %56 = load ptr, ptr %55, align 8, !tbaa !367
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %58 = load i32, ptr %57, align 4
+  %59 = and i32 %58, 3
+  %60 = load i32, ptr %53, align 4
+  %61 = and i32 %60, 3
+  %62 = icmp samesign ult i32 %59, %61
+  br i1 %62, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i, label %63
 
-62:                                               ; preds = %53
-  %63 = icmp eq i32 %58, %60
-  br i1 %63, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit
+63:                                               ; preds = %54
+  %64 = icmp eq i32 %59, %61
+  br i1 %64, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i: ; preds = %62
-  %64 = lshr i32 %57, 2
-  %65 = lshr i32 %59, 2
-  %66 = icmp samesign ult i32 %64, %65
-  br i1 %66, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i: ; preds = %63
+  %65 = lshr i32 %58, 2
+  %66 = lshr i32 %60, 2
+  %67 = icmp samesign ult i32 %65, %66
+  br i1 %67, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i, %53
-  %67 = getelementptr inbounds ptr, ptr %0, i64 %.01318.i.i
-  store ptr %55, ptr %67, align 8, !tbaa !367
-  %68 = icmp sgt i64 %.019.i.i, %.014
-  br i1 %68, label %53, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit, !llvm.loop !382
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i, %54
+  %68 = getelementptr inbounds ptr, ptr %0, i64 %.01318.i.i
+  store ptr %56, ptr %68, align 8, !tbaa !367
+  %69 = icmp sgt i64 %.019.i.i, %.014
+  br i1 %69, label %54, label %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit, !llvm.loop !382
 
-_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit: ; preds = %62, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i, %50
-  %.013.lcssa.i.i = phi i64 [ %.128.i, %50 ], [ %.01318.i.i, %62 ], [ %.019.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i ], [ %.01318.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i ]
-  %69 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i
-  store ptr %22, ptr %69, align 8, !tbaa !367
+_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit: ; preds = %63, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i, %51
+  %.013.lcssa.i.i = phi i64 [ %.128.i, %51 ], [ %.01318.i.i, %63 ], [ %.019.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.thread.i.i ], [ %.01318.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN11realclosure12rank_lt_procEEclIPPNS2_9algebraicES7_EEbT_RT0_.exit.i.i ]
+  %70 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i
+  store ptr %22, ptr %70, align 8, !tbaa !367
   %.not = icmp eq i64 %.014, 0
-  %70 = add nsw i64 %.014, -1
+  %71 = add nsw i64 %.014, -1
   br i1 %.not, label %.loopexit, label %20, !llvm.loop !384
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit, %3

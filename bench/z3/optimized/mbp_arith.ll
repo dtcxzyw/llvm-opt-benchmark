@@ -14837,64 +14837,64 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPSt4pairIP4expr8rationalElS
   %10 = shl i64 %.030, 1
   %11 = add i64 %10, 2
   %12 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %11
-  %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !125
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 28
-  %20 = load i8, ptr %19, align 4
-  %21 = and i8 %20, 1
-  %22 = icmp eq i8 %21, 0
-  %23 = load i32, ptr %18, align 8
-  %24 = icmp eq i32 %23, 1
-  %25 = select i1 %22, i1 %24, i1 false
-  br i1 %25, label %26, label %52
+  %13 = getelementptr %"struct.std::pair", ptr %0, i64 %10
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %15 = getelementptr i8, ptr %13, i64 48
+  %16 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !125
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 28
+  %19 = load i8, ptr %18, align 4
+  %20 = and i8 %19, 1
+  %21 = icmp eq i8 %20, 0
+  %22 = load i32, ptr %17, align 8
+  %23 = icmp eq i32 %22, 1
+  %24 = select i1 %21, i1 %23, i1 false
+  br i1 %24, label %25, label %51
 
-26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %28 = getelementptr inbounds nuw i8, ptr %14, i64 28
-  %29 = load i8, ptr %28, align 4
-  %30 = and i8 %29, 1
-  %31 = icmp eq i8 %30, 0
-  %32 = load i32, ptr %27, align 8
-  %33 = icmp eq i32 %32, 1
-  %34 = select i1 %31, i1 %33, i1 false
-  br i1 %34, label %35, label %52
+25:                                               ; preds = %.lr.ph
+  %26 = getelementptr i8, ptr %13, i64 64
+  %27 = getelementptr i8, ptr %13, i64 68
+  %28 = load i8, ptr %27, align 4
+  %29 = and i8 %28, 1
+  %30 = icmp eq i8 %29, 0
+  %31 = load i32, ptr %26, align 8
+  %32 = icmp eq i32 %31, 1
+  %33 = select i1 %30, i1 %32, i1 false
+  br i1 %33, label %34, label %51
 
-35:                                               ; preds = %26
-  %36 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %37 = load i8, ptr %36, align 4
-  %38 = and i8 %37, 1
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %40, label %49
+34:                                               ; preds = %25
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %36 = load i8, ptr %35, align 4
+  %37 = and i8 %36, 1
+  %38 = icmp eq i8 %37, 0
+  br i1 %38, label %39, label %48
 
-40:                                               ; preds = %35
-  %41 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %42 = load i8, ptr %41, align 4
-  %43 = and i8 %42, 1
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %49
+39:                                               ; preds = %34
+  %40 = getelementptr i8, ptr %13, i64 52
+  %41 = load i8, ptr %40, align 4
+  %42 = and i8 %41, 1
+  %43 = icmp eq i8 %42, 0
+  br i1 %43, label %44, label %48
 
-45:                                               ; preds = %40
+44:                                               ; preds = %39
+  %45 = load i32, ptr %14, align 8, !tbaa !110
   %46 = load i32, ptr %15, align 8, !tbaa !110
-  %47 = load i32, ptr %16, align 8, !tbaa !110
-  %48 = icmp slt i32 %46, %47
+  %47 = icmp slt i32 %45, %46
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp20arith_project_plugin3imp14compare_secondEEclIPSt4pairIP4expr8rationalESD_EEbT_T0_.exit
 
-49:                                               ; preds = %40, %35
-  %50 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %17, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
-  %51 = icmp slt i32 %50, 0
+48:                                               ; preds = %39, %34
+  %49 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %16, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
+  %50 = icmp slt i32 %49, 0
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp20arith_project_plugin3imp14compare_secondEEclIPSt4pairIP4expr8rationalESD_EEbT_T0_.exit
 
-52:                                               ; preds = %26, %.lr.ph
-  %53 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %17, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
+51:                                               ; preds = %25, %.lr.ph
+  %52 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %16, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp20arith_project_plugin3imp14compare_secondEEclIPSt4pairIP4expr8rationalESD_EEbT_T0_.exit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp20arith_project_plugin3imp14compare_secondEEclIPSt4pairIP4expr8rationalESD_EEbT_T0_.exit: ; preds = %45, %49, %52
-  %.0.i.i.i.i = phi i1 [ %53, %52 ], [ %48, %45 ], [ %51, %49 ]
-  %spec.select = select i1 %.0.i.i.i.i, i64 %13, i64 %11
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3mbp20arith_project_plugin3imp14compare_secondEEclIPSt4pairIP4expr8rationalESD_EEbT_T0_.exit: ; preds = %44, %48, %51
+  %.0.i.i.i.i = phi i1 [ %52, %51 ], [ %47, %44 ], [ %50, %48 ]
+  %53 = or disjoint i64 %10, 1
+  %spec.select = select i1 %.0.i.i.i.i, i64 %53, i64 %11
   %54 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select
   %55 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.030
   %56 = load ptr, ptr %54, align 8, !tbaa !98

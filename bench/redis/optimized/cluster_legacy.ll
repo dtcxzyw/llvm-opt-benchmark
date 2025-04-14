@@ -15074,37 +15074,36 @@ define dso_local ptr @representSlotInfo(ptr noundef %0, ptr noundef readonly cap
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %17, %3
-  %.0.lcssa = phi ptr [ %0, %3 ], [ %.1, %17 ]
+._crit_edge:                                      ; preds = %16, %3
+  %.0.lcssa = phi ptr [ %0, %3 ], [ %.1, %16 ]
   ret ptr %.0.lcssa
 
-.lr.ph:                                           ; preds = %3, %17
-  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %3 ]
-  %.019 = phi ptr [ %.1, %17 ], [ %0, %3 ]
+.lr.ph:                                           ; preds = %3, %16
+  %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %3 ]
+  %.019 = phi ptr [ %.1, %16 ], [ %0, %3 ]
   %5 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !51
   %7 = zext i16 %6 to i64
-  %8 = or disjoint i64 %indvars.iv, 1
-  %9 = getelementptr inbounds nuw i16, ptr %1, i64 %8
-  %10 = load i16, ptr %9, align 2, !tbaa !51
-  %11 = icmp eq i16 %6, %10
-  br i1 %11, label %12, label %14
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %9 = load i16, ptr %8, align 2, !tbaa !51
+  %10 = icmp eq i16 %6, %9
+  br i1 %10, label %11, label %13
 
-12:                                               ; preds = %.lr.ph
-  %13 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.019, ptr noundef nonnull @.str.155, i64 noundef %7) #33
-  br label %17
+11:                                               ; preds = %.lr.ph
+  %12 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.019, ptr noundef nonnull @.str.155, i64 noundef %7) #33
+  br label %16
 
-14:                                               ; preds = %.lr.ph
-  %15 = zext i16 %10 to i64
-  %16 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.019, ptr noundef nonnull @.str.156, i64 noundef %7, i64 noundef %15) #33
-  br label %17
+13:                                               ; preds = %.lr.ph
+  %14 = zext i16 %9 to i64
+  %15 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.019, ptr noundef nonnull @.str.156, i64 noundef %7, i64 noundef %14) #33
+  br label %16
 
-17:                                               ; preds = %14, %12
-  %.1 = phi ptr [ %13, %12 ], [ %16, %14 ]
+16:                                               ; preds = %13, %11
+  %.1 = phi ptr [ %12, %11 ], [ %15, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %18 = trunc nuw i64 %indvars.iv.next to i32
-  %19 = icmp sgt i32 %2, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !295
+  %17 = trunc nuw i64 %indvars.iv.next to i32
+  %18 = icmp sgt i32 %2, %17
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !295
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15322,7 +15321,7 @@ sdslen.exit116.thread:                            ; preds = %39, %sdslen.exit116
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   %117 = load ptr, ptr %116, align 8, !tbaa !102
   %.not108 = icmp eq ptr %117, null
-  br i1 %.not108, label %137, label %118
+  br i1 %.not108, label %136, label %118
 
 118:                                              ; preds = %105
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 2160
@@ -15330,132 +15329,131 @@ sdslen.exit116.thread:                            ; preds = %39, %sdslen.exit116
   %121 = icmp sgt i32 %120, 0
   br i1 %121, label %.lr.ph.i, label %representSlotInfo.exit
 
-.lr.ph.i:                                         ; preds = %118, %134
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %134 ], [ 0, %118 ]
-  %.019.i = phi ptr [ %.1.i, %134 ], [ %115, %118 ]
+.lr.ph.i:                                         ; preds = %118, %133
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %133 ], [ 0, %118 ]
+  %.019.i = phi ptr [ %.1.i, %133 ], [ %115, %118 ]
   %122 = getelementptr inbounds nuw i16, ptr %117, i64 %indvars.iv.i
   %123 = load i16, ptr %122, align 2, !tbaa !51
   %124 = zext i16 %123 to i64
-  %125 = or disjoint i64 %indvars.iv.i, 1
-  %126 = getelementptr inbounds nuw i16, ptr %117, i64 %125
-  %127 = load i16, ptr %126, align 2, !tbaa !51
-  %128 = icmp eq i16 %123, %127
-  br i1 %128, label %129, label %131
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 2
+  %126 = load i16, ptr %125, align 2, !tbaa !51
+  %127 = icmp eq i16 %123, %126
+  br i1 %127, label %128, label %130
 
-129:                                              ; preds = %.lr.ph.i
-  %130 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.019.i, ptr noundef nonnull @.str.155, i64 noundef %124) #33
-  br label %134
+128:                                              ; preds = %.lr.ph.i
+  %129 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.019.i, ptr noundef nonnull @.str.155, i64 noundef %124) #33
+  br label %133
 
-131:                                              ; preds = %.lr.ph.i
-  %132 = zext i16 %127 to i64
-  %133 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.019.i, ptr noundef nonnull @.str.156, i64 noundef %124, i64 noundef %132) #33
-  br label %134
+130:                                              ; preds = %.lr.ph.i
+  %131 = zext i16 %126 to i64
+  %132 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.019.i, ptr noundef nonnull @.str.156, i64 noundef %124, i64 noundef %131) #33
+  br label %133
 
-134:                                              ; preds = %131, %129
-  %.1.i = phi ptr [ %130, %129 ], [ %133, %131 ]
+133:                                              ; preds = %130, %128
+  %.1.i = phi ptr [ %129, %128 ], [ %132, %130 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %135 = trunc nuw i64 %indvars.iv.next.i to i32
-  %136 = icmp sgt i32 %120, %135
-  br i1 %136, label %.lr.ph.i, label %representSlotInfo.exit, !llvm.loop !295
+  %134 = trunc nuw i64 %indvars.iv.next.i to i32
+  %135 = icmp sgt i32 %120, %134
+  br i1 %135, label %.lr.ph.i, label %representSlotInfo.exit, !llvm.loop !295
 
-137:                                              ; preds = %105
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 2164
-  %139 = load i32, ptr %138, align 4, !tbaa !149
-  %140 = icmp sgt i32 %139, 0
-  br i1 %140, label %.preheader121, label %representSlotInfo.exit
+136:                                              ; preds = %105
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 2164
+  %138 = load i32, ptr %137, align 4, !tbaa !149
+  %139 = icmp sgt i32 %138, 0
+  br i1 %139, label %.preheader121, label %representSlotInfo.exit
 
-.preheader121:                                    ; preds = %137
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  br label %142
+.preheader121:                                    ; preds = %136
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  br label %141
 
-142:                                              ; preds = %.preheader121, %163
-  %.0128 = phi i32 [ 0, %.preheader121 ], [ %164, %163 ]
-  %.090127 = phi i32 [ -1, %.preheader121 ], [ %.292, %163 ]
-  %.7126 = phi ptr [ %115, %.preheader121 ], [ %.8, %163 ]
-  %143 = sdiv i32 %.0128, 8
-  %144 = sext i32 %143 to i64
-  %145 = and i32 %.0128, 7
-  %146 = getelementptr inbounds i8, ptr %141, i64 %144
-  %147 = load i8, ptr %146, align 1, !tbaa !50
-  %148 = zext i8 %147 to i32
-  %149 = lshr i32 %148, %145
-  %150 = and i32 %149, 1
-  %151 = icmp ne i32 %150, 0
-  %152 = icmp eq i32 %.090127, -1
-  %or.cond9 = and i1 %152, %151
+141:                                              ; preds = %.preheader121, %162
+  %.0128 = phi i32 [ 0, %.preheader121 ], [ %163, %162 ]
+  %.090127 = phi i32 [ -1, %.preheader121 ], [ %.292, %162 ]
+  %.7126 = phi ptr [ %115, %.preheader121 ], [ %.8, %162 ]
+  %142 = sdiv i32 %.0128, 8
+  %143 = sext i32 %142 to i64
+  %144 = and i32 %.0128, 7
+  %145 = getelementptr inbounds i8, ptr %140, i64 %143
+  %146 = load i8, ptr %145, align 1, !tbaa !50
+  %147 = zext i8 %146 to i32
+  %148 = lshr i32 %147, %144
+  %149 = and i32 %148, 1
+  %150 = icmp ne i32 %149, 0
+  %151 = icmp eq i32 %.090127, -1
+  %or.cond9 = and i1 %151, %150
   %spec.select = select i1 %or.cond9, i32 %.0128, i32 %.090127
   %.not109 = icmp eq i32 %spec.select, -1
-  br i1 %.not109, label %163, label %153
+  br i1 %.not109, label %162, label %152
 
-153:                                              ; preds = %142
-  %154 = icmp eq i32 %150, 0
-  %155 = icmp eq i32 %.0128, 16383
-  %or.cond5 = or i1 %155, %154
-  br i1 %or.cond5, label %156, label %163
+152:                                              ; preds = %141
+  %153 = icmp eq i32 %149, 0
+  %154 = icmp eq i32 %.0128, 16383
+  %or.cond5 = or i1 %154, %153
+  br i1 %or.cond5, label %155, label %162
 
-156:                                              ; preds = %153
-  %or.cond7 = and i1 %155, %151
+155:                                              ; preds = %152
+  %or.cond7 = and i1 %154, %150
   %spec.select114 = select i1 %or.cond7, i32 16384, i32 %.0128
-  %157 = add nsw i32 %spec.select114, -1
-  %158 = icmp eq i32 %spec.select, %157
-  br i1 %158, label %159, label %161
+  %156 = add nsw i32 %spec.select114, -1
+  %157 = icmp eq i32 %spec.select, %156
+  br i1 %157, label %158, label %160
 
-159:                                              ; preds = %156
-  %160 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.7126, ptr noundef nonnull @.str.155, i32 noundef %spec.select) #33
-  br label %163
+158:                                              ; preds = %155
+  %159 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.7126, ptr noundef nonnull @.str.155, i32 noundef %spec.select) #33
+  br label %162
 
-161:                                              ; preds = %156
-  %162 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.7126, ptr noundef nonnull @.str.156, i32 noundef %spec.select, i32 noundef %157) #33
-  br label %163
+160:                                              ; preds = %155
+  %161 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.7126, ptr noundef nonnull @.str.156, i32 noundef %spec.select, i32 noundef %156) #33
+  br label %162
 
-163:                                              ; preds = %159, %161, %153, %142
-  %.8 = phi ptr [ %.7126, %153 ], [ %.7126, %142 ], [ %160, %159 ], [ %162, %161 ]
-  %.292 = phi i32 [ %spec.select, %153 ], [ -1, %142 ], [ -1, %159 ], [ -1, %161 ]
-  %.1 = phi i32 [ %.0128, %153 ], [ %.0128, %142 ], [ %spec.select114, %159 ], [ %spec.select114, %161 ]
-  %164 = add nsw i32 %.1, 1
-  %165 = icmp slt i32 %.1, 16383
-  br i1 %165, label %142, label %representSlotInfo.exit, !llvm.loop !298
+162:                                              ; preds = %158, %160, %152, %141
+  %.8 = phi ptr [ %.7126, %152 ], [ %.7126, %141 ], [ %159, %158 ], [ %161, %160 ]
+  %.292 = phi i32 [ %spec.select, %152 ], [ -1, %141 ], [ -1, %158 ], [ -1, %160 ]
+  %.1 = phi i32 [ %.0128, %152 ], [ %.0128, %141 ], [ %spec.select114, %158 ], [ %spec.select114, %160 ]
+  %163 = add nsw i32 %.1, 1
+  %164 = icmp slt i32 %.1, 16383
+  br i1 %164, label %141, label %representSlotInfo.exit, !llvm.loop !298
 
-representSlotInfo.exit:                           ; preds = %134, %163, %118, %137
-  %.6 = phi ptr [ %115, %137 ], [ %115, %118 ], [ %.8, %163 ], [ %.1.i, %134 ]
-  %166 = load i32, ptr %83, align 8, !tbaa !82
-  %167 = and i32 %166, 16
-  %.not110 = icmp eq i32 %167, 0
+representSlotInfo.exit:                           ; preds = %133, %162, %118, %136
+  %.6 = phi ptr [ %115, %136 ], [ %115, %118 ], [ %.8, %162 ], [ %.1.i, %133 ]
+  %165 = load i32, ptr %83, align 8, !tbaa !82
+  %166 = and i32 %165, 16
+  %.not110 = icmp eq i32 %166, 0
   br i1 %.not110, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %representSlotInfo.exit, %179
-  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %179 ], [ 0, %representSlotInfo.exit ]
-  %.11129 = phi ptr [ %.12, %179 ], [ %.6, %representSlotInfo.exit ]
-  %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 48
-  %170 = getelementptr inbounds nuw [16384 x ptr], ptr %169, i64 0, i64 %indvars.iv133
-  %171 = load ptr, ptr %170, align 8, !tbaa !46
-  %.not111 = icmp eq ptr %171, null
-  br i1 %.not111, label %172, label %.sink.split
+.preheader:                                       ; preds = %representSlotInfo.exit, %178
+  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %178 ], [ 0, %representSlotInfo.exit ]
+  %.11129 = phi ptr [ %.12, %178 ], [ %.6, %representSlotInfo.exit ]
+  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 48
+  %169 = getelementptr inbounds nuw [16384 x ptr], ptr %168, i64 0, i64 %indvars.iv133
+  %170 = load ptr, ptr %169, align 8, !tbaa !46
+  %.not111 = icmp eq ptr %170, null
+  br i1 %.not111, label %171, label %.sink.split
 
-172:                                              ; preds = %.preheader
-  %173 = getelementptr inbounds nuw i8, ptr %168, i64 131120
-  %174 = getelementptr inbounds nuw [16384 x ptr], ptr %173, i64 0, i64 %indvars.iv133
-  %175 = load ptr, ptr %174, align 8, !tbaa !46
-  %.not112 = icmp eq ptr %175, null
-  br i1 %.not112, label %179, label %.sink.split
+171:                                              ; preds = %.preheader
+  %172 = getelementptr inbounds nuw i8, ptr %167, i64 131120
+  %173 = getelementptr inbounds nuw [16384 x ptr], ptr %172, i64 0, i64 %indvars.iv133
+  %174 = load ptr, ptr %173, align 8, !tbaa !46
+  %.not112 = icmp eq ptr %174, null
+  br i1 %.not112, label %178, label %.sink.split
 
-.sink.split:                                      ; preds = %172, %.preheader
-  %.sink = phi ptr [ %171, %.preheader ], [ %175, %172 ]
-  %.str.165.sink = phi ptr [ @.str.165, %.preheader ], [ @.str.166, %172 ]
-  %176 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
-  %177 = trunc nuw nsw i64 %indvars.iv133 to i32
-  %178 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.11129, ptr noundef nonnull %.str.165.sink, i32 noundef %177, ptr noundef nonnull %176) #33
-  br label %179
+.sink.split:                                      ; preds = %171, %.preheader
+  %.sink = phi ptr [ %170, %.preheader ], [ %174, %171 ]
+  %.str.165.sink = phi ptr [ @.str.165, %.preheader ], [ @.str.166, %171 ]
+  %175 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
+  %176 = trunc nuw nsw i64 %indvars.iv133 to i32
+  %177 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %.11129, ptr noundef nonnull %.str.165.sink, i32 noundef %176, ptr noundef nonnull %175) #33
+  br label %178
 
-179:                                              ; preds = %.sink.split, %172
-  %.12 = phi ptr [ %.11129, %172 ], [ %178, %.sink.split ]
+178:                                              ; preds = %.sink.split, %171
+  %.12 = phi ptr [ %.11129, %171 ], [ %177, %.sink.split ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next134, 16384
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !299
 
-.loopexit:                                        ; preds = %179, %representSlotInfo.exit
-  %.10 = phi ptr [ %.6, %representSlotInfo.exit ], [ %.12, %179 ]
+.loopexit:                                        ; preds = %178, %representSlotInfo.exit
+  %.10 = phi ptr [ %.6, %representSlotInfo.exit ], [ %.12, %178 ]
   ret ptr %.10
 }
 
@@ -17031,8 +17029,8 @@ getSlotOrReply.exit374.thread:                    ; preds = %.lr.ph
 getSlotOrReply.exit374:                           ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #33
   %213 = load ptr, ptr %10, align 8, !tbaa !311
-  %214 = or disjoint i64 %indvars.iv, 1
-  %215 = getelementptr inbounds nuw ptr, ptr %213, i64 %214
+  %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %216 = load ptr, ptr %215, align 8, !tbaa !320
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #33
   %217 = call i32 @getLongLongFromObject(ptr noundef %216, ptr noundef nonnull %3) #33

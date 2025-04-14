@@ -6838,7 +6838,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL19mtp3_summary_packetPvP12_packe
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load i8, ptr %6, align 4
   %8 = icmp ugt i8 %7, 8
-  br i1 %8, label %39, label %.preheader
+  br i1 %8, label %40, label %.preheader
 
 .preheader:                                       ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -6872,7 +6872,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL19mtp3_summary_packetPvP12_packe
 ._crit_edge.thread:                               ; preds = %16, %._crit_edge
   %.0.lcssa35 = phi i64 [ %.0.lcssa, %._crit_edge ], [ %10, %16 ]
   %19 = icmp eq i64 %10, 50
-  br i1 %19, label %39, label %20
+  br i1 %19, label %40, label %20
 
 20:                                               ; preds = %._crit_edge.thread
   %21 = add i64 %10, 1
@@ -6898,14 +6898,14 @@ define internal noundef range(i32 0, 2) i32 @_ZL19mtp3_summary_packetPvP12_packe
   %34 = load i8, ptr %6, align 4
   %35 = zext i8 %34 to i64
   %.idx = shl nuw nsw i64 %35, 3
-  %.offs = or disjoint i64 %.idx, 4
-  %36 = getelementptr i8, ptr %25, i64 %.offs
-  %37 = load i32, ptr %36, align 4
-  %38 = add i32 %37, %33
-  store i32 %38, ptr %36, align 4
-  br label %39
+  %36 = getelementptr i8, ptr %25, i64 %.idx
+  %37 = getelementptr i8, ptr %36, i64 4
+  %38 = load i32, ptr %37, align 4
+  %39 = add i32 %38, %33
+  store i32 %39, ptr %37, align 4
+  br label %40
 
-39:                                               ; preds = %._crit_edge.thread, %5, %22
+40:                                               ; preds = %._crit_edge.thread, %5, %22
   %.025 = phi i32 [ 1, %22 ], [ 0, %5 ], [ 0, %._crit_edge.thread ]
   ret i32 %.025
 }

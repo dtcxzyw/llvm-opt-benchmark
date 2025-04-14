@@ -9778,9 +9778,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %132 = getelementptr i8, ptr %.val49.val, i64 8
   %.val49.val.val51 = load ptr, ptr %132, align 8, !tbaa !111
   %133 = shl i32 %.val50, 1
-  %134 = or disjoint i32 %133, 1
-  %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i32, ptr %.val49.val.val51, i64 %135
+  %134 = sext i32 %133 to i64
+  %135 = getelementptr i32, ptr %.val49.val.val51, i64 %134
+  %136 = getelementptr i8, ptr %135, i64 4
   store i32 %.val49.val.val, ptr %136, align 4, !tbaa !51
   br label %137
 

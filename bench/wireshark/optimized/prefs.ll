@@ -1562,8 +1562,8 @@ free_col_info.exit:                               ; preds = %.lr.ph.i
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 29
   store i8 82, ptr %41, align 1
   %42 = load ptr, ptr @pre_init_prefs.col_fmt, align 8
-  %43 = or disjoint i64 %36, 1
-  %44 = getelementptr ptr, ptr %42, i64 %43
+  %43 = getelementptr ptr, ptr %42, i64 %36
+  %44 = getelementptr i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = tail call zeroext i1 @parse_column_format(ptr noundef %34, ptr noundef %45)
   %47 = load ptr, ptr @prefs, align 8

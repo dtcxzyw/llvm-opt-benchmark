@@ -10371,11 +10371,11 @@ define internal fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_19ViolationEl
   br label %19
 
 19:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEET_SE_SE_T0_.exit
-  %20 = phi i64 [ %14, %.lr.ph ], [ %123, %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEET_SE_SE_T0_.exit ]
+  %20 = phi i64 [ %14, %.lr.ph ], [ %121, %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEET_SE_SE_T0_.exit ]
   %.023 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEET_SE_SE_T0_.exit ]
-  %.01522 = phi i64 [ %2, %.lr.ph ], [ %92, %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEET_SE_SE_T0_.exit ]
+  %.01522 = phi i64 [ %2, %.lr.ph ], [ %90, %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEET_SE_SE_T0_.exit ]
   %21 = icmp eq i64 %.01522, 0
-  br i1 %21, label %22, label %91
+  br i1 %21, label %22, label %89
 
 22:                                               ; preds = %19
   %23 = lshr exact i64 %20, 5
@@ -10391,7 +10391,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_19ViolationEl
   br label %33
 
 33:                                               ; preds = %_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i, %22
-  %.013.i.i.i = phi i64 [ %25, %22 ], [ %56, %_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i ]
+  %.013.i.i.i = phi i64 [ %25, %22 ], [ %55, %_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i ]
   %34 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.013.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false)
@@ -10407,198 +10407,198 @@ define internal fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_19ViolationEl
   %.038.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.013.i.i.i, %33 ]
   %36 = shl i64 %.038.i.i.i.i, 1
   %37 = add i64 %36, 2
-  %38 = or disjoint i64 %36, 1
-  %39 = getelementptr %"struct.(anonymous namespace)::Violation", ptr %0, i64 %37, i32 5
-  %.val28.i.i.i.i = load i32, ptr %39, align 8, !tbaa !31
-  %40 = getelementptr %"struct.(anonymous namespace)::Violation", ptr %0, i64 %38, i32 5
-  %.val29.i.i.i.i = load i32, ptr %40, align 8, !tbaa !31
-  %41 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val28.i.i.i.i, i32 %.val29.i.i.i.i) #21
-  %spec.select.i.i.i.i = select i1 %41, i64 %38, i64 %37
-  %42 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %spec.select.i.i.i.i
-  %43 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.038.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %42, i64 32, i1 false)
-  %44 = icmp slt i64 %spec.select.i.i.i.i, %27
-  br i1 %44, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !971
+  %38 = getelementptr %"struct.(anonymous namespace)::Violation", ptr %0, i64 %37, i32 5
+  %.val28.i.i.i.i = load i32, ptr %38, align 8, !tbaa !31
+  %gep.i.i.i.i = getelementptr %"struct.(anonymous namespace)::Violation", ptr %17, i64 %36
+  %.val29.i.i.i.i = load i32, ptr %gep.i.i.i.i, align 8, !tbaa !31
+  %39 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val28.i.i.i.i, i32 %.val29.i.i.i.i) #21
+  %40 = or disjoint i64 %36, 1
+  %spec.select.i.i.i.i = select i1 %39, i64 %40, i64 %37
+  %41 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %spec.select.i.i.i.i
+  %42 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.038.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %41, i64 32, i1 false)
+  %43 = icmp slt i64 %spec.select.i.i.i.i, %27
+  br i1 %43, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !971
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %33
   %.0.lcssa.i.i.i.i = phi i64 [ %.013.i.i.i, %33 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %45 = icmp eq i64 %.0.lcssa.i.i.i.i, %25
-  %or.cond.i.i.i = select i1 %29, i1 %45, i1 false
-  br i1 %or.cond.i.i.i, label %46, label %47
+  %44 = icmp eq i64 %.0.lcssa.i.i.i.i, %25
+  %or.cond.i.i.i = select i1 %29, i1 %44, i1 false
+  br i1 %or.cond.i.i.i, label %45, label %46
 
-46:                                               ; preds = %._crit_edge.i.i.i.i
+45:                                               ; preds = %._crit_edge.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false)
-  br label %47
+  br label %46
 
-47:                                               ; preds = %46, %._crit_edge.i.i.i.i
-  %.127.i.i.i.i = phi i64 [ %30, %46 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %48 = icmp samesign ugt i64 %.127.i.i.i.i, %.013.i.i.i
-  br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i
+46:                                               ; preds = %45, %._crit_edge.i.i.i.i
+  %.127.i.i.i.i = phi i64 [ %30, %45 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %47 = icmp samesign ugt i64 %.127.i.i.i.i, %.013.i.i.i
+  br i1 %47, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %47, %52
-  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %52 ], [ %.127.i.i.i.i, %47 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %46, %51
+  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %51 ], [ %.127.i.i.i.i, %46 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %49 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.04.i.i.i.i.i
-  %50 = getelementptr i8, ptr %49, i64 16
-  %.val14.i.i.i.i.i = load i32, ptr %50, align 8, !tbaa !31
-  %51 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val14.i.i.i.i.i, i32 %.sroa.417.0.copyload.i.i.i) #21
-  br i1 %51, label %52, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i
+  %48 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.04.i.i.i.i.i
+  %49 = getelementptr i8, ptr %48, i64 16
+  %.val14.i.i.i.i.i = load i32, ptr %49, align 8, !tbaa !31
+  %50 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val14.i.i.i.i.i, i32 %.sroa.417.0.copyload.i.i.i) #21
+  br i1 %50, label %51, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i
 
-52:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %53 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.0133.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %49, i64 32, i1 false)
-  %54 = icmp sgt i64 %.04.i.i.i.i.i, %.013.i.i.i
-  br i1 %54, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i, !llvm.loop !972
+51:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %52 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.0133.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %48, i64 32, i1 false)
+  %53 = icmp sgt i64 %.04.i.i.i.i.i, %.013.i.i.i
+  br i1 %53, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i, !llvm.loop !972
 
-_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i: ; preds = %52, %.lr.ph.i.i.i.i.i, %47
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %47 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %52 ]
-  %55 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
-  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 16
+_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %46
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %46 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %51 ]
+  %54 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i.i, i64 16, i1 false)
+  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i32 %.sroa.417.0.copyload.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
-  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 20
+  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.i.i.i, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.5.i.i.i)
   %.not.i.i.i = icmp eq i64 %.013.i.i.i, 0
-  %56 = add nsw i64 %.013.i.i.i, -1
+  %55 = add nsw i64 %.013.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i7.i, label %33, !llvm.loop !973
 
-.lr.ph.i7.i:                                      ; preds = %_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i20.i
-  %.01.i.i = phi ptr [ %57, %_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i20.i ], [ %.023, %_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i ]
-  %57 = getelementptr inbounds i8, ptr %.01.i.i, i64 -32
+.lr.ph.i7.i:                                      ; preds = %_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i21.i
+  %.01.i.i = phi ptr [ %56, %_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i21.i ], [ %.023, %_ZSt13__adjust_heapIPN12_GLOBAL__N_19ViolationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_T0_SF_T1_T2_.exit.i.i.i ]
+  %56 = getelementptr inbounds i8, ptr %.01.i.i, i64 -32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i5.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i5.i, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i5.i, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false)
   %.sroa.49.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
-  %.sroa.49.0.copyload.i.i8.i = load i32, ptr %.sroa.49.0..sroa_idx.i.i.i, align 8
-  %.sroa.510.0..sroa_idx.i.i9.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -12
+  %.sroa.49.0.copyload.i.i9.i = load i32, ptr %.sroa.49.0..sroa_idx.i.i.i, align 8
+  %.sroa.510.0..sroa_idx.i.i10.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -12
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.5.i.i6.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.i.i6.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.510.0..sroa_idx.i.i9.i, i64 12, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %58 = ptrtoint ptr %57 to i64
-  %59 = sub i64 %58, %12
-  %60 = ashr exact i64 %59, 5
-  %61 = add nsw i64 %60, -1
-  %62 = sdiv i64 %61, 2
-  %63 = icmp sgt i64 %60, 2
-  br i1 %63, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i10.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.i.i6.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.510.0..sroa_idx.i.i10.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
+  %57 = ptrtoint ptr %56 to i64
+  %58 = sub i64 %57, %12
+  %59 = ashr exact i64 %58, 5
+  %60 = add nsw i64 %59, -1
+  %61 = sdiv i64 %60, 2
+  %62 = icmp sgt i64 %59, 2
+  br i1 %62, label %.lr.ph.i.i.i27.i, label %._crit_edge.i.i.i11.i
 
-.lr.ph.i.i.i26.i:                                 ; preds = %.lr.ph.i7.i, %.lr.ph.i.i.i26.i
-  %.038.i.i.i27.i = phi i64 [ %spec.select.i.i.i30.i, %.lr.ph.i.i.i26.i ], [ 0, %.lr.ph.i7.i ]
-  %64 = shl i64 %.038.i.i.i27.i, 1
-  %65 = add i64 %64, 2
-  %66 = or disjoint i64 %64, 1
-  %67 = getelementptr %"struct.(anonymous namespace)::Violation", ptr %0, i64 %65, i32 5
-  %.val28.i.i.i28.i = load i32, ptr %67, align 8, !tbaa !31
-  %68 = getelementptr %"struct.(anonymous namespace)::Violation", ptr %0, i64 %66, i32 5
-  %.val29.i.i.i29.i = load i32, ptr %68, align 8, !tbaa !31
-  %69 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val28.i.i.i28.i, i32 %.val29.i.i.i29.i) #21
-  %spec.select.i.i.i30.i = select i1 %69, i64 %66, i64 %65
-  %70 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %spec.select.i.i.i30.i
-  %71 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.038.i.i.i27.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %70, i64 32, i1 false)
-  %72 = icmp slt i64 %spec.select.i.i.i30.i, %62
-  br i1 %72, label %.lr.ph.i.i.i26.i, label %._crit_edge.i.i.i10.i, !llvm.loop !971
+.lr.ph.i.i.i27.i:                                 ; preds = %.lr.ph.i7.i, %.lr.ph.i.i.i27.i
+  %.038.i.i.i28.i = phi i64 [ %spec.select.i.i.i32.i, %.lr.ph.i.i.i27.i ], [ 0, %.lr.ph.i7.i ]
+  %63 = shl i64 %.038.i.i.i28.i, 1
+  %64 = add i64 %63, 2
+  %65 = getelementptr %"struct.(anonymous namespace)::Violation", ptr %0, i64 %64, i32 5
+  %.val28.i.i.i29.i = load i32, ptr %65, align 8, !tbaa !31
+  %gep.i.i.i30.i = getelementptr %"struct.(anonymous namespace)::Violation", ptr %17, i64 %63
+  %.val29.i.i.i31.i = load i32, ptr %gep.i.i.i30.i, align 8, !tbaa !31
+  %66 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val28.i.i.i29.i, i32 %.val29.i.i.i31.i) #21
+  %67 = or disjoint i64 %63, 1
+  %spec.select.i.i.i32.i = select i1 %66, i64 %67, i64 %64
+  %68 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %spec.select.i.i.i32.i
+  %69 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.038.i.i.i28.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %68, i64 32, i1 false)
+  %70 = icmp slt i64 %spec.select.i.i.i32.i, %61
+  br i1 %70, label %.lr.ph.i.i.i27.i, label %._crit_edge.i.i.i11.i, !llvm.loop !971
 
-._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i26.i, %.lr.ph.i7.i
-  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i7.i ], [ %spec.select.i.i.i30.i, %.lr.ph.i.i.i26.i ]
-  %73 = and i64 %59, 32
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %75, label %83
+._crit_edge.i.i.i11.i:                            ; preds = %.lr.ph.i.i.i27.i, %.lr.ph.i7.i
+  %.0.lcssa.i.i.i12.i = phi i64 [ 0, %.lr.ph.i7.i ], [ %spec.select.i.i.i32.i, %.lr.ph.i.i.i27.i ]
+  %71 = and i64 %58, 32
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %73, label %81
 
-75:                                               ; preds = %._crit_edge.i.i.i10.i
-  %76 = add nsw i64 %60, -2
-  %77 = ashr exact i64 %76, 1
-  %78 = icmp eq i64 %.0.lcssa.i.i.i11.i, %77
-  br i1 %78, label %.thread.i.i25.i, label %83
+73:                                               ; preds = %._crit_edge.i.i.i11.i
+  %74 = add nsw i64 %59, -2
+  %75 = ashr exact i64 %74, 1
+  %76 = icmp eq i64 %.0.lcssa.i.i.i12.i, %75
+  br i1 %76, label %.thread.i.i26.i, label %81
 
-.thread.i.i25.i:                                  ; preds = %75
-  %79 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
-  %80 = or disjoint i64 %79, 1
-  %81 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %80
-  %82 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.0.lcssa.i.i.i11.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, ptr noundef nonnull align 8 dereferenceable(32) %81, i64 32, i1 false)
-  br label %.lr.ph.i.i.i.i15.i.preheader
+.thread.i.i26.i:                                  ; preds = %73
+  %77 = shl nuw nsw i64 %.0.lcssa.i.i.i12.i, 1
+  %78 = or disjoint i64 %77, 1
+  %79 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %78
+  %80 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.0.lcssa.i.i.i12.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, ptr noundef nonnull align 8 dereferenceable(32) %79, i64 32, i1 false)
+  br label %.lr.ph.i.i.i.i16.i.preheader
 
-83:                                               ; preds = %75, %._crit_edge.i.i.i10.i
-  %.not.i.i12.i = icmp eq i64 %.0.lcssa.i.i.i11.i, 0
-  br i1 %.not.i.i12.i, label %_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i20.i, label %.lr.ph.i.i.i.i15.i.preheader
+81:                                               ; preds = %73, %._crit_edge.i.i.i11.i
+  %.not.i.i13.i = icmp eq i64 %.0.lcssa.i.i.i12.i, 0
+  br i1 %.not.i.i13.i, label %_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i21.i, label %.lr.ph.i.i.i.i16.i.preheader
 
-.lr.ph.i.i.i.i15.i.preheader:                     ; preds = %83, %.thread.i.i25.i
-  %.0133.i.i.i.i16.i.ph = phi i64 [ %.0.lcssa.i.i.i11.i, %83 ], [ %80, %.thread.i.i25.i ]
-  br label %.lr.ph.i.i.i.i15.i
+.lr.ph.i.i.i.i16.i.preheader:                     ; preds = %81, %.thread.i.i26.i
+  %.0133.i.i.i.i17.i.ph = phi i64 [ %.0.lcssa.i.i.i12.i, %81 ], [ %78, %.thread.i.i26.i ]
+  br label %.lr.ph.i.i.i.i16.i
 
-.lr.ph.i.i.i.i15.i:                               ; preds = %.lr.ph.i.i.i.i15.i.preheader, %87
-  %.0133.i.i.i.i16.i = phi i64 [ %.04.i.i1112.i.i18.i, %87 ], [ %.0133.i.i.i.i16.i.ph, %.lr.ph.i.i.i.i15.i.preheader ]
-  %.04.in.i.i.i.i17.i = add nsw i64 %.0133.i.i.i.i16.i, -1
-  %.04.i.i1112.i.i18.i = lshr i64 %.04.in.i.i.i.i17.i, 1
-  %84 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.04.i.i1112.i.i18.i
-  %85 = getelementptr i8, ptr %84, i64 16
-  %.val14.i.i.i.i19.i = load i32, ptr %85, align 8, !tbaa !31
-  %86 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val14.i.i.i.i19.i, i32 %.sroa.49.0.copyload.i.i8.i) #21
-  br i1 %86, label %87, label %_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i20.i
+.lr.ph.i.i.i.i16.i:                               ; preds = %.lr.ph.i.i.i.i16.i.preheader, %85
+  %.0133.i.i.i.i17.i = phi i64 [ %.04.i.i1112.i.i19.i, %85 ], [ %.0133.i.i.i.i17.i.ph, %.lr.ph.i.i.i.i16.i.preheader ]
+  %.04.in.i.i.i.i18.i = add nsw i64 %.0133.i.i.i.i17.i, -1
+  %.04.i.i1112.i.i19.i = lshr i64 %.04.in.i.i.i.i18.i, 1
+  %82 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.04.i.i1112.i.i19.i
+  %83 = getelementptr i8, ptr %82, i64 16
+  %.val14.i.i.i.i20.i = load i32, ptr %83, align 8, !tbaa !31
+  %84 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val14.i.i.i.i20.i, i32 %.sroa.49.0.copyload.i.i9.i) #21
+  br i1 %84, label %85, label %_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i21.i
 
-87:                                               ; preds = %.lr.ph.i.i.i.i15.i
-  %88 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.0133.i.i.i.i16.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, ptr noundef nonnull align 8 dereferenceable(32) %84, i64 32, i1 false)
-  %.not13.i.i24.i = icmp ult i64 %.04.in.i.i.i.i17.i, 2
-  br i1 %.not13.i.i24.i, label %_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i20.i, label %.lr.ph.i.i.i.i15.i, !llvm.loop !972
+85:                                               ; preds = %.lr.ph.i.i.i.i16.i
+  %86 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.0133.i.i.i.i17.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %82, i64 32, i1 false)
+  %.not13.i.i25.i = icmp ult i64 %.04.in.i.i.i.i18.i, 2
+  br i1 %.not13.i.i25.i, label %_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i21.i, label %.lr.ph.i.i.i.i16.i, !llvm.loop !972
 
-_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i20.i: ; preds = %87, %.lr.ph.i.i.i.i15.i, %83
-  %.013.lcssa.i.i.i.i21.i = phi i64 [ 0, %83 ], [ %.0133.i.i.i.i16.i, %.lr.ph.i.i.i.i15.i ], [ 0, %87 ]
-  %89 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.013.lcssa.i.i.i.i21.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i5.i, i64 16, i1 false)
-  %.sroa.4.0..sroa_idx.i.i.i22.i = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store i32 %.sroa.49.0.copyload.i.i8.i, ptr %.sroa.4.0..sroa_idx.i.i.i22.i, align 8
-  %.sroa.5.0..sroa_idx.i.i.i23.i = getelementptr inbounds nuw i8, ptr %89, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx.i.i.i23.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.i.i6.i, i64 12, i1 false)
+_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i21.i: ; preds = %85, %.lr.ph.i.i.i.i16.i, %81
+  %.013.lcssa.i.i.i.i22.i = phi i64 [ 0, %81 ], [ %.0133.i.i.i.i17.i, %.lr.ph.i.i.i.i16.i ], [ 0, %85 ]
+  %87 = getelementptr inbounds %"struct.(anonymous namespace)::Violation", ptr %0, i64 %.013.lcssa.i.i.i.i22.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i.i5.i, i64 16, i1 false)
+  %.sroa.4.0..sroa_idx.i.i.i23.i = getelementptr inbounds nuw i8, ptr %87, i64 16
+  store i32 %.sroa.49.0.copyload.i.i9.i, ptr %.sroa.4.0..sroa_idx.i.i.i23.i, align 8
+  %.sroa.5.0..sroa_idx.i.i.i24.i = getelementptr inbounds nuw i8, ptr %87, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.0..sroa_idx.i.i.i24.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.i.i6.i, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0.i.i5.i)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.5.i.i6.i)
-  %90 = icmp sgt i64 %59, 32
-  br i1 %90, label %.lr.ph.i7.i, label %_ZSt14__partial_sortIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_T0_.exit, !llvm.loop !974
+  %88 = icmp sgt i64 %58, 32
+  br i1 %88, label %.lr.ph.i7.i, label %_ZSt14__partial_sortIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_T0_.exit, !llvm.loop !974
 
-91:                                               ; preds = %19
-  %92 = add nsw i64 %.01522, -1
-  %93 = lshr i64 %20, 6
-  %94 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %93
-  %95 = getelementptr inbounds i8, ptr %.023, i64 -32
+89:                                               ; preds = %19
+  %90 = add nsw i64 %.01522, -1
+  %91 = lshr i64 %20, 6
+  %92 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Violation", ptr %0, i64 %91
+  %93 = getelementptr inbounds i8, ptr %.023, i64 -32
   %.val34.i.i = load i32, ptr %17, align 8, !tbaa !31
-  %96 = getelementptr i8, ptr %94, i64 16
-  %.val35.i.i = load i32, ptr %96, align 8, !tbaa !31
-  %97 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val34.i.i, i32 %.val35.i.i) #21
-  %98 = getelementptr i8, ptr %.023, i64 -16
-  %.val32.i.i = load i32, ptr %98, align 8, !tbaa !31
-  br i1 %97, label %99, label %106
+  %94 = getelementptr i8, ptr %92, i64 16
+  %.val35.i.i = load i32, ptr %94, align 8, !tbaa !31
+  %95 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val34.i.i, i32 %.val35.i.i) #21
+  %96 = getelementptr i8, ptr %.023, i64 -16
+  %.val32.i.i = load i32, ptr %96, align 8, !tbaa !31
+  br i1 %95, label %97, label %104
 
-99:                                               ; preds = %91
-  %.val31.i.i = load i32, ptr %96, align 8, !tbaa !31
-  %100 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val31.i.i, i32 %.val32.i.i) #21
-  br i1 %100, label %101, label %102
+97:                                               ; preds = %89
+  %.val31.i.i = load i32, ptr %94, align 8, !tbaa !31
+  %98 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val31.i.i, i32 %.val32.i.i) #21
+  br i1 %98, label %99, label %100
 
-101:                                              ; preds = %99
+99:                                               ; preds = %97
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %94, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %92, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader
 
-102:                                              ; preds = %99
+100:                                              ; preds = %97
   %.val28.i.i = load i32, ptr %17, align 8, !tbaa !31
-  %.val29.i.i = load i32, ptr %98, align 8, !tbaa !31
-  %103 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val28.i.i, i32 %.val29.i.i) #21
-  br i1 %103, label %104, label %105
+  %.val29.i.i = load i32, ptr %96, align 8, !tbaa !31
+  %101 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val28.i.i, i32 %.val29.i.i) #21
+  br i1 %101, label %102, label %103
 
-104:                                              ; preds = %102
+102:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %95, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %93, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader
 
-105:                                              ; preds = %102
+103:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
@@ -10606,12 +10606,12 @@ _ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZ
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader
 
-106:                                              ; preds = %91
+104:                                              ; preds = %89
   %.val25.i.i = load i32, ptr %17, align 8, !tbaa !31
-  %107 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val25.i.i, i32 %.val32.i.i) #21
-  br i1 %107, label %108, label %109
+  %105 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val25.i.i, i32 %.val32.i.i) #21
+  br i1 %105, label %106, label %107
 
-108:                                              ; preds = %106
+106:                                              ; preds = %104
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
@@ -10619,59 +10619,59 @@ _ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZ
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader
 
-109:                                              ; preds = %106
-  %.val22.i.i = load i32, ptr %96, align 8, !tbaa !31
-  %.val23.i.i = load i32, ptr %98, align 8, !tbaa !31
-  %110 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val22.i.i, i32 %.val23.i.i) #21
-  br i1 %110, label %111, label %112
+107:                                              ; preds = %104
+  %.val22.i.i = load i32, ptr %94, align 8, !tbaa !31
+  %.val23.i.i = load i32, ptr %96, align 8, !tbaa !31
+  %108 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val22.i.i, i32 %.val23.i.i) #21
+  br i1 %108, label %109, label %110
 
-111:                                              ; preds = %109
+109:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %95, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %93, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader
 
-112:                                              ; preds = %109
+110:                                              ; preds = %107
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %94, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %92, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader: ; preds = %112, %111, %108, %105, %104, %101
+_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader: ; preds = %110, %109, %106, %103, %102, %99
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader, %121
-  %.013.i.i = phi ptr [ %.114.i.i, %121 ], [ %.023, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %116, %121 ], [ %16, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader ]
-  br label %113
+_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader, %119
+  %.013.i.i = phi ptr [ %.114.i.i, %119 ], [ %.023, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %114, %119 ], [ %16, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i.preheader ]
+  br label %111
 
-113:                                              ; preds = %113, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i ], [ %116, %113 ]
-  %114 = getelementptr i8, ptr %.1.i.i, i64 16
-  %.1.val.i.i = load i32, ptr %114, align 8, !tbaa !31
+111:                                              ; preds = %111, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i ], [ %114, %111 ]
+  %112 = getelementptr i8, ptr %.1.i.i, i64 16
+  %.1.val.i.i = load i32, ptr %112, align 8, !tbaa !31
   %.val17.i.i = load i32, ptr %18, align 8, !tbaa !31
-  %115 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.1.val.i.i, i32 %.val17.i.i) #21
-  %116 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
-  br i1 %115, label %113, label %.preheader.i.i, !llvm.loop !975
+  %113 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.1.val.i.i, i32 %.val17.i.i) #21
+  %114 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
+  br i1 %113, label %111, label %.preheader.i.i, !llvm.loop !975
 
-.preheader.i.i:                                   ; preds = %113, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %113 ]
+.preheader.i.i:                                   ; preds = %111, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %111 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -32
   %.val15.i.i = load i32, ptr %18, align 8, !tbaa !31
-  %117 = getelementptr i8, ptr %.013.pn.i.i, i64 -16
-  %.114.val.i.i = load i32, ptr %117, align 8, !tbaa !31
-  %118 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val15.i.i, i32 %.114.val.i.i) #21
-  br i1 %118, label %.preheader.i.i, label %119, !llvm.loop !976
+  %115 = getelementptr i8, ptr %.013.pn.i.i, i64 -16
+  %.114.val.i.i = load i32, ptr %115, align 8, !tbaa !31
+  %116 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %3, i32 %.val15.i.i, i32 %.114.val.i.i) #21
+  br i1 %116, label %.preheader.i.i, label %117, !llvm.loop !976
 
-119:                                              ; preds = %.preheader.i.i
-  %120 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %120, label %121, label %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEET_SE_SE_T0_.exit
+117:                                              ; preds = %.preheader.i.i
+  %118 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %118, label %119, label %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEET_SE_SE_T0_.exit
 
-121:                                              ; preds = %119
+119:                                              ; preds = %117
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.1.i.i, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.1.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.114.i.i, i64 32, i1 false)
@@ -10679,14 +10679,14 @@ _ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_SE_T0_.exit.i, !llvm.loop !977
 
-_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEET_SE_SE_T0_.exit: ; preds = %119
-  tail call fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_19ViolationElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.023, i64 noundef %92, ptr nonnull %3)
-  %122 = ptrtoint ptr %.1.i.i to i64
-  %123 = sub i64 %122, %12
-  %124 = icmp sgt i64 %123, 512
-  br i1 %124, label %19, label %_ZSt14__partial_sortIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_T0_.exit, !llvm.loop !978
+_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEET_SE_SE_T0_.exit: ; preds = %117
+  tail call fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_19ViolationElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.023, i64 noundef %90, ptr nonnull %3)
+  %120 = ptrtoint ptr %.1.i.i to i64
+  %121 = sub i64 %120, %12
+  %122 = icmp sgt i64 %121, 512
+  br i1 %122, label %19, label %_ZSt14__partial_sortIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_T0_.exit, !llvm.loop !978
 
-_ZSt14__partial_sortIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEET_SE_SE_T0_.exit, %_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i20.i, %4
+_ZSt14__partial_sortIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEET_SE_SE_T0_.exit, %_ZSt10__pop_heapIPN12_GLOBAL__N_19ViolationEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_23PendingFunctionAnalysis37getSortedViolationsForExplicitEffectsERN5clang13SourceManagerEEUlRKS1_SB_E_EEEvT_SE_SE_RT0_.exit.i21.i, %4
   ret void
 }
 

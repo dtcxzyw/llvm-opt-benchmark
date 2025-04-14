@@ -14,96 +14,82 @@ define range(i64 4, 1) i64 @ARM_Convert(ptr noundef captures(none) %0, i64 nound
   %.not36 = icmp eq i32 %3, 0
   br i1 %.not36, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %6, %38
-  %.03337.us = phi i64 [ %39, %38 ], [ 0, %6 ]
-  %9 = or disjoint i64 %.03337.us, 3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %9
+.split.us:                                        ; preds = %6, %31
+  %.03337.us = phi i64 [ %32, %31 ], [ 0, %6 ]
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.03337.us
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 3
   %11 = load i8, ptr %10, align 1, !tbaa !3
   %12 = icmp eq i8 %11, -21
-  br i1 %12, label %13, label %38
+  br i1 %12, label %13, label %31
 
 13:                                               ; preds = %.split.us
-  %14 = or disjoint i64 %.03337.us, 2
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !3
-  %17 = zext i8 %16 to i32
-  %18 = shl nuw nsw i32 %17, 16
-  %19 = or disjoint i64 %.03337.us, 1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !3
-  %22 = zext i8 %21 to i32
-  %23 = shl nuw nsw i32 %22, 8
-  %24 = or disjoint i32 %23, %18
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.03337.us
-  %26 = load i8, ptr %25, align 1, !tbaa !3
-  %27 = zext i8 %26 to i32
-  %28 = or disjoint i32 %24, %27
-  %29 = shl nuw nsw i32 %28, 2
-  %30 = trunc i64 %.03337.us to i32
-  %31 = add i32 %8, %30
-  %.0.us = sub i32 %29, %31
-  %32 = lshr i32 %.0.us, 2
-  %33 = lshr i32 %.0.us, 18
-  %34 = trunc i32 %33 to i8
-  store i8 %34, ptr %15, align 1, !tbaa !3
-  %35 = lshr i32 %.0.us, 10
-  %36 = trunc i32 %35 to i8
-  store i8 %36, ptr %20, align 1, !tbaa !3
-  %37 = trunc i32 %32 to i8
-  store i8 %37, ptr %25, align 1, !tbaa !3
-  br label %38
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %15 = getelementptr i8, ptr %9, i64 1
+  %16 = load i16, ptr %15, align 1
+  %17 = zext i16 %16 to i32
+  %18 = load i8, ptr %9, align 1, !tbaa !3
+  %19 = zext i8 %18 to i32
+  %20 = shl nuw nsw i32 %17, 10
+  %21 = shl nuw nsw i32 %19, 2
+  %22 = or disjoint i32 %20, %21
+  %23 = trunc i64 %.03337.us to i32
+  %24 = add i32 %8, %23
+  %.0.us = sub i32 %22, %24
+  %25 = lshr i32 %.0.us, 2
+  %26 = lshr i32 %.0.us, 18
+  %27 = trunc i32 %26 to i8
+  store i8 %27, ptr %14, align 1, !tbaa !3
+  %28 = lshr i32 %.0.us, 10
+  %29 = trunc i32 %28 to i8
+  store i8 %29, ptr %15, align 1, !tbaa !3
+  %30 = trunc i32 %25 to i8
+  store i8 %30, ptr %9, align 1, !tbaa !3
+  br label %31
 
-38:                                               ; preds = %13, %.split.us
-  %39 = add nuw i64 %.03337.us, 4
-  %.not.us = icmp ugt i64 %39, %7
+31:                                               ; preds = %13, %.split.us
+  %32 = add nuw i64 %.03337.us, 4
+  %.not.us = icmp ugt i64 %32, %7
   br i1 %.not.us, label %.loopexit, label %.split.us
 
-.split:                                           ; preds = %6, %69
-  %.03337 = phi i64 [ %70, %69 ], [ 0, %6 ]
-  %40 = or disjoint i64 %.03337, 3
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !3
-  %43 = icmp eq i8 %42, -21
-  br i1 %43, label %44, label %69
+.split:                                           ; preds = %6, %55
+  %.03337 = phi i64 [ %56, %55 ], [ 0, %6 ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.03337
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 3
+  %35 = load i8, ptr %34, align 1, !tbaa !3
+  %36 = icmp eq i8 %35, -21
+  br i1 %36, label %37, label %55
 
-44:                                               ; preds = %.split
-  %45 = or disjoint i64 %.03337, 2
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
-  %47 = load i8, ptr %46, align 1, !tbaa !3
-  %48 = zext i8 %47 to i32
-  %49 = shl nuw nsw i32 %48, 16
-  %50 = or disjoint i64 %.03337, 1
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 %50
-  %52 = load i8, ptr %51, align 1, !tbaa !3
-  %53 = zext i8 %52 to i32
-  %54 = shl nuw nsw i32 %53, 8
-  %55 = or disjoint i32 %54, %49
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %.03337
-  %57 = load i8, ptr %56, align 1, !tbaa !3
-  %58 = zext i8 %57 to i32
-  %59 = or disjoint i32 %55, %58
-  %60 = shl nuw nsw i32 %59, 2
-  %61 = trunc i64 %.03337 to i32
-  %62 = add i32 %8, %61
-  %.0 = add i32 %60, %62
-  %63 = lshr i32 %.0, 2
-  %64 = lshr i32 %.0, 18
-  %65 = trunc i32 %64 to i8
-  store i8 %65, ptr %46, align 1, !tbaa !3
-  %66 = lshr i32 %.0, 10
-  %67 = trunc i32 %66 to i8
-  store i8 %67, ptr %51, align 1, !tbaa !3
-  %68 = trunc i32 %63 to i8
-  store i8 %68, ptr %56, align 1, !tbaa !3
-  br label %69
+37:                                               ; preds = %.split
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 2
+  %39 = getelementptr i8, ptr %33, i64 1
+  %40 = load i16, ptr %39, align 1
+  %41 = zext i16 %40 to i32
+  %42 = load i8, ptr %33, align 1, !tbaa !3
+  %43 = zext i8 %42 to i32
+  %44 = shl nuw nsw i32 %41, 10
+  %45 = shl nuw nsw i32 %43, 2
+  %46 = or disjoint i32 %44, %45
+  %47 = trunc i64 %.03337 to i32
+  %48 = add i32 %8, %47
+  %.0 = add i32 %46, %48
+  %49 = lshr i32 %.0, 2
+  %50 = lshr i32 %.0, 18
+  %51 = trunc i32 %50 to i8
+  store i8 %51, ptr %38, align 1, !tbaa !3
+  %52 = lshr i32 %.0, 10
+  %53 = trunc i32 %52 to i8
+  store i8 %53, ptr %39, align 1, !tbaa !3
+  %54 = trunc i32 %49 to i8
+  store i8 %54, ptr %33, align 1, !tbaa !3
+  br label %55
 
-69:                                               ; preds = %.split, %44
-  %70 = add nuw i64 %.03337, 4
-  %.not = icmp ugt i64 %70, %7
+55:                                               ; preds = %.split, %37
+  %56 = add nuw i64 %.03337, 4
+  %.not = icmp ugt i64 %56, %7
   br i1 %.not, label %.loopexit, label %.split
 
-.loopexit:                                        ; preds = %69, %38, %4
-  %.034 = phi i64 [ 0, %4 ], [ %39, %38 ], [ %70, %69 ]
+.loopexit:                                        ; preds = %55, %31, %4
+  %.034 = phi i64 [ 0, %4 ], [ %32, %31 ], [ %56, %55 ]
   ret i64 %.034
 }
 
@@ -253,128 +239,122 @@ define range(i64 4, 1) i64 @PPC_Convert(ptr noundef captures(none) %0, i64 nound
   %.not42 = icmp eq i32 %3, 0
   br i1 %.not42, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %6, %49
-  %.04043.us = phi i64 [ %50, %49 ], [ 0, %6 ]
+.split.us:                                        ; preds = %6, %46
+  %.04043.us = phi i64 [ %47, %46 ], [ 0, %6 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.04043.us
   %9 = load i8, ptr %8, align 1, !tbaa !3
   %10 = zext i8 %9 to i32
   %.mask.us = and i32 %10, 252
   %11 = icmp eq i32 %.mask.us, 72
-  br i1 %11, label %12, label %49
+  br i1 %11, label %12, label %46
 
 12:                                               ; preds = %.split.us
-  %13 = or disjoint i64 %.04043.us, 3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !3
-  %16 = zext i8 %15 to i32
-  %17 = and i32 %16, 3
-  %18 = icmp eq i32 %17, 1
-  br i1 %18, label %19, label %49
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %14 = load i8, ptr %13, align 1, !tbaa !3
+  %15 = zext i8 %14 to i32
+  %16 = and i32 %15, 3
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %18, label %46
 
-19:                                               ; preds = %12
-  %20 = shl nuw nsw i32 %10, 24
-  %21 = and i32 %20, 50331648
-  %22 = or disjoint i64 %.04043.us, 1
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !3
-  %25 = zext i8 %24 to i32
-  %26 = shl nuw nsw i32 %25, 16
-  %27 = or disjoint i64 %.04043.us, 2
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !3
-  %30 = zext i8 %29 to i32
-  %31 = shl nuw nsw i32 %30, 8
-  %32 = and i32 %16, 252
-  %33 = trunc i64 %.04043.us to i32
-  %34 = add i32 %2, %33
-  %35 = sub i32 %21, %34
-  %36 = add i32 %35, %32
-  %37 = add i32 %36, %26
-  %.0.us = add i32 %37, %31
-  %38 = lshr i32 %.0.us, 24
-  %39 = trunc nuw i32 %38 to i8
-  %40 = and i8 %39, 3
-  %41 = or disjoint i8 %40, 72
-  store i8 %41, ptr %8, align 1, !tbaa !3
-  %42 = lshr i32 %.0.us, 16
-  %43 = trunc i32 %42 to i8
-  store i8 %43, ptr %23, align 1, !tbaa !3
-  %44 = lshr i32 %.0.us, 8
-  %45 = trunc i32 %44 to i8
-  store i8 %45, ptr %28, align 1, !tbaa !3
-  %46 = and i8 %15, 3
-  %47 = trunc i32 %36 to i8
-  %48 = or i8 %46, %47
-  store i8 %48, ptr %14, align 1, !tbaa !3
-  br label %49
+18:                                               ; preds = %12
+  %19 = shl nuw nsw i32 %10, 24
+  %20 = and i32 %19, 50331648
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %22 = load i8, ptr %21, align 1, !tbaa !3
+  %23 = zext i8 %22 to i32
+  %24 = shl nuw nsw i32 %23, 16
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %26 = load i8, ptr %25, align 1, !tbaa !3
+  %27 = zext i8 %26 to i32
+  %28 = shl nuw nsw i32 %27, 8
+  %29 = and i32 %15, 252
+  %30 = trunc i64 %.04043.us to i32
+  %31 = add i32 %2, %30
+  %32 = sub i32 %20, %31
+  %33 = add i32 %32, %29
+  %34 = add i32 %33, %24
+  %.0.us = add i32 %34, %28
+  %35 = lshr i32 %.0.us, 24
+  %36 = trunc nuw i32 %35 to i8
+  %37 = and i8 %36, 3
+  %38 = or disjoint i8 %37, 72
+  store i8 %38, ptr %8, align 1, !tbaa !3
+  %39 = lshr i32 %.0.us, 16
+  %40 = trunc i32 %39 to i8
+  store i8 %40, ptr %21, align 1, !tbaa !3
+  %41 = lshr i32 %.0.us, 8
+  %42 = trunc i32 %41 to i8
+  store i8 %42, ptr %25, align 1, !tbaa !3
+  %43 = and i8 %14, 3
+  %44 = trunc i32 %33 to i8
+  %45 = or i8 %43, %44
+  store i8 %45, ptr %13, align 1, !tbaa !3
+  br label %46
 
-49:                                               ; preds = %19, %12, %.split.us
-  %50 = add nuw i64 %.04043.us, 4
-  %.not.us = icmp ugt i64 %50, %7
+46:                                               ; preds = %18, %12, %.split.us
+  %47 = add nuw i64 %.04043.us, 4
+  %.not.us = icmp ugt i64 %47, %7
   br i1 %.not.us, label %.loopexit, label %.split.us
 
-.split:                                           ; preds = %6, %92
-  %.04043 = phi i64 [ %93, %92 ], [ 0, %6 ]
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 %.04043
-  %52 = load i8, ptr %51, align 1, !tbaa !3
-  %53 = zext i8 %52 to i32
-  %.mask = and i32 %53, 252
-  %54 = icmp eq i32 %.mask, 72
-  br i1 %54, label %55, label %92
+.split:                                           ; preds = %6, %86
+  %.04043 = phi i64 [ %87, %86 ], [ 0, %6 ]
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %.04043
+  %49 = load i8, ptr %48, align 1, !tbaa !3
+  %50 = zext i8 %49 to i32
+  %.mask = and i32 %50, 252
+  %51 = icmp eq i32 %.mask, 72
+  br i1 %51, label %52, label %86
 
-55:                                               ; preds = %.split
-  %56 = or disjoint i64 %.04043, 3
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 %56
-  %58 = load i8, ptr %57, align 1, !tbaa !3
-  %59 = zext i8 %58 to i32
-  %60 = and i32 %59, 3
-  %61 = icmp eq i32 %60, 1
-  br i1 %61, label %62, label %92
+52:                                               ; preds = %.split
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 3
+  %54 = load i8, ptr %53, align 1, !tbaa !3
+  %55 = zext i8 %54 to i32
+  %56 = and i32 %55, 3
+  %57 = icmp eq i32 %56, 1
+  br i1 %57, label %58, label %86
 
-62:                                               ; preds = %55
-  %63 = shl nuw nsw i32 %53, 24
-  %64 = and i32 %63, 50331648
-  %65 = or disjoint i64 %.04043, 1
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 %65
-  %67 = load i8, ptr %66, align 1, !tbaa !3
-  %68 = zext i8 %67 to i32
-  %69 = shl nuw nsw i32 %68, 16
-  %70 = or disjoint i64 %.04043, 2
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %70
-  %72 = load i8, ptr %71, align 1, !tbaa !3
-  %73 = zext i8 %72 to i32
-  %74 = shl nuw nsw i32 %73, 8
-  %75 = and i32 %59, 252
-  %76 = trunc i64 %.04043 to i32
-  %77 = add i32 %2, %76
-  %78 = add i32 %64, %77
-  %79 = add i32 %78, %75
-  %80 = add i32 %79, %69
-  %.0 = add i32 %80, %74
-  %81 = lshr i32 %.0, 24
-  %82 = trunc nuw i32 %81 to i8
-  %83 = and i8 %82, 3
-  %84 = or disjoint i8 %83, 72
-  store i8 %84, ptr %51, align 1, !tbaa !3
-  %85 = lshr i32 %.0, 16
-  %86 = trunc i32 %85 to i8
-  store i8 %86, ptr %66, align 1, !tbaa !3
-  %87 = lshr i32 %.0, 8
-  %88 = trunc i32 %87 to i8
-  store i8 %88, ptr %71, align 1, !tbaa !3
-  %89 = and i8 %58, 3
-  %90 = trunc i32 %79 to i8
-  %91 = or i8 %89, %90
-  store i8 %91, ptr %57, align 1, !tbaa !3
-  br label %92
+58:                                               ; preds = %52
+  %59 = shl nuw nsw i32 %50, 24
+  %60 = and i32 %59, 50331648
+  %61 = getelementptr inbounds nuw i8, ptr %48, i64 1
+  %62 = load i8, ptr %61, align 1, !tbaa !3
+  %63 = zext i8 %62 to i32
+  %64 = shl nuw nsw i32 %63, 16
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 2
+  %66 = load i8, ptr %65, align 1, !tbaa !3
+  %67 = zext i8 %66 to i32
+  %68 = shl nuw nsw i32 %67, 8
+  %69 = and i32 %55, 252
+  %70 = trunc i64 %.04043 to i32
+  %71 = add i32 %2, %70
+  %72 = add i32 %60, %71
+  %73 = add i32 %72, %69
+  %74 = add i32 %73, %64
+  %.0 = add i32 %74, %68
+  %75 = lshr i32 %.0, 24
+  %76 = trunc nuw i32 %75 to i8
+  %77 = and i8 %76, 3
+  %78 = or disjoint i8 %77, 72
+  store i8 %78, ptr %48, align 1, !tbaa !3
+  %79 = lshr i32 %.0, 16
+  %80 = trunc i32 %79 to i8
+  store i8 %80, ptr %61, align 1, !tbaa !3
+  %81 = lshr i32 %.0, 8
+  %82 = trunc i32 %81 to i8
+  store i8 %82, ptr %65, align 1, !tbaa !3
+  %83 = and i8 %54, 3
+  %84 = trunc i32 %73 to i8
+  %85 = or i8 %83, %84
+  store i8 %85, ptr %53, align 1, !tbaa !3
+  br label %86
 
-92:                                               ; preds = %.split, %55, %62
-  %93 = add nuw i64 %.04043, 4
-  %.not = icmp ugt i64 %93, %7
+86:                                               ; preds = %.split, %52, %58
+  %87 = add nuw i64 %.04043, 4
+  %.not = icmp ugt i64 %87, %7
   br i1 %.not, label %.loopexit, label %.split
 
-.loopexit:                                        ; preds = %92, %49, %4
-  %.039 = phi i64 [ 0, %4 ], [ %50, %49 ], [ %93, %92 ]
+.loopexit:                                        ; preds = %86, %46, %4
+  %.039 = phi i64 [ 0, %4 ], [ %47, %46 ], [ %87, %86 ]
   ret i64 %.039
 }
 

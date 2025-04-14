@@ -1600,8 +1600,8 @@ select.unfold17.i:                                ; preds = %_ZNK4llvm9StringRef
 
 .lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %select.unfold17.i
   %103 = and i64 %98, -4
-  %104 = or disjoint i64 %103, 1
-  %scevgep.i = getelementptr i8, ptr %.sroa.0108.0, i64 %104
+  %104 = getelementptr i8, ptr %.sroa.0108.0, i64 %103
+  %scevgep.i = getelementptr i8, ptr %104, i64 1
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %123, %.lr.ph.i.i.i.i.i.preheader.i

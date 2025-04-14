@@ -2212,50 +2212,45 @@ define linkonce_odr hidden void @_ZN8rawspeed15RawImageDataU1613setWithLookUpEtP
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %6 = load ptr, ptr %5, align 8, !tbaa !173
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %40, label %7
+  br i1 %.not.i, label %34, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load i8, ptr %8, align 8, !tbaa !181, !range !113, !noundef !99
   %10 = trunc nuw i8 %9 to i1
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %10, label %12, label %35
+  %12 = zext i16 %1 to i64
+  %13 = load ptr, ptr %11, align 8, !tbaa !186
+  br i1 %10, label %14, label %31
 
-12:                                               ; preds = %7
-  %13 = zext i16 %1 to i32
-  %14 = shl nuw nsw i32 %13, 1
-  %15 = zext nneg i32 %14 to i64
-  %16 = load ptr, ptr %11, align 8, !tbaa !186
-  %17 = getelementptr inbounds nuw i16, ptr %16, i64 %15
+14:                                               ; preds = %7
+  %.idx = shl nuw nsw i64 %12, 2
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
+  %16 = load i16, ptr %15, align 2, !tbaa !106
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %18 = load i16, ptr %17, align 2, !tbaa !106
-  %19 = or disjoint i32 %14, 1
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %16, i64 %20
-  %22 = load i16, ptr %21, align 2, !tbaa !106
-  %23 = zext i16 %22 to i32
-  %24 = load i32, ptr %3, align 4, !tbaa !104
-  %25 = and i32 %24, 2047
-  %26 = mul nuw nsw i32 %25, %23
-  %27 = add nuw nsw i32 %26, 1024
-  %28 = lshr i32 %27, 12
-  %29 = and i32 %24, 65535
-  %30 = mul nuw nsw i32 %29, 15700
-  %31 = lshr i32 %24, 16
-  %32 = add nuw nsw i32 %30, %31
-  store i32 %32, ptr %3, align 4, !tbaa !104
-  %33 = trunc nuw nsw i32 %28 to i16
-  %34 = add i16 %18, %33
-  br label %40
+  %19 = zext i16 %18 to i32
+  %20 = load i32, ptr %3, align 4, !tbaa !104
+  %21 = and i32 %20, 2047
+  %22 = mul nuw nsw i32 %21, %19
+  %23 = add nuw nsw i32 %22, 1024
+  %24 = lshr i32 %23, 12
+  %25 = and i32 %20, 65535
+  %26 = mul nuw nsw i32 %25, 15700
+  %27 = lshr i32 %20, 16
+  %28 = add nuw nsw i32 %26, %27
+  store i32 %28, ptr %3, align 4, !tbaa !104
+  %29 = trunc nuw nsw i32 %24 to i16
+  %30 = add i16 %16, %29
+  br label %34
 
-35:                                               ; preds = %7
-  %36 = zext i16 %1 to i64
-  %37 = load ptr, ptr %11, align 8, !tbaa !186
-  %38 = getelementptr inbounds nuw i16, ptr %37, i64 %36
-  %39 = load i16, ptr %38, align 2, !tbaa !106
-  br label %40
+31:                                               ; preds = %7
+  %32 = getelementptr inbounds nuw i16, ptr %13, i64 %12
+  %33 = load i16, ptr %32, align 2, !tbaa !106
+  br label %34
 
-40:                                               ; preds = %4, %35, %12
-  %.sink = phi i16 [ %39, %35 ], [ %34, %12 ], [ %1, %4 ]
+34:                                               ; preds = %4, %31, %14
+  %.sink = phi i16 [ %33, %31 ], [ %30, %14 ], [ %1, %4 ]
   store i16 %.sink, ptr %2, align 2, !tbaa !106
   ret void
 }

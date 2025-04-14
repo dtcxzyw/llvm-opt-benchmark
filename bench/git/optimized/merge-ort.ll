@@ -5962,191 +5962,191 @@ define internal fastcc range(i32 0, 2) i32 @detect_regular_renames(ptr noundef r
 prune_cached_from_relevant.exit:                  ; preds = %23, %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #18
   %.idx = shl nuw nsw i64 %9, 4
-  %.offs = or disjoint i64 %.idx, 12
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 %.offs
-  %28 = load i32, ptr %27, align 4, !tbaa !181
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %30, label %resolve_diffpair_statuses.exit
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
+  %29 = load i32, ptr %28, align 4, !tbaa !181
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %31, label %resolve_diffpair_statuses.exit
 
-30:                                               ; preds = %prune_cached_from_relevant.exit
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 864
-  %32 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %31, i64 0, i64 %9
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %34 = load i8, ptr %33, align 8
-  %35 = and i8 %34, 1
-  %.not.i.i.i.i.i = icmp eq i8 %35, 0
-  br i1 %.not.i.i.i.i.i, label %36, label %possible_side_renames.exit
+31:                                               ; preds = %prune_cached_from_relevant.exit
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 864
+  %33 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %32, i64 0, i64 %9
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  %35 = load i8, ptr %34, align 8
+  %36 = and i8 %35, 1
+  %.not.i.i.i.i.i = icmp eq i8 %36, 0
+  br i1 %.not.i.i.i.i.i, label %37, label %possible_side_renames.exit
 
-36:                                               ; preds = %30
+37:                                               ; preds = %31
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.14, i32 noundef 308, ptr noundef nonnull @.str.15) #19
   unreachable
 
-possible_side_renames.exit:                       ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %38 = load i32, ptr %37, align 8, !tbaa !21
-  %.not51 = icmp eq i32 %38, 0
-  br i1 %.not51, label %.lr.ph.i34, label %58
+possible_side_renames.exit:                       ; preds = %31
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %39 = load i32, ptr %38, align 8, !tbaa !21
+  %.not51 = icmp eq i32 %39, 0
+  br i1 %.not51, label %.lr.ph.i34, label %59
 
 .lr.ph.i34:                                       ; preds = %possible_side_renames.exit
-  %39 = getelementptr inbounds nuw [3 x %struct.diff_queue_struct], ptr %7, i64 0, i64 %9
-  %40 = load ptr, ptr %39, align 8, !tbaa !185
-  %wide.trip.count.i = zext nneg i32 %28 to i64
-  br label %41
+  %40 = getelementptr inbounds nuw [3 x %struct.diff_queue_struct], ptr %7, i64 0, i64 %9
+  %41 = load ptr, ptr %40, align 8, !tbaa !185
+  %wide.trip.count.i = zext nneg i32 %29 to i64
+  br label %42
 
-41:                                               ; preds = %57, %.lr.ph.i34
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i34 ], [ %indvars.iv.next.i, %57 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
-  %43 = load ptr, ptr %42, align 8, !tbaa !186
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 18
-  store i8 0, ptr %44, align 2, !tbaa !194
-  %45 = load ptr, ptr %43, align 8, !tbaa !188
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 80
-  %47 = load i16, ptr %46, align 8, !tbaa !269
-  %.not.i35 = icmp eq i16 %47, 0
-  br i1 %.not.i35, label %.sink.split.i, label %48
+42:                                               ; preds = %58, %.lr.ph.i34
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i34 ], [ %indvars.iv.next.i, %58 ]
+  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i
+  %44 = load ptr, ptr %43, align 8, !tbaa !186
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 18
+  store i8 0, ptr %45, align 2, !tbaa !194
+  %46 = load ptr, ptr %44, align 8, !tbaa !188
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 80
+  %48 = load i16, ptr %47, align 8, !tbaa !269
+  %.not.i35 = icmp eq i16 %48, 0
+  br i1 %.not.i35, label %.sink.split.i, label %49
 
-48:                                               ; preds = %41
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !195
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
-  %52 = load i16, ptr %51, align 8, !tbaa !269
-  %.not11.i36 = icmp eq i16 %52, 0
-  br i1 %.not11.i36, label %.sink.split.i, label %53
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !195
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 80
+  %53 = load i16, ptr %52, align 8, !tbaa !269
+  %.not11.i36 = icmp eq i16 %53, 0
+  br i1 %.not11.i36, label %.sink.split.i, label %54
 
-53:                                               ; preds = %48
-  %54 = getelementptr inbounds nuw i8, ptr %43, i64 19
-  %55 = load i8, ptr %54, align 1
-  %56 = and i8 %55, 2
-  %.not12.i37 = icmp eq i8 %56, 0
-  br i1 %.not12.i37, label %57, label %.sink.split.i
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 19
+  %56 = load i8, ptr %55, align 1
+  %57 = and i8 %56, 2
+  %.not12.i37 = icmp eq i8 %57, 0
+  br i1 %.not12.i37, label %58, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %53, %48, %41
-  %.sink.i = phi i8 [ 65, %41 ], [ 68, %48 ], [ 82, %53 ]
-  store i8 %.sink.i, ptr %44, align 2, !tbaa !194
-  br label %57
+.sink.split.i:                                    ; preds = %54, %49, %42
+  %.sink.i = phi i8 [ 65, %42 ], [ 68, %49 ], [ 82, %54 ]
+  store i8 %.sink.i, ptr %45, align 2, !tbaa !194
+  br label %58
 
-57:                                               ; preds = %.sink.split.i, %53
+58:                                               ; preds = %.sink.split.i, %54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %resolve_diffpair_statuses.exit, label %41, !llvm.loop !270
+  br i1 %exitcond.not.i, label %resolve_diffpair_statuses.exit, label %42, !llvm.loop !270
 
-58:                                               ; preds = %possible_side_renames.exit
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 480
-  %60 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %59, i64 0, i64 %9
-  call void @partial_clear_dir_rename_count(ptr noundef nonnull %60) #18
-  %61 = load ptr, ptr %0, align 8, !tbaa !14
-  call void @repo_diff_setup(ptr noundef %61, ptr noundef nonnull %4) #18
-  %62 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store i32 1, ptr %62, align 8, !tbaa !271
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  store i32 0, ptr %63, align 8, !tbaa !279
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 260
-  store i32 1, ptr %64, align 4, !tbaa !280
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %66 = load i32, ptr %65, align 8, !tbaa !281
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 284
-  %68 = icmp slt i32 %66, 1
-  %spec.select = select i1 %68, i32 7000, i32 %66
-  store i32 %spec.select, ptr %67, align 4, !tbaa !282
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %70 = load i32, ptr %69, align 4, !tbaa !283
-  %71 = getelementptr inbounds nuw i8, ptr %4, i64 280
-  store i32 %70, ptr %71, align 8, !tbaa !284
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %73 = load i32, ptr %72, align 8, !tbaa !285
-  %74 = getelementptr inbounds nuw i8, ptr %4, i64 296
-  store i32 %73, ptr %74, align 8, !tbaa !286
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 276
-  store i32 2048, ptr %75, align 4, !tbaa !287
+59:                                               ; preds = %possible_side_renames.exit
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 480
+  %61 = getelementptr inbounds nuw [3 x %struct.strmap], ptr %60, i64 0, i64 %9
+  call void @partial_clear_dir_rename_count(ptr noundef nonnull %61) #18
+  %62 = load ptr, ptr %0, align 8, !tbaa !14
+  call void @repo_diff_setup(ptr noundef %62, ptr noundef nonnull %4) #18
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  store i32 1, ptr %63, align 8, !tbaa !271
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  store i32 0, ptr %64, align 8, !tbaa !279
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 260
+  store i32 1, ptr %65, align 4, !tbaa !280
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %67 = load i32, ptr %66, align 8, !tbaa !281
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 284
+  %69 = icmp slt i32 %67, 1
+  %spec.select = select i1 %69, i32 7000, i32 %67
+  store i32 %spec.select, ptr %68, align 4, !tbaa !282
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %71 = load i32, ptr %70, align 4, !tbaa !283
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 280
+  store i32 %71, ptr %72, align 8, !tbaa !284
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %74 = load i32, ptr %73, align 8, !tbaa !285
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 296
+  store i32 %74, ptr %75, align 8, !tbaa !286
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 276
+  store i32 2048, ptr %76, align 4, !tbaa !287
   call void @diff_setup_done(ptr noundef nonnull %4) #18
-  %76 = getelementptr inbounds nuw [3 x %struct.diff_queue_struct], ptr %7, i64 0, i64 %9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false), !tbaa.struct !288
-  %77 = load ptr, ptr %0, align 8, !tbaa !14
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 3354, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef %77) #18
-  %78 = load ptr, ptr %5, align 8, !tbaa !118
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 128
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 264
-  %81 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %80, i64 0, i64 %9
-  call void @diffcore_rename_extended(ptr noundef nonnull %4, ptr noundef nonnull %79, ptr noundef nonnull %32, ptr noundef nonnull %81, ptr noundef nonnull %60, ptr noundef nonnull %10) #18
-  %82 = load ptr, ptr %0, align 8, !tbaa !14
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 3361, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef %82) #18
-  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !181
-  %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %.lr.ph.i39, label %resolve_diffpair_statuses.exit49
+  %77 = getelementptr inbounds nuw [3 x %struct.diff_queue_struct], ptr %7, i64 0, i64 %9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %77, i64 16, i1 false), !tbaa.struct !288
+  %78 = load ptr, ptr %0, align 8, !tbaa !14
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 3354, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef %78) #18
+  %79 = load ptr, ptr %5, align 8, !tbaa !118
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 128
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 264
+  %82 = getelementptr inbounds nuw [3 x %struct.strintmap], ptr %81, i64 0, i64 %9
+  call void @diffcore_rename_extended(ptr noundef nonnull %4, ptr noundef nonnull %80, ptr noundef nonnull %33, ptr noundef nonnull %82, ptr noundef nonnull %61, ptr noundef nonnull %10) #18
+  %83 = load ptr, ptr %0, align 8, !tbaa !14
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 3361, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef %83) #18
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !181
+  %85 = icmp sgt i32 %84, 0
+  br i1 %85, label %.lr.ph.i39, label %resolve_diffpair_statuses.exit49
 
-.lr.ph.i39:                                       ; preds = %58
-  %85 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !185
-  %wide.trip.count.i40 = zext nneg i32 %83 to i64
-  br label %86
+.lr.ph.i39:                                       ; preds = %59
+  %86 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !185
+  %wide.trip.count.i40 = zext nneg i32 %84 to i64
+  br label %87
 
-86:                                               ; preds = %102, %.lr.ph.i39
-  %indvars.iv.i41 = phi i64 [ 0, %.lr.ph.i39 ], [ %indvars.iv.next.i47, %102 ]
-  %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv.i41
-  %88 = load ptr, ptr %87, align 8, !tbaa !186
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 18
-  store i8 0, ptr %89, align 2, !tbaa !194
-  %90 = load ptr, ptr %88, align 8, !tbaa !188
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 80
-  %92 = load i16, ptr %91, align 8, !tbaa !269
-  %.not.i42 = icmp eq i16 %92, 0
-  br i1 %.not.i42, label %.sink.split.i45, label %93
+87:                                               ; preds = %103, %.lr.ph.i39
+  %indvars.iv.i41 = phi i64 [ 0, %.lr.ph.i39 ], [ %indvars.iv.next.i47, %103 ]
+  %88 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv.i41
+  %89 = load ptr, ptr %88, align 8, !tbaa !186
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 18
+  store i8 0, ptr %90, align 2, !tbaa !194
+  %91 = load ptr, ptr %89, align 8, !tbaa !188
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 80
+  %93 = load i16, ptr %92, align 8, !tbaa !269
+  %.not.i42 = icmp eq i16 %93, 0
+  br i1 %.not.i42, label %.sink.split.i45, label %94
 
-93:                                               ; preds = %86
-  %94 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !195
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 80
-  %97 = load i16, ptr %96, align 8, !tbaa !269
-  %.not11.i43 = icmp eq i16 %97, 0
-  br i1 %.not11.i43, label %.sink.split.i45, label %98
+94:                                               ; preds = %87
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %96 = load ptr, ptr %95, align 8, !tbaa !195
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 80
+  %98 = load i16, ptr %97, align 8, !tbaa !269
+  %.not11.i43 = icmp eq i16 %98, 0
+  br i1 %.not11.i43, label %.sink.split.i45, label %99
 
-98:                                               ; preds = %93
-  %99 = getelementptr inbounds nuw i8, ptr %88, i64 19
-  %100 = load i8, ptr %99, align 1
-  %101 = and i8 %100, 2
-  %.not12.i44 = icmp eq i8 %101, 0
-  br i1 %.not12.i44, label %102, label %.sink.split.i45
+99:                                               ; preds = %94
+  %100 = getelementptr inbounds nuw i8, ptr %89, i64 19
+  %101 = load i8, ptr %100, align 1
+  %102 = and i8 %101, 2
+  %.not12.i44 = icmp eq i8 %102, 0
+  br i1 %.not12.i44, label %103, label %.sink.split.i45
 
-.sink.split.i45:                                  ; preds = %98, %93, %86
-  %.sink.i46 = phi i8 [ 65, %86 ], [ 68, %93 ], [ 82, %98 ]
-  store i8 %.sink.i46, ptr %89, align 2, !tbaa !194
-  br label %102
+.sink.split.i45:                                  ; preds = %99, %94, %87
+  %.sink.i46 = phi i8 [ 65, %87 ], [ 68, %94 ], [ 82, %99 ]
+  store i8 %.sink.i46, ptr %90, align 2, !tbaa !194
+  br label %103
 
-102:                                              ; preds = %.sink.split.i45, %98
+103:                                              ; preds = %.sink.split.i45, %99
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i41, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, %wide.trip.count.i40
-  br i1 %exitcond.not.i48, label %resolve_diffpair_statuses.exit49, label %86, !llvm.loop !270
+  br i1 %exitcond.not.i48, label %resolve_diffpair_statuses.exit49, label %87, !llvm.loop !270
 
-resolve_diffpair_statuses.exit49:                 ; preds = %102, %58
-  %103 = getelementptr inbounds nuw i8, ptr %4, i64 288
-  %104 = load i32, ptr %103, align 8, !tbaa !290
-  %105 = icmp sgt i32 %104, 0
-  br i1 %105, label %106, label %108
+resolve_diffpair_statuses.exit49:                 ; preds = %103, %59
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 288
+  %105 = load i32, ptr %104, align 8, !tbaa !290
+  %106 = icmp sgt i32 %105, 0
+  br i1 %106, label %107, label %109
 
-106:                                              ; preds = %resolve_diffpair_statuses.exit49
-  %107 = getelementptr inbounds nuw i8, ptr %6, i64 2152
-  store i32 0, ptr %107, align 8, !tbaa !180
-  br label %108
+107:                                              ; preds = %resolve_diffpair_statuses.exit49
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 2152
+  store i32 0, ptr %108, align 8, !tbaa !180
+  br label %109
 
-108:                                              ; preds = %106, %resolve_diffpair_statuses.exit49
-  %109 = getelementptr inbounds nuw i8, ptr %6, i64 2156
-  %110 = load i32, ptr %109, align 4, !tbaa !184
-  %111 = icmp sgt i32 %104, %110
-  br i1 %111, label %112, label %113
+109:                                              ; preds = %107, %resolve_diffpair_statuses.exit49
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 2156
+  %111 = load i32, ptr %110, align 4, !tbaa !184
+  %112 = icmp sgt i32 %105, %111
+  br i1 %112, label %113, label %114
 
-112:                                              ; preds = %108
-  store i32 %104, ptr %109, align 4, !tbaa !184
-  br label %113
+113:                                              ; preds = %109
+  store i32 %105, ptr %110, align 4, !tbaa !184
+  br label %114
 
-113:                                              ; preds = %112, %108
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, i64 16, i1 false), !tbaa.struct !288
-  store i32 2048, ptr %75, align 4, !tbaa !287
+114:                                              ; preds = %113, %109
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, i64 16, i1 false), !tbaa.struct !288
+  store i32 2048, ptr %76, align 4, !tbaa !287
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !181
   store ptr null, ptr @diff_queued_diff, align 8, !tbaa !185
   call void @diff_flush(ptr noundef nonnull %4) #18
   br label %resolve_diffpair_statuses.exit
 
-resolve_diffpair_statuses.exit:                   ; preds = %57, %prune_cached_from_relevant.exit, %113
-  %.0 = phi i32 [ 1, %113 ], [ 0, %prune_cached_from_relevant.exit ], [ 0, %57 ]
+resolve_diffpair_statuses.exit:                   ; preds = %58, %prune_cached_from_relevant.exit, %114
+  %.0 = phi i32 [ 1, %114 ], [ 0, %prune_cached_from_relevant.exit ], [ 0, %58 ]
   call void @llvm.lifetime.end.p0(i64 592, ptr nonnull %4) #18
   ret i32 %.0
 }

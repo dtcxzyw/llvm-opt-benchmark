@@ -5137,88 +5137,84 @@ define void @_ZNK10open_spiel6bridge11BridgeState23PublicObservationTensorEv(ptr
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 4
+  %invariant.gep44 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %37 = icmp ugt i64 %36, 52
-  br i1 %37, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %37, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %11
-  %scevgep = getelementptr inbounds nuw i8, ptr %12, i64 64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %76
-  %indvars.iv = phi i64 [ 52, %.lr.ph.preheader ], [ %indvars.iv.next, %76 ]
-  %.02644 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %76 ]
-  %38 = trunc nuw nsw i64 %indvars.iv to i32
-  %39 = and i32 %38, 3
-  %40 = getelementptr inbounds nuw %"struct.open_spiel::State::PlayerAction", ptr %32, i64 %indvars.iv, i32 1
-  %41 = load i64, ptr %40, align 8
-  %42 = trunc i64 %41 to i32
-  %43 = add i32 %42, -52
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %.preheader.preheader
+.lr.ph:                                           ; preds = %11, %69
+  %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 52, %11 ]
+  %.02646 = phi i32 [ %.1, %69 ], [ 0, %11 ]
+  %38 = and i64 %indvars.iv, 3
+  %39 = getelementptr inbounds nuw %"struct.open_spiel::State::PlayerAction", ptr %32, i64 %indvars.iv, i32 1
+  %40 = load i64, ptr %39, align 8
+  %41 = trunc i64 %40 to i32
+  %42 = add i32 %41, -52
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %45, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.lr.ph
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep, i8 0, i64 32, i1 false)
-  switch i32 %42, label %70 [
-    i32 53, label %54
-    i32 54, label %62
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %invariant.gep44, i8 0, i64 32, i1 false)
+  %44 = and i64 %indvars.iv, 3
+  switch i32 %41, label %64 [
+    i32 53, label %50
+    i32 54, label %57
   ]
 
 45:                                               ; preds = %.lr.ph
-  %46 = icmp eq i32 %.02644, 0
-  br i1 %46, label %47, label %50
+  %46 = icmp eq i32 %.02646, 0
+  br i1 %46, label %47, label %._crit_edge50
+
+._crit_edge50:                                    ; preds = %45
+  %.pre = and i64 %indvars.iv, 3
+  br label %49
 
 47:                                               ; preds = %45
-  %48 = and i64 %indvars.iv, 3
-  %49 = getelementptr inbounds nuw double, ptr %27, i64 %48
-  store double 1.000000e+00, ptr %49, align 8
-  br label %50
+  %48 = getelementptr inbounds nuw double, ptr %27, i64 %38
+  store double 1.000000e+00, ptr %48, align 8
+  br label %49
 
-50:                                               ; preds = %47, %45
-  %51 = or disjoint i32 %39, 4
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw double, ptr %27, i64 %52
-  store double 1.000000e+00, ptr %53, align 8
-  br label %76
+49:                                               ; preds = %._crit_edge50, %47
+  %.pre-phi = phi i64 [ %.pre, %._crit_edge50 ], [ %38, %47 ]
+  %gep45 = getelementptr inbounds nuw double, ptr %invariant.gep44, i64 %.pre-phi
+  store double 1.000000e+00, ptr %gep45, align 8
+  br label %69
 
-54:                                               ; preds = %.preheader.preheader
-  %55 = mul i32 %.02644, 12
-  %56 = add i32 %55, -36
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds double, ptr %28, i64 %57
-  %59 = or disjoint i32 %39, 4
-  %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw double, ptr %58, i64 %60
-  store double 1.000000e+00, ptr %61, align 8
-  br label %76
+50:                                               ; preds = %.preheader.preheader
+  %51 = mul i32 %.02646, 12
+  %52 = add i32 %51, -36
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds double, ptr %28, i64 %53
+  %55 = getelementptr inbounds nuw double, ptr %54, i64 %44
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  store double 1.000000e+00, ptr %56, align 8
+  br label %69
 
-62:                                               ; preds = %.preheader.preheader
-  %63 = mul i32 %.02644, 12
-  %64 = add i32 %63, -36
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds double, ptr %28, i64 %65
-  %67 = or disjoint i32 %39, 8
-  %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds nuw double, ptr %66, i64 %68
-  store double 1.000000e+00, ptr %69, align 8
-  br label %76
+57:                                               ; preds = %.preheader.preheader
+  %58 = mul i32 %.02646, 12
+  %59 = add i32 %58, -36
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds double, ptr %28, i64 %60
+  %62 = getelementptr inbounds nuw double, ptr %61, i64 %44
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
+  store double 1.000000e+00, ptr %63, align 8
+  br label %69
 
-70:                                               ; preds = %.preheader.preheader
-  %71 = mul i64 %41, 51539607552
-  %sext = add i64 %71, -2834678415360
-  %72 = ashr exact i64 %sext, 29
-  %73 = getelementptr inbounds i8, ptr %28, i64 %72
-  %74 = and i64 %indvars.iv, 3
-  %75 = getelementptr inbounds nuw double, ptr %73, i64 %74
-  store double 1.000000e+00, ptr %75, align 8
-  br label %76
+64:                                               ; preds = %.preheader.preheader
+  %65 = mul i64 %40, 51539607552
+  %sext = add i64 %65, -2834678415360
+  %66 = ashr exact i64 %sext, 29
+  %67 = getelementptr inbounds i8, ptr %28, i64 %66
+  %68 = getelementptr inbounds nuw double, ptr %67, i64 %44
+  store double 1.000000e+00, ptr %68, align 8
+  br label %69
 
-76:                                               ; preds = %50, %62, %70, %54
-  %.1 = phi i32 [ %.02644, %50 ], [ %.02644, %54 ], [ %.02644, %62 ], [ %43, %70 ]
+69:                                               ; preds = %49, %57, %64, %50
+  %.1 = phi i32 [ %.02646, %49 ], [ %.02646, %50 ], [ %.02646, %57 ], [ %42, %64 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %76, %11
+._crit_edge:                                      ; preds = %69, %11
   ret void
 }
 

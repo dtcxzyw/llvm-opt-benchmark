@@ -250,79 +250,31 @@ _mi_os_random_weak.exit:                          ; preds = %40
   br label %64
 
 64:                                               ; preds = %64, %.loopexit
-  %.01819.i = phi i64 [ 0, %.loopexit ], [ %88, %64 ]
+  %.01819.i = phi i64 [ 0, %.loopexit ], [ %69, %64 ]
   %65 = shl nuw nsw i64 %.01819.i, 2
   %66 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %65
-  %67 = load i8, ptr %66, align 1, !tbaa !16
-  %68 = zext i8 %67 to i32
-  %69 = or disjoint i64 %65, 1
-  %70 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %69
-  %71 = load i8, ptr %70, align 1, !tbaa !16
-  %72 = zext i8 %71 to i32
-  %73 = shl nuw nsw i32 %72, 8
-  %74 = or disjoint i32 %73, %68
-  %75 = or disjoint i64 %65, 2
-  %76 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %75
-  %77 = load i8, ptr %76, align 1, !tbaa !16
-  %78 = zext i8 %77 to i32
-  %79 = shl nuw nsw i32 %78, 16
-  %80 = or disjoint i32 %74, %79
-  %81 = or disjoint i64 %65, 3
-  %82 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %81
-  %83 = load i8, ptr %82, align 1, !tbaa !16
-  %84 = zext i8 %83 to i32
-  %85 = shl nuw i32 %84, 24
-  %86 = or disjoint i32 %80, %85
-  %87 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %.01819.i
-  store i32 %86, ptr %87, align 4, !tbaa !3
-  %88 = add nuw nsw i64 %.01819.i, 1
-  %exitcond.not.i7 = icmp eq i64 %88, 4
-  br i1 %exitcond.not.i7, label %.preheader.i8, label %64, !llvm.loop !17
+  %67 = load i32, ptr %66, align 1
+  %68 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %.01819.i
+  store i32 %67, ptr %68, align 4, !tbaa !3
+  %69 = add nuw nsw i64 %.01819.i, 1
+  %exitcond.not.i7 = icmp eq i64 %69, 4
+  br i1 %exitcond.not.i7, label %.preheader.i8.preheader, label %64, !llvm.loop !16
 
-.preheader.i8:                                    ; preds = %64, %.preheader.i8
-  %.020.i = phi i64 [ %113, %.preheader.i8 ], [ 0, %64 ]
-  %89 = shl nuw nsw i64 %.020.i, 2
-  %90 = getelementptr inbounds nuw i8, ptr %3, i64 %89
-  %91 = load i8, ptr %90, align 4, !tbaa !16
-  %92 = zext i8 %91 to i32
-  %93 = or disjoint i64 %89, 1
-  %94 = getelementptr inbounds nuw i8, ptr %3, i64 %93
-  %95 = load i8, ptr %94, align 1, !tbaa !16
-  %96 = zext i8 %95 to i32
-  %97 = shl nuw nsw i32 %96, 8
-  %98 = or disjoint i32 %97, %92
-  %99 = or disjoint i64 %89, 2
-  %100 = getelementptr inbounds nuw i8, ptr %3, i64 %99
-  %101 = load i8, ptr %100, align 2, !tbaa !16
-  %102 = zext i8 %101 to i32
-  %103 = shl nuw nsw i32 %102, 16
-  %104 = or disjoint i32 %98, %103
-  %105 = or disjoint i64 %89, 3
-  %106 = getelementptr inbounds nuw i8, ptr %3, i64 %105
-  %107 = load i8, ptr %106, align 1, !tbaa !16
-  %108 = zext i8 %107 to i32
-  %109 = shl nuw i32 %108, 24
-  %110 = or disjoint i32 %104, %109
-  %111 = add nuw nsw i64 %.020.i, 4
-  %112 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %111
-  store i32 %110, ptr %112, align 4, !tbaa !3
-  %113 = add nuw nsw i64 %.020.i, 1
-  %exitcond21.not.i = icmp eq i64 %113, 8
-  br i1 %exitcond21.not.i, label %chacha_init.exit, label %.preheader.i8, !llvm.loop !18
-
-chacha_init.exit:                                 ; preds = %.preheader.i8
-  %114 = ptrtoint ptr %0 to i64
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %115, align 4, !tbaa !3
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %116, align 4, !tbaa !3
-  %117 = trunc i64 %114 to i32
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %117, ptr %118, align 4, !tbaa !3
-  %119 = lshr i64 %114, 32
-  %120 = trunc nuw i64 %119 to i32
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %120, ptr %121, align 4, !tbaa !3
+.preheader.i8.preheader:                          ; preds = %64
+  %scevgep = getelementptr i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %scevgep, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 32, i1 false)
+  %70 = ptrtoint ptr %0 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 0, ptr %71, align 4, !tbaa !3
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %72, align 4, !tbaa !3
+  %73 = trunc i64 %70 to i32
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %73, ptr %74, align 4, !tbaa !3
+  %75 = lshr i64 %70, 32
+  %76 = trunc nuw i64 %75 to i32
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %76, ptr %77, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #10
   ret void
 }
@@ -507,7 +459,7 @@ define internal fastcc void @chacha_block(ptr noundef captures(none) %0) unnamed
   %130 = tail call noundef i32 @llvm.fshl.i32(i32 %129, i32 %129, i32 7)
   %131 = add nuw nsw i64 %.01953, 2
   %132 = icmp samesign ult i64 %.01953, 18
-  br i1 %132, label %18, label %.preheader, !llvm.loop !19
+  br i1 %132, label %18, label %.preheader, !llvm.loop !17
 
 133:                                              ; preds = %139
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -530,7 +482,7 @@ define internal fastcc void @chacha_block(ptr noundef captures(none) %0) unnamed
   store i32 %144, ptr %145, align 4, !tbaa !3
   %146 = add nuw nsw i64 %.054, 1
   %exitcond.not = icmp eq i64 %146, 16
-  br i1 %exitcond.not, label %133, label %139, !llvm.loop !20
+  br i1 %exitcond.not, label %133, label %139, !llvm.loop !18
 
 147:                                              ; preds = %133
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -603,8 +555,6 @@ attributes #11 = { nounwind willreturn memory(none) }
 !13 = distinct !{!13, !14}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = distinct !{!15, !14}
-!16 = !{!5, !5, i64 0}
+!16 = distinct !{!16, !14}
 !17 = distinct !{!17, !14}
 !18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
-!20 = distinct !{!20, !14}

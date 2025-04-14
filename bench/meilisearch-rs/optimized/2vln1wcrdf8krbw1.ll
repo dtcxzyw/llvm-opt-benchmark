@@ -8930,8 +8930,8 @@ define hidden void @"_ZN118_$LT$actix_web..error..internal..InternalError$LT$T$G
   %46 = sub nuw nsw i64 64, %45
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %46, i64 7)
   %47 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 2
-  %48 = or disjoint i64 %47, 1
-  %49 = getelementptr i8, ptr null, i64 %48
+  %48 = getelementptr i8, ptr null, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 1
   store ptr %43, ptr %21, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -9384,8 +9384,8 @@ define hidden void @"_ZN118_$LT$actix_web..error..internal..InternalError$LT$T$G
   %46 = sub nuw nsw i64 64, %45
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %46, i64 7)
   %47 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 2
-  %48 = or disjoint i64 %47, 1
-  %49 = getelementptr i8, ptr null, i64 %48
+  %48 = getelementptr i8, ptr null, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 1
   store ptr %43, ptr %21, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -93109,8 +93109,8 @@ define hidden void @_ZN9actix_web5error14response_error13ResponseError14error_re
   %38 = sub nuw nsw i64 64, %37
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %38, i64 7)
   %39 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 2
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr i8, ptr null, i64 %40
+  %40 = getelementptr i8, ptr null, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 1
   store ptr %35, ptr %21, align 8, !alias.scope !16748, !noalias !16751
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %42, align 8, !alias.scope !16748, !noalias !16751
@@ -93491,8 +93491,8 @@ define hidden void @_ZN9actix_web5error14response_error13ResponseError14error_re
   %38 = sub nuw nsw i64 64, %37
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %38, i64 7)
   %39 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 2
-  %40 = or disjoint i64 %39, 1
-  %41 = getelementptr i8, ptr null, i64 %40
+  %40 = getelementptr i8, ptr null, i64 %39
+  %41 = getelementptr i8, ptr %40, i64 1
   store ptr %35, ptr %21, align 8, !alias.scope !16841, !noalias !16844
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %42, align 8, !alias.scope !16841, !noalias !16844
@@ -93896,8 +93896,8 @@ define hidden void @_ZN9actix_web5error14response_error13ResponseError14error_re
   %44 = sub nuw nsw i64 64, %43
   %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %44, i64 7)
   %45 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 2
-  %46 = or disjoint i64 %45, 1
-  %47 = getelementptr i8, ptr null, i64 %46
+  %46 = getelementptr i8, ptr null, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 1
   store ptr %41, ptr %21, align 8, !alias.scope !16934, !noalias !16937
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %48, align 8, !alias.scope !16934, !noalias !16937

@@ -1726,6 +1726,7 @@ define dso_local i64 @json_build_object_worker(i32 noundef %0, ptr noundef reado
   br label %32
 
 32:                                               ; preds = %21, %19
+  %invariant.gep = getelementptr i8, ptr %2, i64 1
   %33 = icmp sgt i32 %0, 0
   br i1 %33, label %.lr.ph, label %._crit_edge
 
@@ -1737,150 +1738,148 @@ define dso_local i64 @json_build_object_worker(i32 noundef %0, ptr noundef reado
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 12
   br label %39
 
-39:                                               ; preds = %.lr.ph, %99
-  %.043 = phi i32 [ 0, %.lr.ph ], [ %100, %99 ]
-  %.04042 = phi ptr [ @.str.6, %.lr.ph ], [ %.1, %99 ]
-  br i1 %4, label %40, label %.thread
+39:                                               ; preds = %.lr.ph, %96
+  %.043 = phi i32 [ 0, %.lr.ph ], [ %97, %96 ]
+  %.04042 = phi ptr [ @.str.6, %.lr.ph ], [ %.1, %96 ]
+  %40 = sext i32 %.043 to i64
+  br i1 %4, label %41, label %.thread
 
-40:                                               ; preds = %39
-  %41 = or disjoint i32 %.043, 1
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %2, i64 %42
-  %44 = load i8, ptr %43, align 1, !range !4, !noundef !5
-  %45 = trunc nuw i8 %44 to i1
-  br i1 %45, label %46, label %.thread
+41:                                               ; preds = %39
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %40
+  %42 = load i8, ptr %gep, align 1, !range !4, !noundef !5
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %.thread
 
-46:                                               ; preds = %40
-  br i1 %5, label %47, label %99
+44:                                               ; preds = %41
+  br i1 %5, label %45, label %96
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %34, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %49, label %52
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %34, align 8
+  %.not.i = icmp eq ptr %46, null
+  br i1 %.not.i, label %47, label %50
 
-49:                                               ; preds = %47
-  %50 = load ptr, ptr %36, align 8
-  %51 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %50, ptr @CurrentMemoryContext, align 8
+47:                                               ; preds = %45
+  %48 = load ptr, ptr %36, align 8
+  %49 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %48, ptr @CurrentMemoryContext, align 8
   call void @initStringInfo(ptr noundef nonnull %34) #10
-  store ptr %51, ptr @CurrentMemoryContext, align 8
+  store ptr %49, ptr @CurrentMemoryContext, align 8
   br label %json_unique_builder_get_throwawaybuf.exit
 
-52:                                               ; preds = %47
+50:                                               ; preds = %45
   store i32 0, ptr %35, align 8
   br label %json_unique_builder_get_throwawaybuf.exit
 
-.thread:                                          ; preds = %39, %40
+.thread:                                          ; preds = %39, %41
   call void @appendStringInfoString(ptr noundef %20, ptr noundef %.04042) #10
   br label %json_unique_builder_get_throwawaybuf.exit
 
-json_unique_builder_get_throwawaybuf.exit:        ; preds = %52, %49, %.thread
-  %53 = phi i1 [ false, %.thread ], [ true, %49 ], [ true, %52 ]
-  %.041 = phi ptr [ %20, %.thread ], [ %34, %49 ], [ %34, %52 ]
-  %.2 = phi ptr [ @.str.10, %.thread ], [ %.04042, %49 ], [ %.04042, %52 ]
-  %54 = sext i32 %.043 to i64
-  %55 = getelementptr inbounds i8, ptr %2, i64 %54
-  %56 = load i8, ptr %55, align 1, !range !4, !noundef !5
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %58, label %62
+json_unique_builder_get_throwawaybuf.exit:        ; preds = %50, %47, %.thread
+  %51 = phi i1 [ true, %50 ], [ true, %47 ], [ false, %.thread ]
+  %.041 = phi ptr [ %34, %50 ], [ %34, %47 ], [ %20, %.thread ]
+  %.2 = phi ptr [ %.04042, %50 ], [ %.04042, %47 ], [ @.str.10, %.thread ]
+  %52 = getelementptr inbounds i8, ptr %2, i64 %40
+  %53 = load i8, ptr %52, align 1, !range !4, !noundef !5
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %55, label %59
 
-58:                                               ; preds = %json_unique_builder_get_throwawaybuf.exit
-  %59 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %59)
-  %60 = call i32 @errcode(i32 noundef 67108994) #10
-  %61 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #10
+55:                                               ; preds = %json_unique_builder_get_throwawaybuf.exit
+  %56 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %56)
+  %57 = call i32 @errcode(i32 noundef 67108994) #10
+  %58 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1275, ptr noundef nonnull @__func__.json_build_object_worker) #10
   unreachable
 
-62:                                               ; preds = %json_unique_builder_get_throwawaybuf.exit
-  %63 = getelementptr inbounds nuw i8, ptr %.041, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i64, ptr %1, i64 %54
-  %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i32, ptr %3, i64 %54
-  %68 = load i32, ptr %67, align 4
+59:                                               ; preds = %json_unique_builder_get_throwawaybuf.exit
+  %60 = getelementptr inbounds nuw i8, ptr %.041, i64 8
+  %61 = load i32, ptr %60, align 8
+  %62 = getelementptr inbounds i64, ptr %1, i64 %40
+  %63 = load i64, ptr %62, align 8
+  %64 = getelementptr inbounds i32, ptr %3, i64 %40
+  %65 = load i32, ptr %64, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #10
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %add_json.exit
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %add_json.exit
 
-70:                                               ; preds = %62
-  %71 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %71)
-  %72 = call i32 @errcode(i32 noundef 50856066) #10
-  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #10
+67:                                               ; preds = %59
+  %68 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %68)
+  %69 = call i32 @errcode(i32 noundef 50856066) #10
+  %70 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 611, ptr noundef nonnull @__func__.add_json) #10
   unreachable
 
-add_json.exit:                                    ; preds = %62
-  call void @json_categorize_type(i32 noundef %68, i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef nonnull %10) #10
+add_json.exit:                                    ; preds = %59
+  call void @json_categorize_type(i32 noundef %65, i1 noundef zeroext false, ptr noundef nonnull %9, ptr noundef nonnull %10) #10
   %.pre.i = load i32, ptr %9, align 4
   %.pre6.i = load i32, ptr %10, align 4
-  call fastcc void @datum_to_json_internal(i64 noundef %66, i1 noundef zeroext false, ptr noundef nonnull %.041, i32 noundef %.pre.i, i32 noundef %.pre6.i, i1 noundef zeroext true)
+  call fastcc void @datum_to_json_internal(i64 noundef %63, i1 noundef zeroext false, ptr noundef nonnull %.041, i32 noundef %.pre.i, i32 noundef %.pre6.i, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #10
-  br i1 %5, label %74, label %89
+  br i1 %5, label %71, label %86
 
-74:                                               ; preds = %add_json.exit
-  %75 = load ptr, ptr %.041, align 8
-  %76 = sext i32 %64 to i64
-  %77 = getelementptr inbounds i8, ptr %75, i64 %76
-  %78 = call ptr @pstrdup(ptr noundef %77) #10
+71:                                               ; preds = %add_json.exit
+  %72 = load ptr, ptr %.041, align 8
+  %73 = sext i32 %61 to i64
+  %74 = getelementptr inbounds i8, ptr %72, i64 %73
+  %75 = call ptr @pstrdup(ptr noundef %74) #10
   %.val = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #10
-  store ptr %78, ptr %7, align 8
-  %79 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #12
-  %80 = trunc i64 %79 to i32
-  store i32 %80, ptr %37, align 8
+  store ptr %75, ptr %7, align 8
+  %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #12
+  %77 = trunc i64 %76 to i32
+  store i32 %77, ptr %37, align 8
   store i32 0, ptr %38, align 4
-  %81 = call ptr @hash_search(ptr noundef %.val, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %8) #10
-  %82 = load i8, ptr %8, align 1, !range !4, !noundef !5
-  %83 = trunc nuw i8 %82 to i1
+  %78 = call ptr @hash_search(ptr noundef %.val, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %8) #10
+  %79 = load i8, ptr %8, align 1, !range !4, !noundef !5
+  %80 = trunc nuw i8 %79 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #10
-  br i1 %83, label %84, label %88
+  br i1 %80, label %81, label %85
 
-84:                                               ; preds = %74
-  %85 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %85)
-  %86 = call i32 @errcode(i32 noundef 786562) #10
-  %87 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %78) #10
+81:                                               ; preds = %71
+  %82 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %82)
+  %83 = call i32 @errcode(i32 noundef 786562) #10
+  %84 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %75) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1297, ptr noundef nonnull @__func__.json_build_object_worker) #10
   unreachable
 
-88:                                               ; preds = %74
-  br i1 %53, label %99, label %89
+85:                                               ; preds = %71
+  br i1 %51, label %96, label %86
 
-89:                                               ; preds = %88, %add_json.exit
+86:                                               ; preds = %85, %add_json.exit
   call void @appendStringInfoString(ptr noundef %20, ptr noundef nonnull @.str.13) #10
-  %90 = or disjoint i32 %.043, 1
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i64, ptr %1, i64 %91
-  %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %2, i64 %91
-  %95 = load i8, ptr %94, align 1, !range !4, !noundef !5
-  %96 = trunc nuw i8 %95 to i1
-  %97 = getelementptr inbounds i32, ptr %3, i64 %91
-  %98 = load i32, ptr %97, align 4
-  call fastcc void @add_json(i64 noundef %93, i1 noundef zeroext %96, ptr noundef %20, i32 noundef %98, i1 noundef zeroext false)
-  br label %99
+  %87 = or disjoint i32 %.043, 1
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i64, ptr %1, i64 %88
+  %90 = load i64, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %2, i64 %88
+  %92 = load i8, ptr %91, align 1, !range !4, !noundef !5
+  %93 = trunc nuw i8 %92 to i1
+  %94 = getelementptr inbounds i32, ptr %3, i64 %88
+  %95 = load i32, ptr %94, align 4
+  call fastcc void @add_json(i64 noundef %90, i1 noundef zeroext %93, ptr noundef %20, i32 noundef %95, i1 noundef zeroext false)
+  br label %96
 
-99:                                               ; preds = %46, %88, %89
-  %.1 = phi ptr [ %.2, %89 ], [ %.2, %88 ], [ %.04042, %46 ]
-  %100 = add i32 %.043, 2
-  %101 = icmp slt i32 %100, %0
-  br i1 %101, label %39, label %._crit_edge, !llvm.loop !8
+96:                                               ; preds = %44, %85, %86
+  %.1 = phi ptr [ %.2, %86 ], [ %.2, %85 ], [ %.04042, %44 ]
+  %97 = add i32 %.043, 2
+  %98 = icmp slt i32 %97, %0
+  br i1 %98, label %39, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %99, %32
+._crit_edge:                                      ; preds = %96, %32
   call void @appendStringInfoChar(ptr noundef %20, i8 noundef signext 125) #10
-  %102 = load ptr, ptr %20, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %104 = load i32, ptr %103, align 8
-  %105 = call ptr @cstring_to_text_with_len(ptr noundef %102, i32 noundef %104) #10
-  %106 = ptrtoint ptr %105 to i64
+  %99 = load ptr, ptr %20, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %101 = load i32, ptr %100, align 8
+  %102 = call ptr @cstring_to_text_with_len(ptr noundef %99, i32 noundef %101) #10
+  %103 = ptrtoint ptr %102 to i64
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #10
-  ret i64 %106
+  ret i64 %103
 }
 
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2

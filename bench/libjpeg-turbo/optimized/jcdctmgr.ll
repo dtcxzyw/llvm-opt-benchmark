@@ -720,56 +720,54 @@ declare void @jsimd_quantize(ptr noundef, ptr noundef, ptr noundef) #1
 define internal void @quantize(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   br label %4
 
-4:                                                ; preds = %3, %38
-  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %38 ]
+4:                                                ; preds = %3, %36
+  %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %36 ]
   %5 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !55
   %7 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %8 = load i16, ptr %7, align 2, !tbaa !55
-  %9 = or disjoint i64 %indvars.iv, 64
-  %10 = getelementptr inbounds nuw i16, ptr %1, i64 %9
-  %11 = load i16, ptr %10, align 2, !tbaa !55
-  %12 = or disjoint i64 %indvars.iv, 192
-  %13 = getelementptr inbounds nuw i16, ptr %1, i64 %12
-  %14 = load i16, ptr %13, align 2, !tbaa !55
-  %15 = icmp slt i16 %6, 0
-  br i1 %15, label %16, label %28
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %10 = load i16, ptr %9, align 2, !tbaa !55
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 384
+  %12 = load i16, ptr %11, align 2, !tbaa !55
+  %13 = icmp slt i16 %6, 0
+  br i1 %13, label %14, label %26
 
-16:                                               ; preds = %4
-  %17 = sub i16 0, %6
-  %18 = sext i16 %17 to i32
-  %19 = zext i16 %11 to i32
-  %20 = add nsw i32 %19, %18
-  %21 = zext i16 %8 to i32
-  %22 = mul i32 %20, %21
-  %23 = sext i16 %14 to i32
-  %24 = add nsw i32 %23, 16
-  %25 = lshr i32 %22, %24
-  %26 = trunc i32 %25 to i16
-  %27 = sub i16 0, %26
-  br label %38
+14:                                               ; preds = %4
+  %15 = sub i16 0, %6
+  %16 = sext i16 %15 to i32
+  %17 = zext i16 %10 to i32
+  %18 = add nsw i32 %17, %16
+  %19 = zext i16 %8 to i32
+  %20 = mul i32 %18, %19
+  %21 = sext i16 %12 to i32
+  %22 = add nsw i32 %21, 16
+  %23 = lshr i32 %20, %22
+  %24 = trunc i32 %23 to i16
+  %25 = sub i16 0, %24
+  br label %36
 
-28:                                               ; preds = %4
-  %29 = zext nneg i16 %6 to i32
-  %30 = zext i16 %11 to i32
-  %31 = add nuw nsw i32 %30, %29
-  %32 = zext i16 %8 to i32
-  %33 = mul i32 %31, %32
-  %34 = sext i16 %14 to i32
-  %35 = add nsw i32 %34, 16
-  %36 = lshr i32 %33, %35
-  %37 = trunc i32 %36 to i16
-  br label %38
+26:                                               ; preds = %4
+  %27 = zext nneg i16 %6 to i32
+  %28 = zext i16 %10 to i32
+  %29 = add nuw nsw i32 %28, %27
+  %30 = zext i16 %8 to i32
+  %31 = mul i32 %29, %30
+  %32 = sext i16 %12 to i32
+  %33 = add nsw i32 %32, 16
+  %34 = lshr i32 %31, %33
+  %35 = trunc i32 %34 to i16
+  br label %36
 
-38:                                               ; preds = %28, %16
-  %.028 = phi i16 [ %27, %16 ], [ %37, %28 ]
-  %39 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
-  store i16 %.028, ptr %39, align 2, !tbaa !55
+36:                                               ; preds = %26, %14
+  %.028 = phi i16 [ %25, %14 ], [ %35, %26 ]
+  %37 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  store i16 %.028, ptr %37, align 2, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %40, label %4, !llvm.loop !72
+  br i1 %exitcond.not, label %38, label %4, !llvm.loop !72
 
-40:                                               ; preds = %38
+38:                                               ; preds = %36
   ret void
 }
 

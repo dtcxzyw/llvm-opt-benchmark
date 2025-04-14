@@ -6740,6 +6740,7 @@ _ZNK4llvm8MCSymbol10getSectionEv.exit.i.i17.i.i:  ; preds = %234, %.preheader.i.
 define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef captures(none) %0, i64 noundef range(i64 0, 288230376151711743) %1, i64 noundef range(i64 -576460752303423488, 576460752303423488) %2, ptr %3, ptr %4) unnamed_addr #1 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
+  %invariant.gep = getelementptr i8, ptr %0, i64 16
   %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -6748,178 +6749,178 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm8MCSymbolEPNS1
   %9 = shl i64 %.031, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %12
+  %gep = getelementptr %"struct.std::pair.221", ptr %invariant.gep, i64 %9
   %.val = load ptr, ptr %11, align 8
-  %.val30 = load ptr, ptr %13, align 8
-  %14 = load ptr, ptr %.val, align 8, !tbaa !203
-  %.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i.i, label %15, label %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i
+  %.val30 = load ptr, ptr %gep, align 8
+  %12 = load ptr, ptr %.val, align 8, !tbaa !203
+  %.not.i.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i.i, label %13, label %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i
 
-15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %17 = load i64, ptr %16, align 8
-  %18 = and i64 %17, 28800
-  %or.cond.not.i.i.i.i = icmp eq i64 %18, 8192
+13:                                               ; preds = %.lr.ph
+  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %15 = load i64, ptr %14, align 8
+  %16 = and i64 %15, 28800
+  %or.cond.not.i.i.i.i = icmp eq i64 %16, 8192
   tail call void @llvm.assume(i1 %or.cond.not.i.i.i.i)
-  %19 = or i64 %17, 8
-  store i64 %19, ptr %16, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !205
-  %22 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #21
-  store ptr %22, ptr %.val, align 8, !tbaa !203
+  %17 = or i64 %15, 8
+  store i64 %17, ptr %14, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !205
+  %20 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %19) #21
+  store ptr %20, ptr %.val, align 8, !tbaa !203
   br label %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i
 
-_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i:        ; preds = %15, %.lr.ph
-  %.0.i.i.i.i = phi ptr [ %22, %15 ], [ %14, %.lr.ph ]
-  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !107
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  %26 = load i32, ptr %25, align 4, !tbaa !206
-  %27 = load ptr, ptr %.val30, align 8, !tbaa !203
-  %.not.i.i3.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i3.i.i, label %28, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESF_EEbT_T0_.exit"
+_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i:        ; preds = %13, %.lr.ph
+  %.0.i.i.i.i = phi ptr [ %20, %13 ], [ %12, %.lr.ph ]
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !107
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 36
+  %24 = load i32, ptr %23, align 4, !tbaa !206
+  %25 = load ptr, ptr %.val30, align 8, !tbaa !203
+  %.not.i.i3.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i3.i.i, label %26, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESF_EEbT_T0_.exit"
 
-28:                                               ; preds = %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %.val30, i64 8
-  %30 = load i64, ptr %29, align 8
-  %31 = and i64 %30, 28800
-  %or.cond.not.i.i5.i.i = icmp eq i64 %31, 8192
+26:                                               ; preds = %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %.val30, i64 8
+  %28 = load i64, ptr %27, align 8
+  %29 = and i64 %28, 28800
+  %or.cond.not.i.i5.i.i = icmp eq i64 %29, 8192
   tail call void @llvm.assume(i1 %or.cond.not.i.i5.i.i)
-  %32 = or i64 %30, 8
-  store i64 %32, ptr %29, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %.val30, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !205
-  %35 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %34) #21
-  store ptr %35, ptr %.val30, align 8, !tbaa !203
+  %30 = or i64 %28, 8
+  store i64 %30, ptr %27, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %.val30, i64 24
+  %32 = load ptr, ptr %31, align 8, !tbaa !205
+  %33 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #21
+  store ptr %33, ptr %.val30, align 8, !tbaa !203
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESF_EEbT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESF_EEbT_T0_.exit": ; preds = %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i, %28
-  %.0.i.i4.i.i = phi ptr [ %35, %28 ], [ %27, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i.i, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !107
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 36
-  %39 = load i32, ptr %38, align 4, !tbaa !206
-  %40 = icmp ult i32 %26, %39
-  %spec.select = select i1 %40, i64 %12, i64 %10
-  %41 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %spec.select
-  %42 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %.031
-  %43 = load ptr, ptr %41, align 8, !tbaa !199
-  store ptr %43, ptr %42, align 8, !tbaa !200
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !148
-  %46 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %45, ptr %46, align 8, !tbaa !202
-  %47 = icmp slt i64 %spec.select, %7
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !648
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESF_EEbT_T0_.exit": ; preds = %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i, %26
+  %.0.i.i4.i.i = phi ptr [ %33, %26 ], [ %25, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i ]
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i.i, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !107
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
+  %37 = load i32, ptr %36, align 4, !tbaa !206
+  %38 = icmp ult i32 %24, %37
+  %39 = or disjoint i64 %9, 1
+  %spec.select = select i1 %38, i64 %39, i64 %10
+  %40 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %spec.select
+  %41 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %.031
+  %42 = load ptr, ptr %40, align 8, !tbaa !199
+  store ptr %42, ptr %41, align 8, !tbaa !200
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !148
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store ptr %44, ptr %45, align 8, !tbaa !202
+  %46 = icmp slt i64 %spec.select, %7
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !648
 
 ._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESF_EEbT_T0_.exit", %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESF_EEbT_T0_.exit" ]
-  %48 = and i64 %2, 1
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %63
+  %47 = and i64 %2, 1
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %49, label %62
 
-50:                                               ; preds = %._crit_edge
-  %51 = add nsw i64 %2, -2
-  %52 = ashr exact i64 %51, 1
-  %53 = icmp eq i64 %.0.lcssa, %52
-  br i1 %53, label %54, label %63
+49:                                               ; preds = %._crit_edge
+  %50 = add nsw i64 %2, -2
+  %51 = ashr exact i64 %50, 1
+  %52 = icmp eq i64 %.0.lcssa, %51
+  br i1 %52, label %53, label %62
 
-54:                                               ; preds = %50
-  %55 = shl nsw i64 %.0.lcssa, 1
-  %56 = or disjoint i64 %55, 1
-  %57 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %56
-  %58 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %.0.lcssa
-  %59 = load ptr, ptr %57, align 8, !tbaa !199
-  store ptr %59, ptr %58, align 8, !tbaa !200
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !148
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store ptr %61, ptr %62, align 8, !tbaa !202
-  br label %63
+53:                                               ; preds = %49
+  %54 = shl nsw i64 %.0.lcssa, 1
+  %55 = or disjoint i64 %54, 1
+  %56 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %55
+  %57 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %.0.lcssa
+  %58 = load ptr, ptr %56, align 8, !tbaa !199
+  store ptr %58, ptr %57, align 8, !tbaa !200
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !148
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store ptr %60, ptr %61, align 8, !tbaa !202
+  br label %62
 
-63:                                               ; preds = %54, %50, %._crit_edge
-  %.1 = phi i64 [ %56, %54 ], [ %.0.lcssa, %50 ], [ %.0.lcssa, %._crit_edge ]
-  %64 = icmp sgt i64 %.1, %1
-  br i1 %64, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_RT2_.exit"
+62:                                               ; preds = %53, %49, %._crit_edge
+  %.1 = phi i64 [ %55, %53 ], [ %.0.lcssa, %49 ], [ %.0.lcssa, %._crit_edge ]
+  %63 = icmp sgt i64 %.1, %1
+  br i1 %63, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  br label %67
+.lr.ph.i:                                         ; preds = %62
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  br label %66
 
-67:                                               ; preds = %94, %.lr.ph.i
-  %.0133.i = phi i64 [ %.1, %.lr.ph.i ], [ %.04.i, %94 ]
+66:                                               ; preds = %93, %.lr.ph.i
+  %.0133.i = phi i64 [ %.1, %.lr.ph.i ], [ %.04.i, %93 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %68 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %.04.i
-  %.val.i = load ptr, ptr %68, align 8
-  %69 = load ptr, ptr %.val.i, align 8, !tbaa !203
-  %.not.i.i.i.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i.i.i.i, label %70, label %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i
+  %67 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %.04.i
+  %.val.i = load ptr, ptr %67, align 8
+  %68 = load ptr, ptr %.val.i, align 8, !tbaa !203
+  %.not.i.i.i.i.i = icmp eq ptr %68, null
+  br i1 %.not.i.i.i.i.i, label %69, label %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %72 = load i64, ptr %71, align 8
-  %73 = and i64 %72, 28800
-  %or.cond.not.i.i.i.i.i = icmp eq i64 %73, 8192
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %71 = load i64, ptr %70, align 8
+  %72 = and i64 %71, 28800
+  %or.cond.not.i.i.i.i.i = icmp eq i64 %72, 8192
   tail call void @llvm.assume(i1 %or.cond.not.i.i.i.i.i)
-  %74 = or i64 %72, 8
-  store i64 %74, ptr %71, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  %76 = load ptr, ptr %75, align 8, !tbaa !205
-  %77 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %76) #21
-  store ptr %77, ptr %.val.i, align 8, !tbaa !203
+  %73 = or i64 %71, 8
+  store i64 %73, ptr %70, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  %75 = load ptr, ptr %74, align 8, !tbaa !205
+  %76 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %75) #21
+  store ptr %76, ptr %.val.i, align 8, !tbaa !203
   br label %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i
 
-_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i:      ; preds = %70, %67
-  %.0.i.i.i.i.i = phi ptr [ %77, %70 ], [ %69, %67 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !107
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 36
-  %81 = load i32, ptr %80, align 4, !tbaa !206
-  %82 = load ptr, ptr %3, align 8, !tbaa !203
-  %.not.i.i3.i.i.i = icmp eq ptr %82, null
-  br i1 %.not.i.i3.i.i.i, label %83, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i"
+_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i:      ; preds = %69, %66
+  %.0.i.i.i.i.i = phi ptr [ %76, %69 ], [ %68, %66 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
+  %78 = load ptr, ptr %77, align 8, !tbaa !107
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 36
+  %80 = load i32, ptr %79, align 4, !tbaa !206
+  %81 = load ptr, ptr %3, align 8, !tbaa !203
+  %.not.i.i3.i.i.i = icmp eq ptr %81, null
+  br i1 %.not.i.i3.i.i.i, label %82, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i"
 
-83:                                               ; preds = %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i
-  %84 = load i64, ptr %65, align 8
-  %85 = and i64 %84, 28800
-  %or.cond.not.i.i5.i.i.i = icmp eq i64 %85, 8192
+82:                                               ; preds = %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i
+  %83 = load i64, ptr %64, align 8
+  %84 = and i64 %83, 28800
+  %or.cond.not.i.i5.i.i.i = icmp eq i64 %84, 8192
   tail call void @llvm.assume(i1 %or.cond.not.i.i5.i.i.i)
-  %86 = or i64 %84, 8
-  store i64 %86, ptr %65, align 8
-  %87 = load ptr, ptr %66, align 8, !tbaa !205
-  %88 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %87) #21
-  store ptr %88, ptr %3, align 8, !tbaa !203
+  %85 = or i64 %83, 8
+  store i64 %85, ptr %64, align 8
+  %86 = load ptr, ptr %65, align 8, !tbaa !205
+  %87 = tail call noundef ptr @_ZNK4llvm6MCExpr22findAssociatedFragmentEv(ptr noundef nonnull align 8 dereferenceable(16) %86) #21
+  store ptr %87, ptr %3, align 8, !tbaa !203
   br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i": ; preds = %83, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i
-  %.0.i.i4.i.i.i = phi ptr [ %88, %83 ], [ %82, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i ]
-  %89 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i.i.i, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !107
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 36
-  %92 = load i32, ptr %91, align 4, !tbaa !206
-  %93 = icmp ult i32 %81, %92
-  br i1 %93, label %94, label %"_ZSt11__push_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_RT2_.exit"
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i": ; preds = %82, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i
+  %.0.i.i4.i.i.i = phi ptr [ %87, %82 ], [ %81, %_ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i ]
+  %88 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i.i.i, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !107
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 36
+  %91 = load i32, ptr %90, align 4, !tbaa !206
+  %92 = icmp ult i32 %80, %91
+  br i1 %92, label %93, label %"_ZSt11__push_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_RT2_.exit"
 
-94:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i"
-  %95 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %.0133.i
-  %96 = load ptr, ptr %68, align 8, !tbaa !199
-  store ptr %96, ptr %95, align 8, !tbaa !200
-  %97 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !148
-  %99 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store ptr %98, ptr %99, align 8, !tbaa !202
-  %100 = icmp sgt i64 %.04.i, %1
-  br i1 %100, label %67, label %"_ZSt11__push_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_RT2_.exit", !llvm.loop !649
+93:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i"
+  %94 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %.0133.i
+  %95 = load ptr, ptr %67, align 8, !tbaa !199
+  store ptr %95, ptr %94, align 8, !tbaa !200
+  %96 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %97 = load ptr, ptr %96, align 8, !tbaa !148
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store ptr %97, ptr %98, align 8, !tbaa !202
+  %99 = icmp sgt i64 %.04.i, %1
+  br i1 %99, label %66, label %"_ZSt11__push_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_RT2_.exit", !llvm.loop !649
 
-"_ZSt11__push_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i", %94, %63
-  %.013.lcssa.i = phi i64 [ %.1, %63 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i" ], [ %.04.i, %94 ]
-  %101 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %101, align 8, !tbaa !200
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store ptr %4, ptr %102, align 8, !tbaa !202
+"_ZSt11__push_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i", %93, %62
+  %.013.lcssa.i = phi i64 [ %.1, %62 ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i" ], [ %.04.i, %93 ]
+  %100 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %100, align 8, !tbaa !200
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  store ptr %4, ptr %101, align 8, !tbaa !202
   ret void
 }
 

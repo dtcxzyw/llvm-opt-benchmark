@@ -3050,12 +3050,12 @@ define internal ptr @eval_eval_code_ex(ptr readnone captures(none) %0, ptr nound
   %.022 = phi i32 [ %43, %40 ], [ 0, %33 ]
   %45 = load ptr, ptr %7, align 8, !tbaa !75
   %.not36 = icmp eq ptr %45, null
-  br i1 %.not36, label %65, label %46
+  br i1 %.not36, label %64, label %46
 
 46:                                               ; preds = %44
   %47 = call i64 @PyDict_Size(ptr noundef nonnull %45) #16
   %48 = icmp sgt i64 %47, 0
-  br i1 %48, label %49, label %65
+  br i1 %48, label %49, label %64
 
 49:                                               ; preds = %46
   %50 = icmp samesign ugt i64 %47, 576460752303423487
@@ -3077,66 +3077,65 @@ define internal ptr @eval_eval_code_ex(ptr readnone captures(none) %0, ptr nound
   br label %56
 
 56:                                               ; preds = %56, %55
-  %.020 = phi i64 [ 0, %55 ], [ %62, %56 ]
+  %.020 = phi i64 [ 0, %55 ], [ %61, %56 ]
   %57 = load ptr, ptr %7, align 8, !tbaa !75
   %58 = getelementptr ptr, ptr %53, i64 %.020
-  %59 = or disjoint i64 %.020, 1
-  %60 = getelementptr ptr, ptr %53, i64 %59
-  %61 = call i32 @PyDict_Next(ptr noundef %57, ptr noundef nonnull %11, ptr noundef %58, ptr noundef %60) #16
-  %.not38 = icmp eq i32 %61, 0
-  %62 = add i64 %.020, 2
-  br i1 %.not38, label %63, label %56, !llvm.loop !86
+  %59 = getelementptr i8, ptr %58, i64 8
+  %60 = call i32 @PyDict_Next(ptr noundef %57, ptr noundef nonnull %11, ptr noundef %58, ptr noundef %59) #16
+  %.not38 = icmp eq i32 %60, 0
+  %61 = add i64 %.020, 2
+  br i1 %.not38, label %62, label %56, !llvm.loop !86
 
-63:                                               ; preds = %56
-  %64 = ashr exact i64 %.020, 1
+62:                                               ; preds = %56
+  %63 = ashr exact i64 %.020, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
-  br label %65
+  br label %64
 
-65:                                               ; preds = %46, %63, %44
-  %.1 = phi ptr [ %53, %63 ], [ null, %46 ], [ null, %44 ]
-  %.021 = phi i64 [ %64, %63 ], [ %47, %46 ], [ 0, %44 ]
-  %66 = load ptr, ptr %8, align 8, !tbaa !75
-  %.not39 = icmp eq ptr %66, null
-  br i1 %.not39, label %76, label %67
+64:                                               ; preds = %46, %62, %44
+  %.1 = phi ptr [ %53, %62 ], [ null, %46 ], [ null, %44 ]
+  %.021 = phi i64 [ %63, %62 ], [ %47, %46 ], [ 0, %44 ]
+  %65 = load ptr, ptr %8, align 8, !tbaa !75
+  %.not39 = icmp eq ptr %65, null
+  br i1 %.not39, label %75, label %66
 
-67:                                               ; preds = %65
-  %68 = getelementptr i8, ptr %66, i64 8
-  %.val42 = load ptr, ptr %68, align 8, !tbaa !23
-  %69 = getelementptr i8, ptr %.val42, i64 168
-  %.val44 = load i64, ptr %69, align 8, !tbaa !31
-  %70 = and i64 %.val44, 67108864
-  %.not40 = icmp eq i64 %70, 0
-  br i1 %.not40, label %71, label %72
+66:                                               ; preds = %64
+  %67 = getelementptr i8, ptr %65, i64 8
+  %.val42 = load ptr, ptr %67, align 8, !tbaa !23
+  %68 = getelementptr i8, ptr %.val42, i64 168
+  %.val44 = load i64, ptr %68, align 8, !tbaa !31
+  %69 = and i64 %.val44, 67108864
+  %.not40 = icmp eq i64 %69, 0
+  br i1 %.not40, label %70, label %71
 
-71:                                               ; preds = %67
+70:                                               ; preds = %66
   call void @__assert_fail(ptr noundef nonnull @.str.209, ptr noundef nonnull @.str.139, i32 noundef 1953, ptr noundef nonnull @__PRETTY_FUNCTION__.eval_eval_code_ex) #15
   unreachable
 
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %74 = call i64 @PyTuple_Size(ptr noundef nonnull %66) #16
-  %75 = trunc i64 %74 to i32
-  br label %76
+71:                                               ; preds = %66
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %73 = call i64 @PyTuple_Size(ptr noundef nonnull %65) #16
+  %74 = trunc i64 %73 to i32
+  br label %75
 
-76:                                               ; preds = %65, %72
-  %.019 = phi ptr [ %73, %72 ], [ null, %65 ]
-  %.0 = phi i32 [ %75, %72 ], [ 0, %65 ]
-  %77 = load ptr, ptr %3, align 8, !tbaa !75
-  %78 = load ptr, ptr %4, align 8, !tbaa !75
-  %79 = load ptr, ptr %5, align 8, !tbaa !75
-  %80 = trunc i64 %.021 to i32
-  %81 = load ptr, ptr %9, align 8, !tbaa !75
-  %82 = load ptr, ptr %10, align 8, !tbaa !75
-  %83 = call ptr @PyEval_EvalCodeEx(ptr noundef %77, ptr noundef %78, ptr noundef %79, ptr noundef %.023, i32 noundef %.022, ptr noundef %.1, i32 noundef %80, ptr noundef %.019, i32 noundef %.0, ptr noundef %81, ptr noundef %82) #16
+75:                                               ; preds = %64, %71
+  %.019 = phi ptr [ %72, %71 ], [ null, %64 ]
+  %.0 = phi i32 [ %74, %71 ], [ 0, %64 ]
+  %76 = load ptr, ptr %3, align 8, !tbaa !75
+  %77 = load ptr, ptr %4, align 8, !tbaa !75
+  %78 = load ptr, ptr %5, align 8, !tbaa !75
+  %79 = trunc i64 %.021 to i32
+  %80 = load ptr, ptr %9, align 8, !tbaa !75
+  %81 = load ptr, ptr %10, align 8, !tbaa !75
+  %82 = call ptr @PyEval_EvalCodeEx(ptr noundef %76, ptr noundef %77, ptr noundef %78, ptr noundef %.023, i32 noundef %.022, ptr noundef %.1, i32 noundef %79, ptr noundef %.019, i32 noundef %.0, ptr noundef %80, ptr noundef %81) #16
   %.not41 = icmp eq ptr %.1, null
-  br i1 %.not41, label %.thread46, label %84
+  br i1 %.not41, label %.thread46, label %83
 
-84:                                               ; preds = %76
+83:                                               ; preds = %75
   call void @PyMem_Free(ptr noundef nonnull %.1) #16
   br label %.thread46
 
-.thread46:                                        ; preds = %2, %.thread, %84, %76
-  %.02550 = phi ptr [ %83, %84 ], [ %83, %76 ], [ null, %.thread ], [ null, %2 ]
+.thread46:                                        ; preds = %2, %.thread, %83, %75
+  %.02550 = phi ptr [ %82, %83 ], [ %82, %75 ], [ null, %.thread ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16

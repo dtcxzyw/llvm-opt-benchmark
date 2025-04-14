@@ -9565,8 +9565,8 @@ _ZNSt6vectorItSaItEED2Ev.exit370.i:               ; preds = %5751, %_ZNSt6vector
   %5790 = lshr i8 %5789, 4
   %5791 = zext nneg i8 %5790 to i64
   %.masked.i.us = and i64 %5787, 4294967280
-  %5792 = or disjoint i64 %.masked.i.us, %5791
-  %5793 = getelementptr inbounds nuw i16, ptr %5727, i64 %5792
+  %5792 = getelementptr inbounds nuw i16, ptr %5727, i64 %.masked.i.us
+  %5793 = getelementptr inbounds nuw i16, ptr %5792, i64 %5791
   %5794 = load i16, ptr %5793, align 2, !tbaa !44
   %5795 = add i16 %5794, %5737
   store i16 %5795, ptr %5793, align 2, !tbaa !44

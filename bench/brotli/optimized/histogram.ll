@@ -58,20 +58,20 @@ InitBlockSplitIterator.exit59:                    ; preds = %InitBlockSplitItera
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %36
 
-36:                                               ; preds = %.lr.ph101, %179
-  %.0100 = phi i8 [ %8, %.lr.ph101 ], [ %.2, %179 ]
-  %.04599 = phi i8 [ %9, %.lr.ph101 ], [ %.247, %179 ]
-  %.05098 = phi i64 [ %6, %.lr.ph101 ], [ %133, %179 ]
-  %.05297 = phi i64 [ 0, %.lr.ph101 ], [ %180, %179 ]
-  %.sroa.467.096 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.467.1.lcssa, %179 ]
-  %.sroa.7.095 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.7.1, %179 ]
-  %.sroa.9.094 = phi i64 [ %32, %.lr.ph101 ], [ %.sroa.9.1, %179 ]
-  %.sroa.4.093 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.4.1, %179 ]
-  %.sroa.969.092 = phi i64 [ %20, %.lr.ph101 ], [ %.sroa.969.1.lcssa, %179 ]
-  %.sroa.764.091 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.764.1, %179 ]
-  %.sroa.965.090 = phi i64 [ %26, %.lr.ph101 ], [ %49, %179 ]
-  %.sroa.463.089 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.463.1, %179 ]
-  %.sroa.768.088 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.768.1.lcssa, %179 ]
+36:                                               ; preds = %.lr.ph101, %178
+  %.0100 = phi i8 [ %8, %.lr.ph101 ], [ %.2, %178 ]
+  %.04599 = phi i8 [ %9, %.lr.ph101 ], [ %.247, %178 ]
+  %.05098 = phi i64 [ %6, %.lr.ph101 ], [ %133, %178 ]
+  %.05297 = phi i64 [ 0, %.lr.ph101 ], [ %179, %178 ]
+  %.sroa.467.096 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.467.1.lcssa, %178 ]
+  %.sroa.7.095 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.7.1, %178 ]
+  %.sroa.9.094 = phi i64 [ %32, %.lr.ph101 ], [ %.sroa.9.1, %178 ]
+  %.sroa.4.093 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.4.1, %178 ]
+  %.sroa.969.092 = phi i64 [ %20, %.lr.ph101 ], [ %.sroa.969.1.lcssa, %178 ]
+  %.sroa.764.091 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.764.1, %178 ]
+  %.sroa.965.090 = phi i64 [ %26, %.lr.ph101 ], [ %49, %178 ]
+  %.sroa.463.089 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.463.1, %178 ]
+  %.sroa.768.088 = phi i64 [ 0, %.lr.ph101 ], [ %.sroa.768.1.lcssa, %178 ]
   %37 = getelementptr inbounds nuw %struct.Command, ptr %0, i64 %.05297
   %38 = icmp eq i64 %.sroa.965.090, 0
   br i1 %38, label %39, label %BlockSplitIteratorNext.exit
@@ -198,8 +198,8 @@ BlockSplitIteratorNext.exit60:                    ; preds = %.lr.ph.split, %89
   %111 = load i8, ptr %110, align 1, !tbaa !14
   %112 = or i8 %111, %107
   %113 = zext i8 %112 to i64
-  %.idx = mul nuw nsw i64 %.sroa.768.2, 66560
-  %114 = getelementptr i8, ptr %11, i64 %.idx
+  %.idx104 = mul nuw nsw i64 %.sroa.768.2, 66560
+  %114 = getelementptr i8, ptr %11, i64 %.idx104
   %115 = getelementptr %struct.HistogramLiteral, ptr %114, i64 %113
   %116 = and i64 %.15174, %7
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 %116
@@ -232,7 +232,7 @@ BlockSplitIteratorNext.exit60:                    ; preds = %.lr.ph.split, %89
   %132 = zext nneg i32 %131 to i64
   %133 = add i64 %.151.lcssa, %132
   %.not54 = icmp eq i32 %131, 0
-  br i1 %.not54, label %179, label %134
+  br i1 %.not54, label %178, label %134
 
 134:                                              ; preds = %._crit_edge
   %135 = add i64 %133, -2
@@ -244,7 +244,7 @@ BlockSplitIteratorNext.exit60:                    ; preds = %.lr.ph.split, %89
   %141 = getelementptr inbounds nuw i8, ptr %5, i64 %140
   %142 = load i8, ptr %141, align 1, !tbaa !14
   %143 = icmp ugt i16 %52, 127
-  br i1 %143, label %144, label %179
+  br i1 %143, label %144, label %178
 
 144:                                              ; preds = %134
   %145 = icmp eq i64 %.sroa.9.094, 0
@@ -266,45 +266,45 @@ BlockSplitIteratorNext.exit61:                    ; preds = %144, %146
   %.sroa.7.2 = phi i64 [ %151, %146 ], [ %.sroa.7.095, %144 ]
   %155 = phi i64 [ %154, %146 ], [ %.sroa.9.094, %144 ]
   %156 = add i64 %155, -1
-  %157 = shl nuw nsw i64 %.sroa.7.2, 2
-  %158 = zext i16 %52 to i32
-  %159 = lshr i32 %158, 6
-  %160 = and i32 %158, 7
-  %161 = icmp eq i32 %159, 2
-  %162 = icmp eq i32 %159, 4
-  %or.cond3.i = or i1 %161, %162
-  %163 = icmp eq i32 %159, 7
-  %or.cond5.i = or i1 %163, %or.cond3.i
-  %164 = tail call i32 @llvm.umin.i32(i32 %160, i32 3)
-  %165 = zext nneg i32 %164 to i64
-  %166 = select i1 %or.cond5.i, i64 %165, i64 3
-  %167 = or disjoint i64 %157, %166
-  %168 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %13, i64 %167
-  %169 = getelementptr inbounds nuw i8, ptr %37, i64 14
-  %170 = load i16, ptr %169, align 2, !tbaa !27
-  %171 = and i16 %170, 1023
-  %172 = zext nneg i16 %171 to i64
-  %173 = getelementptr inbounds nuw [544 x i32], ptr %168, i64 0, i64 %172
-  %174 = load i32, ptr %173, align 4, !tbaa !11
-  %175 = add i32 %174, 1
-  store i32 %175, ptr %173, align 4, !tbaa !11
-  %176 = getelementptr inbounds nuw i8, ptr %168, i64 2176
-  %177 = load i64, ptr %176, align 8, !tbaa !28
-  %178 = add i64 %177, 1
-  store i64 %178, ptr %176, align 8, !tbaa !28
-  br label %179
+  %157 = zext i16 %52 to i32
+  %158 = lshr i32 %157, 6
+  %159 = and i32 %157, 7
+  %160 = icmp eq i32 %158, 2
+  %161 = icmp eq i32 %158, 4
+  %or.cond3.i = or i1 %160, %161
+  %162 = icmp eq i32 %158, 7
+  %or.cond5.i = or i1 %162, %or.cond3.i
+  %163 = tail call i32 @llvm.umin.i32(i32 %159, i32 3)
+  %164 = zext nneg i32 %163 to i64
+  %165 = select i1 %or.cond5.i, i64 %164, i64 3
+  %.idx = mul nuw nsw i64 %.sroa.7.2, 8768
+  %166 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
+  %167 = getelementptr inbounds nuw %struct.HistogramDistance, ptr %166, i64 %165
+  %168 = getelementptr inbounds nuw i8, ptr %37, i64 14
+  %169 = load i16, ptr %168, align 2, !tbaa !27
+  %170 = and i16 %169, 1023
+  %171 = zext nneg i16 %170 to i64
+  %172 = getelementptr inbounds nuw [544 x i32], ptr %167, i64 0, i64 %171
+  %173 = load i32, ptr %172, align 4, !tbaa !11
+  %174 = add i32 %173, 1
+  store i32 %174, ptr %172, align 4, !tbaa !11
+  %175 = getelementptr inbounds nuw i8, ptr %167, i64 2176
+  %176 = load i64, ptr %175, align 8, !tbaa !28
+  %177 = add i64 %176, 1
+  store i64 %177, ptr %175, align 8, !tbaa !28
+  br label %178
 
-179:                                              ; preds = %134, %BlockSplitIteratorNext.exit61, %._crit_edge
+178:                                              ; preds = %134, %BlockSplitIteratorNext.exit61, %._crit_edge
   %.sroa.4.1 = phi i64 [ %.sroa.4.093, %._crit_edge ], [ %.sroa.4.2, %BlockSplitIteratorNext.exit61 ], [ %.sroa.4.093, %134 ]
   %.sroa.9.1 = phi i64 [ %.sroa.9.094, %._crit_edge ], [ %156, %BlockSplitIteratorNext.exit61 ], [ %.sroa.9.094, %134 ]
   %.sroa.7.1 = phi i64 [ %.sroa.7.095, %._crit_edge ], [ %.sroa.7.2, %BlockSplitIteratorNext.exit61 ], [ %.sroa.7.095, %134 ]
   %.247 = phi i8 [ %.146.lcssa, %._crit_edge ], [ %138, %BlockSplitIteratorNext.exit61 ], [ %138, %134 ]
   %.2 = phi i8 [ %.1.lcssa, %._crit_edge ], [ %142, %BlockSplitIteratorNext.exit61 ], [ %142, %134 ]
-  %180 = add nuw i64 %.05297, 1
-  %exitcond.not = icmp eq i64 %180, %1
+  %179 = add nuw i64 %.05297, 1
+  %exitcond.not = icmp eq i64 %179, %1
   br i1 %exitcond.not, label %._crit_edge102, label %36, !llvm.loop !30
 
-._crit_edge102:                                   ; preds = %179, %InitBlockSplitIterator.exit59
+._crit_edge102:                                   ; preds = %178, %InitBlockSplitIterator.exit59
   ret void
 }
 

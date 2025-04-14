@@ -201,182 +201,171 @@ define hidden noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKvi(i64 noundef %0,
 
 .lr.ph:                                           ; preds = %3, %_ZL19halfsiphash_adddataPjji.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL19halfsiphash_adddataPjji.exit ], [ 0, %3 ]
-  %.059 = phi i32 [ %31, %_ZL19halfsiphash_adddataPjji.exit ], [ %2, %3 ]
-  %.sroa.0.057 = phi i32 [ %54, %_ZL19halfsiphash_adddataPjji.exit ], [ %4, %3 ]
-  %.sroa.7.056 = phi i32 [ %51, %_ZL19halfsiphash_adddataPjji.exit ], [ %6, %3 ]
-  %.sroa.14.055 = phi i32 [ %52, %_ZL19halfsiphash_adddataPjji.exit ], [ %7, %3 ]
-  %.sroa.21.054 = phi i32 [ %48, %_ZL19halfsiphash_adddataPjji.exit ], [ %8, %3 ]
+  %.059 = phi i32 [ %23, %_ZL19halfsiphash_adddataPjji.exit ], [ %2, %3 ]
+  %.sroa.0.057 = phi i32 [ %46, %_ZL19halfsiphash_adddataPjji.exit ], [ %4, %3 ]
+  %.sroa.7.056 = phi i32 [ %43, %_ZL19halfsiphash_adddataPjji.exit ], [ %6, %3 ]
+  %.sroa.14.055 = phi i32 [ %44, %_ZL19halfsiphash_adddataPjji.exit ], [ %7, %3 ]
+  %.sroa.21.054 = phi i32 [ %40, %_ZL19halfsiphash_adddataPjji.exit ], [ %8, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i32
-  %13 = or disjoint i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
-  %15 = load i8, ptr %14, align 1
-  %16 = zext i8 %15 to i32
-  %17 = shl nuw nsw i32 %16, 8
-  %18 = or disjoint i32 %17, %12
-  %19 = or disjoint i64 %indvars.iv, 2
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = shl nuw nsw i32 %22, 16
-  %24 = or disjoint i32 %18, %23
-  %25 = or disjoint i64 %indvars.iv, 3
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
-  %27 = load i8, ptr %26, align 1
-  %28 = zext i8 %27 to i32
-  %29 = shl nuw i32 %28, 24
-  %30 = or disjoint i32 %24, %29
-  %31 = add nsw i32 %.059, -4
-  %32 = xor i32 %30, %.sroa.21.054
-  br label %33
+  %11 = load i16, ptr %10, align 1
+  %12 = zext i16 %11 to i32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %14 = load i8, ptr %13, align 1
+  %15 = zext i8 %14 to i32
+  %16 = shl nuw nsw i32 %15, 16
+  %17 = or disjoint i32 %16, %12
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 3
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i32
+  %21 = shl nuw i32 %20, 24
+  %22 = or disjoint i32 %17, %21
+  %23 = add nsw i32 %.059, -4
+  %24 = xor i32 %22, %.sroa.21.054
+  br label %25
 
-33:                                               ; preds = %33, %.lr.ph
-  %.034.i.i = phi i32 [ 2, %.lr.ph ], [ %38, %33 ]
-  %34 = phi i32 [ %.sroa.7.056, %.lr.ph ], [ %51, %33 ]
-  %35 = phi i32 [ %.sroa.0.057, %.lr.ph ], [ %46, %33 ]
-  %36 = phi i32 [ %32, %.lr.ph ], [ %48, %33 ]
-  %37 = phi i32 [ %.sroa.14.055, %.lr.ph ], [ %52, %33 ]
-  %38 = add nsw i32 %.034.i.i, -1
-  %39 = add i32 %35, %34
-  %40 = tail call noundef i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 5)
-  %41 = xor i32 %39, %40
-  %42 = tail call noundef i32 @llvm.fshl.i32(i32 %39, i32 %39, i32 16)
-  %43 = add i32 %37, %36
-  %44 = tail call noundef i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 8)
-  %45 = xor i32 %43, %44
-  %46 = add i32 %45, %42
-  %47 = tail call noundef i32 @llvm.fshl.i32(i32 %45, i32 %45, i32 7)
-  %48 = xor i32 %47, %46
-  %49 = add i32 %43, %41
-  %50 = tail call noundef i32 @llvm.fshl.i32(i32 %41, i32 %41, i32 13)
-  %51 = xor i32 %49, %50
-  %52 = tail call noundef i32 @llvm.fshl.i32(i32 %49, i32 %49, i32 16)
-  %53 = icmp samesign ugt i32 %.034.i.i, 1
-  br i1 %53, label %33, label %_ZL19halfsiphash_adddataPjji.exit, !llvm.loop !6
+25:                                               ; preds = %25, %.lr.ph
+  %.034.i.i = phi i32 [ 2, %.lr.ph ], [ %30, %25 ]
+  %26 = phi i32 [ %.sroa.7.056, %.lr.ph ], [ %43, %25 ]
+  %27 = phi i32 [ %.sroa.0.057, %.lr.ph ], [ %38, %25 ]
+  %28 = phi i32 [ %24, %.lr.ph ], [ %40, %25 ]
+  %29 = phi i32 [ %.sroa.14.055, %.lr.ph ], [ %44, %25 ]
+  %30 = add nsw i32 %.034.i.i, -1
+  %31 = add i32 %27, %26
+  %32 = tail call noundef i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 5)
+  %33 = xor i32 %31, %32
+  %34 = tail call noundef i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 16)
+  %35 = add i32 %29, %28
+  %36 = tail call noundef i32 @llvm.fshl.i32(i32 %28, i32 %28, i32 8)
+  %37 = xor i32 %35, %36
+  %38 = add i32 %37, %34
+  %39 = tail call noundef i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 7)
+  %40 = xor i32 %39, %38
+  %41 = add i32 %35, %33
+  %42 = tail call noundef i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 13)
+  %43 = xor i32 %41, %42
+  %44 = tail call noundef i32 @llvm.fshl.i32(i32 %41, i32 %41, i32 16)
+  %45 = icmp samesign ugt i32 %.034.i.i, 1
+  br i1 %45, label %25, label %_ZL19halfsiphash_adddataPjji.exit, !llvm.loop !6
 
-_ZL19halfsiphash_adddataPjji.exit:                ; preds = %33
+_ZL19halfsiphash_adddataPjji.exit:                ; preds = %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %54 = xor i32 %46, %30
-  %55 = icmp samesign ugt i32 %.059, 7
-  br i1 %55, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
+  %46 = xor i32 %38, %22
+  %47 = icmp samesign ugt i32 %.059, 7
+  br i1 %47, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %_ZL19halfsiphash_adddataPjji.exit
-  %56 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %48 = and i64 %indvars.iv.next, 4294967292
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.sroa.21.0.lcssa = phi i32 [ %8, %3 ], [ %48, %._crit_edge.loopexit ]
-  %.sroa.14.0.lcssa = phi i32 [ %7, %3 ], [ %52, %._crit_edge.loopexit ]
-  %.sroa.7.0.lcssa = phi i32 [ %6, %3 ], [ %51, %._crit_edge.loopexit ]
-  %.sroa.0.0.lcssa = phi i32 [ %4, %3 ], [ %54, %._crit_edge.loopexit ]
-  %.027.lcssa = phi i32 [ 0, %3 ], [ %56, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i32 [ %2, %3 ], [ %31, %._crit_edge.loopexit ]
-  %57 = shl i32 %2, 24
-  %58 = icmp sgt i32 %.0.lcssa, 0
-  br i1 %58, label %59, label %82
+  %.sroa.21.0.lcssa = phi i32 [ %8, %3 ], [ %40, %._crit_edge.loopexit ]
+  %.sroa.14.0.lcssa = phi i32 [ %7, %3 ], [ %44, %._crit_edge.loopexit ]
+  %.sroa.7.0.lcssa = phi i32 [ %6, %3 ], [ %43, %._crit_edge.loopexit ]
+  %.sroa.0.0.lcssa = phi i32 [ %4, %3 ], [ %46, %._crit_edge.loopexit ]
+  %.027.lcssa = phi i64 [ 0, %3 ], [ %48, %._crit_edge.loopexit ]
+  %.0.lcssa = phi i32 [ %2, %3 ], [ %23, %._crit_edge.loopexit ]
+  %49 = shl i32 %2, 24
+  %50 = icmp sgt i32 %.0.lcssa, 0
+  br i1 %50, label %51, label %69
 
-59:                                               ; preds = %._crit_edge
+51:                                               ; preds = %._crit_edge
   switch i32 %.0.lcssa, label %default.unreachable [
-    i32 3, label %60
-    i32 2, label %68
-    i32 1, label %76
+    i32 3, label %52
+    i32 2, label %._crit_edge79
+    i32 1, label %._crit_edge78
   ]
 
-60:                                               ; preds = %59
-  %61 = or disjoint i32 %.027.lcssa, 2
-  %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 %62
-  %64 = load i8, ptr %63, align 1
-  %65 = zext i8 %64 to i32
-  %66 = shl nuw nsw i32 %65, 16
-  %67 = or disjoint i32 %66, %57
-  br label %68
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 %.027.lcssa
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = shl nuw nsw i32 %56, 16
+  %58 = or disjoint i32 %57, %49
+  br label %._crit_edge79
 
-68:                                               ; preds = %60, %59
-  %.1 = phi i32 [ %57, %59 ], [ %67, %60 ]
-  %69 = or disjoint i32 %.027.lcssa, 1
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 %70
-  %72 = load i8, ptr %71, align 1
-  %73 = zext i8 %72 to i32
-  %74 = shl nuw nsw i32 %73, 8
-  %75 = or i32 %74, %.1
-  br label %76
+._crit_edge79:                                    ; preds = %51, %52
+  %.1 = phi i32 [ %58, %52 ], [ %49, %51 ]
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 %.027.lcssa
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1
+  %61 = load i8, ptr %60, align 1
+  %62 = zext i8 %61 to i32
+  %63 = shl nuw nsw i32 %62, 8
+  %64 = or i32 %63, %.1
+  br label %._crit_edge78
 
-76:                                               ; preds = %68, %59
-  %.2 = phi i32 [ %57, %59 ], [ %75, %68 ]
-  %77 = zext nneg i32 %.027.lcssa to i64
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 %77
-  %79 = load i8, ptr %78, align 1
-  %80 = zext i8 %79 to i32
-  %81 = or i32 %.2, %80
-  br label %82
+._crit_edge78:                                    ; preds = %51, %._crit_edge79
+  %.2 = phi i32 [ %64, %._crit_edge79 ], [ %49, %51 ]
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 %.027.lcssa
+  %66 = load i8, ptr %65, align 1
+  %67 = zext i8 %66 to i32
+  %68 = or i32 %.2, %67
+  br label %69
 
-default.unreachable:                              ; preds = %59
+default.unreachable:                              ; preds = %51
   unreachable
 
-82:                                               ; preds = %76, %._crit_edge
-  %.028 = phi i32 [ %81, %76 ], [ %57, %._crit_edge ]
-  %83 = xor i32 %.028, %.sroa.21.0.lcssa
-  br label %84
+69:                                               ; preds = %._crit_edge78, %._crit_edge
+  %.028 = phi i32 [ %68, %._crit_edge78 ], [ %49, %._crit_edge ]
+  %70 = xor i32 %.028, %.sroa.21.0.lcssa
+  br label %71
 
-84:                                               ; preds = %84, %82
-  %.034.i.i32 = phi i32 [ 2, %82 ], [ %89, %84 ]
-  %85 = phi i32 [ %.sroa.7.0.lcssa, %82 ], [ %102, %84 ]
-  %86 = phi i32 [ %.sroa.0.0.lcssa, %82 ], [ %97, %84 ]
-  %87 = phi i32 [ %83, %82 ], [ %99, %84 ]
-  %88 = phi i32 [ %.sroa.14.0.lcssa, %82 ], [ %103, %84 ]
-  %89 = add nsw i32 %.034.i.i32, -1
-  %90 = add i32 %86, %85
-  %91 = tail call noundef i32 @llvm.fshl.i32(i32 %85, i32 %85, i32 5)
-  %92 = xor i32 %90, %91
-  %93 = tail call noundef i32 @llvm.fshl.i32(i32 %90, i32 %90, i32 16)
-  %94 = add i32 %88, %87
-  %95 = tail call noundef i32 @llvm.fshl.i32(i32 %87, i32 %87, i32 8)
-  %96 = xor i32 %94, %95
-  %97 = add i32 %96, %93
-  %98 = tail call noundef i32 @llvm.fshl.i32(i32 %96, i32 %96, i32 7)
-  %99 = xor i32 %98, %97
-  %100 = add i32 %94, %92
-  %101 = tail call noundef i32 @llvm.fshl.i32(i32 %92, i32 %92, i32 13)
+71:                                               ; preds = %71, %69
+  %.034.i.i32 = phi i32 [ 2, %69 ], [ %76, %71 ]
+  %72 = phi i32 [ %.sroa.7.0.lcssa, %69 ], [ %89, %71 ]
+  %73 = phi i32 [ %.sroa.0.0.lcssa, %69 ], [ %84, %71 ]
+  %74 = phi i32 [ %70, %69 ], [ %86, %71 ]
+  %75 = phi i32 [ %.sroa.14.0.lcssa, %69 ], [ %90, %71 ]
+  %76 = add nsw i32 %.034.i.i32, -1
+  %77 = add i32 %73, %72
+  %78 = tail call noundef i32 @llvm.fshl.i32(i32 %72, i32 %72, i32 5)
+  %79 = xor i32 %77, %78
+  %80 = tail call noundef i32 @llvm.fshl.i32(i32 %77, i32 %77, i32 16)
+  %81 = add i32 %75, %74
+  %82 = tail call noundef i32 @llvm.fshl.i32(i32 %74, i32 %74, i32 8)
+  %83 = xor i32 %81, %82
+  %84 = add i32 %83, %80
+  %85 = tail call noundef i32 @llvm.fshl.i32(i32 %83, i32 %83, i32 7)
+  %86 = xor i32 %85, %84
+  %87 = add i32 %81, %79
+  %88 = tail call noundef i32 @llvm.fshl.i32(i32 %79, i32 %79, i32 13)
+  %89 = xor i32 %87, %88
+  %90 = tail call noundef i32 @llvm.fshl.i32(i32 %87, i32 %87, i32 16)
+  %91 = icmp samesign ugt i32 %.034.i.i32, 1
+  br i1 %91, label %71, label %_ZL19halfsiphash_adddataPjji.exit33, !llvm.loop !6
+
+_ZL19halfsiphash_adddataPjji.exit33:              ; preds = %71
+  %92 = xor i32 %84, %.028
+  %93 = xor i32 %90, 255
+  br label %94
+
+94:                                               ; preds = %94, %_ZL19halfsiphash_adddataPjji.exit33
+  %.034.i.i36 = phi i32 [ 4, %_ZL19halfsiphash_adddataPjji.exit33 ], [ %99, %94 ]
+  %95 = phi i32 [ %89, %_ZL19halfsiphash_adddataPjji.exit33 ], [ %112, %94 ]
+  %96 = phi i32 [ %92, %_ZL19halfsiphash_adddataPjji.exit33 ], [ %107, %94 ]
+  %97 = phi i32 [ %86, %_ZL19halfsiphash_adddataPjji.exit33 ], [ %109, %94 ]
+  %98 = phi i32 [ %93, %_ZL19halfsiphash_adddataPjji.exit33 ], [ %113, %94 ]
+  %99 = add nsw i32 %.034.i.i36, -1
+  %100 = add i32 %96, %95
+  %101 = tail call noundef i32 @llvm.fshl.i32(i32 %95, i32 %95, i32 5)
   %102 = xor i32 %100, %101
   %103 = tail call noundef i32 @llvm.fshl.i32(i32 %100, i32 %100, i32 16)
-  %104 = icmp samesign ugt i32 %.034.i.i32, 1
-  br i1 %104, label %84, label %_ZL19halfsiphash_adddataPjji.exit33, !llvm.loop !6
+  %104 = add i32 %98, %97
+  %105 = tail call noundef i32 @llvm.fshl.i32(i32 %97, i32 %97, i32 8)
+  %106 = xor i32 %104, %105
+  %107 = add i32 %106, %103
+  %108 = tail call noundef i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 7)
+  %109 = xor i32 %108, %107
+  %110 = add i32 %104, %102
+  %111 = tail call noundef i32 @llvm.fshl.i32(i32 %102, i32 %102, i32 13)
+  %112 = xor i32 %110, %111
+  %113 = tail call noundef i32 @llvm.fshl.i32(i32 %110, i32 %110, i32 16)
+  %114 = icmp samesign ugt i32 %.034.i.i36, 1
+  br i1 %114, label %94, label %_ZL20halfsiphash_finish32Pji.exit, !llvm.loop !6
 
-_ZL19halfsiphash_adddataPjji.exit33:              ; preds = %84
-  %105 = xor i32 %97, %.028
-  %106 = xor i32 %103, 255
-  br label %107
-
-107:                                              ; preds = %107, %_ZL19halfsiphash_adddataPjji.exit33
-  %.034.i.i36 = phi i32 [ 4, %_ZL19halfsiphash_adddataPjji.exit33 ], [ %112, %107 ]
-  %108 = phi i32 [ %102, %_ZL19halfsiphash_adddataPjji.exit33 ], [ %125, %107 ]
-  %109 = phi i32 [ %105, %_ZL19halfsiphash_adddataPjji.exit33 ], [ %120, %107 ]
-  %110 = phi i32 [ %99, %_ZL19halfsiphash_adddataPjji.exit33 ], [ %122, %107 ]
-  %111 = phi i32 [ %106, %_ZL19halfsiphash_adddataPjji.exit33 ], [ %126, %107 ]
-  %112 = add nsw i32 %.034.i.i36, -1
-  %113 = add i32 %109, %108
-  %114 = tail call noundef i32 @llvm.fshl.i32(i32 %108, i32 %108, i32 5)
-  %115 = xor i32 %113, %114
-  %116 = tail call noundef i32 @llvm.fshl.i32(i32 %113, i32 %113, i32 16)
-  %117 = add i32 %111, %110
-  %118 = tail call noundef i32 @llvm.fshl.i32(i32 %110, i32 %110, i32 8)
-  %119 = xor i32 %117, %118
-  %120 = add i32 %119, %116
-  %121 = tail call noundef i32 @llvm.fshl.i32(i32 %119, i32 %119, i32 7)
-  %122 = xor i32 %121, %120
-  %123 = add i32 %117, %115
-  %124 = tail call noundef i32 @llvm.fshl.i32(i32 %115, i32 %115, i32 13)
-  %125 = xor i32 %123, %124
-  %126 = tail call noundef i32 @llvm.fshl.i32(i32 %123, i32 %123, i32 16)
-  %127 = icmp samesign ugt i32 %.034.i.i36, 1
-  br i1 %127, label %107, label %_ZL20halfsiphash_finish32Pji.exit, !llvm.loop !6
-
-_ZL20halfsiphash_finish32Pji.exit:                ; preds = %107
-  %128 = xor i32 %122, %125
-  ret i32 %128
+_ZL20halfsiphash_finish32Pji.exit:                ; preds = %94
+  %115 = xor i32 %109, %112
+  ret i32 %115
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -391,137 +380,136 @@ define hidden noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKti(i64 noundef %0,
 
 .lr.ph:                                           ; preds = %3, %_ZL19halfsiphash_adddataPjji.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL19halfsiphash_adddataPjji.exit ], [ 0, %3 ]
-  %.01747 = phi i32 [ %41, %_ZL19halfsiphash_adddataPjji.exit ], [ %2, %3 ]
-  %.sroa.0.046 = phi i32 [ %42, %_ZL19halfsiphash_adddataPjji.exit ], [ %4, %3 ]
-  %.sroa.7.045 = phi i32 [ %38, %_ZL19halfsiphash_adddataPjji.exit ], [ %6, %3 ]
-  %.sroa.14.044 = phi i32 [ %39, %_ZL19halfsiphash_adddataPjji.exit ], [ %7, %3 ]
-  %.sroa.21.043 = phi i32 [ %35, %_ZL19halfsiphash_adddataPjji.exit ], [ %8, %3 ]
-  %10 = or disjoint i64 %indvars.iv, 1
-  %11 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
-  %12 = load i16, ptr %11, align 2
-  %13 = getelementptr inbounds nuw i16, ptr %1, i64 %10
-  %14 = load i16, ptr %13, align 2
-  %15 = zext i16 %12 to i32
-  %16 = zext i16 %14 to i32
-  %17 = shl nuw i32 %16, 16
-  %18 = or disjoint i32 %17, %15
-  %19 = xor i32 %18, %.sroa.21.043
-  br label %20
+  %.01747 = phi i32 [ %40, %_ZL19halfsiphash_adddataPjji.exit ], [ %2, %3 ]
+  %.sroa.0.046 = phi i32 [ %41, %_ZL19halfsiphash_adddataPjji.exit ], [ %4, %3 ]
+  %.sroa.7.045 = phi i32 [ %37, %_ZL19halfsiphash_adddataPjji.exit ], [ %6, %3 ]
+  %.sroa.14.044 = phi i32 [ %38, %_ZL19halfsiphash_adddataPjji.exit ], [ %7, %3 ]
+  %.sroa.21.043 = phi i32 [ %34, %_ZL19halfsiphash_adddataPjji.exit ], [ %8, %3 ]
+  %10 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %11 = load i16, ptr %10, align 2
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %13 = load i16, ptr %12, align 2
+  %14 = zext i16 %11 to i32
+  %15 = zext i16 %13 to i32
+  %16 = shl nuw i32 %15, 16
+  %17 = or disjoint i32 %16, %14
+  %18 = xor i32 %17, %.sroa.21.043
+  br label %19
 
-20:                                               ; preds = %20, %.lr.ph
-  %.034.i.i = phi i32 [ 2, %.lr.ph ], [ %25, %20 ]
-  %21 = phi i32 [ %.sroa.7.045, %.lr.ph ], [ %38, %20 ]
-  %22 = phi i32 [ %.sroa.0.046, %.lr.ph ], [ %33, %20 ]
-  %23 = phi i32 [ %19, %.lr.ph ], [ %35, %20 ]
-  %24 = phi i32 [ %.sroa.14.044, %.lr.ph ], [ %39, %20 ]
-  %25 = add nsw i32 %.034.i.i, -1
-  %26 = add i32 %22, %21
-  %27 = tail call noundef i32 @llvm.fshl.i32(i32 %21, i32 %21, i32 5)
-  %28 = xor i32 %26, %27
-  %29 = tail call noundef i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 16)
-  %30 = add i32 %24, %23
-  %31 = tail call noundef i32 @llvm.fshl.i32(i32 %23, i32 %23, i32 8)
-  %32 = xor i32 %30, %31
-  %33 = add i32 %32, %29
-  %34 = tail call noundef i32 @llvm.fshl.i32(i32 %32, i32 %32, i32 7)
-  %35 = xor i32 %34, %33
-  %36 = add i32 %30, %28
-  %37 = tail call noundef i32 @llvm.fshl.i32(i32 %28, i32 %28, i32 13)
-  %38 = xor i32 %36, %37
-  %39 = tail call noundef i32 @llvm.fshl.i32(i32 %36, i32 %36, i32 16)
-  %40 = icmp samesign ugt i32 %.034.i.i, 1
-  br i1 %40, label %20, label %_ZL19halfsiphash_adddataPjji.exit, !llvm.loop !6
+19:                                               ; preds = %19, %.lr.ph
+  %.034.i.i = phi i32 [ 2, %.lr.ph ], [ %24, %19 ]
+  %20 = phi i32 [ %.sroa.7.045, %.lr.ph ], [ %37, %19 ]
+  %21 = phi i32 [ %.sroa.0.046, %.lr.ph ], [ %32, %19 ]
+  %22 = phi i32 [ %18, %.lr.ph ], [ %34, %19 ]
+  %23 = phi i32 [ %.sroa.14.044, %.lr.ph ], [ %38, %19 ]
+  %24 = add nsw i32 %.034.i.i, -1
+  %25 = add i32 %21, %20
+  %26 = tail call noundef i32 @llvm.fshl.i32(i32 %20, i32 %20, i32 5)
+  %27 = xor i32 %25, %26
+  %28 = tail call noundef i32 @llvm.fshl.i32(i32 %25, i32 %25, i32 16)
+  %29 = add i32 %23, %22
+  %30 = tail call noundef i32 @llvm.fshl.i32(i32 %22, i32 %22, i32 8)
+  %31 = xor i32 %29, %30
+  %32 = add i32 %31, %28
+  %33 = tail call noundef i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 7)
+  %34 = xor i32 %33, %32
+  %35 = add i32 %29, %27
+  %36 = tail call noundef i32 @llvm.fshl.i32(i32 %27, i32 %27, i32 13)
+  %37 = xor i32 %35, %36
+  %38 = tail call noundef i32 @llvm.fshl.i32(i32 %35, i32 %35, i32 16)
+  %39 = icmp samesign ugt i32 %.034.i.i, 1
+  br i1 %39, label %19, label %_ZL19halfsiphash_adddataPjji.exit, !llvm.loop !6
 
-_ZL19halfsiphash_adddataPjji.exit:                ; preds = %20
+_ZL19halfsiphash_adddataPjji.exit:                ; preds = %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %41 = add nsw i32 %.01747, -2
-  %42 = xor i32 %33, %18
-  %43 = icmp sgt i32 %.01747, 3
-  br i1 %43, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
+  %40 = add nsw i32 %.01747, -2
+  %41 = xor i32 %32, %17
+  %42 = icmp sgt i32 %.01747, 3
+  br i1 %42, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %_ZL19halfsiphash_adddataPjji.exit
-  %44 = and i64 %indvars.iv.next, 4294967294
+  %43 = and i64 %indvars.iv.next, 4294967294
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.sroa.21.0.lcssa = phi i32 [ %8, %3 ], [ %35, %._crit_edge.loopexit ]
-  %.sroa.14.0.lcssa = phi i32 [ %7, %3 ], [ %39, %._crit_edge.loopexit ]
-  %.sroa.7.0.lcssa = phi i32 [ %6, %3 ], [ %38, %._crit_edge.loopexit ]
-  %.sroa.0.0.lcssa = phi i32 [ %4, %3 ], [ %42, %._crit_edge.loopexit ]
-  %.017.lcssa = phi i32 [ %2, %3 ], [ %41, %._crit_edge.loopexit ]
-  %.016.lcssa = phi i64 [ 0, %3 ], [ %44, %._crit_edge.loopexit ]
-  %45 = shl i32 %2, 25
-  %46 = icmp eq i32 %.017.lcssa, 1
-  br i1 %46, label %47, label %52
+  %.sroa.21.0.lcssa = phi i32 [ %8, %3 ], [ %34, %._crit_edge.loopexit ]
+  %.sroa.14.0.lcssa = phi i32 [ %7, %3 ], [ %38, %._crit_edge.loopexit ]
+  %.sroa.7.0.lcssa = phi i32 [ %6, %3 ], [ %37, %._crit_edge.loopexit ]
+  %.sroa.0.0.lcssa = phi i32 [ %4, %3 ], [ %41, %._crit_edge.loopexit ]
+  %.017.lcssa = phi i32 [ %2, %3 ], [ %40, %._crit_edge.loopexit ]
+  %.016.lcssa = phi i64 [ 0, %3 ], [ %43, %._crit_edge.loopexit ]
+  %44 = shl i32 %2, 25
+  %45 = icmp eq i32 %.017.lcssa, 1
+  br i1 %45, label %46, label %51
 
-47:                                               ; preds = %._crit_edge
-  %48 = getelementptr inbounds nuw i16, ptr %1, i64 %.016.lcssa
-  %49 = load i16, ptr %48, align 2
-  %50 = zext i16 %49 to i32
-  %51 = or disjoint i32 %45, %50
-  br label %52
+46:                                               ; preds = %._crit_edge
+  %47 = getelementptr inbounds nuw i16, ptr %1, i64 %.016.lcssa
+  %48 = load i16, ptr %47, align 2
+  %49 = zext i16 %48 to i32
+  %50 = or disjoint i32 %44, %49
+  br label %51
 
-52:                                               ; preds = %47, %._crit_edge
-  %.0 = phi i32 [ %51, %47 ], [ %45, %._crit_edge ]
-  %53 = xor i32 %.0, %.sroa.21.0.lcssa
-  br label %54
+51:                                               ; preds = %46, %._crit_edge
+  %.0 = phi i32 [ %50, %46 ], [ %44, %._crit_edge ]
+  %52 = xor i32 %.0, %.sroa.21.0.lcssa
+  br label %53
 
-54:                                               ; preds = %54, %52
-  %.034.i.i21 = phi i32 [ 2, %52 ], [ %59, %54 ]
-  %55 = phi i32 [ %.sroa.7.0.lcssa, %52 ], [ %72, %54 ]
-  %56 = phi i32 [ %.sroa.0.0.lcssa, %52 ], [ %67, %54 ]
-  %57 = phi i32 [ %53, %52 ], [ %69, %54 ]
-  %58 = phi i32 [ %.sroa.14.0.lcssa, %52 ], [ %73, %54 ]
-  %59 = add nsw i32 %.034.i.i21, -1
-  %60 = add i32 %56, %55
-  %61 = tail call noundef i32 @llvm.fshl.i32(i32 %55, i32 %55, i32 5)
-  %62 = xor i32 %60, %61
-  %63 = tail call noundef i32 @llvm.fshl.i32(i32 %60, i32 %60, i32 16)
-  %64 = add i32 %58, %57
-  %65 = tail call noundef i32 @llvm.fshl.i32(i32 %57, i32 %57, i32 8)
-  %66 = xor i32 %64, %65
-  %67 = add i32 %66, %63
-  %68 = tail call noundef i32 @llvm.fshl.i32(i32 %66, i32 %66, i32 7)
-  %69 = xor i32 %68, %67
-  %70 = add i32 %64, %62
-  %71 = tail call noundef i32 @llvm.fshl.i32(i32 %62, i32 %62, i32 13)
-  %72 = xor i32 %70, %71
-  %73 = tail call noundef i32 @llvm.fshl.i32(i32 %70, i32 %70, i32 16)
-  %74 = icmp samesign ugt i32 %.034.i.i21, 1
-  br i1 %74, label %54, label %_ZL19halfsiphash_adddataPjji.exit22, !llvm.loop !6
+53:                                               ; preds = %53, %51
+  %.034.i.i21 = phi i32 [ 2, %51 ], [ %58, %53 ]
+  %54 = phi i32 [ %.sroa.7.0.lcssa, %51 ], [ %71, %53 ]
+  %55 = phi i32 [ %.sroa.0.0.lcssa, %51 ], [ %66, %53 ]
+  %56 = phi i32 [ %52, %51 ], [ %68, %53 ]
+  %57 = phi i32 [ %.sroa.14.0.lcssa, %51 ], [ %72, %53 ]
+  %58 = add nsw i32 %.034.i.i21, -1
+  %59 = add i32 %55, %54
+  %60 = tail call noundef i32 @llvm.fshl.i32(i32 %54, i32 %54, i32 5)
+  %61 = xor i32 %59, %60
+  %62 = tail call noundef i32 @llvm.fshl.i32(i32 %59, i32 %59, i32 16)
+  %63 = add i32 %57, %56
+  %64 = tail call noundef i32 @llvm.fshl.i32(i32 %56, i32 %56, i32 8)
+  %65 = xor i32 %63, %64
+  %66 = add i32 %65, %62
+  %67 = tail call noundef i32 @llvm.fshl.i32(i32 %65, i32 %65, i32 7)
+  %68 = xor i32 %67, %66
+  %69 = add i32 %63, %61
+  %70 = tail call noundef i32 @llvm.fshl.i32(i32 %61, i32 %61, i32 13)
+  %71 = xor i32 %69, %70
+  %72 = tail call noundef i32 @llvm.fshl.i32(i32 %69, i32 %69, i32 16)
+  %73 = icmp samesign ugt i32 %.034.i.i21, 1
+  br i1 %73, label %53, label %_ZL19halfsiphash_adddataPjji.exit22, !llvm.loop !6
 
-_ZL19halfsiphash_adddataPjji.exit22:              ; preds = %54
-  %75 = xor i32 %67, %.0
-  %76 = xor i32 %73, 255
-  br label %77
+_ZL19halfsiphash_adddataPjji.exit22:              ; preds = %53
+  %74 = xor i32 %66, %.0
+  %75 = xor i32 %72, 255
+  br label %76
 
-77:                                               ; preds = %77, %_ZL19halfsiphash_adddataPjji.exit22
-  %.034.i.i25 = phi i32 [ 4, %_ZL19halfsiphash_adddataPjji.exit22 ], [ %82, %77 ]
-  %78 = phi i32 [ %72, %_ZL19halfsiphash_adddataPjji.exit22 ], [ %95, %77 ]
-  %79 = phi i32 [ %75, %_ZL19halfsiphash_adddataPjji.exit22 ], [ %90, %77 ]
-  %80 = phi i32 [ %69, %_ZL19halfsiphash_adddataPjji.exit22 ], [ %92, %77 ]
-  %81 = phi i32 [ %76, %_ZL19halfsiphash_adddataPjji.exit22 ], [ %96, %77 ]
-  %82 = add nsw i32 %.034.i.i25, -1
-  %83 = add i32 %79, %78
-  %84 = tail call noundef i32 @llvm.fshl.i32(i32 %78, i32 %78, i32 5)
-  %85 = xor i32 %83, %84
-  %86 = tail call noundef i32 @llvm.fshl.i32(i32 %83, i32 %83, i32 16)
-  %87 = add i32 %81, %80
-  %88 = tail call noundef i32 @llvm.fshl.i32(i32 %80, i32 %80, i32 8)
-  %89 = xor i32 %87, %88
-  %90 = add i32 %89, %86
-  %91 = tail call noundef i32 @llvm.fshl.i32(i32 %89, i32 %89, i32 7)
-  %92 = xor i32 %91, %90
-  %93 = add i32 %87, %85
-  %94 = tail call noundef i32 @llvm.fshl.i32(i32 %85, i32 %85, i32 13)
-  %95 = xor i32 %93, %94
-  %96 = tail call noundef i32 @llvm.fshl.i32(i32 %93, i32 %93, i32 16)
-  %97 = icmp samesign ugt i32 %.034.i.i25, 1
-  br i1 %97, label %77, label %_ZL20halfsiphash_finish32Pji.exit, !llvm.loop !6
+76:                                               ; preds = %76, %_ZL19halfsiphash_adddataPjji.exit22
+  %.034.i.i25 = phi i32 [ 4, %_ZL19halfsiphash_adddataPjji.exit22 ], [ %81, %76 ]
+  %77 = phi i32 [ %71, %_ZL19halfsiphash_adddataPjji.exit22 ], [ %94, %76 ]
+  %78 = phi i32 [ %74, %_ZL19halfsiphash_adddataPjji.exit22 ], [ %89, %76 ]
+  %79 = phi i32 [ %68, %_ZL19halfsiphash_adddataPjji.exit22 ], [ %91, %76 ]
+  %80 = phi i32 [ %75, %_ZL19halfsiphash_adddataPjji.exit22 ], [ %95, %76 ]
+  %81 = add nsw i32 %.034.i.i25, -1
+  %82 = add i32 %78, %77
+  %83 = tail call noundef i32 @llvm.fshl.i32(i32 %77, i32 %77, i32 5)
+  %84 = xor i32 %82, %83
+  %85 = tail call noundef i32 @llvm.fshl.i32(i32 %82, i32 %82, i32 16)
+  %86 = add i32 %80, %79
+  %87 = tail call noundef i32 @llvm.fshl.i32(i32 %79, i32 %79, i32 8)
+  %88 = xor i32 %86, %87
+  %89 = add i32 %88, %85
+  %90 = tail call noundef i32 @llvm.fshl.i32(i32 %88, i32 %88, i32 7)
+  %91 = xor i32 %90, %89
+  %92 = add i32 %86, %84
+  %93 = tail call noundef i32 @llvm.fshl.i32(i32 %84, i32 %84, i32 13)
+  %94 = xor i32 %92, %93
+  %95 = tail call noundef i32 @llvm.fshl.i32(i32 %92, i32 %92, i32 16)
+  %96 = icmp samesign ugt i32 %.034.i.i25, 1
+  br i1 %96, label %76, label %_ZL20halfsiphash_finish32Pji.exit, !llvm.loop !6
 
-_ZL20halfsiphash_finish32Pji.exit:                ; preds = %77
-  %98 = xor i32 %92, %95
-  ret i32 %98
+_ZL20halfsiphash_finish32Pji.exit:                ; preds = %76
+  %97 = xor i32 %91, %94
+  ret i32 %97
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

@@ -716,35 +716,34 @@ define hidden void @_ZN5zxing20PerspectiveTransform15transformPointsERSt6vectorI
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %23 = getelementptr inbounds nuw float, ptr %spec.select, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !35
-  %25 = or disjoint i64 %indvars.iv, 1
-  %26 = getelementptr inbounds nuw float, ptr %spec.select, i64 %25
-  %27 = load float, ptr %26, align 4, !tbaa !35
-  %28 = load float, ptr %12, align 4, !tbaa !14
-  %29 = load float, ptr %13, align 8, !tbaa !17
-  %30 = fmul float %27, %29
-  %31 = tail call float @llvm.fmuladd.f32(float %28, float %24, float %30)
-  %32 = load float, ptr %14, align 4, !tbaa !20
-  %33 = fadd float %32, %31
-  %34 = fdiv float 1.000000e+00, %33
-  %35 = load float, ptr %15, align 4, !tbaa !10
-  %36 = load float, ptr %16, align 8, !tbaa !15
-  %37 = fmul float %27, %36
-  %38 = tail call float @llvm.fmuladd.f32(float %35, float %24, float %37)
-  %39 = load float, ptr %17, align 4, !tbaa !18
-  %40 = fadd float %39, %38
-  %41 = fmul float %34, %40
-  store float %41, ptr %23, align 4, !tbaa !35
-  %42 = load float, ptr %18, align 8, !tbaa !13
-  %43 = load float, ptr %19, align 4, !tbaa !16
-  %44 = fmul float %27, %43
-  %45 = tail call float @llvm.fmuladd.f32(float %42, float %24, float %44)
-  %46 = load float, ptr %20, align 8, !tbaa !19
-  %47 = fadd float %46, %45
-  %48 = fmul float %34, %47
-  store float %48, ptr %26, align 4, !tbaa !35
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %26 = load float, ptr %25, align 4, !tbaa !35
+  %27 = load float, ptr %12, align 4, !tbaa !14
+  %28 = load float, ptr %13, align 8, !tbaa !17
+  %29 = fmul float %26, %28
+  %30 = tail call float @llvm.fmuladd.f32(float %27, float %24, float %29)
+  %31 = load float, ptr %14, align 4, !tbaa !20
+  %32 = fadd float %31, %30
+  %33 = fdiv float 1.000000e+00, %32
+  %34 = load float, ptr %15, align 4, !tbaa !10
+  %35 = load float, ptr %16, align 8, !tbaa !15
+  %36 = fmul float %26, %35
+  %37 = tail call float @llvm.fmuladd.f32(float %34, float %24, float %36)
+  %38 = load float, ptr %17, align 4, !tbaa !18
+  %39 = fadd float %38, %37
+  %40 = fmul float %33, %39
+  store float %40, ptr %23, align 4, !tbaa !35
+  %41 = load float, ptr %18, align 8, !tbaa !13
+  %42 = load float, ptr %19, align 4, !tbaa !16
+  %43 = fmul float %26, %42
+  %44 = tail call float @llvm.fmuladd.f32(float %41, float %24, float %43)
+  %45 = load float, ptr %20, align 8, !tbaa !19
+  %46 = fadd float %45, %44
+  %47 = fmul float %33, %46
+  store float %47, ptr %25, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %49 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %49, label %22, label %._crit_edge, !llvm.loop !36
+  %48 = icmp samesign ult i64 %indvars.iv.next, %21
+  br i1 %48, label %22, label %._crit_edge, !llvm.loop !36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

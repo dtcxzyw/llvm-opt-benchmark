@@ -429,23 +429,22 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %5
 
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %20, align 8
-  %34 = and i64 %28, 4294967294
-  %35 = or disjoint i64 %34, 1
-  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %35
-  %37 = load ptr, ptr %36, align 8
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %28
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = load ptr, ptr %35, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %32, %_hash.exit
-  %.012 = phi ptr [ %37, %32 ], [ null, %_hash.exit ], [ null, %23 ]
-  %38 = tail call i32 @slurm_get_log_level() #6
-  %39 = icmp sgt i32 %38, 6
-  br i1 %39, label %40, label %41
+  %.012 = phi ptr [ %36, %32 ], [ null, %_hash.exit ], [ null, %23 ]
+  %37 = tail call i32 @slurm_get_log_level() #6
+  %38 = icmp sgt i32 %37, 6
+  br i1 %38, label %39, label %40
 
-40:                                               ; preds = %.loopexit
+39:                                               ; preds = %.loopexit
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.5, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.kvs_get, ptr noundef %.012) #6
-  br label %41
+  br label %40
 
-41:                                               ; preds = %40, %.loopexit
+40:                                               ; preds = %39, %.loopexit
   ret ptr %.012
 }
 
@@ -530,7 +529,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
   store ptr %36, ptr %38, align 8
   %39 = tail call i32 @slurm_get_log_level() #6
   %40 = icmp sgt i32 %39, 4
-  br i1 %40, label %.sink.split, label %65
+  br i1 %40, label %.sink.split, label %64
 
 .loopexit:                                        ; preds = %22, %_hash.exit, %.preheader
   %41 = phi i32 [ 0, %.preheader ], [ %.pre, %_hash.exit ], [ %23, %22 ]
@@ -560,23 +559,22 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
   store ptr %52, ptr %55, align 8
   %56 = tail call ptr @slurm_xstrdup(ptr noundef %1) #6
   %57 = load ptr, ptr %21, align 8
-  %58 = or disjoint i32 %.pre-phi, 1
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %57, i64 %59
-  store ptr %56, ptr %60, align 8
-  %61 = load i32, ptr %42, align 8
-  %62 = add i32 %61, 1
-  store i32 %62, ptr %42, align 8
-  %63 = tail call i32 @slurm_get_log_level() #6
-  %64 = icmp sgt i32 %63, 6
-  br i1 %64, label %.sink.split, label %65
+  %58 = getelementptr ptr, ptr %57, i64 %54
+  %59 = getelementptr i8, ptr %58, i64 8
+  store ptr %56, ptr %59, align 8
+  %60 = load i32, ptr %42, align 8
+  %61 = add i32 %60, 1
+  store i32 %61, ptr %42, align 8
+  %62 = tail call i32 @slurm_get_log_level() #6
+  %63 = icmp sgt i32 %62, 6
+  br i1 %63, label %.sink.split, label %64
 
 .sink.split:                                      ; preds = %51, %31
   %.sink = phi i32 [ 5, %31 ], [ 7, %51 ]
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef %.sink, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.kvs_put, ptr noundef nonnull %0, ptr noundef %1) #6
-  br label %65
+  br label %64
 
-65:                                               ; preds = %.sink.split, %51, %31
+64:                                               ; preds = %.sink.split, %51, %31
   ret i32 0
 }
 
@@ -603,8 +601,8 @@ define dso_local noundef i32 @kvs_clear() local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   tail call void @slurm_xfree(ptr noundef %9) #6
   %10 = load ptr, ptr %4, align 8
-  %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %12) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %5, align 8

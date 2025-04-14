@@ -804,7 +804,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull %0) #5
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #5
-  br label %108
+  br label %106
 
 13:                                               ; preds = %3
   %14 = load ptr, ptr @j2d_cupsGetPPD, align 8
@@ -814,7 +814,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %7) #5
   %19 = icmp eq ptr %15, null
-  br i1 %19, label %108, label %20
+  br i1 %19, label %106, label %20
 
 20:                                               ; preds = %13
   %21 = load ptr, ptr @j2d_ppdOpenFile, align 8
@@ -824,19 +824,19 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
 
 24:                                               ; preds = %20
   %25 = tail call i32 @unlink(ptr noundef nonnull %15) #5
-  br label %108
+  br label %106
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr @j2d_ppdFindOption, align 8
   %28 = tail call ptr %27(ptr noundef nonnull %22, ptr noundef nonnull @.str.16) #5
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %105, label %29
+  br i1 %.not, label %103, label %29
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 176
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %105
+  br i1 %32, label %33, label %103
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %0, align 8
@@ -857,7 +857,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull %0) #5
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #5
-  br label %108
+  br label %106
 
 47:                                               ; preds = %33
   %48 = load ptr, ptr %0, align 8
@@ -886,11 +886,11 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
   %62 = load ptr, ptr %61, align 8
   tail call void %62(ptr noundef nonnull %0) #5
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.15) #5
-  br label %108
+  br label %106
 
-63:                                               ; preds = %.lr.ph, %98
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %98 ]
-  %64 = phi i32 [ %53, %.lr.ph ], [ %99, %98 ]
+63:                                               ; preds = %.lr.ph, %96
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
+  %64 = phi i32 [ %53, %.lr.ph ], [ %97, %96 ]
   %65 = load ptr, ptr %55, align 8
   %66 = getelementptr inbounds nuw %struct.ppd_choice_s, ptr %65, i64 %indvars.iv, i32 1
   %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %56) #6
@@ -910,60 +910,59 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
   %75 = load ptr, ptr @j2d_ppdPageSize, align 8
   %76 = tail call ptr %75(ptr noundef nonnull %22, ptr noundef nonnull %66) #5
   %.not86 = icmp eq ptr %76, null
-  br i1 %.not86, label %98, label %77
+  br i1 %.not86, label %96, label %77
 
 77:                                               ; preds = %74
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %79 = load float, ptr %78, align 4
-  %80 = mul nuw nsw i64 %indvars.iv, 6
-  %81 = getelementptr inbounds nuw float, ptr %51, i64 %80
-  store float %79, ptr %81, align 4
-  %82 = getelementptr inbounds nuw i8, ptr %76, i64 52
-  %83 = load float, ptr %82, align 4
-  %84 = or disjoint i64 %80, 1
-  %85 = getelementptr inbounds nuw float, ptr %51, i64 %84
-  store float %83, ptr %85, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %76, i64 56
-  %87 = load float, ptr %86, align 4
-  %88 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store float %87, ptr %88, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %76, i64 68
-  %90 = load float, ptr %89, align 4
-  %91 = getelementptr inbounds nuw i8, ptr %81, i64 12
-  store float %90, ptr %91, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %76, i64 64
-  %93 = load float, ptr %92, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  store float %93, ptr %94, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %76, i64 60
-  %96 = load float, ptr %95, align 4
-  %97 = getelementptr inbounds nuw i8, ptr %81, i64 20
-  store float %96, ptr %97, align 4
-  br label %98
+  %.idx = mul nuw nsw i64 %indvars.iv, 24
+  %80 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx
+  store float %79, ptr %80, align 4
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 52
+  %82 = load float, ptr %81, align 4
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 4
+  store float %82, ptr %83, align 4
+  %84 = getelementptr inbounds nuw i8, ptr %76, i64 56
+  %85 = load float, ptr %84, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  store float %85, ptr %86, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %76, i64 68
+  %88 = load float, ptr %87, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %80, i64 12
+  store float %88, ptr %89, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %76, i64 64
+  %91 = load float, ptr %90, align 4
+  %92 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  store float %91, ptr %92, align 4
+  %93 = getelementptr inbounds nuw i8, ptr %76, i64 60
+  %94 = load float, ptr %93, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %80, i64 20
+  store float %94, ptr %95, align 4
+  br label %96
 
-98:                                               ; preds = %74, %77
+96:                                               ; preds = %74, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = load i32, ptr %30, align 8
-  %100 = sext i32 %99 to i64
-  %101 = icmp slt i64 %indvars.iv.next, %100
-  br i1 %101, label %63, label %._crit_edge, !llvm.loop !12
+  %97 = load i32, ptr %30, align 8
+  %98 = sext i32 %97 to i64
+  %99 = icmp slt i64 %indvars.iv.next, %98
+  br i1 %99, label %63, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %98, %.preheader
-  %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1576
-  %104 = load ptr, ptr %103, align 8
-  tail call void %104(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef nonnull %51, i32 noundef 0) #5
-  br label %105
+._crit_edge:                                      ; preds = %96, %.preheader
+  %100 = load ptr, ptr %0, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1576
+  %102 = load ptr, ptr %101, align 8
+  tail call void %102(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef nonnull %51, i32 noundef 0) #5
+  br label %103
 
-105:                                              ; preds = %._crit_edge, %29, %26
+103:                                              ; preds = %._crit_edge, %29, %26
   %.074 = phi ptr [ %39, %._crit_edge ], [ null, %29 ], [ null, %26 ]
-  %106 = load ptr, ptr @j2d_ppdClose, align 8
-  tail call void %106(ptr noundef nonnull %22) #5
-  %107 = tail call i32 @unlink(ptr noundef nonnull %15) #5
-  br label %108
+  %104 = load ptr, ptr @j2d_ppdClose, align 8
+  tail call void %104(ptr noundef nonnull %22) #5
+  %105 = tail call i32 @unlink(ptr noundef nonnull %15) #5
+  br label %106
 
-108:                                              ; preds = %13, %105, %57, %41, %24, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %24 ], [ null, %41 ], [ null, %57 ], [ %.074, %105 ], [ null, %13 ]
+106:                                              ; preds = %13, %103, %57, %41, %24, %9
+  %.0 = phi ptr [ null, %9 ], [ null, %24 ], [ null, %41 ], [ null, %57 ], [ %.074, %103 ], [ null, %13 ]
   ret ptr %.0
 }
 

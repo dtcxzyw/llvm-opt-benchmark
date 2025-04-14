@@ -258,53 +258,52 @@ define internal fastcc void @blockmix_salsa8(ptr noundef readonly captures(none)
   br label %8
 
 8:                                                ; preds = %4, %blkxor.exit23
-  %.025 = phi i64 [ 0, %4 ], [ %29, %blkxor.exit23 ]
-  %9 = shl nuw nsw i64 %.025, 4
-  %10 = getelementptr i32, ptr %0, i64 %9
-  br label %11
+  %.026 = phi i64 [ 0, %4 ], [ %27, %blkxor.exit23 ]
+  %.idx24 = shl i64 %.026, 6
+  %9 = getelementptr i8, ptr %0, i64 %.idx24
+  br label %10
 
-11:                                               ; preds = %11, %8
-  %.06.i = phi i64 [ 0, %8 ], [ %17, %11 ]
-  %12 = getelementptr i32, ptr %10, i64 %.06.i
-  %13 = load i32, ptr %12, align 4
-  %14 = getelementptr i32, ptr %2, i64 %.06.i
-  %15 = load i32, ptr %14, align 4
-  %16 = xor i32 %15, %13
-  store i32 %16, ptr %14, align 4
-  %17 = add nuw nsw i64 %.06.i, 1
-  %exitcond.not.i = icmp eq i64 %17, 16
-  br i1 %exitcond.not.i, label %blkxor.exit, label %11, !llvm.loop !7
+10:                                               ; preds = %10, %8
+  %.06.i = phi i64 [ 0, %8 ], [ %16, %10 ]
+  %11 = getelementptr i32, ptr %9, i64 %.06.i
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr i32, ptr %2, i64 %.06.i
+  %14 = load i32, ptr %13, align 4
+  %15 = xor i32 %14, %12
+  store i32 %15, ptr %13, align 4
+  %16 = add nuw nsw i64 %.06.i, 1
+  %exitcond.not.i = icmp eq i64 %16, 16
+  br i1 %exitcond.not.i, label %blkxor.exit, label %10, !llvm.loop !7
 
-blkxor.exit:                                      ; preds = %11
+blkxor.exit:                                      ; preds = %10
   tail call fastcc void @salsa20_8(ptr noundef nonnull %2)
-  %.idx24 = shl i64 %.025, 5
-  %18 = getelementptr i8, ptr %1, i64 %.idx24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %18, ptr noundef nonnull readonly align 1 dereferenceable(64) %2, i64 noundef range(i64 4, 549755813761) 64, i1 noundef false) #9
-  %19 = or disjoint i64 %9, 16
-  %20 = getelementptr i32, ptr %0, i64 %19
-  br label %21
+  %.idx25 = shl i64 %.026, 5
+  %17 = getelementptr i8, ptr %1, i64 %.idx25
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %17, ptr noundef nonnull readonly align 1 dereferenceable(64) %2, i64 noundef range(i64 4, 549755813761) 64, i1 noundef false) #9
+  %18 = getelementptr i8, ptr %9, i64 64
+  br label %19
 
-21:                                               ; preds = %21, %blkxor.exit
-  %.06.i21 = phi i64 [ 0, %blkxor.exit ], [ %27, %21 ]
-  %22 = getelementptr i32, ptr %20, i64 %.06.i21
+19:                                               ; preds = %19, %blkxor.exit
+  %.06.i21 = phi i64 [ 0, %blkxor.exit ], [ %25, %19 ]
+  %20 = getelementptr i32, ptr %18, i64 %.06.i21
+  %21 = load i32, ptr %20, align 4
+  %22 = getelementptr i32, ptr %2, i64 %.06.i21
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr i32, ptr %2, i64 %.06.i21
-  %25 = load i32, ptr %24, align 4
-  %26 = xor i32 %25, %23
-  store i32 %26, ptr %24, align 4
-  %27 = add nuw nsw i64 %.06.i21, 1
-  %exitcond.not.i22 = icmp eq i64 %27, 16
-  br i1 %exitcond.not.i22, label %blkxor.exit23, label %21, !llvm.loop !7
+  %24 = xor i32 %23, %21
+  store i32 %24, ptr %22, align 4
+  %25 = add nuw nsw i64 %.06.i21, 1
+  %exitcond.not.i22 = icmp eq i64 %25, 16
+  br i1 %exitcond.not.i22, label %blkxor.exit23, label %19, !llvm.loop !7
 
-blkxor.exit23:                                    ; preds = %21
+blkxor.exit23:                                    ; preds = %19
   tail call fastcc void @salsa20_8(ptr noundef nonnull %2)
-  %28 = getelementptr i8, ptr %18, i64 %.idx20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %28, ptr noundef nonnull readonly align 1 dereferenceable(64) %2, i64 noundef range(i64 4, 549755813761) 64, i1 noundef false) #9
-  %29 = add nuw nsw i64 %.025, 2
-  %30 = icmp samesign ult i64 %29, %5
-  br i1 %30, label %8, label %31, !llvm.loop !11
+  %26 = getelementptr i8, ptr %17, i64 %.idx20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %26, ptr noundef nonnull readonly align 1 dereferenceable(64) %2, i64 noundef range(i64 4, 549755813761) 64, i1 noundef false) #9
+  %27 = add nuw nsw i64 %.026, 2
+  %28 = icmp samesign ult i64 %27, %5
+  br i1 %28, label %8, label %29, !llvm.loop !11
 
-31:                                               ; preds = %blkxor.exit23
+29:                                               ; preds = %blkxor.exit23
   ret void
 }
 

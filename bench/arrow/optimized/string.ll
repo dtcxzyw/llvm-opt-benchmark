@@ -81,7 +81,7 @@ define void @_ZN5arrow9HexEncodeB5cxx11EPKhm(ptr dead_on_unwind noalias nonnull 
   br i1 %.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit._crit_edge, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; preds = %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit
-  %.014 = phi i64 [ %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ 0, %3 ]
+  %.014 = phi i64 [ %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ 0, %3 ]
   %.01213 = phi i64 [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit ], [ 0, %3 ]
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.01213
   %7 = load i8, ptr %6, align 1, !tbaa !9
@@ -89,19 +89,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %9 = zext nneg i8 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr @.str, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !9
-  %12 = or disjoint i64 %.014, 1
-  %13 = load ptr, ptr %0, align 8, !tbaa !10
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.014
-  store i8 %11, ptr %14, align 1, !tbaa !9
-  %15 = load i8, ptr %6, align 1, !tbaa !9
-  %16 = and i8 %15, 15
-  %17 = zext nneg i8 %16 to i64
-  %18 = getelementptr inbounds nuw i8, ptr @.str, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !9
-  %20 = add i64 %.014, 2
-  %21 = load ptr, ptr %0, align 8, !tbaa !10
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %12
-  store i8 %19, ptr %22, align 1, !tbaa !9
+  %12 = load ptr, ptr %0, align 8, !tbaa !10
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.014
+  store i8 %11, ptr %13, align 1, !tbaa !9
+  %14 = load i8, ptr %6, align 1, !tbaa !9
+  %15 = and i8 %14, 15
+  %16 = zext nneg i8 %15 to i64
+  %17 = getelementptr inbounds nuw i8, ptr @.str, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !9
+  %19 = add i64 %.014, 2
+  %20 = load ptr, ptr %0, align 8, !tbaa !10
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.014
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  store i8 %18, ptr %22, align 1, !tbaa !9
   %23 = add nuw i64 %.01213, 1
   %exitcond.not = icmp eq i64 %23, %2
   br i1 %exitcond.not, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit._crit_edge, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit, !llvm.loop !13
@@ -275,7 +275,7 @@ define void @_ZN5arrow9HexEncodeB5cxx11EPKcm(ptr dead_on_unwind noalias nonnull 
   br i1 %.not.i, label %_ZN5arrow9HexEncodeB5cxx11EPKhm.exit, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; preds = %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i
-  %.014.i = phi i64 [ %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i ], [ 0, %3 ]
+  %.014.i = phi i64 [ %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i ], [ 0, %3 ]
   %.01213.i = phi i64 [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i ], [ 0, %3 ]
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.01213.i
   %7 = load i8, ptr %6, align 1, !tbaa !9, !noalias !17
@@ -283,19 +283,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i: ; p
   %9 = zext nneg i8 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr @.str, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !9, !noalias !17
-  %12 = or disjoint i64 %.014.i, 1
-  %13 = load ptr, ptr %0, align 8, !tbaa !10, !alias.scope !17
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.014.i
-  store i8 %11, ptr %14, align 1, !tbaa !9
-  %15 = load i8, ptr %6, align 1, !tbaa !9, !noalias !17
-  %16 = and i8 %15, 15
-  %17 = zext nneg i8 %16 to i64
-  %18 = getelementptr inbounds nuw i8, ptr @.str, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !9, !noalias !17
-  %20 = add i64 %.014.i, 2
-  %21 = load ptr, ptr %0, align 8, !tbaa !10, !alias.scope !17
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %12
-  store i8 %19, ptr %22, align 1, !tbaa !9
+  %12 = load ptr, ptr %0, align 8, !tbaa !10, !alias.scope !17
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.014.i
+  store i8 %11, ptr %13, align 1, !tbaa !9
+  %14 = load i8, ptr %6, align 1, !tbaa !9, !noalias !17
+  %15 = and i8 %14, 15
+  %16 = zext nneg i8 %15 to i64
+  %17 = getelementptr inbounds nuw i8, ptr @.str, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !9, !noalias !17
+  %19 = add i64 %.014.i, 2
+  %20 = load ptr, ptr %0, align 8, !tbaa !10, !alias.scope !17
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.014.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  store i8 %18, ptr %22, align 1, !tbaa !9
   %23 = add nuw i64 %.01213.i, 1
   %exitcond.not.i = icmp eq i64 %23, %2
   br i1 %exitcond.not.i, label %_ZN5arrow9HexEncodeB5cxx11EPKhm.exit, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i, !llvm.loop !13
@@ -316,7 +316,7 @@ define void @_ZN5arrow9HexEncodeB5cxx11ESt17basic_string_viewIcSt11char_traitsIc
   br i1 %.not.i.i, label %_ZN5arrow9HexEncodeB5cxx11EPKcm.exit, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i: ; preds = %3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i
-  %.014.i.i = phi i64 [ %20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i ], [ 0, %3 ]
+  %.014.i.i = phi i64 [ %19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i ], [ 0, %3 ]
   %.01213.i.i = phi i64 [ %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i ], [ 0, %3 ]
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 %.01213.i.i
   %7 = load i8, ptr %6, align 1, !tbaa !9, !noalias !26
@@ -324,19 +324,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i: ;
   %9 = zext nneg i8 %8 to i64
   %10 = getelementptr inbounds nuw i8, ptr @.str, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !9, !noalias !26
-  %12 = or disjoint i64 %.014.i.i, 1
-  %13 = load ptr, ptr %0, align 8, !tbaa !10, !alias.scope !26
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.014.i.i
-  store i8 %11, ptr %14, align 1, !tbaa !9
-  %15 = load i8, ptr %6, align 1, !tbaa !9, !noalias !26
-  %16 = and i8 %15, 15
-  %17 = zext nneg i8 %16 to i64
-  %18 = getelementptr inbounds nuw i8, ptr @.str, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !9, !noalias !26
-  %20 = add i64 %.014.i.i, 2
-  %21 = load ptr, ptr %0, align 8, !tbaa !10, !alias.scope !26
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %12
-  store i8 %19, ptr %22, align 1, !tbaa !9
+  %12 = load ptr, ptr %0, align 8, !tbaa !10, !alias.scope !26
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.014.i.i
+  store i8 %11, ptr %13, align 1, !tbaa !9
+  %14 = load i8, ptr %6, align 1, !tbaa !9, !noalias !26
+  %15 = and i8 %14, 15
+  %16 = zext nneg i8 %15 to i64
+  %17 = getelementptr inbounds nuw i8, ptr @.str, i64 %16
+  %18 = load i8, ptr %17, align 1, !tbaa !9, !noalias !26
+  %19 = add i64 %.014.i.i, 2
+  %20 = load ptr, ptr %0, align 8, !tbaa !10, !alias.scope !26
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.014.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  store i8 %18, ptr %22, align 1, !tbaa !9
   %23 = add nuw i64 %.01213.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %23, %1
   br i1 %exitcond.not.i.i, label %_ZN5arrow9HexEncodeB5cxx11EPKcm.exit, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i.i, !llvm.loop !13

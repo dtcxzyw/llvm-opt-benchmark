@@ -11,7 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl" }
 %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<QuantLib::MarketModelMultiProduct::CashFlow, std::allocator<QuantLib::MarketModelMultiProduct::CashFlow>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.QuantLib::MarketModelMultiProduct::CashFlow" = type { i64, double }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -491,20 +490,19 @@ for.body11:                                       ; preds = %for.body, %for.body
   %i.037 = phi i64 [ 0, %for.body ], [ %inc, %for.body11 ]
   %add.ptr.i = getelementptr inbounds nuw %"class.std::vector.15", ptr %10, i64 %i.037
   %sub = sub nuw i64 %indexOfTime.039, %i.037
-  %mul = shl i64 %sub, 1
   %16 = load ptr, ptr %add.ptr.i, align 8, !tbaa !42
-  %add.ptr.i27 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %16, i64 %mul
+  %add.ptr.i27.idx = shl i64 %sub, 5
+  %add.ptr.i27 = getelementptr inbounds nuw i8, ptr %16, i64 %add.ptr.i27.idx
   store i64 %indexOfTime.039, ptr %add.ptr.i27, align 8, !tbaa !44
   %17 = load double, ptr %add.ptr.i28, align 8, !tbaa !46
   %mul15 = fmul double %17, %fneg
   %amount = getelementptr inbounds nuw i8, ptr %add.ptr.i27, i64 8
   store double %mul15, ptr %amount, align 8, !tbaa !47
-  %add = or disjoint i64 %mul, 1
-  %add.ptr.i32 = getelementptr inbounds nuw %"struct.QuantLib::MarketModelMultiProduct::CashFlow", ptr %16, i64 %add
+  %add.ptr.i32 = getelementptr inbounds nuw i8, ptr %add.ptr.i27, i64 16
   store i64 %indexOfTime.039, ptr %add.ptr.i32, align 8, !tbaa !44
   %18 = load double, ptr %add.ptr.i33, align 8, !tbaa !46
   %mul26 = fmul double %call7, %18
-  %amount32 = getelementptr inbounds nuw i8, ptr %add.ptr.i32, i64 8
+  %amount32 = getelementptr inbounds nuw i8, ptr %add.ptr.i27, i64 24
   store double %mul26, ptr %amount32, align 8, !tbaa !47
   %add.ptr.i36 = getelementptr inbounds nuw i64, ptr %14, i64 %i.037
   %19 = load i64, ptr %add.ptr.i36, align 8, !tbaa !37

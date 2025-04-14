@@ -2666,6 +2666,10 @@ define internal fastcc void @_ZN6duckdbL19WriteParquetDecimalENS_9hugeint_tEPh(i
   %22 = phi i64 [ %.pre, %._crit_edge ], [ %19, %11 ]
   br label %23
 
+.preheader:                                       ; preds = %23
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %31
+
 23:                                               ; preds = %20, %23
   %.017 = phi i64 [ 0, %20 ], [ %29, %23 ]
   %24 = shl nuw nsw i64 %.017, 3
@@ -2678,29 +2682,28 @@ define internal fastcc void @_ZN6duckdbL19WriteParquetDecimalENS_9hugeint_tEPh(i
   %exitcond.not = icmp eq i64 %29, 8
   br i1 %exitcond.not, label %.preheader, label %23, !llvm.loop !132
 
-30:                                               ; preds = %.preheader
-  br i1 %10, label %41, label %38
+30:                                               ; preds = %31
+  br i1 %10, label %40, label %37
 
-.preheader:                                       ; preds = %23, %.preheader
-  %.01618 = phi i64 [ %37, %.preheader ], [ 0, %23 ]
-  %31 = shl nuw nsw i64 %.01618, 3
-  %32 = sub nuw nsw i64 56, %31
-  %33 = lshr i64 %21, %32
-  %34 = trunc i64 %33 to i8
-  %35 = or disjoint i64 %.01618, 8
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %35
-  store i8 %34, ptr %36, align 1, !tbaa !115
-  %37 = add nuw nsw i64 %.01618, 1
-  %exitcond19.not = icmp eq i64 %37, 8
-  br i1 %exitcond19.not, label %30, label %.preheader, !llvm.loop !133
+31:                                               ; preds = %.preheader, %31
+  %.01618 = phi i64 [ 0, %.preheader ], [ %36, %31 ]
+  %32 = shl nuw nsw i64 %.01618, 3
+  %33 = sub nuw nsw i64 56, %32
+  %34 = lshr i64 %21, %33
+  %35 = trunc i64 %34 to i8
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.01618
+  store i8 %35, ptr %gep, align 1, !tbaa !115
+  %36 = add nuw nsw i64 %.01618, 1
+  %exitcond19.not = icmp eq i64 %36, 8
+  br i1 %exitcond19.not, label %30, label %31, !llvm.loop !133
 
-38:                                               ; preds = %30
-  %39 = load i8, ptr %2, align 1, !tbaa !115
-  %40 = or i8 %39, -128
-  store i8 %40, ptr %2, align 1, !tbaa !115
-  br label %41
+37:                                               ; preds = %30
+  %38 = load i8, ptr %2, align 1, !tbaa !115
+  %39 = or i8 %38, -128
+  store i8 %39, ptr %2, align 1, !tbaa !115
+  br label %40
 
-41:                                               ; preds = %38, %30
+40:                                               ; preds = %37, %30
   ret void
 }
 

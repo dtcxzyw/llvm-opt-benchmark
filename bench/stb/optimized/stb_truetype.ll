@@ -4660,9 +4660,9 @@ stbtt__GetGlyfOffset.exit:                        ; preds = %83
   %119 = zext i8 %103 to i64
   %120 = shl nuw nsw i64 %119, 8
   %121 = zext i8 %105 to i64
-  %122 = or disjoint i64 %120, %121
-  %123 = getelementptr inbounds nuw i8, ptr %102, i64 2
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %122
+  %122 = getelementptr inbounds nuw i8, ptr %102, i64 2
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 %120
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %121
   %125 = zext i16 %99 to i64
   %126 = or disjoint i32 %109, %112
   %127 = add nuw nsw i32 %126, 1
@@ -9017,8 +9017,8 @@ define range(i32 -32768, 32768) i32 @stbtt__GetGlyphGPOSInfoAdvance(ptr noundef 
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 9
   %33 = load i8, ptr %32, align 1, !tbaa !12
   %34 = zext i8 %33 to i64
-  %35 = or disjoint i64 %31, %34
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %35
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 %31
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %34
   %37 = load i8, ptr %36, align 1, !tbaa !12
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 8
@@ -9044,8 +9044,8 @@ define range(i32 -32768, 32768) i32 @stbtt__GetGlyphGPOSInfoAdvance(ptr noundef 
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %52 = load i8, ptr %51, align 1, !tbaa !12
   %53 = zext i8 %52 to i64
-  %54 = or disjoint i64 %50, %53
-  %55 = getelementptr inbounds nuw i8, ptr %36, i64 %54
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 %50
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %53
   %56 = load i8, ptr %55, align 1, !tbaa !12
   %57 = zext i8 %56 to i16
   %58 = shl nuw i16 %57, 8
@@ -9082,8 +9082,8 @@ define range(i32 -32768, 32768) i32 @stbtt__GetGlyphGPOSInfoAdvance(ptr noundef 
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 1
   %80 = load i8, ptr %79, align 1, !tbaa !12
   %81 = zext i8 %80 to i64
-  %82 = or disjoint i64 %78, %81
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 %82
+  %82 = getelementptr inbounds nuw i8, ptr %55, i64 %78
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %81
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 2
   %85 = load i8, ptr %84, align 1, !tbaa !12
   %86 = zext i8 %85 to i64
@@ -9091,8 +9091,8 @@ define range(i32 -32768, 32768) i32 @stbtt__GetGlyphGPOSInfoAdvance(ptr noundef 
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 3
   %89 = load i8, ptr %88, align 1, !tbaa !12
   %90 = zext i8 %89 to i64
-  %91 = or disjoint i64 %87, %90
-  %92 = getelementptr inbounds nuw i8, ptr %83, i64 %91
+  %91 = getelementptr inbounds nuw i8, ptr %83, i64 %87
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %90
   %93 = tail call i32 @stbtt__GetCoverageIndex(ptr noundef nonnull %92, i32 noundef %1)
   %94 = icmp eq i32 %93, -1
   br i1 %94, label %.loopexit, label %95
@@ -9151,8 +9151,8 @@ define range(i32 -32768, 32768) i32 @stbtt__GetGlyphGPOSInfoAdvance(ptr noundef 
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 1
   %139 = load i8, ptr %138, align 1, !tbaa !12
   %140 = zext i8 %139 to i64
-  %141 = or disjoint i64 %137, %140
-  %142 = getelementptr inbounds nuw i8, ptr %83, i64 %141
+  %141 = getelementptr inbounds nuw i8, ptr %83, i64 %137
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 %140
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 2
   %.not133 = icmp slt i32 %93, %130
   br i1 %.not133, label %144, label %.thread141
@@ -9250,18 +9250,18 @@ define range(i32 -32768, 32768) i32 @stbtt__GetGlyphGPOSInfoAdvance(ptr noundef 
   %206 = getelementptr inbounds nuw i8, ptr %83, i64 9
   %207 = load i8, ptr %206, align 1, !tbaa !12
   %208 = zext i8 %207 to i64
-  %209 = or disjoint i64 %205, %208
-  %210 = getelementptr inbounds nuw i8, ptr %83, i64 10
-  %211 = load i8, ptr %210, align 1, !tbaa !12
-  %212 = zext i8 %211 to i64
-  %213 = shl nuw nsw i64 %212, 8
-  %214 = getelementptr inbounds nuw i8, ptr %83, i64 11
-  %215 = load i8, ptr %214, align 1, !tbaa !12
-  %216 = zext i8 %215 to i64
-  %217 = or disjoint i64 %213, %216
-  %218 = getelementptr inbounds nuw i8, ptr %83, i64 %209
-  %219 = tail call i32 @stbtt__GetGlyphClass(ptr noundef nonnull %218, i32 noundef %1)
-  %220 = getelementptr inbounds nuw i8, ptr %83, i64 %217
+  %209 = getelementptr inbounds nuw i8, ptr %83, i64 10
+  %210 = load i8, ptr %209, align 1, !tbaa !12
+  %211 = zext i8 %210 to i64
+  %212 = shl nuw nsw i64 %211, 8
+  %213 = getelementptr inbounds nuw i8, ptr %83, i64 11
+  %214 = load i8, ptr %213, align 1, !tbaa !12
+  %215 = zext i8 %214 to i64
+  %216 = getelementptr inbounds nuw i8, ptr %83, i64 %205
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 %208
+  %218 = tail call i32 @stbtt__GetGlyphClass(ptr noundef nonnull %217, i32 noundef %1)
+  %219 = getelementptr inbounds nuw i8, ptr %83, i64 %212
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 %215
   %221 = tail call i32 @stbtt__GetGlyphClass(ptr noundef nonnull %220, i32 noundef %2)
   %222 = getelementptr inbounds nuw i8, ptr %83, i64 12
   %223 = load i8, ptr %222, align 1, !tbaa !12
@@ -9271,8 +9271,8 @@ define range(i32 -32768, 32768) i32 @stbtt__GetGlyphGPOSInfoAdvance(ptr noundef 
   %227 = load i8, ptr %226, align 1, !tbaa !12
   %228 = zext i8 %227 to i32
   %229 = or disjoint i32 %225, %228
-  %230 = icmp slt i32 %219, 0
-  %.not131 = icmp sge i32 %219, %229
+  %230 = icmp slt i32 %218, 0
+  %.not131 = icmp sge i32 %218, %229
   %or.cond135.not156 = select i1 %230, i1 true, i1 %.not131
   %231 = icmp slt i32 %221, 0
   %or.cond136 = select i1 %or.cond135.not156, i1 true, i1 %231
@@ -9292,7 +9292,7 @@ define range(i32 -32768, 32768) i32 @stbtt__GetGlyphGPOSInfoAdvance(ptr noundef 
 
 241:                                              ; preds = %232
   %242 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %243 = shl nuw nsw i32 %219, 1
+  %243 = shl nuw nsw i32 %218, 1
   %244 = mul i32 %243, %240
   %245 = zext nneg i32 %244 to i64
   %246 = getelementptr inbounds nuw i8, ptr %242, i64 %245
@@ -10125,17 +10125,17 @@ define i32 @stbtt_GetGlyphSVG(ptr noundef captures(none) %0, i32 noundef %1, ptr
   %20 = load i8, ptr %19, align 1, !tbaa !12
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 16
-  %23 = or disjoint i64 %22, %18
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 6
-  %25 = load i8, ptr %24, align 1, !tbaa !12
-  %26 = zext i8 %25 to i64
-  %27 = shl nuw nsw i64 %26, 8
-  %28 = or disjoint i64 %23, %27
-  %29 = getelementptr inbounds nuw i8, ptr %10, i64 7
-  %30 = load i8, ptr %29, align 1, !tbaa !12
-  %31 = zext i8 %30 to i64
-  %32 = or disjoint i64 %28, %31
-  %33 = getelementptr inbounds nuw i8, ptr %14, i64 %32
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 6
+  %24 = load i8, ptr %23, align 1, !tbaa !12
+  %25 = zext i8 %24 to i64
+  %26 = shl nuw nsw i64 %25, 8
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 7
+  %28 = load i8, ptr %27, align 1, !tbaa !12
+  %29 = zext i8 %28 to i64
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 %22
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %18
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %26
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %29
   store ptr %33, ptr %2, align 8, !tbaa !20
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %35 = load i8, ptr %34, align 1, !tbaa !12
@@ -10189,17 +10189,17 @@ define i32 @stbtt_GetCodepointSVG(ptr noundef captures(none) %0, i32 noundef %1,
   %21 = load i8, ptr %20, align 1, !tbaa !12
   %22 = zext i8 %21 to i64
   %23 = shl nuw nsw i64 %22, 16
-  %24 = or disjoint i64 %23, %19
-  %25 = getelementptr inbounds nuw i8, ptr %11, i64 6
-  %26 = load i8, ptr %25, align 1, !tbaa !12
-  %27 = zext i8 %26 to i64
-  %28 = shl nuw nsw i64 %27, 8
-  %29 = or disjoint i64 %24, %28
-  %30 = getelementptr inbounds nuw i8, ptr %11, i64 7
-  %31 = load i8, ptr %30, align 1, !tbaa !12
-  %32 = zext i8 %31 to i64
-  %33 = or disjoint i64 %29, %32
-  %34 = getelementptr inbounds nuw i8, ptr %15, i64 %33
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 6
+  %25 = load i8, ptr %24, align 1, !tbaa !12
+  %26 = zext i8 %25 to i64
+  %27 = shl nuw nsw i64 %26, 8
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 7
+  %29 = load i8, ptr %28, align 1, !tbaa !12
+  %30 = zext i8 %29 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 %23
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %19
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %27
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %30
   store ptr %34, ptr %2, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %36 = load i8, ptr %35, align 1, !tbaa !12
@@ -18714,8 +18714,8 @@ stbtt__find_table.exit:                           ; preds = %37
   %140 = getelementptr inbounds nuw i8, ptr %86, i64 11
   %141 = load i8, ptr %140, align 1, !tbaa !12
   %142 = zext i8 %141 to i64
-  %143 = or disjoint i64 %139, %142
-  %144 = getelementptr inbounds nuw i8, ptr %135, i64 %143
+  %143 = getelementptr inbounds nuw i8, ptr %135, i64 %139
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 %142
   br label %stbtt__find_table.exit.thread
 
 145:                                              ; preds = %115, %105, %95, %81
@@ -18828,8 +18828,8 @@ define range(i32 0, 2) i32 @stbtt__matchpair(ptr noundef readonly captures(none)
   %88 = getelementptr inbounds nuw i8, ptr %35, i64 11
   %89 = load i8, ptr %88, align 1, !tbaa !12
   %90 = zext i8 %89 to i64
-  %91 = or disjoint i64 %87, %90
-  %92 = getelementptr inbounds nuw i8, ptr %28, i64 %91
+  %91 = getelementptr inbounds nuw i8, ptr %28, i64 %87
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %90
   %93 = tail call i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef %2, i32 noundef %3, ptr noundef %92, i32 noundef %83)
   %94 = icmp sgt i32 %93, -1
   br i1 %94, label %95, label %.critedge92
@@ -18904,46 +18904,46 @@ define range(i32 0, 2) i32 @stbtt__matchpair(ptr noundef readonly captures(none)
   %152 = getelementptr inbounds nuw i8, ptr %35, i64 23
   %153 = load i8, ptr %152, align 1, !tbaa !12
   %154 = zext i8 %153 to i64
-  %155 = or disjoint i64 %151, %154
-  %156 = icmp eq i16 %146, 0
-  br i1 %156, label %157, label %159
+  %155 = icmp eq i16 %146, 0
+  br i1 %155, label %156, label %158
 
-157:                                              ; preds = %138
-  %158 = icmp eq i32 %93, %3
-  br i1 %158, label %.critedge91, label %.critedge92
+156:                                              ; preds = %138
+  %157 = icmp eq i32 %93, %3
+  br i1 %157, label %.critedge91, label %.critedge92
 
-159:                                              ; preds = %138
-  %160 = icmp slt i32 %93, %3
-  br i1 %160, label %161, label %.critedge92
+158:                                              ; preds = %138
+  %159 = icmp slt i32 %93, %3
+  br i1 %159, label %160, label %.critedge92
 
-161:                                              ; preds = %159
-  %162 = zext nneg i32 %93 to i64
-  %163 = getelementptr inbounds nuw i8, ptr %2, i64 %162
-  %164 = load i8, ptr %163, align 1, !tbaa !12
-  %165 = icmp eq i8 %164, 32
-  br i1 %165, label %166, label %.critedge92
+160:                                              ; preds = %158
+  %161 = zext nneg i32 %93 to i64
+  %162 = getelementptr inbounds nuw i8, ptr %2, i64 %161
+  %163 = load i8, ptr %162, align 1, !tbaa !12
+  %164 = icmp eq i8 %163, 32
+  br i1 %164, label %165, label %.critedge92
 
-166:                                              ; preds = %161
-  %167 = add nuw nsw i32 %93, 1
-  %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds nuw i8, ptr %2, i64 %168
-  %170 = sub nsw i32 %3, %167
-  %171 = getelementptr inbounds nuw i8, ptr %28, i64 %155
-  %172 = tail call i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef nonnull readonly %169, i32 noundef %170, ptr noundef readonly %171, i32 noundef %147)
-  %.not = icmp eq i32 %170, %172
+165:                                              ; preds = %160
+  %166 = add nuw nsw i32 %93, 1
+  %167 = zext nneg i32 %166 to i64
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 %167
+  %169 = sub nsw i32 %3, %166
+  %170 = getelementptr inbounds nuw i8, ptr %28, i64 %151
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 %154
+  %172 = tail call i32 @stbtt__CompareUTF8toUTF16_bigendian_prefix(ptr noundef nonnull readonly %168, i32 noundef %169, ptr noundef readonly %171, i32 noundef %147)
+  %.not = icmp eq i32 %169, %172
   br i1 %.not, label %.critedge91, label %.critedge92
 
 173:                                              ; preds = %128, %118, %108, %98, %95
   %174 = icmp eq i32 %93, %3
   br i1 %174, label %.critedge91, label %.critedge92
 
-.critedge92:                                      ; preds = %75, %173, %157, %166, %161, %159, %30, %70
+.critedge92:                                      ; preds = %75, %173, %156, %165, %160, %158, %30, %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %29
   br i1 %exitcond.not, label %.critedge91, label %30, !llvm.loop !237
 
-.critedge91:                                      ; preds = %173, %166, %157, %.critedge92, %6
-  %.6 = phi i32 [ 0, %6 ], [ 0, %.critedge92 ], [ 1, %157 ], [ 1, %166 ], [ 1, %173 ]
+.critedge91:                                      ; preds = %173, %165, %156, %.critedge92, %6
+  %.6 = phi i32 [ 0, %6 ], [ 0, %.critedge92 ], [ 1, %156 ], [ 1, %165 ], [ 1, %173 ]
   ret i32 %.6
 }
 

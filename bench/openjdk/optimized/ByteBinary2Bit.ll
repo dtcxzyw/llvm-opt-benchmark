@@ -962,11 +962,11 @@ define hidden void @ByteBinary2BitDrawGlyphListAA(ptr noundef readonly captures(
   %125 = lshr i8 %112, 3
   %126 = zext nneg i8 %125 to i64
   %127 = shl nuw nsw i64 %126, 5
-  %128 = or disjoint i64 %127, %124
-  %129 = lshr i8 %118, 3
-  %130 = zext nneg i8 %129 to i64
-  %131 = or disjoint i64 %128, %130
-  %132 = getelementptr inbounds nuw i8, ptr %15, i64 %131
+  %128 = lshr i8 %118, 3
+  %129 = zext nneg i8 %128 to i64
+  %130 = getelementptr inbounds nuw i8, ptr %15, i64 %124
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %127
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 %129
   %133 = load i8, ptr %132, align 1
   %134 = zext i8 %133 to i32
   %135 = shl nuw nsw i32 %134, %.1125

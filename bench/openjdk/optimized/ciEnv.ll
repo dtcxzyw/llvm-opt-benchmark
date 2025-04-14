@@ -6087,7 +6087,7 @@ define hidden void @_ZN5ciEnv21process_invokedynamicERK18constantPoolHandleiP10J
   %18 = load volatile ptr, ptr %17, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !7
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %129, label %19
+  br i1 %.not, label %121, label %19
 
 19:                                               ; preds = %4
   %20 = load volatile ptr, ptr %17, align 8
@@ -6210,68 +6210,60 @@ _ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit: ; preds = %19, %_ZN5ci
   %88 = and i32 %87, 131070
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %90 = zext nneg i32 %88 to i64
-  %91 = getelementptr inbounds nuw i16, ptr %89, i64 %90
-  %92 = load i16, ptr %91, align 2
-  %93 = or disjoint i32 %88, 1
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i16, ptr %89, i64 %94
-  %96 = load i16, ptr %95, align 2
-  %97 = zext i16 %96 to i32
-  %98 = shl nuw i32 %97, 16
-  %99 = zext i16 %92 to i32
-  %100 = or disjoint i32 %98, %99
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i16, ptr %89, i64 %101
-  %103 = load i16, ptr %102, align 2
-  %104 = zext i16 %103 to i32
+  %91 = getelementptr i16, ptr %89, i64 %90
+  %92 = load i32, ptr %91, align 2
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr inbounds i16, ptr %89, i64 %93
+  %95 = load i16, ptr %94, align 2
+  %96 = zext i16 %95 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %76, ptr %5, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %3, ptr %105, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %3, i64 816
-  %107 = load ptr, ptr %106, align 8
-  %108 = load i32, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  %110 = load i32, ptr %109, align 4
-  %111 = icmp eq i32 %108, %110
-  br i1 %111, label %112, label %_ZN12ConstantPool35resolve_possibly_cached_constant_atEiP10JavaThread.exit
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %3, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 816
+  %99 = load ptr, ptr %98, align 8
+  %100 = load i32, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 4
+  %102 = load i32, ptr %101, align 4
+  %103 = icmp eq i32 %100, %102
+  br i1 %103, label %104, label %_ZN12ConstantPool35resolve_possibly_cached_constant_atEiP10JavaThread.exit
 
-112:                                              ; preds = %_ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit
-  %113 = add nsw i32 %108, 1
-  %114 = icmp sgt i32 %108, -1
-  %115 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %113)
-  %116 = icmp samesign ult i32 %115, 2
-  %or.cond.i.i.i.i.i.i.i = select i1 %114, i1 %116, i1 false
-  %117 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
-  %118 = sub nuw nsw i32 32, %117
-  %119 = shl nuw i32 1, %118
-  %.0.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i32 %113, i32 %119
-  call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %107, i32 noundef %.0.i.i.i.i.i.i.i)
-  %.pre.i.i.i.i = load i32, ptr %107, align 8
+104:                                              ; preds = %_ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit
+  %105 = add nsw i32 %100, 1
+  %106 = icmp sgt i32 %100, -1
+  %107 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %105)
+  %108 = icmp samesign ult i32 %107, 2
+  %or.cond.i.i.i.i.i.i.i = select i1 %106, i1 %108, i1 false
+  %109 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %105, i1 true)
+  %110 = sub nuw nsw i32 32, %109
+  %111 = shl nuw i32 1, %110
+  %.0.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i32 %105, i32 %111
+  call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %99, i32 noundef %.0.i.i.i.i.i.i.i)
+  %.pre.i.i.i.i = load i32, ptr %99, align 8
   br label %_ZN12ConstantPool35resolve_possibly_cached_constant_atEiP10JavaThread.exit
 
-_ZN12ConstantPool35resolve_possibly_cached_constant_atEiP10JavaThread.exit: ; preds = %_ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit, %112
-  %120 = phi i32 [ %.pre.i.i.i.i, %112 ], [ %108, %_ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit ]
-  %121 = add nsw i32 %120, 1
-  store i32 %121, ptr %107, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %123 = load ptr, ptr %122, align 8
-  %124 = sext i32 %120 to i64
-  %125 = getelementptr inbounds ptr, ptr %123, i64 %124
-  store ptr %76, ptr %125, align 8
-  %126 = call noundef ptr @_ZN12ConstantPool24resolve_constant_at_implERK18constantPoolHandleiiPbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %104, i32 noundef -2, ptr noundef null, ptr noundef nonnull %3) #19
+_ZN12ConstantPool35resolve_possibly_cached_constant_atEiP10JavaThread.exit: ; preds = %_ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit, %104
+  %112 = phi i32 [ %.pre.i.i.i.i, %104 ], [ %100, %_ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit ]
+  %113 = add nsw i32 %112, 1
+  store i32 %113, ptr %99, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %115 = load ptr, ptr %114, align 8
+  %116 = sext i32 %112 to i64
+  %117 = getelementptr inbounds ptr, ptr %115, i64 %116
+  store ptr %76, ptr %117, align 8
+  %118 = call noundef ptr @_ZN12ConstantPool24resolve_constant_at_implERK18constantPoolHandleiiPbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %96, i32 noundef -2, ptr noundef null, ptr noundef nonnull %3) #19
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void (ptr, ptr, ptr, ...) @_ZN14RecordLocationC2EP5ciEnvPKcz(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %0, ptr noundef nonnull @.str.36)
-  call void @_ZN5ciEnv20record_call_site_objEP6ThreadP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1265) %0, ptr noundef nonnull %3, ptr noundef %126)
-  %127 = load ptr, ptr %9, align 8
-  store i8 0, ptr %127, align 1
-  %128 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %128) #19
+  call void @_ZN5ciEnv20record_call_site_objEP6ThreadP7oopDesc(ptr noundef nonnull align 8 dereferenceable(1265) %0, ptr noundef nonnull %3, ptr noundef %118)
+  %119 = load ptr, ptr %9, align 8
+  store i8 0, ptr %119, align 1
+  %120 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %120) #19
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %77) #19
-  br label %129
+  br label %121
 
-129:                                              ; preds = %_ZN12ConstantPool35resolve_possibly_cached_constant_atEiP10JavaThread.exit, %4
+121:                                              ; preds = %_ZN12ConstantPool35resolve_possibly_cached_constant_atEiP10JavaThread.exit, %4
   ret void
 }
 

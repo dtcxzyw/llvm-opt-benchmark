@@ -558,13 +558,13 @@ define dso_local ptr @fdt_offset_ptr(ptr noundef readonly captures(ret: address,
   %93 = shl nuw nsw i64 %92, 24
   %94 = zext i8 %9 to i64
   %95 = shl nuw nsw i64 %94, 16
-  %96 = or disjoint i64 %95, %93
-  %97 = zext i8 %14 to i64
-  %98 = shl nuw nsw i64 %97, 8
-  %99 = or disjoint i64 %96, %98
-  %100 = zext i8 %19 to i64
-  %101 = or disjoint i64 %99, %100
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 %101
+  %96 = zext i8 %14 to i64
+  %97 = shl nuw nsw i64 %96, 8
+  %98 = zext i8 %19 to i64
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 %95
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %93
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %97
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %98
   %103 = zext nneg i32 %1 to i64
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 %103
   br label %105
@@ -947,15 +947,15 @@ fdt_check_node_offset_.exit.i:                    ; preds = %24
   %60 = or disjoint i32 %57, %59
   %61 = zext i8 %33 to i64
   %62 = shl nuw nsw i64 %61, 16
-  %63 = zext i8 %30 to i64
-  %64 = shl nuw nsw i64 %63, 24
-  %65 = or disjoint i64 %62, %64
-  %66 = zext i8 %37 to i64
-  %67 = shl nuw nsw i64 %66, 8
-  %68 = or disjoint i64 %65, %67
-  %69 = zext i8 %41 to i64
-  %70 = or disjoint i64 %68, %69
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %70
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 %62
+  %64 = zext i8 %30 to i64
+  %65 = shl nuw nsw i64 %64, 24
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %65
+  %67 = zext i8 %37 to i64
+  %68 = shl nuw nsw i64 %67, 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %68
+  %70 = zext i8 %41 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 %70
   br label %72
 
 72:                                               ; preds = %.lr.ph, %.backedge.i

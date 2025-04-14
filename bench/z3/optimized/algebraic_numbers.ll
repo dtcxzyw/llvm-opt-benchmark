@@ -13162,47 +13162,51 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPN17algebraic_numbers4anumEN9
   %8 = icmp sgt i64 %7, 8
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %_ZSt10__pop_heapIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_SA_RT0_.exit
-  %.07 = phi ptr [ %9, %_ZSt10__pop_heapIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_SA_RT0_.exit ], [ %1, %3 ]
-  %9 = getelementptr inbounds i8, ptr %.07, i64 -8
-  %.sroa.02.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !87
-  %10 = load i64, ptr %0, align 8, !tbaa !87
-  store i64 %10, ptr %9, align 8, !tbaa !87
-  %11 = ptrtoint ptr %9 to i64
-  %12 = sub i64 %11, %5
-  %13 = ashr exact i64 %12, 3
-  %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8, !tbaa !15
-  %14 = add nsw i64 %13, -1
-  %15 = sdiv i64 %14, 2
-  %16 = icmp sgt i64 %13, 2
-  br i1 %16, label %.lr.ph.i.i, label %._crit_edge.i.i
+.lr.ph:                                           ; preds = %3
+  %invariant.gep.i.i = getelementptr i8, ptr %0, i64 8
+  br label %9
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph, %.lr.ph.i.i
-  %.030.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph ]
-  %17 = shl i64 %.030.i.i, 1
-  %18 = add i64 %17, 2
-  %19 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %18
-  %20 = or disjoint i64 %17, 1
-  %21 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %20
-  %22 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !12
-  %23 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %22, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %21)
-  %24 = icmp slt i32 %23, 0
-  %spec.select.i.i = select i1 %24, i64 %20, i64 %18
+9:                                                ; preds = %.lr.ph, %_ZSt10__pop_heapIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_SA_RT0_.exit
+  %.07 = phi ptr [ %1, %.lr.ph ], [ %10, %_ZSt10__pop_heapIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_SA_RT0_.exit ]
+  %10 = getelementptr inbounds i8, ptr %.07, i64 -8
+  %.sroa.02.0.copyload.i = load ptr, ptr %10, align 8, !tbaa !87
+  %11 = load i64, ptr %0, align 8, !tbaa !87
+  store i64 %11, ptr %10, align 8, !tbaa !87
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %12, %5
+  %14 = ashr exact i64 %13, 3
+  %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8, !tbaa !15
+  %15 = add nsw i64 %14, -1
+  %16 = sdiv i64 %15, 2
+  %17 = icmp sgt i64 %14, 2
+  br i1 %17, label %.lr.ph.i.i, label %._crit_edge.i.i
+
+.lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
+  %.030.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %9 ]
+  %18 = shl i64 %.030.i.i, 1
+  %19 = add i64 %18, 2
+  %20 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %19
+  %gep.i.i = getelementptr %"class.algebraic_numbers::anum", ptr %invariant.gep.i.i, i64 %18
+  %21 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !12
+  %22 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %21, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %gep.i.i)
+  %23 = icmp slt i32 %22, 0
+  %24 = or disjoint i64 %18, 1
+  %spec.select.i.i = select i1 %23, i64 %24, i64 %19
   %25 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %spec.select.i.i
   %26 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %.030.i.i
   %27 = load i64, ptr %25, align 8, !tbaa !87
   store i64 %27, ptr %26, align 8, !tbaa !87
-  %28 = icmp slt i64 %spec.select.i.i, %15
+  %28 = icmp slt i64 %spec.select.i.i, %16
   br i1 %28, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !201
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph
-  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %29 = and i64 %12, 8
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %9
+  %.0.lcssa.i.i = phi i64 [ 0, %9 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+  %29 = and i64 %13, 8
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %31, label %40
 
 31:                                               ; preds = %._crit_edge.i.i
-  %32 = add nsw i64 %13, -2
+  %32 = add nsw i64 %14, -2
   %33 = ashr exact i64 %32, 1
   %34 = icmp eq i64 %.0.lcssa.i.i, %33
   br i1 %34, label %.thread.i, label %40
@@ -13257,8 +13261,8 @@ _ZSt10__pop_heapIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterIN
   %50 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %.013.lcssa.i.i.i
   store i64 %49, ptr %50, align 8, !tbaa !87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %51 = icmp sgt i64 %12, 8
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !203
+  %51 = icmp sgt i64 %13, 8
+  br i1 %51, label %9, label %._crit_edge, !llvm.loop !203
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIPN17algebraic_numbers4anumEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_SA_SA_RT0_.exit, %3
   ret void
@@ -13279,6 +13283,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN17algebraic_numbers4anumEN9
   %12 = lshr i64 %11, 1
   %13 = add nsw i64 %8, -1
   %14 = lshr i64 %13, 1
+  %invariant.gep.i = getelementptr i8, ptr %0, i64 8
   %15 = and i64 %7, 8
   %16 = icmp eq i64 %15, 0
   %17 = lshr exact i64 %11, 1
@@ -13288,7 +13293,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN17algebraic_numbers4anumEN9
   br label %21
 
 21:                                               ; preds = %_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit, %10
-  %.015 = phi i64 [ %12, %10 ], [ %52, %_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit ]
+  %.015 = phi i64 [ %12, %10 ], [ %51, %_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit ]
   %22 = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %0, i64 %.015
   %.sroa.02.0.copyload = load ptr, ptr %22, align 8, !tbaa !87
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !15
@@ -13300,68 +13305,68 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN17algebraic_numbers4anumEN9
   %24 = shl i64 %.030.i, 1
   %25 = add i64 %24, 2
   %26 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %25
-  %27 = or disjoint i64 %24, 1
-  %28 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %27
-  %29 = load ptr, ptr %.sroa.0.0.copyload, align 8, !tbaa !12
-  %30 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %29, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %28)
-  %31 = icmp slt i32 %30, 0
-  %spec.select.i = select i1 %31, i64 %27, i64 %25
-  %32 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %spec.select.i
-  %33 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %.030.i
-  %34 = load i64, ptr %32, align 8, !tbaa !87
-  store i64 %34, ptr %33, align 8, !tbaa !87
-  %35 = icmp slt i64 %spec.select.i, %14
-  br i1 %35, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !201
+  %gep.i = getelementptr %"class.algebraic_numbers::anum", ptr %invariant.gep.i, i64 %24
+  %27 = load ptr, ptr %.sroa.0.0.copyload, align 8, !tbaa !12
+  %28 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %27, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %gep.i)
+  %29 = icmp slt i32 %28, 0
+  %30 = or disjoint i64 %24, 1
+  %spec.select.i = select i1 %29, i64 %30, i64 %25
+  %31 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %spec.select.i
+  %32 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %.030.i
+  %33 = load i64, ptr %31, align 8, !tbaa !87
+  store i64 %33, ptr %32, align 8, !tbaa !87
+  %34 = icmp slt i64 %spec.select.i, %14
+  br i1 %34, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !201
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %21
   %.0.lcssa.i = phi i64 [ %.015, %21 ], [ %spec.select.i, %.lr.ph.i ]
-  %36 = icmp eq i64 %.0.lcssa.i, %17
-  %or.cond = select i1 %16, i1 %36, i1 false
-  br i1 %or.cond, label %37, label %39
+  %35 = icmp eq i64 %.0.lcssa.i, %17
+  %or.cond = select i1 %16, i1 %35, i1 false
+  br i1 %or.cond, label %36, label %38
 
-37:                                               ; preds = %._crit_edge.i
-  %38 = load i64, ptr %19, align 8, !tbaa !87
-  store i64 %38, ptr %20, align 8, !tbaa !87
-  br label %39
+36:                                               ; preds = %._crit_edge.i
+  %37 = load i64, ptr %19, align 8, !tbaa !87
+  store i64 %37, ptr %20, align 8, !tbaa !87
+  br label %38
 
-39:                                               ; preds = %37, %._crit_edge.i
-  %.1.i = phi i64 [ %18, %37 ], [ %.0.lcssa.i, %._crit_edge.i ]
+38:                                               ; preds = %36, %._crit_edge.i
+  %.1.i = phi i64 [ %18, %36 ], [ %.0.lcssa.i, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %.sroa.02.0.copyload, ptr %4, align 8
-  %40 = icmp sgt i64 %.1.i, %.015
-  %41 = ptrtoint ptr %.sroa.02.0.copyload to i64
-  br i1 %40, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit
+  %39 = icmp sgt i64 %.1.i, %.015
+  %40 = ptrtoint ptr %.sroa.02.0.copyload to i64
+  br i1 %39, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %39, %46
-  %.01316.i.i = phi i64 [ %.017.i.i, %46 ], [ %.1.i, %39 ]
+.lr.ph.i.i:                                       ; preds = %38, %45
+  %.01316.i.i = phi i64 [ %.017.i.i, %45 ], [ %.1.i, %38 ]
   %.017.in.i.i = add nsw i64 %.01316.i.i, -1
   %.017.i.i = sdiv i64 %.017.in.i.i, 2
-  %42 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %.017.i.i
-  %43 = load ptr, ptr %.sroa.0.0.copyload, align 8, !tbaa !12
-  %44 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %43, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %45 = icmp slt i32 %44, 0
-  br i1 %45, label %46, label %.critedge.loopexit.i.i
+  %41 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %.017.i.i
+  %42 = load ptr, ptr %.sroa.0.0.copyload, align 8, !tbaa !12
+  %43 = call noundef i32 @_ZN17algebraic_numbers7manager3imp7compareERNS_4anumES3_(ptr noundef nonnull align 8 dereferenceable(936) %42, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %45, label %.critedge.loopexit.i.i
 
-46:                                               ; preds = %.lr.ph.i.i
-  %47 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %.01316.i.i
-  %48 = load i64, ptr %42, align 8, !tbaa !87
-  store i64 %48, ptr %47, align 8, !tbaa !87
-  %49 = icmp sgt i64 %.017.i.i, %.015
-  br i1 %49, label %.lr.ph.i.i, label %.critedge.loopexit.i.i, !llvm.loop !202
+45:                                               ; preds = %.lr.ph.i.i
+  %46 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %.01316.i.i
+  %47 = load i64, ptr %41, align 8, !tbaa !87
+  store i64 %47, ptr %46, align 8, !tbaa !87
+  %48 = icmp sgt i64 %.017.i.i, %.015
+  br i1 %48, label %.lr.ph.i.i, label %.critedge.loopexit.i.i, !llvm.loop !202
 
-.critedge.loopexit.i.i:                           ; preds = %46, %.lr.ph.i.i
-  %.013.lcssa.ph.i.i = phi i64 [ %.01316.i.i, %.lr.ph.i.i ], [ %.017.i.i, %46 ]
+.critedge.loopexit.i.i:                           ; preds = %45, %.lr.ph.i.i
+  %.013.lcssa.ph.i.i = phi i64 [ %.01316.i.i, %.lr.ph.i.i ], [ %.017.i.i, %45 ]
   %.pre.i.i = load i64, ptr %4, align 8, !tbaa !87
   br label %_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit
 
-_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit: ; preds = %39, %.critedge.loopexit.i.i
-  %50 = phi i64 [ %41, %39 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %39 ], [ %.013.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
-  %51 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %.013.lcssa.i.i
-  store i64 %50, ptr %51, align 8, !tbaa !87
+_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit: ; preds = %38, %.critedge.loopexit.i.i
+  %49 = phi i64 [ %40, %38 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %38 ], [ %.013.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
+  %50 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %0, i64 %.013.lcssa.i.i
+  store i64 %49, ptr %50, align 8, !tbaa !87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not = icmp eq i64 %.015, 0
-  %52 = add nsw i64 %.015, -1
+  %51 = add nsw i64 %.015, -1
   br i1 %.not, label %.loopexit, label %21, !llvm.loop !204
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit, %3

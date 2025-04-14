@@ -1805,8 +1805,8 @@ RARRAY_AREF.exit.thread:                          ; preds = %6
 
 RARRAY_AREF.exit15:                               ; preds = %RARRAY_AREF.exit, %RARRAY_AREF.exit.thread
   %.0.i.i14 = phi ptr [ %19, %RARRAY_AREF.exit.thread ], [ %15, %RARRAY_AREF.exit ]
-  %23 = or disjoint i64 %9, 1
-  %24 = getelementptr i64, ptr %.0.i.i14, i64 %23
+  %23 = getelementptr i64, ptr %.0.i.i14, i64 %9
+  %24 = getelementptr i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !36
   br label %59
 
@@ -1852,9 +1852,9 @@ sym_proc_new.exit:                                ; preds = %26, %41
 RARRAY_ASET.exit:                                 ; preds = %sym_proc_new.exit, %49
   tail call void @rb_ary_ptr_use_end(i64 noundef %42) #21
   %50 = load i64, ptr @rb_sym_to_proc.sym_proc_cache, align 8, !tbaa !36
-  %51 = or disjoint i64 %9, 1
-  %52 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %50) #21
-  %53 = getelementptr i64, ptr %52, i64 %51
+  %51 = tail call ptr @rb_ary_ptr_use_start(i64 noundef %50) #21
+  %52 = getelementptr i64, ptr %51, i64 %9
+  %53 = getelementptr i8, ptr %52, i64 8
   store i64 %29, ptr %53, align 8, !tbaa !36
   %54 = icmp eq i64 %29, 0
   %55 = and i64 %29, 7

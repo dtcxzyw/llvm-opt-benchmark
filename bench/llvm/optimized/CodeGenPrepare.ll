@@ -70849,17 +70849,17 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm11AssertingVHIN
   br label %15
 
 15:                                               ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit.thread"
-  %.040 = phi i64 [ %1, %.lr.ph ], [ %33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit.thread" ]
+  %.040 = phi i64 [ %1, %.lr.ph ], [ %34, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit.thread" ]
   %16 = shl i64 %.040, 1
   %17 = add i64 %16, 2
   %18 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %17
-  %19 = or disjoint i64 %16, 1
-  %20 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %19
+  %19 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.val30 = load ptr, ptr %18, align 8, !tbaa !540
   %21 = getelementptr i8, ptr %18, i64 8
   %.val31 = load i64, ptr %21, align 8, !tbaa !542
   %.val32 = load ptr, ptr %20, align 8, !tbaa !540
-  %22 = getelementptr i8, ptr %20, i64 8
+  %22 = getelementptr i8, ptr %19, i64 24
   %.val33 = load i64, ptr %22, align 8, !tbaa !542
   %23 = icmp eq ptr %.val30, %.val32
   br i1 %23, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit.thread", label %24
@@ -70889,106 +70889,107 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm11AssertingVHIN
   br i1 %cond.fr, label %32, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit.thread"
 
 32:                                               ; preds = %25, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit"
+  %33 = or disjoint i64 %16, 1
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit.thread"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit.thread": ; preds = %15, %25, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit", %32
-  %33 = phi i64 [ %19, %32 ], [ %17, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit" ], [ %17, %25 ], [ %17, %15 ]
-  %34 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %33
-  %35 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %.040
-  %36 = load ptr, ptr %34, align 8, !tbaa !540
-  store ptr %36, ptr %35, align 8, !tbaa !540
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !55
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i64 %38, ptr %39, align 8, !tbaa !542
-  %40 = icmp slt i64 %33, %12
-  br i1 %40, label %15, label %._crit_edge, !llvm.loop !1819
+  %34 = phi i64 [ %33, %32 ], [ %17, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit" ], [ %17, %25 ], [ %17, %15 ]
+  %35 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %34
+  %36 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %.040
+  %37 = load ptr, ptr %35, align 8, !tbaa !540
+  store ptr %37, ptr %36, align 8, !tbaa !540
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %39 = load i64, ptr %38, align 8, !tbaa !55
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store i64 %39, ptr %40, align 8, !tbaa !542
+  %41 = icmp slt i64 %34, %12
+  br i1 %41, label %15, label %._crit_edge, !llvm.loop !1819
 
 ._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit.thread", %6
-  %.0.lcssa = phi i64 [ %1, %6 ], [ %33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit.thread" ]
-  %41 = and i64 %2, 1
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %56
+  %.0.lcssa = phi i64 [ %1, %6 ], [ %34, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESD_EEbT_T0_.exit.thread" ]
+  %42 = and i64 %2, 1
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %44, label %57
 
-43:                                               ; preds = %._crit_edge
-  %44 = add nsw i64 %2, -2
-  %45 = ashr exact i64 %44, 1
-  %46 = icmp eq i64 %.0.lcssa, %45
-  br i1 %46, label %47, label %56
+44:                                               ; preds = %._crit_edge
+  %45 = add nsw i64 %2, -2
+  %46 = ashr exact i64 %45, 1
+  %47 = icmp eq i64 %.0.lcssa, %46
+  br i1 %47, label %48, label %57
 
-47:                                               ; preds = %43
-  %48 = shl nsw i64 %.0.lcssa, 1
-  %49 = or disjoint i64 %48, 1
-  %50 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %49
-  %51 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %.0.lcssa
-  %52 = load ptr, ptr %50, align 8, !tbaa !540
-  store ptr %52, ptr %51, align 8, !tbaa !540
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %54 = load i64, ptr %53, align 8, !tbaa !55
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i64 %54, ptr %55, align 8, !tbaa !542
-  br label %56
+48:                                               ; preds = %44
+  %49 = shl nsw i64 %.0.lcssa, 1
+  %50 = or disjoint i64 %49, 1
+  %51 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %50
+  %52 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %.0.lcssa
+  %53 = load ptr, ptr %51, align 8, !tbaa !540
+  store ptr %53, ptr %52, align 8, !tbaa !540
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %55 = load i64, ptr %54, align 8, !tbaa !55
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store i64 %55, ptr %56, align 8, !tbaa !542
+  br label %57
 
-56:                                               ; preds = %47, %43, %._crit_edge
-  %.1 = phi i64 [ %49, %47 ], [ %.0.lcssa, %43 ], [ %.0.lcssa, %._crit_edge ]
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 640
-  %58 = icmp sgt i64 %.1, %1
-  br i1 %58, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit"
+57:                                               ; preds = %48, %44, %._crit_edge
+  %.1 = phi i64 [ %50, %48 ], [ %.0.lcssa, %44 ], [ %.0.lcssa, %._crit_edge ]
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 640
+  %59 = icmp sgt i64 %.1, %1
+  br i1 %59, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %56, %70
-  %.0135.i = phi i64 [ %.06.i, %70 ], [ %.1, %56 ]
+.lr.ph.i:                                         ; preds = %57, %71
+  %.0135.i = phi i64 [ %.06.i, %71 ], [ %.1, %57 ]
   %.06.in.i = add nsw i64 %.0135.i, -1
   %.06.i = sdiv i64 %.06.in.i, 2
-  %59 = getelementptr inbounds %"struct.std::pair.708", ptr %0, i64 %.06.i
-  %.val14.i = load ptr, ptr %59, align 8, !tbaa !540
-  %60 = getelementptr i8, ptr %59, i64 8
-  %.val15.i = load i64, ptr %60, align 8, !tbaa !542
-  %61 = icmp eq ptr %.val14.i, %3
-  br i1 %61, label %"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit", label %62
+  %60 = getelementptr inbounds %"struct.std::pair.708", ptr %0, i64 %.06.i
+  %.val14.i = load ptr, ptr %60, align 8, !tbaa !540
+  %61 = getelementptr i8, ptr %60, i64 8
+  %.val15.i = load i64, ptr %61, align 8, !tbaa !542
+  %62 = icmp eq ptr %.val14.i, %3
+  br i1 %62, label %"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit", label %63
 
-62:                                               ; preds = %.lr.ph.i
+63:                                               ; preds = %.lr.ph.i
   %.not.i.i.i = icmp eq i64 %.val15.i, %4
-  br i1 %.not.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit.i", label %63
+  br i1 %.not.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit.i", label %64
 
-63:                                               ; preds = %62
-  %64 = icmp slt i64 %.val15.i, %4
-  br i1 %64, label %70, label %"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit"
+64:                                               ; preds = %63
+  %65 = icmp slt i64 %.val15.i, %4
+  br i1 %65, label %71, label %"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit.i": ; preds = %62
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit.i": ; preds = %63
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   store ptr %.val14.i, ptr %7, align 8, !tbaa !540
-  %65 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11AssertingVHINS_17GetElementPtrInstEEEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %66 = load i32, ptr %65, align 4, !tbaa !61
+  %66 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11AssertingVHINS_17GetElementPtrInstEEEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %58, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %67 = load i32, ptr %66, align 4, !tbaa !61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #27
   store ptr %3, ptr %8, align 8, !tbaa !540
-  %67 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11AssertingVHINS_17GetElementPtrInstEEEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %68 = load i32, ptr %67, align 4, !tbaa !61
-  %69 = icmp slt i32 %66, %68
+  %68 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_11AssertingVHINS_17GetElementPtrInstEEEiNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_iEEEES4_iS6_S9_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %58, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %69 = load i32, ptr %68, align 4, !tbaa !61
+  %70 = icmp slt i32 %67, %69
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
-  br i1 %69, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit._crit_edge.i", label %"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit"
+  br i1 %70, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit._crit_edge.i", label %"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit._crit_edge.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit.i"
-  %.pre.i = load ptr, ptr %59, align 8, !tbaa !540
-  %.pre12.i = load i64, ptr %60, align 8, !tbaa !55
-  br label %70
+  %.pre.i = load ptr, ptr %60, align 8, !tbaa !540
+  %.pre12.i = load i64, ptr %61, align 8, !tbaa !55
+  br label %71
 
-70:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit._crit_edge.i", %63
-  %71 = phi i64 [ %.pre12.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit._crit_edge.i" ], [ %.val15.i, %63 ]
-  %72 = phi ptr [ %.pre.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit._crit_edge.i" ], [ %.val14.i, %63 ]
-  %73 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %.0135.i
-  store ptr %72, ptr %73, align 8, !tbaa !540
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store i64 %71, ptr %74, align 8, !tbaa !542
-  %75 = icmp sgt i64 %.06.i, %1
-  br i1 %75, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit", !llvm.loop !1820
+71:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit._crit_edge.i", %64
+  %72 = phi i64 [ %.pre12.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit._crit_edge.i" ], [ %.val15.i, %64 ]
+  %73 = phi ptr [ %.pre.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit._crit_edge.i" ], [ %.val14.i, %64 ]
+  %74 = getelementptr inbounds nuw %"struct.std::pair.708", ptr %0, i64 %.0135.i
+  store ptr %73, ptr %74, align 8, !tbaa !540
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store i64 %72, ptr %75, align 8, !tbaa !542
+  %76 = icmp sgt i64 %.06.i, %1
+  br i1 %76, label %.lr.ph.i, label %"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit", !llvm.loop !1820
 
-"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit": ; preds = %.lr.ph.i, %63, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit.i", %70, %56
-  %.013.lcssa.i = phi i64 [ %.1, %56 ], [ %.0135.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit.i" ], [ %.06.i, %70 ], [ %.0135.i, %63 ], [ %.0135.i, %.lr.ph.i ]
-  %76 = getelementptr inbounds %"struct.std::pair.708", ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %76, align 8, !tbaa !540
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i64 %4, ptr %77, align 8, !tbaa !542
+"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit": ; preds = %.lr.ph.i, %64, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit.i", %71, %57
+  %.013.lcssa.i = phi i64 [ %.1, %57 ], [ %.0135.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EclIPSt4pairIN4llvm11AssertingVHINS8_17GetElementPtrInstEEElESC_EEbT_RT0_.exit.i" ], [ %.06.i, %71 ], [ %.0135.i, %64 ], [ %.0135.i, %.lr.ph.i ]
+  %77 = getelementptr inbounds %"struct.std::pair.708", ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %77, align 8, !tbaa !540
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  store i64 %4, ptr %78, align 8, !tbaa !542
   ret void
 }
 

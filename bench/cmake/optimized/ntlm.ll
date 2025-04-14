@@ -323,7 +323,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #8
-  br label %150
+  br label %147
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr %10, align 8, !tbaa !85
@@ -352,7 +352,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   %.2.ph = phi i32 [ %45, %43 ], [ %42, %41 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #8
-  br label %150
+  br label %147
 
 46:                                               ; preds = %43
   call void @Curl_ntlm_core_lm_resp(ptr noundef nonnull %15, ptr noundef nonnull %44, ptr noundef nonnull %7) #8
@@ -426,7 +426,7 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
 
 98:                                               ; preds = %93
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.5) #8
-  br label %150
+  br label %147
 
 99:                                               ; preds = %93
   %100 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %.0131
@@ -442,11 +442,11 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
 
 107:                                              ; preds = %99
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.6) #8
-  br label %150
+  br label %147
 
 108:                                              ; preds = %99
   %109 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %96
-  br i1 %.not, label %138, label %110
+  br i1 %.not, label %135, label %110
 
 110:                                              ; preds = %108
   %111 = and i64 %.0120, 9223372036854775807
@@ -454,84 +454,81 @@ define dso_local i32 @Curl_auth_create_ntlm_type3_message(ptr noundef %0, ptr no
   br i1 %.not.i, label %.loopexit169, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %110, %.lr.ph.i
-  %.08.i = phi i64 [ %118, %.lr.ph.i ], [ 0, %110 ]
+  %.08.i = phi i64 [ %117, %.lr.ph.i ], [ 0, %110 ]
   %112 = getelementptr inbounds nuw i8, ptr %.0124, i64 %.08.i
   %113 = load i8, ptr %112, align 1, !tbaa !86
   %114 = shl nuw i64 %.08.i, 1
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 %114
   store i8 %113, ptr %115, align 1, !tbaa !86
-  %116 = or disjoint i64 %114, 1
-  %117 = getelementptr inbounds nuw i8, ptr %109, i64 %116
-  store i8 0, ptr %117, align 1, !tbaa !86
-  %118 = add nuw nsw i64 %.08.i, 1
-  %exitcond.not.i = icmp eq i64 %118, %111
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 1
+  store i8 0, ptr %116, align 1, !tbaa !86
+  %117 = add nuw nsw i64 %.08.i, 1
+  %exitcond.not.i = icmp eq i64 %117, %111
   br i1 %exitcond.not.i, label %.loopexit169, label %.lr.ph.i, !llvm.loop !87
 
 .loopexit169:                                     ; preds = %.lr.ph.i, %110
-  %119 = add i64 %96, %52
-  %120 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %119
-  %121 = and i64 %26, 9223372036854775807
-  %.not.i152 = icmp eq i64 %121, 0
+  %118 = add i64 %96, %52
+  %119 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %118
+  %120 = and i64 %26, 9223372036854775807
+  %.not.i152 = icmp eq i64 %120, 0
   br i1 %.not.i152, label %.loopexit, label %.lr.ph.i153
 
 .lr.ph.i153:                                      ; preds = %.loopexit169, %.lr.ph.i153
-  %.08.i154 = phi i64 [ %128, %.lr.ph.i153 ], [ 0, %.loopexit169 ]
-  %122 = getelementptr inbounds nuw i8, ptr %.1126, i64 %.08.i154
-  %123 = load i8, ptr %122, align 1, !tbaa !86
-  %124 = shl nuw i64 %.08.i154, 1
-  %125 = getelementptr inbounds nuw i8, ptr %120, i64 %124
-  store i8 %123, ptr %125, align 1, !tbaa !86
-  %126 = or disjoint i64 %124, 1
-  %127 = getelementptr inbounds nuw i8, ptr %120, i64 %126
-  store i8 0, ptr %127, align 1, !tbaa !86
-  %128 = add nuw nsw i64 %.08.i154, 1
-  %exitcond.not.i155 = icmp eq i64 %128, %121
+  %.08.i154 = phi i64 [ %126, %.lr.ph.i153 ], [ 0, %.loopexit169 ]
+  %121 = getelementptr inbounds nuw i8, ptr %.1126, i64 %.08.i154
+  %122 = load i8, ptr %121, align 1, !tbaa !86
+  %123 = shl nuw i64 %.08.i154, 1
+  %124 = getelementptr inbounds nuw i8, ptr %119, i64 %123
+  store i8 %122, ptr %124, align 1, !tbaa !86
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 1
+  store i8 0, ptr %125, align 1, !tbaa !86
+  %126 = add nuw nsw i64 %.08.i154, 1
+  %exitcond.not.i155 = icmp eq i64 %126, %120
   br i1 %exitcond.not.i155, label %.loopexit, label %.lr.ph.i153, !llvm.loop !87
 
 .loopexit:                                        ; preds = %.lr.ph.i153, %.loopexit169
-  %129 = add i64 %119, %53
-  %130 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %129
+  %127 = add i64 %118, %53
+  %128 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %127
   br label %.lr.ph.i158
 
 .lr.ph.i158:                                      ; preds = %.loopexit, %.lr.ph.i158
-  %.08.i159 = phi i64 [ %137, %.lr.ph.i158 ], [ 0, %.loopexit ]
-  %131 = getelementptr inbounds nuw i8, ptr @Curl_auth_create_ntlm_type3_message.host, i64 %.08.i159
-  %132 = load i8, ptr %131, align 1, !tbaa !86
-  %133 = shl nuw i64 %.08.i159, 1
-  %134 = getelementptr inbounds nuw i8, ptr %130, i64 %133
-  store i8 %132, ptr %134, align 1, !tbaa !86
-  %135 = or disjoint i64 %133, 1
-  %136 = getelementptr inbounds nuw i8, ptr %130, i64 %135
-  store i8 0, ptr %136, align 1, !tbaa !86
-  %137 = add nuw nsw i64 %.08.i159, 1
-  %exitcond.not.i160 = icmp eq i64 %137, 11
+  %.08.i159 = phi i64 [ %134, %.lr.ph.i158 ], [ 0, %.loopexit ]
+  %129 = getelementptr inbounds nuw i8, ptr @Curl_auth_create_ntlm_type3_message.host, i64 %.08.i159
+  %130 = load i8, ptr %129, align 1, !tbaa !86
+  %131 = shl nuw i64 %.08.i159, 1
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 %131
+  store i8 %130, ptr %132, align 1, !tbaa !86
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 1
+  store i8 0, ptr %133, align 1, !tbaa !86
+  %134 = add nuw nsw i64 %.08.i159, 1
+  %exitcond.not.i160 = icmp eq i64 %134, 11
   br i1 %exitcond.not.i160, label %unicodecpy.exit161, label %.lr.ph.i158, !llvm.loop !87
 
-138:                                              ; preds = %108
+135:                                              ; preds = %108
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %109, ptr nonnull align 1 %.0124, i64 %.0120, i1 false)
-  %139 = add i64 %96, %.0120
-  %140 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %139
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %140, ptr nonnull align 1 %.1126, i64 %26, i1 false)
-  %141 = add i64 %139, %26
-  %142 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %141
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %142, ptr noundef nonnull align 1 dereferenceable(11) @Curl_auth_create_ntlm_type3_message.host, i64 11, i1 false)
+  %136 = add i64 %96, %.0120
+  %137 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %136
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %137, ptr nonnull align 1 %.1126, i64 %26, i1 false)
+  %138 = add i64 %136, %26
+  %139 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %138
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %139, ptr noundef nonnull align 1 dereferenceable(11) @Curl_auth_create_ntlm_type3_message.host, i64 11, i1 false)
   br label %unicodecpy.exit161
 
-unicodecpy.exit161:                               ; preds = %.lr.ph.i158, %138
-  %143 = phi i64 [ %141, %138 ], [ %129, %.lr.ph.i158 ]
-  %144 = add i64 %143, %.0123
-  %145 = call i32 @Curl_bufref_memdup(ptr noundef %4, ptr noundef nonnull %6, i64 noundef %144) #8
-  %146 = load ptr, ptr @Curl_cfree, align 8, !tbaa !81
-  %147 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %148 = load ptr, ptr %147, align 8, !tbaa !82
-  call void %146(ptr noundef %148) #8
-  store ptr null, ptr %147, align 8, !tbaa !82
-  %149 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %149, align 4, !tbaa !83
-  br label %150
+unicodecpy.exit161:                               ; preds = %.lr.ph.i158, %135
+  %140 = phi i64 [ %138, %135 ], [ %127, %.lr.ph.i158 ]
+  %141 = add i64 %140, %.0123
+  %142 = call i32 @Curl_bufref_memdup(ptr noundef %4, ptr noundef nonnull %6, i64 noundef %141) #8
+  %143 = load ptr, ptr @Curl_cfree, align 8, !tbaa !81
+  %144 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %145 = load ptr, ptr %144, align 8, !tbaa !82
+  call void %143(ptr noundef %145) #8
+  store ptr null, ptr %144, align 8, !tbaa !82
+  %146 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 0, ptr %146, align 4, !tbaa !83
+  br label %147
 
-150:                                              ; preds = %.thread166, %.thread, %unicodecpy.exit161, %107, %98
-  %.1128 = phi i32 [ 27, %98 ], [ 27, %107 ], [ %145, %unicodecpy.exit161 ], [ %.0127.ph, %.thread ], [ %.2.ph, %.thread166 ]
+147:                                              ; preds = %.thread166, %.thread, %unicodecpy.exit161, %107, %98
+  %.1128 = phi i32 [ 27, %98 ], [ 27, %107 ], [ %142, %unicodecpy.exit161 ], [ %.0127.ph, %.thread ], [ %.2.ph, %.thread166 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8

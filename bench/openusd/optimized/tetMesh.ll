@@ -4471,8 +4471,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReser
   %9 = shl i64 %.034, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %12
+  %12 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %14 = load i32, ptr %11, align 4
   %15 = load i32, ptr %13, align 4
   %16 = icmp eq i32 %14, %15
@@ -4481,7 +4481,7 @@ define internal fastcc void @_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReser
 17:                                               ; preds = %.lr.ph
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %19, %21
   br i1 %22, label %23, label %29
@@ -4489,7 +4489,7 @@ define internal fastcc void @_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReser
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %27 = load i32, ptr %26, align 4
   %28 = icmp slt i32 %25, %27
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES8_EEbT_T0_.exit
@@ -4504,81 +4504,82 @@ define internal fastcc void @_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReser
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES8_EEbT_T0_.exit: ; preds = %23, %29, %31
   %.0.i.i = phi i1 [ %28, %23 ], [ %30, %29 ], [ %32, %31 ]
-  %spec.select = select i1 %.0.i.i, i64 %12, i64 %10
-  %33 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %spec.select
-  %34 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.034
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %34, ptr noundef nonnull align 4 dereferenceable(12) %33, i64 12, i1 false)
-  %35 = icmp slt i64 %spec.select, %7
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  %33 = or disjoint i64 %9, 1
+  %spec.select = select i1 %.0.i.i, i64 %33, i64 %10
+  %34 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %spec.select
+  %35 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.034
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %35, ptr noundef nonnull align 4 dereferenceable(12) %34, i64 12, i1 false)
+  %36 = icmp slt i64 %spec.select, %7
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES8_EEbT_T0_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES8_EEbT_T0_.exit ]
-  %36 = and i64 %2, 1
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %47
+  %37 = and i64 %2, 1
+  %38 = icmp eq i64 %37, 0
+  br i1 %38, label %39, label %48
 
-38:                                               ; preds = %._crit_edge
-  %39 = add nsw i64 %2, -2
-  %40 = ashr exact i64 %39, 1
-  %41 = icmp eq i64 %.0.lcssa, %40
-  br i1 %41, label %42, label %47
+39:                                               ; preds = %._crit_edge
+  %40 = add nsw i64 %2, -2
+  %41 = ashr exact i64 %40, 1
+  %42 = icmp eq i64 %.0.lcssa, %41
+  br i1 %42, label %43, label %48
 
-42:                                               ; preds = %38
-  %43 = shl nsw i64 %.0.lcssa, 1
-  %44 = or disjoint i64 %43, 1
-  %45 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %44
-  %46 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.0.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %46, ptr noundef nonnull align 4 dereferenceable(12) %45, i64 12, i1 false)
-  br label %47
+43:                                               ; preds = %39
+  %44 = shl nsw i64 %.0.lcssa, 1
+  %45 = or disjoint i64 %44, 1
+  %46 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %45
+  %47 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.0.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %47, ptr noundef nonnull align 4 dereferenceable(12) %46, i64 12, i1 false)
+  br label %48
 
-47:                                               ; preds = %42, %38, %._crit_edge
-  %.1 = phi i64 [ %44, %42 ], [ %.0.lcssa, %38 ], [ %.0.lcssa, %._crit_edge ]
+48:                                               ; preds = %43, %39, %._crit_edge
+  %.1 = phi i64 [ %45, %43 ], [ %.0.lcssa, %39 ], [ %.0.lcssa, %._crit_edge ]
   %.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %3 to i32
   %.sroa.0.sroa.3.0.extract.shift.i = lshr i64 %3, 32
   %.sroa.0.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.0.sroa.3.0.extract.shift.i to i32
-  %48 = icmp samesign ugt i64 %.1, %1
-  br i1 %48, label %.lr.ph.i, label %_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit
+  %49 = icmp samesign ugt i64 %.1, %1
+  br i1 %49, label %.lr.ph.i, label %_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %47, %63
-  %.0133.i = phi i64 [ %.04.i, %63 ], [ %.1, %47 ]
+.lr.ph.i:                                         ; preds = %48, %64
+  %.0133.i = phi i64 [ %.04.i, %64 ], [ %.1, %48 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %49 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.04.i
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp eq i32 %50, %.sroa.0.sroa.0.0.extract.trunc.i
-  br i1 %51, label %52, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i
+  %50 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.04.i
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp eq i32 %51, %.sroa.0.sroa.0.0.extract.trunc.i
+  br i1 %52, label %53, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i
 
-52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %54 = load i32, ptr %53, align 4
-  %55 = icmp eq i32 %54, %.sroa.0.sroa.3.0.extract.trunc.i
-  br i1 %55, label %56, label %60
+53:                                               ; preds = %.lr.ph.i
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp eq i32 %55, %.sroa.0.sroa.3.0.extract.trunc.i
+  br i1 %56, label %57, label %61
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %58 = load i32, ptr %57, align 4
-  %59 = icmp slt i32 %58, %4
-  br i1 %59, label %63, label %_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit
+57:                                               ; preds = %53
+  %58 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp slt i32 %59, %4
+  br i1 %60, label %64, label %_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit
 
-60:                                               ; preds = %52
-  %61 = icmp slt i32 %54, %.sroa.0.sroa.3.0.extract.trunc.i
-  br i1 %61, label %63, label %_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit
+61:                                               ; preds = %53
+  %62 = icmp slt i32 %55, %.sroa.0.sroa.3.0.extract.trunc.i
+  br i1 %62, label %64, label %_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i: ; preds = %.lr.ph.i
-  %62 = icmp slt i32 %50, %.sroa.0.sroa.0.0.extract.trunc.i
-  br i1 %62, label %63, label %_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit
+  %63 = icmp slt i32 %51, %.sroa.0.sroa.0.0.extract.trunc.i
+  br i1 %63, label %64, label %_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit
 
-63:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i, %60, %56
-  %64 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.0133.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %64, ptr noundef nonnull align 4 dereferenceable(12) %49, i64 12, i1 false)
-  %65 = icmp sgt i64 %.04.i, %1
-  br i1 %65, label %.lr.ph.i, label %_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit, !llvm.loop !32
+64:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i, %61, %57
+  %65 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.0133.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %65, ptr noundef nonnull align 4 dereferenceable(12) %50, i64 12, i1 false)
+  %66 = icmp sgt i64 %.04.i, %1
+  br i1 %66, label %.lr.ph.i, label %_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit, !llvm.loop !32
 
-_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit: ; preds = %56, %60, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i, %63, %47
-  %.013.lcssa.i = phi i64 [ %.1, %47 ], [ %.0133.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i ], [ %.04.i, %63 ], [ %.0133.i, %56 ], [ %.0133.i, %60 ]
-  %66 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.013.lcssa.i
-  store i64 %3, ptr %66, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %66, i64 8
+_ZSt11__push_heapIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iElS1_N9__gnu_cxx5__ops14_Iter_comp_valINS0_12_GLOBAL__N_19_Vec3iCmpEEEEvT_T0_SA_T1_RT2_.exit: ; preds = %57, %61, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i, %64, %48
+  %.013.lcssa.i = phi i64 [ %.1, %48 ], [ %.0133.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19_Vec3iCmpEEclIPNS2_7GfVec3iES7_EEbT_RT0_.exit.i ], [ %.04.i, %64 ], [ %.0133.i, %57 ], [ %.0133.i, %61 ]
+  %67 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %0, i64 %.013.lcssa.i
+  store i64 %3, ptr %67, align 4
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i32 %4, ptr %.sroa.4.0..sroa_idx.i, align 4
   ret void
 }

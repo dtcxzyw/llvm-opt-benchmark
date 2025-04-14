@@ -5658,9 +5658,9 @@ define noundef i32 @_ZN6icu_7715Normalizer2Impl7combineEPKti(ptr noundef readonl
   %10 = phi i32 [ %16, %.lr.ph ], [ %8, %4 ]
   %.02949 = phi ptr [ %14, %.lr.ph ], [ %0, %4 ]
   %11 = and i32 %10, 1
-  %12 = or disjoint i32 %11, 2
-  %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %.02949, i64 %13
+  %12 = zext nneg i32 %11 to i64
+  %13 = getelementptr inbounds nuw i16, ptr %.02949, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i16, ptr %14, align 2, !tbaa !48
   %16 = zext i16 %15 to i32
   %17 = icmp samesign ugt i32 %6, %16
@@ -5702,9 +5702,9 @@ define noundef i32 @_ZN6icu_7715Normalizer2Impl7combineEPKti(ptr noundef readonl
 
 37:                                               ; preds = %33
   %38 = and i32 %35, 1
-  %39 = or disjoint i32 %38, 2
-  %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i16, ptr %.130, i64 %40
+  %39 = zext nneg i32 %38 to i64
+  %40 = getelementptr inbounds nuw i16, ptr %.130, i64 %39
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   br label %.backedge
 
 42:                                               ; preds = %33
@@ -6092,9 +6092,9 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
   %115 = phi i32 [ %121, %.lr.ph.i ], [ %113, %110 ]
   %.02949.i = phi ptr [ %119, %.lr.ph.i ], [ %.0141, %110 ]
   %116 = and i32 %115, 1
-  %117 = or disjoint i32 %116, 2
-  %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw i16, ptr %.02949.i, i64 %118
+  %117 = zext nneg i32 %116 to i64
+  %118 = getelementptr inbounds nuw i16, ptr %.02949.i, i64 %117
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %120 = load i16, ptr %119, align 2, !tbaa !48
   %121 = zext i16 %120 to i32
   %122 = icmp samesign ugt i32 %111, %121
@@ -6132,9 +6132,9 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
 
 140:                                              ; preds = %136
   %141 = and i32 %138, 1
-  %142 = or disjoint i32 %141, 2
-  %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds nuw i16, ptr %.130.i, i64 %143
+  %142 = zext nneg i32 %141 to i64
+  %143 = getelementptr inbounds nuw i16, ptr %.130.i, i64 %142
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
   br label %.backedge
 
 145:                                              ; preds = %136
@@ -6599,9 +6599,9 @@ _ZNK6icu_7715Normalizer2Impl9getNorm16Ei.exit:    ; preds = %12, %26, %30, %32
   %110 = phi i32 [ %116, %.lr.ph.i ], [ %108, %105 ]
   %.02949.i = phi ptr [ %114, %.lr.ph.i ], [ %.0, %105 ]
   %111 = and i32 %110, 1
-  %112 = or disjoint i32 %111, 2
-  %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw i16, ptr %.02949.i, i64 %113
+  %112 = zext nneg i32 %111 to i64
+  %113 = getelementptr inbounds nuw i16, ptr %.02949.i, i64 %112
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %115 = load i16, ptr %114, align 2, !tbaa !48
   %116 = zext i16 %115 to i32
   %117 = icmp samesign ugt i32 %106, %116
@@ -6643,9 +6643,9 @@ _ZNK6icu_7715Normalizer2Impl9getNorm16Ei.exit:    ; preds = %12, %26, %30, %32
 
 137:                                              ; preds = %133
   %138 = and i32 %135, 1
-  %139 = or disjoint i32 %138, 2
-  %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr inbounds nuw i16, ptr %.130.i, i64 %140
+  %139 = zext nneg i32 %138 to i64
+  %140 = getelementptr inbounds nuw i16, ptr %.130.i, i64 %139
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
   br label %.backedge
 
 142:                                              ; preds = %133

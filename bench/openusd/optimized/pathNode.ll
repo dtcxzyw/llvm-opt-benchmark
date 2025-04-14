@@ -7221,24 +7221,24 @@ define internal fastcc noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfSt
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.ptr12.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %invariant.gep.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 40, i1 false)
-  br label %.preheader1.i.i.i.i.i.i
+  br label %9
 
-.preheader.i.i.i.i.i.i:                           ; preds = %.preheader1.i.i.i.i.i.i
+.preheader.i.i.i.i.i.i:                           ; preds = %9
+  %.ptr12.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %8 = ptrtoint ptr %.ptr12.i.i.i.i.i.i to i64
   br label %11
 
-.preheader1.i.i.i.i.i.i:                          ; preds = %.preheader1.i.i.i.i.i.i, %3
-  %.02.i.i.i.i.i.i = phi i64 [ %10, %.preheader1.i.i.i.i.i.i ], [ 0, %3 ]
+9:                                                ; preds = %9, %3
+  %.02.i.i.i.i.i.i = phi i64 [ 0, %3 ], [ %10, %9 ]
   %.idx13.i.i.i.i.i.i = shl nuw nsw i64 %.02.i.i.i.i.i.i, 4
-  %.offs.i.i.i.i.i.i = or disjoint i64 %.idx13.i.i.i.i.i.i, 8
-  %9 = getelementptr inbounds nuw i8, ptr %.ptr12.i.i.i.i.i.i, i64 %.offs.i.i.i.i.i.i
-  store atomic i64 0, ptr %9 monotonic, align 8
+  %gep.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i.i.i, i64 %.idx13.i.i.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i.i.i monotonic, align 8
   %10 = add nuw nsw i64 %.02.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i = icmp eq i64 %10, 2
-  br i1 %.not.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i, label %.preheader1.i.i.i.i.i.i, !llvm.loop !72
+  br i1 %.not.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i, label %9, !llvm.loop !72
 
 11:                                               ; preds = %11, %.preheader.i.i.i.i.i.i
   %.0103.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i ], [ %15, %11 ]

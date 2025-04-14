@@ -74,7 +74,6 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
   %36 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 8, i64 1, ptr %34)
   %37 = tail call i64 @fwrite(ptr nonnull @.str.3, i64 12, i64 1, ptr %34)
   %38 = add nsw i32 %0, -3
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = lshr i32 %38, 1
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -95,16 +94,16 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8copy_binPKcP8_IO_FILE.exit ]
   %.03771 = phi i32 [ 0, %.lr.ph ], [ %.3, %_ZL8copy_binPKcP8_IO_FILE.exit ]
   %.03870 = phi i32 [ 0, %.lr.ph ], [ %.341, %_ZL8copy_binPKcP8_IO_FILE.exit ]
-  %49 = shl nuw nsw i64 %indvars.iv, 1
-  %50 = or disjoint i64 %49, 1
-  %51 = getelementptr inbounds nuw ptr, ptr %1, i64 %50
-  %52 = load ptr, ptr %51, align 8, !tbaa !9
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %49
-  %53 = load ptr, ptr %gep, align 8, !tbaa !9
-  %54 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %52, i32 noundef 47) #12
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !9
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %53 = load ptr, ptr %52, align 8, !tbaa !9
+  %54 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %51, i32 noundef 47) #12
   %55 = icmp eq ptr %54, null
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 1
-  %57 = select i1 %55, ptr %52, ptr %56
+  %57 = select i1 %55, ptr %51, ptr %56
   %58 = call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %57, i32 noundef 46) #12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #11
   %.not.not.not.i = icmp eq ptr %58, null
@@ -257,13 +256,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
   br label %.critedge129.i
 
 .critedge129.i:                                   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %.critedge.i
-  %103 = call noalias ptr @fopen(ptr noundef nonnull %52, ptr noundef nonnull @.str.5)
+  %103 = call noalias ptr @fopen(ptr noundef nonnull %51, ptr noundef nonnull @.str.5)
   %.not.i = icmp eq ptr %103, null
   br i1 %.not.i, label %104, label %115
 
 104:                                              ; preds = %.critedge129.i
   %105 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.6, ptr noundef nonnull %52) #10
+  %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.6, ptr noundef nonnull %51) #10
   br label %196
 
 107:                                              ; preds = %.noexc.i.i
@@ -482,7 +481,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
 
 183:                                              ; preds = %._crit_edge.i
   %184 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.17, ptr noundef nonnull %52) #10
+  %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %184, ptr noundef nonnull @.str.17, ptr noundef nonnull %51) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #11
   call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %14) #11

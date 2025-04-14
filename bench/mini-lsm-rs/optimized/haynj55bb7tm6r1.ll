@@ -7505,8 +7505,8 @@ define void @_ZN13mini_lsm_mvcc5table5bloom5Bloom21build_from_key_hashes17hc643a
   %25 = sub nuw nsw i64 64, %24
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %25, i64 7)
   %26 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %27 = or disjoint i64 %26, 1
-  %28 = getelementptr i8, ptr null, i64 %27
+  %27 = getelementptr i8, ptr null, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 1
   store ptr %21, ptr %11, align 8, !alias.scope !1726, !noalias !1729
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %29, align 8, !alias.scope !1726, !noalias !1729

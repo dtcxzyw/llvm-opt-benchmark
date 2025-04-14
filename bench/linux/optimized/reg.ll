@@ -6223,26 +6223,26 @@ define internal void @reg_check_chans_work(ptr readnone captures(none) %0) #2 al
 8:                                                ; preds = %7, %1
   %9 = load ptr, ptr @cfg80211_rdev_list, align 8
   %10 = icmp eq ptr %9, @cfg80211_rdev_list
-  br i1 %10, label %.loopexit21, label %.preheader20
+  br i1 %10, label %.loopexit20, label %.preheader19
 
-.preheader20:                                     ; preds = %8, %.loopexit19
-  %11 = phi ptr [ %143, %.loopexit19 ], [ %9, %8 ]
+.preheader19:                                     ; preds = %8, %.loopexit18
+  %11 = phi ptr [ %143, %.loopexit18 ], [ %9, %8 ]
   %12 = getelementptr i8, ptr %11, i64 952
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15, !prof !39
 
-14:                                               ; preds = %.preheader20
+14:                                               ; preds = %.preheader19
   call void asm sideeffect "542: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 542b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 542) #23, !srcloc !136
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.15, i32 125, i32 0, i64 12) #23, !srcloc !137
   unreachable
 
-15:                                               ; preds = %.preheader20
+15:                                               ; preds = %.preheader19
   %16 = getelementptr i8, ptr %11, i64 -8
   call void @mutex_lock(ptr noundef nonnull %12) #23
   %17 = getelementptr i8, ptr %11, i64 2088
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %17
-  br i1 %19, label %.loopexit19, label %.preheader
+  br i1 %19, label %.loopexit18, label %.preheader
 
 .preheader:                                       ; preds = %15, %140
   %20 = phi ptr [ %141, %140 ], [ %18, %15 ]
@@ -6270,6 +6270,7 @@ define internal void @reg_check_chans_work(ptr readnone captures(none) %0) #2 al
   %36 = getelementptr i8, ptr %20, i64 356
   %37 = getelementptr i8, ptr %20, i64 288
   %38 = getelementptr i8, ptr %20, i64 320
+  %invariant.gep = getelementptr i8, ptr %20, i64 400
   br label %39
 
 39:                                               ; preds = %136, %32
@@ -6294,10 +6295,10 @@ define internal void @reg_check_chans_work(ptr readnone captures(none) %0) #2 al
   switch i32 %23, label %131 [
     i32 3, label %52
     i32 9, label %52
-    i32 7, label %58
-    i32 1, label %61
-    i32 2, label %64
-    i32 8, label %64
+    i32 7, label %59
+    i32 1, label %62
+    i32 2, label %65
+    i32 8, label %65
     i32 12, label %136
     i32 11, label %128
     i32 4, label %136
@@ -6307,36 +6308,35 @@ define internal void @reg_check_chans_work(ptr readnone captures(none) %0) #2 al
 
 52:                                               ; preds = %51, %51
   %.idx12 = mul nuw nsw i64 %40, 48
-  %.offs13 = or disjoint i64 %.idx12, 8
-  %53 = getelementptr i8, ptr %35, i64 %.offs13
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %54, 0
-  br i1 %55, label %136, label %56
+  %53 = getelementptr i8, ptr %35, i64 %.idx12
+  %54 = getelementptr i8, ptr %53, i64 8
+  %55 = load i32, ptr %54, align 8
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %136, label %57
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %57, i64 32, i1 false)
+57:                                               ; preds = %52
+  %58 = getelementptr i8, ptr %53, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef align 8 dereferenceable(32) %58, i64 32, i1 false)
   br label %132
 
-58:                                               ; preds = %51
-  %59 = load i32, ptr %34, align 8
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %136, label %.thread.sink.split
+59:                                               ; preds = %51
+  %60 = load i32, ptr %34, align 8
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %136, label %.thread.sink.split
 
-61:                                               ; preds = %51
-  %62 = load i8, ptr %36, align 4
-  %63 = icmp eq i8 %62, 0
-  br i1 %63, label %136, label %.thread.sink.split
+62:                                               ; preds = %51
+  %63 = load i8, ptr %36, align 4
+  %64 = icmp eq i8 %63, 0
+  br i1 %64, label %136, label %.thread.sink.split
 
-64:                                               ; preds = %51, %51
+65:                                               ; preds = %51, %51
   %.idx = mul nuw nsw i64 %40, 48
-  %.offs = or disjoint i64 %.idx, 8
-  %65 = getelementptr i8, ptr %35, i64 %.offs
-  %66 = load ptr, ptr %65, align 8
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %66 = load ptr, ptr %gep, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %136, label %68
 
-68:                                               ; preds = %64
+68:                                               ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 104
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
@@ -6446,9 +6446,9 @@ define internal void @reg_check_chans_work(ptr readnone captures(none) %0) #2 al
 128:                                              ; preds = %51
   %129 = load ptr, ptr %34, align 8
   %130 = icmp eq ptr %129, null
-  br i1 %130, label %136, label %.thread14
+  br i1 %130, label %136, label %.thread13
 
-.thread14:                                        ; preds = %128
+.thread13:                                        ; preds = %128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef align 8 dereferenceable(32) %34, i64 32, i1 false)
   br label %136
 
@@ -6458,7 +6458,7 @@ define internal void @reg_check_chans_work(ptr readnone captures(none) %0) #2 al
   call void asm sideeffect "3274: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3274b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3274) #23, !srcloc !207
   br label %132
 
-132:                                              ; preds = %131, %127, %125, %56
+132:                                              ; preds = %131, %127, %125, %57
   switch i32 %23, label %136 [
     i32 3, label %.thread
     i32 9, label %.thread
@@ -6467,8 +6467,8 @@ define internal void @reg_check_chans_work(ptr readnone captures(none) %0) #2 al
     i32 2, label %134
   ]
 
-.thread.sink.split:                               ; preds = %61, %58
-  %.sink = phi ptr [ %38, %58 ], [ %37, %61 ]
+.thread.sink.split:                               ; preds = %62, %59
+  %.sink = phi ptr [ %38, %59 ], [ %37, %62 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef align 8 dereferenceable(32) %.sink, i64 32, i1 false)
   br label %.thread
 
@@ -6480,7 +6480,7 @@ define internal void @reg_check_chans_work(ptr readnone captures(none) %0) #2 al
   %135 = call zeroext i1 @cfg80211_chandef_usable(ptr noundef nonnull %12, ptr noundef nonnull %2, i32 noundef 1) #23
   br i1 %135, label %136, label %139
 
-136:                                              ; preds = %51, %51, %51, %132, %.thread, %134, %.thread14, %46, %52, %58, %61, %64, %68, %128, %51
+136:                                              ; preds = %51, %51, %51, %132, %.thread, %134, %.thread13, %46, %52, %59, %62, %65, %68, %128, %51
   %137 = add nuw nsw i64 %40, 1
   %138 = icmp eq i64 %137, 15
   br i1 %138, label %.loopexit, label %39, !llvm.loop !208
@@ -6497,15 +6497,15 @@ define internal void @reg_check_chans_work(ptr readnone captures(none) %0) #2 al
 140:                                              ; preds = %.loopexit, %139
   %141 = load ptr, ptr %20, align 8
   %142 = icmp eq ptr %141, %17
-  br i1 %142, label %.loopexit19, label %.preheader, !llvm.loop !209
+  br i1 %142, label %.loopexit18, label %.preheader, !llvm.loop !209
 
-.loopexit19:                                      ; preds = %140, %15
+.loopexit18:                                      ; preds = %140, %15
   call void @mutex_unlock(ptr noundef nonnull %12) #23
   %143 = load ptr, ptr %11, align 8
   %144 = icmp eq ptr %143, @cfg80211_rdev_list
-  br i1 %144, label %.loopexit21, label %.preheader20, !llvm.loop !210
+  br i1 %144, label %.loopexit20, label %.preheader19, !llvm.loop !210
 
-.loopexit21:                                      ; preds = %.loopexit19, %8
+.loopexit20:                                      ; preds = %.loopexit18, %8
   call void @rtnl_unlock() #23
   ret void
 }

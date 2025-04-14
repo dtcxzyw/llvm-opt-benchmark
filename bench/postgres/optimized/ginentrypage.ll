@@ -148,8 +148,8 @@ define dso_local ptr @GinFormTuple(ptr noundef readonly captures(none) %0, i16 n
   %77 = shl nuw nsw i64 %76, 16
   %78 = zext i16 %.052.val62 to i64
   %.masked = and i64 %77, 2147418112
-  %79 = or disjoint i64 %.masked, %78
-  %80 = getelementptr inbounds nuw i8, ptr %.052, i64 %79
+  %79 = getelementptr inbounds nuw i8, ptr %.052, i64 %.masked
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %78
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %80, ptr nonnull align 1 %4, i64 %5, i1 false)
   br label %81
 

@@ -7453,6 +7453,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIPPN4llvm7DDGNodeElS2_N9__gnu_cxx5_
   %9 = alloca ptr, align 8
   %10 = add nsw i64 %2, -1
   %11 = sdiv i64 %10, 2
+  %invariant.gep = getelementptr i8, ptr %0, i64 8
   %12 = icmp slt i64 %1, %11
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -7465,89 +7466,89 @@ define linkonce_odr void @_ZSt13__adjust_heapIPPN4llvm7DDGNodeElS2_N9__gnu_cxx5_
   %15 = shl i64 %.030, 1
   %16 = add i64 %15, 2
   %17 = getelementptr inbounds ptr, ptr %0, i64 %16
-  %18 = or disjoint i64 %15, 1
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
-  %20 = load ptr, ptr %17, align 8, !tbaa !55
-  %21 = load ptr, ptr %19, align 8, !tbaa !55
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %15
+  %18 = load ptr, ptr %17, align 8, !tbaa !55
+  %19 = load ptr, ptr %gep, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #18
-  store ptr %20, ptr %9, align 8, !tbaa !55
-  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_7DDGNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %23 = load i64, ptr %22, align 8, !tbaa !45
+  store ptr %18, ptr %9, align 8, !tbaa !55
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_7DDGNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %21 = load i64, ptr %20, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
-  store ptr %21, ptr %8, align 8, !tbaa !55
-  %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_7DDGNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %25 = load i64, ptr %24, align 8, !tbaa !45
+  store ptr %19, ptr %8, align 8, !tbaa !55
+  %22 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_7DDGNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %23 = load i64, ptr %22, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #18
-  %26 = icmp ult i64 %23, %25
-  %spec.select = select i1 %26, i64 %18, i64 %16
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
-  %28 = load ptr, ptr %27, align 8, !tbaa !55
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %.030
-  store ptr %28, ptr %29, align 8, !tbaa !55
-  %30 = icmp slt i64 %spec.select, %11
-  br i1 %30, label %14, label %._crit_edge, !llvm.loop !354
+  %24 = icmp ult i64 %21, %23
+  %25 = or disjoint i64 %15, 1
+  %spec.select = select i1 %24, i64 %25, i64 %16
+  %26 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %27 = load ptr, ptr %26, align 8, !tbaa !55
+  %28 = getelementptr inbounds ptr, ptr %0, i64 %.030
+  store ptr %27, ptr %28, align 8, !tbaa !55
+  %29 = icmp slt i64 %spec.select, %11
+  br i1 %29, label %14, label %._crit_edge, !llvm.loop !354
 
 ._crit_edge:                                      ; preds = %14, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %14 ]
-  %31 = and i64 %2, 1
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %43
+  %30 = and i64 %2, 1
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %32, label %42
 
-33:                                               ; preds = %._crit_edge
-  %34 = add nsw i64 %2, -2
-  %35 = ashr exact i64 %34, 1
-  %36 = icmp eq i64 %.0.lcssa, %35
-  br i1 %36, label %37, label %43
+32:                                               ; preds = %._crit_edge
+  %33 = add nsw i64 %2, -2
+  %34 = ashr exact i64 %33, 1
+  %35 = icmp eq i64 %.0.lcssa, %34
+  br i1 %35, label %36, label %42
 
-37:                                               ; preds = %33
-  %38 = shl nsw i64 %.0.lcssa, 1
-  %39 = or disjoint i64 %38, 1
-  %40 = getelementptr inbounds ptr, ptr %0, i64 %39
-  %41 = load ptr, ptr %40, align 8, !tbaa !55
-  %42 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
-  store ptr %41, ptr %42, align 8, !tbaa !55
-  br label %43
+36:                                               ; preds = %32
+  %37 = shl nsw i64 %.0.lcssa, 1
+  %38 = or disjoint i64 %37, 1
+  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
+  %40 = load ptr, ptr %39, align 8, !tbaa !55
+  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  store ptr %40, ptr %41, align 8, !tbaa !55
+  br label %42
 
-43:                                               ; preds = %37, %33, %._crit_edge
-  %.128 = phi i64 [ %39, %37 ], [ %.0.lcssa, %33 ], [ %.0.lcssa, %._crit_edge ]
-  %44 = icmp sgt i64 %.128, %1
-  br i1 %44, label %.lr.ph.i.preheader, label %_ZSt11__push_heapIPPN4llvm7DDGNodeElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_30AbstractDependenceGraphBuilderINS0_19DataDependenceGraphEE14createPiBlocksEvEUlS2_S2_E_EEEvT_T0_SD_T1_RT2_.exit
+42:                                               ; preds = %36, %32, %._crit_edge
+  %.128 = phi i64 [ %38, %36 ], [ %.0.lcssa, %32 ], [ %.0.lcssa, %._crit_edge ]
+  %43 = icmp sgt i64 %.128, %1
+  br i1 %43, label %.lr.ph.i.preheader, label %_ZSt11__push_heapIPPN4llvm7DDGNodeElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_30AbstractDependenceGraphBuilderINS0_19DataDependenceGraphEE14createPiBlocksEvEUlS2_S2_E_EEEvT_T0_SD_T1_RT2_.exit
 
-.lr.ph.i.preheader:                               ; preds = %43
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 80
+.lr.ph.i.preheader:                               ; preds = %42
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 80
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %53
-  %.01317.i = phi i64 [ %.018.i, %53 ], [ %.128, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %52
+  %.01317.i = phi i64 [ %.018.i, %52 ], [ %.128, %.lr.ph.i.preheader ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %46 = getelementptr inbounds ptr, ptr %0, i64 %.018.i
-  %47 = load ptr, ptr %46, align 8, !tbaa !55
+  %45 = getelementptr inbounds ptr, ptr %0, i64 %.018.i
+  %46 = load ptr, ptr %45, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
-  store ptr %47, ptr %7, align 8, !tbaa !55
-  %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_7DDGNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %49 = load i64, ptr %48, align 8, !tbaa !45
+  store ptr %46, ptr %7, align 8, !tbaa !55
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_7DDGNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %48 = load i64, ptr %47, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
   store ptr %3, ptr %6, align 8, !tbaa !55
-  %50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_7DDGNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %45, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %51 = load i64, ptr %50, align 8, !tbaa !45
+  %49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_7DDGNodeEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %44, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %50 = load i64, ptr %49, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
-  %52 = icmp ult i64 %49, %51
-  br i1 %52, label %53, label %_ZSt11__push_heapIPPN4llvm7DDGNodeElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_30AbstractDependenceGraphBuilderINS0_19DataDependenceGraphEE14createPiBlocksEvEUlS2_S2_E_EEEvT_T0_SD_T1_RT2_.exit
+  %51 = icmp ult i64 %48, %50
+  br i1 %51, label %52, label %_ZSt11__push_heapIPPN4llvm7DDGNodeElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_30AbstractDependenceGraphBuilderINS0_19DataDependenceGraphEE14createPiBlocksEvEUlS2_S2_E_EEEvT_T0_SD_T1_RT2_.exit
 
-53:                                               ; preds = %.lr.ph.i
-  %54 = load ptr, ptr %46, align 8, !tbaa !55
-  %55 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i
-  store ptr %54, ptr %55, align 8, !tbaa !55
-  %56 = icmp sgt i64 %.018.i, %1
-  br i1 %56, label %.lr.ph.i, label %_ZSt11__push_heapIPPN4llvm7DDGNodeElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_30AbstractDependenceGraphBuilderINS0_19DataDependenceGraphEE14createPiBlocksEvEUlS2_S2_E_EEEvT_T0_SD_T1_RT2_.exit, !llvm.loop !355
+52:                                               ; preds = %.lr.ph.i
+  %53 = load ptr, ptr %45, align 8, !tbaa !55
+  %54 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i
+  store ptr %53, ptr %54, align 8, !tbaa !55
+  %55 = icmp sgt i64 %.018.i, %1
+  br i1 %55, label %.lr.ph.i, label %_ZSt11__push_heapIPPN4llvm7DDGNodeElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_30AbstractDependenceGraphBuilderINS0_19DataDependenceGraphEE14createPiBlocksEvEUlS2_S2_E_EEEvT_T0_SD_T1_RT2_.exit, !llvm.loop !355
 
-_ZSt11__push_heapIPPN4llvm7DDGNodeElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_30AbstractDependenceGraphBuilderINS0_19DataDependenceGraphEE14createPiBlocksEvEUlS2_S2_E_EEEvT_T0_SD_T1_RT2_.exit: ; preds = %.lr.ph.i, %53, %43
-  %.013.lcssa.i = phi i64 [ %.128, %43 ], [ %.01317.i, %.lr.ph.i ], [ %.018.i, %53 ]
-  %57 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %57, align 8, !tbaa !55
+_ZSt11__push_heapIPPN4llvm7DDGNodeElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_30AbstractDependenceGraphBuilderINS0_19DataDependenceGraphEE14createPiBlocksEvEUlS2_S2_E_EEEvT_T0_SD_T1_RT2_.exit: ; preds = %.lr.ph.i, %52, %42
+  %.013.lcssa.i = phi i64 [ %.128, %42 ], [ %.01317.i, %.lr.ph.i ], [ %.018.i, %52 ]
+  %56 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %56, align 8, !tbaa !55
   ret void
 }
 

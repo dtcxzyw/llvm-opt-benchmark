@@ -470,8 +470,8 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
   %65 = getelementptr inbounds nuw i8, ptr %.057, i64 2
   %66 = load i8, ptr %65, align 1, !tbaa !38
   %67 = zext i8 %66 to i64
-  %68 = or disjoint i64 %64, %67
-  %69 = getelementptr inbounds nuw i8, ptr %.057, i64 %68
+  %68 = getelementptr inbounds nuw i8, ptr %.057, i64 %64
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 %67
   br label %.backedge
 
 70:                                               ; preds = %33, %33, %33, %33, %33
@@ -575,8 +575,8 @@ define dso_local i32 @php_pcre2_callout_enumerate(ptr noundef %0, ptr noundef re
   %148 = shl nuw nsw i64 %147, 8
   %149 = load i8, ptr %137, align 1, !tbaa !38
   %150 = zext i8 %149 to i64
-  %151 = or disjoint i64 %148, %150
-  %152 = getelementptr inbounds nuw i8, ptr %.057, i64 %151
+  %151 = getelementptr inbounds nuw i8, ptr %.057, i64 %148
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 %150
   br label %.backedge
 
 153:                                              ; preds = %33

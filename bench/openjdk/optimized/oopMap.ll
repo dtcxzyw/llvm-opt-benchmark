@@ -4008,14 +4008,14 @@ define hidden noundef nonnull ptr @_ZNK18ImmutableOopMapSet18find_map_at_offsetE
 
 10:                                               ; preds = %.lr.ph
   %.idx = shl nuw nsw i64 %indvars.iv, 3
-  %.offs = or disjoint i64 %.idx, 4
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.offs
-  %12 = load i32, ptr %11, align 4
-  %13 = shl nuw nsw i64 %wide.trip.count, 3
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %13
-  %15 = sext i32 %12 to i64
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  ret ptr %16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %13 = load i32, ptr %12, align 4
+  %14 = shl nuw nsw i64 %wide.trip.count, 3
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %14
+  %16 = sext i32 %13 to i64
+  %17 = getelementptr inbounds i8, ptr %15, i64 %16
+  ret ptr %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

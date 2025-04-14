@@ -150,267 +150,266 @@ define void @_ZN3url17AppendIPv6AddressEPKhPNS_12CanonOutputTIcEE(ptr noundef re
   %3 = alloca [5 x i8], align 1
   br label %4
 
-4:                                                ; preds = %19, %2
-  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %19 ]
-  %.sroa.5.031.i = phi i32 [ -1, %2 ], [ %.sroa.5.1.i, %19 ]
-  %.sroa.018.030.i = phi i32 [ 0, %2 ], [ %.sroa.018.1.i, %19 ]
-  %.sroa.015.029.i = phi i32 [ 0, %2 ], [ %.sroa.015.3.i, %19 ]
-  %.sroa.6.028.i = phi i32 [ -1, %2 ], [ %.sroa.6.3.i, %19 ]
+4:                                                ; preds = %18, %2
+  %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %18 ]
+  %.sroa.5.031.i = phi i32 [ -1, %2 ], [ %.sroa.5.1.i, %18 ]
+  %.sroa.018.030.i = phi i32 [ 0, %2 ], [ %.sroa.018.1.i, %18 ]
+  %.sroa.015.029.i = phi i32 [ 0, %2 ], [ %.sroa.015.3.i, %18 ]
+  %.sroa.6.028.i = phi i32 [ -1, %2 ], [ %.sroa.6.3.i, %18 ]
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %6 = load i8, ptr %5, align 1, !tbaa !3
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %.thread19.i
 
 8:                                                ; preds = %4
-  %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %9
-  %11 = load i8, ptr %10, align 1, !tbaa !3
-  %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %.thread19.i
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %10 = load i8, ptr %9, align 1, !tbaa !3
+  %11 = icmp eq i8 %10, 0
+  br i1 %11, label %12, label %.thread19.i
 
-13:                                               ; preds = %8
+12:                                               ; preds = %8
   %.not.i = icmp eq i32 %.sroa.6.028.i, -1
-  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %spec.select25.i = select i1 %.not.i, i32 %14, i32 %.sroa.015.029.i
-  %15 = add nsw i32 %.sroa.6.028.i, 2
-  %16 = select i1 %.not.i, i32 2, i32 %15
+  %13 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %spec.select25.i = select i1 %.not.i, i32 %13, i32 %.sroa.015.029.i
+  %14 = add nsw i32 %.sroa.6.028.i, 2
+  %15 = select i1 %.not.i, i32 2, i32 %14
   %.not26.i = icmp eq i64 %indvars.iv.i, 14
-  br i1 %.not26.i, label %.thread19.i, label %19
+  br i1 %.not26.i, label %.thread19.i, label %18
 
-.thread19.i:                                      ; preds = %13, %8, %4
-  %.sroa.015.124.i = phi i32 [ %spec.select25.i, %13 ], [ %.sroa.015.029.i, %8 ], [ %.sroa.015.029.i, %4 ]
-  %.sroa.6.123.i = phi i32 [ %16, %13 ], [ %.sroa.6.028.i, %8 ], [ %.sroa.6.028.i, %4 ]
-  %17 = icmp sgt i32 %.sroa.6.123.i, 2
-  %18 = icmp sgt i32 %.sroa.6.123.i, %.sroa.5.031.i
-  %or.cond.i = select i1 %17, i1 %18, i1 false
+.thread19.i:                                      ; preds = %12, %8, %4
+  %.sroa.015.124.i = phi i32 [ %spec.select25.i, %12 ], [ %.sroa.015.029.i, %8 ], [ %.sroa.015.029.i, %4 ]
+  %.sroa.6.123.i = phi i32 [ %15, %12 ], [ %.sroa.6.028.i, %8 ], [ %.sroa.6.028.i, %4 ]
+  %16 = icmp sgt i32 %.sroa.6.123.i, 2
+  %17 = icmp sgt i32 %.sroa.6.123.i, %.sroa.5.031.i
+  %or.cond.i = select i1 %16, i1 %17, i1 false
   %spec.select.i = select i1 %or.cond.i, i32 %.sroa.015.124.i, i32 %.sroa.018.030.i
   %spec.select27.i = select i1 %or.cond.i, i32 %.sroa.6.123.i, i32 %.sroa.5.031.i
-  br label %19
+  br label %18
 
-19:                                               ; preds = %.thread19.i, %13
-  %.sroa.6.3.i = phi i32 [ %16, %13 ], [ -1, %.thread19.i ]
-  %.sroa.015.3.i = phi i32 [ %spec.select25.i, %13 ], [ 0, %.thread19.i ]
-  %.sroa.018.1.i = phi i32 [ %.sroa.018.030.i, %13 ], [ %spec.select.i, %.thread19.i ]
-  %.sroa.5.1.i = phi i32 [ %.sroa.5.031.i, %13 ], [ %spec.select27.i, %.thread19.i ]
+18:                                               ; preds = %.thread19.i, %12
+  %.sroa.6.3.i = phi i32 [ %15, %12 ], [ -1, %.thread19.i ]
+  %.sroa.015.3.i = phi i32 [ %spec.select25.i, %12 ], [ 0, %.thread19.i ]
+  %.sroa.018.1.i = phi i32 [ %.sroa.018.030.i, %12 ], [ %spec.select.i, %.thread19.i ]
+  %.sroa.5.1.i = phi i32 [ %.sroa.5.031.i, %12 ], [ %spec.select27.i, %.thread19.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %20 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %20, label %4, label %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit.preheader, !llvm.loop !19
+  %19 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %19, label %4, label %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit.preheader, !llvm.loop !19
 
-_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit.preheader: ; preds = %19
-  %21 = icmp sgt i32 %.sroa.5.1.i, 0
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
+_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit.preheader: ; preds = %18
+  %20 = icmp sgt i32 %.sroa.5.1.i, 0
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sink3.in.i40 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = add nsw i32 %.sroa.5.1.i, %.sroa.018.1.i
-  %25 = icmp eq i32 %.sroa.018.1.i, 0
-  br label %27
+  %23 = add nsw i32 %.sroa.5.1.i, %.sroa.018.1.i
+  %24 = icmp eq i32 %.sroa.018.1.i, 0
+  br label %26
 
-26:                                               ; preds = %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit
+25:                                               ; preds = %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit
   ret void
 
-27:                                               ; preds = %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit.preheader, %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit
+26:                                               ; preds = %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit.preheader, %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit
   %.01966 = phi i32 [ 0, %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit.preheader ], [ %.1, %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit ]
-  %28 = icmp eq i32 %.01966, %.sroa.018.1.i
-  %or.cond = select i1 %28, i1 %21, i1 false
-  br i1 %or.cond, label %29, label %61
+  %27 = icmp eq i32 %.01966, %.sroa.018.1.i
+  %or.cond = select i1 %27, i1 %20, i1 false
+  br i1 %or.cond, label %28, label %60
 
-29:                                               ; preds = %27
-  %.pre70 = load i32, ptr %22, align 4, !tbaa !6
-  %.pre72 = load i32, ptr %23, align 8, !tbaa !11
-  br i1 %25, label %30, label %_ZN3url12CanonOutputTIcE9push_backEc.exit
+28:                                               ; preds = %26
+  %.pre70 = load i32, ptr %21, align 4, !tbaa !6
+  %.pre72 = load i32, ptr %22, align 8, !tbaa !11
+  br i1 %24, label %29, label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
-30:                                               ; preds = %29
-  %31 = icmp slt i32 %.pre70, %.pre72
-  br i1 %31, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i, label %select.unfold.i.preheader.i
+29:                                               ; preds = %28
+  %30 = icmp slt i32 %.pre70, %.pre72
+  br i1 %30, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i, label %select.unfold.i.preheader.i
 
-select.unfold.i.preheader.i:                      ; preds = %30
-  %32 = icmp eq i32 %.pre72, 0
-  %spec.select = select i1 %32, i32 16, i32 %.pre72
+select.unfold.i.preheader.i:                      ; preds = %29
+  %31 = icmp eq i32 %.pre72, 0
+  %spec.select = select i1 %31, i32 16, i32 %.pre72
   br label %select.unfold.i.i
 
-select.unfold.i.i:                                ; preds = %select.unfold.i.preheader.i, %34
-  %.0.i.i = phi i32 [ %35, %34 ], [ %spec.select, %select.unfold.i.preheader.i ]
-  %33 = icmp slt i32 %.0.i.i, 1073741824
-  br i1 %33, label %34, label %_ZN3url12CanonOutputTIcE9push_backEc.exit
+select.unfold.i.i:                                ; preds = %select.unfold.i.preheader.i, %33
+  %.0.i.i = phi i32 [ %34, %33 ], [ %spec.select, %select.unfold.i.preheader.i ]
+  %32 = icmp slt i32 %.0.i.i, 1073741824
+  br i1 %32, label %33, label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
-34:                                               ; preds = %select.unfold.i.i
-  %35 = shl nsw i32 %.0.i.i, 1
-  %.not.i22 = icmp sgt i32 %35, %.pre72
-  br i1 %.not.i22, label %36, label %select.unfold.i.i, !llvm.loop !12
+33:                                               ; preds = %select.unfold.i.i
+  %34 = shl nsw i32 %.0.i.i, 1
+  %.not.i22 = icmp sgt i32 %34, %.pre72
+  br i1 %.not.i22, label %35, label %select.unfold.i.i, !llvm.loop !12
 
-36:                                               ; preds = %34
-  %37 = load ptr, ptr %1, align 8, !tbaa !14
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load ptr, ptr %38, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %35)
-  %40 = load i32, ptr %22, align 4, !tbaa !6
+35:                                               ; preds = %33
+  %36 = load ptr, ptr %1, align 8, !tbaa !14
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %38 = load ptr, ptr %37, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %34)
+  %39 = load i32, ptr %21, align 4, !tbaa !6
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i
 
-_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i: ; preds = %30, %36
-  %.sink.i = phi i32 [ %40, %36 ], [ %.pre70, %30 ]
+_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i: ; preds = %29, %35
+  %.sink.i = phi i32 [ %39, %35 ], [ %.pre70, %29 ]
   %.sink3.i = load ptr, ptr %.sink3.in.i40, align 8, !tbaa !16
-  %41 = sext i32 %.sink.i to i64
-  %42 = getelementptr inbounds i8, ptr %.sink3.i, i64 %41
-  store i8 58, ptr %42, align 1, !tbaa !3
-  %43 = load i32, ptr %22, align 4, !tbaa !6
-  %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %22, align 4, !tbaa !6
-  %.pre71 = load i32, ptr %23, align 8, !tbaa !11
+  %40 = sext i32 %.sink.i to i64
+  %41 = getelementptr inbounds i8, ptr %.sink3.i, i64 %40
+  store i8 58, ptr %41, align 1, !tbaa !3
+  %42 = load i32, ptr %21, align 4, !tbaa !6
+  %43 = add nsw i32 %42, 1
+  store i32 %43, ptr %21, align 4, !tbaa !6
+  %.pre71 = load i32, ptr %22, align 8, !tbaa !11
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
-_ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i, %29
-  %45 = phi i32 [ %.pre71, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %.pre72, %29 ], [ %.pre72, %select.unfold.i.i ]
-  %46 = phi i32 [ %44, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %.pre70, %29 ], [ %.pre70, %select.unfold.i.i ]
-  %47 = icmp slt i32 %46, %45
-  br i1 %47, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28, label %select.unfold.i.preheader.i23
+_ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i, %28
+  %44 = phi i32 [ %.pre71, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %.pre72, %28 ], [ %.pre72, %select.unfold.i.i ]
+  %45 = phi i32 [ %43, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %.pre70, %28 ], [ %.pre70, %select.unfold.i.i ]
+  %46 = icmp slt i32 %45, %44
+  br i1 %46, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28, label %select.unfold.i.preheader.i23
 
 select.unfold.i.preheader.i23:                    ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit
-  %48 = icmp eq i32 %45, 0
-  %spec.select79 = select i1 %48, i32 16, i32 %45
+  %47 = icmp eq i32 %44, 0
+  %spec.select79 = select i1 %47, i32 16, i32 %44
   br label %select.unfold.i.i25
 
-select.unfold.i.i25:                              ; preds = %select.unfold.i.preheader.i23, %50
-  %.0.i.i26 = phi i32 [ %51, %50 ], [ %spec.select79, %select.unfold.i.preheader.i23 ]
-  %49 = icmp slt i32 %.0.i.i26, 1073741824
-  br i1 %49, label %50, label %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit
+select.unfold.i.i25:                              ; preds = %select.unfold.i.preheader.i23, %49
+  %.0.i.i26 = phi i32 [ %50, %49 ], [ %spec.select79, %select.unfold.i.preheader.i23 ]
+  %48 = icmp slt i32 %.0.i.i26, 1073741824
+  br i1 %48, label %49, label %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit
 
-50:                                               ; preds = %select.unfold.i.i25
-  %51 = shl nsw i32 %.0.i.i26, 1
-  %.not.i27 = icmp sgt i32 %51, %45
-  br i1 %.not.i27, label %52, label %select.unfold.i.i25, !llvm.loop !12
+49:                                               ; preds = %select.unfold.i.i25
+  %50 = shl nsw i32 %.0.i.i26, 1
+  %.not.i27 = icmp sgt i32 %50, %44
+  br i1 %.not.i27, label %51, label %select.unfold.i.i25, !llvm.loop !12
 
-52:                                               ; preds = %50
-  %53 = load ptr, ptr %1, align 8, !tbaa !14
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %51)
-  %56 = load i32, ptr %22, align 4, !tbaa !6
+51:                                               ; preds = %49
+  %52 = load ptr, ptr %1, align 8, !tbaa !14
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8
+  call void %54(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %50)
+  %55 = load i32, ptr %21, align 4, !tbaa !6
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28
 
-_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28: ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit, %52
-  %.sink.i29 = phi i32 [ %56, %52 ], [ %46, %_ZN3url12CanonOutputTIcE9push_backEc.exit ]
+_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28: ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit, %51
+  %.sink.i29 = phi i32 [ %55, %51 ], [ %45, %_ZN3url12CanonOutputTIcE9push_backEc.exit ]
   %.sink3.i31 = load ptr, ptr %.sink3.in.i40, align 8, !tbaa !16
-  %57 = sext i32 %.sink.i29 to i64
-  %58 = getelementptr inbounds i8, ptr %.sink3.i31, i64 %57
-  store i8 58, ptr %58, align 1, !tbaa !3
-  %59 = load i32, ptr %22, align 4, !tbaa !6
-  %60 = add nsw i32 %59, 1
-  store i32 %60, ptr %22, align 4, !tbaa !6
+  %56 = sext i32 %.sink.i29 to i64
+  %57 = getelementptr inbounds i8, ptr %.sink3.i31, i64 %56
+  store i8 58, ptr %57, align 1, !tbaa !3
+  %58 = load i32, ptr %21, align 4, !tbaa !6
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %21, align 4, !tbaa !6
   br label %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit
 
-61:                                               ; preds = %27
-  %62 = sext i32 %.01966 to i64
-  %63 = getelementptr inbounds i8, ptr %0, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !3
-  %65 = zext i8 %64 to i32
-  %66 = shl nuw nsw i32 %65, 8
-  %67 = getelementptr i8, ptr %63, i64 1
-  %68 = load i8, ptr %67, align 1, !tbaa !3
-  %69 = zext i8 %68 to i32
-  %70 = or disjoint i32 %66, %69
-  %71 = add nsw i32 %.01966, 2
+60:                                               ; preds = %26
+  %61 = sext i32 %.01966 to i64
+  %62 = getelementptr inbounds i8, ptr %0, i64 %61
+  %63 = load i8, ptr %62, align 1, !tbaa !3
+  %64 = zext i8 %63 to i32
+  %65 = shl nuw nsw i32 %64, 8
+  %66 = getelementptr i8, ptr %62, i64 1
+  %67 = load i8, ptr %66, align 1, !tbaa !3
+  %68 = zext i8 %67 to i32
+  %69 = or disjoint i32 %65, %68
+  %70 = add nsw i32 %.01966, 2
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #9
-  %72 = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %70, ptr noundef nonnull align 1 dereferenceable(5) %3, i64 noundef 5, i32 noundef 16)
-  %73 = load i8, ptr %3, align 1, !tbaa !3
-  %.not64 = icmp eq i8 %73, 0
+  %71 = call noundef i32 @_ZN3url7_itoa_sEiPcmi(i32 noundef %69, ptr noundef nonnull align 1 dereferenceable(5) %3, i64 noundef 5, i32 noundef 16)
+  %72 = load i8, ptr %3, align 1, !tbaa !3
+  %.not64 = icmp eq i8 %72, 0
   br i1 %.not64, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %61
-  %.pre = load i32, ptr %22, align 4, !tbaa !6
+.lr.ph.preheader:                                 ; preds = %60
+  %.pre = load i32, ptr %21, align 4, !tbaa !6
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit42, %61
+._crit_edge:                                      ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit42, %60
   %.not20 = icmp eq i32 %.01966, 14
-  br i1 %.not20, label %_ZN3url12CanonOutputTIcE9push_backEc.exit52, label %94
+  br i1 %.not20, label %_ZN3url12CanonOutputTIcE9push_backEc.exit52, label %93
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN3url12CanonOutputTIcE9push_backEc.exit42
-  %74 = phi i32 [ %.pre, %.lr.ph.preheader ], [ %91, %_ZN3url12CanonOutputTIcE9push_backEc.exit42 ]
+  %73 = phi i32 [ %.pre, %.lr.ph.preheader ], [ %90, %_ZN3url12CanonOutputTIcE9push_backEc.exit42 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN3url12CanonOutputTIcE9push_backEc.exit42 ]
-  %75 = phi i8 [ %73, %.lr.ph.preheader ], [ %93, %_ZN3url12CanonOutputTIcE9push_backEc.exit42 ]
-  %76 = load i32, ptr %23, align 8, !tbaa !11
-  %77 = icmp slt i32 %74, %76
-  br i1 %77, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i38, label %select.unfold.i.preheader.i33
+  %74 = phi i8 [ %72, %.lr.ph.preheader ], [ %92, %_ZN3url12CanonOutputTIcE9push_backEc.exit42 ]
+  %75 = load i32, ptr %22, align 8, !tbaa !11
+  %76 = icmp slt i32 %73, %75
+  br i1 %76, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i38, label %select.unfold.i.preheader.i33
 
 select.unfold.i.preheader.i33:                    ; preds = %.lr.ph
-  %78 = icmp eq i32 %76, 0
-  %spec.select80 = select i1 %78, i32 16, i32 %76
+  %77 = icmp eq i32 %75, 0
+  %spec.select80 = select i1 %77, i32 16, i32 %75
   br label %select.unfold.i.i35
 
-select.unfold.i.i35:                              ; preds = %select.unfold.i.preheader.i33, %80
-  %.0.i.i36 = phi i32 [ %81, %80 ], [ %spec.select80, %select.unfold.i.preheader.i33 ]
-  %79 = icmp slt i32 %.0.i.i36, 1073741824
-  br i1 %79, label %80, label %_ZN3url12CanonOutputTIcE9push_backEc.exit42
+select.unfold.i.i35:                              ; preds = %select.unfold.i.preheader.i33, %79
+  %.0.i.i36 = phi i32 [ %80, %79 ], [ %spec.select80, %select.unfold.i.preheader.i33 ]
+  %78 = icmp slt i32 %.0.i.i36, 1073741824
+  br i1 %78, label %79, label %_ZN3url12CanonOutputTIcE9push_backEc.exit42
 
-80:                                               ; preds = %select.unfold.i.i35
-  %81 = shl nsw i32 %.0.i.i36, 1
-  %.not.i37 = icmp sgt i32 %81, %76
-  br i1 %.not.i37, label %82, label %select.unfold.i.i35, !llvm.loop !12
+79:                                               ; preds = %select.unfold.i.i35
+  %80 = shl nsw i32 %.0.i.i36, 1
+  %.not.i37 = icmp sgt i32 %80, %75
+  br i1 %.not.i37, label %81, label %select.unfold.i.i35, !llvm.loop !12
 
-82:                                               ; preds = %80
-  %83 = load ptr, ptr %1, align 8, !tbaa !14
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %85 = load ptr, ptr %84, align 8
-  call void %85(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %81)
-  %86 = load i32, ptr %22, align 4, !tbaa !6
+81:                                               ; preds = %79
+  %82 = load ptr, ptr %1, align 8, !tbaa !14
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %84 = load ptr, ptr %83, align 8
+  call void %84(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %80)
+  %85 = load i32, ptr %21, align 4, !tbaa !6
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i38
 
-_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i38: ; preds = %.lr.ph, %82
-  %.sink.i39 = phi i32 [ %86, %82 ], [ %74, %.lr.ph ]
+_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i38: ; preds = %.lr.ph, %81
+  %.sink.i39 = phi i32 [ %85, %81 ], [ %73, %.lr.ph ]
   %.sink3.i41 = load ptr, ptr %.sink3.in.i40, align 8, !tbaa !16
-  %87 = sext i32 %.sink.i39 to i64
-  %88 = getelementptr inbounds i8, ptr %.sink3.i41, i64 %87
-  store i8 %75, ptr %88, align 1, !tbaa !3
-  %89 = load i32, ptr %22, align 4, !tbaa !6
-  %90 = add nsw i32 %89, 1
-  store i32 %90, ptr %22, align 4, !tbaa !6
+  %86 = sext i32 %.sink.i39 to i64
+  %87 = getelementptr inbounds i8, ptr %.sink3.i41, i64 %86
+  store i8 %74, ptr %87, align 1, !tbaa !3
+  %88 = load i32, ptr %21, align 4, !tbaa !6
+  %89 = add nsw i32 %88, 1
+  store i32 %89, ptr %21, align 4, !tbaa !6
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit42
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit42:      ; preds = %select.unfold.i.i35, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i38
-  %91 = phi i32 [ %90, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i38 ], [ %74, %select.unfold.i.i35 ]
+  %90 = phi i32 [ %89, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i38 ], [ %73, %select.unfold.i.i35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %92 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.next
-  %93 = load i8, ptr %92, align 1, !tbaa !3
-  %.not = icmp eq i8 %93, 0
+  %91 = getelementptr inbounds nuw [5 x i8], ptr %3, i64 0, i64 %indvars.iv.next
+  %92 = load i8, ptr %91, align 1, !tbaa !3
+  %.not = icmp eq i8 %92, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-94:                                               ; preds = %._crit_edge
-  %95 = load i32, ptr %22, align 4, !tbaa !6
-  %96 = load i32, ptr %23, align 8, !tbaa !11
-  %97 = icmp slt i32 %95, %96
-  br i1 %97, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i48, label %select.unfold.i.preheader.i43
+93:                                               ; preds = %._crit_edge
+  %94 = load i32, ptr %21, align 4, !tbaa !6
+  %95 = load i32, ptr %22, align 8, !tbaa !11
+  %96 = icmp slt i32 %94, %95
+  br i1 %96, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i48, label %select.unfold.i.preheader.i43
 
-select.unfold.i.preheader.i43:                    ; preds = %94
-  %98 = icmp eq i32 %96, 0
-  %spec.select81 = select i1 %98, i32 16, i32 %96
+select.unfold.i.preheader.i43:                    ; preds = %93
+  %97 = icmp eq i32 %95, 0
+  %spec.select81 = select i1 %97, i32 16, i32 %95
   br label %select.unfold.i.i45
 
-select.unfold.i.i45:                              ; preds = %select.unfold.i.preheader.i43, %100
-  %.0.i.i46 = phi i32 [ %101, %100 ], [ %spec.select81, %select.unfold.i.preheader.i43 ]
-  %99 = icmp slt i32 %.0.i.i46, 1073741824
-  br i1 %99, label %100, label %_ZN3url12CanonOutputTIcE9push_backEc.exit52
+select.unfold.i.i45:                              ; preds = %select.unfold.i.preheader.i43, %99
+  %.0.i.i46 = phi i32 [ %100, %99 ], [ %spec.select81, %select.unfold.i.preheader.i43 ]
+  %98 = icmp slt i32 %.0.i.i46, 1073741824
+  br i1 %98, label %99, label %_ZN3url12CanonOutputTIcE9push_backEc.exit52
 
-100:                                              ; preds = %select.unfold.i.i45
-  %101 = shl nsw i32 %.0.i.i46, 1
-  %.not.i47 = icmp sgt i32 %101, %96
-  br i1 %.not.i47, label %102, label %select.unfold.i.i45, !llvm.loop !12
+99:                                               ; preds = %select.unfold.i.i45
+  %100 = shl nsw i32 %.0.i.i46, 1
+  %.not.i47 = icmp sgt i32 %100, %95
+  br i1 %.not.i47, label %101, label %select.unfold.i.i45, !llvm.loop !12
 
-102:                                              ; preds = %100
-  %103 = load ptr, ptr %1, align 8, !tbaa !14
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  %105 = load ptr, ptr %104, align 8
-  call void %105(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %101)
-  %106 = load i32, ptr %22, align 4, !tbaa !6
+101:                                              ; preds = %99
+  %102 = load ptr, ptr %1, align 8, !tbaa !14
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  %104 = load ptr, ptr %103, align 8
+  call void %104(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %100)
+  %105 = load i32, ptr %21, align 4, !tbaa !6
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i48
 
-_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i48: ; preds = %94, %102
-  %.sink.i49 = phi i32 [ %106, %102 ], [ %95, %94 ]
+_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i48: ; preds = %93, %101
+  %.sink.i49 = phi i32 [ %105, %101 ], [ %94, %93 ]
   %.sink3.i51 = load ptr, ptr %.sink3.in.i40, align 8, !tbaa !16
-  %107 = sext i32 %.sink.i49 to i64
-  %108 = getelementptr inbounds i8, ptr %.sink3.i51, i64 %107
-  store i8 58, ptr %108, align 1, !tbaa !3
-  %109 = load i32, ptr %22, align 4, !tbaa !6
-  %110 = add nsw i32 %109, 1
-  store i32 %110, ptr %22, align 4, !tbaa !6
+  %106 = sext i32 %.sink.i49 to i64
+  %107 = getelementptr inbounds i8, ptr %.sink3.i51, i64 %106
+  store i8 58, ptr %107, align 1, !tbaa !3
+  %108 = load i32, ptr %21, align 4, !tbaa !6
+  %109 = add nsw i32 %108, 1
+  store i32 %109, ptr %21, align 4, !tbaa !6
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit52
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit52:      ; preds = %select.unfold.i.i45, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i48, %._crit_edge
@@ -418,9 +417,9 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit52:      ; preds = %select.unfold.i.i45
   br label %_ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit
 
 _ZN3url12_GLOBAL__N_126ChooseIPv6ContractionRangeEPKhPNS_9ComponentE.exit: ; preds = %select.unfold.i.i25, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28, %_ZN3url12CanonOutputTIcE9push_backEc.exit52
-  %.1 = phi i32 [ %71, %_ZN3url12CanonOutputTIcE9push_backEc.exit52 ], [ %24, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28 ], [ %24, %select.unfold.i.i25 ]
-  %111 = icmp slt i32 %.1, 15
-  br i1 %111, label %27, label %26, !llvm.loop !21
+  %.1 = phi i32 [ %70, %_ZN3url12CanonOutputTIcE9push_backEc.exit52 ], [ %23, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i28 ], [ %23, %select.unfold.i.i25 ]
+  %110 = icmp slt i32 %.1, 15
+  br i1 %110, label %26, label %25, !llvm.loop !21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

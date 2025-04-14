@@ -25927,11 +25927,11 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
   %456 = load i64, ptr %455, align 8, !tbaa !25
   %457 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %451, ptr noundef %454, i64 noundef %456) #35
   %458 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %457, ptr noundef nonnull @.str.107)
-  %459 = or disjoint i64 %.0143299, 1
-  %460 = load ptr, ptr %10, align 8, !tbaa !473
-  %461 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %460, i64 %459
+  %459 = load ptr, ptr %10, align 8, !tbaa !473
+  %460 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %459, i64 %.0143299
+  %461 = getelementptr inbounds nuw i8, ptr %460, i64 32
   %462 = load ptr, ptr %461, align 8, !tbaa !23
-  %463 = getelementptr inbounds nuw i8, ptr %461, i64 8
+  %463 = getelementptr inbounds nuw i8, ptr %460, i64 40
   %464 = load i64, ptr %463, align 8, !tbaa !25
   %465 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %458, ptr noundef %462, i64 noundef %464) #35
   %466 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %465, ptr noundef nonnull @.str.108)

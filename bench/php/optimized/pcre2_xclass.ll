@@ -999,8 +999,8 @@ define hidden range(i32 0, 2) i32 @_pcre2_eclass_8(i32 noundef %0, ptr noundef r
   %50 = getelementptr inbounds nuw i8, ptr %.14043, i64 2
   %51 = load i8, ptr %50, align 1, !tbaa !4
   %52 = zext i8 %51 to i64
-  %53 = or disjoint i64 %49, %52
-  %54 = getelementptr inbounds nuw i8, ptr %.14043, i64 %53
+  %53 = getelementptr inbounds nuw i8, ptr %.14043, i64 %49
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %52
   %55 = shl i32 %.03744, 1
   %56 = or disjoint i32 %46, %55
   br label %57

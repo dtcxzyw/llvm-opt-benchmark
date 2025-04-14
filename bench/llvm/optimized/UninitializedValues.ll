@@ -13913,6 +13913,7 @@ define linkonce_odr hidden void @_ZNSt14priority_queueIPKN5clang8CFGBlockEN4llvm
   store ptr %.sroa.0.0.copyload, ptr %2, align 8
   %19 = add nsw i64 %18, -1
   %20 = sdiv i64 %19, 2
+  %invariant.gep.i.i.i = getelementptr i8, ptr %4, i64 8
   %21 = icmp sgt i64 %18, 2
   br i1 %21, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
@@ -13921,87 +13922,87 @@ define linkonce_odr hidden void @_ZNSt14priority_queueIPKN5clang8CFGBlockEN4llvm
   %22 = shl i64 %.029.i.i.i, 1
   %23 = add i64 %22, 2
   %24 = getelementptr inbounds ptr, ptr %4, i64 %23
-  %25 = or disjoint i64 %22, 1
-  %26 = getelementptr inbounds ptr, ptr %4, i64 %25
-  %27 = load ptr, ptr %24, align 8, !tbaa !131
-  %28 = load ptr, ptr %26, align 8, !tbaa !131
-  %29 = call noundef zeroext i1 @_ZNK5clang16PostOrderCFGView17BlockOrderCompareclEPKNS_8CFGBlockES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %28, ptr noundef %27) #18
-  %spec.select.i.i.i = select i1 %29, i64 %25, i64 %23
-  %30 = getelementptr inbounds ptr, ptr %4, i64 %spec.select.i.i.i
-  %31 = load ptr, ptr %30, align 8, !tbaa !131
-  %32 = getelementptr inbounds ptr, ptr %4, i64 %.029.i.i.i
-  store ptr %31, ptr %32, align 8, !tbaa !131
-  %33 = icmp slt i64 %spec.select.i.i.i, %20
-  br i1 %33, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !358
+  %gep.i.i.i = getelementptr ptr, ptr %invariant.gep.i.i.i, i64 %22
+  %25 = load ptr, ptr %24, align 8, !tbaa !131
+  %26 = load ptr, ptr %gep.i.i.i, align 8, !tbaa !131
+  %27 = call noundef zeroext i1 @_ZNK5clang16PostOrderCFGView17BlockOrderCompareclEPKNS_8CFGBlockES4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %26, ptr noundef %25) #18
+  %28 = or disjoint i64 %22, 1
+  %spec.select.i.i.i = select i1 %27, i64 %28, i64 %23
+  %29 = getelementptr inbounds ptr, ptr %4, i64 %spec.select.i.i.i
+  %30 = load ptr, ptr %29, align 8, !tbaa !131
+  %31 = getelementptr inbounds ptr, ptr %4, i64 %.029.i.i.i
+  store ptr %30, ptr %31, align 8, !tbaa !131
+  %32 = icmp slt i64 %spec.select.i.i.i, %20
+  br i1 %32, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !358
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %8
   %.0.lcssa.i.i.i = phi i64 [ 0, %8 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
-  %34 = and i64 %17, 8
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %._crit_edge.i.i._crit_edge.i
+  %33 = and i64 %17, 8
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %._crit_edge.i.i._crit_edge.i
 
 ._crit_edge.i.i._crit_edge.i:                     ; preds = %._crit_edge.i.i.i
   %.pre.i = load i64, ptr %2, align 8, !tbaa !141
-  br label %45
+  br label %44
 
-36:                                               ; preds = %._crit_edge.i.i.i
-  %37 = add nsw i64 %18, -2
-  %38 = ashr exact i64 %37, 1
-  %39 = icmp eq i64 %.0.lcssa.i.i.i, %38
+35:                                               ; preds = %._crit_edge.i.i.i
+  %36 = add nsw i64 %18, -2
+  %37 = ashr exact i64 %36, 1
+  %38 = icmp eq i64 %.0.lcssa.i.i.i, %37
   %.pre7.i = load i64, ptr %2, align 8, !tbaa !141
-  br i1 %39, label %.thread.i.i, label %45
+  br i1 %38, label %.thread.i.i, label %44
 
-.thread.i.i:                                      ; preds = %36
-  %40 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
-  %41 = or disjoint i64 %40, 1
-  %42 = getelementptr inbounds nuw ptr, ptr %4, i64 %41
-  %43 = load ptr, ptr %42, align 8, !tbaa !131
-  %44 = getelementptr inbounds ptr, ptr %4, i64 %.0.lcssa.i.i.i
-  store ptr %43, ptr %44, align 8, !tbaa !131
+.thread.i.i:                                      ; preds = %35
+  %39 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %40 = or disjoint i64 %39, 1
+  %41 = getelementptr inbounds nuw ptr, ptr %4, i64 %40
+  %42 = load ptr, ptr %41, align 8, !tbaa !131
+  %43 = getelementptr inbounds ptr, ptr %4, i64 %.0.lcssa.i.i.i
+  store ptr %42, ptr %43, align 8, !tbaa !131
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   store i64 %.pre7.i, ptr %3, align 8, !tbaa !141
   br label %.lr.ph.i.i.i.i.preheader
 
-45:                                               ; preds = %36, %._crit_edge.i.i._crit_edge.i
-  %46 = phi i64 [ %.pre.i, %._crit_edge.i.i._crit_edge.i ], [ %.pre7.i, %36 ]
+44:                                               ; preds = %35, %._crit_edge.i.i._crit_edge.i
+  %45 = phi i64 [ %.pre.i, %._crit_edge.i.i._crit_edge.i ], [ %.pre7.i, %35 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  store i64 %46, ptr %3, align 8, !tbaa !141
+  store i64 %45, ptr %3, align 8, !tbaa !141
   %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
   br i1 %.not.i.i, label %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %45, %.thread.i.i
-  %.01317.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %45 ], [ %41, %.thread.i.i ]
+.lr.ph.i.i.i.i.preheader:                         ; preds = %44, %.thread.i.i
+  %.01317.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %44 ], [ %40, %.thread.i.i ]
   br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %50
-  %.01317.i.i.i.i = phi i64 [ %.018.i.i89.i.i, %50 ], [ %.01317.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %49
+  %.01317.i.i.i.i = phi i64 [ %.018.i.i89.i.i, %49 ], [ %.01317.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.018.in.i.i.i.i = add nsw i64 %.01317.i.i.i.i, -1
   %.018.i.i89.i.i = lshr i64 %.018.in.i.i.i.i, 1
-  %47 = getelementptr inbounds nuw ptr, ptr %4, i64 %.018.i.i89.i.i
-  %48 = load ptr, ptr %47, align 8, !tbaa !131
-  %49 = call noundef zeroext i1 @_ZNK5clang16PostOrderCFGView17BlockOrderCompareclEPKNS_8CFGBlockES4_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %14, ptr noundef %48) #18
-  br i1 %49, label %50, label %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i
+  %46 = getelementptr inbounds nuw ptr, ptr %4, i64 %.018.i.i89.i.i
+  %47 = load ptr, ptr %46, align 8, !tbaa !131
+  %48 = call noundef zeroext i1 @_ZNK5clang16PostOrderCFGView17BlockOrderCompareclEPKNS_8CFGBlockES4_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %14, ptr noundef %47) #18
+  br i1 %48, label %49, label %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i
 
-50:                                               ; preds = %.lr.ph.i.i.i.i
-  %51 = load ptr, ptr %47, align 8, !tbaa !131
-  %52 = getelementptr inbounds ptr, ptr %4, i64 %.01317.i.i.i.i
-  store ptr %51, ptr %52, align 8, !tbaa !131
+49:                                               ; preds = %.lr.ph.i.i.i.i
+  %50 = load ptr, ptr %46, align 8, !tbaa !131
+  %51 = getelementptr inbounds ptr, ptr %4, i64 %.01317.i.i.i.i
+  store ptr %50, ptr %51, align 8, !tbaa !131
   %.not10.i.i = icmp ult i64 %.018.in.i.i.i.i, 2
   br i1 %.not10.i.i, label %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !143
 
-_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i: ; preds = %50, %.lr.ph.i.i.i.i, %45
-  %.013.lcssa.i.i.i.i = phi i64 [ 0, %45 ], [ 0, %50 ], [ %.01317.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %53 = getelementptr inbounds ptr, ptr %4, i64 %.013.lcssa.i.i.i.i
-  store ptr %14, ptr %53, align 8, !tbaa !131
+_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i: ; preds = %49, %.lr.ph.i.i.i.i, %44
+  %.013.lcssa.i.i.i.i = phi i64 [ 0, %44 ], [ 0, %49 ], [ %.01317.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %52 = getelementptr inbounds ptr, ptr %4, i64 %.013.lcssa.i.i.i.i
+  store ptr %14, ptr %52, align 8, !tbaa !131
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %.pre = load i32, ptr %5, align 8, !tbaa !11
   br label %_ZSt8pop_heapIPPKN5clang8CFGBlockENS0_23ReversePostOrderCompareEEvT_S6_T0_.exit
 
 _ZSt8pop_heapIPPKN5clang8CFGBlockENS0_23ReversePostOrderCompareEEvT_S6_T0_.exit: ; preds = %1, %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i
-  %54 = phi i32 [ %6, %1 ], [ %.pre, %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i ]
-  %55 = add i32 %54, -1
-  store i32 %55, ptr %5, align 8, !tbaa !11
+  %53 = phi i32 [ %6, %1 ], [ %.pre, %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i ]
+  %54 = add i32 %53, -1
+  store i32 %54, ptr %5, align 8, !tbaa !11
   ret void
 }
 

@@ -2248,8 +2248,8 @@ define internal fastcc void @encodes(i64 noundef %0, ptr noundef readonly captur
   %27 = load i8, ptr %26, align 1, !tbaa !26
   %28 = lshr i8 %27, 4
   %29 = zext nneg i8 %28 to i64
-  %30 = or disjoint i64 %25, %29
-  %31 = getelementptr i8, ptr %8, i64 %30
+  %30 = getelementptr i8, ptr %8, i64 %25
+  %31 = getelementptr i8, ptr %30, i64 %29
   %32 = load i8, ptr %31, align 1, !tbaa !26
   %33 = add nsw i64 %.260, 2
   %34 = getelementptr [4097 x i8], ptr %6, i64 0, i64 %20
@@ -2262,8 +2262,8 @@ define internal fastcc void @encodes(i64 noundef %0, ptr noundef readonly captur
   %40 = load i8, ptr %39, align 1, !tbaa !26
   %41 = lshr i8 %40, 6
   %42 = zext nneg i8 %41 to i64
-  %43 = or disjoint i64 %38, %42
-  %44 = getelementptr i8, ptr %8, i64 %43
+  %43 = getelementptr i8, ptr %8, i64 %38
+  %44 = getelementptr i8, ptr %43, i64 %42
   %45 = load i8, ptr %44, align 1, !tbaa !26
   %46 = add nsw i64 %.260, 3
   %47 = getelementptr [4097 x i8], ptr %6, i64 0, i64 %33
@@ -2328,8 +2328,8 @@ define internal fastcc void @encodes(i64 noundef %0, ptr noundef readonly captur
   %78 = load i8, ptr %77, align 1, !tbaa !26
   %79 = lshr i8 %78, 4
   %80 = zext nneg i8 %79 to i64
-  %81 = or disjoint i64 %76, %80
-  %82 = getelementptr i8, ptr %8, i64 %81
+  %81 = getelementptr i8, ptr %8, i64 %76
+  %82 = getelementptr i8, ptr %81, i64 %80
   %83 = load i8, ptr %82, align 1, !tbaa !26
   %84 = getelementptr [4097 x i8], ptr %6, i64 0, i64 %71
   store i8 %83, ptr %84, align 1, !tbaa !26

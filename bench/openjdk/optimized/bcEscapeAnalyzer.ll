@@ -9839,21 +9839,18 @@ define hidden void @_ZN16BCEscapeAnalyzer17copy_dependenciesEP12Dependencies(ptr
   %19 = load ptr, ptr %17, align 8
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %22 = or disjoint i64 %indvars.iv, 1
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = or disjoint i64 %indvars.iv, 2
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %25
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = or disjoint i64 %indvars.iv, 3
-  %29 = getelementptr inbounds nuw ptr, ptr %19, i64 %28
-  %30 = load ptr, ptr %29, align 8
-  tail call void @_ZN12Dependencies29assert_unique_concrete_methodEP7ciKlassP8ciMethodS1_S3_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %21, ptr noundef %24, ptr noundef %27, ptr noundef %30) #12
+  tail call void @_ZN12Dependencies29assert_unique_concrete_methodEP7ciKlassP8ciMethodS1_S3_(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %21, ptr noundef %23, ptr noundef %25, ptr noundef %27) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %31 = load i32, ptr %14, align 8
-  %32 = trunc nuw i64 %indvars.iv.next to i32
-  %33 = icmp sgt i32 %31, %32
-  br i1 %33, label %18, label %._crit_edge, !llvm.loop !48
+  %28 = load i32, ptr %14, align 8
+  %29 = trunc nuw i64 %indvars.iv.next to i32
+  %30 = icmp sgt i32 %28, %29
+  br i1 %30, label %18, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %18, %13
   ret void

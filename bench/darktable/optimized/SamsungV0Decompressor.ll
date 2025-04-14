@@ -801,10 +801,10 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor10decompressEv(ptr nound
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %55
+  br label %52
 
-._crit_edge:                                      ; preds = %55, %1
-  %.lcssa = phi ptr [ %2, %1 ], [ %59, %55 ]
+._crit_edge:                                      ; preds = %52, %1
+  %.lcssa = phi ptr [ %2, %1 ], [ %56, %52 ]
   %7 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 560
   %8 = load ptr, ptr %7, align 8, !tbaa !135, !noalias !136, !nonnull !107, !noundef !107
   %9 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 584
@@ -845,6 +845,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor10decompressEv(ptr nound
   %34 = zext nneg i32 %29 to i64
   %35 = zext nneg i32 %18 to i64
   %36 = zext nneg i32 %30 to i64
+  %invariant.gep101 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge88.us
@@ -853,48 +854,47 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor10decompressEv(ptr nound
   %38 = add nuw nsw i64 %37, %32
   %39 = icmp samesign ule i64 %38, %36
   tail call void @llvm.assume(i1 %39)
-  %40 = getelementptr inbounds nuw i16, ptr %8, i64 %37
-  %41 = or disjoint i64 %indvars.iv97, 1
-  %42 = mul nuw nsw i64 %41, %35
-  %43 = add nuw nsw i64 %42, %32
-  %44 = icmp samesign ule i64 %43, %36
-  tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw i16, ptr %8, i64 %42
-  br label %46
+  %40 = or disjoint i64 %indvars.iv97, 1
+  %41 = mul nuw nsw i64 %40, %35
+  %42 = add nuw nsw i64 %41, %32
+  %43 = icmp samesign ule i64 %42, %36
+  tail call void @llvm.assume(i1 %43)
+  %44 = getelementptr inbounds nuw i16, ptr %8, i64 %41
+  %gep102 = getelementptr inbounds nuw i16, ptr %invariant.gep101, i64 %37
+  br label %45
 
-46:                                               ; preds = %.preheader.us, %46
-  %indvars.iv94 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next95, %46 ]
-  %47 = or disjoint i64 %indvars.iv94, 1
-  %48 = getelementptr inbounds nuw i16, ptr %40, i64 %47
-  %49 = icmp samesign ule i64 %indvars.iv94, %32
-  tail call void @llvm.assume(i1 %49)
-  %50 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv94
-  %51 = load i16, ptr %48, align 2, !tbaa !142
-  %52 = load i16, ptr %50, align 2, !tbaa !142
-  store i16 %52, ptr %48, align 2, !tbaa !142
-  store i16 %51, ptr %50, align 2, !tbaa !142
+45:                                               ; preds = %.preheader.us, %45
+  %indvars.iv94 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next95, %45 ]
+  %gep = getelementptr inbounds nuw i16, ptr %gep102, i64 %indvars.iv94
+  %46 = icmp samesign ule i64 %indvars.iv94, %32
+  tail call void @llvm.assume(i1 %46)
+  %47 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv94
+  %48 = load i16, ptr %gep, align 2, !tbaa !142
+  %49 = load i16, ptr %47, align 2, !tbaa !142
+  store i16 %49, ptr %gep, align 2, !tbaa !142
+  store i16 %48, ptr %47, align 2, !tbaa !142
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 2
-  %53 = icmp samesign ult i64 %indvars.iv.next95, %33
-  br i1 %53, label %46, label %._crit_edge88.us, !llvm.loop !144
+  %50 = icmp samesign ult i64 %indvars.iv.next95, %33
+  br i1 %50, label %45, label %._crit_edge88.us, !llvm.loop !144
 
-._crit_edge88.us:                                 ; preds = %46
+._crit_edge88.us:                                 ; preds = %45
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 2
-  %54 = icmp samesign ult i64 %indvars.iv.next98, %34
-  br i1 %54, label %.preheader.us, label %._crit_edge90, !llvm.loop !145
+  %51 = icmp samesign ult i64 %indvars.iv.next98, %34
+  br i1 %51, label %.preheader.us, label %._crit_edge90, !llvm.loop !145
 
-55:                                               ; preds = %.lr.ph, %55
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %56 = load ptr, ptr %6, align 8, !tbaa !109
-  %57 = getelementptr inbounds nuw %"class.rawspeed::ByteStream", ptr %56, i64 %indvars.iv
-  %58 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %58, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %57)
+52:                                               ; preds = %.lr.ph, %52
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
+  %53 = load ptr, ptr %6, align 8, !tbaa !109
+  %54 = getelementptr inbounds nuw %"class.rawspeed::ByteStream", ptr %53, i64 %indvars.iv
+  %55 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %55, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %54)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %59 = load ptr, ptr %0, align 8, !tbaa !6
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 44
-  %61 = load i32, ptr %60, align 4, !tbaa !88
-  %62 = sext i32 %61 to i64
-  %63 = icmp slt i64 %indvars.iv.next, %62
-  br i1 %63, label %55, label %._crit_edge, !llvm.loop !146
+  %56 = load ptr, ptr %0, align 8, !tbaa !6
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 44
+  %58 = load i32, ptr %57, align 4, !tbaa !88
+  %59 = sext i32 %58 to i64
+  %60 = icmp slt i64 %indvars.iv.next, %59
+  br i1 %60, label %52, label %._crit_edge, !llvm.loop !146
 
 ._crit_edge90:                                    ; preds = %._crit_edge88.us, %._crit_edge
   ret void

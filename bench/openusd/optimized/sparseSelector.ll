@@ -124,49 +124,47 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal14SparseSelector19initializeSelectionEv.exit:
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %22 = shl nsw i32 %1, 1
-  %23 = or disjoint i32 %22, 1
-  %24 = sext i32 %23 to i64
-  %25 = load ptr, ptr %21, align 8
-  %26 = getelementptr inbounds i32, ptr %25, i64 %24
+  %23 = load ptr, ptr %21, align 8
+  %24 = sext i32 %22 to i64
+  %25 = getelementptr i32, ptr %23, i64 %24
+  %26 = getelementptr i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %29 = load ptr, ptr %20, align 8
   %30 = getelementptr inbounds i32, ptr %29, i64 %28
-  %31 = sext i32 %22 to i64
-  %32 = getelementptr inbounds i32, ptr %25, i64 %31
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i32, ptr %35, i64 %28
-  %37 = icmp sgt i32 %33, 0
-  br i1 %37, label %.lr.ph.preheader, label %.loopexit
+  %31 = load i32, ptr %25, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i32, ptr %33, i64 %28
+  %35 = icmp sgt i32 %31, 0
+  br i1 %35, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %15
-  %wide.trip.count = zext nneg i32 %33 to i64
+  %wide.trip.count = zext nneg i32 %31 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %38 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
-  %39 = load i32, ptr %38, align 4
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 432
-  %42 = sext i32 %39 to i64
-  %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::SparseTag", ptr %43, i64 %42
-  %45 = load i8, ptr %44, align 1
-  %46 = or i8 %45, 1
-  store i8 %46, ptr %44, align 1
-  %47 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
-  %48 = load i32, ptr %47, align 4
-  %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 456
-  %51 = sext i32 %48 to i64
-  %52 = load ptr, ptr %50, align 8
-  %53 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::SparseTag", ptr %52, i64 %51
-  %54 = load i8, ptr %53, align 1
-  %55 = or i8 %54, 1
-  store i8 %55, ptr %53, align 1
+  %36 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %37 = load i32, ptr %36, align 4
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 432
+  %40 = sext i32 %37 to i64
+  %41 = load ptr, ptr %39, align 8
+  %42 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::SparseTag", ptr %41, i64 %40
+  %43 = load i8, ptr %42, align 1
+  %44 = or i8 %43, 1
+  store i8 %44, ptr %42, align 1
+  %45 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
+  %46 = load i32, ptr %45, align 4
+  %47 = load ptr, ptr %0, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 456
+  %49 = sext i32 %46 to i64
+  %50 = load ptr, ptr %48, align 8
+  %51 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Vtr::internal::Refinement::SparseTag", ptr %50, i64 %49
+  %52 = load i8, ptr %51, align 1
+  %53 = or i8 %52, 1
+  store i8 %53, ptr %51, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5

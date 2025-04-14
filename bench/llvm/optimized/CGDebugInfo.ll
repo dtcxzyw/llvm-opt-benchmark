@@ -7146,9 +7146,9 @@ _ZNK5clang13SourceManager15getBufferOrNoneENS_6FileIDENS_14SourceLocationE.exit:
   %67 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !445
   %69 = or i8 %68, 32
-  %70 = or disjoint i64 %62, 1
-  %71 = load ptr, ptr %2, align 8, !tbaa !456
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %70
+  %70 = load ptr, ptr %2, align 8, !tbaa !456
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %62
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 1
   store i8 %69, ptr %72, align 1, !tbaa !445
   %73 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %73, 16
@@ -7204,9 +7204,9 @@ _ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit: ; preds = %.lr.p
   %97 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %96
   %98 = load i8, ptr %97, align 1, !tbaa !445
   %99 = or i8 %98, 32
-  %100 = or disjoint i64 %92, 1
-  %101 = load ptr, ptr %2, align 8, !tbaa !456
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %100
+  %100 = load ptr, ptr %2, align 8, !tbaa !456
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 %92
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1
   store i8 %99, ptr %102, align 1, !tbaa !445
   %103 = add nuw nsw i64 %.013.i24, 1
   %exitcond.not.i25 = icmp eq i64 %103, 20
@@ -7262,9 +7262,9 @@ _ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit26: ; preds = %.lr
   %127 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %126
   %128 = load i8, ptr %127, align 1, !tbaa !445
   %129 = or i8 %128, 32
-  %130 = or disjoint i64 %122, 1
-  %131 = load ptr, ptr %2, align 8, !tbaa !456
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 %130
+  %130 = load ptr, ptr %2, align 8, !tbaa !456
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 %122
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 1
   store i8 %129, ptr %132, align 1, !tbaa !445
   %133 = add nuw nsw i64 %.013.i32, 1
   %exitcond.not.i33 = icmp eq i64 %133, 32

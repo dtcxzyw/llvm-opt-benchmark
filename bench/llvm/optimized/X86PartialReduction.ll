@@ -385,7 +385,7 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_16TargetPassConfigEEEPT_v.exit: ; pred
   %140 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %141 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %142 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  %.ptr.i = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %35, i64 16
   %143 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %144 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %145 = getelementptr inbounds nuw i8, ptr %36, i64 32
@@ -2588,8 +2588,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_c
   store i32 %1105, ptr %141, align 8, !tbaa !76
   %1114 = shl nuw nsw i32 %.0109.i, 2
   %1115 = zext nneg i32 %1114 to i64
-  %.add.i = or disjoint i64 %1115, 16
-  %.ptr213.i = getelementptr inbounds nuw i8, ptr %35, i64 %.add.i
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %1115
   %.not.i158.i = icmp eq ptr %1038, null
   %1116 = getelementptr inbounds nuw i8, ptr %1038, i64 24
   br label %1119
@@ -2606,9 +2605,9 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_c
 1119:                                             ; preds = %_ZN4llvm11SmallVectorIiLj64EED2Ev.exit.i, %.lr.ph223.i
   %indvars.iv240.i = phi i64 [ 0, %.lr.ph223.i ], [ %indvars.iv.next241.i, %_ZN4llvm11SmallVectorIiLj64EED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %35) #16
-  store ptr %.ptr.i, ptr %35, align 8, !tbaa !70
+  store ptr %invariant.gep.i, ptr %35, align 8, !tbaa !70
   store i32 64, ptr %144, align 4, !tbaa !77
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.ptr.i, i8 0, i64 %1115, i1 false), !tbaa !74
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %invariant.gep.i, i8 0, i64 %1115, i1 false), !tbaa !74
   store i32 %.0109.i, ptr %143, align 8, !tbaa !76
   %1120 = trunc nuw nsw i64 %indvars.iv240.i to i32
   %1121 = mul i32 %.0109.i, %1120
@@ -2616,11 +2615,11 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit.i.i..lr.ph.preheader.i.i_c
 
 .lr.ph.i.i64:                                     ; preds = %.lr.ph.i.i64, %1119
   %.08.i.i65 = phi i32 [ %1122, %.lr.ph.i.i64 ], [ %1121, %1119 ]
-  %.057.i.i66 = phi ptr [ %1123, %.lr.ph.i.i64 ], [ %.ptr.i, %1119 ]
+  %.057.i.i66 = phi ptr [ %1123, %.lr.ph.i.i64 ], [ %invariant.gep.i, %1119 ]
   store i32 %.08.i.i65, ptr %.057.i.i66, align 4, !tbaa !74
   %1122 = add i32 %.08.i.i65, 1
   %1123 = getelementptr inbounds nuw i8, ptr %.057.i.i66, i64 4
-  %.not.i146.i = icmp eq ptr %1123, %.ptr213.i
+  %.not.i146.i = icmp eq ptr %1123, %gep.i
   br i1 %.not.i146.i, label %_ZSt4iotaIPijEvT_S1_T0_.exit.i, label %.lr.ph.i.i64, !llvm.loop !302
 
 _ZSt4iotaIPijEvT_S1_T0_.exit.i:                   ; preds = %.lr.ph.i.i64
@@ -2633,7 +2632,7 @@ _ZSt4iotaIPijEvT_S1_T0_.exit.i:                   ; preds = %.lr.ph.i.i64
   %1127 = load ptr, ptr %1126, align 8, !tbaa !12
   %1128 = getelementptr inbounds nuw i8, ptr %1127, i64 112
   %1129 = load ptr, ptr %1128, align 8
-  %1130 = call noundef ptr %1129(ptr noundef nonnull align 8 dereferenceable(8) %1126, ptr noundef %.0104.i, ptr noundef %.0104.i, ptr nonnull %.ptr.i, i64 %1125) #16
+  %1130 = call noundef ptr %1129(ptr noundef nonnull align 8 dereferenceable(8) %1126, ptr noundef %.0104.i, ptr noundef %.0104.i, ptr nonnull %invariant.gep.i, i64 %1125) #16
   %.not.not.i.i = icmp eq ptr %1130, null
   br i1 %.not.not.i.i, label %1131, label %_ZN4llvm13IRBuilderBase19CreateShuffleVectorEPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineE.exit.i
 
@@ -2642,7 +2641,7 @@ _ZSt4iotaIPijEvT_S1_T0_.exit.i:                   ; preds = %.lr.ph.i.i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #16
   store i16 257, ptr %146, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  call void @_ZN4llvm17ShuffleVectorInstC1EPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(112) %1132, ptr noundef %.0104.i, ptr noundef %.0104.i, ptr nonnull %.ptr.i, i64 %1125, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr noundef nonnull byval(%"class.llvm::InsertPosition") align 8 %27) #16
+  call void @_ZN4llvm17ShuffleVectorInstC1EPNS_5ValueES2_NS_8ArrayRefIiEERKNS_5TwineENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(112) %1132, ptr noundef %.0104.i, ptr noundef %.0104.i, ptr nonnull %invariant.gep.i, i64 %1125, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr noundef nonnull byval(%"class.llvm::InsertPosition") align 8 %27) #16
   %1133 = load ptr, ptr %134, align 8, !tbaa !276
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %135, align 8
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i283, align 8
@@ -2817,7 +2816,7 @@ _ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4Typ
   store ptr %.0.i261, ptr %1203, align 8, !tbaa !84
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %40) #16
   %1204 = load ptr, ptr %35, align 8, !tbaa !70
-  %1205 = icmp eq ptr %1204, %.ptr.i
+  %1205 = icmp eq ptr %1204, %invariant.gep.i
   br i1 %1205, label %_ZN4llvm11SmallVectorIiLj64EED2Ev.exit.i, label %1206
 
 1206:                                             ; preds = %_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE.exit

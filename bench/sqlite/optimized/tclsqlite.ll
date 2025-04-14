@@ -3240,9 +3240,9 @@ safeToUseEvalObjv.exit:                           ; preds = %1161, %1165, %1165,
   %1197 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %1198 = getelementptr inbounds nuw i8, ptr %1197, i64 2736
   %1199 = load ptr, ptr %1198, align 8, !tbaa !19
-  %1200 = or disjoint i32 %.0991, 2
-  %1201 = zext nneg i32 %1200 to i64
-  %1202 = getelementptr inbounds nuw ptr, ptr %3, i64 %1201
+  %1200 = zext nneg i32 %.0991 to i64
+  %1201 = getelementptr inbounds nuw ptr, ptr %3, i64 %1200
+  %1202 = getelementptr inbounds nuw i8, ptr %1201, i64 16
   %1203 = load ptr, ptr %1202, align 8, !tbaa !15
   %1204 = call ptr %1199(ptr noundef %1203) #14
   br label %1205

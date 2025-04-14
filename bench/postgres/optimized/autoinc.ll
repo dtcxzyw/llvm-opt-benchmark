@@ -131,105 +131,102 @@ define i64 @autoinc(ptr noundef readonly captures(none) %0) local_unnamed_addr #
   %56 = zext nneg i16 %38 to i64
   br label %57
 
-57:                                               ; preds = %44, %102
-  %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %102 ]
-  %.099 = phi i32 [ 0, %44 ], [ %.1, %102 ]
+57:                                               ; preds = %44, %99
+  %indvars.iv = phi i64 [ 0, %44 ], [ %indvars.iv.next, %99 ]
+  %.097 = phi i32 [ 0, %44 ], [ %.1, %99 ]
   %58 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 @SPI_fnumber(ptr noundef %48, ptr noundef %59) #6
   %61 = icmp slt i32 %60, 1
-  br i1 %61, label %62, label %68
+  br i1 %61, label %62, label %67
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
-  %64 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %64)
-  %65 = call i32 @errcode(i32 noundef 576) #6
-  %66 = load ptr, ptr %63, align 8
-  %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %34, ptr noundef %66) #6
+  %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %63)
+  %64 = call i32 @errcode(i32 noundef 576) #6
+  %65 = load ptr, ptr %58, align 8
+  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %34, ptr noundef %65) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @__func__.autoinc) #6
   unreachable
 
-68:                                               ; preds = %57
-  %69 = call i32 @SPI_gettypeid(ptr noundef %48, i32 noundef %60) #6
-  %.not90 = icmp eq i32 %69, 23
-  br i1 %.not90, label %76, label %70
+67:                                               ; preds = %57
+  %68 = call i32 @SPI_gettypeid(ptr noundef %48, i32 noundef %60) #6
+  %.not90 = icmp eq i32 %68, 23
+  br i1 %.not90, label %74, label %69
 
-70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
-  %72 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
-  call void @llvm.assume(i1 %72)
-  %73 = call i32 @errcode(i32 noundef 576) #6
-  %74 = load ptr, ptr %71, align 8
-  %75 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %74, ptr noundef %34) #6
+69:                                               ; preds = %67
+  %70 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
+  call void @llvm.assume(i1 %70)
+  %71 = call i32 @errcode(i32 noundef 576) #6
+  %72 = load ptr, ptr %58, align 8
+  %73 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.7, ptr noundef %72, ptr noundef %34) #6
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 87, ptr noundef nonnull @__func__.autoinc) #6
   unreachable
 
-76:                                               ; preds = %68
-  %77 = call i64 @SPI_getbinval(ptr noundef %.079, ptr noundef %48, i32 noundef %60, ptr noundef nonnull %2) #6
-  %78 = load i8, ptr %2, align 1, !range !3, !noundef !4
-  %79 = trunc nuw i8 %78 to i1
-  %80 = and i64 %77, 4294967295
-  %81 = icmp eq i64 %80, 0
-  %or.cond.not = select i1 %79, i1 true, i1 %81
-  br i1 %or.cond.not, label %82, label %102, !llvm.loop !5
+74:                                               ; preds = %67
+  %75 = call i64 @SPI_getbinval(ptr noundef %.079, ptr noundef %48, i32 noundef %60, ptr noundef nonnull %2) #6
+  %76 = load i8, ptr %2, align 1, !range !3, !noundef !4
+  %77 = trunc nuw i8 %76 to i1
+  %78 = and i64 %75, 4294967295
+  %79 = icmp eq i64 %78, 0
+  %or.cond.not = select i1 %77, i1 true, i1 %79
+  br i1 %or.cond.not, label %80, label %99, !llvm.loop !5
 
-82:                                               ; preds = %76
-  %83 = or disjoint i64 %indvars.iv, 1
-  %84 = sext i32 %.099 to i64
-  %85 = getelementptr inbounds i32, ptr %52, i64 %84
-  store i32 %60, ptr %85, align 4
-  %86 = getelementptr inbounds nuw ptr, ptr %46, i64 %83
-  %87 = load ptr, ptr %86, align 8
-  %88 = call ptr @cstring_to_text(ptr noundef %87) #6
-  %89 = ptrtoint ptr %88 to i64
-  %90 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @nextval, i32 noundef 0, i64 noundef %89) #6
-  %91 = getelementptr inbounds i64, ptr %54, i64 %84
-  %sext = shl i64 %90, 32
-  %92 = ashr exact i64 %sext, 32
-  store i64 %92, ptr %91, align 8
-  %93 = and i64 %90, 4294967295
-  %94 = icmp eq i64 %93, 0
-  br i1 %94, label %95, label %98
+80:                                               ; preds = %74
+  %81 = sext i32 %.097 to i64
+  %82 = getelementptr inbounds i32, ptr %52, i64 %81
+  store i32 %60, ptr %82, align 4
+  %83 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = call ptr @cstring_to_text(ptr noundef %84) #6
+  %86 = ptrtoint ptr %85 to i64
+  %87 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @nextval, i32 noundef 0, i64 noundef %86) #6
+  %88 = getelementptr inbounds i64, ptr %54, i64 %81
+  %sext = shl i64 %87, 32
+  %89 = ashr exact i64 %sext, 32
+  store i64 %89, ptr %88, align 8
+  %90 = and i64 %87, 4294967295
+  %91 = icmp eq i64 %90, 0
+  br i1 %91, label %92, label %95
 
-95:                                               ; preds = %82
-  %96 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @nextval, i32 noundef 0, i64 noundef %89) #6
-  %sext92 = shl i64 %96, 32
-  %97 = ashr exact i64 %sext92, 32
-  store i64 %97, ptr %91, align 8
-  br label %98
+92:                                               ; preds = %80
+  %93 = call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @nextval, i32 noundef 0, i64 noundef %86) #6
+  %sext92 = shl i64 %93, 32
+  %94 = ashr exact i64 %sext92, 32
+  store i64 %94, ptr %88, align 8
+  br label %95
 
-98:                                               ; preds = %95, %82
-  %99 = getelementptr inbounds i8, ptr %55, i64 %84
-  store i8 0, ptr %99, align 1
-  %100 = call ptr @pg_detoast_datum_packed(ptr noundef %88) #6
-  call void @pfree(ptr noundef %100) #6
-  %101 = add i32 %.099, 1
-  br label %102
+95:                                               ; preds = %92, %80
+  %96 = getelementptr inbounds i8, ptr %55, i64 %81
+  store i8 0, ptr %96, align 1
+  %97 = call ptr @pg_detoast_datum_packed(ptr noundef %85) #6
+  call void @pfree(ptr noundef %97) #6
+  %98 = add i32 %.097, 1
+  br label %99
 
-102:                                              ; preds = %76, %98
-  %.1 = phi i32 [ %101, %98 ], [ %.099, %76 ]
+99:                                               ; preds = %74, %95
+  %.1 = phi i32 [ %98, %95 ], [ %.097, %74 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %103 = icmp samesign ult i64 %indvars.iv.next, %56
-  br i1 %103, label %57, label %104
+  %100 = icmp samesign ult i64 %indvars.iv.next, %56
+  br i1 %100, label %57, label %101
 
-104:                                              ; preds = %102
-  %105 = icmp sgt i32 %.1, 0
-  br i1 %105, label %106, label %108
+101:                                              ; preds = %99
+  %102 = icmp sgt i32 %.1, 0
+  br i1 %102, label %103, label %105
 
-106:                                              ; preds = %104
-  %107 = call ptr @heap_modify_tuple_by_cols(ptr noundef %.079, ptr noundef %48, i32 noundef %.1, ptr noundef %52, ptr noundef %54, ptr noundef %55) #6
-  br label %108
+103:                                              ; preds = %101
+  %104 = call ptr @heap_modify_tuple_by_cols(ptr noundef %.079, ptr noundef %48, i32 noundef %.1, ptr noundef %52, ptr noundef %54, ptr noundef %55) #6
+  br label %105
 
-108:                                              ; preds = %106, %104
-  %.180 = phi ptr [ %107, %106 ], [ %.079, %104 ]
+105:                                              ; preds = %103, %101
+  %.180 = phi ptr [ %104, %103 ], [ %.079, %101 ]
   call void @pfree(ptr noundef %34) #6
   call void @pfree(ptr noundef %52) #6
   call void @pfree(ptr noundef %54) #6
   call void @pfree(ptr noundef %55) #6
-  %109 = ptrtoint ptr %.180 to i64
+  %106 = ptrtoint ptr %.180 to i64
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #6
-  ret i64 %109
+  ret i64 %106
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

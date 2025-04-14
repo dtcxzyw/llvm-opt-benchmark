@@ -3578,7 +3578,7 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
   %9 = load i64, ptr %8, align 8
   %.fr132 = freeze i64 %9
   %10 = icmp eq i8 %3, 1
-  br i1 %10, label %11, label %78
+  br i1 %10, label %11, label %76
 
 11:                                               ; preds = %7
   %12 = zext i16 %2 to i32
@@ -3608,212 +3608,210 @@ define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr 
   %24 = zext i8 %16 to i64
   br i1 %.not108, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %38
-  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %38 ], [ 0, %.lr.ph ]
-  %.079127.us = phi i32 [ %.1.us, %38 ], [ 0, %.lr.ph ]
-  %.083125.us = phi i8 [ %.184.us, %38 ], [ 0, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %37
+  %indvars.iv134 = phi i64 [ %indvars.iv.next135, %37 ], [ 0, %.lr.ph ]
+  %.079127.us = phi i32 [ %.1.us, %37 ], [ 0, %.lr.ph ]
+  %.083125.us = phi i8 [ %.184.us, %37 ], [ 0, %.lr.ph ]
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv134
   %26 = load i8, ptr %25, align 1, !tbaa !51
-  %27 = or disjoint i64 %indvars.iv134, 1
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !51
-  %30 = icmp eq i8 %26, 127
-  br i1 %30, label %38, label %31
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  %28 = load i8, ptr %27, align 1, !tbaa !51
+  %29 = icmp eq i8 %26, 127
+  br i1 %29, label %37, label %30
 
-31:                                               ; preds = %.lr.ph.split.us
-  %32 = load ptr, ptr %0, align 16, !tbaa !102
-  %33 = load ptr, ptr %32, align 8, !tbaa !53
-  %34 = load i8, ptr %33, align 1, !tbaa !141
-  %.not105.us = icmp eq i8 %26, %34
-  br i1 %.not105.us, label %35, label %38
+30:                                               ; preds = %.lr.ph.split.us
+  %31 = load ptr, ptr %0, align 16, !tbaa !102
+  %32 = load ptr, ptr %31, align 8, !tbaa !53
+  %33 = load i8, ptr %32, align 1, !tbaa !141
+  %.not105.us = icmp eq i8 %26, %33
+  br i1 %.not105.us, label %34, label %37
 
-35:                                               ; preds = %31
-  %36 = load i8, ptr %21, align 1, !tbaa !76
-  %or.cond130.not = icmp eq i8 %29, %36
-  br i1 %or.cond130.not, label %37, label %38
+34:                                               ; preds = %30
+  %35 = load i8, ptr %21, align 1, !tbaa !76
+  %or.cond130.not = icmp eq i8 %28, %35
+  br i1 %or.cond130.not, label %36, label %37
 
-37:                                               ; preds = %35
-  %spec.select.us = tail call i8 @llvm.umax.i8(i8 %29, i8 %.083125.us)
-  br label %38
+36:                                               ; preds = %34
+  %spec.select.us = tail call i8 @llvm.umax.i8(i8 %28, i8 %.083125.us)
+  br label %37
 
-38:                                               ; preds = %37, %35, %31, %.lr.ph.split.us
-  %.184.us = phi i8 [ %.083125.us, %.lr.ph.split.us ], [ %.083125.us, %31 ], [ %.083125.us, %35 ], [ %spec.select.us, %37 ]
-  %.1.us = phi i32 [ %.079127.us, %.lr.ph.split.us ], [ %.079127.us, %31 ], [ %.079127.us, %35 ], [ 1, %37 ]
+37:                                               ; preds = %36, %34, %30, %.lr.ph.split.us
+  %.184.us = phi i8 [ %.083125.us, %.lr.ph.split.us ], [ %.083125.us, %30 ], [ %.083125.us, %34 ], [ %spec.select.us, %36 ]
+  %.1.us = phi i32 [ %.079127.us, %.lr.ph.split.us ], [ %.079127.us, %30 ], [ %.079127.us, %34 ], [ 1, %36 ]
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 2
-  %39 = icmp samesign ult i64 %indvars.iv.next135, %24
-  br i1 %39, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !143
+  %38 = icmp samesign ult i64 %indvars.iv.next135, %24
+  br i1 %38, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !143
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %56
-  %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.lr.ph ]
-  %.079127 = phi i32 [ %.1, %56 ], [ 0, %.lr.ph ]
-  %.083125 = phi i8 [ %.184, %56 ], [ 0, %.lr.ph ]
-  %40 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
-  %41 = load i8, ptr %40, align 1, !tbaa !51
-  %42 = or disjoint i64 %indvars.iv, 1
-  %43 = getelementptr inbounds nuw i8, ptr %20, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !51
-  %45 = icmp eq i8 %41, 127
-  br i1 %45, label %56, label %46
+.lr.ph.split:                                     ; preds = %.lr.ph, %54
+  %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.lr.ph ]
+  %.079127 = phi i32 [ %.1, %54 ], [ 0, %.lr.ph ]
+  %.083125 = phi i8 [ %.184, %54 ], [ 0, %.lr.ph ]
+  %39 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
+  %40 = load i8, ptr %39, align 1, !tbaa !51
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %42 = load i8, ptr %41, align 1, !tbaa !51
+  %43 = icmp eq i8 %40, 127
+  br i1 %43, label %54, label %44
 
-46:                                               ; preds = %.lr.ph.split
-  %47 = load ptr, ptr %0, align 16, !tbaa !102
-  %48 = load ptr, ptr %47, align 8, !tbaa !53
-  %49 = load i8, ptr %48, align 1, !tbaa !141
-  %.not105 = icmp eq i8 %41, %49
-  br i1 %.not105, label %50, label %56
+44:                                               ; preds = %.lr.ph.split
+  %45 = load ptr, ptr %0, align 16, !tbaa !102
+  %46 = load ptr, ptr %45, align 8, !tbaa !53
+  %47 = load i8, ptr %46, align 1, !tbaa !141
+  %.not105 = icmp eq i8 %40, %47
+  br i1 %.not105, label %48, label %54
 
-50:                                               ; preds = %46
-  %51 = load i8, ptr %21, align 1, !tbaa !76
-  %.not120 = icmp ugt i8 %44, %51
-  br i1 %.not120, label %56, label %52
+48:                                               ; preds = %44
+  %49 = load i8, ptr %21, align 1, !tbaa !76
+  %.not120 = icmp ugt i8 %42, %49
+  br i1 %.not120, label %54, label %50
 
-52:                                               ; preds = %50
-  %.not121 = icmp ult i8 %44, %51
-  br i1 %.not121, label %53, label %55
+50:                                               ; preds = %48
+  %.not121 = icmp ult i8 %42, %49
+  br i1 %.not121, label %51, label %53
 
-53:                                               ; preds = %52
-  %54 = load i8, ptr %23, align 1, !tbaa !144
-  %.not122 = icmp ult i8 %44, %54
-  br i1 %.not122, label %56, label %55
+51:                                               ; preds = %50
+  %52 = load i8, ptr %23, align 1, !tbaa !144
+  %.not122 = icmp ult i8 %42, %52
+  br i1 %.not122, label %54, label %53
 
-55:                                               ; preds = %53, %52
-  %spec.select = tail call i8 @llvm.umax.i8(i8 %44, i8 %.083125)
-  br label %56
+53:                                               ; preds = %51, %50
+  %spec.select = tail call i8 @llvm.umax.i8(i8 %42, i8 %.083125)
+  br label %54
 
-56:                                               ; preds = %53, %50, %46, %.lr.ph.split, %55
-  %.184 = phi i8 [ %.083125, %.lr.ph.split ], [ %.083125, %46 ], [ %.083125, %50 ], [ %.083125, %53 ], [ %spec.select, %55 ]
-  %.1 = phi i32 [ %.079127, %.lr.ph.split ], [ %.079127, %46 ], [ %.079127, %50 ], [ %.079127, %53 ], [ 1, %55 ]
+54:                                               ; preds = %51, %48, %44, %.lr.ph.split, %53
+  %.184 = phi i8 [ %.083125, %.lr.ph.split ], [ %.083125, %44 ], [ %.083125, %48 ], [ %.083125, %51 ], [ %spec.select, %53 ]
+  %.1 = phi i32 [ %.079127, %.lr.ph.split ], [ %.079127, %44 ], [ %.079127, %48 ], [ %.079127, %51 ], [ 1, %53 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %57 = icmp samesign ult i64 %indvars.iv.next, %24
-  br i1 %57, label %.lr.ph.split, label %._crit_edge, !llvm.loop !143
+  %55 = icmp samesign ult i64 %indvars.iv.next, %24
+  br i1 %55, label %.lr.ph.split, label %._crit_edge, !llvm.loop !143
 
-._crit_edge:                                      ; preds = %56, %38
-  %.083.lcssa = phi i8 [ %.184.us, %38 ], [ %.184, %56 ]
-  %.079.lcssa = phi i32 [ %.1.us, %38 ], [ %.1, %56 ]
+._crit_edge:                                      ; preds = %54, %37
+  %.083.lcssa = phi i8 [ %.184.us, %37 ], [ %.184, %54 ]
+  %.079.lcssa = phi i32 [ %.1.us, %37 ], [ %.1, %54 ]
   %.not100 = icmp eq i32 %.079.lcssa, 0
-  br i1 %.not100, label %._crit_edge.thread, label %59
+  br i1 %.not100, label %._crit_edge.thread, label %57
 
 ._crit_edge.thread:                               ; preds = %19, %._crit_edge
-  %58 = tail call i32 @SendAlert(ptr noundef %0, i32 noundef 2, i32 noundef 70) #17
+  %56 = tail call i32 @SendAlert(ptr noundef %0, i32 noundef 2, i32 noundef 70) #17
   br label %TLSX_Find.exit
 
-59:                                               ; preds = %._crit_edge
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %.083.lcssa, ptr %60, align 1, !tbaa !145
-  %61 = icmp ult i8 %.083.lcssa, 4
-  br i1 %61, label %TLSX_Find.exit, label %62
+57:                                               ; preds = %._crit_edge
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 %.083.lcssa, ptr %58, align 1, !tbaa !145
+  %59 = icmp ult i8 %.083.lcssa, 4
+  br i1 %59, label %TLSX_Find.exit, label %60
 
-62:                                               ; preds = %59
+60:                                               ; preds = %57
   %.not102 = icmp eq ptr %5, null
-  br i1 %.not102, label %67, label %63
+  br i1 %.not102, label %65, label %61
 
-63:                                               ; preds = %62
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %65 = load i64, ptr %64, align 8
-  %66 = or i64 %65, 65536
-  store i64 %66, ptr %64, align 8
-  br label %67
+61:                                               ; preds = %60
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %63 = load i64, ptr %62, align 8
+  %64 = or i64 %63, 65536
+  store i64 %64, ptr %62, align 8
+  br label %65
 
-67:                                               ; preds = %63, %62
+65:                                               ; preds = %61, %60
   %.not103 = icmp eq ptr %6, null
-  br i1 %.not103, label %TLSX_Find.exit, label %68
+  br i1 %.not103, label %TLSX_Find.exit, label %66
 
-68:                                               ; preds = %67
-  %69 = load ptr, ptr %6, align 8, !tbaa !59
-  %.not6.i = icmp eq ptr %69, null
+66:                                               ; preds = %65
+  %67 = load ptr, ptr %6, align 8, !tbaa !59
+  %.not6.i = icmp eq ptr %67, null
   br i1 %.not6.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %68, %71
-  %.07.i = phi ptr [ %73, %71 ], [ %69, %68 ]
-  %70 = load i32, ptr %.07.i, align 8, !tbaa !60
-  %.not5.i = icmp eq i32 %70, 43
-  br i1 %.not5.i, label %TLSX_Find.exit, label %71
+.lr.ph.i:                                         ; preds = %66, %69
+  %.07.i = phi ptr [ %71, %69 ], [ %67, %66 ]
+  %68 = load i32, ptr %.07.i, align 8, !tbaa !60
+  %.not5.i = icmp eq i32 %68, 43
+  br i1 %.not5.i, label %TLSX_Find.exit, label %69
 
-71:                                               ; preds = %.lr.ph.i
-  %72 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !63
-  %.not.i = icmp eq ptr %73, null
+69:                                               ; preds = %.lr.ph.i
+  %70 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
+  %71 = load ptr, ptr %70, align 8, !tbaa !63
+  %.not.i = icmp eq ptr %71, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !101
 
-.loopexit:                                        ; preds = %71, %68
-  %74 = tail call i32 @TLSX_Push(ptr noundef nonnull %6, i32 noundef 43, ptr noundef %0, ptr poison)
-  %.not104 = icmp eq i32 %74, 0
-  br i1 %.not104, label %75, label %TLSX_Find.exit
+.loopexit:                                        ; preds = %69, %66
+  %72 = tail call i32 @TLSX_Push(ptr noundef nonnull %6, i32 noundef 43, ptr noundef %0, ptr poison)
+  %.not104 = icmp eq i32 %72, 0
+  br i1 %.not104, label %73, label %TLSX_Find.exit
 
-75:                                               ; preds = %.loopexit
-  %76 = load ptr, ptr %6, align 8, !tbaa !59
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 20
-  store i8 1, ptr %77, align 4, !tbaa !83
+73:                                               ; preds = %.loopexit
+  %74 = load ptr, ptr %6, align 8, !tbaa !59
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 20
+  store i8 1, ptr %75, align 4, !tbaa !83
   br label %TLSX_Find.exit
 
-78:                                               ; preds = %7
-  %79 = and i8 %3, -5
-  %or.cond = icmp eq i8 %79, 2
-  br i1 %or.cond, label %80, label %TLSX_Find.exit
+76:                                               ; preds = %7
+  %77 = and i8 %3, -5
+  %or.cond = icmp eq i8 %77, 2
+  br i1 %or.cond, label %78, label %TLSX_Find.exit
 
-80:                                               ; preds = %78
+78:                                               ; preds = %76
   %.not = icmp eq i16 %2, 2
-  br i1 %.not, label %81, label %TLSX_Find.exit
+  br i1 %.not, label %79, label %TLSX_Find.exit
 
-81:                                               ; preds = %80
-  %82 = load i8, ptr %1, align 1, !tbaa !51
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %84 = load i8, ptr %83, align 1, !tbaa !51
-  %85 = load ptr, ptr %0, align 16, !tbaa !102
-  %86 = load ptr, ptr %85, align 8, !tbaa !53
-  %87 = load i8, ptr %86, align 1, !tbaa !141
-  %.not91 = icmp eq i8 %82, %87
-  %88 = icmp ugt i8 %84, 3
-  %or.cond124 = select i1 %.not91, i1 %88, i1 false
-  br i1 %or.cond124, label %89, label %TLSX_Find.exit
+79:                                               ; preds = %78
+  %80 = load i8, ptr %1, align 1, !tbaa !51
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %82 = load i8, ptr %81, align 1, !tbaa !51
+  %83 = load ptr, ptr %0, align 16, !tbaa !102
+  %84 = load ptr, ptr %83, align 8, !tbaa !53
+  %85 = load i8, ptr %84, align 1, !tbaa !141
+  %.not91 = icmp eq i8 %80, %85
+  %86 = icmp ugt i8 %82, 3
+  %or.cond124 = select i1 %.not91, i1 %86, i1 false
+  br i1 %or.cond124, label %87, label %TLSX_Find.exit
 
-89:                                               ; preds = %81
-  %90 = and i64 %.fr132, 1024
-  %.not93 = icmp eq i64 %90, 0
-  br i1 %.not93, label %99, label %91
+87:                                               ; preds = %79
+  %88 = and i64 %.fr132, 1024
+  %.not93 = icmp eq i64 %88, 0
+  br i1 %.not93, label %97, label %89
 
-91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 711
-  %93 = load i8, ptr %92, align 1, !tbaa !76
-  %94 = icmp eq i8 %93, 3
-  br i1 %94, label %95, label %99
+89:                                               ; preds = %87
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 711
+  %91 = load i8, ptr %90, align 1, !tbaa !76
+  %92 = icmp eq i8 %91, 3
+  br i1 %92, label %93, label %97
 
-95:                                               ; preds = %91
-  %96 = getelementptr inbounds nuw i8, ptr %86, i64 1
-  %97 = load i8, ptr %96, align 1, !tbaa !146
-  %98 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %97, ptr %98, align 1, !tbaa !145
-  br label %99
+93:                                               ; preds = %89
+  %94 = getelementptr inbounds nuw i8, ptr %84, i64 1
+  %95 = load i8, ptr %94, align 1, !tbaa !146
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 %95, ptr %96, align 1, !tbaa !145
+  br label %97
 
-99:                                               ; preds = %95, %91, %89
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 711
-  %101 = load i8, ptr %100, align 1, !tbaa !76
-  %.not117 = icmp ult i8 %101, %84
-  br i1 %.not117, label %TLSX_Find.exit, label %102
+97:                                               ; preds = %93, %89, %87
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 711
+  %99 = load i8, ptr %98, align 1, !tbaa !76
+  %.not117 = icmp ult i8 %99, %82
+  br i1 %.not117, label %TLSX_Find.exit, label %100
 
-102:                                              ; preds = %99
-  %.not118 = icmp ugt i8 %101, %84
-  br i1 %.not118, label %103, label %TLSX_Find.exit
+100:                                              ; preds = %97
+  %.not118 = icmp ugt i8 %99, %82
+  br i1 %.not118, label %101, label %TLSX_Find.exit
 
-103:                                              ; preds = %102
-  %104 = load i64, ptr %8, align 8
-  %105 = and i64 %104, 1024
-  %.not96 = icmp eq i64 %105, 0
-  br i1 %.not96, label %TLSX_Find.exit, label %106
+101:                                              ; preds = %100
+  %102 = load i64, ptr %8, align 8
+  %103 = and i64 %102, 1024
+  %.not96 = icmp eq i64 %103, 0
+  br i1 %.not96, label %TLSX_Find.exit, label %104
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1047
-  %108 = load i8, ptr %107, align 1, !tbaa !144
-  %.not119 = icmp ult i8 %84, %108
-  br i1 %.not119, label %TLSX_Find.exit, label %109
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 1047
+  %106 = load i8, ptr %105, align 1, !tbaa !144
+  %.not119 = icmp ult i8 %82, %106
+  br i1 %.not119, label %TLSX_Find.exit, label %107
 
-109:                                              ; preds = %106
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store i8 %84, ptr %110, align 1, !tbaa !145
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  store i8 %82, ptr %108, align 1, !tbaa !145
   br label %TLSX_Find.exit
 
-TLSX_Find.exit:                                   ; preds = %.lr.ph.i, %59, %75, %67, %102, %109, %._crit_edge.thread, %11, %15, %.loopexit, %78, %106, %103, %99, %81, %80
-  %.181 = phi i32 [ -328, %80 ], [ -326, %81 ], [ -326, %99 ], [ -326, %103 ], [ -326, %106 ], [ -394, %78 ], [ -326, %._crit_edge.thread ], [ -328, %11 ], [ -328, %15 ], [ %74, %.loopexit ], [ 0, %109 ], [ 0, %102 ], [ 0, %67 ], [ 0, %75 ], [ 0, %59 ], [ 0, %.lr.ph.i ]
+TLSX_Find.exit:                                   ; preds = %.lr.ph.i, %57, %73, %65, %100, %107, %._crit_edge.thread, %11, %15, %.loopexit, %76, %104, %101, %97, %79, %78
+  %.181 = phi i32 [ -328, %78 ], [ -326, %79 ], [ -326, %97 ], [ -326, %101 ], [ -326, %104 ], [ -394, %76 ], [ -326, %._crit_edge.thread ], [ -328, %11 ], [ -328, %15 ], [ %72, %.loopexit ], [ 0, %107 ], [ 0, %100 ], [ 0, %65 ], [ 0, %73 ], [ 0, %57 ], [ 0, %.lr.ph.i ]
   ret i32 %.181
 }
 

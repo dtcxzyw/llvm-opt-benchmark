@@ -123833,28 +123833,28 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIPN4mold6ElfRelINS0_6X86_
   %9 = shl i64 %.038, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %15 = load i32, ptr %14, align 1
-  %switch.selectcmp.i.i.i = icmp eq i32 %15, 37
+  %12 = getelementptr %"struct.mold::ElfRel", ptr %0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %14 = load i32, ptr %13, align 1
+  %switch.selectcmp.i.i.i = icmp eq i32 %14, 37
   %switch.select.i.i.i = select i1 %switch.selectcmp.i.i.i, i32 2, i32 1
-  %switch.selectcmp4.i.i.i = icmp eq i32 %15, 8
+  %switch.selectcmp4.i.i.i = icmp eq i32 %14, 8
   %switch.select5.i.i.i = select i1 %switch.selectcmp4.i.i.i, i32 0, i32 %switch.select.i.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %17 = load i32, ptr %16, align 1
-  %switch.selectcmp.i7.i.i = icmp eq i32 %17, 37
+  %15 = getelementptr i8, ptr %12, i64 32
+  %16 = load i32, ptr %15, align 1
+  %switch.selectcmp.i7.i.i = icmp eq i32 %16, 37
   %switch.select.i8.i.i = select i1 %switch.selectcmp.i7.i.i, i32 2, i32 1
-  %switch.selectcmp4.i9.i.i = icmp eq i32 %17, 8
+  %switch.selectcmp4.i9.i.i = icmp eq i32 %16, 8
   %switch.select5.i10.i.i = select i1 %switch.selectcmp4.i9.i.i, i32 0, i32 %switch.select.i8.i.i
-  %18 = icmp eq i32 %switch.select5.i.i.i, %switch.select5.i10.i.i
-  %19 = icmp samesign ult i32 %switch.select5.i.i.i, %switch.select5.i10.i.i
-  br i1 %18, label %20, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SG_EEbS6_T0_.exit
+  %17 = icmp eq i32 %switch.select5.i.i.i, %switch.select5.i10.i.i
+  %18 = icmp samesign ult i32 %switch.select5.i.i.i, %switch.select5.i10.i.i
+  br i1 %17, label %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SG_EEbS6_T0_.exit
 
-20:                                               ; preds = %.lr.ph
-  %21 = load i64, ptr %13, align 1, !tbaa !19
+19:                                               ; preds = %.lr.ph
+  %20 = getelementptr i8, ptr %12, i64 24
+  %21 = load i64, ptr %20, align 1, !tbaa !19
   %22 = load i64, ptr %11, align 1, !tbaa !19
-  %23 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %23 = getelementptr i8, ptr %12, i64 36
   %24 = load i32, ptr %23, align 1, !tbaa !19
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %26 = load i32, ptr %25, align 1, !tbaa !19
@@ -123864,37 +123864,38 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIPN4mold6ElfRelINS0_6X86_
   %spec.select.i.i = select i1 %27, i1 %29, i1 %28
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SG_EEbS6_T0_.exit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SG_EEbS6_T0_.exit: ; preds = %.lr.ph, %20
-  %.sroa.05.0.i.i.i.i = phi i1 [ %19, %.lr.ph ], [ %spec.select.i.i, %20 ]
-  %spec.select = select i1 %.sroa.05.0.i.i.i.i, i64 %12, i64 %10
-  %30 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %spec.select
-  %31 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %.038
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %31, ptr noundef nonnull align 1 dereferenceable(24) %30, i64 24, i1 false), !tbaa.struct !1485
-  %32 = icmp slt i64 %spec.select, %7
-  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !3538
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SG_EEbS6_T0_.exit: ; preds = %.lr.ph, %19
+  %.sroa.05.0.i.i.i.i = phi i1 [ %18, %.lr.ph ], [ %spec.select.i.i, %19 ]
+  %30 = or disjoint i64 %9, 1
+  %spec.select = select i1 %.sroa.05.0.i.i.i.i, i64 %30, i64 %10
+  %31 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %spec.select
+  %32 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %.038
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %32, ptr noundef nonnull align 1 dereferenceable(24) %31, i64 24, i1 false), !tbaa.struct !1485
+  %33 = icmp slt i64 %spec.select, %7
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !3538
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SG_EEbS6_T0_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SG_EEbS6_T0_.exit ]
-  %33 = and i64 %2, 1
-  %34 = icmp eq i64 %33, 0
-  br i1 %34, label %35, label %44
+  %34 = and i64 %2, 1
+  %35 = icmp eq i64 %34, 0
+  br i1 %35, label %36, label %45
 
-35:                                               ; preds = %._crit_edge
-  %36 = add nsw i64 %2, -2
-  %37 = ashr exact i64 %36, 1
-  %38 = icmp eq i64 %.0.lcssa, %37
-  br i1 %38, label %39, label %44
+36:                                               ; preds = %._crit_edge
+  %37 = add nsw i64 %2, -2
+  %38 = ashr exact i64 %37, 1
+  %39 = icmp eq i64 %.0.lcssa, %38
+  br i1 %39, label %40, label %45
 
-39:                                               ; preds = %35
-  %40 = shl nsw i64 %.0.lcssa, 1
-  %41 = or disjoint i64 %40, 1
-  %42 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %41
-  %43 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %.0.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %43, ptr noundef nonnull align 1 dereferenceable(24) %42, i64 24, i1 false), !tbaa.struct !1485
-  br label %44
+40:                                               ; preds = %36
+  %41 = shl nsw i64 %.0.lcssa, 1
+  %42 = or disjoint i64 %41, 1
+  %43 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %42
+  %44 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %.0.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %44, ptr noundef nonnull align 1 dereferenceable(24) %43, i64 24, i1 false), !tbaa.struct !1485
+  br label %45
 
-44:                                               ; preds = %39, %35, %._crit_edge
-  %.127 = phi i64 [ %41, %39 ], [ %.0.lcssa, %35 ], [ %.0.lcssa, %._crit_edge ]
+45:                                               ; preds = %40, %36, %._crit_edge
+  %.127 = phi i64 [ %42, %40 ], [ %.0.lcssa, %36 ], [ %.0.lcssa, %._crit_edge ]
   %.sroa.037.0.copyload = load i64, ptr %3, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !19
@@ -123902,59 +123903,59 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7C
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !19
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !19
-  %45 = icmp sgt i64 %.127, %1
-  br i1 %45, label %.lr.ph.i, label %_ZSt11__push_heapIPN4mold6ElfRelINS0_6X86_64EEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_11sort_reldynIS2_EEvRNS0_7ContextIT_EEEUlRKS3_SE_E_EEEvSA_T0_SH_T1_RT2_.exit
+  %46 = icmp sgt i64 %.127, %1
+  br i1 %46, label %.lr.ph.i, label %_ZSt11__push_heapIPN4mold6ElfRelINS0_6X86_64EEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_11sort_reldynIS2_EEvRNS0_7ContextIT_EEEUlRKS3_SE_E_EEEvSA_T0_SH_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %44
+.lr.ph.i:                                         ; preds = %45
   %switch.selectcmp.i7.i.i.i = icmp eq i32 %.sroa.2.0.copyload, 37
   %switch.select.i8.i.i.i = select i1 %switch.selectcmp.i7.i.i.i, i32 2, i32 1
   %switch.selectcmp4.i9.i.i.i = icmp eq i32 %.sroa.2.0.copyload, 8
   %switch.select5.i10.i.i.i = select i1 %switch.selectcmp4.i9.i.i.i, i32 0, i32 %switch.select.i8.i.i.i
-  br label %46
+  br label %47
 
-46:                                               ; preds = %59, %.lr.ph.i
-  %.01316.i = phi i64 [ %.127, %.lr.ph.i ], [ %.017.i, %59 ]
+47:                                               ; preds = %60, %.lr.ph.i
+  %.01316.i = phi i64 [ %.127, %.lr.ph.i ], [ %.017.i, %60 ]
   %.017.in.i = add nsw i64 %.01316.i, -1
   %.017.i = sdiv i64 %.017.in.i, 2
-  %47 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %.017.i
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load i32, ptr %48, align 1
-  %switch.selectcmp.i.i.i.i = icmp eq i32 %49, 37
+  %48 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %.017.i
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %50 = load i32, ptr %49, align 1
+  %switch.selectcmp.i.i.i.i = icmp eq i32 %50, 37
   %switch.select.i.i.i.i = select i1 %switch.selectcmp.i.i.i.i, i32 2, i32 1
-  %switch.selectcmp4.i.i.i.i = icmp eq i32 %49, 8
+  %switch.selectcmp4.i.i.i.i = icmp eq i32 %50, 8
   %switch.select5.i.i.i.i = select i1 %switch.selectcmp4.i.i.i.i, i32 0, i32 %switch.select.i.i.i.i
-  %50 = icmp eq i32 %switch.select5.i.i.i.i, %switch.select5.i10.i.i.i
-  br i1 %50, label %51, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SA_EEbS6_RT0_.exit.i
+  %51 = icmp eq i32 %switch.select5.i.i.i.i, %switch.select5.i10.i.i.i
+  br i1 %51, label %52, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SA_EEbS6_RT0_.exit.i
 
-51:                                               ; preds = %46
-  %52 = load i64, ptr %47, align 1, !tbaa !19
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  %54 = load i32, ptr %53, align 1, !tbaa !19
-  %55 = icmp eq i32 %54, %.sroa.3.0.copyload
-  %56 = icmp ult i32 %54, %.sroa.3.0.copyload
-  %57 = icmp ult i64 %52, %.sroa.037.0.copyload
-  %spec.select.i.i.i = select i1 %55, i1 %57, i1 %56
-  br i1 %spec.select.i.i.i, label %59, label %_ZSt11__push_heapIPN4mold6ElfRelINS0_6X86_64EEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_11sort_reldynIS2_EEvRNS0_7ContextIT_EEEUlRKS3_SE_E_EEEvSA_T0_SH_T1_RT2_.exit
+52:                                               ; preds = %47
+  %53 = load i64, ptr %48, align 1, !tbaa !19
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 12
+  %55 = load i32, ptr %54, align 1, !tbaa !19
+  %56 = icmp eq i32 %55, %.sroa.3.0.copyload
+  %57 = icmp ult i32 %55, %.sroa.3.0.copyload
+  %58 = icmp ult i64 %53, %.sroa.037.0.copyload
+  %spec.select.i.i.i = select i1 %56, i1 %58, i1 %57
+  br i1 %spec.select.i.i.i, label %60, label %_ZSt11__push_heapIPN4mold6ElfRelINS0_6X86_64EEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_11sort_reldynIS2_EEvRNS0_7ContextIT_EEEUlRKS3_SE_E_EEEvSA_T0_SH_T1_RT2_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SA_EEbS6_RT0_.exit.i: ; preds = %46
-  %58 = icmp samesign ult i32 %switch.select5.i.i.i.i, %switch.select5.i10.i.i.i
-  br i1 %58, label %59, label %_ZSt11__push_heapIPN4mold6ElfRelINS0_6X86_64EEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_11sort_reldynIS2_EEvRNS0_7ContextIT_EEEUlRKS3_SE_E_EEEvSA_T0_SH_T1_RT2_.exit
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SA_EEbS6_RT0_.exit.i: ; preds = %47
+  %59 = icmp samesign ult i32 %switch.select5.i.i.i.i, %switch.select5.i10.i.i.i
+  br i1 %59, label %60, label %_ZSt11__push_heapIPN4mold6ElfRelINS0_6X86_64EEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_11sort_reldynIS2_EEvRNS0_7ContextIT_EEEUlRKS3_SE_E_EEEvSA_T0_SH_T1_RT2_.exit
 
-59:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SA_EEbS6_RT0_.exit.i, %51
-  %60 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %.01316.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %60, ptr noundef nonnull align 1 dereferenceable(24) %47, i64 24, i1 false), !tbaa.struct !1485
-  %61 = icmp sgt i64 %.017.i, %1
-  br i1 %61, label %46, label %_ZSt11__push_heapIPN4mold6ElfRelINS0_6X86_64EEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_11sort_reldynIS2_EEvRNS0_7ContextIT_EEEUlRKS3_SE_E_EEEvSA_T0_SH_T1_RT2_.exit, !llvm.loop !3539
+60:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SA_EEbS6_RT0_.exit.i, %52
+  %61 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %.01316.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %61, ptr noundef nonnull align 1 dereferenceable(24) %48, i64 24, i1 false), !tbaa.struct !1485
+  %62 = icmp sgt i64 %.017.i, %1
+  br i1 %62, label %47, label %_ZSt11__push_heapIPN4mold6ElfRelINS0_6X86_64EEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_11sort_reldynIS2_EEvRNS0_7ContextIT_EEEUlRKS3_SE_E_EEEvSA_T0_SH_T1_RT2_.exit, !llvm.loop !3539
 
-_ZSt11__push_heapIPN4mold6ElfRelINS0_6X86_64EEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_11sort_reldynIS2_EEvRNS0_7ContextIT_EEEUlRKS3_SE_E_EEEvSA_T0_SH_T1_RT2_.exit: ; preds = %51, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SA_EEbS6_RT0_.exit.i, %59, %44
-  %.013.lcssa.i = phi i64 [ %.127, %44 ], [ %.01316.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SA_EEbS6_RT0_.exit.i ], [ %.017.i, %59 ], [ %.01316.i, %51 ]
-  %62 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %.013.lcssa.i
-  store i64 %.sroa.037.0.copyload, ptr %62, align 1, !tbaa !19
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
+_ZSt11__push_heapIPN4mold6ElfRelINS0_6X86_64EEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_11sort_reldynIS2_EEvRNS0_7ContextIT_EEEUlRKS3_SE_E_EEEvSA_T0_SH_T1_RT2_.exit: ; preds = %52, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SA_EEbS6_RT0_.exit.i, %60, %45
+  %.013.lcssa.i = phi i64 [ %.127, %45 ], [ %.01316.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4mold11sort_reldynINS2_6X86_64EEEvRNS2_7ContextIT_EEEUlRKNS2_6ElfRelIS4_EESC_E_EclIPSA_SA_EEbS6_RT0_.exit.i ], [ %.017.i, %60 ], [ %.01316.i, %52 ]
+  %63 = getelementptr inbounds %"struct.mold::ElfRel", ptr %0, i64 %.013.lcssa.i
+  store i64 %.sroa.037.0.copyload, ptr %63, align 1, !tbaa !19
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 %.sroa.2.0.copyload, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !19
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 12
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 12
   store i32 %.sroa.3.0.copyload, ptr %.sroa.6.0..sroa_idx, align 1, !tbaa !19
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i64 %.sroa.4.0.copyload, ptr %.sroa.7.0..sroa_idx, align 1, !tbaa !19
   ret void
 }

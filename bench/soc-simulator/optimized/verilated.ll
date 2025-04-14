@@ -3201,9 +3201,9 @@ define dso_local void @_ZNK5VlRNG13get_randstateB5cxx11Ev(ptr dead_on_unwind noa
   %8 = lshr i8 %7, 4
   %narrow = add nuw nsw i8 %8, 97
   %9 = shl nuw nsw i64 %.012, 1
-  %10 = or disjoint i64 %9, 1
-  %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %10
+  %10 = load ptr, ptr %0, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %9
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store i8 %narrow, ptr %12, align 1
   %13 = load i8, ptr %6, align 1
   %14 = and i8 %13, 15
@@ -3244,24 +3244,23 @@ define dso_local void @_ZN5VlRNG13set_randstateERKNSt7__cxx1112basic_stringIcSt1
   br label %.loopexit
 
 .preheader:                                       ; preds = %5, %.preheader
-  %.011 = phi i64 [ %22, %.preheader ], [ 0, %5 ]
+  %.011 = phi i64 [ %21, %.preheader ], [ 0, %5 ]
   %8 = shl nuw nsw i64 %.011, 1
-  %9 = or disjoint i64 %8, 1
-  %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %9
+  %9 = load ptr, ptr %1, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = shl i8 %12, 4
   %14 = add i8 %13, -16
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 %8
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  %17 = load i8, ptr %16, align 1
-  %18 = add i8 %17, 15
-  %19 = and i8 %18, 15
-  %20 = or disjoint i8 %19, %14
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %.011
-  store i8 %20, ptr %21, align 1
-  %22 = add nuw nsw i64 %.011, 1
-  %exitcond.not = icmp eq i64 %22, 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %16 = load i8, ptr %15, align 1
+  %17 = add i8 %16, 15
+  %18 = and i8 %17, 15
+  %19 = or disjoint i8 %18, %14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %.011
+  store i8 %19, ptr %20, align 1
+  %21 = add nuw nsw i64 %.011, 1
+  %exitcond.not = icmp eq i64 %21, 16
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %.critedge

@@ -648,10 +648,10 @@ define dso_local i32 @e1000_read_pba_string_generic(ptr noundef %0, ptr noundef 
   %83 = add i16 %72, -1
   store i16 %83, ptr %6, align 2
   %84 = icmp eq i16 %83, 0
-  br i1 %84, label %108, label %.preheader
+  br i1 %84, label %107, label %.preheader
 
 .preheader:                                       ; preds = %80, %92
-  %85 = phi i64 [ %101, %92 ], [ 0, %80 ]
+  %85 = phi i64 [ %100, %92 ], [ 0, %80 ]
   %86 = load i16, ptr %5, align 2
   %87 = trunc i64 %85 to i16
   %88 = add i16 %86, %87
@@ -668,33 +668,32 @@ define dso_local i32 @e1000_read_pba_string_generic(ptr noundef %0, ptr noundef 
   %97 = getelementptr i8, ptr %1, i64 %96
   store i8 %95, ptr %97, align 1
   %98 = trunc i16 %93 to i8
-  %99 = or disjoint i64 %96, 1
-  %100 = getelementptr i8, ptr %1, i64 %99
-  store i8 %98, ptr %100, align 1
-  %101 = add nuw nsw i64 %85, 1
-  %indvars = trunc i64 %101 to i32
-  %102 = load i16, ptr %6, align 2
-  %103 = zext i16 %102 to i32
-  %104 = icmp samesign ult i32 %indvars, %103
-  br i1 %104, label %.preheader, label %105, !llvm.loop !17
+  %99 = getelementptr i8, ptr %97, i64 1
+  store i8 %98, ptr %99, align 1
+  %100 = add nuw nsw i64 %85, 1
+  %indvars = trunc i64 %100 to i32
+  %101 = load i16, ptr %6, align 2
+  %102 = zext i16 %101 to i32
+  %103 = icmp samesign ult i32 %indvars, %102
+  br i1 %103, label %.preheader, label %104, !llvm.loop !17
 
-105:                                              ; preds = %92
-  %106 = shl nuw i64 %101, 1
-  %107 = and i64 %106, 4294967294
-  br label %108
+104:                                              ; preds = %92
+  %105 = shl nuw i64 %100, 1
+  %106 = and i64 %105, 4294967294
+  br label %107
 
-108:                                              ; preds = %105, %80
-  %109 = phi i64 [ 0, %80 ], [ %107, %105 ]
-  %110 = getelementptr i8, ptr %1, i64 %109
-  store i8 0, ptr %110, align 1
+107:                                              ; preds = %104, %80
+  %108 = phi i64 [ 0, %80 ], [ %106, %104 ]
+  %109 = getelementptr i8, ptr %1, i64 %108
+  store i8 0, ptr %109, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %63, %.preheader, %108, %75, %71, %66, %20, %13, %8, %3
-  %111 = phi i32 [ 0, %108 ], [ -16, %3 ], [ %11, %8 ], [ %15, %13 ], [ 17, %20 ], [ %69, %66 ], [ -18, %71 ], [ -17, %75 ], [ %90, %.preheader ], [ 0, %63 ]
+.loopexit:                                        ; preds = %63, %.preheader, %107, %75, %71, %66, %20, %13, %8, %3
+  %110 = phi i32 [ 0, %107 ], [ -16, %3 ], [ %11, %8 ], [ %15, %13 ], [ 17, %20 ], [ %69, %66 ], [ -18, %71 ], [ -17, %75 ], [ %90, %.preheader ], [ 0, %63 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #5
-  ret i32 %111
+  ret i32 %110
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

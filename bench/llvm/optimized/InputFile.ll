@@ -2734,9 +2734,9 @@ _ZN4llvm15SmallVectorImplIcE20resize_for_overwriteEm.exit.i: ; preds = %.sink.sp
   %30 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !35
   %32 = or i8 %31, %15
-  %33 = or disjoint i64 %25, 1
-  %34 = load ptr, ptr %6, align 8, !tbaa !251
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %33
+  %33 = load ptr, ptr %6, align 8, !tbaa !251
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %25
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 %32, ptr %35, align 1, !tbaa !35
   %36 = add nuw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %36, %2

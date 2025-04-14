@@ -18041,15 +18041,15 @@ define internal fastcc void @_ZSt16__introsort_loopIP8ImmChecklN9__gnu_cxx5__ops
   br i1 %14, label %.lr.ph, label %_ZSt14__partial_sortIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = getelementptr i8, ptr %0, i64 16
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEET_SN_SN_T0_.exit
-  %17 = phi i64 [ %13, %.lr.ph ], [ %114, %_ZSt27__unguarded_partition_pivotIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEET_SN_SN_T0_.exit ]
+  %17 = phi i64 [ %13, %.lr.ph ], [ %112, %_ZSt27__unguarded_partition_pivotIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEET_SN_SN_T0_.exit ]
   %.025 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEET_SN_SN_T0_.exit ]
-  %.01724 = phi i64 [ %2, %.lr.ph ], [ %87, %_ZSt27__unguarded_partition_pivotIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEET_SN_SN_T0_.exit ]
+  %.01724 = phi i64 [ %2, %.lr.ph ], [ %85, %_ZSt27__unguarded_partition_pivotIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEET_SN_SN_T0_.exit ]
   %18 = icmp eq i64 %.01724, 0
-  br i1 %18, label %19, label %86
+  br i1 %18, label %19, label %84
 
 19:                                               ; preds = %16
   %20 = lshr i64 %17, 4
@@ -18065,7 +18065,7 @@ define internal fastcc void @_ZSt16__introsort_loopIP8ImmChecklN9__gnu_cxx5__ops
   br label %30
 
 30:                                               ; preds = %_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i, %19
-  %.015.i.i.i = phi i64 [ %22, %19 ], [ %52, %_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i ]
+  %.015.i.i.i = phi i64 [ %22, %19 ], [ %51, %_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i ]
   %31 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.015.i.i.i
   %.sroa.02.0.copyload.i.i.i = load i64, ptr %31, align 4
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -18078,180 +18078,180 @@ define internal fastcc void @_ZSt16__introsort_loopIP8ImmChecklN9__gnu_cxx5__ops
   %33 = shl i64 %.031.i.i.i.i, 1
   %34 = add i64 %33, 2
   %35 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %34
-  %36 = or disjoint i64 %33, 1
-  %37 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %36
+  %gep.i.i.i.i = getelementptr %class.ImmCheck, ptr %15, i64 %33
   %.val.i.i.i.i = load i32, ptr %35, align 4, !tbaa !200
-  %.val30.i.i.i.i = load i32, ptr %37, align 4, !tbaa !200
-  %38 = icmp slt i32 %.val.i.i.i.i, %.val30.i.i.i.i
-  %spec.select.i.i.i.i = select i1 %38, i64 %36, i64 %34
-  %39 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %spec.select.i.i.i.i
-  %40 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.031.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !397
-  %41 = icmp slt i64 %spec.select.i.i.i.i, %24
-  br i1 %41, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !405
+  %.val30.i.i.i.i = load i32, ptr %gep.i.i.i.i, align 4, !tbaa !200
+  %36 = icmp slt i32 %.val.i.i.i.i, %.val30.i.i.i.i
+  %37 = or disjoint i64 %33, 1
+  %spec.select.i.i.i.i = select i1 %36, i64 %37, i64 %34
+  %38 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %spec.select.i.i.i.i
+  %39 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.031.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !397
+  %40 = icmp slt i64 %spec.select.i.i.i.i, %24
+  br i1 %40, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !405
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %30
   %.0.lcssa.i.i.i.i = phi i64 [ %.015.i.i.i, %30 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %42 = icmp eq i64 %.0.lcssa.i.i.i.i, %22
-  %or.cond.i.i.i = select i1 %26, i1 %42, i1 false
-  br i1 %or.cond.i.i.i, label %43, label %44
+  %41 = icmp eq i64 %.0.lcssa.i.i.i.i, %22
+  %or.cond.i.i.i = select i1 %26, i1 %41, i1 false
+  br i1 %or.cond.i.i.i, label %42, label %43
 
-43:                                               ; preds = %._crit_edge.i.i.i.i
+42:                                               ; preds = %._crit_edge.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !397
-  br label %44
+  br label %43
 
-44:                                               ; preds = %43, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %27, %43 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+43:                                               ; preds = %42, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi i64 [ %27, %42 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.02.0.copyload.i.i.i to i32
-  %45 = icmp samesign ugt i64 %.1.i.i.i.i, %.015.i.i.i
-  br i1 %45, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i
+  %44 = icmp samesign ugt i64 %.1.i.i.i.i, %.015.i.i.i
+  br i1 %44, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %44, %48
-  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %48 ], [ %.1.i.i.i.i, %44 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %43, %47
+  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %47 ], [ %.1.i.i.i.i, %43 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %46 = getelementptr inbounds %class.ImmCheck, ptr %0, i64 %.04.i.i.i.i.i
-  %.val.i.i.i.i.i = load i32, ptr %46, align 4, !tbaa !200
-  %47 = icmp slt i32 %.val.i.i.i.i.i, %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i
-  br i1 %47, label %48, label %_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i
+  %45 = getelementptr inbounds %class.ImmCheck, ptr %0, i64 %.04.i.i.i.i.i
+  %.val.i.i.i.i.i = load i32, ptr %45, align 4, !tbaa !200
+  %46 = icmp slt i32 %.val.i.i.i.i.i, %.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i
+  br i1 %46, label %47, label %_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i
 
-48:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.0133.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %49, ptr noundef nonnull align 4 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !397
-  %50 = icmp sgt i64 %.04.i.i.i.i.i, %.015.i.i.i
-  br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i, !llvm.loop !406
+47:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %48 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.0133.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %48, ptr noundef nonnull align 4 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !397
+  %49 = icmp sgt i64 %.04.i.i.i.i.i, %.015.i.i.i
+  br i1 %49, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i, !llvm.loop !406
 
-_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i: ; preds = %48, %.lr.ph.i.i.i.i.i, %44
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %44 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %48 ]
-  %51 = getelementptr inbounds %class.ImmCheck, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i64 %.sroa.02.0.copyload.i.i.i, ptr %51, align 4
-  %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
+_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i: ; preds = %47, %.lr.ph.i.i.i.i.i, %43
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %43 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %47 ]
+  %50 = getelementptr inbounds %class.ImmCheck, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store i64 %.sroa.02.0.copyload.i.i.i, ptr %50, align 4
+  %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 4
   %.not.i.i.i = icmp eq i64 %.015.i.i.i, 0
-  %52 = add nsw i64 %.015.i.i.i, -1
+  %51 = add nsw i64 %.015.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i5.i, label %30, !llvm.loop !407
 
 .lr.ph.i5.i:                                      ; preds = %_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_RT0_.exit.i.i
-  %.01.i.i = phi ptr [ %53, %_ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_RT0_.exit.i.i ], [ %.025, %_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i ]
-  %53 = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
-  %.sroa.02.0.copyload.i.i6.i = load i64, ptr %53, align 4
-  %.sroa.4.0..sroa_idx.i.i7.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
-  %.sroa.4.0.copyload.i.i8.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i7.i, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %53, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !397
-  %54 = ptrtoint ptr %53 to i64
-  %55 = sub i64 %54, %11
-  %56 = ashr exact i64 %55, 4
-  %57 = add nsw i64 %56, -1
-  %58 = sdiv i64 %57, 2
-  %59 = icmp sgt i64 %56, 2
-  br i1 %59, label %.lr.ph.i.i.i18.i, label %._crit_edge.i.i.i9.i
+  %.01.i.i = phi ptr [ %52, %_ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_RT0_.exit.i.i ], [ %.025, %_ZSt13__adjust_heapIP8ImmChecklS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_T0_SO_T1_T2_.exit.i.i.i ]
+  %52 = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
+  %.sroa.02.0.copyload.i.i7.i = load i64, ptr %52, align 4
+  %.sroa.4.0..sroa_idx.i.i8.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
+  %.sroa.4.0.copyload.i.i9.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i8.i, align 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %52, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !397
+  %53 = ptrtoint ptr %52 to i64
+  %54 = sub i64 %53, %11
+  %55 = ashr exact i64 %54, 4
+  %56 = add nsw i64 %55, -1
+  %57 = sdiv i64 %56, 2
+  %58 = icmp sgt i64 %55, 2
+  br i1 %58, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i10.i
 
-.lr.ph.i.i.i18.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i18.i
-  %.031.i.i.i19.i = phi i64 [ %spec.select.i.i.i22.i, %.lr.ph.i.i.i18.i ], [ 0, %.lr.ph.i5.i ]
-  %60 = shl i64 %.031.i.i.i19.i, 1
-  %61 = add i64 %60, 2
-  %62 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %61
-  %63 = or disjoint i64 %60, 1
-  %64 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %63
-  %.val.i.i.i20.i = load i32, ptr %62, align 4, !tbaa !200
-  %.val30.i.i.i21.i = load i32, ptr %64, align 4, !tbaa !200
-  %65 = icmp slt i32 %.val.i.i.i20.i, %.val30.i.i.i21.i
-  %spec.select.i.i.i22.i = select i1 %65, i64 %63, i64 %61
-  %66 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %spec.select.i.i.i22.i
-  %67 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.031.i.i.i19.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %67, ptr noundef nonnull align 4 dereferenceable(16) %66, i64 16, i1 false), !tbaa.struct !397
-  %68 = icmp slt i64 %spec.select.i.i.i22.i, %58
-  br i1 %68, label %.lr.ph.i.i.i18.i, label %._crit_edge.i.i.i9.i, !llvm.loop !405
+.lr.ph.i.i.i19.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i19.i
+  %.031.i.i.i20.i = phi i64 [ %spec.select.i.i.i24.i, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i5.i ]
+  %59 = shl i64 %.031.i.i.i20.i, 1
+  %60 = add i64 %59, 2
+  %61 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %60
+  %gep.i.i.i21.i = getelementptr %class.ImmCheck, ptr %15, i64 %59
+  %.val.i.i.i22.i = load i32, ptr %61, align 4, !tbaa !200
+  %.val30.i.i.i23.i = load i32, ptr %gep.i.i.i21.i, align 4, !tbaa !200
+  %62 = icmp slt i32 %.val.i.i.i22.i, %.val30.i.i.i23.i
+  %63 = or disjoint i64 %59, 1
+  %spec.select.i.i.i24.i = select i1 %62, i64 %63, i64 %60
+  %64 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %spec.select.i.i.i24.i
+  %65 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.031.i.i.i20.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %65, ptr noundef nonnull align 4 dereferenceable(16) %64, i64 16, i1 false), !tbaa.struct !397
+  %66 = icmp slt i64 %spec.select.i.i.i24.i, %57
+  br i1 %66, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i10.i, !llvm.loop !405
 
-._crit_edge.i.i.i9.i:                             ; preds = %.lr.ph.i.i.i18.i, %.lr.ph.i5.i
-  %.0.lcssa.i.i.i10.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i22.i, %.lr.ph.i.i.i18.i ]
-  %69 = and i64 %55, 16
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %79
+._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i19.i, %.lr.ph.i5.i
+  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i24.i, %.lr.ph.i.i.i19.i ]
+  %67 = and i64 %54, 16
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %69, label %77
 
-71:                                               ; preds = %._crit_edge.i.i.i9.i
-  %72 = add nsw i64 %56, -2
-  %73 = ashr exact i64 %72, 1
-  %74 = icmp eq i64 %.0.lcssa.i.i.i10.i, %73
-  br i1 %74, label %.thread.i.i.i, label %79
+69:                                               ; preds = %._crit_edge.i.i.i10.i
+  %70 = add nsw i64 %55, -2
+  %71 = ashr exact i64 %70, 1
+  %72 = icmp eq i64 %.0.lcssa.i.i.i11.i, %71
+  br i1 %72, label %.thread.i.i.i, label %77
 
-.thread.i.i.i:                                    ; preds = %71
-  %75 = shl nuw nsw i64 %.0.lcssa.i.i.i10.i, 1
-  %76 = or disjoint i64 %75, 1
-  %77 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %76
-  %78 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.0.lcssa.i.i.i10.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %78, ptr noundef nonnull align 4 dereferenceable(16) %77, i64 16, i1 false), !tbaa.struct !397
+.thread.i.i.i:                                    ; preds = %69
+  %73 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
+  %74 = or disjoint i64 %73, 1
+  %75 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %74
+  %76 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.0.lcssa.i.i.i11.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %76, ptr noundef nonnull align 4 dereferenceable(16) %75, i64 16, i1 false), !tbaa.struct !397
   br label %.lr.ph.i.i.preheader.i.i.i
 
-79:                                               ; preds = %71, %._crit_edge.i.i.i9.i
-  %.not.i.i11.i = icmp eq i64 %.0.lcssa.i.i.i10.i, 0
-  br i1 %.not.i.i11.i, label %_ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_RT0_.exit.i.i, label %.lr.ph.i.i.preheader.i.i.i
+77:                                               ; preds = %69, %._crit_edge.i.i.i10.i
+  %.not.i.i12.i = icmp eq i64 %.0.lcssa.i.i.i11.i, 0
+  br i1 %.not.i.i12.i, label %_ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_RT0_.exit.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i:                       ; preds = %79, %.thread.i.i.i
-  %.1.i7.i.i.i = phi i64 [ %76, %.thread.i.i.i ], [ %.0.lcssa.i.i.i10.i, %79 ]
-  %.sroa.0.sroa.0.0.extract.trunc.i.i8.i.i.i = trunc i64 %.sroa.02.0.copyload.i.i6.i to i32
-  br label %.lr.ph.i.i.i.i12.i
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %77, %.thread.i.i.i
+  %.1.i7.i.i.i = phi i64 [ %74, %.thread.i.i.i ], [ %.0.lcssa.i.i.i11.i, %77 ]
+  %.sroa.0.sroa.0.0.extract.trunc.i.i8.i.i.i = trunc i64 %.sroa.02.0.copyload.i.i7.i to i32
+  br label %.lr.ph.i.i.i.i13.i
 
-.lr.ph.i.i.i.i12.i:                               ; preds = %82, %.lr.ph.i.i.preheader.i.i.i
-  %.0133.i.i.i.i13.i = phi i64 [ %.04.i.i12.i.i.i, %82 ], [ %.1.i7.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
-  %.04.in.i.i.i.i14.i = add nsw i64 %.0133.i.i.i.i13.i, -1
-  %.04.i.i12.i.i.i = lshr i64 %.04.in.i.i.i.i14.i, 1
-  %80 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.04.i.i12.i.i.i
-  %.val.i.i.i.i15.i = load i32, ptr %80, align 4, !tbaa !200
-  %81 = icmp slt i32 %.val.i.i.i.i15.i, %.sroa.0.sroa.0.0.extract.trunc.i.i8.i.i.i
-  br i1 %81, label %82, label %_ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_RT0_.exit.i.i
+.lr.ph.i.i.i.i13.i:                               ; preds = %80, %.lr.ph.i.i.preheader.i.i.i
+  %.0133.i.i.i.i14.i = phi i64 [ %.04.i.i12.i.i.i, %80 ], [ %.1.i7.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
+  %.04.in.i.i.i.i15.i = add nsw i64 %.0133.i.i.i.i14.i, -1
+  %.04.i.i12.i.i.i = lshr i64 %.04.in.i.i.i.i15.i, 1
+  %78 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.04.i.i12.i.i.i
+  %.val.i.i.i.i16.i = load i32, ptr %78, align 4, !tbaa !200
+  %79 = icmp slt i32 %.val.i.i.i.i16.i, %.sroa.0.sroa.0.0.extract.trunc.i.i8.i.i.i
+  br i1 %79, label %80, label %_ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_RT0_.exit.i.i
 
-82:                                               ; preds = %.lr.ph.i.i.i.i12.i
-  %83 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.0133.i.i.i.i13.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %83, ptr noundef nonnull align 4 dereferenceable(16) %80, i64 16, i1 false), !tbaa.struct !397
-  %.not3.i.i.i = icmp ult i64 %.04.in.i.i.i.i14.i, 2
-  br i1 %.not3.i.i.i, label %_ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_RT0_.exit.i.i, label %.lr.ph.i.i.i.i12.i, !llvm.loop !406
+80:                                               ; preds = %.lr.ph.i.i.i.i13.i
+  %81 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %.0133.i.i.i.i14.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %81, ptr noundef nonnull align 4 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !397
+  %.not3.i.i.i = icmp ult i64 %.04.in.i.i.i.i15.i, 2
+  br i1 %.not3.i.i.i, label %_ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_RT0_.exit.i.i, label %.lr.ph.i.i.i.i13.i, !llvm.loop !406
 
-_ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_RT0_.exit.i.i: ; preds = %82, %.lr.ph.i.i.i.i12.i, %79
-  %.013.lcssa.i.i.i.i16.i = phi i64 [ 0, %79 ], [ %.0133.i.i.i.i13.i, %.lr.ph.i.i.i.i12.i ], [ 0, %82 ]
-  %84 = getelementptr inbounds %class.ImmCheck, ptr %0, i64 %.013.lcssa.i.i.i.i16.i
-  store i64 %.sroa.02.0.copyload.i.i6.i, ptr %84, align 4
-  %.sroa.3.0..sroa_idx.i.i.i.i17.i = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store i64 %.sroa.4.0.copyload.i.i8.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i17.i, align 4
-  %85 = icmp sgt i64 %55, 16
-  br i1 %85, label %.lr.ph.i5.i, label %_ZSt14__partial_sortIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_T0_.exit, !llvm.loop !408
+_ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_RT0_.exit.i.i: ; preds = %80, %.lr.ph.i.i.i.i13.i, %77
+  %.013.lcssa.i.i.i.i17.i = phi i64 [ 0, %77 ], [ %.0133.i.i.i.i14.i, %.lr.ph.i.i.i.i13.i ], [ 0, %80 ]
+  %82 = getelementptr inbounds %class.ImmCheck, ptr %0, i64 %.013.lcssa.i.i.i.i17.i
+  store i64 %.sroa.02.0.copyload.i.i7.i, ptr %82, align 4
+  %.sroa.3.0..sroa_idx.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %82, i64 8
+  store i64 %.sroa.4.0.copyload.i.i9.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i18.i, align 4
+  %83 = icmp sgt i64 %54, 16
+  br i1 %83, label %.lr.ph.i5.i, label %_ZSt14__partial_sortIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_T0_.exit, !llvm.loop !408
 
-86:                                               ; preds = %16
-  %87 = add nsw i64 %.01724, -1
-  %88 = lshr i64 %17, 5
-  %89 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %88
-  %90 = getelementptr inbounds i8, ptr %.025, i64 -16
+84:                                               ; preds = %16
+  %85 = add nsw i64 %.01724, -1
+  %86 = lshr i64 %17, 5
+  %87 = getelementptr inbounds nuw %class.ImmCheck, ptr %0, i64 %86
+  %88 = getelementptr inbounds i8, ptr %.025, i64 -16
   %.val29.i.i = load i32, ptr %15, align 4, !tbaa !200
-  %.val30.i.i = load i32, ptr %89, align 4, !tbaa !200
-  %91 = icmp slt i32 %.val29.i.i, %.val30.i.i
-  %.val28.i.i = load i32, ptr %90, align 4, !tbaa !200
-  br i1 %91, label %92, label %99
+  %.val30.i.i = load i32, ptr %87, align 4, !tbaa !200
+  %89 = icmp slt i32 %.val29.i.i, %.val30.i.i
+  %.val28.i.i = load i32, ptr %88, align 4, !tbaa !200
+  br i1 %89, label %90, label %97
 
-92:                                               ; preds = %86
-  %93 = icmp slt i32 %.val30.i.i, %.val28.i.i
-  br i1 %93, label %94, label %95
+90:                                               ; preds = %84
+  %91 = icmp slt i32 %.val30.i.i, %.val28.i.i
+  br i1 %91, label %92, label %93
 
-94:                                               ; preds = %92
+92:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !397
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %89, i64 16, i1 false), !tbaa.struct !397
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %89, ptr noundef nonnull align 4 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !397
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %87, i64 16, i1 false), !tbaa.struct !397
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %87, ptr noundef nonnull align 4 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !397
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader
 
-95:                                               ; preds = %92
-  %96 = icmp slt i32 %.val29.i.i, %.val28.i.i
-  br i1 %96, label %97, label %98
+93:                                               ; preds = %90
+  %94 = icmp slt i32 %.val29.i.i, %.val28.i.i
+  br i1 %94, label %95, label %96
 
-97:                                               ; preds = %95
+95:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !397
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !397
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %90, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !397
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %88, i64 16, i1 false), !tbaa.struct !397
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %88, ptr noundef nonnull align 4 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !397
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader
 
-98:                                               ; preds = %95
+96:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !397
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !397
@@ -18259,11 +18259,11 @@ _ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19I
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader
 
-99:                                               ; preds = %86
-  %100 = icmp slt i32 %.val29.i.i, %.val28.i.i
-  br i1 %100, label %101, label %102
+97:                                               ; preds = %84
+  %98 = icmp slt i32 %.val29.i.i, %.val28.i.i
+  br i1 %98, label %99, label %100
 
-101:                                              ; preds = %99
+99:                                               ; preds = %97
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !397
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !397
@@ -18271,54 +18271,54 @@ _ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19I
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader
 
-102:                                              ; preds = %99
-  %103 = icmp slt i32 %.val30.i.i, %.val28.i.i
-  br i1 %103, label %104, label %105
+100:                                              ; preds = %97
+  %101 = icmp slt i32 %.val30.i.i, %.val28.i.i
+  br i1 %101, label %102, label %103
 
-104:                                              ; preds = %102
+102:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !397
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %90, i64 16, i1 false), !tbaa.struct !397
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %90, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !397
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %88, i64 16, i1 false), !tbaa.struct !397
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %88, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !397
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader
 
-105:                                              ; preds = %102
+103:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !397
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %89, i64 16, i1 false), !tbaa.struct !397
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %89, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !397
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %87, i64 16, i1 false), !tbaa.struct !397
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %87, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !397
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader: ; preds = %105, %104, %101, %98, %97, %94
+_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader: ; preds = %103, %102, %99, %96, %95, %92
   br label %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i
 
-_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader, %112
-  %.013.i.i = phi ptr [ %.114.i.i, %112 ], [ %.025, %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %108, %112 ], [ %15, %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader ]
+_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader, %110
+  %.013.i.i = phi ptr [ %.114.i.i, %110 ], [ %.025, %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %106, %110 ], [ %15, %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i.preheader ]
   %.val15.i.i = load i32, ptr %0, align 4, !tbaa !200
-  br label %106
+  br label %104
 
-106:                                              ; preds = %106, %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i ], [ %108, %106 ]
+104:                                              ; preds = %104, %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i ], [ %106, %104 ]
   %.1.val.i.i = load i32, ptr %.1.i.i, align 4, !tbaa !200
-  %107 = icmp slt i32 %.1.val.i.i, %.val15.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
-  br i1 %107, label %106, label %.preheader.i.i, !llvm.loop !409
+  %105 = icmp slt i32 %.1.val.i.i, %.val15.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
+  br i1 %105, label %104, label %.preheader.i.i, !llvm.loop !409
 
-.preheader.i.i:                                   ; preds = %106, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %106 ]
+.preheader.i.i:                                   ; preds = %104, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %104 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -16
   %.114.val.i.i = load i32, ptr %.114.i.i, align 4, !tbaa !200
-  %109 = icmp slt i32 %.val15.i.i, %.114.val.i.i
-  br i1 %109, label %.preheader.i.i, label %110, !llvm.loop !410
+  %107 = icmp slt i32 %.val15.i.i, %.114.val.i.i
+  br i1 %107, label %.preheader.i.i, label %108, !llvm.loop !410
 
-110:                                              ; preds = %.preheader.i.i
-  %111 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %111, label %112, label %_ZSt27__unguarded_partition_pivotIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEET_SN_SN_T0_.exit
+108:                                              ; preds = %.preheader.i.i
+  %109 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %109, label %110, label %_ZSt27__unguarded_partition_pivotIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEET_SN_SN_T0_.exit
 
-112:                                              ; preds = %110
+110:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %.1.i.i, i64 16, i1 false), !tbaa.struct !397
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.114.i.i, i64 16, i1 false), !tbaa.struct !397
@@ -18326,12 +18326,12 @@ _ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_G
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %_ZSt22__move_median_to_firstIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_SN_T0_.exit.i, !llvm.loop !411
 
-_ZSt27__unguarded_partition_pivotIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEET_SN_SN_T0_.exit: ; preds = %110
-  tail call fastcc void @_ZSt16__introsort_loopIP8ImmChecklN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %87)
-  %113 = ptrtoint ptr %.1.i.i to i64
-  %114 = sub i64 %113, %11
-  %115 = icmp sgt i64 %114, 256
-  br i1 %115, label %16, label %_ZSt14__partial_sortIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_T0_.exit, !llvm.loop !412
+_ZSt27__unguarded_partition_pivotIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEET_SN_SN_T0_.exit: ; preds = %108
+  tail call fastcc void @_ZSt16__introsort_loopIP8ImmChecklN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %85)
+  %111 = ptrtoint ptr %.1.i.i to i64
+  %112 = sub i64 %111, %11
+  %113 = icmp sgt i64 %112, 256
+  br i1 %113, label %16, label %_ZSt14__partial_sortIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_T0_.exit, !llvm.loop !412
 
 _ZSt14__partial_sortIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEET_SN_SN_T0_.exit, %_ZSt10__pop_heapIP8ImmCheckN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_19IntrinsicC1EPKN4llvm6RecordENS7_9StringRefESB_NS5_8TypeSpecESC_NS5_9ClassKindEPKNS7_8ListInitERNS5_11NeonEmitterESB_SB_bbEUlRKS0_SK_E_EEEvT_SN_SN_RT0_.exit.i.i, %3
   ret void

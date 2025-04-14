@@ -400,7 +400,7 @@ define hidden noundef zeroext i1 @_ZN3dpx6Writer13WriteUserDataEPv(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3dpx6Writer10SetElementEiNS_10DescriptorEhNS_14CharacteristicES2_NS_7PackingENS_8EncodingEjjfjfjj(ptr noundef nonnull align 8 dereferenceable(2080) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, float noundef %10, i32 noundef %11, float noundef %12, i32 noundef %13, i32 noundef %14) local_unnamed_addr #5 align 2 {
   %or.cond = icmp ugt i32 %1, 7
-  br i1 %or.cond, label %41, label %_ZN3dpx13GenericHeader20SetEndOfImagePaddingEij.exit
+  br i1 %or.cond, label %40, label %_ZN3dpx13GenericHeader20SetEndOfImagePaddingEij.exit
 
 _ZN3dpx13GenericHeader20SetEndOfImagePaddingEij.exit: ; preds = %15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -409,44 +409,42 @@ _ZN3dpx13GenericHeader20SetEndOfImagePaddingEij.exit: ; preds = %15
   %19 = getelementptr inbounds nuw [8 x %"struct.dpx::ImageElement"], ptr %17, i64 0, i64 %18
   store i32 %8, ptr %19, align 4, !tbaa !38
   %narrow.i = mul nuw nsw i32 %1, 72
-  %20 = or disjoint i32 %narrow.i, 4
-  %.offs.i = zext nneg i32 %20 to i64
-  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.offs.i
-  store i32 %9, ptr %21, align 8, !tbaa !39
-  %22 = zext nneg i32 %narrow.i to i64
-  %23 = getelementptr inbounds nuw i8, ptr %17, i64 %22
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store float %10, ptr %24, align 4, !tbaa !40
-  %25 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  store i32 %11, ptr %25, align 8, !tbaa !41
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store float %12, ptr %26, align 4, !tbaa !42
-  %27 = trunc i32 %2 to i8
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  store i8 %27, ptr %28, align 8, !tbaa !33
-  %29 = trunc i32 %4 to i8
-  %30 = getelementptr inbounds nuw i8, ptr %23, i64 21
-  store i8 %29, ptr %30, align 1, !tbaa !43
-  %31 = trunc i32 %5 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %23, i64 22
-  store i8 %31, ptr %32, align 2, !tbaa !44
-  %33 = getelementptr inbounds nuw i8, ptr %23, i64 23
-  store i8 %3, ptr %33, align 1, !tbaa !45
-  %34 = trunc i32 %6 to i16
-  %35 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i16 %34, ptr %35, align 4, !tbaa !46
-  %36 = icmp ne i32 %7, 0
-  %37 = zext i1 %36 to i16
-  %38 = getelementptr inbounds nuw i8, ptr %23, i64 26
-  store i16 %37, ptr %38, align 2, !tbaa !47
-  %39 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store i32 %13, ptr %39, align 4, !tbaa !48
-  %40 = getelementptr inbounds nuw i8, ptr %23, i64 36
-  store i32 %14, ptr %40, align 8, !tbaa !49
+  %20 = zext nneg i32 %narrow.i to i64
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i32 %9, ptr %22, align 8, !tbaa !39
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store float %10, ptr %23, align 4, !tbaa !40
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  store i32 %11, ptr %24, align 8, !tbaa !41
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store float %12, ptr %25, align 4, !tbaa !42
+  %26 = trunc i32 %2 to i8
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 20
+  store i8 %26, ptr %27, align 8, !tbaa !33
+  %28 = trunc i32 %4 to i8
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 21
+  store i8 %28, ptr %29, align 1, !tbaa !43
+  %30 = trunc i32 %5 to i8
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 22
+  store i8 %30, ptr %31, align 2, !tbaa !44
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 23
+  store i8 %3, ptr %32, align 1, !tbaa !45
+  %33 = trunc i32 %6 to i16
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store i16 %33, ptr %34, align 4, !tbaa !46
+  %35 = icmp ne i32 %7, 0
+  %36 = zext i1 %35 to i16
+  %37 = getelementptr inbounds nuw i8, ptr %21, i64 26
+  store i16 %36, ptr %37, align 2, !tbaa !47
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store i32 %13, ptr %38, align 4, !tbaa !48
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 36
+  store i32 %14, ptr %39, align 8, !tbaa !49
   tail call void @_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv(ptr noundef nonnull align 4 dereferenceable(1664) %16)
-  br label %41
+  br label %40
 
-41:                                               ; preds = %15, %_ZN3dpx13GenericHeader20SetEndOfImagePaddingEij.exit
+40:                                               ; preds = %15, %_ZN3dpx13GenericHeader20SetEndOfImagePaddingEij.exit
   ret void
 }
 

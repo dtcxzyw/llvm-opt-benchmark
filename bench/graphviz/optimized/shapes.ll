@@ -250,7 +250,7 @@ define void @round_corners(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 %
 
 diagonals_draw.exit:                              ; preds = %13, %10
   call void @free(ptr noundef %11) #27
-  br label %1737
+  br label %1733
 
 18:                                               ; preds = %5
   %19 = and i32 %3, 520192
@@ -261,12 +261,12 @@ diagonals_draw.exit:                              ; preds = %13, %10
   %21 = lshr i32 %3, 12
   %22 = and i32 %21, 127
   %23 = icmp eq i32 %22, 26
-  br i1 %23, label %66, label %107
+  br i1 %23, label %62, label %103
 
 24:                                               ; preds = %18
   %25 = and i32 %3, 4
   %.not1639 = icmp eq i32 %25, 0
-  br i1 %.not1639, label %63, label %26
+  br i1 %.not1639, label %59, label %26
 
 26:                                               ; preds = %24
   %27 = tail call fastcc ptr @alloc_interpolation_points(ptr noundef readonly %1, i64 noundef %2, i32 %3, i1 noundef zeroext true)
@@ -307,2608 +307,2605 @@ gv_calloc.exit.i:                                 ; preds = %35, %.thread.i.i
   br i1 %.not.i1815, label %rounded_draw.exit, label %.lr.ph.i1816
 
 .lr.ph.i1816:                                     ; preds = %gv_calloc.exit.i, %.lr.ph.i1816
-  %.043.i = phi i64 [ %58, %.lr.ph.i1816 ], [ 0, %gv_calloc.exit.i ]
-  %.04142.i = phi i64 [ %54, %.lr.ph.i1816 ], [ 0, %gv_calloc.exit.i ]
+  %.043.i = phi i64 [ %54, %.lr.ph.i1816 ], [ 0, %gv_calloc.exit.i ]
+  %.04142.i = phi i64 [ %51, %.lr.ph.i1816 ], [ 0, %gv_calloc.exit.i ]
   %43 = getelementptr inbounds nuw %struct.pointf_s, ptr %42, i64 %.04142.i
-  %44 = shl i64 %.043.i, 2
-  %45 = getelementptr inbounds nuw %struct.pointf_s, ptr %27, i64 %44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !3
-  %46 = getelementptr i8, ptr %43, i64 16
-  %47 = or disjoint i64 %44, 1
-  %48 = getelementptr inbounds nuw %struct.pointf_s, ptr %27, i64 %47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !3
-  %49 = getelementptr i8, ptr %43, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !3
-  %50 = getelementptr i8, ptr %43, i64 48
-  %51 = or disjoint i64 %44, 2
-  %52 = getelementptr inbounds nuw %struct.pointf_s, ptr %27, i64 %51
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !3
-  %53 = getelementptr i8, ptr %43, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %52, i64 16, i1 false), !tbaa.struct !3
-  %54 = add i64 %.04142.i, 6
-  %55 = getelementptr i8, ptr %43, i64 80
-  %56 = or disjoint i64 %44, 3
-  %57 = getelementptr inbounds nuw %struct.pointf_s, ptr %27, i64 %56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !3
-  %58 = add nuw i64 %.043.i, 1
-  %exitcond.not.i1817 = icmp eq i64 %58, %2
-  br i1 %exitcond.not.i1817, label %rounded_draw.exit, label %.lr.ph.i1816, !llvm.loop !13
+  %.idx.i1817 = shl i64 %.043.i, 6
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i1817
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !3
+  %45 = getelementptr i8, ptr %43, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !3
+  %47 = getelementptr i8, ptr %43, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !3
+  %48 = getelementptr i8, ptr %43, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !3
+  %50 = getelementptr i8, ptr %43, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false), !tbaa.struct !3
+  %51 = add i64 %.04142.i, 6
+  %52 = getelementptr i8, ptr %43, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %44, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !3
+  %54 = add nuw i64 %.043.i, 1
+  %exitcond.not.i1818 = icmp eq i64 %54, %2
+  br i1 %exitcond.not.i1818, label %rounded_draw.exit, label %.lr.ph.i1816, !llvm.loop !13
 
 rounded_draw.exit:                                ; preds = %.lr.ph.i1816, %gv_calloc.exit.i
-  %.041.lcssa.i = phi i64 [ 0, %gv_calloc.exit.i ], [ %54, %.lr.ph.i1816 ]
-  %59 = or disjoint i64 %.041.lcssa.i, 1
-  %60 = getelementptr inbounds nuw %struct.pointf_s, ptr %42, i64 %.041.lcssa.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !3
-  %61 = getelementptr inbounds nuw %struct.pointf_s, ptr %42, i64 %59
-  %62 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false), !tbaa.struct !3
-  tail call void @gvrender_beziercurve(ptr noundef %0, ptr noundef nonnull %62, i64 noundef %59, i32 noundef %4) #27
+  %.041.lcssa.i = phi i64 [ 0, %gv_calloc.exit.i ], [ %51, %.lr.ph.i1816 ]
+  %55 = or disjoint i64 %.041.lcssa.i, 1
+  %56 = getelementptr inbounds nuw %struct.pointf_s, ptr %42, i64 %.041.lcssa.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false), !tbaa.struct !3
+  %57 = getelementptr inbounds nuw %struct.pointf_s, ptr %42, i64 %55
+  %58 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !3
+  tail call void @gvrender_beziercurve(ptr noundef %0, ptr noundef nonnull %58, i64 noundef %55, i32 noundef %4) #27
   tail call void @free(ptr noundef %42) #27
   tail call void @free(ptr noundef %27) #27
-  br label %1737
+  br label %1733
 
-63:                                               ; preds = %24
-  %64 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %64, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 729) #29
+59:                                               ; preds = %24
+  %60 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 729) #29
   tail call void @abort() #31
   unreachable
 
-66:                                               ; preds = %20
+62:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6) #27
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %68 = load double, ptr %67, align 8, !tbaa !14
-  %69 = fadd double %68, %68
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %64 = load double, ptr %63, align 8, !tbaa !14
+  %65 = fadd double %64, %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !3
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %71 = load double, ptr %70, align 8, !tbaa !16
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store double %71, ptr %72, align 16, !tbaa !16
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load double, ptr %73, align 8, !tbaa !14
-  %75 = fsub double %69, %74
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store double %75, ptr %76, align 8, !tbaa !14
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %78 = load double, ptr %77, align 8, !tbaa !16
-  %79 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store double %78, ptr %79, align 16, !tbaa !16
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %81 = load double, ptr %80, align 8, !tbaa !14
-  %82 = fsub double %69, %81
-  %83 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store double %82, ptr %83, align 8, !tbaa !14
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %85 = load double, ptr %84, align 8, !tbaa !16
-  %86 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store double %85, ptr %86, align 16, !tbaa !16
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %88 = load double, ptr %87, align 8, !tbaa !14
-  %89 = fsub double %69, %88
-  %90 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store double %89, ptr %90, align 8, !tbaa !14
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %92 = load double, ptr %91, align 8, !tbaa !16
-  %93 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store double %92, ptr %93, align 16, !tbaa !16
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %95 = load double, ptr %94, align 8, !tbaa !14
-  %96 = fsub double %69, %95
-  %97 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store double %96, ptr %97, align 8, !tbaa !14
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %99 = load double, ptr %98, align 8, !tbaa !16
-  %100 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store double %99, ptr %100, align 16, !tbaa !16
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %102 = load double, ptr %101, align 8, !tbaa !14
-  %103 = fsub double %69, %102
-  %104 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store double %103, ptr %104, align 8, !tbaa !14
-  %105 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(16) %106, i64 16, i1 false), !tbaa.struct !3
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %67 = load double, ptr %66, align 8, !tbaa !16
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store double %67, ptr %68, align 16, !tbaa !16
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %70 = load double, ptr %69, align 8, !tbaa !14
+  %71 = fsub double %65, %70
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store double %71, ptr %72, align 8, !tbaa !14
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %74 = load double, ptr %73, align 8, !tbaa !16
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store double %74, ptr %75, align 16, !tbaa !16
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %77 = load double, ptr %76, align 8, !tbaa !14
+  %78 = fsub double %65, %77
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store double %78, ptr %79, align 8, !tbaa !14
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %81 = load double, ptr %80, align 8, !tbaa !16
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store double %81, ptr %82, align 16, !tbaa !16
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %84 = load double, ptr %83, align 8, !tbaa !14
+  %85 = fsub double %65, %84
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store double %85, ptr %86, align 8, !tbaa !14
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %88 = load double, ptr %87, align 8, !tbaa !16
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store double %88, ptr %89, align 16, !tbaa !16
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %91 = load double, ptr %90, align 8, !tbaa !14
+  %92 = fsub double %65, %91
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store double %92, ptr %93, align 8, !tbaa !14
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %95 = load double, ptr %94, align 8, !tbaa !16
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store double %95, ptr %96, align 16, !tbaa !16
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %98 = load double, ptr %97, align 8, !tbaa !14
+  %99 = fsub double %65, %98
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  store double %99, ptr %100, align 8, !tbaa !14
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %102, i64 16, i1 false), !tbaa.struct !3
   tail call void @gvrender_beziercurve(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %4) #27
   call void @gvrender_beziercurve(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 7, i32 noundef 0) #27
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #27
-  br label %1737
+  br label %1733
 
-107:                                              ; preds = %20
-  %108 = tail call fastcc ptr @alloc_interpolation_points(ptr noundef %1, i64 noundef %2, i32 %3, i1 noundef zeroext false)
-  switch i32 %22, label %1736 [
-    i32 1, label %109
-    i32 2, label %135
-    i32 3, label %167
-    i32 4, label %200
-    i32 5, label %230
-    i32 6, label %340
-    i32 7, label %408
-    i32 8, label %447
-    i32 9, label %507
-    i32 10, label %563
-    i32 11, label %616
-    i32 12, label %688
-    i32 13, label %756
-    i32 14, label %821
-    i32 15, label %962
-    i32 16, label %1042
-    i32 17, label %1122
-    i32 18, label %1202
-    i32 19, label %1299
-    i32 20, label %1381
-    i32 21, label %1463
-    i32 22, label %1530
-    i32 23, label %1583
-    i32 24, label %1631
-    i32 25, label %1679
+103:                                              ; preds = %20
+  %104 = tail call fastcc ptr @alloc_interpolation_points(ptr noundef %1, i64 noundef %2, i32 %3, i1 noundef zeroext false)
+  switch i32 %22, label %1732 [
+    i32 1, label %105
+    i32 2, label %131
+    i32 3, label %163
+    i32 4, label %196
+    i32 5, label %226
+    i32 6, label %336
+    i32 7, label %404
+    i32 8, label %443
+    i32 9, label %503
+    i32 10, label %559
+    i32 11, label %612
+    i32 12, label %684
+    i32 13, label %752
+    i32 14, label %817
+    i32 15, label %958
+    i32 16, label %1038
+    i32 17, label %1118
+    i32 18, label %1198
+    i32 19, label %1295
+    i32 20, label %1377
+    i32 21, label %1459
+    i32 22, label %1526
+    i32 23, label %1579
+    i32 24, label %1627
+    i32 25, label %1675
   ]
 
-109:                                              ; preds = %107
-  %110 = add i64 %2, 1
-  %111 = tail call fastcc ptr @gv_calloc(i64 noundef %110, i64 noundef 16)
-  %112 = icmp ugt i64 %2, 1
-  br i1 %112, label %.lr.ph1827.preheader, label %._crit_edge1828
+105:                                              ; preds = %103
+  %106 = add i64 %2, 1
+  %107 = tail call fastcc ptr @gv_calloc(i64 noundef %106, i64 noundef 16)
+  %108 = icmp ugt i64 %2, 1
+  br i1 %108, label %.lr.ph1828.preheader, label %._crit_edge1829
 
-.lr.ph1827.preheader:                             ; preds = %109
-  %scevgep1832 = getelementptr i8, ptr %111, i64 16
-  %scevgep1833 = getelementptr i8, ptr %1, i64 16
-  %113 = shl i64 %2, 4
-  %114 = add i64 %113, -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep1832, ptr align 8 %scevgep1833, i64 %114, i1 false)
-  br label %._crit_edge1828
+.lr.ph1828.preheader:                             ; preds = %105
+  %scevgep1833 = getelementptr i8, ptr %107, i64 16
+  %scevgep1834 = getelementptr i8, ptr %1, i64 16
+  %109 = shl i64 %2, 4
+  %110 = add i64 %109, -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep1833, ptr align 8 %scevgep1834, i64 %110, i1 false)
+  br label %._crit_edge1829
 
-._crit_edge1828:                                  ; preds = %.lr.ph1827.preheader, %109
+._crit_edge1829:                                  ; preds = %.lr.ph1828.preheader, %105
   %.idx = mul i64 %2, 48
-  %115 = getelementptr i8, ptr %108, i64 %.idx
-  %116 = getelementptr i8, ptr %115, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %116, i64 16, i1 false), !tbaa.struct !3
-  %117 = getelementptr inbounds nuw %struct.pointf_s, ptr %111, i64 %2
-  %118 = getelementptr i8, ptr %115, i64 -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %118, i64 16, i1 false), !tbaa.struct !3
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %111, i64 noundef %110, i32 noundef %4) #27
-  tail call void @free(ptr noundef %111) #27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %118, i64 16, i1 false), !tbaa.struct !3
-  %119 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %119, ptr noundef nonnull align 8 dereferenceable(16) %116, i64 16, i1 false), !tbaa.struct !3
-  %120 = load double, ptr %119, align 16, !tbaa !16
-  %121 = load double, ptr %8, align 16, !tbaa !16
-  %122 = load double, ptr %115, align 8, !tbaa !16
-  %123 = fsub double %121, %122
-  %124 = fadd double %120, %123
-  %125 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store double %124, ptr %125, align 16, !tbaa !16
-  %126 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %111 = getelementptr i8, ptr %104, i64 %.idx
+  %112 = getelementptr i8, ptr %111, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %112, i64 16, i1 false), !tbaa.struct !3
+  %113 = getelementptr inbounds nuw %struct.pointf_s, ptr %107, i64 %2
+  %114 = getelementptr i8, ptr %111, i64 -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false), !tbaa.struct !3
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %107, i64 noundef %106, i32 noundef %4) #27
+  tail call void @free(ptr noundef %107) #27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false), !tbaa.struct !3
+  %115 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %115, ptr noundef nonnull align 8 dereferenceable(16) %112, i64 16, i1 false), !tbaa.struct !3
+  %116 = load double, ptr %115, align 16, !tbaa !16
+  %117 = load double, ptr %8, align 16, !tbaa !16
+  %118 = load double, ptr %111, align 8, !tbaa !16
+  %119 = fsub double %117, %118
+  %120 = fadd double %116, %119
+  %121 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store double %120, ptr %121, align 16, !tbaa !16
+  %122 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %123 = load double, ptr %122, align 8, !tbaa !14
+  %124 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %125 = load double, ptr %124, align 8, !tbaa !14
+  %126 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %127 = load double, ptr %126, align 8, !tbaa !14
-  %128 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %129 = load double, ptr %128, align 8, !tbaa !14
-  %130 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %131 = load double, ptr %130, align 8, !tbaa !14
-  %132 = fsub double %129, %131
-  %133 = fadd double %127, %132
-  %134 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store double %133, ptr %134, align 8, !tbaa !14
-  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %119, i64 noundef 2) #27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %119, ptr noundef nonnull align 16 dereferenceable(16) %125, i64 16, i1 false), !tbaa.struct !3
+  %128 = fsub double %125, %127
+  %129 = fadd double %123, %128
+  %130 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store double %129, ptr %130, align 8, !tbaa !14
+  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %115, i64 noundef 2) #27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %115, ptr noundef nonnull align 16 dereferenceable(16) %121, i64 16, i1 false), !tbaa.struct !3
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  br label %1736
+  br label %1732
 
-135:                                              ; preds = %107
-  %136 = add i64 %2, 2
-  %137 = tail call fastcc ptr @gv_calloc(i64 noundef %136, i64 noundef 16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !3
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
-  %139 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %138, ptr noundef nonnull align 8 dereferenceable(16) %139, i64 16, i1 false), !tbaa.struct !3
+131:                                              ; preds = %103
+  %132 = add i64 %2, 2
+  %133 = tail call fastcc ptr @gv_calloc(i64 noundef %132, i64 noundef 16)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !3
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 8 dereferenceable(16) %135, i64 16, i1 false), !tbaa.struct !3
+  %136 = load double, ptr %135, align 8, !tbaa !16
+  %137 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %138 = load double, ptr %137, align 8, !tbaa !16
+  %139 = getelementptr inbounds nuw i8, ptr %104, i64 64
   %140 = load double, ptr %139, align 8, !tbaa !16
-  %141 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %142 = load double, ptr %141, align 8, !tbaa !16
-  %143 = getelementptr inbounds nuw i8, ptr %108, i64 64
-  %144 = load double, ptr %143, align 8, !tbaa !16
-  %145 = fsub double %142, %144
-  %146 = fdiv double %145, 3.000000e+00
-  %147 = fadd double %140, %146
-  %148 = getelementptr inbounds nuw i8, ptr %137, i64 32
-  store double %147, ptr %148, align 8, !tbaa !16
-  %149 = getelementptr inbounds nuw i8, ptr %108, i64 40
+  %141 = fsub double %138, %140
+  %142 = fdiv double %141, 3.000000e+00
+  %143 = fadd double %136, %142
+  %144 = getelementptr inbounds nuw i8, ptr %133, i64 32
+  store double %143, ptr %144, align 8, !tbaa !16
+  %145 = getelementptr inbounds nuw i8, ptr %104, i64 40
+  %146 = load double, ptr %145, align 8, !tbaa !14
+  %147 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %148 = load double, ptr %147, align 8, !tbaa !14
+  %149 = getelementptr inbounds nuw i8, ptr %104, i64 72
   %150 = load double, ptr %149, align 8, !tbaa !14
-  %151 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %152 = load double, ptr %151, align 8, !tbaa !14
-  %153 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %154 = load double, ptr %153, align 8, !tbaa !14
-  %155 = fsub double %152, %154
-  %156 = fdiv double %155, 3.000000e+00
-  %157 = fadd double %150, %156
-  %158 = getelementptr inbounds nuw i8, ptr %137, i64 40
+  %151 = fsub double %148, %150
+  %152 = fdiv double %151, 3.000000e+00
+  %153 = fadd double %146, %152
+  %154 = getelementptr inbounds nuw i8, ptr %133, i64 40
+  store double %153, ptr %154, align 8, !tbaa !14
+  %155 = fadd double %138, %142
+  %156 = getelementptr inbounds nuw i8, ptr %133, i64 48
+  store double %155, ptr %156, align 8, !tbaa !16
+  %157 = fadd double %148, %152
+  %158 = getelementptr inbounds nuw i8, ptr %133, i64 56
   store double %157, ptr %158, align 8, !tbaa !14
-  %159 = fadd double %142, %146
-  %160 = getelementptr inbounds nuw i8, ptr %137, i64 48
-  store double %159, ptr %160, align 8, !tbaa !16
-  %161 = fadd double %152, %156
-  %162 = getelementptr inbounds nuw i8, ptr %137, i64 56
-  store double %161, ptr %162, align 8, !tbaa !14
-  %163 = icmp ugt i64 %136, 4
-  br i1 %163, label %.lr.ph1823.preheader, label %._crit_edge1824
+  %159 = icmp ugt i64 %132, 4
+  br i1 %159, label %.lr.ph1824.preheader, label %._crit_edge1825
 
-.lr.ph1823.preheader:                             ; preds = %135
-  %scevgep1830 = getelementptr i8, ptr %137, i64 64
-  %scevgep1831 = getelementptr i8, ptr %1, i64 32
-  %164 = shl i64 %2, 4
-  %165 = add i64 %164, -32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep1830, ptr align 8 %scevgep1831, i64 %165, i1 false)
-  br label %._crit_edge1824
+.lr.ph1824.preheader:                             ; preds = %131
+  %scevgep1831 = getelementptr i8, ptr %133, i64 64
+  %scevgep1832 = getelementptr i8, ptr %1, i64 32
+  %160 = shl i64 %2, 4
+  %161 = add i64 %160, -32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep1831, ptr align 8 %scevgep1832, i64 %161, i1 false)
+  br label %._crit_edge1825
 
-._crit_edge1824:                                  ; preds = %.lr.ph1823.preheader, %135
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %137, i64 noundef %136, i32 noundef %4) #27
-  tail call void @free(ptr noundef nonnull %137) #27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %141, i64 16, i1 false), !tbaa.struct !3
-  %166 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %166, ptr noundef nonnull align 8 dereferenceable(16) %139, i64 16, i1 false), !tbaa.struct !3
+._crit_edge1825:                                  ; preds = %.lr.ph1824.preheader, %131
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %133, i64 noundef %132, i32 noundef %4) #27
+  tail call void @free(ptr noundef nonnull %133) #27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %137, i64 16, i1 false), !tbaa.struct !3
+  %162 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %162, ptr noundef nonnull align 8 dereferenceable(16) %135, i64 16, i1 false), !tbaa.struct !3
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  br label %1736
+  br label %1732
 
-167:                                              ; preds = %107
-  %168 = add i64 %2, 3
-  %169 = tail call fastcc ptr @gv_calloc(i64 noundef %168, i64 noundef 16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %169, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !3
-  %170 = load double, ptr %1, align 8, !tbaa !16
-  %171 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %172 = load double, ptr %171, align 8, !tbaa !16
-  %173 = fsub double %170, %172
-  %174 = fmul double %173, 2.500000e-01
-  %175 = fsub double %170, %174
-  %176 = getelementptr inbounds nuw i8, ptr %169, i64 16
-  store double %175, ptr %176, align 8, !tbaa !16
-  %177 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %178 = load double, ptr %177, align 8, !tbaa !14
-  %179 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %180 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %181 = load double, ptr %180, align 8, !tbaa !14
-  %182 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %183 = load double, ptr %182, align 8, !tbaa !14
-  %184 = fsub double %181, %183
-  %185 = fdiv double %184, 3.000000e+00
-  %186 = fadd double %178, %185
-  %187 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  store double %186, ptr %187, align 8, !tbaa !14
-  %188 = tail call double @llvm.fmuladd.f64(double %173, double -2.000000e+00, double %170)
-  %189 = getelementptr inbounds nuw i8, ptr %169, i64 32
-  store double %188, ptr %189, align 8, !tbaa !16
-  %190 = getelementptr inbounds nuw i8, ptr %169, i64 40
-  store double %186, ptr %190, align 8, !tbaa !14
-  %191 = tail call double @llvm.fmuladd.f64(double %173, double -2.250000e+00, double %170)
-  %192 = getelementptr inbounds nuw i8, ptr %169, i64 48
-  store double %191, ptr %192, align 8, !tbaa !16
-  %193 = getelementptr inbounds nuw i8, ptr %169, i64 56
-  store double %181, ptr %193, align 8, !tbaa !14
-  %194 = load double, ptr %179, align 8, !tbaa !16
-  %195 = getelementptr i8, ptr %169, i64 64
-  store double %194, ptr %195, align 8, !tbaa !16
-  %196 = getelementptr inbounds nuw i8, ptr %169, i64 72
-  store double %181, ptr %196, align 8, !tbaa !14
-  %197 = icmp ugt i64 %168, 4
-  br i1 %197, label %.lr.ph.preheader, label %._crit_edge
+163:                                              ; preds = %103
+  %164 = add i64 %2, 3
+  %165 = tail call fastcc ptr @gv_calloc(i64 noundef %164, i64 noundef 16)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %165, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !3
+  %166 = load double, ptr %1, align 8, !tbaa !16
+  %167 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %168 = load double, ptr %167, align 8, !tbaa !16
+  %169 = fsub double %166, %168
+  %170 = fmul double %169, 2.500000e-01
+  %171 = fsub double %166, %170
+  %172 = getelementptr inbounds nuw i8, ptr %165, i64 16
+  store double %171, ptr %172, align 8, !tbaa !16
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %174 = load double, ptr %173, align 8, !tbaa !14
+  %175 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %176 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %177 = load double, ptr %176, align 8, !tbaa !14
+  %178 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %179 = load double, ptr %178, align 8, !tbaa !14
+  %180 = fsub double %177, %179
+  %181 = fdiv double %180, 3.000000e+00
+  %182 = fadd double %174, %181
+  %183 = getelementptr inbounds nuw i8, ptr %165, i64 24
+  store double %182, ptr %183, align 8, !tbaa !14
+  %184 = tail call double @llvm.fmuladd.f64(double %169, double -2.000000e+00, double %166)
+  %185 = getelementptr inbounds nuw i8, ptr %165, i64 32
+  store double %184, ptr %185, align 8, !tbaa !16
+  %186 = getelementptr inbounds nuw i8, ptr %165, i64 40
+  store double %182, ptr %186, align 8, !tbaa !14
+  %187 = tail call double @llvm.fmuladd.f64(double %169, double -2.250000e+00, double %166)
+  %188 = getelementptr inbounds nuw i8, ptr %165, i64 48
+  store double %187, ptr %188, align 8, !tbaa !16
+  %189 = getelementptr inbounds nuw i8, ptr %165, i64 56
+  store double %177, ptr %189, align 8, !tbaa !14
+  %190 = load double, ptr %175, align 8, !tbaa !16
+  %191 = getelementptr i8, ptr %165, i64 64
+  store double %190, ptr %191, align 8, !tbaa !16
+  %192 = getelementptr inbounds nuw i8, ptr %165, i64 72
+  store double %177, ptr %192, align 8, !tbaa !14
+  %193 = icmp ugt i64 %164, 4
+  br i1 %193, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %167
-  %scevgep1829 = getelementptr i8, ptr %1, i64 16
-  %198 = shl i64 %2, 4
-  %199 = add i64 %198, -16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %195, ptr align 8 %scevgep1829, i64 %199, i1 false)
+.lr.ph.preheader:                                 ; preds = %163
+  %scevgep1830 = getelementptr i8, ptr %1, i64 16
+  %194 = shl i64 %2, 4
+  %195 = add i64 %194, -16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %191, ptr align 8 %scevgep1830, i64 %195, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %167
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %169, i64 noundef %168, i32 noundef %4) #27
-  tail call void @free(ptr noundef nonnull %169) #27
-  br label %1736
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %163
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %165, i64 noundef %164, i32 noundef %4) #27
+  tail call void @free(ptr noundef nonnull %165) #27
+  br label %1732
 
-200:                                              ; preds = %107
-  %201 = add i64 %2, 2
-  %202 = tail call fastcc ptr @gv_calloc(i64 noundef %201, i64 noundef 16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %202, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !3
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %204 = getelementptr inbounds nuw i8, ptr %108, i64 32
+196:                                              ; preds = %103
+  %197 = add i64 %2, 2
+  %198 = tail call fastcc ptr @gv_calloc(i64 noundef %197, i64 noundef 16)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %198, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !3
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %200, i64 16, i1 false), !tbaa.struct !3
+  %201 = getelementptr inbounds nuw i8, ptr %198, i64 32
+  %202 = getelementptr inbounds nuw i8, ptr %104, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %201, ptr noundef nonnull align 8 dereferenceable(16) %202, i64 16, i1 false), !tbaa.struct !3
+  %203 = getelementptr inbounds nuw i8, ptr %198, i64 48
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %203, ptr noundef nonnull align 8 dereferenceable(16) %204, i64 16, i1 false), !tbaa.struct !3
-  %205 = getelementptr inbounds nuw i8, ptr %202, i64 32
-  %206 = getelementptr inbounds nuw i8, ptr %108, i64 64
+  %205 = getelementptr inbounds nuw i8, ptr %198, i64 64
+  %206 = getelementptr inbounds nuw i8, ptr %104, i64 128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %205, ptr noundef nonnull align 8 dereferenceable(16) %206, i64 16, i1 false), !tbaa.struct !3
-  %207 = getelementptr inbounds nuw i8, ptr %202, i64 48
-  %208 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %198, i64 80
+  %208 = getelementptr inbounds nuw i8, ptr %104, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %207, ptr noundef nonnull align 8 dereferenceable(16) %208, i64 16, i1 false), !tbaa.struct !3
-  %209 = getelementptr inbounds nuw i8, ptr %202, i64 64
-  %210 = getelementptr inbounds nuw i8, ptr %108, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %209, ptr noundef nonnull align 8 dereferenceable(16) %210, i64 16, i1 false), !tbaa.struct !3
-  %211 = getelementptr inbounds nuw i8, ptr %202, i64 80
-  %212 = getelementptr inbounds nuw i8, ptr %108, i64 160
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %211, ptr noundef nonnull align 8 dereferenceable(16) %212, i64 16, i1 false), !tbaa.struct !3
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %202, i64 noundef %201, i32 noundef %4) #27
-  tail call void @free(ptr noundef %202) #27
-  %213 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %214 = load double, ptr %213, align 8, !tbaa !16
-  %215 = getelementptr inbounds nuw i8, ptr %108, i64 176
-  %216 = load double, ptr %215, align 8, !tbaa !16
-  %217 = load double, ptr %108, align 8, !tbaa !16
-  %218 = fsub double %216, %217
-  %219 = fadd double %214, %218
-  store double %219, ptr %8, align 16, !tbaa !16
-  %220 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %198, i64 noundef %197, i32 noundef %4) #27
+  tail call void @free(ptr noundef %198) #27
+  %209 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %210 = load double, ptr %209, align 8, !tbaa !16
+  %211 = getelementptr inbounds nuw i8, ptr %104, i64 176
+  %212 = load double, ptr %211, align 8, !tbaa !16
+  %213 = load double, ptr %104, align 8, !tbaa !16
+  %214 = fsub double %212, %213
+  %215 = fadd double %210, %214
+  store double %215, ptr %8, align 16, !tbaa !16
+  %216 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  %217 = load double, ptr %216, align 8, !tbaa !14
+  %218 = getelementptr inbounds nuw i8, ptr %104, i64 184
+  %219 = load double, ptr %218, align 8, !tbaa !14
+  %220 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %221 = load double, ptr %220, align 8, !tbaa !14
-  %222 = getelementptr inbounds nuw i8, ptr %108, i64 184
-  %223 = load double, ptr %222, align 8, !tbaa !14
-  %224 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %225 = load double, ptr %224, align 8, !tbaa !14
-  %226 = fsub double %223, %225
-  %227 = fadd double %221, %226
-  %228 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %227, ptr %228, align 8, !tbaa !14
-  %229 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %229, ptr noundef nonnull align 8 dereferenceable(16) %206, i64 16, i1 false), !tbaa.struct !3
+  %222 = fsub double %219, %221
+  %223 = fadd double %217, %222
+  %224 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %223, ptr %224, align 8, !tbaa !14
+  %225 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %225, ptr noundef nonnull align 8 dereferenceable(16) %202, i64 16, i1 false), !tbaa.struct !3
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %229, ptr noundef nonnull align 8 dereferenceable(16) %210, i64 16, i1 false), !tbaa.struct !3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %225, ptr noundef nonnull align 8 dereferenceable(16) %206, i64 16, i1 false), !tbaa.struct !3
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %229, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !3
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %225, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false), !tbaa.struct !3
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  br label %1736
+  br label %1732
 
-230:                                              ; preds = %107
-  %231 = add i64 %2, 8
-  %232 = tail call fastcc ptr @gv_calloc(i64 noundef %231, i64 noundef 16)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %232, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !3
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 16
-  %234 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %233, ptr noundef nonnull align 8 dereferenceable(16) %234, i64 16, i1 false), !tbaa.struct !3
-  %235 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %236 = load double, ptr %235, align 8, !tbaa !16
-  %237 = getelementptr inbounds nuw i8, ptr %108, i64 64
-  %238 = load double, ptr %237, align 8, !tbaa !16
-  %239 = fsub double %238, %236
-  %240 = fadd double %236, %239
-  %241 = getelementptr inbounds nuw i8, ptr %232, i64 32
-  store double %240, ptr %241, align 8, !tbaa !16
-  %242 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %243 = load double, ptr %242, align 8, !tbaa !14
-  %244 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %245 = load double, ptr %244, align 8, !tbaa !14
-  %246 = fsub double %245, %243
-  %247 = fadd double %243, %246
-  %248 = getelementptr inbounds nuw i8, ptr %232, i64 40
-  store double %247, ptr %248, align 8, !tbaa !14
-  %249 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %250 = load double, ptr %249, align 8, !tbaa !16
-  %251 = fsub double %236, %250
-  %252 = fadd double %240, %251
-  %253 = getelementptr inbounds nuw i8, ptr %232, i64 48
-  store double %252, ptr %253, align 8, !tbaa !16
-  %254 = getelementptr inbounds nuw i8, ptr %108, i64 40
-  %255 = load double, ptr %254, align 8, !tbaa !14
-  %256 = fsub double %243, %255
-  %257 = fadd double %247, %256
-  %258 = getelementptr inbounds nuw i8, ptr %232, i64 56
+226:                                              ; preds = %103
+  %227 = add i64 %2, 8
+  %228 = tail call fastcc ptr @gv_calloc(i64 noundef %227, i64 noundef 16)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %228, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !3
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef nonnull align 8 dereferenceable(16) %230, i64 16, i1 false), !tbaa.struct !3
+  %231 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %232 = load double, ptr %231, align 8, !tbaa !16
+  %233 = getelementptr inbounds nuw i8, ptr %104, i64 64
+  %234 = load double, ptr %233, align 8, !tbaa !16
+  %235 = fsub double %234, %232
+  %236 = fadd double %232, %235
+  %237 = getelementptr inbounds nuw i8, ptr %228, i64 32
+  store double %236, ptr %237, align 8, !tbaa !16
+  %238 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %239 = load double, ptr %238, align 8, !tbaa !14
+  %240 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %241 = load double, ptr %240, align 8, !tbaa !14
+  %242 = fsub double %241, %239
+  %243 = fadd double %239, %242
+  %244 = getelementptr inbounds nuw i8, ptr %228, i64 40
+  store double %243, ptr %244, align 8, !tbaa !14
+  %245 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %246 = load double, ptr %245, align 8, !tbaa !16
+  %247 = fsub double %232, %246
+  %248 = fadd double %236, %247
+  %249 = getelementptr inbounds nuw i8, ptr %228, i64 48
+  store double %248, ptr %249, align 8, !tbaa !16
+  %250 = getelementptr inbounds nuw i8, ptr %104, i64 40
+  %251 = load double, ptr %250, align 8, !tbaa !14
+  %252 = fsub double %239, %251
+  %253 = fadd double %243, %252
+  %254 = getelementptr inbounds nuw i8, ptr %228, i64 56
+  store double %253, ptr %254, align 8, !tbaa !14
+  %255 = fadd double %235, %248
+  %256 = getelementptr inbounds nuw i8, ptr %228, i64 64
+  store double %255, ptr %256, align 8, !tbaa !16
+  %257 = fadd double %242, %253
+  %258 = getelementptr inbounds nuw i8, ptr %228, i64 72
   store double %257, ptr %258, align 8, !tbaa !14
-  %259 = fadd double %239, %252
-  %260 = getelementptr inbounds nuw i8, ptr %232, i64 64
-  store double %259, ptr %260, align 8, !tbaa !16
-  %261 = fadd double %246, %257
-  %262 = getelementptr inbounds nuw i8, ptr %232, i64 72
-  store double %261, ptr %262, align 8, !tbaa !14
-  %263 = fsub double %240, %252
-  %264 = fadd double %259, %263
-  %265 = getelementptr inbounds nuw i8, ptr %232, i64 80
-  store double %264, ptr %265, align 8, !tbaa !16
-  %266 = fsub double %247, %257
-  %267 = fadd double %261, %266
-  %268 = getelementptr inbounds nuw i8, ptr %232, i64 88
-  store double %267, ptr %268, align 8, !tbaa !14
-  %269 = getelementptr inbounds nuw i8, ptr %108, i64 96
-  %270 = load double, ptr %269, align 8, !tbaa !16
-  %271 = getelementptr inbounds nuw i8, ptr %108, i64 80
-  %272 = load double, ptr %271, align 8, !tbaa !16
-  %273 = fsub double %272, %270
-  %274 = fadd double %270, %273
-  %275 = getelementptr inbounds nuw i8, ptr %232, i64 144
-  store double %274, ptr %275, align 8, !tbaa !16
-  %276 = getelementptr inbounds nuw i8, ptr %108, i64 104
-  %277 = load double, ptr %276, align 8, !tbaa !14
-  %278 = getelementptr inbounds nuw i8, ptr %108, i64 88
-  %279 = load double, ptr %278, align 8, !tbaa !14
-  %280 = fsub double %279, %277
-  %281 = fadd double %277, %280
-  %282 = getelementptr inbounds nuw i8, ptr %232, i64 152
-  store double %281, ptr %282, align 8, !tbaa !14
-  %283 = getelementptr inbounds nuw i8, ptr %108, i64 112
-  %284 = load double, ptr %283, align 8, !tbaa !16
-  %285 = fsub double %270, %284
-  %286 = fadd double %274, %285
-  %287 = getelementptr inbounds nuw i8, ptr %232, i64 128
-  store double %286, ptr %287, align 8, !tbaa !16
-  %288 = getelementptr inbounds nuw i8, ptr %108, i64 120
-  %289 = load double, ptr %288, align 8, !tbaa !14
-  %290 = fsub double %277, %289
-  %291 = fadd double %281, %290
-  %292 = getelementptr inbounds nuw i8, ptr %232, i64 136
+  %259 = fsub double %236, %248
+  %260 = fadd double %255, %259
+  %261 = getelementptr inbounds nuw i8, ptr %228, i64 80
+  store double %260, ptr %261, align 8, !tbaa !16
+  %262 = fsub double %243, %253
+  %263 = fadd double %257, %262
+  %264 = getelementptr inbounds nuw i8, ptr %228, i64 88
+  store double %263, ptr %264, align 8, !tbaa !14
+  %265 = getelementptr inbounds nuw i8, ptr %104, i64 96
+  %266 = load double, ptr %265, align 8, !tbaa !16
+  %267 = getelementptr inbounds nuw i8, ptr %104, i64 80
+  %268 = load double, ptr %267, align 8, !tbaa !16
+  %269 = fsub double %268, %266
+  %270 = fadd double %266, %269
+  %271 = getelementptr inbounds nuw i8, ptr %228, i64 144
+  store double %270, ptr %271, align 8, !tbaa !16
+  %272 = getelementptr inbounds nuw i8, ptr %104, i64 104
+  %273 = load double, ptr %272, align 8, !tbaa !14
+  %274 = getelementptr inbounds nuw i8, ptr %104, i64 88
+  %275 = load double, ptr %274, align 8, !tbaa !14
+  %276 = fsub double %275, %273
+  %277 = fadd double %273, %276
+  %278 = getelementptr inbounds nuw i8, ptr %228, i64 152
+  store double %277, ptr %278, align 8, !tbaa !14
+  %279 = getelementptr inbounds nuw i8, ptr %104, i64 112
+  %280 = load double, ptr %279, align 8, !tbaa !16
+  %281 = fsub double %266, %280
+  %282 = fadd double %270, %281
+  %283 = getelementptr inbounds nuw i8, ptr %228, i64 128
+  store double %282, ptr %283, align 8, !tbaa !16
+  %284 = getelementptr inbounds nuw i8, ptr %104, i64 120
+  %285 = load double, ptr %284, align 8, !tbaa !14
+  %286 = fsub double %273, %285
+  %287 = fadd double %277, %286
+  %288 = getelementptr inbounds nuw i8, ptr %228, i64 136
+  store double %287, ptr %288, align 8, !tbaa !14
+  %289 = fadd double %269, %282
+  %290 = getelementptr inbounds nuw i8, ptr %228, i64 112
+  store double %289, ptr %290, align 8, !tbaa !16
+  %291 = fadd double %276, %287
+  %292 = getelementptr inbounds nuw i8, ptr %228, i64 120
   store double %291, ptr %292, align 8, !tbaa !14
-  %293 = fadd double %273, %286
-  %294 = getelementptr inbounds nuw i8, ptr %232, i64 112
-  store double %293, ptr %294, align 8, !tbaa !16
-  %295 = fadd double %280, %291
-  %296 = getelementptr inbounds nuw i8, ptr %232, i64 120
-  store double %295, ptr %296, align 8, !tbaa !14
-  %297 = fsub double %274, %286
-  %298 = fadd double %293, %297
-  %299 = getelementptr inbounds nuw i8, ptr %232, i64 96
-  store double %298, ptr %299, align 8, !tbaa !16
-  %300 = fsub double %281, %291
-  %301 = fadd double %295, %300
-  %302 = getelementptr inbounds nuw i8, ptr %232, i64 104
-  store double %301, ptr %302, align 8, !tbaa !14
-  %303 = getelementptr inbounds nuw i8, ptr %232, i64 160
-  %304 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %303, ptr noundef nonnull align 8 dereferenceable(16) %304, i64 16, i1 false), !tbaa.struct !3
-  %305 = getelementptr inbounds nuw i8, ptr %232, i64 176
-  %306 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %305, ptr noundef nonnull align 8 dereferenceable(16) %306, i64 16, i1 false), !tbaa.struct !3
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %232, i64 noundef %231, i32 noundef %4) #27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %241, i64 16, i1 false), !tbaa.struct !3
-  %307 = load double, ptr %241, align 8, !tbaa !16
-  %308 = load double, ptr %253, align 8, !tbaa !16
-  %309 = fsub double %308, %307
-  %310 = fsub double %307, %309
-  %311 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %310, ptr %311, align 16, !tbaa !16
-  %312 = load double, ptr %248, align 8, !tbaa !14
-  %313 = load double, ptr %258, align 8, !tbaa !14
-  %314 = fsub double %313, %312
-  %315 = fsub double %312, %314
-  %316 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %315, ptr %316, align 8, !tbaa !14
-  %317 = load double, ptr %260, align 8, !tbaa !16
-  %318 = fsub double %317, %308
-  %319 = fadd double %310, %318
-  %320 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store double %319, ptr %320, align 16, !tbaa !16
-  %321 = load double, ptr %262, align 8, !tbaa !14
-  %322 = fsub double %321, %313
-  %323 = fadd double %315, %322
-  %324 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store double %323, ptr %324, align 8, !tbaa !14
-  %325 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %325, ptr noundef nonnull align 8 dereferenceable(16) %265, i64 16, i1 false), !tbaa.struct !3
+  %293 = fsub double %270, %282
+  %294 = fadd double %289, %293
+  %295 = getelementptr inbounds nuw i8, ptr %228, i64 96
+  store double %294, ptr %295, align 8, !tbaa !16
+  %296 = fsub double %277, %287
+  %297 = fadd double %291, %296
+  %298 = getelementptr inbounds nuw i8, ptr %228, i64 104
+  store double %297, ptr %298, align 8, !tbaa !14
+  %299 = getelementptr inbounds nuw i8, ptr %228, i64 160
+  %300 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %299, ptr noundef nonnull align 8 dereferenceable(16) %300, i64 16, i1 false), !tbaa.struct !3
+  %301 = getelementptr inbounds nuw i8, ptr %228, i64 176
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %301, ptr noundef nonnull align 8 dereferenceable(16) %302, i64 16, i1 false), !tbaa.struct !3
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %228, i64 noundef %227, i32 noundef %4) #27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %237, i64 16, i1 false), !tbaa.struct !3
+  %303 = load double, ptr %237, align 8, !tbaa !16
+  %304 = load double, ptr %249, align 8, !tbaa !16
+  %305 = fsub double %304, %303
+  %306 = fsub double %303, %305
+  %307 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %306, ptr %307, align 16, !tbaa !16
+  %308 = load double, ptr %244, align 8, !tbaa !14
+  %309 = load double, ptr %254, align 8, !tbaa !14
+  %310 = fsub double %309, %308
+  %311 = fsub double %308, %310
+  %312 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %311, ptr %312, align 8, !tbaa !14
+  %313 = load double, ptr %256, align 8, !tbaa !16
+  %314 = fsub double %313, %304
+  %315 = fadd double %306, %314
+  %316 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store double %315, ptr %316, align 16, !tbaa !16
+  %317 = load double, ptr %258, align 8, !tbaa !14
+  %318 = fsub double %317, %309
+  %319 = fadd double %311, %318
+  %320 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store double %319, ptr %320, align 8, !tbaa !14
+  %321 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %321, ptr noundef nonnull align 8 dereferenceable(16) %261, i64 16, i1 false), !tbaa.struct !3
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 4) #27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %299, i64 16, i1 false), !tbaa.struct !3
-  %326 = load double, ptr %299, align 8, !tbaa !16
-  %327 = load double, ptr %294, align 8, !tbaa !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %295, i64 16, i1 false), !tbaa.struct !3
+  %322 = load double, ptr %295, align 8, !tbaa !16
+  %323 = load double, ptr %290, align 8, !tbaa !16
+  %324 = fsub double %323, %322
+  %325 = fsub double %322, %324
+  store double %325, ptr %307, align 16, !tbaa !16
+  %326 = load double, ptr %298, align 8, !tbaa !14
+  %327 = load double, ptr %292, align 8, !tbaa !14
   %328 = fsub double %327, %326
   %329 = fsub double %326, %328
-  store double %329, ptr %311, align 16, !tbaa !16
-  %330 = load double, ptr %302, align 8, !tbaa !14
-  %331 = load double, ptr %296, align 8, !tbaa !14
-  %332 = fsub double %331, %330
-  %333 = fsub double %330, %332
-  store double %333, ptr %316, align 8, !tbaa !14
-  %334 = load double, ptr %287, align 8, !tbaa !16
-  %335 = fsub double %334, %327
-  %336 = fadd double %329, %335
-  store double %336, ptr %320, align 16, !tbaa !16
-  %337 = load double, ptr %292, align 8, !tbaa !14
-  %338 = fsub double %337, %331
-  %339 = fadd double %333, %338
-  store double %339, ptr %324, align 8, !tbaa !14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %325, ptr noundef nonnull align 8 dereferenceable(16) %275, i64 16, i1 false), !tbaa.struct !3
+  store double %329, ptr %312, align 8, !tbaa !14
+  %330 = load double, ptr %283, align 8, !tbaa !16
+  %331 = fsub double %330, %323
+  %332 = fadd double %325, %331
+  store double %332, ptr %316, align 16, !tbaa !16
+  %333 = load double, ptr %288, align 8, !tbaa !14
+  %334 = fsub double %333, %327
+  %335 = fadd double %329, %334
+  store double %335, ptr %320, align 8, !tbaa !14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %321, ptr noundef nonnull align 8 dereferenceable(16) %271, i64 16, i1 false), !tbaa.struct !3
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 4) #27
-  call void @free(ptr noundef %232) #27
-  br label %1736
+  call void @free(ptr noundef %228) #27
+  br label %1732
 
-340:                                              ; preds = %107
-  %341 = add i64 %2, 5
-  %342 = tail call fastcc ptr @gv_calloc(i64 noundef %341, i64 noundef 16)
+336:                                              ; preds = %103
+  %337 = add i64 %2, 5
+  %338 = tail call fastcc ptr @gv_calloc(i64 noundef %337, i64 noundef 16)
   %.val = load double, ptr %1, align 8, !tbaa !16
-  %343 = getelementptr i8, ptr %1, i64 16
-  %.val1640 = load double, ptr %343, align 8, !tbaa !16
-  %344 = fadd double %.val, %.val1640
-  %345 = fmul double %344, 5.000000e-01
-  %346 = fsub double %.val, %.val1640
-  %347 = fmul double %346, 1.250000e-01
-  %348 = fadd double %345, %347
-  store double %348, ptr %342, align 8, !tbaa !16
-  %349 = getelementptr i8, ptr %1, i64 24
-  %.val1709 = load double, ptr %349, align 8, !tbaa !14
-  %350 = getelementptr i8, ptr %1, i64 40
-  %.val1710 = load double, ptr %350, align 8, !tbaa !14
-  %351 = fadd double %.val1709, %.val1710
-  %352 = fmul double %351, 5.000000e-01
-  %353 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %354 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %355 = load double, ptr %354, align 8, !tbaa !14
-  %356 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %357 = load double, ptr %356, align 8, !tbaa !14
-  %358 = fsub double %355, %357
-  %359 = fmul double %358, 3.000000e+00
-  %360 = fmul double %359, 5.000000e-01
-  %361 = fadd double %352, %360
-  %362 = getelementptr inbounds nuw i8, ptr %342, i64 8
-  store double %361, ptr %362, align 8, !tbaa !14
-  %363 = fmul double %346, 2.500000e-01
-  %364 = fsub double %345, %363
-  %365 = getelementptr inbounds nuw i8, ptr %342, i64 16
-  store double %364, ptr %365, align 8, !tbaa !16
-  %366 = getelementptr inbounds nuw i8, ptr %342, i64 24
-  store double %361, ptr %366, align 8, !tbaa !14
-  %367 = getelementptr inbounds nuw i8, ptr %342, i64 32
-  store double %364, ptr %367, align 8, !tbaa !16
-  %368 = getelementptr inbounds nuw i8, ptr %342, i64 40
-  store double %352, ptr %368, align 8, !tbaa !14
-  %369 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %370 = load double, ptr %369, align 8, !tbaa !16
-  %371 = load double, ptr %353, align 8, !tbaa !16
-  %372 = fsub double %370, %371
-  %373 = fmul double %372, 5.000000e-01
-  %374 = fadd double %364, %373
-  %375 = getelementptr inbounds nuw i8, ptr %342, i64 48
-  store double %374, ptr %375, align 8, !tbaa !16
-  %376 = getelementptr inbounds nuw i8, ptr %342, i64 56
-  store double %352, ptr %376, align 8, !tbaa !14
-  %377 = getelementptr inbounds nuw i8, ptr %342, i64 64
-  store double %374, ptr %377, align 8, !tbaa !16
-  %378 = fadd double %352, %358
-  %379 = getelementptr inbounds nuw i8, ptr %342, i64 72
-  store double %378, ptr %379, align 8, !tbaa !14
-  %380 = getelementptr inbounds nuw i8, ptr %342, i64 80
-  store double %348, ptr %380, align 8, !tbaa !16
-  %381 = getelementptr inbounds nuw i8, ptr %342, i64 88
-  store double %378, ptr %381, align 8, !tbaa !14
-  %382 = getelementptr inbounds nuw i8, ptr %342, i64 96
-  store double %348, ptr %382, align 8, !tbaa !16
-  %383 = fmul double %358, 2.500000e-01
-  %384 = fsub double %378, %383
-  %385 = getelementptr inbounds nuw i8, ptr %342, i64 104
-  store double %384, ptr %385, align 8, !tbaa !14
-  %386 = fadd double %348, %372
-  %387 = getelementptr inbounds nuw i8, ptr %342, i64 112
-  store double %386, ptr %387, align 8, !tbaa !16
-  %388 = fmul double %358, 5.000000e-01
-  %389 = fadd double %388, %384
-  %390 = getelementptr inbounds nuw i8, ptr %342, i64 120
-  store double %389, ptr %390, align 8, !tbaa !14
-  %391 = getelementptr inbounds nuw i8, ptr %342, i64 128
-  store double %348, ptr %391, align 8, !tbaa !16
-  %392 = fadd double %383, %361
-  %393 = getelementptr inbounds nuw i8, ptr %342, i64 136
+  %339 = getelementptr i8, ptr %1, i64 16
+  %.val1640 = load double, ptr %339, align 8, !tbaa !16
+  %340 = fadd double %.val, %.val1640
+  %341 = fmul double %340, 5.000000e-01
+  %342 = fsub double %.val, %.val1640
+  %343 = fmul double %342, 1.250000e-01
+  %344 = fadd double %341, %343
+  store double %344, ptr %338, align 8, !tbaa !16
+  %345 = getelementptr i8, ptr %1, i64 24
+  %.val1709 = load double, ptr %345, align 8, !tbaa !14
+  %346 = getelementptr i8, ptr %1, i64 40
+  %.val1710 = load double, ptr %346, align 8, !tbaa !14
+  %347 = fadd double %.val1709, %.val1710
+  %348 = fmul double %347, 5.000000e-01
+  %349 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %350 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %351 = load double, ptr %350, align 8, !tbaa !14
+  %352 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %353 = load double, ptr %352, align 8, !tbaa !14
+  %354 = fsub double %351, %353
+  %355 = fmul double %354, 3.000000e+00
+  %356 = fmul double %355, 5.000000e-01
+  %357 = fadd double %348, %356
+  %358 = getelementptr inbounds nuw i8, ptr %338, i64 8
+  store double %357, ptr %358, align 8, !tbaa !14
+  %359 = fmul double %342, 2.500000e-01
+  %360 = fsub double %341, %359
+  %361 = getelementptr inbounds nuw i8, ptr %338, i64 16
+  store double %360, ptr %361, align 8, !tbaa !16
+  %362 = getelementptr inbounds nuw i8, ptr %338, i64 24
+  store double %357, ptr %362, align 8, !tbaa !14
+  %363 = getelementptr inbounds nuw i8, ptr %338, i64 32
+  store double %360, ptr %363, align 8, !tbaa !16
+  %364 = getelementptr inbounds nuw i8, ptr %338, i64 40
+  store double %348, ptr %364, align 8, !tbaa !14
+  %365 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %366 = load double, ptr %365, align 8, !tbaa !16
+  %367 = load double, ptr %349, align 8, !tbaa !16
+  %368 = fsub double %366, %367
+  %369 = fmul double %368, 5.000000e-01
+  %370 = fadd double %360, %369
+  %371 = getelementptr inbounds nuw i8, ptr %338, i64 48
+  store double %370, ptr %371, align 8, !tbaa !16
+  %372 = getelementptr inbounds nuw i8, ptr %338, i64 56
+  store double %348, ptr %372, align 8, !tbaa !14
+  %373 = getelementptr inbounds nuw i8, ptr %338, i64 64
+  store double %370, ptr %373, align 8, !tbaa !16
+  %374 = fadd double %348, %354
+  %375 = getelementptr inbounds nuw i8, ptr %338, i64 72
+  store double %374, ptr %375, align 8, !tbaa !14
+  %376 = getelementptr inbounds nuw i8, ptr %338, i64 80
+  store double %344, ptr %376, align 8, !tbaa !16
+  %377 = getelementptr inbounds nuw i8, ptr %338, i64 88
+  store double %374, ptr %377, align 8, !tbaa !14
+  %378 = getelementptr inbounds nuw i8, ptr %338, i64 96
+  store double %344, ptr %378, align 8, !tbaa !16
+  %379 = fmul double %354, 2.500000e-01
+  %380 = fsub double %374, %379
+  %381 = getelementptr inbounds nuw i8, ptr %338, i64 104
+  store double %380, ptr %381, align 8, !tbaa !14
+  %382 = fadd double %344, %368
+  %383 = getelementptr inbounds nuw i8, ptr %338, i64 112
+  store double %382, ptr %383, align 8, !tbaa !16
+  %384 = fmul double %354, 5.000000e-01
+  %385 = fadd double %384, %380
+  %386 = getelementptr inbounds nuw i8, ptr %338, i64 120
+  store double %385, ptr %386, align 8, !tbaa !14
+  %387 = getelementptr inbounds nuw i8, ptr %338, i64 128
+  store double %344, ptr %387, align 8, !tbaa !16
+  %388 = fadd double %379, %357
+  %389 = getelementptr inbounds nuw i8, ptr %338, i64 136
+  store double %388, ptr %389, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %338, i64 noundef %337, i32 noundef %4) #27
+  %390 = load double, ptr %339, align 8, !tbaa !16
+  store double %390, ptr %8, align 16, !tbaa !16
+  %.val1717 = load double, ptr %345, align 8, !tbaa !14
+  %.val1718 = load double, ptr %346, align 8, !tbaa !14
+  %391 = fadd double %.val1717, %.val1718
+  %392 = fmul double %391, 5.000000e-01
+  %393 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %392, ptr %393, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %342, i64 noundef %341, i32 noundef %4) #27
-  %394 = load double, ptr %343, align 8, !tbaa !16
-  store double %394, ptr %8, align 16, !tbaa !16
-  %.val1717 = load double, ptr %349, align 8, !tbaa !14
-  %.val1718 = load double, ptr %350, align 8, !tbaa !14
-  %395 = fadd double %.val1717, %.val1718
-  %396 = fmul double %395, 5.000000e-01
-  %397 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %396, ptr %397, align 8, !tbaa !14
-  %398 = load double, ptr %1, align 8, !tbaa !16
-  %399 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %398, ptr %399, align 16, !tbaa !16
-  %400 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %401 = load double, ptr %400, align 8, !tbaa !14
-  %402 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %403 = load double, ptr %402, align 8, !tbaa !14
-  %404 = fsub double %401, %403
-  %405 = fmul double %404, 5.000000e-01
-  %406 = fadd double %.val1718, %405
-  %407 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %406, ptr %407, align 8, !tbaa !14
+  %394 = load double, ptr %1, align 8, !tbaa !16
+  %395 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %394, ptr %395, align 16, !tbaa !16
+  %396 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %397 = load double, ptr %396, align 8, !tbaa !14
+  %398 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %399 = load double, ptr %398, align 8, !tbaa !14
+  %400 = fsub double %397, %399
+  %401 = fmul double %400, 5.000000e-01
+  %402 = fadd double %.val1718, %401
+  %403 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %402, ptr %403, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %342) #27
-  br label %1736
+  call void @free(ptr noundef %338) #27
+  br label %1732
 
-408:                                              ; preds = %107
-  %409 = add i64 %2, 1
-  %410 = tail call fastcc ptr @gv_calloc(i64 noundef %409, i64 noundef 16)
-  %411 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %412 = load double, ptr %411, align 8, !tbaa !16
-  store double %412, ptr %410, align 8, !tbaa !16
-  %413 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %414 = load double, ptr %413, align 8, !tbaa !14
-  %415 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %416 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %417 = load double, ptr %416, align 8, !tbaa !14
-  %418 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %419 = load double, ptr %418, align 8, !tbaa !14
-  %420 = fsub double %417, %419
-  %421 = fmul double %420, 5.000000e-01
-  %422 = fsub double %414, %421
-  %423 = getelementptr inbounds nuw i8, ptr %410, i64 8
+404:                                              ; preds = %103
+  %405 = add i64 %2, 1
+  %406 = tail call fastcc ptr @gv_calloc(i64 noundef %405, i64 noundef 16)
+  %407 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %408 = load double, ptr %407, align 8, !tbaa !16
+  store double %408, ptr %406, align 8, !tbaa !16
+  %409 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  %410 = load double, ptr %409, align 8, !tbaa !14
+  %411 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %412 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %413 = load double, ptr %412, align 8, !tbaa !14
+  %414 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %415 = load double, ptr %414, align 8, !tbaa !14
+  %416 = fsub double %413, %415
+  %417 = fmul double %416, 5.000000e-01
+  %418 = fsub double %410, %417
+  %419 = getelementptr inbounds nuw i8, ptr %406, i64 8
+  store double %418, ptr %419, align 8, !tbaa !14
+  %420 = load double, ptr %411, align 8, !tbaa !16
+  %421 = getelementptr inbounds nuw i8, ptr %406, i64 16
+  store double %420, ptr %421, align 8, !tbaa !16
+  %422 = fsub double %413, %417
+  %423 = getelementptr inbounds nuw i8, ptr %406, i64 24
   store double %422, ptr %423, align 8, !tbaa !14
-  %424 = load double, ptr %415, align 8, !tbaa !16
-  %425 = getelementptr inbounds nuw i8, ptr %410, i64 16
-  store double %424, ptr %425, align 8, !tbaa !16
-  %426 = fsub double %417, %421
-  %427 = getelementptr inbounds nuw i8, ptr %410, i64 24
-  store double %426, ptr %427, align 8, !tbaa !14
-  %428 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %429 = load double, ptr %428, align 8, !tbaa !16
-  %430 = getelementptr inbounds nuw i8, ptr %410, i64 32
-  store double %429, ptr %430, align 8, !tbaa !16
-  %431 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %432 = load double, ptr %431, align 8, !tbaa !14
-  %433 = fadd double %421, %432
-  %434 = getelementptr inbounds nuw i8, ptr %410, i64 40
-  store double %433, ptr %434, align 8, !tbaa !14
-  %435 = getelementptr inbounds nuw i8, ptr %410, i64 48
-  store double %412, ptr %435, align 8, !tbaa !16
-  %436 = getelementptr inbounds nuw i8, ptr %410, i64 56
-  store double %433, ptr %436, align 8, !tbaa !14
-  %437 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %438 = load double, ptr %437, align 8, !tbaa !14
-  %439 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %440 = load double, ptr %439, align 8, !tbaa !14
-  %441 = fsub double %438, %440
-  %442 = fmul double %441, 5.000000e-01
-  %443 = fsub double %438, %442
-  %444 = getelementptr inbounds nuw i8, ptr %410, i64 64
-  %445 = getelementptr inbounds nuw i8, ptr %410, i64 72
-  store double %443, ptr %445, align 8, !tbaa !14
-  %446 = load double, ptr %1, align 8, !tbaa !16
-  store double %446, ptr %444, align 8, !tbaa !16
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %410, i64 noundef %409, i32 noundef %4) #27
-  tail call void @free(ptr noundef %410) #27
-  br label %1736
+  %424 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %425 = load double, ptr %424, align 8, !tbaa !16
+  %426 = getelementptr inbounds nuw i8, ptr %406, i64 32
+  store double %425, ptr %426, align 8, !tbaa !16
+  %427 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %428 = load double, ptr %427, align 8, !tbaa !14
+  %429 = fadd double %417, %428
+  %430 = getelementptr inbounds nuw i8, ptr %406, i64 40
+  store double %429, ptr %430, align 8, !tbaa !14
+  %431 = getelementptr inbounds nuw i8, ptr %406, i64 48
+  store double %408, ptr %431, align 8, !tbaa !16
+  %432 = getelementptr inbounds nuw i8, ptr %406, i64 56
+  store double %429, ptr %432, align 8, !tbaa !14
+  %433 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %434 = load double, ptr %433, align 8, !tbaa !14
+  %435 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %436 = load double, ptr %435, align 8, !tbaa !14
+  %437 = fsub double %434, %436
+  %438 = fmul double %437, 5.000000e-01
+  %439 = fsub double %434, %438
+  %440 = getelementptr inbounds nuw i8, ptr %406, i64 64
+  %441 = getelementptr inbounds nuw i8, ptr %406, i64 72
+  store double %439, ptr %441, align 8, !tbaa !14
+  %442 = load double, ptr %1, align 8, !tbaa !16
+  store double %442, ptr %440, align 8, !tbaa !16
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %406, i64 noundef %405, i32 noundef %4) #27
+  tail call void @free(ptr noundef %406) #27
+  br label %1732
 
-447:                                              ; preds = %107
-  %448 = add i64 %2, 4
-  %449 = tail call fastcc ptr @gv_calloc(i64 noundef %448, i64 noundef 16)
+443:                                              ; preds = %103
+  %444 = add i64 %2, 4
+  %445 = tail call fastcc ptr @gv_calloc(i64 noundef %444, i64 noundef 16)
   %.val1643 = load double, ptr %1, align 8, !tbaa !16
-  %450 = getelementptr i8, ptr %1, i64 16
-  %.val1644 = load double, ptr %450, align 8, !tbaa !16
-  %451 = fadd double %.val1643, %.val1644
-  %452 = fmul double %451, 5.000000e-01
-  %453 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %454 = load double, ptr %453, align 8, !tbaa !16
-  %455 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %456 = load double, ptr %455, align 8, !tbaa !16
-  %457 = fsub double %454, %456
-  %458 = fmul double %457, 2.500000e-01
-  %459 = fadd double %452, %458
-  store double %459, ptr %449, align 8, !tbaa !16
-  %460 = getelementptr i8, ptr %1, i64 24
-  %.val1719 = load double, ptr %460, align 8, !tbaa !14
-  %461 = getelementptr i8, ptr %1, i64 40
-  %.val1720 = load double, ptr %461, align 8, !tbaa !14
-  %462 = fadd double %.val1719, %.val1720
-  %463 = fmul double %462, 5.000000e-01
-  %464 = getelementptr inbounds nuw i8, ptr %449, i64 8
-  store double %463, ptr %464, align 8, !tbaa !14
-  %465 = getelementptr inbounds nuw i8, ptr %449, i64 16
-  store double %459, ptr %465, align 8, !tbaa !16
-  %466 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %467 = load double, ptr %466, align 8, !tbaa !14
-  %468 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %469 = load double, ptr %468, align 8, !tbaa !14
-  %470 = fsub double %467, %469
-  %471 = fmul double %470, 5.000000e-01
-  %472 = fadd double %463, %471
-  %473 = getelementptr inbounds nuw i8, ptr %449, i64 24
-  store double %472, ptr %473, align 8, !tbaa !14
-  %474 = fmul double %457, 5.000000e-01
-  %475 = fadd double %474, %459
-  %476 = getelementptr inbounds nuw i8, ptr %449, i64 32
-  store double %475, ptr %476, align 8, !tbaa !16
-  %477 = getelementptr inbounds nuw i8, ptr %449, i64 40
-  store double %472, ptr %477, align 8, !tbaa !14
-  %478 = getelementptr inbounds nuw i8, ptr %449, i64 48
-  store double %475, ptr %478, align 8, !tbaa !16
-  %479 = fadd double %471, %472
-  %480 = getelementptr inbounds nuw i8, ptr %449, i64 56
-  store double %479, ptr %480, align 8, !tbaa !14
-  %481 = fmul double %457, 3.000000e+00
-  %482 = fmul double %481, 2.500000e-01
-  %483 = fsub double %452, %482
-  %484 = getelementptr inbounds nuw i8, ptr %449, i64 64
-  store double %483, ptr %484, align 8, !tbaa !16
-  %485 = getelementptr inbounds nuw i8, ptr %449, i64 72
-  store double %479, ptr %485, align 8, !tbaa !14
-  %486 = getelementptr inbounds nuw i8, ptr %449, i64 80
-  store double %483, ptr %486, align 8, !tbaa !16
-  %487 = getelementptr inbounds nuw i8, ptr %449, i64 88
-  store double %472, ptr %487, align 8, !tbaa !14
-  %488 = fsub double %452, %458
-  %489 = getelementptr inbounds nuw i8, ptr %449, i64 96
-  store double %488, ptr %489, align 8, !tbaa !16
-  %490 = getelementptr inbounds nuw i8, ptr %449, i64 104
-  store double %472, ptr %490, align 8, !tbaa !14
-  %491 = getelementptr inbounds nuw i8, ptr %449, i64 112
-  store double %488, ptr %491, align 8, !tbaa !16
-  %492 = getelementptr inbounds nuw i8, ptr %449, i64 120
-  store double %463, ptr %492, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %449, i64 noundef %448, i32 noundef %4) #27
-  %493 = load double, ptr %450, align 8, !tbaa !16
-  store double %493, ptr %8, align 16, !tbaa !16
-  %.val1721 = load double, ptr %460, align 8, !tbaa !14
-  %.val1722 = load double, ptr %461, align 8, !tbaa !14
-  %494 = fadd double %.val1721, %.val1722
-  %495 = fmul double %494, 5.000000e-01
-  %496 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %495, ptr %496, align 8, !tbaa !14
-  %497 = load double, ptr %1, align 8, !tbaa !16
-  %498 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %497, ptr %498, align 16, !tbaa !16
-  %499 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %500 = load double, ptr %499, align 8, !tbaa !14
-  %501 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %502 = load double, ptr %501, align 8, !tbaa !14
-  %503 = fsub double %500, %502
-  %504 = fmul double %503, 5.000000e-01
-  %505 = fadd double %.val1722, %504
-  %506 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %505, ptr %506, align 8, !tbaa !14
+  %446 = getelementptr i8, ptr %1, i64 16
+  %.val1644 = load double, ptr %446, align 8, !tbaa !16
+  %447 = fadd double %.val1643, %.val1644
+  %448 = fmul double %447, 5.000000e-01
+  %449 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %450 = load double, ptr %449, align 8, !tbaa !16
+  %451 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %452 = load double, ptr %451, align 8, !tbaa !16
+  %453 = fsub double %450, %452
+  %454 = fmul double %453, 2.500000e-01
+  %455 = fadd double %448, %454
+  store double %455, ptr %445, align 8, !tbaa !16
+  %456 = getelementptr i8, ptr %1, i64 24
+  %.val1719 = load double, ptr %456, align 8, !tbaa !14
+  %457 = getelementptr i8, ptr %1, i64 40
+  %.val1720 = load double, ptr %457, align 8, !tbaa !14
+  %458 = fadd double %.val1719, %.val1720
+  %459 = fmul double %458, 5.000000e-01
+  %460 = getelementptr inbounds nuw i8, ptr %445, i64 8
+  store double %459, ptr %460, align 8, !tbaa !14
+  %461 = getelementptr inbounds nuw i8, ptr %445, i64 16
+  store double %455, ptr %461, align 8, !tbaa !16
+  %462 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %463 = load double, ptr %462, align 8, !tbaa !14
+  %464 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %465 = load double, ptr %464, align 8, !tbaa !14
+  %466 = fsub double %463, %465
+  %467 = fmul double %466, 5.000000e-01
+  %468 = fadd double %459, %467
+  %469 = getelementptr inbounds nuw i8, ptr %445, i64 24
+  store double %468, ptr %469, align 8, !tbaa !14
+  %470 = fmul double %453, 5.000000e-01
+  %471 = fadd double %470, %455
+  %472 = getelementptr inbounds nuw i8, ptr %445, i64 32
+  store double %471, ptr %472, align 8, !tbaa !16
+  %473 = getelementptr inbounds nuw i8, ptr %445, i64 40
+  store double %468, ptr %473, align 8, !tbaa !14
+  %474 = getelementptr inbounds nuw i8, ptr %445, i64 48
+  store double %471, ptr %474, align 8, !tbaa !16
+  %475 = fadd double %467, %468
+  %476 = getelementptr inbounds nuw i8, ptr %445, i64 56
+  store double %475, ptr %476, align 8, !tbaa !14
+  %477 = fmul double %453, 3.000000e+00
+  %478 = fmul double %477, 2.500000e-01
+  %479 = fsub double %448, %478
+  %480 = getelementptr inbounds nuw i8, ptr %445, i64 64
+  store double %479, ptr %480, align 8, !tbaa !16
+  %481 = getelementptr inbounds nuw i8, ptr %445, i64 72
+  store double %475, ptr %481, align 8, !tbaa !14
+  %482 = getelementptr inbounds nuw i8, ptr %445, i64 80
+  store double %479, ptr %482, align 8, !tbaa !16
+  %483 = getelementptr inbounds nuw i8, ptr %445, i64 88
+  store double %468, ptr %483, align 8, !tbaa !14
+  %484 = fsub double %448, %454
+  %485 = getelementptr inbounds nuw i8, ptr %445, i64 96
+  store double %484, ptr %485, align 8, !tbaa !16
+  %486 = getelementptr inbounds nuw i8, ptr %445, i64 104
+  store double %468, ptr %486, align 8, !tbaa !14
+  %487 = getelementptr inbounds nuw i8, ptr %445, i64 112
+  store double %484, ptr %487, align 8, !tbaa !16
+  %488 = getelementptr inbounds nuw i8, ptr %445, i64 120
+  store double %459, ptr %488, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %445, i64 noundef %444, i32 noundef %4) #27
+  %489 = load double, ptr %446, align 8, !tbaa !16
+  store double %489, ptr %8, align 16, !tbaa !16
+  %.val1721 = load double, ptr %456, align 8, !tbaa !14
+  %.val1722 = load double, ptr %457, align 8, !tbaa !14
+  %490 = fadd double %.val1721, %.val1722
+  %491 = fmul double %490, 5.000000e-01
+  %492 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %491, ptr %492, align 8, !tbaa !14
+  %493 = load double, ptr %1, align 8, !tbaa !16
+  %494 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %493, ptr %494, align 16, !tbaa !16
+  %495 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %496 = load double, ptr %495, align 8, !tbaa !14
+  %497 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %498 = load double, ptr %497, align 8, !tbaa !14
+  %499 = fsub double %496, %498
+  %500 = fmul double %499, 5.000000e-01
+  %501 = fadd double %.val1722, %500
+  %502 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %501, ptr %502, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %449) #27
-  br label %1736
+  call void @free(ptr noundef %445) #27
+  br label %1732
 
-507:                                              ; preds = %107
-  %508 = add i64 %2, 2
-  %509 = tail call fastcc ptr @gv_calloc(i64 noundef %508, i64 noundef 16)
+503:                                              ; preds = %103
+  %504 = add i64 %2, 2
+  %505 = tail call fastcc ptr @gv_calloc(i64 noundef %504, i64 noundef 16)
   %.val1649 = load double, ptr %1, align 8, !tbaa !16
-  %510 = getelementptr i8, ptr %1, i64 16
-  %.val1650 = load double, ptr %510, align 8, !tbaa !16
-  %511 = fadd double %.val1649, %.val1650
-  %512 = fmul double %511, 5.000000e-01
-  %513 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %514 = load double, ptr %513, align 8, !tbaa !16
-  %515 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %516 = load double, ptr %515, align 8, !tbaa !16
-  %517 = fsub double %514, %516
-  %518 = fmul double %517, 3.000000e+00
-  %519 = fmul double %518, 2.500000e-01
-  %520 = fadd double %512, %519
-  store double %520, ptr %509, align 8, !tbaa !16
-  %521 = getelementptr i8, ptr %1, i64 24
-  %.val1723 = load double, ptr %521, align 8, !tbaa !14
-  %522 = getelementptr i8, ptr %1, i64 40
-  %.val1724 = load double, ptr %522, align 8, !tbaa !14
-  %523 = fadd double %.val1723, %.val1724
-  %524 = fmul double %523, 5.000000e-01
-  %525 = getelementptr inbounds nuw i8, ptr %509, i64 8
-  store double %524, ptr %525, align 8, !tbaa !14
-  %526 = getelementptr inbounds nuw i8, ptr %509, i64 16
-  store double %520, ptr %526, align 8, !tbaa !16
-  %527 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %528 = load double, ptr %527, align 8, !tbaa !14
-  %529 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %530 = load double, ptr %529, align 8, !tbaa !14
-  %531 = fsub double %528, %530
-  %532 = fmul double %531, 2.500000e-01
-  %533 = fadd double %524, %532
-  %534 = getelementptr inbounds nuw i8, ptr %509, i64 24
-  store double %533, ptr %534, align 8, !tbaa !14
-  %535 = fmul double %517, 2.500000e-01
-  %536 = fadd double %512, %535
-  %537 = getelementptr inbounds nuw i8, ptr %509, i64 32
-  store double %536, ptr %537, align 8, !tbaa !16
-  %538 = fmul double %531, 5.000000e-01
-  %539 = fadd double %538, %533
-  %540 = getelementptr inbounds nuw i8, ptr %509, i64 40
-  store double %539, ptr %540, align 8, !tbaa !14
-  %541 = fsub double %512, %535
-  %542 = getelementptr inbounds nuw i8, ptr %509, i64 48
-  store double %541, ptr %542, align 8, !tbaa !16
-  %543 = getelementptr inbounds nuw i8, ptr %509, i64 56
-  store double %539, ptr %543, align 8, !tbaa !14
-  %544 = fsub double %512, %519
-  %545 = getelementptr inbounds nuw i8, ptr %509, i64 64
-  store double %544, ptr %545, align 8, !tbaa !16
-  %546 = getelementptr inbounds nuw i8, ptr %509, i64 72
-  store double %533, ptr %546, align 8, !tbaa !14
-  %547 = getelementptr inbounds nuw i8, ptr %509, i64 80
-  store double %544, ptr %547, align 8, !tbaa !16
-  %548 = getelementptr inbounds nuw i8, ptr %509, i64 88
-  store double %524, ptr %548, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %509, i64 noundef %508, i32 noundef %4) #27
-  %549 = load double, ptr %510, align 8, !tbaa !16
-  store double %549, ptr %8, align 16, !tbaa !16
-  %.val1725 = load double, ptr %521, align 8, !tbaa !14
-  %.val1726 = load double, ptr %522, align 8, !tbaa !14
-  %550 = fadd double %.val1725, %.val1726
-  %551 = fmul double %550, 5.000000e-01
-  %552 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %551, ptr %552, align 8, !tbaa !14
-  %553 = load double, ptr %1, align 8, !tbaa !16
-  %554 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %553, ptr %554, align 16, !tbaa !16
-  %555 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %556 = load double, ptr %555, align 8, !tbaa !14
-  %557 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %558 = load double, ptr %557, align 8, !tbaa !14
-  %559 = fsub double %556, %558
-  %560 = fmul double %559, 5.000000e-01
-  %561 = fadd double %.val1726, %560
-  %562 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %561, ptr %562, align 8, !tbaa !14
+  %506 = getelementptr i8, ptr %1, i64 16
+  %.val1650 = load double, ptr %506, align 8, !tbaa !16
+  %507 = fadd double %.val1649, %.val1650
+  %508 = fmul double %507, 5.000000e-01
+  %509 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %510 = load double, ptr %509, align 8, !tbaa !16
+  %511 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %512 = load double, ptr %511, align 8, !tbaa !16
+  %513 = fsub double %510, %512
+  %514 = fmul double %513, 3.000000e+00
+  %515 = fmul double %514, 2.500000e-01
+  %516 = fadd double %508, %515
+  store double %516, ptr %505, align 8, !tbaa !16
+  %517 = getelementptr i8, ptr %1, i64 24
+  %.val1723 = load double, ptr %517, align 8, !tbaa !14
+  %518 = getelementptr i8, ptr %1, i64 40
+  %.val1724 = load double, ptr %518, align 8, !tbaa !14
+  %519 = fadd double %.val1723, %.val1724
+  %520 = fmul double %519, 5.000000e-01
+  %521 = getelementptr inbounds nuw i8, ptr %505, i64 8
+  store double %520, ptr %521, align 8, !tbaa !14
+  %522 = getelementptr inbounds nuw i8, ptr %505, i64 16
+  store double %516, ptr %522, align 8, !tbaa !16
+  %523 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %524 = load double, ptr %523, align 8, !tbaa !14
+  %525 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %526 = load double, ptr %525, align 8, !tbaa !14
+  %527 = fsub double %524, %526
+  %528 = fmul double %527, 2.500000e-01
+  %529 = fadd double %520, %528
+  %530 = getelementptr inbounds nuw i8, ptr %505, i64 24
+  store double %529, ptr %530, align 8, !tbaa !14
+  %531 = fmul double %513, 2.500000e-01
+  %532 = fadd double %508, %531
+  %533 = getelementptr inbounds nuw i8, ptr %505, i64 32
+  store double %532, ptr %533, align 8, !tbaa !16
+  %534 = fmul double %527, 5.000000e-01
+  %535 = fadd double %534, %529
+  %536 = getelementptr inbounds nuw i8, ptr %505, i64 40
+  store double %535, ptr %536, align 8, !tbaa !14
+  %537 = fsub double %508, %531
+  %538 = getelementptr inbounds nuw i8, ptr %505, i64 48
+  store double %537, ptr %538, align 8, !tbaa !16
+  %539 = getelementptr inbounds nuw i8, ptr %505, i64 56
+  store double %535, ptr %539, align 8, !tbaa !14
+  %540 = fsub double %508, %515
+  %541 = getelementptr inbounds nuw i8, ptr %505, i64 64
+  store double %540, ptr %541, align 8, !tbaa !16
+  %542 = getelementptr inbounds nuw i8, ptr %505, i64 72
+  store double %529, ptr %542, align 8, !tbaa !14
+  %543 = getelementptr inbounds nuw i8, ptr %505, i64 80
+  store double %540, ptr %543, align 8, !tbaa !16
+  %544 = getelementptr inbounds nuw i8, ptr %505, i64 88
+  store double %520, ptr %544, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %505, i64 noundef %504, i32 noundef %4) #27
+  %545 = load double, ptr %506, align 8, !tbaa !16
+  store double %545, ptr %8, align 16, !tbaa !16
+  %.val1725 = load double, ptr %517, align 8, !tbaa !14
+  %.val1726 = load double, ptr %518, align 8, !tbaa !14
+  %546 = fadd double %.val1725, %.val1726
+  %547 = fmul double %546, 5.000000e-01
+  %548 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %547, ptr %548, align 8, !tbaa !14
+  %549 = load double, ptr %1, align 8, !tbaa !16
+  %550 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %549, ptr %550, align 16, !tbaa !16
+  %551 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %552 = load double, ptr %551, align 8, !tbaa !14
+  %553 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %554 = load double, ptr %553, align 8, !tbaa !14
+  %555 = fsub double %552, %554
+  %556 = fmul double %555, 5.000000e-01
+  %557 = fadd double %.val1726, %556
+  %558 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %557, ptr %558, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %509) #27
-  br label %1736
+  call void @free(ptr noundef %505) #27
+  br label %1732
 
-563:                                              ; preds = %107
-  %564 = add i64 %2, 1
-  %565 = tail call fastcc ptr @gv_calloc(i64 noundef %564, i64 noundef 16)
+559:                                              ; preds = %103
+  %560 = add i64 %2, 1
+  %561 = tail call fastcc ptr @gv_calloc(i64 noundef %560, i64 noundef 16)
   %.val1657 = load double, ptr %1, align 8, !tbaa !16
-  %566 = getelementptr i8, ptr %1, i64 16
-  %.val1658 = load double, ptr %566, align 8, !tbaa !16
-  %567 = fadd double %.val1657, %.val1658
-  %568 = fmul double %567, 5.000000e-01
-  %569 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %570 = load double, ptr %569, align 8, !tbaa !16
-  %571 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %572 = load double, ptr %571, align 8, !tbaa !16
-  %573 = fsub double %570, %572
-  %574 = fadd double %568, %573
-  store double %574, ptr %565, align 8, !tbaa !16
-  %575 = getelementptr i8, ptr %1, i64 24
-  %.val1727 = load double, ptr %575, align 8, !tbaa !14
-  %576 = getelementptr i8, ptr %1, i64 40
-  %.val1728 = load double, ptr %576, align 8, !tbaa !14
-  %577 = fadd double %.val1727, %.val1728
-  %578 = fmul double %577, 5.000000e-01
-  %579 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %580 = load double, ptr %579, align 8, !tbaa !14
-  %581 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %582 = load double, ptr %581, align 8, !tbaa !14
-  %583 = fsub double %580, %582
-  %584 = fmul double %583, 2.500000e-01
-  %585 = fadd double %578, %584
-  %586 = getelementptr inbounds nuw i8, ptr %565, i64 8
+  %562 = getelementptr i8, ptr %1, i64 16
+  %.val1658 = load double, ptr %562, align 8, !tbaa !16
+  %563 = fadd double %.val1657, %.val1658
+  %564 = fmul double %563, 5.000000e-01
+  %565 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %566 = load double, ptr %565, align 8, !tbaa !16
+  %567 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %568 = load double, ptr %567, align 8, !tbaa !16
+  %569 = fsub double %566, %568
+  %570 = fadd double %564, %569
+  store double %570, ptr %561, align 8, !tbaa !16
+  %571 = getelementptr i8, ptr %1, i64 24
+  %.val1727 = load double, ptr %571, align 8, !tbaa !14
+  %572 = getelementptr i8, ptr %1, i64 40
+  %.val1728 = load double, ptr %572, align 8, !tbaa !14
+  %573 = fadd double %.val1727, %.val1728
+  %574 = fmul double %573, 5.000000e-01
+  %575 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %576 = load double, ptr %575, align 8, !tbaa !14
+  %577 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %578 = load double, ptr %577, align 8, !tbaa !14
+  %579 = fsub double %576, %578
+  %580 = fmul double %579, 2.500000e-01
+  %581 = fadd double %574, %580
+  %582 = getelementptr inbounds nuw i8, ptr %561, i64 8
+  store double %581, ptr %582, align 8, !tbaa !14
+  %583 = fsub double %570, %569
+  %584 = getelementptr inbounds nuw i8, ptr %561, i64 16
+  store double %583, ptr %584, align 8, !tbaa !16
+  %585 = fadd double %579, %581
+  %586 = getelementptr inbounds nuw i8, ptr %561, i64 24
   store double %585, ptr %586, align 8, !tbaa !14
-  %587 = fsub double %574, %573
-  %588 = getelementptr inbounds nuw i8, ptr %565, i64 16
-  store double %587, ptr %588, align 8, !tbaa !16
-  %589 = fadd double %583, %585
-  %590 = getelementptr inbounds nuw i8, ptr %565, i64 24
+  %587 = getelementptr inbounds nuw i8, ptr %561, i64 32
+  store double %583, ptr %587, align 8, !tbaa !16
+  %588 = fmul double %579, 5.000000e-01
+  %589 = fadd double %588, %581
+  %590 = getelementptr inbounds nuw i8, ptr %561, i64 40
   store double %589, ptr %590, align 8, !tbaa !14
-  %591 = getelementptr inbounds nuw i8, ptr %565, i64 32
-  store double %587, ptr %591, align 8, !tbaa !16
-  %592 = fmul double %583, 5.000000e-01
-  %593 = fadd double %592, %585
-  %594 = getelementptr inbounds nuw i8, ptr %565, i64 40
-  store double %593, ptr %594, align 8, !tbaa !14
-  %595 = fsub double %.val1657, %.val1658
-  %596 = fmul double %595, 2.500000e-01
-  %597 = fsub double %568, %596
-  %598 = getelementptr inbounds nuw i8, ptr %565, i64 48
-  store double %597, ptr %598, align 8, !tbaa !16
-  %599 = getelementptr inbounds nuw i8, ptr %565, i64 56
-  store double %593, ptr %599, align 8, !tbaa !14
-  %600 = getelementptr inbounds nuw i8, ptr %565, i64 64
-  store double %597, ptr %600, align 8, !tbaa !16
-  %601 = getelementptr inbounds nuw i8, ptr %565, i64 72
-  store double %585, ptr %601, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %565, i64 noundef %564, i32 noundef %4) #27
-  %602 = load double, ptr %566, align 8, !tbaa !16
-  store double %602, ptr %8, align 16, !tbaa !16
-  %.val1729 = load double, ptr %575, align 8, !tbaa !14
-  %.val1730 = load double, ptr %576, align 8, !tbaa !14
-  %603 = fadd double %.val1729, %.val1730
-  %604 = fmul double %603, 5.000000e-01
-  %605 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %604, ptr %605, align 8, !tbaa !14
-  %606 = load double, ptr %1, align 8, !tbaa !16
-  %607 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %606, ptr %607, align 16, !tbaa !16
-  %608 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %609 = load double, ptr %608, align 8, !tbaa !14
-  %610 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %611 = load double, ptr %610, align 8, !tbaa !14
-  %612 = fsub double %609, %611
-  %613 = fmul double %612, 5.000000e-01
-  %614 = fadd double %.val1730, %613
-  %615 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %614, ptr %615, align 8, !tbaa !14
+  %591 = fsub double %.val1657, %.val1658
+  %592 = fmul double %591, 2.500000e-01
+  %593 = fsub double %564, %592
+  %594 = getelementptr inbounds nuw i8, ptr %561, i64 48
+  store double %593, ptr %594, align 8, !tbaa !16
+  %595 = getelementptr inbounds nuw i8, ptr %561, i64 56
+  store double %589, ptr %595, align 8, !tbaa !14
+  %596 = getelementptr inbounds nuw i8, ptr %561, i64 64
+  store double %593, ptr %596, align 8, !tbaa !16
+  %597 = getelementptr inbounds nuw i8, ptr %561, i64 72
+  store double %581, ptr %597, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %561, i64 noundef %560, i32 noundef %4) #27
+  %598 = load double, ptr %562, align 8, !tbaa !16
+  store double %598, ptr %8, align 16, !tbaa !16
+  %.val1729 = load double, ptr %571, align 8, !tbaa !14
+  %.val1730 = load double, ptr %572, align 8, !tbaa !14
+  %599 = fadd double %.val1729, %.val1730
+  %600 = fmul double %599, 5.000000e-01
+  %601 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %600, ptr %601, align 8, !tbaa !14
+  %602 = load double, ptr %1, align 8, !tbaa !16
+  %603 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %602, ptr %603, align 16, !tbaa !16
+  %604 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %605 = load double, ptr %604, align 8, !tbaa !14
+  %606 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %607 = load double, ptr %606, align 8, !tbaa !14
+  %608 = fsub double %605, %607
+  %609 = fmul double %608, 5.000000e-01
+  %610 = fadd double %.val1730, %609
+  %611 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %610, ptr %611, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %565) #27
-  br label %1736
+  call void @free(ptr noundef %561) #27
+  br label %1732
 
-616:                                              ; preds = %107
-  %617 = add i64 %2, 4
-  %618 = tail call fastcc ptr @gv_calloc(i64 noundef %617, i64 noundef 16)
+612:                                              ; preds = %103
+  %613 = add i64 %2, 4
+  %614 = tail call fastcc ptr @gv_calloc(i64 noundef %613, i64 noundef 16)
   %.val1661 = load double, ptr %1, align 8, !tbaa !16
-  %619 = getelementptr i8, ptr %1, i64 16
-  %.val1662 = load double, ptr %619, align 8, !tbaa !16
-  %620 = fadd double %.val1661, %.val1662
-  %621 = fmul double %620, 5.000000e-01
-  %622 = fsub double %.val1661, %.val1662
-  %623 = fmul double %622, 1.250000e-01
-  %624 = fadd double %621, %623
-  %625 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %626 = load double, ptr %625, align 8, !tbaa !16
-  %627 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %628 = load double, ptr %627, align 8, !tbaa !16
-  %629 = fsub double %626, %628
-  %630 = fmul double %629, 5.000000e-01
-  %631 = fadd double %624, %630
-  store double %631, ptr %618, align 8, !tbaa !16
-  %632 = getelementptr i8, ptr %1, i64 24
-  %.val1731 = load double, ptr %632, align 8, !tbaa !14
-  %633 = getelementptr i8, ptr %1, i64 40
-  %.val1732 = load double, ptr %633, align 8, !tbaa !14
-  %634 = fadd double %.val1731, %.val1732
-  %635 = fmul double %634, 5.000000e-01
-  %636 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %637 = load double, ptr %636, align 8, !tbaa !14
-  %638 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %639 = load double, ptr %638, align 8, !tbaa !14
-  %640 = fsub double %637, %639
-  %641 = fmul double %640, 2.500000e-01
-  %642 = fadd double %635, %641
-  %643 = getelementptr inbounds nuw i8, ptr %618, i64 8
-  store double %642, ptr %643, align 8, !tbaa !14
-  %644 = fsub double %621, %623
-  %645 = getelementptr inbounds nuw i8, ptr %618, i64 16
-  store double %644, ptr %645, align 8, !tbaa !16
-  %646 = getelementptr inbounds nuw i8, ptr %618, i64 24
-  store double %642, ptr %646, align 8, !tbaa !14
-  %647 = getelementptr inbounds nuw i8, ptr %618, i64 32
-  store double %644, ptr %647, align 8, !tbaa !16
-  %648 = fmul double %640, 5.000000e-01
-  %649 = fadd double %648, %642
-  %650 = getelementptr inbounds nuw i8, ptr %618, i64 40
-  store double %649, ptr %650, align 8, !tbaa !14
-  %651 = fsub double %644, %630
-  %652 = getelementptr inbounds nuw i8, ptr %618, i64 48
-  store double %651, ptr %652, align 8, !tbaa !16
-  %653 = getelementptr inbounds nuw i8, ptr %618, i64 56
-  store double %649, ptr %653, align 8, !tbaa !14
-  %654 = getelementptr inbounds nuw i8, ptr %618, i64 64
-  store double %651, ptr %654, align 8, !tbaa !16
-  %655 = fsub double %635, %641
-  %656 = getelementptr inbounds nuw i8, ptr %618, i64 72
-  store double %655, ptr %656, align 8, !tbaa !14
-  %657 = fsub double %631, %630
-  %658 = getelementptr inbounds nuw i8, ptr %618, i64 80
-  store double %657, ptr %658, align 8, !tbaa !16
-  %659 = getelementptr inbounds nuw i8, ptr %618, i64 88
-  store double %655, ptr %659, align 8, !tbaa !14
-  %660 = getelementptr inbounds nuw i8, ptr %618, i64 96
-  store double %657, ptr %660, align 8, !tbaa !16
-  %661 = fsub double %655, %648
-  %662 = getelementptr inbounds nuw i8, ptr %618, i64 104
-  store double %661, ptr %662, align 8, !tbaa !14
-  %663 = getelementptr inbounds nuw i8, ptr %618, i64 112
-  store double %631, ptr %663, align 8, !tbaa !16
-  %664 = getelementptr inbounds nuw i8, ptr %618, i64 120
-  store double %661, ptr %664, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %618, i64 noundef %617, i32 noundef %4) #27
-  %665 = load double, ptr %619, align 8, !tbaa !16
-  store double %665, ptr %8, align 16, !tbaa !16
-  %.val1735 = load double, ptr %632, align 8, !tbaa !14
-  %.val1736 = load double, ptr %633, align 8, !tbaa !14
-  %666 = fadd double %.val1735, %.val1736
-  %667 = fmul double %666, 5.000000e-01
-  %668 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %667, ptr %668, align 8, !tbaa !14
-  %669 = load double, ptr %654, align 8, !tbaa !16
-  %670 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %669, ptr %670, align 16, !tbaa !16
-  %671 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %672 = load double, ptr %671, align 8, !tbaa !14
-  %673 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %674 = load double, ptr %673, align 8, !tbaa !14
-  %675 = fsub double %672, %674
-  %676 = fmul double %675, 5.000000e-01
-  %677 = fadd double %.val1736, %676
-  %678 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %677, ptr %678, align 8, !tbaa !14
+  %615 = getelementptr i8, ptr %1, i64 16
+  %.val1662 = load double, ptr %615, align 8, !tbaa !16
+  %616 = fadd double %.val1661, %.val1662
+  %617 = fmul double %616, 5.000000e-01
+  %618 = fsub double %.val1661, %.val1662
+  %619 = fmul double %618, 1.250000e-01
+  %620 = fadd double %617, %619
+  %621 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %622 = load double, ptr %621, align 8, !tbaa !16
+  %623 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %624 = load double, ptr %623, align 8, !tbaa !16
+  %625 = fsub double %622, %624
+  %626 = fmul double %625, 5.000000e-01
+  %627 = fadd double %620, %626
+  store double %627, ptr %614, align 8, !tbaa !16
+  %628 = getelementptr i8, ptr %1, i64 24
+  %.val1731 = load double, ptr %628, align 8, !tbaa !14
+  %629 = getelementptr i8, ptr %1, i64 40
+  %.val1732 = load double, ptr %629, align 8, !tbaa !14
+  %630 = fadd double %.val1731, %.val1732
+  %631 = fmul double %630, 5.000000e-01
+  %632 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %633 = load double, ptr %632, align 8, !tbaa !14
+  %634 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %635 = load double, ptr %634, align 8, !tbaa !14
+  %636 = fsub double %633, %635
+  %637 = fmul double %636, 2.500000e-01
+  %638 = fadd double %631, %637
+  %639 = getelementptr inbounds nuw i8, ptr %614, i64 8
+  store double %638, ptr %639, align 8, !tbaa !14
+  %640 = fsub double %617, %619
+  %641 = getelementptr inbounds nuw i8, ptr %614, i64 16
+  store double %640, ptr %641, align 8, !tbaa !16
+  %642 = getelementptr inbounds nuw i8, ptr %614, i64 24
+  store double %638, ptr %642, align 8, !tbaa !14
+  %643 = getelementptr inbounds nuw i8, ptr %614, i64 32
+  store double %640, ptr %643, align 8, !tbaa !16
+  %644 = fmul double %636, 5.000000e-01
+  %645 = fadd double %644, %638
+  %646 = getelementptr inbounds nuw i8, ptr %614, i64 40
+  store double %645, ptr %646, align 8, !tbaa !14
+  %647 = fsub double %640, %626
+  %648 = getelementptr inbounds nuw i8, ptr %614, i64 48
+  store double %647, ptr %648, align 8, !tbaa !16
+  %649 = getelementptr inbounds nuw i8, ptr %614, i64 56
+  store double %645, ptr %649, align 8, !tbaa !14
+  %650 = getelementptr inbounds nuw i8, ptr %614, i64 64
+  store double %647, ptr %650, align 8, !tbaa !16
+  %651 = fsub double %631, %637
+  %652 = getelementptr inbounds nuw i8, ptr %614, i64 72
+  store double %651, ptr %652, align 8, !tbaa !14
+  %653 = fsub double %627, %626
+  %654 = getelementptr inbounds nuw i8, ptr %614, i64 80
+  store double %653, ptr %654, align 8, !tbaa !16
+  %655 = getelementptr inbounds nuw i8, ptr %614, i64 88
+  store double %651, ptr %655, align 8, !tbaa !14
+  %656 = getelementptr inbounds nuw i8, ptr %614, i64 96
+  store double %653, ptr %656, align 8, !tbaa !16
+  %657 = fsub double %651, %644
+  %658 = getelementptr inbounds nuw i8, ptr %614, i64 104
+  store double %657, ptr %658, align 8, !tbaa !14
+  %659 = getelementptr inbounds nuw i8, ptr %614, i64 112
+  store double %627, ptr %659, align 8, !tbaa !16
+  %660 = getelementptr inbounds nuw i8, ptr %614, i64 120
+  store double %657, ptr %660, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %614, i64 noundef %613, i32 noundef %4) #27
+  %661 = load double, ptr %615, align 8, !tbaa !16
+  store double %661, ptr %8, align 16, !tbaa !16
+  %.val1735 = load double, ptr %628, align 8, !tbaa !14
+  %.val1736 = load double, ptr %629, align 8, !tbaa !14
+  %662 = fadd double %.val1735, %.val1736
+  %663 = fmul double %662, 5.000000e-01
+  %664 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %663, ptr %664, align 8, !tbaa !14
+  %665 = load double, ptr %650, align 8, !tbaa !16
+  %666 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %665, ptr %666, align 16, !tbaa !16
+  %667 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %668 = load double, ptr %667, align 8, !tbaa !14
+  %669 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %670 = load double, ptr %669, align 8, !tbaa !14
+  %671 = fsub double %668, %670
+  %672 = fmul double %671, 5.000000e-01
+  %673 = fadd double %.val1736, %672
+  %674 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %673, ptr %674, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  %679 = load double, ptr %663, align 8, !tbaa !16
-  store double %679, ptr %8, align 16, !tbaa !16
-  %.val1737 = load double, ptr %632, align 8, !tbaa !14
-  %.val1738 = load double, ptr %633, align 8, !tbaa !14
-  %680 = fadd double %.val1737, %.val1738
-  %681 = fmul double %680, 5.000000e-01
-  store double %681, ptr %668, align 8, !tbaa !14
-  %682 = load double, ptr %1, align 8, !tbaa !16
-  store double %682, ptr %670, align 16, !tbaa !16
-  %683 = load double, ptr %671, align 8, !tbaa !14
-  %684 = load double, ptr %673, align 8, !tbaa !14
-  %685 = fsub double %683, %684
-  %686 = fmul double %685, 5.000000e-01
-  %687 = fadd double %.val1738, %686
-  store double %687, ptr %678, align 8, !tbaa !14
+  %675 = load double, ptr %659, align 8, !tbaa !16
+  store double %675, ptr %8, align 16, !tbaa !16
+  %.val1737 = load double, ptr %628, align 8, !tbaa !14
+  %.val1738 = load double, ptr %629, align 8, !tbaa !14
+  %676 = fadd double %.val1737, %.val1738
+  %677 = fmul double %676, 5.000000e-01
+  store double %677, ptr %664, align 8, !tbaa !14
+  %678 = load double, ptr %1, align 8, !tbaa !16
+  store double %678, ptr %666, align 16, !tbaa !16
+  %679 = load double, ptr %667, align 8, !tbaa !14
+  %680 = load double, ptr %669, align 8, !tbaa !14
+  %681 = fsub double %679, %680
+  %682 = fmul double %681, 5.000000e-01
+  %683 = fadd double %.val1738, %682
+  store double %683, ptr %674, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %618) #27
-  br label %1736
+  call void @free(ptr noundef %614) #27
+  br label %1732
 
-688:                                              ; preds = %107
-  %689 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %690 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %691 = load double, ptr %690, align 8, !tbaa !16
-  store double %691, ptr %689, align 8, !tbaa !16
-  %692 = getelementptr i8, ptr %1, i64 24
-  %.val1739 = load double, ptr %692, align 8, !tbaa !14
-  %693 = getelementptr i8, ptr %1, i64 40
-  %.val1740 = load double, ptr %693, align 8, !tbaa !14
-  %694 = fadd double %.val1739, %.val1740
-  %695 = fmul double %694, 5.000000e-01
-  %696 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %697 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %698 = load double, ptr %697, align 8, !tbaa !14
-  %699 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %700 = load double, ptr %699, align 8, !tbaa !14
-  %701 = fsub double %698, %700
-  %702 = fmul double %701, 1.250000e-01
-  %703 = fadd double %695, %702
-  %704 = getelementptr inbounds nuw i8, ptr %689, i64 8
-  store double %703, ptr %704, align 8, !tbaa !14
-  %705 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %706 = load double, ptr %705, align 8, !tbaa !16
-  %707 = load double, ptr %696, align 8, !tbaa !16
-  %708 = fsub double %706, %707
-  %709 = tail call double @llvm.fmuladd.f64(double %708, double 2.000000e+00, double %691)
-  %710 = getelementptr inbounds nuw i8, ptr %689, i64 16
-  store double %709, ptr %710, align 8, !tbaa !16
-  %711 = getelementptr inbounds nuw i8, ptr %689, i64 24
-  store double %703, ptr %711, align 8, !tbaa !14
-  %712 = getelementptr inbounds nuw i8, ptr %689, i64 32
-  store double %709, ptr %712, align 8, !tbaa !16
-  %713 = fmul double %701, 5.000000e-01
-  %714 = fadd double %713, %703
-  %715 = getelementptr inbounds nuw i8, ptr %689, i64 40
-  store double %714, ptr %715, align 8, !tbaa !14
-  %716 = getelementptr inbounds nuw i8, ptr %689, i64 48
-  store double %691, ptr %716, align 8, !tbaa !16
-  %717 = getelementptr inbounds nuw i8, ptr %689, i64 56
-  store double %714, ptr %717, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %689, i64 noundef %2, i32 noundef %4) #27
-  tail call void @free(ptr noundef %689) #27
-  %718 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %719 = load double, ptr %690, align 8, !tbaa !16
-  %720 = load double, ptr %705, align 8, !tbaa !16
-  %721 = load double, ptr %696, align 8, !tbaa !16
-  %722 = fsub double %720, %721
-  %723 = fadd double %719, %722
-  store double %723, ptr %718, align 8, !tbaa !16
-  %.val1741 = load double, ptr %692, align 8, !tbaa !14
-  %.val1742 = load double, ptr %693, align 8, !tbaa !14
-  %724 = fadd double %.val1741, %.val1742
-  %725 = fmul double %724, 5.000000e-01
-  %726 = load double, ptr %697, align 8, !tbaa !14
-  %727 = load double, ptr %699, align 8, !tbaa !14
-  %728 = fsub double %726, %727
-  %729 = fmul double %728, 5.000000e+00
-  %730 = fmul double %729, 1.250000e-01
-  %731 = fsub double %725, %730
-  %732 = getelementptr inbounds nuw i8, ptr %718, i64 8
-  store double %731, ptr %732, align 8, !tbaa !14
-  %733 = fadd double %722, %723
-  %734 = getelementptr inbounds nuw i8, ptr %718, i64 16
-  store double %733, ptr %734, align 8, !tbaa !16
-  %735 = getelementptr inbounds nuw i8, ptr %718, i64 24
-  store double %731, ptr %735, align 8, !tbaa !14
-  %736 = getelementptr inbounds nuw i8, ptr %718, i64 32
-  store double %733, ptr %736, align 8, !tbaa !16
-  %737 = fmul double %728, 5.000000e-01
-  %738 = fadd double %737, %731
-  %739 = getelementptr inbounds nuw i8, ptr %718, i64 40
-  store double %738, ptr %739, align 8, !tbaa !14
-  %740 = getelementptr inbounds nuw i8, ptr %718, i64 48
-  store double %723, ptr %740, align 8, !tbaa !16
-  %741 = getelementptr inbounds nuw i8, ptr %718, i64 56
-  store double %738, ptr %741, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %718, i64 noundef %2, i32 noundef %4) #27
-  %742 = load double, ptr %734, align 8, !tbaa !16
-  store double %742, ptr %8, align 16, !tbaa !16
-  %.val1743 = load double, ptr %692, align 8, !tbaa !14
-  %.val1744 = load double, ptr %693, align 8, !tbaa !14
-  %743 = fadd double %.val1743, %.val1744
-  %744 = fmul double %743, 5.000000e-01
-  %745 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %744, ptr %745, align 8, !tbaa !14
-  %746 = load double, ptr %1, align 8, !tbaa !16
-  %747 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %746, ptr %747, align 16, !tbaa !16
-  %748 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %749 = load double, ptr %748, align 8, !tbaa !14
-  %750 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %751 = load double, ptr %750, align 8, !tbaa !14
-  %752 = fsub double %749, %751
-  %753 = fmul double %752, 5.000000e-01
-  %754 = fadd double %.val1744, %753
-  %755 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %754, ptr %755, align 8, !tbaa !14
+684:                                              ; preds = %103
+  %685 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %686 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %687 = load double, ptr %686, align 8, !tbaa !16
+  store double %687, ptr %685, align 8, !tbaa !16
+  %688 = getelementptr i8, ptr %1, i64 24
+  %.val1739 = load double, ptr %688, align 8, !tbaa !14
+  %689 = getelementptr i8, ptr %1, i64 40
+  %.val1740 = load double, ptr %689, align 8, !tbaa !14
+  %690 = fadd double %.val1739, %.val1740
+  %691 = fmul double %690, 5.000000e-01
+  %692 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %693 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %694 = load double, ptr %693, align 8, !tbaa !14
+  %695 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %696 = load double, ptr %695, align 8, !tbaa !14
+  %697 = fsub double %694, %696
+  %698 = fmul double %697, 1.250000e-01
+  %699 = fadd double %691, %698
+  %700 = getelementptr inbounds nuw i8, ptr %685, i64 8
+  store double %699, ptr %700, align 8, !tbaa !14
+  %701 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %702 = load double, ptr %701, align 8, !tbaa !16
+  %703 = load double, ptr %692, align 8, !tbaa !16
+  %704 = fsub double %702, %703
+  %705 = tail call double @llvm.fmuladd.f64(double %704, double 2.000000e+00, double %687)
+  %706 = getelementptr inbounds nuw i8, ptr %685, i64 16
+  store double %705, ptr %706, align 8, !tbaa !16
+  %707 = getelementptr inbounds nuw i8, ptr %685, i64 24
+  store double %699, ptr %707, align 8, !tbaa !14
+  %708 = getelementptr inbounds nuw i8, ptr %685, i64 32
+  store double %705, ptr %708, align 8, !tbaa !16
+  %709 = fmul double %697, 5.000000e-01
+  %710 = fadd double %709, %699
+  %711 = getelementptr inbounds nuw i8, ptr %685, i64 40
+  store double %710, ptr %711, align 8, !tbaa !14
+  %712 = getelementptr inbounds nuw i8, ptr %685, i64 48
+  store double %687, ptr %712, align 8, !tbaa !16
+  %713 = getelementptr inbounds nuw i8, ptr %685, i64 56
+  store double %710, ptr %713, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %685, i64 noundef %2, i32 noundef %4) #27
+  tail call void @free(ptr noundef %685) #27
+  %714 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %715 = load double, ptr %686, align 8, !tbaa !16
+  %716 = load double, ptr %701, align 8, !tbaa !16
+  %717 = load double, ptr %692, align 8, !tbaa !16
+  %718 = fsub double %716, %717
+  %719 = fadd double %715, %718
+  store double %719, ptr %714, align 8, !tbaa !16
+  %.val1741 = load double, ptr %688, align 8, !tbaa !14
+  %.val1742 = load double, ptr %689, align 8, !tbaa !14
+  %720 = fadd double %.val1741, %.val1742
+  %721 = fmul double %720, 5.000000e-01
+  %722 = load double, ptr %693, align 8, !tbaa !14
+  %723 = load double, ptr %695, align 8, !tbaa !14
+  %724 = fsub double %722, %723
+  %725 = fmul double %724, 5.000000e+00
+  %726 = fmul double %725, 1.250000e-01
+  %727 = fsub double %721, %726
+  %728 = getelementptr inbounds nuw i8, ptr %714, i64 8
+  store double %727, ptr %728, align 8, !tbaa !14
+  %729 = fadd double %718, %719
+  %730 = getelementptr inbounds nuw i8, ptr %714, i64 16
+  store double %729, ptr %730, align 8, !tbaa !16
+  %731 = getelementptr inbounds nuw i8, ptr %714, i64 24
+  store double %727, ptr %731, align 8, !tbaa !14
+  %732 = getelementptr inbounds nuw i8, ptr %714, i64 32
+  store double %729, ptr %732, align 8, !tbaa !16
+  %733 = fmul double %724, 5.000000e-01
+  %734 = fadd double %733, %727
+  %735 = getelementptr inbounds nuw i8, ptr %714, i64 40
+  store double %734, ptr %735, align 8, !tbaa !14
+  %736 = getelementptr inbounds nuw i8, ptr %714, i64 48
+  store double %719, ptr %736, align 8, !tbaa !16
+  %737 = getelementptr inbounds nuw i8, ptr %714, i64 56
+  store double %734, ptr %737, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %714, i64 noundef %2, i32 noundef %4) #27
+  %738 = load double, ptr %730, align 8, !tbaa !16
+  store double %738, ptr %8, align 16, !tbaa !16
+  %.val1743 = load double, ptr %688, align 8, !tbaa !14
+  %.val1744 = load double, ptr %689, align 8, !tbaa !14
+  %739 = fadd double %.val1743, %.val1744
+  %740 = fmul double %739, 5.000000e-01
+  %741 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %740, ptr %741, align 8, !tbaa !14
+  %742 = load double, ptr %1, align 8, !tbaa !16
+  %743 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %742, ptr %743, align 16, !tbaa !16
+  %744 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %745 = load double, ptr %744, align 8, !tbaa !14
+  %746 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %747 = load double, ptr %746, align 8, !tbaa !14
+  %748 = fsub double %745, %747
+  %749 = fmul double %748, 5.000000e-01
+  %750 = fadd double %.val1744, %749
+  %751 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %750, ptr %751, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %718) #27
-  br label %1736
+  call void @free(ptr noundef %714) #27
+  br label %1732
 
-756:                                              ; preds = %107
-  %757 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %758 = load double, ptr %1, align 8, !tbaa !16
-  store double %758, ptr %757, align 8, !tbaa !16
-  %759 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %760 = getelementptr i8, ptr %1, i64 24
-  %.val1745 = load double, ptr %760, align 8, !tbaa !14
-  %761 = getelementptr i8, ptr %1, i64 40
-  %.val1746 = load double, ptr %761, align 8, !tbaa !14
-  %762 = fadd double %.val1745, %.val1746
-  %763 = fmul double %762, 5.000000e-01
-  %764 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %765 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %766 = load double, ptr %765, align 8, !tbaa !14
-  %767 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %768 = load double, ptr %767, align 8, !tbaa !14
-  %769 = fsub double %766, %768
-  %770 = fmul double %769, 1.250000e-01
-  %771 = fadd double %763, %770
-  %772 = getelementptr inbounds nuw i8, ptr %757, i64 8
+752:                                              ; preds = %103
+  %753 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %754 = load double, ptr %1, align 8, !tbaa !16
+  store double %754, ptr %753, align 8, !tbaa !16
+  %755 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %756 = getelementptr i8, ptr %1, i64 24
+  %.val1745 = load double, ptr %756, align 8, !tbaa !14
+  %757 = getelementptr i8, ptr %1, i64 40
+  %.val1746 = load double, ptr %757, align 8, !tbaa !14
+  %758 = fadd double %.val1745, %.val1746
+  %759 = fmul double %758, 5.000000e-01
+  %760 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %761 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %762 = load double, ptr %761, align 8, !tbaa !14
+  %763 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %764 = load double, ptr %763, align 8, !tbaa !14
+  %765 = fsub double %762, %764
+  %766 = fmul double %765, 1.250000e-01
+  %767 = fadd double %759, %766
+  %768 = getelementptr inbounds nuw i8, ptr %753, i64 8
+  store double %767, ptr %768, align 8, !tbaa !14
+  %769 = getelementptr inbounds nuw i8, ptr %753, i64 16
+  store double %754, ptr %769, align 8, !tbaa !16
+  %770 = fmul double %765, 5.000000e-01
+  %771 = fadd double %770, %767
+  %772 = getelementptr inbounds nuw i8, ptr %753, i64 24
   store double %771, ptr %772, align 8, !tbaa !14
-  %773 = getelementptr inbounds nuw i8, ptr %757, i64 16
-  store double %758, ptr %773, align 8, !tbaa !16
-  %774 = fmul double %769, 5.000000e-01
-  %775 = fadd double %774, %771
-  %776 = getelementptr inbounds nuw i8, ptr %757, i64 24
-  store double %775, ptr %776, align 8, !tbaa !14
-  %777 = tail call double @llvm.fmuladd.f64(double %769, double -2.000000e+00, double %758)
-  %778 = getelementptr inbounds nuw i8, ptr %757, i64 32
-  store double %777, ptr %778, align 8, !tbaa !16
-  %779 = getelementptr inbounds nuw i8, ptr %757, i64 40
-  store double %775, ptr %779, align 8, !tbaa !14
-  %780 = getelementptr inbounds nuw i8, ptr %757, i64 48
-  store double %777, ptr %780, align 8, !tbaa !16
-  %781 = getelementptr inbounds nuw i8, ptr %757, i64 56
-  store double %771, ptr %781, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %757, i64 noundef %2, i32 noundef %4) #27
-  tail call void @free(ptr noundef %757) #27
-  %782 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %783 = load double, ptr %1, align 8, !tbaa !16
-  %784 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %785 = load double, ptr %784, align 8, !tbaa !16
-  %786 = load double, ptr %764, align 8, !tbaa !16
-  %787 = fsub double %785, %786
-  %788 = fsub double %783, %787
-  store double %788, ptr %782, align 8, !tbaa !16
-  %.val1747 = load double, ptr %760, align 8, !tbaa !14
-  %.val1748 = load double, ptr %761, align 8, !tbaa !14
-  %789 = fadd double %.val1747, %.val1748
-  %790 = fmul double %789, 5.000000e-01
-  %791 = load double, ptr %765, align 8, !tbaa !14
-  %792 = load double, ptr %767, align 8, !tbaa !14
-  %793 = fsub double %791, %792
-  %794 = fmul double %793, 5.000000e+00
-  %795 = fmul double %794, 1.250000e-01
-  %796 = fsub double %790, %795
-  %797 = getelementptr inbounds nuw i8, ptr %782, i64 8
+  %773 = tail call double @llvm.fmuladd.f64(double %765, double -2.000000e+00, double %754)
+  %774 = getelementptr inbounds nuw i8, ptr %753, i64 32
+  store double %773, ptr %774, align 8, !tbaa !16
+  %775 = getelementptr inbounds nuw i8, ptr %753, i64 40
+  store double %771, ptr %775, align 8, !tbaa !14
+  %776 = getelementptr inbounds nuw i8, ptr %753, i64 48
+  store double %773, ptr %776, align 8, !tbaa !16
+  %777 = getelementptr inbounds nuw i8, ptr %753, i64 56
+  store double %767, ptr %777, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %753, i64 noundef %2, i32 noundef %4) #27
+  tail call void @free(ptr noundef %753) #27
+  %778 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %779 = load double, ptr %1, align 8, !tbaa !16
+  %780 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %781 = load double, ptr %780, align 8, !tbaa !16
+  %782 = load double, ptr %760, align 8, !tbaa !16
+  %783 = fsub double %781, %782
+  %784 = fsub double %779, %783
+  store double %784, ptr %778, align 8, !tbaa !16
+  %.val1747 = load double, ptr %756, align 8, !tbaa !14
+  %.val1748 = load double, ptr %757, align 8, !tbaa !14
+  %785 = fadd double %.val1747, %.val1748
+  %786 = fmul double %785, 5.000000e-01
+  %787 = load double, ptr %761, align 8, !tbaa !14
+  %788 = load double, ptr %763, align 8, !tbaa !14
+  %789 = fsub double %787, %788
+  %790 = fmul double %789, 5.000000e+00
+  %791 = fmul double %790, 1.250000e-01
+  %792 = fsub double %786, %791
+  %793 = getelementptr inbounds nuw i8, ptr %778, i64 8
+  store double %792, ptr %793, align 8, !tbaa !14
+  %794 = getelementptr inbounds nuw i8, ptr %778, i64 16
+  store double %784, ptr %794, align 8, !tbaa !16
+  %795 = fmul double %789, 5.000000e-01
+  %796 = fadd double %795, %792
+  %797 = getelementptr inbounds nuw i8, ptr %778, i64 24
   store double %796, ptr %797, align 8, !tbaa !14
-  %798 = getelementptr inbounds nuw i8, ptr %782, i64 16
-  store double %788, ptr %798, align 8, !tbaa !16
-  %799 = fmul double %793, 5.000000e-01
-  %800 = fadd double %799, %796
-  %801 = getelementptr inbounds nuw i8, ptr %782, i64 24
-  store double %800, ptr %801, align 8, !tbaa !14
-  %802 = fsub double %788, %793
-  %803 = getelementptr inbounds nuw i8, ptr %782, i64 32
-  store double %802, ptr %803, align 8, !tbaa !16
-  %804 = getelementptr inbounds nuw i8, ptr %782, i64 40
-  store double %800, ptr %804, align 8, !tbaa !14
-  %805 = getelementptr inbounds nuw i8, ptr %782, i64 48
-  store double %802, ptr %805, align 8, !tbaa !16
-  %806 = getelementptr inbounds nuw i8, ptr %782, i64 56
-  store double %796, ptr %806, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %782, i64 noundef %2, i32 noundef %4) #27
-  %807 = load double, ptr %759, align 8, !tbaa !16
-  store double %807, ptr %8, align 16, !tbaa !16
-  %.val1749 = load double, ptr %760, align 8, !tbaa !14
-  %.val1750 = load double, ptr %761, align 8, !tbaa !14
-  %808 = fadd double %.val1749, %.val1750
-  %809 = fmul double %808, 5.000000e-01
-  %810 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %809, ptr %810, align 8, !tbaa !14
-  %811 = load double, ptr %805, align 8, !tbaa !16
-  %812 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %811, ptr %812, align 16, !tbaa !16
-  %813 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %814 = load double, ptr %813, align 8, !tbaa !14
-  %815 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %816 = load double, ptr %815, align 8, !tbaa !14
-  %817 = fsub double %814, %816
-  %818 = fmul double %817, 5.000000e-01
-  %819 = fadd double %.val1750, %818
-  %820 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %819, ptr %820, align 8, !tbaa !14
+  %798 = fsub double %784, %789
+  %799 = getelementptr inbounds nuw i8, ptr %778, i64 32
+  store double %798, ptr %799, align 8, !tbaa !16
+  %800 = getelementptr inbounds nuw i8, ptr %778, i64 40
+  store double %796, ptr %800, align 8, !tbaa !14
+  %801 = getelementptr inbounds nuw i8, ptr %778, i64 48
+  store double %798, ptr %801, align 8, !tbaa !16
+  %802 = getelementptr inbounds nuw i8, ptr %778, i64 56
+  store double %792, ptr %802, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %778, i64 noundef %2, i32 noundef %4) #27
+  %803 = load double, ptr %755, align 8, !tbaa !16
+  store double %803, ptr %8, align 16, !tbaa !16
+  %.val1749 = load double, ptr %756, align 8, !tbaa !14
+  %.val1750 = load double, ptr %757, align 8, !tbaa !14
+  %804 = fadd double %.val1749, %.val1750
+  %805 = fmul double %804, 5.000000e-01
+  %806 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %805, ptr %806, align 8, !tbaa !14
+  %807 = load double, ptr %801, align 8, !tbaa !16
+  %808 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %807, ptr %808, align 16, !tbaa !16
+  %809 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %810 = load double, ptr %809, align 8, !tbaa !14
+  %811 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %812 = load double, ptr %811, align 8, !tbaa !14
+  %813 = fsub double %810, %812
+  %814 = fmul double %813, 5.000000e-01
+  %815 = fadd double %.val1750, %814
+  %816 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %815, ptr %816, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %782) #27
-  br label %1736
+  call void @free(ptr noundef %778) #27
+  br label %1732
 
-821:                                              ; preds = %107
-  %822 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+817:                                              ; preds = %103
+  %818 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
   %.val1665 = load double, ptr %1, align 8, !tbaa !16
-  %823 = getelementptr i8, ptr %1, i64 16
-  %.val1666 = load double, ptr %823, align 8, !tbaa !16
-  %824 = fadd double %.val1665, %.val1666
-  %825 = fmul double %824, 5.000000e-01
-  %826 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %827 = load double, ptr %826, align 8, !tbaa !16
-  %828 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %829 = load double, ptr %828, align 8, !tbaa !16
-  %830 = fsub double %827, %829
-  %831 = fmul double %830, 9.000000e+00
-  %832 = fmul double %831, 1.250000e-01
-  %833 = fsub double %825, %832
-  store double %833, ptr %822, align 8, !tbaa !16
-  %834 = getelementptr i8, ptr %1, i64 24
-  %.val1751 = load double, ptr %834, align 8, !tbaa !14
-  %835 = getelementptr i8, ptr %1, i64 40
-  %.val1752 = load double, ptr %835, align 8, !tbaa !14
-  %836 = fadd double %.val1751, %.val1752
-  %837 = fmul double %836, 5.000000e-01
-  %838 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %839 = load double, ptr %838, align 8, !tbaa !14
-  %840 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %841 = load double, ptr %840, align 8, !tbaa !14
-  %842 = fsub double %839, %841
-  %843 = fmul double %842, 1.250000e-01
-  %844 = fadd double %837, %843
-  %845 = getelementptr inbounds nuw i8, ptr %822, i64 8
-  store double %844, ptr %845, align 8, !tbaa !14
-  %846 = fadd double %830, %833
-  %847 = getelementptr inbounds nuw i8, ptr %822, i64 16
-  store double %846, ptr %847, align 8, !tbaa !16
-  %848 = getelementptr inbounds nuw i8, ptr %822, i64 24
-  store double %844, ptr %848, align 8, !tbaa !14
-  %849 = getelementptr inbounds nuw i8, ptr %822, i64 32
-  store double %846, ptr %849, align 8, !tbaa !16
-  %850 = fmul double %842, 5.000000e-01
-  %851 = fadd double %850, %844
-  %852 = getelementptr inbounds nuw i8, ptr %822, i64 40
-  store double %851, ptr %852, align 8, !tbaa !14
-  %853 = getelementptr inbounds nuw i8, ptr %822, i64 48
-  store double %833, ptr %853, align 8, !tbaa !16
-  %854 = getelementptr inbounds nuw i8, ptr %822, i64 56
-  store double %851, ptr %854, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %822, i64 noundef %2, i32 noundef %4) #27
-  tail call void @free(ptr noundef %822) #27
-  %855 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %819 = getelementptr i8, ptr %1, i64 16
+  %.val1666 = load double, ptr %819, align 8, !tbaa !16
+  %820 = fadd double %.val1665, %.val1666
+  %821 = fmul double %820, 5.000000e-01
+  %822 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %823 = load double, ptr %822, align 8, !tbaa !16
+  %824 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %825 = load double, ptr %824, align 8, !tbaa !16
+  %826 = fsub double %823, %825
+  %827 = fmul double %826, 9.000000e+00
+  %828 = fmul double %827, 1.250000e-01
+  %829 = fsub double %821, %828
+  store double %829, ptr %818, align 8, !tbaa !16
+  %830 = getelementptr i8, ptr %1, i64 24
+  %.val1751 = load double, ptr %830, align 8, !tbaa !14
+  %831 = getelementptr i8, ptr %1, i64 40
+  %.val1752 = load double, ptr %831, align 8, !tbaa !14
+  %832 = fadd double %.val1751, %.val1752
+  %833 = fmul double %832, 5.000000e-01
+  %834 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %835 = load double, ptr %834, align 8, !tbaa !14
+  %836 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %837 = load double, ptr %836, align 8, !tbaa !14
+  %838 = fsub double %835, %837
+  %839 = fmul double %838, 1.250000e-01
+  %840 = fadd double %833, %839
+  %841 = getelementptr inbounds nuw i8, ptr %818, i64 8
+  store double %840, ptr %841, align 8, !tbaa !14
+  %842 = fadd double %826, %829
+  %843 = getelementptr inbounds nuw i8, ptr %818, i64 16
+  store double %842, ptr %843, align 8, !tbaa !16
+  %844 = getelementptr inbounds nuw i8, ptr %818, i64 24
+  store double %840, ptr %844, align 8, !tbaa !14
+  %845 = getelementptr inbounds nuw i8, ptr %818, i64 32
+  store double %842, ptr %845, align 8, !tbaa !16
+  %846 = fmul double %838, 5.000000e-01
+  %847 = fadd double %846, %840
+  %848 = getelementptr inbounds nuw i8, ptr %818, i64 40
+  store double %847, ptr %848, align 8, !tbaa !14
+  %849 = getelementptr inbounds nuw i8, ptr %818, i64 48
+  store double %829, ptr %849, align 8, !tbaa !16
+  %850 = getelementptr inbounds nuw i8, ptr %818, i64 56
+  store double %847, ptr %850, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %818, i64 noundef %2, i32 noundef %4) #27
+  tail call void @free(ptr noundef %818) #27
+  %851 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
   %.val1667 = load double, ptr %1, align 8, !tbaa !16
-  %.val1668 = load double, ptr %823, align 8, !tbaa !16
-  %856 = fadd double %.val1667, %.val1668
-  %857 = fmul double %856, 5.000000e-01
-  %858 = load double, ptr %826, align 8, !tbaa !16
-  %859 = load double, ptr %828, align 8, !tbaa !16
-  %860 = fsub double %858, %859
-  %861 = fmul double %860, 9.000000e+00
-  %862 = fmul double %861, 1.250000e-01
-  %863 = fsub double %857, %862
-  store double %863, ptr %855, align 8, !tbaa !16
-  %.val1753 = load double, ptr %834, align 8, !tbaa !14
-  %.val1754 = load double, ptr %835, align 8, !tbaa !14
-  %864 = fadd double %.val1753, %.val1754
-  %865 = fmul double %864, 5.000000e-01
-  %866 = load double, ptr %838, align 8, !tbaa !14
-  %867 = load double, ptr %840, align 8, !tbaa !14
-  %868 = fsub double %866, %867
-  %869 = fmul double %868, 5.000000e+00
-  %870 = fmul double %869, 1.250000e-01
-  %871 = fsub double %865, %870
-  %872 = getelementptr inbounds nuw i8, ptr %855, i64 8
-  store double %871, ptr %872, align 8, !tbaa !14
-  %873 = fadd double %860, %863
-  %874 = getelementptr inbounds nuw i8, ptr %855, i64 16
-  store double %873, ptr %874, align 8, !tbaa !16
-  %875 = getelementptr inbounds nuw i8, ptr %855, i64 24
-  store double %871, ptr %875, align 8, !tbaa !14
-  %876 = getelementptr inbounds nuw i8, ptr %855, i64 32
-  store double %873, ptr %876, align 8, !tbaa !16
-  %877 = fmul double %868, 5.000000e-01
-  %878 = fadd double %877, %871
-  %879 = getelementptr inbounds nuw i8, ptr %855, i64 40
-  store double %878, ptr %879, align 8, !tbaa !14
-  %880 = getelementptr inbounds nuw i8, ptr %855, i64 48
-  store double %863, ptr %880, align 8, !tbaa !16
-  %881 = getelementptr inbounds nuw i8, ptr %855, i64 56
-  store double %878, ptr %881, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %855, i64 noundef %2, i32 noundef %4) #27
-  tail call void @free(ptr noundef %855) #27
-  %882 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %.val1668 = load double, ptr %819, align 8, !tbaa !16
+  %852 = fadd double %.val1667, %.val1668
+  %853 = fmul double %852, 5.000000e-01
+  %854 = load double, ptr %822, align 8, !tbaa !16
+  %855 = load double, ptr %824, align 8, !tbaa !16
+  %856 = fsub double %854, %855
+  %857 = fmul double %856, 9.000000e+00
+  %858 = fmul double %857, 1.250000e-01
+  %859 = fsub double %853, %858
+  store double %859, ptr %851, align 8, !tbaa !16
+  %.val1753 = load double, ptr %830, align 8, !tbaa !14
+  %.val1754 = load double, ptr %831, align 8, !tbaa !14
+  %860 = fadd double %.val1753, %.val1754
+  %861 = fmul double %860, 5.000000e-01
+  %862 = load double, ptr %834, align 8, !tbaa !14
+  %863 = load double, ptr %836, align 8, !tbaa !14
+  %864 = fsub double %862, %863
+  %865 = fmul double %864, 5.000000e+00
+  %866 = fmul double %865, 1.250000e-01
+  %867 = fsub double %861, %866
+  %868 = getelementptr inbounds nuw i8, ptr %851, i64 8
+  store double %867, ptr %868, align 8, !tbaa !14
+  %869 = fadd double %856, %859
+  %870 = getelementptr inbounds nuw i8, ptr %851, i64 16
+  store double %869, ptr %870, align 8, !tbaa !16
+  %871 = getelementptr inbounds nuw i8, ptr %851, i64 24
+  store double %867, ptr %871, align 8, !tbaa !14
+  %872 = getelementptr inbounds nuw i8, ptr %851, i64 32
+  store double %869, ptr %872, align 8, !tbaa !16
+  %873 = fmul double %864, 5.000000e-01
+  %874 = fadd double %873, %867
+  %875 = getelementptr inbounds nuw i8, ptr %851, i64 40
+  store double %874, ptr %875, align 8, !tbaa !14
+  %876 = getelementptr inbounds nuw i8, ptr %851, i64 48
+  store double %859, ptr %876, align 8, !tbaa !16
+  %877 = getelementptr inbounds nuw i8, ptr %851, i64 56
+  store double %874, ptr %877, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %851, i64 noundef %2, i32 noundef %4) #27
+  tail call void @free(ptr noundef %851) #27
+  %878 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
   %.val1669 = load double, ptr %1, align 8, !tbaa !16
-  %.val1670 = load double, ptr %823, align 8, !tbaa !16
-  %883 = fadd double %.val1669, %.val1670
-  %884 = fmul double %883, 5.000000e-01
-  %885 = load double, ptr %826, align 8, !tbaa !16
-  %886 = load double, ptr %828, align 8, !tbaa !16
-  %887 = fsub double %885, %886
-  %888 = fmul double %887, 1.250000e-01
-  %889 = fadd double %884, %888
-  store double %889, ptr %882, align 8, !tbaa !16
-  %.val1755 = load double, ptr %834, align 8, !tbaa !14
-  %.val1756 = load double, ptr %835, align 8, !tbaa !14
-  %890 = fadd double %.val1755, %.val1756
-  %891 = fmul double %890, 5.000000e-01
-  %892 = load double, ptr %838, align 8, !tbaa !14
-  %893 = load double, ptr %840, align 8, !tbaa !14
-  %894 = fsub double %892, %893
-  %895 = fmul double %894, 5.000000e+00
-  %896 = fmul double %895, 1.250000e-01
-  %897 = fsub double %891, %896
-  %898 = getelementptr inbounds nuw i8, ptr %882, i64 8
-  store double %897, ptr %898, align 8, !tbaa !14
-  %899 = fadd double %887, %889
-  %900 = getelementptr inbounds nuw i8, ptr %882, i64 16
-  store double %899, ptr %900, align 8, !tbaa !16
-  %901 = getelementptr inbounds nuw i8, ptr %882, i64 24
-  store double %897, ptr %901, align 8, !tbaa !14
-  %902 = getelementptr inbounds nuw i8, ptr %882, i64 32
-  store double %899, ptr %902, align 8, !tbaa !16
-  %903 = fmul double %894, 5.000000e-01
-  %904 = fadd double %903, %897
-  %905 = getelementptr inbounds nuw i8, ptr %882, i64 40
-  store double %904, ptr %905, align 8, !tbaa !14
-  %906 = getelementptr inbounds nuw i8, ptr %882, i64 48
-  store double %889, ptr %906, align 8, !tbaa !16
-  %907 = getelementptr inbounds nuw i8, ptr %882, i64 56
-  store double %904, ptr %907, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %882, i64 noundef %2, i32 noundef %4) #27
-  tail call void @free(ptr noundef %882) #27
-  %908 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %.val1670 = load double, ptr %819, align 8, !tbaa !16
+  %879 = fadd double %.val1669, %.val1670
+  %880 = fmul double %879, 5.000000e-01
+  %881 = load double, ptr %822, align 8, !tbaa !16
+  %882 = load double, ptr %824, align 8, !tbaa !16
+  %883 = fsub double %881, %882
+  %884 = fmul double %883, 1.250000e-01
+  %885 = fadd double %880, %884
+  store double %885, ptr %878, align 8, !tbaa !16
+  %.val1755 = load double, ptr %830, align 8, !tbaa !14
+  %.val1756 = load double, ptr %831, align 8, !tbaa !14
+  %886 = fadd double %.val1755, %.val1756
+  %887 = fmul double %886, 5.000000e-01
+  %888 = load double, ptr %834, align 8, !tbaa !14
+  %889 = load double, ptr %836, align 8, !tbaa !14
+  %890 = fsub double %888, %889
+  %891 = fmul double %890, 5.000000e+00
+  %892 = fmul double %891, 1.250000e-01
+  %893 = fsub double %887, %892
+  %894 = getelementptr inbounds nuw i8, ptr %878, i64 8
+  store double %893, ptr %894, align 8, !tbaa !14
+  %895 = fadd double %883, %885
+  %896 = getelementptr inbounds nuw i8, ptr %878, i64 16
+  store double %895, ptr %896, align 8, !tbaa !16
+  %897 = getelementptr inbounds nuw i8, ptr %878, i64 24
+  store double %893, ptr %897, align 8, !tbaa !14
+  %898 = getelementptr inbounds nuw i8, ptr %878, i64 32
+  store double %895, ptr %898, align 8, !tbaa !16
+  %899 = fmul double %890, 5.000000e-01
+  %900 = fadd double %899, %893
+  %901 = getelementptr inbounds nuw i8, ptr %878, i64 40
+  store double %900, ptr %901, align 8, !tbaa !14
+  %902 = getelementptr inbounds nuw i8, ptr %878, i64 48
+  store double %885, ptr %902, align 8, !tbaa !16
+  %903 = getelementptr inbounds nuw i8, ptr %878, i64 56
+  store double %900, ptr %903, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %878, i64 noundef %2, i32 noundef %4) #27
+  tail call void @free(ptr noundef %878) #27
+  %904 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
   %.val1671 = load double, ptr %1, align 8, !tbaa !16
-  %.val1672 = load double, ptr %823, align 8, !tbaa !16
-  %909 = fadd double %.val1671, %.val1672
-  %910 = fmul double %909, 5.000000e-01
-  %911 = load double, ptr %826, align 8, !tbaa !16
-  %912 = load double, ptr %828, align 8, !tbaa !16
-  %913 = fsub double %911, %912
-  %914 = fmul double %913, 1.250000e-01
-  %915 = fadd double %910, %914
-  store double %915, ptr %908, align 8, !tbaa !16
-  %.val1757 = load double, ptr %834, align 8, !tbaa !14
-  %.val1758 = load double, ptr %835, align 8, !tbaa !14
-  %916 = fadd double %.val1757, %.val1758
-  %917 = fmul double %916, 5.000000e-01
-  %918 = load double, ptr %838, align 8, !tbaa !14
-  %919 = load double, ptr %840, align 8, !tbaa !14
-  %920 = fsub double %918, %919
-  %921 = fmul double %920, 1.250000e-01
-  %922 = fadd double %917, %921
-  %923 = getelementptr inbounds nuw i8, ptr %908, i64 8
-  store double %922, ptr %923, align 8, !tbaa !14
-  %924 = fadd double %913, %915
-  %925 = getelementptr inbounds nuw i8, ptr %908, i64 16
-  store double %924, ptr %925, align 8, !tbaa !16
-  %926 = getelementptr inbounds nuw i8, ptr %908, i64 24
-  store double %922, ptr %926, align 8, !tbaa !14
-  %927 = getelementptr inbounds nuw i8, ptr %908, i64 32
-  store double %924, ptr %927, align 8, !tbaa !16
-  %928 = fmul double %920, 5.000000e-01
-  %929 = fadd double %928, %922
-  %930 = getelementptr inbounds nuw i8, ptr %908, i64 40
-  store double %929, ptr %930, align 8, !tbaa !14
-  %931 = getelementptr inbounds nuw i8, ptr %908, i64 48
-  store double %915, ptr %931, align 8, !tbaa !16
-  %932 = getelementptr inbounds nuw i8, ptr %908, i64 56
-  store double %929, ptr %932, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %908, i64 noundef %2, i32 noundef %4) #27
-  %933 = load double, ptr %925, align 8, !tbaa !16
-  store double %933, ptr %8, align 16, !tbaa !16
-  %.val1759 = load double, ptr %834, align 8, !tbaa !14
-  %.val1760 = load double, ptr %835, align 8, !tbaa !14
-  %934 = fadd double %.val1759, %.val1760
-  %935 = fmul double %934, 5.000000e-01
-  %936 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %935, ptr %936, align 8, !tbaa !14
-  %937 = load double, ptr %1, align 8, !tbaa !16
-  %938 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %937, ptr %938, align 16, !tbaa !16
-  %939 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %940 = load double, ptr %939, align 8, !tbaa !14
-  %941 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %942 = load double, ptr %941, align 8, !tbaa !14
-  %943 = fsub double %940, %942
-  %944 = fmul double %943, 5.000000e-01
-  %945 = fadd double %.val1760, %944
-  %946 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %945, ptr %946, align 8, !tbaa !14
+  %.val1672 = load double, ptr %819, align 8, !tbaa !16
+  %905 = fadd double %.val1671, %.val1672
+  %906 = fmul double %905, 5.000000e-01
+  %907 = load double, ptr %822, align 8, !tbaa !16
+  %908 = load double, ptr %824, align 8, !tbaa !16
+  %909 = fsub double %907, %908
+  %910 = fmul double %909, 1.250000e-01
+  %911 = fadd double %906, %910
+  store double %911, ptr %904, align 8, !tbaa !16
+  %.val1757 = load double, ptr %830, align 8, !tbaa !14
+  %.val1758 = load double, ptr %831, align 8, !tbaa !14
+  %912 = fadd double %.val1757, %.val1758
+  %913 = fmul double %912, 5.000000e-01
+  %914 = load double, ptr %834, align 8, !tbaa !14
+  %915 = load double, ptr %836, align 8, !tbaa !14
+  %916 = fsub double %914, %915
+  %917 = fmul double %916, 1.250000e-01
+  %918 = fadd double %913, %917
+  %919 = getelementptr inbounds nuw i8, ptr %904, i64 8
+  store double %918, ptr %919, align 8, !tbaa !14
+  %920 = fadd double %909, %911
+  %921 = getelementptr inbounds nuw i8, ptr %904, i64 16
+  store double %920, ptr %921, align 8, !tbaa !16
+  %922 = getelementptr inbounds nuw i8, ptr %904, i64 24
+  store double %918, ptr %922, align 8, !tbaa !14
+  %923 = getelementptr inbounds nuw i8, ptr %904, i64 32
+  store double %920, ptr %923, align 8, !tbaa !16
+  %924 = fmul double %916, 5.000000e-01
+  %925 = fadd double %924, %918
+  %926 = getelementptr inbounds nuw i8, ptr %904, i64 40
+  store double %925, ptr %926, align 8, !tbaa !14
+  %927 = getelementptr inbounds nuw i8, ptr %904, i64 48
+  store double %911, ptr %927, align 8, !tbaa !16
+  %928 = getelementptr inbounds nuw i8, ptr %904, i64 56
+  store double %925, ptr %928, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %904, i64 noundef %2, i32 noundef %4) #27
+  %929 = load double, ptr %921, align 8, !tbaa !16
+  store double %929, ptr %8, align 16, !tbaa !16
+  %.val1759 = load double, ptr %830, align 8, !tbaa !14
+  %.val1760 = load double, ptr %831, align 8, !tbaa !14
+  %930 = fadd double %.val1759, %.val1760
+  %931 = fmul double %930, 5.000000e-01
+  %932 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %931, ptr %932, align 8, !tbaa !14
+  %933 = load double, ptr %1, align 8, !tbaa !16
+  %934 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %933, ptr %934, align 16, !tbaa !16
+  %935 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %936 = load double, ptr %935, align 8, !tbaa !14
+  %937 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %938 = load double, ptr %937, align 8, !tbaa !14
+  %939 = fsub double %936, %938
+  %940 = fmul double %939, 5.000000e-01
+  %941 = fadd double %.val1760, %940
+  %942 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %941, ptr %942, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
   %.val1673 = load double, ptr %1, align 8, !tbaa !16
-  %.val1674 = load double, ptr %823, align 8, !tbaa !16
-  %947 = fadd double %.val1673, %.val1674
-  %948 = fmul double %947, 5.000000e-01
-  %949 = load double, ptr %826, align 8, !tbaa !16
-  %950 = load double, ptr %828, align 8, !tbaa !16
-  %951 = fsub double %949, %950
-  %952 = fmul double %951, 9.000000e+00
-  %953 = fmul double %952, 1.250000e-01
-  %954 = fsub double %948, %953
-  store double %954, ptr %8, align 16, !tbaa !16
-  %.val1761 = load double, ptr %834, align 8, !tbaa !14
-  %.val1762 = load double, ptr %835, align 8, !tbaa !14
-  %955 = fadd double %.val1761, %.val1762
+  %.val1674 = load double, ptr %819, align 8, !tbaa !16
+  %943 = fadd double %.val1673, %.val1674
+  %944 = fmul double %943, 5.000000e-01
+  %945 = load double, ptr %822, align 8, !tbaa !16
+  %946 = load double, ptr %824, align 8, !tbaa !16
+  %947 = fsub double %945, %946
+  %948 = fmul double %947, 9.000000e+00
+  %949 = fmul double %948, 1.250000e-01
+  %950 = fsub double %944, %949
+  store double %950, ptr %8, align 16, !tbaa !16
+  %.val1761 = load double, ptr %830, align 8, !tbaa !14
+  %.val1762 = load double, ptr %831, align 8, !tbaa !14
+  %951 = fadd double %.val1761, %.val1762
+  %952 = fmul double %951, 5.000000e-01
+  store double %952, ptr %932, align 8, !tbaa !14
+  store double %.val1674, ptr %934, align 16, !tbaa !16
+  %953 = load double, ptr %935, align 8, !tbaa !14
+  %954 = load double, ptr %937, align 8, !tbaa !14
+  %955 = fsub double %953, %954
   %956 = fmul double %955, 5.000000e-01
-  store double %956, ptr %936, align 8, !tbaa !14
-  store double %.val1674, ptr %938, align 16, !tbaa !16
-  %957 = load double, ptr %939, align 8, !tbaa !14
-  %958 = load double, ptr %941, align 8, !tbaa !14
-  %959 = fsub double %957, %958
-  %960 = fmul double %959, 5.000000e-01
-  %961 = fadd double %.val1762, %960
-  store double %961, ptr %946, align 8, !tbaa !14
+  %957 = fadd double %.val1762, %956
+  store double %957, ptr %942, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %908) #27
-  br label %1736
+  call void @free(ptr noundef %904) #27
+  br label %1732
 
-962:                                              ; preds = %107
-  %963 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+958:                                              ; preds = %103
+  %959 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
   %.val1675 = load double, ptr %1, align 8, !tbaa !16
-  %964 = getelementptr i8, ptr %1, i64 16
-  %.val1676 = load double, ptr %964, align 8, !tbaa !16
-  %965 = fadd double %.val1675, %.val1676
-  %966 = fmul double %965, 5.000000e-01
-  %967 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %968 = load double, ptr %967, align 8, !tbaa !16
-  %969 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %970 = load double, ptr %969, align 8, !tbaa !16
-  %971 = fsub double %968, %970
-  %972 = fsub double %966, %971
-  store double %972, ptr %963, align 8, !tbaa !16
-  %973 = getelementptr i8, ptr %1, i64 24
-  %.val1763 = load double, ptr %973, align 8, !tbaa !14
-  %974 = getelementptr i8, ptr %1, i64 40
-  %.val1764 = load double, ptr %974, align 8, !tbaa !14
-  %975 = fadd double %.val1763, %.val1764
-  %976 = fmul double %975, 5.000000e-01
-  %977 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %978 = load double, ptr %977, align 8, !tbaa !14
-  %979 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %980 = load double, ptr %979, align 8, !tbaa !14
-  %981 = fsub double %978, %980
-  %982 = fmul double %981, 1.250000e-01
-  %983 = fadd double %976, %982
-  %984 = getelementptr inbounds nuw i8, ptr %963, i64 8
-  store double %983, ptr %984, align 8, !tbaa !14
-  %985 = tail call double @llvm.fmuladd.f64(double %971, double 2.000000e+00, double %972)
-  %986 = getelementptr inbounds nuw i8, ptr %963, i64 16
-  store double %985, ptr %986, align 8, !tbaa !16
-  %987 = getelementptr inbounds nuw i8, ptr %963, i64 24
-  store double %983, ptr %987, align 8, !tbaa !14
-  %988 = getelementptr inbounds nuw i8, ptr %963, i64 32
-  store double %985, ptr %988, align 8, !tbaa !16
-  %989 = fmul double %981, 5.000000e-01
-  %990 = fadd double %989, %983
-  %991 = getelementptr inbounds nuw i8, ptr %963, i64 40
-  store double %990, ptr %991, align 8, !tbaa !14
-  %992 = getelementptr inbounds nuw i8, ptr %963, i64 48
-  store double %972, ptr %992, align 8, !tbaa !16
-  %993 = getelementptr inbounds nuw i8, ptr %963, i64 56
-  store double %990, ptr %993, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %963, i64 noundef %2, i32 noundef %4) #27
-  tail call void @free(ptr noundef %963) #27
-  %994 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %960 = getelementptr i8, ptr %1, i64 16
+  %.val1676 = load double, ptr %960, align 8, !tbaa !16
+  %961 = fadd double %.val1675, %.val1676
+  %962 = fmul double %961, 5.000000e-01
+  %963 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %964 = load double, ptr %963, align 8, !tbaa !16
+  %965 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %966 = load double, ptr %965, align 8, !tbaa !16
+  %967 = fsub double %964, %966
+  %968 = fsub double %962, %967
+  store double %968, ptr %959, align 8, !tbaa !16
+  %969 = getelementptr i8, ptr %1, i64 24
+  %.val1763 = load double, ptr %969, align 8, !tbaa !14
+  %970 = getelementptr i8, ptr %1, i64 40
+  %.val1764 = load double, ptr %970, align 8, !tbaa !14
+  %971 = fadd double %.val1763, %.val1764
+  %972 = fmul double %971, 5.000000e-01
+  %973 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %974 = load double, ptr %973, align 8, !tbaa !14
+  %975 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %976 = load double, ptr %975, align 8, !tbaa !14
+  %977 = fsub double %974, %976
+  %978 = fmul double %977, 1.250000e-01
+  %979 = fadd double %972, %978
+  %980 = getelementptr inbounds nuw i8, ptr %959, i64 8
+  store double %979, ptr %980, align 8, !tbaa !14
+  %981 = tail call double @llvm.fmuladd.f64(double %967, double 2.000000e+00, double %968)
+  %982 = getelementptr inbounds nuw i8, ptr %959, i64 16
+  store double %981, ptr %982, align 8, !tbaa !16
+  %983 = getelementptr inbounds nuw i8, ptr %959, i64 24
+  store double %979, ptr %983, align 8, !tbaa !14
+  %984 = getelementptr inbounds nuw i8, ptr %959, i64 32
+  store double %981, ptr %984, align 8, !tbaa !16
+  %985 = fmul double %977, 5.000000e-01
+  %986 = fadd double %985, %979
+  %987 = getelementptr inbounds nuw i8, ptr %959, i64 40
+  store double %986, ptr %987, align 8, !tbaa !14
+  %988 = getelementptr inbounds nuw i8, ptr %959, i64 48
+  store double %968, ptr %988, align 8, !tbaa !16
+  %989 = getelementptr inbounds nuw i8, ptr %959, i64 56
+  store double %986, ptr %989, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %959, i64 noundef %2, i32 noundef %4) #27
+  tail call void @free(ptr noundef %959) #27
+  %990 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
   %.val1677 = load double, ptr %1, align 8, !tbaa !16
-  %.val1678 = load double, ptr %964, align 8, !tbaa !16
-  %995 = fadd double %.val1677, %.val1678
-  %996 = fmul double %995, 5.000000e-01
-  %997 = load double, ptr %967, align 8, !tbaa !16
-  %998 = load double, ptr %969, align 8, !tbaa !16
-  %999 = fsub double %997, %998
-  %1000 = fsub double %996, %999
-  store double %1000, ptr %994, align 8, !tbaa !16
-  %.val1765 = load double, ptr %973, align 8, !tbaa !14
-  %.val1766 = load double, ptr %974, align 8, !tbaa !14
-  %1001 = fadd double %.val1765, %.val1766
-  %1002 = fmul double %1001, 5.000000e-01
-  %1003 = load double, ptr %977, align 8, !tbaa !14
-  %1004 = load double, ptr %979, align 8, !tbaa !14
-  %1005 = fsub double %1003, %1004
-  %1006 = fmul double %1005, 5.000000e+00
-  %1007 = fmul double %1006, 1.250000e-01
-  %1008 = fsub double %1002, %1007
-  %1009 = getelementptr inbounds nuw i8, ptr %994, i64 8
-  store double %1008, ptr %1009, align 8, !tbaa !14
-  %1010 = tail call double @llvm.fmuladd.f64(double %999, double 2.000000e+00, double %1000)
-  %1011 = getelementptr inbounds nuw i8, ptr %994, i64 16
-  store double %1010, ptr %1011, align 8, !tbaa !16
-  %1012 = getelementptr inbounds nuw i8, ptr %994, i64 24
-  store double %1008, ptr %1012, align 8, !tbaa !14
-  %1013 = getelementptr inbounds nuw i8, ptr %994, i64 32
-  store double %1010, ptr %1013, align 8, !tbaa !16
-  %1014 = fmul double %1005, 5.000000e-01
-  %1015 = fadd double %1014, %1008
-  %1016 = getelementptr inbounds nuw i8, ptr %994, i64 40
-  store double %1015, ptr %1016, align 8, !tbaa !14
-  %1017 = getelementptr inbounds nuw i8, ptr %994, i64 48
-  store double %1000, ptr %1017, align 8, !tbaa !16
-  %1018 = getelementptr inbounds nuw i8, ptr %994, i64 56
-  store double %1015, ptr %1018, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %994, i64 noundef %2, i32 noundef %4) #27
-  %1019 = load double, ptr %1011, align 8, !tbaa !16
-  store double %1019, ptr %8, align 16, !tbaa !16
-  %.val1767 = load double, ptr %973, align 8, !tbaa !14
-  %.val1768 = load double, ptr %974, align 8, !tbaa !14
-  %1020 = fadd double %.val1767, %.val1768
-  %1021 = fmul double %1020, 5.000000e-01
-  %1022 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %1021, ptr %1022, align 8, !tbaa !14
-  %1023 = load double, ptr %1, align 8, !tbaa !16
-  %1024 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %1023, ptr %1024, align 16, !tbaa !16
-  %1025 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1026 = load double, ptr %1025, align 8, !tbaa !14
-  %1027 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %1028 = load double, ptr %1027, align 8, !tbaa !14
-  %1029 = fsub double %1026, %1028
-  %1030 = fmul double %1029, 5.000000e-01
-  %1031 = fadd double %.val1768, %1030
-  %1032 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %1031, ptr %1032, align 8, !tbaa !14
+  %.val1678 = load double, ptr %960, align 8, !tbaa !16
+  %991 = fadd double %.val1677, %.val1678
+  %992 = fmul double %991, 5.000000e-01
+  %993 = load double, ptr %963, align 8, !tbaa !16
+  %994 = load double, ptr %965, align 8, !tbaa !16
+  %995 = fsub double %993, %994
+  %996 = fsub double %992, %995
+  store double %996, ptr %990, align 8, !tbaa !16
+  %.val1765 = load double, ptr %969, align 8, !tbaa !14
+  %.val1766 = load double, ptr %970, align 8, !tbaa !14
+  %997 = fadd double %.val1765, %.val1766
+  %998 = fmul double %997, 5.000000e-01
+  %999 = load double, ptr %973, align 8, !tbaa !14
+  %1000 = load double, ptr %975, align 8, !tbaa !14
+  %1001 = fsub double %999, %1000
+  %1002 = fmul double %1001, 5.000000e+00
+  %1003 = fmul double %1002, 1.250000e-01
+  %1004 = fsub double %998, %1003
+  %1005 = getelementptr inbounds nuw i8, ptr %990, i64 8
+  store double %1004, ptr %1005, align 8, !tbaa !14
+  %1006 = tail call double @llvm.fmuladd.f64(double %995, double 2.000000e+00, double %996)
+  %1007 = getelementptr inbounds nuw i8, ptr %990, i64 16
+  store double %1006, ptr %1007, align 8, !tbaa !16
+  %1008 = getelementptr inbounds nuw i8, ptr %990, i64 24
+  store double %1004, ptr %1008, align 8, !tbaa !14
+  %1009 = getelementptr inbounds nuw i8, ptr %990, i64 32
+  store double %1006, ptr %1009, align 8, !tbaa !16
+  %1010 = fmul double %1001, 5.000000e-01
+  %1011 = fadd double %1010, %1004
+  %1012 = getelementptr inbounds nuw i8, ptr %990, i64 40
+  store double %1011, ptr %1012, align 8, !tbaa !14
+  %1013 = getelementptr inbounds nuw i8, ptr %990, i64 48
+  store double %996, ptr %1013, align 8, !tbaa !16
+  %1014 = getelementptr inbounds nuw i8, ptr %990, i64 56
+  store double %1011, ptr %1014, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %990, i64 noundef %2, i32 noundef %4) #27
+  %1015 = load double, ptr %1007, align 8, !tbaa !16
+  store double %1015, ptr %8, align 16, !tbaa !16
+  %.val1767 = load double, ptr %969, align 8, !tbaa !14
+  %.val1768 = load double, ptr %970, align 8, !tbaa !14
+  %1016 = fadd double %.val1767, %.val1768
+  %1017 = fmul double %1016, 5.000000e-01
+  %1018 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %1017, ptr %1018, align 8, !tbaa !14
+  %1019 = load double, ptr %1, align 8, !tbaa !16
+  %1020 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %1019, ptr %1020, align 16, !tbaa !16
+  %1021 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1022 = load double, ptr %1021, align 8, !tbaa !14
+  %1023 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %1024 = load double, ptr %1023, align 8, !tbaa !14
+  %1025 = fsub double %1022, %1024
+  %1026 = fmul double %1025, 5.000000e-01
+  %1027 = fadd double %.val1768, %1026
+  %1028 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %1027, ptr %1028, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  %1033 = load double, ptr %964, align 8, !tbaa !16
-  store double %1033, ptr %8, align 16, !tbaa !16
-  %.val1769 = load double, ptr %973, align 8, !tbaa !14
-  %.val1770 = load double, ptr %974, align 8, !tbaa !14
-  %1034 = fadd double %.val1769, %.val1770
-  %1035 = fmul double %1034, 5.000000e-01
-  store double %1035, ptr %1022, align 8, !tbaa !14
-  %1036 = load double, ptr %994, align 8, !tbaa !16
-  store double %1036, ptr %1024, align 16, !tbaa !16
-  %1037 = load double, ptr %1025, align 8, !tbaa !14
-  %1038 = load double, ptr %1027, align 8, !tbaa !14
-  %1039 = fsub double %1037, %1038
-  %1040 = fmul double %1039, 5.000000e-01
-  %1041 = fadd double %.val1770, %1040
-  store double %1041, ptr %1032, align 8, !tbaa !14
+  %1029 = load double, ptr %960, align 8, !tbaa !16
+  store double %1029, ptr %8, align 16, !tbaa !16
+  %.val1769 = load double, ptr %969, align 8, !tbaa !14
+  %.val1770 = load double, ptr %970, align 8, !tbaa !14
+  %1030 = fadd double %.val1769, %.val1770
+  %1031 = fmul double %1030, 5.000000e-01
+  store double %1031, ptr %1018, align 8, !tbaa !14
+  %1032 = load double, ptr %990, align 8, !tbaa !16
+  store double %1032, ptr %1020, align 16, !tbaa !16
+  %1033 = load double, ptr %1021, align 8, !tbaa !14
+  %1034 = load double, ptr %1023, align 8, !tbaa !14
+  %1035 = fsub double %1033, %1034
+  %1036 = fmul double %1035, 5.000000e-01
+  %1037 = fadd double %.val1770, %1036
+  store double %1037, ptr %1028, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %994) #27
-  br label %1736
+  call void @free(ptr noundef %990) #27
+  br label %1732
 
-1042:                                             ; preds = %107
-  %1043 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
-  %1044 = load double, ptr %1, align 8, !tbaa !16
-  store double %1044, ptr %1043, align 8, !tbaa !16
-  %1045 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  %1046 = load double, ptr %1045, align 8, !tbaa !14
-  %1047 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %1048 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %1049 = load double, ptr %1048, align 8, !tbaa !14
-  %1050 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %1051 = load double, ptr %1050, align 8, !tbaa !14
-  %1052 = fsub double %1049, %1051
-  %1053 = fmul double %1052, 5.000000e-01
-  %1054 = fsub double %1046, %1053
-  %1055 = getelementptr inbounds nuw i8, ptr %1043, i64 8
+1038:                                             ; preds = %103
+  %1039 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+  %1040 = load double, ptr %1, align 8, !tbaa !16
+  store double %1040, ptr %1039, align 8, !tbaa !16
+  %1041 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  %1042 = load double, ptr %1041, align 8, !tbaa !14
+  %1043 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %1044 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %1045 = load double, ptr %1044, align 8, !tbaa !14
+  %1046 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %1047 = load double, ptr %1046, align 8, !tbaa !14
+  %1048 = fsub double %1045, %1047
+  %1049 = fmul double %1048, 5.000000e-01
+  %1050 = fsub double %1042, %1049
+  %1051 = getelementptr inbounds nuw i8, ptr %1039, i64 8
+  store double %1050, ptr %1051, align 8, !tbaa !14
+  %1052 = load double, ptr %1043, align 8, !tbaa !16
+  %1053 = getelementptr inbounds nuw i8, ptr %1039, i64 16
+  store double %1052, ptr %1053, align 8, !tbaa !16
+  %1054 = fsub double %1045, %1049
+  %1055 = getelementptr inbounds nuw i8, ptr %1039, i64 24
   store double %1054, ptr %1055, align 8, !tbaa !14
-  %1056 = load double, ptr %1047, align 8, !tbaa !16
-  %1057 = getelementptr inbounds nuw i8, ptr %1043, i64 16
-  store double %1056, ptr %1057, align 8, !tbaa !16
-  %1058 = fsub double %1049, %1053
-  %1059 = getelementptr inbounds nuw i8, ptr %1043, i64 24
-  store double %1058, ptr %1059, align 8, !tbaa !14
-  %1060 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %1061 = load double, ptr %1060, align 8, !tbaa !16
-  %1062 = getelementptr inbounds nuw i8, ptr %1043, i64 32
-  store double %1061, ptr %1062, align 8, !tbaa !16
-  %1063 = getelementptr i8, ptr %1, i64 40
-  %1064 = load double, ptr %1063, align 8, !tbaa !14
-  %1065 = fadd double %1053, %1064
-  %1066 = getelementptr inbounds nuw i8, ptr %1043, i64 40
-  store double %1065, ptr %1066, align 8, !tbaa !14
-  %1067 = getelementptr inbounds nuw i8, ptr %1043, i64 48
-  store double %1044, ptr %1067, align 8, !tbaa !16
-  %1068 = getelementptr inbounds nuw i8, ptr %1043, i64 56
-  store double %1065, ptr %1068, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1043, i64 noundef %2, i32 noundef %4) #27
-  %1069 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1070 = load double, ptr %1069, align 8, !tbaa !16
-  %1071 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %1072 = load double, ptr %1071, align 8, !tbaa !16
-  %1073 = load double, ptr %1047, align 8, !tbaa !16
-  %1074 = fsub double %1072, %1073
-  %1075 = fmul double %1074, 2.500000e-01
-  %1076 = fadd double %1070, %1075
-  store double %1076, ptr %8, align 16, !tbaa !16
-  %1077 = getelementptr i8, ptr %1, i64 24
-  %.val1771 = load double, ptr %1077, align 8, !tbaa !14
-  %.val1772 = load double, ptr %1063, align 8, !tbaa !14
-  %1078 = fadd double %.val1771, %.val1772
-  %1079 = fmul double %1078, 5.000000e-01
-  %1080 = load double, ptr %1048, align 8, !tbaa !14
-  %1081 = load double, ptr %1050, align 8, !tbaa !14
-  %1082 = fsub double %1080, %1081
-  %1083 = fmul double %1082, 1.250000e-01
-  %1084 = fadd double %1079, %1083
-  %1085 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %1084, ptr %1085, align 8, !tbaa !14
-  %1086 = fadd double %1075, %1076
-  %1087 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %1086, ptr %1087, align 16, !tbaa !16
-  %1088 = fmul double %1082, 2.500000e-01
-  %1089 = fsub double %1084, %1088
-  %1090 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %1089, ptr %1090, align 8, !tbaa !14
+  %1056 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %1057 = load double, ptr %1056, align 8, !tbaa !16
+  %1058 = getelementptr inbounds nuw i8, ptr %1039, i64 32
+  store double %1057, ptr %1058, align 8, !tbaa !16
+  %1059 = getelementptr i8, ptr %1, i64 40
+  %1060 = load double, ptr %1059, align 8, !tbaa !14
+  %1061 = fadd double %1049, %1060
+  %1062 = getelementptr inbounds nuw i8, ptr %1039, i64 40
+  store double %1061, ptr %1062, align 8, !tbaa !14
+  %1063 = getelementptr inbounds nuw i8, ptr %1039, i64 48
+  store double %1040, ptr %1063, align 8, !tbaa !16
+  %1064 = getelementptr inbounds nuw i8, ptr %1039, i64 56
+  store double %1061, ptr %1064, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1039, i64 noundef %2, i32 noundef %4) #27
+  %1065 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1066 = load double, ptr %1065, align 8, !tbaa !16
+  %1067 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %1068 = load double, ptr %1067, align 8, !tbaa !16
+  %1069 = load double, ptr %1043, align 8, !tbaa !16
+  %1070 = fsub double %1068, %1069
+  %1071 = fmul double %1070, 2.500000e-01
+  %1072 = fadd double %1066, %1071
+  store double %1072, ptr %8, align 16, !tbaa !16
+  %1073 = getelementptr i8, ptr %1, i64 24
+  %.val1771 = load double, ptr %1073, align 8, !tbaa !14
+  %.val1772 = load double, ptr %1059, align 8, !tbaa !14
+  %1074 = fadd double %.val1771, %.val1772
+  %1075 = fmul double %1074, 5.000000e-01
+  %1076 = load double, ptr %1044, align 8, !tbaa !14
+  %1077 = load double, ptr %1046, align 8, !tbaa !14
+  %1078 = fsub double %1076, %1077
+  %1079 = fmul double %1078, 1.250000e-01
+  %1080 = fadd double %1075, %1079
+  %1081 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %1080, ptr %1081, align 8, !tbaa !14
+  %1082 = fadd double %1071, %1072
+  %1083 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %1082, ptr %1083, align 16, !tbaa !16
+  %1084 = fmul double %1078, 2.500000e-01
+  %1085 = fsub double %1080, %1084
+  %1086 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %1085, ptr %1086, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  %1091 = load double, ptr %1069, align 8, !tbaa !16
-  %1092 = load double, ptr %1071, align 8, !tbaa !16
-  %1093 = load double, ptr %1047, align 8, !tbaa !16
-  %1094 = fsub double %1092, %1093
-  %1095 = fmul double %1094, 2.500000e-01
-  %1096 = fadd double %1091, %1095
-  store double %1096, ptr %8, align 16, !tbaa !16
-  %.val1773 = load double, ptr %1077, align 8, !tbaa !14
-  %.val1774 = load double, ptr %1063, align 8, !tbaa !14
-  %1097 = fadd double %.val1773, %.val1774
-  %1098 = fmul double %1097, 5.000000e-01
-  %1099 = load double, ptr %1048, align 8, !tbaa !14
-  %1100 = load double, ptr %1050, align 8, !tbaa !14
-  %1101 = fsub double %1099, %1100
-  %1102 = fmul double %1101, 1.250000e-01
-  %1103 = fsub double %1098, %1102
-  store double %1103, ptr %1085, align 8, !tbaa !14
-  %1104 = fadd double %1095, %1096
-  store double %1104, ptr %1087, align 16, !tbaa !16
-  %1105 = fmul double %1101, 2.500000e-01
-  %1106 = fadd double %1105, %1103
-  store double %1106, ptr %1090, align 8, !tbaa !14
+  %1087 = load double, ptr %1065, align 8, !tbaa !16
+  %1088 = load double, ptr %1067, align 8, !tbaa !16
+  %1089 = load double, ptr %1043, align 8, !tbaa !16
+  %1090 = fsub double %1088, %1089
+  %1091 = fmul double %1090, 2.500000e-01
+  %1092 = fadd double %1087, %1091
+  store double %1092, ptr %8, align 16, !tbaa !16
+  %.val1773 = load double, ptr %1073, align 8, !tbaa !14
+  %.val1774 = load double, ptr %1059, align 8, !tbaa !14
+  %1093 = fadd double %.val1773, %.val1774
+  %1094 = fmul double %1093, 5.000000e-01
+  %1095 = load double, ptr %1044, align 8, !tbaa !14
+  %1096 = load double, ptr %1046, align 8, !tbaa !14
+  %1097 = fsub double %1095, %1096
+  %1098 = fmul double %1097, 1.250000e-01
+  %1099 = fsub double %1094, %1098
+  store double %1099, ptr %1081, align 8, !tbaa !14
+  %1100 = fadd double %1091, %1092
+  store double %1100, ptr %1083, align 16, !tbaa !16
+  %1101 = fmul double %1097, 2.500000e-01
+  %1102 = fadd double %1101, %1099
+  store double %1102, ptr %1086, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  %1107 = load double, ptr %1069, align 8, !tbaa !16
-  %1108 = load double, ptr %1071, align 8, !tbaa !16
-  %1109 = load double, ptr %1047, align 8, !tbaa !16
-  %1110 = fsub double %1108, %1109
-  %1111 = fmul double %1110, 2.500000e-01
-  %1112 = fadd double %1107, %1111
-  store double %1112, ptr %8, align 16, !tbaa !16
-  %1113 = load double, ptr %1063, align 8, !tbaa !14
-  %1114 = load double, ptr %1048, align 8, !tbaa !14
-  %1115 = load double, ptr %1050, align 8, !tbaa !14
-  %1116 = fsub double %1114, %1115
-  %1117 = fmul double %1116, 3.000000e+00
-  %1118 = fmul double %1117, 2.500000e-01
-  %1119 = fadd double %1113, %1118
-  store double %1119, ptr %1085, align 8, !tbaa !14
-  %1120 = load double, ptr %1, align 8, !tbaa !16
-  %1121 = fsub double %1120, %1111
-  store double %1121, ptr %1087, align 16, !tbaa !16
-  store double %1119, ptr %1090, align 8, !tbaa !14
+  %1103 = load double, ptr %1065, align 8, !tbaa !16
+  %1104 = load double, ptr %1067, align 8, !tbaa !16
+  %1105 = load double, ptr %1043, align 8, !tbaa !16
+  %1106 = fsub double %1104, %1105
+  %1107 = fmul double %1106, 2.500000e-01
+  %1108 = fadd double %1103, %1107
+  store double %1108, ptr %8, align 16, !tbaa !16
+  %1109 = load double, ptr %1059, align 8, !tbaa !14
+  %1110 = load double, ptr %1044, align 8, !tbaa !14
+  %1111 = load double, ptr %1046, align 8, !tbaa !14
+  %1112 = fsub double %1110, %1111
+  %1113 = fmul double %1112, 3.000000e+00
+  %1114 = fmul double %1113, 2.500000e-01
+  %1115 = fadd double %1109, %1114
+  store double %1115, ptr %1081, align 8, !tbaa !14
+  %1116 = load double, ptr %1, align 8, !tbaa !16
+  %1117 = fsub double %1116, %1107
+  store double %1117, ptr %1083, align 16, !tbaa !16
+  store double %1115, ptr %1086, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %1043) #27
-  br label %1736
+  call void @free(ptr noundef %1039) #27
+  br label %1732
 
-1122:                                             ; preds = %107
-  %1123 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
+1118:                                             ; preds = %103
+  %1119 = tail call fastcc ptr @gv_calloc(i64 noundef %2, i64 noundef 16)
   %.val1679 = load double, ptr %1, align 8, !tbaa !16
-  %1124 = getelementptr i8, ptr %1, i64 16
-  %.val1680 = load double, ptr %1124, align 8, !tbaa !16
-  %1125 = fadd double %.val1679, %.val1680
-  %1126 = fmul double %1125, 5.000000e-01
-  %1127 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %1128 = load double, ptr %1127, align 8, !tbaa !16
-  %1129 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %1130 = load double, ptr %1129, align 8, !tbaa !16
-  %1131 = fsub double %1128, %1130
-  %1132 = fmul double %1131, 5.000000e-01
-  %1133 = fadd double %1126, %1132
-  store double %1133, ptr %1123, align 8, !tbaa !16
-  %1134 = getelementptr i8, ptr %1, i64 24
-  %.val1775 = load double, ptr %1134, align 8, !tbaa !14
-  %1135 = getelementptr i8, ptr %1, i64 40
-  %.val1776 = load double, ptr %1135, align 8, !tbaa !14
-  %1136 = fadd double %.val1775, %.val1776
-  %1137 = fmul double %1136, 5.000000e-01
-  %1138 = fadd double %1132, %1137
-  %1139 = getelementptr inbounds nuw i8, ptr %1123, i64 8
-  store double %1138, ptr %1139, align 8, !tbaa !14
-  %1140 = getelementptr inbounds nuw i8, ptr %1123, i64 16
-  store double %1133, ptr %1140, align 8, !tbaa !16
-  %1141 = fsub double %1137, %1132
-  %1142 = getelementptr inbounds nuw i8, ptr %1123, i64 24
-  store double %1141, ptr %1142, align 8, !tbaa !14
-  %1143 = fsub double %1126, %1132
-  %1144 = getelementptr inbounds nuw i8, ptr %1123, i64 32
-  store double %1143, ptr %1144, align 8, !tbaa !16
-  %1145 = getelementptr inbounds nuw i8, ptr %1123, i64 40
-  store double %1141, ptr %1145, align 8, !tbaa !14
-  %1146 = getelementptr inbounds nuw i8, ptr %1123, i64 48
-  store double %1143, ptr %1146, align 8, !tbaa !16
-  %1147 = getelementptr inbounds nuw i8, ptr %1123, i64 56
-  store double %1138, ptr %1147, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1123, i64 noundef %2, i32 noundef %4) #27
-  tail call void @free(ptr noundef %1123) #27
+  %1120 = getelementptr i8, ptr %1, i64 16
+  %.val1680 = load double, ptr %1120, align 8, !tbaa !16
+  %1121 = fadd double %.val1679, %.val1680
+  %1122 = fmul double %1121, 5.000000e-01
+  %1123 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %1124 = load double, ptr %1123, align 8, !tbaa !16
+  %1125 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %1126 = load double, ptr %1125, align 8, !tbaa !16
+  %1127 = fsub double %1124, %1126
+  %1128 = fmul double %1127, 5.000000e-01
+  %1129 = fadd double %1122, %1128
+  store double %1129, ptr %1119, align 8, !tbaa !16
+  %1130 = getelementptr i8, ptr %1, i64 24
+  %.val1775 = load double, ptr %1130, align 8, !tbaa !14
+  %1131 = getelementptr i8, ptr %1, i64 40
+  %.val1776 = load double, ptr %1131, align 8, !tbaa !14
+  %1132 = fadd double %.val1775, %.val1776
+  %1133 = fmul double %1132, 5.000000e-01
+  %1134 = fadd double %1128, %1133
+  %1135 = getelementptr inbounds nuw i8, ptr %1119, i64 8
+  store double %1134, ptr %1135, align 8, !tbaa !14
+  %1136 = getelementptr inbounds nuw i8, ptr %1119, i64 16
+  store double %1129, ptr %1136, align 8, !tbaa !16
+  %1137 = fsub double %1133, %1128
+  %1138 = getelementptr inbounds nuw i8, ptr %1119, i64 24
+  store double %1137, ptr %1138, align 8, !tbaa !14
+  %1139 = fsub double %1122, %1128
+  %1140 = getelementptr inbounds nuw i8, ptr %1119, i64 32
+  store double %1139, ptr %1140, align 8, !tbaa !16
+  %1141 = getelementptr inbounds nuw i8, ptr %1119, i64 40
+  store double %1137, ptr %1141, align 8, !tbaa !14
+  %1142 = getelementptr inbounds nuw i8, ptr %1119, i64 48
+  store double %1139, ptr %1142, align 8, !tbaa !16
+  %1143 = getelementptr inbounds nuw i8, ptr %1119, i64 56
+  store double %1134, ptr %1143, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1119, i64 noundef %2, i32 noundef %4) #27
+  tail call void @free(ptr noundef %1119) #27
   %.val1683 = load double, ptr %1, align 8, !tbaa !16
-  %.val1684 = load double, ptr %1124, align 8, !tbaa !16
-  %1148 = fadd double %.val1683, %.val1684
-  %1149 = fmul double %1148, 5.000000e-01
-  %1150 = load double, ptr %1127, align 8, !tbaa !16
-  %1151 = load double, ptr %1129, align 8, !tbaa !16
-  %1152 = fsub double %1150, %1151
-  %1153 = fmul double %1152, 3.000000e+00
-  %1154 = fmul double %1153, 2.500000e-01
-  %1155 = fadd double %1149, %1154
-  store double %1155, ptr %8, align 16, !tbaa !16
-  %.val1779 = load double, ptr %1134, align 8, !tbaa !14
-  %.val1780 = load double, ptr %1135, align 8, !tbaa !14
-  %1156 = fadd double %.val1779, %.val1780
-  %1157 = fmul double %1156, 5.000000e-01
-  %1158 = fadd double %1154, %1157
-  %1159 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %1158, ptr %1159, align 8, !tbaa !14
-  %1160 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %1155, ptr %1160, align 16, !tbaa !16
-  %1161 = fsub double %1157, %1154
-  %1162 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %1161, ptr %1162, align 8, !tbaa !14
-  %1163 = fsub double %1149, %1154
-  %1164 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store double %1163, ptr %1164, align 16, !tbaa !16
-  %1165 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store double %1161, ptr %1165, align 8, !tbaa !14
-  %1166 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store double %1163, ptr %1166, align 16, !tbaa !16
-  %1167 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store double %1158, ptr %1167, align 8, !tbaa !14
-  %1168 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1168, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !3
+  %.val1684 = load double, ptr %1120, align 8, !tbaa !16
+  %1144 = fadd double %.val1683, %.val1684
+  %1145 = fmul double %1144, 5.000000e-01
+  %1146 = load double, ptr %1123, align 8, !tbaa !16
+  %1147 = load double, ptr %1125, align 8, !tbaa !16
+  %1148 = fsub double %1146, %1147
+  %1149 = fmul double %1148, 3.000000e+00
+  %1150 = fmul double %1149, 2.500000e-01
+  %1151 = fadd double %1145, %1150
+  store double %1151, ptr %8, align 16, !tbaa !16
+  %.val1779 = load double, ptr %1130, align 8, !tbaa !14
+  %.val1780 = load double, ptr %1131, align 8, !tbaa !14
+  %1152 = fadd double %.val1779, %.val1780
+  %1153 = fmul double %1152, 5.000000e-01
+  %1154 = fadd double %1150, %1153
+  %1155 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %1154, ptr %1155, align 8, !tbaa !14
+  %1156 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %1151, ptr %1156, align 16, !tbaa !16
+  %1157 = fsub double %1153, %1150
+  %1158 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %1157, ptr %1158, align 8, !tbaa !14
+  %1159 = fsub double %1145, %1150
+  %1160 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store double %1159, ptr %1160, align 16, !tbaa !16
+  %1161 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store double %1157, ptr %1161, align 8, !tbaa !14
+  %1162 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store double %1159, ptr %1162, align 16, !tbaa !16
+  %1163 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store double %1154, ptr %1163, align 8, !tbaa !14
+  %1164 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1164, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !3
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 5) #27
   %.val1687 = load double, ptr %1, align 8, !tbaa !16
-  %.val1688 = load double, ptr %1124, align 8, !tbaa !16
-  %1169 = fadd double %.val1687, %.val1688
-  %1170 = fmul double %1169, 5.000000e-01
-  %1171 = load double, ptr %1127, align 8, !tbaa !16
-  %1172 = load double, ptr %1129, align 8, !tbaa !16
-  %1173 = fsub double %1171, %1172
-  %1174 = fmul double %1173, 3.000000e+00
-  %1175 = fmul double %1174, 2.500000e-01
-  %1176 = fadd double %1170, %1175
-  store double %1176, ptr %8, align 16, !tbaa !16
-  %.val1783 = load double, ptr %1134, align 8, !tbaa !14
-  %.val1784 = load double, ptr %1135, align 8, !tbaa !14
-  %1177 = fadd double %.val1783, %.val1784
-  %1178 = fmul double %1177, 5.000000e-01
-  store double %1178, ptr %1159, align 8, !tbaa !14
-  store double %.val1687, ptr %1160, align 16, !tbaa !16
-  %1179 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1180 = load double, ptr %1179, align 8, !tbaa !14
-  %1181 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %1182 = load double, ptr %1181, align 8, !tbaa !14
-  %1183 = fsub double %1180, %1182
+  %.val1688 = load double, ptr %1120, align 8, !tbaa !16
+  %1165 = fadd double %.val1687, %.val1688
+  %1166 = fmul double %1165, 5.000000e-01
+  %1167 = load double, ptr %1123, align 8, !tbaa !16
+  %1168 = load double, ptr %1125, align 8, !tbaa !16
+  %1169 = fsub double %1167, %1168
+  %1170 = fmul double %1169, 3.000000e+00
+  %1171 = fmul double %1170, 2.500000e-01
+  %1172 = fadd double %1166, %1171
+  store double %1172, ptr %8, align 16, !tbaa !16
+  %.val1783 = load double, ptr %1130, align 8, !tbaa !14
+  %.val1784 = load double, ptr %1131, align 8, !tbaa !14
+  %1173 = fadd double %.val1783, %.val1784
+  %1174 = fmul double %1173, 5.000000e-01
+  store double %1174, ptr %1155, align 8, !tbaa !14
+  store double %.val1687, ptr %1156, align 16, !tbaa !16
+  %1175 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1176 = load double, ptr %1175, align 8, !tbaa !14
+  %1177 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %1178 = load double, ptr %1177, align 8, !tbaa !14
+  %1179 = fsub double %1176, %1178
+  %1180 = fmul double %1179, 5.000000e-01
+  %1181 = fadd double %.val1784, %1180
+  store double %1181, ptr %1158, align 8, !tbaa !14
+  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
+  %1182 = load double, ptr %1120, align 8, !tbaa !16
+  store double %1182, ptr %8, align 16, !tbaa !16
+  %.val1785 = load double, ptr %1130, align 8, !tbaa !14
+  %.val1786 = load double, ptr %1131, align 8, !tbaa !14
+  %1183 = fadd double %.val1785, %.val1786
   %1184 = fmul double %1183, 5.000000e-01
-  %1185 = fadd double %.val1784, %1184
-  store double %1185, ptr %1162, align 8, !tbaa !14
-  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  %1186 = load double, ptr %1124, align 8, !tbaa !16
-  store double %1186, ptr %8, align 16, !tbaa !16
-  %.val1785 = load double, ptr %1134, align 8, !tbaa !14
-  %.val1786 = load double, ptr %1135, align 8, !tbaa !14
-  %1187 = fadd double %.val1785, %.val1786
-  %1188 = fmul double %1187, 5.000000e-01
-  store double %1188, ptr %1159, align 8, !tbaa !14
+  store double %1184, ptr %1155, align 8, !tbaa !14
   %.val1689 = load double, ptr %1, align 8, !tbaa !16
-  %1189 = fadd double %1186, %.val1689
-  %1190 = fmul double %1189, 5.000000e-01
-  %1191 = load double, ptr %1127, align 8, !tbaa !16
-  %1192 = load double, ptr %1129, align 8, !tbaa !16
-  %1193 = fsub double %1191, %1192
-  %1194 = fmul double %1193, 3.000000e+00
-  %1195 = fmul double %1194, 2.500000e-01
-  %1196 = fsub double %1190, %1195
-  store double %1196, ptr %1160, align 16, !tbaa !16
-  %1197 = load double, ptr %1179, align 8, !tbaa !14
-  %1198 = load double, ptr %1181, align 8, !tbaa !14
-  %1199 = fsub double %1197, %1198
-  %1200 = fmul double %1199, 5.000000e-01
-  %1201 = fadd double %.val1786, %1200
-  store double %1201, ptr %1162, align 8, !tbaa !14
+  %1185 = fadd double %1182, %.val1689
+  %1186 = fmul double %1185, 5.000000e-01
+  %1187 = load double, ptr %1123, align 8, !tbaa !16
+  %1188 = load double, ptr %1125, align 8, !tbaa !16
+  %1189 = fsub double %1187, %1188
+  %1190 = fmul double %1189, 3.000000e+00
+  %1191 = fmul double %1190, 2.500000e-01
+  %1192 = fsub double %1186, %1191
+  store double %1192, ptr %1156, align 16, !tbaa !16
+  %1193 = load double, ptr %1175, align 8, !tbaa !14
+  %1194 = load double, ptr %1177, align 8, !tbaa !14
+  %1195 = fsub double %1193, %1194
+  %1196 = fmul double %1195, 5.000000e-01
+  %1197 = fadd double %.val1786, %1196
+  store double %1197, ptr %1158, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  br label %1736
+  br label %1732
 
-1202:                                             ; preds = %107
-  %1203 = add i64 %2, 12
-  %1204 = tail call fastcc ptr @gv_calloc(i64 noundef %1203, i64 noundef 16)
+1198:                                             ; preds = %103
+  %1199 = add i64 %2, 12
+  %1200 = tail call fastcc ptr @gv_calloc(i64 noundef %1199, i64 noundef 16)
   %.val1691 = load double, ptr %1, align 8, !tbaa !16
-  %1205 = getelementptr i8, ptr %1, i64 16
-  %.val1692 = load double, ptr %1205, align 8, !tbaa !16
-  %1206 = fadd double %.val1691, %.val1692
-  %1207 = fmul double %1206, 5.000000e-01
-  %1208 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %1209 = load double, ptr %1208, align 8, !tbaa !16
-  %1210 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %1211 = load double, ptr %1210, align 8, !tbaa !16
-  %1212 = fsub double %1209, %1211
-  %1213 = fmul double %1212, 2.500000e-01
-  %1214 = fadd double %1207, %1213
-  store double %1214, ptr %1204, align 8, !tbaa !16
-  %1215 = getelementptr i8, ptr %1, i64 24
-  %.val1787 = load double, ptr %1215, align 8, !tbaa !14
-  %1216 = getelementptr i8, ptr %1, i64 40
-  %.val1788 = load double, ptr %1216, align 8, !tbaa !14
-  %1217 = fadd double %.val1787, %.val1788
-  %1218 = fmul double %1217, 5.000000e-01
-  %1219 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %1220 = load double, ptr %1219, align 8, !tbaa !14
-  %1221 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %1222 = load double, ptr %1221, align 8, !tbaa !14
-  %1223 = fsub double %1220, %1222
-  %1224 = fmul double %1223, 5.000000e-01
-  %1225 = fadd double %1218, %1224
-  %1226 = getelementptr inbounds nuw i8, ptr %1204, i64 8
+  %1201 = getelementptr i8, ptr %1, i64 16
+  %.val1692 = load double, ptr %1201, align 8, !tbaa !16
+  %1202 = fadd double %.val1691, %.val1692
+  %1203 = fmul double %1202, 5.000000e-01
+  %1204 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %1205 = load double, ptr %1204, align 8, !tbaa !16
+  %1206 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %1207 = load double, ptr %1206, align 8, !tbaa !16
+  %1208 = fsub double %1205, %1207
+  %1209 = fmul double %1208, 2.500000e-01
+  %1210 = fadd double %1203, %1209
+  store double %1210, ptr %1200, align 8, !tbaa !16
+  %1211 = getelementptr i8, ptr %1, i64 24
+  %.val1787 = load double, ptr %1211, align 8, !tbaa !14
+  %1212 = getelementptr i8, ptr %1, i64 40
+  %.val1788 = load double, ptr %1212, align 8, !tbaa !14
+  %1213 = fadd double %.val1787, %.val1788
+  %1214 = fmul double %1213, 5.000000e-01
+  %1215 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %1216 = load double, ptr %1215, align 8, !tbaa !14
+  %1217 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %1218 = load double, ptr %1217, align 8, !tbaa !14
+  %1219 = fsub double %1216, %1218
+  %1220 = fmul double %1219, 5.000000e-01
+  %1221 = fadd double %1214, %1220
+  %1222 = getelementptr inbounds nuw i8, ptr %1200, i64 8
+  store double %1221, ptr %1222, align 8, !tbaa !14
+  %1223 = getelementptr inbounds nuw i8, ptr %1200, i64 16
+  store double %1210, ptr %1223, align 8, !tbaa !16
+  %1224 = fmul double %1219, 1.250000e-01
+  %1225 = fadd double %1224, %1221
+  %1226 = getelementptr inbounds nuw i8, ptr %1200, i64 24
   store double %1225, ptr %1226, align 8, !tbaa !14
-  %1227 = getelementptr inbounds nuw i8, ptr %1204, i64 16
-  store double %1214, ptr %1227, align 8, !tbaa !16
-  %1228 = fmul double %1223, 1.250000e-01
-  %1229 = fadd double %1228, %1225
-  %1230 = getelementptr inbounds nuw i8, ptr %1204, i64 24
-  store double %1229, ptr %1230, align 8, !tbaa !14
-  %1231 = fmul double %1212, 1.250000e-01
-  %1232 = fsub double %1214, %1231
-  %1233 = getelementptr inbounds nuw i8, ptr %1204, i64 32
-  store double %1232, ptr %1233, align 8, !tbaa !16
-  %1234 = fadd double %1228, %1229
-  %1235 = getelementptr inbounds nuw i8, ptr %1204, i64 40
-  store double %1234, ptr %1235, align 8, !tbaa !14
-  %1236 = getelementptr inbounds nuw i8, ptr %1204, i64 48
-  store double %1214, ptr %1236, align 8, !tbaa !16
-  %1237 = fadd double %1228, %1234
-  %1238 = getelementptr inbounds nuw i8, ptr %1204, i64 56
-  store double %1237, ptr %1238, align 8, !tbaa !14
-  %1239 = getelementptr inbounds nuw i8, ptr %1204, i64 64
-  store double %1214, ptr %1239, align 8, !tbaa !16
-  %1240 = fadd double %1228, %1237
-  %1241 = getelementptr inbounds nuw i8, ptr %1204, i64 72
-  store double %1240, ptr %1241, align 8, !tbaa !14
-  %1242 = getelementptr inbounds nuw i8, ptr %1204, i64 80
-  store double %1232, ptr %1242, align 8, !tbaa !16
-  %1243 = getelementptr inbounds nuw i8, ptr %1204, i64 88
-  store double %1240, ptr %1243, align 8, !tbaa !14
-  %1244 = getelementptr inbounds nuw i8, ptr %1204, i64 96
-  store double %1207, ptr %1244, align 8, !tbaa !16
-  %1245 = getelementptr inbounds nuw i8, ptr %1204, i64 104
-  store double %1237, ptr %1245, align 8, !tbaa !14
-  %1246 = fsub double %1207, %1231
-  %1247 = getelementptr inbounds nuw i8, ptr %1204, i64 112
-  store double %1246, ptr %1247, align 8, !tbaa !16
-  %1248 = getelementptr inbounds nuw i8, ptr %1204, i64 120
-  store double %1240, ptr %1248, align 8, !tbaa !14
-  %1249 = fsub double %1246, %1231
-  %1250 = getelementptr inbounds nuw i8, ptr %1204, i64 128
-  store double %1249, ptr %1250, align 8, !tbaa !16
-  %1251 = getelementptr inbounds nuw i8, ptr %1204, i64 136
-  store double %1240, ptr %1251, align 8, !tbaa !14
-  %1252 = getelementptr inbounds nuw i8, ptr %1204, i64 144
-  store double %1249, ptr %1252, align 8, !tbaa !16
-  %1253 = getelementptr inbounds nuw i8, ptr %1204, i64 152
-  store double %1237, ptr %1253, align 8, !tbaa !14
-  %1254 = fadd double %1231, %1249
-  %1255 = getelementptr inbounds nuw i8, ptr %1204, i64 160
-  store double %1254, ptr %1255, align 8, !tbaa !16
-  %1256 = getelementptr inbounds nuw i8, ptr %1204, i64 168
-  store double %1234, ptr %1256, align 8, !tbaa !14
-  %1257 = getelementptr inbounds nuw i8, ptr %1204, i64 176
-  store double %1249, ptr %1257, align 8, !tbaa !16
-  %1258 = getelementptr inbounds nuw i8, ptr %1204, i64 184
-  store double %1229, ptr %1258, align 8, !tbaa !14
-  %1259 = getelementptr inbounds nuw i8, ptr %1204, i64 192
-  store double %1249, ptr %1259, align 8, !tbaa !16
-  %1260 = getelementptr inbounds nuw i8, ptr %1204, i64 200
+  %1227 = fmul double %1208, 1.250000e-01
+  %1228 = fsub double %1210, %1227
+  %1229 = getelementptr inbounds nuw i8, ptr %1200, i64 32
+  store double %1228, ptr %1229, align 8, !tbaa !16
+  %1230 = fadd double %1224, %1225
+  %1231 = getelementptr inbounds nuw i8, ptr %1200, i64 40
+  store double %1230, ptr %1231, align 8, !tbaa !14
+  %1232 = getelementptr inbounds nuw i8, ptr %1200, i64 48
+  store double %1210, ptr %1232, align 8, !tbaa !16
+  %1233 = fadd double %1224, %1230
+  %1234 = getelementptr inbounds nuw i8, ptr %1200, i64 56
+  store double %1233, ptr %1234, align 8, !tbaa !14
+  %1235 = getelementptr inbounds nuw i8, ptr %1200, i64 64
+  store double %1210, ptr %1235, align 8, !tbaa !16
+  %1236 = fadd double %1224, %1233
+  %1237 = getelementptr inbounds nuw i8, ptr %1200, i64 72
+  store double %1236, ptr %1237, align 8, !tbaa !14
+  %1238 = getelementptr inbounds nuw i8, ptr %1200, i64 80
+  store double %1228, ptr %1238, align 8, !tbaa !16
+  %1239 = getelementptr inbounds nuw i8, ptr %1200, i64 88
+  store double %1236, ptr %1239, align 8, !tbaa !14
+  %1240 = getelementptr inbounds nuw i8, ptr %1200, i64 96
+  store double %1203, ptr %1240, align 8, !tbaa !16
+  %1241 = getelementptr inbounds nuw i8, ptr %1200, i64 104
+  store double %1233, ptr %1241, align 8, !tbaa !14
+  %1242 = fsub double %1203, %1227
+  %1243 = getelementptr inbounds nuw i8, ptr %1200, i64 112
+  store double %1242, ptr %1243, align 8, !tbaa !16
+  %1244 = getelementptr inbounds nuw i8, ptr %1200, i64 120
+  store double %1236, ptr %1244, align 8, !tbaa !14
+  %1245 = fsub double %1242, %1227
+  %1246 = getelementptr inbounds nuw i8, ptr %1200, i64 128
+  store double %1245, ptr %1246, align 8, !tbaa !16
+  %1247 = getelementptr inbounds nuw i8, ptr %1200, i64 136
+  store double %1236, ptr %1247, align 8, !tbaa !14
+  %1248 = getelementptr inbounds nuw i8, ptr %1200, i64 144
+  store double %1245, ptr %1248, align 8, !tbaa !16
+  %1249 = getelementptr inbounds nuw i8, ptr %1200, i64 152
+  store double %1233, ptr %1249, align 8, !tbaa !14
+  %1250 = fadd double %1227, %1245
+  %1251 = getelementptr inbounds nuw i8, ptr %1200, i64 160
+  store double %1250, ptr %1251, align 8, !tbaa !16
+  %1252 = getelementptr inbounds nuw i8, ptr %1200, i64 168
+  store double %1230, ptr %1252, align 8, !tbaa !14
+  %1253 = getelementptr inbounds nuw i8, ptr %1200, i64 176
+  store double %1245, ptr %1253, align 8, !tbaa !16
+  %1254 = getelementptr inbounds nuw i8, ptr %1200, i64 184
+  store double %1225, ptr %1254, align 8, !tbaa !14
+  %1255 = getelementptr inbounds nuw i8, ptr %1200, i64 192
+  store double %1245, ptr %1255, align 8, !tbaa !16
+  %1256 = getelementptr inbounds nuw i8, ptr %1200, i64 200
+  store double %1221, ptr %1256, align 8, !tbaa !14
+  %1257 = getelementptr inbounds nuw i8, ptr %1200, i64 208
+  store double %1250, ptr %1257, align 8, !tbaa !16
+  %1258 = getelementptr inbounds nuw i8, ptr %1200, i64 216
+  store double %1221, ptr %1258, align 8, !tbaa !14
+  %1259 = getelementptr inbounds nuw i8, ptr %1200, i64 224
+  store double %1203, ptr %1259, align 8, !tbaa !16
+  %1260 = getelementptr inbounds nuw i8, ptr %1200, i64 232
   store double %1225, ptr %1260, align 8, !tbaa !14
-  %1261 = getelementptr inbounds nuw i8, ptr %1204, i64 208
-  store double %1254, ptr %1261, align 8, !tbaa !16
-  %1262 = getelementptr inbounds nuw i8, ptr %1204, i64 216
-  store double %1225, ptr %1262, align 8, !tbaa !14
-  %1263 = getelementptr inbounds nuw i8, ptr %1204, i64 224
-  store double %1207, ptr %1263, align 8, !tbaa !16
-  %1264 = getelementptr inbounds nuw i8, ptr %1204, i64 232
-  store double %1229, ptr %1264, align 8, !tbaa !14
-  %1265 = getelementptr inbounds nuw i8, ptr %1204, i64 240
-  store double %1232, ptr %1265, align 8, !tbaa !16
-  %1266 = getelementptr inbounds nuw i8, ptr %1204, i64 248
-  store double %1225, ptr %1266, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %1204, i64 noundef %1203, i32 noundef %4) #27
-  %1267 = load double, ptr %1263, align 8, !tbaa !16
-  store double %1267, ptr %8, align 16, !tbaa !16
-  %.val1789 = load double, ptr %1215, align 8, !tbaa !14
-  %.val1790 = load double, ptr %1216, align 8, !tbaa !14
-  %1268 = fadd double %.val1789, %.val1790
-  %1269 = fmul double %1268, 5.000000e-01
-  %1270 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %1269, ptr %1270, align 8, !tbaa !14
-  %1271 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %1267, ptr %1271, align 16, !tbaa !16
-  %1272 = load double, ptr %1219, align 8, !tbaa !14
-  %1273 = load double, ptr %1221, align 8, !tbaa !14
-  %1274 = fsub double %1272, %1273
-  %1275 = fmul double %1274, 1.250000e-01
-  %1276 = fadd double %1269, %1275
-  %1277 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %1276, ptr %1277, align 8, !tbaa !14
+  %1261 = getelementptr inbounds nuw i8, ptr %1200, i64 240
+  store double %1228, ptr %1261, align 8, !tbaa !16
+  %1262 = getelementptr inbounds nuw i8, ptr %1200, i64 248
+  store double %1221, ptr %1262, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %1200, i64 noundef %1199, i32 noundef %4) #27
+  %1263 = load double, ptr %1259, align 8, !tbaa !16
+  store double %1263, ptr %8, align 16, !tbaa !16
+  %.val1789 = load double, ptr %1211, align 8, !tbaa !14
+  %.val1790 = load double, ptr %1212, align 8, !tbaa !14
+  %1264 = fadd double %.val1789, %.val1790
+  %1265 = fmul double %1264, 5.000000e-01
+  %1266 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %1265, ptr %1266, align 8, !tbaa !14
+  %1267 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %1263, ptr %1267, align 16, !tbaa !16
+  %1268 = load double, ptr %1215, align 8, !tbaa !14
+  %1269 = load double, ptr %1217, align 8, !tbaa !14
+  %1270 = fsub double %1268, %1269
+  %1271 = fmul double %1270, 1.250000e-01
+  %1272 = fadd double %1265, %1271
+  %1273 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %1272, ptr %1273, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  %1278 = load double, ptr %1263, align 8, !tbaa !16
-  store double %1278, ptr %8, align 16, !tbaa !16
-  %.val1791 = load double, ptr %1215, align 8, !tbaa !14
-  %.val1792 = load double, ptr %1216, align 8, !tbaa !14
-  %1279 = fadd double %.val1791, %.val1792
-  %1280 = fmul double %1279, 5.000000e-01
-  %1281 = load double, ptr %1219, align 8, !tbaa !14
-  %1282 = load double, ptr %1221, align 8, !tbaa !14
-  %1283 = fsub double %1281, %1282
-  %1284 = fmul double %1283, 2.500000e-01
-  %1285 = fadd double %1280, %1284
-  store double %1285, ptr %1270, align 8, !tbaa !14
-  store double %1278, ptr %1271, align 16, !tbaa !16
-  %1286 = fmul double %1283, 1.250000e-01
-  %1287 = fadd double %1286, %1285
-  store double %1287, ptr %1277, align 8, !tbaa !14
+  %1274 = load double, ptr %1259, align 8, !tbaa !16
+  store double %1274, ptr %8, align 16, !tbaa !16
+  %.val1791 = load double, ptr %1211, align 8, !tbaa !14
+  %.val1792 = load double, ptr %1212, align 8, !tbaa !14
+  %1275 = fadd double %.val1791, %.val1792
+  %1276 = fmul double %1275, 5.000000e-01
+  %1277 = load double, ptr %1215, align 8, !tbaa !14
+  %1278 = load double, ptr %1217, align 8, !tbaa !14
+  %1279 = fsub double %1277, %1278
+  %1280 = fmul double %1279, 2.500000e-01
+  %1281 = fadd double %1276, %1280
+  store double %1281, ptr %1266, align 8, !tbaa !14
+  store double %1274, ptr %1267, align 16, !tbaa !16
+  %1282 = fmul double %1279, 1.250000e-01
+  %1283 = fadd double %1282, %1281
+  store double %1283, ptr %1273, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  %1288 = load double, ptr %1205, align 8, !tbaa !16
-  store double %1288, ptr %8, align 16, !tbaa !16
-  %.val1793 = load double, ptr %1215, align 8, !tbaa !14
-  %.val1794 = load double, ptr %1216, align 8, !tbaa !14
-  %1289 = fadd double %.val1793, %.val1794
-  %1290 = fmul double %1289, 5.000000e-01
-  store double %1290, ptr %1270, align 8, !tbaa !14
-  %1291 = load double, ptr %1, align 8, !tbaa !16
-  store double %1291, ptr %1271, align 16, !tbaa !16
-  %1292 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1293 = load double, ptr %1292, align 8, !tbaa !14
-  %1294 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %1295 = load double, ptr %1294, align 8, !tbaa !14
-  %1296 = fsub double %1293, %1295
-  %1297 = fmul double %1296, 5.000000e-01
-  %1298 = fadd double %.val1794, %1297
-  store double %1298, ptr %1277, align 8, !tbaa !14
+  %1284 = load double, ptr %1201, align 8, !tbaa !16
+  store double %1284, ptr %8, align 16, !tbaa !16
+  %.val1793 = load double, ptr %1211, align 8, !tbaa !14
+  %.val1794 = load double, ptr %1212, align 8, !tbaa !14
+  %1285 = fadd double %.val1793, %.val1794
+  %1286 = fmul double %1285, 5.000000e-01
+  store double %1286, ptr %1266, align 8, !tbaa !14
+  %1287 = load double, ptr %1, align 8, !tbaa !16
+  store double %1287, ptr %1267, align 16, !tbaa !16
+  %1288 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1289 = load double, ptr %1288, align 8, !tbaa !14
+  %1290 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %1291 = load double, ptr %1290, align 8, !tbaa !14
+  %1292 = fsub double %1289, %1291
+  %1293 = fmul double %1292, 5.000000e-01
+  %1294 = fadd double %.val1794, %1293
+  store double %1294, ptr %1273, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %1204) #27
-  br label %1736
+  call void @free(ptr noundef %1200) #27
+  br label %1732
 
-1299:                                             ; preds = %107
-  %1300 = add i64 %2, 4
-  %1301 = tail call fastcc ptr @gv_calloc(i64 noundef %1300, i64 noundef 16)
+1295:                                             ; preds = %103
+  %1296 = add i64 %2, 4
+  %1297 = tail call fastcc ptr @gv_calloc(i64 noundef %1296, i64 noundef 16)
   %.val1695 = load double, ptr %1, align 8, !tbaa !16
-  %1302 = getelementptr i8, ptr %1, i64 16
-  %.val1696 = load double, ptr %1302, align 8, !tbaa !16
-  %1303 = fadd double %.val1695, %.val1696
-  %1304 = fmul double %1303, 5.000000e-01
-  %1305 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %1306 = load double, ptr %1305, align 8, !tbaa !16
-  %1307 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %1308 = load double, ptr %1307, align 8, !tbaa !16
-  %1309 = fsub double %1306, %1308
-  %1310 = fmul double %1309, 1.250000e-01
-  %1311 = fadd double %1304, %1310
-  store double %1311, ptr %1301, align 8, !tbaa !16
-  %1312 = getelementptr i8, ptr %1, i64 24
-  %.val1795 = load double, ptr %1312, align 8, !tbaa !14
-  %1313 = getelementptr i8, ptr %1, i64 40
-  %.val1796 = load double, ptr %1313, align 8, !tbaa !14
-  %1314 = fadd double %.val1795, %.val1796
-  %1315 = fmul double %1314, 5.000000e-01
-  %1316 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %1317 = load double, ptr %1316, align 8, !tbaa !14
-  %1318 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %1319 = load double, ptr %1318, align 8, !tbaa !14
-  %1320 = fsub double %1317, %1319
-  %1321 = fmul double %1320, 5.000000e-01
-  %1322 = fadd double %1315, %1321
-  %1323 = getelementptr inbounds nuw i8, ptr %1301, i64 8
-  store double %1322, ptr %1323, align 8, !tbaa !14
-  %1324 = fadd double %1310, %1311
-  %1325 = getelementptr inbounds nuw i8, ptr %1301, i64 16
-  store double %1324, ptr %1325, align 8, !tbaa !16
-  %1326 = fmul double %1320, 1.250000e-01
-  %1327 = fadd double %1326, %1322
-  %1328 = getelementptr inbounds nuw i8, ptr %1301, i64 24
+  %1298 = getelementptr i8, ptr %1, i64 16
+  %.val1696 = load double, ptr %1298, align 8, !tbaa !16
+  %1299 = fadd double %.val1695, %.val1696
+  %1300 = fmul double %1299, 5.000000e-01
+  %1301 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %1302 = load double, ptr %1301, align 8, !tbaa !16
+  %1303 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %1304 = load double, ptr %1303, align 8, !tbaa !16
+  %1305 = fsub double %1302, %1304
+  %1306 = fmul double %1305, 1.250000e-01
+  %1307 = fadd double %1300, %1306
+  store double %1307, ptr %1297, align 8, !tbaa !16
+  %1308 = getelementptr i8, ptr %1, i64 24
+  %.val1795 = load double, ptr %1308, align 8, !tbaa !14
+  %1309 = getelementptr i8, ptr %1, i64 40
+  %.val1796 = load double, ptr %1309, align 8, !tbaa !14
+  %1310 = fadd double %.val1795, %.val1796
+  %1311 = fmul double %1310, 5.000000e-01
+  %1312 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %1313 = load double, ptr %1312, align 8, !tbaa !14
+  %1314 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %1315 = load double, ptr %1314, align 8, !tbaa !14
+  %1316 = fsub double %1313, %1315
+  %1317 = fmul double %1316, 5.000000e-01
+  %1318 = fadd double %1311, %1317
+  %1319 = getelementptr inbounds nuw i8, ptr %1297, i64 8
+  store double %1318, ptr %1319, align 8, !tbaa !14
+  %1320 = fadd double %1306, %1307
+  %1321 = getelementptr inbounds nuw i8, ptr %1297, i64 16
+  store double %1320, ptr %1321, align 8, !tbaa !16
+  %1322 = fmul double %1316, 1.250000e-01
+  %1323 = fadd double %1322, %1318
+  %1324 = getelementptr inbounds nuw i8, ptr %1297, i64 24
+  store double %1323, ptr %1324, align 8, !tbaa !14
+  %1325 = getelementptr inbounds nuw i8, ptr %1297, i64 32
+  store double %1320, ptr %1325, align 8, !tbaa !16
+  %1326 = fmul double %1316, 2.500000e-01
+  %1327 = fadd double %1326, %1323
+  %1328 = getelementptr inbounds nuw i8, ptr %1297, i64 40
   store double %1327, ptr %1328, align 8, !tbaa !14
-  %1329 = getelementptr inbounds nuw i8, ptr %1301, i64 32
-  store double %1324, ptr %1329, align 8, !tbaa !16
-  %1330 = fmul double %1320, 2.500000e-01
-  %1331 = fadd double %1330, %1327
-  %1332 = getelementptr inbounds nuw i8, ptr %1301, i64 40
-  store double %1331, ptr %1332, align 8, !tbaa !14
-  %1333 = getelementptr inbounds nuw i8, ptr %1301, i64 48
-  store double %1311, ptr %1333, align 8, !tbaa !16
-  %1334 = fadd double %1331, %1326
-  %1335 = getelementptr inbounds nuw i8, ptr %1301, i64 56
-  store double %1334, ptr %1335, align 8, !tbaa !14
-  %1336 = fmul double %1309, 2.500000e-01
-  %1337 = fsub double %1311, %1336
-  %1338 = getelementptr inbounds nuw i8, ptr %1301, i64 64
-  store double %1337, ptr %1338, align 8, !tbaa !16
-  %1339 = getelementptr inbounds nuw i8, ptr %1301, i64 72
-  store double %1334, ptr %1339, align 8, !tbaa !14
-  %1340 = fsub double %1337, %1310
-  %1341 = getelementptr inbounds nuw i8, ptr %1301, i64 80
-  store double %1340, ptr %1341, align 8, !tbaa !16
-  %1342 = getelementptr inbounds nuw i8, ptr %1301, i64 88
-  store double %1331, ptr %1342, align 8, !tbaa !14
-  %1343 = getelementptr inbounds nuw i8, ptr %1301, i64 96
-  store double %1340, ptr %1343, align 8, !tbaa !16
-  %1344 = getelementptr inbounds nuw i8, ptr %1301, i64 104
-  store double %1327, ptr %1344, align 8, !tbaa !14
-  %1345 = getelementptr inbounds nuw i8, ptr %1301, i64 112
-  store double %1337, ptr %1345, align 8, !tbaa !16
-  %1346 = getelementptr inbounds nuw i8, ptr %1301, i64 120
-  store double %1322, ptr %1346, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1301, i64 noundef %1300, i32 noundef %4) #27
+  %1329 = getelementptr inbounds nuw i8, ptr %1297, i64 48
+  store double %1307, ptr %1329, align 8, !tbaa !16
+  %1330 = fadd double %1327, %1322
+  %1331 = getelementptr inbounds nuw i8, ptr %1297, i64 56
+  store double %1330, ptr %1331, align 8, !tbaa !14
+  %1332 = fmul double %1305, 2.500000e-01
+  %1333 = fsub double %1307, %1332
+  %1334 = getelementptr inbounds nuw i8, ptr %1297, i64 64
+  store double %1333, ptr %1334, align 8, !tbaa !16
+  %1335 = getelementptr inbounds nuw i8, ptr %1297, i64 72
+  store double %1330, ptr %1335, align 8, !tbaa !14
+  %1336 = fsub double %1333, %1306
+  %1337 = getelementptr inbounds nuw i8, ptr %1297, i64 80
+  store double %1336, ptr %1337, align 8, !tbaa !16
+  %1338 = getelementptr inbounds nuw i8, ptr %1297, i64 88
+  store double %1327, ptr %1338, align 8, !tbaa !14
+  %1339 = getelementptr inbounds nuw i8, ptr %1297, i64 96
+  store double %1336, ptr %1339, align 8, !tbaa !16
+  %1340 = getelementptr inbounds nuw i8, ptr %1297, i64 104
+  store double %1323, ptr %1340, align 8, !tbaa !14
+  %1341 = getelementptr inbounds nuw i8, ptr %1297, i64 112
+  store double %1333, ptr %1341, align 8, !tbaa !16
+  %1342 = getelementptr inbounds nuw i8, ptr %1297, i64 120
+  store double %1318, ptr %1342, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1297, i64 noundef %1296, i32 noundef %4) #27
   %.val1697 = load double, ptr %1, align 8, !tbaa !16
-  %.val1698 = load double, ptr %1302, align 8, !tbaa !16
-  %1347 = fadd double %.val1697, %.val1698
-  %1348 = fmul double %1347, 5.000000e-01
-  store double %1348, ptr %8, align 16, !tbaa !16
-  %.val1797 = load double, ptr %1312, align 8, !tbaa !14
-  %.val1798 = load double, ptr %1313, align 8, !tbaa !14
-  %1349 = fadd double %.val1797, %.val1798
-  %1350 = fmul double %1349, 5.000000e-01
-  %1351 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %1350, ptr %1351, align 8, !tbaa !14
-  %1352 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %1348, ptr %1352, align 16, !tbaa !16
-  %1353 = load double, ptr %1316, align 8, !tbaa !14
-  %1354 = load double, ptr %1318, align 8, !tbaa !14
-  %1355 = fsub double %1353, %1354
-  %1356 = fmul double %1355, 1.250000e-01
-  %1357 = fadd double %1350, %1356
-  %1358 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %1357, ptr %1358, align 8, !tbaa !14
+  %.val1698 = load double, ptr %1298, align 8, !tbaa !16
+  %1343 = fadd double %.val1697, %.val1698
+  %1344 = fmul double %1343, 5.000000e-01
+  store double %1344, ptr %8, align 16, !tbaa !16
+  %.val1797 = load double, ptr %1308, align 8, !tbaa !14
+  %.val1798 = load double, ptr %1309, align 8, !tbaa !14
+  %1345 = fadd double %.val1797, %.val1798
+  %1346 = fmul double %1345, 5.000000e-01
+  %1347 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %1346, ptr %1347, align 8, !tbaa !14
+  %1348 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %1344, ptr %1348, align 16, !tbaa !16
+  %1349 = load double, ptr %1312, align 8, !tbaa !14
+  %1350 = load double, ptr %1314, align 8, !tbaa !14
+  %1351 = fsub double %1349, %1350
+  %1352 = fmul double %1351, 1.250000e-01
+  %1353 = fadd double %1346, %1352
+  %1354 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %1353, ptr %1354, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
   %.val1699 = load double, ptr %1, align 8, !tbaa !16
-  %.val1700 = load double, ptr %1302, align 8, !tbaa !16
-  %1359 = fadd double %.val1699, %.val1700
-  %1360 = fmul double %1359, 5.000000e-01
-  store double %1360, ptr %8, align 16, !tbaa !16
-  %.val1799 = load double, ptr %1312, align 8, !tbaa !14
-  %.val1800 = load double, ptr %1313, align 8, !tbaa !14
-  %1361 = fadd double %.val1799, %.val1800
-  %1362 = fmul double %1361, 5.000000e-01
-  %1363 = load double, ptr %1316, align 8, !tbaa !14
-  %1364 = load double, ptr %1318, align 8, !tbaa !14
-  %1365 = fsub double %1363, %1364
-  %1366 = fmul double %1365, 2.500000e-01
-  %1367 = fadd double %1362, %1366
-  store double %1367, ptr %1351, align 8, !tbaa !14
-  store double %1360, ptr %1352, align 16, !tbaa !16
-  %1368 = fmul double %1365, 1.250000e-01
-  %1369 = fadd double %1367, %1368
-  store double %1369, ptr %1358, align 8, !tbaa !14
+  %.val1700 = load double, ptr %1298, align 8, !tbaa !16
+  %1355 = fadd double %.val1699, %.val1700
+  %1356 = fmul double %1355, 5.000000e-01
+  store double %1356, ptr %8, align 16, !tbaa !16
+  %.val1799 = load double, ptr %1308, align 8, !tbaa !14
+  %.val1800 = load double, ptr %1309, align 8, !tbaa !14
+  %1357 = fadd double %.val1799, %.val1800
+  %1358 = fmul double %1357, 5.000000e-01
+  %1359 = load double, ptr %1312, align 8, !tbaa !14
+  %1360 = load double, ptr %1314, align 8, !tbaa !14
+  %1361 = fsub double %1359, %1360
+  %1362 = fmul double %1361, 2.500000e-01
+  %1363 = fadd double %1358, %1362
+  store double %1363, ptr %1347, align 8, !tbaa !14
+  store double %1356, ptr %1348, align 16, !tbaa !16
+  %1364 = fmul double %1361, 1.250000e-01
+  %1365 = fadd double %1363, %1364
+  store double %1365, ptr %1354, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  %1370 = load double, ptr %1302, align 8, !tbaa !16
-  store double %1370, ptr %8, align 16, !tbaa !16
-  %.val1801 = load double, ptr %1312, align 8, !tbaa !14
-  %.val1802 = load double, ptr %1313, align 8, !tbaa !14
-  %1371 = fadd double %.val1801, %.val1802
-  %1372 = fmul double %1371, 5.000000e-01
-  store double %1372, ptr %1351, align 8, !tbaa !14
-  %1373 = load double, ptr %1, align 8, !tbaa !16
-  store double %1373, ptr %1352, align 16, !tbaa !16
-  %1374 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1375 = load double, ptr %1374, align 8, !tbaa !14
-  %1376 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %1377 = load double, ptr %1376, align 8, !tbaa !14
-  %1378 = fsub double %1375, %1377
-  %1379 = fmul double %1378, 5.000000e-01
-  %1380 = fadd double %.val1802, %1379
-  store double %1380, ptr %1358, align 8, !tbaa !14
+  %1366 = load double, ptr %1298, align 8, !tbaa !16
+  store double %1366, ptr %8, align 16, !tbaa !16
+  %.val1801 = load double, ptr %1308, align 8, !tbaa !14
+  %.val1802 = load double, ptr %1309, align 8, !tbaa !14
+  %1367 = fadd double %.val1801, %.val1802
+  %1368 = fmul double %1367, 5.000000e-01
+  store double %1368, ptr %1347, align 8, !tbaa !14
+  %1369 = load double, ptr %1, align 8, !tbaa !16
+  store double %1369, ptr %1348, align 16, !tbaa !16
+  %1370 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1371 = load double, ptr %1370, align 8, !tbaa !14
+  %1372 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %1373 = load double, ptr %1372, align 8, !tbaa !14
+  %1374 = fsub double %1371, %1373
+  %1375 = fmul double %1374, 5.000000e-01
+  %1376 = fadd double %.val1802, %1375
+  store double %1376, ptr %1354, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %1301) #27
-  br label %1736
+  call void @free(ptr noundef %1297) #27
+  br label %1732
 
-1381:                                             ; preds = %107
-  %1382 = add i64 %2, 12
-  %1383 = tail call fastcc ptr @gv_calloc(i64 noundef %1382, i64 noundef 16)
+1377:                                             ; preds = %103
+  %1378 = add i64 %2, 12
+  %1379 = tail call fastcc ptr @gv_calloc(i64 noundef %1378, i64 noundef 16)
   %.val1701 = load double, ptr %1, align 8, !tbaa !16
-  %1384 = getelementptr i8, ptr %1, i64 16
-  %.val1702 = load double, ptr %1384, align 8, !tbaa !16
-  %1385 = fadd double %.val1701, %.val1702
-  %1386 = fmul double %1385, 5.000000e-01
-  %1387 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %1388 = load double, ptr %1387, align 8, !tbaa !16
-  %1389 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %1390 = load double, ptr %1389, align 8, !tbaa !16
-  %1391 = fsub double %1388, %1390
-  %1392 = fmul double %1391, 2.500000e-01
-  %1393 = fadd double %1386, %1392
-  store double %1393, ptr %1383, align 8, !tbaa !16
-  %1394 = getelementptr i8, ptr %1, i64 24
-  %.val1803 = load double, ptr %1394, align 8, !tbaa !14
-  %1395 = getelementptr i8, ptr %1, i64 40
-  %.val1804 = load double, ptr %1395, align 8, !tbaa !14
-  %1396 = fadd double %.val1803, %.val1804
-  %1397 = fmul double %1396, 5.000000e-01
-  %1398 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %1399 = load double, ptr %1398, align 8, !tbaa !14
-  %1400 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %1401 = load double, ptr %1400, align 8, !tbaa !14
-  %1402 = fsub double %1399, %1401
-  %1403 = fmul double %1402, 5.000000e-01
-  %1404 = fadd double %1397, %1403
-  %1405 = getelementptr inbounds nuw i8, ptr %1383, i64 8
+  %1380 = getelementptr i8, ptr %1, i64 16
+  %.val1702 = load double, ptr %1380, align 8, !tbaa !16
+  %1381 = fadd double %.val1701, %.val1702
+  %1382 = fmul double %1381, 5.000000e-01
+  %1383 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %1384 = load double, ptr %1383, align 8, !tbaa !16
+  %1385 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %1386 = load double, ptr %1385, align 8, !tbaa !16
+  %1387 = fsub double %1384, %1386
+  %1388 = fmul double %1387, 2.500000e-01
+  %1389 = fadd double %1382, %1388
+  store double %1389, ptr %1379, align 8, !tbaa !16
+  %1390 = getelementptr i8, ptr %1, i64 24
+  %.val1803 = load double, ptr %1390, align 8, !tbaa !14
+  %1391 = getelementptr i8, ptr %1, i64 40
+  %.val1804 = load double, ptr %1391, align 8, !tbaa !14
+  %1392 = fadd double %.val1803, %.val1804
+  %1393 = fmul double %1392, 5.000000e-01
+  %1394 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %1395 = load double, ptr %1394, align 8, !tbaa !14
+  %1396 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %1397 = load double, ptr %1396, align 8, !tbaa !14
+  %1398 = fsub double %1395, %1397
+  %1399 = fmul double %1398, 5.000000e-01
+  %1400 = fadd double %1393, %1399
+  %1401 = getelementptr inbounds nuw i8, ptr %1379, i64 8
+  store double %1400, ptr %1401, align 8, !tbaa !14
+  %1402 = getelementptr inbounds nuw i8, ptr %1379, i64 16
+  store double %1389, ptr %1402, align 8, !tbaa !16
+  %1403 = fmul double %1398, 1.250000e-01
+  %1404 = fadd double %1400, %1403
+  %1405 = getelementptr inbounds nuw i8, ptr %1379, i64 24
   store double %1404, ptr %1405, align 8, !tbaa !14
-  %1406 = getelementptr inbounds nuw i8, ptr %1383, i64 16
-  store double %1393, ptr %1406, align 8, !tbaa !16
-  %1407 = fmul double %1402, 1.250000e-01
-  %1408 = fadd double %1404, %1407
-  %1409 = getelementptr inbounds nuw i8, ptr %1383, i64 24
-  store double %1408, ptr %1409, align 8, !tbaa !14
-  %1410 = fmul double %1391, 1.250000e-01
-  %1411 = fsub double %1393, %1410
-  %1412 = getelementptr inbounds nuw i8, ptr %1383, i64 32
-  store double %1411, ptr %1412, align 8, !tbaa !16
-  %1413 = fadd double %1408, %1407
-  %1414 = getelementptr inbounds nuw i8, ptr %1383, i64 40
-  store double %1413, ptr %1414, align 8, !tbaa !14
-  %1415 = getelementptr inbounds nuw i8, ptr %1383, i64 48
-  store double %1393, ptr %1415, align 8, !tbaa !16
-  %1416 = fadd double %1413, %1407
-  %1417 = getelementptr inbounds nuw i8, ptr %1383, i64 56
-  store double %1416, ptr %1417, align 8, !tbaa !14
-  %1418 = getelementptr inbounds nuw i8, ptr %1383, i64 64
-  store double %1393, ptr %1418, align 8, !tbaa !16
-  %1419 = fadd double %1416, %1407
-  %1420 = getelementptr inbounds nuw i8, ptr %1383, i64 72
-  store double %1419, ptr %1420, align 8, !tbaa !14
-  %1421 = getelementptr inbounds nuw i8, ptr %1383, i64 80
-  store double %1411, ptr %1421, align 8, !tbaa !16
-  %1422 = getelementptr inbounds nuw i8, ptr %1383, i64 88
-  store double %1419, ptr %1422, align 8, !tbaa !14
-  %1423 = getelementptr inbounds nuw i8, ptr %1383, i64 96
-  store double %1386, ptr %1423, align 8, !tbaa !16
-  %1424 = getelementptr inbounds nuw i8, ptr %1383, i64 104
-  store double %1416, ptr %1424, align 8, !tbaa !14
-  %1425 = fsub double %1386, %1410
-  %1426 = getelementptr inbounds nuw i8, ptr %1383, i64 112
-  store double %1425, ptr %1426, align 8, !tbaa !16
-  %1427 = getelementptr inbounds nuw i8, ptr %1383, i64 120
-  store double %1419, ptr %1427, align 8, !tbaa !14
-  %1428 = fsub double %1425, %1410
-  %1429 = getelementptr inbounds nuw i8, ptr %1383, i64 128
-  store double %1428, ptr %1429, align 8, !tbaa !16
-  %1430 = getelementptr inbounds nuw i8, ptr %1383, i64 136
-  store double %1419, ptr %1430, align 8, !tbaa !14
-  %1431 = getelementptr inbounds nuw i8, ptr %1383, i64 144
-  store double %1428, ptr %1431, align 8, !tbaa !16
-  %1432 = getelementptr inbounds nuw i8, ptr %1383, i64 152
-  store double %1416, ptr %1432, align 8, !tbaa !14
-  %1433 = fadd double %1428, %1410
-  %1434 = getelementptr inbounds nuw i8, ptr %1383, i64 160
-  store double %1433, ptr %1434, align 8, !tbaa !16
-  %1435 = getelementptr inbounds nuw i8, ptr %1383, i64 168
-  store double %1413, ptr %1435, align 8, !tbaa !14
-  %1436 = getelementptr inbounds nuw i8, ptr %1383, i64 176
-  store double %1428, ptr %1436, align 8, !tbaa !16
-  %1437 = getelementptr inbounds nuw i8, ptr %1383, i64 184
-  store double %1408, ptr %1437, align 8, !tbaa !14
-  %1438 = getelementptr inbounds nuw i8, ptr %1383, i64 192
-  store double %1428, ptr %1438, align 8, !tbaa !16
-  %1439 = getelementptr inbounds nuw i8, ptr %1383, i64 200
+  %1406 = fmul double %1387, 1.250000e-01
+  %1407 = fsub double %1389, %1406
+  %1408 = getelementptr inbounds nuw i8, ptr %1379, i64 32
+  store double %1407, ptr %1408, align 8, !tbaa !16
+  %1409 = fadd double %1404, %1403
+  %1410 = getelementptr inbounds nuw i8, ptr %1379, i64 40
+  store double %1409, ptr %1410, align 8, !tbaa !14
+  %1411 = getelementptr inbounds nuw i8, ptr %1379, i64 48
+  store double %1389, ptr %1411, align 8, !tbaa !16
+  %1412 = fadd double %1409, %1403
+  %1413 = getelementptr inbounds nuw i8, ptr %1379, i64 56
+  store double %1412, ptr %1413, align 8, !tbaa !14
+  %1414 = getelementptr inbounds nuw i8, ptr %1379, i64 64
+  store double %1389, ptr %1414, align 8, !tbaa !16
+  %1415 = fadd double %1412, %1403
+  %1416 = getelementptr inbounds nuw i8, ptr %1379, i64 72
+  store double %1415, ptr %1416, align 8, !tbaa !14
+  %1417 = getelementptr inbounds nuw i8, ptr %1379, i64 80
+  store double %1407, ptr %1417, align 8, !tbaa !16
+  %1418 = getelementptr inbounds nuw i8, ptr %1379, i64 88
+  store double %1415, ptr %1418, align 8, !tbaa !14
+  %1419 = getelementptr inbounds nuw i8, ptr %1379, i64 96
+  store double %1382, ptr %1419, align 8, !tbaa !16
+  %1420 = getelementptr inbounds nuw i8, ptr %1379, i64 104
+  store double %1412, ptr %1420, align 8, !tbaa !14
+  %1421 = fsub double %1382, %1406
+  %1422 = getelementptr inbounds nuw i8, ptr %1379, i64 112
+  store double %1421, ptr %1422, align 8, !tbaa !16
+  %1423 = getelementptr inbounds nuw i8, ptr %1379, i64 120
+  store double %1415, ptr %1423, align 8, !tbaa !14
+  %1424 = fsub double %1421, %1406
+  %1425 = getelementptr inbounds nuw i8, ptr %1379, i64 128
+  store double %1424, ptr %1425, align 8, !tbaa !16
+  %1426 = getelementptr inbounds nuw i8, ptr %1379, i64 136
+  store double %1415, ptr %1426, align 8, !tbaa !14
+  %1427 = getelementptr inbounds nuw i8, ptr %1379, i64 144
+  store double %1424, ptr %1427, align 8, !tbaa !16
+  %1428 = getelementptr inbounds nuw i8, ptr %1379, i64 152
+  store double %1412, ptr %1428, align 8, !tbaa !14
+  %1429 = fadd double %1424, %1406
+  %1430 = getelementptr inbounds nuw i8, ptr %1379, i64 160
+  store double %1429, ptr %1430, align 8, !tbaa !16
+  %1431 = getelementptr inbounds nuw i8, ptr %1379, i64 168
+  store double %1409, ptr %1431, align 8, !tbaa !14
+  %1432 = getelementptr inbounds nuw i8, ptr %1379, i64 176
+  store double %1424, ptr %1432, align 8, !tbaa !16
+  %1433 = getelementptr inbounds nuw i8, ptr %1379, i64 184
+  store double %1404, ptr %1433, align 8, !tbaa !14
+  %1434 = getelementptr inbounds nuw i8, ptr %1379, i64 192
+  store double %1424, ptr %1434, align 8, !tbaa !16
+  %1435 = getelementptr inbounds nuw i8, ptr %1379, i64 200
+  store double %1400, ptr %1435, align 8, !tbaa !14
+  %1436 = getelementptr inbounds nuw i8, ptr %1379, i64 208
+  store double %1429, ptr %1436, align 8, !tbaa !16
+  %1437 = getelementptr inbounds nuw i8, ptr %1379, i64 216
+  store double %1400, ptr %1437, align 8, !tbaa !14
+  %1438 = getelementptr inbounds nuw i8, ptr %1379, i64 224
+  store double %1382, ptr %1438, align 8, !tbaa !16
+  %1439 = getelementptr inbounds nuw i8, ptr %1379, i64 232
   store double %1404, ptr %1439, align 8, !tbaa !14
-  %1440 = getelementptr inbounds nuw i8, ptr %1383, i64 208
-  store double %1433, ptr %1440, align 8, !tbaa !16
-  %1441 = getelementptr inbounds nuw i8, ptr %1383, i64 216
-  store double %1404, ptr %1441, align 8, !tbaa !14
-  %1442 = getelementptr inbounds nuw i8, ptr %1383, i64 224
-  store double %1386, ptr %1442, align 8, !tbaa !16
-  %1443 = getelementptr inbounds nuw i8, ptr %1383, i64 232
-  store double %1408, ptr %1443, align 8, !tbaa !14
-  %1444 = getelementptr inbounds nuw i8, ptr %1383, i64 240
-  store double %1411, ptr %1444, align 8, !tbaa !16
-  %1445 = getelementptr inbounds nuw i8, ptr %1383, i64 248
-  store double %1404, ptr %1445, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %1383, i64 noundef %1382, i32 noundef %4) #27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %1442, i64 16, i1 false), !tbaa.struct !3
-  %1446 = load double, ptr %8, align 16, !tbaa !16
-  %1447 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %1446, ptr %1447, align 16, !tbaa !16
-  %.val1805 = load double, ptr %1394, align 8, !tbaa !14
-  %.val1806 = load double, ptr %1395, align 8, !tbaa !14
-  %1448 = fadd double %.val1805, %.val1806
+  %1440 = getelementptr inbounds nuw i8, ptr %1379, i64 240
+  store double %1407, ptr %1440, align 8, !tbaa !16
+  %1441 = getelementptr inbounds nuw i8, ptr %1379, i64 248
+  store double %1400, ptr %1441, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef %1379, i64 noundef %1378, i32 noundef %4) #27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %1438, i64 16, i1 false), !tbaa.struct !3
+  %1442 = load double, ptr %8, align 16, !tbaa !16
+  %1443 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %1442, ptr %1443, align 16, !tbaa !16
+  %.val1805 = load double, ptr %1390, align 8, !tbaa !14
+  %.val1806 = load double, ptr %1391, align 8, !tbaa !14
+  %1444 = fadd double %.val1805, %.val1806
+  %1445 = fmul double %1444, 5.000000e-01
+  %1446 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store double %1445, ptr %1446, align 8, !tbaa !14
+  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
+  %1447 = load double, ptr %1380, align 8, !tbaa !16
+  store double %1447, ptr %8, align 16, !tbaa !16
+  %.val1807 = load double, ptr %1390, align 8, !tbaa !14
+  %.val1808 = load double, ptr %1391, align 8, !tbaa !14
+  %1448 = fadd double %.val1807, %.val1808
   %1449 = fmul double %1448, 5.000000e-01
-  %1450 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %1450 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store double %1449, ptr %1450, align 8, !tbaa !14
+  %1451 = load double, ptr %1, align 8, !tbaa !16
+  store double %1451, ptr %1443, align 16, !tbaa !16
+  %1452 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1453 = load double, ptr %1452, align 8, !tbaa !14
+  %1454 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %1455 = load double, ptr %1454, align 8, !tbaa !14
+  %1456 = fsub double %1453, %1455
+  %1457 = fmul double %1456, 5.000000e-01
+  %1458 = fadd double %.val1808, %1457
+  store double %1458, ptr %1446, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  %1451 = load double, ptr %1384, align 8, !tbaa !16
-  store double %1451, ptr %8, align 16, !tbaa !16
-  %.val1807 = load double, ptr %1394, align 8, !tbaa !14
-  %.val1808 = load double, ptr %1395, align 8, !tbaa !14
-  %1452 = fadd double %.val1807, %.val1808
-  %1453 = fmul double %1452, 5.000000e-01
-  %1454 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store double %1453, ptr %1454, align 8, !tbaa !14
-  %1455 = load double, ptr %1, align 8, !tbaa !16
-  store double %1455, ptr %1447, align 16, !tbaa !16
-  %1456 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1457 = load double, ptr %1456, align 8, !tbaa !14
-  %1458 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %1459 = load double, ptr %1458, align 8, !tbaa !14
-  %1460 = fsub double %1457, %1459
-  %1461 = fmul double %1460, 5.000000e-01
-  %1462 = fadd double %.val1808, %1461
-  store double %1462, ptr %1450, align 8, !tbaa !14
-  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %1383) #27
-  br label %1736
+  call void @free(ptr noundef %1379) #27
+  br label %1732
 
-1463:                                             ; preds = %107
-  %1464 = add i64 %2, 4
-  %1465 = tail call fastcc ptr @gv_calloc(i64 noundef %1464, i64 noundef 16)
+1459:                                             ; preds = %103
+  %1460 = add i64 %2, 4
+  %1461 = tail call fastcc ptr @gv_calloc(i64 noundef %1460, i64 noundef 16)
   %.val1705 = load double, ptr %1, align 8, !tbaa !16
-  %1466 = getelementptr i8, ptr %1, i64 16
-  %.val1706 = load double, ptr %1466, align 8, !tbaa !16
-  %1467 = fadd double %.val1705, %.val1706
-  %1468 = fmul double %1467, 5.000000e-01
-  %1469 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %1470 = load double, ptr %1469, align 8, !tbaa !16
-  %1471 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %1472 = load double, ptr %1471, align 8, !tbaa !16
-  %1473 = fsub double %1470, %1472
-  %1474 = fmul double %1473, 1.250000e-01
-  %1475 = fadd double %1468, %1474
-  store double %1475, ptr %1465, align 8, !tbaa !16
-  %1476 = getelementptr i8, ptr %1, i64 24
-  %.val1809 = load double, ptr %1476, align 8, !tbaa !14
-  %1477 = getelementptr i8, ptr %1, i64 40
-  %.val1810 = load double, ptr %1477, align 8, !tbaa !14
-  %1478 = fadd double %.val1809, %.val1810
-  %1479 = fmul double %1478, 5.000000e-01
-  %1480 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %1481 = load double, ptr %1480, align 8, !tbaa !14
-  %1482 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %1483 = load double, ptr %1482, align 8, !tbaa !14
-  %1484 = fsub double %1481, %1483
-  %1485 = fmul double %1484, 5.000000e-01
-  %1486 = fadd double %1479, %1485
-  %1487 = getelementptr inbounds nuw i8, ptr %1465, i64 8
-  store double %1486, ptr %1487, align 8, !tbaa !14
-  %1488 = fadd double %1475, %1474
-  %1489 = getelementptr inbounds nuw i8, ptr %1465, i64 16
-  store double %1488, ptr %1489, align 8, !tbaa !16
-  %1490 = fmul double %1484, 1.250000e-01
-  %1491 = fadd double %1486, %1490
-  %1492 = getelementptr inbounds nuw i8, ptr %1465, i64 24
+  %1462 = getelementptr i8, ptr %1, i64 16
+  %.val1706 = load double, ptr %1462, align 8, !tbaa !16
+  %1463 = fadd double %.val1705, %.val1706
+  %1464 = fmul double %1463, 5.000000e-01
+  %1465 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %1466 = load double, ptr %1465, align 8, !tbaa !16
+  %1467 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %1468 = load double, ptr %1467, align 8, !tbaa !16
+  %1469 = fsub double %1466, %1468
+  %1470 = fmul double %1469, 1.250000e-01
+  %1471 = fadd double %1464, %1470
+  store double %1471, ptr %1461, align 8, !tbaa !16
+  %1472 = getelementptr i8, ptr %1, i64 24
+  %.val1809 = load double, ptr %1472, align 8, !tbaa !14
+  %1473 = getelementptr i8, ptr %1, i64 40
+  %.val1810 = load double, ptr %1473, align 8, !tbaa !14
+  %1474 = fadd double %.val1809, %.val1810
+  %1475 = fmul double %1474, 5.000000e-01
+  %1476 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %1477 = load double, ptr %1476, align 8, !tbaa !14
+  %1478 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %1479 = load double, ptr %1478, align 8, !tbaa !14
+  %1480 = fsub double %1477, %1479
+  %1481 = fmul double %1480, 5.000000e-01
+  %1482 = fadd double %1475, %1481
+  %1483 = getelementptr inbounds nuw i8, ptr %1461, i64 8
+  store double %1482, ptr %1483, align 8, !tbaa !14
+  %1484 = fadd double %1471, %1470
+  %1485 = getelementptr inbounds nuw i8, ptr %1461, i64 16
+  store double %1484, ptr %1485, align 8, !tbaa !16
+  %1486 = fmul double %1480, 1.250000e-01
+  %1487 = fadd double %1482, %1486
+  %1488 = getelementptr inbounds nuw i8, ptr %1461, i64 24
+  store double %1487, ptr %1488, align 8, !tbaa !14
+  %1489 = getelementptr inbounds nuw i8, ptr %1461, i64 32
+  store double %1484, ptr %1489, align 8, !tbaa !16
+  %1490 = fmul double %1480, 2.500000e-01
+  %1491 = fadd double %1487, %1490
+  %1492 = getelementptr inbounds nuw i8, ptr %1461, i64 40
   store double %1491, ptr %1492, align 8, !tbaa !14
-  %1493 = getelementptr inbounds nuw i8, ptr %1465, i64 32
-  store double %1488, ptr %1493, align 8, !tbaa !16
-  %1494 = fmul double %1484, 2.500000e-01
-  %1495 = fadd double %1491, %1494
-  %1496 = getelementptr inbounds nuw i8, ptr %1465, i64 40
-  store double %1495, ptr %1496, align 8, !tbaa !14
-  %1497 = getelementptr inbounds nuw i8, ptr %1465, i64 48
-  store double %1475, ptr %1497, align 8, !tbaa !16
-  %1498 = fadd double %1495, %1490
-  %1499 = getelementptr inbounds nuw i8, ptr %1465, i64 56
-  store double %1498, ptr %1499, align 8, !tbaa !14
-  %1500 = fmul double %1473, 2.500000e-01
-  %1501 = fsub double %1475, %1500
-  %1502 = getelementptr inbounds nuw i8, ptr %1465, i64 64
-  store double %1501, ptr %1502, align 8, !tbaa !16
-  %1503 = getelementptr inbounds nuw i8, ptr %1465, i64 72
-  store double %1498, ptr %1503, align 8, !tbaa !14
-  %1504 = fsub double %1501, %1474
-  %1505 = getelementptr inbounds nuw i8, ptr %1465, i64 80
-  store double %1504, ptr %1505, align 8, !tbaa !16
-  %1506 = getelementptr inbounds nuw i8, ptr %1465, i64 88
-  store double %1495, ptr %1506, align 8, !tbaa !14
-  %1507 = getelementptr inbounds nuw i8, ptr %1465, i64 96
-  store double %1504, ptr %1507, align 8, !tbaa !16
-  %1508 = getelementptr inbounds nuw i8, ptr %1465, i64 104
-  store double %1491, ptr %1508, align 8, !tbaa !14
-  %1509 = getelementptr inbounds nuw i8, ptr %1465, i64 112
-  store double %1501, ptr %1509, align 8, !tbaa !16
-  %1510 = getelementptr inbounds nuw i8, ptr %1465, i64 120
-  store double %1486, ptr %1510, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1465, i64 noundef %1464, i32 noundef %4) #27
+  %1493 = getelementptr inbounds nuw i8, ptr %1461, i64 48
+  store double %1471, ptr %1493, align 8, !tbaa !16
+  %1494 = fadd double %1491, %1486
+  %1495 = getelementptr inbounds nuw i8, ptr %1461, i64 56
+  store double %1494, ptr %1495, align 8, !tbaa !14
+  %1496 = fmul double %1469, 2.500000e-01
+  %1497 = fsub double %1471, %1496
+  %1498 = getelementptr inbounds nuw i8, ptr %1461, i64 64
+  store double %1497, ptr %1498, align 8, !tbaa !16
+  %1499 = getelementptr inbounds nuw i8, ptr %1461, i64 72
+  store double %1494, ptr %1499, align 8, !tbaa !14
+  %1500 = fsub double %1497, %1470
+  %1501 = getelementptr inbounds nuw i8, ptr %1461, i64 80
+  store double %1500, ptr %1501, align 8, !tbaa !16
+  %1502 = getelementptr inbounds nuw i8, ptr %1461, i64 88
+  store double %1491, ptr %1502, align 8, !tbaa !14
+  %1503 = getelementptr inbounds nuw i8, ptr %1461, i64 96
+  store double %1500, ptr %1503, align 8, !tbaa !16
+  %1504 = getelementptr inbounds nuw i8, ptr %1461, i64 104
+  store double %1487, ptr %1504, align 8, !tbaa !14
+  %1505 = getelementptr inbounds nuw i8, ptr %1461, i64 112
+  store double %1497, ptr %1505, align 8, !tbaa !16
+  %1506 = getelementptr inbounds nuw i8, ptr %1461, i64 120
+  store double %1482, ptr %1506, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1461, i64 noundef %1460, i32 noundef %4) #27
   %.val1707 = load double, ptr %1, align 8, !tbaa !16
-  %.val1708 = load double, ptr %1466, align 8, !tbaa !16
-  %1511 = fadd double %.val1707, %.val1708
-  %1512 = fmul double %1511, 5.000000e-01
-  store double %1512, ptr %8, align 16, !tbaa !16
-  %1513 = load double, ptr %1487, align 8, !tbaa !14
-  %1514 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.val1708 = load double, ptr %1462, align 8, !tbaa !16
+  %1507 = fadd double %.val1707, %.val1708
+  %1508 = fmul double %1507, 5.000000e-01
+  store double %1508, ptr %8, align 16, !tbaa !16
+  %1509 = load double, ptr %1483, align 8, !tbaa !14
+  %1510 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store double %1509, ptr %1510, align 8, !tbaa !14
+  %1511 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store double %1508, ptr %1511, align 16, !tbaa !16
+  %.val1811 = load double, ptr %1472, align 8, !tbaa !14
+  %.val1812 = load double, ptr %1473, align 8, !tbaa !14
+  %1512 = fadd double %.val1811, %.val1812
+  %1513 = fmul double %1512, 5.000000e-01
+  %1514 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store double %1513, ptr %1514, align 8, !tbaa !14
-  %1515 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store double %1512, ptr %1515, align 16, !tbaa !16
-  %.val1811 = load double, ptr %1476, align 8, !tbaa !14
-  %.val1812 = load double, ptr %1477, align 8, !tbaa !14
-  %1516 = fadd double %.val1811, %.val1812
+  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
+  %1515 = load double, ptr %1462, align 8, !tbaa !16
+  store double %1515, ptr %8, align 16, !tbaa !16
+  %.val1813 = load double, ptr %1472, align 8, !tbaa !14
+  %.val1814 = load double, ptr %1473, align 8, !tbaa !14
+  %1516 = fadd double %.val1813, %.val1814
   %1517 = fmul double %1516, 5.000000e-01
-  %1518 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store double %1517, ptr %1518, align 8, !tbaa !14
+  store double %1517, ptr %1510, align 8, !tbaa !14
+  %1518 = load double, ptr %1, align 8, !tbaa !16
+  store double %1518, ptr %1511, align 16, !tbaa !16
+  %1519 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1520 = load double, ptr %1519, align 8, !tbaa !14
+  %1521 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %1522 = load double, ptr %1521, align 8, !tbaa !14
+  %1523 = fsub double %1520, %1522
+  %1524 = fmul double %1523, 5.000000e-01
+  %1525 = fadd double %.val1814, %1524
+  store double %1525, ptr %1514, align 8, !tbaa !14
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  %1519 = load double, ptr %1466, align 8, !tbaa !16
-  store double %1519, ptr %8, align 16, !tbaa !16
-  %.val1813 = load double, ptr %1476, align 8, !tbaa !14
-  %.val1814 = load double, ptr %1477, align 8, !tbaa !14
-  %1520 = fadd double %.val1813, %.val1814
-  %1521 = fmul double %1520, 5.000000e-01
-  store double %1521, ptr %1514, align 8, !tbaa !14
-  %1522 = load double, ptr %1, align 8, !tbaa !16
-  store double %1522, ptr %1515, align 16, !tbaa !16
-  %1523 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1524 = load double, ptr %1523, align 8, !tbaa !14
-  %1525 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %1526 = load double, ptr %1525, align 8, !tbaa !14
-  %1527 = fsub double %1524, %1526
-  %1528 = fmul double %1527, 5.000000e-01
-  %1529 = fadd double %.val1814, %1528
-  store double %1529, ptr %1518, align 8, !tbaa !14
-  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2) #27
-  call void @free(ptr noundef %1465) #27
-  br label %1736
+  call void @free(ptr noundef %1461) #27
+  br label %1732
 
-1530:                                             ; preds = %107
-  %1531 = add i64 %2, 5
-  %1532 = tail call fastcc ptr @gv_calloc(i64 noundef %1531, i64 noundef 16)
-  %1533 = getelementptr inbounds nuw i8, ptr %108, i64 16
+1526:                                             ; preds = %103
+  %1527 = add i64 %2, 5
+  %1528 = tail call fastcc ptr @gv_calloc(i64 noundef %1527, i64 noundef 16)
+  %1529 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %1530 = load double, ptr %1529, align 8, !tbaa !16
+  %1531 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %1532 = load double, ptr %1531, align 8, !tbaa !16
+  %1533 = getelementptr inbounds nuw i8, ptr %104, i64 48
   %1534 = load double, ptr %1533, align 8, !tbaa !16
-  %1535 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %1536 = load double, ptr %1535, align 8, !tbaa !16
-  %1537 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %1538 = load double, ptr %1537, align 8, !tbaa !16
-  %1539 = fsub double %1536, %1538
-  %1540 = fmul double %1539, 5.000000e-01
-  %1541 = fsub double %1534, %1540
-  store double %1541, ptr %1532, align 8, !tbaa !16
-  %1542 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %1535 = fsub double %1532, %1534
+  %1536 = fmul double %1535, 5.000000e-01
+  %1537 = fsub double %1530, %1536
+  store double %1537, ptr %1528, align 8, !tbaa !16
+  %1538 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  %1539 = load double, ptr %1538, align 8, !tbaa !14
+  %1540 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %1541 = load double, ptr %1540, align 8, !tbaa !14
+  %1542 = getelementptr inbounds nuw i8, ptr %104, i64 72
   %1543 = load double, ptr %1542, align 8, !tbaa !14
-  %1544 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %1545 = load double, ptr %1544, align 8, !tbaa !14
-  %1546 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %1547 = load double, ptr %1546, align 8, !tbaa !14
-  %1548 = fsub double %1545, %1547
-  %1549 = fmul double %1548, 5.000000e-01
-  %1550 = fsub double %1543, %1549
-  %1551 = getelementptr inbounds nuw i8, ptr %1532, i64 8
-  store double %1550, ptr %1551, align 8, !tbaa !14
-  %1552 = getelementptr inbounds nuw i8, ptr %1532, i64 16
-  store double %1538, ptr %1552, align 8, !tbaa !16
-  %1553 = fsub double %1545, %1549
-  %1554 = getelementptr inbounds nuw i8, ptr %1532, i64 24
-  store double %1553, ptr %1554, align 8, !tbaa !14
-  %1555 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %1556 = load double, ptr %1555, align 8, !tbaa !16
-  %1557 = getelementptr inbounds nuw i8, ptr %1532, i64 32
-  store double %1556, ptr %1557, align 8, !tbaa !16
-  %1558 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1559 = load double, ptr %1558, align 8, !tbaa !14
-  %1560 = getelementptr inbounds nuw i8, ptr %1532, i64 40
-  store double %1559, ptr %1560, align 8, !tbaa !14
-  %1561 = fadd double %1536, %1540
-  %1562 = getelementptr inbounds nuw i8, ptr %1532, i64 48
-  store double %1561, ptr %1562, align 8, !tbaa !16
-  %1563 = getelementptr inbounds nuw i8, ptr %1532, i64 56
-  store double %1559, ptr %1563, align 8, !tbaa !14
-  %1564 = getelementptr inbounds nuw i8, ptr %1532, i64 64
-  store double %1561, ptr %1564, align 8, !tbaa !16
-  %1565 = fadd double %1559, %1549
-  %1566 = getelementptr inbounds nuw i8, ptr %1532, i64 72
-  store double %1565, ptr %1566, align 8, !tbaa !14
-  %1567 = getelementptr inbounds nuw i8, ptr %1532, i64 80
-  store double %1541, ptr %1567, align 8, !tbaa !16
-  %1568 = getelementptr inbounds nuw i8, ptr %1532, i64 88
-  store double %1565, ptr %1568, align 8, !tbaa !14
-  %1569 = getelementptr inbounds nuw i8, ptr %1532, i64 96
-  store double %1541, ptr %1569, align 8, !tbaa !16
-  %1570 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %1571 = load double, ptr %1570, align 8, !tbaa !14
-  %1572 = getelementptr inbounds nuw i8, ptr %1532, i64 104
-  store double %1571, ptr %1572, align 8, !tbaa !14
-  %1573 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1574 = load double, ptr %1573, align 8, !tbaa !14
-  %1575 = fsub double %1574, %1571
-  %1576 = fmul double %1575, 5.000000e-01
-  %1577 = fsub double %1574, %1576
-  %1578 = getelementptr inbounds nuw i8, ptr %1532, i64 112
-  %1579 = getelementptr inbounds nuw i8, ptr %1532, i64 120
-  store double %1577, ptr %1579, align 8, !tbaa !14
-  %1580 = load double, ptr %1, align 8, !tbaa !16
-  store double %1580, ptr %1578, align 8, !tbaa !16
-  %1581 = getelementptr inbounds nuw i8, ptr %1532, i64 128
-  %1582 = getelementptr inbounds nuw i8, ptr %1532, i64 136
-  store double %1574, ptr %1582, align 8, !tbaa !14
-  store double %1541, ptr %1581, align 8, !tbaa !16
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1532, i64 noundef %1531, i32 noundef %4) #27
-  tail call void @free(ptr noundef %1532) #27
-  br label %1736
+  %1544 = fsub double %1541, %1543
+  %1545 = fmul double %1544, 5.000000e-01
+  %1546 = fsub double %1539, %1545
+  %1547 = getelementptr inbounds nuw i8, ptr %1528, i64 8
+  store double %1546, ptr %1547, align 8, !tbaa !14
+  %1548 = getelementptr inbounds nuw i8, ptr %1528, i64 16
+  store double %1534, ptr %1548, align 8, !tbaa !16
+  %1549 = fsub double %1541, %1545
+  %1550 = getelementptr inbounds nuw i8, ptr %1528, i64 24
+  store double %1549, ptr %1550, align 8, !tbaa !14
+  %1551 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %1552 = load double, ptr %1551, align 8, !tbaa !16
+  %1553 = getelementptr inbounds nuw i8, ptr %1528, i64 32
+  store double %1552, ptr %1553, align 8, !tbaa !16
+  %1554 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1555 = load double, ptr %1554, align 8, !tbaa !14
+  %1556 = getelementptr inbounds nuw i8, ptr %1528, i64 40
+  store double %1555, ptr %1556, align 8, !tbaa !14
+  %1557 = fadd double %1532, %1536
+  %1558 = getelementptr inbounds nuw i8, ptr %1528, i64 48
+  store double %1557, ptr %1558, align 8, !tbaa !16
+  %1559 = getelementptr inbounds nuw i8, ptr %1528, i64 56
+  store double %1555, ptr %1559, align 8, !tbaa !14
+  %1560 = getelementptr inbounds nuw i8, ptr %1528, i64 64
+  store double %1557, ptr %1560, align 8, !tbaa !16
+  %1561 = fadd double %1555, %1545
+  %1562 = getelementptr inbounds nuw i8, ptr %1528, i64 72
+  store double %1561, ptr %1562, align 8, !tbaa !14
+  %1563 = getelementptr inbounds nuw i8, ptr %1528, i64 80
+  store double %1537, ptr %1563, align 8, !tbaa !16
+  %1564 = getelementptr inbounds nuw i8, ptr %1528, i64 88
+  store double %1561, ptr %1564, align 8, !tbaa !14
+  %1565 = getelementptr inbounds nuw i8, ptr %1528, i64 96
+  store double %1537, ptr %1565, align 8, !tbaa !16
+  %1566 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %1567 = load double, ptr %1566, align 8, !tbaa !14
+  %1568 = getelementptr inbounds nuw i8, ptr %1528, i64 104
+  store double %1567, ptr %1568, align 8, !tbaa !14
+  %1569 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1570 = load double, ptr %1569, align 8, !tbaa !14
+  %1571 = fsub double %1570, %1567
+  %1572 = fmul double %1571, 5.000000e-01
+  %1573 = fsub double %1570, %1572
+  %1574 = getelementptr inbounds nuw i8, ptr %1528, i64 112
+  %1575 = getelementptr inbounds nuw i8, ptr %1528, i64 120
+  store double %1573, ptr %1575, align 8, !tbaa !14
+  %1576 = load double, ptr %1, align 8, !tbaa !16
+  store double %1576, ptr %1574, align 8, !tbaa !16
+  %1577 = getelementptr inbounds nuw i8, ptr %1528, i64 128
+  %1578 = getelementptr inbounds nuw i8, ptr %1528, i64 136
+  store double %1570, ptr %1578, align 8, !tbaa !14
+  store double %1537, ptr %1577, align 8, !tbaa !16
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1528, i64 noundef %1527, i32 noundef %4) #27
+  tail call void @free(ptr noundef %1528) #27
+  br label %1732
 
-1583:                                             ; preds = %107
-  %1584 = add i64 %2, 3
-  %1585 = tail call fastcc ptr @gv_calloc(i64 noundef %1584, i64 noundef 16)
-  %1586 = getelementptr inbounds nuw i8, ptr %108, i64 16
+1579:                                             ; preds = %103
+  %1580 = add i64 %2, 3
+  %1581 = tail call fastcc ptr @gv_calloc(i64 noundef %1580, i64 noundef 16)
+  %1582 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %1583 = load double, ptr %1582, align 8, !tbaa !16
+  %1584 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %1585 = load double, ptr %1584, align 8, !tbaa !16
+  %1586 = getelementptr inbounds nuw i8, ptr %104, i64 48
   %1587 = load double, ptr %1586, align 8, !tbaa !16
-  %1588 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %1589 = load double, ptr %1588, align 8, !tbaa !16
-  %1590 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %1591 = load double, ptr %1590, align 8, !tbaa !16
-  %1592 = fsub double %1589, %1591
-  %1593 = fmul double %1592, 5.000000e-01
-  %1594 = fsub double %1587, %1593
-  store double %1594, ptr %1585, align 8, !tbaa !16
-  %1595 = getelementptr inbounds nuw i8, ptr %108, i64 24
+  %1588 = fsub double %1585, %1587
+  %1589 = fmul double %1588, 5.000000e-01
+  %1590 = fsub double %1583, %1589
+  store double %1590, ptr %1581, align 8, !tbaa !16
+  %1591 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  %1592 = load double, ptr %1591, align 8, !tbaa !14
+  %1593 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %1594 = load double, ptr %1593, align 8, !tbaa !14
+  %1595 = getelementptr inbounds nuw i8, ptr %104, i64 72
   %1596 = load double, ptr %1595, align 8, !tbaa !14
-  %1597 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %1598 = load double, ptr %1597, align 8, !tbaa !14
-  %1599 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %1600 = load double, ptr %1599, align 8, !tbaa !14
-  %1601 = fsub double %1598, %1600
-  %1602 = fmul double %1601, 5.000000e-01
-  %1603 = fsub double %1596, %1602
-  %1604 = getelementptr inbounds nuw i8, ptr %1585, i64 8
-  store double %1603, ptr %1604, align 8, !tbaa !14
-  %1605 = getelementptr inbounds nuw i8, ptr %1585, i64 16
-  store double %1591, ptr %1605, align 8, !tbaa !16
-  %1606 = fsub double %1598, %1602
-  %1607 = getelementptr inbounds nuw i8, ptr %1585, i64 24
-  store double %1606, ptr %1607, align 8, !tbaa !14
-  %1608 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %1609 = load double, ptr %1608, align 8, !tbaa !16
-  %1610 = getelementptr inbounds nuw i8, ptr %1585, i64 32
-  store double %1609, ptr %1610, align 8, !tbaa !16
-  %1611 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1612 = load double, ptr %1611, align 8, !tbaa !14
-  %1613 = fadd double %1612, %1602
-  %1614 = getelementptr inbounds nuw i8, ptr %1585, i64 40
-  store double %1613, ptr %1614, align 8, !tbaa !14
-  %1615 = getelementptr inbounds nuw i8, ptr %1585, i64 48
-  store double %1594, ptr %1615, align 8, !tbaa !16
-  %1616 = getelementptr inbounds nuw i8, ptr %1585, i64 56
-  store double %1613, ptr %1616, align 8, !tbaa !14
-  %1617 = getelementptr inbounds nuw i8, ptr %1585, i64 64
-  store double %1594, ptr %1617, align 8, !tbaa !16
-  %1618 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %1619 = load double, ptr %1618, align 8, !tbaa !14
-  %1620 = getelementptr inbounds nuw i8, ptr %1585, i64 72
-  store double %1619, ptr %1620, align 8, !tbaa !14
-  %1621 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1622 = load double, ptr %1621, align 8, !tbaa !14
-  %1623 = fsub double %1622, %1619
-  %1624 = fmul double %1623, 5.000000e-01
-  %1625 = fsub double %1622, %1624
-  %1626 = getelementptr inbounds nuw i8, ptr %1585, i64 80
-  %1627 = getelementptr inbounds nuw i8, ptr %1585, i64 88
-  store double %1625, ptr %1627, align 8, !tbaa !14
-  %1628 = load double, ptr %1, align 8, !tbaa !16
-  store double %1628, ptr %1626, align 8, !tbaa !16
-  %1629 = getelementptr inbounds nuw i8, ptr %1585, i64 96
-  %1630 = getelementptr inbounds nuw i8, ptr %1585, i64 104
-  store double %1622, ptr %1630, align 8, !tbaa !14
-  store double %1594, ptr %1629, align 8, !tbaa !16
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1585, i64 noundef %1584, i32 noundef %4) #27
-  tail call void @free(ptr noundef %1585) #27
-  br label %1736
+  %1597 = fsub double %1594, %1596
+  %1598 = fmul double %1597, 5.000000e-01
+  %1599 = fsub double %1592, %1598
+  %1600 = getelementptr inbounds nuw i8, ptr %1581, i64 8
+  store double %1599, ptr %1600, align 8, !tbaa !14
+  %1601 = getelementptr inbounds nuw i8, ptr %1581, i64 16
+  store double %1587, ptr %1601, align 8, !tbaa !16
+  %1602 = fsub double %1594, %1598
+  %1603 = getelementptr inbounds nuw i8, ptr %1581, i64 24
+  store double %1602, ptr %1603, align 8, !tbaa !14
+  %1604 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %1605 = load double, ptr %1604, align 8, !tbaa !16
+  %1606 = getelementptr inbounds nuw i8, ptr %1581, i64 32
+  store double %1605, ptr %1606, align 8, !tbaa !16
+  %1607 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1608 = load double, ptr %1607, align 8, !tbaa !14
+  %1609 = fadd double %1608, %1598
+  %1610 = getelementptr inbounds nuw i8, ptr %1581, i64 40
+  store double %1609, ptr %1610, align 8, !tbaa !14
+  %1611 = getelementptr inbounds nuw i8, ptr %1581, i64 48
+  store double %1590, ptr %1611, align 8, !tbaa !16
+  %1612 = getelementptr inbounds nuw i8, ptr %1581, i64 56
+  store double %1609, ptr %1612, align 8, !tbaa !14
+  %1613 = getelementptr inbounds nuw i8, ptr %1581, i64 64
+  store double %1590, ptr %1613, align 8, !tbaa !16
+  %1614 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %1615 = load double, ptr %1614, align 8, !tbaa !14
+  %1616 = getelementptr inbounds nuw i8, ptr %1581, i64 72
+  store double %1615, ptr %1616, align 8, !tbaa !14
+  %1617 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1618 = load double, ptr %1617, align 8, !tbaa !14
+  %1619 = fsub double %1618, %1615
+  %1620 = fmul double %1619, 5.000000e-01
+  %1621 = fsub double %1618, %1620
+  %1622 = getelementptr inbounds nuw i8, ptr %1581, i64 80
+  %1623 = getelementptr inbounds nuw i8, ptr %1581, i64 88
+  store double %1621, ptr %1623, align 8, !tbaa !14
+  %1624 = load double, ptr %1, align 8, !tbaa !16
+  store double %1624, ptr %1622, align 8, !tbaa !16
+  %1625 = getelementptr inbounds nuw i8, ptr %1581, i64 96
+  %1626 = getelementptr inbounds nuw i8, ptr %1581, i64 104
+  store double %1618, ptr %1626, align 8, !tbaa !14
+  store double %1590, ptr %1625, align 8, !tbaa !16
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1581, i64 noundef %1580, i32 noundef %4) #27
+  tail call void @free(ptr noundef %1581) #27
+  br label %1732
 
-1631:                                             ; preds = %107
-  %1632 = add i64 %2, 3
-  %1633 = tail call fastcc ptr @gv_calloc(i64 noundef %1632, i64 noundef 16)
-  %1634 = load double, ptr %1, align 8, !tbaa !16
-  store double %1634, ptr %1633, align 8, !tbaa !16
-  %1635 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1636 = load double, ptr %1635, align 8, !tbaa !14
-  %1637 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %1638 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %1639 = load double, ptr %1638, align 8, !tbaa !14
-  %1640 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %1641 = load double, ptr %1640, align 8, !tbaa !14
-  %1642 = fsub double %1639, %1641
-  %1643 = fmul double %1642, 5.000000e-01
-  %1644 = fsub double %1636, %1643
-  %1645 = getelementptr inbounds nuw i8, ptr %1633, i64 8
-  store double %1644, ptr %1645, align 8, !tbaa !14
-  %1646 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %1647 = load double, ptr %1646, align 8, !tbaa !16
-  %1648 = load double, ptr %1637, align 8, !tbaa !16
-  %1649 = fsub double %1647, %1648
-  %1650 = fmul double %1649, 5.000000e-01
-  %1651 = fadd double %1647, %1650
-  %1652 = getelementptr inbounds nuw i8, ptr %1633, i64 16
-  store double %1651, ptr %1652, align 8, !tbaa !16
-  %1653 = getelementptr inbounds nuw i8, ptr %1633, i64 24
-  store double %1644, ptr %1653, align 8, !tbaa !14
-  %1654 = getelementptr inbounds nuw i8, ptr %1633, i64 32
-  store double %1651, ptr %1654, align 8, !tbaa !16
-  %1655 = getelementptr inbounds nuw i8, ptr %108, i64 40
-  %1656 = load double, ptr %1655, align 8, !tbaa !14
-  %1657 = getelementptr inbounds nuw i8, ptr %1633, i64 40
-  store double %1656, ptr %1657, align 8, !tbaa !14
-  %1658 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1659 = load double, ptr %1658, align 8, !tbaa !16
-  %1660 = getelementptr inbounds nuw i8, ptr %1633, i64 48
-  store double %1659, ptr %1660, align 8, !tbaa !16
-  %1661 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %1662 = load double, ptr %1661, align 8, !tbaa !14
-  %1663 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1664 = load double, ptr %1663, align 8, !tbaa !14
-  %1665 = fsub double %1662, %1664
-  %1666 = fmul double %1665, 5.000000e-01
-  %1667 = fsub double %1662, %1666
-  %1668 = getelementptr inbounds nuw i8, ptr %1633, i64 56
-  store double %1667, ptr %1668, align 8, !tbaa !14
-  %1669 = getelementptr inbounds nuw i8, ptr %1633, i64 64
-  store double %1651, ptr %1669, align 8, !tbaa !16
-  %1670 = getelementptr inbounds nuw i8, ptr %1633, i64 72
-  store double %1664, ptr %1670, align 8, !tbaa !14
-  %1671 = fadd double %1664, %1643
-  %1672 = getelementptr inbounds nuw i8, ptr %1633, i64 80
-  %1673 = getelementptr inbounds nuw i8, ptr %1633, i64 88
-  store double %1671, ptr %1673, align 8, !tbaa !14
-  store double %1651, ptr %1672, align 8, !tbaa !16
-  %1674 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %1675 = load double, ptr %1674, align 8, !tbaa !14
-  %1676 = fadd double %1675, %1643
-  %1677 = getelementptr inbounds nuw i8, ptr %1633, i64 96
-  %1678 = getelementptr inbounds nuw i8, ptr %1633, i64 104
-  store double %1676, ptr %1678, align 8, !tbaa !14
-  store double %1634, ptr %1677, align 8, !tbaa !16
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1633, i64 noundef %1632, i32 noundef %4) #27
-  tail call void @free(ptr noundef %1633) #27
-  br label %1736
+1627:                                             ; preds = %103
+  %1628 = add i64 %2, 3
+  %1629 = tail call fastcc ptr @gv_calloc(i64 noundef %1628, i64 noundef 16)
+  %1630 = load double, ptr %1, align 8, !tbaa !16
+  store double %1630, ptr %1629, align 8, !tbaa !16
+  %1631 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1632 = load double, ptr %1631, align 8, !tbaa !14
+  %1633 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %1634 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %1635 = load double, ptr %1634, align 8, !tbaa !14
+  %1636 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %1637 = load double, ptr %1636, align 8, !tbaa !14
+  %1638 = fsub double %1635, %1637
+  %1639 = fmul double %1638, 5.000000e-01
+  %1640 = fsub double %1632, %1639
+  %1641 = getelementptr inbounds nuw i8, ptr %1629, i64 8
+  store double %1640, ptr %1641, align 8, !tbaa !14
+  %1642 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %1643 = load double, ptr %1642, align 8, !tbaa !16
+  %1644 = load double, ptr %1633, align 8, !tbaa !16
+  %1645 = fsub double %1643, %1644
+  %1646 = fmul double %1645, 5.000000e-01
+  %1647 = fadd double %1643, %1646
+  %1648 = getelementptr inbounds nuw i8, ptr %1629, i64 16
+  store double %1647, ptr %1648, align 8, !tbaa !16
+  %1649 = getelementptr inbounds nuw i8, ptr %1629, i64 24
+  store double %1640, ptr %1649, align 8, !tbaa !14
+  %1650 = getelementptr inbounds nuw i8, ptr %1629, i64 32
+  store double %1647, ptr %1650, align 8, !tbaa !16
+  %1651 = getelementptr inbounds nuw i8, ptr %104, i64 40
+  %1652 = load double, ptr %1651, align 8, !tbaa !14
+  %1653 = getelementptr inbounds nuw i8, ptr %1629, i64 40
+  store double %1652, ptr %1653, align 8, !tbaa !14
+  %1654 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1655 = load double, ptr %1654, align 8, !tbaa !16
+  %1656 = getelementptr inbounds nuw i8, ptr %1629, i64 48
+  store double %1655, ptr %1656, align 8, !tbaa !16
+  %1657 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %1658 = load double, ptr %1657, align 8, !tbaa !14
+  %1659 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1660 = load double, ptr %1659, align 8, !tbaa !14
+  %1661 = fsub double %1658, %1660
+  %1662 = fmul double %1661, 5.000000e-01
+  %1663 = fsub double %1658, %1662
+  %1664 = getelementptr inbounds nuw i8, ptr %1629, i64 56
+  store double %1663, ptr %1664, align 8, !tbaa !14
+  %1665 = getelementptr inbounds nuw i8, ptr %1629, i64 64
+  store double %1647, ptr %1665, align 8, !tbaa !16
+  %1666 = getelementptr inbounds nuw i8, ptr %1629, i64 72
+  store double %1660, ptr %1666, align 8, !tbaa !14
+  %1667 = fadd double %1660, %1639
+  %1668 = getelementptr inbounds nuw i8, ptr %1629, i64 80
+  %1669 = getelementptr inbounds nuw i8, ptr %1629, i64 88
+  store double %1667, ptr %1669, align 8, !tbaa !14
+  store double %1647, ptr %1668, align 8, !tbaa !16
+  %1670 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %1671 = load double, ptr %1670, align 8, !tbaa !14
+  %1672 = fadd double %1671, %1639
+  %1673 = getelementptr inbounds nuw i8, ptr %1629, i64 96
+  %1674 = getelementptr inbounds nuw i8, ptr %1629, i64 104
+  store double %1672, ptr %1674, align 8, !tbaa !14
+  store double %1630, ptr %1673, align 8, !tbaa !16
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1629, i64 noundef %1628, i32 noundef %4) #27
+  tail call void @free(ptr noundef %1629) #27
+  br label %1732
 
-1679:                                             ; preds = %107
-  %1680 = add i64 %2, 5
-  %1681 = tail call fastcc ptr @gv_calloc(i64 noundef %1680, i64 noundef 16)
-  %1682 = load double, ptr %1, align 8, !tbaa !16
-  store double %1682, ptr %1681, align 8, !tbaa !16
-  %1683 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %1684 = load double, ptr %1683, align 8, !tbaa !14
-  %1685 = getelementptr inbounds nuw i8, ptr %108, i64 48
-  %1686 = getelementptr inbounds nuw i8, ptr %108, i64 56
-  %1687 = load double, ptr %1686, align 8, !tbaa !14
-  %1688 = getelementptr inbounds nuw i8, ptr %108, i64 72
-  %1689 = load double, ptr %1688, align 8, !tbaa !14
-  %1690 = fsub double %1687, %1689
-  %1691 = fmul double %1690, 5.000000e-01
-  %1692 = fsub double %1684, %1691
-  %1693 = getelementptr inbounds nuw i8, ptr %1681, i64 8
-  store double %1692, ptr %1693, align 8, !tbaa !14
-  %1694 = getelementptr inbounds nuw i8, ptr %108, i64 32
-  %1695 = load double, ptr %1694, align 8, !tbaa !16
-  %1696 = load double, ptr %1685, align 8, !tbaa !16
-  %1697 = fsub double %1695, %1696
-  %1698 = fmul double %1697, 5.000000e-01
-  %1699 = fadd double %1695, %1698
-  %1700 = getelementptr inbounds nuw i8, ptr %1681, i64 16
-  store double %1699, ptr %1700, align 8, !tbaa !16
-  %1701 = getelementptr inbounds nuw i8, ptr %1681, i64 24
-  store double %1692, ptr %1701, align 8, !tbaa !14
-  %1702 = getelementptr inbounds nuw i8, ptr %1681, i64 32
-  store double %1699, ptr %1702, align 8, !tbaa !16
-  %1703 = getelementptr inbounds nuw i8, ptr %108, i64 40
-  %1704 = load double, ptr %1703, align 8, !tbaa !14
-  %1705 = getelementptr inbounds nuw i8, ptr %1681, i64 40
-  store double %1704, ptr %1705, align 8, !tbaa !14
-  %1706 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %1707 = load double, ptr %1706, align 8, !tbaa !16
-  %1708 = getelementptr inbounds nuw i8, ptr %1681, i64 48
-  store double %1707, ptr %1708, align 8, !tbaa !16
-  %1709 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %1710 = load double, ptr %1709, align 8, !tbaa !14
-  %1711 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1712 = load double, ptr %1711, align 8, !tbaa !14
-  %1713 = fsub double %1710, %1712
-  %1714 = fmul double %1713, 5.000000e-01
-  %1715 = fsub double %1710, %1714
-  %1716 = getelementptr inbounds nuw i8, ptr %1681, i64 56
-  store double %1715, ptr %1716, align 8, !tbaa !14
-  %1717 = getelementptr inbounds nuw i8, ptr %1681, i64 64
-  store double %1699, ptr %1717, align 8, !tbaa !16
-  %1718 = getelementptr inbounds nuw i8, ptr %1681, i64 72
-  store double %1712, ptr %1718, align 8, !tbaa !14
-  %1719 = fadd double %1712, %1691
-  %1720 = getelementptr inbounds nuw i8, ptr %1681, i64 80
-  %1721 = getelementptr inbounds nuw i8, ptr %1681, i64 88
-  store double %1719, ptr %1721, align 8, !tbaa !14
-  store double %1699, ptr %1720, align 8, !tbaa !16
-  %1722 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %1723 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %1724 = load double, ptr %1723, align 8, !tbaa !14
-  %1725 = fadd double %1724, %1691
-  %1726 = getelementptr inbounds nuw i8, ptr %1681, i64 96
-  %1727 = getelementptr inbounds nuw i8, ptr %1681, i64 104
-  store double %1725, ptr %1727, align 8, !tbaa !14
-  %1728 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %1729 = load double, ptr %1728, align 8, !tbaa !16
-  %1730 = fsub double %1729, %1698
-  store double %1730, ptr %1726, align 8, !tbaa !16
-  %1731 = getelementptr inbounds nuw i8, ptr %1681, i64 112
-  store double %1730, ptr %1731, align 8, !tbaa !16
-  %1732 = getelementptr inbounds nuw i8, ptr %1681, i64 120
-  store double %1724, ptr %1732, align 8, !tbaa !14
-  %1733 = load double, ptr %1722, align 8, !tbaa !16
-  %1734 = getelementptr inbounds nuw i8, ptr %1681, i64 128
-  store double %1733, ptr %1734, align 8, !tbaa !16
-  %1735 = getelementptr inbounds nuw i8, ptr %1681, i64 136
-  store double %1724, ptr %1735, align 8, !tbaa !14
-  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1681, i64 noundef %1680, i32 noundef %4) #27
-  tail call void @free(ptr noundef %1681) #27
-  br label %1736
+1675:                                             ; preds = %103
+  %1676 = add i64 %2, 5
+  %1677 = tail call fastcc ptr @gv_calloc(i64 noundef %1676, i64 noundef 16)
+  %1678 = load double, ptr %1, align 8, !tbaa !16
+  store double %1678, ptr %1677, align 8, !tbaa !16
+  %1679 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %1680 = load double, ptr %1679, align 8, !tbaa !14
+  %1681 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %1682 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %1683 = load double, ptr %1682, align 8, !tbaa !14
+  %1684 = getelementptr inbounds nuw i8, ptr %104, i64 72
+  %1685 = load double, ptr %1684, align 8, !tbaa !14
+  %1686 = fsub double %1683, %1685
+  %1687 = fmul double %1686, 5.000000e-01
+  %1688 = fsub double %1680, %1687
+  %1689 = getelementptr inbounds nuw i8, ptr %1677, i64 8
+  store double %1688, ptr %1689, align 8, !tbaa !14
+  %1690 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %1691 = load double, ptr %1690, align 8, !tbaa !16
+  %1692 = load double, ptr %1681, align 8, !tbaa !16
+  %1693 = fsub double %1691, %1692
+  %1694 = fmul double %1693, 5.000000e-01
+  %1695 = fadd double %1691, %1694
+  %1696 = getelementptr inbounds nuw i8, ptr %1677, i64 16
+  store double %1695, ptr %1696, align 8, !tbaa !16
+  %1697 = getelementptr inbounds nuw i8, ptr %1677, i64 24
+  store double %1688, ptr %1697, align 8, !tbaa !14
+  %1698 = getelementptr inbounds nuw i8, ptr %1677, i64 32
+  store double %1695, ptr %1698, align 8, !tbaa !16
+  %1699 = getelementptr inbounds nuw i8, ptr %104, i64 40
+  %1700 = load double, ptr %1699, align 8, !tbaa !14
+  %1701 = getelementptr inbounds nuw i8, ptr %1677, i64 40
+  store double %1700, ptr %1701, align 8, !tbaa !14
+  %1702 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %1703 = load double, ptr %1702, align 8, !tbaa !16
+  %1704 = getelementptr inbounds nuw i8, ptr %1677, i64 48
+  store double %1703, ptr %1704, align 8, !tbaa !16
+  %1705 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %1706 = load double, ptr %1705, align 8, !tbaa !14
+  %1707 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1708 = load double, ptr %1707, align 8, !tbaa !14
+  %1709 = fsub double %1706, %1708
+  %1710 = fmul double %1709, 5.000000e-01
+  %1711 = fsub double %1706, %1710
+  %1712 = getelementptr inbounds nuw i8, ptr %1677, i64 56
+  store double %1711, ptr %1712, align 8, !tbaa !14
+  %1713 = getelementptr inbounds nuw i8, ptr %1677, i64 64
+  store double %1695, ptr %1713, align 8, !tbaa !16
+  %1714 = getelementptr inbounds nuw i8, ptr %1677, i64 72
+  store double %1708, ptr %1714, align 8, !tbaa !14
+  %1715 = fadd double %1708, %1687
+  %1716 = getelementptr inbounds nuw i8, ptr %1677, i64 80
+  %1717 = getelementptr inbounds nuw i8, ptr %1677, i64 88
+  store double %1715, ptr %1717, align 8, !tbaa !14
+  store double %1695, ptr %1716, align 8, !tbaa !16
+  %1718 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %1719 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %1720 = load double, ptr %1719, align 8, !tbaa !14
+  %1721 = fadd double %1720, %1687
+  %1722 = getelementptr inbounds nuw i8, ptr %1677, i64 96
+  %1723 = getelementptr inbounds nuw i8, ptr %1677, i64 104
+  store double %1721, ptr %1723, align 8, !tbaa !14
+  %1724 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %1725 = load double, ptr %1724, align 8, !tbaa !16
+  %1726 = fsub double %1725, %1694
+  store double %1726, ptr %1722, align 8, !tbaa !16
+  %1727 = getelementptr inbounds nuw i8, ptr %1677, i64 112
+  store double %1726, ptr %1727, align 8, !tbaa !16
+  %1728 = getelementptr inbounds nuw i8, ptr %1677, i64 120
+  store double %1720, ptr %1728, align 8, !tbaa !14
+  %1729 = load double, ptr %1718, align 8, !tbaa !16
+  %1730 = getelementptr inbounds nuw i8, ptr %1677, i64 128
+  store double %1729, ptr %1730, align 8, !tbaa !16
+  %1731 = getelementptr inbounds nuw i8, ptr %1677, i64 136
+  store double %1720, ptr %1731, align 8, !tbaa !14
+  tail call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %1677, i64 noundef %1676, i32 noundef %4) #27
+  tail call void @free(ptr noundef %1677) #27
+  br label %1732
 
-1736:                                             ; preds = %1679, %1631, %1583, %1530, %1463, %1381, %1299, %1202, %1122, %1042, %962, %821, %756, %688, %616, %563, %507, %447, %408, %340, %230, %200, %._crit_edge, %._crit_edge1824, %._crit_edge1828, %107
-  call void @free(ptr noundef %108) #27
-  br label %1737
+1732:                                             ; preds = %1675, %1627, %1579, %1526, %1459, %1377, %1295, %1198, %1118, %1038, %958, %817, %752, %684, %612, %559, %503, %443, %404, %336, %226, %196, %._crit_edge, %._crit_edge1825, %._crit_edge1829, %103
+  call void @free(ptr noundef %104) #27
+  br label %1733
 
-1737:                                             ; preds = %1736, %66, %rounded_draw.exit, %diagonals_draw.exit
+1733:                                             ; preds = %1732, %62, %rounded_draw.exit, %diagonals_draw.exit
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #27
   ret void
 }
@@ -3719,7 +3716,7 @@ gv_alloc.exit:                                    ; preds = %1
   %318 = zext i1 %or.cond10 to i64
   %spec.select = add nsw i64 %spec.store.select, %318
   %319 = icmp ult i64 %.1492, 3
-  br i1 %319, label %320, label %369
+  br i1 %319, label %320, label %366
 
 320:                                              ; preds = %312
   %321 = shl nsw i64 %spec.select, 1
@@ -3768,20 +3765,20 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %327
   %.sroa.15176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %334, i64 24
   store double %338, ptr %.sroa.15176.0..sroa_idx, align 8, !tbaa !4
   %342 = icmp ugt i32 %57, 1
-  br i1 %342, label %.preheader, label %355
+  br i1 %342, label %.preheader, label %354
 
 343:                                              ; preds = %.preheader
   %344 = fmul double %346, 2.000000e+00
   store double %344, ptr %4, align 8, !tbaa !16
   %345 = fmul double %347, 2.000000e+00
   store double %345, ptr %171, align 8, !tbaa !14
-  br label %355
+  br label %354
 
 .preheader:                                       ; preds = %gv_calloc.exit, %.preheader
   %.sroa.15176.1637 = phi double [ %347, %.preheader ], [ %338, %gv_calloc.exit ]
   %.sroa.0167.1636 = phi double [ %346, %.preheader ], [ %336, %gv_calloc.exit ]
-  %.0511635 = phi i64 [ %354, %.preheader ], [ 1, %gv_calloc.exit ]
-  %.0512634 = phi i64 [ %353, %.preheader ], [ 2, %gv_calloc.exit ]
+  %.0511635 = phi i64 [ %353, %.preheader ], [ 1, %gv_calloc.exit ]
+  %.0512634 = phi i64 [ %352, %.preheader ], [ 2, %gv_calloc.exit ]
   %346 = fadd double %.sroa.0167.1636, 4.000000e+00
   %347 = fadd double %.sroa.15176.1637, 4.000000e+00
   %348 = getelementptr inbounds nuw %struct.pointf_s, ptr %334, i64 %.0512634
@@ -3790,486 +3787,484 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %327
   store double %349, ptr %348, align 8, !tbaa !4
   %.sroa.2158.0..sroa_idx = getelementptr inbounds nuw i8, ptr %348, i64 8
   store double %350, ptr %.sroa.2158.0..sroa_idx, align 8, !tbaa !4
-  %351 = or disjoint i64 %.0512634, 1
-  %352 = getelementptr inbounds nuw %struct.pointf_s, ptr %334, i64 %351
-  store double %346, ptr %352, align 8, !tbaa !4
-  %.sroa.15176.0..sroa_idx177 = getelementptr inbounds nuw i8, ptr %352, i64 8
+  %351 = getelementptr inbounds nuw i8, ptr %348, i64 16
+  store double %346, ptr %351, align 8, !tbaa !4
+  %.sroa.15176.0..sroa_idx177 = getelementptr inbounds nuw i8, ptr %348, i64 24
   store double %347, ptr %.sroa.15176.0..sroa_idx177, align 8, !tbaa !4
-  %353 = add i64 %.0512634, 2
-  %354 = add nuw i64 %.0511635, 1
-  %exitcond657.not = icmp eq i64 %354, %58
+  %352 = add i64 %.0512634, 2
+  %353 = add nuw i64 %.0511635, 1
+  %exitcond657.not = icmp eq i64 %353, %58
   br i1 %exitcond657.not, label %343, label %.preheader, !llvm.loop !89
 
-355:                                              ; preds = %343, %gv_calloc.exit
+354:                                              ; preds = %343, %gv_calloc.exit
   %.sroa.9.0.copyload = phi double [ %345, %343 ], [ %337, %gv_calloc.exit ]
   %.sroa.0376.0.copyload = phi double [ %344, %343 ], [ %335, %gv_calloc.exit ]
   %.sroa.0167.0 = phi double [ %346, %343 ], [ %336, %gv_calloc.exit ]
   %.sroa.15176.0 = phi double [ %347, %343 ], [ %338, %gv_calloc.exit ]
-  %356 = icmp ugt i64 %spec.select, %58
-  br i1 %356, label %357, label %.loopexit
+  %355 = icmp ugt i64 %spec.select, %58
+  br i1 %355, label %356, label %.loopexit
 
-357:                                              ; preds = %355
-  %358 = fmul double %314, 5.000000e-01
-  %359 = fadd double %358, %.sroa.0167.0
-  %360 = fadd double %358, %.sroa.15176.0
-  %361 = shl nsw i64 %58, 1
-  %362 = getelementptr inbounds nuw %struct.pointf_s, ptr %334, i64 %361
-  %363 = fneg double %359
-  %364 = fneg double %360
-  store double %363, ptr %362, align 8, !tbaa !4
-  %.sroa.2152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %362, i64 8
-  store double %364, ptr %.sroa.2152.0..sroa_idx, align 8, !tbaa !4
-  %365 = or disjoint i64 %361, 1
-  %366 = getelementptr inbounds nuw %struct.pointf_s, ptr %334, i64 %365
-  store double %359, ptr %366, align 8, !tbaa !4
-  %.sroa.15176.0..sroa_idx179 = getelementptr inbounds nuw i8, ptr %366, i64 8
-  store double %360, ptr %.sroa.15176.0..sroa_idx179, align 8, !tbaa !4
-  %367 = fmul double %359, 2.000000e+00
-  %368 = fmul double %360, 2.000000e+00
+356:                                              ; preds = %354
+  %357 = fmul double %314, 5.000000e-01
+  %358 = fadd double %357, %.sroa.0167.0
+  %359 = fadd double %357, %.sroa.15176.0
+  %.idx = shl nsw i64 %58, 5
+  %360 = getelementptr inbounds nuw i8, ptr %334, i64 %.idx
+  %361 = fneg double %358
+  %362 = fneg double %359
+  store double %361, ptr %360, align 8, !tbaa !4
+  %.sroa.2152.0..sroa_idx = getelementptr inbounds nuw i8, ptr %360, i64 8
+  store double %362, ptr %.sroa.2152.0..sroa_idx, align 8, !tbaa !4
+  %363 = getelementptr inbounds nuw i8, ptr %360, i64 16
+  store double %358, ptr %363, align 8, !tbaa !4
+  %.sroa.15176.0..sroa_idx179 = getelementptr inbounds nuw i8, ptr %360, i64 24
+  store double %359, ptr %.sroa.15176.0..sroa_idx179, align 8, !tbaa !4
+  %364 = fmul double %358, 2.000000e+00
+  %365 = fmul double %359, 2.000000e+00
   br label %.loopexit
 
-369:                                              ; preds = %312
-  %370 = mul i64 %spec.select, %.1492
-  %.not.i542 = icmp eq i64 %370, 0
-  br i1 %.not.i542, label %.thread.i545, label %372
+366:                                              ; preds = %312
+  %367 = mul i64 %spec.select, %.1492
+  %.not.i542 = icmp eq i64 %367, 0
+  br i1 %.not.i542, label %.thread.i545, label %369
 
-.thread.i545:                                     ; preds = %369
-  %371 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 16) #28
+.thread.i545:                                     ; preds = %366
+  %368 = call noalias ptr @calloc(i64 noundef 0, i64 noundef 16) #28
   br label %gv_calloc.exit546
 
-372:                                              ; preds = %369
-  %mul.ov.i544 = icmp ugt i64 %370, 1152921504606846975
-  br i1 %mul.ov.i544, label %373, label %376
+369:                                              ; preds = %366
+  %mul.ov.i544 = icmp ugt i64 %367, 1152921504606846975
+  br i1 %mul.ov.i544, label %370, label %373
 
-373:                                              ; preds = %372
-  %374 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %375 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %374, ptr noundef nonnull @.str.5, i64 noundef %370, i64 noundef 16) #29
+370:                                              ; preds = %369
+  %371 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %372 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %371, ptr noundef nonnull @.str.5, i64 noundef %367, i64 noundef 16) #29
   call fastcc void @graphviz_exit() #30
   unreachable
 
-376:                                              ; preds = %372
-  %377 = call noalias ptr @calloc(i64 noundef %370, i64 noundef 16) #28
-  %378 = icmp eq ptr %377, null
-  br i1 %378, label %379, label %gv_calloc.exit546
+373:                                              ; preds = %369
+  %374 = call noalias ptr @calloc(i64 noundef %367, i64 noundef 16) #28
+  %375 = icmp eq ptr %374, null
+  br i1 %375, label %376, label %gv_calloc.exit546
 
-379:                                              ; preds = %376
-  %380 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %381 = shl nuw i64 %370, 4
-  %382 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %380, ptr noundef nonnull @.str.6, i64 noundef %381) #29
+376:                                              ; preds = %373
+  %377 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %378 = shl nuw i64 %367, 4
+  %379 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %377, ptr noundef nonnull @.str.6, i64 noundef %378) #29
   call fastcc void @graphviz_exit() #30
   unreachable
 
-gv_calloc.exit546:                                ; preds = %.thread.i545, %376
-  %383 = phi ptr [ %371, %.thread.i545 ], [ %377, %376 ]
-  %384 = load ptr, ptr %10, align 8, !tbaa !21
-  %385 = getelementptr inbounds nuw i8, ptr %384, i64 16
-  %386 = load ptr, ptr %385, align 8, !tbaa !26
-  %387 = getelementptr inbounds nuw i8, ptr %386, i64 16
-  %388 = load ptr, ptr %387, align 8, !tbaa !46
-  %389 = getelementptr inbounds nuw i8, ptr %388, i64 56
-  %390 = load ptr, ptr %389, align 8, !tbaa !83
-  %.not537 = icmp eq ptr %390, null
-  br i1 %.not537, label %398, label %391
+gv_calloc.exit546:                                ; preds = %.thread.i545, %373
+  %380 = phi ptr [ %368, %.thread.i545 ], [ %374, %373 ]
+  %381 = load ptr, ptr %10, align 8, !tbaa !21
+  %382 = getelementptr inbounds nuw i8, ptr %381, i64 16
+  %383 = load ptr, ptr %382, align 8, !tbaa !26
+  %384 = getelementptr inbounds nuw i8, ptr %383, i64 16
+  %385 = load ptr, ptr %384, align 8, !tbaa !46
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 56
+  %387 = load ptr, ptr %386, align 8, !tbaa !83
+  %.not537 = icmp eq ptr %387, null
+  br i1 %.not537, label %395, label %388
 
-391:                                              ; preds = %gv_calloc.exit546
-  %392 = getelementptr inbounds nuw i8, ptr %390, i64 8
-  %393 = load ptr, ptr %392, align 8, !tbaa !90
-  call void %393(ptr noundef %383, ptr noundef nonnull %4) #27
-  %394 = load double, ptr %4, align 8, !tbaa !16
-  %395 = fmul double %394, 5.000000e-01
-  %396 = load double, ptr %171, align 8, !tbaa !14
-  %397 = fmul double %396, 5.000000e-01
+388:                                              ; preds = %gv_calloc.exit546
+  %389 = getelementptr inbounds nuw i8, ptr %387, i64 8
+  %390 = load ptr, ptr %389, align 8, !tbaa !90
+  call void %390(ptr noundef %380, ptr noundef nonnull %4) #27
+  %391 = load double, ptr %4, align 8, !tbaa !16
+  %392 = fmul double %391, 5.000000e-01
+  %393 = load double, ptr %171, align 8, !tbaa !14
+  %394 = fmul double %393, 5.000000e-01
   br label %.loopexit564
 
-398:                                              ; preds = %gv_calloc.exit546
-  %399 = uitofp i64 %.1492 to double
-  %400 = fdiv double 0x401921FB54442D18, %399
-  %401 = fmul double %400, 5.000000e-01
-  %402 = call double @sin(double noundef %401) #27, !tbaa !17
-  %403 = call double @llvm.fabs.f64(double %.0480)
-  %404 = call double @llvm.fabs.f64(double %.0481)
-  %405 = fadd double %404, %403
-  %406 = call double @hypot(double noundef %405, double noundef 1.000000e+00) #27, !tbaa !17
-  %407 = fmul double %.0480, 0x3FF6A09E667F3BCD
-  %408 = call double @cos(double noundef %401) #27, !tbaa !17
-  %409 = fdiv double %407, %408
-  %410 = fmul double %.0481, 5.000000e-01
-  %411 = fadd double %400, 0xC00921FB54442D18
+395:                                              ; preds = %gv_calloc.exit546
+  %396 = uitofp i64 %.1492 to double
+  %397 = fdiv double 0x401921FB54442D18, %396
+  %398 = fmul double %397, 5.000000e-01
+  %399 = call double @sin(double noundef %398) #27, !tbaa !17
+  %400 = call double @llvm.fabs.f64(double %.0480)
+  %401 = call double @llvm.fabs.f64(double %.0481)
+  %402 = fadd double %401, %400
+  %403 = call double @hypot(double noundef %402, double noundef 1.000000e+00) #27, !tbaa !17
+  %404 = fmul double %.0480, 0x3FF6A09E667F3BCD
+  %405 = call double @cos(double noundef %398) #27, !tbaa !17
+  %406 = fdiv double %404, %405
+  %407 = fmul double %.0481, 5.000000e-01
+  %408 = fadd double %397, 0xC00921FB54442D18
+  %409 = fmul double %408, 5.000000e-01
+  %410 = call double @sin(double noundef %409) #27, !tbaa !17
+  %411 = call double @cos(double noundef %409) #27, !tbaa !17
   %412 = fmul double %411, 5.000000e-01
-  %413 = call double @sin(double noundef %412) #27, !tbaa !17
-  %414 = call double @cos(double noundef %412) #27, !tbaa !17
+  %413 = fmul double %410, 5.000000e-01
+  %414 = fsub double 0x400921FB54442D18, %397
   %415 = fmul double %414, 5.000000e-01
-  %416 = fmul double %413, 5.000000e-01
-  %417 = fsub double 0x400921FB54442D18, %400
-  %418 = fmul double %417, 5.000000e-01
-  %419 = fadd double %412, %418
-  %420 = fdiv double %61, 1.800000e+02
-  %421 = load double, ptr %4, align 8, !tbaa !16
-  %422 = load double, ptr %171, align 8, !tbaa !14
+  %416 = fadd double %409, %415
+  %417 = fdiv double %61, 1.800000e+02
+  %418 = load double, ptr %4, align 8, !tbaa !16
+  %419 = load double, ptr %171, align 8, !tbaa !14
   br i1 %240, label %.critedge.us, label %.critedge
 
-.critedge.us:                                     ; preds = %398
-  %423 = fadd double %400, %419
-  %424 = call double @sin(double noundef %423) #27, !tbaa !17
-  %425 = call double @cos(double noundef %423) #27, !tbaa !17
-  %426 = call double @llvm.fmuladd.f64(double %402, double %425, double %415)
-  %427 = call double @llvm.fmuladd.f64(double %402, double %424, double %416)
-  %428 = call double @llvm.fmuladd.f64(double %427, double %409, double %406)
-  %429 = fmul double %410, %427
-  %430 = call double @llvm.fmuladd.f64(double %426, double %428, double %429)
-  %431 = call double @atan2(double noundef %427, double noundef %430) #27, !tbaa !17
-  %432 = call double @llvm.fmuladd.f64(double %420, double 0x400921FB54442D18, double %431)
-  %433 = call double @sin(double noundef %432) #27, !tbaa !17
-  %434 = call double @cos(double noundef %432) #27, !tbaa !17
-  %435 = call double @hypot(double noundef %430, double noundef %427) #27, !tbaa !17
-  %436 = fmul double %434, %435
-  %437 = fmul double %433, %435
-  %438 = fmul double %436, %421
-  %439 = fmul double %437, %422
-  %440 = call double @llvm.fabs.f64(double %438)
-  %441 = call double @llvm.maxnum.f64(double %440, double 0.000000e+00)
-  %442 = call double @llvm.fabs.f64(double %439)
-  %443 = call double @llvm.maxnum.f64(double %442, double 0.000000e+00)
-  store double %438, ptr %383, align 8, !tbaa !4
-  %.sroa.15.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %383, i64 8
-  store double %439, ptr %.sroa.15.0..sroa_idx.us, align 8, !tbaa !4
-  %444 = getelementptr inbounds nuw i8, ptr %383, i64 16
-  %445 = fneg double %438
-  store double %445, ptr %444, align 8, !tbaa !4
-  %.sroa.291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %383, i64 24
-  store double %439, ptr %.sroa.291.0..sroa_idx, align 8, !tbaa !4
-  %446 = getelementptr inbounds nuw i8, ptr %383, i64 32
-  %447 = fneg double %439
-  store double %445, ptr %446, align 8, !tbaa !4
-  %.sroa.289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %383, i64 40
-  store double %447, ptr %.sroa.289.0..sroa_idx, align 8, !tbaa !4
-  %448 = getelementptr inbounds nuw i8, ptr %383, i64 48
-  store double %438, ptr %448, align 8, !tbaa !4
-  %.sroa.287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %383, i64 56
-  store double %447, ptr %.sroa.287.0..sroa_idx, align 8, !tbaa !4
+.critedge.us:                                     ; preds = %395
+  %420 = fadd double %397, %416
+  %421 = call double @sin(double noundef %420) #27, !tbaa !17
+  %422 = call double @cos(double noundef %420) #27, !tbaa !17
+  %423 = call double @llvm.fmuladd.f64(double %399, double %422, double %412)
+  %424 = call double @llvm.fmuladd.f64(double %399, double %421, double %413)
+  %425 = call double @llvm.fmuladd.f64(double %424, double %406, double %403)
+  %426 = fmul double %407, %424
+  %427 = call double @llvm.fmuladd.f64(double %423, double %425, double %426)
+  %428 = call double @atan2(double noundef %424, double noundef %427) #27, !tbaa !17
+  %429 = call double @llvm.fmuladd.f64(double %417, double 0x400921FB54442D18, double %428)
+  %430 = call double @sin(double noundef %429) #27, !tbaa !17
+  %431 = call double @cos(double noundef %429) #27, !tbaa !17
+  %432 = call double @hypot(double noundef %427, double noundef %424) #27, !tbaa !17
+  %433 = fmul double %431, %432
+  %434 = fmul double %430, %432
+  %435 = fmul double %433, %418
+  %436 = fmul double %434, %419
+  %437 = call double @llvm.fabs.f64(double %435)
+  %438 = call double @llvm.maxnum.f64(double %437, double 0.000000e+00)
+  %439 = call double @llvm.fabs.f64(double %436)
+  %440 = call double @llvm.maxnum.f64(double %439, double 0.000000e+00)
+  store double %435, ptr %380, align 8, !tbaa !4
+  %.sroa.15.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %380, i64 8
+  store double %436, ptr %.sroa.15.0..sroa_idx.us, align 8, !tbaa !4
+  %441 = getelementptr inbounds nuw i8, ptr %380, i64 16
+  %442 = fneg double %435
+  store double %442, ptr %441, align 8, !tbaa !4
+  %.sroa.291.0..sroa_idx = getelementptr inbounds nuw i8, ptr %380, i64 24
+  store double %436, ptr %.sroa.291.0..sroa_idx, align 8, !tbaa !4
+  %443 = getelementptr inbounds nuw i8, ptr %380, i64 32
+  %444 = fneg double %436
+  store double %442, ptr %443, align 8, !tbaa !4
+  %.sroa.289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %380, i64 40
+  store double %444, ptr %.sroa.289.0..sroa_idx, align 8, !tbaa !4
+  %445 = getelementptr inbounds nuw i8, ptr %380, i64 48
+  store double %435, ptr %445, align 8, !tbaa !4
+  %.sroa.287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %380, i64 56
+  store double %444, ptr %.sroa.287.0..sroa_idx, align 8, !tbaa !4
   br label %.loopexit564
 
-.critedge:                                        ; preds = %398, %.critedge
-  %.0486579 = phi i64 [ %471, %.critedge ], [ 0, %398 ]
-  %.sroa.0111.0578 = phi double [ %452, %.critedge ], [ %415, %398 ]
-  %.sroa.6113.0577 = phi double [ %453, %.critedge ], [ %416, %398 ]
-  %.0495576 = phi double [ %449, %.critedge ], [ %419, %398 ]
-  %.1497575 = phi double [ %469, %.critedge ], [ 0.000000e+00, %398 ]
-  %.1500574 = phi double [ %467, %.critedge ], [ 0.000000e+00, %398 ]
-  %449 = fadd double %400, %.0495576
-  %450 = call double @sin(double noundef %449) #27, !tbaa !17
-  %451 = call double @cos(double noundef %449) #27, !tbaa !17
-  %452 = call double @llvm.fmuladd.f64(double %402, double %451, double %.sroa.0111.0578)
-  %453 = call double @llvm.fmuladd.f64(double %402, double %450, double %.sroa.6113.0577)
-  %454 = call double @llvm.fmuladd.f64(double %453, double %409, double %406)
-  %455 = fmul double %410, %453
-  %456 = call double @llvm.fmuladd.f64(double %452, double %454, double %455)
-  %457 = call double @atan2(double noundef %453, double noundef %456) #27, !tbaa !17
-  %458 = call double @llvm.fmuladd.f64(double %420, double 0x400921FB54442D18, double %457)
-  %459 = call double @sin(double noundef %458) #27, !tbaa !17
-  %460 = call double @cos(double noundef %458) #27, !tbaa !17
-  %461 = call double @hypot(double noundef %456, double noundef %453) #27, !tbaa !17
-  %462 = fmul double %460, %461
-  %463 = fmul double %459, %461
-  %464 = fmul double %462, %421
-  %465 = fmul double %463, %422
-  %466 = call double @llvm.fabs.f64(double %464)
-  %467 = call double @llvm.maxnum.f64(double %466, double %.1500574)
-  %468 = call double @llvm.fabs.f64(double %465)
-  %469 = call double @llvm.maxnum.f64(double %468, double %.1497575)
-  %470 = getelementptr inbounds nuw %struct.pointf_s, ptr %383, i64 %.0486579
-  store double %464, ptr %470, align 8, !tbaa !4
-  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %470, i64 8
-  store double %465, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !4
-  %471 = add nuw i64 %.0486579, 1
-  %exitcond.not = icmp eq i64 %471, %.1492
+.critedge:                                        ; preds = %395, %.critedge
+  %.0486579 = phi i64 [ %468, %.critedge ], [ 0, %395 ]
+  %.sroa.0111.0578 = phi double [ %449, %.critedge ], [ %412, %395 ]
+  %.sroa.6113.0577 = phi double [ %450, %.critedge ], [ %413, %395 ]
+  %.0495576 = phi double [ %446, %.critedge ], [ %416, %395 ]
+  %.1497575 = phi double [ %466, %.critedge ], [ 0.000000e+00, %395 ]
+  %.1500574 = phi double [ %464, %.critedge ], [ 0.000000e+00, %395 ]
+  %446 = fadd double %397, %.0495576
+  %447 = call double @sin(double noundef %446) #27, !tbaa !17
+  %448 = call double @cos(double noundef %446) #27, !tbaa !17
+  %449 = call double @llvm.fmuladd.f64(double %399, double %448, double %.sroa.0111.0578)
+  %450 = call double @llvm.fmuladd.f64(double %399, double %447, double %.sroa.6113.0577)
+  %451 = call double @llvm.fmuladd.f64(double %450, double %406, double %403)
+  %452 = fmul double %407, %450
+  %453 = call double @llvm.fmuladd.f64(double %449, double %451, double %452)
+  %454 = call double @atan2(double noundef %450, double noundef %453) #27, !tbaa !17
+  %455 = call double @llvm.fmuladd.f64(double %417, double 0x400921FB54442D18, double %454)
+  %456 = call double @sin(double noundef %455) #27, !tbaa !17
+  %457 = call double @cos(double noundef %455) #27, !tbaa !17
+  %458 = call double @hypot(double noundef %453, double noundef %450) #27, !tbaa !17
+  %459 = fmul double %457, %458
+  %460 = fmul double %456, %458
+  %461 = fmul double %459, %418
+  %462 = fmul double %460, %419
+  %463 = call double @llvm.fabs.f64(double %461)
+  %464 = call double @llvm.maxnum.f64(double %463, double %.1500574)
+  %465 = call double @llvm.fabs.f64(double %462)
+  %466 = call double @llvm.maxnum.f64(double %465, double %.1497575)
+  %467 = getelementptr inbounds nuw %struct.pointf_s, ptr %380, i64 %.0486579
+  store double %461, ptr %467, align 8, !tbaa !4
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %467, i64 8
+  store double %462, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !4
+  %468 = add nuw i64 %.0486579, 1
+  %exitcond.not = icmp eq i64 %468, %.1492
   br i1 %exitcond.not, label %.loopexit564, label %.critedge, !llvm.loop !91
 
-.loopexit564:                                     ; preds = %.critedge, %.critedge.us, %391
-  %.0506 = phi double [ 0.000000e+00, %391 ], [ %433, %.critedge.us ], [ %459, %.critedge ]
-  %.0502 = phi double [ 0.000000e+00, %391 ], [ %434, %.critedge.us ], [ %460, %.critedge ]
-  %.0499 = phi double [ %395, %391 ], [ %441, %.critedge.us ], [ %467, %.critedge ]
-  %.0496 = phi double [ %397, %391 ], [ %443, %.critedge.us ], [ %469, %.critedge ]
-  %472 = fmul double %.0499, 2.000000e+00
-  %473 = fmul double %.0496, 2.000000e+00
-  %474 = call double @llvm.maxnum.f64(double %.3, double %472)
-  %475 = call double @llvm.maxnum.f64(double %.3490, double %473)
-  store double %474, ptr %4, align 8, !tbaa !4
-  store double %475, ptr %171, align 8, !tbaa !4
-  %476 = fdiv double %474, %472
-  %477 = fdiv double %475, %473
-  br label %478
+.loopexit564:                                     ; preds = %.critedge, %.critedge.us, %388
+  %.0506 = phi double [ 0.000000e+00, %388 ], [ %430, %.critedge.us ], [ %456, %.critedge ]
+  %.0502 = phi double [ 0.000000e+00, %388 ], [ %431, %.critedge.us ], [ %457, %.critedge ]
+  %.0499 = phi double [ %392, %388 ], [ %438, %.critedge.us ], [ %464, %.critedge ]
+  %.0496 = phi double [ %394, %388 ], [ %440, %.critedge.us ], [ %466, %.critedge ]
+  %469 = fmul double %.0499, 2.000000e+00
+  %470 = fmul double %.0496, 2.000000e+00
+  %471 = call double @llvm.maxnum.f64(double %.3, double %469)
+  %472 = call double @llvm.maxnum.f64(double %.3490, double %470)
+  store double %471, ptr %4, align 8, !tbaa !4
+  store double %472, ptr %171, align 8, !tbaa !4
+  %473 = fdiv double %471, %469
+  %474 = fdiv double %472, %470
+  br label %475
 
-478:                                              ; preds = %.loopexit564, %478
-  %.0476587 = phi i64 [ 0, %.loopexit564 ], [ %482, %478 ]
-  %479 = getelementptr inbounds nuw %struct.pointf_s, ptr %383, i64 %.0476587
-  %.sroa.065.0.copyload = load double, ptr %479, align 8, !tbaa !4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %479, i64 8
+475:                                              ; preds = %.loopexit564, %475
+  %.0476587 = phi i64 [ 0, %.loopexit564 ], [ %479, %475 ]
+  %476 = getelementptr inbounds nuw %struct.pointf_s, ptr %380, i64 %.0476587
+  %.sroa.065.0.copyload = load double, ptr %476, align 8, !tbaa !4
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %476, i64 8
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !4
-  %480 = fmul double %476, %.sroa.065.0.copyload
-  %481 = fmul double %477, %.sroa.6.0.copyload
-  store double %480, ptr %479, align 8, !tbaa !4
-  store double %481, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !4
-  %482 = add nuw i64 %.0476587, 1
-  %exitcond651.not = icmp eq i64 %482, %.1492
-  br i1 %exitcond651.not, label %483, label %478, !llvm.loop !92
+  %477 = fmul double %473, %.sroa.065.0.copyload
+  %478 = fmul double %474, %.sroa.6.0.copyload
+  store double %477, ptr %476, align 8, !tbaa !4
+  store double %478, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !4
+  %479 = add nuw i64 %.0476587, 1
+  %exitcond651.not = icmp eq i64 %479, %.1492
+  br i1 %exitcond651.not, label %480, label %475, !llvm.loop !92
 
-483:                                              ; preds = %478
-  %484 = icmp ugt i64 %spec.select, 1
-  br i1 %484, label %.lr.ph, label %.loopexit
+480:                                              ; preds = %475
+  %481 = icmp ugt i64 %spec.select, 1
+  br i1 %481, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %483
-  %.sroa.055.0.copyload = load double, ptr %383, align 8, !tbaa !4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %383, i64 8
+.lr.ph:                                           ; preds = %480
+  %.sroa.055.0.copyload = load double, ptr %380, align 8, !tbaa !4
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %380, i64 8
   %.sroa.8.0.copyload = load double, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !4
   %rhsv.cast.i = bitcast double %.sroa.055.0.copyload to i64
   %rhsv.cast.i549 = bitcast double %.sroa.8.0.copyload to i64
-  br label %485
+  br label %482
 
-485:                                              ; preds = %489, %.lr.ph
-  %.0474588 = phi i64 [ 1, %.lr.ph ], [ %490, %489 ]
-  %486 = sub i64 %.1492, %.0474588
-  %487 = urem i64 %486, %.1492
-  %488 = getelementptr inbounds nuw %struct.pointf_s, ptr %383, i64 %487
-  %.sroa.028.0.copyload = load double, ptr %488, align 8, !tbaa !4
-  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %488, i64 8
+482:                                              ; preds = %486, %.lr.ph
+  %.0474588 = phi i64 [ 1, %.lr.ph ], [ %487, %486 ]
+  %483 = sub i64 %.1492, %.0474588
+  %484 = urem i64 %483, %.1492
+  %485 = getelementptr inbounds nuw %struct.pointf_s, ptr %380, i64 %484
+  %.sroa.028.0.copyload = load double, ptr %485, align 8, !tbaa !4
+  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %485, i64 8
   %.sroa.19.0.copyload = load double, ptr %.sroa.19.0..sroa_idx, align 8, !tbaa !4
   %lhsv.cast.i = bitcast double %.sroa.028.0.copyload to i64
   %.not.i547 = icmp eq i64 %lhsv.cast.i, %rhsv.cast.i
-  br i1 %.not.i547, label %489, label %.lr.ph625
+  br i1 %.not.i547, label %486, label %.lr.ph625
 
-489:                                              ; preds = %485
+486:                                              ; preds = %482
   %lhsv.cast.i548 = bitcast double %.sroa.19.0.copyload to i64
   %.not.i550 = icmp ne i64 %lhsv.cast.i548, %rhsv.cast.i549
-  %490 = add nuw i64 %.0474588, 1
-  %exitcond653.not = icmp eq i64 %490, %.1492
+  %487 = add nuw i64 %.0474588, 1
+  %exitcond653.not = icmp eq i64 %487, %.1492
   %or.cond682 = select i1 %.not.i550, i1 true, i1 %exitcond653.not
-  br i1 %or.cond682, label %.lr.ph625, label %485, !llvm.loop !93
+  br i1 %or.cond682, label %.lr.ph625, label %482, !llvm.loop !93
 
-.lr.ph625:                                        ; preds = %485, %489
-  %491 = fsub double %.sroa.8.0.copyload, %.sroa.19.0.copyload
-  %492 = fsub double %.sroa.055.0.copyload, %.sroa.028.0.copyload
-  %493 = call double @atan2(double noundef %491, double noundef %492) #27, !tbaa !17
-  %494 = icmp ugt i32 %57, 1
-  %495 = icmp ugt i64 %spec.select, %58
-  %496 = mul i64 %.1492, %58
-  br label %501
+.lr.ph625:                                        ; preds = %482, %486
+  %488 = fsub double %.sroa.8.0.copyload, %.sroa.19.0.copyload
+  %489 = fsub double %.sroa.055.0.copyload, %.sroa.028.0.copyload
+  %490 = call double @atan2(double noundef %488, double noundef %489) #27, !tbaa !17
+  %491 = icmp ugt i32 %57, 1
+  %492 = icmp ugt i64 %spec.select, %58
+  %493 = mul i64 %.1492, %58
+  br label %498
 
-.lr.ph630:                                        ; preds = %540
+.lr.ph630:                                        ; preds = %537
   %.promoted626 = load double, ptr %171, align 8
   %.promoted = load double, ptr %4, align 8
-  %497 = add nsw i64 %58, -1
-  %498 = mul i64 %.1492, %497
-  %499 = add nsw i64 %spec.select, -1
-  %500 = mul i64 %499, %.1492
-  br label %542
+  %494 = add nsw i64 %58, -1
+  %495 = mul i64 %.1492, %494
+  %496 = add nsw i64 %spec.select, -1
+  %497 = mul i64 %496, %.1492
+  br label %539
 
-501:                                              ; preds = %.lr.ph625, %540
-  %.sroa.021.0623 = phi double [ %.sroa.028.0.copyload, %.lr.ph625 ], [ %.sroa.028.0.copyload36, %540 ]
-  %.sroa.5.0622 = phi double [ %.sroa.19.0.copyload, %.lr.ph625 ], [ %.sroa.19.0.copyload41, %540 ]
-  %.1619 = phi i64 [ 0, %.lr.ph625 ], [ %541, %540 ]
-  %.0478618 = phi double [ %493, %.lr.ph625 ], [ %.1479, %540 ]
-  %.3505617 = phi double [ %.0502, %.lr.ph625 ], [ %.4, %540 ]
-  %.3509616 = phi double [ %.0506, %.lr.ph625 ], [ %.4510, %540 ]
-  %502 = getelementptr inbounds nuw %struct.pointf_s, ptr %383, i64 %.1619
-  %.sroa.028.0.copyload36 = load double, ptr %502, align 8, !tbaa !4
-  %.sroa.19.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %502, i64 8
+498:                                              ; preds = %.lr.ph625, %537
+  %.sroa.021.0623 = phi double [ %.sroa.028.0.copyload, %.lr.ph625 ], [ %.sroa.028.0.copyload36, %537 ]
+  %.sroa.5.0622 = phi double [ %.sroa.19.0.copyload, %.lr.ph625 ], [ %.sroa.19.0.copyload41, %537 ]
+  %.1619 = phi i64 [ 0, %.lr.ph625 ], [ %538, %537 ]
+  %.0478618 = phi double [ %490, %.lr.ph625 ], [ %.1479, %537 ]
+  %.3505617 = phi double [ %.0502, %.lr.ph625 ], [ %.4, %537 ]
+  %.3509616 = phi double [ %.0506, %.lr.ph625 ], [ %.4510, %537 ]
+  %499 = getelementptr inbounds nuw %struct.pointf_s, ptr %380, i64 %.1619
+  %.sroa.028.0.copyload36 = load double, ptr %499, align 8, !tbaa !4
+  %.sroa.19.0..sroa_idx40 = getelementptr inbounds nuw i8, ptr %499, i64 8
   %.sroa.19.0.copyload41 = load double, ptr %.sroa.19.0..sroa_idx40, align 8, !tbaa !4
   %lhsv.cast.i551 = bitcast double %.sroa.028.0.copyload36 to i64
   %rhsv.cast.i552 = bitcast double %.sroa.021.0623 to i64
   %.not.i553 = icmp eq i64 %lhsv.cast.i551, %rhsv.cast.i552
-  br i1 %.not.i553, label %503, label %.lr.ph598
+  br i1 %.not.i553, label %500, label %.lr.ph598
 
-503:                                              ; preds = %501
+500:                                              ; preds = %498
   %lhsv.cast.i554 = bitcast double %.sroa.19.0.copyload41 to i64
   %rhsv.cast.i555 = bitcast double %.sroa.5.0622 to i64
   %.not.i556 = icmp eq i64 %lhsv.cast.i554, %rhsv.cast.i555
-  br i1 %.not.i556, label %524, label %.lr.ph598
+  br i1 %.not.i556, label %521, label %.lr.ph598
 
-.lr.ph598:                                        ; preds = %501, %503
+.lr.ph598:                                        ; preds = %498, %500
   %rhsv.cast.i561 = bitcast double %.sroa.19.0.copyload41 to i64
-  br label %504
+  br label %501
 
-504:                                              ; preds = %508, %.lr.ph598
-  %.0473596 = phi i64 [ 1, %.lr.ph598 ], [ %509, %508 ]
-  %505 = add i64 %.0473596, %.1619
-  %506 = urem i64 %505, %.1492
-  %507 = getelementptr inbounds nuw %struct.pointf_s, ptr %383, i64 %506
-  %.sroa.055.0.copyload59 = load double, ptr %507, align 8, !tbaa !4
-  %.sroa.8.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %507, i64 8
+501:                                              ; preds = %505, %.lr.ph598
+  %.0473596 = phi i64 [ 1, %.lr.ph598 ], [ %506, %505 ]
+  %502 = add i64 %.0473596, %.1619
+  %503 = urem i64 %502, %.1492
+  %504 = getelementptr inbounds nuw %struct.pointf_s, ptr %380, i64 %503
+  %.sroa.055.0.copyload59 = load double, ptr %504, align 8, !tbaa !4
+  %.sroa.8.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %504, i64 8
   %.sroa.8.0.copyload61 = load double, ptr %.sroa.8.0..sroa_idx60, align 8, !tbaa !4
   %lhsv.cast.i557 = bitcast double %.sroa.055.0.copyload59 to i64
   %.not.i559 = icmp eq i64 %lhsv.cast.i557, %lhsv.cast.i551
-  br i1 %.not.i559, label %508, label %._crit_edge599
+  br i1 %.not.i559, label %505, label %._crit_edge599
 
-508:                                              ; preds = %504
+505:                                              ; preds = %501
   %lhsv.cast.i560 = bitcast double %.sroa.8.0.copyload61 to i64
   %.not.i562 = icmp eq i64 %lhsv.cast.i560, %rhsv.cast.i561
-  %509 = add nuw i64 %.0473596, 1
-  %510 = icmp ult i64 %509, %.1492
-  %or.cond = select i1 %.not.i562, i1 %510, i1 false
-  br i1 %or.cond, label %504, label %._crit_edge599, !llvm.loop !94
+  %506 = add nuw i64 %.0473596, 1
+  %507 = icmp ult i64 %506, %.1492
+  %or.cond = select i1 %.not.i562, i1 %507, i1 false
+  br i1 %or.cond, label %501, label %._crit_edge599, !llvm.loop !94
 
-._crit_edge599:                                   ; preds = %508, %504
-  %511 = fsub double %.sroa.8.0.copyload61, %.sroa.19.0.copyload41
-  %512 = fsub double %.sroa.055.0.copyload59, %.sroa.028.0.copyload36
-  %513 = call double @atan2(double noundef %511, double noundef %512) #27, !tbaa !17
-  %514 = fadd double %.0478618, 0x400921FB54442D18
-  %515 = fsub double %514, %513
-  %516 = fmul double %515, 5.000000e-01
+._crit_edge599:                                   ; preds = %505, %501
+  %508 = fsub double %.sroa.8.0.copyload61, %.sroa.19.0.copyload41
+  %509 = fsub double %.sroa.055.0.copyload59, %.sroa.028.0.copyload36
+  %510 = call double @atan2(double noundef %508, double noundef %509) #27, !tbaa !17
+  %511 = fadd double %.0478618, 0x400921FB54442D18
+  %512 = fsub double %511, %510
+  %513 = fmul double %512, 5.000000e-01
+  %514 = call double @sin(double noundef %513) #27, !tbaa !17
+  %515 = fdiv double 4.000000e+00, %514
+  %516 = fsub double %.0478618, %513
   %517 = call double @sin(double noundef %516) #27, !tbaa !17
-  %518 = fdiv double 4.000000e+00, %517
-  %519 = fsub double %.0478618, %516
-  %520 = call double @sin(double noundef %519) #27, !tbaa !17
-  %521 = fmul double %520, %518
-  %522 = call double @cos(double noundef %519) #27, !tbaa !17
-  %523 = fmul double %518, %522
-  br label %524
+  %518 = fmul double %517, %515
+  %519 = call double @cos(double noundef %516) #27, !tbaa !17
+  %520 = fmul double %515, %519
+  br label %521
 
-524:                                              ; preds = %503, %._crit_edge599
-  %.4510 = phi double [ %.3509616, %503 ], [ %521, %._crit_edge599 ]
-  %.4 = phi double [ %.3505617, %503 ], [ %523, %._crit_edge599 ]
-  %.1479 = phi double [ %.0478618, %503 ], [ %513, %._crit_edge599 ]
-  br i1 %494, label %.lr.ph612, label %._crit_edge613
+521:                                              ; preds = %500, %._crit_edge599
+  %.4510 = phi double [ %.3509616, %500 ], [ %518, %._crit_edge599 ]
+  %.4 = phi double [ %.3505617, %500 ], [ %520, %._crit_edge599 ]
+  %.1479 = phi double [ %.0478618, %500 ], [ %510, %._crit_edge599 ]
+  br i1 %491, label %.lr.ph612, label %._crit_edge613
 
-._crit_edge613:                                   ; preds = %.lr.ph612, %524
-  %.sroa.19.2.lcssa = phi double [ %.sroa.19.0.copyload41, %524 ], [ %526, %.lr.ph612 ]
-  %.sroa.028.2.lcssa = phi double [ %.sroa.028.0.copyload36, %524 ], [ %525, %.lr.ph612 ]
-  br i1 %495, label %530, label %540
+._crit_edge613:                                   ; preds = %.lr.ph612, %521
+  %.sroa.19.2.lcssa = phi double [ %.sroa.19.0.copyload41, %521 ], [ %523, %.lr.ph612 ]
+  %.sroa.028.2.lcssa = phi double [ %.sroa.028.0.copyload36, %521 ], [ %522, %.lr.ph612 ]
+  br i1 %492, label %527, label %537
 
-.lr.ph612:                                        ; preds = %524, %.lr.ph612
-  %.0610 = phi i64 [ %529, %.lr.ph612 ], [ 1, %524 ]
-  %.sroa.028.2609 = phi double [ %525, %.lr.ph612 ], [ %.sroa.028.0.copyload36, %524 ]
-  %.sroa.19.2608 = phi double [ %526, %.lr.ph612 ], [ %.sroa.19.0.copyload41, %524 ]
-  %525 = fadd double %.4, %.sroa.028.2609
-  %526 = fadd double %.4510, %.sroa.19.2608
-  %527 = mul i64 %.0610, %.1492
-  %528 = getelementptr %struct.pointf_s, ptr %502, i64 %527
-  store double %525, ptr %528, align 8, !tbaa !4
-  %.sroa.19.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %528, i64 8
-  store double %526, ptr %.sroa.19.0..sroa_idx42, align 8, !tbaa !4
-  %529 = add nuw i64 %.0610, 1
-  %exitcond654.not = icmp eq i64 %529, %58
+.lr.ph612:                                        ; preds = %521, %.lr.ph612
+  %.0610 = phi i64 [ %526, %.lr.ph612 ], [ 1, %521 ]
+  %.sroa.028.2609 = phi double [ %522, %.lr.ph612 ], [ %.sroa.028.0.copyload36, %521 ]
+  %.sroa.19.2608 = phi double [ %523, %.lr.ph612 ], [ %.sroa.19.0.copyload41, %521 ]
+  %522 = fadd double %.4, %.sroa.028.2609
+  %523 = fadd double %.4510, %.sroa.19.2608
+  %524 = mul i64 %.0610, %.1492
+  %525 = getelementptr %struct.pointf_s, ptr %499, i64 %524
+  store double %522, ptr %525, align 8, !tbaa !4
+  %.sroa.19.0..sroa_idx42 = getelementptr inbounds nuw i8, ptr %525, i64 8
+  store double %523, ptr %.sroa.19.0..sroa_idx42, align 8, !tbaa !4
+  %526 = add nuw i64 %.0610, 1
+  %exitcond654.not = icmp eq i64 %526, %58
   br i1 %exitcond654.not, label %._crit_edge613, label %.lr.ph612, !llvm.loop !95
 
-530:                                              ; preds = %._crit_edge613
-  %531 = fmul double %314, %.4
-  %532 = fmul double %531, 5.000000e-01
-  %533 = fmul double %532, 2.500000e-01
-  %534 = fadd double %533, %.sroa.028.2.lcssa
-  %535 = fmul double %314, %.4510
-  %536 = fmul double %535, 5.000000e-01
-  %537 = fmul double %536, 2.500000e-01
-  %538 = fadd double %537, %.sroa.19.2.lcssa
-  %539 = getelementptr %struct.pointf_s, ptr %502, i64 %496
-  store double %534, ptr %539, align 8, !tbaa !4
-  %.sroa.19.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %539, i64 8
-  store double %538, ptr %.sroa.19.0..sroa_idx44, align 8, !tbaa !4
-  br label %540
+527:                                              ; preds = %._crit_edge613
+  %528 = fmul double %314, %.4
+  %529 = fmul double %528, 5.000000e-01
+  %530 = fmul double %529, 2.500000e-01
+  %531 = fadd double %530, %.sroa.028.2.lcssa
+  %532 = fmul double %314, %.4510
+  %533 = fmul double %532, 5.000000e-01
+  %534 = fmul double %533, 2.500000e-01
+  %535 = fadd double %534, %.sroa.19.2.lcssa
+  %536 = getelementptr %struct.pointf_s, ptr %499, i64 %493
+  store double %531, ptr %536, align 8, !tbaa !4
+  %.sroa.19.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %536, i64 8
+  store double %535, ptr %.sroa.19.0..sroa_idx44, align 8, !tbaa !4
+  br label %537
 
-540:                                              ; preds = %._crit_edge613, %530
-  %541 = add nuw i64 %.1619, 1
-  %exitcond655.not = icmp eq i64 %541, %.1492
-  br i1 %exitcond655.not, label %.lr.ph630, label %501, !llvm.loop !96
+537:                                              ; preds = %._crit_edge613, %527
+  %538 = add nuw i64 %.1619, 1
+  %exitcond655.not = icmp eq i64 %538, %.1492
+  br i1 %exitcond655.not, label %.lr.ph630, label %498, !llvm.loop !96
 
-542:                                              ; preds = %.lr.ph630, %542
-  %.sroa.9.3629 = phi double [ %475, %.lr.ph630 ], [ %559, %542 ]
-  %.sroa.0376.3628 = phi double [ %474, %.lr.ph630 ], [ %556, %542 ]
-  %.2627 = phi i64 [ 0, %.lr.ph630 ], [ %560, %542 ]
-  %543 = phi double [ %.promoted, %.lr.ph630 ], [ %549, %542 ]
-  %544 = phi double [ %.promoted626, %.lr.ph630 ], [ %552, %542 ]
-  %545 = getelementptr %struct.pointf_s, ptr %383, i64 %.2627
-  %546 = getelementptr %struct.pointf_s, ptr %545, i64 %498
-  %.sroa.015.0.copyload = load double, ptr %546, align 8, !tbaa !4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %546, i64 8
+539:                                              ; preds = %.lr.ph630, %539
+  %.sroa.9.3629 = phi double [ %472, %.lr.ph630 ], [ %556, %539 ]
+  %.sroa.0376.3628 = phi double [ %471, %.lr.ph630 ], [ %553, %539 ]
+  %.2627 = phi i64 [ 0, %.lr.ph630 ], [ %557, %539 ]
+  %540 = phi double [ %.promoted, %.lr.ph630 ], [ %546, %539 ]
+  %541 = phi double [ %.promoted626, %.lr.ph630 ], [ %549, %539 ]
+  %542 = getelementptr %struct.pointf_s, ptr %380, i64 %.2627
+  %543 = getelementptr %struct.pointf_s, ptr %542, i64 %495
+  %.sroa.015.0.copyload = load double, ptr %543, align 8, !tbaa !4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %543, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !4
-  %547 = call double @llvm.fabs.f64(double %.sroa.015.0.copyload)
+  %544 = call double @llvm.fabs.f64(double %.sroa.015.0.copyload)
+  %545 = fmul double %544, 2.000000e+00
+  %546 = call double @llvm.maxnum.f64(double %545, double %540)
+  %547 = call double @llvm.fabs.f64(double %.sroa.4.0.copyload)
   %548 = fmul double %547, 2.000000e+00
-  %549 = call double @llvm.maxnum.f64(double %548, double %543)
-  %550 = call double @llvm.fabs.f64(double %.sroa.4.0.copyload)
-  %551 = fmul double %550, 2.000000e+00
-  %552 = call double @llvm.maxnum.f64(double %551, double %544)
-  %553 = getelementptr %struct.pointf_s, ptr %545, i64 %500
-  %.sroa.028.0.copyload39 = load double, ptr %553, align 8, !tbaa !4
-  %.sroa.19.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %553, i64 8
+  %549 = call double @llvm.maxnum.f64(double %548, double %541)
+  %550 = getelementptr %struct.pointf_s, ptr %542, i64 %497
+  %.sroa.028.0.copyload39 = load double, ptr %550, align 8, !tbaa !4
+  %.sroa.19.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %550, i64 8
   %.sroa.19.0.copyload47 = load double, ptr %.sroa.19.0..sroa_idx46, align 8, !tbaa !4
-  %554 = call double @llvm.fabs.f64(double %.sroa.028.0.copyload39)
+  %551 = call double @llvm.fabs.f64(double %.sroa.028.0.copyload39)
+  %552 = fmul double %551, 2.000000e+00
+  %553 = call double @llvm.maxnum.f64(double %552, double %.sroa.0376.3628)
+  %554 = call double @llvm.fabs.f64(double %.sroa.19.0.copyload47)
   %555 = fmul double %554, 2.000000e+00
-  %556 = call double @llvm.maxnum.f64(double %555, double %.sroa.0376.3628)
-  %557 = call double @llvm.fabs.f64(double %.sroa.19.0.copyload47)
-  %558 = fmul double %557, 2.000000e+00
-  %559 = call double @llvm.maxnum.f64(double %558, double %.sroa.9.3629)
-  %560 = add nuw i64 %.2627, 1
-  %exitcond656.not = icmp eq i64 %560, %.1492
-  br i1 %exitcond656.not, label %..loopexit_crit_edge, label %542, !llvm.loop !97
+  %556 = call double @llvm.maxnum.f64(double %555, double %.sroa.9.3629)
+  %557 = add nuw i64 %.2627, 1
+  %exitcond656.not = icmp eq i64 %557, %.1492
+  br i1 %exitcond656.not, label %..loopexit_crit_edge, label %539, !llvm.loop !97
 
-..loopexit_crit_edge:                             ; preds = %542
-  store double %549, ptr %4, align 8, !tbaa !4
-  store double %552, ptr %171, align 8, !tbaa !4
+..loopexit_crit_edge:                             ; preds = %539
+  store double %546, ptr %4, align 8, !tbaa !4
+  store double %549, ptr %171, align 8, !tbaa !4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %..loopexit_crit_edge, %483, %355, %357
-  %.2493 = phi i64 [ 2, %357 ], [ 2, %355 ], [ %.1492, %483 ], [ %.1492, %..loopexit_crit_edge ]
-  %.0475 = phi ptr [ %334, %357 ], [ %334, %355 ], [ %383, %483 ], [ %383, %..loopexit_crit_edge ]
-  %.sroa.0376.1 = phi double [ %367, %357 ], [ %.sroa.0376.0.copyload, %355 ], [ %474, %483 ], [ %556, %..loopexit_crit_edge ]
-  %.sroa.9.1 = phi double [ %368, %357 ], [ %.sroa.9.0.copyload, %355 ], [ %475, %483 ], [ %559, %..loopexit_crit_edge ]
-  %561 = zext i1 %28 to i32
-  store i32 %561, ptr %5, align 8, !tbaa !47
-  %562 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %58, ptr %562, align 8, !tbaa !51
-  %563 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.2493, ptr %563, align 8, !tbaa !52
-  %564 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store double %61, ptr %564, align 8, !tbaa !53
-  %565 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store double %.0481, ptr %565, align 8, !tbaa !54
-  %566 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store double %.0480, ptr %566, align 8, !tbaa !55
-  %567 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store ptr %.0475, ptr %567, align 8, !tbaa !83
-  %568 = load double, ptr %4, align 8, !tbaa !16
-  br i1 %.not536, label %582, label %569
+.loopexit:                                        ; preds = %..loopexit_crit_edge, %480, %354, %356
+  %.2493 = phi i64 [ 2, %356 ], [ 2, %354 ], [ %.1492, %480 ], [ %.1492, %..loopexit_crit_edge ]
+  %.0475 = phi ptr [ %334, %356 ], [ %334, %354 ], [ %380, %480 ], [ %380, %..loopexit_crit_edge ]
+  %.sroa.0376.1 = phi double [ %364, %356 ], [ %.sroa.0376.0.copyload, %354 ], [ %471, %480 ], [ %553, %..loopexit_crit_edge ]
+  %.sroa.9.1 = phi double [ %365, %356 ], [ %.sroa.9.0.copyload, %354 ], [ %472, %480 ], [ %556, %..loopexit_crit_edge ]
+  %558 = zext i1 %28 to i32
+  store i32 %558, ptr %5, align 8, !tbaa !47
+  %559 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %58, ptr %559, align 8, !tbaa !51
+  %560 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %.2493, ptr %560, align 8, !tbaa !52
+  %561 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store double %61, ptr %561, align 8, !tbaa !53
+  %562 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store double %.0481, ptr %562, align 8, !tbaa !54
+  %563 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store double %.0480, ptr %563, align 8, !tbaa !55
+  %564 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store ptr %.0475, ptr %564, align 8, !tbaa !83
+  %565 = load double, ptr %4, align 8, !tbaa !16
+  br i1 %.not536, label %579, label %566
 
-569:                                              ; preds = %.loopexit
-  %570 = call double @llvm.maxnum.f64(double %.sroa.0385.2, double %568)
-  %571 = fdiv double %570, 7.200000e+01
-  %572 = load ptr, ptr %10, align 8, !tbaa !21
-  %573 = getelementptr inbounds nuw i8, ptr %572, i64 48
-  store double %571, ptr %573, align 8, !tbaa !58
-  %574 = load double, ptr %171, align 8, !tbaa !14
-  %575 = call double @llvm.maxnum.f64(double %.sroa.20.2, double %574)
+566:                                              ; preds = %.loopexit
+  %567 = call double @llvm.maxnum.f64(double %.sroa.0385.2, double %565)
+  %568 = fdiv double %567, 7.200000e+01
+  %569 = load ptr, ptr %10, align 8, !tbaa !21
+  %570 = getelementptr inbounds nuw i8, ptr %569, i64 48
+  store double %568, ptr %570, align 8, !tbaa !58
+  %571 = load double, ptr %171, align 8, !tbaa !14
+  %572 = call double @llvm.maxnum.f64(double %.sroa.20.2, double %571)
+  %573 = fdiv double %572, 7.200000e+01
+  %574 = getelementptr inbounds nuw i8, ptr %569, i64 56
+  store double %573, ptr %574, align 8, !tbaa !59
+  %575 = call double @llvm.maxnum.f64(double %.sroa.0385.2, double %.sroa.0376.1)
   %576 = fdiv double %575, 7.200000e+01
-  %577 = getelementptr inbounds nuw i8, ptr %572, i64 56
-  store double %576, ptr %577, align 8, !tbaa !59
-  %578 = call double @llvm.maxnum.f64(double %.sroa.0385.2, double %.sroa.0376.1)
-  %579 = fdiv double %578, 7.200000e+01
-  %580 = getelementptr inbounds nuw i8, ptr %572, i64 120
-  store double %579, ptr %580, align 8, !tbaa !98
-  %581 = call double @llvm.maxnum.f64(double %.sroa.20.2, double %.sroa.9.1)
-  br label %591
+  %577 = getelementptr inbounds nuw i8, ptr %569, i64 120
+  store double %576, ptr %577, align 8, !tbaa !98
+  %578 = call double @llvm.maxnum.f64(double %.sroa.20.2, double %.sroa.9.1)
+  br label %588
 
-582:                                              ; preds = %.loopexit
-  %583 = fdiv double %568, 7.200000e+01
-  %584 = load ptr, ptr %10, align 8, !tbaa !21
-  %585 = getelementptr inbounds nuw i8, ptr %584, i64 48
-  store double %583, ptr %585, align 8, !tbaa !58
-  %586 = load double, ptr %171, align 8, !tbaa !14
-  %587 = fdiv double %586, 7.200000e+01
-  %588 = getelementptr inbounds nuw i8, ptr %584, i64 56
-  store double %587, ptr %588, align 8, !tbaa !59
-  %589 = fdiv double %.sroa.0376.1, 7.200000e+01
-  %590 = getelementptr inbounds nuw i8, ptr %584, i64 120
-  store double %589, ptr %590, align 8, !tbaa !98
-  br label %591
+579:                                              ; preds = %.loopexit
+  %580 = fdiv double %565, 7.200000e+01
+  %581 = load ptr, ptr %10, align 8, !tbaa !21
+  %582 = getelementptr inbounds nuw i8, ptr %581, i64 48
+  store double %580, ptr %582, align 8, !tbaa !58
+  %583 = load double, ptr %171, align 8, !tbaa !14
+  %584 = fdiv double %583, 7.200000e+01
+  %585 = getelementptr inbounds nuw i8, ptr %581, i64 56
+  store double %584, ptr %585, align 8, !tbaa !59
+  %586 = fdiv double %.sroa.0376.1, 7.200000e+01
+  %587 = getelementptr inbounds nuw i8, ptr %581, i64 120
+  store double %586, ptr %587, align 8, !tbaa !98
+  br label %588
 
-591:                                              ; preds = %582, %569
-  %.sroa.9.1.sink = phi double [ %.sroa.9.1, %582 ], [ %581, %569 ]
-  %.sink684 = phi ptr [ %584, %582 ], [ %572, %569 ]
-  %592 = fdiv double %.sroa.9.1.sink, 7.200000e+01
-  %593 = getelementptr inbounds nuw i8, ptr %.sink684, i64 128
-  store double %592, ptr %593, align 8, !tbaa !99
-  %594 = getelementptr inbounds nuw i8, ptr %.sink684, i64 24
-  store ptr %5, ptr %594, align 8, !tbaa !100
+588:                                              ; preds = %579, %566
+  %.sroa.9.1.sink = phi double [ %.sroa.9.1, %579 ], [ %578, %566 ]
+  %.sink684 = phi ptr [ %581, %579 ], [ %569, %566 ]
+  %589 = fdiv double %.sroa.9.1.sink, 7.200000e+01
+  %590 = getelementptr inbounds nuw i8, ptr %.sink684, i64 128
+  store double %589, ptr %590, align 8, !tbaa !99
+  %591 = getelementptr inbounds nuw i8, ptr %.sink684, i64 24
+  store ptr %5, ptr %591, align 8, !tbaa !100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #27
@@ -4488,11 +4483,11 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %49
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 24
   store double %57, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !4
   %61 = icmp ugt i32 %35, 1
-  br i1 %61, label %.preheader, label %75
+  br i1 %61, label %.preheader, label %74
 
 .preheader:                                       ; preds = %gv_calloc.exit, %.preheader
-  %.097113 = phi i64 [ %72, %.preheader ], [ 1, %gv_calloc.exit ]
-  %.098112 = phi i64 [ %71, %.preheader ], [ 2, %gv_calloc.exit ]
+  %.097113 = phi i64 [ %71, %.preheader ], [ 1, %gv_calloc.exit ]
+  %.098112 = phi i64 [ %70, %.preheader ], [ 2, %gv_calloc.exit ]
   %.sroa.15.0111 = phi double [ %63, %.preheader ], [ %57, %gv_calloc.exit ]
   %.sroa.0.0110 = phi double [ %62, %.preheader ], [ %57, %gv_calloc.exit ]
   %62 = fadd double %.sroa.0.0110, 4.000000e+00
@@ -4503,68 +4498,67 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %49
   %66 = fneg double %63
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store double %66, ptr %67, align 8, !tbaa !14
-  %68 = or disjoint i64 %.098112, 1
-  %69 = getelementptr inbounds nuw %struct.pointf_s, ptr %56, i64 %68
-  store double %62, ptr %69, align 8, !tbaa !16
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store double %63, ptr %70, align 8, !tbaa !14
-  %71 = add i64 %.098112, 2
-  %72 = add nuw i64 %.097113, 1
-  %exitcond.not = icmp eq i64 %72, %36
-  br i1 %exitcond.not, label %73, label %.preheader, !llvm.loop !108
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store double %62, ptr %68, align 8, !tbaa !16
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  store double %63, ptr %69, align 8, !tbaa !14
+  %70 = add i64 %.098112, 2
+  %71 = add nuw i64 %.097113, 1
+  %exitcond.not = icmp eq i64 %71, %36
+  br i1 %exitcond.not, label %72, label %.preheader, !llvm.loop !108
 
-73:                                               ; preds = %.preheader
-  %74 = fmul double %62, 2.000000e+00
-  br label %75
+72:                                               ; preds = %.preheader
+  %73 = fmul double %62, 2.000000e+00
+  br label %74
 
-75:                                               ; preds = %gv_calloc.exit, %73
-  %.sroa.0.1 = phi double [ %62, %73 ], [ %57, %gv_calloc.exit ]
-  %.sroa.15.1 = phi double [ %63, %73 ], [ %57, %gv_calloc.exit ]
-  %.199 = phi i64 [ %71, %73 ], [ 2, %gv_calloc.exit ]
-  %.095 = phi double [ %74, %73 ], [ %32, %gv_calloc.exit ]
-  %76 = icmp ugt i64 %.1, %36
-  %or.cond105 = and i1 %or.cond, %76
-  br i1 %or.cond105, label %77, label %87
+74:                                               ; preds = %gv_calloc.exit, %72
+  %.sroa.0.1 = phi double [ %62, %72 ], [ %57, %gv_calloc.exit ]
+  %.sroa.15.1 = phi double [ %63, %72 ], [ %57, %gv_calloc.exit ]
+  %.199 = phi i64 [ %70, %72 ], [ 2, %gv_calloc.exit ]
+  %.095 = phi double [ %73, %72 ], [ %32, %gv_calloc.exit ]
+  %75 = icmp ugt i64 %.1, %36
+  %or.cond105 = and i1 %or.cond, %75
+  br i1 %or.cond105, label %76, label %86
 
-77:                                               ; preds = %75
-  %78 = fmul double %39, 5.000000e-01
-  %79 = fadd double %78, %.sroa.0.1
-  %80 = fadd double %78, %.sroa.15.1
-  %81 = fneg double %79
-  %82 = getelementptr inbounds nuw %struct.pointf_s, ptr %56, i64 %.199
-  store double %81, ptr %82, align 8, !tbaa !16
-  %83 = fneg double %80
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store double %83, ptr %84, align 8, !tbaa !14
-  %85 = getelementptr i8, ptr %82, i64 16
-  store double %79, ptr %85, align 8, !tbaa !16
-  %86 = getelementptr i8, ptr %82, i64 24
-  store double %80, ptr %86, align 8, !tbaa !14
-  br label %87
+76:                                               ; preds = %74
+  %77 = fmul double %39, 5.000000e-01
+  %78 = fadd double %77, %.sroa.0.1
+  %79 = fadd double %77, %.sroa.15.1
+  %80 = fneg double %78
+  %81 = getelementptr inbounds nuw %struct.pointf_s, ptr %56, i64 %.199
+  store double %80, ptr %81, align 8, !tbaa !16
+  %82 = fneg double %79
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store double %82, ptr %83, align 8, !tbaa !14
+  %84 = getelementptr i8, ptr %81, i64 16
+  store double %78, ptr %84, align 8, !tbaa !16
+  %85 = getelementptr i8, ptr %81, i64 24
+  store double %79, ptr %85, align 8, !tbaa !14
+  br label %86
 
-87:                                               ; preds = %77, %75
-  %.sroa.0.2 = phi double [ %79, %77 ], [ %.sroa.0.1, %75 ]
-  %88 = fmul double %.sroa.0.2, 2.000000e+00
+86:                                               ; preds = %76, %74
+  %.sroa.0.2 = phi double [ %78, %76 ], [ %.sroa.0.1, %74 ]
+  %87 = fmul double %.sroa.0.2, 2.000000e+00
   store i32 1, ptr %2, align 8, !tbaa !47
-  %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %36, ptr %89, align 8, !tbaa !51
-  %90 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 2, ptr %90, align 8, !tbaa !52
-  %91 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr %56, ptr %91, align 8, !tbaa !83
-  %92 = fdiv double %.095, 7.200000e+01
-  %93 = load ptr, ptr %7, align 8, !tbaa !21
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
-  store double %92, ptr %94, align 8, !tbaa !58
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 56
-  store double %92, ptr %95, align 8, !tbaa !59
-  %96 = fdiv double %88, 7.200000e+01
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 120
-  store double %96, ptr %97, align 8, !tbaa !98
-  %98 = getelementptr inbounds nuw i8, ptr %93, i64 128
-  store double %96, ptr %98, align 8, !tbaa !99
-  %99 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  store ptr %2, ptr %99, align 8, !tbaa !100
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %36, ptr %88, align 8, !tbaa !51
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 2, ptr %89, align 8, !tbaa !52
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  store ptr %56, ptr %90, align 8, !tbaa !83
+  %91 = fdiv double %.095, 7.200000e+01
+  %92 = load ptr, ptr %7, align 8, !tbaa !21
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
+  store double %91, ptr %93, align 8, !tbaa !58
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 56
+  store double %91, ptr %94, align 8, !tbaa !59
+  %95 = fdiv double %87, 7.200000e+01
+  %96 = getelementptr inbounds nuw i8, ptr %92, i64 120
+  store double %95, ptr %96, align 8, !tbaa !98
+  %97 = getelementptr inbounds nuw i8, ptr %92, i64 128
+  store double %95, ptr %97, align 8, !tbaa !99
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  store ptr %2, ptr %98, align 8, !tbaa !100
   ret void
 }
 
@@ -9491,7 +9485,7 @@ define internal void @star_vertices(ptr noundef writeonly captures(none) %0, ptr
 
 18:                                               ; preds = %11, %18
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %18 ]
-  %.040 = phi double [ 0x3FD41B2F769CF0E0, %11 ], [ %33, %18 ]
+  %.040 = phi double [ 0x3FD41B2F769CF0E0, %11 ], [ %32, %18 ]
   %19 = tail call double @cos(double noundef %.040) #27, !tbaa !17
   %20 = fmul double %12, %19
   %21 = getelementptr inbounds nuw %struct.pointf_s, ptr %0, i64 %indvars.iv
@@ -9503,19 +9497,18 @@ define internal void @star_vertices(ptr noundef writeonly captures(none) %0, ptr
   %25 = fadd double %.040, 0x3FE41B2F769CF0E0
   %26 = tail call double @cos(double noundef %25) #27, !tbaa !17
   %27 = fmul double %15, %26
-  %28 = or disjoint i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw %struct.pointf_s, ptr %0, i64 %28
-  store double %27, ptr %29, align 8, !tbaa !16
-  %30 = tail call double @sin(double noundef %25) #27, !tbaa !17
-  %31 = tail call double @llvm.fmuladd.f64(double %15, double %30, double %17)
-  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store double %31, ptr %32, align 8, !tbaa !14
-  %33 = fadd double %25, 0x3FE41B2F769CF0E0
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store double %27, ptr %28, align 8, !tbaa !16
+  %29 = tail call double @sin(double noundef %25) #27, !tbaa !17
+  %30 = tail call double @llvm.fmuladd.f64(double %15, double %29, double %17)
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store double %30, ptr %31, align 8, !tbaa !14
+  %32 = fadd double %25, 0x3FE41B2F769CF0E0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %34 = icmp samesign ult i64 %indvars.iv, 8
-  br i1 %34, label %18, label %35, !llvm.loop !225
+  %33 = icmp samesign ult i64 %indvars.iv, 8
+  br i1 %33, label %18, label %34, !llvm.loop !225
 
-35:                                               ; preds = %18
+34:                                               ; preds = %18
   store double %.sroa.0.0, ptr %1, align 8, !tbaa !4
   store double %.sroa.8.0, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !4
   ret void

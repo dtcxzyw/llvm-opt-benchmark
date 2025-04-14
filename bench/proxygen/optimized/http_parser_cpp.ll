@@ -3889,6 +3889,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %tobool212.i = icmp ne i8 %0, 0
   %sub.ptr.rhs.cast = ptrtoint ptr %buf to i64
   %field_data10 = getelementptr inbounds nuw i8, ptr %u, i64 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %u, i64 6
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -4086,12 +4087,11 @@ sw.epilog:                                        ; preds = %_ZN8proxygenL14pars
 
 if.then:                                          ; preds = %sw.epilog
   %12 = shl nuw nsw i32 %old_uf.076, 2
-  %13 = or disjoint i32 %12, 2
-  %len.offs = zext nneg i32 %13 to i64
-  %len = getelementptr inbounds nuw i8, ptr %field_data10, i64 %len.offs
-  %14 = load i16, ptr %len, align 2
+  %13 = zext nneg i32 %12 to i64
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %13
+  %14 = load i16, ptr %gep, align 2
   %inc = add i16 %14, 1
-  store i16 %inc, ptr %len, align 2
+  store i16 %inc, ptr %gep, align 2
   br label %for.inc
 
 if.end:                                           ; preds = %sw.epilog

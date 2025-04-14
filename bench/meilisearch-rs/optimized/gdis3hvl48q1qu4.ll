@@ -54762,8 +54762,8 @@ _ZN10actix_http6header3map9HeaderMap3get17h0383e830b7fc0dbbE.exit.i: ; preds = %
   %163 = sub nuw nsw i64 64, %162
   %.sroa.0.0.sroa.speculated.i.i.i = call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 range(i64 0, 55) %163, i64 7)
   %164 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 2
-  %165 = or disjoint i64 %164, 1
-  %166 = getelementptr i8, ptr null, i64 %165
+  %165 = getelementptr i8, ptr null, i64 %164
+  %166 = getelementptr i8, ptr %165, i64 1
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 2097152, ptr %167, align 8
   store i64 %.sroa.011.0, ptr %0, align 8
@@ -55227,8 +55227,8 @@ _ZN10actix_http6header3map9HeaderMap3get17h0383e830b7fc0dbbE.exit.i: ; preds = %
   %163 = sub nuw nsw i64 64, %162
   %.sroa.0.0.sroa.speculated.i.i.i = call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 range(i64 0, 55) %163, i64 7)
   %164 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i, 2
-  %165 = or disjoint i64 %164, 1
-  %166 = getelementptr i8, ptr null, i64 %165
+  %165 = getelementptr i8, ptr null, i64 %164
+  %166 = getelementptr i8, ptr %165, i64 1
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 2097152, ptr %167, align 8
   store i64 %.sroa.011.0, ptr %0, align 8

@@ -7227,7 +7227,7 @@ entry:
   br i1 %cmp23, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %__first, i64 8
+  %add.ptr1.i = getelementptr i8, ptr %__first, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_less_iterEET_S4_S4_T0_.exit
@@ -7235,16 +7235,16 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %__last.addr.025 = phi ptr [ %__last, %while.body.lr.ph ], [ %__first.addr.1.i.i, %_ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_less_iterEET_S4_S4_T0_.exit ]
   %__depth_limit.addr.024 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %_ZSt27__unguarded_partition_pivotIPdN9__gnu_cxx5__ops15_Iter_less_iterEET_S4_S4_T0_.exit ]
   %cmp1 = icmp eq i64 %__depth_limit.addr.024, 0
-  br i1 %cmp1, label %if.then, label %if.end
+  br i1 %cmp1, label %while.body.lr.ph.i.i, label %if.end
 
-if.then:                                          ; preds = %while.body
+while.body.lr.ph.i.i:                             ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %__comp.i)
   call void @_ZSt11__make_heapIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_RT0_(ptr noundef %__first, ptr noundef %__last.addr.025, ptr noundef nonnull align 1 dereferenceable(1) %__comp.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__comp.i)
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %if.then, %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i
-  %__last.addr.08.i.i = phi ptr [ %incdec.ptr.i.i, %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i ], [ %__last.addr.025, %if.then ]
+while.body.i.i:                                   ; preds = %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, %while.body.lr.ph.i.i
+  %__last.addr.08.i.i = phi ptr [ %__last.addr.025, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i, %_ZSt10__pop_heapIPdN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__last.addr.08.i.i, i64 -8
   %0 = load double, ptr %incdec.ptr.i.i, align 8, !tbaa !108
   %1 = load double, ptr %__first, align 8, !tbaa !108
@@ -7262,12 +7262,12 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i, %wh
   %add.i.i.i.i = shl i64 %__secondChild.025.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
   %add.ptr.i.i.i.i = getelementptr inbounds double, ptr %__first, i64 %mul.i.i.i.i
-  %sub1.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr2.i.i.i.i = getelementptr inbounds double, ptr %__first, i64 %sub1.i.i.i.i
+  %gep.i.i.i.i = getelementptr double, ptr %add.ptr1.i, i64 %add.i.i.i.i
   %2 = load double, ptr %add.ptr.i.i.i.i, align 8, !tbaa !108
-  %3 = load double, ptr %add.ptr2.i.i.i.i, align 8, !tbaa !108
+  %3 = load double, ptr %gep.i.i.i.i, align 8, !tbaa !108
   %cmp.i.i.i.i.i = fcmp olt double %2, %3
-  %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub1.i.i.i.i, i64 %mul.i.i.i.i
+  %dec.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
+  %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %dec.i.i.i.i, i64 %mul.i.i.i.i
   %add.ptr3.i.i.i.i = getelementptr inbounds double, ptr %__first, i64 %spec.select.i.i.i.i
   %4 = load double, ptr %add.ptr3.i.i.i.i, align 8, !tbaa !108
   %add.ptr4.i.i.i.i = getelementptr inbounds double, ptr %__first, i64 %__secondChild.025.i.i.i.i
@@ -7445,6 +7445,7 @@ if.end:                                           ; preds = %entry
   %div9 = lshr i64 %sub, 1
   %sub.i = add nsw i64 %sub.ptr.div, -1
   %div.i1315 = lshr i64 %sub.i, 1
+  %invariant.gep.i = getelementptr i8, ptr %__first, i64 8
   %0 = and i64 %sub.ptr.sub, 8
   %cmp5.i = icmp eq i64 %0, 0
   %div7.i = lshr exact i64 %sub, 1
@@ -7468,12 +7469,12 @@ while.body.i.us:                                  ; preds = %while.cond.us, %whi
   %add.i.us = shl i64 %__secondChild.025.i.us, 1
   %mul.i.us = add i64 %add.i.us, 2
   %add.ptr.i.us = getelementptr inbounds double, ptr %__first, i64 %mul.i.us
-  %sub1.i.us = or disjoint i64 %add.i.us, 1
-  %add.ptr2.i.us = getelementptr inbounds double, ptr %__first, i64 %sub1.i.us
+  %gep.i.us = getelementptr double, ptr %invariant.gep.i, i64 %add.i.us
   %2 = load double, ptr %add.ptr.i.us, align 8, !tbaa !108
-  %3 = load double, ptr %add.ptr2.i.us, align 8, !tbaa !108
+  %3 = load double, ptr %gep.i.us, align 8, !tbaa !108
   %cmp.i.i.us = fcmp olt double %2, %3
-  %spec.select.i.us = select i1 %cmp.i.i.us, i64 %sub1.i.us, i64 %mul.i.us
+  %dec.i.us = or disjoint i64 %add.i.us, 1
+  %spec.select.i.us = select i1 %cmp.i.i.us, i64 %dec.i.us, i64 %mul.i.us
   %add.ptr3.i.us = getelementptr inbounds double, ptr %__first, i64 %spec.select.i.us
   %4 = load double, ptr %add.ptr3.i.us, align 8, !tbaa !108
   %add.ptr4.i.us = getelementptr inbounds double, ptr %__first, i64 %__secondChild.025.i.us
@@ -7520,12 +7521,12 @@ while.body.i:                                     ; preds = %while.cond, %while.
   %add.i = shl i64 %__secondChild.025.i, 1
   %mul.i = add i64 %add.i, 2
   %add.ptr.i = getelementptr inbounds double, ptr %__first, i64 %mul.i
-  %sub1.i = or disjoint i64 %add.i, 1
-  %add.ptr2.i = getelementptr inbounds double, ptr %__first, i64 %sub1.i
+  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %add.i
   %7 = load double, ptr %add.ptr.i, align 8, !tbaa !108
-  %8 = load double, ptr %add.ptr2.i, align 8, !tbaa !108
+  %8 = load double, ptr %gep.i, align 8, !tbaa !108
   %cmp.i.i = fcmp olt double %7, %8
-  %spec.select.i = select i1 %cmp.i.i, i64 %sub1.i, i64 %mul.i
+  %dec.i = or disjoint i64 %add.i, 1
+  %spec.select.i = select i1 %cmp.i.i, i64 %dec.i, i64 %mul.i
   %add.ptr3.i = getelementptr inbounds double, ptr %__first, i64 %spec.select.i
   %9 = load double, ptr %add.ptr3.i, align 8, !tbaa !108
   %add.ptr4.i = getelementptr inbounds double, ptr %__first, i64 %__secondChild.025.i

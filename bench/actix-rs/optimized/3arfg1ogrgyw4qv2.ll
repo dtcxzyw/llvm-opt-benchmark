@@ -6756,8 +6756,8 @@ define void @"_ZN113_$LT$actix_web..http..header..entity..EntityTag$u20$as$u20$a
 
 22:                                               ; preds = %.noexc3
   %23 = shl i64 %17, 2
-  %24 = or disjoint i64 %23, 1
-  %25 = getelementptr i8, ptr null, i64 %24
+  %24 = getelementptr i8, ptr null, i64 %23
+  %25 = getelementptr i8, ptr %24, i64 1
   store ptr %12, ptr %9, align 8, !alias.scope !1130
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1130

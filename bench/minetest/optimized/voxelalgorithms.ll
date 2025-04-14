@@ -4533,8 +4533,8 @@ if.end:                                           ; preds = %if.else, %if.then
 
 for.cond29.preheader:                             ; preds = %for.cond29.preheader, %for.cond23.preheader
   %indvars.iv = phi i64 [ 0, %for.cond23.preheader ], [ %indvars.iv.next, %for.cond29.preheader ]
-  %mul.i = shl nsw i64 %indvars.iv, 8
-  %arrayidx.i = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %mul.i
+  %arrayidx.i.idx = shl nsw i64 %indvars.iv, 10
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %3, i64 %arrayidx.i.idx
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift = lshr i32 %retval.sroa.0.0.copyload.i, 16
   %above.sroa.4.0.extract.trunc = trunc i32 %above.sroa.4.0.extract.shift to i8
@@ -4552,8 +4552,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 0
   %frombool45 = zext i1 %cmp40 to i8
   store i8 %frombool45, ptr %arrayidx44, align 1, !tbaa !118
-  %idxprom.i.1 = or disjoint i64 %mul.i, 1
-  %arrayidx.i.1 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.1
+  %arrayidx.i.1 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %retval.sroa.0.0.copyload.i.1 = load i32, ptr %arrayidx.i.1, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.1 = lshr i32 %retval.sroa.0.0.copyload.i.1, 16
   %above.sroa.4.0.extract.trunc.1 = trunc i32 %above.sroa.4.0.extract.shift.1 to i8
@@ -4571,8 +4570,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.1 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 1
   %frombool45.1 = zext i1 %cmp40.1 to i8
   store i8 %frombool45.1, ptr %arrayidx44.1, align 1, !tbaa !118
-  %idxprom.i.2 = or disjoint i64 %mul.i, 2
-  %arrayidx.i.2 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.2
+  %arrayidx.i.2 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %retval.sroa.0.0.copyload.i.2 = load i32, ptr %arrayidx.i.2, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.2 = lshr i32 %retval.sroa.0.0.copyload.i.2, 16
   %above.sroa.4.0.extract.trunc.2 = trunc i32 %above.sroa.4.0.extract.shift.2 to i8
@@ -4590,8 +4588,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.2 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 2
   %frombool45.2 = zext i1 %cmp40.2 to i8
   store i8 %frombool45.2, ptr %arrayidx44.2, align 1, !tbaa !118
-  %idxprom.i.3 = or disjoint i64 %mul.i, 3
-  %arrayidx.i.3 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.3
+  %arrayidx.i.3 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 12
   %retval.sroa.0.0.copyload.i.3 = load i32, ptr %arrayidx.i.3, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.3 = lshr i32 %retval.sroa.0.0.copyload.i.3, 16
   %above.sroa.4.0.extract.trunc.3 = trunc i32 %above.sroa.4.0.extract.shift.3 to i8
@@ -4609,8 +4606,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.3 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 3
   %frombool45.3 = zext i1 %cmp40.3 to i8
   store i8 %frombool45.3, ptr %arrayidx44.3, align 1, !tbaa !118
-  %idxprom.i.4 = or disjoint i64 %mul.i, 4
-  %arrayidx.i.4 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.4
+  %arrayidx.i.4 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %retval.sroa.0.0.copyload.i.4 = load i32, ptr %arrayidx.i.4, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.4 = lshr i32 %retval.sroa.0.0.copyload.i.4, 16
   %above.sroa.4.0.extract.trunc.4 = trunc i32 %above.sroa.4.0.extract.shift.4 to i8
@@ -4628,8 +4624,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.4 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 4
   %frombool45.4 = zext i1 %cmp40.4 to i8
   store i8 %frombool45.4, ptr %arrayidx44.4, align 1, !tbaa !118
-  %idxprom.i.5 = or disjoint i64 %mul.i, 5
-  %arrayidx.i.5 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.5
+  %arrayidx.i.5 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 20
   %retval.sroa.0.0.copyload.i.5 = load i32, ptr %arrayidx.i.5, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.5 = lshr i32 %retval.sroa.0.0.copyload.i.5, 16
   %above.sroa.4.0.extract.trunc.5 = trunc i32 %above.sroa.4.0.extract.shift.5 to i8
@@ -4647,8 +4642,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.5 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 5
   %frombool45.5 = zext i1 %cmp40.5 to i8
   store i8 %frombool45.5, ptr %arrayidx44.5, align 1, !tbaa !118
-  %idxprom.i.6 = or disjoint i64 %mul.i, 6
-  %arrayidx.i.6 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.6
+  %arrayidx.i.6 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %retval.sroa.0.0.copyload.i.6 = load i32, ptr %arrayidx.i.6, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.6 = lshr i32 %retval.sroa.0.0.copyload.i.6, 16
   %above.sroa.4.0.extract.trunc.6 = trunc i32 %above.sroa.4.0.extract.shift.6 to i8
@@ -4666,8 +4660,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.6 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 6
   %frombool45.6 = zext i1 %cmp40.6 to i8
   store i8 %frombool45.6, ptr %arrayidx44.6, align 1, !tbaa !118
-  %idxprom.i.7 = or disjoint i64 %mul.i, 7
-  %arrayidx.i.7 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.7
+  %arrayidx.i.7 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 28
   %retval.sroa.0.0.copyload.i.7 = load i32, ptr %arrayidx.i.7, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.7 = lshr i32 %retval.sroa.0.0.copyload.i.7, 16
   %above.sroa.4.0.extract.trunc.7 = trunc i32 %above.sroa.4.0.extract.shift.7 to i8
@@ -4685,8 +4678,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.7 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 7
   %frombool45.7 = zext i1 %cmp40.7 to i8
   store i8 %frombool45.7, ptr %arrayidx44.7, align 1, !tbaa !118
-  %idxprom.i.8 = or disjoint i64 %mul.i, 8
-  %arrayidx.i.8 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.8
+  %arrayidx.i.8 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %retval.sroa.0.0.copyload.i.8 = load i32, ptr %arrayidx.i.8, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.8 = lshr i32 %retval.sroa.0.0.copyload.i.8, 16
   %above.sroa.4.0.extract.trunc.8 = trunc i32 %above.sroa.4.0.extract.shift.8 to i8
@@ -4704,8 +4696,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.8 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 8
   %frombool45.8 = zext i1 %cmp40.8 to i8
   store i8 %frombool45.8, ptr %arrayidx44.8, align 1, !tbaa !118
-  %idxprom.i.9 = or disjoint i64 %mul.i, 9
-  %arrayidx.i.9 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.9
+  %arrayidx.i.9 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 36
   %retval.sroa.0.0.copyload.i.9 = load i32, ptr %arrayidx.i.9, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.9 = lshr i32 %retval.sroa.0.0.copyload.i.9, 16
   %above.sroa.4.0.extract.trunc.9 = trunc i32 %above.sroa.4.0.extract.shift.9 to i8
@@ -4723,8 +4714,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.9 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 9
   %frombool45.9 = zext i1 %cmp40.9 to i8
   store i8 %frombool45.9, ptr %arrayidx44.9, align 1, !tbaa !118
-  %idxprom.i.10 = or disjoint i64 %mul.i, 10
-  %arrayidx.i.10 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.10
+  %arrayidx.i.10 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
   %retval.sroa.0.0.copyload.i.10 = load i32, ptr %arrayidx.i.10, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.10 = lshr i32 %retval.sroa.0.0.copyload.i.10, 16
   %above.sroa.4.0.extract.trunc.10 = trunc i32 %above.sroa.4.0.extract.shift.10 to i8
@@ -4742,8 +4732,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.10 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 10
   %frombool45.10 = zext i1 %cmp40.10 to i8
   store i8 %frombool45.10, ptr %arrayidx44.10, align 1, !tbaa !118
-  %idxprom.i.11 = or disjoint i64 %mul.i, 11
-  %arrayidx.i.11 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.11
+  %arrayidx.i.11 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 44
   %retval.sroa.0.0.copyload.i.11 = load i32, ptr %arrayidx.i.11, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.11 = lshr i32 %retval.sroa.0.0.copyload.i.11, 16
   %above.sroa.4.0.extract.trunc.11 = trunc i32 %above.sroa.4.0.extract.shift.11 to i8
@@ -4761,8 +4750,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.11 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 11
   %frombool45.11 = zext i1 %cmp40.11 to i8
   store i8 %frombool45.11, ptr %arrayidx44.11, align 1, !tbaa !118
-  %idxprom.i.12 = or disjoint i64 %mul.i, 12
-  %arrayidx.i.12 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.12
+  %arrayidx.i.12 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 48
   %retval.sroa.0.0.copyload.i.12 = load i32, ptr %arrayidx.i.12, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.12 = lshr i32 %retval.sroa.0.0.copyload.i.12, 16
   %above.sroa.4.0.extract.trunc.12 = trunc i32 %above.sroa.4.0.extract.shift.12 to i8
@@ -4780,8 +4768,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.12 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 12
   %frombool45.12 = zext i1 %cmp40.12 to i8
   store i8 %frombool45.12, ptr %arrayidx44.12, align 1, !tbaa !118
-  %idxprom.i.13 = or disjoint i64 %mul.i, 13
-  %arrayidx.i.13 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.13
+  %arrayidx.i.13 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 52
   %retval.sroa.0.0.copyload.i.13 = load i32, ptr %arrayidx.i.13, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.13 = lshr i32 %retval.sroa.0.0.copyload.i.13, 16
   %above.sroa.4.0.extract.trunc.13 = trunc i32 %above.sroa.4.0.extract.shift.13 to i8
@@ -4799,8 +4786,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.13 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 13
   %frombool45.13 = zext i1 %cmp40.13 to i8
   store i8 %frombool45.13, ptr %arrayidx44.13, align 1, !tbaa !118
-  %idxprom.i.14 = or disjoint i64 %mul.i, 14
-  %arrayidx.i.14 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.14
+  %arrayidx.i.14 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 56
   %retval.sroa.0.0.copyload.i.14 = load i32, ptr %arrayidx.i.14, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.14 = lshr i32 %retval.sroa.0.0.copyload.i.14, 16
   %above.sroa.4.0.extract.trunc.14 = trunc i32 %above.sroa.4.0.extract.shift.14 to i8
@@ -4818,8 +4804,7 @@ for.cond29.preheader:                             ; preds = %for.cond29.preheade
   %arrayidx44.14 = getelementptr inbounds nuw [16 x i8], ptr %light, i64 %indvars.iv, i64 14
   %frombool45.14 = zext i1 %cmp40.14 to i8
   store i8 %frombool45.14, ptr %arrayidx44.14, align 1, !tbaa !118
-  %idxprom.i.15 = or disjoint i64 %mul.i, 15
-  %arrayidx.i.15 = getelementptr inbounds nuw %struct.MapNode, ptr %3, i64 %idxprom.i.15
+  %arrayidx.i.15 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 60
   %retval.sroa.0.0.copyload.i.15 = load i32, ptr %arrayidx.i.15, align 4, !tbaa.struct !62
   %above.sroa.4.0.extract.shift.15 = lshr i32 %retval.sroa.0.0.copyload.i.15, 16
   %above.sroa.4.0.extract.trunc.15 = trunc i32 %above.sroa.4.0.extract.shift.15 to i8

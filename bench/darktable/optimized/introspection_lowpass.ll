@@ -330,7 +330,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %10 = load i32, ptr %9, align 4, !tbaa !60
   %11 = tail call i32 @dt_iop_have_required_input_format(i32 noundef 4, ptr noundef %0, i32 noundef %10, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #20
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %129, label %12
+  br i1 %.not, label %127, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -440,7 +440,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br label %72
 
 72:                                               ; preds = %.lr.ph, %109
-  %.0144 = phi i64 [ 0, %.lr.ph ], [ %127, %109 ]
+  %.0144 = phi i64 [ 0, %.lr.ph ], [ %125, %109 ]
   %73 = getelementptr inbounds nuw float, ptr %3, i64 %.0144
   %74 = load float, ptr %73, align 4, !tbaa !71
   %75 = fcmp reassoc nsz arcp contract afn olt float %74, 1.000000e+02
@@ -495,39 +495,37 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 109:                                              ; preds = %101, %94
   %110 = phi reassoc nsz arcp contract afn float [ %100, %94 ], [ %108, %101 ]
   store float %110, ptr %73, align 4, !tbaa !71
-  %111 = or disjoint i64 %.0144, 1
-  %112 = getelementptr inbounds nuw float, ptr %3, i64 %111
-  %113 = load float, ptr %112, align 4, !tbaa !71
-  %114 = fmul reassoc nsz arcp contract afn float %113, %53
-  %115 = fcmp reassoc nsz arcp contract afn ult float %114, %65
-  %.inv = fcmp reassoc nsz arcp contract afn ole float %114, %67
-  %. = select reassoc nsz arcp contract afn i1 %.inv, float %114, float %67
-  %116 = select reassoc nsz arcp contract afn i1 %115, float %65, float %.
-  store float %116, ptr %112, align 4, !tbaa !71
-  %117 = or disjoint i64 %.0144, 2
-  %118 = getelementptr inbounds nuw float, ptr %3, i64 %117
-  %119 = load float, ptr %118, align 4, !tbaa !71
-  %120 = fmul reassoc nsz arcp contract afn float %119, %53
-  %121 = fcmp reassoc nsz arcp contract afn ult float %120, %69
-  %.inv141 = fcmp reassoc nsz arcp contract afn ole float %120, %71
-  %.136 = select reassoc nsz arcp contract afn i1 %.inv141, float %120, float %71
-  %122 = select reassoc nsz arcp contract afn i1 %121, float %69, float %.136
-  store float %122, ptr %118, align 4, !tbaa !71
-  %123 = or disjoint i64 %.0144, 3
-  %124 = getelementptr inbounds nuw float, ptr %2, i64 %123
-  %125 = load float, ptr %124, align 4, !tbaa !71
-  %126 = getelementptr inbounds nuw float, ptr %3, i64 %123
-  store float %125, ptr %126, align 4, !tbaa !71
-  %127 = add nuw i64 %.0144, 4
-  %128 = icmp ult i64 %127, %55
-  br i1 %128, label %72, label %.loopexit
+  %111 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  %112 = load float, ptr %111, align 4, !tbaa !71
+  %113 = fmul reassoc nsz arcp contract afn float %112, %53
+  %114 = fcmp reassoc nsz arcp contract afn ult float %113, %65
+  %.inv = fcmp reassoc nsz arcp contract afn ole float %113, %67
+  %. = select reassoc nsz arcp contract afn i1 %.inv, float %113, float %67
+  %115 = select reassoc nsz arcp contract afn i1 %114, float %65, float %.
+  store float %115, ptr %111, align 4, !tbaa !71
+  %116 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %117 = load float, ptr %116, align 4, !tbaa !71
+  %118 = fmul reassoc nsz arcp contract afn float %117, %53
+  %119 = fcmp reassoc nsz arcp contract afn ult float %118, %69
+  %.inv141 = fcmp reassoc nsz arcp contract afn ole float %118, %71
+  %.136 = select reassoc nsz arcp contract afn i1 %.inv141, float %118, float %71
+  %120 = select reassoc nsz arcp contract afn i1 %119, float %69, float %.136
+  store float %120, ptr %116, align 4, !tbaa !71
+  %121 = or disjoint i64 %.0144, 3
+  %122 = getelementptr inbounds nuw float, ptr %2, i64 %121
+  %123 = load float, ptr %122, align 4, !tbaa !71
+  %124 = getelementptr inbounds nuw float, ptr %3, i64 %121
+  store float %123, ptr %124, align 4, !tbaa !71
+  %125 = add nuw i64 %.0144, 4
+  %126 = icmp ult i64 %125, %55
+  br i1 %126, label %72, label %.loopexit
 
 .loopexit:                                        ; preds = %109, %51, %.thread137, %.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #20
-  br label %129
+  br label %127
 
-129:                                              ; preds = %6, %.loopexit
+127:                                              ; preds = %6, %.loopexit
   ret void
 }
 

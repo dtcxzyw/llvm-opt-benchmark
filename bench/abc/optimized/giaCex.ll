@@ -312,7 +312,7 @@ define range(i32 0, 2) i32 @Gia_ManVerifyCex(ptr noundef %0, ptr noundef readonl
 .critedge6._crit_edge:                            ; preds = %.critedge8, %.critedge6, %.critedge
   %.not87 = icmp eq i32 %2, 0
   %156 = load i32, ptr %1, align 4, !tbaa !44
-  br i1 %.not87, label %175, label %157
+  br i1 %.not87, label %173, label %157
 
 157:                                              ; preds = %.critedge6._crit_edge
   %158 = shl nsw i32 %156, 1
@@ -322,37 +322,35 @@ define range(i32 0, 2) i32 @Gia_ManVerifyCex(ptr noundef %0, ptr noundef readonl
   %160 = getelementptr i8, ptr %.val115, i64 8
   %.val115.val = load ptr, ptr %160, align 8, !tbaa !30
   %161 = sext i32 %158 to i64
-  %162 = getelementptr inbounds i32, ptr %.val115.val, i64 %161
+  %162 = getelementptr i32, ptr %.val115.val, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !32
   %164 = sext i32 %163 to i64
   %165 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val114, i64 %164
   %166 = load i64, ptr %165, align 4
-  %167 = or disjoint i32 %158, 1
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds i32, ptr %.val115.val, i64 %168
-  %170 = load i32, ptr %169, align 4, !tbaa !32
-  %171 = sext i32 %170 to i64
-  %172 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val114, i64 %171
-  %173 = load i64, ptr %172, align 4
-  %174 = xor i64 %173, %166
-  br label %184
+  %167 = getelementptr i8, ptr %162, i64 4
+  %168 = load i32, ptr %167, align 4, !tbaa !32
+  %169 = sext i32 %168 to i64
+  %170 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val114, i64 %169
+  %171 = load i64, ptr %170, align 4
+  %172 = xor i64 %171, %166
+  br label %182
 
-175:                                              ; preds = %.critedge6._crit_edge
+173:                                              ; preds = %.critedge6._crit_edge
   %.val118 = load ptr, ptr %4, align 8, !tbaa !28
-  %176 = getelementptr i8, ptr %0, i64 72
-  %.val119 = load ptr, ptr %176, align 8, !tbaa !40
-  %177 = getelementptr i8, ptr %.val119, i64 8
-  %.val119.val = load ptr, ptr %177, align 8, !tbaa !30
-  %178 = sext i32 %156 to i64
-  %179 = getelementptr inbounds i32, ptr %.val119.val, i64 %178
-  %180 = load i32, ptr %179, align 4, !tbaa !32
-  %181 = sext i32 %180 to i64
-  %182 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val118, i64 %181
-  %183 = load i64, ptr %182, align 4
-  br label %184
+  %174 = getelementptr i8, ptr %0, i64 72
+  %.val119 = load ptr, ptr %174, align 8, !tbaa !40
+  %175 = getelementptr i8, ptr %.val119, i64 8
+  %.val119.val = load ptr, ptr %175, align 8, !tbaa !30
+  %176 = sext i32 %156 to i64
+  %177 = getelementptr inbounds i32, ptr %.val119.val, i64 %176
+  %178 = load i32, ptr %177, align 4, !tbaa !32
+  %179 = sext i32 %178 to i64
+  %180 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val118, i64 %179
+  %181 = load i64, ptr %180, align 4
+  br label %182
 
-184:                                              ; preds = %175, %157
-  %.074.in.in.in = phi i64 [ %174, %157 ], [ %183, %175 ]
+182:                                              ; preds = %173, %157
+  %.074.in.in.in = phi i64 [ %172, %157 ], [ %181, %173 ]
   %.074.in.in = trunc i64 %.074.in.in.in to i32
   %.074.in = lshr i32 %.074.in.in, 30
   %.074 = and i32 %.074.in, 1

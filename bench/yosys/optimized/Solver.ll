@@ -1202,14 +1202,14 @@ _ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedE
   %31 = add nsw i32 %23, 2
   call void @_ZN7Minisat3vecINS0_INS_6Solver7WatcherEiEEiE6growToEi(ptr noundef nonnull align 8 dereferenceable(72) %22, i32 noundef %31)
   %32 = load ptr, ptr %22, align 8, !tbaa !109
-  %33 = sext i32 %24 to i64
-  %34 = getelementptr inbounds %"class.Minisat::vec.26", ptr %32, i64 %33
+  %33 = getelementptr %"class.Minisat::vec.26", ptr %32, i64 %26
+  %34 = getelementptr i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !112
   %.not.i.i18 = icmp eq ptr %35, null
   br i1 %.not.i.i18, label %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE4initERKS1_.exit22, label %.preheader.i.i19
 
 .preheader.i.i19:                                 ; preds = %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE4initERKS1_.exit
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = getelementptr i8, ptr %33, i64 24
   store i32 0, ptr %36, align 8, !tbaa !115
   br label %_ZN7Minisat8OccListsINS_3LitENS_3vecINS_6Solver7WatcherEiEENS3_14WatcherDeletedENS_10MkIndexLitEE4initERKS1_.exit22
 

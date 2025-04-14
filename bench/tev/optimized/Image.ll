@@ -15875,35 +15875,38 @@ _ZZNK3tev9ImageData7channelERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9a
 .preheader.lr.ph:                                 ; preds = %.preheader129
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.02.011.i, i64 24
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.02.011.i, i64 32
-  br i1 %59, label %.preheader.us, label %.loopexit130
+  br i1 %59, label %.preheader.us.preheader, label %.loopexit130
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
-  %indvars.iv170 = phi i64 [ %indvars.iv.next171, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %164 = add nsw i64 %indvars.iv170, %63
-  %165 = mul nuw nsw i64 %indvars.iv170, %64
-  br label %166
+.preheader.us.preheader:                          ; preds = %.preheader.lr.ph
+  %164 = getelementptr float, ptr %105, i64 %.080150
+  br label %.preheader.us
 
-166:                                              ; preds = %.preheader.us, %166
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %166 ]
-  %167 = load i32, ptr %162, align 4
-  %168 = sext i32 %167 to i64
-  %169 = mul nsw i64 %164, %168
-  %170 = load ptr, ptr %163, align 8
-  %171 = getelementptr float, ptr %170, i64 %indvars.iv
-  %172 = getelementptr float, ptr %171, i64 %62
-  %173 = getelementptr float, ptr %172, i64 %169
-  %174 = load float, ptr %173, align 4
-  %175 = add nuw nsw i64 %indvars.iv, %165
-  %176 = shl i64 %175, 2
-  %177 = and i64 %176, 4294967292
-  %178 = or disjoint i64 %.080150, %177
-  %179 = getelementptr inbounds nuw float, ptr %105, i64 %178
-  store float %174, ptr %179, align 4
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
+  %indvars.iv170 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next171, %._crit_edge.us ]
+  %165 = add nsw i64 %indvars.iv170, %63
+  %166 = mul nuw nsw i64 %indvars.iv170, %64
+  br label %167
+
+167:                                              ; preds = %.preheader.us, %167
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %167 ]
+  %168 = load i32, ptr %162, align 4
+  %169 = sext i32 %168 to i64
+  %170 = mul nsw i64 %165, %169
+  %171 = load ptr, ptr %163, align 8
+  %172 = getelementptr float, ptr %171, i64 %indvars.iv
+  %173 = getelementptr float, ptr %172, i64 %62
+  %174 = getelementptr float, ptr %173, i64 %170
+  %175 = load float, ptr %174, align 4
+  %176 = add nuw nsw i64 %indvars.iv, %166
+  %177 = shl i64 %176, 2
+  %178 = and i64 %177, 4294967292
+  %179 = getelementptr float, ptr %164, i64 %178
+  store float %175, ptr %179, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next, %64
-  br i1 %exitcond169.not, label %._crit_edge.us, label %166, !llvm.loop !379
+  br i1 %exitcond169.not, label %._crit_edge.us, label %167, !llvm.loop !379
 
-._crit_edge.us:                                   ; preds = %166
+._crit_edge.us:                                   ; preds = %167
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
   br i1 %exitcond174.not, label %.loopexit130, label %.preheader.us, !llvm.loop !380

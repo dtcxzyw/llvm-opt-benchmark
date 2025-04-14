@@ -31038,14 +31038,14 @@ if.end18.i.i:                                     ; preds = %while.end.i.i
 
 if.then23:                                        ; preds = %while.body.i.i
   %second.idx = shl nuw nsw i64 %conv.i.i, 3
-  %second.offs = or disjoint i64 %second.idx, 4
-  %second = getelementptr inbounds nuw i8, ptr %rawItems_.i, i64 %second.offs
-  %87 = load i32, ptr %second, align 4
-  %88 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %89 = load ptr, ptr %88, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %rawItems_.i, i64 %second.idx
+  %second = getelementptr inbounds nuw i8, ptr %87, i64 4
+  %88 = load i32, ptr %second, align 4
+  %89 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %90 = load ptr, ptr %89, align 8
-  %arrayidx26 = getelementptr inbounds i32, ptr %90, i64 %idxprom
-  store i32 %87, ptr %arrayidx26, align 4
+  %91 = load ptr, ptr %90, align 8
+  %arrayidx26 = getelementptr inbounds i32, ptr %91, i64 %idxprom
+  store i32 %88, ptr %arrayidx26, align 4
   br label %if.end49
 
 for.cond29:                                       ; preds = %for.body31
@@ -31056,34 +31056,34 @@ for.cond29:                                       ; preds = %for.body31
 for.body31:                                       ; preds = %for.body31.lr.ph.split.split, %for.cond29
   %offset28.0157 = phi i64 [ %conv4, %for.body31.lr.ph.split.split ], [ %inc44, %for.cond29 ]
   %sext = shl i64 %offset28.0157, 32
-  %91 = ashr exact i64 %sext, 30
-  %arrayidx.i.i134 = getelementptr inbounds i8, ptr %25, i64 %91
-  %92 = load i32, ptr %arrayidx.i.i134, align 4
-  %conv.i.i136 = sext i32 %92 to i64
+  %92 = ashr exact i64 %sext, 30
+  %arrayidx.i.i134 = getelementptr inbounds i8, ptr %25, i64 %92
+  %93 = load i32, ptr %arrayidx.i.i134, align 4
+  %conv.i.i136 = sext i32 %93 to i64
   %div2.i.i137 = lshr i64 %conv.i.i136, 6
   %arrayidx.i1.i138 = getelementptr inbounds nuw i64, ptr %17, i64 %div2.i.i137
-  %93 = load i64, ptr %arrayidx.i1.i138, align 8
+  %94 = load i64, ptr %arrayidx.i1.i138, align 8
   %and.i.i139 = and i64 %conv.i.i136, 63
   %shl.i.i140 = shl nuw i64 1, %and.i.i139
-  %and2.i.i141 = and i64 %shl.i.i140, %93
+  %and2.i.i141 = and i64 %shl.i.i140, %94
   %tobool.i2.i142 = icmp ne i64 %and2.i.i141, 0
-  %94 = xor i1 %searchKey, %tobool.i2.i142
-  br i1 %94, label %for.cond29, label %if.then38
+  %95 = xor i1 %searchKey, %tobool.i2.i142
+  br i1 %95, label %for.cond29, label %if.then38
 
 if.then38:                                        ; preds = %for.body31, %for.body31.us, %for.body31.lr.ph.split.split.us
   %.us-phi.in = phi i64 [ %conv4, %for.body31.lr.ph.split.split.us ], [ %offset28.0157.us, %for.body31.us ], [ %offset28.0157, %for.body31 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
-  %95 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %96 = load ptr, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %97 = load ptr, ptr %96, align 8
-  %arrayidx41 = getelementptr inbounds i32, ptr %97, i64 %idxprom
+  %98 = load ptr, ptr %97, align 8
+  %arrayidx41 = getelementptr inbounds i32, ptr %98, i64 %idxprom
   store i32 %.us-phi, ptr %arrayidx41, align 4
   br label %if.end49
 
 if.then48:                                        ; preds = %for.cond29, %for.cond29.us, %if.end18.i.i, %while.end.i.i, %for.body31.lr.ph.split.split.us, %for.cond29.preheader
-  %98 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %99 = load ptr, ptr %98, align 8
-  call void @_ZN8facebook5velox12NullsBuilder7setNullEi(ptr noundef nonnull align 8 dereferenceable(32) %99, i32 noundef %row)
+  %99 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %100 = load ptr, ptr %99, align 8
+  call void @_ZN8facebook5velox12NullsBuilder7setNullEi(ptr noundef nonnull align 8 dereferenceable(32) %100, i32 noundef %row)
   br label %if.end49
 
 if.end49:                                         ; preds = %if.then23, %if.then38, %if.then48
@@ -33733,14 +33733,14 @@ if.end18.i.i:                                     ; preds = %while.end.i.i
 
 if.then22:                                        ; preds = %while.body.i.i
   %second.idx = shl nuw nsw i64 %conv.i.i, 3
-  %second.offs = or disjoint i64 %second.idx, 4
-  %second = getelementptr inbounds nuw i8, ptr %rawItems_.i, i64 %second.offs
-  %84 = load i32, ptr %second, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %86 = load ptr, ptr %85, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %rawItems_.i, i64 %second.idx
+  %second = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %85 = load i32, ptr %second, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %87 = load ptr, ptr %86, align 8
-  %arrayidx25 = getelementptr inbounds i32, ptr %87, i64 %idxprom
-  store i32 %84, ptr %arrayidx25, align 4
+  %88 = load ptr, ptr %87, align 8
+  %arrayidx25 = getelementptr inbounds i32, ptr %88, i64 %idxprom
+  store i32 %85, ptr %arrayidx25, align 4
   br label %if.end45
 
 for.cond28:                                       ; preds = %for.body30
@@ -33751,29 +33751,29 @@ for.cond28:                                       ; preds = %for.body30
 for.body30:                                       ; preds = %for.body30.lr.ph.split.split, %for.cond28
   %offset27.0150 = phi i64 [ %conv4, %for.body30.lr.ph.split.split ], [ %inc40, %for.cond28 ]
   %sext = shl i64 %offset27.0150, 32
-  %88 = ashr exact i64 %sext, 30
-  %arrayidx.i.i132 = getelementptr inbounds i8, ptr %24, i64 %88
-  %89 = load i32, ptr %arrayidx.i.i132, align 4
-  %idxprom.i134 = sext i32 %89 to i64
+  %89 = ashr exact i64 %sext, 30
+  %arrayidx.i.i132 = getelementptr inbounds i8, ptr %24, i64 %89
+  %90 = load i32, ptr %arrayidx.i.i132, align 4
+  %idxprom.i134 = sext i32 %90 to i64
   %arrayidx.i135 = getelementptr inbounds i32, ptr %17, i64 %idxprom.i134
-  %90 = load i32, ptr %arrayidx.i135, align 4
-  %cmp33 = icmp eq i32 %90, %searchKey
+  %91 = load i32, ptr %arrayidx.i135, align 4
+  %cmp33 = icmp eq i32 %91, %searchKey
   br i1 %cmp33, label %if.then34, label %for.cond28
 
 if.then34:                                        ; preds = %for.body30, %for.body30.us, %for.body30.lr.ph.split.split.us
   %.us-phi.in = phi i64 [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0150.us, %for.body30.us ], [ %offset27.0150, %for.body30 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
-  %91 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %92 = load ptr, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %93 = load ptr, ptr %92, align 8
-  %arrayidx37 = getelementptr inbounds i32, ptr %93, i64 %idxprom
+  %94 = load ptr, ptr %93, align 8
+  %arrayidx37 = getelementptr inbounds i32, ptr %94, i64 %idxprom
   store i32 %.us-phi, ptr %arrayidx37, align 4
   br label %if.end45
 
 if.then44:                                        ; preds = %for.cond28, %for.cond28.us, %if.end18.i.i, %while.end.i.i, %for.body30.lr.ph.split.split.us, %for.cond28.preheader
-  %94 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %95 = load ptr, ptr %94, align 8
-  call void @_ZN8facebook5velox12NullsBuilder7setNullEi(ptr noundef nonnull align 8 dereferenceable(32) %95, i32 noundef %row)
+  %95 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %96 = load ptr, ptr %95, align 8
+  call void @_ZN8facebook5velox12NullsBuilder7setNullEi(ptr noundef nonnull align 8 dereferenceable(32) %96, i32 noundef %row)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then22, %if.then34, %if.then44
@@ -36015,14 +36015,14 @@ if.end18.i.i:                                     ; preds = %while.end.i.i
 
 if.then22:                                        ; preds = %while.body.i.i
   %second.idx = shl nuw nsw i64 %conv.i.i, 3
-  %second.offs = or disjoint i64 %second.idx, 4
-  %second = getelementptr inbounds nuw i8, ptr %rawItems_.i, i64 %second.offs
-  %83 = load i32, ptr %second, align 4
-  %84 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %85 = load ptr, ptr %84, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %rawItems_.i, i64 %second.idx
+  %second = getelementptr inbounds nuw i8, ptr %83, i64 4
+  %84 = load i32, ptr %second, align 4
+  %85 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %86 = load ptr, ptr %85, align 8
-  %arrayidx25 = getelementptr inbounds i32, ptr %86, i64 %idxprom
-  store i32 %83, ptr %arrayidx25, align 4
+  %87 = load ptr, ptr %86, align 8
+  %arrayidx25 = getelementptr inbounds i32, ptr %87, i64 %idxprom
+  store i32 %84, ptr %arrayidx25, align 4
   br label %if.end47
 
 for.cond28:                                       ; preds = %for.body30
@@ -36033,29 +36033,29 @@ for.cond28:                                       ; preds = %for.body30
 for.body30:                                       ; preds = %for.body30.lr.ph.split.split, %for.cond28
   %offset27.0150 = phi i64 [ %conv4, %for.body30.lr.ph.split.split ], [ %inc42, %for.cond28 ]
   %sext = shl i64 %offset27.0150, 32
-  %87 = ashr exact i64 %sext, 30
-  %arrayidx.i.i132 = getelementptr inbounds i8, ptr %23, i64 %87
-  %88 = load i32, ptr %arrayidx.i.i132, align 4
-  %idxprom.i134 = sext i32 %88 to i64
+  %88 = ashr exact i64 %sext, 30
+  %arrayidx.i.i132 = getelementptr inbounds i8, ptr %23, i64 %88
+  %89 = load i32, ptr %arrayidx.i.i132, align 4
+  %idxprom.i134 = sext i32 %89 to i64
   %arrayidx.i135 = getelementptr inbounds i8, ptr %17, i64 %idxprom.i134
-  %89 = load i8, ptr %arrayidx.i135, align 1
-  %cmp35 = icmp eq i8 %89, %searchKey
+  %90 = load i8, ptr %arrayidx.i135, align 1
+  %cmp35 = icmp eq i8 %90, %searchKey
   br i1 %cmp35, label %if.then36, label %for.cond28
 
 if.then36:                                        ; preds = %for.body30, %for.body30.us, %for.body30.lr.ph.split.split.us
   %.us-phi.in = phi i64 [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0150.us, %for.body30.us ], [ %offset27.0150, %for.body30 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
-  %90 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %91 = load ptr, ptr %90, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %92 = load ptr, ptr %91, align 8
-  %arrayidx39 = getelementptr inbounds i32, ptr %92, i64 %idxprom
+  %93 = load ptr, ptr %92, align 8
+  %arrayidx39 = getelementptr inbounds i32, ptr %93, i64 %idxprom
   store i32 %.us-phi, ptr %arrayidx39, align 4
   br label %if.end47
 
 if.then46:                                        ; preds = %for.cond28, %for.cond28.us, %if.end18.i.i, %while.end.i.i, %for.body30.lr.ph.split.split.us, %for.cond28.preheader
-  %93 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %94 = load ptr, ptr %93, align 8
-  call void @_ZN8facebook5velox12NullsBuilder7setNullEi(ptr noundef nonnull align 8 dereferenceable(32) %94, i32 noundef %row)
+  %94 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %95 = load ptr, ptr %94, align 8
+  call void @_ZN8facebook5velox12NullsBuilder7setNullEi(ptr noundef nonnull align 8 dereferenceable(32) %95, i32 noundef %row)
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then22, %if.then36, %if.then46
@@ -38297,14 +38297,14 @@ if.end18.i.i:                                     ; preds = %while.end.i.i
 
 if.then22:                                        ; preds = %while.body.i.i
   %second.idx = shl nuw nsw i64 %conv.i.i, 3
-  %second.offs = or disjoint i64 %second.idx, 4
-  %second = getelementptr inbounds nuw i8, ptr %rawItems_.i, i64 %second.offs
-  %84 = load i32, ptr %second, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %86 = load ptr, ptr %85, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %rawItems_.i, i64 %second.idx
+  %second = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %85 = load i32, ptr %second, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %87 = load ptr, ptr %86, align 8
-  %arrayidx25 = getelementptr inbounds i32, ptr %87, i64 %idxprom
-  store i32 %84, ptr %arrayidx25, align 4
+  %88 = load ptr, ptr %87, align 8
+  %arrayidx25 = getelementptr inbounds i32, ptr %88, i64 %idxprom
+  store i32 %85, ptr %arrayidx25, align 4
   br label %if.end47
 
 for.cond28:                                       ; preds = %for.body30
@@ -38315,29 +38315,29 @@ for.cond28:                                       ; preds = %for.body30
 for.body30:                                       ; preds = %for.body30.lr.ph.split.split, %for.cond28
   %offset27.0150 = phi i64 [ %conv4, %for.body30.lr.ph.split.split ], [ %inc42, %for.cond28 ]
   %sext = shl i64 %offset27.0150, 32
-  %88 = ashr exact i64 %sext, 30
-  %arrayidx.i.i132 = getelementptr inbounds i8, ptr %24, i64 %88
-  %89 = load i32, ptr %arrayidx.i.i132, align 4
-  %idxprom.i134 = sext i32 %89 to i64
+  %89 = ashr exact i64 %sext, 30
+  %arrayidx.i.i132 = getelementptr inbounds i8, ptr %24, i64 %89
+  %90 = load i32, ptr %arrayidx.i.i132, align 4
+  %idxprom.i134 = sext i32 %90 to i64
   %arrayidx.i135 = getelementptr inbounds i16, ptr %17, i64 %idxprom.i134
-  %90 = load i16, ptr %arrayidx.i135, align 2
-  %cmp35 = icmp eq i16 %90, %searchKey
+  %91 = load i16, ptr %arrayidx.i135, align 2
+  %cmp35 = icmp eq i16 %91, %searchKey
   br i1 %cmp35, label %if.then36, label %for.cond28
 
 if.then36:                                        ; preds = %for.body30, %for.body30.us, %for.body30.lr.ph.split.split.us
   %.us-phi.in = phi i64 [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0150.us, %for.body30.us ], [ %offset27.0150, %for.body30 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
-  %91 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %92 = load ptr, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %93 = load ptr, ptr %92, align 8
-  %arrayidx39 = getelementptr inbounds i32, ptr %93, i64 %idxprom
+  %94 = load ptr, ptr %93, align 8
+  %arrayidx39 = getelementptr inbounds i32, ptr %94, i64 %idxprom
   store i32 %.us-phi, ptr %arrayidx39, align 4
   br label %if.end47
 
 if.then46:                                        ; preds = %for.cond28, %for.cond28.us, %if.end18.i.i, %while.end.i.i, %for.body30.lr.ph.split.split.us, %for.cond28.preheader
-  %94 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %95 = load ptr, ptr %94, align 8
-  call void @_ZN8facebook5velox12NullsBuilder7setNullEi(ptr noundef nonnull align 8 dereferenceable(32) %95, i32 noundef %row)
+  %95 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %96 = load ptr, ptr %95, align 8
+  call void @_ZN8facebook5velox12NullsBuilder7setNullEi(ptr noundef nonnull align 8 dereferenceable(32) %96, i32 noundef %row)
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then22, %if.then36, %if.then46
@@ -45369,14 +45369,14 @@ if.end18.i.i:                                     ; preds = %while.end.i.i
 
 if.then22:                                        ; preds = %while.body.i.i
   %second.idx = shl nuw nsw i64 %conv.i.i, 3
-  %second.offs = or disjoint i64 %second.idx, 4
-  %second = getelementptr inbounds nuw i8, ptr %rawItems_.i, i64 %second.offs
-  %88 = load i32, ptr %second, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %90 = load ptr, ptr %89, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %rawItems_.i, i64 %second.idx
+  %second = getelementptr inbounds nuw i8, ptr %88, i64 4
+  %89 = load i32, ptr %second, align 4
+  %90 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %91 = load ptr, ptr %90, align 8
-  %arrayidx25 = getelementptr inbounds i32, ptr %91, i64 %idxprom
-  store i32 %88, ptr %arrayidx25, align 4
+  %92 = load ptr, ptr %91, align 8
+  %arrayidx25 = getelementptr inbounds i32, ptr %92, i64 %idxprom
+  store i32 %89, ptr %arrayidx25, align 4
   br label %if.end45
 
 for.cond28:                                       ; preds = %for.body30
@@ -45387,29 +45387,29 @@ for.cond28:                                       ; preds = %for.body30
 for.body30:                                       ; preds = %for.body30.lr.ph.split.split, %for.cond28
   %offset27.0150 = phi i64 [ %conv4, %for.body30.lr.ph.split.split ], [ %inc40, %for.cond28 ]
   %sext = shl i64 %offset27.0150, 32
-  %92 = ashr exact i64 %sext, 30
-  %arrayidx.i.i132 = getelementptr inbounds i8, ptr %24, i64 %92
-  %93 = load i32, ptr %arrayidx.i.i132, align 4
-  %idxprom.i134 = sext i32 %93 to i64
+  %93 = ashr exact i64 %sext, 30
+  %arrayidx.i.i132 = getelementptr inbounds i8, ptr %24, i64 %93
+  %94 = load i32, ptr %arrayidx.i.i132, align 4
+  %idxprom.i134 = sext i32 %94 to i64
   %arrayidx.i135 = getelementptr inbounds float, ptr %17, i64 %idxprom.i134
-  %94 = load float, ptr %arrayidx.i135, align 4
-  %cmp33 = fcmp oeq float %94, %searchKey
+  %95 = load float, ptr %arrayidx.i135, align 4
+  %cmp33 = fcmp oeq float %95, %searchKey
   br i1 %cmp33, label %if.then34, label %for.cond28
 
 if.then34:                                        ; preds = %for.body30, %for.body30.us, %for.body30.lr.ph.split.split.us
   %.us-phi.in = phi i64 [ %conv4, %for.body30.lr.ph.split.split.us ], [ %offset27.0150.us, %for.body30.us ], [ %offset27.0150, %for.body30 ]
   %.us-phi = trunc i64 %.us-phi.in to i32
-  %95 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %96 = load ptr, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %this, i64 48
   %97 = load ptr, ptr %96, align 8
-  %arrayidx37 = getelementptr inbounds i32, ptr %97, i64 %idxprom
+  %98 = load ptr, ptr %97, align 8
+  %arrayidx37 = getelementptr inbounds i32, ptr %98, i64 %idxprom
   store i32 %.us-phi, ptr %arrayidx37, align 4
   br label %if.end45
 
 if.then44:                                        ; preds = %for.cond28, %for.cond28.us, %if.end18.i.i, %while.end.i.i, %for.body30.lr.ph.split.split.us, %for.cond28.preheader
-  %98 = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %99 = load ptr, ptr %98, align 8
-  call void @_ZN8facebook5velox12NullsBuilder7setNullEi(ptr noundef nonnull align 8 dereferenceable(32) %99, i32 noundef %row)
+  %99 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %100 = load ptr, ptr %99, align 8
+  call void @_ZN8facebook5velox12NullsBuilder7setNullEi(ptr noundef nonnull align 8 dereferenceable(32) %100, i32 noundef %row)
   br label %if.end45
 
 if.end45:                                         ; preds = %if.then22, %if.then34, %if.then44

@@ -1151,8 +1151,8 @@ define hidden noundef ptr @"_ZN106_$LT$kafka_protocol..compression..lz4..Lz4$u20
   %17 = sub nuw nsw i64 64, %16
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %17, i64 7)
   %18 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %19 = or disjoint i64 %18, 1
-  %20 = getelementptr i8, ptr null, i64 %19
+  %19 = getelementptr i8, ptr null, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 1
   store ptr %12, ptr %10, align 8, !alias.scope !86, !noalias !89
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %21, align 8, !alias.scope !86, !noalias !89
@@ -1402,8 +1402,8 @@ define hidden noundef ptr @"_ZN106_$LT$kafka_protocol..compression..lz4..Lz4$u20
   %17 = sub nuw nsw i64 64, %16
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %17, i64 7)
   %18 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %19 = or disjoint i64 %18, 1
-  %20 = getelementptr i8, ptr null, i64 %19
+  %19 = getelementptr i8, ptr null, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 1
   store ptr %12, ptr %10, align 8, !alias.scope !132, !noalias !135
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %21, align 8, !alias.scope !132, !noalias !135
@@ -2337,8 +2337,8 @@ define hidden noundef ptr @"_ZN108_$LT$kafka_protocol..compression..gzip..Gzip$u
   %14 = sub nuw nsw i64 64, %13
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %14, i64 7)
   %15 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %16 = or disjoint i64 %15, 1
-  %17 = getelementptr i8, ptr null, i64 %16
+  %16 = getelementptr i8, ptr null, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 1
   store ptr %9, ptr %7, align 8, !alias.scope !300, !noalias !303
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %18, align 8, !alias.scope !300, !noalias !303
@@ -2535,8 +2535,8 @@ define hidden noundef ptr @"_ZN108_$LT$kafka_protocol..compression..gzip..Gzip$u
   %14 = sub nuw nsw i64 64, %13
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %14, i64 7)
   %15 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %16 = or disjoint i64 %15, 1
-  %17 = getelementptr i8, ptr null, i64 %16
+  %16 = getelementptr i8, ptr null, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 1
   store ptr %9, ptr %7, align 8, !alias.scope !337, !noalias !340
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %18, align 8, !alias.scope !337, !noalias !340
@@ -2721,8 +2721,8 @@ define hidden noundef ptr @"_ZN108_$LT$kafka_protocol..compression..lz4..Lz4$u20
   %17 = sub nuw nsw i64 64, %16
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %17, i64 7)
   %18 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %19 = or disjoint i64 %18, 1
-  %20 = getelementptr i8, ptr null, i64 %19
+  %19 = getelementptr i8, ptr null, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 1
   store ptr %12, ptr %10, align 8
   %.sroa.4.0..sroa_idx41 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx41, align 8
@@ -28556,8 +28556,8 @@ define hidden noundef ptr @"_ZN110_$LT$kafka_protocol..compression..gzip..Gzip$u
   %15 = sub nuw nsw i64 64, %14
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 7)
   %16 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %17 = or disjoint i64 %16, 1
-  %18 = getelementptr i8, ptr null, i64 %17
+  %17 = getelementptr i8, ptr null, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 1
   store ptr %10, ptr %8, align 8, !alias.scope !3723, !noalias !3726
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %19, align 8, !alias.scope !3723, !noalias !3726
@@ -29921,8 +29921,8 @@ define hidden noundef ptr @"_ZN112_$LT$kafka_protocol..compression..snappy..Snap
   %15 = sub nuw nsw i64 64, %14
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 7)
   %16 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %17 = or disjoint i64 %16, 1
-  %18 = getelementptr i8, ptr null, i64 %17
+  %17 = getelementptr i8, ptr null, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 1
   store ptr %10, ptr %8, align 8, !alias.scope !4041, !noalias !4044
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %19, align 8, !alias.scope !4041, !noalias !4044
@@ -30131,8 +30131,8 @@ define hidden noundef ptr @"_ZN112_$LT$kafka_protocol..compression..snappy..Snap
   %15 = sub nuw nsw i64 64, %14
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 7)
   %16 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %17 = or disjoint i64 %16, 1
-  %18 = getelementptr i8, ptr null, i64 %17
+  %17 = getelementptr i8, ptr null, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 1
   store ptr %10, ptr %8, align 8, !alias.scope !4089, !noalias !4092
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %19, align 8, !alias.scope !4089, !noalias !4092
@@ -30375,8 +30375,8 @@ define hidden noundef ptr @"_ZN114_$LT$kafka_protocol..compression..snappy..Snap
   %37 = sub nuw nsw i64 64, %36
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %37, i64 7)
   %38 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %39 = or disjoint i64 %38, 1
-  %40 = getelementptr i8, ptr null, i64 %39
+  %39 = getelementptr i8, ptr null, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 1
   store ptr %32, ptr %9, align 8, !alias.scope !4124, !noalias !4127
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 0, ptr %41, align 8, !alias.scope !4124, !noalias !4127
@@ -110137,8 +110137,8 @@ common.ret:                                       ; preds = %2123, %1375, %1165,
   %834 = sub nuw nsw i64 64, %833
   %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %834, i64 7)
   %835 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i.i, 2
-  %836 = or disjoint i64 %835, 1
-  %837 = getelementptr i8, ptr null, i64 %836
+  %836 = getelementptr i8, ptr null, i64 %835
+  %837 = getelementptr i8, ptr %836, i64 1
   store ptr %829, ptr %114, align 8, !alias.scope !18422, !noalias !18427
   %838 = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i64 0, ptr %838, align 8, !alias.scope !18422, !noalias !18427
@@ -145018,8 +145018,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
   %990 = sub nuw nsw i64 64, %989
   %.0.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %990, i64 7)
   %991 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i.i.i, 2
-  %992 = or disjoint i64 %991, 1
-  %993 = getelementptr i8, ptr null, i64 %992
+  %992 = getelementptr i8, ptr null, i64 %991
+  %993 = getelementptr i8, ptr %992, i64 1
   store ptr %985, ptr %48, align 8, !alias.scope !23367, !noalias !23372
   %994 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i64 0, ptr %994, align 8, !alias.scope !23367, !noalias !23372

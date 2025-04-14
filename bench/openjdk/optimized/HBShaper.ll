@@ -250,8 +250,8 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
 
 156:                                              ; preds = %.lr.ph, %156
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %156 ]
-  %.0139164 = phi float [ 0.000000e+00, %.lr.ph ], [ %184, %156 ]
-  %.0140163 = phi float [ 0.000000e+00, %.lr.ph ], [ %188, %156 ]
+  %.0139164 = phi float [ 0.000000e+00, %.lr.ph ], [ %182, %156 ]
+  %.0140163 = phi float [ 0.000000e+00, %.lr.ph ], [ %186, %156 ]
   %157 = add nsw i64 %indvars.iv, %148
   %158 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %8, i64 %indvars.iv
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
@@ -269,70 +269,67 @@ init_JNI_IDs.exit:                                ; preds = %66, %11
   %169 = load i32, ptr %168, align 4
   %170 = sitofp i32 %169 to float
   %171 = tail call float @llvm.fmuladd.f32(float %170, float %12, float %166)
-  %172 = shl nsw i64 %157, 1
-  %173 = getelementptr inbounds float, ptr %135, i64 %172
-  store float %171, ptr %173, align 4
-  %174 = fadd float %125, %.0140163
-  %175 = getelementptr inbounds nuw i8, ptr %167, i64 12
-  %176 = load i32, ptr %175, align 4
-  %177 = sitofp i32 %176 to float
-  %178 = fneg float %177
-  %179 = tail call float @llvm.fmuladd.f32(float %178, float %12, float %174)
-  %180 = or disjoint i64 %172, 1
-  %181 = getelementptr inbounds float, ptr %135, i64 %180
-  store float %179, ptr %181, align 4
-  %182 = load i32, ptr %167, align 4
-  %183 = sitofp i32 %182 to float
-  %184 = tail call float @llvm.fmuladd.f32(float %183, float %12, float %.0139164)
-  %185 = getelementptr inbounds nuw i8, ptr %167, i64 4
-  %186 = load i32, ptr %185, align 4
-  %187 = sitofp i32 %186 to float
-  %188 = tail call float @llvm.fmuladd.f32(float %187, float %12, float %.0140163)
+  %.idx = shl nsw i64 %157, 3
+  %172 = getelementptr inbounds i8, ptr %135, i64 %.idx
+  store float %171, ptr %172, align 4
+  %173 = fadd float %125, %.0140163
+  %174 = getelementptr inbounds nuw i8, ptr %167, i64 12
+  %175 = load i32, ptr %174, align 4
+  %176 = sitofp i32 %175 to float
+  %177 = fneg float %176
+  %178 = tail call float @llvm.fmuladd.f32(float %177, float %12, float %173)
+  %179 = getelementptr i8, ptr %172, i64 4
+  store float %178, ptr %179, align 4
+  %180 = load i32, ptr %167, align 4
+  %181 = sitofp i32 %180 to float
+  %182 = tail call float @llvm.fmuladd.f32(float %181, float %12, float %.0139164)
+  %183 = getelementptr inbounds nuw i8, ptr %167, i64 4
+  %184 = load i32, ptr %183, align 4
+  %185 = sitofp i32 %184 to float
+  %186 = tail call float @llvm.fmuladd.f32(float %185, float %12, float %.0140163)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %156, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %156, %.preheader
-  %.0140.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %188, %156 ]
-  %.0139.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %184, %156 ]
-  %189 = add nsw i32 %71, %7
-  %190 = fadd float %120, %.0139.lcssa
-  %191 = fadd float %125, %.0140.lcssa
-  %192 = shl nsw i32 %189, 1
-  %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds float, ptr %135, i64 %193
-  store float %190, ptr %194, align 4
-  %195 = or disjoint i32 %192, 1
-  %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds float, ptr %135, i64 %196
-  store float %191, ptr %197, align 4
-  %198 = load ptr, ptr %0, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 1784
-  %200 = load ptr, ptr %199, align 8
-  tail call void %200(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull %129, i32 noundef 0) #8
-  %201 = load ptr, ptr %0, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 1784
-  %203 = load ptr, ptr %202, align 8
-  tail call void %203(ptr noundef nonnull %0, ptr noundef nonnull %86, ptr noundef nonnull %135, i32 noundef 0) #8
-  %204 = load ptr, ptr %0, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 1784
-  %206 = load ptr, ptr %205, align 8
-  tail call void %206(ptr noundef nonnull %0, ptr noundef nonnull %91, ptr noundef nonnull %144, i32 noundef 0) #8
+  %.0140.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %186, %156 ]
+  %.0139.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %182, %156 ]
+  %187 = add nsw i32 %71, %7
+  %188 = fadd float %120, %.0139.lcssa
+  %189 = fadd float %125, %.0140.lcssa
+  %190 = shl nsw i32 %187, 1
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds float, ptr %135, i64 %191
+  store float %188, ptr %192, align 4
+  %193 = getelementptr i8, ptr %192, i64 4
+  store float %189, ptr %193, align 4
+  %194 = load ptr, ptr %0, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 1784
+  %196 = load ptr, ptr %195, align 8
+  tail call void %196(ptr noundef nonnull %0, ptr noundef nonnull %81, ptr noundef nonnull %129, i32 noundef 0) #8
+  %197 = load ptr, ptr %0, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 1784
+  %199 = load ptr, ptr %198, align 8
+  tail call void %199(ptr noundef nonnull %0, ptr noundef nonnull %86, ptr noundef nonnull %135, i32 noundef 0) #8
+  %200 = load ptr, ptr %0, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 1784
+  %202 = load ptr, ptr %201, align 8
+  tail call void %202(ptr noundef nonnull %0, ptr noundef nonnull %91, ptr noundef nonnull %144, i32 noundef 0) #8
+  %203 = load ptr, ptr %0, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 888
+  %205 = load ptr, ptr %204, align 8
+  %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 152), align 8
+  tail call void %205(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %206, float noundef %188) #8
   %207 = load ptr, ptr %0, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 888
   %209 = load ptr, ptr %208, align 8
-  %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 152), align 8
-  tail call void %209(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %210, float noundef %190) #8
+  %210 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 160), align 8
+  tail call void %209(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %210, float noundef %189) #8
   %211 = load ptr, ptr %0, align 8
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 888
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 872
   %213 = load ptr, ptr %212, align 8
-  %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 160), align 8
-  tail call void %213(ptr noundef nonnull %0, ptr noundef %5, ptr noundef %214, float noundef %191) #8
-  %215 = load ptr, ptr %0, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 872
-  %217 = load ptr, ptr %216, align 8
-  %218 = load ptr, ptr @gvdCountFID, align 8
-  tail call void %217(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %218, i32 noundef %189) #8
+  %214 = load ptr, ptr @gvdCountFID, align 8
+  tail call void %213(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %214, i32 noundef %187) #8
   br label %init_JNI_IDs.exit.thread
 
 init_JNI_IDs.exit.thread:                         ; preds = %109, %59, %52, %45, %38, %31, %25, %19, %13, %.critedge, %._crit_edge, %149, %138, %95

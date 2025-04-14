@@ -187,8 +187,8 @@ _mi_segment_page_start_from_slice.exit:           ; preds = %3, %9
   %17 = sub i64 %14, %16
   %18 = sdiv exact i64 %17, 80
   %19 = shl i64 %18, 16
-  %20 = or disjoint i64 %8, %19
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %8
   ret ptr %21
 }
 
@@ -289,8 +289,8 @@ mi_page_block_size.exit:                          ; preds = %12, %14
   %44 = sub i64 %3, %43
   %45 = sdiv exact i64 %44, 80
   %46 = shl i64 %45, 16
-  %47 = or disjoint i64 %37, %46
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 %47
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %37
   %49 = load i8, ptr %28, align 8
   %50 = or i8 %49, 1
   store i8 %50, ptr %28, align 8

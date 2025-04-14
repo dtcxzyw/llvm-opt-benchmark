@@ -9885,6 +9885,7 @@ _ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i22.i.i:        ; preds = %_ZNK4llvm5APInt13ge
 define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_T2_"(ptr noundef captures(none) %0, i64 noundef range(i64 0, 576460752303423487) %1, i64 noundef range(i64 -1152921504606846976, 1152921504606846976) %2, ptr noundef %3) unnamed_addr #15 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
+  %invariant.gep = getelementptr i8, ptr %0, i64 8
   %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -9893,179 +9894,179 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm8ConstantElS2_N9__gnu_
   %8 = shl i64 %.032, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
-  %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %11
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %8
   %.val = load ptr, ptr %10, align 8, !tbaa !413
-  %.val29 = load ptr, ptr %12, align 8, !tbaa !413
-  %13 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %14 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %15 = load i32, ptr %14, align 8, !tbaa !415
-  %16 = icmp ult i32 %15, 65
-  br i1 %16, label %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i
+  %.val29 = load ptr, ptr %gep, align 8, !tbaa !413
+  %11 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.val, i64 32
+  %13 = load i32, ptr %12, align 8, !tbaa !415
+  %14 = icmp ult i32 %13, 65
+  br i1 %14, label %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i:  ; preds = %.lr.ph
-  %17 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %13) #23
-  %18 = sub i32 %15, %17
-  %19 = icmp ugt i32 %18, 64
-  br i1 %19, label %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i, label %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i
+  %15 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %11) #23
+  %16 = sub i32 %13, %15
+  %17 = icmp ugt i32 %16, 64
+  br i1 %17, label %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i, label %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i
 
 _ZNK4llvm5APInt3ugtEm.exit.i.i.i.i:               ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i, %.lr.ph
-  %20 = load ptr, ptr %13, align 8
-  %.0.in.i.i.i.i.i.i = select i1 %16, ptr %13, ptr %20
+  %18 = load ptr, ptr %11, align 8
+  %.0.in.i.i.i.i.i.i = select i1 %14, ptr %11, ptr %18
   %.0.i.i.i.i.i.i = load i64, ptr %.0.in.i.i.i.i.i.i, align 8, !tbaa !81
   br label %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i
 
 _ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i: ; preds = %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i
-  %21 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i ], [ %.0.i.i.i.i.i.i, %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %.val29, i64 24
-  %23 = getelementptr inbounds nuw i8, ptr %.val29, i64 32
-  %24 = load i32, ptr %23, align 8, !tbaa !415
-  %25 = icmp ult i32 %24, 65
-  br i1 %25, label %_ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i2.i.i
+  %19 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i ], [ %.0.i.i.i.i.i.i, %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i ]
+  %20 = getelementptr inbounds nuw i8, ptr %.val29, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.val29, i64 32
+  %22 = load i32, ptr %21, align 8, !tbaa !415
+  %23 = icmp ult i32 %22, 65
+  br i1 %23, label %_ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i2.i.i
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i2.i.i: ; preds = %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i
-  %26 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %22) #23
-  %27 = sub i32 %24, %26
-  %28 = icmp ugt i32 %27, 64
-  br i1 %28, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESJ_EEbT_T0_.exit", label %_ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i
+  %24 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %20) #23
+  %25 = sub i32 %22, %24
+  %26 = icmp ugt i32 %25, 64
+  br i1 %26, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESJ_EEbT_T0_.exit", label %_ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i
 
 _ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i:              ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i2.i.i, %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i
-  %29 = load ptr, ptr %22, align 8
-  %.0.in.i.i.i.i4.i.i = select i1 %25, ptr %22, ptr %29
+  %27 = load ptr, ptr %20, align 8
+  %.0.in.i.i.i.i4.i.i = select i1 %23, ptr %20, ptr %27
   %.0.i.i.i.i5.i.i = load i64, ptr %.0.in.i.i.i.i4.i.i, align 8, !tbaa !81
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESJ_EEbT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESJ_EEbT_T0_.exit": ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i2.i.i, %_ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i
-  %30 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i2.i.i ], [ %.0.i.i.i.i5.i.i, %_ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i ]
-  %31 = icmp ult i64 %21, %30
-  %spec.select = select i1 %31, i64 %11, i64 %9
-  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select
-  %33 = load ptr, ptr %32, align 8, !tbaa !413
-  %34 = getelementptr inbounds nuw ptr, ptr %0, i64 %.032
-  store ptr %33, ptr %34, align 8, !tbaa !413
-  %35 = icmp slt i64 %spec.select, %6
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !448
+  %28 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i2.i.i ], [ %.0.i.i.i.i5.i.i, %_ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i ]
+  %29 = icmp ult i64 %19, %28
+  %30 = or disjoint i64 %8, 1
+  %spec.select = select i1 %29, i64 %30, i64 %9
+  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select
+  %32 = load ptr, ptr %31, align 8, !tbaa !413
+  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %.032
+  store ptr %32, ptr %33, align 8, !tbaa !413
+  %34 = icmp slt i64 %spec.select, %6
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !448
 
 ._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESJ_EEbT_T0_.exit", %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESJ_EEbT_T0_.exit" ]
-  %36 = and i64 %2, 1
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %48
+  %35 = and i64 %2, 1
+  %36 = icmp eq i64 %35, 0
+  br i1 %36, label %37, label %47
 
-38:                                               ; preds = %._crit_edge
-  %39 = add nsw i64 %2, -2
-  %40 = ashr exact i64 %39, 1
-  %41 = icmp eq i64 %.0.lcssa, %40
-  br i1 %41, label %42, label %48
+37:                                               ; preds = %._crit_edge
+  %38 = add nsw i64 %2, -2
+  %39 = ashr exact i64 %38, 1
+  %40 = icmp eq i64 %.0.lcssa, %39
+  br i1 %40, label %41, label %47
 
-42:                                               ; preds = %38
-  %43 = shl nsw i64 %.0.lcssa, 1
-  %44 = or disjoint i64 %43, 1
-  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %44
-  %46 = load ptr, ptr %45, align 8, !tbaa !413
-  %47 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
-  store ptr %46, ptr %47, align 8, !tbaa !413
-  br label %48
+41:                                               ; preds = %37
+  %42 = shl nsw i64 %.0.lcssa, 1
+  %43 = or disjoint i64 %42, 1
+  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %43
+  %45 = load ptr, ptr %44, align 8, !tbaa !413
+  %46 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
+  store ptr %45, ptr %46, align 8, !tbaa !413
+  br label %47
 
-48:                                               ; preds = %42, %38, %._crit_edge
-  %.128 = phi i64 [ %44, %42 ], [ %.0.lcssa, %38 ], [ %.0.lcssa, %._crit_edge ]
-  %49 = icmp sgt i64 %.128, %1
-  br i1 %49, label %.lr.ph.i, label %"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit"
+47:                                               ; preds = %41, %37, %._crit_edge
+  %.128 = phi i64 [ %43, %41 ], [ %.0.lcssa, %37 ], [ %.0.lcssa, %._crit_edge ]
+  %48 = icmp sgt i64 %.128, %1
+  br i1 %48, label %.lr.ph.i, label %"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %48
+.lr.ph.i:                                         ; preds = %47
   %.0.in1.i = add nsw i64 %.128, -1
   %.021013.i = lshr i64 %.0.in1.i, 1
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %52 = load i32, ptr %51, align 8, !tbaa !415
-  %53 = icmp ult i32 %52, 65
-  br i1 %53, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %51 = load i32, ptr %50, align 8, !tbaa !415
+  %52 = icmp ult i32 %51, 65
+  br i1 %52, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %64
-  %.04.us.i = phi i64 [ %.0.us.i, %64 ], [ %.021013.i, %.lr.ph.i ]
-  %.0133.us.i = phi i64 [ %.04.us.i, %64 ], [ %.128, %.lr.ph.i ]
-  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.us.i
-  %.val.us.i = load ptr, ptr %54, align 8, !tbaa !413
-  %55 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 24
-  %56 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 32
-  %57 = load i32, ptr %56, align 8, !tbaa !415
-  %58 = icmp ult i32 %57, 65
-  br i1 %58, label %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.us.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.us.i
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %63
+  %.04.us.i = phi i64 [ %.0.us.i, %63 ], [ %.021013.i, %.lr.ph.i ]
+  %.0133.us.i = phi i64 [ %.04.us.i, %63 ], [ %.128, %.lr.ph.i ]
+  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.us.i
+  %.val.us.i = load ptr, ptr %53, align 8, !tbaa !413
+  %54 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 32
+  %56 = load i32, ptr %55, align 8, !tbaa !415
+  %57 = icmp ult i32 %56, 65
+  br i1 %57, label %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.us.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.us.i
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.us.i: ; preds = %.lr.ph.split.us.i
-  %59 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %55) #23
-  %60 = sub i32 %57, %59
-  %61 = icmp ugt i32 %60, 64
-  br i1 %61, label %"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit", label %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.us.i
+  %58 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %54) #23
+  %59 = sub i32 %56, %58
+  %60 = icmp ugt i32 %59, 64
+  br i1 %60, label %"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit", label %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.us.i
 
 _ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.us.i: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.us.i, %.lr.ph.split.us.i
-  %62 = load ptr, ptr %55, align 8
-  %.0.in.i.i.i.i.i.i.us.i = select i1 %58, ptr %55, ptr %62
+  %61 = load ptr, ptr %54, align 8
+  %.0.in.i.i.i.i.i.i.us.i = select i1 %57, ptr %54, ptr %61
   %.0.i.i.i.i.i.i.us.i = load i64, ptr %.0.in.i.i.i.i.i.i.us.i, align 8, !tbaa !81
-  %.0.i.i.i.i5.i.i.us.i = load i64, ptr %50, align 8, !tbaa !81
-  %63 = icmp ult i64 %.0.i.i.i.i.i.i.us.i, %.0.i.i.i.i5.i.i.us.i
-  br i1 %63, label %64, label %"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit"
+  %.0.i.i.i.i5.i.i.us.i = load i64, ptr %49, align 8, !tbaa !81
+  %62 = icmp ult i64 %.0.i.i.i.i.i.i.us.i, %.0.i.i.i.i5.i.i.us.i
+  br i1 %62, label %63, label %"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit"
 
-64:                                               ; preds = %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.us.i
-  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.us.i
-  store ptr %.val.us.i, ptr %65, align 8, !tbaa !413
+63:                                               ; preds = %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.us.i
+  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.us.i
+  store ptr %.val.us.i, ptr %64, align 8, !tbaa !413
   %.0.in.us.i = add nsw i64 %.04.us.i, -1
   %.0.us.i = sdiv i64 %.0.in.us.i, 2
-  %66 = icmp sgt i64 %.04.us.i, %1
-  br i1 %66, label %.lr.ph.split.us.i, label %"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit", !llvm.loop !449
+  %65 = icmp sgt i64 %.04.us.i, %1
+  br i1 %65, label %.lr.ph.split.us.i, label %"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit", !llvm.loop !449
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %83
-  %.04.i = phi i64 [ %.0.i, %83 ], [ %.021013.i, %.lr.ph.i ]
-  %.0133.i = phi i64 [ %.04.i, %83 ], [ %.128, %.lr.ph.i ]
-  %67 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
-  %.val.i = load ptr, ptr %67, align 8, !tbaa !413
-  %68 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  %69 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
-  %70 = load i32, ptr %69, align 8, !tbaa !415
-  %71 = icmp ult i32 %70, 65
-  br i1 %71, label %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %82
+  %.04.i = phi i64 [ %.0.i, %82 ], [ %.021013.i, %.lr.ph.i ]
+  %.0133.i = phi i64 [ %.04.i, %82 ], [ %.128, %.lr.ph.i ]
+  %66 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
+  %.val.i = load ptr, ptr %66, align 8, !tbaa !413
+  %67 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
+  %69 = load i32, ptr %68, align 8, !tbaa !415
+  %70 = icmp ult i32 %69, 65
+  br i1 %70, label %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i.i, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i: ; preds = %.lr.ph.split.i
-  %72 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %68) #23
-  %73 = sub i32 %70, %72
-  %74 = icmp ugt i32 %73, 64
-  br i1 %74, label %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.i, label %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i.i
+  %71 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %67) #23
+  %72 = sub i32 %69, %71
+  %73 = icmp ugt i32 %72, 64
+  br i1 %73, label %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.i, label %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i.i
 
 _ZNK4llvm5APInt3ugtEm.exit.i.i.i.i.i:             ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i, %.lr.ph.split.i
-  %75 = load ptr, ptr %68, align 8
-  %.0.in.i.i.i.i.i.i.i = select i1 %71, ptr %68, ptr %75
+  %74 = load ptr, ptr %67, align 8
+  %.0.in.i.i.i.i.i.i.i = select i1 %70, ptr %67, ptr %74
   %.0.i.i.i.i.i.i.i = load i64, ptr %.0.in.i.i.i.i.i.i.i, align 8, !tbaa !81
   br label %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.i
 
 _ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.i: ; preds = %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i
-  %76 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i.i ]
-  %77 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %50) #23
-  %78 = sub i32 %52, %77
-  %79 = icmp ugt i32 %78, 64
-  br i1 %79, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESI_EEbT_RT0_.exit.i", label %_ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i.i
+  %75 = phi i64 [ -1, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %_ZNK4llvm5APInt3ugtEm.exit.i.i.i.i.i ]
+  %76 = tail call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %49) #23
+  %77 = sub i32 %51, %76
+  %78 = icmp ugt i32 %77, 64
+  br i1 %78, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESI_EEbT_RT0_.exit.i", label %_ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i.i
 
 _ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i.i:            ; preds = %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.i
-  %80 = load ptr, ptr %50, align 8
-  %.0.i.i.i.i5.i.i.i = load i64, ptr %80, align 8, !tbaa !81
+  %79 = load ptr, ptr %49, align 8
+  %.0.i.i.i.i5.i.i.i = load i64, ptr %79, align 8, !tbaa !81
   br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESI_EEbT_RT0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESI_EEbT_RT0_.exit.i": ; preds = %_ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i.i, %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.i
-  %81 = phi i64 [ -1, %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.i ], [ %.0.i.i.i.i5.i.i.i, %_ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i.i ]
-  %82 = icmp ult i64 %76, %81
-  br i1 %82, label %83, label %"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit"
+  %80 = phi i64 [ -1, %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.i ], [ %.0.i.i.i.i5.i.i.i, %_ZNK4llvm5APInt3ugtEm.exit.i.i3.i.i.i ]
+  %81 = icmp ult i64 %75, %80
+  br i1 %81, label %82, label %"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit"
 
-83:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESI_EEbT_RT0_.exit.i"
-  %84 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i
-  store ptr %.val.i, ptr %84, align 8, !tbaa !413
+82:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESI_EEbT_RT0_.exit.i"
+  %83 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i
+  store ptr %.val.i, ptr %83, align 8, !tbaa !413
   %.0.in.i = add nsw i64 %.04.i, -1
   %.0.i = sdiv i64 %.0.in.i, 2
-  %85 = icmp sgt i64 %.04.i, %1
-  br i1 %85, label %.lr.ph.split.i, label %"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit", !llvm.loop !449
+  %84 = icmp sgt i64 %.04.i, %1
+  br i1 %84, label %.lr.ph.split.i, label %"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit", !llvm.loop !449
 
-"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESI_EEbT_RT0_.exit.i", %83, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.us.i, %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.us.i, %64, %48
-  %.013.lcssa.i = phi i64 [ %.128, %48 ], [ %.0133.us.i, %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.us.i ], [ %.04.us.i, %64 ], [ %.0133.us.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.us.i ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESI_EEbT_RT0_.exit.i" ], [ %.04.i, %83 ]
-  %86 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %86, align 8, !tbaa !413
+"_ZSt11__push_heapIPPN4llvm8ConstantElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERNS0_8FunctionENS0_8ArrayRefIPNS0_11InstructionEEERPNS0_5ValueEE3$_0EEEvT_T0_SL_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESI_EEbT_RT0_.exit.i", %82, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.us.i, %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.us.i, %63, %47
+  %.013.lcssa.i = phi i64 [ %.128, %47 ], [ %.0133.us.i, %_ZNK4llvm11ConstantInt15getLimitedValueEm.exit.i.i.us.i ], [ %.04.us.i, %63 ], [ %.0133.us.i, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i.i.i.i.i.us.i ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_123ModuleSanitizerCoverage20InjectTraceForSwitchERN4llvm8FunctionENS4_8ArrayRefIPNS4_11InstructionEEERPNS4_5ValueEE3$_0EclIPPNS4_8ConstantESI_EEbT_RT0_.exit.i" ], [ %.04.i, %82 ]
+  %85 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %85, align 8, !tbaa !413
   ret void
 }
 

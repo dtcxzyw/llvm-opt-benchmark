@@ -1829,8 +1829,8 @@ add_jsonb.exit.us.us:                             ; preds = %.thread.us.us
   %44 = icmp slt i32 %43, %0
   br i1 %44, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !13
 
-.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %66
-  %.029.us = phi i32 [ %67, %66 ], [ 0, %.lr.ph.split.us ]
+.lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %67
+  %.029.us = phi i32 [ %68, %67 ], [ 0, %.lr.ph.split.us ]
   %45 = sext i32 %.029.us to i64
   %46 = getelementptr inbounds i8, ptr %2, i64 %45
   %47 = load i8, ptr %46, align 1, !range !7, !noundef !8
@@ -1838,108 +1838,109 @@ add_jsonb.exit.us.us:                             ; preds = %.thread.us.us
   br i1 %48, label %.split.us, label %49
 
 49:                                               ; preds = %.lr.ph.split.us.split
-  %50 = or disjoint i32 %.029.us, 1
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %2, i64 %51
-  %53 = load i8, ptr %52, align 1, !range !7, !noundef !8
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %66, label %.thread.us
+  %50 = getelementptr i8, ptr %46, i64 1
+  %51 = load i8, ptr %50, align 1, !range !7, !noundef !8
+  %52 = trunc nuw i8 %51 to i1
+  br i1 %52, label %67, label %.thread.us
 
 .thread.us:                                       ; preds = %49
-  %55 = getelementptr inbounds i64, ptr %1, i64 %45
-  %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i32, ptr %3, i64 %45
-  %58 = load i32, ptr %57, align 4
+  %53 = getelementptr inbounds i64, ptr %1, i64 %45
+  %54 = load i64, ptr %53, align 8
+  %55 = getelementptr inbounds i32, ptr %3, i64 %45
+  %56 = load i32, ptr %55, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.split31.us, label %add_jsonb.exit.us
+  %57 = icmp eq i32 %56, 0
+  br i1 %57, label %.split31.us, label %add_jsonb.exit.us
 
 add_jsonb.exit.us:                                ; preds = %.thread.us
-  call void @json_categorize_type(i32 noundef %58, i1 noundef zeroext true, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
+  call void @json_categorize_type(i32 noundef %56, i1 noundef zeroext true, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   %.pre.i.us = load i32, ptr %7, align 4
   %.pre6.i.us = load i32, ptr %8, align 4
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %56, i1 noundef zeroext false, ptr noundef nonnull %9, i32 noundef %.pre.i.us, i32 noundef %.pre6.i.us, i1 noundef zeroext true)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %54, i1 noundef zeroext false, ptr noundef nonnull %9, i32 noundef %.pre.i.us, i32 noundef %.pre6.i.us, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  %60 = getelementptr inbounds i64, ptr %1, i64 %51
+  %58 = or disjoint i32 %.029.us, 1
+  %59 = sext i32 %58 to i64
+  %60 = getelementptr inbounds i64, ptr %1, i64 %59
   %61 = load i64, ptr %60, align 8
-  %62 = load i8, ptr %52, align 1, !range !7, !noundef !8
-  %63 = trunc nuw i8 %62 to i1
-  %64 = getelementptr inbounds i32, ptr %3, i64 %51
-  %65 = load i32, ptr %64, align 4
-  call fastcc void @add_jsonb(i64 noundef %61, i1 noundef zeroext %63, ptr noundef %9, i32 noundef %65, i1 noundef zeroext false)
-  br label %66
+  %62 = getelementptr inbounds i8, ptr %2, i64 %59
+  %63 = load i8, ptr %62, align 1, !range !7, !noundef !8
+  %64 = trunc nuw i8 %63 to i1
+  %65 = getelementptr inbounds i32, ptr %3, i64 %59
+  %66 = load i32, ptr %65, align 4
+  call fastcc void @add_jsonb(i64 noundef %61, i1 noundef zeroext %64, ptr noundef %9, i32 noundef %66, i1 noundef zeroext false)
+  br label %67
 
-66:                                               ; preds = %add_jsonb.exit.us, %49
-  %67 = add i32 %.029.us, 2
-  %68 = icmp slt i32 %67, %0
-  br i1 %68, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !13
+67:                                               ; preds = %add_jsonb.exit.us, %49
+  %68 = add i32 %.029.us, 2
+  %69 = icmp slt i32 %68, %0
+  br i1 %69, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %add_jsonb.exit
-  %.029 = phi i32 [ %94, %add_jsonb.exit ], [ 0, %.lr.ph ]
-  %69 = sext i32 %.029 to i64
-  %70 = getelementptr inbounds i8, ptr %2, i64 %69
-  %71 = load i8, ptr %70, align 1, !range !7, !noundef !8
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %.split.us, label %.thread
+  %.029 = phi i32 [ %95, %add_jsonb.exit ], [ 0, %.lr.ph ]
+  %70 = sext i32 %.029 to i64
+  %71 = getelementptr inbounds i8, ptr %2, i64 %70
+  %72 = load i8, ptr %71, align 1, !range !7, !noundef !8
+  %73 = trunc nuw i8 %72 to i1
+  br i1 %73, label %.split.us, label %.thread
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us
   %.us-phi = phi i32 [ %.029.us.us, %.lr.ph.split.us.split.us ], [ %.029.us, %.lr.ph.split.us.split ], [ %.029, %.lr.ph.split ]
-  %73 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %73)
-  %74 = call i32 @errcode(i32 noundef 50856066) #11
-  %75 = or disjoint i32 %.us-phi, 1
-  %76 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, i32 noundef %75) #11
+  %74 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  call void @llvm.assume(i1 %74)
+  %75 = call i32 @errcode(i32 noundef 50856066) #11
+  %76 = or disjoint i32 %.us-phi, 1
+  %77 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, i32 noundef %76) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1153, ptr noundef nonnull @__func__.jsonb_build_object_worker) #11
   unreachable
 
 .thread:                                          ; preds = %.lr.ph.split
-  %77 = getelementptr inbounds i64, ptr %1, i64 %69
-  %78 = load i64, ptr %77, align 8
-  %79 = getelementptr inbounds i32, ptr %3, i64 %69
-  %80 = load i32, ptr %79, align 4
+  %78 = getelementptr inbounds i64, ptr %1, i64 %70
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds i32, ptr %3, i64 %70
+  %81 = load i32, ptr %80, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #11
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %.split31.us, label %add_jsonb.exit
+  %82 = icmp eq i32 %81, 0
+  br i1 %82, label %.split31.us, label %add_jsonb.exit
 
 .split31.us:                                      ; preds = %.thread, %.thread.us, %.thread.us.us
-  %82 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
-  call void @llvm.assume(i1 %82)
-  %83 = call i32 @errcode(i32 noundef 50856066) #11
-  %84 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #11
+  %83 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
+  call void @llvm.assume(i1 %83)
+  %84 = call i32 @errcode(i32 noundef 50856066) #11
+  %85 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1025, ptr noundef nonnull @__func__.add_jsonb) #11
   unreachable
 
 add_jsonb.exit:                                   ; preds = %.thread
-  call void @json_categorize_type(i32 noundef %80, i1 noundef zeroext true, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
+  call void @json_categorize_type(i32 noundef %81, i1 noundef zeroext true, ptr noundef nonnull %7, ptr noundef nonnull %8) #11
   %.pre.i = load i32, ptr %7, align 4
   %.pre6.i = load i32, ptr %8, align 4
-  call fastcc void @datum_to_jsonb_internal(i64 noundef %78, i1 noundef zeroext false, ptr noundef nonnull %9, i32 noundef %.pre.i, i32 noundef %.pre6.i, i1 noundef zeroext true)
+  call fastcc void @datum_to_jsonb_internal(i64 noundef %79, i1 noundef zeroext false, ptr noundef nonnull %9, i32 noundef %.pre.i, i32 noundef %.pre6.i, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  %85 = or disjoint i32 %.029, 1
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i64, ptr %1, i64 %86
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %2, i64 %86
-  %90 = load i8, ptr %89, align 1, !range !7, !noundef !8
-  %91 = trunc nuw i8 %90 to i1
-  %92 = getelementptr inbounds i32, ptr %3, i64 %86
-  %93 = load i32, ptr %92, align 4
-  call fastcc void @add_jsonb(i64 noundef %88, i1 noundef zeroext %91, ptr noundef %9, i32 noundef %93, i1 noundef zeroext false)
-  %94 = add i32 %.029, 2
-  %95 = icmp slt i32 %94, %0
-  br i1 %95, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  %86 = or disjoint i32 %.029, 1
+  %87 = sext i32 %86 to i64
+  %88 = getelementptr inbounds i64, ptr %1, i64 %87
+  %89 = load i64, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %2, i64 %87
+  %91 = load i8, ptr %90, align 1, !range !7, !noundef !8
+  %92 = trunc nuw i8 %91 to i1
+  %93 = getelementptr inbounds i32, ptr %3, i64 %87
+  %94 = load i32, ptr %93, align 4
+  call fastcc void @add_jsonb(i64 noundef %89, i1 noundef zeroext %92, ptr noundef %9, i32 noundef %94, i1 noundef zeroext false)
+  %95 = add i32 %.029, 2
+  %96 = icmp slt i32 %95, %0
+  br i1 %96, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %add_jsonb.exit, %66, %add_jsonb.exit.us.us, %16
-  %96 = call ptr @pushJsonbValue(ptr noundef nonnull %9, i32 noundef 7, ptr noundef null) #11
-  store ptr %96, ptr %20, align 8
-  %97 = call ptr @JsonbValueToJsonb(ptr noundef %96) #11
-  %98 = ptrtoint ptr %97 to i64
+._crit_edge:                                      ; preds = %add_jsonb.exit, %67, %add_jsonb.exit.us.us, %16
+  %97 = call ptr @pushJsonbValue(ptr noundef nonnull %9, i32 noundef 7, ptr noundef null) #11
+  store ptr %97, ptr %20, align 8
+  %98 = call ptr @JsonbValueToJsonb(ptr noundef %97) #11
+  %99 = ptrtoint ptr %98 to i64
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #11
-  ret i64 %98
+  ret i64 %99
 }
 
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3

@@ -3643,52 +3643,52 @@ define internal void @ec_mulm_448(ptr noundef readonly captures(none) %0, ptr no
   %96 = load i64, ptr %62, align 8
   %97 = or i64 %96, %95
   store i64 %97, ptr %62, align 8
+  %invariant.gep = getelementptr i8, ptr %29, i64 32
   br label %98
 
 98:                                               ; preds = %98, %94
-  %99 = phi i64 [ 0, %94 ], [ %104, %98 ]
+  %99 = phi i64 [ 0, %94 ], [ %102, %98 ]
   %100 = getelementptr [4 x i64], ptr %9, i64 0, i64 %99
   %101 = load i64, ptr %100, align 8
-  %102 = or disjoint i64 %99, 4
-  %103 = getelementptr i64, ptr %29, i64 %102
-  store i64 %101, ptr %103, align 8
-  %104 = add nuw nsw i64 %99, 1
-  %105 = icmp eq i64 %104, 3
-  br i1 %105, label %106, label %98, !llvm.loop !25
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %99
+  store i64 %101, ptr %gep, align 8
+  %102 = add nuw nsw i64 %99, 1
+  %103 = icmp eq i64 %102, 3
+  br i1 %103, label %104, label %98, !llvm.loop !25
 
-106:                                              ; preds = %98
-  %107 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %108 = load i64, ptr %107, align 8
+104:                                              ; preds = %98
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %106 = load i64, ptr %105, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %109 = shl i64 %108, 32
-  store i64 %109, ptr %30, align 8
-  store i64 %108, ptr %5, align 16
-  %110 = call i64 @mpihelp_add_n(ptr noundef %29, ptr noundef %29, ptr noundef nonnull %5, i32 noundef 7) #9
+  %107 = shl i64 %106, 32
+  store i64 %107, ptr %30, align 8
+  store i64 %106, ptr %5, align 16
+  %108 = call i64 @mpihelp_add_n(ptr noundef %29, ptr noundef %29, ptr noundef nonnull %5, i32 noundef 7) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %111 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %114 = load ptr, ptr %113, align 8
-  %115 = call i64 @mpihelp_sub_n(ptr noundef %29, ptr noundef %29, ptr noundef %114, i32 noundef 7) #9
-  %116 = load ptr, ptr %111, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  %118 = load ptr, ptr %117, align 8
-  %.fr3 = freeze i64 %115
-  %119 = icmp eq i64 %.fr3, 0
-  br i1 %119, label %.split2.us, label %.split
+  %113 = call i64 @mpihelp_sub_n(ptr noundef %29, ptr noundef %29, ptr noundef %112, i32 noundef 7) #9
+  %114 = load ptr, ptr %109, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
+  %116 = load ptr, ptr %115, align 8
+  %.fr3 = freeze i64 %113
+  %117 = icmp eq i64 %.fr3, 0
+  br i1 %117, label %.split2.us, label %.split
 
-.split:                                           ; preds = %106, %.split
-  %120 = phi i64 [ %124, %.split ], [ 0, %106 ]
-  %121 = getelementptr i64, ptr %5, i64 %120
-  %122 = getelementptr i64, ptr %118, i64 %120
-  %123 = load i64, ptr %122, align 8
-  store i64 %123, ptr %121, align 8
-  %124 = add nuw nsw i64 %120, 1
-  %125 = icmp eq i64 %124, 7
-  br i1 %125, label %.split2.us, label %.split, !llvm.loop !20
+.split:                                           ; preds = %104, %.split
+  %118 = phi i64 [ %122, %.split ], [ 0, %104 ]
+  %119 = getelementptr i64, ptr %5, i64 %118
+  %120 = getelementptr i64, ptr %116, i64 %118
+  %121 = load i64, ptr %120, align 8
+  store i64 %121, ptr %119, align 8
+  %122 = add nuw nsw i64 %118, 1
+  %123 = icmp eq i64 %122, 7
+  br i1 %123, label %.split2.us, label %.split, !llvm.loop !20
 
-.split2.us:                                       ; preds = %.split, %106
-  %126 = call i64 @mpihelp_add_n(ptr noundef %29, ptr noundef %29, ptr noundef nonnull %5, i32 noundef 7) #9
+.split2.us:                                       ; preds = %.split, %104
+  %124 = call i64 @mpihelp_add_n(ptr noundef %29, ptr noundef %29, ptr noundef nonnull %5, i32 noundef 7) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #9

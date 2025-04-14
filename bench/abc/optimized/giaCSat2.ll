@@ -4351,17 +4351,15 @@ define void @Cbs2_ObjDeleteFanout(ptr noundef readonly captures(none) %0, i32 no
   %4 = getelementptr i8, ptr %0, i64 232
   %.val6 = load ptr, ptr %4, align 8, !tbaa !35
   %5 = sext i32 %3 to i64
-  %6 = getelementptr inbounds i32, ptr %.val6, i64 %5
+  %6 = getelementptr i32, ptr %.val6, i64 %5
   store i32 0, ptr %6, align 4, !tbaa !60
-  %7 = or disjoint i32 %3, 1
-  %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds i32, ptr %.val6, i64 %8
-  store i32 0, ptr %9, align 4, !tbaa !60
-  %10 = getelementptr i8, ptr %0, i64 248
-  %.val = load ptr, ptr %10, align 8, !tbaa !35
-  %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds i32, ptr %.val, i64 %11
-  store i32 0, ptr %12, align 4, !tbaa !60
+  %7 = getelementptr i8, ptr %6, i64 4
+  store i32 0, ptr %7, align 4, !tbaa !60
+  %8 = getelementptr i8, ptr %0, i64 248
+  %.val = load ptr, ptr %8, align 8, !tbaa !35
+  %9 = sext i32 %1 to i64
+  %10 = getelementptr inbounds i32, ptr %.val, i64 %9
+  store i32 0, ptr %10, align 4, !tbaa !60
   ret void
 }
 
@@ -4437,9 +4435,9 @@ define void @Cbs2_ManDeleteFanout_rec(ptr noundef readonly captures(none) %0, i3
   %.val.i.pre = load ptr, ptr %5, align 8, !tbaa !35
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %30, %2
-  %.val2125 = phi ptr [ %.val.i.pre, %2 ], [ %.val21, %30 ]
-  %.tr23 = phi i32 [ %1, %2 ], [ %25, %30 ]
+tailrecurse:                                      ; preds = %28, %2
+  %.val2125 = phi ptr [ %.val.i.pre, %2 ], [ %.val21, %28 ]
+  %.tr23 = phi i32 [ %1, %2 ], [ %23, %28 ]
   %6 = load ptr, ptr %3, align 8, !tbaa !38
   %7 = getelementptr i8, ptr %6, i64 32
   %.val = load ptr, ptr %7, align 8, !tbaa !67
@@ -4448,47 +4446,45 @@ tailrecurse:                                      ; preds = %30, %2
   %10 = shl nsw i32 %.tr23, 1
   %.val6.i = load ptr, ptr %4, align 8, !tbaa !35
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %.val6.i, i64 %11
+  %12 = getelementptr i32, ptr %.val6.i, i64 %11
   store i32 0, ptr %12, align 4, !tbaa !60
-  %13 = or disjoint i32 %10, 1
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr %.val6.i, i64 %14
-  store i32 0, ptr %15, align 4, !tbaa !60
-  %16 = getelementptr inbounds i32, ptr %.val2125, i64 %8
-  store i32 0, ptr %16, align 4, !tbaa !60
+  %13 = getelementptr i8, ptr %12, i64 4
+  store i32 0, ptr %13, align 4, !tbaa !60
+  %14 = getelementptr inbounds i32, ptr %.val2125, i64 %8
+  store i32 0, ptr %14, align 4, !tbaa !60
   %.val18 = load i64, ptr %9, align 4
-  %17 = and i64 %.val18, 2684354559
-  %narrow.i.not = icmp eq i64 %17, 2684354559
-  br i1 %narrow.i.not, label %34, label %18
+  %15 = and i64 %.val18, 2684354559
+  %narrow.i.not = icmp eq i64 %15, 2684354559
+  br i1 %narrow.i.not, label %32, label %16
 
-18:                                               ; preds = %tailrecurse
-  %19 = trunc i64 %.val18 to i32
-  %20 = and i32 %19, 536870911
-  %21 = sub nsw i32 %.tr23, %20
-  %22 = lshr i64 %.val18, 32
-  %23 = trunc nuw i64 %22 to i32
-  %24 = and i32 %23, 536870911
-  %25 = sub nsw i32 %.tr23, %24
-  %26 = sext i32 %21 to i64
-  %27 = getelementptr inbounds i32, ptr %.val2125, i64 %26
-  %28 = load i32, ptr %27, align 4, !tbaa !60
-  %.not16 = icmp eq i32 %28, 0
-  br i1 %.not16, label %30, label %29
+16:                                               ; preds = %tailrecurse
+  %17 = trunc i64 %.val18 to i32
+  %18 = and i32 %17, 536870911
+  %19 = sub nsw i32 %.tr23, %18
+  %20 = lshr i64 %.val18, 32
+  %21 = trunc nuw i64 %20 to i32
+  %22 = and i32 %21, 536870911
+  %23 = sub nsw i32 %.tr23, %22
+  %24 = sext i32 %19 to i64
+  %25 = getelementptr inbounds i32, ptr %.val2125, i64 %24
+  %26 = load i32, ptr %25, align 4, !tbaa !60
+  %.not16 = icmp eq i32 %26, 0
+  br i1 %.not16, label %28, label %27
 
-29:                                               ; preds = %18
-  tail call void @Cbs2_ManDeleteFanout_rec(ptr noundef nonnull %0, i32 noundef %21)
+27:                                               ; preds = %16
+  tail call void @Cbs2_ManDeleteFanout_rec(ptr noundef nonnull %0, i32 noundef %19)
   %.val21.pre = load ptr, ptr %5, align 8, !tbaa !35
-  br label %30
+  br label %28
 
-30:                                               ; preds = %29, %18
-  %.val21 = phi ptr [ %.val21.pre, %29 ], [ %.val2125, %18 ]
-  %31 = sext i32 %25 to i64
-  %32 = getelementptr inbounds i32, ptr %.val21, i64 %31
-  %33 = load i32, ptr %32, align 4, !tbaa !60
-  %.not17 = icmp eq i32 %33, 0
-  br i1 %.not17, label %34, label %tailrecurse
+28:                                               ; preds = %27, %16
+  %.val21 = phi ptr [ %.val21.pre, %27 ], [ %.val2125, %16 ]
+  %29 = sext i32 %23 to i64
+  %30 = getelementptr inbounds i32, ptr %.val21, i64 %29
+  %31 = load i32, ptr %30, align 4, !tbaa !60
+  %.not17 = icmp eq i32 %31, 0
+  br i1 %.not17, label %32, label %tailrecurse
 
-34:                                               ; preds = %30, %tailrecurse
+32:                                               ; preds = %28, %tailrecurse
   ret void
 }
 

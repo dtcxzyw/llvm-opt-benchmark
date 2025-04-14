@@ -20052,6 +20052,7 @@ if.then.i:                                        ; preds = %entry
   %sub.i = add nsw i64 %sub.ptr.div.i, -2
   %shr.i = lshr i64 %sub.i, 1
   %add.i = add nuw nsw i64 %shr.i, 1
+  %invariant.gep.i.i.i = getelementptr i8, ptr %first, i64 4
   br label %do.body.i
 
 do.body.i:                                        ; preds = %_ZN5eastl11adjust_heapIPiliEEvT_T0_S3_S3_OT1_.exit.i, %if.then.i
@@ -20070,11 +20071,11 @@ for.body.i.i.i:                                   ; preds = %do.body.i, %for.bod
   %position.addr.023.i.i.i = phi i64 [ %spec.select.i.i.i, %for.body.i.i.i ], [ %dec.i, %do.body.i ]
   %add.ptr.i.i.i = getelementptr inbounds i32, ptr %first, i64 %childPosition.025.i.i.i
   %1 = load i32, ptr %add.ptr.i.i.i, align 4
-  %sub.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i, 1
-  %add.ptr1.i.i.i = getelementptr inbounds i32, ptr %first, i64 %sub.i.i.i
-  %2 = load i32, ptr %add.ptr1.i.i.i, align 4
+  %gep.i.i.i = getelementptr i32, ptr %invariant.gep.i.i.i, i64 %childPosition.0.in24.i.i.i
+  %2 = load i32, ptr %gep.i.i.i, align 4
   %cmp2.i.i.i = icmp slt i32 %1, %2
-  %spec.select.i.i.i = select i1 %cmp2.i.i.i, i64 %sub.i.i.i, i64 %childPosition.025.i.i.i
+  %dec.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i, 1
+  %spec.select.i.i.i = select i1 %cmp2.i.i.i, i64 %dec.i.i.i, i64 %childPosition.025.i.i.i
   %add.ptr3.i.i.i = getelementptr inbounds i32, ptr %first, i64 %spec.select.i.i.i
   %3 = load i32, ptr %add.ptr3.i.i.i, align 4
   %add.ptr4.i.i.i = getelementptr inbounds i32, ptr %first, i64 %position.addr.023.i.i.i
@@ -20127,22 +20128,23 @@ _ZN5eastl11adjust_heapIPiliEEvT_T0_S3_S3_OT1_.exit.i: ; preds = %for.body.i.i.i.
   br i1 %cmp2.not.i, label %_ZN5eastl9make_heapIPiEEvT_S2_.exit, label %do.body.i, !llvm.loop !409
 
 _ZN5eastl9make_heapIPiEEvT_S2_.exit:              ; preds = %_ZN5eastl11adjust_heapIPiliEEvT_T0_S3_S3_OT1_.exit.i, %entry
-  %cmp24 = icmp ult ptr %middle, %last
-  br i1 %cmp24, label %for.body.lr.ph, label %for.end
+  %cmp23 = icmp ult ptr %middle, %last
+  br i1 %cmp23, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN5eastl9make_heapIPiEEvT_S2_.exit
+  %invariant.gep.i.i = getelementptr i8, ptr %first, i64 4
   %cmp22.i.i = icmp sgt i64 %sub.ptr.div.i, 2
   br i1 %cmp22.i.i, label %for.body.us, label %for.body.lr.ph.split
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
-  %i.025.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %middle, %for.body.lr.ph ]
-  %6 = load i32, ptr %i.025.us, align 4
+  %i.024.us = phi ptr [ %incdec.ptr.us, %for.inc.us ], [ %middle, %for.body.lr.ph ]
+  %6 = load i32, ptr %i.024.us, align 4
   %7 = load i32, ptr %first, align 4
   %cmp1.us = icmp slt i32 %6, %7
   br i1 %cmp1.us, label %if.then.us, label %for.inc.us
 
 if.then.us:                                       ; preds = %for.body.us
-  store i32 %7, ptr %i.025.us, align 4
+  store i32 %7, ptr %i.024.us, align 4
   br label %for.body.i.i.us
 
 for.body.i.i.us:                                  ; preds = %if.then.us, %for.body.i.i.us
@@ -20151,11 +20153,11 @@ for.body.i.i.us:                                  ; preds = %if.then.us, %for.bo
   %position.addr.023.i.i.us = phi i64 [ %spec.select.i.i.us, %for.body.i.i.us ], [ 0, %if.then.us ]
   %add.ptr.i.i.us = getelementptr inbounds i32, ptr %first, i64 %childPosition.025.i.i.us
   %8 = load i32, ptr %add.ptr.i.i.us, align 4
-  %sub.i.i.us = or disjoint i64 %childPosition.0.in24.i.i.us, 1
-  %add.ptr1.i.i.us = getelementptr inbounds i32, ptr %first, i64 %sub.i.i.us
-  %9 = load i32, ptr %add.ptr1.i.i.us, align 4
+  %gep.i.i.us = getelementptr i32, ptr %invariant.gep.i.i, i64 %childPosition.0.in24.i.i.us
+  %9 = load i32, ptr %gep.i.i.us, align 4
   %cmp2.i.i.us = icmp slt i32 %8, %9
-  %spec.select.i.i.us = select i1 %cmp2.i.i.us, i64 %sub.i.i.us, i64 %childPosition.025.i.i.us
+  %dec.i.i.us = or disjoint i64 %childPosition.0.in24.i.i.us, 1
+  %spec.select.i.i.us = select i1 %cmp2.i.i.us, i64 %dec.i.i.us, i64 %childPosition.025.i.i.us
   %add.ptr3.i.i.us = getelementptr inbounds i32, ptr %first, i64 %spec.select.i.i.us
   %10 = load i32, ptr %add.ptr3.i.i.us, align 4
   %add.ptr4.i.i.us = getelementptr inbounds i32, ptr %first, i64 %position.addr.023.i.i.us
@@ -20200,7 +20202,7 @@ _ZN5eastl11adjust_heapIPiliEEvT_T0_S3_S3_OT1_.exit.us: ; preds = %land.rhs.i.i.i
   br label %for.inc.us
 
 for.inc.us:                                       ; preds = %_ZN5eastl11adjust_heapIPiliEEvT_T0_S3_S3_OT1_.exit.us, %for.body.us
-  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %i.025.us, i64 4
+  %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %i.024.us, i64 4
   %cmp.us = icmp ult ptr %incdec.ptr.us, %last
   br i1 %cmp.us, label %for.body.us, label %for.end, !llvm.loop !410
 
@@ -20210,30 +20212,29 @@ for.end.i.i.loopexit.us:                          ; preds = %for.body.i.i.us
 
 for.body.lr.ph.split:                             ; preds = %for.body.lr.ph
   %cmp7.i.i = icmp eq i64 %sub.ptr.div.i, 2
-  %add.ptr10.i.i = getelementptr inbounds nuw i8, ptr %first, i64 4
-  br i1 %cmp7.i.i, label %for.body.us26, label %for.body.lr.ph.split.split
+  br i1 %cmp7.i.i, label %for.body.us25, label %for.body.lr.ph.split.split
 
-for.body.us26:                                    ; preds = %for.body.lr.ph.split, %for.inc.us46
-  %i.025.us27 = phi ptr [ %incdec.ptr.us47, %for.inc.us46 ], [ %middle, %for.body.lr.ph.split ]
-  %13 = load i32, ptr %i.025.us27, align 4
+for.body.us25:                                    ; preds = %for.body.lr.ph.split, %for.inc.us45
+  %i.024.us26 = phi ptr [ %incdec.ptr.us46, %for.inc.us45 ], [ %middle, %for.body.lr.ph.split ]
+  %13 = load i32, ptr %i.024.us26, align 4
   %14 = load i32, ptr %first, align 4
-  %cmp1.us28 = icmp slt i32 %13, %14
-  br i1 %cmp1.us28, label %if.then.us29, label %for.inc.us46
+  %cmp1.us27 = icmp slt i32 %13, %14
+  br i1 %cmp1.us27, label %if.then.us28, label %for.inc.us45
 
-if.then.us29:                                     ; preds = %for.body.us26
-  store i32 %14, ptr %i.025.us27, align 4
-  %15 = load i32, ptr %add.ptr10.i.i, align 4
+if.then.us28:                                     ; preds = %for.body.us25
+  store i32 %14, ptr %i.024.us26, align 4
+  %15 = load i32, ptr %invariant.gep.i.i, align 4
   store i32 %15, ptr %first, align 4
-  %cmp1.i.i.i.i.us39 = icmp sge i32 %15, %13
-  %spec.select = zext i1 %cmp1.i.i.i.i.us39 to i64
-  %add.ptr7.i.i.i.i.us45 = getelementptr inbounds nuw i32, ptr %first, i64 %spec.select
-  store i32 %13, ptr %add.ptr7.i.i.i.i.us45, align 4
-  br label %for.inc.us46
+  %cmp1.i.i.i.i.us38 = icmp sge i32 %15, %13
+  %spec.select = zext i1 %cmp1.i.i.i.i.us38 to i64
+  %add.ptr7.i.i.i.i.us44 = getelementptr inbounds nuw i32, ptr %first, i64 %spec.select
+  store i32 %13, ptr %add.ptr7.i.i.i.i.us44, align 4
+  br label %for.inc.us45
 
-for.inc.us46:                                     ; preds = %if.then.us29, %for.body.us26
-  %incdec.ptr.us47 = getelementptr inbounds nuw i8, ptr %i.025.us27, i64 4
-  %cmp.us48 = icmp ult ptr %incdec.ptr.us47, %last
-  br i1 %cmp.us48, label %for.body.us26, label %for.end, !llvm.loop !410
+for.inc.us45:                                     ; preds = %if.then.us28, %for.body.us25
+  %incdec.ptr.us46 = getelementptr inbounds nuw i8, ptr %i.024.us26, i64 4
+  %cmp.us47 = icmp ult ptr %incdec.ptr.us46, %last
+  br i1 %cmp.us47, label %for.body.us25, label %for.end, !llvm.loop !410
 
 for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.split
   %.pre = load i32, ptr %first, align 4
@@ -20241,65 +20242,69 @@ for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.spli
 
 for.body:                                         ; preds = %for.body.lr.ph.split.split, %for.inc
   %16 = phi i32 [ %.pre, %for.body.lr.ph.split.split ], [ %18, %for.inc ]
-  %i.025 = phi ptr [ %middle, %for.body.lr.ph.split.split ], [ %incdec.ptr, %for.inc ]
-  %17 = load i32, ptr %i.025, align 4
+  %i.024 = phi ptr [ %middle, %for.body.lr.ph.split.split ], [ %incdec.ptr, %for.inc ]
+  %17 = load i32, ptr %i.024, align 4
   %cmp1 = icmp slt i32 %17, %16
   br i1 %cmp1, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  store i32 %16, ptr %i.025, align 4
+  store i32 %16, ptr %i.024, align 4
   store i32 %17, ptr %first, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
   %18 = phi i32 [ %16, %for.body ], [ %17, %if.then ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %i.025, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %i.024, i64 4
   %cmp = icmp ult ptr %incdec.ptr, %last
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !410
 
-for.end:                                          ; preds = %for.inc, %for.inc.us46, %for.inc.us, %_ZN5eastl9make_heapIPiEEvT_S2_.exit
+for.end:                                          ; preds = %for.inc, %for.inc.us45, %for.inc.us, %_ZN5eastl9make_heapIPiEEvT_S2_.exit
   %cmp15.i = icmp sgt i64 %sub.ptr.sub.i, 4
-  br i1 %cmp15.i, label %for.body.i, label %_ZN5eastl9sort_heapIPiEEvT_S2_.exit
+  br i1 %cmp15.i, label %for.body.lr.ph.i, label %_ZN5eastl9sort_heapIPiEEvT_S2_.exit
 
-for.body.i:                                       ; preds = %for.end, %_ZN5eastl8pop_heapIPiEEvT_S2_.exit.i
-  %sub.ptr.sub17.i = phi i64 [ %sub.ptr.sub.i17, %_ZN5eastl8pop_heapIPiEEvT_S2_.exit.i ], [ %sub.ptr.sub.i, %for.end ]
-  %last.addr.016.i = phi ptr [ %add.ptr.i.i14, %_ZN5eastl8pop_heapIPiEEvT_S2_.exit.i ], [ %middle, %for.end ]
+for.body.lr.ph.i:                                 ; preds = %for.end
+  %invariant.gep.i.i.i.i = getelementptr i8, ptr %first, i64 4
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %_ZN5eastl8pop_heapIPiEEvT_S2_.exit.i, %for.body.lr.ph.i
+  %sub.ptr.sub17.i = phi i64 [ %sub.ptr.sub.i, %for.body.lr.ph.i ], [ %sub.ptr.sub.i16, %_ZN5eastl8pop_heapIPiEEvT_S2_.exit.i ]
+  %last.addr.016.i = phi ptr [ %middle, %for.body.lr.ph.i ], [ %add.ptr.i.i14, %_ZN5eastl8pop_heapIPiEEvT_S2_.exit.i ]
   %add.ptr.i.i14 = getelementptr inbounds i8, ptr %last.addr.016.i, i64 -4
   %19 = load i32, ptr %add.ptr.i.i14, align 4
   %20 = load i32, ptr %first, align 4
   store i32 %20, ptr %add.ptr.i.i14, align 4
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub17.i, 2
-  %sub.i.i15 = add nsw i64 %sub.ptr.div.i.i, -1
+  %sub.i.i = add nsw i64 %sub.ptr.div.i.i, -1
   %cmp22.i.i.i.i = icmp samesign ugt i64 %sub.ptr.sub17.i, 12
-  br i1 %cmp22.i.i.i.i, label %for.body.i.i.i.i19, label %for.end.i.i.i.thread.i
+  br i1 %cmp22.i.i.i.i, label %for.body.i.i.i.i18, label %for.end.i.i.i.thread.i
 
-for.body.i.i.i.i19:                               ; preds = %for.body.i, %for.body.i.i.i.i19
-  %childPosition.025.i.i.i.i = phi i64 [ %childPosition.0.i.i.i.i, %for.body.i.i.i.i19 ], [ 2, %for.body.i ]
-  %childPosition.0.in24.i.i.i.i = phi i64 [ %childPosition.0.in.i.i.i.i, %for.body.i.i.i.i19 ], [ 0, %for.body.i ]
-  %position.addr.023.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %for.body.i.i.i.i19 ], [ 0, %for.body.i ]
-  %add.ptr.i.i.i.i20 = getelementptr inbounds i32, ptr %first, i64 %childPosition.025.i.i.i.i
-  %21 = load i32, ptr %add.ptr.i.i.i.i20, align 4
-  %sub.i.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i.i, 1
-  %add.ptr1.i.i.i.i = getelementptr inbounds i32, ptr %first, i64 %sub.i.i.i.i
-  %22 = load i32, ptr %add.ptr1.i.i.i.i, align 4
+for.body.i.i.i.i18:                               ; preds = %for.body.i, %for.body.i.i.i.i18
+  %childPosition.025.i.i.i.i = phi i64 [ %childPosition.0.i.i.i.i, %for.body.i.i.i.i18 ], [ 2, %for.body.i ]
+  %childPosition.0.in24.i.i.i.i = phi i64 [ %childPosition.0.in.i.i.i.i, %for.body.i.i.i.i18 ], [ 0, %for.body.i ]
+  %position.addr.023.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %for.body.i.i.i.i18 ], [ 0, %for.body.i ]
+  %add.ptr.i.i.i.i19 = getelementptr inbounds i32, ptr %first, i64 %childPosition.025.i.i.i.i
+  %21 = load i32, ptr %add.ptr.i.i.i.i19, align 4
+  %gep.i.i.i.i = getelementptr i32, ptr %invariant.gep.i.i.i.i, i64 %childPosition.0.in24.i.i.i.i
+  %22 = load i32, ptr %gep.i.i.i.i, align 4
   %cmp2.i.i.i.i = icmp slt i32 %21, %22
-  %spec.select.i.i.i.i = select i1 %cmp2.i.i.i.i, i64 %sub.i.i.i.i, i64 %childPosition.025.i.i.i.i
-  %add.ptr3.i.i.i.i21 = getelementptr inbounds i32, ptr %first, i64 %spec.select.i.i.i.i
-  %23 = load i32, ptr %add.ptr3.i.i.i.i21, align 4
+  %dec.i.i.i.i = or disjoint i64 %childPosition.0.in24.i.i.i.i, 1
+  %spec.select.i.i.i.i = select i1 %cmp2.i.i.i.i, i64 %dec.i.i.i.i, i64 %childPosition.025.i.i.i.i
+  %add.ptr3.i.i.i.i20 = getelementptr inbounds i32, ptr %first, i64 %spec.select.i.i.i.i
+  %23 = load i32, ptr %add.ptr3.i.i.i.i20, align 4
   %add.ptr4.i.i.i.i = getelementptr inbounds i32, ptr %first, i64 %position.addr.023.i.i.i.i
   store i32 %23, ptr %add.ptr4.i.i.i.i, align 4
   %childPosition.0.in.i.i.i.i = shl nsw i64 %spec.select.i.i.i.i, 1
   %childPosition.0.i.i.i.i = add nsw i64 %childPosition.0.in.i.i.i.i, 2
-  %cmp.i.i.i.i22 = icmp slt i64 %childPosition.0.i.i.i.i, %sub.i.i15
-  br i1 %cmp.i.i.i.i22, label %for.body.i.i.i.i19, label %for.end.i.i.i.i, !llvm.loop !407
+  %cmp.i.i.i.i21 = icmp slt i64 %childPosition.0.i.i.i.i, %sub.i.i
+  br i1 %cmp.i.i.i.i21, label %for.body.i.i.i.i18, label %for.end.i.i.i.i, !llvm.loop !407
 
-for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i19
+for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i18
   %24 = or disjoint i64 %childPosition.0.in.i.i.i.i, 1
-  %cmp7.i.i.i.i = icmp eq i64 %childPosition.0.i.i.i.i, %sub.i.i15
+  %cmp7.i.i.i.i = icmp eq i64 %childPosition.0.i.i.i.i, %sub.i.i
   br i1 %cmp7.i.i.i.i, label %if.end14.i.i.thread.i.i, label %if.end14.i.i.i.i
 
 for.end.i.i.i.thread.i:                           ; preds = %for.body.i
-  %cmp7.i.i.i7.i = icmp eq i64 %sub.i.i15, 2
+  %cmp7.i.i.i7.i = icmp eq i64 %sub.i.i, 2
   br i1 %cmp7.i.i.i7.i, label %if.end14.i.i.thread.i.i, label %_ZN5eastl8pop_heapIPiEEvT_S2_.exit.i
 
 if.end14.i.i.thread.i.i:                          ; preds = %for.end.i.i.i.thread.i, %for.end.i.i.i.i
@@ -20338,10 +20343,10 @@ _ZN5eastl8pop_heapIPiEEvT_S2_.exit.i:             ; preds = %for.body.i.i.i.i.i.
   %position.addr.0.lcssa.i.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %if.end14.i.i.i.i ], [ 0, %for.end.i.i.i.thread.i ], [ 0, %for.body.i.i.i.i.i.i ], [ %position.addr.014.i.i.i.i.i.i, %land.rhs.i.i.i.i.i.i ]
   %add.ptr7.i.i.i.i.i.i = getelementptr inbounds i32, ptr %first, i64 %position.addr.0.lcssa.i.i.i.i.i.i
   store i32 %19, ptr %add.ptr7.i.i.i.i.i.i, align 4
-  %sub.ptr.lhs.cast.i16 = ptrtoint ptr %add.ptr.i.i14 to i64
-  %sub.ptr.sub.i17 = sub i64 %sub.ptr.lhs.cast.i16, %sub.ptr.rhs.cast.i
-  %cmp.i18 = icmp sgt i64 %sub.ptr.sub.i17, 4
-  br i1 %cmp.i18, label %for.body.i, label %_ZN5eastl9sort_heapIPiEEvT_S2_.exit, !llvm.loop !411
+  %sub.ptr.lhs.cast.i15 = ptrtoint ptr %add.ptr.i.i14 to i64
+  %sub.ptr.sub.i16 = sub i64 %sub.ptr.lhs.cast.i15, %sub.ptr.rhs.cast.i
+  %cmp.i17 = icmp sgt i64 %sub.ptr.sub.i16, 4
+  br i1 %cmp.i17, label %for.body.i, label %_ZN5eastl9sort_heapIPiEEvT_S2_.exit, !llvm.loop !411
 
 _ZN5eastl9sort_heapIPiEEvT_S2_.exit:              ; preds = %_ZN5eastl8pop_heapIPiEEvT_S2_.exit.i, %for.end
   ret void

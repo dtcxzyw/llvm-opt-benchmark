@@ -2800,9 +2800,9 @@ _ZN22hb_serialize_context_t12check_assignIN2OT15BinSearchHeaderINS1_7IntTypeItLj
   %50 = shl nuw nsw i64 %49, 12
   %51 = zext i8 %47 to i64
   %52 = shl nuw nsw i64 %51, 4
-  %53 = or disjoint i64 %52, %50
-  %54 = or disjoint i64 %53, 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 %54
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 %50
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %52
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %9, align 8
   %57 = ptrtoint ptr %55 to i64
   %58 = ptrtoint ptr %56 to i64

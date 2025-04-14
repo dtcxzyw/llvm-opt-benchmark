@@ -440,87 +440,86 @@ sub_1:                                            ; preds = %sub_0
   %74 = trunc nuw nsw i64 %indvars.iv.i to i32
   %75 = shl i32 %74, 14
   %76 = or disjoint i32 %75, 36
-  %77 = or disjoint i64 %indvars.iv50.i, 1
-  %78 = getelementptr inbounds nuw i32, ptr %.pre55.i, i64 %indvars.iv50.i
-  store i32 %76, ptr %78, align 4, !tbaa !10
+  %77 = getelementptr inbounds nuw i32, ptr %.pre55.i, i64 %indvars.iv50.i
+  store i32 %76, ptr %77, align 4, !tbaa !10
   %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 2
-  %79 = getelementptr inbounds nuw i32, ptr %.pre55.i, i64 %77
-  store i32 8405020, ptr %79, align 4, !tbaa !10
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  store i32 8405020, ptr %78, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %69, !llvm.loop !47
 
 ._crit_edge.loopexit.i:                           ; preds = %69
-  %80 = and i64 %indvars.iv.next51.i, 4294967294
+  %79 = and i64 %indvars.iv.next51.i, 4294967294
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %55, %.thread.i
   %.pre5557.i = phi ptr [ %.pre55.i, %55 ], [ %.pre55.i, %._crit_edge.loopexit.i ], [ %.pre5556.i, %.thread.i ]
-  %.046.lcssa.i = phi i64 [ 0, %55 ], [ %80, %._crit_edge.loopexit.i ], [ 0, %.thread.i ]
-  %81 = getelementptr inbounds nuw i32, ptr %.pre5557.i, i64 %.046.lcssa.i
-  store i32 8388638, ptr %81, align 4, !tbaa !10
+  %.046.lcssa.i = phi i64 [ 0, %55 ], [ %79, %._crit_edge.loopexit.i ], [ 0, %.thread.i ]
+  %80 = getelementptr inbounds nuw i32, ptr %.pre5557.i, i64 %.046.lcssa.i
+  store i32 8388638, ptr %80, align 4, !tbaa !10
   br label %combine.exit
 
 combine.exit:                                     ; preds = %21, %._crit_edge.i
   %.0.i = phi ptr [ %27, %21 ], [ %28, %._crit_edge.i ]
-  %82 = load i32, ptr @listing, align 4, !tbaa !10
-  %.not27 = icmp eq i32 %82, 0
-  br i1 %.not27, label %86, label %83
+  %81 = load i32, ptr @listing, align 4, !tbaa !10
+  %.not27 = icmp eq i32 %81, 0
+  br i1 %.not27, label %85, label %82
 
-83:                                               ; preds = %combine.exit
-  %84 = icmp sgt i32 %82, 1
-  %85 = zext i1 %84 to i32
-  tail call void @luaU_print(ptr noundef %.0.i, i32 noundef %85) #11
-  br label %86
+82:                                               ; preds = %combine.exit
+  %83 = icmp sgt i32 %81, 1
+  %84 = zext i1 %83 to i32
+  tail call void @luaU_print(ptr noundef %.0.i, i32 noundef %84) #11
+  br label %85
 
-86:                                               ; preds = %83, %combine.exit
+85:                                               ; preds = %82, %combine.exit
   %.b = load i1, ptr @dumping, align 4
-  br i1 %.b, label %106, label %87
+  br i1 %.b, label %105, label %86
 
-87:                                               ; preds = %86
-  %88 = load ptr, ptr @output, align 8, !tbaa !4
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %92
+86:                                               ; preds = %85
+  %87 = load ptr, ptr @output, align 8, !tbaa !4
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %89, label %91
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr @stdout, align 8, !tbaa !18
-  br label %94
+89:                                               ; preds = %86
+  %90 = load ptr, ptr @stdout, align 8, !tbaa !18
+  br label %93
 
-92:                                               ; preds = %87
-  %93 = tail call noalias ptr @fopen(ptr noundef nonnull %88, ptr noundef nonnull @.str.18)
-  br label %94
+91:                                               ; preds = %86
+  %92 = tail call noalias ptr @fopen(ptr noundef nonnull %87, ptr noundef nonnull @.str.18)
+  br label %93
 
-94:                                               ; preds = %92, %90
-  %95 = phi ptr [ %91, %90 ], [ %93, %92 ]
-  %96 = icmp eq ptr %95, null
-  br i1 %96, label %97, label %98
+93:                                               ; preds = %91, %89
+  %94 = phi ptr [ %90, %89 ], [ %92, %91 ]
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %96, label %97
 
-97:                                               ; preds = %94
+96:                                               ; preds = %93
   tail call fastcc void @cannot(ptr noundef nonnull @.str.19)
   unreachable
 
-98:                                               ; preds = %94
+97:                                               ; preds = %93
   %.b26 = load i1, ptr @stripping, align 4
-  %99 = zext i1 %.b26 to i32
-  %100 = tail call i32 @luaU_dump(ptr noundef nonnull %0, ptr noundef %.0.i, ptr noundef nonnull @writer, ptr noundef nonnull %95, i32 noundef %99) #11
-  %101 = tail call i32 @ferror(ptr noundef nonnull %95) #11
-  %.not28 = icmp eq i32 %101, 0
-  br i1 %.not28, label %103, label %102
+  %98 = zext i1 %.b26 to i32
+  %99 = tail call i32 @luaU_dump(ptr noundef nonnull %0, ptr noundef %.0.i, ptr noundef nonnull @writer, ptr noundef nonnull %94, i32 noundef %98) #11
+  %100 = tail call i32 @ferror(ptr noundef nonnull %94) #11
+  %.not28 = icmp eq i32 %100, 0
+  br i1 %.not28, label %102, label %101
 
-102:                                              ; preds = %98
+101:                                              ; preds = %97
   tail call fastcc void @cannot(ptr noundef nonnull @.str.20)
   unreachable
 
-103:                                              ; preds = %98
-  %104 = tail call i32 @fclose(ptr noundef nonnull %95)
-  %.not29 = icmp eq i32 %104, 0
-  br i1 %.not29, label %106, label %105
+102:                                              ; preds = %97
+  %103 = tail call i32 @fclose(ptr noundef nonnull %94)
+  %.not29 = icmp eq i32 %103, 0
+  br i1 %.not29, label %105, label %104
 
-105:                                              ; preds = %103
+104:                                              ; preds = %102
   tail call fastcc void @cannot(ptr noundef nonnull @.str.21)
   unreachable
 
-106:                                              ; preds = %103, %86
+105:                                              ; preds = %102, %85
   ret i32 0
 }
 

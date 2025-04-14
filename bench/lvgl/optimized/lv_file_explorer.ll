@@ -322,35 +322,35 @@ define void @lv_file_explorer_set_quick_access_path(ptr noundef captures(address
 
 4:                                                ; preds = %3
   %5 = icmp eq ptr %2, null
-  br i1 %5, label %17, label %6
+  br i1 %5, label %18, label %6
 
 6:                                                ; preds = %4
   %7 = tail call i64 @lv_strlen(ptr noundef nonnull %2) #6
   %8 = icmp ne i64 %7, 0
   %9 = icmp ult i32 %1, 6
   %or.cond = and i1 %8, %9
-  br i1 %or.cond, label %switch.lookup, label %17
+  br i1 %or.cond, label %switch.lookup, label %18
 
 switch.lookup:                                    ; preds = %6
   %10 = shl nuw nsw i32 %1, 3
-  %11 = or disjoint i32 %10, 128
-  %switch.offset = zext nneg i32 %11 to i64
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.offset
-  %13 = load ptr, ptr %12, align 8, !tbaa !28
-  %.not18 = icmp eq ptr %13, null
-  br i1 %.not18, label %15, label %14
+  %11 = zext nneg i32 %10 to i64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
+  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  %.not18 = icmp eq ptr %14, null
+  br i1 %.not18, label %16, label %15
 
-14:                                               ; preds = %switch.lookup
-  tail call void @lv_free(ptr noundef nonnull %13) #6
-  store ptr null, ptr %12, align 8, !tbaa !28
-  br label %15
+15:                                               ; preds = %switch.lookup
+  tail call void @lv_free(ptr noundef nonnull %14) #6
+  store ptr null, ptr %13, align 8, !tbaa !28
+  br label %16
 
-15:                                               ; preds = %14, %switch.lookup
-  %16 = tail call ptr @lv_strdup(ptr noundef nonnull %2) #6
-  store ptr %16, ptr %12, align 8, !tbaa !28
-  br label %17
+16:                                               ; preds = %15, %switch.lookup
+  %17 = tail call ptr @lv_strdup(ptr noundef nonnull %2) #6
+  store ptr %17, ptr %13, align 8, !tbaa !28
+  br label %18
 
-17:                                               ; preds = %15, %4, %6
+18:                                               ; preds = %16, %4, %6
   ret void
 }
 

@@ -1057,7 +1057,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #22
-  br label %112
+  br label %111
 
 29:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #22
@@ -1134,7 +1134,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 47:                                               ; preds = %45, %43
   %.pn42.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #22
-  br label %112
+  br label %111
 
 48:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #22
@@ -1154,7 +1154,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %53 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #22
-  br label %112
+  br label %111
 
 54:                                               ; preds = %51, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
   %55 = load i32, ptr %4, align 8, !tbaa !68
@@ -1180,7 +1180,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %62 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #22
-  br label %112
+  br label %111
 
 63:                                               ; preds = %60, %54
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1193,92 +1193,91 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %71 = icmp ugt i64 %70, 1
   br i1 %71, label %.lr.ph, label %._crit_edge.thread
 
-._crit_edge:                                      ; preds = %79
+._crit_edge:                                      ; preds = %78
   %72 = icmp eq i32 %.1, 1
   %or.cond = icmp ult i32 %.1, 2
-  br i1 %or.cond, label %._crit_edge.thread, label %83
+  br i1 %or.cond, label %._crit_edge.thread, label %82
 
-.lr.ph:                                           ; preds = %63, %79
-  %.02553 = phi i64 [ %80, %79 ], [ 0, %63 ]
-  %.02652 = phi i32 [ %.1, %79 ], [ 1, %63 ]
+.lr.ph:                                           ; preds = %63, %78
+  %.02553 = phi i64 [ %79, %78 ], [ 0, %63 ]
+  %.02652 = phi i32 [ %.1, %78 ], [ 1, %63 ]
   %73 = getelementptr inbounds nuw i32, ptr %66, i64 %.02553
   %74 = load i32, ptr %73, align 4, !tbaa !90
   %cond = icmp eq i32 %74, 80
-  br i1 %cond, label %75, label %79
+  br i1 %cond, label %75, label %78
 
 75:                                               ; preds = %.lr.ph
-  %76 = or disjoint i64 %.02553, 1
-  %77 = getelementptr inbounds nuw i32, ptr %66, i64 %76
-  %78 = load i32, ptr %77, align 4, !tbaa !90
-  br label %79
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  %77 = load i32, ptr %76, align 4, !tbaa !90
+  br label %78
 
-79:                                               ; preds = %75, %.lr.ph
-  %.1 = phi i32 [ %78, %75 ], [ %.02652, %.lr.ph ]
-  %80 = add nuw i64 %.02553, 2
-  %81 = or disjoint i64 %80, 1
-  %82 = icmp ult i64 %81, %70
-  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !91
+78:                                               ; preds = %75, %.lr.ph
+  %.1 = phi i32 [ %77, %75 ], [ %.02652, %.lr.ph ]
+  %79 = add nuw i64 %.02553, 2
+  %80 = or disjoint i64 %79, 1
+  %81 = icmp ult i64 %80, %70
+  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !91
 
-83:                                               ; preds = %._crit_edge
+82:                                               ; preds = %._crit_edge
   invoke void @_ZN2cv6detail17check_failed_autoEiRKNS0_12CheckContextE(i32 noundef %.1, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv10HdrEncoder5writeERKNS_3MatERKSt6vectorIiSaIiEEE15__cv_check__174) #24
-          to label %84 unwind label %85
+          to label %83 unwind label %84
 
-84:                                               ; preds = %83
+83:                                               ; preds = %82
   unreachable
 
-85:                                               ; preds = %83
-  %86 = landingpad { ptr, i32 }
+84:                                               ; preds = %82
+  %85 = landingpad { ptr, i32 }
           cleanup
-  br label %112
-
-._crit_edge.thread:                               ; preds = %63, %._crit_edge
-  %87 = phi i1 [ %72, %._crit_edge ], [ true, %63 ]
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %89 = load ptr, ptr %88, align 8, !tbaa !57
-  %90 = call noalias ptr @fopen(ptr noundef %89, ptr noundef nonnull @.str.12)
-  %.not48 = icmp ne ptr %90, null
-  br i1 %.not48, label %93, label %111
-
-91:                                               ; preds = %106, %104, %93
-  %92 = landingpad { ptr, i32 }
-          cleanup
-  br label %112
-
-93:                                               ; preds = %._crit_edge.thread
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %95 = load i32, ptr %94, align 4, !tbaa !66
-  %96 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %97 = load i32, ptr %96, align 8, !tbaa !67
-  %98 = invoke noundef i32 @_Z16RGBE_WriteHeaderP8_IO_FILEiiP16rgbe_header_info(ptr noundef nonnull %90, i32 noundef %95, i32 noundef %97, ptr noundef null)
-          to label %99 unwind label %91
-
-99:                                               ; preds = %93
-  %100 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !65
-  %102 = load i32, ptr %94, align 4, !tbaa !66
-  %103 = load i32, ptr %96, align 8, !tbaa !67
-  br i1 %87, label %104, label %106
-
-104:                                              ; preds = %99
-  %105 = invoke noundef i32 @_Z20RGBE_WritePixels_RLEP8_IO_FILEPfii(ptr noundef nonnull %90, ptr noundef %101, i32 noundef %102, i32 noundef %103)
-          to label %109 unwind label %91
-
-106:                                              ; preds = %99
-  %107 = mul nsw i32 %103, %102
-  %108 = invoke noundef i32 @_Z16RGBE_WritePixelsP8_IO_FILEPfi(ptr noundef nonnull %90, ptr noundef %101, i32 noundef %107)
-          to label %109 unwind label %91
-
-109:                                              ; preds = %106, %104
-  %110 = call i32 @fclose(ptr noundef nonnull %90)
   br label %111
 
-111:                                              ; preds = %._crit_edge.thread, %109
+._crit_edge.thread:                               ; preds = %63, %._crit_edge
+  %86 = phi i1 [ %72, %._crit_edge ], [ true, %63 ]
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %88 = load ptr, ptr %87, align 8, !tbaa !57
+  %89 = call noalias ptr @fopen(ptr noundef %88, ptr noundef nonnull @.str.12)
+  %.not48 = icmp ne ptr %89, null
+  br i1 %.not48, label %92, label %110
+
+90:                                               ; preds = %105, %103, %92
+  %91 = landingpad { ptr, i32 }
+          cleanup
+  br label %111
+
+92:                                               ; preds = %._crit_edge.thread
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %94 = load i32, ptr %93, align 4, !tbaa !66
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %96 = load i32, ptr %95, align 8, !tbaa !67
+  %97 = invoke noundef i32 @_Z16RGBE_WriteHeaderP8_IO_FILEiiP16rgbe_header_info(ptr noundef nonnull %89, i32 noundef %94, i32 noundef %96, ptr noundef null)
+          to label %98 unwind label %90
+
+98:                                               ; preds = %92
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %100 = load ptr, ptr %99, align 8, !tbaa !65
+  %101 = load i32, ptr %93, align 4, !tbaa !66
+  %102 = load i32, ptr %95, align 8, !tbaa !67
+  br i1 %86, label %103, label %105
+
+103:                                              ; preds = %98
+  %104 = invoke noundef i32 @_Z20RGBE_WritePixels_RLEP8_IO_FILEPfii(ptr noundef nonnull %89, ptr noundef %100, i32 noundef %101, i32 noundef %102)
+          to label %108 unwind label %90
+
+105:                                              ; preds = %98
+  %106 = mul nsw i32 %102, %101
+  %107 = invoke noundef i32 @_Z16RGBE_WritePixelsP8_IO_FILEPfi(ptr noundef nonnull %89, ptr noundef %100, i32 noundef %106)
+          to label %108 unwind label %90
+
+108:                                              ; preds = %105, %103
+  %109 = call i32 @fclose(ptr noundef nonnull %89)
+  br label %110
+
+110:                                              ; preds = %._crit_edge.thread, %108
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #22
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #22
   ret i1 %.not48
 
-112:                                              ; preds = %85, %91, %61, %52, %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn49.pn = phi { ptr, i32 } [ %62, %61 ], [ %.pn42.pn.pn, %47 ], [ %53, %52 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %92, %91 ], [ %86, %85 ]
+111:                                              ; preds = %84, %90, %61, %52, %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn49.pn = phi { ptr, i32 } [ %62, %61 ], [ %.pn42.pn.pn, %47 ], [ %53, %52 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %91, %90 ], [ %85, %84 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #22
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #22
   resume { ptr, i32 } %.pn49.pn

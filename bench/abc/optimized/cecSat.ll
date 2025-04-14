@@ -4325,9 +4325,9 @@ Abc_Clock.exit:                                   ; preds = %2, %11
   %42 = ashr i32 %31, 1
   %43 = ashr i32 %29, 1
   %44 = call i32 @Cec2_ManSolveTwo(ptr noundef nonnull %0, i32 noundef %42, i32 noundef %43, i32 noundef %41)
-  switch i32 %44, label %130 [
+  switch i32 %44, label %129 [
     i32 1, label %45
-    i32 -1, label %110
+    i32 -1, label %109
   ]
 
 45:                                               ; preds = %Abc_Clock.exit
@@ -4363,205 +4363,204 @@ Abc_Clock.exit:                                   ; preds = %2, %11
 
 66:                                               ; preds = %.lr.ph, %Cec2_ObjSimSetInputBit.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Cec2_ObjSimSetInputBit.exit ]
-  %67 = phi ptr [ %62, %.lr.ph ], [ %96, %Cec2_ObjSimSetInputBit.exit ]
-  %68 = or disjoint i64 %indvars.iv, 1
-  %69 = getelementptr i8, ptr %67, i64 8
-  %.val57 = load ptr, ptr %69, align 8, !tbaa !37
-  %70 = getelementptr inbounds nuw i32, ptr %.val57, i64 %indvars.iv
-  %71 = load i32, ptr %70, align 4, !tbaa !38
-  %72 = getelementptr inbounds nuw i32, ptr %.val57, i64 %68
-  %73 = load i32, ptr %72, align 4, !tbaa !38
-  %74 = load ptr, ptr %15, align 8, !tbaa !117
-  %75 = load ptr, ptr %65, align 8, !tbaa !63
-  %76 = call signext i8 @satoko_var_polarity(ptr noundef %75, i32 noundef %73) #22
-  %77 = getelementptr i8, ptr %74, i64 816
-  %.val.i62 = load i32, ptr %77, align 8, !tbaa !65
-  %78 = getelementptr i8, ptr %74, i64 832
-  %.val6.i = load ptr, ptr %78, align 8, !tbaa !66
-  %79 = getelementptr i8, ptr %.val6.i, i64 8
-  %.val6.val.i = load ptr, ptr %79, align 8, !tbaa !67
-  %80 = mul nsw i32 %.val.i62, %71
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i64, ptr %.val6.val.i, i64 %81
-  %83 = getelementptr inbounds nuw i8, ptr %74, i64 812
-  %84 = load i32, ptr %83, align 4, !tbaa !73
-  %85 = ashr i32 %84, 5
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i32, ptr %82, i64 %86
-  %88 = load i32, ptr %87, align 4, !tbaa !38
-  %89 = and i32 %84, 31
-  %90 = lshr i32 %88, %89
-  %91 = trunc i32 %90 to i1
-  %92 = icmp ne i8 %76, 0
-  %.not.i = xor i1 %92, %91
-  br i1 %.not.i, label %Cec2_ObjSimSetInputBit.exit, label %93
+  %67 = phi ptr [ %62, %.lr.ph ], [ %95, %Cec2_ObjSimSetInputBit.exit ]
+  %68 = getelementptr i8, ptr %67, i64 8
+  %.val57 = load ptr, ptr %68, align 8, !tbaa !37
+  %69 = getelementptr inbounds nuw i32, ptr %.val57, i64 %indvars.iv
+  %70 = load i32, ptr %69, align 4, !tbaa !38
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %72 = load i32, ptr %71, align 4, !tbaa !38
+  %73 = load ptr, ptr %15, align 8, !tbaa !117
+  %74 = load ptr, ptr %65, align 8, !tbaa !63
+  %75 = call signext i8 @satoko_var_polarity(ptr noundef %74, i32 noundef %72) #22
+  %76 = getelementptr i8, ptr %73, i64 816
+  %.val.i62 = load i32, ptr %76, align 8, !tbaa !65
+  %77 = getelementptr i8, ptr %73, i64 832
+  %.val6.i = load ptr, ptr %77, align 8, !tbaa !66
+  %78 = getelementptr i8, ptr %.val6.i, i64 8
+  %.val6.val.i = load ptr, ptr %78, align 8, !tbaa !67
+  %79 = mul nsw i32 %.val.i62, %70
+  %80 = sext i32 %79 to i64
+  %81 = getelementptr inbounds i64, ptr %.val6.val.i, i64 %80
+  %82 = getelementptr inbounds nuw i8, ptr %73, i64 812
+  %83 = load i32, ptr %82, align 4, !tbaa !73
+  %84 = ashr i32 %83, 5
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds i32, ptr %81, i64 %85
+  %87 = load i32, ptr %86, align 4, !tbaa !38
+  %88 = and i32 %83, 31
+  %89 = lshr i32 %87, %88
+  %90 = trunc i32 %89 to i1
+  %91 = icmp ne i8 %75, 0
+  %.not.i = xor i1 %91, %90
+  br i1 %.not.i, label %Cec2_ObjSimSetInputBit.exit, label %92
 
-93:                                               ; preds = %66
-  %94 = shl nuw i32 1, %89
-  %95 = xor i32 %94, %88
-  store i32 %95, ptr %87, align 4, !tbaa !38
+92:                                               ; preds = %66
+  %93 = shl nuw i32 1, %88
+  %94 = xor i32 %93, %87
+  store i32 %94, ptr %86, align 4, !tbaa !38
   br label %Cec2_ObjSimSetInputBit.exit
 
-Cec2_ObjSimSetInputBit.exit:                      ; preds = %66, %93
+Cec2_ObjSimSetInputBit.exit:                      ; preds = %66, %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %96 = load ptr, ptr %61, align 8, !tbaa !123
-  %97 = getelementptr i8, ptr %96, i64 4
-  %.val59 = load i32, ptr %97, align 4, !tbaa !51
-  %98 = trunc i64 %indvars.iv.next to i32
-  %99 = or disjoint i32 %98, 1
-  %100 = icmp slt i32 %99, %.val59
-  br i1 %100, label %66, label %.critedge, !llvm.loop !145
+  %95 = load ptr, ptr %61, align 8, !tbaa !123
+  %96 = getelementptr i8, ptr %95, i64 4
+  %.val59 = load i32, ptr %96, align 4, !tbaa !51
+  %97 = trunc i64 %indvars.iv.next to i32
+  %98 = or disjoint i32 %97, 1
+  %99 = icmp slt i32 %98, %.val59
+  br i1 %99, label %66, label %.critedge, !llvm.loop !145
 
 .critedge:                                        ; preds = %Cec2_ObjSimSetInputBit.exit, %45
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #22
-  %101 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #22
-  %102 = icmp slt i32 %101, 0
-  br i1 %102, label %Abc_Clock.exit64, label %103
+  %100 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #22
+  %101 = icmp slt i32 %100, 0
+  br i1 %101, label %Abc_Clock.exit64, label %102
 
-103:                                              ; preds = %.critedge
-  %104 = load i64, ptr %7, align 8, !tbaa !91
-  %105 = mul nsw i64 %104, 1000000
-  %106 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %107 = load i64, ptr %106, align 8, !tbaa !93
-  %108 = sdiv i64 %107, 1000
-  %109 = add nsw i64 %108, %105
+102:                                              ; preds = %.critedge
+  %103 = load i64, ptr %7, align 8, !tbaa !91
+  %104 = mul nsw i64 %103, 1000000
+  %105 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %106 = load i64, ptr %105, align 8, !tbaa !93
+  %107 = sdiv i64 %106, 1000
+  %108 = add nsw i64 %107, %104
   br label %Abc_Clock.exit64
 
-Abc_Clock.exit64:                                 ; preds = %.critedge, %103
-  %.0.i63 = phi i64 [ %109, %103 ], [ -1, %.critedge ]
+Abc_Clock.exit64:                                 ; preds = %.critedge, %102
+  %.0.i63 = phi i64 [ %108, %102 ], [ -1, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #22
-  br label %148
+  br label %147
 
-110:                                              ; preds = %Abc_Clock.exit
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %112 = load i32, ptr %111, align 8, !tbaa !146
-  %113 = add nsw i32 %112, 1
-  store i32 %113, ptr %111, align 8, !tbaa !146
-  %114 = load i32, ptr %30, align 4, !tbaa !118
-  %115 = xor i32 %114, %41
-  store i32 %115, ptr %28, align 4, !tbaa !118
-  %116 = load ptr, ptr %15, align 8, !tbaa !117
-  %117 = getelementptr i8, ptr %116, i64 192
-  %.val60 = load ptr, ptr %117, align 8, !tbaa !100
-  %118 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val60, i64 %18
-  %119 = load i32, ptr %118, align 4
-  %120 = or i32 %119, 268435456
-  store i32 %120, ptr %118, align 4
+109:                                              ; preds = %Abc_Clock.exit
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %111 = load i32, ptr %110, align 8, !tbaa !146
+  %112 = add nsw i32 %111, 1
+  store i32 %112, ptr %110, align 8, !tbaa !146
+  %113 = load i32, ptr %30, align 4, !tbaa !118
+  %114 = xor i32 %113, %41
+  store i32 %114, ptr %28, align 4, !tbaa !118
+  %115 = load ptr, ptr %15, align 8, !tbaa !117
+  %116 = getelementptr i8, ptr %115, i64 192
+  %.val60 = load ptr, ptr %116, align 8, !tbaa !100
+  %117 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val60, i64 %18
+  %118 = load i32, ptr %117, align 4
+  %119 = or i32 %118, 268435456
+  store i32 %119, ptr %117, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
-  %121 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #22
-  %122 = icmp slt i32 %121, 0
-  br i1 %122, label %Abc_Clock.exit66, label %123
+  %120 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #22
+  %121 = icmp slt i32 %120, 0
+  br i1 %121, label %Abc_Clock.exit66, label %122
 
-123:                                              ; preds = %110
-  %124 = load i64, ptr %6, align 8, !tbaa !91
-  %125 = mul nsw i64 %124, 1000000
-  %126 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %127 = load i64, ptr %126, align 8, !tbaa !93
-  %128 = sdiv i64 %127, 1000
-  %129 = add nsw i64 %128, %125
+122:                                              ; preds = %109
+  %123 = load i64, ptr %6, align 8, !tbaa !91
+  %124 = mul nsw i64 %123, 1000000
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %126 = load i64, ptr %125, align 8, !tbaa !93
+  %127 = sdiv i64 %126, 1000
+  %128 = add nsw i64 %127, %124
   br label %Abc_Clock.exit66
 
-Abc_Clock.exit66:                                 ; preds = %110, %123
-  %.0.i65 = phi i64 [ %129, %123 ], [ -1, %110 ]
+Abc_Clock.exit66:                                 ; preds = %109, %122
+  %.0.i65 = phi i64 [ %128, %122 ], [ -1, %109 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #22
-  br label %148
+  br label %147
 
-130:                                              ; preds = %Abc_Clock.exit
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %132 = load i32, ptr %131, align 4, !tbaa !147
-  %133 = add nsw i32 %132, 1
-  store i32 %133, ptr %131, align 4, !tbaa !147
-  %134 = load ptr, ptr %15, align 8, !tbaa !117
-  %135 = getelementptr i8, ptr %134, i64 192
-  %.val61 = load ptr, ptr %135, align 8, !tbaa !100
-  %136 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val61, i64 %18
-  %137 = load i32, ptr %136, align 4
-  %138 = or i32 %137, 536870912
-  store i32 %138, ptr %136, align 4
+129:                                              ; preds = %Abc_Clock.exit
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %131 = load i32, ptr %130, align 4, !tbaa !147
+  %132 = add nsw i32 %131, 1
+  store i32 %132, ptr %130, align 4, !tbaa !147
+  %133 = load ptr, ptr %15, align 8, !tbaa !117
+  %134 = getelementptr i8, ptr %133, i64 192
+  %.val61 = load ptr, ptr %134, align 8, !tbaa !100
+  %135 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %.val61, i64 %18
+  %136 = load i32, ptr %135, align 4
+  %137 = or i32 %136, 536870912
+  store i32 %137, ptr %135, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
-  %139 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #22
-  %140 = icmp slt i32 %139, 0
-  br i1 %140, label %Abc_Clock.exit68, label %141
+  %138 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #22
+  %139 = icmp slt i32 %138, 0
+  br i1 %139, label %Abc_Clock.exit68, label %140
 
-141:                                              ; preds = %130
-  %142 = load i64, ptr %5, align 8, !tbaa !91
-  %143 = mul nsw i64 %142, 1000000
-  %144 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %145 = load i64, ptr %144, align 8, !tbaa !93
-  %146 = sdiv i64 %145, 1000
-  %147 = add nsw i64 %146, %143
+140:                                              ; preds = %129
+  %141 = load i64, ptr %5, align 8, !tbaa !91
+  %142 = mul nsw i64 %141, 1000000
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %144 = load i64, ptr %143, align 8, !tbaa !93
+  %145 = sdiv i64 %144, 1000
+  %146 = add nsw i64 %145, %142
   br label %Abc_Clock.exit68
 
-Abc_Clock.exit68:                                 ; preds = %130, %141
-  %.0.i67 = phi i64 [ %147, %141 ], [ -1, %130 ]
+Abc_Clock.exit68:                                 ; preds = %129, %140
+  %.0.i67 = phi i64 [ %146, %140 ], [ -1, %129 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
-  br label %148
+  br label %147
 
-148:                                              ; preds = %Abc_Clock.exit66, %Abc_Clock.exit68, %Abc_Clock.exit64
+147:                                              ; preds = %Abc_Clock.exit66, %Abc_Clock.exit68, %Abc_Clock.exit64
   %.0.i65.sink = phi i64 [ %.0.i65, %Abc_Clock.exit66 ], [ %.0.i67, %Abc_Clock.exit68 ], [ %.0.i63, %Abc_Clock.exit64 ]
   %.sink85 = phi i64 [ 112, %Abc_Clock.exit66 ], [ 120, %Abc_Clock.exit68 ], [ 104, %Abc_Clock.exit64 ]
   %.054 = phi i32 [ 1, %Abc_Clock.exit66 ], [ 2, %Abc_Clock.exit68 ], [ 0, %Abc_Clock.exit64 ]
-  %149 = add i64 %.0.i65.sink, %.0.i.neg80
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink85
-  %151 = load i64, ptr %150, align 8, !tbaa !70
-  %152 = add nsw i64 %149, %151
-  store i64 %152, ptr %150, align 8, !tbaa !70
-  %153 = load ptr, ptr %0, align 8, !tbaa !116
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 20
-  %155 = load i32, ptr %154, align 4, !tbaa !12
-  %.not = icmp eq i32 %155, 0
-  br i1 %.not, label %156, label %181
+  %148 = add i64 %.0.i65.sink, %.0.i.neg80
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink85
+  %150 = load i64, ptr %149, align 8, !tbaa !70
+  %151 = add nsw i64 %148, %150
+  store i64 %151, ptr %149, align 8, !tbaa !70
+  %152 = load ptr, ptr %0, align 8, !tbaa !116
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 20
+  %154 = load i32, ptr %153, align 4, !tbaa !12
+  %.not = icmp eq i32 %154, 0
+  br i1 %.not, label %155, label %180
 
-156:                                              ; preds = %148
+155:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
-  %157 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #22
-  %158 = icmp slt i32 %157, 0
-  br i1 %158, label %Abc_Clock.exit70, label %159
+  %156 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #22
+  %157 = icmp slt i32 %156, 0
+  br i1 %157, label %Abc_Clock.exit70, label %158
 
-159:                                              ; preds = %156
-  %160 = load i64, ptr %4, align 8, !tbaa !91
-  %.neg73 = mul i64 %160, -1000000
-  %161 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %162 = load i64, ptr %161, align 8, !tbaa !93
-  %.neg = sdiv i64 %162, -1000
+158:                                              ; preds = %155
+  %159 = load i64, ptr %4, align 8, !tbaa !91
+  %.neg73 = mul i64 %159, -1000000
+  %160 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %161 = load i64, ptr %160, align 8, !tbaa !93
+  %.neg = sdiv i64 %161, -1000
   %.neg74 = add i64 %.neg, %.neg73
   br label %Abc_Clock.exit70
 
-Abc_Clock.exit70:                                 ; preds = %156, %159
-  %.0.i69.neg = phi i64 [ %.neg74, %159 ], [ 1, %156 ]
+Abc_Clock.exit70:                                 ; preds = %155, %158
+  %.0.i69.neg = phi i64 [ %.neg74, %158 ], [ 1, %155 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #22
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %164 = load ptr, ptr %163, align 8, !tbaa !63
-  call void @satoko_rollback(ptr noundef %164) #22
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %163 = load ptr, ptr %162, align 8, !tbaa !63
+  call void @satoko_rollback(ptr noundef %163) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
-  %165 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #22
-  %166 = icmp slt i32 %165, 0
-  br i1 %166, label %Abc_Clock.exit72, label %167
+  %164 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #22
+  %165 = icmp slt i32 %164, 0
+  br i1 %165, label %Abc_Clock.exit72, label %166
 
-167:                                              ; preds = %Abc_Clock.exit70
-  %168 = load i64, ptr %3, align 8, !tbaa !91
-  %169 = mul nsw i64 %168, 1000000
-  %170 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %171 = load i64, ptr %170, align 8, !tbaa !93
-  %172 = sdiv i64 %171, 1000
-  %173 = add nsw i64 %172, %169
+166:                                              ; preds = %Abc_Clock.exit70
+  %167 = load i64, ptr %3, align 8, !tbaa !91
+  %168 = mul nsw i64 %167, 1000000
+  %169 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %170 = load i64, ptr %169, align 8, !tbaa !93
+  %171 = sdiv i64 %170, 1000
+  %172 = add nsw i64 %171, %168
   br label %Abc_Clock.exit72
 
-Abc_Clock.exit72:                                 ; preds = %Abc_Clock.exit70, %167
-  %.0.i71 = phi i64 [ %173, %167 ], [ -1, %Abc_Clock.exit70 ]
+Abc_Clock.exit72:                                 ; preds = %Abc_Clock.exit70, %166
+  %.0.i71 = phi i64 [ %172, %166 ], [ -1, %Abc_Clock.exit70 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #22
-  %174 = add i64 %.0.i71, %.0.i69.neg
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %176 = load i64, ptr %175, align 8, !tbaa !132
-  %177 = add nsw i64 %174, %176
-  store i64 %177, ptr %175, align 8, !tbaa !132
-  %178 = load ptr, ptr %163, align 8, !tbaa !63
-  %179 = call ptr @satoko_stats(ptr noundef %178) #22
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 40
-  store i64 0, ptr %180, align 8, !tbaa !148
-  br label %181
+  %173 = add i64 %.0.i71, %.0.i69.neg
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %175 = load i64, ptr %174, align 8, !tbaa !132
+  %176 = add nsw i64 %173, %175
+  store i64 %176, ptr %174, align 8, !tbaa !132
+  %177 = load ptr, ptr %162, align 8, !tbaa !63
+  %178 = call ptr @satoko_stats(ptr noundef %177) #22
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 40
+  store i64 0, ptr %179, align 8, !tbaa !148
+  br label %180
 
-181:                                              ; preds = %148, %Abc_Clock.exit72
+180:                                              ; preds = %147, %Abc_Clock.exit72
   ret i32 %.054
 }
 

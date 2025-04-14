@@ -116,25 +116,24 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
   ret i32 1
 
 27:                                               ; preds = %.lr.ph, %27
-  %.018 = phi i64 [ 0, %.lr.ph ], [ %41, %27 ]
+  %.018 = phi i64 [ 0, %.lr.ph ], [ %40, %27 ]
   %28 = getelementptr inbounds nuw float, ptr %2, i64 %.018
   %29 = load float, ptr %28, align 4, !tbaa !31
-  %30 = or disjoint i64 %.018, 1
-  %31 = getelementptr inbounds nuw float, ptr %2, i64 %30
-  %32 = load float, ptr %31, align 4, !tbaa !31
-  %33 = fsub reassoc nsz arcp contract afn float %29, %14
-  %34 = fsub reassoc nsz arcp contract afn float %32, %18
-  %35 = fmul reassoc nsz arcp contract afn float %33, %20
-  %36 = fmul reassoc nsz arcp contract afn float %34, %22
-  %37 = fadd reassoc nsz arcp contract afn float %36, %35
-  %38 = fmul reassoc nsz arcp contract afn float %24, %33
-  %39 = fmul reassoc nsz arcp contract afn float %26, %34
-  %40 = fadd reassoc nsz arcp contract afn float %39, %38
-  store float %37, ptr %28, align 4, !tbaa !31
-  store float %40, ptr %31, align 4, !tbaa !31
-  %41 = add nuw i64 %.018, 2
-  %42 = icmp ult i64 %41, %5
-  br i1 %42, label %27, label %._crit_edge
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %31 = load float, ptr %30, align 4, !tbaa !31
+  %32 = fsub reassoc nsz arcp contract afn float %29, %14
+  %33 = fsub reassoc nsz arcp contract afn float %31, %18
+  %34 = fmul reassoc nsz arcp contract afn float %32, %20
+  %35 = fmul reassoc nsz arcp contract afn float %33, %22
+  %36 = fadd reassoc nsz arcp contract afn float %35, %34
+  %37 = fmul reassoc nsz arcp contract afn float %24, %32
+  %38 = fmul reassoc nsz arcp contract afn float %26, %33
+  %39 = fadd reassoc nsz arcp contract afn float %38, %37
+  store float %36, ptr %28, align 4, !tbaa !31
+  store float %39, ptr %30, align 4, !tbaa !31
+  %40 = add nuw i64 %.018, 2
+  %41 = icmp ult i64 %40, %5
+  br i1 %41, label %27, label %._crit_edge
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -178,25 +177,24 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
   ret i32 1
 
 27:                                               ; preds = %.lr.ph, %27
-  %.019 = phi i64 [ 0, %.lr.ph ], [ %41, %27 ]
+  %.019 = phi i64 [ 0, %.lr.ph ], [ %40, %27 ]
   %28 = getelementptr inbounds nuw float, ptr %2, i64 %.019
   %29 = load float, ptr %28, align 4, !tbaa !31
-  %30 = or disjoint i64 %.019, 1
-  %31 = getelementptr inbounds nuw float, ptr %2, i64 %30
-  %32 = load float, ptr %31, align 4, !tbaa !31
-  %33 = fmul reassoc nsz arcp contract afn float %13, %29
-  %34 = fmul reassoc nsz arcp contract afn float %15, %32
-  %35 = fsub reassoc nsz arcp contract afn float %33, %34
-  %36 = fmul reassoc nsz arcp contract afn float %19, %32
-  %37 = fmul reassoc nsz arcp contract afn float %17, %29
-  %38 = fsub reassoc nsz arcp contract afn float %36, %37
-  %39 = fadd reassoc nsz arcp contract afn float %35, %22
-  %40 = fadd reassoc nsz arcp contract afn float %38, %26
-  store float %39, ptr %28, align 4, !tbaa !31
-  store float %40, ptr %31, align 4, !tbaa !31
-  %41 = add nuw i64 %.019, 2
-  %42 = icmp ult i64 %41, %5
-  br i1 %42, label %27, label %._crit_edge
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %31 = load float, ptr %30, align 4, !tbaa !31
+  %32 = fmul reassoc nsz arcp contract afn float %13, %29
+  %33 = fmul reassoc nsz arcp contract afn float %15, %31
+  %34 = fsub reassoc nsz arcp contract afn float %32, %33
+  %35 = fmul reassoc nsz arcp contract afn float %19, %31
+  %36 = fmul reassoc nsz arcp contract afn float %17, %29
+  %37 = fsub reassoc nsz arcp contract afn float %35, %36
+  %38 = fadd reassoc nsz arcp contract afn float %34, %22
+  %39 = fadd reassoc nsz arcp contract afn float %37, %26
+  store float %38, ptr %28, align 4, !tbaa !31
+  store float %39, ptr %30, align 4, !tbaa !31
+  %40 = add nuw i64 %.019, 2
+  %41 = icmp ult i64 %40, %5
+  br i1 %41, label %27, label %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable

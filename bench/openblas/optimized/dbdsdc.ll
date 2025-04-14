@@ -308,10 +308,10 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %151 = add nsw i32 %144, 1
   %152 = add nsw i32 %.0426, -1
   %153 = mul nsw i32 %144, %152
-  %154 = or disjoint i32 %153, 1
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds double, ptr %34, i64 %155
-  call void @dlaset_(ptr noundef nonnull @.str.7, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull @c_b29, ptr noundef nonnull @c_b15, ptr noundef nonnull %156, ptr noundef nonnull %2) #4
+  %154 = sext i32 %153 to i64
+  %155 = getelementptr double, ptr %34, i64 %154
+  %156 = getelementptr i8, ptr %155, i64 8
+  call void @dlaset_(ptr noundef nonnull @.str.7, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull @c_b29, ptr noundef nonnull @c_b15, ptr noundef %156, ptr noundef nonnull %2) #4
   %157 = load i32, ptr %2, align 4, !tbaa !3
   %158 = mul nsw i32 %157, %152
   %159 = add nsw i32 %158, %151
@@ -323,12 +323,12 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %164 = add nsw i32 %163, %151
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds double, ptr %34, i64 %165
-  %167 = or disjoint i32 %163, 1
-  %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds double, ptr %34, i64 %168
+  %167 = sext i32 %163 to i64
+  %168 = getelementptr double, ptr %34, i64 %167
+  %169 = getelementptr i8, ptr %168, i64 8
   %170 = sext i32 %.0425 to i64
   %171 = getelementptr inbounds double, ptr %36, i64 %170
-  call void @dlasdq_(ptr noundef nonnull @.str, ptr noundef nonnull @c__0, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull @c__0, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %166, ptr noundef nonnull %2, ptr noundef nonnull %169, ptr noundef nonnull %2, ptr noundef nonnull %169, ptr noundef nonnull %2, ptr noundef nonnull %171, ptr noundef nonnull %13) #4
+  call void @dlasdq_(ptr noundef nonnull @.str, ptr noundef nonnull @c__0, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull @c__0, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %166, ptr noundef nonnull %2, ptr noundef %169, ptr noundef nonnull %2, ptr noundef %169, ptr noundef nonnull %2, ptr noundef nonnull %171, ptr noundef nonnull %13) #4
   br label %thread-pre-split
 
 172:                                              ; preds = %143

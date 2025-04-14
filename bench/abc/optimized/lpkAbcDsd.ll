@@ -113,11 +113,11 @@ define i32 @Lpk_FunComputeMinSuppSizeVar(ptr noundef readonly captures(none) %0,
   %or.cond77.us.us = select i1 %68, i1 true, i1 %69
   br i1 %or.cond77.us.us, label %21, label %18
 
-.split.us.split:                                  ; preds = %.split.us.split.preheader, %108
-  %.06488.us = phi i32 [ %.1.us, %108 ], [ -1, %.split.us.split.preheader ]
-  %.06687.us = phi i32 [ %.167.us, %108 ], [ -1, %.split.us.split.preheader ]
-  %.07086.us = phi i32 [ %.171.us, %108 ], [ -1, %.split.us.split.preheader ]
-  %.07285.us = phi i32 [ %109, %108 ], [ 0, %.split.us.split.preheader ]
+.split.us.split:                                  ; preds = %.split.us.split.preheader, %106
+  %.06488.us = phi i32 [ %.1.us, %106 ], [ -1, %.split.us.split.preheader ]
+  %.06687.us = phi i32 [ %.167.us, %106 ], [ -1, %.split.us.split.preheader ]
+  %.07086.us = phi i32 [ %.171.us, %106 ], [ -1, %.split.us.split.preheader ]
+  %.07285.us = phi i32 [ %107, %106 ], [ 0, %.split.us.split.preheader ]
   %70 = load i32, ptr %6, align 4, !tbaa !3
   %71 = shl nuw nsw i32 1, %.07285.us
   %72 = and i32 %70, %71
@@ -125,122 +125,120 @@ define i32 @Lpk_FunComputeMinSuppSizeVar(ptr noundef readonly captures(none) %0,
   %73 = and i32 %71, %4
   %74 = icmp eq i32 %73, 0
   %or.cond.us = or i1 %74, %.not.us
-  br i1 %or.cond.us, label %108, label %.preheader79.us
+  br i1 %or.cond.us, label %106, label %.preheader79.us
 
 75:                                               ; preds = %._crit_edge.split.us92
-  %76 = icmp eq i32 %.06488.us, %105
-  %77 = icmp sgt i32 %.06687.us, %107
+  %76 = icmp eq i32 %.06488.us, %103
+  %77 = icmp sgt i32 %.06687.us, %105
   %or.cond78.us = select i1 %76, i1 %77, i1 false
-  br i1 %or.cond78.us, label %78, label %108
+  br i1 %or.cond78.us, label %78, label %106
 
 78:                                               ; preds = %75, %._crit_edge.split.us92
-  br label %108
+  br label %106
 
 .preheader79.us:                                  ; preds = %.split.us.split, %.preheader79.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader79.us ], [ 0, %.split.us.split ]
-  %.082.us89 = phi i32 [ %105, %.preheader79.us ], [ 0, %.split.us.split ]
-  %.06581.us90 = phi i32 [ %107, %.preheader79.us ], [ 0, %.split.us.split ]
-  %79 = shl nuw nsw i64 %indvars.iv, 1
-  %80 = getelementptr inbounds nuw ptr, ptr %3, i64 %79
-  %81 = load ptr, ptr %80, align 8, !tbaa !13
-  %82 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %83 = load ptr, ptr %82, align 8, !tbaa !13
-  %84 = load i32, ptr %8, align 8
-  %85 = lshr i32 %84, 7
-  %86 = and i32 %85, 31
-  tail call void @Kit_TruthCofactor0New(ptr noundef %81, ptr noundef %83, i32 noundef %86, i32 noundef %.07285.us) #10
-  %87 = or disjoint i64 %79, 1
-  %88 = getelementptr inbounds nuw ptr, ptr %3, i64 %87
-  %89 = load ptr, ptr %88, align 8, !tbaa !13
-  %90 = load ptr, ptr %82, align 8, !tbaa !13
-  %91 = load i32, ptr %8, align 8
-  %92 = lshr i32 %91, 7
-  %93 = and i32 %92, 31
-  tail call void @Kit_TruthCofactor1New(ptr noundef %89, ptr noundef %90, i32 noundef %93, i32 noundef %.07285.us) #10
-  %94 = load ptr, ptr %80, align 8, !tbaa !13
-  %95 = load i32, ptr %8, align 8
-  %96 = lshr i32 %95, 7
-  %97 = and i32 %96, 31
-  %98 = tail call i32 @Kit_TruthSupportSize(ptr noundef %94, i32 noundef %97) #10
-  %99 = load ptr, ptr %88, align 8, !tbaa !13
-  %100 = load i32, ptr %8, align 8
-  %101 = lshr i32 %100, 7
-  %102 = and i32 %101, 31
-  %103 = tail call i32 @Kit_TruthSupportSize(ptr noundef %99, i32 noundef %102) #10
-  %104 = tail call noundef i32 @llvm.smax.i32(i32 %.082.us89, i32 %98)
-  %105 = tail call noundef i32 @llvm.smax.i32(i32 %104, i32 %103)
-  %106 = add i32 %98, %.06581.us90
-  %107 = add i32 %106, %103
+  %.082.us89 = phi i32 [ %103, %.preheader79.us ], [ 0, %.split.us.split ]
+  %.06581.us90 = phi i32 [ %105, %.preheader79.us ], [ 0, %.split.us.split ]
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %80 = load ptr, ptr %79, align 8, !tbaa !13
+  %81 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %82 = load ptr, ptr %81, align 8, !tbaa !13
+  %83 = load i32, ptr %8, align 8
+  %84 = lshr i32 %83, 7
+  %85 = and i32 %84, 31
+  tail call void @Kit_TruthCofactor0New(ptr noundef %80, ptr noundef %82, i32 noundef %85, i32 noundef %.07285.us) #10
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !13
+  %88 = load ptr, ptr %81, align 8, !tbaa !13
+  %89 = load i32, ptr %8, align 8
+  %90 = lshr i32 %89, 7
+  %91 = and i32 %90, 31
+  tail call void @Kit_TruthCofactor1New(ptr noundef %87, ptr noundef %88, i32 noundef %91, i32 noundef %.07285.us) #10
+  %92 = load ptr, ptr %79, align 8, !tbaa !13
+  %93 = load i32, ptr %8, align 8
+  %94 = lshr i32 %93, 7
+  %95 = and i32 %94, 31
+  %96 = tail call i32 @Kit_TruthSupportSize(ptr noundef %92, i32 noundef %95) #10
+  %97 = load ptr, ptr %86, align 8, !tbaa !13
+  %98 = load i32, ptr %8, align 8
+  %99 = lshr i32 %98, 7
+  %100 = and i32 %99, 31
+  %101 = tail call i32 @Kit_TruthSupportSize(ptr noundef %97, i32 noundef %100) #10
+  %102 = tail call noundef i32 @llvm.smax.i32(i32 %.082.us89, i32 %96)
+  %103 = tail call noundef i32 @llvm.smax.i32(i32 %102, i32 %101)
+  %104 = add i32 %96, %.06581.us90
+  %105 = add i32 %104, %101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond103.not, label %._crit_edge.split.us92, label %.preheader79.us, !llvm.loop !15
 
-108:                                              ; preds = %78, %75, %.split.us.split
+106:                                              ; preds = %78, %75, %.split.us.split
   %.171.us = phi i32 [ %.07285.us, %78 ], [ %.07086.us, %75 ], [ %.07086.us, %.split.us.split ]
-  %.167.us = phi i32 [ %107, %78 ], [ %.06687.us, %75 ], [ %.06687.us, %.split.us.split ]
-  %.1.us = phi i32 [ %105, %78 ], [ %.06488.us, %75 ], [ %.06488.us, %.split.us.split ]
-  %109 = add nuw nsw i32 %.07285.us, 1
-  %exitcond104.not = icmp eq i32 %109, 16
+  %.167.us = phi i32 [ %105, %78 ], [ %.06687.us, %75 ], [ %.06687.us, %.split.us.split ]
+  %.1.us = phi i32 [ %103, %78 ], [ %.06488.us, %75 ], [ %.06488.us, %.split.us.split ]
+  %107 = add nuw nsw i32 %.07285.us, 1
+  %exitcond104.not = icmp eq i32 %107, 16
   br i1 %exitcond104.not, label %.preheader, label %.split.us.split, !llvm.loop !10
 
 ._crit_edge.split.us92:                           ; preds = %.preheader79.us
-  %110 = icmp eq i32 %.07086.us, -1
-  %111 = icmp sgt i32 %.06488.us, %105
-  %or.cond77.us = select i1 %110, i1 true, i1 %111
+  %108 = icmp eq i32 %.07086.us, -1
+  %109 = icmp sgt i32 %.06488.us, %103
+  %or.cond77.us = select i1 %108, i1 true, i1 %109
   br i1 %or.cond77.us, label %78, label %75
 
 .split:                                           ; preds = %5
-  %112 = load i32, ptr %6, align 4, !tbaa !3
-  br label %113
+  %110 = load i32, ptr %6, align 4, !tbaa !3
+  br label %111
 
-.preheader:                                       ; preds = %113, %108, %22
-  %.us-phi96 = phi i32 [ %.171.us.us, %22 ], [ %.171.us, %108 ], [ %.171, %113 ]
+.preheader:                                       ; preds = %111, %106, %22
+  %.us-phi96 = phi i32 [ %.171.us.us, %22 ], [ %.171.us, %106 ], [ %.171, %111 ]
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
   %wide.trip.count112 = zext nneg i32 %2 to i64
-  br label %120
+  br label %118
 
-113:                                              ; preds = %.split, %113
-  %.07086 = phi i32 [ -1, %.split ], [ %.171, %113 ]
-  %.07285 = phi i32 [ 0, %.split ], [ %119, %113 ]
-  %114 = shl nuw nsw i32 1, %.07285
-  %115 = and i32 %112, %114
-  %.not = icmp ne i32 %115, 0
-  %116 = and i32 %114, %4
-  %117 = icmp ne i32 %116, 0
-  %or.cond.not119 = and i1 %117, %.not
-  %118 = icmp eq i32 %.07086, -1
-  %or.cond117 = select i1 %or.cond.not119, i1 %118, i1 false
-  %.171 = select i1 %or.cond117, i32 %.07285, i32 %.07086
-  %119 = add nuw nsw i32 %.07285, 1
-  %exitcond.not = icmp eq i32 %119, 16
-  br i1 %exitcond.not, label %.preheader, label %113, !llvm.loop !10
+111:                                              ; preds = %.split, %111
+  %.07086 = phi i32 [ -1, %.split ], [ %.171, %111 ]
+  %.07285 = phi i32 [ 0, %.split ], [ %117, %111 ]
+  %112 = shl nuw nsw i32 1, %.07285
+  %113 = and i32 %110, %112
+  %.not = icmp ne i32 %113, 0
+  %114 = and i32 %112, %4
+  %115 = icmp ne i32 %114, 0
+  %or.cond.not120 = and i1 %115, %.not
+  %116 = icmp eq i32 %.07086, -1
+  %or.cond118 = select i1 %or.cond.not120, i1 %116, i1 false
+  %.171 = select i1 %or.cond118, i32 %.07285, i32 %.07086
+  %117 = add nuw nsw i32 %.07285, 1
+  %exitcond.not = icmp eq i32 %117, 16
+  br i1 %exitcond.not, label %.preheader, label %111, !llvm.loop !10
 
-120:                                              ; preds = %.lr.ph, %120
-  %indvars.iv109 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next110, %120 ]
-  %121 = shl nuw nsw i64 %indvars.iv109, 1
-  %122 = getelementptr inbounds nuw ptr, ptr %3, i64 %121
-  %123 = load ptr, ptr %122, align 8, !tbaa !13
-  %124 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv109
-  %125 = load ptr, ptr %124, align 8, !tbaa !13
-  %126 = load i32, ptr %8, align 8
-  %127 = lshr i32 %126, 7
-  %128 = and i32 %127, 31
-  tail call void @Kit_TruthCofactor0New(ptr noundef %123, ptr noundef %125, i32 noundef %128, i32 noundef %.us-phi96) #10
-  %129 = or disjoint i64 %121, 1
-  %130 = getelementptr inbounds nuw ptr, ptr %3, i64 %129
-  %131 = load ptr, ptr %130, align 8, !tbaa !13
-  %132 = load ptr, ptr %124, align 8, !tbaa !13
-  %133 = load i32, ptr %8, align 8
-  %134 = lshr i32 %133, 7
-  %135 = and i32 %134, 31
-  tail call void @Kit_TruthCofactor1New(ptr noundef %131, ptr noundef %132, i32 noundef %135, i32 noundef %.us-phi96) #10
+118:                                              ; preds = %.lr.ph, %118
+  %indvars.iv109 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next110, %118 ]
+  %.idx114 = shl nuw nsw i64 %indvars.iv109, 4
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx114
+  %120 = load ptr, ptr %119, align 8, !tbaa !13
+  %121 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv109
+  %122 = load ptr, ptr %121, align 8, !tbaa !13
+  %123 = load i32, ptr %8, align 8
+  %124 = lshr i32 %123, 7
+  %125 = and i32 %124, 31
+  tail call void @Kit_TruthCofactor0New(ptr noundef %120, ptr noundef %122, i32 noundef %125, i32 noundef %.us-phi96) #10
+  %126 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  %127 = load ptr, ptr %126, align 8, !tbaa !13
+  %128 = load ptr, ptr %121, align 8, !tbaa !13
+  %129 = load i32, ptr %8, align 8
+  %130 = lshr i32 %129, 7
+  %131 = and i32 %130, 31
+  tail call void @Kit_TruthCofactor1New(ptr noundef %127, ptr noundef %128, i32 noundef %131, i32 noundef %.us-phi96) #10
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %._crit_edge, label %120, !llvm.loop !16
+  br i1 %exitcond113.not, label %._crit_edge, label %118, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %120, %.preheader
+._crit_edge:                                      ; preds = %118, %.preheader
   ret i32 %.us-phi96
 }
 

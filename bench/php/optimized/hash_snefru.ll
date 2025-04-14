@@ -61,12 +61,12 @@ define dso_local void @PHP_SNEFRUUpdate(ptr noundef %0, ptr noundef readonly cap
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 1 %1, i64 %2, i1 false)
   %30 = trunc i64 %2 to i8
   %31 = add i8 %23, %30
-  br label %99
+  br label %93
 
 32:                                               ; preds = %21
   %33 = and i64 %25, 31
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %63, label %34
+  br i1 %.not, label %60, label %34
 
 34:                                               ; preds = %32
   %35 = sub nsw i64 32, %24
@@ -82,26 +82,23 @@ define dso_local void @PHP_SNEFRUUpdate(ptr noundef %0, ptr noundef readonly cap
   %40 = load i8, ptr %39, align 1, !tbaa !10
   %41 = zext i8 %40 to i32
   %42 = shl nuw i32 %41, 24
-  %43 = or disjoint i64 %indvars.iv17.i, 1
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 %43
-  %45 = load i8, ptr %44, align 1, !tbaa !10
-  %46 = zext i8 %45 to i32
-  %47 = shl nuw nsw i32 %46, 16
-  %48 = or disjoint i32 %47, %42
-  %49 = or disjoint i64 %indvars.iv17.i, 2
-  %50 = getelementptr inbounds nuw i8, ptr %36, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !10
-  %52 = zext i8 %51 to i32
-  %53 = shl nuw nsw i32 %52, 8
-  %54 = or disjoint i32 %48, %53
-  %55 = or disjoint i64 %indvars.iv17.i, 3
-  %56 = getelementptr inbounds nuw i8, ptr %36, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !10
-  %58 = zext i8 %57 to i32
-  %59 = or disjoint i32 %54, %58
-  %60 = add nuw nsw i64 %indvars.iv.i, 8
-  %61 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %60
-  store i32 %59, ptr %61, align 4, !tbaa !4
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  %44 = load i8, ptr %43, align 1, !tbaa !10
+  %45 = zext i8 %44 to i32
+  %46 = shl nuw nsw i32 %45, 16
+  %47 = or disjoint i32 %46, %42
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 2
+  %49 = load i8, ptr %48, align 1, !tbaa !10
+  %50 = zext i8 %49 to i32
+  %51 = shl nuw nsw i32 %50, 8
+  %52 = or disjoint i32 %47, %51
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 3
+  %54 = load i8, ptr %53, align 1, !tbaa !10
+  %55 = zext i8 %54 to i32
+  %56 = or disjoint i32 %52, %55
+  %57 = add nuw nsw i64 %indvars.iv.i, 8
+  %58 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %57
+  store i32 %56, ptr %58, align 4, !tbaa !4
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -109,78 +106,75 @@ define dso_local void @PHP_SNEFRUUpdate(ptr noundef %0, ptr noundef readonly cap
 
 SnefruTransform.exit:                             ; preds = %38
   tail call fastcc void @Snefru(ptr noundef nonnull %0)
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @explicit_bzero(ptr noundef nonnull %62, i64 noundef 32) #7
-  br label %63
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @explicit_bzero(ptr noundef nonnull %59, i64 noundef 32) #7
+  br label %60
 
-63:                                               ; preds = %SnefruTransform.exit, %32
+60:                                               ; preds = %SnefruTransform.exit, %32
   %.0 = phi i64 [ %35, %SnefruTransform.exit ], [ 0, %32 ]
-  %64 = add nsw i64 %.0, 32
-  %.not4553 = icmp ugt i64 %64, %2
+  %61 = add nsw i64 %.0, 32
+  %.not4553 = icmp ugt i64 %61, %2
   br i1 %.not4553, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
+.lr.ph:                                           ; preds = %60
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %63
+
+63:                                               ; preds = %.lr.ph, %SnefruTransform.exit52
+  %64 = phi i64 [ %61, %.lr.ph ], [ %87, %SnefruTransform.exit52 ]
+  %.154 = phi i64 [ %.0, %.lr.ph ], [ %64, %SnefruTransform.exit52 ]
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 %.154
   br label %66
 
-66:                                               ; preds = %.lr.ph, %SnefruTransform.exit52
-  %67 = phi i64 [ %64, %.lr.ph ], [ %93, %SnefruTransform.exit52 ]
-  %.154 = phi i64 [ %.0, %.lr.ph ], [ %67, %SnefruTransform.exit52 ]
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %.154
-  br label %69
-
-69:                                               ; preds = %69, %66
-  %indvars.iv17.i47 = phi i64 [ 0, %66 ], [ %indvars.iv.next18.i49, %69 ]
-  %indvars.iv.i48 = phi i64 [ 0, %66 ], [ %indvars.iv.next.i50, %69 ]
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %indvars.iv17.i47
-  %71 = load i8, ptr %70, align 1, !tbaa !10
-  %72 = zext i8 %71 to i32
-  %73 = shl nuw i32 %72, 24
-  %74 = or disjoint i64 %indvars.iv17.i47, 1
-  %75 = getelementptr inbounds nuw i8, ptr %68, i64 %74
-  %76 = load i8, ptr %75, align 1, !tbaa !10
-  %77 = zext i8 %76 to i32
-  %78 = shl nuw nsw i32 %77, 16
-  %79 = or disjoint i32 %78, %73
-  %80 = or disjoint i64 %indvars.iv17.i47, 2
-  %81 = getelementptr inbounds nuw i8, ptr %68, i64 %80
+66:                                               ; preds = %66, %63
+  %indvars.iv17.i47 = phi i64 [ 0, %63 ], [ %indvars.iv.next18.i49, %66 ]
+  %indvars.iv.i48 = phi i64 [ 0, %63 ], [ %indvars.iv.next.i50, %66 ]
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv17.i47
+  %68 = load i8, ptr %67, align 1, !tbaa !10
+  %69 = zext i8 %68 to i32
+  %70 = shl nuw i32 %69, 24
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 1
+  %72 = load i8, ptr %71, align 1, !tbaa !10
+  %73 = zext i8 %72 to i32
+  %74 = shl nuw nsw i32 %73, 16
+  %75 = or disjoint i32 %74, %70
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 2
+  %77 = load i8, ptr %76, align 1, !tbaa !10
+  %78 = zext i8 %77 to i32
+  %79 = shl nuw nsw i32 %78, 8
+  %80 = or disjoint i32 %75, %79
+  %81 = getelementptr inbounds nuw i8, ptr %67, i64 3
   %82 = load i8, ptr %81, align 1, !tbaa !10
   %83 = zext i8 %82 to i32
-  %84 = shl nuw nsw i32 %83, 8
-  %85 = or disjoint i32 %79, %84
-  %86 = or disjoint i64 %indvars.iv17.i47, 3
-  %87 = getelementptr inbounds nuw i8, ptr %68, i64 %86
-  %88 = load i8, ptr %87, align 1, !tbaa !10
-  %89 = zext i8 %88 to i32
-  %90 = or disjoint i32 %85, %89
-  %91 = add nuw nsw i64 %indvars.iv.i48, 8
-  %92 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %91
-  store i32 %90, ptr %92, align 4, !tbaa !4
+  %84 = or disjoint i32 %80, %83
+  %85 = add nuw nsw i64 %indvars.iv.i48, 8
+  %86 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %85
+  store i32 %84, ptr %86, align 4, !tbaa !4
   %indvars.iv.next18.i49 = add nuw nsw i64 %indvars.iv17.i47, 4
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 8
-  br i1 %exitcond.not.i51, label %SnefruTransform.exit52, label %69
+  br i1 %exitcond.not.i51, label %SnefruTransform.exit52, label %66
 
-SnefruTransform.exit52:                           ; preds = %69
+SnefruTransform.exit52:                           ; preds = %66
   tail call fastcc void @Snefru(ptr noundef nonnull %0)
-  tail call void @explicit_bzero(ptr noundef nonnull %65, i64 noundef 32) #7
-  %93 = add i64 %67, 32
-  %.not45 = icmp ugt i64 %93, %2
-  br i1 %.not45, label %._crit_edge, label %66
+  tail call void @explicit_bzero(ptr noundef nonnull %62, i64 noundef 32) #7
+  %87 = add i64 %64, 32
+  %.not45 = icmp ugt i64 %87, %2
+  br i1 %.not45, label %._crit_edge, label %63
 
-._crit_edge:                                      ; preds = %SnefruTransform.exit52, %63
-  %.1.lcssa = phi i64 [ %.0, %63 ], [ %67, %SnefruTransform.exit52 ]
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 73
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 %.1.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %94, ptr align 1 %95, i64 %33, i1 false)
-  %96 = getelementptr inbounds nuw [32 x i8], ptr %94, i64 0, i64 %33
-  %97 = sub nuw nsw i64 32, %33
-  tail call void @explicit_bzero(ptr noundef nonnull %96, i64 noundef %97) #7
-  %98 = trunc nuw nsw i64 %33 to i8
-  br label %99
+._crit_edge:                                      ; preds = %SnefruTransform.exit52, %60
+  %.1.lcssa = phi i64 [ %.0, %60 ], [ %64, %SnefruTransform.exit52 ]
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 %.1.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr align 1 %89, i64 %33, i1 false)
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 0, i64 %33
+  %91 = sub nuw nsw i64 32, %33
+  tail call void @explicit_bzero(ptr noundef nonnull %90, i64 noundef %91) #7
+  %92 = trunc nuw nsw i64 %33 to i8
+  br label %93
 
-99:                                               ; preds = %._crit_edge, %27
-  %storemerge46 = phi i8 [ %98, %._crit_edge ], [ %31, %27 ]
+93:                                               ; preds = %._crit_edge, %27
+  %storemerge46 = phi i8 [ %92, %._crit_edge ], [ %31, %27 ]
   store i8 %storemerge46, ptr %22, align 4, !tbaa !8
   ret void
 }
@@ -196,7 +190,7 @@ define dso_local void @PHP_SNEFRUFinal(ptr noundef writeonly captures(none) %0, 
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i8, ptr %3, align 4, !tbaa !8
   %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %32, label %5
+  br i1 %.not, label %29, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 73
@@ -209,26 +203,23 @@ define dso_local void @PHP_SNEFRUFinal(ptr noundef writeonly captures(none) %0, 
   %9 = load i8, ptr %8, align 1, !tbaa !10
   %10 = zext i8 %9 to i32
   %11 = shl nuw i32 %10, 24
-  %12 = or disjoint i64 %indvars.iv17.i, 1
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !10
-  %15 = zext i8 %14 to i32
-  %16 = shl nuw nsw i32 %15, 16
-  %17 = or disjoint i32 %16, %11
-  %18 = or disjoint i64 %indvars.iv17.i, 2
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !10
-  %21 = zext i8 %20 to i32
-  %22 = shl nuw nsw i32 %21, 8
-  %23 = or disjoint i32 %17, %22
-  %24 = or disjoint i64 %indvars.iv17.i, 3
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !10
-  %27 = zext i8 %26 to i32
-  %28 = or disjoint i32 %23, %27
-  %29 = add nuw nsw i64 %indvars.iv.i, 8
-  %30 = getelementptr inbounds nuw [16 x i32], ptr %1, i64 0, i64 %29
-  store i32 %28, ptr %30, align 4, !tbaa !4
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %13 = load i8, ptr %12, align 1, !tbaa !10
+  %14 = zext i8 %13 to i32
+  %15 = shl nuw nsw i32 %14, 16
+  %16 = or disjoint i32 %15, %11
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %18 = load i8, ptr %17, align 1, !tbaa !10
+  %19 = zext i8 %18 to i32
+  %20 = shl nuw nsw i32 %19, 8
+  %21 = or disjoint i32 %16, %20
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %23 = load i8, ptr %22, align 1, !tbaa !10
+  %24 = zext i8 %23 to i32
+  %25 = or disjoint i32 %21, %24
+  %26 = add nuw nsw i64 %indvars.iv.i, 8
+  %27 = getelementptr inbounds nuw [16 x i32], ptr %1, i64 0, i64 %26
+  store i32 %25, ptr %27, align 4, !tbaa !4
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -236,54 +227,51 @@ define dso_local void @PHP_SNEFRUFinal(ptr noundef writeonly captures(none) %0, 
 
 SnefruTransform.exit:                             ; preds = %7
   tail call fastcc void @Snefru(ptr noundef nonnull %1)
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @explicit_bzero(ptr noundef nonnull %31, i64 noundef 32) #7
-  br label %32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @explicit_bzero(ptr noundef nonnull %28, i64 noundef 32) #7
+  br label %29
 
-32:                                               ; preds = %SnefruTransform.exit, %2
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
+29:                                               ; preds = %SnefruTransform.exit, %2
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %31 = load i32, ptr %30, align 4, !tbaa !4
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  store i32 %31, ptr %32, align 4, !tbaa !4
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %34 = load i32, ptr %33, align 4, !tbaa !4
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 60
   store i32 %34, ptr %35, align 4, !tbaa !4
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %37 = load i32, ptr %36, align 4, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  store i32 %37, ptr %38, align 4, !tbaa !4
   tail call fastcc void @Snefru(ptr noundef nonnull %1)
-  br label %39
+  br label %36
 
-39:                                               ; preds = %32, %39
-  %indvars.iv30 = phi i64 [ 0, %32 ], [ %indvars.iv.next31, %39 ]
-  %indvars.iv = phi i64 [ 0, %32 ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw [16 x i32], ptr %1, i64 0, i64 %indvars.iv30
-  %41 = load i32, ptr %40, align 4, !tbaa !4
-  %42 = lshr i32 %41, 24
-  %43 = trunc nuw i32 %42 to i8
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  store i8 %43, ptr %44, align 1, !tbaa !10
-  %45 = load i32, ptr %40, align 4, !tbaa !4
-  %46 = lshr i32 %45, 16
-  %47 = trunc i32 %46 to i8
-  %48 = or disjoint i64 %indvars.iv, 1
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 %48
-  store i8 %47, ptr %49, align 1, !tbaa !10
-  %50 = load i32, ptr %40, align 4, !tbaa !4
-  %51 = lshr i32 %50, 8
-  %52 = trunc i32 %51 to i8
-  %53 = or disjoint i64 %indvars.iv, 2
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %53
-  store i8 %52, ptr %54, align 1, !tbaa !10
-  %55 = load i32, ptr %40, align 4, !tbaa !4
-  %56 = trunc i32 %55 to i8
-  %57 = or disjoint i64 %indvars.iv, 3
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %57
-  store i8 %56, ptr %58, align 1, !tbaa !10
+36:                                               ; preds = %29, %36
+  %indvars.iv30 = phi i64 [ 0, %29 ], [ %indvars.iv.next31, %36 ]
+  %indvars.iv = phi i64 [ 0, %29 ], [ %indvars.iv.next, %36 ]
+  %37 = getelementptr inbounds nuw [16 x i32], ptr %1, i64 0, i64 %indvars.iv30
+  %38 = load i32, ptr %37, align 4, !tbaa !4
+  %39 = lshr i32 %38, 24
+  %40 = trunc nuw i32 %39 to i8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  store i8 %40, ptr %41, align 1, !tbaa !10
+  %42 = load i32, ptr %37, align 4, !tbaa !4
+  %43 = lshr i32 %42, 16
+  %44 = trunc i32 %43 to i8
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 1
+  store i8 %44, ptr %45, align 1, !tbaa !10
+  %46 = load i32, ptr %37, align 4, !tbaa !4
+  %47 = lshr i32 %46, 8
+  %48 = trunc i32 %47 to i8
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 2
+  store i8 %48, ptr %49, align 1, !tbaa !10
+  %50 = load i32, ptr %37, align 4, !tbaa !4
+  %51 = trunc i32 %50 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 3
+  store i8 %51, ptr %52, align 1, !tbaa !10
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next31, 8
-  br i1 %exitcond.not, label %59, label %39
+  br i1 %exitcond.not, label %53, label %36
 
-59:                                               ; preds = %39
+53:                                               ; preds = %36
   tail call void @explicit_bzero(ptr noundef nonnull %1, i64 noundef 108) #7
   ret void
 }

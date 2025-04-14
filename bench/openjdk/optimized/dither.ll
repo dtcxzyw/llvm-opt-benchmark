@@ -638,8 +638,8 @@ define void @make_dither_arrays(i32 noundef %0, ptr noundef readonly captures(no
 18:                                               ; preds = %.preheader, %18
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %18 ]
   %19 = load ptr, ptr %11, align 8
-  %20 = or disjoint i64 %indvars.iv, %15
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %15
   %22 = load i8, ptr %21, align 1
   %23 = sub nuw nsw i64 %16, %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 %23
@@ -650,8 +650,8 @@ define void @make_dither_arrays(i32 noundef %0, ptr noundef readonly captures(no
   store i8 %22, ptr %27, align 1
   %28 = load ptr, ptr %13, align 8
   %29 = shl nuw nsw i64 %indvars.iv, 3
-  %30 = or disjoint i64 %29, %indvars.iv43
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %30
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %indvars.iv43
   %32 = load i8, ptr %31, align 1
   %33 = sub nuw nsw i64 %17, %29
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 %33

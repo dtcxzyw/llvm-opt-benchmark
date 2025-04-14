@@ -7384,134 +7384,134 @@ clear_static_type_objects.exit:                   ; preds = %lookup_tp_subclasse
   %184 = select i1 %.not.i17, ptr %183, ptr %181
   store ptr null, ptr %184, align 8, !tbaa !20
   %.idx = shl i64 %179, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %185 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 %.offs
-  %186 = atomicrmw add ptr %185, i64 -1 seq_cst, align 8
-  br i1 %.not.i17, label %191, label %187
+  %185 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 %.idx
+  %186 = getelementptr i8, ptr %185, i64 8
+  %187 = atomicrmw add ptr %186, i64 -1 seq_cst, align 8
+  br i1 %.not.i17, label %192, label %188
 
-187:                                              ; preds = %.split
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 180056
-  %189 = load i64, ptr %188, align 8, !tbaa !33
-  %190 = add i64 %189, -1
-  store i64 %190, ptr %188, align 8, !tbaa !33
+188:                                              ; preds = %.split
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 180056
+  %190 = load i64, ptr %189, align 8, !tbaa !33
+  %191 = add i64 %190, -1
+  store i64 %191, ptr %189, align 8, !tbaa !33
   br label %managed_static_type_state_clear.exit
 
-191:                                              ; preds = %.split
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 190160
-  %193 = cmpxchg ptr %192, i8 0, i8 1 seq_cst seq_cst, align 1
-  %194 = extractvalue { i8, i1 } %193, 1
-  br i1 %194, label %_PyMutex_Lock.exit.i, label %195
+192:                                              ; preds = %.split
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 190160
+  %194 = cmpxchg ptr %193, i8 0, i8 1 seq_cst seq_cst, align 1
+  %195 = extractvalue { i8, i1 } %194, 1
+  br i1 %195, label %_PyMutex_Lock.exit.i, label %196
 
-195:                                              ; preds = %191
-  tail call void @PyMutex_Lock(ptr noundef nonnull %192) #24
+196:                                              ; preds = %192
+  tail call void @PyMutex_Lock(ptr noundef nonnull %193) #24
   br label %_PyMutex_Lock.exit.i
 
-_PyMutex_Lock.exit.i:                             ; preds = %195, %191
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 189664
-  %197 = load i64, ptr %196, align 8, !tbaa !303
-  %198 = add i64 %197, -1
-  store i64 %198, ptr %196, align 8, !tbaa !303
-  %199 = icmp eq i64 %198, 0
-  br i1 %199, label %200, label %202
+_PyMutex_Lock.exit.i:                             ; preds = %196, %192
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 189664
+  %198 = load i64, ptr %197, align 8, !tbaa !303
+  %199 = add i64 %198, -1
+  store i64 %199, ptr %197, align 8, !tbaa !303
+  %200 = icmp eq i64 %199, 0
+  br i1 %200, label %201, label %203
 
-200:                                              ; preds = %_PyMutex_Lock.exit.i
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 189672
-  store i64 0, ptr %201, align 8, !tbaa !307
-  br label %202
+201:                                              ; preds = %_PyMutex_Lock.exit.i
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 189672
+  store i64 0, ptr %202, align 8, !tbaa !307
+  br label %203
 
-202:                                              ; preds = %200, %_PyMutex_Lock.exit.i
-  %203 = cmpxchg ptr %192, i8 1, i8 0 seq_cst seq_cst, align 1
-  %204 = extractvalue { i8, i1 } %203, 1
-  br i1 %204, label %managed_static_type_state_clear.exit, label %205
+203:                                              ; preds = %201, %_PyMutex_Lock.exit.i
+  %204 = cmpxchg ptr %193, i8 1, i8 0 seq_cst seq_cst, align 1
+  %205 = extractvalue { i8, i1 } %204, 1
+  br i1 %205, label %managed_static_type_state_clear.exit, label %206
 
-205:                                              ; preds = %202
-  tail call void @PyMutex_Unlock(ptr noundef nonnull %192) #24
+206:                                              ; preds = %203
+  tail call void @PyMutex_Unlock(ptr noundef nonnull %193) #24
   br label %managed_static_type_state_clear.exit
 
 .split14:                                         ; preds = %clear_static_type_objects.exit
-  %206 = load i64, ptr %145, align 8, !tbaa !108
-  %207 = and i64 %206, -4097
-  store i64 %207, ptr %145, align 8, !tbaa !108
-  %208 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %209 = load i32, ptr %208, align 8, !tbaa !130
-  %.not.i.i18 = icmp eq i32 %209, 0
-  br i1 %.not.i.i18, label %219, label %210
+  %207 = load i64, ptr %145, align 8, !tbaa !108
+  %208 = and i64 %207, -4097
+  store i64 %208, ptr %145, align 8, !tbaa !108
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %210 = load i32, ptr %209, align 8, !tbaa !130
+  %.not.i.i18 = icmp eq i32 %210, 0
+  br i1 %.not.i.i18, label %220, label %211
 
-210:                                              ; preds = %.split14
-  %211 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
-  %212 = load ptr, ptr %211, align 8, !tbaa !22
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
-  %214 = load ptr, ptr %213, align 8, !tbaa !24
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 190168
-  %216 = and i32 %209, 4095
-  %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr ptr, ptr %215, i64 %217
-  store ptr null, ptr %218, align 8, !tbaa !217
-  br label %219
+211:                                              ; preds = %.split14
+  %212 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %213 = load ptr, ptr %212, align 8, !tbaa !22
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
+  %215 = load ptr, ptr %214, align 8, !tbaa !24
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 190168
+  %217 = and i32 %210, 4095
+  %218 = zext nneg i32 %217 to i64
+  %219 = getelementptr ptr, ptr %216, i64 %218
+  store ptr null, ptr %219, align 8, !tbaa !217
+  br label %220
 
-219:                                              ; preds = %.split14, %210
-  store i32 0, ptr %208, align 8, !tbaa !130
+220:                                              ; preds = %.split14, %211
+  store i32 0, ptr %209, align 8, !tbaa !130
   tail call void @_PyStaticType_ClearWeakRefs(ptr noundef %0, ptr noundef nonnull %1) #24
-  %220 = getelementptr i8, ptr %1, i64 360
-  %.val.i19 = load ptr, ptr %220, align 8, !tbaa !4
-  %221 = ptrtoint ptr %.val.i19 to i64
-  %222 = add i64 %221, -1
+  %221 = getelementptr i8, ptr %1, i64 360
+  %.val.i19 = load ptr, ptr %221, align 8, !tbaa !4
+  %222 = ptrtoint ptr %.val.i19 to i64
+  %223 = add i64 %222, -1
   %.not.i20 = icmp eq i32 %2, 0
-  %223 = add i64 %221, 199
-  %224 = select i1 %.not.i20, i64 %223, i64 %222
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 180064
-  %226 = getelementptr [200 x %struct.managed_static_type_state], ptr %225, i64 0, i64 %222
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 189680
-  %228 = getelementptr [10 x %struct.managed_static_type_state], ptr %227, i64 0, i64 %222
-  %229 = select i1 %.not.i20, ptr %228, ptr %226
-  store ptr null, ptr %229, align 8, !tbaa !20
-  %230 = getelementptr [210 x %struct.anon.47], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 0, i64 %224
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
-  %232 = atomicrmw add ptr %231, i64 -1 seq_cst, align 8
-  store ptr null, ptr %230, align 8, !tbaa !308
-  store ptr null, ptr %220, align 8, !tbaa !4
-  br i1 %.not.i20, label %237, label %233
+  %224 = add i64 %222, 199
+  %225 = select i1 %.not.i20, i64 %224, i64 %223
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 180064
+  %227 = getelementptr [200 x %struct.managed_static_type_state], ptr %226, i64 0, i64 %223
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 189680
+  %229 = getelementptr [10 x %struct.managed_static_type_state], ptr %228, i64 0, i64 %223
+  %230 = select i1 %.not.i20, ptr %229, ptr %227
+  store ptr null, ptr %230, align 8, !tbaa !20
+  %231 = getelementptr [210 x %struct.anon.47], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 0, i64 %225
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  %233 = atomicrmw add ptr %232, i64 -1 seq_cst, align 8
+  store ptr null, ptr %231, align 8, !tbaa !308
+  store ptr null, ptr %221, align 8, !tbaa !4
+  br i1 %.not.i20, label %238, label %234
 
-233:                                              ; preds = %219
-  %234 = getelementptr inbounds nuw i8, ptr %0, i64 180056
-  %235 = load i64, ptr %234, align 8, !tbaa !33
-  %236 = add i64 %235, -1
-  store i64 %236, ptr %234, align 8, !tbaa !33
+234:                                              ; preds = %220
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 180056
+  %236 = load i64, ptr %235, align 8, !tbaa !33
+  %237 = add i64 %236, -1
+  store i64 %237, ptr %235, align 8, !tbaa !33
   br label %managed_static_type_state_clear.exit
 
-237:                                              ; preds = %219
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 190160
-  %239 = cmpxchg ptr %238, i8 0, i8 1 seq_cst seq_cst, align 1
-  %240 = extractvalue { i8, i1 } %239, 1
-  br i1 %240, label %_PyMutex_Lock.exit.i21, label %241
+238:                                              ; preds = %220
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 190160
+  %240 = cmpxchg ptr %239, i8 0, i8 1 seq_cst seq_cst, align 1
+  %241 = extractvalue { i8, i1 } %240, 1
+  br i1 %241, label %_PyMutex_Lock.exit.i21, label %242
 
-241:                                              ; preds = %237
-  tail call void @PyMutex_Lock(ptr noundef nonnull %238) #24
+242:                                              ; preds = %238
+  tail call void @PyMutex_Lock(ptr noundef nonnull %239) #24
   br label %_PyMutex_Lock.exit.i21
 
-_PyMutex_Lock.exit.i21:                           ; preds = %241, %237
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 189664
-  %243 = load i64, ptr %242, align 8, !tbaa !303
-  %244 = add i64 %243, -1
-  store i64 %244, ptr %242, align 8, !tbaa !303
-  %245 = icmp eq i64 %244, 0
-  br i1 %245, label %246, label %248
+_PyMutex_Lock.exit.i21:                           ; preds = %242, %238
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 189664
+  %244 = load i64, ptr %243, align 8, !tbaa !303
+  %245 = add i64 %244, -1
+  store i64 %245, ptr %243, align 8, !tbaa !303
+  %246 = icmp eq i64 %245, 0
+  br i1 %246, label %247, label %249
 
-246:                                              ; preds = %_PyMutex_Lock.exit.i21
-  %247 = getelementptr inbounds nuw i8, ptr %0, i64 189672
-  store i64 0, ptr %247, align 8, !tbaa !307
-  br label %248
+247:                                              ; preds = %_PyMutex_Lock.exit.i21
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 189672
+  store i64 0, ptr %248, align 8, !tbaa !307
+  br label %249
 
-248:                                              ; preds = %246, %_PyMutex_Lock.exit.i21
-  %249 = cmpxchg ptr %238, i8 1, i8 0 seq_cst seq_cst, align 1
-  %250 = extractvalue { i8, i1 } %249, 1
-  br i1 %250, label %managed_static_type_state_clear.exit, label %251
+249:                                              ; preds = %247, %_PyMutex_Lock.exit.i21
+  %250 = cmpxchg ptr %239, i8 1, i8 0 seq_cst seq_cst, align 1
+  %251 = extractvalue { i8, i1 } %250, 1
+  br i1 %251, label %managed_static_type_state_clear.exit, label %252
 
-251:                                              ; preds = %248
-  tail call void @PyMutex_Unlock(ptr noundef nonnull %238) #24
+252:                                              ; preds = %249
+  tail call void @PyMutex_Unlock(ptr noundef nonnull %239) #24
   br label %managed_static_type_state_clear.exit
 
-managed_static_type_state_clear.exit:             ; preds = %251, %248, %233, %205, %202, %187
+managed_static_type_state_clear.exit:             ; preds = %252, %249, %234, %206, %203, %188
   ret void
 }
 
@@ -15091,7 +15091,7 @@ _PyType_SetVersion.exit:                          ; preds = %14, %17
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 180056
   %33 = load i64, ptr %32, align 8, !tbaa !33
   %.pre.i = add i64 %33, 1
-  br label %58
+  br label %59
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 190160
@@ -15110,11 +15110,11 @@ _PyMutex_Lock.exit.i:                             ; preds = %38, %34
   store i64 %41, ptr %39, align 8, !tbaa !307
   %42 = cmpxchg ptr %35, i8 1, i8 0 seq_cst seq_cst, align 1
   %43 = extractvalue { i8, i1 } %42, 1
-  br i1 %43, label %58, label %44
+  br i1 %43, label %59, label %44
 
 44:                                               ; preds = %_PyMutex_Lock.exit.i
   tail call void @PyMutex_Unlock(ptr noundef nonnull %35) #24
-  br label %58
+  br label %59
 
 .thread.i:                                        ; preds = %29
   %45 = getelementptr i8, ptr %1, i64 360
@@ -15125,123 +15125,123 @@ _PyMutex_Lock.exit.i:                             ; preds = %38, %34
   %48 = add i64 %46, 199
   %49 = select i1 %.not2931.i, i64 %48, i64 %47
   %.idx.i = shl i64 %49, 4
-  %.offs.i = or disjoint i64 %.idx.i, 8
-  %50 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 %.offs.i
-  %51 = atomicrmw add ptr %50, i64 1 seq_cst, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 180064
-  %53 = getelementptr [200 x %struct.managed_static_type_state], ptr %52, i64 0, i64 %47
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 189680
-  %55 = getelementptr [10 x %struct.managed_static_type_state], ptr %54, i64 0, i64 %47
-  %56 = select i1 %.not2931.i, ptr %55, ptr %53
-  store ptr %1, ptr %56, align 8, !tbaa !20
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i32 %2, ptr %57, align 8, !tbaa !422
-  br i1 %.not2931.i, label %72, label %managed_static_type_state_init.exit
+  %50 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 %.idx.i
+  %51 = getelementptr i8, ptr %50, i64 8
+  %52 = atomicrmw add ptr %51, i64 1 seq_cst, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 180064
+  %54 = getelementptr [200 x %struct.managed_static_type_state], ptr %53, i64 0, i64 %47
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 189680
+  %56 = getelementptr [10 x %struct.managed_static_type_state], ptr %55, i64 0, i64 %47
+  %57 = select i1 %.not2931.i, ptr %56, ptr %54
+  store ptr %1, ptr %57, align 8, !tbaa !20
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store i32 %2, ptr %58, align 8, !tbaa !422
+  br i1 %.not2931.i, label %73, label %managed_static_type_state_init.exit
 
-58:                                               ; preds = %44, %_PyMutex_Lock.exit.i, %31
+59:                                               ; preds = %44, %_PyMutex_Lock.exit.i, %31
   %.pre-phi.i = phi i64 [ %.pre.i, %31 ], [ %41, %_PyMutex_Lock.exit.i ], [ %41, %44 ]
   %.0.i = phi i64 [ %33, %31 ], [ %40, %_PyMutex_Lock.exit.i ], [ %40, %44 ]
-  %59 = inttoptr i64 %.pre-phi.i to ptr
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  store ptr %59, ptr %60, align 8, !tbaa !4
-  %61 = add i64 %.0.i, 200
-  %62 = select i1 %.not28.i, i64 %61, i64 %.0.i
-  %63 = getelementptr [210 x %struct.anon.47], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 0, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = atomicrmw add ptr %64, i64 1 seq_cst, align 8
-  store ptr %1, ptr %63, align 8, !tbaa !308
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 180064
-  %67 = getelementptr [200 x %struct.managed_static_type_state], ptr %66, i64 0, i64 %.0.i
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 189680
-  %69 = getelementptr [10 x %struct.managed_static_type_state], ptr %68, i64 0, i64 %.0.i
-  %70 = select i1 %.not28.i, ptr %69, ptr %67
-  store ptr %1, ptr %70, align 8, !tbaa !20
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i32 %2, ptr %71, align 8, !tbaa !422
-  br i1 %.not28.i, label %72, label %managed_static_type_state_init.exit
+  %60 = inttoptr i64 %.pre-phi.i to ptr
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  store ptr %60, ptr %61, align 8, !tbaa !4
+  %62 = add i64 %.0.i, 200
+  %63 = select i1 %.not28.i, i64 %62, i64 %.0.i
+  %64 = getelementptr [210 x %struct.anon.47], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 0, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %66 = atomicrmw add ptr %65, i64 1 seq_cst, align 8
+  store ptr %1, ptr %64, align 8, !tbaa !308
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 180064
+  %68 = getelementptr [200 x %struct.managed_static_type_state], ptr %67, i64 0, i64 %.0.i
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 189680
+  %70 = getelementptr [10 x %struct.managed_static_type_state], ptr %69, i64 0, i64 %.0.i
+  %71 = select i1 %.not28.i, ptr %70, ptr %68
+  store ptr %1, ptr %71, align 8, !tbaa !20
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store i32 %2, ptr %72, align 8, !tbaa !422
+  br i1 %.not28.i, label %73, label %managed_static_type_state_init.exit
 
-72:                                               ; preds = %58, %.thread.i
+73:                                               ; preds = %59, %.thread.i
   br label %managed_static_type_state_init.exit
 
-managed_static_type_state_init.exit:              ; preds = %.thread.i, %58, %72
-  %.sink36.i = phi i64 [ 189664, %72 ], [ 180056, %.thread.i ], [ 180056, %58 ]
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink36.i
-  %74 = load i64, ptr %73, align 8, !tbaa !112
-  %75 = add i64 %74, 1
-  store i64 %75, ptr %73, align 8, !tbaa !112
-  %76 = tail call fastcc i32 @type_ready(ptr noundef nonnull %1, i32 noundef %3)
-  %77 = icmp slt i32 %76, 0
-  br i1 %77, label %78, label %managed_static_type_state_clear.exit
+managed_static_type_state_init.exit:              ; preds = %.thread.i, %59, %73
+  %.sink36.i = phi i64 [ 189664, %73 ], [ 180056, %.thread.i ], [ 180056, %59 ]
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink36.i
+  %75 = load i64, ptr %74, align 8, !tbaa !112
+  %76 = add i64 %75, 1
+  store i64 %76, ptr %74, align 8, !tbaa !112
+  %77 = tail call fastcc i32 @type_ready(ptr noundef nonnull %1, i32 noundef %3)
+  %78 = icmp slt i32 %77, 0
+  br i1 %78, label %79, label %managed_static_type_state_clear.exit
 
-78:                                               ; preds = %managed_static_type_state_init.exit
+79:                                               ; preds = %managed_static_type_state_init.exit
   tail call void @_PyStaticType_ClearWeakRefs(ptr noundef nonnull %0, ptr noundef nonnull %1) #24
-  %79 = getelementptr i8, ptr %1, i64 360
-  %.val.i18 = load ptr, ptr %79, align 8, !tbaa !4
-  %80 = ptrtoint ptr %.val.i18 to i64
-  %81 = add i64 %80, -1
+  %80 = getelementptr i8, ptr %1, i64 360
+  %.val.i18 = load ptr, ptr %80, align 8, !tbaa !4
+  %81 = ptrtoint ptr %.val.i18 to i64
+  %82 = add i64 %81, -1
   %.not.i19 = icmp eq i32 %2, 0
-  %82 = add i64 %80, 199
-  %83 = select i1 %.not.i19, i64 %82, i64 %81
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 180064
-  %85 = getelementptr [200 x %struct.managed_static_type_state], ptr %84, i64 0, i64 %81
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 189680
-  %87 = getelementptr [10 x %struct.managed_static_type_state], ptr %86, i64 0, i64 %81
-  %88 = select i1 %.not.i19, ptr %87, ptr %85
-  store ptr null, ptr %88, align 8, !tbaa !20
-  %89 = getelementptr [210 x %struct.anon.47], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 0, i64 %83
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = atomicrmw add ptr %90, i64 -1 seq_cst, align 8
-  br i1 %.not.i, label %93, label %92
+  %83 = add i64 %81, 199
+  %84 = select i1 %.not.i19, i64 %83, i64 %82
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 180064
+  %86 = getelementptr [200 x %struct.managed_static_type_state], ptr %85, i64 0, i64 %82
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 189680
+  %88 = getelementptr [10 x %struct.managed_static_type_state], ptr %87, i64 0, i64 %82
+  %89 = select i1 %.not.i19, ptr %88, ptr %86
+  store ptr null, ptr %89, align 8, !tbaa !20
+  %90 = getelementptr [210 x %struct.anon.47], ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10544), i64 0, i64 %84
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %92 = atomicrmw add ptr %91, i64 -1 seq_cst, align 8
+  br i1 %.not.i, label %94, label %93
 
-92:                                               ; preds = %78
-  store ptr null, ptr %89, align 8, !tbaa !308
-  store ptr null, ptr %79, align 8, !tbaa !4
-  br label %93
+93:                                               ; preds = %79
+  store ptr null, ptr %90, align 8, !tbaa !308
+  store ptr null, ptr %80, align 8, !tbaa !4
+  br label %94
 
-93:                                               ; preds = %92, %78
-  br i1 %.not.i19, label %98, label %94
+94:                                               ; preds = %93, %79
+  br i1 %.not.i19, label %99, label %95
 
-94:                                               ; preds = %93
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 180056
-  %96 = load i64, ptr %95, align 8, !tbaa !33
-  %97 = add i64 %96, -1
-  store i64 %97, ptr %95, align 8, !tbaa !33
+95:                                               ; preds = %94
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 180056
+  %97 = load i64, ptr %96, align 8, !tbaa !33
+  %98 = add i64 %97, -1
+  store i64 %98, ptr %96, align 8, !tbaa !33
   br label %managed_static_type_state_clear.exit
 
-98:                                               ; preds = %93
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 190160
-  %100 = cmpxchg ptr %99, i8 0, i8 1 seq_cst seq_cst, align 1
-  %101 = extractvalue { i8, i1 } %100, 1
-  br i1 %101, label %_PyMutex_Lock.exit.i20, label %102
+99:                                               ; preds = %94
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 190160
+  %101 = cmpxchg ptr %100, i8 0, i8 1 seq_cst seq_cst, align 1
+  %102 = extractvalue { i8, i1 } %101, 1
+  br i1 %102, label %_PyMutex_Lock.exit.i20, label %103
 
-102:                                              ; preds = %98
-  tail call void @PyMutex_Lock(ptr noundef nonnull %99) #24
+103:                                              ; preds = %99
+  tail call void @PyMutex_Lock(ptr noundef nonnull %100) #24
   br label %_PyMutex_Lock.exit.i20
 
-_PyMutex_Lock.exit.i20:                           ; preds = %102, %98
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 189664
-  %104 = load i64, ptr %103, align 8, !tbaa !303
-  %105 = add i64 %104, -1
-  store i64 %105, ptr %103, align 8, !tbaa !303
-  %106 = icmp eq i64 %105, 0
-  br i1 %106, label %107, label %109
+_PyMutex_Lock.exit.i20:                           ; preds = %103, %99
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 189664
+  %105 = load i64, ptr %104, align 8, !tbaa !303
+  %106 = add i64 %105, -1
+  store i64 %106, ptr %104, align 8, !tbaa !303
+  %107 = icmp eq i64 %106, 0
+  br i1 %107, label %108, label %110
 
-107:                                              ; preds = %_PyMutex_Lock.exit.i20
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 189672
-  store i64 0, ptr %108, align 8, !tbaa !307
-  br label %109
+108:                                              ; preds = %_PyMutex_Lock.exit.i20
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 189672
+  store i64 0, ptr %109, align 8, !tbaa !307
+  br label %110
 
-109:                                              ; preds = %107, %_PyMutex_Lock.exit.i20
-  %110 = cmpxchg ptr %99, i8 1, i8 0 seq_cst seq_cst, align 1
-  %111 = extractvalue { i8, i1 } %110, 1
-  br i1 %111, label %managed_static_type_state_clear.exit, label %112
+110:                                              ; preds = %108, %_PyMutex_Lock.exit.i20
+  %111 = cmpxchg ptr %100, i8 1, i8 0 seq_cst seq_cst, align 1
+  %112 = extractvalue { i8, i1 } %111, 1
+  br i1 %112, label %managed_static_type_state_clear.exit, label %113
 
-112:                                              ; preds = %109
-  tail call void @PyMutex_Unlock(ptr noundef nonnull %99) #24
+113:                                              ; preds = %110
+  tail call void @PyMutex_Unlock(ptr noundef nonnull %100) #24
   br label %managed_static_type_state_clear.exit
 
-managed_static_type_state_clear.exit:             ; preds = %112, %109, %94, %managed_static_type_state_init.exit
-  ret i32 %76
+managed_static_type_state_clear.exit:             ; preds = %113, %110, %95, %managed_static_type_state_init.exit
+  ret i32 %77
 }
 
 ; Function Attrs: nounwind uwtable

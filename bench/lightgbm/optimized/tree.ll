@@ -23410,76 +23410,76 @@ _ZN3fmt3v1114basic_appenderIcEaSEc.exit.i:        ; preds = %19, %14
   br i1 %.not, label %_ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEmcEET_S5_T0_RKT1_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
-  %.add = or disjoint i64 %6, 8
-  %.ptr17 = getelementptr inbounds nuw i8, ptr %2, i64 %.add
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 %6
+  %.ptr17 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.not24.i.i = icmp eq i64 %6, 0
-  %26 = ptrtoint ptr %.ptr17 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = ptrtoint ptr %.ptr17 to i64
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %.not24.i.i, label %_ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEmcEET_S5_T0_RKT1_.exit, label %.lr.ph27.i.i.preheader
 
 .lr.ph27.i.i.preheader:                           ; preds = %.lr.ph
-  %.pre.i.i.pre = load i64, ptr %27, align 8, !tbaa !409
+  %.pre.i.i.pre = load i64, ptr %28, align 8, !tbaa !409
   br label %.lr.ph27.i.i
 
 .lr.ph27.i.i:                                     ; preds = %.lr.ph27.i.i.preheader, %_ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXaasr23is_back_insert_iteratorIT1_EE5valuesr41has_back_insert_iterator_container_appendIS8_T0_EE5valueEiE4typeELi0EEES8_S9_S9_S8_.exit.loopexit
-  %.pre.i.i = phi i64 [ %45, %_ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXaasr23is_back_insert_iteratorIT1_EE5valuesr41has_back_insert_iterator_container_appendIS8_T0_EE5valueEiE4typeELi0EEES8_S9_S9_S8_.exit.loopexit ], [ %.pre.i.i.pre, %.lr.ph27.i.i.preheader ]
-  %.019 = phi i64 [ %51, %_ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXaasr23is_back_insert_iteratorIT1_EE5valuesr41has_back_insert_iterator_container_appendIS8_T0_EE5valueEiE4typeELi0EEES8_S9_S9_S8_.exit.loopexit ], [ 0, %.lr.ph27.i.i.preheader ]
-  br label %30
+  %.pre.i.i = phi i64 [ %46, %_ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXaasr23is_back_insert_iteratorIT1_EE5valuesr41has_back_insert_iterator_container_appendIS8_T0_EE5valueEiE4typeELi0EEES8_S9_S9_S8_.exit.loopexit ], [ %.pre.i.i.pre, %.lr.ph27.i.i.preheader ]
+  %.019 = phi i64 [ %52, %_ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXaasr23is_back_insert_iteratorIT1_EE5valuesr41has_back_insert_iterator_container_appendIS8_T0_EE5valueEiE4typeELi0EEES8_S9_S9_S8_.exit.loopexit ], [ 0, %.lr.ph27.i.i.preheader ]
+  br label %31
 
-30:                                               ; preds = %._crit_edge.i.i, %.lr.ph27.i.i
-  %31 = phi i64 [ %.pre.i.i, %.lr.ph27.i.i ], [ %45, %._crit_edge.i.i ]
-  %.01825.i.i = phi ptr [ %8, %.lr.ph27.i.i ], [ %46, %._crit_edge.i.i ]
-  %32 = ptrtoint ptr %.01825.i.i to i64
-  %33 = sub i64 %26, %32
-  %34 = add i64 %33, %31
-  %35 = load i64, ptr %28, align 8, !tbaa !410
-  %36 = icmp ugt i64 %34, %35
-  br i1 %36, label %37, label %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i
+31:                                               ; preds = %._crit_edge.i.i, %.lr.ph27.i.i
+  %32 = phi i64 [ %.pre.i.i, %.lr.ph27.i.i ], [ %46, %._crit_edge.i.i ]
+  %.01825.i.i = phi ptr [ %8, %.lr.ph27.i.i ], [ %47, %._crit_edge.i.i ]
+  %33 = ptrtoint ptr %.01825.i.i to i64
+  %34 = sub i64 %27, %33
+  %35 = add i64 %34, %32
+  %36 = load i64, ptr %29, align 8, !tbaa !410
+  %37 = icmp ugt i64 %35, %36
+  br i1 %37, label %38, label %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i
 
-37:                                               ; preds = %30
-  %38 = load ptr, ptr %29, align 8, !tbaa !411
-  tail call void %38(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %34)
-  %.pre30.i.i = load i64, ptr %28, align 8, !tbaa !410
-  %.pre31.i.i = load i64, ptr %27, align 8, !tbaa !409
+38:                                               ; preds = %31
+  %39 = load ptr, ptr %30, align 8, !tbaa !411
+  tail call void %39(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %35)
+  %.pre30.i.i = load i64, ptr %29, align 8, !tbaa !410
+  %.pre31.i.i = load i64, ptr %28, align 8, !tbaa !409
   br label %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i
 
-_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %37, %30
-  %39 = phi i64 [ %31, %30 ], [ %.pre31.i.i, %37 ]
-  %40 = phi i64 [ %35, %30 ], [ %.pre30.i.i, %37 ]
-  %41 = sub i64 %40, %39
-  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %41, i64 %33)
-  %42 = load ptr, ptr %0, align 8, !tbaa !407
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %39
+_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i: ; preds = %38, %31
+  %40 = phi i64 [ %32, %31 ], [ %.pre31.i.i, %38 ]
+  %41 = phi i64 [ %36, %31 ], [ %.pre30.i.i, %38 ]
+  %42 = sub i64 %41, %40
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %42, i64 %34)
+  %43 = load ptr, ptr %0, align 8, !tbaa !407
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %40
   %.not29.i.i = icmp eq i64 %spec.select.i.i, 0
   br i1 %.not29.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %.pre32.i.i = load i64, ptr %27, align 8, !tbaa !409
+  %.pre32.i.i = load i64, ptr %28, align 8, !tbaa !409
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i
-  %44 = phi i64 [ %.pre32.i.i, %._crit_edge.loopexit.i.i ], [ %39, %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i ]
-  %45 = add i64 %44, %spec.select.i.i
-  store i64 %45, ptr %27, align 8, !tbaa !409
-  %46 = getelementptr inbounds nuw i8, ptr %.01825.i.i, i64 %spec.select.i.i
-  %.not.i.i = icmp eq ptr %46, %.ptr17
-  br i1 %.not.i.i, label %_ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXaasr23is_back_insert_iteratorIT1_EE5valuesr41has_back_insert_iterator_container_appendIS8_T0_EE5valueEiE4typeELi0EEES8_S9_S9_S8_.exit.loopexit, label %30, !llvm.loop !513
+  %45 = phi i64 [ %.pre32.i.i, %._crit_edge.loopexit.i.i ], [ %40, %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i ]
+  %46 = add i64 %45, %spec.select.i.i
+  store i64 %46, ptr %28, align 8, !tbaa !409
+  %47 = getelementptr inbounds nuw i8, ptr %.01825.i.i, i64 %spec.select.i.i
+  %.not.i.i = icmp eq ptr %47, %.ptr17
+  br i1 %.not.i.i, label %_ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXaasr23is_back_insert_iteratorIT1_EE5valuesr41has_back_insert_iterator_container_appendIS8_T0_EE5valueEiE4typeELi0EEES8_S9_S9_S8_.exit.loopexit, label %31, !llvm.loop !513
 
 .lr.ph.i.i:                                       ; preds = %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i, %.lr.ph.i.i
-  %.023.i.i = phi i64 [ %50, %.lr.ph.i.i ], [ 0, %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i ]
-  %47 = getelementptr inbounds nuw i8, ptr %.01825.i.i, i64 %.023.i.i
-  %48 = load i8, ptr %47, align 1, !tbaa !157
-  %49 = getelementptr inbounds nuw i8, ptr %43, i64 %.023.i.i
-  store i8 %48, ptr %49, align 1, !tbaa !157
-  %50 = add nuw i64 %.023.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %50, %spec.select.i.i
+  %.023.i.i = phi i64 [ %51, %.lr.ph.i.i ], [ 0, %_ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i ]
+  %48 = getelementptr inbounds nuw i8, ptr %.01825.i.i, i64 %.023.i.i
+  %49 = load i8, ptr %48, align 1, !tbaa !157
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 %.023.i.i
+  store i8 %49, ptr %50, align 1, !tbaa !157
+  %51 = add nuw i64 %.023.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %51, %spec.select.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !514
 
 _ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXaasr23is_back_insert_iteratorIT1_EE5valuesr41has_back_insert_iterator_container_appendIS8_T0_EE5valueEiE4typeELi0EEES8_S9_S9_S8_.exit.loopexit: ; preds = %._crit_edge.i.i
-  %51 = add nuw i64 %.019, 1
-  %exitcond.not = icmp eq i64 %51, %1
+  %52 = add nuw i64 %.019, 1
+  %exitcond.not = icmp eq i64 %52, %1
   br i1 %exitcond.not, label %_ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEmcEET_S5_T0_RKT1_.exit, label %.lr.ph27.i.i, !llvm.loop !568
 
 _ZN3fmt3v116detail6fill_nINS0_14basic_appenderIcEEmcEET_S5_T0_RKT1_.exit: ; preds = %_ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXaasr23is_back_insert_iteratorIT1_EE5valuesr41has_back_insert_iterator_container_appendIS8_T0_EE5valueEiE4typeELi0EEES8_S9_S9_S8_.exit.loopexit, %_ZN3fmt3v1114basic_appenderIcEaSEc.exit.i, %.lr.ph, %25, %9

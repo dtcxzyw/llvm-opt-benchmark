@@ -407,8 +407,8 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %277 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %264, <8 x double> %270, <8 x double> %.023222473)
   %278 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %268, <8 x double> %270, <8 x double> %.023272472)
   %279 = add nuw nsw i64 %.122732480, 1
-  %exitcond2909.not = icmp eq i64 %279, %2
-  br i1 %exitcond2909.not, label %._crit_edge2483, label %235, !llvm.loop !25
+  %exitcond2923.not = icmp eq i64 %279, %2
+  br i1 %exitcond2923.not, label %._crit_edge2483, label %235, !llvm.loop !25
 
 ._crit_edge2483:                                  ; preds = %235, %227
   %.02327.lcssa = phi <8 x double> [ zeroinitializer, %227 ], [ %278, %235 ]
@@ -631,8 +631,8 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %403 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %376, <8 x double> %388, <8 x double> %.023512518)
   %404 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %380, <8 x double> %388, <8 x double> %.023522517)
   %405 = add nuw nsw i64 %.222742533, 1
-  %exitcond2910.not = icmp eq i64 %405, %2
-  br i1 %exitcond2910.not, label %._crit_edge2535, label %.lr.ph2534, !llvm.loop !36
+  %exitcond2924.not = icmp eq i64 %405, %2
+  br i1 %exitcond2924.not, label %._crit_edge2535, label %.lr.ph2534, !llvm.loop !36
 
 ._crit_edge2535:                                  ; preds = %.lr.ph2534, %.preheader2397
   %.02352.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2397 ], [ %404, %.lr.ph2534 ]
@@ -955,8 +955,8 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %618 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %603, <8 x double> %611, <8 x double> %.023672621)
   %619 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %607, <8 x double> %611, <8 x double> %.023682620)
   %620 = add nuw nsw i64 %.322752628, 1
-  %exitcond2911.not = icmp eq i64 %620, %2
-  br i1 %exitcond2911.not, label %._crit_edge2630, label %.lr.ph2629, !llvm.loop !70
+  %exitcond2925.not = icmp eq i64 %620, %2
+  br i1 %exitcond2925.not, label %._crit_edge2630, label %.lr.ph2629, !llvm.loop !70
 
 ._crit_edge2630:                                  ; preds = %.lr.ph2629, %.preheader2396
   %.02368.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2396 ], [ %619, %.lr.ph2629 ]
@@ -1141,8 +1141,8 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %740 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %731, <8 x double> %737, <8 x double> %.023582677)
   %741 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %735, <8 x double> %737, <8 x double> %.023572678)
   %742 = add nuw nsw i64 %.422762679, 1
-  %exitcond2912.not = icmp eq i64 %742, %2
-  br i1 %exitcond2912.not, label %._crit_edge2682, label %718, !llvm.loop !88
+  %exitcond2926.not = icmp eq i64 %742, %2
+  br i1 %exitcond2926.not, label %._crit_edge2682, label %718, !llvm.loop !88
 
 ._crit_edge2682:                                  ; preds = %718, %710
   %.02360.lcssa = phi <8 x double> [ zeroinitializer, %710 ], [ %738, %718 ]
@@ -1256,7 +1256,7 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
 ._crit_edge2710:                                  ; preds = %._crit_edge2707, %.preheader2400
   %.1.lcssa = phi i64 [ %.0.lcssa, %.preheader2400 ], [ %797, %._crit_edge2707 ]
   %799 = icmp slt i64 %.1.lcssa, %0
-  br i1 %799, label %800, label %1061
+  br i1 %799, label %800, label %1040
 
 800:                                              ; preds = %._crit_edge2710
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #3
@@ -1278,23 +1278,24 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %808 = getelementptr inbounds nuw [8 x i64], ptr %12, i64 0, i64 %indvars.iv
   store i64 %807, ptr %808, align 8, !tbaa !99
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond2914.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond2914.not, label %801, label %806, !llvm.loop !101
+  %exitcond2928.not = icmp eq i64 %indvars.iv.next, 8
+  br i1 %exitcond2928.not, label %801, label %806, !llvm.loop !101
 
-.preheader2395:                                   ; preds = %.preheader2395.lr.ph, %._crit_edge2764
-  %.22765 = phi i64 [ %.1.lcssa, %.preheader2395.lr.ph ], [ %975, %._crit_edge2764 ]
+.preheader2395:                                   ; preds = %.preheader2395.lr.ph, %._crit_edge2778
+  %.22779 = phi i64 [ %.1.lcssa, %.preheader2395.lr.ph ], [ %954, %._crit_edge2778 ]
+  %invariant.gep2734 = getelementptr double, ptr %9, i64 %.22779
   br i1 %804, label %.preheader2392.lr.ph, label %.preheader2394
 
 .preheader2392.lr.ph:                             ; preds = %.preheader2395
-  %809 = mul nsw i64 %.22765, %4
-  %810 = add nuw nsw i64 %.22765, 1
+  %809 = mul nsw i64 %.22779, %4
+  %810 = add nuw nsw i64 %.22779, 1
   %811 = mul nsw i64 %810, %4
   br label %.preheader2392
 
-.preheader2390:                                   ; preds = %._crit_edge2764, %801
-  %.2.lcssa = phi i64 [ %.1.lcssa, %801 ], [ %975, %._crit_edge2764 ]
+.preheader2390:                                   ; preds = %._crit_edge2778, %801
+  %.2.lcssa = phi i64 [ %.1.lcssa, %801 ], [ %954, %._crit_edge2778 ]
   %812 = icmp slt i64 %.2.lcssa, %0
-  br i1 %812, label %.preheader2389.lr.ph, label %._crit_edge2826
+  br i1 %812, label %.preheader2389.lr.ph, label %._crit_edge2840
 
 .preheader2389.lr.ph:                             ; preds = %.preheader2390
   %813 = icmp sgt i64 %1, 31
@@ -1302,19 +1303,19 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   br label %.preheader2389
 
 .preheader2394:                                   ; preds = %._crit_edge2725, %.preheader2395
-  %.5.lcssa = phi i64 [ 0, %.preheader2395 ], [ %892, %._crit_edge2725 ]
+  %.5.lcssa = phi i64 [ 0, %.preheader2395 ], [ %880, %._crit_edge2725 ]
   %815 = icmp slt i64 %.5.lcssa, %17
   br i1 %815, label %.preheader2391.lr.ph, label %.preheader2393
 
 .preheader2391.lr.ph:                             ; preds = %.preheader2394
-  %816 = mul nsw i64 %.22765, %4
-  %817 = add nuw nsw i64 %.22765, 1
+  %816 = mul nsw i64 %.22779, %4
+  %817 = add nuw nsw i64 %.22779, 1
   %818 = mul nsw i64 %817, %4
   br label %.preheader2391
 
 .preheader2392:                                   ; preds = %.preheader2392.lr.ph, %._crit_edge2725
-  %.52734 = phi i64 [ 0, %.preheader2392.lr.ph ], [ %892, %._crit_edge2725 ]
-  %invariant.gep2713 = getelementptr double, ptr %6, i64 %.52734
+  %.52742 = phi i64 [ 0, %.preheader2392.lr.ph ], [ %880, %._crit_edge2725 ]
+  %invariant.gep2713 = getelementptr double, ptr %6, i64 %.52742
   br i1 %805, label %.lr.ph2724, label %._crit_edge2725
 
 .lr.ph2724:                                       ; preds = %.preheader2392, %.lr.ph2724
@@ -1354,8 +1355,8 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %842 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %823, <8 x double> %835, <8 x double> %.023342721)
   %843 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %827, <8 x double> %835, <8 x double> %.023332722)
   %844 = add nuw nsw i64 %.522772723, 1
-  %exitcond2915.not = icmp eq i64 %844, %2
-  br i1 %exitcond2915.not, label %._crit_edge2725, label %.lr.ph2724, !llvm.loop !102
+  %exitcond2929.not = icmp eq i64 %844, %2
+  br i1 %exitcond2929.not, label %._crit_edge2725, label %.lr.ph2724, !llvm.loop !102
 
 ._crit_edge2725:                                  ; preds = %.lr.ph2724, %.preheader2392
   %.02340.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2392 ], [ %836, %.lr.ph2724 ]
@@ -1367,398 +1368,384 @@ define noundef i32 @dgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %.02334.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2392 ], [ %842, %.lr.ph2724 ]
   %.02333.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2392 ], [ %843, %.lr.ph2724 ]
   %845 = fmul <8 x double> %19, %.02340.lcssa
-  %846 = mul nsw i64 %.52734, %10
-  %847 = add nsw i64 %846, %.22765
-  %848 = getelementptr inbounds double, ptr %9, i64 %847
-  %849 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %848, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %850 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %849, <8 x double> %21, <8 x double> %845)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %848, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %850, i32 8)
-  %851 = fmul <8 x double> %19, %.02339.lcssa
-  %852 = or disjoint i64 %847, 1
-  %853 = getelementptr inbounds double, ptr %9, i64 %852
-  %854 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr nonnull %853, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %855 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %854, <8 x double> %21, <8 x double> %851)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %853, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %855, i32 8)
-  %856 = fmul <8 x double> %19, %.02338.lcssa
-  %857 = or disjoint i64 %.52734, 8
-  %858 = mul nsw i64 %857, %10
-  %859 = add nsw i64 %858, %.22765
-  %860 = getelementptr inbounds double, ptr %9, i64 %859
-  %861 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %860, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %862 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %861, <8 x double> %21, <8 x double> %856)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %860, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %862, i32 8)
-  %863 = fmul <8 x double> %19, %.02337.lcssa
-  %864 = or disjoint i64 %859, 1
-  %865 = getelementptr inbounds double, ptr %9, i64 %864
-  %866 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr nonnull %865, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %867 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %866, <8 x double> %21, <8 x double> %863)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %865, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %867, i32 8)
-  %868 = fmul <8 x double> %19, %.02336.lcssa
-  %869 = or disjoint i64 %.52734, 16
-  %870 = mul nsw i64 %869, %10
-  %871 = add nsw i64 %870, %.22765
-  %872 = getelementptr inbounds double, ptr %9, i64 %871
-  %873 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %872, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %874 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %873, <8 x double> %21, <8 x double> %868)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %872, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %874, i32 8)
-  %875 = fmul <8 x double> %19, %.02335.lcssa
-  %876 = or disjoint i64 %871, 1
-  %877 = getelementptr inbounds double, ptr %9, i64 %876
-  %878 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr nonnull %877, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %879 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %878, <8 x double> %21, <8 x double> %875)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %877, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %879, i32 8)
-  %880 = fmul <8 x double> %19, %.02334.lcssa
-  %881 = or disjoint i64 %.52734, 24
-  %882 = mul nsw i64 %881, %10
-  %883 = add nsw i64 %882, %.22765
-  %884 = getelementptr inbounds double, ptr %9, i64 %883
-  %885 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %884, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %886 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %885, <8 x double> %21, <8 x double> %880)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %884, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %886, i32 8)
-  %887 = fmul <8 x double> %19, %.02333.lcssa
-  %888 = or disjoint i64 %883, 1
-  %889 = getelementptr inbounds double, ptr %9, i64 %888
-  %890 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr nonnull %889, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %891 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %890, <8 x double> %21, <8 x double> %887)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %889, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %891, i32 8)
-  %892 = add nuw nsw i64 %.52734, 32
-  %893 = icmp slt i64 %892, %16
-  br i1 %893, label %.preheader2392, label %.preheader2394, !llvm.loop !103
+  %846 = mul nsw i64 %.52742, %10
+  %gep2735 = getelementptr double, ptr %invariant.gep2734, i64 %846
+  %847 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2735, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %848 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %847, <8 x double> %21, <8 x double> %845)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2735, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %848, i32 8)
+  %849 = fmul <8 x double> %19, %.02339.lcssa
+  %850 = getelementptr i8, ptr %gep2735, i64 8
+  %851 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %850, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %852 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %851, <8 x double> %21, <8 x double> %849)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %850, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %852, i32 8)
+  %853 = fmul <8 x double> %19, %.02338.lcssa
+  %854 = or disjoint i64 %.52742, 8
+  %855 = mul nsw i64 %854, %10
+  %gep2737 = getelementptr double, ptr %invariant.gep2734, i64 %855
+  %856 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2737, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %857 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %856, <8 x double> %21, <8 x double> %853)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2737, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %857, i32 8)
+  %858 = fmul <8 x double> %19, %.02337.lcssa
+  %859 = getelementptr i8, ptr %gep2737, i64 8
+  %860 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %859, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %861 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %860, <8 x double> %21, <8 x double> %858)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %859, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %861, i32 8)
+  %862 = fmul <8 x double> %19, %.02336.lcssa
+  %863 = or disjoint i64 %.52742, 16
+  %864 = mul nsw i64 %863, %10
+  %gep2739 = getelementptr double, ptr %invariant.gep2734, i64 %864
+  %865 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2739, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %866 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %865, <8 x double> %21, <8 x double> %862)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2739, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %866, i32 8)
+  %867 = fmul <8 x double> %19, %.02335.lcssa
+  %868 = getelementptr i8, ptr %gep2739, i64 8
+  %869 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %868, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %870 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %869, <8 x double> %21, <8 x double> %867)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %868, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %870, i32 8)
+  %871 = fmul <8 x double> %19, %.02334.lcssa
+  %872 = or disjoint i64 %.52742, 24
+  %873 = mul nsw i64 %872, %10
+  %gep2741 = getelementptr double, ptr %invariant.gep2734, i64 %873
+  %874 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2741, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %875 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %874, <8 x double> %21, <8 x double> %871)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2741, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %875, i32 8)
+  %876 = fmul <8 x double> %19, %.02333.lcssa
+  %877 = getelementptr i8, ptr %gep2741, i64 8
+  %878 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %877, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %879 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %878, <8 x double> %21, <8 x double> %876)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %877, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %879, i32 8)
+  %880 = add nuw nsw i64 %.52742, 32
+  %881 = icmp slt i64 %880, %16
+  br i1 %881, label %.preheader2392, label %.preheader2394, !llvm.loop !103
 
-.preheader2393:                                   ; preds = %._crit_edge2744, %.preheader2394
-  %.6.lcssa = phi i64 [ %.5.lcssa, %.preheader2394 ], [ %939, %._crit_edge2744 ]
-  %894 = icmp slt i64 %.6.lcssa, %1
-  br i1 %894, label %.lr.ph2763, label %._crit_edge2764
+.preheader2393:                                   ; preds = %._crit_edge2752, %.preheader2394
+  %.6.lcssa = phi i64 [ %.5.lcssa, %.preheader2394 ], [ %921, %._crit_edge2752 ]
+  %882 = icmp slt i64 %.6.lcssa, %1
+  br i1 %882, label %.lr.ph2777, label %._crit_edge2778
 
-.lr.ph2763:                                       ; preds = %.preheader2393
-  %895 = mul nsw i64 %.22765, %4
-  %896 = add nuw nsw i64 %.22765, 1
-  %897 = mul nsw i64 %896, %4
-  br label %941
+.lr.ph2777:                                       ; preds = %.preheader2393
+  %883 = mul nsw i64 %.22779, %4
+  %884 = add nuw nsw i64 %.22779, 1
+  %885 = mul nsw i64 %884, %4
+  br label %923
 
-.preheader2391:                                   ; preds = %.preheader2391.lr.ph, %._crit_edge2744
-  %.62749 = phi i64 [ %.5.lcssa, %.preheader2391.lr.ph ], [ %939, %._crit_edge2744 ]
-  %invariant.gep2736 = getelementptr double, ptr %6, i64 %.62749
-  br i1 %805, label %.lr.ph2743, label %._crit_edge2744
+.preheader2391:                                   ; preds = %.preheader2391.lr.ph, %._crit_edge2752
+  %.62761 = phi i64 [ %.5.lcssa, %.preheader2391.lr.ph ], [ %921, %._crit_edge2752 ]
+  %invariant.gep2744 = getelementptr double, ptr %6, i64 %.62761
+  br i1 %805, label %.lr.ph2751, label %._crit_edge2752
 
-.lr.ph2743:                                       ; preds = %.preheader2391, %.lr.ph2743
-  %.622782742 = phi i64 [ %915, %.lr.ph2743 ], [ 0, %.preheader2391 ]
-  %.023232741 = phi <8 x double> [ %914, %.lr.ph2743 ], [ zeroinitializer, %.preheader2391 ]
-  %.023242740 = phi <8 x double> [ %913, %.lr.ph2743 ], [ zeroinitializer, %.preheader2391 ]
-  %.023252739 = phi <8 x double> [ %912, %.lr.ph2743 ], [ zeroinitializer, %.preheader2391 ]
-  %.023262738 = phi <8 x double> [ %911, %.lr.ph2743 ], [ zeroinitializer, %.preheader2391 ]
-  %898 = getelementptr double, ptr %3, i64 %.622782742
-  %899 = getelementptr double, ptr %898, i64 %816
-  %900 = load double, ptr %899, align 1, !tbaa !3
-  %901 = insertelement <2 x double> poison, double %900, i64 0
-  %902 = shufflevector <2 x double> %901, <2 x double> poison, <8 x i32> zeroinitializer
-  %903 = getelementptr double, ptr %898, i64 %818
-  %904 = load double, ptr %903, align 1, !tbaa !3
-  %905 = insertelement <2 x double> poison, double %904, i64 0
-  %906 = shufflevector <2 x double> %905, <2 x double> poison, <8 x i32> zeroinitializer
-  %907 = mul nsw i64 %.622782742, %7
-  %gep2737 = getelementptr double, ptr %invariant.gep2736, i64 %907
-  %908 = load <8 x double>, ptr %gep2737, align 1, !tbaa !3
-  %909 = getelementptr i8, ptr %gep2737, i64 64
-  %910 = load <8 x double>, ptr %909, align 1, !tbaa !3
-  %911 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %902, <8 x double> %908, <8 x double> %.023262738)
-  %912 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %906, <8 x double> %908, <8 x double> %.023252739)
-  %913 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %902, <8 x double> %910, <8 x double> %.023242740)
-  %914 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %906, <8 x double> %910, <8 x double> %.023232741)
-  %915 = add nuw nsw i64 %.622782742, 1
-  %exitcond2916.not = icmp eq i64 %915, %2
-  br i1 %exitcond2916.not, label %._crit_edge2744, label %.lr.ph2743, !llvm.loop !104
+.lr.ph2751:                                       ; preds = %.preheader2391, %.lr.ph2751
+  %.622782750 = phi i64 [ %903, %.lr.ph2751 ], [ 0, %.preheader2391 ]
+  %.023232749 = phi <8 x double> [ %902, %.lr.ph2751 ], [ zeroinitializer, %.preheader2391 ]
+  %.023242748 = phi <8 x double> [ %901, %.lr.ph2751 ], [ zeroinitializer, %.preheader2391 ]
+  %.023252747 = phi <8 x double> [ %900, %.lr.ph2751 ], [ zeroinitializer, %.preheader2391 ]
+  %.023262746 = phi <8 x double> [ %899, %.lr.ph2751 ], [ zeroinitializer, %.preheader2391 ]
+  %886 = getelementptr double, ptr %3, i64 %.622782750
+  %887 = getelementptr double, ptr %886, i64 %816
+  %888 = load double, ptr %887, align 1, !tbaa !3
+  %889 = insertelement <2 x double> poison, double %888, i64 0
+  %890 = shufflevector <2 x double> %889, <2 x double> poison, <8 x i32> zeroinitializer
+  %891 = getelementptr double, ptr %886, i64 %818
+  %892 = load double, ptr %891, align 1, !tbaa !3
+  %893 = insertelement <2 x double> poison, double %892, i64 0
+  %894 = shufflevector <2 x double> %893, <2 x double> poison, <8 x i32> zeroinitializer
+  %895 = mul nsw i64 %.622782750, %7
+  %gep2745 = getelementptr double, ptr %invariant.gep2744, i64 %895
+  %896 = load <8 x double>, ptr %gep2745, align 1, !tbaa !3
+  %897 = getelementptr i8, ptr %gep2745, i64 64
+  %898 = load <8 x double>, ptr %897, align 1, !tbaa !3
+  %899 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %890, <8 x double> %896, <8 x double> %.023262746)
+  %900 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %894, <8 x double> %896, <8 x double> %.023252747)
+  %901 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %890, <8 x double> %898, <8 x double> %.023242748)
+  %902 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %894, <8 x double> %898, <8 x double> %.023232749)
+  %903 = add nuw nsw i64 %.622782750, 1
+  %exitcond2930.not = icmp eq i64 %903, %2
+  br i1 %exitcond2930.not, label %._crit_edge2752, label %.lr.ph2751, !llvm.loop !104
 
-._crit_edge2744:                                  ; preds = %.lr.ph2743, %.preheader2391
-  %.02326.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2391 ], [ %911, %.lr.ph2743 ]
-  %.02325.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2391 ], [ %912, %.lr.ph2743 ]
-  %.02324.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2391 ], [ %913, %.lr.ph2743 ]
-  %.02323.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2391 ], [ %914, %.lr.ph2743 ]
-  %916 = fmul <8 x double> %19, %.02326.lcssa
-  %917 = mul nsw i64 %.62749, %10
-  %918 = add nsw i64 %917, %.22765
-  %919 = getelementptr inbounds double, ptr %9, i64 %918
-  %920 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %919, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %921 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %920, <8 x double> %21, <8 x double> %916)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %919, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %921, i32 8)
-  %922 = fmul <8 x double> %19, %.02325.lcssa
-  %923 = or disjoint i64 %918, 1
-  %924 = getelementptr inbounds double, ptr %9, i64 %923
-  %925 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr nonnull %924, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %926 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %925, <8 x double> %21, <8 x double> %922)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %924, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %926, i32 8)
-  %927 = fmul <8 x double> %19, %.02324.lcssa
-  %928 = add nuw nsw i64 %.62749, 8
-  %929 = mul nsw i64 %928, %10
-  %930 = add nsw i64 %929, %.22765
-  %931 = getelementptr inbounds double, ptr %9, i64 %930
-  %932 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %931, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %933 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %932, <8 x double> %21, <8 x double> %927)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %931, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %933, i32 8)
-  %934 = fmul <8 x double> %19, %.02323.lcssa
-  %935 = or disjoint i64 %930, 1
-  %936 = getelementptr inbounds double, ptr %9, i64 %935
-  %937 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr nonnull %936, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %938 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %937, <8 x double> %21, <8 x double> %934)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %936, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %938, i32 8)
-  %939 = add nuw nsw i64 %.62749, 16
-  %940 = icmp slt i64 %939, %17
-  br i1 %940, label %.preheader2391, label %.preheader2393, !llvm.loop !105
+._crit_edge2752:                                  ; preds = %.lr.ph2751, %.preheader2391
+  %.02326.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2391 ], [ %899, %.lr.ph2751 ]
+  %.02325.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2391 ], [ %900, %.lr.ph2751 ]
+  %.02324.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2391 ], [ %901, %.lr.ph2751 ]
+  %.02323.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2391 ], [ %902, %.lr.ph2751 ]
+  %904 = fmul <8 x double> %19, %.02326.lcssa
+  %905 = mul nsw i64 %.62761, %10
+  %gep2758 = getelementptr double, ptr %invariant.gep2734, i64 %905
+  %906 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2758, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %907 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %906, <8 x double> %21, <8 x double> %904)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2758, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %907, i32 8)
+  %908 = fmul <8 x double> %19, %.02325.lcssa
+  %909 = getelementptr i8, ptr %gep2758, i64 8
+  %910 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %909, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %911 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %910, <8 x double> %21, <8 x double> %908)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %909, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %911, i32 8)
+  %912 = fmul <8 x double> %19, %.02324.lcssa
+  %913 = add nuw nsw i64 %.62761, 8
+  %914 = mul nsw i64 %913, %10
+  %gep2760 = getelementptr double, ptr %invariant.gep2734, i64 %914
+  %915 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2760, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %916 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %915, <8 x double> %21, <8 x double> %912)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2760, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %916, i32 8)
+  %917 = fmul <8 x double> %19, %.02323.lcssa
+  %918 = getelementptr i8, ptr %gep2760, i64 8
+  %919 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %918, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %920 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %919, <8 x double> %21, <8 x double> %917)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %918, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %920, i32 8)
+  %921 = add nuw nsw i64 %.62761, 16
+  %922 = icmp slt i64 %921, %17
+  br i1 %922, label %.preheader2391, label %.preheader2393, !llvm.loop !105
 
-941:                                              ; preds = %.lr.ph2763, %._crit_edge2758
-  %.72762 = phi i64 [ %.6.lcssa, %.lr.ph2763 ], [ %973, %._crit_edge2758 ]
-  %.023122761 = phi i8 [ -1, %.lr.ph2763 ], [ %.12313, %._crit_edge2758 ]
-  %942 = sub nsw i64 %1, %.72762
-  %943 = icmp slt i64 %942, 8
-  %944 = and i64 %942, 4294967295
-  %notmask2378 = shl nsw i64 -1, %944
-  %945 = trunc i64 %notmask2378 to i8
-  %946 = xor i8 %945, -1
-  %.12313 = select i1 %943, i8 %946, i8 %.023122761
-  %invariant.gep2751 = getelementptr double, ptr %6, i64 %.72762
-  %947 = bitcast i8 %.12313 to <8 x i1>
-  br i1 %805, label %.lr.ph2757, label %._crit_edge2758
+923:                                              ; preds = %.lr.ph2777, %._crit_edge2770
+  %.72776 = phi i64 [ %.6.lcssa, %.lr.ph2777 ], [ %952, %._crit_edge2770 ]
+  %.023122775 = phi i8 [ -1, %.lr.ph2777 ], [ %.12313, %._crit_edge2770 ]
+  %924 = sub nsw i64 %1, %.72776
+  %925 = icmp slt i64 %924, 8
+  %926 = and i64 %924, 4294967295
+  %notmask2378 = shl nsw i64 -1, %926
+  %927 = trunc i64 %notmask2378 to i8
+  %928 = xor i8 %927, -1
+  %.12313 = select i1 %925, i8 %928, i8 %.023122775
+  %invariant.gep2763 = getelementptr double, ptr %6, i64 %.72776
+  %929 = bitcast i8 %.12313 to <8 x i1>
+  br i1 %805, label %.lr.ph2769, label %._crit_edge2770
 
-.lr.ph2757:                                       ; preds = %941, %.lr.ph2757
-  %.722792755 = phi i64 [ %961, %.lr.ph2757 ], [ 0, %941 ]
-  %.023102754 = phi <8 x double> [ %960, %.lr.ph2757 ], [ zeroinitializer, %941 ]
-  %.023112753 = phi <8 x double> [ %959, %.lr.ph2757 ], [ zeroinitializer, %941 ]
-  %948 = getelementptr double, ptr %3, i64 %.722792755
-  %949 = getelementptr double, ptr %948, i64 %895
-  %950 = load double, ptr %949, align 1, !tbaa !3
-  %951 = insertelement <2 x double> poison, double %950, i64 0
-  %952 = shufflevector <2 x double> %951, <2 x double> poison, <8 x i32> zeroinitializer
-  %953 = getelementptr double, ptr %948, i64 %897
-  %954 = load double, ptr %953, align 1, !tbaa !3
-  %955 = insertelement <2 x double> poison, double %954, i64 0
-  %956 = shufflevector <2 x double> %955, <2 x double> poison, <8 x i32> zeroinitializer
-  %957 = mul nsw i64 %.722792755, %7
-  %gep2752 = getelementptr double, ptr %invariant.gep2751, i64 %957
-  %958 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %gep2752, i32 1, <8 x i1> %947, <8 x double> zeroinitializer)
-  %959 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %952, <8 x double> %958, <8 x double> %.023112753)
-  %960 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %956, <8 x double> %958, <8 x double> %.023102754)
-  %961 = add nuw nsw i64 %.722792755, 1
-  %exitcond2917.not = icmp eq i64 %961, %2
-  br i1 %exitcond2917.not, label %._crit_edge2758, label %.lr.ph2757, !llvm.loop !106
+.lr.ph2769:                                       ; preds = %923, %.lr.ph2769
+  %.722792767 = phi i64 [ %943, %.lr.ph2769 ], [ 0, %923 ]
+  %.023102766 = phi <8 x double> [ %942, %.lr.ph2769 ], [ zeroinitializer, %923 ]
+  %.023112765 = phi <8 x double> [ %941, %.lr.ph2769 ], [ zeroinitializer, %923 ]
+  %930 = getelementptr double, ptr %3, i64 %.722792767
+  %931 = getelementptr double, ptr %930, i64 %883
+  %932 = load double, ptr %931, align 1, !tbaa !3
+  %933 = insertelement <2 x double> poison, double %932, i64 0
+  %934 = shufflevector <2 x double> %933, <2 x double> poison, <8 x i32> zeroinitializer
+  %935 = getelementptr double, ptr %930, i64 %885
+  %936 = load double, ptr %935, align 1, !tbaa !3
+  %937 = insertelement <2 x double> poison, double %936, i64 0
+  %938 = shufflevector <2 x double> %937, <2 x double> poison, <8 x i32> zeroinitializer
+  %939 = mul nsw i64 %.722792767, %7
+  %gep2764 = getelementptr double, ptr %invariant.gep2763, i64 %939
+  %940 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %gep2764, i32 1, <8 x i1> %929, <8 x double> zeroinitializer)
+  %941 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %934, <8 x double> %940, <8 x double> %.023112765)
+  %942 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %938, <8 x double> %940, <8 x double> %.023102766)
+  %943 = add nuw nsw i64 %.722792767, 1
+  %exitcond2931.not = icmp eq i64 %943, %2
+  br i1 %exitcond2931.not, label %._crit_edge2770, label %.lr.ph2769, !llvm.loop !106
 
-._crit_edge2758:                                  ; preds = %.lr.ph2757, %941
-  %.02311.lcssa = phi <8 x double> [ zeroinitializer, %941 ], [ %959, %.lr.ph2757 ]
-  %.02310.lcssa = phi <8 x double> [ zeroinitializer, %941 ], [ %960, %.lr.ph2757 ]
-  %962 = fmul <8 x double> %19, %.02311.lcssa
-  %963 = mul nsw i64 %.72762, %10
-  %964 = add nsw i64 %963, %.22765
-  %965 = getelementptr inbounds double, ptr %9, i64 %964
-  %966 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %965, <8 x i64> %802, <8 x i1> %947, i32 8)
-  %967 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %966, <8 x double> %21, <8 x double> %962)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %965, <8 x i1> %947, <8 x i64> %802, <8 x double> %967, i32 8)
-  %968 = fmul <8 x double> %19, %.02310.lcssa
-  %969 = or disjoint i64 %964, 1
-  %970 = getelementptr inbounds double, ptr %9, i64 %969
-  %971 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr nonnull %970, <8 x i64> %802, <8 x i1> %947, i32 8)
-  %972 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %971, <8 x double> %21, <8 x double> %968)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %970, <8 x i1> %947, <8 x i64> %802, <8 x double> %972, i32 8)
-  %973 = add nuw nsw i64 %.72762, 8
-  %974 = icmp slt i64 %973, %1
-  br i1 %974, label %941, label %._crit_edge2764, !llvm.loop !107
+._crit_edge2770:                                  ; preds = %.lr.ph2769, %923
+  %.02311.lcssa = phi <8 x double> [ zeroinitializer, %923 ], [ %941, %.lr.ph2769 ]
+  %.02310.lcssa = phi <8 x double> [ zeroinitializer, %923 ], [ %942, %.lr.ph2769 ]
+  %944 = fmul <8 x double> %19, %.02311.lcssa
+  %945 = mul nsw i64 %.72776, %10
+  %gep2774 = getelementptr double, ptr %invariant.gep2734, i64 %945
+  %946 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2774, <8 x i64> %802, <8 x i1> %929, i32 8)
+  %947 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %946, <8 x double> %21, <8 x double> %944)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2774, <8 x i1> %929, <8 x i64> %802, <8 x double> %947, i32 8)
+  %948 = fmul <8 x double> %19, %.02310.lcssa
+  %949 = getelementptr i8, ptr %gep2774, i64 8
+  %950 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %949, <8 x i64> %802, <8 x i1> %929, i32 8)
+  %951 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %950, <8 x double> %21, <8 x double> %948)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %949, <8 x i1> %929, <8 x i64> %802, <8 x double> %951, i32 8)
+  %952 = add nuw nsw i64 %.72776, 8
+  %953 = icmp slt i64 %952, %1
+  br i1 %953, label %923, label %._crit_edge2778, !llvm.loop !107
 
-._crit_edge2764:                                  ; preds = %._crit_edge2758, %.preheader2393
-  %975 = add nuw nsw i64 %.22765, 2
-  %976 = icmp slt i64 %975, %15
-  br i1 %976, label %.preheader2395, label %.preheader2390, !llvm.loop !108
+._crit_edge2778:                                  ; preds = %._crit_edge2770, %.preheader2393
+  %954 = add nuw nsw i64 %.22779, 2
+  %955 = icmp slt i64 %954, %15
+  br i1 %955, label %.preheader2395, label %.preheader2390, !llvm.loop !108
 
-.preheader2389:                                   ; preds = %.preheader2389.lr.ph, %._crit_edge2824
-  %.32825 = phi i64 [ %.2.lcssa, %.preheader2389.lr.ph ], [ %1060, %._crit_edge2824 ]
-  %invariant.gep2782 = getelementptr double, ptr %9, i64 %.32825
+.preheader2389:                                   ; preds = %.preheader2389.lr.ph, %._crit_edge2838
+  %.32839 = phi i64 [ %.2.lcssa, %.preheader2389.lr.ph ], [ %1039, %._crit_edge2838 ]
+  %invariant.gep2796 = getelementptr double, ptr %9, i64 %.32839
   br i1 %813, label %.preheader2386.lr.ph, label %.preheader2388
 
 .preheader2386.lr.ph:                             ; preds = %.preheader2389
-  %977 = mul nsw i64 %.32825, %4
-  %invariant.gep2780 = getelementptr double, ptr %3, i64 %977
+  %956 = mul nsw i64 %.32839, %4
+  %invariant.gep2794 = getelementptr double, ptr %3, i64 %956
   br label %.preheader2386
 
-.preheader2388:                                   ; preds = %._crit_edge2775, %.preheader2389
-  %.8.lcssa = phi i64 [ 0, %.preheader2389 ], [ %1015, %._crit_edge2775 ]
-  %978 = icmp slt i64 %.8.lcssa, %17
-  br i1 %978, label %.preheader.lr.ph, label %.preheader2387
+.preheader2388:                                   ; preds = %._crit_edge2789, %.preheader2389
+  %.8.lcssa = phi i64 [ 0, %.preheader2389 ], [ %994, %._crit_edge2789 ]
+  %957 = icmp slt i64 %.8.lcssa, %17
+  br i1 %957, label %.preheader.lr.ph, label %.preheader2387
 
 .preheader.lr.ph:                                 ; preds = %.preheader2388
-  %979 = mul nsw i64 %.32825, %4
-  %invariant.gep2801 = getelementptr double, ptr %3, i64 %979
+  %958 = mul nsw i64 %.32839, %4
+  %invariant.gep2815 = getelementptr double, ptr %3, i64 %958
   br label %.preheader
 
-.preheader2386:                                   ; preds = %.preheader2386.lr.ph, %._crit_edge2775
-  %.82790 = phi i64 [ 0, %.preheader2386.lr.ph ], [ %1015, %._crit_edge2775 ]
-  %invariant.gep2767 = getelementptr double, ptr %6, i64 %.82790
-  br i1 %814, label %.lr.ph2774, label %._crit_edge2775
+.preheader2386:                                   ; preds = %.preheader2386.lr.ph, %._crit_edge2789
+  %.82804 = phi i64 [ 0, %.preheader2386.lr.ph ], [ %994, %._crit_edge2789 ]
+  %invariant.gep2781 = getelementptr double, ptr %6, i64 %.82804
+  br i1 %814, label %.lr.ph2788, label %._crit_edge2789
 
-.lr.ph2774:                                       ; preds = %.preheader2386, %.lr.ph2774
-  %.822802773 = phi i64 [ %995, %.lr.ph2774 ], [ 0, %.preheader2386 ]
-  %.023002772 = phi <8 x double> [ %994, %.lr.ph2774 ], [ zeroinitializer, %.preheader2386 ]
-  %.023012771 = phi <8 x double> [ %993, %.lr.ph2774 ], [ zeroinitializer, %.preheader2386 ]
-  %.023022770 = phi <8 x double> [ %992, %.lr.ph2774 ], [ zeroinitializer, %.preheader2386 ]
-  %.023032769 = phi <8 x double> [ %991, %.lr.ph2774 ], [ zeroinitializer, %.preheader2386 ]
-  %gep2781 = getelementptr double, ptr %invariant.gep2780, i64 %.822802773
-  %980 = load double, ptr %gep2781, align 1, !tbaa !3
-  %981 = insertelement <2 x double> poison, double %980, i64 0
-  %982 = shufflevector <2 x double> %981, <2 x double> poison, <8 x i32> zeroinitializer
-  %983 = mul nsw i64 %.822802773, %7
-  %gep2768 = getelementptr double, ptr %invariant.gep2767, i64 %983
-  %984 = load <8 x double>, ptr %gep2768, align 1, !tbaa !3
-  %985 = getelementptr i8, ptr %gep2768, i64 64
-  %986 = load <8 x double>, ptr %985, align 1, !tbaa !3
-  %987 = getelementptr i8, ptr %gep2768, i64 128
-  %988 = load <8 x double>, ptr %987, align 1, !tbaa !3
-  %989 = getelementptr i8, ptr %gep2768, i64 192
-  %990 = load <8 x double>, ptr %989, align 1, !tbaa !3
-  %991 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %982, <8 x double> %984, <8 x double> %.023032769)
-  %992 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %982, <8 x double> %986, <8 x double> %.023022770)
-  %993 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %982, <8 x double> %988, <8 x double> %.023012771)
-  %994 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %982, <8 x double> %990, <8 x double> %.023002772)
-  %995 = add nuw nsw i64 %.822802773, 1
-  %exitcond2918.not = icmp eq i64 %995, %2
-  br i1 %exitcond2918.not, label %._crit_edge2775, label %.lr.ph2774, !llvm.loop !109
+.lr.ph2788:                                       ; preds = %.preheader2386, %.lr.ph2788
+  %.822802787 = phi i64 [ %974, %.lr.ph2788 ], [ 0, %.preheader2386 ]
+  %.023002786 = phi <8 x double> [ %973, %.lr.ph2788 ], [ zeroinitializer, %.preheader2386 ]
+  %.023012785 = phi <8 x double> [ %972, %.lr.ph2788 ], [ zeroinitializer, %.preheader2386 ]
+  %.023022784 = phi <8 x double> [ %971, %.lr.ph2788 ], [ zeroinitializer, %.preheader2386 ]
+  %.023032783 = phi <8 x double> [ %970, %.lr.ph2788 ], [ zeroinitializer, %.preheader2386 ]
+  %gep2795 = getelementptr double, ptr %invariant.gep2794, i64 %.822802787
+  %959 = load double, ptr %gep2795, align 1, !tbaa !3
+  %960 = insertelement <2 x double> poison, double %959, i64 0
+  %961 = shufflevector <2 x double> %960, <2 x double> poison, <8 x i32> zeroinitializer
+  %962 = mul nsw i64 %.822802787, %7
+  %gep2782 = getelementptr double, ptr %invariant.gep2781, i64 %962
+  %963 = load <8 x double>, ptr %gep2782, align 1, !tbaa !3
+  %964 = getelementptr i8, ptr %gep2782, i64 64
+  %965 = load <8 x double>, ptr %964, align 1, !tbaa !3
+  %966 = getelementptr i8, ptr %gep2782, i64 128
+  %967 = load <8 x double>, ptr %966, align 1, !tbaa !3
+  %968 = getelementptr i8, ptr %gep2782, i64 192
+  %969 = load <8 x double>, ptr %968, align 1, !tbaa !3
+  %970 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %961, <8 x double> %963, <8 x double> %.023032783)
+  %971 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %961, <8 x double> %965, <8 x double> %.023022784)
+  %972 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %961, <8 x double> %967, <8 x double> %.023012785)
+  %973 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %961, <8 x double> %969, <8 x double> %.023002786)
+  %974 = add nuw nsw i64 %.822802787, 1
+  %exitcond2932.not = icmp eq i64 %974, %2
+  br i1 %exitcond2932.not, label %._crit_edge2789, label %.lr.ph2788, !llvm.loop !109
 
-._crit_edge2775:                                  ; preds = %.lr.ph2774, %.preheader2386
-  %.02303.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2386 ], [ %991, %.lr.ph2774 ]
-  %.02302.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2386 ], [ %992, %.lr.ph2774 ]
-  %.02301.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2386 ], [ %993, %.lr.ph2774 ]
-  %.02300.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2386 ], [ %994, %.lr.ph2774 ]
-  %996 = fmul <8 x double> %19, %.02303.lcssa
-  %997 = mul nsw i64 %.82790, %10
-  %gep2783 = getelementptr double, ptr %invariant.gep2782, i64 %997
-  %998 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2783, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %999 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %998, <8 x double> %21, <8 x double> %996)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2783, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %999, i32 8)
-  %1000 = fmul <8 x double> %19, %.02302.lcssa
-  %1001 = or disjoint i64 %.82790, 8
-  %1002 = mul nsw i64 %1001, %10
-  %gep2785 = getelementptr double, ptr %invariant.gep2782, i64 %1002
-  %1003 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2785, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %1004 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1003, <8 x double> %21, <8 x double> %1000)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2785, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %1004, i32 8)
-  %1005 = fmul <8 x double> %19, %.02301.lcssa
-  %1006 = or disjoint i64 %.82790, 16
-  %1007 = mul nsw i64 %1006, %10
-  %gep2787 = getelementptr double, ptr %invariant.gep2782, i64 %1007
-  %1008 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2787, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %1009 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1008, <8 x double> %21, <8 x double> %1005)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2787, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %1009, i32 8)
-  %1010 = fmul <8 x double> %19, %.02300.lcssa
-  %1011 = or disjoint i64 %.82790, 24
-  %1012 = mul nsw i64 %1011, %10
-  %gep2789 = getelementptr double, ptr %invariant.gep2782, i64 %1012
-  %1013 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2789, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %1014 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1013, <8 x double> %21, <8 x double> %1010)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2789, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %1014, i32 8)
-  %1015 = add nuw nsw i64 %.82790, 32
-  %1016 = icmp slt i64 %1015, %16
-  br i1 %1016, label %.preheader2386, label %.preheader2388, !llvm.loop !110
+._crit_edge2789:                                  ; preds = %.lr.ph2788, %.preheader2386
+  %.02303.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2386 ], [ %970, %.lr.ph2788 ]
+  %.02302.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2386 ], [ %971, %.lr.ph2788 ]
+  %.02301.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2386 ], [ %972, %.lr.ph2788 ]
+  %.02300.lcssa = phi <8 x double> [ zeroinitializer, %.preheader2386 ], [ %973, %.lr.ph2788 ]
+  %975 = fmul <8 x double> %19, %.02303.lcssa
+  %976 = mul nsw i64 %.82804, %10
+  %gep2797 = getelementptr double, ptr %invariant.gep2796, i64 %976
+  %977 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2797, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %978 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %977, <8 x double> %21, <8 x double> %975)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2797, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %978, i32 8)
+  %979 = fmul <8 x double> %19, %.02302.lcssa
+  %980 = or disjoint i64 %.82804, 8
+  %981 = mul nsw i64 %980, %10
+  %gep2799 = getelementptr double, ptr %invariant.gep2796, i64 %981
+  %982 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2799, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %983 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %982, <8 x double> %21, <8 x double> %979)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2799, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %983, i32 8)
+  %984 = fmul <8 x double> %19, %.02301.lcssa
+  %985 = or disjoint i64 %.82804, 16
+  %986 = mul nsw i64 %985, %10
+  %gep2801 = getelementptr double, ptr %invariant.gep2796, i64 %986
+  %987 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2801, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %988 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %987, <8 x double> %21, <8 x double> %984)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2801, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %988, i32 8)
+  %989 = fmul <8 x double> %19, %.02300.lcssa
+  %990 = or disjoint i64 %.82804, 24
+  %991 = mul nsw i64 %990, %10
+  %gep2803 = getelementptr double, ptr %invariant.gep2796, i64 %991
+  %992 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2803, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %993 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %992, <8 x double> %21, <8 x double> %989)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2803, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %993, i32 8)
+  %994 = add nuw nsw i64 %.82804, 32
+  %995 = icmp slt i64 %994, %16
+  br i1 %995, label %.preheader2386, label %.preheader2388, !llvm.loop !110
 
-.preheader2387:                                   ; preds = %._crit_edge2798, %.preheader2388
-  %.9.lcssa = phi i64 [ %.8.lcssa, %.preheader2388 ], [ %1038, %._crit_edge2798 ]
-  %1017 = icmp slt i64 %.9.lcssa, %1
-  br i1 %1017, label %.lr.ph2823, label %._crit_edge2824
+.preheader2387:                                   ; preds = %._crit_edge2812, %.preheader2388
+  %.9.lcssa = phi i64 [ %.8.lcssa, %.preheader2388 ], [ %1017, %._crit_edge2812 ]
+  %996 = icmp slt i64 %.9.lcssa, %1
+  br i1 %996, label %.lr.ph2837, label %._crit_edge2838
 
-.lr.ph2823:                                       ; preds = %.preheader2387
-  %1018 = mul nsw i64 %.32825, %4
-  %invariant.gep2817 = getelementptr double, ptr %3, i64 %1018
+.lr.ph2837:                                       ; preds = %.preheader2387
+  %997 = mul nsw i64 %.32839, %4
+  %invariant.gep2831 = getelementptr double, ptr %3, i64 %997
+  br label %1019
+
+.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge2812
+  %.92821 = phi i64 [ %.8.lcssa, %.preheader.lr.ph ], [ %1017, %._crit_edge2812 ]
+  %invariant.gep2806 = getelementptr double, ptr %6, i64 %.92821
+  br i1 %814, label %.lr.ph2811, label %._crit_edge2812
+
+.lr.ph2811:                                       ; preds = %.preheader, %.lr.ph2811
+  %.922812810 = phi i64 [ %1007, %.lr.ph2811 ], [ 0, %.preheader ]
+  %.022892809 = phi <8 x double> [ %1006, %.lr.ph2811 ], [ zeroinitializer, %.preheader ]
+  %.022902808 = phi <8 x double> [ %1005, %.lr.ph2811 ], [ zeroinitializer, %.preheader ]
+  %gep2816 = getelementptr double, ptr %invariant.gep2815, i64 %.922812810
+  %998 = load double, ptr %gep2816, align 1, !tbaa !3
+  %999 = insertelement <2 x double> poison, double %998, i64 0
+  %1000 = shufflevector <2 x double> %999, <2 x double> poison, <8 x i32> zeroinitializer
+  %1001 = mul nsw i64 %.922812810, %7
+  %gep2807 = getelementptr double, ptr %invariant.gep2806, i64 %1001
+  %1002 = load <8 x double>, ptr %gep2807, align 1, !tbaa !3
+  %1003 = getelementptr i8, ptr %gep2807, i64 64
+  %1004 = load <8 x double>, ptr %1003, align 1, !tbaa !3
+  %1005 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1000, <8 x double> %1002, <8 x double> %.022902808)
+  %1006 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1000, <8 x double> %1004, <8 x double> %.022892809)
+  %1007 = add nuw nsw i64 %.922812810, 1
+  %exitcond2933.not = icmp eq i64 %1007, %2
+  br i1 %exitcond2933.not, label %._crit_edge2812, label %.lr.ph2811, !llvm.loop !111
+
+._crit_edge2812:                                  ; preds = %.lr.ph2811, %.preheader
+  %.02290.lcssa = phi <8 x double> [ zeroinitializer, %.preheader ], [ %1005, %.lr.ph2811 ]
+  %.02289.lcssa = phi <8 x double> [ zeroinitializer, %.preheader ], [ %1006, %.lr.ph2811 ]
+  %1008 = fmul <8 x double> %19, %.02290.lcssa
+  %1009 = mul nsw i64 %.92821, %10
+  %gep2818 = getelementptr double, ptr %invariant.gep2796, i64 %1009
+  %1010 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2818, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %1011 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1010, <8 x double> %21, <8 x double> %1008)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2818, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %1011, i32 8)
+  %1012 = fmul <8 x double> %19, %.02289.lcssa
+  %1013 = add nuw nsw i64 %.92821, 8
+  %1014 = mul nsw i64 %1013, %10
+  %gep2820 = getelementptr double, ptr %invariant.gep2796, i64 %1014
+  %1015 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2820, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
+  %1016 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1015, <8 x double> %21, <8 x double> %1012)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2820, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %1016, i32 8)
+  %1017 = add nuw nsw i64 %.92821, 16
+  %1018 = icmp slt i64 %1017, %17
+  br i1 %1018, label %.preheader, label %.preheader2387, !llvm.loop !112
+
+1019:                                             ; preds = %.lr.ph2837, %._crit_edge2829
+  %.102836 = phi i64 [ %.9.lcssa, %.lr.ph2837 ], [ %1037, %._crit_edge2829 ]
+  %.022842835 = phi i8 [ -1, %.lr.ph2837 ], [ %.12285, %._crit_edge2829 ]
+  %1020 = sub nsw i64 %1, %.102836
+  %1021 = icmp slt i64 %1020, 8
+  %1022 = and i64 %1020, 4294967295
+  %notmask = shl nsw i64 -1, %1022
+  %1023 = trunc i64 %notmask to i8
+  %1024 = xor i8 %1023, -1
+  %.12285 = select i1 %1021, i8 %1024, i8 %.022842835
+  %invariant.gep2823 = getelementptr double, ptr %6, i64 %.102836
+  %1025 = bitcast i8 %.12285 to <8 x i1>
+  br i1 %814, label %.lr.ph2828, label %._crit_edge2829
+
+.lr.ph2828:                                       ; preds = %1019, %.lr.ph2828
+  %.1022822826 = phi i64 [ %1032, %.lr.ph2828 ], [ 0, %1019 ]
+  %.022832825 = phi <8 x double> [ %1031, %.lr.ph2828 ], [ zeroinitializer, %1019 ]
+  %gep2832 = getelementptr double, ptr %invariant.gep2831, i64 %.1022822826
+  %1026 = load double, ptr %gep2832, align 1, !tbaa !3
+  %1027 = insertelement <2 x double> poison, double %1026, i64 0
+  %1028 = shufflevector <2 x double> %1027, <2 x double> poison, <8 x i32> zeroinitializer
+  %1029 = mul nsw i64 %.1022822826, %7
+  %gep2824 = getelementptr double, ptr %invariant.gep2823, i64 %1029
+  %1030 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %gep2824, i32 1, <8 x i1> %1025, <8 x double> zeroinitializer)
+  %1031 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1028, <8 x double> %1030, <8 x double> %.022832825)
+  %1032 = add nuw nsw i64 %.1022822826, 1
+  %exitcond2934.not = icmp eq i64 %1032, %2
+  br i1 %exitcond2934.not, label %._crit_edge2829, label %.lr.ph2828, !llvm.loop !113
+
+._crit_edge2829:                                  ; preds = %.lr.ph2828, %1019
+  %.02283.lcssa = phi <8 x double> [ zeroinitializer, %1019 ], [ %1031, %.lr.ph2828 ]
+  %1033 = fmul <8 x double> %19, %.02283.lcssa
+  %1034 = mul nsw i64 %.102836, %10
+  %gep2834 = getelementptr double, ptr %invariant.gep2796, i64 %1034
+  %1035 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2834, <8 x i64> %802, <8 x i1> %1025, i32 8)
+  %1036 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1035, <8 x double> %21, <8 x double> %1033)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2834, <8 x i1> %1025, <8 x i64> %802, <8 x double> %1036, i32 8)
+  %1037 = add nuw nsw i64 %.102836, 8
+  %1038 = icmp slt i64 %1037, %1
+  br i1 %1038, label %1019, label %._crit_edge2838, !llvm.loop !114
+
+._crit_edge2838:                                  ; preds = %._crit_edge2829, %.preheader2387
+  %1039 = add i64 %.32839, 1
+  %exitcond2935.not = icmp eq i64 %1039, %0
+  br i1 %exitcond2935.not, label %._crit_edge2840, label %.preheader2389, !llvm.loop !115
+
+._crit_edge2840:                                  ; preds = %._crit_edge2838, %.preheader2390
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #3
   br label %1040
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge2798
-  %.92807 = phi i64 [ %.8.lcssa, %.preheader.lr.ph ], [ %1038, %._crit_edge2798 ]
-  %invariant.gep2792 = getelementptr double, ptr %6, i64 %.92807
-  br i1 %814, label %.lr.ph2797, label %._crit_edge2798
-
-.lr.ph2797:                                       ; preds = %.preheader, %.lr.ph2797
-  %.922812796 = phi i64 [ %1028, %.lr.ph2797 ], [ 0, %.preheader ]
-  %.022892795 = phi <8 x double> [ %1027, %.lr.ph2797 ], [ zeroinitializer, %.preheader ]
-  %.022902794 = phi <8 x double> [ %1026, %.lr.ph2797 ], [ zeroinitializer, %.preheader ]
-  %gep2802 = getelementptr double, ptr %invariant.gep2801, i64 %.922812796
-  %1019 = load double, ptr %gep2802, align 1, !tbaa !3
-  %1020 = insertelement <2 x double> poison, double %1019, i64 0
-  %1021 = shufflevector <2 x double> %1020, <2 x double> poison, <8 x i32> zeroinitializer
-  %1022 = mul nsw i64 %.922812796, %7
-  %gep2793 = getelementptr double, ptr %invariant.gep2792, i64 %1022
-  %1023 = load <8 x double>, ptr %gep2793, align 1, !tbaa !3
-  %1024 = getelementptr i8, ptr %gep2793, i64 64
-  %1025 = load <8 x double>, ptr %1024, align 1, !tbaa !3
-  %1026 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1021, <8 x double> %1023, <8 x double> %.022902794)
-  %1027 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1021, <8 x double> %1025, <8 x double> %.022892795)
-  %1028 = add nuw nsw i64 %.922812796, 1
-  %exitcond2919.not = icmp eq i64 %1028, %2
-  br i1 %exitcond2919.not, label %._crit_edge2798, label %.lr.ph2797, !llvm.loop !111
-
-._crit_edge2798:                                  ; preds = %.lr.ph2797, %.preheader
-  %.02290.lcssa = phi <8 x double> [ zeroinitializer, %.preheader ], [ %1026, %.lr.ph2797 ]
-  %.02289.lcssa = phi <8 x double> [ zeroinitializer, %.preheader ], [ %1027, %.lr.ph2797 ]
-  %1029 = fmul <8 x double> %19, %.02290.lcssa
-  %1030 = mul nsw i64 %.92807, %10
-  %gep2804 = getelementptr double, ptr %invariant.gep2782, i64 %1030
-  %1031 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2804, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %1032 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1031, <8 x double> %21, <8 x double> %1029)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2804, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %1032, i32 8)
-  %1033 = fmul <8 x double> %19, %.02289.lcssa
-  %1034 = add nuw nsw i64 %.92807, 8
-  %1035 = mul nsw i64 %1034, %10
-  %gep2806 = getelementptr double, ptr %invariant.gep2782, i64 %1035
-  %1036 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2806, <8 x i64> %802, <8 x i1> splat (i1 true), i32 8)
-  %1037 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1036, <8 x double> %21, <8 x double> %1033)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2806, <8 x i1> splat (i1 true), <8 x i64> %802, <8 x double> %1037, i32 8)
-  %1038 = add nuw nsw i64 %.92807, 16
-  %1039 = icmp slt i64 %1038, %17
-  br i1 %1039, label %.preheader, label %.preheader2387, !llvm.loop !112
-
-1040:                                             ; preds = %.lr.ph2823, %._crit_edge2815
-  %.102822 = phi i64 [ %.9.lcssa, %.lr.ph2823 ], [ %1058, %._crit_edge2815 ]
-  %.022842821 = phi i8 [ -1, %.lr.ph2823 ], [ %.12285, %._crit_edge2815 ]
-  %1041 = sub nsw i64 %1, %.102822
-  %1042 = icmp slt i64 %1041, 8
-  %1043 = and i64 %1041, 4294967295
-  %notmask = shl nsw i64 -1, %1043
-  %1044 = trunc i64 %notmask to i8
-  %1045 = xor i8 %1044, -1
-  %.12285 = select i1 %1042, i8 %1045, i8 %.022842821
-  %invariant.gep2809 = getelementptr double, ptr %6, i64 %.102822
-  %1046 = bitcast i8 %.12285 to <8 x i1>
-  br i1 %814, label %.lr.ph2814, label %._crit_edge2815
-
-.lr.ph2814:                                       ; preds = %1040, %.lr.ph2814
-  %.1022822812 = phi i64 [ %1053, %.lr.ph2814 ], [ 0, %1040 ]
-  %.022832811 = phi <8 x double> [ %1052, %.lr.ph2814 ], [ zeroinitializer, %1040 ]
-  %gep2818 = getelementptr double, ptr %invariant.gep2817, i64 %.1022822812
-  %1047 = load double, ptr %gep2818, align 1, !tbaa !3
-  %1048 = insertelement <2 x double> poison, double %1047, i64 0
-  %1049 = shufflevector <2 x double> %1048, <2 x double> poison, <8 x i32> zeroinitializer
-  %1050 = mul nsw i64 %.1022822812, %7
-  %gep2810 = getelementptr double, ptr %invariant.gep2809, i64 %1050
-  %1051 = tail call <8 x double> @llvm.masked.load.v8f64.p0(ptr %gep2810, i32 1, <8 x i1> %1046, <8 x double> zeroinitializer)
-  %1052 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1049, <8 x double> %1051, <8 x double> %.022832811)
-  %1053 = add nuw nsw i64 %.1022822812, 1
-  %exitcond2920.not = icmp eq i64 %1053, %2
-  br i1 %exitcond2920.not, label %._crit_edge2815, label %.lr.ph2814, !llvm.loop !113
-
-._crit_edge2815:                                  ; preds = %.lr.ph2814, %1040
-  %.02283.lcssa = phi <8 x double> [ zeroinitializer, %1040 ], [ %1052, %.lr.ph2814 ]
-  %1054 = fmul <8 x double> %19, %.02283.lcssa
-  %1055 = mul nsw i64 %.102822, %10
-  %gep2820 = getelementptr double, ptr %invariant.gep2782, i64 %1055
-  %1056 = tail call <8 x double> @llvm.x86.avx512.mask.gather.qpd.512(<8 x double> zeroinitializer, ptr %gep2820, <8 x i64> %802, <8 x i1> %1046, i32 8)
-  %1057 = tail call <8 x double> @llvm.fma.v8f64(<8 x double> %1056, <8 x double> %21, <8 x double> %1054)
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %gep2820, <8 x i1> %1046, <8 x i64> %802, <8 x double> %1057, i32 8)
-  %1058 = add nuw nsw i64 %.102822, 8
-  %1059 = icmp slt i64 %1058, %1
-  br i1 %1059, label %1040, label %._crit_edge2824, !llvm.loop !114
-
-._crit_edge2824:                                  ; preds = %._crit_edge2815, %.preheader2387
-  %1060 = add i64 %.32825, 1
-  %exitcond2921.not = icmp eq i64 %1060, %0
-  br i1 %exitcond2921.not, label %._crit_edge2826, label %.preheader2389, !llvm.loop !115
-
-._crit_edge2826:                                  ; preds = %._crit_edge2824, %.preheader2390
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %12) #3
-  br label %1061
-
-1061:                                             ; preds = %._crit_edge2826, %._crit_edge2710
+1040:                                             ; preds = %._crit_edge2840, %._crit_edge2710
   ret i32 0
 }
 

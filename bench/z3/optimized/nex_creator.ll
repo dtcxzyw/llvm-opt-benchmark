@@ -9593,15 +9593,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN3nla7nex_powElN9__gnu_cxx
   br i1 %15, label %.lr.ph, label %"_ZSt14__partial_sortIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_T0_.exit"
 
 .lr.ph:                                           ; preds = %4
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr i8, ptr %0, i64 16
   br label %17
 
 17:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEET_SC_SC_T0_.exit"
-  %18 = phi i64 [ %14, %.lr.ph ], [ %115, %"_ZSt27__unguarded_partition_pivotIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEET_SC_SC_T0_.exit" ]
+  %18 = phi i64 [ %14, %.lr.ph ], [ %113, %"_ZSt27__unguarded_partition_pivotIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEET_SC_SC_T0_.exit" ]
   %.023 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %"_ZSt27__unguarded_partition_pivotIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEET_SC_SC_T0_.exit" ]
-  %.01522 = phi i64 [ %2, %.lr.ph ], [ %88, %"_ZSt27__unguarded_partition_pivotIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEET_SC_SC_T0_.exit" ]
+  %.01522 = phi i64 [ %2, %.lr.ph ], [ %86, %"_ZSt27__unguarded_partition_pivotIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEET_SC_SC_T0_.exit" ]
   %19 = icmp eq i64 %.01522, 0
-  br i1 %19, label %20, label %87
+  br i1 %19, label %20, label %85
 
 20:                                               ; preds = %17
   %21 = lshr i64 %18, 4
@@ -9617,7 +9617,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN3nla7nex_powElN9__gnu_cxx
   br label %31
 
 31:                                               ; preds = %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i", %20
-  %.015.i.i.i = phi i64 [ %23, %20 ], [ %53, %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
+  %.015.i.i.i = phi i64 [ %23, %20 ], [ %52, %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
   %32 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %.015.i.i.i
   %.sroa.02.0.copyload.i.i.i = load ptr, ptr %32, align 8, !tbaa !21
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -9630,181 +9630,181 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN3nla7nex_powElN9__gnu_cxx
   %34 = shl i64 %.035.i.i.i.i, 1
   %35 = add i64 %34, 2
   %36 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %35
-  %37 = or disjoint i64 %34, 1
-  %38 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %37
+  %gep.i.i.i.i = getelementptr %"class.nla::nex_pow", ptr %16, i64 %34
   %.val30.i.i.i.i = load ptr, ptr %36, align 8, !tbaa !35
-  %.val31.i.i.i.i = load ptr, ptr %38, align 8, !tbaa !35
-  %39 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val30.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val31.i.i.i.i)
-  %spec.select.i.i.i.i = select i1 %39, i64 %37, i64 %35
-  %40 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %spec.select.i.i.i.i
-  %41 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %.035.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %41, ptr noundef nonnull align 8 dereferenceable(12) %40, i64 12, i1 false), !tbaa.struct !29
-  %42 = icmp slt i64 %spec.select.i.i.i.i, %25
-  br i1 %42, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !160
+  %.val31.i.i.i.i = load ptr, ptr %gep.i.i.i.i, align 8, !tbaa !35
+  %37 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val30.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val31.i.i.i.i)
+  %38 = or disjoint i64 %34, 1
+  %spec.select.i.i.i.i = select i1 %37, i64 %38, i64 %35
+  %39 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %spec.select.i.i.i.i
+  %40 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %.035.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %40, ptr noundef nonnull align 8 dereferenceable(12) %39, i64 12, i1 false), !tbaa.struct !29
+  %41 = icmp slt i64 %spec.select.i.i.i.i, %25
+  br i1 %41, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !160
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %31
   %.0.lcssa.i.i.i.i = phi i64 [ %.015.i.i.i, %31 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %43 = icmp eq i64 %.0.lcssa.i.i.i.i, %23
-  %or.cond.i.i.i = select i1 %27, i1 %43, i1 false
-  br i1 %or.cond.i.i.i, label %44, label %45
+  %42 = icmp eq i64 %.0.lcssa.i.i.i.i, %23
+  %or.cond.i.i.i = select i1 %27, i1 %42, i1 false
+  br i1 %or.cond.i.i.i, label %43, label %44
 
-44:                                               ; preds = %._crit_edge.i.i.i.i
+43:                                               ; preds = %._crit_edge.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(12) %29, i64 12, i1 false), !tbaa.struct !29
-  br label %45
+  br label %44
 
-45:                                               ; preds = %44, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %28, %44 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %46 = icmp samesign ugt i64 %.1.i.i.i.i, %.015.i.i.i
-  br i1 %46, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i"
+44:                                               ; preds = %43, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi i64 [ %28, %43 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %45 = icmp samesign ugt i64 %.1.i.i.i.i, %.015.i.i.i
+  br i1 %45, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %45, %49
-  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %49 ], [ %.1.i.i.i.i, %45 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %44, %48
+  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %48 ], [ %.1.i.i.i.i, %44 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %47 = getelementptr inbounds %"class.nla::nex_pow", ptr %0, i64 %.04.i.i.i.i.i
-  %.val14.i.i.i.i.i = load ptr, ptr %47, align 8, !tbaa !35
-  %48 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val14.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.02.0.copyload.i.i.i)
-  br i1 %48, label %49, label %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i"
+  %46 = getelementptr inbounds %"class.nla::nex_pow", ptr %0, i64 %.04.i.i.i.i.i
+  %.val14.i.i.i.i.i = load ptr, ptr %46, align 8, !tbaa !35
+  %47 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val14.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.02.0.copyload.i.i.i)
+  br i1 %47, label %48, label %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i"
 
-49:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %50 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %.0133.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %50, ptr noundef nonnull align 8 dereferenceable(12) %47, i64 12, i1 false), !tbaa.struct !29
-  %51 = icmp sgt i64 %.04.i.i.i.i.i, %.015.i.i.i
-  br i1 %51, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i", !llvm.loop !161
+48:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %49 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %.0133.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %49, ptr noundef nonnull align 8 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !29
+  %50 = icmp sgt i64 %.04.i.i.i.i.i, %.015.i.i.i
+  br i1 %50, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i", !llvm.loop !161
 
-"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i": ; preds = %49, %.lr.ph.i.i.i.i.i, %45
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %45 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %49 ]
-  %52 = getelementptr inbounds %"class.nla::nex_pow", ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store ptr %.sroa.02.0.copyload.i.i.i, ptr %52, align 8, !tbaa !21
-  %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %52, i64 8
+"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i": ; preds = %48, %.lr.ph.i.i.i.i.i, %44
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %44 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %48 ]
+  %51 = getelementptr inbounds %"class.nla::nex_pow", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store ptr %.sroa.02.0.copyload.i.i.i, ptr %51, align 8, !tbaa !21
+  %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i32 %.sroa.4.0.copyload.i.i.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !20
   %.not.i.i.i = icmp eq i64 %.015.i.i.i, 0
-  %53 = add nsw i64 %.015.i.i.i, -1
+  %52 = add nsw i64 %.015.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i5.i, label %31, !llvm.loop !162
 
-.lr.ph.i5.i:                                      ; preds = %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i19.i"
-  %.01.i.i = phi ptr [ %54, %"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i19.i" ], [ %.023, %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
-  %54 = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
-  %.sroa.02.0.copyload.i.i6.i = load ptr, ptr %54, align 8, !tbaa !21
-  %.sroa.4.0..sroa_idx.i.i7.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
-  %.sroa.4.0.copyload.i.i8.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i7.i, align 8, !tbaa !20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %54, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !29
-  %55 = ptrtoint ptr %54 to i64
-  %56 = sub i64 %55, %12
-  %57 = ashr exact i64 %56, 4
-  %58 = add nsw i64 %57, -1
-  %59 = sdiv i64 %58, 2
-  %60 = icmp sgt i64 %57, 2
-  br i1 %60, label %.lr.ph.i.i.i24.i, label %._crit_edge.i.i.i9.i
+.lr.ph.i5.i:                                      ; preds = %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i20.i"
+  %.01.i.i = phi ptr [ %53, %"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i20.i" ], [ %.023, %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
+  %53 = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
+  %.sroa.02.0.copyload.i.i7.i = load ptr, ptr %53, align 8, !tbaa !21
+  %.sroa.4.0..sroa_idx.i.i8.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
+  %.sroa.4.0.copyload.i.i9.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i8.i, align 8, !tbaa !20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %53, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false), !tbaa.struct !29
+  %54 = ptrtoint ptr %53 to i64
+  %55 = sub i64 %54, %12
+  %56 = ashr exact i64 %55, 4
+  %57 = add nsw i64 %56, -1
+  %58 = sdiv i64 %57, 2
+  %59 = icmp sgt i64 %56, 2
+  br i1 %59, label %.lr.ph.i.i.i25.i, label %._crit_edge.i.i.i10.i
 
-.lr.ph.i.i.i24.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i24.i
-  %.035.i.i.i25.i = phi i64 [ %spec.select.i.i.i28.i, %.lr.ph.i.i.i24.i ], [ 0, %.lr.ph.i5.i ]
-  %61 = shl i64 %.035.i.i.i25.i, 1
-  %62 = add i64 %61, 2
-  %63 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %62
-  %64 = or disjoint i64 %61, 1
-  %65 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %64
-  %.val30.i.i.i26.i = load ptr, ptr %63, align 8, !tbaa !35
-  %.val31.i.i.i27.i = load ptr, ptr %65, align 8, !tbaa !35
-  %66 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val30.i.i.i26.i, ptr noundef nonnull align 8 dereferenceable(8) %.val31.i.i.i27.i)
-  %spec.select.i.i.i28.i = select i1 %66, i64 %64, i64 %62
-  %67 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %spec.select.i.i.i28.i
-  %68 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %.035.i.i.i25.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %68, ptr noundef nonnull align 8 dereferenceable(12) %67, i64 12, i1 false), !tbaa.struct !29
-  %69 = icmp slt i64 %spec.select.i.i.i28.i, %59
-  br i1 %69, label %.lr.ph.i.i.i24.i, label %._crit_edge.i.i.i9.i, !llvm.loop !160
+.lr.ph.i.i.i25.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i25.i
+  %.035.i.i.i26.i = phi i64 [ %spec.select.i.i.i30.i, %.lr.ph.i.i.i25.i ], [ 0, %.lr.ph.i5.i ]
+  %60 = shl i64 %.035.i.i.i26.i, 1
+  %61 = add i64 %60, 2
+  %62 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %61
+  %gep.i.i.i27.i = getelementptr %"class.nla::nex_pow", ptr %16, i64 %60
+  %.val30.i.i.i28.i = load ptr, ptr %62, align 8, !tbaa !35
+  %.val31.i.i.i29.i = load ptr, ptr %gep.i.i.i27.i, align 8, !tbaa !35
+  %63 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val30.i.i.i28.i, ptr noundef nonnull align 8 dereferenceable(8) %.val31.i.i.i29.i)
+  %64 = or disjoint i64 %60, 1
+  %spec.select.i.i.i30.i = select i1 %63, i64 %64, i64 %61
+  %65 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %spec.select.i.i.i30.i
+  %66 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %.035.i.i.i26.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %66, ptr noundef nonnull align 8 dereferenceable(12) %65, i64 12, i1 false), !tbaa.struct !29
+  %67 = icmp slt i64 %spec.select.i.i.i30.i, %58
+  br i1 %67, label %.lr.ph.i.i.i25.i, label %._crit_edge.i.i.i10.i, !llvm.loop !160
 
-._crit_edge.i.i.i9.i:                             ; preds = %.lr.ph.i.i.i24.i, %.lr.ph.i5.i
-  %.0.lcssa.i.i.i10.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i28.i, %.lr.ph.i.i.i24.i ]
-  %70 = and i64 %56, 16
-  %71 = icmp eq i64 %70, 0
-  br i1 %71, label %72, label %80
+._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i25.i, %.lr.ph.i5.i
+  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i30.i, %.lr.ph.i.i.i25.i ]
+  %68 = and i64 %55, 16
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %70, label %78
 
-72:                                               ; preds = %._crit_edge.i.i.i9.i
-  %73 = add nsw i64 %57, -2
-  %74 = ashr exact i64 %73, 1
-  %75 = icmp eq i64 %.0.lcssa.i.i.i10.i, %74
-  br i1 %75, label %.thread.i.i23.i, label %80
+70:                                               ; preds = %._crit_edge.i.i.i10.i
+  %71 = add nsw i64 %56, -2
+  %72 = ashr exact i64 %71, 1
+  %73 = icmp eq i64 %.0.lcssa.i.i.i11.i, %72
+  br i1 %73, label %.thread.i.i24.i, label %78
 
-.thread.i.i23.i:                                  ; preds = %72
-  %76 = shl nuw nsw i64 %.0.lcssa.i.i.i10.i, 1
-  %77 = or disjoint i64 %76, 1
-  %78 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %77
-  %79 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %.0.lcssa.i.i.i10.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %79, ptr noundef nonnull align 8 dereferenceable(12) %78, i64 12, i1 false), !tbaa.struct !29
-  br label %.lr.ph.i.i.i.i14.i.preheader
+.thread.i.i24.i:                                  ; preds = %70
+  %74 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
+  %75 = or disjoint i64 %74, 1
+  %76 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %75
+  %77 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %.0.lcssa.i.i.i11.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %77, ptr noundef nonnull align 8 dereferenceable(12) %76, i64 12, i1 false), !tbaa.struct !29
+  br label %.lr.ph.i.i.i.i15.i.preheader
 
-80:                                               ; preds = %72, %._crit_edge.i.i.i9.i
-  %.not.i.i11.i = icmp eq i64 %.0.lcssa.i.i.i10.i, 0
-  br i1 %.not.i.i11.i, label %"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i19.i", label %.lr.ph.i.i.i.i14.i.preheader
+78:                                               ; preds = %70, %._crit_edge.i.i.i10.i
+  %.not.i.i12.i = icmp eq i64 %.0.lcssa.i.i.i11.i, 0
+  br i1 %.not.i.i12.i, label %"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i20.i", label %.lr.ph.i.i.i.i15.i.preheader
 
-.lr.ph.i.i.i.i14.i.preheader:                     ; preds = %80, %.thread.i.i23.i
-  %.0133.i.i.i.i15.i.ph = phi i64 [ %.0.lcssa.i.i.i10.i, %80 ], [ %77, %.thread.i.i23.i ]
-  br label %.lr.ph.i.i.i.i14.i
+.lr.ph.i.i.i.i15.i.preheader:                     ; preds = %78, %.thread.i.i24.i
+  %.0133.i.i.i.i16.i.ph = phi i64 [ %.0.lcssa.i.i.i11.i, %78 ], [ %75, %.thread.i.i24.i ]
+  br label %.lr.ph.i.i.i.i15.i
 
-.lr.ph.i.i.i.i14.i:                               ; preds = %.lr.ph.i.i.i.i14.i.preheader, %83
-  %.0133.i.i.i.i15.i = phi i64 [ %.04.i.i910.i.i17.i, %83 ], [ %.0133.i.i.i.i15.i.ph, %.lr.ph.i.i.i.i14.i.preheader ]
-  %.04.in.i.i.i.i16.i = add nsw i64 %.0133.i.i.i.i15.i, -1
-  %.04.i.i910.i.i17.i = lshr i64 %.04.in.i.i.i.i16.i, 1
-  %81 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %.04.i.i910.i.i17.i
-  %.val14.i.i.i.i18.i = load ptr, ptr %81, align 8, !tbaa !35
-  %82 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val14.i.i.i.i18.i, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.02.0.copyload.i.i6.i)
-  br i1 %82, label %83, label %"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i19.i"
+.lr.ph.i.i.i.i15.i:                               ; preds = %.lr.ph.i.i.i.i15.i.preheader, %81
+  %.0133.i.i.i.i16.i = phi i64 [ %.04.i.i910.i.i18.i, %81 ], [ %.0133.i.i.i.i16.i.ph, %.lr.ph.i.i.i.i15.i.preheader ]
+  %.04.in.i.i.i.i17.i = add nsw i64 %.0133.i.i.i.i16.i, -1
+  %.04.i.i910.i.i18.i = lshr i64 %.04.in.i.i.i.i17.i, 1
+  %79 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %.04.i.i910.i.i18.i
+  %.val14.i.i.i.i19.i = load ptr, ptr %79, align 8, !tbaa !35
+  %80 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val14.i.i.i.i19.i, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.02.0.copyload.i.i7.i)
+  br i1 %80, label %81, label %"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i20.i"
 
-83:                                               ; preds = %.lr.ph.i.i.i.i14.i
-  %84 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %.0133.i.i.i.i15.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %84, ptr noundef nonnull align 8 dereferenceable(12) %81, i64 12, i1 false), !tbaa.struct !29
-  %.not11.i.i22.i = icmp ult i64 %.04.in.i.i.i.i16.i, 2
-  br i1 %.not11.i.i22.i, label %"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i19.i", label %.lr.ph.i.i.i.i14.i, !llvm.loop !161
+81:                                               ; preds = %.lr.ph.i.i.i.i15.i
+  %82 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %.0133.i.i.i.i16.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %82, ptr noundef nonnull align 8 dereferenceable(12) %79, i64 12, i1 false), !tbaa.struct !29
+  %.not11.i.i23.i = icmp ult i64 %.04.in.i.i.i.i17.i, 2
+  br i1 %.not11.i.i23.i, label %"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i20.i", label %.lr.ph.i.i.i.i15.i, !llvm.loop !161
 
-"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i19.i": ; preds = %83, %.lr.ph.i.i.i.i14.i, %80
-  %.013.lcssa.i.i.i.i20.i = phi i64 [ 0, %80 ], [ %.0133.i.i.i.i15.i, %.lr.ph.i.i.i.i14.i ], [ 0, %83 ]
-  %85 = getelementptr inbounds %"class.nla::nex_pow", ptr %0, i64 %.013.lcssa.i.i.i.i20.i
-  store ptr %.sroa.02.0.copyload.i.i6.i, ptr %85, align 8, !tbaa !21
-  %.sroa.3.0..sroa_idx.i.i.i.i21.i = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store i32 %.sroa.4.0.copyload.i.i8.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i21.i, align 8, !tbaa !20
-  %86 = icmp sgt i64 %56, 16
-  br i1 %86, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_T0_.exit", !llvm.loop !163
+"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i20.i": ; preds = %81, %.lr.ph.i.i.i.i15.i, %78
+  %.013.lcssa.i.i.i.i21.i = phi i64 [ 0, %78 ], [ %.0133.i.i.i.i16.i, %.lr.ph.i.i.i.i15.i ], [ 0, %81 ]
+  %83 = getelementptr inbounds %"class.nla::nex_pow", ptr %0, i64 %.013.lcssa.i.i.i.i21.i
+  store ptr %.sroa.02.0.copyload.i.i7.i, ptr %83, align 8, !tbaa !21
+  %.sroa.3.0..sroa_idx.i.i.i.i22.i = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store i32 %.sroa.4.0.copyload.i.i9.i, ptr %.sroa.3.0..sroa_idx.i.i.i.i22.i, align 8, !tbaa !20
+  %84 = icmp sgt i64 %55, 16
+  br i1 %84, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_T0_.exit", !llvm.loop !163
 
-87:                                               ; preds = %17
-  %88 = add nsw i64 %.01522, -1
-  %89 = lshr i64 %18, 5
-  %90 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %89
-  %91 = getelementptr inbounds i8, ptr %.023, i64 -16
+85:                                               ; preds = %17
+  %86 = add nsw i64 %.01522, -1
+  %87 = lshr i64 %18, 5
+  %88 = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %0, i64 %87
+  %89 = getelementptr inbounds i8, ptr %.023, i64 -16
   %.val34.i.i = load ptr, ptr %16, align 8, !tbaa !35
-  %.val35.i.i = load ptr, ptr %90, align 8, !tbaa !35
-  %92 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val34.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val35.i.i)
-  %.val32.i.i = load ptr, ptr %91, align 8, !tbaa !35
-  br i1 %92, label %93, label %100
+  %.val35.i.i = load ptr, ptr %88, align 8, !tbaa !35
+  %90 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val34.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val35.i.i)
+  %.val32.i.i = load ptr, ptr %89, align 8, !tbaa !35
+  br i1 %90, label %91, label %98
 
-93:                                               ; preds = %87
-  %.val31.i.i = load ptr, ptr %90, align 8, !tbaa !35
-  %94 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val31.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val32.i.i)
-  br i1 %94, label %95, label %96
+91:                                               ; preds = %85
+  %.val31.i.i = load ptr, ptr %88, align 8, !tbaa !35
+  %92 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val31.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val32.i.i)
+  br i1 %92, label %93, label %94
 
-95:                                               ; preds = %93
+93:                                               ; preds = %91
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %90, i64 12, i1 false), !tbaa.struct !29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %90, ptr noundef nonnull align 8 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %88, i64 12, i1 false), !tbaa.struct !29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %88, ptr noundef nonnull align 8 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-96:                                               ; preds = %93
+94:                                               ; preds = %91
   %.val28.i.i = load ptr, ptr %16, align 8, !tbaa !35
-  %.val29.i.i = load ptr, ptr %91, align 8, !tbaa !35
-  %97 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val28.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val29.i.i)
-  br i1 %97, label %98, label %99
+  %.val29.i.i = load ptr, ptr %89, align 8, !tbaa !35
+  %95 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val28.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val29.i.i)
+  br i1 %95, label %96, label %97
 
-98:                                               ; preds = %96
+96:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %91, i64 12, i1 false), !tbaa.struct !29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %91, ptr noundef nonnull align 8 dereferenceable(12) %10, i64 12, i1 false), !tbaa.struct !29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %89, i64 12, i1 false), !tbaa.struct !29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %89, ptr noundef nonnull align 8 dereferenceable(12) %10, i64 12, i1 false), !tbaa.struct !29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-99:                                               ; preds = %96
+97:                                               ; preds = %94
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %16, i64 12, i1 false), !tbaa.struct !29
@@ -9812,12 +9812,12 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN3nla7nex_powElN9__gnu_cxx
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-100:                                              ; preds = %87
+98:                                               ; preds = %85
   %.val25.i.i = load ptr, ptr %16, align 8, !tbaa !35
-  %101 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val25.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val32.i.i)
-  br i1 %101, label %102, label %103
+  %99 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val25.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val32.i.i)
+  br i1 %99, label %100, label %101
 
-102:                                              ; preds = %100
+100:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %16, i64 12, i1 false), !tbaa.struct !29
@@ -9825,57 +9825,57 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN3nla7nex_powElN9__gnu_cxx
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-103:                                              ; preds = %100
-  %.val22.i.i = load ptr, ptr %90, align 8, !tbaa !35
-  %.val23.i.i = load ptr, ptr %91, align 8, !tbaa !35
-  %104 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val22.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val23.i.i)
-  br i1 %104, label %105, label %106
+101:                                              ; preds = %98
+  %.val22.i.i = load ptr, ptr %88, align 8, !tbaa !35
+  %.val23.i.i = load ptr, ptr %89, align 8, !tbaa !35
+  %102 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val22.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val23.i.i)
+  br i1 %102, label %103, label %104
 
-105:                                              ; preds = %103
+103:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %91, i64 12, i1 false), !tbaa.struct !29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %91, ptr noundef nonnull align 8 dereferenceable(12) %7, i64 12, i1 false), !tbaa.struct !29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %89, i64 12, i1 false), !tbaa.struct !29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %89, ptr noundef nonnull align 8 dereferenceable(12) %7, i64 12, i1 false), !tbaa.struct !29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-106:                                              ; preds = %103
+104:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %90, i64 12, i1 false), !tbaa.struct !29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %90, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false), !tbaa.struct !29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %88, i64 12, i1 false), !tbaa.struct !29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %88, ptr noundef nonnull align 8 dereferenceable(12) %6, i64 12, i1 false), !tbaa.struct !29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader": ; preds = %106, %105, %102, %99, %98, %95
+"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader": ; preds = %104, %103, %100, %97, %96, %93
   br label %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader", %113
-  %.013.i.i = phi ptr [ %.114.i.i, %113 ], [ %.023, %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader" ]
-  %.0.i.i = phi ptr [ %109, %113 ], [ %16, %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader" ]
-  br label %107
+"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader", %111
+  %.013.i.i = phi ptr [ %.114.i.i, %111 ], [ %.023, %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader" ]
+  %.0.i.i = phi ptr [ %107, %111 ], [ %16, %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader" ]
+  br label %105
 
-107:                                              ; preds = %107, %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i"
-  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i" ], [ %109, %107 ]
+105:                                              ; preds = %105, %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i"
+  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i" ], [ %107, %105 ]
   %.1.val.i.i = load ptr, ptr %.1.i.i, align 8, !tbaa !35
   %.val17.i.i = load ptr, ptr %0, align 8, !tbaa !35
-  %108 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.1.val.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val17.i.i)
-  %109 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
-  br i1 %108, label %107, label %.preheader.i.i, !llvm.loop !164
+  %106 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.1.val.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.val17.i.i)
+  %107 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
+  br i1 %106, label %105, label %.preheader.i.i, !llvm.loop !164
 
-.preheader.i.i:                                   ; preds = %107, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %107 ]
+.preheader.i.i:                                   ; preds = %105, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %105 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -16
   %.val15.i.i = load ptr, ptr %0, align 8, !tbaa !35
   %.114.val.i.i = load ptr, ptr %.114.i.i, align 8, !tbaa !35
-  %110 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val15.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.114.val.i.i)
-  br i1 %110, label %.preheader.i.i, label %111, !llvm.loop !165
+  %108 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(8) %.val15.i.i, ptr noundef nonnull align 8 dereferenceable(8) %.114.val.i.i)
+  br i1 %108, label %.preheader.i.i, label %109, !llvm.loop !165
 
-111:                                              ; preds = %.preheader.i.i
-  %112 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %112, label %113, label %"_ZSt27__unguarded_partition_pivotIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEET_SC_SC_T0_.exit"
+109:                                              ; preds = %.preheader.i.i
+  %110 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %110, label %111, label %"_ZSt27__unguarded_partition_pivotIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEET_SC_SC_T0_.exit"
 
-113:                                              ; preds = %111
+111:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.1.i.i, i64 16, i1 false), !tbaa.struct !29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.1.i.i, ptr noundef nonnull align 8 dereferenceable(12) %.114.i.i, i64 12, i1 false), !tbaa.struct !29
@@ -9883,14 +9883,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN3nla7nex_powElN9__gnu_cxx
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %"_ZSt22__move_median_to_firstIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_SC_T0_.exit.i", !llvm.loop !166
 
-"_ZSt27__unguarded_partition_pivotIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEET_SC_SC_T0_.exit": ; preds = %111
-  tail call fastcc void @"_ZSt16__introsort_loopIPN3nla7nex_powElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.023, i64 noundef %88, ptr nonnull %3)
-  %114 = ptrtoint ptr %.1.i.i to i64
-  %115 = sub i64 %114, %12
-  %116 = icmp sgt i64 %115, 256
-  br i1 %116, label %17, label %"_ZSt14__partial_sortIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_T0_.exit", !llvm.loop !167
+"_ZSt27__unguarded_partition_pivotIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEET_SC_SC_T0_.exit": ; preds = %109
+  tail call fastcc void @"_ZSt16__introsort_loopIPN3nla7nex_powElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.023, i64 noundef %86, ptr nonnull %3)
+  %112 = ptrtoint ptr %.1.i.i to i64
+  %113 = sub i64 %112, %12
+  %114 = icmp sgt i64 %113, 256
+  br i1 %114, label %17, label %"_ZSt14__partial_sortIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_T0_.exit", !llvm.loop !167
 
-"_ZSt14__partial_sortIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEET_SC_SC_T0_.exit", %"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i19.i", %4
+"_ZSt14__partial_sortIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEET_SC_SC_T0_.exit", %"_ZSt10__pop_heapIPN3nla7nex_powEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_SC_SC_RT0_.exit.i20.i", %4
   ret void
 }
 

@@ -1279,13 +1279,13 @@ b2ContactHitEventArray_Push.exit:                 ; preds = %533, %555
 .lr.ph881:                                        ; preds = %600
   %603 = shl i64 %indvars.iv1025, 6
   %.masked = and i64 %603, 4294967232
-  br label %604
+  %604 = getelementptr inbounds nuw %struct.b2BodySim, ptr %585, i64 %.masked
+  br label %605
 
-604:                                              ; preds = %.lr.ph881, %.loopexit769
+605:                                              ; preds = %.lr.ph881, %.loopexit769
   %.0705879 = phi i64 [ %602, %.lr.ph881 ], [ %661, %.loopexit769 ]
-  %605 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0705879, i1 true)
-  %606 = or disjoint i64 %.masked, %605
-  %607 = getelementptr inbounds nuw %struct.b2BodySim, ptr %585, i64 %606
+  %606 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %.0705879, i1 true)
+  %607 = getelementptr inbounds nuw %struct.b2BodySim, ptr %604, i64 %606
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 88
   %609 = load i32, ptr %608, align 4, !tbaa !190
   %610 = sext i32 %609 to i64
@@ -1296,7 +1296,7 @@ b2ContactHitEventArray_Push.exit:                 ; preds = %533, %555
   %615 = trunc nuw i8 %614 to i1
   br i1 %615, label %616, label %644
 
-616:                                              ; preds = %604
+616:                                              ; preds = %605
   %617 = getelementptr inbounds nuw i8, ptr %607, i64 92
   %618 = load i8, ptr %617, align 4, !tbaa !199, !range !197, !noundef !198
   %619 = trunc nuw i8 %618 to i1
@@ -1349,7 +1349,7 @@ b2BufferMove.exit:                                ; preds = %.lr.ph877, %b2IntAr
   %.not751 = icmp eq i32 %643, -1
   br i1 %.not751, label %.loopexit769, label %.lr.ph877, !llvm.loop !205
 
-644:                                              ; preds = %616, %604
+644:                                              ; preds = %616, %605
   %.not750871 = icmp eq i32 %612, -1
   br i1 %.not750871, label %.loopexit769, label %.lr.ph874
 
@@ -1383,7 +1383,7 @@ b2BufferMove.exit:                                ; preds = %.lr.ph877, %b2IntAr
   %660 = add i64 %.0705879, -1
   %661 = and i64 %660, %.0705879
   %.not749 = icmp eq i64 %661, 0
-  br i1 %.not749, label %._crit_edge882, label %604, !llvm.loop !208
+  br i1 %.not749, label %._crit_edge882, label %605, !llvm.loop !208
 
 ._crit_edge882:                                   ; preds = %.loopexit769, %600
   %indvars.iv.next1026 = add nuw nsw i64 %indvars.iv1025, 1

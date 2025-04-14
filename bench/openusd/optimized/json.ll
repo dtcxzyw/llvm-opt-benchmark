@@ -3640,7 +3640,7 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat {
   %3 = icmp ult i32 %0, 10000
-  br i1 %3, label %4, label %34
+  br i1 %3, label %4, label %32
 
 4:                                                ; preds = %2
   %.lhs.trunc = trunc nuw nsw i32 %0 to i16
@@ -3661,218 +3661,220 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u32toaEjPc(i32 nound
 
 14:                                               ; preds = %4
   %15 = icmp samesign ugt i32 %0, 99
-  br i1 %15, label %.thread100, label %21
+  br i1 %15, label %..thread100_crit_edge, label %20
 
-.thread100:                                       ; preds = %14, %.thread
-  %.099 = phi ptr [ %13, %.thread ], [ %1, %14 ]
-  %16 = or disjoint i16 %6, 1
-  %17 = zext nneg i16 %16 to i64
-  %18 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %17
-  %19 = load i8, ptr %18, align 1
-  %20 = getelementptr inbounds nuw i8, ptr %.099, i64 1
-  store i8 %19, ptr %.099, align 1
-  br label %23
+..thread100_crit_edge:                            ; preds = %14
+  %.pre = zext nneg i16 %6 to i64
+  br label %.thread100
 
-21:                                               ; preds = %14
-  %22 = icmp samesign ugt i32 %0, 9
-  br i1 %22, label %23, label %28
+.thread100:                                       ; preds = %..thread100_crit_edge, %.thread
+  %.pre-phi = phi i64 [ %.pre, %..thread100_crit_edge ], [ %10, %.thread ]
+  %.099 = phi ptr [ %1, %..thread100_crit_edge ], [ %13, %.thread ]
+  %16 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  %18 = load i8, ptr %17, align 1
+  %19 = getelementptr inbounds nuw i8, ptr %.099, i64 1
+  store i8 %18, ptr %.099, align 1
+  br label %22
 
-23:                                               ; preds = %.thread100, %21
-  %.1102 = phi ptr [ %20, %.thread100 ], [ %1, %21 ]
-  %24 = zext nneg i16 %8 to i64
-  %25 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %24
-  %26 = load i8, ptr %25, align 2
-  %27 = getelementptr inbounds nuw i8, ptr %.1102, i64 1
-  store i8 %26, ptr %.1102, align 1
-  br label %28
+20:                                               ; preds = %14
+  %21 = icmp samesign ugt i32 %0, 9
+  br i1 %21, label %22, label %._crit_edge123
 
-28:                                               ; preds = %23, %21
-  %.2 = phi ptr [ %27, %23 ], [ %1, %21 ]
-  %29 = or disjoint i16 %8, 1
-  %30 = zext nneg i16 %29 to i64
-  %31 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %30
-  %32 = load i8, ptr %31, align 1
-  %33 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  store i8 %32, ptr %.2, align 1
-  br label %156
+._crit_edge123:                                   ; preds = %20
+  %.pre124 = zext nneg i16 %8 to i64
+  br label %27
 
-34:                                               ; preds = %2
-  %35 = icmp ult i32 %0, 100000000
-  br i1 %35, label %36, label %90
+22:                                               ; preds = %.thread100, %20
+  %.1102 = phi ptr [ %19, %.thread100 ], [ %1, %20 ]
+  %23 = zext nneg i16 %8 to i64
+  %24 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %23
+  %25 = load i8, ptr %24, align 2
+  %26 = getelementptr inbounds nuw i8, ptr %.1102, i64 1
+  store i8 %25, ptr %.1102, align 1
+  br label %27
 
-36:                                               ; preds = %34
-  %37 = udiv i32 %0, 10000
-  %38 = urem i32 %0, 10000
-  %39 = udiv i32 %0, 1000000
-  %40 = shl nuw nsw i32 %39, 1
-  %.lhs.trunc111 = trunc nuw nsw i32 %37 to i16
-  %41 = urem i16 %.lhs.trunc111, 100
+27:                                               ; preds = %._crit_edge123, %22
+  %.pre-phi125 = phi i64 [ %.pre124, %._crit_edge123 ], [ %23, %22 ]
+  %.2 = phi ptr [ %1, %._crit_edge123 ], [ %26, %22 ]
+  %28 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi125
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  %30 = load i8, ptr %29, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %.2, i64 1
+  store i8 %30, ptr %.2, align 1
+  br label %138
+
+32:                                               ; preds = %2
+  %33 = icmp ult i32 %0, 100000000
+  br i1 %33, label %34, label %82
+
+34:                                               ; preds = %32
+  %35 = udiv i32 %0, 10000
+  %36 = urem i32 %0, 10000
+  %37 = udiv i32 %0, 1000000
+  %38 = shl nuw nsw i32 %37, 1
+  %.lhs.trunc111 = trunc nuw nsw i32 %35 to i16
+  %39 = urem i16 %.lhs.trunc111, 100
+  %40 = shl nuw nsw i16 %39, 1
+  %.lhs.trunc113 = trunc nuw nsw i32 %36 to i16
+  %41 = udiv i16 %.lhs.trunc113, 100
   %42 = shl nuw nsw i16 %41, 1
-  %.lhs.trunc113 = trunc nuw nsw i32 %38 to i16
-  %43 = udiv i16 %.lhs.trunc113, 100
+  %43 = urem i16 %.lhs.trunc113, 100
   %44 = shl nuw nsw i16 %43, 1
-  %45 = urem i16 %.lhs.trunc113, 100
-  %46 = shl nuw nsw i16 %45, 1
-  %47 = icmp samesign ugt i32 %0, 9999999
-  br i1 %47, label %.thread103, label %52
+  %45 = icmp samesign ugt i32 %0, 9999999
+  br i1 %45, label %.thread103, label %50
 
-.thread103:                                       ; preds = %36
-  %48 = zext nneg i32 %40 to i64
-  %49 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %48
-  %50 = load i8, ptr %49, align 2
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %50, ptr %1, align 1
+.thread103:                                       ; preds = %34
+  %46 = zext nneg i32 %38 to i64
+  %47 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %46
+  %48 = load i8, ptr %47, align 2
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %48, ptr %1, align 1
   br label %.thread106
 
-52:                                               ; preds = %36
-  %53 = icmp samesign ugt i32 %0, 999999
-  br i1 %53, label %.thread106, label %59
+50:                                               ; preds = %34
+  %51 = icmp samesign ugt i32 %0, 999999
+  br i1 %51, label %..thread106_crit_edge, label %56
 
-.thread106:                                       ; preds = %52, %.thread103
-  %.4105 = phi ptr [ %51, %.thread103 ], [ %1, %52 ]
-  %54 = or disjoint i32 %40, 1
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %55
-  %57 = load i8, ptr %56, align 1
-  %58 = getelementptr inbounds nuw i8, ptr %.4105, i64 1
-  store i8 %57, ptr %.4105, align 1
-  br label %61
+..thread106_crit_edge:                            ; preds = %50
+  %.pre126 = zext nneg i32 %38 to i64
+  br label %.thread106
 
-59:                                               ; preds = %52
-  %60 = icmp samesign ugt i32 %0, 99999
-  br i1 %60, label %61, label %66
+.thread106:                                       ; preds = %..thread106_crit_edge, %.thread103
+  %.pre-phi127 = phi i64 [ %.pre126, %..thread106_crit_edge ], [ %46, %.thread103 ]
+  %.4105 = phi ptr [ %1, %..thread106_crit_edge ], [ %49, %.thread103 ]
+  %52 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi127
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  %54 = load i8, ptr %53, align 1
+  %55 = getelementptr inbounds nuw i8, ptr %.4105, i64 1
+  store i8 %54, ptr %.4105, align 1
+  br label %58
 
-61:                                               ; preds = %.thread106, %59
-  %.5108 = phi ptr [ %58, %.thread106 ], [ %1, %59 ]
-  %62 = zext nneg i16 %42 to i64
-  %63 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %62
-  %64 = load i8, ptr %63, align 2
-  %65 = getelementptr inbounds nuw i8, ptr %.5108, i64 1
-  store i8 %64, ptr %.5108, align 1
-  br label %66
+56:                                               ; preds = %50
+  %57 = icmp samesign ugt i32 %0, 99999
+  br i1 %57, label %58, label %._crit_edge
 
-66:                                               ; preds = %61, %59
-  %.6 = phi ptr [ %65, %61 ], [ %1, %59 ]
-  %67 = or disjoint i16 %42, 1
-  %68 = zext nneg i16 %67 to i64
+._crit_edge:                                      ; preds = %56
+  %.pre128 = zext nneg i16 %40 to i64
+  br label %63
+
+58:                                               ; preds = %.thread106, %56
+  %.5108 = phi ptr [ %55, %.thread106 ], [ %1, %56 ]
+  %59 = zext nneg i16 %40 to i64
+  %60 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %59
+  %61 = load i8, ptr %60, align 2
+  %62 = getelementptr inbounds nuw i8, ptr %.5108, i64 1
+  store i8 %61, ptr %.5108, align 1
+  br label %63
+
+63:                                               ; preds = %._crit_edge, %58
+  %.pre-phi129 = phi i64 [ %.pre128, %._crit_edge ], [ %59, %58 ]
+  %.6 = phi ptr [ %1, %._crit_edge ], [ %62, %58 ]
+  %64 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi129
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
+  %66 = load i8, ptr %65, align 1
+  %67 = getelementptr inbounds nuw i8, ptr %.6, i64 1
+  store i8 %66, ptr %.6, align 1
+  %68 = zext nneg i16 %42 to i64
   %69 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %68
-  %70 = load i8, ptr %69, align 1
-  %71 = getelementptr inbounds nuw i8, ptr %.6, i64 1
-  store i8 %70, ptr %.6, align 1
-  %72 = zext nneg i16 %44 to i64
-  %73 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %72
-  %74 = load i8, ptr %73, align 2
-  %75 = getelementptr inbounds nuw i8, ptr %.6, i64 2
-  store i8 %74, ptr %71, align 1
-  %76 = or disjoint i16 %44, 1
-  %77 = zext nneg i16 %76 to i64
-  %78 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %77
-  %79 = load i8, ptr %78, align 1
-  %80 = getelementptr inbounds nuw i8, ptr %.6, i64 3
-  store i8 %79, ptr %75, align 1
-  %81 = zext nneg i16 %46 to i64
-  %82 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %81
-  %83 = load i8, ptr %82, align 2
-  %84 = getelementptr inbounds nuw i8, ptr %.6, i64 4
-  store i8 %83, ptr %80, align 1
-  %85 = or disjoint i16 %46, 1
-  %86 = zext nneg i16 %85 to i64
-  %87 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %86
-  %88 = load i8, ptr %87, align 1
-  %89 = getelementptr inbounds nuw i8, ptr %.6, i64 5
-  store i8 %88, ptr %84, align 1
-  br label %156
+  %70 = load i8, ptr %69, align 2
+  %71 = getelementptr inbounds nuw i8, ptr %.6, i64 2
+  store i8 %70, ptr %67, align 1
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 1
+  %73 = load i8, ptr %72, align 1
+  %74 = getelementptr inbounds nuw i8, ptr %.6, i64 3
+  store i8 %73, ptr %71, align 1
+  %75 = zext nneg i16 %44 to i64
+  %76 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %75
+  %77 = load i8, ptr %76, align 2
+  %78 = getelementptr inbounds nuw i8, ptr %.6, i64 4
+  store i8 %77, ptr %74, align 1
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 1
+  %80 = load i8, ptr %79, align 1
+  %81 = getelementptr inbounds nuw i8, ptr %.6, i64 5
+  store i8 %80, ptr %78, align 1
+  br label %138
 
-90:                                               ; preds = %34
-  %91 = udiv i32 %0, 100000000
-  %92 = urem i32 %0, 100000000
-  %93 = icmp ugt i32 %0, 999999999
-  br i1 %93, label %94, label %105
+82:                                               ; preds = %32
+  %83 = udiv i32 %0, 100000000
+  %84 = urem i32 %0, 100000000
+  %85 = icmp ugt i32 %0, 999999999
+  br i1 %85, label %86, label %95
 
-94:                                               ; preds = %90
-  %95 = shl nuw nsw i32 %91, 1
-  %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %96
-  %98 = load i8, ptr %97, align 2
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %98, ptr %1, align 1
-  %100 = or disjoint i32 %95, 1
-  %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %101
-  %103 = load i8, ptr %102, align 1
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %103, ptr %99, align 1
-  br label %109
+86:                                               ; preds = %82
+  %87 = shl nuw nsw i32 %83, 1
+  %88 = zext nneg i32 %87 to i64
+  %89 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %88
+  %90 = load i8, ptr %89, align 2
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %90, ptr %1, align 1
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 1
+  %93 = load i8, ptr %92, align 1
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 %93, ptr %91, align 1
+  br label %99
 
-105:                                              ; preds = %90
-  %106 = trunc nuw nsw i32 %91 to i8
-  %107 = or disjoint i8 %106, 48
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %107, ptr %1, align 1
-  br label %109
+95:                                               ; preds = %82
+  %96 = trunc nuw nsw i32 %83 to i8
+  %97 = or disjoint i8 %96, 48
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %97, ptr %1, align 1
+  br label %99
 
-109:                                              ; preds = %105, %94
-  %.7 = phi ptr [ %104, %94 ], [ %108, %105 ]
-  %110 = udiv i32 %92, 10000
-  %111 = urem i32 %92, 10000
-  %112 = udiv i32 %92, 1000000
-  %113 = shl nuw nsw i32 %112, 1
-  %.lhs.trunc117 = trunc nuw nsw i32 %110 to i16
-  %114 = urem i16 %.lhs.trunc117, 100
-  %115 = shl nuw nsw i16 %114, 1
-  %.lhs.trunc119 = trunc nuw nsw i32 %111 to i16
-  %116 = udiv i16 %.lhs.trunc119, 100
-  %117 = shl nuw nsw i16 %116, 1
-  %118 = urem i16 %.lhs.trunc119, 100
-  %119 = shl nuw nsw i16 %118, 1
-  %120 = zext nneg i32 %113 to i64
-  %121 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %120
-  %122 = load i8, ptr %121, align 2
-  %123 = getelementptr inbounds nuw i8, ptr %.7, i64 1
-  store i8 %122, ptr %.7, align 1
-  %124 = or disjoint i32 %113, 1
-  %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %125
-  %127 = load i8, ptr %126, align 1
-  %128 = getelementptr inbounds nuw i8, ptr %.7, i64 2
-  store i8 %127, ptr %123, align 1
-  %129 = zext nneg i16 %115 to i64
-  %130 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %129
-  %131 = load i8, ptr %130, align 2
-  %132 = getelementptr inbounds nuw i8, ptr %.7, i64 3
-  store i8 %131, ptr %128, align 1
-  %133 = or disjoint i16 %115, 1
-  %134 = zext nneg i16 %133 to i64
-  %135 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %134
+99:                                               ; preds = %95, %86
+  %.7 = phi ptr [ %94, %86 ], [ %98, %95 ]
+  %100 = udiv i32 %84, 10000
+  %101 = urem i32 %84, 10000
+  %102 = udiv i32 %84, 1000000
+  %103 = shl nuw nsw i32 %102, 1
+  %.lhs.trunc117 = trunc nuw nsw i32 %100 to i16
+  %104 = urem i16 %.lhs.trunc117, 100
+  %105 = shl nuw nsw i16 %104, 1
+  %.lhs.trunc119 = trunc nuw nsw i32 %101 to i16
+  %106 = udiv i16 %.lhs.trunc119, 100
+  %107 = shl nuw nsw i16 %106, 1
+  %108 = urem i16 %.lhs.trunc119, 100
+  %109 = shl nuw nsw i16 %108, 1
+  %110 = zext nneg i32 %103 to i64
+  %111 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %110
+  %112 = load i8, ptr %111, align 2
+  %113 = getelementptr inbounds nuw i8, ptr %.7, i64 1
+  store i8 %112, ptr %.7, align 1
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 1
+  %115 = load i8, ptr %114, align 1
+  %116 = getelementptr inbounds nuw i8, ptr %.7, i64 2
+  store i8 %115, ptr %113, align 1
+  %117 = zext nneg i16 %105 to i64
+  %118 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %117
+  %119 = load i8, ptr %118, align 2
+  %120 = getelementptr inbounds nuw i8, ptr %.7, i64 3
+  store i8 %119, ptr %116, align 1
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 1
+  %122 = load i8, ptr %121, align 1
+  %123 = getelementptr inbounds nuw i8, ptr %.7, i64 4
+  store i8 %122, ptr %120, align 1
+  %124 = zext nneg i16 %107 to i64
+  %125 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %124
+  %126 = load i8, ptr %125, align 2
+  %127 = getelementptr inbounds nuw i8, ptr %.7, i64 5
+  store i8 %126, ptr %123, align 1
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 1
+  %129 = load i8, ptr %128, align 1
+  %130 = getelementptr inbounds nuw i8, ptr %.7, i64 6
+  store i8 %129, ptr %127, align 1
+  %131 = zext nneg i16 %109 to i64
+  %132 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %131
+  %133 = load i8, ptr %132, align 2
+  %134 = getelementptr inbounds nuw i8, ptr %.7, i64 7
+  store i8 %133, ptr %130, align 1
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 1
   %136 = load i8, ptr %135, align 1
-  %137 = getelementptr inbounds nuw i8, ptr %.7, i64 4
-  store i8 %136, ptr %132, align 1
-  %138 = zext nneg i16 %117 to i64
-  %139 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %138
-  %140 = load i8, ptr %139, align 2
-  %141 = getelementptr inbounds nuw i8, ptr %.7, i64 5
-  store i8 %140, ptr %137, align 1
-  %142 = or disjoint i16 %117, 1
-  %143 = zext nneg i16 %142 to i64
-  %144 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %143
-  %145 = load i8, ptr %144, align 1
-  %146 = getelementptr inbounds nuw i8, ptr %.7, i64 6
-  store i8 %145, ptr %141, align 1
-  %147 = zext nneg i16 %119 to i64
-  %148 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %147
-  %149 = load i8, ptr %148, align 2
-  %150 = getelementptr inbounds nuw i8, ptr %.7, i64 7
-  store i8 %149, ptr %146, align 1
-  %151 = or disjoint i16 %119, 1
-  %152 = zext nneg i16 %151 to i64
-  %153 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %152
-  %154 = load i8, ptr %153, align 1
-  %155 = getelementptr inbounds nuw i8, ptr %.7, i64 8
-  store i8 %154, ptr %150, align 1
-  br label %156
+  %137 = getelementptr inbounds nuw i8, ptr %.7, i64 8
+  store i8 %136, ptr %134, align 1
+  br label %138
 
-156:                                              ; preds = %66, %109, %28
-  %.3 = phi ptr [ %33, %28 ], [ %89, %66 ], [ %155, %109 ]
+138:                                              ; preds = %63, %99, %27
+  %.3 = phi ptr [ %31, %27 ], [ %81, %63 ], [ %137, %99 ]
   ret ptr %.3
 }
 
@@ -4039,12 +4041,12 @@ _ZN3pxr9rapidjson6WriterINS0_19BasicOStreamWrapperISoEENS0_4UTF8IcEES5_NS0_12Crt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat {
   %3 = icmp ult i64 %0, 100000000
-  br i1 %3, label %4, label %91
+  br i1 %3, label %4, label %83
 
 4:                                                ; preds = %2
   %5 = trunc nuw nsw i64 %0 to i32
   %6 = icmp samesign ult i64 %0, 10000
-  br i1 %6, label %7, label %37
+  br i1 %6, label %7, label %35
 
 7:                                                ; preds = %4
   %8 = udiv i32 %5, 100
@@ -4064,512 +4066,506 @@ define linkonce_odr noundef ptr @_ZN3pxr9rapidjson8internal6u64toaEmPc(i64 nound
 
 17:                                               ; preds = %7
   %18 = icmp samesign ugt i64 %0, 99
-  br i1 %18, label %.thread230, label %24
+  br i1 %18, label %..thread230_crit_edge, label %23
 
-.thread230:                                       ; preds = %17, %.thread
-  %.0229 = phi ptr [ %16, %.thread ], [ %1, %17 ]
-  %19 = or disjoint i32 %9, 1
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %20
-  %22 = load i8, ptr %21, align 1
-  %23 = getelementptr inbounds nuw i8, ptr %.0229, i64 1
-  store i8 %22, ptr %.0229, align 1
-  br label %26
+..thread230_crit_edge:                            ; preds = %17
+  %.pre = zext nneg i32 %9 to i64
+  br label %.thread230
 
-24:                                               ; preds = %17
-  %25 = icmp samesign ugt i64 %0, 9
-  br i1 %25, label %26, label %31
+.thread230:                                       ; preds = %..thread230_crit_edge, %.thread
+  %.pre-phi = phi i64 [ %.pre, %..thread230_crit_edge ], [ %13, %.thread ]
+  %.0229 = phi ptr [ %1, %..thread230_crit_edge ], [ %16, %.thread ]
+  %19 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  %21 = load i8, ptr %20, align 1
+  %22 = getelementptr inbounds nuw i8, ptr %.0229, i64 1
+  store i8 %21, ptr %.0229, align 1
+  br label %25
 
-26:                                               ; preds = %.thread230, %24
-  %.1232 = phi ptr [ %23, %.thread230 ], [ %1, %24 ]
-  %27 = zext nneg i32 %11 to i64
-  %28 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %27
-  %29 = load i8, ptr %28, align 2
-  %30 = getelementptr inbounds nuw i8, ptr %.1232, i64 1
-  store i8 %29, ptr %.1232, align 1
-  br label %31
+23:                                               ; preds = %17
+  %24 = icmp samesign ugt i64 %0, 9
+  br i1 %24, label %25, label %._crit_edge294
 
-31:                                               ; preds = %26, %24
-  %.2 = phi ptr [ %30, %26 ], [ %1, %24 ]
-  %32 = or disjoint i32 %11, 1
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %36 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  store i8 %35, ptr %.2, align 1
-  br label %364
+._crit_edge294:                                   ; preds = %23
+  %.pre295 = zext nneg i32 %11 to i64
+  br label %30
 
-37:                                               ; preds = %4
-  %38 = udiv i32 %5, 10000
-  %39 = urem i32 %5, 10000
-  %40 = udiv i32 %5, 1000000
-  %41 = shl nuw nsw i32 %40, 1
-  %.lhs.trunc = trunc nuw nsw i32 %38 to i16
-  %42 = urem i16 %.lhs.trunc, 100
+25:                                               ; preds = %.thread230, %23
+  %.1232 = phi ptr [ %22, %.thread230 ], [ %1, %23 ]
+  %26 = zext nneg i32 %11 to i64
+  %27 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %26
+  %28 = load i8, ptr %27, align 2
+  %29 = getelementptr inbounds nuw i8, ptr %.1232, i64 1
+  store i8 %28, ptr %.1232, align 1
+  br label %30
+
+30:                                               ; preds = %._crit_edge294, %25
+  %.pre-phi296 = phi i64 [ %.pre295, %._crit_edge294 ], [ %26, %25 ]
+  %.2 = phi ptr [ %1, %._crit_edge294 ], [ %29, %25 ]
+  %31 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi296
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  %33 = load i8, ptr %32, align 1
+  %34 = getelementptr inbounds nuw i8, ptr %.2, i64 1
+  store i8 %33, ptr %.2, align 1
+  br label %318
+
+35:                                               ; preds = %4
+  %36 = udiv i32 %5, 10000
+  %37 = urem i32 %5, 10000
+  %38 = udiv i32 %5, 1000000
+  %39 = shl nuw nsw i32 %38, 1
+  %.lhs.trunc = trunc nuw nsw i32 %36 to i16
+  %40 = urem i16 %.lhs.trunc, 100
+  %41 = shl nuw nsw i16 %40, 1
+  %.lhs.trunc257 = trunc nuw nsw i32 %37 to i16
+  %42 = udiv i16 %.lhs.trunc257, 100
   %43 = shl nuw nsw i16 %42, 1
-  %.lhs.trunc257 = trunc nuw nsw i32 %39 to i16
-  %44 = udiv i16 %.lhs.trunc257, 100
+  %44 = urem i16 %.lhs.trunc257, 100
   %45 = shl nuw nsw i16 %44, 1
-  %46 = urem i16 %.lhs.trunc257, 100
-  %47 = shl nuw nsw i16 %46, 1
-  %48 = icmp samesign ugt i64 %0, 9999999
-  br i1 %48, label %.thread233, label %53
+  %46 = icmp samesign ugt i64 %0, 9999999
+  br i1 %46, label %.thread233, label %51
 
-.thread233:                                       ; preds = %37
-  %49 = zext nneg i32 %41 to i64
-  %50 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %49
-  %51 = load i8, ptr %50, align 2
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %51, ptr %1, align 1
+.thread233:                                       ; preds = %35
+  %47 = zext nneg i32 %39 to i64
+  %48 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %47
+  %49 = load i8, ptr %48, align 2
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %49, ptr %1, align 1
   br label %.thread236
 
-53:                                               ; preds = %37
-  %54 = icmp samesign ugt i64 %0, 999999
-  br i1 %54, label %.thread236, label %60
+51:                                               ; preds = %35
+  %52 = icmp samesign ugt i64 %0, 999999
+  br i1 %52, label %..thread236_crit_edge, label %57
 
-.thread236:                                       ; preds = %53, %.thread233
-  %.3235 = phi ptr [ %52, %.thread233 ], [ %1, %53 ]
-  %55 = or disjoint i32 %41, 1
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %56
-  %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds nuw i8, ptr %.3235, i64 1
-  store i8 %58, ptr %.3235, align 1
-  br label %62
+..thread236_crit_edge:                            ; preds = %51
+  %.pre297 = zext nneg i32 %39 to i64
+  br label %.thread236
 
-60:                                               ; preds = %53
-  %61 = icmp samesign ugt i64 %0, 99999
-  br i1 %61, label %62, label %67
+.thread236:                                       ; preds = %..thread236_crit_edge, %.thread233
+  %.pre-phi298 = phi i64 [ %.pre297, %..thread236_crit_edge ], [ %47, %.thread233 ]
+  %.3235 = phi ptr [ %1, %..thread236_crit_edge ], [ %50, %.thread233 ]
+  %53 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi298
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
+  %55 = load i8, ptr %54, align 1
+  %56 = getelementptr inbounds nuw i8, ptr %.3235, i64 1
+  store i8 %55, ptr %.3235, align 1
+  br label %59
 
-62:                                               ; preds = %.thread236, %60
-  %.4238 = phi ptr [ %59, %.thread236 ], [ %1, %60 ]
-  %63 = zext nneg i16 %43 to i64
-  %64 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %63
-  %65 = load i8, ptr %64, align 2
-  %66 = getelementptr inbounds nuw i8, ptr %.4238, i64 1
-  store i8 %65, ptr %.4238, align 1
-  br label %67
+57:                                               ; preds = %51
+  %58 = icmp samesign ugt i64 %0, 99999
+  br i1 %58, label %59, label %._crit_edge293
 
-67:                                               ; preds = %62, %60
-  %.5 = phi ptr [ %66, %62 ], [ %1, %60 ]
-  %68 = or disjoint i16 %43, 1
-  %69 = zext nneg i16 %68 to i64
+._crit_edge293:                                   ; preds = %57
+  %.pre299 = zext nneg i16 %41 to i64
+  br label %64
+
+59:                                               ; preds = %.thread236, %57
+  %.4238 = phi ptr [ %56, %.thread236 ], [ %1, %57 ]
+  %60 = zext nneg i16 %41 to i64
+  %61 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %60
+  %62 = load i8, ptr %61, align 2
+  %63 = getelementptr inbounds nuw i8, ptr %.4238, i64 1
+  store i8 %62, ptr %.4238, align 1
+  br label %64
+
+64:                                               ; preds = %._crit_edge293, %59
+  %.pre-phi300 = phi i64 [ %.pre299, %._crit_edge293 ], [ %60, %59 ]
+  %.5 = phi ptr [ %1, %._crit_edge293 ], [ %63, %59 ]
+  %65 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi300
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  %67 = load i8, ptr %66, align 1
+  %68 = getelementptr inbounds nuw i8, ptr %.5, i64 1
+  store i8 %67, ptr %.5, align 1
+  %69 = zext nneg i16 %43 to i64
   %70 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %69
-  %71 = load i8, ptr %70, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %.5, i64 1
-  store i8 %71, ptr %.5, align 1
-  %73 = zext nneg i16 %45 to i64
-  %74 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %73
-  %75 = load i8, ptr %74, align 2
-  %76 = getelementptr inbounds nuw i8, ptr %.5, i64 2
-  store i8 %75, ptr %72, align 1
-  %77 = or disjoint i16 %45, 1
-  %78 = zext nneg i16 %77 to i64
-  %79 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %78
-  %80 = load i8, ptr %79, align 1
-  %81 = getelementptr inbounds nuw i8, ptr %.5, i64 3
-  store i8 %80, ptr %76, align 1
-  %82 = zext nneg i16 %47 to i64
-  %83 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %82
-  %84 = load i8, ptr %83, align 2
-  %85 = getelementptr inbounds nuw i8, ptr %.5, i64 4
-  store i8 %84, ptr %81, align 1
-  %86 = or disjoint i16 %47, 1
-  %87 = zext nneg i16 %86 to i64
-  %88 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %87
-  %89 = load i8, ptr %88, align 1
-  %90 = getelementptr inbounds nuw i8, ptr %.5, i64 5
-  store i8 %89, ptr %85, align 1
-  br label %364
+  %71 = load i8, ptr %70, align 2
+  %72 = getelementptr inbounds nuw i8, ptr %.5, i64 2
+  store i8 %71, ptr %68, align 1
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 1
+  %74 = load i8, ptr %73, align 1
+  %75 = getelementptr inbounds nuw i8, ptr %.5, i64 3
+  store i8 %74, ptr %72, align 1
+  %76 = zext nneg i16 %45 to i64
+  %77 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %76
+  %78 = load i8, ptr %77, align 2
+  %79 = getelementptr inbounds nuw i8, ptr %.5, i64 4
+  store i8 %78, ptr %75, align 1
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 1
+  %81 = load i8, ptr %80, align 1
+  %82 = getelementptr inbounds nuw i8, ptr %.5, i64 5
+  store i8 %81, ptr %79, align 1
+  br label %318
 
-91:                                               ; preds = %2
-  %92 = icmp ult i64 %0, 10000000000000000
-  br i1 %92, label %93, label %205
+83:                                               ; preds = %2
+  %84 = icmp ult i64 %0, 10000000000000000
+  br i1 %84, label %85, label %185
 
-93:                                               ; preds = %91
-  %94 = udiv i64 %0, 100000000
-  %95 = trunc nuw nsw i64 %94 to i32
-  %96 = urem i64 %0, 100000000
-  %97 = trunc nuw nsw i64 %96 to i32
-  %98 = udiv i32 %95, 10000
-  %99 = urem i32 %95, 10000
-  %100 = udiv i32 %95, 1000000
-  %101 = shl nuw nsw i32 %100, 1
-  %.lhs.trunc261 = trunc nuw nsw i32 %98 to i16
-  %102 = urem i16 %.lhs.trunc261, 100
-  %103 = shl nuw nsw i16 %102, 1
-  %.lhs.trunc263 = trunc nuw nsw i32 %99 to i16
-  %104 = udiv i16 %.lhs.trunc263, 100
+85:                                               ; preds = %83
+  %86 = udiv i64 %0, 100000000
+  %87 = trunc nuw nsw i64 %86 to i32
+  %88 = urem i64 %0, 100000000
+  %89 = trunc nuw nsw i64 %88 to i32
+  %90 = udiv i32 %87, 10000
+  %91 = urem i32 %87, 10000
+  %92 = udiv i32 %87, 1000000
+  %93 = shl nuw nsw i32 %92, 1
+  %.lhs.trunc261 = trunc nuw nsw i32 %90 to i16
+  %94 = urem i16 %.lhs.trunc261, 100
+  %95 = shl nuw nsw i16 %94, 1
+  %.lhs.trunc263 = trunc nuw nsw i32 %91 to i16
+  %96 = udiv i16 %.lhs.trunc263, 100
+  %97 = shl nuw nsw i16 %96, 1
+  %98 = urem i16 %.lhs.trunc263, 100
+  %99 = shl nuw nsw i16 %98, 1
+  %100 = udiv i32 %89, 10000
+  %101 = urem i32 %89, 10000
+  %102 = udiv i32 %89, 1000000
+  %103 = shl nuw nsw i32 %102, 1
+  %.lhs.trunc267 = trunc nuw nsw i32 %100 to i16
+  %104 = urem i16 %.lhs.trunc267, 100
   %105 = shl nuw nsw i16 %104, 1
-  %106 = urem i16 %.lhs.trunc263, 100
+  %.lhs.trunc269 = trunc nuw nsw i32 %101 to i16
+  %106 = udiv i16 %.lhs.trunc269, 100
   %107 = shl nuw nsw i16 %106, 1
-  %108 = udiv i32 %97, 10000
-  %109 = urem i32 %97, 10000
-  %110 = udiv i32 %97, 1000000
-  %111 = shl nuw nsw i32 %110, 1
-  %.lhs.trunc267 = trunc nuw nsw i32 %108 to i16
-  %112 = urem i16 %.lhs.trunc267, 100
-  %113 = shl nuw nsw i16 %112, 1
-  %.lhs.trunc269 = trunc nuw nsw i32 %109 to i16
-  %114 = udiv i16 %.lhs.trunc269, 100
-  %115 = shl nuw nsw i16 %114, 1
-  %116 = urem i16 %.lhs.trunc269, 100
-  %117 = shl nuw nsw i16 %116, 1
-  %118 = icmp samesign ugt i64 %0, 999999999999999
-  br i1 %118, label %.thread239, label %123
+  %108 = urem i16 %.lhs.trunc269, 100
+  %109 = shl nuw nsw i16 %108, 1
+  %110 = icmp samesign ugt i64 %0, 999999999999999
+  br i1 %110, label %.thread239, label %115
 
-.thread239:                                       ; preds = %93
-  %119 = zext nneg i32 %101 to i64
-  %120 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %119
-  %121 = load i8, ptr %120, align 2
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %121, ptr %1, align 1
+.thread239:                                       ; preds = %85
+  %111 = zext nneg i32 %93 to i64
+  %112 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %111
+  %113 = load i8, ptr %112, align 2
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %113, ptr %1, align 1
   br label %.thread242
 
-123:                                              ; preds = %93
-  %124 = icmp samesign ugt i64 %0, 99999999999999
-  br i1 %124, label %.thread242, label %130
+115:                                              ; preds = %85
+  %116 = icmp samesign ugt i64 %0, 99999999999999
+  br i1 %116, label %..thread242_crit_edge, label %121
 
-.thread242:                                       ; preds = %123, %.thread239
-  %.7241 = phi ptr [ %122, %.thread239 ], [ %1, %123 ]
-  %125 = or disjoint i32 %101, 1
-  %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %126
-  %128 = load i8, ptr %127, align 1
-  %129 = getelementptr inbounds nuw i8, ptr %.7241, i64 1
-  store i8 %128, ptr %.7241, align 1
+..thread242_crit_edge:                            ; preds = %115
+  %.pre301 = zext nneg i32 %93 to i64
+  br label %.thread242
+
+.thread242:                                       ; preds = %..thread242_crit_edge, %.thread239
+  %.pre-phi302 = phi i64 [ %.pre301, %..thread242_crit_edge ], [ %111, %.thread239 ]
+  %.7241 = phi ptr [ %1, %..thread242_crit_edge ], [ %114, %.thread239 ]
+  %117 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi302
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 1
+  %119 = load i8, ptr %118, align 1
+  %120 = getelementptr inbounds nuw i8, ptr %.7241, i64 1
+  store i8 %119, ptr %.7241, align 1
   br label %.thread245
 
-130:                                              ; preds = %123
-  %131 = icmp samesign ugt i64 %0, 9999999999999
-  br i1 %131, label %.thread245, label %136
+121:                                              ; preds = %115
+  %122 = icmp samesign ugt i64 %0, 9999999999999
+  br i1 %122, label %.thread245, label %127
 
-.thread245:                                       ; preds = %130, %.thread242
-  %.8244 = phi ptr [ %129, %.thread242 ], [ %1, %130 ]
-  %132 = zext nneg i16 %103 to i64
-  %133 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %132
-  %134 = load i8, ptr %133, align 2
-  %135 = getelementptr inbounds nuw i8, ptr %.8244, i64 1
-  store i8 %134, ptr %.8244, align 1
+.thread245:                                       ; preds = %121, %.thread242
+  %.8244 = phi ptr [ %120, %.thread242 ], [ %1, %121 ]
+  %123 = zext nneg i16 %95 to i64
+  %124 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %123
+  %125 = load i8, ptr %124, align 2
+  %126 = getelementptr inbounds nuw i8, ptr %.8244, i64 1
+  store i8 %125, ptr %.8244, align 1
   br label %.thread248
 
-136:                                              ; preds = %130
-  %137 = icmp samesign ugt i64 %0, 999999999999
-  br i1 %137, label %.thread248, label %143
+127:                                              ; preds = %121
+  %128 = icmp samesign ugt i64 %0, 999999999999
+  br i1 %128, label %..thread248_crit_edge, label %133
 
-.thread248:                                       ; preds = %136, %.thread245
-  %.9247 = phi ptr [ %135, %.thread245 ], [ %1, %136 ]
-  %138 = or disjoint i16 %103, 1
-  %139 = zext nneg i16 %138 to i64
-  %140 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %139
-  %141 = load i8, ptr %140, align 1
-  %142 = getelementptr inbounds nuw i8, ptr %.9247, i64 1
-  store i8 %141, ptr %.9247, align 1
+..thread248_crit_edge:                            ; preds = %127
+  %.pre303 = zext nneg i16 %95 to i64
+  br label %.thread248
+
+.thread248:                                       ; preds = %..thread248_crit_edge, %.thread245
+  %.pre-phi304 = phi i64 [ %.pre303, %..thread248_crit_edge ], [ %123, %.thread245 ]
+  %.9247 = phi ptr [ %1, %..thread248_crit_edge ], [ %126, %.thread245 ]
+  %129 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi304
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 1
+  %131 = load i8, ptr %130, align 1
+  %132 = getelementptr inbounds nuw i8, ptr %.9247, i64 1
+  store i8 %131, ptr %.9247, align 1
   br label %.thread251
 
-143:                                              ; preds = %136
-  %144 = icmp samesign ugt i64 %0, 99999999999
-  br i1 %144, label %.thread251, label %149
+133:                                              ; preds = %127
+  %134 = icmp samesign ugt i64 %0, 99999999999
+  br i1 %134, label %.thread251, label %139
 
-.thread251:                                       ; preds = %143, %.thread248
-  %.10250 = phi ptr [ %142, %.thread248 ], [ %1, %143 ]
-  %145 = zext nneg i16 %105 to i64
-  %146 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %145
-  %147 = load i8, ptr %146, align 2
-  %148 = getelementptr inbounds nuw i8, ptr %.10250, i64 1
-  store i8 %147, ptr %.10250, align 1
+.thread251:                                       ; preds = %133, %.thread248
+  %.10250 = phi ptr [ %132, %.thread248 ], [ %1, %133 ]
+  %135 = zext nneg i16 %97 to i64
+  %136 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %135
+  %137 = load i8, ptr %136, align 2
+  %138 = getelementptr inbounds nuw i8, ptr %.10250, i64 1
+  store i8 %137, ptr %.10250, align 1
   br label %.thread254
 
-149:                                              ; preds = %143
-  %150 = icmp samesign ugt i64 %0, 9999999999
-  br i1 %150, label %.thread254, label %156
+139:                                              ; preds = %133
+  %140 = icmp samesign ugt i64 %0, 9999999999
+  br i1 %140, label %..thread254_crit_edge, label %145
 
-.thread254:                                       ; preds = %149, %.thread251
-  %.11253 = phi ptr [ %148, %.thread251 ], [ %1, %149 ]
-  %151 = or disjoint i16 %105, 1
-  %152 = zext nneg i16 %151 to i64
-  %153 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %152
-  %154 = load i8, ptr %153, align 1
-  %155 = getelementptr inbounds nuw i8, ptr %.11253, i64 1
-  store i8 %154, ptr %.11253, align 1
-  br label %158
+..thread254_crit_edge:                            ; preds = %139
+  %.pre305 = zext nneg i16 %97 to i64
+  br label %.thread254
 
-156:                                              ; preds = %149
-  %157 = icmp samesign ugt i64 %0, 999999999
-  br i1 %157, label %158, label %163
+.thread254:                                       ; preds = %..thread254_crit_edge, %.thread251
+  %.pre-phi306 = phi i64 [ %.pre305, %..thread254_crit_edge ], [ %135, %.thread251 ]
+  %.11253 = phi ptr [ %1, %..thread254_crit_edge ], [ %138, %.thread251 ]
+  %141 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi306
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 1
+  %143 = load i8, ptr %142, align 1
+  %144 = getelementptr inbounds nuw i8, ptr %.11253, i64 1
+  store i8 %143, ptr %.11253, align 1
+  br label %147
 
-158:                                              ; preds = %.thread254, %156
-  %.12256 = phi ptr [ %155, %.thread254 ], [ %1, %156 ]
-  %159 = zext nneg i16 %107 to i64
-  %160 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %159
-  %161 = load i8, ptr %160, align 2
-  %162 = getelementptr inbounds nuw i8, ptr %.12256, i64 1
-  store i8 %161, ptr %.12256, align 1
-  br label %163
+145:                                              ; preds = %139
+  %146 = icmp samesign ugt i64 %0, 999999999
+  br i1 %146, label %147, label %._crit_edge
 
-163:                                              ; preds = %158, %156
-  %.13 = phi ptr [ %162, %158 ], [ %1, %156 ]
-  %164 = or disjoint i16 %107, 1
-  %165 = zext nneg i16 %164 to i64
-  %166 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %165
-  %167 = load i8, ptr %166, align 1
-  %168 = getelementptr inbounds nuw i8, ptr %.13, i64 1
-  store i8 %167, ptr %.13, align 1
-  %169 = zext nneg i32 %111 to i64
-  %170 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %169
-  %171 = load i8, ptr %170, align 2
-  %172 = getelementptr inbounds nuw i8, ptr %.13, i64 2
-  store i8 %171, ptr %168, align 1
-  %173 = or disjoint i32 %111, 1
-  %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %174
+._crit_edge:                                      ; preds = %145
+  %.pre307 = zext nneg i16 %99 to i64
+  br label %152
+
+147:                                              ; preds = %.thread254, %145
+  %.12256 = phi ptr [ %144, %.thread254 ], [ %1, %145 ]
+  %148 = zext nneg i16 %99 to i64
+  %149 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %148
+  %150 = load i8, ptr %149, align 2
+  %151 = getelementptr inbounds nuw i8, ptr %.12256, i64 1
+  store i8 %150, ptr %.12256, align 1
+  br label %152
+
+152:                                              ; preds = %._crit_edge, %147
+  %.pre-phi308 = phi i64 [ %.pre307, %._crit_edge ], [ %148, %147 ]
+  %.13 = phi ptr [ %1, %._crit_edge ], [ %151, %147 ]
+  %153 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %.pre-phi308
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 1
+  %155 = load i8, ptr %154, align 1
+  %156 = getelementptr inbounds nuw i8, ptr %.13, i64 1
+  store i8 %155, ptr %.13, align 1
+  %157 = zext nneg i32 %103 to i64
+  %158 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %157
+  %159 = load i8, ptr %158, align 2
+  %160 = getelementptr inbounds nuw i8, ptr %.13, i64 2
+  store i8 %159, ptr %156, align 1
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 1
+  %162 = load i8, ptr %161, align 1
+  %163 = getelementptr inbounds nuw i8, ptr %.13, i64 3
+  store i8 %162, ptr %160, align 1
+  %164 = zext nneg i16 %105 to i64
+  %165 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %164
+  %166 = load i8, ptr %165, align 2
+  %167 = getelementptr inbounds nuw i8, ptr %.13, i64 4
+  store i8 %166, ptr %163, align 1
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 1
+  %169 = load i8, ptr %168, align 1
+  %170 = getelementptr inbounds nuw i8, ptr %.13, i64 5
+  store i8 %169, ptr %167, align 1
+  %171 = zext nneg i16 %107 to i64
+  %172 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %171
+  %173 = load i8, ptr %172, align 2
+  %174 = getelementptr inbounds nuw i8, ptr %.13, i64 6
+  store i8 %173, ptr %170, align 1
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 1
   %176 = load i8, ptr %175, align 1
-  %177 = getelementptr inbounds nuw i8, ptr %.13, i64 3
-  store i8 %176, ptr %172, align 1
-  %178 = zext nneg i16 %113 to i64
+  %177 = getelementptr inbounds nuw i8, ptr %.13, i64 7
+  store i8 %176, ptr %174, align 1
+  %178 = zext nneg i16 %109 to i64
   %179 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %178
   %180 = load i8, ptr %179, align 2
-  %181 = getelementptr inbounds nuw i8, ptr %.13, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %.13, i64 8
   store i8 %180, ptr %177, align 1
-  %182 = or disjoint i16 %113, 1
-  %183 = zext nneg i16 %182 to i64
-  %184 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %183
-  %185 = load i8, ptr %184, align 1
-  %186 = getelementptr inbounds nuw i8, ptr %.13, i64 5
-  store i8 %185, ptr %181, align 1
-  %187 = zext nneg i16 %115 to i64
-  %188 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %187
-  %189 = load i8, ptr %188, align 2
-  %190 = getelementptr inbounds nuw i8, ptr %.13, i64 6
-  store i8 %189, ptr %186, align 1
-  %191 = or disjoint i16 %115, 1
-  %192 = zext nneg i16 %191 to i64
-  %193 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %192
-  %194 = load i8, ptr %193, align 1
-  %195 = getelementptr inbounds nuw i8, ptr %.13, i64 7
-  store i8 %194, ptr %190, align 1
-  %196 = zext nneg i16 %117 to i64
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 1
+  %183 = load i8, ptr %182, align 1
+  %184 = getelementptr inbounds nuw i8, ptr %.13, i64 9
+  store i8 %183, ptr %181, align 1
+  br label %318
+
+185:                                              ; preds = %83
+  %186 = udiv i64 %0, 10000000000000000
+  %187 = urem i64 %0, 10000000000000000
+  %188 = icmp ult i64 %0, 100000000000000000
+  br i1 %188, label %189, label %193
+
+189:                                              ; preds = %185
+  %190 = trunc nuw i64 %186 to i8
+  %191 = or disjoint i8 %190, 48
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %191, ptr %1, align 1
+  br label %237
+
+193:                                              ; preds = %185
+  %194 = icmp ult i64 %0, 1000000000000000000
+  br i1 %194, label %195, label %203
+
+195:                                              ; preds = %193
+  %196 = shl nuw nsw i64 %186, 1
   %197 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %196
   %198 = load i8, ptr %197, align 2
-  %199 = getelementptr inbounds nuw i8, ptr %.13, i64 8
-  store i8 %198, ptr %195, align 1
-  %200 = or disjoint i16 %117, 1
-  %201 = zext nneg i16 %200 to i64
-  %202 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %201
-  %203 = load i8, ptr %202, align 1
-  %204 = getelementptr inbounds nuw i8, ptr %.13, i64 9
-  store i8 %203, ptr %199, align 1
-  br label %364
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %198, ptr %1, align 1
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 1
+  %201 = load i8, ptr %200, align 1
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 %201, ptr %199, align 1
+  br label %237
 
-205:                                              ; preds = %91
-  %206 = udiv i64 %0, 10000000000000000
-  %207 = trunc nuw nsw i64 %206 to i32
-  %208 = urem i64 %0, 10000000000000000
-  %209 = icmp ult i64 %0, 100000000000000000
-  br i1 %209, label %210, label %214
+203:                                              ; preds = %193
+  %204 = icmp ult i64 %0, -8446744073709551616
+  %.lhs.trunc285 = trunc nuw nsw i64 %186 to i16
+  %205 = udiv i16 %.lhs.trunc285, 100
+  %206 = urem i16 %.lhs.trunc285, 100
+  br i1 %204, label %207, label %220
 
-210:                                              ; preds = %205
-  %211 = trunc nuw i64 %206 to i8
-  %212 = or disjoint i8 %211, 48
-  %213 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %212, ptr %1, align 1
-  br label %267
+207:                                              ; preds = %203
+  %208 = trunc nuw nsw i16 %205 to i8
+  %209 = add nuw nsw i8 %208, 48
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %209, ptr %1, align 1
+  %211 = urem i16 %.lhs.trunc285, 100
+  %212 = shl nuw nsw i16 %211, 1
+  %213 = zext nneg i16 %212 to i64
+  %214 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %213
+  %215 = load i8, ptr %214, align 2
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 %215, ptr %210, align 1
+  %217 = getelementptr inbounds nuw i8, ptr %214, i64 1
+  %218 = load i8, ptr %217, align 1
+  %219 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  store i8 %218, ptr %216, align 1
+  br label %237
 
-214:                                              ; preds = %205
-  %215 = icmp ult i64 %0, 1000000000000000000
-  br i1 %215, label %216, label %227
-
-216:                                              ; preds = %214
-  %217 = shl nuw nsw i32 %207, 1
-  %218 = zext nneg i32 %217 to i64
-  %219 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %218
-  %220 = load i8, ptr %219, align 2
-  %221 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %220, ptr %1, align 1
-  %222 = or disjoint i32 %217, 1
-  %223 = zext nneg i32 %222 to i64
+220:                                              ; preds = %203
+  %221 = shl nuw nsw i16 %205, 1
+  %222 = shl nuw nsw i16 %206, 1
+  %223 = zext nneg i16 %221 to i64
   %224 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %223
-  %225 = load i8, ptr %224, align 1
-  %226 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %225, ptr %221, align 1
-  br label %267
+  %225 = load i8, ptr %224, align 2
+  %226 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  store i8 %225, ptr %1, align 1
+  %227 = getelementptr inbounds nuw i8, ptr %224, i64 1
+  %228 = load i8, ptr %227, align 1
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 %228, ptr %226, align 1
+  %230 = zext nneg i16 %222 to i64
+  %231 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %230
+  %232 = load i8, ptr %231, align 2
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  store i8 %232, ptr %229, align 1
+  %234 = getelementptr inbounds nuw i8, ptr %231, i64 1
+  %235 = load i8, ptr %234, align 1
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i8 %235, ptr %233, align 1
+  br label %237
 
-227:                                              ; preds = %214
-  %228 = icmp ult i64 %0, -8446744073709551616
-  %.lhs.trunc285 = trunc nuw nsw i64 %206 to i16
-  %229 = udiv i16 %.lhs.trunc285, 100
-  %230 = urem i16 %.lhs.trunc285, 100
-  br i1 %228, label %231, label %246
-
-231:                                              ; preds = %227
-  %232 = trunc nuw nsw i16 %229 to i8
-  %233 = add nuw nsw i8 %232, 48
-  %234 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %233, ptr %1, align 1
-  %235 = urem i16 %.lhs.trunc285, 100
-  %236 = shl nuw nsw i16 %235, 1
-  %237 = zext nneg i16 %236 to i64
-  %238 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %237
-  %239 = load i8, ptr %238, align 2
-  %240 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %239, ptr %234, align 1
-  %241 = or disjoint i16 %236, 1
-  %242 = zext nneg i16 %241 to i64
-  %243 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %242
-  %244 = load i8, ptr %243, align 1
-  %245 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %244, ptr %240, align 1
-  br label %267
-
-246:                                              ; preds = %227
-  %247 = shl nuw nsw i16 %229, 1
-  %248 = shl nuw nsw i16 %230, 1
-  %249 = zext nneg i16 %247 to i64
-  %250 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %249
-  %251 = load i8, ptr %250, align 2
-  %252 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  store i8 %251, ptr %1, align 1
-  %253 = or disjoint i16 %247, 1
-  %254 = zext nneg i16 %253 to i64
-  %255 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %254
-  %256 = load i8, ptr %255, align 1
-  %257 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %256, ptr %252, align 1
-  %258 = zext nneg i16 %248 to i64
-  %259 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %258
-  %260 = load i8, ptr %259, align 2
-  %261 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %260, ptr %257, align 1
-  %262 = or disjoint i16 %248, 1
-  %263 = zext nneg i16 %262 to i64
-  %264 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %263
-  %265 = load i8, ptr %264, align 1
-  %266 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i8 %265, ptr %261, align 1
-  br label %267
-
-267:                                              ; preds = %216, %246, %231, %210
-  %.14 = phi ptr [ %213, %210 ], [ %226, %216 ], [ %245, %231 ], [ %266, %246 ]
-  %268 = udiv i64 %208, 100000000
-  %269 = trunc nuw nsw i64 %268 to i32
-  %270 = urem i64 %208, 100000000
-  %271 = trunc nuw nsw i64 %270 to i32
-  %272 = udiv i32 %269, 10000
-  %273 = urem i32 %269, 10000
-  %274 = udiv i32 %269, 1000000
-  %275 = shl nuw nsw i32 %274, 1
-  %.lhs.trunc273 = trunc nuw nsw i32 %272 to i16
-  %276 = urem i16 %.lhs.trunc273, 100
-  %277 = shl nuw nsw i16 %276, 1
-  %.lhs.trunc275 = trunc nuw nsw i32 %273 to i16
-  %278 = udiv i16 %.lhs.trunc275, 100
-  %279 = shl nuw nsw i16 %278, 1
-  %280 = urem i16 %.lhs.trunc275, 100
-  %281 = shl nuw nsw i16 %280, 1
-  %282 = udiv i32 %271, 10000
-  %283 = urem i32 %271, 10000
-  %284 = udiv i32 %271, 1000000
-  %285 = shl nuw nsw i32 %284, 1
-  %.lhs.trunc279 = trunc nuw nsw i32 %282 to i16
-  %286 = urem i16 %.lhs.trunc279, 100
-  %287 = shl nuw nsw i16 %286, 1
-  %.lhs.trunc281 = trunc nuw nsw i32 %283 to i16
-  %288 = udiv i16 %.lhs.trunc281, 100
-  %289 = shl nuw nsw i16 %288, 1
-  %290 = urem i16 %.lhs.trunc281, 100
-  %291 = shl nuw nsw i16 %290, 1
-  %292 = zext nneg i32 %275 to i64
-  %293 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %292
-  %294 = load i8, ptr %293, align 2
-  %295 = getelementptr inbounds nuw i8, ptr %.14, i64 1
-  store i8 %294, ptr %.14, align 1
-  %296 = or disjoint i32 %275, 1
-  %297 = zext nneg i32 %296 to i64
+237:                                              ; preds = %195, %220, %207, %189
+  %.14 = phi ptr [ %192, %189 ], [ %202, %195 ], [ %219, %207 ], [ %236, %220 ]
+  %238 = udiv i64 %187, 100000000
+  %239 = trunc nuw nsw i64 %238 to i32
+  %240 = urem i64 %187, 100000000
+  %241 = trunc nuw nsw i64 %240 to i32
+  %242 = udiv i32 %239, 10000
+  %243 = urem i32 %239, 10000
+  %244 = udiv i32 %239, 1000000
+  %245 = shl nuw nsw i32 %244, 1
+  %.lhs.trunc273 = trunc nuw nsw i32 %242 to i16
+  %246 = urem i16 %.lhs.trunc273, 100
+  %247 = shl nuw nsw i16 %246, 1
+  %.lhs.trunc275 = trunc nuw nsw i32 %243 to i16
+  %248 = udiv i16 %.lhs.trunc275, 100
+  %249 = shl nuw nsw i16 %248, 1
+  %250 = urem i16 %.lhs.trunc275, 100
+  %251 = shl nuw nsw i16 %250, 1
+  %252 = udiv i32 %241, 10000
+  %253 = urem i32 %241, 10000
+  %254 = udiv i32 %241, 1000000
+  %255 = shl nuw nsw i32 %254, 1
+  %.lhs.trunc279 = trunc nuw nsw i32 %252 to i16
+  %256 = urem i16 %.lhs.trunc279, 100
+  %257 = shl nuw nsw i16 %256, 1
+  %.lhs.trunc281 = trunc nuw nsw i32 %253 to i16
+  %258 = udiv i16 %.lhs.trunc281, 100
+  %259 = shl nuw nsw i16 %258, 1
+  %260 = urem i16 %.lhs.trunc281, 100
+  %261 = shl nuw nsw i16 %260, 1
+  %262 = zext nneg i32 %245 to i64
+  %263 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %262
+  %264 = load i8, ptr %263, align 2
+  %265 = getelementptr inbounds nuw i8, ptr %.14, i64 1
+  store i8 %264, ptr %.14, align 1
+  %266 = getelementptr inbounds nuw i8, ptr %263, i64 1
+  %267 = load i8, ptr %266, align 1
+  %268 = getelementptr inbounds nuw i8, ptr %.14, i64 2
+  store i8 %267, ptr %265, align 1
+  %269 = zext nneg i16 %247 to i64
+  %270 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %269
+  %271 = load i8, ptr %270, align 2
+  %272 = getelementptr inbounds nuw i8, ptr %.14, i64 3
+  store i8 %271, ptr %268, align 1
+  %273 = getelementptr inbounds nuw i8, ptr %270, i64 1
+  %274 = load i8, ptr %273, align 1
+  %275 = getelementptr inbounds nuw i8, ptr %.14, i64 4
+  store i8 %274, ptr %272, align 1
+  %276 = zext nneg i16 %249 to i64
+  %277 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %276
+  %278 = load i8, ptr %277, align 2
+  %279 = getelementptr inbounds nuw i8, ptr %.14, i64 5
+  store i8 %278, ptr %275, align 1
+  %280 = getelementptr inbounds nuw i8, ptr %277, i64 1
+  %281 = load i8, ptr %280, align 1
+  %282 = getelementptr inbounds nuw i8, ptr %.14, i64 6
+  store i8 %281, ptr %279, align 1
+  %283 = zext nneg i16 %251 to i64
+  %284 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %283
+  %285 = load i8, ptr %284, align 2
+  %286 = getelementptr inbounds nuw i8, ptr %.14, i64 7
+  store i8 %285, ptr %282, align 1
+  %287 = getelementptr inbounds nuw i8, ptr %284, i64 1
+  %288 = load i8, ptr %287, align 1
+  %289 = getelementptr inbounds nuw i8, ptr %.14, i64 8
+  store i8 %288, ptr %286, align 1
+  %290 = zext nneg i32 %255 to i64
+  %291 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %290
+  %292 = load i8, ptr %291, align 2
+  %293 = getelementptr inbounds nuw i8, ptr %.14, i64 9
+  store i8 %292, ptr %289, align 1
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 1
+  %295 = load i8, ptr %294, align 1
+  %296 = getelementptr inbounds nuw i8, ptr %.14, i64 10
+  store i8 %295, ptr %293, align 1
+  %297 = zext nneg i16 %257 to i64
   %298 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %297
-  %299 = load i8, ptr %298, align 1
-  %300 = getelementptr inbounds nuw i8, ptr %.14, i64 2
-  store i8 %299, ptr %295, align 1
-  %301 = zext nneg i16 %277 to i64
-  %302 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %301
-  %303 = load i8, ptr %302, align 2
-  %304 = getelementptr inbounds nuw i8, ptr %.14, i64 3
-  store i8 %303, ptr %300, align 1
-  %305 = or disjoint i16 %277, 1
-  %306 = zext nneg i16 %305 to i64
-  %307 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %306
-  %308 = load i8, ptr %307, align 1
-  %309 = getelementptr inbounds nuw i8, ptr %.14, i64 4
-  store i8 %308, ptr %304, align 1
-  %310 = zext nneg i16 %279 to i64
-  %311 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %310
-  %312 = load i8, ptr %311, align 2
-  %313 = getelementptr inbounds nuw i8, ptr %.14, i64 5
-  store i8 %312, ptr %309, align 1
-  %314 = or disjoint i16 %279, 1
-  %315 = zext nneg i16 %314 to i64
-  %316 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %315
-  %317 = load i8, ptr %316, align 1
-  %318 = getelementptr inbounds nuw i8, ptr %.14, i64 6
-  store i8 %317, ptr %313, align 1
-  %319 = zext nneg i16 %281 to i64
-  %320 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %319
-  %321 = load i8, ptr %320, align 2
-  %322 = getelementptr inbounds nuw i8, ptr %.14, i64 7
-  store i8 %321, ptr %318, align 1
-  %323 = or disjoint i16 %281, 1
-  %324 = zext nneg i16 %323 to i64
-  %325 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %324
-  %326 = load i8, ptr %325, align 1
-  %327 = getelementptr inbounds nuw i8, ptr %.14, i64 8
-  store i8 %326, ptr %322, align 1
-  %328 = zext nneg i32 %285 to i64
-  %329 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %328
-  %330 = load i8, ptr %329, align 2
-  %331 = getelementptr inbounds nuw i8, ptr %.14, i64 9
-  store i8 %330, ptr %327, align 1
-  %332 = or disjoint i32 %285, 1
-  %333 = zext nneg i32 %332 to i64
-  %334 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %333
-  %335 = load i8, ptr %334, align 1
-  %336 = getelementptr inbounds nuw i8, ptr %.14, i64 10
-  store i8 %335, ptr %331, align 1
-  %337 = zext nneg i16 %287 to i64
-  %338 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %337
-  %339 = load i8, ptr %338, align 2
-  %340 = getelementptr inbounds nuw i8, ptr %.14, i64 11
-  store i8 %339, ptr %336, align 1
-  %341 = or disjoint i16 %287, 1
-  %342 = zext nneg i16 %341 to i64
-  %343 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %342
-  %344 = load i8, ptr %343, align 1
-  %345 = getelementptr inbounds nuw i8, ptr %.14, i64 12
-  store i8 %344, ptr %340, align 1
-  %346 = zext nneg i16 %289 to i64
-  %347 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %346
-  %348 = load i8, ptr %347, align 2
-  %349 = getelementptr inbounds nuw i8, ptr %.14, i64 13
-  store i8 %348, ptr %345, align 1
-  %350 = or disjoint i16 %289, 1
-  %351 = zext nneg i16 %350 to i64
-  %352 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %351
-  %353 = load i8, ptr %352, align 1
-  %354 = getelementptr inbounds nuw i8, ptr %.14, i64 14
-  store i8 %353, ptr %349, align 1
-  %355 = zext nneg i16 %291 to i64
-  %356 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %355
-  %357 = load i8, ptr %356, align 2
-  %358 = getelementptr inbounds nuw i8, ptr %.14, i64 15
-  store i8 %357, ptr %354, align 1
-  %359 = or disjoint i16 %291, 1
-  %360 = zext nneg i16 %359 to i64
-  %361 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %360
-  %362 = load i8, ptr %361, align 1
-  %363 = getelementptr inbounds nuw i8, ptr %.14, i64 16
-  store i8 %362, ptr %358, align 1
-  br label %364
+  %299 = load i8, ptr %298, align 2
+  %300 = getelementptr inbounds nuw i8, ptr %.14, i64 11
+  store i8 %299, ptr %296, align 1
+  %301 = getelementptr inbounds nuw i8, ptr %298, i64 1
+  %302 = load i8, ptr %301, align 1
+  %303 = getelementptr inbounds nuw i8, ptr %.14, i64 12
+  store i8 %302, ptr %300, align 1
+  %304 = zext nneg i16 %259 to i64
+  %305 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %304
+  %306 = load i8, ptr %305, align 2
+  %307 = getelementptr inbounds nuw i8, ptr %.14, i64 13
+  store i8 %306, ptr %303, align 1
+  %308 = getelementptr inbounds nuw i8, ptr %305, i64 1
+  %309 = load i8, ptr %308, align 1
+  %310 = getelementptr inbounds nuw i8, ptr %.14, i64 14
+  store i8 %309, ptr %307, align 1
+  %311 = zext nneg i16 %261 to i64
+  %312 = getelementptr inbounds nuw i8, ptr @_ZZN3pxr9rapidjson8internal12GetDigitsLutEvE10cDigitsLut, i64 %311
+  %313 = load i8, ptr %312, align 2
+  %314 = getelementptr inbounds nuw i8, ptr %.14, i64 15
+  store i8 %313, ptr %310, align 1
+  %315 = getelementptr inbounds nuw i8, ptr %312, i64 1
+  %316 = load i8, ptr %315, align 1
+  %317 = getelementptr inbounds nuw i8, ptr %.14, i64 16
+  store i8 %316, ptr %314, align 1
+  br label %318
 
-364:                                              ; preds = %163, %267, %31, %67
-  %.6 = phi ptr [ %36, %31 ], [ %90, %67 ], [ %204, %163 ], [ %363, %267 ]
+318:                                              ; preds = %152, %237, %30, %64
+  %.6 = phi ptr [ %34, %30 ], [ %82, %64 ], [ %184, %152 ], [ %317, %237 ]
   ret ptr %.6
 }
 

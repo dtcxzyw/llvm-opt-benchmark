@@ -973,7 +973,7 @@ dt_Lab_2_LCH.exit:                                ; preds = %35, %37
   call void @g_strfreev(ptr noundef nonnull %9) #17
   %52 = load ptr, ptr @_sample_tooltip_callback.view, align 8, !tbaa !113
   %.not = icmp eq ptr %52, null
-  br i1 %.not, label %124, label %130
+  br i1 %.not, label %122, label %128
 
 53:                                               ; preds = %6, %83
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %83 ]
@@ -1050,53 +1050,51 @@ dt_Lab_2_LCH.exit:                                ; preds = %35, %37
   %105 = load ptr, ptr %104, align 8, !tbaa !75
   %106 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %105, i32 noundef 5) #17
   %107 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.52, i32 noundef %93, i32 noundef %98, i32 noundef %103, ptr noundef %106) #17
-  %108 = or disjoint i64 %indvars.iv, 4
-  %109 = getelementptr inbounds nuw ptr, ptr %9, i64 %108
-  store ptr %107, ptr %109, align 8, !tbaa !75
-  %110 = getelementptr inbounds nuw [3 x [4 x float]], ptr %27, i64 0, i64 %indvars.iv
-  %111 = load float, ptr %110, align 16, !tbaa !94
-  %112 = fpext reassoc nsz arcp contract afn float %111 to double
-  %113 = getelementptr inbounds nuw i8, ptr %110, i64 4
-  %114 = load float, ptr %113, align 4, !tbaa !94
-  %115 = fpext reassoc nsz arcp contract afn float %114 to double
-  %116 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %117 = load float, ptr %116, align 8, !tbaa !94
-  %118 = fpext reassoc nsz arcp contract afn float %117 to double
-  %119 = load ptr, ptr %104, align 8, !tbaa !75
-  %120 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %119, i32 noundef 5) #17
-  %121 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.53, double noundef %112, double noundef %115, double noundef %118, ptr noundef %120) #17
-  %122 = or disjoint i64 %indvars.iv, 8
-  %123 = getelementptr inbounds nuw ptr, ptr %9, i64 %122
-  store ptr %121, ptr %123, align 8, !tbaa !75
+  %108 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  store ptr %107, ptr %108, align 8, !tbaa !75
+  %109 = getelementptr inbounds nuw [3 x [4 x float]], ptr %27, i64 0, i64 %indvars.iv
+  %110 = load float, ptr %109, align 16, !tbaa !94
+  %111 = fpext reassoc nsz arcp contract afn float %110 to double
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 4
+  %113 = load float, ptr %112, align 4, !tbaa !94
+  %114 = fpext reassoc nsz arcp contract afn float %113 to double
+  %115 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %116 = load float, ptr %115, align 8, !tbaa !94
+  %117 = fpext reassoc nsz arcp contract afn float %116 to double
+  %118 = load ptr, ptr %104, align 8, !tbaa !75
+  %119 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %118, i32 noundef 5) #17
+  %120 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.53, double noundef %111, double noundef %114, double noundef %117, ptr noundef %119) #17
+  %121 = getelementptr inbounds nuw i8, ptr %88, i64 64
+  store ptr %120, ptr %121, align 8, !tbaa !75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %28, label %53
 
-124:                                              ; preds = %dt_Lab_2_LCH.exit
-  %125 = call ptr @gtk_text_view_new() #17
-  store ptr %125, ptr @_sample_tooltip_callback.view, align 8, !tbaa !113
-  call void @dt_gui_add_class(ptr noundef %125, ptr noundef nonnull @.str.57) #17
-  %126 = load ptr, ptr @_sample_tooltip_callback.view, align 8, !tbaa !113
-  call void @dt_gui_add_class(ptr noundef %126, ptr noundef nonnull @.str.32) #17
-  %127 = load ptr, ptr @_sample_tooltip_callback.view, align 8, !tbaa !113
-  %128 = call ptr @g_type_check_instance_cast(ptr noundef %127, i64 noundef 80) #17
-  %129 = call i64 @g_signal_connect_data(ptr noundef %128, ptr noundef nonnull @.str.58, ptr noundef nonnull @gtk_widget_destroyed, ptr noundef nonnull @_sample_tooltip_callback.view, ptr noundef null, i32 noundef 0) #17
+122:                                              ; preds = %dt_Lab_2_LCH.exit
+  %123 = call ptr @gtk_text_view_new() #17
+  store ptr %123, ptr @_sample_tooltip_callback.view, align 8, !tbaa !113
+  call void @dt_gui_add_class(ptr noundef %123, ptr noundef nonnull @.str.57) #17
+  %124 = load ptr, ptr @_sample_tooltip_callback.view, align 8, !tbaa !113
+  call void @dt_gui_add_class(ptr noundef %124, ptr noundef nonnull @.str.32) #17
+  %125 = load ptr, ptr @_sample_tooltip_callback.view, align 8, !tbaa !113
+  %126 = call ptr @g_type_check_instance_cast(ptr noundef %125, i64 noundef 80) #17
+  %127 = call i64 @g_signal_connect_data(ptr noundef %126, ptr noundef nonnull @.str.58, ptr noundef nonnull @gtk_widget_destroyed, ptr noundef nonnull @_sample_tooltip_callback.view, ptr noundef null, i32 noundef 0) #17
   %.pre = load ptr, ptr @_sample_tooltip_callback.view, align 8, !tbaa !113
-  br label %130
+  br label %128
 
-130:                                              ; preds = %124, %dt_Lab_2_LCH.exit
-  %131 = phi ptr [ %.pre, %124 ], [ %52, %dt_Lab_2_LCH.exit ]
-  %132 = tail call i64 @gtk_text_view_get_type() #19
-  %133 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %132) #17
-  %134 = call ptr @gtk_text_view_get_buffer(ptr noundef %133) #17
-  call void @gtk_text_buffer_set_text(ptr noundef %134, ptr noundef nonnull @.str.31, i32 noundef -1) #17
+128:                                              ; preds = %122, %dt_Lab_2_LCH.exit
+  %129 = phi ptr [ %.pre, %122 ], [ %52, %dt_Lab_2_LCH.exit ]
+  %130 = tail call i64 @gtk_text_view_get_type() #19
+  %131 = call ptr @g_type_check_instance_cast(ptr noundef %129, i64 noundef %130) #17
+  %132 = call ptr @gtk_text_view_get_buffer(ptr noundef %131) #17
+  call void @gtk_text_buffer_set_text(ptr noundef %132, ptr noundef nonnull @.str.31, i32 noundef -1) #17
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #17
-  call void @gtk_text_buffer_get_start_iter(ptr noundef %134, ptr noundef nonnull %8) #17
-  call void @gtk_text_buffer_insert_markup(ptr noundef %134, ptr noundef nonnull %8, ptr noundef %51, i32 noundef -1) #17
-  %135 = load ptr, ptr @_sample_tooltip_callback.view, align 8, !tbaa !113
-  call void @gtk_tooltip_set_custom(ptr noundef %4, ptr noundef %135) #17
-  %136 = load ptr, ptr @_sample_tooltip_callback.view, align 8, !tbaa !113
-  call void @gtk_widget_map(ptr noundef %136) #17
+  call void @gtk_text_buffer_get_start_iter(ptr noundef %132, ptr noundef nonnull %8) #17
+  call void @gtk_text_buffer_insert_markup(ptr noundef %132, ptr noundef nonnull %8, ptr noundef %51, i32 noundef -1) #17
+  %133 = load ptr, ptr @_sample_tooltip_callback.view, align 8, !tbaa !113
+  call void @gtk_tooltip_set_custom(ptr noundef %4, ptr noundef %133) #17
+  %134 = load ptr, ptr @_sample_tooltip_callback.view, align 8, !tbaa !113
+  call void @gtk_widget_map(ptr noundef %134) #17
   call void @g_free(ptr noundef %51) #17
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17

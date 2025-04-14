@@ -129941,64 +129941,64 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4pbrt18ImageChannelValuesElS
   %9 = shl i64 %.035, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %0, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %15 = load i64, ptr %14, align 8, !tbaa !351
-  %.not.i.i.i = icmp eq i64 %15, 0
+  %12 = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %14 = load i64, ptr %13, align 8, !tbaa !351
+  %.not.i.i.i = icmp eq i64 %14, 0
   br i1 %.not.i.i.i, label %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !349
-  %.not.i.i.i.i.i = icmp eq ptr %17, null
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %19 = select i1 %.not.i.i.i.i.i, ptr %18, ptr %17
-  br label %20
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !349
+  %.not.i.i.i.i.i = icmp eq ptr %16, null
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %18 = select i1 %.not.i.i.i.i.i, ptr %17, ptr %16
+  br label %19
 
-20:                                               ; preds = %20, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %20 ]
-  %.057.i.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i.i ], [ %23, %20 ]
-  %21 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i.i.i
-  %22 = load float, ptr %21, align 4, !tbaa !35
-  %23 = fadd float %.057.i.i.i, %22
+19:                                               ; preds = %19, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %19 ]
+  %.057.i.i.i = phi float [ 0.000000e+00, %.lr.ph.i.i.i ], [ %22, %19 ]
+  %20 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i.i.i
+  %21 = load float, ptr %20, align 4, !tbaa !35
+  %22 = fadd float %.057.i.i.i, %21
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %15
-  br i1 %exitcond.not.i.i.i, label %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i, label %20, !llvm.loop !593
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %14
+  br i1 %exitcond.not.i.i.i, label %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i, label %19, !llvm.loop !593
 
-_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i: ; preds = %20, %.lr.ph
-  %.05.lcssa.i.i.i = phi float [ 0.000000e+00, %.lr.ph ], [ %23, %20 ]
-  %24 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %25 = load i64, ptr %24, align 8, !tbaa !351
-  %.not.i2.i.i = icmp eq i64 %25, 0
+_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i: ; preds = %19, %.lr.ph
+  %.05.lcssa.i.i.i = phi float [ 0.000000e+00, %.lr.ph ], [ %22, %19 ]
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 88
+  %24 = load i64, ptr %23, align 8, !tbaa !351
+  %.not.i2.i.i = icmp eq i64 %24, 0
   br i1 %.not.i2.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit", label %.lr.ph.i3.i.i
 
 .lr.ph.i3.i.i:                                    ; preds = %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !349
-  %.not.i.i.i4.i.i = icmp eq ptr %27, null
-  %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %29 = select i1 %.not.i.i.i4.i.i, ptr %28, ptr %27
-  br label %30
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %26 = load ptr, ptr %25, align 8, !tbaa !349
+  %.not.i.i.i4.i.i = icmp eq ptr %26, null
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  %28 = select i1 %.not.i.i.i4.i.i, ptr %27, ptr %26
+  br label %29
 
-30:                                               ; preds = %30, %.lr.ph.i3.i.i
-  %indvars.iv.i5.i.i = phi i64 [ 0, %.lr.ph.i3.i.i ], [ %indvars.iv.next.i7.i.i, %30 ]
-  %.057.i6.i.i = phi float [ 0.000000e+00, %.lr.ph.i3.i.i ], [ %33, %30 ]
-  %31 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i5.i.i
-  %32 = load float, ptr %31, align 4, !tbaa !35
-  %33 = fadd float %.057.i6.i.i, %32
+29:                                               ; preds = %29, %.lr.ph.i3.i.i
+  %indvars.iv.i5.i.i = phi i64 [ 0, %.lr.ph.i3.i.i ], [ %indvars.iv.next.i7.i.i, %29 ]
+  %.057.i6.i.i = phi float [ 0.000000e+00, %.lr.ph.i3.i.i ], [ %32, %29 ]
+  %30 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv.i5.i.i
+  %31 = load float, ptr %30, align 4, !tbaa !35
+  %32 = fadd float %.057.i6.i.i, %31
   %indvars.iv.next.i7.i.i = add nuw nsw i64 %indvars.iv.i5.i.i, 1
-  %exitcond.not.i8.i.i = icmp eq i64 %indvars.iv.next.i7.i.i, %25
-  br i1 %exitcond.not.i8.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit", label %30, !llvm.loop !593
+  %exitcond.not.i8.i.i = icmp eq i64 %indvars.iv.next.i7.i.i, %24
+  br i1 %exitcond.not.i8.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit", label %29, !llvm.loop !593
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit": ; preds = %30, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
-  %.05.lcssa.i9.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i ], [ %33, %30 ]
-  %34 = uitofp nneg i64 %15 to float
-  %35 = fdiv float %.05.lcssa.i.i.i, %34
-  %36 = uitofp nneg i64 %25 to float
-  %37 = fdiv float %.05.lcssa.i9.i.i, %36
-  %38 = fcmp olt float %35, %37
-  %spec.select = select i1 %38, i64 %12, i64 %10
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit": ; preds = %29, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i
+  %.05.lcssa.i9.i.i = phi float [ 0.000000e+00, %_ZNK4pbrt18ImageChannelValues7AverageEv.exit.i.i ], [ %32, %29 ]
+  %33 = uitofp nneg i64 %14 to float
+  %34 = fdiv float %.05.lcssa.i.i.i, %33
+  %35 = uitofp nneg i64 %24 to float
+  %36 = fdiv float %.05.lcssa.i9.i.i, %35
+  %37 = fcmp olt float %34, %36
+  %38 = or disjoint i64 %9, 1
+  %spec.select = select i1 %37, i64 %38, i64 %10
   %39 = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %0, i64 %spec.select
   %40 = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %0, i64 %.035
   %41 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef nonnull align 8 dereferenceable(48) %39)

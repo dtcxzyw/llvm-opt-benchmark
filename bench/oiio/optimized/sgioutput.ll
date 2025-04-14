@@ -977,11 +977,11 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_09SgiOutput14write_scanl
   %21 = tail call noundef i64 @_ZNK11OpenImageIO6v3_1_08TypeDesc8basesizeEv(ptr noundef nonnull align 4 dereferenceable(8) %15) #25
   %22 = mul i64 %21, %20
   %23 = mul i64 %22, %spec.select.i
-  %.fr78 = freeze i64 %23
+  %.fr82 = freeze i64 %23
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %25 = load i32, ptr %24, align 4, !tbaa !78
   %26 = sext i32 %25 to i64
-  %27 = mul i64 %.fr78, %26
+  %27 = mul i64 %.fr82, %26
   %28 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %27) #28
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %30 = load i32, ptr %29, align 4, !tbaa !87
@@ -990,11 +990,12 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_09SgiOutput14write_scanl
 
 .lr.ph61:                                         ; preds = %6
   %31 = zext nneg i32 %30 to i64
-  %32 = icmp eq i64 %.fr78, 2
+  %invariant.gep = getelementptr i8, ptr %28, i64 1
+  %32 = icmp eq i64 %.fr82, 2
   %33 = sext i32 %10 to i64
-  br i1 %32, label %.lr.ph61.split.us, label %.lr.ph61.split.split.us
+  br i1 %32, label %.lr.ph61.split.us.split, label %.lr.ph61.split.split.us
 
-.lr.ph61.split.us:                                ; preds = %.lr.ph61, %38
+.lr.ph61.split.us.split:                          ; preds = %.lr.ph61, %38
   %34 = phi i64 [ %41, %38 ], [ %31, %.lr.ph61 ]
   %.04158.us = phi i64 [ %39, %38 ], [ 0, %.lr.ph61 ]
   %35 = load i32, ptr %24, align 4, !tbaa !78
@@ -1007,7 +1008,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_09SgiOutput14write_scanl
   %40 = load i32, ptr %29, align 4, !tbaa !87
   %41 = sext i32 %40 to i64
   %.not.us.not = icmp slt i64 %39, %41
-  br i1 %.not.us.not, label %.lr.ph61.split.us, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit45, !llvm.loop !88
+  br i1 %.not.us.not, label %.lr.ph61.split.us.split, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit45, !llvm.loop !88
 
 .lr.ph.preheader.i.us:                            ; preds = %62
   %wide.trip.count.i.us = zext nneg i32 %35 to i64
@@ -1023,7 +1024,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_09SgiOutput14write_scanl
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
   br i1 %exitcond.not.i.us, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us, label %.lr.ph.i.us, !llvm.loop !90
 
-_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us: ; preds = %.lr.ph.i.us, %.lr.ph61.split.us
+_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us: ; preds = %.lr.ph.i.us, %.lr.ph61.split.us.split
   %45 = load i32, ptr %7, align 8, !tbaa !76
   %46 = sext i32 %45 to i64
   %47 = mul nsw i64 %.04158.us, %46
@@ -1032,112 +1033,111 @@ _ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us: ; preds = %.lr.ph.i.us, %
   %50 = mul i64 %49, %48
   %51 = add i64 %50, 512
   %52 = invoke noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput6ioseekEli(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef %51, i32 noundef 0)
-          to label %53 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us
+          to label %53 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us.split
 
 53:                                               ; preds = %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us
   %54 = load i32, ptr %24, align 4, !tbaa !78
   %55 = sext i32 %54 to i64
   %56 = shl nsw i64 %55, 1
   %57 = invoke noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %28, i64 noundef 1, i64 noundef %56)
-          to label %58 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us
+          to label %58 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us.split
 
 58:                                               ; preds = %53
   br i1 %57, label %38, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit45
 
-.lr.ph.us:                                        ; preds = %.lr.ph61.split.us
+.lr.ph.us:                                        ; preds = %.lr.ph61.split.us.split
   %59 = shl nuw i64 %.04158.us, 1
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 %59
   %61 = shl nsw i64 %34, 1
   br label %62
 
 62:                                               ; preds = %62, %.lr.ph.us
-  %.03754.us.us = phi i64 [ 0, %.lr.ph.us ], [ %71, %62 ]
-  %.03853.us.us = phi ptr [ %60, %.lr.ph.us ], [ %70, %62 ]
+  %.03754.us.us = phi i64 [ 0, %.lr.ph.us ], [ %69, %62 ]
+  %.03853.us.us = phi ptr [ %60, %.lr.ph.us ], [ %68, %62 ]
   %63 = load i8, ptr %.03853.us.us, align 1, !tbaa !14
   %64 = shl nuw i64 %.03754.us.us, 1
   %65 = getelementptr inbounds nuw i8, ptr %28, i64 %64
   store i8 %63, ptr %65, align 1, !tbaa !14
   %66 = getelementptr inbounds nuw i8, ptr %.03853.us.us, i64 1
   %67 = load i8, ptr %66, align 1, !tbaa !14
-  %68 = or disjoint i64 %64, 1
-  %69 = getelementptr inbounds nuw i8, ptr %28, i64 %68
-  store i8 %67, ptr %69, align 1, !tbaa !14
-  %70 = getelementptr inbounds nuw i8, ptr %.03853.us.us, i64 %61
-  %71 = add nuw nsw i64 %.03754.us.us, 1
-  %exitcond84.not = icmp eq i64 %71, %36
-  br i1 %exitcond84.not, label %.lr.ph.preheader.i.us, label %62, !llvm.loop !91
+  %gep.us.us = getelementptr i8, ptr %invariant.gep, i64 %64
+  store i8 %67, ptr %gep.us.us, align 1, !tbaa !14
+  %68 = getelementptr inbounds nuw i8, ptr %.03853.us.us, i64 %61
+  %69 = add nuw nsw i64 %.03754.us.us, 1
+  %exitcond91.not = icmp eq i64 %69, %36
+  br i1 %exitcond91.not, label %.lr.ph.preheader.i.us, label %62, !llvm.loop !91
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us: ; preds = %53, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us
-  %72 = landingpad { ptr, i32 }
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us.split: ; preds = %53, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us
+  %70 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
-.lr.ph61.split.split.us:                          ; preds = %.lr.ph61, %77
-  %73 = phi i64 [ %80, %77 ], [ %31, %.lr.ph61 ]
-  %.04158.us67 = phi i64 [ %78, %77 ], [ 0, %.lr.ph61 ]
-  %74 = load i32, ptr %24, align 4, !tbaa !78
-  %75 = sext i32 %74 to i64
-  %76 = icmp sgt i32 %74, 0
-  br i1 %76, label %.lr.ph.us71, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us70
+.lr.ph61.split.split.us:                          ; preds = %.lr.ph61, %75
+  %71 = phi i64 [ %78, %75 ], [ %31, %.lr.ph61 ]
+  %.04158.us67 = phi i64 [ %76, %75 ], [ 0, %.lr.ph61 ]
+  %72 = load i32, ptr %24, align 4, !tbaa !78
+  %73 = sext i32 %72 to i64
+  %74 = icmp sgt i32 %72, 0
+  br i1 %74, label %.lr.ph.us71, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us70
 
-77:                                               ; preds = %94
-  %78 = add nuw nsw i64 %.04158.us67, 1
-  %79 = load i32, ptr %29, align 4, !tbaa !87
-  %80 = sext i32 %79 to i64
-  %.not.us68.not = icmp slt i64 %78, %80
+75:                                               ; preds = %92
+  %76 = add nuw nsw i64 %.04158.us67, 1
+  %77 = load i32, ptr %29, align 4, !tbaa !87
+  %78 = sext i32 %77 to i64
+  %.not.us68.not = icmp slt i64 %76, %78
   br i1 %.not.us68.not, label %.lr.ph61.split.split.us, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit45, !llvm.loop !88
 
-_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us70: ; preds = %95, %.lr.ph61.split.split.us
-  %81 = load i32, ptr %7, align 8, !tbaa !76
-  %82 = sext i32 %81 to i64
-  %83 = mul nsw i64 %.04158.us67, %82
-  %84 = add nsw i64 %83, %33
-  %85 = mul i64 %.fr78, %75
-  %86 = mul i64 %85, %84
-  %87 = add i64 %86, 512
-  %88 = invoke noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput6ioseekEli(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef %87, i32 noundef 0)
-          to label %89 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us
+_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us70: ; preds = %93, %.lr.ph61.split.split.us
+  %79 = load i32, ptr %7, align 8, !tbaa !76
+  %80 = sext i32 %79 to i64
+  %81 = mul nsw i64 %.04158.us67, %80
+  %82 = add nsw i64 %81, %33
+  %83 = mul i64 %.fr82, %73
+  %84 = mul i64 %83, %82
+  %85 = add i64 %84, 512
+  %86 = invoke noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput6ioseekEli(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef %85, i32 noundef 0)
+          to label %87 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us
 
-89:                                               ; preds = %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us70
-  %90 = load i32, ptr %24, align 4, !tbaa !78
-  %91 = sext i32 %90 to i64
-  %92 = mul i64 %.fr78, %91
-  %93 = invoke noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %28, i64 noundef 1, i64 noundef %92)
-          to label %94 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us
+87:                                               ; preds = %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us70
+  %88 = load i32, ptr %24, align 4, !tbaa !78
+  %89 = sext i32 %88 to i64
+  %90 = mul i64 %.fr82, %89
+  %91 = invoke noundef zeroext i1 @_ZN11OpenImageIO6v3_1_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull %28, i64 noundef 1, i64 noundef %90)
+          to label %92 unwind label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us
 
-94:                                               ; preds = %89
-  br i1 %93, label %77, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit45
+92:                                               ; preds = %87
+  br i1 %91, label %75, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit45
 
-95:                                               ; preds = %.lr.ph.us71, %95
-  %.03754.us = phi i64 [ 0, %.lr.ph.us71 ], [ %100, %95 ]
-  %.03853.us = phi ptr [ %102, %.lr.ph.us71 ], [ %99, %95 ]
-  %96 = load i8, ptr %.03853.us, align 1, !tbaa !14
-  %97 = mul i64 %.03754.us, %.fr78
-  %98 = getelementptr inbounds nuw i8, ptr %28, i64 %97
-  store i8 %96, ptr %98, align 1, !tbaa !14
-  %99 = getelementptr inbounds nuw i8, ptr %.03853.us, i64 %103
-  %100 = add nuw nsw i64 %.03754.us, 1
-  %exitcond.not = icmp eq i64 %100, %75
-  br i1 %exitcond.not, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us70, label %95, !llvm.loop !91
+93:                                               ; preds = %.lr.ph.us71, %93
+  %.03754.us = phi i64 [ 0, %.lr.ph.us71 ], [ %98, %93 ]
+  %.03853.us = phi ptr [ %100, %.lr.ph.us71 ], [ %97, %93 ]
+  %94 = load i8, ptr %.03853.us, align 1, !tbaa !14
+  %95 = mul i64 %.03754.us, %.fr82
+  %96 = getelementptr inbounds nuw i8, ptr %28, i64 %95
+  store i8 %94, ptr %96, align 1, !tbaa !14
+  %97 = getelementptr inbounds nuw i8, ptr %.03853.us, i64 %101
+  %98 = add nuw nsw i64 %.03754.us, 1
+  %exitcond.not = icmp eq i64 %98, %73
+  br i1 %exitcond.not, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us70, label %93, !llvm.loop !91
 
 .lr.ph.us71:                                      ; preds = %.lr.ph61.split.split.us
-  %101 = mul i64 %.04158.us67, %.fr78
-  %102 = getelementptr inbounds nuw i8, ptr %14, i64 %101
-  %103 = mul i64 %73, %.fr78
-  br label %95
+  %99 = mul i64 %.04158.us67, %.fr82
+  %100 = getelementptr inbounds nuw i8, ptr %14, i64 %99
+  %101 = mul i64 %71, %.fr82
+  br label %93
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us: ; preds = %89, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us70
-  %104 = landingpad { ptr, i32 }
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us: ; preds = %87, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.us70
+  %102 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us
-  %.us-phi64 = phi { ptr, i32 } [ %72, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us ], [ %104, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us.split
+  %.us-phi64 = phi { ptr, i32 } [ %70, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.us.split ], [ %102, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit.split.split.us ]
   tail call void @_ZdaPv(ptr noundef nonnull %28) #26
   resume { ptr, i32 } %.us-phi64
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit45: ; preds = %94, %77, %58, %38, %6
-  %.not.lcssa = phi i1 [ true, %6 ], [ %57, %38 ], [ %57, %58 ], [ %93, %77 ], [ %93, %94 ]
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit45: ; preds = %92, %75, %58, %38, %6
+  %.not.lcssa = phi i1 [ true, %6 ], [ %57, %38 ], [ %57, %58 ], [ %91, %75 ], [ %91, %92 ]
   tail call void @_ZdaPv(ptr noundef nonnull %28) #26
   ret i1 %.not.lcssa
 }

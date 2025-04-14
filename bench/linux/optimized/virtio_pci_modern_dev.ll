@@ -97,7 +97,7 @@ define dso_local i32 @vp_modern_probe(ptr noundef %0) #0 align 16 {
 16:                                               ; preds = %1
   %17 = tail call i32 %14(ptr noundef %12) #4
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %260, label %33
+  br i1 %18, label %256, label %33
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 62
@@ -105,7 +105,7 @@ define dso_local i32 @vp_modern_probe(ptr noundef %0) #0 align 16 {
   %22 = zext i16 %21 to i32
   %23 = add i16 %21, -4224
   %24 = icmp ult i16 %23, -128
-  br i1 %24, label %260, label %25
+  br i1 %24, label %256, label %25
 
 25:                                               ; preds = %19
   %26 = icmp samesign ult i16 %21, 4160
@@ -139,10 +139,11 @@ define dso_local i32 @vp_modern_probe(ptr noundef %0) #0 align 16 {
   store i32 0, ptr %10, align 4, !annotation !5
   store i32 0, ptr %11, align 4, !annotation !5
   %44 = getelementptr inbounds nuw i8, ptr %12, i64 920
+  %invariant.gep.i = getelementptr i8, ptr %12, i64 944
   br label %45
 
-45:                                               ; preds = %71, %43
-  %46 = phi i8 [ %41, %43 ], [ %72, %71 ]
+45:                                               ; preds = %70, %43
+  %46 = phi i8 [ %41, %43 ], [ %71, %70 ]
   %47 = zext i8 %46 to i32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #4
   store i8 0, ptr %8, align 1, !annotation !5
@@ -157,7 +158,7 @@ define dso_local i32 @vp_modern_probe(ptr noundef %0) #0 align 16 {
   %54 = load i8, ptr %8, align 1
   %55 = icmp eq i8 %54, 1
   %or.cond.i = select i1 %53, i1 %55, i1 false
-  br i1 %or.cond.i, label %56, label %71
+  br i1 %or.cond.i, label %56, label %70
 
 56:                                               ; preds = %45
   %57 = zext nneg i8 %52 to i64
@@ -165,365 +166,361 @@ define dso_local i32 @vp_modern_probe(ptr noundef %0) #0 align 16 {
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, 0
-  br i1 %61, label %71, label %62
+  br i1 %61, label %70, label %62
 
 62:                                               ; preds = %56
   %63 = load i64, ptr %58, align 8
   %64 = add i64 %60, 1
   %65 = icmp eq i64 %64, %63
-  br i1 %65, label %71, label %66
+  br i1 %65, label %70, label %66
 
 66:                                               ; preds = %62
   %.idx.i = shl nuw nsw i64 %57, 6
-  %.offs.i = or disjoint i64 %.idx.i, 24
-  %67 = getelementptr i8, ptr %44, i64 %.offs.i
-  %68 = load i64, ptr %67, align 8
-  %69 = and i64 %68, 768
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %75
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i
+  %67 = load i64, ptr %gep.i, align 8
+  %68 = and i64 %67, 768
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %70, label %74
 
-71:                                               ; preds = %66, %62, %56, %45
+70:                                               ; preds = %66, %62, %56, %45
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #4
-  %72 = call zeroext i8 @pci_find_next_capability(ptr noundef %12, i8 noundef zeroext %46, i32 noundef 9) #4
-  %73 = icmp eq i8 %72, 0
-  br i1 %73, label %.loopexit, label %45, !llvm.loop !6
+  %71 = call zeroext i8 @pci_find_next_capability(ptr noundef %12, i8 noundef zeroext %46, i32 noundef 9) #4
+  %72 = icmp eq i8 %71, 0
+  br i1 %72, label %.loopexit, label %45, !llvm.loop !6
 
-.loopexit:                                        ; preds = %71, %33
-  %74 = getelementptr inbounds nuw i8, ptr %12, i64 184
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %74, ptr noundef nonnull @.str) #5
-  br label %260
+.loopexit:                                        ; preds = %70, %33
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 184
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %73, ptr noundef nonnull @.str) #5
+  br label %256
 
-75:                                               ; preds = %66
-  %76 = zext nneg i8 %52 to i32
-  %77 = shl nuw nsw i32 1, %76
-  %78 = load i32, ptr %40, align 4
-  %79 = or i32 %78, %77
-  store i32 %79, ptr %40, align 4
+74:                                               ; preds = %66
+  %75 = zext nneg i8 %52 to i32
+  %76 = shl nuw nsw i32 1, %75
+  %77 = load i32, ptr %40, align 4
+  %78 = or i32 %77, %76
+  store i32 %78, ptr %40, align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #4
-  %80 = tail call zeroext i8 @pci_find_capability(ptr noundef %12, i32 noundef 9) #4
-  %81 = icmp eq i8 %80, 0
-  br i1 %81, label %virtio_pci_find_capability.exit11, label %.preheader66
+  %79 = tail call zeroext i8 @pci_find_capability(ptr noundef %12, i32 noundef 9) #4
+  %80 = icmp eq i8 %79, 0
+  br i1 %80, label %virtio_pci_find_capability.exit12, label %.preheader69
 
-.preheader66:                                     ; preds = %75, %112
-  %82 = phi i8 [ %113, %112 ], [ %80, %75 ]
-  %83 = zext i8 %82 to i32
+.preheader69:                                     ; preds = %74, %110
+  %81 = phi i8 [ %111, %110 ], [ %79, %74 ]
+  %82 = zext i8 %81 to i32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #4
   store i8 0, ptr %6, align 1, !annotation !5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #4
   store i8 0, ptr %7, align 1, !annotation !5
-  %84 = add nuw nsw i32 %83, 3
-  %85 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef %84, ptr noundef nonnull %6) #4
-  %86 = add nuw nsw i32 %83, 4
-  %87 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef %86, ptr noundef nonnull %7) #4
-  %88 = load i8, ptr %7, align 1
-  %89 = icmp ult i8 %88, 6
-  %90 = load i8, ptr %6, align 1
-  %91 = icmp eq i8 %90, 3
-  %or.cond.i8 = select i1 %89, i1 %91, i1 false
-  br i1 %or.cond.i8, label %92, label %112
+  %83 = add nuw nsw i32 %82, 3
+  %84 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef %83, ptr noundef nonnull %6) #4
+  %85 = add nuw nsw i32 %82, 4
+  %86 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef %85, ptr noundef nonnull %7) #4
+  %87 = load i8, ptr %7, align 1
+  %88 = icmp ult i8 %87, 6
+  %89 = load i8, ptr %6, align 1
+  %90 = icmp eq i8 %89, 3
+  %or.cond.i9 = select i1 %88, i1 %90, i1 false
+  br i1 %or.cond.i9, label %91, label %110
 
-92:                                               ; preds = %.preheader66
-  %93 = zext nneg i8 %88 to i64
-  %94 = getelementptr [11 x %struct.resource], ptr %44, i64 0, i64 %93
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %96 = load i64, ptr %95, align 8
-  %97 = icmp eq i64 %96, 0
-  br i1 %97, label %112, label %98
+91:                                               ; preds = %.preheader69
+  %92 = zext nneg i8 %87 to i64
+  %93 = getelementptr [11 x %struct.resource], ptr %44, i64 0, i64 %92
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+  %95 = load i64, ptr %94, align 8
+  %96 = icmp eq i64 %95, 0
+  br i1 %96, label %110, label %97
 
-98:                                               ; preds = %92
-  %99 = load i64, ptr %94, align 8
-  %100 = add i64 %96, 1
-  %101 = icmp eq i64 %100, %99
-  br i1 %101, label %112, label %102
+97:                                               ; preds = %91
+  %98 = load i64, ptr %93, align 8
+  %99 = add i64 %95, 1
+  %100 = icmp eq i64 %99, %98
+  br i1 %100, label %110, label %101
 
-102:                                              ; preds = %98
-  %.idx.i9 = shl nuw nsw i64 %93, 6
-  %.offs.i10 = or disjoint i64 %.idx.i9, 24
-  %103 = getelementptr i8, ptr %44, i64 %.offs.i10
-  %104 = load i64, ptr %103, align 8
-  %105 = and i64 %104, 768
-  %106 = icmp eq i64 %105, 0
-  br i1 %106, label %112, label %107
+101:                                              ; preds = %97
+  %.idx.i10 = shl nuw nsw i64 %92, 6
+  %gep.i11 = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i10
+  %102 = load i64, ptr %gep.i11, align 8
+  %103 = and i64 %102, 768
+  %104 = icmp eq i64 %103, 0
+  br i1 %104, label %110, label %105
 
-107:                                              ; preds = %102
-  %108 = zext nneg i8 %88 to i32
-  %109 = shl nuw nsw i32 1, %108
-  %110 = load i32, ptr %40, align 4
-  %111 = or i32 %110, %109
-  store i32 %111, ptr %40, align 4
+105:                                              ; preds = %101
+  %106 = zext nneg i8 %87 to i32
+  %107 = shl nuw nsw i32 1, %106
+  %108 = load i32, ptr %40, align 4
+  %109 = or i32 %108, %107
+  store i32 %109, ptr %40, align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #4
-  br label %virtio_pci_find_capability.exit11
+  br label %virtio_pci_find_capability.exit12
 
-112:                                              ; preds = %102, %98, %92, %.preheader66
+110:                                              ; preds = %101, %97, %91, %.preheader69
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #4
-  %113 = call zeroext i8 @pci_find_next_capability(ptr noundef %12, i8 noundef zeroext %82, i32 noundef 9) #4
-  %114 = icmp eq i8 %113, 0
-  br i1 %114, label %virtio_pci_find_capability.exit11, label %.preheader66, !llvm.loop !6
+  %111 = call zeroext i8 @pci_find_next_capability(ptr noundef %12, i8 noundef zeroext %81, i32 noundef 9) #4
+  %112 = icmp eq i8 %111, 0
+  br i1 %112, label %virtio_pci_find_capability.exit12, label %.preheader69, !llvm.loop !6
 
-virtio_pci_find_capability.exit11:                ; preds = %112, %75, %107
-  %115 = phi i32 [ 0, %75 ], [ %83, %107 ], [ 0, %112 ]
-  %116 = tail call zeroext i8 @pci_find_capability(ptr noundef %12, i32 noundef 9) #4
-  %117 = icmp eq i8 %116, 0
-  br i1 %117, label %virtio_pci_find_capability.exit15.thread, label %.preheader65
+virtio_pci_find_capability.exit12:                ; preds = %110, %74, %105
+  %113 = phi i32 [ 0, %74 ], [ %82, %105 ], [ 0, %110 ]
+  %114 = tail call zeroext i8 @pci_find_capability(ptr noundef %12, i32 noundef 9) #4
+  %115 = icmp eq i8 %114, 0
+  br i1 %115, label %virtio_pci_find_capability.exit17.thread, label %.preheader68
 
-.preheader65:                                     ; preds = %virtio_pci_find_capability.exit11, %143
-  %118 = phi i8 [ %144, %143 ], [ %116, %virtio_pci_find_capability.exit11 ]
-  %119 = zext i8 %118 to i32
+.preheader68:                                     ; preds = %virtio_pci_find_capability.exit12, %140
+  %116 = phi i8 [ %141, %140 ], [ %114, %virtio_pci_find_capability.exit12 ]
+  %117 = zext i8 %116 to i32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #4
   store i8 0, ptr %4, align 1, !annotation !5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #4
   store i8 0, ptr %5, align 1, !annotation !5
-  %120 = add nuw nsw i32 %119, 3
-  %121 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef %120, ptr noundef nonnull %4) #4
-  %122 = add nuw nsw i32 %119, 4
-  %123 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef %122, ptr noundef nonnull %5) #4
-  %124 = load i8, ptr %5, align 1
-  %125 = icmp ult i8 %124, 6
-  %126 = load i8, ptr %4, align 1
-  %127 = icmp eq i8 %126, 2
-  %or.cond.i12 = select i1 %125, i1 %127, i1 false
-  br i1 %or.cond.i12, label %128, label %143
+  %118 = add nuw nsw i32 %117, 3
+  %119 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef %118, ptr noundef nonnull %4) #4
+  %120 = add nuw nsw i32 %117, 4
+  %121 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef %120, ptr noundef nonnull %5) #4
+  %122 = load i8, ptr %5, align 1
+  %123 = icmp ult i8 %122, 6
+  %124 = load i8, ptr %4, align 1
+  %125 = icmp eq i8 %124, 2
+  %or.cond.i14 = select i1 %123, i1 %125, i1 false
+  br i1 %or.cond.i14, label %126, label %140
 
-128:                                              ; preds = %.preheader65
-  %129 = zext nneg i8 %124 to i64
-  %130 = getelementptr [11 x %struct.resource], ptr %44, i64 0, i64 %129
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %132 = load i64, ptr %131, align 8
-  %133 = icmp eq i64 %132, 0
-  br i1 %133, label %143, label %134
+126:                                              ; preds = %.preheader68
+  %127 = zext nneg i8 %122 to i64
+  %128 = getelementptr [11 x %struct.resource], ptr %44, i64 0, i64 %127
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  %130 = load i64, ptr %129, align 8
+  %131 = icmp eq i64 %130, 0
+  br i1 %131, label %140, label %132
 
-134:                                              ; preds = %128
-  %135 = load i64, ptr %130, align 8
-  %136 = add i64 %132, 1
-  %137 = icmp eq i64 %136, %135
-  br i1 %137, label %143, label %138
+132:                                              ; preds = %126
+  %133 = load i64, ptr %128, align 8
+  %134 = add i64 %130, 1
+  %135 = icmp eq i64 %134, %133
+  br i1 %135, label %140, label %136
 
-138:                                              ; preds = %134
-  %.idx.i13 = shl nuw nsw i64 %129, 6
-  %.offs.i14 = or disjoint i64 %.idx.i13, 24
-  %139 = getelementptr i8, ptr %44, i64 %.offs.i14
-  %140 = load i64, ptr %139, align 8
-  %141 = and i64 %140, 768
-  %142 = icmp eq i64 %141, 0
-  br i1 %142, label %143, label %virtio_pci_find_capability.exit15
+136:                                              ; preds = %132
+  %.idx.i15 = shl nuw nsw i64 %127, 6
+  %gep.i16 = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i15
+  %137 = load i64, ptr %gep.i16, align 8
+  %138 = and i64 %137, 768
+  %139 = icmp eq i64 %138, 0
+  br i1 %139, label %140, label %virtio_pci_find_capability.exit17
 
-143:                                              ; preds = %138, %134, %128, %.preheader65
+140:                                              ; preds = %136, %132, %126, %.preheader68
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #4
-  %144 = call zeroext i8 @pci_find_next_capability(ptr noundef %12, i8 noundef zeroext %118, i32 noundef 9) #4
-  %145 = icmp eq i8 %144, 0
-  br i1 %145, label %virtio_pci_find_capability.exit15.thread, label %.preheader65, !llvm.loop !6
+  %141 = call zeroext i8 @pci_find_next_capability(ptr noundef %12, i8 noundef zeroext %116, i32 noundef 9) #4
+  %142 = icmp eq i8 %141, 0
+  br i1 %142, label %virtio_pci_find_capability.exit17.thread, label %.preheader68, !llvm.loop !6
 
-virtio_pci_find_capability.exit15.thread:         ; preds = %143, %virtio_pci_find_capability.exit11
-  %146 = getelementptr inbounds nuw i8, ptr %12, i64 184
-  br label %152
+virtio_pci_find_capability.exit17.thread:         ; preds = %140, %virtio_pci_find_capability.exit12
+  %143 = getelementptr inbounds nuw i8, ptr %12, i64 184
+  br label %149
 
-virtio_pci_find_capability.exit15:                ; preds = %138
-  %147 = zext nneg i8 %124 to i32
-  %148 = shl nuw nsw i32 1, %147
-  %149 = load i32, ptr %40, align 4
-  %150 = or i32 %149, %148
-  store i32 %150, ptr %40, align 4
+virtio_pci_find_capability.exit17:                ; preds = %136
+  %144 = zext nneg i8 %122 to i32
+  %145 = shl nuw nsw i32 1, %144
+  %146 = load i32, ptr %40, align 4
+  %147 = or i32 %146, %145
+  store i32 %147, ptr %40, align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #4
-  %.not = icmp eq i32 %115, 0
-  %151 = getelementptr inbounds nuw i8, ptr %12, i64 184
-  br i1 %.not, label %152, label %155
+  %.not = icmp eq i32 %113, 0
+  %148 = getelementptr inbounds nuw i8, ptr %12, i64 184
+  br i1 %.not, label %149, label %152
 
-152:                                              ; preds = %virtio_pci_find_capability.exit15.thread, %virtio_pci_find_capability.exit15
-  %153 = phi ptr [ %146, %virtio_pci_find_capability.exit15.thread ], [ %151, %virtio_pci_find_capability.exit15 ]
-  %154 = phi i32 [ 0, %virtio_pci_find_capability.exit15.thread ], [ %119, %virtio_pci_find_capability.exit15 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %153, ptr noundef nonnull @.str.1, i32 noundef %47, i32 noundef %115, i32 noundef %154) #5
-  br label %260
+149:                                              ; preds = %virtio_pci_find_capability.exit17.thread, %virtio_pci_find_capability.exit17
+  %150 = phi ptr [ %143, %virtio_pci_find_capability.exit17.thread ], [ %148, %virtio_pci_find_capability.exit17 ]
+  %151 = phi i32 [ 0, %virtio_pci_find_capability.exit17.thread ], [ %117, %virtio_pci_find_capability.exit17 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %150, ptr noundef nonnull @.str.1, i32 noundef %47, i32 noundef %113, i32 noundef %151) #5
+  br label %256
 
-155:                                              ; preds = %virtio_pci_find_capability.exit15
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %157 = load i64, ptr %156, align 8
-  %158 = icmp eq i64 %157, 0
-  %159 = select i1 %158, i64 -1, i64 %157
-  %160 = tail call i32 @dma_set_mask(ptr noundef nonnull %151, i64 noundef %159) #4
-  %161 = icmp eq i32 %160, 0
-  br i1 %161, label %162, label %164
+152:                                              ; preds = %virtio_pci_find_capability.exit17
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %154 = load i64, ptr %153, align 8
+  %155 = icmp eq i64 %154, 0
+  %156 = select i1 %155, i64 -1, i64 %154
+  %157 = tail call i32 @dma_set_mask(ptr noundef nonnull %148, i64 noundef %156) #4
+  %158 = icmp eq i32 %157, 0
+  br i1 %158, label %159, label %161
 
-162:                                              ; preds = %155
-  %163 = tail call i32 @dma_set_coherent_mask(ptr noundef nonnull %151, i64 noundef %159) #4
-  br label %170
+159:                                              ; preds = %152
+  %160 = tail call i32 @dma_set_coherent_mask(ptr noundef nonnull %148, i64 noundef %156) #4
+  br label %167
 
-164:                                              ; preds = %155
-  %165 = tail call i32 @dma_set_mask(ptr noundef nonnull %151, i64 noundef 4294967295) #4
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %169
+161:                                              ; preds = %152
+  %162 = tail call i32 @dma_set_mask(ptr noundef nonnull %148, i64 noundef 4294967295) #4
+  %163 = icmp eq i32 %162, 0
+  br i1 %163, label %164, label %166
 
-167:                                              ; preds = %164
-  %168 = tail call i32 @dma_set_coherent_mask(ptr noundef nonnull %151, i64 noundef 4294967295) #4
-  br label %170
+164:                                              ; preds = %161
+  %165 = tail call i32 @dma_set_coherent_mask(ptr noundef nonnull %148, i64 noundef 4294967295) #4
+  br label %167
 
-169:                                              ; preds = %164
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %151, ptr noundef nonnull @.str.2) #5
-  br label %170
+166:                                              ; preds = %161
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %148, ptr noundef nonnull @.str.2) #5
+  br label %167
 
-170:                                              ; preds = %169, %167, %162
-  %171 = tail call zeroext i8 @pci_find_capability(ptr noundef %12, i32 noundef 9) #4
-  %172 = icmp eq i8 %171, 0
-  br i1 %172, label %virtio_pci_find_capability.exit19, label %.preheader
+167:                                              ; preds = %166, %164, %159
+  %168 = tail call zeroext i8 @pci_find_capability(ptr noundef %12, i32 noundef 9) #4
+  %169 = icmp eq i8 %168, 0
+  br i1 %169, label %virtio_pci_find_capability.exit22, label %.preheader
 
-.preheader:                                       ; preds = %170, %203
-  %173 = phi i8 [ %204, %203 ], [ %171, %170 ]
-  %174 = zext i8 %173 to i32
+.preheader:                                       ; preds = %167, %199
+  %170 = phi i8 [ %200, %199 ], [ %168, %167 ]
+  %171 = zext i8 %170 to i32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #4
   store i8 0, ptr %2, align 1, !annotation !5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #4
   store i8 0, ptr %3, align 1, !annotation !5
-  %175 = add nuw nsw i32 %174, 3
-  %176 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef %175, ptr noundef nonnull %2) #4
-  %177 = add nuw nsw i32 %174, 4
-  %178 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef %177, ptr noundef nonnull %3) #4
-  %179 = load i8, ptr %3, align 1
-  %180 = icmp ult i8 %179, 6
-  %181 = load i8, ptr %2, align 1
-  %182 = icmp eq i8 %181, 4
-  %or.cond.i16 = select i1 %180, i1 %182, i1 false
-  br i1 %or.cond.i16, label %183, label %203
+  %172 = add nuw nsw i32 %171, 3
+  %173 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef %172, ptr noundef nonnull %2) #4
+  %174 = add nuw nsw i32 %171, 4
+  %175 = call i32 @pci_read_config_byte(ptr noundef %12, i32 noundef %174, ptr noundef nonnull %3) #4
+  %176 = load i8, ptr %3, align 1
+  %177 = icmp ult i8 %176, 6
+  %178 = load i8, ptr %2, align 1
+  %179 = icmp eq i8 %178, 4
+  %or.cond.i19 = select i1 %177, i1 %179, i1 false
+  br i1 %or.cond.i19, label %180, label %199
 
-183:                                              ; preds = %.preheader
-  %184 = zext nneg i8 %179 to i64
-  %185 = getelementptr [11 x %struct.resource], ptr %44, i64 0, i64 %184
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %187 = load i64, ptr %186, align 8
-  %188 = icmp eq i64 %187, 0
-  br i1 %188, label %203, label %189
+180:                                              ; preds = %.preheader
+  %181 = zext nneg i8 %176 to i64
+  %182 = getelementptr [11 x %struct.resource], ptr %44, i64 0, i64 %181
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
+  %184 = load i64, ptr %183, align 8
+  %185 = icmp eq i64 %184, 0
+  br i1 %185, label %199, label %186
 
-189:                                              ; preds = %183
-  %190 = load i64, ptr %185, align 8
-  %191 = add i64 %187, 1
-  %192 = icmp eq i64 %191, %190
-  br i1 %192, label %203, label %193
+186:                                              ; preds = %180
+  %187 = load i64, ptr %182, align 8
+  %188 = add i64 %184, 1
+  %189 = icmp eq i64 %188, %187
+  br i1 %189, label %199, label %190
 
-193:                                              ; preds = %189
-  %.idx.i17 = shl nuw nsw i64 %184, 6
-  %.offs.i18 = or disjoint i64 %.idx.i17, 24
-  %194 = getelementptr i8, ptr %44, i64 %.offs.i18
-  %195 = load i64, ptr %194, align 8
-  %196 = and i64 %195, 768
-  %197 = icmp eq i64 %196, 0
-  br i1 %197, label %203, label %198
+190:                                              ; preds = %186
+  %.idx.i20 = shl nuw nsw i64 %181, 6
+  %gep.i21 = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i20
+  %191 = load i64, ptr %gep.i21, align 8
+  %192 = and i64 %191, 768
+  %193 = icmp eq i64 %192, 0
+  br i1 %193, label %199, label %194
 
-198:                                              ; preds = %193
-  %199 = zext nneg i8 %179 to i32
-  %200 = shl nuw nsw i32 1, %199
-  %201 = load i32, ptr %40, align 4
-  %202 = or i32 %201, %200
-  store i32 %202, ptr %40, align 4
+194:                                              ; preds = %190
+  %195 = zext nneg i8 %176 to i32
+  %196 = shl nuw nsw i32 1, %195
+  %197 = load i32, ptr %40, align 4
+  %198 = or i32 %197, %196
+  store i32 %198, ptr %40, align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #4
-  br label %virtio_pci_find_capability.exit19
+  br label %virtio_pci_find_capability.exit22
 
-203:                                              ; preds = %193, %189, %183, %.preheader
+199:                                              ; preds = %190, %186, %180, %.preheader
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #4
-  %204 = call zeroext i8 @pci_find_next_capability(ptr noundef %12, i8 noundef zeroext %173, i32 noundef 9) #4
-  %205 = icmp eq i8 %204, 0
-  br i1 %205, label %virtio_pci_find_capability.exit19, label %.preheader, !llvm.loop !6
+  %200 = call zeroext i8 @pci_find_next_capability(ptr noundef %12, i8 noundef zeroext %170, i32 noundef 9) #4
+  %201 = icmp eq i8 %200, 0
+  br i1 %201, label %virtio_pci_find_capability.exit22, label %.preheader, !llvm.loop !6
 
-virtio_pci_find_capability.exit19:                ; preds = %203, %170, %198
-  %206 = phi i32 [ 0, %170 ], [ %174, %198 ], [ 0, %203 ]
-  %207 = load i32, ptr %40, align 8
-  %208 = tail call i32 @pci_request_selected_regions(ptr noundef %12, i32 noundef %207, ptr noundef nonnull @.str.3) #4
-  %209 = icmp eq i32 %208, 0
-  br i1 %209, label %210, label %260
+virtio_pci_find_capability.exit22:                ; preds = %199, %167, %194
+  %202 = phi i32 [ 0, %167 ], [ %171, %194 ], [ 0, %199 ]
+  %203 = load i32, ptr %40, align 8
+  %204 = tail call i32 @pci_request_selected_regions(ptr noundef %12, i32 noundef %203, ptr noundef nonnull @.str.3) #4
+  %205 = icmp eq i32 %204, 0
+  br i1 %205, label %206, label %256
 
-210:                                              ; preds = %virtio_pci_find_capability.exit19
-  %211 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %212 = tail call fastcc ptr @vp_modern_map_capability(ptr noundef %0, i32 noundef %47, i64 noundef 56, i32 noundef 4, i32 noundef 0, i32 noundef 64, ptr noundef nonnull %211, ptr noundef null)
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 8
+206:                                              ; preds = %virtio_pci_find_capability.exit22
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %208 = tail call fastcc ptr @vp_modern_map_capability(ptr noundef %0, i32 noundef %47, i64 noundef 56, i32 noundef 4, i32 noundef 0, i32 noundef 64, ptr noundef nonnull %207, ptr noundef null)
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %208, ptr %209, align 8
+  %210 = icmp eq ptr %208, null
+  br i1 %210, label %254, label %211
+
+211:                                              ; preds = %206
+  %212 = tail call fastcc ptr @vp_modern_map_capability(ptr noundef %0, i32 noundef %113, i64 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null)
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %212, ptr %213, align 8
   %214 = icmp eq ptr %212, null
-  br i1 %214, label %258, label %215
+  br i1 %214, label %252, label %215
 
-215:                                              ; preds = %210
-  %216 = tail call fastcc ptr @vp_modern_map_capability(ptr noundef %0, i32 noundef %115, i64 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 1, ptr noundef null, ptr noundef null)
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %216, ptr %217, align 8
-  %218 = icmp eq ptr %216, null
-  br i1 %218, label %256, label %219
+215:                                              ; preds = %211
+  %216 = add nuw nsw i32 %117, 16
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %218 = tail call i32 @pci_read_config_dword(ptr noundef %12, i32 noundef %216, ptr noundef nonnull %217) #4
+  %219 = add nuw nsw i32 %117, 12
+  %220 = call i32 @pci_read_config_dword(ptr noundef %12, i32 noundef %219, ptr noundef nonnull %10) #4
+  %221 = add nuw nsw i32 %117, 8
+  %222 = call i32 @pci_read_config_dword(ptr noundef %12, i32 noundef %221, ptr noundef nonnull %11) #4
+  %223 = load i32, ptr %10, align 4
+  %224 = zext i32 %223 to i64
+  %225 = load i32, ptr %11, align 4
+  %226 = and i32 %225, 4095
+  %227 = zext nneg i32 %226 to i64
+  %228 = add nuw nsw i64 %227, %224
+  %229 = icmp samesign ult i64 %228, 4097
+  br i1 %229, label %230, label %236
 
-219:                                              ; preds = %215
-  %220 = add nuw nsw i32 %119, 16
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %222 = tail call i32 @pci_read_config_dword(ptr noundef %12, i32 noundef %220, ptr noundef nonnull %221) #4
-  %223 = add nuw nsw i32 %119, 12
-  %224 = call i32 @pci_read_config_dword(ptr noundef %12, i32 noundef %223, ptr noundef nonnull %10) #4
-  %225 = add nuw nsw i32 %119, 8
-  %226 = call i32 @pci_read_config_dword(ptr noundef %12, i32 noundef %225, ptr noundef nonnull %11) #4
-  %227 = load i32, ptr %10, align 4
-  %228 = zext i32 %227 to i64
-  %229 = load i32, ptr %11, align 4
-  %230 = and i32 %229, 4095
-  %231 = zext nneg i32 %230 to i64
-  %232 = add nuw nsw i64 %231, %228
-  %233 = icmp samesign ult i64 %232, 4097
-  br i1 %233, label %234, label %240
+230:                                              ; preds = %215
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %233 = call fastcc ptr @vp_modern_map_capability(ptr noundef %0, i32 noundef %117, i64 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef %223, ptr noundef nonnull %231, ptr noundef nonnull %232)
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %233, ptr %234, align 8
+  %235 = icmp eq ptr %233, null
+  br i1 %235, label %250, label %238
 
-234:                                              ; preds = %219
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %237 = call fastcc ptr @vp_modern_map_capability(ptr noundef %0, i32 noundef %119, i64 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef %227, ptr noundef nonnull %235, ptr noundef nonnull %236)
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %237, ptr %238, align 8
-  %239 = icmp eq ptr %237, null
-  br i1 %239, label %254, label %242
+236:                                              ; preds = %215
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %117, ptr %237, align 8
+  br label %238
 
-240:                                              ; preds = %219
-  %241 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %119, ptr %241, align 8
-  br label %242
+238:                                              ; preds = %236, %230
+  %239 = icmp eq i32 %202, 0
+  br i1 %239, label %256, label %240
 
-242:                                              ; preds = %240, %234
-  %243 = icmp eq i32 %206, 0
-  br i1 %243, label %260, label %244
+240:                                              ; preds = %238
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %242 = call fastcc ptr @vp_modern_map_capability(ptr noundef %0, i32 noundef %202, i64 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 4096, ptr noundef nonnull %241, ptr noundef null)
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %242, ptr %243, align 8
+  %244 = icmp eq ptr %242, null
+  br i1 %244, label %245, label %256
 
-244:                                              ; preds = %242
-  %245 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %246 = call fastcc ptr @vp_modern_map_capability(ptr noundef %0, i32 noundef %206, i64 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 4096, ptr noundef nonnull %245, ptr noundef null)
-  %247 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %246, ptr %247, align 8
-  %248 = icmp eq ptr %246, null
-  br i1 %248, label %249, label %260
+245:                                              ; preds = %240
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %247 = load ptr, ptr %246, align 8
+  %248 = icmp eq ptr %247, null
+  br i1 %248, label %250, label %249
 
-249:                                              ; preds = %244
-  %250 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %251 = load ptr, ptr %250, align 8
-  %252 = icmp eq ptr %251, null
-  br i1 %252, label %254, label %253
+249:                                              ; preds = %245
+  call void @pci_iounmap(ptr noundef %12, ptr noundef nonnull %247) #4
+  br label %250
 
-253:                                              ; preds = %249
-  call void @pci_iounmap(ptr noundef %12, ptr noundef nonnull %251) #4
+250:                                              ; preds = %249, %245, %230
+  %251 = load ptr, ptr %213, align 8
+  call void @pci_iounmap(ptr noundef %12, ptr noundef %251) #4
+  br label %252
+
+252:                                              ; preds = %250, %211
+  %253 = load ptr, ptr %209, align 8
+  call void @pci_iounmap(ptr noundef %12, ptr noundef %253) #4
   br label %254
 
-254:                                              ; preds = %253, %249, %234
-  %255 = load ptr, ptr %217, align 8
-  call void @pci_iounmap(ptr noundef %12, ptr noundef %255) #4
+254:                                              ; preds = %252, %206
+  %255 = load i32, ptr %40, align 8
+  call void @pci_release_selected_regions(ptr noundef %12, i32 noundef %255) #4
   br label %256
 
-256:                                              ; preds = %254, %215
-  %257 = load ptr, ptr %213, align 8
-  call void @pci_iounmap(ptr noundef %12, ptr noundef %257) #4
-  br label %258
-
-258:                                              ; preds = %256, %210
-  %259 = load i32, ptr %40, align 8
-  call void @pci_release_selected_regions(ptr noundef %12, i32 noundef %259) #4
-  br label %260
-
-260:                                              ; preds = %258, %244, %242, %virtio_pci_find_capability.exit19, %152, %.loopexit, %19, %16
-  %261 = phi i32 [ -22, %258 ], [ -22, %152 ], [ -19, %.loopexit ], [ %17, %16 ], [ -19, %19 ], [ %208, %virtio_pci_find_capability.exit19 ], [ 0, %244 ], [ 0, %242 ]
+256:                                              ; preds = %254, %240, %238, %virtio_pci_find_capability.exit22, %149, %.loopexit, %19, %16
+  %257 = phi i32 [ -22, %254 ], [ -22, %149 ], [ -19, %.loopexit ], [ %17, %16 ], [ -19, %19 ], [ %204, %virtio_pci_find_capability.exit22 ], [ 0, %240 ], [ 0, %238 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
-  ret i32 %261
+  ret i32 %257
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -32598,9 +32598,9 @@ define noundef ptr @_ZN7glslang16HlslParseContext27handleAssignToMatrixSwizzleER
   %188 = load ptr, ptr %187, align 8
   call void %188(ptr noundef nonnull align 8 dereferenceable(184) %185, ptr noundef nonnull align 8 dereferenceable(152) %6) #25
   %189 = load ptr, ptr %134, align 8
-  %190 = or disjoint i64 %indvars.iv, 1
-  %191 = load ptr, ptr %160, align 8
-  %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %190
+  %190 = load ptr, ptr %160, align 8
+  %191 = getelementptr inbounds nuw ptr, ptr %190, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 40
@@ -36927,13 +36927,13 @@ _ZN7glslang16TConstUnionArrayC2Ei.exit:           ; preds = %9, %_ZN7glslang7TVe
   store double %34, ptr %42, align 8
   %.sroa.335.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 2, ptr %.sroa.335.0..sroa_idx, align 8
-  %43 = or disjoint i64 %38, 1
-  %44 = load ptr, ptr %30, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %46, i64 %43
+  %43 = load ptr, ptr %30, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %45, i64 %38
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store double %37, ptr %47, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i32 2, ptr %.sroa.3.0..sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -3781,22 +3781,22 @@ errorlimit.exit.i:                                ; preds = %74, %72
   %117 = load i32, ptr %116, align 8, !tbaa !50
   %118 = trunc i32 %117 to i8
   %.idx.i = shl nuw nsw i64 %.pre-phi65.i, 1
-  %.offs.i = or disjoint i64 %.idx.i, 1
-  %119 = getelementptr inbounds nuw i8, ptr %114, i64 %.offs.i
-  store i8 %118, ptr %119, align 1, !tbaa !125
-  %120 = add i8 %111, 1
-  store i8 %120, ptr %48, align 8, !tbaa !103
-  %121 = zext i8 %111 to i32
+  %119 = getelementptr inbounds nuw i8, ptr %114, i64 %.idx.i
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1
+  store i8 %118, ptr %120, align 1, !tbaa !125
+  %121 = add i8 %111, 1
+  store i8 %121, ptr %48, align 8, !tbaa !103
+  %122 = zext i8 %111 to i32
   br label %indexupvalue.exit
 
 .loopexit.loopexit.i:                             ; preds = %58
-  %122 = trunc nuw nsw i64 %indvars.iv.i20 to i32
+  %123 = trunc nuw nsw i64 %indvars.iv.i20 to i32
   br label %indexupvalue.exit
 
 indexupvalue.exit:                                ; preds = %110, %.loopexit.loopexit.i
-  %.039.i = phi i32 [ %121, %110 ], [ %122, %.loopexit.loopexit.i ]
-  %123 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %.039.i, ptr %123, align 8, !tbaa !50
+  %.039.i = phi i32 [ %122, %110 ], [ %123, %.loopexit.loopexit.i ]
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %.039.i, ptr %124, align 8, !tbaa !50
   store i32 7, ptr %2, align 8, !tbaa !58
   br label %markupval.exit
 

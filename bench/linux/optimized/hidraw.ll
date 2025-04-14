@@ -65,8 +65,8 @@ define dso_local range(i32 -12, 1) i32 @hidraw_report_event(ptr noundef readonly
   %11 = icmp eq ptr %10, %8
   br i1 %11, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %32
-  %12 = phi ptr [ %33, %32 ], [ %10, %3 ]
+.lr.ph:                                           ; preds = %3, %33
+  %12 = phi ptr [ %34, %33 ], [ %10, %3 ]
   %13 = getelementptr i8, ptr %12, i64 -1048
   %14 = getelementptr i8, ptr %12, i64 -24
   %15 = load i32, ptr %14, align 8
@@ -75,7 +75,7 @@ define dso_local range(i32 -12, 1) i32 @hidraw_report_event(ptr noundef readonly
   %18 = getelementptr i8, ptr %12, i64 -20
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %17, %19
-  br i1 %20, label %32, label %21
+  br i1 %20, label %33, label %21
 
 21:                                               ; preds = %.lr.ph
   %22 = tail call ptr @kmemdup(ptr noundef %1, i64 noundef %9, i32 noundef 2080) #14
@@ -90,25 +90,25 @@ define dso_local range(i32 -12, 1) i32 @hidraw_report_event(ptr noundef readonly
   %28 = load i32, ptr %14, align 8
   %29 = sext i32 %28 to i64
   %.idx = shl nsw i64 %29, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %30 = getelementptr i8, ptr %13, i64 %.offs
-  store i32 %2, ptr %30, align 8
+  %30 = getelementptr i8, ptr %13, i64 %.idx
+  %31 = getelementptr i8, ptr %30, i64 8
+  store i32 %2, ptr %31, align 8
   store i32 %17, ptr %14, align 8
-  %31 = getelementptr i8, ptr %12, i64 -16
-  tail call void @kill_fasync(ptr noundef %31, i32 noundef 29, i32 noundef 1) #13
-  br label %32
+  %32 = getelementptr i8, ptr %12, i64 -16
+  tail call void @kill_fasync(ptr noundef %32, i32 noundef 29, i32 noundef 1) #13
+  br label %33
 
-32:                                               ; preds = %27, %.lr.ph
-  %33 = load ptr, ptr %12, align 8
-  %34 = icmp eq ptr %33, %8
-  br i1 %34, label %.thread, label %.lr.ph, !llvm.loop !6
+33:                                               ; preds = %27, %.lr.ph
+  %34 = load ptr, ptr %12, align 8
+  %35 = icmp eq ptr %34, %8
+  br i1 %35, label %.thread, label %.lr.ph, !llvm.loop !6
 
-.thread:                                          ; preds = %32, %21, %3
-  %35 = phi i32 [ 0, %3 ], [ -12, %21 ], [ 0, %32 ]
+.thread:                                          ; preds = %33, %21, %3
+  %36 = phi i32 [ 0, %3 ], [ -12, %21 ], [ 0, %33 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %6, i64 noundef %7) #13
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %37 = tail call i32 @__wake_up(ptr noundef nonnull %36, i32 noundef 1, i32 noundef 1, ptr noundef null) #13
-  ret i32 %35
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %38 = tail call i32 @__wake_up(ptr noundef nonnull %37, i32 noundef 1, i32 noundef 1, ptr noundef null) #13
+  ret i32 %36
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -799,7 +799,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_sqr_arr(ptr noundef %0, ptr noundef read
   tail call void @BN_CTX_start(ptr noundef %3) #5
   %5 = tail call ptr @BN_CTX_get(ptr noundef %3) #5
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %233, label %7
+  br i1 %6, label %231, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -807,7 +807,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_sqr_arr(ptr noundef %0, ptr noundef read
   %10 = shl nsw i32 %9, 1
   %11 = tail call ptr @bn_wexpand(ptr noundef nonnull %5, i32 noundef %10) #5
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %233, label %12
+  br i1 %.not, label %231, label %12
 
 12:                                               ; preds = %7
   %13 = load i32, ptr %8, align 8, !tbaa !3
@@ -927,127 +927,126 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_sqr_arr(ptr noundef %0, ptr noundef read
   %120 = or disjoint i64 %119, %113
   %121 = or disjoint i64 %120, %117
   %122 = or i64 %121, %110
-  %123 = shl nuw nsw i64 %indvars.iv.next, 1
-  %124 = or disjoint i64 %123, 1
-  %125 = getelementptr inbounds nuw i64, ptr %16, i64 %124
-  store i64 %122, ptr %125, align 8, !tbaa !11
-  %126 = load i64, ptr %19, align 8, !tbaa !11
-  %127 = lshr i64 %126, 28
-  %128 = shl nuw nsw i64 %127, 3
-  %129 = and i64 %128, 64
-  %130 = shl nuw nsw i64 %127, 2
-  %131 = and i64 %130, 16
-  %132 = shl nuw nsw i64 %127, 1
-  %133 = and i64 %132, 4
-  %134 = and i64 %127, 1
-  %135 = or disjoint i64 %131, %134
-  %136 = or disjoint i64 %135, %129
-  %137 = or disjoint i64 %136, %133
-  %138 = shl nuw nsw i64 %137, 56
-  %139 = lshr i64 %126, 24
-  %140 = shl nuw nsw i64 %139, 3
-  %141 = and i64 %140, 64
-  %142 = shl nuw nsw i64 %139, 2
-  %143 = and i64 %142, 16
-  %144 = shl nuw nsw i64 %139, 1
-  %145 = and i64 %144, 4
-  %146 = and i64 %139, 1
-  %147 = or disjoint i64 %143, %146
-  %148 = or disjoint i64 %147, %141
-  %149 = or disjoint i64 %148, %145
-  %150 = shl nuw nsw i64 %149, 48
-  %151 = or disjoint i64 %138, %150
-  %152 = lshr i64 %126, 20
-  %153 = shl nuw nsw i64 %152, 3
-  %154 = and i64 %153, 64
-  %155 = shl nuw nsw i64 %152, 2
-  %156 = and i64 %155, 16
-  %157 = shl nuw nsw i64 %152, 1
-  %158 = and i64 %157, 4
-  %159 = and i64 %152, 1
-  %160 = or disjoint i64 %156, %159
-  %161 = or disjoint i64 %160, %154
-  %162 = or disjoint i64 %161, %158
-  %163 = shl nuw nsw i64 %162, 40
-  %164 = or disjoint i64 %151, %163
-  %165 = lshr i64 %126, 16
-  %166 = shl nuw nsw i64 %165, 3
-  %167 = and i64 %166, 64
-  %168 = shl nuw nsw i64 %165, 2
-  %169 = and i64 %168, 16
-  %170 = shl nuw nsw i64 %165, 1
-  %171 = and i64 %170, 4
-  %172 = and i64 %165, 1
-  %173 = or disjoint i64 %169, %172
-  %174 = or disjoint i64 %173, %167
-  %175 = or disjoint i64 %174, %171
-  %176 = shl nuw nsw i64 %175, 32
-  %177 = or disjoint i64 %164, %176
-  %178 = lshr i64 %126, 12
-  %179 = shl nuw nsw i64 %178, 3
-  %180 = and i64 %179, 64
-  %181 = shl nuw nsw i64 %178, 2
-  %182 = and i64 %181, 16
-  %183 = shl nuw nsw i64 %178, 1
-  %184 = and i64 %183, 4
-  %185 = and i64 %178, 1
-  %186 = or disjoint i64 %182, %185
-  %187 = or disjoint i64 %186, %180
-  %188 = or disjoint i64 %187, %184
-  %189 = shl nuw nsw i64 %188, 24
-  %190 = or disjoint i64 %177, %189
-  %191 = lshr i64 %126, 8
-  %192 = shl nuw nsw i64 %191, 3
-  %193 = and i64 %192, 64
-  %194 = shl nuw nsw i64 %191, 2
-  %195 = and i64 %194, 16
-  %196 = shl nuw nsw i64 %191, 1
-  %197 = and i64 %196, 4
-  %198 = and i64 %191, 1
-  %199 = or disjoint i64 %195, %198
-  %200 = or disjoint i64 %199, %193
-  %201 = or disjoint i64 %200, %197
-  %202 = shl nuw nsw i64 %201, 16
-  %203 = or disjoint i64 %190, %202
-  %204 = lshr i64 %126, 4
-  %205 = shl nuw nsw i64 %204, 3
-  %206 = and i64 %205, 64
-  %207 = shl nuw nsw i64 %204, 2
-  %208 = and i64 %207, 16
-  %209 = shl nuw nsw i64 %204, 1
-  %210 = and i64 %209, 4
-  %211 = and i64 %204, 1
-  %212 = or disjoint i64 %208, %211
-  %213 = or disjoint i64 %212, %206
-  %214 = or disjoint i64 %213, %210
-  %215 = shl nuw nsw i64 %214, 8
-  %216 = or disjoint i64 %203, %215
-  %217 = shl i64 %126, 3
-  %218 = and i64 %217, 64
-  %219 = shl i64 %126, 2
-  %220 = and i64 %219, 16
-  %221 = shl i64 %126, 1
-  %222 = and i64 %221, 4
-  %223 = and i64 %126, 1
-  %224 = or disjoint i64 %220, %223
-  %225 = or disjoint i64 %224, %218
-  %226 = or disjoint i64 %225, %222
-  %227 = or i64 %226, %216
-  %228 = getelementptr inbounds nuw i64, ptr %16, i64 %123
-  store i64 %227, ptr %228, align 8, !tbaa !11
-  %229 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %229, label %18, label %._crit_edge, !llvm.loop !26
+  %.idx = shl nuw nsw i64 %indvars.iv.next, 4
+  %123 = getelementptr inbounds nuw i8, ptr %16, i64 %.idx
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  store i64 %122, ptr %124, align 8, !tbaa !11
+  %125 = load i64, ptr %19, align 8, !tbaa !11
+  %126 = lshr i64 %125, 28
+  %127 = shl nuw nsw i64 %126, 3
+  %128 = and i64 %127, 64
+  %129 = shl nuw nsw i64 %126, 2
+  %130 = and i64 %129, 16
+  %131 = shl nuw nsw i64 %126, 1
+  %132 = and i64 %131, 4
+  %133 = and i64 %126, 1
+  %134 = or disjoint i64 %130, %133
+  %135 = or disjoint i64 %134, %128
+  %136 = or disjoint i64 %135, %132
+  %137 = shl nuw nsw i64 %136, 56
+  %138 = lshr i64 %125, 24
+  %139 = shl nuw nsw i64 %138, 3
+  %140 = and i64 %139, 64
+  %141 = shl nuw nsw i64 %138, 2
+  %142 = and i64 %141, 16
+  %143 = shl nuw nsw i64 %138, 1
+  %144 = and i64 %143, 4
+  %145 = and i64 %138, 1
+  %146 = or disjoint i64 %142, %145
+  %147 = or disjoint i64 %146, %140
+  %148 = or disjoint i64 %147, %144
+  %149 = shl nuw nsw i64 %148, 48
+  %150 = or disjoint i64 %137, %149
+  %151 = lshr i64 %125, 20
+  %152 = shl nuw nsw i64 %151, 3
+  %153 = and i64 %152, 64
+  %154 = shl nuw nsw i64 %151, 2
+  %155 = and i64 %154, 16
+  %156 = shl nuw nsw i64 %151, 1
+  %157 = and i64 %156, 4
+  %158 = and i64 %151, 1
+  %159 = or disjoint i64 %155, %158
+  %160 = or disjoint i64 %159, %153
+  %161 = or disjoint i64 %160, %157
+  %162 = shl nuw nsw i64 %161, 40
+  %163 = or disjoint i64 %150, %162
+  %164 = lshr i64 %125, 16
+  %165 = shl nuw nsw i64 %164, 3
+  %166 = and i64 %165, 64
+  %167 = shl nuw nsw i64 %164, 2
+  %168 = and i64 %167, 16
+  %169 = shl nuw nsw i64 %164, 1
+  %170 = and i64 %169, 4
+  %171 = and i64 %164, 1
+  %172 = or disjoint i64 %168, %171
+  %173 = or disjoint i64 %172, %166
+  %174 = or disjoint i64 %173, %170
+  %175 = shl nuw nsw i64 %174, 32
+  %176 = or disjoint i64 %163, %175
+  %177 = lshr i64 %125, 12
+  %178 = shl nuw nsw i64 %177, 3
+  %179 = and i64 %178, 64
+  %180 = shl nuw nsw i64 %177, 2
+  %181 = and i64 %180, 16
+  %182 = shl nuw nsw i64 %177, 1
+  %183 = and i64 %182, 4
+  %184 = and i64 %177, 1
+  %185 = or disjoint i64 %181, %184
+  %186 = or disjoint i64 %185, %179
+  %187 = or disjoint i64 %186, %183
+  %188 = shl nuw nsw i64 %187, 24
+  %189 = or disjoint i64 %176, %188
+  %190 = lshr i64 %125, 8
+  %191 = shl nuw nsw i64 %190, 3
+  %192 = and i64 %191, 64
+  %193 = shl nuw nsw i64 %190, 2
+  %194 = and i64 %193, 16
+  %195 = shl nuw nsw i64 %190, 1
+  %196 = and i64 %195, 4
+  %197 = and i64 %190, 1
+  %198 = or disjoint i64 %194, %197
+  %199 = or disjoint i64 %198, %192
+  %200 = or disjoint i64 %199, %196
+  %201 = shl nuw nsw i64 %200, 16
+  %202 = or disjoint i64 %189, %201
+  %203 = lshr i64 %125, 4
+  %204 = shl nuw nsw i64 %203, 3
+  %205 = and i64 %204, 64
+  %206 = shl nuw nsw i64 %203, 2
+  %207 = and i64 %206, 16
+  %208 = shl nuw nsw i64 %203, 1
+  %209 = and i64 %208, 4
+  %210 = and i64 %203, 1
+  %211 = or disjoint i64 %207, %210
+  %212 = or disjoint i64 %211, %205
+  %213 = or disjoint i64 %212, %209
+  %214 = shl nuw nsw i64 %213, 8
+  %215 = or disjoint i64 %202, %214
+  %216 = shl i64 %125, 3
+  %217 = and i64 %216, 64
+  %218 = shl i64 %125, 2
+  %219 = and i64 %218, 16
+  %220 = shl i64 %125, 1
+  %221 = and i64 %220, 4
+  %222 = and i64 %125, 1
+  %223 = or disjoint i64 %219, %222
+  %224 = or disjoint i64 %223, %217
+  %225 = or disjoint i64 %224, %221
+  %226 = or i64 %225, %215
+  store i64 %226, ptr %123, align 8, !tbaa !11
+  %227 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %227, label %18, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %18, %12
-  %230 = shl nsw i32 %13, 1
-  %231 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %230, ptr %231, align 8, !tbaa !3
+  %228 = shl nsw i32 %13, 1
+  %229 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %228, ptr %229, align 8, !tbaa !3
   tail call void @bn_correct_top(ptr noundef nonnull %5) #5
-  %232 = tail call i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2)
-  br label %233
+  %230 = tail call i32 @BN_GF2m_mod_arr(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2)
+  br label %231
 
-233:                                              ; preds = %._crit_edge, %7, %4
-  %.0146 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %232, %._crit_edge ]
+231:                                              ; preds = %._crit_edge, %7, %4
+  %.0146 = phi i32 [ 0, %4 ], [ 0, %7 ], [ %230, %._crit_edge ]
   tail call void @BN_CTX_end(ptr noundef %3) #5
   ret i32 %.0146
 }

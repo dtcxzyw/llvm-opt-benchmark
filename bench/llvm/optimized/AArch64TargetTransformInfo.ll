@@ -3440,23 +3440,20 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZNK4llvm16BasicTTI
   br i1 %91, label %.critedge375, label %92
 
 92:                                               ; preds = %90
-  %.02950.i.i.i.i.i.i.add1252 = or disjoint i64 %.02950.i.i.i.i.i.i.idx, 2
-  %.ptr1256 = getelementptr inbounds nuw i8, ptr @_ZGRZN4llvm14AArch64TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE14ValidMinMaxTys_, i64 %.02950.i.i.i.i.i.i.add1252
-  %.val31.i.i.i.i.i.i = load i16, ptr %.ptr1256, align 2, !tbaa !328
+  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZGRZN4llvm14AArch64TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE14ValidMinMaxTys_, i64 2), i64 %.02950.i.i.i.i.i.i.idx
+  %.val31.i.i.i.i.i.i = load i16, ptr %gep, align 2, !tbaa !328
   %93 = icmp eq i16 %.val31.i.i.i.i.i.i, %.sroa.026.0.lcssa43.sink.i1126
   br i1 %93, label %.critedge375, label %94
 
 94:                                               ; preds = %92
-  %.02950.i.i.i.i.i.i.add1251 = or disjoint i64 %.02950.i.i.i.i.i.i.idx, 4
-  %.ptr1255 = getelementptr inbounds nuw i8, ptr @_ZGRZN4llvm14AArch64TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE14ValidMinMaxTys_, i64 %.02950.i.i.i.i.i.i.add1251
-  %.val33.i.i.i.i.i.i = load i16, ptr %.ptr1255, align 2, !tbaa !328
+  %gep1476 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZGRZN4llvm14AArch64TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE14ValidMinMaxTys_, i64 4), i64 %.02950.i.i.i.i.i.i.idx
+  %.val33.i.i.i.i.i.i = load i16, ptr %gep1476, align 2, !tbaa !328
   %95 = icmp eq i16 %.val33.i.i.i.i.i.i, %.sroa.026.0.lcssa43.sink.i1126
   br i1 %95, label %"_ZN4llvm6any_ofIRKSt16initializer_listINS_3MVT15SimpleValueTypeEEZNS_14AArch64TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE3$_0EEbOT_T0_.exit", label %96
 
 96:                                               ; preds = %94
-  %.02950.i.i.i.i.i.i.add = or disjoint i64 %.02950.i.i.i.i.i.i.idx, 6
-  %.ptr1254 = getelementptr inbounds nuw i8, ptr @_ZGRZN4llvm14AArch64TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE14ValidMinMaxTys_, i64 %.02950.i.i.i.i.i.i.add
-  %.val35.i.i.i.i.i.i = load i16, ptr %.ptr1254, align 2, !tbaa !328
+  %gep1477 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZGRZN4llvm14AArch64TTIImpl21getIntrinsicInstrCostERKNS_23IntrinsicCostAttributesENS_19TargetTransformInfo14TargetCostKindEE14ValidMinMaxTys_, i64 6), i64 %.02950.i.i.i.i.i.i.idx
+  %.val35.i.i.i.i.i.i = load i16, ptr %gep1477, align 2, !tbaa !328
   %97 = icmp eq i16 %.val35.i.i.i.i.i.i, %.sroa.026.0.lcssa43.sink.i1126
   br i1 %97, label %.critedge375, label %98
 
@@ -7456,23 +7453,20 @@ _ZNK4llvm16BasicTTIImplBaseINS_14AArch64TTIImplEE23getTypeLegalizationCostEPNS_4
   br i1 %80, label %.critedge98, label %81
 
 81:                                               ; preds = %79
-  %.02950.i.i.i.i.i.i.add200 = or disjoint i64 %.02950.i.i.i.i.i.i.idx, 2
-  %.ptr203 = getelementptr inbounds nuw i8, ptr @_ZGRZN4llvm14AArch64TTIImpl18getCmpSelInstrCostEjPNS_4TypeES2_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_PKNS_11InstructionEE14ValidMinMaxTys_, i64 %.02950.i.i.i.i.i.i.add200
-  %.val31.i.i.i.i.i.i = load i16, ptr %.ptr203, align 2, !tbaa !328
+  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZGRZN4llvm14AArch64TTIImpl18getCmpSelInstrCostEjPNS_4TypeES2_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_PKNS_11InstructionEE14ValidMinMaxTys_, i64 2), i64 %.02950.i.i.i.i.i.i.idx
+  %.val31.i.i.i.i.i.i = load i16, ptr %gep, align 2, !tbaa !328
   %82 = icmp eq i16 %.val31.i.i.i.i.i.i, %.sroa.026.0.lcssa43.sink.i
   br i1 %82, label %.critedge98, label %83
 
 83:                                               ; preds = %81
-  %.02950.i.i.i.i.i.i.add199 = or disjoint i64 %.02950.i.i.i.i.i.i.idx, 4
-  %.ptr202 = getelementptr inbounds nuw i8, ptr @_ZGRZN4llvm14AArch64TTIImpl18getCmpSelInstrCostEjPNS_4TypeES2_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_PKNS_11InstructionEE14ValidMinMaxTys_, i64 %.02950.i.i.i.i.i.i.add199
-  %.val33.i.i.i.i.i.i = load i16, ptr %.ptr202, align 2, !tbaa !328
+  %gep239 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZGRZN4llvm14AArch64TTIImpl18getCmpSelInstrCostEjPNS_4TypeES2_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_PKNS_11InstructionEE14ValidMinMaxTys_, i64 4), i64 %.02950.i.i.i.i.i.i.idx
+  %.val33.i.i.i.i.i.i = load i16, ptr %gep239, align 2, !tbaa !328
   %84 = icmp eq i16 %.val33.i.i.i.i.i.i, %.sroa.026.0.lcssa43.sink.i
   br i1 %84, label %"_ZN4llvm6any_ofIRKSt16initializer_listINS_3MVT15SimpleValueTypeEEZNS_14AArch64TTIImpl18getCmpSelInstrCostEjPNS_4TypeES9_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindENSC_16OperandValueInfoESE_PKNS_11InstructionEE3$_0EEbOT_T0_.exit", label %85
 
 85:                                               ; preds = %83
-  %.02950.i.i.i.i.i.i.add = or disjoint i64 %.02950.i.i.i.i.i.i.idx, 6
-  %.ptr = getelementptr inbounds nuw i8, ptr @_ZGRZN4llvm14AArch64TTIImpl18getCmpSelInstrCostEjPNS_4TypeES2_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_PKNS_11InstructionEE14ValidMinMaxTys_, i64 %.02950.i.i.i.i.i.i.add
-  %.val35.i.i.i.i.i.i = load i16, ptr %.ptr, align 2, !tbaa !328
+  %gep240 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZGRZN4llvm14AArch64TTIImpl18getCmpSelInstrCostEjPNS_4TypeES2_NS_7CmpInst9PredicateENS_19TargetTransformInfo14TargetCostKindENS5_16OperandValueInfoES7_PKNS_11InstructionEE14ValidMinMaxTys_, i64 6), i64 %.02950.i.i.i.i.i.i.idx
+  %.val35.i.i.i.i.i.i = load i16, ptr %gep240, align 2, !tbaa !328
   %86 = icmp eq i16 %.val35.i.i.i.i.i.i, %.sroa.026.0.lcssa43.sink.i
   br i1 %86, label %.critedge98, label %87
 

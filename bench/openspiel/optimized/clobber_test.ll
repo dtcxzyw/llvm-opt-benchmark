@@ -3908,9 +3908,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i14: 
 1433:                                             ; preds = %1418
   %1434 = add i32 %1419, 6
   %1435 = mul i32 %1434, %.val44.val45.i
-  %1436 = or disjoint i32 %1435, 1
-  %1437 = sext i32 %1436 to i64
-  %1438 = getelementptr inbounds float, ptr %.val43.i, i64 %1437
+  %1436 = sext i32 %1435 to i64
+  %1437 = getelementptr float, ptr %.val43.i, i64 %1436
+  %1438 = getelementptr i8, ptr %1437, i64 4
   %1439 = load float, ptr %1438, align 4
   %1440 = fpext float %1439 to double
   store double %1440, ptr %36, align 8

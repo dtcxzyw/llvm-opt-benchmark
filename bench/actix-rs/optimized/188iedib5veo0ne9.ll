@@ -6877,8 +6877,8 @@ define void @_ZN10actix_http8encoding7encoder14ContentEncoder6select17h90e162eb3
   %24 = sub nuw nsw i64 64, %23
   %25 = tail call noundef i64 @_ZN4core3cmp6min_by17hd809d8eea6aedd30E.llvm.13158767072824543338(i64 noundef %24, i64 noundef 7), !noalias !1051
   %26 = shl i64 %25, 2
-  %27 = or disjoint i64 %26, 1
-  %28 = getelementptr i8, ptr null, i64 %27
+  %27 = getelementptr i8, ptr null, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 1
   store ptr %20, ptr %8, align 8, !alias.scope !1048
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !1048
@@ -6974,8 +6974,8 @@ _ZN10actix_http8encoding7encoder21new_brotli_compressor17hb24c2565bc60a7b0E.exit
   %55 = sub nuw nsw i64 64, %54
   %56 = tail call noundef i64 @_ZN4core3cmp6min_by17hd809d8eea6aedd30E.llvm.13158767072824543338(i64 noundef %55, i64 noundef 7), !noalias !1070
   %57 = shl i64 %56, 2
-  %58 = or disjoint i64 %57, 1
-  %59 = getelementptr i8, ptr null, i64 %58
+  %58 = getelementptr i8, ptr null, i64 %57
+  %59 = getelementptr i8, ptr %58, i64 1
   store ptr %51, ptr %15, align 8, !alias.scope !1067
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1067
@@ -7005,8 +7005,8 @@ _ZN10actix_http8encoding7encoder21new_brotli_compressor17hb24c2565bc60a7b0E.exit
   %67 = sub nuw nsw i64 64, %66
   %68 = tail call noundef i64 @_ZN4core3cmp6min_by17hd809d8eea6aedd30E.llvm.13158767072824543338(i64 noundef %67, i64 noundef 7), !noalias !1077
   %69 = shl i64 %68, 2
-  %70 = or disjoint i64 %69, 1
-  %71 = getelementptr i8, ptr null, i64 %70
+  %70 = getelementptr i8, ptr null, i64 %69
+  %71 = getelementptr i8, ptr %70, i64 1
   store ptr %63, ptr %13, align 8, !alias.scope !1074
   %.sroa.4.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i21, align 8, !alias.scope !1074
@@ -7066,8 +7066,8 @@ _ZN6flate22gz9GzBuilder5write17h63ab386fa2710339E.exit: ; preds = %60
   %87 = sub nuw nsw i64 64, %86
   %88 = tail call noundef i64 @_ZN4core3cmp6min_by17hd809d8eea6aedd30E.llvm.13158767072824543338(i64 noundef %87, i64 noundef 7), !noalias !1091
   %89 = shl i64 %88, 2
-  %90 = or disjoint i64 %89, 1
-  %91 = getelementptr i8, ptr null, i64 %90
+  %90 = getelementptr i8, ptr null, i64 %89
+  %91 = getelementptr i8, ptr %90, i64 1
   store ptr %83, ptr %11, align 8, !alias.scope !1088
   %.sroa.4.0..sroa_idx.i24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i24, align 8, !alias.scope !1088
@@ -10892,8 +10892,8 @@ define void @_ZN10actix_http2h210dispatcher16prepare_response17h072919c43fd4f54f
   %201 = sub nuw nsw i64 64, %200
   %.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 %201, i64 7)
   %202 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %203 = or disjoint i64 %202, 1
-  %204 = getelementptr i8, ptr null, i64 %203
+  %203 = getelementptr i8, ptr null, i64 %202
+  %204 = getelementptr i8, ptr %203, i64 1
   store ptr %197, ptr %34, align 8, !alias.scope !1514, !noalias !1517
   %205 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 0, ptr %205, align 8, !alias.scope !1514, !noalias !1517

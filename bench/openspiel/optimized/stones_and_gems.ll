@@ -13524,9 +13524,9 @@ _ZNSt6vectorIN10open_spiel15stones_and_gems7ElementESaIS2_EE17_M_realloc_insertI
   br label %.body
 
 _ZNSt6vectorIN10open_spiel15stones_and_gems7ElementESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN10open_spiel15stones_and_gems7ElementESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %503
-  %533 = or disjoint i64 %428, 1
-  %534 = load ptr, ptr %67, align 8
-  %535 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %534, i64 %533
+  %533 = load ptr, ptr %67, align 8
+  %534 = getelementptr %"class.std::__cxx11::basic_string", ptr %533, i64 %428
+  %535 = getelementptr i8, ptr %534, i64 32
   %536 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %535) #33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %537 = load i32, ptr %431, align 4

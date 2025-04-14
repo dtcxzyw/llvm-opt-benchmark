@@ -100,8 +100,8 @@ define dso_local void @ProcSignalShmemInit() local_unnamed_addr #0 {
   %21 = and i64 %20, 7
   %22 = icmp eq i64 %21, 0
   %23 = mul nuw nsw i64 %indvar, 96
-  %24 = or disjoint i64 %23, 20
-  %scevgep = getelementptr i8, ptr %14, i64 %24
+  %24 = getelementptr i8, ptr %14, i64 %23
+  %scevgep = getelementptr i8, ptr %24, i64 20
   %scevgep.sink = select i1 %22, ptr %scevgep, ptr %.ptr28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %scevgep.sink, i8 0, i64 56, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 72
@@ -199,8 +199,8 @@ define dso_local void @ProcSignalInit(i1 noundef zeroext %0, i32 noundef %1) loc
 
 .preheader.preheader:                             ; preds = %34
   %38 = mul nuw nsw i64 %20, 96
-  %39 = or disjoint i64 %38, 20
-  %scevgep = getelementptr i8, ptr %18, i64 %39
+  %39 = getelementptr i8, ptr %18, i64 %38
+  %scevgep = getelementptr i8, ptr %39, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %scevgep, i8 0, i64 56, i1 false)
   br label %.loopexit
 

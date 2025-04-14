@@ -415,13 +415,12 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
   %110 = load float, ptr %58, align 4
   %111 = fadd float %109, %110
   %112 = fpext float %107 to double
-  %113 = shl nuw nsw i64 %indvars.iv, 1
-  %114 = getelementptr inbounds nuw double, ptr %1, i64 %113
-  store double %112, ptr %114, align 8
-  %115 = fpext float %111 to double
-  %116 = or disjoint i64 %113, 1
-  %117 = getelementptr inbounds nuw double, ptr %1, i64 %116
-  store double %115, ptr %117, align 8
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  store double %112, ptr %113, align 8
+  %114 = fpext float %111 to double
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 8
+  store double %114, ptr %115, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %59, !llvm.loop !6
@@ -711,13 +710,12 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3
   %71 = load float, ptr %20, align 4
   %72 = fadd float %70, %71
   %73 = fpext float %68 to double
-  %74 = shl nuw nsw i64 %indvars.iv, 1
-  %75 = getelementptr inbounds nuw double, ptr %1, i64 %74
-  store double %73, ptr %75, align 8
-  %76 = fpext float %72 to double
-  %77 = or disjoint i64 %74, 1
-  %78 = getelementptr inbounds nuw double, ptr %1, i64 %77
-  store double %76, ptr %78, align 8
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  store double %73, ptr %74, align 8
+  %75 = fpext float %72 to double
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store double %75, ptr %76, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !8

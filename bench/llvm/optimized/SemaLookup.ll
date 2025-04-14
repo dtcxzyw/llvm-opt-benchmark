@@ -50543,11 +50543,11 @@ define internal fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_116UnqualUsin
   br label %18
 
 18:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEET_S8_S8_T0_.exit
-  %19 = phi i64 [ %13, %.lr.ph ], [ %122, %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEET_S8_S8_T0_.exit ]
+  %19 = phi i64 [ %13, %.lr.ph ], [ %120, %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEET_S8_S8_T0_.exit ]
   %.025 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEET_S8_S8_T0_.exit ]
-  %.01724 = phi i64 [ %2, %.lr.ph ], [ %91, %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEET_S8_S8_T0_.exit ]
+  %.01724 = phi i64 [ %2, %.lr.ph ], [ %89, %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEET_S8_S8_T0_.exit ]
   %20 = icmp eq i64 %.01724, 0
-  br i1 %20, label %21, label %90
+  br i1 %20, label %21, label %88
 
 21:                                               ; preds = %18
   %22 = lshr i64 %19, 4
@@ -50563,7 +50563,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_116UnqualUsin
   br label %32
 
 32:                                               ; preds = %_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i, %21
-  %.015.i.i.i = phi i64 [ %24, %21 ], [ %55, %_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i ]
+  %.015.i.i.i = phi i64 [ %24, %21 ], [ %54, %_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i ]
   %33 = getelementptr inbounds nuw %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.015.i.i.i
   %.sroa.02.0.copyload.i.i.i = load ptr, ptr %33, align 8, !tbaa !1536
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -50575,183 +50575,183 @@ define internal fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_116UnqualUsin
   %.031.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.015.i.i.i, %32 ]
   %35 = shl i64 %.031.i.i.i.i, 1
   %36 = add i64 %35, 2
-  %37 = or disjoint i64 %35, 1
-  %38 = getelementptr %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %36, i32 1
-  %.val.i.i.i.i = load ptr, ptr %38, align 8, !tbaa !1533
-  %39 = getelementptr %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %37, i32 1
-  %.val30.i.i.i.i = load ptr, ptr %39, align 8, !tbaa !1533
-  %40 = icmp ult ptr %.val.i.i.i.i, %.val30.i.i.i.i
-  %spec.select.i.i.i.i = select i1 %40, i64 %37, i64 %36
-  %41 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %spec.select.i.i.i.i
-  %42 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.031.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !1535
-  %43 = icmp slt i64 %spec.select.i.i.i.i, %26
-  br i1 %43, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !2587
+  %37 = getelementptr %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %36, i32 1
+  %.val.i.i.i.i = load ptr, ptr %37, align 8, !tbaa !1533
+  %gep.i.i.i.i = getelementptr %"class.(anonymous namespace)::UnqualUsingEntry", ptr %16, i64 %35
+  %.val30.i.i.i.i = load ptr, ptr %gep.i.i.i.i, align 8, !tbaa !1533
+  %38 = icmp ult ptr %.val.i.i.i.i, %.val30.i.i.i.i
+  %39 = or disjoint i64 %35, 1
+  %spec.select.i.i.i.i = select i1 %38, i64 %39, i64 %36
+  %40 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %spec.select.i.i.i.i
+  %41 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.031.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !1535
+  %42 = icmp slt i64 %spec.select.i.i.i.i, %26
+  br i1 %42, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !2587
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %32
   %.0.lcssa.i.i.i.i = phi i64 [ %.015.i.i.i, %32 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %44 = icmp eq i64 %.0.lcssa.i.i.i.i, %24
-  %or.cond.i.i.i = select i1 %28, i1 %44, i1 false
-  br i1 %or.cond.i.i.i, label %45, label %46
+  %43 = icmp eq i64 %.0.lcssa.i.i.i.i, %24
+  %or.cond.i.i.i = select i1 %28, i1 %43, i1 false
+  br i1 %or.cond.i.i.i, label %44, label %45
 
-45:                                               ; preds = %._crit_edge.i.i.i.i
+44:                                               ; preds = %._crit_edge.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !1535
-  br label %46
+  br label %45
 
-46:                                               ; preds = %45, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %29, %45 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %47 = icmp samesign ugt i64 %.1.i.i.i.i, %.015.i.i.i
-  br i1 %47, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i
+45:                                               ; preds = %44, %._crit_edge.i.i.i.i
+  %.1.i.i.i.i = phi i64 [ %29, %44 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %46 = icmp samesign ugt i64 %.1.i.i.i.i, %.015.i.i.i
+  br i1 %46, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %46, %51
-  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %51 ], [ %.1.i.i.i.i, %46 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %45, %50
+  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %50 ], [ %.1.i.i.i.i, %45 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %48 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.04.i.i.i.i.i
-  %49 = getelementptr i8, ptr %48, i64 8
-  %.val.i.i.i.i.i = load ptr, ptr %49, align 8, !tbaa !1533
-  %50 = icmp ult ptr %.val.i.i.i.i.i, %.sroa.4.0.copyload.i.i.i
-  br i1 %50, label %51, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i
+  %47 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.04.i.i.i.i.i
+  %48 = getelementptr i8, ptr %47, i64 8
+  %.val.i.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !1533
+  %49 = icmp ult ptr %.val.i.i.i.i.i, %.sroa.4.0.copyload.i.i.i
+  br i1 %49, label %50, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i
 
-51:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %52 = getelementptr inbounds nuw %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.0133.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !1535
-  %53 = icmp sgt i64 %.04.i.i.i.i.i, %.015.i.i.i
-  br i1 %53, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i, !llvm.loop !2588
+50:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %51 = getelementptr inbounds nuw %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.0133.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !1535
+  %52 = icmp sgt i64 %.04.i.i.i.i.i, %.015.i.i.i
+  br i1 %52, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i, !llvm.loop !2588
 
-_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %46
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %46 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %51 ]
-  %54 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store ptr %.sroa.02.0.copyload.i.i.i, ptr %54, align 8, !tbaa !1536
-  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 8
+_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i: ; preds = %50, %.lr.ph.i.i.i.i.i, %45
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %45 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %50 ]
+  %53 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store ptr %.sroa.02.0.copyload.i.i.i, ptr %53, align 8, !tbaa !1536
+  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 8
   store ptr %.sroa.4.0.copyload.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !1536
   %.not.i.i.i = icmp eq i64 %.015.i.i.i, 0
-  %55 = add nsw i64 %.015.i.i.i, -1
+  %54 = add nsw i64 %.015.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i5.i, label %32, !llvm.loop !2589
 
 .lr.ph.i5.i:                                      ; preds = %_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_RT0_.exit.i.i
-  %.01.i.i = phi ptr [ %56, %_ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_RT0_.exit.i.i ], [ %.025, %_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i ]
-  %56 = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
-  %.sroa.02.0.copyload.i.i6.i = load ptr, ptr %56, align 8, !tbaa !1536
-  %.sroa.4.0..sroa_idx.i.i7.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
-  %.sroa.4.0.copyload.i.i8.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i7.i, align 8, !tbaa !1536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1535
-  %57 = ptrtoint ptr %56 to i64
-  %58 = sub i64 %57, %11
-  %59 = ashr exact i64 %58, 4
-  %60 = add nsw i64 %59, -1
-  %61 = sdiv i64 %60, 2
-  %62 = icmp sgt i64 %59, 2
-  br i1 %62, label %.lr.ph.i.i.i18.i, label %._crit_edge.i.i.i9.i
+  %.01.i.i = phi ptr [ %55, %_ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_RT0_.exit.i.i ], [ %.025, %_ZSt13__adjust_heapIPN12_GLOBAL__N_116UnqualUsingEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i ]
+  %55 = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
+  %.sroa.02.0.copyload.i.i7.i = load ptr, ptr %55, align 8, !tbaa !1536
+  %.sroa.4.0..sroa_idx.i.i8.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
+  %.sroa.4.0.copyload.i.i9.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i8.i, align 8, !tbaa !1536
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1535
+  %56 = ptrtoint ptr %55 to i64
+  %57 = sub i64 %56, %11
+  %58 = ashr exact i64 %57, 4
+  %59 = add nsw i64 %58, -1
+  %60 = sdiv i64 %59, 2
+  %61 = icmp sgt i64 %58, 2
+  br i1 %61, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i10.i
 
-.lr.ph.i.i.i18.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i18.i
-  %.031.i.i.i19.i = phi i64 [ %spec.select.i.i.i22.i, %.lr.ph.i.i.i18.i ], [ 0, %.lr.ph.i5.i ]
-  %63 = shl i64 %.031.i.i.i19.i, 1
-  %64 = add i64 %63, 2
-  %65 = or disjoint i64 %63, 1
-  %66 = getelementptr %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %64, i32 1
-  %.val.i.i.i20.i = load ptr, ptr %66, align 8, !tbaa !1533
-  %67 = getelementptr %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %65, i32 1
-  %.val30.i.i.i21.i = load ptr, ptr %67, align 8, !tbaa !1533
-  %68 = icmp ult ptr %.val.i.i.i20.i, %.val30.i.i.i21.i
-  %spec.select.i.i.i22.i = select i1 %68, i64 %65, i64 %64
-  %69 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %spec.select.i.i.i22.i
-  %70 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.031.i.i.i19.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %69, i64 16, i1 false), !tbaa.struct !1535
-  %71 = icmp slt i64 %spec.select.i.i.i22.i, %61
-  br i1 %71, label %.lr.ph.i.i.i18.i, label %._crit_edge.i.i.i9.i, !llvm.loop !2587
+.lr.ph.i.i.i19.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i19.i
+  %.031.i.i.i20.i = phi i64 [ %spec.select.i.i.i24.i, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i5.i ]
+  %62 = shl i64 %.031.i.i.i20.i, 1
+  %63 = add i64 %62, 2
+  %64 = getelementptr %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %63, i32 1
+  %.val.i.i.i21.i = load ptr, ptr %64, align 8, !tbaa !1533
+  %gep.i.i.i22.i = getelementptr %"class.(anonymous namespace)::UnqualUsingEntry", ptr %16, i64 %62
+  %.val30.i.i.i23.i = load ptr, ptr %gep.i.i.i22.i, align 8, !tbaa !1533
+  %65 = icmp ult ptr %.val.i.i.i21.i, %.val30.i.i.i23.i
+  %66 = or disjoint i64 %62, 1
+  %spec.select.i.i.i24.i = select i1 %65, i64 %66, i64 %63
+  %67 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %spec.select.i.i.i24.i
+  %68 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.031.i.i.i20.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull align 8 dereferenceable(16) %67, i64 16, i1 false), !tbaa.struct !1535
+  %69 = icmp slt i64 %spec.select.i.i.i24.i, %60
+  br i1 %69, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i10.i, !llvm.loop !2587
 
-._crit_edge.i.i.i9.i:                             ; preds = %.lr.ph.i.i.i18.i, %.lr.ph.i5.i
-  %.0.lcssa.i.i.i10.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i22.i, %.lr.ph.i.i.i18.i ]
-  %72 = and i64 %58, 16
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %74, label %82
+._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i19.i, %.lr.ph.i5.i
+  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i24.i, %.lr.ph.i.i.i19.i ]
+  %70 = and i64 %57, 16
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %72, label %80
 
-74:                                               ; preds = %._crit_edge.i.i.i9.i
-  %75 = add nsw i64 %59, -2
-  %76 = ashr exact i64 %75, 1
-  %77 = icmp eq i64 %.0.lcssa.i.i.i10.i, %76
-  br i1 %77, label %.thread.i.i.i, label %82
+72:                                               ; preds = %._crit_edge.i.i.i10.i
+  %73 = add nsw i64 %58, -2
+  %74 = ashr exact i64 %73, 1
+  %75 = icmp eq i64 %.0.lcssa.i.i.i11.i, %74
+  br i1 %75, label %.thread.i.i.i, label %80
 
-.thread.i.i.i:                                    ; preds = %74
-  %78 = shl nuw nsw i64 %.0.lcssa.i.i.i10.i, 1
-  %79 = or disjoint i64 %78, 1
-  %80 = getelementptr inbounds nuw %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %79
-  %81 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.0.lcssa.i.i.i10.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false), !tbaa.struct !1535
-  br label %.lr.ph.i.i.i.i12.i.preheader
+.thread.i.i.i:                                    ; preds = %72
+  %76 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
+  %77 = or disjoint i64 %76, 1
+  %78 = getelementptr inbounds nuw %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %77
+  %79 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.0.lcssa.i.i.i11.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !1535
+  br label %.lr.ph.i.i.i.i13.i.preheader
 
-82:                                               ; preds = %74, %._crit_edge.i.i.i9.i
-  %.not.i.i11.i = icmp eq i64 %.0.lcssa.i.i.i10.i, 0
-  br i1 %.not.i.i11.i, label %_ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_RT0_.exit.i.i, label %.lr.ph.i.i.i.i12.i.preheader
+80:                                               ; preds = %72, %._crit_edge.i.i.i10.i
+  %.not.i.i12.i = icmp eq i64 %.0.lcssa.i.i.i11.i, 0
+  br i1 %.not.i.i12.i, label %_ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_RT0_.exit.i.i, label %.lr.ph.i.i.i.i13.i.preheader
 
-.lr.ph.i.i.i.i12.i.preheader:                     ; preds = %82, %.thread.i.i.i
-  %.0133.i.i.i.i13.i.ph = phi i64 [ %.0.lcssa.i.i.i10.i, %82 ], [ %79, %.thread.i.i.i ]
-  br label %.lr.ph.i.i.i.i12.i
+.lr.ph.i.i.i.i13.i.preheader:                     ; preds = %80, %.thread.i.i.i
+  %.0133.i.i.i.i14.i.ph = phi i64 [ %.0.lcssa.i.i.i11.i, %80 ], [ %77, %.thread.i.i.i ]
+  br label %.lr.ph.i.i.i.i13.i
 
-.lr.ph.i.i.i.i12.i:                               ; preds = %.lr.ph.i.i.i.i12.i.preheader, %86
-  %.0133.i.i.i.i13.i = phi i64 [ %.04.i.i12.i.i.i, %86 ], [ %.0133.i.i.i.i13.i.ph, %.lr.ph.i.i.i.i12.i.preheader ]
-  %.04.in.i.i.i.i14.i = add nsw i64 %.0133.i.i.i.i13.i, -1
-  %.04.i.i12.i.i.i = lshr i64 %.04.in.i.i.i.i14.i, 1
-  %83 = getelementptr inbounds nuw %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.04.i.i12.i.i.i
-  %84 = getelementptr i8, ptr %83, i64 8
-  %.val.i.i.i.i15.i = load ptr, ptr %84, align 8, !tbaa !1533
-  %85 = icmp ult ptr %.val.i.i.i.i15.i, %.sroa.4.0.copyload.i.i8.i
-  br i1 %85, label %86, label %_ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_RT0_.exit.i.i
+.lr.ph.i.i.i.i13.i:                               ; preds = %.lr.ph.i.i.i.i13.i.preheader, %84
+  %.0133.i.i.i.i14.i = phi i64 [ %.04.i.i12.i.i.i, %84 ], [ %.0133.i.i.i.i14.i.ph, %.lr.ph.i.i.i.i13.i.preheader ]
+  %.04.in.i.i.i.i15.i = add nsw i64 %.0133.i.i.i.i14.i, -1
+  %.04.i.i12.i.i.i = lshr i64 %.04.in.i.i.i.i15.i, 1
+  %81 = getelementptr inbounds nuw %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.04.i.i12.i.i.i
+  %82 = getelementptr i8, ptr %81, i64 8
+  %.val.i.i.i.i16.i = load ptr, ptr %82, align 8, !tbaa !1533
+  %83 = icmp ult ptr %.val.i.i.i.i16.i, %.sroa.4.0.copyload.i.i9.i
+  br i1 %83, label %84, label %_ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_RT0_.exit.i.i
 
-86:                                               ; preds = %.lr.ph.i.i.i.i12.i
-  %87 = getelementptr inbounds nuw %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.0133.i.i.i.i13.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %83, i64 16, i1 false), !tbaa.struct !1535
-  %.not3.i.i.i = icmp ult i64 %.04.in.i.i.i.i14.i, 2
-  br i1 %.not3.i.i.i, label %_ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_RT0_.exit.i.i, label %.lr.ph.i.i.i.i12.i, !llvm.loop !2588
+84:                                               ; preds = %.lr.ph.i.i.i.i13.i
+  %85 = getelementptr inbounds nuw %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.0133.i.i.i.i14.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false), !tbaa.struct !1535
+  %.not3.i.i.i = icmp ult i64 %.04.in.i.i.i.i15.i, 2
+  br i1 %.not3.i.i.i, label %_ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_RT0_.exit.i.i, label %.lr.ph.i.i.i.i13.i, !llvm.loop !2588
 
-_ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_RT0_.exit.i.i: ; preds = %86, %.lr.ph.i.i.i.i12.i, %82
-  %.013.lcssa.i.i.i.i16.i = phi i64 [ 0, %82 ], [ %.0133.i.i.i.i13.i, %.lr.ph.i.i.i.i12.i ], [ 0, %86 ]
-  %88 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.013.lcssa.i.i.i.i16.i
-  store ptr %.sroa.02.0.copyload.i.i6.i, ptr %88, align 8, !tbaa !1536
-  %.sroa.2.0..sroa_idx.i.i.i.i17.i = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %.sroa.4.0.copyload.i.i8.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i17.i, align 8, !tbaa !1536
-  %89 = icmp sgt i64 %58, 16
-  br i1 %89, label %.lr.ph.i5.i, label %_ZSt14__partial_sortIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_T0_.exit, !llvm.loop !2590
+_ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_RT0_.exit.i.i: ; preds = %84, %.lr.ph.i.i.i.i13.i, %80
+  %.013.lcssa.i.i.i.i17.i = phi i64 [ 0, %80 ], [ %.0133.i.i.i.i14.i, %.lr.ph.i.i.i.i13.i ], [ 0, %84 ]
+  %86 = getelementptr inbounds %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %.013.lcssa.i.i.i.i17.i
+  store ptr %.sroa.02.0.copyload.i.i7.i, ptr %86, align 8, !tbaa !1536
+  %.sroa.2.0..sroa_idx.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %86, i64 8
+  store ptr %.sroa.4.0.copyload.i.i9.i, ptr %.sroa.2.0..sroa_idx.i.i.i.i18.i, align 8, !tbaa !1536
+  %87 = icmp sgt i64 %57, 16
+  br i1 %87, label %.lr.ph.i5.i, label %_ZSt14__partial_sortIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_T0_.exit, !llvm.loop !2590
 
-90:                                               ; preds = %18
-  %91 = add nsw i64 %.01724, -1
-  %92 = lshr i64 %19, 5
-  %93 = getelementptr inbounds nuw %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %92
-  %94 = getelementptr inbounds i8, ptr %.025, i64 -16
+88:                                               ; preds = %18
+  %89 = add nsw i64 %.01724, -1
+  %90 = lshr i64 %19, 5
+  %91 = getelementptr inbounds nuw %"class.(anonymous namespace)::UnqualUsingEntry", ptr %0, i64 %90
+  %92 = getelementptr inbounds i8, ptr %.025, i64 -16
   %.val29.i.i = load ptr, ptr %16, align 8, !tbaa !1533
-  %95 = getelementptr i8, ptr %93, i64 8
-  %.val30.i.i = load ptr, ptr %95, align 8, !tbaa !1533
-  %96 = icmp ult ptr %.val29.i.i, %.val30.i.i
-  %97 = getelementptr i8, ptr %.025, i64 -8
-  %.val28.i.i = load ptr, ptr %97, align 8, !tbaa !1533
-  br i1 %96, label %98, label %105
+  %93 = getelementptr i8, ptr %91, i64 8
+  %.val30.i.i = load ptr, ptr %93, align 8, !tbaa !1533
+  %94 = icmp ult ptr %.val29.i.i, %.val30.i.i
+  %95 = getelementptr i8, ptr %.025, i64 -8
+  %.val28.i.i = load ptr, ptr %95, align 8, !tbaa !1533
+  br i1 %94, label %96, label %103
 
-98:                                               ; preds = %90
-  %99 = icmp ult ptr %.val30.i.i, %.val28.i.i
-  br i1 %99, label %100, label %101
+96:                                               ; preds = %88
+  %97 = icmp ult ptr %.val30.i.i, %.val28.i.i
+  br i1 %97, label %98, label %99
 
-100:                                              ; preds = %98
+98:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1535
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %93, i64 16, i1 false), !tbaa.struct !1535
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !1535
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false), !tbaa.struct !1535
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !1535
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-101:                                              ; preds = %98
-  %102 = icmp ult ptr %.val29.i.i, %.val28.i.i
-  br i1 %102, label %103, label %104
+99:                                               ; preds = %96
+  %100 = icmp ult ptr %.val29.i.i, %.val28.i.i
+  br i1 %100, label %101, label %102
 
-103:                                              ; preds = %101
+101:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1535
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %94, i64 16, i1 false), !tbaa.struct !1535
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !1535
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false), !tbaa.struct !1535
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false), !tbaa.struct !1535
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-104:                                              ; preds = %101
+102:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1535
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !1535
@@ -50759,11 +50759,11 @@ _ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_com
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-105:                                              ; preds = %90
-  %106 = icmp ult ptr %.val29.i.i, %.val28.i.i
-  br i1 %106, label %107, label %108
+103:                                              ; preds = %88
+  %104 = icmp ult ptr %.val29.i.i, %.val28.i.i
+  br i1 %104, label %105, label %106
 
-107:                                              ; preds = %105
+105:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1535
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !1535
@@ -50771,56 +50771,56 @@ _ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_com
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-108:                                              ; preds = %105
-  %109 = icmp ult ptr %.val30.i.i, %.val28.i.i
-  br i1 %109, label %110, label %111
+106:                                              ; preds = %103
+  %107 = icmp ult ptr %.val30.i.i, %.val28.i.i
+  br i1 %107, label %108, label %109
 
-110:                                              ; preds = %108
+108:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1535
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %94, i64 16, i1 false), !tbaa.struct !1535
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !1535
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %92, i64 16, i1 false), !tbaa.struct !1535
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !1535
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-111:                                              ; preds = %108
+109:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !1535
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %93, i64 16, i1 false), !tbaa.struct !1535
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !1535
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false), !tbaa.struct !1535
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !1535
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader: ; preds = %111, %110, %107, %104, %103, %100
+_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader: ; preds = %109, %108, %105, %102, %101, %98
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader, %120
-  %.013.i.i = phi ptr [ %.114.i.i, %120 ], [ %.025, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %115, %120 ], [ %15, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
+_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader, %118
+  %.013.i.i = phi ptr [ %.114.i.i, %118 ], [ %.025, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %113, %118 ], [ %15, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i.preheader ]
   %.val15.i.i = load ptr, ptr %17, align 8, !tbaa !1533
-  br label %112
+  br label %110
 
-112:                                              ; preds = %112, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i ], [ %115, %112 ]
-  %113 = getelementptr i8, ptr %.1.i.i, i64 8
-  %.1.val.i.i = load ptr, ptr %113, align 8, !tbaa !1533
-  %114 = icmp ult ptr %.1.val.i.i, %.val15.i.i
-  %115 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
-  br i1 %114, label %112, label %.preheader.i.i, !llvm.loop !2591
+110:                                              ; preds = %110, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i ], [ %113, %110 ]
+  %111 = getelementptr i8, ptr %.1.i.i, i64 8
+  %.1.val.i.i = load ptr, ptr %111, align 8, !tbaa !1533
+  %112 = icmp ult ptr %.1.val.i.i, %.val15.i.i
+  %113 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 16
+  br i1 %112, label %110, label %.preheader.i.i, !llvm.loop !2591
 
-.preheader.i.i:                                   ; preds = %112, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %112 ]
+.preheader.i.i:                                   ; preds = %110, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %110 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -16
-  %116 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
-  %.114.val.i.i = load ptr, ptr %116, align 8, !tbaa !1533
-  %117 = icmp ult ptr %.val15.i.i, %.114.val.i.i
-  br i1 %117, label %.preheader.i.i, label %118, !llvm.loop !2592
+  %114 = getelementptr i8, ptr %.013.pn.i.i, i64 -8
+  %.114.val.i.i = load ptr, ptr %114, align 8, !tbaa !1533
+  %115 = icmp ult ptr %.val15.i.i, %.114.val.i.i
+  br i1 %115, label %.preheader.i.i, label %116, !llvm.loop !2592
 
-118:                                              ; preds = %.preheader.i.i
-  %119 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %119, label %120, label %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEET_S8_S8_T0_.exit
+116:                                              ; preds = %.preheader.i.i
+  %117 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %117, label %118, label %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEET_S8_S8_T0_.exit
 
-120:                                              ; preds = %118
+118:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.1.i.i, i64 16, i1 false), !tbaa.struct !1535
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.1.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.114.i.i, i64 16, i1 false), !tbaa.struct !1535
@@ -50828,12 +50828,12 @@ _ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__op
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %_ZSt22__move_median_to_firstIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_S8_T0_.exit.i, !llvm.loop !2593
 
-_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEET_S8_S8_T0_.exit: ; preds = %118
-  tail call fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_116UnqualUsingEntryElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %91)
-  %121 = ptrtoint ptr %.1.i.i to i64
-  %122 = sub i64 %121, %11
-  %123 = icmp sgt i64 %122, 256
-  br i1 %123, label %18, label %_ZSt14__partial_sortIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_T0_.exit, !llvm.loop !2594
+_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEET_S8_S8_T0_.exit: ; preds = %116
+  tail call fastcc void @_ZSt16__introsort_loopIPN12_GLOBAL__N_116UnqualUsingEntryElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %89)
+  %119 = ptrtoint ptr %.1.i.i to i64
+  %120 = sub i64 %119, %11
+  %121 = icmp sgt i64 %120, 256
+  br i1 %121, label %18, label %_ZSt14__partial_sortIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_T0_.exit, !llvm.loop !2594
 
 _ZSt14__partial_sortIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEET_S8_S8_T0_.exit, %_ZSt10__pop_heapIPN12_GLOBAL__N_116UnqualUsingEntryEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_10ComparatorEEEEvT_S8_S8_RT0_.exit.i.i, %3
   ret void

@@ -5797,25 +5797,22 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit: ; 
   br i1 %54, label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL26getPushOrLibCallsSavedInfoRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit.thread21", label %55
 
 55:                                               ; preds = %52
-  %.02950.i.i.i.i.add26 = or disjoint i64 %.02950.i.i.i.i.idx, 4
-  %.ptr29 = getelementptr inbounds nuw i8, ptr @_ZL13FixedCSRFIMap, i64 %.02950.i.i.i.i.add26
-  %.val31.i.i.i.i = load i32, ptr %.ptr29, align 4
+  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL13FixedCSRFIMap, i64 4), i64 %.02950.i.i.i.i.idx
+  %.val31.i.i.i.i = load i32, ptr %gep, align 4
   %56 = and i32 %.val31.i.i.i.i, 65535
   %57 = icmp eq i32 %56, %.val
   br i1 %57, label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL26getPushOrLibCallsSavedInfoRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit", label %58
 
 58:                                               ; preds = %55
-  %.02950.i.i.i.i.add25 = or disjoint i64 %.02950.i.i.i.i.idx, 8
-  %.ptr28 = getelementptr inbounds nuw i8, ptr @_ZL13FixedCSRFIMap, i64 %.02950.i.i.i.i.add25
-  %.val33.i.i.i.i = load i32, ptr %.ptr28, align 8
+  %gep44 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL13FixedCSRFIMap, i64 8), i64 %.02950.i.i.i.i.idx
+  %.val33.i.i.i.i = load i32, ptr %gep44, align 8
   %59 = and i32 %.val33.i.i.i.i, 65535
   %60 = icmp eq i32 %59, %.val
   br i1 %60, label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL26getPushOrLibCallsSavedInfoRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit.thread21", label %61
 
 61:                                               ; preds = %58
-  %.02950.i.i.i.i.add = or disjoint i64 %.02950.i.i.i.i.idx, 12
-  %.ptr = getelementptr inbounds nuw i8, ptr @_ZL13FixedCSRFIMap, i64 %.02950.i.i.i.i.add
-  %.val35.i.i.i.i = load i32, ptr %.ptr, align 4
+  %gep45 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL13FixedCSRFIMap, i64 12), i64 %.02950.i.i.i.i.idx
+  %.val35.i.i.i.i = load i32, ptr %gep45, align 4
   %62 = and i32 %.val35.i.i.i.i, 65535
   %63 = icmp eq i32 %62, %.val
   br i1 %63, label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL26getPushOrLibCallsSavedInfoRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit.thread21", label %64
@@ -11234,24 +11231,21 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit: ; 
   br i1 %30, label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL16getMaxPushPopRegRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit.thread13.i", label %31
 
 31:                                               ; preds = %28
-  %.02950.i.i.i.i.add18.i = or disjoint i64 %.02950.i.i.i.i.idx.i, 4
-  %.ptr21.i = getelementptr inbounds nuw i8, ptr @_ZL13FixedCSRFIMap, i64 %.02950.i.i.i.i.add18.i
+  %.ptr21.i = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.ptr.i, i64 4
   %.val31.i.i.i.i.i = load i32, ptr %.ptr21.i, align 4
   %32 = and i32 %.val31.i.i.i.i.i, 65535
   %33 = icmp eq i32 %32, %.val.i
   br i1 %33, label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL16getMaxPushPopRegRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit.i", label %34
 
 34:                                               ; preds = %31
-  %.02950.i.i.i.i.add17.i = or disjoint i64 %.02950.i.i.i.i.idx.i, 8
-  %.ptr20.i = getelementptr inbounds nuw i8, ptr @_ZL13FixedCSRFIMap, i64 %.02950.i.i.i.i.add17.i
+  %.ptr20.i = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.ptr.i, i64 8
   %.val33.i.i.i.i.i = load i32, ptr %.ptr20.i, align 8
   %35 = and i32 %.val33.i.i.i.i.i, 65535
   %36 = icmp eq i32 %35, %.val.i
   br i1 %36, label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL16getMaxPushPopRegRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit.thread13.i", label %37
 
 37:                                               ; preds = %34
-  %.02950.i.i.i.i.add.i = or disjoint i64 %.02950.i.i.i.i.idx.i, 12
-  %.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL13FixedCSRFIMap, i64 %.02950.i.i.i.i.add.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.ptr.i, i64 12
   %.val35.i.i.i.i.i = load i32, ptr %.ptr.i, align 4
   %38 = and i32 %.val35.i.i.i.i.i, 65535
   %39 = icmp eq i32 %38, %.val.i

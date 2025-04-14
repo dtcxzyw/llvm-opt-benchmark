@@ -119,7 +119,7 @@ define i32 @BrotliTransformDictionaryWord(ptr noundef captures(none) %0, ptr nou
     i8 10, label %54
     i8 11, label %74
     i8 21, label %98
-    i8 22, label %117
+    i8 22, label %109
   ]
 
 54:                                               ; preds = %._crit_edge105
@@ -216,83 +216,67 @@ ToUpperCase.exit95:                               ; preds = %80, %82, %86, %90
   %101 = shl nsw i32 %4, 1
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %100, i64 %102
-  %104 = load i8, ptr %103, align 1, !tbaa !14
-  %105 = zext i8 %104 to i16
-  %106 = or disjoint i32 %101, 1
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds i8, ptr %100, i64 %107
-  %109 = load i8, ptr %108, align 1, !tbaa !14
-  %110 = zext i8 %109 to i16
-  %111 = shl nuw i16 %110, 8
-  %112 = or disjoint i16 %111, %105
-  %113 = sub nsw i32 %.182.lcssa, %.080
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr %0, i64 %114
-  %116 = tail call fastcc i32 @Shift(ptr noundef %115, i32 noundef %.080, i16 noundef zeroext %112)
+  %104 = load i16, ptr %103, align 1
+  %105 = sub nsw i32 %.182.lcssa, %.080
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds i8, ptr %0, i64 %106
+  %108 = tail call fastcc i32 @Shift(ptr noundef %107, i32 noundef %.080, i16 noundef zeroext %104)
   br label %ToUpperCase.exit
 
-117:                                              ; preds = %._crit_edge105
-  %118 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %119 = load ptr, ptr %118, align 8, !tbaa !20
-  %120 = shl nsw i32 %4, 1
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i8, ptr %119, i64 %121
-  %123 = load i8, ptr %122, align 1, !tbaa !14
-  %124 = zext i8 %123 to i16
-  %125 = or disjoint i32 %120, 1
-  %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds i8, ptr %119, i64 %126
-  %128 = load i8, ptr %127, align 1, !tbaa !14
-  %129 = zext i8 %128 to i16
-  %130 = shl nuw i16 %129, 8
-  %131 = or disjoint i16 %130, %124
+109:                                              ; preds = %._crit_edge105
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %111 = load ptr, ptr %110, align 8, !tbaa !20
+  %112 = shl nsw i32 %4, 1
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %111, i64 %113
+  %115 = load i16, ptr %114, align 1
   br i1 %48, label %.lr.ph110.preheader, label %ToUpperCase.exit
 
-.lr.ph110.preheader:                              ; preds = %117
-  %132 = sub nsw i32 %.182.lcssa, %.080
-  %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds i8, ptr %0, i64 %133
+.lr.ph110.preheader:                              ; preds = %109
+  %116 = sub nsw i32 %.182.lcssa, %.080
+  %117 = sext i32 %116 to i64
+  %118 = getelementptr inbounds i8, ptr %0, i64 %117
   br label %.lr.ph110
 
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %.lr.ph110
-  %.079108 = phi ptr [ %137, %.lr.ph110 ], [ %134, %.lr.ph110.preheader ]
-  %.2107 = phi i32 [ %138, %.lr.ph110 ], [ %.080, %.lr.ph110.preheader ]
-  %135 = tail call fastcc i32 @Shift(ptr noundef %.079108, i32 noundef %.2107, i16 noundef zeroext %131)
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i8, ptr %.079108, i64 %136
-  %138 = sub nsw i32 %.2107, %135
-  %139 = icmp sgt i32 %138, 0
-  br i1 %139, label %.lr.ph110, label %ToUpperCase.exit, !llvm.loop !21
+  %.079108 = phi ptr [ %121, %.lr.ph110 ], [ %118, %.lr.ph110.preheader ]
+  %.2107 = phi i32 [ %122, %.lr.ph110 ], [ %.080, %.lr.ph110.preheader ]
+  %119 = tail call fastcc i32 @Shift(ptr noundef %.079108, i32 noundef %.2107, i16 noundef zeroext %115)
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i8, ptr %.079108, i64 %120
+  %122 = sub nsw i32 %.2107, %119
+  %123 = icmp sgt i32 %122, 0
+  br i1 %123, label %.lr.ph110, label %ToUpperCase.exit, !llvm.loop !21
 
-ToUpperCase.exit:                                 ; preds = %.lr.ph110, %ToUpperCase.exit95, %117, %74, %70, %66, %62, %60, %._crit_edge105, %98
-  %140 = load i8, ptr %29, align 1, !tbaa !14
-  %.not91115 = icmp eq i8 %140, 0
+ToUpperCase.exit:                                 ; preds = %.lr.ph110, %ToUpperCase.exit95, %109, %74, %70, %66, %62, %60, %._crit_edge105, %98
+  %124 = load i8, ptr %29, align 1, !tbaa !14
+  %.not91115 = icmp eq i8 %124, 0
   br i1 %.not91115, label %._crit_edge120, label %.lr.ph119.preheader
 
 .lr.ph119.preheader:                              ; preds = %ToUpperCase.exit
-  %141 = zext i8 %140 to i32
-  %142 = zext i32 %.182.lcssa to i64
+  %125 = zext i8 %124 to i32
+  %126 = zext i32 %.182.lcssa to i64
   br label %.lr.ph119
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.lr.ph119
-  %indvars.iv134 = phi i64 [ %142, %.lr.ph119.preheader ], [ %indvars.iv.next135, %.lr.ph119 ]
-  %.0118 = phi i32 [ %141, %.lr.ph119.preheader ], [ %143, %.lr.ph119 ]
+  %indvars.iv134 = phi i64 [ %126, %.lr.ph119.preheader ], [ %indvars.iv.next135, %.lr.ph119 ]
+  %.0118 = phi i32 [ %125, %.lr.ph119.preheader ], [ %127, %.lr.ph119 ]
   %.pn116 = phi ptr [ %29, %.lr.ph119.preheader ], [ %.086, %.lr.ph119 ]
   %.086 = getelementptr inbounds nuw i8, ptr %.pn116, i64 1
-  %143 = add nsw i32 %.0118, -1
-  %144 = load i8, ptr %.086, align 1, !tbaa !14
+  %127 = add nsw i32 %.0118, -1
+  %128 = load i8, ptr %.086, align 1, !tbaa !14
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv134
-  store i8 %144, ptr %145, align 1, !tbaa !14
-  %.not91 = icmp eq i32 %143, 0
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv134
+  store i8 %128, ptr %129, align 1, !tbaa !14
+  %.not91 = icmp eq i32 %127, 0
   br i1 %.not91, label %._crit_edge120.loopexit, label %.lr.ph119, !llvm.loop !22
 
 ._crit_edge120.loopexit:                          ; preds = %.lr.ph119
-  %146 = trunc nuw i64 %indvars.iv.next135 to i32
+  %130 = trunc nuw i64 %indvars.iv.next135 to i32
   br label %._crit_edge120
 
 ._crit_edge120:                                   ; preds = %._crit_edge120.loopexit, %ToUpperCase.exit
-  %.283.lcssa = phi i32 [ %.182.lcssa, %ToUpperCase.exit ], [ %146, %._crit_edge120.loopexit ]
+  %.283.lcssa = phi i32 [ %.182.lcssa, %ToUpperCase.exit ], [ %130, %._crit_edge120.loopexit ]
   ret i32 %.283.lcssa
 }
 

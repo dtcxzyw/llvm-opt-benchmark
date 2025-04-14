@@ -2897,402 +2897,397 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %17 = select i1 %13, i64 %1, i64 %16
   %18 = insertelement <2 x double> poison, double %6, i64 0
   %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %invariant.gep = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 16
-  %invariant.gep462 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 32
+  %invariant.gep474 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 16
+  %invariant.gep476 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 32
+  %invariant.gep478 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 48
   %20 = icmp sgt i64 %1, 0
-  br i1 %20, label %.lr.ph468, label %._crit_edge469
+  br i1 %20, label %.lr.ph488, label %._crit_edge489
 
-.lr.ph468:                                        ; preds = %7
+.lr.ph488:                                        ; preds = %7
+  %invariant.gep425 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 64
+  %invariant.gep427 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 80
+  %invariant.gep429 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 96
+  %invariant.gep431 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 112
   %21 = icmp sgt i64 %0, 15
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %24
 
-.loopexit:                                        ; preds = %._crit_edge459, %263
+.loopexit:                                        ; preds = %._crit_edge471, %243
   %23 = icmp slt i64 %25, %1
-  br i1 %23, label %24, label %._crit_edge469, !llvm.loop !204
+  br i1 %23, label %24, label %._crit_edge489, !llvm.loop !204
 
-._crit_edge469:                                   ; preds = %.loopexit, %7
+._crit_edge489:                                   ; preds = %.loopexit, %7
   ret void
 
-24:                                               ; preds = %.lr.ph468, %.loopexit
-  %.0188466 = phi i64 [ 0, %.lr.ph468 ], [ %25, %.loopexit ]
-  %25 = add nuw nsw i64 %.0188466, %17
+24:                                               ; preds = %.lr.ph488, %.loopexit
+  %.0188486 = phi i64 [ 0, %.lr.ph488 ], [ %25, %.loopexit ]
+  %25 = add nuw nsw i64 %.0188486, %17
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %1, i64 %25)
-  br i1 %21, label %.lr.ph, label %._crit_edge422
+  br i1 %21, label %.lr.ph, label %._crit_edge434
 
 .lr.ph:                                           ; preds = %24, %._crit_edge
-  %.0187421 = phi i64 [ %75, %._crit_edge ], [ 0, %24 ]
+  %.0187433 = phi i64 [ %61, %._crit_edge ], [ 0, %24 ]
   %26 = load ptr, ptr %3, align 8, !tbaa !194
   %27 = load i64, ptr %22, align 8, !tbaa !196
-  %28 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.0187421
-  %29 = or disjoint i64 %.0187421, 2
-  %30 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %29
-  %31 = or disjoint i64 %.0187421, 4
-  %32 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %31
-  %33 = or disjoint i64 %.0187421, 6
-  %34 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %33
-  %35 = or disjoint i64 %.0187421, 8
-  %36 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %35
-  %37 = or disjoint i64 %.0187421, 10
-  %38 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %37
-  %39 = or disjoint i64 %.0187421, 12
-  %40 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %39
-  %41 = or disjoint i64 %.0187421, 14
-  %42 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %41
-  br label %77
+  %28 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.0187433
+  %gep = getelementptr double, ptr %invariant.gep474, i64 %.0187433
+  %gep422 = getelementptr double, ptr %invariant.gep476, i64 %.0187433
+  %gep424 = getelementptr double, ptr %invariant.gep478, i64 %.0187433
+  %gep426 = getelementptr double, ptr %invariant.gep425, i64 %.0187433
+  %gep428 = getelementptr double, ptr %invariant.gep427, i64 %.0187433
+  %gep430 = getelementptr double, ptr %invariant.gep429, i64 %.0187433
+  %gep432 = getelementptr double, ptr %invariant.gep431, i64 %.0187433
+  br label %63
 
-._crit_edge:                                      ; preds = %77
-  %43 = getelementptr inbounds nuw double, ptr %4, i64 %.0187421
-  %44 = load <2 x double>, ptr %43, align 1, !tbaa !118
-  %45 = fmul <2 x double> %19, %87
-  %46 = fadd <2 x double> %45, %44
-  store <2 x double> %46, ptr %43, align 1, !tbaa !118
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %48 = load <2 x double>, ptr %47, align 1, !tbaa !118
-  %49 = fmul <2 x double> %19, %91
-  %50 = fadd <2 x double> %49, %48
-  store <2 x double> %50, ptr %47, align 1, !tbaa !118
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %52 = load <2 x double>, ptr %51, align 1, !tbaa !118
-  %53 = fmul <2 x double> %19, %95
-  %54 = fadd <2 x double> %53, %52
-  store <2 x double> %54, ptr %51, align 1, !tbaa !118
-  %55 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  %56 = load <2 x double>, ptr %55, align 1, !tbaa !118
-  %57 = fmul <2 x double> %19, %99
-  %58 = fadd <2 x double> %57, %56
-  store <2 x double> %58, ptr %55, align 1, !tbaa !118
-  %59 = getelementptr inbounds nuw i8, ptr %43, i64 64
-  %60 = load <2 x double>, ptr %59, align 1, !tbaa !118
-  %61 = fmul <2 x double> %19, %103
-  %62 = fadd <2 x double> %61, %60
-  store <2 x double> %62, ptr %59, align 1, !tbaa !118
-  %63 = getelementptr inbounds nuw i8, ptr %43, i64 80
-  %64 = load <2 x double>, ptr %63, align 1, !tbaa !118
-  %65 = fmul <2 x double> %19, %107
-  %66 = fadd <2 x double> %65, %64
-  store <2 x double> %66, ptr %63, align 1, !tbaa !118
-  %67 = getelementptr inbounds nuw i8, ptr %43, i64 96
-  %68 = load <2 x double>, ptr %67, align 1, !tbaa !118
-  %69 = fmul <2 x double> %19, %111
-  %70 = fadd <2 x double> %69, %68
-  store <2 x double> %70, ptr %67, align 1, !tbaa !118
-  %71 = getelementptr inbounds nuw i8, ptr %43, i64 112
-  %72 = load <2 x double>, ptr %71, align 1, !tbaa !118
-  %73 = fmul <2 x double> %19, %115
-  %74 = fadd <2 x double> %73, %72
-  store <2 x double> %74, ptr %71, align 1, !tbaa !118
-  %75 = add nuw nsw i64 %.0187421, 16
-  %76 = icmp slt i64 %75, %8
-  br i1 %76, label %.lr.ph, label %._crit_edge422, !llvm.loop !205
+._crit_edge:                                      ; preds = %63
+  %29 = getelementptr inbounds nuw double, ptr %4, i64 %.0187433
+  %30 = load <2 x double>, ptr %29, align 1, !tbaa !118
+  %31 = fmul <2 x double> %19, %73
+  %32 = fadd <2 x double> %31, %30
+  store <2 x double> %32, ptr %29, align 1, !tbaa !118
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %34 = load <2 x double>, ptr %33, align 1, !tbaa !118
+  %35 = fmul <2 x double> %19, %77
+  %36 = fadd <2 x double> %35, %34
+  store <2 x double> %36, ptr %33, align 1, !tbaa !118
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %38 = load <2 x double>, ptr %37, align 1, !tbaa !118
+  %39 = fmul <2 x double> %19, %81
+  %40 = fadd <2 x double> %39, %38
+  store <2 x double> %40, ptr %37, align 1, !tbaa !118
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %42 = load <2 x double>, ptr %41, align 1, !tbaa !118
+  %43 = fmul <2 x double> %19, %85
+  %44 = fadd <2 x double> %43, %42
+  store <2 x double> %44, ptr %41, align 1, !tbaa !118
+  %45 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  %46 = load <2 x double>, ptr %45, align 1, !tbaa !118
+  %47 = fmul <2 x double> %19, %89
+  %48 = fadd <2 x double> %47, %46
+  store <2 x double> %48, ptr %45, align 1, !tbaa !118
+  %49 = getelementptr inbounds nuw i8, ptr %29, i64 80
+  %50 = load <2 x double>, ptr %49, align 1, !tbaa !118
+  %51 = fmul <2 x double> %19, %93
+  %52 = fadd <2 x double> %51, %50
+  store <2 x double> %52, ptr %49, align 1, !tbaa !118
+  %53 = getelementptr inbounds nuw i8, ptr %29, i64 96
+  %54 = load <2 x double>, ptr %53, align 1, !tbaa !118
+  %55 = fmul <2 x double> %19, %97
+  %56 = fadd <2 x double> %55, %54
+  store <2 x double> %56, ptr %53, align 1, !tbaa !118
+  %57 = getelementptr inbounds nuw i8, ptr %29, i64 112
+  %58 = load <2 x double>, ptr %57, align 1, !tbaa !118
+  %59 = fmul <2 x double> %19, %101
+  %60 = fadd <2 x double> %59, %58
+  store <2 x double> %60, ptr %57, align 1, !tbaa !118
+  %61 = add nuw nsw i64 %.0187433, 16
+  %62 = icmp slt i64 %61, %8
+  br i1 %62, label %.lr.ph, label %._crit_edge434, !llvm.loop !205
 
-77:                                               ; preds = %.lr.ph, %77
-  %.0186413 = phi i64 [ %.0188466, %.lr.ph ], [ %116, %77 ]
-  %.0382412 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %87, %77 ]
-  %.0383411 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %91, %77 ]
-  %.0384410 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %95, %77 ]
-  %.0385409 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %99, %77 ]
-  %.0386408 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %103, %77 ]
-  %.0388407 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %107, %77 ]
-  %.0389406 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %111, %77 ]
-  %.0390405 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %115, %77 ]
-  %78 = mul nsw i64 %27, %.0186413
-  %79 = getelementptr double, ptr %26, i64 %78
-  %80 = load double, ptr %79, align 8, !tbaa !115
-  %81 = insertelement <2 x double> poison, double %80, i64 0
-  %82 = shufflevector <2 x double> %81, <2 x double> poison, <2 x i32> zeroinitializer
-  %83 = mul nsw i64 %.0186413, %.sroa.22.0.copyload
-  %84 = getelementptr double, ptr %28, i64 %83
-  %85 = load <2 x double>, ptr %84, align 1, !tbaa !118
-  %86 = fmul <2 x double> %85, %82
-  %87 = fadd <2 x double> %.0382412, %86
-  %88 = getelementptr double, ptr %30, i64 %83
-  %89 = load <2 x double>, ptr %88, align 1, !tbaa !118
-  %90 = fmul <2 x double> %89, %82
-  %91 = fadd <2 x double> %.0383411, %90
-  %92 = getelementptr double, ptr %32, i64 %83
-  %93 = load <2 x double>, ptr %92, align 1, !tbaa !118
-  %94 = fmul <2 x double> %82, %93
-  %95 = fadd <2 x double> %.0384410, %94
-  %96 = getelementptr double, ptr %34, i64 %83
-  %97 = load <2 x double>, ptr %96, align 1, !tbaa !118
-  %98 = fmul <2 x double> %82, %97
-  %99 = fadd <2 x double> %.0385409, %98
-  %100 = getelementptr double, ptr %36, i64 %83
-  %101 = load <2 x double>, ptr %100, align 1, !tbaa !118
-  %102 = fmul <2 x double> %82, %101
-  %103 = fadd <2 x double> %.0386408, %102
-  %104 = getelementptr double, ptr %38, i64 %83
-  %105 = load <2 x double>, ptr %104, align 1, !tbaa !118
-  %106 = fmul <2 x double> %82, %105
-  %107 = fadd <2 x double> %.0388407, %106
-  %108 = getelementptr double, ptr %40, i64 %83
+63:                                               ; preds = %.lr.ph, %63
+  %.0186413 = phi i64 [ %.0188486, %.lr.ph ], [ %102, %63 ]
+  %.0382412 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %73, %63 ]
+  %.0383411 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %77, %63 ]
+  %.0384410 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %81, %63 ]
+  %.0385409 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %85, %63 ]
+  %.0386408 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %89, %63 ]
+  %.0388407 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %93, %63 ]
+  %.0389406 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %97, %63 ]
+  %.0390405 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %101, %63 ]
+  %64 = mul nsw i64 %27, %.0186413
+  %65 = getelementptr double, ptr %26, i64 %64
+  %66 = load double, ptr %65, align 8, !tbaa !115
+  %67 = insertelement <2 x double> poison, double %66, i64 0
+  %68 = shufflevector <2 x double> %67, <2 x double> poison, <2 x i32> zeroinitializer
+  %69 = mul nsw i64 %.0186413, %.sroa.22.0.copyload
+  %70 = getelementptr double, ptr %28, i64 %69
+  %71 = load <2 x double>, ptr %70, align 1, !tbaa !118
+  %72 = fmul <2 x double> %71, %68
+  %73 = fadd <2 x double> %.0382412, %72
+  %74 = getelementptr double, ptr %gep, i64 %69
+  %75 = load <2 x double>, ptr %74, align 1, !tbaa !118
+  %76 = fmul <2 x double> %75, %68
+  %77 = fadd <2 x double> %.0383411, %76
+  %78 = getelementptr double, ptr %gep422, i64 %69
+  %79 = load <2 x double>, ptr %78, align 1, !tbaa !118
+  %80 = fmul <2 x double> %68, %79
+  %81 = fadd <2 x double> %.0384410, %80
+  %82 = getelementptr double, ptr %gep424, i64 %69
+  %83 = load <2 x double>, ptr %82, align 1, !tbaa !118
+  %84 = fmul <2 x double> %68, %83
+  %85 = fadd <2 x double> %.0385409, %84
+  %86 = getelementptr double, ptr %gep426, i64 %69
+  %87 = load <2 x double>, ptr %86, align 1, !tbaa !118
+  %88 = fmul <2 x double> %68, %87
+  %89 = fadd <2 x double> %.0386408, %88
+  %90 = getelementptr double, ptr %gep428, i64 %69
+  %91 = load <2 x double>, ptr %90, align 1, !tbaa !118
+  %92 = fmul <2 x double> %68, %91
+  %93 = fadd <2 x double> %.0388407, %92
+  %94 = getelementptr double, ptr %gep430, i64 %69
+  %95 = load <2 x double>, ptr %94, align 1, !tbaa !118
+  %96 = fmul <2 x double> %68, %95
+  %97 = fadd <2 x double> %.0389406, %96
+  %98 = getelementptr double, ptr %gep432, i64 %69
+  %99 = load <2 x double>, ptr %98, align 1, !tbaa !118
+  %100 = fmul <2 x double> %68, %99
+  %101 = fadd <2 x double> %.0390405, %100
+  %102 = add nuw nsw i64 %.0186413, 1
+  %103 = icmp slt i64 %102, %.sroa.speculated
+  br i1 %103, label %63, label %._crit_edge, !llvm.loop !206
+
+._crit_edge434:                                   ; preds = %._crit_edge, %24
+  %.0187.lcssa = phi i64 [ 0, %24 ], [ %61, %._crit_edge ]
+  %104 = icmp slt i64 %.0187.lcssa, %9
+  br i1 %104, label %.lr.ph441, label %150
+
+.lr.ph441:                                        ; preds = %._crit_edge434
+  %105 = load ptr, ptr %3, align 8, !tbaa !194
+  %106 = load i64, ptr %22, align 8, !tbaa !196
+  %107 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.0187.lcssa
+  %gep475 = getelementptr double, ptr %invariant.gep474, i64 %.0187.lcssa
+  %gep477 = getelementptr double, ptr %invariant.gep476, i64 %.0187.lcssa
+  %gep479 = getelementptr double, ptr %invariant.gep478, i64 %.0187.lcssa
+  br label %125
+
+._crit_edge442:                                   ; preds = %125
+  %108 = getelementptr inbounds nuw double, ptr %4, i64 %.0187.lcssa
   %109 = load <2 x double>, ptr %108, align 1, !tbaa !118
-  %110 = fmul <2 x double> %82, %109
-  %111 = fadd <2 x double> %.0389406, %110
-  %112 = getelementptr double, ptr %42, i64 %83
+  %110 = fmul <2 x double> %19, %135
+  %111 = fadd <2 x double> %110, %109
+  store <2 x double> %111, ptr %108, align 1, !tbaa !118
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %113 = load <2 x double>, ptr %112, align 1, !tbaa !118
-  %114 = fmul <2 x double> %82, %113
-  %115 = fadd <2 x double> %.0390405, %114
-  %116 = add nuw nsw i64 %.0186413, 1
-  %117 = icmp slt i64 %116, %.sroa.speculated
-  br i1 %117, label %77, label %._crit_edge, !llvm.loop !206
+  %114 = fmul <2 x double> %19, %139
+  %115 = fadd <2 x double> %114, %113
+  store <2 x double> %115, ptr %112, align 1, !tbaa !118
+  %116 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  %117 = load <2 x double>, ptr %116, align 1, !tbaa !118
+  %118 = fmul <2 x double> %19, %143
+  %119 = fadd <2 x double> %118, %117
+  store <2 x double> %119, ptr %116, align 1, !tbaa !118
+  %120 = getelementptr inbounds nuw i8, ptr %108, i64 48
+  %121 = load <2 x double>, ptr %120, align 1, !tbaa !118
+  %122 = fmul <2 x double> %19, %147
+  %123 = fadd <2 x double> %122, %121
+  store <2 x double> %123, ptr %120, align 1, !tbaa !118
+  %124 = or disjoint i64 %.0187.lcssa, 8
+  br label %150
 
-._crit_edge422:                                   ; preds = %._crit_edge, %24
-  %.0187.lcssa = phi i64 [ 0, %24 ], [ %75, %._crit_edge ]
-  %118 = icmp slt i64 %.0187.lcssa, %9
-  br i1 %118, label %.lr.ph429, label %170
-
-.lr.ph429:                                        ; preds = %._crit_edge422
-  %119 = load ptr, ptr %3, align 8, !tbaa !194
-  %120 = load i64, ptr %22, align 8, !tbaa !196
-  %121 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.0187.lcssa
-  %122 = or disjoint i64 %.0187.lcssa, 2
-  %123 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %122
-  %124 = or disjoint i64 %.0187.lcssa, 4
-  %125 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %124
-  %126 = or disjoint i64 %.0187.lcssa, 6
-  %127 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %126
-  br label %145
-
-._crit_edge430:                                   ; preds = %145
-  %128 = getelementptr inbounds nuw double, ptr %4, i64 %.0187.lcssa
-  %129 = load <2 x double>, ptr %128, align 1, !tbaa !118
-  %130 = fmul <2 x double> %19, %155
-  %131 = fadd <2 x double> %130, %129
-  store <2 x double> %131, ptr %128, align 1, !tbaa !118
-  %132 = getelementptr inbounds nuw i8, ptr %128, i64 16
+125:                                              ; preds = %.lr.ph441, %125
+  %.0185440 = phi i64 [ %.0188486, %.lr.ph441 ], [ %148, %125 ]
+  %.0391439 = phi <2 x double> [ zeroinitializer, %.lr.ph441 ], [ %135, %125 ]
+  %.0392438 = phi <2 x double> [ zeroinitializer, %.lr.ph441 ], [ %139, %125 ]
+  %.0393437 = phi <2 x double> [ zeroinitializer, %.lr.ph441 ], [ %143, %125 ]
+  %.0394436 = phi <2 x double> [ zeroinitializer, %.lr.ph441 ], [ %147, %125 ]
+  %126 = mul nsw i64 %106, %.0185440
+  %127 = getelementptr double, ptr %105, i64 %126
+  %128 = load double, ptr %127, align 8, !tbaa !115
+  %129 = insertelement <2 x double> poison, double %128, i64 0
+  %130 = shufflevector <2 x double> %129, <2 x double> poison, <2 x i32> zeroinitializer
+  %131 = mul nsw i64 %.0185440, %.sroa.22.0.copyload
+  %132 = getelementptr double, ptr %107, i64 %131
   %133 = load <2 x double>, ptr %132, align 1, !tbaa !118
-  %134 = fmul <2 x double> %19, %159
-  %135 = fadd <2 x double> %134, %133
-  store <2 x double> %135, ptr %132, align 1, !tbaa !118
-  %136 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  %134 = fmul <2 x double> %133, %130
+  %135 = fadd <2 x double> %.0391439, %134
+  %136 = getelementptr double, ptr %gep475, i64 %131
   %137 = load <2 x double>, ptr %136, align 1, !tbaa !118
-  %138 = fmul <2 x double> %19, %163
-  %139 = fadd <2 x double> %138, %137
-  store <2 x double> %139, ptr %136, align 1, !tbaa !118
-  %140 = getelementptr inbounds nuw i8, ptr %128, i64 48
+  %138 = fmul <2 x double> %137, %130
+  %139 = fadd <2 x double> %.0392438, %138
+  %140 = getelementptr double, ptr %gep477, i64 %131
   %141 = load <2 x double>, ptr %140, align 1, !tbaa !118
-  %142 = fmul <2 x double> %19, %167
-  %143 = fadd <2 x double> %142, %141
-  store <2 x double> %143, ptr %140, align 1, !tbaa !118
-  %144 = or disjoint i64 %.0187.lcssa, 8
-  br label %170
+  %142 = fmul <2 x double> %130, %141
+  %143 = fadd <2 x double> %.0393437, %142
+  %144 = getelementptr double, ptr %gep479, i64 %131
+  %145 = load <2 x double>, ptr %144, align 1, !tbaa !118
+  %146 = fmul <2 x double> %130, %145
+  %147 = fadd <2 x double> %.0394436, %146
+  %148 = add nuw nsw i64 %.0185440, 1
+  %149 = icmp slt i64 %148, %.sroa.speculated
+  br i1 %149, label %125, label %._crit_edge442, !llvm.loop !207
 
-145:                                              ; preds = %.lr.ph429, %145
-  %.0185428 = phi i64 [ %.0188466, %.lr.ph429 ], [ %168, %145 ]
-  %.0391427 = phi <2 x double> [ zeroinitializer, %.lr.ph429 ], [ %155, %145 ]
-  %.0392426 = phi <2 x double> [ zeroinitializer, %.lr.ph429 ], [ %159, %145 ]
-  %.0393425 = phi <2 x double> [ zeroinitializer, %.lr.ph429 ], [ %163, %145 ]
-  %.0394424 = phi <2 x double> [ zeroinitializer, %.lr.ph429 ], [ %167, %145 ]
-  %146 = mul nsw i64 %120, %.0185428
-  %147 = getelementptr double, ptr %119, i64 %146
-  %148 = load double, ptr %147, align 8, !tbaa !115
-  %149 = insertelement <2 x double> poison, double %148, i64 0
-  %150 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> zeroinitializer
-  %151 = mul nsw i64 %.0185428, %.sroa.22.0.copyload
-  %152 = getelementptr double, ptr %121, i64 %151
-  %153 = load <2 x double>, ptr %152, align 1, !tbaa !118
-  %154 = fmul <2 x double> %153, %150
-  %155 = fadd <2 x double> %.0391427, %154
-  %156 = getelementptr double, ptr %123, i64 %151
-  %157 = load <2 x double>, ptr %156, align 1, !tbaa !118
-  %158 = fmul <2 x double> %157, %150
-  %159 = fadd <2 x double> %.0392426, %158
-  %160 = getelementptr double, ptr %125, i64 %151
-  %161 = load <2 x double>, ptr %160, align 1, !tbaa !118
-  %162 = fmul <2 x double> %150, %161
-  %163 = fadd <2 x double> %.0393425, %162
-  %164 = getelementptr double, ptr %127, i64 %151
-  %165 = load <2 x double>, ptr %164, align 1, !tbaa !118
-  %166 = fmul <2 x double> %150, %165
-  %167 = fadd <2 x double> %.0394424, %166
-  %168 = add nuw nsw i64 %.0185428, 1
-  %169 = icmp slt i64 %168, %.sroa.speculated
-  br i1 %169, label %145, label %._crit_edge430, !llvm.loop !207
+150:                                              ; preds = %._crit_edge442, %._crit_edge434
+  %.1 = phi i64 [ %124, %._crit_edge442 ], [ %.0187.lcssa, %._crit_edge434 ]
+  %151 = icmp slt i64 %.1, %10
+  br i1 %151, label %.lr.ph451, label %189
 
-170:                                              ; preds = %._crit_edge430, %._crit_edge422
-  %.1 = phi i64 [ %144, %._crit_edge430 ], [ %.0187.lcssa, %._crit_edge422 ]
-  %171 = icmp slt i64 %.1, %10
-  br i1 %171, label %.lr.ph439, label %209
+.lr.ph451:                                        ; preds = %150
+  %152 = load ptr, ptr %3, align 8, !tbaa !194
+  %153 = load i64, ptr %22, align 8, !tbaa !196
+  %154 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.1
+  %gep481 = getelementptr double, ptr %invariant.gep474, i64 %.1
+  %gep483 = getelementptr double, ptr %invariant.gep476, i64 %.1
+  br label %168
 
-.lr.ph439:                                        ; preds = %170
-  %172 = load ptr, ptr %3, align 8, !tbaa !194
-  %173 = load i64, ptr %22, align 8, !tbaa !196
-  %174 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.1
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.1
-  %gep463 = getelementptr double, ptr %invariant.gep462, i64 %.1
-  br label %188
+._crit_edge452:                                   ; preds = %168
+  %155 = getelementptr inbounds double, ptr %4, i64 %.1
+  %156 = load <2 x double>, ptr %155, align 1, !tbaa !118
+  %157 = fmul <2 x double> %19, %178
+  %158 = fadd <2 x double> %157, %156
+  store <2 x double> %158, ptr %155, align 1, !tbaa !118
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 16
+  %160 = load <2 x double>, ptr %159, align 1, !tbaa !118
+  %161 = fmul <2 x double> %19, %182
+  %162 = fadd <2 x double> %161, %160
+  store <2 x double> %162, ptr %159, align 1, !tbaa !118
+  %163 = getelementptr inbounds nuw i8, ptr %155, i64 32
+  %164 = load <2 x double>, ptr %163, align 1, !tbaa !118
+  %165 = fmul <2 x double> %19, %186
+  %166 = fadd <2 x double> %165, %164
+  store <2 x double> %166, ptr %163, align 1, !tbaa !118
+  %167 = add nsw i64 %.1, 6
+  br label %189
 
-._crit_edge440:                                   ; preds = %188
-  %175 = getelementptr inbounds double, ptr %4, i64 %.1
+168:                                              ; preds = %.lr.ph451, %168
+  %.0184450 = phi i64 [ %.0188486, %.lr.ph451 ], [ %187, %168 ]
+  %.0395449 = phi <2 x double> [ zeroinitializer, %.lr.ph451 ], [ %178, %168 ]
+  %.0397448 = phi <2 x double> [ zeroinitializer, %.lr.ph451 ], [ %182, %168 ]
+  %.0399447 = phi <2 x double> [ zeroinitializer, %.lr.ph451 ], [ %186, %168 ]
+  %169 = mul nsw i64 %153, %.0184450
+  %170 = getelementptr double, ptr %152, i64 %169
+  %171 = load double, ptr %170, align 8, !tbaa !115
+  %172 = insertelement <2 x double> poison, double %171, i64 0
+  %173 = shufflevector <2 x double> %172, <2 x double> poison, <2 x i32> zeroinitializer
+  %174 = mul nsw i64 %.0184450, %.sroa.22.0.copyload
+  %175 = getelementptr double, ptr %154, i64 %174
   %176 = load <2 x double>, ptr %175, align 1, !tbaa !118
-  %177 = fmul <2 x double> %19, %198
-  %178 = fadd <2 x double> %177, %176
-  store <2 x double> %178, ptr %175, align 1, !tbaa !118
-  %179 = getelementptr inbounds nuw i8, ptr %175, i64 16
+  %177 = fmul <2 x double> %176, %173
+  %178 = fadd <2 x double> %.0395449, %177
+  %179 = getelementptr double, ptr %gep481, i64 %174
   %180 = load <2 x double>, ptr %179, align 1, !tbaa !118
-  %181 = fmul <2 x double> %19, %202
-  %182 = fadd <2 x double> %181, %180
-  store <2 x double> %182, ptr %179, align 1, !tbaa !118
-  %183 = getelementptr inbounds nuw i8, ptr %175, i64 32
+  %181 = fmul <2 x double> %180, %173
+  %182 = fadd <2 x double> %.0397448, %181
+  %183 = getelementptr double, ptr %gep483, i64 %174
   %184 = load <2 x double>, ptr %183, align 1, !tbaa !118
-  %185 = fmul <2 x double> %19, %206
-  %186 = fadd <2 x double> %185, %184
-  store <2 x double> %186, ptr %183, align 1, !tbaa !118
-  %187 = add nsw i64 %.1, 6
-  br label %209
+  %185 = fmul <2 x double> %173, %184
+  %186 = fadd <2 x double> %.0399447, %185
+  %187 = add nuw nsw i64 %.0184450, 1
+  %188 = icmp slt i64 %187, %.sroa.speculated
+  br i1 %188, label %168, label %._crit_edge452, !llvm.loop !208
 
-188:                                              ; preds = %.lr.ph439, %188
-  %.0184438 = phi i64 [ %.0188466, %.lr.ph439 ], [ %207, %188 ]
-  %.0395437 = phi <2 x double> [ zeroinitializer, %.lr.ph439 ], [ %198, %188 ]
-  %.0397436 = phi <2 x double> [ zeroinitializer, %.lr.ph439 ], [ %202, %188 ]
-  %.0399435 = phi <2 x double> [ zeroinitializer, %.lr.ph439 ], [ %206, %188 ]
-  %189 = mul nsw i64 %173, %.0184438
-  %190 = getelementptr double, ptr %172, i64 %189
-  %191 = load double, ptr %190, align 8, !tbaa !115
-  %192 = insertelement <2 x double> poison, double %191, i64 0
-  %193 = shufflevector <2 x double> %192, <2 x double> poison, <2 x i32> zeroinitializer
-  %194 = mul nsw i64 %.0184438, %.sroa.22.0.copyload
-  %195 = getelementptr double, ptr %174, i64 %194
-  %196 = load <2 x double>, ptr %195, align 1, !tbaa !118
-  %197 = fmul <2 x double> %196, %193
-  %198 = fadd <2 x double> %.0395437, %197
-  %199 = getelementptr double, ptr %gep, i64 %194
-  %200 = load <2 x double>, ptr %199, align 1, !tbaa !118
-  %201 = fmul <2 x double> %200, %193
-  %202 = fadd <2 x double> %.0397436, %201
-  %203 = getelementptr double, ptr %gep463, i64 %194
-  %204 = load <2 x double>, ptr %203, align 1, !tbaa !118
-  %205 = fmul <2 x double> %193, %204
-  %206 = fadd <2 x double> %.0399435, %205
-  %207 = add nuw nsw i64 %.0184438, 1
-  %208 = icmp slt i64 %207, %.sroa.speculated
-  br i1 %208, label %188, label %._crit_edge440, !llvm.loop !208
+189:                                              ; preds = %._crit_edge452, %150
+  %.2 = phi i64 [ %167, %._crit_edge452 ], [ %.1, %150 ]
+  %190 = icmp slt i64 %.2, %11
+  br i1 %190, label %.lr.ph459, label %220
 
-209:                                              ; preds = %._crit_edge440, %170
-  %.2 = phi i64 [ %187, %._crit_edge440 ], [ %.1, %170 ]
-  %210 = icmp slt i64 %.2, %11
-  br i1 %210, label %.lr.ph447, label %240
+.lr.ph459:                                        ; preds = %189
+  %191 = load ptr, ptr %3, align 8, !tbaa !194
+  %192 = load i64, ptr %22, align 8, !tbaa !196
+  %193 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.2
+  %gep485 = getelementptr double, ptr %invariant.gep474, i64 %.2
+  br label %203
 
-.lr.ph447:                                        ; preds = %209
-  %211 = load ptr, ptr %3, align 8, !tbaa !194
-  %212 = load i64, ptr %22, align 8, !tbaa !196
-  %213 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.2
-  %gep465 = getelementptr double, ptr %invariant.gep, i64 %.2
-  br label %223
+._crit_edge460:                                   ; preds = %203
+  %194 = getelementptr inbounds double, ptr %4, i64 %.2
+  %195 = load <2 x double>, ptr %194, align 1, !tbaa !118
+  %196 = fmul <2 x double> %19, %213
+  %197 = fadd <2 x double> %196, %195
+  store <2 x double> %197, ptr %194, align 1, !tbaa !118
+  %198 = getelementptr inbounds nuw i8, ptr %194, i64 16
+  %199 = load <2 x double>, ptr %198, align 1, !tbaa !118
+  %200 = fmul <2 x double> %19, %217
+  %201 = fadd <2 x double> %200, %199
+  store <2 x double> %201, ptr %198, align 1, !tbaa !118
+  %202 = add nsw i64 %.2, 4
+  br label %220
 
-._crit_edge448:                                   ; preds = %223
-  %214 = getelementptr inbounds double, ptr %4, i64 %.2
+203:                                              ; preds = %.lr.ph459, %203
+  %.0183458 = phi i64 [ %.0188486, %.lr.ph459 ], [ %218, %203 ]
+  %.0396457 = phi <2 x double> [ zeroinitializer, %.lr.ph459 ], [ %217, %203 ]
+  %.0398456 = phi <2 x double> [ zeroinitializer, %.lr.ph459 ], [ %213, %203 ]
+  %204 = mul nsw i64 %192, %.0183458
+  %205 = getelementptr double, ptr %191, i64 %204
+  %206 = load double, ptr %205, align 8, !tbaa !115
+  %207 = insertelement <2 x double> poison, double %206, i64 0
+  %208 = shufflevector <2 x double> %207, <2 x double> poison, <2 x i32> zeroinitializer
+  %209 = mul nsw i64 %.0183458, %.sroa.22.0.copyload
+  %210 = getelementptr double, ptr %193, i64 %209
+  %211 = load <2 x double>, ptr %210, align 1, !tbaa !118
+  %212 = fmul <2 x double> %211, %208
+  %213 = fadd <2 x double> %.0398456, %212
+  %214 = getelementptr double, ptr %gep485, i64 %209
   %215 = load <2 x double>, ptr %214, align 1, !tbaa !118
-  %216 = fmul <2 x double> %19, %233
-  %217 = fadd <2 x double> %216, %215
-  store <2 x double> %217, ptr %214, align 1, !tbaa !118
-  %218 = getelementptr inbounds nuw i8, ptr %214, i64 16
-  %219 = load <2 x double>, ptr %218, align 1, !tbaa !118
-  %220 = fmul <2 x double> %19, %237
-  %221 = fadd <2 x double> %220, %219
-  store <2 x double> %221, ptr %218, align 1, !tbaa !118
-  %222 = add nsw i64 %.2, 4
-  br label %240
+  %216 = fmul <2 x double> %215, %208
+  %217 = fadd <2 x double> %.0396457, %216
+  %218 = add nuw nsw i64 %.0183458, 1
+  %219 = icmp slt i64 %218, %.sroa.speculated
+  br i1 %219, label %203, label %._crit_edge460, !llvm.loop !209
 
-223:                                              ; preds = %.lr.ph447, %223
-  %.0183446 = phi i64 [ %.0188466, %.lr.ph447 ], [ %238, %223 ]
-  %.0396445 = phi <2 x double> [ zeroinitializer, %.lr.ph447 ], [ %237, %223 ]
-  %.0398444 = phi <2 x double> [ zeroinitializer, %.lr.ph447 ], [ %233, %223 ]
-  %224 = mul nsw i64 %212, %.0183446
-  %225 = getelementptr double, ptr %211, i64 %224
-  %226 = load double, ptr %225, align 8, !tbaa !115
-  %227 = insertelement <2 x double> poison, double %226, i64 0
-  %228 = shufflevector <2 x double> %227, <2 x double> poison, <2 x i32> zeroinitializer
-  %229 = mul nsw i64 %.0183446, %.sroa.22.0.copyload
-  %230 = getelementptr double, ptr %213, i64 %229
-  %231 = load <2 x double>, ptr %230, align 1, !tbaa !118
-  %232 = fmul <2 x double> %231, %228
-  %233 = fadd <2 x double> %.0398444, %232
-  %234 = getelementptr double, ptr %gep465, i64 %229
-  %235 = load <2 x double>, ptr %234, align 1, !tbaa !118
-  %236 = fmul <2 x double> %235, %228
-  %237 = fadd <2 x double> %.0396445, %236
-  %238 = add nuw nsw i64 %.0183446, 1
-  %239 = icmp slt i64 %238, %.sroa.speculated
-  br i1 %239, label %223, label %._crit_edge448, !llvm.loop !209
+220:                                              ; preds = %._crit_edge460, %189
+  %.3 = phi i64 [ %202, %._crit_edge460 ], [ %.2, %189 ]
+  %221 = icmp slt i64 %.3, %12
+  br i1 %221, label %.lr.ph465, label %243
 
-240:                                              ; preds = %._crit_edge448, %209
-  %.3 = phi i64 [ %222, %._crit_edge448 ], [ %.2, %209 ]
-  %241 = icmp slt i64 %.3, %12
-  br i1 %241, label %.lr.ph453, label %263
+.lr.ph465:                                        ; preds = %220
+  %222 = load ptr, ptr %3, align 8, !tbaa !194
+  %223 = load i64, ptr %22, align 8, !tbaa !196
+  %224 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.3
+  br label %230
 
-.lr.ph453:                                        ; preds = %240
-  %242 = load ptr, ptr %3, align 8, !tbaa !194
-  %243 = load i64, ptr %22, align 8, !tbaa !196
-  %244 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.3
-  br label %250
+._crit_edge466:                                   ; preds = %230
+  %225 = getelementptr inbounds double, ptr %4, i64 %.3
+  %226 = load <2 x double>, ptr %225, align 1, !tbaa !118
+  %227 = fmul <2 x double> %19, %240
+  %228 = fadd <2 x double> %227, %226
+  store <2 x double> %228, ptr %225, align 1, !tbaa !118
+  %229 = add nsw i64 %.3, 2
+  br label %243
 
-._crit_edge454:                                   ; preds = %250
-  %245 = getelementptr inbounds double, ptr %4, i64 %.3
-  %246 = load <2 x double>, ptr %245, align 1, !tbaa !118
-  %247 = fmul <2 x double> %19, %260
-  %248 = fadd <2 x double> %247, %246
-  store <2 x double> %248, ptr %245, align 1, !tbaa !118
-  %249 = add nsw i64 %.3, 2
-  br label %263
+230:                                              ; preds = %.lr.ph465, %230
+  %.0182464 = phi i64 [ %.0188486, %.lr.ph465 ], [ %241, %230 ]
+  %.0387463 = phi <2 x double> [ zeroinitializer, %.lr.ph465 ], [ %240, %230 ]
+  %231 = mul nsw i64 %223, %.0182464
+  %232 = getelementptr double, ptr %222, i64 %231
+  %233 = load double, ptr %232, align 8, !tbaa !115
+  %234 = insertelement <2 x double> poison, double %233, i64 0
+  %235 = shufflevector <2 x double> %234, <2 x double> poison, <2 x i32> zeroinitializer
+  %236 = mul nsw i64 %.0182464, %.sroa.22.0.copyload
+  %237 = getelementptr double, ptr %224, i64 %236
+  %238 = load <2 x double>, ptr %237, align 1, !tbaa !118
+  %239 = fmul <2 x double> %238, %235
+  %240 = fadd <2 x double> %.0387463, %239
+  %241 = add nuw nsw i64 %.0182464, 1
+  %242 = icmp slt i64 %241, %.sroa.speculated
+  br i1 %242, label %230, label %._crit_edge466, !llvm.loop !210
 
-250:                                              ; preds = %.lr.ph453, %250
-  %.0182452 = phi i64 [ %.0188466, %.lr.ph453 ], [ %261, %250 ]
-  %.0387451 = phi <2 x double> [ zeroinitializer, %.lr.ph453 ], [ %260, %250 ]
-  %251 = mul nsw i64 %243, %.0182452
-  %252 = getelementptr double, ptr %242, i64 %251
-  %253 = load double, ptr %252, align 8, !tbaa !115
-  %254 = insertelement <2 x double> poison, double %253, i64 0
-  %255 = shufflevector <2 x double> %254, <2 x double> poison, <2 x i32> zeroinitializer
-  %256 = mul nsw i64 %.0182452, %.sroa.22.0.copyload
-  %257 = getelementptr double, ptr %244, i64 %256
-  %258 = load <2 x double>, ptr %257, align 1, !tbaa !118
-  %259 = fmul <2 x double> %258, %255
-  %260 = fadd <2 x double> %.0387451, %259
-  %261 = add nuw nsw i64 %.0182452, 1
+243:                                              ; preds = %._crit_edge466, %220
+  %.4 = phi i64 [ %229, %._crit_edge466 ], [ %.3, %220 ]
+  %244 = icmp slt i64 %.4, %0
+  br i1 %244, label %.preheader.lr.ph, label %.loopexit
+
+.preheader.lr.ph:                                 ; preds = %243
+  %245 = load ptr, ptr %3, align 8
+  %246 = load i64, ptr %22, align 8
+  br label %.lr.ph470
+
+.lr.ph470:                                        ; preds = %._crit_edge471, %.preheader.lr.ph
+  %.5473 = phi i64 [ %.4, %.preheader.lr.ph ], [ %251, %._crit_edge471 ]
+  %247 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.5473
+  br label %252
+
+._crit_edge471:                                   ; preds = %252
+  %248 = getelementptr inbounds double, ptr %4, i64 %.5473
+  %249 = load double, ptr %248, align 8, !tbaa !115
+  %250 = tail call double @llvm.fmuladd.f64(double %6, double %260, double %249)
+  store double %250, ptr %248, align 8, !tbaa !115
+  %251 = add nsw i64 %.5473, 1
+  %exitcond.not = icmp eq i64 %251, %0
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph470, !llvm.loop !211
+
+252:                                              ; preds = %.lr.ph470, %252
+  %.0469 = phi i64 [ %.0188486, %.lr.ph470 ], [ %261, %252 ]
+  %.0181468 = phi double [ 0.000000e+00, %.lr.ph470 ], [ %260, %252 ]
+  %253 = mul nsw i64 %.0469, %.sroa.22.0.copyload
+  %254 = getelementptr double, ptr %247, i64 %253
+  %255 = mul nsw i64 %246, %.0469
+  %256 = getelementptr double, ptr %245, i64 %255
+  %257 = load double, ptr %254, align 8, !tbaa !115
+  %258 = load double, ptr %256, align 8, !tbaa !115
+  %259 = fmul double %257, %258
+  %260 = fadd double %.0181468, %259
+  %261 = add nuw nsw i64 %.0469, 1
   %262 = icmp slt i64 %261, %.sroa.speculated
-  br i1 %262, label %250, label %._crit_edge454, !llvm.loop !210
-
-263:                                              ; preds = %._crit_edge454, %240
-  %.4 = phi i64 [ %249, %._crit_edge454 ], [ %.3, %240 ]
-  %264 = icmp slt i64 %.4, %0
-  br i1 %264, label %.preheader.lr.ph, label %.loopexit
-
-.preheader.lr.ph:                                 ; preds = %263
-  %265 = load ptr, ptr %3, align 8
-  %266 = load i64, ptr %22, align 8
-  br label %.lr.ph458
-
-.lr.ph458:                                        ; preds = %._crit_edge459, %.preheader.lr.ph
-  %.5461 = phi i64 [ %.4, %.preheader.lr.ph ], [ %271, %._crit_edge459 ]
-  %267 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.5461
-  br label %272
-
-._crit_edge459:                                   ; preds = %272
-  %268 = getelementptr inbounds double, ptr %4, i64 %.5461
-  %269 = load double, ptr %268, align 8, !tbaa !115
-  %270 = tail call double @llvm.fmuladd.f64(double %6, double %280, double %269)
-  store double %270, ptr %268, align 8, !tbaa !115
-  %271 = add nsw i64 %.5461, 1
-  %exitcond.not = icmp eq i64 %271, %0
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph458, !llvm.loop !211
-
-272:                                              ; preds = %.lr.ph458, %272
-  %.0457 = phi i64 [ %.0188466, %.lr.ph458 ], [ %281, %272 ]
-  %.0181456 = phi double [ 0.000000e+00, %.lr.ph458 ], [ %280, %272 ]
-  %273 = mul nsw i64 %.0457, %.sroa.22.0.copyload
-  %274 = getelementptr double, ptr %267, i64 %273
-  %275 = mul nsw i64 %266, %.0457
-  %276 = getelementptr double, ptr %265, i64 %275
-  %277 = load double, ptr %274, align 8, !tbaa !115
-  %278 = load double, ptr %276, align 8, !tbaa !115
-  %279 = fmul double %277, %278
-  %280 = fadd double %.0181456, %279
-  %281 = add nuw nsw i64 %.0457, 1
-  %282 = icmp slt i64 %281, %.sroa.speculated
-  br i1 %282, label %272, label %._crit_edge459, !llvm.loop !212
+  br i1 %262, label %252, label %._crit_edge471, !llvm.loop !212
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5972,151 +5967,150 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_16blas_
   br i1 %16, label %.lr.ph.us, label %.lr.ph92.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph92, %._crit_edge.us
-  %.06490.us = phi i64 [ %38, %._crit_edge.us ], [ 0, %.lr.ph92 ]
-  %.06589.us = phi i64 [ %37, %._crit_edge.us ], [ 0, %.lr.ph92 ]
+  %.06490.us = phi i64 [ %37, %._crit_edge.us ], [ 0, %.lr.ph92 ]
+  %.06589.us = phi i64 [ %36, %._crit_edge.us ], [ 0, %.lr.ph92 ]
   %21 = add nsw i64 %.06589.us, %15
-  %22 = or disjoint i64 %.06490.us, 2
-  br label %23
+  br label %22
 
-23:                                               ; preds = %.lr.ph.us, %23
-  %.06388.us = phi i64 [ 0, %.lr.ph.us ], [ %36, %23 ]
-  %.16687.us = phi i64 [ %21, %.lr.ph.us ], [ %35, %23 ]
-  %24 = load ptr, ptr %2, align 8, !tbaa !257
-  %25 = load i64, ptr %17, align 8, !tbaa !259
-  %26 = mul nsw i64 %25, %.06388.us
-  %27 = getelementptr double, ptr %24, i64 %.06490.us
-  %28 = getelementptr double, ptr %27, i64 %26
-  %29 = load <2 x double>, ptr %28, align 1, !tbaa !118
-  %30 = getelementptr double, ptr %24, i64 %22
-  %31 = getelementptr double, ptr %30, i64 %26
-  %32 = load <2 x double>, ptr %31, align 1, !tbaa !118
-  %33 = getelementptr inbounds double, ptr %1, i64 %.16687.us
-  store <2 x double> %29, ptr %33, align 16, !tbaa !118
-  %34 = getelementptr i8, ptr %33, i64 16
-  store <2 x double> %32, ptr %34, align 16, !tbaa !118
-  %35 = add nsw i64 %.16687.us, 4
-  %36 = add nuw nsw i64 %.06388.us, 1
-  %exitcond.not = icmp eq i64 %36, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %23, !llvm.loop !321
+22:                                               ; preds = %.lr.ph.us, %22
+  %.06388.us = phi i64 [ 0, %.lr.ph.us ], [ %35, %22 ]
+  %.16687.us = phi i64 [ %21, %.lr.ph.us ], [ %34, %22 ]
+  %23 = load ptr, ptr %2, align 8, !tbaa !257
+  %24 = load i64, ptr %17, align 8, !tbaa !259
+  %25 = mul nsw i64 %24, %.06388.us
+  %26 = getelementptr double, ptr %23, i64 %.06490.us
+  %27 = getelementptr double, ptr %26, i64 %25
+  %28 = load <2 x double>, ptr %27, align 1, !tbaa !118
+  %29 = getelementptr i8, ptr %26, i64 16
+  %30 = getelementptr double, ptr %29, i64 %25
+  %31 = load <2 x double>, ptr %30, align 1, !tbaa !118
+  %32 = getelementptr inbounds double, ptr %1, i64 %.16687.us
+  store <2 x double> %28, ptr %32, align 16, !tbaa !118
+  %33 = getelementptr i8, ptr %32, i64 16
+  store <2 x double> %31, ptr %33, align 16, !tbaa !118
+  %34 = add nsw i64 %.16687.us, 4
+  %35 = add nuw nsw i64 %.06388.us, 1
+  %exitcond.not = icmp eq i64 %35, %3
+  br i1 %exitcond.not, label %._crit_edge.us, label %22, !llvm.loop !321
 
-._crit_edge.us:                                   ; preds = %23
-  %37 = add nsw i64 %35, %20
-  %38 = add nuw nsw i64 %.06490.us, 4
-  %39 = icmp slt i64 %38, %9
-  br i1 %39, label %.lr.ph.us, label %.preheader86, !llvm.loop !322
+._crit_edge.us:                                   ; preds = %22
+  %36 = add nsw i64 %34, %20
+  %37 = add nuw nsw i64 %.06490.us, 4
+  %38 = icmp slt i64 %37, %9
+  br i1 %38, label %.lr.ph.us, label %.preheader86, !llvm.loop !322
 
 .lr.ph92.split:                                   ; preds = %.lr.ph92
   %invariant.op = add i64 %15, %20
   %smax = tail call i64 @llvm.smax.i64(i64 %9, i64 4)
-  %40 = add nsw i64 %smax, -1
-  %41 = lshr i64 %40, 2
-  %42 = shl i64 %5, 2
-  %43 = shl i64 %3, 2
-  %44 = and i64 %40, -4
-  %45 = mul i64 %41, %invariant.op
-  %46 = add i64 %45, %42
-  %47 = sub i64 %46, %43
-  %48 = add nuw nsw i64 %44, 4
+  %39 = add nsw i64 %smax, -1
+  %40 = lshr i64 %39, 2
+  %41 = shl i64 %5, 2
+  %42 = shl i64 %3, 2
+  %43 = and i64 %39, -4
+  %44 = mul i64 %40, %invariant.op
+  %45 = add i64 %44, %41
+  %46 = sub i64 %45, %42
+  %47 = add nuw nsw i64 %43, 4
   br label %.preheader86
 
 .preheader86:                                     ; preds = %._crit_edge.us, %.lr.ph92.split, %7
-  %.065.lcssa = phi i64 [ 0, %7 ], [ %47, %.lr.ph92.split ], [ %37, %._crit_edge.us ]
-  %.064.lcssa = phi i64 [ 0, %7 ], [ %48, %.lr.ph92.split ], [ %38, %._crit_edge.us ]
-  %49 = icmp slt i64 %.064.lcssa, %13
-  br i1 %49, label %.lr.ph100, label %.preheader
+  %.065.lcssa = phi i64 [ 0, %7 ], [ %46, %.lr.ph92.split ], [ %36, %._crit_edge.us ]
+  %.064.lcssa = phi i64 [ 0, %7 ], [ %47, %.lr.ph92.split ], [ %37, %._crit_edge.us ]
+  %48 = icmp slt i64 %.064.lcssa, %13
+  br i1 %48, label %.lr.ph100, label %.preheader
 
 .lr.ph100:                                        ; preds = %.preheader86
-  %50 = shl i64 %6, 1
-  %51 = icmp sgt i64 %3, 0
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %53 = add i64 %3, %6
-  %54 = sub i64 %5, %53
-  %55 = shl i64 %54, 1
-  br i1 %51, label %.lr.ph.us103, label %.lr.ph100.split
+  %49 = shl i64 %6, 1
+  %50 = icmp sgt i64 %3, 0
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %52 = add i64 %3, %6
+  %53 = sub i64 %5, %52
+  %54 = shl i64 %53, 1
+  br i1 %50, label %.lr.ph.us103, label %.lr.ph100.split
 
 .lr.ph.us103:                                     ; preds = %.lr.ph100, %._crit_edge.us104
-  %.199.us = phi i64 [ %68, %._crit_edge.us104 ], [ %.064.lcssa, %.lr.ph100 ]
-  %.26798.us = phi i64 [ %67, %._crit_edge.us104 ], [ %.065.lcssa, %.lr.ph100 ]
-  %56 = add nsw i64 %.26798.us, %50
-  br label %57
+  %.199.us = phi i64 [ %67, %._crit_edge.us104 ], [ %.064.lcssa, %.lr.ph100 ]
+  %.26798.us = phi i64 [ %66, %._crit_edge.us104 ], [ %.065.lcssa, %.lr.ph100 ]
+  %55 = add nsw i64 %.26798.us, %49
+  br label %56
 
-57:                                               ; preds = %.lr.ph.us103, %57
-  %.06297.us = phi i64 [ 0, %.lr.ph.us103 ], [ %66, %57 ]
-  %.396.us = phi i64 [ %56, %.lr.ph.us103 ], [ %65, %57 ]
-  %58 = load ptr, ptr %2, align 8, !tbaa !257
-  %59 = load i64, ptr %52, align 8, !tbaa !259
-  %60 = mul nsw i64 %59, %.06297.us
-  %61 = getelementptr double, ptr %58, i64 %.199.us
-  %62 = getelementptr double, ptr %61, i64 %60
-  %63 = load <2 x double>, ptr %62, align 1, !tbaa !118
-  %64 = getelementptr inbounds double, ptr %1, i64 %.396.us
-  store <2 x double> %63, ptr %64, align 16, !tbaa !118
-  %65 = add nsw i64 %.396.us, 2
-  %66 = add nuw nsw i64 %.06297.us, 1
-  %exitcond132.not = icmp eq i64 %66, %3
-  br i1 %exitcond132.not, label %._crit_edge.us104, label %57, !llvm.loop !323
+56:                                               ; preds = %.lr.ph.us103, %56
+  %.06297.us = phi i64 [ 0, %.lr.ph.us103 ], [ %65, %56 ]
+  %.396.us = phi i64 [ %55, %.lr.ph.us103 ], [ %64, %56 ]
+  %57 = load ptr, ptr %2, align 8, !tbaa !257
+  %58 = load i64, ptr %51, align 8, !tbaa !259
+  %59 = mul nsw i64 %58, %.06297.us
+  %60 = getelementptr double, ptr %57, i64 %.199.us
+  %61 = getelementptr double, ptr %60, i64 %59
+  %62 = load <2 x double>, ptr %61, align 1, !tbaa !118
+  %63 = getelementptr inbounds double, ptr %1, i64 %.396.us
+  store <2 x double> %62, ptr %63, align 16, !tbaa !118
+  %64 = add nsw i64 %.396.us, 2
+  %65 = add nuw nsw i64 %.06297.us, 1
+  %exitcond132.not = icmp eq i64 %65, %3
+  br i1 %exitcond132.not, label %._crit_edge.us104, label %56, !llvm.loop !323
 
-._crit_edge.us104:                                ; preds = %57
-  %67 = add nsw i64 %65, %55
-  %68 = add nuw nsw i64 %.199.us, 2
-  %69 = icmp slt i64 %68, %13
-  br i1 %69, label %.lr.ph.us103, label %.preheader, !llvm.loop !324
+._crit_edge.us104:                                ; preds = %56
+  %66 = add nsw i64 %64, %54
+  %67 = add nuw nsw i64 %.199.us, 2
+  %68 = icmp slt i64 %67, %13
+  br i1 %68, label %.lr.ph.us103, label %.preheader, !llvm.loop !324
 
 .lr.ph100.split:                                  ; preds = %.lr.ph100
-  %invariant.op108 = add i64 %50, %55
-  %70 = xor i64 %.064.lcssa, -1
-  %71 = add i64 %13, %70
-  %72 = lshr i64 %71, 1
-  %73 = mul i64 %72, %invariant.op108
-  %74 = shl i64 %5, 1
-  %75 = shl i64 %3, 1
-  %76 = and i64 %71, -2
-  %77 = add i64 %.064.lcssa, %76
-  %78 = add i64 %.065.lcssa, %73
-  %79 = add i64 %78, %74
-  %80 = sub i64 %79, %75
-  %81 = add i64 %77, 2
+  %invariant.op108 = add i64 %49, %54
+  %69 = xor i64 %.064.lcssa, -1
+  %70 = add i64 %13, %69
+  %71 = lshr i64 %70, 1
+  %72 = mul i64 %71, %invariant.op108
+  %73 = shl i64 %5, 1
+  %74 = shl i64 %3, 1
+  %75 = and i64 %70, -2
+  %76 = add i64 %.064.lcssa, %75
+  %77 = add i64 %.065.lcssa, %72
+  %78 = add i64 %77, %73
+  %79 = sub i64 %78, %74
+  %80 = add i64 %76, 2
   br label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge.us104, %.lr.ph100.split, %.preheader86
-  %.267.lcssa = phi i64 [ %.065.lcssa, %.preheader86 ], [ %80, %.lr.ph100.split ], [ %67, %._crit_edge.us104 ]
-  %.1.lcssa = phi i64 [ %.064.lcssa, %.preheader86 ], [ %81, %.lr.ph100.split ], [ %68, %._crit_edge.us104 ]
-  %82 = icmp slt i64 %.1.lcssa, %4
-  br i1 %82, label %.lr.ph114, label %._crit_edge115
+  %.267.lcssa = phi i64 [ %.065.lcssa, %.preheader86 ], [ %79, %.lr.ph100.split ], [ %66, %._crit_edge.us104 ]
+  %.1.lcssa = phi i64 [ %.064.lcssa, %.preheader86 ], [ %80, %.lr.ph100.split ], [ %67, %._crit_edge.us104 ]
+  %81 = icmp slt i64 %.1.lcssa, %4
+  br i1 %81, label %.lr.ph114, label %._crit_edge115
 
 .lr.ph114:                                        ; preds = %.preheader
-  %83 = icmp sgt i64 %3, 0
-  %84 = load ptr, ptr %2, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %86 = load i64, ptr %85, align 8
-  %87 = add i64 %3, %6
-  %88 = sub i64 %5, %87
-  br i1 %83, label %.lr.ph.us116, label %._crit_edge115
+  %82 = icmp sgt i64 %3, 0
+  %83 = load ptr, ptr %2, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %85 = load i64, ptr %84, align 8
+  %86 = add i64 %3, %6
+  %87 = sub i64 %5, %86
+  br i1 %82, label %.lr.ph.us116, label %._crit_edge115
 
 .lr.ph.us116:                                     ; preds = %.lr.ph114, %._crit_edge.us117
-  %.2113.us = phi i64 [ %99, %._crit_edge.us117 ], [ %.1.lcssa, %.lr.ph114 ]
-  %.4112.us = phi i64 [ %98, %._crit_edge.us117 ], [ %.267.lcssa, %.lr.ph114 ]
-  %89 = add nsw i64 %.4112.us, %6
-  %90 = getelementptr double, ptr %84, i64 %.2113.us
-  br label %91
+  %.2113.us = phi i64 [ %98, %._crit_edge.us117 ], [ %.1.lcssa, %.lr.ph114 ]
+  %.4112.us = phi i64 [ %97, %._crit_edge.us117 ], [ %.267.lcssa, %.lr.ph114 ]
+  %88 = add nsw i64 %.4112.us, %6
+  %89 = getelementptr double, ptr %83, i64 %.2113.us
+  br label %90
 
-91:                                               ; preds = %.lr.ph.us116, %91
-  %.0111.us = phi i64 [ 0, %.lr.ph.us116 ], [ %97, %91 ]
-  %.5110.us = phi i64 [ %89, %.lr.ph.us116 ], [ %95, %91 ]
-  %92 = mul nsw i64 %86, %.0111.us
-  %93 = getelementptr double, ptr %90, i64 %92
-  %94 = load double, ptr %93, align 8, !tbaa !115
-  %95 = add nsw i64 %.5110.us, 1
-  %96 = getelementptr inbounds double, ptr %1, i64 %.5110.us
-  store double %94, ptr %96, align 8, !tbaa !115
-  %97 = add nuw nsw i64 %.0111.us, 1
-  %exitcond133.not = icmp eq i64 %97, %3
-  br i1 %exitcond133.not, label %._crit_edge.us117, label %91, !llvm.loop !325
+90:                                               ; preds = %.lr.ph.us116, %90
+  %.0111.us = phi i64 [ 0, %.lr.ph.us116 ], [ %96, %90 ]
+  %.5110.us = phi i64 [ %88, %.lr.ph.us116 ], [ %94, %90 ]
+  %91 = mul nsw i64 %85, %.0111.us
+  %92 = getelementptr double, ptr %89, i64 %91
+  %93 = load double, ptr %92, align 8, !tbaa !115
+  %94 = add nsw i64 %.5110.us, 1
+  %95 = getelementptr inbounds double, ptr %1, i64 %.5110.us
+  store double %93, ptr %95, align 8, !tbaa !115
+  %96 = add nuw nsw i64 %.0111.us, 1
+  %exitcond133.not = icmp eq i64 %96, %3
+  br i1 %exitcond133.not, label %._crit_edge.us117, label %90, !llvm.loop !325
 
-._crit_edge.us117:                                ; preds = %91
-  %98 = add nsw i64 %88, %95
-  %99 = add nuw nsw i64 %.2113.us, 1
-  %exitcond134.not = icmp eq i64 %99, %4
+._crit_edge.us117:                                ; preds = %90
+  %97 = add nsw i64 %87, %94
+  %98 = add nuw nsw i64 %.2113.us, 1
+  %exitcond134.not = icmp eq i64 %98, %4
   br i1 %exitcond134.not, label %._crit_edge115, label %.lr.ph.us116, !llvm.loop !326
 
 ._crit_edge115:                                   ; preds = %._crit_edge.us117, %.lr.ph114, %.preheader
@@ -7378,117 +7372,116 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const
   br label %.preheader63
 
 .preheader64.us:                                  ; preds = %.preheader64.lr.ph, %._crit_edge.us
-  %.05568.us = phi i64 [ %35, %._crit_edge.us ], [ 0, %.preheader64.lr.ph ]
-  %.05667.us = phi i64 [ %33, %._crit_edge.us ], [ 0, %.preheader64.lr.ph ]
-  %20 = or disjoint i64 %.05568.us, 2
-  br label %21
+  %.05568.us = phi i64 [ %34, %._crit_edge.us ], [ 0, %.preheader64.lr.ph ]
+  %.05667.us = phi i64 [ %32, %._crit_edge.us ], [ 0, %.preheader64.lr.ph ]
+  br label %20
 
-21:                                               ; preds = %.preheader64.us, %21
-  %.05466.us = phi i64 [ 0, %.preheader64.us ], [ %34, %21 ]
-  %.15765.us = phi i64 [ %.05667.us, %.preheader64.us ], [ %33, %21 ]
-  %22 = load ptr, ptr %2, align 8, !tbaa !191
-  %23 = load i64, ptr %16, align 8, !tbaa !193
-  %24 = mul nsw i64 %23, %.05466.us
-  %25 = getelementptr double, ptr %22, i64 %.05568.us
-  %26 = getelementptr double, ptr %25, i64 %24
-  %27 = load <2 x double>, ptr %26, align 1, !tbaa !118
-  %28 = getelementptr double, ptr %22, i64 %20
-  %29 = getelementptr double, ptr %28, i64 %24
-  %30 = load <2 x double>, ptr %29, align 1, !tbaa !118
-  %31 = getelementptr inbounds double, ptr %1, i64 %.15765.us
-  store <2 x double> %27, ptr %31, align 16, !tbaa !118
-  %32 = getelementptr i8, ptr %31, i64 16
-  store <2 x double> %30, ptr %32, align 16, !tbaa !118
-  %33 = add nsw i64 %.15765.us, 4
-  %34 = add nuw nsw i64 %.05466.us, 1
-  %exitcond.not = icmp eq i64 %34, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !376
+20:                                               ; preds = %.preheader64.us, %20
+  %.05466.us = phi i64 [ 0, %.preheader64.us ], [ %33, %20 ]
+  %.15765.us = phi i64 [ %.05667.us, %.preheader64.us ], [ %32, %20 ]
+  %21 = load ptr, ptr %2, align 8, !tbaa !191
+  %22 = load i64, ptr %16, align 8, !tbaa !193
+  %23 = mul nsw i64 %22, %.05466.us
+  %24 = getelementptr double, ptr %21, i64 %.05568.us
+  %25 = getelementptr double, ptr %24, i64 %23
+  %26 = load <2 x double>, ptr %25, align 1, !tbaa !118
+  %27 = getelementptr i8, ptr %24, i64 16
+  %28 = getelementptr double, ptr %27, i64 %23
+  %29 = load <2 x double>, ptr %28, align 1, !tbaa !118
+  %30 = getelementptr inbounds double, ptr %1, i64 %.15765.us
+  store <2 x double> %26, ptr %30, align 16, !tbaa !118
+  %31 = getelementptr i8, ptr %30, i64 16
+  store <2 x double> %29, ptr %31, align 16, !tbaa !118
+  %32 = add nsw i64 %.15765.us, 4
+  %33 = add nuw nsw i64 %.05466.us, 1
+  %exitcond.not = icmp eq i64 %33, %3
+  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !376
 
-._crit_edge.us:                                   ; preds = %21
-  %35 = add nuw nsw i64 %.05568.us, 4
-  %36 = icmp slt i64 %35, %9
-  br i1 %36, label %.preheader64.us, label %.preheader63, !llvm.loop !377
+._crit_edge.us:                                   ; preds = %20
+  %34 = add nuw nsw i64 %.05568.us, 4
+  %35 = icmp slt i64 %34, %9
+  br i1 %35, label %.preheader64.us, label %.preheader63, !llvm.loop !377
 
 .preheader63:                                     ; preds = %._crit_edge.us, %.preheader64.preheader, %7
-  %.056.lcssa = phi i64 [ 0, %7 ], [ 0, %.preheader64.preheader ], [ %33, %._crit_edge.us ]
-  %.055.lcssa = phi i64 [ 0, %7 ], [ %19, %.preheader64.preheader ], [ %35, %._crit_edge.us ]
-  %37 = icmp slt i64 %.055.lcssa, %13
-  br i1 %37, label %.preheader62.lr.ph, label %.preheader61
+  %.056.lcssa = phi i64 [ 0, %7 ], [ 0, %.preheader64.preheader ], [ %32, %._crit_edge.us ]
+  %.055.lcssa = phi i64 [ 0, %7 ], [ %19, %.preheader64.preheader ], [ %34, %._crit_edge.us ]
+  %36 = icmp slt i64 %.055.lcssa, %13
+  br i1 %36, label %.preheader62.lr.ph, label %.preheader61
 
 .preheader62.lr.ph:                               ; preds = %.preheader63
-  %38 = icmp sgt i64 %3, 0
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br i1 %38, label %.preheader62.us, label %.preheader62.preheader
+  %37 = icmp sgt i64 %3, 0
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br i1 %37, label %.preheader62.us, label %.preheader62.preheader
 
 .preheader62.preheader:                           ; preds = %.preheader62.lr.ph
-  %40 = xor i64 %.055.lcssa, -1
-  %41 = add i64 %13, %40
-  %42 = and i64 %41, -2
-  %43 = add i64 %.055.lcssa, %42
-  %44 = add i64 %43, 2
+  %39 = xor i64 %.055.lcssa, -1
+  %40 = add i64 %13, %39
+  %41 = and i64 %40, -2
+  %42 = add i64 %.055.lcssa, %41
+  %43 = add i64 %42, 2
   br label %.preheader61
 
 .preheader62.us:                                  ; preds = %.preheader62.lr.ph, %._crit_edge.us78
-  %.175.us = phi i64 [ %55, %._crit_edge.us78 ], [ %.055.lcssa, %.preheader62.lr.ph ]
-  %.25874.us = phi i64 [ %53, %._crit_edge.us78 ], [ %.056.lcssa, %.preheader62.lr.ph ]
-  br label %45
+  %.175.us = phi i64 [ %54, %._crit_edge.us78 ], [ %.055.lcssa, %.preheader62.lr.ph ]
+  %.25874.us = phi i64 [ %52, %._crit_edge.us78 ], [ %.056.lcssa, %.preheader62.lr.ph ]
+  br label %44
 
-45:                                               ; preds = %.preheader62.us, %45
-  %.05373.us = phi i64 [ 0, %.preheader62.us ], [ %54, %45 ]
-  %.372.us = phi i64 [ %.25874.us, %.preheader62.us ], [ %53, %45 ]
-  %46 = load ptr, ptr %2, align 8, !tbaa !191
-  %47 = load i64, ptr %39, align 8, !tbaa !193
-  %48 = mul nsw i64 %47, %.05373.us
-  %49 = getelementptr double, ptr %46, i64 %.175.us
-  %50 = getelementptr double, ptr %49, i64 %48
-  %51 = load <2 x double>, ptr %50, align 1, !tbaa !118
-  %52 = getelementptr inbounds double, ptr %1, i64 %.372.us
-  store <2 x double> %51, ptr %52, align 16, !tbaa !118
-  %53 = add nsw i64 %.372.us, 2
-  %54 = add nuw nsw i64 %.05373.us, 1
-  %exitcond98.not = icmp eq i64 %54, %3
-  br i1 %exitcond98.not, label %._crit_edge.us78, label %45, !llvm.loop !378
+44:                                               ; preds = %.preheader62.us, %44
+  %.05373.us = phi i64 [ 0, %.preheader62.us ], [ %53, %44 ]
+  %.372.us = phi i64 [ %.25874.us, %.preheader62.us ], [ %52, %44 ]
+  %45 = load ptr, ptr %2, align 8, !tbaa !191
+  %46 = load i64, ptr %38, align 8, !tbaa !193
+  %47 = mul nsw i64 %46, %.05373.us
+  %48 = getelementptr double, ptr %45, i64 %.175.us
+  %49 = getelementptr double, ptr %48, i64 %47
+  %50 = load <2 x double>, ptr %49, align 1, !tbaa !118
+  %51 = getelementptr inbounds double, ptr %1, i64 %.372.us
+  store <2 x double> %50, ptr %51, align 16, !tbaa !118
+  %52 = add nsw i64 %.372.us, 2
+  %53 = add nuw nsw i64 %.05373.us, 1
+  %exitcond98.not = icmp eq i64 %53, %3
+  br i1 %exitcond98.not, label %._crit_edge.us78, label %44, !llvm.loop !378
 
-._crit_edge.us78:                                 ; preds = %45
-  %55 = add nuw nsw i64 %.175.us, 2
-  %56 = icmp slt i64 %55, %13
-  br i1 %56, label %.preheader62.us, label %.preheader61, !llvm.loop !379
+._crit_edge.us78:                                 ; preds = %44
+  %54 = add nuw nsw i64 %.175.us, 2
+  %55 = icmp slt i64 %54, %13
+  br i1 %55, label %.preheader62.us, label %.preheader61, !llvm.loop !379
 
 .preheader61:                                     ; preds = %._crit_edge.us78, %.preheader62.preheader, %.preheader63
-  %.258.lcssa = phi i64 [ %.056.lcssa, %.preheader63 ], [ %.056.lcssa, %.preheader62.preheader ], [ %53, %._crit_edge.us78 ]
-  %.1.lcssa = phi i64 [ %.055.lcssa, %.preheader63 ], [ %44, %.preheader62.preheader ], [ %55, %._crit_edge.us78 ]
-  %57 = icmp slt i64 %.1.lcssa, %4
-  br i1 %57, label %.preheader.lr.ph, label %._crit_edge86
+  %.258.lcssa = phi i64 [ %.056.lcssa, %.preheader63 ], [ %.056.lcssa, %.preheader62.preheader ], [ %52, %._crit_edge.us78 ]
+  %.1.lcssa = phi i64 [ %.055.lcssa, %.preheader63 ], [ %43, %.preheader62.preheader ], [ %54, %._crit_edge.us78 ]
+  %56 = icmp slt i64 %.1.lcssa, %4
+  br i1 %56, label %.preheader.lr.ph, label %._crit_edge86
 
 .preheader.lr.ph:                                 ; preds = %.preheader61
-  %58 = icmp sgt i64 %3, 0
-  %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %61 = load i64, ptr %60, align 8
-  br i1 %58, label %.preheader.us, label %._crit_edge86
+  %57 = icmp sgt i64 %3, 0
+  %58 = load ptr, ptr %2, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %60 = load i64, ptr %59, align 8
+  br i1 %57, label %.preheader.us, label %._crit_edge86
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us87
-  %.285.us = phi i64 [ %70, %._crit_edge.us87 ], [ %.1.lcssa, %.preheader.lr.ph ]
-  %.484.us = phi i64 [ %67, %._crit_edge.us87 ], [ %.258.lcssa, %.preheader.lr.ph ]
-  %62 = getelementptr double, ptr %59, i64 %.285.us
-  br label %63
+  %.285.us = phi i64 [ %69, %._crit_edge.us87 ], [ %.1.lcssa, %.preheader.lr.ph ]
+  %.484.us = phi i64 [ %66, %._crit_edge.us87 ], [ %.258.lcssa, %.preheader.lr.ph ]
+  %61 = getelementptr double, ptr %58, i64 %.285.us
+  br label %62
 
-63:                                               ; preds = %.preheader.us, %63
-  %.083.us = phi i64 [ 0, %.preheader.us ], [ %69, %63 ]
-  %.582.us = phi i64 [ %.484.us, %.preheader.us ], [ %67, %63 ]
-  %64 = mul nsw i64 %61, %.083.us
-  %65 = getelementptr double, ptr %62, i64 %64
-  %66 = load double, ptr %65, align 8, !tbaa !115
-  %67 = add nsw i64 %.582.us, 1
-  %68 = getelementptr inbounds double, ptr %1, i64 %.582.us
-  store double %66, ptr %68, align 8, !tbaa !115
-  %69 = add nuw nsw i64 %.083.us, 1
-  %exitcond99.not = icmp eq i64 %69, %3
-  br i1 %exitcond99.not, label %._crit_edge.us87, label %63, !llvm.loop !380
+62:                                               ; preds = %.preheader.us, %62
+  %.083.us = phi i64 [ 0, %.preheader.us ], [ %68, %62 ]
+  %.582.us = phi i64 [ %.484.us, %.preheader.us ], [ %66, %62 ]
+  %63 = mul nsw i64 %60, %.083.us
+  %64 = getelementptr double, ptr %61, i64 %63
+  %65 = load double, ptr %64, align 8, !tbaa !115
+  %66 = add nsw i64 %.582.us, 1
+  %67 = getelementptr inbounds double, ptr %1, i64 %.582.us
+  store double %65, ptr %67, align 8, !tbaa !115
+  %68 = add nuw nsw i64 %.083.us, 1
+  %exitcond99.not = icmp eq i64 %68, %3
+  br i1 %exitcond99.not, label %._crit_edge.us87, label %62, !llvm.loop !380
 
-._crit_edge.us87:                                 ; preds = %63
-  %70 = add nuw nsw i64 %.285.us, 1
-  %exitcond100.not = icmp eq i64 %70, %4
+._crit_edge.us87:                                 ; preds = %62
+  %69 = add nuw nsw i64 %.285.us, 1
+  %exitcond100.not = icmp eq i64 %69, %4
   br i1 %exitcond100.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !381
 
 ._crit_edge86:                                    ; preds = %._crit_edge.us87, %.preheader.lr.ph, %.preheader61
@@ -7738,389 +7731,384 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %17 = select i1 %13, i64 %1, i64 %16
   %18 = insertelement <2 x double> poison, double %6, i64 0
   %19 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %invariant.gep = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 16
-  %invariant.gep462 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 32
+  %invariant.gep474 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 16
+  %invariant.gep476 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 32
+  %invariant.gep478 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 48
   %20 = icmp sgt i64 %1, 0
-  br i1 %20, label %.lr.ph468, label %._crit_edge469
+  br i1 %20, label %.lr.ph488, label %._crit_edge489
 
-.lr.ph468:                                        ; preds = %7
+.lr.ph488:                                        ; preds = %7
+  %invariant.gep425 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 64
+  %invariant.gep427 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 80
+  %invariant.gep429 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 96
+  %invariant.gep431 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 112
   %21 = icmp sgt i64 %0, 15
   br label %23
 
-.loopexit:                                        ; preds = %._crit_edge459, %252
+.loopexit:                                        ; preds = %._crit_edge471, %232
   %22 = icmp slt i64 %24, %1
-  br i1 %22, label %23, label %._crit_edge469, !llvm.loop !386
+  br i1 %22, label %23, label %._crit_edge489, !llvm.loop !386
 
-._crit_edge469:                                   ; preds = %.loopexit, %7
+._crit_edge489:                                   ; preds = %.loopexit, %7
   ret void
 
-23:                                               ; preds = %.lr.ph468, %.loopexit
-  %.0188466 = phi i64 [ 0, %.lr.ph468 ], [ %24, %.loopexit ]
-  %24 = add nuw nsw i64 %.0188466, %17
+23:                                               ; preds = %.lr.ph488, %.loopexit
+  %.0188486 = phi i64 [ 0, %.lr.ph488 ], [ %24, %.loopexit ]
+  %24 = add nuw nsw i64 %.0188486, %17
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %1, i64 %24)
-  br i1 %21, label %.lr.ph, label %._crit_edge422
+  br i1 %21, label %.lr.ph, label %._crit_edge434
 
 .lr.ph:                                           ; preds = %23, %._crit_edge
-  %.0187421 = phi i64 [ %73, %._crit_edge ], [ 0, %23 ]
+  %.0187433 = phi i64 [ %59, %._crit_edge ], [ 0, %23 ]
   %25 = load ptr, ptr %3, align 8, !tbaa !191
-  %26 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.0187421
-  %27 = or disjoint i64 %.0187421, 2
-  %28 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %27
-  %29 = or disjoint i64 %.0187421, 4
-  %30 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %29
-  %31 = or disjoint i64 %.0187421, 6
-  %32 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %31
-  %33 = or disjoint i64 %.0187421, 8
-  %34 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %33
-  %35 = or disjoint i64 %.0187421, 10
-  %36 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %35
-  %37 = or disjoint i64 %.0187421, 12
-  %38 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %37
-  %39 = or disjoint i64 %.0187421, 14
-  %40 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %39
-  br label %75
+  %26 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.0187433
+  %gep = getelementptr double, ptr %invariant.gep474, i64 %.0187433
+  %gep422 = getelementptr double, ptr %invariant.gep476, i64 %.0187433
+  %gep424 = getelementptr double, ptr %invariant.gep478, i64 %.0187433
+  %gep426 = getelementptr double, ptr %invariant.gep425, i64 %.0187433
+  %gep428 = getelementptr double, ptr %invariant.gep427, i64 %.0187433
+  %gep430 = getelementptr double, ptr %invariant.gep429, i64 %.0187433
+  %gep432 = getelementptr double, ptr %invariant.gep431, i64 %.0187433
+  br label %61
 
-._crit_edge:                                      ; preds = %75
-  %41 = getelementptr inbounds nuw double, ptr %4, i64 %.0187421
-  %42 = load <2 x double>, ptr %41, align 1, !tbaa !118
-  %43 = fmul <2 x double> %19, %84
-  %44 = fadd <2 x double> %43, %42
-  store <2 x double> %44, ptr %41, align 1, !tbaa !118
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %46 = load <2 x double>, ptr %45, align 1, !tbaa !118
-  %47 = fmul <2 x double> %19, %88
-  %48 = fadd <2 x double> %47, %46
-  store <2 x double> %48, ptr %45, align 1, !tbaa !118
-  %49 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %50 = load <2 x double>, ptr %49, align 1, !tbaa !118
-  %51 = fmul <2 x double> %19, %92
-  %52 = fadd <2 x double> %51, %50
-  store <2 x double> %52, ptr %49, align 1, !tbaa !118
-  %53 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %54 = load <2 x double>, ptr %53, align 1, !tbaa !118
-  %55 = fmul <2 x double> %19, %96
-  %56 = fadd <2 x double> %55, %54
-  store <2 x double> %56, ptr %53, align 1, !tbaa !118
-  %57 = getelementptr inbounds nuw i8, ptr %41, i64 64
-  %58 = load <2 x double>, ptr %57, align 1, !tbaa !118
-  %59 = fmul <2 x double> %19, %100
-  %60 = fadd <2 x double> %59, %58
-  store <2 x double> %60, ptr %57, align 1, !tbaa !118
-  %61 = getelementptr inbounds nuw i8, ptr %41, i64 80
-  %62 = load <2 x double>, ptr %61, align 1, !tbaa !118
-  %63 = fmul <2 x double> %19, %104
-  %64 = fadd <2 x double> %63, %62
-  store <2 x double> %64, ptr %61, align 1, !tbaa !118
-  %65 = getelementptr inbounds nuw i8, ptr %41, i64 96
-  %66 = load <2 x double>, ptr %65, align 1, !tbaa !118
-  %67 = fmul <2 x double> %19, %108
-  %68 = fadd <2 x double> %67, %66
-  store <2 x double> %68, ptr %65, align 1, !tbaa !118
-  %69 = getelementptr inbounds nuw i8, ptr %41, i64 112
-  %70 = load <2 x double>, ptr %69, align 1, !tbaa !118
-  %71 = fmul <2 x double> %19, %112
-  %72 = fadd <2 x double> %71, %70
-  store <2 x double> %72, ptr %69, align 1, !tbaa !118
-  %73 = add nuw nsw i64 %.0187421, 16
-  %74 = icmp slt i64 %73, %8
-  br i1 %74, label %.lr.ph, label %._crit_edge422, !llvm.loop !387
+._crit_edge:                                      ; preds = %61
+  %27 = getelementptr inbounds nuw double, ptr %4, i64 %.0187433
+  %28 = load <2 x double>, ptr %27, align 1, !tbaa !118
+  %29 = fmul <2 x double> %19, %70
+  %30 = fadd <2 x double> %29, %28
+  store <2 x double> %30, ptr %27, align 1, !tbaa !118
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %32 = load <2 x double>, ptr %31, align 1, !tbaa !118
+  %33 = fmul <2 x double> %19, %74
+  %34 = fadd <2 x double> %33, %32
+  store <2 x double> %34, ptr %31, align 1, !tbaa !118
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %36 = load <2 x double>, ptr %35, align 1, !tbaa !118
+  %37 = fmul <2 x double> %19, %78
+  %38 = fadd <2 x double> %37, %36
+  store <2 x double> %38, ptr %35, align 1, !tbaa !118
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %40 = load <2 x double>, ptr %39, align 1, !tbaa !118
+  %41 = fmul <2 x double> %19, %82
+  %42 = fadd <2 x double> %41, %40
+  store <2 x double> %42, ptr %39, align 1, !tbaa !118
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %44 = load <2 x double>, ptr %43, align 1, !tbaa !118
+  %45 = fmul <2 x double> %19, %86
+  %46 = fadd <2 x double> %45, %44
+  store <2 x double> %46, ptr %43, align 1, !tbaa !118
+  %47 = getelementptr inbounds nuw i8, ptr %27, i64 80
+  %48 = load <2 x double>, ptr %47, align 1, !tbaa !118
+  %49 = fmul <2 x double> %19, %90
+  %50 = fadd <2 x double> %49, %48
+  store <2 x double> %50, ptr %47, align 1, !tbaa !118
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 96
+  %52 = load <2 x double>, ptr %51, align 1, !tbaa !118
+  %53 = fmul <2 x double> %19, %94
+  %54 = fadd <2 x double> %53, %52
+  store <2 x double> %54, ptr %51, align 1, !tbaa !118
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 112
+  %56 = load <2 x double>, ptr %55, align 1, !tbaa !118
+  %57 = fmul <2 x double> %19, %98
+  %58 = fadd <2 x double> %57, %56
+  store <2 x double> %58, ptr %55, align 1, !tbaa !118
+  %59 = add nuw nsw i64 %.0187433, 16
+  %60 = icmp slt i64 %59, %8
+  br i1 %60, label %.lr.ph, label %._crit_edge434, !llvm.loop !387
 
-75:                                               ; preds = %.lr.ph, %75
-  %.0186413 = phi i64 [ %.0188466, %.lr.ph ], [ %113, %75 ]
-  %.0382412 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %84, %75 ]
-  %.0383411 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %88, %75 ]
-  %.0384410 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %92, %75 ]
-  %.0385409 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %96, %75 ]
-  %.0386408 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %100, %75 ]
-  %.0388407 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %104, %75 ]
-  %.0389406 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %108, %75 ]
-  %.0390405 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %112, %75 ]
-  %76 = getelementptr double, ptr %25, i64 %.0186413
-  %77 = load double, ptr %76, align 8, !tbaa !115
-  %78 = insertelement <2 x double> poison, double %77, i64 0
-  %79 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> zeroinitializer
-  %80 = mul nsw i64 %.0186413, %.sroa.22.0.copyload
-  %81 = getelementptr double, ptr %26, i64 %80
-  %82 = load <2 x double>, ptr %81, align 1, !tbaa !118
-  %83 = fmul <2 x double> %82, %79
-  %84 = fadd <2 x double> %.0382412, %83
-  %85 = getelementptr double, ptr %28, i64 %80
-  %86 = load <2 x double>, ptr %85, align 1, !tbaa !118
-  %87 = fmul <2 x double> %86, %79
-  %88 = fadd <2 x double> %.0383411, %87
-  %89 = getelementptr double, ptr %30, i64 %80
-  %90 = load <2 x double>, ptr %89, align 1, !tbaa !118
-  %91 = fmul <2 x double> %79, %90
-  %92 = fadd <2 x double> %.0384410, %91
-  %93 = getelementptr double, ptr %32, i64 %80
-  %94 = load <2 x double>, ptr %93, align 1, !tbaa !118
-  %95 = fmul <2 x double> %79, %94
-  %96 = fadd <2 x double> %.0385409, %95
-  %97 = getelementptr double, ptr %34, i64 %80
-  %98 = load <2 x double>, ptr %97, align 1, !tbaa !118
-  %99 = fmul <2 x double> %79, %98
-  %100 = fadd <2 x double> %.0386408, %99
-  %101 = getelementptr double, ptr %36, i64 %80
-  %102 = load <2 x double>, ptr %101, align 1, !tbaa !118
-  %103 = fmul <2 x double> %79, %102
-  %104 = fadd <2 x double> %.0388407, %103
-  %105 = getelementptr double, ptr %38, i64 %80
-  %106 = load <2 x double>, ptr %105, align 1, !tbaa !118
-  %107 = fmul <2 x double> %79, %106
-  %108 = fadd <2 x double> %.0389406, %107
-  %109 = getelementptr double, ptr %40, i64 %80
-  %110 = load <2 x double>, ptr %109, align 1, !tbaa !118
-  %111 = fmul <2 x double> %79, %110
-  %112 = fadd <2 x double> %.0390405, %111
-  %113 = add nuw nsw i64 %.0186413, 1
-  %114 = icmp slt i64 %113, %.sroa.speculated
-  br i1 %114, label %75, label %._crit_edge, !llvm.loop !388
+61:                                               ; preds = %.lr.ph, %61
+  %.0186413 = phi i64 [ %.0188486, %.lr.ph ], [ %99, %61 ]
+  %.0382412 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %70, %61 ]
+  %.0383411 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %74, %61 ]
+  %.0384410 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %78, %61 ]
+  %.0385409 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %82, %61 ]
+  %.0386408 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %86, %61 ]
+  %.0388407 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %90, %61 ]
+  %.0389406 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %94, %61 ]
+  %.0390405 = phi <2 x double> [ zeroinitializer, %.lr.ph ], [ %98, %61 ]
+  %62 = getelementptr double, ptr %25, i64 %.0186413
+  %63 = load double, ptr %62, align 8, !tbaa !115
+  %64 = insertelement <2 x double> poison, double %63, i64 0
+  %65 = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> zeroinitializer
+  %66 = mul nsw i64 %.0186413, %.sroa.22.0.copyload
+  %67 = getelementptr double, ptr %26, i64 %66
+  %68 = load <2 x double>, ptr %67, align 1, !tbaa !118
+  %69 = fmul <2 x double> %68, %65
+  %70 = fadd <2 x double> %.0382412, %69
+  %71 = getelementptr double, ptr %gep, i64 %66
+  %72 = load <2 x double>, ptr %71, align 1, !tbaa !118
+  %73 = fmul <2 x double> %72, %65
+  %74 = fadd <2 x double> %.0383411, %73
+  %75 = getelementptr double, ptr %gep422, i64 %66
+  %76 = load <2 x double>, ptr %75, align 1, !tbaa !118
+  %77 = fmul <2 x double> %65, %76
+  %78 = fadd <2 x double> %.0384410, %77
+  %79 = getelementptr double, ptr %gep424, i64 %66
+  %80 = load <2 x double>, ptr %79, align 1, !tbaa !118
+  %81 = fmul <2 x double> %65, %80
+  %82 = fadd <2 x double> %.0385409, %81
+  %83 = getelementptr double, ptr %gep426, i64 %66
+  %84 = load <2 x double>, ptr %83, align 1, !tbaa !118
+  %85 = fmul <2 x double> %65, %84
+  %86 = fadd <2 x double> %.0386408, %85
+  %87 = getelementptr double, ptr %gep428, i64 %66
+  %88 = load <2 x double>, ptr %87, align 1, !tbaa !118
+  %89 = fmul <2 x double> %65, %88
+  %90 = fadd <2 x double> %.0388407, %89
+  %91 = getelementptr double, ptr %gep430, i64 %66
+  %92 = load <2 x double>, ptr %91, align 1, !tbaa !118
+  %93 = fmul <2 x double> %65, %92
+  %94 = fadd <2 x double> %.0389406, %93
+  %95 = getelementptr double, ptr %gep432, i64 %66
+  %96 = load <2 x double>, ptr %95, align 1, !tbaa !118
+  %97 = fmul <2 x double> %65, %96
+  %98 = fadd <2 x double> %.0390405, %97
+  %99 = add nuw nsw i64 %.0186413, 1
+  %100 = icmp slt i64 %99, %.sroa.speculated
+  br i1 %100, label %61, label %._crit_edge, !llvm.loop !388
 
-._crit_edge422:                                   ; preds = %._crit_edge, %23
-  %.0187.lcssa = phi i64 [ 0, %23 ], [ %73, %._crit_edge ]
-  %115 = icmp slt i64 %.0187.lcssa, %9
-  br i1 %115, label %.lr.ph429, label %165
+._crit_edge434:                                   ; preds = %._crit_edge, %23
+  %.0187.lcssa = phi i64 [ 0, %23 ], [ %59, %._crit_edge ]
+  %101 = icmp slt i64 %.0187.lcssa, %9
+  br i1 %101, label %.lr.ph441, label %145
 
-.lr.ph429:                                        ; preds = %._crit_edge422
-  %116 = load ptr, ptr %3, align 8, !tbaa !191
-  %117 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.0187.lcssa
-  %118 = or disjoint i64 %.0187.lcssa, 2
-  %119 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %118
-  %120 = or disjoint i64 %.0187.lcssa, 4
-  %121 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %120
-  %122 = or disjoint i64 %.0187.lcssa, 6
-  %123 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %122
-  br label %141
+.lr.ph441:                                        ; preds = %._crit_edge434
+  %102 = load ptr, ptr %3, align 8, !tbaa !191
+  %103 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.0187.lcssa
+  %gep475 = getelementptr double, ptr %invariant.gep474, i64 %.0187.lcssa
+  %gep477 = getelementptr double, ptr %invariant.gep476, i64 %.0187.lcssa
+  %gep479 = getelementptr double, ptr %invariant.gep478, i64 %.0187.lcssa
+  br label %121
 
-._crit_edge430:                                   ; preds = %141
-  %124 = getelementptr inbounds nuw double, ptr %4, i64 %.0187.lcssa
-  %125 = load <2 x double>, ptr %124, align 1, !tbaa !118
-  %126 = fmul <2 x double> %19, %150
-  %127 = fadd <2 x double> %126, %125
-  store <2 x double> %127, ptr %124, align 1, !tbaa !118
-  %128 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %129 = load <2 x double>, ptr %128, align 1, !tbaa !118
-  %130 = fmul <2 x double> %19, %154
-  %131 = fadd <2 x double> %130, %129
-  store <2 x double> %131, ptr %128, align 1, !tbaa !118
-  %132 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  %133 = load <2 x double>, ptr %132, align 1, !tbaa !118
-  %134 = fmul <2 x double> %19, %158
-  %135 = fadd <2 x double> %134, %133
-  store <2 x double> %135, ptr %132, align 1, !tbaa !118
-  %136 = getelementptr inbounds nuw i8, ptr %124, i64 48
-  %137 = load <2 x double>, ptr %136, align 1, !tbaa !118
-  %138 = fmul <2 x double> %19, %162
-  %139 = fadd <2 x double> %138, %137
-  store <2 x double> %139, ptr %136, align 1, !tbaa !118
-  %140 = or disjoint i64 %.0187.lcssa, 8
-  br label %165
+._crit_edge442:                                   ; preds = %121
+  %104 = getelementptr inbounds nuw double, ptr %4, i64 %.0187.lcssa
+  %105 = load <2 x double>, ptr %104, align 1, !tbaa !118
+  %106 = fmul <2 x double> %19, %130
+  %107 = fadd <2 x double> %106, %105
+  store <2 x double> %107, ptr %104, align 1, !tbaa !118
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %109 = load <2 x double>, ptr %108, align 1, !tbaa !118
+  %110 = fmul <2 x double> %19, %134
+  %111 = fadd <2 x double> %110, %109
+  store <2 x double> %111, ptr %108, align 1, !tbaa !118
+  %112 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %113 = load <2 x double>, ptr %112, align 1, !tbaa !118
+  %114 = fmul <2 x double> %19, %138
+  %115 = fadd <2 x double> %114, %113
+  store <2 x double> %115, ptr %112, align 1, !tbaa !118
+  %116 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %117 = load <2 x double>, ptr %116, align 1, !tbaa !118
+  %118 = fmul <2 x double> %19, %142
+  %119 = fadd <2 x double> %118, %117
+  store <2 x double> %119, ptr %116, align 1, !tbaa !118
+  %120 = or disjoint i64 %.0187.lcssa, 8
+  br label %145
 
-141:                                              ; preds = %.lr.ph429, %141
-  %.0185428 = phi i64 [ %.0188466, %.lr.ph429 ], [ %163, %141 ]
-  %.0391427 = phi <2 x double> [ zeroinitializer, %.lr.ph429 ], [ %150, %141 ]
-  %.0392426 = phi <2 x double> [ zeroinitializer, %.lr.ph429 ], [ %154, %141 ]
-  %.0393425 = phi <2 x double> [ zeroinitializer, %.lr.ph429 ], [ %158, %141 ]
-  %.0394424 = phi <2 x double> [ zeroinitializer, %.lr.ph429 ], [ %162, %141 ]
-  %142 = getelementptr double, ptr %116, i64 %.0185428
-  %143 = load double, ptr %142, align 8, !tbaa !115
-  %144 = insertelement <2 x double> poison, double %143, i64 0
-  %145 = shufflevector <2 x double> %144, <2 x double> poison, <2 x i32> zeroinitializer
-  %146 = mul nsw i64 %.0185428, %.sroa.22.0.copyload
-  %147 = getelementptr double, ptr %117, i64 %146
-  %148 = load <2 x double>, ptr %147, align 1, !tbaa !118
-  %149 = fmul <2 x double> %148, %145
-  %150 = fadd <2 x double> %.0391427, %149
-  %151 = getelementptr double, ptr %119, i64 %146
-  %152 = load <2 x double>, ptr %151, align 1, !tbaa !118
-  %153 = fmul <2 x double> %152, %145
-  %154 = fadd <2 x double> %.0392426, %153
-  %155 = getelementptr double, ptr %121, i64 %146
-  %156 = load <2 x double>, ptr %155, align 1, !tbaa !118
-  %157 = fmul <2 x double> %145, %156
-  %158 = fadd <2 x double> %.0393425, %157
-  %159 = getelementptr double, ptr %123, i64 %146
-  %160 = load <2 x double>, ptr %159, align 1, !tbaa !118
-  %161 = fmul <2 x double> %145, %160
-  %162 = fadd <2 x double> %.0394424, %161
-  %163 = add nuw nsw i64 %.0185428, 1
-  %164 = icmp slt i64 %163, %.sroa.speculated
-  br i1 %164, label %141, label %._crit_edge430, !llvm.loop !389
+121:                                              ; preds = %.lr.ph441, %121
+  %.0185440 = phi i64 [ %.0188486, %.lr.ph441 ], [ %143, %121 ]
+  %.0391439 = phi <2 x double> [ zeroinitializer, %.lr.ph441 ], [ %130, %121 ]
+  %.0392438 = phi <2 x double> [ zeroinitializer, %.lr.ph441 ], [ %134, %121 ]
+  %.0393437 = phi <2 x double> [ zeroinitializer, %.lr.ph441 ], [ %138, %121 ]
+  %.0394436 = phi <2 x double> [ zeroinitializer, %.lr.ph441 ], [ %142, %121 ]
+  %122 = getelementptr double, ptr %102, i64 %.0185440
+  %123 = load double, ptr %122, align 8, !tbaa !115
+  %124 = insertelement <2 x double> poison, double %123, i64 0
+  %125 = shufflevector <2 x double> %124, <2 x double> poison, <2 x i32> zeroinitializer
+  %126 = mul nsw i64 %.0185440, %.sroa.22.0.copyload
+  %127 = getelementptr double, ptr %103, i64 %126
+  %128 = load <2 x double>, ptr %127, align 1, !tbaa !118
+  %129 = fmul <2 x double> %128, %125
+  %130 = fadd <2 x double> %.0391439, %129
+  %131 = getelementptr double, ptr %gep475, i64 %126
+  %132 = load <2 x double>, ptr %131, align 1, !tbaa !118
+  %133 = fmul <2 x double> %132, %125
+  %134 = fadd <2 x double> %.0392438, %133
+  %135 = getelementptr double, ptr %gep477, i64 %126
+  %136 = load <2 x double>, ptr %135, align 1, !tbaa !118
+  %137 = fmul <2 x double> %125, %136
+  %138 = fadd <2 x double> %.0393437, %137
+  %139 = getelementptr double, ptr %gep479, i64 %126
+  %140 = load <2 x double>, ptr %139, align 1, !tbaa !118
+  %141 = fmul <2 x double> %125, %140
+  %142 = fadd <2 x double> %.0394436, %141
+  %143 = add nuw nsw i64 %.0185440, 1
+  %144 = icmp slt i64 %143, %.sroa.speculated
+  br i1 %144, label %121, label %._crit_edge442, !llvm.loop !389
 
-165:                                              ; preds = %._crit_edge430, %._crit_edge422
-  %.1 = phi i64 [ %140, %._crit_edge430 ], [ %.0187.lcssa, %._crit_edge422 ]
-  %166 = icmp slt i64 %.1, %10
-  br i1 %166, label %.lr.ph439, label %202
+145:                                              ; preds = %._crit_edge442, %._crit_edge434
+  %.1 = phi i64 [ %120, %._crit_edge442 ], [ %.0187.lcssa, %._crit_edge434 ]
+  %146 = icmp slt i64 %.1, %10
+  br i1 %146, label %.lr.ph451, label %182
 
-.lr.ph439:                                        ; preds = %165
-  %167 = load ptr, ptr %3, align 8, !tbaa !191
-  %168 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.1
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.1
-  %gep463 = getelementptr double, ptr %invariant.gep462, i64 %.1
+.lr.ph451:                                        ; preds = %145
+  %147 = load ptr, ptr %3, align 8, !tbaa !191
+  %148 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.1
+  %gep481 = getelementptr double, ptr %invariant.gep474, i64 %.1
+  %gep483 = getelementptr double, ptr %invariant.gep476, i64 %.1
+  br label %162
+
+._crit_edge452:                                   ; preds = %162
+  %149 = getelementptr inbounds double, ptr %4, i64 %.1
+  %150 = load <2 x double>, ptr %149, align 1, !tbaa !118
+  %151 = fmul <2 x double> %19, %171
+  %152 = fadd <2 x double> %151, %150
+  store <2 x double> %152, ptr %149, align 1, !tbaa !118
+  %153 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %154 = load <2 x double>, ptr %153, align 1, !tbaa !118
+  %155 = fmul <2 x double> %19, %175
+  %156 = fadd <2 x double> %155, %154
+  store <2 x double> %156, ptr %153, align 1, !tbaa !118
+  %157 = getelementptr inbounds nuw i8, ptr %149, i64 32
+  %158 = load <2 x double>, ptr %157, align 1, !tbaa !118
+  %159 = fmul <2 x double> %19, %179
+  %160 = fadd <2 x double> %159, %158
+  store <2 x double> %160, ptr %157, align 1, !tbaa !118
+  %161 = add nsw i64 %.1, 6
   br label %182
 
-._crit_edge440:                                   ; preds = %182
-  %169 = getelementptr inbounds double, ptr %4, i64 %.1
-  %170 = load <2 x double>, ptr %169, align 1, !tbaa !118
-  %171 = fmul <2 x double> %19, %191
-  %172 = fadd <2 x double> %171, %170
-  store <2 x double> %172, ptr %169, align 1, !tbaa !118
-  %173 = getelementptr inbounds nuw i8, ptr %169, i64 16
-  %174 = load <2 x double>, ptr %173, align 1, !tbaa !118
-  %175 = fmul <2 x double> %19, %195
-  %176 = fadd <2 x double> %175, %174
-  store <2 x double> %176, ptr %173, align 1, !tbaa !118
-  %177 = getelementptr inbounds nuw i8, ptr %169, i64 32
-  %178 = load <2 x double>, ptr %177, align 1, !tbaa !118
-  %179 = fmul <2 x double> %19, %199
-  %180 = fadd <2 x double> %179, %178
-  store <2 x double> %180, ptr %177, align 1, !tbaa !118
-  %181 = add nsw i64 %.1, 6
-  br label %202
+162:                                              ; preds = %.lr.ph451, %162
+  %.0184450 = phi i64 [ %.0188486, %.lr.ph451 ], [ %180, %162 ]
+  %.0395449 = phi <2 x double> [ zeroinitializer, %.lr.ph451 ], [ %171, %162 ]
+  %.0397448 = phi <2 x double> [ zeroinitializer, %.lr.ph451 ], [ %175, %162 ]
+  %.0399447 = phi <2 x double> [ zeroinitializer, %.lr.ph451 ], [ %179, %162 ]
+  %163 = getelementptr double, ptr %147, i64 %.0184450
+  %164 = load double, ptr %163, align 8, !tbaa !115
+  %165 = insertelement <2 x double> poison, double %164, i64 0
+  %166 = shufflevector <2 x double> %165, <2 x double> poison, <2 x i32> zeroinitializer
+  %167 = mul nsw i64 %.0184450, %.sroa.22.0.copyload
+  %168 = getelementptr double, ptr %148, i64 %167
+  %169 = load <2 x double>, ptr %168, align 1, !tbaa !118
+  %170 = fmul <2 x double> %169, %166
+  %171 = fadd <2 x double> %.0395449, %170
+  %172 = getelementptr double, ptr %gep481, i64 %167
+  %173 = load <2 x double>, ptr %172, align 1, !tbaa !118
+  %174 = fmul <2 x double> %173, %166
+  %175 = fadd <2 x double> %.0397448, %174
+  %176 = getelementptr double, ptr %gep483, i64 %167
+  %177 = load <2 x double>, ptr %176, align 1, !tbaa !118
+  %178 = fmul <2 x double> %166, %177
+  %179 = fadd <2 x double> %.0399447, %178
+  %180 = add nuw nsw i64 %.0184450, 1
+  %181 = icmp slt i64 %180, %.sroa.speculated
+  br i1 %181, label %162, label %._crit_edge452, !llvm.loop !390
 
-182:                                              ; preds = %.lr.ph439, %182
-  %.0184438 = phi i64 [ %.0188466, %.lr.ph439 ], [ %200, %182 ]
-  %.0395437 = phi <2 x double> [ zeroinitializer, %.lr.ph439 ], [ %191, %182 ]
-  %.0397436 = phi <2 x double> [ zeroinitializer, %.lr.ph439 ], [ %195, %182 ]
-  %.0399435 = phi <2 x double> [ zeroinitializer, %.lr.ph439 ], [ %199, %182 ]
-  %183 = getelementptr double, ptr %167, i64 %.0184438
-  %184 = load double, ptr %183, align 8, !tbaa !115
-  %185 = insertelement <2 x double> poison, double %184, i64 0
-  %186 = shufflevector <2 x double> %185, <2 x double> poison, <2 x i32> zeroinitializer
-  %187 = mul nsw i64 %.0184438, %.sroa.22.0.copyload
-  %188 = getelementptr double, ptr %168, i64 %187
-  %189 = load <2 x double>, ptr %188, align 1, !tbaa !118
-  %190 = fmul <2 x double> %189, %186
-  %191 = fadd <2 x double> %.0395437, %190
-  %192 = getelementptr double, ptr %gep, i64 %187
-  %193 = load <2 x double>, ptr %192, align 1, !tbaa !118
-  %194 = fmul <2 x double> %193, %186
-  %195 = fadd <2 x double> %.0397436, %194
-  %196 = getelementptr double, ptr %gep463, i64 %187
-  %197 = load <2 x double>, ptr %196, align 1, !tbaa !118
-  %198 = fmul <2 x double> %186, %197
-  %199 = fadd <2 x double> %.0399435, %198
-  %200 = add nuw nsw i64 %.0184438, 1
-  %201 = icmp slt i64 %200, %.sroa.speculated
-  br i1 %201, label %182, label %._crit_edge440, !llvm.loop !390
+182:                                              ; preds = %._crit_edge452, %145
+  %.2 = phi i64 [ %161, %._crit_edge452 ], [ %.1, %145 ]
+  %183 = icmp slt i64 %.2, %11
+  br i1 %183, label %.lr.ph459, label %211
 
-202:                                              ; preds = %._crit_edge440, %165
-  %.2 = phi i64 [ %181, %._crit_edge440 ], [ %.1, %165 ]
-  %203 = icmp slt i64 %.2, %11
-  br i1 %203, label %.lr.ph447, label %231
+.lr.ph459:                                        ; preds = %182
+  %184 = load ptr, ptr %3, align 8, !tbaa !191
+  %185 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.2
+  %gep485 = getelementptr double, ptr %invariant.gep474, i64 %.2
+  br label %195
 
-.lr.ph447:                                        ; preds = %202
-  %204 = load ptr, ptr %3, align 8, !tbaa !191
-  %205 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.2
-  %gep465 = getelementptr double, ptr %invariant.gep, i64 %.2
-  br label %215
+._crit_edge460:                                   ; preds = %195
+  %186 = getelementptr inbounds double, ptr %4, i64 %.2
+  %187 = load <2 x double>, ptr %186, align 1, !tbaa !118
+  %188 = fmul <2 x double> %19, %204
+  %189 = fadd <2 x double> %188, %187
+  store <2 x double> %189, ptr %186, align 1, !tbaa !118
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %191 = load <2 x double>, ptr %190, align 1, !tbaa !118
+  %192 = fmul <2 x double> %19, %208
+  %193 = fadd <2 x double> %192, %191
+  store <2 x double> %193, ptr %190, align 1, !tbaa !118
+  %194 = add nsw i64 %.2, 4
+  br label %211
 
-._crit_edge448:                                   ; preds = %215
-  %206 = getelementptr inbounds double, ptr %4, i64 %.2
-  %207 = load <2 x double>, ptr %206, align 1, !tbaa !118
-  %208 = fmul <2 x double> %19, %224
-  %209 = fadd <2 x double> %208, %207
-  store <2 x double> %209, ptr %206, align 1, !tbaa !118
-  %210 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  %211 = load <2 x double>, ptr %210, align 1, !tbaa !118
-  %212 = fmul <2 x double> %19, %228
-  %213 = fadd <2 x double> %212, %211
-  store <2 x double> %213, ptr %210, align 1, !tbaa !118
-  %214 = add nsw i64 %.2, 4
-  br label %231
+195:                                              ; preds = %.lr.ph459, %195
+  %.0183458 = phi i64 [ %.0188486, %.lr.ph459 ], [ %209, %195 ]
+  %.0396457 = phi <2 x double> [ zeroinitializer, %.lr.ph459 ], [ %208, %195 ]
+  %.0398456 = phi <2 x double> [ zeroinitializer, %.lr.ph459 ], [ %204, %195 ]
+  %196 = getelementptr double, ptr %184, i64 %.0183458
+  %197 = load double, ptr %196, align 8, !tbaa !115
+  %198 = insertelement <2 x double> poison, double %197, i64 0
+  %199 = shufflevector <2 x double> %198, <2 x double> poison, <2 x i32> zeroinitializer
+  %200 = mul nsw i64 %.0183458, %.sroa.22.0.copyload
+  %201 = getelementptr double, ptr %185, i64 %200
+  %202 = load <2 x double>, ptr %201, align 1, !tbaa !118
+  %203 = fmul <2 x double> %202, %199
+  %204 = fadd <2 x double> %.0398456, %203
+  %205 = getelementptr double, ptr %gep485, i64 %200
+  %206 = load <2 x double>, ptr %205, align 1, !tbaa !118
+  %207 = fmul <2 x double> %206, %199
+  %208 = fadd <2 x double> %.0396457, %207
+  %209 = add nuw nsw i64 %.0183458, 1
+  %210 = icmp slt i64 %209, %.sroa.speculated
+  br i1 %210, label %195, label %._crit_edge460, !llvm.loop !391
 
-215:                                              ; preds = %.lr.ph447, %215
-  %.0183446 = phi i64 [ %.0188466, %.lr.ph447 ], [ %229, %215 ]
-  %.0396445 = phi <2 x double> [ zeroinitializer, %.lr.ph447 ], [ %228, %215 ]
-  %.0398444 = phi <2 x double> [ zeroinitializer, %.lr.ph447 ], [ %224, %215 ]
-  %216 = getelementptr double, ptr %204, i64 %.0183446
-  %217 = load double, ptr %216, align 8, !tbaa !115
-  %218 = insertelement <2 x double> poison, double %217, i64 0
-  %219 = shufflevector <2 x double> %218, <2 x double> poison, <2 x i32> zeroinitializer
-  %220 = mul nsw i64 %.0183446, %.sroa.22.0.copyload
-  %221 = getelementptr double, ptr %205, i64 %220
-  %222 = load <2 x double>, ptr %221, align 1, !tbaa !118
-  %223 = fmul <2 x double> %222, %219
-  %224 = fadd <2 x double> %.0398444, %223
-  %225 = getelementptr double, ptr %gep465, i64 %220
-  %226 = load <2 x double>, ptr %225, align 1, !tbaa !118
-  %227 = fmul <2 x double> %226, %219
-  %228 = fadd <2 x double> %.0396445, %227
-  %229 = add nuw nsw i64 %.0183446, 1
-  %230 = icmp slt i64 %229, %.sroa.speculated
-  br i1 %230, label %215, label %._crit_edge448, !llvm.loop !391
+211:                                              ; preds = %._crit_edge460, %182
+  %.3 = phi i64 [ %194, %._crit_edge460 ], [ %.2, %182 ]
+  %212 = icmp slt i64 %.3, %12
+  br i1 %212, label %.lr.ph465, label %232
 
-231:                                              ; preds = %._crit_edge448, %202
-  %.3 = phi i64 [ %214, %._crit_edge448 ], [ %.2, %202 ]
-  %232 = icmp slt i64 %.3, %12
-  br i1 %232, label %.lr.ph453, label %252
+.lr.ph465:                                        ; preds = %211
+  %213 = load ptr, ptr %3, align 8, !tbaa !191
+  %214 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.3
+  br label %220
 
-.lr.ph453:                                        ; preds = %231
-  %233 = load ptr, ptr %3, align 8, !tbaa !191
-  %234 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.3
+._crit_edge466:                                   ; preds = %220
+  %215 = getelementptr inbounds double, ptr %4, i64 %.3
+  %216 = load <2 x double>, ptr %215, align 1, !tbaa !118
+  %217 = fmul <2 x double> %19, %229
+  %218 = fadd <2 x double> %217, %216
+  store <2 x double> %218, ptr %215, align 1, !tbaa !118
+  %219 = add nsw i64 %.3, 2
+  br label %232
+
+220:                                              ; preds = %.lr.ph465, %220
+  %.0182464 = phi i64 [ %.0188486, %.lr.ph465 ], [ %230, %220 ]
+  %.0387463 = phi <2 x double> [ zeroinitializer, %.lr.ph465 ], [ %229, %220 ]
+  %221 = getelementptr double, ptr %213, i64 %.0182464
+  %222 = load double, ptr %221, align 8, !tbaa !115
+  %223 = insertelement <2 x double> poison, double %222, i64 0
+  %224 = shufflevector <2 x double> %223, <2 x double> poison, <2 x i32> zeroinitializer
+  %225 = mul nsw i64 %.0182464, %.sroa.22.0.copyload
+  %226 = getelementptr double, ptr %214, i64 %225
+  %227 = load <2 x double>, ptr %226, align 1, !tbaa !118
+  %228 = fmul <2 x double> %227, %224
+  %229 = fadd <2 x double> %.0387463, %228
+  %230 = add nuw nsw i64 %.0182464, 1
+  %231 = icmp slt i64 %230, %.sroa.speculated
+  br i1 %231, label %220, label %._crit_edge466, !llvm.loop !392
+
+232:                                              ; preds = %._crit_edge466, %211
+  %.4 = phi i64 [ %219, %._crit_edge466 ], [ %.3, %211 ]
+  %233 = icmp slt i64 %.4, %0
+  br i1 %233, label %.preheader.lr.ph, label %.loopexit
+
+.preheader.lr.ph:                                 ; preds = %232
+  %234 = load ptr, ptr %3, align 8
+  br label %.lr.ph470
+
+.lr.ph470:                                        ; preds = %._crit_edge471, %.preheader.lr.ph
+  %.5473 = phi i64 [ %.4, %.preheader.lr.ph ], [ %239, %._crit_edge471 ]
+  %235 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.5473
   br label %240
 
-._crit_edge454:                                   ; preds = %240
-  %235 = getelementptr inbounds double, ptr %4, i64 %.3
-  %236 = load <2 x double>, ptr %235, align 1, !tbaa !118
-  %237 = fmul <2 x double> %19, %249
-  %238 = fadd <2 x double> %237, %236
-  store <2 x double> %238, ptr %235, align 1, !tbaa !118
-  %239 = add nsw i64 %.3, 2
-  br label %252
+._crit_edge471:                                   ; preds = %240
+  %236 = getelementptr inbounds double, ptr %4, i64 %.5473
+  %237 = load double, ptr %236, align 8, !tbaa !115
+  %238 = tail call double @llvm.fmuladd.f64(double %6, double %247, double %237)
+  store double %238, ptr %236, align 8, !tbaa !115
+  %239 = add nsw i64 %.5473, 1
+  %exitcond.not = icmp eq i64 %239, %0
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph470, !llvm.loop !393
 
-240:                                              ; preds = %.lr.ph453, %240
-  %.0182452 = phi i64 [ %.0188466, %.lr.ph453 ], [ %250, %240 ]
-  %.0387451 = phi <2 x double> [ zeroinitializer, %.lr.ph453 ], [ %249, %240 ]
-  %241 = getelementptr double, ptr %233, i64 %.0182452
-  %242 = load double, ptr %241, align 8, !tbaa !115
-  %243 = insertelement <2 x double> poison, double %242, i64 0
-  %244 = shufflevector <2 x double> %243, <2 x double> poison, <2 x i32> zeroinitializer
-  %245 = mul nsw i64 %.0182452, %.sroa.22.0.copyload
-  %246 = getelementptr double, ptr %234, i64 %245
-  %247 = load <2 x double>, ptr %246, align 1, !tbaa !118
-  %248 = fmul <2 x double> %247, %244
-  %249 = fadd <2 x double> %.0387451, %248
-  %250 = add nuw nsw i64 %.0182452, 1
-  %251 = icmp slt i64 %250, %.sroa.speculated
-  br i1 %251, label %240, label %._crit_edge454, !llvm.loop !392
-
-252:                                              ; preds = %._crit_edge454, %231
-  %.4 = phi i64 [ %239, %._crit_edge454 ], [ %.3, %231 ]
-  %253 = icmp slt i64 %.4, %0
-  br i1 %253, label %.preheader.lr.ph, label %.loopexit
-
-.preheader.lr.ph:                                 ; preds = %252
-  %254 = load ptr, ptr %3, align 8
-  br label %.lr.ph458
-
-.lr.ph458:                                        ; preds = %._crit_edge459, %.preheader.lr.ph
-  %.5461 = phi i64 [ %.4, %.preheader.lr.ph ], [ %259, %._crit_edge459 ]
-  %255 = getelementptr double, ptr %.sroa.0336.0.copyload, i64 %.5461
-  br label %260
-
-._crit_edge459:                                   ; preds = %260
-  %256 = getelementptr inbounds double, ptr %4, i64 %.5461
-  %257 = load double, ptr %256, align 8, !tbaa !115
-  %258 = tail call double @llvm.fmuladd.f64(double %6, double %267, double %257)
-  store double %258, ptr %256, align 8, !tbaa !115
-  %259 = add nsw i64 %.5461, 1
-  %exitcond.not = icmp eq i64 %259, %0
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph458, !llvm.loop !393
-
-260:                                              ; preds = %.lr.ph458, %260
-  %.0457 = phi i64 [ %.0188466, %.lr.ph458 ], [ %268, %260 ]
-  %.0181456 = phi double [ 0.000000e+00, %.lr.ph458 ], [ %267, %260 ]
-  %261 = mul nsw i64 %.0457, %.sroa.22.0.copyload
-  %262 = getelementptr double, ptr %255, i64 %261
-  %263 = getelementptr double, ptr %254, i64 %.0457
-  %264 = load double, ptr %262, align 8, !tbaa !115
-  %265 = load double, ptr %263, align 8, !tbaa !115
-  %266 = fmul double %264, %265
-  %267 = fadd double %.0181456, %266
-  %268 = add nuw nsw i64 %.0457, 1
-  %269 = icmp slt i64 %268, %.sroa.speculated
-  br i1 %269, label %260, label %._crit_edge459, !llvm.loop !394
+240:                                              ; preds = %.lr.ph470, %240
+  %.0469 = phi i64 [ %.0188486, %.lr.ph470 ], [ %248, %240 ]
+  %.0181468 = phi double [ 0.000000e+00, %.lr.ph470 ], [ %247, %240 ]
+  %241 = mul nsw i64 %.0469, %.sroa.22.0.copyload
+  %242 = getelementptr double, ptr %235, i64 %241
+  %243 = getelementptr double, ptr %234, i64 %.0469
+  %244 = load double, ptr %242, align 8, !tbaa !115
+  %245 = load double, ptr %243, align 8, !tbaa !115
+  %246 = fmul double %244, %245
+  %247 = fadd double %.0181468, %246
+  %248 = add nuw nsw i64 %.0469, 1
+  %249 = icmp slt i64 %248, %.sroa.speculated
+  br i1 %249, label %240, label %._crit_edge471, !llvm.loop !394
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9840,402 +9828,397 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %17 = select i1 %13, i64 %1, i64 %16
   %18 = insertelement <4 x float> poison, float %6, i64 0
   %19 = shufflevector <4 x float> %18, <4 x float> poison, <4 x i32> zeroinitializer
-  %invariant.gep = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 16
-  %invariant.gep462 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 32
+  %invariant.gep474 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 16
+  %invariant.gep476 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 32
+  %invariant.gep478 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 48
   %20 = icmp sgt i64 %1, 0
-  br i1 %20, label %.lr.ph468, label %._crit_edge469
+  br i1 %20, label %.lr.ph488, label %._crit_edge489
 
-.lr.ph468:                                        ; preds = %7
+.lr.ph488:                                        ; preds = %7
+  %invariant.gep425 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 64
+  %invariant.gep427 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 80
+  %invariant.gep429 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 96
+  %invariant.gep431 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 112
   %21 = icmp sgt i64 %0, 31
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %24
 
-.loopexit:                                        ; preds = %._crit_edge459, %263
+.loopexit:                                        ; preds = %._crit_edge471, %243
   %23 = icmp slt i64 %25, %1
-  br i1 %23, label %24, label %._crit_edge469, !llvm.loop !446
+  br i1 %23, label %24, label %._crit_edge489, !llvm.loop !446
 
-._crit_edge469:                                   ; preds = %.loopexit, %7
+._crit_edge489:                                   ; preds = %.loopexit, %7
   ret void
 
-24:                                               ; preds = %.lr.ph468, %.loopexit
-  %.0188466 = phi i64 [ 0, %.lr.ph468 ], [ %25, %.loopexit ]
-  %25 = add nuw nsw i64 %.0188466, %17
+24:                                               ; preds = %.lr.ph488, %.loopexit
+  %.0188486 = phi i64 [ 0, %.lr.ph488 ], [ %25, %.loopexit ]
+  %25 = add nuw nsw i64 %.0188486, %17
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %1, i64 %25)
-  br i1 %21, label %.lr.ph, label %._crit_edge422
+  br i1 %21, label %.lr.ph, label %._crit_edge434
 
 .lr.ph:                                           ; preds = %24, %._crit_edge
-  %.0187421 = phi i64 [ %75, %._crit_edge ], [ 0, %24 ]
+  %.0187433 = phi i64 [ %61, %._crit_edge ], [ 0, %24 ]
   %26 = load ptr, ptr %3, align 8, !tbaa !436
   %27 = load i64, ptr %22, align 8, !tbaa !438
-  %28 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.0187421
-  %29 = or disjoint i64 %.0187421, 4
-  %30 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %29
-  %31 = or disjoint i64 %.0187421, 8
-  %32 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %31
-  %33 = or disjoint i64 %.0187421, 12
-  %34 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %33
-  %35 = or disjoint i64 %.0187421, 16
-  %36 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %35
-  %37 = or disjoint i64 %.0187421, 20
-  %38 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %37
-  %39 = or disjoint i64 %.0187421, 24
-  %40 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %39
-  %41 = or disjoint i64 %.0187421, 28
-  %42 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %41
-  br label %77
+  %28 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.0187433
+  %gep = getelementptr float, ptr %invariant.gep474, i64 %.0187433
+  %gep422 = getelementptr float, ptr %invariant.gep476, i64 %.0187433
+  %gep424 = getelementptr float, ptr %invariant.gep478, i64 %.0187433
+  %gep426 = getelementptr float, ptr %invariant.gep425, i64 %.0187433
+  %gep428 = getelementptr float, ptr %invariant.gep427, i64 %.0187433
+  %gep430 = getelementptr float, ptr %invariant.gep429, i64 %.0187433
+  %gep432 = getelementptr float, ptr %invariant.gep431, i64 %.0187433
+  br label %63
 
-._crit_edge:                                      ; preds = %77
-  %43 = getelementptr inbounds nuw float, ptr %4, i64 %.0187421
-  %44 = load <4 x float>, ptr %43, align 1, !tbaa !118
-  %45 = fmul <4 x float> %19, %87
-  %46 = fadd <4 x float> %45, %44
-  store <4 x float> %46, ptr %43, align 1, !tbaa !118
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %48 = load <4 x float>, ptr %47, align 1, !tbaa !118
-  %49 = fmul <4 x float> %19, %91
-  %50 = fadd <4 x float> %49, %48
-  store <4 x float> %50, ptr %47, align 1, !tbaa !118
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %52 = load <4 x float>, ptr %51, align 1, !tbaa !118
-  %53 = fmul <4 x float> %19, %95
-  %54 = fadd <4 x float> %53, %52
-  store <4 x float> %54, ptr %51, align 1, !tbaa !118
-  %55 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  %56 = load <4 x float>, ptr %55, align 1, !tbaa !118
-  %57 = fmul <4 x float> %19, %99
-  %58 = fadd <4 x float> %57, %56
-  store <4 x float> %58, ptr %55, align 1, !tbaa !118
-  %59 = getelementptr inbounds nuw i8, ptr %43, i64 64
-  %60 = load <4 x float>, ptr %59, align 1, !tbaa !118
-  %61 = fmul <4 x float> %19, %103
-  %62 = fadd <4 x float> %61, %60
-  store <4 x float> %62, ptr %59, align 1, !tbaa !118
-  %63 = getelementptr inbounds nuw i8, ptr %43, i64 80
-  %64 = load <4 x float>, ptr %63, align 1, !tbaa !118
-  %65 = fmul <4 x float> %19, %107
-  %66 = fadd <4 x float> %65, %64
-  store <4 x float> %66, ptr %63, align 1, !tbaa !118
-  %67 = getelementptr inbounds nuw i8, ptr %43, i64 96
-  %68 = load <4 x float>, ptr %67, align 1, !tbaa !118
-  %69 = fmul <4 x float> %19, %111
-  %70 = fadd <4 x float> %69, %68
-  store <4 x float> %70, ptr %67, align 1, !tbaa !118
-  %71 = getelementptr inbounds nuw i8, ptr %43, i64 112
-  %72 = load <4 x float>, ptr %71, align 1, !tbaa !118
-  %73 = fmul <4 x float> %19, %115
-  %74 = fadd <4 x float> %73, %72
-  store <4 x float> %74, ptr %71, align 1, !tbaa !118
-  %75 = add nuw nsw i64 %.0187421, 32
-  %76 = icmp slt i64 %75, %8
-  br i1 %76, label %.lr.ph, label %._crit_edge422, !llvm.loop !447
+._crit_edge:                                      ; preds = %63
+  %29 = getelementptr inbounds nuw float, ptr %4, i64 %.0187433
+  %30 = load <4 x float>, ptr %29, align 1, !tbaa !118
+  %31 = fmul <4 x float> %19, %73
+  %32 = fadd <4 x float> %31, %30
+  store <4 x float> %32, ptr %29, align 1, !tbaa !118
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %34 = load <4 x float>, ptr %33, align 1, !tbaa !118
+  %35 = fmul <4 x float> %19, %77
+  %36 = fadd <4 x float> %35, %34
+  store <4 x float> %36, ptr %33, align 1, !tbaa !118
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %38 = load <4 x float>, ptr %37, align 1, !tbaa !118
+  %39 = fmul <4 x float> %19, %81
+  %40 = fadd <4 x float> %39, %38
+  store <4 x float> %40, ptr %37, align 1, !tbaa !118
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %42 = load <4 x float>, ptr %41, align 1, !tbaa !118
+  %43 = fmul <4 x float> %19, %85
+  %44 = fadd <4 x float> %43, %42
+  store <4 x float> %44, ptr %41, align 1, !tbaa !118
+  %45 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  %46 = load <4 x float>, ptr %45, align 1, !tbaa !118
+  %47 = fmul <4 x float> %19, %89
+  %48 = fadd <4 x float> %47, %46
+  store <4 x float> %48, ptr %45, align 1, !tbaa !118
+  %49 = getelementptr inbounds nuw i8, ptr %29, i64 80
+  %50 = load <4 x float>, ptr %49, align 1, !tbaa !118
+  %51 = fmul <4 x float> %19, %93
+  %52 = fadd <4 x float> %51, %50
+  store <4 x float> %52, ptr %49, align 1, !tbaa !118
+  %53 = getelementptr inbounds nuw i8, ptr %29, i64 96
+  %54 = load <4 x float>, ptr %53, align 1, !tbaa !118
+  %55 = fmul <4 x float> %19, %97
+  %56 = fadd <4 x float> %55, %54
+  store <4 x float> %56, ptr %53, align 1, !tbaa !118
+  %57 = getelementptr inbounds nuw i8, ptr %29, i64 112
+  %58 = load <4 x float>, ptr %57, align 1, !tbaa !118
+  %59 = fmul <4 x float> %19, %101
+  %60 = fadd <4 x float> %59, %58
+  store <4 x float> %60, ptr %57, align 1, !tbaa !118
+  %61 = add nuw nsw i64 %.0187433, 32
+  %62 = icmp slt i64 %61, %8
+  br i1 %62, label %.lr.ph, label %._crit_edge434, !llvm.loop !447
 
-77:                                               ; preds = %.lr.ph, %77
-  %.0186413 = phi i64 [ %.0188466, %.lr.ph ], [ %116, %77 ]
-  %.0382412 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %87, %77 ]
-  %.0383411 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %91, %77 ]
-  %.0384410 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %95, %77 ]
-  %.0385409 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %99, %77 ]
-  %.0386408 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %103, %77 ]
-  %.0388407 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %107, %77 ]
-  %.0389406 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %111, %77 ]
-  %.0390405 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %115, %77 ]
-  %78 = mul nsw i64 %27, %.0186413
-  %79 = getelementptr float, ptr %26, i64 %78
-  %80 = load float, ptr %79, align 4, !tbaa !123
-  %81 = insertelement <4 x float> poison, float %80, i64 0
-  %82 = shufflevector <4 x float> %81, <4 x float> poison, <4 x i32> zeroinitializer
-  %83 = mul nsw i64 %.0186413, %.sroa.22.0.copyload
-  %84 = getelementptr float, ptr %28, i64 %83
-  %85 = load <4 x float>, ptr %84, align 1, !tbaa !118
-  %86 = fmul <4 x float> %85, %82
-  %87 = fadd <4 x float> %.0382412, %86
-  %88 = getelementptr float, ptr %30, i64 %83
-  %89 = load <4 x float>, ptr %88, align 1, !tbaa !118
-  %90 = fmul <4 x float> %89, %82
-  %91 = fadd <4 x float> %.0383411, %90
-  %92 = getelementptr float, ptr %32, i64 %83
-  %93 = load <4 x float>, ptr %92, align 1, !tbaa !118
-  %94 = fmul <4 x float> %82, %93
-  %95 = fadd <4 x float> %.0384410, %94
-  %96 = getelementptr float, ptr %34, i64 %83
-  %97 = load <4 x float>, ptr %96, align 1, !tbaa !118
-  %98 = fmul <4 x float> %82, %97
-  %99 = fadd <4 x float> %.0385409, %98
-  %100 = getelementptr float, ptr %36, i64 %83
-  %101 = load <4 x float>, ptr %100, align 1, !tbaa !118
-  %102 = fmul <4 x float> %82, %101
-  %103 = fadd <4 x float> %.0386408, %102
-  %104 = getelementptr float, ptr %38, i64 %83
-  %105 = load <4 x float>, ptr %104, align 1, !tbaa !118
-  %106 = fmul <4 x float> %82, %105
-  %107 = fadd <4 x float> %.0388407, %106
-  %108 = getelementptr float, ptr %40, i64 %83
+63:                                               ; preds = %.lr.ph, %63
+  %.0186413 = phi i64 [ %.0188486, %.lr.ph ], [ %102, %63 ]
+  %.0382412 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %73, %63 ]
+  %.0383411 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %77, %63 ]
+  %.0384410 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %81, %63 ]
+  %.0385409 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %85, %63 ]
+  %.0386408 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %89, %63 ]
+  %.0388407 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %93, %63 ]
+  %.0389406 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %97, %63 ]
+  %.0390405 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %101, %63 ]
+  %64 = mul nsw i64 %27, %.0186413
+  %65 = getelementptr float, ptr %26, i64 %64
+  %66 = load float, ptr %65, align 4, !tbaa !123
+  %67 = insertelement <4 x float> poison, float %66, i64 0
+  %68 = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> zeroinitializer
+  %69 = mul nsw i64 %.0186413, %.sroa.22.0.copyload
+  %70 = getelementptr float, ptr %28, i64 %69
+  %71 = load <4 x float>, ptr %70, align 1, !tbaa !118
+  %72 = fmul <4 x float> %71, %68
+  %73 = fadd <4 x float> %.0382412, %72
+  %74 = getelementptr float, ptr %gep, i64 %69
+  %75 = load <4 x float>, ptr %74, align 1, !tbaa !118
+  %76 = fmul <4 x float> %75, %68
+  %77 = fadd <4 x float> %.0383411, %76
+  %78 = getelementptr float, ptr %gep422, i64 %69
+  %79 = load <4 x float>, ptr %78, align 1, !tbaa !118
+  %80 = fmul <4 x float> %68, %79
+  %81 = fadd <4 x float> %.0384410, %80
+  %82 = getelementptr float, ptr %gep424, i64 %69
+  %83 = load <4 x float>, ptr %82, align 1, !tbaa !118
+  %84 = fmul <4 x float> %68, %83
+  %85 = fadd <4 x float> %.0385409, %84
+  %86 = getelementptr float, ptr %gep426, i64 %69
+  %87 = load <4 x float>, ptr %86, align 1, !tbaa !118
+  %88 = fmul <4 x float> %68, %87
+  %89 = fadd <4 x float> %.0386408, %88
+  %90 = getelementptr float, ptr %gep428, i64 %69
+  %91 = load <4 x float>, ptr %90, align 1, !tbaa !118
+  %92 = fmul <4 x float> %68, %91
+  %93 = fadd <4 x float> %.0388407, %92
+  %94 = getelementptr float, ptr %gep430, i64 %69
+  %95 = load <4 x float>, ptr %94, align 1, !tbaa !118
+  %96 = fmul <4 x float> %68, %95
+  %97 = fadd <4 x float> %.0389406, %96
+  %98 = getelementptr float, ptr %gep432, i64 %69
+  %99 = load <4 x float>, ptr %98, align 1, !tbaa !118
+  %100 = fmul <4 x float> %68, %99
+  %101 = fadd <4 x float> %.0390405, %100
+  %102 = add nuw nsw i64 %.0186413, 1
+  %103 = icmp slt i64 %102, %.sroa.speculated
+  br i1 %103, label %63, label %._crit_edge, !llvm.loop !448
+
+._crit_edge434:                                   ; preds = %._crit_edge, %24
+  %.0187.lcssa = phi i64 [ 0, %24 ], [ %61, %._crit_edge ]
+  %104 = icmp slt i64 %.0187.lcssa, %9
+  br i1 %104, label %.lr.ph441, label %150
+
+.lr.ph441:                                        ; preds = %._crit_edge434
+  %105 = load ptr, ptr %3, align 8, !tbaa !436
+  %106 = load i64, ptr %22, align 8, !tbaa !438
+  %107 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.0187.lcssa
+  %gep475 = getelementptr float, ptr %invariant.gep474, i64 %.0187.lcssa
+  %gep477 = getelementptr float, ptr %invariant.gep476, i64 %.0187.lcssa
+  %gep479 = getelementptr float, ptr %invariant.gep478, i64 %.0187.lcssa
+  br label %125
+
+._crit_edge442:                                   ; preds = %125
+  %108 = getelementptr inbounds nuw float, ptr %4, i64 %.0187.lcssa
   %109 = load <4 x float>, ptr %108, align 1, !tbaa !118
-  %110 = fmul <4 x float> %82, %109
-  %111 = fadd <4 x float> %.0389406, %110
-  %112 = getelementptr float, ptr %42, i64 %83
+  %110 = fmul <4 x float> %19, %135
+  %111 = fadd <4 x float> %110, %109
+  store <4 x float> %111, ptr %108, align 1, !tbaa !118
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %113 = load <4 x float>, ptr %112, align 1, !tbaa !118
-  %114 = fmul <4 x float> %82, %113
-  %115 = fadd <4 x float> %.0390405, %114
-  %116 = add nuw nsw i64 %.0186413, 1
-  %117 = icmp slt i64 %116, %.sroa.speculated
-  br i1 %117, label %77, label %._crit_edge, !llvm.loop !448
+  %114 = fmul <4 x float> %19, %139
+  %115 = fadd <4 x float> %114, %113
+  store <4 x float> %115, ptr %112, align 1, !tbaa !118
+  %116 = getelementptr inbounds nuw i8, ptr %108, i64 32
+  %117 = load <4 x float>, ptr %116, align 1, !tbaa !118
+  %118 = fmul <4 x float> %19, %143
+  %119 = fadd <4 x float> %118, %117
+  store <4 x float> %119, ptr %116, align 1, !tbaa !118
+  %120 = getelementptr inbounds nuw i8, ptr %108, i64 48
+  %121 = load <4 x float>, ptr %120, align 1, !tbaa !118
+  %122 = fmul <4 x float> %19, %147
+  %123 = fadd <4 x float> %122, %121
+  store <4 x float> %123, ptr %120, align 1, !tbaa !118
+  %124 = or disjoint i64 %.0187.lcssa, 16
+  br label %150
 
-._crit_edge422:                                   ; preds = %._crit_edge, %24
-  %.0187.lcssa = phi i64 [ 0, %24 ], [ %75, %._crit_edge ]
-  %118 = icmp slt i64 %.0187.lcssa, %9
-  br i1 %118, label %.lr.ph429, label %170
-
-.lr.ph429:                                        ; preds = %._crit_edge422
-  %119 = load ptr, ptr %3, align 8, !tbaa !436
-  %120 = load i64, ptr %22, align 8, !tbaa !438
-  %121 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.0187.lcssa
-  %122 = or disjoint i64 %.0187.lcssa, 4
-  %123 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %122
-  %124 = or disjoint i64 %.0187.lcssa, 8
-  %125 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %124
-  %126 = or disjoint i64 %.0187.lcssa, 12
-  %127 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %126
-  br label %145
-
-._crit_edge430:                                   ; preds = %145
-  %128 = getelementptr inbounds nuw float, ptr %4, i64 %.0187.lcssa
-  %129 = load <4 x float>, ptr %128, align 1, !tbaa !118
-  %130 = fmul <4 x float> %19, %155
-  %131 = fadd <4 x float> %130, %129
-  store <4 x float> %131, ptr %128, align 1, !tbaa !118
-  %132 = getelementptr inbounds nuw i8, ptr %128, i64 16
+125:                                              ; preds = %.lr.ph441, %125
+  %.0185440 = phi i64 [ %.0188486, %.lr.ph441 ], [ %148, %125 ]
+  %.0391439 = phi <4 x float> [ zeroinitializer, %.lr.ph441 ], [ %135, %125 ]
+  %.0392438 = phi <4 x float> [ zeroinitializer, %.lr.ph441 ], [ %139, %125 ]
+  %.0393437 = phi <4 x float> [ zeroinitializer, %.lr.ph441 ], [ %143, %125 ]
+  %.0394436 = phi <4 x float> [ zeroinitializer, %.lr.ph441 ], [ %147, %125 ]
+  %126 = mul nsw i64 %106, %.0185440
+  %127 = getelementptr float, ptr %105, i64 %126
+  %128 = load float, ptr %127, align 4, !tbaa !123
+  %129 = insertelement <4 x float> poison, float %128, i64 0
+  %130 = shufflevector <4 x float> %129, <4 x float> poison, <4 x i32> zeroinitializer
+  %131 = mul nsw i64 %.0185440, %.sroa.22.0.copyload
+  %132 = getelementptr float, ptr %107, i64 %131
   %133 = load <4 x float>, ptr %132, align 1, !tbaa !118
-  %134 = fmul <4 x float> %19, %159
-  %135 = fadd <4 x float> %134, %133
-  store <4 x float> %135, ptr %132, align 1, !tbaa !118
-  %136 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  %134 = fmul <4 x float> %133, %130
+  %135 = fadd <4 x float> %.0391439, %134
+  %136 = getelementptr float, ptr %gep475, i64 %131
   %137 = load <4 x float>, ptr %136, align 1, !tbaa !118
-  %138 = fmul <4 x float> %19, %163
-  %139 = fadd <4 x float> %138, %137
-  store <4 x float> %139, ptr %136, align 1, !tbaa !118
-  %140 = getelementptr inbounds nuw i8, ptr %128, i64 48
+  %138 = fmul <4 x float> %137, %130
+  %139 = fadd <4 x float> %.0392438, %138
+  %140 = getelementptr float, ptr %gep477, i64 %131
   %141 = load <4 x float>, ptr %140, align 1, !tbaa !118
-  %142 = fmul <4 x float> %19, %167
-  %143 = fadd <4 x float> %142, %141
-  store <4 x float> %143, ptr %140, align 1, !tbaa !118
-  %144 = or disjoint i64 %.0187.lcssa, 16
-  br label %170
+  %142 = fmul <4 x float> %130, %141
+  %143 = fadd <4 x float> %.0393437, %142
+  %144 = getelementptr float, ptr %gep479, i64 %131
+  %145 = load <4 x float>, ptr %144, align 1, !tbaa !118
+  %146 = fmul <4 x float> %130, %145
+  %147 = fadd <4 x float> %.0394436, %146
+  %148 = add nuw nsw i64 %.0185440, 1
+  %149 = icmp slt i64 %148, %.sroa.speculated
+  br i1 %149, label %125, label %._crit_edge442, !llvm.loop !449
 
-145:                                              ; preds = %.lr.ph429, %145
-  %.0185428 = phi i64 [ %.0188466, %.lr.ph429 ], [ %168, %145 ]
-  %.0391427 = phi <4 x float> [ zeroinitializer, %.lr.ph429 ], [ %155, %145 ]
-  %.0392426 = phi <4 x float> [ zeroinitializer, %.lr.ph429 ], [ %159, %145 ]
-  %.0393425 = phi <4 x float> [ zeroinitializer, %.lr.ph429 ], [ %163, %145 ]
-  %.0394424 = phi <4 x float> [ zeroinitializer, %.lr.ph429 ], [ %167, %145 ]
-  %146 = mul nsw i64 %120, %.0185428
-  %147 = getelementptr float, ptr %119, i64 %146
-  %148 = load float, ptr %147, align 4, !tbaa !123
-  %149 = insertelement <4 x float> poison, float %148, i64 0
-  %150 = shufflevector <4 x float> %149, <4 x float> poison, <4 x i32> zeroinitializer
-  %151 = mul nsw i64 %.0185428, %.sroa.22.0.copyload
-  %152 = getelementptr float, ptr %121, i64 %151
-  %153 = load <4 x float>, ptr %152, align 1, !tbaa !118
-  %154 = fmul <4 x float> %153, %150
-  %155 = fadd <4 x float> %.0391427, %154
-  %156 = getelementptr float, ptr %123, i64 %151
-  %157 = load <4 x float>, ptr %156, align 1, !tbaa !118
-  %158 = fmul <4 x float> %157, %150
-  %159 = fadd <4 x float> %.0392426, %158
-  %160 = getelementptr float, ptr %125, i64 %151
-  %161 = load <4 x float>, ptr %160, align 1, !tbaa !118
-  %162 = fmul <4 x float> %150, %161
-  %163 = fadd <4 x float> %.0393425, %162
-  %164 = getelementptr float, ptr %127, i64 %151
-  %165 = load <4 x float>, ptr %164, align 1, !tbaa !118
-  %166 = fmul <4 x float> %150, %165
-  %167 = fadd <4 x float> %.0394424, %166
-  %168 = add nuw nsw i64 %.0185428, 1
-  %169 = icmp slt i64 %168, %.sroa.speculated
-  br i1 %169, label %145, label %._crit_edge430, !llvm.loop !449
+150:                                              ; preds = %._crit_edge442, %._crit_edge434
+  %.1 = phi i64 [ %124, %._crit_edge442 ], [ %.0187.lcssa, %._crit_edge434 ]
+  %151 = icmp slt i64 %.1, %10
+  br i1 %151, label %.lr.ph451, label %189
 
-170:                                              ; preds = %._crit_edge430, %._crit_edge422
-  %.1 = phi i64 [ %144, %._crit_edge430 ], [ %.0187.lcssa, %._crit_edge422 ]
-  %171 = icmp slt i64 %.1, %10
-  br i1 %171, label %.lr.ph439, label %209
+.lr.ph451:                                        ; preds = %150
+  %152 = load ptr, ptr %3, align 8, !tbaa !436
+  %153 = load i64, ptr %22, align 8, !tbaa !438
+  %154 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.1
+  %gep481 = getelementptr float, ptr %invariant.gep474, i64 %.1
+  %gep483 = getelementptr float, ptr %invariant.gep476, i64 %.1
+  br label %168
 
-.lr.ph439:                                        ; preds = %170
-  %172 = load ptr, ptr %3, align 8, !tbaa !436
-  %173 = load i64, ptr %22, align 8, !tbaa !438
-  %174 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.1
-  %gep = getelementptr float, ptr %invariant.gep, i64 %.1
-  %gep463 = getelementptr float, ptr %invariant.gep462, i64 %.1
-  br label %188
+._crit_edge452:                                   ; preds = %168
+  %155 = getelementptr inbounds float, ptr %4, i64 %.1
+  %156 = load <4 x float>, ptr %155, align 1, !tbaa !118
+  %157 = fmul <4 x float> %19, %178
+  %158 = fadd <4 x float> %157, %156
+  store <4 x float> %158, ptr %155, align 1, !tbaa !118
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 16
+  %160 = load <4 x float>, ptr %159, align 1, !tbaa !118
+  %161 = fmul <4 x float> %19, %182
+  %162 = fadd <4 x float> %161, %160
+  store <4 x float> %162, ptr %159, align 1, !tbaa !118
+  %163 = getelementptr inbounds nuw i8, ptr %155, i64 32
+  %164 = load <4 x float>, ptr %163, align 1, !tbaa !118
+  %165 = fmul <4 x float> %19, %186
+  %166 = fadd <4 x float> %165, %164
+  store <4 x float> %166, ptr %163, align 1, !tbaa !118
+  %167 = add nsw i64 %.1, 12
+  br label %189
 
-._crit_edge440:                                   ; preds = %188
-  %175 = getelementptr inbounds float, ptr %4, i64 %.1
+168:                                              ; preds = %.lr.ph451, %168
+  %.0184450 = phi i64 [ %.0188486, %.lr.ph451 ], [ %187, %168 ]
+  %.0395449 = phi <4 x float> [ zeroinitializer, %.lr.ph451 ], [ %178, %168 ]
+  %.0397448 = phi <4 x float> [ zeroinitializer, %.lr.ph451 ], [ %182, %168 ]
+  %.0399447 = phi <4 x float> [ zeroinitializer, %.lr.ph451 ], [ %186, %168 ]
+  %169 = mul nsw i64 %153, %.0184450
+  %170 = getelementptr float, ptr %152, i64 %169
+  %171 = load float, ptr %170, align 4, !tbaa !123
+  %172 = insertelement <4 x float> poison, float %171, i64 0
+  %173 = shufflevector <4 x float> %172, <4 x float> poison, <4 x i32> zeroinitializer
+  %174 = mul nsw i64 %.0184450, %.sroa.22.0.copyload
+  %175 = getelementptr float, ptr %154, i64 %174
   %176 = load <4 x float>, ptr %175, align 1, !tbaa !118
-  %177 = fmul <4 x float> %19, %198
-  %178 = fadd <4 x float> %177, %176
-  store <4 x float> %178, ptr %175, align 1, !tbaa !118
-  %179 = getelementptr inbounds nuw i8, ptr %175, i64 16
+  %177 = fmul <4 x float> %176, %173
+  %178 = fadd <4 x float> %.0395449, %177
+  %179 = getelementptr float, ptr %gep481, i64 %174
   %180 = load <4 x float>, ptr %179, align 1, !tbaa !118
-  %181 = fmul <4 x float> %19, %202
-  %182 = fadd <4 x float> %181, %180
-  store <4 x float> %182, ptr %179, align 1, !tbaa !118
-  %183 = getelementptr inbounds nuw i8, ptr %175, i64 32
+  %181 = fmul <4 x float> %180, %173
+  %182 = fadd <4 x float> %.0397448, %181
+  %183 = getelementptr float, ptr %gep483, i64 %174
   %184 = load <4 x float>, ptr %183, align 1, !tbaa !118
-  %185 = fmul <4 x float> %19, %206
-  %186 = fadd <4 x float> %185, %184
-  store <4 x float> %186, ptr %183, align 1, !tbaa !118
-  %187 = add nsw i64 %.1, 12
-  br label %209
+  %185 = fmul <4 x float> %173, %184
+  %186 = fadd <4 x float> %.0399447, %185
+  %187 = add nuw nsw i64 %.0184450, 1
+  %188 = icmp slt i64 %187, %.sroa.speculated
+  br i1 %188, label %168, label %._crit_edge452, !llvm.loop !450
 
-188:                                              ; preds = %.lr.ph439, %188
-  %.0184438 = phi i64 [ %.0188466, %.lr.ph439 ], [ %207, %188 ]
-  %.0395437 = phi <4 x float> [ zeroinitializer, %.lr.ph439 ], [ %198, %188 ]
-  %.0397436 = phi <4 x float> [ zeroinitializer, %.lr.ph439 ], [ %202, %188 ]
-  %.0399435 = phi <4 x float> [ zeroinitializer, %.lr.ph439 ], [ %206, %188 ]
-  %189 = mul nsw i64 %173, %.0184438
-  %190 = getelementptr float, ptr %172, i64 %189
-  %191 = load float, ptr %190, align 4, !tbaa !123
-  %192 = insertelement <4 x float> poison, float %191, i64 0
-  %193 = shufflevector <4 x float> %192, <4 x float> poison, <4 x i32> zeroinitializer
-  %194 = mul nsw i64 %.0184438, %.sroa.22.0.copyload
-  %195 = getelementptr float, ptr %174, i64 %194
-  %196 = load <4 x float>, ptr %195, align 1, !tbaa !118
-  %197 = fmul <4 x float> %196, %193
-  %198 = fadd <4 x float> %.0395437, %197
-  %199 = getelementptr float, ptr %gep, i64 %194
-  %200 = load <4 x float>, ptr %199, align 1, !tbaa !118
-  %201 = fmul <4 x float> %200, %193
-  %202 = fadd <4 x float> %.0397436, %201
-  %203 = getelementptr float, ptr %gep463, i64 %194
-  %204 = load <4 x float>, ptr %203, align 1, !tbaa !118
-  %205 = fmul <4 x float> %193, %204
-  %206 = fadd <4 x float> %.0399435, %205
-  %207 = add nuw nsw i64 %.0184438, 1
-  %208 = icmp slt i64 %207, %.sroa.speculated
-  br i1 %208, label %188, label %._crit_edge440, !llvm.loop !450
+189:                                              ; preds = %._crit_edge452, %150
+  %.2 = phi i64 [ %167, %._crit_edge452 ], [ %.1, %150 ]
+  %190 = icmp slt i64 %.2, %11
+  br i1 %190, label %.lr.ph459, label %220
 
-209:                                              ; preds = %._crit_edge440, %170
-  %.2 = phi i64 [ %187, %._crit_edge440 ], [ %.1, %170 ]
-  %210 = icmp slt i64 %.2, %11
-  br i1 %210, label %.lr.ph447, label %240
+.lr.ph459:                                        ; preds = %189
+  %191 = load ptr, ptr %3, align 8, !tbaa !436
+  %192 = load i64, ptr %22, align 8, !tbaa !438
+  %193 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.2
+  %gep485 = getelementptr float, ptr %invariant.gep474, i64 %.2
+  br label %203
 
-.lr.ph447:                                        ; preds = %209
-  %211 = load ptr, ptr %3, align 8, !tbaa !436
-  %212 = load i64, ptr %22, align 8, !tbaa !438
-  %213 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.2
-  %gep465 = getelementptr float, ptr %invariant.gep, i64 %.2
-  br label %223
+._crit_edge460:                                   ; preds = %203
+  %194 = getelementptr inbounds float, ptr %4, i64 %.2
+  %195 = load <4 x float>, ptr %194, align 1, !tbaa !118
+  %196 = fmul <4 x float> %19, %213
+  %197 = fadd <4 x float> %196, %195
+  store <4 x float> %197, ptr %194, align 1, !tbaa !118
+  %198 = getelementptr inbounds nuw i8, ptr %194, i64 16
+  %199 = load <4 x float>, ptr %198, align 1, !tbaa !118
+  %200 = fmul <4 x float> %19, %217
+  %201 = fadd <4 x float> %200, %199
+  store <4 x float> %201, ptr %198, align 1, !tbaa !118
+  %202 = add nsw i64 %.2, 8
+  br label %220
 
-._crit_edge448:                                   ; preds = %223
-  %214 = getelementptr inbounds float, ptr %4, i64 %.2
+203:                                              ; preds = %.lr.ph459, %203
+  %.0183458 = phi i64 [ %.0188486, %.lr.ph459 ], [ %218, %203 ]
+  %.0396457 = phi <4 x float> [ zeroinitializer, %.lr.ph459 ], [ %217, %203 ]
+  %.0398456 = phi <4 x float> [ zeroinitializer, %.lr.ph459 ], [ %213, %203 ]
+  %204 = mul nsw i64 %192, %.0183458
+  %205 = getelementptr float, ptr %191, i64 %204
+  %206 = load float, ptr %205, align 4, !tbaa !123
+  %207 = insertelement <4 x float> poison, float %206, i64 0
+  %208 = shufflevector <4 x float> %207, <4 x float> poison, <4 x i32> zeroinitializer
+  %209 = mul nsw i64 %.0183458, %.sroa.22.0.copyload
+  %210 = getelementptr float, ptr %193, i64 %209
+  %211 = load <4 x float>, ptr %210, align 1, !tbaa !118
+  %212 = fmul <4 x float> %211, %208
+  %213 = fadd <4 x float> %.0398456, %212
+  %214 = getelementptr float, ptr %gep485, i64 %209
   %215 = load <4 x float>, ptr %214, align 1, !tbaa !118
-  %216 = fmul <4 x float> %19, %233
-  %217 = fadd <4 x float> %216, %215
-  store <4 x float> %217, ptr %214, align 1, !tbaa !118
-  %218 = getelementptr inbounds nuw i8, ptr %214, i64 16
-  %219 = load <4 x float>, ptr %218, align 1, !tbaa !118
-  %220 = fmul <4 x float> %19, %237
-  %221 = fadd <4 x float> %220, %219
-  store <4 x float> %221, ptr %218, align 1, !tbaa !118
-  %222 = add nsw i64 %.2, 8
-  br label %240
+  %216 = fmul <4 x float> %215, %208
+  %217 = fadd <4 x float> %.0396457, %216
+  %218 = add nuw nsw i64 %.0183458, 1
+  %219 = icmp slt i64 %218, %.sroa.speculated
+  br i1 %219, label %203, label %._crit_edge460, !llvm.loop !451
 
-223:                                              ; preds = %.lr.ph447, %223
-  %.0183446 = phi i64 [ %.0188466, %.lr.ph447 ], [ %238, %223 ]
-  %.0396445 = phi <4 x float> [ zeroinitializer, %.lr.ph447 ], [ %237, %223 ]
-  %.0398444 = phi <4 x float> [ zeroinitializer, %.lr.ph447 ], [ %233, %223 ]
-  %224 = mul nsw i64 %212, %.0183446
-  %225 = getelementptr float, ptr %211, i64 %224
-  %226 = load float, ptr %225, align 4, !tbaa !123
-  %227 = insertelement <4 x float> poison, float %226, i64 0
-  %228 = shufflevector <4 x float> %227, <4 x float> poison, <4 x i32> zeroinitializer
-  %229 = mul nsw i64 %.0183446, %.sroa.22.0.copyload
-  %230 = getelementptr float, ptr %213, i64 %229
-  %231 = load <4 x float>, ptr %230, align 1, !tbaa !118
-  %232 = fmul <4 x float> %231, %228
-  %233 = fadd <4 x float> %.0398444, %232
-  %234 = getelementptr float, ptr %gep465, i64 %229
-  %235 = load <4 x float>, ptr %234, align 1, !tbaa !118
-  %236 = fmul <4 x float> %235, %228
-  %237 = fadd <4 x float> %.0396445, %236
-  %238 = add nuw nsw i64 %.0183446, 1
-  %239 = icmp slt i64 %238, %.sroa.speculated
-  br i1 %239, label %223, label %._crit_edge448, !llvm.loop !451
+220:                                              ; preds = %._crit_edge460, %189
+  %.3 = phi i64 [ %202, %._crit_edge460 ], [ %.2, %189 ]
+  %221 = icmp slt i64 %.3, %12
+  br i1 %221, label %.lr.ph465, label %243
 
-240:                                              ; preds = %._crit_edge448, %209
-  %.3 = phi i64 [ %222, %._crit_edge448 ], [ %.2, %209 ]
-  %241 = icmp slt i64 %.3, %12
-  br i1 %241, label %.lr.ph453, label %263
+.lr.ph465:                                        ; preds = %220
+  %222 = load ptr, ptr %3, align 8, !tbaa !436
+  %223 = load i64, ptr %22, align 8, !tbaa !438
+  %224 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.3
+  br label %230
 
-.lr.ph453:                                        ; preds = %240
-  %242 = load ptr, ptr %3, align 8, !tbaa !436
-  %243 = load i64, ptr %22, align 8, !tbaa !438
-  %244 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.3
-  br label %250
+._crit_edge466:                                   ; preds = %230
+  %225 = getelementptr inbounds float, ptr %4, i64 %.3
+  %226 = load <4 x float>, ptr %225, align 1, !tbaa !118
+  %227 = fmul <4 x float> %19, %240
+  %228 = fadd <4 x float> %227, %226
+  store <4 x float> %228, ptr %225, align 1, !tbaa !118
+  %229 = add nsw i64 %.3, 4
+  br label %243
 
-._crit_edge454:                                   ; preds = %250
-  %245 = getelementptr inbounds float, ptr %4, i64 %.3
-  %246 = load <4 x float>, ptr %245, align 1, !tbaa !118
-  %247 = fmul <4 x float> %19, %260
-  %248 = fadd <4 x float> %247, %246
-  store <4 x float> %248, ptr %245, align 1, !tbaa !118
-  %249 = add nsw i64 %.3, 4
-  br label %263
+230:                                              ; preds = %.lr.ph465, %230
+  %.0182464 = phi i64 [ %.0188486, %.lr.ph465 ], [ %241, %230 ]
+  %.0387463 = phi <4 x float> [ zeroinitializer, %.lr.ph465 ], [ %240, %230 ]
+  %231 = mul nsw i64 %223, %.0182464
+  %232 = getelementptr float, ptr %222, i64 %231
+  %233 = load float, ptr %232, align 4, !tbaa !123
+  %234 = insertelement <4 x float> poison, float %233, i64 0
+  %235 = shufflevector <4 x float> %234, <4 x float> poison, <4 x i32> zeroinitializer
+  %236 = mul nsw i64 %.0182464, %.sroa.22.0.copyload
+  %237 = getelementptr float, ptr %224, i64 %236
+  %238 = load <4 x float>, ptr %237, align 1, !tbaa !118
+  %239 = fmul <4 x float> %238, %235
+  %240 = fadd <4 x float> %.0387463, %239
+  %241 = add nuw nsw i64 %.0182464, 1
+  %242 = icmp slt i64 %241, %.sroa.speculated
+  br i1 %242, label %230, label %._crit_edge466, !llvm.loop !452
 
-250:                                              ; preds = %.lr.ph453, %250
-  %.0182452 = phi i64 [ %.0188466, %.lr.ph453 ], [ %261, %250 ]
-  %.0387451 = phi <4 x float> [ zeroinitializer, %.lr.ph453 ], [ %260, %250 ]
-  %251 = mul nsw i64 %243, %.0182452
-  %252 = getelementptr float, ptr %242, i64 %251
-  %253 = load float, ptr %252, align 4, !tbaa !123
-  %254 = insertelement <4 x float> poison, float %253, i64 0
-  %255 = shufflevector <4 x float> %254, <4 x float> poison, <4 x i32> zeroinitializer
-  %256 = mul nsw i64 %.0182452, %.sroa.22.0.copyload
-  %257 = getelementptr float, ptr %244, i64 %256
-  %258 = load <4 x float>, ptr %257, align 1, !tbaa !118
-  %259 = fmul <4 x float> %258, %255
-  %260 = fadd <4 x float> %.0387451, %259
-  %261 = add nuw nsw i64 %.0182452, 1
+243:                                              ; preds = %._crit_edge466, %220
+  %.4 = phi i64 [ %229, %._crit_edge466 ], [ %.3, %220 ]
+  %244 = icmp slt i64 %.4, %0
+  br i1 %244, label %.preheader.lr.ph, label %.loopexit
+
+.preheader.lr.ph:                                 ; preds = %243
+  %245 = load ptr, ptr %3, align 8
+  %246 = load i64, ptr %22, align 8
+  br label %.lr.ph470
+
+.lr.ph470:                                        ; preds = %._crit_edge471, %.preheader.lr.ph
+  %.5473 = phi i64 [ %.4, %.preheader.lr.ph ], [ %251, %._crit_edge471 ]
+  %247 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.5473
+  br label %252
+
+._crit_edge471:                                   ; preds = %252
+  %248 = getelementptr inbounds float, ptr %4, i64 %.5473
+  %249 = load float, ptr %248, align 4, !tbaa !123
+  %250 = tail call float @llvm.fmuladd.f32(float %6, float %260, float %249)
+  store float %250, ptr %248, align 4, !tbaa !123
+  %251 = add nsw i64 %.5473, 1
+  %exitcond.not = icmp eq i64 %251, %0
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph470, !llvm.loop !453
+
+252:                                              ; preds = %.lr.ph470, %252
+  %.0469 = phi i64 [ %.0188486, %.lr.ph470 ], [ %261, %252 ]
+  %.0181468 = phi float [ 0.000000e+00, %.lr.ph470 ], [ %260, %252 ]
+  %253 = mul nsw i64 %.0469, %.sroa.22.0.copyload
+  %254 = getelementptr float, ptr %247, i64 %253
+  %255 = mul nsw i64 %246, %.0469
+  %256 = getelementptr float, ptr %245, i64 %255
+  %257 = load float, ptr %254, align 4, !tbaa !123
+  %258 = load float, ptr %256, align 4, !tbaa !123
+  %259 = fmul float %257, %258
+  %260 = fadd float %.0181468, %259
+  %261 = add nuw nsw i64 %.0469, 1
   %262 = icmp slt i64 %261, %.sroa.speculated
-  br i1 %262, label %250, label %._crit_edge454, !llvm.loop !452
-
-263:                                              ; preds = %._crit_edge454, %240
-  %.4 = phi i64 [ %249, %._crit_edge454 ], [ %.3, %240 ]
-  %264 = icmp slt i64 %.4, %0
-  br i1 %264, label %.preheader.lr.ph, label %.loopexit
-
-.preheader.lr.ph:                                 ; preds = %263
-  %265 = load ptr, ptr %3, align 8
-  %266 = load i64, ptr %22, align 8
-  br label %.lr.ph458
-
-.lr.ph458:                                        ; preds = %._crit_edge459, %.preheader.lr.ph
-  %.5461 = phi i64 [ %.4, %.preheader.lr.ph ], [ %271, %._crit_edge459 ]
-  %267 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.5461
-  br label %272
-
-._crit_edge459:                                   ; preds = %272
-  %268 = getelementptr inbounds float, ptr %4, i64 %.5461
-  %269 = load float, ptr %268, align 4, !tbaa !123
-  %270 = tail call float @llvm.fmuladd.f32(float %6, float %280, float %269)
-  store float %270, ptr %268, align 4, !tbaa !123
-  %271 = add nsw i64 %.5461, 1
-  %exitcond.not = icmp eq i64 %271, %0
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph458, !llvm.loop !453
-
-272:                                              ; preds = %.lr.ph458, %272
-  %.0457 = phi i64 [ %.0188466, %.lr.ph458 ], [ %281, %272 ]
-  %.0181456 = phi float [ 0.000000e+00, %.lr.ph458 ], [ %280, %272 ]
-  %273 = mul nsw i64 %.0457, %.sroa.22.0.copyload
-  %274 = getelementptr float, ptr %267, i64 %273
-  %275 = mul nsw i64 %266, %.0457
-  %276 = getelementptr float, ptr %265, i64 %275
-  %277 = load float, ptr %274, align 4, !tbaa !123
-  %278 = load float, ptr %276, align 4, !tbaa !123
-  %279 = fmul float %277, %278
-  %280 = fadd float %.0181456, %279
-  %281 = add nuw nsw i64 %.0457, 1
-  %282 = icmp slt i64 %281, %.sroa.speculated
-  br i1 %282, label %272, label %._crit_edge459, !llvm.loop !454
+  br i1 %262, label %252, label %._crit_edge471, !llvm.loop !454
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12293,151 +12276,150 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIflNS0_16blas_
   br i1 %16, label %.lr.ph.us, label %.lr.ph92.split
 
 .lr.ph.us:                                        ; preds = %.lr.ph92, %._crit_edge.us
-  %.06490.us = phi i64 [ %38, %._crit_edge.us ], [ 0, %.lr.ph92 ]
-  %.06589.us = phi i64 [ %37, %._crit_edge.us ], [ 0, %.lr.ph92 ]
+  %.06490.us = phi i64 [ %37, %._crit_edge.us ], [ 0, %.lr.ph92 ]
+  %.06589.us = phi i64 [ %36, %._crit_edge.us ], [ 0, %.lr.ph92 ]
   %21 = add nsw i64 %.06589.us, %15
-  %22 = or disjoint i64 %.06490.us, 4
-  br label %23
+  br label %22
 
-23:                                               ; preds = %.lr.ph.us, %23
-  %.06388.us = phi i64 [ 0, %.lr.ph.us ], [ %36, %23 ]
-  %.16687.us = phi i64 [ %21, %.lr.ph.us ], [ %35, %23 ]
-  %24 = load ptr, ptr %2, align 8, !tbaa !485
-  %25 = load i64, ptr %17, align 8, !tbaa !487
-  %26 = mul nsw i64 %25, %.06388.us
-  %27 = getelementptr float, ptr %24, i64 %.06490.us
-  %28 = getelementptr float, ptr %27, i64 %26
-  %29 = load <4 x float>, ptr %28, align 1, !tbaa !118
-  %30 = getelementptr float, ptr %24, i64 %22
-  %31 = getelementptr float, ptr %30, i64 %26
-  %32 = load <4 x float>, ptr %31, align 1, !tbaa !118
-  %33 = getelementptr inbounds float, ptr %1, i64 %.16687.us
-  store <4 x float> %29, ptr %33, align 16, !tbaa !118
-  %34 = getelementptr i8, ptr %33, i64 16
-  store <4 x float> %32, ptr %34, align 16, !tbaa !118
-  %35 = add nsw i64 %.16687.us, 8
-  %36 = add nuw nsw i64 %.06388.us, 1
-  %exitcond.not = icmp eq i64 %36, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %23, !llvm.loop !499
+22:                                               ; preds = %.lr.ph.us, %22
+  %.06388.us = phi i64 [ 0, %.lr.ph.us ], [ %35, %22 ]
+  %.16687.us = phi i64 [ %21, %.lr.ph.us ], [ %34, %22 ]
+  %23 = load ptr, ptr %2, align 8, !tbaa !485
+  %24 = load i64, ptr %17, align 8, !tbaa !487
+  %25 = mul nsw i64 %24, %.06388.us
+  %26 = getelementptr float, ptr %23, i64 %.06490.us
+  %27 = getelementptr float, ptr %26, i64 %25
+  %28 = load <4 x float>, ptr %27, align 1, !tbaa !118
+  %29 = getelementptr i8, ptr %26, i64 16
+  %30 = getelementptr float, ptr %29, i64 %25
+  %31 = load <4 x float>, ptr %30, align 1, !tbaa !118
+  %32 = getelementptr inbounds float, ptr %1, i64 %.16687.us
+  store <4 x float> %28, ptr %32, align 16, !tbaa !118
+  %33 = getelementptr i8, ptr %32, i64 16
+  store <4 x float> %31, ptr %33, align 16, !tbaa !118
+  %34 = add nsw i64 %.16687.us, 8
+  %35 = add nuw nsw i64 %.06388.us, 1
+  %exitcond.not = icmp eq i64 %35, %3
+  br i1 %exitcond.not, label %._crit_edge.us, label %22, !llvm.loop !499
 
-._crit_edge.us:                                   ; preds = %23
-  %37 = add nsw i64 %35, %20
-  %38 = add nuw nsw i64 %.06490.us, 8
-  %39 = icmp slt i64 %38, %9
-  br i1 %39, label %.lr.ph.us, label %.preheader86, !llvm.loop !500
+._crit_edge.us:                                   ; preds = %22
+  %36 = add nsw i64 %34, %20
+  %37 = add nuw nsw i64 %.06490.us, 8
+  %38 = icmp slt i64 %37, %9
+  br i1 %38, label %.lr.ph.us, label %.preheader86, !llvm.loop !500
 
 .lr.ph92.split:                                   ; preds = %.lr.ph92
   %invariant.op = add i64 %15, %20
   %smax = tail call i64 @llvm.smax.i64(i64 %9, i64 8)
-  %40 = add nsw i64 %smax, -1
-  %41 = lshr i64 %40, 3
-  %42 = shl i64 %5, 3
-  %43 = shl i64 %3, 3
-  %44 = and i64 %40, -8
-  %45 = mul i64 %41, %invariant.op
-  %46 = add i64 %45, %42
-  %47 = sub i64 %46, %43
-  %48 = add nuw nsw i64 %44, 8
+  %39 = add nsw i64 %smax, -1
+  %40 = lshr i64 %39, 3
+  %41 = shl i64 %5, 3
+  %42 = shl i64 %3, 3
+  %43 = and i64 %39, -8
+  %44 = mul i64 %40, %invariant.op
+  %45 = add i64 %44, %41
+  %46 = sub i64 %45, %42
+  %47 = add nuw nsw i64 %43, 8
   br label %.preheader86
 
 .preheader86:                                     ; preds = %._crit_edge.us, %.lr.ph92.split, %7
-  %.065.lcssa = phi i64 [ 0, %7 ], [ %47, %.lr.ph92.split ], [ %37, %._crit_edge.us ]
-  %.064.lcssa = phi i64 [ 0, %7 ], [ %48, %.lr.ph92.split ], [ %38, %._crit_edge.us ]
-  %49 = icmp slt i64 %.064.lcssa, %13
-  br i1 %49, label %.lr.ph100, label %.preheader
+  %.065.lcssa = phi i64 [ 0, %7 ], [ %46, %.lr.ph92.split ], [ %36, %._crit_edge.us ]
+  %.064.lcssa = phi i64 [ 0, %7 ], [ %47, %.lr.ph92.split ], [ %37, %._crit_edge.us ]
+  %48 = icmp slt i64 %.064.lcssa, %13
+  br i1 %48, label %.lr.ph100, label %.preheader
 
 .lr.ph100:                                        ; preds = %.preheader86
-  %50 = shl i64 %6, 2
-  %51 = icmp sgt i64 %3, 0
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %53 = add i64 %3, %6
-  %54 = sub i64 %5, %53
-  %55 = shl i64 %54, 2
-  br i1 %51, label %.lr.ph.us103, label %.lr.ph100.split
+  %49 = shl i64 %6, 2
+  %50 = icmp sgt i64 %3, 0
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %52 = add i64 %3, %6
+  %53 = sub i64 %5, %52
+  %54 = shl i64 %53, 2
+  br i1 %50, label %.lr.ph.us103, label %.lr.ph100.split
 
 .lr.ph.us103:                                     ; preds = %.lr.ph100, %._crit_edge.us104
-  %.199.us = phi i64 [ %68, %._crit_edge.us104 ], [ %.064.lcssa, %.lr.ph100 ]
-  %.26798.us = phi i64 [ %67, %._crit_edge.us104 ], [ %.065.lcssa, %.lr.ph100 ]
-  %56 = add nsw i64 %.26798.us, %50
-  br label %57
+  %.199.us = phi i64 [ %67, %._crit_edge.us104 ], [ %.064.lcssa, %.lr.ph100 ]
+  %.26798.us = phi i64 [ %66, %._crit_edge.us104 ], [ %.065.lcssa, %.lr.ph100 ]
+  %55 = add nsw i64 %.26798.us, %49
+  br label %56
 
-57:                                               ; preds = %.lr.ph.us103, %57
-  %.06297.us = phi i64 [ 0, %.lr.ph.us103 ], [ %66, %57 ]
-  %.396.us = phi i64 [ %56, %.lr.ph.us103 ], [ %65, %57 ]
-  %58 = load ptr, ptr %2, align 8, !tbaa !485
-  %59 = load i64, ptr %52, align 8, !tbaa !487
-  %60 = mul nsw i64 %59, %.06297.us
-  %61 = getelementptr float, ptr %58, i64 %.199.us
-  %62 = getelementptr float, ptr %61, i64 %60
-  %63 = load <4 x float>, ptr %62, align 1, !tbaa !118
-  %64 = getelementptr inbounds float, ptr %1, i64 %.396.us
-  store <4 x float> %63, ptr %64, align 16, !tbaa !118
-  %65 = add nsw i64 %.396.us, 4
-  %66 = add nuw nsw i64 %.06297.us, 1
-  %exitcond132.not = icmp eq i64 %66, %3
-  br i1 %exitcond132.not, label %._crit_edge.us104, label %57, !llvm.loop !501
+56:                                               ; preds = %.lr.ph.us103, %56
+  %.06297.us = phi i64 [ 0, %.lr.ph.us103 ], [ %65, %56 ]
+  %.396.us = phi i64 [ %55, %.lr.ph.us103 ], [ %64, %56 ]
+  %57 = load ptr, ptr %2, align 8, !tbaa !485
+  %58 = load i64, ptr %51, align 8, !tbaa !487
+  %59 = mul nsw i64 %58, %.06297.us
+  %60 = getelementptr float, ptr %57, i64 %.199.us
+  %61 = getelementptr float, ptr %60, i64 %59
+  %62 = load <4 x float>, ptr %61, align 1, !tbaa !118
+  %63 = getelementptr inbounds float, ptr %1, i64 %.396.us
+  store <4 x float> %62, ptr %63, align 16, !tbaa !118
+  %64 = add nsw i64 %.396.us, 4
+  %65 = add nuw nsw i64 %.06297.us, 1
+  %exitcond132.not = icmp eq i64 %65, %3
+  br i1 %exitcond132.not, label %._crit_edge.us104, label %56, !llvm.loop !501
 
-._crit_edge.us104:                                ; preds = %57
-  %67 = add nsw i64 %65, %55
-  %68 = add nuw nsw i64 %.199.us, 4
-  %69 = icmp slt i64 %68, %13
-  br i1 %69, label %.lr.ph.us103, label %.preheader, !llvm.loop !502
+._crit_edge.us104:                                ; preds = %56
+  %66 = add nsw i64 %64, %54
+  %67 = add nuw nsw i64 %.199.us, 4
+  %68 = icmp slt i64 %67, %13
+  br i1 %68, label %.lr.ph.us103, label %.preheader, !llvm.loop !502
 
 .lr.ph100.split:                                  ; preds = %.lr.ph100
-  %invariant.op108 = add i64 %50, %55
-  %70 = xor i64 %.064.lcssa, -1
-  %71 = add i64 %13, %70
-  %72 = lshr i64 %71, 2
-  %73 = mul i64 %72, %invariant.op108
-  %74 = shl i64 %5, 2
-  %75 = shl i64 %3, 2
-  %76 = and i64 %71, -4
-  %77 = add i64 %.064.lcssa, %76
-  %78 = add i64 %.065.lcssa, %73
-  %79 = add i64 %78, %74
-  %80 = sub i64 %79, %75
-  %81 = add i64 %77, 4
+  %invariant.op108 = add i64 %49, %54
+  %69 = xor i64 %.064.lcssa, -1
+  %70 = add i64 %13, %69
+  %71 = lshr i64 %70, 2
+  %72 = mul i64 %71, %invariant.op108
+  %73 = shl i64 %5, 2
+  %74 = shl i64 %3, 2
+  %75 = and i64 %70, -4
+  %76 = add i64 %.064.lcssa, %75
+  %77 = add i64 %.065.lcssa, %72
+  %78 = add i64 %77, %73
+  %79 = sub i64 %78, %74
+  %80 = add i64 %76, 4
   br label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge.us104, %.lr.ph100.split, %.preheader86
-  %.267.lcssa = phi i64 [ %.065.lcssa, %.preheader86 ], [ %80, %.lr.ph100.split ], [ %67, %._crit_edge.us104 ]
-  %.1.lcssa = phi i64 [ %.064.lcssa, %.preheader86 ], [ %81, %.lr.ph100.split ], [ %68, %._crit_edge.us104 ]
-  %82 = icmp slt i64 %.1.lcssa, %4
-  br i1 %82, label %.lr.ph114, label %._crit_edge115
+  %.267.lcssa = phi i64 [ %.065.lcssa, %.preheader86 ], [ %79, %.lr.ph100.split ], [ %66, %._crit_edge.us104 ]
+  %.1.lcssa = phi i64 [ %.064.lcssa, %.preheader86 ], [ %80, %.lr.ph100.split ], [ %67, %._crit_edge.us104 ]
+  %81 = icmp slt i64 %.1.lcssa, %4
+  br i1 %81, label %.lr.ph114, label %._crit_edge115
 
 .lr.ph114:                                        ; preds = %.preheader
-  %83 = icmp sgt i64 %3, 0
-  %84 = load ptr, ptr %2, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %86 = load i64, ptr %85, align 8
-  %87 = add i64 %3, %6
-  %88 = sub i64 %5, %87
-  br i1 %83, label %.lr.ph.us116, label %._crit_edge115
+  %82 = icmp sgt i64 %3, 0
+  %83 = load ptr, ptr %2, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %85 = load i64, ptr %84, align 8
+  %86 = add i64 %3, %6
+  %87 = sub i64 %5, %86
+  br i1 %82, label %.lr.ph.us116, label %._crit_edge115
 
 .lr.ph.us116:                                     ; preds = %.lr.ph114, %._crit_edge.us117
-  %.2113.us = phi i64 [ %99, %._crit_edge.us117 ], [ %.1.lcssa, %.lr.ph114 ]
-  %.4112.us = phi i64 [ %98, %._crit_edge.us117 ], [ %.267.lcssa, %.lr.ph114 ]
-  %89 = add nsw i64 %.4112.us, %6
-  %90 = getelementptr float, ptr %84, i64 %.2113.us
-  br label %91
+  %.2113.us = phi i64 [ %98, %._crit_edge.us117 ], [ %.1.lcssa, %.lr.ph114 ]
+  %.4112.us = phi i64 [ %97, %._crit_edge.us117 ], [ %.267.lcssa, %.lr.ph114 ]
+  %88 = add nsw i64 %.4112.us, %6
+  %89 = getelementptr float, ptr %83, i64 %.2113.us
+  br label %90
 
-91:                                               ; preds = %.lr.ph.us116, %91
-  %.0111.us = phi i64 [ 0, %.lr.ph.us116 ], [ %97, %91 ]
-  %.5110.us = phi i64 [ %89, %.lr.ph.us116 ], [ %95, %91 ]
-  %92 = mul nsw i64 %86, %.0111.us
-  %93 = getelementptr float, ptr %90, i64 %92
-  %94 = load float, ptr %93, align 4, !tbaa !123
-  %95 = add nsw i64 %.5110.us, 1
-  %96 = getelementptr inbounds float, ptr %1, i64 %.5110.us
-  store float %94, ptr %96, align 4, !tbaa !123
-  %97 = add nuw nsw i64 %.0111.us, 1
-  %exitcond133.not = icmp eq i64 %97, %3
-  br i1 %exitcond133.not, label %._crit_edge.us117, label %91, !llvm.loop !503
+90:                                               ; preds = %.lr.ph.us116, %90
+  %.0111.us = phi i64 [ 0, %.lr.ph.us116 ], [ %96, %90 ]
+  %.5110.us = phi i64 [ %88, %.lr.ph.us116 ], [ %94, %90 ]
+  %91 = mul nsw i64 %85, %.0111.us
+  %92 = getelementptr float, ptr %89, i64 %91
+  %93 = load float, ptr %92, align 4, !tbaa !123
+  %94 = add nsw i64 %.5110.us, 1
+  %95 = getelementptr inbounds float, ptr %1, i64 %.5110.us
+  store float %93, ptr %95, align 4, !tbaa !123
+  %96 = add nuw nsw i64 %.0111.us, 1
+  %exitcond133.not = icmp eq i64 %96, %3
+  br i1 %exitcond133.not, label %._crit_edge.us117, label %90, !llvm.loop !503
 
-._crit_edge.us117:                                ; preds = %91
-  %98 = add nsw i64 %88, %95
-  %99 = add nuw nsw i64 %.2113.us, 1
-  %exitcond134.not = icmp eq i64 %99, %4
+._crit_edge.us117:                                ; preds = %90
+  %97 = add nsw i64 %87, %94
+  %98 = add nuw nsw i64 %.2113.us, 1
+  %exitcond134.not = icmp eq i64 %98, %4
   br i1 %exitcond134.not, label %._crit_edge115, label %.lr.ph.us116, !llvm.loop !504
 
 ._crit_edge115:                                   ; preds = %._crit_edge.us117, %.lr.ph114, %.preheader
@@ -13631,117 +13613,116 @@ define linkonce_odr hidden void @_ZN5Eigen8internal13gemm_pack_lhsIflNS0_22const
   br label %.preheader63
 
 .preheader64.us:                                  ; preds = %.preheader64.lr.ph, %._crit_edge.us
-  %.05568.us = phi i64 [ %35, %._crit_edge.us ], [ 0, %.preheader64.lr.ph ]
-  %.05667.us = phi i64 [ %33, %._crit_edge.us ], [ 0, %.preheader64.lr.ph ]
-  %20 = or disjoint i64 %.05568.us, 4
-  br label %21
+  %.05568.us = phi i64 [ %34, %._crit_edge.us ], [ 0, %.preheader64.lr.ph ]
+  %.05667.us = phi i64 [ %32, %._crit_edge.us ], [ 0, %.preheader64.lr.ph ]
+  br label %20
 
-21:                                               ; preds = %.preheader64.us, %21
-  %.05466.us = phi i64 [ 0, %.preheader64.us ], [ %34, %21 ]
-  %.15765.us = phi i64 [ %.05667.us, %.preheader64.us ], [ %33, %21 ]
-  %22 = load ptr, ptr %2, align 8, !tbaa !433
-  %23 = load i64, ptr %16, align 8, !tbaa !435
-  %24 = mul nsw i64 %23, %.05466.us
-  %25 = getelementptr float, ptr %22, i64 %.05568.us
-  %26 = getelementptr float, ptr %25, i64 %24
-  %27 = load <4 x float>, ptr %26, align 1, !tbaa !118
-  %28 = getelementptr float, ptr %22, i64 %20
-  %29 = getelementptr float, ptr %28, i64 %24
-  %30 = load <4 x float>, ptr %29, align 1, !tbaa !118
-  %31 = getelementptr inbounds float, ptr %1, i64 %.15765.us
-  store <4 x float> %27, ptr %31, align 16, !tbaa !118
-  %32 = getelementptr i8, ptr %31, i64 16
-  store <4 x float> %30, ptr %32, align 16, !tbaa !118
-  %33 = add nsw i64 %.15765.us, 8
-  %34 = add nuw nsw i64 %.05466.us, 1
-  %exitcond.not = icmp eq i64 %34, %3
-  br i1 %exitcond.not, label %._crit_edge.us, label %21, !llvm.loop !520
+20:                                               ; preds = %.preheader64.us, %20
+  %.05466.us = phi i64 [ 0, %.preheader64.us ], [ %33, %20 ]
+  %.15765.us = phi i64 [ %.05667.us, %.preheader64.us ], [ %32, %20 ]
+  %21 = load ptr, ptr %2, align 8, !tbaa !433
+  %22 = load i64, ptr %16, align 8, !tbaa !435
+  %23 = mul nsw i64 %22, %.05466.us
+  %24 = getelementptr float, ptr %21, i64 %.05568.us
+  %25 = getelementptr float, ptr %24, i64 %23
+  %26 = load <4 x float>, ptr %25, align 1, !tbaa !118
+  %27 = getelementptr i8, ptr %24, i64 16
+  %28 = getelementptr float, ptr %27, i64 %23
+  %29 = load <4 x float>, ptr %28, align 1, !tbaa !118
+  %30 = getelementptr inbounds float, ptr %1, i64 %.15765.us
+  store <4 x float> %26, ptr %30, align 16, !tbaa !118
+  %31 = getelementptr i8, ptr %30, i64 16
+  store <4 x float> %29, ptr %31, align 16, !tbaa !118
+  %32 = add nsw i64 %.15765.us, 8
+  %33 = add nuw nsw i64 %.05466.us, 1
+  %exitcond.not = icmp eq i64 %33, %3
+  br i1 %exitcond.not, label %._crit_edge.us, label %20, !llvm.loop !520
 
-._crit_edge.us:                                   ; preds = %21
-  %35 = add nuw nsw i64 %.05568.us, 8
-  %36 = icmp slt i64 %35, %9
-  br i1 %36, label %.preheader64.us, label %.preheader63, !llvm.loop !521
+._crit_edge.us:                                   ; preds = %20
+  %34 = add nuw nsw i64 %.05568.us, 8
+  %35 = icmp slt i64 %34, %9
+  br i1 %35, label %.preheader64.us, label %.preheader63, !llvm.loop !521
 
 .preheader63:                                     ; preds = %._crit_edge.us, %.preheader64.preheader, %7
-  %.056.lcssa = phi i64 [ 0, %7 ], [ 0, %.preheader64.preheader ], [ %33, %._crit_edge.us ]
-  %.055.lcssa = phi i64 [ 0, %7 ], [ %19, %.preheader64.preheader ], [ %35, %._crit_edge.us ]
-  %37 = icmp slt i64 %.055.lcssa, %13
-  br i1 %37, label %.preheader62.lr.ph, label %.preheader61
+  %.056.lcssa = phi i64 [ 0, %7 ], [ 0, %.preheader64.preheader ], [ %32, %._crit_edge.us ]
+  %.055.lcssa = phi i64 [ 0, %7 ], [ %19, %.preheader64.preheader ], [ %34, %._crit_edge.us ]
+  %36 = icmp slt i64 %.055.lcssa, %13
+  br i1 %36, label %.preheader62.lr.ph, label %.preheader61
 
 .preheader62.lr.ph:                               ; preds = %.preheader63
-  %38 = icmp sgt i64 %3, 0
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br i1 %38, label %.preheader62.us, label %.preheader62.preheader
+  %37 = icmp sgt i64 %3, 0
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br i1 %37, label %.preheader62.us, label %.preheader62.preheader
 
 .preheader62.preheader:                           ; preds = %.preheader62.lr.ph
-  %40 = xor i64 %.055.lcssa, -1
-  %41 = add i64 %13, %40
-  %42 = and i64 %41, -4
-  %43 = add i64 %.055.lcssa, %42
-  %44 = add i64 %43, 4
+  %39 = xor i64 %.055.lcssa, -1
+  %40 = add i64 %13, %39
+  %41 = and i64 %40, -4
+  %42 = add i64 %.055.lcssa, %41
+  %43 = add i64 %42, 4
   br label %.preheader61
 
 .preheader62.us:                                  ; preds = %.preheader62.lr.ph, %._crit_edge.us78
-  %.175.us = phi i64 [ %55, %._crit_edge.us78 ], [ %.055.lcssa, %.preheader62.lr.ph ]
-  %.25874.us = phi i64 [ %53, %._crit_edge.us78 ], [ %.056.lcssa, %.preheader62.lr.ph ]
-  br label %45
+  %.175.us = phi i64 [ %54, %._crit_edge.us78 ], [ %.055.lcssa, %.preheader62.lr.ph ]
+  %.25874.us = phi i64 [ %52, %._crit_edge.us78 ], [ %.056.lcssa, %.preheader62.lr.ph ]
+  br label %44
 
-45:                                               ; preds = %.preheader62.us, %45
-  %.05373.us = phi i64 [ 0, %.preheader62.us ], [ %54, %45 ]
-  %.372.us = phi i64 [ %.25874.us, %.preheader62.us ], [ %53, %45 ]
-  %46 = load ptr, ptr %2, align 8, !tbaa !433
-  %47 = load i64, ptr %39, align 8, !tbaa !435
-  %48 = mul nsw i64 %47, %.05373.us
-  %49 = getelementptr float, ptr %46, i64 %.175.us
-  %50 = getelementptr float, ptr %49, i64 %48
-  %51 = load <4 x float>, ptr %50, align 1, !tbaa !118
-  %52 = getelementptr inbounds float, ptr %1, i64 %.372.us
-  store <4 x float> %51, ptr %52, align 16, !tbaa !118
-  %53 = add nsw i64 %.372.us, 4
-  %54 = add nuw nsw i64 %.05373.us, 1
-  %exitcond98.not = icmp eq i64 %54, %3
-  br i1 %exitcond98.not, label %._crit_edge.us78, label %45, !llvm.loop !522
+44:                                               ; preds = %.preheader62.us, %44
+  %.05373.us = phi i64 [ 0, %.preheader62.us ], [ %53, %44 ]
+  %.372.us = phi i64 [ %.25874.us, %.preheader62.us ], [ %52, %44 ]
+  %45 = load ptr, ptr %2, align 8, !tbaa !433
+  %46 = load i64, ptr %38, align 8, !tbaa !435
+  %47 = mul nsw i64 %46, %.05373.us
+  %48 = getelementptr float, ptr %45, i64 %.175.us
+  %49 = getelementptr float, ptr %48, i64 %47
+  %50 = load <4 x float>, ptr %49, align 1, !tbaa !118
+  %51 = getelementptr inbounds float, ptr %1, i64 %.372.us
+  store <4 x float> %50, ptr %51, align 16, !tbaa !118
+  %52 = add nsw i64 %.372.us, 4
+  %53 = add nuw nsw i64 %.05373.us, 1
+  %exitcond98.not = icmp eq i64 %53, %3
+  br i1 %exitcond98.not, label %._crit_edge.us78, label %44, !llvm.loop !522
 
-._crit_edge.us78:                                 ; preds = %45
-  %55 = add nuw nsw i64 %.175.us, 4
-  %56 = icmp slt i64 %55, %13
-  br i1 %56, label %.preheader62.us, label %.preheader61, !llvm.loop !523
+._crit_edge.us78:                                 ; preds = %44
+  %54 = add nuw nsw i64 %.175.us, 4
+  %55 = icmp slt i64 %54, %13
+  br i1 %55, label %.preheader62.us, label %.preheader61, !llvm.loop !523
 
 .preheader61:                                     ; preds = %._crit_edge.us78, %.preheader62.preheader, %.preheader63
-  %.258.lcssa = phi i64 [ %.056.lcssa, %.preheader63 ], [ %.056.lcssa, %.preheader62.preheader ], [ %53, %._crit_edge.us78 ]
-  %.1.lcssa = phi i64 [ %.055.lcssa, %.preheader63 ], [ %44, %.preheader62.preheader ], [ %55, %._crit_edge.us78 ]
-  %57 = icmp slt i64 %.1.lcssa, %4
-  br i1 %57, label %.preheader.lr.ph, label %._crit_edge86
+  %.258.lcssa = phi i64 [ %.056.lcssa, %.preheader63 ], [ %.056.lcssa, %.preheader62.preheader ], [ %52, %._crit_edge.us78 ]
+  %.1.lcssa = phi i64 [ %.055.lcssa, %.preheader63 ], [ %43, %.preheader62.preheader ], [ %54, %._crit_edge.us78 ]
+  %56 = icmp slt i64 %.1.lcssa, %4
+  br i1 %56, label %.preheader.lr.ph, label %._crit_edge86
 
 .preheader.lr.ph:                                 ; preds = %.preheader61
-  %58 = icmp sgt i64 %3, 0
-  %59 = load ptr, ptr %2, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %61 = load i64, ptr %60, align 8
-  br i1 %58, label %.preheader.us, label %._crit_edge86
+  %57 = icmp sgt i64 %3, 0
+  %58 = load ptr, ptr %2, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %60 = load i64, ptr %59, align 8
+  br i1 %57, label %.preheader.us, label %._crit_edge86
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us87
-  %.285.us = phi i64 [ %70, %._crit_edge.us87 ], [ %.1.lcssa, %.preheader.lr.ph ]
-  %.484.us = phi i64 [ %67, %._crit_edge.us87 ], [ %.258.lcssa, %.preheader.lr.ph ]
-  %62 = getelementptr float, ptr %59, i64 %.285.us
-  br label %63
+  %.285.us = phi i64 [ %69, %._crit_edge.us87 ], [ %.1.lcssa, %.preheader.lr.ph ]
+  %.484.us = phi i64 [ %66, %._crit_edge.us87 ], [ %.258.lcssa, %.preheader.lr.ph ]
+  %61 = getelementptr float, ptr %58, i64 %.285.us
+  br label %62
 
-63:                                               ; preds = %.preheader.us, %63
-  %.083.us = phi i64 [ 0, %.preheader.us ], [ %69, %63 ]
-  %.582.us = phi i64 [ %.484.us, %.preheader.us ], [ %67, %63 ]
-  %64 = mul nsw i64 %61, %.083.us
-  %65 = getelementptr float, ptr %62, i64 %64
-  %66 = load float, ptr %65, align 4, !tbaa !123
-  %67 = add nsw i64 %.582.us, 1
-  %68 = getelementptr inbounds float, ptr %1, i64 %.582.us
-  store float %66, ptr %68, align 4, !tbaa !123
-  %69 = add nuw nsw i64 %.083.us, 1
-  %exitcond99.not = icmp eq i64 %69, %3
-  br i1 %exitcond99.not, label %._crit_edge.us87, label %63, !llvm.loop !524
+62:                                               ; preds = %.preheader.us, %62
+  %.083.us = phi i64 [ 0, %.preheader.us ], [ %68, %62 ]
+  %.582.us = phi i64 [ %.484.us, %.preheader.us ], [ %66, %62 ]
+  %63 = mul nsw i64 %60, %.083.us
+  %64 = getelementptr float, ptr %61, i64 %63
+  %65 = load float, ptr %64, align 4, !tbaa !123
+  %66 = add nsw i64 %.582.us, 1
+  %67 = getelementptr inbounds float, ptr %1, i64 %.582.us
+  store float %65, ptr %67, align 4, !tbaa !123
+  %68 = add nuw nsw i64 %.083.us, 1
+  %exitcond99.not = icmp eq i64 %68, %3
+  br i1 %exitcond99.not, label %._crit_edge.us87, label %62, !llvm.loop !524
 
-._crit_edge.us87:                                 ; preds = %63
-  %70 = add nuw nsw i64 %.285.us, 1
-  %exitcond100.not = icmp eq i64 %70, %4
+._crit_edge.us87:                                 ; preds = %62
+  %69 = add nuw nsw i64 %.285.us, 1
+  %exitcond100.not = icmp eq i64 %69, %4
   br i1 %exitcond100.not, label %._crit_edge86, label %.preheader.us, !llvm.loop !525
 
 ._crit_edge86:                                    ; preds = %._crit_edge.us87, %.preheader.lr.ph, %.preheader61
@@ -14166,389 +14147,384 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %17 = select i1 %13, i64 %1, i64 %16
   %18 = insertelement <4 x float> poison, float %6, i64 0
   %19 = shufflevector <4 x float> %18, <4 x float> poison, <4 x i32> zeroinitializer
-  %invariant.gep = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 16
-  %invariant.gep462 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 32
+  %invariant.gep474 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 16
+  %invariant.gep476 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 32
+  %invariant.gep478 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 48
   %20 = icmp sgt i64 %1, 0
-  br i1 %20, label %.lr.ph468, label %._crit_edge469
+  br i1 %20, label %.lr.ph488, label %._crit_edge489
 
-.lr.ph468:                                        ; preds = %7
+.lr.ph488:                                        ; preds = %7
+  %invariant.gep425 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 64
+  %invariant.gep427 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 80
+  %invariant.gep429 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 96
+  %invariant.gep431 = getelementptr i8, ptr %.sroa.0336.0.copyload, i64 112
   %21 = icmp sgt i64 %0, 31
   br label %23
 
-.loopexit:                                        ; preds = %._crit_edge459, %252
+.loopexit:                                        ; preds = %._crit_edge471, %232
   %22 = icmp slt i64 %24, %1
-  br i1 %22, label %23, label %._crit_edge469, !llvm.loop !540
+  br i1 %22, label %23, label %._crit_edge489, !llvm.loop !540
 
-._crit_edge469:                                   ; preds = %.loopexit, %7
+._crit_edge489:                                   ; preds = %.loopexit, %7
   ret void
 
-23:                                               ; preds = %.lr.ph468, %.loopexit
-  %.0188466 = phi i64 [ 0, %.lr.ph468 ], [ %24, %.loopexit ]
-  %24 = add nuw nsw i64 %.0188466, %17
+23:                                               ; preds = %.lr.ph488, %.loopexit
+  %.0188486 = phi i64 [ 0, %.lr.ph488 ], [ %24, %.loopexit ]
+  %24 = add nuw nsw i64 %.0188486, %17
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %1, i64 %24)
-  br i1 %21, label %.lr.ph, label %._crit_edge422
+  br i1 %21, label %.lr.ph, label %._crit_edge434
 
 .lr.ph:                                           ; preds = %23, %._crit_edge
-  %.0187421 = phi i64 [ %73, %._crit_edge ], [ 0, %23 ]
+  %.0187433 = phi i64 [ %59, %._crit_edge ], [ 0, %23 ]
   %25 = load ptr, ptr %3, align 8, !tbaa !433
-  %26 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.0187421
-  %27 = or disjoint i64 %.0187421, 4
-  %28 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %27
-  %29 = or disjoint i64 %.0187421, 8
-  %30 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %29
-  %31 = or disjoint i64 %.0187421, 12
-  %32 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %31
-  %33 = or disjoint i64 %.0187421, 16
-  %34 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %33
-  %35 = or disjoint i64 %.0187421, 20
-  %36 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %35
-  %37 = or disjoint i64 %.0187421, 24
-  %38 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %37
-  %39 = or disjoint i64 %.0187421, 28
-  %40 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %39
-  br label %75
+  %26 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.0187433
+  %gep = getelementptr float, ptr %invariant.gep474, i64 %.0187433
+  %gep422 = getelementptr float, ptr %invariant.gep476, i64 %.0187433
+  %gep424 = getelementptr float, ptr %invariant.gep478, i64 %.0187433
+  %gep426 = getelementptr float, ptr %invariant.gep425, i64 %.0187433
+  %gep428 = getelementptr float, ptr %invariant.gep427, i64 %.0187433
+  %gep430 = getelementptr float, ptr %invariant.gep429, i64 %.0187433
+  %gep432 = getelementptr float, ptr %invariant.gep431, i64 %.0187433
+  br label %61
 
-._crit_edge:                                      ; preds = %75
-  %41 = getelementptr inbounds nuw float, ptr %4, i64 %.0187421
-  %42 = load <4 x float>, ptr %41, align 1, !tbaa !118
-  %43 = fmul <4 x float> %19, %84
-  %44 = fadd <4 x float> %43, %42
-  store <4 x float> %44, ptr %41, align 1, !tbaa !118
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %46 = load <4 x float>, ptr %45, align 1, !tbaa !118
-  %47 = fmul <4 x float> %19, %88
-  %48 = fadd <4 x float> %47, %46
-  store <4 x float> %48, ptr %45, align 1, !tbaa !118
-  %49 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %50 = load <4 x float>, ptr %49, align 1, !tbaa !118
-  %51 = fmul <4 x float> %19, %92
-  %52 = fadd <4 x float> %51, %50
-  store <4 x float> %52, ptr %49, align 1, !tbaa !118
-  %53 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %54 = load <4 x float>, ptr %53, align 1, !tbaa !118
-  %55 = fmul <4 x float> %19, %96
-  %56 = fadd <4 x float> %55, %54
-  store <4 x float> %56, ptr %53, align 1, !tbaa !118
-  %57 = getelementptr inbounds nuw i8, ptr %41, i64 64
-  %58 = load <4 x float>, ptr %57, align 1, !tbaa !118
-  %59 = fmul <4 x float> %19, %100
-  %60 = fadd <4 x float> %59, %58
-  store <4 x float> %60, ptr %57, align 1, !tbaa !118
-  %61 = getelementptr inbounds nuw i8, ptr %41, i64 80
-  %62 = load <4 x float>, ptr %61, align 1, !tbaa !118
-  %63 = fmul <4 x float> %19, %104
-  %64 = fadd <4 x float> %63, %62
-  store <4 x float> %64, ptr %61, align 1, !tbaa !118
-  %65 = getelementptr inbounds nuw i8, ptr %41, i64 96
-  %66 = load <4 x float>, ptr %65, align 1, !tbaa !118
-  %67 = fmul <4 x float> %19, %108
-  %68 = fadd <4 x float> %67, %66
-  store <4 x float> %68, ptr %65, align 1, !tbaa !118
-  %69 = getelementptr inbounds nuw i8, ptr %41, i64 112
-  %70 = load <4 x float>, ptr %69, align 1, !tbaa !118
-  %71 = fmul <4 x float> %19, %112
-  %72 = fadd <4 x float> %71, %70
-  store <4 x float> %72, ptr %69, align 1, !tbaa !118
-  %73 = add nuw nsw i64 %.0187421, 32
-  %74 = icmp slt i64 %73, %8
-  br i1 %74, label %.lr.ph, label %._crit_edge422, !llvm.loop !541
+._crit_edge:                                      ; preds = %61
+  %27 = getelementptr inbounds nuw float, ptr %4, i64 %.0187433
+  %28 = load <4 x float>, ptr %27, align 1, !tbaa !118
+  %29 = fmul <4 x float> %19, %70
+  %30 = fadd <4 x float> %29, %28
+  store <4 x float> %30, ptr %27, align 1, !tbaa !118
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %32 = load <4 x float>, ptr %31, align 1, !tbaa !118
+  %33 = fmul <4 x float> %19, %74
+  %34 = fadd <4 x float> %33, %32
+  store <4 x float> %34, ptr %31, align 1, !tbaa !118
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %36 = load <4 x float>, ptr %35, align 1, !tbaa !118
+  %37 = fmul <4 x float> %19, %78
+  %38 = fadd <4 x float> %37, %36
+  store <4 x float> %38, ptr %35, align 1, !tbaa !118
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %40 = load <4 x float>, ptr %39, align 1, !tbaa !118
+  %41 = fmul <4 x float> %19, %82
+  %42 = fadd <4 x float> %41, %40
+  store <4 x float> %42, ptr %39, align 1, !tbaa !118
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %44 = load <4 x float>, ptr %43, align 1, !tbaa !118
+  %45 = fmul <4 x float> %19, %86
+  %46 = fadd <4 x float> %45, %44
+  store <4 x float> %46, ptr %43, align 1, !tbaa !118
+  %47 = getelementptr inbounds nuw i8, ptr %27, i64 80
+  %48 = load <4 x float>, ptr %47, align 1, !tbaa !118
+  %49 = fmul <4 x float> %19, %90
+  %50 = fadd <4 x float> %49, %48
+  store <4 x float> %50, ptr %47, align 1, !tbaa !118
+  %51 = getelementptr inbounds nuw i8, ptr %27, i64 96
+  %52 = load <4 x float>, ptr %51, align 1, !tbaa !118
+  %53 = fmul <4 x float> %19, %94
+  %54 = fadd <4 x float> %53, %52
+  store <4 x float> %54, ptr %51, align 1, !tbaa !118
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 112
+  %56 = load <4 x float>, ptr %55, align 1, !tbaa !118
+  %57 = fmul <4 x float> %19, %98
+  %58 = fadd <4 x float> %57, %56
+  store <4 x float> %58, ptr %55, align 1, !tbaa !118
+  %59 = add nuw nsw i64 %.0187433, 32
+  %60 = icmp slt i64 %59, %8
+  br i1 %60, label %.lr.ph, label %._crit_edge434, !llvm.loop !541
 
-75:                                               ; preds = %.lr.ph, %75
-  %.0186413 = phi i64 [ %.0188466, %.lr.ph ], [ %113, %75 ]
-  %.0382412 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %84, %75 ]
-  %.0383411 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %88, %75 ]
-  %.0384410 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %92, %75 ]
-  %.0385409 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %96, %75 ]
-  %.0386408 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %100, %75 ]
-  %.0388407 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %104, %75 ]
-  %.0389406 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %108, %75 ]
-  %.0390405 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %112, %75 ]
-  %76 = getelementptr float, ptr %25, i64 %.0186413
-  %77 = load float, ptr %76, align 4, !tbaa !123
-  %78 = insertelement <4 x float> poison, float %77, i64 0
-  %79 = shufflevector <4 x float> %78, <4 x float> poison, <4 x i32> zeroinitializer
-  %80 = mul nsw i64 %.0186413, %.sroa.22.0.copyload
-  %81 = getelementptr float, ptr %26, i64 %80
-  %82 = load <4 x float>, ptr %81, align 1, !tbaa !118
-  %83 = fmul <4 x float> %82, %79
-  %84 = fadd <4 x float> %.0382412, %83
-  %85 = getelementptr float, ptr %28, i64 %80
-  %86 = load <4 x float>, ptr %85, align 1, !tbaa !118
-  %87 = fmul <4 x float> %86, %79
-  %88 = fadd <4 x float> %.0383411, %87
-  %89 = getelementptr float, ptr %30, i64 %80
-  %90 = load <4 x float>, ptr %89, align 1, !tbaa !118
-  %91 = fmul <4 x float> %79, %90
-  %92 = fadd <4 x float> %.0384410, %91
-  %93 = getelementptr float, ptr %32, i64 %80
-  %94 = load <4 x float>, ptr %93, align 1, !tbaa !118
-  %95 = fmul <4 x float> %79, %94
-  %96 = fadd <4 x float> %.0385409, %95
-  %97 = getelementptr float, ptr %34, i64 %80
-  %98 = load <4 x float>, ptr %97, align 1, !tbaa !118
-  %99 = fmul <4 x float> %79, %98
-  %100 = fadd <4 x float> %.0386408, %99
-  %101 = getelementptr float, ptr %36, i64 %80
-  %102 = load <4 x float>, ptr %101, align 1, !tbaa !118
-  %103 = fmul <4 x float> %79, %102
-  %104 = fadd <4 x float> %.0388407, %103
-  %105 = getelementptr float, ptr %38, i64 %80
-  %106 = load <4 x float>, ptr %105, align 1, !tbaa !118
-  %107 = fmul <4 x float> %79, %106
-  %108 = fadd <4 x float> %.0389406, %107
-  %109 = getelementptr float, ptr %40, i64 %80
-  %110 = load <4 x float>, ptr %109, align 1, !tbaa !118
-  %111 = fmul <4 x float> %79, %110
-  %112 = fadd <4 x float> %.0390405, %111
-  %113 = add nuw nsw i64 %.0186413, 1
-  %114 = icmp slt i64 %113, %.sroa.speculated
-  br i1 %114, label %75, label %._crit_edge, !llvm.loop !542
+61:                                               ; preds = %.lr.ph, %61
+  %.0186413 = phi i64 [ %.0188486, %.lr.ph ], [ %99, %61 ]
+  %.0382412 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %70, %61 ]
+  %.0383411 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %74, %61 ]
+  %.0384410 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %78, %61 ]
+  %.0385409 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %82, %61 ]
+  %.0386408 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %86, %61 ]
+  %.0388407 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %90, %61 ]
+  %.0389406 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %94, %61 ]
+  %.0390405 = phi <4 x float> [ zeroinitializer, %.lr.ph ], [ %98, %61 ]
+  %62 = getelementptr float, ptr %25, i64 %.0186413
+  %63 = load float, ptr %62, align 4, !tbaa !123
+  %64 = insertelement <4 x float> poison, float %63, i64 0
+  %65 = shufflevector <4 x float> %64, <4 x float> poison, <4 x i32> zeroinitializer
+  %66 = mul nsw i64 %.0186413, %.sroa.22.0.copyload
+  %67 = getelementptr float, ptr %26, i64 %66
+  %68 = load <4 x float>, ptr %67, align 1, !tbaa !118
+  %69 = fmul <4 x float> %68, %65
+  %70 = fadd <4 x float> %.0382412, %69
+  %71 = getelementptr float, ptr %gep, i64 %66
+  %72 = load <4 x float>, ptr %71, align 1, !tbaa !118
+  %73 = fmul <4 x float> %72, %65
+  %74 = fadd <4 x float> %.0383411, %73
+  %75 = getelementptr float, ptr %gep422, i64 %66
+  %76 = load <4 x float>, ptr %75, align 1, !tbaa !118
+  %77 = fmul <4 x float> %65, %76
+  %78 = fadd <4 x float> %.0384410, %77
+  %79 = getelementptr float, ptr %gep424, i64 %66
+  %80 = load <4 x float>, ptr %79, align 1, !tbaa !118
+  %81 = fmul <4 x float> %65, %80
+  %82 = fadd <4 x float> %.0385409, %81
+  %83 = getelementptr float, ptr %gep426, i64 %66
+  %84 = load <4 x float>, ptr %83, align 1, !tbaa !118
+  %85 = fmul <4 x float> %65, %84
+  %86 = fadd <4 x float> %.0386408, %85
+  %87 = getelementptr float, ptr %gep428, i64 %66
+  %88 = load <4 x float>, ptr %87, align 1, !tbaa !118
+  %89 = fmul <4 x float> %65, %88
+  %90 = fadd <4 x float> %.0388407, %89
+  %91 = getelementptr float, ptr %gep430, i64 %66
+  %92 = load <4 x float>, ptr %91, align 1, !tbaa !118
+  %93 = fmul <4 x float> %65, %92
+  %94 = fadd <4 x float> %.0389406, %93
+  %95 = getelementptr float, ptr %gep432, i64 %66
+  %96 = load <4 x float>, ptr %95, align 1, !tbaa !118
+  %97 = fmul <4 x float> %65, %96
+  %98 = fadd <4 x float> %.0390405, %97
+  %99 = add nuw nsw i64 %.0186413, 1
+  %100 = icmp slt i64 %99, %.sroa.speculated
+  br i1 %100, label %61, label %._crit_edge, !llvm.loop !542
 
-._crit_edge422:                                   ; preds = %._crit_edge, %23
-  %.0187.lcssa = phi i64 [ 0, %23 ], [ %73, %._crit_edge ]
-  %115 = icmp slt i64 %.0187.lcssa, %9
-  br i1 %115, label %.lr.ph429, label %165
+._crit_edge434:                                   ; preds = %._crit_edge, %23
+  %.0187.lcssa = phi i64 [ 0, %23 ], [ %59, %._crit_edge ]
+  %101 = icmp slt i64 %.0187.lcssa, %9
+  br i1 %101, label %.lr.ph441, label %145
 
-.lr.ph429:                                        ; preds = %._crit_edge422
-  %116 = load ptr, ptr %3, align 8, !tbaa !433
-  %117 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.0187.lcssa
-  %118 = or disjoint i64 %.0187.lcssa, 4
-  %119 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %118
-  %120 = or disjoint i64 %.0187.lcssa, 8
-  %121 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %120
-  %122 = or disjoint i64 %.0187.lcssa, 12
-  %123 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %122
-  br label %141
+.lr.ph441:                                        ; preds = %._crit_edge434
+  %102 = load ptr, ptr %3, align 8, !tbaa !433
+  %103 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.0187.lcssa
+  %gep475 = getelementptr float, ptr %invariant.gep474, i64 %.0187.lcssa
+  %gep477 = getelementptr float, ptr %invariant.gep476, i64 %.0187.lcssa
+  %gep479 = getelementptr float, ptr %invariant.gep478, i64 %.0187.lcssa
+  br label %121
 
-._crit_edge430:                                   ; preds = %141
-  %124 = getelementptr inbounds nuw float, ptr %4, i64 %.0187.lcssa
-  %125 = load <4 x float>, ptr %124, align 1, !tbaa !118
-  %126 = fmul <4 x float> %19, %150
-  %127 = fadd <4 x float> %126, %125
-  store <4 x float> %127, ptr %124, align 1, !tbaa !118
-  %128 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %129 = load <4 x float>, ptr %128, align 1, !tbaa !118
-  %130 = fmul <4 x float> %19, %154
-  %131 = fadd <4 x float> %130, %129
-  store <4 x float> %131, ptr %128, align 1, !tbaa !118
-  %132 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  %133 = load <4 x float>, ptr %132, align 1, !tbaa !118
-  %134 = fmul <4 x float> %19, %158
-  %135 = fadd <4 x float> %134, %133
-  store <4 x float> %135, ptr %132, align 1, !tbaa !118
-  %136 = getelementptr inbounds nuw i8, ptr %124, i64 48
-  %137 = load <4 x float>, ptr %136, align 1, !tbaa !118
-  %138 = fmul <4 x float> %19, %162
-  %139 = fadd <4 x float> %138, %137
-  store <4 x float> %139, ptr %136, align 1, !tbaa !118
-  %140 = or disjoint i64 %.0187.lcssa, 16
-  br label %165
+._crit_edge442:                                   ; preds = %121
+  %104 = getelementptr inbounds nuw float, ptr %4, i64 %.0187.lcssa
+  %105 = load <4 x float>, ptr %104, align 1, !tbaa !118
+  %106 = fmul <4 x float> %19, %130
+  %107 = fadd <4 x float> %106, %105
+  store <4 x float> %107, ptr %104, align 1, !tbaa !118
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %109 = load <4 x float>, ptr %108, align 1, !tbaa !118
+  %110 = fmul <4 x float> %19, %134
+  %111 = fadd <4 x float> %110, %109
+  store <4 x float> %111, ptr %108, align 1, !tbaa !118
+  %112 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  %113 = load <4 x float>, ptr %112, align 1, !tbaa !118
+  %114 = fmul <4 x float> %19, %138
+  %115 = fadd <4 x float> %114, %113
+  store <4 x float> %115, ptr %112, align 1, !tbaa !118
+  %116 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %117 = load <4 x float>, ptr %116, align 1, !tbaa !118
+  %118 = fmul <4 x float> %19, %142
+  %119 = fadd <4 x float> %118, %117
+  store <4 x float> %119, ptr %116, align 1, !tbaa !118
+  %120 = or disjoint i64 %.0187.lcssa, 16
+  br label %145
 
-141:                                              ; preds = %.lr.ph429, %141
-  %.0185428 = phi i64 [ %.0188466, %.lr.ph429 ], [ %163, %141 ]
-  %.0391427 = phi <4 x float> [ zeroinitializer, %.lr.ph429 ], [ %150, %141 ]
-  %.0392426 = phi <4 x float> [ zeroinitializer, %.lr.ph429 ], [ %154, %141 ]
-  %.0393425 = phi <4 x float> [ zeroinitializer, %.lr.ph429 ], [ %158, %141 ]
-  %.0394424 = phi <4 x float> [ zeroinitializer, %.lr.ph429 ], [ %162, %141 ]
-  %142 = getelementptr float, ptr %116, i64 %.0185428
-  %143 = load float, ptr %142, align 4, !tbaa !123
-  %144 = insertelement <4 x float> poison, float %143, i64 0
-  %145 = shufflevector <4 x float> %144, <4 x float> poison, <4 x i32> zeroinitializer
-  %146 = mul nsw i64 %.0185428, %.sroa.22.0.copyload
-  %147 = getelementptr float, ptr %117, i64 %146
-  %148 = load <4 x float>, ptr %147, align 1, !tbaa !118
-  %149 = fmul <4 x float> %148, %145
-  %150 = fadd <4 x float> %.0391427, %149
-  %151 = getelementptr float, ptr %119, i64 %146
-  %152 = load <4 x float>, ptr %151, align 1, !tbaa !118
-  %153 = fmul <4 x float> %152, %145
-  %154 = fadd <4 x float> %.0392426, %153
-  %155 = getelementptr float, ptr %121, i64 %146
-  %156 = load <4 x float>, ptr %155, align 1, !tbaa !118
-  %157 = fmul <4 x float> %145, %156
-  %158 = fadd <4 x float> %.0393425, %157
-  %159 = getelementptr float, ptr %123, i64 %146
-  %160 = load <4 x float>, ptr %159, align 1, !tbaa !118
-  %161 = fmul <4 x float> %145, %160
-  %162 = fadd <4 x float> %.0394424, %161
-  %163 = add nuw nsw i64 %.0185428, 1
-  %164 = icmp slt i64 %163, %.sroa.speculated
-  br i1 %164, label %141, label %._crit_edge430, !llvm.loop !543
+121:                                              ; preds = %.lr.ph441, %121
+  %.0185440 = phi i64 [ %.0188486, %.lr.ph441 ], [ %143, %121 ]
+  %.0391439 = phi <4 x float> [ zeroinitializer, %.lr.ph441 ], [ %130, %121 ]
+  %.0392438 = phi <4 x float> [ zeroinitializer, %.lr.ph441 ], [ %134, %121 ]
+  %.0393437 = phi <4 x float> [ zeroinitializer, %.lr.ph441 ], [ %138, %121 ]
+  %.0394436 = phi <4 x float> [ zeroinitializer, %.lr.ph441 ], [ %142, %121 ]
+  %122 = getelementptr float, ptr %102, i64 %.0185440
+  %123 = load float, ptr %122, align 4, !tbaa !123
+  %124 = insertelement <4 x float> poison, float %123, i64 0
+  %125 = shufflevector <4 x float> %124, <4 x float> poison, <4 x i32> zeroinitializer
+  %126 = mul nsw i64 %.0185440, %.sroa.22.0.copyload
+  %127 = getelementptr float, ptr %103, i64 %126
+  %128 = load <4 x float>, ptr %127, align 1, !tbaa !118
+  %129 = fmul <4 x float> %128, %125
+  %130 = fadd <4 x float> %.0391439, %129
+  %131 = getelementptr float, ptr %gep475, i64 %126
+  %132 = load <4 x float>, ptr %131, align 1, !tbaa !118
+  %133 = fmul <4 x float> %132, %125
+  %134 = fadd <4 x float> %.0392438, %133
+  %135 = getelementptr float, ptr %gep477, i64 %126
+  %136 = load <4 x float>, ptr %135, align 1, !tbaa !118
+  %137 = fmul <4 x float> %125, %136
+  %138 = fadd <4 x float> %.0393437, %137
+  %139 = getelementptr float, ptr %gep479, i64 %126
+  %140 = load <4 x float>, ptr %139, align 1, !tbaa !118
+  %141 = fmul <4 x float> %125, %140
+  %142 = fadd <4 x float> %.0394436, %141
+  %143 = add nuw nsw i64 %.0185440, 1
+  %144 = icmp slt i64 %143, %.sroa.speculated
+  br i1 %144, label %121, label %._crit_edge442, !llvm.loop !543
 
-165:                                              ; preds = %._crit_edge430, %._crit_edge422
-  %.1 = phi i64 [ %140, %._crit_edge430 ], [ %.0187.lcssa, %._crit_edge422 ]
-  %166 = icmp slt i64 %.1, %10
-  br i1 %166, label %.lr.ph439, label %202
+145:                                              ; preds = %._crit_edge442, %._crit_edge434
+  %.1 = phi i64 [ %120, %._crit_edge442 ], [ %.0187.lcssa, %._crit_edge434 ]
+  %146 = icmp slt i64 %.1, %10
+  br i1 %146, label %.lr.ph451, label %182
 
-.lr.ph439:                                        ; preds = %165
-  %167 = load ptr, ptr %3, align 8, !tbaa !433
-  %168 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.1
-  %gep = getelementptr float, ptr %invariant.gep, i64 %.1
-  %gep463 = getelementptr float, ptr %invariant.gep462, i64 %.1
+.lr.ph451:                                        ; preds = %145
+  %147 = load ptr, ptr %3, align 8, !tbaa !433
+  %148 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.1
+  %gep481 = getelementptr float, ptr %invariant.gep474, i64 %.1
+  %gep483 = getelementptr float, ptr %invariant.gep476, i64 %.1
+  br label %162
+
+._crit_edge452:                                   ; preds = %162
+  %149 = getelementptr inbounds float, ptr %4, i64 %.1
+  %150 = load <4 x float>, ptr %149, align 1, !tbaa !118
+  %151 = fmul <4 x float> %19, %171
+  %152 = fadd <4 x float> %151, %150
+  store <4 x float> %152, ptr %149, align 1, !tbaa !118
+  %153 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %154 = load <4 x float>, ptr %153, align 1, !tbaa !118
+  %155 = fmul <4 x float> %19, %175
+  %156 = fadd <4 x float> %155, %154
+  store <4 x float> %156, ptr %153, align 1, !tbaa !118
+  %157 = getelementptr inbounds nuw i8, ptr %149, i64 32
+  %158 = load <4 x float>, ptr %157, align 1, !tbaa !118
+  %159 = fmul <4 x float> %19, %179
+  %160 = fadd <4 x float> %159, %158
+  store <4 x float> %160, ptr %157, align 1, !tbaa !118
+  %161 = add nsw i64 %.1, 12
   br label %182
 
-._crit_edge440:                                   ; preds = %182
-  %169 = getelementptr inbounds float, ptr %4, i64 %.1
-  %170 = load <4 x float>, ptr %169, align 1, !tbaa !118
-  %171 = fmul <4 x float> %19, %191
-  %172 = fadd <4 x float> %171, %170
-  store <4 x float> %172, ptr %169, align 1, !tbaa !118
-  %173 = getelementptr inbounds nuw i8, ptr %169, i64 16
-  %174 = load <4 x float>, ptr %173, align 1, !tbaa !118
-  %175 = fmul <4 x float> %19, %195
-  %176 = fadd <4 x float> %175, %174
-  store <4 x float> %176, ptr %173, align 1, !tbaa !118
-  %177 = getelementptr inbounds nuw i8, ptr %169, i64 32
-  %178 = load <4 x float>, ptr %177, align 1, !tbaa !118
-  %179 = fmul <4 x float> %19, %199
-  %180 = fadd <4 x float> %179, %178
-  store <4 x float> %180, ptr %177, align 1, !tbaa !118
-  %181 = add nsw i64 %.1, 12
-  br label %202
+162:                                              ; preds = %.lr.ph451, %162
+  %.0184450 = phi i64 [ %.0188486, %.lr.ph451 ], [ %180, %162 ]
+  %.0395449 = phi <4 x float> [ zeroinitializer, %.lr.ph451 ], [ %171, %162 ]
+  %.0397448 = phi <4 x float> [ zeroinitializer, %.lr.ph451 ], [ %175, %162 ]
+  %.0399447 = phi <4 x float> [ zeroinitializer, %.lr.ph451 ], [ %179, %162 ]
+  %163 = getelementptr float, ptr %147, i64 %.0184450
+  %164 = load float, ptr %163, align 4, !tbaa !123
+  %165 = insertelement <4 x float> poison, float %164, i64 0
+  %166 = shufflevector <4 x float> %165, <4 x float> poison, <4 x i32> zeroinitializer
+  %167 = mul nsw i64 %.0184450, %.sroa.22.0.copyload
+  %168 = getelementptr float, ptr %148, i64 %167
+  %169 = load <4 x float>, ptr %168, align 1, !tbaa !118
+  %170 = fmul <4 x float> %169, %166
+  %171 = fadd <4 x float> %.0395449, %170
+  %172 = getelementptr float, ptr %gep481, i64 %167
+  %173 = load <4 x float>, ptr %172, align 1, !tbaa !118
+  %174 = fmul <4 x float> %173, %166
+  %175 = fadd <4 x float> %.0397448, %174
+  %176 = getelementptr float, ptr %gep483, i64 %167
+  %177 = load <4 x float>, ptr %176, align 1, !tbaa !118
+  %178 = fmul <4 x float> %166, %177
+  %179 = fadd <4 x float> %.0399447, %178
+  %180 = add nuw nsw i64 %.0184450, 1
+  %181 = icmp slt i64 %180, %.sroa.speculated
+  br i1 %181, label %162, label %._crit_edge452, !llvm.loop !544
 
-182:                                              ; preds = %.lr.ph439, %182
-  %.0184438 = phi i64 [ %.0188466, %.lr.ph439 ], [ %200, %182 ]
-  %.0395437 = phi <4 x float> [ zeroinitializer, %.lr.ph439 ], [ %191, %182 ]
-  %.0397436 = phi <4 x float> [ zeroinitializer, %.lr.ph439 ], [ %195, %182 ]
-  %.0399435 = phi <4 x float> [ zeroinitializer, %.lr.ph439 ], [ %199, %182 ]
-  %183 = getelementptr float, ptr %167, i64 %.0184438
-  %184 = load float, ptr %183, align 4, !tbaa !123
-  %185 = insertelement <4 x float> poison, float %184, i64 0
-  %186 = shufflevector <4 x float> %185, <4 x float> poison, <4 x i32> zeroinitializer
-  %187 = mul nsw i64 %.0184438, %.sroa.22.0.copyload
-  %188 = getelementptr float, ptr %168, i64 %187
-  %189 = load <4 x float>, ptr %188, align 1, !tbaa !118
-  %190 = fmul <4 x float> %189, %186
-  %191 = fadd <4 x float> %.0395437, %190
-  %192 = getelementptr float, ptr %gep, i64 %187
-  %193 = load <4 x float>, ptr %192, align 1, !tbaa !118
-  %194 = fmul <4 x float> %193, %186
-  %195 = fadd <4 x float> %.0397436, %194
-  %196 = getelementptr float, ptr %gep463, i64 %187
-  %197 = load <4 x float>, ptr %196, align 1, !tbaa !118
-  %198 = fmul <4 x float> %186, %197
-  %199 = fadd <4 x float> %.0399435, %198
-  %200 = add nuw nsw i64 %.0184438, 1
-  %201 = icmp slt i64 %200, %.sroa.speculated
-  br i1 %201, label %182, label %._crit_edge440, !llvm.loop !544
+182:                                              ; preds = %._crit_edge452, %145
+  %.2 = phi i64 [ %161, %._crit_edge452 ], [ %.1, %145 ]
+  %183 = icmp slt i64 %.2, %11
+  br i1 %183, label %.lr.ph459, label %211
 
-202:                                              ; preds = %._crit_edge440, %165
-  %.2 = phi i64 [ %181, %._crit_edge440 ], [ %.1, %165 ]
-  %203 = icmp slt i64 %.2, %11
-  br i1 %203, label %.lr.ph447, label %231
+.lr.ph459:                                        ; preds = %182
+  %184 = load ptr, ptr %3, align 8, !tbaa !433
+  %185 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.2
+  %gep485 = getelementptr float, ptr %invariant.gep474, i64 %.2
+  br label %195
 
-.lr.ph447:                                        ; preds = %202
-  %204 = load ptr, ptr %3, align 8, !tbaa !433
-  %205 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.2
-  %gep465 = getelementptr float, ptr %invariant.gep, i64 %.2
-  br label %215
+._crit_edge460:                                   ; preds = %195
+  %186 = getelementptr inbounds float, ptr %4, i64 %.2
+  %187 = load <4 x float>, ptr %186, align 1, !tbaa !118
+  %188 = fmul <4 x float> %19, %204
+  %189 = fadd <4 x float> %188, %187
+  store <4 x float> %189, ptr %186, align 1, !tbaa !118
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %191 = load <4 x float>, ptr %190, align 1, !tbaa !118
+  %192 = fmul <4 x float> %19, %208
+  %193 = fadd <4 x float> %192, %191
+  store <4 x float> %193, ptr %190, align 1, !tbaa !118
+  %194 = add nsw i64 %.2, 8
+  br label %211
 
-._crit_edge448:                                   ; preds = %215
-  %206 = getelementptr inbounds float, ptr %4, i64 %.2
-  %207 = load <4 x float>, ptr %206, align 1, !tbaa !118
-  %208 = fmul <4 x float> %19, %224
-  %209 = fadd <4 x float> %208, %207
-  store <4 x float> %209, ptr %206, align 1, !tbaa !118
-  %210 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  %211 = load <4 x float>, ptr %210, align 1, !tbaa !118
-  %212 = fmul <4 x float> %19, %228
-  %213 = fadd <4 x float> %212, %211
-  store <4 x float> %213, ptr %210, align 1, !tbaa !118
-  %214 = add nsw i64 %.2, 8
-  br label %231
+195:                                              ; preds = %.lr.ph459, %195
+  %.0183458 = phi i64 [ %.0188486, %.lr.ph459 ], [ %209, %195 ]
+  %.0396457 = phi <4 x float> [ zeroinitializer, %.lr.ph459 ], [ %208, %195 ]
+  %.0398456 = phi <4 x float> [ zeroinitializer, %.lr.ph459 ], [ %204, %195 ]
+  %196 = getelementptr float, ptr %184, i64 %.0183458
+  %197 = load float, ptr %196, align 4, !tbaa !123
+  %198 = insertelement <4 x float> poison, float %197, i64 0
+  %199 = shufflevector <4 x float> %198, <4 x float> poison, <4 x i32> zeroinitializer
+  %200 = mul nsw i64 %.0183458, %.sroa.22.0.copyload
+  %201 = getelementptr float, ptr %185, i64 %200
+  %202 = load <4 x float>, ptr %201, align 1, !tbaa !118
+  %203 = fmul <4 x float> %202, %199
+  %204 = fadd <4 x float> %.0398456, %203
+  %205 = getelementptr float, ptr %gep485, i64 %200
+  %206 = load <4 x float>, ptr %205, align 1, !tbaa !118
+  %207 = fmul <4 x float> %206, %199
+  %208 = fadd <4 x float> %.0396457, %207
+  %209 = add nuw nsw i64 %.0183458, 1
+  %210 = icmp slt i64 %209, %.sroa.speculated
+  br i1 %210, label %195, label %._crit_edge460, !llvm.loop !545
 
-215:                                              ; preds = %.lr.ph447, %215
-  %.0183446 = phi i64 [ %.0188466, %.lr.ph447 ], [ %229, %215 ]
-  %.0396445 = phi <4 x float> [ zeroinitializer, %.lr.ph447 ], [ %228, %215 ]
-  %.0398444 = phi <4 x float> [ zeroinitializer, %.lr.ph447 ], [ %224, %215 ]
-  %216 = getelementptr float, ptr %204, i64 %.0183446
-  %217 = load float, ptr %216, align 4, !tbaa !123
-  %218 = insertelement <4 x float> poison, float %217, i64 0
-  %219 = shufflevector <4 x float> %218, <4 x float> poison, <4 x i32> zeroinitializer
-  %220 = mul nsw i64 %.0183446, %.sroa.22.0.copyload
-  %221 = getelementptr float, ptr %205, i64 %220
-  %222 = load <4 x float>, ptr %221, align 1, !tbaa !118
-  %223 = fmul <4 x float> %222, %219
-  %224 = fadd <4 x float> %.0398444, %223
-  %225 = getelementptr float, ptr %gep465, i64 %220
-  %226 = load <4 x float>, ptr %225, align 1, !tbaa !118
-  %227 = fmul <4 x float> %226, %219
-  %228 = fadd <4 x float> %.0396445, %227
-  %229 = add nuw nsw i64 %.0183446, 1
-  %230 = icmp slt i64 %229, %.sroa.speculated
-  br i1 %230, label %215, label %._crit_edge448, !llvm.loop !545
+211:                                              ; preds = %._crit_edge460, %182
+  %.3 = phi i64 [ %194, %._crit_edge460 ], [ %.2, %182 ]
+  %212 = icmp slt i64 %.3, %12
+  br i1 %212, label %.lr.ph465, label %232
 
-231:                                              ; preds = %._crit_edge448, %202
-  %.3 = phi i64 [ %214, %._crit_edge448 ], [ %.2, %202 ]
-  %232 = icmp slt i64 %.3, %12
-  br i1 %232, label %.lr.ph453, label %252
+.lr.ph465:                                        ; preds = %211
+  %213 = load ptr, ptr %3, align 8, !tbaa !433
+  %214 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.3
+  br label %220
 
-.lr.ph453:                                        ; preds = %231
-  %233 = load ptr, ptr %3, align 8, !tbaa !433
-  %234 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.3
+._crit_edge466:                                   ; preds = %220
+  %215 = getelementptr inbounds float, ptr %4, i64 %.3
+  %216 = load <4 x float>, ptr %215, align 1, !tbaa !118
+  %217 = fmul <4 x float> %19, %229
+  %218 = fadd <4 x float> %217, %216
+  store <4 x float> %218, ptr %215, align 1, !tbaa !118
+  %219 = add nsw i64 %.3, 4
+  br label %232
+
+220:                                              ; preds = %.lr.ph465, %220
+  %.0182464 = phi i64 [ %.0188486, %.lr.ph465 ], [ %230, %220 ]
+  %.0387463 = phi <4 x float> [ zeroinitializer, %.lr.ph465 ], [ %229, %220 ]
+  %221 = getelementptr float, ptr %213, i64 %.0182464
+  %222 = load float, ptr %221, align 4, !tbaa !123
+  %223 = insertelement <4 x float> poison, float %222, i64 0
+  %224 = shufflevector <4 x float> %223, <4 x float> poison, <4 x i32> zeroinitializer
+  %225 = mul nsw i64 %.0182464, %.sroa.22.0.copyload
+  %226 = getelementptr float, ptr %214, i64 %225
+  %227 = load <4 x float>, ptr %226, align 1, !tbaa !118
+  %228 = fmul <4 x float> %227, %224
+  %229 = fadd <4 x float> %.0387463, %228
+  %230 = add nuw nsw i64 %.0182464, 1
+  %231 = icmp slt i64 %230, %.sroa.speculated
+  br i1 %231, label %220, label %._crit_edge466, !llvm.loop !546
+
+232:                                              ; preds = %._crit_edge466, %211
+  %.4 = phi i64 [ %219, %._crit_edge466 ], [ %.3, %211 ]
+  %233 = icmp slt i64 %.4, %0
+  br i1 %233, label %.preheader.lr.ph, label %.loopexit
+
+.preheader.lr.ph:                                 ; preds = %232
+  %234 = load ptr, ptr %3, align 8
+  br label %.lr.ph470
+
+.lr.ph470:                                        ; preds = %._crit_edge471, %.preheader.lr.ph
+  %.5473 = phi i64 [ %.4, %.preheader.lr.ph ], [ %239, %._crit_edge471 ]
+  %235 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.5473
   br label %240
 
-._crit_edge454:                                   ; preds = %240
-  %235 = getelementptr inbounds float, ptr %4, i64 %.3
-  %236 = load <4 x float>, ptr %235, align 1, !tbaa !118
-  %237 = fmul <4 x float> %19, %249
-  %238 = fadd <4 x float> %237, %236
-  store <4 x float> %238, ptr %235, align 1, !tbaa !118
-  %239 = add nsw i64 %.3, 4
-  br label %252
+._crit_edge471:                                   ; preds = %240
+  %236 = getelementptr inbounds float, ptr %4, i64 %.5473
+  %237 = load float, ptr %236, align 4, !tbaa !123
+  %238 = tail call float @llvm.fmuladd.f32(float %6, float %247, float %237)
+  store float %238, ptr %236, align 4, !tbaa !123
+  %239 = add nsw i64 %.5473, 1
+  %exitcond.not = icmp eq i64 %239, %0
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph470, !llvm.loop !547
 
-240:                                              ; preds = %.lr.ph453, %240
-  %.0182452 = phi i64 [ %.0188466, %.lr.ph453 ], [ %250, %240 ]
-  %.0387451 = phi <4 x float> [ zeroinitializer, %.lr.ph453 ], [ %249, %240 ]
-  %241 = getelementptr float, ptr %233, i64 %.0182452
-  %242 = load float, ptr %241, align 4, !tbaa !123
-  %243 = insertelement <4 x float> poison, float %242, i64 0
-  %244 = shufflevector <4 x float> %243, <4 x float> poison, <4 x i32> zeroinitializer
-  %245 = mul nsw i64 %.0182452, %.sroa.22.0.copyload
-  %246 = getelementptr float, ptr %234, i64 %245
-  %247 = load <4 x float>, ptr %246, align 1, !tbaa !118
-  %248 = fmul <4 x float> %247, %244
-  %249 = fadd <4 x float> %.0387451, %248
-  %250 = add nuw nsw i64 %.0182452, 1
-  %251 = icmp slt i64 %250, %.sroa.speculated
-  br i1 %251, label %240, label %._crit_edge454, !llvm.loop !546
-
-252:                                              ; preds = %._crit_edge454, %231
-  %.4 = phi i64 [ %239, %._crit_edge454 ], [ %.3, %231 ]
-  %253 = icmp slt i64 %.4, %0
-  br i1 %253, label %.preheader.lr.ph, label %.loopexit
-
-.preheader.lr.ph:                                 ; preds = %252
-  %254 = load ptr, ptr %3, align 8
-  br label %.lr.ph458
-
-.lr.ph458:                                        ; preds = %._crit_edge459, %.preheader.lr.ph
-  %.5461 = phi i64 [ %.4, %.preheader.lr.ph ], [ %259, %._crit_edge459 ]
-  %255 = getelementptr float, ptr %.sroa.0336.0.copyload, i64 %.5461
-  br label %260
-
-._crit_edge459:                                   ; preds = %260
-  %256 = getelementptr inbounds float, ptr %4, i64 %.5461
-  %257 = load float, ptr %256, align 4, !tbaa !123
-  %258 = tail call float @llvm.fmuladd.f32(float %6, float %267, float %257)
-  store float %258, ptr %256, align 4, !tbaa !123
-  %259 = add nsw i64 %.5461, 1
-  %exitcond.not = icmp eq i64 %259, %0
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph458, !llvm.loop !547
-
-260:                                              ; preds = %.lr.ph458, %260
-  %.0457 = phi i64 [ %.0188466, %.lr.ph458 ], [ %268, %260 ]
-  %.0181456 = phi float [ 0.000000e+00, %.lr.ph458 ], [ %267, %260 ]
-  %261 = mul nsw i64 %.0457, %.sroa.22.0.copyload
-  %262 = getelementptr float, ptr %255, i64 %261
-  %263 = getelementptr float, ptr %254, i64 %.0457
-  %264 = load float, ptr %262, align 4, !tbaa !123
-  %265 = load float, ptr %263, align 4, !tbaa !123
-  %266 = fmul float %264, %265
-  %267 = fadd float %.0181456, %266
-  %268 = add nuw nsw i64 %.0457, 1
-  %269 = icmp slt i64 %268, %.sroa.speculated
-  br i1 %269, label %260, label %._crit_edge459, !llvm.loop !548
+240:                                              ; preds = %.lr.ph470, %240
+  %.0469 = phi i64 [ %.0188486, %.lr.ph470 ], [ %248, %240 ]
+  %.0181468 = phi float [ 0.000000e+00, %.lr.ph470 ], [ %247, %240 ]
+  %241 = mul nsw i64 %.0469, %.sroa.22.0.copyload
+  %242 = getelementptr float, ptr %235, i64 %241
+  %243 = getelementptr float, ptr %234, i64 %.0469
+  %244 = load float, ptr %242, align 4, !tbaa !123
+  %245 = load float, ptr %243, align 4, !tbaa !123
+  %246 = fmul float %244, %245
+  %247 = fadd float %.0181468, %246
+  %248 = add nuw nsw i64 %.0469, 1
+  %249 = icmp slt i64 %248, %.sroa.speculated
+  br i1 %249, label %240, label %._crit_edge471, !llvm.loop !548
 }
 
 ; Function Attrs: mustprogress uwtable

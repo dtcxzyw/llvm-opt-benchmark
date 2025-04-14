@@ -16695,21 +16695,21 @@ invoke.cont19:                                    ; preds = %invoke.cont
   %and.i.i = and i64 %0, 4611686018427387903
   %u.i.i.ptr = getelementptr inbounds nuw i8, ptr %o, i64 8
   %add.ptr.i.idx = shl nuw nsw i64 %and.i.i, 4
-  %u.i.i.add = or disjoint i64 %add.ptr.i.idx, 8
-  %add.ptr.i.ptr = getelementptr inbounds nuw i8, ptr %o, i64 %u.i.i.add
+  %5 = getelementptr inbounds nuw i8, ptr %o, i64 %add.ptr.i.idx
+  %add.ptr.i.ptr = getelementptr inbounds nuw i8, ptr %5, i64 8
   %cmp.i.i.not7.i.i.i = icmp eq i64 %and.i.i, 0
   br i1 %cmp.i.i.not7.i.i.i, label %invoke.cont25, label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %invoke.cont19, %for.body.i.i.i
   %__cur.09.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %u, %invoke.cont19 ]
   %__first.sroa.0.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i ], [ %u.i.i.ptr, %invoke.cont19 ]
-  %5 = load i64, ptr %__first.sroa.0.08.i.i.i, align 8
-  store i64 %5, ptr %__cur.09.i.i.i, align 8
+  %6 = load i64, ptr %__first.sroa.0.08.i.i.i, align 8
+  store i64 %6, ptr %__cur.09.i.i.i, align 8
   store ptr null, ptr %__first.sroa.0.08.i.i.i, align 8
   %contentType.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 8
   %contentType3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.08.i.i.i, i64 8
-  %6 = load i64, ptr %contentType3.i.i.i.i.i, align 8
-  store i64 %6, ptr %contentType.i.i.i.i.i, align 8
+  %7 = load i64, ptr %contentType3.i.i.i.i.i, align 8
+  store i64 %7, ptr %contentType.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.08.i.i.i, i64 16
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i, i64 16
   %cmp.i.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.ptr
@@ -16717,31 +16717,31 @@ for.body.i.i.i:                                   ; preds = %invoke.cont19, %for
 
 invoke.cont25.loopexit:                           ; preds = %for.body.i.i.i
   %.pre = load i64, ptr %this, align 8
-  %7 = and i64 %.pre, -4611686018427387904
+  %8 = and i64 %.pre, -4611686018427387904
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %invoke.cont25.loopexit, %invoke.cont19
-  %and.i = phi i64 [ %7, %invoke.cont25.loopexit ], [ 0, %invoke.cont19 ]
+  %and.i = phi i64 [ %8, %invoke.cont25.loopexit ], [ 0, %invoke.cont19 ]
   %or.i = or disjoint i64 %and.i, %and.i.i
   store i64 %or.i, ptr %this, align 8
-  %8 = load i64, ptr %o, align 8
-  %9 = load ptr, ptr %u.i.i.ptr, align 8
-  %tobool.not1.i.i.i.i = icmp slt i64 %8, 0
-  %cond.i.i.i.i = select i1 %tobool.not1.i.i.i.i, ptr %9, ptr %u.i.i.ptr
-  %and.i.i.i.i.i = and i64 %8, 4611686018427387903
+  %9 = load i64, ptr %o, align 8
+  %10 = load ptr, ptr %u.i.i.ptr, align 8
+  %tobool.not1.i.i.i.i = icmp slt i64 %9, 0
+  %cond.i.i.i.i = select i1 %tobool.not1.i.i.i.i, ptr %10, ptr %u.i.i.ptr
+  %and.i.i.i.i.i = and i64 %9, 4611686018427387903
   %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.fizz::TLSContent", ptr %cond.i.i.i.i, i64 %and.i.i.i.i.i
   %cmp.not7.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %cmp.not7.i.i, label %_ZN5folly12small_vectorIN4fizz10TLSContentELm4EvE5clearEv.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %invoke.cont25, %_ZN4fizz10TLSContentD2Ev.exit.i.i
   %it.08.i.i = phi ptr [ %incdec.ptr.i.i, %_ZN4fizz10TLSContentD2Ev.exit.i.i ], [ %cond.i.i.i.i, %invoke.cont25 ]
-  %10 = load ptr, ptr %it.08.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %10, null
+  %11 = load ptr, ptr %it.08.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4fizz10TLSContentD2Ev.exit.i.i, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i: ; preds = %for.body.i.i
-  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #30
-  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %10) #30
+  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #30
+  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %11) #30
   br label %_ZN4fizz10TLSContentD2Ev.exit.i.i
 
 _ZN4fizz10TLSContentD2Ev.exit.i.i:                ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i, %for.body.i.i
@@ -16755,8 +16755,8 @@ for.end.loopexit.i.i:                             ; preds = %_ZN4fizz10TLSConten
   br label %_ZN5folly12small_vectorIN4fizz10TLSContentELm4EvE5clearEv.exit
 
 _ZN5folly12small_vectorIN4fizz10TLSContentELm4EvE5clearEv.exit: ; preds = %invoke.cont25, %for.end.loopexit.i.i
-  %11 = phi i64 [ %.pre.i.i, %for.end.loopexit.i.i ], [ %8, %invoke.cont25 ]
-  %and.i.i.i16 = and i64 %11, -4611686018427387904
+  %12 = phi i64 [ %.pre.i.i, %for.end.loopexit.i.i ], [ %9, %invoke.cont25 ]
+  %and.i.i.i16 = and i64 %12, -4611686018427387904
   store i64 %and.i.i.i16, ptr %o, align 8
   br label %if.end
 

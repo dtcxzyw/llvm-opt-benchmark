@@ -862,6 +862,7 @@ define linkonce_odr dso_local void @_ZN11BounceHouse4StepER8Settings(ptr noundef
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !59
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 260
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !60
   %wide.trip.count = zext nneg i32 %6 to i64
@@ -870,7 +871,7 @@ define linkonce_odr dso_local void @_ZN11BounceHouse4StepER8Settings(ptr noundef
 .preheader:                                       ; preds = %16, %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %32
+  br label %31
 
 15:                                               ; preds = %.lr.ph, %16
   %indvars.iv33 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next34, %16 ]
@@ -895,50 +896,49 @@ define linkonce_odr dso_local void @_ZN11BounceHouse4StepER8Settings(ptr noundef
   %indvars.iv = phi i64 [ 1, %15 ], [ %indvars.iv.next, %24 ]
   %.02429 = phi ptr [ %10, %15 ], [ %spec.select, %24 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %.offs = or disjoint i64 %.idx, 12
-  %25 = getelementptr inbounds nuw i8, ptr %10, i64 %.offs
-  %26 = load i32, ptr %25, align 4, !tbaa !65
-  %27 = getelementptr inbounds nuw i8, ptr %.02429, i64 12
-  %28 = load i32, ptr %27, align 4, !tbaa !65
-  %29 = icmp slt i32 %26, %28
-  %30 = getelementptr inbounds nuw %"struct.BounceHouse::HitEvent", ptr %10, i64 %indvars.iv
-  %spec.select = select i1 %29, ptr %30, ptr %.02429
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
+  %25 = load i32, ptr %gep, align 4, !tbaa !65
+  %26 = getelementptr inbounds nuw i8, ptr %.02429, i64 12
+  %27 = load i32, ptr %26, align 4, !tbaa !65
+  %28 = icmp slt i32 %25, %27
+  %29 = getelementptr inbounds nuw %"struct.BounceHouse::HitEvent", ptr %10, i64 %indvars.iv
+  %spec.select = select i1 %28, ptr %29, ptr %.02429
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %16, label %24, !llvm.loop !68
 
-31:                                               ; preds = %44
+30:                                               ; preds = %43
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #17
   ret void
 
-32:                                               ; preds = %.preheader, %44
-  %indvars.iv37 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next38, %44 ]
-  %33 = getelementptr inbounds nuw %"struct.BounceHouse::HitEvent", ptr %13, i64 %indvars.iv37
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  %35 = load i32, ptr %34, align 4, !tbaa !65
-  %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %37, label %44
+31:                                               ; preds = %.preheader, %43
+  %indvars.iv37 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next38, %43 ]
+  %32 = getelementptr inbounds nuw %"struct.BounceHouse::HitEvent", ptr %13, i64 %indvars.iv37
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
+  %34 = load i32, ptr %33, align 4, !tbaa !65
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %36, label %43
 
-37:                                               ; preds = %32
-  %38 = load i32, ptr %14, align 8, !tbaa !60
-  %39 = add nuw nsw i32 %35, 30
-  %.not = icmp sgt i32 %38, %39
-  br i1 %.not, label %44, label %40
+36:                                               ; preds = %31
+  %37 = load i32, ptr %14, align 8, !tbaa !60
+  %38 = add nuw nsw i32 %34, 30
+  %.not = icmp sgt i32 %37, %38
+  br i1 %.not, label %43, label %39
 
-40:                                               ; preds = %37
-  %.sroa.01.0.copyload = load <2 x float>, ptr %33, align 8
+39:                                               ; preds = %36
+  %.sroa.01.0.copyload = load <2 x float>, ptr %32, align 8
   call void @_ZN4Draw10DrawCircleE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.01.0.copyload, float noundef 0x3FB99999A0000000, i32 noundef 16729344)
-  %.sroa.0.0.copyload = load <2 x float>, ptr %33, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %42 = load float, ptr %41, align 8, !tbaa !63
-  %43 = fpext float %42 to double
-  call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.0.0.copyload, ptr noundef nonnull @.str.29, double noundef %43)
-  br label %44
+  %.sroa.0.0.copyload = load <2 x float>, ptr %32, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %41 = load float, ptr %40, align 8, !tbaa !63
+  %42 = fpext float %41 to double
+  call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.0.0.copyload, ptr noundef nonnull @.str.29, double noundef %42)
+  br label %43
 
-44:                                               ; preds = %40, %37, %32
+43:                                               ; preds = %39, %36, %31
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 4
-  br i1 %exitcond40.not, label %31, label %32, !llvm.loop !69
+  br i1 %exitcond40.not, label %30, label %31, !llvm.loop !69
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1664,24 +1664,21 @@ define noundef i32 @rb_Digest_RMD160_Finish(ptr noundef %0, ptr noundef writeonl
   %32 = load i32, ptr %28, align 4, !tbaa !6
   %33 = lshr i32 %32, 8
   %34 = trunc i32 %33 to i8
-  %35 = or disjoint i64 %indvars.iv, 1
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 %35
-  store i8 %34, ptr %36, align 1, !tbaa !14
-  %37 = load i32, ptr %28, align 4, !tbaa !6
-  %38 = lshr i32 %37, 16
-  %39 = trunc i32 %38 to i8
-  %40 = or disjoint i64 %indvars.iv, 2
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 %40
-  store i8 %39, ptr %41, align 1, !tbaa !14
-  %42 = load i32, ptr %28, align 4, !tbaa !6
-  %43 = lshr i32 %42, 24
-  %44 = trunc nuw i32 %43 to i8
-  %45 = or disjoint i64 %indvars.iv, 3
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 %45
-  store i8 %44, ptr %46, align 1, !tbaa !14
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  store i8 %34, ptr %35, align 1, !tbaa !14
+  %36 = load i32, ptr %28, align 4, !tbaa !6
+  %37 = lshr i32 %36, 16
+  %38 = trunc i32 %37 to i8
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 2
+  store i8 %38, ptr %39, align 1, !tbaa !14
+  %40 = load i32, ptr %28, align 4, !tbaa !6
+  %41 = lshr i32 %40, 24
+  %42 = trunc nuw i32 %41 to i8
+  %43 = getelementptr inbounds nuw i8, ptr %31, i64 3
+  store i8 %42, ptr %43, align 1, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %47 = icmp samesign ult i64 %indvars.iv, 16
-  br i1 %47, label %.preheader, label %.loopexit, !llvm.loop !15
+  %44 = icmp samesign ult i64 %indvars.iv, 16
+  br i1 %44, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.preheader, %18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #8

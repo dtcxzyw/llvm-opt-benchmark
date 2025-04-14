@@ -13087,8 +13087,8 @@ default.unreachable674:                           ; preds = %3430, %3393, %3363,
   %266 = extractvalue { i16, i16 } %261, 1
   %267 = sext i16 %266 to i64
   %.neg.i.i = mul nsw i64 %267, -4294967296
-  %268 = or disjoint i64 %.neg.i.i, 2
-  %269 = getelementptr i8, ptr null, i64 %268
+  %268 = getelementptr i8, ptr null, i64 %.neg.i.i
+  %269 = getelementptr i8, ptr %268, i64 2
   call void @llvm.experimental.noalias.scope.decl(metadata !4481)
   call void @llvm.experimental.noalias.scope.decl(metadata !4484)
   call void @llvm.experimental.noalias.scope.decl(metadata !4487)
@@ -14002,8 +14002,8 @@ _ZN3std2os4unix3net4addr10SocketAddr13from_pathname17h86b7d28672f91d98E.exit.i.i
   %536 = extractvalue { i16, i16 } %531, 1
   %537 = sext i16 %536 to i64
   %.neg.i.i.i.i = mul nsw i64 %537, -4294967296
-  %538 = or disjoint i64 %.neg.i.i.i.i, 2
-  %539 = getelementptr i8, ptr null, i64 %538
+  %538 = getelementptr i8, ptr null, i64 %.neg.i.i.i.i
+  %539 = getelementptr i8, ptr %538, i64 2
   call void @llvm.experimental.noalias.scope.decl(metadata !4778)
   call void @llvm.experimental.noalias.scope.decl(metadata !4781)
   call void @llvm.experimental.noalias.scope.decl(metadata !4784)

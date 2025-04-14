@@ -32367,6 +32367,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
 define internal fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_T2_"(ptr noundef captures(none) %0, i64 noundef range(i64 0, 1152921504606846975) %1, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %2, i32 noundef %3, ptr readonly captures(none) %4) unnamed_addr #32 {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
+  %invariant.gep = getelementptr i8, ptr %0, i64 4
   %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -32375,186 +32376,189 @@ define internal fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_c
   br label %9
 
 9:                                                ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36"
-  %.039 = phi i64 [ %1, %.lr.ph ], [ %54, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36" ]
+  %.039 = phi i64 [ %1, %.lr.ph ], [ %53, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36" ]
   %10 = shl i64 %.039, 1
   %11 = add i64 %10, 2
   %12 = getelementptr inbounds nuw i32, ptr %0, i64 %11
-  %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %10
   %.val29 = load i32, ptr %12, align 4, !tbaa !136
-  %.val30 = load i32, ptr %14, align 4, !tbaa !136
-  %15 = sext i32 %.val29 to i64
+  %.val30 = load i32, ptr %gep, align 4, !tbaa !136
+  %13 = sext i32 %.val29 to i64
+  %14 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %.val.val, i64 %13
+  %15 = sext i32 %.val30 to i64
   %16 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %.val.val, i64 %15
-  %17 = sext i32 %.val30 to i64
-  %18 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %.val.val, i64 %17
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load float, ptr %17, align 4, !tbaa !389
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load float, ptr %19, align 4, !tbaa !389
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %22 = load float, ptr %21, align 4, !tbaa !389
-  %23 = fcmp ogt float %20, %22
-  br i1 %23, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread", label %24
+  %21 = fcmp ogt float %18, %20
+  br i1 %21, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread", label %22
 
-24:                                               ; preds = %9
-  %25 = fcmp olt float %20, %22
-  br i1 %25, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36", label %26
+22:                                               ; preds = %9
+  %23 = fcmp olt float %18, %20
+  br i1 %23, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36", label %24
 
-26:                                               ; preds = %24
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %26 = load float, ptr %25, align 4, !tbaa !392
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %28 = load float, ptr %27, align 4, !tbaa !392
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %30 = load float, ptr %29, align 4, !tbaa !392
-  %31 = fcmp ogt float %28, %30
-  br i1 %31, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread", label %32
+  %29 = fcmp ogt float %26, %28
+  br i1 %29, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread", label %30
 
-32:                                               ; preds = %26
-  %33 = fcmp olt float %28, %30
-  br i1 %33, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36", label %34
+30:                                               ; preds = %24
+  %31 = fcmp olt float %26, %28
+  br i1 %31, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36", label %32
 
-34:                                               ; preds = %32
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %14, i64 20
+  %34 = load i32, ptr %33, align 4, !tbaa !393
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 20
   %36 = load i32, ptr %35, align 4, !tbaa !393
-  %37 = getelementptr inbounds nuw i8, ptr %18, i64 20
-  %38 = load i32, ptr %37, align 4, !tbaa !393
-  %39 = icmp sgt i32 %36, %38
-  br i1 %39, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread", label %40
+  %37 = icmp sgt i32 %34, %36
+  br i1 %37, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread", label %38
 
-40:                                               ; preds = %34
-  %41 = icmp slt i32 %36, %38
-  br i1 %41, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36", label %42
+38:                                               ; preds = %32
+  %39 = icmp slt i32 %34, %36
+  br i1 %39, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36", label %40
 
-42:                                               ; preds = %40
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %42 = load float, ptr %41, align 4, !tbaa !394
   %43 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %44 = load float, ptr %43, align 4, !tbaa !394
-  %45 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %46 = load float, ptr %45, align 4, !tbaa !394
-  %47 = fcmp olt float %44, %46
-  br i1 %47, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36", label %48
+  %45 = fcmp olt float %42, %44
+  br i1 %45, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36", label %46
 
-48:                                               ; preds = %42
-  %49 = fcmp ogt float %44, %46
-  br i1 %49, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit"
+46:                                               ; preds = %40
+  %47 = fcmp ogt float %42, %44
+  br i1 %47, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit": ; preds = %48
-  %50 = load float, ptr %16, align 4, !tbaa !395
-  %51 = load float, ptr %18, align 4, !tbaa !395
-  %52 = fcmp olt float %50, %51
-  %cond.fr = freeze i1 %52
-  br i1 %cond.fr, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36"
-
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread": ; preds = %48, %34, %26, %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread": ; preds = %9, %24, %32, %46
+  %48 = or disjoint i64 %10, 1
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36": ; preds = %42, %40, %32, %24, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread"
-  %53 = phi i32 [ %.val30, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread" ], [ %.val29, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit" ], [ %.val29, %24 ], [ %.val29, %32 ], [ %.val29, %40 ], [ %.val29, %42 ]
-  %54 = phi i64 [ %13, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread" ], [ %11, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit" ], [ %11, %24 ], [ %11, %32 ], [ %11, %40 ], [ %11, %42 ]
-  %55 = getelementptr inbounds nuw i32, ptr %0, i64 %.039
-  store i32 %53, ptr %55, align 4, !tbaa !136
-  %56 = icmp slt i64 %54, %7
-  br i1 %56, label %9, label %._crit_edge, !llvm.loop !506
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit": ; preds = %46
+  %49 = load float, ptr %14, align 4, !tbaa !395
+  %50 = load float, ptr %16, align 4, !tbaa !395
+  %51 = fcmp olt float %49, %50
+  %52 = or disjoint i64 %10, 1
+  %cond.fr = freeze i1 %51
+  %spec.select = select i1 %cond.fr, i64 %52, i64 %11
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36"
+
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit", %40, %38, %30, %22, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread"
+  %53 = phi i64 [ %48, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread" ], [ %11, %22 ], [ %11, %30 ], [ %11, %38 ], [ %11, %40 ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit" ]
+  %54 = getelementptr inbounds nuw i32, ptr %0, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !136
+  %56 = getelementptr inbounds nuw i32, ptr %0, i64 %.039
+  store i32 %55, ptr %56, align 4, !tbaa !136
+  %57 = icmp slt i64 %53, %7
+  br i1 %57, label %9, label %._crit_edge, !llvm.loop !506
 
 ._crit_edge:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36", %5
-  %.0.lcssa = phi i64 [ %1, %5 ], [ %54, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36" ]
-  %57 = and i64 %2, 1
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %59, label %69
+  %.0.lcssa = phi i64 [ %1, %5 ], [ %53, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiSF_EEbT_T0_.exit.thread36" ]
+  %58 = and i64 %2, 1
+  %59 = icmp eq i64 %58, 0
+  br i1 %59, label %60, label %70
 
-59:                                               ; preds = %._crit_edge
-  %60 = add nsw i64 %2, -2
-  %61 = ashr exact i64 %60, 1
-  %62 = icmp eq i64 %.0.lcssa, %61
-  br i1 %62, label %63, label %69
+60:                                               ; preds = %._crit_edge
+  %61 = add nsw i64 %2, -2
+  %62 = ashr exact i64 %61, 1
+  %63 = icmp eq i64 %.0.lcssa, %62
+  br i1 %63, label %64, label %70
 
-63:                                               ; preds = %59
-  %64 = shl nsw i64 %.0.lcssa, 1
-  %65 = or disjoint i64 %64, 1
-  %66 = getelementptr inbounds nuw i32, ptr %0, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !136
-  %68 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa
-  store i32 %67, ptr %68, align 4, !tbaa !136
-  br label %69
+64:                                               ; preds = %60
+  %65 = shl nsw i64 %.0.lcssa, 1
+  %66 = or disjoint i64 %65, 1
+  %67 = getelementptr inbounds nuw i32, ptr %0, i64 %66
+  %68 = load i32, ptr %67, align 4, !tbaa !136
+  %69 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa
+  store i32 %68, ptr %69, align 4, !tbaa !136
+  br label %70
 
-69:                                               ; preds = %63, %59, %._crit_edge
-  %.128 = phi i64 [ %65, %63 ], [ %.0.lcssa, %59 ], [ %.0.lcssa, %._crit_edge ]
-  %70 = icmp sgt i64 %.128, %1
-  br i1 %70, label %.lr.ph.i, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit"
+70:                                               ; preds = %64, %60, %._crit_edge
+  %.128 = phi i64 [ %66, %64 ], [ %.0.lcssa, %60 ], [ %.0.lcssa, %._crit_edge ]
+  %71 = icmp sgt i64 %.128, %1
+  br i1 %71, label %.lr.ph.i, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit"
 
-.lr.ph.i:                                         ; preds = %69
+.lr.ph.i:                                         ; preds = %70
   %.val.val.i = load ptr, ptr %4, align 8, !tbaa !60
-  %71 = sext i32 %3 to i64
-  %72 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %.val.val.i, i64 %71
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load float, ptr %73, align 4, !tbaa !389
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 20
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  br label %78
+  %72 = sext i32 %3 to i64
+  %73 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %.val.val.i, i64 %72
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load float, ptr %74, align 4, !tbaa !389
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  br label %79
 
-78:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", %.lr.ph.i
+79:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", %.lr.ph.i
   %.0138.i = phi i64 [ %.128, %.lr.ph.i ], [ %.09.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i" ]
   %.09.in.i = add nsw i64 %.0138.i, -1
   %.09.i = sdiv i64 %.09.in.i, 2
-  %79 = getelementptr inbounds i32, ptr %0, i64 %.09.i
-  %.val14.i = load i32, ptr %79, align 4, !tbaa !136
-  %80 = sext i32 %.val14.i to i64
-  %81 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %.val.val.i, i64 %80
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %83 = load float, ptr %82, align 4, !tbaa !389
-  %84 = fcmp ogt float %83, %74
-  br i1 %84, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", label %85
+  %80 = getelementptr inbounds i32, ptr %0, i64 %.09.i
+  %.val14.i = load i32, ptr %80, align 4, !tbaa !136
+  %81 = sext i32 %.val14.i to i64
+  %82 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %.val.val.i, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %84 = load float, ptr %83, align 4, !tbaa !389
+  %85 = fcmp ogt float %84, %75
+  br i1 %85, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", label %86
 
-85:                                               ; preds = %78
-  %86 = fcmp olt float %83, %74
-  br i1 %86, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit", label %87
+86:                                               ; preds = %79
+  %87 = fcmp olt float %84, %75
+  br i1 %87, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit", label %88
 
-87:                                               ; preds = %85
-  %88 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %89 = load float, ptr %88, align 4, !tbaa !392
-  %90 = load float, ptr %75, align 4, !tbaa !392
-  %91 = fcmp ogt float %89, %90
-  br i1 %91, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", label %92
+88:                                               ; preds = %86
+  %89 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %90 = load float, ptr %89, align 4, !tbaa !392
+  %91 = load float, ptr %76, align 4, !tbaa !392
+  %92 = fcmp ogt float %90, %91
+  br i1 %92, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", label %93
 
-92:                                               ; preds = %87
-  %93 = fcmp olt float %89, %90
-  br i1 %93, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit", label %94
+93:                                               ; preds = %88
+  %94 = fcmp olt float %90, %91
+  br i1 %94, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit", label %95
 
-94:                                               ; preds = %92
-  %95 = getelementptr inbounds nuw i8, ptr %81, i64 20
-  %96 = load i32, ptr %95, align 4, !tbaa !393
-  %97 = load i32, ptr %76, align 4, !tbaa !393
-  %98 = icmp sgt i32 %96, %97
-  br i1 %98, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", label %99
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr %82, i64 20
+  %97 = load i32, ptr %96, align 4, !tbaa !393
+  %98 = load i32, ptr %77, align 4, !tbaa !393
+  %99 = icmp sgt i32 %97, %98
+  br i1 %99, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", label %100
 
-99:                                               ; preds = %94
-  %100 = icmp slt i32 %96, %97
-  br i1 %100, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit", label %101
+100:                                              ; preds = %95
+  %101 = icmp slt i32 %97, %98
+  br i1 %101, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit", label %102
 
-101:                                              ; preds = %99
-  %102 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %103 = load float, ptr %102, align 4, !tbaa !394
-  %104 = load float, ptr %77, align 4, !tbaa !394
-  %105 = fcmp olt float %103, %104
-  br i1 %105, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit", label %106
+102:                                              ; preds = %100
+  %103 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  %104 = load float, ptr %103, align 4, !tbaa !394
+  %105 = load float, ptr %78, align 4, !tbaa !394
+  %106 = fcmp olt float %104, %105
+  br i1 %106, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit", label %107
 
-106:                                              ; preds = %101
-  %107 = fcmp ogt float %103, %104
-  br i1 %107, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i"
+107:                                              ; preds = %102
+  %108 = fcmp ogt float %104, %105
+  br i1 %108, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i": ; preds = %106
-  %108 = load float, ptr %81, align 4, !tbaa !395
-  %109 = load float, ptr %72, align 4, !tbaa !395
-  %110 = fcmp olt float %108, %109
-  br i1 %110, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit"
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i": ; preds = %107
+  %109 = load float, ptr %82, align 4, !tbaa !395
+  %110 = load float, ptr %73, align 4, !tbaa !395
+  %111 = fcmp olt float %109, %110
+  br i1 %111, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i", %106, %94, %87, %78
-  %111 = getelementptr inbounds nuw i32, ptr %0, i64 %.0138.i
-  store i32 %.val14.i, ptr %111, align 4, !tbaa !136
-  %112 = icmp sgt i64 %.09.i, %1
-  br i1 %112, label %78, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit", !llvm.loop !507
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i", %107, %95, %88, %79
+  %112 = getelementptr inbounds nuw i32, ptr %0, i64 %.0138.i
+  store i32 %.val14.i, ptr %112, align 4, !tbaa !136
+  %113 = icmp sgt i64 %.09.i, %1
+  br i1 %113, label %79, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit", !llvm.loop !507
 
-"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit": ; preds = %85, %92, %99, %101, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", %69
-  %.013.lcssa.i = phi i64 [ %.128, %69 ], [ %.0138.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i" ], [ %.09.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i" ], [ %.0138.i, %85 ], [ %.0138.i, %92 ], [ %.0138.i, %99 ], [ %.0138.i, %101 ]
-  %113 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i
-  store i32 %3, ptr %113, align 4, !tbaa !136
+"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS7_EERKNS6_17_InputOutputArrayEE3$_0EEEvT_T0_SH_T1_RT2_.exit": ; preds = %86, %93, %100, %102, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i", %70
+  %.013.lcssa.i = phi i64 [ %.128, %70 ], [ %.0138.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.i" ], [ %.09.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4perf4sortERSt6vectorIN2cv8KeyPointESaIS5_EERKNS4_17_InputOutputArrayEE3$_0EclIPiiEEbT_RT0_.exit.thread.i" ], [ %.0138.i, %86 ], [ %.0138.i, %93 ], [ %.0138.i, %100 ], [ %.0138.i, %102 ]
+  %114 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i
+  store i32 %3, ptr %114, align 4, !tbaa !136
   ret void
 }
 

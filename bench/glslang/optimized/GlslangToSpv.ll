@@ -46310,9 +46310,9 @@ _ZNSt6vectorIjSaIjEED2Ev.exit579:                 ; preds = %1180, %_ZNK3spv7Bui
   br i1 %1187, label %1188, label %1195
 
 1188:                                             ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit579
-  %1189 = or disjoint i32 %.0236, 2
-  %1190 = zext nneg i32 %1189 to i64
-  %1191 = getelementptr inbounds nuw i32, ptr %1132, i64 %1190
+  %1189 = zext nneg i32 %.0236 to i64
+  %1190 = getelementptr inbounds nuw i32, ptr %1132, i64 %1189
+  %1191 = getelementptr inbounds nuw i8, ptr %1190, i64 8
   %1192 = load i32, ptr %1191, align 4
   %1193 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %1192, ptr %1193, align 4

@@ -13874,7 +13874,7 @@ FreeSigner.exit:                                  ; preds = %34, %FreeNameSubtre
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define range(i32 -173, 6) i32 @SetMyVersion(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %17, label %5
+  br i1 %4, label %15, label %5
 
 5:                                                ; preds = %3
   %.not = icmp eq i32 %2, 0
@@ -13888,21 +13888,19 @@ define range(i32 -173, 6) i32 @SetMyVersion(i32 noundef %0, ptr noundef writeonl
 
 8:                                                ; preds = %6, %5
   %.0 = phi i32 [ 2, %6 ], [ 0, %5 ]
-  %9 = or disjoint i32 %.0, 1
-  %10 = zext nneg i32 %.0 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
-  store i8 2, ptr %11, align 1, !tbaa !3
-  %12 = zext nneg i32 %9 to i64
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %12
-  store i8 1, ptr %13, align 1, !tbaa !3
-  %14 = trunc i32 %0 to i8
-  %15 = add nuw nsw i32 %.0, 3
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  store i8 %14, ptr %16, align 1, !tbaa !3
-  br label %17
+  %9 = zext nneg i32 %.0 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %9
+  store i8 2, ptr %10, align 1, !tbaa !3
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store i8 1, ptr %11, align 1, !tbaa !3
+  %12 = trunc i32 %0 to i8
+  %13 = add nuw nsw i32 %.0, 3
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  store i8 %12, ptr %14, align 1, !tbaa !3
+  br label %15
 
-17:                                               ; preds = %3, %8
-  %.014 = phi i32 [ %15, %8 ], [ -173, %3 ]
+15:                                               ; preds = %3, %8
+  %.014 = phi i32 [ %13, %8 ], [ -173, %3 ]
   ret i32 %.014
 }
 

@@ -500,24 +500,24 @@ _ZNSt14basic_ofstreamIcSt11char_traitsIcEE4openERKNSt7__cxx1112basic_stringIcS1_
   %73 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 1, ptr %73, align 8, !tbaa !44, !alias.scope !41
   %74 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %74, i8 0, i64 552, i1 false), !alias.scope !41
-  br label %.preheader19.i.i.i.i
+  br label %76
 
-.preheader.i.i.i.i:                               ; preds = %.preheader19.i.i.i.i
+.preheader.i.i.i.i:                               ; preds = %76
+  %.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 24
   %.ptr17.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 56
   %75 = ptrtoint ptr %.ptr12.i.i.i.i to i64
   br label %78
 
-.preheader19.i.i.i.i:                             ; preds = %.preheader19.i.i.i.i, %72
-  %.020.i.i.i.i = phi i64 [ %77, %.preheader19.i.i.i.i ], [ 0, %72 ]
+76:                                               ; preds = %76, %72
+  %.020.i.i.i.i = phi i64 [ 0, %72 ], [ %77, %76 ]
   %.idx18.i.i.i.i = shl nuw nsw i64 %.020.i.i.i.i, 4
-  %.offs.i.i.i.i = or disjoint i64 %.idx18.i.i.i.i, 8
-  %76 = getelementptr inbounds nuw i8, ptr %.ptr12.i.i.i.i, i64 %.offs.i.i.i.i
-  store atomic i64 0, ptr %76 monotonic, align 8, !alias.scope !41
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %.idx18.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8, !alias.scope !41
   %77 = add nuw nsw i64 %.020.i.i.i.i, 1
   %.not.i.i.i.i = icmp eq i64 %77, 2
-  br i1 %.not.i.i.i.i, label %.preheader.i.i.i.i, label %.preheader19.i.i.i.i, !llvm.loop !46
+  br i1 %.not.i.i.i.i, label %.preheader.i.i.i.i, label %76, !llvm.loop !46
 
 78:                                               ; preds = %78, %.preheader.i.i.i.i
   %.01021.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %82, %78 ]

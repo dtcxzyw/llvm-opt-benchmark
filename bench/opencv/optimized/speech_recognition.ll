@@ -4299,16 +4299,16 @@ _ZN2cv3Mat2atIdEERT_i.exit127.thread:             ; preds = %287
   %370 = getelementptr inbounds nuw double, ptr %369, i64 %283
   %371 = load double, ptr %370, align 8, !tbaa !71
   %372 = fmul double %371, %371
-  %373 = or disjoint i64 %283, 1
-  %374 = or disjoint i32 %284, 1
-  %375 = getelementptr inbounds nuw double, ptr %369, i64 %373
+  %373 = or disjoint i32 %284, 1
+  %374 = getelementptr inbounds nuw double, ptr %369, i64 %283
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
   br label %376
 
 376:                                              ; preds = %_ZN2cv3Mat2atIdEERT_i.exit127.thread, %_ZN2cv3Mat2atIdEERT_i.exit127
   %377 = phi ptr [ %369, %_ZN2cv3Mat2atIdEERT_i.exit127.thread ], [ %362, %_ZN2cv3Mat2atIdEERT_i.exit127 ]
   %.in321 = phi ptr [ %375, %_ZN2cv3Mat2atIdEERT_i.exit127.thread ], [ %367, %_ZN2cv3Mat2atIdEERT_i.exit127 ]
   %378 = phi double [ %372, %_ZN2cv3Mat2atIdEERT_i.exit127.thread ], [ %365, %_ZN2cv3Mat2atIdEERT_i.exit127 ]
-  %379 = phi i32 [ %374, %_ZN2cv3Mat2atIdEERT_i.exit127.thread ], [ %368, %_ZN2cv3Mat2atIdEERT_i.exit127 ]
+  %379 = phi i32 [ %373, %_ZN2cv3Mat2atIdEERT_i.exit127.thread ], [ %368, %_ZN2cv3Mat2atIdEERT_i.exit127 ]
   %380 = load double, ptr %.in321, align 8, !tbaa !71
   %381 = sext i32 %379 to i64
   %382 = getelementptr inbounds double, ptr %377, i64 %381

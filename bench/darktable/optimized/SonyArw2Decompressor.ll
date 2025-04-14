@@ -748,42 +748,37 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialR
   %220 = load i8, ptr %219, align 8, !tbaa !125, !range !132, !noundef !100
   %221 = trunc nuw i8 %220 to i1
   %222 = getelementptr inbounds nuw i8, ptr %217, i64 8
-  br i1 %221, label %223, label %245
+  %223 = zext i16 %212 to i64
+  %224 = load ptr, ptr %222, align 8, !tbaa !133
+  br i1 %221, label %225, label %241
 
-223:                                              ; preds = %218
-  %224 = zext i16 %212 to i32
-  %225 = shl nuw nsw i32 %224, 1
-  %226 = zext nneg i32 %225 to i64
-  %227 = load ptr, ptr %222, align 8, !tbaa !133
-  %228 = getelementptr inbounds nuw i16, ptr %227, i64 %226
+225:                                              ; preds = %218
+  %.idx.i = shl nuw nsw i64 %223, 2
+  %226 = getelementptr inbounds nuw i8, ptr %224, i64 %.idx.i
+  %227 = load i16, ptr %226, align 2, !tbaa !134
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 2
   %229 = load i16, ptr %228, align 2, !tbaa !134
-  %230 = or disjoint i32 %225, 1
-  %231 = zext nneg i32 %230 to i64
-  %232 = getelementptr inbounds nuw i16, ptr %227, i64 %231
-  %233 = load i16, ptr %232, align 2, !tbaa !134
-  %234 = zext i16 %233 to i32
-  %235 = and i32 %.1214, 2047
-  %236 = mul nuw nsw i32 %235, %234
-  %237 = add nuw nsw i32 %236, 1024
-  %238 = lshr i32 %237, 12
-  %239 = and i32 %.1214, 65535
-  %240 = mul nuw nsw i32 %239, 15700
-  %241 = lshr i32 %.1214, 16
-  %242 = add nuw nsw i32 %240, %241
-  %243 = trunc nuw nsw i32 %238 to i16
-  %244 = add i16 %229, %243
+  %230 = zext i16 %229 to i32
+  %231 = and i32 %.1214, 2047
+  %232 = mul nuw nsw i32 %231, %230
+  %233 = add nuw nsw i32 %232, 1024
+  %234 = lshr i32 %233, 12
+  %235 = and i32 %.1214, 65535
+  %236 = mul nuw nsw i32 %235, 15700
+  %237 = lshr i32 %.1214, 16
+  %238 = add nuw nsw i32 %236, %237
+  %239 = trunc nuw nsw i32 %234 to i16
+  %240 = add i16 %227, %239
   br label %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit
 
-245:                                              ; preds = %218
-  %246 = zext i16 %212 to i64
-  %247 = load ptr, ptr %222, align 8, !tbaa !133
-  %248 = getelementptr inbounds nuw i16, ptr %247, i64 %246
-  %249 = load i16, ptr %248, align 2, !tbaa !134
+241:                                              ; preds = %218
+  %242 = getelementptr inbounds nuw i16, ptr %224, i64 %223
+  %243 = load i16, ptr %242, align 2, !tbaa !134
   br label %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit
 
-_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit: ; preds = %211, %223, %245
-  %.2 = phi i32 [ %.1214, %211 ], [ %242, %223 ], [ %.1214, %245 ]
-  %.sink.i = phi i16 [ %212, %211 ], [ %244, %223 ], [ %249, %245 ]
+_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit: ; preds = %211, %225, %241
+  %.2 = phi i32 [ %.1214, %211 ], [ %238, %225 ], [ %.1214, %241 ]
+  %.sink.i = phi i16 [ %212, %211 ], [ %240, %225 ], [ %243, %241 ]
   store i16 %.sink.i, ptr %216, align 2, !tbaa !134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond222.not = icmp eq i64 %indvars.iv.next, 16

@@ -3363,43 +3363,43 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef range(i32 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
   switch i32 %0, label %.critedge201 [
     i32 0, label %7
-    i32 104, label %343
-    i32 118, label %344
-    i32 100, label %345
-    i32 97, label %346
-    i32 116, label %347
-    i32 99, label %348
-    i32 115, label %349
-    i32 102, label %350
-    i32 111, label %351
-    i32 70, label %352
-    i32 84, label %353
-    i32 48, label %360
-    i32 49, label %360
-    i32 50, label %360
-    i32 51, label %360
-    i32 52, label %360
-    i32 53, label %360
-    i32 54, label %360
-    i32 55, label %360
-    i32 56, label %360
-    i32 57, label %365
-    i32 86, label %366
-    i32 119, label %367
+    i32 104, label %383
+    i32 118, label %384
+    i32 100, label %385
+    i32 97, label %386
+    i32 116, label %387
+    i32 99, label %388
+    i32 115, label %389
+    i32 102, label %390
+    i32 111, label %391
+    i32 70, label %392
+    i32 84, label %393
+    i32 48, label %400
+    i32 49, label %400
+    i32 50, label %400
+    i32 51, label %400
+    i32 52, label %400
+    i32 53, label %400
+    i32 54, label %400
+    i32 55, label %400
+    i32 56, label %400
+    i32 57, label %405
+    i32 86, label %406
+    i32 119, label %407
     i32 83, label %sub_0
-    i32 80, label %385
-    i32 98, label %390
-    i32 101, label %395
-    i32 69, label %402
-    i32 108, label %409
-    i32 65, label %414
-    i32 109, label %421
-    i32 77, label %433
-    i32 112, label %445
-    i32 113, label %452
-    i32 114, label %457
-    i32 82, label %478
-    i32 106, label %487
+    i32 80, label %425
+    i32 98, label %430
+    i32 101, label %443
+    i32 69, label %451
+    i32 108, label %459
+    i32 65, label %472
+    i32 109, label %480
+    i32 77, label %494
+    i32 112, label %508
+    i32 113, label %516
+    i32 114, label %528
+    i32 82, label %577
+    i32 106, label %587
   ]
 
 7:                                                ; preds = %3
@@ -4029,542 +4029,748 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef range(i32 0
 283:                                              ; preds = %279
   %284 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(27) @.str.340) #23
   %285 = icmp eq i32 %284, 0
-  br i1 %285, label %286, label %287
+  br i1 %285, label %286, label %294
 
 286:                                              ; preds = %283
-  tail call fastcc void @add_compression_setting_bool(i32 noundef 9, i32 noundef 0)
+  %287 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %288 = icmp ugt i64 %287, 63
+  br i1 %288, label %289, label %add_compression_setting_bool.exit
+
+289:                                              ; preds = %286
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_bool.exit:                ; preds = %286
+  %290 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %287
+  store i32 9, ptr %290, align 8, !tbaa !29
+  %.idx.i = shl nuw nsw i64 %287, 4
+  %291 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 8
+  store i32 0, ptr %292, align 8, !tbaa !31
+  %293 = add nuw nsw i64 %287, 1
+  store i64 %293, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
   br label %.critedge201
 
-287:                                              ; preds = %283
-  %288 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.341) #23
-  %289 = icmp eq i32 %288, 0
-  br i1 %289, label %290, label %291
+294:                                              ; preds = %283
+  %295 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.341) #23
+  %296 = icmp eq i32 %295, 0
+  br i1 %296, label %297, label %311
 
-290:                                              ; preds = %287
-  tail call fastcc void @add_compression_setting_bool(i32 noundef 2, i32 noundef 0)
-  tail call fastcc void @add_compression_setting_bool(i32 noundef 3, i32 noundef 0)
+297:                                              ; preds = %294
+  %298 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %299 = icmp ugt i64 %298, 63
+  br i1 %299, label %300, label %add_compression_setting_bool.exit208
+
+300:                                              ; preds = %297
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_bool.exit208:             ; preds = %297
+  %301 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %298
+  store i32 2, ptr %301, align 8, !tbaa !29
+  %.idx.i207 = shl nuw nsw i64 %298, 4
+  %302 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i207
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
+  store i32 0, ptr %303, align 8, !tbaa !31
+  %304 = add nuw nsw i64 %298, 1
+  store i64 %304, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %305 = icmp eq i64 %298, 63
+  br i1 %305, label %306, label %add_compression_setting_bool.exit210
+
+306:                                              ; preds = %add_compression_setting_bool.exit208
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_bool.exit210:             ; preds = %add_compression_setting_bool.exit208
+  %307 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %304
+  store i32 3, ptr %307, align 8, !tbaa !29
+  %.idx.i209 = shl nuw nsw i64 %304, 4
+  %308 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i209
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
+  store i32 0, ptr %309, align 8, !tbaa !31
+  %310 = add nuw nsw i64 %298, 2
+  store i64 %310, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
   br label %.critedge201
 
-291:                                              ; preds = %287
-  %292 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(21) @.str.342) #23
-  %293 = icmp eq i32 %292, 0
-  br i1 %293, label %294, label %295
+311:                                              ; preds = %294
+  %312 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(21) @.str.342) #23
+  %313 = icmp eq i32 %312, 0
+  br i1 %313, label %314, label %328
 
-294:                                              ; preds = %291
-  tail call fastcc void @add_compression_setting_bool(i32 noundef 2, i32 noundef 0)
-  tail call fastcc void @add_compression_setting_bool(i32 noundef 3, i32 noundef 0)
+314:                                              ; preds = %311
+  %315 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %316 = icmp ugt i64 %315, 63
+  br i1 %316, label %317, label %add_compression_setting_bool.exit212
+
+317:                                              ; preds = %314
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_bool.exit212:             ; preds = %314
+  %318 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %315
+  store i32 2, ptr %318, align 8, !tbaa !29
+  %.idx.i211 = shl nuw nsw i64 %315, 4
+  %319 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i211
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
+  store i32 0, ptr %320, align 8, !tbaa !31
+  %321 = add nuw nsw i64 %315, 1
+  store i64 %321, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %322 = icmp eq i64 %315, 63
+  br i1 %322, label %323, label %add_compression_setting_bool.exit214
+
+323:                                              ; preds = %add_compression_setting_bool.exit212
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_bool.exit214:             ; preds = %add_compression_setting_bool.exit212
+  %324 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %321
+  store i32 3, ptr %324, align 8, !tbaa !29
+  %.idx.i213 = shl nuw nsw i64 %321, 4
+  %325 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i213
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 8
+  store i32 0, ptr %326, align 8, !tbaa !31
+  %327 = add nuw nsw i64 %315, 2
+  store i64 %327, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
   br label %.critedge201
 
-295:                                              ; preds = %291
-  %296 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(25) @.str.343) #23
-  %297 = icmp eq i32 %296, 0
-  br i1 %297, label %298, label %299
+328:                                              ; preds = %311
+  %329 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(25) @.str.343) #23
+  %330 = icmp eq i32 %329, 0
+  br i1 %330, label %331, label %339
 
-298:                                              ; preds = %295
-  tail call fastcc void @add_compression_setting_bool(i32 noundef 7, i32 noundef 0)
+331:                                              ; preds = %328
+  %332 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %333 = icmp ugt i64 %332, 63
+  br i1 %333, label %334, label %add_compression_setting_bool.exit216
+
+334:                                              ; preds = %331
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_bool.exit216:             ; preds = %331
+  %335 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %332
+  store i32 7, ptr %335, align 8, !tbaa !29
+  %.idx.i215 = shl nuw nsw i64 %332, 4
+  %336 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i215
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
+  store i32 0, ptr %337, align 8, !tbaa !31
+  %338 = add nuw nsw i64 %332, 1
+  store i64 %338, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
   br label %.critedge201
 
-299:                                              ; preds = %295
-  %300 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.344) #23
-  %301 = icmp eq i32 %300, 0
-  br i1 %301, label %302, label %303
+339:                                              ; preds = %328
+  %340 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.344) #23
+  %341 = icmp eq i32 %340, 0
+  br i1 %341, label %342, label %343
 
-302:                                              ; preds = %299
+342:                                              ; preds = %339
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 176), align 8, !tbaa !26
   br label %.critedge201
 
-303:                                              ; preds = %299
-  %304 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.345) #23
-  %305 = icmp eq i32 %304, 0
-  br i1 %305, label %306, label %307
+343:                                              ; preds = %339
+  %344 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.345) #23
+  %345 = icmp eq i32 %344, 0
+  br i1 %345, label %346, label %347
 
-306:                                              ; preds = %303
+346:                                              ; preds = %343
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 12), align 4, !tbaa !120
   br label %.critedge201
 
-307:                                              ; preds = %303
-  %308 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(22) @.str.346) #23
-  %309 = icmp eq i32 %308, 0
-  br i1 %309, label %310, label %311
+347:                                              ; preds = %343
+  %348 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(22) @.str.346) #23
+  %349 = icmp eq i32 %348, 0
+  br i1 %349, label %350, label %351
 
-310:                                              ; preds = %307
+350:                                              ; preds = %347
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 16), align 8, !tbaa !88
   br label %.critedge201
 
-311:                                              ; preds = %307
-  %312 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(20) @.str.347) #23
-  %313 = icmp eq i32 %312, 0
-  br i1 %313, label %314, label %315
+351:                                              ; preds = %347
+  %352 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(20) @.str.347) #23
+  %353 = icmp eq i32 %352, 0
+  br i1 %353, label %354, label %355
 
-314:                                              ; preds = %311
+354:                                              ; preds = %351
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 172), align 4, !tbaa !157
   br label %.critedge201
 
-315:                                              ; preds = %311
-  %316 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.348) #23
-  %317 = icmp eq i32 %316, 0
-  br i1 %317, label %318, label %319
+355:                                              ; preds = %351
+  %356 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(17) @.str.348) #23
+  %357 = icmp eq i32 %356, 0
+  br i1 %357, label %358, label %359
 
-318:                                              ; preds = %315
+358:                                              ; preds = %355
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 168), align 8, !tbaa !158
   br label %.critedge201
 
-319:                                              ; preds = %315
-  %320 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(27) @.str.350) #23
-  %321 = icmp eq i32 %320, 0
-  br i1 %321, label %322, label %323
+359:                                              ; preds = %355
+  %360 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(27) @.str.350) #23
+  %361 = icmp eq i32 %360, 0
+  br i1 %361, label %362, label %363
 
-322:                                              ; preds = %319
+362:                                              ; preds = %359
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6852), align 4, !tbaa !143
   br label %.critedge201
 
-323:                                              ; preds = %319
-  %324 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(24) @.str.351) #23
-  %325 = icmp eq i32 %324, 0
-  br i1 %325, label %326, label %327
+363:                                              ; preds = %359
+  %364 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(24) @.str.351) #23
+  %365 = icmp eq i32 %364, 0
+  br i1 %365, label %366, label %367
 
-326:                                              ; preds = %323
+366:                                              ; preds = %363
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6856), align 8, !tbaa !145
   br label %.critedge201
 
-327:                                              ; preds = %323
-  %328 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(27) @.str.352) #23
-  %329 = icmp eq i32 %328, 0
-  br i1 %329, label %330, label %331
+367:                                              ; preds = %363
+  %368 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(27) @.str.352) #23
+  %369 = icmp eq i32 %368, 0
+  br i1 %369, label %370, label %371
 
-330:                                              ; preds = %327
+370:                                              ; preds = %367
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6860), align 4, !tbaa !147
   br label %.critedge201
 
-331:                                              ; preds = %327
-  %332 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.353) #23
-  %333 = icmp eq i32 %332, 0
-  br i1 %333, label %334, label %335
+371:                                              ; preds = %367
+  %372 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.353) #23
+  %373 = icmp eq i32 %372, 0
+  br i1 %373, label %374, label %375
 
-334:                                              ; preds = %331
+374:                                              ; preds = %371
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6864), align 8, !tbaa !37
   br label %.critedge201
 
-335:                                              ; preds = %331
-  %336 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(29) @.str.349) #23
-  %337 = icmp eq i32 %336, 0
-  br i1 %337, label %338, label %339
+375:                                              ; preds = %371
+  %376 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(29) @.str.349) #23
+  %377 = icmp eq i32 %376, 0
+  br i1 %377, label %378, label %379
 
-338:                                              ; preds = %335
+378:                                              ; preds = %375
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6304), align 8, !tbaa !150
   br label %.critedge201
 
-339:                                              ; preds = %335
-  %340 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(26) @.str.324) #23
-  %341 = icmp eq i32 %340, 0
-  br i1 %341, label %342, label %.critedge201
+379:                                              ; preds = %375
+  %380 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(26) @.str.324) #23
+  %381 = icmp eq i32 %380, 0
+  br i1 %381, label %382, label %.critedge201
 
-342:                                              ; preds = %339
+382:                                              ; preds = %379
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6304), align 8, !tbaa !150
   br label %.critedge201
 
-343:                                              ; preds = %3
+383:                                              ; preds = %3
   store i32 1, ptr @option_values, align 8, !tbaa !51
   br label %.critedge201
 
-344:                                              ; preds = %3
+384:                                              ; preds = %3
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 4), align 4, !tbaa !50
   br label %.critedge201
 
-345:                                              ; preds = %3
+385:                                              ; preds = %3
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 8), align 8, !tbaa !52
   br label %.critedge201
 
-346:                                              ; preds = %3
+386:                                              ; preds = %3
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 8), align 8, !tbaa !52
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 64), align 8, !tbaa !58
   br label %.critedge201
 
-347:                                              ; preds = %3
+387:                                              ; preds = %3
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 8), align 8, !tbaa !52
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 60), align 4, !tbaa !55
   br label %.critedge201
 
-348:                                              ; preds = %3
+388:                                              ; preds = %3
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 88), align 8, !tbaa !74
   br label %.critedge201
 
-349:                                              ; preds = %3
+389:                                              ; preds = %3
   store i32 1, ptr @flac__utils_verbosity_, align 4, !tbaa !41
   br label %.critedge201
 
-350:                                              ; preds = %3
+390:                                              ; preds = %3
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 20), align 4, !tbaa !159
   br label %.critedge201
 
-351:                                              ; preds = %3
+391:                                              ; preds = %3
   store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 152), align 8, !tbaa !77
   br label %.critedge201
 
-352:                                              ; preds = %3
+392:                                              ; preds = %3
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 24), align 8, !tbaa !76
   br label %.critedge201
 
-353:                                              ; preds = %3
-  %354 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6328), align 8, !tbaa !38
-  %355 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 148), align 4, !tbaa !25
-  %.not189 = icmp eq i32 %355, 0
-  %356 = zext i1 %.not189 to i32
-  %357 = call i32 @flac__vorbiscomment_add(ptr noundef %354, ptr noundef %2, i32 noundef 0, i32 noundef %356, ptr noundef nonnull %4) #21
-  %.not190 = icmp eq i32 %357, 0
-  br i1 %.not190, label %358, label %.critedge201
+393:                                              ; preds = %3
+  %394 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6328), align 8, !tbaa !38
+  %395 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 148), align 4, !tbaa !25
+  %.not189 = icmp eq i32 %395, 0
+  %396 = zext i1 %.not189 to i32
+  %397 = call i32 @flac__vorbiscomment_add(ptr noundef %394, ptr noundef %2, i32 noundef 0, i32 noundef %396, ptr noundef nonnull %4) #21
+  %.not190 = icmp eq i32 %397, 0
+  br i1 %.not190, label %398, label %.critedge201
 
-358:                                              ; preds = %353
-  %359 = load ptr, ptr %4, align 8, !tbaa !45
-  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.370, ptr noundef %359)
+398:                                              ; preds = %393
+  %399 = load ptr, ptr %4, align 8, !tbaa !45
+  call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.370, ptr noundef %399)
   br label %.critedge201
 
-360:                                              ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %361 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  %362 = icmp ugt i64 %361, 63
-  br i1 %362, label %363, label %add_compression_setting_uint32_t.exit
+400:                                              ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %401 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %402 = icmp ugt i64 %401, 63
+  br i1 %402, label %403, label %add_compression_setting_uint32_t.exit
 
-363:                                              ; preds = %360
+403:                                              ; preds = %400
   tail call fastcc void @die(ptr noundef nonnull @.str.381)
   unreachable
 
-add_compression_setting_uint32_t.exit:            ; preds = %360
-  %364 = add nsw i32 %0, -48
+add_compression_setting_uint32_t.exit:            ; preds = %400
+  %404 = add nsw i32 %0, -48
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), align 8, !tbaa !29
-  store i32 %364, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 200), align 8, !tbaa !31
+  store i32 %404, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 200), align 8, !tbaa !31
   br label %.critedge201
 
-365:                                              ; preds = %3
+405:                                              ; preds = %3
   tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.371)
   br label %.critedge201
 
-366:                                              ; preds = %3
+406:                                              ; preds = %3
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 12), align 4, !tbaa !120
   br label %.critedge201
 
-367:                                              ; preds = %3
+407:                                              ; preds = %3
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 16), align 8, !tbaa !88
   br label %.critedge201
 
 sub_0:                                            ; preds = %3
-  %368 = load i8, ptr %2, align 1
-  %.not232 = icmp eq i8 %368, 45
-  br i1 %.not232, label %.tail, label %.tail.thread
+  %408 = load i8, ptr %2, align 1
+  %.not250 = icmp eq i8 %408, 45
+  br i1 %.not250, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %369 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %370 = load i8, ptr %369, align 1
-  %371 = icmp eq i8 %370, 0
-  br i1 %371, label %372, label %.tail.thread
+  %409 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %410 = load i8, ptr %409, align 1
+  %411 = icmp eq i8 %410, 0
+  br i1 %411, label %412, label %.tail.thread
 
-372:                                              ; preds = %.tail
+412:                                              ; preds = %.tail
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6280), align 8, !tbaa !33
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1280), align 8, !tbaa !31
   br label %.critedge201
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  %373 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6280), align 8, !tbaa !33
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %373, i32 0)
-  %374 = add nuw nsw i32 %spec.select, 1
-  store i32 %374, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6280), align 8, !tbaa !33
-  %375 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @option_values, i64 1280)) #23
-  %376 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #23
-  %377 = add i64 %375, -4998
-  %378 = add i64 %377, %376
-  %379 = icmp ult i64 %378, -5000
-  br i1 %379, label %380, label %381
+  %413 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6280), align 8, !tbaa !33
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %413, i32 0)
+  %414 = add nuw nsw i32 %spec.select, 1
+  store i32 %414, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6280), align 8, !tbaa !33
+  %415 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) getelementptr inbounds nuw (i8, ptr @option_values, i64 1280)) #23
+  %416 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #23
+  %417 = add i64 %415, -4998
+  %418 = add i64 %417, %416
+  %419 = icmp ult i64 %418, -5000
+  br i1 %419, label %420, label %421
 
-380:                                              ; preds = %.tail.thread
+420:                                              ; preds = %.tail.thread
   tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.372)
   br label %.critedge201
 
-381:                                              ; preds = %.tail.thread
-  %382 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1280), i64 %375
-  %383 = sub i64 5000, %375
-  %384 = tail call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %382, i64 noundef %383, ptr noundef nonnull @.str.373, ptr noundef nonnull %2) #21
+421:                                              ; preds = %.tail.thread
+  %422 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1280), i64 %415
+  %423 = sub i64 5000, %415
+  %424 = tail call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %422, i64 noundef %423, ptr noundef nonnull @.str.373, ptr noundef nonnull %2) #21
   br label %.critedge201
 
-385:                                              ; preds = %3
-  %386 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
-  %387 = trunc i64 %386 to i32
-  store i32 %387, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 176), align 8, !tbaa !26
-  %388 = icmp slt i32 %387, 0
-  br i1 %388, label %389, label %.critedge201
+425:                                              ; preds = %3
+  %426 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
+  %427 = trunc i64 %426 to i32
+  store i32 %427, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 176), align 8, !tbaa !26
+  %428 = icmp slt i32 %427, 0
+  br i1 %428, label %429, label %.critedge201
 
-389:                                              ; preds = %385
+429:                                              ; preds = %425
   tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.374, i32 noundef 80, i32 noundef 80)
   br label %.critedge201
 
-390:                                              ; preds = %3
-  %391 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
-  %392 = trunc i64 %391 to i32
-  %393 = add i32 %392, -16
-  %or.cond = icmp ult i32 %393, 65520
-  br i1 %or.cond, label %.thread, label %394
+430:                                              ; preds = %3
+  %431 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
+  %432 = trunc i64 %431 to i32
+  %433 = add i32 %432, -16
+  %or.cond = icmp ult i32 %433, 65520
+  br i1 %or.cond, label %434, label %442
 
-.thread:                                          ; preds = %390
-  tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 0, i32 noundef %392)
-  br label %.critedge201
+434:                                              ; preds = %430
+  %435 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %436 = icmp ugt i64 %435, 63
+  br i1 %436, label %437, label %.thread
 
-394:                                              ; preds = %390
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.375, i32 noundef 98, i32 noundef %392, i32 noundef 16, i32 noundef 65535)
-  br label %.critedge201
-
-395:                                              ; preds = %3
-  %396 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  %397 = icmp ugt i64 %396, 63
-  br i1 %397, label %398, label %add_compression_setting_bool.exit
-
-398:                                              ; preds = %395
+437:                                              ; preds = %434
   tail call fastcc void @die(ptr noundef nonnull @.str.381)
   unreachable
 
-add_compression_setting_bool.exit:                ; preds = %395
-  %399 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %396
-  store i32 9, ptr %399, align 8, !tbaa !29
-  %.idx.i = shl nuw nsw i64 %396, 4
-  %.offs.i = or disjoint i64 %.idx.i, 8
-  %400 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.offs.i
-  store i32 1, ptr %400, align 8, !tbaa !31
-  %401 = add nuw nsw i64 %396, 1
-  store i64 %401, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+.thread:                                          ; preds = %434
+  %438 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %435
+  store i32 0, ptr %438, align 8, !tbaa !29
+  %.idx.i217 = shl nuw nsw i64 %435, 4
+  %439 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i217
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 8
+  store i32 %432, ptr %440, align 8, !tbaa !31
+  %441 = add nuw nsw i64 %435, 1
+  store i64 %441, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
   br label %.critedge201
 
-402:                                              ; preds = %3
-  %403 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  %404 = icmp ugt i64 %403, 63
-  br i1 %404, label %405, label %add_compression_setting_bool.exit209
+442:                                              ; preds = %430
+  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.375, i32 noundef 98, i32 noundef %432, i32 noundef 16, i32 noundef 65535)
+  br label %.critedge201
 
-405:                                              ; preds = %402
+443:                                              ; preds = %3
+  %444 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %445 = icmp ugt i64 %444, 63
+  br i1 %445, label %446, label %add_compression_setting_bool.exit220
+
+446:                                              ; preds = %443
   tail call fastcc void @die(ptr noundef nonnull @.str.381)
   unreachable
 
-add_compression_setting_bool.exit209:             ; preds = %402
-  %406 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %403
-  store i32 8, ptr %406, align 8, !tbaa !29
-  %.idx.i207 = shl nuw nsw i64 %403, 4
-  %.offs.i208 = or disjoint i64 %.idx.i207, 8
-  %407 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.offs.i208
-  store i32 1, ptr %407, align 8, !tbaa !31
-  %408 = add nuw nsw i64 %403, 1
-  store i64 %408, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+add_compression_setting_bool.exit220:             ; preds = %443
+  %447 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %444
+  store i32 9, ptr %447, align 8, !tbaa !29
+  %.idx.i219 = shl nuw nsw i64 %444, 4
+  %448 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i219
+  %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
+  store i32 1, ptr %449, align 8, !tbaa !31
+  %450 = add nuw nsw i64 %444, 1
+  store i64 %450, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
   br label %.critedge201
 
-409:                                              ; preds = %3
-  %410 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
-  %411 = trunc i64 %410 to i32
-  %412 = icmp ult i32 %411, 33
-  br i1 %412, label %.thread230, label %413
+451:                                              ; preds = %3
+  %452 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %453 = icmp ugt i64 %452, 63
+  br i1 %453, label %454, label %add_compression_setting_bool.exit222
 
-.thread230:                                       ; preds = %409
-  tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 5, i32 noundef %411)
-  br label %.critedge201
-
-413:                                              ; preds = %409
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.376, i32 noundef 108, i32 noundef %411, i32 noundef 0, i32 noundef 32)
-  br label %.critedge201
-
-414:                                              ; preds = %3
-  %415 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  %416 = icmp ugt i64 %415, 63
-  br i1 %416, label %417, label %add_compression_setting_string.exit
-
-417:                                              ; preds = %414
+454:                                              ; preds = %451
   tail call fastcc void @die(ptr noundef nonnull @.str.381)
   unreachable
 
-add_compression_setting_string.exit:              ; preds = %414
-  %418 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %415
-  store i32 4, ptr %418, align 8, !tbaa !29
-  %.idx.i210 = shl nuw nsw i64 %415, 4
-  %.offs.i211 = or disjoint i64 %.idx.i210, 8
-  %419 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.offs.i211
-  store ptr %2, ptr %419, align 8, !tbaa !31
-  %420 = add nuw nsw i64 %415, 1
-  store i64 %420, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+add_compression_setting_bool.exit222:             ; preds = %451
+  %455 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %452
+  store i32 8, ptr %455, align 8, !tbaa !29
+  %.idx.i221 = shl nuw nsw i64 %452, 4
+  %456 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i221
+  %457 = getelementptr inbounds nuw i8, ptr %456, i64 8
+  store i32 1, ptr %457, align 8, !tbaa !31
+  %458 = add nuw nsw i64 %452, 1
+  store i64 %458, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
   br label %.critedge201
 
-421:                                              ; preds = %3
-  %422 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  %423 = icmp ugt i64 %422, 63
-  br i1 %423, label %424, label %add_compression_setting_bool.exit214
+459:                                              ; preds = %3
+  %460 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
+  %461 = trunc i64 %460 to i32
+  %462 = icmp ult i32 %461, 33
+  br i1 %462, label %463, label %471
 
-424:                                              ; preds = %421
+463:                                              ; preds = %459
+  %464 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %465 = icmp ugt i64 %464, 63
+  br i1 %465, label %466, label %.thread248
+
+466:                                              ; preds = %463
   tail call fastcc void @die(ptr noundef nonnull @.str.381)
   unreachable
 
-add_compression_setting_bool.exit214:             ; preds = %421
-  %425 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %422
-  store i32 2, ptr %425, align 8, !tbaa !29
-  %.idx.i212 = shl nuw nsw i64 %422, 4
-  %.offs.i213 = or disjoint i64 %.idx.i212, 8
-  %426 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.offs.i213
-  store i32 1, ptr %426, align 8, !tbaa !31
-  %427 = add nuw nsw i64 %422, 1
-  store i64 %427, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  %428 = icmp eq i64 %422, 63
-  br i1 %428, label %429, label %add_compression_setting_bool.exit217
-
-429:                                              ; preds = %add_compression_setting_bool.exit214
-  tail call fastcc void @die(ptr noundef nonnull @.str.381)
-  unreachable
-
-add_compression_setting_bool.exit217:             ; preds = %add_compression_setting_bool.exit214
-  %430 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %427
-  store i32 3, ptr %430, align 8, !tbaa !29
-  %.idx.i215 = shl nuw nsw i64 %427, 4
-  %.offs.i216 = or disjoint i64 %.idx.i215, 8
-  %431 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.offs.i216
-  store i32 0, ptr %431, align 8, !tbaa !31
-  %432 = add nuw nsw i64 %422, 2
-  store i64 %432, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+.thread248:                                       ; preds = %463
+  %467 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %464
+  store i32 5, ptr %467, align 8, !tbaa !29
+  %.idx.i223 = shl nuw nsw i64 %464, 4
+  %468 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i223
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 8
+  store i32 %461, ptr %469, align 8, !tbaa !31
+  %470 = add nuw nsw i64 %464, 1
+  store i64 %470, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
   br label %.critedge201
 
-433:                                              ; preds = %3
-  %434 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  %435 = icmp ugt i64 %434, 63
-  br i1 %435, label %436, label %add_compression_setting_bool.exit220
-
-436:                                              ; preds = %433
-  tail call fastcc void @die(ptr noundef nonnull @.str.381)
-  unreachable
-
-add_compression_setting_bool.exit220:             ; preds = %433
-  %437 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %434
-  store i32 2, ptr %437, align 8, !tbaa !29
-  %.idx.i218 = shl nuw nsw i64 %434, 4
-  %.offs.i219 = or disjoint i64 %.idx.i218, 8
-  %438 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.offs.i219
-  store i32 1, ptr %438, align 8, !tbaa !31
-  %439 = add nuw nsw i64 %434, 1
-  store i64 %439, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  %440 = icmp eq i64 %434, 63
-  br i1 %440, label %441, label %add_compression_setting_bool.exit223
-
-441:                                              ; preds = %add_compression_setting_bool.exit220
-  tail call fastcc void @die(ptr noundef nonnull @.str.381)
-  unreachable
-
-add_compression_setting_bool.exit223:             ; preds = %add_compression_setting_bool.exit220
-  %442 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %439
-  store i32 3, ptr %442, align 8, !tbaa !29
-  %.idx.i221 = shl nuw nsw i64 %439, 4
-  %.offs.i222 = or disjoint i64 %.idx.i221, 8
-  %443 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.offs.i222
-  store i32 1, ptr %443, align 8, !tbaa !31
-  %444 = add nuw nsw i64 %434, 2
-  store i64 %444, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+471:                                              ; preds = %459
+  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.376, i32 noundef 108, i32 noundef %461, i32 noundef 0, i32 noundef 32)
   br label %.critedge201
 
-445:                                              ; preds = %3
-  %446 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  %447 = icmp ugt i64 %446, 63
-  br i1 %447, label %448, label %add_compression_setting_bool.exit226
+472:                                              ; preds = %3
+  %473 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %474 = icmp ugt i64 %473, 63
+  br i1 %474, label %475, label %add_compression_setting_string.exit
 
-448:                                              ; preds = %445
+475:                                              ; preds = %472
   tail call fastcc void @die(ptr noundef nonnull @.str.381)
   unreachable
 
-add_compression_setting_bool.exit226:             ; preds = %445
-  %449 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %446
-  store i32 7, ptr %449, align 8, !tbaa !29
-  %.idx.i224 = shl nuw nsw i64 %446, 4
-  %.offs.i225 = or disjoint i64 %.idx.i224, 8
-  %450 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.offs.i225
-  store i32 1, ptr %450, align 8, !tbaa !31
-  %451 = add nuw nsw i64 %446, 1
-  store i64 %451, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+add_compression_setting_string.exit:              ; preds = %472
+  %476 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %473
+  store i32 4, ptr %476, align 8, !tbaa !29
+  %.idx.i225 = shl nuw nsw i64 %473, 4
+  %477 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i225
+  %478 = getelementptr inbounds nuw i8, ptr %477, i64 8
+  store ptr %2, ptr %478, align 8, !tbaa !31
+  %479 = add nuw nsw i64 %473, 1
+  store i64 %479, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
   br label %.critedge201
 
-452:                                              ; preds = %3
-  %453 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
-  %454 = trunc i64 %453 to i32
-  %.not = icmp ne i32 %454, 0
-  %455 = add i32 %454, -16
-  %or.cond9 = icmp ult i32 %455, -11
+480:                                              ; preds = %3
+  %481 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %482 = icmp ugt i64 %481, 63
+  br i1 %482, label %483, label %add_compression_setting_bool.exit227
+
+483:                                              ; preds = %480
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_bool.exit227:             ; preds = %480
+  %484 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %481
+  store i32 2, ptr %484, align 8, !tbaa !29
+  %.idx.i226 = shl nuw nsw i64 %481, 4
+  %485 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i226
+  %486 = getelementptr inbounds nuw i8, ptr %485, i64 8
+  store i32 1, ptr %486, align 8, !tbaa !31
+  %487 = add nuw nsw i64 %481, 1
+  store i64 %487, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %488 = icmp eq i64 %481, 63
+  br i1 %488, label %489, label %add_compression_setting_bool.exit229
+
+489:                                              ; preds = %add_compression_setting_bool.exit227
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_bool.exit229:             ; preds = %add_compression_setting_bool.exit227
+  %490 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %487
+  store i32 3, ptr %490, align 8, !tbaa !29
+  %.idx.i228 = shl nuw nsw i64 %487, 4
+  %491 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i228
+  %492 = getelementptr inbounds nuw i8, ptr %491, i64 8
+  store i32 0, ptr %492, align 8, !tbaa !31
+  %493 = add nuw nsw i64 %481, 2
+  store i64 %493, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  br label %.critedge201
+
+494:                                              ; preds = %3
+  %495 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %496 = icmp ugt i64 %495, 63
+  br i1 %496, label %497, label %add_compression_setting_bool.exit231
+
+497:                                              ; preds = %494
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_bool.exit231:             ; preds = %494
+  %498 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %495
+  store i32 2, ptr %498, align 8, !tbaa !29
+  %.idx.i230 = shl nuw nsw i64 %495, 4
+  %499 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i230
+  %500 = getelementptr inbounds nuw i8, ptr %499, i64 8
+  store i32 1, ptr %500, align 8, !tbaa !31
+  %501 = add nuw nsw i64 %495, 1
+  store i64 %501, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %502 = icmp eq i64 %495, 63
+  br i1 %502, label %503, label %add_compression_setting_bool.exit233
+
+503:                                              ; preds = %add_compression_setting_bool.exit231
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_bool.exit233:             ; preds = %add_compression_setting_bool.exit231
+  %504 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %501
+  store i32 3, ptr %504, align 8, !tbaa !29
+  %.idx.i232 = shl nuw nsw i64 %501, 4
+  %505 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i232
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 8
+  store i32 1, ptr %506, align 8, !tbaa !31
+  %507 = add nuw nsw i64 %495, 2
+  store i64 %507, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  br label %.critedge201
+
+508:                                              ; preds = %3
+  %509 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %510 = icmp ugt i64 %509, 63
+  br i1 %510, label %511, label %add_compression_setting_bool.exit235
+
+511:                                              ; preds = %508
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_bool.exit235:             ; preds = %508
+  %512 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %509
+  store i32 7, ptr %512, align 8, !tbaa !29
+  %.idx.i234 = shl nuw nsw i64 %509, 4
+  %513 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i234
+  %514 = getelementptr inbounds nuw i8, ptr %513, i64 8
+  store i32 1, ptr %514, align 8, !tbaa !31
+  %515 = add nuw nsw i64 %509, 1
+  store i64 %515, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  br label %.critedge201
+
+516:                                              ; preds = %3
+  %517 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
+  %518 = trunc i64 %517 to i32
+  %.not = icmp ne i32 %518, 0
+  %519 = add i32 %518, -16
+  %or.cond9 = icmp ult i32 %519, -11
   %or.cond202 = and i1 %.not, %or.cond9
-  br i1 %or.cond202, label %.critedge204, label %456
+  br i1 %or.cond202, label %.critedge204, label %520
 
-.critedge204:                                     ; preds = %452
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.377, i32 noundef %454, i32 noundef 113, i32 noundef 5, i32 noundef 15)
+.critedge204:                                     ; preds = %516
+  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.377, i32 noundef %518, i32 noundef 113, i32 noundef 5, i32 noundef 15)
   br label %.critedge201
 
-456:                                              ; preds = %452
-  tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 6, i32 noundef %454)
-  br label %.critedge201
+520:                                              ; preds = %516
+  %521 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %522 = icmp ugt i64 %521, 63
+  br i1 %522, label %523, label %add_compression_setting_uint32_t.exit237
 
-457:                                              ; preds = %3
-  %458 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 44) #23
-  %459 = icmp eq ptr %458, null
-  br i1 %459, label %460, label %466
-
-460:                                              ; preds = %457
-  tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 10, i32 noundef 0)
-  %461 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
-  %462 = trunc i64 %461 to i32
-  %463 = icmp ugt i32 %462, 15
-  br i1 %463, label %464, label %465
-
-464:                                              ; preds = %460
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.378, i32 noundef %462, i32 noundef 114, i32 noundef 15)
-  br label %.critedge201
-
-465:                                              ; preds = %460
-  tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 11, i32 noundef %462)
-  br label %.critedge201
-
-466:                                              ; preds = %457
-  %467 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
-  %468 = trunc i64 %467 to i32
-  %469 = icmp ugt i32 %468, 15
-  br i1 %469, label %470, label %471
-
-470:                                              ; preds = %466
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.379, i32 noundef %468, i32 noundef 114, i32 noundef 15)
-  br label %.critedge201
-
-471:                                              ; preds = %466
-  tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 10, i32 noundef %468)
-  %472 = getelementptr inbounds nuw i8, ptr %458, i64 1
-  %473 = tail call i64 @strtol(ptr noundef nonnull captures(none) %472, ptr noundef null, i32 noundef 10) #21
-  %474 = trunc i64 %473 to i32
-  %475 = icmp ugt i32 %474, 15
-  br i1 %475, label %476, label %477
-
-476:                                              ; preds = %471
-  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.380, i32 noundef %474, i32 noundef 114, i32 noundef 15)
-  br label %.critedge201
-
-477:                                              ; preds = %471
-  tail call fastcc void @add_compression_setting_uint32_t(i32 noundef 11, i32 noundef %474)
-  br label %.critedge201
-
-478:                                              ; preds = %3
-  %479 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
-  %480 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  %481 = icmp ugt i64 %480, 63
-  br i1 %481, label %482, label %add_compression_setting_uint32_t.exit229
-
-482:                                              ; preds = %478
+523:                                              ; preds = %520
   tail call fastcc void @die(ptr noundef nonnull @.str.381)
   unreachable
 
-add_compression_setting_uint32_t.exit229:         ; preds = %478
-  %483 = trunc i64 %479 to i32
-  %484 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %480
-  store i32 12, ptr %484, align 8, !tbaa !29
-  %.idx.i227 = shl nuw nsw i64 %480, 4
-  %.offs.i228 = or disjoint i64 %.idx.i227, 8
-  %485 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.offs.i228
-  store i32 %483, ptr %485, align 8, !tbaa !31
-  %486 = add nuw nsw i64 %480, 1
-  store i64 %486, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+add_compression_setting_uint32_t.exit237:         ; preds = %520
+  %524 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %521
+  store i32 6, ptr %524, align 8, !tbaa !29
+  %.idx.i236 = shl nuw nsw i64 %521, 4
+  %525 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i236
+  %526 = getelementptr inbounds nuw i8, ptr %525, i64 8
+  store i32 %518, ptr %526, align 8, !tbaa !31
+  %527 = add nuw nsw i64 %521, 1
+  store i64 %527, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
   br label %.critedge201
 
-487:                                              ; preds = %3
-  %488 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
-  %489 = trunc i64 %488 to i32
-  store i32 %489, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1216), align 8, !tbaa !27
+528:                                              ; preds = %3
+  %529 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 44) #23
+  %530 = icmp eq ptr %529, null
+  br i1 %530, label %531, label %551
+
+531:                                              ; preds = %528
+  %532 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %533 = icmp ugt i64 %532, 63
+  br i1 %533, label %534, label %add_compression_setting_uint32_t.exit239
+
+534:                                              ; preds = %531
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_uint32_t.exit239:         ; preds = %531
+  %535 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %532
+  store i32 10, ptr %535, align 8, !tbaa !29
+  %.idx.i238 = shl nuw nsw i64 %532, 4
+  %536 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i238
+  %537 = getelementptr inbounds nuw i8, ptr %536, i64 8
+  store i32 0, ptr %537, align 8, !tbaa !31
+  %538 = add nuw nsw i64 %532, 1
+  store i64 %538, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %539 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
+  %540 = trunc i64 %539 to i32
+  %541 = icmp ugt i32 %540, 15
+  br i1 %541, label %542, label %543
+
+542:                                              ; preds = %add_compression_setting_uint32_t.exit239
+  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.378, i32 noundef %540, i32 noundef 114, i32 noundef 15)
+  br label %.critedge201
+
+543:                                              ; preds = %add_compression_setting_uint32_t.exit239
+  %544 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %545 = icmp ugt i64 %544, 63
+  br i1 %545, label %546, label %add_compression_setting_uint32_t.exit241
+
+546:                                              ; preds = %543
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_uint32_t.exit241:         ; preds = %543
+  %547 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %544
+  store i32 11, ptr %547, align 8, !tbaa !29
+  %.idx.i240 = shl nuw nsw i64 %544, 4
+  %548 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i240
+  %549 = getelementptr inbounds nuw i8, ptr %548, i64 8
+  store i32 %540, ptr %549, align 8, !tbaa !31
+  %550 = add nuw nsw i64 %544, 1
+  store i64 %550, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  br label %.critedge201
+
+551:                                              ; preds = %528
+  %552 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
+  %553 = trunc i64 %552 to i32
+  %554 = icmp ugt i32 %553, 15
+  br i1 %554, label %555, label %556
+
+555:                                              ; preds = %551
+  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.379, i32 noundef %553, i32 noundef 114, i32 noundef 15)
+  br label %.critedge201
+
+556:                                              ; preds = %551
+  %557 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %558 = icmp ugt i64 %557, 63
+  br i1 %558, label %559, label %add_compression_setting_uint32_t.exit243
+
+559:                                              ; preds = %556
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_uint32_t.exit243:         ; preds = %556
+  %560 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %557
+  store i32 10, ptr %560, align 8, !tbaa !29
+  %.idx.i242 = shl nuw nsw i64 %557, 4
+  %561 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i242
+  %562 = getelementptr inbounds nuw i8, ptr %561, i64 8
+  store i32 %553, ptr %562, align 8, !tbaa !31
+  %563 = add nuw nsw i64 %557, 1
+  store i64 %563, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %564 = getelementptr inbounds nuw i8, ptr %529, i64 1
+  %565 = tail call i64 @strtol(ptr noundef nonnull captures(none) %564, ptr noundef null, i32 noundef 10) #21
+  %566 = trunc i64 %565 to i32
+  %567 = icmp ugt i32 %566, 15
+  br i1 %567, label %568, label %569
+
+568:                                              ; preds = %add_compression_setting_uint32_t.exit243
+  tail call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.380, i32 noundef %566, i32 noundef 114, i32 noundef 15)
+  br label %.critedge201
+
+569:                                              ; preds = %add_compression_setting_uint32_t.exit243
+  %570 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %571 = icmp ugt i64 %570, 63
+  br i1 %571, label %572, label %add_compression_setting_uint32_t.exit245
+
+572:                                              ; preds = %569
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_uint32_t.exit245:         ; preds = %569
+  %573 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %570
+  store i32 11, ptr %573, align 8, !tbaa !29
+  %.idx.i244 = shl nuw nsw i64 %570, 4
+  %574 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i244
+  %575 = getelementptr inbounds nuw i8, ptr %574, i64 8
+  store i32 %566, ptr %575, align 8, !tbaa !31
+  %576 = add nuw nsw i64 %570, 1
+  store i64 %576, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  br label %.critedge201
+
+577:                                              ; preds = %3
+  %578 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
+  %579 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %580 = icmp ugt i64 %579, 63
+  br i1 %580, label %581, label %add_compression_setting_uint32_t.exit247
+
+581:                                              ; preds = %577
+  tail call fastcc void @die(ptr noundef nonnull @.str.381)
+  unreachable
+
+add_compression_setting_uint32_t.exit247:         ; preds = %577
+  %582 = trunc i64 %578 to i32
+  %583 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %579
+  store i32 12, ptr %583, align 8, !tbaa !29
+  %.idx.i246 = shl nuw nsw i64 %579, 4
+  %584 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.idx.i246
+  %585 = getelementptr inbounds nuw i8, ptr %584, i64 8
+  store i32 %582, ptr %585, align 8, !tbaa !31
+  %586 = add nuw nsw i64 %579, 1
+  store i64 %586, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  br label %.critedge201
+
+587:                                              ; preds = %3
+  %588 = tail call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #21
+  %589 = trunc i64 %588 to i32
+  store i32 %589, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1216), align 8, !tbaa !27
   br label %.critedge201
 
 .critedge199:                                     ; preds = %61
@@ -4577,8 +4783,8 @@ add_compression_setting_uint32_t.exit229:         ; preds = %478
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
   br label %.critedge201
 
-.critedge201:                                     ; preds = %14, %22, %30, %38, %54, %86, %121, %129, %137, %145, %153, %161, %169, %177, %195, %207, %226, %234, %242, %250, %258, %266, %274, %282, %290, %298, %306, %314, %322, %330, %338, %342, %339, %334, %326, %318, %310, %302, %294, %286, %278, %270, %262, %254, %246, %238, %230, %217, %221, %201, %186, %190, %173, %165, %157, %149, %141, %133, %125, %111, %90, %58, %34, %26, %18, %10, %385, %372, %381, %353, %487, %add_compression_setting_uint32_t.exit229, %add_compression_setting_bool.exit226, %add_compression_setting_bool.exit223, %add_compression_setting_bool.exit217, %add_compression_setting_string.exit, %add_compression_setting_bool.exit209, %add_compression_setting_bool.exit, %367, %366, %add_compression_setting_uint32_t.exit, %352, %351, %350, %349, %348, %347, %346, %345, %344, %343, %50, %.critedge199, %106, %3, %456, %465, %477, %.thread, %.thread230, %413, %394, %74, %464, %470, %476, %97, %104, %.critedge204, %.critedge, %389, %380, %365, %358, %222, %191, %116, %85
-  %.1 = phi i32 [ 1, %74 ], [ 1, %85 ], [ 1, %116 ], [ 1, %191 ], [ 1, %222 ], [ 1, %413 ], [ 1, %394 ], [ 1, %389 ], [ 1, %380 ], [ 1, %365 ], [ 1, %358 ], [ 1, %.critedge ], [ 1, %.critedge204 ], [ 1, %104 ], [ 1, %97 ], [ 1, %476 ], [ 1, %470 ], [ 1, %464 ], [ 0, %.thread230 ], [ 0, %.thread ], [ 0, %477 ], [ 0, %465 ], [ 0, %456 ], [ 0, %3 ], [ 0, %106 ], [ 0, %.critedge199 ], [ 0, %50 ], [ 0, %343 ], [ 0, %344 ], [ 0, %345 ], [ 0, %346 ], [ 0, %347 ], [ 0, %348 ], [ 0, %349 ], [ 0, %350 ], [ 0, %351 ], [ 0, %352 ], [ 0, %add_compression_setting_uint32_t.exit ], [ 0, %366 ], [ 0, %367 ], [ 0, %add_compression_setting_bool.exit ], [ 0, %add_compression_setting_bool.exit209 ], [ 0, %add_compression_setting_string.exit ], [ 0, %add_compression_setting_bool.exit217 ], [ 0, %add_compression_setting_bool.exit223 ], [ 0, %add_compression_setting_bool.exit226 ], [ 0, %add_compression_setting_uint32_t.exit229 ], [ 0, %487 ], [ 0, %353 ], [ 0, %381 ], [ 0, %372 ], [ 0, %385 ], [ 0, %10 ], [ 0, %18 ], [ 0, %26 ], [ 0, %34 ], [ 0, %58 ], [ 0, %90 ], [ 0, %111 ], [ 0, %125 ], [ 0, %133 ], [ 0, %141 ], [ 0, %149 ], [ 0, %157 ], [ 0, %165 ], [ 0, %173 ], [ 0, %190 ], [ 0, %186 ], [ 0, %201 ], [ 0, %221 ], [ 0, %217 ], [ 0, %230 ], [ 0, %238 ], [ 0, %246 ], [ 0, %254 ], [ 0, %262 ], [ 0, %270 ], [ 0, %278 ], [ 0, %286 ], [ 0, %294 ], [ 0, %302 ], [ 0, %310 ], [ 0, %318 ], [ 0, %326 ], [ 0, %334 ], [ 0, %339 ], [ 0, %342 ], [ 0, %338 ], [ 0, %330 ], [ 0, %322 ], [ 0, %314 ], [ 0, %306 ], [ 0, %298 ], [ 0, %290 ], [ 0, %282 ], [ 0, %274 ], [ 0, %266 ], [ 0, %258 ], [ 0, %250 ], [ 0, %242 ], [ 0, %234 ], [ 0, %226 ], [ 0, %207 ], [ 0, %195 ], [ 0, %177 ], [ 0, %169 ], [ 0, %161 ], [ 0, %153 ], [ 0, %145 ], [ 0, %137 ], [ 0, %129 ], [ 0, %121 ], [ 0, %86 ], [ 0, %54 ], [ 0, %38 ], [ 0, %30 ], [ 0, %22 ], [ 0, %14 ]
+.critedge201:                                     ; preds = %14, %22, %30, %38, %54, %86, %121, %129, %137, %145, %153, %161, %169, %177, %195, %207, %226, %234, %242, %250, %258, %266, %274, %282, %add_compression_setting_bool.exit210, %add_compression_setting_bool.exit216, %346, %354, %362, %370, %378, %382, %379, %374, %366, %358, %350, %342, %add_compression_setting_bool.exit214, %add_compression_setting_bool.exit, %278, %270, %262, %254, %246, %238, %230, %217, %221, %201, %186, %190, %173, %165, %157, %149, %141, %133, %125, %111, %90, %58, %34, %26, %18, %10, %425, %412, %421, %393, %587, %add_compression_setting_uint32_t.exit247, %add_compression_setting_bool.exit235, %add_compression_setting_bool.exit233, %add_compression_setting_bool.exit229, %add_compression_setting_string.exit, %add_compression_setting_bool.exit222, %add_compression_setting_bool.exit220, %407, %406, %add_compression_setting_uint32_t.exit, %392, %391, %390, %389, %388, %387, %386, %385, %384, %383, %50, %.critedge199, %106, %3, %add_compression_setting_uint32_t.exit237, %add_compression_setting_uint32_t.exit241, %add_compression_setting_uint32_t.exit245, %.thread, %.thread248, %471, %442, %74, %542, %555, %568, %97, %104, %.critedge204, %.critedge, %429, %420, %405, %398, %222, %191, %116, %85
+  %.1 = phi i32 [ 1, %74 ], [ 1, %85 ], [ 1, %116 ], [ 1, %191 ], [ 1, %222 ], [ 1, %471 ], [ 1, %442 ], [ 1, %429 ], [ 1, %420 ], [ 1, %405 ], [ 1, %398 ], [ 1, %.critedge ], [ 1, %.critedge204 ], [ 1, %104 ], [ 1, %97 ], [ 1, %568 ], [ 1, %555 ], [ 1, %542 ], [ 0, %.thread248 ], [ 0, %.thread ], [ 0, %add_compression_setting_uint32_t.exit245 ], [ 0, %add_compression_setting_uint32_t.exit241 ], [ 0, %add_compression_setting_uint32_t.exit237 ], [ 0, %3 ], [ 0, %106 ], [ 0, %.critedge199 ], [ 0, %50 ], [ 0, %383 ], [ 0, %384 ], [ 0, %385 ], [ 0, %386 ], [ 0, %387 ], [ 0, %388 ], [ 0, %389 ], [ 0, %390 ], [ 0, %391 ], [ 0, %392 ], [ 0, %add_compression_setting_uint32_t.exit ], [ 0, %406 ], [ 0, %407 ], [ 0, %add_compression_setting_bool.exit220 ], [ 0, %add_compression_setting_bool.exit222 ], [ 0, %add_compression_setting_string.exit ], [ 0, %add_compression_setting_bool.exit229 ], [ 0, %add_compression_setting_bool.exit233 ], [ 0, %add_compression_setting_bool.exit235 ], [ 0, %add_compression_setting_uint32_t.exit247 ], [ 0, %587 ], [ 0, %393 ], [ 0, %421 ], [ 0, %412 ], [ 0, %425 ], [ 0, %10 ], [ 0, %18 ], [ 0, %26 ], [ 0, %34 ], [ 0, %58 ], [ 0, %90 ], [ 0, %111 ], [ 0, %125 ], [ 0, %133 ], [ 0, %141 ], [ 0, %149 ], [ 0, %157 ], [ 0, %165 ], [ 0, %173 ], [ 0, %190 ], [ 0, %186 ], [ 0, %201 ], [ 0, %221 ], [ 0, %217 ], [ 0, %230 ], [ 0, %238 ], [ 0, %246 ], [ 0, %254 ], [ 0, %262 ], [ 0, %270 ], [ 0, %278 ], [ 0, %add_compression_setting_bool.exit ], [ 0, %add_compression_setting_bool.exit214 ], [ 0, %342 ], [ 0, %350 ], [ 0, %358 ], [ 0, %366 ], [ 0, %374 ], [ 0, %379 ], [ 0, %382 ], [ 0, %378 ], [ 0, %370 ], [ 0, %362 ], [ 0, %354 ], [ 0, %346 ], [ 0, %add_compression_setting_bool.exit216 ], [ 0, %add_compression_setting_bool.exit210 ], [ 0, %282 ], [ 0, %274 ], [ 0, %266 ], [ 0, %258 ], [ 0, %250 ], [ 0, %242 ], [ 0, %234 ], [ 0, %226 ], [ 0, %207 ], [ 0, %195 ], [ 0, %177 ], [ 0, %169 ], [ 0, %161 ], [ 0, %153 ], [ 0, %145 ], [ 0, %137 ], [ 0, %129 ], [ 0, %121 ], [ 0, %86 ], [ 0, %54 ], [ 0, %38 ], [ 0, %30 ], [ 0, %22 ], [ 0, %14 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
   ret i32 %.1
 }
@@ -4603,62 +4809,6 @@ declare i32 @flac__vorbiscomment_add(ptr noundef, ptr noundef, i32 noundef, i32 
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @add_compression_setting_bool(i32 noundef range(i32 2, 10) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
-  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  %4 = icmp ugt i64 %3, 63
-  br i1 %4, label %5, label %6
-
-5:                                                ; preds = %2
-  tail call fastcc void @die(ptr noundef nonnull @.str.381)
-  unreachable
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %3
-  store i32 %0, ptr %7, align 8, !tbaa !29
-  %.idx = shl nuw nsw i64 %3, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %8 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.offs
-  store i32 %1, ptr %8, align 8, !tbaa !31
-  %9 = add nuw nsw i64 %3, 1
-  store i64 %9, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  ret void
-}
-
-; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @add_compression_setting_uint32_t(i32 noundef range(i32 0, 13) %0, i32 noundef %1) unnamed_addr #0 {
-  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  %4 = icmp ugt i64 %3, 63
-  br i1 %4, label %5, label %6
-
-5:                                                ; preds = %2
-  tail call fastcc void @die(ptr noundef nonnull @.str.381)
-  unreachable
-
-6:                                                ; preds = %2
-  %7 = icmp eq i32 %0, 1
-  br i1 %7, label %8, label %9
-
-8:                                                ; preds = %6
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), align 8, !tbaa !29
-  store i32 %1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 200), align 8, !tbaa !31
-  br label %13
-
-9:                                                ; preds = %6
-  %10 = getelementptr inbounds nuw [64 x %struct.compression_setting_t], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 0, i64 %3
-  store i32 %0, ptr %10, align 8, !tbaa !29
-  %.idx = shl nuw nsw i64 %3, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %11 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %.offs
-  store i32 %1, ptr %11, align 8, !tbaa !31
-  %12 = add nuw nsw i64 %3, 1
-  store i64 %12, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  br label %13
-
-13:                                               ; preds = %9, %8
-  ret void
-}
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #15

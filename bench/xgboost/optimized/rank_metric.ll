@@ -7051,17 +7051,17 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairIfjElN9__gnu_cxx5__ops1
   br i1 %8, label %.lr.ph, label %_ZSt14__partial_sortIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SJ_.exit
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEESG_SG_SG_SJ_.exit
-  %13 = phi i64 [ %7, %.lr.ph ], [ %126, %_ZSt27__unguarded_partition_pivotIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEESG_SG_SG_SJ_.exit ]
+  %13 = phi i64 [ %7, %.lr.ph ], [ %125, %_ZSt27__unguarded_partition_pivotIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEESG_SG_SG_SJ_.exit ]
   %.025 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEESG_SG_SG_SJ_.exit ]
-  %.01724 = phi i64 [ %2, %.lr.ph ], [ %69, %_ZSt27__unguarded_partition_pivotIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEESG_SG_SG_SJ_.exit ]
+  %.01724 = phi i64 [ %2, %.lr.ph ], [ %68, %_ZSt27__unguarded_partition_pivotIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEESG_SG_SG_SJ_.exit ]
   %14 = icmp eq i64 %.01724, 0
-  br i1 %14, label %.lr.ph.i.i, label %68
+  br i1 %14, label %.lr.ph.i.i, label %67
 
 .lr.ph.i.i:                                       ; preds = %12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -7091,224 +7091,224 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairIfjElN9__gnu_cxx5__ops1
   %26 = shl i64 %.029.i.i.i.i, 1
   %27 = add i64 %26, 2
   %28 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %27
-  %29 = or disjoint i64 %26, 1
-  %30 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %29
-  %31 = load float, ptr %28, align 4, !tbaa !126
-  %32 = load float, ptr %30, align 4, !tbaa !126
-  %33 = fcmp ogt float %31, %32
-  %spec.select.i.i.i.i = select i1 %33, i64 %29, i64 %27
-  %34 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %spec.select.i.i.i.i
-  %35 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.029.i.i.i.i
-  %36 = load float, ptr %34, align 4, !tbaa !125
-  store float %36, ptr %35, align 4, !tbaa !126
-  %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %38 = load i32, ptr %37, align 4, !tbaa !127
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store i32 %38, ptr %39, align 4, !tbaa !123
-  %40 = icmp slt i64 %spec.select.i.i.i.i, %24
-  br i1 %40, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !337
+  %gep.i.i.i.i = getelementptr %"struct.std::pair.131", ptr %9, i64 %26
+  %29 = load float, ptr %28, align 4, !tbaa !126
+  %30 = load float, ptr %gep.i.i.i.i, align 4, !tbaa !126
+  %31 = fcmp ogt float %29, %30
+  %32 = or disjoint i64 %26, 1
+  %spec.select.i.i.i.i = select i1 %31, i64 %32, i64 %27
+  %33 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %spec.select.i.i.i.i
+  %34 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.029.i.i.i.i
+  %35 = load float, ptr %33, align 4, !tbaa !125
+  store float %35, ptr %34, align 4, !tbaa !126
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %37 = load i32, ptr %36, align 4, !tbaa !127
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store i32 %37, ptr %38, align 4, !tbaa !123
+  %39 = icmp slt i64 %spec.select.i.i.i.i, %24
+  br i1 %39, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !337
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %15
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %15 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %41 = and i64 %21, 8
-  %42 = icmp eq i64 %41, 0
-  br i1 %42, label %43, label %55
+  %40 = and i64 %21, 8
+  %41 = icmp eq i64 %40, 0
+  br i1 %41, label %42, label %54
 
-43:                                               ; preds = %._crit_edge.i.i.i.i
-  %44 = add nsw i64 %22, -2
-  %45 = ashr exact i64 %44, 1
-  %46 = icmp eq i64 %.0.lcssa.i.i.i.i, %45
-  br i1 %46, label %.thread.i.i.i, label %55
+42:                                               ; preds = %._crit_edge.i.i.i.i
+  %43 = add nsw i64 %22, -2
+  %44 = ashr exact i64 %43, 1
+  %45 = icmp eq i64 %.0.lcssa.i.i.i.i, %44
+  br i1 %45, label %.thread.i.i.i, label %54
 
-.thread.i.i.i:                                    ; preds = %43
-  %47 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %48 = or disjoint i64 %47, 1
-  %49 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %0, i64 %48
-  %50 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.0.lcssa.i.i.i.i
-  %51 = load float, ptr %49, align 4, !tbaa !125
-  store float %51, ptr %50, align 4, !tbaa !126
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %53 = load i32, ptr %52, align 4, !tbaa !127
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 %53, ptr %54, align 4, !tbaa !123
+.thread.i.i.i:                                    ; preds = %42
+  %46 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %47 = or disjoint i64 %46, 1
+  %48 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %0, i64 %47
+  %49 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %50 = load float, ptr %48, align 4, !tbaa !125
+  store float %50, ptr %49, align 4, !tbaa !126
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  %52 = load i32, ptr %51, align 4, !tbaa !127
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  store i32 %52, ptr %53, align 4, !tbaa !123
   %.sroa.0.0.extract.trunc.i.i13.i.i.i = trunc i64 %.sroa.02.0.copyload.i.i.i to i32
   br label %.lr.ph.i.i.preheader.i.i.i
 
-55:                                               ; preds = %43, %._crit_edge.i.i.i.i
+54:                                               ; preds = %42, %._crit_edge.i.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.02.0.copyload.i.i.i to i32
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_RSJ_.exit.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.preheader.i.i.i:                       ; preds = %55, %.thread.i.i.i
-  %.sroa.0.0.extract.trunc.i.i16.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i13.i.i.i, %.thread.i.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %55 ]
-  %.1.i15.i.i.i = phi i64 [ %48, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %55 ]
-  %56 = bitcast i32 %.sroa.0.0.extract.trunc.i.i16.i.i.i to float
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %54, %.thread.i.i.i
+  %.sroa.0.0.extract.trunc.i.i16.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i13.i.i.i, %.thread.i.i.i ], [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %54 ]
+  %.1.i15.i.i.i = phi i64 [ %47, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %54 ]
+  %55 = bitcast i32 %.sroa.0.0.extract.trunc.i.i16.i.i.i to float
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %60, %.lr.ph.i.i.preheader.i.i.i
-  %.01317.i.i.i.i.i = phi i64 [ %.018.i.i910.i.i.i, %60 ], [ %.1.i15.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %59, %.lr.ph.i.i.preheader.i.i.i
+  %.01317.i.i.i.i.i = phi i64 [ %.018.i.i910.i.i.i, %59 ], [ %.1.i15.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
   %.018.in.i.i.i.i.i = add nsw i64 %.01317.i.i.i.i.i, -1
   %.018.i.i910.i.i.i = lshr i64 %.018.in.i.i.i.i.i, 1
-  %57 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %0, i64 %.018.i.i910.i.i.i
-  %58 = load float, ptr %57, align 4, !tbaa !126
-  %59 = fcmp ogt float %58, %56
-  br i1 %59, label %60, label %_ZSt10__pop_heapIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_RSJ_.exit.i.i
+  %56 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %0, i64 %.018.i.i910.i.i.i
+  %57 = load float, ptr %56, align 4, !tbaa !126
+  %58 = fcmp ogt float %57, %55
+  br i1 %58, label %59, label %_ZSt10__pop_heapIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_RSJ_.exit.i.i
 
-60:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %61 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.01317.i.i.i.i.i
-  store float %58, ptr %61, align 4, !tbaa !126
-  %62 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  %63 = load i32, ptr %62, align 4, !tbaa !127
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 4
-  store i32 %63, ptr %64, align 4, !tbaa !123
+59:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %60 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.01317.i.i.i.i.i
+  store float %57, ptr %60, align 4, !tbaa !126
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %62 = load i32, ptr %61, align 4, !tbaa !127
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  store i32 %62, ptr %63, align 4, !tbaa !123
   %.not11.i.i.i = icmp ult i64 %.018.in.i.i.i.i.i, 2
   br i1 %.not11.i.i.i, label %_ZSt10__pop_heapIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_RSJ_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !338
 
-_ZSt10__pop_heapIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_RSJ_.exit.i.i: ; preds = %60, %.lr.ph.i.i.i.i.i, %55
-  %.sroa.0.0.extract.trunc.i.i17.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %55 ], [ %.sroa.0.0.extract.trunc.i.i16.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.0.extract.trunc.i.i16.i.i.i, %60 ]
-  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %55 ], [ 0, %60 ], [ %.01317.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+_ZSt10__pop_heapIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_RSJ_.exit.i.i: ; preds = %59, %.lr.ph.i.i.i.i.i, %54
+  %.sroa.0.0.extract.trunc.i.i17.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i.i.i.i, %54 ], [ %.sroa.0.0.extract.trunc.i.i16.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.0.extract.trunc.i.i16.i.i.i, %59 ]
+  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %54 ], [ 0, %59 ], [ %.01317.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.sroa.3.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.02.0.copyload.i.i.i, 32
   %.sroa.3.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i.i.i to i32
-  %65 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i32 %.sroa.0.0.extract.trunc.i.i17.i.i.i, ptr %65, align 4, !tbaa !126
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  store i32 %.sroa.3.0.extract.trunc.i.i.i.i.i, ptr %66, align 4, !tbaa !123
-  %67 = icmp sgt i64 %21, 8
-  br i1 %67, label %15, label %_ZSt14__partial_sortIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SJ_.exit, !llvm.loop !339
+  %64 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store i32 %.sroa.0.0.extract.trunc.i.i17.i.i.i, ptr %64, align 4, !tbaa !126
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  store i32 %.sroa.3.0.extract.trunc.i.i.i.i.i, ptr %65, align 4, !tbaa !123
+  %66 = icmp sgt i64 %21, 8
+  br i1 %66, label %15, label %_ZSt14__partial_sortIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SJ_.exit, !llvm.loop !339
 
-68:                                               ; preds = %12
-  %69 = add nsw i64 %.01724, -1
-  %70 = lshr i64 %13, 4
-  %71 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %0, i64 %70
-  %72 = getelementptr inbounds i8, ptr %.025, i64 -8
-  %73 = load float, ptr %9, align 4, !tbaa !126
-  %74 = load float, ptr %71, align 4, !tbaa !126
-  %75 = fcmp ogt float %73, %74
-  %76 = load float, ptr %72, align 4, !tbaa !126
-  br i1 %75, label %77, label %94
+67:                                               ; preds = %12
+  %68 = add nsw i64 %.01724, -1
+  %69 = lshr i64 %13, 4
+  %70 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %0, i64 %69
+  %71 = getelementptr inbounds i8, ptr %.025, i64 -8
+  %72 = load float, ptr %9, align 4, !tbaa !126
+  %73 = load float, ptr %70, align 4, !tbaa !126
+  %74 = fcmp ogt float %72, %73
+  %75 = load float, ptr %71, align 4, !tbaa !126
+  br i1 %74, label %76, label %93
 
-77:                                               ; preds = %68
-  %78 = fcmp ogt float %74, %76
-  br i1 %78, label %79, label %84
+76:                                               ; preds = %67
+  %77 = fcmp ogt float %73, %75
+  br i1 %77, label %78, label %83
 
-79:                                               ; preds = %77
-  %80 = load float, ptr %0, align 4, !tbaa !125
-  store float %74, ptr %0, align 4, !tbaa !125
-  store float %80, ptr %71, align 4, !tbaa !125
-  %81 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %82 = load i32, ptr %10, align 4, !tbaa !127
-  %83 = load i32, ptr %81, align 4, !tbaa !127
-  store i32 %83, ptr %10, align 4, !tbaa !127
-  store i32 %82, ptr %81, align 4, !tbaa !127
-  br label %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader
-
-84:                                               ; preds = %77
-  %85 = fcmp ogt float %73, %76
-  %86 = load float, ptr %0, align 4, !tbaa !125
-  br i1 %85, label %87, label %91
-
-87:                                               ; preds = %84
-  store float %76, ptr %0, align 4, !tbaa !125
-  store float %86, ptr %72, align 4, !tbaa !125
-  %88 = getelementptr inbounds i8, ptr %.025, i64 -4
-  %89 = load i32, ptr %10, align 4, !tbaa !127
-  %90 = load i32, ptr %88, align 4, !tbaa !127
-  store i32 %90, ptr %10, align 4, !tbaa !127
-  store i32 %89, ptr %88, align 4, !tbaa !127
-  br label %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader
-
-91:                                               ; preds = %84
+78:                                               ; preds = %76
+  %79 = load float, ptr %0, align 4, !tbaa !125
   store float %73, ptr %0, align 4, !tbaa !125
-  store float %86, ptr %9, align 4, !tbaa !125
-  %92 = load i32, ptr %10, align 4, !tbaa !127
-  %93 = load i32, ptr %11, align 4, !tbaa !127
-  store i32 %93, ptr %10, align 4, !tbaa !127
-  store i32 %92, ptr %11, align 4, !tbaa !127
+  store float %79, ptr %70, align 4, !tbaa !125
+  %80 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %81 = load i32, ptr %10, align 4, !tbaa !127
+  %82 = load i32, ptr %80, align 4, !tbaa !127
+  store i32 %82, ptr %10, align 4, !tbaa !127
+  store i32 %81, ptr %80, align 4, !tbaa !127
   br label %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader
 
-94:                                               ; preds = %68
-  %95 = fcmp ogt float %73, %76
-  br i1 %95, label %96, label %100
+83:                                               ; preds = %76
+  %84 = fcmp ogt float %72, %75
+  %85 = load float, ptr %0, align 4, !tbaa !125
+  br i1 %84, label %86, label %90
 
-96:                                               ; preds = %94
-  %97 = load float, ptr %0, align 4, !tbaa !125
+86:                                               ; preds = %83
+  store float %75, ptr %0, align 4, !tbaa !125
+  store float %85, ptr %71, align 4, !tbaa !125
+  %87 = getelementptr inbounds i8, ptr %.025, i64 -4
+  %88 = load i32, ptr %10, align 4, !tbaa !127
+  %89 = load i32, ptr %87, align 4, !tbaa !127
+  store i32 %89, ptr %10, align 4, !tbaa !127
+  store i32 %88, ptr %87, align 4, !tbaa !127
+  br label %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader
+
+90:                                               ; preds = %83
+  store float %72, ptr %0, align 4, !tbaa !125
+  store float %85, ptr %9, align 4, !tbaa !125
+  %91 = load i32, ptr %10, align 4, !tbaa !127
+  %92 = load i32, ptr %11, align 4, !tbaa !127
+  store i32 %92, ptr %10, align 4, !tbaa !127
+  store i32 %91, ptr %11, align 4, !tbaa !127
+  br label %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader
+
+93:                                               ; preds = %67
+  %94 = fcmp ogt float %72, %75
+  br i1 %94, label %95, label %99
+
+95:                                               ; preds = %93
+  %96 = load float, ptr %0, align 4, !tbaa !125
+  store float %72, ptr %0, align 4, !tbaa !125
+  store float %96, ptr %9, align 4, !tbaa !125
+  %97 = load i32, ptr %10, align 4, !tbaa !127
+  %98 = load i32, ptr %11, align 4, !tbaa !127
+  store i32 %98, ptr %10, align 4, !tbaa !127
+  store i32 %97, ptr %11, align 4, !tbaa !127
+  br label %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader
+
+99:                                               ; preds = %93
+  %100 = fcmp ogt float %73, %75
+  %101 = load float, ptr %0, align 4, !tbaa !125
+  br i1 %100, label %102, label %106
+
+102:                                              ; preds = %99
+  store float %75, ptr %0, align 4, !tbaa !125
+  store float %101, ptr %71, align 4, !tbaa !125
+  %103 = getelementptr inbounds i8, ptr %.025, i64 -4
+  %104 = load i32, ptr %10, align 4, !tbaa !127
+  %105 = load i32, ptr %103, align 4, !tbaa !127
+  store i32 %105, ptr %10, align 4, !tbaa !127
+  store i32 %104, ptr %103, align 4, !tbaa !127
+  br label %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader
+
+106:                                              ; preds = %99
   store float %73, ptr %0, align 4, !tbaa !125
-  store float %97, ptr %9, align 4, !tbaa !125
-  %98 = load i32, ptr %10, align 4, !tbaa !127
-  %99 = load i32, ptr %11, align 4, !tbaa !127
-  store i32 %99, ptr %10, align 4, !tbaa !127
-  store i32 %98, ptr %11, align 4, !tbaa !127
+  store float %101, ptr %70, align 4, !tbaa !125
+  %107 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %108 = load i32, ptr %10, align 4, !tbaa !127
+  %109 = load i32, ptr %107, align 4, !tbaa !127
+  store i32 %109, ptr %10, align 4, !tbaa !127
+  store i32 %108, ptr %107, align 4, !tbaa !127
   br label %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader
 
-100:                                              ; preds = %94
-  %101 = fcmp ogt float %74, %76
-  %102 = load float, ptr %0, align 4, !tbaa !125
-  br i1 %101, label %103, label %107
-
-103:                                              ; preds = %100
-  store float %76, ptr %0, align 4, !tbaa !125
-  store float %102, ptr %72, align 4, !tbaa !125
-  %104 = getelementptr inbounds i8, ptr %.025, i64 -4
-  %105 = load i32, ptr %10, align 4, !tbaa !127
-  %106 = load i32, ptr %104, align 4, !tbaa !127
-  store i32 %106, ptr %10, align 4, !tbaa !127
-  store i32 %105, ptr %104, align 4, !tbaa !127
-  br label %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader
-
-107:                                              ; preds = %100
-  store float %74, ptr %0, align 4, !tbaa !125
-  store float %102, ptr %71, align 4, !tbaa !125
-  %108 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %109 = load i32, ptr %10, align 4, !tbaa !127
-  %110 = load i32, ptr %108, align 4, !tbaa !127
-  store i32 %110, ptr %10, align 4, !tbaa !127
-  store i32 %109, ptr %108, align 4, !tbaa !127
-  br label %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader
-
-_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader: ; preds = %107, %103, %96, %91, %87, %79
+_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader: ; preds = %106, %102, %95, %90, %86, %78
   br label %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i
 
-_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader, %120
-  %.013.i.i = phi ptr [ %.114.i.i, %120 ], [ %.025, %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %115, %120 ], [ %9, %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader ]
-  %111 = load float, ptr %0, align 4, !tbaa !126
-  br label %112
+_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader, %119
+  %.013.i.i = phi ptr [ %.114.i.i, %119 ], [ %.025, %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %114, %119 ], [ %9, %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i.preheader ]
+  %110 = load float, ptr %0, align 4, !tbaa !126
+  br label %111
 
-112:                                              ; preds = %112, %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i ], [ %115, %112 ]
-  %113 = load float, ptr %.1.i.i, align 4, !tbaa !126
-  %114 = fcmp ogt float %113, %111
-  %115 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %114, label %112, label %.preheader.i.i, !llvm.loop !340
+111:                                              ; preds = %111, %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i ], [ %114, %111 ]
+  %112 = load float, ptr %.1.i.i, align 4, !tbaa !126
+  %113 = fcmp ogt float %112, %110
+  %114 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  br i1 %113, label %111, label %.preheader.i.i, !llvm.loop !340
 
-.preheader.i.i:                                   ; preds = %112, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %112 ]
+.preheader.i.i:                                   ; preds = %111, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %111 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
-  %116 = load float, ptr %.114.i.i, align 4, !tbaa !126
-  %117 = fcmp ogt float %111, %116
-  br i1 %117, label %.preheader.i.i, label %118, !llvm.loop !341
+  %115 = load float, ptr %.114.i.i, align 4, !tbaa !126
+  %116 = fcmp ogt float %110, %115
+  br i1 %116, label %.preheader.i.i, label %117, !llvm.loop !341
 
-118:                                              ; preds = %.preheader.i.i
-  %119 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %119, label %120, label %_ZSt27__unguarded_partition_pivotIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEESG_SG_SG_SJ_.exit
+117:                                              ; preds = %.preheader.i.i
+  %118 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %118, label %119, label %_ZSt27__unguarded_partition_pivotIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEESG_SG_SG_SJ_.exit
 
-120:                                              ; preds = %118
-  store float %116, ptr %.1.i.i, align 4, !tbaa !125
-  store float %113, ptr %.114.i.i, align 4, !tbaa !125
-  %121 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
-  %122 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
+119:                                              ; preds = %117
+  store float %115, ptr %.1.i.i, align 4, !tbaa !125
+  store float %112, ptr %.114.i.i, align 4, !tbaa !125
+  %120 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
+  %121 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
+  %122 = load i32, ptr %120, align 4, !tbaa !127
   %123 = load i32, ptr %121, align 4, !tbaa !127
-  %124 = load i32, ptr %122, align 4, !tbaa !127
-  store i32 %124, ptr %121, align 4, !tbaa !127
-  store i32 %123, ptr %122, align 4, !tbaa !127
+  store i32 %123, ptr %120, align 4, !tbaa !127
+  store i32 %122, ptr %121, align 4, !tbaa !127
   br label %_ZSt22__move_median_to_firstIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SG_SJ_.exit.i, !llvm.loop !342
 
-_ZSt27__unguarded_partition_pivotIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEESG_SG_SG_SJ_.exit: ; preds = %118
-  tail call void @_ZSt16__introsort_loopIPSt4pairIfjElN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SJ_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %69)
-  %125 = ptrtoint ptr %.1.i.i to i64
-  %126 = sub i64 %125, %5
-  %127 = icmp sgt i64 %126, 128
-  br i1 %127, label %12, label %_ZSt14__partial_sortIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SJ_.exit, !llvm.loop !343
+_ZSt27__unguarded_partition_pivotIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEESG_SG_SG_SJ_.exit: ; preds = %117
+  tail call void @_ZSt16__introsort_loopIPSt4pairIfjElN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SJ_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %68)
+  %124 = ptrtoint ptr %.1.i.i to i64
+  %125 = sub i64 %124, %5
+  %126 = icmp sgt i64 %125, 128
+  br i1 %126, label %12, label %_ZSt14__partial_sortIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SJ_.exit, !llvm.loop !343
 
 _ZSt14__partial_sortIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_SJ_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEESG_SG_SG_SJ_.exit, %_ZSt10__pop_heapIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SG_SG_RSJ_.exit.i.i, %3
   ret void
@@ -7536,6 +7536,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter
   %11 = lshr i64 %10, 1
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
+  %invariant.gep.i = getelementptr i8, ptr %0, i64 8
   %14 = and i64 %6, 8
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
@@ -7550,7 +7551,7 @@ define linkonce_odr void @_ZSt11__make_heapIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit.us
-  %.015.us = phi i64 [ %52, %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit.us ], [ %11, %9 ]
+  %.015.us = phi i64 [ %51, %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit.us ], [ %11, %9 ]
   %22 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %0, i64 %.015.us
   %.sroa.02.0.copyload.us = load i64, ptr %22, align 4
   %23 = icmp slt i64 %.015.us, %13
@@ -7565,138 +7566,138 @@ define linkonce_odr void @_ZSt11__make_heapIPSt4pairIfjEN9__gnu_cxx5__ops15_Iter
   %24 = shl i64 %.029.i.us, 1
   %25 = add i64 %24, 2
   %26 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %25
-  %27 = or disjoint i64 %24, 1
-  %28 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %27
-  %29 = load float, ptr %26, align 4, !tbaa !126
-  %30 = load float, ptr %28, align 4, !tbaa !126
-  %31 = fcmp ogt float %29, %30
-  %spec.select.i.us = select i1 %31, i64 %27, i64 %25
-  %32 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %spec.select.i.us
-  %33 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.029.i.us
-  %34 = load float, ptr %32, align 4, !tbaa !125
-  store float %34, ptr %33, align 4, !tbaa !126
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !127
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  store i32 %36, ptr %37, align 4, !tbaa !123
-  %38 = icmp slt i64 %spec.select.i.us, %13
-  br i1 %38, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !337
+  %gep.i.us = getelementptr %"struct.std::pair.131", ptr %invariant.gep.i, i64 %24
+  %27 = load float, ptr %26, align 4, !tbaa !126
+  %28 = load float, ptr %gep.i.us, align 4, !tbaa !126
+  %29 = fcmp ogt float %27, %28
+  %30 = or disjoint i64 %24, 1
+  %spec.select.i.us = select i1 %29, i64 %30, i64 %25
+  %31 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %spec.select.i.us
+  %32 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.029.i.us
+  %33 = load float, ptr %31, align 4, !tbaa !125
+  store float %33, ptr %32, align 4, !tbaa !126
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %35 = load i32, ptr %34, align 4, !tbaa !127
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  store i32 %35, ptr %36, align 4, !tbaa !123
+  %37 = icmp slt i64 %spec.select.i.us, %13
+  br i1 %37, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !337
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %.sroa.0.0.extract.trunc.i.i.us = trunc i64 %.sroa.02.0.copyload.us to i32
-  %39 = bitcast i32 %.sroa.0.0.extract.trunc.i.i.us to float
-  %40 = icmp sgt i64 %spec.select.i.us, %.015.us
-  br i1 %40, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit.us
+  %38 = bitcast i32 %.sroa.0.0.extract.trunc.i.i.us to float
+  %39 = icmp sgt i64 %spec.select.i.us, %.015.us
+  br i1 %39, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit.us
 
-.lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us, %44
-  %.01317.i.i.us = phi i64 [ %.018.i.i.us, %44 ], [ %spec.select.i.us, %._crit_edge.i.us ]
+.lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us, %43
+  %.01317.i.i.us = phi i64 [ %.018.i.i.us, %43 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %41 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.018.i.i.us
-  %42 = load float, ptr %41, align 4, !tbaa !126
-  %43 = fcmp ogt float %42, %39
-  br i1 %43, label %44, label %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit.us
+  %40 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.018.i.i.us
+  %41 = load float, ptr %40, align 4, !tbaa !126
+  %42 = fcmp ogt float %41, %38
+  br i1 %42, label %43, label %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit.us
 
-44:                                               ; preds = %.lr.ph.i.i.us
-  %45 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.01317.i.i.us
-  store float %42, ptr %45, align 4, !tbaa !126
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !127
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  store i32 %47, ptr %48, align 4, !tbaa !123
-  %49 = icmp sgt i64 %.018.i.i.us, %.015.us
-  br i1 %49, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit.us, !llvm.loop !338
+43:                                               ; preds = %.lr.ph.i.i.us
+  %44 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.01317.i.i.us
+  store float %41, ptr %44, align 4, !tbaa !126
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %46 = load i32, ptr %45, align 4, !tbaa !127
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  store i32 %46, ptr %47, align 4, !tbaa !123
+  %48 = icmp sgt i64 %.018.i.i.us, %.015.us
+  br i1 %48, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit.us, !llvm.loop !338
 
-_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %44, %._crit_edge.i.us.thread, %._crit_edge.i.us
-  %.sroa.0.0.extract.trunc.i.i.us21 = phi i32 [ %.sroa.0.0.extract.trunc.i.i.us, %._crit_edge.i.us ], [ %.sroa.0.0.extract.trunc.i.i.us20, %._crit_edge.i.us.thread ], [ %.sroa.0.0.extract.trunc.i.i.us, %44 ], [ %.sroa.0.0.extract.trunc.i.i.us, %.lr.ph.i.i.us ]
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.015.us, %._crit_edge.i.us.thread ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %44 ]
+_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %43, %._crit_edge.i.us.thread, %._crit_edge.i.us
+  %.sroa.0.0.extract.trunc.i.i.us21 = phi i32 [ %.sroa.0.0.extract.trunc.i.i.us, %._crit_edge.i.us ], [ %.sroa.0.0.extract.trunc.i.i.us20, %._crit_edge.i.us.thread ], [ %.sroa.0.0.extract.trunc.i.i.us, %43 ], [ %.sroa.0.0.extract.trunc.i.i.us, %.lr.ph.i.i.us ]
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.015.us, %._crit_edge.i.us.thread ], [ %.01317.i.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %43 ]
   %.sroa.3.0.extract.shift.i.i.us = lshr i64 %.sroa.02.0.copyload.us, 32
   %.sroa.3.0.extract.trunc.i.i.us = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.us to i32
-  %50 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.013.lcssa.i.i.us
-  store i32 %.sroa.0.0.extract.trunc.i.i.us21, ptr %50, align 4, !tbaa !126
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 %.sroa.3.0.extract.trunc.i.i.us, ptr %51, align 4, !tbaa !123
+  %49 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.013.lcssa.i.i.us
+  store i32 %.sroa.0.0.extract.trunc.i.i.us21, ptr %49, align 4, !tbaa !126
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  store i32 %.sroa.3.0.extract.trunc.i.i.us, ptr %50, align 4, !tbaa !123
   %.not.us = icmp eq i64 %.015.us, 0
-  %52 = add nsw i64 %.015.us, -1
+  %51 = add nsw i64 %.015.us, -1
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !348
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit
-  %.015 = phi i64 [ %88, %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %53 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %0, i64 %.015
-  %.sroa.02.0.copyload = load i64, ptr %53, align 4
-  %54 = icmp slt i64 %.015, %13
-  br i1 %54, label %.lr.ph.i, label %._crit_edge.i
+  %.015 = phi i64 [ %86, %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit ], [ %11, %.split.preheader ]
+  %52 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %0, i64 %.015
+  %.sroa.02.0.copyload = load i64, ptr %52, align 4
+  %53 = icmp slt i64 %.015, %13
+  br i1 %53, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
   %.029.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.015, %.split ]
-  %55 = shl i64 %.029.i, 1
-  %56 = add i64 %55, 2
-  %57 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %56
-  %58 = or disjoint i64 %55, 1
-  %59 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %58
-  %60 = load float, ptr %57, align 4, !tbaa !126
-  %61 = load float, ptr %59, align 4, !tbaa !126
-  %62 = fcmp ogt float %60, %61
-  %spec.select.i = select i1 %62, i64 %58, i64 %56
-  %63 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %spec.select.i
-  %64 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.029.i
-  %65 = load float, ptr %63, align 4, !tbaa !125
-  store float %65, ptr %64, align 4, !tbaa !126
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !127
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  store i32 %67, ptr %68, align 4, !tbaa !123
-  %69 = icmp slt i64 %spec.select.i, %13
-  br i1 %69, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !337
+  %54 = shl i64 %.029.i, 1
+  %55 = add i64 %54, 2
+  %56 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %55
+  %gep.i = getelementptr %"struct.std::pair.131", ptr %invariant.gep.i, i64 %54
+  %57 = load float, ptr %56, align 4, !tbaa !126
+  %58 = load float, ptr %gep.i, align 4, !tbaa !126
+  %59 = fcmp ogt float %57, %58
+  %60 = or disjoint i64 %54, 1
+  %spec.select.i = select i1 %59, i64 %60, i64 %55
+  %61 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %spec.select.i
+  %62 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.029.i
+  %63 = load float, ptr %61, align 4, !tbaa !125
+  store float %63, ptr %62, align 4, !tbaa !126
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %65 = load i32, ptr %64, align 4, !tbaa !127
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  store i32 %65, ptr %66, align 4, !tbaa !123
+  %67 = icmp slt i64 %spec.select.i, %13
+  br i1 %67, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !337
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.015, %.split ], [ %spec.select.i, %.lr.ph.i ]
-  %70 = icmp eq i64 %.0.lcssa.i, %16
-  br i1 %70, label %71, label %74
+  %68 = icmp eq i64 %.0.lcssa.i, %16
+  br i1 %68, label %69, label %72
 
-71:                                               ; preds = %._crit_edge.i
-  %72 = load float, ptr %18, align 4, !tbaa !125
-  store float %72, ptr %19, align 4, !tbaa !126
-  %73 = load i32, ptr %20, align 4, !tbaa !127
-  store i32 %73, ptr %21, align 4, !tbaa !123
-  br label %74
+69:                                               ; preds = %._crit_edge.i
+  %70 = load float, ptr %18, align 4, !tbaa !125
+  store float %70, ptr %19, align 4, !tbaa !126
+  %71 = load i32, ptr %20, align 4, !tbaa !127
+  store i32 %71, ptr %21, align 4, !tbaa !123
+  br label %72
 
-74:                                               ; preds = %71, %._crit_edge.i
-  %.1.i = phi i64 [ %17, %71 ], [ %.0.lcssa.i, %._crit_edge.i ]
+72:                                               ; preds = %69, %._crit_edge.i
+  %.1.i = phi i64 [ %17, %69 ], [ %.0.lcssa.i, %._crit_edge.i ]
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.02.0.copyload to i32
-  %75 = bitcast i32 %.sroa.0.0.extract.trunc.i.i to float
-  %76 = icmp sgt i64 %.1.i, %.015
-  br i1 %76, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit
+  %73 = bitcast i32 %.sroa.0.0.extract.trunc.i.i to float
+  %74 = icmp sgt i64 %.1.i, %.015
+  br i1 %74, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %74, %80
-  %.01317.i.i = phi i64 [ %.018.i.i, %80 ], [ %.1.i, %74 ]
+.lr.ph.i.i:                                       ; preds = %72, %78
+  %.01317.i.i = phi i64 [ %.018.i.i, %78 ], [ %.1.i, %72 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %77 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.018.i.i
-  %78 = load float, ptr %77, align 4, !tbaa !126
-  %79 = fcmp ogt float %78, %75
-  br i1 %79, label %80, label %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit
+  %75 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.018.i.i
+  %76 = load float, ptr %75, align 4, !tbaa !126
+  %77 = fcmp ogt float %76, %73
+  br i1 %77, label %78, label %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit
 
-80:                                               ; preds = %.lr.ph.i.i
-  %81 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.01317.i.i
-  store float %78, ptr %81, align 4, !tbaa !126
-  %82 = getelementptr inbounds nuw i8, ptr %77, i64 4
-  %83 = load i32, ptr %82, align 4, !tbaa !127
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  store i32 %83, ptr %84, align 4, !tbaa !123
-  %85 = icmp sgt i64 %.018.i.i, %.015
-  br i1 %85, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit, !llvm.loop !338
+78:                                               ; preds = %.lr.ph.i.i
+  %79 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.01317.i.i
+  store float %76, ptr %79, align 4, !tbaa !126
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  %81 = load i32, ptr %80, align 4, !tbaa !127
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  store i32 %81, ptr %82, align 4, !tbaa !123
+  %83 = icmp sgt i64 %.018.i.i, %.015
+  br i1 %83, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit, !llvm.loop !338
 
-_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit: ; preds = %.lr.ph.i.i, %80, %74
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %74 ], [ %.018.i.i, %80 ], [ %.01317.i.i, %.lr.ph.i.i ]
+_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit: ; preds = %.lr.ph.i.i, %78, %72
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %72 ], [ %.018.i.i, %78 ], [ %.01317.i.i, %.lr.ph.i.i ]
   %.sroa.3.0.extract.shift.i.i = lshr i64 %.sroa.02.0.copyload, 32
   %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
-  %86 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.013.lcssa.i.i
-  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %86, align 4, !tbaa !126
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  store i32 %.sroa.3.0.extract.trunc.i.i, ptr %87, align 4, !tbaa !123
+  %84 = getelementptr inbounds %"struct.std::pair.131", ptr %0, i64 %.013.lcssa.i.i
+  store i32 %.sroa.0.0.extract.trunc.i.i, ptr %84, align 4, !tbaa !126
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  store i32 %.sroa.3.0.extract.trunc.i.i, ptr %85, align 4, !tbaa !123
   %.not = icmp eq i64 %.015, 0
-  %88 = add nsw i64 %.015, -1
+  %86 = add nsw i64 %.015, -1
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !348
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit.us, %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit, %3

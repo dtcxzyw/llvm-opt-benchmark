@@ -84,8 +84,8 @@ define ptr @Abc_GetBinaryName(ptr noundef readonly captures(none) %0, i32 nounde
 
 15:                                               ; preds = %10
   %16 = and i64 %indvars.iv, 4294967294
-  %17 = or disjoint i64 %16, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %.val11, i64 %17
+  %17 = getelementptr inbounds nuw ptr, ptr %.val11, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !27
   br label %.critedge
 
@@ -1000,8 +1000,8 @@ sub_1:                                            ; preds = %sub_0
 
 37:                                               ; preds = %32
   %38 = and i64 %indvars.iv.i, 4294967294
-  %39 = or disjoint i64 %38, 1
-  %40 = getelementptr inbounds nuw ptr, ptr %.val11.i, i64 %39
+  %39 = getelementptr inbounds nuw ptr, ptr %.val11.i, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !27
   br label %Abc_GetBinaryName.exit
 
@@ -1477,8 +1477,8 @@ sub_0307:                                         ; preds = %198
 
 236:                                              ; preds = %231
   %237 = and i64 %indvars.iv.i169, 4294967294
-  %238 = or disjoint i64 %237, 1
-  %239 = getelementptr inbounds nuw ptr, ptr %.val11.i168, i64 %238
+  %238 = getelementptr inbounds nuw ptr, ptr %.val11.i168, i64 %237
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %240 = load ptr, ptr %239, align 8, !tbaa !27
   br label %Abc_GetBinaryName.exit171
 

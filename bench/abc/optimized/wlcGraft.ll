@@ -1889,124 +1889,123 @@ define void @Sbc_SimMult(ptr noundef captures(none) %0, ptr noundef captures(non
 
 7:                                                ; preds = %4, %7
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %7 ]
-  %8 = or disjoint i64 %indvars.iv, 64
-  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %8
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 512
   store i64 0, ptr %9, align 8, !tbaa !52
-  %10 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  store i64 0, ptr %8, align 8, !tbaa !52
+  %10 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 0, ptr %10, align 8, !tbaa !52
-  %11 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   store i64 0, ptr %11, align 8, !tbaa !52
-  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
-  store i64 0, ptr %12, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %13, label %7, !llvm.loop !90
+  br i1 %exitcond.not, label %12, label %7, !llvm.loop !90
 
-13:                                               ; preds = %7
-  %14 = lshr i64 -1, %6
-  %15 = tail call i32 @Gia_ManRandom(i32 noundef 1) #18
-  br label %16
+12:                                               ; preds = %7
+  %13 = lshr i64 -1, %6
+  %14 = tail call i32 @Gia_ManRandom(i32 noundef 1) #18
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 512
+  br label %15
 
-16:                                               ; preds = %13, %72
-  %indvars.iv51 = phi i64 [ 0, %13 ], [ %indvars.iv.next52, %72 ]
+15:                                               ; preds = %12, %69
+  %indvars.iv51 = phi i64 [ 0, %12 ], [ %indvars.iv.next52, %69 ]
   %.not = icmp eq i64 %indvars.iv51, 0
-  br i1 %.not, label %.thread, label %17
+  br i1 %.not, label %.thread, label %16
 
-17:                                               ; preds = %16
-  %18 = tail call i64 @Gia_ManRandomW(i32 noundef 0) #18
-  %19 = and i64 %18, %14
-  %20 = tail call i64 @Gia_ManRandomW(i32 noundef 0) #18
-  %21 = and i64 %20, %14
+16:                                               ; preds = %15
+  %17 = tail call i64 @Gia_ManRandomW(i32 noundef 0) #18
+  %18 = and i64 %17, %13
+  %19 = tail call i64 @Gia_ManRandomW(i32 noundef 0) #18
+  %20 = and i64 %19, %13
   br label %.thread
 
-.thread:                                          ; preds = %16, %17
-  %22 = phi i64 [ %19, %17 ], [ 0, %16 ]
-  %23 = phi i64 [ %21, %17 ], [ 0, %16 ]
+.thread:                                          ; preds = %15, %16
+  %21 = phi i64 [ %18, %16 ], [ 0, %15 ]
+  %22 = phi i64 [ %20, %16 ], [ 0, %15 ]
+  %23 = and i64 %21, 4294967295
   %24 = and i64 %22, 4294967295
-  %25 = and i64 %23, 4294967295
-  %26 = mul nuw i64 %25, %24
-  %27 = lshr i64 %23, 32
-  %28 = mul nuw i64 %27, %24
-  %29 = lshr i64 %22, 32
-  %30 = mul nuw i64 %25, %29
-  %31 = mul nuw i64 %27, %29
-  %32 = and i64 %28, 4294967295
-  %33 = and i64 %30, 4294967295
-  %34 = add nuw nsw i64 %32, %33
-  %35 = lshr i64 %26, 32
-  %36 = add nuw nsw i64 %34, %35
-  %37 = mul i64 %23, %22
-  %38 = lshr i64 %28, 32
-  %39 = add nuw i64 %38, %31
-  %40 = lshr i64 %30, 32
-  %41 = add nuw i64 %39, %40
-  %42 = lshr i64 %36, 32
-  %43 = add nuw i64 %41, %42
-  %44 = shl nuw i64 1, %indvars.iv51
-  br label %45
+  %25 = mul nuw i64 %24, %23
+  %26 = lshr i64 %22, 32
+  %27 = mul nuw i64 %26, %23
+  %28 = lshr i64 %21, 32
+  %29 = mul nuw i64 %24, %28
+  %30 = mul nuw i64 %26, %28
+  %31 = and i64 %27, 4294967295
+  %32 = and i64 %29, 4294967295
+  %33 = add nuw nsw i64 %31, %32
+  %34 = lshr i64 %25, 32
+  %35 = add nuw nsw i64 %33, %34
+  %36 = mul i64 %22, %21
+  %37 = lshr i64 %27, 32
+  %38 = add nuw i64 %37, %30
+  %39 = lshr i64 %29, 32
+  %40 = add nuw i64 %38, %39
+  %41 = lshr i64 %35, 32
+  %42 = add nuw i64 %40, %41
+  %43 = shl nuw i64 1, %indvars.iv51
+  br label %44
 
-45:                                               ; preds = %.thread, %71
-  %indvars.iv47 = phi i64 [ 0, %.thread ], [ %indvars.iv.next48, %71 ]
-  %46 = shl nuw i64 1, %indvars.iv47
-  %47 = and i64 %46, %22
-  %.not39 = icmp eq i64 %47, 0
-  br i1 %.not39, label %52, label %48
+44:                                               ; preds = %.thread, %68
+  %indvars.iv47 = phi i64 [ 0, %.thread ], [ %indvars.iv.next48, %68 ]
+  %45 = shl nuw i64 1, %indvars.iv47
+  %46 = and i64 %45, %21
+  %.not39 = icmp eq i64 %46, 0
+  br i1 %.not39, label %51, label %47
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv47
-  %50 = load i64, ptr %49, align 8, !tbaa !52
-  %51 = or i64 %50, %44
-  store i64 %51, ptr %49, align 8, !tbaa !52
-  br label %52
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv47
+  %49 = load i64, ptr %48, align 8, !tbaa !52
+  %50 = or i64 %49, %43
+  store i64 %50, ptr %48, align 8, !tbaa !52
+  br label %51
 
-52:                                               ; preds = %48, %45
-  %53 = and i64 %46, %23
-  %.not40 = icmp eq i64 %53, 0
-  br i1 %.not40, label %58, label %54
+51:                                               ; preds = %47, %44
+  %52 = and i64 %45, %22
+  %.not40 = icmp eq i64 %52, 0
+  br i1 %.not40, label %57, label %53
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv47
-  %56 = load i64, ptr %55, align 8, !tbaa !52
-  %57 = or i64 %56, %44
-  store i64 %57, ptr %55, align 8, !tbaa !52
-  br label %58
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv47
+  %55 = load i64, ptr %54, align 8, !tbaa !52
+  %56 = or i64 %55, %43
+  store i64 %56, ptr %54, align 8, !tbaa !52
+  br label %57
 
-58:                                               ; preds = %54, %52
-  %59 = and i64 %46, %37
-  %.not41 = icmp eq i64 %59, 0
-  br i1 %.not41, label %64, label %60
+57:                                               ; preds = %53, %51
+  %58 = and i64 %45, %36
+  %.not41 = icmp eq i64 %58, 0
+  br i1 %.not41, label %63, label %59
 
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv47
-  %62 = load i64, ptr %61, align 8, !tbaa !52
-  %63 = or i64 %62, %44
-  store i64 %63, ptr %61, align 8, !tbaa !52
-  br label %64
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv47
+  %61 = load i64, ptr %60, align 8, !tbaa !52
+  %62 = or i64 %61, %43
+  store i64 %62, ptr %60, align 8, !tbaa !52
+  br label %63
 
-64:                                               ; preds = %60, %58
-  %65 = and i64 %46, %43
-  %.not42 = icmp eq i64 %65, 0
-  br i1 %.not42, label %71, label %66
+63:                                               ; preds = %59, %57
+  %64 = and i64 %45, %42
+  %.not42 = icmp eq i64 %64, 0
+  br i1 %.not42, label %68, label %65
 
-66:                                               ; preds = %64
-  %67 = or disjoint i64 %indvars.iv47, 64
-  %68 = getelementptr inbounds nuw i64, ptr %2, i64 %67
-  %69 = load i64, ptr %68, align 8, !tbaa !52
-  %70 = or i64 %69, %44
-  store i64 %70, ptr %68, align 8, !tbaa !52
-  br label %71
+65:                                               ; preds = %63
+  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv47
+  %66 = load i64, ptr %gep, align 8, !tbaa !52
+  %67 = or i64 %66, %43
+  store i64 %67, ptr %gep, align 8, !tbaa !52
+  br label %68
 
-71:                                               ; preds = %64, %66
+68:                                               ; preds = %63, %65
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next48, 64
-  br i1 %exitcond50.not, label %72, label %45, !llvm.loop !91
+  br i1 %exitcond50.not, label %69, label %44, !llvm.loop !91
 
-72:                                               ; preds = %71
+69:                                               ; preds = %68
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 64
-  br i1 %exitcond54.not, label %73, label %16, !llvm.loop !92
+  br i1 %exitcond54.not, label %70, label %15, !llvm.loop !92
 
-73:                                               ; preds = %72
+70:                                               ; preds = %69
   ret void
 }
 

@@ -1279,21 +1279,21 @@ define internal noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_114ECR
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_114ECRendererBase18hasDynamicPropertyENS_19DynamicPropertyTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) unnamed_addr #13 align 2 {
   %3 = icmp ult i32 %1, 3
-  br i1 %3, label %switch.lookup, label %11
+  br i1 %3, label %switch.lookup, label %12
 
 switch.lookup:                                    ; preds = %2
   %4 = shl nuw nsw i32 %1, 4
-  %5 = or disjoint i32 %4, 8
-  %switch.offset = zext nneg i32 %5 to i64
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.offset
-  %7 = load ptr, ptr %6, align 8, !tbaa !77
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %9 = load i8, ptr %8, align 4, !tbaa !89, !range !94, !noundef !95
-  %10 = trunc nuw i8 %9 to i1
-  br label %11
+  %5 = zext nneg i32 %4 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !77
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %10 = load i8, ptr %9, align 4, !tbaa !89, !range !94, !noundef !95
+  %11 = trunc nuw i8 %10 to i1
+  br label %12
 
-11:                                               ; preds = %2, %switch.lookup
-  %.0.shrunk = phi i1 [ false, %2 ], [ %10, %switch.lookup ]
+12:                                               ; preds = %2, %switch.lookup
+  %.0.shrunk = phi i1 [ false, %2 ], [ %11, %switch.lookup ]
   ret i1 %.0.shrunk
 }
 

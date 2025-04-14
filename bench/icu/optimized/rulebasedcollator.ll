@@ -7917,7 +7917,7 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit:
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %166, %293, %178, %.noexc122, %201, %.noexc135, %221, %.noexc144, %.noexc145, %235, %.noexc156, %254, %.noexc164, %.noexc165, %268, %.noexc176, %283, %.noexc189
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %166, %293, %178, %.noexc122, %201, %.noexc135, %220, %.noexc144, %.noexc145, %235, %.noexc156, %254, %.noexc164, %.noexc165, %268, %.noexc176, %283, %.noexc189
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -7985,22 +7985,22 @@ _ZN6icu_7712_GLOBAL__N_112appendSubtagERNS_10CharStringEcPKciR10UErrorCode.exit1
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %217 = load i32, ptr %216, align 8, !tbaa !105
   %218 = and i32 %217, 1
-  %219 = or disjoint i32 %218, 16
-  %220 = load i32, ptr %38, align 8, !tbaa !208
-  %.not.i143 = icmp eq i32 %220, 0
-  br i1 %.not.i143, label %.noexc144, label %221
+  %219 = load i32, ptr %38, align 8, !tbaa !208
+  %.not.i143 = icmp eq i32 %219, 0
+  br i1 %.not.i143, label %.noexc144, label %220
 
-221:                                              ; preds = %213
-  %222 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %7, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %4)
+220:                                              ; preds = %213
+  %221 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %7, i8 noundef signext 95, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %.noexc144 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc144:                                        ; preds = %221, %213
-  %223 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %7, i8 noundef signext 78, ptr noundef nonnull align 4 dereferenceable(4) %4)
+.noexc144:                                        ; preds = %220, %213
+  %222 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %7, i8 noundef signext 78, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %.noexc145 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc145:                                        ; preds = %.noexc144
-  %224 = zext nneg i32 %219 to i64
-  %225 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %224
+  %223 = zext nneg i32 %218 to i64
+  %224 = getelementptr inbounds nuw i8, ptr @.str.5, i64 %223
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %226 = load i8, ptr %225, align 1, !tbaa !65
   %227 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %7, i8 noundef signext %226, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %.noexc145._ZN6icu_7712_GLOBAL__N_115appendAttributeERNS_10CharStringEc18UColAttributeValueR10UErrorCode.exit147_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

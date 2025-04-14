@@ -6699,11 +6699,11 @@ define linkonce_odr noundef i64 @_ZNK6icu_7711CEFinalizer8modifyCEEl(ptr noundef
   %11 = and i64 %10, 1040384
   %12 = lshr i64 %9, 42
   %13 = and i64 %12, 8128
-  %14 = or disjoint i64 %11, %13
-  %15 = lshr i64 %9, 24
-  %16 = and i64 %15, 63
-  %17 = or disjoint i64 %14, %16
-  %18 = getelementptr inbounds nuw i64, ptr %8, i64 %17
+  %14 = lshr i64 %9, 24
+  %15 = and i64 %14, 63
+  %16 = getelementptr inbounds nuw i64, ptr %8, i64 %11
+  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %13
+  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %15
   %19 = load i64, ptr %18, align 8, !tbaa !99
   %20 = and i64 %1, 49152
   %21 = or i64 %19, %20

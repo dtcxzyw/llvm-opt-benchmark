@@ -92624,15 +92624,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuild
   br i1 %14, label %.lr.ph, label %"_ZSt14__partial_sortIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_T0_.exit"
 
 .lr.ph:                                           ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %15 = getelementptr i8, ptr %0, i64 24
   br label %16
 
 16:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEET_SC_SC_T0_.exit"
-  %17 = phi i64 [ %13, %.lr.ph ], [ %114, %"_ZSt27__unguarded_partition_pivotIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEET_SC_SC_T0_.exit" ]
+  %17 = phi i64 [ %13, %.lr.ph ], [ %112, %"_ZSt27__unguarded_partition_pivotIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEET_SC_SC_T0_.exit" ]
   %.025 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %"_ZSt27__unguarded_partition_pivotIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEET_SC_SC_T0_.exit" ]
-  %.01724 = phi i64 [ %2, %.lr.ph ], [ %87, %"_ZSt27__unguarded_partition_pivotIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEET_SC_SC_T0_.exit" ]
+  %.01724 = phi i64 [ %2, %.lr.ph ], [ %85, %"_ZSt27__unguarded_partition_pivotIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEET_SC_SC_T0_.exit" ]
   %18 = icmp eq i64 %.01724, 0
-  br i1 %18, label %19, label %86
+  br i1 %18, label %19, label %84
 
 19:                                               ; preds = %16
   %20 = udiv exact i64 %17, 24
@@ -92648,7 +92648,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuild
   br label %30
 
 30:                                               ; preds = %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i", %19
-  %.013.i.i.i = phi i64 [ %22, %19 ], [ %52, %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
+  %.013.i.i.i = phi i64 [ %22, %19 ], [ %51, %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
   %31 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %.013.i.i.i
   %.sroa.02.0.copyload.i.i.i = load i64, ptr %31, align 8, !tbaa !53
   %.sroa.43.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -92662,181 +92662,181 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuild
   %33 = shl i64 %.033.i.i.i.i, 1
   %34 = add i64 %33, 2
   %35 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %34
-  %36 = or disjoint i64 %33, 1
-  %37 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %36
+  %gep.i.i.i.i = getelementptr %struct.BranchFunnelTarget, ptr %15, i64 %33
   %.val.i.i.i.i = load i64, ptr %35, align 8, !tbaa !2322
-  %.val28.i.i.i.i = load i64, ptr %37, align 8, !tbaa !2322
-  %38 = icmp slt i64 %.val.i.i.i.i, %.val28.i.i.i.i
-  %spec.select.i.i.i.i = select i1 %38, i64 %36, i64 %34
-  %39 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %spec.select.i.i.i.i
-  %40 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.033.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false), !tbaa.struct !2427
-  %41 = icmp slt i64 %spec.select.i.i.i.i, %24
-  br i1 %41, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !2904
+  %.val28.i.i.i.i = load i64, ptr %gep.i.i.i.i, align 8, !tbaa !2322
+  %36 = icmp slt i64 %.val.i.i.i.i, %.val28.i.i.i.i
+  %37 = or disjoint i64 %33, 1
+  %spec.select.i.i.i.i = select i1 %36, i64 %37, i64 %34
+  %38 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %spec.select.i.i.i.i
+  %39 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.033.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false), !tbaa.struct !2427
+  %40 = icmp slt i64 %spec.select.i.i.i.i, %24
+  br i1 %40, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !2904
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %30
   %.0.lcssa.i.i.i.i = phi i64 [ %.013.i.i.i, %30 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %42 = icmp eq i64 %.0.lcssa.i.i.i.i, %22
-  %or.cond.i.i.i = select i1 %26, i1 %42, i1 false
-  br i1 %or.cond.i.i.i, label %43, label %44
+  %41 = icmp eq i64 %.0.lcssa.i.i.i.i, %22
+  %or.cond.i.i.i = select i1 %26, i1 %41, i1 false
+  br i1 %or.cond.i.i.i, label %42, label %43
 
-43:                                               ; preds = %._crit_edge.i.i.i.i
+42:                                               ; preds = %._crit_edge.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false), !tbaa.struct !2427
-  br label %44
+  br label %43
 
-44:                                               ; preds = %43, %._crit_edge.i.i.i.i
-  %.127.i.i.i.i = phi i64 [ %27, %43 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %45 = icmp samesign ugt i64 %.127.i.i.i.i, %.013.i.i.i
-  br i1 %45, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i"
+43:                                               ; preds = %42, %._crit_edge.i.i.i.i
+  %.127.i.i.i.i = phi i64 [ %27, %42 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %44 = icmp samesign ugt i64 %.127.i.i.i.i, %.013.i.i.i
+  br i1 %44, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %44, %48
-  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %48 ], [ %.127.i.i.i.i, %44 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %43, %47
+  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %47 ], [ %.127.i.i.i.i, %43 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %46 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.04.i.i.i.i.i
-  %.val.i.i.i.i.i = load i64, ptr %46, align 8, !tbaa !2322
-  %47 = icmp slt i64 %.val.i.i.i.i.i, %.sroa.02.0.copyload.i.i.i
-  br i1 %47, label %48, label %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i"
+  %45 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.04.i.i.i.i.i
+  %.val.i.i.i.i.i = load i64, ptr %45, align 8, !tbaa !2322
+  %46 = icmp slt i64 %.val.i.i.i.i.i, %.sroa.02.0.copyload.i.i.i
+  br i1 %46, label %47, label %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i"
 
-48:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %.0133.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %46, i64 24, i1 false), !tbaa.struct !2427
-  %50 = icmp sgt i64 %.04.i.i.i.i.i, %.013.i.i.i
-  br i1 %50, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i", !llvm.loop !2905
+47:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %48 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %.0133.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false), !tbaa.struct !2427
+  %49 = icmp sgt i64 %.04.i.i.i.i.i, %.013.i.i.i
+  br i1 %49, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i", !llvm.loop !2905
 
-"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i": ; preds = %48, %.lr.ph.i.i.i.i.i, %44
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %44 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %48 ]
-  %51 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i64 %.sroa.02.0.copyload.i.i.i, ptr %51, align 8, !tbaa !53
-  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
+"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i": ; preds = %47, %.lr.ph.i.i.i.i.i, %43
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %43 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %47 ]
+  %50 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store i64 %.sroa.02.0.copyload.i.i.i, ptr %50, align 8, !tbaa !53
+  %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i.i.i)
   %.not.i.i.i = icmp eq i64 %.013.i.i.i, 0
-  %52 = add nsw i64 %.013.i.i.i, -1
+  %51 = add nsw i64 %.013.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i6.i, label %30, !llvm.loop !2906
 
-.lr.ph.i6.i:                                      ; preds = %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i19.i"
-  %.01.i.i = phi ptr [ %53, %"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i19.i" ], [ %.025, %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
-  %53 = getelementptr inbounds i8, ptr %.01.i.i, i64 -24
-  %.sroa.02.0.copyload.i.i7.i = load i64, ptr %53, align 8, !tbaa !53
-  %.sroa.43.0..sroa_idx.i.i8.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
+.lr.ph.i6.i:                                      ; preds = %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i20.i"
+  %.01.i.i = phi ptr [ %52, %"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i20.i" ], [ %.025, %"_ZSt13__adjust_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
+  %52 = getelementptr inbounds i8, ptr %.01.i.i, i64 -24
+  %.sroa.02.0.copyload.i.i8.i = load i64, ptr %52, align 8, !tbaa !53
+  %.sroa.43.0..sroa_idx.i.i9.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4.i.i5.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.i5.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.43.0..sroa_idx.i.i8.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !2427
-  %54 = ptrtoint ptr %53 to i64
-  %55 = sub i64 %54, %11
-  %56 = sdiv exact i64 %55, 24
-  %57 = add nsw i64 %56, -1
-  %58 = sdiv i64 %57, 2
-  %59 = icmp sgt i64 %55, 48
-  br i1 %59, label %.lr.ph.i.i.i24.i, label %._crit_edge.i.i.i9.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.i5.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.43.0..sroa_idx.i.i9.i, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !2427
+  %53 = ptrtoint ptr %52 to i64
+  %54 = sub i64 %53, %11
+  %55 = sdiv exact i64 %54, 24
+  %56 = add nsw i64 %55, -1
+  %57 = sdiv i64 %56, 2
+  %58 = icmp sgt i64 %54, 48
+  br i1 %58, label %.lr.ph.i.i.i25.i, label %._crit_edge.i.i.i10.i
 
-.lr.ph.i.i.i24.i:                                 ; preds = %.lr.ph.i6.i, %.lr.ph.i.i.i24.i
-  %.033.i.i.i25.i = phi i64 [ %spec.select.i.i.i28.i, %.lr.ph.i.i.i24.i ], [ 0, %.lr.ph.i6.i ]
-  %60 = shl i64 %.033.i.i.i25.i, 1
-  %61 = add i64 %60, 2
-  %62 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %61
-  %63 = or disjoint i64 %60, 1
-  %64 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %63
-  %.val.i.i.i26.i = load i64, ptr %62, align 8, !tbaa !2322
-  %.val28.i.i.i27.i = load i64, ptr %64, align 8, !tbaa !2322
-  %65 = icmp slt i64 %.val.i.i.i26.i, %.val28.i.i.i27.i
-  %spec.select.i.i.i28.i = select i1 %65, i64 %63, i64 %61
-  %66 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %spec.select.i.i.i28.i
-  %67 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.033.i.i.i25.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false), !tbaa.struct !2427
-  %68 = icmp slt i64 %spec.select.i.i.i28.i, %58
-  br i1 %68, label %.lr.ph.i.i.i24.i, label %._crit_edge.i.i.i9.i, !llvm.loop !2904
+.lr.ph.i.i.i25.i:                                 ; preds = %.lr.ph.i6.i, %.lr.ph.i.i.i25.i
+  %.033.i.i.i26.i = phi i64 [ %spec.select.i.i.i30.i, %.lr.ph.i.i.i25.i ], [ 0, %.lr.ph.i6.i ]
+  %59 = shl i64 %.033.i.i.i26.i, 1
+  %60 = add i64 %59, 2
+  %61 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %60
+  %gep.i.i.i27.i = getelementptr %struct.BranchFunnelTarget, ptr %15, i64 %59
+  %.val.i.i.i28.i = load i64, ptr %61, align 8, !tbaa !2322
+  %.val28.i.i.i29.i = load i64, ptr %gep.i.i.i27.i, align 8, !tbaa !2322
+  %62 = icmp slt i64 %.val.i.i.i28.i, %.val28.i.i.i29.i
+  %63 = or disjoint i64 %59, 1
+  %spec.select.i.i.i30.i = select i1 %62, i64 %63, i64 %60
+  %64 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %spec.select.i.i.i30.i
+  %65 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.033.i.i.i26.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %64, i64 24, i1 false), !tbaa.struct !2427
+  %66 = icmp slt i64 %spec.select.i.i.i30.i, %57
+  br i1 %66, label %.lr.ph.i.i.i25.i, label %._crit_edge.i.i.i10.i, !llvm.loop !2904
 
-._crit_edge.i.i.i9.i:                             ; preds = %.lr.ph.i.i.i24.i, %.lr.ph.i6.i
-  %.0.lcssa.i.i.i10.i = phi i64 [ 0, %.lr.ph.i6.i ], [ %spec.select.i.i.i28.i, %.lr.ph.i.i.i24.i ]
-  %69 = and i64 %56, 1
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %71, label %79
+._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i25.i, %.lr.ph.i6.i
+  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i6.i ], [ %spec.select.i.i.i30.i, %.lr.ph.i.i.i25.i ]
+  %67 = and i64 %55, 1
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %69, label %77
 
-71:                                               ; preds = %._crit_edge.i.i.i9.i
-  %72 = add nsw i64 %56, -2
-  %73 = ashr exact i64 %72, 1
-  %74 = icmp eq i64 %.0.lcssa.i.i.i10.i, %73
-  br i1 %74, label %.thread.i.i23.i, label %79
+69:                                               ; preds = %._crit_edge.i.i.i10.i
+  %70 = add nsw i64 %55, -2
+  %71 = ashr exact i64 %70, 1
+  %72 = icmp eq i64 %.0.lcssa.i.i.i11.i, %71
+  br i1 %72, label %.thread.i.i24.i, label %77
 
-.thread.i.i23.i:                                  ; preds = %71
-  %75 = shl nuw nsw i64 %.0.lcssa.i.i.i10.i, 1
-  %76 = or disjoint i64 %75, 1
-  %77 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %76
-  %78 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.0.lcssa.i.i.i10.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %77, i64 24, i1 false), !tbaa.struct !2427
-  br label %.lr.ph.i.i.i.i14.i.preheader
+.thread.i.i24.i:                                  ; preds = %69
+  %73 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
+  %74 = or disjoint i64 %73, 1
+  %75 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %74
+  %76 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.0.lcssa.i.i.i11.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false), !tbaa.struct !2427
+  br label %.lr.ph.i.i.i.i15.i.preheader
 
-79:                                               ; preds = %71, %._crit_edge.i.i.i9.i
-  %.not.i.i11.i = icmp eq i64 %.0.lcssa.i.i.i10.i, 0
-  br i1 %.not.i.i11.i, label %"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i19.i", label %.lr.ph.i.i.i.i14.i.preheader
+77:                                               ; preds = %69, %._crit_edge.i.i.i10.i
+  %.not.i.i12.i = icmp eq i64 %.0.lcssa.i.i.i11.i, 0
+  br i1 %.not.i.i12.i, label %"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i20.i", label %.lr.ph.i.i.i.i15.i.preheader
 
-.lr.ph.i.i.i.i14.i.preheader:                     ; preds = %79, %.thread.i.i23.i
-  %.0133.i.i.i.i15.i.ph = phi i64 [ %.0.lcssa.i.i.i10.i, %79 ], [ %76, %.thread.i.i23.i ]
-  br label %.lr.ph.i.i.i.i14.i
+.lr.ph.i.i.i.i15.i.preheader:                     ; preds = %77, %.thread.i.i24.i
+  %.0133.i.i.i.i16.i.ph = phi i64 [ %.0.lcssa.i.i.i11.i, %77 ], [ %74, %.thread.i.i24.i ]
+  br label %.lr.ph.i.i.i.i15.i
 
-.lr.ph.i.i.i.i14.i:                               ; preds = %.lr.ph.i.i.i.i14.i.preheader, %82
-  %.0133.i.i.i.i15.i = phi i64 [ %.04.i.i45.i.i17.i, %82 ], [ %.0133.i.i.i.i15.i.ph, %.lr.ph.i.i.i.i14.i.preheader ]
-  %.04.in.i.i.i.i16.i = add nsw i64 %.0133.i.i.i.i15.i, -1
-  %.04.i.i45.i.i17.i = lshr i64 %.04.in.i.i.i.i16.i, 1
-  %80 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %.04.i.i45.i.i17.i
-  %.val.i.i.i.i18.i = load i64, ptr %80, align 8, !tbaa !2322
-  %81 = icmp slt i64 %.val.i.i.i.i18.i, %.sroa.02.0.copyload.i.i7.i
-  br i1 %81, label %82, label %"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i19.i"
+.lr.ph.i.i.i.i15.i:                               ; preds = %.lr.ph.i.i.i.i15.i.preheader, %80
+  %.0133.i.i.i.i16.i = phi i64 [ %.04.i.i45.i.i18.i, %80 ], [ %.0133.i.i.i.i16.i.ph, %.lr.ph.i.i.i.i15.i.preheader ]
+  %.04.in.i.i.i.i17.i = add nsw i64 %.0133.i.i.i.i16.i, -1
+  %.04.i.i45.i.i18.i = lshr i64 %.04.in.i.i.i.i17.i, 1
+  %78 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %.04.i.i45.i.i18.i
+  %.val.i.i.i.i19.i = load i64, ptr %78, align 8, !tbaa !2322
+  %79 = icmp slt i64 %.val.i.i.i.i19.i, %.sroa.02.0.copyload.i.i8.i
+  br i1 %79, label %80, label %"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i20.i"
 
-82:                                               ; preds = %.lr.ph.i.i.i.i14.i
-  %83 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %.0133.i.i.i.i15.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %80, i64 24, i1 false), !tbaa.struct !2427
-  %.not6.i.i22.i = icmp ult i64 %.04.in.i.i.i.i16.i, 2
-  br i1 %.not6.i.i22.i, label %"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i19.i", label %.lr.ph.i.i.i.i14.i, !llvm.loop !2905
+80:                                               ; preds = %.lr.ph.i.i.i.i15.i
+  %81 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %.0133.i.i.i.i16.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %78, i64 24, i1 false), !tbaa.struct !2427
+  %.not6.i.i23.i = icmp ult i64 %.04.in.i.i.i.i17.i, 2
+  br i1 %.not6.i.i23.i, label %"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i20.i", label %.lr.ph.i.i.i.i15.i, !llvm.loop !2905
 
-"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i19.i": ; preds = %82, %.lr.ph.i.i.i.i14.i, %79
-  %.013.lcssa.i.i.i.i20.i = phi i64 [ 0, %79 ], [ %.0133.i.i.i.i15.i, %.lr.ph.i.i.i.i14.i ], [ 0, %82 ]
-  %84 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.013.lcssa.i.i.i.i20.i
-  store i64 %.sroa.02.0.copyload.i.i7.i, ptr %84, align 8, !tbaa !53
-  %.sroa.5.0..sroa_idx.i.i.i21.i = getelementptr inbounds nuw i8, ptr %84, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i21.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.i5.i, i64 16, i1 false)
+"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i20.i": ; preds = %80, %.lr.ph.i.i.i.i15.i, %77
+  %.013.lcssa.i.i.i.i21.i = phi i64 [ 0, %77 ], [ %.0133.i.i.i.i16.i, %.lr.ph.i.i.i.i15.i ], [ 0, %80 ]
+  %82 = getelementptr inbounds %struct.BranchFunnelTarget, ptr %0, i64 %.013.lcssa.i.i.i.i21.i
+  store i64 %.sroa.02.0.copyload.i.i8.i, ptr %82, align 8, !tbaa !53
+  %.sroa.5.0..sroa_idx.i.i.i22.i = getelementptr inbounds nuw i8, ptr %82, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i22.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.i5.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i.i5.i)
-  %85 = icmp sgt i64 %55, 24
-  br i1 %85, label %.lr.ph.i6.i, label %"_ZSt14__partial_sortIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_T0_.exit", !llvm.loop !2907
+  %83 = icmp sgt i64 %54, 24
+  br i1 %83, label %.lr.ph.i6.i, label %"_ZSt14__partial_sortIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_T0_.exit", !llvm.loop !2907
 
-86:                                               ; preds = %16
-  %87 = add nsw i64 %.01724, -1
-  %88 = udiv i64 %17, 48
-  %89 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %88
-  %90 = getelementptr inbounds i8, ptr %.025, i64 -24
+84:                                               ; preds = %16
+  %85 = add nsw i64 %.01724, -1
+  %86 = udiv i64 %17, 48
+  %87 = getelementptr inbounds nuw %struct.BranchFunnelTarget, ptr %0, i64 %86
+  %88 = getelementptr inbounds i8, ptr %.025, i64 -24
   %.val29.i.i = load i64, ptr %15, align 8, !tbaa !2322
-  %.val30.i.i = load i64, ptr %89, align 8, !tbaa !2322
-  %91 = icmp slt i64 %.val29.i.i, %.val30.i.i
-  %.val28.i.i = load i64, ptr %90, align 8, !tbaa !2322
-  br i1 %91, label %92, label %99
+  %.val30.i.i = load i64, ptr %87, align 8, !tbaa !2322
+  %89 = icmp slt i64 %.val29.i.i, %.val30.i.i
+  %.val28.i.i = load i64, ptr %88, align 8, !tbaa !2322
+  br i1 %89, label %90, label %97
 
-92:                                               ; preds = %86
-  %93 = icmp slt i64 %.val30.i.i, %.val28.i.i
-  br i1 %93, label %94, label %95
+90:                                               ; preds = %84
+  %91 = icmp slt i64 %.val30.i.i, %.val28.i.i
+  br i1 %91, label %92, label %93
 
-94:                                               ; preds = %92
+92:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !2427
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %89, i64 24, i1 false), !tbaa.struct !2427
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !tbaa.struct !2427
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %87, i64 24, i1 false), !tbaa.struct !2427
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !tbaa.struct !2427
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-95:                                               ; preds = %92
-  %96 = icmp slt i64 %.val29.i.i, %.val28.i.i
-  br i1 %96, label %97, label %98
+93:                                               ; preds = %90
+  %94 = icmp slt i64 %.val29.i.i, %.val28.i.i
+  br i1 %94, label %95, label %96
 
-97:                                               ; preds = %95
+95:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !2427
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %90, i64 24, i1 false), !tbaa.struct !2427
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !2427
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %88, i64 24, i1 false), !tbaa.struct !2427
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !2427
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-98:                                               ; preds = %95
+96:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !2427
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !tbaa.struct !2427
@@ -92844,11 +92844,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuild
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-99:                                               ; preds = %86
-  %100 = icmp slt i64 %.val29.i.i, %.val28.i.i
-  br i1 %100, label %101, label %102
+97:                                               ; preds = %84
+  %98 = icmp slt i64 %.val29.i.i, %.val28.i.i
+  br i1 %98, label %99, label %100
 
-101:                                              ; preds = %99
+99:                                               ; preds = %97
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !2427
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !tbaa.struct !2427
@@ -92856,54 +92856,54 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuild
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-102:                                              ; preds = %99
-  %103 = icmp slt i64 %.val30.i.i, %.val28.i.i
-  br i1 %103, label %104, label %105
+100:                                              ; preds = %97
+  %101 = icmp slt i64 %.val30.i.i, %.val28.i.i
+  br i1 %101, label %102, label %103
 
-104:                                              ; preds = %102
+102:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !2427
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %90, i64 24, i1 false), !tbaa.struct !2427
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !2427
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %88, i64 24, i1 false), !tbaa.struct !2427
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !2427
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-105:                                              ; preds = %102
+103:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false), !tbaa.struct !2427
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %89, i64 24, i1 false), !tbaa.struct !2427
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !2427
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %87, i64 24, i1 false), !tbaa.struct !2427
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !2427
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader": ; preds = %105, %104, %101, %98, %97, %94
+"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader": ; preds = %103, %102, %99, %96, %95, %92
   br label %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader", %112
-  %.013.i.i = phi ptr [ %.114.i.i, %112 ], [ %.025, %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader" ]
-  %.0.i.i = phi ptr [ %108, %112 ], [ %15, %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader", %110
+  %.013.i.i = phi ptr [ %.114.i.i, %110 ], [ %.025, %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader" ]
+  %.0.i.i = phi ptr [ %106, %110 ], [ %15, %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i.preheader" ]
   %.val15.i.i = load i64, ptr %0, align 8, !tbaa !2322
-  br label %106
+  br label %104
 
-106:                                              ; preds = %106, %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i"
-  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i" ], [ %108, %106 ]
+104:                                              ; preds = %104, %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i"
+  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i" ], [ %106, %104 ]
   %.1.val.i.i = load i64, ptr %.1.i.i, align 8, !tbaa !2322
-  %107 = icmp slt i64 %.1.val.i.i, %.val15.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
-  br i1 %107, label %106, label %.preheader.i.i, !llvm.loop !2908
+  %105 = icmp slt i64 %.1.val.i.i, %.val15.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 24
+  br i1 %105, label %104, label %.preheader.i.i, !llvm.loop !2908
 
-.preheader.i.i:                                   ; preds = %106, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %106 ]
+.preheader.i.i:                                   ; preds = %104, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %104 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -24
   %.114.val.i.i = load i64, ptr %.114.i.i, align 8, !tbaa !2322
-  %109 = icmp slt i64 %.val15.i.i, %.114.val.i.i
-  br i1 %109, label %.preheader.i.i, label %110, !llvm.loop !2909
+  %107 = icmp slt i64 %.val15.i.i, %.114.val.i.i
+  br i1 %107, label %.preheader.i.i, label %108, !llvm.loop !2909
 
-110:                                              ; preds = %.preheader.i.i
-  %111 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %111, label %112, label %"_ZSt27__unguarded_partition_pivotIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEET_SC_SC_T0_.exit"
+108:                                              ; preds = %.preheader.i.i
+  %109 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %109, label %110, label %"_ZSt27__unguarded_partition_pivotIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEET_SC_SC_T0_.exit"
 
-112:                                              ; preds = %110
+110:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %.1.i.i, i64 24, i1 false), !tbaa.struct !2427
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.1.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.114.i.i, i64 24, i1 false), !tbaa.struct !2427
@@ -92911,14 +92911,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuild
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %"_ZSt22__move_median_to_firstIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_SC_T0_.exit.i", !llvm.loop !2910
 
-"_ZSt27__unguarded_partition_pivotIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEET_SC_SC_T0_.exit": ; preds = %110
-  tail call fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %87)
-  %113 = ptrtoint ptr %.1.i.i to i64
-  %114 = sub i64 %113, %11
-  %115 = icmp sgt i64 %114, 384
-  br i1 %115, label %16, label %"_ZSt14__partial_sortIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_T0_.exit", !llvm.loop !2911
+"_ZSt27__unguarded_partition_pivotIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEET_SC_SC_T0_.exit": ; preds = %108
+  tail call fastcc void @"_ZSt16__introsort_loopIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetlN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %85)
+  %111 = ptrtoint ptr %.1.i.i to i64
+  %112 = sub i64 %111, %11
+  %113 = icmp sgt i64 %112, 384
+  br i1 %113, label %16, label %"_ZSt14__partial_sortIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_T0_.exit", !llvm.loop !2911
 
-"_ZSt14__partial_sortIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEET_SC_SC_T0_.exit", %"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i19.i", %3
+"_ZSt14__partial_sortIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEET_SC_SC_T0_.exit", %"_ZSt10__pop_heapIPZN4llvm19SelectionDAGBuilder18visitIntrinsicCallERKNS0_8CallInstEjE18BranchFunnelTargetN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_18visitIntrinsicCallES4_jE3$_1EEEvT_SC_SC_RT0_.exit.i20.i", %3
   ret void
 }
 

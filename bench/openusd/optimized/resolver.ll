@@ -11820,24 +11820,24 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingISt10shared_ptrINS_12_GL
   %216 = getelementptr inbounds nuw i8, ptr %212, i64 24
   store i64 1, ptr %216, align 8, !noalias !172
   %217 = getelementptr inbounds nuw i8, ptr %212, i64 32
-  %.ptr12.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %212, i64 40
+  %invariant.gep.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %212, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %217, i8 0, i64 40, i1 false), !noalias !172
-  br label %.preheader14.i.i.i.i.i.i.i.i.i.i.i.i
+  br label %220
 
-.preheader.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %.preheader14.i.i.i.i.i.i.i.i.i.i.i.i
+.preheader.i.i.i.i.i.i.i.i.i.i.i.i:               ; preds = %220
+  %.ptr12.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %212, i64 40
   %218 = getelementptr inbounds nuw i8, ptr %212, i64 72
   %219 = ptrtoint ptr %.ptr12.i.i.i.i.i.i.i.i.i.i.i.i to i64
   br label %222
 
-.preheader14.i.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %.preheader14.i.i.i.i.i.i.i.i.i.i.i.i, %.noexc64
-  %.015.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %221, %.preheader14.i.i.i.i.i.i.i.i.i.i.i.i ], [ 0, %.noexc64 ]
+220:                                              ; preds = %220, %.noexc64
+  %.015.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.noexc64 ], [ %221, %220 ]
   %.idx13.i.i.i.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %.015.i.i.i.i.i.i.i.i.i.i.i.i, 4
-  %.offs.i.i.i.i.i.i.i.i.i.i.i.i = or disjoint i64 %.idx13.i.i.i.i.i.i.i.i.i.i.i.i, 8
-  %220 = getelementptr inbounds nuw i8, ptr %.ptr12.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.offs.i.i.i.i.i.i.i.i.i.i.i.i
-  store atomic i64 0, ptr %220 monotonic, align 8, !noalias !172
+  %gep.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i.i.i.i.i.i.i.i.i, i64 %.idx13.i.i.i.i.i.i.i.i.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i.i.i.i.i.i.i.i.i monotonic, align 8, !noalias !172
   %221 = add nuw nsw i64 %.015.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %221, 2
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader14.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !175
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i.i.i.i, label %220, !llvm.loop !175
 
 222:                                              ; preds = %222, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i
   %.01016.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i.i.i.i.i.i ], [ %226, %222 ]

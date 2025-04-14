@@ -1708,62 +1708,60 @@ define hidden void @proto_reg_handoff_dvbci() #1 {
   %26 = getelementptr i8, ptr %17, i64 %indvars.iv24.i
   %27 = load i8, ptr %26, align 1
   store i8 %27, ptr %2, align 1
-  %28 = or disjoint i64 %indvars.iv24.i, 1
-  %29 = getelementptr i8, ptr %17, i64 %28
-  %30 = load i8, ptr %29, align 1
-  store i8 %30, ptr %24, align 1
-  %31 = call i64 @strtoul(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 16) #16
-  %32 = trunc i64 %31 to i8
-  %33 = load ptr, ptr @dvbci_sek_bin, align 8
+  %28 = getelementptr i8, ptr %26, i64 1
+  %29 = load i8, ptr %28, align 1
+  store i8 %29, ptr %24, align 1
+  %30 = call i64 @strtoul(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 16) #16
+  %31 = trunc i64 %30 to i8
+  %32 = load ptr, ptr @dvbci_sek_bin, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %34 = getelementptr i8, ptr %33, i64 %indvars.iv.i
-  store i8 %32, ptr %34, align 1
+  %33 = getelementptr i8, ptr %32, i64 %indvars.iv.i
+  store i8 %31, ptr %33, align 1
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 2
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %pref_key_string_to_bin.exit, label %25, !llvm.loop !9
 
 pref_key_string_to_bin.exit:                      ; preds = %25, %14, %18
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %2) #16
-  %35 = load ptr, ptr @dvbci_siv, align 8
+  %34 = load ptr, ptr @dvbci_siv, align 8
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %1) #16
-  %.not10 = icmp eq ptr %35, null
-  br i1 %.not10, label %pref_key_string_to_bin.exit9, label %36
+  %.not10 = icmp eq ptr %34, null
+  br i1 %.not10, label %pref_key_string_to_bin.exit9, label %35
 
-36:                                               ; preds = %pref_key_string_to_bin.exit
-  %37 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %35) #17
-  %38 = and i64 %37, 4294967295
-  %.not.i3 = icmp eq i64 %38, 32
-  br i1 %.not.i3, label %39, label %pref_key_string_to_bin.exit9
+35:                                               ; preds = %pref_key_string_to_bin.exit
+  %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %34) #17
+  %37 = and i64 %36, 4294967295
+  %.not.i3 = icmp eq i64 %37, 32
+  br i1 %.not.i3, label %38, label %pref_key_string_to_bin.exit9
 
-39:                                               ; preds = %36
-  %40 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #18
-  store ptr %40, ptr @dvbci_siv_bin, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 0, ptr %41, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  br label %43
+38:                                               ; preds = %35
+  %39 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #18
+  store ptr %39, ptr @dvbci_siv_bin, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  store i8 0, ptr %40, align 1
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  br label %42
 
-43:                                               ; preds = %43, %39
-  %indvars.iv24.i4 = phi i64 [ 0, %39 ], [ %indvars.iv.next25.i7, %43 ]
-  %indvars.iv.i5 = phi i64 [ 0, %39 ], [ %indvars.iv.next.i6, %43 ]
-  %44 = getelementptr i8, ptr %35, i64 %indvars.iv24.i4
-  %45 = load i8, ptr %44, align 1
-  store i8 %45, ptr %1, align 1
-  %46 = or disjoint i64 %indvars.iv24.i4, 1
-  %47 = getelementptr i8, ptr %35, i64 %46
-  %48 = load i8, ptr %47, align 1
-  store i8 %48, ptr %42, align 1
-  %49 = call i64 @strtoul(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 16) #16
-  %50 = trunc i64 %49 to i8
-  %51 = load ptr, ptr @dvbci_siv_bin, align 8
+42:                                               ; preds = %42, %38
+  %indvars.iv24.i4 = phi i64 [ 0, %38 ], [ %indvars.iv.next25.i7, %42 ]
+  %indvars.iv.i5 = phi i64 [ 0, %38 ], [ %indvars.iv.next.i6, %42 ]
+  %43 = getelementptr i8, ptr %34, i64 %indvars.iv24.i4
+  %44 = load i8, ptr %43, align 1
+  store i8 %44, ptr %1, align 1
+  %45 = getelementptr i8, ptr %43, i64 1
+  %46 = load i8, ptr %45, align 1
+  store i8 %46, ptr %41, align 1
+  %47 = call i64 @strtoul(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 16) #16
+  %48 = trunc i64 %47 to i8
+  %49 = load ptr, ptr @dvbci_siv_bin, align 8
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
-  %52 = getelementptr i8, ptr %51, i64 %indvars.iv.i5
-  store i8 %50, ptr %52, align 1
+  %50 = getelementptr i8, ptr %49, i64 %indvars.iv.i5
+  store i8 %48, ptr %50, align 1
   %indvars.iv.next25.i7 = add nuw nsw i64 %indvars.iv24.i4, 2
   %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i6, 16
-  br i1 %exitcond.not.i8, label %pref_key_string_to_bin.exit9, label %43, !llvm.loop !9
+  br i1 %exitcond.not.i8, label %pref_key_string_to_bin.exit9, label %42, !llvm.loop !9
 
-pref_key_string_to_bin.exit9:                     ; preds = %43, %pref_key_string_to_bin.exit, %36
+pref_key_string_to_bin.exit9:                     ; preds = %42, %pref_key_string_to_bin.exit, %35
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %1) #16
   ret void
 }

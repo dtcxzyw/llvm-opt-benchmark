@@ -14691,15 +14691,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN3euf9ac_plugin4nodeElN9_
   br i1 %7, label %.lr.ph, label %"_ZSt14__partial_sortIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_T0_.exit"
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr i8, ptr %0, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEET_SC_SC_T0_.exit"
-  %10 = phi i64 [ %6, %.lr.ph ], [ %134, %"_ZSt27__unguarded_partition_pivotIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEET_SC_SC_T0_.exit" ]
+  %10 = phi i64 [ %6, %.lr.ph ], [ %132, %"_ZSt27__unguarded_partition_pivotIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEET_SC_SC_T0_.exit" ]
   %.025 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %"_ZSt27__unguarded_partition_pivotIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEET_SC_SC_T0_.exit" ]
-  %.01724 = phi i64 [ %2, %.lr.ph ], [ %97, %"_ZSt27__unguarded_partition_pivotIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEET_SC_SC_T0_.exit" ]
+  %.01724 = phi i64 [ %2, %.lr.ph ], [ %95, %"_ZSt27__unguarded_partition_pivotIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEET_SC_SC_T0_.exit" ]
   %11 = icmp eq i64 %.01724, 0
-  br i1 %11, label %12, label %96
+  br i1 %11, label %12, label %94
 
 12:                                               ; preds = %9
   %13 = lshr i64 %10, 3
@@ -14715,7 +14715,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN3euf9ac_plugin4nodeElN9_
   br label %23
 
 23:                                               ; preds = %"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i", %12
-  %.014.i.i.i = phi i64 [ %15, %12 ], [ %53, %"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
+  %.014.i.i.i = phi i64 [ %15, %12 ], [ %52, %"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
   %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.i.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !149
   %26 = icmp slt i64 %.014.i.i.i, %17
@@ -14726,313 +14726,313 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN3euf9ac_plugin4nodeElN9_
   %27 = shl i64 %.030.i.i.i.i, 1
   %28 = add i64 %27, 2
   %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %28
-  %30 = or disjoint i64 %27, 1
-  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %30
+  %gep.i.i.i.i = getelementptr ptr, ptr %8, i64 %27
   %.val.i.i.i.i = load ptr, ptr %29, align 8, !tbaa !149
-  %.val29.i.i.i.i = load ptr, ptr %31, align 8, !tbaa !149
-  %32 = getelementptr i8, ptr %.val.i.i.i.i, i64 8
-  %.val.val.i.i.i.i = load ptr, ptr %32, align 8, !tbaa !158
-  %33 = getelementptr i8, ptr %.val29.i.i.i.i, i64 8
-  %.val29.val.i.i.i.i = load ptr, ptr %33, align 8, !tbaa !158
+  %.val29.i.i.i.i = load ptr, ptr %gep.i.i.i.i, align 8, !tbaa !149
+  %30 = getelementptr i8, ptr %.val.i.i.i.i, i64 8
+  %.val.val.i.i.i.i = load ptr, ptr %30, align 8, !tbaa !158
+  %31 = getelementptr i8, ptr %.val29.i.i.i.i, i64 8
+  %.val29.val.i.i.i.i = load ptr, ptr %31, align 8, !tbaa !158
   %.val.val.val.i.i.i.i = load ptr, ptr %.val.val.i.i.i.i, align 8, !tbaa !160
   %.val29.val.val.i.i.i.i = load ptr, ptr %.val29.val.i.i.i.i, align 8, !tbaa !160
   %.val.val.val.val.i.i.i.i = load ptr, ptr %.val.val.val.i.i.i.i, align 8, !tbaa !123
   %.val29.val.val.val.i.i.i.i = load ptr, ptr %.val29.val.val.i.i.i.i, align 8, !tbaa !123
   %.val.val.val.val.val.i.i.i.i = load i32, ptr %.val.val.val.val.i.i.i.i, align 4, !tbaa !139
   %.val29.val.val.val.val.i.i.i.i = load i32, ptr %.val29.val.val.val.i.i.i.i, align 4, !tbaa !139
-  %34 = icmp ult i32 %.val.val.val.val.val.i.i.i.i, %.val29.val.val.val.val.i.i.i.i
-  %spec.select.i.i.i.i = select i1 %34, i64 %30, i64 %28
-  %35 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
-  %36 = load ptr, ptr %35, align 8, !tbaa !149
-  %37 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
-  store ptr %36, ptr %37, align 8, !tbaa !149
-  %38 = icmp slt i64 %spec.select.i.i.i.i, %17
-  br i1 %38, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !280
+  %32 = icmp ult i32 %.val.val.val.val.val.i.i.i.i, %.val29.val.val.val.val.i.i.i.i
+  %33 = or disjoint i64 %27, 1
+  %spec.select.i.i.i.i = select i1 %32, i64 %33, i64 %28
+  %34 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %35 = load ptr, ptr %34, align 8, !tbaa !149
+  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
+  store ptr %35, ptr %36, align 8, !tbaa !149
+  %37 = icmp slt i64 %spec.select.i.i.i.i, %17
+  br i1 %37, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !280
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %23
   %.0.lcssa.i.i.i.i = phi i64 [ %.014.i.i.i, %23 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %39 = icmp eq i64 %.0.lcssa.i.i.i.i, %15
-  %or.cond.i.i.i = select i1 %19, i1 %39, i1 false
-  br i1 %or.cond.i.i.i, label %40, label %42
+  %38 = icmp eq i64 %.0.lcssa.i.i.i.i, %15
+  %or.cond.i.i.i = select i1 %19, i1 %38, i1 false
+  br i1 %or.cond.i.i.i, label %39, label %41
 
-40:                                               ; preds = %._crit_edge.i.i.i.i
-  %41 = load ptr, ptr %21, align 8, !tbaa !149
-  store ptr %41, ptr %22, align 8, !tbaa !149
-  br label %42
+39:                                               ; preds = %._crit_edge.i.i.i.i
+  %40 = load ptr, ptr %21, align 8, !tbaa !149
+  store ptr %40, ptr %22, align 8, !tbaa !149
+  br label %41
 
-42:                                               ; preds = %40, %._crit_edge.i.i.i.i
-  %.128.i.i.i.i = phi i64 [ %20, %40 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %43 = icmp samesign ugt i64 %.128.i.i.i.i, %.014.i.i.i
-  br i1 %43, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i"
+41:                                               ; preds = %39, %._crit_edge.i.i.i.i
+  %.128.i.i.i.i = phi i64 [ %20, %39 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %42 = icmp samesign ugt i64 %.128.i.i.i.i, %.014.i.i.i
+  br i1 %42, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %42
-  %44 = getelementptr i8, ptr %25, i64 8
-  br label %45
+.lr.ph.i.i.i.i.i:                                 ; preds = %41
+  %43 = getelementptr i8, ptr %25, i64 8
+  br label %44
 
-45:                                               ; preds = %49, %.lr.ph.i.i.i.i.i
-  %.0133.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %49 ]
+44:                                               ; preds = %48, %.lr.ph.i.i.i.i.i
+  %.0133.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %48 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %46 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.i.i.i
-  %.val.i.i.i.i.i = load ptr, ptr %46, align 8, !tbaa !149
-  %47 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 8
-  %.val.val.i.i.i.i.i = load ptr, ptr %47, align 8, !tbaa !158
-  %.val14.val.i.i.i.i.i = load ptr, ptr %44, align 8, !tbaa !158
+  %45 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.i.i.i
+  %.val.i.i.i.i.i = load ptr, ptr %45, align 8, !tbaa !149
+  %46 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 8
+  %.val.val.i.i.i.i.i = load ptr, ptr %46, align 8, !tbaa !158
+  %.val14.val.i.i.i.i.i = load ptr, ptr %43, align 8, !tbaa !158
   %.val.val.val.i.i.i.i.i = load ptr, ptr %.val.val.i.i.i.i.i, align 8, !tbaa !160
   %.val14.val.val.i.i.i.i.i = load ptr, ptr %.val14.val.i.i.i.i.i, align 8, !tbaa !160
   %.val.val.val.val.i.i.i.i.i = load ptr, ptr %.val.val.val.i.i.i.i.i, align 8, !tbaa !123
   %.val14.val.val.val.i.i.i.i.i = load ptr, ptr %.val14.val.val.i.i.i.i.i, align 8, !tbaa !123
   %.val.val.val.val.val.i.i.i.i.i = load i32, ptr %.val.val.val.val.i.i.i.i.i, align 4, !tbaa !139
   %.val14.val.val.val.val.i.i.i.i.i = load i32, ptr %.val14.val.val.val.i.i.i.i.i, align 4, !tbaa !139
-  %48 = icmp ult i32 %.val.val.val.val.val.i.i.i.i.i, %.val14.val.val.val.val.i.i.i.i.i
-  br i1 %48, label %49, label %"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i"
+  %47 = icmp ult i32 %.val.val.val.val.val.i.i.i.i.i, %.val14.val.val.val.val.i.i.i.i.i
+  br i1 %47, label %48, label %"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i"
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
-  store ptr %.val.i.i.i.i.i, ptr %50, align 8, !tbaa !149
-  %51 = icmp sgt i64 %.04.i.i.i.i.i, %.014.i.i.i
-  br i1 %51, label %45, label %"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i", !llvm.loop !281
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  store ptr %.val.i.i.i.i.i, ptr %49, align 8, !tbaa !149
+  %50 = icmp sgt i64 %.04.i.i.i.i.i, %.014.i.i.i
+  br i1 %50, label %44, label %"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i", !llvm.loop !281
 
-"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i": ; preds = %49, %45, %42
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %42 ], [ %.0133.i.i.i.i.i, %45 ], [ %.04.i.i.i.i.i, %49 ]
-  %52 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store ptr %25, ptr %52, align 8, !tbaa !149
+"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i": ; preds = %48, %44, %41
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %41 ], [ %.0133.i.i.i.i.i, %44 ], [ %.04.i.i.i.i.i, %48 ]
+  %51 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store ptr %25, ptr %51, align 8, !tbaa !149
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
-  %53 = add nsw i64 %.014.i.i.i, -1
+  %52 = add nsw i64 %.014.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i5.i, label %23, !llvm.loop !282
 
 .lr.ph.i5.i:                                      ; preds = %"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i"
-  %.01.i.i = phi ptr [ %54, %"_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i" ], [ %.025, %"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
-  %54 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
-  %55 = load ptr, ptr %54, align 8, !tbaa !149
-  %56 = load ptr, ptr %0, align 8, !tbaa !149
-  store ptr %56, ptr %54, align 8, !tbaa !149
-  %57 = ptrtoint ptr %54 to i64
-  %58 = sub i64 %57, %4
-  %59 = ashr exact i64 %58, 3
-  %60 = add nsw i64 %59, -1
-  %61 = sdiv i64 %60, 2
-  %62 = icmp sgt i64 %59, 2
-  br i1 %62, label %.lr.ph.i.i.i22.i, label %._crit_edge.i.i.i6.i
+  %.01.i.i = phi ptr [ %53, %"_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i" ], [ %.025, %"_ZSt13__adjust_heapIPPN3euf9ac_plugin4nodeElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
+  %53 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
+  %54 = load ptr, ptr %53, align 8, !tbaa !149
+  %55 = load ptr, ptr %0, align 8, !tbaa !149
+  store ptr %55, ptr %53, align 8, !tbaa !149
+  %56 = ptrtoint ptr %53 to i64
+  %57 = sub i64 %56, %4
+  %58 = ashr exact i64 %57, 3
+  %59 = add nsw i64 %58, -1
+  %60 = sdiv i64 %59, 2
+  %61 = icmp sgt i64 %58, 2
+  br i1 %61, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i7.i
 
-.lr.ph.i.i.i22.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i22.i
-  %.030.i.i.i23.i = phi i64 [ %spec.select.i.i.i34.i, %.lr.ph.i.i.i22.i ], [ 0, %.lr.ph.i5.i ]
-  %63 = shl i64 %.030.i.i.i23.i, 1
-  %64 = add i64 %63, 2
-  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %64
-  %66 = or disjoint i64 %63, 1
-  %67 = getelementptr inbounds nuw ptr, ptr %0, i64 %66
-  %.val.i.i.i24.i = load ptr, ptr %65, align 8, !tbaa !149
-  %.val29.i.i.i25.i = load ptr, ptr %67, align 8, !tbaa !149
-  %68 = getelementptr i8, ptr %.val.i.i.i24.i, i64 8
-  %.val.val.i.i.i26.i = load ptr, ptr %68, align 8, !tbaa !158
-  %69 = getelementptr i8, ptr %.val29.i.i.i25.i, i64 8
-  %.val29.val.i.i.i27.i = load ptr, ptr %69, align 8, !tbaa !158
-  %.val.val.val.i.i.i28.i = load ptr, ptr %.val.val.i.i.i26.i, align 8, !tbaa !160
-  %.val29.val.val.i.i.i29.i = load ptr, ptr %.val29.val.i.i.i27.i, align 8, !tbaa !160
-  %.val.val.val.val.i.i.i30.i = load ptr, ptr %.val.val.val.i.i.i28.i, align 8, !tbaa !123
-  %.val29.val.val.val.i.i.i31.i = load ptr, ptr %.val29.val.val.i.i.i29.i, align 8, !tbaa !123
-  %.val.val.val.val.val.i.i.i32.i = load i32, ptr %.val.val.val.val.i.i.i30.i, align 4, !tbaa !139
-  %.val29.val.val.val.val.i.i.i33.i = load i32, ptr %.val29.val.val.val.i.i.i31.i, align 4, !tbaa !139
-  %70 = icmp ult i32 %.val.val.val.val.val.i.i.i32.i, %.val29.val.val.val.val.i.i.i33.i
-  %spec.select.i.i.i34.i = select i1 %70, i64 %66, i64 %64
-  %71 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i34.i
-  %72 = load ptr, ptr %71, align 8, !tbaa !149
-  %73 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i23.i
-  store ptr %72, ptr %73, align 8, !tbaa !149
-  %74 = icmp slt i64 %spec.select.i.i.i34.i, %61
-  br i1 %74, label %.lr.ph.i.i.i22.i, label %._crit_edge.i.i.i6.i, !llvm.loop !280
+.lr.ph.i.i.i23.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i23.i
+  %.030.i.i.i24.i = phi i64 [ %spec.select.i.i.i36.i, %.lr.ph.i.i.i23.i ], [ 0, %.lr.ph.i5.i ]
+  %62 = shl i64 %.030.i.i.i24.i, 1
+  %63 = add i64 %62, 2
+  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %63
+  %gep.i.i.i25.i = getelementptr ptr, ptr %8, i64 %62
+  %.val.i.i.i26.i = load ptr, ptr %64, align 8, !tbaa !149
+  %.val29.i.i.i27.i = load ptr, ptr %gep.i.i.i25.i, align 8, !tbaa !149
+  %65 = getelementptr i8, ptr %.val.i.i.i26.i, i64 8
+  %.val.val.i.i.i28.i = load ptr, ptr %65, align 8, !tbaa !158
+  %66 = getelementptr i8, ptr %.val29.i.i.i27.i, i64 8
+  %.val29.val.i.i.i29.i = load ptr, ptr %66, align 8, !tbaa !158
+  %.val.val.val.i.i.i30.i = load ptr, ptr %.val.val.i.i.i28.i, align 8, !tbaa !160
+  %.val29.val.val.i.i.i31.i = load ptr, ptr %.val29.val.i.i.i29.i, align 8, !tbaa !160
+  %.val.val.val.val.i.i.i32.i = load ptr, ptr %.val.val.val.i.i.i30.i, align 8, !tbaa !123
+  %.val29.val.val.val.i.i.i33.i = load ptr, ptr %.val29.val.val.i.i.i31.i, align 8, !tbaa !123
+  %.val.val.val.val.val.i.i.i34.i = load i32, ptr %.val.val.val.val.i.i.i32.i, align 4, !tbaa !139
+  %.val29.val.val.val.val.i.i.i35.i = load i32, ptr %.val29.val.val.val.i.i.i33.i, align 4, !tbaa !139
+  %67 = icmp ult i32 %.val.val.val.val.val.i.i.i34.i, %.val29.val.val.val.val.i.i.i35.i
+  %68 = or disjoint i64 %62, 1
+  %spec.select.i.i.i36.i = select i1 %67, i64 %68, i64 %63
+  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i36.i
+  %70 = load ptr, ptr %69, align 8, !tbaa !149
+  %71 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i24.i
+  store ptr %70, ptr %71, align 8, !tbaa !149
+  %72 = icmp slt i64 %spec.select.i.i.i36.i, %60
+  br i1 %72, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i7.i, !llvm.loop !280
 
-._crit_edge.i.i.i6.i:                             ; preds = %.lr.ph.i.i.i22.i, %.lr.ph.i5.i
-  %.0.lcssa.i.i.i7.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i34.i, %.lr.ph.i.i.i22.i ]
-  %75 = and i64 %58, 8
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %77, label %86
+._crit_edge.i.i.i7.i:                             ; preds = %.lr.ph.i.i.i23.i, %.lr.ph.i5.i
+  %.0.lcssa.i.i.i8.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i36.i, %.lr.ph.i.i.i23.i ]
+  %73 = and i64 %57, 8
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %75, label %84
 
-77:                                               ; preds = %._crit_edge.i.i.i6.i
-  %78 = add nsw i64 %59, -2
-  %79 = ashr exact i64 %78, 1
-  %80 = icmp eq i64 %.0.lcssa.i.i.i7.i, %79
-  br i1 %80, label %.thread.i.i.i, label %86
+75:                                               ; preds = %._crit_edge.i.i.i7.i
+  %76 = add nsw i64 %58, -2
+  %77 = ashr exact i64 %76, 1
+  %78 = icmp eq i64 %.0.lcssa.i.i.i8.i, %77
+  br i1 %78, label %.thread.i.i.i, label %84
 
-.thread.i.i.i:                                    ; preds = %77
-  %81 = shl nuw nsw i64 %.0.lcssa.i.i.i7.i, 1
-  %82 = or disjoint i64 %81, 1
-  %83 = getelementptr inbounds nuw ptr, ptr %0, i64 %82
-  %84 = load ptr, ptr %83, align 8, !tbaa !149
-  %85 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
-  store ptr %84, ptr %85, align 8, !tbaa !149
-  br label %.lr.ph.i.i.i.i9.i
+.thread.i.i.i:                                    ; preds = %75
+  %79 = shl nuw nsw i64 %.0.lcssa.i.i.i8.i, 1
+  %80 = or disjoint i64 %79, 1
+  %81 = getelementptr inbounds nuw ptr, ptr %0, i64 %80
+  %82 = load ptr, ptr %81, align 8, !tbaa !149
+  %83 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i8.i
+  store ptr %82, ptr %83, align 8, !tbaa !149
+  br label %.lr.ph.i.i.i.i10.i
 
-86:                                               ; preds = %77, %._crit_edge.i.i.i6.i
-  %.not.i.i8.i = icmp eq i64 %.0.lcssa.i.i.i7.i, 0
-  br i1 %.not.i.i8.i, label %"_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i", label %.lr.ph.i.i.i.i9.i
+84:                                               ; preds = %75, %._crit_edge.i.i.i7.i
+  %.not.i.i9.i = icmp eq i64 %.0.lcssa.i.i.i8.i, 0
+  br i1 %.not.i.i9.i, label %"_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i", label %.lr.ph.i.i.i.i10.i
 
-.lr.ph.i.i.i.i9.i:                                ; preds = %86, %.thread.i.i.i
-  %.128.i2.i.i.i = phi i64 [ %82, %.thread.i.i.i ], [ %.0.lcssa.i.i.i7.i, %86 ]
-  %87 = getelementptr i8, ptr %55, i64 8
-  br label %88
+.lr.ph.i.i.i.i10.i:                               ; preds = %84, %.thread.i.i.i
+  %.128.i2.i.i.i = phi i64 [ %80, %.thread.i.i.i ], [ %.0.lcssa.i.i.i8.i, %84 ]
+  %85 = getelementptr i8, ptr %54, i64 8
+  br label %86
 
-88:                                               ; preds = %92, %.lr.ph.i.i.i.i9.i
-  %.0133.i.i.i.i10.i = phi i64 [ %.128.i2.i.i.i, %.lr.ph.i.i.i.i9.i ], [ %.04.i.i34.i.i.i, %92 ]
-  %.04.in.i.i.i.i11.i = add nsw i64 %.0133.i.i.i.i10.i, -1
-  %.04.i.i34.i.i.i = lshr i64 %.04.in.i.i.i.i11.i, 1
-  %89 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i34.i.i.i
-  %.val.i.i.i.i12.i = load ptr, ptr %89, align 8, !tbaa !149
-  %90 = getelementptr i8, ptr %.val.i.i.i.i12.i, i64 8
-  %.val.val.i.i.i.i13.i = load ptr, ptr %90, align 8, !tbaa !158
-  %.val14.val.i.i.i.i14.i = load ptr, ptr %87, align 8, !tbaa !158
-  %.val.val.val.i.i.i.i15.i = load ptr, ptr %.val.val.i.i.i.i13.i, align 8, !tbaa !160
-  %.val14.val.val.i.i.i.i16.i = load ptr, ptr %.val14.val.i.i.i.i14.i, align 8, !tbaa !160
-  %.val.val.val.val.i.i.i.i17.i = load ptr, ptr %.val.val.val.i.i.i.i15.i, align 8, !tbaa !123
-  %.val14.val.val.val.i.i.i.i18.i = load ptr, ptr %.val14.val.val.i.i.i.i16.i, align 8, !tbaa !123
-  %.val.val.val.val.val.i.i.i.i19.i = load i32, ptr %.val.val.val.val.i.i.i.i17.i, align 4, !tbaa !139
-  %.val14.val.val.val.val.i.i.i.i20.i = load i32, ptr %.val14.val.val.val.i.i.i.i18.i, align 4, !tbaa !139
-  %91 = icmp ult i32 %.val.val.val.val.val.i.i.i.i19.i, %.val14.val.val.val.val.i.i.i.i20.i
-  br i1 %91, label %92, label %"_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i"
+86:                                               ; preds = %90, %.lr.ph.i.i.i.i10.i
+  %.0133.i.i.i.i11.i = phi i64 [ %.128.i2.i.i.i, %.lr.ph.i.i.i.i10.i ], [ %.04.i.i34.i.i.i, %90 ]
+  %.04.in.i.i.i.i12.i = add nsw i64 %.0133.i.i.i.i11.i, -1
+  %.04.i.i34.i.i.i = lshr i64 %.04.in.i.i.i.i12.i, 1
+  %87 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i34.i.i.i
+  %.val.i.i.i.i13.i = load ptr, ptr %87, align 8, !tbaa !149
+  %88 = getelementptr i8, ptr %.val.i.i.i.i13.i, i64 8
+  %.val.val.i.i.i.i14.i = load ptr, ptr %88, align 8, !tbaa !158
+  %.val14.val.i.i.i.i15.i = load ptr, ptr %85, align 8, !tbaa !158
+  %.val.val.val.i.i.i.i16.i = load ptr, ptr %.val.val.i.i.i.i14.i, align 8, !tbaa !160
+  %.val14.val.val.i.i.i.i17.i = load ptr, ptr %.val14.val.i.i.i.i15.i, align 8, !tbaa !160
+  %.val.val.val.val.i.i.i.i18.i = load ptr, ptr %.val.val.val.i.i.i.i16.i, align 8, !tbaa !123
+  %.val14.val.val.val.i.i.i.i19.i = load ptr, ptr %.val14.val.val.i.i.i.i17.i, align 8, !tbaa !123
+  %.val.val.val.val.val.i.i.i.i20.i = load i32, ptr %.val.val.val.val.i.i.i.i18.i, align 4, !tbaa !139
+  %.val14.val.val.val.val.i.i.i.i21.i = load i32, ptr %.val14.val.val.val.i.i.i.i19.i, align 4, !tbaa !139
+  %89 = icmp ult i32 %.val.val.val.val.val.i.i.i.i20.i, %.val14.val.val.val.val.i.i.i.i21.i
+  br i1 %89, label %90, label %"_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i"
 
-92:                                               ; preds = %88
-  %93 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i10.i
-  store ptr %.val.i.i.i.i12.i, ptr %93, align 8, !tbaa !149
-  %.not5.i.i.i = icmp ult i64 %.04.in.i.i.i.i11.i, 2
-  br i1 %.not5.i.i.i, label %"_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i", label %88, !llvm.loop !281
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i11.i
+  store ptr %.val.i.i.i.i13.i, ptr %91, align 8, !tbaa !149
+  %.not5.i.i.i = icmp ult i64 %.04.in.i.i.i.i12.i, 2
+  br i1 %.not5.i.i.i, label %"_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i", label %86, !llvm.loop !281
 
-"_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i": ; preds = %92, %88, %86
-  %.013.lcssa.i.i.i.i21.i = phi i64 [ 0, %86 ], [ %.0133.i.i.i.i10.i, %88 ], [ 0, %92 ]
-  %94 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i21.i
-  store ptr %55, ptr %94, align 8, !tbaa !149
-  %95 = icmp sgt i64 %58, 8
-  br i1 %95, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_T0_.exit", !llvm.loop !283
+"_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i": ; preds = %90, %86, %84
+  %.013.lcssa.i.i.i.i22.i = phi i64 [ 0, %84 ], [ %.0133.i.i.i.i11.i, %86 ], [ 0, %90 ]
+  %92 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i22.i
+  store ptr %54, ptr %92, align 8, !tbaa !149
+  %93 = icmp sgt i64 %57, 8
+  br i1 %93, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_T0_.exit", !llvm.loop !283
 
-96:                                               ; preds = %9
-  %97 = add nsw i64 %.01724, -1
-  %98 = lshr i64 %10, 4
-  %99 = getelementptr inbounds nuw ptr, ptr %0, i64 %98
-  %100 = getelementptr inbounds i8, ptr %.025, i64 -8
+94:                                               ; preds = %9
+  %95 = add nsw i64 %.01724, -1
+  %96 = lshr i64 %10, 4
+  %97 = getelementptr inbounds nuw ptr, ptr %0, i64 %96
+  %98 = getelementptr inbounds i8, ptr %.025, i64 -8
   %.val29.i.i = load ptr, ptr %8, align 8, !tbaa !149
-  %.val30.i.i = load ptr, ptr %99, align 8, !tbaa !149
-  %101 = getelementptr i8, ptr %.val29.i.i, i64 8
-  %.val29.val.i.i = load ptr, ptr %101, align 8, !tbaa !158
-  %102 = getelementptr i8, ptr %.val30.i.i, i64 8
-  %.val30.val.i.i = load ptr, ptr %102, align 8, !tbaa !158
+  %.val30.i.i = load ptr, ptr %97, align 8, !tbaa !149
+  %99 = getelementptr i8, ptr %.val29.i.i, i64 8
+  %.val29.val.i.i = load ptr, ptr %99, align 8, !tbaa !158
+  %100 = getelementptr i8, ptr %.val30.i.i, i64 8
+  %.val30.val.i.i = load ptr, ptr %100, align 8, !tbaa !158
   %.val29.val.val.i.i = load ptr, ptr %.val29.val.i.i, align 8, !tbaa !160
   %.val30.val.val.i.i = load ptr, ptr %.val30.val.i.i, align 8, !tbaa !160
   %.val29.val.val.val.i.i = load ptr, ptr %.val29.val.val.i.i, align 8, !tbaa !123
   %.val30.val.val.val.i.i = load ptr, ptr %.val30.val.val.i.i, align 8, !tbaa !123
   %.val29.val.val.val.val.i.i = load i32, ptr %.val29.val.val.val.i.i, align 4, !tbaa !139
   %.val30.val.val.val.val.i.i = load i32, ptr %.val30.val.val.val.i.i, align 4, !tbaa !139
-  %103 = icmp ult i32 %.val29.val.val.val.val.i.i, %.val30.val.val.val.val.i.i
-  %.val28.i.i = load ptr, ptr %100, align 8, !tbaa !149
-  %104 = getelementptr i8, ptr %.val28.i.i, i64 8
-  %.val28.val.i.i = load ptr, ptr %104, align 8, !tbaa !158
+  %101 = icmp ult i32 %.val29.val.val.val.val.i.i, %.val30.val.val.val.val.i.i
+  %.val28.i.i = load ptr, ptr %98, align 8, !tbaa !149
+  %102 = getelementptr i8, ptr %.val28.i.i, i64 8
+  %.val28.val.i.i = load ptr, ptr %102, align 8, !tbaa !158
   %.val28.val.val.i.i = load ptr, ptr %.val28.val.i.i, align 8, !tbaa !160
   %.val28.val.val.val.i.i = load ptr, ptr %.val28.val.val.i.i, align 8, !tbaa !123
   %.val28.val.val.val.val.i.i = load i32, ptr %.val28.val.val.val.i.i, align 4, !tbaa !139
-  br i1 %103, label %105, label %114
+  br i1 %101, label %103, label %112
 
-105:                                              ; preds = %96
-  %106 = icmp ult i32 %.val30.val.val.val.val.i.i, %.val28.val.val.val.val.i.i
-  br i1 %106, label %107, label %109
+103:                                              ; preds = %94
+  %104 = icmp ult i32 %.val30.val.val.val.val.i.i, %.val28.val.val.val.val.i.i
+  br i1 %104, label %105, label %107
 
-107:                                              ; preds = %105
-  %108 = load ptr, ptr %0, align 8, !tbaa !149
+105:                                              ; preds = %103
+  %106 = load ptr, ptr %0, align 8, !tbaa !149
   store ptr %.val30.i.i, ptr %0, align 8, !tbaa !149
-  store ptr %108, ptr %99, align 8, !tbaa !149
+  store ptr %106, ptr %97, align 8, !tbaa !149
   br label %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-109:                                              ; preds = %105
-  %110 = icmp ult i32 %.val29.val.val.val.val.i.i, %.val28.val.val.val.val.i.i
-  %111 = load ptr, ptr %0, align 8, !tbaa !149
-  br i1 %110, label %112, label %113
+107:                                              ; preds = %103
+  %108 = icmp ult i32 %.val29.val.val.val.val.i.i, %.val28.val.val.val.val.i.i
+  %109 = load ptr, ptr %0, align 8, !tbaa !149
+  br i1 %108, label %110, label %111
 
-112:                                              ; preds = %109
+110:                                              ; preds = %107
   store ptr %.val28.i.i, ptr %0, align 8, !tbaa !149
-  store ptr %111, ptr %100, align 8, !tbaa !149
+  store ptr %109, ptr %98, align 8, !tbaa !149
   br label %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-113:                                              ; preds = %109
+111:                                              ; preds = %107
   store ptr %.val29.i.i, ptr %0, align 8, !tbaa !149
-  store ptr %111, ptr %8, align 8, !tbaa !149
+  store ptr %109, ptr %8, align 8, !tbaa !149
   br label %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-114:                                              ; preds = %96
-  %115 = icmp ult i32 %.val29.val.val.val.val.i.i, %.val28.val.val.val.val.i.i
-  br i1 %115, label %116, label %118
+112:                                              ; preds = %94
+  %113 = icmp ult i32 %.val29.val.val.val.val.i.i, %.val28.val.val.val.val.i.i
+  br i1 %113, label %114, label %116
 
-116:                                              ; preds = %114
-  %117 = load ptr, ptr %0, align 8, !tbaa !149
+114:                                              ; preds = %112
+  %115 = load ptr, ptr %0, align 8, !tbaa !149
   store ptr %.val29.i.i, ptr %0, align 8, !tbaa !149
-  store ptr %117, ptr %8, align 8, !tbaa !149
+  store ptr %115, ptr %8, align 8, !tbaa !149
   br label %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-118:                                              ; preds = %114
-  %119 = icmp ult i32 %.val30.val.val.val.val.i.i, %.val28.val.val.val.val.i.i
-  %120 = load ptr, ptr %0, align 8, !tbaa !149
-  br i1 %119, label %121, label %122
+116:                                              ; preds = %112
+  %117 = icmp ult i32 %.val30.val.val.val.val.i.i, %.val28.val.val.val.val.i.i
+  %118 = load ptr, ptr %0, align 8, !tbaa !149
+  br i1 %117, label %119, label %120
 
-121:                                              ; preds = %118
+119:                                              ; preds = %116
   store ptr %.val28.i.i, ptr %0, align 8, !tbaa !149
-  store ptr %120, ptr %100, align 8, !tbaa !149
+  store ptr %118, ptr %98, align 8, !tbaa !149
   br label %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-122:                                              ; preds = %118
+120:                                              ; preds = %116
   store ptr %.val30.i.i, ptr %0, align 8, !tbaa !149
-  store ptr %120, ptr %99, align 8, !tbaa !149
+  store ptr %118, ptr %97, align 8, !tbaa !149
   br label %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader": ; preds = %122, %121, %116, %113, %112, %107
+"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader": ; preds = %120, %119, %114, %111, %110, %105
   br label %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader", %132
-  %.013.i.i = phi ptr [ %.114.i.i, %132 ], [ %.025, %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader" ]
-  %.0.i.i = phi ptr [ %127, %132 ], [ %8, %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader", %130
+  %.013.i.i = phi ptr [ %.114.i.i, %130 ], [ %.025, %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader" ]
+  %.0.i.i = phi ptr [ %125, %130 ], [ %8, %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i.preheader" ]
   %.val15.i.i = load ptr, ptr %0, align 8, !tbaa !149
-  %123 = getelementptr i8, ptr %.val15.i.i, i64 8
-  %.val15.val.i.i = load ptr, ptr %123, align 8, !tbaa !158
+  %121 = getelementptr i8, ptr %.val15.i.i, i64 8
+  %.val15.val.i.i = load ptr, ptr %121, align 8, !tbaa !158
   %.val15.val.val.i.i = load ptr, ptr %.val15.val.i.i, align 8, !tbaa !160
   %.val15.val.val.val.i.i = load ptr, ptr %.val15.val.val.i.i, align 8, !tbaa !123
   %.val15.val.val.val.val.i.i = load i32, ptr %.val15.val.val.val.i.i, align 4, !tbaa !139
-  br label %124
+  br label %122
 
-124:                                              ; preds = %124, %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i"
-  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i" ], [ %127, %124 ]
+122:                                              ; preds = %122, %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i"
+  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i" ], [ %125, %122 ]
   %.1.val.i.i = load ptr, ptr %.1.i.i, align 8, !tbaa !149
-  %125 = getelementptr i8, ptr %.1.val.i.i, i64 8
-  %.1.val.val.i.i = load ptr, ptr %125, align 8, !tbaa !158
+  %123 = getelementptr i8, ptr %.1.val.i.i, i64 8
+  %.1.val.val.i.i = load ptr, ptr %123, align 8, !tbaa !158
   %.1.val.val.val.i.i = load ptr, ptr %.1.val.val.i.i, align 8, !tbaa !160
   %.1.val.val.val.val.i.i = load ptr, ptr %.1.val.val.val.i.i, align 8, !tbaa !123
   %.1.val.val.val.val.val.i.i = load i32, ptr %.1.val.val.val.val.i.i, align 4, !tbaa !139
-  %126 = icmp ult i32 %.1.val.val.val.val.val.i.i, %.val15.val.val.val.val.i.i
-  %127 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %126, label %124, label %.preheader.i.i, !llvm.loop !284
+  %124 = icmp ult i32 %.1.val.val.val.val.val.i.i, %.val15.val.val.val.val.i.i
+  %125 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  br i1 %124, label %122, label %.preheader.i.i, !llvm.loop !284
 
-.preheader.i.i:                                   ; preds = %124, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %124 ]
+.preheader.i.i:                                   ; preds = %122, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %122 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
   %.114.val.i.i = load ptr, ptr %.114.i.i, align 8, !tbaa !149
-  %128 = getelementptr i8, ptr %.114.val.i.i, i64 8
-  %.114.val.val.i.i = load ptr, ptr %128, align 8, !tbaa !158
+  %126 = getelementptr i8, ptr %.114.val.i.i, i64 8
+  %.114.val.val.i.i = load ptr, ptr %126, align 8, !tbaa !158
   %.114.val.val.val.i.i = load ptr, ptr %.114.val.val.i.i, align 8, !tbaa !160
   %.114.val.val.val.val.i.i = load ptr, ptr %.114.val.val.val.i.i, align 8, !tbaa !123
   %.114.val.val.val.val.val.i.i = load i32, ptr %.114.val.val.val.val.i.i, align 4, !tbaa !139
-  %129 = icmp ult i32 %.val15.val.val.val.val.i.i, %.114.val.val.val.val.val.i.i
-  br i1 %129, label %.preheader.i.i, label %130, !llvm.loop !285
+  %127 = icmp ult i32 %.val15.val.val.val.val.i.i, %.114.val.val.val.val.val.i.i
+  br i1 %127, label %.preheader.i.i, label %128, !llvm.loop !285
 
-130:                                              ; preds = %.preheader.i.i
-  %131 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %131, label %132, label %"_ZSt27__unguarded_partition_pivotIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEET_SC_SC_T0_.exit"
+128:                                              ; preds = %.preheader.i.i
+  %129 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %129, label %130, label %"_ZSt27__unguarded_partition_pivotIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEET_SC_SC_T0_.exit"
 
-132:                                              ; preds = %130
+130:                                              ; preds = %128
   store ptr %.114.val.i.i, ptr %.1.i.i, align 8, !tbaa !149
   store ptr %.1.val.i.i, ptr %.114.i.i, align 8, !tbaa !149
   br label %"_ZSt22__move_median_to_firstIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_SC_T0_.exit.i", !llvm.loop !286
 
-"_ZSt27__unguarded_partition_pivotIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEET_SC_SC_T0_.exit": ; preds = %130
-  tail call fastcc void @"_ZSt16__introsort_loopIPPN3euf9ac_plugin4nodeElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %97)
-  %133 = ptrtoint ptr %.1.i.i to i64
-  %134 = sub i64 %133, %4
-  %135 = icmp sgt i64 %134, 128
-  br i1 %135, label %9, label %"_ZSt14__partial_sortIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_T0_.exit", !llvm.loop !287
+"_ZSt27__unguarded_partition_pivotIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEET_SC_SC_T0_.exit": ; preds = %128
+  tail call fastcc void @"_ZSt16__introsort_loopIPPN3euf9ac_plugin4nodeElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %95)
+  %131 = ptrtoint ptr %.1.i.i to i64
+  %132 = sub i64 %131, %4
+  %133 = icmp sgt i64 %132, 128
+  br i1 %133, label %9, label %"_ZSt14__partial_sortIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_T0_.exit", !llvm.loop !287
 
 "_ZSt14__partial_sortIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEET_SC_SC_T0_.exit", %"_ZSt10__pop_heapIPPN3euf9ac_plugin4nodeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_4sortERNS1_10monomial_tEE3$_0EEEvT_SC_SC_RT0_.exit.i.i", %3
   ret void

@@ -20363,6 +20363,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_c
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
+  %invariant.gep = getelementptr i8, ptr %__first, i64 4
   %cmp25 = icmp slt i64 %__holeIndex, %div
   br i1 %cmp25, label %while.body, label %while.end
 
@@ -20371,10 +20372,9 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %add = shl i64 %__secondChild.026, 1
   %mul = add i64 %add, 2
   %add.ptr = getelementptr inbounds i32, ptr %__first, i64 %mul
-  %sub2 = or disjoint i64 %add, 1
-  %add.ptr3 = getelementptr inbounds i32, ptr %__first, i64 %sub2
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %add
   %add.ptr.val = load i32, ptr %add.ptr, align 4
-  %add.ptr3.val = load i32, ptr %add.ptr3, align 4
+  %add.ptr3.val = load i32, ptr %gep, align 4
   %__comp.val.val = load ptr, ptr %__comp.coerce, align 8
   %0 = getelementptr i8, ptr %__comp.val.val, i64 136
   %__comp.val.val.val = load ptr, ptr %0, align 8
@@ -20393,7 +20393,8 @@ if.end.i.i.i.i:                                   ; preds = %while.body
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiSC_EEbT_T0_.exit": ; preds = %while.body
   %3 = and i64 %call.i.i.i, 2147483648
   %cmp.i.i.not = icmp eq i64 %3, 0
-  %spec.select = select i1 %cmp.i.i.not, i64 %mul, i64 %sub2
+  %dec = or disjoint i64 %add, 1
+  %spec.select = select i1 %cmp.i.i.not, i64 %mul, i64 %dec
   %add.ptr4 = getelementptr inbounds i32, ptr %__first, i64 %spec.select
   %4 = load i32, ptr %add.ptr4, align 4
   %add.ptr5 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.026

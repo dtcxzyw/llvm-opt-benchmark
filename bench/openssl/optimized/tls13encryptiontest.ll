@@ -368,8 +368,8 @@ define internal fastcc ptr @multihexstr2buf(ptr noundef readonly captures(none) 
   %.13955 = phi i64 [ %32, %28 ], [ %.03857, %.preheader ]
   %19 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %18) #5
   %20 = load ptr, ptr %15, align 8, !tbaa !42
-  %21 = or disjoint i64 %.03756, 1
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.03756
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !43
   %24 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %23) #5
   %25 = icmp sgt i32 %19, -1

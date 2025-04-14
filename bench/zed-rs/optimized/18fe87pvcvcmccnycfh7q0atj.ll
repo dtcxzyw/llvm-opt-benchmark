@@ -2546,8 +2546,8 @@ define hidden void @_ZN3std2os4unix3net8listener12UnixListener4bind17haf2e1c4ac9
 45:                                               ; preds = %.invoke
   %46 = sext i32 %40 to i64
   %47 = shl nsw i64 %46, 32
-  %48 = or disjoint i64 %47, 2
-  %49 = getelementptr i8, ptr null, i64 %48
+  %48 = getelementptr i8, ptr null, i64 %47
+  %49 = getelementptr i8, ptr %48, i64 2
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %49, ptr %50, align 8
   store i32 1, ptr %0, align 8
@@ -5508,8 +5508,8 @@ define hidden void @_ZN5bytes3buf8buf_impl3Buf13copy_to_bytes17h5fda0e4fd72ef10c
   %25 = sub nuw nsw i64 64, %24
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %25, i64 7)
   %26 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i, 2
-  %27 = or disjoint i64 %26, 1
-  %28 = getelementptr i8, ptr null, i64 %27
+  %27 = getelementptr i8, ptr null, i64 %26
+  %28 = getelementptr i8, ptr %27, i64 1
   store ptr %22, ptr %11, align 8, !alias.scope !1085, !noalias !1088
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %29, align 8, !alias.scope !1085, !noalias !1088
@@ -5822,8 +5822,8 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut8from_vec17h50b82faf1b87525dE.ll
   %10 = sub nuw nsw i64 64, %9
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 7)
   %11 = shl nuw nsw i64 %.sroa.0.0.sroa.speculated.i, 2
-  %12 = or disjoint i64 %11, 1
-  %13 = getelementptr i8, ptr null, i64 %12
+  %12 = getelementptr i8, ptr null, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 1
   store ptr %4, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %14, align 8

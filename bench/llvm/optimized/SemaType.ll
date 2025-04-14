@@ -79876,47 +79876,51 @@ define linkonce_odr void @_ZSt11__sort_heapIPN5clang14SourceLocationEN9__gnu_cxx
   %7 = icmp sgt i64 %6, 4
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %3, %_ZSt10__pop_heapIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_S9_RT0_.exit
-  %.07 = phi ptr [ %8, %_ZSt10__pop_heapIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_S9_RT0_.exit ], [ %1, %3 ]
-  %8 = getelementptr inbounds i8, ptr %.07, i64 -4
-  %.sroa.02.0.copyload.i = load i32, ptr %8, align 4, !tbaa !13
-  %9 = load i32, ptr %0, align 4, !tbaa !13
-  store i32 %9, ptr %8, align 4, !tbaa !13
-  %10 = ptrtoint ptr %8 to i64
-  %11 = sub i64 %10, %4
-  %12 = ashr exact i64 %11, 2
-  %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8, !tbaa !2253
-  %13 = add nsw i64 %12, -1
-  %14 = sdiv i64 %13, 2
-  %15 = icmp sgt i64 %12, 2
-  br i1 %15, label %.lr.ph.i.i, label %._crit_edge.i.i
+.lr.ph:                                           ; preds = %3
+  %invariant.gep.i.i = getelementptr i8, ptr %0, i64 4
+  br label %8
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph, %.lr.ph.i.i
-  %.030.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph ]
-  %16 = shl i64 %.030.i.i, 1
-  %17 = add i64 %16, 2
-  %18 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %17
-  %19 = or disjoint i64 %16, 1
-  %20 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %19
-  %.sroa.01.0.copyload.i.i.i = load i32, ptr %18, align 4, !tbaa !13
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %20, align 4, !tbaa !13
-  %21 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %.sroa.0.0.copyload.i, i32 %.sroa.01.0.copyload.i.i.i, i32 %.sroa.0.0.copyload.i.i.i) #24
-  %spec.select.i.i = select i1 %21, i64 %19, i64 %17
+8:                                                ; preds = %.lr.ph, %_ZSt10__pop_heapIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_S9_RT0_.exit
+  %.07 = phi ptr [ %1, %.lr.ph ], [ %9, %_ZSt10__pop_heapIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_S9_RT0_.exit ]
+  %9 = getelementptr inbounds i8, ptr %.07, i64 -4
+  %.sroa.02.0.copyload.i = load i32, ptr %9, align 4, !tbaa !13
+  %10 = load i32, ptr %0, align 4, !tbaa !13
+  store i32 %10, ptr %9, align 4, !tbaa !13
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %11, %4
+  %13 = ashr exact i64 %12, 2
+  %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8, !tbaa !2253
+  %14 = add nsw i64 %13, -1
+  %15 = sdiv i64 %14, 2
+  %16 = icmp sgt i64 %13, 2
+  br i1 %16, label %.lr.ph.i.i, label %._crit_edge.i.i
+
+.lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i
+  %.030.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %8 ]
+  %17 = shl i64 %.030.i.i, 1
+  %18 = add i64 %17, 2
+  %19 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %18
+  %gep.i.i = getelementptr %"class.clang::SourceLocation", ptr %invariant.gep.i.i, i64 %17
+  %.sroa.01.0.copyload.i.i.i = load i32, ptr %19, align 4, !tbaa !13
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %gep.i.i, align 4, !tbaa !13
+  %20 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %.sroa.0.0.copyload.i, i32 %.sroa.01.0.copyload.i.i.i, i32 %.sroa.0.0.copyload.i.i.i) #24
+  %21 = or disjoint i64 %17, 1
+  %spec.select.i.i = select i1 %20, i64 %21, i64 %18
   %22 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %spec.select.i.i
   %23 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.030.i.i
   %24 = load i32, ptr %22, align 4, !tbaa !13
   store i32 %24, ptr %23, align 4, !tbaa !13
-  %25 = icmp slt i64 %spec.select.i.i, %14
+  %25 = icmp slt i64 %spec.select.i.i, %15
   br i1 %25, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !2254
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph
-  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %26 = and i64 %11, 4
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %8
+  %.0.lcssa.i.i = phi i64 [ 0, %8 ], [ %spec.select.i.i, %.lr.ph.i.i ]
+  %26 = and i64 %12, 4
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %._crit_edge.i.i
-  %29 = add nsw i64 %12, -2
+  %29 = add nsw i64 %13, -2
   %30 = ashr exact i64 %29, 1
   %31 = icmp eq i64 %.0.lcssa.i.i, %30
   br i1 %31, label %.thread.i, label %37
@@ -79958,8 +79962,8 @@ _ZSt10__pop_heapIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0
   %.013.lcssa.i.i.i = phi i64 [ 0, %37 ], [ %.01317.i.i.i, %.lr.ph.i.i.i ], [ 0, %40 ]
   %43 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.013.lcssa.i.i.i
   store i32 %.sroa.02.0.copyload.i, ptr %43, align 4, !tbaa !13
-  %44 = icmp sgt i64 %11, 4
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !2256
+  %44 = icmp sgt i64 %12, 4
+  br i1 %44, label %8, label %._crit_edge, !llvm.loop !2256
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapIPN5clang14SourceLocationEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_S9_S9_RT0_.exit, %3
   ret void
@@ -79979,6 +79983,7 @@ define linkonce_odr void @_ZSt11__make_heapIPN5clang14SourceLocationEN9__gnu_cxx
   %11 = lshr i64 %10, 1
   %12 = add nsw i64 %7, -1
   %13 = lshr i64 %12, 1
+  %invariant.gep.i = getelementptr i8, ptr %0, i64 4
   %14 = and i64 %6, 4
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
@@ -79991,7 +79996,7 @@ define linkonce_odr void @_ZSt11__make_heapIPN5clang14SourceLocationEN9__gnu_cxx
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit.us
-  %.015.us = phi i64 [ %40, %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit.us ], [ %11, %9 ]
+  %.015.us = phi i64 [ %39, %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit.us ], [ %11, %9 ]
   %20 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %0, i64 %.015.us
   %.sroa.02.0.copyload.us = load i32, ptr %20, align 4, !tbaa !13
   %.sroa.0.0.copyload.us = load ptr, ptr %2, align 8, !tbaa !2253
@@ -80003,110 +80008,110 @@ define linkonce_odr void @_ZSt11__make_heapIPN5clang14SourceLocationEN9__gnu_cxx
   %22 = shl i64 %.030.i.us, 1
   %23 = add i64 %22, 2
   %24 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %23
-  %25 = or disjoint i64 %22, 1
-  %26 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %25
+  %gep.i.us = getelementptr %"class.clang::SourceLocation", ptr %invariant.gep.i, i64 %22
   %.sroa.01.0.copyload.i.i.us = load i32, ptr %24, align 4, !tbaa !13
-  %.sroa.0.0.copyload.i.i.us = load i32, ptr %26, align 4, !tbaa !13
-  %27 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %.sroa.0.0.copyload.us, i32 %.sroa.01.0.copyload.i.i.us, i32 %.sroa.0.0.copyload.i.i.us) #24
-  %spec.select.i.us = select i1 %27, i64 %25, i64 %23
-  %28 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %spec.select.i.us
-  %29 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.030.i.us
-  %30 = load i32, ptr %28, align 4, !tbaa !13
-  store i32 %30, ptr %29, align 4, !tbaa !13
-  %31 = icmp slt i64 %spec.select.i.us, %13
-  br i1 %31, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !2254
+  %.sroa.0.0.copyload.i.i.us = load i32, ptr %gep.i.us, align 4, !tbaa !13
+  %25 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %.sroa.0.0.copyload.us, i32 %.sroa.01.0.copyload.i.i.us, i32 %.sroa.0.0.copyload.i.i.us) #24
+  %26 = or disjoint i64 %22, 1
+  %spec.select.i.us = select i1 %25, i64 %26, i64 %23
+  %27 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %spec.select.i.us
+  %28 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.030.i.us
+  %29 = load i32, ptr %27, align 4, !tbaa !13
+  store i32 %29, ptr %28, align 4, !tbaa !13
+  %30 = icmp slt i64 %spec.select.i.us, %13
+  br i1 %30, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !2254
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
-  %32 = icmp sgt i64 %spec.select.i.us, %.015.us
-  br i1 %32, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit.us
+  %31 = icmp sgt i64 %spec.select.i.us, %.015.us
+  br i1 %31, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit.us
 
-.lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us, %35
-  %.01317.i.i.us = phi i64 [ %.018.i.i.us, %35 ], [ %spec.select.i.us, %._crit_edge.i.us ]
+.lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us, %34
+  %.01317.i.i.us = phi i64 [ %.018.i.i.us, %34 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %33 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.018.i.i.us
-  %.sroa.01.0.copyload.i.i.i.us = load i32, ptr %33, align 4, !tbaa !13
-  %34 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %.sroa.0.0.copyload.us, i32 %.sroa.01.0.copyload.i.i.i.us, i32 %.sroa.02.0.copyload.us) #24
-  br i1 %34, label %35, label %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit.us
+  %32 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.018.i.i.us
+  %.sroa.01.0.copyload.i.i.i.us = load i32, ptr %32, align 4, !tbaa !13
+  %33 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %.sroa.0.0.copyload.us, i32 %.sroa.01.0.copyload.i.i.i.us, i32 %.sroa.02.0.copyload.us) #24
+  br i1 %33, label %34, label %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit.us
 
-35:                                               ; preds = %.lr.ph.i.i.us
-  %36 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.01317.i.i.us
-  %37 = load i32, ptr %33, align 4, !tbaa !13
-  store i32 %37, ptr %36, align 4, !tbaa !13
-  %38 = icmp sgt i64 %.018.i.i.us, %.015.us
-  br i1 %38, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !2255
+34:                                               ; preds = %.lr.ph.i.i.us
+  %35 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.01317.i.i.us
+  %36 = load i32, ptr %32, align 4, !tbaa !13
+  store i32 %36, ptr %35, align 4, !tbaa !13
+  %37 = icmp sgt i64 %.018.i.i.us, %.015.us
+  br i1 %37, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !2255
 
-_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %35, %.split.us, %._crit_edge.i.us
-  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.015.us, %.split.us ], [ %.018.i.i.us, %35 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
-  %39 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.013.lcssa.i.i.us
-  store i32 %.sroa.02.0.copyload.us, ptr %39, align 4, !tbaa !13
+_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %34, %.split.us, %._crit_edge.i.us
+  %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.015.us, %.split.us ], [ %.018.i.i.us, %34 ], [ %.01317.i.i.us, %.lr.ph.i.i.us ]
+  %38 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.013.lcssa.i.i.us
+  store i32 %.sroa.02.0.copyload.us, ptr %38, align 4, !tbaa !13
   %.not.us = icmp eq i64 %.015.us, 0
-  %40 = add nsw i64 %.015.us, -1
+  %39 = add nsw i64 %.015.us, -1
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !2257
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit
-  %.015 = phi i64 [ %65, %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %41 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %0, i64 %.015
-  %.sroa.02.0.copyload = load i32, ptr %41, align 4, !tbaa !13
+  %.015 = phi i64 [ %63, %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit ], [ %11, %.split.preheader ]
+  %40 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %0, i64 %.015
+  %.sroa.02.0.copyload = load i32, ptr %40, align 4, !tbaa !13
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !2253
-  %42 = icmp slt i64 %.015, %13
-  br i1 %42, label %.lr.ph.i, label %._crit_edge.i
+  %41 = icmp slt i64 %.015, %13
+  br i1 %41, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
   %.030.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.015, %.split ]
-  %43 = shl i64 %.030.i, 1
-  %44 = add i64 %43, 2
-  %45 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %44
-  %46 = or disjoint i64 %43, 1
-  %47 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %46
-  %.sroa.01.0.copyload.i.i = load i32, ptr %45, align 4, !tbaa !13
-  %.sroa.0.0.copyload.i.i = load i32, ptr %47, align 4, !tbaa !13
-  %48 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %.sroa.0.0.copyload, i32 %.sroa.01.0.copyload.i.i, i32 %.sroa.0.0.copyload.i.i) #24
-  %spec.select.i = select i1 %48, i64 %46, i64 %44
-  %49 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %spec.select.i
-  %50 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.030.i
-  %51 = load i32, ptr %49, align 4, !tbaa !13
-  store i32 %51, ptr %50, align 4, !tbaa !13
-  %52 = icmp slt i64 %spec.select.i, %13
-  br i1 %52, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !2254
+  %42 = shl i64 %.030.i, 1
+  %43 = add i64 %42, 2
+  %44 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %43
+  %gep.i = getelementptr %"class.clang::SourceLocation", ptr %invariant.gep.i, i64 %42
+  %.sroa.01.0.copyload.i.i = load i32, ptr %44, align 4, !tbaa !13
+  %.sroa.0.0.copyload.i.i = load i32, ptr %gep.i, align 4, !tbaa !13
+  %45 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %.sroa.0.0.copyload, i32 %.sroa.01.0.copyload.i.i, i32 %.sroa.0.0.copyload.i.i) #24
+  %46 = or disjoint i64 %42, 1
+  %spec.select.i = select i1 %45, i64 %46, i64 %43
+  %47 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %spec.select.i
+  %48 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.030.i
+  %49 = load i32, ptr %47, align 4, !tbaa !13
+  store i32 %49, ptr %48, align 4, !tbaa !13
+  %50 = icmp slt i64 %spec.select.i, %13
+  br i1 %50, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !2254
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.015, %.split ], [ %spec.select.i, %.lr.ph.i ]
-  %53 = icmp eq i64 %.0.lcssa.i, %16
-  br i1 %53, label %54, label %56
+  %51 = icmp eq i64 %.0.lcssa.i, %16
+  br i1 %51, label %52, label %54
 
-54:                                               ; preds = %._crit_edge.i
-  %55 = load i32, ptr %18, align 4, !tbaa !13
-  store i32 %55, ptr %19, align 4, !tbaa !13
-  br label %56
+52:                                               ; preds = %._crit_edge.i
+  %53 = load i32, ptr %18, align 4, !tbaa !13
+  store i32 %53, ptr %19, align 4, !tbaa !13
+  br label %54
 
-56:                                               ; preds = %54, %._crit_edge.i
-  %.1.i = phi i64 [ %17, %54 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %57 = icmp sgt i64 %.1.i, %.015
-  br i1 %57, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit
+54:                                               ; preds = %52, %._crit_edge.i
+  %.1.i = phi i64 [ %17, %52 ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %55 = icmp sgt i64 %.1.i, %.015
+  br i1 %55, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %56, %60
-  %.01317.i.i = phi i64 [ %.018.i.i, %60 ], [ %.1.i, %56 ]
+.lr.ph.i.i:                                       ; preds = %54, %58
+  %.01317.i.i = phi i64 [ %.018.i.i, %58 ], [ %.1.i, %54 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %58 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.018.i.i
-  %.sroa.01.0.copyload.i.i.i = load i32, ptr %58, align 4, !tbaa !13
-  %59 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %.sroa.0.0.copyload, i32 %.sroa.01.0.copyload.i.i.i, i32 %.sroa.02.0.copyload) #24
-  br i1 %59, label %60, label %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit
+  %56 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.018.i.i
+  %.sroa.01.0.copyload.i.i.i = load i32, ptr %56, align 4, !tbaa !13
+  %57 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %.sroa.0.0.copyload, i32 %.sroa.01.0.copyload.i.i.i, i32 %.sroa.02.0.copyload) #24
+  br i1 %57, label %58, label %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit
 
-60:                                               ; preds = %.lr.ph.i.i
-  %61 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.01317.i.i
-  %62 = load i32, ptr %58, align 4, !tbaa !13
-  store i32 %62, ptr %61, align 4, !tbaa !13
-  %63 = icmp sgt i64 %.018.i.i, %.015
-  br i1 %63, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit, !llvm.loop !2255
+58:                                               ; preds = %.lr.ph.i.i
+  %59 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.01317.i.i
+  %60 = load i32, ptr %56, align 4, !tbaa !13
+  store i32 %60, ptr %59, align 4, !tbaa !13
+  %61 = icmp sgt i64 %.018.i.i, %.015
+  br i1 %61, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit, !llvm.loop !2255
 
-_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit: ; preds = %.lr.ph.i.i, %60, %56
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %56 ], [ %.018.i.i, %60 ], [ %.01317.i.i, %.lr.ph.i.i ]
-  %64 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.013.lcssa.i.i
-  store i32 %.sroa.02.0.copyload, ptr %64, align 4, !tbaa !13
+_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit: ; preds = %.lr.ph.i.i, %58, %54
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %54 ], [ %.018.i.i, %58 ], [ %.01317.i.i, %.lr.ph.i.i ]
+  %62 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %.013.lcssa.i.i
+  store i32 %.sroa.02.0.copyload, ptr %62, align 4, !tbaa !13
   %.not = icmp eq i64 %.015, 0
-  %65 = add nsw i64 %.015, -1
+  %63 = add nsw i64 %.015, -1
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !2257
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit.us, %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit, %3

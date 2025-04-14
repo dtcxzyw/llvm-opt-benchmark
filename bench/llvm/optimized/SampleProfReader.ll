@@ -12815,7 +12815,7 @@ _ZN4llvm10GCOVBuffer9readInt64ERm.exit:           ; preds = %31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #26
   %40 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #26
-  br label %202
+  br label %201
 
 41:                                               ; preds = %_ZN4llvm10GCOVBuffer9readInt64ERm.exit, %4
   %.0127 = phi i64 [ %38, %_ZN4llvm10GCOVBuffer9readInt64ERm.exit ], [ 0, %4 ]
@@ -12826,7 +12826,7 @@ _ZN4llvm10GCOVBuffer9readInt64ERm.exit:           ; preds = %31
 
 44:                                               ; preds = %41
   %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #26
-  br label %201
+  br label %200
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -12843,7 +12843,7 @@ _ZN4llvm10GCOVBuffer9readInt64ERm.exit:           ; preds = %31
 
 56:                                               ; preds = %46
   %57 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #26
-  br label %200
+  br label %199
 
 58:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #26
@@ -12852,7 +12852,7 @@ _ZN4llvm10GCOVBuffer9readInt64ERm.exit:           ; preds = %31
 
 60:                                               ; preds = %58
   %61 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #26
-  br label %199
+  br label %198
 
 62:                                               ; preds = %58
   %63 = load i32, ptr %25, align 8, !tbaa !26
@@ -12919,7 +12919,7 @@ _ZN4llvm10GCOVBuffer9readInt64ERm.exit:           ; preds = %31
   %89 = getelementptr inbounds nuw i8, ptr %21, i64 24
   br label %96
 
-.critedge68.preheader:                            ; preds = %178, %81
+.critedge68.preheader:                            ; preds = %177, %81
   %90 = load i32, ptr %15, align 4, !tbaa !257
   %.not64176.not = icmp eq i32 %90, 0
   br i1 %.not64176.not, label %.critedge72, label %.lr.ph178
@@ -12930,10 +12930,10 @@ _ZN4llvm10GCOVBuffer9readInt64ERm.exit:           ; preds = %31
   %93 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %94 = ptrtoint ptr %.057 to i64
   %95 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  br label %183
+  br label %182
 
-96:                                               ; preds = %.lr.ph174, %178
-  %.058172 = phi i32 [ 0, %.lr.ph174 ], [ %179, %178 ]
+96:                                               ; preds = %.lr.ph174, %177
+  %.058172 = phi i32 [ 0, %.lr.ph174 ], [ %178, %177 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #26
   %97 = call noundef zeroext i1 @_ZN4llvm10GCOVBuffer7readIntERj(ptr noundef nonnull align 8 dereferenceable(52) %42, ptr noundef nonnull align 4 dereferenceable(4) %19)
   br i1 %97, label %99, label %.critedge66
@@ -12941,7 +12941,7 @@ _ZN4llvm10GCOVBuffer9readInt64ERm.exit:           ; preds = %31
 .critedge66:                                      ; preds = %96
   %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #26
-  br label %199
+  br label %198
 
 99:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #26
@@ -12952,7 +12952,7 @@ _ZN4llvm10GCOVBuffer9readInt64ERm.exit:           ; preds = %31
   %101 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #26
-  br label %199
+  br label %198
 
 102:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #26
@@ -12970,7 +12970,7 @@ _ZN4llvm10GCOVBuffer9readInt64ERm.exit:           ; preds = %31
   %106 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #26
-  br label %199
+  br label %198
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit: ; preds = %104
   %107 = load i32, ptr %10, align 4, !tbaa !257
@@ -13008,8 +13008,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_b
   %126 = and i64 %112, -2
   %127 = and i64 %111, 1
   %.not25.i.i.i92 = icmp eq i64 %127, 0
-  %.not158.not179 = icmp slt i64 %109, 0
-  %128 = select i1 %.not158.not179, i1 %.not25.i.i.i92, i1 false
+  %.not158.not180 = icmp slt i64 %109, 0
+  %128 = select i1 %.not158.not180, i1 %.not25.i.i.i92, i1 false
   %.0.i.i5.i95 = select i1 %128, i64 %126, i64 %112
   br label %.else.i.i94
 
@@ -13033,8 +13033,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_b
   %.not62.not168.not = icmp eq i32 %135, 0
   br i1 %.not62.not168.not, label %.critedge80, label %.lr.ph
 
-.lr.ph:                                           ; preds = %134, %168
-  %.056169 = phi i32 [ %169, %168 ], [ 0, %134 ]
+.lr.ph:                                           ; preds = %134, %167
+  %.056169 = phi i32 [ %168, %167 ], [ 0, %134 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22) #26
   %136 = call noundef zeroext i1 @_ZN4llvm10GCOVBuffer7readIntERj(ptr noundef nonnull align 8 dereferenceable(52) %42, ptr noundef nonnull align 4 dereferenceable(4) %22)
   br i1 %136, label %137, label %.critedge
@@ -13062,163 +13062,163 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_b
 143:                                              ; preds = %141
   %144 = load i32, ptr %8, align 4, !tbaa !257
   %145 = zext i32 %144 to i64
-  %146 = shl nuw i64 %145, 32
-  %147 = load i32, ptr %7, align 4, !tbaa !257
-  %148 = zext i32 %147 to i64
-  %149 = or disjoint i64 %146, %148
+  %146 = load i32, ptr %7, align 4, !tbaa !257
+  %147 = zext i32 %146 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #26
-  %150 = load ptr, ptr %47, align 8, !tbaa !587
-  %151 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %150, i64 %149
-  %152 = load ptr, ptr %151, align 8, !tbaa !70
-  %153 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  %154 = load i64, ptr %153, align 8, !tbaa !73
+  %148 = load ptr, ptr %47, align 8, !tbaa !587
+  %.idx = shl nuw i64 %145, 37
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 %.idx
+  %150 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %149, i64 %147
+  %151 = load ptr, ptr %150, align 8, !tbaa !70
+  %152 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %153 = load i64, ptr %152, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #26
-  %155 = call noundef zeroext i1 @_ZN4llvm10GCOVBuffer7readIntERj(ptr noundef nonnull align 8 dereferenceable(52) %42, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br i1 %155, label %156, label %167
+  %154 = call noundef zeroext i1 @_ZN4llvm10GCOVBuffer7readIntERj(ptr noundef nonnull align 8 dereferenceable(52) %42, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br i1 %154, label %155, label %166
 
-156:                                              ; preds = %143
-  %157 = call noundef zeroext i1 @_ZN4llvm10GCOVBuffer7readIntERj(ptr noundef nonnull align 8 dereferenceable(52) %42, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  br i1 %157, label %158, label %167
+155:                                              ; preds = %143
+  %156 = call noundef zeroext i1 @_ZN4llvm10GCOVBuffer7readIntERj(ptr noundef nonnull align 8 dereferenceable(52) %42, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  br i1 %156, label %157, label %166
 
-158:                                              ; preds = %156
-  %159 = load i32, ptr %6, align 4, !tbaa !257
-  %160 = load i32, ptr %5, align 4, !tbaa !257
+157:                                              ; preds = %155
+  %158 = load i32, ptr %6, align 4, !tbaa !257
+  %159 = load i32, ptr %5, align 4, !tbaa !257
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #26
-  br i1 %.054.shrunk, label %161, label %168
+  br i1 %.054.shrunk, label %160, label %167
 
-161:                                              ; preds = %158
-  %162 = zext i32 %159 to i64
-  %163 = shl nuw i64 %162, 32
-  %164 = zext i32 %160 to i64
-  %165 = or disjoint i64 %163, %164
-  %166 = call noundef i32 @_ZN4llvm10sampleprof15FunctionSamples22addCalledTargetSamplesEjjNS0_10FunctionIdEmm(ptr noundef nonnull align 8 dereferenceable(176) %.057, i32 noundef %114, i32 noundef %115, ptr %152, i64 %154, i64 noundef %165, i64 noundef 1)
-  br label %168
+160:                                              ; preds = %157
+  %161 = zext i32 %158 to i64
+  %162 = shl nuw i64 %161, 32
+  %163 = zext i32 %159 to i64
+  %164 = or disjoint i64 %162, %163
+  %165 = call noundef i32 @_ZN4llvm10sampleprof15FunctionSamples22addCalledTargetSamplesEjjNS0_10FunctionIdEmm(ptr noundef nonnull align 8 dereferenceable(176) %.057, i32 noundef %114, i32 noundef %115, ptr %151, i64 %153, i64 noundef %164, i64 noundef 1)
+  br label %167
 
-167:                                              ; preds = %143, %156
+166:                                              ; preds = %143, %155
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #26
   br label %.critedge
 
-168:                                              ; preds = %161, %158
+167:                                              ; preds = %160, %157
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #26
-  %169 = add nuw i32 %.056169, 1
-  %170 = load i32, ptr %20, align 4, !tbaa !257
-  %.not62.not = icmp ult i32 %169, %170
+  %168 = add nuw i32 %.056169, 1
+  %169 = load i32, ptr %20, align 4, !tbaa !257
+  %.not62.not = icmp ult i32 %168, %169
   br i1 %.not62.not, label %.lr.ph, label %.critedge80, !llvm.loop !588
 
-.critedge:                                        ; preds = %.lr.ph, %137, %167, %.critedge74
-  %.sroa.0124.7 = phi i32 [ 4, %167 ], [ 4, %.critedge74 ], [ 4, %.lr.ph ], [ 5, %137 ]
-  %171 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #26
+.critedge:                                        ; preds = %.lr.ph, %137, %166, %.critedge74
+  %.sroa.0124.7 = phi i32 [ 4, %166 ], [ 4, %.critedge74 ], [ 4, %.lr.ph ], [ 5, %137 ]
+  %170 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #26
-  %172 = load ptr, ptr %21, align 8, !tbaa !25
-  %173 = icmp eq ptr %172, %85
-  br i1 %173, label %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit, label %174
+  %171 = load ptr, ptr %21, align 8, !tbaa !25
+  %172 = icmp eq ptr %171, %85
+  br i1 %172, label %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit, label %173
 
-174:                                              ; preds = %.critedge
-  call void @free(ptr noundef %172) #26
+173:                                              ; preds = %.critedge
+  call void @free(ptr noundef %171) #26
   br label %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit: ; preds = %.critedge, %174
+_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit: ; preds = %.critedge, %173
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #26
-  br label %199
+  br label %198
 
-.critedge80:                                      ; preds = %168, %134
-  %175 = load ptr, ptr %21, align 8, !tbaa !25
-  %176 = icmp eq ptr %175, %85
-  br i1 %176, label %178, label %177
+.critedge80:                                      ; preds = %167, %134
+  %174 = load ptr, ptr %21, align 8, !tbaa !25
+  %175 = icmp eq ptr %174, %85
+  br i1 %175, label %177, label %176
 
-177:                                              ; preds = %.critedge80
-  call void @free(ptr noundef %175) #26
-  br label %178
+176:                                              ; preds = %.critedge80
+  call void @free(ptr noundef %174) #26
+  br label %177
 
-178:                                              ; preds = %177, %.critedge80
+177:                                              ; preds = %176, %.critedge80
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %21) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #26
-  %179 = add nuw i32 %.058172, 1
-  %180 = load i32, ptr %14, align 4, !tbaa !257
-  %.not63 = icmp ult i32 %179, %180
+  %178 = add nuw i32 %.058172, 1
+  %179 = load i32, ptr %14, align 4, !tbaa !257
+  %.not63 = icmp ult i32 %178, %179
   br i1 %.not63, label %96, label %.critedge68.preheader, !llvm.loop !589
 
 .critedge68:                                      ; preds = %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit110
-  %181 = add nuw i32 %.0177, 1
-  %182 = load i32, ptr %15, align 4, !tbaa !257
-  %.not64 = icmp ult i32 %181, %182
-  br i1 %.not64, label %183, label %.critedge72, !llvm.loop !590
+  %180 = add nuw i32 %.0177, 1
+  %181 = load i32, ptr %15, align 4, !tbaa !257
+  %.not64 = icmp ult i32 %180, %181
+  br i1 %.not64, label %182, label %.critedge72, !llvm.loop !590
 
-183:                                              ; preds = %.lr.ph178, %.critedge68
-  %.0177 = phi i32 [ 0, %.lr.ph178 ], [ %181, %.critedge68 ]
+182:                                              ; preds = %.lr.ph178, %.critedge68
+  %.0177 = phi i32 [ 0, %.lr.ph178 ], [ %180, %.critedge68 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #26
-  %184 = call noundef zeroext i1 @_ZN4llvm10GCOVBuffer7readIntERj(ptr noundef nonnull align 8 dereferenceable(52) %42, ptr noundef nonnull align 4 dereferenceable(4) %23)
-  br i1 %184, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit109, label %.critedge70
+  %183 = call noundef zeroext i1 @_ZN4llvm10GCOVBuffer7readIntERj(ptr noundef nonnull align 8 dereferenceable(52) %42, ptr noundef nonnull align 4 dereferenceable(4) %23)
+  br i1 %183, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit109, label %.critedge70
 
-.critedge70:                                      ; preds = %183
-  %185 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #26
+.critedge70:                                      ; preds = %182
+  %184 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #26
-  br label %199
+  br label %198
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit109: ; preds = %183
+_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit109: ; preds = %182
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %24) #26
   store ptr %91, ptr %24, align 8, !tbaa !25
   store i32 10, ptr %93, align 4, !tbaa !27
   store i64 %94, ptr %91, align 8
   store i32 1, ptr %92, align 8, !tbaa !26
-  %186 = load ptr, ptr %1, align 8, !tbaa !25
-  %187 = load i32, ptr %25, align 8, !tbaa !26
-  %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds nuw ptr, ptr %186, i64 %188
-  %190 = call noundef ptr @_ZN4llvm15SmallVectorImplIPNS_10sampleprof15FunctionSamplesEE6insertIPKS3_vEEPS3_S8_T_S9_(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull %95, ptr noundef %186, ptr noundef %189)
-  %191 = load i32, ptr %23, align 4, !tbaa !257
-  %192 = call { i32, ptr } @_ZN4llvm10sampleprof22SampleProfileReaderGCC22readOneFunctionProfileERKNS_11SmallVectorIPNS0_15FunctionSamplesELj10EEEbj(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(96) %24, i1 noundef zeroext %.054.shrunk, i32 noundef %191)
-  %193 = extractvalue { i32, ptr } %192, 0
-  %.not157 = icmp eq i32 %193, 0
-  %194 = load ptr, ptr %24, align 8, !tbaa !25
-  %195 = icmp eq ptr %194, %91
-  br i1 %195, label %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit110, label %196
+  %185 = load ptr, ptr %1, align 8, !tbaa !25
+  %186 = load i32, ptr %25, align 8, !tbaa !26
+  %187 = zext i32 %186 to i64
+  %188 = getelementptr inbounds nuw ptr, ptr %185, i64 %187
+  %189 = call noundef ptr @_ZN4llvm15SmallVectorImplIPNS_10sampleprof15FunctionSamplesEE6insertIPKS3_vEEPS3_S8_T_S9_(ptr noundef nonnull align 8 dereferenceable(96) %24, ptr noundef nonnull %95, ptr noundef %185, ptr noundef %188)
+  %190 = load i32, ptr %23, align 4, !tbaa !257
+  %191 = call { i32, ptr } @_ZN4llvm10sampleprof22SampleProfileReaderGCC22readOneFunctionProfileERKNS_11SmallVectorIPNS0_15FunctionSamplesELj10EEEbj(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(96) %24, i1 noundef zeroext %.054.shrunk, i32 noundef %190)
+  %192 = extractvalue { i32, ptr } %191, 0
+  %.not157 = icmp eq i32 %192, 0
+  %193 = load ptr, ptr %24, align 8, !tbaa !25
+  %194 = icmp eq ptr %193, %91
+  br i1 %194, label %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit110, label %195
 
-196:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit109
-  call void @free(ptr noundef %194) #26
+195:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit109
+  call void @free(ptr noundef %193) #26
   br label %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit110
 
-_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit110: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit109, %196
+_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit110: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_10sampleprof15FunctionSamplesELb1EE9push_backES3_.exit109, %195
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %24) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #26
   br i1 %.not157, label %.critedge68, label %.loopexit
 
 .critedge72:                                      ; preds = %.critedge68, %.critedge68.preheader
-  %197 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #26
-  br label %199
+  %196 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #26
+  br label %198
 
 .loopexit:                                        ; preds = %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit110
-  %198 = extractvalue { i32, ptr } %192, 1
+  %197 = extractvalue { i32, ptr } %191, 1
+  br label %198
+
+198:                                              ; preds = %.loopexit, %.critedge70, %.critedge66, %.critedge76, %.critedge78, %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit, %.critedge72, %60
+  %.sroa.0124.3 = phi i32 [ 0, %.critedge72 ], [ 4, %60 ], [ %.sroa.0124.7, %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit ], [ 4, %.critedge78 ], [ 4, %.critedge76 ], [ 4, %.critedge66 ], [ 4, %.critedge70 ], [ %192, %.loopexit ]
+  %.sroa.16.3 = phi ptr [ %196, %.critedge72 ], [ %61, %60 ], [ %170, %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit ], [ %106, %.critedge78 ], [ %101, %.critedge76 ], [ %98, %.critedge66 ], [ %184, %.critedge70 ], [ %197, %.loopexit ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #26
   br label %199
 
-199:                                              ; preds = %.loopexit, %.critedge70, %.critedge66, %.critedge76, %.critedge78, %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit, %.critedge72, %60
-  %.sroa.0124.3 = phi i32 [ 0, %.critedge72 ], [ 4, %60 ], [ %.sroa.0124.7, %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit ], [ 4, %.critedge78 ], [ 4, %.critedge76 ], [ 4, %.critedge66 ], [ 4, %.critedge70 ], [ %193, %.loopexit ]
-  %.sroa.16.3 = phi ptr [ %197, %.critedge72 ], [ %61, %60 ], [ %171, %_ZN4llvm11SmallVectorIPNS_10sampleprof15FunctionSamplesELj10EED2Ev.exit ], [ %106, %.critedge78 ], [ %101, %.critedge76 ], [ %98, %.critedge66 ], [ %185, %.critedge70 ], [ %198, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #26
+199:                                              ; preds = %198, %56
+  %.sroa.0124.2 = phi i32 [ %.sroa.0124.3, %198 ], [ 4, %56 ]
+  %.sroa.16.2 = phi ptr [ %.sroa.16.3, %198 ], [ %57, %56 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #26
   br label %200
 
-200:                                              ; preds = %199, %56
-  %.sroa.0124.2 = phi i32 [ %.sroa.0124.3, %199 ], [ 4, %56 ]
-  %.sroa.16.2 = phi ptr [ %.sroa.16.3, %199 ], [ %57, %56 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #26
+200:                                              ; preds = %199, %44
+  %.sroa.0124.1 = phi i32 [ %.sroa.0124.2, %199 ], [ 4, %44 ]
+  %.sroa.16.1 = phi ptr [ %.sroa.16.2, %199 ], [ %45, %44 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #26
   br label %201
 
-201:                                              ; preds = %200, %44
-  %.sroa.0124.1 = phi i32 [ %.sroa.0124.2, %200 ], [ 4, %44 ]
-  %.sroa.16.1 = phi ptr [ %.sroa.16.2, %200 ], [ %45, %44 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #26
-  br label %202
-
-202:                                              ; preds = %201, %39
-  %.sroa.0124.0 = phi i32 [ %.sroa.0124.1, %201 ], [ 4, %39 ]
-  %.sroa.16.0 = phi ptr [ %.sroa.16.1, %201 ], [ %40, %39 ]
+201:                                              ; preds = %200, %39
+  %.sroa.0124.0 = phi i32 [ %.sroa.0124.1, %200 ], [ 4, %39 ]
+  %.sroa.16.0 = phi ptr [ %.sroa.16.1, %200 ], [ %40, %39 ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0124.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.16.0, 1
   ret { i32, ptr } %.fca.1.insert

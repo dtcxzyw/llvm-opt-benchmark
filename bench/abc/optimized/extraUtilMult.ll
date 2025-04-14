@@ -60,12 +60,13 @@ define noalias noundef ptr @Abc_BddManAlloc(i32 noundef %0, i32 noundef %1) loca
   store i8 -1, ptr %30, align 1, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %32, align 4, !tbaa !22
+  %invariant.gep = getelementptr i8, ptr %26, i64 4
   %33 = icmp sgt i32 %0, 0
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %Abc_BddUniqueCreate.exit
-  %34 = phi i32 [ %79, %Abc_BddUniqueCreate.exit ], [ 1, %2 ]
-  %.035 = phi i32 [ %80, %Abc_BddUniqueCreate.exit ], [ 0, %2 ]
+  %34 = phi i32 [ %74, %Abc_BddUniqueCreate.exit ], [ 1, %2 ]
+  %.035 = phi i32 [ %75, %Abc_BddUniqueCreate.exit ], [ 0, %2 ]
   %35 = mul nuw nsw i32 %.035, 12582917
   %36 = add nuw nsw i32 %35, 4256249
   %37 = and i32 %36, %9
@@ -75,14 +76,14 @@ define noalias noundef ptr @Abc_BddManAlloc(i32 noundef %0, i32 noundef %1) loca
   %.not41.i.i = icmp eq i32 %40, 0
   br i1 %.not41.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph, %59
-  %41 = phi i32 [ %61, %59 ], [ %40, %.lr.ph ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph, %57
+  %41 = phi i32 [ %59, %57 ], [ %40, %.lr.ph ]
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr %30, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !21
   %45 = zext i8 %44 to i32
   %46 = icmp eq i32 %.035, %45
-  br i1 %46, label %47, label %59
+  br i1 %46, label %47, label %57
 
 47:                                               ; preds = %.lr.ph.i.i
   %48 = shl nsw i32 %41, 1
@@ -90,70 +91,66 @@ define noalias noundef ptr @Abc_BddManAlloc(i32 noundef %0, i32 noundef %1) loca
   %50 = getelementptr inbounds i32, ptr %26, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !23
   %52 = icmp eq i32 %51, 1
-  br i1 %52, label %53, label %59
+  br i1 %52, label %53, label %57
 
 53:                                               ; preds = %47
-  %54 = or disjoint i32 %48, 1
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i32, ptr %26, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !23
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %Abc_BddUniqueCreate.exit, label %59
+  %54 = getelementptr i8, ptr %50, i64 4
+  %55 = load i32, ptr %54, align 4, !tbaa !23
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %Abc_BddUniqueCreate.exit, label %57
 
-59:                                               ; preds = %53, %47, %.lr.ph.i.i
-  %60 = getelementptr inbounds i32, ptr %17, i64 %42
-  %61 = load i32, ptr %60, align 4, !tbaa !23
-  %.not.i.i = icmp eq i32 %61, 0
+57:                                               ; preds = %53, %47, %.lr.ph.i.i
+  %58 = getelementptr inbounds i32, ptr %17, i64 %42
+  %59 = load i32, ptr %58, align 4, !tbaa !23
+  %.not.i.i = icmp eq i32 %59, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.loopexit, label %.lr.ph.i.i, !llvm.loop !24
 
-._crit_edge.i.i.loopexit:                         ; preds = %59
-  %62 = getelementptr inbounds i32, ptr %17, i64 %42
+._crit_edge.i.i.loopexit:                         ; preds = %57
+  %60 = getelementptr inbounds i32, ptr %17, i64 %42
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %.lr.ph
-  %.0.lcssa.i.i = phi ptr [ %39, %.lr.ph ], [ %62, %._crit_edge.i.i.loopexit ]
-  %63 = icmp eq i32 %34, %1
-  br i1 %63, label %64, label %68
+  %.0.lcssa.i.i = phi ptr [ %39, %.lr.ph ], [ %60, %._crit_edge.i.i.loopexit ]
+  %61 = icmp eq i32 %34, %1
+  br i1 %61, label %62, label %66
 
-64:                                               ; preds = %._crit_edge.i.i
-  %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %1)
-  %66 = load ptr, ptr @stdout, align 8, !tbaa !26
-  %67 = tail call i32 @fflush(ptr noundef %66)
-  br label %68
+62:                                               ; preds = %._crit_edge.i.i
+  %63 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %1)
+  %64 = load ptr, ptr @stdout, align 8, !tbaa !26
+  %65 = tail call i32 @fflush(ptr noundef %64)
+  br label %66
 
-68:                                               ; preds = %64, %._crit_edge.i.i
-  %69 = add nsw i32 %34, 1
-  store i32 %69, ptr %32, align 4, !tbaa !22
+66:                                               ; preds = %62, %._crit_edge.i.i
+  %67 = add nsw i32 %34, 1
+  store i32 %67, ptr %32, align 4, !tbaa !22
   store i32 %34, ptr %.0.lcssa.i.i, align 4, !tbaa !23
-  %70 = trunc i32 %.035 to i8
-  %71 = sext i32 %34 to i64
-  %72 = getelementptr inbounds i8, ptr %30, i64 %71
-  store i8 %70, ptr %72, align 1, !tbaa !21
-  %73 = shl nsw i32 %34, 1
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %26, i64 %74
-  store i32 1, ptr %75, align 4, !tbaa !23
-  %76 = or disjoint i32 %73, 1
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i32, ptr %26, i64 %77
-  store i32 0, ptr %78, align 4, !tbaa !23
+  %68 = trunc i32 %.035 to i8
+  %69 = sext i32 %34 to i64
+  %70 = getelementptr inbounds i8, ptr %30, i64 %69
+  store i8 %68, ptr %70, align 1, !tbaa !21
+  %71 = shl nsw i32 %34, 1
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds i32, ptr %26, i64 %72
+  store i32 1, ptr %73, align 4, !tbaa !23
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %72
+  store i32 0, ptr %gep, align 4, !tbaa !23
   br label %Abc_BddUniqueCreate.exit
 
-Abc_BddUniqueCreate.exit:                         ; preds = %53, %68
-  %79 = phi i32 [ %69, %68 ], [ %34, %53 ]
-  %80 = add nuw nsw i32 %.035, 1
-  %exitcond.not = icmp eq i32 %80, %0
+Abc_BddUniqueCreate.exit:                         ; preds = %53, %66
+  %74 = phi i32 [ %67, %66 ], [ %34, %53 ]
+  %75 = add nuw nsw i32 %.035, 1
+  %exitcond.not = icmp eq i32 %75, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %Abc_BddUniqueCreate.exit, %2
   %narrow = sub i32 22, %notmask
-  %81 = zext i32 %narrow to i64
-  %82 = and i64 %25, 4611686018427387902
-  %83 = add nsw i64 %82, %16
-  %84 = add nsw i64 %83, %81
-  %85 = add nsw i64 %84, %21
-  %86 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i64 %85, ptr %86, align 8, !tbaa !29
+  %76 = zext i32 %narrow to i64
+  %77 = and i64 %25, 4611686018427387902
+  %78 = add nsw i64 %77, %16
+  %79 = add nsw i64 %78, %76
+  %80 = add nsw i64 %79, %21
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  store i64 %80, ptr %81, align 8, !tbaa !29
   ret ptr %3
 }
 
@@ -398,7 +395,7 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
 108:                                              ; preds = %100
   %109 = and i32 %.063, 1
   %.not.i = icmp eq i32 %109, 0
-  br i1 %.not.i, label %110, label %178
+  br i1 %.not.i, label %110, label %176
 
 110:                                              ; preds = %108
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -422,13 +419,13 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %126
 
-126:                                              ; preds = %145, %.lr.ph.i.i
-  %127 = phi i32 [ %123, %.lr.ph.i.i ], [ %148, %145 ]
+126:                                              ; preds = %143, %.lr.ph.i.i
+  %127 = phi i32 [ %123, %.lr.ph.i.i ], [ %146, %143 ]
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds i8, ptr %.val72, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !21
   %131 = icmp eq i8 %105, %130
-  br i1 %131, label %132, label %145
+  br i1 %131, label %132, label %143
 
 132:                                              ; preds = %126
   %133 = load ptr, ptr %124, align 8, !tbaa !18
@@ -437,191 +434,191 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
   %136 = getelementptr inbounds i32, ptr %133, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !23
   %138 = icmp eq i32 %137, %.0
-  br i1 %138, label %139, label %145
+  br i1 %138, label %139, label %143
 
 139:                                              ; preds = %132
-  %140 = or disjoint i32 %134, 1
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i32, ptr %133, i64 %141
-  %143 = load i32, ptr %142, align 4, !tbaa !23
-  %144 = icmp eq i32 %143, %.063
-  br i1 %144, label %Abc_BddUniqueCreate.exit, label %145
+  %140 = getelementptr i8, ptr %136, i64 4
+  %141 = load i32, ptr %140, align 4, !tbaa !23
+  %142 = icmp eq i32 %141, %.063
+  br i1 %142, label %Abc_BddUniqueCreate.exit, label %143
 
-145:                                              ; preds = %139, %132, %126
-  %146 = load ptr, ptr %125, align 8, !tbaa !16
-  %147 = getelementptr inbounds i32, ptr %146, i64 %128
-  %148 = load i32, ptr %147, align 4, !tbaa !23
-  %.not.i.i = icmp eq i32 %148, 0
+143:                                              ; preds = %139, %132, %126
+  %144 = load ptr, ptr %125, align 8, !tbaa !16
+  %145 = getelementptr inbounds i32, ptr %144, i64 %128
+  %146 = load i32, ptr %145, align 4, !tbaa !23
+  %.not.i.i = icmp eq i32 %146, 0
   br i1 %.not.i.i, label %._crit_edge.i.i.loopexit, label %126, !llvm.loop !24
 
-._crit_edge.i.i.loopexit:                         ; preds = %145
-  %149 = getelementptr inbounds i32, ptr %146, i64 %128
+._crit_edge.i.i.loopexit:                         ; preds = %143
+  %147 = getelementptr inbounds i32, ptr %144, i64 %128
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.i.loopexit, %110
-  %.0.lcssa.i.i = phi ptr [ %122, %110 ], [ %149, %._crit_edge.i.i.loopexit ]
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %151 = load i32, ptr %150, align 4, !tbaa !22
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %153 = load i32, ptr %152, align 8, !tbaa !12
-  %154 = icmp eq i32 %151, %153
-  br i1 %154, label %155, label %159
+  %.0.lcssa.i.i = phi ptr [ %122, %110 ], [ %147, %._crit_edge.i.i.loopexit ]
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %149 = load i32, ptr %148, align 4, !tbaa !22
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %151 = load i32, ptr %150, align 8, !tbaa !12
+  %152 = icmp eq i32 %149, %151
+  br i1 %152, label %153, label %157
 
-155:                                              ; preds = %._crit_edge.i.i
-  %156 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %151)
-  %157 = load ptr, ptr @stdout, align 8, !tbaa !26
-  %158 = tail call i32 @fflush(ptr noundef %157)
-  %.pre.i.i = load i32, ptr %150, align 4, !tbaa !22
-  %.pre104 = load ptr, ptr %37, align 8, !tbaa !20
-  br label %159
+153:                                              ; preds = %._crit_edge.i.i
+  %154 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %149)
+  %155 = load ptr, ptr @stdout, align 8, !tbaa !26
+  %156 = tail call i32 @fflush(ptr noundef %155)
+  %.pre.i.i = load i32, ptr %148, align 4, !tbaa !22
+  %.pre102 = load ptr, ptr %37, align 8, !tbaa !20
+  br label %157
 
-159:                                              ; preds = %155, %._crit_edge.i.i
-  %160 = phi ptr [ %.pre104, %155 ], [ %.val72, %._crit_edge.i.i ]
-  %161 = phi i32 [ %.pre.i.i, %155 ], [ %151, %._crit_edge.i.i ]
-  %162 = add nsw i32 %161, 1
-  store i32 %162, ptr %150, align 4, !tbaa !22
-  store i32 %161, ptr %.0.lcssa.i.i, align 4, !tbaa !23
-  %163 = sext i32 %161 to i64
-  %164 = getelementptr inbounds i8, ptr %160, i64 %163
-  store i8 %105, ptr %164, align 1, !tbaa !21
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %166 = load ptr, ptr %165, align 8, !tbaa !18
-  %167 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !23
-  %168 = shl nsw i32 %167, 1
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds i32, ptr %166, i64 %169
-  store i32 %.0, ptr %170, align 4, !tbaa !23
-  %171 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !23
-  %172 = shl nsw i32 %171, 1
-  %173 = or disjoint i32 %172, 1
-  %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds i32, ptr %166, i64 %174
-  store i32 %.063, ptr %175, align 4, !tbaa !23
-  %176 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !23
-  %177 = shl nsw i32 %176, 1
+157:                                              ; preds = %153, %._crit_edge.i.i
+  %158 = phi ptr [ %.pre102, %153 ], [ %.val72, %._crit_edge.i.i ]
+  %159 = phi i32 [ %.pre.i.i, %153 ], [ %149, %._crit_edge.i.i ]
+  %160 = add nsw i32 %159, 1
+  store i32 %160, ptr %148, align 4, !tbaa !22
+  store i32 %159, ptr %.0.lcssa.i.i, align 4, !tbaa !23
+  %161 = sext i32 %159 to i64
+  %162 = getelementptr inbounds i8, ptr %158, i64 %161
+  store i8 %105, ptr %162, align 1, !tbaa !21
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %164 = load ptr, ptr %163, align 8, !tbaa !18
+  %165 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !23
+  %166 = shl nsw i32 %165, 1
+  %167 = sext i32 %166 to i64
+  %168 = getelementptr inbounds i32, ptr %164, i64 %167
+  store i32 %.0, ptr %168, align 4, !tbaa !23
+  %169 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !23
+  %170 = shl nsw i32 %169, 1
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr i32, ptr %164, i64 %171
+  %173 = getelementptr i8, ptr %172, i64 4
+  store i32 %.063, ptr %173, align 4, !tbaa !23
+  %174 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !23
+  %175 = shl nsw i32 %174, 1
   br label %Abc_BddUniqueCreate.exit
 
-178:                                              ; preds = %108
-  %179 = xor i32 %.0, 1
-  %180 = and i32 %.063, -2
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %182 = load ptr, ptr %181, align 8, !tbaa !15
-  %183 = mul nuw nsw i32 %106, 12582917
-  %184 = mul nsw i32 %179, 4256249
-  %185 = mul nsw i32 %180, 741457
-  %186 = add i32 %184, %185
-  %187 = add i32 %186, %183
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %189 = load i32, ptr %188, align 8, !tbaa !13
-  %190 = and i32 %189, %187
-  %191 = zext i32 %190 to i64
-  %192 = getelementptr inbounds nuw i32, ptr %182, i64 %191
-  %193 = load i32, ptr %192, align 4, !tbaa !23
-  %.not41.i14.i = icmp eq i32 %193, 0
+176:                                              ; preds = %108
+  %177 = xor i32 %.0, 1
+  %178 = and i32 %.063, -2
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %180 = load ptr, ptr %179, align 8, !tbaa !15
+  %181 = mul nuw nsw i32 %106, 12582917
+  %182 = mul nsw i32 %177, 4256249
+  %183 = mul nsw i32 %178, 741457
+  %184 = add i32 %182, %183
+  %185 = add i32 %184, %181
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %187 = load i32, ptr %186, align 8, !tbaa !13
+  %188 = and i32 %187, %185
+  %189 = zext i32 %188 to i64
+  %190 = getelementptr inbounds nuw i32, ptr %180, i64 %189
+  %191 = load i32, ptr %190, align 4, !tbaa !23
+  %.not41.i14.i = icmp eq i32 %191, 0
   br i1 %.not41.i14.i, label %._crit_edge.i18.i, label %.lr.ph.i15.i
 
-.lr.ph.i15.i:                                     ; preds = %178
-  %194 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %196
+.lr.ph.i15.i:                                     ; preds = %176
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %194
 
-196:                                              ; preds = %215, %.lr.ph.i15.i
-  %197 = phi i32 [ %193, %.lr.ph.i15.i ], [ %218, %215 ]
-  %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds i8, ptr %.val72, i64 %198
-  %200 = load i8, ptr %199, align 1, !tbaa !21
-  %201 = icmp eq i8 %105, %200
-  br i1 %201, label %202, label %215
+194:                                              ; preds = %211, %.lr.ph.i15.i
+  %195 = phi i32 [ %191, %.lr.ph.i15.i ], [ %214, %211 ]
+  %196 = sext i32 %195 to i64
+  %197 = getelementptr inbounds i8, ptr %.val72, i64 %196
+  %198 = load i8, ptr %197, align 1, !tbaa !21
+  %199 = icmp eq i8 %105, %198
+  br i1 %199, label %200, label %211
 
-202:                                              ; preds = %196
-  %203 = load ptr, ptr %194, align 8, !tbaa !18
-  %204 = shl nsw i32 %197, 1
-  %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds i32, ptr %203, i64 %205
-  %207 = load i32, ptr %206, align 4, !tbaa !23
-  %208 = icmp eq i32 %207, %179
-  br i1 %208, label %209, label %215
+200:                                              ; preds = %194
+  %201 = load ptr, ptr %192, align 8, !tbaa !18
+  %202 = shl nsw i32 %195, 1
+  %203 = sext i32 %202 to i64
+  %204 = getelementptr inbounds i32, ptr %201, i64 %203
+  %205 = load i32, ptr %204, align 4, !tbaa !23
+  %206 = icmp eq i32 %205, %177
+  br i1 %206, label %207, label %211
 
-209:                                              ; preds = %202
-  %210 = or disjoint i32 %204, 1
-  %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds i32, ptr %203, i64 %211
-  %213 = load i32, ptr %212, align 4, !tbaa !23
-  %214 = icmp eq i32 %213, %180
-  br i1 %214, label %Abc_BddUniqueCreate.exit, label %215
+207:                                              ; preds = %200
+  %208 = getelementptr i8, ptr %204, i64 4
+  %209 = load i32, ptr %208, align 4, !tbaa !23
+  %210 = icmp eq i32 %209, %178
+  br i1 %210, label %Abc_BddUniqueCreateInt.exit22.i, label %211
 
-215:                                              ; preds = %209, %202, %196
-  %216 = load ptr, ptr %195, align 8, !tbaa !16
-  %217 = getelementptr inbounds i32, ptr %216, i64 %198
-  %218 = load i32, ptr %217, align 4, !tbaa !23
-  %.not.i16.i = icmp eq i32 %218, 0
-  br i1 %.not.i16.i, label %._crit_edge.i18.i.loopexit, label %196, !llvm.loop !24
+211:                                              ; preds = %207, %200, %194
+  %212 = load ptr, ptr %193, align 8, !tbaa !16
+  %213 = getelementptr inbounds i32, ptr %212, i64 %196
+  %214 = load i32, ptr %213, align 4, !tbaa !23
+  %.not.i16.i = icmp eq i32 %214, 0
+  br i1 %.not.i16.i, label %._crit_edge.i18.i.loopexit, label %194, !llvm.loop !24
 
-._crit_edge.i18.i.loopexit:                       ; preds = %215
-  %219 = getelementptr inbounds i32, ptr %216, i64 %198
+._crit_edge.i18.i.loopexit:                       ; preds = %211
+  %215 = getelementptr inbounds i32, ptr %212, i64 %196
   br label %._crit_edge.i18.i
 
-._crit_edge.i18.i:                                ; preds = %._crit_edge.i18.i.loopexit, %178
-  %.0.lcssa.i19.i = phi ptr [ %192, %178 ], [ %219, %._crit_edge.i18.i.loopexit ]
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %221 = load i32, ptr %220, align 4, !tbaa !22
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %223 = load i32, ptr %222, align 8, !tbaa !12
-  %224 = icmp eq i32 %221, %223
-  br i1 %224, label %225, label %229
+._crit_edge.i18.i:                                ; preds = %._crit_edge.i18.i.loopexit, %176
+  %.0.lcssa.i19.i = phi ptr [ %190, %176 ], [ %215, %._crit_edge.i18.i.loopexit ]
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %217 = load i32, ptr %216, align 4, !tbaa !22
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %219 = load i32, ptr %218, align 8, !tbaa !12
+  %220 = icmp eq i32 %217, %219
+  br i1 %220, label %221, label %225
 
-225:                                              ; preds = %._crit_edge.i18.i
-  %226 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %221)
-  %227 = load ptr, ptr @stdout, align 8, !tbaa !26
-  %228 = tail call i32 @fflush(ptr noundef %227)
-  %.pre.i21.i = load i32, ptr %220, align 4, !tbaa !22
+221:                                              ; preds = %._crit_edge.i18.i
+  %222 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %217)
+  %223 = load ptr, ptr @stdout, align 8, !tbaa !26
+  %224 = tail call i32 @fflush(ptr noundef %223)
+  %.pre.i21.i = load i32, ptr %216, align 4, !tbaa !22
   %.pre = load ptr, ptr %37, align 8, !tbaa !20
-  br label %229
+  br label %225
 
-229:                                              ; preds = %225, %._crit_edge.i18.i
-  %230 = phi ptr [ %.pre, %225 ], [ %.val72, %._crit_edge.i18.i ]
-  %231 = phi i32 [ %.pre.i21.i, %225 ], [ %221, %._crit_edge.i18.i ]
-  %232 = add nsw i32 %231, 1
-  store i32 %232, ptr %220, align 4, !tbaa !22
-  store i32 %231, ptr %.0.lcssa.i19.i, align 4, !tbaa !23
-  %233 = sext i32 %231 to i64
-  %234 = getelementptr inbounds i8, ptr %230, i64 %233
-  store i8 %105, ptr %234, align 1, !tbaa !21
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %236 = load ptr, ptr %235, align 8, !tbaa !18
+225:                                              ; preds = %221, %._crit_edge.i18.i
+  %226 = phi ptr [ %.pre, %221 ], [ %.val72, %._crit_edge.i18.i ]
+  %227 = phi i32 [ %.pre.i21.i, %221 ], [ %217, %._crit_edge.i18.i ]
+  %228 = add nsw i32 %227, 1
+  store i32 %228, ptr %216, align 4, !tbaa !22
+  store i32 %227, ptr %.0.lcssa.i19.i, align 4, !tbaa !23
+  %229 = sext i32 %227 to i64
+  %230 = getelementptr inbounds i8, ptr %226, i64 %229
+  store i8 %105, ptr %230, align 1, !tbaa !21
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %232 = load ptr, ptr %231, align 8, !tbaa !18
+  %233 = load i32, ptr %.0.lcssa.i19.i, align 4, !tbaa !23
+  %234 = shl nsw i32 %233, 1
+  %235 = sext i32 %234 to i64
+  %236 = getelementptr inbounds i32, ptr %232, i64 %235
+  store i32 %177, ptr %236, align 4, !tbaa !23
   %237 = load i32, ptr %.0.lcssa.i19.i, align 4, !tbaa !23
   %238 = shl nsw i32 %237, 1
   %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds i32, ptr %236, i64 %239
-  store i32 %179, ptr %240, align 4, !tbaa !23
-  %241 = load i32, ptr %.0.lcssa.i19.i, align 4, !tbaa !23
-  %242 = shl nsw i32 %241, 1
-  %243 = or disjoint i32 %242, 1
-  %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds i32, ptr %236, i64 %244
-  store i32 %180, ptr %245, align 4, !tbaa !23
-  %246 = load i32, ptr %.0.lcssa.i19.i, align 4, !tbaa !23
-  %247 = shl nsw i32 %246, 1
-  %.pre.i = or disjoint i32 %247, 1
+  %240 = getelementptr i32, ptr %232, i64 %239
+  %241 = getelementptr i8, ptr %240, i64 4
+  store i32 %178, ptr %241, align 4, !tbaa !23
+  %242 = load i32, ptr %.0.lcssa.i19.i, align 4, !tbaa !23
+  %243 = shl nsw i32 %242, 1
+  br label %Abc_BddUniqueCreateInt.exit22.i
+
+Abc_BddUniqueCreateInt.exit22.i:                  ; preds = %207, %225
+  %.037.i20.i = phi i32 [ %243, %225 ], [ %202, %207 ]
+  %244 = or disjoint i32 %.037.i20.i, 1
   br label %Abc_BddUniqueCreate.exit
 
-Abc_BddUniqueCreate.exit:                         ; preds = %209, %139, %100, %159, %229
-  %.0.i = phi i32 [ %.063, %100 ], [ %177, %159 ], [ %.pre.i, %229 ], [ %134, %139 ], [ %210, %209 ]
-  %248 = load ptr, ptr %14, align 8, !tbaa !17
-  %249 = load i32, ptr %19, align 4, !tbaa !14
-  %250 = and i32 %249, %18
-  %251 = mul i32 %250, 3
-  %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds nuw i32, ptr %248, i64 %252
-  store i32 %.tr82, ptr %253, align 4, !tbaa !23
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 4
-  store i32 %.tr83, ptr %254, align 4, !tbaa !23
-  %255 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  store i32 %.0.i, ptr %255, align 4, !tbaa !23
-  %256 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %257 = load i32, ptr %256, align 4, !tbaa !31
-  %258 = add nsw i32 %257, 1
-  store i32 %258, ptr %256, align 4, !tbaa !31
+Abc_BddUniqueCreate.exit:                         ; preds = %139, %100, %157, %Abc_BddUniqueCreateInt.exit22.i
+  %.0.i = phi i32 [ %244, %Abc_BddUniqueCreateInt.exit22.i ], [ %.063, %100 ], [ %175, %157 ], [ %134, %139 ]
+  %245 = load ptr, ptr %14, align 8, !tbaa !17
+  %246 = load i32, ptr %19, align 4, !tbaa !14
+  %247 = and i32 %246, %18
+  %248 = mul i32 %247, 3
+  %249 = zext i32 %248 to i64
+  %250 = getelementptr inbounds nuw i32, ptr %245, i64 %249
+  store i32 %.tr82, ptr %250, align 4, !tbaa !23
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 4
+  store i32 %.tr83, ptr %251, align 4, !tbaa !23
+  %252 = getelementptr inbounds nuw i8, ptr %250, i64 8
+  store i32 %.0.i, ptr %252, align 4, !tbaa !23
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %254 = load i32, ptr %253, align 4, !tbaa !31
+  %255 = add nsw i32 %254, 1
+  store i32 %255, ptr %253, align 4, !tbaa !31
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %6, %tailrecurse, %Abc_BddCacheLookup.exit, %Abc_BddUniqueCreate.exit

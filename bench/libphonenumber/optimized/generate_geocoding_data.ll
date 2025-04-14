@@ -10928,10 +10928,11 @@ _ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112
   %.lcssa41.i = phi i8 [ %50, %.split.i ], [ %63, %60 ]
   %.sroa.02.0.lcssa.i = phi ptr [ %.sroa.02.042.i, %.split.i ], [ %.sroa.02.0.i, %60 ]
   %51 = zext i8 %.lcssa41.i to i64
-  %52 = shl nuw nsw i64 %51, 5
-  %53 = and i64 %52, 8128
-  %54 = getelementptr i8, ptr %.sroa.02.0.lcssa.i, i64 24
-  %55 = getelementptr i8, ptr %54, i64 %53
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.lcssa.i, i64 16
+  %53 = shl nuw nsw i64 %51, 5
+  %.idx.i.i.i.i = and i64 %53, 8128
+  %54 = getelementptr i8, ptr %52, i64 %.idx.i.i.i.i
+  %55 = getelementptr i8, ptr %54, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !16, !noalias !324
   %57 = icmp sgt i64 %56, -1
   br i1 %57, label %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i.i.i.i, label %.split.us.i.i.i.i, !prof !75

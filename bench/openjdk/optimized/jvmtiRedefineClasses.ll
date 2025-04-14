@@ -3661,220 +3661,190 @@ define hidden void @_ZN18VM_RedefineClasses14append_operandERK18constantPoolHand
   %9 = shl nsw i32 %2, 1
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds i16, ptr %10, i64 %11
-  %13 = load i16, ptr %12, align 2
-  %14 = or disjoint i32 %9, 1
-  %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i16, ptr %10, i64 %15
-  %17 = load i16, ptr %16, align 2
-  %18 = zext i16 %17 to i32
-  %19 = shl nuw i32 %18, 16
-  %20 = zext i16 %13 to i32
-  %21 = or disjoint i32 %19, %20
-  %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i16, ptr %10, i64 %22
-  %24 = load i16, ptr %23, align 2
-  %25 = zext i16 %24 to i32
-  %26 = tail call noundef zeroext i16 @_ZN18VM_RedefineClasses29find_or_append_indirect_entryERK18constantPoolHandleiPS0_Pi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %25, ptr noundef %3, ptr noundef %4)
-  %.not = icmp eq i16 %26, %24
-  br i1 %.not, label %33, label %27
+  %12 = getelementptr i16, ptr %10, i64 %11
+  %13 = load i32, ptr %12, align 2
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds i16, ptr %10, i64 %14
+  %16 = load i16, ptr %15, align 2
+  %17 = zext i16 %16 to i32
+  %18 = tail call noundef zeroext i16 @_ZN18VM_RedefineClasses29find_or_append_indirect_entryERK18constantPoolHandleiPS0_Pi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %17, ptr noundef %3, ptr noundef %4)
+  %.not = icmp eq i16 %18, %16
+  br i1 %.not, label %25, label %19
 
-27:                                               ; preds = %5
-  %28 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not50 = icmp eq ptr %28, null
-  br i1 %.not50, label %33, label %29
+19:                                               ; preds = %5
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not50 = icmp eq ptr %20, null
+  br i1 %.not50, label %25, label %21
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %31 = load i32, ptr %30, align 8
-  %32 = zext i16 %26 to i32
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.24, i32 noundef %31, i32 noundef %25, i32 noundef %32)
-  br label %33
+21:                                               ; preds = %19
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %23 = load i32, ptr %22, align 8
+  %24 = zext i16 %18 to i32
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.24, i32 noundef %23, i32 noundef %17, i32 noundef %24)
+  br label %25
 
-33:                                               ; preds = %29, %27, %5
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %38 = load i32, ptr %37, align 8
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %43
+25:                                               ; preds = %21, %19, %5
+  %26 = load ptr, ptr %3, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %30 = load i32, ptr %29, align 8
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %35
 
-40:                                               ; preds = %33
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %42 = load i32, ptr %41, align 2
-  br label %65
+32:                                               ; preds = %25
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %34 = load i32, ptr %33, align 2
+  br label %50
 
-43:                                               ; preds = %33
-  %44 = shl i32 %38, 1
-  %45 = add i32 %44, -2
-  %46 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds i16, ptr %46, i64 %47
-  %49 = load i16, ptr %48, align 2
-  %50 = or disjoint i32 %45, 1
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i16, ptr %46, i64 %51
-  %53 = load i16, ptr %52, align 2
-  %54 = zext i16 %53 to i32
-  %55 = shl nuw i32 %54, 16
-  %56 = zext i16 %49 to i32
-  %57 = or disjoint i32 %55, %56
+35:                                               ; preds = %25
+  %36 = shl i32 %30, 1
+  %37 = add i32 %36, -2
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %39 = sext i32 %37 to i64
+  %40 = getelementptr i16, ptr %38, i64 %39
+  %41 = load i32, ptr %40, align 2
+  %42 = add nsw i32 %41, 2
+  %43 = sext i32 %41 to i64
+  %44 = getelementptr i16, ptr %38, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 2
+  %46 = load i16, ptr %45, align 2
+  %47 = zext i16 %46 to i32
+  %48 = add nsw i32 %42, %47
+  %49 = sext i32 %36 to i64
+  br label %50
+
+50:                                               ; preds = %35, %32
+  %.pre-phi = phi i64 [ %49, %35 ], [ 0, %32 ]
+  %51 = phi i32 [ %48, %35 ], [ %34, %32 ]
+  %52 = load ptr, ptr %1, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  %56 = getelementptr i16, ptr %55, i64 %11
+  %57 = load i32, ptr %56, align 2
   %58 = sext i32 %57 to i64
-  %59 = getelementptr i16, ptr %46, i64 %58
+  %59 = getelementptr i16, ptr %55, i64 %58
   %60 = getelementptr i8, ptr %59, i64 2
   %61 = load i16, ptr %60, align 2
-  %62 = zext i16 %61 to i32
-  %63 = add nuw nsw i32 %62, 2
-  %64 = add i32 %63, %57
-  br label %65
-
-65:                                               ; preds = %43, %40
-  %.pre-phi = phi i32 [ %44, %43 ], [ 0, %40 ]
-  %66 = phi i32 [ %64, %43 ], [ %42, %40 ]
-  %67 = load ptr, ptr %1, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %71 = getelementptr inbounds i16, ptr %70, i64 %11
-  %72 = load i16, ptr %71, align 2
-  %73 = getelementptr inbounds i16, ptr %70, i64 %15
-  %74 = load i16, ptr %73, align 2
-  %75 = zext i16 %74 to i32
-  %76 = shl nuw i32 %75, 16
-  %77 = zext i16 %72 to i32
-  %78 = or disjoint i32 %76, %77
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr i16, ptr %70, i64 %79
-  %81 = getelementptr i8, ptr %80, i64 2
-  %82 = load i16, ptr %81, align 2
-  %83 = trunc i32 %66 to i16
-  %84 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %85 = sext i32 %.pre-phi to i64
-  %86 = getelementptr inbounds i16, ptr %84, i64 %85
-  store i16 %83, ptr %86, align 2
-  %87 = or disjoint i32 %.pre-phi, 1
-  %88 = lshr i32 %66, 16
-  %89 = trunc nuw i32 %88 to i16
-  %90 = sext i32 %87 to i64
-  %91 = getelementptr inbounds i16, ptr %84, i64 %90
-  store i16 %89, ptr %91, align 2
-  %92 = sext i32 %66 to i64
-  %93 = getelementptr i16, ptr %84, i64 %92
-  store i16 %26, ptr %93, align 2
-  %94 = getelementptr i8, ptr %93, i64 2
-  store i16 %82, ptr %94, align 2
-  %95 = zext i16 %82 to i32
-  %.not54 = icmp eq i16 %82, 0
+  %62 = trunc i32 %51 to i16
+  %63 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %64 = getelementptr i16, ptr %63, i64 %.pre-phi
+  store i16 %62, ptr %64, align 2
+  %65 = lshr i32 %51, 16
+  %66 = trunc nuw i32 %65 to i16
+  %67 = getelementptr i8, ptr %64, i64 2
+  store i16 %66, ptr %67, align 2
+  %68 = sext i32 %51 to i64
+  %69 = getelementptr i16, ptr %63, i64 %68
+  store i16 %18, ptr %69, align 2
+  %70 = getelementptr i8, ptr %69, i64 2
+  store i16 %61, ptr %70, align 2
+  %71 = zext i16 %61 to i32
+  %.not54 = icmp eq i16 %61, 0
   br i1 %.not54, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %65
-  %96 = add i32 %66, 2
-  %97 = sext i32 %96 to i64
+.lr.ph.preheader:                                 ; preds = %50
+  %72 = add i32 %51, 2
+  %73 = sext i32 %72 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %123
-  %indvars.iv = phi i64 [ %97, %.lr.ph.preheader ], [ %indvars.iv.next, %123 ]
-  %.03752 = phi i32 [ 0, %.lr.ph.preheader ], [ %124, %123 ]
-  %98 = load ptr, ptr %1, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
-  %102 = getelementptr inbounds i16, ptr %101, i64 %11
-  %103 = load i16, ptr %102, align 2
-  %104 = getelementptr inbounds i16, ptr %101, i64 %15
-  %105 = load i16, ptr %104, align 2
-  %106 = zext i16 %105 to i32
-  %107 = shl nuw i32 %106, 16
-  %108 = zext i16 %103 to i32
-  %109 = or disjoint i32 %107, %108
-  %110 = add nuw nsw i32 %.03752, 2
-  %111 = add i32 %110, %109
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i16, ptr %101, i64 %112
-  %114 = load i16, ptr %113, align 2
-  %115 = zext i16 %114 to i32
-  %116 = tail call noundef zeroext i16 @_ZN18VM_RedefineClasses29find_or_append_indirect_entryERK18constantPoolHandleiPS0_Pi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %115, ptr noundef nonnull %3, ptr noundef %4)
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %93
+  %indvars.iv = phi i64 [ %73, %.lr.ph.preheader ], [ %indvars.iv.next, %93 ]
+  %.03752 = phi i32 [ 0, %.lr.ph.preheader ], [ %94, %93 ]
+  %74 = load ptr, ptr %1, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
+  %78 = getelementptr i16, ptr %77, i64 %11
+  %79 = load i32, ptr %78, align 2
+  %80 = add nuw nsw i32 %.03752, 2
+  %81 = add i32 %80, %79
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds i16, ptr %77, i64 %82
+  %84 = load i16, ptr %83, align 2
+  %85 = zext i16 %84 to i32
+  %86 = tail call noundef zeroext i16 @_ZN18VM_RedefineClasses29find_or_append_indirect_entryERK18constantPoolHandleiPS0_Pi(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %85, ptr noundef nonnull %3, ptr noundef %4)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %117 = getelementptr inbounds i16, ptr %84, i64 %indvars.iv
-  store i16 %116, ptr %117, align 2
-  %.not43 = icmp eq i16 %116, %114
-  br i1 %.not43, label %123, label %118
+  %87 = getelementptr inbounds i16, ptr %63, i64 %indvars.iv
+  store i16 %86, ptr %87, align 2
+  %.not43 = icmp eq i16 %86, %84
+  br i1 %.not43, label %93, label %88
 
-118:                                              ; preds = %.lr.ph
-  %119 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not51 = icmp eq ptr %119, null
-  br i1 %.not51, label %123, label %120
+88:                                               ; preds = %.lr.ph
+  %89 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not51 = icmp eq ptr %89, null
+  br i1 %.not51, label %93, label %90
 
-120:                                              ; preds = %118
-  %121 = load i32, ptr %37, align 8
-  %122 = zext i16 %116 to i32
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.25, i32 noundef %121, i32 noundef %115, i32 noundef %122)
-  br label %123
+90:                                               ; preds = %88
+  %91 = load i32, ptr %29, align 8
+  %92 = zext i16 %86 to i32
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.25, i32 noundef %91, i32 noundef %85, i32 noundef %92)
+  br label %93
 
-123:                                              ; preds = %.lr.ph, %118, %120
-  %124 = add nuw nsw i32 %.03752, 1
-  %exitcond.not = icmp eq i32 %124, %95
+93:                                               ; preds = %.lr.ph, %88, %90
+  %94 = add nuw nsw i32 %.03752, 1
+  %exitcond.not = icmp eq i32 %94, %71
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
-._crit_edge:                                      ; preds = %123, %65
-  %125 = load i32, ptr %37, align 8
-  %.not42 = icmp eq i32 %2, %125
-  br i1 %.not42, label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit, label %126
+._crit_edge:                                      ; preds = %93, %50
+  %95 = load i32, ptr %29, align 8
+  %.not42 = icmp eq i32 %2, %95
+  br i1 %.not42, label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit, label %96
 
-126:                                              ; preds = %._crit_edge
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %128 = load i32, ptr %127, align 4
-  %129 = icmp eq i32 %128, 0
-  %130 = icmp eq i32 %2, -1
-  %or.cond.i.i = or i1 %130, %129
-  br i1 %or.cond.i.i, label %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i, label %131
+96:                                               ; preds = %._crit_edge
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %98 = load i32, ptr %97, align 4
+  %99 = icmp eq i32 %98, 0
+  %100 = icmp eq i32 %2, -1
+  %or.cond.i.i = or i1 %100, %99
+  br i1 %or.cond.i.i, label %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i, label %101
 
-131:                                              ; preds = %126
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %133 = load ptr, ptr %132, align 8
-  %134 = load i32, ptr %133, align 4
-  %.not.i.i = icmp slt i32 %2, %134
-  br i1 %.not.i.i, label %135, label %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i
+101:                                              ; preds = %96
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %103 = load ptr, ptr %102, align 8
+  %104 = load i32, ptr %103, align 4
+  %.not.i.i = icmp slt i32 %2, %104
+  br i1 %.not.i.i, label %105, label %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i
 
-135:                                              ; preds = %131
-  %136 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %137 = load ptr, ptr %136, align 8
-  %138 = sext i32 %2 to i64
-  %139 = getelementptr inbounds i32, ptr %137, i64 %138
-  %140 = load i32, ptr %139, align 4
-  %141 = icmp ne i32 %140, -1
+105:                                              ; preds = %101
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %107 = load ptr, ptr %106, align 8
+  %108 = sext i32 %2 to i64
+  %109 = getelementptr inbounds i32, ptr %107, i64 %108
+  %110 = load i32, ptr %109, align 4
+  %111 = icmp ne i32 %110, -1
   br label %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i
 
-_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i: ; preds = %135, %131, %126
-  %.0.i.i = phi i1 [ false, %126 ], [ false, %131 ], [ %141, %135 ]
-  %142 = icmp eq i32 %2, %38
-  %or.cond.i = or i1 %142, %.0.i.i
-  br i1 %or.cond.i, label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit, label %143
+_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i: ; preds = %105, %101, %96
+  %.0.i.i = phi i1 [ false, %96 ], [ false, %101 ], [ %111, %105 ]
+  %112 = icmp eq i32 %2, %30
+  %or.cond.i = or i1 %112, %.0.i.i
+  br i1 %or.cond.i, label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit, label %113
 
-143:                                              ; preds = %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %147 = load ptr, ptr %146, align 8
-  %148 = sext i32 %2 to i64
-  %149 = getelementptr inbounds i32, ptr %147, i64 %148
-  store i32 %38, ptr %149, align 4
-  %150 = load i32, ptr %127, align 4
-  %151 = add nsw i32 %150, 1
-  store i32 %151, ptr %127, align 4
-  %152 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not.i = icmp eq ptr %152, null
-  br i1 %.not.i, label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit, label %153
+113:                                              ; preds = %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
+  %117 = load ptr, ptr %116, align 8
+  %118 = sext i32 %2 to i64
+  %119 = getelementptr inbounds i32, ptr %117, i64 %118
+  store i32 %30, ptr %119, align 4
+  %120 = load i32, ptr %97, align 4
+  %121 = add nsw i32 %120, 1
+  store i32 %121, ptr %97, align 4
+  %122 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not.i = icmp eq ptr %122, null
+  br i1 %.not.i, label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit, label %123
 
-153:                                              ; preds = %143
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.60, i32 noundef %2, i32 noundef %38)
+123:                                              ; preds = %113
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_23ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.60, i32 noundef %2, i32 noundef %30)
   br label %_ZN18VM_RedefineClasses17map_operand_indexEii.exit
 
-_ZN18VM_RedefineClasses17map_operand_indexEii.exit: ; preds = %153, %143, %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i, %._crit_edge
-  %154 = load i32, ptr %37, align 8
-  %155 = add nsw i32 %154, 1
-  store i32 %155, ptr %37, align 8
+_ZN18VM_RedefineClasses17map_operand_indexEii.exit: ; preds = %123, %113, %_ZN18VM_RedefineClasses22find_new_operand_indexEi.exit.i, %._crit_edge
+  %124 = load i32, ptr %29, align 8
+  %125 = add nsw i32 %124, 1
+  store i32 %125, ptr %29, align 8
   ret void
 }
 

@@ -7026,25 +7026,25 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN10duckdb_re211SparseAr
   br i1 %10, label %.lr.ph, label %_ZSt14__partial_sortIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_T0_.exit
 
 .lr.ph:                                           ; preds = %4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr i8, ptr %0, i64 8
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEET_SD_SD_T0_.exit
-  %13 = phi i64 [ %9, %.lr.ph ], [ %94, %_ZSt27__unguarded_partition_pivotIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEET_SD_SD_T0_.exit ]
+  %13 = phi i64 [ %9, %.lr.ph ], [ %93, %_ZSt27__unguarded_partition_pivotIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEET_SD_SD_T0_.exit ]
   %.021 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEET_SD_SD_T0_.exit ]
-  %.01520 = phi i64 [ %2, %.lr.ph ], [ %55, %_ZSt27__unguarded_partition_pivotIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEET_SD_SD_T0_.exit ]
+  %.01520 = phi i64 [ %2, %.lr.ph ], [ %54, %_ZSt27__unguarded_partition_pivotIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEET_SD_SD_T0_.exit ]
   %14 = icmp eq i64 %.01520, 0
-  br i1 %14, label %15, label %54
+  br i1 %14, label %.lr.ph.i.i, label %53
 
-15:                                               ; preds = %12
+.lr.ph.i.i:                                       ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %3, ptr %5, align 8
   call void @_ZSt11__make_heapIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_RT0_(ptr noundef %0, ptr noundef %.021, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %.lr.ph.i.i
+  br label %15
 
-.lr.ph.i.i:                                       ; preds = %15, %_ZSt10__pop_heapIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_RT0_.exit.i.i
-  %.07.i.i = phi ptr [ %16, %_ZSt10__pop_heapIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_RT0_.exit.i.i ], [ %.021, %15 ]
+15:                                               ; preds = %_ZSt10__pop_heapIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_RT0_.exit.i.i, %.lr.ph.i.i
+  %.07.i.i = phi ptr [ %.021, %.lr.ph.i.i ], [ %16, %_ZSt10__pop_heapIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_RT0_.exit.i.i ]
   %16 = getelementptr inbounds i8, ptr %.07.i.i, i64 -8
   %.sroa.02.0.copyload.i.i.i = load i64, ptr %16, align 4
   %17 = load i64, ptr %0, align 4
@@ -7057,185 +7057,185 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPN10duckdb_re211SparseAr
   %23 = icmp sgt i64 %20, 2
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i
-  %.031.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
+.lr.ph.i.i.i.i:                                   ; preds = %15, %.lr.ph.i.i.i.i
+  %.031.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %15 ]
   %24 = shl i64 %.031.i.i.i.i, 1
   %25 = add i64 %24, 2
   %26 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %25
-  %27 = or disjoint i64 %24, 1
-  %28 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %27
-  %29 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef nonnull align 4 dereferenceable(8) %28)
-  %spec.select.i.i.i.i = select i1 %29, i64 %27, i64 %25
-  %30 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %spec.select.i.i.i.i
-  %31 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.031.i.i.i.i
-  %32 = load i64, ptr %30, align 4
-  store i64 %32, ptr %31, align 4
-  %33 = icmp slt i64 %spec.select.i.i.i.i, %22
-  br i1 %33, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !229
+  %gep.i.i.i.i = getelementptr %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %11, i64 %24
+  %27 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef nonnull align 4 dereferenceable(8) %gep.i.i.i.i)
+  %28 = or disjoint i64 %24, 1
+  %spec.select.i.i.i.i = select i1 %27, i64 %28, i64 %25
+  %29 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %spec.select.i.i.i.i
+  %30 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.031.i.i.i.i
+  %31 = load i64, ptr %29, align 4
+  store i64 %31, ptr %30, align 4
+  %32 = icmp slt i64 %spec.select.i.i.i.i, %22
+  br i1 %32, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !229
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %34 = and i64 %19, 8
-  %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %45
+._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %15
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %15 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %33 = and i64 %19, 8
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %35, label %44
 
-36:                                               ; preds = %._crit_edge.i.i.i.i
-  %37 = add nsw i64 %20, -2
-  %38 = ashr exact i64 %37, 1
-  %39 = icmp eq i64 %.0.lcssa.i.i.i.i, %38
-  br i1 %39, label %.thread.i.i.i, label %45
+35:                                               ; preds = %._crit_edge.i.i.i.i
+  %36 = add nsw i64 %20, -2
+  %37 = ashr exact i64 %36, 1
+  %38 = icmp eq i64 %.0.lcssa.i.i.i.i, %37
+  br i1 %38, label %.thread.i.i.i, label %44
 
-.thread.i.i.i:                                    ; preds = %36
-  %40 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %41 = or disjoint i64 %40, 1
-  %42 = getelementptr inbounds nuw %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %41
-  %43 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.0.lcssa.i.i.i.i
-  %44 = load i64, ptr %42, align 4
-  store i64 %44, ptr %43, align 4
+.thread.i.i.i:                                    ; preds = %35
+  %39 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %40 = or disjoint i64 %39, 1
+  %41 = getelementptr inbounds nuw %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %40
+  %42 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %43 = load i64, ptr %41, align 4
+  store i64 %43, ptr %42, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %.sroa.02.0.copyload.i.i.i, ptr %6, align 8
   br label %.lr.ph.i.i.i.i.i.preheader
 
-45:                                               ; preds = %36, %._crit_edge.i.i.i.i
+44:                                               ; preds = %35, %._crit_edge.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 %.sroa.02.0.copyload.i.i.i, ptr %6, align 8
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %45, %.thread.i.i.i
-  %.01316.i.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i.i, %45 ], [ %41, %.thread.i.i.i ]
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %44, %.thread.i.i.i
+  %.01316.i.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i.i, %44 ], [ %40, %.thread.i.i.i ]
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %48
-  %.01316.i.i.i.i.i = phi i64 [ %.017.i.i910.i.i.i, %48 ], [ %.01316.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %47
+  %.01316.i.i.i.i.i = phi i64 [ %.017.i.i910.i.i.i, %47 ], [ %.01316.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.017.in.i.i.i.i.i = add nsw i64 %.01316.i.i.i.i.i, -1
   %.017.i.i910.i.i.i = lshr i64 %.017.in.i.i.i.i.i, 1
-  %46 = getelementptr inbounds nuw %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.017.i.i910.i.i.i
-  %47 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %46, ptr noundef nonnull align 4 dereferenceable(8) %6)
-  br i1 %47, label %48, label %.critedge.loopexit.i.i.i.i.i
+  %45 = getelementptr inbounds nuw %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.017.i.i910.i.i.i
+  %46 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %45, ptr noundef nonnull align 4 dereferenceable(8) %6)
+  br i1 %46, label %47, label %.critedge.loopexit.i.i.i.i.i
 
-48:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.01316.i.i.i.i.i
-  %50 = load i64, ptr %46, align 4
-  store i64 %50, ptr %49, align 4
+47:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %48 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.01316.i.i.i.i.i
+  %49 = load i64, ptr %45, align 4
+  store i64 %49, ptr %48, align 4
   %.not11.i.i.i = icmp ult i64 %.017.in.i.i.i.i.i, 2
   br i1 %.not11.i.i.i, label %.critedge.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !230
 
-.critedge.loopexit.i.i.i.i.i:                     ; preds = %48, %.lr.ph.i.i.i.i.i
-  %.013.lcssa.ph.i.i.i.i.i = phi i64 [ %.01316.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %48 ]
+.critedge.loopexit.i.i.i.i.i:                     ; preds = %47, %.lr.ph.i.i.i.i.i
+  %.013.lcssa.ph.i.i.i.i.i = phi i64 [ %.01316.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %47 ]
   %.pre.i.i.i.i.i = load i64, ptr %6, align 8
   br label %_ZSt10__pop_heapIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_RT0_.exit.i.i
 
-_ZSt10__pop_heapIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_RT0_.exit.i.i: ; preds = %.critedge.loopexit.i.i.i.i.i, %45
-  %51 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %45 ], [ %.pre.i.i.i.i.i, %.critedge.loopexit.i.i.i.i.i ]
-  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %45 ], [ %.013.lcssa.ph.i.i.i.i.i, %.critedge.loopexit.i.i.i.i.i ]
-  %52 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i64 %51, ptr %52, align 4
+_ZSt10__pop_heapIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_RT0_.exit.i.i: ; preds = %.critedge.loopexit.i.i.i.i.i, %44
+  %50 = phi i64 [ %.sroa.02.0.copyload.i.i.i, %44 ], [ %.pre.i.i.i.i.i, %.critedge.loopexit.i.i.i.i.i ]
+  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %44 ], [ %.013.lcssa.ph.i.i.i.i.i, %.critedge.loopexit.i.i.i.i.i ]
+  %51 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store i64 %50, ptr %51, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %53 = icmp sgt i64 %19, 8
-  br i1 %53, label %.lr.ph.i.i, label %_ZSt14__partial_sortIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_T0_.exit, !llvm.loop !231
+  %52 = icmp sgt i64 %19, 8
+  br i1 %52, label %15, label %_ZSt14__partial_sortIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_T0_.exit, !llvm.loop !231
 
-54:                                               ; preds = %12
-  %55 = add nsw i64 %.01520, -1
-  %56 = lshr i64 %13, 4
-  %57 = getelementptr inbounds nuw %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %56
-  %58 = getelementptr inbounds i8, ptr %.021, i64 -8
-  %59 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %57)
-  br i1 %59, label %60, label %72
+53:                                               ; preds = %12
+  %54 = add nsw i64 %.01520, -1
+  %55 = lshr i64 %13, 4
+  %56 = getelementptr inbounds nuw %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %55
+  %57 = getelementptr inbounds i8, ptr %.021, i64 -8
+  %58 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %56)
+  br i1 %58, label %59, label %71
 
-60:                                               ; preds = %54
-  %61 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %57, ptr noundef nonnull align 4 dereferenceable(8) %58)
-  br i1 %61, label %62, label %65
+59:                                               ; preds = %53
+  %60 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %56, ptr noundef nonnull align 4 dereferenceable(8) %57)
+  br i1 %60, label %61, label %64
 
-62:                                               ; preds = %60
-  %63 = load i64, ptr %0, align 4
-  %64 = load i64, ptr %57, align 4
-  store i64 %64, ptr %0, align 4
-  store i64 %63, ptr %57, align 4
+61:                                               ; preds = %59
+  %62 = load i64, ptr %0, align 4
+  %63 = load i64, ptr %56, align 4
+  store i64 %63, ptr %0, align 4
+  store i64 %62, ptr %56, align 4
   br label %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader
 
-65:                                               ; preds = %60
-  %66 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %58)
-  %67 = load i64, ptr %0, align 4
-  br i1 %66, label %68, label %70
+64:                                               ; preds = %59
+  %65 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %57)
+  %66 = load i64, ptr %0, align 4
+  br i1 %65, label %67, label %69
 
-68:                                               ; preds = %65
-  %69 = load i64, ptr %58, align 4
-  store i64 %69, ptr %0, align 4
-  store i64 %67, ptr %58, align 4
+67:                                               ; preds = %64
+  %68 = load i64, ptr %57, align 4
+  store i64 %68, ptr %0, align 4
+  store i64 %66, ptr %57, align 4
   br label %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader
 
-70:                                               ; preds = %65
-  %71 = load i64, ptr %11, align 4
-  store i64 %71, ptr %0, align 4
-  store i64 %67, ptr %11, align 4
+69:                                               ; preds = %64
+  %70 = load i64, ptr %11, align 4
+  store i64 %70, ptr %0, align 4
+  store i64 %66, ptr %11, align 4
   br label %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader
 
-72:                                               ; preds = %54
-  %73 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %58)
-  br i1 %73, label %74, label %77
+71:                                               ; preds = %53
+  %72 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(8) %57)
+  br i1 %72, label %73, label %76
 
-74:                                               ; preds = %72
-  %75 = load i64, ptr %0, align 4
-  %76 = load i64, ptr %11, align 4
-  store i64 %76, ptr %0, align 4
-  store i64 %75, ptr %11, align 4
+73:                                               ; preds = %71
+  %74 = load i64, ptr %0, align 4
+  %75 = load i64, ptr %11, align 4
+  store i64 %75, ptr %0, align 4
+  store i64 %74, ptr %11, align 4
   br label %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader
 
-77:                                               ; preds = %72
-  %78 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %57, ptr noundef nonnull align 4 dereferenceable(8) %58)
-  %79 = load i64, ptr %0, align 4
-  br i1 %78, label %80, label %82
+76:                                               ; preds = %71
+  %77 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %56, ptr noundef nonnull align 4 dereferenceable(8) %57)
+  %78 = load i64, ptr %0, align 4
+  br i1 %77, label %79, label %81
 
-80:                                               ; preds = %77
-  %81 = load i64, ptr %58, align 4
-  store i64 %81, ptr %0, align 4
-  store i64 %79, ptr %58, align 4
+79:                                               ; preds = %76
+  %80 = load i64, ptr %57, align 4
+  store i64 %80, ptr %0, align 4
+  store i64 %78, ptr %57, align 4
   br label %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader
 
-82:                                               ; preds = %77
-  %83 = load i64, ptr %57, align 4
-  store i64 %83, ptr %0, align 4
-  store i64 %79, ptr %57, align 4
+81:                                               ; preds = %76
+  %82 = load i64, ptr %56, align 4
+  store i64 %82, ptr %0, align 4
+  store i64 %78, ptr %56, align 4
   br label %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader: ; preds = %82, %80, %74, %70, %68, %62
+_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader: ; preds = %81, %79, %73, %69, %67, %61
   br label %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader, %90
-  %.013.i.i = phi ptr [ %.114.i.i, %90 ], [ %.021, %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %86, %90 ], [ %11, %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader ]
-  br label %84
+_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader, %89
+  %.013.i.i = phi ptr [ %.114.i.i, %89 ], [ %.021, %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %85, %89 ], [ %11, %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i.preheader ]
+  br label %83
 
-84:                                               ; preds = %84, %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i ], [ %86, %84 ]
-  %85 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  %86 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %85, label %84, label %.preheader.i.i, !llvm.loop !232
+83:                                               ; preds = %83, %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i ], [ %85, %83 ]
+  %84 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %.1.i.i, ptr noundef nonnull align 4 dereferenceable(8) %0)
+  %85 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  br i1 %84, label %83, label %.preheader.i.i, !llvm.loop !232
 
-.preheader.i.i:                                   ; preds = %84, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %84 ]
+.preheader.i.i:                                   ; preds = %83, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %83 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
-  %87 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %.114.i.i)
-  br i1 %87, label %.preheader.i.i, label %88, !llvm.loop !233
+  %86 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %.114.i.i)
+  br i1 %86, label %.preheader.i.i, label %87, !llvm.loop !233
 
-88:                                               ; preds = %.preheader.i.i
-  %89 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %89, label %90, label %_ZSt27__unguarded_partition_pivotIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEET_SD_SD_T0_.exit
+87:                                               ; preds = %.preheader.i.i
+  %88 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %88, label %89, label %_ZSt27__unguarded_partition_pivotIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEET_SD_SD_T0_.exit
 
-90:                                               ; preds = %88
-  %91 = load i64, ptr %.1.i.i, align 4
-  %92 = load i64, ptr %.114.i.i, align 4
-  store i64 %92, ptr %.1.i.i, align 4
-  store i64 %91, ptr %.114.i.i, align 4
+89:                                               ; preds = %87
+  %90 = load i64, ptr %.1.i.i, align 4
+  %91 = load i64, ptr %.114.i.i, align 4
+  store i64 %91, ptr %.1.i.i, align 4
+  store i64 %90, ptr %.114.i.i, align 4
   br label %_ZSt22__move_median_to_firstIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_SD_T0_.exit.i, !llvm.loop !234
 
-_ZSt27__unguarded_partition_pivotIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEET_SD_SD_T0_.exit: ; preds = %88
-  tail call void @_ZSt16__introsort_loopIPN10duckdb_re211SparseArrayIiE10IndexValueElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.021, i64 noundef %55, ptr %3)
-  %93 = ptrtoint ptr %.1.i.i to i64
-  %94 = sub i64 %93, %7
-  %95 = icmp sgt i64 %94, 128
-  br i1 %95, label %12, label %_ZSt14__partial_sortIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_T0_.exit, !llvm.loop !235
+_ZSt27__unguarded_partition_pivotIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEET_SD_SD_T0_.exit: ; preds = %87
+  tail call void @_ZSt16__introsort_loopIPN10duckdb_re211SparseArrayIiE10IndexValueElN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.021, i64 noundef %54, ptr %3)
+  %92 = ptrtoint ptr %.1.i.i to i64
+  %93 = sub i64 %92, %7
+  %94 = icmp sgt i64 %93, 128
+  br i1 %94, label %12, label %_ZSt14__partial_sortIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_T0_.exit, !llvm.loop !235
 
 _ZSt14__partial_sortIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEET_SD_SD_T0_.exit, %_ZSt10__pop_heapIPN10duckdb_re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_SD_SD_RT0_.exit.i.i, %4
   ret void
@@ -7256,6 +7256,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN10duckdb_re211SparseArrayIi
   %12 = lshr i64 %11, 1
   %13 = add nsw i64 %8, -1
   %14 = lshr i64 %13, 1
+  %invariant.gep.i = getelementptr i8, ptr %0, i64 8
   %15 = and i64 %7, 8
   %16 = icmp eq i64 %15, 0
   %17 = lshr exact i64 %11, 1
@@ -7268,7 +7269,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN10duckdb_re211SparseArrayIi
   br label %.split
 
 .split.us:                                        ; preds = %10, %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit.us
-  %.015.us = phi i64 [ %42, %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit.us ], [ %12, %10 ]
+  %.015.us = phi i64 [ %41, %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit.us ], [ %12, %10 ]
   %21 = getelementptr inbounds nuw %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.015.us
   %.sroa.02.0.copyload.us = load i64, ptr %21, align 4
   %.sroa.0.0.copyload.us = load ptr, ptr %2, align 8, !tbaa !236
@@ -7284,122 +7285,122 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPN10duckdb_re211SparseArrayIi
   %23 = shl i64 %.031.i.us, 1
   %24 = add i64 %23, 2
   %25 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %24
-  %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %26
-  %28 = call noundef zeroext i1 %.sroa.0.0.copyload.us(ptr noundef nonnull align 4 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(8) %27)
-  %spec.select.i.us = select i1 %28, i64 %26, i64 %24
-  %29 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %spec.select.i.us
-  %30 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.031.i.us
-  %31 = load i64, ptr %29, align 4
-  store i64 %31, ptr %30, align 4
-  %32 = icmp slt i64 %spec.select.i.us, %14
-  br i1 %32, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !229
+  %gep.i.us = getelementptr %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %invariant.gep.i, i64 %23
+  %26 = call noundef zeroext i1 %.sroa.0.0.copyload.us(ptr noundef nonnull align 4 dereferenceable(8) %25, ptr noundef nonnull align 4 dereferenceable(8) %gep.i.us)
+  %27 = or disjoint i64 %23, 1
+  %spec.select.i.us = select i1 %26, i64 %27, i64 %24
+  %28 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %spec.select.i.us
+  %29 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.031.i.us
+  %30 = load i64, ptr %28, align 4
+  store i64 %30, ptr %29, align 4
+  %31 = icmp slt i64 %spec.select.i.us, %14
+  br i1 %31, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !229
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %.sroa.02.0.copyload.us, ptr %4, align 8
-  %33 = icmp sgt i64 %spec.select.i.us, %.015.us
-  br i1 %33, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit.us
+  %32 = icmp sgt i64 %spec.select.i.us, %.015.us
+  br i1 %32, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit.us
 
-.lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us, %36
-  %.01316.i.i.us = phi i64 [ %.017.i.i.us, %36 ], [ %spec.select.i.us, %._crit_edge.i.us ]
+.lr.ph.i.i.us:                                    ; preds = %._crit_edge.i.us, %35
+  %.01316.i.i.us = phi i64 [ %.017.i.i.us, %35 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.017.in.i.i.us = add nsw i64 %.01316.i.i.us, -1
   %.017.i.i.us = sdiv i64 %.017.in.i.i.us, 2
-  %34 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.017.i.i.us
-  %35 = call noundef zeroext i1 %.sroa.0.0.copyload.us(ptr noundef nonnull align 4 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  br i1 %35, label %36, label %.critedge.loopexit.i.i.us
+  %33 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.017.i.i.us
+  %34 = call noundef zeroext i1 %.sroa.0.0.copyload.us(ptr noundef nonnull align 4 dereferenceable(8) %33, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  br i1 %34, label %35, label %.critedge.loopexit.i.i.us
 
-36:                                               ; preds = %.lr.ph.i.i.us
-  %37 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.01316.i.i.us
-  %38 = load i64, ptr %34, align 4
-  store i64 %38, ptr %37, align 4
-  %39 = icmp sgt i64 %.017.i.i.us, %.015.us
-  br i1 %39, label %.lr.ph.i.i.us, label %.critedge.loopexit.i.i.us, !llvm.loop !230
+35:                                               ; preds = %.lr.ph.i.i.us
+  %36 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.01316.i.i.us
+  %37 = load i64, ptr %33, align 4
+  store i64 %37, ptr %36, align 4
+  %38 = icmp sgt i64 %.017.i.i.us, %.015.us
+  br i1 %38, label %.lr.ph.i.i.us, label %.critedge.loopexit.i.i.us, !llvm.loop !230
 
-.critedge.loopexit.i.i.us:                        ; preds = %36, %.lr.ph.i.i.us
-  %.013.lcssa.ph.i.i.us = phi i64 [ %.01316.i.i.us, %.lr.ph.i.i.us ], [ %.017.i.i.us, %36 ]
+.critedge.loopexit.i.i.us:                        ; preds = %35, %.lr.ph.i.i.us
+  %.013.lcssa.ph.i.i.us = phi i64 [ %.01316.i.i.us, %.lr.ph.i.i.us ], [ %.017.i.i.us, %35 ]
   %.pre.i.i.us = load i64, ptr %4, align 8
   br label %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit.us
 
 _ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit.us: ; preds = %._crit_edge.i.us.thread, %.critedge.loopexit.i.i.us, %._crit_edge.i.us
-  %40 = phi i64 [ %.sroa.02.0.copyload.us, %._crit_edge.i.us ], [ %.pre.i.i.us, %.critedge.loopexit.i.i.us ], [ %.sroa.02.0.copyload.us, %._crit_edge.i.us.thread ]
+  %39 = phi i64 [ %.sroa.02.0.copyload.us, %._crit_edge.i.us ], [ %.pre.i.i.us, %.critedge.loopexit.i.i.us ], [ %.sroa.02.0.copyload.us, %._crit_edge.i.us.thread ]
   %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.013.lcssa.ph.i.i.us, %.critedge.loopexit.i.i.us ], [ %.015.us, %._crit_edge.i.us.thread ]
-  %41 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.013.lcssa.i.i.us
-  store i64 %40, ptr %41, align 4
+  %40 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.013.lcssa.i.i.us
+  store i64 %39, ptr %40, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not.us = icmp eq i64 %.015.us, 0
-  %42 = add nsw i64 %.015.us, -1
+  %41 = add nsw i64 %.015.us, -1
   br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !237
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit
-  %.015 = phi i64 [ %68, %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit ], [ %12, %.split.preheader ]
-  %43 = getelementptr inbounds nuw %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.015
-  %.sroa.02.0.copyload = load i64, ptr %43, align 4
+  %.015 = phi i64 [ %66, %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit ], [ %12, %.split.preheader ]
+  %42 = getelementptr inbounds nuw %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.015
+  %.sroa.02.0.copyload = load i64, ptr %42, align 4
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !236
-  %44 = icmp slt i64 %.015, %14
-  br i1 %44, label %.lr.ph.i, label %._crit_edge.i
+  %43 = icmp slt i64 %.015, %14
+  br i1 %43, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
   %.031.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.015, %.split ]
-  %45 = shl i64 %.031.i, 1
-  %46 = add i64 %45, 2
-  %47 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %46
-  %48 = or disjoint i64 %45, 1
-  %49 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %48
-  %50 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(8) %47, ptr noundef nonnull align 4 dereferenceable(8) %49)
-  %spec.select.i = select i1 %50, i64 %48, i64 %46
-  %51 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %spec.select.i
-  %52 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.031.i
-  %53 = load i64, ptr %51, align 4
-  store i64 %53, ptr %52, align 4
-  %54 = icmp slt i64 %spec.select.i, %14
-  br i1 %54, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !229
+  %44 = shl i64 %.031.i, 1
+  %45 = add i64 %44, 2
+  %46 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %45
+  %gep.i = getelementptr %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %invariant.gep.i, i64 %44
+  %47 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(8) %46, ptr noundef nonnull align 4 dereferenceable(8) %gep.i)
+  %48 = or disjoint i64 %44, 1
+  %spec.select.i = select i1 %47, i64 %48, i64 %45
+  %49 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %spec.select.i
+  %50 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.031.i
+  %51 = load i64, ptr %49, align 4
+  store i64 %51, ptr %50, align 4
+  %52 = icmp slt i64 %spec.select.i, %14
+  br i1 %52, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !229
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.015, %.split ], [ %spec.select.i, %.lr.ph.i ]
-  %55 = icmp eq i64 %.0.lcssa.i, %17
-  br i1 %55, label %56, label %58
+  %53 = icmp eq i64 %.0.lcssa.i, %17
+  br i1 %53, label %54, label %56
 
-56:                                               ; preds = %._crit_edge.i
-  %57 = load i64, ptr %19, align 4
-  store i64 %57, ptr %20, align 4
-  br label %58
+54:                                               ; preds = %._crit_edge.i
+  %55 = load i64, ptr %19, align 4
+  store i64 %55, ptr %20, align 4
+  br label %56
 
-58:                                               ; preds = %56, %._crit_edge.i
-  %.1.i = phi i64 [ %18, %56 ], [ %.0.lcssa.i, %._crit_edge.i ]
+56:                                               ; preds = %54, %._crit_edge.i
+  %.1.i = phi i64 [ %18, %54 ], [ %.0.lcssa.i, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %.sroa.02.0.copyload, ptr %4, align 8
-  %59 = icmp sgt i64 %.1.i, %.015
-  br i1 %59, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit
+  %57 = icmp sgt i64 %.1.i, %.015
+  br i1 %57, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %58, %62
-  %.01316.i.i = phi i64 [ %.017.i.i, %62 ], [ %.1.i, %58 ]
+.lr.ph.i.i:                                       ; preds = %56, %60
+  %.01316.i.i = phi i64 [ %.017.i.i, %60 ], [ %.1.i, %56 ]
   %.017.in.i.i = add nsw i64 %.01316.i.i, -1
   %.017.i.i = sdiv i64 %.017.in.i.i, 2
-  %60 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.017.i.i
-  %61 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  br i1 %61, label %62, label %.critedge.loopexit.i.i
+  %58 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.017.i.i
+  %59 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(8) %58, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  br i1 %59, label %60, label %.critedge.loopexit.i.i
 
-62:                                               ; preds = %.lr.ph.i.i
-  %63 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.01316.i.i
-  %64 = load i64, ptr %60, align 4
-  store i64 %64, ptr %63, align 4
-  %65 = icmp sgt i64 %.017.i.i, %.015
-  br i1 %65, label %.lr.ph.i.i, label %.critedge.loopexit.i.i, !llvm.loop !230
+60:                                               ; preds = %.lr.ph.i.i
+  %61 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.01316.i.i
+  %62 = load i64, ptr %58, align 4
+  store i64 %62, ptr %61, align 4
+  %63 = icmp sgt i64 %.017.i.i, %.015
+  br i1 %63, label %.lr.ph.i.i, label %.critedge.loopexit.i.i, !llvm.loop !230
 
-.critedge.loopexit.i.i:                           ; preds = %62, %.lr.ph.i.i
-  %.013.lcssa.ph.i.i = phi i64 [ %.01316.i.i, %.lr.ph.i.i ], [ %.017.i.i, %62 ]
+.critedge.loopexit.i.i:                           ; preds = %60, %.lr.ph.i.i
+  %.013.lcssa.ph.i.i = phi i64 [ %.01316.i.i, %.lr.ph.i.i ], [ %.017.i.i, %60 ]
   %.pre.i.i = load i64, ptr %4, align 8
   br label %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit
 
-_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit: ; preds = %58, %.critedge.loopexit.i.i
-  %66 = phi i64 [ %.sroa.02.0.copyload, %58 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %58 ], [ %.013.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
-  %67 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.013.lcssa.i.i
-  store i64 %66, ptr %67, align 4
+_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit: ; preds = %56, %.critedge.loopexit.i.i
+  %64 = phi i64 [ %.sroa.02.0.copyload, %56 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %56 ], [ %.013.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
+  %65 = getelementptr inbounds %"class.duckdb_re2::SparseArray<int>::IndexValue", ptr %0, i64 %.013.lcssa.i.i
+  store i64 %64, ptr %65, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.not = icmp eq i64 %.015, 0
-  %68 = add nsw i64 %.015, -1
+  %66 = add nsw i64 %.015, -1
   br i1 %.not, label %.loopexit, label %.split, !llvm.loop !237
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit.us, %_ZSt13__adjust_heapIPN10duckdb_re211SparseArrayIiE10IndexValueElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS3_S9_EEEEvT_T0_SE_T1_T2_.exit, %3

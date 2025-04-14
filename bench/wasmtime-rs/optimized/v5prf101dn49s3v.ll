@@ -21145,8 +21145,8 @@ define void @"_ZN92_$LT$wasmtime_wasi..tcp..TcpReadStream$u20$as$u20$wasmtime_wa
   %33 = sub nuw nsw i64 64, %32
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %33, i64 7)
   %34 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %35 = or disjoint i64 %34, 1
-  %36 = getelementptr i8, ptr null, i64 %35
+  %35 = getelementptr i8, ptr null, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 1
   store ptr %29, ptr %18, align 8, !alias.scope !3750, !noalias !3753
   %37 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 0, ptr %37, align 8, !alias.scope !3750, !noalias !3753

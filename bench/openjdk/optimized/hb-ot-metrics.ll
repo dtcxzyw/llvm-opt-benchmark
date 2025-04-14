@@ -3524,8 +3524,8 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %34 = zext i8 %20 to i64
   %35 = shl nuw nsw i64 %33, 9
   %36 = shl nuw nsw i64 %34, 1
-  %37 = or disjoint i64 %36, %35
-  %38 = getelementptr inbounds nuw i8, ptr %15, i64 %37
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %35
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %40 = add nuw nsw i32 %31, %22
   %.lobit.i = lshr i8 %.fr74, 7
@@ -4721,10 +4721,10 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
 87:                                               ; preds = %73
   %88 = zext i8 %70 to i64
   %89 = shl nuw nsw i64 %88, 1
-  %90 = zext i8 %67 to i64
-  %91 = shl nuw nsw i64 %90, 9
-  %92 = or disjoint i64 %89, %91
-  %93 = getelementptr inbounds nuw i8, ptr %41, i64 %92
+  %90 = getelementptr inbounds nuw i8, ptr %41, i64 %89
+  %91 = zext i8 %67 to i64
+  %92 = shl nuw nsw i64 %91, 9
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %95 = ptrtoint ptr %94 to i64
   %96 = sub i64 %95, %9
@@ -5345,8 +5345,8 @@ _ZN21hb_sanitize_context_t14end_processingEv.exit.i: ; preds = %19
   %61 = zext i8 %60 to i64
   %62 = shl nuw nsw i64 %58, 9
   %63 = shl nuw nsw i64 %61, 1
-  %64 = or disjoint i64 %63, %62
-  %65 = getelementptr inbounds nuw i8, ptr %56, i64 %64
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %62
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 2
   store ptr %66, ptr %6, align 8
   %67 = load ptr, ptr %27, align 8

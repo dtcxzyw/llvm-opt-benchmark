@@ -12826,15 +12826,15 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
     i32 0, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit
     i32 1, label %113
     i32 2, label %118
-    i32 3, label %131
-    i32 4, label %148
+    i32 3, label %129
+    i32 4, label %146
   ]
 
 .preheader:                                       ; preds = %3
   %78 = zext i8 %2 to i16
   %79 = zext i8 %2 to i64
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %.sroa.2.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %.sroa.2.0..sroa_idx26 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -12867,7 +12867,7 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
   %110 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %215
+  br label %209
 
 113:                                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !534)
@@ -12890,691 +12890,687 @@ define void @_ZN6duckdb13HugeIntPacker4PackEPKNS_10uhugeint_tEPjh(ptr noalias no
 
 120:                                              ; preds = %120, %118
   %indvars.iv.i14 = phi i64 [ 0, %118 ], [ %indvars.iv.next.i15, %120 ]
-  %121 = shl nuw nsw i64 %indvars.iv.i14, 1
-  %122 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %indvars.iv.i14
-  %123 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %122), !noalias !540
-  %124 = getelementptr inbounds nuw i32, ptr %1, i64 %121
-  store i32 %123, ptr %124, align 4, !tbaa !215, !alias.scope !540, !noalias !543
+  %121 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %indvars.iv.i14
+  %122 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %121), !noalias !540
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i14, 3
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
+  store i32 %122, ptr %123, align 4, !tbaa !215, !alias.scope !540, !noalias !543
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70) #33, !noalias !545
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71) #33, !noalias !545
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %71, i64 noundef 32), !noalias !540
-  %125 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 8 dereferenceable(16) %71), !noalias !540
-  %126 = extractvalue { i64, i64 } %125, 0
-  store i64 %126, ptr %70, align 8, !noalias !545
-  %127 = extractvalue { i64, i64 } %125, 1
-  store i64 %127, ptr %119, align 8, !noalias !545
-  %128 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %70), !noalias !540
-  %129 = or disjoint i64 %121, 1
-  %130 = getelementptr inbounds nuw i32, ptr %1, i64 %129
-  store i32 %128, ptr %130, align 4, !tbaa !215, !alias.scope !540, !noalias !543
+  %124 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) %71), !noalias !540
+  %125 = extractvalue { i64, i64 } %124, 0
+  store i64 %125, ptr %70, align 8, !noalias !545
+  %126 = extractvalue { i64, i64 } %124, 1
+  store i64 %126, ptr %119, align 8, !noalias !545
+  %127 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %70), !noalias !540
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 4
+  store i32 %127, ptr %128, align 4, !tbaa !215, !alias.scope !540, !noalias !543
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71) #33, !noalias !545
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70) #33, !noalias !545
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 32
   br i1 %exitcond.not.i16, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit, label %120, !llvm.loop !546
 
-131:                                              ; preds = %3
+129:                                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !547)
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %132 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %133 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  br label %134
+  %130 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  br label %132
 
-134:                                              ; preds = %134, %131
-  %indvars.iv.i17 = phi i64 [ 0, %131 ], [ %indvars.iv.next.i18, %134 ]
-  %135 = mul nuw nsw i64 %indvars.iv.i17, 3
-  %136 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %indvars.iv.i17
-  %137 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %136), !noalias !547
-  %138 = getelementptr inbounds nuw i32, ptr %1, i64 %135
-  store i32 %137, ptr %138, align 4, !tbaa !215, !alias.scope !547, !noalias !550
+132:                                              ; preds = %132, %129
+  %indvars.iv.i17 = phi i64 [ 0, %129 ], [ %indvars.iv.next.i18, %132 ]
+  %133 = mul nuw nsw i64 %indvars.iv.i17, 3
+  %134 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %indvars.iv.i17
+  %135 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %134), !noalias !547
+  %136 = getelementptr inbounds nuw i32, ptr %1, i64 %133
+  store i32 %135, ptr %136, align 4, !tbaa !215, !alias.scope !547, !noalias !550
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66) #33, !noalias !552
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %67) #33, !noalias !552
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %67, i64 noundef 32), !noalias !547
-  %139 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull align 8 dereferenceable(16) %67), !noalias !547
-  %140 = extractvalue { i64, i64 } %139, 0
-  store i64 %140, ptr %66, align 8, !noalias !552
-  %141 = extractvalue { i64, i64 } %139, 1
-  store i64 %141, ptr %132, align 8, !noalias !552
-  %142 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %66), !noalias !547
-  %143 = getelementptr inbounds nuw i8, ptr %138, i64 4
-  store i32 %142, ptr %143, align 4, !tbaa !215, !alias.scope !547, !noalias !550
+  %137 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 8 dereferenceable(16) %67), !noalias !547
+  %138 = extractvalue { i64, i64 } %137, 0
+  store i64 %138, ptr %66, align 8, !noalias !552
+  %139 = extractvalue { i64, i64 } %137, 1
+  store i64 %139, ptr %130, align 8, !noalias !552
+  %140 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %66), !noalias !547
+  %141 = getelementptr inbounds nuw i8, ptr %136, i64 4
+  store i32 %140, ptr %141, align 4, !tbaa !215, !alias.scope !547, !noalias !550
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67) #33, !noalias !552
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66) #33, !noalias !552
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68) #33, !noalias !552
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69) #33, !noalias !552
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %69, i64 noundef 64), !noalias !547
-  %144 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull align 8 dereferenceable(16) %69), !noalias !547
-  %145 = extractvalue { i64, i64 } %144, 0
-  store i64 %145, ptr %68, align 8, !noalias !552
-  %146 = extractvalue { i64, i64 } %144, 1
-  store i64 %146, ptr %133, align 8, !noalias !552
-  %147 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %68), !noalias !547
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %135
-  store i32 %147, ptr %gep.i, align 4, !tbaa !215, !alias.scope !547, !noalias !550
+  %142 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %134, ptr noundef nonnull align 8 dereferenceable(16) %69), !noalias !547
+  %143 = extractvalue { i64, i64 } %142, 0
+  store i64 %143, ptr %68, align 8, !noalias !552
+  %144 = extractvalue { i64, i64 } %142, 1
+  store i64 %144, ptr %131, align 8, !noalias !552
+  %145 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %68), !noalias !547
+  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %133
+  store i32 %145, ptr %gep.i, align 4, !tbaa !215, !alias.scope !547, !noalias !550
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69) #33, !noalias !552
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68) #33, !noalias !552
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i17, 1
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, 32
-  br i1 %exitcond.not.i19, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit, label %134, !llvm.loop !553
+  br i1 %exitcond.not.i19, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit, label %132, !llvm.loop !553
 
-148:                                              ; preds = %3
+146:                                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !554)
-  %149 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %150 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %151 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  br label %152
+  %147 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  br label %150
 
-152:                                              ; preds = %152, %148
-  %indvars.iv.i20 = phi i64 [ 0, %148 ], [ %indvars.iv.next.i21, %152 ]
-  %153 = shl nuw nsw i64 %indvars.iv.i20, 2
-  %154 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %indvars.iv.i20
-  %155 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %154), !noalias !554
-  %156 = getelementptr inbounds nuw i32, ptr %1, i64 %153
-  store i32 %155, ptr %156, align 4, !tbaa !215, !alias.scope !554, !noalias !557
+150:                                              ; preds = %150, %146
+  %indvars.iv.i20 = phi i64 [ 0, %146 ], [ %indvars.iv.next.i22, %150 ]
+  %151 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %indvars.iv.i20
+  %152 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %151), !noalias !554
+  %.idx.i21 = shl nuw nsw i64 %indvars.iv.i20, 4
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i21
+  store i32 %152, ptr %153, align 4, !tbaa !215, !alias.scope !554, !noalias !557
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60) #33, !noalias !559
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61) #33, !noalias !559
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %61, i64 noundef 32), !noalias !554
-  %157 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %154, ptr noundef nonnull align 8 dereferenceable(16) %61), !noalias !554
-  %158 = extractvalue { i64, i64 } %157, 0
-  store i64 %158, ptr %60, align 8, !noalias !559
-  %159 = extractvalue { i64, i64 } %157, 1
-  store i64 %159, ptr %149, align 8, !noalias !559
-  %160 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %60), !noalias !554
-  %161 = or disjoint i64 %153, 1
-  %162 = getelementptr inbounds nuw i32, ptr %1, i64 %161
-  store i32 %160, ptr %162, align 4, !tbaa !215, !alias.scope !554, !noalias !557
+  %154 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(16) %61), !noalias !554
+  %155 = extractvalue { i64, i64 } %154, 0
+  store i64 %155, ptr %60, align 8, !noalias !559
+  %156 = extractvalue { i64, i64 } %154, 1
+  store i64 %156, ptr %147, align 8, !noalias !559
+  %157 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %60), !noalias !554
+  %158 = getelementptr inbounds nuw i8, ptr %153, i64 4
+  store i32 %157, ptr %158, align 4, !tbaa !215, !alias.scope !554, !noalias !557
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61) #33, !noalias !559
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60) #33, !noalias !559
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62) #33, !noalias !559
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63) #33, !noalias !559
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %63, i64 noundef 64), !noalias !554
-  %163 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %154, ptr noundef nonnull align 8 dereferenceable(16) %63), !noalias !554
-  %164 = extractvalue { i64, i64 } %163, 0
-  store i64 %164, ptr %62, align 8, !noalias !559
-  %165 = extractvalue { i64, i64 } %163, 1
-  store i64 %165, ptr %150, align 8, !noalias !559
-  %166 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %62), !noalias !554
-  %167 = or disjoint i64 %153, 2
-  %168 = getelementptr inbounds nuw i32, ptr %1, i64 %167
-  store i32 %166, ptr %168, align 4, !tbaa !215, !alias.scope !554, !noalias !557
+  %159 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(16) %63), !noalias !554
+  %160 = extractvalue { i64, i64 } %159, 0
+  store i64 %160, ptr %62, align 8, !noalias !559
+  %161 = extractvalue { i64, i64 } %159, 1
+  store i64 %161, ptr %148, align 8, !noalias !559
+  %162 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %62), !noalias !554
+  %163 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  store i32 %162, ptr %163, align 4, !tbaa !215, !alias.scope !554, !noalias !557
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63) #33, !noalias !559
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #33, !noalias !559
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64) #33, !noalias !559
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65) #33, !noalias !559
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %65, i64 noundef 96), !noalias !554
-  %169 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %154, ptr noundef nonnull align 8 dereferenceable(16) %65), !noalias !554
-  %170 = extractvalue { i64, i64 } %169, 0
-  store i64 %170, ptr %64, align 8, !noalias !559
-  %171 = extractvalue { i64, i64 } %169, 1
-  store i64 %171, ptr %151, align 8, !noalias !559
-  %172 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %64), !noalias !554
-  %173 = or disjoint i64 %153, 3
-  %174 = getelementptr inbounds nuw i32, ptr %1, i64 %173
-  store i32 %172, ptr %174, align 4, !tbaa !215, !alias.scope !554, !noalias !557
+  %164 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(16) %65), !noalias !554
+  %165 = extractvalue { i64, i64 } %164, 0
+  store i64 %165, ptr %64, align 8, !noalias !559
+  %166 = extractvalue { i64, i64 } %164, 1
+  store i64 %166, ptr %149, align 8, !noalias !559
+  %167 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %64), !noalias !554
+  %168 = getelementptr inbounds nuw i8, ptr %153, i64 12
+  store i32 %167, ptr %168, align 4, !tbaa !215, !alias.scope !554, !noalias !557
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65) #33, !noalias !559
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64) #33, !noalias !559
-  %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
-  %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 32
-  br i1 %exitcond.not.i22, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit, label %152, !llvm.loop !560
+  %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i20, 1
+  %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 32
+  br i1 %exitcond.not.i23, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit, label %150, !llvm.loop !560
 
-175:                                              ; preds = %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
+169:                                              ; preds = %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !561)
-  %176 = mul i8 %2, 31
-  %177 = and i8 %176, 31
-  %178 = zext nneg i8 %177 to i16
+  %170 = mul i8 %2, 31
+  %171 = and i8 %170, 31
+  %172 = zext nneg i8 %171 to i16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52) #33, !noalias !564
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 496
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53) #33, !noalias !564
-  %180 = zext nneg i8 %177 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %53, i64 noundef %180), !noalias !564
-  %181 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef nonnull align 8 dereferenceable(16) %53), !noalias !561
-  %182 = extractvalue { i64, i64 } %181, 0
-  store i64 %182, ptr %52, align 8, !noalias !564
-  %183 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %184 = extractvalue { i64, i64 } %181, 1
-  store i64 %184, ptr %183, align 8, !noalias !564
-  %185 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %52), !noalias !561
-  %186 = load i32, ptr %.1, align 4, !tbaa !215, !alias.scope !561, !noalias !566
-  %187 = or i32 %186, %185
-  store i32 %187, ptr %.1, align 4, !tbaa !215, !alias.scope !561, !noalias !566
+  %174 = zext nneg i8 %171 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %53, i64 noundef %174), !noalias !564
+  %175 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef nonnull align 8 dereferenceable(16) %53), !noalias !561
+  %176 = extractvalue { i64, i64 } %175, 0
+  store i64 %176, ptr %52, align 8, !noalias !564
+  %177 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %178 = extractvalue { i64, i64 } %175, 1
+  store i64 %178, ptr %177, align 8, !noalias !564
+  %179 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %52), !noalias !561
+  %180 = load i32, ptr %.1, align 4, !tbaa !215, !alias.scope !561, !noalias !566
+  %181 = or i32 %180, %179
+  store i32 %181, ptr %.1, align 4, !tbaa !215, !alias.scope !561, !noalias !566
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53) #33, !noalias !564
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #33, !noalias !564
-  %188 = icmp ugt i8 %2, 32
-  br i1 %188, label %189, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit
+  %182 = icmp ugt i8 %2, 32
+  br i1 %182, label %183, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit
 
-189:                                              ; preds = %175
+183:                                              ; preds = %169
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54) #33, !noalias !564
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55) #33, !noalias !564
-  %narrow.i = sub nuw nsw i16 32, %178
-  %190 = zext nneg i16 %narrow.i to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %55, i64 noundef %190), !noalias !561
-  %191 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef nonnull align 8 dereferenceable(16) %55), !noalias !561
-  %192 = extractvalue { i64, i64 } %191, 0
-  store i64 %192, ptr %54, align 8, !noalias !564
-  %193 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %194 = extractvalue { i64, i64 } %191, 1
-  store i64 %194, ptr %193, align 8, !noalias !564
-  %195 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %54), !noalias !561
-  %196 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  store i32 %195, ptr %196, align 4, !tbaa !215, !alias.scope !561, !noalias !566
+  %narrow.i = sub nuw nsw i16 32, %172
+  %184 = zext nneg i16 %narrow.i to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %55, i64 noundef %184), !noalias !561
+  %185 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef nonnull align 8 dereferenceable(16) %55), !noalias !561
+  %186 = extractvalue { i64, i64 } %185, 0
+  store i64 %186, ptr %54, align 8, !noalias !564
+  %187 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %188 = extractvalue { i64, i64 } %185, 1
+  store i64 %188, ptr %187, align 8, !noalias !564
+  %189 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %54), !noalias !561
+  %190 = getelementptr inbounds nuw i8, ptr %.1, i64 4
+  store i32 %189, ptr %190, align 4, !tbaa !215, !alias.scope !561, !noalias !566
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #33, !noalias !564
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #33, !noalias !564
-  %197 = icmp ugt i8 %2, 64
-  br i1 %197, label %198, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit
+  %191 = icmp ugt i8 %2, 64
+  br i1 %191, label %192, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit
 
-198:                                              ; preds = %189
+192:                                              ; preds = %183
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #33, !noalias !564
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57) #33, !noalias !564
-  %narrow15.i = sub nuw nsw i16 64, %178
-  %199 = zext nneg i16 %narrow15.i to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %57, i64 noundef %199), !noalias !561
-  %200 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef nonnull align 8 dereferenceable(16) %57), !noalias !561
-  %201 = extractvalue { i64, i64 } %200, 0
-  store i64 %201, ptr %56, align 8, !noalias !564
-  %202 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %203 = extractvalue { i64, i64 } %200, 1
-  store i64 %203, ptr %202, align 8, !noalias !564
-  %204 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %56), !noalias !561
-  %205 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  store i32 %204, ptr %205, align 4, !tbaa !215, !alias.scope !561, !noalias !566
+  %narrow15.i = sub nuw nsw i16 64, %172
+  %193 = zext nneg i16 %narrow15.i to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %57, i64 noundef %193), !noalias !561
+  %194 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef nonnull align 8 dereferenceable(16) %57), !noalias !561
+  %195 = extractvalue { i64, i64 } %194, 0
+  store i64 %195, ptr %56, align 8, !noalias !564
+  %196 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %197 = extractvalue { i64, i64 } %194, 1
+  store i64 %197, ptr %196, align 8, !noalias !564
+  %198 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %56), !noalias !561
+  %199 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  store i32 %198, ptr %199, align 4, !tbaa !215, !alias.scope !561, !noalias !566
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #33, !noalias !564
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #33, !noalias !564
-  %206 = icmp ugt i8 %2, 96
-  br i1 %206, label %207, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit
+  %200 = icmp ugt i8 %2, 96
+  br i1 %200, label %201, label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit
 
-207:                                              ; preds = %198
+201:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58) #33, !noalias !564
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59) #33, !noalias !564
-  %narrow16.i = sub nuw nsw i16 96, %178
-  %208 = zext nneg i16 %narrow16.i to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %59, i64 noundef %208), !noalias !561
-  %209 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %179, ptr noundef nonnull align 8 dereferenceable(16) %59), !noalias !561
-  %210 = extractvalue { i64, i64 } %209, 0
-  store i64 %210, ptr %58, align 8, !noalias !564
-  %211 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %212 = extractvalue { i64, i64 } %209, 1
-  store i64 %212, ptr %211, align 8, !noalias !564
-  %213 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %58), !noalias !561
-  %214 = getelementptr inbounds nuw i8, ptr %.1, i64 12
-  store i32 %213, ptr %214, align 4, !tbaa !215, !alias.scope !561, !noalias !566
+  %narrow16.i = sub nuw nsw i16 96, %172
+  %202 = zext nneg i16 %narrow16.i to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %59, i64 noundef %202), !noalias !561
+  %203 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %173, ptr noundef nonnull align 8 dereferenceable(16) %59), !noalias !561
+  %204 = extractvalue { i64, i64 } %203, 0
+  store i64 %204, ptr %58, align 8, !noalias !564
+  %205 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %206 = extractvalue { i64, i64 } %203, 1
+  store i64 %206, ptr %205, align 8, !noalias !564
+  %207 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %58), !noalias !561
+  %208 = getelementptr inbounds nuw i8, ptr %.1, i64 12
+  store i32 %207, ptr %208, align 4, !tbaa !215, !alias.scope !561, !noalias !566
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #33, !noalias !564
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #33, !noalias !564
   br label %_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit
 
-215:                                              ; preds = %.preheader, %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
-  %.051 = phi i64 [ 0, %.preheader ], [ %415, %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit ]
-  %.04650 = phi ptr [ %1, %.preheader ], [ %.1, %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit ]
-  %216 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %.051
-  %.sroa.0.0.copyload = load i64, ptr %216, align 8, !tbaa !19
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %216, i64 8
+209:                                              ; preds = %.preheader, %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
+  %.052 = phi i64 [ 0, %.preheader ], [ %409, %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit ]
+  %.04751 = phi ptr [ %1, %.preheader ], [ %.1, %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit ]
+  %210 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %0, i64 %.052
+  %.sroa.0.0.copyload = load i64, ptr %210, align 8, !tbaa !19
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %210, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !19
-  %217 = mul nuw nsw i64 %.051, %79
-  %218 = trunc nuw nsw i64 %217 to i16
-  %219 = and i16 %218, 31
+  %211 = mul nuw nsw i64 %.052, %79
+  %212 = trunc nuw nsw i64 %211 to i16
+  %213 = and i16 %212, 31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %73) #33
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %73, i64 noundef 1)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74) #33
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %74, i64 noundef %79)
-  %220 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %74)
-  %221 = extractvalue { i64, i64 } %220, 0
-  store i64 %221, ptr %72, align 8
-  %222 = extractvalue { i64, i64 } %220, 1
-  store i64 %222, ptr %80, align 8
+  %214 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %74)
+  %215 = extractvalue { i64, i64 } %214, 0
+  store i64 %215, ptr %72, align 8
+  %216 = extractvalue { i64, i64 } %214, 1
+  store i64 %216, ptr %80, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %75) #33
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %75, i64 noundef 1)
-  %223 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tmiERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %75)
-  %224 = extractvalue { i64, i64 } %223, 0
-  %225 = extractvalue { i64, i64 } %223, 1
+  %217 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tmiERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %75)
+  %218 = extractvalue { i64, i64 } %217, 0
+  %219 = extractvalue { i64, i64 } %217, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store i64 %224, ptr %51, align 8
-  store i64 %225, ptr %.sroa.2.0..sroa_idx25, align 8
+  store i64 %218, ptr %51, align 8
+  store i64 %219, ptr %.sroa.2.0..sroa_idx26, align 8
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
   store i64 %.sroa.2.0.copyload, ptr %81, align 8
-  %226 = zext nneg i16 %219 to i32
-  %narrow.i23 = add nuw nsw i16 %219, %78
-  %227 = icmp samesign ult i16 %narrow.i23, 32
-  br i1 %227, label %228, label %246
+  %220 = zext nneg i16 %213 to i32
+  %narrow.i24 = add nuw nsw i16 %213, %78
+  %221 = icmp samesign ult i16 %narrow.i24, 32
+  br i1 %221, label %222, label %240
 
-228:                                              ; preds = %215
-  %229 = icmp eq i16 %219, 0
-  br i1 %229, label %230, label %235
+222:                                              ; preds = %209
+  %223 = icmp eq i16 %213, 0
+  br i1 %223, label %224, label %229
 
-230:                                              ; preds = %228
+224:                                              ; preds = %222
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #33
-  %231 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %232 = extractvalue { i64, i64 } %231, 0
-  store i64 %232, ptr %5, align 8
-  %233 = extractvalue { i64, i64 } %231, 1
-  store i64 %233, ptr %112, align 8
-  %234 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store i32 %234, ptr %.04650, align 4, !tbaa !215
+  %225 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %226 = extractvalue { i64, i64 } %225, 0
+  store i64 %226, ptr %5, align 8
+  %227 = extractvalue { i64, i64 } %225, 1
+  store i64 %227, ptr %112, align 8
+  %228 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
+  store i32 %228, ptr %.04751, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #33
   br label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
 
-235:                                              ; preds = %228
+229:                                              ; preds = %222
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #33
-  %236 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %237 = extractvalue { i64, i64 } %236, 0
-  store i64 %237, ptr %7, align 8
-  %238 = extractvalue { i64, i64 } %236, 1
-  store i64 %238, ptr %110, align 8
+  %230 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %231 = extractvalue { i64, i64 } %230, 0
+  store i64 %231, ptr %7, align 8
+  %232 = extractvalue { i64, i64 } %230, 1
+  store i64 %232, ptr %110, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #33
-  %239 = and i64 %217, 31
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %239)
-  %240 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  %241 = extractvalue { i64, i64 } %240, 0
-  store i64 %241, ptr %6, align 8
-  %242 = extractvalue { i64, i64 } %240, 1
-  store i64 %242, ptr %111, align 8
-  %243 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
-  %244 = load i32, ptr %.04650, align 4, !tbaa !215
-  %245 = or i32 %244, %243
-  store i32 %245, ptr %.04650, align 4, !tbaa !215
+  %233 = and i64 %211, 31
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %233)
+  %234 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
+  %235 = extractvalue { i64, i64 } %234, 0
+  store i64 %235, ptr %6, align 8
+  %236 = extractvalue { i64, i64 } %234, 1
+  store i64 %236, ptr %111, align 8
+  %237 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
+  %238 = load i32, ptr %.04751, align 4, !tbaa !215
+  %239 = or i32 %238, %237
+  store i32 %239, ptr %.04751, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #33
   br label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
 
-246:                                              ; preds = %215
-  %247 = icmp samesign ult i16 %narrow.i23, 64
-  br i1 %247, label %248, label %278
+240:                                              ; preds = %209
+  %241 = icmp samesign ult i16 %narrow.i24, 64
+  br i1 %241, label %242, label %272
 
-248:                                              ; preds = %246
-  %249 = icmp eq i16 %219, 0
-  br i1 %249, label %250, label %255
+242:                                              ; preds = %240
+  %243 = icmp eq i16 %213, 0
+  br i1 %243, label %244, label %249
 
-250:                                              ; preds = %248
+244:                                              ; preds = %242
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #33
-  %251 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %252 = extractvalue { i64, i64 } %251, 0
-  store i64 %252, ptr %9, align 8
-  %253 = extractvalue { i64, i64 } %251, 1
-  store i64 %253, ptr %107, align 8
-  %254 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  store i32 %254, ptr %.04650, align 4, !tbaa !215
+  %245 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %246 = extractvalue { i64, i64 } %245, 0
+  store i64 %246, ptr %9, align 8
+  %247 = extractvalue { i64, i64 } %245, 1
+  store i64 %247, ptr %107, align 8
+  %248 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
+  store i32 %248, ptr %.04751, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #33
-  br label %266
+  br label %260
 
-255:                                              ; preds = %248
+249:                                              ; preds = %242
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #33
-  %256 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %257 = extractvalue { i64, i64 } %256, 0
-  store i64 %257, ptr %11, align 8
-  %258 = extractvalue { i64, i64 } %256, 1
-  store i64 %258, ptr %105, align 8
+  %250 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %251 = extractvalue { i64, i64 } %250, 0
+  store i64 %251, ptr %11, align 8
+  %252 = extractvalue { i64, i64 } %250, 1
+  store i64 %252, ptr %105, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #33
-  %259 = and i64 %217, 31
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %259)
-  %260 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
-  %261 = extractvalue { i64, i64 } %260, 0
-  store i64 %261, ptr %10, align 8
-  %262 = extractvalue { i64, i64 } %260, 1
-  store i64 %262, ptr %106, align 8
-  %263 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
-  %264 = load i32, ptr %.04650, align 4, !tbaa !215
-  %265 = or i32 %264, %263
-  store i32 %265, ptr %.04650, align 4, !tbaa !215
+  %253 = and i64 %211, 31
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %253)
+  %254 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %255 = extractvalue { i64, i64 } %254, 0
+  store i64 %255, ptr %10, align 8
+  %256 = extractvalue { i64, i64 } %254, 1
+  store i64 %256, ptr %106, align 8
+  %257 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %258 = load i32, ptr %.04751, align 4, !tbaa !215
+  %259 = or i32 %258, %257
+  store i32 %259, ptr %.04751, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #33
-  br label %266
+  br label %260
 
-266:                                              ; preds = %255, %250
-  %267 = getelementptr inbounds nuw i8, ptr %.04650, i64 4
-  %.not67.i = icmp eq i16 %narrow.i23, 32
-  br i1 %.not67.i, label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit, label %268
+260:                                              ; preds = %249, %244
+  %261 = getelementptr inbounds nuw i8, ptr %.04751, i64 4
+  %.not67.i = icmp eq i16 %narrow.i24, 32
+  br i1 %.not67.i, label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit, label %262
 
-268:                                              ; preds = %266
+262:                                              ; preds = %260
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #33
-  %269 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %270 = extractvalue { i64, i64 } %269, 0
-  store i64 %270, ptr %14, align 8
-  %271 = extractvalue { i64, i64 } %269, 1
-  store i64 %271, ptr %108, align 8
+  %263 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %264 = extractvalue { i64, i64 } %263, 0
+  store i64 %264, ptr %14, align 8
+  %265 = extractvalue { i64, i64 } %263, 1
+  store i64 %265, ptr %108, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #33
-  %272 = sub nuw nsw i32 32, %226
-  %273 = zext nneg i32 %272 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %273)
-  %274 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
-  %275 = extractvalue { i64, i64 } %274, 0
-  store i64 %275, ptr %13, align 8
-  %276 = extractvalue { i64, i64 } %274, 1
-  store i64 %276, ptr %109, align 8
-  %277 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
-  store i32 %277, ptr %267, align 4, !tbaa !215
+  %266 = sub nuw nsw i32 32, %220
+  %267 = zext nneg i32 %266 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %267)
+  %268 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %15)
+  %269 = extractvalue { i64, i64 } %268, 0
+  store i64 %269, ptr %13, align 8
+  %270 = extractvalue { i64, i64 } %268, 1
+  store i64 %270, ptr %109, align 8
+  %271 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
+  store i32 %271, ptr %261, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #33
   br label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
 
-278:                                              ; preds = %246
-  %279 = icmp samesign ult i16 %narrow.i23, 96
-  br i1 %279, label %280, label %317
+272:                                              ; preds = %240
+  %273 = icmp samesign ult i16 %narrow.i24, 96
+  br i1 %273, label %274, label %311
 
-280:                                              ; preds = %278
-  %281 = icmp eq i16 %219, 0
-  br i1 %281, label %282, label %287
+274:                                              ; preds = %272
+  %275 = icmp eq i16 %213, 0
+  br i1 %275, label %276, label %281
 
-282:                                              ; preds = %280
+276:                                              ; preds = %274
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #33
-  %283 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %284 = extractvalue { i64, i64 } %283, 0
-  store i64 %284, ptr %16, align 8
-  %285 = extractvalue { i64, i64 } %283, 1
-  store i64 %285, ptr %100, align 8
-  %286 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
-  store i32 %286, ptr %.04650, align 4, !tbaa !215
+  %277 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %278 = extractvalue { i64, i64 } %277, 0
+  store i64 %278, ptr %16, align 8
+  %279 = extractvalue { i64, i64 } %277, 1
+  store i64 %279, ptr %100, align 8
+  %280 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  store i32 %280, ptr %.04751, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #33
-  br label %295
+  br label %289
 
-287:                                              ; preds = %280
+281:                                              ; preds = %274
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #33
-  %288 = and i64 %217, 31
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %288)
-  %289 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %18)
-  %290 = extractvalue { i64, i64 } %289, 0
-  store i64 %290, ptr %17, align 8
-  %291 = extractvalue { i64, i64 } %289, 1
-  store i64 %291, ptr %99, align 8
-  %292 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
-  %293 = load i32, ptr %.04650, align 4, !tbaa !215
-  %294 = or i32 %293, %292
-  store i32 %294, ptr %.04650, align 4, !tbaa !215
+  %282 = and i64 %211, 31
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %282)
+  %283 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %18)
+  %284 = extractvalue { i64, i64 } %283, 0
+  store i64 %284, ptr %17, align 8
+  %285 = extractvalue { i64, i64 } %283, 1
+  store i64 %285, ptr %99, align 8
+  %286 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %287 = load i32, ptr %.04751, align 4, !tbaa !215
+  %288 = or i32 %287, %286
+  store i32 %288, ptr %.04751, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #33
-  br label %295
+  br label %289
 
-295:                                              ; preds = %287, %282
+289:                                              ; preds = %281, %276
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #33
-  %296 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %297 = extractvalue { i64, i64 } %296, 0
-  store i64 %297, ptr %20, align 8
-  %298 = extractvalue { i64, i64 } %296, 1
-  store i64 %298, ptr %101, align 8
+  %290 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %291 = extractvalue { i64, i64 } %290, 0
+  store i64 %291, ptr %20, align 8
+  %292 = extractvalue { i64, i64 } %290, 1
+  store i64 %292, ptr %101, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #33
-  %299 = sub nuw nsw i32 32, %226
-  %300 = zext nneg i32 %299 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %300)
-  %301 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
-  %302 = extractvalue { i64, i64 } %301, 0
-  store i64 %302, ptr %19, align 8
-  %303 = extractvalue { i64, i64 } %301, 1
-  store i64 %303, ptr %102, align 8
-  %304 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
-  %305 = getelementptr inbounds nuw i8, ptr %.04650, i64 4
-  store i32 %304, ptr %305, align 4, !tbaa !215
+  %293 = sub nuw nsw i32 32, %220
+  %294 = zext nneg i32 %293 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %294)
+  %295 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
+  %296 = extractvalue { i64, i64 } %295, 0
+  store i64 %296, ptr %19, align 8
+  %297 = extractvalue { i64, i64 } %295, 1
+  store i64 %297, ptr %102, align 8
+  %298 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
+  %299 = getelementptr inbounds nuw i8, ptr %.04751, i64 4
+  store i32 %298, ptr %299, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #33
-  %306 = getelementptr inbounds nuw i8, ptr %.04650, i64 8
-  %.not66.i = icmp eq i16 %narrow.i23, 64
-  br i1 %.not66.i, label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit, label %307
+  %300 = getelementptr inbounds nuw i8, ptr %.04751, i64 8
+  %.not66.i = icmp eq i16 %narrow.i24, 64
+  br i1 %.not66.i, label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit, label %301
 
-307:                                              ; preds = %295
+301:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #33
-  %308 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %309 = extractvalue { i64, i64 } %308, 0
-  store i64 %309, ptr %23, align 8
-  %310 = extractvalue { i64, i64 } %308, 1
-  store i64 %310, ptr %103, align 8
+  %302 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %303 = extractvalue { i64, i64 } %302, 0
+  store i64 %303, ptr %23, align 8
+  %304 = extractvalue { i64, i64 } %302, 1
+  store i64 %304, ptr %103, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #33
-  %311 = sub nuw nsw i32 64, %226
-  %312 = zext nneg i32 %311 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %24, i64 noundef %312)
-  %313 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24)
-  %314 = extractvalue { i64, i64 } %313, 0
-  store i64 %314, ptr %22, align 8
-  %315 = extractvalue { i64, i64 } %313, 1
-  store i64 %315, ptr %104, align 8
-  %316 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %22)
-  store i32 %316, ptr %306, align 4, !tbaa !215
+  %305 = sub nuw nsw i32 64, %220
+  %306 = zext nneg i32 %305 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %24, i64 noundef %306)
+  %307 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24)
+  %308 = extractvalue { i64, i64 } %307, 0
+  store i64 %308, ptr %22, align 8
+  %309 = extractvalue { i64, i64 } %307, 1
+  store i64 %309, ptr %104, align 8
+  %310 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %22)
+  store i32 %310, ptr %300, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #33
   br label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
 
-317:                                              ; preds = %278
-  %318 = icmp samesign ult i16 %narrow.i23, 128
-  br i1 %318, label %319, label %366
+311:                                              ; preds = %272
+  %312 = icmp samesign ult i16 %narrow.i24, 128
+  br i1 %312, label %313, label %360
 
-319:                                              ; preds = %317
-  %320 = icmp eq i16 %219, 0
-  br i1 %320, label %321, label %326
+313:                                              ; preds = %311
+  %314 = icmp eq i16 %213, 0
+  br i1 %314, label %315, label %320
 
-321:                                              ; preds = %319
+315:                                              ; preds = %313
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #33
-  %322 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %323 = extractvalue { i64, i64 } %322, 0
-  store i64 %323, ptr %25, align 8
-  %324 = extractvalue { i64, i64 } %322, 1
-  store i64 %324, ptr %92, align 8
-  %325 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
-  store i32 %325, ptr %.04650, align 4, !tbaa !215
+  %316 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %317 = extractvalue { i64, i64 } %316, 0
+  store i64 %317, ptr %25, align 8
+  %318 = extractvalue { i64, i64 } %316, 1
+  store i64 %318, ptr %92, align 8
+  %319 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
+  store i32 %319, ptr %.04751, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #33
-  br label %334
+  br label %328
 
-326:                                              ; preds = %319
+320:                                              ; preds = %313
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #33
-  %327 = and i64 %217, 31
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %27, i64 noundef %327)
-  %328 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %27)
-  %329 = extractvalue { i64, i64 } %328, 0
-  store i64 %329, ptr %26, align 8
-  %330 = extractvalue { i64, i64 } %328, 1
-  store i64 %330, ptr %91, align 8
-  %331 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
-  %332 = load i32, ptr %.04650, align 4, !tbaa !215
-  %333 = or i32 %332, %331
-  store i32 %333, ptr %.04650, align 4, !tbaa !215
+  %321 = and i64 %211, 31
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %27, i64 noundef %321)
+  %322 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %27)
+  %323 = extractvalue { i64, i64 } %322, 0
+  store i64 %323, ptr %26, align 8
+  %324 = extractvalue { i64, i64 } %322, 1
+  store i64 %324, ptr %91, align 8
+  %325 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %26)
+  %326 = load i32, ptr %.04751, align 4, !tbaa !215
+  %327 = or i32 %326, %325
+  store i32 %327, ptr %.04751, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #33
-  br label %334
+  br label %328
 
-334:                                              ; preds = %326, %321
+328:                                              ; preds = %320, %315
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #33
-  %335 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %336 = extractvalue { i64, i64 } %335, 0
-  store i64 %336, ptr %29, align 8
-  %337 = extractvalue { i64, i64 } %335, 1
-  store i64 %337, ptr %93, align 8
+  %329 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %330 = extractvalue { i64, i64 } %329, 0
+  store i64 %330, ptr %29, align 8
+  %331 = extractvalue { i64, i64 } %329, 1
+  store i64 %331, ptr %93, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #33
-  %338 = sub nuw nsw i32 32, %226
-  %339 = zext nneg i32 %338 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %339)
-  %340 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30)
-  %341 = extractvalue { i64, i64 } %340, 0
-  store i64 %341, ptr %28, align 8
-  %342 = extractvalue { i64, i64 } %340, 1
-  store i64 %342, ptr %94, align 8
-  %343 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
-  %344 = getelementptr inbounds nuw i8, ptr %.04650, i64 4
-  store i32 %343, ptr %344, align 4, !tbaa !215
+  %332 = sub nuw nsw i32 32, %220
+  %333 = zext nneg i32 %332 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %333)
+  %334 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30)
+  %335 = extractvalue { i64, i64 } %334, 0
+  store i64 %335, ptr %28, align 8
+  %336 = extractvalue { i64, i64 } %334, 1
+  store i64 %336, ptr %94, align 8
+  %337 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
+  %338 = getelementptr inbounds nuw i8, ptr %.04751, i64 4
+  store i32 %337, ptr %338, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #33
-  %345 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %346 = extractvalue { i64, i64 } %345, 0
-  store i64 %346, ptr %32, align 8
-  %347 = extractvalue { i64, i64 } %345, 1
-  store i64 %347, ptr %95, align 8
+  %339 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %340 = extractvalue { i64, i64 } %339, 0
+  store i64 %340, ptr %32, align 8
+  %341 = extractvalue { i64, i64 } %339, 1
+  store i64 %341, ptr %95, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #33
-  %348 = sub nuw nsw i32 64, %226
-  %349 = zext nneg i32 %348 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %33, i64 noundef %349)
-  %350 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %33)
-  %351 = extractvalue { i64, i64 } %350, 0
-  store i64 %351, ptr %31, align 8
-  %352 = extractvalue { i64, i64 } %350, 1
-  store i64 %352, ptr %96, align 8
-  %353 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
-  %354 = getelementptr inbounds nuw i8, ptr %.04650, i64 8
-  store i32 %353, ptr %354, align 4, !tbaa !215
+  %342 = sub nuw nsw i32 64, %220
+  %343 = zext nneg i32 %342 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %33, i64 noundef %343)
+  %344 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %33)
+  %345 = extractvalue { i64, i64 } %344, 0
+  store i64 %345, ptr %31, align 8
+  %346 = extractvalue { i64, i64 } %344, 1
+  store i64 %346, ptr %96, align 8
+  %347 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %31)
+  %348 = getelementptr inbounds nuw i8, ptr %.04751, i64 8
+  store i32 %347, ptr %348, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #33
-  %355 = getelementptr inbounds nuw i8, ptr %.04650, i64 12
-  %.not65.i = icmp eq i16 %narrow.i23, 96
-  br i1 %.not65.i, label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit, label %356
+  %349 = getelementptr inbounds nuw i8, ptr %.04751, i64 12
+  %.not65.i = icmp eq i16 %narrow.i24, 96
+  br i1 %.not65.i, label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit, label %350
 
-356:                                              ; preds = %334
+350:                                              ; preds = %328
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #33
-  %357 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %358 = extractvalue { i64, i64 } %357, 0
-  store i64 %358, ptr %35, align 8
-  %359 = extractvalue { i64, i64 } %357, 1
-  store i64 %359, ptr %97, align 8
+  %351 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %352 = extractvalue { i64, i64 } %351, 0
+  store i64 %352, ptr %35, align 8
+  %353 = extractvalue { i64, i64 } %351, 1
+  store i64 %353, ptr %97, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #33
-  %360 = sub nuw nsw i32 96, %226
-  %361 = zext nneg i32 %360 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %36, i64 noundef %361)
-  %362 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36)
-  %363 = extractvalue { i64, i64 } %362, 0
-  store i64 %363, ptr %34, align 8
-  %364 = extractvalue { i64, i64 } %362, 1
-  store i64 %364, ptr %98, align 8
-  %365 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %34)
-  store i32 %365, ptr %355, align 4, !tbaa !215
+  %354 = sub nuw nsw i32 96, %220
+  %355 = zext nneg i32 %354 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %36, i64 noundef %355)
+  %356 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36)
+  %357 = extractvalue { i64, i64 } %356, 0
+  store i64 %357, ptr %34, align 8
+  %358 = extractvalue { i64, i64 } %356, 1
+  store i64 %358, ptr %98, align 8
+  %359 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %34)
+  store i32 %359, ptr %349, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #33
   br label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
 
-366:                                              ; preds = %317
+360:                                              ; preds = %311
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38) #33
-  %367 = and i64 %217, 31
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %38, i64 noundef %367)
-  %368 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %38)
-  %369 = extractvalue { i64, i64 } %368, 0
-  store i64 %369, ptr %37, align 8
-  %370 = extractvalue { i64, i64 } %368, 1
-  store i64 %370, ptr %82, align 8
-  %371 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %37)
-  %372 = load i32, ptr %.04650, align 4, !tbaa !215
-  %373 = or i32 %372, %371
-  store i32 %373, ptr %.04650, align 4, !tbaa !215
+  %361 = and i64 %211, 31
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %38, i64 noundef %361)
+  %362 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %38)
+  %363 = extractvalue { i64, i64 } %362, 0
+  store i64 %363, ptr %37, align 8
+  %364 = extractvalue { i64, i64 } %362, 1
+  store i64 %364, ptr %82, align 8
+  %365 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %37)
+  %366 = load i32, ptr %.04751, align 4, !tbaa !215
+  %367 = or i32 %366, %365
+  store i32 %367, ptr %.04751, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #33
-  %374 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %375 = extractvalue { i64, i64 } %374, 0
-  store i64 %375, ptr %40, align 8
-  %376 = extractvalue { i64, i64 } %374, 1
-  store i64 %376, ptr %83, align 8
+  %368 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %369 = extractvalue { i64, i64 } %368, 0
+  store i64 %369, ptr %40, align 8
+  %370 = extractvalue { i64, i64 } %368, 1
+  store i64 %370, ptr %83, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #33
-  %377 = sub nuw nsw i32 32, %226
-  %378 = zext nneg i32 %377 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %378)
-  %379 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %41)
-  %380 = extractvalue { i64, i64 } %379, 0
-  store i64 %380, ptr %39, align 8
-  %381 = extractvalue { i64, i64 } %379, 1
-  store i64 %381, ptr %84, align 8
-  %382 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %39)
-  %383 = getelementptr inbounds nuw i8, ptr %.04650, i64 4
-  store i32 %382, ptr %383, align 4, !tbaa !215
+  %371 = sub nuw nsw i32 32, %220
+  %372 = zext nneg i32 %371 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %372)
+  %373 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %41)
+  %374 = extractvalue { i64, i64 } %373, 0
+  store i64 %374, ptr %39, align 8
+  %375 = extractvalue { i64, i64 } %373, 1
+  store i64 %375, ptr %84, align 8
+  %376 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %39)
+  %377 = getelementptr inbounds nuw i8, ptr %.04751, i64 4
+  store i32 %376, ptr %377, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43) #33
-  %384 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %385 = extractvalue { i64, i64 } %384, 0
-  store i64 %385, ptr %43, align 8
-  %386 = extractvalue { i64, i64 } %384, 1
-  store i64 %386, ptr %85, align 8
+  %378 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %379 = extractvalue { i64, i64 } %378, 0
+  store i64 %379, ptr %43, align 8
+  %380 = extractvalue { i64, i64 } %378, 1
+  store i64 %380, ptr %85, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44) #33
-  %387 = sub nuw nsw i32 64, %226
-  %388 = zext nneg i32 %387 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %44, i64 noundef %388)
-  %389 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %44)
-  %390 = extractvalue { i64, i64 } %389, 0
-  store i64 %390, ptr %42, align 8
-  %391 = extractvalue { i64, i64 } %389, 1
-  store i64 %391, ptr %86, align 8
-  %392 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %42)
-  %393 = getelementptr inbounds nuw i8, ptr %.04650, i64 8
-  store i32 %392, ptr %393, align 4, !tbaa !215
+  %381 = sub nuw nsw i32 64, %220
+  %382 = zext nneg i32 %381 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %44, i64 noundef %382)
+  %383 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %44)
+  %384 = extractvalue { i64, i64 } %383, 0
+  store i64 %384, ptr %42, align 8
+  %385 = extractvalue { i64, i64 } %383, 1
+  store i64 %385, ptr %86, align 8
+  %386 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %42)
+  %387 = getelementptr inbounds nuw i8, ptr %.04751, i64 8
+  store i32 %386, ptr %387, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46) #33
-  %394 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %395 = extractvalue { i64, i64 } %394, 0
-  store i64 %395, ptr %46, align 8
-  %396 = extractvalue { i64, i64 } %394, 1
-  store i64 %396, ptr %87, align 8
+  %388 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %389 = extractvalue { i64, i64 } %388, 0
+  store i64 %389, ptr %46, align 8
+  %390 = extractvalue { i64, i64 } %388, 1
+  store i64 %390, ptr %87, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47) #33
-  %397 = sub nuw nsw i32 96, %226
-  %398 = zext nneg i32 %397 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %47, i64 noundef %398)
-  %399 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %47)
-  %400 = extractvalue { i64, i64 } %399, 0
-  store i64 %400, ptr %45, align 8
-  %401 = extractvalue { i64, i64 } %399, 1
-  store i64 %401, ptr %88, align 8
-  %402 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %45)
-  %403 = getelementptr inbounds nuw i8, ptr %.04650, i64 12
-  store i32 %402, ptr %403, align 4, !tbaa !215
+  %391 = sub nuw nsw i32 96, %220
+  %392 = zext nneg i32 %391 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %47, i64 noundef %392)
+  %393 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %47)
+  %394 = extractvalue { i64, i64 } %393, 0
+  store i64 %394, ptr %45, align 8
+  %395 = extractvalue { i64, i64 } %393, 1
+  store i64 %395, ptr %88, align 8
+  %396 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %45)
+  %397 = getelementptr inbounds nuw i8, ptr %.04751, i64 12
+  store i32 %396, ptr %397, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #33
-  %404 = getelementptr inbounds nuw i8, ptr %.04650, i64 16
-  %.not.i = icmp eq i16 %narrow.i23, 128
-  br i1 %.not.i, label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit, label %405
+  %398 = getelementptr inbounds nuw i8, ptr %.04751, i64 16
+  %.not.i = icmp eq i16 %narrow.i24, 128
+  br i1 %.not.i, label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit, label %399
 
-405:                                              ; preds = %366
+399:                                              ; preds = %360
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48) #33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49) #33
-  %406 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
-  %407 = extractvalue { i64, i64 } %406, 0
-  store i64 %407, ptr %49, align 8
-  %408 = extractvalue { i64, i64 } %406, 1
-  store i64 %408, ptr %89, align 8
+  %400 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tanERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %51)
+  %401 = extractvalue { i64, i64 } %400, 0
+  store i64 %401, ptr %49, align 8
+  %402 = extractvalue { i64, i64 } %400, 1
+  store i64 %402, ptr %89, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #33
-  %409 = sub nuw nsw i32 128, %226
-  %410 = zext nneg i32 %409 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %50, i64 noundef %410)
-  %411 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %50)
-  %412 = extractvalue { i64, i64 } %411, 0
-  store i64 %412, ptr %48, align 8
-  %413 = extractvalue { i64, i64 } %411, 1
-  store i64 %413, ptr %90, align 8
-  %414 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %48)
-  store i32 %414, ptr %404, align 4, !tbaa !215
+  %403 = sub nuw nsw i32 128, %220
+  %404 = zext nneg i32 %403 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %50, i64 noundef %404)
+  %405 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %50)
+  %406 = extractvalue { i64, i64 } %405, 0
+  store i64 %406, ptr %48, align 8
+  %407 = extractvalue { i64, i64 } %405, 1
+  store i64 %407, ptr %90, align 8
+  %408 = call noundef i32 @_ZNK6duckdb10uhugeint_tcvjEv(ptr noundef nonnull align 8 dereferenceable(16) %48)
+  store i32 %408, ptr %398, align 4, !tbaa !215
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48) #33
   br label %_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit
 
-_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit: ; preds = %230, %235, %266, %268, %295, %307, %334, %356, %366, %405
-  %.1 = phi ptr [ %.04650, %230 ], [ %.04650, %235 ], [ %267, %266 ], [ %267, %268 ], [ %306, %295 ], [ %306, %307 ], [ %355, %334 ], [ %355, %356 ], [ %404, %366 ], [ %404, %405 ]
+_ZN6duckdbL10PackSingleENS_10uhugeint_tERrPjttS0_.exit: ; preds = %224, %229, %260, %262, %289, %301, %328, %350, %360, %399
+  %.1 = phi ptr [ %.04751, %224 ], [ %.04751, %229 ], [ %261, %260 ], [ %261, %262 ], [ %300, %289 ], [ %300, %301 ], [ %349, %328 ], [ %349, %350 ], [ %398, %360 ], [ %398, %399 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #33
-  %415 = add nuw nsw i64 %.051, 1
-  %exitcond.not = icmp eq i64 %415, 31
-  br i1 %exitcond.not, label %175, label %215, !llvm.loop !567
+  %409 = add nuw nsw i64 %.052, 1
+  %exitcond.not = icmp eq i64 %409, 31
+  br i1 %exitcond.not, label %169, label %209, !llvm.loop !567
 
-_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit: ; preds = %152, %134, %120, %114, %207, %198, %189, %175, %3
+_ZN6duckdbL11PackDelta32EPKNS_10uhugeint_tEPj.exit: ; preds = %150, %132, %120, %114, %201, %192, %183, %169, %3
   ret void
 }
 
@@ -13666,11 +13662,11 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   %81 = zext i8 %2 to i32
   %82 = tail call i32 @llvm.fshl.i32(i32 %81, i32 %81, i32 27)
   switch i32 %82, label %.preheader [
-    i32 0, label %.preheader45
+    i32 0, label %.preheader46
     i32 1, label %98
     i32 2, label %104
-    i32 3, label %120
-    i32 4, label %142
+    i32 3, label %118
+    i32 4, label %140
   ]
 
 .preheader:                                       ; preds = %3
@@ -13688,10 +13684,10 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   %94 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br label %220
+  br label %214
 
-.preheader45:                                     ; preds = %3, %.preheader45
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader45 ], [ 0, %3 ]
+.preheader46:                                     ; preds = %3, %.preheader46
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader46 ], [ 0, %3 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %80) #33, !noalias !568
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %80, i64 noundef 0), !noalias !568
   %97 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %indvars.iv.i
@@ -13699,7 +13695,7 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %80) #33, !noalias !568
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit, label %.preheader45, !llvm.loop !572
+  br i1 %exitcond.not.i, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit, label %.preheader46, !llvm.loop !572
 
 98:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !573)
@@ -13726,30 +13722,29 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
 
 106:                                              ; preds = %106, %104
   %indvars.iv.i17 = phi i64 [ 0, %104 ], [ %indvars.iv.next.i18, %106 ]
-  %107 = shl nuw nsw i64 %indvars.iv.i17, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %75) #33, !noalias !583
-  %108 = getelementptr inbounds nuw i32, ptr %0, i64 %107
-  %109 = load i32, ptr %108, align 4, !tbaa !215, !alias.scope !580, !noalias !585
-  %110 = zext i32 %109 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %75, i64 noundef %110), !noalias !580
-  %111 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %indvars.iv.i17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false), !tbaa.struct !571, !noalias !580
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i17, 3
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
+  %108 = load i32, ptr %107, align 4, !tbaa !215, !alias.scope !580, !noalias !585
+  %109 = zext i32 %108 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %75, i64 noundef %109), !noalias !580
+  %110 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %indvars.iv.i17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false), !tbaa.struct !571, !noalias !580
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #33, !noalias !583
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %76) #33, !noalias !583
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %77) #33, !noalias !583
-  %112 = or disjoint i64 %107, 1
-  %113 = getelementptr inbounds nuw i32, ptr %0, i64 %112
-  %114 = load i32, ptr %113, align 4, !tbaa !215, !alias.scope !580, !noalias !585
-  %115 = zext i32 %114 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %77, i64 noundef %115), !noalias !580
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 4
+  %112 = load i32, ptr %111, align 4, !tbaa !215, !alias.scope !580, !noalias !585
+  %113 = zext i32 %112 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %77, i64 noundef %113), !noalias !580
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %78) #33, !noalias !583
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %78, i64 noundef 32), !noalias !580
-  %116 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %78), !noalias !580
-  %117 = extractvalue { i64, i64 } %116, 0
-  store i64 %117, ptr %76, align 8, !noalias !583
-  %118 = extractvalue { i64, i64 } %116, 1
-  store i64 %118, ptr %105, align 8, !noalias !583
-  %119 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %111, ptr noundef nonnull align 8 dereferenceable(16) %76), !noalias !580
+  %114 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %78), !noalias !580
+  %115 = extractvalue { i64, i64 } %114, 0
+  store i64 %115, ptr %76, align 8, !noalias !583
+  %116 = extractvalue { i64, i64 } %114, 1
+  store i64 %116, ptr %105, align 8, !noalias !583
+  %117 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull align 8 dereferenceable(16) %76), !noalias !580
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %78) #33, !noalias !583
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %77) #33, !noalias !583
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %76) #33, !noalias !583
@@ -13757,267 +13752,264 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   %exitcond.not.i19 = icmp eq i64 %indvars.iv.next.i18, 32
   br i1 %exitcond.not.i19, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit, label %106, !llvm.loop !586
 
-120:                                              ; preds = %3
+118:                                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !587)
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %121 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %122 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  br label %123
+  %119 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  br label %121
 
-123:                                              ; preds = %123, %120
-  %indvars.iv.i20 = phi i64 [ 0, %120 ], [ %indvars.iv.next.i21, %123 ]
-  %124 = mul nuw nsw i64 %indvars.iv.i20, 3
+121:                                              ; preds = %121, %118
+  %indvars.iv.i20 = phi i64 [ 0, %118 ], [ %indvars.iv.next.i21, %121 ]
+  %122 = mul nuw nsw i64 %indvars.iv.i20, 3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %68) #33, !noalias !590
-  %125 = getelementptr inbounds nuw i32, ptr %0, i64 %124
-  %126 = load i32, ptr %125, align 4, !tbaa !215, !alias.scope !587, !noalias !592
-  %127 = zext i32 %126 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %68, i64 noundef %127), !noalias !587
-  %128 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %indvars.iv.i20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false), !tbaa.struct !571, !noalias !587
+  %123 = getelementptr inbounds nuw i32, ptr %0, i64 %122
+  %124 = load i32, ptr %123, align 4, !tbaa !215, !alias.scope !587, !noalias !592
+  %125 = zext i32 %124 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %68, i64 noundef %125), !noalias !587
+  %126 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %indvars.iv.i20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(16) %68, i64 16, i1 false), !tbaa.struct !571, !noalias !587
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %68) #33, !noalias !590
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %69) #33, !noalias !590
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %70) #33, !noalias !590
-  %129 = getelementptr inbounds nuw i8, ptr %125, i64 4
-  %130 = load i32, ptr %129, align 4, !tbaa !215, !alias.scope !587, !noalias !592
-  %131 = zext i32 %130 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %70, i64 noundef %131), !noalias !587
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 4
+  %128 = load i32, ptr %127, align 4, !tbaa !215, !alias.scope !587, !noalias !592
+  %129 = zext i32 %128 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %70, i64 noundef %129), !noalias !587
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %71) #33, !noalias !590
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %71, i64 noundef 32), !noalias !587
-  %132 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %71), !noalias !587
-  %133 = extractvalue { i64, i64 } %132, 0
-  store i64 %133, ptr %69, align 8, !noalias !590
-  %134 = extractvalue { i64, i64 } %132, 1
-  store i64 %134, ptr %121, align 8, !noalias !590
-  %135 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(16) %69), !noalias !587
+  %130 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %71), !noalias !587
+  %131 = extractvalue { i64, i64 } %130, 0
+  store i64 %131, ptr %69, align 8, !noalias !590
+  %132 = extractvalue { i64, i64 } %130, 1
+  store i64 %132, ptr %119, align 8, !noalias !590
+  %133 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(16) %69), !noalias !587
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %71) #33, !noalias !590
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %70) #33, !noalias !590
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %69) #33, !noalias !590
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %72) #33, !noalias !590
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %73) #33, !noalias !590
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %124
-  %136 = load i32, ptr %gep.i, align 4, !tbaa !215, !alias.scope !587, !noalias !592
-  %137 = zext i32 %136 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %73, i64 noundef %137), !noalias !587
+  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %122
+  %134 = load i32, ptr %gep.i, align 4, !tbaa !215, !alias.scope !587, !noalias !592
+  %135 = zext i32 %134 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %73, i64 noundef %135), !noalias !587
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %74) #33, !noalias !590
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %74, i64 noundef 64), !noalias !587
-  %138 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %74), !noalias !587
-  %139 = extractvalue { i64, i64 } %138, 0
-  store i64 %139, ptr %72, align 8, !noalias !590
-  %140 = extractvalue { i64, i64 } %138, 1
-  store i64 %140, ptr %122, align 8, !noalias !590
-  %141 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull align 8 dereferenceable(16) %72), !noalias !587
+  %136 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %74), !noalias !587
+  %137 = extractvalue { i64, i64 } %136, 0
+  store i64 %137, ptr %72, align 8, !noalias !590
+  %138 = extractvalue { i64, i64 } %136, 1
+  store i64 %138, ptr %120, align 8, !noalias !590
+  %139 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %126, ptr noundef nonnull align 8 dereferenceable(16) %72), !noalias !587
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %74) #33, !noalias !590
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %73) #33, !noalias !590
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %72) #33, !noalias !590
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 32
-  br i1 %exitcond.not.i22, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit, label %123, !llvm.loop !593
+  br i1 %exitcond.not.i22, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit, label %121, !llvm.loop !593
 
-142:                                              ; preds = %3
+140:                                              ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !594)
-  %143 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %144 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %145 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  br label %146
+  %141 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  br label %144
 
-146:                                              ; preds = %146, %142
-  %indvars.iv.i23 = phi i64 [ 0, %142 ], [ %indvars.iv.next.i24, %146 ]
-  %147 = shl nuw nsw i64 %indvars.iv.i23, 2
+144:                                              ; preds = %144, %140
+  %indvars.iv.i23 = phi i64 [ 0, %140 ], [ %indvars.iv.next.i25, %144 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %58) #33, !noalias !597
-  %148 = getelementptr inbounds nuw i32, ptr %0, i64 %147
-  %149 = load i32, ptr %148, align 4, !tbaa !215, !alias.scope !594, !noalias !599
-  %150 = zext i32 %149 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %58, i64 noundef %150), !noalias !594
-  %151 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %indvars.iv.i23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !571, !noalias !594
+  %.idx.i24 = shl nuw nsw i64 %indvars.iv.i23, 4
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i24
+  %146 = load i32, ptr %145, align 4, !tbaa !215, !alias.scope !594, !noalias !599
+  %147 = zext i32 %146 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %58, i64 noundef %147), !noalias !594
+  %148 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %indvars.iv.i23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false), !tbaa.struct !571, !noalias !594
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %58) #33, !noalias !597
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %59) #33, !noalias !597
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60) #33, !noalias !597
-  %152 = or disjoint i64 %147, 1
-  %153 = getelementptr inbounds nuw i32, ptr %0, i64 %152
-  %154 = load i32, ptr %153, align 4, !tbaa !215, !alias.scope !594, !noalias !599
-  %155 = zext i32 %154 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %60, i64 noundef %155), !noalias !594
+  %149 = getelementptr inbounds nuw i8, ptr %145, i64 4
+  %150 = load i32, ptr %149, align 4, !tbaa !215, !alias.scope !594, !noalias !599
+  %151 = zext i32 %150 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %60, i64 noundef %151), !noalias !594
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %61) #33, !noalias !597
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %61, i64 noundef 32), !noalias !594
-  %156 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %61), !noalias !594
-  %157 = extractvalue { i64, i64 } %156, 0
-  store i64 %157, ptr %59, align 8, !noalias !597
-  %158 = extractvalue { i64, i64 } %156, 1
-  store i64 %158, ptr %143, align 8, !noalias !597
-  %159 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(16) %59), !noalias !594
+  %152 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %61), !noalias !594
+  %153 = extractvalue { i64, i64 } %152, 0
+  store i64 %153, ptr %59, align 8, !noalias !597
+  %154 = extractvalue { i64, i64 } %152, 1
+  store i64 %154, ptr %141, align 8, !noalias !597
+  %155 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %59), !noalias !594
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %61) #33, !noalias !597
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %60) #33, !noalias !597
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %59) #33, !noalias !597
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %62) #33, !noalias !597
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %63) #33, !noalias !597
-  %160 = or disjoint i64 %147, 2
-  %161 = getelementptr inbounds nuw i32, ptr %0, i64 %160
-  %162 = load i32, ptr %161, align 4, !tbaa !215, !alias.scope !594, !noalias !599
-  %163 = zext i32 %162 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %63, i64 noundef %163), !noalias !594
+  %156 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %157 = load i32, ptr %156, align 4, !tbaa !215, !alias.scope !594, !noalias !599
+  %158 = zext i32 %157 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %63, i64 noundef %158), !noalias !594
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %64) #33, !noalias !597
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %64, i64 noundef 64), !noalias !594
-  %164 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %64), !noalias !594
-  %165 = extractvalue { i64, i64 } %164, 0
-  store i64 %165, ptr %62, align 8, !noalias !597
-  %166 = extractvalue { i64, i64 } %164, 1
-  store i64 %166, ptr %144, align 8, !noalias !597
-  %167 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(16) %62), !noalias !594
+  %159 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull align 8 dereferenceable(16) %64), !noalias !594
+  %160 = extractvalue { i64, i64 } %159, 0
+  store i64 %160, ptr %62, align 8, !noalias !597
+  %161 = extractvalue { i64, i64 } %159, 1
+  store i64 %161, ptr %142, align 8, !noalias !597
+  %162 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %62), !noalias !594
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %64) #33, !noalias !597
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %63) #33, !noalias !597
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %62) #33, !noalias !597
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %65) #33, !noalias !597
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %66) #33, !noalias !597
-  %168 = or disjoint i64 %147, 3
-  %169 = getelementptr inbounds nuw i32, ptr %0, i64 %168
-  %170 = load i32, ptr %169, align 4, !tbaa !215, !alias.scope !594, !noalias !599
-  %171 = zext i32 %170 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %66, i64 noundef %171), !noalias !594
+  %163 = getelementptr inbounds nuw i8, ptr %145, i64 12
+  %164 = load i32, ptr %163, align 4, !tbaa !215, !alias.scope !594, !noalias !599
+  %165 = zext i32 %164 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %66, i64 noundef %165), !noalias !594
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %67) #33, !noalias !597
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %67, i64 noundef 96), !noalias !594
-  %172 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %67), !noalias !594
-  %173 = extractvalue { i64, i64 } %172, 0
-  store i64 %173, ptr %65, align 8, !noalias !597
-  %174 = extractvalue { i64, i64 } %172, 1
-  store i64 %174, ptr %145, align 8, !noalias !597
-  %175 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %151, ptr noundef nonnull align 8 dereferenceable(16) %65), !noalias !594
+  %166 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %67), !noalias !594
+  %167 = extractvalue { i64, i64 } %166, 0
+  store i64 %167, ptr %65, align 8, !noalias !597
+  %168 = extractvalue { i64, i64 } %166, 1
+  store i64 %168, ptr %143, align 8, !noalias !597
+  %169 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %65), !noalias !594
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %67) #33, !noalias !597
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %66) #33, !noalias !597
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %65) #33, !noalias !597
-  %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, 1
-  %exitcond.not.i25 = icmp eq i64 %indvars.iv.next.i24, 32
-  br i1 %exitcond.not.i25, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit, label %146, !llvm.loop !600
+  %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i23, 1
+  %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, 32
+  br i1 %exitcond.not.i26, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit, label %144, !llvm.loop !600
 
-176:                                              ; preds = %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit
-  %177 = mul i8 %2, 31
-  %178 = and i8 %177, 31
+170:                                              ; preds = %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit
+  %171 = mul i8 %2, 31
+  %172 = and i8 %171, 31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %48) #33, !noalias !601
-  %179 = load i32, ptr %.1, align 4, !tbaa !215, !noalias !601
-  %180 = zext nneg i8 %178 to i32
-  %181 = lshr i32 %179, %180
-  %182 = zext i32 %181 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %182), !noalias !601
-  %183 = getelementptr inbounds nuw i8, ptr %1, i64 496
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !571
+  %173 = load i32, ptr %.1, align 4, !tbaa !215, !noalias !601
+  %174 = zext nneg i8 %172 to i32
+  %175 = lshr i32 %173, %174
+  %176 = zext i32 %175 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %48, i64 noundef %176), !noalias !601
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 496
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !571
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %48) #33, !noalias !601
-  %184 = icmp ugt i8 %2, 32
-  br i1 %184, label %185, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit
+  %178 = icmp ugt i8 %2, 32
+  br i1 %178, label %179, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit
 
-185:                                              ; preds = %176
+179:                                              ; preds = %170
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %49) #33, !noalias !601
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #33, !noalias !601
-  %186 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %187 = load i32, ptr %186, align 4, !tbaa !215, !noalias !601
-  %188 = zext i32 %187 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %50, i64 noundef %188), !noalias !601
+  %180 = getelementptr inbounds nuw i8, ptr %.1, i64 4
+  %181 = load i32, ptr %180, align 4, !tbaa !215, !noalias !601
+  %182 = zext i32 %181 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %50, i64 noundef %182), !noalias !601
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51) #33, !noalias !601
-  %189 = sub nuw nsw i32 32, %180
-  %190 = zext nneg i32 %189 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %51, i64 noundef %190), !noalias !601
-  %191 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %51), !noalias !601
-  %192 = extractvalue { i64, i64 } %191, 0
-  store i64 %192, ptr %49, align 8, !noalias !601
-  %193 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %194 = extractvalue { i64, i64 } %191, 1
-  store i64 %194, ptr %193, align 8, !noalias !601
-  %195 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef nonnull align 8 dereferenceable(16) %49)
+  %183 = sub nuw nsw i32 32, %174
+  %184 = zext nneg i32 %183 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %51, i64 noundef %184), !noalias !601
+  %185 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %51), !noalias !601
+  %186 = extractvalue { i64, i64 } %185, 0
+  store i64 %186, ptr %49, align 8, !noalias !601
+  %187 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %188 = extractvalue { i64, i64 } %185, 1
+  store i64 %188, ptr %187, align 8, !noalias !601
+  %189 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef nonnull align 8 dereferenceable(16) %49)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51) #33, !noalias !601
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #33, !noalias !601
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #33, !noalias !601
-  %196 = icmp ugt i8 %2, 64
-  br i1 %196, label %197, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit
+  %190 = icmp ugt i8 %2, 64
+  br i1 %190, label %191, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit
 
-197:                                              ; preds = %185
+191:                                              ; preds = %179
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %52) #33, !noalias !601
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %53) #33, !noalias !601
-  %198 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %199 = load i32, ptr %198, align 4, !tbaa !215
-  %200 = zext i32 %199 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %53, i64 noundef %200)
+  %192 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %193 = load i32, ptr %192, align 4, !tbaa !215
+  %194 = zext i32 %193 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %53, i64 noundef %194)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54) #33, !noalias !601
-  %201 = sub nuw nsw i32 64, %180
-  %202 = zext nneg i32 %201 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %54, i64 noundef %202)
-  %203 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %54)
-  %204 = extractvalue { i64, i64 } %203, 0
-  store i64 %204, ptr %52, align 8, !noalias !601
-  %205 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %206 = extractvalue { i64, i64 } %203, 1
-  store i64 %206, ptr %205, align 8, !noalias !601
-  %207 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef nonnull align 8 dereferenceable(16) %52)
+  %195 = sub nuw nsw i32 64, %174
+  %196 = zext nneg i32 %195 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %54, i64 noundef %196)
+  %197 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %54)
+  %198 = extractvalue { i64, i64 } %197, 0
+  store i64 %198, ptr %52, align 8, !noalias !601
+  %199 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %200 = extractvalue { i64, i64 } %197, 1
+  store i64 %200, ptr %199, align 8, !noalias !601
+  %201 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef nonnull align 8 dereferenceable(16) %52)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %54) #33, !noalias !601
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %53) #33, !noalias !601
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %52) #33, !noalias !601
-  %208 = icmp ugt i8 %2, 96
-  br i1 %208, label %209, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit
+  %202 = icmp ugt i8 %2, 96
+  br i1 %202, label %203, label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit
 
-209:                                              ; preds = %197
+203:                                              ; preds = %191
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %55) #33, !noalias !601
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %56) #33, !noalias !601
-  %210 = getelementptr inbounds nuw i8, ptr %.1, i64 12
-  %211 = load i32, ptr %210, align 4, !tbaa !215
-  %212 = zext i32 %211 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %56, i64 noundef %212)
+  %204 = getelementptr inbounds nuw i8, ptr %.1, i64 12
+  %205 = load i32, ptr %204, align 4, !tbaa !215
+  %206 = zext i32 %205 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %56, i64 noundef %206)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57) #33, !noalias !601
-  %213 = sub nuw nsw i32 96, %180
-  %214 = zext nneg i32 %213 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %57, i64 noundef %214)
-  %215 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57)
-  %216 = extractvalue { i64, i64 } %215, 0
-  store i64 %216, ptr %55, align 8, !noalias !601
-  %217 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %218 = extractvalue { i64, i64 } %215, 1
-  store i64 %218, ptr %217, align 8, !noalias !601
-  %219 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef nonnull align 8 dereferenceable(16) %55)
+  %207 = sub nuw nsw i32 96, %174
+  %208 = zext nneg i32 %207 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %57, i64 noundef %208)
+  %209 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %57)
+  %210 = extractvalue { i64, i64 } %209, 0
+  store i64 %210, ptr %55, align 8, !noalias !601
+  %211 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  %212 = extractvalue { i64, i64 } %209, 1
+  store i64 %212, ptr %211, align 8, !noalias !601
+  %213 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef nonnull align 8 dereferenceable(16) %55)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %57) #33, !noalias !601
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %56) #33, !noalias !601
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %55) #33, !noalias !601
   br label %_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit
 
-220:                                              ; preds = %.preheader, %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit
-  %.051 = phi i64 [ 0, %.preheader ], [ %380, %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit ]
-  %.04450 = phi ptr [ %0, %.preheader ], [ %.1, %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit ]
-  %221 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %.051
-  %222 = mul nuw nsw i64 %.051, %84
-  %223 = trunc nuw nsw i64 %222 to i16
-  %224 = and i16 %223, 31
+214:                                              ; preds = %.preheader, %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit
+  %.052 = phi i64 [ 0, %.preheader ], [ %374, %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit ]
+  %.04551 = phi ptr [ %0, %.preheader ], [ %.1, %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit ]
+  %215 = getelementptr inbounds nuw %"struct.duckdb::uhugeint_t", ptr %1, i64 %.052
+  %216 = mul nuw nsw i64 %.052, %84
+  %217 = trunc nuw nsw i64 %216 to i16
+  %218 = and i16 %217, 31
   call void @llvm.experimental.noalias.scope.decl(metadata !604)
-  %225 = zext nneg i16 %224 to i32
-  %narrow.i = add nuw nsw i16 %224, %83
-  %226 = icmp samesign ult i16 %narrow.i, 32
-  br i1 %226, label %227, label %240
+  %219 = zext nneg i16 %218 to i32
+  %narrow.i = add nuw nsw i16 %218, %83
+  %220 = icmp samesign ult i16 %narrow.i, 32
+  br i1 %220, label %221, label %234
 
-227:                                              ; preds = %220
+221:                                              ; preds = %214
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #33, !noalias !604
-  %228 = load i32, ptr %.04450, align 4, !tbaa !215, !noalias !604
-  %229 = zext i32 %228 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %229), !noalias !604
+  %222 = load i32, ptr %.04551, align 4, !tbaa !215, !noalias !604
+  %223 = zext i32 %222 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %223), !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #33, !noalias !604
-  %230 = and i64 %222, 31
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %230), !noalias !604
-  %231 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6), !noalias !604
-  %232 = extractvalue { i64, i64 } %231, 0
-  store i64 %232, ptr %4, align 8, !noalias !604
-  %233 = extractvalue { i64, i64 } %231, 1
-  store i64 %233, ptr %95, align 8, !noalias !604
+  %224 = and i64 %216, 31
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %224), !noalias !604
+  %225 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6), !noalias !604
+  %226 = extractvalue { i64, i64 } %225, 0
+  store i64 %226, ptr %4, align 8, !noalias !604
+  %227 = extractvalue { i64, i64 } %225, 1
+  store i64 %227, ptr %95, align 8, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #33, !noalias !604
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef 1), !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #33, !noalias !604
   call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %84), !noalias !604
-  %234 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9), !noalias !604
-  %235 = extractvalue { i64, i64 } %234, 0
-  store i64 %235, ptr %7, align 8, !noalias !604
-  %236 = extractvalue { i64, i64 } %234, 1
-  store i64 %236, ptr %96, align 8, !noalias !604
-  %237 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trmERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7), !noalias !604
-  %238 = extractvalue { i64, i64 } %237, 0
-  %239 = extractvalue { i64, i64 } %237, 1
-  store i64 %238, ptr %221, align 8, !tbaa !19, !alias.scope !604
-  %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %221, i64 8
-  store i64 %239, ptr %.sroa.411.0..sroa_idx.i, align 8, !tbaa !19, !alias.scope !604
+  %228 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9), !noalias !604
+  %229 = extractvalue { i64, i64 } %228, 0
+  store i64 %229, ptr %7, align 8, !noalias !604
+  %230 = extractvalue { i64, i64 } %228, 1
+  store i64 %230, ptr %96, align 8, !noalias !604
+  %231 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trmERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7), !noalias !604
+  %232 = extractvalue { i64, i64 } %231, 0
+  %233 = extractvalue { i64, i64 } %231, 1
+  store i64 %232, ptr %215, align 8, !tbaa !19, !alias.scope !604
+  %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %215, i64 8
+  store i64 %233, ptr %.sroa.411.0..sroa_idx.i, align 8, !tbaa !19, !alias.scope !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #33, !noalias !604
@@ -14026,318 +14018,318 @@ define void @_ZN6duckdb13HugeIntPacker6UnpackEPKjPNS_10uhugeint_tEh(ptr noalias 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #33, !noalias !604
   br label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit
 
-240:                                              ; preds = %220
-  %241 = icmp samesign ult i16 %narrow.i, 64
-  br i1 %241, label %242, label %263
+234:                                              ; preds = %214
+  %235 = icmp samesign ult i16 %narrow.i, 64
+  br i1 %235, label %236, label %257
 
-242:                                              ; preds = %240
+236:                                              ; preds = %234
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #33, !noalias !604
-  %243 = load i32, ptr %.04450, align 4, !tbaa !215, !noalias !604
-  %244 = zext i32 %243 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %244), !noalias !604
+  %237 = load i32, ptr %.04551, align 4, !tbaa !215, !noalias !604
+  %238 = zext i32 %237 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %238), !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #33, !noalias !604
-  %245 = and i64 %222, 31
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %245), !noalias !604
-  %246 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11), !noalias !604
-  %247 = extractvalue { i64, i64 } %246, 0
-  %248 = extractvalue { i64, i64 } %246, 1
-  store i64 %247, ptr %221, align 8, !tbaa !19, !alias.scope !604
-  %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %221, i64 8
-  store i64 %248, ptr %.sroa.49.0..sroa_idx.i, align 8, !tbaa !19, !alias.scope !604
+  %239 = and i64 %216, 31
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %239), !noalias !604
+  %240 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11), !noalias !604
+  %241 = extractvalue { i64, i64 } %240, 0
+  %242 = extractvalue { i64, i64 } %240, 1
+  store i64 %241, ptr %215, align 8, !tbaa !19, !alias.scope !604
+  %.sroa.49.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %215, i64 8
+  store i64 %242, ptr %.sroa.49.0..sroa_idx.i, align 8, !tbaa !19, !alias.scope !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #33, !noalias !604
-  %249 = getelementptr inbounds nuw i8, ptr %.04450, i64 4
+  %243 = getelementptr inbounds nuw i8, ptr %.04551, i64 4
   %.not97.i = icmp eq i16 %narrow.i, 32
-  br i1 %.not97.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit, label %250
+  br i1 %.not97.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit, label %244
 
-250:                                              ; preds = %242
-  %251 = add nsw i16 %narrow.i, -32
+244:                                              ; preds = %236
+  %245 = add nsw i16 %narrow.i, -32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #33, !noalias !604
-  %252 = load i32, ptr %249, align 4, !tbaa !215, !noalias !604
-  %253 = zext nneg i16 %251 to i32
-  %notmask98.i = shl nsw i32 -1, %253
-  %254 = xor i32 %notmask98.i, -1
-  %255 = and i32 %252, %254
-  %256 = zext nneg i32 %255 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %256), !noalias !604
+  %246 = load i32, ptr %243, align 4, !tbaa !215, !noalias !604
+  %247 = zext nneg i16 %245 to i32
+  %notmask98.i = shl nsw i32 -1, %247
+  %248 = xor i32 %notmask98.i, -1
+  %249 = and i32 %246, %248
+  %250 = zext nneg i32 %249 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %250), !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #33, !noalias !604
-  %257 = sub nuw nsw i32 32, %225
-  %258 = zext nneg i32 %257 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %258), !noalias !604
-  %259 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14), !noalias !604
-  %260 = extractvalue { i64, i64 } %259, 0
-  store i64 %260, ptr %12, align 8, !noalias !604
-  %261 = extractvalue { i64, i64 } %259, 1
-  store i64 %261, ptr %94, align 8, !noalias !604
-  %262 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef nonnull align 8 dereferenceable(16) %12)
+  %251 = sub nuw nsw i32 32, %219
+  %252 = zext nneg i32 %251 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %252), !noalias !604
+  %253 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14), !noalias !604
+  %254 = extractvalue { i64, i64 } %253, 0
+  store i64 %254, ptr %12, align 8, !noalias !604
+  %255 = extractvalue { i64, i64 } %253, 1
+  store i64 %255, ptr %94, align 8, !noalias !604
+  %256 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #33, !noalias !604
   br label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit
 
-263:                                              ; preds = %240
-  %264 = icmp samesign ult i16 %narrow.i, 96
-  br i1 %264, label %265, label %295
+257:                                              ; preds = %234
+  %258 = icmp samesign ult i16 %narrow.i, 96
+  br i1 %258, label %259, label %289
 
-265:                                              ; preds = %263
+259:                                              ; preds = %257
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #33, !noalias !604
-  %266 = load i32, ptr %.04450, align 4, !tbaa !215, !noalias !604
-  %267 = zext i32 %266 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %267), !noalias !604
+  %260 = load i32, ptr %.04551, align 4, !tbaa !215, !noalias !604
+  %261 = zext i32 %260 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %15, i64 noundef %261), !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #33, !noalias !604
-  %268 = and i64 %222, 31
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef %268), !noalias !604
-  %269 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16), !noalias !604
-  %270 = extractvalue { i64, i64 } %269, 0
-  %271 = extractvalue { i64, i64 } %269, 1
-  store i64 %270, ptr %221, align 8, !tbaa !19, !alias.scope !604
-  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %221, i64 8
-  store i64 %271, ptr %.sroa.46.0..sroa_idx.i, align 8, !tbaa !19, !alias.scope !604
+  %262 = and i64 %216, 31
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef %262), !noalias !604
+  %263 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16), !noalias !604
+  %264 = extractvalue { i64, i64 } %263, 0
+  %265 = extractvalue { i64, i64 } %263, 1
+  store i64 %264, ptr %215, align 8, !tbaa !19, !alias.scope !604
+  %.sroa.46.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %215, i64 8
+  store i64 %265, ptr %.sroa.46.0..sroa_idx.i, align 8, !tbaa !19, !alias.scope !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #33, !noalias !604
-  %272 = getelementptr inbounds nuw i8, ptr %.04450, i64 4
-  %273 = load i32, ptr %272, align 4, !tbaa !215, !noalias !604
-  %274 = zext i32 %273 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %274), !noalias !604
+  %266 = getelementptr inbounds nuw i8, ptr %.04551, i64 4
+  %267 = load i32, ptr %266, align 4, !tbaa !215, !noalias !604
+  %268 = zext i32 %267 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %268), !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #33, !noalias !604
-  %275 = sub nuw nsw i32 32, %225
-  %276 = zext nneg i32 %275 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %276), !noalias !604
-  %277 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19), !noalias !604
-  %278 = extractvalue { i64, i64 } %277, 0
-  store i64 %278, ptr %17, align 8, !noalias !604
-  %279 = extractvalue { i64, i64 } %277, 1
-  store i64 %279, ptr %92, align 8, !noalias !604
-  %280 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef nonnull align 8 dereferenceable(16) %17)
+  %269 = sub nuw nsw i32 32, %219
+  %270 = zext nneg i32 %269 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %270), !noalias !604
+  %271 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19), !noalias !604
+  %272 = extractvalue { i64, i64 } %271, 0
+  store i64 %272, ptr %17, align 8, !noalias !604
+  %273 = extractvalue { i64, i64 } %271, 1
+  store i64 %273, ptr %92, align 8, !noalias !604
+  %274 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %17)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #33, !noalias !604
-  %281 = getelementptr inbounds nuw i8, ptr %.04450, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %.04551, i64 8
   %.not95.i = icmp eq i16 %narrow.i, 64
-  br i1 %.not95.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit, label %282
+  br i1 %.not95.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit, label %276
 
-282:                                              ; preds = %265
-  %283 = add nsw i16 %narrow.i, -64
+276:                                              ; preds = %259
+  %277 = add nsw i16 %narrow.i, -64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #33, !noalias !604
-  %284 = load i32, ptr %281, align 4, !tbaa !215
-  %285 = zext nneg i16 %283 to i32
-  %notmask96.i = shl nsw i32 -1, %285
-  %286 = xor i32 %notmask96.i, -1
-  %287 = and i32 %284, %286
-  %288 = zext nneg i32 %287 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %288)
+  %278 = load i32, ptr %275, align 4, !tbaa !215
+  %279 = zext nneg i16 %277 to i32
+  %notmask96.i = shl nsw i32 -1, %279
+  %280 = xor i32 %notmask96.i, -1
+  %281 = and i32 %278, %280
+  %282 = zext nneg i32 %281 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %282)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #33, !noalias !604
-  %289 = sub nuw nsw i32 64, %225
-  %290 = zext nneg i32 %289 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %22, i64 noundef %290)
-  %291 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22)
-  %292 = extractvalue { i64, i64 } %291, 0
-  store i64 %292, ptr %20, align 8, !noalias !604
-  %293 = extractvalue { i64, i64 } %291, 1
-  store i64 %293, ptr %93, align 8, !noalias !604
-  %294 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef nonnull align 8 dereferenceable(16) %20)
+  %283 = sub nuw nsw i32 64, %219
+  %284 = zext nneg i32 %283 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %22, i64 noundef %284)
+  %285 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22)
+  %286 = extractvalue { i64, i64 } %285, 0
+  store i64 %286, ptr %20, align 8, !noalias !604
+  %287 = extractvalue { i64, i64 } %285, 1
+  store i64 %287, ptr %93, align 8, !noalias !604
+  %288 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %20)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #33, !noalias !604
   br label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit
 
-295:                                              ; preds = %263
-  %296 = icmp samesign ult i16 %narrow.i, 128
-  %297 = and i64 %222, 31
-  %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %221, i64 8
-  %298 = getelementptr inbounds nuw i8, ptr %.04450, i64 4
-  %299 = sub nuw nsw i32 32, %225
-  %300 = zext nneg i32 %299 to i64
-  br i1 %296, label %301, label %336
+289:                                              ; preds = %257
+  %290 = icmp samesign ult i16 %narrow.i, 128
+  %291 = and i64 %216, 31
+  %.sroa.43.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %215, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %.04551, i64 4
+  %293 = sub nuw nsw i32 32, %219
+  %294 = zext nneg i32 %293 to i64
+  br i1 %290, label %295, label %330
 
-301:                                              ; preds = %295
+295:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %23) #33, !noalias !604
-  %302 = load i32, ptr %.04450, align 4, !tbaa !215, !noalias !604
-  %303 = zext i32 %302 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %303), !noalias !604
+  %296 = load i32, ptr %.04551, align 4, !tbaa !215, !noalias !604
+  %297 = zext i32 %296 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %297), !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #33, !noalias !604
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %24, i64 noundef %297), !noalias !604
-  %304 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24), !noalias !604
-  %305 = extractvalue { i64, i64 } %304, 0
-  %306 = extractvalue { i64, i64 } %304, 1
-  store i64 %305, ptr %221, align 8, !tbaa !19, !alias.scope !604
-  store i64 %306, ptr %.sroa.43.0..sroa_idx.i, align 8, !tbaa !19, !alias.scope !604
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %24, i64 noundef %291), !noalias !604
+  %298 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %24), !noalias !604
+  %299 = extractvalue { i64, i64 } %298, 0
+  %300 = extractvalue { i64, i64 } %298, 1
+  store i64 %299, ptr %215, align 8, !tbaa !19, !alias.scope !604
+  store i64 %300, ptr %.sroa.43.0..sroa_idx.i, align 8, !tbaa !19, !alias.scope !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #33, !noalias !604
-  %307 = load i32, ptr %298, align 4, !tbaa !215, !noalias !604
-  %308 = zext i32 %307 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %26, i64 noundef %308), !noalias !604
+  %301 = load i32, ptr %292, align 4, !tbaa !215, !noalias !604
+  %302 = zext i32 %301 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %26, i64 noundef %302), !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #33, !noalias !604
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %27, i64 noundef %300), !noalias !604
-  %309 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %27), !noalias !604
-  %310 = extractvalue { i64, i64 } %309, 0
-  store i64 %310, ptr %25, align 8, !noalias !604
-  %311 = extractvalue { i64, i64 } %309, 1
-  store i64 %311, ptr %89, align 8, !noalias !604
-  %312 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef nonnull align 8 dereferenceable(16) %25)
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %27, i64 noundef %294), !noalias !604
+  %303 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 8 dereferenceable(16) %27), !noalias !604
+  %304 = extractvalue { i64, i64 } %303, 0
+  store i64 %304, ptr %25, align 8, !noalias !604
+  %305 = extractvalue { i64, i64 } %303, 1
+  store i64 %305, ptr %89, align 8, !noalias !604
+  %306 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %25)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #33, !noalias !604
-  %313 = getelementptr inbounds nuw i8, ptr %.04450, i64 8
-  %314 = load i32, ptr %313, align 4, !tbaa !215
-  %315 = zext i32 %314 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %29, i64 noundef %315)
+  %307 = getelementptr inbounds nuw i8, ptr %.04551, i64 8
+  %308 = load i32, ptr %307, align 4, !tbaa !215
+  %309 = zext i32 %308 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %29, i64 noundef %309)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #33, !noalias !604
-  %316 = sub nuw nsw i32 64, %225
-  %317 = zext nneg i32 %316 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %317)
-  %318 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30)
-  %319 = extractvalue { i64, i64 } %318, 0
-  store i64 %319, ptr %28, align 8, !noalias !604
-  %320 = extractvalue { i64, i64 } %318, 1
-  store i64 %320, ptr %90, align 8, !noalias !604
-  %321 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef nonnull align 8 dereferenceable(16) %28)
+  %310 = sub nuw nsw i32 64, %219
+  %311 = zext nneg i32 %310 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %311)
+  %312 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30)
+  %313 = extractvalue { i64, i64 } %312, 0
+  store i64 %313, ptr %28, align 8, !noalias !604
+  %314 = extractvalue { i64, i64 } %312, 1
+  store i64 %314, ptr %90, align 8, !noalias !604
+  %315 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %28)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #33, !noalias !604
-  %322 = getelementptr inbounds nuw i8, ptr %.04450, i64 12
+  %316 = getelementptr inbounds nuw i8, ptr %.04551, i64 12
   %.not93.i = icmp eq i16 %narrow.i, 96
-  br i1 %.not93.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit, label %323
+  br i1 %.not93.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit, label %317
 
-323:                                              ; preds = %301
-  %324 = add nsw i16 %narrow.i, -96
+317:                                              ; preds = %295
+  %318 = add nsw i16 %narrow.i, -96
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #33, !noalias !604
-  %325 = load i32, ptr %322, align 4, !tbaa !215
-  %326 = zext nneg i16 %324 to i32
-  %notmask94.i = shl nsw i32 -1, %326
-  %327 = xor i32 %notmask94.i, -1
-  %328 = and i32 %325, %327
-  %329 = zext nneg i32 %328 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 noundef %329)
+  %319 = load i32, ptr %316, align 4, !tbaa !215
+  %320 = zext nneg i16 %318 to i32
+  %notmask94.i = shl nsw i32 -1, %320
+  %321 = xor i32 %notmask94.i, -1
+  %322 = and i32 %319, %321
+  %323 = zext nneg i32 %322 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 noundef %323)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #33, !noalias !604
-  %330 = sub nuw nsw i32 96, %225
-  %331 = zext nneg i32 %330 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %33, i64 noundef %331)
-  %332 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %33)
-  %333 = extractvalue { i64, i64 } %332, 0
-  store i64 %333, ptr %31, align 8, !noalias !604
-  %334 = extractvalue { i64, i64 } %332, 1
-  store i64 %334, ptr %91, align 8, !noalias !604
-  %335 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef nonnull align 8 dereferenceable(16) %31)
+  %324 = sub nuw nsw i32 96, %219
+  %325 = zext nneg i32 %324 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %33, i64 noundef %325)
+  %326 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %33)
+  %327 = extractvalue { i64, i64 } %326, 0
+  store i64 %327, ptr %31, align 8, !noalias !604
+  %328 = extractvalue { i64, i64 } %326, 1
+  store i64 %328, ptr %91, align 8, !noalias !604
+  %329 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %31)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %32) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #33, !noalias !604
   br label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit
 
-336:                                              ; preds = %295
+330:                                              ; preds = %289
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #33, !noalias !604
-  %337 = load i32, ptr %.04450, align 4, !tbaa !215, !noalias !604
-  %338 = zext i32 %337 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %34, i64 noundef %338), !noalias !604
+  %331 = load i32, ptr %.04551, align 4, !tbaa !215, !noalias !604
+  %332 = zext i32 %331 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %34, i64 noundef %332), !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %35) #33, !noalias !604
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %35, i64 noundef %297), !noalias !604
-  %339 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %35), !noalias !604
-  %340 = extractvalue { i64, i64 } %339, 0
-  %341 = extractvalue { i64, i64 } %339, 1
-  store i64 %340, ptr %221, align 8, !tbaa !19, !alias.scope !604
-  store i64 %341, ptr %.sroa.43.0..sroa_idx.i, align 8, !tbaa !19, !alias.scope !604
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %35, i64 noundef %291), !noalias !604
+  %333 = call { i64, i64 } @_ZNK6duckdb10uhugeint_trsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %35), !noalias !604
+  %334 = extractvalue { i64, i64 } %333, 0
+  %335 = extractvalue { i64, i64 } %333, 1
+  store i64 %334, ptr %215, align 8, !tbaa !19, !alias.scope !604
+  store i64 %335, ptr %.sroa.43.0..sroa_idx.i, align 8, !tbaa !19, !alias.scope !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37) #33, !noalias !604
-  %342 = load i32, ptr %298, align 4, !tbaa !215, !noalias !604
-  %343 = zext i32 %342 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %343), !noalias !604
+  %336 = load i32, ptr %292, align 4, !tbaa !215, !noalias !604
+  %337 = zext i32 %336 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %37, i64 noundef %337), !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38) #33, !noalias !604
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %38, i64 noundef %300), !noalias !604
-  %344 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %38), !noalias !604
-  %345 = extractvalue { i64, i64 } %344, 0
-  store i64 %345, ptr %36, align 8, !noalias !604
-  %346 = extractvalue { i64, i64 } %344, 1
-  store i64 %346, ptr %85, align 8, !noalias !604
-  %347 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef nonnull align 8 dereferenceable(16) %36)
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %38, i64 noundef %294), !noalias !604
+  %338 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull align 8 dereferenceable(16) %38), !noalias !604
+  %339 = extractvalue { i64, i64 } %338, 0
+  store i64 %339, ptr %36, align 8, !noalias !604
+  %340 = extractvalue { i64, i64 } %338, 1
+  store i64 %340, ptr %85, align 8, !noalias !604
+  %341 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %36)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %39) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #33, !noalias !604
-  %348 = getelementptr inbounds nuw i8, ptr %.04450, i64 8
-  %349 = load i32, ptr %348, align 4, !tbaa !215
-  %350 = zext i32 %349 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %350)
+  %342 = getelementptr inbounds nuw i8, ptr %.04551, i64 8
+  %343 = load i32, ptr %342, align 4, !tbaa !215
+  %344 = zext i32 %343 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %344)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #33, !noalias !604
-  %351 = sub nuw nsw i32 64, %225
-  %352 = zext nneg i32 %351 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %352)
-  %353 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %41)
-  %354 = extractvalue { i64, i64 } %353, 0
-  store i64 %354, ptr %39, align 8, !noalias !604
-  %355 = extractvalue { i64, i64 } %353, 1
-  store i64 %355, ptr %86, align 8, !noalias !604
-  %356 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef nonnull align 8 dereferenceable(16) %39)
+  %345 = sub nuw nsw i32 64, %219
+  %346 = zext nneg i32 %345 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %346)
+  %347 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %41)
+  %348 = extractvalue { i64, i64 } %347, 0
+  store i64 %348, ptr %39, align 8, !noalias !604
+  %349 = extractvalue { i64, i64 } %347, 1
+  store i64 %349, ptr %86, align 8, !noalias !604
+  %350 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %39)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %43) #33, !noalias !604
-  %357 = getelementptr inbounds nuw i8, ptr %.04450, i64 12
-  %358 = load i32, ptr %357, align 4, !tbaa !215
-  %359 = zext i32 %358 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 noundef %359)
+  %351 = getelementptr inbounds nuw i8, ptr %.04551, i64 12
+  %352 = load i32, ptr %351, align 4, !tbaa !215
+  %353 = zext i32 %352 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 noundef %353)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %44) #33, !noalias !604
-  %360 = sub nuw nsw i32 96, %225
-  %361 = zext nneg i32 %360 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %44, i64 noundef %361)
-  %362 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %44)
-  %363 = extractvalue { i64, i64 } %362, 0
-  store i64 %363, ptr %42, align 8, !noalias !604
-  %364 = extractvalue { i64, i64 } %362, 1
-  store i64 %364, ptr %87, align 8, !noalias !604
-  %365 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef nonnull align 8 dereferenceable(16) %42)
+  %354 = sub nuw nsw i32 96, %219
+  %355 = zext nneg i32 %354 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %44, i64 noundef %355)
+  %356 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %43, ptr noundef nonnull align 8 dereferenceable(16) %44)
+  %357 = extractvalue { i64, i64 } %356, 0
+  store i64 %357, ptr %42, align 8, !noalias !604
+  %358 = extractvalue { i64, i64 } %356, 1
+  store i64 %358, ptr %87, align 8, !noalias !604
+  %359 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %42)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #33, !noalias !604
-  %366 = getelementptr inbounds nuw i8, ptr %.04450, i64 16
+  %360 = getelementptr inbounds nuw i8, ptr %.04551, i64 16
   %.not.i = icmp eq i16 %narrow.i, 128
-  br i1 %.not.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit, label %367
+  br i1 %.not.i, label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit, label %361
 
-367:                                              ; preds = %336
-  %368 = add nsw i16 %narrow.i, -128
+361:                                              ; preds = %330
+  %362 = add nsw i16 %narrow.i, -128
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %45) #33, !noalias !604
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %46) #33, !noalias !604
-  %369 = load i32, ptr %366, align 4, !tbaa !215
-  %370 = zext nneg i16 %368 to i32
-  %notmask.i = shl nsw i32 -1, %370
-  %371 = xor i32 %notmask.i, -1
-  %372 = and i32 %369, %371
-  %373 = zext nneg i32 %372 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %46, i64 noundef %373)
+  %363 = load i32, ptr %360, align 4, !tbaa !215
+  %364 = zext nneg i16 %362 to i32
+  %notmask.i = shl nsw i32 -1, %364
+  %365 = xor i32 %notmask.i, -1
+  %366 = and i32 %363, %365
+  %367 = zext nneg i32 %366 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %46, i64 noundef %367)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %47) #33, !noalias !604
-  %374 = sub nuw nsw i32 128, %225
-  %375 = zext nneg i32 %374 to i64
-  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %47, i64 noundef %375)
-  %376 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %47)
-  %377 = extractvalue { i64, i64 } %376, 0
-  store i64 %377, ptr %45, align 8, !noalias !604
-  %378 = extractvalue { i64, i64 } %376, 1
-  store i64 %378, ptr %88, align 8, !noalias !604
-  %379 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef nonnull align 8 dereferenceable(16) %45)
+  %368 = sub nuw nsw i32 128, %219
+  %369 = zext nneg i32 %368 to i64
+  call void @_ZN6duckdb10uhugeint_tC1Em(ptr noundef nonnull align 8 dereferenceable(16) %47, i64 noundef %369)
+  %370 = call { i64, i64 } @_ZNK6duckdb10uhugeint_tlsERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %47)
+  %371 = extractvalue { i64, i64 } %370, 0
+  store i64 %371, ptr %45, align 8, !noalias !604
+  %372 = extractvalue { i64, i64 } %370, 1
+  store i64 %372, ptr %88, align 8, !noalias !604
+  %373 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb10uhugeint_toRERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %45)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #33, !noalias !604
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #33, !noalias !604
   br label %_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit
 
-_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit: ; preds = %227, %242, %250, %265, %282, %301, %323, %336, %367
-  %.1 = phi ptr [ %.04450, %227 ], [ %249, %242 ], [ %249, %250 ], [ %281, %265 ], [ %281, %282 ], [ %322, %301 ], [ %322, %323 ], [ %366, %336 ], [ %366, %367 ]
-  %380 = add nuw nsw i64 %.051, 1
-  %exitcond.not = icmp eq i64 %380, 31
-  br i1 %exitcond.not, label %176, label %220, !llvm.loop !607
+_ZN6duckdbL12UnpackSingleERrPKjPNS_10uhugeint_tEtt.exit: ; preds = %221, %236, %244, %259, %276, %295, %317, %330, %361
+  %.1 = phi ptr [ %.04551, %221 ], [ %243, %236 ], [ %243, %244 ], [ %275, %259 ], [ %275, %276 ], [ %316, %295 ], [ %316, %317 ], [ %360, %330 ], [ %360, %361 ]
+  %374 = add nuw nsw i64 %.052, 1
+  %exitcond.not = icmp eq i64 %374, 31
+  br i1 %exitcond.not, label %170, label %214, !llvm.loop !607
 
-_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit: ; preds = %146, %123, %106, %99, %.preheader45, %209, %197, %185, %176
+_ZN6duckdbL12UnpackDelta0EPKjPNS_10uhugeint_tE.exit: ; preds = %144, %121, %106, %99, %.preheader46, %203, %191, %179, %170
   ret void
 }
 
@@ -50416,21 +50408,21 @@ define linkonce_odr void @_ZN6duckdb16RLECompressStateINS_9hugeint_tELb1EE12Flus
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load i64, ptr %7, align 8, !tbaa !1562
   %9 = shl i64 %8, 4
-  %10 = or disjoint i64 %9, 8
-  %11 = shl i64 %5, 4
-  %12 = or disjoint i64 %11, 8
-  %13 = add i64 %12, %6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
-  %16 = load ptr, ptr %15, align 8, !tbaa !418
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !419
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %12
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %10
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %20, i64 %6, i1 false)
-  store i64 %12, ptr %18, align 1
-  tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %10 = shl i64 %5, 4
+  %11 = or disjoint i64 %10, 8
+  %12 = add i64 %11, %6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %15 = load ptr, ptr %14, align 8, !tbaa !418
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !419
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %11
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %9
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %20, i64 %6, i1 false)
+  store i64 %11, ptr %17, align 1
+  tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !1560
   %23 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN6duckdb24ColumnDataCheckpointData18GetCheckpointStateEv(ptr noundef nonnull align 8 dereferenceable(40) %22)
@@ -50438,11 +50430,11 @@ define linkonce_odr void @_ZN6duckdb16RLECompressStateINS_9hugeint_tELb1EE12Flus
   %25 = load i64, ptr %24, align 8, !tbaa !193
   store i64 %25, ptr %2, align 8, !tbaa !193
   store ptr null, ptr %24, align 8, !tbaa !193
-  call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %14) #33
+  call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %13) #33
   %26 = load ptr, ptr %23, align 8, !tbaa !112
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load ptr, ptr %27, align 8
-  invoke void %28(ptr noundef nonnull align 8 dereferenceable(144) %23, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %13)
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(144) %23, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %12)
           to label %29 unwind label %31
 
 29:                                               ; preds = %1
@@ -52883,21 +52875,21 @@ define linkonce_odr void @_ZN6duckdb16RLECompressStateINS_10uhugeint_tELb1EE12Fl
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load i64, ptr %7, align 8, !tbaa !1605
   %9 = shl i64 %8, 4
-  %10 = or disjoint i64 %9, 8
-  %11 = shl i64 %5, 4
-  %12 = or disjoint i64 %11, 8
-  %13 = add i64 %12, %6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
-  %16 = load ptr, ptr %15, align 8, !tbaa !418
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !419
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %12
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %10
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %19, ptr nonnull align 1 %20, i64 %6, i1 false)
-  store i64 %12, ptr %18, align 1
-  tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
+  %10 = shl i64 %5, 4
+  %11 = or disjoint i64 %10, 8
+  %12 = add i64 %11, %6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %15 = load ptr, ptr %14, align 8, !tbaa !418
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !419
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %11
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %9
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %18, ptr nonnull align 1 %20, i64 %6, i1 false)
+  store i64 %11, ptr %17, align 1
+  tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !1603
   %23 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN6duckdb24ColumnDataCheckpointData18GetCheckpointStateEv(ptr noundef nonnull align 8 dereferenceable(40) %22)
@@ -52905,11 +52897,11 @@ define linkonce_odr void @_ZN6duckdb16RLECompressStateINS_10uhugeint_tELb1EE12Fl
   %25 = load i64, ptr %24, align 8, !tbaa !193
   store i64 %25, ptr %2, align 8, !tbaa !193
   store ptr null, ptr %24, align 8, !tbaa !193
-  call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %14) #33
+  call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %13) #33
   %26 = load ptr, ptr %23, align 8, !tbaa !112
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load ptr, ptr %27, align 8
-  invoke void %28(ptr noundef nonnull align 8 dereferenceable(144) %23, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %13)
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(144) %23, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %12)
           to label %29 unwind label %31
 
 29:                                               ; preds = %1

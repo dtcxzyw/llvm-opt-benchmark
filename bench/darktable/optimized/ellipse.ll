@@ -458,7 +458,7 @@ define internal void @_ellipse_get_distance(float noundef %0, float noundef %1, 
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = load i32, ptr %16, align 8, !tbaa !33
   %18 = icmp sgt i32 %17, 10
-  br i1 %18, label %19, label %105
+  br i1 %18, label %19, label %103
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -612,7 +612,7 @@ _ellipse_cross_test.exit37.i:                     ; preds = %78, %75, %72, %66, 
 
 _ellipse_point_in_polygon.exit:                   ; preds = %_ellipse_cross_test.exit37.i
   %89 = icmp sgt i32 %88, -1
-  br i1 %89, label %90, label %105
+  br i1 %89, label %90, label %103
 
 90:                                               ; preds = %_ellipse_point_in_polygon.exit
   store i32 1, ptr %9, align 4, !tbaa !30
@@ -624,81 +624,80 @@ _ellipse_point_in_polygon.exit:                   ; preds = %_ellipse_cross_test
 
 91:                                               ; preds = %90, %91
   %indvars.iv76 = phi i64 [ 0, %90 ], [ %indvars.iv.next77, %91 ]
-  %92 = phi float [ %.promoted73, %90 ], [ %104, %91 ]
-  %93 = shl nuw nsw i64 %indvars.iv76, 1
-  %94 = getelementptr inbounds nuw float, ptr %21, i64 %93
-  %95 = load float, ptr %94, align 4, !tbaa !24
-  %96 = fsub reassoc nsz arcp contract afn float %0, %95
-  %97 = or disjoint i64 %93, 1
-  %98 = getelementptr inbounds nuw float, ptr %21, i64 %97
-  %99 = load float, ptr %98, align 4, !tbaa !24
-  %100 = fsub reassoc nsz arcp contract afn float %1, %99
-  %101 = fmul reassoc nsz arcp contract afn float %96, %96
-  %102 = fmul reassoc nsz arcp contract afn float %100, %100
-  %103 = fadd reassoc nsz arcp contract afn float %102, %101
-  %104 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %92, float %103)
-  store float %104, ptr %10, align 4, !tbaa !24
+  %92 = phi float [ %.promoted73, %90 ], [ %102, %91 ]
+  %.idx = shl nuw nsw i64 %indvars.iv76, 3
+  %93 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
+  %94 = load float, ptr %93, align 4, !tbaa !24
+  %95 = fsub reassoc nsz arcp contract afn float %0, %94
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 4
+  %97 = load float, ptr %96, align 4, !tbaa !24
+  %98 = fsub reassoc nsz arcp contract afn float %1, %97
+  %99 = fmul reassoc nsz arcp contract afn float %95, %95
+  %100 = fmul reassoc nsz arcp contract afn float %98, %98
+  %101 = fadd reassoc nsz arcp contract afn float %100, %99
+  %102 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %92, float %101)
+  store float %102, ptr %10, align 4, !tbaa !24
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next77, 5
   br i1 %exitcond79.not, label %.loopexit, label %91
 
-105:                                              ; preds = %_ellipse_point_in_polygon.exit, %15
-  %106 = load ptr, ptr %14, align 8, !tbaa !37
-  %107 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %108 = load ptr, ptr %107, align 8, !tbaa !38
+103:                                              ; preds = %_ellipse_point_in_polygon.exit, %15
+  %104 = load ptr, ptr %14, align 8, !tbaa !37
+  %105 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %106 = load ptr, ptr %105, align 8, !tbaa !38
   %.promoted = load float, ptr %10, align 4, !tbaa !24
-  br label %113
+  br label %111
 
-109:                                              ; preds = %113
+107:                                              ; preds = %111
   store i32 -1, ptr %8, align 4, !tbaa !30
-  %110 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %111 = load i32, ptr %110, align 8, !tbaa !39
-  %112 = tail call i32 @dt_masks_point_in_form_near(float noundef %0, float noundef %1, ptr noundef nonnull %108, i32 noundef 6, i32 noundef %111, float noundef %2, ptr noundef nonnull %8) #12
-  %.not70 = icmp eq i32 %112, 0
-  br i1 %.not70, label %137, label %139
+  %108 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %109 = load i32, ptr %108, align 8, !tbaa !39
+  %110 = tail call i32 @dt_masks_point_in_form_near(float noundef %0, float noundef %1, ptr noundef nonnull %106, i32 noundef 6, i32 noundef %109, float noundef %2, ptr noundef nonnull %8) #12
+  %.not70 = icmp eq i32 %110, 0
+  br i1 %.not70, label %135, label %137
 
-113:                                              ; preds = %105, %113
-  %indvars.iv = phi i64 [ 0, %105 ], [ %indvars.iv.next, %113 ]
-  %114 = phi float [ %.promoted, %105 ], [ %136, %113 ]
-  %115 = shl nuw nsw i64 %indvars.iv, 1
-  %116 = getelementptr inbounds nuw float, ptr %106, i64 %115
-  %117 = load float, ptr %116, align 4, !tbaa !24
-  %118 = fsub reassoc nsz arcp contract afn float %0, %117
-  %119 = or disjoint i64 %115, 1
-  %120 = getelementptr inbounds nuw float, ptr %106, i64 %119
-  %121 = load float, ptr %120, align 4, !tbaa !24
-  %122 = fsub reassoc nsz arcp contract afn float %1, %121
-  %123 = fmul reassoc nsz arcp contract afn float %118, %118
-  %124 = fmul reassoc nsz arcp contract afn float %122, %122
-  %125 = fadd reassoc nsz arcp contract afn float %124, %123
-  %126 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %114, float %125)
-  store float %126, ptr %10, align 4, !tbaa !24
-  %127 = getelementptr inbounds nuw float, ptr %108, i64 %119
-  %128 = load float, ptr %127, align 4, !tbaa !24
-  %129 = fsub reassoc nsz arcp contract afn float %1, %128
-  %130 = getelementptr inbounds nuw float, ptr %108, i64 %115
-  %131 = load float, ptr %130, align 4, !tbaa !24
-  %132 = fsub reassoc nsz arcp contract afn float %0, %131
-  %133 = fmul reassoc nsz arcp contract afn float %132, %132
-  %134 = fmul reassoc nsz arcp contract afn float %129, %129
-  %135 = fadd reassoc nsz arcp contract afn float %133, %134
-  %136 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %126, float %135)
-  store float %136, ptr %10, align 4, !tbaa !24
+111:                                              ; preds = %103, %111
+  %indvars.iv = phi i64 [ 0, %103 ], [ %indvars.iv.next, %111 ]
+  %112 = phi float [ %.promoted, %103 ], [ %134, %111 ]
+  %113 = shl nuw nsw i64 %indvars.iv, 1
+  %114 = getelementptr inbounds nuw float, ptr %104, i64 %113
+  %115 = load float, ptr %114, align 4, !tbaa !24
+  %116 = fsub reassoc nsz arcp contract afn float %0, %115
+  %117 = or disjoint i64 %113, 1
+  %118 = getelementptr inbounds nuw float, ptr %104, i64 %117
+  %119 = load float, ptr %118, align 4, !tbaa !24
+  %120 = fsub reassoc nsz arcp contract afn float %1, %119
+  %121 = fmul reassoc nsz arcp contract afn float %116, %116
+  %122 = fmul reassoc nsz arcp contract afn float %120, %120
+  %123 = fadd reassoc nsz arcp contract afn float %122, %121
+  %124 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %112, float %123)
+  store float %124, ptr %10, align 4, !tbaa !24
+  %125 = getelementptr inbounds nuw float, ptr %106, i64 %117
+  %126 = load float, ptr %125, align 4, !tbaa !24
+  %127 = fsub reassoc nsz arcp contract afn float %1, %126
+  %128 = getelementptr inbounds nuw float, ptr %106, i64 %113
+  %129 = load float, ptr %128, align 4, !tbaa !24
+  %130 = fsub reassoc nsz arcp contract afn float %0, %129
+  %131 = fmul reassoc nsz arcp contract afn float %130, %130
+  %132 = fmul reassoc nsz arcp contract afn float %127, %127
+  %133 = fadd reassoc nsz arcp contract afn float %131, %132
+  %134 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %124, float %133)
+  store float %134, ptr %10, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %109, label %113
+  br i1 %exitcond.not, label %107, label %111
 
-137:                                              ; preds = %109
-  %138 = load i32, ptr %8, align 4, !tbaa !30
-  %.not71 = icmp eq i32 %138, -1
-  br i1 %.not71, label %.loopexit, label %139
+135:                                              ; preds = %107
+  %136 = load i32, ptr %8, align 4, !tbaa !30
+  %.not71 = icmp eq i32 %136, -1
+  br i1 %.not71, label %.loopexit, label %137
 
-139:                                              ; preds = %109, %137
+137:                                              ; preds = %107, %135
   store i32 1, ptr %7, align 4, !tbaa !30
   store i32 1, ptr %6, align 4, !tbaa !30
   br label %.loopexit
 
-.loopexit:                                        ; preds = %91, %139, %12, %137, %11
+.loopexit:                                        ; preds = %91, %137, %12, %135, %11
   ret void
 }
 
@@ -750,7 +749,7 @@ define internal range(i32 0, 2) i32 @_ellipse_get_points_border(ptr noundef %0, 
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %18 = load float, ptr %17, align 4, !tbaa !24
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %81, label %19
+  br i1 %.not, label %79, label %19
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -783,7 +782,7 @@ define internal range(i32 0, 2) i32 @_ellipse_get_points_border(ptr noundef %0, 
   %43 = sext i32 %42 to i64
   %44 = tail call i32 @dt_dev_distort_transform_plus(ptr noundef %0, ptr noundef %38, double noundef %41, i32 noundef 4, ptr noundef nonnull %35, i64 noundef %43) #12
   %.not48.i = icmp eq i32 %44, 0
-  br i1 %.not48.i, label %79, label %45
+  br i1 %.not48.i, label %77, label %45
 
 45:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
@@ -827,128 +826,127 @@ define internal range(i32 0, 2) i32 @_ellipse_get_points_border(ptr noundef %0, 
   %68 = sext i32 %63 to i64
   %69 = call i32 @dt_dev_distort_transform_plus(ptr noundef nonnull %0, ptr noundef %65, double noundef %67, i32 noundef 1, ptr noundef nonnull %55, i64 noundef %68) #12
   %.not50.i = icmp eq i32 %69, 0
-  br i1 %.not50.i, label %.critedge.i, label %78
+  br i1 %.not50.i, label %.critedge.i, label %76
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 5, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %70 = shl nuw nsw i64 %indvars.iv.i, 1
-  %71 = getelementptr inbounds nuw float, ptr %55, i64 %70
-  %72 = load float, ptr %71, align 8, !tbaa !24
-  %73 = fadd reassoc nsz arcp contract afn float %57, %72
-  store float %73, ptr %71, align 8, !tbaa !24
-  %74 = or disjoint i64 %70, 1
-  %75 = getelementptr inbounds nuw float, ptr %55, i64 %74
-  %76 = load float, ptr %75, align 4, !tbaa !24
-  %77 = fadd reassoc nsz arcp contract afn float %61, %76
-  store float %77, ptr %75, align 4, !tbaa !24
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
+  %70 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i
+  %71 = load float, ptr %70, align 8, !tbaa !24
+  %72 = fadd reassoc nsz arcp contract afn float %57, %71
+  store float %72, ptr %70, align 8, !tbaa !24
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %74 = load float, ptr %73, align 4, !tbaa !24
+  %75 = fadd reassoc nsz arcp contract afn float %61, %74
+  store float %75, ptr %73, align 4, !tbaa !24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %._crit_edge.i, %45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  br label %79
+  br label %77
 
-78:                                               ; preds = %._crit_edge.i
+76:                                               ; preds = %._crit_edge.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
   br label %_ellipse_get_points_source.exit
 
-79:                                               ; preds = %.critedge.i, %36
-  %80 = load ptr, ptr %2, align 8, !tbaa !113
-  call void @free(ptr noundef %80) #12
+77:                                               ; preds = %.critedge.i, %36
+  %78 = load ptr, ptr %2, align 8, !tbaa !113
+  call void @free(ptr noundef %78) #12
   store ptr null, ptr %2, align 8, !tbaa !113
   store i32 0, ptr %3, align 4, !tbaa !30
   br label %_ellipse_get_points_source.exit
 
-81:                                               ; preds = %8
-  %82 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %83 = load float, ptr %82, align 4, !tbaa !29
-  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !40
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 96
-  %86 = load ptr, ptr %85, align 16, !tbaa !76
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 144
-  %88 = load i32, ptr %87, align 16, !tbaa !104
-  %89 = sitofp i32 %88 to float
-  %90 = getelementptr inbounds nuw i8, ptr %86, i64 148
-  %91 = load i32, ptr %90, align 4, !tbaa !112
-  %92 = sitofp i32 %91 to float
-  %93 = tail call fastcc ptr @_points_to_transform(float noundef %12, float noundef %14, float noundef %16, float noundef %18, float noundef %83, float noundef %89, float noundef %92, ptr noundef %3)
-  store ptr %93, ptr %2, align 8, !tbaa !113
-  %.not.i49 = icmp eq ptr %93, null
-  br i1 %.not.i49, label %_ellipse_get_points_source.exit, label %94
+79:                                               ; preds = %8
+  %80 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %81 = load float, ptr %80, align 4, !tbaa !29
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !40
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 96
+  %84 = load ptr, ptr %83, align 16, !tbaa !76
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 144
+  %86 = load i32, ptr %85, align 16, !tbaa !104
+  %87 = sitofp i32 %86 to float
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 148
+  %89 = load i32, ptr %88, align 4, !tbaa !112
+  %90 = sitofp i32 %89 to float
+  %91 = tail call fastcc ptr @_points_to_transform(float noundef %12, float noundef %14, float noundef %16, float noundef %18, float noundef %81, float noundef %87, float noundef %90, ptr noundef %3)
+  store ptr %91, ptr %2, align 8, !tbaa !113
+  %.not.i49 = icmp eq ptr %91, null
+  br i1 %.not.i49, label %_ellipse_get_points_source.exit, label %92
 
-94:                                               ; preds = %81
-  %95 = load i32, ptr %3, align 4, !tbaa !30
-  %96 = sext i32 %95 to i64
-  %97 = tail call i32 @dt_dev_distort_transform(ptr noundef %0, ptr noundef nonnull %93, i64 noundef %96) #12
-  %.not15.i = icmp eq i32 %97, 0
-  br i1 %.not15.i, label %98, label %_ellipse_get_points.exit
+92:                                               ; preds = %79
+  %93 = load i32, ptr %3, align 4, !tbaa !30
+  %94 = sext i32 %93 to i64
+  %95 = tail call i32 @dt_dev_distort_transform(ptr noundef %0, ptr noundef nonnull %91, i64 noundef %94) #12
+  %.not15.i = icmp eq i32 %95, 0
+  br i1 %.not15.i, label %96, label %_ellipse_get_points.exit
 
-98:                                               ; preds = %94
-  %99 = load ptr, ptr %2, align 8, !tbaa !113
-  tail call void @free(ptr noundef %99) #12
+96:                                               ; preds = %92
+  %97 = load ptr, ptr %2, align 8, !tbaa !113
+  tail call void @free(ptr noundef %97) #12
   store ptr null, ptr %2, align 8, !tbaa !113
   store i32 0, ptr %3, align 4, !tbaa !30
   br label %_ellipse_get_points_source.exit
 
-_ellipse_get_points.exit:                         ; preds = %94
+_ellipse_get_points.exit:                         ; preds = %92
   %.not47 = icmp eq ptr %4, null
-  br i1 %.not47, label %_ellipse_get_points_source.exit, label %100
+  br i1 %.not47, label %_ellipse_get_points_source.exit, label %98
 
-100:                                              ; preds = %_ellipse_get_points.exit
-  %101 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %102 = load i32, ptr %101, align 4, !tbaa !26
-  %103 = and i32 %102, 1
-  %.not48 = icmp eq i32 %103, 0
-  %104 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %105 = load float, ptr %104, align 4, !tbaa !28
-  br i1 %.not48, label %110, label %106
+98:                                               ; preds = %_ellipse_get_points.exit
+  %99 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %100 = load i32, ptr %99, align 4, !tbaa !26
+  %101 = and i32 %100, 1
+  %.not48 = icmp eq i32 %101, 0
+  %102 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %103 = load float, ptr %102, align 4, !tbaa !28
+  br i1 %.not48, label %108, label %104
 
-106:                                              ; preds = %100
-  %107 = fadd reassoc nsz arcp contract afn float %105, 1.000000e+00
-  %108 = fmul reassoc nsz arcp contract afn float %107, %16
-  %109 = fmul reassoc nsz arcp contract afn float %107, %18
-  br label %113
+104:                                              ; preds = %98
+  %105 = fadd reassoc nsz arcp contract afn float %103, 1.000000e+00
+  %106 = fmul reassoc nsz arcp contract afn float %105, %16
+  %107 = fmul reassoc nsz arcp contract afn float %105, %18
+  br label %111
 
-110:                                              ; preds = %100
-  %111 = fadd reassoc nsz arcp contract afn float %105, %16
-  %112 = fadd reassoc nsz arcp contract afn float %105, %18
-  br label %113
+108:                                              ; preds = %98
+  %109 = fadd reassoc nsz arcp contract afn float %103, %16
+  %110 = fadd reassoc nsz arcp contract afn float %103, %18
+  br label %111
 
-113:                                              ; preds = %110, %106
-  %114 = phi float [ %108, %106 ], [ %111, %110 ]
-  %115 = phi reassoc nsz arcp contract afn float [ %109, %106 ], [ %112, %110 ]
-  %116 = load float, ptr %82, align 4, !tbaa !29
-  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !40
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 96
-  %119 = load ptr, ptr %118, align 16, !tbaa !76
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 144
-  %121 = load i32, ptr %120, align 16, !tbaa !104
-  %122 = sitofp i32 %121 to float
-  %123 = getelementptr inbounds nuw i8, ptr %119, i64 148
-  %124 = load i32, ptr %123, align 4, !tbaa !112
-  %125 = sitofp i32 %124 to float
-  %126 = tail call fastcc ptr @_points_to_transform(float noundef %12, float noundef %14, float noundef %114, float noundef %115, float noundef %116, float noundef %122, float noundef %125, ptr noundef %5)
-  store ptr %126, ptr %4, align 8, !tbaa !113
-  %.not.i50 = icmp eq ptr %126, null
-  br i1 %.not.i50, label %_ellipse_get_points_source.exit, label %127
+111:                                              ; preds = %108, %104
+  %112 = phi float [ %106, %104 ], [ %109, %108 ]
+  %113 = phi reassoc nsz arcp contract afn float [ %107, %104 ], [ %110, %108 ]
+  %114 = load float, ptr %80, align 4, !tbaa !29
+  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !40
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 96
+  %117 = load ptr, ptr %116, align 16, !tbaa !76
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 144
+  %119 = load i32, ptr %118, align 16, !tbaa !104
+  %120 = sitofp i32 %119 to float
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 148
+  %122 = load i32, ptr %121, align 4, !tbaa !112
+  %123 = sitofp i32 %122 to float
+  %124 = tail call fastcc ptr @_points_to_transform(float noundef %12, float noundef %14, float noundef %112, float noundef %113, float noundef %114, float noundef %120, float noundef %123, ptr noundef %5)
+  store ptr %124, ptr %4, align 8, !tbaa !113
+  %.not.i50 = icmp eq ptr %124, null
+  br i1 %.not.i50, label %_ellipse_get_points_source.exit, label %125
 
-127:                                              ; preds = %113
-  %128 = load i32, ptr %5, align 4, !tbaa !30
-  %129 = sext i32 %128 to i64
-  %130 = tail call i32 @dt_dev_distort_transform(ptr noundef %0, ptr noundef nonnull %126, i64 noundef %129) #12
-  %.not15.i51 = icmp eq i32 %130, 0
-  br i1 %.not15.i51, label %131, label %_ellipse_get_points_source.exit
+125:                                              ; preds = %111
+  %126 = load i32, ptr %5, align 4, !tbaa !30
+  %127 = sext i32 %126 to i64
+  %128 = tail call i32 @dt_dev_distort_transform(ptr noundef %0, ptr noundef nonnull %124, i64 noundef %127) #12
+  %.not15.i51 = icmp eq i32 %128, 0
+  br i1 %.not15.i51, label %129, label %_ellipse_get_points_source.exit
 
-131:                                              ; preds = %127
-  %132 = load ptr, ptr %4, align 8, !tbaa !113
-  tail call void @free(ptr noundef %132) #12
+129:                                              ; preds = %125
+  %130 = load ptr, ptr %4, align 8, !tbaa !113
+  tail call void @free(ptr noundef %130) #12
   store ptr null, ptr %4, align 8, !tbaa !113
   store i32 0, ptr %5, align 4, !tbaa !30
   br label %_ellipse_get_points_source.exit
 
-_ellipse_get_points_source.exit:                  ; preds = %81, %98, %131, %127, %113, %79, %78, %19, %_ellipse_get_points.exit
-  %.0 = phi i32 [ 1, %_ellipse_get_points.exit ], [ 0, %79 ], [ 1, %78 ], [ 0, %19 ], [ 0, %131 ], [ 0, %113 ], [ 1, %127 ], [ 0, %98 ], [ 0, %81 ]
+_ellipse_get_points_source.exit:                  ; preds = %79, %96, %129, %125, %111, %77, %76, %19, %_ellipse_get_points.exit
+  %.0 = phi i32 [ 1, %_ellipse_get_points.exit ], [ 0, %77 ], [ 1, %76 ], [ 0, %19 ], [ 0, %129 ], [ 0, %111 ], [ 1, %125 ], [ 0, %96 ], [ 0, %79 ]
   ret i32 %.0
 }
 
@@ -981,7 +979,7 @@ dt_get_debug_wtime.exit:                          ; preds = %8, %15
   %25 = phi reassoc nsz arcp contract afn double [ %24, %15 ], [ 0.000000e+00, %8 ]
   %26 = tail call i32 @_ellipse_get_area(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %226, label %27
+  br i1 %.not, label %222, label %27
 
 27:                                               ; preds = %dt_get_debug_wtime.exit
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
@@ -1019,7 +1017,7 @@ dt_get_debug_wtime.exit:                          ; preds = %8, %15
   %51 = tail call ptr @dt_alloc_aligned(i64 noundef %50) #12
   call void @llvm.assume(i1 true) [ "align"(ptr %51, i64 64) ]
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %226, label %.preheader134
+  br i1 %52, label %222, label %.preheader134
 
 .preheader134:                                    ; preds = %42
   %53 = icmp sgt i32 %46, 0
@@ -1048,12 +1046,11 @@ dt_get_debug_wtime.exit:                          ; preds = %8, %15
   %64 = add i32 %55, %63
   %65 = sitofp i32 %64 to float
   %66 = add nuw nsw i64 %indvars.iv, %58
-  %67 = shl nuw nsw i64 %66, 1
-  %68 = getelementptr inbounds nuw float, ptr %51, i64 %67
-  store float %65, ptr %68, align 8, !tbaa !24
-  %69 = or disjoint i64 %67, 1
-  %70 = getelementptr inbounds nuw float, ptr %51, i64 %69
-  store float %61, ptr %70, align 4, !tbaa !24
+  %.idx = shl nuw nsw i64 %66, 3
+  %67 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx
+  store float %65, ptr %67, align 8, !tbaa !24
+  %68 = getelementptr i8, ptr %67, i64 4
+  store float %61, ptr %68, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %57
   br i1 %exitcond.not, label %._crit_edge.us, label %62
@@ -1064,235 +1061,234 @@ dt_get_debug_wtime.exit:                          ; preds = %8, %15
   br i1 %exitcond144.not, label %._crit_edge137, label %.preheader.us
 
 ._crit_edge137:                                   ; preds = %._crit_edge.us, %.preheader134
-  %71 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
-  %72 = and i32 %71, 4112
-  %or.cond125.not = icmp eq i32 %72, 4112
-  br i1 %or.cond125.not, label %73, label %85
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
+  %70 = and i32 %69, 4112
+  %or.cond125.not = icmp eq i32 %70, 4112
+  br i1 %or.cond125.not, label %71, label %83
 
-73:                                               ; preds = %._crit_edge137
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 32
+71:                                               ; preds = %._crit_edge137
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #12
-  %75 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #12
-  %76 = load i64, ptr %11, align 8, !tbaa !126
-  %77 = add nsw i64 %76, -1290608000
-  %78 = sitofp i64 %77 to double
-  %79 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %80 = load i64, ptr %79, align 8, !tbaa !128
-  %81 = sitofp i64 %80 to double
-  %82 = fmul reassoc nsz arcp contract afn double %81, 0x3EB0C6F7A0B5ED8D
-  %83 = fadd reassoc nsz arcp contract afn double %82, %78
+  %73 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #12
+  %74 = load i64, ptr %11, align 8, !tbaa !126
+  %75 = add nsw i64 %74, -1290608000
+  %76 = sitofp i64 %75 to double
+  %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %78 = load i64, ptr %77, align 8, !tbaa !128
+  %79 = sitofp i64 %78 to double
+  %80 = fmul reassoc nsz arcp contract afn double %79, 0x3EB0C6F7A0B5ED8D
+  %81 = fadd reassoc nsz arcp contract afn double %80, %76
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #12
-  %84 = fsub reassoc nsz arcp contract afn double %83, %.0133
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.20, ptr noundef nonnull %74, double noundef %84) #12
-  br label %85
+  %82 = fsub reassoc nsz arcp contract afn double %81, %.0133
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.20, ptr noundef nonnull %72, double noundef %82) #12
+  br label %83
 
-85:                                               ; preds = %73, %._crit_edge137
-  %.1 = phi nsz double [ %.0133, %._crit_edge137 ], [ %83, %73 ]
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %87 = load ptr, ptr %86, align 8, !tbaa !129
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %89 = load ptr, ptr %88, align 8, !tbaa !130
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %91 = load i32, ptr %90, align 16, !tbaa !114
-  %92 = sitofp i32 %91 to double
-  %93 = mul nsw i64 %48, %47
-  %94 = tail call i32 @dt_dev_distort_backtransform_plus(ptr noundef %87, ptr noundef %89, double noundef %92, i32 noundef 3, ptr noundef nonnull %51, i64 noundef %93) #12
-  %.not118 = icmp eq i32 %94, 0
-  br i1 %.not118, label %95, label %96
+83:                                               ; preds = %71, %._crit_edge137
+  %.1 = phi nsz double [ %.0133, %._crit_edge137 ], [ %81, %71 ]
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %85 = load ptr, ptr %84, align 8, !tbaa !129
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !130
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %89 = load i32, ptr %88, align 16, !tbaa !114
+  %90 = sitofp i32 %89 to double
+  %91 = mul nsw i64 %48, %47
+  %92 = tail call i32 @dt_dev_distort_backtransform_plus(ptr noundef %85, ptr noundef %87, double noundef %90, i32 noundef 3, ptr noundef nonnull %51, i64 noundef %91) #12
+  %.not118 = icmp eq i32 %92, 0
+  br i1 %.not118, label %93, label %94
 
-95:                                               ; preds = %85
+93:                                               ; preds = %83
   tail call void @free(ptr noundef nonnull %51) #12
-  br label %226
+  br label %222
 
-96:                                               ; preds = %85
-  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
-  %98 = and i32 %97, 4112
-  %or.cond126.not = icmp eq i32 %98, 4112
-  br i1 %or.cond126.not, label %99, label %111
+94:                                               ; preds = %83
+  %95 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
+  %96 = and i32 %95, 4112
+  %or.cond126.not = icmp eq i32 %96, 4112
+  br i1 %or.cond126.not, label %97, label %109
 
-99:                                               ; preds = %96
-  %100 = getelementptr inbounds nuw i8, ptr %2, i64 32
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #12
-  %101 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #12
-  %102 = load i64, ptr %10, align 8, !tbaa !126
-  %103 = add nsw i64 %102, -1290608000
-  %104 = sitofp i64 %103 to double
-  %105 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %106 = load i64, ptr %105, align 8, !tbaa !128
-  %107 = sitofp i64 %106 to double
-  %108 = fmul reassoc nsz arcp contract afn double %107, 0x3EB0C6F7A0B5ED8D
-  %109 = fadd reassoc nsz arcp contract afn double %108, %104
+  %99 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #12
+  %100 = load i64, ptr %10, align 8, !tbaa !126
+  %101 = add nsw i64 %100, -1290608000
+  %102 = sitofp i64 %101 to double
+  %103 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %104 = load i64, ptr %103, align 8, !tbaa !128
+  %105 = sitofp i64 %104 to double
+  %106 = fmul reassoc nsz arcp contract afn double %105, 0x3EB0C6F7A0B5ED8D
+  %107 = fadd reassoc nsz arcp contract afn double %106, %102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #12
-  %110 = fsub reassoc nsz arcp contract afn double %109, %.1
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.21, ptr noundef nonnull %100, double noundef %110) #12
-  br label %111
+  %108 = fsub reassoc nsz arcp contract afn double %107, %.1
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.21, ptr noundef nonnull %98, double noundef %108) #12
+  br label %109
 
-111:                                              ; preds = %99, %96
-  %.2 = phi nsz double [ %.1, %96 ], [ %109, %99 ]
-  %112 = shl i64 %93, 2
-  %113 = tail call ptr @dt_alloc_aligned(i64 noundef %112) #12
-  call void @llvm.assume(i1 true) [ "align"(ptr %113, i64 64) ]
-  store ptr %113, ptr %3, align 8, !tbaa !113
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %115, label %116
+109:                                              ; preds = %97, %94
+  %.2 = phi nsz double [ %.1, %94 ], [ %107, %97 ]
+  %110 = shl i64 %91, 2
+  %111 = tail call ptr @dt_alloc_aligned(i64 noundef %110) #12
+  call void @llvm.assume(i1 true) [ "align"(ptr %111, i64 64) ]
+  store ptr %111, ptr %3, align 8, !tbaa !113
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %113, label %114
 
-115:                                              ; preds = %111
+113:                                              ; preds = %109
   tail call void @free(ptr noundef nonnull %51) #12
-  br label %226
+  br label %222
 
-116:                                              ; preds = %111
-  %117 = load ptr, ptr %88, align 8, !tbaa !130
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 144
-  %119 = load i32, ptr %118, align 16, !tbaa !104
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 148
-  %121 = load i32, ptr %120, align 4, !tbaa !112
-  %122 = load float, ptr %44, align 4, !tbaa !24
-  %123 = sitofp i32 %119 to float
-  %124 = fmul reassoc nsz arcp contract afn float %122, %123
-  %125 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %126 = load float, ptr %125, align 4, !tbaa !24
-  %127 = sitofp i32 %121 to float
-  %128 = fmul reassoc nsz arcp contract afn float %126, %127
-  %129 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %130 = load float, ptr %129, align 4, !tbaa !24
-  %131 = tail call i32 @llvm.smin.i32(i32 %119, i32 %121)
-  %132 = sitofp i32 %131 to float
-  %133 = fmul reassoc nsz arcp contract afn float %130, %132
-  %134 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %135 = load float, ptr %134, align 4, !tbaa !24
-  %136 = fmul reassoc nsz arcp contract afn float %135, %132
-  %137 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %138 = load i32, ptr %137, align 4, !tbaa !26
-  %139 = and i32 %138, 1
-  %.not121 = icmp eq i32 %139, 0
-  %140 = getelementptr inbounds nuw i8, ptr %44, i64 20
-  %141 = load float, ptr %140, align 4, !tbaa !28
-  br i1 %.not121, label %146, label %142
+114:                                              ; preds = %109
+  %115 = load ptr, ptr %86, align 8, !tbaa !130
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 144
+  %117 = load i32, ptr %116, align 16, !tbaa !104
+  %118 = getelementptr inbounds nuw i8, ptr %115, i64 148
+  %119 = load i32, ptr %118, align 4, !tbaa !112
+  %120 = load float, ptr %44, align 4, !tbaa !24
+  %121 = sitofp i32 %117 to float
+  %122 = fmul reassoc nsz arcp contract afn float %120, %121
+  %123 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %124 = load float, ptr %123, align 4, !tbaa !24
+  %125 = sitofp i32 %119 to float
+  %126 = fmul reassoc nsz arcp contract afn float %124, %125
+  %127 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %128 = load float, ptr %127, align 4, !tbaa !24
+  %129 = tail call i32 @llvm.smin.i32(i32 %117, i32 %119)
+  %130 = sitofp i32 %129 to float
+  %131 = fmul reassoc nsz arcp contract afn float %128, %130
+  %132 = getelementptr inbounds nuw i8, ptr %44, i64 12
+  %133 = load float, ptr %132, align 4, !tbaa !24
+  %134 = fmul reassoc nsz arcp contract afn float %133, %130
+  %135 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %136 = load i32, ptr %135, align 4, !tbaa !26
+  %137 = and i32 %136, 1
+  %.not121 = icmp eq i32 %137, 0
+  %138 = getelementptr inbounds nuw i8, ptr %44, i64 20
+  %139 = load float, ptr %138, align 4, !tbaa !28
+  br i1 %.not121, label %144, label %140
 
-142:                                              ; preds = %116
-  %143 = fadd reassoc nsz arcp contract afn float %141, 1.000000e+00
-  %144 = fmul reassoc nsz arcp contract afn float %143, %130
-  %145 = fmul reassoc nsz arcp contract afn float %143, %135
-  br label %149
+140:                                              ; preds = %114
+  %141 = fadd reassoc nsz arcp contract afn float %139, 1.000000e+00
+  %142 = fmul reassoc nsz arcp contract afn float %141, %128
+  %143 = fmul reassoc nsz arcp contract afn float %141, %133
+  br label %147
 
-146:                                              ; preds = %116
-  %147 = fadd reassoc nsz arcp contract afn float %141, %130
-  %148 = fadd reassoc nsz arcp contract afn float %141, %135
-  br label %149
+144:                                              ; preds = %114
+  %145 = fadd reassoc nsz arcp contract afn float %139, %128
+  %146 = fadd reassoc nsz arcp contract afn float %139, %133
+  br label %147
 
-149:                                              ; preds = %146, %142
-  %.pn = phi float [ %144, %142 ], [ %147, %146 ]
-  %150 = phi reassoc nsz arcp contract afn float [ %145, %142 ], [ %148, %146 ]
-  %151 = fmul reassoc nsz arcp contract afn float %.pn, %132
-  %152 = fmul reassoc nsz arcp contract afn float %150, %132
-  %153 = fcmp reassoc nsz arcp contract afn ult float %133, %136
-  %154 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %155 = load float, ptr %154, align 4, !tbaa !29
-  %156 = fmul reassoc nsz arcp contract afn float %155, 0x3F76C16C20000000
-  br i1 %153, label %157, label %159
+147:                                              ; preds = %144, %140
+  %.pn = phi float [ %142, %140 ], [ %145, %144 ]
+  %148 = phi reassoc nsz arcp contract afn float [ %143, %140 ], [ %146, %144 ]
+  %149 = fmul reassoc nsz arcp contract afn float %.pn, %130
+  %150 = fmul reassoc nsz arcp contract afn float %148, %130
+  %151 = fcmp reassoc nsz arcp contract afn ult float %131, %134
+  %152 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %153 = load float, ptr %152, align 4, !tbaa !29
+  %154 = fmul reassoc nsz arcp contract afn float %153, 0x3F76C16C20000000
+  br i1 %151, label %155, label %157
 
-157:                                              ; preds = %149
-  %158 = fadd reassoc nsz arcp contract afn float %156, -5.000000e-01
-  br label %159
+155:                                              ; preds = %147
+  %156 = fadd reassoc nsz arcp contract afn float %154, -5.000000e-01
+  br label %157
 
-159:                                              ; preds = %149, %157
-  %.0105 = phi nsz float [ %136, %157 ], [ %133, %149 ]
-  %.0104 = phi nsz float [ %133, %157 ], [ %136, %149 ]
-  %.0103 = phi nsz float [ %152, %157 ], [ %151, %149 ]
-  %.0102 = phi nsz float [ %151, %157 ], [ %152, %149 ]
-  %.0101.in.in.in = phi float [ %158, %157 ], [ %156, %149 ]
+157:                                              ; preds = %147, %155
+  %.0105 = phi nsz float [ %134, %155 ], [ %131, %147 ]
+  %.0104 = phi nsz float [ %131, %155 ], [ %134, %147 ]
+  %.0103 = phi nsz float [ %150, %155 ], [ %149, %147 ]
+  %.0102 = phi nsz float [ %149, %155 ], [ %150, %147 ]
+  %.0101.in.in.in = phi float [ %156, %155 ], [ %154, %147 ]
   %.0101.in.in = fpext float %.0101.in.in.in to double
   %.0101.in = fmul reassoc nsz arcp contract afn double %.0101.in.in, 0x400921FB54442D18
   %.0101 = fptrunc double %.0101.in to float
-  %160 = fmul reassoc nsz arcp contract afn float %.0105, %.0105
-  %161 = fmul reassoc nsz arcp contract afn float %.0104, %.0104
-  %162 = fmul reassoc nsz arcp contract afn float %.0103, %.0103
-  %163 = fmul reassoc nsz arcp contract afn float %.0102, %.0102
-  %164 = tail call reassoc nsz arcp contract afn float @llvm.cos.f32(float %.0101)
-  %165 = tail call reassoc nsz arcp contract afn float @llvm.sin.f32(float %.0101)
-  %.not.i129 = icmp eq i64 %93, 0
+  %158 = fmul reassoc nsz arcp contract afn float %.0105, %.0105
+  %159 = fmul reassoc nsz arcp contract afn float %.0104, %.0104
+  %160 = fmul reassoc nsz arcp contract afn float %.0103, %.0103
+  %161 = fmul reassoc nsz arcp contract afn float %.0102, %.0102
+  %162 = tail call reassoc nsz arcp contract afn float @llvm.cos.f32(float %.0101)
+  %163 = tail call reassoc nsz arcp contract afn float @llvm.sin.f32(float %.0101)
+  %.not.i129 = icmp eq i64 %91, 0
   br i1 %.not.i129, label %_fill_mask.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %159
-  %166 = fmul reassoc nsz arcp contract afn float %161, %160
-  %167 = fmul reassoc nsz arcp contract afn float %163, %162
-  br label %168
+.lr.ph.i:                                         ; preds = %157
+  %164 = fmul reassoc nsz arcp contract afn float %159, %158
+  %165 = fmul reassoc nsz arcp contract afn float %161, %160
+  br label %166
 
-168:                                              ; preds = %168, %.lr.ph.i
-  %.01.i = phi i64 [ 0, %.lr.ph.i ], [ %211, %168 ]
-  %169 = shl i64 %.01.i, 1
-  %170 = getelementptr inbounds nuw float, ptr %51, i64 %169
-  %171 = load float, ptr %170, align 8, !tbaa !24
-  %172 = fsub reassoc nsz arcp contract afn float %171, %124
-  %173 = or disjoint i64 %169, 1
-  %174 = getelementptr inbounds nuw float, ptr %51, i64 %173
-  %175 = load float, ptr %174, align 4, !tbaa !24
-  %176 = fsub reassoc nsz arcp contract afn float %175, %128
-  %177 = fmul reassoc nsz arcp contract afn float %172, %172
-  %178 = fmul reassoc nsz arcp contract afn float %176, %176
-  %179 = fadd reassoc nsz arcp contract afn float %178, %177
-  %180 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %179)
-  %181 = fcmp reassoc nsz arcp contract afn une float %179, 0.000000e+00
-  %182 = fdiv reassoc nsz arcp contract afn float %172, %180
-  %183 = select reassoc nsz arcp contract afn i1 %181, float %182, float 0.000000e+00
-  %184 = fdiv reassoc nsz arcp contract afn float %176, %180
-  %185 = select reassoc nsz arcp contract afn i1 %181, float %184, float 1.000000e+00
-  %186 = fmul reassoc nsz arcp contract afn float %183, %164
-  %187 = fmul reassoc nsz arcp contract afn float %185, %165
-  %188 = fadd reassoc nsz arcp contract afn float %186, %187
-  %189 = fmul reassoc nsz arcp contract afn float %185, %164
-  %190 = fmul reassoc nsz arcp contract afn float %183, %165
-  %191 = fsub reassoc nsz arcp contract afn float %189, %190
-  %192 = fmul reassoc nsz arcp contract afn float %188, %188
-  %193 = fmul reassoc nsz arcp contract afn float %191, %191
-  %194 = fmul reassoc nsz arcp contract afn float %193, %160
-  %195 = fmul reassoc nsz arcp contract afn float %192, %161
+166:                                              ; preds = %166, %.lr.ph.i
+  %.01.i = phi i64 [ 0, %.lr.ph.i ], [ %207, %166 ]
+  %.idx.i = shl i64 %.01.i, 3
+  %167 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i
+  %168 = load float, ptr %167, align 8, !tbaa !24
+  %169 = fsub reassoc nsz arcp contract afn float %168, %122
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 4
+  %171 = load float, ptr %170, align 4, !tbaa !24
+  %172 = fsub reassoc nsz arcp contract afn float %171, %126
+  %173 = fmul reassoc nsz arcp contract afn float %169, %169
+  %174 = fmul reassoc nsz arcp contract afn float %172, %172
+  %175 = fadd reassoc nsz arcp contract afn float %174, %173
+  %176 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %175)
+  %177 = fcmp reassoc nsz arcp contract afn une float %175, 0.000000e+00
+  %178 = fdiv reassoc nsz arcp contract afn float %169, %176
+  %179 = select reassoc nsz arcp contract afn i1 %177, float %178, float 0.000000e+00
+  %180 = fdiv reassoc nsz arcp contract afn float %172, %176
+  %181 = select reassoc nsz arcp contract afn i1 %177, float %180, float 1.000000e+00
+  %182 = fmul reassoc nsz arcp contract afn float %179, %162
+  %183 = fmul reassoc nsz arcp contract afn float %181, %163
+  %184 = fadd reassoc nsz arcp contract afn float %182, %183
+  %185 = fmul reassoc nsz arcp contract afn float %181, %162
+  %186 = fmul reassoc nsz arcp contract afn float %179, %163
+  %187 = fsub reassoc nsz arcp contract afn float %185, %186
+  %188 = fmul reassoc nsz arcp contract afn float %184, %184
+  %189 = fmul reassoc nsz arcp contract afn float %187, %187
+  %190 = fmul reassoc nsz arcp contract afn float %189, %158
+  %191 = fmul reassoc nsz arcp contract afn float %188, %159
+  %192 = fadd reassoc nsz arcp contract afn float %190, %191
+  %193 = fdiv reassoc nsz arcp contract afn float %164, %192
+  %194 = fmul reassoc nsz arcp contract afn float %189, %160
+  %195 = fmul reassoc nsz arcp contract afn float %188, %161
   %196 = fadd reassoc nsz arcp contract afn float %194, %195
-  %197 = fdiv reassoc nsz arcp contract afn float %166, %196
-  %198 = fmul reassoc nsz arcp contract afn float %193, %162
-  %199 = fmul reassoc nsz arcp contract afn float %192, %163
-  %200 = fadd reassoc nsz arcp contract afn float %198, %199
-  %201 = fdiv reassoc nsz arcp contract afn float %167, %200
-  %202 = fsub reassoc nsz arcp contract afn float %201, %179
-  %203 = fsub reassoc nsz arcp contract afn float %201, %197
-  %204 = fdiv reassoc nsz arcp contract afn float %202, %203
-  %205 = fcmp reassoc nsz arcp contract afn oge float %204, 0.000000e+00
-  %206 = fcmp reassoc nsz arcp contract afn ole float %204, 1.000000e+00
-  %207 = select reassoc nsz arcp contract afn i1 %206, float %204, float 1.000000e+00
-  %208 = select reassoc nsz arcp contract afn i1 %205, float %207, float 0.000000e+00
-  %209 = fmul reassoc nsz arcp contract afn float %208, %208
-  %210 = getelementptr inbounds nuw float, ptr %113, i64 %.01.i
-  store float %209, ptr %210, align 4, !tbaa !24
-  %211 = add nuw i64 %.01.i, 1
-  %exitcond.not.i = icmp eq i64 %211, %93
-  br i1 %exitcond.not.i, label %_fill_mask.exit, label %168
+  %197 = fdiv reassoc nsz arcp contract afn float %165, %196
+  %198 = fsub reassoc nsz arcp contract afn float %197, %175
+  %199 = fsub reassoc nsz arcp contract afn float %197, %193
+  %200 = fdiv reassoc nsz arcp contract afn float %198, %199
+  %201 = fcmp reassoc nsz arcp contract afn oge float %200, 0.000000e+00
+  %202 = fcmp reassoc nsz arcp contract afn ole float %200, 1.000000e+00
+  %203 = select reassoc nsz arcp contract afn i1 %202, float %200, float 1.000000e+00
+  %204 = select reassoc nsz arcp contract afn i1 %201, float %203, float 0.000000e+00
+  %205 = fmul reassoc nsz arcp contract afn float %204, %204
+  %206 = getelementptr inbounds nuw float, ptr %111, i64 %.01.i
+  store float %205, ptr %206, align 4, !tbaa !24
+  %207 = add nuw i64 %.01.i, 1
+  %exitcond.not.i = icmp eq i64 %207, %91
+  br i1 %exitcond.not.i, label %_fill_mask.exit, label %166
 
-_fill_mask.exit:                                  ; preds = %168, %159
+_fill_mask.exit:                                  ; preds = %166, %157
   tail call void @free(ptr noundef nonnull %51) #12
-  %212 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
-  %213 = and i32 %212, 4112
-  %or.cond127.not = icmp eq i32 %213, 4112
-  br i1 %or.cond127.not, label %214, label %226
+  %208 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
+  %209 = and i32 %208, 4112
+  %or.cond127.not = icmp eq i32 %209, 4112
+  br i1 %or.cond127.not, label %210, label %222
 
-214:                                              ; preds = %_fill_mask.exit
-  %215 = getelementptr inbounds nuw i8, ptr %2, i64 32
+210:                                              ; preds = %_fill_mask.exit
+  %211 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #12
-  %216 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #12
-  %217 = load i64, ptr %9, align 8, !tbaa !126
-  %218 = add nsw i64 %217, -1290608000
-  %219 = sitofp i64 %218 to double
-  %220 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %221 = load i64, ptr %220, align 8, !tbaa !128
-  %222 = sitofp i64 %221 to double
-  %223 = fmul reassoc nsz arcp contract afn double %222, 0x3EB0C6F7A0B5ED8D
+  %212 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #12
+  %213 = load i64, ptr %9, align 8, !tbaa !126
+  %214 = add nsw i64 %213, -1290608000
+  %215 = sitofp i64 %214 to double
+  %216 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %217 = load i64, ptr %216, align 8, !tbaa !128
+  %218 = sitofp i64 %217 to double
+  %219 = fmul reassoc nsz arcp contract afn double %218, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
-  %224 = fsub reassoc nsz arcp contract afn double %219, %.2
-  %225 = fadd reassoc nsz arcp contract afn double %224, %223
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.22, ptr noundef nonnull %215, double noundef %225) #12
-  br label %226
+  %220 = fsub reassoc nsz arcp contract afn double %215, %.2
+  %221 = fadd reassoc nsz arcp contract afn double %220, %219
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.22, ptr noundef nonnull %211, double noundef %221) #12
+  br label %222
 
-226:                                              ; preds = %_fill_mask.exit, %214, %95, %115, %42, %dt_get_debug_wtime.exit
-  %.0 = phi i32 [ 0, %dt_get_debug_wtime.exit ], [ 0, %115 ], [ 0, %95 ], [ 0, %42 ], [ 1, %214 ], [ 1, %_fill_mask.exit ]
+222:                                              ; preds = %_fill_mask.exit, %210, %93, %113, %42, %dt_get_debug_wtime.exit
+  %.0 = phi i32 [ 0, %dt_get_debug_wtime.exit ], [ 0, %113 ], [ 0, %93 ], [ 0, %42 ], [ 1, %210 ], [ 1, %_fill_mask.exit ]
   ret i32 %.0
 }
 
@@ -1459,13 +1455,13 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %17
   %133 = tail call ptr @dt_alloc_aligned(i64 noundef %132) #12
   call void @llvm.assume(i1 true) [ "align"(ptr %133, i64 64) ]
   %134 = icmp eq ptr %133, null
-  br i1 %134, label %484, label %.preheader398
+  br i1 %134, label %476, label %.preheader400
 
-.preheader398:                                    ; preds = %114
-  %.not430 = icmp eq i32 %129, 0
-  br i1 %.not430, label %._crit_edge, label %.lr.ph
+.preheader400:                                    ; preds = %114
+  %.not432 = icmp eq i32 %129, 0
+  br i1 %.not432, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader398
+.lr.ph:                                           ; preds = %.preheader400
   %135 = uitofp i64 %131 to double
   %136 = fmul reassoc nsz arcp contract afn float %73, %65
   %137 = fneg reassoc nsz arcp contract afn float %66
@@ -1477,11 +1473,11 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %17
   %140 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %135
   br label %143
 
-._crit_edge:                                      ; preds = %143, %.preheader398
+._crit_edge:                                      ; preds = %143, %.preheader400
   %141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %142 = and i32 %141, 4112
   %or.cond372.not = icmp eq i32 %142, 4112
-  br i1 %or.cond372.not, label %162, label %174
+  br i1 %or.cond372.not, label %160, label %172
 
 143:                                              ; preds = %.lr.ph, %143
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %143 ]
@@ -1496,544 +1492,540 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %17
   %152 = fadd reassoc nsz arcp contract afn float %151, %38
   %.reass = fmul reassoc nsz arcp contract afn float %factor.op.fmul, %150
   %153 = fadd reassoc nsz arcp contract afn float %152, %.reass
-  %154 = shl nuw nsw i64 %indvars.iv, 1
-  %155 = getelementptr inbounds nuw float, ptr %133, i64 %154
-  store float %153, ptr %155, align 8, !tbaa !24
-  %156 = fmul reassoc nsz arcp contract afn float %138, %149
-  %157 = fadd reassoc nsz arcp contract afn float %156, %42
-  %158 = fmul reassoc nsz arcp contract afn float %139, %150
-  %159 = fadd reassoc nsz arcp contract afn float %157, %158
-  %160 = or disjoint i64 %154, 1
-  %161 = getelementptr inbounds nuw float, ptr %133, i64 %160
-  store float %159, ptr %161, align 4, !tbaa !24
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %154 = getelementptr inbounds nuw i8, ptr %133, i64 %.idx
+  store float %153, ptr %154, align 8, !tbaa !24
+  %155 = fmul reassoc nsz arcp contract afn float %138, %149
+  %156 = fadd reassoc nsz arcp contract afn float %155, %42
+  %157 = fmul reassoc nsz arcp contract afn float %139, %150
+  %158 = fadd reassoc nsz arcp contract afn float %156, %157
+  %159 = getelementptr inbounds nuw i8, ptr %154, i64 4
+  store float %158, ptr %159, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %143
 
-162:                                              ; preds = %._crit_edge
-  %163 = getelementptr inbounds nuw i8, ptr %2, i64 32
+160:                                              ; preds = %._crit_edge
+  %161 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #12
-  %164 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #12
-  %165 = load i64, ptr %13, align 8, !tbaa !126
-  %166 = add nsw i64 %165, -1290608000
-  %167 = sitofp i64 %166 to double
-  %168 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %169 = load i64, ptr %168, align 8, !tbaa !128
-  %170 = sitofp i64 %169 to double
-  %171 = fmul reassoc nsz arcp contract afn double %170, 0x3EB0C6F7A0B5ED8D
-  %172 = fadd reassoc nsz arcp contract afn double %171, %167
+  %162 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #12
+  %163 = load i64, ptr %13, align 8, !tbaa !126
+  %164 = add nsw i64 %163, -1290608000
+  %165 = sitofp i64 %164 to double
+  %166 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %167 = load i64, ptr %166, align 8, !tbaa !128
+  %168 = sitofp i64 %167 to double
+  %169 = fmul reassoc nsz arcp contract afn double %168, 0x3EB0C6F7A0B5ED8D
+  %170 = fadd reassoc nsz arcp contract afn double %169, %165
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #12
-  %173 = fsub reassoc nsz arcp contract afn double %172, %.0393
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.24, ptr noundef nonnull %163, double noundef %173) #12
-  br label %174
+  %171 = fsub reassoc nsz arcp contract afn double %170, %.0393
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.24, ptr noundef nonnull %161, double noundef %171) #12
+  br label %172
 
-174:                                              ; preds = %162, %._crit_edge
-  %.1 = phi nsz double [ %.0393, %._crit_edge ], [ %172, %162 ]
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %176 = load ptr, ptr %175, align 8, !tbaa !129
-  %177 = load ptr, ptr %30, align 8, !tbaa !130
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %179 = load i32, ptr %178, align 16, !tbaa !114
-  %180 = sitofp i32 %179 to double
-  %181 = tail call i32 @dt_dev_distort_transform_plus(ptr noundef %176, ptr noundef %177, double noundef %180, i32 noundef 3, ptr noundef nonnull %133, i64 noundef %131) #12
-  %.not348 = icmp eq i32 %181, 0
-  br i1 %.not348, label %182, label %183
+172:                                              ; preds = %160, %._crit_edge
+  %.1 = phi nsz double [ %.0393, %._crit_edge ], [ %170, %160 ]
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %174 = load ptr, ptr %173, align 8, !tbaa !129
+  %175 = load ptr, ptr %30, align 8, !tbaa !130
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %177 = load i32, ptr %176, align 16, !tbaa !114
+  %178 = sitofp i32 %177 to double
+  %179 = tail call i32 @dt_dev_distort_transform_plus(ptr noundef %174, ptr noundef %175, double noundef %178, i32 noundef 3, ptr noundef nonnull %133, i64 noundef %131) #12
+  %.not348 = icmp eq i32 %179, 0
+  br i1 %.not348, label %180, label %181
 
-182:                                              ; preds = %174
+180:                                              ; preds = %172
   tail call void @free(ptr noundef nonnull %133) #12
-  br label %484
+  br label %476
 
-183:                                              ; preds = %174
-  %184 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
-  %185 = and i32 %184, 4112
-  %or.cond373.not = icmp eq i32 %185, 4112
-  br i1 %or.cond373.not, label %186, label %198
+181:                                              ; preds = %172
+  %182 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
+  %183 = and i32 %182, 4112
+  %or.cond373.not = icmp eq i32 %183, 4112
+  br i1 %or.cond373.not, label %184, label %196
 
-186:                                              ; preds = %183
-  %187 = getelementptr inbounds nuw i8, ptr %2, i64 32
+184:                                              ; preds = %181
+  %185 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #12
-  %188 = call i32 @gettimeofday(ptr noundef nonnull %12, ptr noundef null) #12
-  %189 = load i64, ptr %12, align 8, !tbaa !126
-  %190 = add nsw i64 %189, -1290608000
-  %191 = sitofp i64 %190 to double
-  %192 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %193 = load i64, ptr %192, align 8, !tbaa !128
-  %194 = sitofp i64 %193 to double
-  %195 = fmul reassoc nsz arcp contract afn double %194, 0x3EB0C6F7A0B5ED8D
-  %196 = fadd reassoc nsz arcp contract afn double %195, %191
+  %186 = call i32 @gettimeofday(ptr noundef nonnull %12, ptr noundef null) #12
+  %187 = load i64, ptr %12, align 8, !tbaa !126
+  %188 = add nsw i64 %187, -1290608000
+  %189 = sitofp i64 %188 to double
+  %190 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %191 = load i64, ptr %190, align 8, !tbaa !128
+  %192 = sitofp i64 %191 to double
+  %193 = fmul reassoc nsz arcp contract afn double %192, 0x3EB0C6F7A0B5ED8D
+  %194 = fadd reassoc nsz arcp contract afn double %193, %189
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #12
-  %197 = fsub reassoc nsz arcp contract afn double %196, %.1
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.25, ptr noundef nonnull %187, double noundef %197) #12
-  br label %198
+  %195 = fsub reassoc nsz arcp contract afn double %194, %.1
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.25, ptr noundef nonnull %185, double noundef %195) #12
+  br label %196
 
-198:                                              ; preds = %186, %183
-  %.2 = phi nsz double [ %.1, %183 ], [ %196, %186 ]
-  br i1 %.not430, label %._crit_edge407, label %.lr.ph406.preheader
+196:                                              ; preds = %184, %181
+  %.2 = phi nsz double [ %.1, %181 ], [ %194, %184 ]
+  br i1 %.not432, label %._crit_edge409, label %.lr.ph408.preheader
 
-.lr.ph406.preheader:                              ; preds = %198
-  %umax438 = tail call i32 @llvm.umax.i32(i32 %130, i32 1)
-  %wide.trip.count439 = zext i32 %umax438 to i64
-  br label %.lr.ph406
+.lr.ph408.preheader:                              ; preds = %196
+  %umax440 = tail call i32 @llvm.umax.i32(i32 %130, i32 1)
+  %wide.trip.count441 = zext i32 %umax440 to i64
+  br label %.lr.ph408
 
-._crit_edge407:                                   ; preds = %258, %198
-  %.0318.lcssa = phi float [ 0x3810000000000000, %198 ], [ %.1319, %258 ]
-  %.0316.lcssa = phi float [ 0x3810000000000000, %198 ], [ %.1317, %258 ]
-  %.0313.lcssa = phi float [ 0x47EFFFFFE0000000, %198 ], [ %.1314, %258 ]
-  %.0311.lcssa = phi float [ 0x47EFFFFFE0000000, %198 ], [ %.1312, %258 ]
-  %199 = fmul reassoc nsz arcp contract afn float %.0311.lcssa, %83
-  %200 = sitofp i32 %79 to float
-  %201 = fsub reassoc nsz arcp contract afn float %199, %200
-  %202 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %201)
-  %203 = fptosi float %202 to i32
-  %204 = sdiv i32 %203, %93
-  %205 = add nsw i32 %204, -1
-  %206 = icmp sgt i32 %205, %96
-  %.inv = icmp sgt i32 %204, 0
-  %spec.select = select i1 %.inv, i32 %205, i32 0
-  %207 = select i1 %206, i32 %96, i32 %spec.select
-  %208 = fmul reassoc nsz arcp contract afn float %.0316.lcssa, %83
-  %209 = fsub reassoc nsz arcp contract afn float %208, %200
-  %210 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %209)
-  %211 = fptosi float %210 to i32
-  %212 = sdiv i32 %211, %93
-  %213 = add nsw i32 %212, 2
-  %214 = icmp sgt i32 %213, %96
-  %215 = icmp slt i32 %212, -2
-  %spec.select374 = select i1 %215, i32 0, i32 %213
-  %216 = select i1 %214, i32 %96, i32 %spec.select374
-  %217 = fmul reassoc nsz arcp contract afn float %.0313.lcssa, %83
-  %218 = sitofp i32 %81 to float
-  %219 = fsub reassoc nsz arcp contract afn float %217, %218
-  %220 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %219)
-  %221 = fptosi float %220 to i32
-  %222 = sdiv i32 %221, %93
-  %223 = add nsw i32 %222, -1
-  %224 = icmp sgt i32 %223, %99
-  %.inv394 = icmp sgt i32 %222, 0
-  %spec.select375 = select i1 %.inv394, i32 %223, i32 0
-  %225 = select i1 %224, i32 %99, i32 %spec.select375
-  %226 = fmul reassoc nsz arcp contract afn float %.0318.lcssa, %83
-  %227 = fsub reassoc nsz arcp contract afn float %226, %218
-  %228 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %227)
-  %229 = fptosi float %228 to i32
-  %230 = sdiv i32 %229, %93
-  %231 = add nsw i32 %230, 2
-  %232 = icmp sgt i32 %231, %99
-  %233 = icmp slt i32 %230, -2
-  %spec.select376 = select i1 %233, i32 0, i32 %231
-  %234 = select i1 %232, i32 %99, i32 %spec.select376
-  %235 = sub nsw i32 %216, %207
+._crit_edge409:                                   ; preds = %254, %196
+  %.0318.lcssa = phi float [ 0x3810000000000000, %196 ], [ %.1319, %254 ]
+  %.0316.lcssa = phi float [ 0x3810000000000000, %196 ], [ %.1317, %254 ]
+  %.0313.lcssa = phi float [ 0x47EFFFFFE0000000, %196 ], [ %.1314, %254 ]
+  %.0311.lcssa = phi float [ 0x47EFFFFFE0000000, %196 ], [ %.1312, %254 ]
+  %197 = fmul reassoc nsz arcp contract afn float %.0311.lcssa, %83
+  %198 = sitofp i32 %79 to float
+  %199 = fsub reassoc nsz arcp contract afn float %197, %198
+  %200 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %199)
+  %201 = fptosi float %200 to i32
+  %202 = sdiv i32 %201, %93
+  %203 = add nsw i32 %202, -1
+  %204 = icmp sgt i32 %203, %96
+  %.inv = icmp sgt i32 %202, 0
+  %spec.select = select i1 %.inv, i32 %203, i32 0
+  %205 = select i1 %204, i32 %96, i32 %spec.select
+  %206 = fmul reassoc nsz arcp contract afn float %.0316.lcssa, %83
+  %207 = fsub reassoc nsz arcp contract afn float %206, %198
+  %208 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %207)
+  %209 = fptosi float %208 to i32
+  %210 = sdiv i32 %209, %93
+  %211 = add nsw i32 %210, 2
+  %212 = icmp sgt i32 %211, %96
+  %213 = icmp slt i32 %210, -2
+  %spec.select374 = select i1 %213, i32 0, i32 %211
+  %214 = select i1 %212, i32 %96, i32 %spec.select374
+  %215 = fmul reassoc nsz arcp contract afn float %.0313.lcssa, %83
+  %216 = sitofp i32 %81 to float
+  %217 = fsub reassoc nsz arcp contract afn float %215, %216
+  %218 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %217)
+  %219 = fptosi float %218 to i32
+  %220 = sdiv i32 %219, %93
+  %221 = add nsw i32 %220, -1
+  %222 = icmp sgt i32 %221, %99
+  %.inv394 = icmp sgt i32 %220, 0
+  %spec.select375 = select i1 %.inv394, i32 %221, i32 0
+  %223 = select i1 %222, i32 %99, i32 %spec.select375
+  %224 = fmul reassoc nsz arcp contract afn float %.0318.lcssa, %83
+  %225 = fsub reassoc nsz arcp contract afn float %224, %216
+  %226 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %225)
+  %227 = fptosi float %226 to i32
+  %228 = sdiv i32 %227, %93
+  %229 = add nsw i32 %228, 2
+  %230 = icmp sgt i32 %229, %99
+  %231 = icmp slt i32 %228, -2
+  %spec.select376 = select i1 %231, i32 0, i32 %229
+  %232 = select i1 %230, i32 %99, i32 %spec.select376
+  %233 = sub nsw i32 %214, %205
+  %234 = add nsw i32 %233, 1
+  %235 = sub nsw i32 %232, %223
   %236 = add nsw i32 %235, 1
-  %237 = sub nsw i32 %234, %225
-  %238 = add nsw i32 %237, 1
   tail call void @free(ptr noundef nonnull %133) #12
-  %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
-  %240 = and i32 %239, 4112
-  %or.cond377.not = icmp eq i32 %240, 4112
-  br i1 %or.cond377.not, label %259, label %271
+  %237 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
+  %238 = and i32 %237, 4112
+  %or.cond377.not = icmp eq i32 %238, 4112
+  br i1 %or.cond377.not, label %255, label %267
 
-.lr.ph406:                                        ; preds = %.lr.ph406.preheader, %258
-  %indvars.iv435 = phi i64 [ 0, %.lr.ph406.preheader ], [ %indvars.iv.next436, %258 ]
-  %.0311404 = phi float [ 0x47EFFFFFE0000000, %.lr.ph406.preheader ], [ %.1312, %258 ]
-  %.0313403 = phi float [ 0x47EFFFFFE0000000, %.lr.ph406.preheader ], [ %.1314, %258 ]
-  %.0316402 = phi float [ 0x3810000000000000, %.lr.ph406.preheader ], [ %.1317, %258 ]
-  %.0318401 = phi float [ 0x3810000000000000, %.lr.ph406.preheader ], [ %.1319, %258 ]
-  %241 = shl nuw nsw i64 %indvars.iv435, 1
-  %242 = getelementptr inbounds nuw float, ptr %133, i64 %241
-  %243 = load float, ptr %242, align 8, !tbaa !24
-  %244 = tail call i1 @llvm.is.fpclass.f32(float %243, i32 759)
-  br i1 %244, label %258, label %245
+.lr.ph408:                                        ; preds = %.lr.ph408.preheader, %254
+  %indvars.iv437 = phi i64 [ 0, %.lr.ph408.preheader ], [ %indvars.iv.next438, %254 ]
+  %.0311406 = phi float [ 0x47EFFFFFE0000000, %.lr.ph408.preheader ], [ %.1312, %254 ]
+  %.0313405 = phi float [ 0x47EFFFFFE0000000, %.lr.ph408.preheader ], [ %.1314, %254 ]
+  %.0316404 = phi float [ 0x3810000000000000, %.lr.ph408.preheader ], [ %.1317, %254 ]
+  %.0318403 = phi float [ 0x3810000000000000, %.lr.ph408.preheader ], [ %.1319, %254 ]
+  %.idx462 = shl nuw nsw i64 %indvars.iv437, 3
+  %239 = getelementptr inbounds nuw i8, ptr %133, i64 %.idx462
+  %240 = load float, ptr %239, align 8, !tbaa !24
+  %241 = tail call i1 @llvm.is.fpclass.f32(float %240, i32 759)
+  br i1 %241, label %254, label %242
 
-245:                                              ; preds = %.lr.ph406
-  %246 = or disjoint i64 %241, 1
-  %247 = getelementptr inbounds nuw float, ptr %133, i64 %246
-  %248 = load float, ptr %247, align 4, !tbaa !24
-  %249 = tail call i1 @llvm.is.fpclass.f32(float %248, i32 759)
-  br i1 %249, label %258, label %250
+242:                                              ; preds = %.lr.ph408
+  %243 = getelementptr inbounds nuw i8, ptr %239, i64 4
+  %244 = load float, ptr %243, align 4, !tbaa !24
+  %245 = tail call i1 @llvm.is.fpclass.f32(float %244, i32 759)
+  br i1 %245, label %254, label %246
 
-250:                                              ; preds = %245
-  %251 = fcmp reassoc nsz arcp contract afn olt float %.0311404, %243
-  %.0311. = select reassoc nsz arcp contract afn i1 %251, float %.0311404, float %243
-  %252 = fcmp reassoc nsz arcp contract afn ogt float %.0316402, %243
-  %253 = select reassoc nsz arcp contract afn i1 %252, float %.0316402, float %243
-  %254 = fcmp reassoc nsz arcp contract afn olt float %.0313403, %248
-  %255 = select reassoc nsz arcp contract afn i1 %254, float %.0313403, float %248
-  %256 = fcmp reassoc nsz arcp contract afn ogt float %.0318401, %248
-  %257 = select reassoc nsz arcp contract afn i1 %256, float %.0318401, float %248
-  br label %258
+246:                                              ; preds = %242
+  %247 = fcmp reassoc nsz arcp contract afn olt float %.0311406, %240
+  %.0311. = select reassoc nsz arcp contract afn i1 %247, float %.0311406, float %240
+  %248 = fcmp reassoc nsz arcp contract afn ogt float %.0316404, %240
+  %249 = select reassoc nsz arcp contract afn i1 %248, float %.0316404, float %240
+  %250 = fcmp reassoc nsz arcp contract afn olt float %.0313405, %244
+  %251 = select reassoc nsz arcp contract afn i1 %250, float %.0313405, float %244
+  %252 = fcmp reassoc nsz arcp contract afn ogt float %.0318403, %244
+  %253 = select reassoc nsz arcp contract afn i1 %252, float %.0318403, float %244
+  br label %254
 
-258:                                              ; preds = %.lr.ph406, %245, %250
-  %.1319 = phi nsz float [ %257, %250 ], [ %.0318401, %245 ], [ %.0318401, %.lr.ph406 ]
-  %.1317 = phi nsz float [ %253, %250 ], [ %.0316402, %245 ], [ %.0316402, %.lr.ph406 ]
-  %.1314 = phi nsz float [ %255, %250 ], [ %.0313403, %245 ], [ %.0313403, %.lr.ph406 ]
-  %.1312 = phi nsz float [ %.0311., %250 ], [ %.0311404, %245 ], [ %.0311404, %.lr.ph406 ]
-  %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
-  %exitcond440.not = icmp eq i64 %indvars.iv.next436, %wide.trip.count439
-  br i1 %exitcond440.not, label %._crit_edge407, label %.lr.ph406
+254:                                              ; preds = %.lr.ph408, %242, %246
+  %.1319 = phi nsz float [ %253, %246 ], [ %.0318403, %242 ], [ %.0318403, %.lr.ph408 ]
+  %.1317 = phi nsz float [ %249, %246 ], [ %.0316404, %242 ], [ %.0316404, %.lr.ph408 ]
+  %.1314 = phi nsz float [ %251, %246 ], [ %.0313405, %242 ], [ %.0313405, %.lr.ph408 ]
+  %.1312 = phi nsz float [ %.0311., %246 ], [ %.0311406, %242 ], [ %.0311406, %.lr.ph408 ]
+  %indvars.iv.next438 = add nuw nsw i64 %indvars.iv437, 1
+  %exitcond442.not = icmp eq i64 %indvars.iv.next438, %wide.trip.count441
+  br i1 %exitcond442.not, label %._crit_edge409, label %.lr.ph408
 
-259:                                              ; preds = %._crit_edge407
-  %260 = getelementptr inbounds nuw i8, ptr %2, i64 32
+255:                                              ; preds = %._crit_edge409
+  %256 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #12
-  %261 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #12
-  %262 = load i64, ptr %11, align 8, !tbaa !126
-  %263 = add nsw i64 %262, -1290608000
-  %264 = sitofp i64 %263 to double
-  %265 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %266 = load i64, ptr %265, align 8, !tbaa !128
-  %267 = sitofp i64 %266 to double
-  %268 = fmul reassoc nsz arcp contract afn double %267, 0x3EB0C6F7A0B5ED8D
-  %269 = fadd reassoc nsz arcp contract afn double %268, %264
+  %257 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #12
+  %258 = load i64, ptr %11, align 8, !tbaa !126
+  %259 = add nsw i64 %258, -1290608000
+  %260 = sitofp i64 %259 to double
+  %261 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %262 = load i64, ptr %261, align 8, !tbaa !128
+  %263 = sitofp i64 %262 to double
+  %264 = fmul reassoc nsz arcp contract afn double %263, 0x3EB0C6F7A0B5ED8D
+  %265 = fadd reassoc nsz arcp contract afn double %264, %260
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #12
-  %270 = fsub reassoc nsz arcp contract afn double %269, %.2
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, ptr noundef nonnull %260, double noundef %270) #12
-  br label %271
+  %266 = fsub reassoc nsz arcp contract afn double %265, %.2
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.26, ptr noundef nonnull %256, double noundef %266) #12
+  br label %267
 
-271:                                              ; preds = %259, %._crit_edge407
-  %.3 = phi nsz double [ %.2, %._crit_edge407 ], [ %269, %259 ]
-  %272 = icmp slt i32 %235, 1
-  %273 = icmp slt i32 %237, 1
-  %or.cond = select i1 %272, i1 true, i1 %273
-  br i1 %or.cond, label %484, label %274
+267:                                              ; preds = %255, %._crit_edge409
+  %.3 = phi nsz double [ %.2, %._crit_edge409 ], [ %265, %255 ]
+  %268 = icmp slt i32 %233, 1
+  %269 = icmp slt i32 %235, 1
+  %or.cond = select i1 %268, i1 true, i1 %269
+  br i1 %or.cond, label %476, label %270
 
-274:                                              ; preds = %271
-  %275 = zext nneg i32 %236 to i64
-  %276 = zext nneg i32 %238 to i64
-  %277 = shl nuw nsw i64 %275, 3
-  %278 = mul i64 %277, %276
-  %279 = tail call ptr @dt_alloc_aligned(i64 noundef %278) #12
-  call void @llvm.assume(i1 true) [ "align"(ptr %279, i64 64) ]
-  %280 = icmp eq ptr %279, null
-  br i1 %280, label %484, label %.preheader397
+270:                                              ; preds = %267
+  %271 = zext nneg i32 %234 to i64
+  %272 = zext nneg i32 %236 to i64
+  %273 = shl nuw nsw i64 %271, 3
+  %274 = mul i64 %273, %272
+  %275 = tail call ptr @dt_alloc_aligned(i64 noundef %274) #12
+  call void @llvm.assume(i1 true) [ "align"(ptr %275, i64 64) ]
+  %276 = icmp eq ptr %275, null
+  br i1 %276, label %476, label %.preheader399
 
-.preheader397:                                    ; preds = %274
-  %.not353415 = icmp sgt i32 %225, %234
-  br i1 %.not353415, label %._crit_edge417, label %.preheader.lr.ph
+.preheader399:                                    ; preds = %270
+  %.not353417 = icmp sgt i32 %223, %232
+  br i1 %.not353417, label %._crit_edge419, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %.preheader397
-  %.not368411 = icmp sgt i32 %207, %216
-  %281 = sext i32 %207 to i64
-  br i1 %.not368411, label %._crit_edge417, label %.preheader.preheader
+.preheader.lr.ph:                                 ; preds = %.preheader399
+  %.not368413 = icmp sgt i32 %205, %214
+  %277 = sext i32 %205 to i64
+  br i1 %.not368413, label %._crit_edge419, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %.preheader.lr.ph
-  %282 = add i32 %216, 1
-  %283 = sext i32 %225 to i64
-  %284 = add i32 %234, 1
+  %278 = add i32 %214, 1
+  %279 = sext i32 %223 to i64
+  %280 = add i32 %232, 1
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge414
-  %indvars.iv445 = phi i64 [ %283, %.preheader.preheader ], [ %indvars.iv.next446, %._crit_edge414 ]
-  %285 = sub nsw i64 %indvars.iv445, %283
-  %286 = mul nuw nsw i64 %285, %275
-  %287 = sub i64 %286, %281
-  %288 = trunc i64 %indvars.iv445 to i32
-  %289 = mul i32 %93, %288
-  %290 = add i32 %289, %81
-  %291 = sitofp i32 %290 to float
-  %292 = fmul reassoc nsz arcp contract afn float %84, %291
-  br label %295
+.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge416
+  %indvars.iv447 = phi i64 [ %279, %.preheader.preheader ], [ %indvars.iv.next448, %._crit_edge416 ]
+  %281 = sub nsw i64 %indvars.iv447, %279
+  %282 = mul nuw nsw i64 %281, %271
+  %283 = sub i64 %282, %277
+  %284 = trunc i64 %indvars.iv447 to i32
+  %285 = mul i32 %93, %284
+  %286 = add i32 %285, %81
+  %287 = sitofp i32 %286 to float
+  %288 = fmul reassoc nsz arcp contract afn float %84, %287
+  br label %291
 
-._crit_edge417:                                   ; preds = %._crit_edge414, %.preheader.lr.ph, %.preheader397
-  %293 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
-  %294 = and i32 %293, 4112
-  %or.cond378.not = icmp eq i32 %294, 4112
-  br i1 %or.cond378.not, label %306, label %318
+._crit_edge419:                                   ; preds = %._crit_edge416, %.preheader.lr.ph, %.preheader399
+  %289 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
+  %290 = and i32 %289, 4112
+  %or.cond378.not = icmp eq i32 %290, 4112
+  br i1 %or.cond378.not, label %300, label %312
 
-._crit_edge414:                                   ; preds = %295
-  %indvars.iv.next446 = add nsw i64 %indvars.iv445, 1
-  %lftr.wideiv448 = trunc i64 %indvars.iv.next446 to i32
-  %exitcond449.not = icmp eq i32 %284, %lftr.wideiv448
-  br i1 %exitcond449.not, label %._crit_edge417, label %.preheader
+._crit_edge416:                                   ; preds = %291
+  %indvars.iv.next448 = add nsw i64 %indvars.iv447, 1
+  %lftr.wideiv450 = trunc i64 %indvars.iv.next448 to i32
+  %exitcond451.not = icmp eq i32 %280, %lftr.wideiv450
+  br i1 %exitcond451.not, label %._crit_edge419, label %.preheader
 
-295:                                              ; preds = %.preheader, %295
-  %indvars.iv441 = phi i64 [ %281, %.preheader ], [ %indvars.iv.next442, %295 ]
-  %296 = add i64 %287, %indvars.iv441
-  %297 = trunc i64 %indvars.iv441 to i32
-  %298 = mul i32 %93, %297
-  %299 = add i32 %298, %79
-  %300 = sitofp i32 %299 to float
-  %301 = fmul reassoc nsz arcp contract afn float %84, %300
-  %302 = shl i64 %296, 1
-  %303 = getelementptr inbounds nuw float, ptr %279, i64 %302
-  store float %301, ptr %303, align 8, !tbaa !24
-  %304 = or disjoint i64 %302, 1
-  %305 = getelementptr inbounds nuw float, ptr %279, i64 %304
-  store float %292, ptr %305, align 4, !tbaa !24
-  %indvars.iv.next442 = add nsw i64 %indvars.iv441, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next442 to i32
-  %exitcond444.not = icmp eq i32 %282, %lftr.wideiv
-  br i1 %exitcond444.not, label %._crit_edge414, label %295
+291:                                              ; preds = %.preheader, %291
+  %indvars.iv443 = phi i64 [ %277, %.preheader ], [ %indvars.iv.next444, %291 ]
+  %292 = add i64 %283, %indvars.iv443
+  %293 = trunc i64 %indvars.iv443 to i32
+  %294 = mul i32 %93, %293
+  %295 = add i32 %294, %79
+  %296 = sitofp i32 %295 to float
+  %297 = fmul reassoc nsz arcp contract afn float %84, %296
+  %.idx395 = shl i64 %292, 3
+  %298 = getelementptr inbounds nuw i8, ptr %275, i64 %.idx395
+  store float %297, ptr %298, align 8, !tbaa !24
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 4
+  store float %288, ptr %299, align 4, !tbaa !24
+  %indvars.iv.next444 = add nsw i64 %indvars.iv443, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next444 to i32
+  %exitcond446.not = icmp eq i32 %278, %lftr.wideiv
+  br i1 %exitcond446.not, label %._crit_edge416, label %291
 
-306:                                              ; preds = %._crit_edge417
-  %307 = getelementptr inbounds nuw i8, ptr %2, i64 32
+300:                                              ; preds = %._crit_edge419
+  %301 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #12
-  %308 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #12
-  %309 = load i64, ptr %10, align 8, !tbaa !126
-  %310 = add nsw i64 %309, -1290608000
-  %311 = sitofp i64 %310 to double
-  %312 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %313 = load i64, ptr %312, align 8, !tbaa !128
-  %314 = sitofp i64 %313 to double
-  %315 = fmul reassoc nsz arcp contract afn double %314, 0x3EB0C6F7A0B5ED8D
-  %316 = fadd reassoc nsz arcp contract afn double %315, %311
+  %302 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #12
+  %303 = load i64, ptr %10, align 8, !tbaa !126
+  %304 = add nsw i64 %303, -1290608000
+  %305 = sitofp i64 %304 to double
+  %306 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %307 = load i64, ptr %306, align 8, !tbaa !128
+  %308 = sitofp i64 %307 to double
+  %309 = fmul reassoc nsz arcp contract afn double %308, 0x3EB0C6F7A0B5ED8D
+  %310 = fadd reassoc nsz arcp contract afn double %309, %305
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #12
-  %317 = fsub reassoc nsz arcp contract afn double %316, %.3
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.27, ptr noundef nonnull %307, double noundef %317) #12
-  br label %318
+  %311 = fsub reassoc nsz arcp contract afn double %310, %.3
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.27, ptr noundef nonnull %301, double noundef %311) #12
+  br label %312
 
-318:                                              ; preds = %306, %._crit_edge417
-  %.4 = phi nsz double [ %.3, %._crit_edge417 ], [ %316, %306 ]
-  %319 = load ptr, ptr %175, align 8, !tbaa !129
-  %320 = load ptr, ptr %30, align 8, !tbaa !130
-  %321 = load i32, ptr %178, align 16, !tbaa !114
-  %322 = sitofp i32 %321 to double
-  %323 = mul nuw nsw i64 %276, %275
-  %324 = tail call i32 @dt_dev_distort_backtransform_plus(ptr noundef %319, ptr noundef %320, double noundef %322, i32 noundef 3, ptr noundef nonnull %279, i64 noundef %323) #12
-  %.not356 = icmp eq i32 %324, 0
-  br i1 %.not356, label %325, label %326
+312:                                              ; preds = %300, %._crit_edge419
+  %.4 = phi nsz double [ %.3, %._crit_edge419 ], [ %310, %300 ]
+  %313 = load ptr, ptr %173, align 8, !tbaa !129
+  %314 = load ptr, ptr %30, align 8, !tbaa !130
+  %315 = load i32, ptr %176, align 16, !tbaa !114
+  %316 = sitofp i32 %315 to double
+  %317 = mul nuw nsw i64 %272, %271
+  %318 = tail call i32 @dt_dev_distort_backtransform_plus(ptr noundef %313, ptr noundef %314, double noundef %316, i32 noundef 3, ptr noundef nonnull %275, i64 noundef %317) #12
+  %.not356 = icmp eq i32 %318, 0
+  br i1 %.not356, label %319, label %320
 
-325:                                              ; preds = %318
-  tail call void @free(ptr noundef nonnull %279) #12
-  br label %484
+319:                                              ; preds = %312
+  tail call void @free(ptr noundef nonnull %275) #12
+  br label %476
 
-326:                                              ; preds = %318
-  %327 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
-  %328 = and i32 %327, 4112
-  %or.cond379.not = icmp eq i32 %328, 4112
-  br i1 %or.cond379.not, label %329, label %.lr.ph.i
+320:                                              ; preds = %312
+  %321 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
+  %322 = and i32 %321, 4112
+  %or.cond379.not = icmp eq i32 %322, 4112
+  br i1 %or.cond379.not, label %323, label %.lr.ph.i
 
-329:                                              ; preds = %326
-  %330 = getelementptr inbounds nuw i8, ptr %2, i64 32
+323:                                              ; preds = %320
+  %324 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #12
-  %331 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #12
-  %332 = load i64, ptr %9, align 8, !tbaa !126
-  %333 = add nsw i64 %332, -1290608000
-  %334 = sitofp i64 %333 to double
-  %335 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %336 = load i64, ptr %335, align 8, !tbaa !128
-  %337 = sitofp i64 %336 to double
-  %338 = fmul reassoc nsz arcp contract afn double %337, 0x3EB0C6F7A0B5ED8D
-  %339 = fadd reassoc nsz arcp contract afn double %338, %334
+  %325 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #12
+  %326 = load i64, ptr %9, align 8, !tbaa !126
+  %327 = add nsw i64 %326, -1290608000
+  %328 = sitofp i64 %327 to double
+  %329 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %330 = load i64, ptr %329, align 8, !tbaa !128
+  %331 = sitofp i64 %330 to double
+  %332 = fmul reassoc nsz arcp contract afn double %331, 0x3EB0C6F7A0B5ED8D
+  %333 = fadd reassoc nsz arcp contract afn double %332, %328
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #12
-  %340 = fsub reassoc nsz arcp contract afn double %339, %.4
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.21, ptr noundef nonnull %330, double noundef %340) #12
+  %334 = fsub reassoc nsz arcp contract afn double %333, %.4
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.21, ptr noundef nonnull %324, double noundef %334) #12
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %329, %326
-  %.5 = phi nsz double [ %.4, %326 ], [ %339, %329 ]
-  %341 = fmul reassoc nsz arcp contract afn float %47, %47
-  %342 = fmul reassoc nsz arcp contract afn float %50, %50
-  %343 = fmul reassoc nsz arcp contract afn float %65, %65
-  %344 = fmul reassoc nsz arcp contract afn float %66, %66
-  %345 = fmul reassoc nsz arcp contract afn float %342, %341
-  %346 = fmul reassoc nsz arcp contract afn float %344, %343
-  br label %347
+.lr.ph.i:                                         ; preds = %323, %320
+  %.5 = phi nsz double [ %.4, %320 ], [ %333, %323 ]
+  %335 = fmul reassoc nsz arcp contract afn float %47, %47
+  %336 = fmul reassoc nsz arcp contract afn float %50, %50
+  %337 = fmul reassoc nsz arcp contract afn float %65, %65
+  %338 = fmul reassoc nsz arcp contract afn float %66, %66
+  %339 = fmul reassoc nsz arcp contract afn float %336, %335
+  %340 = fmul reassoc nsz arcp contract afn float %338, %337
+  br label %341
 
-347:                                              ; preds = %347, %.lr.ph.i
-  %.01.i = phi i64 [ 0, %.lr.ph.i ], [ %389, %347 ]
-  %348 = shl i64 %.01.i, 1
-  %349 = getelementptr inbounds nuw float, ptr %279, i64 %348
-  %350 = load float, ptr %349, align 8, !tbaa !24
-  %351 = fsub reassoc nsz arcp contract afn float %350, %38
-  %352 = or disjoint i64 %348, 1
-  %353 = getelementptr inbounds nuw float, ptr %279, i64 %352
-  %354 = load float, ptr %353, align 4, !tbaa !24
-  %355 = fsub reassoc nsz arcp contract afn float %354, %42
-  %356 = fmul reassoc nsz arcp contract afn float %351, %351
-  %357 = fmul reassoc nsz arcp contract afn float %355, %355
-  %358 = fadd reassoc nsz arcp contract afn float %357, %356
-  %359 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %358)
-  %360 = fcmp reassoc nsz arcp contract afn une float %358, 0.000000e+00
-  %361 = fdiv reassoc nsz arcp contract afn float %351, %359
-  %362 = select reassoc nsz arcp contract afn i1 %360, float %361, float 0.000000e+00
-  %363 = fdiv reassoc nsz arcp contract afn float %355, %359
-  %364 = select reassoc nsz arcp contract afn i1 %360, float %363, float 1.000000e+00
-  %365 = fmul reassoc nsz arcp contract afn float %362, %73
-  %366 = fmul reassoc nsz arcp contract afn float %364, %74
+341:                                              ; preds = %341, %.lr.ph.i
+  %.01.i = phi i64 [ 0, %.lr.ph.i ], [ %381, %341 ]
+  %.idx.i = shl i64 %.01.i, 3
+  %342 = getelementptr inbounds nuw i8, ptr %275, i64 %.idx.i
+  %343 = load float, ptr %342, align 8, !tbaa !24
+  %344 = fsub reassoc nsz arcp contract afn float %343, %38
+  %345 = getelementptr inbounds nuw i8, ptr %342, i64 4
+  %346 = load float, ptr %345, align 4, !tbaa !24
+  %347 = fsub reassoc nsz arcp contract afn float %346, %42
+  %348 = fmul reassoc nsz arcp contract afn float %344, %344
+  %349 = fmul reassoc nsz arcp contract afn float %347, %347
+  %350 = fadd reassoc nsz arcp contract afn float %349, %348
+  %351 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %350)
+  %352 = fcmp reassoc nsz arcp contract afn une float %350, 0.000000e+00
+  %353 = fdiv reassoc nsz arcp contract afn float %344, %351
+  %354 = select reassoc nsz arcp contract afn i1 %352, float %353, float 0.000000e+00
+  %355 = fdiv reassoc nsz arcp contract afn float %347, %351
+  %356 = select reassoc nsz arcp contract afn i1 %352, float %355, float 1.000000e+00
+  %357 = fmul reassoc nsz arcp contract afn float %354, %73
+  %358 = fmul reassoc nsz arcp contract afn float %356, %74
+  %359 = fadd reassoc nsz arcp contract afn float %357, %358
+  %360 = fmul reassoc nsz arcp contract afn float %356, %73
+  %361 = fmul reassoc nsz arcp contract afn float %354, %74
+  %362 = fsub reassoc nsz arcp contract afn float %360, %361
+  %363 = fmul reassoc nsz arcp contract afn float %359, %359
+  %364 = fmul reassoc nsz arcp contract afn float %362, %362
+  %365 = fmul reassoc nsz arcp contract afn float %364, %335
+  %366 = fmul reassoc nsz arcp contract afn float %363, %336
   %367 = fadd reassoc nsz arcp contract afn float %365, %366
-  %368 = fmul reassoc nsz arcp contract afn float %364, %73
-  %369 = fmul reassoc nsz arcp contract afn float %362, %74
-  %370 = fsub reassoc nsz arcp contract afn float %368, %369
-  %371 = fmul reassoc nsz arcp contract afn float %367, %367
-  %372 = fmul reassoc nsz arcp contract afn float %370, %370
-  %373 = fmul reassoc nsz arcp contract afn float %372, %341
-  %374 = fmul reassoc nsz arcp contract afn float %371, %342
-  %375 = fadd reassoc nsz arcp contract afn float %373, %374
-  %376 = fdiv reassoc nsz arcp contract afn float %345, %375
-  %377 = fmul reassoc nsz arcp contract afn float %372, %343
-  %378 = fmul reassoc nsz arcp contract afn float %371, %344
-  %379 = fadd reassoc nsz arcp contract afn float %377, %378
-  %380 = fdiv reassoc nsz arcp contract afn float %346, %379
-  %381 = fsub reassoc nsz arcp contract afn float %380, %358
-  %382 = fsub reassoc nsz arcp contract afn float %380, %376
-  %383 = fdiv reassoc nsz arcp contract afn float %381, %382
-  %384 = fcmp reassoc nsz arcp contract afn oge float %383, 0.000000e+00
-  %385 = fcmp reassoc nsz arcp contract afn ole float %383, 1.000000e+00
-  %386 = select reassoc nsz arcp contract afn i1 %385, float %383, float 1.000000e+00
-  %387 = select reassoc nsz arcp contract afn i1 %384, float %386, float 0.000000e+00
-  %388 = fmul reassoc nsz arcp contract afn float %387, %387
-  store float %388, ptr %349, align 8, !tbaa !24
-  %389 = add nuw i64 %.01.i, 1
-  %exitcond.not.i = icmp eq i64 %389, %323
-  br i1 %exitcond.not.i, label %_fill_mask.exit, label %347
+  %368 = fdiv reassoc nsz arcp contract afn float %339, %367
+  %369 = fmul reassoc nsz arcp contract afn float %364, %337
+  %370 = fmul reassoc nsz arcp contract afn float %363, %338
+  %371 = fadd reassoc nsz arcp contract afn float %369, %370
+  %372 = fdiv reassoc nsz arcp contract afn float %340, %371
+  %373 = fsub reassoc nsz arcp contract afn float %372, %350
+  %374 = fsub reassoc nsz arcp contract afn float %372, %368
+  %375 = fdiv reassoc nsz arcp contract afn float %373, %374
+  %376 = fcmp reassoc nsz arcp contract afn oge float %375, 0.000000e+00
+  %377 = fcmp reassoc nsz arcp contract afn ole float %375, 1.000000e+00
+  %378 = select reassoc nsz arcp contract afn i1 %377, float %375, float 1.000000e+00
+  %379 = select reassoc nsz arcp contract afn i1 %376, float %378, float 0.000000e+00
+  %380 = fmul reassoc nsz arcp contract afn float %379, %379
+  store float %380, ptr %342, align 8, !tbaa !24
+  %381 = add nuw i64 %.01.i, 1
+  %exitcond.not.i = icmp eq i64 %381, %317
+  br i1 %exitcond.not.i, label %_fill_mask.exit, label %341
 
-_fill_mask.exit:                                  ; preds = %347
-  %390 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
-  %391 = and i32 %390, 4112
-  %or.cond380.not = icmp eq i32 %391, 4112
-  br i1 %or.cond380.not, label %392, label %404
+_fill_mask.exit:                                  ; preds = %341
+  %382 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
+  %383 = and i32 %382, 4112
+  %or.cond380.not = icmp eq i32 %383, 4112
+  br i1 %or.cond380.not, label %384, label %396
 
-392:                                              ; preds = %_fill_mask.exit
-  %393 = getelementptr inbounds nuw i8, ptr %2, i64 32
+384:                                              ; preds = %_fill_mask.exit
+  %385 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
-  %394 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #12
-  %395 = load i64, ptr %8, align 8, !tbaa !126
-  %396 = add nsw i64 %395, -1290608000
-  %397 = sitofp i64 %396 to double
-  %398 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %399 = load i64, ptr %398, align 8, !tbaa !128
-  %400 = sitofp i64 %399 to double
-  %401 = fmul reassoc nsz arcp contract afn double %400, 0x3EB0C6F7A0B5ED8D
+  %386 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #12
+  %387 = load i64, ptr %8, align 8, !tbaa !126
+  %388 = add nsw i64 %387, -1290608000
+  %389 = sitofp i64 %388 to double
+  %390 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %391 = load i64, ptr %390, align 8, !tbaa !128
+  %392 = sitofp i64 %391 to double
+  %393 = fmul reassoc nsz arcp contract afn double %392, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #12
-  %402 = fsub reassoc nsz arcp contract afn double %397, %.5
-  %403 = fadd reassoc nsz arcp contract afn double %402, %401
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.20, ptr noundef nonnull %393, double noundef %403) #12
-  br label %404
+  %394 = fsub reassoc nsz arcp contract afn double %389, %.5
+  %395 = fadd reassoc nsz arcp contract afn double %394, %393
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.20, ptr noundef nonnull %385, double noundef %395) #12
+  br label %396
 
-404:                                              ; preds = %392, %_fill_mask.exit
-  %405 = mul i32 %216, %93
-  %406 = tail call i32 @llvm.smin.i32(i32 %76, i32 %405)
-  %407 = mul nsw i32 %234, %93
-  %408 = tail call i32 @llvm.smin.i32(i32 %78, i32 %407)
-  %409 = mul nsw i32 %225, %93
-  %410 = icmp slt i32 %409, %408
-  br i1 %410, label %.lr.ph425, label %._crit_edge426
+396:                                              ; preds = %384, %_fill_mask.exit
+  %397 = mul i32 %214, %93
+  %398 = tail call i32 @llvm.smin.i32(i32 %76, i32 %397)
+  %399 = mul nsw i32 %232, %93
+  %400 = tail call i32 @llvm.smin.i32(i32 %78, i32 %399)
+  %401 = mul nsw i32 %223, %93
+  %402 = icmp slt i32 %401, %400
+  br i1 %402, label %.lr.ph427, label %._crit_edge428
 
-.lr.ph425:                                        ; preds = %404
-  %411 = mul nsw i32 %207, %93
-  %412 = icmp slt i32 %411, %406
-  %413 = mul nsw i32 %93, %93
-  %414 = uitofp nneg i32 %413 to float
-  %415 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %414
-  %416 = sext i32 %76 to i64
-  br i1 %412, label %.lr.ph420.us.preheader, label %._crit_edge426
+.lr.ph427:                                        ; preds = %396
+  %403 = mul nsw i32 %205, %93
+  %404 = icmp slt i32 %403, %398
+  %405 = mul nsw i32 %93, %93
+  %406 = uitofp nneg i32 %405 to float
+  %407 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %406
+  %408 = sext i32 %76 to i64
+  br i1 %404, label %.lr.ph422.us.preheader, label %._crit_edge428
 
-.lr.ph420.us.preheader:                           ; preds = %.lr.ph425
-  %417 = sext i32 %411 to i64
-  %418 = sext i32 %409 to i64
-  %wide.trip.count458 = sext i32 %408 to i64
-  %wide.trip.count453 = sext i32 %406 to i64
-  br label %.lr.ph420.us
+.lr.ph422.us.preheader:                           ; preds = %.lr.ph427
+  %409 = sext i32 %403 to i64
+  %410 = sext i32 %401 to i64
+  %wide.trip.count460 = sext i32 %400 to i64
+  %wide.trip.count455 = sext i32 %398 to i64
+  br label %.lr.ph422.us
 
-.lr.ph420.us:                                     ; preds = %.lr.ph420.us.preheader, %._crit_edge421.us
-  %indvars.iv455 = phi i64 [ %418, %.lr.ph420.us.preheader ], [ %indvars.iv.next456, %._crit_edge421.us ]
-  %419 = trunc nsw i64 %indvars.iv455 to i32
-  %420 = srem i32 %419, %93
-  %421 = sdiv i32 %419, %93
-  %422 = sub nsw i32 %421, %225
-  %423 = sext i32 %422 to i64
-  %424 = mul nsw i64 %423, %275
-  %425 = sub nsw i32 %93, %420
-  %426 = sitofp i32 %425 to float
-  %invariant.op.us = add nsw i64 %424, %275
-  %427 = sitofp i32 %420 to float
-  %428 = mul nsw i64 %indvars.iv455, %416
-  %429 = getelementptr float, ptr %4, i64 %428
-  %factor.op.fmul427 = fmul reassoc nsz arcp contract afn float %415, %426
-  %factor.op.fmul429 = fmul reassoc nsz arcp contract afn float %415, %427
-  br label %430
+.lr.ph422.us:                                     ; preds = %.lr.ph422.us.preheader, %._crit_edge423.us
+  %indvars.iv457 = phi i64 [ %410, %.lr.ph422.us.preheader ], [ %indvars.iv.next458, %._crit_edge423.us ]
+  %411 = trunc nsw i64 %indvars.iv457 to i32
+  %412 = srem i32 %411, %93
+  %413 = sdiv i32 %411, %93
+  %414 = sub nsw i32 %413, %223
+  %415 = sext i32 %414 to i64
+  %416 = mul nsw i64 %415, %271
+  %417 = sub nsw i32 %93, %412
+  %418 = sitofp i32 %417 to float
+  %invariant.op.us = add nsw i64 %416, %271
+  %419 = sitofp i32 %412 to float
+  %420 = mul nsw i64 %indvars.iv457, %408
+  %421 = getelementptr float, ptr %4, i64 %420
+  %factor.op.fmul429 = fmul reassoc nsz arcp contract afn float %407, %418
+  %factor.op.fmul431 = fmul reassoc nsz arcp contract afn float %407, %419
+  br label %422
 
-430:                                              ; preds = %.lr.ph420.us, %430
-  %indvars.iv450 = phi i64 [ %417, %.lr.ph420.us ], [ %indvars.iv.next451, %430 ]
-  %431 = trunc nsw i64 %indvars.iv450 to i32
-  %432 = srem i32 %431, %93
-  %433 = sdiv i32 %431, %93
-  %434 = sub nsw i32 %433, %207
-  %435 = sext i32 %434 to i64
-  %436 = add nsw i64 %424, %435
-  %.idx.us = shl nsw i64 %436, 3
-  %437 = getelementptr inbounds nuw i8, ptr %279, i64 %.idx.us
-  %438 = load float, ptr %437, align 8, !tbaa !24
-  %439 = sub nsw i32 %93, %432
-  %440 = sitofp i32 %439 to float
-  %441 = fmul reassoc nsz arcp contract afn float %438, %440
-  %442 = getelementptr i8, ptr %437, i64 8
+422:                                              ; preds = %.lr.ph422.us, %422
+  %indvars.iv452 = phi i64 [ %409, %.lr.ph422.us ], [ %indvars.iv.next453, %422 ]
+  %423 = trunc nsw i64 %indvars.iv452 to i32
+  %424 = srem i32 %423, %93
+  %425 = sdiv i32 %423, %93
+  %426 = sub nsw i32 %425, %205
+  %427 = sext i32 %426 to i64
+  %428 = add nsw i64 %416, %427
+  %.idx.us = shl nsw i64 %428, 3
+  %429 = getelementptr inbounds nuw i8, ptr %275, i64 %.idx.us
+  %430 = load float, ptr %429, align 8, !tbaa !24
+  %431 = sub nsw i32 %93, %424
+  %432 = sitofp i32 %431 to float
+  %433 = fmul reassoc nsz arcp contract afn float %430, %432
+  %434 = getelementptr i8, ptr %429, i64 8
+  %435 = load float, ptr %434, align 8, !tbaa !24
+  %436 = sitofp i32 %424 to float
+  %437 = fmul reassoc nsz arcp contract afn float %435, %436
+  %438 = fadd reassoc nsz arcp contract afn float %437, %433
+  %.reass430 = fmul reassoc nsz arcp contract afn float %438, %factor.op.fmul429
+  %.reass424.us = add nsw i64 %invariant.op.us, %427
+  %.idx366.us = shl nsw i64 %.reass424.us, 3
+  %439 = getelementptr inbounds nuw i8, ptr %275, i64 %.idx366.us
+  %440 = load float, ptr %439, align 8, !tbaa !24
+  %441 = fmul reassoc nsz arcp contract afn float %440, %432
+  %442 = getelementptr i8, ptr %439, i64 8
   %443 = load float, ptr %442, align 8, !tbaa !24
-  %444 = sitofp i32 %432 to float
-  %445 = fmul reassoc nsz arcp contract afn float %443, %444
-  %446 = fadd reassoc nsz arcp contract afn float %445, %441
-  %.reass428 = fmul reassoc nsz arcp contract afn float %446, %factor.op.fmul427
-  %.reass422.us = add nsw i64 %invariant.op.us, %435
-  %.idx366.us = shl nsw i64 %.reass422.us, 3
-  %447 = getelementptr inbounds nuw i8, ptr %279, i64 %.idx366.us
-  %448 = load float, ptr %447, align 8, !tbaa !24
-  %449 = fmul reassoc nsz arcp contract afn float %448, %440
-  %450 = getelementptr i8, ptr %447, i64 8
-  %451 = load float, ptr %450, align 8, !tbaa !24
-  %452 = fmul reassoc nsz arcp contract afn float %451, %444
-  %reass.add.us = fadd reassoc nsz arcp contract afn float %452, %449
-  %reass.mul.us.reass = fmul reassoc nsz arcp contract afn float %reass.add.us, %factor.op.fmul429
-  %453 = fadd reassoc nsz arcp contract afn float %reass.mul.us.reass, %.reass428
-  %454 = getelementptr float, ptr %429, i64 %indvars.iv450
-  store float %453, ptr %454, align 4, !tbaa !24
-  %indvars.iv.next451 = add nsw i64 %indvars.iv450, 1
-  %exitcond454.not = icmp eq i64 %indvars.iv.next451, %wide.trip.count453
-  br i1 %exitcond454.not, label %._crit_edge421.us, label %430
+  %444 = fmul reassoc nsz arcp contract afn float %443, %436
+  %reass.add.us = fadd reassoc nsz arcp contract afn float %444, %441
+  %reass.mul.us.reass = fmul reassoc nsz arcp contract afn float %reass.add.us, %factor.op.fmul431
+  %445 = fadd reassoc nsz arcp contract afn float %reass.mul.us.reass, %.reass430
+  %446 = getelementptr float, ptr %421, i64 %indvars.iv452
+  store float %445, ptr %446, align 4, !tbaa !24
+  %indvars.iv.next453 = add nsw i64 %indvars.iv452, 1
+  %exitcond456.not = icmp eq i64 %indvars.iv.next453, %wide.trip.count455
+  br i1 %exitcond456.not, label %._crit_edge423.us, label %422
 
-._crit_edge421.us:                                ; preds = %430
-  %indvars.iv.next456 = add nsw i64 %indvars.iv455, 1
-  %exitcond459.not = icmp eq i64 %indvars.iv.next456, %wide.trip.count458
-  br i1 %exitcond459.not, label %._crit_edge426, label %.lr.ph420.us
+._crit_edge423.us:                                ; preds = %422
+  %indvars.iv.next458 = add nsw i64 %indvars.iv457, 1
+  %exitcond461.not = icmp eq i64 %indvars.iv.next458, %wide.trip.count460
+  br i1 %exitcond461.not, label %._crit_edge428, label %.lr.ph422.us
 
-._crit_edge426:                                   ; preds = %._crit_edge421.us, %.lr.ph425, %404
-  tail call void @free(ptr noundef nonnull %279) #12
-  %455 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
-  %456 = and i32 %455, 4112
-  %or.cond381.not = icmp eq i32 %456, 4112
-  br i1 %or.cond381.not, label %457, label %469
+._crit_edge428:                                   ; preds = %._crit_edge423.us, %.lr.ph427, %396
+  tail call void @free(ptr noundef nonnull %275) #12
+  %447 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
+  %448 = and i32 %447, 4112
+  %or.cond381.not = icmp eq i32 %448, 4112
+  br i1 %or.cond381.not, label %449, label %461
 
-457:                                              ; preds = %._crit_edge426
-  %458 = getelementptr inbounds nuw i8, ptr %2, i64 32
+449:                                              ; preds = %._crit_edge428
+  %450 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
-  %459 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #12
-  %460 = load i64, ptr %7, align 8, !tbaa !126
-  %461 = add nsw i64 %460, -1290608000
-  %462 = sitofp i64 %461 to double
-  %463 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %464 = load i64, ptr %463, align 8, !tbaa !128
-  %465 = sitofp i64 %464 to double
-  %466 = fmul reassoc nsz arcp contract afn double %465, 0x3EB0C6F7A0B5ED8D
+  %451 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #12
+  %452 = load i64, ptr %7, align 8, !tbaa !126
+  %453 = add nsw i64 %452, -1290608000
+  %454 = sitofp i64 %453 to double
+  %455 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %456 = load i64, ptr %455, align 8, !tbaa !128
+  %457 = sitofp i64 %456 to double
+  %458 = fmul reassoc nsz arcp contract afn double %457, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #12
-  %467 = fsub reassoc nsz arcp contract afn double %462, %.5
-  %468 = fadd reassoc nsz arcp contract afn double %467, %466
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.22, ptr noundef nonnull %458, double noundef %468) #12
+  %459 = fsub reassoc nsz arcp contract afn double %454, %.5
+  %460 = fadd reassoc nsz arcp contract afn double %459, %458
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.22, ptr noundef nonnull %450, double noundef %460) #12
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
-  br label %469
+  br label %461
 
-469:                                              ; preds = %._crit_edge426, %457
-  %470 = phi i32 [ %455, %._crit_edge426 ], [ %.pre, %457 ]
-  %471 = and i32 %470, 4112
-  %or.cond382.not = icmp eq i32 %471, 4112
-  br i1 %or.cond382.not, label %472, label %484
+461:                                              ; preds = %._crit_edge428, %449
+  %462 = phi i32 [ %447, %._crit_edge428 ], [ %.pre, %449 ]
+  %463 = and i32 %462, 4112
+  %or.cond382.not = icmp eq i32 %463, 4112
+  br i1 %or.cond382.not, label %464, label %476
 
-472:                                              ; preds = %469
-  %473 = getelementptr inbounds nuw i8, ptr %2, i64 32
+464:                                              ; preds = %461
+  %465 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
-  %474 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #12
-  %475 = load i64, ptr %6, align 8, !tbaa !126
-  %476 = add nsw i64 %475, -1290608000
-  %477 = sitofp i64 %476 to double
-  %478 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %479 = load i64, ptr %478, align 8, !tbaa !128
-  %480 = sitofp i64 %479 to double
-  %481 = fmul reassoc nsz arcp contract afn double %480, 0x3EB0C6F7A0B5ED8D
+  %466 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #12
+  %467 = load i64, ptr %6, align 8, !tbaa !126
+  %468 = add nsw i64 %467, -1290608000
+  %469 = sitofp i64 %468 to double
+  %470 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %471 = load i64, ptr %470, align 8, !tbaa !128
+  %472 = sitofp i64 %471 to double
+  %473 = fmul reassoc nsz arcp contract afn double %472, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
-  %482 = fsub reassoc nsz arcp contract afn double %477, %27
-  %483 = fadd reassoc nsz arcp contract afn double %482, %481
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.28, ptr noundef nonnull %473, double noundef %483) #12
-  br label %484
+  %474 = fsub reassoc nsz arcp contract afn double %469, %27
+  %475 = fadd reassoc nsz arcp contract afn double %474, %473
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.28, ptr noundef nonnull %465, double noundef %475) #12
+  br label %476
 
-484:                                              ; preds = %271, %469, %472, %274, %325, %114, %182
-  %.0 = phi i32 [ 0, %182 ], [ 0, %114 ], [ 1, %271 ], [ 0, %325 ], [ 0, %274 ], [ 1, %472 ], [ 1, %469 ]
+476:                                              ; preds = %267, %461, %464, %270, %319, %114, %180
+  %.0 = phi i32 [ 0, %180 ], [ 0, %114 ], [ 1, %267 ], [ 0, %319 ], [ 0, %270 ], [ 1, %464 ], [ 1, %461 ]
   ret i32 %.0
 }
 
@@ -2092,7 +2084,7 @@ define internal range(i32 0, 2) i32 @_ellipse_get_area(ptr noundef readonly capt
   %49 = load float, ptr %48, align 4, !tbaa !29
   %50 = call fastcc ptr @_ellipse_points_to_transform(float noundef %45, float noundef %47, float noundef %42, float noundef %44, float noundef %49, float noundef %15, float noundef %18, ptr noundef %8)
   %.not40 = icmp eq ptr %50, null
-  br i1 %.not40, label %79, label %51
+  br i1 %.not40, label %77, label %51
 
 51:                                               ; preds = %41
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -2117,47 +2109,46 @@ define internal range(i32 0, 2) i32 @_ellipse_get_area(ptr noundef readonly capt
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.02431.i = phi float [ 0x3810000000000000, %.lr.ph.preheader.i ], [ %72, %.lr.ph.i ]
-  %.02530.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i ], [ %71, %.lr.ph.i ]
-  %.02629.i = phi float [ 0x3810000000000000, %.lr.ph.preheader.i ], [ %67, %.lr.ph.i ]
-  %.02728.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i ], [ %66, %.lr.ph.i ]
-  %63 = shl nuw nsw i64 %indvars.iv.i, 1
-  %64 = getelementptr inbounds nuw float, ptr %50, i64 %63
-  %65 = load float, ptr %64, align 4, !tbaa !24
-  %66 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %65, float %.02728.i)
-  %67 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %65, float %.02629.i)
-  %68 = or disjoint i64 %63, 1
-  %69 = getelementptr inbounds nuw float, ptr %50, i64 %68
-  %70 = load float, ptr %69, align 4, !tbaa !24
-  %71 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %70, float %.02530.i)
-  %72 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %70, float %.02431.i)
+  %.02431.i = phi float [ 0x3810000000000000, %.lr.ph.preheader.i ], [ %70, %.lr.ph.i ]
+  %.02530.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i ], [ %69, %.lr.ph.i ]
+  %.02629.i = phi float [ 0x3810000000000000, %.lr.ph.preheader.i ], [ %66, %.lr.ph.i ]
+  %.02728.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i ], [ %65, %.lr.ph.i ]
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
+  %63 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i
+  %64 = load float, ptr %63, align 4, !tbaa !24
+  %65 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %64, float %.02728.i)
+  %66 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %64, float %.02629.i)
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %68 = load float, ptr %67, align 4, !tbaa !24
+  %69 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %68, float %.02530.i)
+  %70 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %68, float %.02431.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_bounding_box.exit, label %.lr.ph.i
 
 _bounding_box.exit:                               ; preds = %.lr.ph.i, %60
-  %.027.lcssa.i = phi float [ 0x47EFFFFFE0000000, %60 ], [ %66, %.lr.ph.i ]
-  %.026.lcssa.i = phi float [ 0x3810000000000000, %60 ], [ %67, %.lr.ph.i ]
-  %.025.lcssa.i = phi float [ 0x47EFFFFFE0000000, %60 ], [ %71, %.lr.ph.i ]
-  %.024.lcssa.i = phi float [ 0x3810000000000000, %60 ], [ %72, %.lr.ph.i ]
-  %73 = fptosi float %.027.lcssa.i to i32
-  store i32 %73, ptr %5, align 4, !tbaa !30
-  %74 = fptosi float %.025.lcssa.i to i32
-  store i32 %74, ptr %6, align 4, !tbaa !30
-  %75 = fsub reassoc nsz arcp contract afn float %.026.lcssa.i, %.027.lcssa.i
+  %.027.lcssa.i = phi float [ 0x47EFFFFFE0000000, %60 ], [ %65, %.lr.ph.i ]
+  %.026.lcssa.i = phi float [ 0x3810000000000000, %60 ], [ %66, %.lr.ph.i ]
+  %.025.lcssa.i = phi float [ 0x47EFFFFFE0000000, %60 ], [ %69, %.lr.ph.i ]
+  %.024.lcssa.i = phi float [ 0x3810000000000000, %60 ], [ %70, %.lr.ph.i ]
+  %71 = fptosi float %.027.lcssa.i to i32
+  store i32 %71, ptr %5, align 4, !tbaa !30
+  %72 = fptosi float %.025.lcssa.i to i32
+  store i32 %72, ptr %6, align 4, !tbaa !30
+  %73 = fsub reassoc nsz arcp contract afn float %.026.lcssa.i, %.027.lcssa.i
+  %74 = fptosi float %73 to i32
+  store i32 %74, ptr %3, align 4, !tbaa !30
+  %75 = fsub reassoc nsz arcp contract afn float %.024.lcssa.i, %.025.lcssa.i
   %76 = fptosi float %75 to i32
-  store i32 %76, ptr %3, align 4, !tbaa !30
-  %77 = fsub reassoc nsz arcp contract afn float %.024.lcssa.i, %.025.lcssa.i
-  %78 = fptosi float %77 to i32
-  store i32 %78, ptr %4, align 4, !tbaa !30
+  store i32 %76, ptr %4, align 4, !tbaa !30
   br label %.sink.split
 
 .sink.split:                                      ; preds = %51, %_bounding_box.exit
   %.0.ph = phi i32 [ 1, %_bounding_box.exit ], [ 0, %51 ]
   tail call void @free(ptr noundef nonnull %50) #12
-  br label %79
+  br label %77
 
-79:                                               ; preds = %.sink.split, %41
+77:                                               ; preds = %.sink.split, %41
   %.0 = phi i32 [ 0, %41 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
   ret i32 %.0
@@ -2219,7 +2210,7 @@ define internal range(i32 0, 2) i32 @_ellipse_get_source_area(ptr noundef readon
   %50 = load float, ptr %49, align 4, !tbaa !29
   %51 = call fastcc ptr @_ellipse_points_to_transform(float noundef %46, float noundef %48, float noundef %42, float noundef %44, float noundef %50, float noundef %15, float noundef %18, ptr noundef %8)
   %.not39 = icmp eq ptr %51, null
-  br i1 %.not39, label %79, label %52
+  br i1 %.not39, label %77, label %52
 
 52:                                               ; preds = %41
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !40
@@ -2243,47 +2234,46 @@ define internal range(i32 0, 2) i32 @_ellipse_get_source_area(ptr noundef readon
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.02431.i = phi float [ 0x3810000000000000, %.lr.ph.preheader.i ], [ %72, %.lr.ph.i ]
-  %.02530.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i ], [ %71, %.lr.ph.i ]
-  %.02629.i = phi float [ 0x3810000000000000, %.lr.ph.preheader.i ], [ %67, %.lr.ph.i ]
-  %.02728.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i ], [ %66, %.lr.ph.i ]
-  %63 = shl nuw nsw i64 %indvars.iv.i, 1
-  %64 = getelementptr inbounds nuw float, ptr %51, i64 %63
-  %65 = load float, ptr %64, align 4, !tbaa !24
-  %66 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %65, float %.02728.i)
-  %67 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %65, float %.02629.i)
-  %68 = or disjoint i64 %63, 1
-  %69 = getelementptr inbounds nuw float, ptr %51, i64 %68
-  %70 = load float, ptr %69, align 4, !tbaa !24
-  %71 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %70, float %.02530.i)
-  %72 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %70, float %.02431.i)
+  %.02431.i = phi float [ 0x3810000000000000, %.lr.ph.preheader.i ], [ %70, %.lr.ph.i ]
+  %.02530.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i ], [ %69, %.lr.ph.i ]
+  %.02629.i = phi float [ 0x3810000000000000, %.lr.ph.preheader.i ], [ %66, %.lr.ph.i ]
+  %.02728.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.preheader.i ], [ %65, %.lr.ph.i ]
+  %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
+  %63 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i
+  %64 = load float, ptr %63, align 4, !tbaa !24
+  %65 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %64, float %.02728.i)
+  %66 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %64, float %.02629.i)
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %68 = load float, ptr %67, align 4, !tbaa !24
+  %69 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %68, float %.02530.i)
+  %70 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %68, float %.02431.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_bounding_box.exit, label %.lr.ph.i
 
 _bounding_box.exit:                               ; preds = %.lr.ph.i, %60
-  %.027.lcssa.i = phi float [ 0x47EFFFFFE0000000, %60 ], [ %66, %.lr.ph.i ]
-  %.026.lcssa.i = phi float [ 0x3810000000000000, %60 ], [ %67, %.lr.ph.i ]
-  %.025.lcssa.i = phi float [ 0x47EFFFFFE0000000, %60 ], [ %71, %.lr.ph.i ]
-  %.024.lcssa.i = phi float [ 0x3810000000000000, %60 ], [ %72, %.lr.ph.i ]
-  %73 = fptosi float %.027.lcssa.i to i32
-  store i32 %73, ptr %5, align 4, !tbaa !30
-  %74 = fptosi float %.025.lcssa.i to i32
-  store i32 %74, ptr %6, align 4, !tbaa !30
-  %75 = fsub reassoc nsz arcp contract afn float %.026.lcssa.i, %.027.lcssa.i
+  %.027.lcssa.i = phi float [ 0x47EFFFFFE0000000, %60 ], [ %65, %.lr.ph.i ]
+  %.026.lcssa.i = phi float [ 0x3810000000000000, %60 ], [ %66, %.lr.ph.i ]
+  %.025.lcssa.i = phi float [ 0x47EFFFFFE0000000, %60 ], [ %69, %.lr.ph.i ]
+  %.024.lcssa.i = phi float [ 0x3810000000000000, %60 ], [ %70, %.lr.ph.i ]
+  %71 = fptosi float %.027.lcssa.i to i32
+  store i32 %71, ptr %5, align 4, !tbaa !30
+  %72 = fptosi float %.025.lcssa.i to i32
+  store i32 %72, ptr %6, align 4, !tbaa !30
+  %73 = fsub reassoc nsz arcp contract afn float %.026.lcssa.i, %.027.lcssa.i
+  %74 = fptosi float %73 to i32
+  store i32 %74, ptr %3, align 4, !tbaa !30
+  %75 = fsub reassoc nsz arcp contract afn float %.024.lcssa.i, %.025.lcssa.i
   %76 = fptosi float %75 to i32
-  store i32 %76, ptr %3, align 4, !tbaa !30
-  %77 = fsub reassoc nsz arcp contract afn float %.024.lcssa.i, %.025.lcssa.i
-  %78 = fptosi float %77 to i32
-  store i32 %78, ptr %4, align 4, !tbaa !30
+  store i32 %76, ptr %4, align 4, !tbaa !30
   br label %.sink.split
 
 .sink.split:                                      ; preds = %52, %_bounding_box.exit
   %.0.ph = phi i32 [ 1, %_bounding_box.exit ], [ 0, %52 ]
   tail call void @free(ptr noundef nonnull %51) #12
-  br label %79
+  br label %77
 
-79:                                               ; preds = %.sink.split, %41
+77:                                               ; preds = %.sink.split, %41
   %.0 = phi i32 [ 0, %41 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
   ret i32 %.0
@@ -4725,14 +4715,13 @@ define internal fastcc ptr @_points_to_transform(float noundef %0, float noundef
   %.reass125 = fmul reassoc nsz arcp contract afn float %81, %factor.op.fmul124
   %.reass121.reass = fmul reassoc nsz arcp contract afn float %81, %factor.op.fmul
   %82 = fadd reassoc nsz arcp contract afn float %80, %.reass121.reass
-  %83 = shl nuw nsw i64 %indvars.iv, 1
-  %84 = getelementptr inbounds nuw float, ptr %33, i64 %83
-  store float %82, ptr %84, align 8, !tbaa !24
-  %85 = fadd reassoc nsz arcp contract afn float %.reass123, %41
-  %86 = fadd reassoc nsz arcp contract afn float %85, %.reass125
-  %87 = or disjoint i64 %83, 1
-  %88 = getelementptr inbounds nuw float, ptr %33, i64 %87
-  store float %86, ptr %88, align 4, !tbaa !24
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %83 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx
+  store float %82, ptr %83, align 8, !tbaa !24
+  %84 = fadd reassoc nsz arcp contract afn float %.reass123, %41
+  %85 = fadd reassoc nsz arcp contract afn float %84, %.reass125
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 4
+  store float %85, ptr %86, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %72
@@ -4883,14 +4872,13 @@ define internal fastcc ptr @_ellipse_points_to_transform(float noundef %0, float
   %.reass101 = fmul reassoc nsz arcp contract afn float %77, %factor.op.fmul100
   %.reass97.reass = fmul reassoc nsz arcp contract afn float %77, %factor.op.fmul
   %78 = fadd reassoc nsz arcp contract afn float %76, %.reass97.reass
-  %79 = shl nuw nsw i64 %indvars.iv, 1
-  %80 = getelementptr inbounds nuw float, ptr %28, i64 %79
-  store float %78, ptr %80, align 8, !tbaa !24
-  %81 = fadd reassoc nsz arcp contract afn float %.reass99, %36
-  %82 = fadd reassoc nsz arcp contract afn float %81, %.reass101
-  %83 = or disjoint i64 %79, 1
-  %84 = getelementptr inbounds nuw float, ptr %28, i64 %83
-  store float %82, ptr %84, align 4, !tbaa !24
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %79 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
+  store float %78, ptr %79, align 8, !tbaa !24
+  %80 = fadd reassoc nsz arcp contract afn float %.reass99, %36
+  %81 = fadd reassoc nsz arcp contract afn float %80, %.reass101
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  store float %81, ptr %82, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %68
@@ -4968,7 +4956,7 @@ declare void @dt_conf_set_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_ellipse_draw_shape(i32 noundef range(i32 0, 2) %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef readonly captures(none) %7, i32 noundef %8) unnamed_addr #0 {
   %10 = icmp slt i32 %8, 11
-  br i1 %10, label %79, label %11
+  br i1 %10, label %77, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -5025,34 +5013,33 @@ define internal fastcc void @_ellipse_draw_shape(i32 noundef range(i32 0, 2) %0,
   %59 = fpext reassoc nsz arcp contract afn float %57 to double
   tail call void @cairo_line_to(ptr noundef %2, double noundef %58, double noundef %59) #12
   tail call void @dt_masks_line_stroke(ptr noundef %2, i32 noundef %0, i32 noundef %1, i32 noundef %3, float noundef %4) #12
-  br label %79
+  br label %77
 
 60:                                               ; preds = %11, %60
   %indvars.iv = phi i64 [ 6, %11 ], [ %indvars.iv.next, %60 ]
-  %61 = shl nuw nsw i64 %indvars.iv, 1
-  %62 = getelementptr inbounds nuw float, ptr %7, i64 %61
-  %63 = load float, ptr %62, align 4, !tbaa !24
-  %64 = or disjoint i64 %61, 1
-  %65 = getelementptr inbounds nuw float, ptr %7, i64 %64
-  %66 = load float, ptr %65, align 4, !tbaa !24
-  %67 = fsub reassoc nsz arcp contract afn float %63, %5
-  %68 = fmul reassoc nsz arcp contract afn float %67, %30
-  %69 = fsub reassoc nsz arcp contract afn float %66, %6
-  %70 = fmul reassoc nsz arcp contract afn float %69, %34
-  %71 = fmul reassoc nsz arcp contract afn float %67, %34
-  %72 = fmul reassoc nsz arcp contract afn float %69, %30
-  %73 = fadd reassoc nsz arcp contract afn float %68, %5
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
+  %62 = load float, ptr %61, align 4, !tbaa !24
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %64 = load float, ptr %63, align 4, !tbaa !24
+  %65 = fsub reassoc nsz arcp contract afn float %62, %5
+  %66 = fmul reassoc nsz arcp contract afn float %65, %30
+  %67 = fsub reassoc nsz arcp contract afn float %64, %6
+  %68 = fmul reassoc nsz arcp contract afn float %67, %34
+  %69 = fmul reassoc nsz arcp contract afn float %65, %34
+  %70 = fmul reassoc nsz arcp contract afn float %67, %30
+  %71 = fadd reassoc nsz arcp contract afn float %66, %5
+  %72 = fadd reassoc nsz arcp contract afn float %71, %68
+  %73 = fadd reassoc nsz arcp contract afn float %69, %6
   %74 = fadd reassoc nsz arcp contract afn float %73, %70
-  %75 = fadd reassoc nsz arcp contract afn float %71, %6
-  %76 = fadd reassoc nsz arcp contract afn float %75, %72
-  %77 = fpext reassoc nsz arcp contract afn float %74 to double
-  %78 = fpext reassoc nsz arcp contract afn float %76 to double
-  tail call void @cairo_line_to(ptr noundef %2, double noundef %77, double noundef %78) #12
+  %75 = fpext reassoc nsz arcp contract afn float %72 to double
+  %76 = fpext reassoc nsz arcp contract afn float %74 to double
+  tail call void @cairo_line_to(ptr noundef %2, double noundef %75, double noundef %76) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %45, label %60
 
-79:                                               ; preds = %9, %45
+77:                                               ; preds = %9, %45
   ret void
 }
 

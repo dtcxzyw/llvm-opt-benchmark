@@ -1111,8 +1111,8 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut8from_vec17h46aaf2ae3c84b632E.ll
   %5 = sub nuw nsw i64 64, %4
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 7)
   %6 = shl nuw nsw i64 %.0.sroa.speculated.i, 2
-  %7 = or disjoint i64 %6, 1
-  %8 = getelementptr i8, ptr null, i64 %7
+  %7 = getelementptr i8, ptr null, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 1
   store ptr %.sroa.4.0.copyload, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.copyload, ptr %9, align 8
@@ -8967,14 +8967,14 @@ define hidden i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Al
   %6 = extractvalue { i16, i16 } %5, 0
   %7 = extractvalue { i16, i16 } %5, 1
   %.idx = shl nuw nsw i64 %.0, 7
-  %.offs = or disjoint i64 %.idx, 64
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.offs
-  %9 = tail call { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %8, i64 noundef 16)
-  %10 = extractvalue { i16, i16 } %9, 0
-  %11 = extractvalue { i16, i16 } %9, 1
-  %.sroa.7.0.insert.ext = zext i16 %11 to i64
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %10 = tail call { i16, i16 } @_ZN6brotli3enc19context_map_entropy18min_cost_speed_max17h9f7f213e0b3289f6E(ptr noalias noundef nonnull readonly align 4 %9, i64 noundef 16)
+  %11 = extractvalue { i16, i16 } %10, 0
+  %12 = extractvalue { i16, i16 } %10, 1
+  %.sroa.7.0.insert.ext = zext i16 %12 to i64
   %.sroa.7.0.insert.shift = shl nuw i64 %.sroa.7.0.insert.ext, 48
-  %.sroa.5.0.insert.ext = zext i16 %10 to i64
+  %.sroa.5.0.insert.ext = zext i16 %11 to i64
   %.sroa.5.0.insert.shift = shl nuw nsw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.5.0.insert.shift
   %.sroa.3.0.insert.ext = zext i16 %7 to i64
@@ -9058,14 +9058,14 @@ define hidden i64 @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$Al
   %4 = getelementptr inbounds nuw [3 x [2 x [16 x float]]], ptr %3, i64 0, i64 %.0, i64 0
   %5 = tail call noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %4, i64 noundef 16)
   %.idx = shl nuw nsw i64 %.0, 7
-  %.offs = or disjoint i64 %.idx, 64
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.offs
-  %7 = tail call noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %6, i64 noundef 16)
-  %8 = bitcast float %5 to i32
-  %9 = bitcast float %7 to i32
-  %.sroa.3.0.insert.ext = zext i32 %9 to i64
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %8 = tail call noundef float @_ZN6brotli3enc19context_map_entropy14min_cost_value17h2648fee81f427a00E(ptr noalias noundef nonnull readonly align 4 %7, i64 noundef 16)
+  %9 = bitcast float %5 to i32
+  %10 = bitcast float %8 to i32
+  %.sroa.3.0.insert.ext = zext i32 %10 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %8 to i64
+  %.sroa.0.0.insert.ext = zext i32 %9 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.0.0.insert.ext
   ret i64 %.sroa.0.0.insert.insert
 }
@@ -10606,8 +10606,8 @@ common.resume:                                    ; preds = %.body, %13
   %26 = sub nuw nsw i64 64, %25
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %26, i64 7)
   %27 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %28 = or disjoint i64 %27, 1
-  %29 = getelementptr i8, ptr null, i64 %28
+  %28 = getelementptr i8, ptr null, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !1124
   store i64 1, ptr %4, align 8, !noalias !1124
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -10692,8 +10692,8 @@ define hidden noundef nonnull ptr @_ZN10actix_http4test13TestSeqBuffer3new17h638
   %13 = sub nuw nsw i64 64, %12
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %13, i64 7)
   %14 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %15 = or disjoint i64 %14, 1
-  %16 = getelementptr i8, ptr null, i64 %15
+  %15 = getelementptr i8, ptr null, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 1
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2), !noalias !1134
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)

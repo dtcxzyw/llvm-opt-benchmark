@@ -4365,6 +4365,7 @@ if.then.i.i41.i:                                  ; preds = %while.body.i345
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %sub.i.i1105 = add nsw i64 %sub.ptr.div.i, -1
   %div.i.i = sdiv i64 %sub.i.i1105, 2
+  %invariant.gep.i.i = getelementptr i8, ptr %477, i64 24
   %cmp25.i.i = icmp sgt i64 %sub.ptr.div.i, 2
   br i1 %cmp25.i.i, label %while.body.i.i, label %while.end.i.i
 
@@ -4372,13 +4373,13 @@ while.body.i.i:                                   ; preds = %if.then.i.i41.i, %w
   %__holeIndex.addr.026.i.i = phi i64 [ %spec.select.i.i, %while.body.i.i ], [ 0, %if.then.i.i41.i ]
   %add.i.i1112 = shl i64 %__holeIndex.addr.026.i.i, 1
   %mul.i.i1113 = add i64 %add.i.i1112, 2
-  %sub1.i.i = or disjoint i64 %add.i.i1112, 1
   %second.i.i.i.i1114 = getelementptr inbounds %"struct.std::pair", ptr %477, i64 %mul.i.i1113, i32 1
   %478 = load i32, ptr %second.i.i.i.i1114, align 8
-  %second2.i.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %477, i64 %sub1.i.i, i32 1
-  %479 = load i32, ptr %second2.i.i.i.i, align 8
+  %gep.i.i = getelementptr %"struct.std::pair", ptr %invariant.gep.i.i, i64 %add.i.i1112
+  %479 = load i32, ptr %gep.i.i, align 8
   %cmp.i.i.i.i1115 = icmp ult i32 %478, %479
-  %spec.select.i.i = select i1 %cmp.i.i.i.i1115, i64 %sub1.i.i, i64 %mul.i.i1113
+  %dec.i.i = or disjoint i64 %add.i.i1112, 1
+  %spec.select.i.i = select i1 %cmp.i.i.i.i1115, i64 %dec.i.i, i64 %mul.i.i1113
   %add.ptr3.i.i = getelementptr inbounds %"struct.std::pair", ptr %477, i64 %spec.select.i.i
   %add.ptr4.i.i = getelementptr inbounds %"struct.std::pair", ptr %477, i64 %__holeIndex.addr.026.i.i
   %480 = load ptr, ptr %add.ptr3.i.i, align 8

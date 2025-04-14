@@ -7217,9 +7217,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr @.str.49, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !9
-  %20 = or disjoint i64 %13, 1
-  %21 = load ptr, ptr %0, align 8, !tbaa !15
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %20
+  %20 = load ptr, ptr %0, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %13
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store i8 %19, ptr %22, align 1, !tbaa !9
   %23 = add nuw i64 %.012, 1
   %exitcond.not = icmp eq i64 %23, %2

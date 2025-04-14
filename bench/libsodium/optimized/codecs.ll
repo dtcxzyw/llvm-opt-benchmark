@@ -20,7 +20,7 @@ define dso_local noundef nonnull ptr @sodium_bin2hex(ptr noundef nonnull returne
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.024 = phi i64 [ %29, %.lr.ph ], [ 0, %.preheader ]
+  %.024 = phi i64 [ %28, %.lr.ph ], [ 0, %.preheader ]
   %8 = getelementptr i8, ptr %2, i64 %.024
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
@@ -42,21 +42,20 @@ define dso_local noundef nonnull ptr @sodium_bin2hex(ptr noundef nonnull returne
   store i8 %22, ptr %24, align 1
   %25 = lshr exact i32 %16, 8
   %26 = trunc i32 %25 to i8
-  %27 = or disjoint i64 %23, 1
-  %28 = getelementptr i8, ptr %0, i64 %27
-  store i8 %26, ptr %28, align 1
-  %29 = add nuw nsw i64 %.024, 1
-  %exitcond.not = icmp eq i64 %29, %3
+  %27 = getelementptr i8, ptr %24, i64 1
+  store i8 %26, ptr %27, align 1
+  %28 = add nuw nsw i64 %.024, 1
+  %exitcond.not = icmp eq i64 %28, %3
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %30 = shl nuw i64 %3, 1
+  %29 = shl nuw i64 %3, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit
-  %.0.lcssa = phi i64 [ %30, %._crit_edge.loopexit ], [ 0, %.preheader ]
-  %31 = getelementptr i8, ptr %0, i64 %.0.lcssa
-  store i8 0, ptr %31, align 1
+  %.0.lcssa = phi i64 [ %29, %._crit_edge.loopexit ], [ 0, %.preheader ]
+  %30 = getelementptr i8, ptr %0, i64 %.0.lcssa
+  store i8 0, ptr %30, align 1
   ret ptr %0
 }
 

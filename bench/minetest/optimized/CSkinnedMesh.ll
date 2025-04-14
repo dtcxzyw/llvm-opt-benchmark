@@ -4338,9 +4338,8 @@ for.cond54.preheader.thread:                      ; preds = %for.cond25.preheade
   br label %for.end88
 
 for.inc22:                                        ; preds = %for.body16.preheader, %for.cond12.preheader
-  %indvars.iv.next261 = or disjoint i64 %indvars.iv260, 1
-  %add.ptr.i.i149.1 = getelementptr inbounds nuw %"class.irr::core::array.101", ptr %6, i64 %indvars.iv.next261
-  %_M_finish.i.i150.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i149.1, i64 8
+  %add.ptr.i.i149.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i149, i64 32
+  %_M_finish.i.i150.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i149, i64 40
   %34 = load ptr, ptr %_M_finish.i.i150.1, align 8, !tbaa !201
   %35 = load ptr, ptr %add.ptr.i.i149.1, align 8, !tbaa !202
   %sub.ptr.lhs.cast.i.i151.1 = ptrtoint ptr %34 to i64
@@ -4908,38 +4907,31 @@ for.body60:                                       ; preds = %for.body60, %for.bo
   %55 = load ptr, ptr %add.ptr.i.i399, align 8, !tbaa !48
   %UseAnimationFrom = getelementptr inbounds nuw i8, ptr %55, i64 592
   store ptr %55, ptr %UseAnimationFrom, align 8, !tbaa !85
-  %indvars.iv.next1363 = or disjoint i64 %indvars.iv1362, 1
-  %add.ptr.i.i399.1 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.next1363
+  %add.ptr.i.i399.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i399, i64 8
   %56 = load ptr, ptr %add.ptr.i.i399.1, align 8, !tbaa !48
   %UseAnimationFrom.1 = getelementptr inbounds nuw i8, ptr %56, i64 592
   store ptr %56, ptr %UseAnimationFrom.1, align 8, !tbaa !85
-  %indvars.iv.next1363.1 = or disjoint i64 %indvars.iv1362, 2
-  %add.ptr.i.i399.2 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.next1363.1
+  %add.ptr.i.i399.2 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i399, i64 16
   %57 = load ptr, ptr %add.ptr.i.i399.2, align 8, !tbaa !48
   %UseAnimationFrom.2 = getelementptr inbounds nuw i8, ptr %57, i64 592
   store ptr %57, ptr %UseAnimationFrom.2, align 8, !tbaa !85
-  %indvars.iv.next1363.2 = or disjoint i64 %indvars.iv1362, 3
-  %add.ptr.i.i399.3 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.next1363.2
+  %add.ptr.i.i399.3 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i399, i64 24
   %58 = load ptr, ptr %add.ptr.i.i399.3, align 8, !tbaa !48
   %UseAnimationFrom.3 = getelementptr inbounds nuw i8, ptr %58, i64 592
   store ptr %58, ptr %UseAnimationFrom.3, align 8, !tbaa !85
-  %indvars.iv.next1363.3 = or disjoint i64 %indvars.iv1362, 4
-  %add.ptr.i.i399.4 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.next1363.3
+  %add.ptr.i.i399.4 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i399, i64 32
   %59 = load ptr, ptr %add.ptr.i.i399.4, align 8, !tbaa !48
   %UseAnimationFrom.4 = getelementptr inbounds nuw i8, ptr %59, i64 592
   store ptr %59, ptr %UseAnimationFrom.4, align 8, !tbaa !85
-  %indvars.iv.next1363.4 = or disjoint i64 %indvars.iv1362, 5
-  %add.ptr.i.i399.5 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.next1363.4
+  %add.ptr.i.i399.5 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i399, i64 40
   %60 = load ptr, ptr %add.ptr.i.i399.5, align 8, !tbaa !48
   %UseAnimationFrom.5 = getelementptr inbounds nuw i8, ptr %60, i64 592
   store ptr %60, ptr %UseAnimationFrom.5, align 8, !tbaa !85
-  %indvars.iv.next1363.5 = or disjoint i64 %indvars.iv1362, 6
-  %add.ptr.i.i399.6 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.next1363.5
+  %add.ptr.i.i399.6 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i399, i64 48
   %61 = load ptr, ptr %add.ptr.i.i399.6, align 8, !tbaa !48
   %UseAnimationFrom.6 = getelementptr inbounds nuw i8, ptr %61, i64 592
   store ptr %61, ptr %UseAnimationFrom.6, align 8, !tbaa !85
-  %indvars.iv.next1363.6 = or disjoint i64 %indvars.iv1362, 7
-  %add.ptr.i.i399.7 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.next1363.6
+  %add.ptr.i.i399.7 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i399, i64 56
   %62 = load ptr, ptr %add.ptr.i.i399.7, align 8, !tbaa !48
   %UseAnimationFrom.7 = getelementptr inbounds nuw i8, ptr %62, i64 592
   store ptr %62, ptr %UseAnimationFrom.7, align 8, !tbaa !85

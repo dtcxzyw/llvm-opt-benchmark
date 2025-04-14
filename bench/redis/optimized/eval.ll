@@ -293,16 +293,15 @@ define dso_local void @sha1hex(ptr noundef writeonly captures(none) %0, ptr noun
   %17 = zext nneg i8 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr @.str, i64 %17
   %19 = load i8, ptr %18, align 1, !tbaa !13
-  %20 = or disjoint i64 %14, 1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %20
-  store i8 %19, ptr %21, align 1, !tbaa !13
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  store i8 %19, ptr %20, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %22, label %7, !llvm.loop !14
+  br i1 %exitcond.not, label %21, label %7, !llvm.loop !14
 
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %23, align 1, !tbaa !13
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 0, ptr %22, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %4) #19
   ret void
@@ -1196,40 +1195,39 @@ sdslen.exit:                                      ; preds = %8, %13, %16, %20, %
   %42 = zext nneg i8 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr @.str, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !13
-  %45 = or disjoint i64 %39, 1
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 %45
-  store i8 %44, ptr %46, align 1, !tbaa !13
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 1
+  store i8 %44, ptr %45, align 1, !tbaa !13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
   br i1 %exitcond.not.i, label %sha1hex.exit, label %32, !llvm.loop !14
 
 sha1hex.exit:                                     ; preds = %32
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 42
-  store i8 0, ptr %47, align 1, !tbaa !13
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 42
+  store i8 0, ptr %46, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %4) #19
-  br label %54
+  br label %53
 
 .preheader:                                       ; preds = %3, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %3 ]
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %49 = load i8, ptr %48, align 1, !tbaa !13
-  %50 = add i8 %49, -65
-  %or.cond = icmp ult i8 %50, 26
-  %51 = add nuw nsw i8 %49, 32
-  %spec.select = select i1 %or.cond, i8 %51, i8 %49
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  %48 = load i8, ptr %47, align 1, !tbaa !13
+  %49 = add i8 %48, -65
+  %or.cond = icmp ult i8 %49, 26
+  %50 = add nuw nsw i8 %48, 32
+  %spec.select = select i1 %or.cond, i8 %50, i8 %48
   %gep = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   store i8 %spec.select, ptr %gep, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
-  br i1 %exitcond.not, label %52, label %.preheader, !llvm.loop !120
+  br i1 %exitcond.not, label %51, label %.preheader, !llvm.loop !120
 
-52:                                               ; preds = %.preheader
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 42
-  store i8 0, ptr %53, align 1, !tbaa !13
-  br label %54
+51:                                               ; preds = %.preheader
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 42
+  store i8 0, ptr %52, align 1, !tbaa !13
+  br label %53
 
-54:                                               ; preds = %52, %sha1hex.exit
+53:                                               ; preds = %51, %sha1hex.exit
   ret void
 }
 
@@ -1320,205 +1318,204 @@ sdslen.exit:                                      ; preds = %3, %18, %21, %25, %
   %47 = zext nneg i8 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr @.str, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !13
-  %50 = or disjoint i64 %44, 1
-  %51 = getelementptr inbounds nuw i8, ptr %11, i64 %50
-  store i8 %49, ptr %51, align 1, !tbaa !13
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 1
+  store i8 %49, ptr %50, align 1, !tbaa !13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
   br i1 %exitcond.not.i, label %sha1hex.exit, label %37, !llvm.loop !14
 
 sha1hex.exit:                                     ; preds = %37
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 42
-  store i8 0, ptr %52, align 2, !tbaa !13
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 42
+  store i8 0, ptr %51, align 2, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %4) #19
-  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 16), align 8, !tbaa !62
-  %54 = call ptr @dictFind(ptr noundef %53, ptr noundef nonnull %11) #19
-  %.not = icmp eq ptr %54, null
-  br i1 %.not, label %57, label %55
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 16), align 8, !tbaa !62
+  %53 = call ptr @dictFind(ptr noundef %52, ptr noundef nonnull %11) #19
+  %.not = icmp eq ptr %53, null
+  br i1 %.not, label %56, label %54
 
-55:                                               ; preds = %sha1hex.exit
-  %56 = call ptr @dictGetKey(ptr noundef nonnull %54) #19
-  br label %144
+54:                                               ; preds = %sha1hex.exit
+  %55 = call ptr @dictGetKey(ptr noundef nonnull %53) #19
+  br label %143
 
-57:                                               ; preds = %sha1hex.exit
+56:                                               ; preds = %sha1hex.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
   store i64 0, ptr %8, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
   store ptr null, ptr %9, align 8, !tbaa !92
-  %58 = load ptr, ptr %12, align 8, !tbaa !110
-  %59 = call i32 @evalExtractShebangFlags(ptr noundef %58, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %60 = icmp eq i32 %59, -1
-  br i1 %60, label %61, label %64
+  %57 = load ptr, ptr %12, align 8, !tbaa !110
+  %58 = call i32 @evalExtractShebangFlags(ptr noundef %57, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %59 = icmp eq i32 %58, -1
+  br i1 %59, label %60, label %63
 
-61:                                               ; preds = %57
+60:                                               ; preds = %56
   %.not32 = icmp eq ptr %0, null
-  br i1 %.not32, label %143, label %62
+  br i1 %.not32, label %142, label %61
 
-62:                                               ; preds = %61
-  %63 = load ptr, ptr %9, align 8, !tbaa !92
-  call void @addReplyErrorSds(ptr noundef nonnull %0, ptr noundef %63) #19
-  br label %143
+61:                                               ; preds = %60
+  %62 = load ptr, ptr %9, align 8, !tbaa !92
+  call void @addReplyErrorSds(ptr noundef nonnull %0, ptr noundef %62) #19
+  br label %142
 
-64:                                               ; preds = %57
-  %65 = load ptr, ptr @lctx, align 8, !tbaa !74
-  %66 = load ptr, ptr %12, align 8, !tbaa !110
-  %67 = load i64, ptr %8, align 8, !tbaa !95
-  %68 = getelementptr inbounds i8, ptr %66, i64 %67
-  %69 = getelementptr inbounds i8, ptr %66, i64 -1
-  %70 = load i8, ptr %69, align 1, !tbaa !13
-  %71 = zext i8 %70 to i32
-  %72 = and i32 %71, 7
-  switch i32 %72, label %sdslen.exit34 [
-    i32 0, label %73
-    i32 1, label %76
-    i32 2, label %80
-    i32 3, label %84
-    i32 4, label %88
+63:                                               ; preds = %56
+  %64 = load ptr, ptr @lctx, align 8, !tbaa !74
+  %65 = load ptr, ptr %12, align 8, !tbaa !110
+  %66 = load i64, ptr %8, align 8, !tbaa !95
+  %67 = getelementptr inbounds i8, ptr %65, i64 %66
+  %68 = getelementptr inbounds i8, ptr %65, i64 -1
+  %69 = load i8, ptr %68, align 1, !tbaa !13
+  %70 = zext i8 %69 to i32
+  %71 = and i32 %70, 7
+  switch i32 %71, label %sdslen.exit34 [
+    i32 0, label %72
+    i32 1, label %75
+    i32 2, label %79
+    i32 3, label %83
+    i32 4, label %87
   ]
 
-73:                                               ; preds = %64
-  %74 = lshr i32 %71, 3
-  %75 = zext nneg i32 %74 to i64
+72:                                               ; preds = %63
+  %73 = lshr i32 %70, 3
+  %74 = zext nneg i32 %73 to i64
   br label %sdslen.exit34
 
-76:                                               ; preds = %64
-  %77 = getelementptr inbounds i8, ptr %66, i64 -3
-  %78 = load i8, ptr %77, align 1, !tbaa !13
-  %79 = zext i8 %78 to i64
+75:                                               ; preds = %63
+  %76 = getelementptr inbounds i8, ptr %65, i64 -3
+  %77 = load i8, ptr %76, align 1, !tbaa !13
+  %78 = zext i8 %77 to i64
   br label %sdslen.exit34
 
-80:                                               ; preds = %64
-  %81 = getelementptr inbounds i8, ptr %66, i64 -5
-  %82 = load i16, ptr %81, align 1, !tbaa !94
-  %83 = zext i16 %82 to i64
+79:                                               ; preds = %63
+  %80 = getelementptr inbounds i8, ptr %65, i64 -5
+  %81 = load i16, ptr %80, align 1, !tbaa !94
+  %82 = zext i16 %81 to i64
   br label %sdslen.exit34
 
-84:                                               ; preds = %64
-  %85 = getelementptr inbounds i8, ptr %66, i64 -9
-  %86 = load i32, ptr %85, align 1, !tbaa !91
-  %87 = zext i32 %86 to i64
+83:                                               ; preds = %63
+  %84 = getelementptr inbounds i8, ptr %65, i64 -9
+  %85 = load i32, ptr %84, align 1, !tbaa !91
+  %86 = zext i32 %85 to i64
   br label %sdslen.exit34
 
-88:                                               ; preds = %64
-  %89 = getelementptr inbounds i8, ptr %66, i64 -17
-  %90 = load i64, ptr %89, align 1, !tbaa !95
+87:                                               ; preds = %63
+  %88 = getelementptr inbounds i8, ptr %65, i64 -17
+  %89 = load i64, ptr %88, align 1, !tbaa !95
   br label %sdslen.exit34
 
-sdslen.exit34:                                    ; preds = %64, %73, %76, %80, %84, %88
-  %.0.i33 = phi i64 [ %90, %88 ], [ %87, %84 ], [ %83, %80 ], [ %79, %76 ], [ %75, %73 ], [ 0, %64 ]
-  %91 = sub i64 %.0.i33, %67
-  %92 = call i32 @luaL_loadbuffer(ptr noundef %65, ptr noundef nonnull %68, i64 noundef %91, ptr noundef nonnull @.str.20) #19
-  %.not29 = icmp eq i32 %92, 0
-  br i1 %.not29, label %100, label %93
+sdslen.exit34:                                    ; preds = %63, %72, %75, %79, %83, %87
+  %.0.i33 = phi i64 [ %89, %87 ], [ %86, %83 ], [ %82, %79 ], [ %78, %75 ], [ %74, %72 ], [ 0, %63 ]
+  %90 = sub i64 %.0.i33, %66
+  %91 = call i32 @luaL_loadbuffer(ptr noundef %64, ptr noundef nonnull %67, i64 noundef %90, ptr noundef nonnull @.str.20) #19
+  %.not29 = icmp eq i32 %91, 0
+  br i1 %.not29, label %99, label %92
 
-93:                                               ; preds = %sdslen.exit34
+92:                                               ; preds = %sdslen.exit34
   %.not31 = icmp eq ptr %0, null
-  br i1 %.not31, label %97, label %94
+  br i1 %.not31, label %96, label %93
 
-94:                                               ; preds = %93
-  %95 = load ptr, ptr @lctx, align 8, !tbaa !74
-  %96 = call ptr @lua_tolstring(ptr noundef %95, i32 noundef -1, ptr noundef null) #19
-  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, ptr noundef %96) #19
-  br label %97
+93:                                               ; preds = %92
+  %94 = load ptr, ptr @lctx, align 8, !tbaa !74
+  %95 = call ptr @lua_tolstring(ptr noundef %94, i32 noundef -1, ptr noundef null) #19
+  call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, ptr noundef %95) #19
+  br label %96
 
-97:                                               ; preds = %94, %93
+96:                                               ; preds = %93, %92
+  %97 = load ptr, ptr @lctx, align 8, !tbaa !74
+  call void @lua_settop(ptr noundef %97, i32 noundef -2) #19
   %98 = load ptr, ptr @lctx, align 8, !tbaa !74
-  call void @lua_settop(ptr noundef %98, i32 noundef -2) #19
-  %99 = load ptr, ptr @lctx, align 8, !tbaa !74
-  call void @luaGC(ptr noundef %99, ptr noundef nonnull @gc_count) #19
-  br label %143
+  call void @luaGC(ptr noundef %98, ptr noundef nonnull @gc_count) #19
+  br label %142
 
-100:                                              ; preds = %sdslen.exit34
-  %101 = load ptr, ptr @lctx, align 8, !tbaa !74
-  %102 = call i32 @lua_type(ptr noundef %101, i32 noundef -1) #19
-  %103 = icmp eq i32 %102, 6
-  br i1 %103, label %105, label %104, !prof !121
+99:                                               ; preds = %sdslen.exit34
+  %100 = load ptr, ptr @lctx, align 8, !tbaa !74
+  %101 = call i32 @lua_type(ptr noundef %100, i32 noundef -1) #19
+  %102 = icmp eq i32 %101, 6
+  br i1 %102, label %104, label %103, !prof !121
 
-104:                                              ; preds = %100
+103:                                              ; preds = %99
   call void @_serverAssert(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.23, i32 noundef 468) #19
   call void @abort() #21
   unreachable
 
-105:                                              ; preds = %100
-  %106 = load ptr, ptr @lctx, align 8, !tbaa !74
-  call void @lua_setfield(ptr noundef %106, i32 noundef -10000, ptr noundef nonnull %6) #19
-  %107 = call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #22
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store ptr %1, ptr %108, align 8, !tbaa !5
-  %109 = load i64, ptr %7, align 8, !tbaa !95
-  store i64 %109, ptr %107, align 8, !tbaa !122
-  %110 = call ptr @sdsnewlen(ptr noundef nonnull %11, i64 noundef 40) #19
+104:                                              ; preds = %99
+  %105 = load ptr, ptr @lctx, align 8, !tbaa !74
+  call void @lua_setfield(ptr noundef %105, i32 noundef -10000, ptr noundef nonnull %6) #19
+  %106 = call noalias dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #22
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  store ptr %1, ptr %107, align 8, !tbaa !5
+  %108 = load i64, ptr %7, align 8, !tbaa !95
+  store i64 %108, ptr %106, align 8, !tbaa !122
+  %109 = call ptr @sdsnewlen(ptr noundef nonnull %11, i64 noundef 40) #19
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %.preheader.i, label %luaScriptsLRUAdd.exit
 
-.preheader.i:                                     ; preds = %105
-  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 24), align 8, !tbaa !63
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 40
-  %113 = load i64, ptr %112, align 8, !tbaa !123
-  %114 = icmp ugt i64 %113, 499
-  br i1 %114, label %.lr.ph.i, label %._crit_edge.i
+.preheader.i:                                     ; preds = %104
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 24), align 8, !tbaa !63
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
+  %112 = load i64, ptr %111, align 8, !tbaa !123
+  %113 = icmp ugt i64 %112, 499
+  br i1 %113, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %115 = phi ptr [ %121, %.lr.ph.i ], [ %111, %.preheader.i ]
-  %116 = load ptr, ptr %115, align 8, !tbaa !124
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %118 = load ptr, ptr %117, align 8, !tbaa !125
-  call void @luaDeleteFunction(ptr noundef %0, ptr noundef %118)
-  %119 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2544), align 8, !tbaa !126
-  %120 = add nsw i64 %119, 1
-  store i64 %120, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2544), align 8, !tbaa !126
-  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 24), align 8, !tbaa !63
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 40
-  %123 = load i64, ptr %122, align 8, !tbaa !123
-  %124 = icmp ugt i64 %123, 499
-  br i1 %124, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !127
+  %114 = phi ptr [ %120, %.lr.ph.i ], [ %110, %.preheader.i ]
+  %115 = load ptr, ptr %114, align 8, !tbaa !124
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
+  %117 = load ptr, ptr %116, align 8, !tbaa !125
+  call void @luaDeleteFunction(ptr noundef %0, ptr noundef %117)
+  %118 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2544), align 8, !tbaa !126
+  %119 = add nsw i64 %118, 1
+  store i64 %119, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2544), align 8, !tbaa !126
+  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 24), align 8, !tbaa !63
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
+  %122 = load i64, ptr %121, align 8, !tbaa !123
+  %123 = icmp ugt i64 %122, 499
+  br i1 %123, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !127
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %.lcssa.i = phi ptr [ %111, %.preheader.i ], [ %121, %.lr.ph.i ]
-  %125 = call ptr @listAddNodeTail(ptr noundef nonnull %.lcssa.i, ptr noundef %110) #19
-  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 24), align 8, !tbaa !63
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !128
+  %.lcssa.i = phi ptr [ %110, %.preheader.i ], [ %120, %.lr.ph.i ]
+  %124 = call ptr @listAddNodeTail(ptr noundef nonnull %.lcssa.i, ptr noundef %109) #19
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 24), align 8, !tbaa !63
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %127 = load ptr, ptr %126, align 8, !tbaa !128
   br label %luaScriptsLRUAdd.exit
 
-luaScriptsLRUAdd.exit:                            ; preds = %105, %._crit_edge.i
-  %.0.i35 = phi ptr [ %128, %._crit_edge.i ], [ null, %105 ]
-  %129 = getelementptr inbounds nuw i8, ptr %107, i64 16
-  store ptr %.0.i35, ptr %129, align 8, !tbaa !129
-  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 16), align 8, !tbaa !62
-  %131 = call i32 @dictAdd(ptr noundef %130, ptr noundef %110, ptr noundef nonnull %107) #19
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %136, label %133, !prof !121
+luaScriptsLRUAdd.exit:                            ; preds = %104, %._crit_edge.i
+  %.0.i35 = phi ptr [ %127, %._crit_edge.i ], [ null, %104 ]
+  %128 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  store ptr %.0.i35, ptr %128, align 8, !tbaa !129
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 16), align 8, !tbaa !62
+  %130 = call i32 @dictAdd(ptr noundef %129, ptr noundef %109, ptr noundef nonnull %106) #19
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %135, label %132, !prof !121
 
-133:                                              ; preds = %luaScriptsLRUAdd.exit
+132:                                              ; preds = %luaScriptsLRUAdd.exit
   %.not30 = icmp eq ptr %0, null
-  %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 8), align 8
-  %135 = select i1 %.not30, ptr %134, ptr %0
-  call void @_serverAssertWithInfo(ptr noundef %135, ptr noundef null, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23, i32 noundef 481) #19
+  %133 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 8), align 8
+  %134 = select i1 %.not30, ptr %133, ptr %0
+  call void @_serverAssertWithInfo(ptr noundef %134, ptr noundef null, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23, i32 noundef 481) #19
   call void @abort() #21
   unreachable
 
-136:                                              ; preds = %luaScriptsLRUAdd.exit
-  %137 = call i64 @sdsZmallocSize(ptr noundef %110) #19
-  %138 = call i64 @getStringObjectSdsUsedMemory(ptr noundef nonnull %1) #19
-  %139 = add i64 %138, %137
-  %140 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 32), align 8, !tbaa !64
-  %141 = add i64 %139, %140
-  store i64 %141, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 32), align 8, !tbaa !64
+135:                                              ; preds = %luaScriptsLRUAdd.exit
+  %136 = call i64 @sdsZmallocSize(ptr noundef %109) #19
+  %137 = call i64 @getStringObjectSdsUsedMemory(ptr noundef nonnull %1) #19
+  %138 = add i64 %137, %136
+  %139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 32), align 8, !tbaa !64
+  %140 = add i64 %138, %139
+  store i64 %140, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 32), align 8, !tbaa !64
   call void @incrRefCount(ptr noundef nonnull %1) #19
-  %142 = load ptr, ptr @lctx, align 8, !tbaa !74
-  call void @luaGC(ptr noundef %142, ptr noundef nonnull @gc_count) #19
-  br label %143
+  %141 = load ptr, ptr @lctx, align 8, !tbaa !74
+  call void @luaGC(ptr noundef %141, ptr noundef nonnull @gc_count) #19
+  br label %142
 
-143:                                              ; preds = %61, %62, %136, %97
-  %.1 = phi ptr [ null, %97 ], [ %110, %136 ], [ null, %62 ], [ null, %61 ]
+142:                                              ; preds = %60, %61, %135, %96
+  %.1 = phi ptr [ null, %96 ], [ %109, %135 ], [ null, %61 ], [ null, %60 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
-  br label %144
+  br label %143
 
-144:                                              ; preds = %143, %55
-  %.0 = phi ptr [ %56, %55 ], [ %.1, %143 ]
+143:                                              ; preds = %142, %54
+  %.0 = phi ptr [ %55, %54 ], [ %.1, %142 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 43, ptr nonnull %6) #19
   ret ptr %.0

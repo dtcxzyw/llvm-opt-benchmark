@@ -6963,34 +6963,34 @@ define linkonce_odr void @_ZSt13__adjust_heapIPSt4pairImN4llvm11SmallVectorImLj6
   %18 = shl i64 %.030, 1
   %19 = add i64 %18, 2
   %20 = getelementptr inbounds %"struct.std::pair.13", ptr %0, i64 %19
-  %21 = or disjoint i64 %18, 1
-  %22 = getelementptr inbounds %"struct.std::pair.13", ptr %0, i64 %21
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !3, !noalias !279
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !12, !noalias !279
-  %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i64, ptr %24, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !3, !noalias !282
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %32 = load i32, ptr %31, align 8, !tbaa !12, !noalias !282
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i64, ptr %30, i64 %33
+  %21 = getelementptr %"struct.std::pair.13", ptr %0, i64 %18
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !3, !noalias !279
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %25 = load i32, ptr %24, align 8, !tbaa !12, !noalias !279
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw i64, ptr %23, i64 %26
+  %28 = getelementptr i8, ptr %21, i64 80
+  %29 = load ptr, ptr %28, align 8, !tbaa !3, !noalias !282
+  %30 = getelementptr i8, ptr %21, i64 88
+  %31 = load i32, ptr %30, align 8, !tbaa !12, !noalias !282
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw i64, ptr %29, i64 %32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  store ptr %28, ptr %10, align 8, !tbaa !285
-  store ptr %24, ptr %11, align 8, !tbaa !285
-  store ptr %34, ptr %12, align 8, !tbaa !285
-  store ptr %30, ptr %13, align 8, !tbaa !285
-  %35 = call noundef zeroext i1 @_ZSt30__lexicographical_compare_implISt16reverse_iteratorIPKmES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZZN4llvm7memprof25CallStackRadixTreeBuilderImE5buildEONS7_9MapVectorImNS7_11SmallVectorImLj6EEENS7_8DenseMapImjNS7_12DenseMapInfoImvEENS7_6detail12DenseMapPairImjEEEENSC_ISt4pairImSD_ELj0EEEEEPKSK_RNSE_ImNS8_9FrameStatESG_NSI_ImSS_EEEEENKUlRKSM_SX_E_clESX_SX_EUlmmE_EEEbT_S11_T0_S12_T1_(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr %4)
+  store ptr %27, ptr %10, align 8, !tbaa !285
+  store ptr %23, ptr %11, align 8, !tbaa !285
+  store ptr %33, ptr %12, align 8, !tbaa !285
+  store ptr %29, ptr %13, align 8, !tbaa !285
+  %34 = call noundef zeroext i1 @_ZSt30__lexicographical_compare_implISt16reverse_iteratorIPKmES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZZN4llvm7memprof25CallStackRadixTreeBuilderImE5buildEONS7_9MapVectorImNS7_11SmallVectorImLj6EEENS7_8DenseMapImjNS7_12DenseMapInfoImvEENS7_6detail12DenseMapPairImjEEEENSC_ISt4pairImSD_ELj0EEEEEPKSK_RNSE_ImNS8_9FrameStatESG_NSI_ImSS_EEEEENKUlRKSM_SX_E_clESX_SX_EUlmmE_EEEbT_S11_T0_S12_T1_(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %spec.select = select i1 %35, i64 %21, i64 %19
+  %35 = or disjoint i64 %18, 1
+  %spec.select = select i1 %34, i64 %35, i64 %19
   %36 = getelementptr inbounds %"struct.std::pair.13", ptr %0, i64 %spec.select
   %37 = getelementptr inbounds %"struct.std::pair.13", ptr %0, i64 %.030
   %38 = load i64, ptr %36, align 8, !tbaa !16
@@ -10715,34 +10715,34 @@ define linkonce_odr void @_ZSt13__adjust_heapIPSt4pairImN4llvm11SmallVectorIjLj1
   %18 = shl i64 %.030, 1
   %19 = add i64 %18, 2
   %20 = getelementptr inbounds %"struct.std::pair.50", ptr %0, i64 %19
-  %21 = or disjoint i64 %18, 1
-  %22 = getelementptr inbounds %"struct.std::pair.50", ptr %0, i64 %21
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !3, !noalias !371
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !12, !noalias !371
-  %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %24, i64 %27
-  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !3, !noalias !374
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %32 = load i32, ptr %31, align 8, !tbaa !12, !noalias !374
-  %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %30, i64 %33
+  %21 = getelementptr %"struct.std::pair.50", ptr %0, i64 %18
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !3, !noalias !371
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %25 = load i32, ptr %24, align 8, !tbaa !12, !noalias !371
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw i32, ptr %23, i64 %26
+  %28 = getelementptr i8, ptr %21, i64 80
+  %29 = load ptr, ptr %28, align 8, !tbaa !3, !noalias !374
+  %30 = getelementptr i8, ptr %21, i64 88
+  %31 = load i32, ptr %30, align 8, !tbaa !12, !noalias !374
+  %32 = zext i32 %31 to i64
+  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  store ptr %28, ptr %10, align 8, !tbaa !377
-  store ptr %24, ptr %11, align 8, !tbaa !377
-  store ptr %34, ptr %12, align 8, !tbaa !377
-  store ptr %30, ptr %13, align 8, !tbaa !377
-  %35 = call noundef zeroext i1 @_ZSt30__lexicographical_compare_implISt16reverse_iteratorIPKjES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZZN4llvm7memprof25CallStackRadixTreeBuilderIjE5buildEONS7_9MapVectorImNS7_11SmallVectorIjLj12EEENS7_8DenseMapImjNS7_12DenseMapInfoImvEENS7_6detail12DenseMapPairImjEEEENSC_ISt4pairImSD_ELj0EEEEEPKNSE_IjjNSF_IjvEENSI_IjjEEEERNSE_IjNS8_9FrameStatESQ_NSI_IjSV_EEEEENKUlRKSM_S10_E_clES10_S10_EUljjE_EEEbT_S14_T0_S15_T1_(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr %4)
+  store ptr %27, ptr %10, align 8, !tbaa !377
+  store ptr %23, ptr %11, align 8, !tbaa !377
+  store ptr %33, ptr %12, align 8, !tbaa !377
+  store ptr %29, ptr %13, align 8, !tbaa !377
+  %34 = call noundef zeroext i1 @_ZSt30__lexicographical_compare_implISt16reverse_iteratorIPKjES3_N9__gnu_cxx5__ops15_Iter_comp_iterIZZN4llvm7memprof25CallStackRadixTreeBuilderIjE5buildEONS7_9MapVectorImNS7_11SmallVectorIjLj12EEENS7_8DenseMapImjNS7_12DenseMapInfoImvEENS7_6detail12DenseMapPairImjEEEENSC_ISt4pairImSD_ELj0EEEEEPKNSE_IjjNSF_IjvEENSI_IjjEEEERNSE_IjNS8_9FrameStatESQ_NSI_IjSV_EEEEENKUlRKSM_S10_E_clES10_S10_EUljjE_EEEbT_S14_T0_S15_T1_(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %spec.select = select i1 %35, i64 %21, i64 %19
+  %35 = or disjoint i64 %18, 1
+  %spec.select = select i1 %34, i64 %35, i64 %19
   %36 = getelementptr inbounds %"struct.std::pair.50", ptr %0, i64 %spec.select
   %37 = getelementptr inbounds %"struct.std::pair.50", ptr %0, i64 %.030
   %38 = load i64, ptr %36, align 8, !tbaa !16

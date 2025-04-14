@@ -4175,8 +4175,8 @@ define hidden void @_ZN9actix_web5error14response_error13ResponseError14error_re
   %39 = sub nuw nsw i64 64, %38
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %39, i64 7)
   %40 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %41 = or disjoint i64 %40, 1
-  %42 = getelementptr i8, ptr null, i64 %41
+  %41 = getelementptr i8, ptr null, i64 %40
+  %42 = getelementptr i8, ptr %41, i64 1
   store ptr %35, ptr %23, align 8, !alias.scope !707, !noalias !710
   %43 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %43, align 8, !alias.scope !707, !noalias !710
@@ -6424,8 +6424,8 @@ define void @"_ZN135_$LT$actix_web..http..header..content_disposition..ContentDi
 
 20:                                               ; preds = %.noexc
   %21 = shl i64 %15, 2
-  %22 = or disjoint i64 %21, 1
-  %23 = getelementptr i8, ptr null, i64 %22
+  %22 = getelementptr i8, ptr null, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 1
   store ptr %10, ptr %7, align 8, !alias.scope !1164
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1164
@@ -7062,8 +7062,8 @@ define void @"_ZN113_$LT$actix_web..http..header..if_range..IfRange$u20$as$u20$a
 
 21:                                               ; preds = %.noexc
   %22 = shl i64 %16, 2
-  %23 = or disjoint i64 %22, 1
-  %24 = getelementptr i8, ptr null, i64 %23
+  %23 = getelementptr i8, ptr null, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 1
   store ptr %11, ptr %8, align 8, !alias.scope !1283
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1283

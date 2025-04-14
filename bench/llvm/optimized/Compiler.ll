@@ -21638,6 +21638,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
 
 .preheader:                                       ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %11 = ptrtoint ptr %1 to i64
@@ -21649,84 +21650,83 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmit
 15:                                               ; preds = %.preheader, %.thread38
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread38 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %.offs
-  %17 = load i64, ptr %16, align 8, !tbaa !868
-  %18 = and i64 %17, 3
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %.thread38
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
+  %16 = load i64, ptr %gep, align 8, !tbaa !868
+  %17 = and i64 %16, 3
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %.thread38
 
-20:                                               ; preds = %15
-  %21 = lshr exact i64 %17, 2
-  %22 = load i32, ptr %5, align 8, !tbaa !866
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %8, i64 %23
-  %25 = and i64 %21, 4294967295
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
-  %27 = load ptr, ptr %26, align 8, !tbaa !233
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %28, align 8, !tbaa !77
-  %29 = load ptr, ptr %9, align 8, !tbaa !78
-  %30 = call i64 @_ZNK5clang6interp7Context8classifyENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40) %29, i64 %.sroa.0.0.copyload.i) #16
-  %.sroa.0.0.extract.trunc.i = trunc i64 %30 to i32
-  %31 = and i64 %30, 4294967296
-  %32 = icmp ne i64 %31, 0
-  call void @llvm.assume(i1 %32)
-  %33 = load i8, ptr %10, align 8, !tbaa !17, !range !74, !noundef !75
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %35, label %38
+19:                                               ; preds = %15
+  %20 = lshr exact i64 %16, 2
+  %21 = load i32, ptr %5, align 8, !tbaa !866
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %8, i64 %22
+  %24 = and i64 %20, 4294967295
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !233
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %27, align 8, !tbaa !77
+  %28 = load ptr, ptr %9, align 8, !tbaa !78
+  %29 = call i64 @_ZNK5clang6interp7Context8classifyENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40) %28, i64 %.sroa.0.0.copyload.i) #16
+  %.sroa.0.0.extract.trunc.i = trunc i64 %29 to i32
+  %30 = and i64 %29, 4294967296
+  %31 = icmp ne i64 %30, 0
+  call void @llvm.assume(i1 %31)
+  %32 = load i8, ptr %10, align 8, !tbaa !17, !range !74, !noundef !75
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %34, label %37
 
-35:                                               ; preds = %20
-  %36 = load i8, ptr %13, align 2, !tbaa !76, !range !74, !noundef !75
+34:                                               ; preds = %19
+  %35 = load i8, ptr %13, align 2, !tbaa !76, !range !74, !noundef !75
   store i8 1, ptr %10, align 8, !tbaa !17
   store i8 0, ptr %13, align 2, !tbaa !76
-  %37 = call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_15ByteCodeEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull %27)
-  store i8 %33, ptr %10, align 8, !tbaa !17
-  store i8 %36, ptr %13, align 2, !tbaa !76
-  br i1 %37, label %.thread38, label %.loopexit
+  %36 = call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_15ByteCodeEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull %26)
+  store i8 %32, ptr %10, align 8, !tbaa !17
+  store i8 %35, ptr %13, align 2, !tbaa !76
+  br i1 %36, label %.thread38, label %.loopexit
 
-38:                                               ; preds = %20
-  %39 = call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE5visitEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull %27)
-  br i1 %39, label %40, label %.loopexit
+37:                                               ; preds = %19
+  %38 = call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_15ByteCodeEmitterEE5visitEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull %26)
+  br i1 %38, label %39, label %.loopexit
 
-40:                                               ; preds = %38
+39:                                               ; preds = %37
   %.not32 = icmp eq i32 %.sroa.0.0.extract.trunc.i, 6
-  br i1 %.not32, label %.thread38, label %41
+  br i1 %.not32, label %.thread38, label %40
 
-41:                                               ; preds = %40
+40:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   store i64 %12, ptr %3, align 8, !tbaa !77
-  %42 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitCastENS0_8PrimTypeES2_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %.sroa.0.0.extract.trunc.i, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(8) %3) #16
+  %41 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter8emitCastENS0_8PrimTypeES2_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %.sroa.0.0.extract.trunc.i, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  br i1 %42, label %.thread38, label %.loopexit
+  br i1 %41, label %.thread38, label %.loopexit
 
-.thread38:                                        ; preds = %15, %40, %41, %35
+.thread38:                                        ; preds = %15, %39, %40, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %.not, label %.critedge, label %15, !llvm.loop !870
 
 .critedge:                                        ; preds = %.thread38
-  %43 = load i8, ptr %10, align 8, !tbaa !17, !range !74, !noundef !75
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %.loopexit, label %45
+  %42 = load i8, ptr %10, align 8, !tbaa !17, !range !74, !noundef !75
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %.loopexit, label %44
 
-45:                                               ; preds = %.critedge
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0.0.copyload.i33 = load i64, ptr %46, align 8, !tbaa !77
-  %47 = load ptr, ptr %9, align 8, !tbaa !78
-  %48 = call i64 @_ZNK5clang6interp7Context8classifyENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40) %47, i64 %.sroa.0.0.copyload.i33) #16
-  %.sroa.0.0.extract.trunc.i34 = trunc i64 %48 to i32
-  %49 = and i64 %48, 4294967296
-  %50 = icmp ne i64 %49, 0
-  call void @llvm.assume(i1 %50)
+44:                                               ; preds = %.critedge
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0.0.copyload.i33 = load i64, ptr %45, align 8, !tbaa !77
+  %46 = load ptr, ptr %9, align 8, !tbaa !78
+  %47 = call i64 @_ZNK5clang6interp7Context8classifyENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40) %46, i64 %.sroa.0.0.copyload.i33) #16
+  %.sroa.0.0.extract.trunc.i34 = trunc i64 %47 to i32
+  %48 = and i64 %47, 4294967296
+  %49 = icmp ne i64 %48, 0
+  call void @llvm.assume(i1 %49)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   store i64 %12, ptr %4, align 8, !tbaa !77
-  %51 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter12emitOffsetOfENS0_8PrimTypeEPKNS_12OffsetOfExprERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %.sroa.0.0.extract.trunc.i34, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  %50 = call noundef zeroext i1 @_ZN5clang6interp15ByteCodeEmitter12emitOffsetOfENS0_8PrimTypeEPKNS_12OffsetOfExprERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %.sroa.0.0.extract.trunc.i34, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %38, %41, %.critedge, %2, %45
-  %.0 = phi i1 [ %51, %45 ], [ false, %2 ], [ true, %.critedge ], [ false, %41 ], [ false, %38 ], [ false, %35 ]
+.loopexit:                                        ; preds = %34, %37, %40, %.critedge, %2, %44
+  %.0 = phi i1 [ %50, %44 ], [ false, %2 ], [ true, %.critedge ], [ false, %40 ], [ false, %37 ], [ false, %34 ]
   ret i1 %.0
 }
 
@@ -54361,6 +54361,7 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
 
 .preheader:                                       ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %11 = ptrtoint ptr %1 to i64
@@ -54372,84 +54373,83 @@ define weak_odr noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterE
 15:                                               ; preds = %.preheader, %.thread38
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %.thread38 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %.offs
-  %17 = load i64, ptr %16, align 8, !tbaa !868
-  %18 = and i64 %17, 3
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %20, label %.thread38
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
+  %16 = load i64, ptr %gep, align 8, !tbaa !868
+  %17 = and i64 %16, 3
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %19, label %.thread38
 
-20:                                               ; preds = %15
-  %21 = lshr exact i64 %17, 2
-  %22 = load i32, ptr %5, align 8, !tbaa !866
-  %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %8, i64 %23
-  %25 = and i64 %21, 4294967295
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
-  %27 = load ptr, ptr %26, align 8, !tbaa !233
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %.sroa.0.0.copyload.i = load i64, ptr %28, align 8, !tbaa !77
-  %29 = load ptr, ptr %9, align 8, !tbaa !1198
-  %30 = call i64 @_ZNK5clang6interp7Context8classifyENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40) %29, i64 %.sroa.0.0.copyload.i) #16
-  %.sroa.0.0.extract.trunc.i = trunc i64 %30 to i32
-  %31 = and i64 %30, 4294967296
-  %32 = icmp ne i64 %31, 0
-  call void @llvm.assume(i1 %32)
-  %33 = load i8, ptr %10, align 8, !tbaa !1143, !range !74, !noundef !75
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %35, label %38
+19:                                               ; preds = %15
+  %20 = lshr exact i64 %16, 2
+  %21 = load i32, ptr %5, align 8, !tbaa !866
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw %"class.clang::OffsetOfNode", ptr %8, i64 %22
+  %24 = and i64 %20, 4294967295
+  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !233
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.sroa.0.0.copyload.i = load i64, ptr %27, align 8, !tbaa !77
+  %28 = load ptr, ptr %9, align 8, !tbaa !1198
+  %29 = call i64 @_ZNK5clang6interp7Context8classifyENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40) %28, i64 %.sroa.0.0.copyload.i) #16
+  %.sroa.0.0.extract.trunc.i = trunc i64 %29 to i32
+  %30 = and i64 %29, 4294967296
+  %31 = icmp ne i64 %30, 0
+  call void @llvm.assume(i1 %31)
+  %32 = load i8, ptr %10, align 8, !tbaa !1143, !range !74, !noundef !75
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %34, label %37
 
-35:                                               ; preds = %20
-  %36 = load i8, ptr %13, align 2, !tbaa !1197, !range !74, !noundef !75
+34:                                               ; preds = %19
+  %35 = load i8, ptr %13, align 2, !tbaa !1197, !range !74, !noundef !75
   store i8 1, ptr %10, align 8, !tbaa !1143
   store i8 0, ptr %13, align 2, !tbaa !1197
-  %37 = call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_11EvalEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull %27)
-  store i8 %33, ptr %10, align 8, !tbaa !1143
-  store i8 %36, ptr %13, align 2, !tbaa !1197
-  br i1 %37, label %.thread38, label %.loopexit
+  %36 = call noundef zeroext i1 @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrENS_6interp8CompilerINS3_11EvalEmitterEEEbJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull %26)
+  store i8 %32, ptr %10, align 8, !tbaa !1143
+  store i8 %35, ptr %13, align 2, !tbaa !1197
+  br i1 %36, label %.thread38, label %.loopexit
 
-38:                                               ; preds = %20
-  %39 = call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE5visitEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull %27)
-  br i1 %39, label %40, label %.loopexit
+37:                                               ; preds = %19
+  %38 = call noundef zeroext i1 @_ZN5clang6interp8CompilerINS0_11EvalEmitterEE5visitEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull %26)
+  br i1 %38, label %39, label %.loopexit
 
-40:                                               ; preds = %38
+39:                                               ; preds = %37
   %.not32 = icmp eq i32 %.sroa.0.0.extract.trunc.i, 6
-  br i1 %.not32, label %.thread38, label %41
+  br i1 %.not32, label %.thread38, label %40
 
-41:                                               ; preds = %40
+40:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   store i64 %12, ptr %3, align 8, !tbaa !77
-  %42 = call noundef zeroext i1 @_ZN5clang6interp11EvalEmitter8emitCastENS0_8PrimTypeES2_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(1044) %0, i32 noundef %.sroa.0.0.extract.trunc.i, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(8) %3) #16
+  %41 = call noundef zeroext i1 @_ZN5clang6interp11EvalEmitter8emitCastENS0_8PrimTypeES2_RKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(1044) %0, i32 noundef %.sroa.0.0.extract.trunc.i, i32 noundef 6, ptr noundef nonnull align 8 dereferenceable(8) %3) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  br i1 %42, label %.thread38, label %.loopexit
+  br i1 %41, label %.thread38, label %.loopexit
 
-.thread38:                                        ; preds = %15, %40, %41, %35
+.thread38:                                        ; preds = %15, %39, %40, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %14
   br i1 %.not, label %.critedge, label %15, !llvm.loop !1321
 
 .critedge:                                        ; preds = %.thread38
-  %43 = load i8, ptr %10, align 8, !tbaa !1143, !range !74, !noundef !75
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %.loopexit, label %45
+  %42 = load i8, ptr %10, align 8, !tbaa !1143, !range !74, !noundef !75
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %.loopexit, label %44
 
-45:                                               ; preds = %.critedge
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.0.0.copyload.i33 = load i64, ptr %46, align 8, !tbaa !77
-  %47 = load ptr, ptr %9, align 8, !tbaa !1198
-  %48 = call i64 @_ZNK5clang6interp7Context8classifyENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40) %47, i64 %.sroa.0.0.copyload.i33) #16
-  %.sroa.0.0.extract.trunc.i34 = trunc i64 %48 to i32
-  %49 = and i64 %48, 4294967296
-  %50 = icmp ne i64 %49, 0
-  call void @llvm.assume(i1 %50)
+44:                                               ; preds = %.critedge
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.sroa.0.0.copyload.i33 = load i64, ptr %45, align 8, !tbaa !77
+  %46 = load ptr, ptr %9, align 8, !tbaa !1198
+  %47 = call i64 @_ZNK5clang6interp7Context8classifyENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40) %46, i64 %.sroa.0.0.copyload.i33) #16
+  %.sroa.0.0.extract.trunc.i34 = trunc i64 %47 to i32
+  %48 = and i64 %47, 4294967296
+  %49 = icmp ne i64 %48, 0
+  call void @llvm.assume(i1 %49)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   store i64 %12, ptr %4, align 8, !tbaa !77
-  %51 = call noundef zeroext i1 @_ZN5clang6interp11EvalEmitter12emitOffsetOfENS0_8PrimTypeEPKNS_12OffsetOfExprERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(1044) %0, i32 noundef %.sroa.0.0.extract.trunc.i34, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %4) #16
+  %50 = call noundef zeroext i1 @_ZN5clang6interp11EvalEmitter12emitOffsetOfENS0_8PrimTypeEPKNS_12OffsetOfExprERKNS0_10SourceInfoE(ptr noundef nonnull align 8 dereferenceable(1044) %0, i32 noundef %.sroa.0.0.extract.trunc.i34, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %38, %41, %.critedge, %2, %45
-  %.0 = phi i1 [ %51, %45 ], [ false, %2 ], [ true, %.critedge ], [ false, %41 ], [ false, %38 ], [ false, %35 ]
+.loopexit:                                        ; preds = %34, %37, %40, %.critedge, %2, %44
+  %.0 = phi i1 [ %50, %44 ], [ false, %2 ], [ true, %.critedge ], [ false, %40 ], [ false, %37 ], [ false, %34 ]
   ret i1 %.0
 }
 

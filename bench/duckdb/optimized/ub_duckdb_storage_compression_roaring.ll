@@ -4818,9 +4818,9 @@ define linkonce_odr void @_ZN6duckdb7roaring9AppendRunERNS0_25ContainerCompressi
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !338
   %30 = shl nuw nsw i32 %8, 1
-  %31 = or disjoint i32 %30, 1
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %32
+  %31 = zext nneg i32 %30 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store i8 %27, ptr %33, align 1, !tbaa !295
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %35 = load ptr, ptr %34, align 8, !tbaa !339
@@ -5019,9 +5019,9 @@ define void @_ZN6duckdb7roaring25ContainerCompressionState8FinalizeEv(ptr nounde
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !338
   %25 = shl nuw nsw i16 %9, 1
-  %26 = or disjoint i16 %25, 1
-  %27 = zext nneg i16 %26 to i64
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %27
+  %26 = zext nneg i16 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store i8 %22, ptr %28, align 1, !tbaa !295
   %29 = load i16, ptr %2, align 4, !tbaa !340
   %.not4 = icmp eq i16 %29, 2048
@@ -6145,9 +6145,9 @@ define void @_ZN6duckdb7roaring20RoaringCompressState14FlushContainerEv(ptr noun
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load ptr, ptr %43, align 8, !tbaa !338
   %45 = shl nuw nsw i16 %29, 1
-  %46 = or disjoint i16 %45, 1
-  %47 = zext nneg i16 %46 to i64
-  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %47
+  %46 = zext nneg i16 %45 to i64
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store i8 %42, ptr %48, align 1, !tbaa !295
   %49 = load i16, ptr %22, align 4, !tbaa !340
   %.not4.i = icmp eq i16 %49, 2048
@@ -7441,7 +7441,7 @@ define void @_ZN6duckdb7roaring31CompressedRunContainerScanState11LoadNextRunEv(
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 1, ptr %7, align 4, !tbaa !422
-  br label %56
+  br label %55
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -7529,22 +7529,21 @@ _ZN6duckdb7roaring20ContainerSegmentScanppEi.exit14: ; preds = %40, %_ZN6duckdb7
   store i8 %44, ptr %10, align 1, !tbaa !420
   %45 = zext i8 %.lcssa.i7 to i16
   %46 = shl nuw i16 %45, 8
-  %47 = or disjoint i64 %28, 1
-  %48 = getelementptr inbounds nuw i8, ptr %27, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !295
-  %50 = zext i8 %49 to i16
-  %51 = xor i16 %32, -1
-  %52 = add i16 %46, %51
-  %53 = add i16 %52, %50
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i16 %32, ptr %54, align 8, !tbaa !334
+  %47 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  %48 = load i8, ptr %47, align 1, !tbaa !295
+  %49 = zext i8 %48 to i16
+  %50 = xor i16 %32, -1
+  %51 = add i16 %46, %50
+  %52 = add i16 %51, %49
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i16 %32, ptr %53, align 8, !tbaa !334
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 34
-  store i16 %53, ptr %.sroa.4.0..sroa_idx, align 2, !tbaa !334
-  %55 = add i64 %3, 1
-  store i64 %55, ptr %2, align 8, !tbaa !424
-  br label %56
+  store i16 %52, ptr %.sroa.4.0..sroa_idx, align 2, !tbaa !334
+  %54 = add i64 %3, 1
+  store i64 %54, ptr %2, align 8, !tbaa !424
+  br label %55
 
-56:                                               ; preds = %_ZN6duckdb7roaring20ContainerSegmentScanppEi.exit14, %6
+55:                                               ; preds = %_ZN6duckdb7roaring20ContainerSegmentScanppEi.exit14, %6
   ret void
 }
 

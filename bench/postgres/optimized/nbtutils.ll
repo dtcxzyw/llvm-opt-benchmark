@@ -161,8 +161,8 @@ BTreeTupleIsPosting.exit.i:                       ; preds = %BTreeTupleIsPivot.e
   %64 = zext i16 %.val.i11.i to i64
   %65 = shl nuw nsw i64 %64, 16
   %66 = zext i16 %.val2.i.i to i64
-  %67 = or disjoint i64 %65, %66
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 %67
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 %65
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %66
   br label %BTreeTupleGetHeapTID.exit
 
 BTreeTupleGetHeapTID.exit:                        ; preds = %BTreeTupleIsPosting.exit.i, %58, %56, %49, %40
@@ -276,8 +276,8 @@ BTreeTupleIsPosting.exit:                         ; preds = %BTreeTupleIsPivot.e
   %16 = zext i16 %.val.i11 to i64
   %17 = shl nuw nsw i64 %16, 16
   %18 = zext i16 %.val2.i to i64
-  %19 = or disjoint i64 %17, %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %19
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %17
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %18
   br label %BTreeTupleIsPosting.exit.thread
 
 BTreeTupleIsPosting.exit.thread:                  ; preds = %1, %8, %BTreeTupleIsPosting.exit, %10
@@ -2506,8 +2506,8 @@ BTreeTupleIsPosting.exit:                         ; preds = %77
   %95 = zext i16 %.val.i.i to i64
   %96 = shl nuw nsw i64 %95, 16
   %97 = zext i16 %.val2.i.i to i64
-  %98 = or disjoint i64 %96, %97
-  %99 = getelementptr inbounds nuw i8, ptr %83, i64 %98
+  %98 = getelementptr inbounds nuw i8, ptr %83, i64 %96
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %97
   %100 = getelementptr inbounds nuw %struct.ItemPointerData, ptr %99, i64 %indvars.iv
   %101 = tail call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %100, ptr noundef %.178113) #14
   br i1 %101, label %102, label %._crit_edge.loopexit
@@ -3060,7 +3060,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %_bt_keep_natts.exit
   store i16 %50, ptr %36, align 2
   %51 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i16 %49, ptr %51, align 2
-  br label %95
+  br label %93
 
 BTreeTupleIsPivot.exit.i:                         ; preds = %BTreeTupleIsPosting.exit.thread
   %52 = and i16 %.val, 8191
@@ -3092,57 +3092,56 @@ BTreeTupleIsPivot.exit.i:                         ; preds = %BTreeTupleIsPosting
 67:                                               ; preds = %BTreeTupleIsPivot.exit.i
   %68 = and i16 %narrow51, 8184
   %69 = zext nneg i16 %68 to i64
-  %70 = getelementptr inbounds nuw i8, ptr %55, i64 %69
-  %71 = getelementptr inbounds i8, ptr %70, i64 -6
   br label %BTreeTupleGetHeapTID.exit
 
 BTreeTupleIsPosting.exit.i:                       ; preds = %BTreeTupleIsPivot.exit.i
   %.val.i11.i = load i16, ptr %55, align 2
-  %72 = getelementptr i8, ptr %55, i64 2
-  %.val2.i.i = load i16, ptr %72, align 2
-  %73 = zext i16 %.val.i11.i to i64
-  %74 = shl nuw nsw i64 %73, 16
-  %75 = zext i16 %.val2.i.i to i64
-  %76 = or disjoint i64 %74, %75
-  %77 = getelementptr inbounds nuw i8, ptr %55, i64 %76
+  %70 = getelementptr i8, ptr %55, i64 2
+  %.val2.i.i = load i16, ptr %70, align 2
+  %71 = zext i16 %.val.i11.i to i64
+  %72 = shl nuw nsw i64 %71, 16
+  %73 = zext i16 %.val2.i.i to i64
   br label %BTreeTupleGetHeapTID.exit
 
 BTreeTupleGetHeapTID.exit:                        ; preds = %67, %BTreeTupleIsPosting.exit.i
-  %.0.i43 = phi ptr [ %71, %67 ], [ %77, %BTreeTupleIsPosting.exit.i ]
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 6
-  %79 = load i16, ptr %78, align 2
-  %80 = and i16 %79, 8192
-  %81 = icmp eq i16 %80, 0
-  br i1 %81, label %BTreeTupleGetMaxHeapTID.exit, label %BTreeTupleIsPosting.exit.i44
+  %.sink57 = phi i64 [ %69, %67 ], [ %72, %BTreeTupleIsPosting.exit.i ]
+  %.sink56 = phi i64 [ -6, %67 ], [ %73, %BTreeTupleIsPosting.exit.i ]
+  %74 = getelementptr inbounds nuw i8, ptr %55, i64 %.sink57
+  %75 = getelementptr inbounds i8, ptr %74, i64 %.sink56
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %77 = load i16, ptr %76, align 2
+  %78 = and i16 %77, 8192
+  %79 = icmp eq i16 %78, 0
+  br i1 %79, label %BTreeTupleGetMaxHeapTID.exit, label %BTreeTupleIsPosting.exit.i44
 
 BTreeTupleIsPosting.exit.i44:                     ; preds = %BTreeTupleGetHeapTID.exit
-  %82 = getelementptr i8, ptr %1, i64 4
-  %.val.i.i45 = load i16, ptr %82, align 2
-  %83 = and i16 %.val.i.i45, 8192
-  %.not.i46 = icmp eq i16 %83, 0
-  br i1 %.not.i46, label %BTreeTupleGetMaxHeapTID.exit, label %84
+  %80 = getelementptr i8, ptr %1, i64 4
+  %.val.i.i45 = load i16, ptr %80, align 2
+  %81 = and i16 %.val.i.i45, 8192
+  %.not.i46 = icmp eq i16 %81, 0
+  br i1 %.not.i46, label %BTreeTupleGetMaxHeapTID.exit, label %82
 
-84:                                               ; preds = %BTreeTupleIsPosting.exit.i44
-  %85 = and i16 %.val.i.i45, 4095
-  %86 = zext nneg i16 %85 to i64
+82:                                               ; preds = %BTreeTupleIsPosting.exit.i44
+  %83 = and i16 %.val.i.i45, 4095
+  %84 = zext nneg i16 %83 to i64
   %.val.i.i.i = load i16, ptr %1, align 2
-  %87 = getelementptr i8, ptr %1, i64 2
-  %.val2.i.i.i = load i16, ptr %87, align 2
-  %88 = zext i16 %.val.i.i.i to i64
-  %89 = shl nuw nsw i64 %88, 16
-  %90 = zext i16 %.val2.i.i.i to i64
-  %91 = or disjoint i64 %89, %90
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 %91
-  %93 = getelementptr %struct.ItemPointerData, ptr %92, i64 %86
-  %94 = getelementptr i8, ptr %93, i64 -6
+  %85 = getelementptr i8, ptr %1, i64 2
+  %.val2.i.i.i = load i16, ptr %85, align 2
+  %86 = zext i16 %.val.i.i.i to i64
+  %87 = shl nuw nsw i64 %86, 16
+  %88 = zext i16 %.val2.i.i.i to i64
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 %87
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %88
+  %91 = getelementptr %struct.ItemPointerData, ptr %90, i64 %84
+  %92 = getelementptr i8, ptr %91, i64 -6
   br label %BTreeTupleGetMaxHeapTID.exit
 
-BTreeTupleGetMaxHeapTID.exit:                     ; preds = %BTreeTupleGetHeapTID.exit, %BTreeTupleIsPosting.exit.i44, %84
-  %.0.i47 = phi ptr [ %94, %84 ], [ %1, %BTreeTupleIsPosting.exit.i44 ], [ %1, %BTreeTupleGetHeapTID.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.0.i43, ptr noundef nonnull readonly align 2 dereferenceable(6) %.0.i47, i64 6, i1 false)
-  br label %95
+BTreeTupleGetMaxHeapTID.exit:                     ; preds = %BTreeTupleGetHeapTID.exit, %BTreeTupleIsPosting.exit.i44, %82
+  %.0.i47 = phi ptr [ %92, %82 ], [ %1, %BTreeTupleIsPosting.exit.i44 ], [ %1, %BTreeTupleGetHeapTID.exit ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %75, ptr noundef nonnull readonly align 2 dereferenceable(6) %.0.i47, i64 6, i1 false)
+  br label %93
 
-95:                                               ; preds = %BTreeTupleGetMaxHeapTID.exit, %48
+93:                                               ; preds = %BTreeTupleGetMaxHeapTID.exit, %48
   %.0 = phi ptr [ %35, %48 ], [ %55, %BTreeTupleGetMaxHeapTID.exit ]
   ret ptr %.0
 }

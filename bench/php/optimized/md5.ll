@@ -28,16 +28,15 @@ define dso_local void @make_digest(ptr noundef writeonly captures(none) %0, ptr 
   %13 = zext nneg i8 %12 to i64
   %14 = getelementptr inbounds nuw [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1, !tbaa !4
-  %16 = or disjoint i64 %9, 1
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 %16
-  store i8 %15, ptr %17, align 1, !tbaa !4
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store i8 %15, ptr %16, align 1, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %make_digest_ex.exit, label %.lr.ph.i
 
 make_digest_ex.exit:                              ; preds = %.lr.ph.i
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %18, align 1, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 0, ptr %17, align 1, !tbaa !4
   ret void
 }
 
@@ -66,18 +65,17 @@ define dso_local void @make_digest_ex(ptr noundef writeonly captures(none) %0, p
   %15 = zext nneg i8 %14 to i64
   %16 = getelementptr inbounds nuw [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !4
-  %18 = or disjoint i64 %11, 1
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
-  store i8 %17, ptr %19, align 1, !tbaa !4
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  store i8 %17, ptr %18, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %20 = shl nsw i32 %2, 1
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 %21
-  store i8 0, ptr %22, align 1, !tbaa !4
+  %19 = shl nsw i32 %2, 1
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i8, ptr %0, i64 %20
+  store i8 0, ptr %21, align 1, !tbaa !4
   ret void
 }
 
@@ -156,7 +154,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %20
   %.05581 = phi i32 [ 4, %zend_parse_arg_str_ex.exit ], [ 0, %10 ], [ 2, %zend_parse_arg_bool_ex.exit ]
   %.05780 = phi i32 [ 9, %zend_parse_arg_str_ex.exit ], [ 1, %10 ], [ 9, %zend_parse_arg_bool_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.05780, i32 noundef %.083, ptr noundef null, i32 noundef %.05581, ptr noundef %.05482) #11
-  br label %76
+  br label %75
 
 .thread84:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread90, %18
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -213,7 +211,7 @@ PHP_MD5Update.exit:                               ; preds = %.thread84, %39
   store ptr %47, ptr %1, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %53, align 8, !tbaa !4
-  br label %76
+  br label %75
 
 54:                                               ; preds = %PHP_MD5Update.exit
   %55 = call noalias ptr @_emalloc_64() #11
@@ -245,19 +243,18 @@ PHP_MD5Update.exit:                               ; preds = %.thread84, %39
   %70 = zext nneg i8 %69 to i64
   %71 = getelementptr inbounds nuw [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %70
   %72 = load i8, ptr %71, align 1, !tbaa !4
-  %73 = or disjoint i64 %67, 1
-  %74 = getelementptr inbounds nuw i8, ptr %60, i64 %73
-  store i8 %72, ptr %74, align 1, !tbaa !4
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 1
+  store i8 %72, ptr %73, align 1, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %make_digest_ex.exit, label %.lr.ph.i
 
 make_digest_ex.exit:                              ; preds = %.lr.ph.i
-  %75 = getelementptr inbounds nuw i8, ptr %55, i64 56
-  store i8 0, ptr %75, align 1, !tbaa !4
-  br label %76
+  %74 = getelementptr inbounds nuw i8, ptr %55, i64 56
+  store i8 0, ptr %74, align 1, !tbaa !4
+  br label %75
 
-76:                                               ; preds = %.thread74, %make_digest_ex.exit, %46
+75:                                               ; preds = %.thread74, %make_digest_ex.exit, %46
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #11
@@ -593,7 +590,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %29
   %.063100 = phi i32 [ 16, %zend_parse_arg_path.exit ], [ 0, %11 ], [ 2, %zend_parse_arg_bool_ex.exit ]
   %.06599 = phi i32 [ 9, %zend_parse_arg_path.exit ], [ 1, %11 ], [ 9, %zend_parse_arg_bool_ex.exit ]
   call void @zend_wrong_parameter_error(i32 noundef %.06599, i32 noundef %.0102, ptr noundef null, i32 noundef %.063100, ptr noundef %.062101) #11
-  br label %117
+  br label %116
 
 .critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread111, %26
   %34 = call ptr @_php_stream_open_wrapper_ex(ptr noundef nonnull %27, ptr noundef nonnull @.str, i32 noundef 8, ptr noundef null, ptr noundef null) #11
@@ -603,7 +600,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %29
 35:                                               ; preds = %.critedge
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %36, align 8, !tbaa !4
-  br label %117
+  br label %116
 
 37:                                               ; preds = %.critedge
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -695,7 +692,7 @@ PHP_MD5Update.exit:                               ; preds = %66, %77
 82:                                               ; preds = %._crit_edge
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %83, align 8, !tbaa !4
-  br label %117
+  br label %116
 
 84:                                               ; preds = %._crit_edge
   %85 = load i8, ptr %4, align 1, !tbaa !7, !range !29, !noundef !30
@@ -718,7 +715,7 @@ PHP_MD5Update.exit:                               ; preds = %66, %77
   store ptr %88, ptr %1, align 8, !tbaa !4
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %94, align 8, !tbaa !4
-  br label %117
+  br label %116
 
 95:                                               ; preds = %84
   %96 = call noalias ptr @_emalloc_64() #11
@@ -750,19 +747,18 @@ PHP_MD5Update.exit:                               ; preds = %66, %77
   %111 = zext nneg i8 %110 to i64
   %112 = getelementptr inbounds nuw [17 x i8], ptr @make_digest_ex.hexits, i64 0, i64 %111
   %113 = load i8, ptr %112, align 1, !tbaa !4
-  %114 = or disjoint i64 %108, 1
-  %115 = getelementptr inbounds nuw i8, ptr %101, i64 %114
-  store i8 %113, ptr %115, align 1, !tbaa !4
+  %114 = getelementptr inbounds nuw i8, ptr %109, i64 1
+  store i8 %113, ptr %114, align 1, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %make_digest_ex.exit, label %.lr.ph.i
 
 make_digest_ex.exit:                              ; preds = %.lr.ph.i
-  %116 = getelementptr inbounds nuw i8, ptr %96, i64 56
-  store i8 0, ptr %116, align 1, !tbaa !4
-  br label %117
+  %115 = getelementptr inbounds nuw i8, ptr %96, i64 56
+  store i8 0, ptr %115, align 1, !tbaa !4
+  br label %116
 
-117:                                              ; preds = %.thread92, %make_digest_ex.exit, %87, %82, %35
+116:                                              ; preds = %.thread92, %make_digest_ex.exit, %87, %82, %35
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #11

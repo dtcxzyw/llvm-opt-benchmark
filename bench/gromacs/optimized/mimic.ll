@@ -1520,16 +1520,16 @@ _ZN3gmx14LogEntryWriterD2Ev.exit253:              ; preds = %_ZNKSt7__cxx1112bas
   %698 = getelementptr inbounds nuw i8, ptr %676, i64 2612
   %699 = load i32, ptr %698, align 4, !tbaa !341
   %700 = mul nsw i32 %699, 60
-  %701 = or disjoint i32 %700, 1
-  %702 = sext i32 %701 to i64
-  %703 = getelementptr inbounds nuw %struct.wallcc_t, ptr %688, i64 %702
+  %701 = sext i32 %700 to i64
+  %702 = getelementptr %struct.wallcc_t, ptr %688, i64 %701
+  %703 = getelementptr i8, ptr %702, i64 24
   %704 = load i32, ptr %703, align 8, !tbaa !360
   %705 = add nsw i32 %704, 1
   store i32 %705, ptr %703, align 8, !tbaa !360
   %706 = getelementptr inbounds nuw i8, ptr %676, i64 2616
   %707 = load i64, ptr %706, align 8, !tbaa !342
   %708 = sub i64 %685, %707
-  %709 = getelementptr inbounds nuw i8, ptr %703, i64 8
+  %709 = getelementptr i8, ptr %702, i64 32
   %710 = load i64, ptr %709, align 8, !tbaa !361
   %711 = add i64 %708, %710
   store i64 %711, ptr %709, align 8, !tbaa !361

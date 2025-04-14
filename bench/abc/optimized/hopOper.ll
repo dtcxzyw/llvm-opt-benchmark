@@ -1258,34 +1258,33 @@ define ptr @Hop_Miter(ptr noundef %0, ptr noundef captures(none) %1) local_unnam
   %8 = load ptr, ptr %6, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !19
-  %11 = or disjoint i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !19
-  %14 = tail call ptr @Hop_Exor(ptr noundef %0, ptr noundef %10, ptr noundef %13)
-  %15 = ptrtoint ptr %14 to i64
-  %16 = xor i64 %15, 1
-  %17 = inttoptr i64 %16 to ptr
-  %18 = load ptr, ptr %6, align 8, !tbaa !17
-  %19 = lshr exact i64 %indvars.iv, 1
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
-  store ptr %17, ptr %20, align 8, !tbaa !19
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !19
+  %13 = tail call ptr @Hop_Exor(ptr noundef %0, ptr noundef %10, ptr noundef %12)
+  %14 = ptrtoint ptr %13 to i64
+  %15 = xor i64 %14, 1
+  %16 = inttoptr i64 %15 to ptr
+  %17 = load ptr, ptr %6, align 8, !tbaa !17
+  %18 = lshr exact i64 %indvars.iv, 1
+  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  store ptr %16, ptr %19, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %21 = load i32, ptr %3, align 4, !tbaa !25
-  %22 = trunc nuw i64 %indvars.iv.next to i32
-  %23 = icmp sgt i32 %21, %22
-  br i1 %23, label %7, label %._crit_edge, !llvm.loop !26
+  %20 = load i32, ptr %3, align 4, !tbaa !25
+  %21 = trunc nuw i64 %indvars.iv.next to i32
+  %22 = icmp sgt i32 %20, %21
+  br i1 %22, label %7, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %7, %2
-  %.lcssa = phi i32 [ %4, %2 ], [ %21, %7 ]
-  %24 = sdiv i32 %.lcssa, 2
-  store i32 %24, ptr %3, align 4, !tbaa !25
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !17
-  %27 = tail call ptr @Hop_Multi_rec(ptr noundef %0, ptr noundef %26, i32 noundef %24, i32 noundef 4)
-  %28 = ptrtoint ptr %27 to i64
-  %29 = xor i64 %28, 1
-  %30 = inttoptr i64 %29 to ptr
-  ret ptr %30
+  %.lcssa = phi i32 [ %4, %2 ], [ %20, %7 ]
+  %23 = sdiv i32 %.lcssa, 2
+  store i32 %23, ptr %3, align 4, !tbaa !25
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !17
+  %26 = tail call ptr @Hop_Multi_rec(ptr noundef %0, ptr noundef %25, i32 noundef %23, i32 noundef 4)
+  %27 = ptrtoint ptr %26 to i64
+  %28 = xor i64 %27, 1
+  %29 = inttoptr i64 %28 to ptr
+  ret ptr %29
 }
 
 ; Function Attrs: nounwind uwtable

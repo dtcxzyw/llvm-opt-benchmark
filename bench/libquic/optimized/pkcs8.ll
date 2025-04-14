@@ -62,7 +62,7 @@ define internal fastcc range(i32 0, 2) i32 @pass_to_pass_raw(i32 noundef %0, ptr
 7:                                                ; preds = %5
   store ptr null, ptr %3, align 8, !tbaa !6
   store i64 0, ptr %4, align 8, !tbaa !11
-  br label %49
+  br label %47
 
 8:                                                ; preds = %5
   %9 = icmp eq i32 %2, -1
@@ -79,7 +79,7 @@ define internal fastcc range(i32 0, 2) i32 @pass_to_pass_raw(i32 noundef %0, ptr
 
 14:                                               ; preds = %13
   tail call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 69, ptr noundef nonnull @.str, i32 noundef 342) #12
-  br label %49
+  br label %47
 
 15:                                               ; preds = %13, %10
   %.021 = phi i32 [ %12, %10 ], [ %2, %13 ]
@@ -109,62 +109,60 @@ get_pbe_suite.exit:                               ; preds = %17
   %26 = shl nsw i64 %25, 1
   %27 = add nsw i64 %26, 2
   %28 = icmp ult i64 %27, %25
-  br i1 %28, label %43, label %29
+  br i1 %28, label %41, label %29
 
 29:                                               ; preds = %24
   %30 = tail call noalias ptr @malloc(i64 noundef %27) #14
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %43, label %.preheader.i
+  br i1 %31, label %41, label %.preheader.i
 
 .preheader.i:                                     ; preds = %29
   %.not.i = icmp eq i32 %.021, 0
   br i1 %.not.i, label %ascii_to_ucs2.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.026.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %.026.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %.preheader.i ]
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %.026.i
   store i8 0, ptr %32, align 1, !tbaa !27
   %33 = lshr exact i64 %.026.i, 1
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !27
-  %36 = or disjoint i64 %.026.i, 1
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %36
-  store i8 %35, ptr %37, align 1, !tbaa !27
-  %38 = add nuw i64 %.026.i, 2
-  %39 = icmp ult i64 %38, %26
-  br i1 %39, label %.lr.ph.i, label %ascii_to_ucs2.exit, !llvm.loop !28
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  store i8 %35, ptr %36, align 1, !tbaa !27
+  %37 = add nuw i64 %.026.i, 2
+  %38 = icmp ult i64 %37, %26
+  br i1 %38, label %.lr.ph.i, label %ascii_to_ucs2.exit, !llvm.loop !28
 
 ascii_to_ucs2.exit:                               ; preds = %.lr.ph.i, %.preheader.i
-  %40 = getelementptr inbounds nuw i8, ptr %30, i64 %26
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %26
+  store i8 0, ptr %39, align 1, !tbaa !27
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   store i8 0, ptr %40, align 1, !tbaa !27
-  %41 = or disjoint i64 %26, 1
-  %42 = getelementptr inbounds nuw i8, ptr %30, i64 %41
-  store i8 0, ptr %42, align 1, !tbaa !27
   store i64 %27, ptr %4, align 8, !tbaa !11
   store ptr %30, ptr %3, align 8, !tbaa !6
-  br label %49
+  br label %47
 
-43:                                               ; preds = %24, %29
+41:                                               ; preds = %24, %29
   tail call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 104, ptr noundef nonnull @.str, i32 noundef 349) #12
-  br label %49
+  br label %47
 
 get_pbe_suite.exit.thread:                        ; preds = %16, %get_pbe_suite.exit
-  %44 = sext i32 %.021 to i64
-  %45 = tail call ptr @BUF_memdup(ptr noundef nonnull %1, i64 noundef %44) #12
-  store ptr %45, ptr %3, align 8, !tbaa !6
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %48
+  %42 = sext i32 %.021 to i64
+  %43 = tail call ptr @BUF_memdup(ptr noundef nonnull %1, i64 noundef %42) #12
+  store ptr %43, ptr %3, align 8, !tbaa !6
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %46
 
-47:                                               ; preds = %get_pbe_suite.exit.thread
+45:                                               ; preds = %get_pbe_suite.exit.thread
   tail call void @ERR_put_error(i32 noundef 19, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 355) #12
-  br label %49
+  br label %47
 
-48:                                               ; preds = %get_pbe_suite.exit.thread
-  store i64 %44, ptr %4, align 8, !tbaa !11
-  br label %49
+46:                                               ; preds = %get_pbe_suite.exit.thread
+  store i64 %42, ptr %4, align 8, !tbaa !11
+  br label %47
 
-49:                                               ; preds = %ascii_to_ucs2.exit, %43, %47, %48, %14, %7
-  %.0 = phi i32 [ 1, %7 ], [ 0, %14 ], [ 0, %43 ], [ 0, %47 ], [ 1, %ascii_to_ucs2.exit ], [ 1, %48 ]
+47:                                               ; preds = %ascii_to_ucs2.exit, %41, %45, %46, %14, %7
+  %.0 = phi i32 [ 1, %7 ], [ 0, %14 ], [ 0, %41 ], [ 0, %45 ], [ 1, %ascii_to_ucs2.exit ], [ 1, %46 ]
   ret i32 %.0
 }
 
@@ -879,42 +877,40 @@ define internal fastcc range(i32 0, 2) i32 @ascii_to_ucs2(ptr noundef readonly c
   %5 = shl i64 %1, 1
   %6 = add i64 %5, 2
   %7 = icmp ult i64 %6, %1
-  br i1 %7, label %22, label %8
+  br i1 %7, label %20, label %8
 
 8:                                                ; preds = %4
   %9 = tail call noalias ptr @malloc(i64 noundef %6) #14
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %22, label %.preheader
+  br i1 %10, label %20, label %.preheader
 
 .preheader:                                       ; preds = %8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.026 = phi i64 [ %17, %.lr.ph ], [ 0, %.preheader ]
+  %.026 = phi i64 [ %16, %.lr.ph ], [ 0, %.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %.026
   store i8 0, ptr %11, align 1, !tbaa !27
   %12 = lshr exact i64 %.026, 1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !27
-  %15 = or disjoint i64 %.026, 1
-  %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
-  store i8 %14, ptr %16, align 1, !tbaa !27
-  %17 = add nuw i64 %.026, 2
-  %18 = icmp ult i64 %17, %5
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !28
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  store i8 %14, ptr %15, align 1, !tbaa !27
+  %16 = add nuw i64 %.026, 2
+  %17 = icmp ult i64 %16, %5
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 %5
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 %5
+  store i8 0, ptr %18, align 1, !tbaa !27
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store i8 0, ptr %19, align 1, !tbaa !27
-  %20 = or disjoint i64 %5, 1
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 %20
-  store i8 0, ptr %21, align 1, !tbaa !27
   store i64 %6, ptr %3, align 8, !tbaa !11
   store ptr %9, ptr %2, align 8, !tbaa !6
-  br label %22
+  br label %20
 
-22:                                               ; preds = %8, %4, %._crit_edge
+20:                                               ; preds = %8, %4, %._crit_edge
   %.022 = phi i32 [ 1, %._crit_edge ], [ 0, %4 ], [ 0, %8 ]
   ret i32 %.022
 }

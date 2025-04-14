@@ -1107,10 +1107,10 @@ define hidden void @_ZN10grep_regex12non_matching21remove_matching_bytes17h9d607
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %8 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %9 = alloca { { { ptr, ptr, {} } } }, align 8
-  %.sroa.5.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %.sroa.5.0.i.sroa.gep92 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  %.sroa.5.0.i.sroa.gep93 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  %.sroa.5.0.i.sroa.gep94 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %.sroa.5.0.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sroa.5.0.i.sroa.gep92 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %.sroa.5.0.i.sroa.gep93 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.5.0.i.sroa.gep94 = getelementptr inbounds nuw i8, ptr %5, i64 2
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
@@ -1328,6 +1328,7 @@ default.unreachable:                              ; preds = %86
 
 .lr.ph69.preheader:                               ; preds = %86, %88, %89, %90
   %.sroa.5.0.i.sroa.phi = phi ptr [ %.sroa.5.0.i.sroa.gep, %90 ], [ %.sroa.5.0.i.sroa.gep92, %89 ], [ %.sroa.5.0.i.sroa.gep93, %88 ], [ %.sroa.5.0.i.sroa.gep94, %86 ]
+  %.ptr = getelementptr inbounds nuw i8, ptr %.sroa.5.0.i.sroa.phi, i64 1
   br label %.lr.ph69
 
 ._crit_edge70:                                    ; preds = %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit
@@ -1365,7 +1366,7 @@ default.unreachable:                              ; preds = %86
   br i1 %or.cond.i, label %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit, label %.lr.ph.i
 
 _ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit: ; preds = %.lr.ph.i, %.lr.ph69
-  %106 = icmp eq ptr %91, %.sroa.5.0.i.sroa.phi
+  %106 = icmp eq ptr %91, %.ptr
   br i1 %106, label %._crit_edge70, label %.lr.ph69
 
 107:                                              ; preds = %74

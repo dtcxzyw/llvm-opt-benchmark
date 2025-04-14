@@ -39584,8 +39584,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %shuffle.i18.i = shufflevector <16 x i8> %0, <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %arrayidx5.i = getelementptr inbounds i16, ptr %utf16_output, i64 %i.012.i
   store <16 x i8> %shuffle.i.i, ptr %arrayidx5.i, align 1
-  %add.i = or disjoint i64 %i.012.i, 8
-  %arrayidx6.i = getelementptr inbounds i16, ptr %utf16_output, i64 %add.i
+  %arrayidx6.i = getelementptr i8, ptr %arrayidx5.i, i64 16
   store <16 x i8> %shuffle.i18.i, ptr %arrayidx6.i, align 1
   %add7.i = add nuw i64 %i.012.i, 16
   %cmp.i = icmp ult i64 %add7.i, %and.i
@@ -39653,8 +39652,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %shuffle.i18.i = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %0, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %arrayidx5.i = getelementptr inbounds i16, ptr %utf16_output, i64 %i.012.i
   store <16 x i8> %shuffle.i.i, ptr %arrayidx5.i, align 1
-  %add.i = or disjoint i64 %i.012.i, 8
-  %arrayidx6.i = getelementptr inbounds i16, ptr %utf16_output, i64 %add.i
+  %arrayidx6.i = getelementptr i8, ptr %arrayidx5.i, i64 16
   store <16 x i8> %shuffle.i18.i, ptr %arrayidx6.i, align 1
   %add7.i = add nuw i64 %i.012.i, 16
   %cmp.i = icmp ult i64 %add7.i, %and.i

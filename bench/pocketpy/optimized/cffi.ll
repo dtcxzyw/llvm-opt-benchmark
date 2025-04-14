@@ -7973,8 +7973,8 @@ _ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit72.i:      ; preds = %.noexc70.i
   %64 = phi ptr [ %41, %47 ], [ %41, %53 ], [ %41, %57 ], [ %.pre9.i, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit72.i ]
   %.0.i = phi i8 [ %48, %47 ], [ %54, %53 ], [ %58, %57 ], [ 0, %_ZN4pkpy2VM10ValueErrorERKNS_3StrE.exit72.i ]
   %65 = shl nuw i8 %.0.i, 4
-  %66 = or disjoint i64 %indvars.iv.i, 1
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %66
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = icmp sgt i8 %68, 47
   br i1 %69, label %70, label %.thread4.i

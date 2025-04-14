@@ -5403,7 +5403,7 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   %29 = load ptr, ptr %28, align 8, !tbaa !16
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 252
   %31 = load i8, ptr %30, align 4, !tbaa !15
-  switch i8 %31, label %151 [
+  switch i8 %31, label %149 [
     i8 0, label %32
     i8 12, label %32
   ]
@@ -5414,13 +5414,13 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 148
   %36 = load i32, ptr %35, align 4, !tbaa !27
   %37 = icmp eq i32 %36, -2147483638
-  br i1 %37, label %38, label %151
+  br i1 %37, label %38, label %149
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 84
   %40 = load i32, ptr %39, align 4, !tbaa !27
   %41 = icmp eq i32 %40, -2147483515
-  br i1 %41, label %42, label %151
+  br i1 %41, label %42, label %149
 
 42:                                               ; preds = %38
   %43 = icmp eq i8 %31, 0
@@ -5436,7 +5436,7 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %52 = load i16, ptr %51, align 2, !tbaa !17
   %53 = icmp eq i16 %52, 3877
-  br i1 %53, label %54, label %151
+  br i1 %53, label %54, label %149
 
 54:                                               ; preds = %46
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -5446,41 +5446,41 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 10
   %60 = load i16, ptr %59, align 2, !tbaa !17
   %61 = icmp eq i16 %60, 3861
-  br i1 %61, label %86, label %151
+  br i1 %61, label %86, label %149
 
 62:                                               ; preds = %42
   %63 = getelementptr inbounds nuw i32, ptr %27, i64 %45
   %64 = load i32, ptr %63, align 4, !tbaa !27
   %65 = and i32 %64, 67108864
   %.not.i = icmp eq i32 %65, 0
-  br i1 %.not.i, label %151, label %66
+  br i1 %.not.i, label %149, label %66
 
 66:                                               ; preds = %62
   %67 = shl i32 %64, 4
   %68 = and i32 %67, 1048560
-  %69 = or disjoint i32 %68, 10
-  %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i16, ptr %29, i64 %70
+  %69 = zext nneg i32 %68 to i64
+  %70 = getelementptr inbounds nuw i16, ptr %29, i64 %69
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 20
   %72 = load i16, ptr %71, align 2, !tbaa !17
   %73 = icmp eq i16 %72, 37
-  br i1 %73, label %74, label %151
+  br i1 %73, label %74, label %149
 
 74:                                               ; preds = %66
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %76 = load i32, ptr %75, align 4, !tbaa !27
   %77 = and i32 %76, 2097152
   %.not77.i = icmp eq i32 %77, 0
-  br i1 %.not77.i, label %151, label %78
+  br i1 %.not77.i, label %149, label %78
 
 78:                                               ; preds = %74
   %79 = shl i32 %76, 4
   %80 = and i32 %79, 1048560
-  %81 = or disjoint i32 %80, 5
-  %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw i16, ptr %29, i64 %82
+  %81 = zext nneg i32 %80 to i64
+  %82 = getelementptr inbounds nuw i16, ptr %29, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 10
   %84 = load i16, ptr %83, align 2, !tbaa !17
   %85 = icmp eq i16 %84, 21
-  br i1 %85, label %86, label %151
+  br i1 %85, label %86, label %149
 
 86:                                               ; preds = %78, %54
   %87 = getelementptr inbounds nuw i8, ptr %24, i64 248
@@ -5524,7 +5524,7 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   %110 = icmp eq i8 %109, 0
   %111 = load i16, ptr %27, align 2, !tbaa !17
   %112 = zext i16 %111 to i64
-  br i1 %110, label %113, label %124
+  br i1 %110, label %113, label %122
 
 113:                                              ; preds = %100
   %114 = getelementptr inbounds nuw i16, ptr %27, i64 %112
@@ -5536,158 +5536,157 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %120 = load i16, ptr %119, align 2, !tbaa !17
   %121 = zext i16 %120 to i64
-  %122 = getelementptr inbounds nuw i16, ptr %107, i64 %121
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 10
-  store i16 3877, ptr %123, align 2, !tbaa !17
-  br label %139
+  br label %135
 
-124:                                              ; preds = %100
-  %125 = getelementptr inbounds nuw i32, ptr %27, i64 %112
-  %126 = load i32, ptr %125, align 4, !tbaa !27
-  %127 = shl i32 %126, 4
-  %128 = and i32 %127, 1048560
-  %129 = or disjoint i32 %128, 10
-  %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw i16, ptr %107, i64 %130
-  store i16 21, ptr %131, align 2, !tbaa !17
-  %132 = getelementptr inbounds nuw i8, ptr %125, i64 32
-  %133 = load i32, ptr %132, align 4, !tbaa !27
-  %134 = shl i32 %133, 4
-  %135 = and i32 %134, 1048560
-  %136 = or disjoint i32 %135, 5
-  %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw i16, ptr %107, i64 %137
-  store i16 37, ptr %138, align 2, !tbaa !17
-  br label %139
+122:                                              ; preds = %100
+  %123 = getelementptr inbounds nuw i32, ptr %27, i64 %112
+  %124 = load i32, ptr %123, align 4, !tbaa !27
+  %125 = shl i32 %124, 4
+  %126 = and i32 %125, 1048560
+  %127 = zext nneg i32 %126 to i64
+  %128 = getelementptr inbounds nuw i16, ptr %107, i64 %127
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 20
+  store i16 21, ptr %129, align 2, !tbaa !17
+  %130 = getelementptr inbounds nuw i8, ptr %123, i64 32
+  %131 = load i32, ptr %130, align 4, !tbaa !27
+  %132 = shl i32 %131, 4
+  %133 = and i32 %132, 1048560
+  %134 = zext nneg i32 %133 to i64
+  br label %135
 
-139:                                              ; preds = %124, %113
-  %140 = getelementptr inbounds nuw i8, ptr %107, i64 %108
-  %141 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %142 = load ptr, ptr %141, align 8, !tbaa !117
-  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
-  %144 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %140, ptr noundef nonnull dereferenceable(1) %143) #15
-  %strlen.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %140)
-  %endptr.i = getelementptr inbounds i8, ptr %140, i64 %strlen.i
+135:                                              ; preds = %122, %113
+  %.sink84.i = phi i64 [ %134, %122 ], [ %121, %113 ]
+  %.sink.i = phi i16 [ 37, %122 ], [ 3877, %113 ]
+  %136 = getelementptr inbounds nuw i16, ptr %107, i64 %.sink84.i
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 10
+  store i16 %.sink.i, ptr %137, align 2, !tbaa !17
+  %138 = getelementptr inbounds nuw i8, ptr %107, i64 %108
+  %139 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %140 = load ptr, ptr %139, align 8, !tbaa !117
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
+  %142 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %138, ptr noundef nonnull dereferenceable(1) %141) #15
+  %strlen.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %138)
+  %endptr.i = getelementptr inbounds i8, ptr %138, i64 %strlen.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %endptr.i, ptr noundef nonnull align 1 dereferenceable(10) @.str.11, i64 10, i1 false)
   tail call void @umtx_lock_77(ptr noundef null)
-  %145 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  %146 = load ptr, ptr %145, align 8, !tbaa !136
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %.thread.i, label %150
+  %143 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %144 = load ptr, ptr %143, align 8, !tbaa !136
+  %145 = icmp eq ptr %144, null
+  br i1 %145, label %.thread.i, label %148
 
-.thread.i:                                        ; preds = %139
-  store ptr %96, ptr %145, align 8, !tbaa !136
-  %148 = getelementptr inbounds nuw i8, ptr %24, i64 240
-  store ptr %107, ptr %148, align 8, !tbaa !137
-  %149 = getelementptr inbounds nuw i8, ptr %24, i64 272
-  store ptr %140, ptr %149, align 8, !tbaa !168
+.thread.i:                                        ; preds = %135
+  store ptr %96, ptr %143, align 8, !tbaa !136
+  %146 = getelementptr inbounds nuw i8, ptr %24, i64 240
+  store ptr %107, ptr %146, align 8, !tbaa !137
+  %147 = getelementptr inbounds nuw i8, ptr %24, i64 272
+  store ptr %138, ptr %147, align 8, !tbaa !168
   tail call void @umtx_unlock_77(ptr noundef null)
   br label %_ZL15_EBCDICSwapLFNLP20UConverterSharedDataP10UErrorCode.exit
 
-150:                                              ; preds = %139
+148:                                              ; preds = %135
   tail call void @umtx_unlock_77(ptr noundef null)
   tail call void @uprv_free_77(ptr noundef nonnull %96)
   br label %_ZL15_EBCDICSwapLFNLP20UConverterSharedDataP10UErrorCode.exit
 
-151:                                              ; preds = %23, %38, %32, %54, %46, %66, %62, %78, %74
+149:                                              ; preds = %23, %38, %32, %54, %46, %66, %62, %78, %74
   %.pr = load i32, ptr %2, align 4, !tbaa !35
-  %152 = icmp slt i32 %.pr, 1
-  br i1 %152, label %153, label %.critedge
+  %150 = icmp slt i32 %.pr, 1
+  br i1 %150, label %151, label %.critedge
 
-153:                                              ; preds = %151
-  %154 = load i32, ptr %19, align 4, !tbaa !130
-  %155 = and i32 %154, -17
-  store i32 %155, ptr %19, align 4, !tbaa !130
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %155, ptr %156, align 8, !tbaa !60
+151:                                              ; preds = %149
+  %152 = load i32, ptr %19, align 4, !tbaa !130
+  %153 = and i32 %152, -17
+  store i32 %153, ptr %19, align 4, !tbaa !130
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %153, ptr %154, align 8, !tbaa !60
   br label %_ZL15_EBCDICSwapLFNLP20UConverterSharedDataP10UErrorCode.exit
 
-_ZL15_EBCDICSwapLFNLP20UConverterSharedDataP10UErrorCode.exit: ; preds = %.thread, %150, %.thread.i, %153, %20, %16
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %158 = load ptr, ptr %157, align 8, !tbaa !132
-  %159 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) @.str.2) #16
-  %.not44 = icmp eq ptr %159, null
-  br i1 %.not44, label %164, label %160
+_ZL15_EBCDICSwapLFNLP20UConverterSharedDataP10UErrorCode.exit: ; preds = %.thread, %148, %.thread.i, %151, %20, %16
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %156 = load ptr, ptr %155, align 8, !tbaa !132
+  %157 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.2) #16
+  %.not44 = icmp eq ptr %157, null
+  br i1 %.not44, label %162, label %158
 
-160:                                              ; preds = %_ZL15_EBCDICSwapLFNLP20UConverterSharedDataP10UErrorCode.exit
-  %161 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) @.str.3) #16
-  %.not51 = icmp eq ptr %161, null
-  br i1 %.not51, label %162, label %.sink.split
+158:                                              ; preds = %_ZL15_EBCDICSwapLFNLP20UConverterSharedDataP10UErrorCode.exit
+  %159 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.3) #16
+  %.not51 = icmp eq ptr %159, null
+  br i1 %.not51, label %160, label %.sink.split
 
-162:                                              ; preds = %160
-  %163 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) @.str.4) #16
-  %.not52 = icmp eq ptr %163, null
-  br i1 %.not52, label %179, label %.sink.split
+160:                                              ; preds = %158
+  %161 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.4) #16
+  %.not52 = icmp eq ptr %161, null
+  br i1 %.not52, label %177, label %.sink.split
 
-164:                                              ; preds = %_ZL15_EBCDICSwapLFNLP20UConverterSharedDataP10UErrorCode.exit
-  %165 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) @.str.5) #16
-  %.not45 = icmp eq ptr %165, null
-  br i1 %.not45, label %166, label %.sink.split
+162:                                              ; preds = %_ZL15_EBCDICSwapLFNLP20UConverterSharedDataP10UErrorCode.exit
+  %163 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.5) #16
+  %.not45 = icmp eq ptr %163, null
+  br i1 %.not45, label %164, label %.sink.split
+
+164:                                              ; preds = %162
+  %165 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.6) #16
+  %.not46 = icmp eq ptr %165, null
+  br i1 %.not46, label %166, label %.sink.split
 
 166:                                              ; preds = %164
-  %167 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) @.str.6) #16
-  %.not46 = icmp eq ptr %167, null
-  br i1 %.not46, label %168, label %.sink.split
+  %167 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.7) #16
+  %.not47 = icmp eq ptr %167, null
+  br i1 %.not47, label %168, label %.sink.split
 
 168:                                              ; preds = %166
-  %169 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) @.str.7) #16
-  %.not47 = icmp eq ptr %169, null
-  br i1 %.not47, label %170, label %.sink.split
+  %169 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.8) #16
+  %.not48 = icmp eq ptr %169, null
+  br i1 %.not48, label %170, label %.sink.split
 
 170:                                              ; preds = %168
-  %171 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) @.str.8) #16
-  %.not48 = icmp eq ptr %171, null
-  br i1 %.not48, label %172, label %.sink.split
+  %171 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.9) #16
+  %.not49 = icmp eq ptr %171, null
+  br i1 %.not49, label %172, label %.sink.split
 
 172:                                              ; preds = %170
-  %173 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) @.str.9) #16
-  %.not49 = icmp eq ptr %173, null
-  br i1 %.not49, label %174, label %.sink.split
+  %173 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %156, ptr noundef nonnull dereferenceable(1) @.str.10) #16
+  %.not50 = icmp eq ptr %173, null
+  br i1 %.not50, label %177, label %.sink.split
 
-174:                                              ; preds = %172
-  %175 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %158, ptr noundef nonnull dereferenceable(1) @.str.10) #16
-  %.not50 = icmp eq ptr %175, null
-  br i1 %.not50, label %179, label %.sink.split
+.sink.split:                                      ; preds = %170, %172, %166, %168, %162, %164, %158, %160
+  %.sink60 = phi i32 [ 32768, %160 ], [ 32768, %158 ], [ 4096, %164 ], [ 4096, %162 ], [ 8192, %168 ], [ 8192, %166 ], [ 16384, %172 ], [ 16384, %170 ]
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %175 = load i32, ptr %174, align 8, !tbaa !60
+  %176 = or i32 %175, %.sink60
+  store i32 %176, ptr %174, align 8, !tbaa !60
+  br label %177
 
-.sink.split:                                      ; preds = %172, %174, %168, %170, %164, %166, %160, %162
-  %.sink60 = phi i32 [ 32768, %162 ], [ 32768, %160 ], [ 4096, %166 ], [ 4096, %164 ], [ 8192, %170 ], [ 8192, %168 ], [ 16384, %174 ], [ 16384, %172 ]
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %177 = load i32, ptr %176, align 8, !tbaa !60
-  %178 = or i32 %177, %.sink60
-  store i32 %178, ptr %176, align 8, !tbaa !60
-  br label %179
+177:                                              ; preds = %.sink.split, %172, %160
+  %178 = icmp eq i8 %10, 12
+  br i1 %178, label %179, label %181
 
-179:                                              ; preds = %.sink.split, %174, %162
-  %180 = icmp eq i8 %10, 12
-  br i1 %180, label %181, label %183
+179:                                              ; preds = %177
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i8 3, ptr %180, align 8, !tbaa !169
+  br label %181
 
-181:                                              ; preds = %179
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i8 3, ptr %182, align 8, !tbaa !169
-  br label %183
+181:                                              ; preds = %179, %177
+  %182 = getelementptr inbounds nuw i8, ptr %8, i64 288
+  %183 = load ptr, ptr %182, align 8, !tbaa !124
+  %.not53 = icmp eq ptr %183, null
+  br i1 %.not53, label %.critedge, label %184
 
-183:                                              ; preds = %181, %179
-  %184 = getelementptr inbounds nuw i8, ptr %8, i64 288
-  %185 = load ptr, ptr %184, align 8, !tbaa !124
-  %.not53 = icmp eq ptr %185, null
-  br i1 %.not53, label %.critedge, label %186
+184:                                              ; preds = %181
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 68
+  %186 = load i32, ptr %185, align 4, !tbaa !27
+  %187 = trunc i32 %186 to i8
+  %188 = zext i1 %178 to i8
+  %spec.select = add i8 %187, %188
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %190 = load i8, ptr %189, align 8, !tbaa !169
+  %191 = icmp sgt i8 %spec.select, %190
+  br i1 %191, label %192, label %.critedge
 
-186:                                              ; preds = %183
-  %187 = getelementptr inbounds nuw i8, ptr %185, i64 68
-  %188 = load i32, ptr %187, align 4, !tbaa !27
-  %189 = trunc i32 %188 to i8
-  %190 = zext i1 %180 to i8
-  %spec.select = add i8 %189, %190
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %192 = load i8, ptr %191, align 8, !tbaa !169
-  %193 = icmp sgt i8 %spec.select, %192
-  br i1 %193, label %194, label %.critedge
-
-194:                                              ; preds = %186
-  store i8 %spec.select, ptr %191, align 8, !tbaa !169
+192:                                              ; preds = %184
+  store i8 %spec.select, ptr %189, align 8, !tbaa !169
   br label %.critedge
 
-.critedge:                                        ; preds = %98, %99, %151, %183, %194, %186, %3
+.critedge:                                        ; preds = %98, %99, %149, %181, %192, %184, %3
   ret void
 }
 

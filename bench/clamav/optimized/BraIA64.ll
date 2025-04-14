@@ -15,8 +15,8 @@ define range(i64 16, 1) i64 @IA64_Convert(ptr noundef captures(none) %0, i64 nou
   %.not65 = icmp eq i32 %3, 0
   br label %8
 
-8:                                                ; preds = %6, %66
-  %.06375 = phi i64 [ 0, %6 ], [ %67, %66 ]
+8:                                                ; preds = %6, %64
+  %.06375 = phi i64 [ 0, %6 ], [ %65, %64 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.06375
   %10 = load i8, ptr %9, align 1, !tbaa !3
   %11 = and i8 %10, 31
@@ -33,7 +33,7 @@ define range(i64 16, 1) i64 @IA64_Convert(ptr noundef captures(none) %0, i64 nou
 
 20:                                               ; preds = %8, %.loopexit
   %indvars.iv82 = phi i64 [ 5, %8 ], [ %indvars.iv.next83, %.loopexit ]
-  %.06174 = phi i32 [ 0, %8 ], [ %65, %.loopexit ]
+  %.06174 = phi i32 [ 0, %8 ], [ %63, %.loopexit ]
   %21 = shl nuw nsw i32 1, %.06174
   %22 = and i32 %21, %15
   %23 = icmp eq i32 %22, 0
@@ -42,82 +42,80 @@ define range(i64 16, 1) i64 @IA64_Convert(ptr noundef captures(none) %0, i64 nou
 24:                                               ; preds = %20
   %25 = lshr i64 %indvars.iv82, 3
   %26 = and i64 %25, 536870911
-  %invariant.gep = getelementptr i8, ptr %0, i64 %26
+  %invariant.gep = getelementptr i8, ptr %9, i64 %26
   br label %27
 
 27:                                               ; preds = %24, %27
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %27 ]
-  %.05968 = phi i64 [ 0, %24 ], [ %33, %27 ]
-  %28 = or disjoint i64 %.06375, %indvars.iv
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %28
-  %29 = load i8, ptr %gep, align 1, !tbaa !3
-  %30 = zext i8 %29 to i64
-  %31 = shl nuw nsw i64 %indvars.iv, 3
-  %32 = shl nuw nsw i64 %30, %31
-  %33 = add i64 %32, %.05968
+  %.05968 = phi i64 [ 0, %24 ], [ %32, %27 ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
+  %28 = load i8, ptr %gep, align 1, !tbaa !3
+  %29 = zext i8 %28 to i64
+  %30 = shl nuw nsw i64 %indvars.iv, 3
+  %31 = shl nuw nsw i64 %29, %30
+  %32 = add i64 %31, %.05968
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %34, label %27
+  br i1 %exitcond.not, label %33, label %27
 
-34:                                               ; preds = %27
-  %35 = and i64 %indvars.iv82, 7
-  %36 = lshr i64 %33, %35
-  %37 = and i64 %36, 2061584305664
-  %or.cond = icmp eq i64 %37, 687194767360
-  br i1 %or.cond, label %38, label %.loopexit
+33:                                               ; preds = %27
+  %34 = and i64 %indvars.iv82, 7
+  %35 = lshr i64 %32, %34
+  %36 = and i64 %35, 2061584305664
+  %or.cond = icmp eq i64 %36, 687194767360
+  br i1 %or.cond, label %37, label %.loopexit
 
-38:                                               ; preds = %34
-  %39 = lshr i64 %36, 13
-  %40 = trunc i64 %39 to i32
-  %41 = and i32 %40, 1048575
-  %sh.diff = lshr i64 %36, 16
+37:                                               ; preds = %33
+  %38 = lshr i64 %35, 13
+  %39 = trunc i64 %38 to i32
+  %40 = and i32 %39, 1048575
+  %sh.diff = lshr i64 %35, 16
   %tr.sh.diff = trunc i64 %sh.diff to i32
-  %42 = and i32 %tr.sh.diff, 1048576
-  %43 = or disjoint i32 %41, %42
-  %44 = add nuw nsw i32 %43, %19
-  %45 = and i64 %36, -1451698941441
-  %46 = and i32 %44, 1048575
-  %47 = zext nneg i32 %46 to i64
-  %48 = shl nuw nsw i64 %47, 13
-  %49 = or disjoint i64 %48, %45
-  %50 = and i32 %44, 1048576
-  %51 = zext nneg i32 %50 to i64
-  %52 = shl nuw nsw i64 %51, 16
-  %53 = or disjoint i64 %49, %52
-  %54 = trunc nuw nsw i64 %35 to i32
-  %notmask = shl nsw i32 -1, %54
-  %55 = xor i32 %notmask, -1
-  %56 = zext nneg i32 %55 to i64
-  %57 = and i64 %33, %56
-  %58 = shl i64 %53, %35
-  %59 = or i64 %58, %57
-  br label %60
+  %41 = and i32 %tr.sh.diff, 1048576
+  %42 = or disjoint i32 %40, %41
+  %43 = add nuw nsw i32 %42, %19
+  %44 = and i64 %35, -1451698941441
+  %45 = and i32 %43, 1048575
+  %46 = zext nneg i32 %45 to i64
+  %47 = shl nuw nsw i64 %46, 13
+  %48 = or disjoint i64 %47, %44
+  %49 = and i32 %43, 1048576
+  %50 = zext nneg i32 %49 to i64
+  %51 = shl nuw nsw i64 %50, 16
+  %52 = or disjoint i64 %48, %51
+  %53 = trunc nuw nsw i64 %34 to i32
+  %notmask = shl nsw i32 -1, %53
+  %54 = xor i32 %notmask, -1
+  %55 = zext nneg i32 %54 to i64
+  %56 = and i64 %32, %55
+  %57 = shl i64 %52, %34
+  %58 = or i64 %57, %56
+  br label %59
 
-60:                                               ; preds = %38, %60
-  %indvars.iv78 = phi i64 [ 0, %38 ], [ %indvars.iv.next79, %60 ]
-  %61 = shl nuw nsw i64 %indvars.iv78, 3
-  %62 = lshr i64 %59, %61
-  %63 = trunc i64 %62 to i8
-  %64 = or disjoint i64 %.06375, %indvars.iv78
-  %gep71 = getelementptr i8, ptr %invariant.gep, i64 %64
-  store i8 %63, ptr %gep71, align 1, !tbaa !3
+59:                                               ; preds = %37, %59
+  %indvars.iv78 = phi i64 [ 0, %37 ], [ %indvars.iv.next79, %59 ]
+  %60 = shl nuw nsw i64 %indvars.iv78, 3
+  %61 = lshr i64 %58, %60
+  %62 = trunc i64 %61 to i8
+  %gep71 = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv78
+  store i8 %62, ptr %gep71, align 1, !tbaa !3
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next79, 6
-  br i1 %exitcond81.not, label %.loopexit, label %60
+  br i1 %exitcond81.not, label %.loopexit, label %59
 
-.loopexit:                                        ; preds = %60, %34, %20
-  %65 = add nuw nsw i32 %.06174, 1
+.loopexit:                                        ; preds = %59, %33, %20
+  %63 = add nuw nsw i32 %.06174, 1
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 41
-  %exitcond85.not = icmp eq i32 %65, 3
-  br i1 %exitcond85.not, label %66, label %20
+  %exitcond85.not = icmp eq i32 %63, 3
+  br i1 %exitcond85.not, label %64, label %20
 
-66:                                               ; preds = %.loopexit
-  %67 = add nuw i64 %.06375, 16
-  %.not = icmp ugt i64 %67, %7
+64:                                               ; preds = %.loopexit
+  %65 = add nuw i64 %.06375, 16
+  %.not = icmp ugt i64 %65, %7
   br i1 %.not, label %.loopexit67, label %8
 
-.loopexit67:                                      ; preds = %66, %4
-  %.060 = phi i64 [ 0, %4 ], [ %67, %66 ]
+.loopexit67:                                      ; preds = %64, %4
+  %.060 = phi i64 [ 0, %4 ], [ %65, %64 ]
   ret i64 %.060
 }
 

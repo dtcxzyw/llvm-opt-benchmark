@@ -1846,7 +1846,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor10decompressENS_10Array1DRefI
 
 38:                                               ; preds = %26
   invoke void @_ZN8rawspeed17NikonDecompressor10decompressINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS3_EEEEEEvRNS_14BitStreamerMSBEii(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(40) %11, i32 noundef 0, i32 noundef %37)
-          to label %462 unwind label %39
+          to label %457 unwind label %39
 
 39:                                               ; preds = %25, %41, %38
   %40 = landingpad { ptr, i32 }
@@ -2355,7 +2355,7 @@ _ZN8rawspeed17NikonDecompressor23createPrefixCodeDecoderINS_12_GLOBAL__N_120Niko
 
 280:                                              ; preds = %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit.i, %268
   %.promoted1926 = phi i32 [ %.promoted1927, %268 ], [ %.promoted1923, %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit.i ]
-  %281 = phi i32 [ %.promoted20, %268 ], [ %461, %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit.i ]
+  %281 = phi i32 [ %.promoted20, %268 ], [ %456, %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit.i ]
   %282 = phi i32 [ %.promoted1927, %268 ], [ %414, %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit.i ]
   %283 = phi i32 [ %.promoted22, %268 ], [ %415, %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %268 ], [ %indvars.iv.next.i, %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit.i ]
@@ -2652,42 +2652,38 @@ _ZN8rawspeed12_GLOBAL__N_120NikonLASDecompressorD2Ev.exit30.i: ; preds = %.invok
   %432 = load i8, ptr %431, align 8, !tbaa !204, !range !75, !noundef !28
   %433 = trunc nuw i8 %432 to i1
   %434 = getelementptr inbounds nuw i8, ptr %429, i64 8
-  br i1 %433, label %435, label %456
+  %435 = zext nneg i32 %427 to i64
+  %436 = load ptr, ptr %434, align 8, !tbaa !6
+  br i1 %433, label %437, label %453
 
-435:                                              ; preds = %430
-  %436 = shl nuw nsw i32 %427, 1
-  %437 = zext nneg i32 %436 to i64
-  %438 = load ptr, ptr %434, align 8, !tbaa !6
-  %439 = getelementptr inbounds nuw i16, ptr %438, i64 %437
-  %440 = load i16, ptr %439, align 2, !tbaa !13
-  %441 = or disjoint i32 %436, 1
-  %442 = zext nneg i32 %441 to i64
-  %443 = getelementptr inbounds nuw i16, ptr %438, i64 %442
-  %444 = load i16, ptr %443, align 2, !tbaa !13
-  %445 = zext i16 %444 to i32
-  %446 = and i32 %281, 2047
-  %447 = mul nuw nsw i32 %446, %445
-  %448 = add nuw nsw i32 %447, 1024
-  %449 = lshr i32 %448, 12
-  %450 = and i32 %281, 65535
-  %451 = mul nuw nsw i32 %450, 15700
-  %452 = lshr i32 %281, 16
-  %453 = add nuw nsw i32 %451, %452
-  store i32 %453, ptr %31, align 8, !tbaa !31
-  %454 = trunc nuw nsw i32 %449 to i16
-  %455 = add i16 %440, %454
+437:                                              ; preds = %430
+  %.idx.i.i = shl nuw nsw i64 %435, 2
+  %438 = getelementptr inbounds nuw i8, ptr %436, i64 %.idx.i.i
+  %439 = load i16, ptr %438, align 2, !tbaa !13
+  %440 = getelementptr inbounds nuw i8, ptr %438, i64 2
+  %441 = load i16, ptr %440, align 2, !tbaa !13
+  %442 = zext i16 %441 to i32
+  %443 = and i32 %281, 2047
+  %444 = mul nuw nsw i32 %443, %442
+  %445 = add nuw nsw i32 %444, 1024
+  %446 = lshr i32 %445, 12
+  %447 = and i32 %281, 65535
+  %448 = mul nuw nsw i32 %447, 15700
+  %449 = lshr i32 %281, 16
+  %450 = add nuw nsw i32 %448, %449
+  store i32 %450, ptr %31, align 8, !tbaa !31
+  %451 = trunc nuw nsw i32 %446 to i16
+  %452 = add i16 %439, %451
   br label %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit.i
 
-456:                                              ; preds = %430
-  %457 = zext nneg i32 %427 to i64
-  %458 = load ptr, ptr %434, align 8, !tbaa !6
-  %459 = getelementptr inbounds nuw i16, ptr %458, i64 %457
-  %460 = load i16, ptr %459, align 2, !tbaa !13
+453:                                              ; preds = %430
+  %454 = getelementptr inbounds nuw i16, ptr %436, i64 %435
+  %455 = load i16, ptr %454, align 2, !tbaa !13
   br label %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit.i
 
-_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit.i: ; preds = %456, %435, %425
-  %461 = phi i32 [ %281, %456 ], [ %453, %435 ], [ %281, %425 ]
-  %.sink.i.i = phi i16 [ %460, %456 ], [ %455, %435 ], [ %428, %425 ]
+_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit.i: ; preds = %453, %437, %425
+  %456 = phi i32 [ %281, %453 ], [ %450, %437 ], [ %281, %425 ]
+  %.sink.i.i = phi i16 [ %455, %453 ], [ %452, %437 ], [ %428, %425 ]
   store i16 %.sink.i.i, ptr %426, align 2, !tbaa !13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %261
@@ -2696,55 +2692,55 @@ _ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit.i: ; preds = %456,
 _ZN8rawspeed17NikonDecompressor10decompressINS_12_GLOBAL__N_120NikonLASDecompressorEEEvRNS_14BitStreamerMSBEii.exit: ; preds = %277, %_ZN8rawspeed17NikonDecompressor23createPrefixCodeDecoderINS_12_GLOBAL__N_120NikonLASDecompressorEEET_j.exit.i
   call void @_ZdlPvm(ptr noundef nonnull %158, i64 noundef 65536) #25
   call void @llvm.lifetime.end.p0(i64 2304, ptr nonnull %8) #26
-  br label %462
+  br label %457
 
-462:                                              ; preds = %_ZN8rawspeed17NikonDecompressor10decompressINS_12_GLOBAL__N_120NikonLASDecompressorEEEvRNS_14BitStreamerMSBEii.exit, %38
+457:                                              ; preds = %_ZN8rawspeed17NikonDecompressor10decompressINS_12_GLOBAL__N_120NikonLASDecompressorEEEvRNS_14BitStreamerMSBEii.exit, %38
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %463 = load ptr, ptr %0, align 8, !tbaa !79
-  br i1 %3, label %464, label %465
+  %458 = load ptr, ptr %0, align 8, !tbaa !79
+  br i1 %3, label %459, label %460
 
-464:                                              ; preds = %462
-  invoke void @_ZN8rawspeed12RawImageData8setTableERKSt6vectorItSaItEEb(ptr noundef nonnull align 8 dereferenceable(616) %463, ptr noundef nonnull align 8 dereferenceable(24) %12, i1 noundef zeroext false)
-          to label %_ZN8rawspeed18RawImageCurveGuardD2Ev.exit unwind label %477
+459:                                              ; preds = %457
+  invoke void @_ZN8rawspeed12RawImageData8setTableERKSt6vectorItSaItEEb(ptr noundef nonnull align 8 dereferenceable(616) %458, ptr noundef nonnull align 8 dereferenceable(24) %12, i1 noundef zeroext false)
+          to label %_ZN8rawspeed18RawImageCurveGuardD2Ev.exit unwind label %472
 
-465:                                              ; preds = %462
+460:                                              ; preds = %457
   store ptr null, ptr %5, align 8, !tbaa !207
-  invoke void @_ZN8rawspeed12RawImageData8setTableESt10unique_ptrINS_11TableLookUpESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(616) %463, ptr noundef nonnull %5)
-          to label %466 unwind label %477
+  invoke void @_ZN8rawspeed12RawImageData8setTableESt10unique_ptrINS_11TableLookUpESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(616) %458, ptr noundef nonnull %5)
+          to label %461 unwind label %472
 
-466:                                              ; preds = %465
-  %467 = load ptr, ptr %5, align 8, !tbaa !203
-  %.not.i.i9 = icmp eq ptr %467, null
-  br i1 %.not.i.i9, label %_ZN8rawspeed18RawImageCurveGuardD2Ev.exit, label %468
+461:                                              ; preds = %460
+  %462 = load ptr, ptr %5, align 8, !tbaa !203
+  %.not.i.i9 = icmp eq ptr %462, null
+  br i1 %.not.i.i9, label %_ZN8rawspeed18RawImageCurveGuardD2Ev.exit, label %463
 
-468:                                              ; preds = %466
-  %469 = getelementptr inbounds nuw i8, ptr %467, i64 8
-  %470 = load ptr, ptr %469, align 8, !tbaa !6
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %470, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8rawspeed11TableLookUpEEclEPS1_.exit.i.i, label %471
+463:                                              ; preds = %461
+  %464 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %465 = load ptr, ptr %464, align 8, !tbaa !6
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %465, null
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN8rawspeed11TableLookUpEEclEPS1_.exit.i.i, label %466
 
-471:                                              ; preds = %468
-  %472 = getelementptr inbounds nuw i8, ptr %467, i64 24
-  %473 = load ptr, ptr %472, align 8, !tbaa !12
-  %474 = ptrtoint ptr %473 to i64
-  %475 = ptrtoint ptr %470 to i64
-  %476 = sub i64 %474, %475
-  call void @_ZdlPvm(ptr noundef nonnull %470, i64 noundef %476) #25
+466:                                              ; preds = %463
+  %467 = getelementptr inbounds nuw i8, ptr %462, i64 24
+  %468 = load ptr, ptr %467, align 8, !tbaa !12
+  %469 = ptrtoint ptr %468 to i64
+  %470 = ptrtoint ptr %465 to i64
+  %471 = sub i64 %469, %470
+  call void @_ZdlPvm(ptr noundef nonnull %465, i64 noundef %471) #25
   br label %_ZNKSt14default_deleteIN8rawspeed11TableLookUpEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN8rawspeed11TableLookUpEEclEPS1_.exit.i.i: ; preds = %471, %468
-  call void @_ZdlPvm(ptr noundef nonnull %467, i64 noundef 40) #25
+_ZNKSt14default_deleteIN8rawspeed11TableLookUpEEclEPS1_.exit.i.i: ; preds = %466, %463
+  call void @_ZdlPvm(ptr noundef nonnull %462, i64 noundef 40) #25
   br label %_ZN8rawspeed18RawImageCurveGuardD2Ev.exit
 
-477:                                              ; preds = %465, %464
-  %478 = landingpad { ptr, i32 }
+472:                                              ; preds = %460, %459
+  %473 = landingpad { ptr, i32 }
           catch ptr null
-  %479 = extractvalue { ptr, i32 } %478, 0
-  call void @__clang_call_terminate(ptr %479) #28
+  %474 = extractvalue { ptr, i32 } %473, 0
+  call void @__clang_call_terminate(ptr %474) #28
   unreachable
 
-_ZN8rawspeed18RawImageCurveGuardD2Ev.exit:        ; preds = %464, %466, %_ZNKSt14default_deleteIN8rawspeed11TableLookUpEEclEPS1_.exit.i.i
+_ZN8rawspeed18RawImageCurveGuardD2Ev.exit:        ; preds = %459, %461, %_ZNKSt14default_deleteIN8rawspeed11TableLookUpEEclEPS1_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #26
   ret void
@@ -3230,42 +3226,38 @@ _ZNK8rawspeed20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDe
   %257 = load i8, ptr %256, align 8, !tbaa !204, !range !75, !noundef !28
   %258 = trunc nuw i8 %257 to i1
   %259 = getelementptr inbounds nuw i8, ptr %254, i64 8
-  br i1 %258, label %260, label %282
+  %260 = zext nneg i32 %252 to i64
+  %261 = load ptr, ptr %259, align 8, !tbaa !6
+  br i1 %258, label %262, label %279
 
-260:                                              ; preds = %255
-  %261 = shl nuw nsw i32 %252, 1
-  %262 = zext nneg i32 %261 to i64
-  %263 = load ptr, ptr %259, align 8, !tbaa !6
-  %264 = getelementptr inbounds nuw i16, ptr %263, i64 %262
-  %265 = load i16, ptr %264, align 2, !tbaa !13
-  %266 = or disjoint i32 %261, 1
-  %267 = zext nneg i32 %266 to i64
-  %268 = getelementptr inbounds nuw i16, ptr %263, i64 %267
-  %269 = load i16, ptr %268, align 2, !tbaa !13
-  %270 = zext i16 %269 to i32
-  %271 = load i32, ptr %48, align 8, !tbaa !31
-  %272 = and i32 %271, 2047
-  %273 = mul nuw nsw i32 %272, %270
-  %274 = add nuw nsw i32 %273, 1024
-  %275 = lshr i32 %274, 12
-  %276 = and i32 %271, 65535
-  %277 = mul nuw nsw i32 %276, 15700
-  %278 = lshr i32 %271, 16
-  %279 = add nuw nsw i32 %277, %278
-  store i32 %279, ptr %48, align 8, !tbaa !31
-  %280 = trunc nuw nsw i32 %275 to i16
-  %281 = add i16 %265, %280
+262:                                              ; preds = %255
+  %.idx.i = shl nuw nsw i64 %260, 2
+  %263 = getelementptr inbounds nuw i8, ptr %261, i64 %.idx.i
+  %264 = load i16, ptr %263, align 2, !tbaa !13
+  %265 = getelementptr inbounds nuw i8, ptr %263, i64 2
+  %266 = load i16, ptr %265, align 2, !tbaa !13
+  %267 = zext i16 %266 to i32
+  %268 = load i32, ptr %48, align 8, !tbaa !31
+  %269 = and i32 %268, 2047
+  %270 = mul nuw nsw i32 %269, %267
+  %271 = add nuw nsw i32 %270, 1024
+  %272 = lshr i32 %271, 12
+  %273 = and i32 %268, 65535
+  %274 = mul nuw nsw i32 %273, 15700
+  %275 = lshr i32 %268, 16
+  %276 = add nuw nsw i32 %274, %275
+  store i32 %276, ptr %48, align 8, !tbaa !31
+  %277 = trunc nuw nsw i32 %272 to i16
+  %278 = add i16 %264, %277
   br label %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit
 
-282:                                              ; preds = %255
-  %283 = zext nneg i32 %252 to i64
-  %284 = load ptr, ptr %259, align 8, !tbaa !6
-  %285 = getelementptr inbounds nuw i16, ptr %284, i64 %283
-  %286 = load i16, ptr %285, align 2, !tbaa !13
+279:                                              ; preds = %255
+  %280 = getelementptr inbounds nuw i16, ptr %261, i64 %260
+  %281 = load i16, ptr %280, align 2, !tbaa !13
   br label %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit
 
-_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit: ; preds = %250, %260, %282
-  %.sink.i = phi i16 [ %286, %282 ], [ %281, %260 ], [ %253, %250 ]
+_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit: ; preds = %250, %262, %279
+  %.sink.i = phi i16 [ %281, %279 ], [ %278, %262 ], [ %253, %250 ]
   store i16 %.sink.i, ptr %251, align 2, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %52

@@ -2545,144 +2545,141 @@ define void @Bmc_FxAddClauses(ptr noundef %0, ptr noundef readonly captures(none
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %23
 
-23:                                               ; preds = %.lr.ph, %93
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
-  %24 = shl nsw i64 %indvars.iv, 2
+23:                                               ; preds = %.lr.ph, %89
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
   %.val47 = load ptr, ptr %11, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i32, ptr %.val47, i64 %24
-  %26 = load i32, ptr %25, align 4, !tbaa !11
-  %27 = or disjoint i64 %24, 1
-  %28 = getelementptr inbounds nuw i32, ptr %.val47, i64 %27
+  %.idx = shl nsw i64 %indvars.iv, 4
+  %24 = getelementptr inbounds nuw i8, ptr %.val47, i64 %.idx
+  %25 = load i32, ptr %24, align 4, !tbaa !11
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !11
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = load i32, ptr %28, align 4, !tbaa !11
-  %30 = or disjoint i64 %24, 2
-  %31 = getelementptr inbounds nuw i32, ptr %.val47, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !11
-  switch i32 %26, label %93 [
-    i32 1, label %33
-    i32 2, label %46
-    i32 3, label %62
+  switch i32 %25, label %89 [
+    i32 1, label %30
+    i32 2, label %43
+    i32 3, label %59
   ]
 
-33:                                               ; preds = %23
-  %34 = trunc nuw nsw i64 %indvars.iv to i32
-  %35 = xor i32 %34, -1
-  %36 = add i32 %12, %35
+30:                                               ; preds = %23
+  %31 = trunc nuw nsw i64 %indvars.iv to i32
+  %32 = xor i32 %31, -1
+  %33 = add i32 %12, %32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #18
-  %37 = shl nsw i32 %36, 1
-  %38 = or disjoint i32 %37, 1
-  store i32 %38, ptr %7, align 4, !tbaa !11
-  %39 = add i32 %29, %13
-  store i32 %39, ptr %20, align 4, !tbaa !11
-  %40 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %21) #18
-  store i32 %38, ptr %7, align 4, !tbaa !11
-  %41 = add i32 %32, %13
-  store i32 %41, ptr %20, align 4, !tbaa !11
-  %42 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %21) #18
-  store i32 %37, ptr %7, align 4, !tbaa !11
-  %43 = xor i32 %39, 1
-  store i32 %43, ptr %20, align 4, !tbaa !11
-  %44 = xor i32 %41, 1
-  store i32 %44, ptr %21, align 4, !tbaa !11
-  %45 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %22) #18
+  %34 = shl nsw i32 %33, 1
+  %35 = or disjoint i32 %34, 1
+  store i32 %35, ptr %7, align 4, !tbaa !11
+  %36 = add i32 %27, %13
+  store i32 %36, ptr %20, align 4, !tbaa !11
+  %37 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %21) #18
+  store i32 %35, ptr %7, align 4, !tbaa !11
+  %38 = add i32 %29, %13
+  store i32 %38, ptr %20, align 4, !tbaa !11
+  %39 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %21) #18
+  store i32 %34, ptr %7, align 4, !tbaa !11
+  %40 = xor i32 %36, 1
+  store i32 %40, ptr %20, align 4, !tbaa !11
+  %41 = xor i32 %38, 1
+  store i32 %41, ptr %21, align 4, !tbaa !11
+  %42 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %22) #18
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #18
-  br label %93
+  br label %89
 
-46:                                               ; preds = %23
-  %47 = trunc nuw nsw i64 %indvars.iv to i32
-  %48 = xor i32 %47, -1
-  %49 = add i32 %12, %48
+43:                                               ; preds = %23
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
+  %45 = xor i32 %44, -1
+  %46 = add i32 %12, %45
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #18
-  %50 = shl nsw i32 %49, 1
-  %51 = or disjoint i32 %50, 1
-  store i32 %51, ptr %6, align 4, !tbaa !11
+  %47 = shl nsw i32 %46, 1
+  %48 = or disjoint i32 %47, 1
+  store i32 %48, ptr %6, align 4, !tbaa !11
+  %49 = add i32 %27, %13
+  %50 = and i32 %49, -2
+  %51 = or i32 %49, 1
+  store i32 %51, ptr %17, align 4, !tbaa !11
   %52 = add i32 %29, %13
   %53 = and i32 %52, -2
   %54 = or i32 %52, 1
-  store i32 %54, ptr %17, align 4, !tbaa !11
-  %55 = add i32 %32, %13
-  %56 = and i32 %55, -2
-  %57 = or i32 %55, 1
-  store i32 %57, ptr %18, align 4, !tbaa !11
+  store i32 %54, ptr %18, align 4, !tbaa !11
+  %55 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %19) #18
+  store i32 %48, ptr %6, align 4, !tbaa !11
+  store i32 %50, ptr %17, align 4, !tbaa !11
+  store i32 %53, ptr %18, align 4, !tbaa !11
+  %56 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %19) #18
+  store i32 %47, ptr %6, align 4, !tbaa !11
+  store i32 %51, ptr %17, align 4, !tbaa !11
+  store i32 %53, ptr %18, align 4, !tbaa !11
+  %57 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %19) #18
+  store i32 %47, ptr %6, align 4, !tbaa !11
+  store i32 %50, ptr %17, align 4, !tbaa !11
+  store i32 %54, ptr %18, align 4, !tbaa !11
   %58 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %19) #18
-  store i32 %51, ptr %6, align 4, !tbaa !11
-  store i32 %53, ptr %17, align 4, !tbaa !11
-  store i32 %56, ptr %18, align 4, !tbaa !11
-  %59 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %19) #18
-  store i32 %50, ptr %6, align 4, !tbaa !11
-  store i32 %54, ptr %17, align 4, !tbaa !11
-  store i32 %56, ptr %18, align 4, !tbaa !11
-  %60 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %19) #18
-  store i32 %50, ptr %6, align 4, !tbaa !11
-  store i32 %53, ptr %17, align 4, !tbaa !11
-  store i32 %57, ptr %18, align 4, !tbaa !11
-  %61 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %19) #18
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #18
-  br label %93
+  br label %89
 
-62:                                               ; preds = %23
-  %63 = or disjoint i64 %24, 3
-  %64 = getelementptr inbounds nuw i32, ptr %.val47, i64 %63
-  %65 = load i32, ptr %64, align 4, !tbaa !11
-  %66 = trunc nuw nsw i64 %indvars.iv to i32
-  %67 = xor i32 %66, -1
-  %68 = add i32 %12, %67
-  %69 = ashr i32 %32, 1
-  %70 = add nsw i32 %69, %2
-  %71 = ashr i32 %65, 1
-  %72 = add nsw i32 %71, %2
-  %73 = and i32 %32, 1
-  %74 = and i32 %65, 1
+59:                                               ; preds = %23
+  %60 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %61 = load i32, ptr %60, align 4, !tbaa !11
+  %62 = trunc nuw nsw i64 %indvars.iv to i32
+  %63 = xor i32 %62, -1
+  %64 = add i32 %12, %63
+  %65 = ashr i32 %29, 1
+  %66 = add nsw i32 %65, %2
+  %67 = ashr i32 %61, 1
+  %68 = add nsw i32 %67, %2
+  %69 = and i32 %29, 1
+  %70 = and i32 %61, 1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #18
-  %75 = add i32 %29, %13
-  %76 = xor i32 %75, 1
-  store i32 %76, ptr %5, align 4, !tbaa !11
-  %77 = shl nsw i32 %70, 1
-  %78 = or disjoint i32 %77, %73
-  %79 = xor i32 %78, 1
-  store i32 %79, ptr %14, align 4, !tbaa !11
+  %71 = add i32 %27, %13
+  %72 = xor i32 %71, 1
+  store i32 %72, ptr %5, align 4, !tbaa !11
+  %73 = shl nsw i32 %66, 1
+  %74 = or disjoint i32 %73, %69
+  %75 = xor i32 %74, 1
+  store i32 %75, ptr %14, align 4, !tbaa !11
+  %76 = shl nsw i32 %64, 1
+  store i32 %76, ptr %15, align 4, !tbaa !11
+  %77 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %16) #18
+  store i32 %72, ptr %5, align 4, !tbaa !11
+  store i32 %74, ptr %14, align 4, !tbaa !11
+  %78 = or disjoint i32 %76, 1
+  store i32 %78, ptr %15, align 4, !tbaa !11
+  %79 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %16) #18
+  store i32 %71, ptr %5, align 4, !tbaa !11
   %80 = shl nsw i32 %68, 1
-  store i32 %80, ptr %15, align 4, !tbaa !11
-  %81 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %16) #18
-  store i32 %76, ptr %5, align 4, !tbaa !11
-  store i32 %78, ptr %14, align 4, !tbaa !11
-  %82 = or disjoint i32 %80, 1
-  store i32 %82, ptr %15, align 4, !tbaa !11
+  %81 = or disjoint i32 %80, %70
+  %82 = xor i32 %81, 1
+  store i32 %82, ptr %14, align 4, !tbaa !11
+  store i32 %76, ptr %15, align 4, !tbaa !11
   %83 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %16) #18
-  store i32 %75, ptr %5, align 4, !tbaa !11
-  %84 = shl nsw i32 %72, 1
-  %85 = or disjoint i32 %84, %74
-  %86 = xor i32 %85, 1
-  store i32 %86, ptr %14, align 4, !tbaa !11
-  store i32 %80, ptr %15, align 4, !tbaa !11
+  store i32 %71, ptr %5, align 4, !tbaa !11
+  store i32 %81, ptr %14, align 4, !tbaa !11
+  store i32 %78, ptr %15, align 4, !tbaa !11
+  %84 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %16) #18
+  %85 = icmp eq i32 %65, %67
+  br i1 %85, label %sat_solver_add_mux.exit, label %86
+
+86:                                               ; preds = %59
+  store i32 %74, ptr %5, align 4, !tbaa !11
+  store i32 %81, ptr %14, align 4, !tbaa !11
+  store i32 %78, ptr %15, align 4, !tbaa !11
   %87 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %16) #18
   store i32 %75, ptr %5, align 4, !tbaa !11
-  store i32 %85, ptr %14, align 4, !tbaa !11
-  store i32 %82, ptr %15, align 4, !tbaa !11
+  store i32 %82, ptr %14, align 4, !tbaa !11
+  store i32 %76, ptr %15, align 4, !tbaa !11
   %88 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %16) #18
-  %89 = icmp eq i32 %69, %71
-  br i1 %89, label %sat_solver_add_mux.exit, label %90
-
-90:                                               ; preds = %62
-  store i32 %78, ptr %5, align 4, !tbaa !11
-  store i32 %85, ptr %14, align 4, !tbaa !11
-  store i32 %82, ptr %15, align 4, !tbaa !11
-  %91 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %16) #18
-  store i32 %79, ptr %5, align 4, !tbaa !11
-  store i32 %86, ptr %14, align 4, !tbaa !11
-  store i32 %80, ptr %15, align 4, !tbaa !11
-  %92 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull %16) #18
   br label %sat_solver_add_mux.exit
 
-sat_solver_add_mux.exit:                          ; preds = %62, %90
+sat_solver_add_mux.exit:                          ; preds = %59, %86
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #18
-  br label %93
+  br label %89
 
-93:                                               ; preds = %23, %33, %sat_solver_add_mux.exit, %46
+89:                                               ; preds = %23, %30, %sat_solver_add_mux.exit, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !96
 
-._crit_edge:                                      ; preds = %93, %4
+._crit_edge:                                      ; preds = %89, %4
   ret void
 }
 

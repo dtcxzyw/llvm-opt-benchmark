@@ -1580,96 +1580,96 @@ define hidden void @_ZN6cineon6Header5ResetEv(ptr noundef nonnull align 4 derefe
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK6cineon13GenericHeader17ImageElementCountEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1024) %0) local_unnamed_addr #12 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 197
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 197
   br label %_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit
 
-_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit: ; preds = %1, %7
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = mul nuw nsw i64 %indvars.iv, 28
-  %4 = getelementptr i8, ptr %2, i64 %3
-  %5 = load i8, ptr %4, align 1, !tbaa !43
-  %6 = icmp eq i8 %5, -1
-  br i1 %6, label %.split.loop.exit, label %7
+_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit: ; preds = %1, %5
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
+  %2 = mul nuw nsw i64 %indvars.iv, 28
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %2
+  %3 = load i8, ptr %gep, align 1, !tbaa !43
+  %4 = icmp eq i8 %3, -1
+  br i1 %4, label %.split.loop.exit, label %5
 
-7:                                                ; preds = %_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit
+5:                                                ; preds = %_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.split.loop.exit7, label %_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit, !llvm.loop !49
 
 .split.loop.exit:                                 ; preds = %_ZNK6cineon13GenericHeader15ImageDescriptorEi.exit
-  %8 = trunc nuw nsw i64 %indvars.iv to i32
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit7
 
-.split.loop.exit7:                                ; preds = %7, %.split.loop.exit
-  %.0.lcssa = phi i32 [ %8, %.split.loop.exit ], [ 8, %7 ]
+.split.loop.exit7:                                ; preds = %5, %.split.loop.exit
+  %.0.lcssa = phi i32 [ %6, %.split.loop.exit ], [ 8, %5 ]
   ret i32 %.0.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 0, 4) i32 @_ZNK6cineon13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1024) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
   %or.cond = icmp ugt i32 %1, 7
-  br i1 %or.cond, label %11, label %3
+  br i1 %or.cond, label %12, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %narrow = mul nuw nsw i32 %1, 28
-  %5 = or disjoint i32 %narrow, 2
-  %.offs = zext nneg i32 %5 to i64
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.offs
-  %7 = load i8, ptr %6, align 2, !tbaa !12
-  switch i8 %7, label %10 [
-    i8 8, label %11
-    i8 10, label %8
-    i8 12, label %8
-    i8 16, label %8
-    i8 32, label %9
+  %5 = zext nneg i32 %narrow to i64
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %8 = load i8, ptr %7, align 2, !tbaa !12
+  switch i8 %8, label %11 [
+    i8 8, label %12
+    i8 10, label %9
+    i8 12, label %9
+    i8 16, label %9
+    i8 32, label %10
   ]
 
-8:                                                ; preds = %3, %3, %3
-  br label %11
-
-9:                                                ; preds = %3
-  br label %11
+9:                                                ; preds = %3, %3, %3
+  br label %12
 
 10:                                               ; preds = %3
-  br label %11
+  br label %12
 
-11:                                               ; preds = %8, %9, %10, %3, %2
-  %.06 = phi i32 [ 0, %2 ], [ 3, %10 ], [ 2, %9 ], [ 1, %8 ], [ 0, %3 ]
+11:                                               ; preds = %3
+  br label %12
+
+12:                                               ; preds = %9, %10, %11, %3, %2
+  %.06 = phi i32 [ 0, %2 ], [ 3, %11 ], [ 2, %10 ], [ 1, %9 ], [ 0, %3 ]
   ret i32 %.06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 0, 9) i32 @_ZNK6cineon13GenericHeader18ComponentByteCountEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(1024) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
   %or.cond = icmp ugt i32 %1, 7
-  br i1 %or.cond, label %11, label %3
+  br i1 %or.cond, label %12, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %narrow = mul nuw nsw i32 %1, 28
-  %5 = or disjoint i32 %narrow, 2
-  %.offs = zext nneg i32 %5 to i64
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.offs
-  %7 = load i8, ptr %6, align 2, !tbaa !12
-  switch i8 %7, label %10 [
-    i8 8, label %11
-    i8 10, label %8
-    i8 12, label %8
-    i8 16, label %8
-    i8 32, label %9
+  %5 = zext nneg i32 %narrow to i64
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %8 = load i8, ptr %7, align 2, !tbaa !12
+  switch i8 %8, label %11 [
+    i8 8, label %12
+    i8 10, label %9
+    i8 12, label %9
+    i8 16, label %9
+    i8 32, label %10
   ]
 
-8:                                                ; preds = %3, %3, %3
-  br label %11
-
-9:                                                ; preds = %3
-  br label %11
+9:                                                ; preds = %3, %3, %3
+  br label %12
 
 10:                                               ; preds = %3
-  br label %11
+  br label %12
 
-11:                                               ; preds = %8, %9, %10, %3, %2
-  %.06 = phi i32 [ 0, %2 ], [ 8, %10 ], [ 4, %9 ], [ 2, %8 ], [ 1, %3 ]
+11:                                               ; preds = %3
+  br label %12
+
+12:                                               ; preds = %9, %10, %11, %3, %2
+  %.06 = phi i32 [ 0, %2 ], [ 8, %11 ], [ 4, %10 ], [ 2, %9 ], [ 1, %3 ]
   ret i32 %.06
 }
 

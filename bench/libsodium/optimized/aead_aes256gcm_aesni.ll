@@ -225,7 +225,7 @@ encrypt.exit:                                     ; preds = %161
   br label %189
 
 189:                                              ; preds = %189, %encrypt.exit
-  %.016.i.i = phi i64 [ 2, %encrypt.exit ], [ %223, %189 ]
+  %.016.i.i = phi i64 [ 2, %encrypt.exit ], [ %222, %189 ]
   %190 = getelementptr <2 x i64>, ptr %167, i64 %.016.i.i
   %191 = getelementptr i8, ptr %190, i64 -16
   %192 = load <2 x i64>, ptr %191, align 16
@@ -258,12 +258,11 @@ encrypt.exit:                                     ; preds = %161
   %218 = shufflevector <2 x i64> %216, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %219 = xor <2 x i64> %217, %213
   %220 = xor <2 x i64> %219, %218
-  %221 = or disjoint i64 %.016.i.i, 1
-  %222 = getelementptr <2 x i64>, ptr %167, i64 %221
-  store <2 x i64> %220, ptr %222, align 16
-  %223 = add nuw nsw i64 %.016.i.i, 2
-  %224 = icmp samesign ult i64 %.016.i.i, 12
-  br i1 %224, label %189, label %precomp_for_block_count.exit, !llvm.loop !6
+  %221 = getelementptr i8, ptr %190, i64 16
+  store <2 x i64> %220, ptr %221, align 16
+  %222 = add nuw nsw i64 %.016.i.i, 2
+  %223 = icmp samesign ult i64 %.016.i.i, 12
+  br i1 %223, label %189, label %precomp_for_block_count.exit, !llvm.loop !6
 
 precomp_for_block_count.exit:                     ; preds = %189
   ret i32 0

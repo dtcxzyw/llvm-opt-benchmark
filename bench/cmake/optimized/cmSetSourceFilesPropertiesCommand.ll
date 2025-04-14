@@ -295,23 +295,20 @@ _ZSt13find_first_ofIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIc
   br i1 %81, label %.loopexit, label %82
 
 82:                                               ; preds = %.lr.ph.split.us.i.i.i.i.i.i
-  %.02999.us.i.i.i.i.i.i.add158 = or disjoint i64 %.02999.us.i.i.i.i.i.i.idx, 16
-  %.ptr165 = getelementptr inbounds nuw i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 %.02999.us.i.i.i.i.i.i.add158
-  %.val32.us.i.i.i.i.i.i = load i64, ptr %.ptr165, align 16, !tbaa !14
+  %gep351 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 16), i64 %.02999.us.i.i.i.i.i.i.idx
+  %.val32.us.i.i.i.i.i.i = load i64, ptr %gep351, align 16, !tbaa !14
   %83 = icmp eq i64 %.val32.us.i.i.i.i.i.i, 0
   br i1 %83, label %._crit_edge, label %84
 
 84:                                               ; preds = %82
-  %.02999.us.i.i.i.i.i.i.add157 = or disjoint i64 %.02999.us.i.i.i.i.i.i.idx, 32
-  %.ptr164 = getelementptr inbounds nuw i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 %.02999.us.i.i.i.i.i.i.add157
-  %.val35.us.i.i.i.i.i.i = load i64, ptr %.ptr164, align 16, !tbaa !14
+  %gep352 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 32), i64 %.02999.us.i.i.i.i.i.i.idx
+  %.val35.us.i.i.i.i.i.i = load i64, ptr %gep352, align 16, !tbaa !14
   %85 = icmp eq i64 %.val35.us.i.i.i.i.i.i, 0
   br i1 %85, label %._crit_edge, label %86
 
 86:                                               ; preds = %84
-  %.02999.us.i.i.i.i.i.i.add = or disjoint i64 %.02999.us.i.i.i.i.i.i.idx, 48
-  %.ptr163 = getelementptr inbounds nuw i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 %.02999.us.i.i.i.i.i.i.add
-  %.val38.us.i.i.i.i.i.i = load i64, ptr %.ptr163, align 16, !tbaa !14
+  %gep353 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 48), i64 %.02999.us.i.i.i.i.i.i.idx
+  %.val38.us.i.i.i.i.i.i = load i64, ptr %gep353, align 16, !tbaa !14
   %87 = icmp eq i64 %.val38.us.i.i.i.i.i.i, 0
   br i1 %87, label %._crit_edge, label %88
 
@@ -337,9 +334,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.p
   br i1 %93, label %.loopexit, label %94
 
 94:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.split.split.split.i.i.i.i.i.i
-  %.02999.i.i.i.i.i.i.add156 = or disjoint i64 %.02999.i.i.i.i.i.i.idx, 16
-  %.ptr162 = getelementptr inbounds nuw i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 %.02999.i.i.i.i.i.i.add156
-  %.val32.i.i.i.i.i.i = load i64, ptr %.ptr162, align 16, !tbaa !14
+  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 16), i64 %.02999.i.i.i.i.i.i.idx
+  %.val32.i.i.i.i.i.i = load i64, ptr %gep, align 16, !tbaa !14
   %95 = icmp eq i64 %.val.val.val47.fr.i.i.i.i.i.i, %.val32.i.i.i.i.i.i
   br i1 %95, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i54.i.i.i.i.i.i, label %98
 
@@ -351,9 +347,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i54.i.i.i.i.i.i: ; preds = %94
   br i1 %97, label %._crit_edge, label %98
 
 98:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i54.i.i.i.i.i.i, %94
-  %.02999.i.i.i.i.i.i.add155 = or disjoint i64 %.02999.i.i.i.i.i.i.idx, 32
-  %.ptr161 = getelementptr inbounds nuw i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 %.02999.i.i.i.i.i.i.add155
-  %.val35.i.i.i.i.i.i = load i64, ptr %.ptr161, align 16, !tbaa !14
+  %gep349 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 32), i64 %.02999.i.i.i.i.i.i.idx
+  %.val35.i.i.i.i.i.i = load i64, ptr %gep349, align 16, !tbaa !14
   %99 = icmp eq i64 %.val.val.val47.fr.i.i.i.i.i.i, %.val35.i.i.i.i.i.i
   br i1 %99, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i58.i.i.i.i.i.i, label %102
 
@@ -365,9 +360,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i58.i.i.i.i.i.i: ; preds = %98
   br i1 %101, label %._crit_edge, label %102
 
 102:                                              ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i58.i.i.i.i.i.i, %98
-  %.02999.i.i.i.i.i.i.add = or disjoint i64 %.02999.i.i.i.i.i.i.idx, 48
-  %.ptr = getelementptr inbounds nuw i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 %.02999.i.i.i.i.i.i.add
-  %.val38.i.i.i.i.i.i = load i64, ptr %.ptr, align 16, !tbaa !14
+  %gep350 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZ33cmSetSourceFilesPropertiesCommandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EER17cmExecutionStatusE10prop_names, i64 48), i64 %.02999.i.i.i.i.i.i.idx
+  %.val38.i.i.i.i.i.i = load i64, ptr %gep350, align 16, !tbaa !14
   %103 = icmp eq i64 %.val.val.val47.fr.i.i.i.i.i.i, %.val38.i.i.i.i.i.i
   br i1 %103, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i62.i.i.i.i.i.i, label %106
 

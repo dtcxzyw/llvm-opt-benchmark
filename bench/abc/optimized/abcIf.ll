@@ -1676,7 +1676,7 @@ define ptr @Abc_NodeBuildFromMiniInt(ptr noundef %0, ptr noundef captures(none) 
   %12 = sext i32 %11 to i64
   %13 = xor i64 %9, %12
   %14 = xor i64 %13, 1
-  br label %74
+  br label %73
 
 15:                                               ; preds = %3
   %16 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef 0) #19
@@ -1687,92 +1687,91 @@ define ptr @Abc_NodeBuildFromMiniInt(ptr noundef %0, ptr noundef captures(none) 
   %20 = ptrtoint ptr %16 to i64
   %21 = sext i32 %19 to i64
   %22 = xor i64 %21, %20
-  br label %74
+  br label %73
 
-23:                                               ; preds = %.lr.ph, %54
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
-  %24 = or disjoint i64 %indvars.iv, 1
+23:                                               ; preds = %.lr.ph, %53
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
   %.val56 = load ptr, ptr %6, align 8, !tbaa !33
-  %25 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv
-  %26 = load i32, ptr %25, align 4, !tbaa !35
-  %27 = getelementptr inbounds nuw i32, ptr %.val56, i64 %24
-  %28 = load i32, ptr %27, align 4, !tbaa !35
-  %29 = ashr i32 %26, 1
-  %30 = ashr i32 %28, 1
-  %31 = icmp slt i32 %29, %2
-  br i1 %31, label %32, label %34
+  %24 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv
+  %25 = load i32, ptr %24, align 4, !tbaa !35
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !35
+  %28 = ashr i32 %25, 1
+  %29 = ashr i32 %27, 1
+  %30 = icmp slt i32 %28, %2
+  br i1 %30, label %31, label %33
 
-32:                                               ; preds = %23
-  %33 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %29) #19
-  br label %39
+31:                                               ; preds = %23
+  %32 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %28) #19
+  br label %38
 
-34:                                               ; preds = %23
-  %35 = sub nsw i32 %29, %2
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %.val56, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !54
-  br label %39
+33:                                               ; preds = %23
+  %34 = sub nsw i32 %28, %2
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds ptr, ptr %.val56, i64 %35
+  %37 = load ptr, ptr %36, align 8, !tbaa !54
+  br label %38
 
-39:                                               ; preds = %34, %32
-  %40 = phi ptr [ %33, %32 ], [ %38, %34 ]
-  %41 = and i32 %26, 1
-  %42 = ptrtoint ptr %40 to i64
-  %43 = zext nneg i32 %41 to i64
-  %44 = xor i64 %42, %43
-  %45 = inttoptr i64 %44 to ptr
-  %46 = icmp slt i32 %30, %2
-  br i1 %46, label %47, label %49
+38:                                               ; preds = %33, %31
+  %39 = phi ptr [ %32, %31 ], [ %37, %33 ]
+  %40 = and i32 %25, 1
+  %41 = ptrtoint ptr %39 to i64
+  %42 = zext nneg i32 %40 to i64
+  %43 = xor i64 %41, %42
+  %44 = inttoptr i64 %43 to ptr
+  %45 = icmp slt i32 %29, %2
+  br i1 %45, label %46, label %48
 
-47:                                               ; preds = %39
-  %48 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %30) #19
-  br label %54
+46:                                               ; preds = %38
+  %47 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %29) #19
+  br label %53
 
-49:                                               ; preds = %39
-  %50 = sub nsw i32 %30, %2
+48:                                               ; preds = %38
+  %49 = sub nsw i32 %29, %2
   %.val = load ptr, ptr %6, align 8, !tbaa !53
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %.val, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !54
-  br label %54
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds ptr, ptr %.val, i64 %50
+  %52 = load ptr, ptr %51, align 8, !tbaa !54
+  br label %53
 
-54:                                               ; preds = %49, %47
-  %55 = phi ptr [ %48, %47 ], [ %53, %49 ]
-  %56 = and i32 %28, 1
-  %57 = ptrtoint ptr %55 to i64
-  %58 = zext nneg i32 %56 to i64
-  %59 = xor i64 %57, %58
-  %60 = inttoptr i64 %59 to ptr
-  %61 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %45, ptr noundef %60) #19
-  %62 = lshr exact i64 %indvars.iv, 1
+53:                                               ; preds = %48, %46
+  %54 = phi ptr [ %47, %46 ], [ %52, %48 ]
+  %55 = and i32 %27, 1
+  %56 = ptrtoint ptr %54 to i64
+  %57 = zext nneg i32 %55 to i64
+  %58 = xor i64 %56, %57
+  %59 = inttoptr i64 %58 to ptr
+  %60 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %44, ptr noundef %59) #19
+  %61 = lshr exact i64 %indvars.iv, 1
   %.val60 = load ptr, ptr %6, align 8, !tbaa !53
-  %63 = getelementptr inbounds nuw ptr, ptr %.val60, i64 %62
-  store ptr %61, ptr %63, align 8, !tbaa !54
+  %62 = getelementptr inbounds nuw ptr, ptr %.val60, i64 %61
+  store ptr %60, ptr %62, align 8, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val53 = load i32, ptr %4, align 4, !tbaa !34
-  %64 = trunc i64 %indvars.iv.next to i32
-  %65 = or disjoint i32 %64, 1
-  %66 = icmp slt i32 %65, %.val53
-  br i1 %66, label %23, label %.critedge.loopexit, !llvm.loop !137
+  %63 = trunc i64 %indvars.iv.next to i32
+  %64 = or disjoint i32 %63, 1
+  %65 = icmp slt i32 %64, %.val53
+  br i1 %65, label %23, label %.critedge.loopexit, !llvm.loop !137
 
-.critedge.loopexit:                               ; preds = %54
-  %67 = and i64 %indvars.iv.next, 4294967294
-  %68 = ptrtoint ptr %61 to i64
+.critedge.loopexit:                               ; preds = %53
+  %66 = and i64 %indvars.iv.next, 4294967294
+  %67 = ptrtoint ptr %60 to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
-  %.043.lcssa = phi i64 [ 0, %.preheader ], [ %67, %.critedge.loopexit ]
-  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %68, %.critedge.loopexit ]
-  %69 = getelementptr i8, ptr %1, i64 8
-  %.val54 = load ptr, ptr %69, align 8, !tbaa !33
-  %70 = getelementptr inbounds nuw i32, ptr %.val54, i64 %.043.lcssa
-  %71 = load i32, ptr %70, align 4, !tbaa !35
-  %72 = sext i32 %71 to i64
-  %73 = xor i64 %.0.lcssa, %72
+  %.043.lcssa = phi i64 [ 0, %.preheader ], [ %66, %.critedge.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %67, %.critedge.loopexit ]
+  %68 = getelementptr i8, ptr %1, i64 8
+  %.val54 = load ptr, ptr %68, align 8, !tbaa !33
+  %69 = getelementptr inbounds nuw i32, ptr %.val54, i64 %.043.lcssa
+  %70 = load i32, ptr %69, align 4, !tbaa !35
+  %71 = sext i32 %70 to i64
+  %72 = xor i64 %.0.lcssa, %71
   store i32 0, ptr %4, align 4, !tbaa !34
-  br label %74
+  br label %73
 
-74:                                               ; preds = %.critedge, %15, %7
-  %.042.in = phi i64 [ %14, %7 ], [ %22, %15 ], [ %73, %.critedge ]
+73:                                               ; preds = %.critedge, %15, %7
+  %.042.in = phi i64 [ %14, %7 ], [ %22, %15 ], [ %72, %.critedge ]
   %.042 = inttoptr i64 %.042.in to ptr
   ret ptr %.042
 }

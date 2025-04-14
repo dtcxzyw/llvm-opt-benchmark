@@ -238,19 +238,18 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph
-  %.019 = phi i64 [ %29, %.lr.ph ], [ 0, %._crit_edge ]
+  %.019 = phi i64 [ %28, %.lr.ph ], [ 0, %._crit_edge ]
   %22 = getelementptr inbounds nuw float, ptr %2, i64 %.019
   %23 = load float, ptr %22, align 4, !tbaa !78
   %24 = fsub reassoc nsz arcp contract afn float %23, %18
   store float %24, ptr %22, align 4, !tbaa !78
-  %25 = or disjoint i64 %.019, 1
-  %26 = getelementptr inbounds nuw float, ptr %2, i64 %25
-  %27 = load float, ptr %26, align 4, !tbaa !78
-  %28 = fsub reassoc nsz arcp contract afn float %27, %20
-  store float %28, ptr %26, align 4, !tbaa !78
-  %29 = add nuw i64 %.019, 2
-  %30 = icmp ult i64 %29, %21
-  br i1 %30, label %.lr.ph, label %.loopexit
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %26 = load float, ptr %25, align 4, !tbaa !78
+  %27 = fsub reassoc nsz arcp contract afn float %26, %20
+  store float %27, ptr %25, align 4, !tbaa !78
+  %28 = add nuw i64 %.019, 2
+  %29 = icmp ult i64 %28, %21
+  br i1 %29, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %._crit_edge
   ret i32 1
@@ -283,19 +282,18 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph
-  %.019 = phi i64 [ %29, %.lr.ph ], [ 0, %._crit_edge ]
+  %.019 = phi i64 [ %28, %.lr.ph ], [ 0, %._crit_edge ]
   %22 = getelementptr inbounds nuw float, ptr %2, i64 %.019
   %23 = load float, ptr %22, align 4, !tbaa !78
   %24 = fadd reassoc nsz arcp contract afn float %23, %18
   store float %24, ptr %22, align 4, !tbaa !78
-  %25 = or disjoint i64 %.019, 1
-  %26 = getelementptr inbounds nuw float, ptr %2, i64 %25
-  %27 = load float, ptr %26, align 4, !tbaa !78
-  %28 = fadd reassoc nsz arcp contract afn float %27, %20
-  store float %28, ptr %26, align 4, !tbaa !78
-  %29 = add nuw i64 %.019, 2
-  %30 = icmp ult i64 %29, %21
-  br i1 %30, label %.lr.ph, label %.loopexit
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %26 = load float, ptr %25, align 4, !tbaa !78
+  %27 = fadd reassoc nsz arcp contract afn float %26, %20
+  store float %27, ptr %25, align 4, !tbaa !78
+  %28 = add nuw i64 %.019, 2
+  %29 = icmp ult i64 %28, %21
+  br i1 %29, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %._crit_edge
   ret i32 1

@@ -32388,8 +32388,8 @@ define hidden void @"_ZN8async_io14Async$LT$T$GT$3new17h42eda4e6b6cf4a55E"(ptr d
   %29 = shl i64 %8, 32
   %30 = ashr i64 %29, 48
   %.neg = mul nsw i64 %30, -4294967296
-  %31 = or disjoint i64 %.neg, 2
-  %32 = getelementptr i8, ptr null, i64 %31
+  %31 = getelementptr i8, ptr null, i64 %.neg
+  %32 = getelementptr i8, ptr %31, i64 2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %32, ptr %33, align 8
   store ptr null, ptr %0, align 8
@@ -32497,8 +32497,8 @@ define hidden void @"_ZN8async_io14Async$LT$T$GT$3new17hc645666fb07bc0d2E"(ptr d
   %29 = shl i64 %8, 32
   %30 = ashr i64 %29, 48
   %.neg = mul nsw i64 %30, -4294967296
-  %31 = or disjoint i64 %.neg, 2
-  %32 = getelementptr i8, ptr null, i64 %31
+  %31 = getelementptr i8, ptr null, i64 %.neg
+  %32 = getelementptr i8, ptr %31, i64 2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %32, ptr %33, align 8
   store ptr null, ptr %0, align 8

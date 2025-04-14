@@ -6470,17 +6470,17 @@ define internal fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr nound
   br label %26
 
 26:                                               ; preds = %1, %_ZN2cv9softfloataSERKS0_.exit47
-  %.057 = phi i64 [ 1, %1 ], [ %27, %_ZN2cv9softfloataSERKS0_.exit47 ]
+  %.059 = phi i64 [ 1, %1 ], [ %27, %_ZN2cv9softfloataSERKS0_.exit47 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #22
-  %27 = add nuw nsw i64 %.057, 1
+  %27 = add nuw nsw i64 %.059, 1
   %28 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %0, i64 %27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #22
-  %29 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %0, i64 %.057
+  %29 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %0, i64 %.059
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %9, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %2)
   call void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %8, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %30 = add nsw i64 %.057, -1
+  %30 = add nsw i64 %.059, -1
   %31 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %0, i64 %30
   call void @_ZNK2cv9softfloatplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %31)
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -6491,40 +6491,38 @@ define internal fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr nound
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #22
   store i32 1065353216, ptr %11, align 4, !tbaa !164, !alias.scope !399
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #22
-  %32 = shl nsw i64 %30, 2
-  %33 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %24, i64 %32
-  call void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %12, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %33)
+  %.idx57 = shl nsw i64 %30, 4
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx57
+  call void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %12, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %32)
   call void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %10, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #22
-  %34 = shl nuw nsw i64 %.057, 2
-  %35 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %24, i64 %34
-  %.not.i = icmp eq ptr %10, %35
-  br i1 %.not.i, label %_ZN2cv9softfloataSERKS0_.exit, label %36
+  %.idx58 = shl nuw nsw i64 %.059, 4
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx58
+  %.not.i = icmp eq ptr %10, %33
+  br i1 %.not.i, label %_ZN2cv9softfloataSERKS0_.exit, label %34
 
-36:                                               ; preds = %26
-  %37 = load i32, ptr %10, align 4, !tbaa !164
-  store i32 %37, ptr %35, align 4, !tbaa !164
+34:                                               ; preds = %26
+  %35 = load i32, ptr %10, align 4, !tbaa !164
+  store i32 %35, ptr %33, align 4, !tbaa !164
   br label %_ZN2cv9softfloataSERKS0_.exit
 
-_ZN2cv9softfloataSERKS0_.exit:                    ; preds = %26, %36
+_ZN2cv9softfloataSERKS0_.exit:                    ; preds = %26, %34
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #22
-  %38 = or disjoint i64 %32, 1
-  %39 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %24, i64 %38
-  call void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %14, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %39)
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  call void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %14, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %36)
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %13, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(4) %10)
-  %40 = or disjoint i64 %34, 1
-  %41 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %24, i64 %40
-  %.not.i46 = icmp eq ptr %13, %41
-  br i1 %.not.i46, label %_ZN2cv9softfloataSERKS0_.exit47, label %42
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %.not.i46 = icmp eq ptr %13, %37
+  br i1 %.not.i46, label %_ZN2cv9softfloataSERKS0_.exit47, label %38
 
-42:                                               ; preds = %_ZN2cv9softfloataSERKS0_.exit
-  %43 = load i32, ptr %13, align 4, !tbaa !164
-  store i32 %43, ptr %41, align 4, !tbaa !164
+38:                                               ; preds = %_ZN2cv9softfloataSERKS0_.exit
+  %39 = load i32, ptr %13, align 4, !tbaa !164
+  store i32 %39, ptr %37, align 4, !tbaa !164
   br label %_ZN2cv9softfloataSERKS0_.exit47
 
-_ZN2cv9softfloataSERKS0_.exit47:                  ; preds = %_ZN2cv9softfloataSERKS0_.exit, %42
+_ZN2cv9softfloataSERKS0_.exit47:                  ; preds = %_ZN2cv9softfloataSERKS0_.exit, %38
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #22
@@ -6532,7 +6530,7 @@ _ZN2cv9softfloataSERKS0_.exit47:                  ; preds = %_ZN2cv9softfloataSE
   %exitcond.not = icmp eq i64 %27, 1024
   br i1 %exitcond.not, label %.preheader, label %26, !llvm.loop !404
 
-44:                                               ; preds = %_ZN2cv9softfloataSERKS0_.exit55
+40:                                               ; preds = %_ZN2cv9softfloataSERKS0_.exit55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #22
@@ -6540,23 +6538,22 @@ _ZN2cv9softfloataSERKS0_.exit47:                  ; preds = %_ZN2cv9softfloataSE
   ret ptr %24
 
 .preheader:                                       ; preds = %_ZN2cv9softfloataSERKS0_.exit47, %_ZN2cv9softfloataSERKS0_.exit55
-  %.04458 = phi i64 [ %66, %_ZN2cv9softfloataSERKS0_.exit55 ], [ 0, %_ZN2cv9softfloataSERKS0_.exit47 ]
-  %45 = sub nuw nsw i64 1024, %.04458
-  %46 = sub nuw nsw i64 1023, %.04458
+  %.04460 = phi i64 [ %58, %_ZN2cv9softfloataSERKS0_.exit55 ], [ 0, %_ZN2cv9softfloataSERKS0_.exit47 ]
+  %41 = sub nuw nsw i64 1024, %.04460
+  %42 = sub nuw nsw i64 1023, %.04460
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #22
-  %47 = shl nuw nsw i64 %46, 2
-  %48 = or disjoint i64 %47, 1
-  %49 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %24, i64 %48
+  %.idx = shl nuw nsw i64 %42, 4
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #22
-  %50 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %24, i64 %47
-  call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %16, ptr noundef nonnull align 4 dereferenceable(4) %50, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  call void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %15, ptr noundef nonnull align 4 dereferenceable(4) %49, ptr noundef nonnull align 4 dereferenceable(4) %16)
+  call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %16, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  call void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %15, ptr noundef nonnull align 4 dereferenceable(4) %44, ptr noundef nonnull align 4 dereferenceable(4) %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #22
-  %51 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %0, i64 %45
-  %52 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %0, i64 %46
-  call void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %18, ptr noundef nonnull align 4 dereferenceable(4) %51, ptr noundef nonnull align 4 dereferenceable(4) %52)
+  %45 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %0, i64 %41
+  %46 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %0, i64 %42
+  call void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %18, ptr noundef nonnull align 4 dereferenceable(4) %45, ptr noundef nonnull align 4 dereferenceable(4) %46)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #22
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %21) #22
@@ -6573,54 +6570,52 @@ _ZN2cv9softfloataSERKS0_.exit47:                  ; preds = %_ZN2cv9softfloataSE
   call void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %23, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %15)
   call void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %22, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #22
-  %.not.i48 = icmp eq ptr %52, %50
-  br i1 %.not.i48, label %_ZN2cv9softfloataSERKS0_.exit49, label %53
+  %.not.i48 = icmp eq ptr %46, %43
+  br i1 %.not.i48, label %_ZN2cv9softfloataSERKS0_.exit49, label %47
 
-53:                                               ; preds = %.preheader
-  %54 = load i32, ptr %52, align 4, !tbaa !164
-  store i32 %54, ptr %50, align 4, !tbaa !164
+47:                                               ; preds = %.preheader
+  %48 = load i32, ptr %46, align 4, !tbaa !164
+  store i32 %48, ptr %43, align 4, !tbaa !164
   br label %_ZN2cv9softfloataSERKS0_.exit49
 
-_ZN2cv9softfloataSERKS0_.exit49:                  ; preds = %.preheader, %53
-  %.not.i50 = icmp eq ptr %17, %49
-  br i1 %.not.i50, label %_ZN2cv9softfloataSERKS0_.exit51, label %55
+_ZN2cv9softfloataSERKS0_.exit49:                  ; preds = %.preheader, %47
+  %.not.i50 = icmp eq ptr %17, %44
+  br i1 %.not.i50, label %_ZN2cv9softfloataSERKS0_.exit51, label %49
 
-55:                                               ; preds = %_ZN2cv9softfloataSERKS0_.exit49
-  %56 = load i32, ptr %17, align 4, !tbaa !164
-  store i32 %56, ptr %49, align 4, !tbaa !164
+49:                                               ; preds = %_ZN2cv9softfloataSERKS0_.exit49
+  %50 = load i32, ptr %17, align 4, !tbaa !164
+  store i32 %50, ptr %44, align 4, !tbaa !164
   br label %_ZN2cv9softfloataSERKS0_.exit51
 
-_ZN2cv9softfloataSERKS0_.exit51:                  ; preds = %_ZN2cv9softfloataSERKS0_.exit49, %55
-  %57 = or disjoint i64 %47, 2
-  %58 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %24, i64 %57
-  %.not.i52 = icmp eq ptr %15, %58
-  br i1 %.not.i52, label %_ZN2cv9softfloataSERKS0_.exit53, label %59
+_ZN2cv9softfloataSERKS0_.exit51:                  ; preds = %_ZN2cv9softfloataSERKS0_.exit49, %49
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %.not.i52 = icmp eq ptr %15, %51
+  br i1 %.not.i52, label %_ZN2cv9softfloataSERKS0_.exit53, label %52
 
-59:                                               ; preds = %_ZN2cv9softfloataSERKS0_.exit51
-  %60 = load i32, ptr %15, align 4, !tbaa !164
-  store i32 %60, ptr %58, align 4, !tbaa !164
+52:                                               ; preds = %_ZN2cv9softfloataSERKS0_.exit51
+  %53 = load i32, ptr %15, align 4, !tbaa !164
+  store i32 %53, ptr %51, align 4, !tbaa !164
   br label %_ZN2cv9softfloataSERKS0_.exit53
 
-_ZN2cv9softfloataSERKS0_.exit53:                  ; preds = %_ZN2cv9softfloataSERKS0_.exit51, %59
-  %61 = or disjoint i64 %47, 3
-  %62 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %24, i64 %61
-  %.not.i54 = icmp eq ptr %22, %62
-  br i1 %.not.i54, label %_ZN2cv9softfloataSERKS0_.exit55, label %63
+_ZN2cv9softfloataSERKS0_.exit53:                  ; preds = %_ZN2cv9softfloataSERKS0_.exit51, %52
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 12
+  %.not.i54 = icmp eq ptr %22, %54
+  br i1 %.not.i54, label %_ZN2cv9softfloataSERKS0_.exit55, label %55
 
-63:                                               ; preds = %_ZN2cv9softfloataSERKS0_.exit53
-  %64 = load i32, ptr %22, align 4, !tbaa !164
-  store i32 %64, ptr %62, align 4, !tbaa !164
+55:                                               ; preds = %_ZN2cv9softfloataSERKS0_.exit53
+  %56 = load i32, ptr %22, align 4, !tbaa !164
+  store i32 %56, ptr %54, align 4, !tbaa !164
   br label %_ZN2cv9softfloataSERKS0_.exit55
 
-_ZN2cv9softfloataSERKS0_.exit55:                  ; preds = %_ZN2cv9softfloataSERKS0_.exit53, %63
-  %65 = load i32, ptr %15, align 4, !tbaa !164
-  store i32 %65, ptr %5, align 4, !tbaa !164
+_ZN2cv9softfloataSERKS0_.exit55:                  ; preds = %_ZN2cv9softfloataSERKS0_.exit53, %55
+  %57 = load i32, ptr %15, align 4, !tbaa !164
+  store i32 %57, ptr %5, align 4, !tbaa !164
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #22
-  %66 = add nuw nsw i64 %.04458, 1
-  %exitcond59.not = icmp eq i64 %66, 1024
-  br i1 %exitcond59.not, label %44, label %.preheader, !llvm.loop !405
+  %58 = add nuw nsw i64 %.04460, 1
+  %exitcond61.not = icmp eq i64 %58, 1024
+  br i1 %exitcond61.not, label %40, label %.preheader, !llvm.loop !405
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -9923,7 +9918,7 @@ define internal fastcc void @_ZN2cvL20trilinearInterpolateEiiiPKsRiS2_S2_(i32 no
   %29 = and i32 %28, 30720
   %30 = or disjoint i32 %27, %29
   %31 = zext nneg i32 %30 to i64
-  br label %162
+  br label %160
 
 32:                                               ; preds = %7, %32
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %32 ]
@@ -9932,160 +9927,158 @@ define internal fastcc void @_ZN2cvL20trilinearInterpolateEiiiPKsRiS2_S2_(i32 no
   %35 = sext i16 %34 to i32
   %36 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 0, i64 %indvars.iv
   store i32 %35, ptr %36, align 4, !tbaa !8
-  %37 = or disjoint i64 %indvars.iv, 8
-  %38 = getelementptr inbounds nuw i16, ptr %21, i64 %37
-  %39 = load i16, ptr %38, align 2, !tbaa !294
-  %40 = sext i16 %39 to i32
-  %41 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %indvars.iv
-  store i32 %40, ptr %41, align 4, !tbaa !8
-  %42 = or disjoint i64 %indvars.iv, 16
-  %43 = getelementptr inbounds nuw i16, ptr %21, i64 %42
-  %44 = load i16, ptr %43, align 2, !tbaa !294
-  %45 = sext i16 %44 to i32
-  %46 = getelementptr inbounds nuw [8 x i32], ptr %10, i64 0, i64 %indvars.iv
-  store i32 %45, ptr %46, align 4, !tbaa !8
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %38 = load i16, ptr %37, align 2, !tbaa !294
+  %39 = sext i16 %38 to i32
+  %40 = getelementptr inbounds nuw [8 x i32], ptr %9, i64 0, i64 %indvars.iv
+  store i32 %39, ptr %40, align 4, !tbaa !8
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %42 = load i16, ptr %41, align 2, !tbaa !294
+  %43 = sext i16 %42 to i32
+  %44 = getelementptr inbounds nuw [8 x i32], ptr %10, i64 0, i64 %indvars.iv
+  store i32 %43, ptr %44, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %22, label %32, !llvm.loop !517
 
-47:                                               ; preds = %162
-  %48 = load i32, ptr %8, align 16, !tbaa !8
-  %49 = load i32, ptr %11, align 16, !tbaa !8
-  %50 = mul nsw i32 %49, %48
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 4
+45:                                               ; preds = %160
+  %46 = load i32, ptr %8, align 16, !tbaa !8
+  %47 = load i32, ptr %11, align 16, !tbaa !8
+  %48 = mul nsw i32 %47, %46
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %50 = load i32, ptr %49, align 4, !tbaa !8
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !8
-  %53 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %54 = load i32, ptr %53, align 4, !tbaa !8
-  %55 = mul nsw i32 %54, %52
-  %56 = add nsw i32 %55, %50
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %53 = mul nsw i32 %52, %50
+  %54 = add nsw i32 %53, %48
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %56 = load i32, ptr %55, align 8, !tbaa !8
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %58 = load i32, ptr %57, align 8, !tbaa !8
-  %59 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %60 = load i32, ptr %59, align 8, !tbaa !8
-  %61 = mul nsw i32 %60, %58
-  %62 = add nsw i32 %56, %61
-  %63 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %59 = mul nsw i32 %58, %56
+  %60 = add nsw i32 %54, %59
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %62 = load i32, ptr %61, align 4, !tbaa !8
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %64 = load i32, ptr %63, align 4, !tbaa !8
-  %65 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %66 = load i32, ptr %65, align 4, !tbaa !8
-  %67 = mul nsw i32 %66, %64
-  %68 = add nsw i32 %62, %67
-  %69 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %65 = mul nsw i32 %64, %62
+  %66 = add nsw i32 %60, %65
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %68 = load i32, ptr %67, align 16, !tbaa !8
+  %69 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %70 = load i32, ptr %69, align 16, !tbaa !8
-  %71 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %72 = load i32, ptr %71, align 16, !tbaa !8
-  %73 = mul nsw i32 %72, %70
-  %74 = add nsw i32 %68, %73
-  %75 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %71 = mul nsw i32 %70, %68
+  %72 = add nsw i32 %66, %71
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %74 = load i32, ptr %73, align 4, !tbaa !8
+  %75 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %76 = load i32, ptr %75, align 4, !tbaa !8
-  %77 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %78 = load i32, ptr %77, align 4, !tbaa !8
-  %79 = mul nsw i32 %78, %76
-  %80 = add nsw i32 %74, %79
-  %81 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %77 = mul nsw i32 %76, %74
+  %78 = add nsw i32 %72, %77
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %80 = load i32, ptr %79, align 8, !tbaa !8
+  %81 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %82 = load i32, ptr %81, align 8, !tbaa !8
-  %83 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %84 = load i32, ptr %83, align 8, !tbaa !8
-  %85 = mul nsw i32 %84, %82
-  %86 = add nsw i32 %80, %85
-  %87 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %83 = mul nsw i32 %82, %80
+  %84 = add nsw i32 %78, %83
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %86 = load i32, ptr %85, align 4, !tbaa !8
+  %87 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %88 = load i32, ptr %87, align 4, !tbaa !8
-  %89 = getelementptr inbounds nuw i8, ptr %11, i64 28
-  %90 = load i32, ptr %89, align 4, !tbaa !8
-  %91 = mul nsw i32 %90, %88
-  %92 = add nsw i32 %86, %91
-  store i32 %92, ptr %4, align 4, !tbaa !8
-  %93 = load i32, ptr %9, align 16, !tbaa !8
-  %94 = mul nsw i32 %93, %49
-  %95 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %96 = load i32, ptr %95, align 4, !tbaa !8
-  %97 = mul nsw i32 %96, %54
-  %98 = add nsw i32 %97, %94
-  %99 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %100 = load i32, ptr %99, align 8, !tbaa !8
-  %101 = mul nsw i32 %100, %60
-  %102 = add nsw i32 %98, %101
-  %103 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  %104 = load i32, ptr %103, align 4, !tbaa !8
-  %105 = mul nsw i32 %104, %66
-  %106 = add nsw i32 %102, %105
-  %107 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %108 = load i32, ptr %107, align 16, !tbaa !8
-  %109 = mul nsw i32 %108, %72
-  %110 = add nsw i32 %106, %109
-  %111 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  %112 = load i32, ptr %111, align 4, !tbaa !8
-  %113 = mul nsw i32 %112, %78
-  %114 = add nsw i32 %110, %113
-  %115 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %116 = load i32, ptr %115, align 8, !tbaa !8
-  %117 = mul nsw i32 %116, %84
-  %118 = add nsw i32 %114, %117
-  %119 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  %120 = load i32, ptr %119, align 4, !tbaa !8
-  %121 = mul nsw i32 %120, %90
-  %122 = add nsw i32 %118, %121
-  store i32 %122, ptr %5, align 4, !tbaa !8
-  %123 = load i32, ptr %10, align 16, !tbaa !8
-  %124 = mul nsw i32 %123, %49
-  %125 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %126 = load i32, ptr %125, align 4, !tbaa !8
-  %127 = mul nsw i32 %126, %54
-  %128 = add nsw i32 %127, %124
-  %129 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %130 = load i32, ptr %129, align 8, !tbaa !8
-  %131 = mul nsw i32 %130, %60
-  %132 = add nsw i32 %128, %131
-  %133 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  %134 = load i32, ptr %133, align 4, !tbaa !8
-  %135 = mul nsw i32 %134, %66
-  %136 = add nsw i32 %132, %135
-  %137 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %138 = load i32, ptr %137, align 16, !tbaa !8
-  %139 = mul nsw i32 %138, %72
-  %140 = add nsw i32 %136, %139
-  %141 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %142 = load i32, ptr %141, align 4, !tbaa !8
-  %143 = mul nsw i32 %142, %78
-  %144 = add nsw i32 %140, %143
-  %145 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %146 = load i32, ptr %145, align 8, !tbaa !8
-  %147 = mul nsw i32 %146, %84
-  %148 = add nsw i32 %144, %147
-  %149 = getelementptr inbounds nuw i8, ptr %10, i64 28
-  %150 = load i32, ptr %149, align 4, !tbaa !8
-  %151 = mul nsw i32 %150, %90
-  %152 = add nsw i32 %148, %151
-  store i32 %152, ptr %6, align 4, !tbaa !8
-  %153 = load i32, ptr %4, align 4, !tbaa !8
-  %154 = add nsw i32 %153, 2048
-  %155 = ashr i32 %154, 12
-  store i32 %155, ptr %4, align 4, !tbaa !8
-  %156 = load i32, ptr %5, align 4, !tbaa !8
-  %157 = add nsw i32 %156, 2048
-  %158 = ashr i32 %157, 12
-  store i32 %158, ptr %5, align 4, !tbaa !8
-  %159 = load i32, ptr %6, align 4, !tbaa !8
-  %160 = add nsw i32 %159, 2048
-  %161 = ashr i32 %160, 12
-  store i32 %161, ptr %6, align 4, !tbaa !8
+  %89 = mul nsw i32 %88, %86
+  %90 = add nsw i32 %84, %89
+  store i32 %90, ptr %4, align 4, !tbaa !8
+  %91 = load i32, ptr %9, align 16, !tbaa !8
+  %92 = mul nsw i32 %91, %47
+  %93 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %94 = load i32, ptr %93, align 4, !tbaa !8
+  %95 = mul nsw i32 %94, %52
+  %96 = add nsw i32 %95, %92
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %98 = load i32, ptr %97, align 8, !tbaa !8
+  %99 = mul nsw i32 %98, %58
+  %100 = add nsw i32 %96, %99
+  %101 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %102 = load i32, ptr %101, align 4, !tbaa !8
+  %103 = mul nsw i32 %102, %64
+  %104 = add nsw i32 %100, %103
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %106 = load i32, ptr %105, align 16, !tbaa !8
+  %107 = mul nsw i32 %106, %70
+  %108 = add nsw i32 %104, %107
+  %109 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %110 = load i32, ptr %109, align 4, !tbaa !8
+  %111 = mul nsw i32 %110, %76
+  %112 = add nsw i32 %108, %111
+  %113 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %114 = load i32, ptr %113, align 8, !tbaa !8
+  %115 = mul nsw i32 %114, %82
+  %116 = add nsw i32 %112, %115
+  %117 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  %118 = load i32, ptr %117, align 4, !tbaa !8
+  %119 = mul nsw i32 %118, %88
+  %120 = add nsw i32 %116, %119
+  store i32 %120, ptr %5, align 4, !tbaa !8
+  %121 = load i32, ptr %10, align 16, !tbaa !8
+  %122 = mul nsw i32 %121, %47
+  %123 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %124 = load i32, ptr %123, align 4, !tbaa !8
+  %125 = mul nsw i32 %124, %52
+  %126 = add nsw i32 %125, %122
+  %127 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %128 = load i32, ptr %127, align 8, !tbaa !8
+  %129 = mul nsw i32 %128, %58
+  %130 = add nsw i32 %126, %129
+  %131 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  %132 = load i32, ptr %131, align 4, !tbaa !8
+  %133 = mul nsw i32 %132, %64
+  %134 = add nsw i32 %130, %133
+  %135 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %136 = load i32, ptr %135, align 16, !tbaa !8
+  %137 = mul nsw i32 %136, %70
+  %138 = add nsw i32 %134, %137
+  %139 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %140 = load i32, ptr %139, align 4, !tbaa !8
+  %141 = mul nsw i32 %140, %76
+  %142 = add nsw i32 %138, %141
+  %143 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %144 = load i32, ptr %143, align 8, !tbaa !8
+  %145 = mul nsw i32 %144, %82
+  %146 = add nsw i32 %142, %145
+  %147 = getelementptr inbounds nuw i8, ptr %10, i64 28
+  %148 = load i32, ptr %147, align 4, !tbaa !8
+  %149 = mul nsw i32 %148, %88
+  %150 = add nsw i32 %146, %149
+  store i32 %150, ptr %6, align 4, !tbaa !8
+  %151 = load i32, ptr %4, align 4, !tbaa !8
+  %152 = add nsw i32 %151, 2048
+  %153 = ashr i32 %152, 12
+  store i32 %153, ptr %4, align 4, !tbaa !8
+  %154 = load i32, ptr %5, align 4, !tbaa !8
+  %155 = add nsw i32 %154, 2048
+  %156 = ashr i32 %155, 12
+  store i32 %156, ptr %5, align 4, !tbaa !8
+  %157 = load i32, ptr %6, align 4, !tbaa !8
+  %158 = add nsw i32 %157, 2048
+  %159 = ashr i32 %158, 12
+  store i32 %159, ptr %6, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
   ret void
 
-162:                                              ; preds = %22, %162
-  %indvars.iv40 = phi i64 [ 0, %22 ], [ %indvars.iv.next41, %162 ]
-  %163 = or disjoint i64 %indvars.iv40, %31
-  %164 = getelementptr inbounds nuw [32768 x i16], ptr @_ZN2cvL12trilinearLUTE, i64 0, i64 %163
-  %165 = load i16, ptr %164, align 2, !tbaa !294
-  %166 = sext i16 %165 to i32
-  %167 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %indvars.iv40
-  store i32 %166, ptr %167, align 4, !tbaa !8
+160:                                              ; preds = %22, %160
+  %indvars.iv40 = phi i64 [ 0, %22 ], [ %indvars.iv.next41, %160 ]
+  %161 = or disjoint i64 %indvars.iv40, %31
+  %162 = getelementptr inbounds nuw [32768 x i16], ptr @_ZN2cvL12trilinearLUTE, i64 0, i64 %161
+  %163 = load i16, ptr %162, align 2, !tbaa !294
+  %164 = sext i16 %163 to i32
+  %165 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 0, i64 %indvars.iv40
+  store i32 %164, ptr %165, align 4, !tbaa !8
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 8
-  br i1 %exitcond43.not, label %47, label %162, !llvm.loop !518
+  br i1 %exitcond43.not, label %45, label %160, !llvm.loop !518
 }
 
 declare noundef float @_ZN2cv8cubeRootEf(float noundef) local_unnamed_addr #1

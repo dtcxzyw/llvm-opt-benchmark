@@ -2598,20 +2598,20 @@ alps_command_mode_read_reg.exit:                  ; preds = %55
 
 80:                                               ; preds = %alps_command_mode_read_reg.exit
   %81 = and i32 %66, 9
-  %82 = or disjoint i32 %81, 6
-  %83 = load ptr, ptr %0, align 8
+  %82 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
   store i32 0, ptr %14, align 4, !annotation !10
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 176
-  %85 = load ptr, ptr %84, align 8
-  %86 = zext nneg i32 %82 to i64
-  %87 = getelementptr %struct.alps_nibble_commands, ptr %85, i64 %86
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 176
+  %84 = load ptr, ptr %83, align 8
+  %85 = zext nneg i32 %81 to i64
+  %86 = getelementptr %struct.alps_nibble_commands, ptr %84, i64 %85
+  %87 = getelementptr i8, ptr %86, i64 48
   %88 = load i32, ptr %87, align 4
   %89 = and i32 %88, 3840
   %90 = icmp eq i32 %89, 0
-  %91 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  %91 = getelementptr i8, ptr %86, i64 52
   %92 = select i1 %90, ptr %91, ptr %14
-  %93 = call i32 @ps2_command(ptr noundef nonnull %18, ptr noundef nonnull %92, i32 noundef %88) #14
+  %93 = call i32 @ps2_command(ptr noundef nonnull %18, ptr noundef %92, i32 noundef %88) #14
   %94 = icmp eq i32 %93, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
   br i1 %94, label %97, label %alps_command_mode_read_reg.exit.thread
@@ -2702,20 +2702,20 @@ alps_command_mode_read_reg.exit4:                 ; preds = %123
 
 148:                                              ; preds = %alps_command_mode_read_reg.exit4
   %149 = and i32 %134, 14
-  %150 = or disjoint i32 %149, 1
-  %151 = load ptr, ptr %0, align 8
+  %150 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
   store i32 0, ptr %12, align 4, !annotation !10
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 176
-  %153 = load ptr, ptr %152, align 8
-  %154 = zext nneg i32 %150 to i64
-  %155 = getelementptr %struct.alps_nibble_commands, ptr %153, i64 %154
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 176
+  %152 = load ptr, ptr %151, align 8
+  %153 = zext nneg i32 %149 to i64
+  %154 = getelementptr %struct.alps_nibble_commands, ptr %152, i64 %153
+  %155 = getelementptr i8, ptr %154, i64 8
   %156 = load i32, ptr %155, align 4
   %157 = and i32 %156, 3840
   %158 = icmp eq i32 %157, 0
-  %159 = getelementptr inbounds nuw i8, ptr %155, i64 4
+  %159 = getelementptr i8, ptr %154, i64 12
   %160 = select i1 %158, ptr %159, ptr %12
-  %161 = call i32 @ps2_command(ptr noundef nonnull %18, ptr noundef nonnull %160, i32 noundef %156) #14
+  %161 = call i32 @ps2_command(ptr noundef nonnull %18, ptr noundef %160, i32 noundef %156) #14
   %162 = icmp eq i32 %161, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
   br i1 %162, label %163, label %alps_command_mode_read_reg.exit4.thread
@@ -2800,20 +2800,20 @@ alps_command_mode_read_reg.exit6:                 ; preds = %189
 
 214:                                              ; preds = %alps_command_mode_read_reg.exit6
   %215 = and i32 %200, 14
-  %216 = or disjoint i32 %215, 1
-  %217 = load ptr, ptr %0, align 8
+  %216 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
   store i32 0, ptr %10, align 4, !annotation !10
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 176
-  %219 = load ptr, ptr %218, align 8
-  %220 = zext nneg i32 %216 to i64
-  %221 = getelementptr %struct.alps_nibble_commands, ptr %219, i64 %220
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 176
+  %218 = load ptr, ptr %217, align 8
+  %219 = zext nneg i32 %215 to i64
+  %220 = getelementptr %struct.alps_nibble_commands, ptr %218, i64 %219
+  %221 = getelementptr i8, ptr %220, i64 8
   %222 = load i32, ptr %221, align 4
   %223 = and i32 %222, 3840
   %224 = icmp eq i32 %223, 0
-  %225 = getelementptr inbounds nuw i8, ptr %221, i64 4
+  %225 = getelementptr i8, ptr %220, i64 12
   %226 = select i1 %224, ptr %225, ptr %10
-  %227 = call i32 @ps2_command(ptr noundef nonnull %18, ptr noundef nonnull %226, i32 noundef %222) #14
+  %227 = call i32 @ps2_command(ptr noundef nonnull %18, ptr noundef %226, i32 noundef %222) #14
   %228 = icmp eq i32 %227, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
   br i1 %228, label %229, label %alps_command_mode_read_reg.exit4.thread
@@ -3755,20 +3755,20 @@ alps_command_mode_read_reg.exit:                  ; preds = %36
 
 61:                                               ; preds = %alps_command_mode_read_reg.exit
   %62 = and i32 %47, 13
-  %63 = or disjoint i32 %62, 2
-  %64 = load ptr, ptr %0, align 8
+  %63 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
   store i32 0, ptr %4, align 4, !annotation !10
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 176
-  %66 = load ptr, ptr %65, align 8
-  %67 = zext nneg i32 %63 to i64
-  %68 = getelementptr %struct.alps_nibble_commands, ptr %66, i64 %67
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 176
+  %65 = load ptr, ptr %64, align 8
+  %66 = zext nneg i32 %62 to i64
+  %67 = getelementptr %struct.alps_nibble_commands, ptr %65, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 16
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, 3840
   %71 = icmp eq i32 %70, 0
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  %72 = getelementptr i8, ptr %67, i64 20
   %73 = select i1 %71, ptr %72, ptr %4
-  %74 = call i32 @ps2_command(ptr noundef nonnull %7, ptr noundef nonnull %73, i32 noundef %69) #14
+  %74 = call i32 @ps2_command(ptr noundef nonnull %7, ptr noundef %73, i32 noundef %69) #14
   %75 = icmp eq i32 %74, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
   br i1 %75, label %78, label %alps_command_mode_read_reg.exit.thread
@@ -4974,20 +4974,20 @@ alps_command_mode_read_reg.exit8:                 ; preds = %181
 
 206:                                              ; preds = %alps_command_mode_read_reg.exit8
   %207 = and i32 %192, 13
-  %208 = or disjoint i32 %207, 2
-  %209 = load ptr, ptr %0, align 8
+  %208 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
   store i32 0, ptr %10, align 4, !annotation !10
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 176
-  %211 = load ptr, ptr %210, align 8
-  %212 = zext nneg i32 %208 to i64
-  %213 = getelementptr %struct.alps_nibble_commands, ptr %211, i64 %212
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 176
+  %210 = load ptr, ptr %209, align 8
+  %211 = zext nneg i32 %207 to i64
+  %212 = getelementptr %struct.alps_nibble_commands, ptr %210, i64 %211
+  %213 = getelementptr i8, ptr %212, i64 16
   %214 = load i32, ptr %213, align 4
   %215 = and i32 %214, 3840
   %216 = icmp eq i32 %215, 0
-  %217 = getelementptr inbounds nuw i8, ptr %213, i64 4
+  %217 = getelementptr i8, ptr %212, i64 20
   %218 = select i1 %216, ptr %217, ptr %10
-  %219 = call i32 @ps2_command(ptr noundef nonnull %12, ptr noundef nonnull %218, i32 noundef %214) #14
+  %219 = call i32 @ps2_command(ptr noundef nonnull %12, ptr noundef %218, i32 noundef %214) #14
   %220 = icmp eq i32 %219, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
   br i1 %220, label %221, label %alps_command_mode_read_reg.exit.thread
@@ -6382,20 +6382,20 @@ alps_command_mode_read_reg.exit:                  ; preds = %72
 
 97:                                               ; preds = %alps_command_mode_read_reg.exit
   %98 = and i32 %83, 13
-  %99 = or disjoint i32 %98, 2
-  %100 = load ptr, ptr %0, align 8
+  %99 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
   store i32 0, ptr %5, align 4, !annotation !10
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 176
-  %102 = load ptr, ptr %101, align 8
-  %103 = zext nneg i32 %99 to i64
-  %104 = getelementptr %struct.alps_nibble_commands, ptr %102, i64 %103
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 176
+  %101 = load ptr, ptr %100, align 8
+  %102 = zext nneg i32 %98 to i64
+  %103 = getelementptr %struct.alps_nibble_commands, ptr %101, i64 %102
+  %104 = getelementptr i8, ptr %103, i64 16
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, 3840
   %107 = icmp eq i32 %106, 0
-  %108 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  %108 = getelementptr i8, ptr %103, i64 20
   %109 = select i1 %107, ptr %108, ptr %5
-  %110 = call i32 @ps2_command(ptr noundef nonnull %11, ptr noundef nonnull %109, i32 noundef %105) #14
+  %110 = call i32 @ps2_command(ptr noundef nonnull %11, ptr noundef %109, i32 noundef %105) #14
   %111 = icmp eq i32 %110, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
   %112 = select i1 %111, i32 0, i32 -5

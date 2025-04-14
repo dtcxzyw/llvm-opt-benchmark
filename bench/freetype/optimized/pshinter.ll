@@ -3634,7 +3634,7 @@ define internal i32 @psh_globals_new(ptr noundef %0, ptr noundef readonly captur
   %5 = call ptr @ft_mem_qalloc(ptr noundef %0, i64 noundef 3952, ptr noundef nonnull %4) #12
   %6 = load i32, ptr %4, align 4, !tbaa !27
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %7, label %108
+  br i1 %.not, label %7, label %104
 
 7:                                                ; preds = %3
   store ptr %0, ptr %5, align 8, !tbaa !14
@@ -3737,117 +3737,113 @@ define internal i32 @psh_globals_new(ptr noundef %0, ptr noundef readonly captur
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.012.i = phi i16 [ 1, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %62 = or disjoint i64 %indvars.iv.i, 1
-  %63 = getelementptr inbounds nuw i16, ptr %44, i64 %62
+  %62 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %64 = load i16, ptr %63, align 2, !tbaa !32
-  %65 = getelementptr inbounds nuw i16, ptr %44, i64 %indvars.iv.i
-  %66 = load i16, ptr %65, align 2, !tbaa !32
-  %67 = sub i16 %64, %66
-  %spec.select.i = call i16 @llvm.smax.i16(i16 %67, i16 %.012.i)
+  %65 = load i16, ptr %62, align 2, !tbaa !32
+  %66 = sub i16 %64, %65
+  %spec.select.i = call i16 @llvm.smax.i16(i16 %66, i16 %.012.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %68 = icmp samesign ult i64 %indvars.iv.next.i, %61
-  br i1 %68, label %.lr.ph.i, label %psh_calc_max_height.exit, !llvm.loop !230
+  %67 = icmp samesign ult i64 %indvars.iv.next.i, %61
+  br i1 %67, label %.lr.ph.i, label %psh_calc_max_height.exit, !llvm.loop !230
 
 psh_calc_max_height.exit:                         ; preds = %.lr.ph.i, %._crit_edge117
   %.0.lcssa.i = phi i16 [ 1, %._crit_edge117 ], [ %spec.select.i, %.lr.ph.i ]
-  %69 = load i8, ptr %45, align 1, !tbaa !226
-  %.not.i80 = icmp eq i8 %69, 0
+  %68 = load i8, ptr %45, align 1, !tbaa !226
+  %.not.i80 = icmp eq i8 %68, 0
   br i1 %.not.i80, label %psh_calc_max_height.exit88, label %.lr.ph.preheader.i81
 
 .lr.ph.preheader.i81:                             ; preds = %psh_calc_max_height.exit
-  %70 = zext i8 %69 to i64
+  %69 = zext i8 %68 to i64
   br label %.lr.ph.i82
 
 .lr.ph.i82:                                       ; preds = %.lr.ph.i82, %.lr.ph.preheader.i81
   %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.preheader.i81 ], [ %indvars.iv.next.i86, %.lr.ph.i82 ]
   %.012.i84 = phi i16 [ %.0.lcssa.i, %.lr.ph.preheader.i81 ], [ %spec.select.i85, %.lr.ph.i82 ]
-  %71 = or disjoint i64 %indvars.iv.i83, 1
-  %72 = getelementptr inbounds nuw i16, ptr %48, i64 %71
-  %73 = load i16, ptr %72, align 2, !tbaa !32
-  %74 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv.i83
-  %75 = load i16, ptr %74, align 2, !tbaa !32
-  %76 = sub i16 %73, %75
-  %spec.select.i85 = call i16 @llvm.smax.i16(i16 %76, i16 %.012.i84)
+  %70 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv.i83
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 2
+  %72 = load i16, ptr %71, align 2, !tbaa !32
+  %73 = load i16, ptr %70, align 2, !tbaa !32
+  %74 = sub i16 %72, %73
+  %spec.select.i85 = call i16 @llvm.smax.i16(i16 %74, i16 %.012.i84)
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i83, 2
-  %77 = icmp samesign ult i64 %indvars.iv.next.i86, %70
-  br i1 %77, label %.lr.ph.i82, label %psh_calc_max_height.exit88, !llvm.loop !230
+  %75 = icmp samesign ult i64 %indvars.iv.next.i86, %69
+  br i1 %75, label %.lr.ph.i82, label %psh_calc_max_height.exit88, !llvm.loop !230
 
 psh_calc_max_height.exit88:                       ; preds = %.lr.ph.i82, %psh_calc_max_height.exit
   %.0.lcssa.i87 = phi i16 [ %.0.lcssa.i, %psh_calc_max_height.exit ], [ %spec.select.i85, %.lr.ph.i82 ]
-  %78 = load i8, ptr %51, align 2, !tbaa !228
-  %.not.i89 = icmp eq i8 %78, 0
+  %76 = load i8, ptr %51, align 2, !tbaa !228
+  %.not.i89 = icmp eq i8 %76, 0
   br i1 %.not.i89, label %psh_calc_max_height.exit97, label %.lr.ph.preheader.i90
 
 .lr.ph.preheader.i90:                             ; preds = %psh_calc_max_height.exit88
-  %79 = zext i8 %78 to i64
+  %77 = zext i8 %76 to i64
   br label %.lr.ph.i91
 
 .lr.ph.i91:                                       ; preds = %.lr.ph.i91, %.lr.ph.preheader.i90
   %indvars.iv.i92 = phi i64 [ 0, %.lr.ph.preheader.i90 ], [ %indvars.iv.next.i95, %.lr.ph.i91 ]
   %.012.i93 = phi i16 [ %.0.lcssa.i87, %.lr.ph.preheader.i90 ], [ %spec.select.i94, %.lr.ph.i91 ]
-  %80 = or disjoint i64 %indvars.iv.i92, 1
-  %81 = getelementptr inbounds nuw i16, ptr %54, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !32
-  %83 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv.i92
-  %84 = load i16, ptr %83, align 2, !tbaa !32
-  %85 = sub i16 %82, %84
-  %spec.select.i94 = call i16 @llvm.smax.i16(i16 %85, i16 %.012.i93)
+  %78 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv.i92
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 2
+  %80 = load i16, ptr %79, align 2, !tbaa !32
+  %81 = load i16, ptr %78, align 2, !tbaa !32
+  %82 = sub i16 %80, %81
+  %spec.select.i94 = call i16 @llvm.smax.i16(i16 %82, i16 %.012.i93)
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i92, 2
-  %86 = icmp samesign ult i64 %indvars.iv.next.i95, %79
-  br i1 %86, label %.lr.ph.i91, label %psh_calc_max_height.exit97, !llvm.loop !230
+  %83 = icmp samesign ult i64 %indvars.iv.next.i95, %77
+  br i1 %83, label %.lr.ph.i91, label %psh_calc_max_height.exit97, !llvm.loop !230
 
 psh_calc_max_height.exit97:                       ; preds = %.lr.ph.i91, %psh_calc_max_height.exit88
   %.0.lcssa.i96 = phi i16 [ %.0.lcssa.i87, %psh_calc_max_height.exit88 ], [ %spec.select.i94, %.lr.ph.i91 ]
-  %87 = load i8, ptr %55, align 1, !tbaa !229
-  %.not.i98 = icmp eq i8 %87, 0
+  %84 = load i8, ptr %55, align 1, !tbaa !229
+  %.not.i98 = icmp eq i8 %84, 0
   br i1 %.not.i98, label %psh_calc_max_height.exit106, label %.lr.ph.preheader.i99
 
 .lr.ph.preheader.i99:                             ; preds = %psh_calc_max_height.exit97
-  %88 = zext i8 %87 to i64
+  %85 = zext i8 %84 to i64
   br label %.lr.ph.i100
 
 .lr.ph.i100:                                      ; preds = %.lr.ph.i100, %.lr.ph.preheader.i99
   %indvars.iv.i101 = phi i64 [ 0, %.lr.ph.preheader.i99 ], [ %indvars.iv.next.i104, %.lr.ph.i100 ]
   %.012.i102 = phi i16 [ %.0.lcssa.i96, %.lr.ph.preheader.i99 ], [ %spec.select.i103, %.lr.ph.i100 ]
-  %89 = or disjoint i64 %indvars.iv.i101, 1
-  %90 = getelementptr inbounds nuw i16, ptr %58, i64 %89
-  %91 = load i16, ptr %90, align 2, !tbaa !32
-  %92 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv.i101
-  %93 = load i16, ptr %92, align 2, !tbaa !32
-  %94 = sub i16 %91, %93
-  %spec.select.i103 = call i16 @llvm.smax.i16(i16 %94, i16 %.012.i102)
+  %86 = getelementptr inbounds nuw i16, ptr %58, i64 %indvars.iv.i101
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 2
+  %88 = load i16, ptr %87, align 2, !tbaa !32
+  %89 = load i16, ptr %86, align 2, !tbaa !32
+  %90 = sub i16 %88, %89
+  %spec.select.i103 = call i16 @llvm.smax.i16(i16 %90, i16 %.012.i102)
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i101, 2
-  %95 = icmp samesign ult i64 %indvars.iv.next.i104, %88
-  br i1 %95, label %.lr.ph.i100, label %psh_calc_max_height.exit106, !llvm.loop !230
+  %91 = icmp samesign ult i64 %indvars.iv.next.i104, %85
+  br i1 %91, label %.lr.ph.i100, label %psh_calc_max_height.exit106, !llvm.loop !230
 
 psh_calc_max_height.exit106:                      ; preds = %.lr.ph.i100, %psh_calc_max_height.exit97
   %.0.lcssa.i105 = phi i16 [ %.0.lcssa.i96, %psh_calc_max_height.exit97 ], [ %spec.select.i103, %.lr.ph.i100 ]
-  %96 = zext nneg i16 %.0.lcssa.i105 to i64
-  %97 = call i64 @FT_DivFix(i64 noundef 1000, i64 noundef %96) #12
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %99 = load i64, ptr %98, align 8, !tbaa !231
-  %. = call i64 @llvm.smin.i64(i64 %99, i64 %97)
-  %100 = getelementptr inbounds nuw i8, ptr %5, i64 3928
-  store i64 %., ptr %100, align 8, !tbaa !232
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %102 = load i32, ptr %101, align 8, !tbaa !233
-  %103 = getelementptr inbounds nuw i8, ptr %5, i64 3936
-  store i32 %102, ptr %103, align 8, !tbaa !234
-  %104 = load i32, ptr %49, align 4, !tbaa !227
-  %105 = getelementptr inbounds nuw i8, ptr %5, i64 3944
-  store i32 %104, ptr %105, align 8, !tbaa !235
-  %106 = getelementptr inbounds nuw i8, ptr %5, i64 400
-  %107 = getelementptr inbounds nuw i8, ptr %5, i64 808
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, i8 0, i64 16, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, i8 0, i64 16, i1 false)
+  %92 = zext nneg i16 %.0.lcssa.i105 to i64
+  %93 = call i64 @FT_DivFix(i64 noundef 1000, i64 noundef %92) #12
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %95 = load i64, ptr %94, align 8, !tbaa !231
+  %. = call i64 @llvm.smin.i64(i64 %95, i64 %93)
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 3928
+  store i64 %., ptr %96, align 8, !tbaa !232
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %98 = load i32, ptr %97, align 8, !tbaa !233
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 3936
+  store i32 %98, ptr %99, align 8, !tbaa !234
+  %100 = load i32, ptr %49, align 4, !tbaa !227
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 3944
+  store i32 %100, ptr %101, align 8, !tbaa !235
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 400
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 808
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
   %.pre = load i32, ptr %4, align 4, !tbaa !27
-  br label %108
+  br label %104
 
-108:                                              ; preds = %psh_calc_max_height.exit106, %3
-  %109 = phi i32 [ %.pre, %psh_calc_max_height.exit106 ], [ %6, %3 ]
+104:                                              ; preds = %psh_calc_max_height.exit106, %3
+  %105 = phi i32 [ %.pre, %psh_calc_max_height.exit106 ], [ %6, %3 ]
   store ptr %5, ptr %2, align 8, !tbaa !236
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
-  ret i32 %109
+  ret i32 %105
 }
 
 ; Function Attrs: nounwind uwtable

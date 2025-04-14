@@ -1640,64 +1640,64 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx5__
   %9 = shl i64 %.031, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %12
-  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %16 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  %19 = load i8, ptr %18, align 4
-  %20 = and i8 %19, 1
-  %21 = icmp eq i8 %20, 0
-  %22 = load i32, ptr %17, align 8
-  %23 = icmp eq i32 %22, 1
-  %24 = select i1 %21, i1 %23, i1 false
-  br i1 %24, label %25, label %51
+  %12 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %9
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %15 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 36
+  %18 = load i8, ptr %17, align 4
+  %19 = and i8 %18, 1
+  %20 = icmp eq i8 %19, 0
+  %21 = load i32, ptr %16, align 8
+  %22 = icmp eq i32 %21, 1
+  %23 = select i1 %20, i1 %22, i1 false
+  br i1 %23, label %24, label %50
 
-25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %27 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  %28 = load i8, ptr %27, align 4
-  %29 = and i8 %28, 1
-  %30 = icmp eq i8 %29, 0
-  %31 = load i32, ptr %26, align 8
-  %32 = icmp eq i32 %31, 1
-  %33 = select i1 %30, i1 %32, i1 false
-  br i1 %33, label %34, label %51
+24:                                               ; preds = %.lr.ph
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 92
+  %27 = load i8, ptr %26, align 4
+  %28 = and i8 %27, 1
+  %29 = icmp eq i8 %28, 0
+  %30 = load i32, ptr %25, align 8
+  %31 = icmp eq i32 %30, 1
+  %32 = select i1 %29, i1 %31, i1 false
+  br i1 %32, label %33, label %50
 
-34:                                               ; preds = %25
-  %35 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %36 = load i8, ptr %35, align 4
-  %37 = and i8 %36, 1
-  %38 = icmp eq i8 %37, 0
-  br i1 %38, label %39, label %48
+33:                                               ; preds = %24
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %35 = load i8, ptr %34, align 4
+  %36 = and i8 %35, 1
+  %37 = icmp eq i8 %36, 0
+  br i1 %37, label %38, label %47
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  %41 = load i8, ptr %40, align 4
-  %42 = and i8 %41, 1
-  %43 = icmp eq i8 %42, 0
-  br i1 %43, label %44, label %48
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 76
+  %40 = load i8, ptr %39, align 4
+  %41 = and i8 %40, 1
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %43, label %47
 
-44:                                               ; preds = %39
+43:                                               ; preds = %38
+  %44 = load i32, ptr %13, align 8, !tbaa !17
   %45 = load i32, ptr %14, align 8, !tbaa !17
-  %46 = load i32, ptr %15, align 8, !tbaa !17
-  %47 = icmp slt i32 %45, %46
+  %46 = icmp slt i32 %44, %45
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
 
-48:                                               ; preds = %39, %34
-  %49 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %16, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
-  %50 = icmp slt i32 %49, 0
+47:                                               ; preds = %38, %33
+  %48 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %15, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %49 = icmp slt i32 %48, 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
 
-51:                                               ; preds = %25, %.lr.ph
-  %52 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %16, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
+50:                                               ; preds = %24, %.lr.ph
+  %51 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %15, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %14)
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit": ; preds = %44, %48, %51
-  %.0.i.i.i.i = phi i1 [ %52, %51 ], [ %47, %44 ], [ %50, %48 ]
-  %spec.select = select i1 %.0.i.i.i.i, i64 %12, i64 %10
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit": ; preds = %43, %47, %50
+  %.0.i.i.i.i = phi i1 [ %51, %50 ], [ %46, %43 ], [ %49, %47 ]
+  %52 = or disjoint i64 %9, 1
+  %spec.select = select i1 %.0.i.i.i.i, i64 %52, i64 %10
   %53 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %spec.select
   %54 = getelementptr inbounds nuw %"struct.opt::soft", ptr %0, i64 %.031
   %55 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %54, ptr noundef nonnull align 8 dereferenceable(52) %53) #19
@@ -3980,64 +3980,64 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPN3opt4softElS1_N9__gnu_cxx
   %10 = shl i64 %.030, 1
   %11 = add i64 %10, 2
   %12 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %11
-  %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %17 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %19 = getelementptr inbounds nuw i8, ptr %14, i64 36
-  %20 = load i8, ptr %19, align 4
-  %21 = and i8 %20, 1
-  %22 = icmp eq i8 %21, 0
-  %23 = load i32, ptr %18, align 8
-  %24 = icmp eq i32 %23, 1
-  %25 = select i1 %22, i1 %24, i1 false
-  br i1 %25, label %26, label %52
+  %13 = getelementptr %"struct.opt::soft", ptr %0, i64 %10
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %15 = getelementptr i8, ptr %13, i64 72
+  %16 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !18
+  %17 = getelementptr i8, ptr %13, i64 88
+  %18 = getelementptr i8, ptr %13, i64 92
+  %19 = load i8, ptr %18, align 4
+  %20 = and i8 %19, 1
+  %21 = icmp eq i8 %20, 0
+  %22 = load i32, ptr %17, align 8
+  %23 = icmp eq i32 %22, 1
+  %24 = select i1 %21, i1 %23, i1 false
+  br i1 %24, label %25, label %51
 
-26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %28 = getelementptr inbounds nuw i8, ptr %12, i64 36
-  %29 = load i8, ptr %28, align 4
-  %30 = and i8 %29, 1
-  %31 = icmp eq i8 %30, 0
-  %32 = load i32, ptr %27, align 8
-  %33 = icmp eq i32 %32, 1
-  %34 = select i1 %31, i1 %33, i1 false
-  br i1 %34, label %35, label %52
+25:                                               ; preds = %.lr.ph
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 36
+  %28 = load i8, ptr %27, align 4
+  %29 = and i8 %28, 1
+  %30 = icmp eq i8 %29, 0
+  %31 = load i32, ptr %26, align 8
+  %32 = icmp eq i32 %31, 1
+  %33 = select i1 %30, i1 %32, i1 false
+  br i1 %33, label %34, label %51
 
-35:                                               ; preds = %26
-  %36 = getelementptr inbounds nuw i8, ptr %14, i64 20
-  %37 = load i8, ptr %36, align 4
-  %38 = and i8 %37, 1
-  %39 = icmp eq i8 %38, 0
-  br i1 %39, label %40, label %49
+34:                                               ; preds = %25
+  %35 = getelementptr i8, ptr %13, i64 76
+  %36 = load i8, ptr %35, align 4
+  %37 = and i8 %36, 1
+  %38 = icmp eq i8 %37, 0
+  br i1 %38, label %39, label %48
 
-40:                                               ; preds = %35
-  %41 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  %42 = load i8, ptr %41, align 4
-  %43 = and i8 %42, 1
-  %44 = icmp eq i8 %43, 0
-  br i1 %44, label %45, label %49
+39:                                               ; preds = %34
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %41 = load i8, ptr %40, align 4
+  %42 = and i8 %41, 1
+  %43 = icmp eq i8 %42, 0
+  br i1 %43, label %44, label %48
 
-45:                                               ; preds = %40
-  %46 = load i32, ptr %16, align 8, !tbaa !17
-  %47 = load i32, ptr %15, align 8, !tbaa !17
-  %48 = icmp slt i32 %46, %47
+44:                                               ; preds = %39
+  %45 = load i32, ptr %15, align 8, !tbaa !17
+  %46 = load i32, ptr %14, align 8, !tbaa !17
+  %47 = icmp slt i32 %45, %46
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
 
-49:                                               ; preds = %40, %35
-  %50 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %17, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %15)
-  %51 = icmp slt i32 %50, 0
+48:                                               ; preds = %39, %34
+  %49 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %16, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %14)
+  %50 = icmp slt i32 %49, 0
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
 
-52:                                               ; preds = %26, %.lr.ph
-  %53 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %17, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %15)
+51:                                               ; preds = %25, %.lr.ph
+  %52 = tail call noundef zeroext i1 @_ZN11mpq_managerILb1EE6rat_ltERK3mpqS3_(ptr noundef nonnull align 8 dereferenceable(728) %16, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %14)
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit: ; preds = %45, %49, %52
-  %.0.i.i.i.i.i = phi i1 [ %53, %52 ], [ %48, %45 ], [ %51, %49 ]
-  %spec.select = select i1 %.0.i.i.i.i.i, i64 %13, i64 %11
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN3opt6maxlex8cmp_softEEclIPNS2_4softES8_EEbT_T0_.exit: ; preds = %44, %48, %51
+  %.0.i.i.i.i.i = phi i1 [ %52, %51 ], [ %47, %44 ], [ %50, %48 ]
+  %53 = or disjoint i64 %10, 1
+  %spec.select = select i1 %.0.i.i.i.i.i, i64 %53, i64 %11
   %54 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %spec.select
   %55 = getelementptr inbounds %"struct.opt::soft", ptr %0, i64 %.030
   %56 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %55, ptr noundef nonnull align 8 dereferenceable(52) %54) #19

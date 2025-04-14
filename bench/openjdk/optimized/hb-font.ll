@@ -7527,9 +7527,9 @@ define hidden void @hb_font_set_var_coords_normalized(ptr noundef %0, ptr nounde
   %44 = zext i8 %43 to i64
   %45 = shl nuw nsw i64 %41, 10
   %46 = shl nuw nsw i64 %44, 2
-  %47 = or disjoint i64 %45, %46
-  %48 = or disjoint i64 %47, 2
-  %49 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 %48
+  %47 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 %45
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %46
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !32
@@ -10015,9 +10015,9 @@ _ZNK2OT7ArrayOfINS_12AxisValueMapENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_s
   %59 = zext i8 %58 to i64
   %60 = shl nuw nsw i64 %57, 10
   %61 = shl nuw nsw i64 %59, 2
-  %62 = or disjoint i64 %60, %61
-  %63 = or disjoint i64 %62, 2
-  %64 = getelementptr inbounds nuw i8, ptr %.02636, i64 %63
+  %62 = getelementptr inbounds nuw i8, ptr %.02636, i64 %60
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %61
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %65 = add nuw nsw i32 %.02437, 1
   %exitcond.not = icmp eq i32 %65, %33
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %35, !llvm.loop !51
@@ -10557,10 +10557,10 @@ _ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context
 87:                                               ; preds = %73
   %88 = zext i8 %70 to i64
   %89 = shl nuw nsw i64 %88, 1
-  %90 = zext i8 %67 to i64
-  %91 = shl nuw nsw i64 %90, 9
-  %92 = or disjoint i64 %89, %91
-  %93 = getelementptr inbounds nuw i8, ptr %41, i64 %92
+  %90 = getelementptr inbounds nuw i8, ptr %41, i64 %89
+  %91 = zext i8 %67 to i64
+  %92 = shl nuw nsw i64 %91, 9
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %95 = ptrtoint ptr %94 to i64
   %96 = sub i64 %95, %9

@@ -51855,6 +51855,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIPPKN4llvm6RecordElS3_N9__gnu_cxx5_
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = add nsw i64 %2, -1
   %8 = sdiv i64 %7, 2
+  %invariant.gep = getelementptr i8, ptr %0, i64 8
   %9 = icmp slt i64 %1, %8
   br i1 %9, label %.lr.ph, label %._crit_edge
 
@@ -51867,99 +51868,99 @@ define linkonce_odr void @_ZSt13__adjust_heapIPPKN4llvm6RecordElS3_N9__gnu_cxx5_
   %12 = shl i64 %.029, 1
   %13 = add i64 %12, 2
   %14 = getelementptr inbounds ptr, ptr %0, i64 %13
-  %15 = or disjoint i64 %12, 1
-  %16 = getelementptr inbounds ptr, ptr %0, i64 %15
-  %17 = load ptr, ptr %14, align 8, !tbaa !341
-  %18 = load ptr, ptr %16, align 8, !tbaa !341
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %12
+  %15 = load ptr, ptr %14, align 8, !tbaa !341
+  %16 = load ptr, ptr %gep, align 8, !tbaa !341
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #32
-  %19 = load ptr, ptr %17, align 8, !tbaa !128
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %20, align 8, !tbaa !164
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %17 = load ptr, ptr %15, align 8, !tbaa !128
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %18, align 8, !tbaa !164
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
   %.sroa.2.0.copyload.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !3
   store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %6, align 8
   store i64 %.sroa.2.0.copyload.i.i.i.i, ptr %10, align 8
-  %21 = load ptr, ptr %18, align 8, !tbaa !128
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %.sroa.0.0.copyload.i.i2.i.i = load ptr, ptr %22, align 8, !tbaa !164
-  %.sroa.2.0..sroa_idx.i.i3.i.i = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %19 = load ptr, ptr %16, align 8, !tbaa !128
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %.sroa.0.0.copyload.i.i2.i.i = load ptr, ptr %20, align 8, !tbaa !164
+  %.sroa.2.0..sroa_idx.i.i3.i.i = getelementptr inbounds nuw i8, ptr %19, i64 32
   %.sroa.2.0.copyload.i.i4.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i3.i.i, align 8, !tbaa !3
-  %23 = call noundef i32 @_ZNK4llvm9StringRef15compare_numericES0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %.sroa.0.0.copyload.i.i2.i.i, i64 %.sroa.2.0.copyload.i.i4.i.i) #32
-  %24 = icmp slt i32 %23, 0
+  %21 = call noundef i32 @_ZNK4llvm9StringRef15compare_numericES0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr %.sroa.0.0.copyload.i.i2.i.i, i64 %.sroa.2.0.copyload.i.i4.i.i) #32
+  %22 = icmp slt i32 %21, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #32
-  %spec.select = select i1 %24, i64 %15, i64 %13
-  %25 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
-  %26 = load ptr, ptr %25, align 8, !tbaa !341
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %.029
-  store ptr %26, ptr %27, align 8, !tbaa !341
-  %28 = icmp slt i64 %spec.select, %8
-  br i1 %28, label %11, label %._crit_edge, !llvm.loop !1377
+  %23 = or disjoint i64 %12, 1
+  %spec.select = select i1 %22, i64 %23, i64 %13
+  %24 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %25 = load ptr, ptr %24, align 8, !tbaa !341
+  %26 = getelementptr inbounds ptr, ptr %0, i64 %.029
+  store ptr %25, ptr %26, align 8, !tbaa !341
+  %27 = icmp slt i64 %spec.select, %8
+  br i1 %27, label %11, label %._crit_edge, !llvm.loop !1377
 
 ._crit_edge:                                      ; preds = %11, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %11 ]
-  %29 = and i64 %2, 1
-  %30 = icmp eq i64 %29, 0
-  br i1 %30, label %31, label %41
+  %28 = and i64 %2, 1
+  %29 = icmp eq i64 %28, 0
+  br i1 %29, label %30, label %40
 
-31:                                               ; preds = %._crit_edge
-  %32 = add nsw i64 %2, -2
-  %33 = ashr exact i64 %32, 1
-  %34 = icmp eq i64 %.0.lcssa, %33
-  br i1 %34, label %35, label %41
+30:                                               ; preds = %._crit_edge
+  %31 = add nsw i64 %2, -2
+  %32 = ashr exact i64 %31, 1
+  %33 = icmp eq i64 %.0.lcssa, %32
+  br i1 %33, label %34, label %40
 
-35:                                               ; preds = %31
-  %36 = shl nsw i64 %.0.lcssa, 1
-  %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds ptr, ptr %0, i64 %37
-  %39 = load ptr, ptr %38, align 8, !tbaa !341
-  %40 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
-  store ptr %39, ptr %40, align 8, !tbaa !341
-  br label %41
+34:                                               ; preds = %30
+  %35 = shl nsw i64 %.0.lcssa, 1
+  %36 = or disjoint i64 %35, 1
+  %37 = getelementptr inbounds ptr, ptr %0, i64 %36
+  %38 = load ptr, ptr %37, align 8, !tbaa !341
+  %39 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  store ptr %38, ptr %39, align 8, !tbaa !341
+  br label %40
 
-41:                                               ; preds = %35, %31, %._crit_edge
-  %.128 = phi i64 [ %37, %35 ], [ %.0.lcssa, %31 ], [ %.0.lcssa, %._crit_edge ]
-  %42 = icmp sgt i64 %.128, %1
-  br i1 %42, label %.lr.ph.i, label %_ZSt11__push_heapIPPKN4llvm6RecordElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessRecordEEEEvT_T0_SB_T1_RT2_.exit
+40:                                               ; preds = %34, %30, %._crit_edge
+  %.128 = phi i64 [ %36, %34 ], [ %.0.lcssa, %30 ], [ %.0.lcssa, %._crit_edge ]
+  %41 = icmp sgt i64 %.128, %1
+  br i1 %41, label %.lr.ph.i, label %_ZSt11__push_heapIPPKN4llvm6RecordElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessRecordEEEEvT_T0_SB_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %44
+.lr.ph.i:                                         ; preds = %40
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br label %43
 
-44:                                               ; preds = %53, %.lr.ph.i
-  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.018.i, %53 ]
+43:                                               ; preds = %52, %.lr.ph.i
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.018.i, %52 ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %45 = getelementptr inbounds ptr, ptr %0, i64 %.018.i
-  %46 = load ptr, ptr %45, align 8, !tbaa !341
+  %44 = getelementptr inbounds ptr, ptr %0, i64 %.018.i
+  %45 = load ptr, ptr %44, align 8, !tbaa !341
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #32
-  %47 = load ptr, ptr %46, align 8, !tbaa !128
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !164
-  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %46 = load ptr, ptr %45, align 8, !tbaa !128
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %47, align 8, !tbaa !164
+  %.sroa.2.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 32
   %.sroa.2.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !3
   store ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %5, align 8
-  store i64 %.sroa.2.0.copyload.i.i.i.i.i, ptr %43, align 8
-  %49 = load ptr, ptr %3, align 8, !tbaa !128
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %.sroa.0.0.copyload.i.i2.i.i.i = load ptr, ptr %50, align 8, !tbaa !164
-  %.sroa.2.0..sroa_idx.i.i3.i.i.i = getelementptr inbounds nuw i8, ptr %49, i64 32
+  store i64 %.sroa.2.0.copyload.i.i.i.i.i, ptr %42, align 8
+  %48 = load ptr, ptr %3, align 8, !tbaa !128
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %.sroa.0.0.copyload.i.i2.i.i.i = load ptr, ptr %49, align 8, !tbaa !164
+  %.sroa.2.0..sroa_idx.i.i3.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 32
   %.sroa.2.0.copyload.i.i4.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i3.i.i.i, align 8, !tbaa !3
-  %51 = call noundef i32 @_ZNK4llvm9StringRef15compare_numericES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr %.sroa.0.0.copyload.i.i2.i.i.i, i64 %.sroa.2.0.copyload.i.i4.i.i.i) #32
-  %52 = icmp slt i32 %51, 0
+  %50 = call noundef i32 @_ZNK4llvm9StringRef15compare_numericES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr %.sroa.0.0.copyload.i.i2.i.i.i, i64 %.sroa.2.0.copyload.i.i4.i.i.i) #32
+  %51 = icmp slt i32 %50, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #32
-  br i1 %52, label %53, label %_ZSt11__push_heapIPPKN4llvm6RecordElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessRecordEEEEvT_T0_SB_T1_RT2_.exit
+  br i1 %51, label %52, label %_ZSt11__push_heapIPPKN4llvm6RecordElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessRecordEEEEvT_T0_SB_T1_RT2_.exit
 
-53:                                               ; preds = %44
-  %54 = load ptr, ptr %45, align 8, !tbaa !341
-  %55 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i
-  store ptr %54, ptr %55, align 8, !tbaa !341
-  %56 = icmp sgt i64 %.018.i, %1
-  br i1 %56, label %44, label %_ZSt11__push_heapIPPKN4llvm6RecordElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessRecordEEEEvT_T0_SB_T1_RT2_.exit, !llvm.loop !1378
+52:                                               ; preds = %43
+  %53 = load ptr, ptr %44, align 8, !tbaa !341
+  %54 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i
+  store ptr %53, ptr %54, align 8, !tbaa !341
+  %55 = icmp sgt i64 %.018.i, %1
+  br i1 %55, label %43, label %_ZSt11__push_heapIPPKN4llvm6RecordElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessRecordEEEEvT_T0_SB_T1_RT2_.exit, !llvm.loop !1378
 
-_ZSt11__push_heapIPPKN4llvm6RecordElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessRecordEEEEvT_T0_SB_T1_RT2_.exit: ; preds = %44, %53, %41
-  %.013.lcssa.i = phi i64 [ %.128, %41 ], [ %.01317.i, %44 ], [ %.018.i, %53 ]
-  %57 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
-  store ptr %3, ptr %57, align 8, !tbaa !341
+_ZSt11__push_heapIPPKN4llvm6RecordElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS0_10LessRecordEEEEvT_T0_SB_T1_RT2_.exit: ; preds = %43, %52, %40
+  %.013.lcssa.i = phi i64 [ %.128, %40 ], [ %.01317.i, %43 ], [ %.018.i, %52 ]
+  %56 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i
+  store ptr %3, ptr %56, align 8, !tbaa !341
   ret void
 }
 

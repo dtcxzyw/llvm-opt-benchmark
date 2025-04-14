@@ -1382,20 +1382,20 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_power_on_resources(ptr noun
   %3 = icmp eq ptr %0, null
   %4 = icmp ugt i32 %1, 3
   %5 = or i1 %3, %4
-  br i1 %5, label %12, label %6
+  br i1 %5, label %13, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %8 = shl nuw nsw i32 %1, 5
-  %9 = or disjoint i32 %8, 16
-  %.offs = zext nneg i32 %9 to i64
-  %10 = getelementptr i8, ptr %7, i64 %.offs
-  %11 = tail call fastcc i32 @acpi_power_on_list(ptr noundef %10)
-  br label %12
+  %9 = zext nneg i32 %8 to i64
+  %10 = getelementptr i8, ptr %7, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 16
+  %12 = tail call fastcc i32 @acpi_power_on_list(ptr noundef %11)
+  br label %13
 
-12:                                               ; preds = %6, %2
-  %13 = phi i32 [ %11, %6 ], [ -22, %2 ]
-  ret i32 %13
+13:                                               ; preds = %6, %2
+  %14 = phi i32 [ %12, %6 ], [ -22, %2 ]
+  ret i32 %14
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1403,24 +1403,24 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_power_transition(ptr nounde
   %3 = icmp eq ptr %0, null
   %4 = icmp ugt i32 %1, 4
   %5 = or i1 %3, %4
-  br i1 %5, label %35, label %6
+  br i1 %5, label %36, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %1
-  br i1 %9, label %35, label %10
+  br i1 %9, label %36, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 8
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %35, label %15
+  br i1 %14, label %36, label %15
 
 15:                                               ; preds = %10
   %16 = icmp ugt i32 %8, 4
-  br i1 %16, label %35, label %17
+  br i1 %16, label %36, label %17
 
 17:                                               ; preds = %15
   %18 = icmp samesign ult i32 %1, 4
@@ -1429,39 +1429,39 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_power_transition(ptr nounde
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %21 = shl nuw nsw i32 %1, 5
-  %22 = or disjoint i32 %21, 16
-  %.offs = zext nneg i32 %22 to i64
-  %23 = getelementptr i8, ptr %20, i64 %.offs
-  %24 = tail call fastcc i32 @acpi_power_on_list(ptr noundef %23)
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %..thread_crit_edge, label %32
+  %22 = zext nneg i32 %21 to i64
+  %23 = getelementptr i8, ptr %20, i64 %22
+  %24 = getelementptr i8, ptr %23, i64 16
+  %25 = tail call fastcc i32 @acpi_power_on_list(ptr noundef %24)
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %..thread_crit_edge, label %33
 
 ..thread_crit_edge:                               ; preds = %19
   %.pre = load i32, ptr %7, align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %17
-  %26 = phi i32 [ %.pre, %..thread_crit_edge ], [ %8, %17 ]
-  %27 = icmp slt i32 %26, 4
-  br i1 %27, label %28, label %32
+  %27 = phi i32 [ %.pre, %..thread_crit_edge ], [ %8, %17 ]
+  %28 = icmp slt i32 %27, 4
+  br i1 %28, label %29, label %33
 
-28:                                               ; preds = %.thread
-  %29 = sext i32 %26 to i64
-  %.idx = shl nsw i64 %29, 5
-  %30 = getelementptr i8, ptr %0, i64 264
-  %31 = getelementptr i8, ptr %30, i64 %.idx
-  tail call fastcc void @acpi_power_off_list(ptr noundef %31)
-  br label %32
+29:                                               ; preds = %.thread
+  %30 = sext i32 %27 to i64
+  %.idx = shl nsw i64 %30, 5
+  %31 = getelementptr i8, ptr %0, i64 264
+  %32 = getelementptr i8, ptr %31, i64 %.idx
+  tail call fastcc void @acpi_power_off_list(ptr noundef %32)
+  br label %33
 
-32:                                               ; preds = %28, %.thread, %19
-  %33 = phi i32 [ 0, %28 ], [ 0, %.thread ], [ %24, %19 ]
-  %34 = phi i32 [ %1, %28 ], [ %1, %.thread ], [ 255, %19 ]
-  store i32 %34, ptr %7, align 8
-  br label %35
+33:                                               ; preds = %29, %.thread, %19
+  %34 = phi i32 [ 0, %29 ], [ 0, %.thread ], [ %25, %19 ]
+  %35 = phi i32 [ %1, %29 ], [ %1, %.thread ], [ 255, %19 ]
+  store i32 %35, ptr %7, align 8
+  br label %36
 
-35:                                               ; preds = %32, %15, %10, %6, %2
-  %36 = phi i32 [ %33, %32 ], [ -22, %2 ], [ 0, %10 ], [ 0, %6 ], [ -19, %15 ]
-  ret i32 %36
+36:                                               ; preds = %33, %15, %10, %6, %2
+  %37 = phi i32 [ %34, %33 ], [ -22, %2 ], [ 0, %10 ], [ 0, %6 ], [ -19, %15 ]
+  ret i32 %37
 }
 
 ; Function Attrs: null_pointer_is_valid

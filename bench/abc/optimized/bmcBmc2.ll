@@ -1628,7 +1628,7 @@ define void @Saig_BmcInterval(ptr noundef initializes((112, 116)) %0) local_unna
 21:                                               ; preds = %.lr.ph59, %._crit_edge
   %.pre64 = phi ptr [ %.pre64.pre, %.lr.ph59 ], [ %.pre6468, %._crit_edge ]
   %22 = phi i32 [ %.pre, %.lr.ph59 ], [ 0, %._crit_edge ]
-  %23 = phi i32 [ %12, %.lr.ph59 ], [ %130, %._crit_edge ]
+  %23 = phi i32 [ %12, %.lr.ph59 ], [ %129, %._crit_edge ]
   %24 = icmp eq i32 %22, 0
   br i1 %24, label %25, label %29
 
@@ -1653,7 +1653,7 @@ define void @Saig_BmcInterval(ptr noundef initializes((112, 116)) %0) local_unna
 
 .lr.ph:                                           ; preds = %29, %.critedge
   %33 = phi ptr [ %.pre67, %.critedge ], [ %.pre6469, %29 ]
-  %34 = phi i32 [ %126, %.critedge ], [ %30, %29 ]
+  %34 = phi i32 [ %125, %.critedge ], [ %30, %29 ]
   %35 = load ptr, ptr %2, align 8, !tbaa !69
   %36 = getelementptr i8, ptr %35, i64 32
   %.val41 = load ptr, ptr %36, align 8, !tbaa !34
@@ -1773,75 +1773,74 @@ Aig_ManObj.exit.lr.ph:                            ; preds = %Vec_PtrPush.exit
 Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.ph, %Saig_BmcObjFrame.exit
   %.val5265 = phi i32 [ %.val5255, %Aig_ManObj.exit.lr.ph ], [ %.val52, %Saig_BmcObjFrame.exit ]
   %indvars.iv = phi i64 [ 0, %Aig_ManObj.exit.lr.ph ], [ %indvars.iv.next, %Saig_BmcObjFrame.exit ]
-  %96 = or disjoint i64 %indvars.iv, 1
-  %97 = getelementptr inbounds nuw i32, ptr %.val47, i64 %indvars.iv
-  %98 = load i32, ptr %97, align 4, !tbaa !13
-  %99 = getelementptr inbounds nuw i32, ptr %.val47, i64 %96
-  %100 = load i32, ptr %99, align 4, !tbaa !13
-  %101 = sext i32 %98 to i64
-  %102 = getelementptr inbounds ptr, ptr %.val.i, i64 %101
-  %103 = load ptr, ptr %102, align 8, !tbaa !12
-  %104 = getelementptr i8, ptr %103, i64 36
-  %.val50 = load i32, ptr %104, align 4, !tbaa !9
-  %105 = sext i32 %100 to i64
-  %106 = getelementptr inbounds ptr, ptr %.val.i53, i64 %105
-  %107 = load ptr, ptr %106, align 8, !tbaa !12
-  %108 = getelementptr i8, ptr %107, i64 8
-  %.val19.i = load ptr, ptr %108, align 8, !tbaa !65
-  %109 = sext i32 %.val50 to i64
-  %110 = getelementptr inbounds i32, ptr %.val19.i, i64 %109
-  %111 = load i32, ptr %110, align 4, !tbaa !13
-  %112 = icmp eq i32 %111, -1
-  br i1 %112, label %Saig_BmcObjFrame.exit, label %113
+  %96 = getelementptr inbounds nuw i32, ptr %.val47, i64 %indvars.iv
+  %97 = load i32, ptr %96, align 4, !tbaa !13
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 4
+  %99 = load i32, ptr %98, align 4, !tbaa !13
+  %100 = sext i32 %97 to i64
+  %101 = getelementptr inbounds ptr, ptr %.val.i, i64 %100
+  %102 = load ptr, ptr %101, align 8, !tbaa !12
+  %103 = getelementptr i8, ptr %102, i64 36
+  %.val50 = load i32, ptr %103, align 4, !tbaa !9
+  %104 = sext i32 %99 to i64
+  %105 = getelementptr inbounds ptr, ptr %.val.i53, i64 %104
+  %106 = load ptr, ptr %105, align 8, !tbaa !12
+  %107 = getelementptr i8, ptr %106, i64 8
+  %.val19.i = load ptr, ptr %107, align 8, !tbaa !65
+  %108 = sext i32 %.val50 to i64
+  %109 = getelementptr inbounds i32, ptr %.val19.i, i64 %108
+  %110 = load i32, ptr %109, align 4, !tbaa !13
+  %111 = icmp eq i32 %110, -1
+  br i1 %111, label %Saig_BmcObjFrame.exit, label %112
 
-113:                                              ; preds = %Aig_ManObj.exit
-  %114 = load ptr, ptr %2, align 8, !tbaa !69
-  %115 = getelementptr i8, ptr %114, i64 32
-  %.val20.i = load ptr, ptr %115, align 8, !tbaa !34
+112:                                              ; preds = %Aig_ManObj.exit
+  %113 = load ptr, ptr %2, align 8, !tbaa !69
+  %114 = getelementptr i8, ptr %113, i64 32
+  %.val20.i = load ptr, ptr %114, align 8, !tbaa !34
   %.not.i.i = icmp eq ptr %.val20.i, null
   br i1 %.not.i.i, label %Aig_ManObj.exit.thread.i, label %Aig_ManObj.exit.i
 
-Aig_ManObj.exit.i:                                ; preds = %113
-  %116 = ashr i32 %111, 1
-  %117 = getelementptr i8, ptr %.val20.i, i64 8
-  %.val.i.i = load ptr, ptr %117, align 8, !tbaa !3
-  %118 = sext i32 %116 to i64
-  %119 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %118
-  %120 = load ptr, ptr %119, align 8, !tbaa !12
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %Aig_ManObj.exit.thread.i, label %Saig_BmcObjFrame.exit
+Aig_ManObj.exit.i:                                ; preds = %112
+  %115 = ashr i32 %110, 1
+  %116 = getelementptr i8, ptr %.val20.i, i64 8
+  %.val.i.i = load ptr, ptr %116, align 8, !tbaa !3
+  %117 = sext i32 %115 to i64
+  %118 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %117
+  %119 = load ptr, ptr %118, align 8, !tbaa !12
+  %120 = icmp eq ptr %119, null
+  br i1 %120, label %Aig_ManObj.exit.thread.i, label %Saig_BmcObjFrame.exit
 
-Aig_ManObj.exit.thread.i:                         ; preds = %Aig_ManObj.exit.i, %113
-  store i32 -1, ptr %110, align 4, !tbaa !13
+Aig_ManObj.exit.thread.i:                         ; preds = %Aig_ManObj.exit.i, %112
+  store i32 -1, ptr %109, align 4, !tbaa !13
   %.val52.pre = load i32, ptr %89, align 4, !tbaa !68
   br label %Saig_BmcObjFrame.exit
 
 Saig_BmcObjFrame.exit:                            ; preds = %Aig_ManObj.exit.i, %Aig_ManObj.exit, %Aig_ManObj.exit.thread.i
   %.val52 = phi i32 [ %.val5265, %Aig_ManObj.exit.i ], [ %.val5265, %Aig_ManObj.exit ], [ %.val52.pre, %Aig_ManObj.exit.thread.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %122 = trunc i64 %indvars.iv.next to i32
-  %123 = or disjoint i32 %122, 1
-  %124 = icmp slt i32 %123, %.val52
-  br i1 %124, label %Aig_ManObj.exit, label %.critedge, !llvm.loop !103
+  %121 = trunc i64 %indvars.iv.next to i32
+  %122 = or disjoint i32 %121, 1
+  %123 = icmp slt i32 %122, %.val52
+  br i1 %123, label %Aig_ManObj.exit, label %.critedge, !llvm.loop !103
 
 .critedge:                                        ; preds = %Saig_BmcObjFrame.exit, %Vec_PtrPush.exit
-  %125 = load i32, ptr %16, align 8, !tbaa !101
-  %126 = add nsw i32 %125, 1
-  store i32 %126, ptr %16, align 8, !tbaa !101
-  %127 = getelementptr i8, ptr %.pre67, i64 112
-  %.val = load i32, ptr %127, align 8, !tbaa !27
-  %128 = icmp slt i32 %126, %.val
-  br i1 %128, label %.lr.ph, label %._crit_edge, !llvm.loop !104
+  %124 = load i32, ptr %16, align 8, !tbaa !101
+  %125 = add nsw i32 %124, 1
+  store i32 %125, ptr %16, align 8, !tbaa !101
+  %126 = getelementptr i8, ptr %.pre67, i64 112
+  %.val = load i32, ptr %126, align 8, !tbaa !27
+  %127 = icmp slt i32 %125, %.val
+  br i1 %127, label %.lr.ph, label %._crit_edge, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %.critedge, %29
   %.pre6468 = phi ptr [ %.pre6469, %29 ], [ %.pre67, %.critedge ]
-  %129 = load i32, ptr %11, align 4, !tbaa !99
-  %130 = add nsw i32 %129, 1
-  store i32 %130, ptr %11, align 4, !tbaa !99
+  %128 = load i32, ptr %11, align 4, !tbaa !99
+  %129 = add nsw i32 %128, 1
+  store i32 %129, ptr %11, align 4, !tbaa !99
   store i32 0, ptr %16, align 8, !tbaa !101
-  %131 = load i32, ptr %0, align 8, !tbaa !53
-  %132 = icmp slt i32 %130, %131
-  br i1 %132, label %21, label %.loopexit, !llvm.loop !105
+  %130 = load i32, ptr %0, align 8, !tbaa !53
+  %131 = icmp slt i32 %129, %130
+  br i1 %131, label %21, label %.loopexit, !llvm.loop !105
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %1
   ret void

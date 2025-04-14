@@ -843,11 +843,11 @@ define dso_local noalias noundef ptr @_build_part_info(ptr noundef %0) #5 {
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %25 = phi ptr [ %19, %.preheader.lr.ph ], [ %48, %._crit_edge ]
+  %25 = phi ptr [ %19, %.preheader.lr.ph ], [ %49, %._crit_edge ]
   %indvars.iv53 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next54, %._crit_edge ]
-  %26 = phi i32 [ %20, %.preheader.lr.ph ], [ %50, %._crit_edge ]
-  %27 = or disjoint i64 %indvars.iv53, 1
-  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %27
+  %26 = phi i32 [ %20, %.preheader.lr.ph ], [ %51, %._crit_edge ]
+  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv53
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %.not4347 = icmp sgt i32 %26, %29
   br i1 %.not4347, label %._crit_edge, label %.lr.ph.preheader
@@ -882,90 +882,91 @@ define dso_local noalias noundef ptr @_build_part_info(ptr noundef %0) #5 {
   %43 = phi ptr [ %31, %35 ], [ %.pre, %41 ]
   %44 = phi ptr [ %32, %35 ], [ %.pre, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %27
-  %46 = load i32, ptr %45, align 4
-  %47 = trunc nuw i64 %indvars.iv to i32
-  %.not43.not = icmp sgt i32 %46, %47
+  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv53
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %47 = load i32, ptr %46, align 4
+  %48 = trunc nuw i64 %indvars.iv to i32
+  %.not43.not = icmp sgt i32 %47, %48
   br i1 %.not43.not, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %42, %.lr.ph, %.preheader
-  %48 = phi ptr [ %25, %.preheader ], [ %43, %42 ], [ %31, %.lr.ph ]
+  %49 = phi ptr [ %25, %.preheader ], [ %43, %42 ], [ %31, %.lr.ph ]
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 2
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.next54
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp sgt i32 %50, -1
-  br i1 %51, label %.preheader, label %._crit_edge51, !llvm.loop !17
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.next54
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp sgt i32 %51, -1
+  br i1 %52, label %.preheader, label %._crit_edge51, !llvm.loop !17
 
 ._crit_edge51:                                    ; preds = %._crit_edge, %11
   call void @slurm_xfree(ptr noundef nonnull %2) #13
-  %52 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 51), align 1, !range !8, !noundef !9
-  %53 = trunc nuw i8 %52 to i1
-  %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8
-  %55 = and i64 %54, 8388608
-  %.not.i45 = icmp eq i64 %55, 0
-  %.0.i46 = select i1 %53, i1 true, i1 %.not.i45
-  br i1 %.0.i46, label %56, label %60
+  %53 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 51), align 1, !range !8, !noundef !9
+  %54 = trunc nuw i8 %53 to i1
+  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @params, i64 56), align 8
+  %56 = and i64 %55, 8388608
+  %.not.i45 = icmp eq i64 %56, 0
+  %.0.i46 = select i1 %54, i1 true, i1 %.not.i45
+  br i1 %.0.i46, label %57, label %61
 
-56:                                               ; preds = %._crit_edge51
-  %57 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sinfo_list_mutex) #13
-  %.not39 = icmp eq i32 %57, 0
-  br i1 %.not39, label %60, label %58
+57:                                               ; preds = %._crit_edge51
+  %58 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sinfo_list_mutex) #13
+  %.not39 = icmp eq i32 %58, 0
+  br i1 %.not39, label %61, label %59
 
-58:                                               ; preds = %56
-  %59 = tail call ptr @__errno_location() #15
-  store i32 %57, ptr %59, align 4
+59:                                               ; preds = %57
+  %60 = tail call ptr @__errno_location() #15
+  store i32 %58, ptr %60, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__._build_part_info) #14
   unreachable
 
-60:                                               ; preds = %56, %._crit_edge51
-  %61 = call i32 @pthread_mutex_lock(ptr noundef nonnull @sinfo_cnt_mutex) #13
-  %.not40 = icmp eq i32 %61, 0
-  br i1 %.not40, label %64, label %62
+61:                                               ; preds = %57, %._crit_edge51
+  %62 = call i32 @pthread_mutex_lock(ptr noundef nonnull @sinfo_cnt_mutex) #13
+  %.not40 = icmp eq i32 %62, 0
+  br i1 %.not40, label %65, label %63
 
-62:                                               ; preds = %60
-  %63 = tail call ptr @__errno_location() #15
-  store i32 %61, ptr %63, align 4
+63:                                               ; preds = %61
+  %64 = tail call ptr @__errno_location() #15
+  store i32 %62, ptr %64, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__._build_part_info) #14
   unreachable
 
-64:                                               ; preds = %60
-  %65 = load i32, ptr @sinfo_cnt, align 4
-  %66 = icmp sgt i32 %65, 0
-  br i1 %66, label %67, label %69
+65:                                               ; preds = %61
+  %66 = load i32, ptr @sinfo_cnt, align 4
+  %67 = icmp sgt i32 %66, 0
+  br i1 %67, label %68, label %70
 
-67:                                               ; preds = %64
-  %68 = add nsw i32 %65, -1
-  br label %71
+68:                                               ; preds = %65
+  %69 = add nsw i32 %66, -1
+  br label %72
 
-69:                                               ; preds = %64
-  %70 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #13
-  br label %71
+70:                                               ; preds = %65
+  %71 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.3) #13
+  br label %72
 
-71:                                               ; preds = %67, %69
-  %storemerge = phi i32 [ 0, %69 ], [ %68, %67 ]
+72:                                               ; preds = %68, %70
+  %storemerge = phi i32 [ 0, %70 ], [ %69, %68 ]
   store i32 %storemerge, ptr @sinfo_cnt, align 4
-  %72 = call i32 @pthread_cond_broadcast(ptr noundef nonnull @sinfo_cnt_cond) #13
-  %.not41 = icmp eq i32 %72, 0
-  br i1 %.not41, label %76, label %73
+  %73 = call i32 @pthread_cond_broadcast(ptr noundef nonnull @sinfo_cnt_cond) #13
+  %.not41 = icmp eq i32 %73, 0
+  br i1 %.not41, label %77, label %74
 
-73:                                               ; preds = %71
-  %74 = tail call ptr @__errno_location() #15
-  store i32 %72, ptr %74, align 4
-  %75 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 560, ptr noundef nonnull @__func__._build_part_info) #13
-  br label %76
+74:                                               ; preds = %72
+  %75 = tail call ptr @__errno_location() #15
+  store i32 %73, ptr %75, align 4
+  %76 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 560, ptr noundef nonnull @__func__._build_part_info) #13
+  br label %77
 
-76:                                               ; preds = %73, %71
-  %77 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sinfo_cnt_mutex) #13
-  %.not42 = icmp eq i32 %77, 0
-  br i1 %.not42, label %80, label %78
+77:                                               ; preds = %74, %72
+  %78 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @sinfo_cnt_mutex) #13
+  %.not42 = icmp eq i32 %78, 0
+  br i1 %.not42, label %81, label %79
 
-78:                                               ; preds = %76
-  %79 = tail call ptr @__errno_location() #15
-  store i32 %77, ptr %79, align 4
+79:                                               ; preds = %77
+  %80 = tail call ptr @__errno_location() #15
+  store i32 %78, ptr %80, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__._build_part_info) #14
   unreachable
 
-80:                                               ; preds = %76
+81:                                               ; preds = %77
   ret ptr null
 }
 

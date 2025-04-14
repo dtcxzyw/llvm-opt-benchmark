@@ -119838,6 +119838,7 @@ _ZSt26__unguarded_insertion_sortIPZN11flexbuffers7Builder6EndMapEmE8TwoValueN9__
 define linkonce_odr dso_local void @_ZSt13__adjust_heapIPZN11flexbuffers7Builder6EndMapEmE8TwoValuelS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_6EndMapEmEUlRKS2_S8_E_EEEvT_T0_SC_T1_T2_(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef byval(%struct.TwoValue) align 8 %3, ptr %4) local_unnamed_addr #4 comdat {
   %6 = add nsw i64 %2, -1
   %7 = sdiv i64 %6, 2
+  %invariant.gep = getelementptr i8, ptr %0, i64 32
   %8 = icmp slt i64 %1, %7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
@@ -119850,90 +119851,92 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIPZN11flexbuffers7Builder
   %11 = shl i64 %.030, 1
   %12 = add i64 %11, 2
   %13 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %12
-  %14 = or disjoint i64 %11, 1
-  %15 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %14
-  %16 = load ptr, ptr %4, align 8, !tbaa !764
-  %17 = load i64, ptr %13, align 8, !tbaa !13
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
-  %19 = load i64, ptr %15, align 8, !tbaa !13
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 %19
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %20) #41
-  %.not.i.i.not = icmp eq i32 %21, 0
-  br i1 %.not.i.i.not, label %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_SA_EEbT_T0_.exit
+  %gep = getelementptr %struct.TwoValue, ptr %invariant.gep, i64 %11
+  %14 = load ptr, ptr %4, align 8, !tbaa !764
+  %15 = load i64, ptr %13, align 8, !tbaa !13
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 %15
+  %17 = load i64, ptr %gep, align 8, !tbaa !13
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %17
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %18) #41
+  %.not.i.i = icmp ne i32 %19, 0
+  %.not8.i.i = icmp eq ptr %13, %gep
+  %or.cond.i.i = or i1 %.not8.i.i, %.not.i.i
+  br i1 %or.cond.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_SA_EEbT_T0_.exit, label %20
 
-22:                                               ; preds = %10
+20:                                               ; preds = %10
   store i8 1, ptr %9, align 1, !tbaa !1674
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_SA_EEbT_T0_.exit
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_SA_EEbT_T0_.exit: ; preds = %10, %22
-  %23 = icmp slt i32 %21, 0
-  %spec.select = select i1 %23, i64 %14, i64 %12
-  %24 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %spec.select
-  %25 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %.030
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false), !tbaa.struct !2449
-  %26 = icmp slt i64 %spec.select, %7
-  br i1 %26, label %10, label %._crit_edge, !llvm.loop !2459
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_SA_EEbT_T0_.exit: ; preds = %10, %20
+  %21 = icmp slt i32 %19, 0
+  %22 = or disjoint i64 %11, 1
+  %spec.select = select i1 %21, i64 %22, i64 %12
+  %23 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %spec.select
+  %24 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %.030
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false), !tbaa.struct !2449
+  %25 = icmp slt i64 %spec.select, %7
+  br i1 %25, label %10, label %._crit_edge, !llvm.loop !2459
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_SA_EEbT_T0_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_SA_EEbT_T0_.exit ]
-  %27 = and i64 %2, 1
-  %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %38
+  %26 = and i64 %2, 1
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %28, label %37
 
-29:                                               ; preds = %._crit_edge
-  %30 = add nsw i64 %2, -2
-  %31 = ashr exact i64 %30, 1
-  %32 = icmp eq i64 %.0.lcssa, %31
-  br i1 %32, label %33, label %38
+28:                                               ; preds = %._crit_edge
+  %29 = add nsw i64 %2, -2
+  %30 = ashr exact i64 %29, 1
+  %31 = icmp eq i64 %.0.lcssa, %30
+  br i1 %31, label %32, label %37
 
-33:                                               ; preds = %29
-  %34 = shl nsw i64 %.0.lcssa, 1
-  %35 = or disjoint i64 %34, 1
-  %36 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %35
-  %37 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %.0.lcssa
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false), !tbaa.struct !2449
-  br label %38
+32:                                               ; preds = %28
+  %33 = shl nsw i64 %.0.lcssa, 1
+  %34 = or disjoint i64 %33, 1
+  %35 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %34
+  %36 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %.0.lcssa
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !2449
+  br label %37
 
-38:                                               ; preds = %33, %29, %._crit_edge
-  %.127 = phi i64 [ %35, %33 ], [ %.0.lcssa, %29 ], [ %.0.lcssa, %._crit_edge ]
+37:                                               ; preds = %32, %28, %._crit_edge
+  %.127 = phi i64 [ %34, %32 ], [ %.0.lcssa, %28 ], [ %.0.lcssa, %._crit_edge ]
   %.sroa.034.0.copyload = load i64, ptr %3, align 8, !tbaa !13
-  %39 = icmp sgt i64 %.127, %1
-  br i1 %39, label %.lr.ph.i, label %_ZSt11__push_heapIPZN11flexbuffers7Builder6EndMapEmE8TwoValuelS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_6EndMapEmEUlRKS2_S8_E_EEEvT_T0_SC_T1_RT2_.exit
+  %38 = icmp sgt i64 %.127, %1
+  br i1 %38, label %.lr.ph.i, label %_ZSt11__push_heapIPZN11flexbuffers7Builder6EndMapEmE8TwoValuelS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_6EndMapEmEUlRKS2_S8_E_EEEvT_T0_SC_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %38, %48
-  %.01318.i = phi i64 [ %.019.i, %48 ], [ %.127, %38 ]
+.lr.ph.i:                                         ; preds = %37, %47
+  %.01318.i = phi i64 [ %.019.i, %47 ], [ %.127, %37 ]
   %.019.in.i = add nsw i64 %.01318.i, -1
   %.019.i = sdiv i64 %.019.in.i, 2
-  %40 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %.019.i
-  %41 = load ptr, ptr %4, align 8, !tbaa !764
-  %42 = load i64, ptr %40, align 8, !tbaa !13
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 %42
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.sroa.034.0.copyload
-  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %44) #41
-  %.not.i.i.i.not = icmp eq i32 %45, 0
+  %39 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %.019.i
+  %40 = load ptr, ptr %4, align 8, !tbaa !764
+  %41 = load i64, ptr %39, align 8, !tbaa !13
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.sroa.034.0.copyload
+  %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %43) #41
+  %.not.i.i.i.not = icmp eq i32 %44, 0
   br i1 %.not.i.i.i.not, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.thread.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.thread.i: ; preds = %.lr.ph.i
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 49
-  store i8 1, ptr %46, align 1, !tbaa !1674
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 49
+  store i8 1, ptr %45, align 1, !tbaa !1674
   br label %_ZSt11__push_heapIPZN11flexbuffers7Builder6EndMapEmE8TwoValuelS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_6EndMapEmEUlRKS2_S8_E_EEEvT_T0_SC_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.i: ; preds = %.lr.ph.i
-  %47 = icmp slt i32 %45, 0
-  br i1 %47, label %48, label %_ZSt11__push_heapIPZN11flexbuffers7Builder6EndMapEmE8TwoValuelS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_6EndMapEmEUlRKS2_S8_E_EEEvT_T0_SC_T1_RT2_.exit
+  %46 = icmp slt i32 %44, 0
+  br i1 %46, label %47, label %_ZSt11__push_heapIPZN11flexbuffers7Builder6EndMapEmE8TwoValuelS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_6EndMapEmEUlRKS2_S8_E_EEEvT_T0_SC_T1_RT2_.exit
 
-48:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.i
-  %49 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %.01318.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef nonnull align 8 dereferenceable(32) %40, i64 32, i1 false), !tbaa.struct !2449
-  %50 = icmp sgt i64 %.019.i, %1
-  br i1 %50, label %.lr.ph.i, label %_ZSt11__push_heapIPZN11flexbuffers7Builder6EndMapEmE8TwoValuelS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_6EndMapEmEUlRKS2_S8_E_EEEvT_T0_SC_T1_RT2_.exit, !llvm.loop !2460
+47:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.i
+  %48 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %.01318.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %39, i64 32, i1 false), !tbaa.struct !2449
+  %49 = icmp sgt i64 %.019.i, %1
+  br i1 %49, label %.lr.ph.i, label %_ZSt11__push_heapIPZN11flexbuffers7Builder6EndMapEmE8TwoValuelS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_6EndMapEmEUlRKS2_S8_E_EEEvT_T0_SC_T1_RT2_.exit, !llvm.loop !2460
 
-_ZSt11__push_heapIPZN11flexbuffers7Builder6EndMapEmE8TwoValuelS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_6EndMapEmEUlRKS2_S8_E_EEEvT_T0_SC_T1_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.i, %48, %38, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.thread.i
-  %.01315.i = phi i64 [ %.01318.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.thread.i ], [ %.127, %38 ], [ %.019.i, %48 ], [ %.01318.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.i ]
+_ZSt11__push_heapIPZN11flexbuffers7Builder6EndMapEmE8TwoValuelS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_6EndMapEmEUlRKS2_S8_E_EEEvT_T0_SC_T1_RT2_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.i, %47, %37, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.thread.i
+  %.01315.i = phi i64 [ %.01318.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.thread.i ], [ %.127, %37 ], [ %.019.i, %47 ], [ %.01318.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN11flexbuffers7Builder6EndMapEmEUlRKZNS3_6EndMapEmE8TwoValueS6_E_EclIPS4_S4_EEbT_RT0_.exit.i ]
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %51 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %.01315.i
-  store i64 %.sroa.034.0.copyload, ptr %51, align 8, !tbaa !13
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %50 = getelementptr inbounds %struct.TwoValue, ptr %0, i64 %.01315.i
+  store i64 %.sroa.034.0.copyload, ptr %50, align 8, !tbaa !13
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, i64 24, i1 false)
   ret void
 }

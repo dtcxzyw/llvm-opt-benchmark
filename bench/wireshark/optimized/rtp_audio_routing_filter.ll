@@ -127,7 +127,7 @@ define noundef i64 @_ZN18AudioRoutingFilter8readDataEPcx(ptr noundef readonly al
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 @_ZN9QIODevice4readEPcx(ptr noundef align 8 dereferenceable_or_null(16) %9, ptr noundef %1, i64 noundef %2)
-  br label %46
+  br label %43
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -135,7 +135,7 @@ define noundef i64 @_ZN18AudioRoutingFilter8readDataEPcx(ptr noundef readonly al
   %14 = lshr i64 %2, 1
   %15 = tail call noundef i64 @_ZN9QIODevice4readEPcx(ptr noundef align 8 dereferenceable_or_null(16) %13, ptr noundef %1, i64 noundef %14)
   %16 = icmp slt i64 %15, 1
-  br i1 %16, label %46, label %17
+  br i1 %16, label %43, label %17
 
 17:                                               ; preds = %11
   %18 = icmp samesign ugt i64 %15, 3
@@ -146,60 +146,57 @@ define noundef i64 @_ZN18AudioRoutingFilter8readDataEPcx(ptr noundef readonly al
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %22
 
-._crit_edge:                                      ; preds = %44, %17
+._crit_edge:                                      ; preds = %41, %17
   %21 = shl nuw i64 %15, 1
-  br label %46
+  br label %43
 
-22:                                               ; preds = %.lr.ph, %44
-  %.03438.in = phi i64 [ %19, %.lr.ph ], [ %.03438, %44 ]
+22:                                               ; preds = %.lr.ph, %41
+  %.03438.in = phi i64 [ %19, %.lr.ph ], [ %.03438, %41 ]
   %.03438 = add nsw i64 %.03438.in, -1
   %23 = shl nuw nsw i64 %.03438, 1
   %24 = load i32, ptr %20, align 8
   %25 = shl nuw i64 %.03438, 2
   %26 = getelementptr i8, ptr %1, i64 %25
-  switch i32 %24, label %43 [
+  switch i32 %24, label %40 [
     i32 2, label %27
-    i32 3, label %32
-    i32 4, label %37
+    i32 3, label %31
+    i32 4, label %35
   ]
 
 27:                                               ; preds = %22
   %28 = getelementptr i8, ptr %1, i64 %23
   %29 = load i16, ptr %28, align 1
   store i16 %29, ptr %26, align 1
-  %30 = or disjoint i64 %25, 2
-  %31 = getelementptr i8, ptr %1, i64 %30
-  store i16 0, ptr %31, align 1
-  br label %44
+  %30 = getelementptr i8, ptr %26, i64 2
+  store i16 0, ptr %30, align 1
+  br label %41
 
-32:                                               ; preds = %22
+31:                                               ; preds = %22
   store i16 0, ptr %26, align 1
-  %33 = or disjoint i64 %25, 2
-  %34 = getelementptr i8, ptr %1, i64 %33
-  %35 = getelementptr i8, ptr %1, i64 %23
-  %36 = load i16, ptr %35, align 1
-  store i16 %36, ptr %34, align 1
-  br label %44
+  %32 = getelementptr i8, ptr %26, i64 2
+  %33 = getelementptr i8, ptr %1, i64 %23
+  %34 = load i16, ptr %33, align 1
+  store i16 %34, ptr %32, align 1
+  br label %41
 
-37:                                               ; preds = %22
-  %38 = getelementptr i8, ptr %1, i64 %23
-  %39 = load i16, ptr %38, align 1
-  store i16 %39, ptr %26, align 1
-  %40 = or disjoint i64 %25, 2
-  %41 = getelementptr i8, ptr %1, i64 %40
-  %42 = load i16, ptr %38, align 1
-  store i16 %42, ptr %41, align 1
-  br label %44
+35:                                               ; preds = %22
+  %36 = getelementptr i8, ptr %1, i64 %23
+  %37 = load i16, ptr %36, align 1
+  store i16 %37, ptr %26, align 1
+  %38 = getelementptr i8, ptr %26, i64 2
+  %39 = load i16, ptr %36, align 1
+  store i16 %39, ptr %38, align 1
+  br label %41
 
-43:                                               ; preds = %22
+40:                                               ; preds = %22
   store i32 0, ptr %26, align 1
-  br label %44
+  br label %41
 
-44:                                               ; preds = %32, %43, %37, %27
-  %45 = icmp samesign ugt i64 %.03438.in, 2
-  br i1 %45, label %22, label %._crit_edge, !llvm.loop !8
+41:                                               ; preds = %31, %40, %35, %27
+  %42 = icmp samesign ugt i64 %.03438.in, 2
+  br i1 %42, label %22, label %._crit_edge, !llvm.loop !8
 
-46:                                               ; preds = %._crit_edge, %11, %7
+43:                                               ; preds = %._crit_edge, %11, %7
   %.0 = phi i64 [ %10, %7 ], [ %21, %._crit_edge ], [ %15, %11 ]
   ret i64 %.0
 }

@@ -498,10 +498,10 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %265 = add nsw i32 %264, -1
   store i32 %265, ptr %35, align 4, !tbaa !3
   %266 = shl i32 %42, 1
-  %267 = or disjoint i32 %266, 1
-  %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds double, ptr %44, i64 %268
-  %270 = call i32 @dlacpy_(ptr noundef nonnull @.str.12, ptr noundef nonnull %40, ptr noundef nonnull %35, ptr noundef nonnull %269, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull %14) #4
+  %267 = sext i32 %266 to i64
+  %268 = getelementptr double, ptr %44, i64 %267
+  %269 = getelementptr i8, ptr %268, i64 8
+  %270 = call i32 @dlacpy_(ptr noundef nonnull @.str.12, ptr noundef nonnull %40, ptr noundef nonnull %35, ptr noundef %269, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull %14) #4
   %271 = load i32, ptr %7, align 4, !tbaa !3
   %272 = icmp sgt i32 %271, 2
   br i1 %272, label %273, label %282
@@ -598,7 +598,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   store i32 %327, ptr %35, align 4, !tbaa !3
   %328 = sext i32 %.sink474 to i64
   %329 = getelementptr inbounds double, ptr %51, i64 %328
-  %330 = call i32 @dormqr_(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, ptr noundef nonnull %7, ptr noundef %17, ptr noundef nonnull %40, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %29, ptr noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %329, ptr noundef nonnull %35, ptr noundef nonnull %38) #4
+  %330 = call i32 @dormqr_(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, ptr noundef nonnull %7, ptr noundef %17, ptr noundef nonnull %40, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %29, ptr noundef %20, ptr noundef nonnull %21, ptr noundef nonnull %329, ptr noundef nonnull %35, ptr noundef nonnull %38) #4
   br label %331
 
 331:                                              ; preds = %.sink.split, %310
@@ -607,7 +607,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 332:                                              ; preds = %331
   %333 = call i32 @dlaset_(ptr noundef nonnull @.str.12, ptr noundef nonnull %40, ptr noundef nonnull %8, ptr noundef nonnull %37, ptr noundef nonnull %37, ptr noundef %13, ptr noundef nonnull %14) #4
-  %334 = call i32 @dlacpy_(ptr noundef nonnull @.str.11, ptr noundef nonnull %40, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull %14) #4
+  %334 = call i32 @dlacpy_(ptr noundef nonnull @.str.11, ptr noundef nonnull %40, ptr noundef nonnull %8, ptr noundef %9, ptr noundef nonnull %10, ptr noundef %13, ptr noundef nonnull %14) #4
   br label %335
 
 335:                                              ; preds = %332, %331
@@ -623,7 +623,7 @@ define noundef i32 @dgedmdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   store i32 %341, ptr %35, align 4, !tbaa !3
   %342 = sext i32 %340 to i64
   %343 = getelementptr inbounds double, ptr %51, i64 %342
-  %344 = call i32 @dorgqr_(ptr noundef nonnull %7, ptr noundef nonnull %40, ptr noundef nonnull %40, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %29, ptr noundef nonnull %343, ptr noundef nonnull %35, ptr noundef nonnull %38) #4
+  %344 = call i32 @dorgqr_(ptr noundef nonnull %7, ptr noundef nonnull %40, ptr noundef nonnull %40, ptr noundef %9, ptr noundef nonnull %10, ptr noundef nonnull %29, ptr noundef nonnull %343, ptr noundef nonnull %35, ptr noundef nonnull %38) #4
   br label %345
 
 345:                                              ; preds = %282, %335, %336, %247, %.thread, %171

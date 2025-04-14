@@ -20603,8 +20603,8 @@ define { ptr, i64 } @_ZN13wasmtime_wasi4pipe16MemoryOutputPipe3new17hbf8b1d863fe
   %9 = sub nuw nsw i64 64, %8
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 7)
   %10 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %11 = or disjoint i64 %10, 1
-  %12 = getelementptr i8, ptr null, i64 %11
+  %11 = getelementptr i8, ptr null, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   store i64 1, ptr %2, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8

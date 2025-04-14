@@ -308,11 +308,11 @@ define hidden void @av1_free_restoration_buffers(ptr noundef %0) local_unnamed_a
 10:                                               ; preds = %5, %10
   %indvars.iv19 = phi i64 [ 0, %5 ], [ %indvars.iv.next20, %10 ]
   %11 = shl nuw nsw i64 %indvars.iv19, 6
-  %12 = or disjoint i64 %11, 32
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %12
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @aom_free(ptr noundef %14) #4
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %16 = load ptr, ptr %15, align 8
   tail call void @aom_free(ptr noundef %16) #4
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1

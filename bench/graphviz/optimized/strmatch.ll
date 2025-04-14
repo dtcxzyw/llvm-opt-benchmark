@@ -159,15 +159,14 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly ca
 
 60:                                               ; preds = %52, %55
   %61 = phi i64 [ %59, %55 ], [ 0, %52 ]
-  %62 = shl nuw nsw i64 %indvars.iv, 1
-  %63 = getelementptr inbounds nuw i64, ptr %2, i64 %62
-  store i64 %61, ptr %63, align 8, !tbaa !18
-  %64 = ptrtoint ptr %54 to i64
-  %65 = sub i64 %64, %51
-  %66 = select i1 %.not48, i64 0, i64 %65
-  %67 = or disjoint i64 %62, 1
-  %68 = getelementptr inbounds nuw i64, ptr %2, i64 %67
-  store i64 %66, ptr %68, align 8, !tbaa !18
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  store i64 %61, ptr %62, align 8, !tbaa !18
+  %63 = ptrtoint ptr %54 to i64
+  %64 = sub i64 %63, %51
+  %65 = select i1 %.not48, i64 0, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store i64 %65, ptr %66, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %52, !llvm.loop !20

@@ -10108,211 +10108,213 @@ define linkonce_odr void @_ZSt13__adjust_heapIPN5clang6format17WhitespaceManager
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31
-  %.032 = phi i64 [ %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31 ], [ %1, %5 ]
+  %.032 = phi i64 [ %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31 ], [ %1, %5 ]
   %10 = shl i64 %.032, 1
   %11 = add i64 %10, 2
   %12 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %11
-  %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %15, align 4, !tbaa !9
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %.sroa.0.0.copyload.i10.i.i = load i32, ptr %16, align 4, !tbaa !9
-  %17 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.sroa.0.0.copyload.i.i.i, i32 %.sroa.0.0.copyload.i10.i.i) #21
-  br i1 %17, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread, label %18
+  %13 = getelementptr %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %10
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %14, align 4, !tbaa !9
+  %15 = getelementptr i8, ptr %13, i64 148
+  %.sroa.0.0.copyload.i10.i.i = load i32, ptr %15, align 4, !tbaa !9
+  %16 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.sroa.0.0.copyload.i.i.i, i32 %.sroa.0.0.copyload.i10.i.i) #21
+  br i1 %16, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread, label %18
+
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread: ; preds = %.lr.ph
+  %17 = or disjoint i64 %10, 1
+  br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31
 
 18:                                               ; preds = %.lr.ph
-  %.sroa.0.0.copyload.i11.i.i = load i32, ptr %15, align 4, !tbaa !9
-  %.sroa.0.0.copyload.i12.i.i = load i32, ptr %16, align 4, !tbaa !9
+  %.sroa.0.0.copyload.i11.i.i = load i32, ptr %14, align 4, !tbaa !9
+  %.sroa.0.0.copyload.i12.i.i = load i32, ptr %15, align 4, !tbaa !9
   %19 = icmp eq i32 %.sroa.0.0.copyload.i11.i.i, %.sroa.0.0.copyload.i12.i.i
   br i1 %19, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit: ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sroa.0.0.copyload.i13.i.i = load i32, ptr %20, align 4, !tbaa !9
-  %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %21 = getelementptr i8, ptr %13, i64 152
   %.sroa.0.0.copyload.i14.i.i = load i32, ptr %21, align 4, !tbaa !9
   %22 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.sroa.0.0.copyload.i13.i.i, i32 %.sroa.0.0.copyload.i14.i.i) #21
-  br i1 %22, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31
-
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit
+  %23 = or disjoint i64 %10, 1
+  %spec.select = select i1 %22, i64 %23, i64 %11
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31
 
-_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31: ; preds = %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread
-  %23 = phi i64 [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit ], [ %11, %18 ]
-  %24 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %23
-  %25 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.032
-  %26 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clang6format17WhitespaceManager6ChangeaSEOS2_(ptr noundef nonnull align 8 dereferenceable(136) %25, ptr noundef nonnull align 8 dereferenceable(136) %24) #21
-  %27 = icmp slt i64 %23, %8
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !546
+_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit, %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread
+  %24 = phi i64 [ %17, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread ], [ %11, %18 ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit ]
+  %25 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %24
+  %26 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.032
+  %27 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clang6format17WhitespaceManager6ChangeaSEOS2_(ptr noundef nonnull align 8 dereferenceable(136) %26, ptr noundef nonnull align 8 dereferenceable(136) %25) #21
+  %28 = icmp slt i64 %24, %8
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !546
 
 ._crit_edge:                                      ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31, %5
-  %.0.lcssa = phi i64 [ %1, %5 ], [ %23, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31 ]
-  %28 = and i64 %2, 1
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %40
+  %.0.lcssa = phi i64 [ %1, %5 ], [ %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S9_EEbT_T0_.exit.thread31 ]
+  %29 = and i64 %2, 1
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %31, label %41
 
-30:                                               ; preds = %._crit_edge
-  %31 = add nsw i64 %2, -2
-  %32 = ashr exact i64 %31, 1
-  %33 = icmp eq i64 %.0.lcssa, %32
-  br i1 %33, label %34, label %40
+31:                                               ; preds = %._crit_edge
+  %32 = add nsw i64 %2, -2
+  %33 = ashr exact i64 %32, 1
+  %34 = icmp eq i64 %.0.lcssa, %33
+  br i1 %34, label %35, label %41
 
-34:                                               ; preds = %30
-  %35 = shl nsw i64 %.0.lcssa, 1
-  %36 = or disjoint i64 %35, 1
-  %37 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %36
-  %38 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.0.lcssa
-  %39 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clang6format17WhitespaceManager6ChangeaSEOS2_(ptr noundef nonnull align 8 dereferenceable(136) %38, ptr noundef nonnull align 8 dereferenceable(136) %37) #21
-  br label %40
+35:                                               ; preds = %31
+  %36 = shl nsw i64 %.0.lcssa, 1
+  %37 = or disjoint i64 %36, 1
+  %38 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %37
+  %39 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.0.lcssa
+  %40 = tail call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clang6format17WhitespaceManager6ChangeaSEOS2_(ptr noundef nonnull align 8 dereferenceable(136) %39, ptr noundef nonnull align 8 dereferenceable(136) %38) #21
+  br label %41
 
-40:                                               ; preds = %34, %30, %._crit_edge
-  %.127 = phi i64 [ %36, %34 ], [ %.0.lcssa, %30 ], [ %.0.lcssa, %._crit_edge ]
+41:                                               ; preds = %35, %31, %._crit_edge
+  %.127 = phi i64 [ %37, %35 ], [ %.0.lcssa, %31 ], [ %.0.lcssa, %._crit_edge ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %6, ptr noundef nonnull align 8 dereferenceable(136) %3, i64 28, i1 false)
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %43, ptr %41, align 8, !tbaa !28
-  %44 = load ptr, ptr %42, align 8, !tbaa !30
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %46 = icmp eq ptr %44, %45
-  br i1 %46, label %47, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store ptr %44, ptr %42, align 8, !tbaa !28
+  %45 = load ptr, ptr %43, align 8, !tbaa !30
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %47 = icmp eq ptr %45, %46
+  br i1 %47, label %48, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-47:                                               ; preds = %40
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %49 = load i64, ptr %48, align 8, !tbaa !32
-  %50 = icmp ult i64 %49, 16
-  call void @llvm.assume(i1 %50)
-  %51 = add nuw nsw i64 %49, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %43, ptr noundef nonnull align 8 dereferenceable(1) %45, i64 %51, i1 false)
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %50 = load i64, ptr %49, align 8, !tbaa !32
+  %51 = icmp ult i64 %50, 16
+  call void @llvm.assume(i1 %51)
+  %52 = add nuw nsw i64 %50, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %44, ptr noundef nonnull align 8 dereferenceable(1) %46, i64 %52, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %40
-  store ptr %44, ptr %41, align 8, !tbaa !30
-  %52 = load i64, ptr %45, align 8, !tbaa !31
-  store i64 %52, ptr %43, align 8, !tbaa !31
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %41
+  store ptr %45, ptr %42, align 8, !tbaa !30
+  %53 = load i64, ptr %46, align 8, !tbaa !31
+  store i64 %53, ptr %44, align 8, !tbaa !31
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !32
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %47
-  %53 = phi i64 [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %49, %47 ]
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 %53, ptr %55, align 8, !tbaa !32
-  store ptr %45, ptr %42, align 8, !tbaa !30
-  store i64 0, ptr %54, align 8, !tbaa !32
-  store i8 0, ptr %45, align 1, !tbaa !31
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store ptr %58, ptr %56, align 8, !tbaa !28
-  %59 = load ptr, ptr %57, align 8, !tbaa !30
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %61 = icmp eq ptr %59, %60
-  br i1 %61, label %62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i5.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %48
+  %54 = phi i64 [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ], [ %50, %48 ]
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i64 %54, ptr %56, align 8, !tbaa !32
+  store ptr %46, ptr %43, align 8, !tbaa !30
+  store i64 0, ptr %55, align 8, !tbaa !32
+  store i8 0, ptr %46, align 1, !tbaa !31
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store ptr %59, ptr %57, align 8, !tbaa !28
+  %60 = load ptr, ptr %58, align 8, !tbaa !30
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %62 = icmp eq ptr %60, %61
+  br i1 %62, label %63, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i5.i
 
-62:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %64 = load i64, ptr %63, align 8, !tbaa !32
-  %65 = icmp ult i64 %64, 16
-  call void @llvm.assume(i1 %65)
-  %66 = add nuw nsw i64 %64, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %58, ptr noundef nonnull align 8 dereferenceable(1) %60, i64 %66, i1 false)
+63:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %65 = load i64, ptr %64, align 8, !tbaa !32
+  %66 = icmp ult i64 %65, 16
+  call void @llvm.assume(i1 %66)
+  %67 = add nuw nsw i64 %65, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %59, ptr noundef nonnull align 8 dereferenceable(1) %61, i64 %67, i1 false)
   br label %_ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i5.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
-  store ptr %59, ptr %56, align 8, !tbaa !30
-  %67 = load i64, ptr %60, align 8, !tbaa !31
-  store i64 %67, ptr %58, align 8, !tbaa !31
+  store ptr %60, ptr %57, align 8, !tbaa !30
+  %68 = load i64, ptr %61, align 8, !tbaa !31
+  store i64 %68, ptr %59, align 8, !tbaa !31
   %.phi.trans.insert33 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %.pre34 = load i64, ptr %.phi.trans.insert33, align 8, !tbaa !32
   br label %_ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit
 
-_ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit: ; preds = %62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i5.i
-  %68 = phi i64 [ %64, %62 ], [ %.pre34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i5.i ]
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %70 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i64 %68, ptr %70, align 8, !tbaa !32
-  store ptr %60, ptr %57, align 8, !tbaa !30
-  store i64 0, ptr %69, align 8, !tbaa !32
-  store i8 0, ptr %60, align 1, !tbaa !31
-  %71 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 8 dereferenceable(40) %72, i64 40, i1 false)
-  %73 = icmp sgt i64 %.127, %1
-  br i1 %73, label %.lr.ph.i, label %_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit
+_ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit: ; preds = %63, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i5.i
+  %69 = phi i64 [ %65, %63 ], [ %.pre34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i5.i ]
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store i64 %69, ptr %71, align 8, !tbaa !32
+  store ptr %61, ptr %58, align 8, !tbaa !30
+  store i64 0, ptr %70, align 8, !tbaa !32
+  store i8 0, ptr %61, align 1, !tbaa !31
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %73, i64 40, i1 false)
+  %74 = icmp sgt i64 %.127, %1
+  br i1 %74, label %.lr.ph.i, label %_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit
 
 .lr.ph.i:                                         ; preds = %_ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %75 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  br label %76
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  br label %77
 
-76:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i, %.lr.ph.i
+77:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i, %.lr.ph.i
   %.01317.i = phi i64 [ %.127, %.lr.ph.i ], [ %.018.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %77 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.018.i
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 12
-  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %78, align 4, !tbaa !9
-  %.sroa.0.0.copyload.i10.i.i.i = load i32, ptr %74, align 4, !tbaa !9
-  %79 = call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.sroa.0.0.copyload.i.i.i.i, i32 %.sroa.0.0.copyload.i10.i.i.i) #21
-  br i1 %79, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i, label %80
+  %78 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.018.i
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 12
+  %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %79, align 4, !tbaa !9
+  %.sroa.0.0.copyload.i10.i.i.i = load i32, ptr %75, align 4, !tbaa !9
+  %80 = call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.sroa.0.0.copyload.i.i.i.i, i32 %.sroa.0.0.copyload.i10.i.i.i) #21
+  br i1 %80, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i, label %81
 
-80:                                               ; preds = %76
-  %.sroa.0.0.copyload.i11.i.i.i = load i32, ptr %78, align 4, !tbaa !9
-  %.sroa.0.0.copyload.i12.i.i.i = load i32, ptr %74, align 4, !tbaa !9
-  %81 = icmp eq i32 %.sroa.0.0.copyload.i11.i.i.i, %.sroa.0.0.copyload.i12.i.i.i
-  br i1 %81, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.i, label %_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit
+81:                                               ; preds = %77
+  %.sroa.0.0.copyload.i11.i.i.i = load i32, ptr %79, align 4, !tbaa !9
+  %.sroa.0.0.copyload.i12.i.i.i = load i32, ptr %75, align 4, !tbaa !9
+  %82 = icmp eq i32 %.sroa.0.0.copyload.i11.i.i.i, %.sroa.0.0.copyload.i12.i.i.i
+  br i1 %82, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.i, label %_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.i: ; preds = %80
-  %82 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  %.sroa.0.0.copyload.i13.i.i.i = load i32, ptr %82, align 4, !tbaa !9
-  %.sroa.0.0.copyload.i14.i.i.i = load i32, ptr %75, align 8, !tbaa !9
-  %83 = call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.sroa.0.0.copyload.i13.i.i.i, i32 %.sroa.0.0.copyload.i14.i.i.i) #21
-  br i1 %83, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.i: ; preds = %81
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %.sroa.0.0.copyload.i13.i.i.i = load i32, ptr %83, align 4, !tbaa !9
+  %.sroa.0.0.copyload.i14.i.i.i = load i32, ptr %76, align 8, !tbaa !9
+  %84 = call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %.sroa.0.0.copyload.i13.i.i.i, i32 %.sroa.0.0.copyload.i14.i.i.i) #21
+  br i1 %84, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit
 
-_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.i, %76
-  %84 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.01317.i
-  %85 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clang6format17WhitespaceManager6ChangeaSEOS2_(ptr noundef nonnull align 8 dereferenceable(136) %84, ptr noundef nonnull align 8 dereferenceable(136) %77) #21
-  %86 = icmp sgt i64 %.018.i, %1
-  br i1 %86, label %76, label %_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit, !llvm.loop !547
+_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.i, %77
+  %85 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.01317.i
+  %86 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clang6format17WhitespaceManager6ChangeaSEOS2_(ptr noundef nonnull align 8 dereferenceable(136) %85, ptr noundef nonnull align 8 dereferenceable(136) %78) #21
+  %87 = icmp sgt i64 %.018.i, %1
+  br i1 %87, label %77, label %_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit, !llvm.loop !547
 
-_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit: ; preds = %80, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i, %_ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit
-  %.013.lcssa.i = phi i64 [ %.127, %_ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit ], [ %.01317.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.i ], [ %.018.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i ], [ %.01317.i, %80 ]
-  %87 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.013.lcssa.i
-  %88 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clang6format17WhitespaceManager6ChangeaSEOS2_(ptr noundef nonnull align 8 dereferenceable(136) %87, ptr noundef nonnull align 8 dereferenceable(136) %6) #21
-  %89 = load ptr, ptr %56, align 8, !tbaa !30
-  %90 = icmp eq ptr %89, %58
-  br i1 %90, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit: ; preds = %81, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i, %_ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit
+  %.013.lcssa.i = phi i64 [ %.127, %_ZN5clang6format17WhitespaceManager6ChangeC2EOS2_.exit ], [ %.01317.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.i ], [ %.018.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang6format17WhitespaceManager6Change14IsBeforeInFileEEclIPS5_S5_EEbT_RT0_.exit.thread.i ], [ %.01317.i, %81 ]
+  %88 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.013.lcssa.i
+  %89 = call noundef nonnull align 8 dereferenceable(136) ptr @_ZN5clang6format17WhitespaceManager6ChangeaSEOS2_(ptr noundef nonnull align 8 dereferenceable(136) %88, ptr noundef nonnull align 8 dereferenceable(136) %6) #21
+  %90 = load ptr, ptr %57, align 8, !tbaa !30
+  %91 = icmp eq ptr %90, %59
+  br i1 %91, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit
-  %91 = load i64, ptr %70, align 8, !tbaa !32
-  %92 = icmp ult i64 %91, 16
-  call void @llvm.assume(i1 %92)
+  %92 = load i64, ptr %71, align 8, !tbaa !32
+  %93 = icmp ult i64 %92, 16
+  call void @llvm.assume(i1 %93)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZSt11__push_heapIPN5clang6format17WhitespaceManager6ChangeElS3_N9__gnu_cxx5__ops14_Iter_comp_valINS3_14IsBeforeInFileEEEEvT_T0_SB_T1_RT2_.exit
-  %93 = load i64, ptr %58, align 8, !tbaa !31
-  %94 = add i64 %93, 1
-  call void @_ZdlPvm(ptr noundef %89, i64 noundef %94) #23
+  %94 = load i64, ptr %59, align 8, !tbaa !31
+  %95 = add i64 %94, 1
+  call void @_ZdlPvm(ptr noundef %90, i64 noundef %95) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  %95 = load ptr, ptr %41, align 8, !tbaa !30
-  %96 = icmp eq ptr %95, %43
-  br i1 %96, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
+  %96 = load ptr, ptr %42, align 8, !tbaa !30
+  %97 = icmp eq ptr %96, %44
+  br i1 %97, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %97 = load i64, ptr %55, align 8, !tbaa !32
-  %98 = icmp ult i64 %97, 16
-  call void @llvm.assume(i1 %98)
+  %98 = load i64, ptr %56, align 8, !tbaa !32
+  %99 = icmp ult i64 %98, 16
+  call void @llvm.assume(i1 %99)
   br label %_ZN5clang6format17WhitespaceManager6ChangeD2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %99 = load i64, ptr %43, align 8, !tbaa !31
-  %100 = add i64 %99, 1
-  call void @_ZdlPvm(ptr noundef %95, i64 noundef %100) #23
+  %100 = load i64, ptr %44, align 8, !tbaa !31
+  %101 = add i64 %100, 1
+  call void @_ZdlPvm(ptr noundef %96, i64 noundef %101) #23
   br label %_ZN5clang6format17WhitespaceManager6ChangeD2Ev.exit
 
 _ZN5clang6format17WhitespaceManager6ChangeD2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i

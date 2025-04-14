@@ -688,8 +688,8 @@ sha256_update.exit462:                            ; preds = %273, %274
 
 ._crit_edge510:                                   ; preds = %._crit_edge504
   %364 = zext nneg i32 %.0393.lcssa to i64
-  %365 = or disjoint i64 %364, 768
-  %scevgep520 = getelementptr i8, ptr %0, i64 %365
+  %365 = getelementptr i8, ptr %0, i64 %364
+  %scevgep520 = getelementptr i8, ptr %365, i64 768
   %366 = sub nuw nsw i64 64, %364
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep520, i8 0, i64 %366, i1 false), !tbaa !18
   %367 = add i64 %.0378, 64

@@ -5347,21 +5347,21 @@ if.end:                                           ; preds = %entry
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 96
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 136
   %8 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
-  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
+  %i.07.i.i.i.i = phi i64 [ 0, %if.end ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
-  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !4
@@ -5382,27 +5382,27 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i4.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i, align 8
   %my_size.i.i.i5.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
+  %invariant.gep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
-for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i7.i
+  %my_embedded_segment.ptr.i.i.i14.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
   %my_table11.i.i.i15.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 712
-  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
+  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
-  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
+  %i.07.i.i.i8.i = phi i64 [ 0, %invoke.cont4.i ], [ %inc.i.i.i11.i, %for.body.i.i.i7.i ]
   %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
-  %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
-  %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
-  store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
-  %inc.i.i.i12.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
-  %cmp.not.i.i.i13.i = icmp eq i64 %inc.i.i.i12.i, 2
-  br i1 %cmp.not.i.i.i13.i, label %for.cond4.preheader.i.i.i14.i, label %for.body.i.i.i7.i, !llvm.loop !7
+  %gep.i.i.i10.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
+  store atomic i64 0, ptr %gep.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i7.i, !llvm.loop !7
 
-for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i14.i
-  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
+for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
   %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
   %arrayidx12.i.i.i19.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.31"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
   %11 = select i1 %cmp7.i.i.i18.i, i64 %10, i64 0
@@ -5457,27 +5457,27 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   %my_mask.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call26, i64 88
   store i64 1, ptr %my_mask.i.i.i.i21, align 8
   %my_size.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call26, i64 96
-  %my_embedded_segment.ptr.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 104
+  %invariant.gep.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i22, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i24
 
-for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
+for.cond4.preheader.i.i.i.i30:                    ; preds = %for.body.i.i.i.i24
+  %my_embedded_segment.ptr.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %call26, i64 104
   %my_table11.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call26, i64 136
-  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i23 to i64
+  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i31 to i64
   br label %for.body6.i.i.i.i33
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
-  %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
+  %i.07.i.i.i.i25 = phi i64 [ 0, %.noexc ], [ %inc.i.i.i.i28, %for.body.i.i.i.i24 ]
   %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
-  %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
-  %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
-  store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
-  %inc.i.i.i.i29 = add nuw nsw i64 %i.07.i.i.i.i25, 1
-  %cmp.not.i.i.i.i30 = icmp eq i64 %inc.i.i.i.i29, 2
-  br i1 %cmp.not.i.i.i.i30, label %for.cond4.preheader.i.i.i.i31, label %for.body.i.i.i.i24, !llvm.loop !15
+  %gep.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i23, i64 %node_list.idx.i.i.i.i26
+  store atomic i64 0, ptr %gep.i.i.i.i27 monotonic, align 8
+  %inc.i.i.i.i28 = add nuw nsw i64 %i.07.i.i.i.i25, 1
+  %cmp.not.i.i.i.i29 = icmp eq i64 %inc.i.i.i.i28, 2
+  br i1 %cmp.not.i.i.i.i29, label %for.cond4.preheader.i.i.i.i30, label %for.body.i.i.i.i24, !llvm.loop !15
 
-for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i31
-  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i31 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
+for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i30
+  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i30 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
   %cmp7.i.i.i.i35 = icmp eq i64 %segment_index.08.i.i.i.i34, 0
   %arrayidx12.i.i.i.i36 = getelementptr inbounds nuw [64 x %"struct.std::atomic.54"], ptr %my_table11.i.i.i.i32, i64 0, i64 %segment_index.08.i.i.i.i34
   %18 = select i1 %cmp7.i.i.i.i35, i64 %17, i64 0
@@ -5492,27 +5492,27 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i33
   %my_mask.i.i.i4.i40 = getelementptr inbounds nuw i8, ptr %call26, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i40, align 8
   %my_size.i.i.i5.i41 = getelementptr inbounds nuw i8, ptr %call26, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 680
+  %invariant.gep.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i41, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i43
 
-for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
+for.cond4.preheader.i.i.i13.i49:                  ; preds = %for.body.i.i.i7.i43
+  %my_embedded_segment.ptr.i.i.i14.i50 = getelementptr inbounds nuw i8, ptr %call26, i64 680
   %my_table11.i.i.i15.i51 = getelementptr inbounds nuw i8, ptr %call26, i64 712
-  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i42 to i64
+  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i50 to i64
   br label %for.body6.i.i.i16.i52
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
-  %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
+  %i.07.i.i.i8.i44 = phi i64 [ 0, %invoke.cont3.i ], [ %inc.i.i.i11.i47, %for.body.i.i.i7.i43 ]
   %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
-  %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
-  %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
-  store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
-  %inc.i.i.i12.i48 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
-  %cmp.not.i.i.i13.i49 = icmp eq i64 %inc.i.i.i12.i48, 2
-  br i1 %cmp.not.i.i.i13.i49, label %for.cond4.preheader.i.i.i14.i50, label %for.body.i.i.i7.i43, !llvm.loop !17
+  %gep.i.i.i10.i46 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i42, i64 %node_list.idx.i.i.i9.i45
+  store atomic i64 0, ptr %gep.i.i.i10.i46 monotonic, align 8
+  %inc.i.i.i11.i47 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
+  %cmp.not.i.i.i12.i48 = icmp eq i64 %inc.i.i.i11.i47, 2
+  br i1 %cmp.not.i.i.i12.i48, label %for.cond4.preheader.i.i.i13.i49, label %for.body.i.i.i7.i43, !llvm.loop !17
 
-for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i14.i50
-  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i50 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
+for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i13.i49
+  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i49 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
   %cmp7.i.i.i18.i54 = icmp eq i64 %segment_index.08.i.i.i17.i53, 0
   %arrayidx12.i.i.i19.i55 = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table11.i.i.i15.i51, i64 0, i64 %segment_index.08.i.i.i17.i53
   %20 = select i1 %cmp7.i.i.i18.i54, i64 %19, i64 0
@@ -7745,21 +7745,21 @@ if.end:                                           ; preds = %entry
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 96
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 136
   %8 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
-  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
+  %i.07.i.i.i.i = phi i64 [ 0, %if.end ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
-  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !4
@@ -7780,27 +7780,27 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i4.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i, align 8
   %my_size.i.i.i5.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
+  %invariant.gep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
-for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i7.i
+  %my_embedded_segment.ptr.i.i.i14.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
   %my_table11.i.i.i15.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 712
-  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
+  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
-  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
+  %i.07.i.i.i8.i = phi i64 [ 0, %invoke.cont4.i ], [ %inc.i.i.i11.i, %for.body.i.i.i7.i ]
   %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
-  %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
-  %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
-  store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
-  %inc.i.i.i12.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
-  %cmp.not.i.i.i13.i = icmp eq i64 %inc.i.i.i12.i, 2
-  br i1 %cmp.not.i.i.i13.i, label %for.cond4.preheader.i.i.i14.i, label %for.body.i.i.i7.i, !llvm.loop !7
+  %gep.i.i.i10.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
+  store atomic i64 0, ptr %gep.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i7.i, !llvm.loop !7
 
-for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i14.i
-  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
+for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
   %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
   %arrayidx12.i.i.i19.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.31"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
   %11 = select i1 %cmp7.i.i.i18.i, i64 %10, i64 0
@@ -7855,27 +7855,27 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   %my_mask.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call26, i64 88
   store i64 1, ptr %my_mask.i.i.i.i21, align 8
   %my_size.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call26, i64 96
-  %my_embedded_segment.ptr.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 104
+  %invariant.gep.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i22, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i24
 
-for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
+for.cond4.preheader.i.i.i.i30:                    ; preds = %for.body.i.i.i.i24
+  %my_embedded_segment.ptr.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %call26, i64 104
   %my_table11.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call26, i64 136
-  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i23 to i64
+  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i31 to i64
   br label %for.body6.i.i.i.i33
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
-  %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
+  %i.07.i.i.i.i25 = phi i64 [ 0, %.noexc ], [ %inc.i.i.i.i28, %for.body.i.i.i.i24 ]
   %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
-  %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
-  %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
-  store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
-  %inc.i.i.i.i29 = add nuw nsw i64 %i.07.i.i.i.i25, 1
-  %cmp.not.i.i.i.i30 = icmp eq i64 %inc.i.i.i.i29, 2
-  br i1 %cmp.not.i.i.i.i30, label %for.cond4.preheader.i.i.i.i31, label %for.body.i.i.i.i24, !llvm.loop !15
+  %gep.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i23, i64 %node_list.idx.i.i.i.i26
+  store atomic i64 0, ptr %gep.i.i.i.i27 monotonic, align 8
+  %inc.i.i.i.i28 = add nuw nsw i64 %i.07.i.i.i.i25, 1
+  %cmp.not.i.i.i.i29 = icmp eq i64 %inc.i.i.i.i28, 2
+  br i1 %cmp.not.i.i.i.i29, label %for.cond4.preheader.i.i.i.i30, label %for.body.i.i.i.i24, !llvm.loop !15
 
-for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i31
-  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i31 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
+for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i30
+  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i30 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
   %cmp7.i.i.i.i35 = icmp eq i64 %segment_index.08.i.i.i.i34, 0
   %arrayidx12.i.i.i.i36 = getelementptr inbounds nuw [64 x %"struct.std::atomic.54"], ptr %my_table11.i.i.i.i32, i64 0, i64 %segment_index.08.i.i.i.i34
   %18 = select i1 %cmp7.i.i.i.i35, i64 %17, i64 0
@@ -7890,27 +7890,27 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i33
   %my_mask.i.i.i4.i40 = getelementptr inbounds nuw i8, ptr %call26, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i40, align 8
   %my_size.i.i.i5.i41 = getelementptr inbounds nuw i8, ptr %call26, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 680
+  %invariant.gep.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i41, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i43
 
-for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
+for.cond4.preheader.i.i.i13.i49:                  ; preds = %for.body.i.i.i7.i43
+  %my_embedded_segment.ptr.i.i.i14.i50 = getelementptr inbounds nuw i8, ptr %call26, i64 680
   %my_table11.i.i.i15.i51 = getelementptr inbounds nuw i8, ptr %call26, i64 712
-  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i42 to i64
+  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i50 to i64
   br label %for.body6.i.i.i16.i52
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
-  %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
+  %i.07.i.i.i8.i44 = phi i64 [ 0, %invoke.cont3.i ], [ %inc.i.i.i11.i47, %for.body.i.i.i7.i43 ]
   %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
-  %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
-  %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
-  store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
-  %inc.i.i.i12.i48 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
-  %cmp.not.i.i.i13.i49 = icmp eq i64 %inc.i.i.i12.i48, 2
-  br i1 %cmp.not.i.i.i13.i49, label %for.cond4.preheader.i.i.i14.i50, label %for.body.i.i.i7.i43, !llvm.loop !17
+  %gep.i.i.i10.i46 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i42, i64 %node_list.idx.i.i.i9.i45
+  store atomic i64 0, ptr %gep.i.i.i10.i46 monotonic, align 8
+  %inc.i.i.i11.i47 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
+  %cmp.not.i.i.i12.i48 = icmp eq i64 %inc.i.i.i11.i47, 2
+  br i1 %cmp.not.i.i.i12.i48, label %for.cond4.preheader.i.i.i13.i49, label %for.body.i.i.i7.i43, !llvm.loop !17
 
-for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i14.i50
-  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i50 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
+for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i13.i49
+  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i49 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
   %cmp7.i.i.i18.i54 = icmp eq i64 %segment_index.08.i.i.i17.i53, 0
   %arrayidx12.i.i.i19.i55 = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table11.i.i.i15.i51, i64 0, i64 %segment_index.08.i.i.i17.i53
   %20 = select i1 %cmp7.i.i.i18.i54, i64 %19, i64 0
@@ -8572,21 +8572,21 @@ if.end:                                           ; preds = %entry
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 96
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 136
   %8 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
-  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
+  %i.07.i.i.i.i = phi i64 [ 0, %if.end ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
-  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !4
@@ -8607,27 +8607,27 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i4.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i, align 8
   %my_size.i.i.i5.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
+  %invariant.gep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
-for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i7.i
+  %my_embedded_segment.ptr.i.i.i14.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
   %my_table11.i.i.i15.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 712
-  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
+  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
-  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
+  %i.07.i.i.i8.i = phi i64 [ 0, %invoke.cont4.i ], [ %inc.i.i.i11.i, %for.body.i.i.i7.i ]
   %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
-  %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
-  %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
-  store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
-  %inc.i.i.i12.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
-  %cmp.not.i.i.i13.i = icmp eq i64 %inc.i.i.i12.i, 2
-  br i1 %cmp.not.i.i.i13.i, label %for.cond4.preheader.i.i.i14.i, label %for.body.i.i.i7.i, !llvm.loop !7
+  %gep.i.i.i10.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
+  store atomic i64 0, ptr %gep.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i7.i, !llvm.loop !7
 
-for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i14.i
-  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
+for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
   %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
   %arrayidx12.i.i.i19.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.31"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
   %11 = select i1 %cmp7.i.i.i18.i, i64 %10, i64 0
@@ -8682,27 +8682,27 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   %my_mask.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call26, i64 88
   store i64 1, ptr %my_mask.i.i.i.i21, align 8
   %my_size.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call26, i64 96
-  %my_embedded_segment.ptr.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 104
+  %invariant.gep.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i22, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i24
 
-for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
+for.cond4.preheader.i.i.i.i30:                    ; preds = %for.body.i.i.i.i24
+  %my_embedded_segment.ptr.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %call26, i64 104
   %my_table11.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call26, i64 136
-  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i23 to i64
+  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i31 to i64
   br label %for.body6.i.i.i.i33
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
-  %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
+  %i.07.i.i.i.i25 = phi i64 [ 0, %.noexc ], [ %inc.i.i.i.i28, %for.body.i.i.i.i24 ]
   %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
-  %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
-  %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
-  store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
-  %inc.i.i.i.i29 = add nuw nsw i64 %i.07.i.i.i.i25, 1
-  %cmp.not.i.i.i.i30 = icmp eq i64 %inc.i.i.i.i29, 2
-  br i1 %cmp.not.i.i.i.i30, label %for.cond4.preheader.i.i.i.i31, label %for.body.i.i.i.i24, !llvm.loop !15
+  %gep.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i23, i64 %node_list.idx.i.i.i.i26
+  store atomic i64 0, ptr %gep.i.i.i.i27 monotonic, align 8
+  %inc.i.i.i.i28 = add nuw nsw i64 %i.07.i.i.i.i25, 1
+  %cmp.not.i.i.i.i29 = icmp eq i64 %inc.i.i.i.i28, 2
+  br i1 %cmp.not.i.i.i.i29, label %for.cond4.preheader.i.i.i.i30, label %for.body.i.i.i.i24, !llvm.loop !15
 
-for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i31
-  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i31 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
+for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i30
+  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i30 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
   %cmp7.i.i.i.i35 = icmp eq i64 %segment_index.08.i.i.i.i34, 0
   %arrayidx12.i.i.i.i36 = getelementptr inbounds nuw [64 x %"struct.std::atomic.54"], ptr %my_table11.i.i.i.i32, i64 0, i64 %segment_index.08.i.i.i.i34
   %18 = select i1 %cmp7.i.i.i.i35, i64 %17, i64 0
@@ -8717,27 +8717,27 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i33
   %my_mask.i.i.i4.i40 = getelementptr inbounds nuw i8, ptr %call26, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i40, align 8
   %my_size.i.i.i5.i41 = getelementptr inbounds nuw i8, ptr %call26, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 680
+  %invariant.gep.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i41, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i43
 
-for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
+for.cond4.preheader.i.i.i13.i49:                  ; preds = %for.body.i.i.i7.i43
+  %my_embedded_segment.ptr.i.i.i14.i50 = getelementptr inbounds nuw i8, ptr %call26, i64 680
   %my_table11.i.i.i15.i51 = getelementptr inbounds nuw i8, ptr %call26, i64 712
-  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i42 to i64
+  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i50 to i64
   br label %for.body6.i.i.i16.i52
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
-  %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
+  %i.07.i.i.i8.i44 = phi i64 [ 0, %invoke.cont3.i ], [ %inc.i.i.i11.i47, %for.body.i.i.i7.i43 ]
   %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
-  %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
-  %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
-  store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
-  %inc.i.i.i12.i48 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
-  %cmp.not.i.i.i13.i49 = icmp eq i64 %inc.i.i.i12.i48, 2
-  br i1 %cmp.not.i.i.i13.i49, label %for.cond4.preheader.i.i.i14.i50, label %for.body.i.i.i7.i43, !llvm.loop !17
+  %gep.i.i.i10.i46 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i42, i64 %node_list.idx.i.i.i9.i45
+  store atomic i64 0, ptr %gep.i.i.i10.i46 monotonic, align 8
+  %inc.i.i.i11.i47 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
+  %cmp.not.i.i.i12.i48 = icmp eq i64 %inc.i.i.i11.i47, 2
+  br i1 %cmp.not.i.i.i12.i48, label %for.cond4.preheader.i.i.i13.i49, label %for.body.i.i.i7.i43, !llvm.loop !17
 
-for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i14.i50
-  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i50 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
+for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i13.i49
+  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i49 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
   %cmp7.i.i.i18.i54 = icmp eq i64 %segment_index.08.i.i.i17.i53, 0
   %arrayidx12.i.i.i19.i55 = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table11.i.i.i15.i51, i64 0, i64 %segment_index.08.i.i.i17.i53
   %20 = select i1 %cmp7.i.i.i18.i54, i64 %19, i64 0
@@ -9399,21 +9399,21 @@ if.end:                                           ; preds = %entry
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 96
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 136
   %8 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
-  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
+  %i.07.i.i.i.i = phi i64 [ 0, %if.end ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
-  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !4
@@ -9434,27 +9434,27 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i4.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i, align 8
   %my_size.i.i.i5.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
+  %invariant.gep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
-for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i7.i
+  %my_embedded_segment.ptr.i.i.i14.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
   %my_table11.i.i.i15.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 712
-  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
+  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
-  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
+  %i.07.i.i.i8.i = phi i64 [ 0, %invoke.cont4.i ], [ %inc.i.i.i11.i, %for.body.i.i.i7.i ]
   %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
-  %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
-  %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
-  store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
-  %inc.i.i.i12.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
-  %cmp.not.i.i.i13.i = icmp eq i64 %inc.i.i.i12.i, 2
-  br i1 %cmp.not.i.i.i13.i, label %for.cond4.preheader.i.i.i14.i, label %for.body.i.i.i7.i, !llvm.loop !7
+  %gep.i.i.i10.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
+  store atomic i64 0, ptr %gep.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i7.i, !llvm.loop !7
 
-for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i14.i
-  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
+for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
   %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
   %arrayidx12.i.i.i19.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.31"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
   %11 = select i1 %cmp7.i.i.i18.i, i64 %10, i64 0
@@ -9509,27 +9509,27 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   %my_mask.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call26, i64 88
   store i64 1, ptr %my_mask.i.i.i.i21, align 8
   %my_size.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call26, i64 96
-  %my_embedded_segment.ptr.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 104
+  %invariant.gep.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i22, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i24
 
-for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
+for.cond4.preheader.i.i.i.i30:                    ; preds = %for.body.i.i.i.i24
+  %my_embedded_segment.ptr.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %call26, i64 104
   %my_table11.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call26, i64 136
-  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i23 to i64
+  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i31 to i64
   br label %for.body6.i.i.i.i33
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
-  %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
+  %i.07.i.i.i.i25 = phi i64 [ 0, %.noexc ], [ %inc.i.i.i.i28, %for.body.i.i.i.i24 ]
   %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
-  %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
-  %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
-  store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
-  %inc.i.i.i.i29 = add nuw nsw i64 %i.07.i.i.i.i25, 1
-  %cmp.not.i.i.i.i30 = icmp eq i64 %inc.i.i.i.i29, 2
-  br i1 %cmp.not.i.i.i.i30, label %for.cond4.preheader.i.i.i.i31, label %for.body.i.i.i.i24, !llvm.loop !15
+  %gep.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i23, i64 %node_list.idx.i.i.i.i26
+  store atomic i64 0, ptr %gep.i.i.i.i27 monotonic, align 8
+  %inc.i.i.i.i28 = add nuw nsw i64 %i.07.i.i.i.i25, 1
+  %cmp.not.i.i.i.i29 = icmp eq i64 %inc.i.i.i.i28, 2
+  br i1 %cmp.not.i.i.i.i29, label %for.cond4.preheader.i.i.i.i30, label %for.body.i.i.i.i24, !llvm.loop !15
 
-for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i31
-  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i31 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
+for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i30
+  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i30 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
   %cmp7.i.i.i.i35 = icmp eq i64 %segment_index.08.i.i.i.i34, 0
   %arrayidx12.i.i.i.i36 = getelementptr inbounds nuw [64 x %"struct.std::atomic.54"], ptr %my_table11.i.i.i.i32, i64 0, i64 %segment_index.08.i.i.i.i34
   %18 = select i1 %cmp7.i.i.i.i35, i64 %17, i64 0
@@ -9544,27 +9544,27 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i33
   %my_mask.i.i.i4.i40 = getelementptr inbounds nuw i8, ptr %call26, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i40, align 8
   %my_size.i.i.i5.i41 = getelementptr inbounds nuw i8, ptr %call26, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 680
+  %invariant.gep.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i41, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i43
 
-for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
+for.cond4.preheader.i.i.i13.i49:                  ; preds = %for.body.i.i.i7.i43
+  %my_embedded_segment.ptr.i.i.i14.i50 = getelementptr inbounds nuw i8, ptr %call26, i64 680
   %my_table11.i.i.i15.i51 = getelementptr inbounds nuw i8, ptr %call26, i64 712
-  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i42 to i64
+  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i50 to i64
   br label %for.body6.i.i.i16.i52
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
-  %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
+  %i.07.i.i.i8.i44 = phi i64 [ 0, %invoke.cont3.i ], [ %inc.i.i.i11.i47, %for.body.i.i.i7.i43 ]
   %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
-  %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
-  %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
-  store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
-  %inc.i.i.i12.i48 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
-  %cmp.not.i.i.i13.i49 = icmp eq i64 %inc.i.i.i12.i48, 2
-  br i1 %cmp.not.i.i.i13.i49, label %for.cond4.preheader.i.i.i14.i50, label %for.body.i.i.i7.i43, !llvm.loop !17
+  %gep.i.i.i10.i46 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i42, i64 %node_list.idx.i.i.i9.i45
+  store atomic i64 0, ptr %gep.i.i.i10.i46 monotonic, align 8
+  %inc.i.i.i11.i47 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
+  %cmp.not.i.i.i12.i48 = icmp eq i64 %inc.i.i.i11.i47, 2
+  br i1 %cmp.not.i.i.i12.i48, label %for.cond4.preheader.i.i.i13.i49, label %for.body.i.i.i7.i43, !llvm.loop !17
 
-for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i14.i50
-  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i50 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
+for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i13.i49
+  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i49 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
   %cmp7.i.i.i18.i54 = icmp eq i64 %segment_index.08.i.i.i17.i53, 0
   %arrayidx12.i.i.i19.i55 = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table11.i.i.i15.i51, i64 0, i64 %segment_index.08.i.i.i17.i53
   %20 = select i1 %cmp7.i.i.i18.i54, i64 %19, i64 0
@@ -10226,21 +10226,21 @@ if.end:                                           ; preds = %entry
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 96
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 136
   %8 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
-  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
+  %i.07.i.i.i.i = phi i64 [ 0, %if.end ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
-  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !4
@@ -10261,27 +10261,27 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i4.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i, align 8
   %my_size.i.i.i5.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
+  %invariant.gep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
-for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i7.i
+  %my_embedded_segment.ptr.i.i.i14.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
   %my_table11.i.i.i15.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 712
-  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
+  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
-  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
+  %i.07.i.i.i8.i = phi i64 [ 0, %invoke.cont4.i ], [ %inc.i.i.i11.i, %for.body.i.i.i7.i ]
   %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
-  %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
-  %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
-  store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
-  %inc.i.i.i12.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
-  %cmp.not.i.i.i13.i = icmp eq i64 %inc.i.i.i12.i, 2
-  br i1 %cmp.not.i.i.i13.i, label %for.cond4.preheader.i.i.i14.i, label %for.body.i.i.i7.i, !llvm.loop !7
+  %gep.i.i.i10.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
+  store atomic i64 0, ptr %gep.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i7.i, !llvm.loop !7
 
-for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i14.i
-  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
+for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
   %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
   %arrayidx12.i.i.i19.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.31"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
   %11 = select i1 %cmp7.i.i.i18.i, i64 %10, i64 0
@@ -10336,27 +10336,27 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   %my_mask.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call26, i64 88
   store i64 1, ptr %my_mask.i.i.i.i21, align 8
   %my_size.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call26, i64 96
-  %my_embedded_segment.ptr.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 104
+  %invariant.gep.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i22, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i24
 
-for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
+for.cond4.preheader.i.i.i.i30:                    ; preds = %for.body.i.i.i.i24
+  %my_embedded_segment.ptr.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %call26, i64 104
   %my_table11.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call26, i64 136
-  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i23 to i64
+  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i31 to i64
   br label %for.body6.i.i.i.i33
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
-  %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
+  %i.07.i.i.i.i25 = phi i64 [ 0, %.noexc ], [ %inc.i.i.i.i28, %for.body.i.i.i.i24 ]
   %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
-  %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
-  %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
-  store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
-  %inc.i.i.i.i29 = add nuw nsw i64 %i.07.i.i.i.i25, 1
-  %cmp.not.i.i.i.i30 = icmp eq i64 %inc.i.i.i.i29, 2
-  br i1 %cmp.not.i.i.i.i30, label %for.cond4.preheader.i.i.i.i31, label %for.body.i.i.i.i24, !llvm.loop !15
+  %gep.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i23, i64 %node_list.idx.i.i.i.i26
+  store atomic i64 0, ptr %gep.i.i.i.i27 monotonic, align 8
+  %inc.i.i.i.i28 = add nuw nsw i64 %i.07.i.i.i.i25, 1
+  %cmp.not.i.i.i.i29 = icmp eq i64 %inc.i.i.i.i28, 2
+  br i1 %cmp.not.i.i.i.i29, label %for.cond4.preheader.i.i.i.i30, label %for.body.i.i.i.i24, !llvm.loop !15
 
-for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i31
-  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i31 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
+for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i30
+  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i30 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
   %cmp7.i.i.i.i35 = icmp eq i64 %segment_index.08.i.i.i.i34, 0
   %arrayidx12.i.i.i.i36 = getelementptr inbounds nuw [64 x %"struct.std::atomic.54"], ptr %my_table11.i.i.i.i32, i64 0, i64 %segment_index.08.i.i.i.i34
   %18 = select i1 %cmp7.i.i.i.i35, i64 %17, i64 0
@@ -10371,27 +10371,27 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i33
   %my_mask.i.i.i4.i40 = getelementptr inbounds nuw i8, ptr %call26, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i40, align 8
   %my_size.i.i.i5.i41 = getelementptr inbounds nuw i8, ptr %call26, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 680
+  %invariant.gep.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i41, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i43
 
-for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
+for.cond4.preheader.i.i.i13.i49:                  ; preds = %for.body.i.i.i7.i43
+  %my_embedded_segment.ptr.i.i.i14.i50 = getelementptr inbounds nuw i8, ptr %call26, i64 680
   %my_table11.i.i.i15.i51 = getelementptr inbounds nuw i8, ptr %call26, i64 712
-  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i42 to i64
+  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i50 to i64
   br label %for.body6.i.i.i16.i52
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
-  %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
+  %i.07.i.i.i8.i44 = phi i64 [ 0, %invoke.cont3.i ], [ %inc.i.i.i11.i47, %for.body.i.i.i7.i43 ]
   %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
-  %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
-  %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
-  store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
-  %inc.i.i.i12.i48 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
-  %cmp.not.i.i.i13.i49 = icmp eq i64 %inc.i.i.i12.i48, 2
-  br i1 %cmp.not.i.i.i13.i49, label %for.cond4.preheader.i.i.i14.i50, label %for.body.i.i.i7.i43, !llvm.loop !17
+  %gep.i.i.i10.i46 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i42, i64 %node_list.idx.i.i.i9.i45
+  store atomic i64 0, ptr %gep.i.i.i10.i46 monotonic, align 8
+  %inc.i.i.i11.i47 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
+  %cmp.not.i.i.i12.i48 = icmp eq i64 %inc.i.i.i11.i47, 2
+  br i1 %cmp.not.i.i.i12.i48, label %for.cond4.preheader.i.i.i13.i49, label %for.body.i.i.i7.i43, !llvm.loop !17
 
-for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i14.i50
-  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i50 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
+for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i13.i49
+  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i49 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
   %cmp7.i.i.i18.i54 = icmp eq i64 %segment_index.08.i.i.i17.i53, 0
   %arrayidx12.i.i.i19.i55 = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table11.i.i.i15.i51, i64 0, i64 %segment_index.08.i.i.i17.i53
   %20 = select i1 %cmp7.i.i.i18.i54, i64 %19, i64 0
@@ -11053,21 +11053,21 @@ if.end:                                           ; preds = %entry
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 96
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 136
   %8 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
-  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
+  %i.07.i.i.i.i = phi i64 [ 0, %if.end ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
-  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !4
@@ -11088,27 +11088,27 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i4.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i, align 8
   %my_size.i.i.i5.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
+  %invariant.gep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
-for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i7.i
+  %my_embedded_segment.ptr.i.i.i14.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
   %my_table11.i.i.i15.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 712
-  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
+  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont3.i
-  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont3.i ]
+  %i.07.i.i.i8.i = phi i64 [ 0, %invoke.cont3.i ], [ %inc.i.i.i11.i, %for.body.i.i.i7.i ]
   %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
-  %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
-  %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
-  store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
-  %inc.i.i.i12.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
-  %cmp.not.i.i.i13.i = icmp eq i64 %inc.i.i.i12.i, 2
-  br i1 %cmp.not.i.i.i13.i, label %for.cond4.preheader.i.i.i14.i, label %for.body.i.i.i7.i, !llvm.loop !7
+  %gep.i.i.i10.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
+  store atomic i64 0, ptr %gep.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i7.i, !llvm.loop !7
 
-for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i14.i
-  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
+for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
   %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
   %arrayidx12.i.i.i19.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.31"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
   %11 = select i1 %cmp7.i.i.i18.i, i64 %10, i64 0
@@ -11163,27 +11163,27 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   %my_mask.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call26, i64 88
   store i64 1, ptr %my_mask.i.i.i.i21, align 8
   %my_size.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call26, i64 96
-  %my_embedded_segment.ptr.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 104
+  %invariant.gep.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i22, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i24
 
-for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
+for.cond4.preheader.i.i.i.i30:                    ; preds = %for.body.i.i.i.i24
+  %my_embedded_segment.ptr.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %call26, i64 104
   %my_table11.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call26, i64 136
-  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i23 to i64
+  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i31 to i64
   br label %for.body6.i.i.i.i33
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
-  %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
+  %i.07.i.i.i.i25 = phi i64 [ 0, %.noexc ], [ %inc.i.i.i.i28, %for.body.i.i.i.i24 ]
   %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
-  %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
-  %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
-  store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
-  %inc.i.i.i.i29 = add nuw nsw i64 %i.07.i.i.i.i25, 1
-  %cmp.not.i.i.i.i30 = icmp eq i64 %inc.i.i.i.i29, 2
-  br i1 %cmp.not.i.i.i.i30, label %for.cond4.preheader.i.i.i.i31, label %for.body.i.i.i.i24, !llvm.loop !15
+  %gep.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i23, i64 %node_list.idx.i.i.i.i26
+  store atomic i64 0, ptr %gep.i.i.i.i27 monotonic, align 8
+  %inc.i.i.i.i28 = add nuw nsw i64 %i.07.i.i.i.i25, 1
+  %cmp.not.i.i.i.i29 = icmp eq i64 %inc.i.i.i.i28, 2
+  br i1 %cmp.not.i.i.i.i29, label %for.cond4.preheader.i.i.i.i30, label %for.body.i.i.i.i24, !llvm.loop !15
 
-for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i31
-  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i31 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
+for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i30
+  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i30 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
   %cmp7.i.i.i.i35 = icmp eq i64 %segment_index.08.i.i.i.i34, 0
   %arrayidx12.i.i.i.i36 = getelementptr inbounds nuw [64 x %"struct.std::atomic.54"], ptr %my_table11.i.i.i.i32, i64 0, i64 %segment_index.08.i.i.i.i34
   %18 = select i1 %cmp7.i.i.i.i35, i64 %17, i64 0
@@ -11198,27 +11198,27 @@ invoke.cont3.i39:                                 ; preds = %for.body6.i.i.i.i33
   %my_mask.i.i.i4.i41 = getelementptr inbounds nuw i8, ptr %call26, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i41, align 8
   %my_size.i.i.i5.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i43 = getelementptr inbounds nuw i8, ptr %call26, i64 680
+  %invariant.gep.i.i.i6.i43 = getelementptr inbounds nuw i8, ptr %call26, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i42, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i44
 
-for.cond4.preheader.i.i.i14.i51:                  ; preds = %for.body.i.i.i7.i44
+for.cond4.preheader.i.i.i13.i50:                  ; preds = %for.body.i.i.i7.i44
+  %my_embedded_segment.ptr.i.i.i14.i51 = getelementptr inbounds nuw i8, ptr %call26, i64 680
   %my_table11.i.i.i15.i52 = getelementptr inbounds nuw i8, ptr %call26, i64 712
-  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i43 to i64
+  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i51 to i64
   br label %for.body6.i.i.i16.i53
 
 for.body.i.i.i7.i44:                              ; preds = %for.body.i.i.i7.i44, %invoke.cont3.i39
-  %i.07.i.i.i8.i45 = phi i64 [ %inc.i.i.i12.i49, %for.body.i.i.i7.i44 ], [ 0, %invoke.cont3.i39 ]
+  %i.07.i.i.i8.i45 = phi i64 [ 0, %invoke.cont3.i39 ], [ %inc.i.i.i11.i48, %for.body.i.i.i7.i44 ]
   %node_list.idx.i.i.i9.i46 = shl nuw nsw i64 %i.07.i.i.i8.i45, 4
-  %node_list.offs.i.i.i10.i47 = or disjoint i64 %node_list.idx.i.i.i9.i46, 8
-  %node_list.i.i.i11.i48 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i43, i64 %node_list.offs.i.i.i10.i47
-  store atomic i64 0, ptr %node_list.i.i.i11.i48 monotonic, align 8
-  %inc.i.i.i12.i49 = add nuw nsw i64 %i.07.i.i.i8.i45, 1
-  %cmp.not.i.i.i13.i50 = icmp eq i64 %inc.i.i.i12.i49, 2
-  br i1 %cmp.not.i.i.i13.i50, label %for.cond4.preheader.i.i.i14.i51, label %for.body.i.i.i7.i44, !llvm.loop !17
+  %gep.i.i.i10.i47 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i43, i64 %node_list.idx.i.i.i9.i46
+  store atomic i64 0, ptr %gep.i.i.i10.i47 monotonic, align 8
+  %inc.i.i.i11.i48 = add nuw nsw i64 %i.07.i.i.i8.i45, 1
+  %cmp.not.i.i.i12.i49 = icmp eq i64 %inc.i.i.i11.i48, 2
+  br i1 %cmp.not.i.i.i12.i49, label %for.cond4.preheader.i.i.i13.i50, label %for.body.i.i.i7.i44, !llvm.loop !17
 
-for.body6.i.i.i16.i53:                            ; preds = %for.body6.i.i.i16.i53, %for.cond4.preheader.i.i.i14.i51
-  %segment_index.08.i.i.i17.i54 = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i51 ], [ %inc14.i.i.i20.i57, %for.body6.i.i.i16.i53 ]
+for.body6.i.i.i16.i53:                            ; preds = %for.body6.i.i.i16.i53, %for.cond4.preheader.i.i.i13.i50
+  %segment_index.08.i.i.i17.i54 = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i50 ], [ %inc14.i.i.i20.i57, %for.body6.i.i.i16.i53 ]
   %cmp7.i.i.i18.i55 = icmp eq i64 %segment_index.08.i.i.i17.i54, 0
   %arrayidx12.i.i.i19.i56 = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table11.i.i.i15.i52, i64 0, i64 %segment_index.08.i.i.i17.i54
   %20 = select i1 %cmp7.i.i.i18.i55, i64 %19, i64 0
@@ -11880,21 +11880,21 @@ if.end:                                           ; preds = %entry
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 96
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 136
   %8 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
-  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
+  %i.07.i.i.i.i = phi i64 [ 0, %if.end ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
-  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !4
@@ -11915,27 +11915,27 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i4.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i, align 8
   %my_size.i.i.i5.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
+  %invariant.gep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
-for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i7.i
+  %my_embedded_segment.ptr.i.i.i14.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
   %my_table11.i.i.i15.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 712
-  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
+  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
-  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
+  %i.07.i.i.i8.i = phi i64 [ 0, %invoke.cont4.i ], [ %inc.i.i.i11.i, %for.body.i.i.i7.i ]
   %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
-  %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
-  %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
-  store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
-  %inc.i.i.i12.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
-  %cmp.not.i.i.i13.i = icmp eq i64 %inc.i.i.i12.i, 2
-  br i1 %cmp.not.i.i.i13.i, label %for.cond4.preheader.i.i.i14.i, label %for.body.i.i.i7.i, !llvm.loop !7
+  %gep.i.i.i10.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
+  store atomic i64 0, ptr %gep.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i7.i, !llvm.loop !7
 
-for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i14.i
-  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
+for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
   %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
   %arrayidx12.i.i.i19.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.31"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
   %11 = select i1 %cmp7.i.i.i18.i, i64 %10, i64 0
@@ -11990,27 +11990,27 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   %my_mask.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call26, i64 88
   store i64 1, ptr %my_mask.i.i.i.i21, align 8
   %my_size.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call26, i64 96
-  %my_embedded_segment.ptr.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 104
+  %invariant.gep.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i22, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i24
 
-for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
+for.cond4.preheader.i.i.i.i30:                    ; preds = %for.body.i.i.i.i24
+  %my_embedded_segment.ptr.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %call26, i64 104
   %my_table11.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call26, i64 136
-  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i23 to i64
+  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i31 to i64
   br label %for.body6.i.i.i.i33
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
-  %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
+  %i.07.i.i.i.i25 = phi i64 [ 0, %.noexc ], [ %inc.i.i.i.i28, %for.body.i.i.i.i24 ]
   %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
-  %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
-  %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
-  store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
-  %inc.i.i.i.i29 = add nuw nsw i64 %i.07.i.i.i.i25, 1
-  %cmp.not.i.i.i.i30 = icmp eq i64 %inc.i.i.i.i29, 2
-  br i1 %cmp.not.i.i.i.i30, label %for.cond4.preheader.i.i.i.i31, label %for.body.i.i.i.i24, !llvm.loop !15
+  %gep.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i23, i64 %node_list.idx.i.i.i.i26
+  store atomic i64 0, ptr %gep.i.i.i.i27 monotonic, align 8
+  %inc.i.i.i.i28 = add nuw nsw i64 %i.07.i.i.i.i25, 1
+  %cmp.not.i.i.i.i29 = icmp eq i64 %inc.i.i.i.i28, 2
+  br i1 %cmp.not.i.i.i.i29, label %for.cond4.preheader.i.i.i.i30, label %for.body.i.i.i.i24, !llvm.loop !15
 
-for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i31
-  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i31 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
+for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i30
+  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i30 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
   %cmp7.i.i.i.i35 = icmp eq i64 %segment_index.08.i.i.i.i34, 0
   %arrayidx12.i.i.i.i36 = getelementptr inbounds nuw [64 x %"struct.std::atomic.54"], ptr %my_table11.i.i.i.i32, i64 0, i64 %segment_index.08.i.i.i.i34
   %18 = select i1 %cmp7.i.i.i.i35, i64 %17, i64 0
@@ -12025,27 +12025,27 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i33
   %my_mask.i.i.i4.i40 = getelementptr inbounds nuw i8, ptr %call26, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i40, align 8
   %my_size.i.i.i5.i41 = getelementptr inbounds nuw i8, ptr %call26, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 680
+  %invariant.gep.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i41, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i43
 
-for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
+for.cond4.preheader.i.i.i13.i49:                  ; preds = %for.body.i.i.i7.i43
+  %my_embedded_segment.ptr.i.i.i14.i50 = getelementptr inbounds nuw i8, ptr %call26, i64 680
   %my_table11.i.i.i15.i51 = getelementptr inbounds nuw i8, ptr %call26, i64 712
-  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i42 to i64
+  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i50 to i64
   br label %for.body6.i.i.i16.i52
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
-  %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
+  %i.07.i.i.i8.i44 = phi i64 [ 0, %invoke.cont3.i ], [ %inc.i.i.i11.i47, %for.body.i.i.i7.i43 ]
   %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
-  %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
-  %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
-  store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
-  %inc.i.i.i12.i48 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
-  %cmp.not.i.i.i13.i49 = icmp eq i64 %inc.i.i.i12.i48, 2
-  br i1 %cmp.not.i.i.i13.i49, label %for.cond4.preheader.i.i.i14.i50, label %for.body.i.i.i7.i43, !llvm.loop !17
+  %gep.i.i.i10.i46 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i42, i64 %node_list.idx.i.i.i9.i45
+  store atomic i64 0, ptr %gep.i.i.i10.i46 monotonic, align 8
+  %inc.i.i.i11.i47 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
+  %cmp.not.i.i.i12.i48 = icmp eq i64 %inc.i.i.i11.i47, 2
+  br i1 %cmp.not.i.i.i12.i48, label %for.cond4.preheader.i.i.i13.i49, label %for.body.i.i.i7.i43, !llvm.loop !17
 
-for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i14.i50
-  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i50 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
+for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i13.i49
+  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i49 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
   %cmp7.i.i.i18.i54 = icmp eq i64 %segment_index.08.i.i.i17.i53, 0
   %arrayidx12.i.i.i19.i55 = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table11.i.i.i15.i51, i64 0, i64 %segment_index.08.i.i.i17.i53
   %20 = select i1 %cmp7.i.i.i18.i54, i64 %19, i64 0
@@ -12707,21 +12707,21 @@ if.end:                                           ; preds = %entry
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 96
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 136
   %8 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
-  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
+  %i.07.i.i.i.i = phi i64 [ 0, %if.end ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
-  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !4
@@ -12742,27 +12742,27 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i4.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i, align 8
   %my_size.i.i.i5.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
+  %invariant.gep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
-for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i7.i
+  %my_embedded_segment.ptr.i.i.i14.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
   %my_table11.i.i.i15.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 712
-  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
+  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
-  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
+  %i.07.i.i.i8.i = phi i64 [ 0, %invoke.cont4.i ], [ %inc.i.i.i11.i, %for.body.i.i.i7.i ]
   %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
-  %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
-  %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
-  store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
-  %inc.i.i.i12.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
-  %cmp.not.i.i.i13.i = icmp eq i64 %inc.i.i.i12.i, 2
-  br i1 %cmp.not.i.i.i13.i, label %for.cond4.preheader.i.i.i14.i, label %for.body.i.i.i7.i, !llvm.loop !7
+  %gep.i.i.i10.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
+  store atomic i64 0, ptr %gep.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i7.i, !llvm.loop !7
 
-for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i14.i
-  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
+for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
   %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
   %arrayidx12.i.i.i19.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.31"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
   %11 = select i1 %cmp7.i.i.i18.i, i64 %10, i64 0
@@ -12817,27 +12817,27 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   %my_mask.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call26, i64 88
   store i64 1, ptr %my_mask.i.i.i.i21, align 8
   %my_size.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call26, i64 96
-  %my_embedded_segment.ptr.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 104
+  %invariant.gep.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i22, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i24
 
-for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
+for.cond4.preheader.i.i.i.i30:                    ; preds = %for.body.i.i.i.i24
+  %my_embedded_segment.ptr.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %call26, i64 104
   %my_table11.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call26, i64 136
-  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i23 to i64
+  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i31 to i64
   br label %for.body6.i.i.i.i33
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
-  %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
+  %i.07.i.i.i.i25 = phi i64 [ 0, %.noexc ], [ %inc.i.i.i.i28, %for.body.i.i.i.i24 ]
   %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
-  %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
-  %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
-  store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
-  %inc.i.i.i.i29 = add nuw nsw i64 %i.07.i.i.i.i25, 1
-  %cmp.not.i.i.i.i30 = icmp eq i64 %inc.i.i.i.i29, 2
-  br i1 %cmp.not.i.i.i.i30, label %for.cond4.preheader.i.i.i.i31, label %for.body.i.i.i.i24, !llvm.loop !15
+  %gep.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i23, i64 %node_list.idx.i.i.i.i26
+  store atomic i64 0, ptr %gep.i.i.i.i27 monotonic, align 8
+  %inc.i.i.i.i28 = add nuw nsw i64 %i.07.i.i.i.i25, 1
+  %cmp.not.i.i.i.i29 = icmp eq i64 %inc.i.i.i.i28, 2
+  br i1 %cmp.not.i.i.i.i29, label %for.cond4.preheader.i.i.i.i30, label %for.body.i.i.i.i24, !llvm.loop !15
 
-for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i31
-  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i31 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
+for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i30
+  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i30 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
   %cmp7.i.i.i.i35 = icmp eq i64 %segment_index.08.i.i.i.i34, 0
   %arrayidx12.i.i.i.i36 = getelementptr inbounds nuw [64 x %"struct.std::atomic.54"], ptr %my_table11.i.i.i.i32, i64 0, i64 %segment_index.08.i.i.i.i34
   %18 = select i1 %cmp7.i.i.i.i35, i64 %17, i64 0
@@ -12852,27 +12852,27 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i33
   %my_mask.i.i.i4.i40 = getelementptr inbounds nuw i8, ptr %call26, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i40, align 8
   %my_size.i.i.i5.i41 = getelementptr inbounds nuw i8, ptr %call26, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 680
+  %invariant.gep.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i41, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i43
 
-for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
+for.cond4.preheader.i.i.i13.i49:                  ; preds = %for.body.i.i.i7.i43
+  %my_embedded_segment.ptr.i.i.i14.i50 = getelementptr inbounds nuw i8, ptr %call26, i64 680
   %my_table11.i.i.i15.i51 = getelementptr inbounds nuw i8, ptr %call26, i64 712
-  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i42 to i64
+  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i50 to i64
   br label %for.body6.i.i.i16.i52
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
-  %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
+  %i.07.i.i.i8.i44 = phi i64 [ 0, %invoke.cont3.i ], [ %inc.i.i.i11.i47, %for.body.i.i.i7.i43 ]
   %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
-  %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
-  %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
-  store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
-  %inc.i.i.i12.i48 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
-  %cmp.not.i.i.i13.i49 = icmp eq i64 %inc.i.i.i12.i48, 2
-  br i1 %cmp.not.i.i.i13.i49, label %for.cond4.preheader.i.i.i14.i50, label %for.body.i.i.i7.i43, !llvm.loop !17
+  %gep.i.i.i10.i46 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i42, i64 %node_list.idx.i.i.i9.i45
+  store atomic i64 0, ptr %gep.i.i.i10.i46 monotonic, align 8
+  %inc.i.i.i11.i47 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
+  %cmp.not.i.i.i12.i48 = icmp eq i64 %inc.i.i.i11.i47, 2
+  br i1 %cmp.not.i.i.i12.i48, label %for.cond4.preheader.i.i.i13.i49, label %for.body.i.i.i7.i43, !llvm.loop !17
 
-for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i14.i50
-  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i50 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
+for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i13.i49
+  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i49 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
   %cmp7.i.i.i18.i54 = icmp eq i64 %segment_index.08.i.i.i17.i53, 0
   %arrayidx12.i.i.i19.i55 = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table11.i.i.i15.i51, i64 0, i64 %segment_index.08.i.i.i17.i53
   %20 = select i1 %cmp7.i.i.i18.i54, i64 %19, i64 0
@@ -13534,21 +13534,21 @@ if.end:                                           ; preds = %entry
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 96
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 136
   %8 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
-  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
+  %i.07.i.i.i.i = phi i64 [ 0, %if.end ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
-  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !4
@@ -13569,27 +13569,27 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i4.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i, align 8
   %my_size.i.i.i5.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
+  %invariant.gep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
-for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i7.i
+  %my_embedded_segment.ptr.i.i.i14.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
   %my_table11.i.i.i15.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 712
-  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
+  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
-  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
+  %i.07.i.i.i8.i = phi i64 [ 0, %invoke.cont4.i ], [ %inc.i.i.i11.i, %for.body.i.i.i7.i ]
   %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
-  %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
-  %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
-  store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
-  %inc.i.i.i12.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
-  %cmp.not.i.i.i13.i = icmp eq i64 %inc.i.i.i12.i, 2
-  br i1 %cmp.not.i.i.i13.i, label %for.cond4.preheader.i.i.i14.i, label %for.body.i.i.i7.i, !llvm.loop !7
+  %gep.i.i.i10.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
+  store atomic i64 0, ptr %gep.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i7.i, !llvm.loop !7
 
-for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i14.i
-  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
+for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
   %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
   %arrayidx12.i.i.i19.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.31"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
   %11 = select i1 %cmp7.i.i.i18.i, i64 %10, i64 0
@@ -13644,27 +13644,27 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   %my_mask.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call26, i64 88
   store i64 1, ptr %my_mask.i.i.i.i21, align 8
   %my_size.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call26, i64 96
-  %my_embedded_segment.ptr.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 104
+  %invariant.gep.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i22, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i24
 
-for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
+for.cond4.preheader.i.i.i.i30:                    ; preds = %for.body.i.i.i.i24
+  %my_embedded_segment.ptr.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %call26, i64 104
   %my_table11.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call26, i64 136
-  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i23 to i64
+  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i31 to i64
   br label %for.body6.i.i.i.i33
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
-  %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
+  %i.07.i.i.i.i25 = phi i64 [ 0, %.noexc ], [ %inc.i.i.i.i28, %for.body.i.i.i.i24 ]
   %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
-  %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
-  %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
-  store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
-  %inc.i.i.i.i29 = add nuw nsw i64 %i.07.i.i.i.i25, 1
-  %cmp.not.i.i.i.i30 = icmp eq i64 %inc.i.i.i.i29, 2
-  br i1 %cmp.not.i.i.i.i30, label %for.cond4.preheader.i.i.i.i31, label %for.body.i.i.i.i24, !llvm.loop !15
+  %gep.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i23, i64 %node_list.idx.i.i.i.i26
+  store atomic i64 0, ptr %gep.i.i.i.i27 monotonic, align 8
+  %inc.i.i.i.i28 = add nuw nsw i64 %i.07.i.i.i.i25, 1
+  %cmp.not.i.i.i.i29 = icmp eq i64 %inc.i.i.i.i28, 2
+  br i1 %cmp.not.i.i.i.i29, label %for.cond4.preheader.i.i.i.i30, label %for.body.i.i.i.i24, !llvm.loop !15
 
-for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i31
-  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i31 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
+for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i30
+  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i30 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
   %cmp7.i.i.i.i35 = icmp eq i64 %segment_index.08.i.i.i.i34, 0
   %arrayidx12.i.i.i.i36 = getelementptr inbounds nuw [64 x %"struct.std::atomic.54"], ptr %my_table11.i.i.i.i32, i64 0, i64 %segment_index.08.i.i.i.i34
   %18 = select i1 %cmp7.i.i.i.i35, i64 %17, i64 0
@@ -13679,27 +13679,27 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i33
   %my_mask.i.i.i4.i40 = getelementptr inbounds nuw i8, ptr %call26, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i40, align 8
   %my_size.i.i.i5.i41 = getelementptr inbounds nuw i8, ptr %call26, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 680
+  %invariant.gep.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i41, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i43
 
-for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
+for.cond4.preheader.i.i.i13.i49:                  ; preds = %for.body.i.i.i7.i43
+  %my_embedded_segment.ptr.i.i.i14.i50 = getelementptr inbounds nuw i8, ptr %call26, i64 680
   %my_table11.i.i.i15.i51 = getelementptr inbounds nuw i8, ptr %call26, i64 712
-  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i42 to i64
+  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i50 to i64
   br label %for.body6.i.i.i16.i52
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
-  %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
+  %i.07.i.i.i8.i44 = phi i64 [ 0, %invoke.cont3.i ], [ %inc.i.i.i11.i47, %for.body.i.i.i7.i43 ]
   %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
-  %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
-  %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
-  store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
-  %inc.i.i.i12.i48 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
-  %cmp.not.i.i.i13.i49 = icmp eq i64 %inc.i.i.i12.i48, 2
-  br i1 %cmp.not.i.i.i13.i49, label %for.cond4.preheader.i.i.i14.i50, label %for.body.i.i.i7.i43, !llvm.loop !17
+  %gep.i.i.i10.i46 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i42, i64 %node_list.idx.i.i.i9.i45
+  store atomic i64 0, ptr %gep.i.i.i10.i46 monotonic, align 8
+  %inc.i.i.i11.i47 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
+  %cmp.not.i.i.i12.i48 = icmp eq i64 %inc.i.i.i11.i47, 2
+  br i1 %cmp.not.i.i.i12.i48, label %for.cond4.preheader.i.i.i13.i49, label %for.body.i.i.i7.i43, !llvm.loop !17
 
-for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i14.i50
-  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i50 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
+for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i13.i49
+  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i49 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
   %cmp7.i.i.i18.i54 = icmp eq i64 %segment_index.08.i.i.i17.i53, 0
   %arrayidx12.i.i.i19.i55 = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table11.i.i.i15.i51, i64 0, i64 %segment_index.08.i.i.i17.i53
   %20 = select i1 %cmp7.i.i.i18.i54, i64 %19, i64 0
@@ -14361,21 +14361,21 @@ if.end:                                           ; preds = %entry
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 96
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 136
   %8 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
-  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
+  %i.07.i.i.i.i = phi i64 [ 0, %if.end ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
-  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !4
@@ -14396,27 +14396,27 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i4.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i, align 8
   %my_size.i.i.i5.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
+  %invariant.gep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
-for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i7.i
+  %my_embedded_segment.ptr.i.i.i14.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 680
   %my_table11.i.i.i15.i = getelementptr inbounds nuw i8, ptr %maskTree, i64 712
-  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
+  %10 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
-  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
+  %i.07.i.i.i8.i = phi i64 [ 0, %invoke.cont4.i ], [ %inc.i.i.i11.i, %for.body.i.i.i7.i ]
   %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
-  %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
-  %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
-  store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
-  %inc.i.i.i12.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
-  %cmp.not.i.i.i13.i = icmp eq i64 %inc.i.i.i12.i, 2
-  br i1 %cmp.not.i.i.i13.i, label %for.cond4.preheader.i.i.i14.i, label %for.body.i.i.i7.i, !llvm.loop !7
+  %gep.i.i.i10.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
+  store atomic i64 0, ptr %gep.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i7.i, !llvm.loop !7
 
-for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i14.i
-  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
+for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
   %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
   %arrayidx12.i.i.i19.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.31"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
   %11 = select i1 %cmp7.i.i.i18.i, i64 %10, i64 0
@@ -14471,27 +14471,27 @@ invoke.cont25:                                    ; preds = %invoke.cont22
   %my_mask.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %call26, i64 88
   store i64 1, ptr %my_mask.i.i.i.i21, align 8
   %my_size.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %call26, i64 96
-  %my_embedded_segment.ptr.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 104
+  %invariant.gep.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %call26, i64 112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i22, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i24
 
-for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
+for.cond4.preheader.i.i.i.i30:                    ; preds = %for.body.i.i.i.i24
+  %my_embedded_segment.ptr.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %call26, i64 104
   %my_table11.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call26, i64 136
-  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i23 to i64
+  %17 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i31 to i64
   br label %for.body6.i.i.i.i33
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
-  %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
+  %i.07.i.i.i.i25 = phi i64 [ 0, %.noexc ], [ %inc.i.i.i.i28, %for.body.i.i.i.i24 ]
   %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
-  %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
-  %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
-  store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
-  %inc.i.i.i.i29 = add nuw nsw i64 %i.07.i.i.i.i25, 1
-  %cmp.not.i.i.i.i30 = icmp eq i64 %inc.i.i.i.i29, 2
-  br i1 %cmp.not.i.i.i.i30, label %for.cond4.preheader.i.i.i.i31, label %for.body.i.i.i.i24, !llvm.loop !15
+  %gep.i.i.i.i27 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i23, i64 %node_list.idx.i.i.i.i26
+  store atomic i64 0, ptr %gep.i.i.i.i27 monotonic, align 8
+  %inc.i.i.i.i28 = add nuw nsw i64 %i.07.i.i.i.i25, 1
+  %cmp.not.i.i.i.i29 = icmp eq i64 %inc.i.i.i.i28, 2
+  br i1 %cmp.not.i.i.i.i29, label %for.cond4.preheader.i.i.i.i30, label %for.body.i.i.i.i24, !llvm.loop !15
 
-for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i31
-  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i31 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
+for.body6.i.i.i.i33:                              ; preds = %for.body6.i.i.i.i33, %for.cond4.preheader.i.i.i.i30
+  %segment_index.08.i.i.i.i34 = phi i64 [ 0, %for.cond4.preheader.i.i.i.i30 ], [ %inc14.i.i.i.i37, %for.body6.i.i.i.i33 ]
   %cmp7.i.i.i.i35 = icmp eq i64 %segment_index.08.i.i.i.i34, 0
   %arrayidx12.i.i.i.i36 = getelementptr inbounds nuw [64 x %"struct.std::atomic.54"], ptr %my_table11.i.i.i.i32, i64 0, i64 %segment_index.08.i.i.i.i34
   %18 = select i1 %cmp7.i.i.i.i35, i64 %17, i64 0
@@ -14506,27 +14506,27 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i33
   %my_mask.i.i.i4.i40 = getelementptr inbounds nuw i8, ptr %call26, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i40, align 8
   %my_size.i.i.i5.i41 = getelementptr inbounds nuw i8, ptr %call26, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 680
+  %invariant.gep.i.i.i6.i42 = getelementptr inbounds nuw i8, ptr %call26, i64 688
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i41, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i43
 
-for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
+for.cond4.preheader.i.i.i13.i49:                  ; preds = %for.body.i.i.i7.i43
+  %my_embedded_segment.ptr.i.i.i14.i50 = getelementptr inbounds nuw i8, ptr %call26, i64 680
   %my_table11.i.i.i15.i51 = getelementptr inbounds nuw i8, ptr %call26, i64 712
-  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i42 to i64
+  %19 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i50 to i64
   br label %for.body6.i.i.i16.i52
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
-  %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
+  %i.07.i.i.i8.i44 = phi i64 [ 0, %invoke.cont3.i ], [ %inc.i.i.i11.i47, %for.body.i.i.i7.i43 ]
   %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
-  %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
-  %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
-  store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
-  %inc.i.i.i12.i48 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
-  %cmp.not.i.i.i13.i49 = icmp eq i64 %inc.i.i.i12.i48, 2
-  br i1 %cmp.not.i.i.i13.i49, label %for.cond4.preheader.i.i.i14.i50, label %for.body.i.i.i7.i43, !llvm.loop !17
+  %gep.i.i.i10.i46 = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i42, i64 %node_list.idx.i.i.i9.i45
+  store atomic i64 0, ptr %gep.i.i.i10.i46 monotonic, align 8
+  %inc.i.i.i11.i47 = add nuw nsw i64 %i.07.i.i.i8.i44, 1
+  %cmp.not.i.i.i12.i48 = icmp eq i64 %inc.i.i.i11.i47, 2
+  br i1 %cmp.not.i.i.i12.i48, label %for.cond4.preheader.i.i.i13.i49, label %for.body.i.i.i7.i43, !llvm.loop !17
 
-for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i14.i50
-  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i50 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
+for.body6.i.i.i16.i52:                            ; preds = %for.body6.i.i.i16.i52, %for.cond4.preheader.i.i.i13.i49
+  %segment_index.08.i.i.i17.i53 = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i49 ], [ %inc14.i.i.i20.i56, %for.body6.i.i.i16.i52 ]
   %cmp7.i.i.i18.i54 = icmp eq i64 %segment_index.08.i.i.i17.i53, 0
   %arrayidx12.i.i.i19.i55 = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table11.i.i.i15.i51, i64 0, i64 %segment_index.08.i.i.i17.i53
   %20 = select i1 %cmp7.i.i.i18.i54, i64 %19, i64 0
@@ -16417,21 +16417,21 @@ invoke.cont.i:                                    ; preds = %entry
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 96
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 104
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 136
   %2 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %invoke.cont.i
-  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %invoke.cont.i ]
+  %i.07.i.i.i.i = phi i64 [ 0, %invoke.cont.i ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
-  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !4
@@ -16452,27 +16452,27 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i, align 8
   %my_size.i.i.i5.i = getelementptr inbounds nuw i8, ptr %call, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %call, i64 680
+  %invariant.gep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %call, i64 688
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
-for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i7.i
+  %my_embedded_segment.ptr.i.i.i14.i = getelementptr inbounds nuw i8, ptr %call, i64 680
   %my_table11.i.i.i15.i = getelementptr inbounds nuw i8, ptr %call, i64 712
-  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
+  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
-  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
+  %i.07.i.i.i8.i = phi i64 [ 0, %invoke.cont4.i ], [ %inc.i.i.i11.i, %for.body.i.i.i7.i ]
   %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
-  %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
-  %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
-  store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
-  %inc.i.i.i12.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
-  %cmp.not.i.i.i13.i = icmp eq i64 %inc.i.i.i12.i, 2
-  br i1 %cmp.not.i.i.i13.i, label %for.cond4.preheader.i.i.i14.i, label %for.body.i.i.i7.i, !llvm.loop !7
+  %gep.i.i.i10.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
+  store atomic i64 0, ptr %gep.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i7.i, !llvm.loop !7
 
-for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i14.i
-  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
+for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
   %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
   %arrayidx12.i.i.i19.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.31"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
   %5 = select i1 %cmp7.i.i.i18.i, i64 %4, i64 0
@@ -30111,8 +30111,8 @@ _ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit.loopexit: ; preds = %for.
 
 _ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit: ; preds = %_ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit.loopexit, %for.body
   %6 = phi ptr [ %.pre, %_ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit.loopexit ], [ %4, %for.body ]
-  %add = or disjoint i64 %mul, 1
-  %arrayidx8 = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer", ptr %6, i64 %add
+  %7 = getelementptr %"class.openvdb::v11_0::tree::LeafBuffer", ptr %6, i64 %mul
+  %arrayidx8 = getelementptr i8, ptr %7, i64 64
   %cmp.not.i7 = icmp eq ptr %3, %arrayidx8
   br i1 %cmp.not.i7, label %_ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit16, label %for.body.i.i8
 
@@ -30121,8 +30121,8 @@ for.body.i.i8:                                    ; preds = %_ZN7openvdb5v11_04t
   %w2.04.i.i10 = phi ptr [ %incdec.ptr4.i.i14, %for.body.i.i8 ], [ %3, %_ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit ]
   %n.03.i.i11 = phi i32 [ %dec.i.i12, %for.body.i.i8 ], [ 8, %_ZN7openvdb5v11_04tree10LeafBufferIbLj3EEaSERKS3_.exit ]
   %dec.i.i12 = add nsw i32 %n.03.i.i11, -1
-  %7 = load i64, ptr %w2.04.i.i10, align 8
-  store i64 %7, ptr %w1.05.i.i9, align 8
+  %8 = load i64, ptr %w2.04.i.i10, align 8
+  store i64 %8, ptr %w1.05.i.i9, align 8
   %incdec.ptr.i.i13 = getelementptr inbounds nuw i8, ptr %w1.05.i.i9, i64 8
   %incdec.ptr4.i.i14 = getelementptr inbounds nuw i8, ptr %w2.04.i.i10, i64 8
   %tobool.not.i.i15 = icmp eq i32 %dec.i.i12, 0
@@ -84052,21 +84052,21 @@ invoke.cont.i:                                    ; preds = %entry
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 96
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 104
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 136
   %2 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %invoke.cont.i
-  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %invoke.cont.i ]
+  %i.07.i.i.i.i = phi i64 [ 0, %invoke.cont.i ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
-  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !15
@@ -84087,27 +84087,27 @@ invoke.cont4.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 664
   store i64 1, ptr %my_mask.i.i.i4.i, align 8
   %my_size.i.i.i5.i = getelementptr inbounds nuw i8, ptr %call, i64 672
-  %my_embedded_segment.ptr.i.i.i6.i = getelementptr inbounds nuw i8, ptr %call, i64 680
+  %invariant.gep.i.i.i6.i = getelementptr inbounds nuw i8, ptr %call, i64 688
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i5.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i7.i
 
-for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
+for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i7.i
+  %my_embedded_segment.ptr.i.i.i14.i = getelementptr inbounds nuw i8, ptr %call, i64 680
   %my_table11.i.i.i15.i = getelementptr inbounds nuw i8, ptr %call, i64 712
-  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i6.i to i64
+  %4 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i14.i to i64
   br label %for.body6.i.i.i16.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
-  %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
+  %i.07.i.i.i8.i = phi i64 [ 0, %invoke.cont4.i ], [ %inc.i.i.i11.i, %for.body.i.i.i7.i ]
   %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
-  %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
-  %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
-  store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
-  %inc.i.i.i12.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
-  %cmp.not.i.i.i13.i = icmp eq i64 %inc.i.i.i12.i, 2
-  br i1 %cmp.not.i.i.i13.i, label %for.cond4.preheader.i.i.i14.i, label %for.body.i.i.i7.i, !llvm.loop !17
+  %gep.i.i.i10.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i6.i, i64 %node_list.idx.i.i.i9.i
+  store atomic i64 0, ptr %gep.i.i.i10.i monotonic, align 8
+  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i8.i, 1
+  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
+  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i7.i, !llvm.loop !17
 
-for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i14.i
-  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i14.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
+for.body6.i.i.i16.i:                              ; preds = %for.body6.i.i.i16.i, %for.cond4.preheader.i.i.i13.i
+  %segment_index.08.i.i.i17.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i20.i, %for.body6.i.i.i16.i ]
   %cmp7.i.i.i18.i = icmp eq i64 %segment_index.08.i.i.i17.i, 0
   %arrayidx12.i.i.i19.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table11.i.i.i15.i, i64 0, i64 %segment_index.08.i.i.i17.i
   %5 = select i1 %cmp7.i.i.i18.i, i64 %4, i64 0
@@ -103743,8 +103743,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx4 = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.936", ptr %4, i64 %mul
   %call5 = tail call noundef nonnull align 8 dereferenceable(13) ptr @_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(13) %arrayidx4, ptr noundef nonnull align 8 dereferenceable(13) %3)
   %5 = load ptr, ptr %mAuxBuffers, align 8
-  %add = or disjoint i64 %mul, 1
-  %arrayidx8 = getelementptr inbounds %"class.openvdb::v11_0::tree::LeafBuffer.936", ptr %5, i64 %add
+  %6 = getelementptr %"class.openvdb::v11_0::tree::LeafBuffer.936", ptr %5, i64 %mul
+  %arrayidx8 = getelementptr i8, ptr %6, i64 16
   %call9 = tail call noundef nonnull align 8 dereferenceable(13) ptr @_ZN7openvdb5v11_04tree10LeafBufferIfLj3EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(13) %arrayidx8, ptr noundef nonnull align 8 dereferenceable(13) %3)
   %inc = add i64 %n.08, 1
   %cmp.not = icmp eq i64 %inc, %1
@@ -160613,21 +160613,21 @@ entry:
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 88
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 96
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 104
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 104
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 136
   %3 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %entry
-  %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
+  %i.07.i.i.i.i = phi i64 [ 0, %entry ], [ %inc.i.i.i.i, %for.body.i.i.i.i ]
   %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
-  store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %node_list.idx.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
   br i1 %cmp.not.i.i.i.i, label %for.cond4.preheader.i.i.i.i, label %for.body.i.i.i.i, !llvm.loop !15
@@ -160648,27 +160648,27 @@ invoke.cont3.i:                                   ; preds = %for.body6.i.i.i.i
   %my_mask.i.i.i3.i = getelementptr inbounds nuw i8, ptr %call, i64 664
   store i64 1, ptr %my_mask.i.i.i3.i, align 8
   %my_size.i.i.i4.i = getelementptr inbounds nuw i8, ptr %call, i64 672
-  %my_embedded_segment.ptr.i.i.i5.i = getelementptr inbounds nuw i8, ptr %call, i64 680
+  %invariant.gep.i.i.i5.i = getelementptr inbounds nuw i8, ptr %call, i64 688
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i4.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i6.i
 
-for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i6.i
+for.cond4.preheader.i.i.i12.i:                    ; preds = %for.body.i.i.i6.i
+  %my_embedded_segment.ptr.i.i.i13.i = getelementptr inbounds nuw i8, ptr %call, i64 680
   %my_table11.i.i.i14.i = getelementptr inbounds nuw i8, ptr %call, i64 712
-  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i5.i to i64
+  %5 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i13.i to i64
   br label %for.body6.i.i.i15.i
 
 for.body.i.i.i6.i:                                ; preds = %for.body.i.i.i6.i, %invoke.cont3.i
-  %i.07.i.i.i7.i = phi i64 [ %inc.i.i.i11.i, %for.body.i.i.i6.i ], [ 0, %invoke.cont3.i ]
+  %i.07.i.i.i7.i = phi i64 [ 0, %invoke.cont3.i ], [ %inc.i.i.i10.i, %for.body.i.i.i6.i ]
   %node_list.idx.i.i.i8.i = shl nuw nsw i64 %i.07.i.i.i7.i, 4
-  %node_list.offs.i.i.i9.i = or disjoint i64 %node_list.idx.i.i.i8.i, 8
-  %node_list.i.i.i10.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i5.i, i64 %node_list.offs.i.i.i9.i
-  store atomic i64 0, ptr %node_list.i.i.i10.i monotonic, align 8
-  %inc.i.i.i11.i = add nuw nsw i64 %i.07.i.i.i7.i, 1
-  %cmp.not.i.i.i12.i = icmp eq i64 %inc.i.i.i11.i, 2
-  br i1 %cmp.not.i.i.i12.i, label %for.cond4.preheader.i.i.i13.i, label %for.body.i.i.i6.i, !llvm.loop !17
+  %gep.i.i.i9.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i5.i, i64 %node_list.idx.i.i.i8.i
+  store atomic i64 0, ptr %gep.i.i.i9.i monotonic, align 8
+  %inc.i.i.i10.i = add nuw nsw i64 %i.07.i.i.i7.i, 1
+  %cmp.not.i.i.i11.i = icmp eq i64 %inc.i.i.i10.i, 2
+  br i1 %cmp.not.i.i.i11.i, label %for.cond4.preheader.i.i.i12.i, label %for.body.i.i.i6.i, !llvm.loop !17
 
-for.body6.i.i.i15.i:                              ; preds = %for.body6.i.i.i15.i, %for.cond4.preheader.i.i.i13.i
-  %segment_index.08.i.i.i16.i = phi i64 [ 0, %for.cond4.preheader.i.i.i13.i ], [ %inc14.i.i.i19.i, %for.body6.i.i.i15.i ]
+for.body6.i.i.i15.i:                              ; preds = %for.body6.i.i.i15.i, %for.cond4.preheader.i.i.i12.i
+  %segment_index.08.i.i.i16.i = phi i64 [ 0, %for.cond4.preheader.i.i.i12.i ], [ %inc14.i.i.i19.i, %for.body6.i.i.i15.i ]
   %cmp7.i.i.i17.i = icmp eq i64 %segment_index.08.i.i.i16.i, 0
   %arrayidx12.i.i.i18.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table11.i.i.i14.i, i64 0, i64 %segment_index.08.i.i.i16.i
   %6 = select i1 %cmp7.i.i.i17.i, i64 %5, i64 0

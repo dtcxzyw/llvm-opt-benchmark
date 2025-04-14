@@ -64601,15 +64601,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN5clang9NamedDeclElN9__gn
   br i1 %7, label %.lr.ph, label %"_ZSt14__partial_sortIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_T0_.exit"
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr i8, ptr %0, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEET_SG_SG_T0_.exit"
-  %10 = phi i64 [ %6, %.lr.ph ], [ %158, %"_ZSt27__unguarded_partition_pivotIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEET_SG_SG_T0_.exit" ]
+  %10 = phi i64 [ %6, %.lr.ph ], [ %155, %"_ZSt27__unguarded_partition_pivotIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEET_SG_SG_T0_.exit" ]
   %.026 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %"_ZSt27__unguarded_partition_pivotIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEET_SG_SG_T0_.exit" ]
-  %.01725 = phi i64 [ %2, %.lr.ph ], [ %121, %"_ZSt27__unguarded_partition_pivotIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEET_SG_SG_T0_.exit" ]
+  %.01725 = phi i64 [ %2, %.lr.ph ], [ %118, %"_ZSt27__unguarded_partition_pivotIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEET_SG_SG_T0_.exit" ]
   %11 = icmp eq i64 %.01725, 0
-  br i1 %11, label %12, label %120
+  br i1 %11, label %12, label %117
 
 12:                                               ; preds = %9
   %13 = lshr i64 %10, 3
@@ -64628,7 +64628,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN5clang9NamedDeclElN9__gn
   br label %.split.i.i.i
 
 .split.us.i.i.i:                                  ; preds = %12, %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.us.i.i.i"
-  %.014.us.i.i.i = phi i64 [ %47, %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.us.i.i.i" ], [ %15, %12 ]
+  %.014.us.i.i.i = phi i64 [ %46, %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.us.i.i.i" ], [ %15, %12 ]
   %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.us.i.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !1481
   %25 = icmp slt i64 %.014.us.i.i.i, %17
@@ -64639,332 +64639,332 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN5clang9NamedDeclElN9__gn
   %26 = shl i64 %.030.i.us.i.i.i, 1
   %27 = add i64 %26, 2
   %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %27
-  %29 = or disjoint i64 %26, 1
-  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %29
+  %gep.i.us.i.i.i = getelementptr ptr, ptr %8, i64 %26
   %.val.i.us.i.i.i = load ptr, ptr %28, align 8, !tbaa !1481
-  %.val29.i.us.i.i.i = load ptr, ptr %30, align 8, !tbaa !1481
-  %31 = getelementptr i8, ptr %.val.i.us.i.i.i, i64 24
-  %.val.val.i.us.i.i.i = load i32, ptr %31, align 8, !tbaa !149
-  %32 = getelementptr i8, ptr %.val29.i.us.i.i.i, i64 24
-  %.val29.val.i.us.i.i.i = load i32, ptr %32, align 8, !tbaa !149
-  %33 = icmp ult i32 %.val.val.i.us.i.i.i, %.val29.val.i.us.i.i.i
-  %spec.select.i.us.i.i.i = select i1 %33, i64 %29, i64 %27
-  %34 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.us.i.i.i
-  %35 = load ptr, ptr %34, align 8, !tbaa !1481
-  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.us.i.i.i
-  store ptr %35, ptr %36, align 8, !tbaa !1481
-  %37 = icmp slt i64 %spec.select.i.us.i.i.i, %17
-  br i1 %37, label %.lr.ph.i.us.i.i.i, label %._crit_edge.i.us.i.i.i, !llvm.loop !1827
+  %.val29.i.us.i.i.i = load ptr, ptr %gep.i.us.i.i.i, align 8, !tbaa !1481
+  %29 = getelementptr i8, ptr %.val.i.us.i.i.i, i64 24
+  %.val.val.i.us.i.i.i = load i32, ptr %29, align 8, !tbaa !149
+  %30 = getelementptr i8, ptr %.val29.i.us.i.i.i, i64 24
+  %.val29.val.i.us.i.i.i = load i32, ptr %30, align 8, !tbaa !149
+  %31 = icmp ult i32 %.val.val.i.us.i.i.i, %.val29.val.i.us.i.i.i
+  %32 = or disjoint i64 %26, 1
+  %spec.select.i.us.i.i.i = select i1 %31, i64 %32, i64 %27
+  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.us.i.i.i
+  %34 = load ptr, ptr %33, align 8, !tbaa !1481
+  %35 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.us.i.i.i
+  store ptr %34, ptr %35, align 8, !tbaa !1481
+  %36 = icmp slt i64 %spec.select.i.us.i.i.i, %17
+  br i1 %36, label %.lr.ph.i.us.i.i.i, label %._crit_edge.i.us.i.i.i, !llvm.loop !1827
 
 ._crit_edge.i.us.i.i.i:                           ; preds = %.lr.ph.i.us.i.i.i
-  %38 = getelementptr i8, ptr %24, i64 24
-  %.val14.val.i.i.us.i.i.i = load i32, ptr %38, align 8, !tbaa !149
-  br label %39
+  %37 = getelementptr i8, ptr %24, i64 24
+  %.val14.val.i.i.us.i.i.i = load i32, ptr %37, align 8, !tbaa !149
+  br label %38
 
-39:                                               ; preds = %43, %._crit_edge.i.us.i.i.i
-  %.0133.i.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ], [ %.04.i.i.us.i.i.i, %43 ]
+38:                                               ; preds = %42, %._crit_edge.i.us.i.i.i
+  %.0133.i.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %._crit_edge.i.us.i.i.i ], [ %.04.i.i.us.i.i.i, %42 ]
   %.04.in.i.i.us.i.i.i = add nsw i64 %.0133.i.i.us.i.i.i, -1
   %.04.i.i.us.i.i.i = sdiv i64 %.04.in.i.i.us.i.i.i, 2
-  %40 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.us.i.i.i
-  %.val.i.i.us.i.i.i = load ptr, ptr %40, align 8, !tbaa !1481
-  %41 = getelementptr i8, ptr %.val.i.i.us.i.i.i, i64 24
-  %.val.val.i.i.us.i.i.i = load i32, ptr %41, align 8, !tbaa !149
-  %42 = icmp ult i32 %.val.val.i.i.us.i.i.i, %.val14.val.i.i.us.i.i.i
-  br i1 %42, label %43, label %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.us.i.i.i"
+  %39 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.us.i.i.i
+  %.val.i.i.us.i.i.i = load ptr, ptr %39, align 8, !tbaa !1481
+  %40 = getelementptr i8, ptr %.val.i.i.us.i.i.i, i64 24
+  %.val.val.i.i.us.i.i.i = load i32, ptr %40, align 8, !tbaa !149
+  %41 = icmp ult i32 %.val.val.i.i.us.i.i.i, %.val14.val.i.i.us.i.i.i
+  br i1 %41, label %42, label %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.us.i.i.i"
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.us.i.i.i
-  store ptr %.val.i.i.us.i.i.i, ptr %44, align 8, !tbaa !1481
-  %45 = icmp sgt i64 %.04.i.i.us.i.i.i, %.014.us.i.i.i
-  br i1 %45, label %39, label %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.us.i.i.i", !llvm.loop !1828
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.us.i.i.i
+  store ptr %.val.i.i.us.i.i.i, ptr %43, align 8, !tbaa !1481
+  %44 = icmp sgt i64 %.04.i.i.us.i.i.i, %.014.us.i.i.i
+  br i1 %44, label %38, label %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.us.i.i.i", !llvm.loop !1828
 
-"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.us.i.i.i": ; preds = %43, %39, %.split.us.i.i.i
-  %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.014.us.i.i.i, %.split.us.i.i.i ], [ %.0133.i.i.us.i.i.i, %39 ], [ %.04.i.i.us.i.i.i, %43 ]
-  %46 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
-  store ptr %24, ptr %46, align 8, !tbaa !1481
+"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.us.i.i.i": ; preds = %42, %38, %.split.us.i.i.i
+  %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.014.us.i.i.i, %.split.us.i.i.i ], [ %.0133.i.i.us.i.i.i, %38 ], [ %.04.i.i.us.i.i.i, %42 ]
+  %45 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
+  store ptr %24, ptr %45, align 8, !tbaa !1481
   %.not.us.i.i.i = icmp eq i64 %.014.us.i.i.i, 0
-  %47 = add nsw i64 %.014.us.i.i.i, -1
+  %46 = add nsw i64 %.014.us.i.i.i, -1
   br i1 %.not.us.i.i.i, label %.lr.ph.i5.i.preheader, label %.split.us.i.i.i, !llvm.loop !1829
 
 .split.i.i.i:                                     ; preds = %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.i.i.i", %.split.preheader.i.i.i
-  %.014.i.i.i = phi i64 [ %77, %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.i.i.i" ], [ %15, %.split.preheader.i.i.i ]
-  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.i.i.i
-  %49 = load ptr, ptr %48, align 8, !tbaa !1481
-  %50 = icmp slt i64 %.014.i.i.i, %17
-  br i1 %50, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %.014.i.i.i = phi i64 [ %75, %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.i.i.i" ], [ %15, %.split.preheader.i.i.i ]
+  %47 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.i.i.i
+  %48 = load ptr, ptr %47, align 8, !tbaa !1481
+  %49 = icmp slt i64 %.014.i.i.i, %17
+  br i1 %49, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.014.i.i.i, %.split.i.i.i ]
-  %51 = shl i64 %.030.i.i.i.i, 1
-  %52 = add i64 %51, 2
-  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %52
-  %54 = or disjoint i64 %51, 1
-  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %54
-  %.val.i.i.i.i = load ptr, ptr %53, align 8, !tbaa !1481
-  %.val29.i.i.i.i = load ptr, ptr %55, align 8, !tbaa !1481
-  %56 = getelementptr i8, ptr %.val.i.i.i.i, i64 24
-  %.val.val.i.i.i.i = load i32, ptr %56, align 8, !tbaa !149
-  %57 = getelementptr i8, ptr %.val29.i.i.i.i, i64 24
-  %.val29.val.i.i.i.i = load i32, ptr %57, align 8, !tbaa !149
-  %58 = icmp ult i32 %.val.val.i.i.i.i, %.val29.val.i.i.i.i
-  %spec.select.i.i.i.i = select i1 %58, i64 %54, i64 %52
-  %59 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
-  %60 = load ptr, ptr %59, align 8, !tbaa !1481
-  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
-  store ptr %60, ptr %61, align 8, !tbaa !1481
-  %62 = icmp slt i64 %spec.select.i.i.i.i, %17
-  br i1 %62, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1827
+  %50 = shl i64 %.030.i.i.i.i, 1
+  %51 = add i64 %50, 2
+  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %51
+  %gep.i.i.i.i = getelementptr ptr, ptr %8, i64 %50
+  %.val.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !1481
+  %.val29.i.i.i.i = load ptr, ptr %gep.i.i.i.i, align 8, !tbaa !1481
+  %53 = getelementptr i8, ptr %.val.i.i.i.i, i64 24
+  %.val.val.i.i.i.i = load i32, ptr %53, align 8, !tbaa !149
+  %54 = getelementptr i8, ptr %.val29.i.i.i.i, i64 24
+  %.val29.val.i.i.i.i = load i32, ptr %54, align 8, !tbaa !149
+  %55 = icmp ult i32 %.val.val.i.i.i.i, %.val29.val.i.i.i.i
+  %56 = or disjoint i64 %50, 1
+  %spec.select.i.i.i.i = select i1 %55, i64 %56, i64 %51
+  %57 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %58 = load ptr, ptr %57, align 8, !tbaa !1481
+  %59 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
+  store ptr %58, ptr %59, align 8, !tbaa !1481
+  %60 = icmp slt i64 %spec.select.i.i.i.i, %17
+  br i1 %60, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !1827
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.split.i.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ %.014.i.i.i, %.split.i.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %63 = icmp eq i64 %.0.lcssa.i.i.i.i, %15
-  br i1 %63, label %64, label %66
+  %61 = icmp eq i64 %.0.lcssa.i.i.i.i, %15
+  br i1 %61, label %62, label %64
 
-64:                                               ; preds = %._crit_edge.i.i.i.i
-  %65 = load ptr, ptr %21, align 8, !tbaa !1481
-  store ptr %65, ptr %22, align 8, !tbaa !1481
-  br label %66
+62:                                               ; preds = %._crit_edge.i.i.i.i
+  %63 = load ptr, ptr %21, align 8, !tbaa !1481
+  store ptr %63, ptr %22, align 8, !tbaa !1481
+  br label %64
 
-66:                                               ; preds = %64, %._crit_edge.i.i.i.i
-  %.128.i.i.i.i = phi i64 [ %20, %64 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %67 = icmp samesign ugt i64 %.128.i.i.i.i, %.014.i.i.i
-  br i1 %67, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.i.i.i"
+64:                                               ; preds = %62, %._crit_edge.i.i.i.i
+  %.128.i.i.i.i = phi i64 [ %20, %62 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %65 = icmp samesign ugt i64 %.128.i.i.i.i, %.014.i.i.i
+  br i1 %65, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %66
-  %68 = getelementptr i8, ptr %49, i64 24
-  %.val14.val.i.i.i.i.i = load i32, ptr %68, align 8, !tbaa !149
-  br label %69
+.lr.ph.i.i.i.i.i:                                 ; preds = %64
+  %66 = getelementptr i8, ptr %48, i64 24
+  %.val14.val.i.i.i.i.i = load i32, ptr %66, align 8, !tbaa !149
+  br label %67
 
-69:                                               ; preds = %73, %.lr.ph.i.i.i.i.i
-  %.0133.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %73 ]
+67:                                               ; preds = %71, %.lr.ph.i.i.i.i.i
+  %.0133.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %71 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %70 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.i.i.i
-  %.val.i.i.i.i.i = load ptr, ptr %70, align 8, !tbaa !1481
-  %71 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 24
-  %.val.val.i.i.i.i.i = load i32, ptr %71, align 8, !tbaa !149
-  %72 = icmp ult i32 %.val.val.i.i.i.i.i, %.val14.val.i.i.i.i.i
-  br i1 %72, label %73, label %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.i.i.i"
+  %68 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.i.i.i
+  %.val.i.i.i.i.i = load ptr, ptr %68, align 8, !tbaa !1481
+  %69 = getelementptr i8, ptr %.val.i.i.i.i.i, i64 24
+  %.val.val.i.i.i.i.i = load i32, ptr %69, align 8, !tbaa !149
+  %70 = icmp ult i32 %.val.val.i.i.i.i.i, %.val14.val.i.i.i.i.i
+  br i1 %70, label %71, label %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.i.i.i"
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
-  store ptr %.val.i.i.i.i.i, ptr %74, align 8, !tbaa !1481
-  %75 = icmp sgt i64 %.04.i.i.i.i.i, %.014.i.i.i
-  br i1 %75, label %69, label %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.i.i.i", !llvm.loop !1828
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  store ptr %.val.i.i.i.i.i, ptr %72, align 8, !tbaa !1481
+  %73 = icmp sgt i64 %.04.i.i.i.i.i, %.014.i.i.i
+  br i1 %73, label %67, label %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.i.i.i", !llvm.loop !1828
 
-"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.i.i.i": ; preds = %73, %69, %66
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %66 ], [ %.0133.i.i.i.i.i, %69 ], [ %.04.i.i.i.i.i, %73 ]
-  %76 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store ptr %49, ptr %76, align 8, !tbaa !1481
+"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.i.i.i": ; preds = %71, %67, %64
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %64 ], [ %.0133.i.i.i.i.i, %67 ], [ %.04.i.i.i.i.i, %71 ]
+  %74 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store ptr %48, ptr %74, align 8, !tbaa !1481
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
-  %77 = add nsw i64 %.014.i.i.i, -1
+  %75 = add nsw i64 %.014.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i5.i.preheader, label %.split.i.i.i, !llvm.loop !1829
 
 .lr.ph.i5.i.preheader:                            ; preds = %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.us.i.i.i", %"_ZSt13__adjust_heapIPPN5clang9NamedDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_T0_SH_T1_T2_.exit.i.i.i"
   br label %.lr.ph.i5.i
 
 .lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_RT0_.exit.i.i"
-  %.01.i.i = phi ptr [ %78, %"_ZSt10__pop_heapIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_RT0_.exit.i.i" ], [ %.026, %.lr.ph.i5.i.preheader ]
-  %78 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
-  %79 = load ptr, ptr %78, align 8, !tbaa !1481
-  %80 = load ptr, ptr %0, align 8, !tbaa !1481
-  store ptr %80, ptr %78, align 8, !tbaa !1481
-  %81 = ptrtoint ptr %78 to i64
-  %82 = sub i64 %81, %4
-  %83 = ashr exact i64 %82, 3
-  %84 = add nsw i64 %83, -1
-  %85 = sdiv i64 %84, 2
-  %86 = icmp sgt i64 %83, 2
-  br i1 %86, label %.lr.ph.i.i.i16.i, label %._crit_edge.i.i.i6.i
+  %.01.i.i = phi ptr [ %76, %"_ZSt10__pop_heapIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_RT0_.exit.i.i" ], [ %.026, %.lr.ph.i5.i.preheader ]
+  %76 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
+  %77 = load ptr, ptr %76, align 8, !tbaa !1481
+  %78 = load ptr, ptr %0, align 8, !tbaa !1481
+  store ptr %78, ptr %76, align 8, !tbaa !1481
+  %79 = ptrtoint ptr %76 to i64
+  %80 = sub i64 %79, %4
+  %81 = ashr exact i64 %80, 3
+  %82 = add nsw i64 %81, -1
+  %83 = sdiv i64 %82, 2
+  %84 = icmp sgt i64 %81, 2
+  br i1 %84, label %.lr.ph.i.i.i17.i, label %._crit_edge.i.i.i7.i
 
-.lr.ph.i.i.i16.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i16.i
-  %.030.i.i.i17.i = phi i64 [ %spec.select.i.i.i22.i, %.lr.ph.i.i.i16.i ], [ 0, %.lr.ph.i5.i ]
-  %87 = shl i64 %.030.i.i.i17.i, 1
-  %88 = add i64 %87, 2
-  %89 = getelementptr inbounds nuw ptr, ptr %0, i64 %88
-  %90 = or disjoint i64 %87, 1
-  %91 = getelementptr inbounds nuw ptr, ptr %0, i64 %90
-  %.val.i.i.i18.i = load ptr, ptr %89, align 8, !tbaa !1481
-  %.val29.i.i.i19.i = load ptr, ptr %91, align 8, !tbaa !1481
-  %92 = getelementptr i8, ptr %.val.i.i.i18.i, i64 24
-  %.val.val.i.i.i20.i = load i32, ptr %92, align 8, !tbaa !149
-  %93 = getelementptr i8, ptr %.val29.i.i.i19.i, i64 24
-  %.val29.val.i.i.i21.i = load i32, ptr %93, align 8, !tbaa !149
-  %94 = icmp ult i32 %.val.val.i.i.i20.i, %.val29.val.i.i.i21.i
-  %spec.select.i.i.i22.i = select i1 %94, i64 %90, i64 %88
-  %95 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i22.i
-  %96 = load ptr, ptr %95, align 8, !tbaa !1481
-  %97 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i17.i
-  store ptr %96, ptr %97, align 8, !tbaa !1481
-  %98 = icmp slt i64 %spec.select.i.i.i22.i, %85
-  br i1 %98, label %.lr.ph.i.i.i16.i, label %._crit_edge.i.i.i6.i, !llvm.loop !1827
+.lr.ph.i.i.i17.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i17.i
+  %.030.i.i.i18.i = phi i64 [ %spec.select.i.i.i24.i, %.lr.ph.i.i.i17.i ], [ 0, %.lr.ph.i5.i ]
+  %85 = shl i64 %.030.i.i.i18.i, 1
+  %86 = add i64 %85, 2
+  %87 = getelementptr inbounds nuw ptr, ptr %0, i64 %86
+  %gep.i.i.i19.i = getelementptr ptr, ptr %8, i64 %85
+  %.val.i.i.i20.i = load ptr, ptr %87, align 8, !tbaa !1481
+  %.val29.i.i.i21.i = load ptr, ptr %gep.i.i.i19.i, align 8, !tbaa !1481
+  %88 = getelementptr i8, ptr %.val.i.i.i20.i, i64 24
+  %.val.val.i.i.i22.i = load i32, ptr %88, align 8, !tbaa !149
+  %89 = getelementptr i8, ptr %.val29.i.i.i21.i, i64 24
+  %.val29.val.i.i.i23.i = load i32, ptr %89, align 8, !tbaa !149
+  %90 = icmp ult i32 %.val.val.i.i.i22.i, %.val29.val.i.i.i23.i
+  %91 = or disjoint i64 %85, 1
+  %spec.select.i.i.i24.i = select i1 %90, i64 %91, i64 %86
+  %92 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i24.i
+  %93 = load ptr, ptr %92, align 8, !tbaa !1481
+  %94 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i18.i
+  store ptr %93, ptr %94, align 8, !tbaa !1481
+  %95 = icmp slt i64 %spec.select.i.i.i24.i, %83
+  br i1 %95, label %.lr.ph.i.i.i17.i, label %._crit_edge.i.i.i7.i, !llvm.loop !1827
 
-._crit_edge.i.i.i6.i:                             ; preds = %.lr.ph.i.i.i16.i, %.lr.ph.i5.i
-  %.0.lcssa.i.i.i7.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i22.i, %.lr.ph.i.i.i16.i ]
-  %99 = and i64 %82, 8
-  %100 = icmp eq i64 %99, 0
-  br i1 %100, label %101, label %110
+._crit_edge.i.i.i7.i:                             ; preds = %.lr.ph.i.i.i17.i, %.lr.ph.i5.i
+  %.0.lcssa.i.i.i8.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i24.i, %.lr.ph.i.i.i17.i ]
+  %96 = and i64 %80, 8
+  %97 = icmp eq i64 %96, 0
+  br i1 %97, label %98, label %107
 
-101:                                              ; preds = %._crit_edge.i.i.i6.i
-  %102 = add nsw i64 %83, -2
-  %103 = ashr exact i64 %102, 1
-  %104 = icmp eq i64 %.0.lcssa.i.i.i7.i, %103
-  br i1 %104, label %.thread.i.i.i, label %110
+98:                                               ; preds = %._crit_edge.i.i.i7.i
+  %99 = add nsw i64 %81, -2
+  %100 = ashr exact i64 %99, 1
+  %101 = icmp eq i64 %.0.lcssa.i.i.i8.i, %100
+  br i1 %101, label %.thread.i.i.i, label %107
 
-.thread.i.i.i:                                    ; preds = %101
-  %105 = shl nuw nsw i64 %.0.lcssa.i.i.i7.i, 1
-  %106 = or disjoint i64 %105, 1
-  %107 = getelementptr inbounds nuw ptr, ptr %0, i64 %106
-  %108 = load ptr, ptr %107, align 8, !tbaa !1481
-  %109 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
-  store ptr %108, ptr %109, align 8, !tbaa !1481
-  br label %.lr.ph.i.i.i.i9.i
+.thread.i.i.i:                                    ; preds = %98
+  %102 = shl nuw nsw i64 %.0.lcssa.i.i.i8.i, 1
+  %103 = or disjoint i64 %102, 1
+  %104 = getelementptr inbounds nuw ptr, ptr %0, i64 %103
+  %105 = load ptr, ptr %104, align 8, !tbaa !1481
+  %106 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i8.i
+  store ptr %105, ptr %106, align 8, !tbaa !1481
+  br label %.lr.ph.i.i.i.i10.i
 
-110:                                              ; preds = %101, %._crit_edge.i.i.i6.i
-  %.not.i.i8.i = icmp eq i64 %.0.lcssa.i.i.i7.i, 0
-  br i1 %.not.i.i8.i, label %"_ZSt10__pop_heapIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_RT0_.exit.i.i", label %.lr.ph.i.i.i.i9.i
+107:                                              ; preds = %98, %._crit_edge.i.i.i7.i
+  %.not.i.i9.i = icmp eq i64 %.0.lcssa.i.i.i8.i, 0
+  br i1 %.not.i.i9.i, label %"_ZSt10__pop_heapIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_RT0_.exit.i.i", label %.lr.ph.i.i.i.i10.i
 
-.lr.ph.i.i.i.i9.i:                                ; preds = %110, %.thread.i.i.i
-  %.128.i2.i.i.i = phi i64 [ %106, %.thread.i.i.i ], [ %.0.lcssa.i.i.i7.i, %110 ]
-  %111 = getelementptr i8, ptr %79, i64 24
-  %.val14.val.i.i.i.i10.i = load i32, ptr %111, align 8, !tbaa !149
-  br label %112
+.lr.ph.i.i.i.i10.i:                               ; preds = %107, %.thread.i.i.i
+  %.128.i2.i.i.i = phi i64 [ %103, %.thread.i.i.i ], [ %.0.lcssa.i.i.i8.i, %107 ]
+  %108 = getelementptr i8, ptr %77, i64 24
+  %.val14.val.i.i.i.i11.i = load i32, ptr %108, align 8, !tbaa !149
+  br label %109
 
-112:                                              ; preds = %116, %.lr.ph.i.i.i.i9.i
-  %.0133.i.i.i.i11.i = phi i64 [ %.128.i2.i.i.i, %.lr.ph.i.i.i.i9.i ], [ %.04.i.i34.i.i.i, %116 ]
-  %.04.in.i.i.i.i12.i = add nsw i64 %.0133.i.i.i.i11.i, -1
-  %.04.i.i34.i.i.i = lshr i64 %.04.in.i.i.i.i12.i, 1
-  %113 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i34.i.i.i
-  %.val.i.i.i.i13.i = load ptr, ptr %113, align 8, !tbaa !1481
-  %114 = getelementptr i8, ptr %.val.i.i.i.i13.i, i64 24
-  %.val.val.i.i.i.i14.i = load i32, ptr %114, align 8, !tbaa !149
-  %115 = icmp ult i32 %.val.val.i.i.i.i14.i, %.val14.val.i.i.i.i10.i
-  br i1 %115, label %116, label %"_ZSt10__pop_heapIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_RT0_.exit.i.i"
+109:                                              ; preds = %113, %.lr.ph.i.i.i.i10.i
+  %.0133.i.i.i.i12.i = phi i64 [ %.128.i2.i.i.i, %.lr.ph.i.i.i.i10.i ], [ %.04.i.i34.i.i.i, %113 ]
+  %.04.in.i.i.i.i13.i = add nsw i64 %.0133.i.i.i.i12.i, -1
+  %.04.i.i34.i.i.i = lshr i64 %.04.in.i.i.i.i13.i, 1
+  %110 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i34.i.i.i
+  %.val.i.i.i.i14.i = load ptr, ptr %110, align 8, !tbaa !1481
+  %111 = getelementptr i8, ptr %.val.i.i.i.i14.i, i64 24
+  %.val.val.i.i.i.i15.i = load i32, ptr %111, align 8, !tbaa !149
+  %112 = icmp ult i32 %.val.val.i.i.i.i15.i, %.val14.val.i.i.i.i11.i
+  br i1 %112, label %113, label %"_ZSt10__pop_heapIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_RT0_.exit.i.i"
 
-116:                                              ; preds = %112
-  %117 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i11.i
-  store ptr %.val.i.i.i.i13.i, ptr %117, align 8, !tbaa !1481
-  %.not5.i.i.i = icmp ult i64 %.04.in.i.i.i.i12.i, 2
-  br i1 %.not5.i.i.i, label %"_ZSt10__pop_heapIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_RT0_.exit.i.i", label %112, !llvm.loop !1828
+113:                                              ; preds = %109
+  %114 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i12.i
+  store ptr %.val.i.i.i.i14.i, ptr %114, align 8, !tbaa !1481
+  %.not5.i.i.i = icmp ult i64 %.04.in.i.i.i.i13.i, 2
+  br i1 %.not5.i.i.i, label %"_ZSt10__pop_heapIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_RT0_.exit.i.i", label %109, !llvm.loop !1828
 
-"_ZSt10__pop_heapIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_RT0_.exit.i.i": ; preds = %116, %112, %110
-  %.013.lcssa.i.i.i.i15.i = phi i64 [ 0, %110 ], [ %.0133.i.i.i.i11.i, %112 ], [ 0, %116 ]
-  %118 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i15.i
-  store ptr %79, ptr %118, align 8, !tbaa !1481
-  %119 = icmp sgt i64 %82, 8
-  br i1 %119, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_T0_.exit", !llvm.loop !1830
+"_ZSt10__pop_heapIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_RT0_.exit.i.i": ; preds = %113, %109, %107
+  %.013.lcssa.i.i.i.i16.i = phi i64 [ 0, %107 ], [ %.0133.i.i.i.i12.i, %109 ], [ 0, %113 ]
+  %115 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i16.i
+  store ptr %77, ptr %115, align 8, !tbaa !1481
+  %116 = icmp sgt i64 %80, 8
+  br i1 %116, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_T0_.exit", !llvm.loop !1830
 
-120:                                              ; preds = %9
-  %121 = add nsw i64 %.01725, -1
-  %122 = lshr i64 %10, 4
-  %123 = getelementptr inbounds nuw ptr, ptr %0, i64 %122
-  %124 = getelementptr inbounds i8, ptr %.026, i64 -8
+117:                                              ; preds = %9
+  %118 = add nsw i64 %.01725, -1
+  %119 = lshr i64 %10, 4
+  %120 = getelementptr inbounds nuw ptr, ptr %0, i64 %119
+  %121 = getelementptr inbounds i8, ptr %.026, i64 -8
   %.val29.i.i = load ptr, ptr %8, align 8, !tbaa !1481
-  %.val30.i.i = load ptr, ptr %123, align 8, !tbaa !1481
-  %125 = getelementptr i8, ptr %.val29.i.i, i64 24
-  %.val29.val.i.i = load i32, ptr %125, align 8, !tbaa !149
-  %126 = getelementptr i8, ptr %.val30.i.i, i64 24
-  %.val30.val.i.i = load i32, ptr %126, align 8, !tbaa !149
-  %127 = icmp ult i32 %.val29.val.i.i, %.val30.val.i.i
-  %.val28.i.i = load ptr, ptr %124, align 8, !tbaa !1481
-  %128 = getelementptr i8, ptr %.val28.i.i, i64 24
-  %.val28.val.i.i = load i32, ptr %128, align 8, !tbaa !149
-  br i1 %127, label %129, label %138
+  %.val30.i.i = load ptr, ptr %120, align 8, !tbaa !1481
+  %122 = getelementptr i8, ptr %.val29.i.i, i64 24
+  %.val29.val.i.i = load i32, ptr %122, align 8, !tbaa !149
+  %123 = getelementptr i8, ptr %.val30.i.i, i64 24
+  %.val30.val.i.i = load i32, ptr %123, align 8, !tbaa !149
+  %124 = icmp ult i32 %.val29.val.i.i, %.val30.val.i.i
+  %.val28.i.i = load ptr, ptr %121, align 8, !tbaa !1481
+  %125 = getelementptr i8, ptr %.val28.i.i, i64 24
+  %.val28.val.i.i = load i32, ptr %125, align 8, !tbaa !149
+  br i1 %124, label %126, label %135
 
-129:                                              ; preds = %120
-  %130 = icmp ult i32 %.val30.val.i.i, %.val28.val.i.i
-  br i1 %130, label %131, label %133
+126:                                              ; preds = %117
+  %127 = icmp ult i32 %.val30.val.i.i, %.val28.val.i.i
+  br i1 %127, label %128, label %130
 
-131:                                              ; preds = %129
+128:                                              ; preds = %126
+  %129 = load ptr, ptr %0, align 8, !tbaa !1481
+  store ptr %.val30.i.i, ptr %0, align 8, !tbaa !1481
+  store ptr %129, ptr %120, align 8, !tbaa !1481
+  br label %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
+
+130:                                              ; preds = %126
+  %131 = icmp ult i32 %.val29.val.i.i, %.val28.val.i.i
   %132 = load ptr, ptr %0, align 8, !tbaa !1481
-  store ptr %.val30.i.i, ptr %0, align 8, !tbaa !1481
-  store ptr %132, ptr %123, align 8, !tbaa !1481
-  br label %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
+  br i1 %131, label %133, label %134
 
-133:                                              ; preds = %129
-  %134 = icmp ult i32 %.val29.val.i.i, %.val28.val.i.i
-  %135 = load ptr, ptr %0, align 8, !tbaa !1481
-  br i1 %134, label %136, label %137
-
-136:                                              ; preds = %133
+133:                                              ; preds = %130
   store ptr %.val28.i.i, ptr %0, align 8, !tbaa !1481
-  store ptr %135, ptr %124, align 8, !tbaa !1481
+  store ptr %132, ptr %121, align 8, !tbaa !1481
   br label %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
-137:                                              ; preds = %133
+134:                                              ; preds = %130
   store ptr %.val29.i.i, ptr %0, align 8, !tbaa !1481
-  store ptr %135, ptr %8, align 8, !tbaa !1481
+  store ptr %132, ptr %8, align 8, !tbaa !1481
   br label %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
-138:                                              ; preds = %120
-  %139 = icmp ult i32 %.val29.val.i.i, %.val28.val.i.i
-  br i1 %139, label %140, label %142
+135:                                              ; preds = %117
+  %136 = icmp ult i32 %.val29.val.i.i, %.val28.val.i.i
+  br i1 %136, label %137, label %139
 
-140:                                              ; preds = %138
+137:                                              ; preds = %135
+  %138 = load ptr, ptr %0, align 8, !tbaa !1481
+  store ptr %.val29.i.i, ptr %0, align 8, !tbaa !1481
+  store ptr %138, ptr %8, align 8, !tbaa !1481
+  br label %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
+
+139:                                              ; preds = %135
+  %140 = icmp ult i32 %.val30.val.i.i, %.val28.val.i.i
   %141 = load ptr, ptr %0, align 8, !tbaa !1481
-  store ptr %.val29.i.i, ptr %0, align 8, !tbaa !1481
-  store ptr %141, ptr %8, align 8, !tbaa !1481
-  br label %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
+  br i1 %140, label %142, label %143
 
-142:                                              ; preds = %138
-  %143 = icmp ult i32 %.val30.val.i.i, %.val28.val.i.i
-  %144 = load ptr, ptr %0, align 8, !tbaa !1481
-  br i1 %143, label %145, label %146
-
-145:                                              ; preds = %142
+142:                                              ; preds = %139
   store ptr %.val28.i.i, ptr %0, align 8, !tbaa !1481
-  store ptr %144, ptr %124, align 8, !tbaa !1481
+  store ptr %141, ptr %121, align 8, !tbaa !1481
   br label %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
-146:                                              ; preds = %142
+143:                                              ; preds = %139
   store ptr %.val30.i.i, ptr %0, align 8, !tbaa !1481
-  store ptr %144, ptr %123, align 8, !tbaa !1481
+  store ptr %141, ptr %120, align 8, !tbaa !1481
   br label %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader": ; preds = %146, %145, %140, %137, %136, %131
+"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader": ; preds = %143, %142, %137, %134, %133, %128
   br label %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader", %156
-  %.013.i.i = phi ptr [ %.114.i.i, %156 ], [ %.026, %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader" ]
-  %.0.i.i = phi ptr [ %151, %156 ], [ %8, %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader", %153
+  %.013.i.i = phi ptr [ %.114.i.i, %153 ], [ %.026, %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader" ]
+  %.0.i.i = phi ptr [ %148, %153 ], [ %8, %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i.preheader" ]
   %.val15.i.i = load ptr, ptr %0, align 8, !tbaa !1481
-  %147 = getelementptr i8, ptr %.val15.i.i, i64 24
-  %.val15.val.i.i = load i32, ptr %147, align 8, !tbaa !149
-  br label %148
+  %144 = getelementptr i8, ptr %.val15.i.i, i64 24
+  %.val15.val.i.i = load i32, ptr %144, align 8, !tbaa !149
+  br label %145
 
-148:                                              ; preds = %148, %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i"
-  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i" ], [ %151, %148 ]
+145:                                              ; preds = %145, %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i"
+  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i" ], [ %148, %145 ]
   %.1.val.i.i = load ptr, ptr %.1.i.i, align 8, !tbaa !1481
-  %149 = getelementptr i8, ptr %.1.val.i.i, i64 24
-  %.1.val.val.i.i = load i32, ptr %149, align 8, !tbaa !149
-  %150 = icmp ult i32 %.1.val.val.i.i, %.val15.val.i.i
-  %151 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %150, label %148, label %.preheader.i.i, !llvm.loop !1831
+  %146 = getelementptr i8, ptr %.1.val.i.i, i64 24
+  %.1.val.val.i.i = load i32, ptr %146, align 8, !tbaa !149
+  %147 = icmp ult i32 %.1.val.val.i.i, %.val15.val.i.i
+  %148 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  br i1 %147, label %145, label %.preheader.i.i, !llvm.loop !1831
 
-.preheader.i.i:                                   ; preds = %148, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %148 ]
+.preheader.i.i:                                   ; preds = %145, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %145 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
   %.114.val.i.i = load ptr, ptr %.114.i.i, align 8, !tbaa !1481
-  %152 = getelementptr i8, ptr %.114.val.i.i, i64 24
-  %.114.val.val.i.i = load i32, ptr %152, align 8, !tbaa !149
-  %153 = icmp ult i32 %.val15.val.i.i, %.114.val.val.i.i
-  br i1 %153, label %.preheader.i.i, label %154, !llvm.loop !1832
+  %149 = getelementptr i8, ptr %.114.val.i.i, i64 24
+  %.114.val.val.i.i = load i32, ptr %149, align 8, !tbaa !149
+  %150 = icmp ult i32 %.val15.val.i.i, %.114.val.val.i.i
+  br i1 %150, label %.preheader.i.i, label %151, !llvm.loop !1832
 
-154:                                              ; preds = %.preheader.i.i
-  %155 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %155, label %156, label %"_ZSt27__unguarded_partition_pivotIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEET_SG_SG_T0_.exit"
+151:                                              ; preds = %.preheader.i.i
+  %152 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %152, label %153, label %"_ZSt27__unguarded_partition_pivotIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEET_SG_SG_T0_.exit"
 
-156:                                              ; preds = %154
+153:                                              ; preds = %151
   store ptr %.114.val.i.i, ptr %.1.i.i, align 8, !tbaa !1481
   store ptr %.1.val.i.i, ptr %.114.i.i, align 8, !tbaa !1481
   br label %"_ZSt22__move_median_to_firstIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_SG_T0_.exit.i", !llvm.loop !1833
 
-"_ZSt27__unguarded_partition_pivotIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEET_SG_SG_T0_.exit": ; preds = %154
-  tail call fastcc void @"_ZSt16__introsort_loopIPPN5clang9NamedDeclElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.026, i64 noundef %121)
-  %157 = ptrtoint ptr %.1.i.i to i64
-  %158 = sub i64 %157, %4
-  %159 = icmp sgt i64 %158, 128
-  br i1 %159, label %9, label %"_ZSt14__partial_sortIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_T0_.exit", !llvm.loop !1834
+"_ZSt27__unguarded_partition_pivotIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEET_SG_SG_T0_.exit": ; preds = %151
+  tail call fastcc void @"_ZSt16__introsort_loopIPPN5clang9NamedDeclElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.026, i64 noundef %118)
+  %154 = ptrtoint ptr %.1.i.i to i64
+  %155 = sub i64 %154, %4
+  %156 = icmp sgt i64 %155, 128
+  br i1 %156, label %9, label %"_ZSt14__partial_sortIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_T0_.exit", !llvm.loop !1834
 
 "_ZSt14__partial_sortIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEET_SG_SG_T0_.exit", %"_ZSt10__pop_heapIPPN5clang9NamedDeclEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_6Parser23ParseFunctionDeclaratorERNS0_10DeclaratorERNS0_16ParsedAttributesERNS0_24BalancedDelimiterTrackerEbbE3$_1EEEvT_SG_SG_RT0_.exit.i.i", %3
   ret void

@@ -988,7 +988,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %_Z
   %377 = call i32 @llvm.smax.i32(i32 %376, i32 0)
   %378 = call i32 @llvm.umin.i32(i32 %377, i32 255)
   %379 = trunc nuw i32 %378 to i8
-  %380 = getelementptr inbounds nuw i8, ptr %.08691.i, i64 %290
+  %380 = getelementptr inbounds nuw i8, ptr %374, i64 1
   store i8 %379, ptr %380, align 1, !tbaa !32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %381 = load i32, ptr %259, align 4, !tbaa !44
@@ -2684,7 +2684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125: ; preds = %_Z
   %277 = load i8, ptr %276, align 1, !tbaa !32
   %278 = uitofp i8 %277 to float
   %279 = fadd float %278, -1.280000e+02
-  %280 = getelementptr inbounds nuw i8, ptr %.093118.i, i64 %266
+  %280 = getelementptr inbounds nuw i8, ptr %276, i64 1
   %281 = load i8, ptr %280, align 1, !tbaa !32
   %282 = uitofp i8 %281 to float
   %283 = fadd float %282, -1.280000e+02

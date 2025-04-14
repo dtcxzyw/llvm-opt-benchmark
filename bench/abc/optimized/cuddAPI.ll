@@ -2533,49 +2533,49 @@ define range(i32 0, 3) i32 @Cudd_AddHook(ptr noundef captures(none) %0, ptr noun
 
 switch.lookup:                                    ; preds = %3
   %5 = shl nuw nsw i32 %2, 3
-  %6 = or disjoint i32 %5, 576
-  %switch.offset = zext nneg i32 %6 to i64
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.offset
-  %.01822 = load ptr, ptr %7, align 8, !tbaa !137
+  %6 = zext nneg i32 %5 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 576
+  %.01822 = load ptr, ptr %8, align 8, !tbaa !137
   %.not23 = icmp eq ptr %.01822, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
-8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.01824, i64 8
-  %.018 = load ptr, ptr %9, align 8, !tbaa !137
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr inbounds nuw i8, ptr %.01824, i64 8
+  %.018 = load ptr, ptr %10, align 8, !tbaa !137
   %.not = icmp eq ptr %.018, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !138
 
-.lr.ph:                                           ; preds = %switch.lookup, %8
-  %.01824 = phi ptr [ %.018, %8 ], [ %.01822, %switch.lookup ]
-  %10 = load ptr, ptr %.01824, align 8, !tbaa !139
-  %11 = icmp eq ptr %10, %1
-  br i1 %11, label %.loopexit, label %8
+.lr.ph:                                           ; preds = %switch.lookup, %9
+  %.01824 = phi ptr [ %.018, %9 ], [ %.01822, %switch.lookup ]
+  %11 = load ptr, ptr %.01824, align 8, !tbaa !139
+  %12 = icmp eq ptr %11, %1
+  br i1 %12, label %.loopexit, label %9
 
-._crit_edge.loopexit:                             ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %.01824, i64 8
+._crit_edge.loopexit:                             ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %.01824, i64 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %switch.lookup
-  %.1.lcssa = phi ptr [ %7, %switch.lookup ], [ %12, %._crit_edge.loopexit ]
-  %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %17
+  %.1.lcssa = phi ptr [ %8, %switch.lookup ], [ %13, %._crit_edge.loopexit ]
+  %14 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %._crit_edge
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %16, align 8, !tbaa !50
+16:                                               ; preds = %._crit_edge
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store i32 1, ptr %17, align 8, !tbaa !50
   br label %.loopexit
 
-17:                                               ; preds = %._crit_edge
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr null, ptr %18, align 8, !tbaa !141
-  store ptr %1, ptr %13, align 8, !tbaa !139
-  store ptr %13, ptr %.1.lcssa, align 8, !tbaa !137
+18:                                               ; preds = %._crit_edge
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr null, ptr %19, align 8, !tbaa !141
+  store ptr %1, ptr %14, align 8, !tbaa !139
+  store ptr %14, ptr %.1.lcssa, align 8, !tbaa !137
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %3, %17, %15
-  %.0 = phi i32 [ 0, %15 ], [ 1, %17 ], [ 0, %3 ], [ 2, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %3, %18, %16
+  %.0 = phi i32 [ 0, %16 ], [ 1, %18 ], [ 0, %3 ], [ 2, %.lr.ph ]
   ret i32 %.0
 }
 
@@ -2586,40 +2586,40 @@ define range(i32 0, 2) i32 @Cudd_RemoveHook(ptr noundef captures(none) %0, ptr n
 
 switch.lookup:                                    ; preds = %3
   %5 = shl nuw nsw i32 %2, 3
-  %6 = or disjoint i32 %5, 576
-  %switch.offset = zext nneg i32 %6 to i64
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.offset
-  %.019 = load ptr, ptr %7, align 8, !tbaa !137
+  %6 = zext nneg i32 %5 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 576
+  %.019 = load ptr, ptr %8, align 8, !tbaa !137
   %.not20 = icmp eq ptr %.019, null
   br i1 %.not20, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %switch.lookup
-  %8 = load ptr, ptr %.019, align 8, !tbaa !139
-  %9 = icmp eq ptr %8, %1
-  br i1 %9, label %.lr.ph._crit_edge, label %.lr.ph30
+  %9 = load ptr, ptr %.019, align 8, !tbaa !139
+  %10 = icmp eq ptr %9, %1
+  br i1 %10, label %.lr.ph._crit_edge, label %.lr.ph30
 
 .lr.ph:                                           ; preds = %.lr.ph30
-  %10 = load ptr, ptr %.0, align 8, !tbaa !139
-  %11 = icmp eq ptr %10, %1
-  br i1 %11, label %.lr.ph._crit_edge.loopexit, label %.lr.ph30, !llvm.loop !142
+  %11 = load ptr, ptr %.0, align 8, !tbaa !139
+  %12 = icmp eq ptr %11, %1
+  br i1 %12, label %.lr.ph._crit_edge.loopexit, label %.lr.ph30, !llvm.loop !142
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.02229, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.02229, i64 8
   br label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph._crit_edge.loopexit, %.lr.ph.preheader
   %.022.lcssa = phi ptr [ %.019, %.lr.ph.preheader ], [ %.0, %.lr.ph._crit_edge.loopexit ]
-  %.121.lcssa = phi ptr [ %7, %.lr.ph.preheader ], [ %12, %.lr.ph._crit_edge.loopexit ]
-  %13 = getelementptr inbounds nuw i8, ptr %.022.lcssa, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !141
-  store ptr %14, ptr %.121.lcssa, align 8, !tbaa !137
+  %.121.lcssa = phi ptr [ %8, %.lr.ph.preheader ], [ %13, %.lr.ph._crit_edge.loopexit ]
+  %14 = getelementptr inbounds nuw i8, ptr %.022.lcssa, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !141
+  store ptr %15, ptr %.121.lcssa, align 8, !tbaa !137
   tail call void @free(ptr noundef nonnull %.022.lcssa) #20
   br label %.loopexit
 
 .lr.ph30:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.02229 = phi ptr [ %.0, %.lr.ph ], [ %.019, %.lr.ph.preheader ]
-  %15 = getelementptr inbounds nuw i8, ptr %.02229, i64 8
-  %.0 = load ptr, ptr %15, align 8, !tbaa !137
+  %16 = getelementptr inbounds nuw i8, ptr %.02229, i64 8
+  %.0 = load ptr, ptr %16, align 8, !tbaa !137
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !142
 
@@ -2635,27 +2635,27 @@ define range(i32 0, 2) i32 @Cudd_IsInHook(ptr noundef readonly captures(none) %0
 
 switch.lookup:                                    ; preds = %3
   %5 = shl nuw nsw i32 %2, 3
-  %6 = or disjoint i32 %5, 576
-  %switch.offset = zext nneg i32 %6 to i64
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.offset
-  %.110 = load ptr, ptr %7, align 8, !tbaa !137
+  %6 = zext nneg i32 %5 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 576
+  %.110 = load ptr, ptr %8, align 8, !tbaa !137
   %.not11 = icmp eq ptr %.110, null
   br i1 %.not11, label %.loopexit, label %.lr.ph
 
-8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.112, i64 8
-  %.1 = load ptr, ptr %9, align 8, !tbaa !137
+9:                                                ; preds = %.lr.ph
+  %10 = getelementptr inbounds nuw i8, ptr %.112, i64 8
+  %.1 = load ptr, ptr %10, align 8, !tbaa !137
   %.not = icmp eq ptr %.1, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !143
 
-.lr.ph:                                           ; preds = %switch.lookup, %8
-  %.112 = phi ptr [ %.1, %8 ], [ %.110, %switch.lookup ]
-  %10 = load ptr, ptr %.112, align 8, !tbaa !139
-  %11 = icmp eq ptr %10, %1
-  br i1 %11, label %.loopexit, label %8
+.lr.ph:                                           ; preds = %switch.lookup, %9
+  %.112 = phi ptr [ %.1, %9 ], [ %.110, %switch.lookup ]
+  %11 = load ptr, ptr %.112, align 8, !tbaa !139
+  %12 = icmp eq ptr %11, %1
+  br i1 %12, label %.loopexit, label %9
 
-.loopexit:                                        ; preds = %.lr.ph, %8, %3, %switch.lookup
-  %.09 = phi i32 [ 0, %3 ], [ 0, %switch.lookup ], [ 1, %.lr.ph ], [ 0, %8 ]
+.loopexit:                                        ; preds = %.lr.ph, %9, %3, %switch.lookup
+  %.09 = phi i32 [ 0, %3 ], [ 0, %switch.lookup ], [ 1, %.lr.ph ], [ 0, %9 ]
   ret i32 %.09
 }
 

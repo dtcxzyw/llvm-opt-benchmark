@@ -511,32 +511,25 @@ for.body:                                         ; preds = %for.body, %for.body
   %arrayidx = getelementptr inbounds nuw ptr, ptr %call90, i64 %indvars.iv
   store ptr %data.0162, ptr %arrayidx, align 8, !tbaa !15
   %add.ptr = getelementptr inbounds nuw i8, ptr %data.0162, i64 %idx.ext
-  %indvars.iv.next = or disjoint i64 %indvars.iv, 1
-  %arrayidx.1 = getelementptr inbounds nuw ptr, ptr %call90, i64 %indvars.iv.next
+  %arrayidx.1 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   store ptr %add.ptr, ptr %arrayidx.1, align 8, !tbaa !15
   %add.ptr.1 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %idx.ext
-  %indvars.iv.next.1 = or disjoint i64 %indvars.iv, 2
-  %arrayidx.2 = getelementptr inbounds nuw ptr, ptr %call90, i64 %indvars.iv.next.1
+  %arrayidx.2 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   store ptr %add.ptr.1, ptr %arrayidx.2, align 8, !tbaa !15
   %add.ptr.2 = getelementptr inbounds nuw i8, ptr %add.ptr.1, i64 %idx.ext
-  %indvars.iv.next.2 = or disjoint i64 %indvars.iv, 3
-  %arrayidx.3 = getelementptr inbounds nuw ptr, ptr %call90, i64 %indvars.iv.next.2
+  %arrayidx.3 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   store ptr %add.ptr.2, ptr %arrayidx.3, align 8, !tbaa !15
   %add.ptr.3 = getelementptr inbounds nuw i8, ptr %add.ptr.2, i64 %idx.ext
-  %indvars.iv.next.3 = or disjoint i64 %indvars.iv, 4
-  %arrayidx.4 = getelementptr inbounds nuw ptr, ptr %call90, i64 %indvars.iv.next.3
+  %arrayidx.4 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   store ptr %add.ptr.3, ptr %arrayidx.4, align 8, !tbaa !15
   %add.ptr.4 = getelementptr inbounds nuw i8, ptr %add.ptr.3, i64 %idx.ext
-  %indvars.iv.next.4 = or disjoint i64 %indvars.iv, 5
-  %arrayidx.5 = getelementptr inbounds nuw ptr, ptr %call90, i64 %indvars.iv.next.4
+  %arrayidx.5 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   store ptr %add.ptr.4, ptr %arrayidx.5, align 8, !tbaa !15
   %add.ptr.5 = getelementptr inbounds nuw i8, ptr %add.ptr.4, i64 %idx.ext
-  %indvars.iv.next.5 = or disjoint i64 %indvars.iv, 6
-  %arrayidx.6 = getelementptr inbounds nuw ptr, ptr %call90, i64 %indvars.iv.next.5
+  %arrayidx.6 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 48
   store ptr %add.ptr.5, ptr %arrayidx.6, align 8, !tbaa !15
   %add.ptr.6 = getelementptr inbounds nuw i8, ptr %add.ptr.5, i64 %idx.ext
-  %indvars.iv.next.6 = or disjoint i64 %indvars.iv, 7
-  %arrayidx.7 = getelementptr inbounds nuw ptr, ptr %call90, i64 %indvars.iv.next.6
+  %arrayidx.7 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 56
   store ptr %add.ptr.6, ptr %arrayidx.7, align 8, !tbaa !15
   %add.ptr.7 = getelementptr inbounds nuw i8, ptr %add.ptr.6, i64 %idx.ext
   %indvars.iv.next.7 = add nuw nsw i64 %indvars.iv, 8

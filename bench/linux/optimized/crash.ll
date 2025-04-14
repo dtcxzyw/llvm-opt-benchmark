@@ -315,11 +315,11 @@ define internal noundef i32 @prepare_elf64_ram_headers_callback(ptr noundef read
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.idx = shl nuw nsw i64 %7, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %11 = getelementptr i8, ptr %4, i64 %.offs
-  store i64 %10, ptr %11, align 8
-  %12 = add i32 %6, 1
-  store i32 %12, ptr %5, align 4
+  %11 = getelementptr i8, ptr %4, i64 %.idx
+  %12 = getelementptr i8, ptr %11, i64 8
+  store i64 %10, ptr %12, align 8
+  %13 = add i32 %6, 1
+  store i32 %13, ptr %5, align 4
   ret i32 0
 }
 

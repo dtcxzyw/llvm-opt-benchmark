@@ -2523,268 +2523,267 @@ _ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit49: ; preds = %132, %
   %171 = zext i16 %169 to i32
   %172 = add nsw i32 %171, -1
   %173 = sext i32 %172 to i64
-  %174 = or disjoint i32 %171, 1
-  %175 = zext nneg i32 %174 to i64
-  %176 = zext i16 %169 to i64
-  %177 = trunc i32 %172 to i16
-  %178 = getelementptr inbounds nuw i8, ptr %164, i64 52
-  %179 = getelementptr inbounds nuw i8, ptr %164, i64 58
-  br label %310
+  %174 = zext i16 %169 to i64
+  %175 = trunc i32 %172 to i16
+  %176 = getelementptr inbounds nuw i8, ptr %164, i64 52
+  %177 = getelementptr inbounds nuw i8, ptr %164, i64 58
+  br label %308
 
-180:                                              ; preds = %310
-  %181 = load i16, ptr %178, align 4, !tbaa !47
-  %182 = load ptr, ptr %170, align 8, !tbaa !51
-  %183 = zext i16 %181 to i64
-  %184 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %182, i64 %183
-  %.03136.i = getelementptr inbounds i8, ptr %184, i64 -4
-  %185 = load i16, ptr %184, align 2, !tbaa !54
-  %186 = load i16, ptr %.03136.i, align 2, !tbaa !54
-  %187 = icmp ult i16 %185, %186
-  br i1 %187, label %.lr.ph.i, label %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit
+178:                                              ; preds = %308
+  %179 = load i16, ptr %176, align 4, !tbaa !47
+  %180 = load ptr, ptr %170, align 8, !tbaa !51
+  %181 = zext i16 %179 to i64
+  %182 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %180, i64 %181
+  %.03136.i = getelementptr inbounds i8, ptr %182, i64 -4
+  %183 = load i16, ptr %182, align 2, !tbaa !54
+  %184 = load i16, ptr %.03136.i, align 2, !tbaa !54
+  %185 = icmp ult i16 %183, %184
+  br i1 %185, label %.lr.ph.i, label %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit
 
-.lr.ph.i:                                         ; preds = %180
-  %188 = load ptr, ptr %156, align 8, !tbaa !41
-  %189 = getelementptr inbounds nuw i8, ptr %184, i64 2
-  %190 = load i16, ptr %189, align 2, !tbaa !56
-  %191 = zext i16 %190 to i64
-  %192 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %188, i64 %191, i32 1
+.lr.ph.i:                                         ; preds = %178
+  %186 = load ptr, ptr %156, align 8, !tbaa !41
+  %187 = getelementptr inbounds nuw i8, ptr %182, i64 2
+  %188 = load i16, ptr %187, align 2, !tbaa !56
+  %189 = zext i16 %188 to i64
+  %190 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %186, i64 %189, i32 1
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.i
-  %193 = phi i16 [ %209, %.lr.ph.split.i ], [ %186, %.lr.ph.i ]
+  %191 = phi i16 [ %207, %.lr.ph.split.i ], [ %184, %.lr.ph.i ]
   %.03139.i = phi ptr [ %.031.i, %.lr.ph.split.i ], [ %.03136.i, %.lr.ph.i ]
-  %.038.i = phi ptr [ %207, %.lr.ph.split.i ], [ %184, %.lr.ph.i ]
-  %194 = getelementptr inbounds i8, ptr %.038.i, i64 -2
-  %195 = load i16, ptr %194, align 2, !tbaa !56
-  %196 = load ptr, ptr %156, align 8, !tbaa !41
-  %197 = zext i16 %195 to i64
-  %198 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %196, i64 %197
-  %199 = and i16 %193, 1
-  %.not.i = icmp eq i16 %199, 0
+  %.038.i = phi ptr [ %205, %.lr.ph.split.i ], [ %182, %.lr.ph.i ]
+  %192 = getelementptr inbounds i8, ptr %.038.i, i64 -2
+  %193 = load i16, ptr %192, align 2, !tbaa !56
+  %194 = load ptr, ptr %156, align 8, !tbaa !41
+  %195 = zext i16 %193 to i64
+  %196 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %194, i64 %195
+  %197 = and i16 %191, 1
+  %.not.i = icmp eq i16 %197, 0
   %..i = select i1 %.not.i, i64 52, i64 58
-  %200 = getelementptr inbounds nuw i8, ptr %198, i64 %..i
-  %201 = load i16, ptr %200, align 2, !tbaa !47
-  %202 = add i16 %201, 1
-  store i16 %202, ptr %200, align 2, !tbaa !47
-  %203 = load i16, ptr %192, align 2, !tbaa !47
-  %204 = add i16 %203, -1
-  store i16 %204, ptr %192, align 2, !tbaa !47
-  %205 = load i32, ptr %.038.i, align 2
-  %206 = load i32, ptr %.03139.i, align 2
-  store i32 %206, ptr %.038.i, align 2
-  store i32 %205, ptr %.03139.i, align 2
-  %207 = getelementptr inbounds i8, ptr %.038.i, i64 -4
+  %198 = getelementptr inbounds nuw i8, ptr %196, i64 %..i
+  %199 = load i16, ptr %198, align 2, !tbaa !47
+  %200 = add i16 %199, 1
+  store i16 %200, ptr %198, align 2, !tbaa !47
+  %201 = load i16, ptr %190, align 2, !tbaa !47
+  %202 = add i16 %201, -1
+  store i16 %202, ptr %190, align 2, !tbaa !47
+  %203 = load i32, ptr %.038.i, align 2
+  %204 = load i32, ptr %.03139.i, align 2
+  store i32 %204, ptr %.038.i, align 2
+  store i32 %203, ptr %.03139.i, align 2
+  %205 = getelementptr inbounds i8, ptr %.038.i, i64 -4
   %.031.i = getelementptr inbounds i8, ptr %.03139.i, i64 -4
-  %208 = load i16, ptr %207, align 2, !tbaa !54
-  %209 = load i16, ptr %.031.i, align 2, !tbaa !54
-  %210 = icmp ult i16 %208, %209
-  br i1 %210, label %.lr.ph.split.i, label %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit.loopexit, !llvm.loop !113
+  %206 = load i16, ptr %205, align 2, !tbaa !54
+  %207 = load i16, ptr %.031.i, align 2, !tbaa !54
+  %208 = icmp ult i16 %206, %207
+  br i1 %208, label %.lr.ph.split.i, label %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit.loopexit, !llvm.loop !113
 
 _ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit.loopexit: ; preds = %.lr.ph.split.i
   %.pre = load ptr, ptr %170, align 8, !tbaa !51
   br label %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit
 
-_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit: ; preds = %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit.loopexit, %180
-  %211 = phi ptr [ %.pre, %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit.loopexit ], [ %182, %180 ]
-  %212 = load i16, ptr %179, align 2, !tbaa !47
-  %213 = zext i16 %212 to i64
-  %214 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %211, i64 %213
-  %.03540.i = getelementptr inbounds i8, ptr %214, i64 -4
-  %215 = load i16, ptr %214, align 2, !tbaa !54
-  %216 = load i16, ptr %.03540.i, align 2, !tbaa !54
-  %217 = icmp ult i16 %215, %216
-  br i1 %217, label %.lr.ph.i50, label %_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit
+_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit: ; preds = %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit.loopexit, %178
+  %209 = phi ptr [ %.pre, %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit.loopexit ], [ %180, %178 ]
+  %210 = load i16, ptr %177, align 2, !tbaa !47
+  %211 = zext i16 %210 to i64
+  %212 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %209, i64 %211
+  %.03540.i = getelementptr inbounds i8, ptr %212, i64 -4
+  %213 = load i16, ptr %212, align 2, !tbaa !54
+  %214 = load i16, ptr %.03540.i, align 2, !tbaa !54
+  %215 = icmp ult i16 %213, %214
+  br i1 %215, label %.lr.ph.i50, label %_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit
 
 .lr.ph.i50:                                       ; preds = %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit
-  %218 = getelementptr inbounds nuw i8, ptr %214, i64 2
-  %219 = load i16, ptr %218, align 2, !tbaa !56
-  %220 = zext i16 %219 to i64
-  %221 = load ptr, ptr %156, align 8, !tbaa !41
-  %222 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %221, i64 %220, i32 2, i64 0
+  %216 = getelementptr inbounds nuw i8, ptr %212, i64 2
+  %217 = load i16, ptr %216, align 2, !tbaa !56
+  %218 = zext i16 %217 to i64
+  %219 = load ptr, ptr %156, align 8, !tbaa !41
+  %220 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %219, i64 %218, i32 2, i64 0
   br label %.lr.ph.split.i51
 
 .lr.ph.split.i51:                                 ; preds = %.lr.ph.split.i51, %.lr.ph.i50
-  %223 = phi i16 [ %239, %.lr.ph.split.i51 ], [ %216, %.lr.ph.i50 ]
+  %221 = phi i16 [ %237, %.lr.ph.split.i51 ], [ %214, %.lr.ph.i50 ]
   %.03543.i = phi ptr [ %.035.i, %.lr.ph.split.i51 ], [ %.03540.i, %.lr.ph.i50 ]
-  %.042.i = phi ptr [ %237, %.lr.ph.split.i51 ], [ %214, %.lr.ph.i50 ]
-  %224 = getelementptr inbounds i8, ptr %.042.i, i64 -2
-  %225 = load i16, ptr %224, align 2, !tbaa !56
-  %226 = load ptr, ptr %156, align 8, !tbaa !41
-  %227 = zext i16 %225 to i64
-  %228 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %226, i64 %227
-  %229 = and i16 %223, 1
-  %.not.i52 = icmp eq i16 %229, 0
+  %.042.i = phi ptr [ %235, %.lr.ph.split.i51 ], [ %212, %.lr.ph.i50 ]
+  %222 = getelementptr inbounds i8, ptr %.042.i, i64 -2
+  %223 = load i16, ptr %222, align 2, !tbaa !56
+  %224 = load ptr, ptr %156, align 8, !tbaa !41
+  %225 = zext i16 %223 to i64
+  %226 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %224, i64 %225
+  %227 = and i16 %221, 1
+  %.not.i52 = icmp eq i16 %227, 0
   %..i53 = select i1 %.not.i52, i64 52, i64 58
-  %230 = getelementptr inbounds nuw i8, ptr %228, i64 %..i53
-  %231 = load i16, ptr %230, align 2, !tbaa !47
-  %232 = add i16 %231, 1
-  store i16 %232, ptr %230, align 2, !tbaa !47
-  %233 = load i16, ptr %222, align 2, !tbaa !47
-  %234 = add i16 %233, -1
-  store i16 %234, ptr %222, align 2, !tbaa !47
-  %235 = load i32, ptr %.042.i, align 2
-  %236 = load i32, ptr %.03543.i, align 2
-  store i32 %236, ptr %.042.i, align 2
-  store i32 %235, ptr %.03543.i, align 2
-  %237 = getelementptr inbounds i8, ptr %.042.i, i64 -4
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 %..i53
+  %229 = load i16, ptr %228, align 2, !tbaa !47
+  %230 = add i16 %229, 1
+  store i16 %230, ptr %228, align 2, !tbaa !47
+  %231 = load i16, ptr %220, align 2, !tbaa !47
+  %232 = add i16 %231, -1
+  store i16 %232, ptr %220, align 2, !tbaa !47
+  %233 = load i32, ptr %.042.i, align 2
+  %234 = load i32, ptr %.03543.i, align 2
+  store i32 %234, ptr %.042.i, align 2
+  store i32 %233, ptr %.03543.i, align 2
+  %235 = getelementptr inbounds i8, ptr %.042.i, i64 -4
   %.035.i = getelementptr inbounds i8, ptr %.03543.i, i64 -4
-  %238 = load i16, ptr %237, align 2, !tbaa !54
-  %239 = load i16, ptr %.035.i, align 2, !tbaa !54
-  %240 = icmp ult i16 %238, %239
-  br i1 %240, label %.lr.ph.split.i51, label %_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit, !llvm.loop !114
+  %236 = load i16, ptr %235, align 2, !tbaa !54
+  %237 = load i16, ptr %.035.i, align 2, !tbaa !54
+  %238 = icmp ult i16 %236, %237
+  br i1 %238, label %.lr.ph.split.i51, label %_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit, !llvm.loop !114
 
 _ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit: ; preds = %.lr.ph.split.i51, %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit
-  %241 = getelementptr inbounds nuw i8, ptr %164, i64 54
-  %242 = load i16, ptr %241, align 2, !tbaa !47
-  %243 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %244 = load ptr, ptr %243, align 8, !tbaa !51
-  %245 = zext i16 %242 to i64
-  %246 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %244, i64 %245
-  %.03136.i54 = getelementptr inbounds i8, ptr %246, i64 -4
-  %247 = load i16, ptr %246, align 2, !tbaa !54
-  %248 = load i16, ptr %.03136.i54, align 2, !tbaa !54
-  %249 = icmp ult i16 %247, %248
-  br i1 %249, label %.lr.ph.i55, label %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit62
+  %239 = getelementptr inbounds nuw i8, ptr %164, i64 54
+  %240 = load i16, ptr %239, align 2, !tbaa !47
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %242 = load ptr, ptr %241, align 8, !tbaa !51
+  %243 = zext i16 %240 to i64
+  %244 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %242, i64 %243
+  %.03136.i54 = getelementptr inbounds i8, ptr %244, i64 -4
+  %245 = load i16, ptr %244, align 2, !tbaa !54
+  %246 = load i16, ptr %.03136.i54, align 2, !tbaa !54
+  %247 = icmp ult i16 %245, %246
+  br i1 %247, label %.lr.ph.i55, label %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit62
 
 .lr.ph.i55:                                       ; preds = %_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit
-  %250 = load ptr, ptr %156, align 8, !tbaa !41
-  %251 = getelementptr inbounds nuw i8, ptr %246, i64 2
-  %252 = load i16, ptr %251, align 2, !tbaa !56
-  %253 = zext i16 %252 to i64
-  %254 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %250, i64 %253, i32 1, i64 1
+  %248 = load ptr, ptr %156, align 8, !tbaa !41
+  %249 = getelementptr inbounds nuw i8, ptr %244, i64 2
+  %250 = load i16, ptr %249, align 2, !tbaa !56
+  %251 = zext i16 %250 to i64
+  %252 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %248, i64 %251, i32 1, i64 1
   br label %.lr.ph.split.i56
 
 .lr.ph.split.i56:                                 ; preds = %.lr.ph.split.i56, %.lr.ph.i55
-  %255 = phi i16 [ %272, %.lr.ph.split.i56 ], [ %248, %.lr.ph.i55 ]
+  %253 = phi i16 [ %270, %.lr.ph.split.i56 ], [ %246, %.lr.ph.i55 ]
   %.03139.i57 = phi ptr [ %.031.i61, %.lr.ph.split.i56 ], [ %.03136.i54, %.lr.ph.i55 ]
-  %.038.i58 = phi ptr [ %270, %.lr.ph.split.i56 ], [ %246, %.lr.ph.i55 ]
-  %256 = getelementptr inbounds i8, ptr %.038.i58, i64 -2
-  %257 = load i16, ptr %256, align 2, !tbaa !56
-  %258 = load ptr, ptr %156, align 8, !tbaa !41
-  %259 = zext i16 %257 to i64
-  %260 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %258, i64 %259
-  %261 = and i16 %255, 1
-  %.not.i59 = icmp eq i16 %261, 0
+  %.038.i58 = phi ptr [ %268, %.lr.ph.split.i56 ], [ %244, %.lr.ph.i55 ]
+  %254 = getelementptr inbounds i8, ptr %.038.i58, i64 -2
+  %255 = load i16, ptr %254, align 2, !tbaa !56
+  %256 = load ptr, ptr %156, align 8, !tbaa !41
+  %257 = zext i16 %255 to i64
+  %258 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %256, i64 %257
+  %259 = and i16 %253, 1
+  %.not.i59 = icmp eq i16 %259, 0
   %..i60 = select i1 %.not.i59, i64 52, i64 58
-  %262 = getelementptr inbounds nuw i8, ptr %260, i64 %..i60
-  %263 = getelementptr inbounds nuw i8, ptr %262, i64 2
-  %264 = load i16, ptr %263, align 2, !tbaa !47
-  %265 = add i16 %264, 1
-  store i16 %265, ptr %263, align 2, !tbaa !47
-  %266 = load i16, ptr %254, align 2, !tbaa !47
-  %267 = add i16 %266, -1
-  store i16 %267, ptr %254, align 2, !tbaa !47
-  %268 = load i32, ptr %.038.i58, align 2
-  %269 = load i32, ptr %.03139.i57, align 2
-  store i32 %269, ptr %.038.i58, align 2
-  store i32 %268, ptr %.03139.i57, align 2
-  %270 = getelementptr inbounds i8, ptr %.038.i58, i64 -4
+  %260 = getelementptr inbounds nuw i8, ptr %258, i64 %..i60
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 2
+  %262 = load i16, ptr %261, align 2, !tbaa !47
+  %263 = add i16 %262, 1
+  store i16 %263, ptr %261, align 2, !tbaa !47
+  %264 = load i16, ptr %252, align 2, !tbaa !47
+  %265 = add i16 %264, -1
+  store i16 %265, ptr %252, align 2, !tbaa !47
+  %266 = load i32, ptr %.038.i58, align 2
+  %267 = load i32, ptr %.03139.i57, align 2
+  store i32 %267, ptr %.038.i58, align 2
+  store i32 %266, ptr %.03139.i57, align 2
+  %268 = getelementptr inbounds i8, ptr %.038.i58, i64 -4
   %.031.i61 = getelementptr inbounds i8, ptr %.03139.i57, i64 -4
-  %271 = load i16, ptr %270, align 2, !tbaa !54
-  %272 = load i16, ptr %.031.i61, align 2, !tbaa !54
-  %273 = icmp ult i16 %271, %272
-  br i1 %273, label %.lr.ph.split.i56, label %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit62.loopexit, !llvm.loop !113
+  %269 = load i16, ptr %268, align 2, !tbaa !54
+  %270 = load i16, ptr %.031.i61, align 2, !tbaa !54
+  %271 = icmp ult i16 %269, %270
+  br i1 %271, label %.lr.ph.split.i56, label %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit62.loopexit, !llvm.loop !113
 
 _ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit62.loopexit: ; preds = %.lr.ph.split.i56
-  %.pre74 = load ptr, ptr %243, align 8, !tbaa !51
+  %.pre74 = load ptr, ptr %241, align 8, !tbaa !51
   br label %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit62
 
 _ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit62: ; preds = %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit62.loopexit, %_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit
-  %274 = phi ptr [ %.pre74, %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit62.loopexit ], [ %244, %_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit ]
-  %275 = getelementptr inbounds nuw i8, ptr %164, i64 60
-  %276 = load i16, ptr %275, align 2, !tbaa !47
-  %277 = zext i16 %276 to i64
-  %278 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %274, i64 %277
-  %.03540.i63 = getelementptr inbounds i8, ptr %278, i64 -4
-  %279 = load i16, ptr %278, align 2, !tbaa !54
-  %280 = load i16, ptr %.03540.i63, align 2, !tbaa !54
-  %281 = icmp ult i16 %279, %280
-  br i1 %281, label %.lr.ph.i64, label %_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit71
+  %272 = phi ptr [ %.pre74, %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit62.loopexit ], [ %242, %_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit ]
+  %273 = getelementptr inbounds nuw i8, ptr %164, i64 60
+  %274 = load i16, ptr %273, align 2, !tbaa !47
+  %275 = zext i16 %274 to i64
+  %276 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %272, i64 %275
+  %.03540.i63 = getelementptr inbounds i8, ptr %276, i64 -4
+  %277 = load i16, ptr %276, align 2, !tbaa !54
+  %278 = load i16, ptr %.03540.i63, align 2, !tbaa !54
+  %279 = icmp ult i16 %277, %278
+  br i1 %279, label %.lr.ph.i64, label %_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit71
 
 .lr.ph.i64:                                       ; preds = %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit62
-  %282 = getelementptr inbounds nuw i8, ptr %278, i64 2
-  %283 = load i16, ptr %282, align 2, !tbaa !56
-  %284 = zext i16 %283 to i64
-  %285 = load ptr, ptr %156, align 8, !tbaa !41
-  %286 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %285, i64 %284, i32 2, i64 1
+  %280 = getelementptr inbounds nuw i8, ptr %276, i64 2
+  %281 = load i16, ptr %280, align 2, !tbaa !56
+  %282 = zext i16 %281 to i64
+  %283 = load ptr, ptr %156, align 8, !tbaa !41
+  %284 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %283, i64 %282, i32 2, i64 1
   br label %.lr.ph.split.i65
 
 .lr.ph.split.i65:                                 ; preds = %.lr.ph.split.i65, %.lr.ph.i64
-  %287 = phi i16 [ %304, %.lr.ph.split.i65 ], [ %280, %.lr.ph.i64 ]
+  %285 = phi i16 [ %302, %.lr.ph.split.i65 ], [ %278, %.lr.ph.i64 ]
   %.03543.i66 = phi ptr [ %.035.i70, %.lr.ph.split.i65 ], [ %.03540.i63, %.lr.ph.i64 ]
-  %.042.i67 = phi ptr [ %302, %.lr.ph.split.i65 ], [ %278, %.lr.ph.i64 ]
-  %288 = getelementptr inbounds i8, ptr %.042.i67, i64 -2
-  %289 = load i16, ptr %288, align 2, !tbaa !56
-  %290 = load ptr, ptr %156, align 8, !tbaa !41
-  %291 = zext i16 %289 to i64
-  %292 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %290, i64 %291
-  %293 = and i16 %287, 1
-  %.not.i68 = icmp eq i16 %293, 0
+  %.042.i67 = phi ptr [ %300, %.lr.ph.split.i65 ], [ %276, %.lr.ph.i64 ]
+  %286 = getelementptr inbounds i8, ptr %.042.i67, i64 -2
+  %287 = load i16, ptr %286, align 2, !tbaa !56
+  %288 = load ptr, ptr %156, align 8, !tbaa !41
+  %289 = zext i16 %287 to i64
+  %290 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %288, i64 %289
+  %291 = and i16 %285, 1
+  %.not.i68 = icmp eq i16 %291, 0
   %..i69 = select i1 %.not.i68, i64 52, i64 58
-  %294 = getelementptr inbounds nuw i8, ptr %292, i64 %..i69
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 2
-  %296 = load i16, ptr %295, align 2, !tbaa !47
-  %297 = add i16 %296, 1
-  store i16 %297, ptr %295, align 2, !tbaa !47
-  %298 = load i16, ptr %286, align 2, !tbaa !47
-  %299 = add i16 %298, -1
-  store i16 %299, ptr %286, align 2, !tbaa !47
-  %300 = load i32, ptr %.042.i67, align 2
-  %301 = load i32, ptr %.03543.i66, align 2
-  store i32 %301, ptr %.042.i67, align 2
-  store i32 %300, ptr %.03543.i66, align 2
-  %302 = getelementptr inbounds i8, ptr %.042.i67, i64 -4
+  %292 = getelementptr inbounds nuw i8, ptr %290, i64 %..i69
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 2
+  %294 = load i16, ptr %293, align 2, !tbaa !47
+  %295 = add i16 %294, 1
+  store i16 %295, ptr %293, align 2, !tbaa !47
+  %296 = load i16, ptr %284, align 2, !tbaa !47
+  %297 = add i16 %296, -1
+  store i16 %297, ptr %284, align 2, !tbaa !47
+  %298 = load i32, ptr %.042.i67, align 2
+  %299 = load i32, ptr %.03543.i66, align 2
+  store i32 %299, ptr %.042.i67, align 2
+  store i32 %298, ptr %.03543.i66, align 2
+  %300 = getelementptr inbounds i8, ptr %.042.i67, i64 -4
   %.035.i70 = getelementptr inbounds i8, ptr %.03543.i66, i64 -4
-  %303 = load i16, ptr %302, align 2, !tbaa !54
-  %304 = load i16, ptr %.035.i70, align 2, !tbaa !54
-  %305 = icmp ult i16 %303, %304
-  br i1 %305, label %.lr.ph.split.i65, label %_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit71, !llvm.loop !114
+  %301 = load i16, ptr %300, align 2, !tbaa !54
+  %302 = load i16, ptr %.035.i70, align 2, !tbaa !54
+  %303 = icmp ult i16 %301, %302
+  br i1 %303, label %.lr.ph.split.i65, label %_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit71, !llvm.loop !114
 
 _ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit71: ; preds = %.lr.ph.split.i65, %_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit62
-  %306 = getelementptr inbounds nuw i8, ptr %164, i64 56
-  %307 = load i16, ptr %306, align 4, !tbaa !47
-  tail call void @_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef 2, i16 noundef zeroext %307, ptr noundef %6, i1 noundef zeroext true)
-  %308 = getelementptr inbounds nuw i8, ptr %164, i64 62
-  %309 = load i16, ptr %308, align 2, !tbaa !47
-  tail call void @_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef 2, i16 noundef zeroext %309, ptr noundef %6, i1 noundef zeroext true)
+  %304 = getelementptr inbounds nuw i8, ptr %164, i64 56
+  %305 = load i16, ptr %304, align 4, !tbaa !47
+  tail call void @_ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef 2, i16 noundef zeroext %305, ptr noundef %6, i1 noundef zeroext true)
+  %306 = getelementptr inbounds nuw i8, ptr %164, i64 62
+  %307 = load i16, ptr %306, align 2, !tbaa !47
+  tail call void @_ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef 2, i16 noundef zeroext %307, ptr noundef %6, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %8) #11
   ret i16 %155
 
-310:                                              ; preds = %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit49, %310
-  %indvars.iv = phi i64 [ 0, %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit49 ], [ %indvars.iv.next, %310 ]
-  %311 = load ptr, ptr %156, align 8, !tbaa !41
-  %312 = getelementptr inbounds nuw i8, ptr %311, i64 58
-  %313 = getelementptr inbounds nuw [3 x i16], ptr %312, i64 0, i64 %indvars.iv
-  %314 = load i16, ptr %313, align 2, !tbaa !47
-  %315 = add i16 %314, 2
-  store i16 %315, ptr %313, align 2, !tbaa !47
-  %316 = getelementptr inbounds nuw [3 x ptr], ptr %170, i64 0, i64 %indvars.iv
-  %317 = load ptr, ptr %316, align 8, !tbaa !51
-  %318 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %317, i64 %173
-  %319 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %317, i64 %175
-  %320 = load i32, ptr %318, align 2
-  store i32 %320, ptr %319, align 2
-  %321 = getelementptr inbounds nuw [3 x i16], ptr %8, i64 0, i64 %indvars.iv
-  %322 = load i16, ptr %321, align 2, !tbaa !47
-  %323 = load ptr, ptr %316, align 8, !tbaa !51
-  %324 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %323, i64 %173
-  store i16 %322, ptr %324, align 2, !tbaa !54
-  %325 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %323, i64 %173, i32 1
-  store i16 %155, ptr %325, align 2, !tbaa !56
-  %326 = getelementptr inbounds nuw [3 x i16], ptr %9, i64 0, i64 %indvars.iv
-  %327 = load i16, ptr %326, align 2, !tbaa !47
-  %328 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %323, i64 %176
-  store i16 %327, ptr %328, align 2, !tbaa !54
-  %329 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %323, i64 %176, i32 1
-  store i16 %155, ptr %329, align 2, !tbaa !56
-  %330 = getelementptr inbounds nuw [3 x i16], ptr %178, i64 0, i64 %indvars.iv
-  store i16 %177, ptr %330, align 2, !tbaa !47
-  %331 = getelementptr inbounds nuw [3 x i16], ptr %179, i64 0, i64 %indvars.iv
-  store i16 %169, ptr %331, align 2, !tbaa !47
+308:                                              ; preds = %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit49, %308
+  %indvars.iv = phi i64 [ 0, %_ZNK20btAxisSweep3InternalItE8quantizeEPtRK9btVector3i.exit49 ], [ %indvars.iv.next, %308 ]
+  %309 = load ptr, ptr %156, align 8, !tbaa !41
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 58
+  %311 = getelementptr inbounds nuw [3 x i16], ptr %310, i64 0, i64 %indvars.iv
+  %312 = load i16, ptr %311, align 2, !tbaa !47
+  %313 = add i16 %312, 2
+  store i16 %313, ptr %311, align 2, !tbaa !47
+  %314 = getelementptr inbounds nuw [3 x ptr], ptr %170, i64 0, i64 %indvars.iv
+  %315 = load ptr, ptr %314, align 8, !tbaa !51
+  %316 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %315, i64 %173
+  %317 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %315, i64 %174
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 4
+  %319 = load i32, ptr %316, align 2
+  store i32 %319, ptr %318, align 2
+  %320 = getelementptr inbounds nuw [3 x i16], ptr %8, i64 0, i64 %indvars.iv
+  %321 = load i16, ptr %320, align 2, !tbaa !47
+  %322 = load ptr, ptr %314, align 8, !tbaa !51
+  %323 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %322, i64 %173
+  store i16 %321, ptr %323, align 2, !tbaa !54
+  %324 = getelementptr inbounds %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %322, i64 %173, i32 1
+  store i16 %155, ptr %324, align 2, !tbaa !56
+  %325 = getelementptr inbounds nuw [3 x i16], ptr %9, i64 0, i64 %indvars.iv
+  %326 = load i16, ptr %325, align 2, !tbaa !47
+  %327 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %322, i64 %174
+  store i16 %326, ptr %327, align 2, !tbaa !54
+  %328 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Edge", ptr %322, i64 %174, i32 1
+  store i16 %155, ptr %328, align 2, !tbaa !56
+  %329 = getelementptr inbounds nuw [3 x i16], ptr %176, i64 0, i64 %indvars.iv
+  store i16 %175, ptr %329, align 2, !tbaa !47
+  %330 = getelementptr inbounds nuw [3 x i16], ptr %177, i64 0, i64 %indvars.iv
+  store i16 %169, ptr %330, align 2, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %180, label %310, !llvm.loop !115
+  br i1 %exitcond.not, label %178, label %308, !llvm.loop !115
 }
 
 ; Function Attrs: mustprogress uwtable

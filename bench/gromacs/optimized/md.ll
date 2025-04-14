@@ -3399,16 +3399,16 @@ _ZSt11make_uniqueIN3gmx12ResetHandlerEJNS0_6compat8not_nullIPNS0_16SimulationSig
   %1715 = getelementptr inbounds nuw i8, ptr %1693, i64 2612
   %1716 = load i32, ptr %1715, align 4, !tbaa !644
   %1717 = mul nsw i32 %1716, 60
-  %1718 = or disjoint i32 %1717, 1
-  %1719 = sext i32 %1718 to i64
-  %1720 = getelementptr inbounds nuw %struct.wallcc_t, ptr %1705, i64 %1719
+  %1718 = sext i32 %1717 to i64
+  %1719 = getelementptr %struct.wallcc_t, ptr %1705, i64 %1718
+  %1720 = getelementptr i8, ptr %1719, i64 24
   %1721 = load i32, ptr %1720, align 8, !tbaa !666
   %1722 = add nsw i32 %1721, 1
   store i32 %1722, ptr %1720, align 8, !tbaa !666
   %1723 = getelementptr inbounds nuw i8, ptr %1693, i64 2616
   %1724 = load i64, ptr %1723, align 8, !tbaa !645
   %1725 = sub i64 %1702, %1724
-  %1726 = getelementptr inbounds nuw i8, ptr %1720, i64 8
+  %1726 = getelementptr i8, ptr %1719, i64 32
   %1727 = load i64, ptr %1726, align 8, !tbaa !667
   %1728 = add i64 %1725, %1727
   store i64 %1728, ptr %1726, align 8, !tbaa !667

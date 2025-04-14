@@ -971,7 +971,7 @@ _ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit: ; preds = %9, %_ZL17calcSlab
   br label %54
 
 54:                                               ; preds = %.lr.ph129, %.loopexit
-  %55 = phi ptr [ %39, %.lr.ph129 ], [ %152, %.loopexit ]
+  %55 = phi ptr [ %39, %.lr.ph129 ], [ %150, %.loopexit ]
   %indvars.iv133 = phi i64 [ 0, %.lr.ph129 ], [ %indvars.iv.next134, %.loopexit ]
   %.048128 = phi i32 [ 0, %.lr.ph129 ], [ %.1, %.loopexit ]
   %.sroa.0.0125 = phi float [ undef, %.lr.ph129 ], [ %.sroa.0.3, %.loopexit ]
@@ -1140,16 +1140,14 @@ _Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread:       ; preds = %115, %_Z12overlapSl
   store float %138, ptr %141, align 4
   %142 = fcmp olt float %.sroa.064.081, %.sroa.0.4
   %143 = select i1 %142, float %.sroa.064.081, float %.sroa.0.4
-  %144 = or disjoint i32 %139, 1
-  %145 = sext i32 %144 to i64
-  %146 = getelementptr inbounds float, ptr %6, i64 %145
-  store float %143, ptr %146, align 4
-  %147 = trunc nuw nsw i64 %indvars.iv133 to i32
-  %148 = or i32 %37, %147
-  %149 = sext i32 %.048128 to i64
-  %150 = getelementptr inbounds i32, ptr %5, i64 %149
-  store i32 %148, ptr %150, align 4
-  %151 = add nsw i32 %.048128, 1
+  %144 = getelementptr i8, ptr %141, i64 4
+  store float %143, ptr %144, align 4
+  %145 = trunc nuw nsw i64 %indvars.iv133 to i32
+  %146 = or i32 %37, %145
+  %147 = sext i32 %.048128 to i64
+  %148 = getelementptr inbounds i32, ptr %5, i64 %147
+  store i32 %146, ptr %148, align 4
+  %149 = add nsw i32 %.048128, 1
   %.pre = load ptr, ptr %38, align 8
   br label %.loopexit
 
@@ -1163,18 +1161,18 @@ _Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97:     ; preds = %._Z12overlapSlabsPK
   br i1 %exitcond.not, label %.loopexit, label %64, !llvm.loop !14
 
 .loopexit:                                        ; preds = %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97, %54, %136, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread
-  %152 = phi ptr [ %.pre, %136 ], [ %55, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %55, %54 ], [ %55, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
+  %150 = phi ptr [ %.pre, %136 ], [ %55, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %55, %54 ], [ %55, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
   %.sroa.663.3 = phi float [ %.sroa.663.4, %136 ], [ %.sroa.663.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.663.0122, %54 ], [ %.sroa.663.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
   %.sroa.061.3 = phi float [ %.sroa.061.4, %136 ], [ %.sroa.061.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.061.0123, %54 ], [ %.sroa.061.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
   %.sroa.6.3 = phi float [ %.sroa.6.4, %136 ], [ %.sroa.6.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.6.0124, %54 ], [ %.sroa.6.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
   %.sroa.0.3 = phi float [ %.sroa.0.4, %136 ], [ %.sroa.0.4, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.sroa.0.0125, %54 ], [ %.sroa.0.2, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
-  %.1 = phi i32 [ %151, %136 ], [ %.048128, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.048128, %54 ], [ %.048128, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
+  %.1 = phi i32 [ %149, %136 ], [ %.048128, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread ], [ %.048128, %54 ], [ %.048128, %_Z12overlapSlabsPKfS0_S0_S0_ff.exit.thread97 ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  %154 = load i32, ptr %153, align 4
-  %155 = sext i32 %154 to i64
-  %156 = icmp slt i64 %indvars.iv.next134, %155
-  br i1 %156, label %54, label %.loopexit109, !llvm.loop !15
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
+  %152 = load i32, ptr %151, align 4
+  %153 = sext i32 %152 to i64
+  %154 = icmp slt i64 %indvars.iv.next134, %153
+  br i1 %154, label %54, label %.loopexit109, !llvm.loop !15
 
 .loopexit109:                                     ; preds = %.loopexit, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile.exit ], [ %.1, %.loopexit ]

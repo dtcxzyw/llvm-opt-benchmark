@@ -783,8 +783,8 @@ define void @_ZN15actix_multipart4test50create_form_data_payload_and_headers_wit
   %71 = sub nuw nsw i64 64, %70
   %.0.sroa.speculated.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 range(i64 0, 55) %71, i64 7)
   %72 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %73 = or disjoint i64 %72, 1
-  %74 = getelementptr i8, ptr null, i64 %73
+  %73 = getelementptr i8, ptr null, i64 %72
+  %74 = getelementptr i8, ptr %73, i64 1
   store ptr %67, ptr %56, align 8, !alias.scope !136, !noalias !139
   %75 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i64 0, ptr %75, align 8, !alias.scope !136, !noalias !139

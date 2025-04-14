@@ -2231,10 +2231,10 @@ define hidden void @cfl_subsample_lbd_420_4x4_c(ptr noundef readonly captures(no
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %27, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
-  %7 = phi i1 [ true, %3 ], [ false, %27 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
+.preheader.i:                                     ; preds = %26, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
+  %7 = phi i1 [ true, %3 ], [ false, %26 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
   %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
   br label %8
 
@@ -2244,30 +2244,29 @@ define hidden void @cfl_subsample_lbd_420_4x4_c(ptr noundef readonly captures(no
   %10 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i16
-  %13 = or disjoint i64 %indvars.iv.i, 1
-  %14 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %13
-  %15 = load i8, ptr %14, align 1
-  %16 = zext i8 %15 to i16
-  %17 = add nuw nsw i16 %16, %12
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %14 = load i8, ptr %13, align 1
+  %15 = zext i8 %14 to i16
+  %16 = add nuw nsw i16 %15, %12
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %18 = load i8, ptr %gep.i, align 1
-  %19 = zext i8 %18 to i16
-  %20 = add nuw nsw i16 %17, %19
-  %21 = getelementptr i8, ptr %gep.i, i64 1
-  %22 = load i8, ptr %21, align 1
-  %23 = zext i8 %22 to i16
-  %24 = add nuw nsw i16 %20, %23
-  %25 = shl nuw nsw i16 %24, 1
-  %26 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %25, ptr %26, align 2
-  br i1 %9, label %8, label %27, !llvm.loop !19
+  %17 = load i8, ptr %gep.i, align 1
+  %18 = zext i8 %17 to i16
+  %19 = add nuw nsw i16 %16, %18
+  %20 = getelementptr i8, ptr %gep.i, i64 1
+  %21 = load i8, ptr %20, align 1
+  %22 = zext i8 %21 to i16
+  %23 = add nuw nsw i16 %19, %22
+  %24 = shl nuw nsw i16 %23, 1
+  %25 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %24, ptr %25, align 2
+  br i1 %9, label %8, label %26, !llvm.loop !19
 
-27:                                               ; preds = %8
-  %28 = getelementptr inbounds i8, ptr %.026.i, i64 %5
-  %29 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+26:                                               ; preds = %8
+  %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %27
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
   ret void
 }
 
@@ -2278,10 +2277,10 @@ define hidden void @cfl_subsample_lbd_420_8x8_c(ptr noundef readonly captures(no
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %26, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %29, %26 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
+.preheader.i:                                     ; preds = %25, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %26, %25 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %28, %25 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %27, %25 ]
   %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
   br label %7
 
@@ -2290,34 +2289,33 @@ define hidden void @cfl_subsample_lbd_420_8x8_c(ptr noundef readonly captures(no
   %8 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i16
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %11
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i16
-  %15 = add nuw nsw i16 %14, %10
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i16
+  %14 = add nuw nsw i16 %13, %10
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %16 = load i8, ptr %gep.i, align 1
-  %17 = zext i8 %16 to i16
-  %18 = add nuw nsw i16 %15, %17
-  %19 = getelementptr i8, ptr %gep.i, i64 1
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i16
-  %22 = add nuw nsw i16 %18, %21
-  %23 = shl nuw nsw i16 %22, 1
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %23, ptr %24, align 2
+  %15 = load i8, ptr %gep.i, align 1
+  %16 = zext i8 %15 to i16
+  %17 = add nuw nsw i16 %14, %16
+  %18 = getelementptr i8, ptr %gep.i, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i16
+  %21 = add nuw nsw i16 %17, %20
+  %22 = shl nuw nsw i16 %21, 1
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %25 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %25, label %7, label %26, !llvm.loop !19
+  %24 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %24, label %7, label %25, !llvm.loop !19
 
-26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
-  %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %29 = add nuw nsw i32 %.02125.i, 2
-  %30 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %30, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %28 = add nuw nsw i32 %.02125.i, 2
+  %29 = icmp samesign ult i32 %.02125.i, 6
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
 }
 
@@ -2328,10 +2326,10 @@ define hidden void @cfl_subsample_lbd_420_16x16_c(ptr noundef readonly captures(
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %26, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %29, %26 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
+.preheader.i:                                     ; preds = %25, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %26, %25 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %28, %25 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %27, %25 ]
   %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
   br label %7
 
@@ -2340,34 +2338,33 @@ define hidden void @cfl_subsample_lbd_420_16x16_c(ptr noundef readonly captures(
   %8 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i16
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %11
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i16
-  %15 = add nuw nsw i16 %14, %10
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i16
+  %14 = add nuw nsw i16 %13, %10
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %16 = load i8, ptr %gep.i, align 1
-  %17 = zext i8 %16 to i16
-  %18 = add nuw nsw i16 %15, %17
-  %19 = getelementptr i8, ptr %gep.i, i64 1
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i16
-  %22 = add nuw nsw i16 %18, %21
-  %23 = shl nuw nsw i16 %22, 1
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %23, ptr %24, align 2
+  %15 = load i8, ptr %gep.i, align 1
+  %16 = zext i8 %15 to i16
+  %17 = add nuw nsw i16 %14, %16
+  %18 = getelementptr i8, ptr %gep.i, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i16
+  %21 = add nuw nsw i16 %17, %20
+  %22 = shl nuw nsw i16 %21, 1
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %25 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %25, label %7, label %26, !llvm.loop !19
+  %24 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %24, label %7, label %25, !llvm.loop !19
 
-26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
-  %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %29 = add nuw nsw i32 %.02125.i, 2
-  %30 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %30, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %28 = add nuw nsw i32 %.02125.i, 2
+  %29 = icmp samesign ult i32 %.02125.i, 14
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
 }
 
@@ -2378,10 +2375,10 @@ define hidden void @cfl_subsample_lbd_420_32x32_c(ptr noundef readonly captures(
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %26, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %29, %26 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
+.preheader.i:                                     ; preds = %25, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %26, %25 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %28, %25 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %27, %25 ]
   %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
   br label %7
 
@@ -2390,34 +2387,33 @@ define hidden void @cfl_subsample_lbd_420_32x32_c(ptr noundef readonly captures(
   %8 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i16
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %11
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i16
-  %15 = add nuw nsw i16 %14, %10
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i16
+  %14 = add nuw nsw i16 %13, %10
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %16 = load i8, ptr %gep.i, align 1
-  %17 = zext i8 %16 to i16
-  %18 = add nuw nsw i16 %15, %17
-  %19 = getelementptr i8, ptr %gep.i, i64 1
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i16
-  %22 = add nuw nsw i16 %18, %21
-  %23 = shl nuw nsw i16 %22, 1
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %23, ptr %24, align 2
+  %15 = load i8, ptr %gep.i, align 1
+  %16 = zext i8 %15 to i16
+  %17 = add nuw nsw i16 %14, %16
+  %18 = getelementptr i8, ptr %gep.i, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i16
+  %21 = add nuw nsw i16 %17, %20
+  %22 = shl nuw nsw i16 %21, 1
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %25 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %25, label %7, label %26, !llvm.loop !19
+  %24 = icmp samesign ult i64 %indvars.iv.i, 30
+  br i1 %24, label %7, label %25, !llvm.loop !19
 
-26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
-  %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %29 = add nuw nsw i32 %.02125.i, 2
-  %30 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %30, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %28 = add nuw nsw i32 %.02125.i, 2
+  %29 = icmp samesign ult i32 %.02125.i, 30
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
 }
 
@@ -2428,10 +2424,10 @@ define hidden void @cfl_subsample_lbd_420_4x8_c(ptr noundef readonly captures(no
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %26, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %29, %26 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
+.preheader.i:                                     ; preds = %25, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %26, %25 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %28, %25 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %27, %25 ]
   %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
   br label %7
 
@@ -2441,32 +2437,31 @@ define hidden void @cfl_subsample_lbd_420_4x8_c(ptr noundef readonly captures(no
   %9 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i16
-  %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %14 = load i8, ptr %13, align 1
-  %15 = zext i8 %14 to i16
-  %16 = add nuw nsw i16 %15, %11
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i16
+  %15 = add nuw nsw i16 %14, %11
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %17 = load i8, ptr %gep.i, align 1
-  %18 = zext i8 %17 to i16
-  %19 = add nuw nsw i16 %16, %18
-  %20 = getelementptr i8, ptr %gep.i, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i16
-  %23 = add nuw nsw i16 %19, %22
-  %24 = shl nuw nsw i16 %23, 1
-  %25 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %24, ptr %25, align 2
-  br i1 %8, label %7, label %26, !llvm.loop !19
+  %16 = load i8, ptr %gep.i, align 1
+  %17 = zext i8 %16 to i16
+  %18 = add nuw nsw i16 %15, %17
+  %19 = getelementptr i8, ptr %gep.i, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i16
+  %22 = add nuw nsw i16 %18, %21
+  %23 = shl nuw nsw i16 %22, 1
+  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %23, ptr %24, align 2
+  br i1 %8, label %7, label %25, !llvm.loop !19
 
-26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
-  %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %29 = add nuw nsw i32 %.02125.i, 2
-  %30 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %30, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %28 = add nuw nsw i32 %.02125.i, 2
+  %29 = icmp samesign ult i32 %.02125.i, 6
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
 }
 
@@ -2477,10 +2472,10 @@ define hidden void @cfl_subsample_lbd_420_8x4_c(ptr noundef readonly captures(no
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %27, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
-  %7 = phi i1 [ true, %3 ], [ false, %27 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
+.preheader.i:                                     ; preds = %26, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
+  %7 = phi i1 [ true, %3 ], [ false, %26 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
   %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
   br label %8
 
@@ -2489,32 +2484,31 @@ define hidden void @cfl_subsample_lbd_420_8x4_c(ptr noundef readonly captures(no
   %9 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i16
-  %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %14 = load i8, ptr %13, align 1
-  %15 = zext i8 %14 to i16
-  %16 = add nuw nsw i16 %15, %11
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i16
+  %15 = add nuw nsw i16 %14, %11
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %17 = load i8, ptr %gep.i, align 1
-  %18 = zext i8 %17 to i16
-  %19 = add nuw nsw i16 %16, %18
-  %20 = getelementptr i8, ptr %gep.i, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i16
-  %23 = add nuw nsw i16 %19, %22
-  %24 = shl nuw nsw i16 %23, 1
-  %25 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %24, ptr %25, align 2
+  %16 = load i8, ptr %gep.i, align 1
+  %17 = zext i8 %16 to i16
+  %18 = add nuw nsw i16 %15, %17
+  %19 = getelementptr i8, ptr %gep.i, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i16
+  %22 = add nuw nsw i16 %18, %21
+  %23 = shl nuw nsw i16 %22, 1
+  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %23, ptr %24, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %26 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %26, label %8, label %27, !llvm.loop !19
+  %25 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %25, label %8, label %26, !llvm.loop !19
 
-27:                                               ; preds = %8
-  %28 = getelementptr inbounds i8, ptr %.026.i, i64 %5
-  %29 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+26:                                               ; preds = %8
+  %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %27
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
   ret void
 }
 
@@ -2525,10 +2519,10 @@ define hidden void @cfl_subsample_lbd_420_8x16_c(ptr noundef readonly captures(n
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %26, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %29, %26 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
+.preheader.i:                                     ; preds = %25, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %26, %25 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %28, %25 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %27, %25 ]
   %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
   br label %7
 
@@ -2537,34 +2531,33 @@ define hidden void @cfl_subsample_lbd_420_8x16_c(ptr noundef readonly captures(n
   %8 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i16
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %11
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i16
-  %15 = add nuw nsw i16 %14, %10
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i16
+  %14 = add nuw nsw i16 %13, %10
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %16 = load i8, ptr %gep.i, align 1
-  %17 = zext i8 %16 to i16
-  %18 = add nuw nsw i16 %15, %17
-  %19 = getelementptr i8, ptr %gep.i, i64 1
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i16
-  %22 = add nuw nsw i16 %18, %21
-  %23 = shl nuw nsw i16 %22, 1
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %23, ptr %24, align 2
+  %15 = load i8, ptr %gep.i, align 1
+  %16 = zext i8 %15 to i16
+  %17 = add nuw nsw i16 %14, %16
+  %18 = getelementptr i8, ptr %gep.i, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i16
+  %21 = add nuw nsw i16 %17, %20
+  %22 = shl nuw nsw i16 %21, 1
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %25 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %25, label %7, label %26, !llvm.loop !19
+  %24 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %24, label %7, label %25, !llvm.loop !19
 
-26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
-  %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %29 = add nuw nsw i32 %.02125.i, 2
-  %30 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %30, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %28 = add nuw nsw i32 %.02125.i, 2
+  %29 = icmp samesign ult i32 %.02125.i, 14
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
 }
 
@@ -2575,10 +2568,10 @@ define hidden void @cfl_subsample_lbd_420_16x8_c(ptr noundef readonly captures(n
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %26, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %29, %26 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
+.preheader.i:                                     ; preds = %25, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %26, %25 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %28, %25 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %27, %25 ]
   %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
   br label %7
 
@@ -2587,34 +2580,33 @@ define hidden void @cfl_subsample_lbd_420_16x8_c(ptr noundef readonly captures(n
   %8 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i16
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %11
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i16
-  %15 = add nuw nsw i16 %14, %10
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i16
+  %14 = add nuw nsw i16 %13, %10
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %16 = load i8, ptr %gep.i, align 1
-  %17 = zext i8 %16 to i16
-  %18 = add nuw nsw i16 %15, %17
-  %19 = getelementptr i8, ptr %gep.i, i64 1
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i16
-  %22 = add nuw nsw i16 %18, %21
-  %23 = shl nuw nsw i16 %22, 1
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %23, ptr %24, align 2
+  %15 = load i8, ptr %gep.i, align 1
+  %16 = zext i8 %15 to i16
+  %17 = add nuw nsw i16 %14, %16
+  %18 = getelementptr i8, ptr %gep.i, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i16
+  %21 = add nuw nsw i16 %17, %20
+  %22 = shl nuw nsw i16 %21, 1
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %25 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %25, label %7, label %26, !llvm.loop !19
+  %24 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %24, label %7, label %25, !llvm.loop !19
 
-26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
-  %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %29 = add nuw nsw i32 %.02125.i, 2
-  %30 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %30, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %28 = add nuw nsw i32 %.02125.i, 2
+  %29 = icmp samesign ult i32 %.02125.i, 6
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
 }
 
@@ -2625,10 +2617,10 @@ define hidden void @cfl_subsample_lbd_420_16x32_c(ptr noundef readonly captures(
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %26, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %29, %26 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
+.preheader.i:                                     ; preds = %25, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %26, %25 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %28, %25 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %27, %25 ]
   %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
   br label %7
 
@@ -2637,11 +2629,156 @@ define hidden void @cfl_subsample_lbd_420_16x32_c(ptr noundef readonly captures(
   %8 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i16
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %11
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i16
+  %14 = add nuw nsw i16 %13, %10
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %15 = load i8, ptr %gep.i, align 1
+  %16 = zext i8 %15 to i16
+  %17 = add nuw nsw i16 %14, %16
+  %18 = getelementptr i8, ptr %gep.i, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i16
+  %21 = add nuw nsw i16 %17, %20
+  %22 = shl nuw nsw i16 %21, 1
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %22, ptr %23, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
+  %24 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %24, label %7, label %25, !llvm.loop !19
+
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %28 = add nuw nsw i32 %.02125.i, 2
+  %29 = icmp samesign ult i32 %.02125.i, 30
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @cfl_subsample_lbd_420_32x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
+  %4 = shl i32 %1, 1
+  %5 = sext i32 %4 to i64
+  %6 = sext i32 %1 to i64
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %25, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %26, %25 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %28, %25 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %27, %25 ]
+  %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
+  br label %7
+
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
+  %9 = load i8, ptr %8, align 1
+  %10 = zext i8 %9 to i16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i16
+  %14 = add nuw nsw i16 %13, %10
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %15 = load i8, ptr %gep.i, align 1
+  %16 = zext i8 %15 to i16
+  %17 = add nuw nsw i16 %14, %16
+  %18 = getelementptr i8, ptr %gep.i, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i16
+  %21 = add nuw nsw i16 %17, %20
+  %22 = shl nuw nsw i16 %21, 1
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %22, ptr %23, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
+  %24 = icmp samesign ult i64 %indvars.iv.i, 30
+  br i1 %24, label %7, label %25, !llvm.loop !19
+
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %28 = add nuw nsw i32 %.02125.i, 2
+  %29 = icmp samesign ult i32 %.02125.i, 14
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @cfl_subsample_lbd_420_4x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
+  %4 = shl i32 %1, 1
+  %5 = sext i32 %4 to i64
+  %6 = sext i32 %1 to i64
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %25, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %26, %25 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %28, %25 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %27, %25 ]
+  %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
+  br label %7
+
+7:                                                ; preds = %7, %.preheader.i
+  %8 = phi i1 [ true, %.preheader.i ], [ false, %7 ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %7 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i16
-  %15 = add nuw nsw i16 %14, %10
+  %15 = add nuw nsw i16 %14, %11
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %16 = load i8, ptr %gep.i, align 1
+  %17 = zext i8 %16 to i16
+  %18 = add nuw nsw i16 %15, %17
+  %19 = getelementptr i8, ptr %gep.i, i64 1
+  %20 = load i8, ptr %19, align 1
+  %21 = zext i8 %20 to i16
+  %22 = add nuw nsw i16 %18, %21
+  %23 = shl nuw nsw i16 %22, 1
+  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %23, ptr %24, align 2
+  br i1 %8, label %7, label %25, !llvm.loop !19
+
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %28 = add nuw nsw i32 %.02125.i, 2
+  %29 = icmp samesign ult i32 %.02125.i, 14
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @cfl_subsample_lbd_420_16x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
+  %4 = shl i32 %1, 1
+  %5 = sext i32 %4 to i64
+  %6 = sext i32 %1 to i64
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %26, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
+  %7 = phi i1 [ true, %3 ], [ false, %26 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
+  %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
+  br label %8
+
+8:                                                ; preds = %8, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %8 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i16
+  %15 = add nuw nsw i16 %14, %11
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   %16 = load i8, ptr %gep.i, align 1
   %17 = zext i8 %16 to i16
@@ -2655,163 +2792,14 @@ define hidden void @cfl_subsample_lbd_420_16x32_c(ptr noundef readonly captures(
   store i16 %23, ptr %24, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %25 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %25, label %7, label %26, !llvm.loop !19
+  br i1 %25, label %8, label %26, !llvm.loop !19
 
-26:                                               ; preds = %7
+26:                                               ; preds = %8
   %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
   %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %29 = add nuw nsw i32 %.02125.i, 2
-  %30 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %30, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
-
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_32x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
-  %4 = shl i32 %1, 1
-  %5 = sext i32 %4 to i64
-  %6 = sext i32 %1 to i64
-  br label %.preheader.i
-
-.preheader.i:                                     ; preds = %26, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %29, %26 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
-  %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
-  br label %7
-
-7:                                                ; preds = %7, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
-  %9 = load i8, ptr %8, align 1
-  %10 = zext i8 %9 to i16
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %11
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i16
-  %15 = add nuw nsw i16 %14, %10
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %16 = load i8, ptr %gep.i, align 1
-  %17 = zext i8 %16 to i16
-  %18 = add nuw nsw i16 %15, %17
-  %19 = getelementptr i8, ptr %gep.i, i64 1
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i16
-  %22 = add nuw nsw i16 %18, %21
-  %23 = shl nuw nsw i16 %22, 1
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %23, ptr %24, align 2
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %25 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %25, label %7, label %26, !llvm.loop !19
-
-26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
-  %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %29 = add nuw nsw i32 %.02125.i, 2
-  %30 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %30, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
-
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_4x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
-  %4 = shl i32 %1, 1
-  %5 = sext i32 %4 to i64
-  %6 = sext i32 %1 to i64
-  br label %.preheader.i
-
-.preheader.i:                                     ; preds = %26, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %29, %26 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
-  %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
-  br label %7
-
-7:                                                ; preds = %7, %.preheader.i
-  %8 = phi i1 [ true, %.preheader.i ], [ false, %7 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %7 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
-  %10 = load i8, ptr %9, align 1
-  %11 = zext i8 %10 to i16
-  %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %14 = load i8, ptr %13, align 1
-  %15 = zext i8 %14 to i16
-  %16 = add nuw nsw i16 %15, %11
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %17 = load i8, ptr %gep.i, align 1
-  %18 = zext i8 %17 to i16
-  %19 = add nuw nsw i16 %16, %18
-  %20 = getelementptr i8, ptr %gep.i, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i16
-  %23 = add nuw nsw i16 %19, %22
-  %24 = shl nuw nsw i16 %23, 1
-  %25 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %24, ptr %25, align 2
-  br i1 %8, label %7, label %26, !llvm.loop !19
-
-26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
-  %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %29 = add nuw nsw i32 %.02125.i, 2
-  %30 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %30, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
-
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_lbd_420_16x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
-  %4 = shl i32 %1, 1
-  %5 = sext i32 %4 to i64
-  %6 = sext i32 %1 to i64
-  br label %.preheader.i
-
-.preheader.i:                                     ; preds = %27, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %28, %27 ]
-  %7 = phi i1 [ true, %3 ], [ false, %27 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %29, %27 ]
-  %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
-  br label %8
-
-8:                                                ; preds = %8, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
-  %10 = load i8, ptr %9, align 1
-  %11 = zext i8 %10 to i16
-  %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %12
-  %14 = load i8, ptr %13, align 1
-  %15 = zext i8 %14 to i16
-  %16 = add nuw nsw i16 %15, %11
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %17 = load i8, ptr %gep.i, align 1
-  %18 = zext i8 %17 to i16
-  %19 = add nuw nsw i16 %16, %18
-  %20 = getelementptr i8, ptr %gep.i, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i16
-  %23 = add nuw nsw i16 %19, %22
-  %24 = shl nuw nsw i16 %23, 1
-  %25 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %24, ptr %25, align 2
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %26 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %26, label %8, label %27, !llvm.loop !19
-
-27:                                               ; preds = %8
-  %28 = getelementptr inbounds i8, ptr %.026.i, i64 %5
-  %29 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %27
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
   ret void
 }
 
@@ -2822,10 +2810,10 @@ define hidden void @cfl_subsample_lbd_420_8x32_c(ptr noundef readonly captures(n
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %26, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %29, %26 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
+.preheader.i:                                     ; preds = %25, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %26, %25 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %28, %25 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %27, %25 ]
   %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
   br label %7
 
@@ -2834,34 +2822,33 @@ define hidden void @cfl_subsample_lbd_420_8x32_c(ptr noundef readonly captures(n
   %8 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i16
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %11
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i16
-  %15 = add nuw nsw i16 %14, %10
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i16
+  %14 = add nuw nsw i16 %13, %10
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %16 = load i8, ptr %gep.i, align 1
-  %17 = zext i8 %16 to i16
-  %18 = add nuw nsw i16 %15, %17
-  %19 = getelementptr i8, ptr %gep.i, i64 1
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i16
-  %22 = add nuw nsw i16 %18, %21
-  %23 = shl nuw nsw i16 %22, 1
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %23, ptr %24, align 2
+  %15 = load i8, ptr %gep.i, align 1
+  %16 = zext i8 %15 to i16
+  %17 = add nuw nsw i16 %14, %16
+  %18 = getelementptr i8, ptr %gep.i, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i16
+  %21 = add nuw nsw i16 %17, %20
+  %22 = shl nuw nsw i16 %21, 1
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %25 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %25, label %7, label %26, !llvm.loop !19
+  %24 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %24, label %7, label %25, !llvm.loop !19
 
-26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
-  %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %29 = add nuw nsw i32 %.02125.i, 2
-  %30 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %30, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %28 = add nuw nsw i32 %.02125.i, 2
+  %29 = icmp samesign ult i32 %.02125.i, 30
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
 }
 
@@ -2872,10 +2859,10 @@ define hidden void @cfl_subsample_lbd_420_32x8_c(ptr noundef readonly captures(n
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %26, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %27, %26 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %29, %26 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %28, %26 ]
+.preheader.i:                                     ; preds = %25, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %26, %25 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %28, %25 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %27, %25 ]
   %invariant.gep.i = getelementptr i8, ptr %.026.i, i64 %6
   br label %7
 
@@ -2884,34 +2871,33 @@ define hidden void @cfl_subsample_lbd_420_32x8_c(ptr noundef readonly captures(n
   %8 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i16
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw i8, ptr %.026.i, i64 %11
-  %13 = load i8, ptr %12, align 1
-  %14 = zext i8 %13 to i16
-  %15 = add nuw nsw i16 %14, %10
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %12 = load i8, ptr %11, align 1
+  %13 = zext i8 %12 to i16
+  %14 = add nuw nsw i16 %13, %10
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %16 = load i8, ptr %gep.i, align 1
-  %17 = zext i8 %16 to i16
-  %18 = add nuw nsw i16 %15, %17
-  %19 = getelementptr i8, ptr %gep.i, i64 1
-  %20 = load i8, ptr %19, align 1
-  %21 = zext i8 %20 to i16
-  %22 = add nuw nsw i16 %18, %21
-  %23 = shl nuw nsw i16 %22, 1
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %23, ptr %24, align 2
+  %15 = load i8, ptr %gep.i, align 1
+  %16 = zext i8 %15 to i16
+  %17 = add nuw nsw i16 %14, %16
+  %18 = getelementptr i8, ptr %gep.i, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i16
+  %21 = add nuw nsw i16 %17, %20
+  %22 = shl nuw nsw i16 %21, 1
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %22, ptr %23, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %25 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %25, label %7, label %26, !llvm.loop !19
+  %24 = icmp samesign ult i64 %indvars.iv.i, 30
+  br i1 %24, label %7, label %25, !llvm.loop !19
 
-26:                                               ; preds = %7
-  %27 = getelementptr inbounds i8, ptr %.026.i, i64 %5
-  %28 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %29 = add nuw nsw i32 %.02125.i, 2
-  %30 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %30, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
+25:                                               ; preds = %7
+  %26 = getelementptr inbounds i8, ptr %.026.i, i64 %5
+  %27 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %28 = add nuw nsw i32 %.02125.i, 2
+  %29 = icmp samesign ult i32 %.02125.i, 6
+  br i1 %29, label %.preheader.i, label %cfl_luma_subsampling_420_lbd_c.exit, !llvm.loop !20
 
-cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %26
+cfl_luma_subsampling_420_lbd_c.exit:              ; preds = %25
   ret void
 }
 
@@ -2928,36 +2914,35 @@ define hidden void @cfl_subsample_lbd_422_4x4_c(ptr noundef readonly captures(no
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
-  br label %5
-
-5:                                                ; preds = %5, %.preheader.i
-  %6 = phi i1 [ true, %.preheader.i ], [ false, %5 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %5 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
+.preheader.i:                                     ; preds = %.preheader.i, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %23, %.preheader.i ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %21, %.preheader.i ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %22, %.preheader.i ]
+  %5 = load i8, ptr %.01519.i, align 1
+  %6 = zext i8 %5 to i16
+  %7 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i16
-  %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %10
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i16
-  %14 = add nuw nsw i16 %13, %9
-  %15 = shl nuw nsw i16 %14, 2
-  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %15, ptr %16, align 2
-  br i1 %6, label %5, label %17, !llvm.loop !21
+  %10 = add nuw nsw i16 %9, %6
+  %11 = shl nuw nsw i16 %10, 2
+  store i16 %11, ptr %.01618.i, align 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 2
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i16
+  %15 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 3
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i16
+  %18 = add nuw nsw i16 %17, %14
+  %19 = shl nuw nsw i16 %18, 2
+  %20 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 2
+  store i16 %19, ptr %20, align 2
+  %21 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %22 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %23 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %23, 4
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
-
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %.preheader.i
   ret void
 }
 
@@ -2966,10 +2951,10 @@ define hidden void @cfl_subsample_lbd_422_8x8_c(ptr noundef readonly captures(no
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
@@ -2977,26 +2962,25 @@ define hidden void @cfl_subsample_lbd_422_8x8_c(ptr noundef readonly captures(no
   %6 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
-  %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i16
-  %13 = add nuw nsw i16 %12, %8
-  %14 = shl nuw nsw i16 %13, 2
-  %15 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %14, ptr %15, align 2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i16
+  %12 = add nuw nsw i16 %11, %8
+  %13 = shl nuw nsw i16 %12, 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %16 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %16, label %5, label %17, !llvm.loop !21
+  %15 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %15, label %5, label %16, !llvm.loop !22
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 8
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
 }
 
@@ -3005,10 +2989,10 @@ define hidden void @cfl_subsample_lbd_422_16x16_c(ptr noundef readonly captures(
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
@@ -3016,26 +3000,25 @@ define hidden void @cfl_subsample_lbd_422_16x16_c(ptr noundef readonly captures(
   %6 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
-  %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i16
-  %13 = add nuw nsw i16 %12, %8
-  %14 = shl nuw nsw i16 %13, 2
-  %15 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %14, ptr %15, align 2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i16
+  %12 = add nuw nsw i16 %11, %8
+  %13 = shl nuw nsw i16 %12, 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %16 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %16, label %5, label %17, !llvm.loop !21
+  %15 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %15, label %5, label %16, !llvm.loop !22
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 16
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
 }
 
@@ -3044,10 +3027,10 @@ define hidden void @cfl_subsample_lbd_422_32x32_c(ptr noundef readonly captures(
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
@@ -3055,26 +3038,25 @@ define hidden void @cfl_subsample_lbd_422_32x32_c(ptr noundef readonly captures(
   %6 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
-  %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i16
-  %13 = add nuw nsw i16 %12, %8
-  %14 = shl nuw nsw i16 %13, 2
-  %15 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %14, ptr %15, align 2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i16
+  %12 = add nuw nsw i16 %11, %8
+  %13 = shl nuw nsw i16 %12, 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %16 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %16, label %5, label %17, !llvm.loop !21
+  %15 = icmp samesign ult i64 %indvars.iv.i, 30
+  br i1 %15, label %5, label %16, !llvm.loop !22
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 32
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
 }
 
@@ -3083,36 +3065,35 @@ define hidden void @cfl_subsample_lbd_422_4x8_c(ptr noundef readonly captures(no
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
-  br label %5
-
-5:                                                ; preds = %5, %.preheader.i
-  %6 = phi i1 [ true, %.preheader.i ], [ false, %5 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %5 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
+.preheader.i:                                     ; preds = %.preheader.i, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %23, %.preheader.i ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %21, %.preheader.i ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %22, %.preheader.i ]
+  %5 = load i8, ptr %.01519.i, align 1
+  %6 = zext i8 %5 to i16
+  %7 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i16
-  %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %10
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i16
-  %14 = add nuw nsw i16 %13, %9
-  %15 = shl nuw nsw i16 %14, 2
-  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %15, ptr %16, align 2
-  br i1 %6, label %5, label %17, !llvm.loop !21
+  %10 = add nuw nsw i16 %9, %6
+  %11 = shl nuw nsw i16 %10, 2
+  store i16 %11, ptr %.01618.i, align 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 2
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i16
+  %15 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 3
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i16
+  %18 = add nuw nsw i16 %17, %14
+  %19 = shl nuw nsw i16 %18, 2
+  %20 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 2
+  store i16 %19, ptr %20, align 2
+  %21 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %22 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %23 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %23, 8
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
-
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %.preheader.i
   ret void
 }
 
@@ -3121,10 +3102,10 @@ define hidden void @cfl_subsample_lbd_422_8x4_c(ptr noundef readonly captures(no
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
@@ -3132,26 +3113,25 @@ define hidden void @cfl_subsample_lbd_422_8x4_c(ptr noundef readonly captures(no
   %6 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
-  %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i16
-  %13 = add nuw nsw i16 %12, %8
-  %14 = shl nuw nsw i16 %13, 2
-  %15 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %14, ptr %15, align 2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i16
+  %12 = add nuw nsw i16 %11, %8
+  %13 = shl nuw nsw i16 %12, 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %16 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %16, label %5, label %17, !llvm.loop !21
+  %15 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %15, label %5, label %16, !llvm.loop !22
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 4
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
 }
 
@@ -3160,10 +3140,10 @@ define hidden void @cfl_subsample_lbd_422_8x16_c(ptr noundef readonly captures(n
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
@@ -3171,26 +3151,25 @@ define hidden void @cfl_subsample_lbd_422_8x16_c(ptr noundef readonly captures(n
   %6 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
-  %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i16
-  %13 = add nuw nsw i16 %12, %8
-  %14 = shl nuw nsw i16 %13, 2
-  %15 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %14, ptr %15, align 2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i16
+  %12 = add nuw nsw i16 %11, %8
+  %13 = shl nuw nsw i16 %12, 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %16 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %16, label %5, label %17, !llvm.loop !21
+  %15 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %15, label %5, label %16, !llvm.loop !22
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 16
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
 }
 
@@ -3199,10 +3178,10 @@ define hidden void @cfl_subsample_lbd_422_16x8_c(ptr noundef readonly captures(n
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
@@ -3210,26 +3189,25 @@ define hidden void @cfl_subsample_lbd_422_16x8_c(ptr noundef readonly captures(n
   %6 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
-  %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i16
-  %13 = add nuw nsw i16 %12, %8
-  %14 = shl nuw nsw i16 %13, 2
-  %15 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %14, ptr %15, align 2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i16
+  %12 = add nuw nsw i16 %11, %8
+  %13 = shl nuw nsw i16 %12, 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %16 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %16, label %5, label %17, !llvm.loop !21
+  %15 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %15, label %5, label %16, !llvm.loop !22
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 8
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
 }
 
@@ -3238,10 +3216,10 @@ define hidden void @cfl_subsample_lbd_422_16x32_c(ptr noundef readonly captures(
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
@@ -3249,26 +3227,25 @@ define hidden void @cfl_subsample_lbd_422_16x32_c(ptr noundef readonly captures(
   %6 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
-  %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i16
-  %13 = add nuw nsw i16 %12, %8
-  %14 = shl nuw nsw i16 %13, 2
-  %15 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %14, ptr %15, align 2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i16
+  %12 = add nuw nsw i16 %11, %8
+  %13 = shl nuw nsw i16 %12, 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %16 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %16, label %5, label %17, !llvm.loop !21
+  %15 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %15, label %5, label %16, !llvm.loop !22
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 32
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
 }
 
@@ -3277,10 +3254,10 @@ define hidden void @cfl_subsample_lbd_422_32x16_c(ptr noundef readonly captures(
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
@@ -3288,26 +3265,25 @@ define hidden void @cfl_subsample_lbd_422_32x16_c(ptr noundef readonly captures(
   %6 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
-  %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i16
-  %13 = add nuw nsw i16 %12, %8
-  %14 = shl nuw nsw i16 %13, 2
-  %15 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %14, ptr %15, align 2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i16
+  %12 = add nuw nsw i16 %11, %8
+  %13 = shl nuw nsw i16 %12, 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %16 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %16, label %5, label %17, !llvm.loop !21
+  %15 = icmp samesign ult i64 %indvars.iv.i, 30
+  br i1 %15, label %5, label %16, !llvm.loop !22
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 16
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
 }
 
@@ -3316,36 +3292,35 @@ define hidden void @cfl_subsample_lbd_422_4x16_c(ptr noundef readonly captures(n
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
-  br label %5
-
-5:                                                ; preds = %5, %.preheader.i
-  %6 = phi i1 [ true, %.preheader.i ], [ false, %5 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %5 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
+.preheader.i:                                     ; preds = %.preheader.i, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %23, %.preheader.i ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %21, %.preheader.i ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %22, %.preheader.i ]
+  %5 = load i8, ptr %.01519.i, align 1
+  %6 = zext i8 %5 to i16
+  %7 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i16
-  %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %10
-  %12 = load i8, ptr %11, align 1
-  %13 = zext i8 %12 to i16
-  %14 = add nuw nsw i16 %13, %9
-  %15 = shl nuw nsw i16 %14, 2
-  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %15, ptr %16, align 2
-  br i1 %6, label %5, label %17, !llvm.loop !21
+  %10 = add nuw nsw i16 %9, %6
+  %11 = shl nuw nsw i16 %10, 2
+  store i16 %11, ptr %.01618.i, align 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 2
+  %13 = load i8, ptr %12, align 1
+  %14 = zext i8 %13 to i16
+  %15 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 3
+  %16 = load i8, ptr %15, align 1
+  %17 = zext i8 %16 to i16
+  %18 = add nuw nsw i16 %17, %14
+  %19 = shl nuw nsw i16 %18, 2
+  %20 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 2
+  store i16 %19, ptr %20, align 2
+  %21 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %22 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %23 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %23, 16
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 16
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
-
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %.preheader.i
   ret void
 }
 
@@ -3354,10 +3329,10 @@ define hidden void @cfl_subsample_lbd_422_16x4_c(ptr noundef readonly captures(n
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
@@ -3365,26 +3340,25 @@ define hidden void @cfl_subsample_lbd_422_16x4_c(ptr noundef readonly captures(n
   %6 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
-  %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i16
-  %13 = add nuw nsw i16 %12, %8
-  %14 = shl nuw nsw i16 %13, 2
-  %15 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %14, ptr %15, align 2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i16
+  %12 = add nuw nsw i16 %11, %8
+  %13 = shl nuw nsw i16 %12, 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %16 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %16, label %5, label %17, !llvm.loop !21
+  %15 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %15, label %5, label %16, !llvm.loop !22
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 4
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 4
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
 }
 
@@ -3393,10 +3367,10 @@ define hidden void @cfl_subsample_lbd_422_8x32_c(ptr noundef readonly captures(n
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
@@ -3404,26 +3378,25 @@ define hidden void @cfl_subsample_lbd_422_8x32_c(ptr noundef readonly captures(n
   %6 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
-  %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i16
-  %13 = add nuw nsw i16 %12, %8
-  %14 = shl nuw nsw i16 %13, 2
-  %15 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %14, ptr %15, align 2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i16
+  %12 = add nuw nsw i16 %11, %8
+  %13 = shl nuw nsw i16 %12, 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %16 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %16, label %5, label %17, !llvm.loop !21
+  %15 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %15, label %5, label %16, !llvm.loop !22
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 32
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 32
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
 }
 
@@ -3432,10 +3405,10 @@ define hidden void @cfl_subsample_lbd_422_32x8_c(ptr noundef readonly captures(n
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %20, %17 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %18, %17 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %19, %17 ]
+.preheader.i:                                     ; preds = %16, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %19, %16 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %17, %16 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %18, %16 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
@@ -3443,26 +3416,25 @@ define hidden void @cfl_subsample_lbd_422_32x8_c(ptr noundef readonly captures(n
   %6 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i16
-  %9 = or disjoint i64 %indvars.iv.i, 1
-  %10 = getelementptr inbounds nuw i8, ptr %.01519.i, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = zext i8 %11 to i16
-  %13 = add nuw nsw i16 %12, %8
-  %14 = shl nuw nsw i16 %13, 2
-  %15 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %14, ptr %15, align 2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %10 = load i8, ptr %9, align 1
+  %11 = zext i8 %10 to i16
+  %12 = add nuw nsw i16 %11, %8
+  %13 = shl nuw nsw i16 %12, 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %13, ptr %14, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %16 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %16, label %5, label %17, !llvm.loop !21
+  %15 = icmp samesign ult i64 %indvars.iv.i, 30
+  br i1 %15, label %5, label %16, !llvm.loop !22
 
-17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
-  %19 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %20 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %20, 8
-  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !22
+16:                                               ; preds = %5
+  %17 = getelementptr inbounds i8, ptr %.01519.i, i64 %4
+  %18 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %19 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %19, 8
+  br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_lbd_c.exit, label %.preheader.i, !llvm.loop !21
 
-cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %17
+cfl_luma_subsampling_422_lbd_c.exit:              ; preds = %16
   ret void
 }
 
@@ -3965,10 +3937,10 @@ define hidden void @cfl_subsample_hbd_420_4x4_c(ptr noundef readonly captures(no
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %23, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %24, %23 ]
-  %7 = phi i1 [ true, %3 ], [ false, %23 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %25, %23 ]
+.preheader.i:                                     ; preds = %22, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
+  %7 = phi i1 [ true, %3 ], [ false, %22 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
   %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
   br label %8
 
@@ -3977,27 +3949,26 @@ define hidden void @cfl_subsample_hbd_420_4x4_c(ptr noundef readonly captures(no
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %8 ]
   %10 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
   %11 = load i16, ptr %10, align 2
-  %12 = or disjoint i64 %indvars.iv.i, 1
-  %13 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %12
-  %14 = load i16, ptr %13, align 2
-  %15 = add i16 %14, %11
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %13 = load i16, ptr %12, align 2
+  %14 = add i16 %13, %11
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %16 = load i16, ptr %gep.i, align 2
-  %17 = add i16 %15, %16
-  %18 = getelementptr i8, ptr %gep.i, i64 2
-  %19 = load i16, ptr %18, align 2
-  %20 = add i16 %17, %19
-  %21 = shl i16 %20, 1
-  %22 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %21, ptr %22, align 2
-  br i1 %9, label %8, label %23, !llvm.loop !25
+  %15 = load i16, ptr %gep.i, align 2
+  %16 = add i16 %14, %15
+  %17 = getelementptr i8, ptr %gep.i, i64 2
+  %18 = load i16, ptr %17, align 2
+  %19 = add i16 %16, %18
+  %20 = shl i16 %19, 1
+  %21 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %20, ptr %21, align 2
+  br i1 %9, label %8, label %22, !llvm.loop !25
 
-23:                                               ; preds = %8
-  %24 = getelementptr inbounds i16, ptr %.026.i, i64 %5
-  %25 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+22:                                               ; preds = %8
+  %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %23
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
   ret void
 }
 
@@ -4008,10 +3979,10 @@ define hidden void @cfl_subsample_hbd_420_8x8_c(ptr noundef readonly captures(no
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %22, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %25, %22 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
+.preheader.i:                                     ; preds = %21, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %22, %21 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %24, %21 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %23, %21 ]
   %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
   br label %7
 
@@ -4019,31 +3990,30 @@ define hidden void @cfl_subsample_hbd_420_8x8_c(ptr noundef readonly captures(no
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i16, ptr %8, align 2
-  %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %10
-  %12 = load i16, ptr %11, align 2
-  %13 = add i16 %12, %9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = add i16 %11, %9
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %14 = load i16, ptr %gep.i, align 2
-  %15 = add i16 %13, %14
-  %16 = getelementptr i8, ptr %gep.i, i64 2
-  %17 = load i16, ptr %16, align 2
-  %18 = add i16 %15, %17
-  %19 = shl i16 %18, 1
-  %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %19, ptr %20, align 2
+  %13 = load i16, ptr %gep.i, align 2
+  %14 = add i16 %12, %13
+  %15 = getelementptr i8, ptr %gep.i, i64 2
+  %16 = load i16, ptr %15, align 2
+  %17 = add i16 %14, %16
+  %18 = shl i16 %17, 1
+  %19 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %21 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %21, label %7, label %22, !llvm.loop !25
+  %20 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %20, label %7, label %21, !llvm.loop !25
 
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %25 = add nuw nsw i32 %.02125.i, 2
-  %26 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %26, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %24 = add nuw nsw i32 %.02125.i, 2
+  %25 = icmp samesign ult i32 %.02125.i, 6
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
 }
 
@@ -4054,10 +4024,10 @@ define hidden void @cfl_subsample_hbd_420_16x16_c(ptr noundef readonly captures(
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %22, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %25, %22 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
+.preheader.i:                                     ; preds = %21, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %22, %21 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %24, %21 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %23, %21 ]
   %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
   br label %7
 
@@ -4065,31 +4035,30 @@ define hidden void @cfl_subsample_hbd_420_16x16_c(ptr noundef readonly captures(
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i16, ptr %8, align 2
-  %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %10
-  %12 = load i16, ptr %11, align 2
-  %13 = add i16 %12, %9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = add i16 %11, %9
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %14 = load i16, ptr %gep.i, align 2
-  %15 = add i16 %13, %14
-  %16 = getelementptr i8, ptr %gep.i, i64 2
-  %17 = load i16, ptr %16, align 2
-  %18 = add i16 %15, %17
-  %19 = shl i16 %18, 1
-  %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %19, ptr %20, align 2
+  %13 = load i16, ptr %gep.i, align 2
+  %14 = add i16 %12, %13
+  %15 = getelementptr i8, ptr %gep.i, i64 2
+  %16 = load i16, ptr %15, align 2
+  %17 = add i16 %14, %16
+  %18 = shl i16 %17, 1
+  %19 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %21 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %21, label %7, label %22, !llvm.loop !25
+  %20 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %20, label %7, label %21, !llvm.loop !25
 
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %25 = add nuw nsw i32 %.02125.i, 2
-  %26 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %26, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %24 = add nuw nsw i32 %.02125.i, 2
+  %25 = icmp samesign ult i32 %.02125.i, 14
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
 }
 
@@ -4100,10 +4069,10 @@ define hidden void @cfl_subsample_hbd_420_32x32_c(ptr noundef readonly captures(
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %22, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %25, %22 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
+.preheader.i:                                     ; preds = %21, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %22, %21 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %24, %21 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %23, %21 ]
   %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
   br label %7
 
@@ -4111,31 +4080,30 @@ define hidden void @cfl_subsample_hbd_420_32x32_c(ptr noundef readonly captures(
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i16, ptr %8, align 2
-  %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %10
-  %12 = load i16, ptr %11, align 2
-  %13 = add i16 %12, %9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = add i16 %11, %9
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %14 = load i16, ptr %gep.i, align 2
-  %15 = add i16 %13, %14
-  %16 = getelementptr i8, ptr %gep.i, i64 2
-  %17 = load i16, ptr %16, align 2
-  %18 = add i16 %15, %17
-  %19 = shl i16 %18, 1
-  %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %19, ptr %20, align 2
+  %13 = load i16, ptr %gep.i, align 2
+  %14 = add i16 %12, %13
+  %15 = getelementptr i8, ptr %gep.i, i64 2
+  %16 = load i16, ptr %15, align 2
+  %17 = add i16 %14, %16
+  %18 = shl i16 %17, 1
+  %19 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %21 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %21, label %7, label %22, !llvm.loop !25
+  %20 = icmp samesign ult i64 %indvars.iv.i, 30
+  br i1 %20, label %7, label %21, !llvm.loop !25
 
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %25 = add nuw nsw i32 %.02125.i, 2
-  %26 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %26, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %24 = add nuw nsw i32 %.02125.i, 2
+  %25 = icmp samesign ult i32 %.02125.i, 30
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
 }
 
@@ -4146,10 +4114,10 @@ define hidden void @cfl_subsample_hbd_420_4x8_c(ptr noundef readonly captures(no
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %22, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %25, %22 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
+.preheader.i:                                     ; preds = %21, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %22, %21 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %24, %21 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %23, %21 ]
   %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
   br label %7
 
@@ -4158,29 +4126,28 @@ define hidden void @cfl_subsample_hbd_420_4x8_c(ptr noundef readonly captures(no
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %7 ]
   %9 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %11
-  %13 = load i16, ptr %12, align 2
-  %14 = add i16 %13, %10
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %12 = load i16, ptr %11, align 2
+  %13 = add i16 %12, %10
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %15 = load i16, ptr %gep.i, align 2
-  %16 = add i16 %14, %15
-  %17 = getelementptr i8, ptr %gep.i, i64 2
-  %18 = load i16, ptr %17, align 2
-  %19 = add i16 %16, %18
-  %20 = shl i16 %19, 1
-  %21 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %20, ptr %21, align 2
-  br i1 %8, label %7, label %22, !llvm.loop !25
+  %14 = load i16, ptr %gep.i, align 2
+  %15 = add i16 %13, %14
+  %16 = getelementptr i8, ptr %gep.i, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = add i16 %15, %17
+  %19 = shl i16 %18, 1
+  %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %19, ptr %20, align 2
+  br i1 %8, label %7, label %21, !llvm.loop !25
 
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %25 = add nuw nsw i32 %.02125.i, 2
-  %26 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %26, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %24 = add nuw nsw i32 %.02125.i, 2
+  %25 = icmp samesign ult i32 %.02125.i, 6
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
 }
 
@@ -4191,10 +4158,10 @@ define hidden void @cfl_subsample_hbd_420_8x4_c(ptr noundef readonly captures(no
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %23, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %24, %23 ]
-  %7 = phi i1 [ true, %3 ], [ false, %23 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %25, %23 ]
+.preheader.i:                                     ; preds = %22, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
+  %7 = phi i1 [ true, %3 ], [ false, %22 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
   %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
   br label %8
 
@@ -4202,29 +4169,28 @@ define hidden void @cfl_subsample_hbd_420_8x4_c(ptr noundef readonly captures(no
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %8 ]
   %9 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %11
-  %13 = load i16, ptr %12, align 2
-  %14 = add i16 %13, %10
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %12 = load i16, ptr %11, align 2
+  %13 = add i16 %12, %10
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %15 = load i16, ptr %gep.i, align 2
-  %16 = add i16 %14, %15
-  %17 = getelementptr i8, ptr %gep.i, i64 2
-  %18 = load i16, ptr %17, align 2
-  %19 = add i16 %16, %18
-  %20 = shl i16 %19, 1
-  %21 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %20, ptr %21, align 2
+  %14 = load i16, ptr %gep.i, align 2
+  %15 = add i16 %13, %14
+  %16 = getelementptr i8, ptr %gep.i, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = add i16 %15, %17
+  %19 = shl i16 %18, 1
+  %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %19, ptr %20, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %22 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %22, label %8, label %23, !llvm.loop !25
+  %21 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %21, label %8, label %22, !llvm.loop !25
 
-23:                                               ; preds = %8
-  %24 = getelementptr inbounds i16, ptr %.026.i, i64 %5
-  %25 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+22:                                               ; preds = %8
+  %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %23
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
   ret void
 }
 
@@ -4235,10 +4201,10 @@ define hidden void @cfl_subsample_hbd_420_8x16_c(ptr noundef readonly captures(n
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %22, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %25, %22 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
+.preheader.i:                                     ; preds = %21, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %22, %21 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %24, %21 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %23, %21 ]
   %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
   br label %7
 
@@ -4246,31 +4212,30 @@ define hidden void @cfl_subsample_hbd_420_8x16_c(ptr noundef readonly captures(n
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i16, ptr %8, align 2
-  %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %10
-  %12 = load i16, ptr %11, align 2
-  %13 = add i16 %12, %9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = add i16 %11, %9
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %14 = load i16, ptr %gep.i, align 2
-  %15 = add i16 %13, %14
-  %16 = getelementptr i8, ptr %gep.i, i64 2
-  %17 = load i16, ptr %16, align 2
-  %18 = add i16 %15, %17
-  %19 = shl i16 %18, 1
-  %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %19, ptr %20, align 2
+  %13 = load i16, ptr %gep.i, align 2
+  %14 = add i16 %12, %13
+  %15 = getelementptr i8, ptr %gep.i, i64 2
+  %16 = load i16, ptr %15, align 2
+  %17 = add i16 %14, %16
+  %18 = shl i16 %17, 1
+  %19 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %21 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %21, label %7, label %22, !llvm.loop !25
+  %20 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %20, label %7, label %21, !llvm.loop !25
 
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %25 = add nuw nsw i32 %.02125.i, 2
-  %26 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %26, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %24 = add nuw nsw i32 %.02125.i, 2
+  %25 = icmp samesign ult i32 %.02125.i, 14
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
 }
 
@@ -4281,10 +4246,10 @@ define hidden void @cfl_subsample_hbd_420_16x8_c(ptr noundef readonly captures(n
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %22, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %25, %22 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
+.preheader.i:                                     ; preds = %21, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %22, %21 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %24, %21 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %23, %21 ]
   %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
   br label %7
 
@@ -4292,31 +4257,30 @@ define hidden void @cfl_subsample_hbd_420_16x8_c(ptr noundef readonly captures(n
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i16, ptr %8, align 2
-  %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %10
-  %12 = load i16, ptr %11, align 2
-  %13 = add i16 %12, %9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = add i16 %11, %9
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %14 = load i16, ptr %gep.i, align 2
-  %15 = add i16 %13, %14
-  %16 = getelementptr i8, ptr %gep.i, i64 2
-  %17 = load i16, ptr %16, align 2
-  %18 = add i16 %15, %17
-  %19 = shl i16 %18, 1
-  %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %19, ptr %20, align 2
+  %13 = load i16, ptr %gep.i, align 2
+  %14 = add i16 %12, %13
+  %15 = getelementptr i8, ptr %gep.i, i64 2
+  %16 = load i16, ptr %15, align 2
+  %17 = add i16 %14, %16
+  %18 = shl i16 %17, 1
+  %19 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %21 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %21, label %7, label %22, !llvm.loop !25
+  %20 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %20, label %7, label %21, !llvm.loop !25
 
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %25 = add nuw nsw i32 %.02125.i, 2
-  %26 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %26, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %24 = add nuw nsw i32 %.02125.i, 2
+  %25 = icmp samesign ult i32 %.02125.i, 6
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
 }
 
@@ -4327,10 +4291,10 @@ define hidden void @cfl_subsample_hbd_420_16x32_c(ptr noundef readonly captures(
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %22, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %25, %22 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
+.preheader.i:                                     ; preds = %21, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %22, %21 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %24, %21 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %23, %21 ]
   %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
   br label %7
 
@@ -4338,10 +4302,143 @@ define hidden void @cfl_subsample_hbd_420_16x32_c(ptr noundef readonly captures(
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i16, ptr %8, align 2
-  %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %10
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = add i16 %11, %9
+  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %13 = load i16, ptr %gep.i, align 2
+  %14 = add i16 %12, %13
+  %15 = getelementptr i8, ptr %gep.i, i64 2
+  %16 = load i16, ptr %15, align 2
+  %17 = add i16 %14, %16
+  %18 = shl i16 %17, 1
+  %19 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %18, ptr %19, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
+  %20 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %20, label %7, label %21, !llvm.loop !25
+
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %24 = add nuw nsw i32 %.02125.i, 2
+  %25 = icmp samesign ult i32 %.02125.i, 30
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @cfl_subsample_hbd_420_32x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
+  %4 = shl i32 %1, 1
+  %5 = sext i32 %4 to i64
+  %6 = sext i32 %1 to i64
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %21, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %22, %21 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %24, %21 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %23, %21 ]
+  %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
+  br label %7
+
+7:                                                ; preds = %7, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
+  %8 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
+  %9 = load i16, ptr %8, align 2
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = add i16 %11, %9
+  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %13 = load i16, ptr %gep.i, align 2
+  %14 = add i16 %12, %13
+  %15 = getelementptr i8, ptr %gep.i, i64 2
+  %16 = load i16, ptr %15, align 2
+  %17 = add i16 %14, %16
+  %18 = shl i16 %17, 1
+  %19 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %18, ptr %19, align 2
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
+  %20 = icmp samesign ult i64 %indvars.iv.i, 30
+  br i1 %20, label %7, label %21, !llvm.loop !25
+
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %24 = add nuw nsw i32 %.02125.i, 2
+  %25 = icmp samesign ult i32 %.02125.i, 14
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @cfl_subsample_hbd_420_4x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
+  %4 = shl i32 %1, 1
+  %5 = sext i32 %4 to i64
+  %6 = sext i32 %1 to i64
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %21, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %22, %21 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %24, %21 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %23, %21 ]
+  %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
+  br label %7
+
+7:                                                ; preds = %7, %.preheader.i
+  %8 = phi i1 [ true, %.preheader.i ], [ false, %7 ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %7 ]
+  %9 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
+  %10 = load i16, ptr %9, align 2
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %12 = load i16, ptr %11, align 2
-  %13 = add i16 %12, %9
+  %13 = add i16 %12, %10
+  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %14 = load i16, ptr %gep.i, align 2
+  %15 = add i16 %13, %14
+  %16 = getelementptr i8, ptr %gep.i, i64 2
+  %17 = load i16, ptr %16, align 2
+  %18 = add i16 %15, %17
+  %19 = shl i16 %18, 1
+  %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %19, ptr %20, align 2
+  br i1 %8, label %7, label %21, !llvm.loop !25
+
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %24 = add nuw nsw i32 %.02125.i, 2
+  %25 = icmp samesign ult i32 %.02125.i, 14
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define hidden void @cfl_subsample_hbd_420_16x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
+  %4 = shl i32 %1, 1
+  %5 = sext i32 %4 to i64
+  %6 = sext i32 %1 to i64
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %22, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
+  %7 = phi i1 [ true, %3 ], [ false, %22 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
+  %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
+  br label %8
+
+8:                                                ; preds = %8, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %8 ]
+  %9 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
+  %10 = load i16, ptr %9, align 2
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %12 = load i16, ptr %11, align 2
+  %13 = add i16 %12, %10
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
   %14 = load i16, ptr %gep.i, align 2
   %15 = add i16 %13, %14
@@ -4353,151 +4450,14 @@ define hidden void @cfl_subsample_hbd_420_16x32_c(ptr noundef readonly captures(
   store i16 %19, ptr %20, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %21 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %21, label %7, label %22, !llvm.loop !25
+  br i1 %21, label %8, label %22, !llvm.loop !25
 
-22:                                               ; preds = %7
+22:                                               ; preds = %8
   %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
   %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %25 = add nuw nsw i32 %.02125.i, 2
-  %26 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %26, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
-
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_32x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
-  %4 = shl i32 %1, 1
-  %5 = sext i32 %4 to i64
-  %6 = sext i32 %1 to i64
-  br label %.preheader.i
-
-.preheader.i:                                     ; preds = %22, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %25, %22 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
-  %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
-  br label %7
-
-7:                                                ; preds = %7, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
-  %9 = load i16, ptr %8, align 2
-  %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %10
-  %12 = load i16, ptr %11, align 2
-  %13 = add i16 %12, %9
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %14 = load i16, ptr %gep.i, align 2
-  %15 = add i16 %13, %14
-  %16 = getelementptr i8, ptr %gep.i, i64 2
-  %17 = load i16, ptr %16, align 2
-  %18 = add i16 %15, %17
-  %19 = shl i16 %18, 1
-  %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %19, ptr %20, align 2
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %21 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %21, label %7, label %22, !llvm.loop !25
-
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %25 = add nuw nsw i32 %.02125.i, 2
-  %26 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %26, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
-
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_4x16_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
-  %4 = shl i32 %1, 1
-  %5 = sext i32 %4 to i64
-  %6 = sext i32 %1 to i64
-  br label %.preheader.i
-
-.preheader.i:                                     ; preds = %22, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %25, %22 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
-  %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
-  br label %7
-
-7:                                                ; preds = %7, %.preheader.i
-  %8 = phi i1 [ true, %.preheader.i ], [ false, %7 ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ 2, %7 ]
-  %9 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
-  %10 = load i16, ptr %9, align 2
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %11
-  %13 = load i16, ptr %12, align 2
-  %14 = add i16 %13, %10
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %15 = load i16, ptr %gep.i, align 2
-  %16 = add i16 %14, %15
-  %17 = getelementptr i8, ptr %gep.i, i64 2
-  %18 = load i16, ptr %17, align 2
-  %19 = add i16 %16, %18
-  %20 = shl i16 %19, 1
-  %21 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %20, ptr %21, align 2
-  br i1 %8, label %7, label %22, !llvm.loop !25
-
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %25 = add nuw nsw i32 %.02125.i, 2
-  %26 = icmp samesign ult i32 %.02125.i, 14
-  br i1 %26, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
-
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @cfl_subsample_hbd_420_16x4_c(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #5 {
-  %4 = shl i32 %1, 1
-  %5 = sext i32 %4 to i64
-  %6 = sext i32 %1 to i64
-  br label %.preheader.i
-
-.preheader.i:                                     ; preds = %23, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %24, %23 ]
-  %7 = phi i1 [ true, %3 ], [ false, %23 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %25, %23 ]
-  %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
-  br label %8
-
-8:                                                ; preds = %8, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
-  %10 = load i16, ptr %9, align 2
-  %11 = or disjoint i64 %indvars.iv.i, 1
-  %12 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %11
-  %13 = load i16, ptr %12, align 2
-  %14 = add i16 %13, %10
-  %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %15 = load i16, ptr %gep.i, align 2
-  %16 = add i16 %14, %15
-  %17 = getelementptr i8, ptr %gep.i, i64 2
-  %18 = load i16, ptr %17, align 2
-  %19 = add i16 %16, %18
-  %20 = shl i16 %19, 1
-  %21 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %20, ptr %21, align 2
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %22 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %22, label %8, label %23, !llvm.loop !25
-
-23:                                               ; preds = %8
-  %24 = getelementptr inbounds i16, ptr %.026.i, i64 %5
-  %25 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
   br i1 %7, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %23
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
   ret void
 }
 
@@ -4508,10 +4468,10 @@ define hidden void @cfl_subsample_hbd_420_8x32_c(ptr noundef readonly captures(n
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %22, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %25, %22 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
+.preheader.i:                                     ; preds = %21, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %22, %21 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %24, %21 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %23, %21 ]
   %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
   br label %7
 
@@ -4519,31 +4479,30 @@ define hidden void @cfl_subsample_hbd_420_8x32_c(ptr noundef readonly captures(n
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i16, ptr %8, align 2
-  %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %10
-  %12 = load i16, ptr %11, align 2
-  %13 = add i16 %12, %9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = add i16 %11, %9
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %14 = load i16, ptr %gep.i, align 2
-  %15 = add i16 %13, %14
-  %16 = getelementptr i8, ptr %gep.i, i64 2
-  %17 = load i16, ptr %16, align 2
-  %18 = add i16 %15, %17
-  %19 = shl i16 %18, 1
-  %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %19, ptr %20, align 2
+  %13 = load i16, ptr %gep.i, align 2
+  %14 = add i16 %12, %13
+  %15 = getelementptr i8, ptr %gep.i, i64 2
+  %16 = load i16, ptr %15, align 2
+  %17 = add i16 %14, %16
+  %18 = shl i16 %17, 1
+  %19 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %21 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %21, label %7, label %22, !llvm.loop !25
+  %20 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %20, label %7, label %21, !llvm.loop !25
 
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %25 = add nuw nsw i32 %.02125.i, 2
-  %26 = icmp samesign ult i32 %.02125.i, 30
-  br i1 %26, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %24 = add nuw nsw i32 %.02125.i, 2
+  %25 = icmp samesign ult i32 %.02125.i, 30
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
 }
 
@@ -4554,10 +4513,10 @@ define hidden void @cfl_subsample_hbd_420_32x8_c(ptr noundef readonly captures(n
   %6 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %22, %3
-  %.026.i = phi ptr [ %0, %3 ], [ %23, %22 ]
-  %.02125.i = phi i32 [ 0, %3 ], [ %25, %22 ]
-  %.02224.i = phi ptr [ %2, %3 ], [ %24, %22 ]
+.preheader.i:                                     ; preds = %21, %3
+  %.026.i = phi ptr [ %0, %3 ], [ %22, %21 ]
+  %.02125.i = phi i32 [ 0, %3 ], [ %24, %21 ]
+  %.02224.i = phi ptr [ %2, %3 ], [ %23, %21 ]
   %invariant.gep.i = getelementptr i16, ptr %.026.i, i64 %6
   br label %7
 
@@ -4565,31 +4524,30 @@ define hidden void @cfl_subsample_hbd_420_32x8_c(ptr noundef readonly captures(n
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %7 ]
   %8 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %indvars.iv.i
   %9 = load i16, ptr %8, align 2
-  %10 = or disjoint i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i16, ptr %.026.i, i64 %10
-  %12 = load i16, ptr %11, align 2
-  %13 = add i16 %12, %9
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %11 = load i16, ptr %10, align 2
+  %12 = add i16 %11, %9
   %gep.i = getelementptr i16, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %14 = load i16, ptr %gep.i, align 2
-  %15 = add i16 %13, %14
-  %16 = getelementptr i8, ptr %gep.i, i64 2
-  %17 = load i16, ptr %16, align 2
-  %18 = add i16 %15, %17
-  %19 = shl i16 %18, 1
-  %20 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
-  store i16 %19, ptr %20, align 2
+  %13 = load i16, ptr %gep.i, align 2
+  %14 = add i16 %12, %13
+  %15 = getelementptr i8, ptr %gep.i, i64 2
+  %16 = load i16, ptr %15, align 2
+  %17 = add i16 %14, %16
+  %18 = shl i16 %17, 1
+  %19 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 %indvars.iv.i
+  store i16 %18, ptr %19, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %21 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %21, label %7, label %22, !llvm.loop !25
+  %20 = icmp samesign ult i64 %indvars.iv.i, 30
+  br i1 %20, label %7, label %21, !llvm.loop !25
 
-22:                                               ; preds = %7
-  %23 = getelementptr inbounds i16, ptr %.026.i, i64 %5
-  %24 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
-  %25 = add nuw nsw i32 %.02125.i, 2
-  %26 = icmp samesign ult i32 %.02125.i, 6
-  br i1 %26, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
+21:                                               ; preds = %7
+  %22 = getelementptr inbounds i16, ptr %.026.i, i64 %5
+  %23 = getelementptr inbounds nuw i8, ptr %.02224.i, i64 64
+  %24 = add nuw nsw i32 %.02125.i, 2
+  %25 = icmp samesign ult i32 %.02125.i, 6
+  br i1 %25, label %.preheader.i, label %cfl_luma_subsampling_420_hbd_c.exit, !llvm.loop !26
 
-cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %22
+cfl_luma_subsampling_420_hbd_c.exit:              ; preds = %21
   ret void
 }
 
@@ -4639,35 +4597,34 @@ define hidden void @cfl_subsample_hbd_422_8x8_c(ptr noundef readonly captures(no
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %15, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %18, %15 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %16, %15 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %17, %15 ]
+.preheader.i:                                     ; preds = %14, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %17, %14 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %15, %14 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %16, %14 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
-  %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %8
-  %10 = load i16, ptr %9, align 2
-  %11 = add i16 %10, %7
-  %12 = shl i16 %11, 2
-  %13 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %12, ptr %13, align 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %9 = load i16, ptr %8, align 2
+  %10 = add i16 %9, %7
+  %11 = shl i16 %10, 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %14 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %14, label %5, label %15, !llvm.loop !28
+  %13 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %13, label %5, label %14, !llvm.loop !28
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
-  %17 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %18 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 8
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %17 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %17, 8
   br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
 }
 
@@ -4676,35 +4633,34 @@ define hidden void @cfl_subsample_hbd_422_16x16_c(ptr noundef readonly captures(
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %15, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %18, %15 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %16, %15 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %17, %15 ]
+.preheader.i:                                     ; preds = %14, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %17, %14 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %15, %14 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %16, %14 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
-  %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %8
-  %10 = load i16, ptr %9, align 2
-  %11 = add i16 %10, %7
-  %12 = shl i16 %11, 2
-  %13 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %12, ptr %13, align 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %9 = load i16, ptr %8, align 2
+  %10 = add i16 %9, %7
+  %11 = shl i16 %10, 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %14 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %14, label %5, label %15, !llvm.loop !28
+  %13 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %13, label %5, label %14, !llvm.loop !28
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
-  %17 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %18 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 16
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %17 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %17, 16
   br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
 }
 
@@ -4713,35 +4669,34 @@ define hidden void @cfl_subsample_hbd_422_32x32_c(ptr noundef readonly captures(
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %15, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %18, %15 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %16, %15 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %17, %15 ]
+.preheader.i:                                     ; preds = %14, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %17, %14 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %15, %14 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %16, %14 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
-  %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %8
-  %10 = load i16, ptr %9, align 2
-  %11 = add i16 %10, %7
-  %12 = shl i16 %11, 2
-  %13 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %12, ptr %13, align 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %9 = load i16, ptr %8, align 2
+  %10 = add i16 %9, %7
+  %11 = shl i16 %10, 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %14 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %14, label %5, label %15, !llvm.loop !28
+  %13 = icmp samesign ult i64 %indvars.iv.i, 30
+  br i1 %13, label %5, label %14, !llvm.loop !28
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
-  %17 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %18 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 32
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %17 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %17, 32
   br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
 }
 
@@ -4783,35 +4738,34 @@ define hidden void @cfl_subsample_hbd_422_8x4_c(ptr noundef readonly captures(no
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %15, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %18, %15 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %16, %15 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %17, %15 ]
+.preheader.i:                                     ; preds = %14, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %17, %14 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %15, %14 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %16, %14 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
-  %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %8
-  %10 = load i16, ptr %9, align 2
-  %11 = add i16 %10, %7
-  %12 = shl i16 %11, 2
-  %13 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %12, ptr %13, align 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %9 = load i16, ptr %8, align 2
+  %10 = add i16 %9, %7
+  %11 = shl i16 %10, 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %14 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %14, label %5, label %15, !llvm.loop !28
+  %13 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %13, label %5, label %14, !llvm.loop !28
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
-  %17 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %18 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 4
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %17 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %17, 4
   br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
 }
 
@@ -4820,35 +4774,34 @@ define hidden void @cfl_subsample_hbd_422_8x16_c(ptr noundef readonly captures(n
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %15, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %18, %15 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %16, %15 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %17, %15 ]
+.preheader.i:                                     ; preds = %14, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %17, %14 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %15, %14 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %16, %14 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
-  %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %8
-  %10 = load i16, ptr %9, align 2
-  %11 = add i16 %10, %7
-  %12 = shl i16 %11, 2
-  %13 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %12, ptr %13, align 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %9 = load i16, ptr %8, align 2
+  %10 = add i16 %9, %7
+  %11 = shl i16 %10, 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %14 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %14, label %5, label %15, !llvm.loop !28
+  %13 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %13, label %5, label %14, !llvm.loop !28
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
-  %17 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %18 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 16
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %17 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %17, 16
   br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
 }
 
@@ -4857,35 +4810,34 @@ define hidden void @cfl_subsample_hbd_422_16x8_c(ptr noundef readonly captures(n
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %15, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %18, %15 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %16, %15 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %17, %15 ]
+.preheader.i:                                     ; preds = %14, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %17, %14 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %15, %14 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %16, %14 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
-  %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %8
-  %10 = load i16, ptr %9, align 2
-  %11 = add i16 %10, %7
-  %12 = shl i16 %11, 2
-  %13 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %12, ptr %13, align 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %9 = load i16, ptr %8, align 2
+  %10 = add i16 %9, %7
+  %11 = shl i16 %10, 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %14 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %14, label %5, label %15, !llvm.loop !28
+  %13 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %13, label %5, label %14, !llvm.loop !28
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
-  %17 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %18 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 8
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %17 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %17, 8
   br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
 }
 
@@ -4894,35 +4846,34 @@ define hidden void @cfl_subsample_hbd_422_16x32_c(ptr noundef readonly captures(
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %15, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %18, %15 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %16, %15 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %17, %15 ]
+.preheader.i:                                     ; preds = %14, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %17, %14 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %15, %14 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %16, %14 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
-  %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %8
-  %10 = load i16, ptr %9, align 2
-  %11 = add i16 %10, %7
-  %12 = shl i16 %11, 2
-  %13 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %12, ptr %13, align 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %9 = load i16, ptr %8, align 2
+  %10 = add i16 %9, %7
+  %11 = shl i16 %10, 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %14 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %14, label %5, label %15, !llvm.loop !28
+  %13 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %13, label %5, label %14, !llvm.loop !28
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
-  %17 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %18 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 32
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %17 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %17, 32
   br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
 }
 
@@ -4931,35 +4882,34 @@ define hidden void @cfl_subsample_hbd_422_32x16_c(ptr noundef readonly captures(
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %15, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %18, %15 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %16, %15 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %17, %15 ]
+.preheader.i:                                     ; preds = %14, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %17, %14 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %15, %14 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %16, %14 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
-  %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %8
-  %10 = load i16, ptr %9, align 2
-  %11 = add i16 %10, %7
-  %12 = shl i16 %11, 2
-  %13 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %12, ptr %13, align 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %9 = load i16, ptr %8, align 2
+  %10 = add i16 %9, %7
+  %11 = shl i16 %10, 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %14 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %14, label %5, label %15, !llvm.loop !28
+  %13 = icmp samesign ult i64 %indvars.iv.i, 30
+  br i1 %13, label %5, label %14, !llvm.loop !28
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
-  %17 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %18 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 16
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %17 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %17, 16
   br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
 }
 
@@ -5001,35 +4951,34 @@ define hidden void @cfl_subsample_hbd_422_16x4_c(ptr noundef readonly captures(n
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %15, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %18, %15 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %16, %15 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %17, %15 ]
+.preheader.i:                                     ; preds = %14, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %17, %14 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %15, %14 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %16, %14 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
-  %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %8
-  %10 = load i16, ptr %9, align 2
-  %11 = add i16 %10, %7
-  %12 = shl i16 %11, 2
-  %13 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %12, ptr %13, align 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %9 = load i16, ptr %8, align 2
+  %10 = add i16 %9, %7
+  %11 = shl i16 %10, 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %14 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %14, label %5, label %15, !llvm.loop !28
+  %13 = icmp samesign ult i64 %indvars.iv.i, 14
+  br i1 %13, label %5, label %14, !llvm.loop !28
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
-  %17 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %18 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 4
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %17 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %17, 4
   br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
 }
 
@@ -5038,35 +4987,34 @@ define hidden void @cfl_subsample_hbd_422_8x32_c(ptr noundef readonly captures(n
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %15, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %18, %15 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %16, %15 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %17, %15 ]
+.preheader.i:                                     ; preds = %14, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %17, %14 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %15, %14 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %16, %14 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
-  %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %8
-  %10 = load i16, ptr %9, align 2
-  %11 = add i16 %10, %7
-  %12 = shl i16 %11, 2
-  %13 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %12, ptr %13, align 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %9 = load i16, ptr %8, align 2
+  %10 = add i16 %9, %7
+  %11 = shl i16 %10, 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %14 = icmp samesign ult i64 %indvars.iv.i, 6
-  br i1 %14, label %5, label %15, !llvm.loop !28
+  %13 = icmp samesign ult i64 %indvars.iv.i, 6
+  br i1 %13, label %5, label %14, !llvm.loop !28
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
-  %17 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %18 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 32
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %17 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %17, 32
   br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
 }
 
@@ -5075,35 +5023,34 @@ define hidden void @cfl_subsample_hbd_422_32x8_c(ptr noundef readonly captures(n
   %4 = sext i32 %1 to i64
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %15, %3
-  %.01420.i = phi i32 [ 0, %3 ], [ %18, %15 ]
-  %.01519.i = phi ptr [ %0, %3 ], [ %16, %15 ]
-  %.01618.i = phi ptr [ %2, %3 ], [ %17, %15 ]
+.preheader.i:                                     ; preds = %14, %3
+  %.01420.i = phi i32 [ 0, %3 ], [ %17, %14 ]
+  %.01519.i = phi ptr [ %0, %3 ], [ %15, %14 ]
+  %.01618.i = phi ptr [ %2, %3 ], [ %16, %14 ]
   br label %5
 
 5:                                                ; preds = %5, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %5 ]
   %6 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %indvars.iv.i
   %7 = load i16, ptr %6, align 2
-  %8 = or disjoint i64 %indvars.iv.i, 1
-  %9 = getelementptr inbounds nuw i16, ptr %.01519.i, i64 %8
-  %10 = load i16, ptr %9, align 2
-  %11 = add i16 %10, %7
-  %12 = shl i16 %11, 2
-  %13 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
-  store i16 %12, ptr %13, align 2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %9 = load i16, ptr %8, align 2
+  %10 = add i16 %9, %7
+  %11 = shl i16 %10, 2
+  %12 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 %indvars.iv.i
+  store i16 %11, ptr %12, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %14 = icmp samesign ult i64 %indvars.iv.i, 30
-  br i1 %14, label %5, label %15, !llvm.loop !28
+  %13 = icmp samesign ult i64 %indvars.iv.i, 30
+  br i1 %13, label %5, label %14, !llvm.loop !28
 
-15:                                               ; preds = %5
-  %16 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
-  %17 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
-  %18 = add nuw nsw i32 %.01420.i, 1
-  %exitcond.not.i = icmp eq i32 %18, 8
+14:                                               ; preds = %5
+  %15 = getelementptr inbounds i16, ptr %.01519.i, i64 %4
+  %16 = getelementptr inbounds nuw i8, ptr %.01618.i, i64 64
+  %17 = add nuw nsw i32 %.01420.i, 1
+  %exitcond.not.i = icmp eq i32 %17, 8
   br i1 %exitcond.not.i, label %cfl_luma_subsampling_422_hbd_c.exit, label %.preheader.i, !llvm.loop !27
 
-cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %15
+cfl_luma_subsampling_422_hbd_c.exit:              ; preds = %14
   ret void
 }
 

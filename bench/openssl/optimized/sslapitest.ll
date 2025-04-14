@@ -21727,9 +21727,9 @@ define internal fastcc range(i32 0, 2) i32 @compare_hex_encoded_buffer(ptr nound
   %11 = and i1 %9, %10
   br i1 %11, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader, %30
-  %.020 = phi i64 [ %32, %30 ], [ 0, %.preheader ]
-  %.01419 = phi i64 [ %31, %30 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %29
+  %.020 = phi i64 [ %31, %29 ], [ 0, %.preheader ]
+  %.01419 = phi i64 [ %30, %29 ], [ 0, %.preheader ]
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 %.01419
   %13 = load i8, ptr %12, align 1, !tbaa !27
   %14 = zext i8 %13 to i32
@@ -21744,27 +21744,26 @@ define internal fastcc range(i32 0, 2) i32 @compare_hex_encoded_buffer(ptr nound
   br i1 %.not17, label %.loopexit, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = or disjoint i64 %.020, 1
-  %24 = load i8, ptr %8, align 1, !tbaa !27
-  %25 = sext i8 %24 to i32
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %23
-  %27 = load i8, ptr %26, align 1, !tbaa !27
-  %28 = sext i8 %27 to i32
-  %29 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 196, ptr noundef nonnull @.str.362, ptr noundef nonnull @.str.363, i32 noundef %25, i32 noundef %28) #24
-  %.not18 = icmp eq i32 %29, 0
-  br i1 %.not18, label %.loopexit, label %30
+  %23 = load i8, ptr %8, align 1, !tbaa !27
+  %24 = sext i8 %23 to i32
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %26 = load i8, ptr %25, align 1, !tbaa !27
+  %27 = sext i8 %26 to i32
+  %28 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 196, ptr noundef nonnull @.str.362, ptr noundef nonnull @.str.363, i32 noundef %24, i32 noundef %27) #24
+  %.not18 = icmp eq i32 %28, 0
+  br i1 %.not18, label %.loopexit, label %29
 
-30:                                               ; preds = %22
-  %31 = add nuw i64 %.01419, 1
-  %32 = add i64 %.020, 2
-  %33 = icmp ult i64 %31, %3
-  %34 = or disjoint i64 %32, 1
-  %35 = icmp ult i64 %34, %1
-  %36 = select i1 %33, i1 %35, i1 false
-  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !174
+29:                                               ; preds = %22
+  %30 = add nuw i64 %.01419, 1
+  %31 = add i64 %.020, 2
+  %32 = icmp ult i64 %30, %3
+  %33 = or disjoint i64 %31, 1
+  %34 = icmp ult i64 %33, %1
+  %35 = select i1 %32, i1 %34, i1 false
+  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !174
 
-.loopexit:                                        ; preds = %22, %.lr.ph, %30, %.preheader, %4
-  %.015 = phi i32 [ 1, %4 ], [ 0, %.preheader ], [ 1, %22 ], [ 1, %.lr.ph ], [ 0, %30 ]
+.loopexit:                                        ; preds = %22, %.lr.ph, %29, %.preheader, %4
+  %.015 = phi i32 [ 1, %4 ], [ 0, %.preheader ], [ 1, %22 ], [ 1, %.lr.ph ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #24
   ret i32 %.015
 }

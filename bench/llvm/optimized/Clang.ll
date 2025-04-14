@@ -21284,23 +21284,20 @@ _ZNK4llvm3opt7ArgList5beginEv.exit:               ; preds = %.lr.ph.i.i.i, %.lr.
   br i1 %2000, label %_ZN4llvm12is_containedIRA41_KjjEEbOT_RKT0_.exit.thread, label %2001
 
 2001:                                             ; preds = %1998
-  %.02946.i.i.i.i.add8369 = or disjoint i64 %.02946.i.i.i.i.idx, 4
-  %.ptr8372 = getelementptr inbounds nuw i8, ptr @_ZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcE24kBitcodeOptionIgnorelist, i64 %.02946.i.i.i.i.add8369
-  %2002 = load i32, ptr %.ptr8372, align 4, !tbaa !156
+  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcE24kBitcodeOptionIgnorelist, i64 4), i64 %.02946.i.i.i.i.idx
+  %2002 = load i32, ptr %gep, align 4, !tbaa !156
   %2003 = icmp eq i32 %2002, %1997
   br i1 %2003, label %_ZN4llvm12is_containedIRA41_KjjEEbOT_RKT0_.exit, label %2004
 
 2004:                                             ; preds = %2001
-  %.02946.i.i.i.i.add8368 = or disjoint i64 %.02946.i.i.i.i.idx, 8
-  %.ptr8371 = getelementptr inbounds nuw i8, ptr @_ZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcE24kBitcodeOptionIgnorelist, i64 %.02946.i.i.i.i.add8368
-  %2005 = load i32, ptr %.ptr8371, align 8, !tbaa !156
+  %gep9536 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcE24kBitcodeOptionIgnorelist, i64 8), i64 %.02946.i.i.i.i.idx
+  %2005 = load i32, ptr %gep9536, align 8, !tbaa !156
   %2006 = icmp eq i32 %2005, %1997
   br i1 %2006, label %_ZN4llvm12is_containedIRA41_KjjEEbOT_RKT0_.exit.thread, label %2007
 
 2007:                                             ; preds = %2004
-  %.02946.i.i.i.i.add = or disjoint i64 %.02946.i.i.i.i.idx, 12
-  %.ptr = getelementptr inbounds nuw i8, ptr @_ZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcE24kBitcodeOptionIgnorelist, i64 %.02946.i.i.i.i.add
-  %2008 = load i32, ptr %.ptr, align 4, !tbaa !156
+  %gep9537 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZZNK5clang6driver5tools5Clang12ConstructJobERNS0_11CompilationERKNS0_9JobActionERKNS0_9InputInfoERKN4llvm11SmallVectorIS8_Lj4EEERKNSB_3opt7ArgListEPKcE24kBitcodeOptionIgnorelist, i64 12), i64 %.02946.i.i.i.i.idx
+  %2008 = load i32, ptr %gep9537, align 4, !tbaa !156
   %2009 = icmp eq i32 %2008, %1997
   br i1 %2009, label %_ZN4llvm12is_containedIRA41_KjjEEbOT_RKT0_.exit.thread, label %2010
 

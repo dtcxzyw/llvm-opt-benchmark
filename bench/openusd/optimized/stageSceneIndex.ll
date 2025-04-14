@@ -1154,24 +1154,24 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i64 1, ptr %124, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %125, i8 0, i64 40, i1 false)
-  br label %.preheader14.i.i.i.i
+  br label %128
 
-.preheader.i.i.i.i:                               ; preds = %.preheader14.i.i.i.i
+.preheader.i.i.i.i:                               ; preds = %128
+  %.ptr12.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %127 = ptrtoint ptr %.ptr12.i.i.i.i to i64
   br label %130
 
-.preheader14.i.i.i.i:                             ; preds = %.preheader14.i.i.i.i, %119
-  %.015.i.i.i.i = phi i64 [ %129, %.preheader14.i.i.i.i ], [ 0, %119 ]
+128:                                              ; preds = %128, %119
+  %.015.i.i.i.i = phi i64 [ 0, %119 ], [ %129, %128 ]
   %.idx13.i.i.i.i = shl nuw nsw i64 %.015.i.i.i.i, 4
-  %.offs.i.i.i.i = or disjoint i64 %.idx13.i.i.i.i, 8
-  %128 = getelementptr inbounds nuw i8, ptr %.ptr12.i.i.i.i, i64 %.offs.i.i.i.i
-  store atomic i64 0, ptr %128 monotonic, align 8
+  %gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i.i, i64 %.idx13.i.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i.i monotonic, align 8
   %129 = add nuw nsw i64 %.015.i.i.i.i, 1
   %.not.i.i.i.i10 = icmp eq i64 %129, 2
-  br i1 %.not.i.i.i.i10, label %.preheader.i.i.i.i, label %.preheader14.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i10, label %.preheader.i.i.i.i, label %128, !llvm.loop !14
 
 130:                                              ; preds = %130, %.preheader.i.i.i.i
   %.01016.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i ], [ %134, %130 ]

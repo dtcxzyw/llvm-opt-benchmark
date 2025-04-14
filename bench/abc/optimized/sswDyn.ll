@@ -458,7 +458,7 @@ define void @Ssw_ManLoadSolver(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %50, label %.lr.ph, label %.critedge.preheader, !llvm.loop !62
 
 51:                                               ; preds = %.lr.ph63, %.critedge
-  %52 = phi ptr [ %.pre, %.lr.ph63 ], [ %82, %.critedge ]
+  %52 = phi ptr [ %.pre, %.lr.ph63 ], [ %80, %.critedge ]
   %indvars.iv65 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next66, %.critedge ]
   %53 = getelementptr i8, ptr %52, i64 8
   %.val54 = load ptr, ptr %53, align 8, !tbaa !52
@@ -471,65 +471,63 @@ define void @Ssw_ManLoadSolver(ptr noundef %0, ptr noundef readonly captures(non
   %59 = getelementptr i8, ptr %.val55, i64 8
   %.val55.val = load ptr, ptr %59, align 8, !tbaa !31
   %60 = sext i32 %57 to i64
-  %61 = getelementptr inbounds ptr, ptr %.val55.val, i64 %60
+  %61 = getelementptr ptr, ptr %.val55.val, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !33
-  %63 = or disjoint i32 %57, 1
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds ptr, ptr %.val55.val, i64 %64
-  %66 = load ptr, ptr %65, align 8, !tbaa !33
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %68 = load i64, ptr %67, align 8
-  %69 = and i64 %68, 32
-  %.not44 = icmp eq i64 %69, 0
-  br i1 %.not44, label %70, label %74
+  %63 = getelementptr i8, ptr %61, i64 8
+  %64 = load ptr, ptr %63, align 8, !tbaa !33
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %66 = load i64, ptr %65, align 8
+  %67 = and i64 %66, 32
+  %.not44 = icmp eq i64 %67, 0
+  br i1 %.not44, label %68, label %72
 
-70:                                               ; preds = %51
-  %71 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %72 = load i64, ptr %71, align 8
-  %73 = and i64 %72, 32
-  %.not45 = icmp eq i64 %73, 0
-  br i1 %.not45, label %.critedge, label %74
+68:                                               ; preds = %51
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %70 = load i64, ptr %69, align 8
+  %71 = and i64 %70, 32
+  %.not45 = icmp eq i64 %71, 0
+  br i1 %.not45, label %.critedge, label %72
 
-74:                                               ; preds = %70, %51
-  %75 = or i64 %68, 32
-  store i64 %75, ptr %67, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %77 = load i64, ptr %76, align 8
-  %78 = or i64 %77, 32
-  store i64 %78, ptr %76, align 8
-  %79 = getelementptr i8, ptr %62, i64 8
-  %.val57 = load ptr, ptr %79, align 8, !tbaa !43
-  %80 = getelementptr i8, ptr %66, i64 8
-  %.val58 = load ptr, ptr %80, align 8, !tbaa !43
-  %81 = tail call i32 @Ssw_NodesAreConstrained(ptr noundef nonnull %0, ptr noundef %.val57, ptr noundef %.val58) #10
+72:                                               ; preds = %68, %51
+  %73 = or i64 %66, 32
+  store i64 %73, ptr %65, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %75 = load i64, ptr %74, align 8
+  %76 = or i64 %75, 32
+  store i64 %76, ptr %74, align 8
+  %77 = getelementptr i8, ptr %62, i64 8
+  %.val57 = load ptr, ptr %77, align 8, !tbaa !43
+  %78 = getelementptr i8, ptr %64, i64 8
+  %.val58 = load ptr, ptr %78, align 8, !tbaa !43
+  %79 = tail call i32 @Ssw_NodesAreConstrained(ptr noundef nonnull %0, ptr noundef %.val57, ptr noundef %.val58) #10
   %.pre69 = load ptr, ptr %34, align 8, !tbaa !61
   br label %.critedge
 
-.critedge:                                        ; preds = %70, %74
-  %82 = phi ptr [ %52, %70 ], [ %.pre69, %74 ]
+.critedge:                                        ; preds = %68, %72
+  %80 = phi ptr [ %52, %68 ], [ %.pre69, %72 ]
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %83 = getelementptr i8, ptr %82, i64 4
-  %.val53 = load i32, ptr %83, align 4, !tbaa !49
-  %84 = sext i32 %.val53 to i64
-  %85 = icmp slt i64 %indvars.iv.next66, %84
-  br i1 %85, label %51, label %.critedge2, !llvm.loop !64
+  %81 = getelementptr i8, ptr %80, i64 4
+  %.val53 = load i32, ptr %81, align 4, !tbaa !49
+  %82 = sext i32 %.val53 to i64
+  %83 = icmp slt i64 %indvars.iv.next66, %82
+  br i1 %83, label %51, label %.critedge2, !llvm.loop !64
 
 .critedge2:                                       ; preds = %.critedge, %3, %.critedge.preheader
-  %86 = load ptr, ptr %27, align 8, !tbaa !59
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  %88 = load ptr, ptr %87, align 8, !tbaa !65
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 12
-  %90 = load i32, ptr %89, align 4, !tbaa !68
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %92 = load i32, ptr %91, align 8, !tbaa !80
-  %.not = icmp eq i32 %90, %92
-  br i1 %.not, label %95, label %93
+  %84 = load ptr, ptr %27, align 8, !tbaa !59
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  %86 = load ptr, ptr %85, align 8, !tbaa !65
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 12
+  %88 = load i32, ptr %87, align 4, !tbaa !68
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %90 = load i32, ptr %89, align 8, !tbaa !80
+  %.not = icmp eq i32 %88, %90
+  br i1 %.not, label %93, label %91
 
-93:                                               ; preds = %.critedge2
-  %94 = tail call i32 @sat_solver_simplify(ptr noundef nonnull %88) #10
-  br label %95
+91:                                               ; preds = %.critedge2
+  %92 = tail call i32 @sat_solver_simplify(ptr noundef nonnull %86) #10
+  br label %93
 
-95:                                               ; preds = %93, %.critedge2
+93:                                               ; preds = %91, %.critedge2
   ret void
 }
 

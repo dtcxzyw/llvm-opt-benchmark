@@ -77,43 +77,40 @@ define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %0, ptr noundef %1,
   br i1 %.not68, label %.loopexit, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.preheader, %.lr.ph66
-  %.165 = phi i64 [ %53, %.lr.ph66 ], [ 0, %.preheader ]
+  %.165 = phi i64 [ %50, %.lr.ph66 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %38 = getelementptr i64, ptr %0, i64 %.165
   %39 = load i64, ptr %38, align 8, !tbaa !3
   store i64 %39, ptr %6, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
-  %40 = or disjoint i64 %.165, 1
-  %41 = getelementptr i64, ptr %0, i64 %40
-  %42 = load i64, ptr %41, align 8, !tbaa !3
-  store i64 %42, ptr %7, align 8, !tbaa !3
+  %40 = getelementptr i8, ptr %38, i64 8
+  %41 = load i64, ptr %40, align 8, !tbaa !3
+  store i64 %41, ptr %7, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
-  %43 = or disjoint i64 %.165, 2
-  %44 = getelementptr i64, ptr %0, i64 %43
-  %45 = load i64, ptr %44, align 8, !tbaa !3
-  store i64 %45, ptr %8, align 8, !tbaa !3
+  %42 = getelementptr i8, ptr %38, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !3
+  store i64 %43, ptr %8, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
-  %46 = or disjoint i64 %.165, 3
-  %47 = getelementptr i64, ptr %0, i64 %46
-  %48 = load i64, ptr %47, align 8, !tbaa !3
-  store i64 %48, ptr %9, align 8, !tbaa !3
+  %44 = getelementptr i8, ptr %38, i64 24
+  %45 = load i64, ptr %44, align 8, !tbaa !3
+  store i64 %45, ptr %9, align 8, !tbaa !3
   call fastcc void @x64_mulmod2c(ptr noundef %6, ptr noundef %7, i64 noundef %14, i64 noundef %12)
   call fastcc void @x64_mulmod2c(ptr noundef %8, ptr noundef %9, i64 noundef %14, i64 noundef %12)
-  %49 = load i64, ptr %6, align 8, !tbaa !3
-  store i64 %49, ptr %38, align 8, !tbaa !3
-  %50 = load i64, ptr %7, align 8, !tbaa !3
-  store i64 %50, ptr %41, align 8, !tbaa !3
-  %51 = load i64, ptr %8, align 8, !tbaa !3
-  store i64 %51, ptr %44, align 8, !tbaa !3
-  %52 = load i64, ptr %9, align 8, !tbaa !3
-  store i64 %52, ptr %47, align 8, !tbaa !3
+  %46 = load i64, ptr %6, align 8, !tbaa !3
+  store i64 %46, ptr %38, align 8, !tbaa !3
+  %47 = load i64, ptr %7, align 8, !tbaa !3
+  store i64 %47, ptr %40, align 8, !tbaa !3
+  %48 = load i64, ptr %8, align 8, !tbaa !3
+  store i64 %48, ptr %42, align 8, !tbaa !3
+  %49 = load i64, ptr %9, align 8, !tbaa !3
+  store i64 %49, ptr %44, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  %53 = add i64 %.165, 4
-  %54 = icmp ult i64 %53, %37
-  br i1 %54, label %.lr.ph66, label %.loopexit, !llvm.loop !11
+  %50 = add i64 %.165, 4
+  %51 = icmp ult i64 %50, %37
+  br i1 %51, label %.lr.ph66, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph66, %.preheader, %._crit_edge, %20, %.thread
   %.0 = phi i32 [ 0, %.thread ], [ 0, %20 ], [ 0, %._crit_edge ], [ 1, %.preheader ], [ 1, %.lr.ph66 ]
@@ -733,75 +730,71 @@ define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %0, i64 noundef
   br i1 %.not56, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader52, %.lr.ph
-  %.053 = phi i64 [ %27, %.lr.ph ], [ 0, %.preheader52 ]
+  %.053 = phi i64 [ %26, %.lr.ph ], [ 0, %.preheader52 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   %20 = getelementptr i64, ptr %0, i64 %.053
   %21 = load i64, ptr %20, align 8, !tbaa !3
   store i64 %21, ptr %3, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
-  %22 = or disjoint i64 %.053, 1
-  %23 = getelementptr i64, ptr %0, i64 %22
-  %24 = load i64, ptr %23, align 8, !tbaa !3
-  store i64 %24, ptr %4, align 8, !tbaa !3
-  call fastcc void @x64_mulmod2(ptr noundef %3, i64 noundef %21, ptr noundef %4, i64 noundef %24, i64 noundef %11)
-  %25 = load i64, ptr %3, align 8, !tbaa !3
-  store i64 %25, ptr %20, align 8, !tbaa !3
-  %26 = load i64, ptr %4, align 8, !tbaa !3
-  store i64 %26, ptr %23, align 8, !tbaa !3
+  %22 = getelementptr i8, ptr %20, i64 8
+  %23 = load i64, ptr %22, align 8, !tbaa !3
+  store i64 %23, ptr %4, align 8, !tbaa !3
+  call fastcc void @x64_mulmod2(ptr noundef %3, i64 noundef %21, ptr noundef %4, i64 noundef %23, i64 noundef %11)
+  %24 = load i64, ptr %3, align 8, !tbaa !3
+  store i64 %24, ptr %20, align 8, !tbaa !3
+  %25 = load i64, ptr %4, align 8, !tbaa !3
+  store i64 %25, ptr %22, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  %27 = add i64 %.053, 2
-  %28 = icmp ult i64 %27, %19
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  %26 = add i64 %.053, 2
+  %27 = icmp ult i64 %26, %19
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader52
-  %29 = tail call i32 %17(ptr noundef %0, i64 noundef %1, i32 noundef %2) #6, !callees !10
-  %.not48 = icmp eq i32 %29, 0
+  %28 = tail call i32 %17(ptr noundef %0, i64 noundef %1, i32 noundef %2) #6, !callees !10
+  %.not48 = icmp eq i32 %28, 0
   br i1 %.not48, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %30 = add i64 %1, -3
-  %.not57 = icmp eq i64 %30, 0
+  %29 = add i64 %1, -3
+  %.not57 = icmp eq i64 %29, 0
   br i1 %.not57, label %.loopexit, label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %.preheader, %.lr.ph55
-  %.154 = phi i64 [ %46, %.lr.ph55 ], [ 0, %.preheader ]
+  %.154 = phi i64 [ %42, %.lr.ph55 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  %31 = getelementptr i64, ptr %0, i64 %.154
-  %32 = load i64, ptr %31, align 8, !tbaa !3
-  store i64 %32, ptr %5, align 8, !tbaa !3
+  %30 = getelementptr i64, ptr %0, i64 %.154
+  %31 = load i64, ptr %30, align 8, !tbaa !3
+  store i64 %31, ptr %5, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
-  %33 = or disjoint i64 %.154, 1
-  %34 = getelementptr i64, ptr %0, i64 %33
-  %35 = load i64, ptr %34, align 8, !tbaa !3
-  store i64 %35, ptr %6, align 8, !tbaa !3
+  %32 = getelementptr i8, ptr %30, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !3
+  store i64 %33, ptr %6, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #6
-  %36 = or disjoint i64 %.154, 2
-  %37 = getelementptr i64, ptr %0, i64 %36
-  %38 = load i64, ptr %37, align 8, !tbaa !3
-  store i64 %38, ptr %7, align 8, !tbaa !3
+  %34 = getelementptr i8, ptr %30, i64 16
+  %35 = load i64, ptr %34, align 8, !tbaa !3
+  store i64 %35, ptr %7, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
-  %39 = or disjoint i64 %.154, 3
-  %40 = getelementptr i64, ptr %0, i64 %39
-  %41 = load i64, ptr %40, align 8, !tbaa !3
-  store i64 %41, ptr %8, align 8, !tbaa !3
+  %36 = getelementptr i8, ptr %30, i64 24
+  %37 = load i64, ptr %36, align 8, !tbaa !3
+  store i64 %37, ptr %8, align 8, !tbaa !3
   call fastcc void @x64_mulmod2c(ptr noundef %5, ptr noundef %6, i64 noundef %13, i64 noundef %11)
   call fastcc void @x64_mulmod2c(ptr noundef %7, ptr noundef %8, i64 noundef %13, i64 noundef %11)
-  %42 = load i64, ptr %5, align 8, !tbaa !3
-  store i64 %42, ptr %31, align 8, !tbaa !3
-  %43 = load i64, ptr %6, align 8, !tbaa !3
-  store i64 %43, ptr %34, align 8, !tbaa !3
-  %44 = load i64, ptr %7, align 8, !tbaa !3
-  store i64 %44, ptr %37, align 8, !tbaa !3
-  %45 = load i64, ptr %8, align 8, !tbaa !3
-  store i64 %45, ptr %40, align 8, !tbaa !3
+  %38 = load i64, ptr %5, align 8, !tbaa !3
+  store i64 %38, ptr %30, align 8, !tbaa !3
+  %39 = load i64, ptr %6, align 8, !tbaa !3
+  store i64 %39, ptr %32, align 8, !tbaa !3
+  %40 = load i64, ptr %7, align 8, !tbaa !3
+  store i64 %40, ptr %34, align 8, !tbaa !3
+  %41 = load i64, ptr %8, align 8, !tbaa !3
+  store i64 %41, ptr %36, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  %46 = add i64 %.154, 4
-  %47 = icmp ult i64 %46, %30
-  br i1 %47, label %.lr.ph55, label %.loopexit, !llvm.loop !14
+  %42 = add i64 %.154, 4
+  %43 = icmp ult i64 %42, %29
+  br i1 %43, label %.lr.ph55, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph55, %.preheader, %._crit_edge, %.thread
   %.044 = phi i32 [ 0, %.thread ], [ 0, %._crit_edge ], [ 1, %.preheader ], [ 1, %.lr.ph55 ]

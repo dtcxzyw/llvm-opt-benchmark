@@ -2606,8 +2606,8 @@ ir_bitqueue_add.exit.i:                           ; preds = %116, %ir_is_dead.ex
 
 .lr.ph.preheader.i.i:                             ; preds = %151
   %166 = shl nuw nsw i64 %indvars.iv, 4
-  %167 = or disjoint i64 %166, 4
-  %scevgep.i.i = getelementptr i8, ptr %.val.i, i64 %167
+  %167 = getelementptr i8, ptr %.val.i, i64 %166
+  %scevgep.i.i = getelementptr i8, ptr %167, i64 4
   %168 = zext i16 %165 to i64
   %169 = shl nuw nsw i64 %168, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i, i8 0, i64 %169, i1 false), !tbaa !40
@@ -2627,8 +2627,8 @@ ir_sccp_make_nop.exit.i:                          ; preds = %.lr.ph.preheader.i.
 
 .lr.ph.preheader.i27.i:                           ; preds = %ir_sccp_make_nop.exit.i
   %174 = shl nsw i64 %146, 4
-  %175 = or disjoint i64 %174, 4
-  %scevgep.i28.i = getelementptr i8, ptr %.val24.i, i64 %175
+  %175 = getelementptr i8, ptr %.val24.i, i64 %174
+  %scevgep.i28.i = getelementptr i8, ptr %175, i64 4
   %176 = zext i16 %173 to i64
   %177 = shl nuw nsw i64 %176, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i28.i, i8 0, i64 %177, i1 false), !tbaa !40
@@ -2731,8 +2731,8 @@ ir_sccp_remove_unfeasible_merge_inputs.exit.backedge: ; preds = %331, %.preheade
   %.not179228.i = icmp eq i16 %224, 1
   %228 = getelementptr inbounds nuw i8, ptr %222, i64 4
   %229 = shl nuw nsw i64 %218, 4
-  %230 = or disjoint i64 %229, 8
-  %scevgep268.i = getelementptr i8, ptr %221, i64 %230
+  %230 = getelementptr i8, ptr %221, i64 %229
+  %scevgep268.i = getelementptr i8, ptr %230, i64 8
   %231 = add nsw i32 %225, -1
   %232 = zext i32 %231 to i64
   %233 = shl nuw nsw i64 %232, 2
@@ -2903,8 +2903,8 @@ ir_sccp_remove_unfeasible_merge_inputs.exit.backedge: ; preds = %331, %.preheade
   br i1 %.not1.i.i99, label %ir_sccp_make_nop.exit.i102, label %.lr.ph.preheader.i.i100
 
 .lr.ph.preheader.i.i100:                          ; preds = %314
-  %320 = or disjoint i64 %229, 4
-  %scevgep.i.i101 = getelementptr i8, ptr %.val.i98, i64 %320
+  %320 = getelementptr i8, ptr %.val.i98, i64 %229
+  %scevgep.i.i101 = getelementptr i8, ptr %320, i64 4
   %321 = zext i16 %319 to i64
   %322 = shl nuw nsw i64 %321, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i.i101, i8 0, i64 %322, i1 false), !tbaa !40
@@ -2924,8 +2924,8 @@ ir_sccp_make_nop.exit.i102:                       ; preds = %.lr.ph.preheader.i.
 
 .lr.ph.preheader.i189.i:                          ; preds = %ir_sccp_make_nop.exit.i102
   %327 = shl nsw i64 %239, 4
-  %328 = or disjoint i64 %327, 4
-  %scevgep.i190.i = getelementptr i8, ptr %.val186.i, i64 %328
+  %328 = getelementptr i8, ptr %.val186.i, i64 %327
+  %scevgep.i190.i = getelementptr i8, ptr %328, i64 4
   %329 = zext i16 %326 to i64
   %330 = shl nuw nsw i64 %329, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %scevgep.i190.i, i8 0, i64 %330, i1 false), !tbaa !40

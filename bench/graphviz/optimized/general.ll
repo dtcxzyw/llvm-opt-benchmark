@@ -334,41 +334,40 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = uitofp nneg i32 %36 to double
-  %38 = shl nuw nsw i64 %indvars.iv, 1
-  %39 = or disjoint i64 %38, 1
-  %40 = getelementptr inbounds nuw double, ptr %28, i64 %39
-  store double %37, ptr %40, align 8, !tbaa !13
-  %41 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %42 = load double, ptr %41, align 8, !tbaa !13
-  %43 = getelementptr inbounds nuw double, ptr %28, i64 %38
-  store double %42, ptr %43, align 8, !tbaa !13
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store double %37, ptr %39, align 8, !tbaa !13
+  %40 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %41 = load double, ptr %40, align 8, !tbaa !13
+  store double %41, ptr %38, align 8, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %44 = zext nneg i32 %0 to i64
-  tail call void @qsort(ptr noundef nonnull %28, i64 noundef %44, i64 noundef 16, ptr noundef nonnull @comp_ascend) #18
-  %45 = load ptr, ptr %2, align 8, !tbaa !24
+  %42 = zext nneg i32 %0 to i64
+  tail call void @qsort(ptr noundef nonnull %28, i64 noundef %42, i64 noundef 16, ptr noundef nonnull @comp_ascend) #18
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %43 = load ptr, ptr %2, align 8, !tbaa !24
   %wide.trip.count38 = zext nneg i32 %0 to i64
-  br label %46
+  br label %44
 
-46:                                               ; preds = %._crit_edge, %46
-  %indvars.iv35 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next36, %46 ]
-  %47 = shl nuw nsw i64 %indvars.iv35, 1
-  %48 = or disjoint i64 %47, 1
-  %49 = getelementptr inbounds nuw double, ptr %28, i64 %48
-  %50 = load double, ptr %49, align 8, !tbaa !13
-  %51 = fptosi double %50 to i32
-  %52 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv35
-  store i32 %51, ptr %52, align 4, !tbaa !8
+44:                                               ; preds = %._crit_edge, %44
+  %indvars.iv35 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next36, %44 ]
+  %gep.idx = shl nuw nsw i64 %indvars.iv35, 4
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
+  %45 = load double, ptr %gep, align 8, !tbaa !13
+  %46 = fptosi double %45 to i32
+  %47 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv35
+  store i32 %46, ptr %47, align 4, !tbaa !8
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %._crit_edge33, label %46, !llvm.loop !27
+  br i1 %exitcond39.not, label %._crit_edge33, label %44, !llvm.loop !27
 
-._crit_edge33:                                    ; preds = %46, %._crit_edge.thread
-  %53 = phi ptr [ %34, %._crit_edge.thread ], [ %28, %46 ]
-  tail call void @free(ptr noundef %53) #18
+._crit_edge33:                                    ; preds = %44, %._crit_edge.thread
+  %48 = phi ptr [ %34, %._crit_edge.thread ], [ %28, %44 ]
+  tail call void @free(ptr noundef %48) #18
   ret void
 }
 

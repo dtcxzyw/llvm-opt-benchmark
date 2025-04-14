@@ -174,14 +174,14 @@ define signext range(i8 0, 2) i8 @uscript_nextRun_77(ptr noundef captures(addres
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   store i32 0, ptr %5, align 4, !tbaa !3
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %148, label %7
+  br i1 %6, label %147, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !15
   %10 = load i32, ptr %0, align 8, !tbaa !13
   %.not = icmp slt i32 %9, %10
-  br i1 %.not, label %.lr.ph104, label %148
+  br i1 %.not, label %.lr.ph104, label %147
 
 .lr.ph104:                                        ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 292
@@ -197,9 +197,9 @@ define signext range(i8 0, 2) i8 @uscript_nextRun_77(ptr noundef captures(addres
   %18 = getelementptr i8, ptr %0, i64 32
   br label %19
 
-19:                                               ; preds = %.lr.ph104, %135
-  %20 = phi i32 [ %10, %.lr.ph104 ], [ %138, %135 ]
-  %21 = phi i32 [ %9, %.lr.ph104 ], [ %137, %135 ]
+19:                                               ; preds = %.lr.ph104, %134
+  %20 = phi i32 [ %10, %.lr.ph104 ], [ %137, %134 ]
+  %21 = phi i32 [ %9, %.lr.ph104 ], [ %136, %134 ]
   %22 = load ptr, ptr %14, align 8, !tbaa !7
   %23 = sext i32 %21 to i64
   %24 = getelementptr inbounds i16, ptr %22, i64 %23
@@ -262,7 +262,7 @@ _ZL12getPairIndexi.exit:                          ; preds = %44
   %56 = and i32 %spec.store.select.i, 1
   %57 = icmp eq i32 %56, 0
   %58 = load i32, ptr %15, align 8, !tbaa !18
-  br i1 %57, label %59, label %71
+  br i1 %57, label %59, label %70
 
 59:                                               ; preds = %55
   %60 = load i32, ptr %12, align 8, !tbaa !16
@@ -281,182 +281,181 @@ _ZL12getPairIndexi.exit:                          ; preds = %44
   %69 = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %16, i64 0, i64 %68
   store i32 %spec.store.select.i, ptr %69, align 4, !tbaa !25
   %.idx.i = shl nsw i64 %68, 3
-  %.offs.i = or disjoint i64 %.idx.i, 4
-  %70 = getelementptr inbounds i8, ptr %16, i64 %.offs.i
-  store i32 %60, ptr %70, align 4, !tbaa !27
+  %gep = getelementptr i8, ptr %18, i64 %.idx.i
+  store i32 %60, ptr %gep, align 4, !tbaa !27
   br label %.critedge.thread
 
-71:                                               ; preds = %55
-  %72 = and i32 %spec.store.select.i, 2147483646
-  %73 = icmp slt i32 %58, 1
-  br i1 %73, label %.critedge.thread, label %.lr.ph
+70:                                               ; preds = %55
+  %71 = and i32 %spec.store.select.i, 2147483646
+  %72 = icmp slt i32 %58, 1
+  br i1 %72, label %.critedge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %71
+.lr.ph:                                           ; preds = %70
   %.promoted102 = load i32, ptr %17, align 4
-  br label %74
+  br label %73
 
-74:                                               ; preds = %.lr.ph, %_ZL3popP10UScriptRun.exit
-  %75 = phi i32 [ %.promoted102, %.lr.ph ], [ %spec.store.select.i95, %_ZL3popP10UScriptRun.exit ]
-  %76 = phi i32 [ %58, %.lr.ph ], [ %85, %_ZL3popP10UScriptRun.exit ]
-  %77 = sext i32 %75 to i64
-  %78 = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %16, i64 0, i64 %77
-  %79 = load i32, ptr %78, align 4, !tbaa !25
-  %.not84 = icmp eq i32 %79, %72
-  br i1 %.not84, label %.critedge, label %80
+73:                                               ; preds = %.lr.ph, %_ZL3popP10UScriptRun.exit
+  %74 = phi i32 [ %.promoted102, %.lr.ph ], [ %spec.store.select.i95, %_ZL3popP10UScriptRun.exit ]
+  %75 = phi i32 [ %58, %.lr.ph ], [ %84, %_ZL3popP10UScriptRun.exit ]
+  %76 = sext i32 %74 to i64
+  %77 = getelementptr inbounds [32 x %struct.ParenStackEntry], ptr %16, i64 0, i64 %76
+  %78 = load i32, ptr %77, align 4, !tbaa !25
+  %.not84 = icmp eq i32 %78, %71
+  br i1 %.not84, label %.critedge, label %79
 
-80:                                               ; preds = %74
-  %81 = load i32, ptr %11, align 4, !tbaa !19
-  %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %83, label %_ZL3popP10UScriptRun.exit
+79:                                               ; preds = %73
+  %80 = load i32, ptr %11, align 4, !tbaa !19
+  %81 = icmp sgt i32 %80, 0
+  br i1 %81, label %82, label %_ZL3popP10UScriptRun.exit
 
-83:                                               ; preds = %80
-  %84 = add nsw i32 %81, -1
-  store i32 %84, ptr %11, align 4, !tbaa !19
+82:                                               ; preds = %79
+  %83 = add nsw i32 %80, -1
+  store i32 %83, ptr %11, align 4, !tbaa !19
   br label %_ZL3popP10UScriptRun.exit
 
-_ZL3popP10UScriptRun.exit:                        ; preds = %80, %83
-  %85 = add nsw i32 %76, -1
-  store i32 %85, ptr %15, align 8, !tbaa !18
-  %86 = add nsw i32 %75, 31
-  %87 = srem i32 %86, 32
-  %88 = icmp eq i32 %76, 1
-  %spec.store.select.i95 = select i1 %88, i32 -1, i32 %87
+_ZL3popP10UScriptRun.exit:                        ; preds = %79, %82
+  %84 = add nsw i32 %75, -1
+  store i32 %84, ptr %15, align 8, !tbaa !18
+  %85 = add nsw i32 %74, 31
+  %86 = srem i32 %85, 32
+  %87 = icmp eq i32 %75, 1
+  %spec.store.select.i95 = select i1 %87, i32 -1, i32 %86
   store i32 %spec.store.select.i95, ptr %17, align 4
-  %89 = icmp slt i32 %76, 2
-  br i1 %89, label %.critedge.thread, label %74, !llvm.loop !28
+  %88 = icmp slt i32 %75, 2
+  br i1 %88, label %.critedge.thread, label %73, !llvm.loop !28
 
-.critedge:                                        ; preds = %74
-  %.idx = shl nsw i64 %77, 3
-  %90 = getelementptr i8, ptr %18, i64 %.idx
-  %91 = load i32, ptr %90, align 4, !tbaa !27
+.critedge:                                        ; preds = %73
+  %.idx = shl nsw i64 %76, 3
+  %89 = getelementptr i8, ptr %18, i64 %.idx
+  %90 = load i32, ptr %89, align 4, !tbaa !27
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %_ZL3popP10UScriptRun.exit, %71, %.critedge, %59, %_ZL12getPairIndexi.exit
-  %.072 = phi i32 [ %42, %59 ], [ %42, %_ZL12getPairIndexi.exit ], [ %91, %.critedge ], [ %42, %71 ], [ %42, %_ZL3popP10UScriptRun.exit ]
-  %92 = load i32, ptr %12, align 8, !tbaa !16
-  %93 = icmp slt i32 %92, 2
-  %94 = icmp slt i32 %.072, 2
-  %95 = icmp eq i32 %92, %.072
-  %96 = or i1 %94, %95
-  %narrow.i = or i1 %93, %96
-  br i1 %narrow.i, label %97, label %130
+.critedge.thread:                                 ; preds = %_ZL3popP10UScriptRun.exit, %70, %.critedge, %59, %_ZL12getPairIndexi.exit
+  %.072 = phi i32 [ %42, %59 ], [ %42, %_ZL12getPairIndexi.exit ], [ %90, %.critedge ], [ %42, %70 ], [ %42, %_ZL3popP10UScriptRun.exit ]
+  %91 = load i32, ptr %12, align 8, !tbaa !16
+  %92 = icmp slt i32 %91, 2
+  %93 = icmp slt i32 %.072, 2
+  %94 = icmp eq i32 %91, %.072
+  %95 = or i1 %93, %94
+  %narrow.i = or i1 %92, %95
+  br i1 %narrow.i, label %96, label %129
 
-97:                                               ; preds = %.critedge.thread
-  %98 = icmp sgt i32 %.072, 1
-  %or.cond7 = and i1 %98, %93
-  br i1 %or.cond7, label %99, label %113
+96:                                               ; preds = %.critedge.thread
+  %97 = icmp sgt i32 %.072, 1
+  %or.cond7 = and i1 %97, %92
+  br i1 %or.cond7, label %98, label %112
 
-99:                                               ; preds = %97
+98:                                               ; preds = %96
   store i32 %.072, ptr %12, align 8, !tbaa !16
-  %100 = load i32, ptr %11, align 4, !tbaa !19
-  %101 = add nsw i32 %100, -1
-  %102 = icmp sgt i32 %100, 0
-  br i1 %102, label %.lr.ph.i, label %_ZL5fixupP10UScriptRun11UScriptCode.exit
+  %99 = load i32, ptr %11, align 4, !tbaa !19
+  %100 = add nsw i32 %99, -1
+  %101 = icmp sgt i32 %99, 0
+  br i1 %101, label %.lr.ph.i, label %_ZL5fixupP10UScriptRun11UScriptCode.exit
 
-.lr.ph.i:                                         ; preds = %99
-  %103 = load i32, ptr %17, align 4, !tbaa !17
-  %reass.sub = sub i32 %103, %100
-  %104 = add i32 %reass.sub, 32
-  %105 = srem i32 %104, 32
-  br label %106
+.lr.ph.i:                                         ; preds = %98
+  %102 = load i32, ptr %17, align 4, !tbaa !17
+  %reass.sub = sub i32 %102, %99
+  %103 = add i32 %reass.sub, 32
+  %104 = srem i32 %103, 32
+  br label %105
 
-106:                                              ; preds = %106, %.lr.ph.i
-  %107 = phi i32 [ %101, %.lr.ph.i ], [ %112, %106 ]
-  %.06.i = phi i32 [ %105, %.lr.ph.i ], [ %109, %106 ]
-  %108 = add nsw i32 %.06.i, 1
-  %109 = srem i32 %108, 32
-  %110 = sext i32 %109 to i64
-  %.idx.i96 = shl nsw i64 %110, 3
-  %111 = getelementptr i8, ptr %18, i64 %.idx.i96
-  store i32 %.072, ptr %111, align 4, !tbaa !27
-  %112 = add nsw i32 %107, -1
-  %.not.i97 = icmp eq i32 %107, 0
-  br i1 %.not.i97, label %_ZL5fixupP10UScriptRun11UScriptCode.exit, label %106, !llvm.loop !29
+105:                                              ; preds = %105, %.lr.ph.i
+  %106 = phi i32 [ %100, %.lr.ph.i ], [ %111, %105 ]
+  %.06.i = phi i32 [ %104, %.lr.ph.i ], [ %108, %105 ]
+  %107 = add nsw i32 %.06.i, 1
+  %108 = srem i32 %107, 32
+  %109 = sext i32 %108 to i64
+  %.idx.i96 = shl nsw i64 %109, 3
+  %110 = getelementptr i8, ptr %18, i64 %.idx.i96
+  store i32 %.072, ptr %110, align 4, !tbaa !27
+  %111 = add nsw i32 %106, -1
+  %.not.i97 = icmp eq i32 %106, 0
+  br i1 %.not.i97, label %_ZL5fixupP10UScriptRun11UScriptCode.exit, label %105, !llvm.loop !29
 
-_ZL5fixupP10UScriptRun11UScriptCode.exit:         ; preds = %106, %99
-  %.lcssa.i = phi i32 [ %101, %99 ], [ -1, %106 ]
+_ZL5fixupP10UScriptRun11UScriptCode.exit:         ; preds = %105, %98
+  %.lcssa.i = phi i32 [ %100, %98 ], [ -1, %105 ]
   store i32 %.lcssa.i, ptr %11, align 4, !tbaa !19
-  br label %113
+  br label %112
 
-113:                                              ; preds = %_ZL5fixupP10UScriptRun11UScriptCode.exit, %97
-  %114 = phi i32 [ %.072, %_ZL5fixupP10UScriptRun11UScriptCode.exit ], [ %92, %97 ]
-  %115 = and i32 %spec.store.select.i, -2147483647
-  %or.cond93.not = icmp eq i32 %115, 1
-  br i1 %or.cond93.not, label %116, label %135
+112:                                              ; preds = %_ZL5fixupP10UScriptRun11UScriptCode.exit, %96
+  %113 = phi i32 [ %.072, %_ZL5fixupP10UScriptRun11UScriptCode.exit ], [ %91, %96 ]
+  %114 = and i32 %spec.store.select.i, -2147483647
+  %or.cond93.not = icmp eq i32 %114, 1
+  br i1 %or.cond93.not, label %115, label %134
 
-116:                                              ; preds = %113
-  %117 = load i32, ptr %15, align 8, !tbaa !18
-  %118 = icmp slt i32 %117, 1
-  br i1 %118, label %135, label %119
+115:                                              ; preds = %112
+  %116 = load i32, ptr %15, align 8, !tbaa !18
+  %117 = icmp slt i32 %116, 1
+  br i1 %117, label %134, label %118
 
-119:                                              ; preds = %116
-  %120 = load i32, ptr %11, align 4, !tbaa !19
-  %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %122, label %124
+118:                                              ; preds = %115
+  %119 = load i32, ptr %11, align 4, !tbaa !19
+  %120 = icmp sgt i32 %119, 0
+  br i1 %120, label %121, label %123
 
-122:                                              ; preds = %119
-  %123 = add nsw i32 %120, -1
-  store i32 %123, ptr %11, align 4, !tbaa !19
-  br label %124
+121:                                              ; preds = %118
+  %122 = add nsw i32 %119, -1
+  store i32 %122, ptr %11, align 4, !tbaa !19
+  br label %123
 
-124:                                              ; preds = %122, %119
-  %125 = add nsw i32 %117, -1
-  store i32 %125, ptr %15, align 8, !tbaa !18
-  %126 = load i32, ptr %17, align 4, !tbaa !17
-  %127 = add nsw i32 %126, 31
-  %128 = srem i32 %127, 32
-  %129 = icmp eq i32 %117, 1
-  %spec.store.select.i98 = select i1 %129, i32 -1, i32 %128
+123:                                              ; preds = %121, %118
+  %124 = add nsw i32 %116, -1
+  store i32 %124, ptr %15, align 8, !tbaa !18
+  %125 = load i32, ptr %17, align 4, !tbaa !17
+  %126 = add nsw i32 %125, 31
+  %127 = srem i32 %126, 32
+  %128 = icmp eq i32 %116, 1
+  %spec.store.select.i98 = select i1 %128, i32 -1, i32 %127
   store i32 %spec.store.select.i98, ptr %17, align 4
-  br label %135
+  br label %134
 
-130:                                              ; preds = %.critedge.thread
-  %131 = icmp sgt i32 %.071, 65535
-  br i1 %131, label %132, label %_ZL3popP10UScriptRun.exit99
+129:                                              ; preds = %.critedge.thread
+  %130 = icmp sgt i32 %.071, 65535
+  br i1 %130, label %131, label %_ZL3popP10UScriptRun.exit99
 
-132:                                              ; preds = %130
-  %133 = load i32, ptr %8, align 4, !tbaa !15
-  %134 = add nsw i32 %133, -1
-  store i32 %134, ptr %8, align 4, !tbaa !15
+131:                                              ; preds = %129
+  %132 = load i32, ptr %8, align 4, !tbaa !15
+  %133 = add nsw i32 %132, -1
+  store i32 %133, ptr %8, align 4, !tbaa !15
   br label %_ZL3popP10UScriptRun.exit99
 
-135:                                              ; preds = %113, %116, %124
-  %136 = load i32, ptr %8, align 4, !tbaa !15
-  %137 = add nsw i32 %136, 1
-  store i32 %137, ptr %8, align 4, !tbaa !15
-  %138 = load i32, ptr %0, align 8, !tbaa !13
-  %139 = icmp slt i32 %137, %138
-  br i1 %139, label %19, label %_ZL3popP10UScriptRun.exit99, !llvm.loop !30
+134:                                              ; preds = %112, %115, %123
+  %135 = load i32, ptr %8, align 4, !tbaa !15
+  %136 = add nsw i32 %135, 1
+  store i32 %136, ptr %8, align 4, !tbaa !15
+  %137 = load i32, ptr %0, align 8, !tbaa !13
+  %138 = icmp slt i32 %136, %137
+  br i1 %138, label %19, label %_ZL3popP10UScriptRun.exit99, !llvm.loop !30
 
-_ZL3popP10UScriptRun.exit99:                      ; preds = %135, %132, %130
-  %140 = phi i32 [ %92, %132 ], [ %92, %130 ], [ %114, %135 ]
+_ZL3popP10UScriptRun.exit99:                      ; preds = %134, %131, %129
+  %139 = phi i32 [ %91, %131 ], [ %91, %129 ], [ %113, %134 ]
   %.not87 = icmp eq ptr %1, null
-  br i1 %.not87, label %143, label %141
+  br i1 %.not87, label %142, label %140
 
-141:                                              ; preds = %_ZL3popP10UScriptRun.exit99
-  %142 = load i32, ptr %13, align 8, !tbaa !14
-  store i32 %142, ptr %1, align 4, !tbaa !22
-  br label %143
+140:                                              ; preds = %_ZL3popP10UScriptRun.exit99
+  %141 = load i32, ptr %13, align 8, !tbaa !14
+  store i32 %141, ptr %1, align 4, !tbaa !22
+  br label %142
 
-143:                                              ; preds = %141, %_ZL3popP10UScriptRun.exit99
+142:                                              ; preds = %140, %_ZL3popP10UScriptRun.exit99
   %.not88 = icmp eq ptr %2, null
-  br i1 %.not88, label %146, label %144
+  br i1 %.not88, label %145, label %143
 
-144:                                              ; preds = %143
-  %145 = load i32, ptr %8, align 4, !tbaa !15
-  store i32 %145, ptr %2, align 4, !tbaa !22
-  br label %146
+143:                                              ; preds = %142
+  %144 = load i32, ptr %8, align 4, !tbaa !15
+  store i32 %144, ptr %2, align 4, !tbaa !22
+  br label %145
 
-146:                                              ; preds = %144, %143
+145:                                              ; preds = %143, %142
   %.not89 = icmp eq ptr %3, null
-  br i1 %.not89, label %148, label %147
+  br i1 %.not89, label %147, label %146
 
-147:                                              ; preds = %146
-  store i32 %140, ptr %3, align 4, !tbaa !31
-  br label %148
+146:                                              ; preds = %145
+  store i32 %139, ptr %3, align 4, !tbaa !31
+  br label %147
 
-148:                                              ; preds = %146, %147, %4, %7
-  %.0 = phi i8 [ 0, %7 ], [ 0, %4 ], [ 1, %147 ], [ 1, %146 ]
+147:                                              ; preds = %145, %146, %4, %7
+  %.0 = phi i8 [ 0, %7 ], [ 0, %4 ], [ 1, %146 ], [ 1, %145 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
   ret i8 %.0
 }

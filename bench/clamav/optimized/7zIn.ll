@@ -5643,55 +5643,54 @@ define internal fastcc range(i32 0, 17) i32 @SzReadFileNames(ptr noundef readonl
   %wide.trip.count = zext i32 %2 to i64
   br label %.lr.ph29
 
-.lr.ph29:                                         ; preds = %.lr.ph29.preheader, %17
-  %indvars.iv = phi i64 [ 0, %.lr.ph29.preheader ], [ %indvars.iv.next, %17 ]
-  %.028 = phi i64 [ 0, %.lr.ph29.preheader ], [ %18, %17 ]
+.lr.ph29:                                         ; preds = %.lr.ph29.preheader, %16
+  %indvars.iv = phi i64 [ 0, %.lr.ph29.preheader ], [ %indvars.iv.next, %16 ]
+  %.028 = phi i64 [ 0, %.lr.ph29.preheader ], [ %17, %16 ]
   %5 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   store i64 %.028, ptr %5, align 8, !tbaa !49
   %.not24 = icmp ult i64 %.028, %1
   br i1 %.not24, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph29, %15
-  %.125 = phi i64 [ %16, %15 ], [ %.028, %.lr.ph29 ]
+.lr.ph:                                           ; preds = %.lr.ph29, %14
+  %.125 = phi i64 [ %15, %14 ], [ %.028, %.lr.ph29 ]
   %6 = shl nuw i64 %.125, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   %8 = load i8, ptr %7, align 1, !tbaa !51
   %9 = icmp eq i8 %8, 0
-  br i1 %9, label %10, label %15
+  br i1 %9, label %10, label %14
 
 10:                                               ; preds = %.lr.ph
-  %11 = or disjoint i64 %6, 1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %11
-  %13 = load i8, ptr %12, align 1, !tbaa !51
-  %14 = icmp eq i8 %13, 0
-  br i1 %14, label %17, label %15
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  %12 = load i8, ptr %11, align 1, !tbaa !51
+  %13 = icmp eq i8 %12, 0
+  br i1 %13, label %16, label %14
 
-15:                                               ; preds = %10, %.lr.ph
-  %16 = add i64 %.125, 1
-  %exitcond.not = icmp eq i64 %16, %1
+14:                                               ; preds = %10, %.lr.ph
+  %15 = add i64 %.125, 1
+  %exitcond.not = icmp eq i64 %15, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
-17:                                               ; preds = %10
-  %18 = add nuw nsw i64 %.125, 1
+16:                                               ; preds = %10
+  %17 = add nuw nsw i64 %.125, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond36.not, label %._crit_edge.loopexit, label %.lr.ph29
 
-._crit_edge.loopexit:                             ; preds = %17
-  %19 = zext i32 %2 to i64
+._crit_edge.loopexit:                             ; preds = %16
+  %18 = zext i32 %2 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4, %._crit_edge.loopexit
-  %.019.lcssa = phi i64 [ %19, %._crit_edge.loopexit ], [ 0, %4 ]
-  %.0.lcssa = phi i64 [ %18, %._crit_edge.loopexit ], [ 0, %4 ]
-  %20 = getelementptr inbounds nuw i64, ptr %3, i64 %.019.lcssa
-  store i64 %.0.lcssa, ptr %20, align 8, !tbaa !49
-  %21 = icmp eq i64 %.0.lcssa, %1
-  %22 = select i1 %21, i32 0, i32 16
+  %.019.lcssa = phi i64 [ %18, %._crit_edge.loopexit ], [ 0, %4 ]
+  %.0.lcssa = phi i64 [ %17, %._crit_edge.loopexit ], [ 0, %4 ]
+  %19 = getelementptr inbounds nuw i64, ptr %3, i64 %.019.lcssa
+  store i64 %.0.lcssa, ptr %19, align 8, !tbaa !49
+  %20 = icmp eq i64 %.0.lcssa, %1
+  %21 = select i1 %20, i32 0, i32 16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph29, %15, %._crit_edge
-  %.020 = phi i32 [ %22, %._crit_edge ], [ 16, %15 ], [ 16, %.lr.ph29 ]
+.loopexit:                                        ; preds = %.lr.ph29, %14, %._crit_edge
+  %.020 = phi i32 [ %21, %._crit_edge ], [ 16, %14 ], [ 16, %.lr.ph29 ]
   ret i32 %.020
 }
 

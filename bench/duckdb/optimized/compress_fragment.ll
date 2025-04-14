@@ -8455,31 +8455,27 @@ define internal fastcc void @_ZL30BuildAndStoreCommandPrefixCodePN13duckdb_brotl
   br label %50
 
 50:                                               ; preds = %3, %50
-  %.072 = phi i64 [ 0, %3 ], [ %67, %50 ]
-  %51 = or disjoint i64 %.072, 40
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 %51
+  %.072 = phi i64 [ 0, %3 ], [ %63, %50 ]
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 %.072
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load i8, ptr %52, align 1, !tbaa !7
   %54 = shl nuw nsw i64 %.072, 3
-  %55 = or disjoint i64 %54, 128
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 %55
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 128
   store i8 %53, ptr %56, align 1, !tbaa !7
-  %57 = or disjoint i64 %.072, 48
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 %57
-  %59 = load i8, ptr %58, align 1, !tbaa !7
-  %60 = or disjoint i64 %54, 256
-  %61 = getelementptr inbounds nuw i8, ptr %7, i64 %60
-  store i8 %59, ptr %61, align 1, !tbaa !7
-  %62 = or disjoint i64 %.072, 56
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !7
-  %65 = or disjoint i64 %54, 448
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 %65
-  store i8 %64, ptr %66, align 1, !tbaa !7
-  %67 = add nuw nsw i64 %.072, 1
-  %exitcond.not = icmp eq i64 %67, 8
-  br i1 %exitcond.not, label %68, label %50, !llvm.loop !1301
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 48
+  %58 = load i8, ptr %57, align 1, !tbaa !7
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 256
+  store i8 %58, ptr %59, align 1, !tbaa !7
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 56
+  %61 = load i8, ptr %60, align 1, !tbaa !7
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 448
+  store i8 %61, ptr %62, align 1, !tbaa !7
+  %63 = add nuw nsw i64 %.072, 1
+  %exitcond.not = icmp eq i64 %63, 8
+  br i1 %exitcond.not, label %64, label %50, !llvm.loop !1301
 
-68:                                               ; preds = %50
+64:                                               ; preds = %50
   tail call void @_ZN13duckdb_brotli22BrotliStoreHuffmanTreeEPKhmPNS_11HuffmanTreeEPmPh(ptr noundef nonnull %7, i64 noundef 704, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2)
   tail call void @_ZN13duckdb_brotli22BrotliStoreHuffmanTreeEPKhmPNS_11HuffmanTreeEPmPh(ptr noundef nonnull %11, i64 noundef 64, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2)
   ret void

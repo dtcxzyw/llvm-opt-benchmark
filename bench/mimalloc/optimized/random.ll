@@ -181,93 +181,121 @@ _mi_os_random_weak.exit:                          ; preds = %12, %_mi_os_random_
   br label %35
 
 35:                                               ; preds = %35, %.loopexit
-  %.01819.i = phi i64 [ 0, %.loopexit ], [ %59, %35 ]
+  %.01819.i = phi i64 [ 0, %.loopexit ], [ %40, %35 ]
   %36 = shl nuw nsw i64 %.01819.i, 2
   %37 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !13
-  %39 = zext i8 %38 to i32
-  %40 = or disjoint i64 %36, 1
-  %41 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !13
-  %43 = zext i8 %42 to i32
-  %44 = shl nuw nsw i32 %43, 8
-  %45 = or disjoint i32 %44, %39
-  %46 = or disjoint i64 %36, 2
-  %47 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !13
-  %49 = zext i8 %48 to i32
-  %50 = shl nuw nsw i32 %49, 16
-  %51 = or disjoint i32 %45, %50
-  %52 = or disjoint i64 %36, 3
-  %53 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !13
-  %55 = zext i8 %54 to i32
-  %56 = shl nuw i32 %55, 24
-  %57 = or disjoint i32 %51, %56
-  %58 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %.01819.i
-  store i32 %57, ptr %58, align 4, !tbaa !3
-  %59 = add nuw nsw i64 %.01819.i, 1
-  %exitcond.not.i11 = icmp eq i64 %59, 4
-  br i1 %exitcond.not.i11, label %.preheader.i, label %35, !llvm.loop !14
+  %38 = load i32, ptr %37, align 1
+  %39 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %.01819.i
+  store i32 %38, ptr %39, align 4, !tbaa !3
+  %40 = add nuw nsw i64 %.01819.i, 1
+  %exitcond.not.i11 = icmp eq i64 %40, 4
+  br i1 %exitcond.not.i11, label %.preheader.i.preheader, label %35, !llvm.loop !13
 
-.preheader.i:                                     ; preds = %35, %.preheader.i
-  %.020.i = phi i64 [ %84, %.preheader.i ], [ 0, %35 ]
-  %60 = shl nuw nsw i64 %.020.i, 2
-  %61 = getelementptr inbounds nuw i8, ptr %3, i64 %60
-  %62 = load i8, ptr %61, align 4, !tbaa !13
-  %63 = zext i8 %62 to i32
-  %64 = or disjoint i64 %60, 1
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !13
-  %67 = zext i8 %66 to i32
-  %68 = shl nuw nsw i32 %67, 8
-  %69 = or disjoint i32 %68, %63
-  %70 = or disjoint i64 %60, 2
-  %71 = getelementptr inbounds nuw i8, ptr %3, i64 %70
-  %72 = load i8, ptr %71, align 2, !tbaa !13
-  %73 = zext i8 %72 to i32
-  %74 = shl nuw nsw i32 %73, 16
-  %75 = or disjoint i32 %69, %74
-  %76 = or disjoint i64 %60, 3
-  %77 = getelementptr inbounds nuw i8, ptr %3, i64 %76
-  %78 = load i8, ptr %77, align 1, !tbaa !13
-  %79 = zext i8 %78 to i32
-  %80 = shl nuw i32 %79, 24
-  %81 = or disjoint i32 %75, %80
-  %82 = add nuw nsw i64 %.020.i, 4
-  %83 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %82
-  store i32 %81, ptr %83, align 4, !tbaa !3
-  %84 = add nuw nsw i64 %.020.i, 1
-  %exitcond21.not.i = icmp eq i64 %84, 8
-  br i1 %exitcond21.not.i, label %chacha_init.exit, label %.preheader.i, !llvm.loop !15
-
-chacha_init.exit:                                 ; preds = %.preheader.i
-  %85 = ptrtoint ptr %0 to i64
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %86, align 4, !tbaa !3
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %87, align 4, !tbaa !3
-  %88 = trunc i64 %85 to i32
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %88, ptr %89, align 4, !tbaa !3
-  %90 = lshr i64 %85, 32
-  %91 = trunc nuw i64 %90 to i32
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %91, ptr %92, align 4, !tbaa !3
+.preheader.i.preheader:                           ; preds = %35
+  %scevgep = getelementptr i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %scevgep, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 32, i1 false)
+  %41 = ptrtoint ptr %0 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 0, ptr %42, align 4, !tbaa !3
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %43, align 4, !tbaa !3
+  %44 = trunc i64 %41 to i32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %44, ptr %45, align 4, !tbaa !3
+  %46 = lshr i64 %41, 32
+  %47 = trunc nuw i64 %46 to i32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %47, ptr %48, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_random_init_weak(ptr noundef %0) local_unnamed_addr #1 {
-  tail call fastcc void @mi_random_init_ex(ptr noundef %0, i1 noundef zeroext true) #7
+  %2 = alloca [32 x i8], align 16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #9
+  %3 = tail call i64 @_mi_prim_clock_now() #8
+  %4 = xor i64 %3, ptrtoint (ptr @_mi_os_random_weak to i64)
+  %5 = lshr i64 %4, 17
+  %6 = xor i64 %5, %4
+  %7 = and i64 %6, 15
+  br label %8
+
+8:                                                ; preds = %8, %1
+  %.011.i.i = phi i64 [ 0, %1 ], [ %18, %8 ]
+  %.0910.i.i = phi i64 [ %4, %1 ], [ %17, %8 ]
+  %9 = icmp eq i64 %.0910.i.i, 0
+  %spec.store.select.i.i.i = select i1 %9, i64 17, i64 %.0910.i.i
+  %10 = lshr i64 %spec.store.select.i.i.i, 30
+  %11 = xor i64 %10, %spec.store.select.i.i.i
+  %12 = mul i64 %11, -4658895280553007687
+  %13 = lshr i64 %12, 27
+  %14 = xor i64 %13, %12
+  %15 = mul i64 %14, -7723592293110705685
+  %16 = lshr i64 %15, 31
+  %17 = xor i64 %16, %15
+  %18 = add nuw nsw i64 %.011.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %.011.i.i, %7
+  br i1 %exitcond.not.i.i, label %_mi_os_random_weak.exit.i, label %8, !llvm.loop !10
+
+_mi_os_random_weak.exit.i:                        ; preds = %8, %_mi_os_random_weak.exit.i
+  %.013.i = phi i64 [ %30, %_mi_os_random_weak.exit.i ], [ 0, %8 ]
+  %.01012.i = phi i64 [ %27, %_mi_os_random_weak.exit.i ], [ %17, %8 ]
+  %19 = icmp eq i64 %.01012.i, 0
+  %spec.store.select.i.i = select i1 %19, i64 17, i64 %.01012.i
+  %20 = lshr i64 %spec.store.select.i.i, 30
+  %21 = xor i64 %20, %spec.store.select.i.i
+  %22 = mul i64 %21, -4658895280553007687
+  %23 = lshr i64 %22, 27
+  %24 = xor i64 %23, %22
+  %25 = mul i64 %24, -7723592293110705685
+  %26 = lshr i64 %25, 31
+  %27 = xor i64 %26, %25
+  %28 = trunc i64 %27 to i32
+  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %.013.i
+  store i32 %28, ptr %29, align 4, !tbaa !3
+  %30 = add nuw nsw i64 %.013.i, 1
+  %exitcond.not.i = icmp eq i64 %30, 8
+  br i1 %exitcond.not.i, label %31, label %_mi_os_random_weak.exit.i, !llvm.loop !12
+
+31:                                               ; preds = %_mi_os_random_weak.exit.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %0, i8 0, i64 136, i1 false)
+  br label %32
+
+32:                                               ; preds = %32, %31
+  %.01819.i.i = phi i64 [ 0, %31 ], [ %37, %32 ]
+  %33 = shl nuw nsw i64 %.01819.i.i, 2
+  %34 = getelementptr inbounds nuw i8, ptr @.str.1, i64 %33
+  %35 = load i32, ptr %34, align 1
+  %36 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %.01819.i.i
+  store i32 %35, ptr %36, align 4, !tbaa !3
+  %37 = add nuw nsw i64 %.01819.i.i, 1
+  %exitcond.not.i11.i = icmp eq i64 %37, 4
+  br i1 %exitcond.not.i11.i, label %mi_random_init_ex.exit, label %32, !llvm.loop !13
+
+mi_random_init_ex.exit:                           ; preds = %32
+  %scevgep.i = getelementptr i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %scevgep.i, ptr noundef nonnull align 16 dereferenceable(32) %2, i64 32, i1 false)
+  %38 = ptrtoint ptr %0 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 0, ptr %39, align 4, !tbaa !3
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %40, align 4, !tbaa !3
+  %41 = trunc i64 %38 to i32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %41, ptr %42, align 4, !tbaa !3
+  %43 = lshr i64 %38, 32
+  %44 = trunc nuw i64 %43 to i32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i32 %44, ptr %45, align 4, !tbaa !3
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_random_reinit_if_weak(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %3 = load i8, ptr %2, align 4, !tbaa !16, !range !17, !noundef !18
+  %3 = load i8, ptr %2, align 4, !tbaa !14, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %6
 
@@ -457,7 +485,7 @@ define internal fastcc void @chacha_block(ptr noundef captures(none) %0) unnamed
   %130 = tail call noundef i32 @llvm.fshl.i32(i32 %129, i32 %129, i32 7)
   %131 = add nuw nsw i64 %.01953, 2
   %132 = icmp samesign ult i64 %.01953, 18
-  br i1 %132, label %18, label %.preheader, !llvm.loop !19
+  br i1 %132, label %18, label %.preheader, !llvm.loop !17
 
 133:                                              ; preds = %139
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -480,7 +508,7 @@ define internal fastcc void @chacha_block(ptr noundef captures(none) %0) unnamed
   store i32 %144, ptr %145, align 4, !tbaa !3
   %146 = add nuw nsw i64 %.054, 1
   %exitcond.not = icmp eq i64 %146, 16
-  br i1 %exitcond.not, label %133, label %139, !llvm.loop !20
+  br i1 %exitcond.not, label %133, label %139, !llvm.loop !18
 
 147:                                              ; preds = %133
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -538,11 +566,9 @@ attributes #9 = { nounwind }
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = distinct !{!12, !11}
-!13 = !{!5, !5, i64 0}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = !{!8, !9, i64 132}
-!17 = !{i8 0, i8 2}
-!18 = !{}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}
+!13 = distinct !{!13, !11}
+!14 = !{!8, !9, i64 132}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}

@@ -315,7 +315,7 @@ define internal fastcc noundef ptr @add_spanhash(ptr noundef captures(ret: addre
   br i1 %14, label %.lr.ph._crit_edge, label %.lr.ph53
 
 ._crit_edge:                                      ; preds = %.lr.ph53, %3
-  %.lcssa33 = phi ptr [ %10, %3 ], [ %65, %.lr.ph53 ]
+  %.lcssa33 = phi ptr [ %10, %3 ], [ %66, %.lr.ph53 ]
   %15 = getelementptr inbounds nuw i8, ptr %.lcssa33, i64 4
   store i32 %1, ptr %.lcssa33, align 4, !tbaa !11
   store i32 %2, ptr %15, align 4, !tbaa !8
@@ -324,7 +324,7 @@ define internal fastcc noundef ptr @add_spanhash(ptr noundef captures(ret: addre
   %18 = add nsw i32 %17, -1
   store i32 %18, ptr %16, align 4, !tbaa !24
   %19 = icmp slt i32 %17, 1
-  br i1 %19, label %20, label %68
+  br i1 %19, label %20, label %69
 
 20:                                               ; preds = %._crit_edge
   %21 = load i32, ptr %0, align 4, !tbaa !24
@@ -408,36 +408,36 @@ st_mult.exit.i:                                   ; preds = %20
 
 spanhash_rehash.exit:                             ; preds = %57, %st_mult.exit.i
   tail call void @free(ptr noundef nonnull %0) #8
-  br label %68
+  br label %69
 
 .lr.ph:                                           ; preds = %.lr.ph53
-  %58 = load i32, ptr %65, align 4, !tbaa !11
+  %58 = load i32, ptr %66, align 4, !tbaa !11
   %59 = icmp eq i32 %58, %1
   br i1 %59, label %.lr.ph._crit_edge, label %.lr.ph53
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa49 = phi i32 [ %12, %.lr.ph.preheader ], [ %67, %.lr.ph ]
-  %60 = phi i64 [ %9, %.lr.ph.preheader ], [ %64, %.lr.ph ]
+  %.lcssa49 = phi i32 [ %12, %.lr.ph.preheader ], [ %68, %.lr.ph ]
+  %60 = phi i64 [ %9, %.lr.ph.preheader ], [ %65, %.lr.ph ]
   %.idx = shl nsw i64 %60, 3
-  %.offs = or disjoint i64 %.idx, 4
-  %61 = getelementptr inbounds i8, ptr %8, i64 %.offs
-  %62 = add i32 %.lcssa49, %2
-  store i32 %62, ptr %61, align 4, !tbaa !8
-  br label %68
+  %61 = getelementptr i8, ptr %8, i64 %.idx
+  %62 = getelementptr i8, ptr %61, i64 4
+  %63 = add i32 %.lcssa49, %2
+  store i32 %63, ptr %62, align 4, !tbaa !8
+  br label %69
 
 .lr.ph53:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.in52 = phi i32 [ %spec.store.select, %.lr.ph ], [ %7, %.lr.ph.preheader ]
-  %63 = add nsw i32 %.in52, 1
-  %.not23 = icmp sgt i32 %5, %63
-  %spec.store.select = select i1 %.not23, i32 %63, i32 0
-  %64 = sext i32 %spec.store.select to i64
-  %65 = getelementptr inbounds [0 x %struct.spanhash], ptr %8, i64 0, i64 %64
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %67 = load i32, ptr %66, align 4, !tbaa !8
-  %.not = icmp eq i32 %67, 0
+  %64 = add nsw i32 %.in52, 1
+  %.not23 = icmp sgt i32 %5, %64
+  %spec.store.select = select i1 %.not23, i32 %64, i32 0
+  %65 = sext i32 %spec.store.select to i64
+  %66 = getelementptr inbounds [0 x %struct.spanhash], ptr %8, i64 0, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  %68 = load i32, ptr %67, align 4, !tbaa !8
+  %.not = icmp eq i32 %68, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-68:                                               ; preds = %._crit_edge, %.lr.ph._crit_edge, %spanhash_rehash.exit
+69:                                               ; preds = %._crit_edge, %.lr.ph._crit_edge, %spanhash_rehash.exit
   %.0 = phi ptr [ %0, %.lr.ph._crit_edge ], [ %29, %spanhash_rehash.exit ], [ %0, %._crit_edge ]
   ret ptr %.0
 }

@@ -14404,7 +14404,7 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %13 = load i16, ptr %12, align 8
   %14 = icmp eq i16 %13, 0
-  br i1 %14, label %.loopexit30, label %15
+  br i1 %14, label %.loopexit26, label %15
 
 15:                                               ; preds = %8
   br i1 %4, label %30, label %16
@@ -14447,7 +14447,7 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
 
 30:                                               ; preds = %.thread, %15
   %31 = load i32, ptr %1, align 8
-  switch i32 %31, label %.loopexit30 [
+  switch i32 %31, label %.loopexit26 [
     i32 3, label %32
     i32 1, label %34
     i32 7, label %34
@@ -14466,7 +14466,7 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 464
   %42 = load volatile ptr, ptr %41, align 8
-  %.fr35 = freeze ptr %42
+  %.fr33 = freeze ptr %42
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %44 = load i8, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 720
@@ -14474,9 +14474,9 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 762
   %48 = load i8, ptr %47, align 2, !range !6, !noundef !7
   %.not = icmp eq i8 %48, 0
-  %49 = icmp ne ptr %.fr35, null
-  %50 = getelementptr inbounds nuw i8, ptr %.fr35, i64 20
-  %51 = getelementptr inbounds nuw i8, ptr %.fr35, i64 24
+  %49 = icmp ne ptr %.fr33, null
+  %50 = getelementptr inbounds nuw i8, ptr %.fr33, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %.fr33, i64 24
   br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %34
@@ -14487,7 +14487,7 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
 54:                                               ; preds = %.split.us
   %55 = zext i16 %52 to i64
   %56 = icmp ult i64 %55, %40
-  br i1 %56, label %57, label %.split34.us, !prof !9
+  br i1 %56, label %57, label %.split30.us, !prof !9
 
 57:                                               ; preds = %54
   %58 = getelementptr i8, ptr %38, i64 %55
@@ -14499,14 +14499,14 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
   %60 = phi i32 [ %.pre, %57 ], [ %31, %.split.us ]
   %61 = icmp eq i32 %60, 3
   %62 = and i1 %61, %49
-  br i1 %62, label %63, label %.loopexit30
+  br i1 %62, label %63, label %.loopexit26
 
 63:                                               ; preds = %59
   %64 = load i16, ptr %50, align 2
   %65 = zext i16 %64 to i64
   %66 = getelementptr [0 x i8], ptr %51, i64 0, i64 %65
   store i8 %44, ptr %66, align 1
-  br label %.loopexit30
+  br label %.loopexit26
 
 .split:                                           ; preds = %34
   br i1 %49, label %.split.split, label %.split.split.us
@@ -14522,7 +14522,7 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
 72:                                               ; preds = %.split.split.us
   %73 = zext i16 %70 to i64
   %74 = icmp ult i64 %73, %40
-  br i1 %74, label %75, label %.split34.us, !prof !9
+  br i1 %74, label %75, label %.split30.us, !prof !9
 
 75:                                               ; preds = %72
   %76 = getelementptr i8, ptr %38, i64 %73
@@ -14530,7 +14530,7 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
   br label %77
 
 77:                                               ; preds = %75, %.split.split.us
-  br i1 %67, label %.split.split.us, label %.loopexit30, !llvm.loop !188
+  br i1 %67, label %.split.split.us, label %.loopexit26, !llvm.loop !188
 
 .split.split:                                     ; preds = %.split, %96
   %78 = phi i1 [ false, %96 ], [ true, %.split ]
@@ -14543,13 +14543,13 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
 83:                                               ; preds = %.split.split
   %84 = zext i16 %81 to i64
   %85 = icmp ult i64 %84, %40
-  br i1 %85, label %86, label %.split34.us, !prof !9
+  br i1 %85, label %86, label %.split30.us, !prof !9
 
-.split34.us:                                      ; preds = %72, %83, %54
+.split30.us:                                      ; preds = %72, %83, %54
   tail call void asm sideeffect "3328: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3328b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3328) #20, !srcloc !189
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 5012, i32 2307, i64 12) #20, !srcloc !190
   tail call void asm sideeffect "3329: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3329b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3329) #20, !srcloc !191
-  br label %.loopexit30
+  br label %.loopexit26
 
 86:                                               ; preds = %83
   %87 = getelementptr i8, ptr %38, i64 %84
@@ -14570,95 +14570,96 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
   br label %96
 
 96:                                               ; preds = %91, %88
-  br i1 %78, label %.split.split, label %.loopexit30, !llvm.loop !188
+  br i1 %78, label %.split.split, label %.loopexit26, !llvm.loop !188
 
-.loopexit30:                                      ; preds = %77, %96, %59, %63, %.split34.us, %30, %8
+.loopexit26:                                      ; preds = %77, %96, %59, %63, %.split30.us, %30, %8
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %100 = load ptr, ptr %99, align 8
   %101 = icmp eq ptr %98, null
-  br i1 %101, label %.loopexit29, label %102
+  br i1 %101, label %.loopexit25, label %102
 
-102:                                              ; preds = %.loopexit30
+102:                                              ; preds = %.loopexit26
   %103 = load i8, ptr %98, align 8
   %104 = icmp eq i8 %103, 0
   %105 = icmp ult i8 %103, %7
   %106 = or i1 %104, %105
-  br i1 %106, label %.loopexit29, label %107
+  br i1 %106, label %.loopexit25, label %107
 
 107:                                              ; preds = %102
   %108 = icmp ugt i8 %103, %7
-  %109 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  br i1 %108, label %112, label %110
+  br i1 %108, label %111, label %109
 
-110:                                              ; preds = %107
-  %111 = zext i8 %103 to i64
-  br label %139
+109:                                              ; preds = %107
+  %110 = zext i8 %103 to i64
+  %invariant.gep = getelementptr i8, ptr %98, i64 16
+  br label %140
 
-112:                                              ; preds = %107
+111:                                              ; preds = %107
+  %112 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %113 = zext i8 %7 to i64
-  %.idx21 = shl nuw nsw i64 %113, 4
-  %.offs22 = or disjoint i64 %.idx21, 8
-  %114 = getelementptr i8, ptr %109, i64 %.offs22
-  %115 = load i64, ptr %114, align 8
-  %116 = icmp eq ptr %100, null
-  br i1 %116, label %.loopexit28, label %117
+  %.idx20 = shl nuw nsw i64 %113, 4
+  %114 = getelementptr i8, ptr %112, i64 %.idx20
+  %115 = getelementptr i8, ptr %114, i64 8
+  %116 = load i64, ptr %115, align 8
+  %117 = icmp eq ptr %100, null
+  br i1 %117, label %.loopexit24, label %118
 
-117:                                              ; preds = %112
-  %118 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  %119 = getelementptr i8, ptr %118, i64 %.offs22
-  %120 = load i64, ptr %119, align 8
-  %121 = add i64 %120, %115
-  %122 = load i8, ptr %100, align 8
-  %123 = icmp ult i8 %103, %122
-  br i1 %123, label %124, label %.loopexit28
+118:                                              ; preds = %111
+  %119 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %120 = getelementptr i8, ptr %119, i64 %.idx20
+  %121 = getelementptr i8, ptr %120, i64 8
+  %122 = load i64, ptr %121, align 8
+  %123 = add i64 %122, %116
+  %124 = load i8, ptr %100, align 8
+  %125 = icmp ult i8 %103, %124
+  br i1 %125, label %126, label %.loopexit24
 
-124:                                              ; preds = %117
-  %125 = zext i8 %103 to i64
-  %126 = zext i8 %122 to i64
-  br label %127
+126:                                              ; preds = %118
+  %127 = zext i8 %103 to i64
+  %128 = zext i8 %124 to i64
+  %invariant.gep31 = getelementptr i8, ptr %100, i64 16
+  br label %129
 
-127:                                              ; preds = %127, %124
-  %128 = phi i64 [ %125, %124 ], [ %135, %127 ]
-  %129 = phi i64 [ %121, %124 ], [ %134, %127 ]
-  %.idx25 = shl i64 %128, 4
-  %.offs26 = or disjoint i64 %.idx25, 8
-  %130 = getelementptr i8, ptr %118, i64 %.offs26
-  %131 = load i64, ptr %130, align 8
-  %132 = shl i64 %129, 32
-  %133 = ashr exact i64 %132, 32
-  %134 = add i64 %133, %131
-  %135 = add nuw nsw i64 %128, 1
-  %136 = icmp eq i64 %135, %126
-  br i1 %136, label %.loopexit28, label %127, !llvm.loop !249
+129:                                              ; preds = %129, %126
+  %130 = phi i64 [ %127, %126 ], [ %136, %129 ]
+  %131 = phi i64 [ %123, %126 ], [ %135, %129 ]
+  %.idx22 = shl i64 %130, 4
+  %gep32 = getelementptr i8, ptr %invariant.gep31, i64 %.idx22
+  %132 = load i64, ptr %gep32, align 8
+  %133 = shl i64 %131, 32
+  %134 = ashr exact i64 %133, 32
+  %135 = add i64 %134, %132
+  %136 = add nuw nsw i64 %130, 1
+  %137 = icmp eq i64 %136, %128
+  br i1 %137, label %.loopexit24, label %129, !llvm.loop !249
 
-.loopexit28:                                      ; preds = %127, %117, %112
-  %137 = phi i64 [ %115, %112 ], [ %121, %117 ], [ %134, %127 ]
-  %138 = trunc i64 %137 to i32
-  br label %.loopexit29
+.loopexit24:                                      ; preds = %129, %118, %111
+  %138 = phi i64 [ %116, %111 ], [ %123, %118 ], [ %135, %129 ]
+  %139 = trunc i64 %138 to i32
+  br label %.loopexit25
 
-139:                                              ; preds = %139, %110
-  %140 = phi i64 [ 0, %110 ], [ %146, %139 ]
-  %141 = phi i32 [ 0, %110 ], [ %145, %139 ]
-  %.idx = shl i64 %140, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %142 = getelementptr i8, ptr %109, i64 %.offs
-  %143 = load i64, ptr %142, align 8
+140:                                              ; preds = %140, %109
+  %141 = phi i64 [ 0, %109 ], [ %146, %140 ]
+  %142 = phi i32 [ 0, %109 ], [ %145, %140 ]
+  %.idx = shl i64 %141, 4
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
+  %143 = load i64, ptr %gep, align 8
   %144 = trunc i64 %143 to i32
-  %145 = add i32 %141, %144
-  %146 = add nuw nsw i64 %140, 1
-  %147 = icmp eq i64 %146, %111
-  br i1 %147, label %148, label %139, !llvm.loop !250
+  %145 = add i32 %142, %144
+  %146 = add nuw nsw i64 %141, 1
+  %147 = icmp eq i64 %146, %110
+  br i1 %147, label %148, label %140, !llvm.loop !250
 
-148:                                              ; preds = %139
+148:                                              ; preds = %140
   %149 = icmp eq ptr %100, null
-  br i1 %149, label %.loopexit29, label %150
+  br i1 %149, label %.loopexit25, label %150
 
 150:                                              ; preds = %148
   %151 = load i8, ptr %100, align 8
   %152 = icmp eq i8 %151, 0
-  br i1 %152, label %.loopexit29, label %153
+  br i1 %152, label %.loopexit25, label %153
 
 153:                                              ; preds = %150
   %154 = zext i8 %151 to i64
@@ -14675,10 +14676,10 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
   %162 = add i32 %158, %161
   %163 = add nuw nsw i64 %157, 1
   %164 = icmp eq i64 %163, %154
-  br i1 %164, label %.loopexit29, label %156, !llvm.loop !251
+  br i1 %164, label %.loopexit25, label %156, !llvm.loop !251
 
-.loopexit29:                                      ; preds = %156, %150, %148, %.loopexit28, %102, %.loopexit30
-  %165 = phi i32 [ %138, %.loopexit28 ], [ 0, %102 ], [ 0, %.loopexit30 ], [ %145, %148 ], [ %145, %150 ], [ %162, %156 ]
+.loopexit25:                                      ; preds = %156, %150, %148, %.loopexit24, %102, %.loopexit26
+  %165 = phi i32 [ %139, %.loopexit24 ], [ 0, %102 ], [ 0, %.loopexit26 ], [ %145, %148 ], [ %145, %150 ], [ %162, %156 ]
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 1452
   %167 = load i32, ptr %166, align 4
   %168 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -14696,7 +14697,7 @@ define internal fastcc ptr @ieee80211_beacon_get_ap(ptr noundef %0, ptr noundef 
   %180 = icmp eq ptr %179, null
   br i1 %180, label %411, label %181
 
-181:                                              ; preds = %.loopexit29
+181:                                              ; preds = %.loopexit25
   %182 = load i32, ptr %166, align 4
   %183 = getelementptr inbounds nuw i8, ptr %179, i64 200
   %184 = load ptr, ptr %183, align 8
@@ -15062,8 +15063,8 @@ ieee80211_beacon_get_finish.exit:                 ; preds = %389, %394
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #20
   br label %411
 
-411:                                              ; preds = %410, %ieee80211_beacon_get_finish.exit, %.loopexit29
-  %412 = phi ptr [ %179, %ieee80211_beacon_get_finish.exit ], [ null, %.loopexit29 ], [ null, %410 ]
+411:                                              ; preds = %410, %ieee80211_beacon_get_finish.exit, %.loopexit25
+  %412 = phi ptr [ %179, %ieee80211_beacon_get_finish.exit ], [ null, %.loopexit25 ], [ null, %410 ]
   ret ptr %412
 }
 

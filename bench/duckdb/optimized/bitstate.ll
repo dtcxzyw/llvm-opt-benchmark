@@ -394,7 +394,7 @@ _ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit:  ; preds = %3
   br label %46
 
 46:                                               ; preds = %.lr.ph186, %.thread118
-  %47 = phi i32 [ %.pre, %.lr.ph186 ], [ %256, %.thread118 ]
+  %47 = phi i32 [ %.pre, %.lr.ph186 ], [ %254, %.thread118 ]
   %.075185 = phi i1 [ false, %.lr.ph186 ], [ %.176, %.thread118 ]
   %48 = add nsw i32 %47, -1
   store i32 %48, ptr %10, align 8, !tbaa !53
@@ -450,13 +450,13 @@ _ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit:  ; preds = %3
   %78 = sext i32 %.080.ph to i64
   br label %79
 
-79:                                               ; preds = %.outer, %255
-  %indvars.iv233 = phi i64 [ %78, %.outer ], [ %indvars.iv.next234, %255 ]
-  %.277 = phi i1 [ %.277.ph, %.outer ], [ %.5, %255 ]
+79:                                               ; preds = %.outer, %253
+  %indvars.iv232 = phi i64 [ %78, %.outer ], [ %indvars.iv.next233, %253 ]
+  %.277 = phi i1 [ %.277.ph, %.outer ], [ %.5, %253 ]
   %80 = load ptr, ptr %0, align 8, !tbaa !3
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 120
   %82 = load ptr, ptr %81, align 8, !tbaa !82
-  %83 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %82, i64 %indvars.iv233
+  %83 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %82, i64 %indvars.iv232
   %84 = load i32, ptr %83, align 4, !tbaa !89
   %85 = and i32 %84, 7
   switch i32 %85, label %default.unreachable [
@@ -563,7 +563,7 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread: ; preds = %110, %_ZN10duckdb_
 _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112: ; preds = %110, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit
   %124 = load i8, ptr %43, align 1, !tbaa !91, !range !92, !noundef !93
   %125 = trunc nuw i8 %124 to i1
-  br i1 %125, label %.outer.backedge, label %252
+  br i1 %125, label %.outer.backedge, label %250
 
 126:                                              ; preds = %79
   br i1 %77, label %127, label %130
@@ -593,14 +593,14 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112: ; preds = %110, %_ZN10duck
   %143 = zext i8 %142 to i32
   %144 = icmp sle i32 %spec.select.i, %143
   %145 = select i1 %.not.i109, i1 %144, i1 false
-  br i1 %145, label %146, label %252
+  br i1 %145, label %146, label %250
 
 146:                                              ; preds = %130
   %.not103 = icmp ult i16 %132, 2
   br i1 %.not103, label %.thread, label %147
 
 147:                                              ; preds = %146
-  %148 = trunc nsw i64 %indvars.iv233 to i32
+  %148 = trunc nsw i64 %indvars.iv232 to i32
   %149 = lshr i16 %132, 1
   %150 = zext nneg i16 %149 to i32
   %151 = add nsw i32 %148, %150
@@ -612,7 +612,7 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112: ; preds = %110, %_ZN10duck
   br label %190
 
 153:                                              ; preds = %79
-  %154 = trunc nsw i64 %indvars.iv233 to i32
+  %154 = trunc nsw i64 %indvars.iv232 to i32
   %155 = and i32 %84, 8
   %.not102 = icmp eq i32 %155, 0
   br i1 %.not102, label %156, label %158
@@ -652,16 +652,16 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112: ; preds = %110, %_ZN10duck
   %178 = xor i32 %177, -1
   %179 = and i32 %176, %178
   %.not100 = icmp eq i32 %179, 0
-  %.pre235 = load i32, ptr %83, align 4, !tbaa !89
-  br i1 %.not100, label %180, label %252
+  %.pre234 = load i32, ptr %83, align 4, !tbaa !89
+  br i1 %.not100, label %180, label %250
 
 180:                                              ; preds = %174
-  %181 = and i32 %.pre235, 8
+  %181 = and i32 %.pre234, 8
   %.not101 = icmp eq i32 %181, 0
   br i1 %.not101, label %182, label %190
 
 182:                                              ; preds = %180
-  %183 = trunc nsw i64 %indvars.iv233 to i32
+  %183 = trunc nsw i64 %indvars.iv232 to i32
   %184 = add nsw i32 %183, 1
   tail call void @_ZN10duckdb_re28BitState4PushEiPKc(ptr noundef nonnull align 8 dereferenceable(116) %0, i32 noundef %184, ptr noundef %.190.ph)
   br label %190
@@ -672,7 +672,7 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112: ; preds = %110, %_ZN10duck
   br i1 %.not99, label %187, label %190
 
 187:                                              ; preds = %185
-  %188 = trunc nsw i64 %indvars.iv233 to i32
+  %188 = trunc nsw i64 %indvars.iv232 to i32
   %189 = add nsw i32 %188, 1
   tail call void @_ZN10duckdb_re28BitState4PushEiPKc(ptr noundef nonnull align 8 dereferenceable(116) %0, i32 noundef %189, ptr noundef %.190.ph)
   br label %190
@@ -720,7 +720,7 @@ _ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit111: ; preds = %190
   %220 = trunc nuw i8 %219 to i1
   %.not105 = xor i1 %220, true
   %or.cond = select i1 %.not105, i1 true, i1 %.not
-  br i1 %or.cond, label %221, label %252
+  br i1 %or.cond, label %221, label %250
 
 221:                                              ; preds = %218
   %222 = load i32, ptr %40, align 8, !tbaa !49
@@ -747,14 +747,14 @@ _ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit111: ; preds = %190
   %236 = getelementptr inbounds nuw i8, ptr %228, i64 %235
   %237 = icmp ugt ptr %.190.ph, %236
   %238 = icmp sgt i32 %222, 0
-  %or.cond187 = and i1 %237, %238
-  br i1 %or.cond187, label %.lr.ph.preheader, label %.loopexit
+  %or.cond279 = and i1 %237, %238
+  br i1 %or.cond279, label %.lr.ph.preheader, label %.loopexit
 
 239:                                              ; preds = %224
   %.old = icmp sgt i32 %222, 0
   br i1 %.old, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %239, %233
+.lr.ph.preheader:                                 ; preds = %233, %239
   %wide.trip.count = zext nneg i32 %222 to i64
   br label %.lr.ph
 
@@ -763,43 +763,42 @@ _ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit111: ; preds = %190
   %240 = shl nuw nsw i64 %indvars.iv, 1
   %241 = getelementptr inbounds nuw ptr, ptr %225, i64 %240
   %242 = load ptr, ptr %241, align 8, !tbaa !86
-  %243 = or disjoint i64 %240, 1
-  %244 = getelementptr inbounds nuw ptr, ptr %225, i64 %243
-  %245 = load ptr, ptr %244, align 8, !tbaa !86
-  %246 = ptrtoint ptr %245 to i64
-  %247 = ptrtoint ptr %242 to i64
-  %248 = sub i64 %246, %247
-  %249 = getelementptr inbounds nuw %"class.duckdb_re2::StringPiece", ptr %227, i64 %indvars.iv
-  store ptr %242, ptr %249, align 8, !tbaa !86
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %249, i64 8
-  store i64 %248, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !81
+  %gep = getelementptr inbounds nuw ptr, ptr %226, i64 %240
+  %243 = load ptr, ptr %gep, align 8, !tbaa !86
+  %244 = ptrtoint ptr %243 to i64
+  %245 = ptrtoint ptr %242 to i64
+  %246 = sub i64 %244, %245
+  %247 = getelementptr inbounds nuw %"class.duckdb_re2::StringPiece", ptr %227, i64 %indvars.iv
+  store ptr %242, ptr %247, align 8, !tbaa !86
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %247, i64 8
+  store i64 %246, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !95
 
 .loopexit:                                        ; preds = %.lr.ph, %239, %233, %230
-  %250 = load i8, ptr %43, align 1, !tbaa !91, !range !92, !noundef !93
-  %251 = trunc nuw i8 %250 to i1
-  %.not107 = xor i1 %251, true
+  %248 = load i8, ptr %43, align 1, !tbaa !91, !range !92, !noundef !93
+  %249 = trunc nuw i8 %248 to i1
+  %.not107 = xor i1 %249, true
   %or.cond108 = select i1 %.not107, i1 true, i1 %.not
-  br i1 %or.cond108, label %.thread118.thread, label %252
+  br i1 %or.cond108, label %.thread118.thread, label %250
 
-252:                                              ; preds = %130, %.loopexit, %218, %174, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112
-  %253 = phi i32 [ %.pre235, %174 ], [ %84, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112 ], [ %84, %218 ], [ %84, %.loopexit ], [ %84, %130 ]
+250:                                              ; preds = %130, %.loopexit, %218, %174, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112
+  %251 = phi i32 [ %.pre234, %174 ], [ %84, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112 ], [ %84, %218 ], [ %84, %.loopexit ], [ %84, %130 ]
   %.5 = phi i1 [ %.277, %174 ], [ %.277, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112 ], [ %.277, %218 ], [ true, %.loopexit ], [ %.277, %130 ]
-  %254 = and i32 %253, 8
-  %.not104 = icmp eq i32 %254, 0
-  br i1 %.not104, label %255, label %.thread118
+  %252 = and i32 %251, 8
+  %.not104 = icmp eq i32 %252, 0
+  br i1 %.not104, label %253, label %.thread118
 
-255:                                              ; preds = %252
-  %indvars.iv.next234 = add nsw i64 %indvars.iv233, 1
+253:                                              ; preds = %250
+  %indvars.iv.next233 = add nsw i64 %indvars.iv232, 1
   br label %79
 
-.thread118:                                       ; preds = %190, %79, %252, %57
-  %.176 = phi i1 [ %.075185, %57 ], [ %.277, %79 ], [ %.5, %252 ], [ %.277, %190 ]
-  %256 = load i32, ptr %10, align 8, !tbaa !53
-  %257 = icmp sgt i32 %256, 0
-  br i1 %257, label %46, label %.thread118.thread
+.thread118:                                       ; preds = %190, %79, %250, %57
+  %.176 = phi i1 [ %.075185, %57 ], [ %.277, %79 ], [ %.5, %250 ], [ %.277, %190 ]
+  %254 = load i32, ptr %10, align 8, !tbaa !53
+  %255 = icmp sgt i32 %254, 0
+  br i1 %255, label %46, label %.thread118.thread
 
 .thread118.thread:                                ; preds = %.thread118, %221, %.loopexit, %3, %_ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit, %_ZN10LogMessageD2Ev.exit
   %.4 = phi i1 [ false, %_ZN10LogMessageD2Ev.exit ], [ false, %_ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit ], [ false, %3 ], [ true, %.loopexit ], [ true, %221 ], [ %.176, %.thread118 ]

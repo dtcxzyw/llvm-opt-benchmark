@@ -1385,7 +1385,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.10, ptr noundef %1) #25
   %7 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #25
   call void (ptr, ...) @dt_control_log(ptr noundef %7, ptr noundef %1) #25
-  br label %121
+  br label %120
 
 8:                                                ; preds = %3
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !24
@@ -1424,7 +1424,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @png_destroy_read_struct(ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef null) #25
-  br label %121
+  br label %120
 
 31:                                               ; preds = %20, %20
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1455,7 +1455,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @png_destroy_read_struct(ptr noundef nonnull %47, ptr noundef nonnull %48, ptr noundef null) #25
-  br label %121
+  br label %120
 
 49:                                               ; preds = %40
   %50 = trunc i32 %36 to i16
@@ -1473,7 +1473,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @png_destroy_read_struct(ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef null) #25
-  br label %121
+  br label %120
 
 60:                                               ; preds = %49
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -1507,7 +1507,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   %78 = load ptr, ptr %77, align 8, !tbaa !70
   %79 = call i32 @fclose(ptr noundef %78)
   call void @png_destroy_read_struct(ptr noundef nonnull %64, ptr noundef nonnull %66, ptr noundef null) #25
-  br label %121
+  br label %120
 
 80:                                               ; preds = %73
   %81 = call i32 @dt_imageio_png_read_image(ptr noundef nonnull %4, ptr noundef nonnull %74) #25
@@ -1519,7 +1519,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   %83 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef 5) #25
   call void (ptr, ...) @dt_control_log(ptr noundef %83, ptr noundef %1) #25
   call void @free(ptr noundef nonnull %74) #25
-  br label %121
+  br label %120
 
 84:                                               ; preds = %80
   %85 = load i32, ptr %61, align 4, !tbaa !67
@@ -1547,7 +1547,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   %96 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 5) #25
   call void (ptr, ...) @dt_control_log(ptr noundef %96) #25
   call void @free(ptr noundef nonnull %74) #25
-  br label %121
+  br label %120
 
 97:                                               ; preds = %92
   %98 = load i32, ptr %21, align 4, !tbaa !69
@@ -1585,30 +1585,29 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   br i1 %exitcond85.not, label %.loopexit, label %.lr.ph78
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.076 = phi i64 [ %120, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.076 = phi i64 [ %119, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %108 = shl i64 %.076, 1
   %109 = getelementptr inbounds nuw i8, ptr %74, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !73
   %111 = uitofp i8 %110 to float
   %112 = fmul reassoc nsz arcp contract afn float %111, 2.560000e+02
-  %113 = or disjoint i64 %108, 1
-  %114 = getelementptr inbounds nuw i8, ptr %74, i64 %113
-  %115 = load i8, ptr %114, align 1, !tbaa !73
-  %116 = uitofp i8 %115 to float
-  %117 = fadd reassoc nsz arcp contract afn float %112, %116
-  %118 = fmul reassoc nsz arcp contract afn float %117, %100
-  %119 = getelementptr inbounds nuw float, ptr %94, i64 %.076
-  store float %118, ptr %119, align 4, !tbaa !18
-  %120 = add nuw i64 %.076, 1
-  %exitcond.not = icmp eq i64 %120, %umax
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 1
+  %114 = load i8, ptr %113, align 1, !tbaa !73
+  %115 = uitofp i8 %114 to float
+  %116 = fadd reassoc nsz arcp contract afn float %112, %115
+  %117 = fmul reassoc nsz arcp contract afn float %116, %100
+  %118 = getelementptr inbounds nuw float, ptr %94, i64 %.076
+  store float %117, ptr %118, align 4, !tbaa !18
+  %119 = add nuw i64 %.076, 1
+  %exitcond.not = icmp eq i64 %119, %umax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph78, %.preheader70, %.preheader
   call void @free(ptr noundef nonnull %74) #25
   store ptr %94, ptr %2, align 8, !tbaa !22
-  br label %121
+  br label %120
 
-121:                                              ; preds = %41, %53, %95, %.loopexit, %82, %75, %23, %6
+120:                                              ; preds = %41, %53, %95, %.loopexit, %82, %75, %23, %6
   %.054 = phi i16 [ 0, %23 ], [ 0, %6 ], [ 0, %41 ], [ 0, %53 ], [ 0, %82 ], [ 0, %75 ], [ %50, %.loopexit ], [ 0, %95 ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #25
   ret i16 %.054

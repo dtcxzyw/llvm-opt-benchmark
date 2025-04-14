@@ -498,11 +498,9 @@ if.then8:                                         ; preds = %for.body
 
 if.end10:                                         ; preds = %if.then8, %for.body
   %9 = phi i32 [ %sub.i, %if.then8 ], [ %6, %for.body ]
-  %indvars.iv.next = or disjoint i64 %indvars.iv, 1
-  %add.ptr.i.i.1 = getelementptr inbounds nuw %"class.irr::core::rect", ptr %3, i64 %indvars.iv.next
-  %Y.i.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.1, i64 12
+  %Y.i.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 28
   %10 = load i32, ptr %Y.i.1, align 4, !tbaa !51
-  %Y2.i.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.1, i64 4
+  %Y2.i.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 20
   %11 = load i32, ptr %Y2.i.1, align 4, !tbaa !54
   %sub.i.1 = sub nsw i32 %10, %11
   %cmp7.1 = icmp sgt i32 %sub.i.1, %9
@@ -969,11 +967,9 @@ if.then8.i:                                       ; preds = %for.body.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %for.body.i
   %61 = phi i32 [ %sub.i.i, %if.then8.i ], [ %58, %for.body.i ]
-  %indvars.iv.next.i = or disjoint i64 %indvars.iv.i, 1
-  %add.ptr.i.i.i.1 = getelementptr inbounds nuw %"class.irr::core::rect", ptr %55, i64 %indvars.iv.next.i
-  %Y.i.i.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.1, i64 12
+  %Y.i.i.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 28
   %62 = load i32, ptr %Y.i.i.1, align 4, !tbaa !51
-  %Y2.i.i.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.1, i64 4
+  %Y2.i.i.1 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 20
   %63 = load i32, ptr %Y2.i.i.1, align 4, !tbaa !54
   %sub.i.i.1 = sub nsw i32 %62, %63
   %cmp7.i.1 = icmp sgt i32 %sub.i.i.1, %61

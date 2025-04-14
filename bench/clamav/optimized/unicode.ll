@@ -359,23 +359,22 @@ define noundef ptr @_Z9RawToWidePKhPwm(ptr noundef readonly captures(none) %0, p
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.09 = phi i64 [ %16, %.lr.ph ], [ 0, %3 ]
+  %.09 = phi i64 [ %15, %.lr.ph ], [ 0, %3 ]
   %4 = shl i64 %.09, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !3
   %7 = zext i8 %6 to i32
-  %8 = or disjoint i64 %4, 1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !3
-  %11 = zext i8 %10 to i32
-  %12 = shl nuw nsw i32 %11, 8
-  %13 = or disjoint i32 %12, %7
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %.09
-  store i32 %13, ptr %14, align 4, !tbaa !6
-  %15 = icmp eq i32 %13, 0
-  %16 = add nuw i64 %.09, 1
-  %exitcond.not = icmp eq i64 %16, %2
-  %or.cond = select i1 %15, i1 true, i1 %exitcond.not
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %9 = load i8, ptr %8, align 1, !tbaa !3
+  %10 = zext i8 %9 to i32
+  %11 = shl nuw nsw i32 %10, 8
+  %12 = or disjoint i32 %11, %7
+  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %.09
+  store i32 %12, ptr %13, align 4, !tbaa !6
+  %14 = icmp eq i32 %12, 0
+  %15 = add nuw i64 %.09, 1
+  %exitcond.not = icmp eq i64 %15, %2
+  %or.cond = select i1 %14, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3

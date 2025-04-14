@@ -11522,18 +11522,17 @@ define void @_ZN18duckdb_fastpforlib8internal14__fastunpack64EPKjPm(ptr noalias 
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = shl nuw nsw i64 %indvars.iv, 1
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %5
-  %7 = load i32, ptr %6, align 4, !tbaa !7
-  %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  %10 = or disjoint i64 %5, 1
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
-  %12 = load i32, ptr %11, align 4, !tbaa !7
-  %13 = zext i32 %12 to i64
-  %14 = shl nuw i64 %13, 32
-  %15 = or disjoint i64 %14, %8
-  store i64 %15, ptr %9, align 8, !tbaa !9
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %6 = load i32, ptr %5, align 4, !tbaa !7
+  %7 = zext i32 %6 to i64
+  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %10 = load i32, ptr %9, align 4, !tbaa !7
+  %11 = zext i32 %10 to i64
+  %12 = shl nuw i64 %11, 32
+  %13 = or disjoint i64 %12, %7
+  store i64 %13, ptr %8, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %3, label %4, !llvm.loop !8859
@@ -21358,14 +21357,13 @@ define void @_ZN18duckdb_fastpforlib8internal12__fastpack64EPKmPj(ptr noalias no
   %5 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8, !tbaa !9
   %7 = trunc i64 %6 to i32
-  %8 = shl nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %8
-  store i32 %7, ptr %9, align 4, !tbaa !7
-  %10 = lshr i64 %6, 32
-  %11 = trunc nuw i64 %10 to i32
-  %12 = or disjoint i64 %8, 1
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %12
-  store i32 %11, ptr %13, align 4, !tbaa !7
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
+  store i32 %7, ptr %8, align 4, !tbaa !7
+  %9 = lshr i64 %6, 32
+  %10 = trunc nuw i64 %9 to i32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 %10, ptr %11, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %3, label %4, !llvm.loop !15823

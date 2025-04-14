@@ -61,8 +61,8 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
   %20 = sub nuw nsw i64 64, %19
   %.0.sroa.speculated.i.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 range(i64 0, 55) %20, i64 7)
   %21 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i, 2
-  %22 = or disjoint i64 %21, 1
-  %23 = getelementptr i8, ptr null, i64 %22
+  %22 = getelementptr i8, ptr null, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 1
   %.sroa.09.0.copyload.i = load ptr, ptr %1, align 8, !alias.scope !4, !noalias !7
   %.sroa.511.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.511.0.copyload.i = load i64, ptr %.sroa.511.0..sroa_idx.i, align 8, !alias.scope !4, !noalias !7
@@ -752,8 +752,8 @@ default.unreachable180:                           ; preds = %3
   %33 = sub nuw nsw i64 64, %32
   %.0.sroa.speculated.i.i.i = tail call noundef range(i64 0, 8) i64 @llvm.umin.i64(i64 range(i64 0, 55) %33, i64 7)
   %34 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i, 2
-  %35 = or disjoint i64 %34, 1
-  %36 = getelementptr i8, ptr null, i64 %35
+  %35 = getelementptr i8, ptr null, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 1
   store ptr %29, ptr %27, align 8, !alias.scope !88, !noalias !93
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 264
   store i64 0, ptr %37, align 8, !alias.scope !88, !noalias !93

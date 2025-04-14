@@ -2978,6 +2978,7 @@ define void @_ZN6LibRaw18phase_one_load_rawEv(ptr noundef nonnull align 8 derefe
 
 .lr.ph:                                           ; preds = %.preheader
   %81 = load ptr, ptr %66, align 8, !tbaa !73
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %81, i64 2
   %82 = select i1 %15, i32 21845, i32 4948
   %83 = xor i32 %82, -1
   br label %84
@@ -2988,29 +2989,28 @@ define void @_ZN6LibRaw18phase_one_load_rawEv(ptr noundef nonnull align 8 derefe
   %86 = load i16, ptr %85, align 2, !tbaa !74
   %87 = xor i16 %86, %12
   %88 = zext i16 %87 to i32
-  %89 = or disjoint i64 %indvars.iv, 1
-  %90 = getelementptr inbounds nuw i16, ptr %81, i64 %89
-  %91 = load i16, ptr %90, align 2, !tbaa !74
-  %92 = xor i16 %91, %13
-  %93 = zext i16 %92 to i32
-  %94 = and i32 %82, %88
-  %95 = and i32 %93, %83
-  %96 = or i32 %95, %94
-  %97 = trunc nuw i32 %96 to i16
-  store i16 %97, ptr %85, align 2, !tbaa !74
-  %98 = and i32 %82, %93
-  %99 = and i32 %88, %83
-  %100 = or i32 %98, %99
-  %101 = trunc nuw i32 %100 to i16
-  store i16 %101, ptr %90, align 2, !tbaa !74
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %89 = load i16, ptr %gep, align 2, !tbaa !74
+  %90 = xor i16 %89, %13
+  %91 = zext i16 %90 to i32
+  %92 = and i32 %82, %88
+  %93 = and i32 %91, %83
+  %94 = or i32 %93, %92
+  %95 = trunc nuw i32 %94 to i16
+  store i16 %95, ptr %85, align 2, !tbaa !74
+  %96 = and i32 %82, %91
+  %97 = and i32 %88, %83
+  %98 = or i32 %96, %97
+  %99 = trunc nuw i32 %98 to i16
+  store i16 %99, ptr %gep, align 2, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %102 = load i16, ptr %69, align 2, !tbaa !72
+  %100 = load i16, ptr %69, align 2, !tbaa !72
+  %101 = zext i16 %100 to i64
+  %102 = load i16, ptr %68, align 8, !tbaa !10
   %103 = zext i16 %102 to i64
-  %104 = load i16, ptr %68, align 8, !tbaa !10
-  %105 = zext i16 %104 to i64
-  %106 = mul nuw nsw i64 %105, %103
-  %107 = icmp samesign ult i64 %indvars.iv.next, %106
-  br i1 %107, label %84, label %.loopexit, !llvm.loop !158
+  %104 = mul nuw nsw i64 %103, %101
+  %105 = icmp samesign ult i64 %indvars.iv.next, %104
+  br i1 %105, label %84, label %.loopexit, !llvm.loop !158
 
 .loopexit:                                        ; preds = %84, %.preheader, %58
   ret void

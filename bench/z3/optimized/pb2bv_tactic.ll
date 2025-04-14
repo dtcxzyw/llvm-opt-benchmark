@@ -14753,14 +14753,14 @@ _ZN8rationalD2Ev.exit43:                          ; preds = %.noexc.i42
   %92 = shl nuw i64 %indvars.iv, 1
   %93 = load ptr, ptr %1, align 8, !tbaa !327
   %94 = getelementptr inbounds nuw %"struct.pb2bv_tactic::imp::monomial", ptr %93, i64 %92
-  %95 = or disjoint i64 %92, 1
-  %96 = getelementptr inbounds nuw %"struct.pb2bv_tactic::imp::monomial", ptr %93, i64 %95
+  %95 = getelementptr inbounds nuw %"struct.pb2bv_tactic::imp::monomial", ptr %93, i64 %92
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %98 = load ptr, ptr %97, align 8, !tbaa !332
   %99 = ptrtoint ptr %98 to i64
   %100 = and i64 %99, 7
   %101 = icmp eq i64 %100, 1
-  %102 = getelementptr inbounds nuw i8, ptr %96, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %95, i64 72
   %103 = load ptr, ptr %102, align 8, !tbaa !332
   %104 = ptrtoint ptr %103 to i64
   %105 = and i64 %104, 7
@@ -14777,7 +14777,7 @@ _ZN8rationalD2Ev.exit43:                          ; preds = %.noexc.i42
   br i1 %113, label %114, label %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i44
 
 114:                                              ; preds = %108
-  %115 = getelementptr inbounds nuw i8, ptr %96, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %95, i64 44
   %116 = load i8, ptr %115, align 4
   %117 = and i8 %116, 1
   %118 = icmp eq i8 %117, 0
@@ -14796,7 +14796,7 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i44: ; preds = %114, %108
 
 125:                                              ; preds = %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i44, %119
   %126 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %127 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %95, i64 56
   %128 = getelementptr inbounds nuw i8, ptr %94, i64 20
   %129 = load i8, ptr %128, align 4
   %130 = and i8 %129, 1
@@ -14804,7 +14804,7 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i44: ; preds = %114, %108
   br i1 %131, label %132, label %_ZneRK8rationalS1_.exit45
 
 132:                                              ; preds = %125
-  %133 = getelementptr inbounds nuw i8, ptr %96, i64 20
+  %133 = getelementptr inbounds nuw i8, ptr %95, i64 60
   %134 = load i8, ptr %133, align 4
   %135 = and i8 %134, 1
   %136 = icmp eq i8 %135, 0

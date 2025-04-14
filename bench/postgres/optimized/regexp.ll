@@ -2378,94 +2378,90 @@ define internal fastcc ptr @build_regexp_match_result(ptr noundef readonly captu
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %38
-  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %38 ], [ 0, %.lr.ph ]
-  %.047.us = phi i32 [ %24, %38 ], [ %16, %.lr.ph ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %36
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %36 ], [ 0, %.lr.ph ]
+  %.047.us = phi i32 [ %23, %36 ], [ %16, %.lr.ph ]
   %19 = load ptr, ptr %17, align 8
-  %20 = or disjoint i32 %.047.us, 1
-  %21 = sext i32 %.047.us to i64
-  %22 = getelementptr inbounds i32, ptr %19, i64 %21
-  %23 = load i32, ptr %22, align 4
-  %24 = add i32 %.047.us, 2
-  %25 = sext i32 %20 to i64
-  %26 = getelementptr inbounds i32, ptr %19, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %28 = icmp slt i32 %23, 0
-  %29 = icmp slt i32 %27, 0
-  %or.cond.us = select i1 %28, i1 true, i1 %29
-  br i1 %or.cond.us, label %38, label %30
+  %20 = sext i32 %.047.us to i64
+  %21 = getelementptr inbounds i32, ptr %19, i64 %20
+  %22 = load i32, ptr %21, align 4
+  %23 = add i32 %.047.us, 2
+  %24 = getelementptr i8, ptr %21, i64 4
+  %25 = load i32, ptr %24, align 4
+  %26 = icmp slt i32 %22, 0
+  %27 = icmp slt i32 %25, 0
+  %or.cond.us = select i1 %26, i1 true, i1 %27
+  br i1 %or.cond.us, label %36, label %28
 
-30:                                               ; preds = %.lr.ph.split.us
-  %31 = load ptr, ptr %0, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = add nuw i32 %23, 1
+28:                                               ; preds = %.lr.ph.split.us
+  %29 = load ptr, ptr %0, align 8
+  %30 = ptrtoint ptr %29 to i64
+  %31 = add nuw i32 %22, 1
+  %32 = sext i32 %31 to i64
+  %33 = sub nsw i32 %25, %22
   %34 = sext i32 %33 to i64
-  %35 = sub nsw i32 %27, %23
-  %36 = sext i32 %35 to i64
-  %37 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @text_substr, i32 noundef 0, i64 noundef %32, i64 noundef %34, i64 noundef %36) #9
-  br label %38
+  %35 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @text_substr, i32 noundef 0, i64 noundef %30, i64 noundef %32, i64 noundef %34) #9
+  br label %36
 
-38:                                               ; preds = %.lr.ph.split.us, %30
-  %.sink55 = phi i64 [ %37, %30 ], [ 0, %.lr.ph.split.us ]
-  %.sink = phi i8 [ 0, %30 ], [ 1, %.lr.ph.split.us ]
-  %39 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv52
-  store i64 %.sink55, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv52
-  store i8 %.sink, ptr %40, align 1
+36:                                               ; preds = %.lr.ph.split.us, %28
+  %.sink55 = phi i64 [ %35, %28 ], [ 0, %.lr.ph.split.us ]
+  %.sink = phi i8 [ 0, %28 ], [ 1, %.lr.ph.split.us ]
+  %37 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv52
+  store i64 %.sink55, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv52
+  store i8 %.sink, ptr %38, align 1
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %41 = load i32, ptr %10, align 4
-  %42 = sext i32 %41 to i64
-  %43 = icmp slt i64 %indvars.iv.next53, %42
-  br i1 %43, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
+  %39 = load i32, ptr %10, align 4
+  %40 = sext i32 %39 to i64
+  %41 = icmp slt i64 %indvars.iv.next53, %40
+  br i1 %41, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %63
-  %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.lr.ph ]
-  %.047 = phi i32 [ %49, %63 ], [ %16, %.lr.ph ]
-  %44 = load ptr, ptr %17, align 8
-  %45 = or disjoint i32 %.047, 1
-  %46 = sext i32 %.047 to i64
-  %47 = getelementptr inbounds i32, ptr %44, i64 %46
+.lr.ph.split:                                     ; preds = %.lr.ph, %59
+  %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph ]
+  %.047 = phi i32 [ %46, %59 ], [ %16, %.lr.ph ]
+  %42 = load ptr, ptr %17, align 8
+  %43 = sext i32 %.047 to i64
+  %44 = getelementptr inbounds i32, ptr %42, i64 %43
+  %45 = load i32, ptr %44, align 4
+  %46 = add i32 %.047, 2
+  %47 = getelementptr i8, ptr %44, i64 4
   %48 = load i32, ptr %47, align 4
-  %49 = add i32 %.047, 2
-  %50 = sext i32 %45 to i64
-  %51 = getelementptr inbounds i32, ptr %44, i64 %50
-  %52 = load i32, ptr %51, align 4
-  %53 = icmp slt i32 %48, 0
-  %54 = icmp slt i32 %52, 0
-  %or.cond = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond, label %63, label %55
+  %49 = icmp slt i32 %45, 0
+  %50 = icmp slt i32 %48, 0
+  %or.cond = select i1 %49, i1 true, i1 %50
+  br i1 %or.cond, label %59, label %51
 
-55:                                               ; preds = %.lr.ph.split
-  %56 = load ptr, ptr %18, align 8
-  %57 = zext nneg i32 %48 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
-  %59 = sub nsw i32 %52, %48
-  %60 = tail call i32 @pg_wchar2mb_with_len(ptr noundef %58, ptr noundef nonnull %.fr, i32 noundef %59) #9
-  %61 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull %.fr, i32 noundef %60) #9
-  %62 = ptrtoint ptr %61 to i64
-  br label %63
+51:                                               ; preds = %.lr.ph.split
+  %52 = load ptr, ptr %18, align 8
+  %53 = zext nneg i32 %45 to i64
+  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
+  %55 = sub nsw i32 %48, %45
+  %56 = tail call i32 @pg_wchar2mb_with_len(ptr noundef %54, ptr noundef nonnull %.fr, i32 noundef %55) #9
+  %57 = tail call ptr @cstring_to_text_with_len(ptr noundef nonnull %.fr, i32 noundef %56) #9
+  %58 = ptrtoint ptr %57 to i64
+  br label %59
 
-63:                                               ; preds = %.lr.ph.split, %55
-  %.sink57 = phi i64 [ %62, %55 ], [ 0, %.lr.ph.split ]
-  %.sink56 = phi i8 [ 0, %55 ], [ 1, %.lr.ph.split ]
-  %64 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
-  store i64 %.sink57, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
-  store i8 %.sink56, ptr %65, align 1
+59:                                               ; preds = %.lr.ph.split, %51
+  %.sink57 = phi i64 [ %58, %51 ], [ 0, %.lr.ph.split ]
+  %.sink56 = phi i8 [ 0, %51 ], [ 1, %.lr.ph.split ]
+  %60 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  store i64 %.sink57, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
+  store i8 %.sink56, ptr %61, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %66 = load i32, ptr %10, align 4
-  %67 = sext i32 %66 to i64
-  %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  %62 = load i32, ptr %10, align 4
+  %63 = sext i32 %62 to i64
+  %64 = icmp slt i64 %indvars.iv.next, %63
+  br i1 %64, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %63, %38, %1
-  %.lcssa = phi i32 [ %11, %1 ], [ %41, %38 ], [ %66, %63 ]
+._crit_edge:                                      ; preds = %59, %36, %1
+  %.lcssa = phi i32 [ %11, %1 ], [ %39, %36 ], [ %62, %59 ]
   store i32 %.lcssa, ptr %2, align 4
   store i32 1, ptr %3, align 4
-  %69 = call ptr @construct_md_array(ptr noundef %7, ptr noundef %9, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 25, i32 noundef -1, i1 noundef zeroext false, i8 noundef signext 105) #9
+  %65 = call ptr @construct_md_array(ptr noundef %7, ptr noundef %9, i32 noundef 1, ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 25, i32 noundef -1, i1 noundef zeroext false, i8 noundef signext 105) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
-  ret ptr %69
+  ret ptr %65
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2971,7 +2967,7 @@ define dso_local i64 @regexp_substr(ptr noundef captures(none) %0) local_unnamed
 69:                                               ; preds = %60
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %70, align 4
-  br label %103
+  br label %101
 
 71:                                               ; preds = %60
   %72 = getelementptr inbounds nuw i8, ptr %65, i64 12
@@ -2982,7 +2978,7 @@ define dso_local i64 @regexp_substr(ptr noundef captures(none) %0) local_unnamed
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %76, align 4
-  br label %103
+  br label %101
 
 77:                                               ; preds = %71
   %78 = add nuw i32 %.04865, 2147483647
@@ -2995,32 +2991,30 @@ define dso_local i64 @regexp_substr(ptr noundef captures(none) %0) local_unnamed
   %84 = sext i32 %81 to i64
   %85 = getelementptr inbounds i32, ptr %83, i64 %84
   %86 = load i32, ptr %85, align 4
-  %87 = or disjoint i32 %81, 1
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %83, i64 %88
-  %90 = load i32, ptr %89, align 4
-  %91 = icmp slt i32 %86, 0
-  %92 = icmp slt i32 %90, 0
-  %or.cond = select i1 %91, i1 true, i1 %92
-  br i1 %or.cond, label %93, label %95
+  %87 = getelementptr i8, ptr %85, i64 4
+  %88 = load i32, ptr %87, align 4
+  %89 = icmp slt i32 %86, 0
+  %90 = icmp slt i32 %88, 0
+  %or.cond = select i1 %89, i1 true, i1 %90
+  br i1 %or.cond, label %91, label %93
+
+91:                                               ; preds = %77
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %92, align 4
+  br label %101
 
 93:                                               ; preds = %77
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %94, align 4
-  br label %103
-
-95:                                               ; preds = %77
-  %96 = load ptr, ptr %65, align 8
-  %97 = ptrtoint ptr %96 to i64
-  %98 = add nuw i32 %86, 1
+  %94 = load ptr, ptr %65, align 8
+  %95 = ptrtoint ptr %94 to i64
+  %96 = add nuw i32 %86, 1
+  %97 = sext i32 %96 to i64
+  %98 = sub nsw i32 %88, %86
   %99 = sext i32 %98 to i64
-  %100 = sub nsw i32 %90, %86
-  %101 = sext i32 %100 to i64
-  %102 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @text_substr, i32 noundef 0, i64 noundef %97, i64 noundef %99, i64 noundef %101) #9
-  br label %103
+  %100 = tail call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @text_substr, i32 noundef 0, i64 noundef %95, i64 noundef %97, i64 noundef %99) #9
+  br label %101
 
-103:                                              ; preds = %95, %93, %75, %69
-  %.0 = phi i64 [ 0, %69 ], [ 0, %75 ], [ 0, %93 ], [ %102, %95 ]
+101:                                              ; preds = %93, %91, %75, %69
+  %.0 = phi i64 [ 0, %69 ], [ 0, %75 ], [ 0, %91 ], [ %100, %93 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   ret i64 %.0
 }

@@ -105,7 +105,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   br i1 %exitcond.not, label %.loopexit195, label %.preheader194, !llvm.loop !9
 
 .loopexit195:                                     ; preds = %.preheader194, %._crit_edge.thread, %._crit_edge
-  %.0150229 = phi i32 [ 0, %._crit_edge.thread ], [ 1, %._crit_edge ], [ 1, %.preheader194 ]
+  %.0150231 = phi i32 [ 0, %._crit_edge.thread ], [ 1, %._crit_edge ], [ 1, %.preheader194 ]
   br label %21
 
 21:                                               ; preds = %.loopexit195, %21
@@ -121,8 +121,8 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %26, ptr %27, align 4, !tbaa !11
   %28 = add nuw nsw i64 %.2198, 1
-  %exitcond213.not = icmp eq i64 %28, 6
-  br i1 %exitcond213.not, label %29, label %21, !llvm.loop !12
+  %exitcond215.not = icmp eq i64 %28, 6
+  br i1 %exitcond215.not, label %29, label %21, !llvm.loop !12
 
 29:                                               ; preds = %21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
@@ -137,8 +137,8 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %34 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %.3199
   store i32 %33, ptr %34, align 4, !tbaa !11
   %35 = add nuw nsw i64 %.3199, 1
-  %exitcond214.not = icmp eq i64 %35, 8
-  br i1 %exitcond214.not, label %.preheader193, label %30, !llvm.loop !13
+  %exitcond216.not = icmp eq i64 %35, 8
+  br i1 %exitcond216.not, label %.preheader193, label %30, !llvm.loop !13
 
 .preheader193:                                    ; preds = %30, %.preheader193
   %.4200 = phi i64 [ %44, %.preheader193 ], [ 0, %30 ]
@@ -152,8 +152,8 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %43 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %42
   store i32 %41, ptr %43, align 4, !tbaa !11
   %44 = add nuw nsw i64 %.4200, 1
-  %exitcond215.not = icmp eq i64 %44, 4
-  br i1 %exitcond215.not, label %45, label %.preheader193, !llvm.loop !14
+  %exitcond217.not = icmp eq i64 %44, 4
+  br i1 %exitcond217.not, label %45, label %.preheader193, !llvm.loop !14
 
 45:                                               ; preds = %.preheader193
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -323,8 +323,8 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %197 = xor i32 %196, %193
   store i32 %197, ptr %195, align 4, !tbaa !11
   %198 = add nuw nsw i64 %.5201, 1
-  %exitcond216.not = icmp eq i64 %198, 4
-  br i1 %exitcond216.not, label %199, label %191, !llvm.loop !15
+  %exitcond218.not = icmp eq i64 %198, 4
+  br i1 %exitcond218.not, label %199, label %191, !llvm.loop !15
 
 199:                                              ; preds = %191
   %200 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -495,8 +495,8 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %351 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %350
   store i32 %349, ptr %351, align 4, !tbaa !11
   %352 = add nuw nsw i64 %.6202, 1
-  %exitcond217.not = icmp eq i64 %352, 4
-  br i1 %exitcond217.not, label %353, label %.preheader192, !llvm.loop !16
+  %exitcond219.not = icmp eq i64 %352, 4
+  br i1 %exitcond219.not, label %353, label %.preheader192, !llvm.loop !16
 
 353:                                              ; preds = %.preheader192
   %354 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -672,7 +672,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   %509 = load i32, ptr %508, align 4, !tbaa !11
   %510 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %509, ptr %510, align 4, !tbaa !11
-  %511 = zext nneg i32 %.0150229 to i64
+  %511 = zext nneg i32 %.0150231 to i64
   %512 = getelementptr inbounds nuw [2 x [4 x [4 x i8]]], ptr @shifts, i64 0, i64 %511
   br label %514
 
@@ -718,8 +718,8 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 539:                                              ; preds = %514, %518
   %540 = add nuw nsw i64 %.7203, 1
-  %exitcond218.not = icmp eq i64 %540, 5
-  br i1 %exitcond218.not, label %.preheader191, label %514, !llvm.loop !17
+  %exitcond220.not = icmp eq i64 %540, 5
+  br i1 %exitcond220.not, label %.preheader191, label %514, !llvm.loop !17
 
 541:                                              ; preds = %.preheader191, %549
   %.8204 = phi i64 [ 0, %.preheader191 ], [ %550, %549 ]
@@ -738,8 +738,8 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 549:                                              ; preds = %541, %544
   %550 = add nuw nsw i64 %.8204, 1
-  %exitcond219.not = icmp eq i64 %550, 20
-  br i1 %exitcond219.not, label %551, label %541, !llvm.loop !18
+  %exitcond221.not = icmp eq i64 %550, 20
+  br i1 %exitcond221.not, label %551, label %541, !llvm.loop !18
 
 551:                                              ; preds = %549
   br i1 %342, label %552, label %.loopexit190
@@ -797,8 +797,8 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 586:                                              ; preds = %561, %565
   %587 = add nuw nsw i64 %.9205, 1
-  %exitcond220.not = icmp eq i64 %587, 5
-  br i1 %exitcond220.not, label %.preheader189, label %561, !llvm.loop !19
+  %exitcond222.not = icmp eq i64 %587, 5
+  br i1 %exitcond222.not, label %.preheader189, label %561, !llvm.loop !19
 
 .preheader189:                                    ; preds = %586, %595
   %.10206 = phi i64 [ %596, %595 ], [ 0, %586 ]
@@ -817,8 +817,8 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 595:                                              ; preds = %.preheader189, %590
   %596 = add nuw nsw i64 %.10206, 1
-  %exitcond221.not = icmp eq i64 %596, 20
-  br i1 %exitcond221.not, label %.loopexit190, label %.preheader189, !llvm.loop !20
+  %exitcond223.not = icmp eq i64 %596, 20
+  br i1 %exitcond223.not, label %.loopexit190, label %.preheader189, !llvm.loop !20
 
 .loopexit190:                                     ; preds = %595, %551
   store i32 %340, ptr %7, align 16, !tbaa !11
@@ -867,8 +867,8 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 624:                                              ; preds = %599, %603
   %625 = add nuw nsw i64 %.11207, 1
-  %exitcond222.not = icmp eq i64 %625, 5
-  br i1 %exitcond222.not, label %.preheader188, label %599, !llvm.loop !21
+  %exitcond224.not = icmp eq i64 %625, 5
+  br i1 %exitcond224.not, label %.preheader188, label %599, !llvm.loop !21
 
 .preheader188:                                    ; preds = %624, %633
   %.12208 = phi i64 [ %634, %633 ], [ 0, %624 ]
@@ -887,8 +887,8 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 633:                                              ; preds = %.preheader188, %628
   %634 = add nuw nsw i64 %.12208, 1
-  %exitcond223.not = icmp eq i64 %634, 20
-  br i1 %exitcond223.not, label %635, label %.preheader188, !llvm.loop !22
+  %exitcond225.not = icmp eq i64 %634, 20
+  br i1 %exitcond225.not, label %635, label %.preheader188, !llvm.loop !22
 
 635:                                              ; preds = %633
   br i1 %342, label %636, label %.loopexit187
@@ -946,8 +946,8 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 670:                                              ; preds = %645, %649
   %671 = add nuw nsw i64 %.13209, 1
-  %exitcond224.not = icmp eq i64 %671, 5
-  br i1 %exitcond224.not, label %.preheader, label %645, !llvm.loop !23
+  %exitcond226.not = icmp eq i64 %671, 5
+  br i1 %exitcond226.not, label %.preheader, label %645, !llvm.loop !23
 
 .preheader:                                       ; preds = %670, %679
   %.14210 = phi i64 [ %680, %679 ], [ 0, %670 ]
@@ -966,38 +966,38 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
 
 679:                                              ; preds = %.preheader, %674
   %680 = add nuw nsw i64 %.14210, 1
-  %exitcond225.not = icmp eq i64 %680, 20
-  br i1 %exitcond225.not, label %.loopexit187, label %.preheader, !llvm.loop !24
+  %exitcond227.not = icmp eq i64 %680, 20
+  br i1 %exitcond227.not, label %.loopexit187, label %.preheader, !llvm.loop !24
 
 .loopexit187:                                     ; preds = %679, %635
-  %681 = mul nuw nsw i32 %.0150229, 12
-  %682 = or disjoint i32 %681, 32
-  %683 = zext nneg i32 %682 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %8, i64 %683
-  br label %684
+  %681 = mul nuw nsw i32 %.0150231, 12
+  %682 = zext nneg i32 %681 to i64
+  %invariant.gep = getelementptr inbounds nuw i32, ptr %8, i64 %682
+  %invariant.gep212 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 128
+  br label %683
 
-684:                                              ; preds = %.loopexit187, %691
-  %.15211 = phi i64 [ 0, %.loopexit187 ], [ %692, %691 ]
-  %685 = getelementptr inbounds nuw [2 x [20 x i8]], ptr @transposes, i64 0, i64 %511, i64 %.15211
-  %686 = load i8, ptr %685, align 1, !tbaa !8
-  %.not = icmp eq i8 %686, -1
-  br i1 %.not, label %691, label %687
+683:                                              ; preds = %.loopexit187, %690
+  %.15211 = phi i64 [ 0, %.loopexit187 ], [ %691, %690 ]
+  %684 = getelementptr inbounds nuw [2 x [20 x i8]], ptr @transposes, i64 0, i64 %511, i64 %.15211
+  %685 = load i8, ptr %684, align 1, !tbaa !8
+  %.not = icmp eq i8 %685, -1
+  br i1 %.not, label %690, label %686
 
-687:                                              ; preds = %684
-  %688 = sext i8 %686 to i64
-  %689 = getelementptr inbounds i32, ptr %8, i64 %688
-  %690 = load i32, ptr %689, align 4, !tbaa !11
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %.15211
-  store i32 %690, ptr %gep, align 4, !tbaa !11
-  br label %691
+686:                                              ; preds = %683
+  %687 = sext i8 %685 to i64
+  %688 = getelementptr inbounds i32, ptr %8, i64 %687
+  %689 = load i32, ptr %688, align 4, !tbaa !11
+  %gep213 = getelementptr inbounds nuw i32, ptr %invariant.gep212, i64 %.15211
+  store i32 %689, ptr %gep213, align 4, !tbaa !11
+  br label %690
 
-691:                                              ; preds = %684, %687
-  %692 = add nuw nsw i64 %.15211, 1
-  %exitcond226.not = icmp eq i64 %692, 20
-  br i1 %exitcond226.not, label %.loopexit, label %684, !llvm.loop !25
+690:                                              ; preds = %683, %686
+  %691 = add nuw nsw i64 %.15211, 1
+  %exitcond228.not = icmp eq i64 %691, 20
+  br i1 %exitcond228.not, label %.loopexit, label %683, !llvm.loop !25
 
-.loopexit:                                        ; preds = %691, %3
-  %.0 = phi i32 [ -36, %3 ], [ 0, %691 ]
+.loopexit:                                        ; preds = %690, %3
+  %.0 = phi i32 [ -36, %3 ], [ 0, %690 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #12

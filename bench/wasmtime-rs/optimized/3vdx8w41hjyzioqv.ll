@@ -25266,95 +25266,95 @@ define void @_ZN8wasmtime7runtime6module6Module18resources_required17hd83b83b907
   %24 = ptrtoint ptr %.sink.i.ph.i.i to i64
   %25 = sub nuw i64 %23, %24
   %26 = lshr exact i64 %25, 6
+  %invariant.gep.i = getelementptr i8, ptr %.0.ph.i.ph.i.i, i64 80
   br label %27
 
 27:                                               ; preds = %27, %22
   %.017.i.i.i.i = phi i64 [ %.val.i.i, %22 ], [ %.0.sroa.speculated.i.i.i.i.i.i.i, %27 ]
-  %.016.i.i.i.i = phi i64 [ 0, %22 ], [ %29, %27 ]
+  %.016.i.i.i.i = phi i64 [ 0, %22 ], [ %28, %27 ]
   %.idx.i = shl i64 %.016.i.i.i.i, 6
-  %.offs.i = or disjoint i64 %.idx.i, 16
-  %28 = getelementptr i8, ptr %.sink.i.ph.i.i, i64 %.offs.i
-  %.val.i.i.i.i = load i64, ptr %28, align 8, !noalias !5807, !noundef !4
+  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i
+  %.val.i.i.i.i = load i64, ptr %gep.i, align 8, !noalias !5807, !noundef !4
   %.0.sroa.speculated.i.i.i.i.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.017.i.i.i.i, i64 %.val.i.i.i.i)
-  %29 = add nuw i64 %.016.i.i.i.i, 1
-  %30 = icmp eq i64 %29, %26
-  br i1 %30, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h746632c3fbd36fbbE.exit, label %27
+  %28 = add nuw i64 %.016.i.i.i.i, 1
+  %29 = icmp eq i64 %28, %26
+  br i1 %29, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h746632c3fbd36fbbE.exit, label %27
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h746632c3fbd36fbbE.exit: ; preds = %27, %18, %16, %._crit_edge.i.i.i
   %.sroa.3.0.i = phi i64 [ %.val.i.i, %._crit_edge.i.i.i ], [ undef, %16 ], [ undef, %18 ], [ %.0.sroa.speculated.i.i.i.i.i.i.i, %27 ]
   %.sroa.0.0.i = phi i64 [ 1, %._crit_edge.i.i.i ], [ 0, %16 ], [ 0, %18 ], [ 1, %27 ]
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 280
-  %32 = load i64, ptr %31, align 8, !noundef !4
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 448
-  %34 = load i64, ptr %33, align 8, !noundef !4
-  %35 = sub i64 %32, %34
-  %36 = icmp ugt i64 %35, 4294967295
-  br i1 %36, label %.split11, label %.split13
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 280
+  %31 = load i64, ptr %30, align 8, !noundef !4
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 448
+  %33 = load i64, ptr %32, align 8, !noundef !4
+  %34 = sub i64 %31, %33
+  %35 = icmp ugt i64 %34, 4294967295
+  br i1 %35, label %.split11, label %.split13
 
 .split13:                                         ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h746632c3fbd36fbbE.exit
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 272
-  %38 = load ptr, ptr %37, align 8, !alias.scope !5812, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }, ptr %38, i64 %32
-  %.not.i.i.i17 = icmp eq i64 %34, 0
-  br i1 %.not.i.i.i17, label %40, label %42
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 272
+  %37 = load ptr, ptr %36, align 8, !alias.scope !5812, !nonnull !4, !noundef !4
+  %38 = getelementptr inbounds { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }, ptr %37, i64 %31
+  %.not.i.i.i17 = icmp eq i64 %33, 0
+  br i1 %.not.i.i.i17, label %39, label %41
 
 .split11:                                         ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h746632c3fbd36fbbE.exit
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   call void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.6c5507757c8b1c864a673afc90c467c5.88.llvm.3458943816331328394, i64 noundef 43, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c5507757c8b1c864a673afc90c467c5.91.llvm.3458943816331328394, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6c5507757c8b1c864a673afc90c467c5.343) #54
   unreachable
 
-40:                                               ; preds = %.split13
-  %41 = icmp eq i64 %32, 0
-  br i1 %41, label %_ZN4core4iter6traits8iterator8Iterator6reduce17ha75c34659af08e6cE.exit, label %._crit_edge.i.i.i21
+39:                                               ; preds = %.split13
+  %40 = icmp eq i64 %31, 0
+  br i1 %40, label %_ZN4core4iter6traits8iterator8Iterator6reduce17ha75c34659af08e6cE.exit, label %._crit_edge.i.i.i21
 
-42:                                               ; preds = %.split13
-  %.not.i.i.i.i18 = icmp ult i64 %34, %32
-  %43 = getelementptr inbounds nuw { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }, ptr %38, i64 %34
+41:                                               ; preds = %.split13
+  %.not.i.i.i.i18 = icmp ult i64 %33, %31
+  %42 = getelementptr inbounds nuw { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }, ptr %37, i64 %33
   br i1 %.not.i.i.i.i18, label %._crit_edge.i.i.i21, label %_ZN4core4iter6traits8iterator8Iterator6reduce17ha75c34659af08e6cE.exit
 
-._crit_edge.i.i.i21:                              ; preds = %42, %40
-  %.0.ph.i.ph.i.i23 = phi ptr [ %43, %42 ], [ %38, %40 ]
+._crit_edge.i.i.i21:                              ; preds = %41, %39
+  %.0.ph.i.ph.i.i23 = phi ptr [ %42, %41 ], [ %37, %39 ]
   %.sink.i.ph.i.i24 = getelementptr inbounds nuw i8, ptr %.0.ph.i.ph.i.i23, i64 24
-  %44 = getelementptr i8, ptr %.0.ph.i.ph.i.i23, i64 20
-  %.val.i.i25 = load i32, ptr %44, align 4, !noalias !5815, !noundef !4
-  %45 = icmp eq ptr %.sink.i.ph.i.i24, %39
-  br i1 %45, label %_ZN4core4iter6traits8iterator8Iterator6reduce17ha75c34659af08e6cE.exit, label %46
+  %43 = getelementptr i8, ptr %.0.ph.i.ph.i.i23, i64 20
+  %.val.i.i25 = load i32, ptr %43, align 4, !noalias !5815, !noundef !4
+  %44 = icmp eq ptr %.sink.i.ph.i.i24, %38
+  br i1 %44, label %_ZN4core4iter6traits8iterator8Iterator6reduce17ha75c34659af08e6cE.exit, label %45
 
-46:                                               ; preds = %._crit_edge.i.i.i21
-  %47 = ptrtoint ptr %39 to i64
-  %48 = ptrtoint ptr %.sink.i.ph.i.i24 to i64
-  %49 = sub nuw i64 %47, %48
-  %50 = udiv exact i64 %49, 24
-  %invariant.gep.i = getelementptr i8, ptr %.0.ph.i.ph.i.i23, i64 44
-  br label %51
+45:                                               ; preds = %._crit_edge.i.i.i21
+  %46 = ptrtoint ptr %38 to i64
+  %47 = ptrtoint ptr %.sink.i.ph.i.i24 to i64
+  %48 = sub nuw i64 %46, %47
+  %49 = udiv exact i64 %48, 24
+  %invariant.gep.i26 = getelementptr i8, ptr %.0.ph.i.ph.i.i23, i64 44
+  br label %50
 
-51:                                               ; preds = %51, %46
-  %.018.i.i.i.i = phi i32 [ %.val.i.i25, %46 ], [ %.0.sroa.speculated.i.i.i.i.i.i.i29, %51 ]
-  %.017.i.i.i.i26 = phi i64 [ 0, %46 ], [ %52, %51 ]
-  %.idx.i27 = mul i64 %.017.i.i.i.i26, 24
-  %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.idx.i27
-  %.val.i.i.i.i28 = load i32, ptr %gep.i, align 4, !noalias !5820, !noundef !4
-  %.0.sroa.speculated.i.i.i.i.i.i.i29 = tail call noundef i32 @llvm.umax.i32(i32 %.018.i.i.i.i, i32 %.val.i.i.i.i28)
-  %52 = add nuw i64 %.017.i.i.i.i26, 1
-  %53 = icmp eq i64 %52, %50
-  br i1 %53, label %_ZN4core4iter6traits8iterator8Iterator6reduce17ha75c34659af08e6cE.exit, label %51
+50:                                               ; preds = %50, %45
+  %.018.i.i.i.i = phi i32 [ %.val.i.i25, %45 ], [ %.0.sroa.speculated.i.i.i.i.i.i.i31, %50 ]
+  %.017.i.i.i.i27 = phi i64 [ 0, %45 ], [ %51, %50 ]
+  %.idx.i28 = mul i64 %.017.i.i.i.i27, 24
+  %gep.i29 = getelementptr i8, ptr %invariant.gep.i26, i64 %.idx.i28
+  %.val.i.i.i.i30 = load i32, ptr %gep.i29, align 4, !noalias !5820, !noundef !4
+  %.0.sroa.speculated.i.i.i.i.i.i.i31 = tail call noundef i32 @llvm.umax.i32(i32 %.018.i.i.i.i, i32 %.val.i.i.i.i30)
+  %51 = add nuw i64 %.017.i.i.i.i27, 1
+  %52 = icmp eq i64 %51, %49
+  br i1 %52, label %_ZN4core4iter6traits8iterator8Iterator6reduce17ha75c34659af08e6cE.exit, label %50
 
-_ZN4core4iter6traits8iterator8Iterator6reduce17ha75c34659af08e6cE.exit: ; preds = %51, %42, %40, %._crit_edge.i.i.i21
-  %.sroa.3.0.i19 = phi i32 [ %.val.i.i25, %._crit_edge.i.i.i21 ], [ undef, %40 ], [ undef, %42 ], [ %.0.sroa.speculated.i.i.i.i.i.i.i29, %51 ]
-  %.sroa.0.0.i20 = phi i32 [ 1, %._crit_edge.i.i.i21 ], [ 0, %40 ], [ 0, %42 ], [ 1, %51 ]
-  %54 = trunc nuw i64 %35 to i32
-  %55 = trunc nuw i64 %11 to i32
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %55, ptr %56, align 8
+_ZN4core4iter6traits8iterator8Iterator6reduce17ha75c34659af08e6cE.exit: ; preds = %50, %41, %39, %._crit_edge.i.i.i21
+  %.sroa.3.0.i19 = phi i32 [ %.val.i.i25, %._crit_edge.i.i.i21 ], [ undef, %39 ], [ undef, %41 ], [ %.0.sroa.speculated.i.i.i.i.i.i.i31, %50 ]
+  %.sroa.0.0.i20 = phi i32 [ 1, %._crit_edge.i.i.i21 ], [ 0, %39 ], [ 0, %41 ], [ 1, %50 ]
+  %53 = trunc nuw i64 %34 to i32
+  %54 = trunc nuw i64 %11 to i32
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %54, ptr %55, align 8
   store i64 %.sroa.0.0.i, ptr %0, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.3.0.i, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %54, ptr %58, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sroa.0.0.i20, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sroa.3.0.i19, ptr %60, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.3.0.i, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %53, ptr %57, align 4
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sroa.0.0.i20, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.sroa.3.0.i19, ptr %59, align 4
   ret void
 }
 

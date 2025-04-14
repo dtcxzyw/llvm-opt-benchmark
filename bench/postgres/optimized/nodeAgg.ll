@@ -5483,121 +5483,121 @@ define internal fastcc void @initialize_hash_entry(ptr noundef %0, ptr noundef r
   %.0.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 %.0.idx.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
   %34 = shl nuw nsw i8 %27, 4
-  %35 = or disjoint i8 %34, 8
-  %.offs.i.i = zext nneg i8 %35 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.offs.i.i
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %39, label %hashagg_recompile_expressions.exit.i.i
+  %35 = zext nneg i8 %34 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %hashagg_recompile_expressions.exit.i.i
 
-39:                                               ; preds = %.critedge.i
-  %40 = trunc nuw i8 %27 to i1
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 193
-  %44 = load i8, ptr %43, align 1, !range !6, !noundef !7
-  %45 = icmp ne i32 %29, 3
-  %or.cond.i.i.i = or i1 %45, %40
+40:                                               ; preds = %.critedge.i
+  %41 = trunc nuw i8 %27 to i1
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 193
+  %45 = load i8, ptr %44, align 1, !range !6, !noundef !7
+  %46 = icmp ne i32 %29, 3
+  %or.cond.i.i.i = or i1 %46, %41
   %not.or.cond.i.i.i = xor i1 %or.cond.i.i.i, true
-  br i1 %40, label %46, label %47
+  br i1 %41, label %47, label %48
 
-46:                                               ; preds = %39
-  store ptr @TTSOpsMinimalTuple, ptr %41, align 8
-  store i8 1, ptr %43, align 1
-  br label %47
+47:                                               ; preds = %40
+  store ptr @TTSOpsMinimalTuple, ptr %42, align 8
+  store i8 1, ptr %44, align 1
+  br label %48
 
-47:                                               ; preds = %46, %39
-  %48 = tail call ptr @ExecBuildAggTrans(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i.i, i1 noundef zeroext %not.or.cond.i.i.i, i1 noundef zeroext true, i1 noundef zeroext true) #12
-  store ptr %48, ptr %36, align 8
-  store ptr %42, ptr %41, align 8
-  store i8 %44, ptr %43, align 1
-  %.pre.i.i.i = load ptr, ptr %36, align 8
+48:                                               ; preds = %47, %40
+  %49 = tail call ptr @ExecBuildAggTrans(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i.i, i1 noundef zeroext %not.or.cond.i.i.i, i1 noundef zeroext true, i1 noundef zeroext true) #12
+  store ptr %49, ptr %37, align 8
+  store ptr %43, ptr %42, align 8
+  store i8 %45, ptr %44, align 1
+  %.pre.i.i.i = load ptr, ptr %37, align 8
   br label %hashagg_recompile_expressions.exit.i.i
 
-hashagg_recompile_expressions.exit.i.i:           ; preds = %47, %.critedge.i
-  %49 = phi ptr [ %.pre.i.i.i, %47 ], [ %37, %.critedge.i ]
-  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
-  store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %52 = load i8, ptr %51, align 8, !range !6, !noundef !7
-  %53 = trunc nuw i8 %52 to i1
-  br i1 %53, label %hash_agg_check_limits.exit, label %54
+hashagg_recompile_expressions.exit.i.i:           ; preds = %48, %.critedge.i
+  %50 = phi ptr [ %.pre.i.i.i, %48 ], [ %38, %.critedge.i ]
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
+  store ptr %50, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %53 = load i8, ptr %52, align 8, !range !6, !noundef !7
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %hash_agg_check_limits.exit, label %55
 
-54:                                               ; preds = %hashagg_recompile_expressions.exit.i.i
-  store i8 1, ptr %51, align 8
-  %55 = tail call ptr @LogicalTapeSetCreate(i1 noundef zeroext true, ptr noundef null, i32 noundef -1) #12
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 436
-  %58 = load i32, ptr %57, align 4
-  %59 = sext i32 %58 to i64
-  %60 = mul nsw i64 %59, 40
-  %61 = tail call ptr @palloc(i64 noundef %60) #12
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store ptr %61, ptr %62, align 8
-  %63 = load i32, ptr %57, align 4
-  %64 = icmp sgt i32 %63, 0
-  br i1 %64, label %.lr.ph.i.i, label %hash_agg_check_limits.exit
+55:                                               ; preds = %hashagg_recompile_expressions.exit.i.i
+  store i8 1, ptr %52, align 8
+  %56 = tail call ptr @LogicalTapeSetCreate(i1 noundef zeroext true, ptr noundef null, i32 noundef -1) #12
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  store ptr %56, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 436
+  %59 = load i32, ptr %58, align 4
+  %60 = sext i32 %59 to i64
+  %61 = mul nsw i64 %60, 40
+  %62 = tail call ptr @palloc(i64 noundef %61) #12
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  store ptr %62, ptr %63, align 8
+  %64 = load i32, ptr %58, align 4
+  %65 = icmp sgt i32 %64, 0
+  br i1 %65, label %.lr.ph.i.i, label %hash_agg_check_limits.exit
 
-.lr.ph.i.i:                                       ; preds = %54
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  br label %67
+.lr.ph.i.i:                                       ; preds = %55
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  br label %68
 
-67:                                               ; preds = %67, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %67 ]
-  %68 = load ptr, ptr %65, align 8
-  %69 = load ptr, ptr %62, align 8
-  %70 = getelementptr inbounds nuw %struct.HashAggSpill, ptr %69, i64 %indvars.iv.i.i
-  %71 = load ptr, ptr %56, align 8
-  %72 = getelementptr inbounds nuw %struct.AggStatePerHashData, ptr %68, i64 %indvars.iv.i.i, i32 10
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 144
-  %75 = load i64, ptr %74, align 8
-  %76 = sitofp i64 %75 to double
-  %77 = load double, ptr %66, align 8
-  tail call fastcc void @hashagg_spill_init(ptr noundef %70, ptr noundef %71, i32 noundef 0, double noundef %76, double noundef %77)
+68:                                               ; preds = %68, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %68 ]
+  %69 = load ptr, ptr %66, align 8
+  %70 = load ptr, ptr %63, align 8
+  %71 = getelementptr inbounds nuw %struct.HashAggSpill, ptr %70, i64 %indvars.iv.i.i
+  %72 = load ptr, ptr %57, align 8
+  %73 = getelementptr inbounds nuw %struct.AggStatePerHashData, ptr %69, i64 %indvars.iv.i.i, i32 10
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 144
+  %76 = load i64, ptr %75, align 8
+  %77 = sitofp i64 %76 to double
+  %78 = load double, ptr %67, align 8
+  tail call fastcc void @hashagg_spill_init(ptr noundef %71, ptr noundef %72, i32 noundef 0, double noundef %77, double noundef %78)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %78 = load i32, ptr %57, align 4
-  %79 = sext i32 %78 to i64
-  %80 = icmp slt i64 %indvars.iv.next.i.i, %79
-  br i1 %80, label %67, label %hash_agg_check_limits.exit, !llvm.loop !44
+  %79 = load i32, ptr %58, align 4
+  %80 = sext i32 %79 to i64
+  %81 = icmp slt i64 %indvars.iv.next.i.i, %80
+  br i1 %81, label %68, label %hash_agg_check_limits.exit, !llvm.loop !44
 
-hash_agg_check_limits.exit:                       ; preds = %67, %3, %21, %hashagg_recompile_expressions.exit.i.i, %54
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %82 = load i32, ptr %81, align 4
-  %83 = icmp eq i32 %82, 0
-  br i1 %83, label %.loopexit, label %84
+hash_agg_check_limits.exit:                       ; preds = %68, %3, %21, %hashagg_recompile_expressions.exit.i.i, %55
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %.loopexit, label %85
 
-84:                                               ; preds = %hash_agg_check_limits.exit
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %86 = load ptr, ptr %85, align 8
-  %87 = sext i32 %82 to i64
-  %88 = shl nsw i64 %87, 4
-  %89 = tail call ptr @MemoryContextAlloc(ptr noundef %86, i64 noundef %88) #12
-  %90 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %89, ptr %90, align 8
-  %91 = load i32, ptr %81, align 4
-  %92 = icmp sgt i32 %91, 0
-  br i1 %92, label %.lr.ph, label %.loopexit
+85:                                               ; preds = %hash_agg_check_limits.exit
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %87 = load ptr, ptr %86, align 8
+  %88 = sext i32 %83 to i64
+  %89 = shl nsw i64 %88, 4
+  %90 = tail call ptr @MemoryContextAlloc(ptr noundef %87, i64 noundef %89) #12
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %90, ptr %91, align 8
+  %92 = load i32, ptr %82, align 4
+  %93 = icmp sgt i32 %92, 0
+  br i1 %93, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %84
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  br label %94
+.lr.ph:                                           ; preds = %85
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  br label %95
 
-94:                                               ; preds = %.lr.ph, %94
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %95 = load ptr, ptr %93, align 8
-  %96 = getelementptr inbounds nuw %struct.AggStatePerTransData, ptr %95, i64 %indvars.iv
-  %97 = getelementptr inbounds nuw %struct.AggStatePerGroupData, ptr %89, i64 %indvars.iv
-  tail call fastcc void @initialize_aggregate(ptr noundef nonnull %0, ptr noundef %96, ptr noundef %97)
+95:                                               ; preds = %.lr.ph, %95
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
+  %96 = load ptr, ptr %94, align 8
+  %97 = getelementptr inbounds nuw %struct.AggStatePerTransData, ptr %96, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw %struct.AggStatePerGroupData, ptr %90, i64 %indvars.iv
+  tail call fastcc void @initialize_aggregate(ptr noundef nonnull %0, ptr noundef %97, ptr noundef %98)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = load i32, ptr %81, align 4
-  %99 = sext i32 %98 to i64
-  %100 = icmp slt i64 %indvars.iv.next, %99
-  br i1 %100, label %94, label %.loopexit, !llvm.loop !45
+  %99 = load i32, ptr %82, align 4
+  %100 = sext i32 %99 to i64
+  %101 = icmp slt i64 %indvars.iv.next, %100
+  br i1 %101, label %95, label %.loopexit, !llvm.loop !45
 
-.loopexit:                                        ; preds = %94, %84, %hash_agg_check_limits.exit
+.loopexit:                                        ; preds = %95, %85, %hash_agg_check_limits.exit
   ret void
 }
 

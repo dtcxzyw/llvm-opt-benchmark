@@ -2925,7 +2925,7 @@ define i32 @Gia_ManHashAndMulti(ptr noundef %0, ptr noundef captures(none) %1) l
   %3 = getelementptr i8, ptr %1, i64 4
   %.val27 = load i32, ptr %3, align 4, !tbaa !3
   %4 = icmp eq i32 %.val27, 0
-  br i1 %4, label %31, label %.preheader35
+  br i1 %4, label %30, label %.preheader35
 
 .preheader35:                                     ; preds = %2
   %5 = icmp sgt i32 %.val27, 1
@@ -2935,7 +2935,7 @@ define i32 @Gia_ManHashAndMulti(ptr noundef %0, ptr noundef captures(none) %1) l
   %6 = getelementptr i8, ptr %1, i64 8
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %27, %.preheader.lr.ph
+.lr.ph.preheader:                                 ; preds = %26, %.preheader.lr.ph
   %.val30.pre = load ptr, ptr %6, align 8, !tbaa !10
   br label %.lr.ph
 
@@ -2943,55 +2943,54 @@ define i32 @Gia_ManHashAndMulti(ptr noundef %0, ptr noundef captures(none) %1) l
   %.val30 = phi ptr [ %.val30.pre, %.lr.ph.preheader ], [ %.val32, %.lr.ph ]
   %indvars.iv41 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next42, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = or disjoint i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw i32, ptr %.val30, i64 %indvars.iv
-  %9 = load i32, ptr %8, align 4, !tbaa !11
-  %10 = getelementptr inbounds nuw i32, ptr %.val30, i64 %7
-  %11 = load i32, ptr %10, align 4, !tbaa !11
-  %12 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %9, i32 noundef %11)
+  %7 = getelementptr inbounds nuw i32, ptr %.val30, i64 %indvars.iv
+  %8 = load i32, ptr %7, align 4, !tbaa !11
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %10 = load i32, ptr %9, align 4, !tbaa !11
+  %11 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %8, i32 noundef %10)
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %.val32 = load ptr, ptr %6, align 8, !tbaa !10
-  %13 = getelementptr inbounds nuw i32, ptr %.val32, i64 %indvars.iv41
-  store i32 %12, ptr %13, align 4, !tbaa !11
+  %12 = getelementptr inbounds nuw i32, ptr %.val32, i64 %indvars.iv41
+  store i32 %11, ptr %12, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val25 = load i32, ptr %3, align 4, !tbaa !3
-  %14 = trunc i64 %indvars.iv.next to i32
-  %15 = or disjoint i32 %14, 1
-  %16 = icmp slt i32 %15, %.val25
-  br i1 %16, label %.lr.ph, label %.critedge, !llvm.loop !63
+  %13 = trunc i64 %indvars.iv.next to i32
+  %14 = or disjoint i32 %13, 1
+  %15 = icmp slt i32 %14, %.val25
+  br i1 %15, label %.lr.ph, label %.critedge, !llvm.loop !63
 
 .critedge:                                        ; preds = %.lr.ph
-  %17 = trunc nuw i64 %indvars.iv.next42 to i32
-  %18 = and i32 %.val25, 1
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %27, label %19
+  %16 = trunc nuw i64 %indvars.iv.next42 to i32
+  %17 = and i32 %.val25, 1
+  %.not = icmp eq i32 %17, 0
+  br i1 %.not, label %26, label %18
 
-19:                                               ; preds = %.critedge
-  %20 = add nuw nsw i32 %17, 1
+18:                                               ; preds = %.critedge
+  %19 = add nuw nsw i32 %16, 1
   %.val34 = load ptr, ptr %6, align 8, !tbaa !10
-  %21 = sext i32 %.val25 to i64
-  %22 = getelementptr i32, ptr %.val34, i64 %21
-  %23 = getelementptr i8, ptr %22, i64 -4
-  %24 = load i32, ptr %23, align 4, !tbaa !11
-  %25 = and i64 %indvars.iv.next42, 4294967295
-  %26 = getelementptr inbounds nuw i32, ptr %.val34, i64 %25
-  store i32 %24, ptr %26, align 4, !tbaa !11
-  br label %27
+  %20 = sext i32 %.val25 to i64
+  %21 = getelementptr i32, ptr %.val34, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 -4
+  %23 = load i32, ptr %22, align 4, !tbaa !11
+  %24 = and i64 %indvars.iv.next42, 4294967295
+  %25 = getelementptr inbounds nuw i32, ptr %.val34, i64 %24
+  store i32 %23, ptr %25, align 4, !tbaa !11
+  br label %26
 
-27:                                               ; preds = %19, %.critedge
-  %.1 = phi i32 [ %20, %19 ], [ %17, %.critedge ]
+26:                                               ; preds = %18, %.critedge
+  %.1 = phi i32 [ %19, %18 ], [ %16, %.critedge ]
   store i32 %.1, ptr %3, align 4, !tbaa !3
-  %28 = icmp sgt i32 %.1, 1
-  br i1 %28, label %.lr.ph.preheader, label %._crit_edge, !llvm.loop !64
+  %27 = icmp sgt i32 %.1, 1
+  br i1 %27, label %.lr.ph.preheader, label %._crit_edge, !llvm.loop !64
 
-._crit_edge:                                      ; preds = %27, %.preheader35
-  %29 = getelementptr i8, ptr %1, i64 8
-  %.val28 = load ptr, ptr %29, align 8, !tbaa !10
-  %30 = load i32, ptr %.val28, align 4, !tbaa !11
-  br label %31
+._crit_edge:                                      ; preds = %26, %.preheader35
+  %28 = getelementptr i8, ptr %1, i64 8
+  %.val28 = load ptr, ptr %28, align 8, !tbaa !10
+  %29 = load i32, ptr %.val28, align 4, !tbaa !11
+  br label %30
 
-31:                                               ; preds = %2, %._crit_edge
-  %.0 = phi i32 [ %30, %._crit_edge ], [ 0, %2 ]
+30:                                               ; preds = %2, %._crit_edge
+  %.0 = phi i32 [ %29, %._crit_edge ], [ 0, %2 ]
   ret i32 %.0
 }
 
@@ -3037,29 +3036,28 @@ define i32 @Gia_ManHashDualMiter(ptr noundef %0, ptr noundef readonly captures(n
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %.018 = phi i32 [ 1, %.lr.ph ], [ %14, %6 ]
-  %7 = or disjoint i64 %indvars.iv, 1
+  %.018 = phi i32 [ 1, %.lr.ph ], [ %13, %6 ]
   %.val15 = load ptr, ptr %5, align 8, !tbaa !10
-  %8 = getelementptr inbounds nuw i32, ptr %.val15, i64 %indvars.iv
-  %9 = load i32, ptr %8, align 4, !tbaa !11
-  %10 = getelementptr inbounds nuw i32, ptr %.val15, i64 %7
-  %11 = load i32, ptr %10, align 4, !tbaa !11
-  %12 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %9, i32 noundef %11)
-  %13 = xor i32 %12, 1
-  %14 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.018, i32 noundef %13)
+  %7 = getelementptr inbounds nuw i32, ptr %.val15, i64 %indvars.iv
+  %8 = load i32, ptr %7, align 4, !tbaa !11
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %10 = load i32, ptr %9, align 4, !tbaa !11
+  %11 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %8, i32 noundef %10)
+  %12 = xor i32 %11, 1
+  %13 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.018, i32 noundef %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %.val = load i32, ptr %3, align 4, !tbaa !3
-  %15 = trunc i64 %indvars.iv.next to i32
-  %16 = or disjoint i32 %15, 1
-  %17 = icmp slt i32 %16, %.val
-  br i1 %17, label %6, label %.critedge.loopexit, !llvm.loop !66
+  %14 = trunc i64 %indvars.iv.next to i32
+  %15 = or disjoint i32 %14, 1
+  %16 = icmp slt i32 %15, %.val
+  br i1 %16, label %6, label %.critedge.loopexit, !llvm.loop !66
 
 .critedge.loopexit:                               ; preds = %6
-  %18 = xor i32 %14, 1
+  %17 = xor i32 %13, 1
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %18, %.critedge.loopexit ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %17, %.critedge.loopexit ]
   ret i32 %.0.lcssa
 }
 

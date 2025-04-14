@@ -2991,8 +2991,8 @@ define void @_Z26diagonalize_orires_tensorsP12t_oriresdata(ptr noundef %0) local
   br i1 %exitcond113.not, label %.loopexit, label %129, !llvm.loop !297
 
 .preheader86:                                     ; preds = %146
-  %144 = or disjoint i64 %125, 3
-  %145 = getelementptr inbounds nuw float, ptr %126, i64 %144
+  %144 = getelementptr inbounds nuw float, ptr %126, i64 %125
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 12
   br label %.preheader
 
 146:                                              ; preds = %.preheader87, %146

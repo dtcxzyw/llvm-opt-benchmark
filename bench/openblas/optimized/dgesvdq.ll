@@ -1275,10 +1275,10 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %593, ptr %23, align 4, !tbaa !3
   store i32 %593, ptr %24, align 4, !tbaa !3
   %594 = shl i32 %36, 1
-  %595 = or disjoint i32 %594, 1
-  %596 = sext i32 %595 to i64
-  %597 = getelementptr inbounds double, ptr %38, i64 %596
-  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef nonnull %597, ptr noundef nonnull %11) #6
+  %595 = sext i32 %594 to i64
+  %596 = getelementptr double, ptr %38, i64 %595
+  %597 = getelementptr i8, ptr %596, i64 8
+  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef %597, ptr noundef nonnull %11) #6
   br label %598
 
 598:                                              ; preds = %.thread2438, %592, %591
@@ -1508,10 +1508,10 @@ define void @dgesvdq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   store i32 %692, ptr %23, align 4, !tbaa !3
   store i32 %692, ptr %24, align 4, !tbaa !3
   %693 = shl i32 %39, 1
-  %694 = or disjoint i32 %693, 1
-  %695 = sext i32 %694 to i64
-  %696 = getelementptr inbounds double, ptr %41, i64 %695
-  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef nonnull %696, ptr noundef nonnull %13) #6
+  %694 = sext i32 %693 to i64
+  %695 = getelementptr double, ptr %41, i64 %694
+  %696 = getelementptr i8, ptr %695, i64 8
+  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef %696, ptr noundef nonnull %13) #6
   br label %697
 
 697:                                              ; preds = %.thread2440, %691, %690
@@ -1832,10 +1832,10 @@ thread-pre-split1920:                             ; preds = %785, %786
   store i32 %802, ptr %23, align 4, !tbaa !3
   store i32 %802, ptr %24, align 4, !tbaa !3
   %803 = shl i32 %39, 1
-  %804 = or disjoint i32 %803, 1
-  %805 = sext i32 %804 to i64
-  %806 = getelementptr inbounds double, ptr %41, i64 %805
-  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef nonnull %806, ptr noundef nonnull %13) #6
+  %804 = sext i32 %803 to i64
+  %805 = getelementptr double, ptr %41, i64 %804
+  %806 = getelementptr i8, ptr %805, i64 8
+  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef %806, ptr noundef nonnull %13) #6
   br label %807
 
 807:                                              ; preds = %.thread2445, %801, %800
@@ -2085,10 +2085,10 @@ thread-pre-split1920:                             ; preds = %785, %786
   store i32 %876, ptr %23, align 4, !tbaa !3
   store i32 %876, ptr %24, align 4, !tbaa !3
   %877 = shl i32 %39, 1
-  %878 = or disjoint i32 %877, 1
-  %879 = sext i32 %878 to i64
-  %880 = getelementptr inbounds double, ptr %41, i64 %879
-  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef nonnull %880, ptr noundef nonnull %13) #6
+  %878 = sext i32 %877 to i64
+  %879 = getelementptr double, ptr %41, i64 %878
+  %880 = getelementptr i8, ptr %879, i64 8
+  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef %880, ptr noundef nonnull %13) #6
   %.pre2432 = load i32, ptr %6, align 4, !tbaa !3
   %.pre2433 = load i32, ptr %30, align 4, !tbaa !3
   br label %881
@@ -2376,10 +2376,10 @@ thread-pre-split1920:                             ; preds = %785, %786
   store i32 %981, ptr %23, align 4, !tbaa !3
   store i32 %981, ptr %24, align 4, !tbaa !3
   %982 = shl i32 %39, 1
-  %983 = or disjoint i32 %982, 1
-  %984 = sext i32 %983 to i64
-  %985 = getelementptr inbounds double, ptr %41, i64 %984
-  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef nonnull %985, ptr noundef nonnull %13) #6
+  %983 = sext i32 %982 to i64
+  %984 = getelementptr double, ptr %41, i64 %983
+  %985 = getelementptr i8, ptr %984, i64 8
+  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef %985, ptr noundef nonnull %13) #6
   %986 = load i32, ptr %18, align 4, !tbaa !3
   %987 = load i32, ptr %6, align 4, !tbaa !3
   %988 = load i32, ptr %30, align 4, !tbaa !3
@@ -2636,10 +2636,10 @@ thread-pre-split1920:                             ; preds = %785, %786
   store i32 %1154, ptr %23, align 4, !tbaa !3
   store i32 %1154, ptr %24, align 4, !tbaa !3
   %1155 = shl i32 %39, 1
-  %1156 = or disjoint i32 %1155, 1
-  %1157 = sext i32 %1156 to i64
-  %1158 = getelementptr inbounds double, ptr %41, i64 %1157
-  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef nonnull %1158, ptr noundef nonnull %13) #6
+  %1156 = sext i32 %1155 to i64
+  %1157 = getelementptr double, ptr %41, i64 %1156
+  %1158 = getelementptr i8, ptr %1157, i64 8
+  call void @dlaset_(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @c_b72, ptr noundef nonnull @c_b72, ptr noundef %1158, ptr noundef nonnull %13) #6
   %.pre2435 = load i32, ptr %30, align 4, !tbaa !3
   br label %1159
 

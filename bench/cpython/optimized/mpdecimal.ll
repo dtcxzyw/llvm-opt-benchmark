@@ -33087,7 +33087,7 @@ define internal fastcc void @_karatsuba_rec(ptr noundef %0, ptr noundef %1, ptr 
 
 common.ret:                                       ; preds = %6
   tail call void @_mpd_basemul(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %4, i64 noundef %5) #33
-  br label %common.ret164
+  br label %common.ret167
 
 8:                                                ; preds = %6
   %9 = add i64 %4, 1
@@ -33101,89 +33101,89 @@ common.ret:                                       ; preds = %6
   br i1 %13, label %mpd_uint_zero.exit155, label %mpd_uint_zero.exit153
 
 mpd_uint_zero.exit155:                            ; preds = %11
-  %14 = shl nuw i64 %5, 1
-  %15 = shl i64 %5, 4
-  %16 = or disjoint i64 %15, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %16, i1 false), !tbaa !3
-  %17 = or disjoint i64 %14, 1
-  %18 = getelementptr i64, ptr %1, i64 %10
-  %19 = getelementptr i64, ptr %3, i64 %17
-  tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %2, ptr noundef %18, ptr noundef %19, i64 noundef %5, i64 noundef %12)
+  %14 = shl i64 %5, 4
+  %15 = or disjoint i64 %14, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %15, i1 false), !tbaa !3
+  %16 = getelementptr i64, ptr %1, i64 %10
+  %.idx165 = shl i64 %5, 4
+  %17 = getelementptr i8, ptr %3, i64 %.idx165
+  %18 = getelementptr i8, ptr %17, i64 8
+  tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %2, ptr noundef %16, ptr noundef %18, i64 noundef %5, i64 noundef %12)
   br label %mpd_uint_zero.exit151
 
 mpd_uint_zero.exit153:                            ; preds = %11
-  %20 = shl i64 %12, 1
-  %21 = shl i64 %4, 1
-  %22 = or disjoint i64 %21, 1
-  %23 = and i64 %9, -2
-  %24 = sub i64 %22, %23
-  %25 = shl nuw i64 %24, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %25, i1 false), !tbaa !3
-  %26 = or disjoint i64 %20, 1
-  %27 = getelementptr i64, ptr %1, i64 %10
-  %28 = getelementptr i64, ptr %3, i64 %26
-  tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %27, ptr noundef %2, ptr noundef %28, i64 noundef %12, i64 noundef %5)
+  %19 = shl i64 %4, 1
+  %20 = or disjoint i64 %19, 1
+  %21 = and i64 %9, -2
+  %22 = sub i64 %20, %21
+  %23 = shl nuw i64 %22, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %23, i1 false), !tbaa !3
+  %24 = getelementptr i64, ptr %1, i64 %10
+  %.idx164 = shl i64 %12, 4
+  %25 = getelementptr i8, ptr %3, i64 %.idx164
+  %26 = getelementptr i8, ptr %25, i64 8
+  tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %24, ptr noundef %2, ptr noundef %26, i64 noundef %12, i64 noundef %5)
   br label %mpd_uint_zero.exit151
 
-common.ret164:                                    ; preds = %mpd_uint_zero.exit149, %common.ret, %mpd_uint_zero.exit151
+common.ret167:                                    ; preds = %mpd_uint_zero.exit149, %common.ret, %mpd_uint_zero.exit151
   ret void
 
 mpd_uint_zero.exit151:                            ; preds = %mpd_uint_zero.exit153, %mpd_uint_zero.exit155
-  %29 = getelementptr i64, ptr %0, i64 %10
-  %30 = add i64 %12, %5
-  tail call void @_mpd_baseaddto(ptr noundef %29, ptr noundef nonnull %3, i64 noundef %30) #33
-  %31 = or i64 %9, 1
-  %32 = shl nuw i64 %31, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %32, i1 false), !tbaa !3
-  %33 = getelementptr i64, ptr %3, i64 %31
-  tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %2, ptr noundef %33, i64 noundef %10, i64 noundef %5)
-  %34 = add nuw i64 %10, %5
-  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %34) #33
-  br label %common.ret164
+  %27 = getelementptr i64, ptr %0, i64 %10
+  %28 = add i64 %12, %5
+  tail call void @_mpd_baseaddto(ptr noundef %27, ptr noundef nonnull %3, i64 noundef %28) #33
+  %29 = or i64 %9, 1
+  %30 = shl nuw i64 %29, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %30, i1 false), !tbaa !3
+  %31 = getelementptr i64, ptr %3, i64 %29
+  tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %2, ptr noundef %31, i64 noundef %10, i64 noundef %5)
+  %32 = add nuw i64 %10, %5
+  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %32) #33
+  br label %common.ret167
 
 mpd_uint_zero.exit149:                            ; preds = %8
-  %35 = shl i64 %10, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %1, i64 %35, i1 false)
-  %36 = getelementptr i64, ptr %3, i64 %10
-  store i64 0, ptr %36, align 8, !tbaa !3
-  %37 = getelementptr i64, ptr %1, i64 %10
-  %38 = sub i64 %4, %10
-  tail call void @_mpd_baseaddto(ptr noundef %3, ptr noundef %37, i64 noundef %38) #33
-  %39 = add nuw i64 %10, 1
-  %40 = getelementptr i64, ptr %3, i64 %39
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %2, i64 %35, i1 false)
-  %41 = getelementptr i64, ptr %40, i64 %10
-  store i64 0, ptr %41, align 8, !tbaa !3
-  %42 = getelementptr i64, ptr %2, i64 %10
-  %43 = sub nuw i64 %5, %10
-  tail call void @_mpd_baseaddto(ptr noundef %40, ptr noundef %42, i64 noundef %43) #33
-  %44 = getelementptr i64, ptr %0, i64 %10
-  %.idx = shl i64 %39, 4
-  %45 = getelementptr i8, ptr %3, i64 %.idx
-  tail call fastcc void @_karatsuba_rec(ptr noundef %44, ptr noundef %3, ptr noundef %40, ptr noundef %45, i64 noundef %39, i64 noundef %39)
-  %46 = shl i64 %38, 1
-  %47 = shl i64 %4, 1
-  %48 = or disjoint i64 %47, 1
-  %49 = and i64 %9, -2
-  %50 = sub i64 %48, %49
-  %51 = shl nuw i64 %50, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %51, i1 false), !tbaa !3
-  %52 = or disjoint i64 %46, 1
-  %53 = getelementptr i64, ptr %3, i64 %52
-  tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %37, ptr noundef %42, ptr noundef %53, i64 noundef %38, i64 noundef %43)
-  %54 = and i64 %9, -2
-  %55 = getelementptr i64, ptr %0, i64 %54
-  %56 = add i64 %38, %43
-  tail call void @_mpd_baseaddto(ptr noundef %55, ptr noundef nonnull %3, i64 noundef %56) #33
-  tail call void @_mpd_basesubfrom(ptr noundef %44, ptr noundef nonnull %3, i64 noundef %56) #33
-  %57 = or i64 %9, 1
-  %58 = shl nuw i64 %57, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %58, i1 false), !tbaa !3
-  %59 = getelementptr i64, ptr %3, i64 %57
-  tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %2, ptr noundef %59, i64 noundef %10, i64 noundef %10)
-  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %54) #33
-  tail call void @_mpd_basesubfrom(ptr noundef %44, ptr noundef nonnull %3, i64 noundef %54) #33
-  br label %common.ret164
+  %33 = shl i64 %10, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %1, i64 %33, i1 false)
+  %34 = getelementptr i64, ptr %3, i64 %10
+  store i64 0, ptr %34, align 8, !tbaa !3
+  %35 = getelementptr i64, ptr %1, i64 %10
+  %36 = sub i64 %4, %10
+  tail call void @_mpd_baseaddto(ptr noundef %3, ptr noundef %35, i64 noundef %36) #33
+  %37 = add nuw i64 %10, 1
+  %38 = getelementptr i64, ptr %3, i64 %37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %38, ptr align 8 %2, i64 %33, i1 false)
+  %39 = getelementptr i64, ptr %38, i64 %10
+  store i64 0, ptr %39, align 8, !tbaa !3
+  %40 = getelementptr i64, ptr %2, i64 %10
+  %41 = sub nuw i64 %5, %10
+  tail call void @_mpd_baseaddto(ptr noundef %38, ptr noundef %40, i64 noundef %41) #33
+  %42 = getelementptr i64, ptr %0, i64 %10
+  %.idx = shl i64 %37, 4
+  %43 = getelementptr i8, ptr %3, i64 %.idx
+  tail call fastcc void @_karatsuba_rec(ptr noundef %42, ptr noundef %3, ptr noundef %38, ptr noundef %43, i64 noundef %37, i64 noundef %37)
+  %44 = shl i64 %4, 1
+  %45 = or disjoint i64 %44, 1
+  %46 = and i64 %9, -2
+  %47 = sub i64 %45, %46
+  %48 = shl nuw i64 %47, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %48, i1 false), !tbaa !3
+  %.idx166 = shl i64 %36, 4
+  %49 = getelementptr i8, ptr %3, i64 %.idx166
+  %50 = getelementptr i8, ptr %49, i64 8
+  tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %35, ptr noundef %40, ptr noundef %50, i64 noundef %36, i64 noundef %41)
+  %51 = and i64 %9, -2
+  %52 = getelementptr i64, ptr %0, i64 %51
+  %53 = add i64 %36, %41
+  tail call void @_mpd_baseaddto(ptr noundef %52, ptr noundef nonnull %3, i64 noundef %53) #33
+  tail call void @_mpd_basesubfrom(ptr noundef %42, ptr noundef nonnull %3, i64 noundef %53) #33
+  %54 = or i64 %9, 1
+  %55 = shl nuw i64 %54, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %55, i1 false), !tbaa !3
+  %56 = getelementptr i64, ptr %3, i64 %54
+  tail call fastcc void @_karatsuba_rec(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %2, ptr noundef %56, i64 noundef %10, i64 noundef %10)
+  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %51) #33
+  tail call void @_mpd_basesubfrom(ptr noundef %42, ptr noundef nonnull %3, i64 noundef %51) #33
+  br label %common.ret167
 }
 
 declare hidden void @_mpd_baseaddto(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
@@ -33208,7 +33208,7 @@ define internal fastcc range(i32 0, 2) i32 @_karatsuba_rec_fnt(ptr noundef %0, p
 
 11:                                               ; preds = %9
   tail call void @_mpd_basemul(ptr noundef %0, ptr noundef %2, ptr noundef %1, i64 noundef %5, i64 noundef %4) #33
-  br label %79
+  br label %76
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #33
@@ -33223,13 +33223,13 @@ define internal fastcc range(i32 0, 2) i32 @_karatsuba_rec_fnt(ptr noundef %0, p
   %17 = load ptr, ptr @mpd_free, align 8, !tbaa !20
   tail call void %17(ptr noundef nonnull %13) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
-  br label %79
+  br label %76
 
 18:                                               ; preds = %6
   %19 = add i64 %4, 1
   %20 = lshr i64 %19, 1
   %.not = icmp ugt i64 %5, %20
-  br i1 %.not, label %49, label %21
+  br i1 %.not, label %47, label %21
 
 21:                                               ; preds = %18
   %22 = sub i64 %4, %20
@@ -33237,111 +33237,111 @@ define internal fastcc range(i32 0, 2) i32 @_karatsuba_rec_fnt(ptr noundef %0, p
   br i1 %23, label %mpd_uint_zero.exit179, label %mpd_uint_zero.exit177
 
 mpd_uint_zero.exit179:                            ; preds = %21
-  %24 = shl nuw i64 %5, 1
-  %25 = shl i64 %5, 4
-  %26 = or disjoint i64 %25, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %26, i1 false), !tbaa !3
-  %27 = or disjoint i64 %24, 1
-  %28 = getelementptr i64, ptr %1, i64 %20
-  %29 = getelementptr i64, ptr %3, i64 %27
-  %30 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %3, ptr noundef %2, ptr noundef %28, ptr noundef %29, i64 noundef %5, i64 noundef %22)
-  %.not169 = icmp eq i32 %30, 0
-  br i1 %.not169, label %79, label %mpd_uint_zero.exit175
+  %24 = shl i64 %5, 4
+  %25 = or disjoint i64 %24, 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %25, i1 false), !tbaa !3
+  %26 = getelementptr i64, ptr %1, i64 %20
+  %.idx189 = shl i64 %5, 4
+  %27 = getelementptr i8, ptr %3, i64 %.idx189
+  %28 = getelementptr i8, ptr %27, i64 8
+  %29 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %3, ptr noundef %2, ptr noundef %26, ptr noundef %28, i64 noundef %5, i64 noundef %22)
+  %.not169 = icmp eq i32 %29, 0
+  br i1 %.not169, label %76, label %mpd_uint_zero.exit175
 
 mpd_uint_zero.exit177:                            ; preds = %21
-  %31 = shl i64 %22, 1
-  %32 = shl i64 %4, 1
-  %33 = or disjoint i64 %32, 1
-  %34 = and i64 %19, -2
-  %35 = sub i64 %33, %34
-  %36 = shl nuw i64 %35, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %36, i1 false), !tbaa !3
-  %37 = or disjoint i64 %31, 1
-  %38 = getelementptr i64, ptr %1, i64 %20
-  %39 = getelementptr i64, ptr %3, i64 %37
-  %40 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %3, ptr noundef %38, ptr noundef %2, ptr noundef %39, i64 noundef %22, i64 noundef %5)
-  %.not168 = icmp eq i32 %40, 0
-  br i1 %.not168, label %79, label %mpd_uint_zero.exit175
+  %30 = shl i64 %4, 1
+  %31 = or disjoint i64 %30, 1
+  %32 = and i64 %19, -2
+  %33 = sub i64 %31, %32
+  %34 = shl nuw i64 %33, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %34, i1 false), !tbaa !3
+  %35 = getelementptr i64, ptr %1, i64 %20
+  %.idx188 = shl i64 %22, 4
+  %36 = getelementptr i8, ptr %3, i64 %.idx188
+  %37 = getelementptr i8, ptr %36, i64 8
+  %38 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %3, ptr noundef %35, ptr noundef %2, ptr noundef %37, i64 noundef %22, i64 noundef %5)
+  %.not168 = icmp eq i32 %38, 0
+  br i1 %.not168, label %76, label %mpd_uint_zero.exit175
 
 mpd_uint_zero.exit175:                            ; preds = %mpd_uint_zero.exit177, %mpd_uint_zero.exit179
-  %41 = getelementptr i64, ptr %0, i64 %20
-  %42 = add i64 %22, %5
-  tail call void @_mpd_baseaddto(ptr noundef %41, ptr noundef nonnull %3, i64 noundef %42) #33
-  %43 = or i64 %19, 1
-  %44 = shl nuw i64 %43, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %44, i1 false), !tbaa !3
-  %45 = getelementptr i64, ptr %3, i64 %43
-  %46 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %2, ptr noundef %45, i64 noundef %20, i64 noundef %5)
-  %.not170 = icmp eq i32 %46, 0
-  br i1 %.not170, label %79, label %47
+  %39 = getelementptr i64, ptr %0, i64 %20
+  %40 = add i64 %22, %5
+  tail call void @_mpd_baseaddto(ptr noundef %39, ptr noundef nonnull %3, i64 noundef %40) #33
+  %41 = or i64 %19, 1
+  %42 = shl nuw i64 %41, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %42, i1 false), !tbaa !3
+  %43 = getelementptr i64, ptr %3, i64 %41
+  %44 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %2, ptr noundef %43, i64 noundef %20, i64 noundef %5)
+  %.not170 = icmp eq i32 %44, 0
+  br i1 %.not170, label %76, label %45
 
-47:                                               ; preds = %mpd_uint_zero.exit175
-  %48 = add nuw i64 %20, %5
-  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %48) #33
-  br label %79
+45:                                               ; preds = %mpd_uint_zero.exit175
+  %46 = add nuw i64 %20, %5
+  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %46) #33
+  br label %76
 
-49:                                               ; preds = %18
-  %50 = shl i64 %20, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %1, i64 %50, i1 false)
-  %51 = getelementptr i64, ptr %3, i64 %20
-  store i64 0, ptr %51, align 8, !tbaa !3
-  %52 = getelementptr i64, ptr %1, i64 %20
-  %53 = sub i64 %4, %20
-  tail call void @_mpd_baseaddto(ptr noundef %3, ptr noundef %52, i64 noundef %53) #33
-  %54 = add nuw i64 %20, 1
-  %55 = getelementptr i64, ptr %3, i64 %54
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %55, ptr align 8 %2, i64 %50, i1 false)
-  %56 = getelementptr i64, ptr %55, i64 %20
-  store i64 0, ptr %56, align 8, !tbaa !3
-  %57 = getelementptr i64, ptr %2, i64 %20
-  %58 = sub nuw i64 %5, %20
-  tail call void @_mpd_baseaddto(ptr noundef %55, ptr noundef %57, i64 noundef %58) #33
-  %59 = getelementptr i64, ptr %0, i64 %20
-  %.idx = shl i64 %54, 4
-  %60 = getelementptr i8, ptr %3, i64 %.idx
-  %61 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef %59, ptr noundef %3, ptr noundef %55, ptr noundef %60, i64 noundef %54, i64 noundef %54)
-  %.not165 = icmp eq i32 %61, 0
-  br i1 %.not165, label %79, label %mpd_uint_zero.exit173
+47:                                               ; preds = %18
+  %48 = shl i64 %20, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %1, i64 %48, i1 false)
+  %49 = getelementptr i64, ptr %3, i64 %20
+  store i64 0, ptr %49, align 8, !tbaa !3
+  %50 = getelementptr i64, ptr %1, i64 %20
+  %51 = sub i64 %4, %20
+  tail call void @_mpd_baseaddto(ptr noundef %3, ptr noundef %50, i64 noundef %51) #33
+  %52 = add nuw i64 %20, 1
+  %53 = getelementptr i64, ptr %3, i64 %52
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %53, ptr align 8 %2, i64 %48, i1 false)
+  %54 = getelementptr i64, ptr %53, i64 %20
+  store i64 0, ptr %54, align 8, !tbaa !3
+  %55 = getelementptr i64, ptr %2, i64 %20
+  %56 = sub nuw i64 %5, %20
+  tail call void @_mpd_baseaddto(ptr noundef %53, ptr noundef %55, i64 noundef %56) #33
+  %57 = getelementptr i64, ptr %0, i64 %20
+  %.idx = shl i64 %52, 4
+  %58 = getelementptr i8, ptr %3, i64 %.idx
+  %59 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef %57, ptr noundef %3, ptr noundef %53, ptr noundef %58, i64 noundef %52, i64 noundef %52)
+  %.not165 = icmp eq i32 %59, 0
+  br i1 %.not165, label %76, label %mpd_uint_zero.exit173
 
-mpd_uint_zero.exit173:                            ; preds = %49
-  %62 = shl i64 %53, 1
-  %63 = shl i64 %4, 1
-  %64 = or disjoint i64 %63, 1
-  %65 = and i64 %19, -2
-  %66 = sub i64 %64, %65
-  %67 = shl nuw i64 %66, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %67, i1 false), !tbaa !3
-  %68 = or disjoint i64 %62, 1
-  %69 = getelementptr i64, ptr %3, i64 %68
-  %70 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %3, ptr noundef %52, ptr noundef %57, ptr noundef %69, i64 noundef %53, i64 noundef %58)
-  %.not166 = icmp eq i32 %70, 0
-  br i1 %.not166, label %79, label %mpd_uint_zero.exit
+mpd_uint_zero.exit173:                            ; preds = %47
+  %60 = shl i64 %4, 1
+  %61 = or disjoint i64 %60, 1
+  %62 = and i64 %19, -2
+  %63 = sub i64 %61, %62
+  %64 = shl nuw i64 %63, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %64, i1 false), !tbaa !3
+  %.idx190 = shl i64 %51, 4
+  %65 = getelementptr i8, ptr %3, i64 %.idx190
+  %66 = getelementptr i8, ptr %65, i64 8
+  %67 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %3, ptr noundef %50, ptr noundef %55, ptr noundef %66, i64 noundef %51, i64 noundef %56)
+  %.not166 = icmp eq i32 %67, 0
+  br i1 %.not166, label %76, label %mpd_uint_zero.exit
 
 mpd_uint_zero.exit:                               ; preds = %mpd_uint_zero.exit173
-  %71 = and i64 %19, -2
-  %72 = getelementptr i64, ptr %0, i64 %71
-  %73 = add i64 %53, %58
-  tail call void @_mpd_baseaddto(ptr noundef %72, ptr noundef nonnull %3, i64 noundef %73) #33
-  tail call void @_mpd_basesubfrom(ptr noundef %59, ptr noundef nonnull %3, i64 noundef %73) #33
-  %74 = or i64 %19, 1
-  %75 = shl nuw i64 %74, 3
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %75, i1 false), !tbaa !3
-  %76 = getelementptr i64, ptr %3, i64 %74
-  %77 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %2, ptr noundef %76, i64 noundef %20, i64 noundef %20)
-  %.not167 = icmp eq i32 %77, 0
-  br i1 %.not167, label %79, label %78
+  %68 = and i64 %19, -2
+  %69 = getelementptr i64, ptr %0, i64 %68
+  %70 = add i64 %51, %56
+  tail call void @_mpd_baseaddto(ptr noundef %69, ptr noundef nonnull %3, i64 noundef %70) #33
+  tail call void @_mpd_basesubfrom(ptr noundef %57, ptr noundef nonnull %3, i64 noundef %70) #33
+  %71 = or i64 %19, 1
+  %72 = shl nuw i64 %71, 3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %3, i8 0, i64 %72, i1 false), !tbaa !3
+  %73 = getelementptr i64, ptr %3, i64 %71
+  %74 = tail call fastcc i32 @_karatsuba_rec_fnt(ptr noundef nonnull %3, ptr noundef %1, ptr noundef %2, ptr noundef %73, i64 noundef %20, i64 noundef %20)
+  %.not167 = icmp eq i32 %74, 0
+  br i1 %.not167, label %76, label %75
 
-78:                                               ; preds = %mpd_uint_zero.exit
-  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %71) #33
-  tail call void @_mpd_basesubfrom(ptr noundef %59, ptr noundef nonnull %3, i64 noundef %71) #33
-  br label %79
+75:                                               ; preds = %mpd_uint_zero.exit
+  tail call void @_mpd_baseaddto(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %68) #33
+  tail call void @_mpd_basesubfrom(ptr noundef %57, ptr noundef nonnull %3, i64 noundef %68) #33
+  br label %76
 
 .critedge:                                        ; preds = %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #33
-  br label %79
+  br label %76
 
-79:                                               ; preds = %11, %14, %mpd_uint_zero.exit, %mpd_uint_zero.exit173, %49, %mpd_uint_zero.exit175, %mpd_uint_zero.exit177, %mpd_uint_zero.exit179, %.critedge, %78, %47
-  %.1 = phi i32 [ 1, %47 ], [ 1, %78 ], [ 0, %.critedge ], [ 0, %mpd_uint_zero.exit179 ], [ 0, %mpd_uint_zero.exit177 ], [ 0, %mpd_uint_zero.exit175 ], [ 0, %49 ], [ 0, %mpd_uint_zero.exit173 ], [ 0, %mpd_uint_zero.exit ], [ 1, %14 ], [ 1, %11 ]
+76:                                               ; preds = %11, %14, %mpd_uint_zero.exit, %mpd_uint_zero.exit173, %47, %mpd_uint_zero.exit175, %mpd_uint_zero.exit177, %mpd_uint_zero.exit179, %.critedge, %75, %45
+  %.1 = phi i32 [ 1, %45 ], [ 1, %75 ], [ 0, %.critedge ], [ 0, %mpd_uint_zero.exit179 ], [ 0, %mpd_uint_zero.exit177 ], [ 0, %mpd_uint_zero.exit175 ], [ 0, %47 ], [ 0, %mpd_uint_zero.exit173 ], [ 0, %mpd_uint_zero.exit ], [ 1, %14 ], [ 1, %11 ]
   ret i32 %.1
 }
 

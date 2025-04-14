@@ -353,7 +353,7 @@ define internal noundef ptr @_ZL18pointerTOCLookupFnPK11UDataMemoryPKcPiP10UErro
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %66, label %7
+  br i1 %.not, label %67, label %7
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %6, align 8, !tbaa !33
@@ -471,19 +471,19 @@ _ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15: ; preds 
   store i32 -1, ptr %2, align 4, !tbaa !32
   %62 = zext nneg i32 %.0.i17 to i64
   %.idx = shl nuw nsw i64 %62, 4
-  %.offs = or disjoint i64 %.idx, 8
-  %63 = getelementptr inbounds nuw i8, ptr %9, i64 %.offs
-  %64 = load ptr, ptr %63, align 8, !tbaa !39
-  %65 = tail call ptr @UDataMemory_normalizeDataPointer_77(ptr noundef %64)
+  %63 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !39
+  %66 = tail call ptr @UDataMemory_normalizeDataPointer_77(ptr noundef %65)
   br label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread
 
-66:                                               ; preds = %4
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !15
+67:                                               ; preds = %4
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !15
   br label %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread
 
-_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread: ; preds = %59, %.preheader.i, %7, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit, %66
-  %.1 = phi ptr [ %68, %66 ], [ %65, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15 ], [ null, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ null, %7 ], [ null, %.preheader.i ], [ null, %59 ]
+_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread: ; preds = %59, %.preheader.i, %7, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit, %67
+  %.1 = phi ptr [ %69, %67 ], [ %66, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit.thread15 ], [ null, %_ZL28pointerTOCPrefixBinarySearchPKcPK15PointerTOCEntryi.exit ], [ null, %7 ], [ null, %.preheader.i ], [ null, %59 ]
   ret ptr %.1
 }
 

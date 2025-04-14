@@ -42771,9 +42771,7 @@ invoke.cont96:                                    ; preds = %if.end.i.i.i.i.i632
   store i8 0, ptr %arrayidx.i.i.i630, align 1, !tbaa !149
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i626) #34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %buttons) #34
-  %add97 = or disjoint i32 %i.0, 2
-  %conv98 = zext nneg i32 %add97 to i64
-  %add.ptr.i635 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre86, i64 %conv98
+  %add.ptr.i635 = getelementptr inbounds nuw i8, ptr %62, i64 64
   invoke void @_Z5splitIcESt6vectorINSt7__cxx1112basic_stringIT_St11char_traitsIS3_ESaIS3_EEESaIS7_EERKS7_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.165") align 8 %buttons, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i635, i8 noundef signext 44)
           to label %invoke.cont101 unwind label %lpad100
 
@@ -42983,9 +42981,7 @@ if.end126:                                        ; preds = %invoke.cont106
   br i1 %cmp130, label %if.then131, label %if.end146
 
 if.then131:                                       ; preds = %if.end126
-  %add132 = or disjoint i32 %i.0, 4
-  %conv133 = zext nneg i32 %add132 to i64
-  %add.ptr.i697 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre86, i64 %conv133
+  %add.ptr.i697 = getelementptr inbounds nuw i8, ptr %62, i64 128
   %call.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i697, ptr noundef nonnull @.str.22) #34
   %cmp.i = icmp ne i32 %call.i, 0
   %add.ptr.i698 = getelementptr i8, ptr %62, i64 160

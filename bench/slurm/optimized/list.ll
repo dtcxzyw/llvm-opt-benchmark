@@ -114,6 +114,7 @@ define dso_local noundef ptr @list_create(ptr noundef %0) #0 {
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %14, ptr %15, align 8
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 120
   br label %17
 
 16:                                               ; preds = %17
@@ -124,9 +125,8 @@ define dso_local noundef ptr @list_create(ptr noundef %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = getelementptr inbounds nuw [0 x %struct.listNode], ptr %14, i64 0, i64 %indvars.iv.next
   %19 = shl nuw nsw i64 %indvars.iv, 4
-  %20 = or disjoint i64 %19, 8
-  %21 = getelementptr inbounds nuw i8, ptr %14, i64 %20
-  store ptr %18, ptr %21, align 8
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %19
+  store ptr %18, ptr %gep, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 246
   br i1 %exitcond.not, label %16, label %17, !llvm.loop !8
 }
@@ -341,6 +341,7 @@ define dso_local noundef ptr @list_shallow_copy(ptr noundef %0) #0 {
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %13, ptr %14, align 8
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %2, i64 120
   br label %15
 
 15:                                               ; preds = %15, %11
@@ -348,14 +349,13 @@ define dso_local noundef ptr @list_shallow_copy(ptr noundef %0) #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = getelementptr inbounds nuw [0 x %struct.listNode], ptr %13, i64 0, i64 %indvars.iv.next.i
   %17 = shl nuw nsw i64 %indvars.iv.i, 4
-  %18 = or disjoint i64 %17, 8
-  %19 = getelementptr inbounds nuw i8, ptr %13, i64 %18
-  store ptr %16, ptr %19, align 8
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %17
+  store ptr %16, ptr %gep.i, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 246
   br i1 %exitcond.not.i, label %list_create.exit, label %15, !llvm.loop !8
 
 list_create.exit:                                 ; preds = %15
-  %20 = tail call i32 @list_append_list(ptr noundef nonnull %2, ptr noundef %0)
+  %18 = tail call i32 @list_append_list(ptr noundef nonnull %2, ptr noundef %0)
   ret ptr %2
 }
 

@@ -5642,23 +5642,20 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %124
   br i1 %150, label %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit133.thread", label %151
 
 151:                                              ; preds = %.lr.ph.i.i.i.i.i176
-  %.02946.i.i.i.i.i179.add485 = or disjoint i64 %.02946.i.i.i.i.i179.idx, 4
-  %.ptr488 = getelementptr inbounds nuw i8, ptr @_ZL24CC_AArch64_AAPCS_ArgRegs, i64 %.02946.i.i.i.i.i179.add485
-  %152 = load i32, ptr %.ptr488, align 4, !tbaa !442
+  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL24CC_AArch64_AAPCS_ArgRegs, i64 4), i64 %.02946.i.i.i.i.i179.idx
+  %152 = load i32, ptr %gep, align 4, !tbaa !442
   %153 = icmp eq i32 %152, %2
   br i1 %153, label %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit133.thread", label %154
 
 154:                                              ; preds = %151
-  %.02946.i.i.i.i.i179.add484 = or disjoint i64 %.02946.i.i.i.i.i179.idx, 8
-  %.ptr487 = getelementptr inbounds nuw i8, ptr @_ZL24CC_AArch64_AAPCS_ArgRegs, i64 %.02946.i.i.i.i.i179.add484
-  %155 = load i32, ptr %.ptr487, align 8, !tbaa !442
+  %gep815 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL24CC_AArch64_AAPCS_ArgRegs, i64 8), i64 %.02946.i.i.i.i.i179.idx
+  %155 = load i32, ptr %gep815, align 8, !tbaa !442
   %156 = icmp eq i32 %155, %2
   br i1 %156, label %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit193", label %157
 
 157:                                              ; preds = %154
-  %.02946.i.i.i.i.i179.add = or disjoint i64 %.02946.i.i.i.i.i179.idx, 12
-  %.ptr = getelementptr inbounds nuw i8, ptr @_ZL24CC_AArch64_AAPCS_ArgRegs, i64 %.02946.i.i.i.i.i179.add
-  %158 = load i32, ptr %.ptr, align 4, !tbaa !442
+  %gep816 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL24CC_AArch64_AAPCS_ArgRegs, i64 12), i64 %.02946.i.i.i.i.i179.idx
+  %158 = load i32, ptr %gep816, align 4, !tbaa !442
   %159 = icmp eq i32 %158, %2
   br i1 %159, label %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit133.thread", label %160
 
@@ -5756,23 +5753,20 @@ _ZNK4llvm16AArch64Subtarget14isTargetDarwinEv.exit: ; preds = %124
   br i1 %190, label %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit133.thread", label %191
 
 191:                                              ; preds = %.lr.ph.i.i.i.i.i236
-  %.02946.i.i.i.i.i239.add492 = or disjoint i64 %.02946.i.i.i.i.i239.idx, 4
-  %.ptr496 = getelementptr inbounds nuw i8, ptr @_ZL28CC_AArch64_DarwinPCS_ArgRegs, i64 %.02946.i.i.i.i.i239.add492
-  %192 = load i32, ptr %.ptr496, align 4, !tbaa !442
+  %gep817 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL28CC_AArch64_DarwinPCS_ArgRegs, i64 4), i64 %.02946.i.i.i.i.i239.idx
+  %192 = load i32, ptr %gep817, align 4, !tbaa !442
   %193 = icmp eq i32 %192, %2
   br i1 %193, label %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit253", label %194
 
 194:                                              ; preds = %191
-  %.02946.i.i.i.i.i239.add491 = or disjoint i64 %.02946.i.i.i.i.i239.idx, 8
-  %.ptr495 = getelementptr inbounds nuw i8, ptr @_ZL28CC_AArch64_DarwinPCS_ArgRegs, i64 %.02946.i.i.i.i.i239.add491
-  %195 = load i32, ptr %.ptr495, align 8, !tbaa !442
+  %gep818 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL28CC_AArch64_DarwinPCS_ArgRegs, i64 8), i64 %.02946.i.i.i.i.i239.idx
+  %195 = load i32, ptr %gep818, align 8, !tbaa !442
   %196 = icmp eq i32 %195, %2
   br i1 %196, label %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit133.thread", label %197
 
 197:                                              ; preds = %194
-  %.02946.i.i.i.i.i239.add = or disjoint i64 %.02946.i.i.i.i.i239.idx, 12
-  %.ptr494 = getelementptr inbounds nuw i8, ptr @_ZL28CC_AArch64_DarwinPCS_ArgRegs, i64 %.02946.i.i.i.i.i239.add
-  %198 = load i32, ptr %.ptr494, align 4, !tbaa !442
+  %gep819 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL28CC_AArch64_DarwinPCS_ArgRegs, i64 12), i64 %.02946.i.i.i.i.i239.idx
+  %198 = load i32, ptr %gep819, align 4, !tbaa !442
   %199 = icmp eq i32 %198, %2
   br i1 %199, label %"_ZZNK4llvm19AArch64RegisterInfo18isArgumentRegisterERKNS_15MachineFunctionENS_10MCRegisterEENK3$_0clENS_8ArrayRefIS4_EES4_.exit133.thread", label %200
 

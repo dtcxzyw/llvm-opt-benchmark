@@ -7642,17 +7642,17 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIlN12_GLOBAL__N_17Ar
   br i1 %14, label %.lr.ph, label %_ZSt14__partial_sortIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_T0_.exit
 
 .lr.ph:                                           ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = getelementptr i8, ptr %0, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %18
 
 18:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEET_SB_SB_T0_.exit
-  %19 = phi i64 [ %13, %.lr.ph ], [ %145, %_ZSt27__unguarded_partition_pivotIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEET_SB_SB_T0_.exit ]
+  %19 = phi i64 [ %13, %.lr.ph ], [ %143, %_ZSt27__unguarded_partition_pivotIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEET_SB_SB_T0_.exit ]
   %.025 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEET_SB_SB_T0_.exit ]
-  %.01724 = phi i64 [ %2, %.lr.ph ], [ %108, %_ZSt27__unguarded_partition_pivotIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEET_SB_SB_T0_.exit ]
+  %.01724 = phi i64 [ %2, %.lr.ph ], [ %106, %_ZSt27__unguarded_partition_pivotIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEET_SB_SB_T0_.exit ]
   %20 = icmp eq i64 %.01724, 0
-  br i1 %20, label %21, label %107
+  br i1 %20, label %21, label %105
 
 21:                                               ; preds = %18
   %22 = lshr i64 %19, 5
@@ -7670,7 +7670,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIlN12_GLOBAL__N_17Ar
   br label %34
 
 34:                                               ; preds = %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i, %21
-  %.013.i.i.i = phi i64 [ %24, %21 ], [ %63, %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i ]
+  %.013.i.i.i = phi i64 [ %24, %21 ], [ %62, %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i ]
   %35 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.013.i.i.i
   %.sroa.02.0.copyload.i.i.i = load i64, ptr %35, align 8
   %.sroa.43.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -7684,213 +7684,213 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIlN12_GLOBAL__N_17Ar
   %37 = shl i64 %.031.i.i.i.i, 1
   %38 = add i64 %37, 2
   %39 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %38
-  %40 = or disjoint i64 %37, 1
-  %41 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %40
+  %gep.i.i.i.i = getelementptr %"struct.std::pair", ptr %15, i64 %37
   %.val.i.i.i.i = load i64, ptr %39, align 8, !tbaa !112
-  %.val28.i.i.i.i = load i64, ptr %41, align 8, !tbaa !112
-  %42 = icmp slt i64 %.val.i.i.i.i, %.val28.i.i.i.i
-  %spec.select.i.i.i.i = select i1 %42, i64 %40, i64 %38
-  %43 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i.i
-  %44 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.031.i.i.i.i
-  %45 = load i64, ptr %43, align 8, !tbaa !112
-  store i64 %45, ptr %44, align 8, !tbaa !162
+  %.val28.i.i.i.i = load i64, ptr %gep.i.i.i.i, align 8, !tbaa !112
+  %40 = icmp slt i64 %.val.i.i.i.i, %.val28.i.i.i.i
+  %41 = or disjoint i64 %37, 1
+  %spec.select.i.i.i.i = select i1 %40, i64 %41, i64 %38
+  %42 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i.i
+  %43 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.031.i.i.i.i
+  %44 = load i64, ptr %42, align 8, !tbaa !112
+  store i64 %44, ptr %43, align 8, !tbaa !162
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull readonly align 8 dereferenceable(24) %46, i64 24, i1 false), !tbaa.struct !166
-  %48 = icmp slt i64 %spec.select.i.i.i.i, %26
-  br i1 %48, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !484
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull readonly align 8 dereferenceable(24) %45, i64 24, i1 false), !tbaa.struct !166
+  %47 = icmp slt i64 %spec.select.i.i.i.i, %26
+  br i1 %47, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !484
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %34
   %.0.lcssa.i.i.i.i = phi i64 [ %.013.i.i.i, %34 ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %49 = icmp eq i64 %.0.lcssa.i.i.i.i, %24
-  %or.cond.i.i.i = select i1 %28, i1 %49, i1 false
-  br i1 %or.cond.i.i.i, label %50, label %52
+  %48 = icmp eq i64 %.0.lcssa.i.i.i.i, %24
+  %or.cond.i.i.i = select i1 %28, i1 %48, i1 false
+  br i1 %or.cond.i.i.i, label %49, label %51
 
-50:                                               ; preds = %._crit_edge.i.i.i.i
-  %51 = load i64, ptr %30, align 8, !tbaa !112
-  store i64 %51, ptr %31, align 8, !tbaa !162
+49:                                               ; preds = %._crit_edge.i.i.i.i
+  %50 = load i64, ptr %30, align 8, !tbaa !112
+  store i64 %50, ptr %31, align 8, !tbaa !162
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull readonly align 8 dereferenceable(24) %32, i64 24, i1 false), !tbaa.struct !166
-  br label %52
+  br label %51
 
-52:                                               ; preds = %50, %._crit_edge.i.i.i.i
-  %.127.i.i.i.i = phi i64 [ %29, %50 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %53 = icmp samesign ugt i64 %.127.i.i.i.i, %.013.i.i.i
-  br i1 %53, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i
+51:                                               ; preds = %49, %._crit_edge.i.i.i.i
+  %.127.i.i.i.i = phi i64 [ %29, %49 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %52 = icmp samesign ugt i64 %.127.i.i.i.i, %.013.i.i.i
+  br i1 %52, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %52, %56
-  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %56 ], [ %.127.i.i.i.i, %52 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %51, %55
+  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %55 ], [ %.127.i.i.i.i, %51 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %54 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.04.i.i.i.i.i
-  %.val.i.i.i.i.i = load i64, ptr %54, align 8, !tbaa !112
-  %55 = icmp slt i64 %.val.i.i.i.i.i, %.sroa.02.0.copyload.i.i.i
-  br i1 %55, label %56, label %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i
+  %53 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.04.i.i.i.i.i
+  %.val.i.i.i.i.i = load i64, ptr %53, align 8, !tbaa !112
+  %54 = icmp slt i64 %.val.i.i.i.i.i, %.sroa.02.0.copyload.i.i.i
+  br i1 %54, label %55, label %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i
 
-56:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %57 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0133.i.i.i.i.i
-  store i64 %.val.i.i.i.i.i, ptr %57, align 8, !tbaa !162
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull readonly align 8 dereferenceable(24) %58, i64 24, i1 false), !tbaa.struct !166
-  %60 = icmp sgt i64 %.04.i.i.i.i.i, %.013.i.i.i
-  br i1 %60, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i, !llvm.loop !485
+55:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %56 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0133.i.i.i.i.i
+  store i64 %.val.i.i.i.i.i, ptr %56, align 8, !tbaa !162
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull readonly align 8 dereferenceable(24) %57, i64 24, i1 false), !tbaa.struct !166
+  %59 = icmp sgt i64 %.04.i.i.i.i.i, %.013.i.i.i
+  br i1 %59, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i, !llvm.loop !485
 
-_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i: ; preds = %56, %.lr.ph.i.i.i.i.i, %52
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %52 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %56 ]
-  %61 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i64 %.sroa.02.0.copyload.i.i.i, ptr %61, align 8, !tbaa !162
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i.i.i, i64 24, i1 false)
+_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i: ; preds = %55, %.lr.ph.i.i.i.i.i, %51
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.127.i.i.i.i, %51 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %55 ]
+  %60 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store i64 %.sroa.02.0.copyload.i.i.i, ptr %60, align 8, !tbaa !162
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i.i.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4.i.i.i)
   %.not.i.i.i = icmp eq i64 %.013.i.i.i, 0
-  %63 = add nsw i64 %.013.i.i.i, -1
+  %62 = add nsw i64 %.013.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i6.i, label %34, !llvm.loop !486
 
-.lr.ph.i6.i:                                      ; preds = %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i19.i
-  %.01.i.i = phi ptr [ %64, %_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i19.i ], [ %.025, %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i ]
-  %64 = getelementptr inbounds i8, ptr %.01.i.i, i64 -32
-  %.sroa.02.0.copyload.i.i7.i = load i64, ptr %64, align 8
-  %.sroa.43.0..sroa_idx.i.i8.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -24
+.lr.ph.i6.i:                                      ; preds = %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i20.i
+  %.01.i.i = phi ptr [ %63, %_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i20.i ], [ %.025, %_ZSt13__adjust_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit.i.i.i ]
+  %63 = getelementptr inbounds i8, ptr %.01.i.i, i64 -32
+  %.sroa.02.0.copyload.i.i8.i = load i64, ptr %63, align 8
+  %.sroa.43.0..sroa_idx.i.i9.i = getelementptr inbounds i8, ptr %.01.i.i, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4.i.i5.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i.i5.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.43.0..sroa_idx.i.i8.i, i64 24, i1 false)
-  %65 = load i64, ptr %0, align 8, !tbaa !112
-  store i64 %65, ptr %64, align 8, !tbaa !162
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.43.0..sroa_idx.i.i8.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %16, i64 24, i1 false), !tbaa.struct !166
-  %66 = ptrtoint ptr %64 to i64
-  %67 = sub i64 %66, %11
-  %68 = ashr exact i64 %67, 5
-  %69 = add nsw i64 %68, -1
-  %70 = sdiv i64 %69, 2
-  %71 = icmp sgt i64 %68, 2
-  br i1 %71, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i9.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i.i5.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.43.0..sroa_idx.i.i9.i, i64 24, i1 false)
+  %64 = load i64, ptr %0, align 8, !tbaa !112
+  store i64 %64, ptr %63, align 8, !tbaa !162
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.43.0..sroa_idx.i.i9.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %16, i64 24, i1 false), !tbaa.struct !166
+  %65 = ptrtoint ptr %63 to i64
+  %66 = sub i64 %65, %11
+  %67 = ashr exact i64 %66, 5
+  %68 = add nsw i64 %67, -1
+  %69 = sdiv i64 %68, 2
+  %70 = icmp sgt i64 %67, 2
+  br i1 %70, label %.lr.ph.i.i.i24.i, label %._crit_edge.i.i.i10.i
 
-.lr.ph.i.i.i23.i:                                 ; preds = %.lr.ph.i6.i, %.lr.ph.i.i.i23.i
-  %.031.i.i.i24.i = phi i64 [ %spec.select.i.i.i27.i, %.lr.ph.i.i.i23.i ], [ 0, %.lr.ph.i6.i ]
-  %72 = shl i64 %.031.i.i.i24.i, 1
-  %73 = add i64 %72, 2
-  %74 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %73
-  %75 = or disjoint i64 %72, 1
-  %76 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %75
-  %.val.i.i.i25.i = load i64, ptr %74, align 8, !tbaa !112
-  %.val28.i.i.i26.i = load i64, ptr %76, align 8, !tbaa !112
-  %77 = icmp slt i64 %.val.i.i.i25.i, %.val28.i.i.i26.i
-  %spec.select.i.i.i27.i = select i1 %77, i64 %75, i64 %73
-  %78 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i27.i
-  %79 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.031.i.i.i24.i
-  %80 = load i64, ptr %78, align 8, !tbaa !112
-  store i64 %80, ptr %79, align 8, !tbaa !162
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull readonly align 8 dereferenceable(24) %81, i64 24, i1 false), !tbaa.struct !166
-  %83 = icmp slt i64 %spec.select.i.i.i27.i, %70
-  br i1 %83, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i9.i, !llvm.loop !484
+.lr.ph.i.i.i24.i:                                 ; preds = %.lr.ph.i6.i, %.lr.ph.i.i.i24.i
+  %.031.i.i.i25.i = phi i64 [ %spec.select.i.i.i29.i, %.lr.ph.i.i.i24.i ], [ 0, %.lr.ph.i6.i ]
+  %71 = shl i64 %.031.i.i.i25.i, 1
+  %72 = add i64 %71, 2
+  %73 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %72
+  %gep.i.i.i26.i = getelementptr %"struct.std::pair", ptr %15, i64 %71
+  %.val.i.i.i27.i = load i64, ptr %73, align 8, !tbaa !112
+  %.val28.i.i.i28.i = load i64, ptr %gep.i.i.i26.i, align 8, !tbaa !112
+  %74 = icmp slt i64 %.val.i.i.i27.i, %.val28.i.i.i28.i
+  %75 = or disjoint i64 %71, 1
+  %spec.select.i.i.i29.i = select i1 %74, i64 %75, i64 %72
+  %76 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i29.i
+  %77 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.031.i.i.i25.i
+  %78 = load i64, ptr %76, align 8, !tbaa !112
+  store i64 %78, ptr %77, align 8, !tbaa !162
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull readonly align 8 dereferenceable(24) %79, i64 24, i1 false), !tbaa.struct !166
+  %81 = icmp slt i64 %spec.select.i.i.i29.i, %69
+  br i1 %81, label %.lr.ph.i.i.i24.i, label %._crit_edge.i.i.i10.i, !llvm.loop !484
 
-._crit_edge.i.i.i9.i:                             ; preds = %.lr.ph.i.i.i23.i, %.lr.ph.i6.i
-  %.0.lcssa.i.i.i10.i = phi i64 [ 0, %.lr.ph.i6.i ], [ %spec.select.i.i.i27.i, %.lr.ph.i.i.i23.i ]
-  %84 = and i64 %67, 32
-  %85 = icmp eq i64 %84, 0
-  br i1 %85, label %86, label %97
+._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i24.i, %.lr.ph.i6.i
+  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i6.i ], [ %spec.select.i.i.i29.i, %.lr.ph.i.i.i24.i ]
+  %82 = and i64 %66, 32
+  %83 = icmp eq i64 %82, 0
+  br i1 %83, label %84, label %95
 
-86:                                               ; preds = %._crit_edge.i.i.i9.i
-  %87 = add nsw i64 %68, -2
-  %88 = ashr exact i64 %87, 1
-  %89 = icmp eq i64 %.0.lcssa.i.i.i10.i, %88
-  br i1 %89, label %.thread.i.i22.i, label %97
+84:                                               ; preds = %._crit_edge.i.i.i10.i
+  %85 = add nsw i64 %67, -2
+  %86 = ashr exact i64 %85, 1
+  %87 = icmp eq i64 %.0.lcssa.i.i.i11.i, %86
+  br i1 %87, label %.thread.i.i23.i, label %95
 
-.thread.i.i22.i:                                  ; preds = %86
-  %90 = shl nuw nsw i64 %.0.lcssa.i.i.i10.i, 1
-  %91 = or disjoint i64 %90, 1
-  %92 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %91
-  %93 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i.i10.i
-  %94 = load i64, ptr %92, align 8, !tbaa !112
-  store i64 %94, ptr %93, align 8, !tbaa !162
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %96, ptr noundef nonnull readonly align 8 dereferenceable(24) %95, i64 24, i1 false), !tbaa.struct !166
-  br label %.lr.ph.i.i.i.i14.i.preheader
+.thread.i.i23.i:                                  ; preds = %84
+  %88 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
+  %89 = or disjoint i64 %88, 1
+  %90 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %89
+  %91 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i.i11.i
+  %92 = load i64, ptr %90, align 8, !tbaa !112
+  store i64 %92, ptr %91, align 8, !tbaa !162
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, ptr noundef nonnull readonly align 8 dereferenceable(24) %93, i64 24, i1 false), !tbaa.struct !166
+  br label %.lr.ph.i.i.i.i15.i.preheader
 
-97:                                               ; preds = %86, %._crit_edge.i.i.i9.i
-  %.not.i.i11.i = icmp eq i64 %.0.lcssa.i.i.i10.i, 0
-  br i1 %.not.i.i11.i, label %_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i19.i, label %.lr.ph.i.i.i.i14.i.preheader
+95:                                               ; preds = %84, %._crit_edge.i.i.i10.i
+  %.not.i.i12.i = icmp eq i64 %.0.lcssa.i.i.i11.i, 0
+  br i1 %.not.i.i12.i, label %_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i20.i, label %.lr.ph.i.i.i.i15.i.preheader
 
-.lr.ph.i.i.i.i14.i.preheader:                     ; preds = %97, %.thread.i.i22.i
-  %.0133.i.i.i.i15.i.ph = phi i64 [ %.0.lcssa.i.i.i10.i, %97 ], [ %91, %.thread.i.i22.i ]
-  br label %.lr.ph.i.i.i.i14.i
+.lr.ph.i.i.i.i15.i.preheader:                     ; preds = %95, %.thread.i.i23.i
+  %.0133.i.i.i.i16.i.ph = phi i64 [ %.0.lcssa.i.i.i11.i, %95 ], [ %89, %.thread.i.i23.i ]
+  br label %.lr.ph.i.i.i.i15.i
 
-.lr.ph.i.i.i.i14.i:                               ; preds = %.lr.ph.i.i.i.i14.i.preheader, %100
-  %.0133.i.i.i.i15.i = phi i64 [ %.04.i.i45.i.i17.i, %100 ], [ %.0133.i.i.i.i15.i.ph, %.lr.ph.i.i.i.i14.i.preheader ]
-  %.04.in.i.i.i.i16.i = add nsw i64 %.0133.i.i.i.i15.i, -1
-  %.04.i.i45.i.i17.i = lshr i64 %.04.in.i.i.i.i16.i, 1
-  %98 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.04.i.i45.i.i17.i
-  %.val.i.i.i.i18.i = load i64, ptr %98, align 8, !tbaa !112
-  %99 = icmp slt i64 %.val.i.i.i.i18.i, %.sroa.02.0.copyload.i.i7.i
-  br i1 %99, label %100, label %_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i19.i
+.lr.ph.i.i.i.i15.i:                               ; preds = %.lr.ph.i.i.i.i15.i.preheader, %98
+  %.0133.i.i.i.i16.i = phi i64 [ %.04.i.i45.i.i18.i, %98 ], [ %.0133.i.i.i.i16.i.ph, %.lr.ph.i.i.i.i15.i.preheader ]
+  %.04.in.i.i.i.i17.i = add nsw i64 %.0133.i.i.i.i16.i, -1
+  %.04.i.i45.i.i18.i = lshr i64 %.04.in.i.i.i.i17.i, 1
+  %96 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.04.i.i45.i.i18.i
+  %.val.i.i.i.i19.i = load i64, ptr %96, align 8, !tbaa !112
+  %97 = icmp slt i64 %.val.i.i.i.i19.i, %.sroa.02.0.copyload.i.i8.i
+  br i1 %97, label %98, label %_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i20.i
 
-100:                                              ; preds = %.lr.ph.i.i.i.i14.i
-  %101 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0133.i.i.i.i15.i
-  store i64 %.val.i.i.i.i18.i, ptr %101, align 8, !tbaa !162
-  %102 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull readonly align 8 dereferenceable(24) %102, i64 24, i1 false), !tbaa.struct !166
-  %.not6.i.i21.i = icmp ult i64 %.04.in.i.i.i.i16.i, 2
-  br i1 %.not6.i.i21.i, label %_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i19.i, label %.lr.ph.i.i.i.i14.i, !llvm.loop !485
+98:                                               ; preds = %.lr.ph.i.i.i.i15.i
+  %99 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0133.i.i.i.i16.i
+  store i64 %.val.i.i.i.i19.i, ptr %99, align 8, !tbaa !162
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull readonly align 8 dereferenceable(24) %100, i64 24, i1 false), !tbaa.struct !166
+  %.not6.i.i22.i = icmp ult i64 %.04.in.i.i.i.i17.i, 2
+  br i1 %.not6.i.i22.i, label %_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i20.i, label %.lr.ph.i.i.i.i15.i, !llvm.loop !485
 
-_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i19.i: ; preds = %100, %.lr.ph.i.i.i.i14.i, %97
-  %.013.lcssa.i.i.i.i20.i = phi i64 [ 0, %97 ], [ %.0133.i.i.i.i15.i, %.lr.ph.i.i.i.i14.i ], [ 0, %100 ]
-  %104 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i.i.i20.i
-  store i64 %.sroa.02.0.copyload.i.i7.i, ptr %104, align 8, !tbaa !162
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i.i5.i, i64 24, i1 false)
+_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i20.i: ; preds = %98, %.lr.ph.i.i.i.i15.i, %95
+  %.013.lcssa.i.i.i.i21.i = phi i64 [ 0, %95 ], [ %.0133.i.i.i.i16.i, %.lr.ph.i.i.i.i15.i ], [ 0, %98 ]
+  %102 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i.i.i.i21.i
+  store i64 %.sroa.02.0.copyload.i.i8.i, ptr %102, align 8, !tbaa !162
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %103, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.i.i5.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.4.i.i5.i)
-  %106 = icmp sgt i64 %67, 32
-  br i1 %106, label %.lr.ph.i6.i, label %_ZSt14__partial_sortIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_T0_.exit, !llvm.loop !487
+  %104 = icmp sgt i64 %66, 32
+  br i1 %104, label %.lr.ph.i6.i, label %_ZSt14__partial_sortIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_T0_.exit, !llvm.loop !487
 
-107:                                              ; preds = %18
-  %108 = add nsw i64 %.01724, -1
-  %109 = lshr i64 %19, 6
-  %110 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %109
-  %111 = getelementptr inbounds i8, ptr %.025, i64 -32
+105:                                              ; preds = %18
+  %106 = add nsw i64 %.01724, -1
+  %107 = lshr i64 %19, 6
+  %108 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %107
+  %109 = getelementptr inbounds i8, ptr %.025, i64 -32
   %.val29.i.i = load i64, ptr %15, align 8, !tbaa !112
-  %.val30.i.i = load i64, ptr %110, align 8, !tbaa !112
-  %112 = icmp slt i64 %.val29.i.i, %.val30.i.i
-  %.val28.i.i = load i64, ptr %111, align 8, !tbaa !112
-  br i1 %112, label %113, label %124
+  %.val30.i.i = load i64, ptr %108, align 8, !tbaa !112
+  %110 = icmp slt i64 %.val29.i.i, %.val30.i.i
+  %.val28.i.i = load i64, ptr %109, align 8, !tbaa !112
+  br i1 %110, label %111, label %122
 
-113:                                              ; preds = %107
-  %114 = icmp slt i64 %.val30.i.i, %.val28.i.i
-  br i1 %114, label %115, label %118
+111:                                              ; preds = %105
+  %112 = icmp slt i64 %.val30.i.i, %.val28.i.i
+  br i1 %112, label %113, label %116
 
-115:                                              ; preds = %113
-  %116 = load i64, ptr %0, align 8, !tbaa !112
+113:                                              ; preds = %111
+  %114 = load i64, ptr %0, align 8, !tbaa !112
   store i64 %.val30.i.i, ptr %0, align 8, !tbaa !112
-  store i64 %116, ptr %110, align 8, !tbaa !112
-  %117 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  store i64 %114, ptr %108, align 8, !tbaa !112
+  %115 = getelementptr inbounds nuw i8, ptr %108, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !tbaa.struct !166
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false), !tbaa.struct !166
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !tbaa.struct !166
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %115, i64 24, i1 false), !tbaa.struct !166
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %115, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !tbaa.struct !166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader
 
-118:                                              ; preds = %113
-  %119 = icmp slt i64 %.val29.i.i, %.val28.i.i
-  %120 = load i64, ptr %0, align 8, !tbaa !112
-  br i1 %119, label %121, label %123
+116:                                              ; preds = %111
+  %117 = icmp slt i64 %.val29.i.i, %.val28.i.i
+  %118 = load i64, ptr %0, align 8, !tbaa !112
+  br i1 %117, label %119, label %121
 
-121:                                              ; preds = %118
+119:                                              ; preds = %116
   store i64 %.val28.i.i, ptr %0, align 8, !tbaa !112
-  store i64 %120, ptr %111, align 8, !tbaa !112
-  %122 = getelementptr inbounds i8, ptr %.025, i64 -24
+  store i64 %118, ptr %109, align 8, !tbaa !112
+  %120 = getelementptr inbounds i8, ptr %.025, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !tbaa.struct !166
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 24, i1 false), !tbaa.struct !166
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !166
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %120, i64 24, i1 false), !tbaa.struct !166
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !tbaa.struct !166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader
 
-123:                                              ; preds = %118
+121:                                              ; preds = %116
   store i64 %.val29.i.i, ptr %0, align 8, !tbaa !112
-  store i64 %120, ptr %15, align 8, !tbaa !112
+  store i64 %118, ptr %15, align 8, !tbaa !112
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !tbaa.struct !166
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !tbaa.struct !166
@@ -7898,14 +7898,14 @@ _ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_com
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader
 
-124:                                              ; preds = %107
-  %125 = icmp slt i64 %.val29.i.i, %.val28.i.i
-  br i1 %125, label %126, label %128
+122:                                              ; preds = %105
+  %123 = icmp slt i64 %.val29.i.i, %.val28.i.i
+  br i1 %123, label %124, label %126
 
-126:                                              ; preds = %124
-  %127 = load i64, ptr %0, align 8, !tbaa !112
+124:                                              ; preds = %122
+  %125 = load i64, ptr %0, align 8, !tbaa !112
   store i64 %.val29.i.i, ptr %0, align 8, !tbaa !112
-  store i64 %127, ptr %15, align 8, !tbaa !112
+  store i64 %125, ptr %15, align 8, !tbaa !112
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !tbaa.struct !166
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !tbaa.struct !166
@@ -7913,80 +7913,80 @@ _ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_com
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader
 
-128:                                              ; preds = %124
-  %129 = icmp slt i64 %.val30.i.i, %.val28.i.i
-  %130 = load i64, ptr %0, align 8, !tbaa !112
-  br i1 %129, label %131, label %133
+126:                                              ; preds = %122
+  %127 = icmp slt i64 %.val30.i.i, %.val28.i.i
+  %128 = load i64, ptr %0, align 8, !tbaa !112
+  br i1 %127, label %129, label %131
 
-131:                                              ; preds = %128
+129:                                              ; preds = %126
   store i64 %.val28.i.i, ptr %0, align 8, !tbaa !112
-  store i64 %130, ptr %111, align 8, !tbaa !112
-  %132 = getelementptr inbounds i8, ptr %.025, i64 -24
+  store i64 %128, ptr %109, align 8, !tbaa !112
+  %130 = getelementptr inbounds i8, ptr %.025, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !tbaa.struct !166
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %132, i64 24, i1 false), !tbaa.struct !166
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !166
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %130, i64 24, i1 false), !tbaa.struct !166
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %130, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader
 
-133:                                              ; preds = %128
+131:                                              ; preds = %126
   store i64 %.val30.i.i, ptr %0, align 8, !tbaa !112
-  store i64 %130, ptr %110, align 8, !tbaa !112
-  %134 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  store i64 %128, ptr %108, align 8, !tbaa !112
+  %132 = getelementptr inbounds nuw i8, ptr %108, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false), !tbaa.struct !166
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %134, i64 24, i1 false), !tbaa.struct !166
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !166
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %132, i64 24, i1 false), !tbaa.struct !166
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader: ; preds = %133, %131, %126, %123, %121, %115
+_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader: ; preds = %131, %129, %124, %121, %119, %113
   br label %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader, %141
-  %.013.i.i = phi ptr [ %.114.i.i, %141 ], [ %.025, %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %137, %141 ], [ %15, %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader ]
+_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader, %139
+  %.013.i.i = phi ptr [ %.114.i.i, %139 ], [ %.025, %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %135, %139 ], [ %15, %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i.preheader ]
   %.val15.i.i = load i64, ptr %0, align 8, !tbaa !112
-  br label %135
+  br label %133
 
-135:                                              ; preds = %135, %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i ], [ %137, %135 ]
+133:                                              ; preds = %133, %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i ], [ %135, %133 ]
   %.1.val.i.i = load i64, ptr %.1.i.i, align 8, !tbaa !112
-  %136 = icmp slt i64 %.1.val.i.i, %.val15.i.i
-  %137 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
-  br i1 %136, label %135, label %.preheader.i.i, !llvm.loop !488
+  %134 = icmp slt i64 %.1.val.i.i, %.val15.i.i
+  %135 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 32
+  br i1 %134, label %133, label %.preheader.i.i, !llvm.loop !488
 
-.preheader.i.i:                                   ; preds = %135, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %135 ]
+.preheader.i.i:                                   ; preds = %133, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %133 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -32
   %.114.val.i.i = load i64, ptr %.114.i.i, align 8, !tbaa !112
-  %138 = icmp slt i64 %.val15.i.i, %.114.val.i.i
-  br i1 %138, label %.preheader.i.i, label %139, !llvm.loop !489
+  %136 = icmp slt i64 %.val15.i.i, %.114.val.i.i
+  br i1 %136, label %.preheader.i.i, label %137, !llvm.loop !489
 
-139:                                              ; preds = %.preheader.i.i
-  %140 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %140, label %141, label %_ZSt27__unguarded_partition_pivotIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEET_SB_SB_T0_.exit
+137:                                              ; preds = %.preheader.i.i
+  %138 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %138, label %139, label %_ZSt27__unguarded_partition_pivotIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEET_SB_SB_T0_.exit
 
-141:                                              ; preds = %139
+139:                                              ; preds = %137
   store i64 %.114.val.i.i, ptr %.1.i.i, align 8, !tbaa !112
   store i64 %.1.val.i.i, ptr %.114.i.i, align 8, !tbaa !112
-  %142 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  %143 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -24
+  %140 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  %141 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %142, i64 24, i1 false), !tbaa.struct !166
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %142, ptr noundef nonnull align 8 dereferenceable(24) %143, i64 24, i1 false), !tbaa.struct !166
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %143, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !166
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %140, i64 24, i1 false), !tbaa.struct !166
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, ptr noundef nonnull align 8 dereferenceable(24) %141, i64 24, i1 false), !tbaa.struct !166
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !166
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %_ZSt22__move_median_to_firstIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_SB_T0_.exit.i, !llvm.loop !490
 
-_ZSt27__unguarded_partition_pivotIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEET_SB_SB_T0_.exit: ; preds = %139
-  tail call fastcc void @_ZSt16__introsort_loopIPSt4pairIlN12_GLOBAL__N_17ArgPartEElN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %108)
-  %144 = ptrtoint ptr %.1.i.i to i64
-  %145 = sub i64 %144, %11
-  %146 = icmp sgt i64 %145, 512
-  br i1 %146, label %18, label %_ZSt14__partial_sortIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_T0_.exit, !llvm.loop !491
+_ZSt27__unguarded_partition_pivotIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEET_SB_SB_T0_.exit: ; preds = %137
+  tail call fastcc void @_ZSt16__introsort_loopIPSt4pairIlN12_GLOBAL__N_17ArgPartEElN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.025, i64 noundef %106)
+  %142 = ptrtoint ptr %.1.i.i to i64
+  %143 = sub i64 %142, %11
+  %144 = icmp sgt i64 %143, 512
+  br i1 %144, label %18, label %_ZSt14__partial_sortIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_T0_.exit, !llvm.loop !491
 
-_ZSt14__partial_sortIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEET_SB_SB_T0_.exit, %_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i19.i, %3
+_ZSt14__partial_sortIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEET_SB_SB_T0_.exit, %_ZSt10__pop_heapIPSt4pairIlN12_GLOBAL__N_17ArgPartEEN9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_SB_SB_RT0_.exit.i20.i, %3
   ret void
 }
 

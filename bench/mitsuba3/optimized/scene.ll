@@ -424,35 +424,37 @@ $_ZTIZN7mitsuba6detail21get_construct_functorINS_5SceneIfN5drjit6MatrixINS_8Spec
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7mitsuba13rtcOccluded32EPKiP10RTCSceneTyP19RTCIntersectContextPj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [192 x i32], align 64
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 1024
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 512
   br label %7
 
-7:                                                ; preds = %4, %14
-  %8 = phi i1 [ true, %4 ], [ false, %14 ]
-  %.01721 = phi i64 [ 0, %4 ], [ 16, %14 ]
-  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %.01721
-  br label %10
+7:                                                ; preds = %4, %15
+  %8 = phi i1 [ true, %4 ], [ false, %15 ]
+  %.01721 = phi i64 [ 0, %4 ], [ 1, %15 ]
+  %9 = shl nuw nsw i64 %.01721, 4
+  %10 = getelementptr inbounds nuw i32, ptr %3, i64 %9
+  br label %11
 
-10:                                               ; preds = %7, %10
-  %.020 = phi i64 [ 0, %7 ], [ %13, %10 ]
-  %.01519 = phi ptr [ %5, %7 ], [ %12, %10 ]
-  %.01618 = phi ptr [ %9, %7 ], [ %11, %10 ]
+11:                                               ; preds = %7, %11
+  %.020 = phi i64 [ 0, %7 ], [ %14, %11 ]
+  %.01519 = phi ptr [ %5, %7 ], [ %13, %11 ]
+  %.01618 = phi ptr [ %10, %7 ], [ %12, %11 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.01519, ptr noundef nonnull align 4 dereferenceable(64) %.01618, i64 64, i1 false)
-  %11 = getelementptr inbounds nuw i8, ptr %.01618, i64 128
-  %12 = getelementptr inbounds nuw i8, ptr %.01519, i64 64
-  %13 = add nuw nsw i64 %.020, 1
-  %exitcond.not = icmp eq i64 %13, 12
-  br i1 %exitcond.not, label %14, label %10, !llvm.loop !4
+  %12 = getelementptr inbounds nuw i8, ptr %.01618, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %.01519, i64 64
+  %14 = add nuw nsw i64 %.020, 1
+  %exitcond.not = icmp eq i64 %14, 12
+  br i1 %exitcond.not, label %15, label %11, !llvm.loop !4
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %.01721
-  call void @rtcOccluded16(ptr noundef %15, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
-  %16 = or disjoint i64 %.01721, 256
-  %17 = getelementptr inbounds nuw i32, ptr %3, i64 %16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %17, ptr noundef nonnull align 64 dereferenceable(64) %6, i64 64, i1 false)
-  br i1 %8, label %7, label %18, !llvm.loop !6
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %9
+  call void @rtcOccluded16(ptr noundef %16, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
+  %.idx = shl nuw nsw i64 %.01721, 6
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %gep, ptr noundef nonnull align 64 dereferenceable(64) %6, i64 64, i1 false)
+  br i1 %8, label %7, label %17, !llvm.loop !6
 
-18:                                               ; preds = %14
+17:                                               ; preds = %15
   ret void
 }
 
@@ -469,51 +471,51 @@ define hidden void @_ZN7mitsuba14rtcIntersect32EPKiP10RTCSceneTyP19RTCIntersectC
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 768
   br label %9
 
-9:                                                ; preds = %4, %28
-  %10 = phi i1 [ true, %4 ], [ false, %28 ]
-  %.02936 = phi i64 [ 0, %4 ], [ 16, %28 ]
-  %11 = getelementptr inbounds nuw i32, ptr %3, i64 %.02936
-  br label %12
+9:                                                ; preds = %4, %27
+  %10 = phi i1 [ true, %4 ], [ false, %27 ]
+  %.02938 = phi i64 [ 0, %4 ], [ 1, %27 ]
+  %11 = shl nuw nsw i64 %.02938, 4
+  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %11
+  br label %13
 
-12:                                               ; preds = %9, %12
-  %.02532 = phi i64 [ 0, %9 ], [ %15, %12 ]
-  %.02631 = phi ptr [ %5, %9 ], [ %14, %12 ]
-  %.02730 = phi ptr [ %11, %9 ], [ %13, %12 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.02631, ptr noundef nonnull align 4 dereferenceable(64) %.02730, i64 64, i1 false)
-  %13 = getelementptr inbounds nuw i8, ptr %.02730, i64 128
-  %14 = getelementptr inbounds nuw i8, ptr %.02631, i64 64
-  %15 = add nuw nsw i64 %.02532, 1
-  %exitcond.not = icmp eq i64 %15, 20
-  br i1 %exitcond.not, label %16, label %12, !llvm.loop !7
+13:                                               ; preds = %9, %13
+  %.02534 = phi i64 [ 0, %9 ], [ %16, %13 ]
+  %.02633 = phi ptr [ %5, %9 ], [ %15, %13 ]
+  %.02732 = phi ptr [ %12, %9 ], [ %14, %13 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.02633, ptr noundef nonnull align 4 dereferenceable(64) %.02732, i64 64, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %.02732, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %.02633, i64 64
+  %16 = add nuw nsw i64 %.02534, 1
+  %exitcond.not = icmp eq i64 %16, 20
+  br i1 %exitcond.not, label %17, label %13, !llvm.loop !7
 
-16:                                               ; preds = %12
-  %17 = or disjoint i64 %.02936, 544
-  %18 = getelementptr inbounds nuw i32, ptr %3, i64 %17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %6, ptr noundef nonnull align 4 dereferenceable(64) %18, i64 64, i1 false)
-  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %.02936
-  call void @rtcIntersect16(ptr noundef %19, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
-  %20 = or disjoint i64 %.02936, 256
-  %21 = getelementptr inbounds nuw i32, ptr %3, i64 %20
+17:                                               ; preds = %13
+  %.idx = shl nuw nsw i64 %.02938, 6
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 2176
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %6, ptr noundef nonnull align 4 dereferenceable(64) %19, i64 64, i1 false)
+  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %11
+  call void @rtcIntersect16(ptr noundef %20, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 1024
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %21, ptr noundef nonnull align 64 dereferenceable(64) %7, i64 64, i1 false)
-  %22 = or disjoint i64 %.02936, 384
-  %23 = getelementptr inbounds nuw i32, ptr %3, i64 %22
-  br label %24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 1536
+  br label %23
 
-24:                                               ; preds = %16, %24
-  %.035 = phi i32 [ 0, %16 ], [ %27, %24 ]
-  %.134 = phi ptr [ %8, %16 ], [ %26, %24 ]
-  %.12833 = phi ptr [ %23, %16 ], [ %25, %24 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.12833, ptr noundef nonnull align 4 dereferenceable(64) %.134, i64 64, i1 false)
-  %25 = getelementptr inbounds nuw i8, ptr %.12833, i64 128
-  %26 = getelementptr inbounds nuw i8, ptr %.134, i64 64
-  %27 = add nuw nsw i32 %.035, 1
-  %exitcond37.not = icmp eq i32 %27, 8
-  br i1 %exitcond37.not, label %28, label %24, !llvm.loop !8
+23:                                               ; preds = %17, %23
+  %.037 = phi i32 [ 0, %17 ], [ %26, %23 ]
+  %.136 = phi ptr [ %8, %17 ], [ %25, %23 ]
+  %.12835 = phi ptr [ %22, %17 ], [ %24, %23 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %.12835, ptr noundef nonnull align 4 dereferenceable(64) %.136, i64 64, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %.12835, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %.136, i64 64
+  %26 = add nuw nsw i32 %.037, 1
+  %exitcond39.not = icmp eq i32 %26, 8
+  br i1 %exitcond39.not, label %27, label %23, !llvm.loop !8
 
-28:                                               ; preds = %24
-  br i1 %10, label %9, label %29, !llvm.loop !9
+27:                                               ; preds = %23
+  br i1 %10, label %9, label %28, !llvm.loop !9
 
-29:                                               ; preds = %28
+28:                                               ; preds = %27
   ret void
 }
 

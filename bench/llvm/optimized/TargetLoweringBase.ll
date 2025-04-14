@@ -2773,7 +2773,7 @@ _ZN4llvm18TargetLoweringBase22setAtomicLoadExtActionENS_8ArrayRefIjEENS_3MVTES3_
   %invariant.gep1214 = getelementptr inbounds nuw i8, ptr %0, i64 5774
   %invariant.gep1216 = getelementptr inbounds nuw i8, ptr %0, i64 5775
   %invariant.gep1218 = getelementptr inbounds nuw i8, ptr %0, i64 5776
-  br label %144
+  br label %143
 
 91:                                               ; preds = %66, %_ZN4llvm3MVT12getIntegerVTEj.exit
   %.sroa.0668.0904 = phi i64 [ 10, %66 ], [ %105, %_ZN4llvm3MVT12getIntegerVTEj.exit ]
@@ -2852,6 +2852,7 @@ _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %91, %102
   store i16 14, ptr %112, align 2, !tbaa !81
   %113 = getelementptr inbounds nuw i8, ptr %13, i64 10
   store i16 15, ptr %113, align 2, !tbaa !81
+  %invariant.gep1238 = getelementptr inbounds nuw i8, ptr %0, i64 5498
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i293, %.lr.ph.i.i
@@ -2860,9 +2861,8 @@ _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %91, %102
   %.sroa.02.0.copyload.i = load i16, ptr %.013.i294.ptr, align 2, !tbaa !138
   %114 = zext i16 %.sroa.02.0.copyload.i to i64
   %.idx1237 = mul nuw nsw i64 %114, 496
-  %.offs = or disjoint i64 %.idx1237, 12
-  %115 = getelementptr inbounds nuw i8, ptr %18, i64 %.offs
-  store i8 2, ptr %115, align 2, !tbaa !139
+  %gep1239 = getelementptr inbounds nuw i8, ptr %invariant.gep1238, i64 %.idx1237
+  store i8 2, ptr %gep1239, align 2, !tbaa !139
   %.013.i294.add = add nuw nsw i64 %.013.i294.idx, 2
   %.not.i295 = icmp eq i64 %.013.i294.add, 12
   br i1 %.not.i295, label %.lr.ph.i300, label %.lr.ph.i.i
@@ -2871,31 +2871,31 @@ _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %91, %102
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %13) #27
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %14) #27
   store i16 12, ptr %14, align 2, !tbaa !81
-  %116 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  store i16 13, ptr %116, align 2, !tbaa !81
-  %117 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i16 15, ptr %117, align 2, !tbaa !81
+  %115 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  store i16 13, ptr %115, align 2, !tbaa !81
+  %116 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store i16 15, ptr %116, align 2, !tbaa !81
   br label %.lr.ph.i.i302
 
 .lr.ph.i.i302:                                    ; preds = %.lr.ph.i300, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i307
   %.013.i303.idx = phi i64 [ %.013.i303.add, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i307 ], [ 0, %.lr.ph.i300 ]
   %.013.i303.ptr = getelementptr inbounds nuw i8, ptr %14, i64 %.013.i303.idx
   %.sroa.02.0.copyload.i304 = load i16, ptr %.013.i303.ptr, align 2, !tbaa !138
-  %118 = zext i16 %.sroa.02.0.copyload.i304 to i64
-  br label %119
+  %117 = zext i16 %.sroa.02.0.copyload.i304 to i64
+  br label %118
 
-119:                                              ; preds = %119, %.lr.ph.i.i302
-  %.011.i.i305.idx = phi i64 [ 0, %.lr.ph.i.i302 ], [ %.011.i.i305.add, %119 ]
+118:                                              ; preds = %118, %.lr.ph.i.i302
+  %.011.i.i305.idx = phi i64 [ 0, %.lr.ph.i.i302 ], [ %.011.i.i305.add, %118 ]
   %.011.i.i305.ptr = getelementptr inbounds nuw i8, ptr @constinit.27, i64 %.011.i.i305.idx
-  %120 = load i32, ptr %.011.i.i305.ptr, align 4, !tbaa !66
-  %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %118, i64 %121
-  store i8 2, ptr %122, align 1, !tbaa !139
+  %119 = load i32, ptr %.011.i.i305.ptr, align 4, !tbaa !66
+  %120 = zext i32 %119 to i64
+  %121 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %117, i64 %120
+  store i8 2, ptr %121, align 1, !tbaa !139
   %.011.i.i305.add = add nuw nsw i64 %.011.i.i305.idx, 4
   %.not.i.i306 = icmp eq i64 %.011.i.i305.add, 84
-  br i1 %.not.i.i306, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i307, label %119
+  br i1 %.not.i.i306, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i307, label %118
 
-_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i307: ; preds = %119
+_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i307: ; preds = %118
   %.013.i303.add = add nuw nsw i64 %.013.i303.idx, 2
   %.not.i308 = icmp eq i64 %.013.i303.add, 6
   br i1 %.not.i308, label %.lr.ph.i314, label %.lr.ph.i.i302
@@ -2904,39 +2904,39 @@ _ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14L
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %14) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #27
   store i32 277, ptr %15, align 4, !tbaa !66
-  %123 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 278, ptr %123, align 4, !tbaa !66
-  %124 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 275, ptr %124, align 4, !tbaa !66
-  %125 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  store i32 276, ptr %125, align 4, !tbaa !66
+  %122 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 278, ptr %122, align 4, !tbaa !66
+  %123 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i32 275, ptr %123, align 4, !tbaa !66
+  %124 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  store i32 276, ptr %124, align 4, !tbaa !66
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %16) #27
   store i16 12, ptr %16, align 2, !tbaa !81
-  %126 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  store i16 13, ptr %126, align 2, !tbaa !81
-  %127 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i16 15, ptr %127, align 2, !tbaa !81
+  %125 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  store i16 13, ptr %125, align 2, !tbaa !81
+  %126 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i16 15, ptr %126, align 2, !tbaa !81
   br label %.lr.ph.i.i316
 
 .lr.ph.i.i316:                                    ; preds = %.lr.ph.i314, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i321
   %.013.i317.idx = phi i64 [ %.013.i317.add, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i321 ], [ 0, %.lr.ph.i314 ]
   %.013.i317.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %.013.i317.idx
   %.sroa.02.0.copyload.i318 = load i16, ptr %.013.i317.ptr, align 2, !tbaa !138
-  %128 = zext i16 %.sroa.02.0.copyload.i318 to i64
-  br label %129
+  %127 = zext i16 %.sroa.02.0.copyload.i318 to i64
+  br label %128
 
-129:                                              ; preds = %129, %.lr.ph.i.i316
-  %.011.i.i319.idx = phi i64 [ 0, %.lr.ph.i.i316 ], [ %.011.i.i319.add, %129 ]
+128:                                              ; preds = %128, %.lr.ph.i.i316
+  %.011.i.i319.idx = phi i64 [ 0, %.lr.ph.i.i316 ], [ %.011.i.i319.add, %128 ]
   %.011.i.i319.ptr = getelementptr inbounds nuw i8, ptr %15, i64 %.011.i.i319.idx
-  %130 = load i32, ptr %.011.i.i319.ptr, align 4, !tbaa !66
-  %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %128, i64 %131
-  store i8 3, ptr %132, align 1, !tbaa !139
+  %129 = load i32, ptr %.011.i.i319.ptr, align 4, !tbaa !66
+  %130 = zext i32 %129 to i64
+  %131 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %127, i64 %130
+  store i8 3, ptr %131, align 1, !tbaa !139
   %.011.i.i319.add = add nuw nsw i64 %.011.i.i319.idx, 4
   %.not.i.i320 = icmp eq i64 %.011.i.i319.add, 16
-  br i1 %.not.i.i320, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i321, label %129
+  br i1 %.not.i.i320, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i321, label %128
 
-_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i321: ; preds = %129
+_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit.loopexit.i321: ; preds = %128
   %.013.i317.add = add nuw nsw i64 %.013.i317.idx, 2
   %.not.i322 = icmp eq i64 %.013.i317.add, 6
   br i1 %.not.i322, label %.lr.ph.i327, label %.lr.ph.i.i316
@@ -2945,70 +2945,70 @@ _ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14L
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %16) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #27
   %invariant.gep1221 = getelementptr inbounds nuw i8, ptr %0, i64 10942
-  br label %133
+  br label %132
 
-133:                                              ; preds = %133, %.lr.ph.i327
-  %.011.i328.idx = phi i64 [ 0, %.lr.ph.i327 ], [ %.011.i328.add, %133 ]
+132:                                              ; preds = %132, %.lr.ph.i327
+  %.011.i328.idx = phi i64 [ 0, %.lr.ph.i327 ], [ %.011.i328.add, %132 ]
   %.011.i328.ptr = getelementptr inbounds nuw i8, ptr @constinit.28, i64 %.011.i328.idx
-  %134 = load i32, ptr %.011.i328.ptr, align 4, !tbaa !66
-  %135 = zext i32 %134 to i64
-  %gep1222 = getelementptr inbounds nuw i8, ptr %invariant.gep1221, i64 %135
+  %133 = load i32, ptr %.011.i328.ptr, align 4, !tbaa !66
+  %134 = zext i32 %133 to i64
+  %gep1222 = getelementptr inbounds nuw i8, ptr %invariant.gep1221, i64 %134
   store i8 1, ptr %gep1222, align 1, !tbaa !139
   %.011.i328.add = add nuw nsw i64 %.011.i328.idx, 4
   %.not.i329 = icmp eq i64 %.011.i328.add, 32
-  br i1 %.not.i329, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit, label %133
+  br i1 %.not.i329, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit, label %132
 
-_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit: ; preds = %133
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 6311
-  store i8 2, ptr %136, align 1, !tbaa !139
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 6312
-  store i8 2, ptr %137, align 8, !tbaa !139
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 6313
+_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit: ; preds = %132
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 6311
+  store i8 2, ptr %135, align 1, !tbaa !139
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 6312
+  store i8 2, ptr %136, align 8, !tbaa !139
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 6313
+  store i8 2, ptr %137, align 1, !tbaa !139
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 6273
   store i8 2, ptr %138, align 1, !tbaa !139
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 6273
-  store i8 2, ptr %139, align 1, !tbaa !139
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 6274
-  store i8 2, ptr %140, align 2, !tbaa !139
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 6274
+  store i8 2, ptr %139, align 2, !tbaa !139
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #27
   store i16 5, ptr %17, align 2, !tbaa !138
-  %141 = getelementptr inbounds nuw i8, ptr %17, i64 2
-  store i16 6, ptr %141, align 2, !tbaa !138
-  %142 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i16 7, ptr %142, align 2, !tbaa !138
-  %143 = getelementptr inbounds nuw i8, ptr %17, i64 6
-  store i16 8, ptr %143, align 2, !tbaa !138
+  %140 = getelementptr inbounds nuw i8, ptr %17, i64 2
+  store i16 6, ptr %140, align 2, !tbaa !138
+  %141 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  store i16 7, ptr %141, align 2, !tbaa !138
+  %142 = getelementptr inbounds nuw i8, ptr %17, i64 6
+  store i16 8, ptr %142, align 2, !tbaa !138
   %invariant.gep1223 = getelementptr inbounds nuw i8, ptr %0, i64 5779
   %invariant.gep1225 = getelementptr inbounds nuw i8, ptr %0, i64 5780
-  br label %205
+  br label %204
 
-144:                                              ; preds = %.preheader, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit427
-  %.sroa.0658.01220 = phi i64 [ 1, %.preheader ], [ %201, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit427 ]
+143:                                              ; preds = %.preheader, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit427
+  %.sroa.0658.01220 = phi i64 [ 1, %.preheader ], [ %200, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit427 ]
   br label %.lr.ph.i403
 
 .lr.ph.i333:                                      ; preds = %.lr.ph.i403
   %.idx734 = mul nuw nsw i64 %.sroa.0658.01220, 496
   %gep907 = getelementptr inbounds nuw i8, ptr %invariant.gep906, i64 %.idx734
   store i8 2, ptr %gep907, align 1, !tbaa !139
-  br label %145
+  br label %144
 
-145:                                              ; preds = %145, %.lr.ph.i333
-  %.011.i334.idx = phi i64 [ 0, %.lr.ph.i333 ], [ %.011.i334.add, %145 ]
+144:                                              ; preds = %144, %.lr.ph.i333
+  %.011.i334.idx = phi i64 [ 0, %.lr.ph.i333 ], [ %.011.i334.add, %144 ]
   %.011.i334.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.011.i334.idx
-  %146 = load i32, ptr %.011.i334.ptr, align 4, !tbaa !66
-  %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %147
-  store i8 2, ptr %148, align 1, !tbaa !139
+  %145 = load i32, ptr %.011.i334.ptr, align 4, !tbaa !66
+  %146 = zext i32 %145 to i64
+  %147 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %146
+  store i8 2, ptr %147, align 1, !tbaa !139
   %.011.i334.add = add nuw nsw i64 %.011.i334.idx, 4
   %.not.i335 = icmp eq i64 %.011.i334.add, 140
-  br i1 %.not.i335, label %.lr.ph.i340, label %145
+  br i1 %.not.i335, label %.lr.ph.i340, label %144
 
-.lr.ph.i340:                                      ; preds = %145, %.lr.ph.i340
-  %.011.i341.idx = phi i64 [ %.011.i341.add, %.lr.ph.i340 ], [ 0, %145 ]
+.lr.ph.i340:                                      ; preds = %144, %.lr.ph.i340
+  %.011.i341.idx = phi i64 [ %.011.i341.add, %.lr.ph.i340 ], [ 0, %144 ]
   %.011.i341.ptr = getelementptr inbounds nuw i8, ptr @constinit.22, i64 %.011.i341.idx
-  %149 = load i32, ptr %.011.i341.ptr, align 4, !tbaa !66
-  %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %150
-  store i8 2, ptr %151, align 1, !tbaa !139
+  %148 = load i32, ptr %.011.i341.ptr, align 4, !tbaa !66
+  %149 = zext i32 %148 to i64
+  %150 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %149
+  store i8 2, ptr %150, align 1, !tbaa !139
   %.011.i341.add = add nuw nsw i64 %.011.i341.idx, 4
   %.not.i342 = icmp eq i64 %.011.i341.add, 24
   br i1 %.not.i342, label %.lr.ph.i347, label %.lr.ph.i340
@@ -3016,10 +3016,10 @@ _ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14L
 .lr.ph.i347:                                      ; preds = %.lr.ph.i340, %.lr.ph.i347
   %.011.i348.idx = phi i64 [ %.011.i348.add, %.lr.ph.i347 ], [ 0, %.lr.ph.i340 ]
   %.011.i348.ptr = getelementptr inbounds nuw i8, ptr @constinit.23, i64 %.011.i348.idx
-  %152 = load i32, ptr %.011.i348.ptr, align 4, !tbaa !66
-  %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %153
-  store i8 2, ptr %154, align 1, !tbaa !139
+  %151 = load i32, ptr %.011.i348.ptr, align 4, !tbaa !66
+  %152 = zext i32 %151 to i64
+  %153 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %152
+  store i8 2, ptr %153, align 1, !tbaa !139
   %.011.i348.add = add nuw nsw i64 %.011.i348.idx, 4
   %.not.i349 = icmp eq i64 %.011.i348.add, 20
   br i1 %.not.i349, label %.lr.ph.i354, label %.lr.ph.i347
@@ -3030,76 +3030,76 @@ _ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14L
   store i32 70, ptr %81, align 4, !tbaa !66
   store i32 69, ptr %82, align 4, !tbaa !66
   store i32 71, ptr %83, align 4, !tbaa !66
-  br label %155
+  br label %154
 
-155:                                              ; preds = %155, %.lr.ph.i354
-  %.011.i355.idx = phi i64 [ 0, %.lr.ph.i354 ], [ %.011.i355.add, %155 ]
+154:                                              ; preds = %154, %.lr.ph.i354
+  %.011.i355.idx = phi i64 [ 0, %.lr.ph.i354 ], [ %.011.i355.add, %154 ]
   %.011.i355.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.011.i355.idx
-  %156 = load i32, ptr %.011.i355.ptr, align 4, !tbaa !66
-  %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %157
-  store i8 2, ptr %158, align 1, !tbaa !139
+  %155 = load i32, ptr %.011.i355.ptr, align 4, !tbaa !66
+  %156 = zext i32 %155 to i64
+  %157 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %156
+  store i8 2, ptr %157, align 1, !tbaa !139
   %.011.i355.add = add nuw nsw i64 %.011.i355.idx, 4
   %.not.i356 = icmp eq i64 %.011.i355.add, 16
-  br i1 %.not.i356, label %.lr.ph.i361, label %155
+  br i1 %.not.i356, label %.lr.ph.i361, label %154
 
-.lr.ph.i361:                                      ; preds = %155
+.lr.ph.i361:                                      ; preds = %154
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #27
   store i32 185, ptr %8, align 4, !tbaa !66
   store i32 184, ptr %84, align 4, !tbaa !66
-  br label %159
+  br label %158
 
-159:                                              ; preds = %159, %.lr.ph.i361
-  %.011.i362.idx = phi i64 [ 0, %.lr.ph.i361 ], [ %.011.i362.add, %159 ]
+158:                                              ; preds = %158, %.lr.ph.i361
+  %.011.i362.idx = phi i64 [ 0, %.lr.ph.i361 ], [ %.011.i362.add, %158 ]
   %.011.i362.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.011.i362.idx
-  %160 = load i32, ptr %.011.i362.ptr, align 4, !tbaa !66
-  %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %161
-  store i8 2, ptr %162, align 1, !tbaa !139
+  %159 = load i32, ptr %.011.i362.ptr, align 4, !tbaa !66
+  %160 = zext i32 %159 to i64
+  %161 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %160
+  store i8 2, ptr %161, align 1, !tbaa !139
   %.011.i362.add = add nuw nsw i64 %.011.i362.idx, 4
   %.not.i363 = icmp eq i64 %.011.i362.add, 8
-  br i1 %.not.i363, label %.lr.ph.i368, label %159
+  br i1 %.not.i363, label %.lr.ph.i368, label %158
 
-.lr.ph.i368:                                      ; preds = %159
+.lr.ph.i368:                                      ; preds = %158
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #27
   store i32 174, ptr %9, align 4, !tbaa !66
   store i32 175, ptr %85, align 4, !tbaa !66
   store i32 176, ptr %86, align 4, !tbaa !66
   store i32 177, ptr %87, align 4, !tbaa !66
-  br label %163
+  br label %162
 
-163:                                              ; preds = %163, %.lr.ph.i368
-  %.011.i369.idx = phi i64 [ 0, %.lr.ph.i368 ], [ %.011.i369.add, %163 ]
+162:                                              ; preds = %162, %.lr.ph.i368
+  %.011.i369.idx = phi i64 [ 0, %.lr.ph.i368 ], [ %.011.i369.add, %162 ]
   %.011.i369.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %.011.i369.idx
-  %164 = load i32, ptr %.011.i369.ptr, align 4, !tbaa !66
-  %165 = zext i32 %164 to i64
-  %166 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %165
-  store i8 2, ptr %166, align 1, !tbaa !139
+  %163 = load i32, ptr %.011.i369.ptr, align 4, !tbaa !66
+  %164 = zext i32 %163 to i64
+  %165 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %164
+  store i8 2, ptr %165, align 1, !tbaa !139
   %.011.i369.add = add nuw nsw i64 %.011.i369.idx, 4
   %.not.i370 = icmp eq i64 %.011.i369.add, 16
-  br i1 %.not.i370, label %.lr.ph.i375, label %163
+  br i1 %.not.i370, label %.lr.ph.i375, label %162
 
-.lr.ph.i375:                                      ; preds = %163
+.lr.ph.i375:                                      ; preds = %162
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #27
   store i32 178, ptr %10, align 4, !tbaa !66
   store i32 179, ptr %88, align 4, !tbaa !66
-  br label %167
+  br label %166
 
-167:                                              ; preds = %167, %.lr.ph.i375
-  %.011.i376.idx = phi i64 [ 0, %.lr.ph.i375 ], [ %.011.i376.add, %167 ]
+166:                                              ; preds = %166, %.lr.ph.i375
+  %.011.i376.idx = phi i64 [ 0, %.lr.ph.i375 ], [ %.011.i376.add, %166 ]
   %.011.i376.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.011.i376.idx
-  %168 = load i32, ptr %.011.i376.ptr, align 4, !tbaa !66
-  %169 = zext i32 %168 to i64
-  %170 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %169
-  store i8 2, ptr %170, align 1, !tbaa !139
+  %167 = load i32, ptr %.011.i376.ptr, align 4, !tbaa !66
+  %168 = zext i32 %167 to i64
+  %169 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %168
+  store i8 2, ptr %169, align 1, !tbaa !139
   %.011.i376.add = add nuw nsw i64 %.011.i376.idx, 4
   %.not.i377 = icmp eq i64 %.011.i376.add, 8
-  br i1 %.not.i377, label %.lr.ph.i382, label %167
+  br i1 %.not.i377, label %.lr.ph.i382, label %166
 
-.lr.ph.i382:                                      ; preds = %167
+.lr.ph.i382:                                      ; preds = %166
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #27
   %gep909 = getelementptr inbounds nuw i8, ptr %invariant.gep908, i64 %.idx734
   store i8 2, ptr %gep909, align 1, !tbaa !139
@@ -3110,71 +3110,71 @@ _ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14L
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #27
   store i32 204, ptr %11, align 4, !tbaa !66
   store i32 203, ptr %89, align 4, !tbaa !66
-  br label %171
+  br label %170
 
-171:                                              ; preds = %171, %.lr.ph.i382
-  %.011.i383.idx = phi i64 [ 0, %.lr.ph.i382 ], [ %.011.i383.add, %171 ]
+170:                                              ; preds = %170, %.lr.ph.i382
+  %.011.i383.idx = phi i64 [ 0, %.lr.ph.i382 ], [ %.011.i383.add, %170 ]
   %.011.i383.ptr = getelementptr inbounds nuw i8, ptr %11, i64 %.011.i383.idx
-  %172 = load i32, ptr %.011.i383.ptr, align 4, !tbaa !66
-  %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %173
-  store i8 2, ptr %174, align 1, !tbaa !139
+  %171 = load i32, ptr %.011.i383.ptr, align 4, !tbaa !66
+  %172 = zext i32 %171 to i64
+  %173 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %172
+  store i8 2, ptr %173, align 1, !tbaa !139
   %.011.i383.add = add nuw nsw i64 %.011.i383.idx, 4
   %.not.i384 = icmp eq i64 %.011.i383.add, 8
-  br i1 %.not.i384, label %.lr.ph.i389, label %171
+  br i1 %.not.i384, label %.lr.ph.i389, label %170
 
-.lr.ph.i389:                                      ; preds = %171
+.lr.ph.i389:                                      ; preds = %170
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #27
   store i32 201, ptr %12, align 4, !tbaa !66
   store i32 202, ptr %90, align 4, !tbaa !66
-  br label %175
+  br label %174
 
-175:                                              ; preds = %175, %.lr.ph.i389
-  %.011.i390.idx = phi i64 [ 0, %.lr.ph.i389 ], [ %.011.i390.add, %175 ]
+174:                                              ; preds = %174, %.lr.ph.i389
+  %.011.i390.idx = phi i64 [ 0, %.lr.ph.i389 ], [ %.011.i390.add, %174 ]
   %.011.i390.ptr = getelementptr inbounds nuw i8, ptr %12, i64 %.011.i390.idx
-  %176 = load i32, ptr %.011.i390.ptr, align 4, !tbaa !66
-  %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %177
-  store i8 2, ptr %178, align 1, !tbaa !139
+  %175 = load i32, ptr %.011.i390.ptr, align 4, !tbaa !66
+  %176 = zext i32 %175 to i64
+  %177 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %176
+  store i8 2, ptr %177, align 1, !tbaa !139
   %.011.i390.add = add nuw nsw i64 %.011.i390.idx, 4
   %.not.i391 = icmp eq i64 %.011.i390.add, 8
-  br i1 %.not.i391, label %.lr.ph.i396, label %175
+  br i1 %.not.i391, label %.lr.ph.i396, label %174
 
-.lr.ph.i396:                                      ; preds = %175
+.lr.ph.i396:                                      ; preds = %174
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #27
-  br label %179
+  br label %178
 
-179:                                              ; preds = %179, %.lr.ph.i396
-  %.011.i397.idx = phi i64 [ 0, %.lr.ph.i396 ], [ %.011.i397.add, %179 ]
+178:                                              ; preds = %178, %.lr.ph.i396
+  %.011.i397.idx = phi i64 [ 0, %.lr.ph.i396 ], [ %.011.i397.add, %178 ]
   %.011.i397.ptr = getelementptr inbounds nuw i8, ptr @constinit.24, i64 %.011.i397.idx
-  %180 = load i32, ptr %.011.i397.ptr, align 4, !tbaa !66
-  %181 = zext i32 %180 to i64
-  %182 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %181
-  store i8 2, ptr %182, align 1, !tbaa !139
+  %179 = load i32, ptr %.011.i397.ptr, align 4, !tbaa !66
+  %180 = zext i32 %179 to i64
+  %181 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %180
+  store i8 2, ptr %181, align 1, !tbaa !139
   %.011.i397.add = add nuw nsw i64 %.011.i397.idx, 4
   %.not.i398 = icmp eq i64 %.011.i397.add, 20
-  br i1 %.not.i398, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit400, label %179
+  br i1 %.not.i398, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit400, label %178
 
-_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit400: ; preds = %179
-  %183 = trunc i64 %.sroa.0658.01220 to i16
-  %184 = add i16 %183, -17
-  %spec.select.i401 = icmp ult i16 %184, 174
+_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit400: ; preds = %178
+  %182 = trunc i64 %.sroa.0658.01220 to i16
+  %183 = add i16 %182, -17
+  %spec.select.i401 = icmp ult i16 %183, 174
   br i1 %spec.select.i401, label %.lr.ph.i416, label %.lr.ph.i423
 
-.lr.ph.i403:                                      ; preds = %144, %.lr.ph.i403
-  %indvars.iv1229 = phi i64 [ 1, %144 ], [ %indvars.iv.next1230, %.lr.ph.i403 ]
-  %185 = and i64 %indvars.iv1229, 4294967295
-  %186 = getelementptr inbounds nuw [234 x [5 x i16]], ptr %21, i64 0, i64 %.sroa.0658.01220, i64 %185
-  %187 = load i16, ptr %186, align 2, !tbaa !137
-  %188 = and i16 %187, -256
-  %189 = or disjoint i16 %188, 34
-  store i16 %189, ptr %186, align 2, !tbaa !137
-  %190 = getelementptr inbounds nuw [234 x [5 x i16]], ptr %21, i64 0, i64 %.sroa.0658.01220, i64 %indvars.iv1229
-  %191 = load i16, ptr %190, align 2, !tbaa !137
-  %192 = and i16 %191, 255
-  %193 = or disjoint i16 %192, 8704
-  store i16 %193, ptr %190, align 2, !tbaa !137
+.lr.ph.i403:                                      ; preds = %143, %.lr.ph.i403
+  %indvars.iv1229 = phi i64 [ 1, %143 ], [ %indvars.iv.next1230, %.lr.ph.i403 ]
+  %184 = and i64 %indvars.iv1229, 4294967295
+  %185 = getelementptr inbounds nuw [234 x [5 x i16]], ptr %21, i64 0, i64 %.sroa.0658.01220, i64 %184
+  %186 = load i16, ptr %185, align 2, !tbaa !137
+  %187 = and i16 %186, -256
+  %188 = or disjoint i16 %187, 34
+  store i16 %188, ptr %185, align 2, !tbaa !137
+  %189 = getelementptr inbounds nuw [234 x [5 x i16]], ptr %21, i64 0, i64 %.sroa.0658.01220, i64 %indvars.iv1229
+  %190 = load i16, ptr %189, align 2, !tbaa !137
+  %191 = and i16 %190, 255
+  %192 = or disjoint i16 %191, 8704
+  store i16 %192, ptr %189, align 2, !tbaa !137
   %indvars.iv.next1230 = add nuw nsw i64 %indvars.iv1229, 1
   %.not268 = icmp eq i64 %indvars.iv.next1230, 5
   br i1 %.not268, label %.lr.ph.i333, label %.lr.ph.i403, !llvm.loop !142
@@ -3182,10 +3182,10 @@ _ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14L
 .lr.ph.i416:                                      ; preds = %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit400, %.lr.ph.i416
   %.011.i417.idx = phi i64 [ %.011.i417.add, %.lr.ph.i416 ], [ 0, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit400 ]
   %.011.i417.ptr = getelementptr inbounds nuw i8, ptr @constinit.25, i64 %.011.i417.idx
-  %194 = load i32, ptr %.011.i417.ptr, align 4, !tbaa !66
-  %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %195
-  store i8 2, ptr %196, align 1, !tbaa !139
+  %193 = load i32, ptr %.011.i417.ptr, align 4, !tbaa !66
+  %194 = zext i32 %193 to i64
+  %195 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %194
+  store i8 2, ptr %195, align 1, !tbaa !139
   %.011.i417.add = add nuw nsw i64 %.011.i417.idx, 4
   %.not.i418 = icmp eq i64 %.011.i417.add, 72
   br i1 %.not.i418, label %.lr.ph.i423, label %.lr.ph.i416
@@ -3289,20 +3289,20 @@ _ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14L
   store i8 2, ptr %gep1009, align 4, !tbaa !139
   %gep1011 = getelementptr inbounds nuw i8, ptr %invariant.gep1010, i64 %.idx734
   store i8 2, ptr %gep1011, align 1, !tbaa !139
-  br label %197
+  br label %196
 
-197:                                              ; preds = %197, %.lr.ph.i423
-  %.011.i424.idx = phi i64 [ 0, %.lr.ph.i423 ], [ %.011.i424.add, %197 ]
+196:                                              ; preds = %196, %.lr.ph.i423
+  %.011.i424.idx = phi i64 [ 0, %.lr.ph.i423 ], [ %.011.i424.add, %196 ]
   %.011.i424.ptr = getelementptr inbounds nuw i8, ptr @constinit.26, i64 %.011.i424.idx
-  %198 = load i32, ptr %.011.i424.ptr, align 4, !tbaa !66
-  %199 = zext i32 %198 to i64
-  %200 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %199
-  store i8 2, ptr %200, align 1, !tbaa !139
+  %197 = load i32, ptr %.011.i424.ptr, align 4, !tbaa !66
+  %198 = zext i32 %197 to i64
+  %199 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %18, i64 0, i64 %.sroa.0658.01220, i64 %198
+  store i8 2, ptr %199, align 1, !tbaa !139
   %.011.i424.add = add nuw nsw i64 %.011.i424.idx, 4
   %.not.i425 = icmp eq i64 %.011.i424.add, 68
-  br i1 %.not.i425, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit427, label %197
+  br i1 %.not.i425, label %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit427, label %196
 
-_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit427: ; preds = %197
+_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit427: ; preds = %196
   %gep1013 = getelementptr inbounds nuw i8, ptr %invariant.gep1012, i64 %.idx734
   store i8 2, ptr %gep1013, align 4, !tbaa !139
   %gep1015 = getelementptr inbounds nuw i8, ptr %invariant.gep1014, i64 %.idx734
@@ -3511,31 +3511,31 @@ _ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14L
   store i8 2, ptr %gep1217, align 1, !tbaa !139
   %gep1219 = getelementptr inbounds nuw i8, ptr %invariant.gep1218, i64 %.idx734
   store i8 2, ptr %gep1219, align 8, !tbaa !139
-  %201 = add nuw nsw i64 %.sroa.0658.01220, 1
-  %.not732 = icmp eq i64 %201, 234
-  br i1 %.not732, label %.lr.ph.i293, label %144
+  %200 = add nuw nsw i64 %.sroa.0658.01220, 1
+  %.not732 = icmp eq i64 %200, 234
+  br i1 %.not732, label %.lr.ph.i293, label %143
 
-202:                                              ; preds = %205
+201:                                              ; preds = %204
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #27
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 6277
-  store i8 2, ptr %203, align 1, !tbaa !139
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 6477
-  store i8 3, ptr %204, align 1, !tbaa !139
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 6277
+  store i8 2, ptr %202, align 1, !tbaa !139
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 6477
+  store i8 3, ptr %203, align 1, !tbaa !139
   ret void
 
-205:                                              ; preds = %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit, %205
-  %.0264.idx1227 = phi i64 [ 0, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit ], [ %.0264.add, %205 ]
+204:                                              ; preds = %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit, %204
+  %.0264.idx1227 = phi i64 [ 0, %_ZN4llvm18TargetLoweringBase18setOperationActionENS_8ArrayRefIjEENS_3MVTENS0_14LegalizeActionE.exit ], [ %.0264.add, %204 ]
   %.0264.ptr = getelementptr inbounds nuw i8, ptr %17, i64 %.0264.idx1227
-  %206 = load i16, ptr %.0264.ptr, align 2, !tbaa !138
-  %207 = zext i16 %206 to i64
-  %.idx = mul nuw nsw i64 %207, 496
+  %205 = load i16, ptr %.0264.ptr, align 2, !tbaa !138
+  %206 = zext i16 %205 to i64
+  %.idx = mul nuw nsw i64 %206, 496
   %gep1224 = getelementptr inbounds nuw i8, ptr %invariant.gep1223, i64 %.idx
   store i8 2, ptr %gep1224, align 1, !tbaa !139
   %gep1226 = getelementptr inbounds nuw i8, ptr %invariant.gep1225, i64 %.idx
   store i8 2, ptr %gep1226, align 4, !tbaa !139
   %.0264.add = add nuw nsw i64 %.0264.idx1227, 2
   %.not266 = icmp eq i64 %.0264.add, 8
-  br i1 %.not266, label %202, label %205
+  br i1 %.not266, label %201, label %204
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

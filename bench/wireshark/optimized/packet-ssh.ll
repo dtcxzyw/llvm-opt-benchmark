@@ -2670,7 +2670,7 @@ ssh_kex_make_bignum.exit216:                      ; preds = %ssh_kex_make_bignum
   %umax = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
   br label %.lr.ph
 
-.critedge.preheader:                              ; preds = %68, %ssh_kex_make_bignum.exit216
+.critedge.preheader:                              ; preds = %67, %ssh_kex_make_bignum.exit216
   %.not211220.not = icmp eq i64 %14, 0
   br i1 %.not211220.not, label %.critedge213, label %.lr.ph222.preheader
 
@@ -2678,8 +2678,8 @@ ssh_kex_make_bignum.exit216:                      ; preds = %ssh_kex_make_bignum
   %umax223 = tail call i64 @llvm.umax.i64(i64 %18, i64 1)
   br label %.lr.ph222
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %68
-  %.0189219 = phi i64 [ %73, %68 ], [ 0, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %67
+  %.0189219 = phi i64 [ %72, %67 ], [ 0, %.lr.ph.preheader ]
   %38 = shl nuw i64 %.0189219, 1
   %39 = getelementptr i8, ptr %.0187, i64 %38
   %40 = load i8, ptr %39, align 1
@@ -2705,144 +2705,142 @@ ssh_kex_make_bignum.exit216:                      ; preds = %ssh_kex_make_bignum
 
 50:                                               ; preds = %.lr.ph, %44, %46
   %51 = phi i8 [ %45, %44 ], [ %49, %46 ], [ %41, %.lr.ph ]
-  %52 = or disjoint i64 %38, 1
-  %53 = getelementptr i8, ptr %.0187, i64 %52
-  %54 = load i8, ptr %53, align 1
-  %55 = add i8 %54, -48
-  %or.cond14 = icmp ult i8 %55, 10
-  br i1 %or.cond14, label %64, label %56
+  %52 = getelementptr i8, ptr %39, i64 1
+  %53 = load i8, ptr %52, align 1
+  %54 = add i8 %53, -48
+  %or.cond14 = icmp ult i8 %54, 10
+  br i1 %or.cond14, label %63, label %55
 
-56:                                               ; preds = %50
-  %57 = add i8 %54, -97
-  %or.cond17 = icmp ult i8 %57, 6
-  br i1 %or.cond17, label %58, label %60
+55:                                               ; preds = %50
+  %56 = add i8 %53, -97
+  %or.cond17 = icmp ult i8 %56, 6
+  br i1 %or.cond17, label %57, label %59
 
-58:                                               ; preds = %56
-  %59 = add nsw i8 %54, -87
-  br label %64
+57:                                               ; preds = %55
+  %58 = add nsw i8 %53, -87
+  br label %63
 
-60:                                               ; preds = %56
-  %61 = add i8 %54, -65
-  %or.cond20 = icmp ult i8 %61, 6
-  %62 = add i8 %54, -55
-  %63 = select i1 %or.cond20, i8 %62, i8 -1
-  br label %64
+59:                                               ; preds = %55
+  %60 = add i8 %53, -65
+  %or.cond20 = icmp ult i8 %60, 6
+  %61 = add i8 %53, -55
+  %62 = select i1 %or.cond20, i8 %61, i8 -1
+  br label %63
 
-64:                                               ; preds = %50, %58, %60
-  %65 = phi i8 [ %59, %58 ], [ %63, %60 ], [ %55, %50 ]
-  %66 = icmp ne i8 %51, -1
-  %67 = icmp ne i8 %65, -1
-  %or.cond23.not = select i1 %66, i1 %67, i1 false
-  br i1 %or.cond23.not, label %68, label %.loopexit
+63:                                               ; preds = %50, %57, %59
+  %64 = phi i8 [ %58, %57 ], [ %62, %59 ], [ %54, %50 ]
+  %65 = icmp ne i8 %51, -1
+  %66 = icmp ne i8 %64, -1
+  %or.cond23.not = select i1 %65, i1 %66, i1 false
+  br i1 %or.cond23.not, label %67, label %.loopexit
 
-68:                                               ; preds = %64
-  %69 = shl i8 %51, 4
-  %70 = or i8 %65, %69
-  %71 = load ptr, ptr %.0.i215, align 8
-  %72 = getelementptr i8, ptr %71, i64 %.0189219
-  store i8 %70, ptr %72, align 1
-  %73 = add nuw nsw i64 %.0189219, 1
-  %exitcond.not = icmp eq i64 %73, %umax
+67:                                               ; preds = %63
+  %68 = shl i8 %51, 4
+  %69 = or i8 %64, %68
+  %70 = load ptr, ptr %.0.i215, align 8
+  %71 = getelementptr i8, ptr %70, i64 %.0189219
+  store i8 %69, ptr %71, align 1
+  %72 = add nuw nsw i64 %.0189219, 1
+  %exitcond.not = icmp eq i64 %72, %umax
   br i1 %exitcond.not, label %.critedge.preheader, label %.lr.ph, !llvm.loop !11
 
 .lr.ph222:                                        ; preds = %.lr.ph222.preheader, %.critedge
-  %.0191221 = phi i64 [ %108, %.critedge ], [ 0, %.lr.ph222.preheader ]
-  %74 = shl nuw i64 %.0191221, 1
-  %75 = getelementptr i8, ptr %.0, i64 %74
-  %76 = load i8, ptr %75, align 1
-  %77 = add i8 %76, -48
-  %or.cond26 = icmp ult i8 %77, 10
-  br i1 %or.cond26, label %86, label %78
+  %.0191221 = phi i64 [ %106, %.critedge ], [ 0, %.lr.ph222.preheader ]
+  %73 = shl nuw i64 %.0191221, 1
+  %74 = getelementptr i8, ptr %.0, i64 %73
+  %75 = load i8, ptr %74, align 1
+  %76 = add i8 %75, -48
+  %or.cond26 = icmp ult i8 %76, 10
+  br i1 %or.cond26, label %85, label %77
 
-78:                                               ; preds = %.lr.ph222
-  %79 = add i8 %76, -97
-  %or.cond29 = icmp ult i8 %79, 6
-  br i1 %or.cond29, label %80, label %82
+77:                                               ; preds = %.lr.ph222
+  %78 = add i8 %75, -97
+  %or.cond29 = icmp ult i8 %78, 6
+  br i1 %or.cond29, label %79, label %81
 
-80:                                               ; preds = %78
-  %81 = add nsw i8 %76, -87
-  br label %86
+79:                                               ; preds = %77
+  %80 = add nsw i8 %75, -87
+  br label %85
 
-82:                                               ; preds = %78
-  %83 = add i8 %76, -65
-  %or.cond32 = icmp ult i8 %83, 6
-  %84 = add i8 %76, -55
-  %85 = select i1 %or.cond32, i8 %84, i8 -1
-  br label %86
+81:                                               ; preds = %77
+  %82 = add i8 %75, -65
+  %or.cond32 = icmp ult i8 %82, 6
+  %83 = add i8 %75, -55
+  %84 = select i1 %or.cond32, i8 %83, i8 -1
+  br label %85
 
-86:                                               ; preds = %.lr.ph222, %80, %82
-  %87 = phi i8 [ %81, %80 ], [ %85, %82 ], [ %77, %.lr.ph222 ]
-  %88 = or disjoint i64 %74, 1
-  %89 = getelementptr i8, ptr %.0, i64 %88
-  %90 = load i8, ptr %89, align 1
-  %91 = add i8 %90, -48
-  %or.cond35 = icmp ult i8 %91, 10
-  br i1 %or.cond35, label %100, label %92
+85:                                               ; preds = %.lr.ph222, %79, %81
+  %86 = phi i8 [ %80, %79 ], [ %84, %81 ], [ %76, %.lr.ph222 ]
+  %87 = getelementptr i8, ptr %74, i64 1
+  %88 = load i8, ptr %87, align 1
+  %89 = add i8 %88, -48
+  %or.cond35 = icmp ult i8 %89, 10
+  br i1 %or.cond35, label %98, label %90
 
-92:                                               ; preds = %86
-  %93 = add i8 %90, -97
-  %or.cond38 = icmp ult i8 %93, 6
-  br i1 %or.cond38, label %94, label %96
+90:                                               ; preds = %85
+  %91 = add i8 %88, -97
+  %or.cond38 = icmp ult i8 %91, 6
+  br i1 %or.cond38, label %92, label %94
 
-94:                                               ; preds = %92
-  %95 = add nsw i8 %90, -87
-  br label %100
+92:                                               ; preds = %90
+  %93 = add nsw i8 %88, -87
+  br label %98
 
-96:                                               ; preds = %92
-  %97 = add i8 %90, -65
-  %or.cond41 = icmp ult i8 %97, 6
-  %98 = add i8 %90, -55
-  %99 = select i1 %or.cond41, i8 %98, i8 -1
-  br label %100
+94:                                               ; preds = %90
+  %95 = add i8 %88, -65
+  %or.cond41 = icmp ult i8 %95, 6
+  %96 = add i8 %88, -55
+  %97 = select i1 %or.cond41, i8 %96, i8 -1
+  br label %98
 
-100:                                              ; preds = %86, %94, %96
-  %101 = phi i8 [ %95, %94 ], [ %99, %96 ], [ %91, %86 ]
-  %102 = icmp ne i8 %87, -1
-  %103 = icmp ne i8 %101, -1
-  %or.cond44.not = select i1 %102, i1 %103, i1 false
+98:                                               ; preds = %85, %92, %94
+  %99 = phi i8 [ %93, %92 ], [ %97, %94 ], [ %89, %85 ]
+  %100 = icmp ne i8 %86, -1
+  %101 = icmp ne i8 %99, -1
+  %or.cond44.not = select i1 %100, i1 %101, i1 false
   br i1 %or.cond44.not, label %.critedge, label %.loopexit
 
-.critedge:                                        ; preds = %100
-  %104 = shl i8 %87, 4
-  %105 = or i8 %101, %104
-  %106 = load ptr, ptr %.0.i, align 8
-  %107 = getelementptr i8, ptr %106, i64 %.0191221
-  store i8 %105, ptr %107, align 1
-  %108 = add nuw nsw i64 %.0191221, 1
-  %exitcond224.not = icmp eq i64 %108, %umax223
+.critedge:                                        ; preds = %98
+  %102 = shl i8 %86, 4
+  %103 = or i8 %99, %102
+  %104 = load ptr, ptr %.0.i, align 8
+  %105 = getelementptr i8, ptr %104, i64 %.0191221
+  store i8 %103, ptr %105, align 1
+  %106 = add nuw nsw i64 %.0191221, 1
+  %exitcond224.not = icmp eq i64 %106, %umax223
   br i1 %exitcond224.not, label %.critedge213, label %.lr.ph222, !llvm.loop !12
 
 .critedge213:                                     ; preds = %.critedge, %.critedge.preheader
-  %109 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #27
-  %110 = getelementptr inbounds nuw i8, ptr %.0.i215, i64 8
-  %111 = load i32, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store i32 %111, ptr %112, align 8
-  %113 = load ptr, ptr %.0.i215, align 8
-  %114 = zext i32 %111 to i64
-  %115 = tail call ptr @g_memdup2(ptr noundef %113, i64 noundef %114) #24
-  store ptr %115, ptr %109, align 8
-  %116 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #27
-  %117 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %118 = load i32, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  store i32 %118, ptr %119, align 8
-  %120 = load ptr, ptr %.0.i, align 8
-  %121 = zext i32 %118 to i64
-  %122 = tail call ptr @g_memdup2(ptr noundef %120, i64 noundef %121) #24
-  store ptr %122, ptr %116, align 8
-  %123 = tail call i64 @strlen(ptr noundef %.0186) #23
-  %124 = add i64 %123, 1
-  %125 = tail call ptr @g_memdup2(ptr noundef %.0186, i64 noundef %124) #24
-  %126 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #27
-  store ptr %125, ptr %126, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store ptr %109, ptr %127, align 8
-  %128 = load ptr, ptr @ssh_master_key_map, align 8
-  %129 = tail call i32 @g_hash_table_insert(ptr noundef %128, ptr noundef %116, ptr noundef %126)
+  %107 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #27
+  %108 = getelementptr inbounds nuw i8, ptr %.0.i215, i64 8
+  %109 = load i32, ptr %108, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  store i32 %109, ptr %110, align 8
+  %111 = load ptr, ptr %.0.i215, align 8
+  %112 = zext i32 %109 to i64
+  %113 = tail call ptr @g_memdup2(ptr noundef %111, i64 noundef %112) #24
+  store ptr %113, ptr %107, align 8
+  %114 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #27
+  %115 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %116 = load i32, ptr %115, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  store i32 %116, ptr %117, align 8
+  %118 = load ptr, ptr %.0.i, align 8
+  %119 = zext i32 %116 to i64
+  %120 = tail call ptr @g_memdup2(ptr noundef %118, i64 noundef %119) #24
+  store ptr %120, ptr %114, align 8
+  %121 = tail call i64 @strlen(ptr noundef %.0186) #23
+  %122 = add i64 %121, 1
+  %123 = tail call ptr @g_memdup2(ptr noundef %.0186, i64 noundef %122) #24
+  %124 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #27
+  store ptr %123, ptr %124, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  store ptr %107, ptr %125, align 8
+  %126 = load ptr, ptr @ssh_master_key_map, align 8
+  %127 = tail call i32 @g_hash_table_insert(ptr noundef %126, ptr noundef %114, ptr noundef %124)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %64, %100, %11, %8, %.critedge213
+.loopexit:                                        ; preds = %63, %98, %11, %8, %.critedge213
   tail call void @g_strfreev(ptr noundef %2)
   ret void
 }

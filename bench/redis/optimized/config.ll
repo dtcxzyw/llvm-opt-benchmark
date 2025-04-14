@@ -7627,30 +7627,29 @@ define internal range(i32 0, 2) i32 @setConfigSaveOption(ptr readnone captures(n
   %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv43
   %34 = load ptr, ptr %33, align 8, !tbaa !14
   %35 = tail call i64 @strtoll(ptr noundef captures(none) %34, ptr noundef null, i32 noundef 10) #26
-  %36 = or disjoint i64 %indvars.iv43, 1
-  %37 = getelementptr inbounds nuw ptr, ptr %1, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !14
-  %39 = tail call i64 @strtoll(ptr noundef captures(none) %38, ptr noundef null, i32 noundef 10) #26
-  %40 = trunc i64 %39 to i32
-  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6760), align 8, !tbaa !46
-  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
-  %43 = add nsw i32 %42, 1
-  %44 = sext i32 %43 to i64
-  %45 = shl nsw i64 %44, 4
-  %46 = tail call ptr @zrealloc(ptr noundef %41, i64 noundef %45) #28
-  store ptr %46, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6760), align 8, !tbaa !46
-  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds %struct.saveparam, ptr %46, i64 %48
-  store i64 %35, ptr %49, align 8, !tbaa !48
-  %50 = getelementptr inbounds %struct.saveparam, ptr %46, i64 %48, i32 1
-  store i32 %40, ptr %50, align 8, !tbaa !50
-  %51 = add nsw i32 %47, 1
-  store i32 %51, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !14
+  %38 = tail call i64 @strtoll(ptr noundef captures(none) %37, ptr noundef null, i32 noundef 10) #26
+  %39 = trunc i64 %38 to i32
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6760), align 8, !tbaa !46
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
+  %42 = add nsw i32 %41, 1
+  %43 = sext i32 %42 to i64
+  %44 = shl nsw i64 %43, 4
+  %45 = tail call ptr @zrealloc(ptr noundef %40, i64 noundef %44) #28
+  store ptr %45, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6760), align 8, !tbaa !46
+  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds %struct.saveparam, ptr %45, i64 %47
+  store i64 %35, ptr %48, align 8, !tbaa !48
+  %49 = getelementptr inbounds %struct.saveparam, ptr %45, i64 %47, i32 1
+  store i32 %39, ptr %49, align 8, !tbaa !50
+  %50 = add nsw i32 %46, 1
+  store i32 %50, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6768), align 8, !tbaa !47
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 2
-  %52 = trunc nuw i64 %indvars.iv.next44 to i32
-  %53 = icmp sgt i32 %.0274951, %52
-  br i1 %53, label %.lr.ph41, label %.loopexit, !llvm.loop !225
+  %51 = trunc nuw i64 %indvars.iv.next44 to i32
+  %52 = icmp sgt i32 %.0274951, %51
+  br i1 %52, label %.lr.ph41, label %.loopexit, !llvm.loop !225
 
 .loopexit:                                        ; preds = %.lr.ph41, %32, %.critedge, %.thread
   %.0 = phi i32 [ 0, %.thread ], [ 0, %.critedge ], [ 1, %32 ], [ 1, %.lr.ph41 ]
@@ -7722,8 +7721,8 @@ define internal range(i32 0, 2) i32 @setConfigClientOutputBufferLimitOption(ptr 
   %.not47.i = icmp eq ptr %3, null
   br i1 %.not47.i, label %updateClientOutputBufferLimit.exit, label %.loopexit.sink.split.i
 
-.lr.ph.i:                                         ; preds = %.preheader48.i, %40
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %40 ], [ 0, %.preheader48.i ]
+.lr.ph.i:                                         ; preds = %.preheader48.i, %37
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %37 ], [ 0, %.preheader48.i ]
   %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !14
   %15 = call i32 @getClientTypeByName(ptr noundef %14) #26
@@ -7737,82 +7736,79 @@ define internal range(i32 0, 2) i32 @setConfigClientOutputBufferLimitOption(ptr 
   br i1 %.not46.i, label %updateClientOutputBufferLimit.exit, label %.loopexit.sink.split.i
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = or disjoint i64 %indvars.iv.i, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %1, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !14
-  %21 = call i64 @memtoull(ptr noundef %20, ptr noundef nonnull %5) #26
-  %22 = or disjoint i64 %indvars.iv.i, 2
-  %23 = getelementptr inbounds nuw ptr, ptr %1, i64 %22
-  %24 = load ptr, ptr %23, align 8, !tbaa !14
-  %25 = call i64 @memtoull(ptr noundef %24, ptr noundef nonnull %6) #26
-  %26 = or disjoint i64 %indvars.iv.i, 3
-  %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !14
-  %29 = call i64 @strtoll(ptr noundef %28, ptr noundef nonnull %7, i32 noundef 10) #26
-  %30 = load i32, ptr %5, align 4, !tbaa !59
-  %31 = icmp ne i32 %30, 0
-  %32 = load i32, ptr %6, align 4
-  %33 = icmp ne i32 %32, 0
-  %or.cond3.i = select i1 %31, i1 true, i1 %33
-  %34 = and i64 %29, 2147483648
-  %35 = icmp ne i64 %34, 0
-  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %35
-  br i1 %or.cond5.i, label %39, label %36
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !14
+  %20 = call i64 @memtoull(ptr noundef %19, ptr noundef nonnull %5) #26
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !14
+  %23 = call i64 @memtoull(ptr noundef %22, ptr noundef nonnull %6) #26
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %25 = load ptr, ptr %24, align 8, !tbaa !14
+  %26 = call i64 @strtoll(ptr noundef %25, ptr noundef nonnull %7, i32 noundef 10) #26
+  %27 = load i32, ptr %5, align 4, !tbaa !59
+  %28 = icmp ne i32 %27, 0
+  %29 = load i32, ptr %6, align 4
+  %30 = icmp ne i32 %29, 0
+  %or.cond3.i = select i1 %28, i1 true, i1 %30
+  %31 = and i64 %26, 2147483648
+  %32 = icmp ne i64 %31, 0
+  %or.cond5.i = select i1 %or.cond3.i, i1 true, i1 %32
+  br i1 %or.cond5.i, label %36, label %33
 
-36:                                               ; preds = %17
-  %37 = load ptr, ptr %7, align 8, !tbaa !14
-  %38 = load i8, ptr %37, align 1, !tbaa !56
-  %.not44.i = icmp eq i8 %38, 0
-  br i1 %.not44.i, label %40, label %39
+33:                                               ; preds = %17
+  %34 = load ptr, ptr %7, align 8, !tbaa !14
+  %35 = load i8, ptr %34, align 1, !tbaa !56
+  %.not44.i = icmp eq i8 %35, 0
+  br i1 %.not44.i, label %37, label %36
 
-39:                                               ; preds = %36, %17
+36:                                               ; preds = %33, %17
   %.not45.i = icmp eq ptr %3, null
   br i1 %.not45.i, label %updateClientOutputBufferLimit.exit, label %.loopexit.sink.split.i
 
-40:                                               ; preds = %36
-  %41 = sext i32 %15 to i64
-  %42 = getelementptr inbounds [3 x %struct.clientBufferLimitsConfig], ptr %8, i64 0, i64 %41
-  store i64 %21, ptr %42, align 8, !tbaa !173
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i64 %25, ptr %43, align 8, !tbaa !175
-  %44 = and i64 %29, 2147483647
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i64 %44, ptr %45, align 8, !tbaa !176
-  %46 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %41
-  store i32 1, ptr %46, align 4, !tbaa !59
+37:                                               ; preds = %33
+  %38 = sext i32 %15 to i64
+  %39 = getelementptr inbounds [3 x %struct.clientBufferLimitsConfig], ptr %8, i64 0, i64 %38
+  store i64 %20, ptr %39, align 8, !tbaa !173
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i64 %23, ptr %40, align 8, !tbaa !175
+  %41 = and i64 %26, 2147483647
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store i64 %41, ptr %42, align 8, !tbaa !176
+  %43 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %38
+  store i32 1, ptr %43, align 4, !tbaa !59
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %47 = trunc nuw i64 %indvars.iv.next.i to i32
-  %48 = icmp sgt i32 %2, %47
-  br i1 %48, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !227
+  %44 = trunc nuw i64 %indvars.iv.next.i to i32
+  %45 = icmp sgt i32 %2, %44
+  br i1 %45, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !227
 
-.preheader.i.preheader:                           ; preds = %40, %.preheader48.i
+.preheader.i.preheader:                           ; preds = %37, %.preheader48.i
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %54
-  %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %54 ], [ 0, %.preheader.i.preheader ]
-  %49 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv52.i
-  %50 = load i32, ptr %49, align 4, !tbaa !59
-  %.not43.i = icmp eq i32 %50, 0
-  br i1 %.not43.i, label %54, label %51
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %51
+  %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %51 ], [ 0, %.preheader.i.preheader ]
+  %46 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %indvars.iv52.i
+  %47 = load i32, ptr %46, align 4, !tbaa !59
+  %.not43.i = icmp eq i32 %47, 0
+  br i1 %.not43.i, label %51, label %48
 
-51:                                               ; preds = %.preheader.i
-  %52 = getelementptr inbounds nuw [3 x %struct.clientBufferLimitsConfig], ptr getelementptr inbounds nuw (i8, ptr @server, i64 6408), i64 0, i64 %indvars.iv52.i
-  %53 = getelementptr inbounds nuw [3 x %struct.clientBufferLimitsConfig], ptr %8, i64 0, i64 %indvars.iv52.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false), !tbaa.struct !228
-  br label %54
+48:                                               ; preds = %.preheader.i
+  %49 = getelementptr inbounds nuw [3 x %struct.clientBufferLimitsConfig], ptr getelementptr inbounds nuw (i8, ptr @server, i64 6408), i64 0, i64 %indvars.iv52.i
+  %50 = getelementptr inbounds nuw [3 x %struct.clientBufferLimitsConfig], ptr %8, i64 0, i64 %indvars.iv52.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false), !tbaa.struct !228
+  br label %51
 
-54:                                               ; preds = %51, %.preheader.i
+51:                                               ; preds = %48, %.preheader.i
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next53.i, 3
   br i1 %exitcond.not.i, label %updateClientOutputBufferLimit.exit, label %.preheader.i, !llvm.loop !229
 
-.loopexit.sink.split.i:                           ; preds = %39, %16, %12
-  %.str.407.sink.i = phi ptr [ @.str.405, %12 ], [ @.str.406, %16 ], [ @.str.407, %39 ]
+.loopexit.sink.split.i:                           ; preds = %36, %16, %12
+  %.str.407.sink.i = phi ptr [ @.str.405, %12 ], [ @.str.406, %16 ], [ @.str.407, %36 ]
   store ptr %.str.407.sink.i, ptr %3, align 8, !tbaa !14
   br label %updateClientOutputBufferLimit.exit
 
-updateClientOutputBufferLimit.exit:               ; preds = %54, %12, %16, %39, %.loopexit.sink.split.i
-  %.0.i = phi i32 [ 0, %12 ], [ 0, %16 ], [ 0, %39 ], [ 0, %.loopexit.sink.split.i ], [ 1, %54 ]
+updateClientOutputBufferLimit.exit:               ; preds = %51, %12, %16, %36, %.loopexit.sink.split.i
+  %.0.i = phi i32 [ 0, %12 ], [ 0, %16 ], [ 0, %36 ], [ 0, %.loopexit.sink.split.i ], [ 1, %51 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #26
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26

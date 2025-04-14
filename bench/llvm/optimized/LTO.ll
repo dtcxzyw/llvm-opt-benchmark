@@ -3942,9 +3942,9 @@ _ZN4llvm15SmallVectorImplIcE20resize_for_overwriteEm.exit.i: ; preds = %.sink.sp
   %30 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !62
   %32 = or i8 %31, %15
-  %33 = or disjoint i64 %25, 1
-  %34 = load ptr, ptr %6, align 8, !tbaa !450
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %33
+  %33 = load ptr, ptr %6, align 8, !tbaa !450
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %25
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 %32, ptr %35, align 1, !tbaa !62
   %36 = add nuw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %36, %2
@@ -20452,6 +20452,7 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
   %10 = alloca %"struct.std::pair.886", align 8
   %11 = add nsw i64 %2, -1
   %12 = sdiv i64 %11, 2
+  %invariant.gep = getelementptr i8, ptr %0, i64 4
   %13 = icmp slt i64 %1, %12
   br i1 %13, label %.lr.ph, label %._crit_edge
 
@@ -20466,121 +20467,121 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
   %18 = shl i64 %.030, 1
   %19 = add i64 %18, 2
   %20 = getelementptr inbounds i32, ptr %0, i64 %19
-  %21 = or disjoint i64 %18, 1
-  %22 = getelementptr inbounds i32, ptr %0, i64 %21
-  %23 = load i32, ptr %20, align 4, !tbaa !194
-  %24 = load i32, ptr %22, align 4, !tbaa !194
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %18
+  %21 = load i32, ptr %20, align 4, !tbaa !194
+  %22 = load i32, ptr %gep, align 4, !tbaa !194
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !1474)
-  %25 = load ptr, ptr %4, align 8, !tbaa !166, !noalias !1474
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !25, !noalias !1477
-  %28 = lshr i32 %23, 1
-  %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %27, i64 %29
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !203, !noalias !1477
-  store i64 %32, ptr %14, align 8, !tbaa !1343, !alias.scope !1480
+  %23 = load ptr, ptr %4, align 8, !tbaa !166, !noalias !1474
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %25 = load ptr, ptr %24, align 8, !tbaa !25, !noalias !1477
+  %26 = lshr i32 %21, 1
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %25, i64 %27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %28, i64 16, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load i64, ptr %29, align 8, !tbaa !203, !noalias !1477
+  store i64 %30, ptr %14, align 8, !tbaa !1343, !alias.scope !1480
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !1483)
-  %33 = lshr i32 %24, 1
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %27, i64 %34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load i64, ptr %36, align 8, !tbaa !203, !noalias !1486
-  store i64 %37, ptr %15, align 8, !tbaa !1343, !alias.scope !1489
-  %38 = load ptr, ptr %5, align 8, !tbaa !1356
-  %39 = load i64, ptr %16, align 8, !tbaa !1358
-  %40 = call noundef zeroext i1 %38(i64 noundef %39, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10) #29
+  %31 = lshr i32 %22, 1
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %25, i64 %32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load i64, ptr %34, align 8, !tbaa !203, !noalias !1486
+  store i64 %35, ptr %15, align 8, !tbaa !1343, !alias.scope !1489
+  %36 = load ptr, ptr %5, align 8, !tbaa !1356
+  %37 = load i64, ptr %16, align 8, !tbaa !1358
+  %38 = call noundef zeroext i1 %36(i64 noundef %37, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #29
-  %spec.select = select i1 %40, i64 %21, i64 %19
-  %41 = getelementptr inbounds i32, ptr %0, i64 %spec.select
-  %42 = load i32, ptr %41, align 4, !tbaa !194
-  %43 = getelementptr inbounds i32, ptr %0, i64 %.030
-  store i32 %42, ptr %43, align 4, !tbaa !194
-  %44 = icmp slt i64 %spec.select, %12
-  br i1 %44, label %17, label %._crit_edge, !llvm.loop !1492
+  %39 = or disjoint i64 %18, 1
+  %spec.select = select i1 %38, i64 %39, i64 %19
+  %40 = getelementptr inbounds i32, ptr %0, i64 %spec.select
+  %41 = load i32, ptr %40, align 4, !tbaa !194
+  %42 = getelementptr inbounds i32, ptr %0, i64 %.030
+  store i32 %41, ptr %42, align 4, !tbaa !194
+  %43 = icmp slt i64 %spec.select, %12
+  br i1 %43, label %17, label %._crit_edge, !llvm.loop !1492
 
 ._crit_edge:                                      ; preds = %17, %6
   %.0.lcssa = phi i64 [ %1, %6 ], [ %spec.select, %17 ]
-  %45 = and i64 %2, 1
-  %46 = icmp eq i64 %45, 0
-  br i1 %46, label %47, label %57
+  %44 = and i64 %2, 1
+  %45 = icmp eq i64 %44, 0
+  br i1 %45, label %46, label %56
 
-47:                                               ; preds = %._crit_edge
-  %48 = add nsw i64 %2, -2
-  %49 = ashr exact i64 %48, 1
-  %50 = icmp eq i64 %.0.lcssa, %49
-  br i1 %50, label %51, label %57
+46:                                               ; preds = %._crit_edge
+  %47 = add nsw i64 %2, -2
+  %48 = ashr exact i64 %47, 1
+  %49 = icmp eq i64 %.0.lcssa, %48
+  br i1 %49, label %50, label %56
 
-51:                                               ; preds = %47
-  %52 = shl nsw i64 %.0.lcssa, 1
-  %53 = or disjoint i64 %52, 1
-  %54 = getelementptr inbounds i32, ptr %0, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !194
-  %56 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa
-  store i32 %55, ptr %56, align 4, !tbaa !194
-  br label %57
+50:                                               ; preds = %46
+  %51 = shl nsw i64 %.0.lcssa, 1
+  %52 = or disjoint i64 %51, 1
+  %53 = getelementptr inbounds i32, ptr %0, i64 %52
+  %54 = load i32, ptr %53, align 4, !tbaa !194
+  %55 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa
+  store i32 %54, ptr %55, align 4, !tbaa !194
+  br label %56
 
-57:                                               ; preds = %51, %47, %._crit_edge
-  %.128 = phi i64 [ %53, %51 ], [ %.0.lcssa, %47 ], [ %.0.lcssa, %._crit_edge ]
-  %58 = icmp sgt i64 %.128, %1
-  br i1 %58, label %.lr.ph.i, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit
+56:                                               ; preds = %50, %46, %._crit_edge
+  %.128 = phi i64 [ %52, %50 ], [ %.0.lcssa, %46 ], [ %.0.lcssa, %._crit_edge ]
+  %57 = icmp sgt i64 %.128, %1
+  br i1 %57, label %.lr.ph.i, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit
 
-.lr.ph.i:                                         ; preds = %57
-  %59 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %60 = lshr i32 %3, 1
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %64
+.lr.ph.i:                                         ; preds = %56
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %59 = lshr i32 %3, 1
+  %60 = zext nneg i32 %59 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br label %63
 
-64:                                               ; preds = %81, %.lr.ph.i
-  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.018.i, %81 ]
+63:                                               ; preds = %80, %.lr.ph.i
+  %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.018.i, %80 ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %65 = getelementptr inbounds i32, ptr %0, i64 %.018.i
-  %66 = load i32, ptr %65, align 4, !tbaa !194
+  %64 = getelementptr inbounds i32, ptr %0, i64 %.018.i
+  %65 = load i32, ptr %64, align 4, !tbaa !194
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !1493)
-  %67 = load ptr, ptr %4, align 8, !tbaa !166, !noalias !1493
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %69 = load ptr, ptr %68, align 8, !tbaa !25, !noalias !1496
-  %70 = lshr i32 %66, 1
-  %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %69, i64 %71
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %72, i64 16, i1 false)
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load i64, ptr %73, align 8, !tbaa !203, !noalias !1496
-  store i64 %74, ptr %59, align 8, !tbaa !1343, !alias.scope !1499
+  %66 = load ptr, ptr %4, align 8, !tbaa !166, !noalias !1493
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  %68 = load ptr, ptr %67, align 8, !tbaa !25, !noalias !1496
+  %69 = lshr i32 %65, 1
+  %70 = zext nneg i32 %69 to i64
+  %71 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %68, i64 %70
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %71, i64 16, i1 false)
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %73 = load i64, ptr %72, align 8, !tbaa !203, !noalias !1496
+  store i64 %73, ptr %58, align 8, !tbaa !1343, !alias.scope !1499
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #29
   call void @llvm.experimental.noalias.scope.decl(metadata !1502)
-  %75 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %69, i64 %61
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false)
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load i64, ptr %76, align 8, !tbaa !203, !noalias !1505
-  store i64 %77, ptr %62, align 8, !tbaa !1343, !alias.scope !1508
-  %78 = load ptr, ptr %5, align 8, !tbaa !1356
-  %79 = load i64, ptr %63, align 8, !tbaa !1358
-  %80 = call noundef zeroext i1 %78(i64 noundef %79, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) #29
+  %74 = getelementptr inbounds nuw %"struct.std::pair.888", ptr %68, i64 %60
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false)
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %76 = load i64, ptr %75, align 8, !tbaa !203, !noalias !1505
+  store i64 %76, ptr %61, align 8, !tbaa !1343, !alias.scope !1508
+  %77 = load ptr, ptr %5, align 8, !tbaa !1356
+  %78 = load i64, ptr %62, align 8, !tbaa !1358
+  %79 = call noundef zeroext i1 %77(i64 noundef %78, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #29
-  br i1 %80, label %81, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit
+  br i1 %79, label %80, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit
 
-81:                                               ; preds = %64
-  %82 = load i32, ptr %65, align 4, !tbaa !194
-  %83 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
-  store i32 %82, ptr %83, align 4, !tbaa !194
-  %84 = icmp sgt i64 %.018.i, %1
-  br i1 %84, label %64, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit, !llvm.loop !1511
+80:                                               ; preds = %63
+  %81 = load i32, ptr %64, align 4, !tbaa !194
+  %82 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
+  store i32 %81, ptr %82, align 4, !tbaa !194
+  %83 = icmp sgt i64 %.018.i, %1
+  br i1 %83, label %63, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit, !llvm.loop !1511
 
-_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit: ; preds = %64, %81, %57
-  %.013.lcssa.i = phi i64 [ %.128, %57 ], [ %.01317.i, %64 ], [ %.018.i, %81 ]
-  %85 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i
-  store i32 %3, ptr %85, align 4, !tbaa !194
+_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm16FunctionImporter16SortedImportListC1ERKNS5_11ImportMapTyENS4_12function_refIFbRKSt4pairINS4_9StringRefEmESF_EEEEUljjE_EEEvT_T0_SL_T1_RT2_.exit: ; preds = %63, %80, %56
+  %.013.lcssa.i = phi i64 [ %.128, %56 ], [ %.01317.i, %63 ], [ %.018.i, %80 ]
+  %84 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i
+  store i32 %3, ptr %84, align 4, !tbaa !194
   ret void
 }
 

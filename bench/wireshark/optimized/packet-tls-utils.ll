@@ -3053,37 +3053,36 @@ define internal fastcc noundef zeroext i1 @from_hex(ptr noundef captures(none) %
   %.not27 = icmp eq i64 %2, 0
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %5, %19
-  %.02026 = phi i64 [ %25, %19 ], [ 0, %5 ]
+.lr.ph:                                           ; preds = %5, %18
+  %.02026 = phi i64 [ %24, %18 ], [ 0, %5 ]
   %9 = shl nuw i64 %.02026, 1
   %10 = getelementptr i8, ptr %1, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = tail call i32 @ws_xton(i8 noundef signext %11)
-  %13 = or disjoint i64 %9, 1
-  %14 = getelementptr i8, ptr %1, i64 %13
-  %15 = load i8, ptr %14, align 1
-  %16 = tail call i32 @ws_xton(i8 noundef signext %15)
-  %17 = icmp ne i32 %12, -1
-  %18 = icmp ne i32 %16, -1
-  %or.cond.not = select i1 %17, i1 %18, i1 false
-  br i1 %or.cond.not, label %19, label %.critedge
+  %13 = getelementptr i8, ptr %10, i64 1
+  %14 = load i8, ptr %13, align 1
+  %15 = tail call i32 @ws_xton(i8 noundef signext %14)
+  %16 = icmp ne i32 %12, -1
+  %17 = icmp ne i32 %15, -1
+  %or.cond.not = select i1 %16, i1 %17, i1 false
+  br i1 %or.cond.not, label %18, label %.critedge
 
-19:                                               ; preds = %.lr.ph
-  %20 = shl i32 %12, 4
-  %21 = or i32 %16, %20
-  %22 = trunc i32 %21 to i8
-  %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr i8, ptr %23, i64 %.02026
-  store i8 %22, ptr %24, align 1
-  %25 = add nuw nsw i64 %.02026, 1
-  %exitcond.not = icmp eq i64 %25, %7
+18:                                               ; preds = %.lr.ph
+  %19 = shl i32 %12, 4
+  %20 = or i32 %15, %19
+  %21 = trunc i32 %20 to i8
+  %22 = load ptr, ptr %0, align 8
+  %23 = getelementptr i8, ptr %22, i64 %.02026
+  store i8 %21, ptr %23, align 1
+  %24 = add nuw nsw i64 %.02026, 1
+  %exitcond.not = icmp eq i64 %24, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %19, %5
-  %26 = trunc i64 %2 to i32
-  %27 = lshr exact i32 %26, 1
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %27, ptr %28, align 8
+._crit_edge:                                      ; preds = %18, %5
+  %25 = trunc i64 %2 to i32
+  %26 = lshr exact i32 %25, 1
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %26, ptr %27, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %3, %._crit_edge
@@ -8175,8 +8174,8 @@ ssl_compile_keyfile_regex.exit:                   ; preds = %58
   %71 = ptrtoint ptr %67 to i64
   br label %72
 
-72:                                               ; preds = %.lr.ph, %178
-  %.072134 = phi ptr [ %1, %.lr.ph ], [ %78, %178 ]
+72:                                               ; preds = %.lr.ph, %176
+  %.072134 = phi ptr [ %1, %.lr.ph ], [ %78, %176 ]
   %73 = ptrtoint ptr %.072134 to i64
   %74 = sub i64 %71, %73
   %75 = call ptr @memchr(ptr noundef nonnull %.072134, i32 noundef 10, i64 noundef %74) #32
@@ -8205,7 +8204,7 @@ ssl_compile_keyfile_regex.exit:                   ; preds = %58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #31
   %88 = call i32 @g_regex_match_full(ptr noundef nonnull %65, ptr noundef nonnull %.072134, i64 noundef %.177, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %6, ptr noundef null)
   %.not86 = icmp eq i32 %88, 0
-  br i1 %.not86, label %173, label %89
+  br i1 %.not86, label %171, label %89
 
 89:                                               ; preds = %86
   %90 = call ptr @wmem_file_scope()
@@ -8265,149 +8264,147 @@ ssl_compile_keyfile_regex.exit:                   ; preds = %58
   %.not27.i = icmp eq i64 %108, 0
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %110, %124
-  %.02026.i = phi i64 [ %130, %124 ], [ 0, %110 ]
+.lr.ph.i:                                         ; preds = %110, %123
+  %.02026.i = phi i64 [ %129, %123 ], [ 0, %110 ]
   %114 = shl nuw i64 %.02026.i, 1
   %115 = getelementptr i8, ptr %.175117128, i64 %114
   %116 = load i8, ptr %115, align 1
   %117 = call i32 @ws_xton(i8 noundef signext %116)
-  %118 = or disjoint i64 %114, 1
-  %119 = getelementptr i8, ptr %.175117128, i64 %118
-  %120 = load i8, ptr %119, align 1
-  %121 = call i32 @ws_xton(i8 noundef signext %120)
-  %122 = icmp ne i32 %117, -1
-  %123 = icmp ne i32 %121, -1
-  %or.cond.not.i = select i1 %122, i1 %123, i1 false
-  br i1 %or.cond.not.i, label %124, label %from_hex.exit
+  %118 = getelementptr i8, ptr %115, i64 1
+  %119 = load i8, ptr %118, align 1
+  %120 = call i32 @ws_xton(i8 noundef signext %119)
+  %121 = icmp ne i32 %117, -1
+  %122 = icmp ne i32 %120, -1
+  %or.cond.not.i = select i1 %121, i1 %122, i1 false
+  br i1 %or.cond.not.i, label %123, label %from_hex.exit
 
-124:                                              ; preds = %.lr.ph.i
-  %125 = shl i32 %117, 4
-  %126 = or i32 %121, %125
-  %127 = trunc i32 %126 to i8
-  %128 = load ptr, ptr %107, align 8
-  %129 = getelementptr i8, ptr %128, i64 %.02026.i
-  store i8 %127, ptr %129, align 1
-  %130 = add nuw nsw i64 %.02026.i, 1
-  %exitcond.not.i = icmp eq i64 %130, %112
+123:                                              ; preds = %.lr.ph.i
+  %124 = shl i32 %117, 4
+  %125 = or i32 %120, %124
+  %126 = trunc i32 %125 to i8
+  %127 = load ptr, ptr %107, align 8
+  %128 = getelementptr i8, ptr %127, i64 %.02026.i
+  store i8 %126, ptr %128, align 1
+  %129 = add nuw nsw i64 %.02026.i, 1
+  %exitcond.not.i = icmp eq i64 %129, %112
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
-._crit_edge.i:                                    ; preds = %124, %110
-  %131 = trunc i64 %108 to i32
-  %132 = lshr exact i32 %131, 1
-  %133 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  store i32 %132, ptr %133, align 8
+._crit_edge.i:                                    ; preds = %123, %110
+  %130 = trunc i64 %108 to i32
+  %131 = lshr exact i32 %130, 1
+  %132 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  store i32 %131, ptr %132, align 8
   br label %from_hex.exit
 
 from_hex.exit:                                    ; preds = %.lr.ph.i, %.thread114.thread, %._crit_edge.i
   call void @g_free(ptr noundef nonnull %.175117128)
-  br label %134
+  br label %133
 
-134:                                              ; preds = %from_hex.exit, %170
-  %indvars.iv = phi i64 [ 0, %from_hex.exit ], [ %indvars.iv.next, %170 ]
-  %135 = getelementptr [13 x %struct.ssl_master_key_match_group], ptr %5, i64 0, i64 %indvars.iv
-  %136 = load ptr, ptr %6, align 8
-  %137 = load ptr, ptr %135, align 16
-  %138 = call ptr @g_match_info_fetch_named(ptr noundef %136, ptr noundef %137)
-  %.not92 = icmp eq ptr %138, null
-  br i1 %.not92, label %170, label %139
+133:                                              ; preds = %from_hex.exit, %168
+  %indvars.iv = phi i64 [ 0, %from_hex.exit ], [ %indvars.iv.next, %168 ]
+  %134 = getelementptr [13 x %struct.ssl_master_key_match_group], ptr %5, i64 0, i64 %indvars.iv
+  %135 = load ptr, ptr %6, align 8
+  %136 = load ptr, ptr %134, align 16
+  %137 = call ptr @g_match_info_fetch_named(ptr noundef %135, ptr noundef %136)
+  %.not92 = icmp eq ptr %137, null
+  br i1 %.not92, label %168, label %138
 
-139:                                              ; preds = %134
-  %140 = load i8, ptr %138, align 1
-  %.not93 = icmp eq i8 %140, 0
-  br i1 %.not93, label %170, label %141
+138:                                              ; preds = %133
+  %139 = load i8, ptr %137, align 1
+  %.not93 = icmp eq i8 %139, 0
+  br i1 %.not93, label %168, label %140
 
-141:                                              ; preds = %139
-  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.688, ptr noundef %137)
-  %142 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %143 = load ptr, ptr %142, align 8
-  %144 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %138) #32
-  %145 = and i64 %144, 1
-  %.not.i96 = icmp eq i64 %145, 0
-  br i1 %.not.i96, label %146, label %.loopexit
+140:                                              ; preds = %138
+  call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.688, ptr noundef %136)
+  %141 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %142 = load ptr, ptr %141, align 8
+  %143 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %137) #32
+  %144 = and i64 %143, 1
+  %.not.i96 = icmp eq i64 %144, 0
+  br i1 %.not.i96, label %145, label %.loopexit
 
-146:                                              ; preds = %141
-  %147 = call ptr @wmem_file_scope()
-  %148 = lshr exact i64 %144, 1
-  %149 = call noalias ptr @wmem_alloc(ptr noundef %147, i64 noundef %148) #33
-  store ptr %149, ptr %91, align 8
-  %.not27.i98 = icmp eq i64 %144, 0
+145:                                              ; preds = %140
+  %146 = call ptr @wmem_file_scope()
+  %147 = lshr exact i64 %143, 1
+  %148 = call noalias ptr @wmem_alloc(ptr noundef %146, i64 noundef %147) #33
+  store ptr %148, ptr %91, align 8
+  %.not27.i98 = icmp eq i64 %143, 0
   br i1 %.not27.i98, label %._crit_edge.i103, label %.lr.ph.i99
 
-.lr.ph.i99:                                       ; preds = %146, %160
-  %.02026.i100 = phi i64 [ %166, %160 ], [ 0, %146 ]
-  %150 = shl nuw i64 %.02026.i100, 1
-  %151 = getelementptr i8, ptr %138, i64 %150
-  %152 = load i8, ptr %151, align 1
-  %153 = call i32 @ws_xton(i8 noundef signext %152)
-  %154 = or disjoint i64 %150, 1
-  %155 = getelementptr i8, ptr %138, i64 %154
-  %156 = load i8, ptr %155, align 1
-  %157 = call i32 @ws_xton(i8 noundef signext %156)
-  %158 = icmp ne i32 %153, -1
-  %159 = icmp ne i32 %157, -1
-  %or.cond.not.i101 = select i1 %158, i1 %159, i1 false
-  br i1 %or.cond.not.i101, label %160, label %.loopexit
+.lr.ph.i99:                                       ; preds = %145, %158
+  %.02026.i100 = phi i64 [ %164, %158 ], [ 0, %145 ]
+  %149 = shl nuw i64 %.02026.i100, 1
+  %150 = getelementptr i8, ptr %137, i64 %149
+  %151 = load i8, ptr %150, align 1
+  %152 = call i32 @ws_xton(i8 noundef signext %151)
+  %153 = getelementptr i8, ptr %150, i64 1
+  %154 = load i8, ptr %153, align 1
+  %155 = call i32 @ws_xton(i8 noundef signext %154)
+  %156 = icmp ne i32 %152, -1
+  %157 = icmp ne i32 %155, -1
+  %or.cond.not.i101 = select i1 %156, i1 %157, i1 false
+  br i1 %or.cond.not.i101, label %158, label %.loopexit
 
-160:                                              ; preds = %.lr.ph.i99
-  %161 = shl i32 %153, 4
-  %162 = or i32 %157, %161
-  %163 = trunc i32 %162 to i8
-  %164 = load ptr, ptr %91, align 8
-  %165 = getelementptr i8, ptr %164, i64 %.02026.i100
-  store i8 %163, ptr %165, align 1
-  %166 = add nuw nsw i64 %.02026.i100, 1
-  %exitcond.not.i102 = icmp eq i64 %166, %148
+158:                                              ; preds = %.lr.ph.i99
+  %159 = shl i32 %152, 4
+  %160 = or i32 %155, %159
+  %161 = trunc i32 %160 to i8
+  %162 = load ptr, ptr %91, align 8
+  %163 = getelementptr i8, ptr %162, i64 %.02026.i100
+  store i8 %161, ptr %163, align 1
+  %164 = add nuw nsw i64 %.02026.i100, 1
+  %exitcond.not.i102 = icmp eq i64 %164, %147
   br i1 %exitcond.not.i102, label %._crit_edge.i103, label %.lr.ph.i99, !llvm.loop !17
 
-._crit_edge.i103:                                 ; preds = %160, %146
-  %167 = trunc i64 %144 to i32
-  %168 = lshr exact i32 %167, 1
-  %169 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store i32 %168, ptr %169, align 8
+._crit_edge.i103:                                 ; preds = %158, %145
+  %165 = trunc i64 %143 to i32
+  %166 = lshr exact i32 %165, 1
+  %167 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  store i32 %166, ptr %167, align 8
   br label %.loopexit
 
-170:                                              ; preds = %134, %139
-  call void @g_free(ptr noundef %138)
+168:                                              ; preds = %133, %138
+  call void @g_free(ptr noundef %137)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 13
-  br i1 %exitcond.not, label %.thread122, label %134, !llvm.loop !122
+  br i1 %exitcond.not, label %.thread122, label %133, !llvm.loop !122
 
-.loopexit:                                        ; preds = %.lr.ph.i99, %141, %._crit_edge.i103
-  call void @g_free(ptr noundef nonnull %138)
-  %.not94 = icmp eq ptr %143, null
-  br i1 %.not94, label %.thread122, label %171
+.loopexit:                                        ; preds = %.lr.ph.i99, %140, %._crit_edge.i103
+  call void @g_free(ptr noundef nonnull %137)
+  %.not94 = icmp eq ptr %142, null
+  br i1 %.not94, label %.thread122, label %169
 
-.thread122:                                       ; preds = %.loopexit, %170
+.thread122:                                       ; preds = %.loopexit, %168
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.503, ptr noundef nonnull @.str.504, i32 noundef 6915, ptr noundef nonnull @.str.689) #29
   unreachable
 
-171:                                              ; preds = %.loopexit
-  %172 = call i32 @g_hash_table_insert(ptr noundef nonnull %143, ptr noundef %91, ptr noundef %107)
-  br label %178
+169:                                              ; preds = %.loopexit
+  %170 = call i32 @g_hash_table_insert(ptr noundef nonnull %142, ptr noundef %91, ptr noundef %107)
+  br label %176
 
-173:                                              ; preds = %86
-  %174 = icmp sgt i64 %.177, 0
-  br i1 %174, label %175, label %178
+171:                                              ; preds = %86
+  %172 = icmp sgt i64 %.177, 0
+  br i1 %172, label %173, label %176
+
+173:                                              ; preds = %171
+  %174 = load i8, ptr %.072134, align 1
+  %.not87 = icmp eq i8 %174, 35
+  br i1 %.not87, label %176, label %175
 
 175:                                              ; preds = %173
-  %176 = load i8, ptr %.072134, align 1
-  %.not87 = icmp eq i8 %176, 35
-  br i1 %.not87, label %178, label %177
-
-177:                                              ; preds = %175
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.690)
-  br label %178
+  br label %176
 
-178:                                              ; preds = %173, %175, %177, %171
-  %179 = load ptr, ptr %6, align 8
-  call void @g_match_info_free(ptr noundef %179)
+176:                                              ; preds = %171, %173, %175, %169
+  %177 = load ptr, ptr %6, align 8
+  call void @g_match_info_free(ptr noundef %177)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #31
-  %180 = icmp ne ptr %.173, null
-  %181 = icmp ult ptr %.173, %67
-  %182 = and i1 %180, %181
-  br i1 %182, label %72, label %.loopexit129, !llvm.loop !123
+  %178 = icmp ne ptr %.173, null
+  %179 = icmp ult ptr %.173, %67
+  %180 = and i1 %178, %179
+  br i1 %180, label %72, label %.loopexit129, !llvm.loop !123
 
-.loopexit129:                                     ; preds = %178, %64, %ssl_compile_keyfile_regex.exit.thread, %ssl_compile_keyfile_regex.exit
+.loopexit129:                                     ; preds = %176, %64, %ssl_compile_keyfile_regex.exit.thread, %ssl_compile_keyfile_regex.exit
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %5) #31
   ret void
 }

@@ -18021,6 +18021,7 @@ _ZN12_GLOBAL__N_19ChainElemD2Ev.exit19.i.i.i:     ; preds = %33, %24
 define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_18sortChainInBBOrderERN4llvm11SmallVectorIS1_Lj1EEEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef captures(none) %0, i64 noundef range(i64 0, 192153584101141162) %1, i64 noundef range(i64 -384307168202282325, 384307168202282326) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = add nsw i64 %2, -1
   %6 = sdiv i64 %5, 2
+  %invariant.gep = getelementptr i8, ptr %0, i64 24
   %7 = icmp slt i64 %1, %6
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -18029,158 +18030,158 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1
   %8 = shl i64 %.034, 1
   %9 = add i64 %8, 2
   %10 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %9
-  %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %11
+  %gep = getelementptr %"struct.(anonymous namespace)::ChainElem", ptr %invariant.gep, i64 %8
   %.val29 = load ptr, ptr %10, align 8, !tbaa !293
-  %.val30 = load ptr, ptr %12, align 8, !tbaa !293
-  %13 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.val29, ptr noundef %.val30) #19
-  %spec.select = select i1 %13, i64 %11, i64 %9
-  %14 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %spec.select
-  %15 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.034
-  %16 = load ptr, ptr %14, align 8, !tbaa !293
-  store ptr %16, ptr %15, align 8, !tbaa !293
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %19 = load i32, ptr %18, align 8, !tbaa !291
-  %20 = icmp ult i32 %19, 65
-  br i1 %20, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit, label %21
+  %.val30 = load ptr, ptr %gep, align 8, !tbaa !293
+  %11 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.val29, ptr noundef %.val30) #19
+  %12 = or disjoint i64 %8, 1
+  %spec.select = select i1 %11, i64 %12, i64 %9
+  %13 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %spec.select
+  %14 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.034
+  %15 = load ptr, ptr %13, align 8, !tbaa !293
+  store ptr %15, ptr %14, align 8, !tbaa !293
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %18 = load i32, ptr %17, align 8, !tbaa !291
+  %19 = icmp ult i32 %18, 65
+  br i1 %19, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit, label %20
 
-21:                                               ; preds = %.lr.ph
-  %22 = load ptr, ptr %17, align 8, !tbaa !194
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit, label %24
+20:                                               ; preds = %.lr.ph
+  %21 = load ptr, ptr %16, align 8, !tbaa !194
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit, label %23
 
-24:                                               ; preds = %21
-  tail call void @_ZdaPv(ptr noundef nonnull %22) #23
+23:                                               ; preds = %20
+  tail call void @_ZdaPv(ptr noundef nonnull %21) #23
   br label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit
 
-_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit:          ; preds = %.lr.ph, %21, %24
-  %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %26 = load i64, ptr %25, align 8
-  store i64 %26, ptr %17, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %28 = load i32, ptr %27, align 8, !tbaa !291
-  store i32 %28, ptr %18, align 8, !tbaa !291
-  store i32 0, ptr %27, align 8, !tbaa !291
-  %29 = icmp slt i64 %spec.select, %6
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !612
+_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit:          ; preds = %.lr.ph, %20, %23
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %25 = load i64, ptr %24, align 8
+  store i64 %25, ptr %16, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %27 = load i32, ptr %26, align 8, !tbaa !291
+  store i32 %27, ptr %17, align 8, !tbaa !291
+  store i32 0, ptr %26, align 8, !tbaa !291
+  %28 = icmp slt i64 %spec.select, %6
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !612
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit ]
-  %30 = and i64 %2, 1
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %54
+  %29 = and i64 %2, 1
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %31, label %53
 
-32:                                               ; preds = %._crit_edge
-  %33 = add nsw i64 %2, -2
-  %34 = ashr exact i64 %33, 1
-  %35 = icmp eq i64 %.0.lcssa, %34
-  br i1 %35, label %36, label %54
+31:                                               ; preds = %._crit_edge
+  %32 = add nsw i64 %2, -2
+  %33 = ashr exact i64 %32, 1
+  %34 = icmp eq i64 %.0.lcssa, %33
+  br i1 %34, label %35, label %53
 
-36:                                               ; preds = %32
-  %37 = shl nsw i64 %.0.lcssa, 1
-  %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %38
-  %40 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0.lcssa
-  %41 = load ptr, ptr %39, align 8, !tbaa !293
-  store ptr %41, ptr %40, align 8, !tbaa !293
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %44 = load i32, ptr %43, align 8, !tbaa !291
-  %45 = icmp ult i32 %44, 65
-  br i1 %45, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit31, label %46
+35:                                               ; preds = %31
+  %36 = shl nsw i64 %.0.lcssa, 1
+  %37 = or disjoint i64 %36, 1
+  %38 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %37
+  %39 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0.lcssa
+  %40 = load ptr, ptr %38, align 8, !tbaa !293
+  store ptr %40, ptr %39, align 8, !tbaa !293
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  %43 = load i32, ptr %42, align 8, !tbaa !291
+  %44 = icmp ult i32 %43, 65
+  br i1 %44, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit31, label %45
 
-46:                                               ; preds = %36
-  %47 = load ptr, ptr %42, align 8, !tbaa !194
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit31, label %49
+45:                                               ; preds = %35
+  %46 = load ptr, ptr %41, align 8, !tbaa !194
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit31, label %48
 
-49:                                               ; preds = %46
-  tail call void @_ZdaPv(ptr noundef nonnull %47) #23
+48:                                               ; preds = %45
+  tail call void @_ZdaPv(ptr noundef nonnull %46) #23
   br label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit31
 
-_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit31:        ; preds = %36, %46, %49
-  %50 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %51 = load i64, ptr %50, align 8
-  store i64 %51, ptr %42, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %53 = load i32, ptr %52, align 8, !tbaa !291
-  store i32 %53, ptr %43, align 8, !tbaa !291
-  store i32 0, ptr %52, align 8, !tbaa !291
-  br label %54
+_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit31:        ; preds = %35, %45, %48
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %50 = load i64, ptr %49, align 8
+  store i64 %50, ptr %41, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %52 = load i32, ptr %51, align 8, !tbaa !291
+  store i32 %52, ptr %42, align 8, !tbaa !291
+  store i32 0, ptr %51, align 8, !tbaa !291
+  br label %53
 
-54:                                               ; preds = %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit31, %32, %._crit_edge
-  %.127 = phi i64 [ %38, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit31 ], [ %.0.lcssa, %32 ], [ %.0.lcssa, %._crit_edge ]
-  %55 = load ptr, ptr %3, align 8, !tbaa !293
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %58 = load i32, ptr %57, align 8, !tbaa !291
-  %59 = load i64, ptr %56, align 8
-  store i32 0, ptr %57, align 8, !tbaa !291
-  %60 = icmp sgt i64 %.127, %1
-  br i1 %60, label %.lr.ph.i, label %.critedge.i
+53:                                               ; preds = %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit31, %31, %._crit_edge
+  %.127 = phi i64 [ %37, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit31 ], [ %.0.lcssa, %31 ], [ %.0.lcssa, %._crit_edge ]
+  %54 = load ptr, ptr %3, align 8, !tbaa !293
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %57 = load i32, ptr %56, align 8, !tbaa !291
+  %58 = load i64, ptr %55, align 8
+  store i32 0, ptr %56, align 8, !tbaa !291
+  %59 = icmp sgt i64 %.127, %1
+  br i1 %59, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %54, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i
-  %.0133.i = phi i64 [ %.04.i, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i ], [ %.127, %54 ]
+.lr.ph.i:                                         ; preds = %53, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i
+  %.0133.i = phi i64 [ %.04.i, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i ], [ %.127, %53 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %61 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.04.i
-  %.val.i = load ptr, ptr %61, align 8, !tbaa !293
-  %62 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.val.i, ptr noundef %55) #19
-  br i1 %62, label %63, label %.critedge.i
+  %60 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.04.i
+  %.val.i = load ptr, ptr %60, align 8, !tbaa !293
+  %61 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.val.i, ptr noundef %54) #19
+  br i1 %61, label %62, label %.critedge.i
 
-63:                                               ; preds = %.lr.ph.i
-  %64 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0133.i
-  %65 = load ptr, ptr %61, align 8, !tbaa !293
-  store ptr %65, ptr %64, align 8, !tbaa !293
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %68 = load i32, ptr %67, align 8, !tbaa !291
-  %69 = icmp ult i32 %68, 65
-  br i1 %69, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i, label %70
+62:                                               ; preds = %.lr.ph.i
+  %63 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0133.i
+  %64 = load ptr, ptr %60, align 8, !tbaa !293
+  store ptr %64, ptr %63, align 8, !tbaa !293
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %67 = load i32, ptr %66, align 8, !tbaa !291
+  %68 = icmp ult i32 %67, 65
+  br i1 %68, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i, label %69
 
-70:                                               ; preds = %63
-  %71 = load ptr, ptr %66, align 8, !tbaa !194
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i, label %73
+69:                                               ; preds = %62
+  %70 = load ptr, ptr %65, align 8, !tbaa !194
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i, label %72
 
-73:                                               ; preds = %70
-  tail call void @_ZdaPv(ptr noundef nonnull %71) #23
+72:                                               ; preds = %69
+  tail call void @_ZdaPv(ptr noundef nonnull %70) #23
   br label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i
 
-_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i:        ; preds = %73, %70, %63
-  %74 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %75 = load i64, ptr %74, align 8
-  store i64 %75, ptr %66, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %77 = load i32, ptr %76, align 8, !tbaa !291
-  store i32 %77, ptr %67, align 8, !tbaa !291
-  store i32 0, ptr %76, align 8, !tbaa !291
-  %78 = icmp sgt i64 %.04.i, %1
-  br i1 %78, label %.lr.ph.i, label %.critedge.i, !llvm.loop !613
+_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i:        ; preds = %72, %69, %62
+  %73 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %74 = load i64, ptr %73, align 8
+  store i64 %74, ptr %65, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %76 = load i32, ptr %75, align 8, !tbaa !291
+  store i32 %76, ptr %66, align 8, !tbaa !291
+  store i32 0, ptr %75, align 8, !tbaa !291
+  %77 = icmp sgt i64 %.04.i, %1
+  br i1 %77, label %.lr.ph.i, label %.critedge.i, !llvm.loop !613
 
-.critedge.i:                                      ; preds = %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i, %.lr.ph.i, %54
-  %.013.lcssa.i = phi i64 [ %.127, %54 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i ]
-  %79 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.013.lcssa.i
-  store ptr %55, ptr %79, align 8, !tbaa !293
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %82 = load i32, ptr %81, align 8, !tbaa !291
-  %83 = icmp ult i32 %82, 65
-  br i1 %83, label %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit, label %84
+.critedge.i:                                      ; preds = %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i, %.lr.ph.i, %53
+  %.013.lcssa.i = phi i64 [ %.127, %53 ], [ %.0133.i, %.lr.ph.i ], [ %.04.i, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i ]
+  %78 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.013.lcssa.i
+  store ptr %54, ptr %78, align 8, !tbaa !293
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %81 = load i32, ptr %80, align 8, !tbaa !291
+  %82 = icmp ult i32 %81, 65
+  br i1 %82, label %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit, label %83
 
-84:                                               ; preds = %.critedge.i
-  %85 = load ptr, ptr %80, align 8, !tbaa !194
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit, label %87
+83:                                               ; preds = %.critedge.i
+  %84 = load ptr, ptr %79, align 8, !tbaa !194
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit, label %86
 
-87:                                               ; preds = %84
-  tail call void @_ZdaPv(ptr noundef nonnull %85) #23
+86:                                               ; preds = %83
+  tail call void @_ZdaPv(ptr noundef nonnull %84) #23
   br label %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit
 
-_ZN12_GLOBAL__N_19ChainElemD2Ev.exit:             ; preds = %87, %84, %.critedge.i
-  store i64 %59, ptr %80, align 8
-  store i32 %58, ptr %81, align 8, !tbaa !291
+_ZN12_GLOBAL__N_19ChainElemD2Ev.exit:             ; preds = %86, %83, %.critedge.i
+  store i64 %58, ptr %79, align 8
+  store i32 %57, ptr %80, align 8, !tbaa !291
   ret void
 }
 
@@ -19428,10 +19429,10 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_19ChainElemElS1
   %9 = shl i64 %.030, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %10
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %12
+  %12 = getelementptr %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %9
+  %13 = getelementptr i8, ptr %12, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = getelementptr i8, ptr %12, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load i32, ptr %16, align 8, !tbaa !291
   %18 = icmp ult i32 %17, 65
@@ -19460,187 +19461,188 @@ _ZNK4llvm5APIntneERKS0_.exit.i.i:                 ; preds = %.lr.ph
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_SB_EEbT_T0_.exit": ; preds = %24, %27
   %.0.i.i = phi i1 [ %26, %24 ], [ %30, %27 ]
-  %spec.select = select i1 %.0.i.i, i64 %12, i64 %10
-  %31 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %spec.select
-  %32 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.030
-  %33 = load ptr, ptr %31, align 8, !tbaa !293
-  store ptr %33, ptr %32, align 8, !tbaa !293
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !291
-  %37 = icmp ult i32 %36, 65
-  br i1 %37, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit, label %38
+  %31 = or disjoint i64 %9, 1
+  %spec.select = select i1 %.0.i.i, i64 %31, i64 %10
+  %32 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %spec.select
+  %33 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.030
+  %34 = load ptr, ptr %32, align 8, !tbaa !293
+  store ptr %34, ptr %33, align 8, !tbaa !293
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %37 = load i32, ptr %36, align 8, !tbaa !291
+  %38 = icmp ult i32 %37, 65
+  br i1 %38, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit, label %39
 
-38:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_SB_EEbT_T0_.exit"
-  %39 = load ptr, ptr %34, align 8, !tbaa !194
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit, label %41
+39:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_SB_EEbT_T0_.exit"
+  %40 = load ptr, ptr %35, align 8, !tbaa !194
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit, label %42
 
-41:                                               ; preds = %38
-  tail call void @_ZdaPv(ptr noundef nonnull %39) #23
+42:                                               ; preds = %39
+  tail call void @_ZdaPv(ptr noundef nonnull %40) #23
   br label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit
 
-_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit:          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_SB_EEbT_T0_.exit", %38, %41
-  %42 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %43 = load i64, ptr %42, align 8
-  store i64 %43, ptr %34, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %45 = load i32, ptr %44, align 8, !tbaa !291
-  store i32 %45, ptr %35, align 8, !tbaa !291
-  store i32 0, ptr %44, align 8, !tbaa !291
-  %46 = icmp slt i64 %spec.select, %7
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !659
+_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit:          ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_SB_EEbT_T0_.exit", %39, %42
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %44 = load i64, ptr %43, align 8
+  store i64 %44, ptr %35, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %46 = load i32, ptr %45, align 8, !tbaa !291
+  store i32 %46, ptr %36, align 8, !tbaa !291
+  store i32 0, ptr %45, align 8, !tbaa !291
+  %47 = icmp slt i64 %spec.select, %7
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !659
 
 ._crit_edge:                                      ; preds = %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit, %4
   %.0.lcssa = phi i64 [ %1, %4 ], [ %spec.select, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit ]
-  %47 = and i64 %2, 1
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %71
+  %48 = and i64 %2, 1
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %50, label %72
 
-49:                                               ; preds = %._crit_edge
-  %50 = add nsw i64 %2, -2
-  %51 = ashr exact i64 %50, 1
-  %52 = icmp eq i64 %.0.lcssa, %51
-  br i1 %52, label %53, label %71
+50:                                               ; preds = %._crit_edge
+  %51 = add nsw i64 %2, -2
+  %52 = ashr exact i64 %51, 1
+  %53 = icmp eq i64 %.0.lcssa, %52
+  br i1 %53, label %54, label %72
 
-53:                                               ; preds = %49
-  %54 = shl nsw i64 %.0.lcssa, 1
-  %55 = or disjoint i64 %54, 1
-  %56 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %55
-  %57 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0.lcssa
-  %58 = load ptr, ptr %56, align 8, !tbaa !293
-  store ptr %58, ptr %57, align 8, !tbaa !293
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %61 = load i32, ptr %60, align 8, !tbaa !291
-  %62 = icmp ult i32 %61, 65
-  br i1 %62, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit29, label %63
+54:                                               ; preds = %50
+  %55 = shl nsw i64 %.0.lcssa, 1
+  %56 = or disjoint i64 %55, 1
+  %57 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %56
+  %58 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0.lcssa
+  %59 = load ptr, ptr %57, align 8, !tbaa !293
+  store ptr %59, ptr %58, align 8, !tbaa !293
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %62 = load i32, ptr %61, align 8, !tbaa !291
+  %63 = icmp ult i32 %62, 65
+  br i1 %63, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit29, label %64
 
-63:                                               ; preds = %53
-  %64 = load ptr, ptr %59, align 8, !tbaa !194
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit29, label %66
+64:                                               ; preds = %54
+  %65 = load ptr, ptr %60, align 8, !tbaa !194
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit29, label %67
 
-66:                                               ; preds = %63
-  tail call void @_ZdaPv(ptr noundef nonnull %64) #23
+67:                                               ; preds = %64
+  tail call void @_ZdaPv(ptr noundef nonnull %65) #23
   br label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit29
 
-_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit29:        ; preds = %53, %63, %66
-  %67 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %68 = load i64, ptr %67, align 8
-  store i64 %68, ptr %59, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %70 = load i32, ptr %69, align 8, !tbaa !291
-  store i32 %70, ptr %60, align 8, !tbaa !291
-  store i32 0, ptr %69, align 8, !tbaa !291
-  br label %71
+_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit29:        ; preds = %54, %64, %67
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %69 = load i64, ptr %68, align 8
+  store i64 %69, ptr %60, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %71 = load i32, ptr %70, align 8, !tbaa !291
+  store i32 %71, ptr %61, align 8, !tbaa !291
+  store i32 0, ptr %70, align 8, !tbaa !291
+  br label %72
 
-71:                                               ; preds = %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit29, %49, %._crit_edge
-  %.127 = phi i64 [ %55, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit29 ], [ %.0.lcssa, %49 ], [ %.0.lcssa, %._crit_edge ]
-  %72 = load ptr, ptr %3, align 8, !tbaa !293
-  store ptr %72, ptr %5, align 8, !tbaa !293
-  %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %77 = load i32, ptr %76, align 8, !tbaa !291
-  store i32 %77, ptr %75, align 8, !tbaa !291
-  %78 = load i64, ptr %74, align 8
-  store i64 %78, ptr %73, align 8
-  store i32 0, ptr %76, align 8, !tbaa !291
-  %79 = icmp sgt i64 %.127, %1
-  br i1 %79, label %.lr.ph.i, label %.critedge.i
+72:                                               ; preds = %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit29, %50, %._crit_edge
+  %.127 = phi i64 [ %56, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit29 ], [ %.0.lcssa, %50 ], [ %.0.lcssa, %._crit_edge ]
+  %73 = load ptr, ptr %3, align 8, !tbaa !293
+  store ptr %73, ptr %5, align 8, !tbaa !293
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %78 = load i32, ptr %77, align 8, !tbaa !291
+  store i32 %78, ptr %76, align 8, !tbaa !291
+  %79 = load i64, ptr %75, align 8
+  store i64 %79, ptr %74, align 8
+  store i32 0, ptr %77, align 8, !tbaa !291
+  %80 = icmp sgt i64 %.127, %1
+  br i1 %80, label %.lr.ph.i, label %.critedge.i
 
-.lr.ph.i:                                         ; preds = %71, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i
-  %.0133.i = phi i64 [ %.04.i, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i ], [ %.127, %71 ]
+.lr.ph.i:                                         ; preds = %72, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i
+  %.0133.i = phi i64 [ %.04.i, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i ], [ %.127, %72 ]
   %.04.in.i = add nsw i64 %.0133.i, -1
   %.04.i = sdiv i64 %.04.in.i, 2
-  %80 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.04.i
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %83 = load i32, ptr %82, align 8, !tbaa !291
-  %84 = icmp ult i32 %83, 65
-  br i1 %84, label %85, label %_ZNK4llvm5APIntneERKS0_.exit.i.i.i
+  %81 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.04.i
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %84 = load i32, ptr %83, align 8, !tbaa !291
+  %85 = icmp ult i32 %84, 65
+  br i1 %85, label %86, label %_ZNK4llvm5APIntneERKS0_.exit.i.i.i
 
-85:                                               ; preds = %.lr.ph.i
-  %86 = load i64, ptr %81, align 8, !tbaa !194
-  %87 = load i64, ptr %73, align 8, !tbaa !194
-  %88 = icmp eq i64 %86, %87
-  br i1 %88, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_S5_EEbT_RT0_.exit.i", label %90
+86:                                               ; preds = %.lr.ph.i
+  %87 = load i64, ptr %82, align 8, !tbaa !194
+  %88 = load i64, ptr %74, align 8, !tbaa !194
+  %89 = icmp eq i64 %87, %88
+  br i1 %89, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_S5_EEbT_RT0_.exit.i", label %91
 
 _ZNK4llvm5APIntneERKS0_.exit.i.i.i:               ; preds = %.lr.ph.i
-  %89 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %81, ptr noundef nonnull align 8 dereferenceable(12) %73) #22
-  br i1 %89, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_S5_EEbT_RT0_.exit.i", label %90
+  %90 = call noundef zeroext i1 @_ZNK4llvm5APInt13equalSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %82, ptr noundef nonnull align 8 dereferenceable(12) %74) #22
+  br i1 %90, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_S5_EEbT_RT0_.exit.i", label %91
 
-90:                                               ; preds = %_ZNK4llvm5APIntneERKS0_.exit.i.i.i, %85
-  %91 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %81, ptr noundef nonnull align 8 dereferenceable(12) %73) #22
-  %92 = icmp slt i32 %91, 0
-  br i1 %92, label %96, label %.critedge.i.loopexit
+91:                                               ; preds = %_ZNK4llvm5APIntneERKS0_.exit.i.i.i, %86
+  %92 = call noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %82, ptr noundef nonnull align 8 dereferenceable(12) %74) #22
+  %93 = icmp slt i32 %92, 0
+  br i1 %93, label %97, label %.critedge.i.loopexit
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_S5_EEbT_RT0_.exit.i": ; preds = %_ZNK4llvm5APIntneERKS0_.exit.i.i.i, %85
-  %93 = load ptr, ptr %80, align 8, !tbaa !293
-  %94 = load ptr, ptr %5, align 8, !tbaa !293
-  %95 = call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %93, ptr noundef %94) #19
-  br i1 %95, label %96, label %.critedge.i.loopexit
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_S5_EEbT_RT0_.exit.i": ; preds = %_ZNK4llvm5APIntneERKS0_.exit.i.i.i, %86
+  %94 = load ptr, ptr %81, align 8, !tbaa !293
+  %95 = load ptr, ptr %5, align 8, !tbaa !293
+  %96 = call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef %95) #19
+  br i1 %96, label %97, label %.critedge.i.loopexit
 
-96:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_S5_EEbT_RT0_.exit.i", %90
-  %97 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0133.i
-  %98 = load ptr, ptr %80, align 8, !tbaa !293
-  store ptr %98, ptr %97, align 8, !tbaa !293
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  %101 = load i32, ptr %100, align 8, !tbaa !291
-  %102 = icmp ult i32 %101, 65
-  br i1 %102, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i, label %103
+97:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_S5_EEbT_RT0_.exit.i", %91
+  %98 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0133.i
+  %99 = load ptr, ptr %81, align 8, !tbaa !293
+  store ptr %99, ptr %98, align 8, !tbaa !293
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %102 = load i32, ptr %101, align 8, !tbaa !291
+  %103 = icmp ult i32 %102, 65
+  br i1 %103, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i, label %104
 
-103:                                              ; preds = %96
-  %104 = load ptr, ptr %99, align 8, !tbaa !194
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i, label %106
+104:                                              ; preds = %97
+  %105 = load ptr, ptr %100, align 8, !tbaa !194
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i, label %107
 
-106:                                              ; preds = %103
-  call void @_ZdaPv(ptr noundef nonnull %104) #23
+107:                                              ; preds = %104
+  call void @_ZdaPv(ptr noundef nonnull %105) #23
   br label %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i
 
-_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i:        ; preds = %106, %103, %96
-  %107 = load i64, ptr %81, align 8
-  store i64 %107, ptr %99, align 8
-  %108 = load i32, ptr %82, align 8, !tbaa !291
-  store i32 %108, ptr %100, align 8, !tbaa !291
-  store i32 0, ptr %82, align 8, !tbaa !291
-  %109 = icmp sgt i64 %.04.i, %1
-  br i1 %109, label %.lr.ph.i, label %.critedge.i.loopexit, !llvm.loop !660
+_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i:        ; preds = %107, %104, %97
+  %108 = load i64, ptr %82, align 8
+  store i64 %108, ptr %100, align 8
+  %109 = load i32, ptr %83, align 8, !tbaa !291
+  store i32 %109, ptr %101, align 8, !tbaa !291
+  store i32 0, ptr %83, align 8, !tbaa !291
+  %110 = icmp sgt i64 %.04.i, %1
+  br i1 %110, label %.lr.ph.i, label %.critedge.i.loopexit, !llvm.loop !660
 
-.critedge.i.loopexit:                             ; preds = %90, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_S5_EEbT_RT0_.exit.i", %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i
-  %.013.lcssa.i.ph = phi i64 [ %.0133.i, %90 ], [ %.04.i, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_S5_EEbT_RT0_.exit.i" ]
+.critedge.i.loopexit:                             ; preds = %91, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_S5_EEbT_RT0_.exit.i", %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i
+  %.013.lcssa.i.ph = phi i64 [ %.0133.i, %91 ], [ %.04.i, %_ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit.i ], [ %.0133.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_S5_EEbT_RT0_.exit.i" ]
   %.pre = load ptr, ptr %5, align 8, !tbaa !293
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %.critedge.i.loopexit, %71
-  %110 = phi ptr [ %72, %71 ], [ %.pre, %.critedge.i.loopexit ]
-  %.013.lcssa.i = phi i64 [ %.127, %71 ], [ %.013.lcssa.i.ph, %.critedge.i.loopexit ]
-  %111 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.013.lcssa.i
-  store ptr %110, ptr %111, align 8, !tbaa !293
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 16
-  %114 = load i32, ptr %113, align 8, !tbaa !291
-  %115 = icmp ult i32 %114, 65
-  br i1 %115, label %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit, label %116
+.critedge.i:                                      ; preds = %.critedge.i.loopexit, %72
+  %111 = phi ptr [ %73, %72 ], [ %.pre, %.critedge.i.loopexit ]
+  %.013.lcssa.i = phi i64 [ %.127, %72 ], [ %.013.lcssa.i.ph, %.critedge.i.loopexit ]
+  %112 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.013.lcssa.i
+  store ptr %111, ptr %112, align 8, !tbaa !293
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  %115 = load i32, ptr %114, align 8, !tbaa !291
+  %116 = icmp ult i32 %115, 65
+  br i1 %116, label %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit, label %117
 
-116:                                              ; preds = %.critedge.i
-  %117 = load ptr, ptr %112, align 8, !tbaa !194
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit, label %119
+117:                                              ; preds = %.critedge.i
+  %118 = load ptr, ptr %113, align 8, !tbaa !194
+  %119 = icmp eq ptr %118, null
+  br i1 %119, label %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit, label %120
 
-119:                                              ; preds = %116
-  call void @_ZdaPv(ptr noundef nonnull %117) #23
+120:                                              ; preds = %117
+  call void @_ZdaPv(ptr noundef nonnull %118) #23
   br label %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit
 
-_ZN12_GLOBAL__N_19ChainElemD2Ev.exit:             ; preds = %119, %116, %.critedge.i
-  %120 = load i64, ptr %73, align 8
-  store i64 %120, ptr %112, align 8
-  %121 = load i32, ptr %75, align 8, !tbaa !291
-  store i32 %121, ptr %113, align 8, !tbaa !291
+_ZN12_GLOBAL__N_19ChainElemD2Ev.exit:             ; preds = %120, %117, %.critedge.i
+  %121 = load i64, ptr %74, align 8
+  store i64 %121, ptr %113, align 8
+  %122 = load i32, ptr %76, align 8, !tbaa !291
+  store i32 %122, ptr %114, align 8, !tbaa !291
   ret void
 }
 

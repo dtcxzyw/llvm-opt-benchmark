@@ -227,8 +227,8 @@ define hidden void @_ZN3std3sys3pal4unix3cvt17hd6a5288674e19fe2E(ptr dead_on_unw
   %7 = tail call noundef i32 @_ZN3std3sys3pal4unix2os5errno17hf3107690465f5e5eE()
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 32
-  %10 = or disjoint i64 %9, 2
-  %11 = getelementptr i8, ptr null, i64 %10
+  %10 = getelementptr i8, ptr null, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %12, align 8
   br label %13
@@ -1987,8 +1987,8 @@ define hidden void @"_ZN8async_io14Async$LT$T$GT$3new17h3d25b9bfaf8beb69E.llvm.6
 19:                                               ; preds = %12
   %.neg = mul i64 %13, -281474976710656
   %20 = ashr exact i64 %.neg, 16
-  %21 = or disjoint i64 %20, 2
-  %22 = getelementptr i8, ptr null, i64 %21
+  %21 = getelementptr i8, ptr null, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 2
   br label %32
 
 23:                                               ; preds = %17
@@ -2072,8 +2072,8 @@ define hidden void @"_ZN8async_io14Async$LT$T$GT$3new17h79255f25c5237013E"(ptr d
 19:                                               ; preds = %12
   %.neg = mul i64 %13, -281474976710656
   %20 = ashr exact i64 %.neg, 16
-  %21 = or disjoint i64 %20, 2
-  %22 = getelementptr i8, ptr null, i64 %21
+  %21 = getelementptr i8, ptr null, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 2
   br label %32
 
 23:                                               ; preds = %17

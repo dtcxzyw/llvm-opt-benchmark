@@ -45,38 +45,37 @@ define internal i32 @ExtraCost_SSE41(ptr noundef readonly captures(none) %0, i32
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 8, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
   %indvars.iv = phi i64 [ 16, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.022.in25 = phi <4 x i32> [ %16, %.lr.ph.preheader ], [ %35, %.lr.ph ]
+  %.022.in25 = phi <4 x i32> [ %16, %.lr.ph.preheader ], [ %34, %.lr.ph ]
   %18 = trunc i64 %indvars.iv27 to i32
   %19 = add i32 %18, -2
   %20 = ashr exact i32 %19, 1
   %21 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv27
   %22 = load <4 x i32>, ptr %21, align 1, !tbaa !9
-  %23 = or disjoint i64 %indvars.iv27, 4
-  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
-  %25 = load <4 x i32>, ptr %24, align 1, !tbaa !9
-  %26 = add nsw i32 %20, 3
-  %27 = add nsw i32 %20, 2
-  %28 = add nsw i32 %20, 1
-  %29 = insertelement <4 x i32> poison, i32 %20, i64 0
-  %30 = insertelement <4 x i32> %29, i32 %28, i64 1
-  %31 = insertelement <4 x i32> %30, i32 %27, i64 2
-  %32 = insertelement <4 x i32> %31, i32 %26, i64 3
-  %33 = tail call <4 x i32> @llvm.x86.ssse3.phadd.d.128(<4 x i32> %22, <4 x i32> %25)
-  %34 = mul <4 x i32> %33, %32
-  %35 = add <4 x i32> %34, %.022.in25
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %24 = load <4 x i32>, ptr %23, align 1, !tbaa !9
+  %25 = add nsw i32 %20, 3
+  %26 = add nsw i32 %20, 2
+  %27 = add nsw i32 %20, 1
+  %28 = insertelement <4 x i32> poison, i32 %20, i64 0
+  %29 = insertelement <4 x i32> %28, i32 %27, i64 1
+  %30 = insertelement <4 x i32> %29, i32 %26, i64 2
+  %31 = insertelement <4 x i32> %30, i32 %25, i64 3
+  %32 = tail call <4 x i32> @llvm.x86.ssse3.phadd.d.128(<4 x i32> %22, <4 x i32> %24)
+  %33 = mul <4 x i32> %32, %31
+  %34 = add <4 x i32> %33, %.022.in25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %.not = icmp samesign ugt i64 %indvars.iv.next, %17
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 8
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.022.in.lcssa = phi <4 x i32> [ %16, %2 ], [ %35, %.lr.ph ]
-  %36 = shufflevector <4 x i32> %.022.in.lcssa, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
-  %37 = add <4 x i32> %.022.in.lcssa, %36
-  %38 = shufflevector <4 x i32> %37, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %39 = add <4 x i32> %37, %38
-  %40 = extractelement <4 x i32> %39, i64 0
-  ret i32 %40
+  %.022.in.lcssa = phi <4 x i32> [ %16, %2 ], [ %34, %.lr.ph ]
+  %35 = shufflevector <4 x i32> %.022.in.lcssa, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
+  %36 = add <4 x i32> %.022.in.lcssa, %35
+  %37 = shufflevector <4 x i32> %36, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %38 = add <4 x i32> %36, %37
+  %39 = extractelement <4 x i32> %38, i64 0
+  ret i32 %39
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable

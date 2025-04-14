@@ -428,31 +428,36 @@ define void @Ppmd7_Update1(ptr noundef captures(none) %0) local_unnamed_addr #6 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 2
-  %25 = load i32, ptr %24, align 2
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 %26
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load i32, ptr %28, align 8, !tbaa !26
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %37
+  %25 = load i16, ptr %24, align 2, !tbaa !43
+  %26 = zext i16 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %28 = load i16, ptr %27, align 2, !tbaa !44
+  %29 = zext i16 %28 to i64
+  %30 = shl nuw nsw i64 %29, 16
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %26
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %34 = load i32, ptr %33, align 8, !tbaa !26
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %42
 
-31:                                               ; preds = %20
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %33 = load ptr, ptr %32, align 8, !tbaa !23
-  %34 = icmp ugt ptr %27, %33
-  br i1 %34, label %35, label %37
+36:                                               ; preds = %20
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %38 = load ptr, ptr %37, align 8, !tbaa !23
+  %39 = icmp ugt ptr %32, %38
+  br i1 %39, label %40, label %42
 
-35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %27, ptr %36, align 8, !tbaa !31
-  store ptr %27, ptr %0, align 8, !tbaa !32
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %32, ptr %41, align 8, !tbaa !31
+  store ptr %32, ptr %0, align 8, !tbaa !32
   br label %NextContext.exit
 
-37:                                               ; preds = %31, %20
+42:                                               ; preds = %36, %20
   tail call fastcc void @UpdateModel(ptr noundef nonnull %0)
   br label %NextContext.exit
 
-NextContext.exit:                                 ; preds = %35, %37
+NextContext.exit:                                 ; preds = %40, %42
   ret void
 }
 
@@ -842,31 +847,36 @@ define void @Ppmd7_Update1_0(ptr noundef captures(none) initializes((32, 36)) %0
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 2
-  %27 = load i32, ptr %26, align 2
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 %28
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = load i32, ptr %30, align 8, !tbaa !26
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %39
+  %27 = load i16, ptr %26, align 2, !tbaa !43
+  %28 = zext i16 %27 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %30 = load i16, ptr %29, align 2, !tbaa !44
+  %31 = zext i16 %30 to i64
+  %32 = shl nuw nsw i64 %31, 16
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %28
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %36 = load i32, ptr %35, align 8, !tbaa !26
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %44
 
-33:                                               ; preds = %22
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %35 = load ptr, ptr %34, align 8, !tbaa !23
-  %36 = icmp ugt ptr %29, %35
-  br i1 %36, label %37, label %39
+38:                                               ; preds = %22
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %40 = load ptr, ptr %39, align 8, !tbaa !23
+  %41 = icmp ugt ptr %34, %40
+  br i1 %41, label %42, label %44
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %29, ptr %38, align 8, !tbaa !31
-  store ptr %29, ptr %0, align 8, !tbaa !32
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %34, ptr %43, align 8, !tbaa !31
+  store ptr %34, ptr %0, align 8, !tbaa !32
   br label %NextContext.exit
 
-39:                                               ; preds = %33, %22
+44:                                               ; preds = %38, %22
   tail call fastcc void @UpdateModel(ptr noundef nonnull %0)
   br label %NextContext.exit
 
-NextContext.exit:                                 ; preds = %37, %39
+NextContext.exit:                                 ; preds = %42, %44
   ret void
 }
 
@@ -889,31 +899,36 @@ define void @Ppmd7_UpdateBin(ptr noundef captures(none) initializes((32, 36)) %0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %16 = load i32, ptr %15, align 2
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load i32, ptr %19, align 8, !tbaa !26
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %28
+  %16 = load i16, ptr %15, align 2, !tbaa !43
+  %17 = zext i16 %16 to i64
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %19 = load i16, ptr %18, align 2, !tbaa !44
+  %20 = zext i16 %19 to i64
+  %21 = shl nuw nsw i64 %20, 16
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %17
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = load i32, ptr %24, align 8, !tbaa !26
+  %26 = icmp eq i32 %25, 0
+  br i1 %26, label %27, label %33
 
-22:                                               ; preds = %1
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = load ptr, ptr %23, align 8, !tbaa !23
-  %25 = icmp ugt ptr %18, %24
-  br i1 %25, label %26, label %28
+27:                                               ; preds = %1
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %29 = load ptr, ptr %28, align 8, !tbaa !23
+  %30 = icmp ugt ptr %23, %29
+  br i1 %30, label %31, label %33
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %18, ptr %27, align 8, !tbaa !31
-  store ptr %18, ptr %0, align 8, !tbaa !32
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %23, ptr %32, align 8, !tbaa !31
+  store ptr %23, ptr %0, align 8, !tbaa !32
   br label %NextContext.exit
 
-28:                                               ; preds = %22, %1
+33:                                               ; preds = %27, %1
   tail call fastcc void @UpdateModel(ptr noundef nonnull %0)
   br label %NextContext.exit
 
-NextContext.exit:                                 ; preds = %26, %28
+NextContext.exit:                                 ; preds = %31, %33
   ret void
 }
 

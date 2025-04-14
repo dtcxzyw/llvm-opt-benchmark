@@ -2389,25 +2389,25 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22HdFlatteningSceneIndexC2ERKN
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4360
   store i64 1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4368
-  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4376
+  %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 40, i1 false)
-  br label %.preheader14.i.i.i
+  br label %21
 
-.preheader.i.i.i:                                 ; preds = %.preheader14.i.i.i
+.preheader.i.i.i:                                 ; preds = %21
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  %.ptr12.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4376
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4408
   %20 = ptrtoint ptr %.ptr12.i.i.i to i64
   br label %23
 
-.preheader14.i.i.i:                               ; preds = %.preheader14.i.i.i, %3
-  %.015.i.i.i = phi i64 [ %22, %.preheader14.i.i.i ], [ 0, %3 ]
+21:                                               ; preds = %21, %3
+  %.015.i.i.i = phi i64 [ 0, %3 ], [ %22, %21 ]
   %.idx13.i.i.i = shl nuw nsw i64 %.015.i.i.i, 4
-  %.offs.i.i.i = or disjoint i64 %.idx13.i.i.i, 8
-  %21 = getelementptr inbounds nuw i8, ptr %.ptr12.i.i.i, i64 %.offs.i.i.i
-  store atomic i64 0, ptr %21 monotonic, align 8
+  %gep.i.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i.i, i64 %.idx13.i.i.i
+  store atomic i64 0, ptr %gep.i.i.i monotonic, align 8
   %22 = add nuw nsw i64 %.015.i.i.i, 1
   %.not.i.i.i = icmp eq i64 %22, 2
-  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.preheader14.i.i.i, !llvm.loop !55
+  br i1 %.not.i.i.i, label %.preheader.i.i.i, label %21, !llvm.loop !55
 
 23:                                               ; preds = %23, %.preheader.i.i.i
   %.01016.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %27, %23 ]

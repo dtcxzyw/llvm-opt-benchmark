@@ -2988,7 +2988,7 @@ define internal fastcc i64 @json_decode_object(ptr noundef nonnull readonly capt
   %5 = load i64, ptr %4, align 8, !tbaa !18
   %.not = icmp eq i64 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %.not, label %24, label %7, !prof !24
+  br i1 %.not, label %23, label %7, !prof !24
 
 7:                                                ; preds = %3
   %8 = tail call i64 @rb_class_new_instance(i32 noundef 0, ptr noundef null, i64 noundef %5) #20
@@ -3003,101 +3003,100 @@ define internal fastcc i64 @json_decode_object(ptr noundef nonnull readonly capt
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %7, %.lr.ph
-  %.03542 = phi i64 [ %18, %.lr.ph ], [ 0, %7 ]
-  %15 = or disjoint i64 %.03542, 1
-  %16 = getelementptr inbounds nuw i64, ptr %13, i64 %.03542
-  %17 = load i64, ptr %16, align 8, !tbaa !6
-  %18 = add nuw nsw i64 %.03542, 2
-  %19 = getelementptr inbounds nuw i64, ptr %13, i64 %15
-  %20 = load i64, ptr %19, align 8, !tbaa !6
-  %21 = load i64, ptr @i_aset, align 8, !tbaa !6
-  %22 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %8, i64 noundef %21, i32 noundef 2, i64 noundef %17, i64 noundef %20) #20
-  %23 = icmp slt i64 %18, %2
-  br i1 %23, label %.lr.ph, label %.loopexit
+  %.03542 = phi i64 [ %17, %.lr.ph ], [ 0, %7 ]
+  %15 = getelementptr inbounds nuw i64, ptr %13, i64 %.03542
+  %16 = load i64, ptr %15, align 8, !tbaa !6
+  %17 = add nuw nsw i64 %.03542, 2
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %19 = load i64, ptr %18, align 8, !tbaa !6
+  %20 = load i64, ptr @i_aset, align 8, !tbaa !6
+  %21 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %8, i64 noundef %20, i32 noundef 2, i64 noundef %16, i64 noundef %19) #20
+  %22 = icmp slt i64 %17, %2
+  br i1 %22, label %.lr.ph, label %.loopexit
 
-24:                                               ; preds = %3
-  %25 = tail call i64 @rb_hash_new_capa(i64 noundef %2) #20
-  %26 = load ptr, ptr %6, align 8, !tbaa !57
-  %27 = getelementptr i8, ptr %26, i64 16
-  %.val39 = load i64, ptr %27, align 8, !tbaa !46
-  %28 = getelementptr i8, ptr %26, i64 24
-  %.val40 = load ptr, ptr %28, align 8, !tbaa !47
-  %29 = sub nsw i64 %.val39, %2
-  %30 = getelementptr inbounds i64, ptr %.val40, i64 %29
-  tail call void @rb_hash_bulk_insert(i64 noundef %2, ptr noundef %30, i64 noundef %25) #20
+23:                                               ; preds = %3
+  %24 = tail call i64 @rb_hash_new_capa(i64 noundef %2) #20
+  %25 = load ptr, ptr %6, align 8, !tbaa !57
+  %26 = getelementptr i8, ptr %25, i64 16
+  %.val39 = load i64, ptr %26, align 8, !tbaa !46
+  %27 = getelementptr i8, ptr %25, i64 24
+  %.val40 = load ptr, ptr %27, align 8, !tbaa !47
+  %28 = sub nsw i64 %.val39, %2
+  %29 = getelementptr inbounds i64, ptr %.val40, i64 %28
+  tail call void @rb_hash_bulk_insert(i64 noundef %2, ptr noundef %29, i64 noundef %24) #20
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %7, %24
-  %.0 = phi i64 [ %25, %24 ], [ %8, %7 ], [ %8, %.lr.ph ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !57
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !46
-  %35 = sub nsw i64 %34, %2
-  store i64 %35, ptr %33, align 8, !tbaa !46
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 57
-  %37 = load i8, ptr %36, align 1, !tbaa !31, !range !29, !noundef !30
-  %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %39, label %65, !prof !64
+.loopexit:                                        ; preds = %.lr.ph, %7, %23
+  %.0 = phi i64 [ %24, %23 ], [ %8, %7 ], [ %8, %.lr.ph ]
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %31 = load ptr, ptr %30, align 8, !tbaa !57
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = load i64, ptr %32, align 8, !tbaa !46
+  %34 = sub nsw i64 %33, %2
+  store i64 %34, ptr %32, align 8, !tbaa !46
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 57
+  %36 = load i8, ptr %35, align 1, !tbaa !31, !range !29, !noundef !30
+  %37 = trunc nuw i8 %36 to i1
+  br i1 %37, label %38, label %64, !prof !64
 
-39:                                               ; preds = %.loopexit
-  %40 = load i64, ptr %4, align 8, !tbaa !18
-  %.not37 = icmp eq i64 %40, 0
-  br i1 %.not37, label %45, label %41
+38:                                               ; preds = %.loopexit
+  %39 = load i64, ptr %4, align 8, !tbaa !18
+  %.not37 = icmp eq i64 %39, 0
+  br i1 %.not37, label %44, label %40
 
-41:                                               ; preds = %39
-  %42 = load i64, ptr @i_aref, align 8, !tbaa !6
-  %43 = load i64, ptr %1, align 8, !tbaa !15
-  %44 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0, i64 noundef %42, i32 noundef 1, i64 noundef %43) #20
-  br label %48
+40:                                               ; preds = %38
+  %41 = load i64, ptr @i_aref, align 8, !tbaa !6
+  %42 = load i64, ptr %1, align 8, !tbaa !15
+  %43 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0, i64 noundef %41, i32 noundef 1, i64 noundef %42) #20
+  br label %47
 
-45:                                               ; preds = %39
-  %46 = load i64, ptr %1, align 8, !tbaa !15
-  %47 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %46) #20
-  br label %48
+44:                                               ; preds = %38
+  %45 = load i64, ptr %1, align 8, !tbaa !15
+  %46 = tail call i64 @rb_hash_aref(i64 noundef %.0, i64 noundef %45) #20
+  br label %47
 
-48:                                               ; preds = %45, %41
-  %.034 = phi i64 [ %44, %41 ], [ %47, %45 ]
-  %49 = icmp eq i64 %.034, 4
-  br i1 %49, label %65, label %50
+47:                                               ; preds = %44, %40
+  %.034 = phi i64 [ %43, %40 ], [ %46, %44 ]
+  %48 = icmp eq i64 %.034, 4
+  br i1 %48, label %64, label %49
 
-50:                                               ; preds = %48
-  %51 = load i64, ptr @mJSON, align 8, !tbaa !6
-  %52 = load i64, ptr @i_deep_const_get, align 8, !tbaa !6
-  %53 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %51, i64 noundef %52, i32 noundef 1, i64 noundef %.034) #20
-  %54 = load i64, ptr @i_json_creatable_p, align 8, !tbaa !6
-  %55 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %53, i64 noundef %54, i32 noundef 0) #20
-  %56 = and i64 %55, -5
-  %.not41 = icmp eq i64 %56, 0
-  br i1 %.not41, label %65, label %57
+49:                                               ; preds = %47
+  %50 = load i64, ptr @mJSON, align 8, !tbaa !6
+  %51 = load i64, ptr @i_deep_const_get, align 8, !tbaa !6
+  %52 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %50, i64 noundef %51, i32 noundef 1, i64 noundef %.034) #20
+  %53 = load i64, ptr @i_json_creatable_p, align 8, !tbaa !6
+  %54 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %52, i64 noundef %53, i32 noundef 0) #20
+  %55 = and i64 %54, -5
+  %.not41 = icmp eq i64 %55, 0
+  br i1 %.not41, label %64, label %56
 
-57:                                               ; preds = %50
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 58
-  %59 = load i8, ptr %58, align 2, !tbaa !41, !range !29, !noundef !30
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %62
+56:                                               ; preds = %49
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 58
+  %58 = load i8, ptr %57, align 2, !tbaa !41, !range !29, !noundef !30
+  %59 = trunc nuw i8 %58 to i1
+  br i1 %59, label %60, label %61
 
-61:                                               ; preds = %57
+60:                                               ; preds = %56
   tail call void (i32, ptr, ...) @rb_category_warn(i32 noundef 1, ptr noundef nonnull @deprecated_create_additions_warning) #26
-  br label %62
+  br label %61
 
-62:                                               ; preds = %61, %57
-  %63 = load i64, ptr @i_json_create, align 8, !tbaa !6
-  %64 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %53, i64 noundef %63, i32 noundef 1, i64 noundef %.0) #20
-  br label %65
+61:                                               ; preds = %60, %56
+  %62 = load i64, ptr @i_json_create, align 8, !tbaa !6
+  %63 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %52, i64 noundef %62, i32 noundef 1, i64 noundef %.0) #20
+  br label %64
 
-65:                                               ; preds = %48, %62, %50, %.loopexit
-  %.1 = phi i64 [ %.0, %.loopexit ], [ %.0, %48 ], [ %64, %62 ], [ %.0, %50 ]
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %67 = load i8, ptr %66, align 8, !tbaa !34, !range !29, !noundef !30
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %69, label %70
+64:                                               ; preds = %47, %61, %49, %.loopexit
+  %.1 = phi i64 [ %.0, %.loopexit ], [ %.0, %47 ], [ %63, %61 ], [ %.0, %49 ]
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %66 = load i8, ptr %65, align 8, !tbaa !34, !range !29, !noundef !30
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %68, label %69
 
-69:                                               ; preds = %65
+68:                                               ; preds = %64
   tail call void @rb_obj_freeze_inline(i64 noundef %.1) #20
-  br label %70
+  br label %69
 
-70:                                               ; preds = %69, %65
+69:                                               ; preds = %68, %64
   ret i64 %.1
 }
 

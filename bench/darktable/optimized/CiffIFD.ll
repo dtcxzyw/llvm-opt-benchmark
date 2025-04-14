@@ -233,23 +233,20 @@ _ZNSt10unique_ptrIN8rawspeed7CiffIFDESt14default_deleteIS1_EED2Ev.exit: ; preds 
   br i1 %47, label %_ZN8rawspeed4isInINS_7CiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit, label %48
 
 48:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %.02946.i.i.i.i.i.i.add17 = or disjoint i64 %.02946.i.i.i.i.i.i.idx, 2
-  %.ptr20 = getelementptr inbounds nuw i8, ptr @_ZGRN8rawspeedL19CiffTagsWeCareAboutE_, i64 %.02946.i.i.i.i.i.i.add17
-  %49 = load i16, ptr %.ptr20, align 2, !tbaa !45
+  %gep = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZGRN8rawspeedL19CiffTagsWeCareAboutE_, i64 2), i64 %.02946.i.i.i.i.i.i.idx
+  %49 = load i16, ptr %gep, align 2, !tbaa !45
   %50 = icmp eq i16 %49, %45
   br i1 %50, label %_ZN8rawspeed4isInINS_7CiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread, label %51
 
 51:                                               ; preds = %48
-  %.02946.i.i.i.i.i.i.add16 = or disjoint i64 %.02946.i.i.i.i.i.i.idx, 4
-  %.ptr19 = getelementptr inbounds nuw i8, ptr @_ZGRN8rawspeedL19CiffTagsWeCareAboutE_, i64 %.02946.i.i.i.i.i.i.add16
-  %52 = load i16, ptr %.ptr19, align 2, !tbaa !45
+  %gep32 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZGRN8rawspeedL19CiffTagsWeCareAboutE_, i64 4), i64 %.02946.i.i.i.i.i.i.idx
+  %52 = load i16, ptr %gep32, align 2, !tbaa !45
   %53 = icmp eq i16 %52, %45
   br i1 %53, label %_ZN8rawspeed4isInINS_7CiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread, label %54
 
 54:                                               ; preds = %51
-  %.02946.i.i.i.i.i.i.add = or disjoint i64 %.02946.i.i.i.i.i.i.idx, 6
-  %.ptr = getelementptr inbounds nuw i8, ptr @_ZGRN8rawspeedL19CiffTagsWeCareAboutE_, i64 %.02946.i.i.i.i.i.i.add
-  %55 = load i16, ptr %.ptr, align 2, !tbaa !45
+  %gep33 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZGRN8rawspeedL19CiffTagsWeCareAboutE_, i64 6), i64 %.02946.i.i.i.i.i.i.idx
+  %55 = load i16, ptr %gep33, align 2, !tbaa !45
   %56 = icmp eq i16 %55, %45
   br i1 %56, label %_ZN8rawspeed4isInINS_7CiffTagES1_EEbT_RKSt16initializer_listIT0_E.exit.thread, label %57
 

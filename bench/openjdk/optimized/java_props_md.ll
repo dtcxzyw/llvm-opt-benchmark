@@ -382,7 +382,7 @@ sub_0:                                            ; preds = %7
 
 21:                                               ; preds = %16
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #12
-  br label %143
+  br label %139
 
 22:                                               ; preds = %16
   %23 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %.0) #12
@@ -395,7 +395,7 @@ sub_0:                                            ; preds = %7
 28:                                               ; preds = %22
   tail call void @free(ptr noundef nonnull %19) #12
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #12
-  br label %143
+  br label %139
 
 29:                                               ; preds = %22
   %30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %19, i32 noundef 46) #14
@@ -417,284 +417,280 @@ sub_0:                                            ; preds = %7
   store i8 0, ptr %.sink, align 1
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %36
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %36 ], [ 0, %.lr.ph.i.preheader ]
-  %34 = phi ptr [ %38, %36 ], [ @.str.23, %.lr.ph.i.preheader ]
-  %35 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %34) #14
-  %.not10.i = icmp eq i32 %35, 0
-  br i1 %.not10.i, label %39, label %36
-
-36:                                               ; preds = %.lr.ph.i
+34:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %37 = getelementptr inbounds nuw ptr, ptr @locale_aliases, i64 %indvars.iv.next.i
-  %38 = load ptr, ptr %37, align 16
-  %strcmpload.i = load i8, ptr %38, align 1
+  %35 = getelementptr inbounds nuw ptr, ptr @locale_aliases, i64 %indvars.iv.next.i
+  %36 = load ptr, ptr %35, align 16
+  %strcmpload.i = load i8, ptr %36, align 1
   %.not.i = icmp eq i8 %strcmpload.i, 0
   br i1 %.not.i, label %mapLookup.exit.thread, label %.lr.ph.i, !llvm.loop !6
 
-39:                                               ; preds = %.lr.ph.i
-  %40 = and i64 %indvars.iv.i, 4294967294
-  %41 = or disjoint i64 %40, 1
-  %42 = getelementptr inbounds nuw ptr, ptr @locale_aliases, i64 %41
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #14
-  %45 = add i64 %44, 1
-  %46 = tail call ptr @realloc(ptr noundef nonnull %19, i64 noundef %45) #16
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %49
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %34
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %34 ], [ 0, %.lr.ph.i.preheader ]
+  %37 = phi ptr [ %36, %34 ], [ @.str.23, %.lr.ph.i.preheader ]
+  %38 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %37) #14
+  %.not10.i = icmp eq i32 %38, 0
+  br i1 %.not10.i, label %39, label %34
 
-48:                                               ; preds = %39
+39:                                               ; preds = %.lr.ph.i
+  %40 = getelementptr inbounds nuw ptr, ptr @locale_aliases, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #14
+  %44 = add i64 %43, 1
+  %45 = tail call ptr @realloc(ptr noundef nonnull %19, i64 noundef %44) #16
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %47, label %48
+
+47:                                               ; preds = %39
   tail call void @free(ptr noundef nonnull %19) #12
   tail call void @free(ptr noundef %26) #12
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #12
-  br label %143
+  br label %139
 
-49:                                               ; preds = %39
-  %50 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) %43) #12
-  %51 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #14
-  %52 = add i64 %51, 1
-  %53 = tail call ptr @realloc(ptr noundef nonnull %26, i64 noundef %52) #16
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %56
+48:                                               ; preds = %39
+  %49 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %42) #12
+  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #14
+  %51 = add i64 %50, 1
+  %52 = tail call ptr @realloc(ptr noundef nonnull %26, i64 noundef %51) #16
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %55
 
-55:                                               ; preds = %49
+54:                                               ; preds = %48
   tail call void @free(ptr noundef nonnull %26) #12
-  tail call void @free(ptr noundef nonnull %46) #12
+  tail call void @free(ptr noundef nonnull %45) #12
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #12
-  br label %143
+  br label %139
 
-56:                                               ; preds = %49
-  %57 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %46, i32 noundef 46) #14
-  %.not109 = icmp eq ptr %57, null
-  br i1 %.not109, label %58, label %mapLookup.exit.thread.sink.split
+55:                                               ; preds = %48
+  %56 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %45, i32 noundef 46) #14
+  %.not109 = icmp eq ptr %56, null
+  br i1 %.not109, label %57, label %mapLookup.exit.thread.sink.split
 
-58:                                               ; preds = %56
-  %59 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %46, i32 noundef 64) #14
-  %.not110 = icmp eq ptr %59, null
+57:                                               ; preds = %55
+  %58 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %45, i32 noundef 64) #14
+  %.not110 = icmp eq ptr %58, null
   br i1 %.not110, label %mapLookup.exit.thread, label %mapLookup.exit.thread.sink.split
 
-mapLookup.exit.thread.sink.split:                 ; preds = %58, %56
-  %.sink194 = phi ptr [ %57, %56 ], [ %59, %58 ]
-  %60 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull dereferenceable(1) %.sink194) #12
+mapLookup.exit.thread.sink.split:                 ; preds = %57, %55
+  %.sink194 = phi ptr [ %56, %55 ], [ %58, %57 ]
+  %59 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %.sink194) #12
   store i8 0, ptr %.sink194, align 1
   br label %mapLookup.exit.thread
 
-mapLookup.exit.thread:                            ; preds = %36, %mapLookup.exit.thread.sink.split, %58
-  %.082 = phi ptr [ %53, %58 ], [ %53, %mapLookup.exit.thread.sink.split ], [ %26, %36 ]
-  %.081 = phi ptr [ %46, %58 ], [ %46, %mapLookup.exit.thread.sink.split ], [ %19, %36 ]
-  %61 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.081, i32 noundef 95) #14
-  %.not111 = icmp eq ptr %61, null
-  br i1 %.not111, label %64, label %62
+mapLookup.exit.thread:                            ; preds = %34, %mapLookup.exit.thread.sink.split, %57
+  %.082 = phi ptr [ %52, %57 ], [ %52, %mapLookup.exit.thread.sink.split ], [ %26, %34 ]
+  %.081 = phi ptr [ %45, %57 ], [ %45, %mapLookup.exit.thread.sink.split ], [ %19, %34 ]
+  %60 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.081, i32 noundef 95) #14
+  %.not111 = icmp eq ptr %60, null
+  br i1 %.not111, label %63, label %61
 
-62:                                               ; preds = %mapLookup.exit.thread
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store i8 0, ptr %61, align 1
-  br label %64
+61:                                               ; preds = %mapLookup.exit.thread
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 1
+  store i8 0, ptr %60, align 1
+  br label %63
 
-64:                                               ; preds = %62, %mapLookup.exit.thread
-  %.084 = phi ptr [ %63, %62 ], [ null, %mapLookup.exit.thread ]
-  %65 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.082, i32 noundef 46) #14
-  %.not112 = icmp eq ptr %65, null
-  br i1 %.not112, label %72, label %66
+63:                                               ; preds = %61, %mapLookup.exit.thread
+  %.084 = phi ptr [ %62, %61 ], [ null, %mapLookup.exit.thread ]
+  %64 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.082, i32 noundef 46) #14
+  %.not112 = icmp eq ptr %64, null
+  br i1 %.not112, label %71, label %65
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 1
-  %68 = ptrtoint ptr %65 to i64
-  %69 = ptrtoint ptr %.082 to i64
-  %70 = sub i64 %68, %69
-  %71 = getelementptr inbounds i8, ptr %.082, i64 %70
-  store i8 0, ptr %71, align 1
-  br label %72
+65:                                               ; preds = %63
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 1
+  %67 = ptrtoint ptr %64 to i64
+  %68 = ptrtoint ptr %.082 to i64
+  %69 = sub i64 %67, %68
+  %70 = getelementptr inbounds i8, ptr %.082, i64 %69
+  store i8 0, ptr %70, align 1
+  br label %71
 
-72:                                               ; preds = %66, %64
-  %.1 = phi ptr [ %.082, %64 ], [ %67, %66 ]
-  %73 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 64) #14
-  %.not113 = icmp eq ptr %73, null
-  br i1 %.not113, label %80, label %74
+71:                                               ; preds = %65, %63
+  %.1 = phi ptr [ %.082, %63 ], [ %66, %65 ]
+  %72 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1, i32 noundef 64) #14
+  %.not113 = icmp eq ptr %72, null
+  br i1 %.not113, label %79, label %73
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 1
-  %76 = ptrtoint ptr %73 to i64
-  %77 = ptrtoint ptr %.1 to i64
-  %78 = sub i64 %76, %77
-  %79 = getelementptr inbounds i8, ptr %.1, i64 %78
-  store i8 0, ptr %79, align 1
-  br label %80
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 1
+  %75 = ptrtoint ptr %72 to i64
+  %76 = ptrtoint ptr %.1 to i64
+  %77 = sub i64 %75, %76
+  %78 = getelementptr inbounds i8, ptr %.1, i64 %77
+  store i8 0, ptr %78, align 1
+  br label %79
 
-80:                                               ; preds = %74, %72
-  %.083 = phi ptr [ %75, %74 ], [ null, %72 ]
+79:                                               ; preds = %73, %71
+  %.083 = phi ptr [ %74, %73 ], [ null, %71 ]
   %.not114 = icmp eq ptr %2, null
-  br i1 %.not114, label %97, label %.lr.ph.i123.preheader
+  br i1 %.not114, label %95, label %.lr.ph.i123.preheader
 
-.lr.ph.i123.preheader:                            ; preds = %80
+.lr.ph.i123.preheader:                            ; preds = %79
   store ptr @.str.5, ptr %2, align 8
   br label %.lr.ph.i123
 
-.lr.ph.i123:                                      ; preds = %.lr.ph.i123.preheader, %83
-  %indvars.iv.i124 = phi i64 [ %indvars.iv.next.i126, %83 ], [ 0, %.lr.ph.i123.preheader ]
-  %81 = phi ptr [ %85, %83 ], [ @.str.15, %.lr.ph.i123.preheader ]
-  %82 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.081, ptr noundef nonnull dereferenceable(1) %81) #14
-  %.not10.i125 = icmp eq i32 %82, 0
-  br i1 %.not10.i125, label %mapLookup.exit130, label %83
-
-83:                                               ; preds = %.lr.ph.i123
+80:                                               ; preds = %.lr.ph.i123
   %indvars.iv.next.i126 = add nuw nsw i64 %indvars.iv.i124, 2
-  %84 = getelementptr inbounds nuw ptr, ptr @language_names, i64 %indvars.iv.next.i126
-  %85 = load ptr, ptr %84, align 16
-  %strcmpload.i127 = load i8, ptr %85, align 1
+  %81 = getelementptr inbounds nuw ptr, ptr @language_names, i64 %indvars.iv.next.i126
+  %82 = load ptr, ptr %81, align 16
+  %strcmpload.i127 = load i8, ptr %82, align 1
   %.not.i128 = icmp eq i8 %strcmpload.i127, 0
   br i1 %.not.i128, label %.loopexit175, label %.lr.ph.i123, !llvm.loop !6
 
+.lr.ph.i123:                                      ; preds = %.lr.ph.i123.preheader, %80
+  %indvars.iv.i124 = phi i64 [ %indvars.iv.next.i126, %80 ], [ 0, %.lr.ph.i123.preheader ]
+  %83 = phi ptr [ %82, %80 ], [ @.str.15, %.lr.ph.i123.preheader ]
+  %84 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.081, ptr noundef nonnull dereferenceable(1) %83) #14
+  %.not10.i125 = icmp eq i32 %84, 0
+  br i1 %.not10.i125, label %mapLookup.exit130, label %80
+
 mapLookup.exit130:                                ; preds = %.lr.ph.i123
-  %86 = and i64 %indvars.iv.i124, 4294967294
-  %87 = or disjoint i64 %86, 1
-  %88 = getelementptr inbounds nuw ptr, ptr @language_names, i64 %87
-  %89 = load ptr, ptr %88, align 8
-  store ptr %89, ptr %2, align 8
-  br label %97
+  %85 = getelementptr inbounds nuw ptr, ptr @language_names, i64 %indvars.iv.i124
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %87 = load ptr, ptr %86, align 8
+  store ptr %87, ptr %2, align 8
+  br label %95
 
-.loopexit175:                                     ; preds = %83
-  %90 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.081) #14
-  %91 = add i64 %90, 1
-  %92 = tail call noalias ptr @malloc(i64 noundef %91) #15
-  store ptr %92, ptr %2, align 8
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %94, label %95
+.loopexit175:                                     ; preds = %80
+  %88 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.081) #14
+  %89 = add i64 %88, 1
+  %90 = tail call noalias ptr @malloc(i64 noundef %89) #15
+  store ptr %90, ptr %2, align 8
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %92, label %93
 
-94:                                               ; preds = %.loopexit175
+92:                                               ; preds = %.loopexit175
   tail call void @free(ptr noundef %.082) #12
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #12
-  br label %143
+  br label %139
 
-95:                                               ; preds = %.loopexit175
-  %96 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %92, ptr noundef nonnull dereferenceable(1) %.081) #12
-  br label %97
+93:                                               ; preds = %.loopexit175
+  %94 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %90, ptr noundef nonnull dereferenceable(1) %.081) #12
+  br label %95
 
-97:                                               ; preds = %mapLookup.exit130, %95, %80
-  %98 = icmp ne ptr %4, null
-  %99 = icmp ne ptr %.084, null
-  %or.cond = select i1 %98, i1 %99, i1 false
-  br i1 %or.cond, label %.lr.ph.i133, label %116
+95:                                               ; preds = %mapLookup.exit130, %93, %79
+  %96 = icmp ne ptr %4, null
+  %97 = icmp ne ptr %.084, null
+  %or.cond = select i1 %96, i1 %97, i1 false
+  br i1 %or.cond, label %.lr.ph.i133, label %113
 
-.lr.ph.i133:                                      ; preds = %97, %102
-  %indvars.iv.i134 = phi i64 [ %indvars.iv.next.i136, %102 ], [ 0, %97 ]
-  %100 = phi ptr [ %104, %102 ], [ @.str.164, %97 ]
-  %101 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.084, ptr noundef nonnull dereferenceable(1) %100) #14
-  %.not10.i135 = icmp eq i32 %101, 0
-  br i1 %.not10.i135, label %mapLookup.exit140, label %102
-
-102:                                              ; preds = %.lr.ph.i133
+98:                                               ; preds = %.lr.ph.i133
   %indvars.iv.next.i136 = add nuw nsw i64 %indvars.iv.i134, 2
-  %103 = getelementptr inbounds nuw ptr, ptr @country_names, i64 %indvars.iv.next.i136
-  %104 = load ptr, ptr %103, align 16
-  %strcmpload.i137 = load i8, ptr %104, align 1
+  %99 = getelementptr inbounds nuw ptr, ptr @country_names, i64 %indvars.iv.next.i136
+  %100 = load ptr, ptr %99, align 16
+  %strcmpload.i137 = load i8, ptr %100, align 1
   %.not.i138 = icmp eq i8 %strcmpload.i137, 0
   br i1 %.not.i138, label %.loopexit, label %.lr.ph.i133, !llvm.loop !6
 
+.lr.ph.i133:                                      ; preds = %95, %98
+  %indvars.iv.i134 = phi i64 [ %indvars.iv.next.i136, %98 ], [ 0, %95 ]
+  %101 = phi ptr [ %100, %98 ], [ @.str.164, %95 ]
+  %102 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.084, ptr noundef nonnull dereferenceable(1) %101) #14
+  %.not10.i135 = icmp eq i32 %102, 0
+  br i1 %.not10.i135, label %mapLookup.exit140, label %98
+
 mapLookup.exit140:                                ; preds = %.lr.ph.i133
-  %105 = and i64 %indvars.iv.i134, 4294967294
-  %106 = or disjoint i64 %105, 1
-  %107 = getelementptr inbounds nuw ptr, ptr @country_names, i64 %106
-  %108 = load ptr, ptr %107, align 8
+  %103 = getelementptr inbounds nuw ptr, ptr @country_names, i64 %indvars.iv.i134
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  %105 = load ptr, ptr %104, align 8
+  store ptr %105, ptr %4, align 8
+  br label %113
+
+.loopexit:                                        ; preds = %98
+  %106 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.084) #14
+  %107 = add i64 %106, 1
+  %108 = tail call noalias ptr @malloc(i64 noundef %107) #15
   store ptr %108, ptr %4, align 8
-  br label %116
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %110, label %111
 
-.loopexit:                                        ; preds = %102
-  %109 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.084) #14
-  %110 = add i64 %109, 1
-  %111 = tail call noalias ptr @malloc(i64 noundef %110) #15
-  store ptr %111, ptr %4, align 8
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %113, label %114
-
-113:                                              ; preds = %.loopexit
+110:                                              ; preds = %.loopexit
   tail call void @free(ptr noundef %.082) #12
   tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef null) #12
-  br label %143
+  br label %139
 
-114:                                              ; preds = %.loopexit
-  %115 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull dereferenceable(1) %.084) #12
-  br label %116
+111:                                              ; preds = %.loopexit
+  %112 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %108, ptr noundef nonnull dereferenceable(1) %.084) #12
+  br label %113
 
-116:                                              ; preds = %mapLookup.exit140, %114, %97
+113:                                              ; preds = %mapLookup.exit140, %111, %95
   %.not115 = icmp eq ptr %.083, null
-  br i1 %.not115, label %mapLookup.exit160, label %117
+  br i1 %.not115, label %mapLookup.exit160, label %114
 
-117:                                              ; preds = %116
+114:                                              ; preds = %113
   %.not116 = icmp eq ptr %3, null
   br i1 %.not116, label %mapLookup.exit150, label %.lr.ph.i143
 
-.lr.ph.i143:                                      ; preds = %117, %125
-  %indvars.iv.i144 = phi i64 [ %indvars.iv.next.i146, %125 ], [ 0, %117 ]
-  %118 = phi ptr [ %127, %125 ], [ @.str.168, %117 ]
-  %119 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.083, ptr noundef nonnull dereferenceable(1) %118) #14
-  %.not10.i145 = icmp eq i32 %119, 0
-  br i1 %.not10.i145, label %120, label %125
-
-120:                                              ; preds = %.lr.ph.i143
-  %121 = and i64 %indvars.iv.i144, 4294967294
-  %122 = or disjoint i64 %121, 1
-  %123 = getelementptr inbounds nuw ptr, ptr @script_names, i64 %122
-  %124 = load ptr, ptr %123, align 8
-  store ptr %124, ptr %3, align 8
-  br label %mapLookup.exit150
-
-125:                                              ; preds = %.lr.ph.i143
+115:                                              ; preds = %.lr.ph.i143
   %indvars.iv.next.i146 = add nuw nsw i64 %indvars.iv.i144, 2
-  %126 = getelementptr inbounds nuw ptr, ptr @script_names, i64 %indvars.iv.next.i146
-  %127 = load ptr, ptr %126, align 16
-  %strcmpload.i147 = load i8, ptr %127, align 1
+  %116 = getelementptr inbounds nuw ptr, ptr @script_names, i64 %indvars.iv.next.i146
+  %117 = load ptr, ptr %116, align 16
+  %strcmpload.i147 = load i8, ptr %117, align 1
   %.not.i148 = icmp eq i8 %strcmpload.i147, 0
   br i1 %.not.i148, label %mapLookup.exit150, label %.lr.ph.i143, !llvm.loop !6
 
-mapLookup.exit150:                                ; preds = %125, %120, %117
+.lr.ph.i143:                                      ; preds = %114, %115
+  %indvars.iv.i144 = phi i64 [ %indvars.iv.next.i146, %115 ], [ 0, %114 ]
+  %118 = phi ptr [ %117, %115 ], [ @.str.168, %114 ]
+  %119 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.083, ptr noundef nonnull dereferenceable(1) %118) #14
+  %.not10.i145 = icmp eq i32 %119, 0
+  br i1 %.not10.i145, label %120, label %115
+
+120:                                              ; preds = %.lr.ph.i143
+  %121 = getelementptr inbounds nuw ptr, ptr @script_names, i64 %indvars.iv.i144
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %123 = load ptr, ptr %122, align 8
+  store ptr %123, ptr %3, align 8
+  br label %mapLookup.exit150
+
+mapLookup.exit150:                                ; preds = %115, %120, %114
   %.not117 = icmp eq ptr %5, null
   br i1 %.not117, label %mapLookup.exit160, label %.lr.ph.i153
 
 .lr.ph.i153:                                      ; preds = %mapLookup.exit150
-  %128 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.083, ptr noundef nonnull dereferenceable(8) @.str.150) #14
-  %.not10.i155 = icmp eq i32 %128, 0
-  br i1 %.not10.i155, label %129, label %mapLookup.exit160
+  %124 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.083, ptr noundef nonnull dereferenceable(8) @.str.150) #14
+  %.not10.i155 = icmp eq i32 %124, 0
+  br i1 %.not10.i155, label %125, label %mapLookup.exit160
 
-129:                                              ; preds = %.lr.ph.i153
+125:                                              ; preds = %.lr.ph.i153
   store ptr @.str.182, ptr %5, align 8
   br label %mapLookup.exit160
 
-mapLookup.exit160:                                ; preds = %.lr.ph.i153, %129, %mapLookup.exit150, %116
+mapLookup.exit160:                                ; preds = %.lr.ph.i153, %125, %mapLookup.exit150, %113
   %.not118 = icmp eq ptr %6, null
-  br i1 %.not118, label %142, label %130
+  br i1 %.not118, label %138, label %126
 
-130:                                              ; preds = %mapLookup.exit160
-  %131 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(11) @.str.18) #14
-  %132 = icmp eq i32 %131, 0
-  br i1 %132, label %135, label %133
+126:                                              ; preds = %mapLookup.exit160
+  %127 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(11) @.str.18) #14
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %131, label %129
 
-133:                                              ; preds = %130
-  %134 = tail call ptr @nl_langinfo(i32 noundef 14) #12
-  br label %135
+129:                                              ; preds = %126
+  %130 = tail call ptr @nl_langinfo(i32 noundef 14) #12
+  br label %131
 
-135:                                              ; preds = %130, %133
-  %storemerge = phi ptr [ %134, %133 ], [ @.str.18, %130 ]
-  %136 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %storemerge, ptr noundef nonnull dereferenceable(4) @.str.19) #14
+131:                                              ; preds = %126, %129
+  %storemerge = phi ptr [ %130, %129 ], [ @.str.18, %126 ]
+  %132 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %storemerge, ptr noundef nonnull dereferenceable(4) @.str.19) #14
+  %133 = icmp eq i32 %132, 0
+  %spec.store.select = select i1 %133, ptr @.str.20, ptr %storemerge
+  %134 = load i8, ptr %spec.store.select, align 1
+  %.not119 = icmp eq i8 %134, 0
+  %135 = select i1 %.not119, ptr @.str.6, ptr %spec.store.select
+  store ptr %135, ptr %6, align 8
+  %136 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(7) @.str.21) #14
   %137 = icmp eq i32 %136, 0
-  %spec.store.select = select i1 %137, ptr @.str.20, ptr %storemerge
-  %138 = load i8, ptr %spec.store.select, align 1
-  %.not119 = icmp eq i8 %138, 0
-  %139 = select i1 %.not119, ptr @.str.6, ptr %spec.store.select
-  store ptr %139, ptr %6, align 8
-  %140 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(7) @.str.21) #14
-  %141 = icmp eq i32 %140, 0
-  %spec.store.select120 = select i1 %141, ptr @.str.22, ptr %139
+  %spec.store.select120 = select i1 %137, ptr @.str.22, ptr %135
   store ptr %spec.store.select120, ptr %6, align 8
-  br label %142
+  br label %138
 
-142:                                              ; preds = %135, %mapLookup.exit160
+138:                                              ; preds = %131, %mapLookup.exit160
   tail call void @free(ptr noundef %.081) #12
   tail call void @free(ptr noundef %.082) #12
-  br label %143
+  br label %139
 
-143:                                              ; preds = %142, %113, %94, %55, %48, %28, %21
-  %.080 = phi i32 [ 0, %21 ], [ 0, %28 ], [ 0, %48 ], [ 0, %55 ], [ 0, %94 ], [ 0, %113 ], [ 1, %142 ]
+139:                                              ; preds = %138, %110, %92, %54, %47, %28, %21
+  %.080 = phi i32 [ 0, %21 ], [ 0, %28 ], [ 0, %47 ], [ 0, %54 ], [ 0, %92 ], [ 0, %110 ], [ 1, %138 ]
   ret i32 %.080
 }
 

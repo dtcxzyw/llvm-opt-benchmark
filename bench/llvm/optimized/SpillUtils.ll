@@ -8851,15 +8851,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
   br i1 %8, label %.lr.ph, label %"_ZSt14__partial_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_T0_.exit"
 
 .lr.ph:                                           ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEET_SQ_SQ_T0_.exit"
-  %11 = phi i64 [ %7, %.lr.ph ], [ %149, %"_ZSt27__unguarded_partition_pivotIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEET_SQ_SQ_T0_.exit" ]
+  %11 = phi i64 [ %7, %.lr.ph ], [ %146, %"_ZSt27__unguarded_partition_pivotIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEET_SQ_SQ_T0_.exit" ]
   %.024 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %"_ZSt27__unguarded_partition_pivotIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEET_SQ_SQ_T0_.exit" ]
-  %.01523 = phi i64 [ %2, %.lr.ph ], [ %110, %"_ZSt27__unguarded_partition_pivotIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEET_SQ_SQ_T0_.exit" ]
+  %.01523 = phi i64 [ %2, %.lr.ph ], [ %107, %"_ZSt27__unguarded_partition_pivotIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEET_SQ_SQ_T0_.exit" ]
   %12 = icmp eq i64 %.01523, 0
-  br i1 %12, label %13, label %109
+  br i1 %12, label %13, label %106
 
 13:                                               ; preds = %10
   %14 = lshr i64 %11, 3
@@ -8878,7 +8878,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
   br label %.split.i.i.i
 
 .split.us.i.i.i:                                  ; preds = %13, %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.us.i.i.i"
-  %.014.us.i.i.i = phi i64 [ %44, %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.us.i.i.i" ], [ %16, %13 ]
+  %.014.us.i.i.i = phi i64 [ %43, %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.us.i.i.i" ], [ %16, %13 ]
   %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.us.i.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !271
   %26 = icmp slt i64 %.014.us.i.i.i, %18
@@ -8889,308 +8889,308 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
   %27 = shl i64 %.034.i.us.i.i.i, 1
   %28 = add i64 %27, 2
   %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %28
-  %30 = or disjoint i64 %27, 1
-  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %30
+  %gep.i.us.i.i.i = getelementptr ptr, ptr %9, i64 %27
   %.val29.i.us.i.i.i = load ptr, ptr %29, align 8, !tbaa !271
-  %.val30.i.us.i.i.i = load ptr, ptr %31, align 8, !tbaa !271
-  %32 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val29.i.us.i.i.i, ptr noundef %.val30.i.us.i.i.i) #14
-  %spec.select.i.us.i.i.i = select i1 %32, i64 %30, i64 %28
-  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.us.i.i.i
-  %34 = load ptr, ptr %33, align 8, !tbaa !271
-  %35 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.us.i.i.i
-  store ptr %34, ptr %35, align 8, !tbaa !271
-  %36 = icmp slt i64 %spec.select.i.us.i.i.i, %18
-  br i1 %36, label %.lr.ph.i.us.i.i.i, label %.lr.ph.i.i.us.i.i.i, !llvm.loop !392
+  %.val30.i.us.i.i.i = load ptr, ptr %gep.i.us.i.i.i, align 8, !tbaa !271
+  %30 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val29.i.us.i.i.i, ptr noundef %.val30.i.us.i.i.i) #14
+  %31 = or disjoint i64 %27, 1
+  %spec.select.i.us.i.i.i = select i1 %30, i64 %31, i64 %28
+  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.us.i.i.i
+  %33 = load ptr, ptr %32, align 8, !tbaa !271
+  %34 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.us.i.i.i
+  store ptr %33, ptr %34, align 8, !tbaa !271
+  %35 = icmp slt i64 %spec.select.i.us.i.i.i, %18
+  br i1 %35, label %.lr.ph.i.us.i.i.i, label %.lr.ph.i.i.us.i.i.i, !llvm.loop !392
 
-.lr.ph.i.i.us.i.i.i:                              ; preds = %.lr.ph.i.us.i.i.i, %39
-  %.0133.i.i.us.i.i.i = phi i64 [ %.04.i.i.us.i.i.i, %39 ], [ %spec.select.i.us.i.i.i, %.lr.ph.i.us.i.i.i ]
+.lr.ph.i.i.us.i.i.i:                              ; preds = %.lr.ph.i.us.i.i.i, %38
+  %.0133.i.i.us.i.i.i = phi i64 [ %.04.i.i.us.i.i.i, %38 ], [ %spec.select.i.us.i.i.i, %.lr.ph.i.us.i.i.i ]
   %.04.in.i.i.us.i.i.i = add nsw i64 %.0133.i.i.us.i.i.i, -1
   %.04.i.i.us.i.i.i = sdiv i64 %.04.in.i.i.us.i.i.i, 2
-  %37 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.us.i.i.i
-  %.val14.i.i.us.i.i.i = load ptr, ptr %37, align 8, !tbaa !271
-  %38 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val14.i.i.us.i.i.i, ptr noundef %25) #14
-  br i1 %38, label %39, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.us.i.i.i"
+  %36 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.us.i.i.i
+  %.val14.i.i.us.i.i.i = load ptr, ptr %36, align 8, !tbaa !271
+  %37 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val14.i.i.us.i.i.i, ptr noundef %25) #14
+  br i1 %37, label %38, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.us.i.i.i"
 
-39:                                               ; preds = %.lr.ph.i.i.us.i.i.i
-  %40 = load ptr, ptr %37, align 8, !tbaa !271
-  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.us.i.i.i
-  store ptr %40, ptr %41, align 8, !tbaa !271
-  %42 = icmp sgt i64 %.04.i.i.us.i.i.i, %.014.us.i.i.i
-  br i1 %42, label %.lr.ph.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.us.i.i.i", !llvm.loop !393
+38:                                               ; preds = %.lr.ph.i.i.us.i.i.i
+  %39 = load ptr, ptr %36, align 8, !tbaa !271
+  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.us.i.i.i
+  store ptr %39, ptr %40, align 8, !tbaa !271
+  %41 = icmp sgt i64 %.04.i.i.us.i.i.i, %.014.us.i.i.i
+  br i1 %41, label %.lr.ph.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.us.i.i.i", !llvm.loop !393
 
-"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.us.i.i.i": ; preds = %39, %.lr.ph.i.i.us.i.i.i, %.split.us.i.i.i
-  %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.014.us.i.i.i, %.split.us.i.i.i ], [ %.0133.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.04.i.i.us.i.i.i, %39 ]
-  %43 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
-  store ptr %25, ptr %43, align 8, !tbaa !271
+"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.us.i.i.i": ; preds = %38, %.lr.ph.i.i.us.i.i.i, %.split.us.i.i.i
+  %.013.lcssa.i.i.us.i.i.i = phi i64 [ %.014.us.i.i.i, %.split.us.i.i.i ], [ %.0133.i.i.us.i.i.i, %.lr.ph.i.i.us.i.i.i ], [ %.04.i.i.us.i.i.i, %38 ]
+  %42 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.us.i.i.i
+  store ptr %25, ptr %42, align 8, !tbaa !271
   %.not.us.i.i.i = icmp eq i64 %.014.us.i.i.i, 0
-  %44 = add nsw i64 %.014.us.i.i.i, -1
+  %43 = add nsw i64 %.014.us.i.i.i, -1
   br i1 %.not.us.i.i.i, label %.lr.ph.i5.i.preheader, label %.split.us.i.i.i, !llvm.loop !394
 
 .split.i.i.i:                                     ; preds = %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.i.i.i", %.split.preheader.i.i.i
-  %.014.i.i.i = phi i64 [ %70, %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.i.i.i" ], [ %16, %.split.preheader.i.i.i ]
-  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.i.i.i
-  %46 = load ptr, ptr %45, align 8, !tbaa !271
-  %47 = icmp slt i64 %.014.i.i.i, %18
-  br i1 %47, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  %.014.i.i.i = phi i64 [ %68, %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.i.i.i" ], [ %16, %.split.preheader.i.i.i ]
+  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.i.i.i
+  %45 = load ptr, ptr %44, align 8, !tbaa !271
+  %46 = icmp slt i64 %.014.i.i.i, %18
+  br i1 %46, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.split.i.i.i, %.lr.ph.i.i.i.i
   %.034.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.014.i.i.i, %.split.i.i.i ]
-  %48 = shl i64 %.034.i.i.i.i, 1
-  %49 = add i64 %48, 2
-  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %49
-  %51 = or disjoint i64 %48, 1
-  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %51
-  %.val29.i.i.i.i = load ptr, ptr %50, align 8, !tbaa !271
-  %.val30.i.i.i.i = load ptr, ptr %52, align 8, !tbaa !271
-  %53 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val29.i.i.i.i, ptr noundef %.val30.i.i.i.i) #14
-  %spec.select.i.i.i.i = select i1 %53, i64 %51, i64 %49
-  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
-  %55 = load ptr, ptr %54, align 8, !tbaa !271
-  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.i.i.i
-  store ptr %55, ptr %56, align 8, !tbaa !271
-  %57 = icmp slt i64 %spec.select.i.i.i.i, %18
-  br i1 %57, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !392
+  %47 = shl i64 %.034.i.i.i.i, 1
+  %48 = add i64 %47, 2
+  %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %48
+  %gep.i.i.i.i = getelementptr ptr, ptr %9, i64 %47
+  %.val29.i.i.i.i = load ptr, ptr %49, align 8, !tbaa !271
+  %.val30.i.i.i.i = load ptr, ptr %gep.i.i.i.i, align 8, !tbaa !271
+  %50 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val29.i.i.i.i, ptr noundef %.val30.i.i.i.i) #14
+  %51 = or disjoint i64 %47, 1
+  %spec.select.i.i.i.i = select i1 %50, i64 %51, i64 %48
+  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %53 = load ptr, ptr %52, align 8, !tbaa !271
+  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.i.i.i
+  store ptr %53, ptr %54, align 8, !tbaa !271
+  %55 = icmp slt i64 %spec.select.i.i.i.i, %18
+  br i1 %55, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !392
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.split.i.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ %.014.i.i.i, %.split.i.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %58 = icmp eq i64 %.0.lcssa.i.i.i.i, %16
-  br i1 %58, label %59, label %61
+  %56 = icmp eq i64 %.0.lcssa.i.i.i.i, %16
+  br i1 %56, label %57, label %59
 
-59:                                               ; preds = %._crit_edge.i.i.i.i
-  %60 = load ptr, ptr %22, align 8, !tbaa !271
-  store ptr %60, ptr %23, align 8, !tbaa !271
-  br label %61
+57:                                               ; preds = %._crit_edge.i.i.i.i
+  %58 = load ptr, ptr %22, align 8, !tbaa !271
+  store ptr %58, ptr %23, align 8, !tbaa !271
+  br label %59
 
-61:                                               ; preds = %59, %._crit_edge.i.i.i.i
-  %.128.i.i.i.i = phi i64 [ %21, %59 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %62 = icmp samesign ugt i64 %.128.i.i.i.i, %.014.i.i.i
-  br i1 %62, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.i.i.i"
+59:                                               ; preds = %57, %._crit_edge.i.i.i.i
+  %.128.i.i.i.i = phi i64 [ %21, %57 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %60 = icmp samesign ugt i64 %.128.i.i.i.i, %.014.i.i.i
+  br i1 %60, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.i.i.i"
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %61, %65
-  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %65 ], [ %.128.i.i.i.i, %61 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %59, %63
+  %.0133.i.i.i.i.i = phi i64 [ %.04.i.i.i.i.i, %63 ], [ %.128.i.i.i.i, %59 ]
   %.04.in.i.i.i.i.i = add nsw i64 %.0133.i.i.i.i.i, -1
   %.04.i.i.i.i.i = sdiv i64 %.04.in.i.i.i.i.i, 2
-  %63 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.i.i.i
-  %.val14.i.i.i.i.i = load ptr, ptr %63, align 8, !tbaa !271
-  %64 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val14.i.i.i.i.i, ptr noundef %46) #14
-  br i1 %64, label %65, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.i.i.i"
+  %61 = getelementptr inbounds ptr, ptr %0, i64 %.04.i.i.i.i.i
+  %.val14.i.i.i.i.i = load ptr, ptr %61, align 8, !tbaa !271
+  %62 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val14.i.i.i.i.i, ptr noundef %45) #14
+  br i1 %62, label %63, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.i.i.i"
 
-65:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %66 = load ptr, ptr %63, align 8, !tbaa !271
-  %67 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
-  store ptr %66, ptr %67, align 8, !tbaa !271
-  %68 = icmp sgt i64 %.04.i.i.i.i.i, %.014.i.i.i
-  br i1 %68, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.i.i.i", !llvm.loop !393
+63:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %64 = load ptr, ptr %61, align 8, !tbaa !271
+  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  store ptr %64, ptr %65, align 8, !tbaa !271
+  %66 = icmp sgt i64 %.04.i.i.i.i.i, %.014.i.i.i
+  br i1 %66, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.i.i.i", !llvm.loop !393
 
-"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.i.i.i": ; preds = %65, %.lr.ph.i.i.i.i.i, %61
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %61 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %65 ]
-  %69 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store ptr %46, ptr %69, align 8, !tbaa !271
+"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.i.i.i": ; preds = %63, %.lr.ph.i.i.i.i.i, %59
+  %.013.lcssa.i.i.i.i.i = phi i64 [ %.128.i.i.i.i, %59 ], [ %.0133.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.04.i.i.i.i.i, %63 ]
+  %67 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store ptr %45, ptr %67, align 8, !tbaa !271
   %.not.i.i.i = icmp eq i64 %.014.i.i.i, 0
-  %70 = add nsw i64 %.014.i.i.i, -1
+  %68 = add nsw i64 %.014.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i5.i.preheader, label %.split.i.i.i, !llvm.loop !394
 
 .lr.ph.i5.i.preheader:                            ; preds = %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.us.i.i.i", %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_T0_SR_T1_T2_.exit.i.i.i"
   br label %.lr.ph.i5.i
 
 .lr.ph.i5.i:                                      ; preds = %.lr.ph.i5.i.preheader, %"_ZSt10__pop_heapIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_RT0_.exit.i.i"
-  %.01.i.i = phi ptr [ %71, %"_ZSt10__pop_heapIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_RT0_.exit.i.i" ], [ %.024, %.lr.ph.i5.i.preheader ]
-  %71 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
-  %72 = load ptr, ptr %71, align 8, !tbaa !271
-  %73 = load ptr, ptr %0, align 8, !tbaa !271
-  store ptr %73, ptr %71, align 8, !tbaa !271
-  %74 = ptrtoint ptr %71 to i64
-  %75 = sub i64 %74, %5
-  %76 = ashr exact i64 %75, 3
-  %77 = add nsw i64 %76, -1
-  %78 = sdiv i64 %77, 2
-  %79 = icmp sgt i64 %76, 2
-  br i1 %79, label %.lr.ph.i.i.i14.i, label %._crit_edge.i.i.i6.i
+  %.01.i.i = phi ptr [ %69, %"_ZSt10__pop_heapIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_RT0_.exit.i.i" ], [ %.024, %.lr.ph.i5.i.preheader ]
+  %69 = getelementptr inbounds i8, ptr %.01.i.i, i64 -8
+  %70 = load ptr, ptr %69, align 8, !tbaa !271
+  %71 = load ptr, ptr %0, align 8, !tbaa !271
+  store ptr %71, ptr %69, align 8, !tbaa !271
+  %72 = ptrtoint ptr %69 to i64
+  %73 = sub i64 %72, %5
+  %74 = ashr exact i64 %73, 3
+  %75 = add nsw i64 %74, -1
+  %76 = sdiv i64 %75, 2
+  %77 = icmp sgt i64 %74, 2
+  br i1 %77, label %.lr.ph.i.i.i15.i, label %._crit_edge.i.i.i7.i
 
-.lr.ph.i.i.i14.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i14.i
-  %.034.i.i.i15.i = phi i64 [ %spec.select.i.i.i18.i, %.lr.ph.i.i.i14.i ], [ 0, %.lr.ph.i5.i ]
-  %80 = shl i64 %.034.i.i.i15.i, 1
-  %81 = add i64 %80, 2
-  %82 = getelementptr inbounds nuw ptr, ptr %0, i64 %81
-  %83 = or disjoint i64 %80, 1
-  %84 = getelementptr inbounds nuw ptr, ptr %0, i64 %83
-  %.val29.i.i.i16.i = load ptr, ptr %82, align 8, !tbaa !271
-  %.val30.i.i.i17.i = load ptr, ptr %84, align 8, !tbaa !271
-  %85 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val29.i.i.i16.i, ptr noundef %.val30.i.i.i17.i) #14
-  %spec.select.i.i.i18.i = select i1 %85, i64 %83, i64 %81
-  %86 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i18.i
-  %87 = load ptr, ptr %86, align 8, !tbaa !271
-  %88 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.i.i15.i
-  store ptr %87, ptr %88, align 8, !tbaa !271
-  %89 = icmp slt i64 %spec.select.i.i.i18.i, %78
-  br i1 %89, label %.lr.ph.i.i.i14.i, label %._crit_edge.i.i.i6.i, !llvm.loop !392
+.lr.ph.i.i.i15.i:                                 ; preds = %.lr.ph.i5.i, %.lr.ph.i.i.i15.i
+  %.034.i.i.i16.i = phi i64 [ %spec.select.i.i.i20.i, %.lr.ph.i.i.i15.i ], [ 0, %.lr.ph.i5.i ]
+  %78 = shl i64 %.034.i.i.i16.i, 1
+  %79 = add i64 %78, 2
+  %80 = getelementptr inbounds nuw ptr, ptr %0, i64 %79
+  %gep.i.i.i17.i = getelementptr ptr, ptr %9, i64 %78
+  %.val29.i.i.i18.i = load ptr, ptr %80, align 8, !tbaa !271
+  %.val30.i.i.i19.i = load ptr, ptr %gep.i.i.i17.i, align 8, !tbaa !271
+  %81 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val29.i.i.i18.i, ptr noundef %.val30.i.i.i19.i) #14
+  %82 = or disjoint i64 %78, 1
+  %spec.select.i.i.i20.i = select i1 %81, i64 %82, i64 %79
+  %83 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i20.i
+  %84 = load ptr, ptr %83, align 8, !tbaa !271
+  %85 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.i.i16.i
+  store ptr %84, ptr %85, align 8, !tbaa !271
+  %86 = icmp slt i64 %spec.select.i.i.i20.i, %76
+  br i1 %86, label %.lr.ph.i.i.i15.i, label %._crit_edge.i.i.i7.i, !llvm.loop !392
 
-._crit_edge.i.i.i6.i:                             ; preds = %.lr.ph.i.i.i14.i, %.lr.ph.i5.i
-  %.0.lcssa.i.i.i7.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i18.i, %.lr.ph.i.i.i14.i ]
-  %90 = and i64 %75, 8
-  %91 = icmp eq i64 %90, 0
-  br i1 %91, label %92, label %101
+._crit_edge.i.i.i7.i:                             ; preds = %.lr.ph.i.i.i15.i, %.lr.ph.i5.i
+  %.0.lcssa.i.i.i8.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i20.i, %.lr.ph.i.i.i15.i ]
+  %87 = and i64 %73, 8
+  %88 = icmp eq i64 %87, 0
+  br i1 %88, label %89, label %98
 
-92:                                               ; preds = %._crit_edge.i.i.i6.i
-  %93 = add nsw i64 %76, -2
-  %94 = ashr exact i64 %93, 1
-  %95 = icmp eq i64 %.0.lcssa.i.i.i7.i, %94
-  br i1 %95, label %.thread.i.i.i, label %101
+89:                                               ; preds = %._crit_edge.i.i.i7.i
+  %90 = add nsw i64 %74, -2
+  %91 = ashr exact i64 %90, 1
+  %92 = icmp eq i64 %.0.lcssa.i.i.i8.i, %91
+  br i1 %92, label %.thread.i.i.i, label %98
 
-.thread.i.i.i:                                    ; preds = %92
-  %96 = shl nuw nsw i64 %.0.lcssa.i.i.i7.i, 1
-  %97 = or disjoint i64 %96, 1
-  %98 = getelementptr inbounds nuw ptr, ptr %0, i64 %97
-  %99 = load ptr, ptr %98, align 8, !tbaa !271
-  %100 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
-  store ptr %99, ptr %100, align 8, !tbaa !271
-  br label %.lr.ph.i.i.i.i9.i.preheader
+.thread.i.i.i:                                    ; preds = %89
+  %93 = shl nuw nsw i64 %.0.lcssa.i.i.i8.i, 1
+  %94 = or disjoint i64 %93, 1
+  %95 = getelementptr inbounds nuw ptr, ptr %0, i64 %94
+  %96 = load ptr, ptr %95, align 8, !tbaa !271
+  %97 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i8.i
+  store ptr %96, ptr %97, align 8, !tbaa !271
+  br label %.lr.ph.i.i.i.i10.i.preheader
 
-101:                                              ; preds = %92, %._crit_edge.i.i.i6.i
-  %.not.i.i8.i = icmp eq i64 %.0.lcssa.i.i.i7.i, 0
-  br i1 %.not.i.i8.i, label %"_ZSt10__pop_heapIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_RT0_.exit.i.i", label %.lr.ph.i.i.i.i9.i.preheader
+98:                                               ; preds = %89, %._crit_edge.i.i.i7.i
+  %.not.i.i9.i = icmp eq i64 %.0.lcssa.i.i.i8.i, 0
+  br i1 %.not.i.i9.i, label %"_ZSt10__pop_heapIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_RT0_.exit.i.i", label %.lr.ph.i.i.i.i10.i.preheader
 
-.lr.ph.i.i.i.i9.i.preheader:                      ; preds = %101, %.thread.i.i.i
-  %.0133.i.i.i.i10.i.ph = phi i64 [ %.0.lcssa.i.i.i7.i, %101 ], [ %97, %.thread.i.i.i ]
-  br label %.lr.ph.i.i.i.i9.i
+.lr.ph.i.i.i.i10.i.preheader:                     ; preds = %98, %.thread.i.i.i
+  %.0133.i.i.i.i11.i.ph = phi i64 [ %.0.lcssa.i.i.i8.i, %98 ], [ %94, %.thread.i.i.i ]
+  br label %.lr.ph.i.i.i.i10.i
 
-.lr.ph.i.i.i.i9.i:                                ; preds = %.lr.ph.i.i.i.i9.i.preheader, %104
-  %.0133.i.i.i.i10.i = phi i64 [ %.04.i.i12.i.i.i, %104 ], [ %.0133.i.i.i.i10.i.ph, %.lr.ph.i.i.i.i9.i.preheader ]
-  %.04.in.i.i.i.i11.i = add nsw i64 %.0133.i.i.i.i10.i, -1
-  %.04.i.i12.i.i.i = lshr i64 %.04.in.i.i.i.i11.i, 1
-  %102 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i12.i.i.i
-  %.val14.i.i.i.i12.i = load ptr, ptr %102, align 8, !tbaa !271
-  %103 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val14.i.i.i.i12.i, ptr noundef %72) #14
-  br i1 %103, label %104, label %"_ZSt10__pop_heapIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_RT0_.exit.i.i"
+.lr.ph.i.i.i.i10.i:                               ; preds = %.lr.ph.i.i.i.i10.i.preheader, %101
+  %.0133.i.i.i.i11.i = phi i64 [ %.04.i.i12.i.i.i, %101 ], [ %.0133.i.i.i.i11.i.ph, %.lr.ph.i.i.i.i10.i.preheader ]
+  %.04.in.i.i.i.i12.i = add nsw i64 %.0133.i.i.i.i11.i, -1
+  %.04.i.i12.i.i.i = lshr i64 %.04.in.i.i.i.i12.i, 1
+  %99 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i.i12.i.i.i
+  %.val14.i.i.i.i13.i = load ptr, ptr %99, align 8, !tbaa !271
+  %100 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val14.i.i.i.i13.i, ptr noundef %70) #14
+  br i1 %100, label %101, label %"_ZSt10__pop_heapIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_RT0_.exit.i.i"
 
-104:                                              ; preds = %.lr.ph.i.i.i.i9.i
-  %105 = load ptr, ptr %102, align 8, !tbaa !271
-  %106 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i10.i
-  store ptr %105, ptr %106, align 8, !tbaa !271
-  %.not3.i.i.i = icmp ult i64 %.04.in.i.i.i.i11.i, 2
-  br i1 %.not3.i.i.i, label %"_ZSt10__pop_heapIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_RT0_.exit.i.i", label %.lr.ph.i.i.i.i9.i, !llvm.loop !393
+101:                                              ; preds = %.lr.ph.i.i.i.i10.i
+  %102 = load ptr, ptr %99, align 8, !tbaa !271
+  %103 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i11.i
+  store ptr %102, ptr %103, align 8, !tbaa !271
+  %.not3.i.i.i = icmp ult i64 %.04.in.i.i.i.i12.i, 2
+  br i1 %.not3.i.i.i, label %"_ZSt10__pop_heapIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_RT0_.exit.i.i", label %.lr.ph.i.i.i.i10.i, !llvm.loop !393
 
-"_ZSt10__pop_heapIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_RT0_.exit.i.i": ; preds = %104, %.lr.ph.i.i.i.i9.i, %101
-  %.013.lcssa.i.i.i.i13.i = phi i64 [ 0, %101 ], [ %.0133.i.i.i.i10.i, %.lr.ph.i.i.i.i9.i ], [ 0, %104 ]
-  %107 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i13.i
-  store ptr %72, ptr %107, align 8, !tbaa !271
-  %108 = icmp sgt i64 %75, 8
-  br i1 %108, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_T0_.exit", !llvm.loop !395
+"_ZSt10__pop_heapIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_RT0_.exit.i.i": ; preds = %101, %.lr.ph.i.i.i.i10.i, %98
+  %.013.lcssa.i.i.i.i14.i = phi i64 [ 0, %98 ], [ %.0133.i.i.i.i11.i, %.lr.ph.i.i.i.i10.i ], [ 0, %101 ]
+  %104 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i14.i
+  store ptr %70, ptr %104, align 8, !tbaa !271
+  %105 = icmp sgt i64 %73, 8
+  br i1 %105, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_T0_.exit", !llvm.loop !395
 
-109:                                              ; preds = %10
-  %110 = add nsw i64 %.01523, -1
-  %111 = lshr i64 %11, 4
-  %112 = getelementptr inbounds nuw ptr, ptr %0, i64 %111
-  %113 = getelementptr inbounds i8, ptr %.024, i64 -8
+106:                                              ; preds = %10
+  %107 = add nsw i64 %.01523, -1
+  %108 = lshr i64 %11, 4
+  %109 = getelementptr inbounds nuw ptr, ptr %0, i64 %108
+  %110 = getelementptr inbounds i8, ptr %.024, i64 -8
   %.val34.i.i = load ptr, ptr %9, align 8, !tbaa !271
-  %.val35.i.i = load ptr, ptr %112, align 8, !tbaa !271
-  %114 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val34.i.i, ptr noundef %.val35.i.i) #14
-  %.val32.i.i = load ptr, ptr %113, align 8, !tbaa !271
-  br i1 %114, label %115, label %127
+  %.val35.i.i = load ptr, ptr %109, align 8, !tbaa !271
+  %111 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val34.i.i, ptr noundef %.val35.i.i) #14
+  %.val32.i.i = load ptr, ptr %110, align 8, !tbaa !271
+  br i1 %111, label %112, label %124
 
-115:                                              ; preds = %109
-  %.val31.i.i = load ptr, ptr %112, align 8, !tbaa !271
-  %116 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val31.i.i, ptr noundef %.val32.i.i) #14
-  br i1 %116, label %117, label %120
+112:                                              ; preds = %106
+  %.val31.i.i = load ptr, ptr %109, align 8, !tbaa !271
+  %113 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val31.i.i, ptr noundef %.val32.i.i) #14
+  br i1 %113, label %114, label %117
 
-117:                                              ; preds = %115
-  %118 = load ptr, ptr %0, align 8, !tbaa !271
-  %119 = load ptr, ptr %112, align 8, !tbaa !271
-  store ptr %119, ptr %0, align 8, !tbaa !271
-  store ptr %118, ptr %112, align 8, !tbaa !271
+114:                                              ; preds = %112
+  %115 = load ptr, ptr %0, align 8, !tbaa !271
+  %116 = load ptr, ptr %109, align 8, !tbaa !271
+  store ptr %116, ptr %0, align 8, !tbaa !271
+  store ptr %115, ptr %109, align 8, !tbaa !271
   br label %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader"
 
-120:                                              ; preds = %115
+117:                                              ; preds = %112
   %.val28.i.i = load ptr, ptr %9, align 8, !tbaa !271
-  %.val29.i.i = load ptr, ptr %113, align 8, !tbaa !271
-  %121 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val28.i.i, ptr noundef %.val29.i.i) #14
-  %122 = load ptr, ptr %0, align 8, !tbaa !271
-  br i1 %121, label %123, label %125
+  %.val29.i.i = load ptr, ptr %110, align 8, !tbaa !271
+  %118 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val28.i.i, ptr noundef %.val29.i.i) #14
+  %119 = load ptr, ptr %0, align 8, !tbaa !271
+  br i1 %118, label %120, label %122
 
-123:                                              ; preds = %120
-  %124 = load ptr, ptr %113, align 8, !tbaa !271
-  store ptr %124, ptr %0, align 8, !tbaa !271
-  store ptr %122, ptr %113, align 8, !tbaa !271
+120:                                              ; preds = %117
+  %121 = load ptr, ptr %110, align 8, !tbaa !271
+  store ptr %121, ptr %0, align 8, !tbaa !271
+  store ptr %119, ptr %110, align 8, !tbaa !271
   br label %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader"
 
-125:                                              ; preds = %120
-  %126 = load ptr, ptr %9, align 8, !tbaa !271
-  store ptr %126, ptr %0, align 8, !tbaa !271
-  store ptr %122, ptr %9, align 8, !tbaa !271
+122:                                              ; preds = %117
+  %123 = load ptr, ptr %9, align 8, !tbaa !271
+  store ptr %123, ptr %0, align 8, !tbaa !271
+  store ptr %119, ptr %9, align 8, !tbaa !271
   br label %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader"
 
-127:                                              ; preds = %109
+124:                                              ; preds = %106
   %.val25.i.i = load ptr, ptr %9, align 8, !tbaa !271
-  %128 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val25.i.i, ptr noundef %.val32.i.i) #14
-  br i1 %128, label %129, label %132
+  %125 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val25.i.i, ptr noundef %.val32.i.i) #14
+  br i1 %125, label %126, label %129
 
-129:                                              ; preds = %127
-  %130 = load ptr, ptr %0, align 8, !tbaa !271
-  %131 = load ptr, ptr %9, align 8, !tbaa !271
-  store ptr %131, ptr %0, align 8, !tbaa !271
-  store ptr %130, ptr %9, align 8, !tbaa !271
+126:                                              ; preds = %124
+  %127 = load ptr, ptr %0, align 8, !tbaa !271
+  %128 = load ptr, ptr %9, align 8, !tbaa !271
+  store ptr %128, ptr %0, align 8, !tbaa !271
+  store ptr %127, ptr %9, align 8, !tbaa !271
   br label %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader"
 
-132:                                              ; preds = %127
-  %.val22.i.i = load ptr, ptr %112, align 8, !tbaa !271
-  %.val23.i.i = load ptr, ptr %113, align 8, !tbaa !271
-  %133 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val22.i.i, ptr noundef %.val23.i.i) #14
-  %134 = load ptr, ptr %0, align 8, !tbaa !271
-  br i1 %133, label %135, label %137
+129:                                              ; preds = %124
+  %.val22.i.i = load ptr, ptr %109, align 8, !tbaa !271
+  %.val23.i.i = load ptr, ptr %110, align 8, !tbaa !271
+  %130 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val22.i.i, ptr noundef %.val23.i.i) #14
+  %131 = load ptr, ptr %0, align 8, !tbaa !271
+  br i1 %130, label %132, label %134
 
-135:                                              ; preds = %132
-  %136 = load ptr, ptr %113, align 8, !tbaa !271
-  store ptr %136, ptr %0, align 8, !tbaa !271
-  store ptr %134, ptr %113, align 8, !tbaa !271
+132:                                              ; preds = %129
+  %133 = load ptr, ptr %110, align 8, !tbaa !271
+  store ptr %133, ptr %0, align 8, !tbaa !271
+  store ptr %131, ptr %110, align 8, !tbaa !271
   br label %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader"
 
-137:                                              ; preds = %132
-  %138 = load ptr, ptr %112, align 8, !tbaa !271
-  store ptr %138, ptr %0, align 8, !tbaa !271
-  store ptr %134, ptr %112, align 8, !tbaa !271
+134:                                              ; preds = %129
+  %135 = load ptr, ptr %109, align 8, !tbaa !271
+  store ptr %135, ptr %0, align 8, !tbaa !271
+  store ptr %131, ptr %109, align 8, !tbaa !271
   br label %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader": ; preds = %137, %135, %129, %125, %123, %117
+"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader": ; preds = %134, %132, %126, %122, %120, %114
   br label %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader", %145
-  %.013.i.i = phi ptr [ %.114.i.i, %145 ], [ %.024, %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader" ]
-  %.0.i.i = phi ptr [ %141, %145 ], [ %9, %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader" ]
-  br label %139
+"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader", %142
+  %.013.i.i = phi ptr [ %.114.i.i, %142 ], [ %.024, %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader" ]
+  %.0.i.i = phi ptr [ %138, %142 ], [ %9, %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i.preheader" ]
+  br label %136
 
-139:                                              ; preds = %139, %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i"
-  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i" ], [ %141, %139 ]
+136:                                              ; preds = %136, %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i"
+  %.1.i.i = phi ptr [ %.0.i.i, %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i" ], [ %138, %136 ]
   %.1.val.i.i = load ptr, ptr %.1.i.i, align 8, !tbaa !271
   %.val17.i.i = load ptr, ptr %0, align 8, !tbaa !271
-  %140 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.1.val.i.i, ptr noundef %.val17.i.i) #14
-  %141 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %140, label %139, label %.preheader.i.i, !llvm.loop !396
+  %137 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.1.val.i.i, ptr noundef %.val17.i.i) #14
+  %138 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  br i1 %137, label %136, label %.preheader.i.i, !llvm.loop !396
 
-.preheader.i.i:                                   ; preds = %139, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %139 ]
+.preheader.i.i:                                   ; preds = %136, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %136 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
   %.val15.i.i = load ptr, ptr %0, align 8, !tbaa !271
   %.114.val.i.i = load ptr, ptr %.114.i.i, align 8, !tbaa !271
-  %142 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val15.i.i, ptr noundef %.114.val.i.i) #14
-  br i1 %142, label %.preheader.i.i, label %143, !llvm.loop !397
+  %139 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val15.i.i, ptr noundef %.114.val.i.i) #14
+  br i1 %139, label %.preheader.i.i, label %140, !llvm.loop !397
 
-143:                                              ; preds = %.preheader.i.i
-  %144 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %144, label %145, label %"_ZSt27__unguarded_partition_pivotIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEET_SQ_SQ_T0_.exit"
+140:                                              ; preds = %.preheader.i.i
+  %141 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %141, label %142, label %"_ZSt27__unguarded_partition_pivotIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEET_SQ_SQ_T0_.exit"
 
-145:                                              ; preds = %143
-  %146 = load ptr, ptr %.1.i.i, align 8, !tbaa !271
-  %147 = load ptr, ptr %.114.i.i, align 8, !tbaa !271
-  store ptr %147, ptr %.1.i.i, align 8, !tbaa !271
-  store ptr %146, ptr %.114.i.i, align 8, !tbaa !271
+142:                                              ; preds = %140
+  %143 = load ptr, ptr %.1.i.i, align 8, !tbaa !271
+  %144 = load ptr, ptr %.114.i.i, align 8, !tbaa !271
+  store ptr %144, ptr %.1.i.i, align 8, !tbaa !271
+  store ptr %143, ptr %.114.i.i, align 8, !tbaa !271
   br label %"_ZSt22__move_median_to_firstIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_SQ_T0_.exit.i", !llvm.loop !398
 
-"_ZSt27__unguarded_partition_pivotIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEET_SQ_SQ_T0_.exit": ; preds = %143
-  tail call fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.024, i64 noundef %110, ptr nonnull %3)
-  %148 = ptrtoint ptr %.1.i.i to i64
-  %149 = sub i64 %148, %5
-  %150 = icmp sgt i64 %149, 128
-  br i1 %150, label %10, label %"_ZSt14__partial_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_T0_.exit", !llvm.loop !399
+"_ZSt27__unguarded_partition_pivotIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEET_SQ_SQ_T0_.exit": ; preds = %140
+  tail call fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.024, i64 noundef %107, ptr nonnull %3)
+  %145 = ptrtoint ptr %.1.i.i to i64
+  %146 = sub i64 %145, %5
+  %147 = icmp sgt i64 %146, 128
+  br i1 %147, label %10, label %"_ZSt14__partial_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_T0_.exit", !llvm.loop !399
 
 "_ZSt14__partial_sortIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEET_SQ_SQ_T0_.exit", %"_ZSt10__pop_heapIPPN4llvm11InstructionEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4coro27sinkSpillUsesAfterCoroBeginERKNS0_13DominatorTreeEPNS0_13CoroBeginInstERNS0_14SmallMapVectorIPNS0_5ValueENS0_11SmallVectorIS2_Lj2EEELj8EEERNS0_15SmallVectorImplINS7_10AllocaInfoEEEE3$_3EEEvT_SQ_SQ_RT0_.exit.i.i", %4
   ret void

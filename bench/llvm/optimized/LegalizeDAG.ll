@@ -8727,9 +8727,9 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit3436.thre
   %.fca.0.extract1062 = extractvalue { ptr, i32 } %1543, 0
   %.fca.1.extract1063 = extractvalue { ptr, i32 } %1543, 1
   %1544 = load ptr, ptr %1525, align 8, !tbaa !166
-  %1545 = or disjoint i64 %indvars.iv4332, 1
-  %1546 = load ptr, ptr %111, align 8, !tbaa !180
-  %1547 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %1546, i64 %1545
+  %1545 = load ptr, ptr %111, align 8, !tbaa !180
+  %1546 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %1545, i64 %indvars.iv4332
+  %1547 = getelementptr inbounds nuw i8, ptr %1546, i64 16
   %1548 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %1544, i32 noundef 215, ptr noundef nonnull align 8 dereferenceable(12) %16, i16 %.sroa.0.0.copyload.i.i.i3430, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %1547) #19
   %.fca.0.extract1049 = extractvalue { ptr, i32 } %1548, 0
   %.fca.1.extract1050 = extractvalue { ptr, i32 } %1548, 1

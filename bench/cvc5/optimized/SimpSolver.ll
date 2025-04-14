@@ -1065,63 +1065,59 @@ _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit:   ; preds = %._ZN4cvc58internal7
   %47 = shl nsw i32 %45, 1
   %48 = load ptr, ptr %46, align 8, !tbaa !293
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds i32, ptr %48, i64 %49
-  %51 = or disjoint i32 %47, 1
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %48, i64 %52
-  br label %54
+  %50 = getelementptr i32, ptr %48, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 4
+  br label %52
 
-54:                                               ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, %.lr.ph.i
+52:                                               ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, %.lr.ph.i
   %.01522.i = phi i32 [ %42, %.lr.ph.i ], [ %.023.i, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i ]
   %.023.in.i = add nsw i32 %.01522.i, -1
   %.023.i = ashr i32 %.023.in.i, 1
-  %55 = sext i32 %.023.i to i64
-  %56 = getelementptr inbounds i32, ptr %37, i64 %55
-  %57 = load i32, ptr %56, align 4, !tbaa !6
-  %58 = load i32, ptr %50, align 4, !tbaa !6
-  %59 = load i32, ptr %53, align 4, !tbaa !6
-  %60 = mul i32 %59, %58
-  %61 = shl nsw i32 %57, 1
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i32, ptr %48, i64 %62
+  %53 = sext i32 %.023.i to i64
+  %54 = getelementptr inbounds i32, ptr %37, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !6
+  %56 = load i32, ptr %50, align 4, !tbaa !6
+  %57 = load i32, ptr %51, align 4, !tbaa !6
+  %58 = mul i32 %57, %56
+  %59 = shl nsw i32 %55, 1
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr i32, ptr %48, i64 %60
+  %62 = load i32, ptr %61, align 4, !tbaa !6
+  %63 = getelementptr i8, ptr %61, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !6
-  %65 = or disjoint i32 %61, 1
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %48, i64 %66
-  %68 = load i32, ptr %67, align 4, !tbaa !6
-  %69 = mul i32 %68, %64
-  %70 = icmp slt i32 %60, %69
-  br i1 %70, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i
+  %65 = mul i32 %64, %62
+  %66 = icmp slt i32 %58, %65
+  br i1 %66, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i
 
-_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i: ; preds = %54
-  %71 = icmp eq i32 %60, %69
-  %72 = icmp slt i32 %45, %57
-  %73 = and i1 %72, %71
-  br i1 %73, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, label %.split.i
+_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i: ; preds = %52
+  %67 = icmp eq i32 %58, %65
+  %68 = icmp slt i32 %45, %55
+  %69 = and i1 %68, %67
+  br i1 %69, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, label %.split.i
 
 .split.i:                                         ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i
-  %74 = sext i32 %.01522.i to i64
-  %75 = getelementptr inbounds i32, ptr %37, i64 %74
+  %70 = sext i32 %.01522.i to i64
+  %71 = getelementptr inbounds i32, ptr %37, i64 %70
   br label %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE11percolateUpEi.exit
 
-_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i: ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i, %54
-  %76 = sext i32 %.01522.i to i64
-  %77 = getelementptr inbounds i32, ptr %37, i64 %76
-  store i32 %57, ptr %77, align 4, !tbaa !6
-  %78 = load i32, ptr %56, align 4, !tbaa !6
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i32, ptr %35, i64 %79
-  store i32 %.01522.i, ptr %80, align 4, !tbaa !6
+_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i: ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i, %52
+  %72 = sext i32 %.01522.i to i64
+  %73 = getelementptr inbounds i32, ptr %37, i64 %72
+  store i32 %55, ptr %73, align 4, !tbaa !6
+  %74 = load i32, ptr %54, align 4, !tbaa !6
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds i32, ptr %35, i64 %75
+  store i32 %.01522.i, ptr %76, align 4, !tbaa !6
   %.not.i = icmp ult i32 %.023.in.i, 2
-  br i1 %.not.i, label %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE11percolateUpEi.exit, label %54, !llvm.loop !305
+  br i1 %.not.i, label %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE11percolateUpEi.exit, label %52, !llvm.loop !305
 
 _ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit, %.split.i
   %.01518.i = phi i32 [ %.01522.i, %.split.i ], [ 0, %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit ], [ %.023.i, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i ]
-  %phi.call.i = phi ptr [ %75, %.split.i ], [ %37, %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit ], [ %37, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i ]
+  %phi.call.i = phi ptr [ %71, %.split.i ], [ %37, %_ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit ], [ %37, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i ]
   store i32 %45, ptr %phi.call.i, align 4, !tbaa !6
-  %81 = sext i32 %45 to i64
-  %82 = getelementptr inbounds i32, ptr %35, i64 %81
-  store i32 %.01518.i, ptr %82, align 4, !tbaa !6
+  %77 = sext i32 %45 to i64
+  %78 = getelementptr inbounds i32, ptr %35, i64 %77
+  store i32 %.01518.i, ptr %78, align 4, !tbaa !6
   ret void
 }
 
@@ -5347,7 +5343,7 @@ _ZN4cvc58internal7Minisat3vecIjE4pushERKj.exit:   ; preds = %.cont.cont._ZN4cvc5
 150:                                              ; preds = %.loopexit240
   %151 = landingpad { ptr, i32 }
           cleanup
-  br label %282
+  br label %281
 
 .critedge:                                        ; preds = %..thread_crit_edge.us, %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEE6lookupERKi.exit, %.preheader236.lr.ph, %.preheader238
   %.not82279360 = phi i1 [ false, %.preheader238 ], [ true, %.preheader236.lr.ph ], [ false, %_ZN4cvc58internal7Minisat8OccListsIiNS1_3vecIjEENS1_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ true, %..thread_crit_edge.us ]
@@ -5434,7 +5430,7 @@ _ZN4cvc58internal7Minisat6Solver14setDecisionVarEib.exit: ; preds = %_ZNK4cvc58i
 186:                                              ; preds = %._crit_edge.invoke, %175
   %187 = landingpad { ptr, i32 }
           cleanup
-  br label %282
+  br label %281
 
 .thread210:                                       ; preds = %189
   %188 = landingpad { ptr, i32 }
@@ -5470,7 +5466,7 @@ _ZN4cvc58internal7Minisat6Solver14setDecisionVarEib.exit: ; preds = %_ZNK4cvc58i
 200:                                              ; preds = %202
   %201 = landingpad { ptr, i32 }
           cleanup
-  br label %282
+  br label %281
 
 202:                                              ; preds = %.lr.ph285, %208
   %indvars.iv321 = phi i64 [ 0, %.lr.ph285 ], [ %indvars.iv.next322, %208 ]
@@ -5567,12 +5563,12 @@ _ZN4cvc58internal7Minisat6Solver14setDecisionVarEib.exit: ; preds = %_ZNK4cvc58i
 .split.us:                                        ; preds = %236, %._crit_edge344
   %240 = landingpad { ptr, i32 }
           cleanup
-  br label %281
+  br label %280
 
 241:                                              ; preds = %.lr.ph291
   %242 = landingpad { ptr, i32 }
           cleanup
-  br label %282
+  br label %281
 
 .lr.ph291:                                        ; preds = %209, %246
   %indvars.iv331 = phi i64 [ %indvars.iv.next332, %246 ], [ 0, %209 ]
@@ -5633,44 +5629,43 @@ _ZN4cvc58internal7Minisat6Solver14setDecisionVarEib.exit: ; preds = %_ZNK4cvc58i
 267:                                              ; preds = %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113
   %268 = landingpad { ptr, i32 }
           cleanup
-  br label %281
+  br label %280
 
 269:                                              ; preds = %255, %264, %.preheader.i108
   %270 = phi ptr [ %258, %255 ], [ %258, %264 ], [ %.pre346, %.preheader.i108 ]
-  %271 = or disjoint i32 %257, 1
-  %272 = sext i32 %271 to i64
-  %273 = getelementptr inbounds %"class.cvc5::internal::Minisat::vec.299", ptr %270, i64 %272
-  %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
-  %275 = load i32, ptr %274, align 8, !tbaa !371
-  %276 = icmp eq i32 %275, 0
-  br i1 %276, label %277, label %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113
+  %271 = getelementptr %"class.cvc5::internal::Minisat::vec.299", ptr %270, i64 %259
+  %272 = getelementptr i8, ptr %271, i64 16
+  %273 = getelementptr i8, ptr %271, i64 24
+  %274 = load i32, ptr %273, align 8, !tbaa !371
+  %275 = icmp eq i32 %274, 0
+  br i1 %275, label %276, label %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113
 
-277:                                              ; preds = %269
-  %278 = load ptr, ptr %273, align 8, !tbaa !374
-  %.not.i111 = icmp eq ptr %278, null
+276:                                              ; preds = %269
+  %277 = load ptr, ptr %272, align 8, !tbaa !374
+  %.not.i111 = icmp eq ptr %277, null
   br i1 %.not.i111, label %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113, label %.preheader.i112
 
-.preheader.i112:                                  ; preds = %277
-  store i32 0, ptr %274, align 8, !tbaa !371
-  call void @free(ptr noundef nonnull %278) #27
-  store ptr null, ptr %273, align 8, !tbaa !374
-  %279 = getelementptr inbounds nuw i8, ptr %273, i64 12
-  store i32 0, ptr %279, align 4, !tbaa !375
+.preheader.i112:                                  ; preds = %276
+  store i32 0, ptr %273, align 8, !tbaa !371
+  call void @free(ptr noundef nonnull %277) #27
+  store ptr null, ptr %272, align 8, !tbaa !374
+  %278 = getelementptr i8, ptr %271, i64 28
+  store i32 0, ptr %278, align 4, !tbaa !375
   br label %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113
 
-_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113: ; preds = %.preheader.i112, %277, %269
-  %280 = invoke noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver24backwardSubsumptionCheckEb(ptr noundef nonnull align 8 dereferenceable(1108) %0, i1 noundef zeroext false)
+_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113: ; preds = %.preheader.i112, %276, %269
+  %279 = invoke noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver24backwardSubsumptionCheckEb(ptr noundef nonnull align 8 dereferenceable(1108) %0, i1 noundef zeroext false)
           to label %.loopexit unwind label %267
 
 .loopexit:                                        ; preds = %238, %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113
-  %.9 = phi i1 [ %280, %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113 ], [ false, %238 ]
+  %.9 = phi i1 [ %279, %_ZN4cvc58internal7Minisat3vecINS1_6Solver7WatcherEE5clearEb.exit113 ], [ false, %238 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
   br label %.loopexit237
 
-281:                                              ; preds = %267, %.split.us
+280:                                              ; preds = %267, %.split.us
   %.pn = phi { ptr, i32 } [ %268, %267 ], [ %240, %.split.us ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #27
-  br label %282
+  br label %281
 
 .loopexit237:                                     ; preds = %98, %.loopexit235.us, %.loopexit
   %.sroa.0153.0.lcssa359 = phi ptr [ %.sroa.0153.0.lcssa358, %.loopexit ], [ %.sroa.0153.3, %.loopexit235.us ], [ %.sroa.0153.3, %98 ]
@@ -5694,23 +5689,23 @@ _ZN4cvc58internal7Minisat3vecIjED2Ev.exit:        ; preds = %.loopexit237, %.pre
 _ZN4cvc58internal7Minisat3vecIjED2Ev.exit117:     ; preds = %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit, %.preheader.i.i116
   ret i1 %.3
 
-282:                                              ; preds = %186, %200, %241, %281, %150
-  %.sroa.0132.1 = phi ptr [ %.sroa.0132.2, %150 ], [ %.sroa.0132.0.lcssa354, %281 ], [ %.sroa.0132.0.lcssa354, %241 ], [ %.sroa.0132.0.lcssa354, %200 ], [ %.sroa.0132.0.lcssa354, %186 ]
-  %.sroa.0153.1 = phi ptr [ %.sroa.0153.2, %150 ], [ %.sroa.0153.0.lcssa358, %281 ], [ %.sroa.0153.0.lcssa358, %241 ], [ %.sroa.0153.0.lcssa358, %200 ], [ %.sroa.0153.0.lcssa358, %186 ]
-  %.pn88.pn = phi { ptr, i32 } [ %151, %150 ], [ %.pn, %281 ], [ %242, %241 ], [ %201, %200 ], [ %187, %186 ]
+281:                                              ; preds = %186, %200, %241, %280, %150
+  %.sroa.0132.1 = phi ptr [ %.sroa.0132.2, %150 ], [ %.sroa.0132.0.lcssa354, %280 ], [ %.sroa.0132.0.lcssa354, %241 ], [ %.sroa.0132.0.lcssa354, %200 ], [ %.sroa.0132.0.lcssa354, %186 ]
+  %.sroa.0153.1 = phi ptr [ %.sroa.0153.2, %150 ], [ %.sroa.0153.0.lcssa358, %280 ], [ %.sroa.0153.0.lcssa358, %241 ], [ %.sroa.0153.0.lcssa358, %200 ], [ %.sroa.0153.0.lcssa358, %186 ]
+  %.pn88.pn = phi { ptr, i32 } [ %151, %150 ], [ %.pn, %280 ], [ %242, %241 ], [ %201, %200 ], [ %187, %186 ]
   %.not.i.i118 = icmp eq ptr %.sroa.0132.1, null
   br i1 %.not.i.i118, label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit120, label %.preheader.i.i119
 
-.preheader.i.i119:                                ; preds = %.thread210, %282
-  %.pn88.pn218 = phi { ptr, i32 } [ %188, %.thread210 ], [ %.pn88.pn, %282 ]
-  %.sroa.0153.1216 = phi ptr [ %.sroa.0153.0.lcssa358, %.thread210 ], [ %.sroa.0153.1, %282 ]
-  %.sroa.0132.1215 = phi ptr [ %.sroa.0132.0.lcssa354, %.thread210 ], [ %.sroa.0132.1, %282 ]
+.preheader.i.i119:                                ; preds = %.thread210, %281
+  %.pn88.pn218 = phi { ptr, i32 } [ %188, %.thread210 ], [ %.pn88.pn, %281 ]
+  %.sroa.0153.1216 = phi ptr [ %.sroa.0153.0.lcssa358, %.thread210 ], [ %.sroa.0153.1, %281 ]
+  %.sroa.0132.1215 = phi ptr [ %.sroa.0132.0.lcssa354, %.thread210 ], [ %.sroa.0132.1, %281 ]
   call void @free(ptr noundef nonnull %.sroa.0132.1215) #27
   br label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit120
 
-_ZN4cvc58internal7Minisat3vecIjED2Ev.exit120:     ; preds = %282, %.preheader.i.i119
-  %.pn88.pn219 = phi { ptr, i32 } [ %.pn88.pn, %282 ], [ %.pn88.pn218, %.preheader.i.i119 ]
-  %.sroa.0153.1217 = phi ptr [ %.sroa.0153.1, %282 ], [ %.sroa.0153.1216, %.preheader.i.i119 ]
+_ZN4cvc58internal7Minisat3vecIjED2Ev.exit120:     ; preds = %281, %.preheader.i.i119
+  %.pn88.pn219 = phi { ptr, i32 } [ %.pn88.pn, %281 ], [ %.pn88.pn218, %.preheader.i.i119 ]
+  %.sroa.0153.1217 = phi ptr [ %.sroa.0153.1, %281 ], [ %.sroa.0153.1216, %.preheader.i.i119 ]
   %.not.i.i121 = icmp eq ptr %.sroa.0153.1217, null
   br i1 %.not.i.i121, label %_ZN4cvc58internal7Minisat3vecIjED2Ev.exit123, label %.preheader.i.i122
 
@@ -7406,7 +7401,7 @@ _ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit: ; preds
 
 _ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.thread: ; preds = %2, %_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit
   tail call void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1)
-  br label %56
+  br label %52
 
 12:                                               ; preds = %_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7422,68 +7417,64 @@ _ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.thread: 
   %19 = shl nsw i32 %17, 1
   %20 = load ptr, ptr %18, align 8, !tbaa !293
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds i32, ptr %20, i64 %21
-  %23 = or disjoint i32 %19, 1
-  %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %20, i64 %24
-  br label %26
+  %22 = getelementptr i32, ptr %20, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 4
+  br label %24
 
-26:                                               ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, %.lr.ph.i
+24:                                               ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, %.lr.ph.i
   %.01522.i = phi i32 [ %10, %.lr.ph.i ], [ %.023.i, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i ]
   %.023.in.i = add nsw i32 %.01522.i, -1
   %.023.i = ashr i32 %.023.in.i, 1
-  %27 = sext i32 %.023.i to i64
-  %28 = getelementptr inbounds i32, ptr %14, i64 %27
-  %29 = load i32, ptr %28, align 4, !tbaa !6
-  %30 = load i32, ptr %22, align 4, !tbaa !6
-  %31 = load i32, ptr %25, align 4, !tbaa !6
-  %32 = mul i32 %31, %30
-  %33 = shl nsw i32 %29, 1
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %20, i64 %34
+  %25 = sext i32 %.023.i to i64
+  %26 = getelementptr inbounds i32, ptr %14, i64 %25
+  %27 = load i32, ptr %26, align 4, !tbaa !6
+  %28 = load i32, ptr %22, align 4, !tbaa !6
+  %29 = load i32, ptr %23, align 4, !tbaa !6
+  %30 = mul i32 %29, %28
+  %31 = shl nsw i32 %27, 1
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr i32, ptr %20, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !6
+  %35 = getelementptr i8, ptr %33, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !6
-  %37 = or disjoint i32 %33, 1
-  %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %20, i64 %38
-  %40 = load i32, ptr %39, align 4, !tbaa !6
-  %41 = mul i32 %40, %36
-  %42 = icmp slt i32 %32, %41
-  br i1 %42, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i
+  %37 = mul i32 %36, %34
+  %38 = icmp slt i32 %30, %37
+  br i1 %38, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i
 
-_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i: ; preds = %26
-  %43 = icmp eq i32 %32, %41
-  %44 = icmp slt i32 %17, %29
-  %45 = and i1 %44, %43
-  br i1 %45, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, label %.split.i
+_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i: ; preds = %24
+  %39 = icmp eq i32 %30, %37
+  %40 = icmp slt i32 %17, %27
+  %41 = and i1 %40, %39
+  br i1 %41, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, label %.split.i
 
 .split.i:                                         ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i
-  %46 = sext i32 %.01522.i to i64
-  %47 = getelementptr inbounds i32, ptr %14, i64 %46
+  %42 = sext i32 %.01522.i to i64
+  %43 = getelementptr inbounds i32, ptr %14, i64 %42
   br label %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE11percolateUpEi.exit
 
-_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i: ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i, %26
-  %48 = sext i32 %.01522.i to i64
-  %49 = getelementptr inbounds i32, ptr %14, i64 %48
-  store i32 %29, ptr %49, align 4, !tbaa !6
-  %50 = load i32, ptr %28, align 4, !tbaa !6
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %7, i64 %51
-  store i32 %.01522.i, ptr %52, align 4, !tbaa !6
+_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i: ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.i, %24
+  %44 = sext i32 %.01522.i to i64
+  %45 = getelementptr inbounds i32, ptr %14, i64 %44
+  store i32 %27, ptr %45, align 4, !tbaa !6
+  %46 = load i32, ptr %26, align 4, !tbaa !6
+  %47 = sext i32 %46 to i64
+  %48 = getelementptr inbounds i32, ptr %7, i64 %47
+  store i32 %.01522.i, ptr %48, align 4, !tbaa !6
   %.not.i = icmp ult i32 %.023.in.i, 2
-  br i1 %.not.i, label %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE11percolateUpEi.exit, label %26, !llvm.loop !305
+  br i1 %.not.i, label %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE11percolateUpEi.exit, label %24, !llvm.loop !305
 
 _ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i, %12, %.split.i
   %.01518.i = phi i32 [ %.01522.i, %.split.i ], [ 0, %12 ], [ %.023.i, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i ]
-  %phi.call.i = phi ptr [ %47, %.split.i ], [ %14, %12 ], [ %14, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i ]
+  %phi.call.i = phi ptr [ %43, %.split.i ], [ %14, %12 ], [ %14, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread.i ]
   store i32 %17, ptr %phi.call.i, align 4, !tbaa !6
-  %53 = sext i32 %17 to i64
-  %54 = getelementptr inbounds i32, ptr %7, i64 %53
-  store i32 %.01518.i, ptr %54, align 4, !tbaa !6
-  %55 = load i32, ptr %9, align 4, !tbaa !6
-  tail call void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE13percolateDownEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %55)
-  br label %56
+  %49 = sext i32 %17 to i64
+  %50 = getelementptr inbounds i32, ptr %7, i64 %49
+  store i32 %.01518.i, ptr %50, align 4, !tbaa !6
+  %51 = load i32, ptr %9, align 4, !tbaa !6
+  tail call void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE13percolateDownEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %51)
+  br label %52
 
-56:                                               ; preds = %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE11percolateUpEi.exit, %_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.thread
+52:                                               ; preds = %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE11percolateUpEi.exit, %_ZNK4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE6inHeapEi.exit.thread
   ret void
 }
 
@@ -7511,119 +7502,110 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver
   %14 = load ptr, ptr %13, align 8, !tbaa !293
   %15 = shl nsw i32 %7, 1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i32, ptr %14, i64 %16
-  %18 = or disjoint i32 %15, 1
-  %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %14, i64 %19
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8
-  br label %23
+  %17 = getelementptr i32, ptr %14, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = load ptr, ptr %19, align 8
+  br label %21
 
-23:                                               ; preds = %.lr.ph, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread
-  %24 = phi i32 [ %11, %.lr.ph ], [ %79, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ]
-  %25 = phi i32 [ %10, %.lr.ph ], [ %78, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ]
-  %26 = phi i32 [ %9, %.lr.ph ], [ %77, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ]
-  %.01924 = phi i32 [ %1, %.lr.ph ], [ %60, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ]
-  %27 = add nsw i32 %26, 2
-  %28 = icmp slt i32 %27, %24
-  br i1 %28, label %29, label %._crit_edge
+21:                                               ; preds = %.lr.ph, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread
+  %22 = phi i32 [ %11, %.lr.ph ], [ %73, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ]
+  %23 = phi i32 [ %10, %.lr.ph ], [ %72, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ]
+  %24 = phi i32 [ %9, %.lr.ph ], [ %71, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ]
+  %.01924 = phi i32 [ %1, %.lr.ph ], [ %54, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ]
+  %25 = add nsw i32 %24, 2
+  %26 = icmp slt i32 %25, %22
+  br i1 %26, label %27, label %._crit_edge
 
-._crit_edge:                                      ; preds = %23
-  %.pre.phi.trans.insert = sext i32 %25 to i64
+._crit_edge:                                      ; preds = %21
+  %.pre.phi.trans.insert = sext i32 %23 to i64
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i32, ptr %4, i64 %.pre.phi.trans.insert
   %.pre26.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 4, !tbaa !6
   %.pre = shl nsw i32 %.pre26.pre, 1
-  %.pre40 = sext i32 %.pre to i64
-  %.pre41 = or disjoint i32 %.pre, 1
-  %.pre42 = sext i32 %.pre41 to i64
+  %.pre36 = sext i32 %.pre to i64
   br label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread
 
-29:                                               ; preds = %23
-  %30 = sext i32 %27 to i64
-  %31 = getelementptr inbounds i32, ptr %4, i64 %30
-  %32 = load i32, ptr %31, align 4, !tbaa !6
-  %33 = sext i32 %25 to i64
-  %34 = getelementptr inbounds i32, ptr %4, i64 %33
-  %35 = load i32, ptr %34, align 4, !tbaa !6
-  %36 = shl nsw i32 %32, 1
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %14, i64 %37
+27:                                               ; preds = %21
+  %28 = sext i32 %25 to i64
+  %29 = getelementptr inbounds i32, ptr %4, i64 %28
+  %30 = load i32, ptr %29, align 4, !tbaa !6
+  %31 = sext i32 %23 to i64
+  %32 = getelementptr inbounds i32, ptr %4, i64 %31
+  %33 = load i32, ptr %32, align 4, !tbaa !6
+  %34 = shl nsw i32 %30, 1
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr i32, ptr %14, i64 %35
+  %37 = load i32, ptr %36, align 4, !tbaa !6
+  %38 = getelementptr i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !6
-  %40 = or disjoint i32 %36, 1
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %14, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !6
-  %44 = mul i32 %43, %39
-  %45 = shl nsw i32 %35, 1
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %14, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !6
-  %49 = or disjoint i32 %45, 1
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i32, ptr %14, i64 %50
-  %52 = load i32, ptr %51, align 4, !tbaa !6
-  %53 = mul i32 %52, %48
-  %54 = icmp slt i32 %44, %53
-  br i1 %54, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit
+  %40 = mul i32 %39, %37
+  %41 = shl nsw i32 %33, 1
+  %42 = sext i32 %41 to i64
+  %43 = getelementptr i32, ptr %14, i64 %42
+  %44 = load i32, ptr %43, align 4, !tbaa !6
+  %45 = getelementptr i8, ptr %43, i64 4
+  %46 = load i32, ptr %45, align 4, !tbaa !6
+  %47 = mul i32 %46, %44
+  %48 = icmp slt i32 %40, %47
+  br i1 %48, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit
 
-_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit: ; preds = %29
-  %55 = icmp eq i32 %44, %53
-  %56 = icmp slt i32 %32, %35
-  %57 = and i1 %56, %55
-  br i1 %57, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread, label %58
+_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit: ; preds = %27
+  %49 = icmp eq i32 %40, %47
+  %50 = icmp slt i32 %30, %33
+  %51 = and i1 %50, %49
+  br i1 %51, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread, label %52
 
-58:                                               ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit
+52:                                               ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit
   br label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread
 
-_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread: ; preds = %._crit_edge, %29, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit, %58
-  %.pre-phi37 = phi i64 [ %41, %29 ], [ %41, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %.pre42, %._crit_edge ], [ %50, %58 ]
-  %.pre-phi33 = phi i64 [ %37, %29 ], [ %37, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %.pre40, %._crit_edge ], [ %46, %58 ]
-  %59 = phi i32 [ %32, %29 ], [ %32, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %.pre26.pre, %._crit_edge ], [ %35, %58 ]
-  %60 = phi i32 [ %27, %29 ], [ %27, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %25, %._crit_edge ], [ %25, %58 ]
-  %61 = getelementptr inbounds i32, ptr %14, i64 %.pre-phi33
-  %62 = load i32, ptr %61, align 4, !tbaa !6
-  %63 = getelementptr inbounds i32, ptr %14, i64 %.pre-phi37
-  %64 = load i32, ptr %63, align 4, !tbaa !6
-  %65 = mul i32 %64, %62
-  %66 = load i32, ptr %17, align 4, !tbaa !6
-  %67 = load i32, ptr %20, align 4, !tbaa !6
-  %68 = mul i32 %67, %66
-  %69 = icmp slt i32 %65, %68
-  br i1 %69, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20
+_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread: ; preds = %._crit_edge, %27, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit, %52
+  %.pre-phi33 = phi i64 [ %35, %27 ], [ %35, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %.pre36, %._crit_edge ], [ %42, %52 ]
+  %53 = phi i32 [ %30, %27 ], [ %30, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %.pre26.pre, %._crit_edge ], [ %33, %52 ]
+  %54 = phi i32 [ %25, %27 ], [ %25, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %23, %._crit_edge ], [ %23, %52 ]
+  %55 = getelementptr i32, ptr %14, i64 %.pre-phi33
+  %56 = load i32, ptr %55, align 4, !tbaa !6
+  %57 = getelementptr i8, ptr %55, i64 4
+  %58 = load i32, ptr %57, align 4, !tbaa !6
+  %59 = mul i32 %58, %56
+  %60 = load i32, ptr %17, align 4, !tbaa !6
+  %61 = load i32, ptr %18, align 4, !tbaa !6
+  %62 = mul i32 %61, %60
+  %63 = icmp slt i32 %59, %62
+  br i1 %63, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20
 
 _ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20: ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread
-  %70 = icmp eq i32 %65, %68
-  %71 = icmp slt i32 %59, %7
-  %72 = and i1 %71, %70
-  br i1 %72, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread, label %.thread.loopexit
+  %64 = icmp eq i32 %59, %62
+  %65 = icmp slt i32 %53, %7
+  %66 = and i1 %65, %64
+  br i1 %66, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread, label %.thread.loopexit
 
 _ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread: ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20
-  %73 = sext i32 %.01924 to i64
-  %74 = getelementptr inbounds i32, ptr %4, i64 %73
-  store i32 %59, ptr %74, align 4, !tbaa !6
-  %75 = sext i32 %59 to i64
-  %76 = getelementptr inbounds i32, ptr %22, i64 %75
-  store i32 %.01924, ptr %76, align 4, !tbaa !6
-  %77 = shl nsw i32 %60, 1
-  %78 = or disjoint i32 %77, 1
-  %79 = load i32, ptr %8, align 8, !tbaa !291
-  %80 = icmp slt i32 %78, %79
-  br i1 %80, label %23, label %.thread.loopexit
+  %67 = sext i32 %.01924 to i64
+  %68 = getelementptr inbounds i32, ptr %4, i64 %67
+  store i32 %53, ptr %68, align 4, !tbaa !6
+  %69 = sext i32 %53 to i64
+  %70 = getelementptr inbounds i32, ptr %20, i64 %69
+  store i32 %.01924, ptr %70, align 4, !tbaa !6
+  %71 = shl nsw i32 %54, 1
+  %72 = or disjoint i32 %71, 1
+  %73 = load i32, ptr %8, align 8, !tbaa !291
+  %74 = icmp slt i32 %72, %73
+  br i1 %74, label %21, label %.thread.loopexit
 
 .thread.loopexit:                                 ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread
-  %.019.lcssa.ph = phi i32 [ %60, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ], [ %.01924, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20 ]
-  %.pre38 = sext i32 %.019.lcssa.ph to i64
+  %.019.lcssa.ph = phi i32 [ %54, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ], [ %.01924, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20 ]
+  %.pre34 = sext i32 %.019.lcssa.ph to i64
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %.thread.loopexit
-  %.pre-phi39 = phi i64 [ %5, %..thread_crit_edge ], [ %.pre38, %.thread.loopexit ]
-  %81 = phi ptr [ %.pre28, %..thread_crit_edge ], [ %22, %.thread.loopexit ]
+  %.pre-phi35 = phi i64 [ %5, %..thread_crit_edge ], [ %.pre34, %.thread.loopexit ]
+  %75 = phi ptr [ %.pre28, %..thread_crit_edge ], [ %20, %.thread.loopexit ]
   %.019.lcssa = phi i32 [ %1, %..thread_crit_edge ], [ %.019.lcssa.ph, %.thread.loopexit ]
-  %82 = getelementptr inbounds i32, ptr %4, i64 %.pre-phi39
-  store i32 %7, ptr %82, align 4, !tbaa !6
-  %83 = sext i32 %7 to i64
-  %84 = getelementptr inbounds i32, ptr %81, i64 %83
-  store i32 %.019.lcssa, ptr %84, align 4, !tbaa !6
+  %76 = getelementptr inbounds i32, ptr %4, i64 %.pre-phi35
+  store i32 %7, ptr %76, align 4, !tbaa !6
+  %77 = sext i32 %7 to i64
+  %78 = getelementptr inbounds i32, ptr %75, i64 %77
+  store i32 %.019.lcssa, ptr %78, align 4, !tbaa !6
   ret void
 }
 

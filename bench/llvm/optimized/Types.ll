@@ -818,25 +818,22 @@ define dso_local noundef i32 @_ZN5clang6driver5types26lookupTypeForTypeSpecifier
   br i1 %6, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit, label %7
 
 7:                                                ; preds = %3
-  %.02946.i.i.i.add5.i.i = or disjoint i64 %.02946.i.i.i.idx.i.i, 4
-  %.ptr8.i.i = getelementptr inbounds nuw i8, ptr @_ZZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDEE19kStaticLangageTypes, i64 %.02946.i.i.i.add5.i.i
-  %8 = load i32, ptr %.ptr8.i.i, align 4, !tbaa !15
+  %gep = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDEE19kStaticLangageTypes, i64 4), i64 %.02946.i.i.i.idx.i.i
+  %8 = load i32, ptr %gep, align 4, !tbaa !15
   %9 = zext i32 %8 to i64
   %10 = icmp eq i64 %indvars.iv.next, %9
   br i1 %10, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread, label %11
 
 11:                                               ; preds = %7
-  %.02946.i.i.i.add4.i.i = or disjoint i64 %.02946.i.i.i.idx.i.i, 8
-  %.ptr7.i.i = getelementptr inbounds nuw i8, ptr @_ZZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDEE19kStaticLangageTypes, i64 %.02946.i.i.i.add4.i.i
-  %12 = load i32, ptr %.ptr7.i.i, align 8, !tbaa !15
+  %gep27 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDEE19kStaticLangageTypes, i64 8), i64 %.02946.i.i.i.idx.i.i
+  %12 = load i32, ptr %gep27, align 8, !tbaa !15
   %13 = zext i32 %12 to i64
   %14 = icmp eq i64 %indvars.iv.next, %13
   br i1 %14, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread, label %15
 
 15:                                               ; preds = %11
-  %.02946.i.i.i.add.i.i = or disjoint i64 %.02946.i.i.i.idx.i.i, 12
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr @_ZZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDEE19kStaticLangageTypes, i64 %.02946.i.i.i.add.i.i
-  %16 = load i32, ptr %.ptr.i.i, align 4, !tbaa !15
+  %gep28 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDEE19kStaticLangageTypes, i64 12), i64 %.02946.i.i.i.idx.i.i
+  %16 = load i32, ptr %gep28, align 4, !tbaa !15
   %17 = zext i32 %16 to i64
   %18 = icmp eq i64 %indvars.iv.next, %17
   br i1 %18, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread, label %19
@@ -870,8 +867,8 @@ sub_0:                                            ; preds = %_ZN5clang6driver5ty
 sub_1:                                            ; preds = %sub_0
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %28 = load i8, ptr %27, align 1
-  %.not28 = icmp eq i8 %28, 117
-  br i1 %.not28, label %sub_2, label %.loopexit
+  %.not30 = icmp eq i8 %28, 117
+  br i1 %.not30, label %sub_2, label %.loopexit
 
 sub_2:                                            ; preds = %sub_1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2

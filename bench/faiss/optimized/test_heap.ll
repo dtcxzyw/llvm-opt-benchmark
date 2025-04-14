@@ -169,6 +169,9 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit40:          ; preds = %.lr.ph.i.i.i.i.i.i.
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  %invariant.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %invariant.gep124 = getelementptr inbounds i8, ptr %6, i64 16
+  %invariant.gep126 = getelementptr inbounds i8, ptr %6, i64 24
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %22, %.lr.ph.preheader.i.i.i.i
@@ -180,23 +183,20 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit40:          ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %.not36.i.i.i.i, label %16, label %27
 
 16:                                               ; preds = %.lr.ph.i.i.i.i
-  %.sroa.025.050.i.i.i.i.add109 = or disjoint i64 %.sroa.025.050.i.i.i.i.idx, 8
-  %.ptr112 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.025.050.i.i.i.i.add109
-  %17 = load i64, ptr %.ptr112, align 8, !tbaa !5
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.sroa.025.050.i.i.i.i.idx
+  %17 = load i64, ptr %gep, align 8, !tbaa !5
   %.not37.i.i.i.i = icmp eq i64 %17, 1
   br i1 %.not37.i.i.i.i, label %18, label %.thread114
 
 18:                                               ; preds = %16
-  %.sroa.025.050.i.i.i.i.add108 = or disjoint i64 %.sroa.025.050.i.i.i.i.idx, 16
-  %.ptr111 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.025.050.i.i.i.i.add108
-  %19 = load i64, ptr %.ptr111, align 8, !tbaa !5
+  %gep125 = getelementptr inbounds i8, ptr %invariant.gep124, i64 %.sroa.025.050.i.i.i.i.idx
+  %19 = load i64, ptr %gep125, align 8, !tbaa !5
   %.not38.i.i.i.i = icmp eq i64 %19, 1
   br i1 %.not38.i.i.i.i, label %20, label %.thread114
 
 20:                                               ; preds = %18
-  %.sroa.025.050.i.i.i.i.add = or disjoint i64 %.sroa.025.050.i.i.i.i.idx, 24
-  %.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.025.050.i.i.i.i.add
-  %21 = load i64, ptr %.ptr, align 8, !tbaa !5
+  %gep127 = getelementptr inbounds i8, ptr %invariant.gep126, i64 %.sroa.025.050.i.i.i.i.idx
+  %21 = load i64, ptr %gep127, align 8, !tbaa !5
   %.not39.i.i.i.i = icmp eq i64 %21, 1
   br i1 %.not39.i.i.i.i, label %22, label %.thread114
 
@@ -515,6 +515,9 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit: 
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
+  %invariant.gep = getelementptr inbounds i8, ptr %6, i64 8
+  %invariant.gep127 = getelementptr inbounds i8, ptr %6, i64 16
+  %invariant.gep129 = getelementptr inbounds i8, ptr %6, i64 24
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %23, %.lr.ph.preheader.i.i.i.i
@@ -526,23 +529,20 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEiEvT_S7_T0_.exit: 
   br i1 %.not36.i.i.i.i, label %17, label %28
 
 17:                                               ; preds = %.lr.ph.i.i.i.i
-  %.sroa.025.050.i.i.i.i.add112 = or disjoint i64 %.sroa.025.050.i.i.i.i.idx, 8
-  %.ptr115 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.025.050.i.i.i.i.add112
-  %18 = load i64, ptr %.ptr115, align 8, !tbaa !5
+  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.sroa.025.050.i.i.i.i.idx
+  %18 = load i64, ptr %gep, align 8, !tbaa !5
   %.not37.i.i.i.i = icmp eq i64 %18, 1
   br i1 %.not37.i.i.i.i, label %19, label %.thread117
 
 19:                                               ; preds = %17
-  %.sroa.025.050.i.i.i.i.add111 = or disjoint i64 %.sroa.025.050.i.i.i.i.idx, 16
-  %.ptr114 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.025.050.i.i.i.i.add111
-  %20 = load i64, ptr %.ptr114, align 8, !tbaa !5
+  %gep128 = getelementptr inbounds i8, ptr %invariant.gep127, i64 %.sroa.025.050.i.i.i.i.idx
+  %20 = load i64, ptr %gep128, align 8, !tbaa !5
   %.not38.i.i.i.i = icmp eq i64 %20, 1
   br i1 %.not38.i.i.i.i, label %21, label %.thread117
 
 21:                                               ; preds = %19
-  %.sroa.025.050.i.i.i.i.add = or disjoint i64 %.sroa.025.050.i.i.i.i.idx, 24
-  %.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.025.050.i.i.i.i.add
-  %22 = load i64, ptr %.ptr, align 8, !tbaa !5
+  %gep130 = getelementptr inbounds i8, ptr %invariant.gep129, i64 %.sroa.025.050.i.i.i.i.idx
+  %22 = load i64, ptr %gep130, align 8, !tbaa !5
   %.not39.i.i.i.i = icmp eq i64 %22, 1
   br i1 %.not39.i.i.i.i, label %23, label %.thread117
 

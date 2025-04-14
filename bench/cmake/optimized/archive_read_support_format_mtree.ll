@@ -3747,11 +3747,11 @@ switch.lookup:
 
 10:                                               ; preds = %switch.lookup
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.71) #19
-  br label %42
+  br label %41
 
-.preheader:                                       ; preds = %.preheader.preheader, %33
-  %.02638 = phi i64 [ %39, %33 ], [ 0, %.preheader.preheader ]
-  %.02737 = phi i64 [ %38, %33 ], [ 0, %.preheader.preheader ]
+.preheader:                                       ; preds = %.preheader.preheader, %32
+  %.02638 = phi i64 [ %38, %32 ], [ 0, %.preheader.preheader ]
+  %.02737 = phi i64 [ %37, %32 ], [ 0, %.preheader.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %.02737
   %12 = load i8, ptr %11, align 1, !tbaa !38
   %13 = sext i8 %12 to i32
@@ -3772,53 +3772,52 @@ switch.lookup:
 
 parse_hex_nibble.exit:                            ; preds = %15, %17
   %.0.i = phi i32 [ %16, %15 ], [ %spec.select.i, %17 ]
-  %20 = or disjoint i64 %.02737, 1
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %20
-  %22 = load i8, ptr %21, align 1, !tbaa !38
-  %23 = sext i8 %22 to i32
-  %24 = add i8 %22, -48
-  %or.cond.i32 = icmp ult i8 %24, 10
-  br i1 %or.cond.i32, label %25, label %27
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %21 = load i8, ptr %20, align 1, !tbaa !38
+  %22 = sext i8 %21 to i32
+  %23 = add i8 %21, -48
+  %or.cond.i32 = icmp ult i8 %23, 10
+  br i1 %or.cond.i32, label %24, label %26
 
-25:                                               ; preds = %parse_hex_nibble.exit
-  %26 = add nsw i32 %23, -48
+24:                                               ; preds = %parse_hex_nibble.exit
+  %25 = add nsw i32 %22, -48
   br label %parse_hex_nibble.exit36
 
-27:                                               ; preds = %parse_hex_nibble.exit
-  %28 = add i8 %22, -97
-  %or.cond5.i33 = icmp ult i8 %28, 6
-  %29 = add nsw i32 %23, -87
-  %spec.select.i34 = select i1 %or.cond5.i33, i32 %29, i32 -1
+26:                                               ; preds = %parse_hex_nibble.exit
+  %27 = add i8 %21, -97
+  %or.cond5.i33 = icmp ult i8 %27, 6
+  %28 = add nsw i32 %22, -87
+  %spec.select.i34 = select i1 %or.cond5.i33, i32 %28, i32 -1
   br label %parse_hex_nibble.exit36
 
-parse_hex_nibble.exit36:                          ; preds = %25, %27
-  %.0.i35 = phi i32 [ %26, %25 ], [ %spec.select.i34, %27 ]
-  %30 = icmp eq i32 %.0.i, -1
-  %31 = icmp eq i32 %.0.i35, -1
-  %or.cond = select i1 %30, i1 true, i1 %31
-  br i1 %or.cond, label %32, label %33
+parse_hex_nibble.exit36:                          ; preds = %24, %26
+  %.0.i35 = phi i32 [ %25, %24 ], [ %spec.select.i34, %26 ]
+  %29 = icmp eq i32 %.0.i, -1
+  %30 = icmp eq i32 %.0.i35, -1
+  %or.cond = select i1 %29, i1 true, i1 %30
+  br i1 %or.cond, label %31, label %32
+
+31:                                               ; preds = %parse_hex_nibble.exit36
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.72) #19
+  br label %41
 
 32:                                               ; preds = %parse_hex_nibble.exit36
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.72) #19
-  br label %42
-
-33:                                               ; preds = %parse_hex_nibble.exit36
-  %34 = shl nsw i32 %.0.i, 4
-  %35 = or i32 %.0.i35, %34
-  %36 = trunc i32 %35 to i8
-  %37 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %.02638
-  store i8 %36, ptr %37, align 1, !tbaa !38
-  %38 = add nuw nsw i64 %.02737, 2
-  %39 = add nuw nsw i64 %.02638, 1
+  %33 = shl nsw i32 %.0.i, 4
+  %34 = or i32 %.0.i35, %33
+  %35 = trunc i32 %34 to i8
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %.02638
+  store i8 %35, ptr %36, align 1, !tbaa !38
+  %37 = add nuw nsw i64 %.02737, 2
+  %38 = add nuw nsw i64 %.02638, 1
   %exitcond.not = icmp eq i64 %.02638, %9
-  br i1 %exitcond.not, label %40, label %.preheader, !llvm.loop !112
+  br i1 %exitcond.not, label %39, label %.preheader, !llvm.loop !112
 
-40:                                               ; preds = %33
-  %41 = call i32 @archive_entry_set_digest(ptr noundef %1, i32 noundef %3, ptr noundef nonnull %4) #19
-  br label %42
+39:                                               ; preds = %32
+  %40 = call i32 @archive_entry_set_digest(ptr noundef %1, i32 noundef %3, ptr noundef nonnull %4) #19
+  br label %41
 
-42:                                               ; preds = %40, %32, %10
-  %.028 = phi i32 [ -20, %10 ], [ -20, %32 ], [ %41, %40 ]
+41:                                               ; preds = %39, %31, %10
+  %.028 = phi i32 [ -20, %10 ], [ -20, %31 ], [ %40, %39 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #19
   ret i32 %.028
 }

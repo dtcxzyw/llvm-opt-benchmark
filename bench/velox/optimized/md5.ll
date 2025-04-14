@@ -868,16 +868,15 @@ for.body:                                         ; preds = %entry, %for.body
   %idxprom2 = zext nneg i32 %shr to i64
   %arrayidx3 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom2
   %1 = load i8, ptr %arrayidx3, align 1
-  %2 = or disjoint i64 %indvars.iv8, 1
   %arrayidx5 = getelementptr inbounds nuw i8, ptr %zbuf, i64 %indvars.iv8
   store i8 %1, ptr %arrayidx5, align 1
   %and6 = and i32 %conv1, 15
   %idxprom7 = zext nneg i32 %and6 to i64
   %arrayidx8 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom7
-  %3 = load i8, ptr %arrayidx8, align 1
+  %2 = load i8, ptr %arrayidx8, align 1
   %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 2
-  %arrayidx11 = getelementptr inbounds nuw i8, ptr %zbuf, i64 %2
-  store i8 %3, ptr %arrayidx11, align 1
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %arrayidx5, i64 1
+  store i8 %2, ptr %arrayidx11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
@@ -989,16 +988,15 @@ for.body.i:                                       ; preds = %for.body.i, %_ZN8fa
   %idxprom2.i = zext nneg i32 %shr.i1 to i64
   %arrayidx3.i = getelementptr inbounds nuw [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom2.i
   %4 = load i8, ptr %arrayidx3.i, align 1
-  %5 = or disjoint i64 %indvars.iv8.i, 1
   %arrayidx5.i = getelementptr inbounds nuw i8, ptr %out_digest, i64 %indvars.iv8.i
   store i8 %4, ptr %arrayidx5.i, align 1
   %and6.i = and i32 %conv1.i, 15
   %idxprom7.i = zext nneg i32 %and6.i to i64
   %arrayidx8.i = getelementptr inbounds nuw [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom7.i
-  %6 = load i8, ptr %arrayidx8.i, align 1
+  %5 = load i8, ptr %arrayidx8.i, align 1
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 2
-  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %out_digest, i64 %5
-  store i8 %6, ptr %arrayidx11.i, align 1
+  %arrayidx11.i = getelementptr inbounds nuw i8, ptr %arrayidx5.i, i64 1
+  store i8 %5, ptr %arrayidx11.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
   br i1 %exitcond.not.i, label %_ZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPc.exit, label %for.body.i, !llvm.loop !6
@@ -1241,16 +1239,15 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN8
   %idxprom2.i.i = zext nneg i32 %shr.i1.i to i64
   %arrayidx3.i.i = getelementptr inbounds nuw [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom2.i.i
   %4 = load i8, ptr %arrayidx3.i.i, align 1
-  %5 = or disjoint i64 %indvars.iv8.i.i, 1
   %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %digest, i64 %indvars.iv8.i.i
   store i8 %4, ptr %arrayidx5.i.i, align 2
   %and6.i.i = and i32 %conv1.i.i, 15
   %idxprom7.i.i = zext nneg i32 %and6.i.i to i64
   %arrayidx8.i.i = getelementptr inbounds nuw [17 x i8], ptr @_ZZN8facebook5velox6crypto10MD5Context14DigestToBase16EPKhPcE9HEX_CODES, i64 0, i64 %idxprom7.i.i
-  %6 = load i8, ptr %arrayidx8.i.i, align 1
+  %5 = load i8, ptr %arrayidx8.i.i, align 1
   %indvars.iv.next9.i.i = add nuw nsw i64 %indvars.iv8.i.i, 2
-  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %digest, i64 %5
-  store i8 %6, ptr %arrayidx11.i.i, align 1
+  %arrayidx11.i.i = getelementptr inbounds nuw i8, ptr %arrayidx5.i.i, i64 1
+  store i8 %5, ptr %arrayidx11.i.i, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
   br i1 %exitcond.not.i.i, label %_ZN8facebook5velox6crypto10MD5Context9FinishHexEPc.exit, label %for.body.i.i, !llvm.loop !6
@@ -1266,10 +1263,10 @@ invoke.cont:                                      ; preds = %_ZN8facebook5velox6
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook5velox6crypto10MD5Context9FinishHexEPc.exit
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %6
 }
 
 ; Function Attrs: nounwind

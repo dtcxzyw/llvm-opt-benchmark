@@ -271,34 +271,15 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %134 = shl nuw nsw i64 %indvars.iv, 2
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 %134
-  %136 = load i8, ptr %135, align 1, !tbaa !15
-  %137 = zext i8 %136 to i32
-  %138 = or disjoint i64 %134, 1
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 %138
-  %140 = load i8, ptr %139, align 1, !tbaa !15
-  %141 = zext i8 %140 to i32
-  %142 = shl nuw nsw i32 %141, 8
-  %143 = or disjoint i32 %142, %137
-  %144 = or disjoint i64 %134, 2
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 %144
-  %146 = load i8, ptr %145, align 1, !tbaa !15
-  %147 = zext i8 %146 to i32
-  %148 = shl nuw nsw i32 %147, 16
-  %149 = or disjoint i32 %143, %148
-  %150 = or disjoint i64 %134, 3
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 %150
-  %152 = load i8, ptr %151, align 1, !tbaa !15
-  %153 = zext i8 %152 to i32
-  %154 = shl nuw i32 %153, 24
-  %155 = or disjoint i32 %149, %154
-  %156 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv
-  store i32 %155, ptr %156, align 4, !tbaa !11
+  %136 = load i32, ptr %135, align 1
+  %137 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv
+  store i32 %136, ptr %137, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %128
-  %157 = phi ptr [ %129, %128 ], [ %131, %.lr.ph ]
+  %138 = phi ptr [ %129, %128 ], [ %131, %.lr.ph ]
   switch i32 %.sink, label %._crit_edge.unreachabledefault [
     i32 10, label %.preheader.preheader
     i32 12, label %.preheader102.preheader
@@ -307,242 +288,242 @@ define hidden range(i32 -32, 1) i32 @mbedtls_aes_setkey_enc(ptr noundef %0, ptr 
   ]
 
 .preheader104.preheader:                          ; preds = %._crit_edge
-  %.pre = load i32, ptr %157, align 4, !tbaa !11
+  %.pre = load i32, ptr %138, align 4, !tbaa !11
   br label %.preheader104
 
 .preheader102.preheader:                          ; preds = %._crit_edge
-  %.pre128 = load i32, ptr %157, align 4, !tbaa !11
+  %.pre128 = load i32, ptr %138, align 4, !tbaa !11
   br label %.preheader102
 
 .preheader.preheader:                             ; preds = %._crit_edge
-  %.pre129 = load i32, ptr %157, align 4, !tbaa !11
+  %.pre129 = load i32, ptr %138, align 4, !tbaa !11
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %158 = phi i32 [ %.pre129, %.preheader.preheader ], [ %192, %.preheader ]
+  %139 = phi i32 [ %.pre129, %.preheader.preheader ], [ %173, %.preheader ]
   %indvars.iv124 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next125, %.preheader ]
-  %.0112 = phi ptr [ %157, %.preheader.preheader ], [ %193, %.preheader ]
-  %159 = getelementptr inbounds nuw [10 x i32], ptr @_ZL4RCON, i64 0, i64 %indvars.iv124
-  %160 = load i32, ptr %159, align 4, !tbaa !11
-  %161 = xor i32 %160, %158
-  %162 = getelementptr inbounds nuw i8, ptr %.0112, i64 12
-  %163 = load i32, ptr %162, align 4, !tbaa !11
-  %164 = lshr i32 %163, 8
-  %165 = and i32 %164, 255
-  %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %166
-  %168 = load i8, ptr %167, align 1, !tbaa !15
-  %169 = zext i8 %168 to i32
-  %170 = xor i32 %161, %169
-  %171 = lshr i32 %163, 16
-  %172 = and i32 %171, 255
-  %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %173
-  %175 = load i8, ptr %174, align 1, !tbaa !15
-  %176 = zext i8 %175 to i32
-  %177 = shl nuw nsw i32 %176, 8
-  %178 = xor i32 %170, %177
-  %179 = lshr i32 %163, 24
-  %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %180
-  %182 = load i8, ptr %181, align 1, !tbaa !15
-  %183 = zext i8 %182 to i32
-  %184 = shl nuw nsw i32 %183, 16
-  %185 = xor i32 %178, %184
-  %186 = and i32 %163, 255
-  %187 = zext nneg i32 %186 to i64
-  %188 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %187
-  %189 = load i8, ptr %188, align 1, !tbaa !15
-  %190 = zext i8 %189 to i32
-  %191 = shl nuw i32 %190, 24
-  %192 = xor i32 %185, %191
-  %193 = getelementptr inbounds nuw i8, ptr %.0112, i64 16
-  store i32 %192, ptr %193, align 4, !tbaa !11
-  %194 = getelementptr inbounds nuw i8, ptr %.0112, i64 4
-  %195 = load i32, ptr %194, align 4, !tbaa !11
-  %196 = xor i32 %192, %195
-  %197 = getelementptr inbounds nuw i8, ptr %.0112, i64 20
-  store i32 %196, ptr %197, align 4, !tbaa !11
-  %198 = getelementptr inbounds nuw i8, ptr %.0112, i64 8
-  %199 = load i32, ptr %198, align 4, !tbaa !11
-  %200 = xor i32 %199, %196
-  %201 = getelementptr inbounds nuw i8, ptr %.0112, i64 24
-  store i32 %200, ptr %201, align 4, !tbaa !11
-  %202 = xor i32 %200, %163
-  %203 = getelementptr inbounds nuw i8, ptr %.0112, i64 28
-  store i32 %202, ptr %203, align 4, !tbaa !11
+  %.0112 = phi ptr [ %138, %.preheader.preheader ], [ %174, %.preheader ]
+  %140 = getelementptr inbounds nuw [10 x i32], ptr @_ZL4RCON, i64 0, i64 %indvars.iv124
+  %141 = load i32, ptr %140, align 4, !tbaa !11
+  %142 = xor i32 %141, %139
+  %143 = getelementptr inbounds nuw i8, ptr %.0112, i64 12
+  %144 = load i32, ptr %143, align 4, !tbaa !11
+  %145 = lshr i32 %144, 8
+  %146 = and i32 %145, 255
+  %147 = zext nneg i32 %146 to i64
+  %148 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %147
+  %149 = load i8, ptr %148, align 1, !tbaa !15
+  %150 = zext i8 %149 to i32
+  %151 = xor i32 %142, %150
+  %152 = lshr i32 %144, 16
+  %153 = and i32 %152, 255
+  %154 = zext nneg i32 %153 to i64
+  %155 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %154
+  %156 = load i8, ptr %155, align 1, !tbaa !15
+  %157 = zext i8 %156 to i32
+  %158 = shl nuw nsw i32 %157, 8
+  %159 = xor i32 %151, %158
+  %160 = lshr i32 %144, 24
+  %161 = zext nneg i32 %160 to i64
+  %162 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %161
+  %163 = load i8, ptr %162, align 1, !tbaa !15
+  %164 = zext i8 %163 to i32
+  %165 = shl nuw nsw i32 %164, 16
+  %166 = xor i32 %159, %165
+  %167 = and i32 %144, 255
+  %168 = zext nneg i32 %167 to i64
+  %169 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %168
+  %170 = load i8, ptr %169, align 1, !tbaa !15
+  %171 = zext i8 %170 to i32
+  %172 = shl nuw i32 %171, 24
+  %173 = xor i32 %166, %172
+  %174 = getelementptr inbounds nuw i8, ptr %.0112, i64 16
+  store i32 %173, ptr %174, align 4, !tbaa !11
+  %175 = getelementptr inbounds nuw i8, ptr %.0112, i64 4
+  %176 = load i32, ptr %175, align 4, !tbaa !11
+  %177 = xor i32 %173, %176
+  %178 = getelementptr inbounds nuw i8, ptr %.0112, i64 20
+  store i32 %177, ptr %178, align 4, !tbaa !11
+  %179 = getelementptr inbounds nuw i8, ptr %.0112, i64 8
+  %180 = load i32, ptr %179, align 4, !tbaa !11
+  %181 = xor i32 %180, %177
+  %182 = getelementptr inbounds nuw i8, ptr %.0112, i64 24
+  store i32 %181, ptr %182, align 4, !tbaa !11
+  %183 = xor i32 %181, %144
+  %184 = getelementptr inbounds nuw i8, ptr %.0112, i64 28
+  store i32 %183, ptr %184, align 4, !tbaa !11
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next125, 10
   br i1 %exitcond127.not, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .preheader102:                                    ; preds = %.preheader102.preheader, %.preheader102
-  %204 = phi i32 [ %.pre128, %.preheader102.preheader ], [ %238, %.preheader102 ]
+  %185 = phi i32 [ %.pre128, %.preheader102.preheader ], [ %219, %.preheader102 ]
   %indvars.iv120 = phi i64 [ 0, %.preheader102.preheader ], [ %indvars.iv.next121, %.preheader102 ]
-  %.1110 = phi ptr [ %157, %.preheader102.preheader ], [ %239, %.preheader102 ]
-  %205 = getelementptr inbounds nuw [10 x i32], ptr @_ZL4RCON, i64 0, i64 %indvars.iv120
-  %206 = load i32, ptr %205, align 4, !tbaa !11
-  %207 = xor i32 %206, %204
-  %208 = getelementptr inbounds nuw i8, ptr %.1110, i64 20
-  %209 = load i32, ptr %208, align 4, !tbaa !11
-  %210 = lshr i32 %209, 8
-  %211 = and i32 %210, 255
-  %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %212
-  %214 = load i8, ptr %213, align 1, !tbaa !15
-  %215 = zext i8 %214 to i32
-  %216 = xor i32 %207, %215
-  %217 = lshr i32 %209, 16
-  %218 = and i32 %217, 255
-  %219 = zext nneg i32 %218 to i64
-  %220 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %219
-  %221 = load i8, ptr %220, align 1, !tbaa !15
-  %222 = zext i8 %221 to i32
-  %223 = shl nuw nsw i32 %222, 8
-  %224 = xor i32 %216, %223
-  %225 = lshr i32 %209, 24
-  %226 = zext nneg i32 %225 to i64
-  %227 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %226
-  %228 = load i8, ptr %227, align 1, !tbaa !15
-  %229 = zext i8 %228 to i32
-  %230 = shl nuw nsw i32 %229, 16
-  %231 = xor i32 %224, %230
-  %232 = and i32 %209, 255
-  %233 = zext nneg i32 %232 to i64
-  %234 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %233
-  %235 = load i8, ptr %234, align 1, !tbaa !15
-  %236 = zext i8 %235 to i32
-  %237 = shl nuw i32 %236, 24
-  %238 = xor i32 %231, %237
-  %239 = getelementptr inbounds nuw i8, ptr %.1110, i64 24
-  store i32 %238, ptr %239, align 4, !tbaa !11
-  %240 = getelementptr inbounds nuw i8, ptr %.1110, i64 4
-  %241 = load i32, ptr %240, align 4, !tbaa !11
-  %242 = xor i32 %238, %241
-  %243 = getelementptr inbounds nuw i8, ptr %.1110, i64 28
-  store i32 %242, ptr %243, align 4, !tbaa !11
-  %244 = getelementptr inbounds nuw i8, ptr %.1110, i64 8
-  %245 = load i32, ptr %244, align 4, !tbaa !11
-  %246 = xor i32 %245, %242
-  %247 = getelementptr inbounds nuw i8, ptr %.1110, i64 32
-  store i32 %246, ptr %247, align 4, !tbaa !11
-  %248 = getelementptr inbounds nuw i8, ptr %.1110, i64 12
-  %249 = load i32, ptr %248, align 4, !tbaa !11
-  %250 = xor i32 %249, %246
-  %251 = getelementptr inbounds nuw i8, ptr %.1110, i64 36
-  store i32 %250, ptr %251, align 4, !tbaa !11
-  %252 = getelementptr inbounds nuw i8, ptr %.1110, i64 16
-  %253 = load i32, ptr %252, align 4, !tbaa !11
-  %254 = xor i32 %253, %250
-  %255 = getelementptr inbounds nuw i8, ptr %.1110, i64 40
-  store i32 %254, ptr %255, align 4, !tbaa !11
-  %256 = xor i32 %254, %209
-  %257 = getelementptr inbounds nuw i8, ptr %.1110, i64 44
-  store i32 %256, ptr %257, align 4, !tbaa !11
+  %.1110 = phi ptr [ %138, %.preheader102.preheader ], [ %220, %.preheader102 ]
+  %186 = getelementptr inbounds nuw [10 x i32], ptr @_ZL4RCON, i64 0, i64 %indvars.iv120
+  %187 = load i32, ptr %186, align 4, !tbaa !11
+  %188 = xor i32 %187, %185
+  %189 = getelementptr inbounds nuw i8, ptr %.1110, i64 20
+  %190 = load i32, ptr %189, align 4, !tbaa !11
+  %191 = lshr i32 %190, 8
+  %192 = and i32 %191, 255
+  %193 = zext nneg i32 %192 to i64
+  %194 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %193
+  %195 = load i8, ptr %194, align 1, !tbaa !15
+  %196 = zext i8 %195 to i32
+  %197 = xor i32 %188, %196
+  %198 = lshr i32 %190, 16
+  %199 = and i32 %198, 255
+  %200 = zext nneg i32 %199 to i64
+  %201 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %200
+  %202 = load i8, ptr %201, align 1, !tbaa !15
+  %203 = zext i8 %202 to i32
+  %204 = shl nuw nsw i32 %203, 8
+  %205 = xor i32 %197, %204
+  %206 = lshr i32 %190, 24
+  %207 = zext nneg i32 %206 to i64
+  %208 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %207
+  %209 = load i8, ptr %208, align 1, !tbaa !15
+  %210 = zext i8 %209 to i32
+  %211 = shl nuw nsw i32 %210, 16
+  %212 = xor i32 %205, %211
+  %213 = and i32 %190, 255
+  %214 = zext nneg i32 %213 to i64
+  %215 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %214
+  %216 = load i8, ptr %215, align 1, !tbaa !15
+  %217 = zext i8 %216 to i32
+  %218 = shl nuw i32 %217, 24
+  %219 = xor i32 %212, %218
+  %220 = getelementptr inbounds nuw i8, ptr %.1110, i64 24
+  store i32 %219, ptr %220, align 4, !tbaa !11
+  %221 = getelementptr inbounds nuw i8, ptr %.1110, i64 4
+  %222 = load i32, ptr %221, align 4, !tbaa !11
+  %223 = xor i32 %219, %222
+  %224 = getelementptr inbounds nuw i8, ptr %.1110, i64 28
+  store i32 %223, ptr %224, align 4, !tbaa !11
+  %225 = getelementptr inbounds nuw i8, ptr %.1110, i64 8
+  %226 = load i32, ptr %225, align 4, !tbaa !11
+  %227 = xor i32 %226, %223
+  %228 = getelementptr inbounds nuw i8, ptr %.1110, i64 32
+  store i32 %227, ptr %228, align 4, !tbaa !11
+  %229 = getelementptr inbounds nuw i8, ptr %.1110, i64 12
+  %230 = load i32, ptr %229, align 4, !tbaa !11
+  %231 = xor i32 %230, %227
+  %232 = getelementptr inbounds nuw i8, ptr %.1110, i64 36
+  store i32 %231, ptr %232, align 4, !tbaa !11
+  %233 = getelementptr inbounds nuw i8, ptr %.1110, i64 16
+  %234 = load i32, ptr %233, align 4, !tbaa !11
+  %235 = xor i32 %234, %231
+  %236 = getelementptr inbounds nuw i8, ptr %.1110, i64 40
+  store i32 %235, ptr %236, align 4, !tbaa !11
+  %237 = xor i32 %235, %190
+  %238 = getelementptr inbounds nuw i8, ptr %.1110, i64 44
+  store i32 %237, ptr %238, align 4, !tbaa !11
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, 8
   br i1 %exitcond123.not, label %.loopexit, label %.preheader102, !llvm.loop !20
 
 .preheader104:                                    ; preds = %.preheader104.preheader, %.preheader104
-  %258 = phi i32 [ %.pre, %.preheader104.preheader ], [ %292, %.preheader104 ]
+  %239 = phi i32 [ %.pre, %.preheader104.preheader ], [ %273, %.preheader104 ]
   %indvars.iv116 = phi i64 [ 0, %.preheader104.preheader ], [ %indvars.iv.next117, %.preheader104 ]
-  %.2108 = phi ptr [ %157, %.preheader104.preheader ], [ %293, %.preheader104 ]
-  %259 = getelementptr inbounds nuw [10 x i32], ptr @_ZL4RCON, i64 0, i64 %indvars.iv116
-  %260 = load i32, ptr %259, align 4, !tbaa !11
-  %261 = xor i32 %260, %258
-  %262 = getelementptr inbounds nuw i8, ptr %.2108, i64 28
-  %263 = load i32, ptr %262, align 4, !tbaa !11
-  %264 = lshr i32 %263, 8
-  %265 = and i32 %264, 255
-  %266 = zext nneg i32 %265 to i64
-  %267 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %266
-  %268 = load i8, ptr %267, align 1, !tbaa !15
-  %269 = zext i8 %268 to i32
-  %270 = xor i32 %261, %269
-  %271 = lshr i32 %263, 16
-  %272 = and i32 %271, 255
-  %273 = zext nneg i32 %272 to i64
-  %274 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %273
-  %275 = load i8, ptr %274, align 1, !tbaa !15
-  %276 = zext i8 %275 to i32
-  %277 = shl nuw nsw i32 %276, 8
-  %278 = xor i32 %270, %277
-  %279 = lshr i32 %263, 24
-  %280 = zext nneg i32 %279 to i64
-  %281 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %280
-  %282 = load i8, ptr %281, align 1, !tbaa !15
-  %283 = zext i8 %282 to i32
-  %284 = shl nuw nsw i32 %283, 16
-  %285 = xor i32 %278, %284
-  %286 = and i32 %263, 255
-  %287 = zext nneg i32 %286 to i64
-  %288 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %287
-  %289 = load i8, ptr %288, align 1, !tbaa !15
-  %290 = zext i8 %289 to i32
-  %291 = shl nuw i32 %290, 24
-  %292 = xor i32 %285, %291
-  %293 = getelementptr inbounds nuw i8, ptr %.2108, i64 32
-  store i32 %292, ptr %293, align 4, !tbaa !11
-  %294 = getelementptr inbounds nuw i8, ptr %.2108, i64 4
-  %295 = load i32, ptr %294, align 4, !tbaa !11
-  %296 = xor i32 %292, %295
-  %297 = getelementptr inbounds nuw i8, ptr %.2108, i64 36
-  store i32 %296, ptr %297, align 4, !tbaa !11
-  %298 = getelementptr inbounds nuw i8, ptr %.2108, i64 8
-  %299 = load i32, ptr %298, align 4, !tbaa !11
-  %300 = xor i32 %299, %296
-  %301 = getelementptr inbounds nuw i8, ptr %.2108, i64 40
-  store i32 %300, ptr %301, align 4, !tbaa !11
-  %302 = getelementptr inbounds nuw i8, ptr %.2108, i64 12
-  %303 = load i32, ptr %302, align 4, !tbaa !11
-  %304 = xor i32 %303, %300
-  %305 = getelementptr inbounds nuw i8, ptr %.2108, i64 44
-  store i32 %304, ptr %305, align 4, !tbaa !11
-  %306 = getelementptr inbounds nuw i8, ptr %.2108, i64 16
-  %307 = load i32, ptr %306, align 4, !tbaa !11
-  %308 = and i32 %304, 255
-  %309 = zext nneg i32 %308 to i64
-  %310 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %309
-  %311 = load i8, ptr %310, align 1, !tbaa !15
-  %312 = zext i8 %311 to i32
-  %313 = xor i32 %307, %312
-  %314 = lshr i32 %304, 8
-  %315 = and i32 %314, 255
-  %316 = zext nneg i32 %315 to i64
-  %317 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %316
-  %318 = load i8, ptr %317, align 1, !tbaa !15
-  %319 = zext i8 %318 to i32
-  %320 = shl nuw nsw i32 %319, 8
-  %321 = xor i32 %313, %320
-  %322 = lshr i32 %304, 16
-  %323 = and i32 %322, 255
-  %324 = zext nneg i32 %323 to i64
-  %325 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %324
-  %326 = load i8, ptr %325, align 1, !tbaa !15
-  %327 = zext i8 %326 to i32
-  %328 = shl nuw nsw i32 %327, 16
-  %329 = xor i32 %321, %328
-  %330 = lshr i32 %304, 24
-  %331 = zext nneg i32 %330 to i64
-  %332 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %331
-  %333 = load i8, ptr %332, align 1, !tbaa !15
-  %334 = zext i8 %333 to i32
-  %335 = shl nuw i32 %334, 24
-  %336 = xor i32 %329, %335
-  %337 = getelementptr inbounds nuw i8, ptr %.2108, i64 48
-  store i32 %336, ptr %337, align 4, !tbaa !11
-  %338 = getelementptr inbounds nuw i8, ptr %.2108, i64 20
-  %339 = load i32, ptr %338, align 4, !tbaa !11
-  %340 = xor i32 %336, %339
-  %341 = getelementptr inbounds nuw i8, ptr %.2108, i64 52
-  store i32 %340, ptr %341, align 4, !tbaa !11
-  %342 = getelementptr inbounds nuw i8, ptr %.2108, i64 24
-  %343 = load i32, ptr %342, align 4, !tbaa !11
-  %344 = xor i32 %343, %340
-  %345 = getelementptr inbounds nuw i8, ptr %.2108, i64 56
-  store i32 %344, ptr %345, align 4, !tbaa !11
-  %346 = xor i32 %344, %263
-  %347 = getelementptr inbounds nuw i8, ptr %.2108, i64 60
-  store i32 %346, ptr %347, align 4, !tbaa !11
+  %.2108 = phi ptr [ %138, %.preheader104.preheader ], [ %274, %.preheader104 ]
+  %240 = getelementptr inbounds nuw [10 x i32], ptr @_ZL4RCON, i64 0, i64 %indvars.iv116
+  %241 = load i32, ptr %240, align 4, !tbaa !11
+  %242 = xor i32 %241, %239
+  %243 = getelementptr inbounds nuw i8, ptr %.2108, i64 28
+  %244 = load i32, ptr %243, align 4, !tbaa !11
+  %245 = lshr i32 %244, 8
+  %246 = and i32 %245, 255
+  %247 = zext nneg i32 %246 to i64
+  %248 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %247
+  %249 = load i8, ptr %248, align 1, !tbaa !15
+  %250 = zext i8 %249 to i32
+  %251 = xor i32 %242, %250
+  %252 = lshr i32 %244, 16
+  %253 = and i32 %252, 255
+  %254 = zext nneg i32 %253 to i64
+  %255 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %254
+  %256 = load i8, ptr %255, align 1, !tbaa !15
+  %257 = zext i8 %256 to i32
+  %258 = shl nuw nsw i32 %257, 8
+  %259 = xor i32 %251, %258
+  %260 = lshr i32 %244, 24
+  %261 = zext nneg i32 %260 to i64
+  %262 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %261
+  %263 = load i8, ptr %262, align 1, !tbaa !15
+  %264 = zext i8 %263 to i32
+  %265 = shl nuw nsw i32 %264, 16
+  %266 = xor i32 %259, %265
+  %267 = and i32 %244, 255
+  %268 = zext nneg i32 %267 to i64
+  %269 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %268
+  %270 = load i8, ptr %269, align 1, !tbaa !15
+  %271 = zext i8 %270 to i32
+  %272 = shl nuw i32 %271, 24
+  %273 = xor i32 %266, %272
+  %274 = getelementptr inbounds nuw i8, ptr %.2108, i64 32
+  store i32 %273, ptr %274, align 4, !tbaa !11
+  %275 = getelementptr inbounds nuw i8, ptr %.2108, i64 4
+  %276 = load i32, ptr %275, align 4, !tbaa !11
+  %277 = xor i32 %273, %276
+  %278 = getelementptr inbounds nuw i8, ptr %.2108, i64 36
+  store i32 %277, ptr %278, align 4, !tbaa !11
+  %279 = getelementptr inbounds nuw i8, ptr %.2108, i64 8
+  %280 = load i32, ptr %279, align 4, !tbaa !11
+  %281 = xor i32 %280, %277
+  %282 = getelementptr inbounds nuw i8, ptr %.2108, i64 40
+  store i32 %281, ptr %282, align 4, !tbaa !11
+  %283 = getelementptr inbounds nuw i8, ptr %.2108, i64 12
+  %284 = load i32, ptr %283, align 4, !tbaa !11
+  %285 = xor i32 %284, %281
+  %286 = getelementptr inbounds nuw i8, ptr %.2108, i64 44
+  store i32 %285, ptr %286, align 4, !tbaa !11
+  %287 = getelementptr inbounds nuw i8, ptr %.2108, i64 16
+  %288 = load i32, ptr %287, align 4, !tbaa !11
+  %289 = and i32 %285, 255
+  %290 = zext nneg i32 %289 to i64
+  %291 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %290
+  %292 = load i8, ptr %291, align 1, !tbaa !15
+  %293 = zext i8 %292 to i32
+  %294 = xor i32 %288, %293
+  %295 = lshr i32 %285, 8
+  %296 = and i32 %295, 255
+  %297 = zext nneg i32 %296 to i64
+  %298 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %297
+  %299 = load i8, ptr %298, align 1, !tbaa !15
+  %300 = zext i8 %299 to i32
+  %301 = shl nuw nsw i32 %300, 8
+  %302 = xor i32 %294, %301
+  %303 = lshr i32 %285, 16
+  %304 = and i32 %303, 255
+  %305 = zext nneg i32 %304 to i64
+  %306 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %305
+  %307 = load i8, ptr %306, align 1, !tbaa !15
+  %308 = zext i8 %307 to i32
+  %309 = shl nuw nsw i32 %308, 16
+  %310 = xor i32 %302, %309
+  %311 = lshr i32 %285, 24
+  %312 = zext nneg i32 %311 to i64
+  %313 = getelementptr inbounds nuw [256 x i8], ptr @_ZL6AESFSb, i64 0, i64 %312
+  %314 = load i8, ptr %313, align 1, !tbaa !15
+  %315 = zext i8 %314 to i32
+  %316 = shl nuw i32 %315, 24
+  %317 = xor i32 %310, %316
+  %318 = getelementptr inbounds nuw i8, ptr %.2108, i64 48
+  store i32 %317, ptr %318, align 4, !tbaa !11
+  %319 = getelementptr inbounds nuw i8, ptr %.2108, i64 20
+  %320 = load i32, ptr %319, align 4, !tbaa !11
+  %321 = xor i32 %317, %320
+  %322 = getelementptr inbounds nuw i8, ptr %.2108, i64 52
+  store i32 %321, ptr %322, align 4, !tbaa !11
+  %323 = getelementptr inbounds nuw i8, ptr %.2108, i64 24
+  %324 = load i32, ptr %323, align 4, !tbaa !11
+  %325 = xor i32 %324, %321
+  %326 = getelementptr inbounds nuw i8, ptr %.2108, i64 56
+  store i32 %325, ptr %326, align 4, !tbaa !11
+  %327 = xor i32 %325, %244
+  %328 = getelementptr inbounds nuw i8, ptr %.2108, i64 60
+  store i32 %327, ptr %328, align 4, !tbaa !11
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 7
   br i1 %exitcond119.not, label %.loopexit, label %.preheader104, !llvm.loop !21

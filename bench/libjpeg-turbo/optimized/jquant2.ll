@@ -2053,47 +2053,47 @@ find_best_colors.exit:                            ; preds = %266, %.preheader89.
   %270 = zext nneg i32 %269 to i64
   %271 = zext nneg i32 %268 to i64
   %272 = zext nneg i32 %267 to i64
+  %invariant.gep = getelementptr inbounds nuw ptr, ptr %12, i64 %272
   br label %.preheader
 
-.preheader:                                       ; preds = %find_best_colors.exit, %286
-  %indvars.iv62 = phi i64 [ 0, %find_best_colors.exit ], [ %indvars.iv.next63, %286 ]
-  %.03354 = phi ptr [ %8, %find_best_colors.exit ], [ %280, %286 ]
-  %273 = or disjoint i64 %indvars.iv62, %272
-  %274 = getelementptr inbounds nuw ptr, ptr %12, i64 %273
-  %275 = load ptr, ptr %274, align 8, !tbaa !55
-  br label %276
+.preheader:                                       ; preds = %find_best_colors.exit, %284
+  %indvars.iv62 = phi i64 [ 0, %find_best_colors.exit ], [ %indvars.iv.next63, %284 ]
+  %.03354 = phi ptr [ %8, %find_best_colors.exit ], [ %278, %284 ]
+  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv62
+  %273 = load ptr, ptr %gep, align 8, !tbaa !55
+  br label %274
 
-276:                                              ; preds = %.preheader, %285
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %285 ]
-  %.152 = phi ptr [ %.03354, %.preheader ], [ %280, %285 ]
-  %277 = or disjoint i64 %indvars.iv, %271
-  %278 = getelementptr inbounds nuw [32 x i16], ptr %275, i64 %277, i64 %270
+274:                                              ; preds = %.preheader, %283
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %283 ]
+  %.152 = phi ptr [ %.03354, %.preheader ], [ %278, %283 ]
+  %275 = or disjoint i64 %indvars.iv, %271
+  %276 = getelementptr inbounds nuw [32 x i16], ptr %273, i64 %275, i64 %270
   %scevgep = getelementptr i8, ptr %.152, i64 3
-  br label %279
+  br label %277
 
-279:                                              ; preds = %276, %279
-  %.050 = phi ptr [ %278, %276 ], [ %284, %279 ]
-  %.249 = phi ptr [ %.152, %276 ], [ %280, %279 ]
-  %280 = getelementptr inbounds nuw i8, ptr %.249, i64 1
-  %281 = load i8, ptr %.249, align 1, !tbaa !34
-  %282 = zext i8 %281 to i16
-  %283 = add nuw nsw i16 %282, 1
-  %284 = getelementptr inbounds nuw i8, ptr %.050, i64 2
-  store i16 %283, ptr %.050, align 2, !tbaa !75
+277:                                              ; preds = %274, %277
+  %.050 = phi ptr [ %276, %274 ], [ %282, %277 ]
+  %.249 = phi ptr [ %.152, %274 ], [ %278, %277 ]
+  %278 = getelementptr inbounds nuw i8, ptr %.249, i64 1
+  %279 = load i8, ptr %.249, align 1, !tbaa !34
+  %280 = zext i8 %279 to i16
+  %281 = add nuw nsw i16 %280, 1
+  %282 = getelementptr inbounds nuw i8, ptr %.050, i64 2
+  store i16 %281, ptr %.050, align 2, !tbaa !75
   %exitcond.not = icmp eq ptr %.249, %scevgep
-  br i1 %exitcond.not, label %285, label %279, !llvm.loop !131
+  br i1 %exitcond.not, label %283, label %277, !llvm.loop !131
 
-285:                                              ; preds = %279
+283:                                              ; preds = %277
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond61.not, label %286, label %276, !llvm.loop !132
+  br i1 %exitcond61.not, label %284, label %274, !llvm.loop !132
 
-286:                                              ; preds = %285
+284:                                              ; preds = %283
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 4
-  br i1 %exitcond65.not, label %287, label %.preheader, !llvm.loop !133
+  br i1 %exitcond65.not, label %285, label %.preheader, !llvm.loop !133
 
-287:                                              ; preds = %286
+285:                                              ; preds = %284
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #9
   ret void

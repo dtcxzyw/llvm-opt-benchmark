@@ -9704,7 +9704,7 @@ define hidden void @zim_ReflectionUnionType_getTypes(ptr noundef readonly captur
 
 18:                                               ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  br label %207
+  br label %208
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -9724,14 +9724,14 @@ define hidden void @zim_ReflectionUnionType_getTypes(ptr noundef readonly captur
   %29 = load ptr, ptr %28, align 8, !tbaa !34
   %30 = load ptr, ptr @reflection_exception_ptr, align 8, !tbaa !38
   %31 = icmp eq ptr %29, %30
-  br i1 %31, label %207, label %32
+  br i1 %31, label %208, label %32
 
 32:                                               ; preds = %27, %25
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10) #13
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !39
   %34 = icmp ne ptr %33, null
   tail call void @llvm.assume(i1 %34)
-  br label %207
+  br label %208
 
 35:                                               ; preds = %19
   %36 = tail call ptr @_zend_new_array_0() #13
@@ -9742,15 +9742,15 @@ define hidden void @zim_ReflectionUnionType_getTypes(ptr noundef readonly captur
   %39 = load i32, ptr %38, align 8, !tbaa !184
   %40 = and i32 %39, 4194304
   %.not48 = icmp eq i32 %40, 0
-  br i1 %.not48, label %53, label %41
+  br i1 %.not48, label %54, label %41
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %23, align 8, !tbaa !185
   %43 = load i32, ptr %42, align 8, !tbaa !186
   %44 = zext i32 %43 to i64
   %.idx = shl nuw nsw i64 %44, 4
-  %.add = or disjoint i64 %.idx, 8
-  %.ptr75 = getelementptr inbounds nuw i8, ptr %42, i64 %.add
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
+  %.ptr75 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %.not76 = icmp eq i32 %43, 0
   br i1 %.not76, label %.loopexit, label %.lr.ph.preheader
 
@@ -9759,342 +9759,342 @@ define hidden void @zim_ReflectionUnionType_getTypes(ptr noundef readonly captur
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.074 = phi ptr [ %51, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  %45 = load ptr, ptr %.074, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %.074, i64 8
-  %47 = load i32, ptr %46, align 8
+  %.074 = phi ptr [ %52, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
+  %46 = load ptr, ptr %.074, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %.074, i64 8
+  %48 = load i32, ptr %47, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #13
-  %48 = and i32 %47, -2097153
-  call fastcc void @reflection_type_factory(ptr %45, i32 %48, ptr noundef nonnull %15, i1 noundef zeroext false)
-  %49 = load ptr, ptr %1, align 8, !tbaa !26
-  %50 = call ptr @zend_hash_next_index_insert(ptr noundef %49, ptr noundef nonnull %15) #13
+  %49 = and i32 %48, -2097153
+  call fastcc void @reflection_type_factory(ptr %46, i32 %49, ptr noundef nonnull %15, i1 noundef zeroext false)
+  %50 = load ptr, ptr %1, align 8, !tbaa !26
+  %51 = call ptr @zend_hash_next_index_insert(ptr noundef %50, ptr noundef nonnull %15) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #13
-  %51 = getelementptr inbounds nuw i8, ptr %.074, i64 16
-  %52 = icmp ult ptr %51, %.ptr75
-  br i1 %52, label %.lr.ph, label %.loopexit
+  %52 = getelementptr inbounds nuw i8, ptr %.074, i64 16
+  %53 = icmp ult ptr %52, %.ptr75
+  br i1 %53, label %.lr.ph, label %.loopexit
 
-53:                                               ; preds = %35
-  %54 = and i32 %39, 16777216
-  %.not49 = icmp eq i32 %54, 0
-  br i1 %.not49, label %.loopexit, label %55
+54:                                               ; preds = %35
+  %55 = and i32 %39, 16777216
+  %.not49 = icmp eq i32 %55, 0
+  br i1 %.not49, label %.loopexit, label %56
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %23, align 8, !tbaa !185
+56:                                               ; preds = %54
+  %57 = load ptr, ptr %23, align 8, !tbaa !185
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #13
-  %57 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
-  %58 = call i32 @object_init_ex(ptr noundef nonnull %14, ptr noundef %57) #13
-  %59 = load ptr, ptr %14, align 8, !tbaa !26
-  %60 = call noalias ptr @_emalloc_24() #13
-  store ptr %56, ptr %60, align 8, !tbaa !106
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %58 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
+  %59 = call i32 @object_init_ex(ptr noundef nonnull %14, ptr noundef %58) #13
+  %60 = load ptr, ptr %14, align 8, !tbaa !26
+  %61 = call noalias ptr @_emalloc_24() #13
+  store ptr %57, ptr %61, align 8, !tbaa !106
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 16777216, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !178
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store i8 0, ptr %61, align 8, !tbaa !179
-  %62 = getelementptr inbounds i8, ptr %59, i64 -24
-  store ptr %60, ptr %62, align 8, !tbaa !27
-  %63 = getelementptr inbounds i8, ptr %59, i64 -8
-  store i32 5, ptr %63, align 8, !tbaa !32
-  %64 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  %65 = load i32, ptr %64, align 4, !tbaa !26
-  %66 = and i32 %65, 64
-  %.not.i.i = icmp eq i32 %66, 0
-  br i1 %.not.i.i, label %67, label %reflection_type_factory.exit
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  store i8 0, ptr %62, align 8, !tbaa !179
+  %63 = getelementptr inbounds i8, ptr %60, i64 -24
+  store ptr %61, ptr %63, align 8, !tbaa !27
+  %64 = getelementptr inbounds i8, ptr %60, i64 -8
+  store i32 5, ptr %64, align 8, !tbaa !32
+  %65 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  %66 = load i32, ptr %65, align 4, !tbaa !26
+  %67 = and i32 %66, 64
+  %.not.i.i = icmp eq i32 %67, 0
+  br i1 %.not.i.i, label %68, label %reflection_type_factory.exit
 
-67:                                               ; preds = %55
-  %68 = load i32, ptr %56, align 4, !tbaa !37
-  %69 = add i32 %68, 1
-  store i32 %69, ptr %56, align 4, !tbaa !37
+68:                                               ; preds = %56
+  %69 = load i32, ptr %57, align 4, !tbaa !37
+  %70 = add i32 %69, 1
+  store i32 %70, ptr %57, align 4, !tbaa !37
   br label %reflection_type_factory.exit
 
-reflection_type_factory.exit:                     ; preds = %55, %67
-  %70 = load ptr, ptr %1, align 8, !tbaa !26
-  %71 = call ptr @zend_hash_next_index_insert(ptr noundef %70, ptr noundef nonnull %14) #13
+reflection_type_factory.exit:                     ; preds = %56, %68
+  %71 = load ptr, ptr %1, align 8, !tbaa !26
+  %72 = call ptr @zend_hash_next_index_insert(ptr noundef %71, ptr noundef nonnull %14) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %41, %53, %reflection_type_factory.exit
-  %72 = load i32, ptr %38, align 8, !tbaa !184
-  %73 = and i32 %72, 16384
-  %.not50 = icmp eq i32 %73, 0
+.loopexit:                                        ; preds = %.lr.ph, %41, %54, %reflection_type_factory.exit
+  %73 = load i32, ptr %38, align 8, !tbaa !184
+  %74 = and i32 %73, 16384
+  %.not50 = icmp eq i32 %74, 0
   call void @llvm.assume(i1 %.not50)
-  %74 = and i32 %72, 131072
-  %.not51 = icmp eq i32 %74, 0
+  %75 = and i32 %73, 131072
+  %.not51 = icmp eq i32 %75, 0
   call void @llvm.assume(i1 %.not51)
-  %75 = and i32 %72, 32768
-  %.not52 = icmp eq i32 %75, 0
-  br i1 %.not52, label %86, label %76
+  %76 = and i32 %73, 32768
+  %.not52 = icmp eq i32 %76, 0
+  br i1 %.not52, label %87, label %77
 
-76:                                               ; preds = %.loopexit
+77:                                               ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #13
-  %77 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
-  %78 = call i32 @object_init_ex(ptr noundef nonnull %13, ptr noundef %77) #13
-  %79 = load ptr, ptr %13, align 8, !tbaa !26
-  %80 = call noalias ptr @_emalloc_24() #13
-  store ptr null, ptr %80, align 8, !tbaa !106
-  %.sroa.4.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %78 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
+  %79 = call i32 @object_init_ex(ptr noundef nonnull %13, ptr noundef %78) #13
+  %80 = load ptr, ptr %13, align 8, !tbaa !26
+  %81 = call noalias ptr @_emalloc_24() #13
+  store ptr null, ptr %81, align 8, !tbaa !106
+  %.sroa.4.0..sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i32 32768, ptr %.sroa.4.0..sroa_idx.i63, align 8, !tbaa !178
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i8 0, ptr %81, align 8, !tbaa !179
-  %82 = getelementptr inbounds i8, ptr %79, i64 -24
-  store ptr %80, ptr %82, align 8, !tbaa !27
-  %83 = getelementptr inbounds i8, ptr %79, i64 -8
-  store i32 5, ptr %83, align 8, !tbaa !32
-  %84 = load ptr, ptr %1, align 8, !tbaa !26
-  %85 = call ptr @zend_hash_next_index_insert(ptr noundef %84, ptr noundef nonnull %13) #13
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store i8 0, ptr %82, align 8, !tbaa !179
+  %83 = getelementptr inbounds i8, ptr %80, i64 -24
+  store ptr %81, ptr %83, align 8, !tbaa !27
+  %84 = getelementptr inbounds i8, ptr %80, i64 -8
+  store i32 5, ptr %84, align 8, !tbaa !32
+  %85 = load ptr, ptr %1, align 8, !tbaa !26
+  %86 = call ptr @zend_hash_next_index_insert(ptr noundef %85, ptr noundef nonnull %13) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #13
-  br label %86
+  br label %87
 
-86:                                               ; preds = %76, %.loopexit
-  %87 = and i32 %72, 4096
-  %.not53 = icmp eq i32 %87, 0
-  br i1 %.not53, label %98, label %88
+87:                                               ; preds = %77, %.loopexit
+  %88 = and i32 %73, 4096
+  %.not53 = icmp eq i32 %88, 0
+  br i1 %.not53, label %99, label %89
 
-88:                                               ; preds = %86
+89:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #13
-  %89 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
-  %90 = call i32 @object_init_ex(ptr noundef nonnull %12, ptr noundef %89) #13
-  %91 = load ptr, ptr %12, align 8, !tbaa !26
-  %92 = call noalias ptr @_emalloc_24() #13
-  store ptr null, ptr %92, align 8, !tbaa !106
-  %.sroa.4.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %90 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
+  %91 = call i32 @object_init_ex(ptr noundef nonnull %12, ptr noundef %90) #13
+  %92 = load ptr, ptr %12, align 8, !tbaa !26
+  %93 = call noalias ptr @_emalloc_24() #13
+  store ptr null, ptr %93, align 8, !tbaa !106
+  %.sroa.4.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 4096, ptr %.sroa.4.0..sroa_idx.i64, align 8, !tbaa !178
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  store i8 0, ptr %93, align 8, !tbaa !179
-  %94 = getelementptr inbounds i8, ptr %91, i64 -24
-  store ptr %92, ptr %94, align 8, !tbaa !27
-  %95 = getelementptr inbounds i8, ptr %91, i64 -8
-  store i32 5, ptr %95, align 8, !tbaa !32
-  %96 = load ptr, ptr %1, align 8, !tbaa !26
-  %97 = call ptr @zend_hash_next_index_insert(ptr noundef %96, ptr noundef nonnull %12) #13
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  store i8 0, ptr %94, align 8, !tbaa !179
+  %95 = getelementptr inbounds i8, ptr %92, i64 -24
+  store ptr %93, ptr %95, align 8, !tbaa !27
+  %96 = getelementptr inbounds i8, ptr %92, i64 -8
+  store i32 5, ptr %96, align 8, !tbaa !32
+  %97 = load ptr, ptr %1, align 8, !tbaa !26
+  %98 = call ptr @zend_hash_next_index_insert(ptr noundef %97, ptr noundef nonnull %12) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
-  br label %98
+  br label %99
 
-98:                                               ; preds = %88, %86
-  %99 = and i32 %72, 256
-  %.not54 = icmp eq i32 %99, 0
-  br i1 %.not54, label %110, label %100
+99:                                               ; preds = %89, %87
+  %100 = and i32 %73, 256
+  %.not54 = icmp eq i32 %100, 0
+  br i1 %.not54, label %111, label %101
 
-100:                                              ; preds = %98
+101:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
-  %101 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
-  %102 = call i32 @object_init_ex(ptr noundef nonnull %11, ptr noundef %101) #13
-  %103 = load ptr, ptr %11, align 8, !tbaa !26
-  %104 = call noalias ptr @_emalloc_24() #13
-  store ptr null, ptr %104, align 8, !tbaa !106
-  %.sroa.4.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %102 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
+  %103 = call i32 @object_init_ex(ptr noundef nonnull %11, ptr noundef %102) #13
+  %104 = load ptr, ptr %11, align 8, !tbaa !26
+  %105 = call noalias ptr @_emalloc_24() #13
+  store ptr null, ptr %105, align 8, !tbaa !106
+  %.sroa.4.0..sroa_idx.i65 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i32 256, ptr %.sroa.4.0..sroa_idx.i65, align 8, !tbaa !178
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  store i8 0, ptr %105, align 8, !tbaa !179
-  %106 = getelementptr inbounds i8, ptr %103, i64 -24
-  store ptr %104, ptr %106, align 8, !tbaa !27
-  %107 = getelementptr inbounds i8, ptr %103, i64 -8
-  store i32 5, ptr %107, align 8, !tbaa !32
-  %108 = load ptr, ptr %1, align 8, !tbaa !26
-  %109 = call ptr @zend_hash_next_index_insert(ptr noundef %108, ptr noundef nonnull %11) #13
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
+  store i8 0, ptr %106, align 8, !tbaa !179
+  %107 = getelementptr inbounds i8, ptr %104, i64 -24
+  store ptr %105, ptr %107, align 8, !tbaa !27
+  %108 = getelementptr inbounds i8, ptr %104, i64 -8
+  store i32 5, ptr %108, align 8, !tbaa !32
+  %109 = load ptr, ptr %1, align 8, !tbaa !26
+  %110 = call ptr @zend_hash_next_index_insert(ptr noundef %109, ptr noundef nonnull %11) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
-  br label %110
+  br label %111
 
-110:                                              ; preds = %100, %98
-  %111 = and i32 %72, 128
-  %.not55 = icmp eq i32 %111, 0
-  br i1 %.not55, label %122, label %112
+111:                                              ; preds = %101, %99
+  %112 = and i32 %73, 128
+  %.not55 = icmp eq i32 %112, 0
+  br i1 %.not55, label %123, label %113
 
-112:                                              ; preds = %110
+113:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
-  %113 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
-  %114 = call i32 @object_init_ex(ptr noundef nonnull %10, ptr noundef %113) #13
-  %115 = load ptr, ptr %10, align 8, !tbaa !26
-  %116 = call noalias ptr @_emalloc_24() #13
-  store ptr null, ptr %116, align 8, !tbaa !106
-  %.sroa.4.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %114 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
+  %115 = call i32 @object_init_ex(ptr noundef nonnull %10, ptr noundef %114) #13
+  %116 = load ptr, ptr %10, align 8, !tbaa !26
+  %117 = call noalias ptr @_emalloc_24() #13
+  store ptr null, ptr %117, align 8, !tbaa !106
+  %.sroa.4.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i32 128, ptr %.sroa.4.0..sroa_idx.i66, align 8, !tbaa !178
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store i8 0, ptr %117, align 8, !tbaa !179
-  %118 = getelementptr inbounds i8, ptr %115, i64 -24
-  store ptr %116, ptr %118, align 8, !tbaa !27
-  %119 = getelementptr inbounds i8, ptr %115, i64 -8
-  store i32 5, ptr %119, align 8, !tbaa !32
-  %120 = load ptr, ptr %1, align 8, !tbaa !26
-  %121 = call ptr @zend_hash_next_index_insert(ptr noundef %120, ptr noundef nonnull %10) #13
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  store i8 0, ptr %118, align 8, !tbaa !179
+  %119 = getelementptr inbounds i8, ptr %116, i64 -24
+  store ptr %117, ptr %119, align 8, !tbaa !27
+  %120 = getelementptr inbounds i8, ptr %116, i64 -8
+  store i32 5, ptr %120, align 8, !tbaa !32
+  %121 = load ptr, ptr %1, align 8, !tbaa !26
+  %122 = call ptr @zend_hash_next_index_insert(ptr noundef %121, ptr noundef nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
-  br label %122
+  br label %123
 
-122:                                              ; preds = %112, %110
-  %123 = and i32 %72, 64
-  %.not56 = icmp eq i32 %123, 0
-  br i1 %.not56, label %134, label %124
+123:                                              ; preds = %113, %111
+  %124 = and i32 %73, 64
+  %.not56 = icmp eq i32 %124, 0
+  br i1 %.not56, label %135, label %125
 
-124:                                              ; preds = %122
+125:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
-  %125 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
-  %126 = call i32 @object_init_ex(ptr noundef nonnull %9, ptr noundef %125) #13
-  %127 = load ptr, ptr %9, align 8, !tbaa !26
-  %128 = call noalias ptr @_emalloc_24() #13
-  store ptr null, ptr %128, align 8, !tbaa !106
-  %.sroa.4.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  %126 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
+  %127 = call i32 @object_init_ex(ptr noundef nonnull %9, ptr noundef %126) #13
+  %128 = load ptr, ptr %9, align 8, !tbaa !26
+  %129 = call noalias ptr @_emalloc_24() #13
+  store ptr null, ptr %129, align 8, !tbaa !106
+  %.sroa.4.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store i32 64, ptr %.sroa.4.0..sroa_idx.i67, align 8, !tbaa !178
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  store i8 0, ptr %129, align 8, !tbaa !179
-  %130 = getelementptr inbounds i8, ptr %127, i64 -24
-  store ptr %128, ptr %130, align 8, !tbaa !27
-  %131 = getelementptr inbounds i8, ptr %127, i64 -8
-  store i32 5, ptr %131, align 8, !tbaa !32
-  %132 = load ptr, ptr %1, align 8, !tbaa !26
-  %133 = call ptr @zend_hash_next_index_insert(ptr noundef %132, ptr noundef nonnull %9) #13
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
+  store i8 0, ptr %130, align 8, !tbaa !179
+  %131 = getelementptr inbounds i8, ptr %128, i64 -24
+  store ptr %129, ptr %131, align 8, !tbaa !27
+  %132 = getelementptr inbounds i8, ptr %128, i64 -8
+  store i32 5, ptr %132, align 8, !tbaa !32
+  %133 = load ptr, ptr %1, align 8, !tbaa !26
+  %134 = call ptr @zend_hash_next_index_insert(ptr noundef %133, ptr noundef nonnull %9) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
-  br label %134
+  br label %135
 
-134:                                              ; preds = %124, %122
-  %135 = and i32 %72, 16
-  %.not57 = icmp eq i32 %135, 0
-  br i1 %.not57, label %146, label %136
+135:                                              ; preds = %125, %123
+  %136 = and i32 %73, 16
+  %.not57 = icmp eq i32 %136, 0
+  br i1 %.not57, label %147, label %137
 
-136:                                              ; preds = %134
+137:                                              ; preds = %135
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
-  %137 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
-  %138 = call i32 @object_init_ex(ptr noundef nonnull %8, ptr noundef %137) #13
-  %139 = load ptr, ptr %8, align 8, !tbaa !26
-  %140 = call noalias ptr @_emalloc_24() #13
-  store ptr null, ptr %140, align 8, !tbaa !106
-  %.sroa.4.0..sroa_idx.i68 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %138 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
+  %139 = call i32 @object_init_ex(ptr noundef nonnull %8, ptr noundef %138) #13
+  %140 = load ptr, ptr %8, align 8, !tbaa !26
+  %141 = call noalias ptr @_emalloc_24() #13
+  store ptr null, ptr %141, align 8, !tbaa !106
+  %.sroa.4.0..sroa_idx.i68 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store i32 16, ptr %.sroa.4.0..sroa_idx.i68, align 8, !tbaa !178
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  store i8 0, ptr %141, align 8, !tbaa !179
-  %142 = getelementptr inbounds i8, ptr %139, i64 -24
-  store ptr %140, ptr %142, align 8, !tbaa !27
-  %143 = getelementptr inbounds i8, ptr %139, i64 -8
-  store i32 5, ptr %143, align 8, !tbaa !32
-  %144 = load ptr, ptr %1, align 8, !tbaa !26
-  %145 = call ptr @zend_hash_next_index_insert(ptr noundef %144, ptr noundef nonnull %8) #13
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  store i8 0, ptr %142, align 8, !tbaa !179
+  %143 = getelementptr inbounds i8, ptr %140, i64 -24
+  store ptr %141, ptr %143, align 8, !tbaa !27
+  %144 = getelementptr inbounds i8, ptr %140, i64 -8
+  store i32 5, ptr %144, align 8, !tbaa !32
+  %145 = load ptr, ptr %1, align 8, !tbaa !26
+  %146 = call ptr @zend_hash_next_index_insert(ptr noundef %145, ptr noundef nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
-  br label %146
+  br label %147
 
-146:                                              ; preds = %136, %134
-  %147 = and i32 %72, 32
-  %.not58 = icmp eq i32 %147, 0
-  br i1 %.not58, label %158, label %148
+147:                                              ; preds = %137, %135
+  %148 = and i32 %73, 32
+  %.not58 = icmp eq i32 %148, 0
+  br i1 %.not58, label %159, label %149
 
-148:                                              ; preds = %146
+149:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
-  %149 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
-  %150 = call i32 @object_init_ex(ptr noundef nonnull %7, ptr noundef %149) #13
-  %151 = load ptr, ptr %7, align 8, !tbaa !26
-  %152 = call noalias ptr @_emalloc_24() #13
-  store ptr null, ptr %152, align 8, !tbaa !106
-  %.sroa.4.0..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %150 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
+  %151 = call i32 @object_init_ex(ptr noundef nonnull %7, ptr noundef %150) #13
+  %152 = load ptr, ptr %7, align 8, !tbaa !26
+  %153 = call noalias ptr @_emalloc_24() #13
+  store ptr null, ptr %153, align 8, !tbaa !106
+  %.sroa.4.0..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %153, i64 8
   store i32 32, ptr %.sroa.4.0..sroa_idx.i69, align 8, !tbaa !178
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  store i8 0, ptr %153, align 8, !tbaa !179
-  %154 = getelementptr inbounds i8, ptr %151, i64 -24
-  store ptr %152, ptr %154, align 8, !tbaa !27
-  %155 = getelementptr inbounds i8, ptr %151, i64 -8
-  store i32 5, ptr %155, align 8, !tbaa !32
-  %156 = load ptr, ptr %1, align 8, !tbaa !26
-  %157 = call ptr @zend_hash_next_index_insert(ptr noundef %156, ptr noundef nonnull %7) #13
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  store i8 0, ptr %154, align 8, !tbaa !179
+  %155 = getelementptr inbounds i8, ptr %152, i64 -24
+  store ptr %153, ptr %155, align 8, !tbaa !27
+  %156 = getelementptr inbounds i8, ptr %152, i64 -8
+  store i32 5, ptr %156, align 8, !tbaa !32
+  %157 = load ptr, ptr %1, align 8, !tbaa !26
+  %158 = call ptr @zend_hash_next_index_insert(ptr noundef %157, ptr noundef nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
-  br label %158
+  br label %159
 
-158:                                              ; preds = %148, %146
-  %159 = and i32 %72, 12
-  %160 = icmp eq i32 %159, 12
-  br i1 %160, label %161, label %171
+159:                                              ; preds = %149, %147
+  %160 = and i32 %73, 12
+  %161 = icmp eq i32 %160, 12
+  br i1 %161, label %162, label %172
 
-161:                                              ; preds = %158
+162:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
-  %162 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
-  %163 = call i32 @object_init_ex(ptr noundef nonnull %6, ptr noundef %162) #13
-  %164 = load ptr, ptr %6, align 8, !tbaa !26
-  %165 = call noalias ptr @_emalloc_24() #13
-  store ptr null, ptr %165, align 8, !tbaa !106
-  %.sroa.4.0..sroa_idx.i70 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %163 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
+  %164 = call i32 @object_init_ex(ptr noundef nonnull %6, ptr noundef %163) #13
+  %165 = load ptr, ptr %6, align 8, !tbaa !26
+  %166 = call noalias ptr @_emalloc_24() #13
+  store ptr null, ptr %166, align 8, !tbaa !106
+  %.sroa.4.0..sroa_idx.i70 = getelementptr inbounds nuw i8, ptr %166, i64 8
   store i32 12, ptr %.sroa.4.0..sroa_idx.i70, align 8, !tbaa !178
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  store i8 0, ptr %166, align 8, !tbaa !179
-  %167 = getelementptr inbounds i8, ptr %164, i64 -24
-  store ptr %165, ptr %167, align 8, !tbaa !27
-  %168 = getelementptr inbounds i8, ptr %164, i64 -8
-  store i32 5, ptr %168, align 8, !tbaa !32
-  %169 = load ptr, ptr %1, align 8, !tbaa !26
-  %170 = call ptr @zend_hash_next_index_insert(ptr noundef %169, ptr noundef nonnull %6) #13
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  store i8 0, ptr %167, align 8, !tbaa !179
+  %168 = getelementptr inbounds i8, ptr %165, i64 -24
+  store ptr %166, ptr %168, align 8, !tbaa !27
+  %169 = getelementptr inbounds i8, ptr %165, i64 -8
+  store i32 5, ptr %169, align 8, !tbaa !32
+  %170 = load ptr, ptr %1, align 8, !tbaa !26
+  %171 = call ptr @zend_hash_next_index_insert(ptr noundef %170, ptr noundef nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
-  br label %195
+  br label %196
 
-171:                                              ; preds = %158
-  %172 = and i32 %72, 8
-  %.not59 = icmp eq i32 %172, 0
-  br i1 %.not59, label %183, label %173
+172:                                              ; preds = %159
+  %173 = and i32 %73, 8
+  %.not59 = icmp eq i32 %173, 0
+  br i1 %.not59, label %184, label %174
 
-173:                                              ; preds = %171
+174:                                              ; preds = %172
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
-  %174 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
-  %175 = call i32 @object_init_ex(ptr noundef nonnull %5, ptr noundef %174) #13
-  %176 = load ptr, ptr %5, align 8, !tbaa !26
-  %177 = call noalias ptr @_emalloc_24() #13
-  store ptr null, ptr %177, align 8, !tbaa !106
-  %.sroa.4.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %175 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
+  %176 = call i32 @object_init_ex(ptr noundef nonnull %5, ptr noundef %175) #13
+  %177 = load ptr, ptr %5, align 8, !tbaa !26
+  %178 = call noalias ptr @_emalloc_24() #13
+  store ptr null, ptr %178, align 8, !tbaa !106
+  %.sroa.4.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %178, i64 8
   store i32 8, ptr %.sroa.4.0..sroa_idx.i71, align 8, !tbaa !178
-  %178 = getelementptr inbounds nuw i8, ptr %177, i64 16
-  store i8 0, ptr %178, align 8, !tbaa !179
-  %179 = getelementptr inbounds i8, ptr %176, i64 -24
-  store ptr %177, ptr %179, align 8, !tbaa !27
-  %180 = getelementptr inbounds i8, ptr %176, i64 -8
-  store i32 5, ptr %180, align 8, !tbaa !32
-  %181 = load ptr, ptr %1, align 8, !tbaa !26
-  %182 = call ptr @zend_hash_next_index_insert(ptr noundef %181, ptr noundef nonnull %5) #13
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
+  store i8 0, ptr %179, align 8, !tbaa !179
+  %180 = getelementptr inbounds i8, ptr %177, i64 -24
+  store ptr %178, ptr %180, align 8, !tbaa !27
+  %181 = getelementptr inbounds i8, ptr %177, i64 -8
+  store i32 5, ptr %181, align 8, !tbaa !32
+  %182 = load ptr, ptr %1, align 8, !tbaa !26
+  %183 = call ptr @zend_hash_next_index_insert(ptr noundef %182, ptr noundef nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
-  br label %195
+  br label %196
 
-183:                                              ; preds = %171
-  %184 = and i32 %72, 4
-  %.not60 = icmp eq i32 %184, 0
-  br i1 %.not60, label %195, label %185
+184:                                              ; preds = %172
+  %185 = and i32 %73, 4
+  %.not60 = icmp eq i32 %185, 0
+  br i1 %.not60, label %196, label %186
 
-185:                                              ; preds = %183
+186:                                              ; preds = %184
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
-  %186 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
-  %187 = call i32 @object_init_ex(ptr noundef nonnull %4, ptr noundef %186) #13
-  %188 = load ptr, ptr %4, align 8, !tbaa !26
-  %189 = call noalias ptr @_emalloc_24() #13
-  store ptr null, ptr %189, align 8, !tbaa !106
-  %.sroa.4.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  %187 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
+  %188 = call i32 @object_init_ex(ptr noundef nonnull %4, ptr noundef %187) #13
+  %189 = load ptr, ptr %4, align 8, !tbaa !26
+  %190 = call noalias ptr @_emalloc_24() #13
+  store ptr null, ptr %190, align 8, !tbaa !106
+  %.sroa.4.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store i32 4, ptr %.sroa.4.0..sroa_idx.i72, align 8, !tbaa !178
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 16
-  store i8 0, ptr %190, align 8, !tbaa !179
-  %191 = getelementptr inbounds i8, ptr %188, i64 -24
-  store ptr %189, ptr %191, align 8, !tbaa !27
-  %192 = getelementptr inbounds i8, ptr %188, i64 -8
-  store i32 5, ptr %192, align 8, !tbaa !32
-  %193 = load ptr, ptr %1, align 8, !tbaa !26
-  %194 = call ptr @zend_hash_next_index_insert(ptr noundef %193, ptr noundef nonnull %4) #13
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
+  store i8 0, ptr %191, align 8, !tbaa !179
+  %192 = getelementptr inbounds i8, ptr %189, i64 -24
+  store ptr %190, ptr %192, align 8, !tbaa !27
+  %193 = getelementptr inbounds i8, ptr %189, i64 -8
+  store i32 5, ptr %193, align 8, !tbaa !32
+  %194 = load ptr, ptr %1, align 8, !tbaa !26
+  %195 = call ptr @zend_hash_next_index_insert(ptr noundef %194, ptr noundef nonnull %4) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  br label %195
+  br label %196
 
-195:                                              ; preds = %173, %185, %183, %161
-  %196 = and i32 %72, 2
-  %.not61 = icmp eq i32 %196, 0
-  br i1 %.not61, label %207, label %197
+196:                                              ; preds = %174, %186, %184, %162
+  %197 = and i32 %73, 2
+  %.not61 = icmp eq i32 %197, 0
+  br i1 %.not61, label %208, label %198
 
-197:                                              ; preds = %195
+198:                                              ; preds = %196
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
-  %198 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
-  %199 = call i32 @object_init_ex(ptr noundef nonnull %3, ptr noundef %198) #13
-  %200 = load ptr, ptr %3, align 8, !tbaa !26
-  %201 = call noalias ptr @_emalloc_24() #13
-  store ptr null, ptr %201, align 8, !tbaa !106
-  %.sroa.4.0..sroa_idx.i73 = getelementptr inbounds nuw i8, ptr %201, i64 8
+  %199 = load ptr, ptr @reflection_named_type_ptr, align 8, !tbaa !38
+  %200 = call i32 @object_init_ex(ptr noundef nonnull %3, ptr noundef %199) #13
+  %201 = load ptr, ptr %3, align 8, !tbaa !26
+  %202 = call noalias ptr @_emalloc_24() #13
+  store ptr null, ptr %202, align 8, !tbaa !106
+  %.sroa.4.0..sroa_idx.i73 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i32 2, ptr %.sroa.4.0..sroa_idx.i73, align 8, !tbaa !178
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  store i8 0, ptr %202, align 8, !tbaa !179
-  %203 = getelementptr inbounds i8, ptr %200, i64 -24
-  store ptr %201, ptr %203, align 8, !tbaa !27
-  %204 = getelementptr inbounds i8, ptr %200, i64 -8
-  store i32 5, ptr %204, align 8, !tbaa !32
-  %205 = load ptr, ptr %1, align 8, !tbaa !26
-  %206 = call ptr @zend_hash_next_index_insert(ptr noundef %205, ptr noundef nonnull %3) #13
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
+  store i8 0, ptr %203, align 8, !tbaa !179
+  %204 = getelementptr inbounds i8, ptr %201, i64 -24
+  store ptr %202, ptr %204, align 8, !tbaa !27
+  %205 = getelementptr inbounds i8, ptr %201, i64 -8
+  store i32 5, ptr %205, align 8, !tbaa !32
+  %206 = load ptr, ptr %1, align 8, !tbaa !26
+  %207 = call ptr @zend_hash_next_index_insert(ptr noundef %206, ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
-  br label %207
+  br label %208
 
-207:                                              ; preds = %195, %197, %27, %32, %18
+208:                                              ; preds = %196, %198, %27, %32, %18
   ret void
 }
 
@@ -10151,8 +10151,8 @@ define hidden void @zim_ReflectionIntersectionType_getTypes(ptr noundef readonly
   %31 = load i32, ptr %30, align 8, !tbaa !186
   %32 = zext i32 %31 to i64
   %.idx = shl nuw nsw i64 %32, 4
-  %.add = or disjoint i64 %.idx, 8
-  %.ptr22 = getelementptr inbounds nuw i8, ptr %30, i64 %.add
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
+  %.ptr22 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.not23 = icmp eq i32 %31, 0
   br i1 %.not23, label %.loopexit, label %.lr.ph.preheader
 
@@ -10161,19 +10161,19 @@ define hidden void @zim_ReflectionIntersectionType_getTypes(ptr noundef readonly
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.021 = phi ptr [ %39, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  %33 = load ptr, ptr %.021, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %.021, i64 8
-  %35 = load i32, ptr %34, align 8
+  %.021 = phi ptr [ %40, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
+  %34 = load ptr, ptr %.021, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %.021, i64 8
+  %36 = load i32, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
-  %36 = and i32 %35, -2097153
-  call fastcc void @reflection_type_factory(ptr %33, i32 %36, ptr noundef nonnull %3, i1 noundef zeroext false)
-  %37 = load ptr, ptr %1, align 8, !tbaa !26
-  %38 = call ptr @zend_hash_next_index_insert(ptr noundef %37, ptr noundef nonnull %3) #13
+  %37 = and i32 %36, -2097153
+  call fastcc void @reflection_type_factory(ptr %34, i32 %37, ptr noundef nonnull %3, i1 noundef zeroext false)
+  %38 = load ptr, ptr %1, align 8, !tbaa !26
+  %39 = call ptr @zend_hash_next_index_insert(ptr noundef %38, ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #13
-  %39 = getelementptr inbounds nuw i8, ptr %.021, i64 16
-  %40 = icmp ult ptr %39, %.ptr22
-  br i1 %40, label %.lr.ph, label %.loopexit
+  %40 = getelementptr inbounds nuw i8, ptr %.021, i64 16
+  %41 = icmp ult ptr %40, %.ptr22
+  br i1 %41, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %23, %15, %20, %6
   ret void

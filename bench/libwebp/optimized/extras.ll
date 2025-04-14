@@ -140,9 +140,9 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly capt
 
 .lr.ph49.split:                                   ; preds = %.lr.ph49.splitthread-pre-split, %.lr.ph49.split.preheader
   %24 = phi i32 [ %.pr, %.lr.ph49.splitthread-pre-split ], [ %14, %.lr.ph49.split.preheader ]
-  %25 = phi i32 [ %52, %.lr.ph49.splitthread-pre-split ], [ %10, %.lr.ph49.split.preheader ]
+  %25 = phi i32 [ %51, %.lr.ph49.splitthread-pre-split ], [ %10, %.lr.ph49.split.preheader ]
   %.03747 = phi ptr [ %23, %.lr.ph49.splitthread-pre-split ], [ %0, %.lr.ph49.split.preheader ]
-  %.03946 = phi i32 [ %53, %.lr.ph49.splitthread-pre-split ], [ 0, %.lr.ph49.split.preheader ]
+  %.03946 = phi i32 [ %52, %.lr.ph49.splitthread-pre-split ], [ 0, %.lr.ph49.split.preheader ]
   %.04045 = phi ptr [ %20, %.lr.ph49.splitthread-pre-split ], [ %17, %.lr.ph49.split.preheader ]
   %26 = icmp sgt i32 %24, 0
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
@@ -157,28 +157,27 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly capt
   %28 = getelementptr inbounds nuw i8, ptr %.03747, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !25
   %30 = zext i8 %29 to i32
-  %31 = or disjoint i64 %27, 1
-  %32 = getelementptr inbounds nuw i8, ptr %.03747, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !25
-  %34 = zext i8 %33 to i32
-  %35 = and i32 %30, 248
-  %36 = shl nuw nsw i32 %30, 5
-  %37 = lshr i32 %34, 3
-  %38 = or disjoint i32 %37, %36
-  %39 = and i32 %38, 252
-  %40 = shl nuw nsw i32 %34, 5
-  %41 = lshr i32 %30, 5
-  %42 = or disjoint i32 %35, %41
-  %43 = lshr i32 %39, 6
-  %44 = or disjoint i32 %43, %39
-  %45 = shl nuw nsw i32 %42, 16
-  %46 = shl nuw nsw i32 %44, 8
-  %47 = or disjoint i32 %46, %45
-  %48 = or i32 %40, %47
-  %49 = or i32 %48, %34
-  %50 = or i32 %49, -16777216
-  %51 = getelementptr inbounds nuw i32, ptr %.04045, i64 %indvars.iv
-  store i32 %50, ptr %51, align 4, !tbaa !26
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  %32 = load i8, ptr %31, align 1, !tbaa !25
+  %33 = zext i8 %32 to i32
+  %34 = and i32 %30, 248
+  %35 = shl nuw nsw i32 %30, 5
+  %36 = lshr i32 %33, 3
+  %37 = or disjoint i32 %36, %35
+  %38 = and i32 %37, 252
+  %39 = shl nuw nsw i32 %33, 5
+  %40 = lshr i32 %30, 5
+  %41 = or disjoint i32 %34, %40
+  %42 = lshr i32 %38, 6
+  %43 = or disjoint i32 %42, %38
+  %44 = shl nuw nsw i32 %41, 16
+  %45 = shl nuw nsw i32 %43, 8
+  %46 = or disjoint i32 %45, %44
+  %47 = or i32 %39, %46
+  %48 = or i32 %47, %33
+  %49 = or i32 %48, -16777216
+  %50 = getelementptr inbounds nuw i32, ptr %.04045, i64 %indvars.iv
+  store i32 %49, ptr %50, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
@@ -188,10 +187,10 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly capt
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph49.split
-  %52 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %25, %.lr.ph49.split ]
-  %53 = add nuw nsw i32 %.03946, 1
-  %54 = icmp slt i32 %53, %52
-  br i1 %54, label %.lr.ph49.splitthread-pre-split, label %.loopexit, !llvm.loop !28
+  %51 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %25, %.lr.ph49.split ]
+  %52 = add nuw nsw i32 %.03946, 1
+  %53 = icmp slt i32 %52, %51
+  br i1 %53, label %.lr.ph49.splitthread-pre-split, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph49, %8, %5, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %8 ], [ 1, %.lr.ph49 ], [ 1, %._crit_edge ]
@@ -243,9 +242,9 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly cap
 
 .lr.ph52.split:                                   ; preds = %.lr.ph52.splitthread-pre-split, %.lr.ph52.split.preheader
   %24 = phi i32 [ %.pr, %.lr.ph52.splitthread-pre-split ], [ %14, %.lr.ph52.split.preheader ]
-  %25 = phi i32 [ %52, %.lr.ph52.splitthread-pre-split ], [ %10, %.lr.ph52.split.preheader ]
+  %25 = phi i32 [ %51, %.lr.ph52.splitthread-pre-split ], [ %10, %.lr.ph52.split.preheader ]
   %.04050 = phi ptr [ %23, %.lr.ph52.splitthread-pre-split ], [ %0, %.lr.ph52.split.preheader ]
-  %.04249 = phi i32 [ %53, %.lr.ph52.splitthread-pre-split ], [ 0, %.lr.ph52.split.preheader ]
+  %.04249 = phi i32 [ %52, %.lr.ph52.splitthread-pre-split ], [ 0, %.lr.ph52.split.preheader ]
   %.04348 = phi ptr [ %20, %.lr.ph52.splitthread-pre-split ], [ %17, %.lr.ph52.split.preheader ]
   %26 = icmp sgt i32 %24, 0
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
@@ -260,28 +259,27 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly cap
   %28 = getelementptr inbounds nuw i8, ptr %.04050, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !25
   %30 = zext i8 %29 to i32
-  %31 = or disjoint i64 %27, 1
-  %32 = getelementptr inbounds nuw i8, ptr %.04050, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !25
-  %34 = zext i8 %33 to i32
-  %35 = and i32 %30, 240
-  %36 = and i32 %34, 240
-  %37 = lshr i32 %30, 4
-  %38 = or disjoint i32 %35, %37
-  %39 = lshr i32 %34, 4
-  %40 = shl i32 %34, 28
-  %41 = shl nuw i32 %34, 24
-  %42 = or i32 %40, %41
-  %43 = shl nuw nsw i32 %38, 16
-  %44 = or disjoint i32 %42, %43
-  %45 = shl nuw nsw i32 %30, 12
-  %46 = shl nuw nsw i32 %30, 8
-  %47 = or i32 %45, %46
-  %48 = or disjoint i32 %47, %39
-  %49 = or disjoint i32 %48, %36
-  %50 = or i32 %49, %44
-  %51 = getelementptr inbounds nuw i32, ptr %.04348, i64 %indvars.iv
-  store i32 %50, ptr %51, align 4, !tbaa !26
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  %32 = load i8, ptr %31, align 1, !tbaa !25
+  %33 = zext i8 %32 to i32
+  %34 = and i32 %30, 240
+  %35 = and i32 %33, 240
+  %36 = lshr i32 %30, 4
+  %37 = or disjoint i32 %34, %36
+  %38 = lshr i32 %33, 4
+  %39 = shl i32 %33, 28
+  %40 = shl nuw i32 %33, 24
+  %41 = or i32 %39, %40
+  %42 = shl nuw nsw i32 %37, 16
+  %43 = or disjoint i32 %41, %42
+  %44 = shl nuw nsw i32 %30, 12
+  %45 = shl nuw nsw i32 %30, 8
+  %46 = or i32 %44, %45
+  %47 = or disjoint i32 %46, %38
+  %48 = or disjoint i32 %47, %35
+  %49 = or i32 %48, %43
+  %50 = getelementptr inbounds nuw i32, ptr %.04348, i64 %indvars.iv
+  store i32 %49, ptr %50, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !30
@@ -291,10 +289,10 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly cap
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph52.split
-  %52 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %25, %.lr.ph52.split ]
-  %53 = add nuw nsw i32 %.04249, 1
-  %54 = icmp slt i32 %53, %52
-  br i1 %54, label %.lr.ph52.splitthread-pre-split, label %.loopexit, !llvm.loop !31
+  %51 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %25, %.lr.ph52.split ]
+  %52 = add nuw nsw i32 %.04249, 1
+  %53 = icmp slt i32 %52, %51
+  br i1 %53, label %.lr.ph52.splitthread-pre-split, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph52, %8, %5, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %8 ], [ 1, %.lr.ph52 ], [ 1, %._crit_edge ]

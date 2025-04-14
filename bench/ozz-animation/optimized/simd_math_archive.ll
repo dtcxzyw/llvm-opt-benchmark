@@ -73,25 +73,22 @@ define dso_local void @_ZN3ozz2io6ExternIDv4_fE4LoadERNS0_8IArchiveEPS2_mj(ptr n
   br i1 %or.cond.not, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
-  %.0.i6.i.i = phi i64 [ %25, %.lr.ph.i.i ], [ 0, %4 ]
+  %.0.i6.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i6.i.i
-  %15 = or disjoint i64 %.0.i6.i.i, 3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
-  %17 = load i8, ptr %14, align 1, !tbaa !23
-  %18 = load i8, ptr %16, align 1, !tbaa !23
-  store i8 %17, ptr %16, align 1, !tbaa !23
-  store i8 %18, ptr %14, align 1, !tbaa !23
-  %19 = or disjoint i64 %.0.i6.i.i, 1
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
-  %21 = or disjoint i64 %.0.i6.i.i, 2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %21
-  %23 = load i8, ptr %20, align 1, !tbaa !23
-  %24 = load i8, ptr %22, align 1, !tbaa !23
-  store i8 %23, ptr %22, align 1, !tbaa !23
-  store i8 %24, ptr %20, align 1, !tbaa !23
-  %25 = add nuw i64 %.0.i6.i.i, 4
-  %26 = icmp ult i64 %25, %5
-  br i1 %26, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 3
+  %16 = load i8, ptr %14, align 1, !tbaa !23
+  %17 = load i8, ptr %15, align 1, !tbaa !23
+  store i8 %16, ptr %15, align 1, !tbaa !23
+  store i8 %17, ptr %14, align 1, !tbaa !23
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  %20 = load i8, ptr %18, align 1, !tbaa !23
+  %21 = load i8, ptr %19, align 1, !tbaa !23
+  store i8 %20, ptr %19, align 1, !tbaa !23
+  store i8 %21, ptr %18, align 1, !tbaa !23
+  %22 = add nuw i64 %.0.i6.i.i, 4
+  %23 = icmp ult i64 %22, %5
+  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !24
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %4
   ret void
@@ -159,25 +156,22 @@ define dso_local void @_ZN3ozz2io6ExternIDv2_xE4LoadERNS0_8IArchiveEPS2_mj(ptr n
   br i1 %or.cond.not, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIiEEEEvRT_.exit
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
-  %.0.i6.i.i = phi i64 [ %25, %.lr.ph.i.i ], [ 0, %4 ]
+  %.0.i6.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i6.i.i
-  %15 = or disjoint i64 %.0.i6.i.i, 3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
-  %17 = load i8, ptr %14, align 1, !tbaa !23
-  %18 = load i8, ptr %16, align 1, !tbaa !23
-  store i8 %17, ptr %16, align 1, !tbaa !23
-  store i8 %18, ptr %14, align 1, !tbaa !23
-  %19 = or disjoint i64 %.0.i6.i.i, 1
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
-  %21 = or disjoint i64 %.0.i6.i.i, 2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %21
-  %23 = load i8, ptr %20, align 1, !tbaa !23
-  %24 = load i8, ptr %22, align 1, !tbaa !23
-  store i8 %23, ptr %22, align 1, !tbaa !23
-  store i8 %24, ptr %20, align 1, !tbaa !23
-  %25 = add nuw i64 %.0.i6.i.i, 4
-  %26 = icmp ult i64 %25, %5
-  br i1 %26, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIiEEEEvRT_.exit, !llvm.loop !28
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 3
+  %16 = load i8, ptr %14, align 1, !tbaa !23
+  %17 = load i8, ptr %15, align 1, !tbaa !23
+  store i8 %16, ptr %15, align 1, !tbaa !23
+  store i8 %17, ptr %14, align 1, !tbaa !23
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  %20 = load i8, ptr %18, align 1, !tbaa !23
+  %21 = load i8, ptr %19, align 1, !tbaa !23
+  store i8 %20, ptr %19, align 1, !tbaa !23
+  store i8 %21, ptr %18, align 1, !tbaa !23
+  %22 = add nuw i64 %.0.i6.i.i, 4
+  %23 = icmp ult i64 %22, %5
+  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIiEEEEvRT_.exit, !llvm.loop !28
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIiEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %4
   ret void
@@ -247,25 +241,22 @@ define dso_local void @_ZN3ozz2io6ExternINS_4math8Float4x4EE4LoadERNS0_8IArchive
   br i1 %or.cond.not, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit
 
 .lr.ph.i.i:                                       ; preds = %4, %.lr.ph.i.i
-  %.0.i6.i.i = phi i64 [ %25, %.lr.ph.i.i ], [ 0, %4 ]
+  %.0.i6.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %4 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i6.i.i
-  %15 = or disjoint i64 %.0.i6.i.i, 3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
-  %17 = load i8, ptr %14, align 1, !tbaa !23
-  %18 = load i8, ptr %16, align 1, !tbaa !23
-  store i8 %17, ptr %16, align 1, !tbaa !23
-  store i8 %18, ptr %14, align 1, !tbaa !23
-  %19 = or disjoint i64 %.0.i6.i.i, 1
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
-  %21 = or disjoint i64 %.0.i6.i.i, 2
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %21
-  %23 = load i8, ptr %20, align 1, !tbaa !23
-  %24 = load i8, ptr %22, align 1, !tbaa !23
-  store i8 %23, ptr %22, align 1, !tbaa !23
-  store i8 %24, ptr %20, align 1, !tbaa !23
-  %25 = add nuw i64 %.0.i6.i.i, 4
-  %26 = icmp ult i64 %25, %5
-  br i1 %26, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 3
+  %16 = load i8, ptr %14, align 1, !tbaa !23
+  %17 = load i8, ptr %15, align 1, !tbaa !23
+  store i8 %16, ptr %15, align 1, !tbaa !23
+  store i8 %17, ptr %14, align 1, !tbaa !23
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  %20 = load i8, ptr %18, align 1, !tbaa !23
+  %21 = load i8, ptr %19, align 1, !tbaa !23
+  store i8 %20, ptr %19, align 1, !tbaa !23
+  store i8 %21, ptr %18, align 1, !tbaa !23
+  %22 = add nuw i64 %.0.i6.i.i, 4
+  %23 = icmp ult i64 %22, %5
+  br i1 %23, label %.lr.ph.i.i, label %_ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit, !llvm.loop !24
 
 _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIfEEEEvRT_.exit: ; preds = %.lr.ph.i.i, %4
   ret void

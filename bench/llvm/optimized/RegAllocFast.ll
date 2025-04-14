@@ -10146,24 +10146,24 @@ define internal fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter
   br i1 %8, label %.lr.ph, label %"_ZSt14__partial_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_T0_.exit"
 
 .lr.ph:                                           ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %9 = getelementptr i8, ptr %0, i64 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %10
 
 10:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEET_SC_SC_T0_.exit"
   %11 = phi i64 [ %7, %.lr.ph ], [ %620, %"_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEET_SC_SC_T0_.exit" ]
-  %.028 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %"_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEET_SC_SC_T0_.exit" ]
-  %.01227 = phi i64 [ %2, %.lr.ph ], [ %414, %"_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEET_SC_SC_T0_.exit" ]
-  %12 = icmp eq i64 %.01227, 0
+  %.029 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %"_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEET_SC_SC_T0_.exit" ]
+  %.01228 = phi i64 [ %2, %.lr.ph ], [ %414, %"_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEET_SC_SC_T0_.exit" ]
+  %12 = icmp eq i64 %.01228, 0
   br i1 %12, label %13, label %413
 
 13:                                               ; preds = %10
-  %.sroa.013.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !634
-  %.sroa.013.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.013.sroa.2.0.copyload = load ptr, ptr %.sroa.013.sroa.2.0..sroa_idx, align 8, !tbaa !710
-  %.sroa.013.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.013.sroa.3.0.copyload = load ptr, ptr %.sroa.013.sroa.3.0..sroa_idx, align 8, !tbaa !712
+  %.sroa.014.sroa.0.0.copyload = load ptr, ptr %3, align 8, !tbaa !634
+  %.sroa.014.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.014.sroa.2.0.copyload = load ptr, ptr %.sroa.014.sroa.2.0..sroa_idx, align 8, !tbaa !710
+  %.sroa.014.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.014.sroa.3.0.copyload = load ptr, ptr %.sroa.014.sroa.3.0..sroa_idx, align 8, !tbaa !712
   %14 = lshr exact i64 %11, 2
   %15 = add nsw i64 %14, -2
   %16 = lshr i64 %15, 1
@@ -10174,10 +10174,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter
   %21 = or disjoint i64 %15, 1
   %22 = getelementptr inbounds nuw i32, ptr %0, i64 %21
   %23 = getelementptr inbounds nuw i32, ptr %0, i64 %16
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.013.sroa.0.0.copyload, i64 32
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.013.sroa.2.0.copyload, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.013.sroa.2.0.copyload, i64 32
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.013.sroa.2.0.copyload, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.014.sroa.0.0.copyload, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.014.sroa.2.0.copyload, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.014.sroa.2.0.copyload, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.014.sroa.2.0.copyload, i64 40
   br label %28
 
 28:                                               ; preds = %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i", %13
@@ -10192,147 +10192,149 @@ define internal fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter
   %32 = shl i64 %.030.i.i.i.i, 1
   %33 = add i64 %32, 2
   %34 = getelementptr inbounds nuw i32, ptr %0, i64 %33
-  %35 = or disjoint i64 %32, 1
-  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %35
+  %gep.i.i.i.i = getelementptr i32, ptr %9, i64 %32
   %.val.i.i.i.i = load i32, ptr %34, align 4, !tbaa !300
-  %.val29.i.i.i.i = load i32, ptr %36, align 4, !tbaa !300
-  %37 = load ptr, ptr %24, align 8, !tbaa !400
-  %38 = zext i32 %.val.i.i.i.i to i64
-  %39 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %37, i64 %38
-  %40 = zext i32 %.val29.i.i.i.i to i64
-  %41 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %37, i64 %40
+  %.val29.i.i.i.i = load i32, ptr %gep.i.i.i.i, align 4, !tbaa !300
+  %35 = load ptr, ptr %24, align 8, !tbaa !400
+  %36 = zext i32 %.val.i.i.i.i to i64
+  %37 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %35, i64 %36
+  %38 = zext i32 %.val29.i.i.i.i to i64
+  %39 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %35, i64 %38
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %41 = load i32, ptr %40, align 4, !tbaa !401
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !401
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !401
-  %46 = load ptr, ptr %25, align 8, !tbaa !279
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  %48 = and i32 %43, 2147483647
-  %49 = zext nneg i32 %48 to i64
-  %50 = load ptr, ptr %47, align 8, !tbaa !25
-  %51 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %50, i64 %49
-  %.0.copyload.i.i.i.i.i.i.i.i.i17.i.i.i = load i64, ptr %51, align 8
-  %52 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i17.i.i.i, -8
-  %53 = inttoptr i64 %52 to ptr
-  %54 = and i32 %45, 2147483647
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %50, i64 %55
-  %.0.copyload.i.i.i.i.i.i.i.i37.i18.i.i.i = load i64, ptr %56, align 8
-  %57 = and i64 %.0.copyload.i.i.i.i.i.i.i.i37.i18.i.i.i, -8
-  %58 = inttoptr i64 %57 to ptr
-  %59 = load ptr, ptr %53, align 8, !tbaa !429
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %61 = load i16, ptr %60, align 8, !tbaa !431
-  %62 = zext i16 %61 to i64
-  %63 = load ptr, ptr %26, align 8, !tbaa !506
-  %64 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %63, i64 %62
-  %65 = load i32, ptr %27, align 8, !tbaa !507
-  %66 = load i32, ptr %64, align 8, !tbaa !508
-  %.not.i.i.i19.i.i.i = icmp eq i32 %65, %66
-  br i1 %.not.i.i.i19.i.i.i, label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i22.i.i.i, label %67
+  %44 = load ptr, ptr %25, align 8, !tbaa !279
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
+  %46 = and i32 %41, 2147483647
+  %47 = zext nneg i32 %46 to i64
+  %48 = load ptr, ptr %45, align 8, !tbaa !25
+  %49 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %48, i64 %47
+  %.0.copyload.i.i.i.i.i.i.i.i.i17.i.i.i = load i64, ptr %49, align 8
+  %50 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i17.i.i.i, -8
+  %51 = inttoptr i64 %50 to ptr
+  %52 = and i32 %43, 2147483647
+  %53 = zext nneg i32 %52 to i64
+  %54 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %48, i64 %53
+  %.0.copyload.i.i.i.i.i.i.i.i37.i18.i.i.i = load i64, ptr %54, align 8
+  %55 = and i64 %.0.copyload.i.i.i.i.i.i.i.i37.i18.i.i.i, -8
+  %56 = inttoptr i64 %55 to ptr
+  %57 = load ptr, ptr %51, align 8, !tbaa !429
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %59 = load i16, ptr %58, align 8, !tbaa !431
+  %60 = zext i16 %59 to i64
+  %61 = load ptr, ptr %26, align 8, !tbaa !506
+  %62 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %61, i64 %60
+  %63 = load i32, ptr %27, align 8, !tbaa !507
+  %64 = load i32, ptr %62, align 8, !tbaa !508
+  %.not.i.i.i19.i.i.i = icmp eq i32 %63, %64
+  br i1 %.not.i.i.i19.i.i.i, label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i22.i.i.i, label %65
 
-67:                                               ; preds = %.lr.ph.i.i.i.i
-  tail call void @_ZNK4llvm17RegisterClassInfo7computeEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(320) %26, ptr noundef nonnull %53) #25
+65:                                               ; preds = %.lr.ph.i.i.i.i
+  tail call void @_ZNK4llvm17RegisterClassInfo7computeEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(320) %26, ptr noundef nonnull %51) #25
   %.pre.i20.i.i.i = load ptr, ptr %26, align 8, !tbaa !506
   %.pre48.i21.i.i.i = load i32, ptr %27, align 8, !tbaa !507
   br label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i22.i.i.i
 
-_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i22.i.i.i: ; preds = %67, %.lr.ph.i.i.i.i
-  %68 = phi i32 [ %65, %.lr.ph.i.i.i.i ], [ %.pre48.i21.i.i.i, %67 ]
-  %69 = phi ptr [ %63, %.lr.ph.i.i.i.i ], [ %.pre.i20.i.i.i, %67 ]
-  %70 = getelementptr inbounds nuw i8, ptr %64, i64 4
-  %71 = load i32, ptr %70, align 4, !tbaa !515
-  %72 = load ptr, ptr %58, align 8, !tbaa !429
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
-  %74 = load i16, ptr %73, align 8, !tbaa !431
-  %75 = zext i16 %74 to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %69, i64 %75
-  %77 = load i32, ptr %76, align 8, !tbaa !508
-  %.not.i.i38.i23.i.i.i = icmp eq i32 %68, %77
-  br i1 %.not.i.i38.i23.i.i.i, label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i28.i.i.i, label %78
+_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i22.i.i.i: ; preds = %65, %.lr.ph.i.i.i.i
+  %66 = phi i32 [ %63, %.lr.ph.i.i.i.i ], [ %.pre48.i21.i.i.i, %65 ]
+  %67 = phi ptr [ %61, %.lr.ph.i.i.i.i ], [ %.pre.i20.i.i.i, %65 ]
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %69 = load i32, ptr %68, align 4, !tbaa !515
+  %70 = load ptr, ptr %56, align 8, !tbaa !429
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %72 = load i16, ptr %71, align 8, !tbaa !431
+  %73 = zext i16 %72 to i64
+  %74 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %67, i64 %73
+  %75 = load i32, ptr %74, align 8, !tbaa !508
+  %.not.i.i38.i23.i.i.i = icmp eq i32 %66, %75
+  br i1 %.not.i.i38.i23.i.i.i, label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i28.i.i.i, label %76
 
-78:                                               ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i22.i.i.i
-  tail call void @_ZNK4llvm17RegisterClassInfo7computeEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(320) %26, ptr noundef nonnull %58) #25
-  %.pre49.i24.i.i.i = load ptr, ptr %58, align 8, !tbaa !429
+76:                                               ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i22.i.i.i
+  tail call void @_ZNK4llvm17RegisterClassInfo7computeEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(320) %26, ptr noundef nonnull %56) #25
+  %.pre49.i24.i.i.i = load ptr, ptr %56, align 8, !tbaa !429
   %.phi.trans.insert.i25.i.i.i = getelementptr inbounds nuw i8, ptr %.pre49.i24.i.i.i, i64 24
   %.pre50.i26.i.i.i = load i16, ptr %.phi.trans.insert.i25.i.i.i, align 8, !tbaa !431
   %.pre51.i27.i.i.i = zext i16 %.pre50.i26.i.i.i to i64
   br label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i28.i.i.i
 
-_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i28.i.i.i: ; preds = %78, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i22.i.i.i
-  %.pre-phi.i29.i.i.i = phi i64 [ %75, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i22.i.i.i ], [ %.pre51.i27.i.i.i, %78 ]
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !515
-  %81 = load ptr, ptr %53, align 8, !tbaa !429
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  %83 = load i16, ptr %82, align 8, !tbaa !431
-  %84 = zext i16 %83 to i64
-  %85 = load ptr, ptr %.sroa.013.sroa.3.0.copyload, align 8, !tbaa !25
-  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %84
-  %87 = load i32, ptr %86, align 4, !tbaa !300
-  %88 = icmp ugt i32 %87, %71
-  %89 = getelementptr inbounds nuw i32, ptr %85, i64 %.pre-phi.i29.i.i.i
-  %90 = load i32, ptr %89, align 4, !tbaa !300
-  %91 = icmp ule i32 %90, %80
-  %92 = and i1 %88, %91
-  br i1 %92, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread.i.i.i", label %93
+_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i28.i.i.i: ; preds = %76, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i22.i.i.i
+  %.pre-phi.i29.i.i.i = phi i64 [ %73, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i22.i.i.i ], [ %.pre51.i27.i.i.i, %76 ]
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  %78 = load i32, ptr %77, align 4, !tbaa !515
+  %79 = load ptr, ptr %51, align 8, !tbaa !429
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %81 = load i16, ptr %80, align 8, !tbaa !431
+  %82 = zext i16 %81 to i64
+  %83 = load ptr, ptr %.sroa.014.sroa.3.0.copyload, align 8, !tbaa !25
+  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %82
+  %85 = load i32, ptr %84, align 4, !tbaa !300
+  %86 = icmp ugt i32 %85, %69
+  %87 = getelementptr inbounds nuw i32, ptr %83, i64 %.pre-phi.i29.i.i.i
+  %88 = load i32, ptr %87, align 4, !tbaa !300
+  %89 = icmp ule i32 %88, %78
+  %90 = and i1 %86, %89
+  br i1 %90, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread.i.i.i", label %91
 
-93:                                               ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i28.i.i.i
-  %.not36.i30.i.i.i = or i1 %88, %91
-  br i1 %.not36.i30.i.i.i, label %94, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread44.i.i.i"
+91:                                               ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i28.i.i.i
+  %.not36.i30.i.i.i = or i1 %86, %89
+  br i1 %.not36.i30.i.i.i, label %92, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread44.i.i.i"
 
-94:                                               ; preds = %93
-  %95 = load i32, ptr %39, align 8
-  %96 = and i32 %95, 1089470464
-  %or.cond.not.i32.i.i.i = icmp eq i32 %96, 0
-  br i1 %or.cond.not.i32.i.i.i, label %97, label %103
+92:                                               ; preds = %91
+  %93 = load i32, ptr %37, align 8
+  %94 = and i32 %93, 1089470464
+  %or.cond.not.i32.i.i.i = icmp eq i32 %94, 0
+  br i1 %or.cond.not.i32.i.i.i, label %95, label %101
 
-97:                                               ; preds = %94
-  %98 = and i32 %95, 1048320
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %100, label %103
+95:                                               ; preds = %92
+  %96 = and i32 %93, 1048320
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %98, label %101
 
-100:                                              ; preds = %97
-  %101 = lshr i32 %95, 28
-  %.lobit.i36.i.i.i = and i32 %101, 1
-  %102 = xor i32 %.lobit.i36.i.i.i, 1
-  br label %103
+98:                                               ; preds = %95
+  %99 = lshr i32 %93, 28
+  %.lobit.i36.i.i.i = and i32 %99, 1
+  %100 = xor i32 %.lobit.i36.i.i.i, 1
+  br label %101
 
-103:                                              ; preds = %100, %97, %94
-  %104 = phi i32 [ 1, %94 ], [ 0, %97 ], [ %102, %100 ]
-  %105 = load i32, ptr %41, align 8
-  %106 = and i32 %105, 1089470464
-  %or.cond46.not.i33.i.i.i = icmp eq i32 %106, 0
-  br i1 %or.cond46.not.i33.i.i.i, label %107, label %113
+101:                                              ; preds = %98, %95, %92
+  %102 = phi i32 [ 1, %92 ], [ 0, %95 ], [ %100, %98 ]
+  %103 = load i32, ptr %39, align 8
+  %104 = and i32 %103, 1089470464
+  %or.cond46.not.i33.i.i.i = icmp eq i32 %104, 0
+  br i1 %or.cond46.not.i33.i.i.i, label %105, label %111
 
-107:                                              ; preds = %103
-  %108 = and i32 %105, 1048320
-  %109 = icmp eq i32 %108, 0
-  br i1 %109, label %110, label %113
+105:                                              ; preds = %101
+  %106 = and i32 %103, 1048320
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %108, label %111
 
-110:                                              ; preds = %107
-  %111 = lshr i32 %105, 28
-  %.lobit47.i35.i.i.i = and i32 %111, 1
-  %112 = xor i32 %.lobit47.i35.i.i.i, 1
-  br label %113
+108:                                              ; preds = %105
+  %109 = lshr i32 %103, 28
+  %.lobit47.i35.i.i.i = and i32 %109, 1
+  %110 = xor i32 %.lobit47.i35.i.i.i, 1
+  br label %111
 
-113:                                              ; preds = %110, %107, %103
-  %114 = phi i32 [ 1, %103 ], [ 0, %107 ], [ %112, %110 ]
-  %115 = icmp samesign ugt i32 %104, %114
-  br i1 %115, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread.i.i.i", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.i.i.i"
+111:                                              ; preds = %108, %105, %101
+  %112 = phi i32 [ 1, %101 ], [ 0, %105 ], [ %110, %108 ]
+  %113 = icmp samesign ugt i32 %102, %112
+  br i1 %113, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread.i.i.i", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.i.i.i"
 
-"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.i.i.i": ; preds = %113
-  %116 = icmp samesign uge i32 %104, %114
-  %117 = icmp ult i32 %.val.i.i.i.i, %.val29.i.i.i.i
-  %spec.select.i34.i.i.i = and i1 %117, %116
-  %cond.fr.i.i.i = freeze i1 %spec.select.i34.i.i.i
-  br i1 %cond.fr.i.i.i, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread.i.i.i", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread44.i.i.i"
-
-"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread.i.i.i": ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.i.i.i", %113, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i28.i.i.i
+"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread.i.i.i": ; preds = %111, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i28.i.i.i
+  %114 = or disjoint i64 %32, 1
   br label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread44.i.i.i"
 
-"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread44.i.i.i": ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread.i.i.i", %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.i.i.i", %93
-  %118 = phi i64 [ %35, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread.i.i.i" ], [ %33, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.i.i.i" ], [ %33, %93 ]
+"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.i.i.i": ; preds = %111
+  %115 = icmp samesign uge i32 %102, %112
+  %116 = icmp ult i32 %.val.i.i.i.i, %.val29.i.i.i.i
+  %spec.select.i34.i.i.i = and i1 %116, %115
+  %117 = or disjoint i64 %32, 1
+  %cond.fr.i.i.i = freeze i1 %spec.select.i34.i.i.i
+  %spec.select.i.i.i = select i1 %cond.fr.i.i.i, i64 %117, i64 %33
+  br label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread44.i.i.i"
+
+"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread44.i.i.i": ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.i.i.i", %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread.i.i.i", %91
+  %118 = phi i64 [ %114, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.thread.i.i.i" ], [ %33, %91 ], [ %spec.select.i.i.i, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit37.i.i.i" ]
   %119 = getelementptr inbounds nuw i32, ptr %0, i64 %118
   %120 = load i32, ptr %119, align 4, !tbaa !300
   %121 = getelementptr inbounds nuw i32, ptr %0, i64 %.030.i.i.i.i
@@ -10436,7 +10438,7 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i.i.i
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 24
   %175 = load i16, ptr %174, align 8, !tbaa !431
   %176 = zext i16 %175 to i64
-  %177 = load ptr, ptr %.sroa.013.sroa.3.0.copyload, align 8, !tbaa !25
+  %177 = load ptr, ptr %.sroa.014.sroa.3.0.copyload, align 8, !tbaa !25
   %178 = getelementptr inbounds nuw i32, ptr %177, i64 %176
   %179 = load i32, ptr %178, align 4, !tbaa !300
   %180 = icmp ugt i32 %179, %163
@@ -10511,8 +10513,8 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i.i.i
   %214 = add nsw i64 %.014.i.i.i, -1
   br i1 %.not.i.i.i, label %.lr.ph.i5.i, label %28, !llvm.loop !716
 
-.lr.ph.i5.i:                                      ; preds = %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i35.i"
-  %.039.i.i = phi ptr [ %215, %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i35.i" ], [ %.028, %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
+.lr.ph.i5.i:                                      ; preds = %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i", %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i36.i"
+  %.039.i.i = phi ptr [ %215, %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i36.i" ], [ %.029, %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
   %215 = getelementptr inbounds i8, ptr %.039.i.i, i64 -4
   %216 = load i32, ptr %215, align 4, !tbaa !300
   %217 = load i32, ptr %0, align 4, !tbaa !300
@@ -10523,199 +10525,201 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i.i.i
   %221 = add nsw i64 %220, -1
   %222 = sdiv i64 %221, 2
   %223 = icmp sgt i64 %220, 2
-  br i1 %223, label %.lr.ph.i.i.i46.i, label %._crit_edge.i.i.i11.i
+  br i1 %223, label %.lr.ph.i.i.i47.i, label %._crit_edge.i.i.i12.i
 
-.lr.ph.i.i.i46.i:                                 ; preds = %.lr.ph.i5.i, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i"
-  %.030.i.i.i47.i = phi i64 [ %310, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i" ], [ 0, %.lr.ph.i5.i ]
-  %224 = shl i64 %.030.i.i.i47.i, 1
+.lr.ph.i.i.i47.i:                                 ; preds = %.lr.ph.i5.i, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i"
+  %.030.i.i.i48.i = phi i64 [ %310, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i" ], [ 0, %.lr.ph.i5.i ]
+  %224 = shl i64 %.030.i.i.i48.i, 1
   %225 = add i64 %224, 2
   %226 = getelementptr inbounds nuw i32, ptr %0, i64 %225
-  %227 = or disjoint i64 %224, 1
-  %228 = getelementptr inbounds nuw i32, ptr %0, i64 %227
-  %.val.i.i.i48.i = load i32, ptr %226, align 4, !tbaa !300
-  %.val29.i.i.i49.i = load i32, ptr %228, align 4, !tbaa !300
-  %229 = load ptr, ptr %24, align 8, !tbaa !400
-  %230 = zext i32 %.val.i.i.i48.i to i64
-  %231 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %229, i64 %230
-  %232 = zext i32 %.val29.i.i.i49.i to i64
-  %233 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %229, i64 %232
+  %gep.i.i.i49.i = getelementptr i32, ptr %9, i64 %224
+  %.val.i.i.i50.i = load i32, ptr %226, align 4, !tbaa !300
+  %.val29.i.i.i51.i = load i32, ptr %gep.i.i.i49.i, align 4, !tbaa !300
+  %227 = load ptr, ptr %24, align 8, !tbaa !400
+  %228 = zext i32 %.val.i.i.i50.i to i64
+  %229 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %227, i64 %228
+  %230 = zext i32 %.val29.i.i.i51.i to i64
+  %231 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %227, i64 %230
+  %232 = getelementptr inbounds nuw i8, ptr %229, i64 4
+  %233 = load i32, ptr %232, align 4, !tbaa !401
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 4
   %235 = load i32, ptr %234, align 4, !tbaa !401
-  %236 = getelementptr inbounds nuw i8, ptr %233, i64 4
-  %237 = load i32, ptr %236, align 4, !tbaa !401
-  %238 = load ptr, ptr %25, align 8, !tbaa !279
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 48
-  %240 = and i32 %235, 2147483647
-  %241 = zext nneg i32 %240 to i64
-  %242 = load ptr, ptr %239, align 8, !tbaa !25
-  %243 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %242, i64 %241
-  %.0.copyload.i.i.i.i.i.i.i.i.i7.i.i = load i64, ptr %243, align 8
-  %244 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i7.i.i, -8
-  %245 = inttoptr i64 %244 to ptr
-  %246 = and i32 %237, 2147483647
-  %247 = zext nneg i32 %246 to i64
-  %248 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %242, i64 %247
-  %.0.copyload.i.i.i.i.i.i.i.i37.i8.i.i = load i64, ptr %248, align 8
-  %249 = and i64 %.0.copyload.i.i.i.i.i.i.i.i37.i8.i.i, -8
-  %250 = inttoptr i64 %249 to ptr
-  %251 = load ptr, ptr %245, align 8, !tbaa !429
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
-  %253 = load i16, ptr %252, align 8, !tbaa !431
-  %254 = zext i16 %253 to i64
-  %255 = load ptr, ptr %26, align 8, !tbaa !506
-  %256 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %255, i64 %254
-  %257 = load i32, ptr %27, align 8, !tbaa !507
-  %258 = load i32, ptr %256, align 8, !tbaa !508
-  %.not.i.i.i9.i.i = icmp eq i32 %257, %258
-  br i1 %.not.i.i.i9.i.i, label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i12.i.i, label %259
+  %236 = load ptr, ptr %25, align 8, !tbaa !279
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 48
+  %238 = and i32 %233, 2147483647
+  %239 = zext nneg i32 %238 to i64
+  %240 = load ptr, ptr %237, align 8, !tbaa !25
+  %241 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %240, i64 %239
+  %.0.copyload.i.i.i.i.i.i.i.i.i7.i.i = load i64, ptr %241, align 8
+  %242 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i7.i.i, -8
+  %243 = inttoptr i64 %242 to ptr
+  %244 = and i32 %235, 2147483647
+  %245 = zext nneg i32 %244 to i64
+  %246 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %240, i64 %245
+  %.0.copyload.i.i.i.i.i.i.i.i37.i8.i.i = load i64, ptr %246, align 8
+  %247 = and i64 %.0.copyload.i.i.i.i.i.i.i.i37.i8.i.i, -8
+  %248 = inttoptr i64 %247 to ptr
+  %249 = load ptr, ptr %243, align 8, !tbaa !429
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 24
+  %251 = load i16, ptr %250, align 8, !tbaa !431
+  %252 = zext i16 %251 to i64
+  %253 = load ptr, ptr %26, align 8, !tbaa !506
+  %254 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %253, i64 %252
+  %255 = load i32, ptr %27, align 8, !tbaa !507
+  %256 = load i32, ptr %254, align 8, !tbaa !508
+  %.not.i.i.i9.i.i = icmp eq i32 %255, %256
+  br i1 %.not.i.i.i9.i.i, label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i12.i.i, label %257
 
-259:                                              ; preds = %.lr.ph.i.i.i46.i
-  tail call void @_ZNK4llvm17RegisterClassInfo7computeEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(320) %26, ptr noundef nonnull %245) #25
+257:                                              ; preds = %.lr.ph.i.i.i47.i
+  tail call void @_ZNK4llvm17RegisterClassInfo7computeEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(320) %26, ptr noundef nonnull %243) #25
   %.pre.i10.i.i = load ptr, ptr %26, align 8, !tbaa !506
   %.pre48.i11.i.i = load i32, ptr %27, align 8, !tbaa !507
   br label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i12.i.i
 
-_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i12.i.i: ; preds = %259, %.lr.ph.i.i.i46.i
-  %260 = phi i32 [ %257, %.lr.ph.i.i.i46.i ], [ %.pre48.i11.i.i, %259 ]
-  %261 = phi ptr [ %255, %.lr.ph.i.i.i46.i ], [ %.pre.i10.i.i, %259 ]
-  %262 = getelementptr inbounds nuw i8, ptr %256, i64 4
-  %263 = load i32, ptr %262, align 4, !tbaa !515
-  %264 = load ptr, ptr %250, align 8, !tbaa !429
-  %265 = getelementptr inbounds nuw i8, ptr %264, i64 24
-  %266 = load i16, ptr %265, align 8, !tbaa !431
-  %267 = zext i16 %266 to i64
-  %268 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %261, i64 %267
-  %269 = load i32, ptr %268, align 8, !tbaa !508
-  %.not.i.i38.i13.i.i = icmp eq i32 %260, %269
-  br i1 %.not.i.i38.i13.i.i, label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i18.i.i, label %270
+_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i12.i.i: ; preds = %257, %.lr.ph.i.i.i47.i
+  %258 = phi i32 [ %255, %.lr.ph.i.i.i47.i ], [ %.pre48.i11.i.i, %257 ]
+  %259 = phi ptr [ %253, %.lr.ph.i.i.i47.i ], [ %.pre.i10.i.i, %257 ]
+  %260 = getelementptr inbounds nuw i8, ptr %254, i64 4
+  %261 = load i32, ptr %260, align 4, !tbaa !515
+  %262 = load ptr, ptr %248, align 8, !tbaa !429
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 24
+  %264 = load i16, ptr %263, align 8, !tbaa !431
+  %265 = zext i16 %264 to i64
+  %266 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %259, i64 %265
+  %267 = load i32, ptr %266, align 8, !tbaa !508
+  %.not.i.i38.i13.i.i = icmp eq i32 %258, %267
+  br i1 %.not.i.i38.i13.i.i, label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i18.i.i, label %268
 
-270:                                              ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i12.i.i
-  tail call void @_ZNK4llvm17RegisterClassInfo7computeEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(320) %26, ptr noundef nonnull %250) #25
-  %.pre49.i14.i.i = load ptr, ptr %250, align 8, !tbaa !429
+268:                                              ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i12.i.i
+  tail call void @_ZNK4llvm17RegisterClassInfo7computeEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(320) %26, ptr noundef nonnull %248) #25
+  %.pre49.i14.i.i = load ptr, ptr %248, align 8, !tbaa !429
   %.phi.trans.insert.i15.i.i = getelementptr inbounds nuw i8, ptr %.pre49.i14.i.i, i64 24
   %.pre50.i16.i.i = load i16, ptr %.phi.trans.insert.i15.i.i, align 8, !tbaa !431
   %.pre51.i17.i.i = zext i16 %.pre50.i16.i.i to i64
   br label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i18.i.i
 
-_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i18.i.i: ; preds = %270, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i12.i.i
-  %.pre-phi.i19.i.i = phi i64 [ %267, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i12.i.i ], [ %.pre51.i17.i.i, %270 ]
-  %271 = getelementptr inbounds nuw i8, ptr %268, i64 4
-  %272 = load i32, ptr %271, align 4, !tbaa !515
-  %273 = load ptr, ptr %245, align 8, !tbaa !429
-  %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
-  %275 = load i16, ptr %274, align 8, !tbaa !431
-  %276 = zext i16 %275 to i64
-  %277 = load ptr, ptr %.sroa.013.sroa.3.0.copyload, align 8, !tbaa !25
-  %278 = getelementptr inbounds nuw i32, ptr %277, i64 %276
-  %279 = load i32, ptr %278, align 4, !tbaa !300
-  %280 = icmp ugt i32 %279, %263
-  %281 = getelementptr inbounds nuw i32, ptr %277, i64 %.pre-phi.i19.i.i
-  %282 = load i32, ptr %281, align 4, !tbaa !300
-  %283 = icmp ule i32 %282, %272
-  %284 = and i1 %280, %283
-  br i1 %284, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread.i.i", label %285
+_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i18.i.i: ; preds = %268, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i12.i.i
+  %.pre-phi.i19.i.i = phi i64 [ %265, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i12.i.i ], [ %.pre51.i17.i.i, %268 ]
+  %269 = getelementptr inbounds nuw i8, ptr %266, i64 4
+  %270 = load i32, ptr %269, align 4, !tbaa !515
+  %271 = load ptr, ptr %243, align 8, !tbaa !429
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 24
+  %273 = load i16, ptr %272, align 8, !tbaa !431
+  %274 = zext i16 %273 to i64
+  %275 = load ptr, ptr %.sroa.014.sroa.3.0.copyload, align 8, !tbaa !25
+  %276 = getelementptr inbounds nuw i32, ptr %275, i64 %274
+  %277 = load i32, ptr %276, align 4, !tbaa !300
+  %278 = icmp ugt i32 %277, %261
+  %279 = getelementptr inbounds nuw i32, ptr %275, i64 %.pre-phi.i19.i.i
+  %280 = load i32, ptr %279, align 4, !tbaa !300
+  %281 = icmp ule i32 %280, %270
+  %282 = and i1 %278, %281
+  br i1 %282, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread.i.i", label %283
 
-285:                                              ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i18.i.i
-  %.not36.i20.i.i = or i1 %280, %283
-  br i1 %.not36.i20.i.i, label %286, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i"
+283:                                              ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i18.i.i
+  %.not36.i20.i.i = or i1 %278, %281
+  br i1 %.not36.i20.i.i, label %284, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i"
 
-286:                                              ; preds = %285
-  %287 = load i32, ptr %231, align 8
-  %288 = and i32 %287, 1089470464
-  %or.cond.not.i22.i.i = icmp eq i32 %288, 0
-  br i1 %or.cond.not.i22.i.i, label %289, label %295
+284:                                              ; preds = %283
+  %285 = load i32, ptr %229, align 8
+  %286 = and i32 %285, 1089470464
+  %or.cond.not.i22.i.i = icmp eq i32 %286, 0
+  br i1 %or.cond.not.i22.i.i, label %287, label %293
 
-289:                                              ; preds = %286
-  %290 = and i32 %287, 1048320
-  %291 = icmp eq i32 %290, 0
-  br i1 %291, label %292, label %295
+287:                                              ; preds = %284
+  %288 = and i32 %285, 1048320
+  %289 = icmp eq i32 %288, 0
+  br i1 %289, label %290, label %293
 
-292:                                              ; preds = %289
-  %293 = lshr i32 %287, 28
-  %.lobit.i26.i.i = and i32 %293, 1
-  %294 = xor i32 %.lobit.i26.i.i, 1
-  br label %295
+290:                                              ; preds = %287
+  %291 = lshr i32 %285, 28
+  %.lobit.i26.i.i = and i32 %291, 1
+  %292 = xor i32 %.lobit.i26.i.i, 1
+  br label %293
 
-295:                                              ; preds = %292, %289, %286
-  %296 = phi i32 [ 1, %286 ], [ 0, %289 ], [ %294, %292 ]
-  %297 = load i32, ptr %233, align 8
-  %298 = and i32 %297, 1089470464
-  %or.cond46.not.i23.i.i = icmp eq i32 %298, 0
-  br i1 %or.cond46.not.i23.i.i, label %299, label %305
+293:                                              ; preds = %290, %287, %284
+  %294 = phi i32 [ 1, %284 ], [ 0, %287 ], [ %292, %290 ]
+  %295 = load i32, ptr %231, align 8
+  %296 = and i32 %295, 1089470464
+  %or.cond46.not.i23.i.i = icmp eq i32 %296, 0
+  br i1 %or.cond46.not.i23.i.i, label %297, label %303
 
-299:                                              ; preds = %295
-  %300 = and i32 %297, 1048320
-  %301 = icmp eq i32 %300, 0
-  br i1 %301, label %302, label %305
+297:                                              ; preds = %293
+  %298 = and i32 %295, 1048320
+  %299 = icmp eq i32 %298, 0
+  br i1 %299, label %300, label %303
 
-302:                                              ; preds = %299
-  %303 = lshr i32 %297, 28
-  %.lobit47.i25.i.i = and i32 %303, 1
-  %304 = xor i32 %.lobit47.i25.i.i, 1
-  br label %305
+300:                                              ; preds = %297
+  %301 = lshr i32 %295, 28
+  %.lobit47.i25.i.i = and i32 %301, 1
+  %302 = xor i32 %.lobit47.i25.i.i, 1
+  br label %303
 
-305:                                              ; preds = %302, %299, %295
-  %306 = phi i32 [ 1, %295 ], [ 0, %299 ], [ %304, %302 ]
-  %307 = icmp samesign ugt i32 %296, %306
-  br i1 %307, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread.i.i", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.i.i"
+303:                                              ; preds = %300, %297, %293
+  %304 = phi i32 [ 1, %293 ], [ 0, %297 ], [ %302, %300 ]
+  %305 = icmp samesign ugt i32 %294, %304
+  br i1 %305, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread.i.i", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.i.i"
 
-"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.i.i": ; preds = %305
-  %308 = icmp samesign uge i32 %296, %306
-  %309 = icmp ult i32 %.val.i.i.i48.i, %.val29.i.i.i49.i
-  %spec.select.i24.i.i = and i1 %309, %308
-  %cond.fr.i50.i = freeze i1 %spec.select.i24.i.i
-  br i1 %cond.fr.i50.i, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread.i.i", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i"
-
-"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread.i.i": ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.i.i", %305, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i18.i.i
+"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread.i.i": ; preds = %303, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i18.i.i
+  %306 = or disjoint i64 %224, 1
   br label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i"
 
-"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i": ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread.i.i", %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.i.i", %285
-  %310 = phi i64 [ %227, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread.i.i" ], [ %225, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.i.i" ], [ %225, %285 ]
+"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.i.i": ; preds = %303
+  %307 = icmp samesign uge i32 %294, %304
+  %308 = icmp ult i32 %.val.i.i.i50.i, %.val29.i.i.i51.i
+  %spec.select.i24.i.i = and i1 %308, %307
+  %309 = or disjoint i64 %224, 1
+  %cond.fr.i52.i = freeze i1 %spec.select.i24.i.i
+  %spec.select.i53.i = select i1 %cond.fr.i52.i, i64 %309, i64 %225
+  br label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i"
+
+"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i": ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.i.i", %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread.i.i", %283
+  %310 = phi i64 [ %306, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread.i.i" ], [ %225, %283 ], [ %spec.select.i53.i, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.i.i" ]
   %311 = getelementptr inbounds nuw i32, ptr %0, i64 %310
   %312 = load i32, ptr %311, align 4, !tbaa !300
-  %313 = getelementptr inbounds nuw i32, ptr %0, i64 %.030.i.i.i47.i
+  %313 = getelementptr inbounds nuw i32, ptr %0, i64 %.030.i.i.i48.i
   store i32 %312, ptr %313, align 4, !tbaa !300
   %314 = icmp slt i64 %310, %222
-  br i1 %314, label %.lr.ph.i.i.i46.i, label %._crit_edge.i.i.i11.i, !llvm.loop !714
+  br i1 %314, label %.lr.ph.i.i.i47.i, label %._crit_edge.i.i.i12.i, !llvm.loop !714
 
-._crit_edge.i.i.i11.i:                            ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i", %.lr.ph.i5.i
-  %.0.lcssa.i.i.i12.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %310, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i" ]
+._crit_edge.i.i.i12.i:                            ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i", %.lr.ph.i5.i
+  %.0.lcssa.i.i.i13.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %310, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit27.thread33.i.i" ]
   %315 = and i64 %219, 4
   %316 = icmp eq i64 %315, 0
   br i1 %316, label %317, label %326
 
-317:                                              ; preds = %._crit_edge.i.i.i11.i
+317:                                              ; preds = %._crit_edge.i.i.i12.i
   %318 = add nsw i64 %220, -2
   %319 = ashr exact i64 %318, 1
-  %320 = icmp eq i64 %.0.lcssa.i.i.i12.i, %319
-  br i1 %320, label %.thread.i.i45.i, label %326
+  %320 = icmp eq i64 %.0.lcssa.i.i.i13.i, %319
+  br i1 %320, label %.thread.i.i46.i, label %326
 
-.thread.i.i45.i:                                  ; preds = %317
-  %321 = shl nuw nsw i64 %.0.lcssa.i.i.i12.i, 1
+.thread.i.i46.i:                                  ; preds = %317
+  %321 = shl nuw nsw i64 %.0.lcssa.i.i.i13.i, 1
   %322 = or disjoint i64 %321, 1
   %323 = getelementptr inbounds nuw i32, ptr %0, i64 %322
   %324 = load i32, ptr %323, align 4, !tbaa !300
-  %325 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i.i12.i
+  %325 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i.i13.i
   store i32 %324, ptr %325, align 4, !tbaa !300
-  br label %.lr.ph.i.i.preheader.i.i14.i
+  br label %.lr.ph.i.i.preheader.i.i15.i
 
-326:                                              ; preds = %317, %._crit_edge.i.i.i11.i
-  %.not.i.i13.i = icmp eq i64 %.0.lcssa.i.i.i12.i, 0
-  br i1 %.not.i.i13.i, label %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i35.i", label %.lr.ph.i.i.preheader.i.i14.i
+326:                                              ; preds = %317, %._crit_edge.i.i.i12.i
+  %.not.i.i14.i = icmp eq i64 %.0.lcssa.i.i.i13.i, 0
+  br i1 %.not.i.i14.i, label %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i36.i", label %.lr.ph.i.i.preheader.i.i15.i
 
-.lr.ph.i.i.preheader.i.i14.i:                     ; preds = %326, %.thread.i.i45.i
-  %.128.i12.i.i15.i = phi i64 [ %322, %.thread.i.i45.i ], [ %.0.lcssa.i.i.i12.i, %326 ]
+.lr.ph.i.i.preheader.i.i15.i:                     ; preds = %326, %.thread.i.i46.i
+  %.128.i12.i.i16.i = phi i64 [ %322, %.thread.i.i46.i ], [ %.0.lcssa.i.i.i13.i, %326 ]
   %327 = zext i32 %216 to i64
-  br label %.lr.ph.i.i.i.i16.i
+  br label %.lr.ph.i.i.i.i17.i
 
-.lr.ph.i.i.i.i16.i:                               ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i41.i", %.lr.ph.i.i.preheader.i.i14.i
-  %.01318.i.i.i.i17.i = phi i64 [ %.019.i.i78.i.i19.i, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i41.i" ], [ %.128.i12.i.i15.i, %.lr.ph.i.i.preheader.i.i14.i ]
-  %.019.in.i.i.i.i18.i = add nsw i64 %.01318.i.i.i.i17.i, -1
-  %.019.i.i78.i.i19.i = lshr i64 %.019.in.i.i.i.i18.i, 1
-  %328 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i78.i.i19.i
-  %.val.i.i.i.i20.i = load i32, ptr %328, align 4, !tbaa !300
+.lr.ph.i.i.i.i17.i:                               ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i42.i", %.lr.ph.i.i.preheader.i.i15.i
+  %.01318.i.i.i.i18.i = phi i64 [ %.019.i.i78.i.i20.i, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i42.i" ], [ %.128.i12.i.i16.i, %.lr.ph.i.i.preheader.i.i15.i ]
+  %.019.in.i.i.i.i19.i = add nsw i64 %.01318.i.i.i.i18.i, -1
+  %.019.i.i78.i.i20.i = lshr i64 %.019.in.i.i.i.i19.i, 1
+  %328 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i78.i.i20.i
+  %.val.i.i.i.i21.i = load i32, ptr %328, align 4, !tbaa !300
   %329 = load ptr, ptr %24, align 8, !tbaa !400
-  %330 = zext i32 %.val.i.i.i.i20.i to i64
+  %330 = zext i32 %.val.i.i.i.i21.i to i64
   %331 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %329, i64 %330
   %332 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %329, i64 %327
   %333 = getelementptr inbounds nuw i8, ptr %331, i64 4
@@ -10728,14 +10732,14 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i18.i.i
   %340 = zext nneg i32 %339 to i64
   %341 = load ptr, ptr %338, align 8, !tbaa !25
   %342 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %341, i64 %340
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i21.i = load i64, ptr %342, align 8
-  %343 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i21.i, -8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i22.i = load i64, ptr %342, align 8
+  %343 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i22.i, -8
   %344 = inttoptr i64 %343 to ptr
   %345 = and i32 %336, 2147483647
   %346 = zext nneg i32 %345 to i64
   %347 = getelementptr inbounds nuw %"struct.std::pair.196", ptr %341, i64 %346
-  %.0.copyload.i.i.i.i.i.i.i.i37.i.i22.i = load i64, ptr %347, align 8
-  %348 = and i64 %.0.copyload.i.i.i.i.i.i.i.i37.i.i22.i, -8
+  %.0.copyload.i.i.i.i.i.i.i.i37.i.i23.i = load i64, ptr %347, align 8
+  %348 = and i64 %.0.copyload.i.i.i.i.i.i.i.i37.i.i23.i, -8
   %349 = inttoptr i64 %348 to ptr
   %350 = load ptr, ptr %344, align 8, !tbaa !429
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 24
@@ -10745,18 +10749,18 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i18.i.i
   %355 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %354, i64 %353
   %356 = load i32, ptr %27, align 8, !tbaa !507
   %357 = load i32, ptr %355, align 8, !tbaa !508
-  %.not.i.i.i.i23.i = icmp eq i32 %356, %357
-  br i1 %.not.i.i.i.i23.i, label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i.i26.i, label %358
+  %.not.i.i.i.i24.i = icmp eq i32 %356, %357
+  br i1 %.not.i.i.i.i24.i, label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i.i27.i, label %358
 
-358:                                              ; preds = %.lr.ph.i.i.i.i16.i
+358:                                              ; preds = %.lr.ph.i.i.i.i17.i
   tail call void @_ZNK4llvm17RegisterClassInfo7computeEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(320) %26, ptr noundef nonnull %344) #25
-  %.pre.i.i24.i = load ptr, ptr %26, align 8, !tbaa !506
-  %.pre48.i.i25.i = load i32, ptr %27, align 8, !tbaa !507
-  br label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i.i26.i
+  %.pre.i.i25.i = load ptr, ptr %26, align 8, !tbaa !506
+  %.pre48.i.i26.i = load i32, ptr %27, align 8, !tbaa !507
+  br label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i.i27.i
 
-_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i.i26.i: ; preds = %358, %.lr.ph.i.i.i.i16.i
-  %359 = phi i32 [ %356, %.lr.ph.i.i.i.i16.i ], [ %.pre48.i.i25.i, %358 ]
-  %360 = phi ptr [ %354, %.lr.ph.i.i.i.i16.i ], [ %.pre.i.i24.i, %358 ]
+_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i.i27.i: ; preds = %358, %.lr.ph.i.i.i.i17.i
+  %359 = phi i32 [ %356, %.lr.ph.i.i.i.i17.i ], [ %.pre48.i.i26.i, %358 ]
+  %360 = phi ptr [ %354, %.lr.ph.i.i.i.i17.i ], [ %.pre.i.i25.i, %358 ]
   %361 = getelementptr inbounds nuw i8, ptr %355, i64 4
   %362 = load i32, ptr %361, align 4, !tbaa !515
   %363 = load ptr, ptr %349, align 8, !tbaa !429
@@ -10765,44 +10769,44 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i.i26.i: 
   %366 = zext i16 %365 to i64
   %367 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %360, i64 %366
   %368 = load i32, ptr %367, align 8, !tbaa !508
-  %.not.i.i38.i.i27.i = icmp eq i32 %359, %368
-  br i1 %.not.i.i38.i.i27.i, label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i32.i, label %369
+  %.not.i.i38.i.i28.i = icmp eq i32 %359, %368
+  br i1 %.not.i.i38.i.i28.i, label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i33.i, label %369
 
-369:                                              ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i.i26.i
+369:                                              ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i.i27.i
   tail call void @_ZNK4llvm17RegisterClassInfo7computeEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(320) %26, ptr noundef nonnull %349) #25
-  %.pre49.i.i28.i = load ptr, ptr %349, align 8, !tbaa !429
-  %.phi.trans.insert.i.i29.i = getelementptr inbounds nuw i8, ptr %.pre49.i.i28.i, i64 24
-  %.pre50.i.i30.i = load i16, ptr %.phi.trans.insert.i.i29.i, align 8, !tbaa !431
-  %.pre51.i.i31.i = zext i16 %.pre50.i.i30.i to i64
-  br label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i32.i
+  %.pre49.i.i29.i = load ptr, ptr %349, align 8, !tbaa !429
+  %.phi.trans.insert.i.i30.i = getelementptr inbounds nuw i8, ptr %.pre49.i.i29.i, i64 24
+  %.pre50.i.i31.i = load i16, ptr %.phi.trans.insert.i.i30.i, align 8, !tbaa !431
+  %.pre51.i.i32.i = zext i16 %.pre50.i.i31.i to i64
+  br label %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i33.i
 
-_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i32.i: ; preds = %369, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i.i26.i
-  %.pre-phi.i.i33.i = phi i64 [ %366, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i.i26.i ], [ %.pre51.i.i31.i, %369 ]
+_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i33.i: ; preds = %369, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i.i27.i
+  %.pre-phi.i.i34.i = phi i64 [ %366, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit.i.i27.i ], [ %.pre51.i.i32.i, %369 ]
   %370 = getelementptr inbounds nuw i8, ptr %367, i64 4
   %371 = load i32, ptr %370, align 4, !tbaa !515
   %372 = load ptr, ptr %344, align 8, !tbaa !429
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 24
   %374 = load i16, ptr %373, align 8, !tbaa !431
   %375 = zext i16 %374 to i64
-  %376 = load ptr, ptr %.sroa.013.sroa.3.0.copyload, align 8, !tbaa !25
+  %376 = load ptr, ptr %.sroa.014.sroa.3.0.copyload, align 8, !tbaa !25
   %377 = getelementptr inbounds nuw i32, ptr %376, i64 %375
   %378 = load i32, ptr %377, align 4, !tbaa !300
   %379 = icmp ugt i32 %378, %362
-  %380 = getelementptr inbounds nuw i32, ptr %376, i64 %.pre-phi.i.i33.i
+  %380 = getelementptr inbounds nuw i32, ptr %376, i64 %.pre-phi.i.i34.i
   %381 = load i32, ptr %380, align 4, !tbaa !300
   %382 = icmp ule i32 %381, %371
   %383 = and i1 %379, %382
-  br i1 %383, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i41.i", label %384
+  br i1 %383, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i42.i", label %384
 
-384:                                              ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i32.i
-  %.not36.i.i34.i = or i1 %379, %382
-  br i1 %.not36.i.i34.i, label %385, label %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i35.i"
+384:                                              ; preds = %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i33.i
+  %.not36.i.i35.i = or i1 %379, %382
+  br i1 %.not36.i.i35.i, label %385, label %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i36.i"
 
 385:                                              ; preds = %384
   %386 = load i32, ptr %331, align 8
   %387 = and i32 %386, 1089470464
-  %or.cond.not.i.i37.i = icmp eq i32 %387, 0
-  br i1 %or.cond.not.i.i37.i, label %388, label %394
+  %or.cond.not.i.i38.i = icmp eq i32 %387, 0
+  br i1 %or.cond.not.i.i38.i, label %388, label %394
 
 388:                                              ; preds = %385
   %389 = and i32 %386, 1048320
@@ -10811,16 +10815,16 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i32.i
 
 391:                                              ; preds = %388
   %392 = lshr i32 %386, 28
-  %.lobit.i.i44.i = and i32 %392, 1
-  %393 = xor i32 %.lobit.i.i44.i, 1
+  %.lobit.i.i45.i = and i32 %392, 1
+  %393 = xor i32 %.lobit.i.i45.i, 1
   br label %394
 
 394:                                              ; preds = %391, %388, %385
   %395 = phi i32 [ 1, %385 ], [ 0, %388 ], [ %393, %391 ]
   %396 = load i32, ptr %332, align 8
   %397 = and i32 %396, 1089470464
-  %or.cond46.not.i.i38.i = icmp eq i32 %397, 0
-  br i1 %or.cond46.not.i.i38.i, label %398, label %404
+  %or.cond46.not.i.i39.i = icmp eq i32 %397, 0
+  br i1 %or.cond46.not.i.i39.i, label %398, label %404
 
 398:                                              ; preds = %394
   %399 = and i32 %396, 1048320
@@ -10829,43 +10833,43 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i32.i
 
 401:                                              ; preds = %398
   %402 = lshr i32 %396, 28
-  %.lobit47.i.i43.i = and i32 %402, 1
-  %403 = xor i32 %.lobit47.i.i43.i, 1
+  %.lobit47.i.i44.i = and i32 %402, 1
+  %403 = xor i32 %.lobit47.i.i44.i, 1
   br label %404
 
 404:                                              ; preds = %401, %398, %394
   %405 = phi i32 [ 1, %394 ], [ 0, %398 ], [ %403, %401 ]
   %406 = icmp samesign ugt i32 %395, %405
-  br i1 %406, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i41.i", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i39.i"
+  br i1 %406, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i42.i", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i40.i"
 
-"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i39.i": ; preds = %404
+"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i40.i": ; preds = %404
   %407 = icmp samesign uge i32 %395, %405
-  %408 = icmp ult i32 %.val.i.i.i.i20.i, %216
-  %spec.select.i.i40.i = and i1 %408, %407
-  br i1 %spec.select.i.i40.i, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i41.i", label %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i35.i"
+  %408 = icmp ult i32 %.val.i.i.i.i21.i, %216
+  %spec.select.i.i41.i = and i1 %408, %407
+  br i1 %spec.select.i.i41.i, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i42.i", label %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i36.i"
 
-"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i41.i": ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i39.i", %404, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i32.i
+"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i42.i": ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i40.i", %404, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i33.i
   %409 = load i32, ptr %328, align 4, !tbaa !300
-  %410 = getelementptr inbounds nuw i32, ptr %0, i64 %.01318.i.i.i.i17.i
+  %410 = getelementptr inbounds nuw i32, ptr %0, i64 %.01318.i.i.i.i18.i
   store i32 %409, ptr %410, align 4, !tbaa !300
-  %.not9.i.i42.i = icmp ult i64 %.019.in.i.i.i.i18.i, 2
-  br i1 %.not9.i.i42.i, label %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i35.i", label %.lr.ph.i.i.i.i16.i, !llvm.loop !715
+  %.not9.i.i43.i = icmp ult i64 %.019.in.i.i.i.i19.i, 2
+  br i1 %.not9.i.i43.i, label %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i36.i", label %.lr.ph.i.i.i.i17.i, !llvm.loop !715
 
-"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i35.i": ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i41.i", %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i39.i", %384, %326
-  %.013.lcssa.i.i.i.i36.i = phi i64 [ 0, %326 ], [ %.01318.i.i.i.i17.i, %384 ], [ %.01318.i.i.i.i17.i, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i39.i" ], [ 0, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i41.i" ]
-  %411 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i.i36.i
+"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i36.i": ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i42.i", %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i40.i", %384, %326
+  %.013.lcssa.i.i.i.i37.i = phi i64 [ 0, %326 ], [ %.01318.i.i.i.i18.i, %384 ], [ %.01318.i.i.i.i18.i, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i40.i" ], [ 0, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i42.i" ]
+  %411 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i.i37.i
   store i32 %216, ptr %411, align 4, !tbaa !300
   %412 = icmp sgt i64 %219, 4
   br i1 %412, label %.lr.ph.i5.i, label %"_ZSt14__partial_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_T0_.exit", !llvm.loop !717
 
 413:                                              ; preds = %10
-  %414 = add nsw i64 %.01227, -1
+  %414 = add nsw i64 %.01228, -1
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   %415 = lshr i64 %11, 3
   %416 = getelementptr inbounds nuw i32, ptr %0, i64 %415
-  %417 = getelementptr inbounds i8, ptr %.028, i64 -4
+  %417 = getelementptr inbounds i8, ptr %.029, i64 -4
   %.val29.i.i = load i32, ptr %9, align 4, !tbaa !300
   %.val30.i.i = load i32, ptr %416, align 4, !tbaa !300
   %418 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj"(ptr noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef %.val29.i.i, i32 noundef %.val30.i.i)
@@ -10942,7 +10946,7 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i32.i
   br label %447
 
 447:                                              ; preds = %615, %"_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_SC_T0_.exit.i"
-  %.013.i.i = phi ptr [ %.028, %"_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_SC_T0_.exit.i" ], [ %.114.i.i, %615 ]
+  %.013.i.i = phi ptr [ %.029, %"_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_SC_T0_.exit.i" ], [ %.114.i.i, %615 ]
   %.0.i.i = phi ptr [ %9, %"_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_SC_T0_.exit.i" ], [ %618, %615 ]
   br label %448
 
@@ -11081,8 +11085,8 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i.i: 
 528:                                              ; preds = %525
   %529 = icmp samesign uge i32 %516, %526
   %530 = icmp ult i32 %.1.val.i.i, %.val15.i.i
-  %spec.select.i.i.i = and i1 %530, %529
-  br i1 %spec.select.i.i.i, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i.i", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i.i.preheader"
+  %spec.select.i.i.i13 = and i1 %530, %529
+  br i1 %spec.select.i.i.i13, label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i.i", label %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i.i.preheader"
 
 "_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i.i": ; preds = %528, %525, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i.i
   %531 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
@@ -11240,13 +11244,13 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i27.i.i
   br label %447, !llvm.loop !720
 
 "_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEET_SC_SC_T0_.exit": ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit36.thread.i.i"
-  tail call fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.028, i64 noundef %414, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %3)
+  tail call fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_T0_T1_"(ptr noundef nonnull %.1.i.i, ptr noundef %.029, i64 noundef %414, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %3)
   %619 = ptrtoint ptr %.1.i.i to i64
   %620 = sub i64 %619, %5
   %621 = icmp sgt i64 %620, 64
   br i1 %621, label %10, label %"_ZSt14__partial_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_T0_.exit", !llvm.loop !721
 
-"_ZSt14__partial_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEET_SC_SC_T0_.exit", %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i35.i", %4
+"_ZSt14__partial_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEET_SC_SC_T0_.exit", %"_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_SC_SC_RT0_.exit.i36.i", %4
   ret void
 }
 

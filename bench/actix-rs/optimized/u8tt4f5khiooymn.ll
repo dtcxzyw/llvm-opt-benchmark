@@ -8918,8 +8918,8 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut8from_vec17h46aaf2ae3c84b632E.ll
   %5 = sub nuw nsw i64 64, %4
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %5, i64 7)
   %6 = shl nuw nsw i64 %.0.sroa.speculated.i, 2
-  %7 = or disjoint i64 %6, 1
-  %8 = getelementptr i8, ptr null, i64 %7
+  %7 = getelementptr i8, ptr null, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 1
   store ptr %.sroa.4.0.copyload, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.copyload, ptr %9, align 8
@@ -9407,8 +9407,8 @@ define void @_ZN10actix_http8encoding6Writer3new17h3ee66135772b357cE(ptr noalias
   %8 = sub nuw nsw i64 64, %7
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 7)
   %9 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %10 = or disjoint i64 %9, 1
-  %11 = getelementptr i8, ptr null, i64 %10
+  %10 = getelementptr i8, ptr null, i64 %9
+  %11 = getelementptr i8, ptr %10, i64 1
   store ptr %4, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
@@ -11799,8 +11799,8 @@ define void @"_ZN118_$LT$actix_http..header..shared..http_date..HttpDate$u20$as$
   %27 = sub nuw nsw i64 64, %26
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %27, i64 7)
   %28 = shl nuw nsw i64 %.0.sroa.speculated.i.i, 2
-  %29 = or disjoint i64 %28, 1
-  %30 = getelementptr i8, ptr null, i64 %29
+  %29 = getelementptr i8, ptr null, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 1
   store ptr %23, ptr %18, align 8, !alias.scope !1529, !noalias !1532
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 0, ptr %31, align 8, !alias.scope !1529, !noalias !1532

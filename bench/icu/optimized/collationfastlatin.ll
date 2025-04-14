@@ -1991,6 +1991,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
   store i32 0, ptr %10, align 4, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
   store i32 0, ptr %11, align 4, !tbaa !32
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %15, i64 512
   %18 = and i32 %2, 2
   %.not452 = icmp eq i32 %18, 0
   br label %.backedge724
@@ -2015,7 +2016,7 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
   %27 = load i8, ptr %26, align 1, !tbaa !28
   %28 = zext i8 %27 to i32
   %29 = icmp sgt i8 %27, -1
-  br i1 %29, label %30, label %38
+  br i1 %29, label %30, label %42
 
 30:                                               ; preds = %23
   %31 = zext nneg i8 %27 to i64
@@ -2032,1552 +2033,1572 @@ define noundef range(i32 -2, 2) i32 @_ZN6icu_7718CollationFastLatin11compareUTF8
   %37 = add nsw i8 %27, -58
   %or.cond = icmp ult i8 %37, -10
   %or.cond465 = or i1 %.not452, %or.cond
-  br i1 %or.cond465, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.sink.split, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569
+  br i1 %or.cond465, label %38, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569
 
-38:                                               ; preds = %23
-  %39 = add nsw i8 %27, 58
-  %or.cond3 = icmp ult i8 %39, -4
-  %.not = icmp eq i32 %24, %21
-  %or.cond466 = select i1 %or.cond3, i1 true, i1 %.not
-  br i1 %or.cond466, label %55, label %40
-
-40:                                               ; preds = %38
-  %41 = sext i32 %24 to i64
-  %42 = getelementptr inbounds i8, ptr %3, i64 %41
-  %43 = load i8, ptr %42, align 1, !tbaa !28
-  %or.cond6 = icmp slt i8 %43, -64
-  br i1 %or.cond6, label %44, label %55
-
-44:                                               ; preds = %40
-  %45 = zext i8 %43 to i32
-  %46 = add nsw i32 %20, 2
-  store i32 %46, ptr %10, align 4, !tbaa !32
-  %47 = shl nuw nsw i32 %28, 6
-  %48 = add nsw i32 %47, -12416
-  %49 = add nuw nsw i32 %48, %45
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i16, ptr %1, i64 %50
-  %52 = load i16, ptr %51, align 2, !tbaa !25
-  %.not450 = icmp eq i16 %52, 0
-  br i1 %.not450, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.sink.split, label %53
-
-53:                                               ; preds = %44
-  %54 = zext i16 %52 to i32
-  br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread
-
-55:                                               ; preds = %40, %38
-  %56 = add nsw i32 %20, 2
-  %57 = icmp slt i32 %56, %21
-  %58 = icmp slt i32 %21, 0
-  %or.cond.i = or i1 %58, %57
-  br i1 %or.cond.i, label %59, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread
-
-59:                                               ; preds = %55
-  %60 = sext i32 %24 to i64
-  %61 = getelementptr inbounds i8, ptr %3, i64 %60
-  %62 = load i8, ptr %61, align 1, !tbaa !28
-  %63 = sext i32 %56 to i64
-  %64 = getelementptr inbounds i8, ptr %3, i64 %63
-  %65 = load i8, ptr %64, align 1, !tbaa !28
-  %66 = add nsw i32 %20, 3
-  store i32 %66, ptr %10, align 4, !tbaa !32
-  %67 = icmp eq i8 %27, -30
-  %68 = icmp eq i8 %62, -128
-  %or.cond4.i = select i1 %67, i1 %68, i1 false
-  %69 = icmp slt i8 %65, -64
-  %or.cond10.i = select i1 %or.cond4.i, i1 %69, i1 false
-  br i1 %or.cond10.i, label %70, label %73
-
-70:                                               ; preds = %59
-  %71 = zext i8 %65 to i64
-  %72 = or disjoint i64 %71, 256
-  br label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.sink.split
-
-73:                                               ; preds = %59
-  %74 = icmp eq i8 %27, -17
-  %75 = icmp eq i8 %62, -65
-  %or.cond13.i = select i1 %74, i1 %75, i1 false
-  br i1 %or.cond13.i, label %76, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread
-
-76:                                               ; preds = %73
-  %switch.selectcmp.i = icmp eq i8 %65, -65
-  %switch.select.i = select i1 %switch.selectcmp.i, i32 64680, i32 1
-  %switch.selectcmp37.i = icmp eq i8 %65, -66
-  br i1 %switch.selectcmp37.i, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
-
-_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.sink.split: ; preds = %44, %36, %70
-  %.sink = phi i64 [ %72, %70 ], [ %31, %36 ], [ %50, %44 ]
-  %.0368.ph = phi i32 [ 226, %70 ], [ %28, %36 ], [ %49, %44 ]
-  %77 = getelementptr inbounds nuw i16, ptr %15, i64 %.sink
-  %78 = load i16, ptr %77, align 2, !tbaa !25
-  %79 = zext i16 %78 to i32
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds nuw i16, ptr %15, i64 %31
+  %40 = load i16, ptr %39, align 2, !tbaa !25
+  %41 = zext i16 %40 to i32
   br label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
 
-_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit: ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.sink.split, %76
-  %.0368 = phi i32 [ 239, %76 ], [ %.0368.ph, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.sink.split ]
-  %.4318 = phi i32 [ %switch.select.i, %76 ], [ %79, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.sink.split ]
-  %80 = icmp samesign ugt i32 %.4318, 4095
-  br i1 %80, label %81, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread
+42:                                               ; preds = %23
+  %43 = add nsw i8 %27, 58
+  %or.cond3 = icmp ult i8 %43, -4
+  %.not = icmp eq i32 %24, %21
+  %or.cond466 = select i1 %or.cond3, i1 true, i1 %.not
+  br i1 %or.cond466, label %63, label %44
 
-81:                                               ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
-  %82 = and i32 %.4318, 64512
+44:                                               ; preds = %42
+  %45 = sext i32 %24 to i64
+  %46 = getelementptr inbounds i8, ptr %3, i64 %45
+  %47 = load i8, ptr %46, align 1, !tbaa !28
+  %or.cond6 = icmp slt i8 %47, -64
+  br i1 %or.cond6, label %48, label %63
+
+48:                                               ; preds = %44
+  %49 = zext i8 %47 to i32
+  %50 = add nsw i32 %20, 2
+  store i32 %50, ptr %10, align 4, !tbaa !32
+  %51 = shl nuw nsw i32 %28, 6
+  %52 = add nsw i32 %51, -12416
+  %53 = add nuw nsw i32 %52, %49
+  %54 = zext nneg i32 %53 to i64
+  %55 = getelementptr inbounds nuw i16, ptr %1, i64 %54
+  %56 = load i16, ptr %55, align 2, !tbaa !25
+  %.not450 = icmp eq i16 %56, 0
+  br i1 %.not450, label %59, label %57
+
+57:                                               ; preds = %48
+  %58 = zext i16 %56 to i32
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread
 
-_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread: ; preds = %76, %55, %73, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
-  %.4318563 = phi i32 [ %.4318, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit ], [ 1, %55 ], [ 1, %73 ], [ 3, %76 ]
-  %.0368562 = phi i32 [ %.0368, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit ], [ %28, %55 ], [ %28, %73 ], [ 239, %76 ]
-  %83 = icmp samesign ugt i32 %.4318563, %16
-  br i1 %83, label %84, label %86
+59:                                               ; preds = %48
+  %60 = getelementptr inbounds nuw i16, ptr %15, i64 %54
+  %61 = load i16, ptr %60, align 2, !tbaa !25
+  %62 = zext i16 %61 to i32
+  br label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
 
-84:                                               ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread
-  %85 = and i32 %.4318563, 4088
+63:                                               ; preds = %44, %42
+  %64 = add nsw i32 %20, 2
+  %65 = icmp slt i32 %64, %21
+  %66 = icmp slt i32 %21, 0
+  %or.cond.i = or i1 %66, %65
+  br i1 %or.cond.i, label %67, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread
+
+67:                                               ; preds = %63
+  %68 = sext i32 %24 to i64
+  %69 = getelementptr inbounds i8, ptr %3, i64 %68
+  %70 = load i8, ptr %69, align 1, !tbaa !28
+  %71 = sext i32 %64 to i64
+  %72 = getelementptr inbounds i8, ptr %3, i64 %71
+  %73 = load i8, ptr %72, align 1, !tbaa !28
+  %74 = add nsw i32 %20, 3
+  store i32 %74, ptr %10, align 4, !tbaa !32
+  %75 = icmp eq i8 %27, -30
+  %76 = icmp eq i8 %70, -128
+  %or.cond4.i = select i1 %75, i1 %76, i1 false
+  %77 = icmp slt i8 %73, -64
+  %or.cond10.i = select i1 %or.cond4.i, i1 %77, i1 false
+  br i1 %or.cond10.i, label %78, label %82
+
+78:                                               ; preds = %67
+  %79 = zext i8 %73 to i64
+  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %79
+  %80 = load i16, ptr %gep, align 2, !tbaa !25
+  %81 = zext i16 %80 to i32
+  br label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
+
+82:                                               ; preds = %67
+  %83 = icmp eq i8 %27, -17
+  %84 = icmp eq i8 %70, -65
+  %or.cond13.i = select i1 %83, i1 %84, i1 false
+  br i1 %or.cond13.i, label %85, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread
+
+85:                                               ; preds = %82
+  %switch.selectcmp.i = icmp eq i8 %73, -65
+  %switch.select.i = select i1 %switch.selectcmp.i, i32 64680, i32 1
+  %switch.selectcmp37.i = icmp eq i8 %73, -66
+  br i1 %switch.selectcmp37.i, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
+
+_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit: ; preds = %85, %78, %59, %38
+  %.0368 = phi i32 [ %28, %38 ], [ %53, %59 ], [ 226, %78 ], [ 239, %85 ]
+  %.4318 = phi i32 [ %41, %38 ], [ %62, %59 ], [ %81, %78 ], [ %switch.select.i, %85 ]
+  %86 = icmp samesign ugt i32 %.4318, 4095
+  br i1 %86, label %87, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread
+
+87:                                               ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
+  %88 = and i32 %.4318, 64512
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread
 
-86:                                               ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread
-  %87 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %.0368562, i32 noundef %.4318563, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
-  %88 = icmp eq i32 %87, 1
-  br i1 %88, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569, label %89
+_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread: ; preds = %85, %63, %82, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit
+  %.4318563 = phi i32 [ %.4318, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit ], [ 1, %63 ], [ 1, %82 ], [ 3, %85 ]
+  %.0368562 = phi i32 [ %.0368, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit ], [ %28, %63 ], [ %28, %82 ], [ 239, %85 ]
+  %89 = icmp samesign ugt i32 %.4318563, %16
+  br i1 %89, label %90, label %92
 
-89:                                               ; preds = %86
-  %90 = and i32 %87, 65535
-  %91 = icmp samesign ugt i32 %90, 4095
-  br i1 %91, label %92, label %94
+90:                                               ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread
+  %91 = and i32 %.4318563, 4088
+  br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread
 
-92:                                               ; preds = %89
-  %93 = and i32 %87, -67044352
+92:                                               ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit.thread
+  %93 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %.0368562, i32 noundef %.4318563, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %94 = icmp eq i32 %93, 1
+  br i1 %94, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569, label %95
+
+95:                                               ; preds = %92
+  %96 = and i32 %93, 65535
+  %97 = icmp samesign ugt i32 %96, 4095
+  br i1 %97, label %98, label %100
+
+98:                                               ; preds = %95
+  %99 = and i32 %93, -67044352
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit
 
-94:                                               ; preds = %89
-  %95 = icmp samesign ugt i32 %90, %16
-  br i1 %95, label %96, label %98
+100:                                              ; preds = %95
+  %101 = icmp samesign ugt i32 %96, %16
+  br i1 %101, label %102, label %104
 
-96:                                               ; preds = %94
-  %97 = and i32 %87, -458760
+102:                                              ; preds = %100
+  %103 = and i32 %93, -458760
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit
 
-98:                                               ; preds = %94
-  %99 = icmp samesign ugt i32 %90, 3071
-  %spec.select914 = select i1 %99, i32 0, i32 %87
+104:                                              ; preds = %100
+  %105 = icmp samesign ugt i32 %96, 3071
+  %spec.select933 = select i1 %105, i32 0, i32 %93
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit
 
-_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit: ; preds = %98, %96, %92
-  %.3317 = phi i32 [ %93, %92 ], [ %97, %96 ], [ %spec.select914, %98 ]
-  %100 = icmp eq i32 %.3317, 0
-  br i1 %100, label %.lr.ph, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread
+_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit: ; preds = %104, %102, %98
+  %.3317 = phi i32 [ %99, %98 ], [ %103, %102 ], [ %spec.select933, %104 ]
+  %106 = icmp eq i32 %.3317, 0
+  br i1 %106, label %.lr.ph, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread
 
-_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit, %.lr.ph, %.backedge724, %53, %84, %81, %34
-  %.2316 = phi i32 [ %54, %53 ], [ %85, %84 ], [ %82, %81 ], [ %35, %34 ], [ %.0314, %.backedge724 ], [ %.3317, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit ], [ 2, %.lr.ph ]
-  %101 = icmp eq i32 %.0341, 0
-  br i1 %101, label %.lr.ph740, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
+_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread: ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit, %.lr.ph, %.backedge724, %57, %90, %87, %34
+  %.2316 = phi i32 [ %58, %57 ], [ %91, %90 ], [ %88, %87 ], [ %35, %34 ], [ %.0314, %.backedge724 ], [ %.3317, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit ], [ 2, %.lr.ph ]
+  %107 = icmp eq i32 %.0341, 0
+  br i1 %107, label %.lr.ph742, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
 
-.lr.ph740:                                        ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484
-  %102 = load i32, ptr %11, align 4, !tbaa !32
-  %103 = load i32, ptr %9, align 4, !tbaa !32
-  %104 = icmp eq i32 %102, %103
-  br i1 %104, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread, label %105
+.lr.ph742:                                        ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484
+  %108 = load i32, ptr %11, align 4, !tbaa !32
+  %109 = load i32, ptr %9, align 4, !tbaa !32
+  %110 = icmp eq i32 %108, %109
+  br i1 %110, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread, label %111
 
-105:                                              ; preds = %.lr.ph740
-  %106 = add nsw i32 %102, 1
-  store i32 %106, ptr %11, align 4, !tbaa !32
-  %107 = sext i32 %102 to i64
-  %108 = getelementptr inbounds i8, ptr %5, i64 %107
-  %109 = load i8, ptr %108, align 1, !tbaa !28
-  %110 = zext i8 %109 to i32
-  %111 = icmp sgt i8 %109, -1
-  br i1 %111, label %112, label %120
+111:                                              ; preds = %.lr.ph742
+  %112 = add nsw i32 %108, 1
+  store i32 %112, ptr %11, align 4, !tbaa !32
+  %113 = sext i32 %108 to i64
+  %114 = getelementptr inbounds i8, ptr %5, i64 %113
+  %115 = load i8, ptr %114, align 1, !tbaa !28
+  %116 = zext i8 %115 to i32
+  %117 = icmp sgt i8 %115, -1
+  br i1 %117, label %118, label %130
 
-112:                                              ; preds = %105
-  %113 = zext nneg i8 %109 to i64
-  %114 = getelementptr inbounds nuw i16, ptr %1, i64 %113
-  %115 = load i16, ptr %114, align 2, !tbaa !25
-  %.not455 = icmp eq i16 %115, 0
-  br i1 %.not455, label %118, label %116
+118:                                              ; preds = %111
+  %119 = zext nneg i8 %115 to i64
+  %120 = getelementptr inbounds nuw i16, ptr %1, i64 %119
+  %121 = load i16, ptr %120, align 2, !tbaa !25
+  %.not455 = icmp eq i16 %121, 0
+  br i1 %.not455, label %124, label %122
 
-116:                                              ; preds = %112
-  %117 = zext i16 %115 to i32
+122:                                              ; preds = %118
+  %123 = zext i16 %121 to i32
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
 
-118:                                              ; preds = %112
-  %119 = add nsw i8 %109, -58
-  %or.cond8 = icmp ult i8 %119, -10
+124:                                              ; preds = %118
+  %125 = add nsw i8 %115, -58
+  %or.cond8 = icmp ult i8 %125, -10
   %or.cond467 = or i1 %.not452, %or.cond8
-  br i1 %or.cond467, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.sink.split, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569
+  br i1 %or.cond467, label %126, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569
 
-120:                                              ; preds = %105
-  %121 = add nsw i8 %109, 58
-  %or.cond10 = icmp ult i8 %121, -4
-  %.not453 = icmp eq i32 %106, %103
-  %or.cond468 = select i1 %or.cond10, i1 true, i1 %.not453
-  br i1 %or.cond468, label %137, label %122
-
-122:                                              ; preds = %120
-  %123 = sext i32 %106 to i64
-  %124 = getelementptr inbounds i8, ptr %5, i64 %123
-  %125 = load i8, ptr %124, align 1, !tbaa !28
-  %or.cond13 = icmp slt i8 %125, -64
-  br i1 %or.cond13, label %126, label %137
-
-126:                                              ; preds = %122
-  %127 = zext i8 %125 to i32
-  %128 = add nsw i32 %102, 2
-  store i32 %128, ptr %11, align 4, !tbaa !32
-  %129 = shl nuw nsw i32 %110, 6
-  %130 = add nsw i32 %129, -12416
-  %131 = add nuw nsw i32 %130, %127
-  %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr inbounds nuw i16, ptr %1, i64 %132
-  %134 = load i16, ptr %133, align 2, !tbaa !25
-  %.not454 = icmp eq i16 %134, 0
-  br i1 %.not454, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.sink.split, label %135
-
-135:                                              ; preds = %126
-  %136 = zext i16 %134 to i32
-  br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
-
-137:                                              ; preds = %122, %120
-  %138 = add nsw i32 %102, 2
-  %139 = icmp slt i32 %138, %103
-  %140 = icmp slt i32 %103, 0
-  %or.cond.i472 = or i1 %140, %139
-  br i1 %or.cond.i472, label %141, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread
-
-141:                                              ; preds = %137
-  %142 = sext i32 %106 to i64
-  %143 = getelementptr inbounds i8, ptr %5, i64 %142
-  %144 = load i8, ptr %143, align 1, !tbaa !28
-  %145 = sext i32 %138 to i64
-  %146 = getelementptr inbounds i8, ptr %5, i64 %145
-  %147 = load i8, ptr %146, align 1, !tbaa !28
-  %148 = add nsw i32 %102, 3
-  store i32 %148, ptr %11, align 4, !tbaa !32
-  %149 = icmp eq i8 %109, -30
-  %150 = icmp eq i8 %144, -128
-  %or.cond4.i474 = select i1 %149, i1 %150, i1 false
-  %151 = icmp slt i8 %147, -64
-  %or.cond10.i475 = select i1 %or.cond4.i474, i1 %151, i1 false
-  br i1 %or.cond10.i475, label %152, label %155
-
-152:                                              ; preds = %141
-  %153 = zext i8 %147 to i64
-  %154 = or disjoint i64 %153, 256
-  br label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.sink.split
-
-155:                                              ; preds = %141
-  %156 = icmp eq i8 %109, -17
-  %157 = icmp eq i8 %144, -65
-  %or.cond13.i476 = select i1 %156, i1 %157, i1 false
-  br i1 %or.cond13.i476, label %158, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread
-
-158:                                              ; preds = %155
-  %switch.selectcmp.i477 = icmp eq i8 %147, -65
-  %switch.select.i478 = select i1 %switch.selectcmp.i477, i32 64680, i32 1
-  %switch.selectcmp37.i479 = icmp eq i8 %147, -66
-  br i1 %switch.selectcmp37.i479, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481
-
-_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.sink.split: ; preds = %126, %118, %152
-  %.sink917 = phi i64 [ %154, %152 ], [ %113, %118 ], [ %132, %126 ]
-  %.0379.ph = phi i32 [ 226, %152 ], [ %110, %118 ], [ %131, %126 ]
-  %159 = getelementptr inbounds nuw i16, ptr %15, i64 %.sink917
-  %160 = load i16, ptr %159, align 2, !tbaa !25
-  %161 = zext i16 %160 to i32
+126:                                              ; preds = %124
+  %127 = getelementptr inbounds nuw i16, ptr %15, i64 %119
+  %128 = load i16, ptr %127, align 2, !tbaa !25
+  %129 = zext i16 %128 to i32
   br label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481
 
-_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481: ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.sink.split, %158
-  %.0379 = phi i32 [ 239, %158 ], [ %.0379.ph, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.sink.split ]
-  %.4345 = phi i32 [ %switch.select.i478, %158 ], [ %161, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.sink.split ]
-  %162 = icmp samesign ugt i32 %.4345, 4095
-  br i1 %162, label %163, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread
+130:                                              ; preds = %111
+  %131 = add nsw i8 %115, 58
+  %or.cond10 = icmp ult i8 %131, -4
+  %.not453 = icmp eq i32 %112, %109
+  %or.cond468 = select i1 %or.cond10, i1 true, i1 %.not453
+  br i1 %or.cond468, label %151, label %132
 
-163:                                              ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481
-  %164 = and i32 %.4345, 64512
+132:                                              ; preds = %130
+  %133 = sext i32 %112 to i64
+  %134 = getelementptr inbounds i8, ptr %5, i64 %133
+  %135 = load i8, ptr %134, align 1, !tbaa !28
+  %or.cond13 = icmp slt i8 %135, -64
+  br i1 %or.cond13, label %136, label %151
+
+136:                                              ; preds = %132
+  %137 = zext i8 %135 to i32
+  %138 = add nsw i32 %108, 2
+  store i32 %138, ptr %11, align 4, !tbaa !32
+  %139 = shl nuw nsw i32 %116, 6
+  %140 = add nsw i32 %139, -12416
+  %141 = add nuw nsw i32 %140, %137
+  %142 = zext nneg i32 %141 to i64
+  %143 = getelementptr inbounds nuw i16, ptr %1, i64 %142
+  %144 = load i16, ptr %143, align 2, !tbaa !25
+  %.not454 = icmp eq i16 %144, 0
+  br i1 %.not454, label %147, label %145
+
+145:                                              ; preds = %136
+  %146 = zext i16 %144 to i32
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
 
-_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread: ; preds = %158, %137, %155, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481
-  %.4345577 = phi i32 [ %.4345, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481 ], [ 1, %137 ], [ 1, %155 ], [ 3, %158 ]
-  %.0379576 = phi i32 [ %.0379, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481 ], [ %110, %137 ], [ %110, %155 ], [ 239, %158 ]
-  %165 = icmp samesign ugt i32 %.4345577, %16
-  br i1 %165, label %166, label %168
+147:                                              ; preds = %136
+  %148 = getelementptr inbounds nuw i16, ptr %15, i64 %142
+  %149 = load i16, ptr %148, align 2, !tbaa !25
+  %150 = zext i16 %149 to i32
+  br label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481
 
-166:                                              ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread
-  %167 = and i32 %.4345577, 4088
+151:                                              ; preds = %132, %130
+  %152 = add nsw i32 %108, 2
+  %153 = icmp slt i32 %152, %109
+  %154 = icmp slt i32 %109, 0
+  %or.cond.i472 = or i1 %154, %153
+  br i1 %or.cond.i472, label %155, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread
+
+155:                                              ; preds = %151
+  %156 = sext i32 %112 to i64
+  %157 = getelementptr inbounds i8, ptr %5, i64 %156
+  %158 = load i8, ptr %157, align 1, !tbaa !28
+  %159 = sext i32 %152 to i64
+  %160 = getelementptr inbounds i8, ptr %5, i64 %159
+  %161 = load i8, ptr %160, align 1, !tbaa !28
+  %162 = add nsw i32 %108, 3
+  store i32 %162, ptr %11, align 4, !tbaa !32
+  %163 = icmp eq i8 %115, -30
+  %164 = icmp eq i8 %158, -128
+  %or.cond4.i474 = select i1 %163, i1 %164, i1 false
+  %165 = icmp slt i8 %161, -64
+  %or.cond10.i475 = select i1 %or.cond4.i474, i1 %165, i1 false
+  br i1 %or.cond10.i475, label %166, label %170
+
+166:                                              ; preds = %155
+  %167 = zext i8 %161 to i64
+  %gep741 = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %167
+  %168 = load i16, ptr %gep741, align 2, !tbaa !25
+  %169 = zext i16 %168 to i32
+  br label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481
+
+170:                                              ; preds = %155
+  %171 = icmp eq i8 %115, -17
+  %172 = icmp eq i8 %158, -65
+  %or.cond13.i476 = select i1 %171, i1 %172, i1 false
+  br i1 %or.cond13.i476, label %173, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread
+
+173:                                              ; preds = %170
+  %switch.selectcmp.i477 = icmp eq i8 %161, -65
+  %switch.select.i478 = select i1 %switch.selectcmp.i477, i32 64680, i32 1
+  %switch.selectcmp37.i479 = icmp eq i8 %161, -66
+  br i1 %switch.selectcmp37.i479, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481
+
+_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481: ; preds = %173, %166, %147, %126
+  %.0379 = phi i32 [ %116, %126 ], [ %141, %147 ], [ 226, %166 ], [ 239, %173 ]
+  %.4345 = phi i32 [ %129, %126 ], [ %150, %147 ], [ %169, %166 ], [ %switch.select.i478, %173 ]
+  %174 = icmp samesign ugt i32 %.4345, 4095
+  br i1 %174, label %175, label %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread
+
+175:                                              ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481
+  %176 = and i32 %.4345, 64512
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
 
-168:                                              ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread
-  %169 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %.0379576, i32 noundef %.4345577, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %170 = icmp eq i32 %169, 1
-  br i1 %170, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569, label %171
-
-171:                                              ; preds = %168
-  %172 = and i32 %169, 65535
-  %173 = icmp samesign ugt i32 %172, 4095
-  br i1 %173, label %174, label %176
-
-174:                                              ; preds = %171
-  %175 = and i32 %169, -67044352
-  br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484
-
-176:                                              ; preds = %171
-  %177 = icmp samesign ugt i32 %172, %16
+_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread: ; preds = %173, %151, %170, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481
+  %.4345577 = phi i32 [ %.4345, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481 ], [ 1, %151 ], [ 1, %170 ], [ 3, %173 ]
+  %.0379576 = phi i32 [ %.0379, %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481 ], [ %116, %151 ], [ %116, %170 ], [ 239, %173 ]
+  %177 = icmp samesign ugt i32 %.4345577, %16
   br i1 %177, label %178, label %180
 
-178:                                              ; preds = %176
-  %179 = and i32 %169, -458760
+178:                                              ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread
+  %179 = and i32 %.4345577, 4088
+  br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
+
+180:                                              ; preds = %_ZN6icu_7718CollationFastLatin10lookupUTF8EPKtiPKhRii.exit481.thread
+  %181 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %.0379576, i32 noundef %.4345577, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %182 = icmp eq i32 %181, 1
+  br i1 %182, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569, label %183
+
+183:                                              ; preds = %180
+  %184 = and i32 %181, 65535
+  %185 = icmp samesign ugt i32 %184, 4095
+  br i1 %185, label %186, label %188
+
+186:                                              ; preds = %183
+  %187 = and i32 %181, -67044352
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484
 
-180:                                              ; preds = %176
-  %181 = icmp samesign ugt i32 %172, 3071
-  %spec.select918 = select i1 %181, i32 0, i32 %169
+188:                                              ; preds = %183
+  %189 = icmp samesign ugt i32 %184, %16
+  br i1 %189, label %190, label %192
+
+190:                                              ; preds = %188
+  %191 = and i32 %181, -458760
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484
 
-_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484: ; preds = %180, %178, %174
-  %.3344 = phi i32 [ %175, %174 ], [ %179, %178 ], [ %spec.select918, %180 ]
-  %182 = icmp eq i32 %.3344, 0
-  br i1 %182, label %.lr.ph740, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
+192:                                              ; preds = %188
+  %193 = icmp samesign ugt i32 %184, 3071
+  %spec.select934 = select i1 %193, i32 0, i32 %181
+  br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484
 
-_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread: ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484, %.lr.ph740, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread, %135, %166, %163, %116
-  %.2343 = phi i32 [ %136, %135 ], [ %167, %166 ], [ %164, %163 ], [ %117, %116 ], [ %.0341, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread ], [ %.3344, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484 ], [ 2, %.lr.ph740 ]
-  %183 = icmp eq i32 %.2316, %.2343
-  br i1 %183, label %184, label %186
+_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484: ; preds = %192, %190, %186
+  %.3344 = phi i32 [ %187, %186 ], [ %191, %190 ], [ %spec.select934, %192 ]
+  %194 = icmp eq i32 %.3344, 0
+  br i1 %194, label %.lr.ph742, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
 
-184:                                              ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
-  %185 = icmp eq i32 %.2316, 2
-  br i1 %185, label %.thread591, label %.backedge724.backedge
+_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread: ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484, %.lr.ph742, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread, %145, %178, %175, %122
+  %.2343 = phi i32 [ %146, %145 ], [ %179, %178 ], [ %176, %175 ], [ %123, %122 ], [ %.0341, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread ], [ %.3344, %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484 ], [ 2, %.lr.ph742 ]
+  %195 = icmp eq i32 %.2316, %.2343
+  br i1 %195, label %196, label %198
 
-.backedge724.backedge:                            ; preds = %184, %193
-  %.0341.be = phi i32 [ %195, %193 ], [ 0, %184 ]
-  %.0314.be = phi i32 [ %194, %193 ], [ 0, %184 ]
+196:                                              ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
+  %197 = icmp eq i32 %.2316, 2
+  br i1 %197, label %.thread591, label %.backedge724.backedge
+
+.backedge724.backedge:                            ; preds = %196, %205
+  %.0341.be = phi i32 [ %207, %205 ], [ 0, %196 ]
+  %.0314.be = phi i32 [ %206, %205 ], [ 0, %196 ]
   br label %.backedge724, !llvm.loop !47
 
-186:                                              ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
-  %187 = and i32 %.2316, 65535
-  %188 = and i32 %.2343, 65535
-  %.not457 = icmp eq i32 %187, %188
-  br i1 %.not457, label %191, label %.thread
+198:                                              ; preds = %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit484.thread
+  %199 = and i32 %.2316, 65535
+  %200 = and i32 %.2343, 65535
+  %.not457 = icmp eq i32 %199, %200
+  br i1 %.not457, label %203, label %.thread
 
-.thread:                                          ; preds = %186
-  %189 = icmp samesign ult i32 %187, %188
-  %190 = select i1 %189, i32 -1, i32 1
+.thread:                                          ; preds = %198
+  %201 = icmp samesign ult i32 %199, %200
+  %202 = select i1 %201, i32 -1, i32 1
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569
 
-191:                                              ; preds = %186
-  %192 = icmp eq i32 %.2316, 2
-  br i1 %192, label %.thread591, label %193
+203:                                              ; preds = %198
+  %204 = icmp eq i32 %.2316, 2
+  br i1 %204, label %.thread591, label %205
 
-193:                                              ; preds = %191
-  %194 = lshr i32 %.2316, 16
-  %195 = lshr i32 %.2343, 16
+205:                                              ; preds = %203
+  %206 = lshr i32 %.2316, 16
+  %207 = lshr i32 %.2343, 16
   br label %.backedge724.backedge
 
-.thread591:                                       ; preds = %191, %184
+.thread591:                                       ; preds = %203, %196
   %.not709 = icmp samesign ult i32 %17, 4096
-  br i1 %.not709, label %.thread619, label %196
+  br i1 %.not709, label %.thread619, label %208
 
-196:                                              ; preds = %.thread591
+208:                                              ; preds = %.thread591
   store i32 0, ptr %11, align 4, !tbaa !32
   store i32 0, ptr %10, align 4, !tbaa !32
-  %invariant.gep = getelementptr i8, ptr %3, i64 1
-  %invariant.gep749 = getelementptr i8, ptr %5, i64 1
+  %invariant.gep746 = getelementptr i8, ptr %3, i64 1
+  %invariant.gep755 = getelementptr i8, ptr %5, i64 1
   br label %.backedge721
 
-.backedge721:                                     ; preds = %.backedge721.backedge, %196
-  %.6347 = phi i32 [ 0, %196 ], [ %.6347.be, %.backedge721.backedge ]
-  %.6320 = phi i32 [ 0, %196 ], [ %.6320.be, %.backedge721.backedge ]
-  %197 = icmp eq i32 %.6320, 0
-  br i1 %197, label %.lr.ph744, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
+.backedge721:                                     ; preds = %.backedge721.backedge, %208
+  %.6347 = phi i32 [ 0, %208 ], [ %.6347.be, %.backedge721.backedge ]
+  %.6320 = phi i32 [ 0, %208 ], [ %.6320.be, %.backedge721.backedge ]
+  %209 = icmp eq i32 %.6320, 0
+  br i1 %209, label %.lr.ph750, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
 
-.lr.ph744:                                        ; preds = %.backedge721, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit
-  %198 = load i32, ptr %10, align 4, !tbaa !32
-  %199 = load i32, ptr %8, align 4, !tbaa !32
-  %200 = icmp eq i32 %198, %199
-  br i1 %200, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, label %201
+.lr.ph750:                                        ; preds = %.backedge721, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit
+  %210 = load i32, ptr %10, align 4, !tbaa !32
+  %211 = load i32, ptr %8, align 4, !tbaa !32
+  %212 = icmp eq i32 %210, %211
+  br i1 %212, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, label %213
 
-201:                                              ; preds = %.lr.ph744
-  %202 = add nsw i32 %198, 1
-  store i32 %202, ptr %10, align 4, !tbaa !32
-  %203 = sext i32 %198 to i64
-  %204 = getelementptr inbounds i8, ptr %3, i64 %203
-  %205 = load i8, ptr %204, align 1, !tbaa !28
-  %206 = zext i8 %205 to i32
-  %207 = icmp sgt i8 %205, -1
-  br i1 %207, label %208, label %210
+213:                                              ; preds = %.lr.ph750
+  %214 = add nsw i32 %210, 1
+  store i32 %214, ptr %10, align 4, !tbaa !32
+  %215 = sext i32 %210 to i64
+  %216 = getelementptr inbounds i8, ptr %3, i64 %215
+  %217 = load i8, ptr %216, align 1, !tbaa !28
+  %218 = zext i8 %217 to i32
+  %219 = icmp sgt i8 %217, -1
+  br i1 %219, label %220, label %223
 
-208:                                              ; preds = %201
-  %209 = zext nneg i8 %205 to i64
+220:                                              ; preds = %213
+  %221 = zext nneg i8 %217 to i64
+  %222 = getelementptr inbounds nuw i16, ptr %15, i64 %221
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit
 
-210:                                              ; preds = %201
-  %211 = icmp samesign ult i8 %205, -58
-  br i1 %211, label %212, label %222
+223:                                              ; preds = %213
+  %224 = icmp samesign ult i8 %217, -58
+  br i1 %224, label %225, label %236
 
-212:                                              ; preds = %210
-  %213 = shl nuw nsw i32 %206, 6
-  %214 = add nsw i32 %213, -12416
-  %215 = add nsw i32 %198, 2
-  store i32 %215, ptr %10, align 4, !tbaa !32
-  %216 = sext i32 %202 to i64
-  %217 = getelementptr inbounds i8, ptr %3, i64 %216
-  %218 = load i8, ptr %217, align 1, !tbaa !28
-  %219 = zext i8 %218 to i32
-  %220 = add nsw i32 %214, %219
-  %221 = sext i32 %220 to i64
+225:                                              ; preds = %223
+  %226 = shl nuw nsw i32 %218, 6
+  %227 = add nsw i32 %226, -12416
+  %228 = add nsw i32 %210, 2
+  store i32 %228, ptr %10, align 4, !tbaa !32
+  %229 = sext i32 %214 to i64
+  %230 = getelementptr inbounds i8, ptr %3, i64 %229
+  %231 = load i8, ptr %230, align 1, !tbaa !28
+  %232 = zext i8 %231 to i32
+  %233 = add nsw i32 %227, %232
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds i16, ptr %15, i64 %234
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit
 
-222:                                              ; preds = %210
-  %223 = sext i32 %202 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %223
-  %224 = load i8, ptr %gep, align 1, !tbaa !28
-  %225 = add nsw i32 %198, 3
-  store i32 %225, ptr %10, align 4, !tbaa !32
-  %226 = icmp eq i8 %205, -30
-  br i1 %226, label %227, label %230
+236:                                              ; preds = %223
+  %237 = sext i32 %214 to i64
+  %gep747 = getelementptr i8, ptr %invariant.gep746, i64 %237
+  %238 = load i8, ptr %gep747, align 1, !tbaa !28
+  %239 = add nsw i32 %210, 3
+  store i32 %239, ptr %10, align 4, !tbaa !32
+  %240 = icmp eq i8 %217, -30
+  br i1 %240, label %241, label %243
 
-227:                                              ; preds = %222
-  %228 = zext i8 %224 to i64
-  %229 = or disjoint i64 %228, 256
+241:                                              ; preds = %236
+  %242 = zext i8 %238 to i64
+  %gep749 = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %242
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit
 
-230:                                              ; preds = %222
-  %231 = icmp eq i8 %224, -66
-  br i1 %231, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread599, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread
+243:                                              ; preds = %236
+  %244 = icmp eq i8 %238, -66
+  br i1 %244, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread599, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit: ; preds = %227, %212, %208
-  %.sink919 = phi i64 [ %229, %227 ], [ %221, %212 ], [ %209, %208 ]
-  %232 = getelementptr inbounds i16, ptr %15, i64 %.sink919
-  %.9323.in = load i16, ptr %232, align 2, !tbaa !25
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit: ; preds = %241, %225, %220
+  %.9323.in.in = phi ptr [ %222, %220 ], [ %235, %225 ], [ %gep749, %241 ]
+  %.9323.in = load i16, ptr %.9323.in.in, align 2, !tbaa !25
   %.9323 = zext i16 %.9323.in to i32
-  %233 = icmp ugt i16 %.9323.in, 4095
-  br i1 %233, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread599
+  %245 = icmp ugt i16 %.9323.in, 4095
+  br i1 %245, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread599
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread: ; preds = %230, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit
-  %.9323598 = phi i32 [ %.9323, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit ], [ 64680, %230 ]
-  %234 = and i32 %.9323598, 992
-  %235 = icmp samesign ult i32 %234, 384
-  %236 = add nuw nsw i32 %234, 32
-  %237 = shl nuw nsw i32 %234, 16
-  %238 = add nuw nsw i32 %237, 2097344
-  %.0.i487 = select i1 %235, i32 %236, i32 %238
-  br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
-
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread599: ; preds = %230, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit
-  %.9323601 = phi i32 [ %.9323, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit ], [ 3, %230 ]
-  %239 = icmp samesign ugt i32 %.9323601, %16
-  br i1 %239, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, label %240
-
-240:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread599
-  %241 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %206, i32 noundef %.9323601, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
-  %242 = icmp ult i32 %241, 65536
-  br i1 %242, label %243, label %255
-
-243:                                              ; preds = %240
-  %244 = icmp samesign ugt i32 %241, 4095
-  br i1 %244, label %245, label %251
-
-245:                                              ; preds = %243
-  %246 = and i32 %241, 992
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread: ; preds = %243, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit
+  %.9323598 = phi i32 [ %.9323, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit ], [ 64680, %243 ]
+  %246 = and i32 %.9323598, 992
   %247 = icmp samesign ult i32 %246, 384
   %248 = add nuw nsw i32 %246, 32
   %249 = shl nuw nsw i32 %246, 16
   %250 = add nuw nsw i32 %249, 2097344
-  %.0.i.i = select i1 %247, i32 %248, i32 %250
+  %.0.i487 = select i1 %247, i32 %248, i32 %250
   br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
 
-251:                                              ; preds = %243
-  %252 = icmp ugt i32 %241, %16
-  br i1 %252, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, label %253
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread599: ; preds = %243, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit
+  %.9323601 = phi i32 [ %.9323, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit ], [ 3, %243 ]
+  %251 = icmp samesign ugt i32 %.9323601, %16
+  br i1 %251, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, label %252
 
-253:                                              ; preds = %251
-  %254 = icmp samesign ugt i32 %241, 3071
-  %spec.select920 = select i1 %254, i32 0, i32 %241
+252:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread599
+  %253 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %218, i32 noundef %.9323601, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %254 = icmp ult i32 %253, 65536
+  br i1 %254, label %255, label %267
+
+255:                                              ; preds = %252
+  %256 = icmp samesign ugt i32 %253, 4095
+  br i1 %256, label %257, label %263
+
+257:                                              ; preds = %255
+  %258 = and i32 %253, 992
+  %259 = icmp samesign ult i32 %258, 384
+  %260 = add nuw nsw i32 %258, 32
+  %261 = shl nuw nsw i32 %258, 16
+  %262 = add nuw nsw i32 %261, 2097344
+  %.0.i.i = select i1 %259, i32 %260, i32 %262
+  br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
+
+263:                                              ; preds = %255
+  %264 = icmp ugt i32 %253, %16
+  br i1 %264, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, label %265
+
+265:                                              ; preds = %263
+  %266 = icmp samesign ugt i32 %253, 3071
+  %spec.select935 = select i1 %266, i32 0, i32 %253
   br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit
 
-255:                                              ; preds = %240
-  %256 = and i32 %241, 65535
-  %257 = icmp samesign ugt i32 %256, 4095
-  %258 = icmp samesign ugt i32 %256, %16
-  %..i488 = select i1 %258, i32 12583104, i32 0
-  br i1 %257, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit877, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit
+267:                                              ; preds = %252
+  %268 = and i32 %253, 65535
+  %269 = icmp samesign ugt i32 %268, 4095
+  %270 = icmp samesign ugt i32 %268, %16
+  %..i488 = select i1 %270, i32 12583104, i32 0
+  br i1 %269, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit897, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit
 
-_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit: ; preds = %253, %255
-  %.10324 = phi i32 [ %..i488, %255 ], [ %spec.select920, %253 ]
-  %259 = icmp eq i32 %.10324, 0
-  br i1 %259, label %.lr.ph744, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
+_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit: ; preds = %265, %267
+  %.10324 = phi i32 [ %..i488, %267 ], [ %spec.select935, %265 ]
+  %271 = icmp eq i32 %.10324, 0
+  br i1 %271, label %.lr.ph750, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
 
-_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit877: ; preds = %255
-  %260 = and i32 %241, 65012704
-  %261 = add nuw nsw i32 %260, 2097184
+_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit897: ; preds = %267
+  %272 = and i32 %253, 65012704
+  %273 = add nuw nsw i32 %272, 2097184
   br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread
 
-_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread599, %.lr.ph744, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit, %251, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit877, %245, %.backedge721, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread
-  %.8322 = phi i32 [ %.0.i487, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread ], [ %.6320, %.backedge721 ], [ %.0.i.i, %245 ], [ %261, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit877 ], [ 192, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread599 ], [ 2, %.lr.ph744 ], [ %.10324, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit ], [ 192, %251 ]
-  %262 = icmp eq i32 %.6347, 0
-  br i1 %262, label %.lr.ph751, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
+_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread: ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread599, %.lr.ph750, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit, %263, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit897, %257, %.backedge721, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread
+  %.8322 = phi i32 [ %.0.i487, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread ], [ %.6320, %.backedge721 ], [ %.0.i.i, %257 ], [ %273, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread.loopexit.split.loop.exit897 ], [ 192, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit.thread599 ], [ 2, %.lr.ph750 ], [ %.10324, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit ], [ 192, %263 ]
+  %274 = icmp eq i32 %.6347, 0
+  br i1 %274, label %.lr.ph759, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
 
-.lr.ph751:                                        ; preds = %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500
-  %263 = load i32, ptr %11, align 4, !tbaa !32
-  %264 = load i32, ptr %9, align 4, !tbaa !32
-  %265 = icmp eq i32 %263, %264
-  br i1 %265, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread, label %266
+.lr.ph759:                                        ; preds = %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500
+  %275 = load i32, ptr %11, align 4, !tbaa !32
+  %276 = load i32, ptr %9, align 4, !tbaa !32
+  %277 = icmp eq i32 %275, %276
+  br i1 %277, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread, label %278
 
-266:                                              ; preds = %.lr.ph751
-  %267 = add nsw i32 %263, 1
-  store i32 %267, ptr %11, align 4, !tbaa !32
-  %268 = sext i32 %263 to i64
-  %269 = getelementptr inbounds i8, ptr %5, i64 %268
-  %270 = load i8, ptr %269, align 1, !tbaa !28
-  %271 = zext i8 %270 to i32
-  %272 = icmp sgt i8 %270, -1
-  br i1 %272, label %273, label %275
+278:                                              ; preds = %.lr.ph759
+  %279 = add nsw i32 %275, 1
+  store i32 %279, ptr %11, align 4, !tbaa !32
+  %280 = sext i32 %275 to i64
+  %281 = getelementptr inbounds i8, ptr %5, i64 %280
+  %282 = load i8, ptr %281, align 1, !tbaa !28
+  %283 = zext i8 %282 to i32
+  %284 = icmp sgt i8 %282, -1
+  br i1 %284, label %285, label %288
 
-273:                                              ; preds = %266
-  %274 = zext nneg i8 %270 to i64
+285:                                              ; preds = %278
+  %286 = zext nneg i8 %282 to i64
+  %287 = getelementptr inbounds nuw i16, ptr %15, i64 %286
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493
 
-275:                                              ; preds = %266
-  %276 = icmp samesign ult i8 %270, -58
-  br i1 %276, label %277, label %287
+288:                                              ; preds = %278
+  %289 = icmp samesign ult i8 %282, -58
+  br i1 %289, label %290, label %301
 
-277:                                              ; preds = %275
-  %278 = shl nuw nsw i32 %271, 6
-  %279 = add nsw i32 %278, -12416
-  %280 = add nsw i32 %263, 2
-  store i32 %280, ptr %11, align 4, !tbaa !32
-  %281 = sext i32 %267 to i64
-  %282 = getelementptr inbounds i8, ptr %5, i64 %281
-  %283 = load i8, ptr %282, align 1, !tbaa !28
-  %284 = zext i8 %283 to i32
-  %285 = add nsw i32 %279, %284
-  %286 = sext i32 %285 to i64
+290:                                              ; preds = %288
+  %291 = shl nuw nsw i32 %283, 6
+  %292 = add nsw i32 %291, -12416
+  %293 = add nsw i32 %275, 2
+  store i32 %293, ptr %11, align 4, !tbaa !32
+  %294 = sext i32 %279 to i64
+  %295 = getelementptr inbounds i8, ptr %5, i64 %294
+  %296 = load i8, ptr %295, align 1, !tbaa !28
+  %297 = zext i8 %296 to i32
+  %298 = add nsw i32 %292, %297
+  %299 = sext i32 %298 to i64
+  %300 = getelementptr inbounds i16, ptr %15, i64 %299
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493
 
-287:                                              ; preds = %275
-  %288 = sext i32 %267 to i64
-  %gep750 = getelementptr i8, ptr %invariant.gep749, i64 %288
-  %289 = load i8, ptr %gep750, align 1, !tbaa !28
-  %290 = add nsw i32 %263, 3
-  store i32 %290, ptr %11, align 4, !tbaa !32
-  %291 = icmp eq i8 %270, -30
-  br i1 %291, label %292, label %295
+301:                                              ; preds = %288
+  %302 = sext i32 %279 to i64
+  %gep756 = getelementptr i8, ptr %invariant.gep755, i64 %302
+  %303 = load i8, ptr %gep756, align 1, !tbaa !28
+  %304 = add nsw i32 %275, 3
+  store i32 %304, ptr %11, align 4, !tbaa !32
+  %305 = icmp eq i8 %282, -30
+  br i1 %305, label %306, label %308
 
-292:                                              ; preds = %287
-  %293 = zext i8 %289 to i64
-  %294 = or disjoint i64 %293, 256
+306:                                              ; preds = %301
+  %307 = zext i8 %303 to i64
+  %gep758 = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %307
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493
 
-295:                                              ; preds = %287
-  %296 = icmp eq i8 %289, -66
-  br i1 %296, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread608, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread
+308:                                              ; preds = %301
+  %309 = icmp eq i8 %303, -66
+  br i1 %309, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread608, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493: ; preds = %292, %277, %273
-  %.sink921 = phi i64 [ %294, %292 ], [ %286, %277 ], [ %274, %273 ]
-  %297 = getelementptr inbounds i16, ptr %15, i64 %.sink921
-  %.9350.in = load i16, ptr %297, align 2, !tbaa !25
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493: ; preds = %306, %290, %285
+  %.9350.in.in = phi ptr [ %287, %285 ], [ %300, %290 ], [ %gep758, %306 ]
+  %.9350.in = load i16, ptr %.9350.in.in, align 2, !tbaa !25
   %.9350 = zext i16 %.9350.in to i32
-  %298 = icmp ugt i16 %.9350.in, 4095
-  br i1 %298, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread608
+  %310 = icmp ugt i16 %.9350.in, 4095
+  br i1 %310, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread608
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread: ; preds = %295, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493
-  %.9350607 = phi i32 [ %.9350, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493 ], [ 64680, %295 ]
-  %299 = and i32 %.9350607, 992
-  %300 = icmp samesign ult i32 %299, 384
-  %301 = add nuw nsw i32 %299, 32
-  %302 = shl nuw nsw i32 %299, 16
-  %303 = add nuw nsw i32 %302, 2097344
-  %.0.i494 = select i1 %300, i32 %301, i32 %303
-  br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
-
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread608: ; preds = %295, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493
-  %.9350610 = phi i32 [ %.9350, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493 ], [ 3, %295 ]
-  %304 = icmp samesign ugt i32 %.9350610, %16
-  br i1 %304, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread, label %305
-
-305:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread608
-  %306 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %271, i32 noundef %.9350610, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %307 = icmp ult i32 %306, 65536
-  br i1 %307, label %308, label %320
-
-308:                                              ; preds = %305
-  %309 = icmp samesign ugt i32 %306, 4095
-  br i1 %309, label %310, label %316
-
-310:                                              ; preds = %308
-  %311 = and i32 %306, 992
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread: ; preds = %308, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493
+  %.9350607 = phi i32 [ %.9350, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493 ], [ 64680, %308 ]
+  %311 = and i32 %.9350607, 992
   %312 = icmp samesign ult i32 %311, 384
   %313 = add nuw nsw i32 %311, 32
   %314 = shl nuw nsw i32 %311, 16
   %315 = add nuw nsw i32 %314, 2097344
-  %.0.i.i499 = select i1 %312, i32 %313, i32 %315
+  %.0.i494 = select i1 %312, i32 %313, i32 %315
   br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
 
-316:                                              ; preds = %308
-  %317 = icmp ugt i32 %306, %16
-  br i1 %317, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread, label %318
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread608: ; preds = %308, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493
+  %.9350610 = phi i32 [ %.9350, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493 ], [ 3, %308 ]
+  %316 = icmp samesign ugt i32 %.9350610, %16
+  br i1 %316, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread, label %317
 
-318:                                              ; preds = %316
-  %319 = icmp samesign ugt i32 %306, 3071
-  %spec.select922 = select i1 %319, i32 0, i32 %306
+317:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread608
+  %318 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %283, i32 noundef %.9350610, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %319 = icmp ult i32 %318, 65536
+  br i1 %319, label %320, label %332
+
+320:                                              ; preds = %317
+  %321 = icmp samesign ugt i32 %318, 4095
+  br i1 %321, label %322, label %328
+
+322:                                              ; preds = %320
+  %323 = and i32 %318, 992
+  %324 = icmp samesign ult i32 %323, 384
+  %325 = add nuw nsw i32 %323, 32
+  %326 = shl nuw nsw i32 %323, 16
+  %327 = add nuw nsw i32 %326, 2097344
+  %.0.i.i499 = select i1 %324, i32 %325, i32 %327
+  br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
+
+328:                                              ; preds = %320
+  %329 = icmp ugt i32 %318, %16
+  br i1 %329, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread, label %330
+
+330:                                              ; preds = %328
+  %331 = icmp samesign ugt i32 %318, 3071
+  %spec.select936 = select i1 %331, i32 0, i32 %318
   br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500
 
-320:                                              ; preds = %305
-  %321 = and i32 %306, 65535
-  %322 = icmp samesign ugt i32 %321, 4095
-  %323 = icmp samesign ugt i32 %321, %16
-  %..i495 = select i1 %323, i32 12583104, i32 0
-  br i1 %322, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread.loopexit.split.loop.exit887, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500
+332:                                              ; preds = %317
+  %333 = and i32 %318, 65535
+  %334 = icmp samesign ugt i32 %333, 4095
+  %335 = icmp samesign ugt i32 %333, %16
+  %..i495 = select i1 %335, i32 12583104, i32 0
+  br i1 %334, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread.loopexit.split.loop.exit907, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500
 
-_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500: ; preds = %318, %320
-  %.10351 = phi i32 [ %..i495, %320 ], [ %spec.select922, %318 ]
-  %324 = icmp eq i32 %.10351, 0
-  br i1 %324, label %.lr.ph751, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
+_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500: ; preds = %330, %332
+  %.10351 = phi i32 [ %..i495, %332 ], [ %spec.select936, %330 ]
+  %336 = icmp eq i32 %.10351, 0
+  br i1 %336, label %.lr.ph759, label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
 
-_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread.loopexit.split.loop.exit887: ; preds = %320
-  %325 = and i32 %306, 65012704
-  %326 = add nuw nsw i32 %325, 2097184
+_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread.loopexit.split.loop.exit907: ; preds = %332
+  %337 = and i32 %318, 65012704
+  %338 = add nuw nsw i32 %337, 2097184
   br label %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
 
-_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread: ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread608, %.lr.ph751, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500, %316, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread.loopexit.split.loop.exit887, %310, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread
-  %.8349 = phi i32 [ %.0.i494, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread ], [ %.6347, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread ], [ %.0.i.i499, %310 ], [ %326, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread.loopexit.split.loop.exit887 ], [ 192, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread608 ], [ 2, %.lr.ph751 ], [ %.10351, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500 ], [ 192, %316 ]
-  %327 = icmp eq i32 %.8322, %.8349
-  br i1 %327, label %328, label %330
+_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread: ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread608, %.lr.ph759, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500, %328, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread.loopexit.split.loop.exit907, %322, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread
+  %.8349 = phi i32 [ %.0.i494, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread ], [ %.6347, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit.thread ], [ %.0.i.i499, %322 ], [ %338, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread.loopexit.split.loop.exit907 ], [ 192, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit493.thread608 ], [ 2, %.lr.ph759 ], [ %.10351, %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500 ], [ 192, %328 ]
+  %339 = icmp eq i32 %.8322, %.8349
+  br i1 %339, label %340, label %342
 
-328:                                              ; preds = %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
-  %329 = icmp eq i32 %.8322, 2
-  br i1 %329, label %.thread619, label %.backedge721.backedge
+340:                                              ; preds = %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
+  %341 = icmp eq i32 %.8322, 2
+  br i1 %341, label %.thread619, label %.backedge721.backedge
 
-.backedge721.backedge:                            ; preds = %328, %340
-  %.6347.be = phi i32 [ %342, %340 ], [ 0, %328 ]
-  %.6320.be = phi i32 [ %341, %340 ], [ 0, %328 ]
+.backedge721.backedge:                            ; preds = %340, %352
+  %.6347.be = phi i32 [ %354, %352 ], [ 0, %340 ]
+  %.6320.be = phi i32 [ %353, %352 ], [ 0, %340 ]
   br label %.backedge721, !llvm.loop !48
 
-330:                                              ; preds = %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
-  %331 = and i32 %.8322, 65535
-  %332 = and i32 %.8349, 65535
-  %.not458 = icmp eq i32 %331, %332
-  br i1 %.not458, label %338, label %333
+342:                                              ; preds = %_ZN6icu_7718CollationFastLatin14getSecondariesEjj.exit500.thread
+  %343 = and i32 %.8322, 65535
+  %344 = and i32 %.8349, 65535
+  %.not458 = icmp eq i32 %343, %344
+  br i1 %.not458, label %350, label %345
 
-333:                                              ; preds = %330
-  %334 = and i32 %2, 2048
-  %.not459 = icmp eq i32 %334, 0
-  br i1 %.not459, label %335, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569
+345:                                              ; preds = %342
+  %346 = and i32 %2, 2048
+  %.not459 = icmp eq i32 %346, 0
+  br i1 %.not459, label %347, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569
 
-335:                                              ; preds = %333
-  %336 = icmp samesign ult i32 %331, %332
-  %337 = select i1 %336, i32 -1, i32 1
+347:                                              ; preds = %345
+  %348 = icmp samesign ult i32 %343, %344
+  %349 = select i1 %348, i32 -1, i32 1
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569
 
-338:                                              ; preds = %330
-  %339 = icmp eq i32 %.8322, 2
-  br i1 %339, label %.thread619, label %340
+350:                                              ; preds = %342
+  %351 = icmp eq i32 %.8322, 2
+  br i1 %351, label %.thread619, label %352
 
-340:                                              ; preds = %338
-  %341 = lshr i32 %.8322, 16
-  %342 = lshr i32 %.8349, 16
+352:                                              ; preds = %350
+  %353 = lshr i32 %.8322, 16
+  %354 = lshr i32 %.8349, 16
   br label %.backedge721.backedge
 
-.thread619:                                       ; preds = %338, %328, %.thread591
-  %343 = and i32 %2, 1024
-  %.not460 = icmp eq i32 %343, 0
-  br i1 %.not460, label %.thread649, label %344
+.thread619:                                       ; preds = %350, %340, %.thread591
+  %355 = and i32 %2, 1024
+  %.not460 = icmp eq i32 %355, 0
+  br i1 %.not460, label %.thread649, label %356
 
-344:                                              ; preds = %.thread619
+356:                                              ; preds = %.thread619
   store i32 0, ptr %11, align 4, !tbaa !32
   store i32 0, ptr %10, align 4, !tbaa !32
-  %invariant.gep756 = getelementptr i8, ptr %3, i64 1
-  %invariant.gep762 = getelementptr i8, ptr %5, i64 1
+  %invariant.gep764 = getelementptr i8, ptr %3, i64 1
+  %invariant.gep772 = getelementptr i8, ptr %5, i64 1
   br label %.backedge720
 
-.backedge720:                                     ; preds = %.backedge720.backedge, %344
-  %.12353 = phi i32 [ 0, %344 ], [ %.12353.be, %.backedge720.backedge ]
-  %.12326 = phi i32 [ 0, %344 ], [ %.12326.be, %.backedge720.backedge ]
-  %345 = icmp eq i32 %.12326, 0
-  br i1 %345, label %.lr.ph758, label %._crit_edge
+.backedge720:                                     ; preds = %.backedge720.backedge, %356
+  %.12353 = phi i32 [ 0, %356 ], [ %.12353.be, %.backedge720.backedge ]
+  %.12326 = phi i32 [ 0, %356 ], [ %.12326.be, %.backedge720.backedge ]
+  %357 = icmp eq i32 %.12326, 0
+  br i1 %357, label %.lr.ph768, label %._crit_edge
 
-.lr.ph758:                                        ; preds = %.backedge720, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit
-  %346 = load i32, ptr %10, align 4, !tbaa !32
-  %347 = load i32, ptr %8, align 4, !tbaa !32
-  %348 = icmp eq i32 %346, %347
-  br i1 %348, label %._crit_edge, label %349
+.lr.ph768:                                        ; preds = %.backedge720, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit
+  %358 = load i32, ptr %10, align 4, !tbaa !32
+  %359 = load i32, ptr %8, align 4, !tbaa !32
+  %360 = icmp eq i32 %358, %359
+  br i1 %360, label %._crit_edge, label %361
 
-349:                                              ; preds = %.lr.ph758
-  %350 = add nsw i32 %346, 1
-  store i32 %350, ptr %10, align 4, !tbaa !32
-  %351 = sext i32 %346 to i64
-  %352 = getelementptr inbounds i8, ptr %3, i64 %351
-  %353 = load i8, ptr %352, align 1, !tbaa !28
-  %354 = zext i8 %353 to i32
-  %355 = icmp sgt i8 %353, -1
-  br i1 %355, label %356, label %358
+361:                                              ; preds = %.lr.ph768
+  %362 = add nsw i32 %358, 1
+  store i32 %362, ptr %10, align 4, !tbaa !32
+  %363 = sext i32 %358 to i64
+  %364 = getelementptr inbounds i8, ptr %3, i64 %363
+  %365 = load i8, ptr %364, align 1, !tbaa !28
+  %366 = zext i8 %365 to i32
+  %367 = icmp sgt i8 %365, -1
+  br i1 %367, label %368, label %371
 
-356:                                              ; preds = %349
-  %357 = zext nneg i8 %353 to i64
+368:                                              ; preds = %361
+  %369 = zext nneg i8 %365 to i64
+  %370 = getelementptr inbounds nuw i16, ptr %15, i64 %369
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503
 
-358:                                              ; preds = %349
-  %359 = icmp samesign ult i8 %353, -58
-  br i1 %359, label %360, label %370
+371:                                              ; preds = %361
+  %372 = icmp samesign ult i8 %365, -58
+  br i1 %372, label %373, label %384
 
-360:                                              ; preds = %358
-  %361 = shl nuw nsw i32 %354, 6
-  %362 = add nsw i32 %361, -12416
-  %363 = add nsw i32 %346, 2
-  store i32 %363, ptr %10, align 4, !tbaa !32
-  %364 = sext i32 %350 to i64
-  %365 = getelementptr inbounds i8, ptr %3, i64 %364
-  %366 = load i8, ptr %365, align 1, !tbaa !28
-  %367 = zext i8 %366 to i32
-  %368 = add nsw i32 %362, %367
-  %369 = sext i32 %368 to i64
+373:                                              ; preds = %371
+  %374 = shl nuw nsw i32 %366, 6
+  %375 = add nsw i32 %374, -12416
+  %376 = add nsw i32 %358, 2
+  store i32 %376, ptr %10, align 4, !tbaa !32
+  %377 = sext i32 %362 to i64
+  %378 = getelementptr inbounds i8, ptr %3, i64 %377
+  %379 = load i8, ptr %378, align 1, !tbaa !28
+  %380 = zext i8 %379 to i32
+  %381 = add nsw i32 %375, %380
+  %382 = sext i32 %381 to i64
+  %383 = getelementptr inbounds i16, ptr %15, i64 %382
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503
 
-370:                                              ; preds = %358
-  %371 = sext i32 %350 to i64
-  %gep757 = getelementptr i8, ptr %invariant.gep756, i64 %371
-  %372 = load i8, ptr %gep757, align 1, !tbaa !28
-  %373 = add nsw i32 %346, 3
-  store i32 %373, ptr %10, align 4, !tbaa !32
-  %374 = icmp eq i8 %353, -30
-  br i1 %374, label %375, label %378
+384:                                              ; preds = %371
+  %385 = sext i32 %362 to i64
+  %gep765 = getelementptr i8, ptr %invariant.gep764, i64 %385
+  %386 = load i8, ptr %gep765, align 1, !tbaa !28
+  %387 = add nsw i32 %358, 3
+  store i32 %387, ptr %10, align 4, !tbaa !32
+  %388 = icmp eq i8 %365, -30
+  br i1 %388, label %389, label %391
 
-375:                                              ; preds = %370
-  %376 = zext i8 %372 to i64
-  %377 = or disjoint i64 %376, 256
+389:                                              ; preds = %384
+  %390 = zext i8 %386 to i64
+  %gep767 = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %390
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503
 
-378:                                              ; preds = %370
-  %379 = icmp eq i8 %372, -66
-  br i1 %379, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503.thread, label %._crit_edge
+391:                                              ; preds = %384
+  %392 = icmp eq i8 %386, -66
+  br i1 %392, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503.thread, label %._crit_edge
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503: ; preds = %375, %360, %356
-  %.sink923 = phi i64 [ %377, %375 ], [ %369, %360 ], [ %357, %356 ]
-  %380 = getelementptr inbounds i16, ptr %15, i64 %.sink923
-  %.in = load i16, ptr %380, align 2, !tbaa !25
-  %381 = zext i16 %.in to i32
-  %382 = icmp ult i16 %.in, 3072
-  br i1 %382, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503.thread, label %.thread627
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503: ; preds = %389, %373, %368
+  %.in.in = phi ptr [ %370, %368 ], [ %383, %373 ], [ %gep767, %389 ]
+  %.in = load i16, ptr %.in.in, align 2, !tbaa !25
+  %393 = zext i16 %.in to i32
+  %394 = icmp ult i16 %.in, 3072
+  br i1 %394, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503.thread, label %.thread627
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503.thread: ; preds = %378, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503
-  %383 = phi i32 [ %381, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503 ], [ 3, %378 ]
-  %384 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %354, i32 noundef %383, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
-  %385 = icmp ult i32 %384, 65536
-  br i1 %385, label %.thread627, label %394
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503.thread: ; preds = %391, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503
+  %395 = phi i32 [ %393, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503 ], [ 3, %391 ]
+  %396 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %366, i32 noundef %395, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %397 = icmp ult i32 %396, 65536
+  br i1 %397, label %.thread627, label %406
 
 .thread627:                                       ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503.thread
-  %.15329629 = phi i32 [ %384, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503.thread ], [ %381, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503 ]
-  %386 = icmp samesign ugt i32 %.15329629, 4095
-  br i1 %386, label %.thread627.thread, label %390
+  %.15329629 = phi i32 [ %396, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503.thread ], [ %393, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503 ]
+  %398 = icmp samesign ugt i32 %.15329629, 4095
+  br i1 %398, label %.thread627.thread, label %402
 
 .thread627.thread:                                ; preds = %.thread627
-  %387 = and i32 %.15329629, 24
-  %388 = and i32 %.15329629, 896
-  %389 = icmp samesign ult i32 %388, 384
-  %or.cond.i507.not = select i1 %.not709, i1 true, i1 %389
-  br i1 %or.cond.i507.not, label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit, label %._crit_edge.loopexit.split.loop.exit893
+  %399 = and i32 %.15329629, 24
+  %400 = and i32 %.15329629, 896
+  %401 = icmp samesign ult i32 %400, 384
+  %or.cond.i507.not = select i1 %.not709, i1 true, i1 %401
+  br i1 %or.cond.i507.not, label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit, label %._crit_edge.loopexit.split.loop.exit913
 
-390:                                              ; preds = %.thread627
-  %391 = icmp samesign ugt i32 %.15329629, %16
-  br i1 %391, label %._crit_edge, label %392
+402:                                              ; preds = %.thread627
+  %403 = icmp samesign ugt i32 %.15329629, %16
+  br i1 %403, label %._crit_edge, label %404
 
-392:                                              ; preds = %390
-  %393 = icmp samesign ugt i32 %.15329629, 3071
-  %spec.select924 = select i1 %393, i32 0, i32 %.15329629
+404:                                              ; preds = %402
+  %405 = icmp samesign ugt i32 %.15329629, 3071
+  %spec.select937 = select i1 %405, i32 0, i32 %.15329629
   br label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit
 
-394:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503.thread
-  %395 = and i32 %384, 65535
-  %396 = icmp samesign ugt i32 %395, 4095
-  br i1 %396, label %397, label %403
+406:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit503.thread
+  %407 = and i32 %396, 65535
+  %408 = icmp samesign ugt i32 %407, 4095
+  br i1 %408, label %409, label %415
 
-397:                                              ; preds = %394
-  %398 = icmp ult i32 %384, 67108864
-  %or.cond23.i = and i1 %.not709, %398
-  br i1 %or.cond23.i, label %399, label %401
+409:                                              ; preds = %406
+  %410 = icmp ult i32 %396, 67108864
+  %or.cond23.i = and i1 %.not709, %410
+  br i1 %or.cond23.i, label %411, label %413
 
-399:                                              ; preds = %397
-  %400 = and i32 %384, 24
+411:                                              ; preds = %409
+  %412 = and i32 %396, 24
   br label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit
 
-401:                                              ; preds = %397
-  %402 = and i32 %384, 1572888
+413:                                              ; preds = %409
+  %414 = and i32 %396, 1572888
   br label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit
 
-403:                                              ; preds = %394
-  %404 = icmp samesign ugt i32 %395, %16
-  br i1 %404, label %._crit_edge, label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit
+415:                                              ; preds = %406
+  %416 = icmp samesign ugt i32 %407, %16
+  br i1 %416, label %._crit_edge, label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit
 
-_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %392, %.thread627.thread, %403, %399, %401
-  %.1.i505 = phi i32 [ %400, %399 ], [ %402, %401 ], [ 0, %403 ], [ %387, %.thread627.thread ], [ %spec.select924, %392 ]
-  %405 = icmp eq i32 %.1.i505, 0
-  br i1 %405, label %.lr.ph758, label %._crit_edge, !llvm.loop !49
+_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit: ; preds = %404, %.thread627.thread, %415, %411, %413
+  %.1.i505 = phi i32 [ %412, %411 ], [ %414, %413 ], [ 0, %415 ], [ %399, %.thread627.thread ], [ %spec.select937, %404 ]
+  %417 = icmp eq i32 %.1.i505, 0
+  br i1 %417, label %.lr.ph768, label %._crit_edge, !llvm.loop !49
 
-._crit_edge.loopexit.split.loop.exit893:          ; preds = %.thread627.thread
-  %406 = or disjoint i32 %387, 524288
+._crit_edge.loopexit.split.loop.exit913:          ; preds = %.thread627.thread
+  %418 = or disjoint i32 %399, 524288
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph758, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit, %390, %403, %378, %._crit_edge.loopexit.split.loop.exit893, %.backedge720
-  %.14328 = phi i32 [ %.12326, %.backedge720 ], [ %406, %._crit_edge.loopexit.split.loop.exit893 ], [ 2, %.lr.ph758 ], [ %.1.i505, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit ], [ 8, %390 ], [ 524296, %403 ], [ 8, %378 ]
-  %407 = icmp eq i32 %.12353, 0
-  br i1 %407, label %.lr.ph765, label %._crit_edge766
+._crit_edge:                                      ; preds = %.lr.ph768, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit, %402, %415, %391, %._crit_edge.loopexit.split.loop.exit913, %.backedge720
+  %.14328 = phi i32 [ %.12326, %.backedge720 ], [ %418, %._crit_edge.loopexit.split.loop.exit913 ], [ 2, %.lr.ph768 ], [ %.1.i505, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit ], [ 8, %402 ], [ 524296, %415 ], [ 8, %391 ]
+  %419 = icmp eq i32 %.12353, 0
+  br i1 %419, label %.lr.ph777, label %._crit_edge778
 
-.lr.ph765:                                        ; preds = %._crit_edge, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519
-  %408 = load i32, ptr %11, align 4, !tbaa !32
-  %409 = load i32, ptr %9, align 4, !tbaa !32
-  %410 = icmp eq i32 %408, %409
-  br i1 %410, label %._crit_edge766, label %411
+.lr.ph777:                                        ; preds = %._crit_edge, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519
+  %420 = load i32, ptr %11, align 4, !tbaa !32
+  %421 = load i32, ptr %9, align 4, !tbaa !32
+  %422 = icmp eq i32 %420, %421
+  br i1 %422, label %._crit_edge778, label %423
 
-411:                                              ; preds = %.lr.ph765
-  %412 = add nsw i32 %408, 1
-  store i32 %412, ptr %11, align 4, !tbaa !32
-  %413 = sext i32 %408 to i64
-  %414 = getelementptr inbounds i8, ptr %5, i64 %413
-  %415 = load i8, ptr %414, align 1, !tbaa !28
-  %416 = zext i8 %415 to i32
-  %417 = icmp sgt i8 %415, -1
-  br i1 %417, label %418, label %420
+423:                                              ; preds = %.lr.ph777
+  %424 = add nsw i32 %420, 1
+  store i32 %424, ptr %11, align 4, !tbaa !32
+  %425 = sext i32 %420 to i64
+  %426 = getelementptr inbounds i8, ptr %5, i64 %425
+  %427 = load i8, ptr %426, align 1, !tbaa !28
+  %428 = zext i8 %427 to i32
+  %429 = icmp sgt i8 %427, -1
+  br i1 %429, label %430, label %433
 
-418:                                              ; preds = %411
-  %419 = zext nneg i8 %415 to i64
+430:                                              ; preds = %423
+  %431 = zext nneg i8 %427 to i64
+  %432 = getelementptr inbounds nuw i16, ptr %15, i64 %431
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511
 
-420:                                              ; preds = %411
-  %421 = icmp samesign ult i8 %415, -58
-  br i1 %421, label %422, label %432
+433:                                              ; preds = %423
+  %434 = icmp samesign ult i8 %427, -58
+  br i1 %434, label %435, label %446
 
-422:                                              ; preds = %420
-  %423 = shl nuw nsw i32 %416, 6
-  %424 = add nsw i32 %423, -12416
-  %425 = add nsw i32 %408, 2
-  store i32 %425, ptr %11, align 4, !tbaa !32
-  %426 = sext i32 %412 to i64
-  %427 = getelementptr inbounds i8, ptr %5, i64 %426
-  %428 = load i8, ptr %427, align 1, !tbaa !28
-  %429 = zext i8 %428 to i32
-  %430 = add nsw i32 %424, %429
-  %431 = sext i32 %430 to i64
+435:                                              ; preds = %433
+  %436 = shl nuw nsw i32 %428, 6
+  %437 = add nsw i32 %436, -12416
+  %438 = add nsw i32 %420, 2
+  store i32 %438, ptr %11, align 4, !tbaa !32
+  %439 = sext i32 %424 to i64
+  %440 = getelementptr inbounds i8, ptr %5, i64 %439
+  %441 = load i8, ptr %440, align 1, !tbaa !28
+  %442 = zext i8 %441 to i32
+  %443 = add nsw i32 %437, %442
+  %444 = sext i32 %443 to i64
+  %445 = getelementptr inbounds i16, ptr %15, i64 %444
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511
 
-432:                                              ; preds = %420
-  %433 = sext i32 %412 to i64
-  %gep763 = getelementptr i8, ptr %invariant.gep762, i64 %433
-  %434 = load i8, ptr %gep763, align 1, !tbaa !28
-  %435 = add nsw i32 %408, 3
-  store i32 %435, ptr %11, align 4, !tbaa !32
-  %436 = icmp eq i8 %415, -30
-  br i1 %436, label %437, label %440
+446:                                              ; preds = %433
+  %447 = sext i32 %424 to i64
+  %gep773 = getelementptr i8, ptr %invariant.gep772, i64 %447
+  %448 = load i8, ptr %gep773, align 1, !tbaa !28
+  %449 = add nsw i32 %420, 3
+  store i32 %449, ptr %11, align 4, !tbaa !32
+  %450 = icmp eq i8 %427, -30
+  br i1 %450, label %451, label %453
 
-437:                                              ; preds = %432
-  %438 = zext i8 %434 to i64
-  %439 = or disjoint i64 %438, 256
+451:                                              ; preds = %446
+  %452 = zext i8 %448 to i64
+  %gep775 = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %452
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511
 
-440:                                              ; preds = %432
-  %441 = icmp eq i8 %434, -66
-  br i1 %441, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511.thread, label %._crit_edge766
+453:                                              ; preds = %446
+  %454 = icmp eq i8 %448, -66
+  br i1 %454, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511.thread, label %._crit_edge778
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511: ; preds = %437, %422, %418
-  %.sink925 = phi i64 [ %439, %437 ], [ %431, %422 ], [ %419, %418 ]
-  %442 = getelementptr inbounds i16, ptr %15, i64 %.sink925
-  %.in711 = load i16, ptr %442, align 2, !tbaa !25
-  %443 = zext i16 %.in711 to i32
-  %444 = icmp ult i16 %.in711, 3072
-  br i1 %444, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511.thread, label %.thread633
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511: ; preds = %451, %435, %430
+  %.in711.in = phi ptr [ %432, %430 ], [ %445, %435 ], [ %gep775, %451 ]
+  %.in711 = load i16, ptr %.in711.in, align 2, !tbaa !25
+  %455 = zext i16 %.in711 to i32
+  %456 = icmp ult i16 %.in711, 3072
+  br i1 %456, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511.thread, label %.thread633
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511.thread: ; preds = %440, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511
-  %445 = phi i32 [ %443, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511 ], [ 3, %440 ]
-  %446 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %416, i32 noundef %445, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %447 = icmp ult i32 %446, 65536
-  br i1 %447, label %.thread633, label %456
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511.thread: ; preds = %453, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511
+  %457 = phi i32 [ %455, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511 ], [ 3, %453 ]
+  %458 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %428, i32 noundef %457, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %459 = icmp ult i32 %458, 65536
+  br i1 %459, label %.thread633, label %468
 
 .thread633:                                       ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511.thread
-  %.15356635 = phi i32 [ %446, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511.thread ], [ %443, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511 ]
-  %448 = icmp samesign ugt i32 %.15356635, 4095
-  br i1 %448, label %.thread633.thread, label %452
+  %.15356635 = phi i32 [ %458, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511.thread ], [ %455, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511 ]
+  %460 = icmp samesign ugt i32 %.15356635, 4095
+  br i1 %460, label %.thread633.thread, label %464
 
 .thread633.thread:                                ; preds = %.thread633
-  %449 = and i32 %.15356635, 24
-  %450 = and i32 %.15356635, 896
-  %451 = icmp samesign ult i32 %450, 384
-  %or.cond.i517.not = select i1 %.not709, i1 true, i1 %451
-  br i1 %or.cond.i517.not, label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519, label %._crit_edge766.loopexit.split.loop.exit904
+  %461 = and i32 %.15356635, 24
+  %462 = and i32 %.15356635, 896
+  %463 = icmp samesign ult i32 %462, 384
+  %or.cond.i517.not = select i1 %.not709, i1 true, i1 %463
+  br i1 %or.cond.i517.not, label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519, label %._crit_edge778.loopexit.split.loop.exit924
 
-452:                                              ; preds = %.thread633
-  %453 = icmp samesign ugt i32 %.15356635, %16
-  br i1 %453, label %._crit_edge766, label %454
+464:                                              ; preds = %.thread633
+  %465 = icmp samesign ugt i32 %.15356635, %16
+  br i1 %465, label %._crit_edge778, label %466
 
-454:                                              ; preds = %452
-  %455 = icmp samesign ugt i32 %.15356635, 3071
-  %spec.select926 = select i1 %455, i32 0, i32 %.15356635
+466:                                              ; preds = %464
+  %467 = icmp samesign ugt i32 %.15356635, 3071
+  %spec.select938 = select i1 %467, i32 0, i32 %.15356635
   br label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519
 
-456:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511.thread
-  %457 = and i32 %446, 65535
-  %458 = icmp samesign ugt i32 %457, 4095
-  br i1 %458, label %459, label %465
+468:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit511.thread
+  %469 = and i32 %458, 65535
+  %470 = icmp samesign ugt i32 %469, 4095
+  br i1 %470, label %471, label %477
 
-459:                                              ; preds = %456
-  %460 = icmp ult i32 %446, 67108864
-  %or.cond23.i514 = and i1 %.not709, %460
-  br i1 %or.cond23.i514, label %461, label %463
+471:                                              ; preds = %468
+  %472 = icmp ult i32 %458, 67108864
+  %or.cond23.i514 = and i1 %.not709, %472
+  br i1 %or.cond23.i514, label %473, label %475
 
-461:                                              ; preds = %459
-  %462 = and i32 %446, 24
+473:                                              ; preds = %471
+  %474 = and i32 %458, 24
   br label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519
 
-463:                                              ; preds = %459
-  %464 = and i32 %446, 1572888
+475:                                              ; preds = %471
+  %476 = and i32 %458, 1572888
   br label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519
 
-465:                                              ; preds = %456
-  %466 = icmp samesign ugt i32 %457, %16
-  br i1 %466, label %._crit_edge766, label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519
+477:                                              ; preds = %468
+  %478 = icmp samesign ugt i32 %469, %16
+  br i1 %478, label %._crit_edge778, label %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519
 
-_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519: ; preds = %454, %.thread633.thread, %465, %461, %463
-  %.1.i513 = phi i32 [ %462, %461 ], [ %464, %463 ], [ 0, %465 ], [ %449, %.thread633.thread ], [ %spec.select926, %454 ]
-  %467 = icmp eq i32 %.1.i513, 0
-  br i1 %467, label %.lr.ph765, label %._crit_edge766, !llvm.loop !50
+_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519: ; preds = %466, %.thread633.thread, %477, %473, %475
+  %.1.i513 = phi i32 [ %474, %473 ], [ %476, %475 ], [ 0, %477 ], [ %461, %.thread633.thread ], [ %spec.select938, %466 ]
+  %479 = icmp eq i32 %.1.i513, 0
+  br i1 %479, label %.lr.ph777, label %._crit_edge778, !llvm.loop !50
 
-._crit_edge766.loopexit.split.loop.exit904:       ; preds = %.thread633.thread
-  %468 = or disjoint i32 %449, 524288
-  br label %._crit_edge766
+._crit_edge778.loopexit.split.loop.exit924:       ; preds = %.thread633.thread
+  %480 = or disjoint i32 %461, 524288
+  br label %._crit_edge778
 
-._crit_edge766:                                   ; preds = %.lr.ph765, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519, %452, %465, %440, %._crit_edge766.loopexit.split.loop.exit904, %._crit_edge
-  %.14355 = phi i32 [ %.12353, %._crit_edge ], [ %468, %._crit_edge766.loopexit.split.loop.exit904 ], [ 2, %.lr.ph765 ], [ %.1.i513, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519 ], [ 8, %452 ], [ 524296, %465 ], [ 8, %440 ]
-  %469 = icmp eq i32 %.14328, %.14355
-  br i1 %469, label %470, label %472
+._crit_edge778:                                   ; preds = %.lr.ph777, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519, %464, %477, %453, %._crit_edge778.loopexit.split.loop.exit924, %._crit_edge
+  %.14355 = phi i32 [ %.12353, %._crit_edge ], [ %480, %._crit_edge778.loopexit.split.loop.exit924 ], [ 2, %.lr.ph777 ], [ %.1.i513, %_ZN6icu_7718CollationFastLatin8getCasesEjaj.exit519 ], [ 8, %464 ], [ 524296, %477 ], [ 8, %453 ]
+  %481 = icmp eq i32 %.14328, %.14355
+  br i1 %481, label %482, label %484
 
-470:                                              ; preds = %._crit_edge766
-  %471 = icmp eq i32 %.14328, 2
-  br i1 %471, label %.thread649, label %.backedge720.backedge
+482:                                              ; preds = %._crit_edge778
+  %483 = icmp eq i32 %.14328, 2
+  br i1 %483, label %.thread649, label %.backedge720.backedge
 
-.backedge720.backedge:                            ; preds = %470, %485
-  %.12353.be = phi i32 [ %487, %485 ], [ 0, %470 ]
-  %.12326.be = phi i32 [ %486, %485 ], [ 0, %470 ]
+.backedge720.backedge:                            ; preds = %482, %497
+  %.12353.be = phi i32 [ %499, %497 ], [ 0, %482 ]
+  %.12326.be = phi i32 [ %498, %497 ], [ 0, %482 ]
   br label %.backedge720, !llvm.loop !51
 
-472:                                              ; preds = %._crit_edge766
-  %473 = and i32 %.14328, 65535
-  %474 = and i32 %.14355, 65535
-  %.not461 = icmp eq i32 %473, %474
-  br i1 %.not461, label %483, label %475
+484:                                              ; preds = %._crit_edge778
+  %485 = and i32 %.14328, 65535
+  %486 = and i32 %.14355, 65535
+  %.not461 = icmp eq i32 %485, %486
+  br i1 %.not461, label %495, label %487
 
-475:                                              ; preds = %472
-  %476 = and i32 %2, 256
-  %477 = icmp eq i32 %476, 0
-  %478 = icmp samesign ult i32 %473, %474
-  br i1 %477, label %479, label %481
+487:                                              ; preds = %484
+  %488 = and i32 %2, 256
+  %489 = icmp eq i32 %488, 0
+  %490 = icmp samesign ult i32 %485, %486
+  br i1 %489, label %491, label %493
 
-479:                                              ; preds = %475
-  %480 = select i1 %478, i32 -1, i32 1
+491:                                              ; preds = %487
+  %492 = select i1 %490, i32 -1, i32 1
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569
 
-481:                                              ; preds = %475
-  %482 = select i1 %478, i32 1, i32 -1
+493:                                              ; preds = %487
+  %494 = select i1 %490, i32 1, i32 -1
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569
 
-483:                                              ; preds = %472
-  %484 = icmp eq i32 %.14328, 2
-  br i1 %484, label %.thread649, label %485
+495:                                              ; preds = %484
+  %496 = icmp eq i32 %.14328, 2
+  br i1 %496, label %.thread649, label %497
 
-485:                                              ; preds = %483
-  %486 = lshr i32 %.14328, 16
-  %487 = lshr i32 %.14355, 16
+497:                                              ; preds = %495
+  %498 = lshr i32 %.14328, 16
+  %499 = lshr i32 %.14355, 16
   br label %.backedge720.backedge
 
-.thread649:                                       ; preds = %483, %470, %.thread619
-  %488 = icmp samesign ult i32 %17, 8192
-  br i1 %488, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569, label %489
+.thread649:                                       ; preds = %495, %482, %.thread619
+  %500 = icmp samesign ult i32 %17, 8192
+  br i1 %500, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569, label %501
 
-489:                                              ; preds = %.thread649
-  %490 = and i32 %2, 1536
-  %.not715 = icmp eq i32 %490, 512
+501:                                              ; preds = %.thread649
+  %502 = and i32 %2, 1536
+  %.not715 = icmp eq i32 %502, 512
   store i32 0, ptr %11, align 4, !tbaa !32
   store i32 0, ptr %10, align 4, !tbaa !32
-  %invariant.gep770 = getelementptr i8, ptr %3, i64 1
+  %invariant.gep782 = getelementptr i8, ptr %3, i64 1
   %spec.select35.v.i = select i1 %.not715, i32 2621480, i32 2097184
   %.2.v.i = select i1 %.not715, i32 2031647, i32 458759
   %spec.select34.v.i = select i1 %.not715, i32 40, i32 32
-  %invariant.gep778 = getelementptr i8, ptr %5, i64 1
+  %invariant.gep792 = getelementptr i8, ptr %5, i64 1
   br label %.backedge719
 
-.backedge719:                                     ; preds = %.backedge719.backedge, %489
-  %.17358 = phi i32 [ 0, %489 ], [ %.17358.be, %.backedge719.backedge ]
-  %.17331 = phi i32 [ 0, %489 ], [ %.17331.be, %.backedge719.backedge ]
-  %491 = icmp eq i32 %.17331, 0
-  br i1 %491, label %.lr.ph773, label %._crit_edge774
+.backedge719:                                     ; preds = %.backedge719.backedge, %501
+  %.17358 = phi i32 [ 0, %501 ], [ %.17358.be, %.backedge719.backedge ]
+  %.17331 = phi i32 [ 0, %501 ], [ %.17331.be, %.backedge719.backedge ]
+  %503 = icmp eq i32 %.17331, 0
+  br i1 %503, label %.lr.ph787, label %._crit_edge788
 
-.lr.ph773:                                        ; preds = %.backedge719, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit
-  %492 = load i32, ptr %10, align 4, !tbaa !32
-  %493 = load i32, ptr %8, align 4, !tbaa !32
-  %494 = icmp eq i32 %492, %493
-  br i1 %494, label %._crit_edge774, label %495
+.lr.ph787:                                        ; preds = %.backedge719, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit
+  %504 = load i32, ptr %10, align 4, !tbaa !32
+  %505 = load i32, ptr %8, align 4, !tbaa !32
+  %506 = icmp eq i32 %504, %505
+  br i1 %506, label %._crit_edge788, label %507
 
-495:                                              ; preds = %.lr.ph773
-  %496 = add nsw i32 %492, 1
-  store i32 %496, ptr %10, align 4, !tbaa !32
-  %497 = sext i32 %492 to i64
-  %498 = getelementptr inbounds i8, ptr %3, i64 %497
-  %499 = load i8, ptr %498, align 1, !tbaa !28
-  %500 = zext i8 %499 to i32
-  %501 = icmp sgt i8 %499, -1
-  br i1 %501, label %502, label %504
+507:                                              ; preds = %.lr.ph787
+  %508 = add nsw i32 %504, 1
+  store i32 %508, ptr %10, align 4, !tbaa !32
+  %509 = sext i32 %504 to i64
+  %510 = getelementptr inbounds i8, ptr %3, i64 %509
+  %511 = load i8, ptr %510, align 1, !tbaa !28
+  %512 = zext i8 %511 to i32
+  %513 = icmp sgt i8 %511, -1
+  br i1 %513, label %514, label %517
 
-502:                                              ; preds = %495
-  %503 = zext nneg i8 %499 to i64
+514:                                              ; preds = %507
+  %515 = zext nneg i8 %511 to i64
+  %516 = getelementptr inbounds nuw i16, ptr %15, i64 %515
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522
 
-504:                                              ; preds = %495
-  %505 = icmp samesign ult i8 %499, -58
-  br i1 %505, label %506, label %516
+517:                                              ; preds = %507
+  %518 = icmp samesign ult i8 %511, -58
+  br i1 %518, label %519, label %530
 
-506:                                              ; preds = %504
-  %507 = shl nuw nsw i32 %500, 6
-  %508 = add nsw i32 %507, -12416
-  %509 = add nsw i32 %492, 2
-  store i32 %509, ptr %10, align 4, !tbaa !32
-  %510 = sext i32 %496 to i64
-  %511 = getelementptr inbounds i8, ptr %3, i64 %510
-  %512 = load i8, ptr %511, align 1, !tbaa !28
-  %513 = zext i8 %512 to i32
-  %514 = add nsw i32 %508, %513
-  %515 = sext i32 %514 to i64
+519:                                              ; preds = %517
+  %520 = shl nuw nsw i32 %512, 6
+  %521 = add nsw i32 %520, -12416
+  %522 = add nsw i32 %504, 2
+  store i32 %522, ptr %10, align 4, !tbaa !32
+  %523 = sext i32 %508 to i64
+  %524 = getelementptr inbounds i8, ptr %3, i64 %523
+  %525 = load i8, ptr %524, align 1, !tbaa !28
+  %526 = zext i8 %525 to i32
+  %527 = add nsw i32 %521, %526
+  %528 = sext i32 %527 to i64
+  %529 = getelementptr inbounds i16, ptr %15, i64 %528
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522
 
-516:                                              ; preds = %504
-  %517 = sext i32 %496 to i64
-  %gep771 = getelementptr i8, ptr %invariant.gep770, i64 %517
-  %518 = load i8, ptr %gep771, align 1, !tbaa !28
-  %519 = add nsw i32 %492, 3
-  store i32 %519, ptr %10, align 4, !tbaa !32
-  %520 = icmp eq i8 %499, -30
-  br i1 %520, label %521, label %524
+530:                                              ; preds = %517
+  %531 = sext i32 %508 to i64
+  %gep783 = getelementptr i8, ptr %invariant.gep782, i64 %531
+  %532 = load i8, ptr %gep783, align 1, !tbaa !28
+  %533 = add nsw i32 %504, 3
+  store i32 %533, ptr %10, align 4, !tbaa !32
+  %534 = icmp eq i8 %511, -30
+  br i1 %534, label %535, label %537
 
-521:                                              ; preds = %516
-  %522 = zext i8 %518 to i64
-  %523 = or disjoint i64 %522, 256
+535:                                              ; preds = %530
+  %536 = zext i8 %532 to i64
+  %gep785 = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %536
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522
 
-524:                                              ; preds = %516
-  %525 = icmp eq i8 %518, -66
-  br i1 %525, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522.thread, label %.thread656.thread
+537:                                              ; preds = %530
+  %538 = icmp eq i8 %532, -66
+  br i1 %538, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522.thread, label %.thread656.thread
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522: ; preds = %521, %506, %502
-  %.sink927 = phi i64 [ %523, %521 ], [ %515, %506 ], [ %503, %502 ]
-  %526 = getelementptr inbounds i16, ptr %15, i64 %.sink927
-  %.in713 = load i16, ptr %526, align 2, !tbaa !25
-  %527 = zext i16 %.in713 to i32
-  %528 = icmp ult i16 %.in713, 3072
-  br i1 %528, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522.thread, label %.thread656
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522: ; preds = %535, %519, %514
+  %.in713.in = phi ptr [ %516, %514 ], [ %529, %519 ], [ %gep785, %535 ]
+  %.in713 = load i16, ptr %.in713.in, align 2, !tbaa !25
+  %539 = zext i16 %.in713 to i32
+  %540 = icmp ult i16 %.in713, 3072
+  br i1 %540, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522.thread, label %.thread656
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522.thread: ; preds = %524, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522
-  %529 = phi i32 [ %527, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522 ], [ 3, %524 ]
-  %530 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %500, i32 noundef %529, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
-  %531 = icmp ult i32 %530, 65536
-  br i1 %531, label %.thread656, label %545
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522.thread: ; preds = %537, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522
+  %541 = phi i32 [ %539, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522 ], [ 3, %537 ]
+  %542 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %512, i32 noundef %541, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %543 = icmp ult i32 %542, 65536
+  br i1 %543, label %.thread656, label %557
 
 .thread656:                                       ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522.thread
-  %.20334658 = phi i32 [ %530, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522.thread ], [ %527, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522 ]
-  %532 = icmp samesign ugt i32 %.20334658, 4095
-  br i1 %532, label %.thread656.thread, label %539
+  %.20334658 = phi i32 [ %542, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522.thread ], [ %539, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522 ]
+  %544 = icmp samesign ugt i32 %.20334658, 4095
+  br i1 %544, label %.thread656.thread, label %551
 
-.thread656.thread:                                ; preds = %524, %.thread656
-  %.20334658702 = phi i32 [ %.20334658, %.thread656 ], [ 64680, %524 ]
-  %533 = and i32 %.20334658702, 896
-  %534 = icmp samesign ugt i32 %533, 383
-  br i1 %.not715, label %535, label %537
+.thread656.thread:                                ; preds = %537, %.thread656
+  %.20334658702 = phi i32 [ %.20334658, %.thread656 ], [ 64680, %537 ]
+  %545 = and i32 %.20334658702, 896
+  %546 = icmp samesign ugt i32 %545, 383
+  br i1 %.not715, label %547, label %549
 
-535:                                              ; preds = %.thread656.thread
-  %536 = and i32 %.20334658702, 31
-  %spec.select.v.i = select i1 %534, i32 2621472, i32 32
-  %spec.select.i = or disjoint i32 %spec.select.v.i, %536
-  br label %._crit_edge774
+547:                                              ; preds = %.thread656.thread
+  %548 = and i32 %.20334658702, 31
+  %spec.select.v.i = select i1 %546, i32 2621472, i32 32
+  %spec.select.i = or disjoint i32 %spec.select.v.i, %548
+  br label %._crit_edge788
 
-537:                                              ; preds = %.thread656.thread
-  %538 = and i32 %.20334658702, 7
-  %spec.select33.v.i = select i1 %534, i32 2097184, i32 32
-  %spec.select33.i = or disjoint i32 %spec.select33.v.i, %538
-  br label %._crit_edge774
+549:                                              ; preds = %.thread656.thread
+  %550 = and i32 %.20334658702, 7
+  %spec.select33.v.i = select i1 %546, i32 2097184, i32 32
+  %spec.select33.i = or disjoint i32 %spec.select33.v.i, %550
+  br label %._crit_edge788
 
-539:                                              ; preds = %.thread656
-  %540 = icmp samesign ugt i32 %.20334658, %16
-  br i1 %540, label %541, label %543
+551:                                              ; preds = %.thread656
+  %552 = icmp samesign ugt i32 %.20334658, %16
+  br i1 %552, label %553, label %555
 
-541:                                              ; preds = %539
-  %542 = and i32 %.20334658, 7
-  %spec.select34.i = or disjoint i32 %542, %spec.select34.v.i
-  br label %._crit_edge774
+553:                                              ; preds = %551
+  %554 = and i32 %.20334658, 7
+  %spec.select34.i = or disjoint i32 %554, %spec.select34.v.i
+  br label %._crit_edge788
 
-543:                                              ; preds = %539
-  %544 = icmp samesign ugt i32 %.20334658, 3071
-  %spec.select928 = select i1 %544, i32 0, i32 %.20334658
+555:                                              ; preds = %551
+  %556 = icmp samesign ugt i32 %.20334658, 3071
+  %spec.select939 = select i1 %556, i32 0, i32 %.20334658
   br label %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit
 
-545:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522.thread
-  %546 = and i32 %530, 65535
-  %547 = icmp samesign ugt i32 %546, 4095
-  br i1 %547, label %548, label %550
+557:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit522.thread
+  %558 = and i32 %542, 65535
+  %559 = icmp samesign ugt i32 %558, 4095
+  br i1 %559, label %560, label %562
 
-548:                                              ; preds = %545
-  %.2.i = and i32 %530, %.2.v.i
-  %549 = or disjoint i32 %.2.i, 2097184
-  br label %._crit_edge774
+560:                                              ; preds = %557
+  %.2.i = and i32 %542, %.2.v.i
+  %561 = or disjoint i32 %.2.i, 2097184
+  br label %._crit_edge788
 
-550:                                              ; preds = %545
-  %551 = icmp samesign ugt i32 %546, %16
-  br i1 %551, label %552, label %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit
+562:                                              ; preds = %557
+  %563 = icmp samesign ugt i32 %558, %16
+  br i1 %563, label %564, label %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit
 
-552:                                              ; preds = %550
-  %553 = and i32 %530, 458759
-  %spec.select35.i = or disjoint i32 %553, %spec.select35.v.i
-  br label %._crit_edge774
+564:                                              ; preds = %562
+  %565 = and i32 %542, 458759
+  %spec.select35.i = or disjoint i32 %565, %spec.select35.v.i
+  br label %._crit_edge788
 
-_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %543, %550
-  %.1.i523 = phi i32 [ 0, %550 ], [ %spec.select928, %543 ]
-  %554 = icmp eq i32 %.1.i523, 0
-  br i1 %554, label %.lr.ph773, label %._crit_edge774, !llvm.loop !52
+_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit: ; preds = %555, %562
+  %.1.i523 = phi i32 [ 0, %562 ], [ %spec.select939, %555 ]
+  %566 = icmp eq i32 %.1.i523, 0
+  br i1 %566, label %.lr.ph787, label %._crit_edge788, !llvm.loop !52
 
-._crit_edge774:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit, %.lr.ph773, %552, %548, %541, %537, %535, %.backedge719
-  %.19333 = phi i32 [ %.17331, %.backedge719 ], [ %spec.select35.i, %552 ], [ %549, %548 ], [ %spec.select34.i, %541 ], [ %spec.select33.i, %537 ], [ %spec.select.i, %535 ], [ 2, %.lr.ph773 ], [ %.1.i523, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit ]
-  %555 = icmp eq i32 %.17358, 0
-  br i1 %555, label %.lr.ph781, label %._crit_edge782
+._crit_edge788:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit, %.lr.ph787, %564, %560, %553, %549, %547, %.backedge719
+  %.19333 = phi i32 [ %.17331, %.backedge719 ], [ %spec.select35.i, %564 ], [ %561, %560 ], [ %spec.select34.i, %553 ], [ %spec.select33.i, %549 ], [ %spec.select.i, %547 ], [ 2, %.lr.ph787 ], [ %.1.i523, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit ]
+  %567 = icmp eq i32 %.17358, 0
+  br i1 %567, label %.lr.ph797, label %._crit_edge798
 
-.lr.ph781:                                        ; preds = %._crit_edge774, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544
-  %556 = load i32, ptr %11, align 4, !tbaa !32
-  %557 = load i32, ptr %9, align 4, !tbaa !32
-  %558 = icmp eq i32 %556, %557
-  br i1 %558, label %._crit_edge782, label %559
+.lr.ph797:                                        ; preds = %._crit_edge788, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544
+  %568 = load i32, ptr %11, align 4, !tbaa !32
+  %569 = load i32, ptr %9, align 4, !tbaa !32
+  %570 = icmp eq i32 %568, %569
+  br i1 %570, label %._crit_edge798, label %571
 
-559:                                              ; preds = %.lr.ph781
-  %560 = add nsw i32 %556, 1
-  store i32 %560, ptr %11, align 4, !tbaa !32
-  %561 = sext i32 %556 to i64
-  %562 = getelementptr inbounds i8, ptr %5, i64 %561
-  %563 = load i8, ptr %562, align 1, !tbaa !28
-  %564 = zext i8 %563 to i32
-  %565 = icmp sgt i8 %563, -1
-  br i1 %565, label %566, label %568
+571:                                              ; preds = %.lr.ph797
+  %572 = add nsw i32 %568, 1
+  store i32 %572, ptr %11, align 4, !tbaa !32
+  %573 = sext i32 %568 to i64
+  %574 = getelementptr inbounds i8, ptr %5, i64 %573
+  %575 = load i8, ptr %574, align 1, !tbaa !28
+  %576 = zext i8 %575 to i32
+  %577 = icmp sgt i8 %575, -1
+  br i1 %577, label %578, label %581
 
-566:                                              ; preds = %559
-  %567 = zext nneg i8 %563 to i64
+578:                                              ; preds = %571
+  %579 = zext nneg i8 %575 to i64
+  %580 = getelementptr inbounds nuw i16, ptr %15, i64 %579
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527
 
-568:                                              ; preds = %559
-  %569 = icmp samesign ult i8 %563, -58
-  br i1 %569, label %570, label %580
+581:                                              ; preds = %571
+  %582 = icmp samesign ult i8 %575, -58
+  br i1 %582, label %583, label %594
 
-570:                                              ; preds = %568
-  %571 = shl nuw nsw i32 %564, 6
-  %572 = add nsw i32 %571, -12416
-  %573 = add nsw i32 %556, 2
-  store i32 %573, ptr %11, align 4, !tbaa !32
-  %574 = sext i32 %560 to i64
-  %575 = getelementptr inbounds i8, ptr %5, i64 %574
-  %576 = load i8, ptr %575, align 1, !tbaa !28
-  %577 = zext i8 %576 to i32
-  %578 = add nsw i32 %572, %577
-  %579 = sext i32 %578 to i64
+583:                                              ; preds = %581
+  %584 = shl nuw nsw i32 %576, 6
+  %585 = add nsw i32 %584, -12416
+  %586 = add nsw i32 %568, 2
+  store i32 %586, ptr %11, align 4, !tbaa !32
+  %587 = sext i32 %572 to i64
+  %588 = getelementptr inbounds i8, ptr %5, i64 %587
+  %589 = load i8, ptr %588, align 1, !tbaa !28
+  %590 = zext i8 %589 to i32
+  %591 = add nsw i32 %585, %590
+  %592 = sext i32 %591 to i64
+  %593 = getelementptr inbounds i16, ptr %15, i64 %592
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527
 
-580:                                              ; preds = %568
-  %581 = sext i32 %560 to i64
-  %gep779 = getelementptr i8, ptr %invariant.gep778, i64 %581
-  %582 = load i8, ptr %gep779, align 1, !tbaa !28
-  %583 = add nsw i32 %556, 3
-  store i32 %583, ptr %11, align 4, !tbaa !32
-  %584 = icmp eq i8 %563, -30
-  br i1 %584, label %585, label %588
+594:                                              ; preds = %581
+  %595 = sext i32 %572 to i64
+  %gep793 = getelementptr i8, ptr %invariant.gep792, i64 %595
+  %596 = load i8, ptr %gep793, align 1, !tbaa !28
+  %597 = add nsw i32 %568, 3
+  store i32 %597, ptr %11, align 4, !tbaa !32
+  %598 = icmp eq i8 %575, -30
+  br i1 %598, label %599, label %601
 
-585:                                              ; preds = %580
-  %586 = zext i8 %582 to i64
-  %587 = or disjoint i64 %586, 256
+599:                                              ; preds = %594
+  %600 = zext i8 %596 to i64
+  %gep795 = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %600
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527
 
-588:                                              ; preds = %580
-  %589 = icmp eq i8 %582, -66
-  br i1 %589, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527.thread, label %.thread662.thread
+601:                                              ; preds = %594
+  %602 = icmp eq i8 %596, -66
+  br i1 %602, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527.thread, label %.thread662.thread
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527: ; preds = %585, %570, %566
-  %.sink929 = phi i64 [ %587, %585 ], [ %579, %570 ], [ %567, %566 ]
-  %590 = getelementptr inbounds i16, ptr %15, i64 %.sink929
-  %.in714 = load i16, ptr %590, align 2, !tbaa !25
-  %591 = zext i16 %.in714 to i32
-  %592 = icmp ult i16 %.in714, 3072
-  br i1 %592, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527.thread, label %.thread662
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527: ; preds = %599, %583, %578
+  %.in714.in = phi ptr [ %580, %578 ], [ %593, %583 ], [ %gep795, %599 ]
+  %.in714 = load i16, ptr %.in714.in, align 2, !tbaa !25
+  %603 = zext i16 %.in714 to i32
+  %604 = icmp ult i16 %.in714, 3072
+  br i1 %604, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527.thread, label %.thread662
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527.thread: ; preds = %588, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527
-  %593 = phi i32 [ %591, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527 ], [ 3, %588 ]
-  %594 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %564, i32 noundef %593, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %595 = icmp ult i32 %594, 65536
-  br i1 %595, label %.thread662, label %609
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527.thread: ; preds = %601, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527
+  %605 = phi i32 [ %603, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527 ], [ 3, %601 ]
+  %606 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %576, i32 noundef %605, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %607 = icmp ult i32 %606, 65536
+  br i1 %607, label %.thread662, label %621
 
 .thread662:                                       ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527.thread
-  %.20361664 = phi i32 [ %594, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527.thread ], [ %591, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527 ]
-  %596 = icmp samesign ugt i32 %.20361664, 4095
-  br i1 %596, label %.thread662.thread, label %603
+  %.20361664 = phi i32 [ %606, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527.thread ], [ %603, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527 ]
+  %608 = icmp samesign ugt i32 %.20361664, 4095
+  br i1 %608, label %.thread662.thread, label %615
 
-.thread662.thread:                                ; preds = %588, %.thread662
-  %.20361664704 = phi i32 [ %.20361664, %.thread662 ], [ 64680, %588 ]
-  %597 = and i32 %.20361664704, 896
-  %598 = icmp samesign ugt i32 %597, 383
-  br i1 %.not715, label %599, label %601
+.thread662.thread:                                ; preds = %601, %.thread662
+  %.20361664704 = phi i32 [ %.20361664, %.thread662 ], [ 64680, %601 ]
+  %609 = and i32 %.20361664704, 896
+  %610 = icmp samesign ugt i32 %609, 383
+  br i1 %.not715, label %611, label %613
 
-599:                                              ; preds = %.thread662.thread
-  %600 = and i32 %.20361664704, 31
-  %spec.select.v.i540 = select i1 %598, i32 2621472, i32 32
-  %spec.select.i541 = or disjoint i32 %spec.select.v.i540, %600
-  br label %._crit_edge782
+611:                                              ; preds = %.thread662.thread
+  %612 = and i32 %.20361664704, 31
+  %spec.select.v.i540 = select i1 %610, i32 2621472, i32 32
+  %spec.select.i541 = or disjoint i32 %spec.select.v.i540, %612
+  br label %._crit_edge798
 
-601:                                              ; preds = %.thread662.thread
-  %602 = and i32 %.20361664704, 7
-  %spec.select33.v.i542 = select i1 %598, i32 2097184, i32 32
-  %spec.select33.i543 = or disjoint i32 %spec.select33.v.i542, %602
-  br label %._crit_edge782
+613:                                              ; preds = %.thread662.thread
+  %614 = and i32 %.20361664704, 7
+  %spec.select33.v.i542 = select i1 %610, i32 2097184, i32 32
+  %spec.select33.i543 = or disjoint i32 %spec.select33.v.i542, %614
+  br label %._crit_edge798
 
-603:                                              ; preds = %.thread662
-  %604 = icmp samesign ugt i32 %.20361664, %16
-  br i1 %604, label %605, label %607
+615:                                              ; preds = %.thread662
+  %616 = icmp samesign ugt i32 %.20361664, %16
+  br i1 %616, label %617, label %619
 
-605:                                              ; preds = %603
-  %606 = and i32 %.20361664, 7
-  %spec.select34.i538 = or disjoint i32 %606, %spec.select34.v.i
-  br label %._crit_edge782
+617:                                              ; preds = %615
+  %618 = and i32 %.20361664, 7
+  %spec.select34.i538 = or disjoint i32 %618, %spec.select34.v.i
+  br label %._crit_edge798
 
-607:                                              ; preds = %603
-  %608 = icmp samesign ugt i32 %.20361664, 3071
-  %spec.select930 = select i1 %608, i32 0, i32 %.20361664
+619:                                              ; preds = %615
+  %620 = icmp samesign ugt i32 %.20361664, 3071
+  %spec.select940 = select i1 %620, i32 0, i32 %.20361664
   br label %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544
 
-609:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527.thread
-  %610 = and i32 %594, 65535
-  %611 = icmp samesign ugt i32 %610, 4095
-  br i1 %611, label %612, label %614
+621:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit527.thread
+  %622 = and i32 %606, 65535
+  %623 = icmp samesign ugt i32 %622, 4095
+  br i1 %623, label %624, label %626
 
-612:                                              ; preds = %609
-  %.2.i534 = and i32 %594, %.2.v.i
-  %613 = or disjoint i32 %.2.i534, 2097184
-  br label %._crit_edge782
+624:                                              ; preds = %621
+  %.2.i534 = and i32 %606, %.2.v.i
+  %625 = or disjoint i32 %.2.i534, 2097184
+  br label %._crit_edge798
 
-614:                                              ; preds = %609
-  %615 = icmp samesign ugt i32 %610, %16
-  br i1 %615, label %616, label %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544
+626:                                              ; preds = %621
+  %627 = icmp samesign ugt i32 %622, %16
+  br i1 %627, label %628, label %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544
 
-616:                                              ; preds = %614
-  %617 = and i32 %594, 458759
-  %spec.select35.i531 = or disjoint i32 %617, %spec.select35.v.i
-  br label %._crit_edge782
+628:                                              ; preds = %626
+  %629 = and i32 %606, 458759
+  %spec.select35.i531 = or disjoint i32 %629, %spec.select35.v.i
+  br label %._crit_edge798
 
-_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544: ; preds = %607, %614
-  %.1.i528 = phi i32 [ 0, %614 ], [ %spec.select930, %607 ]
-  %618 = icmp eq i32 %.1.i528, 0
-  br i1 %618, label %.lr.ph781, label %._crit_edge782, !llvm.loop !53
+_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544: ; preds = %619, %626
+  %.1.i528 = phi i32 [ 0, %626 ], [ %spec.select940, %619 ]
+  %630 = icmp eq i32 %.1.i528, 0
+  br i1 %630, label %.lr.ph797, label %._crit_edge798, !llvm.loop !53
 
-._crit_edge782:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544, %.lr.ph781, %616, %612, %605, %601, %599, %._crit_edge774
-  %.19360 = phi i32 [ %.17358, %._crit_edge774 ], [ %spec.select35.i531, %616 ], [ %613, %612 ], [ %spec.select34.i538, %605 ], [ %spec.select33.i543, %601 ], [ %spec.select.i541, %599 ], [ 2, %.lr.ph781 ], [ %.1.i528, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544 ]
-  %619 = icmp eq i32 %.19333, %.19360
-  br i1 %619, label %620, label %622
+._crit_edge798:                                   ; preds = %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544, %.lr.ph797, %628, %624, %617, %613, %611, %._crit_edge788
+  %.19360 = phi i32 [ %.17358, %._crit_edge788 ], [ %spec.select35.i531, %628 ], [ %625, %624 ], [ %spec.select34.i538, %617 ], [ %spec.select33.i543, %613 ], [ %spec.select.i541, %611 ], [ 2, %.lr.ph797 ], [ %.1.i528, %_ZN6icu_7718CollationFastLatin13getTertiariesEjaj.exit544 ]
+  %631 = icmp eq i32 %.19333, %.19360
+  br i1 %631, label %632, label %634
 
-620:                                              ; preds = %._crit_edge782
-  %621 = icmp eq i32 %.19333, 2
-  br i1 %621, label %.thread670, label %.backedge719.backedge
+632:                                              ; preds = %._crit_edge798
+  %633 = icmp eq i32 %.19333, 2
+  br i1 %633, label %.thread670, label %.backedge719.backedge
 
-.backedge719.backedge:                            ; preds = %620, %636
-  %.17358.be = phi i32 [ %638, %636 ], [ 0, %620 ]
-  %.17331.be = phi i32 [ %637, %636 ], [ 0, %620 ]
+.backedge719.backedge:                            ; preds = %632, %648
+  %.17358.be = phi i32 [ %650, %648 ], [ 0, %632 ]
+  %.17331.be = phi i32 [ %649, %648 ], [ 0, %632 ]
   br label %.backedge719, !llvm.loop !54
 
-622:                                              ; preds = %._crit_edge782
-  %623 = and i32 %.19333, 65535
-  %624 = and i32 %.19360, 65535
-  %.not462 = icmp eq i32 %623, %624
-  br i1 %.not462, label %634, label %625
+634:                                              ; preds = %._crit_edge798
+  %635 = and i32 %.19333, 65535
+  %636 = and i32 %.19360, 65535
+  %.not462 = icmp eq i32 %635, %636
+  br i1 %.not462, label %646, label %637
 
-625:                                              ; preds = %622
-  %626 = and i32 %2, 1792
-  %.not716 = icmp eq i32 %626, 768
-  br i1 %.not716, label %627, label %.thread665
+637:                                              ; preds = %634
+  %638 = and i32 %2, 1792
+  %.not716 = icmp eq i32 %638, 768
+  br i1 %.not716, label %639, label %.thread665
 
-627:                                              ; preds = %625
-  %628 = icmp samesign ugt i32 %623, 3
-  %629 = xor i32 %623, 24
-  %spec.select = select i1 %628, i32 %629, i32 %623
-  %630 = icmp samesign ugt i32 %624, 3
-  %631 = xor i32 %624, 24
-  %spec.select471 = select i1 %630, i32 %631, i32 %624
+639:                                              ; preds = %637
+  %640 = icmp samesign ugt i32 %635, 3
+  %641 = xor i32 %635, 24
+  %spec.select = select i1 %640, i32 %641, i32 %635
+  %642 = icmp samesign ugt i32 %636, 3
+  %643 = xor i32 %636, 24
+  %spec.select471 = select i1 %642, i32 %643, i32 %636
   br label %.thread665
 
-.thread665:                                       ; preds = %625, %627
-  %.0339 = phi i32 [ %623, %625 ], [ %spec.select, %627 ]
-  %.0338 = phi i32 [ %624, %625 ], [ %spec.select471, %627 ]
-  %632 = icmp samesign ult i32 %.0339, %.0338
-  %633 = select i1 %632, i32 -1, i32 1
+.thread665:                                       ; preds = %637, %639
+  %.0339 = phi i32 [ %635, %637 ], [ %spec.select, %639 ]
+  %.0338 = phi i32 [ %636, %637 ], [ %spec.select471, %639 ]
+  %644 = icmp samesign ult i32 %.0339, %.0338
+  %645 = select i1 %644, i32 -1, i32 1
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569
 
-634:                                              ; preds = %622
-  %635 = icmp eq i32 %.19333, 2
-  br i1 %635, label %.thread670, label %636
+646:                                              ; preds = %634
+  %647 = icmp eq i32 %.19333, 2
+  br i1 %647, label %.thread670, label %648
 
-636:                                              ; preds = %634
-  %637 = lshr i32 %.19333, 16
-  %638 = lshr i32 %.19360, 16
+648:                                              ; preds = %646
+  %649 = lshr i32 %.19333, 16
+  %650 = lshr i32 %.19360, 16
   br label %.backedge719.backedge
 
-.thread670:                                       ; preds = %634, %620
-  %639 = icmp samesign ult i32 %17, 12288
-  br i1 %639, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569, label %640
+.thread670:                                       ; preds = %646, %632
+  %651 = icmp samesign ult i32 %17, 12288
+  br i1 %651, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569, label %652
 
-640:                                              ; preds = %.thread670
+652:                                              ; preds = %.thread670
   store i32 0, ptr %11, align 4, !tbaa !32
   store i32 0, ptr %10, align 4, !tbaa !32
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %640
-  %.22363 = phi i32 [ 0, %640 ], [ %.22363.be, %.backedge.backedge ]
-  %.22336 = phi i32 [ 0, %640 ], [ %.22336.be, %.backedge.backedge ]
-  %641 = icmp eq i32 %.22336, 0
-  br i1 %641, label %.lr.ph789, label %._crit_edge790
+.backedge:                                        ; preds = %.backedge.backedge, %652
+  %.22363 = phi i32 [ 0, %652 ], [ %.22363.be, %.backedge.backedge ]
+  %.22336 = phi i32 [ 0, %652 ], [ %.22336.be, %.backedge.backedge ]
+  %653 = icmp eq i32 %.22336, 0
+  br i1 %653, label %.lr.ph807, label %._crit_edge808
 
-.lr.ph789:                                        ; preds = %.backedge, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit
-  %642 = load i32, ptr %10, align 4, !tbaa !32
-  %643 = load i32, ptr %8, align 4, !tbaa !32
-  %644 = icmp eq i32 %642, %643
-  br i1 %644, label %._crit_edge790, label %645
+.lr.ph807:                                        ; preds = %.backedge, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit
+  %654 = load i32, ptr %10, align 4, !tbaa !32
+  %655 = load i32, ptr %8, align 4, !tbaa !32
+  %656 = icmp eq i32 %654, %655
+  br i1 %656, label %._crit_edge808, label %657
 
-645:                                              ; preds = %.lr.ph789
-  %646 = add nsw i32 %642, 1
-  store i32 %646, ptr %10, align 4, !tbaa !32
-  %647 = sext i32 %642 to i64
-  %648 = getelementptr inbounds i8, ptr %3, i64 %647
-  %649 = load i8, ptr %648, align 1, !tbaa !28
-  %650 = zext i8 %649 to i32
-  %651 = icmp sgt i8 %649, -1
-  br i1 %651, label %652, label %654
+657:                                              ; preds = %.lr.ph807
+  %658 = add nsw i32 %654, 1
+  store i32 %658, ptr %10, align 4, !tbaa !32
+  %659 = sext i32 %654 to i64
+  %660 = getelementptr inbounds i8, ptr %3, i64 %659
+  %661 = load i8, ptr %660, align 1, !tbaa !28
+  %662 = zext i8 %661 to i32
+  %663 = icmp sgt i8 %661, -1
+  br i1 %663, label %664, label %667
 
-652:                                              ; preds = %645
-  %653 = zext nneg i8 %649 to i64
+664:                                              ; preds = %657
+  %665 = zext nneg i8 %661 to i64
+  %666 = getelementptr inbounds nuw i16, ptr %15, i64 %665
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547
 
-654:                                              ; preds = %645
-  %655 = icmp samesign ult i8 %649, -58
-  br i1 %655, label %656, label %666
+667:                                              ; preds = %657
+  %668 = icmp samesign ult i8 %661, -58
+  br i1 %668, label %669, label %680
 
-656:                                              ; preds = %654
-  %657 = shl nuw nsw i32 %650, 6
-  %658 = add nsw i32 %657, -12416
-  %659 = add nsw i32 %642, 2
-  store i32 %659, ptr %10, align 4, !tbaa !32
-  %660 = sext i32 %646 to i64
-  %661 = getelementptr inbounds i8, ptr %3, i64 %660
-  %662 = load i8, ptr %661, align 1, !tbaa !28
-  %663 = zext i8 %662 to i32
-  %664 = add nsw i32 %658, %663
-  %665 = sext i32 %664 to i64
+669:                                              ; preds = %667
+  %670 = shl nuw nsw i32 %662, 6
+  %671 = add nsw i32 %670, -12416
+  %672 = add nsw i32 %654, 2
+  store i32 %672, ptr %10, align 4, !tbaa !32
+  %673 = sext i32 %658 to i64
+  %674 = getelementptr inbounds i8, ptr %3, i64 %673
+  %675 = load i8, ptr %674, align 1, !tbaa !28
+  %676 = zext i8 %675 to i32
+  %677 = add nsw i32 %671, %676
+  %678 = sext i32 %677 to i64
+  %679 = getelementptr inbounds i16, ptr %15, i64 %678
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547
 
-666:                                              ; preds = %654
-  %667 = sext i32 %646 to i64
-  %gep787 = getelementptr i8, ptr %invariant.gep770, i64 %667
-  %668 = load i8, ptr %gep787, align 1, !tbaa !28
-  %669 = add nsw i32 %642, 3
-  store i32 %669, ptr %10, align 4, !tbaa !32
-  %670 = icmp eq i8 %649, -30
-  br i1 %670, label %671, label %674
+680:                                              ; preds = %667
+  %681 = sext i32 %658 to i64
+  %gep803 = getelementptr i8, ptr %invariant.gep782, i64 %681
+  %682 = load i8, ptr %gep803, align 1, !tbaa !28
+  %683 = add nsw i32 %654, 3
+  store i32 %683, ptr %10, align 4, !tbaa !32
+  %684 = icmp eq i8 %661, -30
+  br i1 %684, label %685, label %687
 
-671:                                              ; preds = %666
-  %672 = zext i8 %668 to i64
-  %673 = or disjoint i64 %672, 256
+685:                                              ; preds = %680
+  %686 = zext i8 %682 to i64
+  %gep805 = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %686
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547
 
-674:                                              ; preds = %666
-  %675 = icmp eq i8 %668, -66
-  br i1 %675, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547.thread, label %.thread678.thread
+687:                                              ; preds = %680
+  %688 = icmp eq i8 %682, -66
+  br i1 %688, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547.thread, label %.thread678.thread
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547: ; preds = %671, %656, %652
-  %.sink931 = phi i64 [ %673, %671 ], [ %665, %656 ], [ %653, %652 ]
-  %676 = getelementptr inbounds i16, ptr %15, i64 %.sink931
-  %.in717 = load i16, ptr %676, align 2, !tbaa !25
-  %677 = zext i16 %.in717 to i32
-  %678 = icmp ult i16 %.in717, 3072
-  br i1 %678, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547.thread, label %.thread678
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547: ; preds = %685, %669, %664
+  %.in717.in = phi ptr [ %666, %664 ], [ %679, %669 ], [ %gep805, %685 ]
+  %.in717 = load i16, ptr %.in717.in, align 2, !tbaa !25
+  %689 = zext i16 %.in717 to i32
+  %690 = icmp ult i16 %.in717, 3072
+  br i1 %690, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547.thread, label %.thread678
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547.thread: ; preds = %674, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547
-  %679 = phi i32 [ %677, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547 ], [ 3, %674 ]
-  %680 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %650, i32 noundef %679, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
-  %681 = icmp ult i32 %680, 65536
-  br i1 %681, label %.thread678, label %690
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547.thread: ; preds = %687, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547
+  %691 = phi i32 [ %689, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547 ], [ 3, %687 ]
+  %692 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %662, i32 noundef %691, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %693 = icmp ult i32 %692, 65536
+  br i1 %693, label %.thread678, label %702
 
 .thread678:                                       ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547.thread
-  %.25680 = phi i32 [ %680, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547.thread ], [ %677, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547 ]
-  %682 = icmp samesign ugt i32 %.25680, 4095
-  br i1 %682, label %.thread678.thread, label %685
+  %.25680 = phi i32 [ %692, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547.thread ], [ %689, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547 ]
+  %694 = icmp samesign ugt i32 %.25680, 4095
+  br i1 %694, label %.thread678.thread, label %697
 
-.thread678.thread:                                ; preds = %674, %.thread678
-  %.25680706 = phi i32 [ %.25680, %.thread678 ], [ 64680, %674 ]
-  %683 = and i32 %.25680706, 896
-  %684 = icmp samesign ugt i32 %683, 383
-  %..i551 = select i1 %684, i32 -67044352, i32 64512
-  br label %._crit_edge790
+.thread678.thread:                                ; preds = %687, %.thread678
+  %.25680706 = phi i32 [ %.25680, %.thread678 ], [ 64680, %687 ]
+  %695 = and i32 %.25680706, 896
+  %696 = icmp samesign ugt i32 %695, 383
+  %..i551 = select i1 %696, i32 -67044352, i32 64512
+  br label %._crit_edge808
 
-685:                                              ; preds = %.thread678
-  %686 = icmp samesign ugt i32 %.25680, %16
-  br i1 %686, label %._crit_edge790, label %687
+697:                                              ; preds = %.thread678
+  %698 = icmp samesign ugt i32 %.25680, %16
+  br i1 %698, label %._crit_edge808, label %699
 
-687:                                              ; preds = %685
-  %688 = icmp samesign ugt i32 %.25680, 3071
-  %689 = and i32 %.25680, 4088
-  %spec.select.i550 = select i1 %688, i32 %689, i32 %.25680
+699:                                              ; preds = %697
+  %700 = icmp samesign ugt i32 %.25680, 3071
+  %701 = and i32 %.25680, 4088
+  %spec.select.i550 = select i1 %700, i32 %701, i32 %.25680
   br label %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit
 
-690:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547.thread
-  %691 = and i32 %680, 65535
-  %692 = icmp samesign ugt i32 %691, %16
-  %693 = and i32 %680, -458760
-  br i1 %692, label %._crit_edge790, label %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit
+702:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit547.thread
+  %703 = and i32 %692, 65535
+  %704 = icmp samesign ugt i32 %703, %16
+  %705 = and i32 %692, -458760
+  br i1 %704, label %._crit_edge808, label %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit
 
-_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %690, %687
-  %.0.i549 = phi i32 [ %693, %690 ], [ %spec.select.i550, %687 ]
-  %694 = icmp eq i32 %.0.i549, 0
-  br i1 %694, label %.lr.ph789, label %._crit_edge790, !llvm.loop !55
+_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit: ; preds = %702, %699
+  %.0.i549 = phi i32 [ %705, %702 ], [ %spec.select.i550, %699 ]
+  %706 = icmp eq i32 %.0.i549, 0
+  br i1 %706, label %.lr.ph807, label %._crit_edge808, !llvm.loop !55
 
-._crit_edge790:                                   ; preds = %690, %685, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit, %.lr.ph789, %.thread678.thread, %.backedge
-  %.24 = phi i32 [ %.22336, %.backedge ], [ %..i551, %.thread678.thread ], [ -67044352, %690 ], [ 64512, %685 ], [ 2, %.lr.ph789 ], [ %.0.i549, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit ]
-  %695 = icmp eq i32 %.22363, 0
-  br i1 %695, label %.lr.ph797, label %._crit_edge798
+._crit_edge808:                                   ; preds = %702, %697, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit, %.lr.ph807, %.thread678.thread, %.backedge
+  %.24 = phi i32 [ %.22336, %.backedge ], [ %..i551, %.thread678.thread ], [ -67044352, %702 ], [ 64512, %697 ], [ 2, %.lr.ph807 ], [ %.0.i549, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit ]
+  %707 = icmp eq i32 %.22363, 0
+  br i1 %707, label %.lr.ph817, label %._crit_edge818
 
-.lr.ph797:                                        ; preds = %._crit_edge790, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559
-  %696 = load i32, ptr %11, align 4, !tbaa !32
-  %697 = load i32, ptr %9, align 4, !tbaa !32
-  %698 = icmp eq i32 %696, %697
-  br i1 %698, label %._crit_edge798, label %699
+.lr.ph817:                                        ; preds = %._crit_edge808, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559
+  %708 = load i32, ptr %11, align 4, !tbaa !32
+  %709 = load i32, ptr %9, align 4, !tbaa !32
+  %710 = icmp eq i32 %708, %709
+  br i1 %710, label %._crit_edge818, label %711
 
-699:                                              ; preds = %.lr.ph797
-  %700 = add nsw i32 %696, 1
-  store i32 %700, ptr %11, align 4, !tbaa !32
-  %701 = sext i32 %696 to i64
-  %702 = getelementptr inbounds i8, ptr %5, i64 %701
-  %703 = load i8, ptr %702, align 1, !tbaa !28
-  %704 = zext i8 %703 to i32
-  %705 = icmp sgt i8 %703, -1
-  br i1 %705, label %706, label %708
+711:                                              ; preds = %.lr.ph817
+  %712 = add nsw i32 %708, 1
+  store i32 %712, ptr %11, align 4, !tbaa !32
+  %713 = sext i32 %708 to i64
+  %714 = getelementptr inbounds i8, ptr %5, i64 %713
+  %715 = load i8, ptr %714, align 1, !tbaa !28
+  %716 = zext i8 %715 to i32
+  %717 = icmp sgt i8 %715, -1
+  br i1 %717, label %718, label %721
 
-706:                                              ; preds = %699
-  %707 = zext nneg i8 %703 to i64
+718:                                              ; preds = %711
+  %719 = zext nneg i8 %715 to i64
+  %720 = getelementptr inbounds nuw i16, ptr %15, i64 %719
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554
 
-708:                                              ; preds = %699
-  %709 = icmp samesign ult i8 %703, -58
-  br i1 %709, label %710, label %720
+721:                                              ; preds = %711
+  %722 = icmp samesign ult i8 %715, -58
+  br i1 %722, label %723, label %734
 
-710:                                              ; preds = %708
-  %711 = shl nuw nsw i32 %704, 6
-  %712 = add nsw i32 %711, -12416
-  %713 = add nsw i32 %696, 2
-  store i32 %713, ptr %11, align 4, !tbaa !32
-  %714 = sext i32 %700 to i64
-  %715 = getelementptr inbounds i8, ptr %5, i64 %714
-  %716 = load i8, ptr %715, align 1, !tbaa !28
-  %717 = zext i8 %716 to i32
-  %718 = add nsw i32 %712, %717
-  %719 = sext i32 %718 to i64
+723:                                              ; preds = %721
+  %724 = shl nuw nsw i32 %716, 6
+  %725 = add nsw i32 %724, -12416
+  %726 = add nsw i32 %708, 2
+  store i32 %726, ptr %11, align 4, !tbaa !32
+  %727 = sext i32 %712 to i64
+  %728 = getelementptr inbounds i8, ptr %5, i64 %727
+  %729 = load i8, ptr %728, align 1, !tbaa !28
+  %730 = zext i8 %729 to i32
+  %731 = add nsw i32 %725, %730
+  %732 = sext i32 %731 to i64
+  %733 = getelementptr inbounds i16, ptr %15, i64 %732
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554
 
-720:                                              ; preds = %708
-  %721 = sext i32 %700 to i64
-  %gep795 = getelementptr i8, ptr %invariant.gep778, i64 %721
-  %722 = load i8, ptr %gep795, align 1, !tbaa !28
-  %723 = add nsw i32 %696, 3
-  store i32 %723, ptr %11, align 4, !tbaa !32
-  %724 = icmp eq i8 %703, -30
-  br i1 %724, label %725, label %728
+734:                                              ; preds = %721
+  %735 = sext i32 %712 to i64
+  %gep813 = getelementptr i8, ptr %invariant.gep792, i64 %735
+  %736 = load i8, ptr %gep813, align 1, !tbaa !28
+  %737 = add nsw i32 %708, 3
+  store i32 %737, ptr %11, align 4, !tbaa !32
+  %738 = icmp eq i8 %715, -30
+  br i1 %738, label %739, label %741
 
-725:                                              ; preds = %720
-  %726 = zext i8 %722 to i64
-  %727 = or disjoint i64 %726, 256
+739:                                              ; preds = %734
+  %740 = zext i8 %736 to i64
+  %gep815 = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %740
   br label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554
 
-728:                                              ; preds = %720
-  %729 = icmp eq i8 %722, -66
-  br i1 %729, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554.thread, label %.thread684.thread
+741:                                              ; preds = %734
+  %742 = icmp eq i8 %736, -66
+  br i1 %742, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554.thread, label %.thread684.thread
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554: ; preds = %725, %710, %706
-  %.sink932 = phi i64 [ %727, %725 ], [ %719, %710 ], [ %707, %706 ]
-  %730 = getelementptr inbounds i16, ptr %15, i64 %.sink932
-  %.in718 = load i16, ptr %730, align 2, !tbaa !25
-  %731 = zext i16 %.in718 to i32
-  %732 = icmp ult i16 %.in718, 3072
-  br i1 %732, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554.thread, label %.thread684
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554: ; preds = %739, %723, %718
+  %.in718.in = phi ptr [ %720, %718 ], [ %733, %723 ], [ %gep815, %739 ]
+  %.in718 = load i16, ptr %.in718.in, align 2, !tbaa !25
+  %743 = zext i16 %.in718 to i32
+  %744 = icmp ult i16 %.in718, 3072
+  br i1 %744, label %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554.thread, label %.thread684
 
-_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554.thread: ; preds = %728, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554
-  %733 = phi i32 [ %731, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554 ], [ 3, %728 ]
-  %734 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %704, i32 noundef %733, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  %735 = icmp ult i32 %734, 65536
-  br i1 %735, label %.thread684, label %744
+_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554.thread: ; preds = %741, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554
+  %745 = phi i32 [ %743, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554 ], [ 3, %741 ]
+  %746 = call noundef i32 @_ZN6icu_7718CollationFastLatin8nextPairEPKtijPKDsPKhRiS7_(ptr noundef nonnull %15, i32 noundef %716, i32 noundef %745, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 4 dereferenceable(4) %9)
+  %747 = icmp ult i32 %746, 65536
+  br i1 %747, label %.thread684, label %756
 
 .thread684:                                       ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554.thread
-  %.25366686 = phi i32 [ %734, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554.thread ], [ %731, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554 ]
-  %736 = icmp samesign ugt i32 %.25366686, 4095
-  br i1 %736, label %.thread684.thread, label %739
+  %.25366686 = phi i32 [ %746, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554.thread ], [ %743, %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554 ]
+  %748 = icmp samesign ugt i32 %.25366686, 4095
+  br i1 %748, label %.thread684.thread, label %751
 
-.thread684.thread:                                ; preds = %728, %.thread684
-  %.25366686708 = phi i32 [ %.25366686, %.thread684 ], [ 64680, %728 ]
-  %737 = and i32 %.25366686708, 896
-  %738 = icmp samesign ugt i32 %737, 383
-  %..i558 = select i1 %738, i32 -67044352, i32 64512
-  br label %._crit_edge798
+.thread684.thread:                                ; preds = %741, %.thread684
+  %.25366686708 = phi i32 [ %.25366686, %.thread684 ], [ 64680, %741 ]
+  %749 = and i32 %.25366686708, 896
+  %750 = icmp samesign ugt i32 %749, 383
+  %..i558 = select i1 %750, i32 -67044352, i32 64512
+  br label %._crit_edge818
 
-739:                                              ; preds = %.thread684
-  %740 = icmp samesign ugt i32 %.25366686, %16
-  br i1 %740, label %._crit_edge798, label %741
+751:                                              ; preds = %.thread684
+  %752 = icmp samesign ugt i32 %.25366686, %16
+  br i1 %752, label %._crit_edge818, label %753
 
-741:                                              ; preds = %739
-  %742 = icmp samesign ugt i32 %.25366686, 3071
-  %743 = and i32 %.25366686, 4088
-  %spec.select.i557 = select i1 %742, i32 %743, i32 %.25366686
+753:                                              ; preds = %751
+  %754 = icmp samesign ugt i32 %.25366686, 3071
+  %755 = and i32 %.25366686, 4088
+  %spec.select.i557 = select i1 %754, i32 %755, i32 %.25366686
   br label %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559
 
-744:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554.thread
-  %745 = and i32 %734, 65535
-  %746 = icmp samesign ugt i32 %745, %16
-  %747 = and i32 %734, -458760
-  br i1 %746, label %._crit_edge798, label %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559
+756:                                              ; preds = %_ZN6icu_7718CollationFastLatin16lookupUTF8UnsafeEPKtiPKhRi.exit554.thread
+  %757 = and i32 %746, 65535
+  %758 = icmp samesign ugt i32 %757, %16
+  %759 = and i32 %746, -458760
+  br i1 %758, label %._crit_edge818, label %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559
 
-_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559: ; preds = %744, %741
-  %.0.i556 = phi i32 [ %747, %744 ], [ %spec.select.i557, %741 ]
-  %748 = icmp eq i32 %.0.i556, 0
-  br i1 %748, label %.lr.ph797, label %._crit_edge798, !llvm.loop !56
+_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559: ; preds = %756, %753
+  %.0.i556 = phi i32 [ %759, %756 ], [ %spec.select.i557, %753 ]
+  %760 = icmp eq i32 %.0.i556, 0
+  br i1 %760, label %.lr.ph817, label %._crit_edge818, !llvm.loop !56
 
-._crit_edge798:                                   ; preds = %744, %739, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559, %.lr.ph797, %.thread684.thread, %._crit_edge790
-  %.24365 = phi i32 [ %.22363, %._crit_edge790 ], [ %..i558, %.thread684.thread ], [ -67044352, %744 ], [ 64512, %739 ], [ 2, %.lr.ph797 ], [ %.0.i556, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559 ]
-  %749 = icmp eq i32 %.24, %.24365
-  br i1 %749, label %750, label %752
+._crit_edge818:                                   ; preds = %756, %751, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559, %.lr.ph817, %.thread684.thread, %._crit_edge808
+  %.24365 = phi i32 [ %.22363, %._crit_edge808 ], [ %..i558, %.thread684.thread ], [ -67044352, %756 ], [ 64512, %751 ], [ 2, %.lr.ph817 ], [ %.0.i556, %_ZN6icu_7718CollationFastLatin15getQuaternariesEjj.exit559 ]
+  %761 = icmp eq i32 %.24, %.24365
+  br i1 %761, label %762, label %764
 
-750:                                              ; preds = %._crit_edge798
-  %751 = icmp eq i32 %.24, 2
-  br i1 %751, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569, label %.backedge.backedge
+762:                                              ; preds = %._crit_edge818
+  %763 = icmp eq i32 %.24, 2
+  br i1 %763, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %750, %759
-  %.22363.be = phi i32 [ %761, %759 ], [ 0, %750 ]
-  %.22336.be = phi i32 [ %760, %759 ], [ 0, %750 ]
+.backedge.backedge:                               ; preds = %762, %771
+  %.22363.be = phi i32 [ %773, %771 ], [ 0, %762 ]
+  %.22336.be = phi i32 [ %772, %771 ], [ 0, %762 ]
   br label %.backedge, !llvm.loop !57
 
-752:                                              ; preds = %._crit_edge798
-  %753 = and i32 %.24, 65535
-  %754 = and i32 %.24365, 65535
-  %.not464 = icmp eq i32 %753, %754
-  br i1 %.not464, label %757, label %.thread687
+764:                                              ; preds = %._crit_edge818
+  %765 = and i32 %.24, 65535
+  %766 = and i32 %.24365, 65535
+  %.not464 = icmp eq i32 %765, %766
+  br i1 %.not464, label %769, label %.thread687
 
-.thread687:                                       ; preds = %752
-  %755 = icmp samesign ult i32 %753, %754
-  %756 = select i1 %755, i32 -1, i32 1
+.thread687:                                       ; preds = %764
+  %767 = icmp samesign ult i32 %765, %766
+  %768 = select i1 %767, i32 -1, i32 1
   br label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569
 
-757:                                              ; preds = %752
-  %758 = icmp eq i32 %.24, 2
-  br i1 %758, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569, label %759
+769:                                              ; preds = %764
+  %770 = icmp eq i32 %.24, 2
+  br i1 %770, label %_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569, label %771
 
-759:                                              ; preds = %757
-  %760 = lshr i32 %.24, 16
-  %761 = lshr i32 %.24365, 16
+771:                                              ; preds = %769
+  %772 = lshr i32 %.24, 16
+  %773 = lshr i32 %.24365, 16
   br label %.backedge.backedge
 
-_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569: ; preds = %86, %36, %168, %118, %757, %750, %333, %335, %.thread687, %.thread665, %481, %479, %.thread, %.thread670, %.thread649
-  %.4 = phi i32 [ 0, %.thread649 ], [ 0, %.thread670 ], [ %190, %.thread ], [ %482, %481 ], [ %480, %479 ], [ %633, %.thread665 ], [ %756, %.thread687 ], [ -2, %333 ], [ %337, %335 ], [ 0, %750 ], [ 0, %757 ], [ -2, %118 ], [ -2, %168 ], [ -2, %36 ], [ -2, %86 ]
+_ZN6icu_7718CollationFastLatin12getPrimariesEjj.exit.thread569: ; preds = %92, %36, %180, %124, %769, %762, %345, %347, %.thread687, %.thread665, %493, %491, %.thread, %.thread670, %.thread649
+  %.4 = phi i32 [ 0, %.thread649 ], [ 0, %.thread670 ], [ %202, %.thread ], [ %494, %493 ], [ %492, %491 ], [ %645, %.thread665 ], [ %768, %.thread687 ], [ -2, %345 ], [ %349, %347 ], [ 0, %762 ], [ 0, %769 ], [ -2, %124 ], [ -2, %180 ], [ -2, %36 ], [ -2, %92 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
   ret i32 %.4
@@ -3610,8 +3631,8 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin10lookupUT
 
 21:                                               ; preds = %10
   %22 = zext i8 %16 to i64
-  %23 = or disjoint i64 %22, 256
-  %24 = getelementptr inbounds nuw i16, ptr %0, i64 %23
+  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 512
   %25 = load i16, ptr %24, align 2, !tbaa !25
   %26 = zext i16 %25 to i32
   br label %31
@@ -3669,8 +3690,8 @@ define noundef range(i32 0, 65536) i32 @_ZN6icu_7718CollationFastLatin16lookupUT
 
 28:                                               ; preds = %20
   %29 = zext i8 %25 to i64
-  %30 = or disjoint i64 %29, 256
-  %31 = getelementptr inbounds nuw i16, ptr %0, i64 %30
+  %30 = getelementptr inbounds nuw i16, ptr %0, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 512
   %32 = load i16, ptr %31, align 2, !tbaa !25
   %33 = zext i16 %32 to i32
   br label %36

@@ -6493,24 +6493,24 @@ _ZN18NoAutoPaddingScopeC2ERN4llvm10MCStreamerE.exit: ; preds = %_ZN4llvm13X86Asm
   %49 = load ptr, ptr %7, align 8, !tbaa !873
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %51 = load i8, ptr %50, align 8, !tbaa !875, !range !50, !noundef !51
-  %52 = or disjoint i8 %51, 2
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %54 = load ptr, ptr %53, align 8, !tbaa !199
-  %55 = zext nneg i8 %52 to i64
-  %56 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %54, i64 %55
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  %53 = load ptr, ptr %52, align 8, !tbaa !199
+  %54 = zext nneg i8 %51 to i64
+  %55 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %53, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 255
   %59 = icmp eq i32 %58, 1
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %_ZN18NoAutoPaddingScopeC2ERN4llvm10MCStreamerE.exit
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 80
   %62 = load i64, ptr %61, align 8, !tbaa !218
   %.not = icmp eq i64 %62, 0
   br i1 %.not, label %102, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 80
   %65 = load i64, ptr %64, align 8, !tbaa !218
   %.not25 = icmp eq i64 %65, 0
   %spec.select = select i1 %.not25, i8 0, i8 2
@@ -6606,70 +6606,70 @@ _ZN4llvm13MCInstBuilderD2Ev.exit34:               ; preds = %_ZN4llvm13MCInstBui
   %.pre45 = load i8, ptr %50, align 8, !tbaa !875, !range !50
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre44, i64 32
   %.pre46 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !199
+  %.pre47 = zext nneg i8 %.pre45 to i64
   br label %102
 
 102:                                              ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit34, %60
-  %103 = phi ptr [ %.pre46, %_ZN4llvm13MCInstBuilderD2Ev.exit34 ], [ %54, %60 ]
-  %104 = phi i8 [ %.pre45, %_ZN4llvm13MCInstBuilderD2Ev.exit34 ], [ %51, %60 ]
+  %.pre-phi = phi i64 [ %.pre47, %_ZN4llvm13MCInstBuilderD2Ev.exit34 ], [ %54, %60 ]
+  %103 = phi ptr [ %.pre46, %_ZN4llvm13MCInstBuilderD2Ev.exit34 ], [ %53, %60 ]
   %.0.neg = phi i32 [ %., %_ZN4llvm13MCInstBuilderD2Ev.exit34 ], [ 0, %60 ]
-  %105 = zext nneg i8 %104 to i64
-  %106 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %103, i64 %105
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 48
-  %108 = load i64, ptr %107, align 8, !tbaa !218
-  %109 = trunc i64 %108 to i32
-  %110 = load ptr, ptr %11, align 8, !tbaa !194
-  %111 = add i32 %.0.neg, %109
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %113 = load ptr, ptr %112, align 8, !tbaa !507
-  %.not5.i = icmp eq i32 %111, 0
+  %104 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %103, i64 %.pre-phi
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 48
+  %106 = load i64, ptr %105, align 8, !tbaa !218
+  %107 = trunc i64 %106 to i32
+  %108 = load ptr, ptr %11, align 8, !tbaa !194
+  %109 = add i32 %.0.neg, %107
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %111 = load ptr, ptr %110, align 8, !tbaa !507
+  %.not5.i = icmp eq i32 %109, 0
   br i1 %.not5.i, label %_ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %102, %.lr.ph.i
-  %.06.i = phi i32 [ %115, %.lr.ph.i ], [ %111, %102 ]
-  %114 = call fastcc noundef i32 @_ZL7emitNopRN4llvm10MCStreamerEjPKNS_12X86SubtargetE(ptr noundef nonnull align 8 dereferenceable(296) %110, i32 noundef %.06.i, ptr noundef %113)
-  %115 = sub i32 %.06.i, %114
-  %.not.i = icmp eq i32 %115, 0
+  %.06.i = phi i32 [ %113, %.lr.ph.i ], [ %109, %102 ]
+  %112 = call fastcc noundef i32 @_ZL7emitNopRN4llvm10MCStreamerEjPKNS_12X86SubtargetE(ptr noundef nonnull align 8 dereferenceable(296) %108, i32 noundef %.06.i, ptr noundef %111)
+  %113 = sub i32 %.06.i, %112
+  %.not.i = icmp eq i32 %113, 0
   br i1 %.not.i, label %_ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit, label %.lr.ph.i, !llvm.loop !192
 
 _ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit: ; preds = %.lr.ph.i, %102
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
-  %116 = load i8, ptr %30, align 1, !tbaa !506, !range !50, !noundef !51
-  %.not.i35 = icmp eq i8 %31, %116
-  br i1 %.not.i35, label %_ZN18NoAutoPaddingScopeD2Ev.exit, label %117
+  %114 = load i8, ptr %30, align 1, !tbaa !506, !range !50, !noundef !51
+  %.not.i35 = icmp eq i8 %31, %114
+  br i1 %.not.i35, label %_ZN18NoAutoPaddingScopeD2Ev.exit, label %115
 
-117:                                              ; preds = %_ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit
+115:                                              ; preds = %_ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit
   store i8 %31, ptr %30, align 1, !tbaa !506
-  br i1 %32, label %118, label %124
+  br i1 %32, label %116, label %122
 
-118:                                              ; preds = %117
+116:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #21
-  %119 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %120 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 1, ptr %120, align 1, !tbaa !356
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 33
+  store i8 1, ptr %118, align 1, !tbaa !356
   store ptr @.str.46, ptr %4, align 8, !tbaa !218
-  store i8 3, ptr %119, align 8, !tbaa !350
-  %121 = load ptr, ptr %29, align 8, !tbaa !3
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 136
-  %123 = load ptr, ptr %122, align 8
-  call void %123(ptr noundef nonnull align 8 dereferenceable(296) %29, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true) #21
+  store i8 3, ptr %117, align 8, !tbaa !350
+  %119 = load ptr, ptr %29, align 8, !tbaa !3
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 136
+  %121 = load ptr, ptr %120, align 8
+  call void %121(ptr noundef nonnull align 8 dereferenceable(296) %29, ptr noundef nonnull align 8 dereferenceable(34) %4, i1 noundef zeroext true) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #21
   br label %_ZN18NoAutoPaddingScopeD2Ev.exit
 
-124:                                              ; preds = %117
+122:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #21
-  %125 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %126 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 1, ptr %126, align 1, !tbaa !356
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %5, i64 33
+  store i8 1, ptr %124, align 1, !tbaa !356
   store ptr @.str.47, ptr %5, align 8, !tbaa !218
-  store i8 3, ptr %125, align 8, !tbaa !350
-  %127 = load ptr, ptr %29, align 8, !tbaa !3
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 136
-  %129 = load ptr, ptr %128, align 8
-  call void %129(ptr noundef nonnull align 8 dereferenceable(296) %29, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext true) #21
+  store i8 3, ptr %123, align 8, !tbaa !350
+  %125 = load ptr, ptr %29, align 8, !tbaa !3
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 136
+  %127 = load ptr, ptr %126, align 8
+  call void %127(ptr noundef nonnull align 8 dereferenceable(296) %29, ptr noundef nonnull align 8 dereferenceable(34) %5, i1 noundef zeroext true) #21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #21
   br label %_ZN18NoAutoPaddingScopeD2Ev.exit
 
-_ZN18NoAutoPaddingScopeD2Ev.exit:                 ; preds = %_ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit, %118, %124
+_ZN18NoAutoPaddingScopeD2Ev.exit:                 ; preds = %_ZL11emitX86NopsRN4llvm10MCStreamerEjPKNS_12X86SubtargetE.exit, %116, %122
   ret void
 }
 

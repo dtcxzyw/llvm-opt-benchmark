@@ -6533,10 +6533,10 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressEnd_publicEPNS_11ZSTD_CCtx_sE
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %11 = sub i64 %2, %7
   %12 = load i32, ptr %0, align 8, !tbaa !183
-  switch i32 %12, label %41 [
+  switch i32 %12, label %40 [
     i32 0, label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread
     i32 1, label %13
-    i32 3, label %46
+    i32 3, label %45
   ]
 
 13:                                               ; preds = %9
@@ -6569,144 +6569,143 @@ define noundef i64 @_ZN11duckdb_zstd23ZSTD_compressEnd_publicEPNS_11ZSTD_CCtx_sE
 
 32:                                               ; preds = %31, %27
   %.0.i.i = phi i64 [ 4, %31 ], [ 0, %27 ]
-  %33 = or disjoint i64 %.0.i.i, 1
-  %34 = getelementptr inbounds nuw i8, ptr %10, i64 %.0.i.i
-  store i8 %25, ptr %34, align 1, !tbaa !211
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 %.0.i.i
+  store i8 %25, ptr %33, align 1, !tbaa !211
   %spec.select.i = select i1 %.not.i, i8 %22, i8 0
-  %35 = getelementptr inbounds nuw i8, ptr %10, i64 %33
-  store i8 %spec.select.i, ptr %35, align 1, !tbaa !211
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
+  store i8 %spec.select.i, ptr %34, align 1, !tbaa !211
   %.061.i.ph.i = or disjoint i64 %.0.i.i, 2
-  %36 = getelementptr inbounds nuw i8, ptr %10, i64 %.061.i.ph.i
+  %35 = getelementptr inbounds nuw i8, ptr %10, i64 %.061.i.ph.i
   store i32 2, ptr %0, align 8, !tbaa !183
-  store i16 1, ptr %36, align 1, !tbaa !247
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 2
-  store i8 0, ptr %37, align 1, !tbaa !211
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 3
-  %39 = add i64 %11, -3
-  %40 = sub nuw i64 %39, %.061.i.ph.i
-  br label %46
+  store i16 1, ptr %35, align 1, !tbaa !247
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
+  store i8 0, ptr %36, align 1, !tbaa !211
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 3
+  %38 = add i64 %11, -3
+  %39 = sub nuw i64 %38, %.061.i.ph.i
+  br label %45
 
-41:                                               ; preds = %9
-  %42 = icmp ugt i64 %11, 2
-  br i1 %42, label %.thread85.i, label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread
+40:                                               ; preds = %9
+  %41 = icmp ugt i64 %11, 2
+  br i1 %41, label %.thread85.i, label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread
 
-.thread85.i:                                      ; preds = %41
+.thread85.i:                                      ; preds = %40
   store i16 1, ptr %10, align 1, !tbaa !247
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store i8 0, ptr %43, align 1, !tbaa !211
-  %44 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  %45 = add i64 %11, -3
-  br label %46
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  store i8 0, ptr %42, align 1, !tbaa !211
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 3
+  %44 = add i64 %11, -3
+  br label %45
 
-46:                                               ; preds = %.thread85.i, %32, %9
-  %.242.i = phi ptr [ %38, %32 ], [ %44, %.thread85.i ], [ %10, %9 ]
-  %.238.i = phi i64 [ %40, %32 ], [ %45, %.thread85.i ], [ %11, %9 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %48 = load i32, ptr %47, align 4, !tbaa !260
-  %.not52.i = icmp eq i32 %48, 0
-  br i1 %.not52.i, label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit, label %49
+45:                                               ; preds = %.thread85.i, %32, %9
+  %.242.i = phi ptr [ %37, %32 ], [ %43, %.thread85.i ], [ %10, %9 ]
+  %.238.i = phi i64 [ %39, %32 ], [ %44, %.thread85.i ], [ %11, %9 ]
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %47 = load i32, ptr %46, align 4, !tbaa !260
+  %.not52.i = icmp eq i32 %47, 0
+  br i1 %.not52.i, label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit, label %48
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %51 = tail call noundef i64 @_ZN11duckdb_zstd12XXH64_digestEPKNS_13XXH64_state_sE(ptr noundef nonnull %50)
-  %52 = icmp ugt i64 %.238.i, 3
-  br i1 %52, label %.thread89.i, label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread
+48:                                               ; preds = %45
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %50 = tail call noundef i64 @_ZN11duckdb_zstd12XXH64_digestEPKNS_13XXH64_state_sE(ptr noundef nonnull %49)
+  %51 = icmp ugt i64 %.238.i, 3
+  br i1 %51, label %.thread89.i, label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread
 
-.thread89.i:                                      ; preds = %49
-  %53 = trunc i64 %51 to i32
-  store i32 %53, ptr %.242.i, align 1, !tbaa !62
-  %54 = getelementptr inbounds nuw i8, ptr %.242.i, i64 4
+.thread89.i:                                      ; preds = %48
+  %52 = trunc i64 %50 to i32
+  store i32 %52, ptr %.242.i, align 1, !tbaa !62
+  %53 = getelementptr inbounds nuw i8, ptr %.242.i, i64 4
   br label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit
 
-_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit: ; preds = %46, %.thread89.i
-  %.444.i = phi ptr [ %.242.i, %46 ], [ %54, %.thread89.i ]
+_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit: ; preds = %45, %.thread89.i
+  %.444.i = phi ptr [ %.242.i, %45 ], [ %53, %.thread89.i ]
   store i32 0, ptr %0, align 8, !tbaa !183
-  %55 = ptrtoint ptr %.444.i to i64
-  %56 = ptrtoint ptr %10 to i64
-  %57 = sub i64 %55, %56
-  %58 = icmp ult i64 %57, -119
-  br i1 %58, label %59, label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread
+  %54 = ptrtoint ptr %.444.i to i64
+  %55 = ptrtoint ptr %10 to i64
+  %56 = sub i64 %54, %55
+  %57 = icmp ult i64 %56, -119
+  br i1 %57, label %58, label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread
 
-59:                                               ; preds = %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 760
-  %61 = load i64, ptr %60, align 8, !tbaa !136
-  %.not29 = icmp eq i64 %61, 0
-  br i1 %.not29, label %66, label %62
+58:                                               ; preds = %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %60 = load i64, ptr %59, align 8, !tbaa !136
+  %.not29 = icmp eq i64 %60, 0
+  br i1 %.not29, label %65, label %61
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %64 = load i64, ptr %63, align 8, !tbaa !170
-  %65 = add i64 %64, 1
-  %.not30 = icmp eq i64 %61, %65
-  br i1 %.not30, label %66, label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %63 = load i64, ptr %62, align 8, !tbaa !170
+  %64 = add i64 %63, 1
+  %.not30 = icmp eq i64 %60, %64
+  br i1 %.not30, label %65, label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread
 
-66:                                               ; preds = %62, %59
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 3728
-  %68 = load i64, ptr %67, align 8, !tbaa !282
-  %69 = icmp ne i64 %68, 0
-  %70 = icmp ne ptr @_ZN11duckdb_zstd23ZSTD_trace_compress_endEyPKNS_10ZSTD_TraceE, null
-  %or.cond.i = and i1 %70, %69
-  br i1 %or.cond.i, label %71, label %_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm.exit
+65:                                               ; preds = %61, %58
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 3728
+  %67 = load i64, ptr %66, align 8, !tbaa !282
+  %68 = icmp ne i64 %67, 0
+  %69 = icmp ne ptr @_ZN11duckdb_zstd23ZSTD_trace_compress_endEyPKNS_10ZSTD_TraceE, null
+  %or.cond.i = and i1 %69, %68
+  br i1 %or.cond.i, label %70, label %_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm.exit
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 3544
-  %73 = load i64, ptr %72, align 8, !tbaa !309
-  %.not.i31 = icmp eq i64 %73, 0
-  br i1 %.not.i31, label %74, label %82
+70:                                               ; preds = %65
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 3544
+  %72 = load i64, ptr %71, align 8, !tbaa !309
+  %.not.i31 = icmp eq i64 %72, 0
+  br i1 %.not.i31, label %73, label %81
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 3584
-  %76 = load i64, ptr %75, align 8, !tbaa !310
-  %.not13.i = icmp eq i64 %76, 0
-  br i1 %.not13.i, label %77, label %82
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 3584
+  %75 = load i64, ptr %74, align 8, !tbaa !310
+  %.not13.i = icmp eq i64 %75, 0
+  br i1 %.not13.i, label %76, label %81
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %79 = load i32, ptr %78, align 4, !tbaa !311
-  %80 = icmp sgt i32 %79, 0
-  %81 = zext i1 %80 to i32
-  br label %82
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 308
+  %78 = load i32, ptr %77, align 4, !tbaa !311
+  %79 = icmp sgt i32 %78, 0
+  %80 = zext i1 %79 to i32
+  br label %81
 
-82:                                               ; preds = %77, %74, %71
-  %83 = phi i32 [ 1, %74 ], [ 1, %71 ], [ %81, %77 ]
+81:                                               ; preds = %76, %73, %70
+  %82 = phi i32 [ 1, %73 ], [ 1, %70 ], [ %80, %76 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #28
-  %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %84, i8 0, i64 56, i1 false)
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, i8 0, i64 56, i1 false)
   store i32 10506, ptr %6, align 8, !tbaa !312
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %83, ptr %85, align 4, !tbaa !317
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %87 = load i32, ptr %86, align 8, !tbaa !199
-  store i32 %87, ptr %84, align 8, !tbaa !318
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %89 = load i64, ptr %88, align 8, !tbaa !200
-  %90 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %89, ptr %90, align 8, !tbaa !319
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %92 = load i64, ptr %91, align 8, !tbaa !170
-  %93 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %92, ptr %93, align 8, !tbaa !320
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  %95 = load i64, ptr %94, align 8, !tbaa !174
-  %96 = add i64 %95, %57
-  %97 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 %96, ptr %97, align 8, !tbaa !321
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %99 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %98, ptr %99, align 8, !tbaa !322
-  %100 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %0, ptr %100, align 8, !tbaa !323
-  call void @_ZN11duckdb_zstd23ZSTD_trace_compress_endEyPKNS_10ZSTD_TraceE(i64 noundef %68, ptr noundef nonnull %6)
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %82, ptr %84, align 4, !tbaa !317
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %86 = load i32, ptr %85, align 8, !tbaa !199
+  store i32 %86, ptr %83, align 8, !tbaa !318
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %88 = load i64, ptr %87, align 8, !tbaa !200
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 %88, ptr %89, align 8, !tbaa !319
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %91 = load i64, ptr %90, align 8, !tbaa !170
+  %92 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %91, ptr %92, align 8, !tbaa !320
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %94 = load i64, ptr %93, align 8, !tbaa !174
+  %95 = add i64 %94, %56
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i64 %95, ptr %96, align 8, !tbaa !321
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr %97, ptr %98, align 8, !tbaa !322
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store ptr %0, ptr %99, align 8, !tbaa !323
+  call void @_ZN11duckdb_zstd23ZSTD_trace_compress_endEyPKNS_10ZSTD_TraceE(i64 noundef %67, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #28
   br label %_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm.exit
 
-_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm.exit: ; preds = %66, %82
-  store i64 0, ptr %67, align 8, !tbaa !282
-  %101 = add i64 %57, %7
+_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm.exit: ; preds = %65, %81
+  store i64 0, ptr %66, align 8, !tbaa !282
+  %100 = add i64 %56, %7
   br label %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread
 
-_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread: ; preds = %13, %41, %49, %9, %62, %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit, %5, %_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm.exit
-  %.1 = phi i64 [ %101, %_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm.exit ], [ %57, %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit ], [ %7, %5 ], [ -72, %62 ], [ -70, %13 ], [ -70, %41 ], [ -70, %49 ], [ -60, %9 ]
+_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit.thread: ; preds = %13, %40, %48, %9, %61, %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit, %5, %_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm.exit
+  %.1 = phi i64 [ %100, %_ZN11duckdb_zstd15ZSTD_CCtx_traceEPNS_11ZSTD_CCtx_sEm.exit ], [ %56, %_ZN11duckdb_zstdL18ZSTD_writeEpilogueEPNS_11ZSTD_CCtx_sEPvm.exit ], [ %7, %5 ], [ -72, %61 ], [ -70, %13 ], [ -70, %40 ], [ -70, %48 ], [ -60, %9 ]
   ret i64 %.1
 }
 

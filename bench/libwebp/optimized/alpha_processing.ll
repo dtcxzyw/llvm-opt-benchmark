@@ -331,8 +331,8 @@ define internal void @ApplyAlphaMultiply_16b_C(ptr noundef captures(none) %0, i3
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
-  %.in.i = phi i32 [ %42, %._crit_edge.us.i ], [ %2, %.preheader.us.preheader.i ]
-  %.032.us.i = phi ptr [ %43, %._crit_edge.us.i ], [ %0, %.preheader.us.preheader.i ]
+  %.in.i = phi i32 [ %41, %._crit_edge.us.i ], [ %2, %.preheader.us.preheader.i ]
+  %.032.us.i = phi ptr [ %42, %._crit_edge.us.i ], [ %0, %.preheader.us.preheader.i ]
   br label %8
 
 8:                                                ; preds = %8, %.preheader.us.i
@@ -340,48 +340,47 @@ define internal void @ApplyAlphaMultiply_16b_C(ptr noundef captures(none) %0, i3
   %9 = shl nuw nsw i64 %indvars.iv.i, 1
   %10 = getelementptr inbounds nuw i8, ptr %.032.us.i, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !9
-  %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds nuw i8, ptr %.032.us.i, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !9
-  %15 = and i8 %14, 15
-  %16 = zext nneg i8 %15 to i32
-  %17 = mul nuw nsw i32 %16, 4369
-  %18 = and i8 %11, -16
-  %19 = lshr i8 %11, 4
-  %20 = or disjoint i8 %18, %19
-  %21 = zext i8 %20 to i32
-  %22 = mul nuw nsw i32 %17, %21
-  %23 = lshr i32 %22, 16
-  %24 = trunc nuw i32 %23 to i8
-  %25 = and i8 %11, 15
-  %26 = shl i8 %11, 4
-  %27 = or disjoint i8 %25, %26
-  %28 = zext i8 %27 to i32
-  %29 = mul nuw nsw i32 %17, %28
-  %30 = and i8 %14, -16
-  %31 = lshr i8 %14, 4
-  %32 = or disjoint i8 %30, %31
-  %33 = zext i8 %32 to i32
-  %34 = mul nuw nsw i32 %17, %33
-  %35 = lshr i32 %34, 16
-  %36 = trunc nuw i32 %35 to i8
-  %37 = and i8 %24, -16
-  %sum.shift.us.i = lshr i32 %29, 20
-  %38 = trunc nuw nsw i32 %sum.shift.us.i to i8
-  %39 = or disjoint i8 %37, %38
-  store i8 %39, ptr %10, align 1, !tbaa !9
-  %40 = and i8 %36, -16
-  %41 = or disjoint i8 %40, %15
-  store i8 %41, ptr %13, align 1, !tbaa !9
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  %13 = load i8, ptr %12, align 1, !tbaa !9
+  %14 = and i8 %13, 15
+  %15 = zext nneg i8 %14 to i32
+  %16 = mul nuw nsw i32 %15, 4369
+  %17 = and i8 %11, -16
+  %18 = lshr i8 %11, 4
+  %19 = or disjoint i8 %17, %18
+  %20 = zext i8 %19 to i32
+  %21 = mul nuw nsw i32 %16, %20
+  %22 = lshr i32 %21, 16
+  %23 = trunc nuw i32 %22 to i8
+  %24 = and i8 %11, 15
+  %25 = shl i8 %11, 4
+  %26 = or disjoint i8 %24, %25
+  %27 = zext i8 %26 to i32
+  %28 = mul nuw nsw i32 %16, %27
+  %29 = and i8 %13, -16
+  %30 = lshr i8 %13, 4
+  %31 = or disjoint i8 %29, %30
+  %32 = zext i8 %31 to i32
+  %33 = mul nuw nsw i32 %16, %32
+  %34 = lshr i32 %33, 16
+  %35 = trunc nuw i32 %34 to i8
+  %36 = and i8 %23, -16
+  %sum.shift.us.i = lshr i32 %28, 20
+  %37 = trunc nuw nsw i32 %sum.shift.us.i to i8
+  %38 = or disjoint i8 %36, %37
+  store i8 %38, ptr %10, align 1, !tbaa !9
+  %39 = and i8 %35, -16
+  %40 = or disjoint i8 %39, %14
+  store i8 %40, ptr %12, align 1, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %8, !llvm.loop !15
 
 ._crit_edge.us.i:                                 ; preds = %8
-  %42 = add nsw i32 %.in.i, -1
-  %43 = getelementptr inbounds i8, ptr %.032.us.i, i64 %7
-  %44 = icmp samesign ugt i32 %.in.i, 1
-  br i1 %44, label %.preheader.us.i, label %ApplyAlphaMultiply4444_C.exit, !llvm.loop !16
+  %41 = add nsw i32 %.in.i, -1
+  %42 = getelementptr inbounds i8, ptr %.032.us.i, i64 %7
+  %43 = icmp samesign ugt i32 %.in.i, 1
+  br i1 %43, label %.preheader.us.i, label %ApplyAlphaMultiply4444_C.exit, !llvm.loop !16
 
 ApplyAlphaMultiply4444_C.exit:                    ; preds = %._crit_edge.us.i, %4, %.preheader.lr.ph.i
   ret void
@@ -444,19 +443,19 @@ define internal void @ApplyAlphaMultiply_C(ptr noundef captures(none) %0, i32 no
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %.in = phi i32 [ %11, %._crit_edge.us ], [ %3, %.lr.ph.us.preheader ]
-  %.033.us = phi ptr [ %42, %._crit_edge.us ], [ %0, %.lr.ph.us.preheader ]
+  %.033.us = phi ptr [ %40, %._crit_edge.us ], [ %0, %.lr.ph.us.preheader ]
   %11 = add nsw i32 %.in, -1
   %12 = getelementptr inbounds nuw i8, ptr %.033.us, i64 %7
   %13 = getelementptr inbounds nuw i8, ptr %.033.us, i64 %8
   br label %14
 
-14:                                               ; preds = %.lr.ph.us, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %41 ]
+14:                                               ; preds = %.lr.ph.us, %39
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %39 ]
   %15 = shl nsw i64 %indvars.iv, 2
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !9
   %.not31.us = icmp eq i8 %17, -1
-  br i1 %.not31.us, label %41, label %18
+  br i1 %.not31.us, label %39, label %18
 
 18:                                               ; preds = %14
   %19 = zext i8 %17 to i32
@@ -468,33 +467,31 @@ define internal void @ApplyAlphaMultiply_C(ptr noundef captures(none) %0, i32 no
   %25 = lshr i32 %24, 23
   %26 = trunc nuw i32 %25 to i8
   store i8 %26, ptr %21, align 1, !tbaa !9
-  %27 = or disjoint i64 %15, 1
-  %28 = getelementptr inbounds nuw i8, ptr %12, i64 %27
-  %29 = load i8, ptr %28, align 1, !tbaa !9
-  %30 = zext i8 %29 to i32
-  %31 = mul nuw nsw i32 %20, %30
-  %32 = lshr i32 %31, 23
-  %33 = trunc nuw i32 %32 to i8
-  store i8 %33, ptr %28, align 1, !tbaa !9
-  %34 = or disjoint i64 %15, 2
-  %35 = getelementptr inbounds nuw i8, ptr %12, i64 %34
-  %36 = load i8, ptr %35, align 1, !tbaa !9
-  %37 = zext i8 %36 to i32
-  %38 = mul nuw nsw i32 %20, %37
-  %39 = lshr i32 %38, 23
-  %40 = trunc nuw i32 %39 to i8
-  store i8 %40, ptr %35, align 1, !tbaa !9
-  br label %41
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  %28 = load i8, ptr %27, align 1, !tbaa !9
+  %29 = zext i8 %28 to i32
+  %30 = mul nuw nsw i32 %20, %29
+  %31 = lshr i32 %30, 23
+  %32 = trunc nuw i32 %31 to i8
+  store i8 %32, ptr %27, align 1, !tbaa !9
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 2
+  %34 = load i8, ptr %33, align 1, !tbaa !9
+  %35 = zext i8 %34 to i32
+  %36 = mul nuw nsw i32 %20, %35
+  %37 = lshr i32 %36, 23
+  %38 = trunc nuw i32 %37 to i8
+  store i8 %38, ptr %33, align 1, !tbaa !9
+  br label %39
 
-41:                                               ; preds = %18, %14
+39:                                               ; preds = %18, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %14, !llvm.loop !18
 
-._crit_edge.us:                                   ; preds = %41
-  %42 = getelementptr inbounds i8, ptr %.033.us, i64 %10
-  %43 = icmp sgt i32 %.in, 1
-  br i1 %43, label %.lr.ph.us, label %._crit_edge36, !llvm.loop !19
+._crit_edge.us:                                   ; preds = %39
+  %40 = getelementptr inbounds i8, ptr %.033.us, i64 %10
+  %41 = icmp sgt i32 %.in, 1
+  br i1 %41, label %.lr.ph.us, label %._crit_edge36, !llvm.loop !19
 
 ._crit_edge36:                                    ; preds = %._crit_edge.us, %.lr.ph35, %5
   ret void

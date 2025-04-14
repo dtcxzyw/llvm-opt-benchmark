@@ -119,50 +119,49 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %29 = zext nneg i32 %17 to i64
   br label %30
 
-30:                                               ; preds = %.lr.ph, %44
-  %indvars.iv42 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next43, %44 ]
-  %31 = or disjoint i64 %indvars.iv42, 1
-  %32 = getelementptr inbounds nuw float, ptr %2, i64 %31
+30:                                               ; preds = %.lr.ph, %43
+  %indvars.iv42 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next43, %43 ]
+  %31 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv42
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load float, ptr %32, align 4, !tbaa !31
   %34 = fmul reassoc nsz arcp contract afn float %33, %33
-  %35 = or disjoint i64 %indvars.iv42, 2
-  %36 = getelementptr inbounds nuw float, ptr %2, i64 %35
-  %37 = load float, ptr %36, align 4, !tbaa !31
-  %38 = fmul reassoc nsz arcp contract afn float %37, %37
-  %39 = fadd reassoc nsz arcp contract afn float %38, %34
-  %40 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %39)
-  %41 = fmul reassoc nsz arcp contract afn float %25, %40
-  %.reass = fmul reassoc nsz arcp contract afn float %40, %invariant.op
-  %42 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %.reass
-  %43 = fadd reassoc nsz arcp contract afn float %41, 1.000000e+00
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %36 = load float, ptr %35, align 4, !tbaa !31
+  %37 = fmul reassoc nsz arcp contract afn float %36, %36
+  %38 = fadd reassoc nsz arcp contract afn float %37, %34
+  %39 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %38)
+  %40 = fmul reassoc nsz arcp contract afn float %25, %39
+  %.reass = fmul reassoc nsz arcp contract afn float %39, %invariant.op
+  %41 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %.reass
+  %42 = fadd reassoc nsz arcp contract afn float %40, 1.000000e+00
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
-  store float %42, ptr %7, align 16, !tbaa !31
-  store float %43, ptr %26, align 4, !tbaa !31
-  store float %43, ptr %27, align 8, !tbaa !31
+  store float %41, ptr %7, align 16, !tbaa !31
+  store float %42, ptr %26, align 4, !tbaa !31
+  store float %42, ptr %27, align 8, !tbaa !31
   store float 1.000000e+00, ptr %28, align 4, !tbaa !31
-  br label %46
+  br label %45
 
-44:                                               ; preds = %46
+43:                                               ; preds = %45
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 4
-  %45 = icmp samesign ult i64 %indvars.iv.next43, %29
-  br i1 %45, label %30, label %.loopexit
+  %44 = icmp samesign ult i64 %indvars.iv.next43, %29
+  br i1 %44, label %30, label %.loopexit
 
-46:                                               ; preds = %30, %46
-  %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %46 ]
-  %47 = or disjoint i64 %indvars.iv, %indvars.iv42
-  %48 = getelementptr inbounds nuw float, ptr %2, i64 %47
-  %49 = load float, ptr %48, align 4, !tbaa !31
-  %50 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv
-  %51 = load float, ptr %50, align 4, !tbaa !31
-  %52 = fmul reassoc nsz arcp contract afn float %51, %49
-  %53 = getelementptr inbounds nuw float, ptr %3, i64 %47
-  store float %52, ptr %53, align 4, !tbaa !31
+45:                                               ; preds = %30, %45
+  %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %45 ]
+  %46 = or disjoint i64 %indvars.iv, %indvars.iv42
+  %47 = getelementptr inbounds nuw float, ptr %2, i64 %46
+  %48 = load float, ptr %47, align 4, !tbaa !31
+  %49 = getelementptr inbounds nuw [4 x float], ptr %7, i64 0, i64 %indvars.iv
+  %50 = load float, ptr %49, align 4, !tbaa !31
+  %51 = fmul reassoc nsz arcp contract afn float %50, %48
+  %52 = getelementptr inbounds nuw float, ptr %3, i64 %46
+  store float %51, ptr %52, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %44, label %46
+  br i1 %exitcond.not, label %43, label %45
 
-.loopexit:                                        ; preds = %44, %11, %6
+.loopexit:                                        ; preds = %43, %11, %6
   ret void
 }
 
