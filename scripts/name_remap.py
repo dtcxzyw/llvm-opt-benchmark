@@ -43,7 +43,8 @@ def get_replace_candidates_impl(line: str, src: str, tgt: str):
 
 def get_replace_candidates(line: str, src: str, tgt: str):
     res = []
-    res += get_replace_candidates_impl(line, '%' + src + ' ', '%' + tgt + ' ')
+    if (src.startswith('%') and tgt.startswith('%')) or (src.startswith('@') and tgt.startswith('@')) or (src.startswith('!') and tgt.startswith('!')):
+        res += get_replace_candidates_impl(line, src + ' ', tgt + ' ')
     res += get_replace_candidates_impl(line, src + ',', tgt + ',')
     res += get_replace_candidates_impl(line, src + ':', tgt + ':')
     res += get_replace_candidates_impl(line, src + ')', tgt + ')')
