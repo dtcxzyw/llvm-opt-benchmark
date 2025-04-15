@@ -39119,7 +39119,7 @@ define { i32, i32 } @_ZN8language10syntax_map11SyntaxLayer11override_id17h9f2d40
 22:                                               ; preds = %62, %23
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %lpad.phi, %62 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$language..syntax_map..QueryCursorHandle$GT$17h50a29d590104d4f8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8) #48
-          to label %common.resume unwind label %125
+          to label %common.resume unwind label %124
 
 23:                                               ; preds = %"_ZN86_$LT$language..syntax_map..QueryCursorHandle$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17ha8880aa06aa6e8e7E.exit46", %31, %.loopexit67, %25
   %24 = landingpad { ptr, i32 }
@@ -39260,7 +39260,7 @@ _ZN8language10syntax_map11SyntaxLayer4node17he8ef78fbc8169368E.exit: ; preds = %
 62:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr107drop_in_place$LT$tree_sitter..QueryMatches$LT$language..syntax_map..TextProvider$C$$RF$$u5b$u8$u5d$$GT$$GT$17hf76bff77bf8bc7a7E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6) #48
-          to label %22 unwind label %125
+          to label %22 unwind label %124
 
 .thread:                                          ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf204c768679eaf19E.exit.thread.loopexit", %59, %_ZN8language10syntax_map11SyntaxLayer4node17he8ef78fbc8169368E.exit
   %.sroa.7.083 = phi i32 [ undef, %_ZN8language10syntax_map11SyntaxLayer4node17he8ef78fbc8169368E.exit ], [ %.sroa.7.097, %59 ], [ %.sroa.7.1.lcssa, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf204c768679eaf19E.exit.thread.loopexit" ]
@@ -39434,11 +39434,11 @@ common.resume:                                    ; preds = %22, %71, %75
 122:                                              ; preds = %119
   %123 = sub i64 %116, %115
   %spec.select.i.i50 = call noundef i64 @llvm.usub.sat.i64(i64 %.sroa.13.184, i64 %.sroa.1052.185)
-  %124 = icmp ult i64 %123, %spec.select.i.i50
-  br i1 %124, label %.backedge.sink.split, label %.backedge
+  %123 = icmp ult i64 %123, %spec.select.i.i50
+  br i1 %123, label %.backedge.sink.split, label %.backedge
 
-125:                                              ; preds = %62, %22
-  %126 = landingpad { ptr, i32 }
+124:                                              ; preds = %62, %22
+  %125 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #47
   unreachable
