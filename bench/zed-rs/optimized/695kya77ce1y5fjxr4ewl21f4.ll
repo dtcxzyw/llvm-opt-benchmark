@@ -65751,7 +65751,7 @@ define hidden void @_ZN9zune_jpeg7headers11parse_app1417h4da9be84ca3754d6E(ptr d
 
 "_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17hedded62fbd93ecacE.exit.thread": ; preds = %2, %15, %22, %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17hedded62fbd93ecacE.exit"
   store i8 10, ptr %0, align 8
-  br label %60
+  br label %58
 
 27:                                               ; preds = %25
   %28 = add i64 %9, 7
@@ -65766,7 +65766,7 @@ define hidden void @_ZN9zune_jpeg7headers11parse_app1417h4da9be84ca3754d6E(ptr d
   store ptr @anon.c04c855068e48927424262feca3a3368.289, ptr %.sroa.43.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 39, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %60
+  br label %58
 
 "_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit": ; preds = %27
   %31 = getelementptr inbounds i8, ptr %13, i64 %10
@@ -65785,7 +65785,7 @@ define hidden void @_ZN9zune_jpeg7headers11parse_app1417h4da9be84ca3754d6E(ptr d
   %40 = load i8, ptr %33, align 1, !range !404, !noundef !7
   %41 = trunc nuw i8 %40 to i1
   %42 = or i1 %39, %41
-  br i1 %42, label %52, label %50
+  br i1 %42, label %50, label %51
 
 "_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$6get_u817he61c63da8d700e3eE.exit": ; preds = %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit"
   %43 = add i64 %9, 13
@@ -65800,29 +65800,25 @@ define hidden void @_ZN9zune_jpeg7headers11parse_app1417h4da9be84ca3754d6E(ptr d
   store i64 %48, ptr %8, align 8, !alias.scope !11485
   store i8 %46, ptr %6, align 1
   %49 = icmp ult i8 %46, 3
-  br i1 %49, label %switch.lookup, label %56
+  br i1 %49, label %switch.lookup, label %54
 
 50:                                               ; preds = %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit.thread"
-  %51 = tail call i64 @llvm.usub.sat.i64(i64 %20, i64 2)
-  br label %53
-
-52:                                               ; preds = %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit.thread"
   store i8 1, ptr %0, align 8
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.c04c855068e48927424262feca3a3368.286, ptr %.sroa.48.0..sroa_idx, align 8
   %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 27, ptr %.sroa.59.0..sroa_idx, align 8
-  br label %60
+  br label %58
 
-53:                                               ; preds = %switch.lookup, %50
-  %54 = phi i64 [ %48, %switch.lookup ], [ %10, %50 ]
-  %.sroa.011.0 = phi i64 [ %59, %switch.lookup ], [ %51, %50 ]
-  %55 = add i64 %54, %.sroa.011.0
-  store i64 %55, ptr %8, align 8
+51:                                               ; preds = %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit.thread", %switch.lookup
+  %52 = phi i64 [ %48, %switch.lookup ], [ %10, %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit.thread" ]
+  %.sroa.011.0 = phi i64 [ %57, %switch.lookup ], [ %23, %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit.thread" ]
+  %53 = add i64 %52, %.sroa.011.0
+  store i64 %53, ptr %8, align 8
   store i8 13, ptr %0, align 8
-  br label %60
+  br label %58
 
-56:                                               ; preds = %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$6get_u817he61c63da8d700e3eE.exit"
+54:                                               ; preds = %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$6get_u817he61c63da8d700e3eE.exit"
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.45)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %6, ptr %4, align 8
@@ -65848,20 +65844,20 @@ define hidden void @_ZN9zune_jpeg7headers11parse_app1417h4da9be84ca3754d6E(ptr d
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.45.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.45, i64 31, i1 false)
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.45)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %60
+  br label %58
 
 switch.lookup:                                    ; preds = %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$6get_u817he61c63da8d700e3eE.exit"
-  %57 = shl nuw nsw i8 %46, 3
-  %switch.shiftamt = zext nneg i8 %57 to i24
+  %55 = shl nuw nsw i8 %46, 3
+  %switch.shiftamt = zext nneg i8 %55 to i24
   %switch.downshift = lshr i24 328198, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 29122
-  store i8 %switch.masked, ptr %58, align 2
-  %59 = tail call i64 @llvm.usub.sat.i64(i64 %20, i64 14)
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 29122
+  store i8 %switch.masked, ptr %56, align 2
+  %57 = tail call i64 @llvm.usub.sat.i64(i64 %20, i64 14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %53
+  br label %51
 
-60:                                               ; preds = %52, %56, %53, %30, %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17hedded62fbd93ecacE.exit.thread"
+58:                                               ; preds = %50, %54, %51, %30, %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17hedded62fbd93ecacE.exit.thread"
   ret void
 }
 
@@ -65906,7 +65902,7 @@ define hidden void @_ZN9zune_jpeg7headers11parse_app1417h744e2e281c0750c5E(ptr d
 
 "_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17h581c733232982d95E.exit.thread": ; preds = %2, %19, %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17h581c733232982d95E.exit"
   store i8 10, ptr %0, align 8
-  br label %58
+  br label %56
 
 24:                                               ; preds = %22
   %25 = add i64 %9, 7
@@ -65921,7 +65917,7 @@ define hidden void @_ZN9zune_jpeg7headers11parse_app1417h744e2e281c0750c5E(ptr d
   store ptr @anon.c04c855068e48927424262feca3a3368.289, ptr %.sroa.43.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 39, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %58
+  br label %56
 
 "_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit": ; preds = %24
   %28 = getelementptr inbounds i8, ptr %11, i64 %10
@@ -65940,7 +65936,7 @@ define hidden void @_ZN9zune_jpeg7headers11parse_app1417h744e2e281c0750c5E(ptr d
   %37 = load i8, ptr %30, align 1, !range !404, !noundef !7
   %38 = trunc nuw i8 %37 to i1
   %39 = or i1 %36, %38
-  br i1 %39, label %50, label %48
+  br i1 %39, label %48, label %49
 
 40:                                               ; preds = %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit"
   %41 = add i64 %9, 13
@@ -65955,29 +65951,25 @@ define hidden void @_ZN9zune_jpeg7headers11parse_app1417h744e2e281c0750c5E(ptr d
   store i64 %46, ptr %8, align 8, !alias.scope !11519
   store i8 %44, ptr %6, align 1
   %47 = icmp ult i8 %44, 3
-  br i1 %47, label %switch.lookup, label %54
+  br i1 %47, label %switch.lookup, label %52
 
 48:                                               ; preds = %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit.thread"
-  %49 = tail call i64 @llvm.usub.sat.i64(i64 %17, i64 2)
-  br label %51
-
-50:                                               ; preds = %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit.thread"
   store i8 1, ptr %0, align 8
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.c04c855068e48927424262feca3a3368.286, ptr %.sroa.48.0..sroa_idx, align 8
   %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 27, ptr %.sroa.59.0..sroa_idx, align 8
-  br label %58
+  br label %56
 
-51:                                               ; preds = %switch.lookup, %48
-  %52 = phi i64 [ %46, %switch.lookup ], [ %10, %48 ]
-  %.sroa.011.0 = phi i64 [ %57, %switch.lookup ], [ %49, %48 ]
-  %53 = add i64 %52, %.sroa.011.0
-  store i64 %53, ptr %8, align 8
+49:                                               ; preds = %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit.thread", %switch.lookup
+  %50 = phi i64 [ %46, %switch.lookup ], [ %10, %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit.thread" ]
+  %.sroa.011.0 = phi i64 [ %55, %switch.lookup ], [ %20, %"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8378306ad6944bd3E.exit.thread" ]
+  %51 = add i64 %50, %.sroa.011.0
+  store i64 %51, ptr %8, align 8
   store i8 13, ptr %0, align 8
-  br label %58
+  br label %56
 
-54:                                               ; preds = %40
+52:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.45)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %6, ptr %4, align 8
@@ -66003,20 +65995,20 @@ define hidden void @_ZN9zune_jpeg7headers11parse_app1417h744e2e281c0750c5E(ptr d
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.45.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.45, i64 31, i1 false)
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %.sroa.45)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %58
+  br label %56
 
 switch.lookup:                                    ; preds = %40
-  %55 = shl nuw nsw i8 %44, 3
-  %switch.shiftamt = zext nneg i8 %55 to i24
+  %53 = shl nuw nsw i8 %44, 3
+  %switch.shiftamt = zext nneg i8 %53 to i24
   %switch.downshift = lshr i24 328198, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 29130
-  store i8 %switch.masked, ptr %56, align 2
-  %57 = tail call i64 @llvm.usub.sat.i64(i64 %17, i64 14)
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 29130
+  store i8 %switch.masked, ptr %54, align 2
+  %55 = tail call i64 @llvm.usub.sat.i64(i64 %17, i64 14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  br label %51
+  br label %49
 
-58:                                               ; preds = %50, %54, %51, %27, %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17h581c733232982d95E.exit.thread"
+56:                                               ; preds = %48, %52, %49, %27, %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17h581c733232982d95E.exit.thread"
   ret void
 }
 

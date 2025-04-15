@@ -56711,7 +56711,7 @@ _ZN5typst6layout4grid6layout8CellGrid4cell17hb2ec4616d3e359f5E.exit.us.i.i: ; pr
   %192 = load ptr, ptr %51, align 8, !noalias !10123, !nonnull !4, !noundef !4
   %193 = getelementptr inbounds { i64, [3 x i64] }, ptr %192, i64 %119
   %194 = ptrtoint ptr %192 to i64
-  %195 = call noundef range(i64 0, 576460752303423488) i64 @llvm.usub.sat.i64(i64 %119, i64 %.sroa.5.2183.us435439.i.i)
+  %195 = sub i64 %119, %.sroa.5.2183.us435439.i.i
   %196 = icmp ugt i64 %195, %storemerge.us.i.i
   br i1 %196, label %197, label %204
 
@@ -63653,7 +63653,7 @@ _ZN5typst6layout4grid6layout8CellGrid4cell17hb2ec4616d3e359f5E.exit: ; preds = %
   %622 = load ptr, ptr %64, align 8, !nonnull !4, !noundef !4
   %623 = getelementptr inbounds { i64, [3 x i64] }, ptr %622, i64 %160
   %624 = ptrtoint ptr %622 to i64
-  %625 = call noundef range(i64 0, 576460752303423488) i64 @llvm.usub.sat.i64(i64 %160, i64 %.sroa.7.157110541057)
+  %625 = sub i64 %160, %.sroa.7.157110541057
   %626 = icmp ugt i64 %625, %.0115
   br i1 %626, label %627, label %634
 
